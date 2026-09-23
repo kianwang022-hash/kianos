@@ -241,7 +241,7 @@
     "ordinal": 2627,
     "word": "invalid",
     "source_owner_path": "content/lexical/words/by-ordinal/o2627.json",
-    "source_fingerprint": "e5d700cf5c411e57ab54fc1f081386a72b64ad33e0ff37283f1ef013c39b1e61",
+    "source_fingerprint": "baa043a183fff59e45ff9e96f3afd705d6faed1e59992dbb872e51ecf5e2e235",
     "sense_lineage": [
       {
         "word_id": "word:invalid",
@@ -259,13 +259,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "无效的；病人",
+      "summary_cn": "无效的；不成立的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "无效的；病人"
+        "target_label": "无效的；不成立的"
       }
     },
     "senses": [
@@ -274,16 +274,16 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "无效的；作废的",
-        "definition_en": "not legally or officially acceptable",
+        "definition_cn": "无效的；不成立的；不被规则/系统接受的",
+        "definition_en": "not valid, correct, acceptable, or recognized under the relevant rules or system",
         "note": "",
         "identity_overlay": {
-          "text": "adjective invalid /ɪnˈvælɪd/ versus noun invalid /ˈɪnvəlɪd/",
+          "text": "pronunciation_by_part_of_speech",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "adjective invalid /ɪnˈvælɪd/ versus noun invalid /ˈɪnvəlɪd/"
+            "target_label": "pronunciation_by_part_of_speech"
           }
         },
         "usage": [],
@@ -291,7 +291,7 @@
           "target_kind": "sense",
           "target_id": "sense:invalid:a54f27133cd658b3",
           "target_locator": "record.senses[0]",
-          "target_label": "无效的；作废的"
+          "target_label": "无效的；不成立的；不被规则/系统接受的"
         }
       },
       {
@@ -301,14 +301,14 @@
         "governing_pattern": "",
         "definition_cn": "病人；伤残者",
         "definition_en": "a person who is very weak or disabled due to illness or injury",
-        "note": "",
+        "note": "Old-fashioned and potentially inappropriate for a sick or disabled person.",
         "identity_overlay": {
-          "text": "adjective invalid /ɪnˈvælɪd/ versus noun invalid /ˈɪnvəlɪd/",
+          "text": "pronunciation_by_part_of_speech",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "adjective invalid /ɪnˈvælɪd/ versus noun invalid /ˈɪnvəlɪd/"
+            "target_label": "pronunciation_by_part_of_speech"
           }
         },
         "usage": [],
@@ -620,7 +620,7 @@
     "ordinal": 2631,
     "word": "invention",
     "source_owner_path": "content/lexical/words/by-ordinal/o2631.json",
-    "source_fingerprint": "6d956e09e9dc2318de70b15a2efeecbe5969559ce65332fca896b0134abbd6b1",
+    "source_fingerprint": "5d0149a85328e5c59441e3560aaad7697cb17c84709ab63af0689f1ff9e63aa1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -748,29 +748,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "invention ↔ innovation",
-          "target_word": "innovation",
-          "lines": [
-            {
-              "text": "innovation强调引入新事物，invention强调发明成果",
-              "lang": "cn"
-            },
-            {
-              "text": "a creation (a new device or process) resulting from study and experimentation",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "deep:semantic_contrast:innovation:671bc518f92f4377",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "invention ↔ innovation"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": [
         {
@@ -792,23 +770,23 @@
     "ordinal": 2632,
     "word": "inventory",
     "source_owner_path": "content/lexical/words/by-ordinal/o2632.json",
-    "source_fingerprint": "a984425295c22b296ccc69b88dc39936043c33711cb254353e5e743a4f8f0ee7",
+    "source_fingerprint": "eaaf5b207ea5292f622df4cc84d4183812a26a07c9fd3d0865d626e4c62d1efa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "存货清单或盘存",
+      "summary_cn": "存货/库存；存货清单/盘点",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "存货清单或盘存"
+        "target_label": "存货/库存；存货清单/盘点"
       }
     },
     "senses": [
@@ -848,8 +826,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "存货价值",
-        "definition_en": "the value of a firm's current assets including raw materials, work in progress, and finished goods",
+        "definition_cn": "存货的账面价值",
+        "definition_en": "the accounting value of goods and materials a business holds in stock",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -871,7 +849,7 @@
           "target_kind": "sense",
           "target_id": "sense:inventory:cf2dad40663f562c",
           "target_locator": "record.senses[1]",
-          "target_label": "存货价值"
+          "target_label": "存货的账面价值"
         }
       },
       {
@@ -898,6 +876,32 @@
           "target_id": "sense:inventory:04ca375b536156ba",
           "target_locator": "record.senses[2]",
           "target_label": "列入清单，清点"
+        }
+      },
+      {
+        "id": "sense:inventory:a5db0b99f2696588",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "存货；库存",
+        "definition_en": "goods and materials that a business holds in stock for sale, production, or use",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:d952aead218f62d56dcf",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "inventory on hand",
+            "meaning_cn": "现有库存",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:inventory:a5db0b99f2696588",
+          "target_locator": "record.senses[3]",
+          "target_label": "存货；库存"
         }
       }
     ],
@@ -1158,15 +1162,8 @@
     "ordinal": 2635,
     "word": "invest",
     "source_owner_path": "content/lexical/words/by-ordinal/o2635.json",
-    "source_fingerprint": "1b5c0585059c90da0eeaaf0089f10d46296a8efa94e7763e0a16e9b69c19b9ae",
+    "source_fingerprint": "c0ca18ce034443aea6e6b1d44ea3f5b86c56b59221a674db46fafbe4fa898a2c",
     "sense_lineage": [
-      {
-        "word_id": "word:invest",
-        "target_kind": "sense",
-        "from_target_id": "sense:invest:5624ec75c3bd5ea9",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:invest",
         "target_kind": "sense",
@@ -1177,7 +1174,7 @@
     ],
     "recall_map": {
       "parts": [
-        "1V"
+        "2V"
       ],
       "density": "rich"
     },
@@ -1230,6 +1227,23 @@
           "target_locator": "record.senses[0]",
           "target_label": "投资；投入（时间、精力等）"
         }
+      },
+      {
+        "id": "sense:invest:5624ec75c3bd5ea9",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "invest sb/sth with sth",
+        "definition_cn": "授予（权力、权利、职责）；使具有",
+        "definition_en": "to give or confer authority, power, rights, or a quality on someone or something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:invest:5624ec75c3bd5ea9",
+          "target_locator": "record.senses[1]",
+          "target_label": "授予（权力、权利、职责）；使具有"
+        }
       }
     ],
     "secondary_senses": [],
@@ -1250,11 +1264,50 @@
           "target_locator": "record.constructions[0]",
           "target_label": "invest time/effort/energy in sth"
         }
+      },
+      {
+        "id": "construction:f17d6c319671b00df210",
+        "source_locator": "record.constructions[1]",
+        "pattern": "invest sb/sth with authority/power",
+        "lines": [
+          {
+            "text": "授予某人/某物权力或权限",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f17d6c319671b00df210",
+          "target_locator": "record.constructions[1]",
+          "target_label": "invest sb/sth with authority/power"
+        }
       }
     ],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "invest ↔ vest",
+          "target_word": "vest",
+          "lines": [
+            {
+              "text": "vest and formal invest can both confer/assign authority or rights; vest foregrounds legal/formal placement or belonging of authority/property/rights",
+              "lang": "en"
+            },
+            {
+              "text": "to confer or place authority, power, rights, or responsibilities",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:semantic_contrast:vest:1be0262bcee5f796",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "invest ↔ vest"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -1351,7 +1404,7 @@
     "ordinal": 2637,
     "word": "investment",
     "source_owner_path": "content/lexical/words/by-ordinal/o2637.json",
-    "source_fingerprint": "450d47e82dc514c861dc3b1c75f472a038c8bd62cd4b51808dc274abf9883c54",
+    "source_fingerprint": "bba816e7119a6a6ab1a9f2627fe3be88aa1bf8b13b99a7677cac52a2ba56667d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1440,8 +1493,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "包埋料；围模料（医学）",
-        "definition_en": "outer layer or covering of an organ or part or organism",
+        "definition_cn": "包被；外被；被膜（生物/解剖，专业）",
+        "definition_en": "outer layer or covering of an organ, part, or organism",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -1449,7 +1502,7 @@
           "target_kind": "sense",
           "target_id": "sense:investment:c68f1b5bdbc65acc",
           "target_locator": "record.senses[2]",
-          "target_label": "包埋料；围模料（医学）"
+          "target_label": "包被；外被；被膜（生物/解剖，专业）"
         }
       }
     ],
@@ -1553,7 +1606,7 @@
     "ordinal": 2639,
     "word": "invitation",
     "source_owner_path": "content/lexical/words/by-ordinal/o2639.json",
-    "source_fingerprint": "9663d461fa5c0858b1941031ab2a060b7a15e750d32dbf8fe06bf25aff577d59",
+    "source_fingerprint": "f26afa65ef8ef09a6e07184640a0a296174139eff30b802340d3286cd430d621",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1616,8 +1669,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "引诱",
-        "definition_en": "a tempting allurement",
+        "definition_cn": "诱因；容易招致某种结果的事物",
+        "definition_en": "something that encourages or makes a particular result likely, often an undesirable one",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1633,13 +1686,26 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "an invitation to + sth"
             }
+          },
+          {
+            "id": "collocation:71c0a016c46f64cde379",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "an invitation to disaster/trouble/abuse",
+            "meaning_cn": "容易招致灾难、麻烦或滥用的事物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:71c0a016c46f64cde379",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "an invitation to disaster/trouble/abuse"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:invitation:364a672eccba5e74",
           "target_locator": "record.senses[1]",
-          "target_label": "引诱"
+          "target_label": "诱因；容易招致某种结果的事物"
         }
       }
     ],
@@ -3459,22 +3525,22 @@
     "ordinal": 2653,
     "word": "it",
     "source_owner_path": "content/lexical/words/by-ordinal/o2653.json",
-    "source_fingerprint": "50855b8eb07bf95546bef9a0453769e1b8ffa6ad26358adfa232d66f0db2f35a",
+    "source_fingerprint": "ab85b35f71d1e98abf60048e717e6515826c3a38bc390b294572003cb24e0aa1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2PRONOUN"
+        "1PRONOUN"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "它；形式/无人称 it",
+      "summary_cn": "它",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "它；形式/无人称 it"
+        "target_label": "它"
       }
     },
     "senses": [
@@ -3495,19 +3561,6 @@
             "meaning_cn": "它是",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:4012d1aff91e6b13d810",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "take it easy",
-            "meaning_cn": "放轻松",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4012d1aff91e6b13d810",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "take it easy"
-            }
           }
         ],
         "repair": {
@@ -3515,23 +3568,6 @@
           "target_id": "sense:it:fb55b5f7c79459a2",
           "target_locator": "record.senses[0]",
           "target_label": "它"
-        }
-      },
-      {
-        "id": "sense:it:b464673e8f1fe500",
-        "source_locator": "record.senses[1]",
-        "pos": "pronoun",
-        "governing_pattern": "",
-        "definition_cn": "形式/无人称 it（天气、时间、距离或后置真正主语）",
-        "definition_en": "dummy or impersonal it used without a concrete referent for weather, time, distance, or extraposition",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:it:b464673e8f1fe500",
-          "target_locator": "record.senses[1]",
-          "target_label": "形式/无人称 it（天气、时间、距离或后置真正主语）"
         }
       }
     ],
@@ -3545,14 +3581,6 @@
           {
             "text": "形式主语/预指 it：真正内容由后置不定式或从句给出",
             "lang": "cn"
-          },
-          {
-            "text": "extraposition/dummy it: the semantic content is supplied by the following infinitive or clause",
-            "lang": "en"
-          },
-          {
-            "text": "dummy/extraposed it with the real semantic subject supplied later",
-            "lang": "en"
           }
         ],
         "repair": {
@@ -3563,24 +3591,20 @@
         }
       },
       {
-        "id": "construction:e229f019fd359a755766",
+        "id": "construction:a2514b0059a7ce868c23",
         "source_locator": "record.constructions[1]",
-        "pattern": "It + weather/time/distance expression",
+        "pattern": "take it easy",
         "lines": [
           {
-            "text": "天气、时间、距离等无人称 it",
+            "text": "放轻松；别着急；避免过度用力或担忧",
             "lang": "cn"
-          },
-          {
-            "text": "dummy it in expressions such as It is raining / It is five o’clock / It is far from here",
-            "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:e229f019fd359a755766",
+          "target_id": "construction:a2514b0059a7ce868c23",
           "target_locator": "record.constructions[1]",
-          "target_label": "It + weather/time/distance expression"
+          "target_label": "take it easy"
         }
       }
     ],
@@ -3849,7 +3873,7 @@
     "ordinal": 2657,
     "word": "ivory",
     "source_owner_path": "content/lexical/words/by-ordinal/o2657.json",
-    "source_fingerprint": "e57e8ef9f9d6a9cd67bd63281305abd09f622f33928d4479774cc465f8e5fdc6",
+    "source_fingerprint": "04b224d3f298d6167acf306d151075cf1de38f723ea59396a09d883a80e227e4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3878,21 +3902,7 @@
         "definition_en": "the hard white substance that forms the tusks of elephants and some other animals",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:dd99472223220c6197da",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "ivory tower",
-            "meaning_cn": "象牙塔（比喻脱离现实）",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:dd99472223220c6197da",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "ivory tower"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:ivory:e25291a859ec5607",
@@ -3954,7 +3964,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:f7e09e1f2b3bbc47c52e",
+        "source_locator": "record.constructions[0]",
+        "pattern": "ivory tower",
+        "lines": [
+          {
+            "text": "脱离实际日常问题的学术/特权隔离状态",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f7e09e1f2b3bbc47c52e",
+          "target_locator": "record.constructions[0]",
+          "target_label": "ivory tower"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3968,7 +3996,7 @@
     "ordinal": 2658,
     "word": "jacket",
     "source_owner_path": "content/lexical/words/by-ordinal/o2658.json",
-    "source_fingerprint": "9cb8416d1bb04b565b9266764393db9c1cecb6603e954022944c595c288e5094",
+    "source_fingerprint": "989aedefcb0918c2a386154b20e6abae5be6ce8d8dc7c8a9a4d7bf2bc96f0545",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4071,8 +4099,8 @@
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "弹壳",
-        "definition_en": "the tough metal shell casing for certain kinds of ammunition",
+        "definition_cn": "弹头被甲；弹头金属包层",
+        "definition_en": "the metal covering around a bullet or projectile",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4080,7 +4108,7 @@
             "id": "collocation:4cdbe311aed6b3450ee9",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "bullet jacket",
-            "meaning_cn": "弹壳",
+            "meaning_cn": "弹头被甲/金属包层",
             "kind": "usage_example",
             "repair": null
           }
@@ -4089,7 +4117,7 @@
           "target_kind": "sense",
           "target_id": "sense:jacket:7cf1d451073c5b24",
           "target_locator": "record.senses[3]",
-          "target_label": "弹壳"
+          "target_label": "弹头被甲；弹头金属包层"
         }
       },
       {
@@ -4134,12 +4162,12 @@
     "ordinal": 2659,
     "word": "jam",
     "source_owner_path": "content/lexical/words/by-ordinal/o2659.json",
-    "source_fingerprint": "e77e51c896830d14a904e4e7cfd73ad22ca6f69bcf9f28cc770f588f7fe74c7b",
+    "source_fingerprint": "32741bd2c87dfec75cc158cb42c981aed42b2f6a0969de84d06d714bcb944e78",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
-        "3N"
+        "4V",
+        "4N"
       ],
       "density": "rich"
     },
@@ -4313,6 +4341,63 @@
           "target_id": "sense:jam:f9896411b44a5599",
           "target_locator": "record.senses[5]",
           "target_label": "干扰（信号）"
+        }
+      },
+      {
+        "id": "sense:jam:f16bfa17cf139635",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "vi. + with",
+        "definition_cn": "（音乐）即兴合奏；即兴演奏",
+        "definition_en": "to play music informally and improvisationally with other musicians",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:968203023d329790d4dd",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "jam with sb",
+            "meaning_cn": "与某人即兴合奏",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:968203023d329790d4dd",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "jam with sb"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:jam:f16bfa17cf139635",
+          "target_locator": "record.senses[6]",
+          "target_label": "（音乐）即兴合奏；即兴演奏"
+        }
+      },
+      {
+        "id": "sense:jam:e99e0946d7341c67",
+        "source_locator": "record.senses[7]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "即兴合奏；即兴演奏会",
+        "definition_en": "an informal improvised musical performance or session",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:7e5fce13eaae49a95285",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "jam session",
+            "meaning_cn": "即兴合奏会",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:jam:e99e0946d7341c67",
+          "target_locator": "record.senses[7]",
+          "target_label": "即兴合奏；即兴演奏会"
         }
       }
     ],
@@ -4791,7 +4876,7 @@
     "ordinal": 2664,
     "word": "jazz",
     "source_owner_path": "content/lexical/words/by-ordinal/o2664.json",
-    "source_fingerprint": "9dcd7789a69c4f7cf1d94b6f22b3767328c1a793e103e56f38e86ce4cf3c6c02",
+    "source_fingerprint": "d8fe3ec44739f94bc9ead1ff1ca0fec2b2827b8f6e4a18c8115a3905d033dc4a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4880,21 +4965,7 @@
         "definition_en": "play something in the style of jazz",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e3ea04d21250f85e680a",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "jazz up + sth",
-            "meaning_cn": "使更有活力；使更吸引人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e3ea04d21250f85e680a",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "jazz up + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:jazz:e15ac4582f8a53f1",
@@ -4904,7 +4975,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:3118e2f4797cc88c5c88",
+        "source_locator": "record.constructions[0]",
+        "pattern": "jazz sth up",
+        "lines": [
+          {
+            "text": "使某物更有活力、更有趣或更吸引人",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3118e2f4797cc88c5c88",
+          "target_locator": "record.constructions[0]",
+          "target_label": "jazz sth up"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5010,15 +5099,8 @@
     "ordinal": 2666,
     "word": "jet",
     "source_owner_path": "content/lexical/words/by-ordinal/o2666.json",
-    "source_fingerprint": "5bc6e690dc4c9e987073c6cf52bf201f52eb65a9f314e8782282051d7ad03bf8",
+    "source_fingerprint": "28775d9f3be982e938ee5d6d7c53ae3d643d317fe4d0a9de445cc5de8527dec1",
     "sense_lineage": [
-      {
-        "word_id": "word:jet",
-        "target_kind": "sense",
-        "from_target_id": "sense:jet:a5e7b9d4bb015f33",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:jet",
         "target_kind": "sense",
@@ -5030,18 +5112,19 @@
     "recall_map": {
       "parts": [
         "1V",
+        "1A",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "喷气式飞机；喷射流；喷射",
+      "summary_cn": "喷射；喷气式飞机；煤玉",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "喷气式飞机；喷射流；喷射"
+        "target_label": "喷射；喷气式飞机；煤玉"
       }
     },
     "senses": [
@@ -5164,6 +5247,37 @@
           "target_id": "sense:jet:70efcb39390a5a6a",
           "target_locator": "record.senses[3]",
           "target_label": "蓝色喷流（一种大气放电现象）"
+        }
+      },
+      {
+        "id": "sense:jet:a5e7b9d4bb015f33",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "乌黑的；墨黑的",
+        "definition_en": "deep black",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:bc9fe55598e841072b43",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "jet-black / jet black",
+            "meaning_cn": "乌黑的；墨黑的",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:bc9fe55598e841072b43",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "jet-black / jet black"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:jet:a5e7b9d4bb015f33",
+          "target_locator": "record.senses[4]",
+          "target_label": "乌黑的；墨黑的"
         }
       }
     ],
@@ -5296,7 +5410,7 @@
     "ordinal": 2668,
     "word": "jewelry",
     "source_owner_path": "content/lexical/words/by-ordinal/o2668.json",
-    "source_fingerprint": "157871e7ea0e13039501b3df26660029d0e74c5e29de67da0fa39de46e93bfef",
+    "source_fingerprint": "b958370f99afd72b93df88a9f625a49df314ac20f50482155cb8186816395ff9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5323,7 +5437,15 @@
         "definition_cn": "珠宝，首饰",
         "definition_en": "an adornment made of precious metals and set with gems",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "jewelry is usual AmE; jewellery is usual BrE; same lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "jewelry is usual AmE; jewellery is usual BrE; same lexeme"
+          }
+        },
         "usage": [
           {
             "id": "collocation:ad8658f052ab0645b8b6",
@@ -5346,25 +5468,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "jewelry ↔ jewellery",
-          "target_word": "jewellery",
-          "lines": [
-            {
-              "text": "jewellery is the usual British spelling; jewelry is the usual American spelling. Same lexeme.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:9e60456305064239e903",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "jewelry ↔ jewellery"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -5375,19 +5479,12 @@
     "ordinal": 2669,
     "word": "job",
     "source_owner_path": "content/lexical/words/by-ordinal/o2669.json",
-    "source_fingerprint": "ec7dc670438f2dc8d0320b3db6e0bb31a130e3cd8cda68d746c5c56fb906d533",
+    "source_fingerprint": "fa2da5d24806c6ee9a4f72faee515d70cb3bbd175fe7a53ba4f15a2164a3ee52",
     "sense_lineage": [
       {
         "word_id": "word:job",
         "target_kind": "sense",
         "from_target_id": "sense:job:3a277dbd79f051eb",
-        "status": "deprecated",
-        "to_target_id": null
-      },
-      {
-        "word_id": "word:job",
-        "target_kind": "sense",
-        "from_target_id": "sense:job:58cdfef44dd05a84",
         "status": "deprecated",
         "to_target_id": null
       },
@@ -5408,7 +5505,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -5456,10 +5553,45 @@
           "target_locator": "record.senses[1]",
           "target_label": "工作；职位；就业"
         }
+      },
+      {
+        "id": "sense:job:58cdfef44dd05a84",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "职责；责任；该做的事",
+        "definition_en": "a duty or responsibility that someone is expected to carry out",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:job:58cdfef44dd05a84",
+          "target_locator": "record.senses[2]",
+          "target_label": "职责；责任；该做的事"
+        }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:51a3e914e35b14d25bd0",
+        "source_locator": "record.constructions[0]",
+        "pattern": "it is sb's job to do sth",
+        "lines": [
+          {
+            "text": "做某事是某人的职责",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:51a3e914e35b14d25bd0",
+          "target_locator": "record.constructions[0]",
+          "target_label": "it is sb's job to do sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5473,7 +5605,7 @@
     "ordinal": 2670,
     "word": "jog",
     "source_owner_path": "content/lexical/words/by-ordinal/o2670.json",
-    "source_fingerprint": "bdf83022fbf986e59c41d80ab35819318650fee5003d1ad9dc97b6e1c93f4d10",
+    "source_fingerprint": "90ac6838e663626b0a018d377cbde24214ae66db828e726e995527f8562782ed",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5548,21 +5680,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:7a8bc65bb1457fb494dc",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "jog sb's memory",
-            "meaning_cn": "唤起某人的记忆",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7a8bc65bb1457fb494dc",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "jog sb's memory"
-            }
-          },
-          {
             "id": "collocation:3c44ae5a2a815a2ac549",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "jog the table",
             "meaning_cn": "轻推桌子",
             "kind": "usage_example",
@@ -5609,7 +5728,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:d081312dba38f482bda2",
+        "source_locator": "record.constructions[0]",
+        "pattern": "jog sb's memory",
+        "lines": [
+          {
+            "text": "使某人想起某事；唤起某人的记忆",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d081312dba38f482bda2",
+          "target_locator": "record.constructions[0]",
+          "target_label": "jog sb's memory"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5810,7 +5947,7 @@
     "ordinal": 2672,
     "word": "joint",
     "source_owner_path": "content/lexical/words/by-ordinal/o2672.json",
-    "source_fingerprint": "f7036e836953b4e5f52ccf171d605fbdc668e719e9cd338e149bcdd98362c92f",
+    "source_fingerprint": "23a9d05a948cd63aa65ba86c7215da48f59dec6c742622e5168ef545efad0689",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5848,6 +5985,14 @@
             "meaning_cn": "膝关节",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:a9b1c10c05a8903c36a1",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "joint venture",
+            "meaning_cn": "合资企业",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5880,14 +6025,6 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "joint account",
             "meaning_cn": "联名账户",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:a9b1c10c05a8903c36a1",
-            "source_locator": "record.senses[1].collocations[2]",
-            "phrase": "joint venture",
-            "meaning_cn": "合资企业；联合经营企业",
             "kind": "usage_example",
             "repair": null
           }
@@ -5930,25 +6067,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "joint ↔ common/shared ↔ joint",
-          "target_word": "common/shared ↔ joint",
-          "lines": [
-            {
-              "text": "joint in the shared/involving-two-or-more sense can paraphrase shared/common in suitable contexts, but not the other meanings of common.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:f119ad8455877b5f3dd6",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "joint ↔ common/shared ↔ joint"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -6532,20 +6651,12 @@
     "ordinal": 2678,
     "word": "joy",
     "source_owner_path": "content/lexical/words/by-ordinal/o2678.json",
-    "source_fingerprint": "13935b3a6ae6c4d4b5583dc2b448ce48a197d119c38b6d5e26bcaaa9e843e41e",
-    "sense_lineage": [
-      {
-        "word_id": "word:joy",
-        "target_kind": "sense",
-        "from_target_id": "sense:joy:54609453243551b3",
-        "status": "deprecated",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "3a39c3f4caffc33cfa8d0d4a96e2519eea0f11160510c0e5d3d81f69a7cbffdd",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -6638,6 +6749,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "欢喜，高兴"
         }
+      },
+      {
+        "id": "sense:joy:54609453243551b3",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "乐事；令人高兴的人或事",
+        "definition_en": "a person, thing, or experience that gives great pleasure",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:faa897eeb7a643149c1b",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a joy to do/use/watch",
+            "meaning_cn": "做/使用/观看起来令人愉快",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:joy:54609453243551b3",
+          "target_locator": "record.senses[3]",
+          "target_label": "乐事；令人高兴的人或事"
+        }
       }
     ],
     "secondary_senses": [],
@@ -6655,7 +6792,7 @@
     "ordinal": 2679,
     "word": "judge",
     "source_owner_path": "content/lexical/words/by-ordinal/o2679.json",
-    "source_fingerprint": "de3906719342091294354fc42dce8b0dab6ad2d0ee31d6d5c80ba34bac223d03",
+    "source_fingerprint": "c87ad56b82fe3049302dfd75dd014dcfddd78df2dc45526be111c2fb0ff15a47",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6786,7 +6923,7 @@
     "ordinal": 2680,
     "word": "judgment",
     "source_owner_path": "content/lexical/words/by-ordinal/o2680.json",
-    "source_fingerprint": "32b668e03dce03e48a5479f261008bb10363407f2ba51df63ad1b8be3ce12217",
+    "source_fingerprint": "2f6cbd78e6848809d09a914946d5a123c43a33be5c7886936665ed4d70454cef",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6824,28 +6961,15 @@
         },
         "usage": [
           {
-            "id": "collocation:46a5995473f2e115960b",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "in one's judgment",
-            "meaning_cn": "在某人看来",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:46a5995473f2e115960b",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "in one's judgment"
-            }
-          },
-          {
             "id": "collocation:f2bf6921483fda4275ac",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "pass judgment on + sth/sb",
             "meaning_cn": "对…作出评价/判断",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:f2bf6921483fda4275ac",
-              "target_locator": "record.senses[0].collocations[1]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "pass judgment on + sth/sb"
             }
           }
@@ -6942,7 +7066,7 @@
           "target_word": "judge",
           "lines": [
             {
-              "text": "judge (noun/verb)",
+              "text": "judgment is the noun for judging/forming an assessment; judge can also name the court official, which is a different branch",
               "lang": "en"
             }
           ],
@@ -7460,11 +7584,11 @@
     "ordinal": 2685,
     "word": "jump",
     "source_owner_path": "content/lexical/words/by-ordinal/o2685.json",
-    "source_fingerprint": "7fb791bf2c8131d63c361672d84b9e420a0fe4ed344293310e9dfb48966f21b7",
+    "source_fingerprint": "4842e2d018f9388424c847998d31e767a034a16c923ba28fb159796dab44e623",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "4N"
       ],
       "density": "rich"
@@ -7652,6 +7776,45 @@
           "target_id": "sense:jump:633bf241533259eb",
           "target_locator": "record.senses[5]",
           "target_label": "跳伞"
+        }
+      },
+      {
+        "id": "sense:jump:fae54dc345b37bc9",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "vi.",
+        "definition_cn": "猛增；突然上升",
+        "definition_en": "to increase suddenly or sharply",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:01d8ade53cb8fd07e74b",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "prices jumped",
+            "meaning_cn": "价格猛增",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:5258d3c8b4a8c300edcc",
+            "source_locator": "record.senses[6].collocations[1]",
+            "phrase": "jump by/to + amount",
+            "meaning_cn": "猛增了/猛增至某数值",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5258d3c8b4a8c300edcc",
+              "target_locator": "record.senses[6].collocations[1]",
+              "target_label": "jump by/to + amount"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:jump:fae54dc345b37bc9",
+          "target_locator": "record.senses[6]",
+          "target_label": "猛增；突然上升"
         }
       }
     ],

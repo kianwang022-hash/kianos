@@ -1071,7 +1071,7 @@
     "ordinal": 5648,
     "word": "affluence",
     "source_owner_path": "content/lexical/words/by-ordinal/o5648.json",
-    "source_fingerprint": "717731bfa636aa4d1e3aad383f386814a8ab9cd94e67bee55d259b7a737b110a",
+    "source_fingerprint": "00c1c51f262ade0b64d87e3b0d77faeddd6d50b4dc5c350f1b1c816122cbb2c1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1095,7 +1095,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "富裕；丰富；流注",
+        "definition_cn": "富裕；富足；财富丰厚",
         "definition_en": "abundant wealth",
         "note": "",
         "identity_overlay": null,
@@ -1104,7 +1104,7 @@
           "target_kind": "sense",
           "target_id": "sense:affluence:ec6d8d381cc95e24",
           "target_locator": "record.senses[0]",
-          "target_label": "富裕；丰富；流注"
+          "target_label": "富裕；富足；财富丰厚"
         }
       }
     ],
@@ -1261,7 +1261,7 @@
     "ordinal": 5651,
     "word": "alignment",
     "source_owner_path": "content/lexical/words/by-ordinal/o5651.json",
-    "source_fingerprint": "0a4f2da0cf7bf01f385c13346367bb16fc07bb6ad3985f68123ec98109e03337",
+    "source_fingerprint": "067007565f8f4c01168bc68849df6c471edfcf8b29b84a3f383eaab98c72bce0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1270,13 +1270,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "队列；结盟；校正；一致、协调、结盟；政治或战略上的站队/联盟",
+      "summary_cn": "对齐；校准；一致/结盟",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "队列；结盟；校正；一致、协调、结盟；政治或战略上的站队/联盟"
+        "target_label": "对齐；校准；一致/结盟"
       }
     },
     "senses": [
@@ -1285,7 +1285,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "队列；结盟；校正",
+        "definition_cn": "对齐；排列成一直线或平行线",
         "definition_en": "the spatial property possessed by an arrangement or position of things in a straight line or in parallel lines",
         "note": "",
         "identity_overlay": null,
@@ -1294,7 +1294,7 @@
           "target_kind": "sense",
           "target_id": "sense:alignment:bc8d4ed354d651d1",
           "target_locator": "record.senses[0]",
-          "target_label": "队列；结盟；校正"
+          "target_label": "对齐；排列成一直线或平行线"
         }
       },
       {
@@ -1302,7 +1302,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "队列；结盟；校正",
+        "definition_cn": "校准；调准；调整部件位置",
         "definition_en": "the act of adjusting or aligning the parts of a device in relation to each other",
         "note": "",
         "identity_overlay": null,
@@ -1311,7 +1311,7 @@
           "target_kind": "sense",
           "target_id": "sense:alignment:733d6314ab4c5b1d",
           "target_locator": "record.senses[1]",
-          "target_label": "队列；结盟；校正"
+          "target_label": "校准；调准；调整部件位置"
         }
       },
       {
@@ -1319,7 +1319,7 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "alignment with",
-        "definition_cn": "一致、协调、结盟；政治或战略上的站队/联盟",
+        "definition_cn": "一致；协调；结盟；（战略/政治上的）阵营一致",
         "definition_en": "figurative/strategic: agreement, coordination, or alliance, especially political or strategic alignment",
         "note": "",
         "identity_overlay": null,
@@ -1328,7 +1328,7 @@
           "target_kind": "sense",
           "target_id": "sense:alignment:aefa38b30de72b31",
           "target_locator": "record.senses[2]",
-          "target_label": "一致、协调、结盟；政治或战略上的站队/联盟"
+          "target_label": "一致；协调；结盟；（战略/政治上的）阵营一致"
         }
       }
     ],
@@ -2492,7 +2492,7 @@
     "ordinal": 5668,
     "word": "bacterium",
     "source_owner_path": "content/lexical/words/by-ordinal/o5668.json",
-    "source_fingerprint": "cadc07919cc0cebf9c13e597f3c02ace68495e80f200c741159cc1403888d4f5",
+    "source_fingerprint": "ff60ed10330d1e04dae2ec05920a20f75f5181c3de796d7aee2e97ab0b8d5e05",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2519,7 +2519,15 @@
         "definition_cn": "细菌",
         "definition_en": "a microscopic single-celled organism; some bacteria cause disease while others are useful",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "singular bacterium; traditional plural bacteria; do not use *bacteriums",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "singular bacterium; traditional plural bacteria; do not use *bacteriums"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -2534,7 +2542,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "bacterium",
+            "condition": "singular",
+            "note": "one bacterium; singular item"
+          },
+          {
+            "surface": "bacteria",
+            "condition": "traditional plural / modern collective-mass use",
+            "note": "traditional plural of bacterium; modern general English also often treats data/bacteria-like forms collectively depending context"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -2614,7 +2643,7 @@
     "ordinal": 5670,
     "word": "bamboo",
     "source_owner_path": "content/lexical/words/by-ordinal/o5670.json",
-    "source_fingerprint": "77a334c6d74600d1bb0ce4de7481efd2192c15da2d195024afd22de2b2fe3e92",
+    "source_fingerprint": "eca427e6a0f2d7e51a36451591fc08e685681fb1072b85df4bb5678d10f21696",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2623,13 +2652,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "竹子",
+      "summary_cn": "竹子；竹材",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "竹子"
+        "target_label": "竹子；竹材"
       }
     },
     "senses": [
@@ -2638,7 +2667,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "竹子",
+        "definition_cn": "竹材；竹竿；竹秆",
         "definition_en": "the hard woody stems of bamboo plants; used in construction and crafts and fishing poles",
         "note": "",
         "identity_overlay": null,
@@ -2647,7 +2676,7 @@
           "target_kind": "sense",
           "target_id": "sense:bamboo:9fde3c91f7325cd6",
           "target_locator": "record.senses[0]",
-          "target_label": "竹子"
+          "target_label": "竹材；竹竿；竹秆"
         }
       },
       {
@@ -2655,7 +2684,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "竹子",
+        "definition_cn": "竹子；竹类植物",
         "definition_en": "woody tropical grass having hollow woody stems; mature canes used for construction and furniture",
         "note": "",
         "identity_overlay": null,
@@ -2664,7 +2693,7 @@
           "target_kind": "sense",
           "target_id": "sense:bamboo:61fd079c08205f67",
           "target_locator": "record.senses[1]",
-          "target_label": "竹子"
+          "target_label": "竹子；竹类植物"
         }
       }
     ],
@@ -2875,7 +2904,7 @@
     "ordinal": 5674,
     "word": "barley",
     "source_owner_path": "content/lexical/words/by-ordinal/o5674.json",
-    "source_fingerprint": "271131d2cd13f8bdcb0822ffa589cfbc5f16bad43b20322038943bee8b53ed54",
+    "source_fingerprint": "c67fdcb2963a7d5813a26734c7f6e69d01dd70a2ce6e1ea30e70af169072bcd1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2899,7 +2928,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "大麦",
+        "definition_cn": "大麦粒；大麦谷物",
         "definition_en": "a grain of barley",
         "note": "",
         "identity_overlay": null,
@@ -2908,7 +2937,7 @@
           "target_kind": "sense",
           "target_id": "sense:barley:0f701aefbe795fe7",
           "target_locator": "record.senses[0]",
-          "target_label": "大麦"
+          "target_label": "大麦粒；大麦谷物"
         }
       },
       {
@@ -2916,7 +2945,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "大麦",
+        "definition_cn": "大麦；大麦作物",
         "definition_en": "cultivated since prehistoric times; grown for forage and grain",
         "note": "",
         "identity_overlay": null,
@@ -2925,7 +2954,7 @@
           "target_kind": "sense",
           "target_id": "sense:barley:01d74746032d5908",
           "target_locator": "record.senses[1]",
-          "target_label": "大麦"
+          "target_label": "大麦；大麦作物"
         }
       }
     ],
@@ -3220,7 +3249,7 @@
     "ordinal": 5679,
     "word": "beetle",
     "source_owner_path": "content/lexical/words/by-ordinal/o5679.json",
-    "source_fingerprint": "ec80b3a2065650a9b46697e3a20cdcdaf741ecb6dd5e65694218d1f4d03915c6",
+    "source_fingerprint": "b41aa0f9798d5706a4db585539db68ae48aad80a7de660b35988bc97f0834bb7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3245,7 +3274,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "甲虫；大槌",
+        "definition_cn": "甲虫",
         "definition_en": "insect having biting mouthparts and front wings modified to form horny covers overlying the membranous rear wings",
         "note": "",
         "identity_overlay": null,
@@ -3254,7 +3283,7 @@
           "target_kind": "sense",
           "target_id": "sense:beetle:e1cb9bb7909d513f",
           "target_locator": "record.senses[0]",
-          "target_label": "甲虫；大槌"
+          "target_label": "甲虫"
         }
       },
       {
@@ -4029,13 +4058,21 @@
     "ordinal": 5691,
     "word": "bridegroom",
     "source_owner_path": "content/lexical/words/by-ordinal/o5691.json",
-    "source_fingerprint": "aba4a124ba130a1ced063ad3b274f9c23edda8cac416203856235a31d52eecf4",
-    "sense_lineage": [],
+    "source_fingerprint": "805acb4d4bdc4203a9ed9d4048685612cb821629226f884bb03e55f29857a7a2",
+    "sense_lineage": [
+      {
+        "word_id": "word:bridegroom",
+        "target_kind": "sense",
+        "from_target_id": "sense:bridegroom:3dbd1fdd8c6c5cc3",
+        "status": "merged",
+        "to_target_id": "sense:bridegroom:0211518362235b59"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "新郎",
@@ -4053,8 +4090,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "新郎",
-        "definition_en": "a man who has recently been married",
+        "definition_cn": "新郎；刚结婚的男子",
+        "definition_en": "a man at his wedding or recently married",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -4062,24 +4099,7 @@
           "target_kind": "sense",
           "target_id": "sense:bridegroom:0211518362235b59",
           "target_locator": "record.senses[0]",
-          "target_label": "新郎"
-        }
-      },
-      {
-        "id": "sense:bridegroom:3dbd1fdd8c6c5cc3",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "新郎",
-        "definition_en": "a man participant in his own marriage ceremony",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bridegroom:3dbd1fdd8c6c5cc3",
-          "target_locator": "record.senses[1]",
-          "target_label": "新郎"
+          "target_label": "新郎；刚结婚的男子"
         }
       }
     ],
@@ -4207,7 +4227,7 @@
     "ordinal": 5693,
     "word": "brightness",
     "source_owner_path": "content/lexical/words/by-ordinal/o5693.json",
-    "source_fingerprint": "255c5baff3c5a5fdddb2c82df265cf65e113eeb3fc42de7f14fdbc57097a07ef",
+    "source_fingerprint": "2b0e8ee7801695b5e8196ea44c5ceae7bda28b812cf77e9f0815067f297277d1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4216,13 +4236,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "光亮；明亮；聪明",
+      "summary_cn": "亮度；聪明/机敏",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "光亮；明亮；聪明"
+        "target_label": "亮度；聪明/机敏"
       }
     },
     "senses": [
@@ -4231,7 +4251,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "光亮；明亮；聪明",
+        "definition_cn": "亮度；明亮程度",
         "definition_en": "the location of a visual perception along a continuum from black to white",
         "note": "",
         "identity_overlay": null,
@@ -4240,7 +4260,7 @@
           "target_kind": "sense",
           "target_id": "sense:brightness:e90ef5c9510b5ced",
           "target_locator": "record.senses[0]",
-          "target_label": "光亮；明亮；聪明"
+          "target_label": "亮度；明亮程度"
         }
       },
       {
@@ -4248,7 +4268,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "光亮；明亮；聪明",
+        "definition_cn": "聪明；机敏",
         "definition_en": "intelligence as manifested in being quick and witty",
         "note": "",
         "identity_overlay": null,
@@ -4257,7 +4277,7 @@
           "target_kind": "sense",
           "target_id": "sense:brightness:4860a7a7e6e0526a",
           "target_locator": "record.senses[1]",
-          "target_label": "光亮；明亮；聪明"
+          "target_label": "聪明；机敏"
         }
       }
     ],

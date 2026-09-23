@@ -483,7 +483,7 @@
     "ordinal": 4485,
     "word": "slam",
     "source_owner_path": "content/lexical/words/by-ordinal/o4485.json",
-    "source_fingerprint": "6d9e12e1877189e40c29454a6de55fe9f27e7740330993c80fea56c5e93d3920",
+    "source_fingerprint": "a18a3e52b1d2d2f86eedf5a3d3b1971fb5ff75fc5481804ab3a710ab1a82f25c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -507,9 +507,9 @@
         "id": "sense:slam:4c7f3d0f1de05abe",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "砰地关上",
-        "definition_en": "to close violently",
+        "governing_pattern": "I/T: slam the door; the door slammed shut; slam into/against sth",
+        "definition_cn": "砰地关上；猛地移动/撞击并发出巨响",
+        "definition_en": "to close or move with great force and a loud noise; to strike or collide forcefully",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -520,13 +520,39 @@
             "meaning_cn": "砰地关上门",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:7a4333ffb58446e37ea9",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "the door slammed shut",
+            "meaning_cn": "门砰地关上",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:7a4333ffb58446e37ea9",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "the door slammed shut"
+            }
+          },
+          {
+            "id": "collocation:797d55cf4241b2aa45da",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "slam into/against sth",
+            "meaning_cn": "猛撞到某物上",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:797d55cf4241b2aa45da",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "slam into/against sth"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:slam:4c7f3d0f1de05abe",
           "target_locator": "record.senses[0]",
-          "target_label": "砰地关上"
+          "target_label": "砰地关上；猛地移动/撞击并发出巨响"
         }
       },
       {
@@ -1110,7 +1136,7 @@
     "ordinal": 4489,
     "word": "sleep",
     "source_owner_path": "content/lexical/words/by-ordinal/o4489.json",
-    "source_fingerprint": "383efd9e9465e430dbd34a0a750c50f450fc080853209f5e766224fd495a4334",
+    "source_fingerprint": "f04f0d10f3c2f99e98e05fbd81a17bc5d8a68eaaa30f7a1d6e9fccdb294b0c34",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1238,26 +1264,31 @@
         "id": "sense:sleep:feb3be15b9915220",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "可供…睡觉；睡（某种状态）",
-        "definition_en": "to provide sleeping accommodation for",
-        "note": "",
+        "governing_pattern": "place/room/vehicle + sleeps + number",
+        "definition_cn": "可供……人住宿/睡觉",
+        "definition_en": "to provide sleeping accommodation for a stated number of people",
+        "note": "This is accommodation capacity, not causative “make a child sleep”; use put/get a child to sleep for causing sleep",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:f702fd265e9c587ced3c",
+            "id": "collocation:252e9444d6689a998c78",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "sleep a child",
-            "meaning_cn": "让孩子睡觉",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "the cottage/room sleeps six",
+            "meaning_cn": "这间小屋/房间可住六人",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:252e9444d6689a998c78",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "the cottage/room sleeps six"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:sleep:feb3be15b9915220",
           "target_locator": "record.senses[3]",
-          "target_label": "可供…睡觉；睡（某种状态）"
+          "target_label": "可供……人住宿/睡觉"
         }
       },
       {
@@ -1652,7 +1683,7 @@
     "ordinal": 4493,
     "word": "slide",
     "source_owner_path": "content/lexical/words/by-ordinal/o4493.json",
-    "source_fingerprint": "5f016c54756b8872d122543dcbacbf4d8120aaee60a108fe396f95cbfe9382a1",
+    "source_fingerprint": "89ec8656ffaa702bcdf1e1bf5e51b8b98f3f205130b003b2083d70c86c9432a8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1725,16 +1756,7 @@
         "definition_en": "the act of sliding",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:60fc5adb3c56a149669c",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "slide show",
-            "meaning_cn": "幻灯片放映",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:slide:97a9775271f954b2",
@@ -1855,7 +1877,16 @@
         "definition_en": "one page or screen in a digital presentation",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:60fc5adb3c56a149669c",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "slide show",
+            "meaning_cn": "幻灯片演示；由一系列幻灯片/图像组成的展示",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:slide:5c18ebddc8ca0cf1",
@@ -2196,7 +2227,7 @@
     "ordinal": 4496,
     "word": "slip",
     "source_owner_path": "content/lexical/words/by-ordinal/o4496.json",
-    "source_fingerprint": "5f451fd705b61bd2ffe443915c07c5c68c5bba34ad15a6bc02b0dc9ad2be3e82",
+    "source_fingerprint": "15d7704191dee83777721439a9f7ddf68d6fb8691e63f02b6ab996010e524f8e",
     "sense_lineage": [
       {
         "word_id": "word:slip",
@@ -2235,7 +2266,7 @@
         "id": "sense:slip:91214f90df1c5e8e",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: slip on sth; slip and fall",
         "definition_cn": "滑倒；失足",
         "definition_en": "to slide accidentally and lose your balance or fall",
         "note": "",
@@ -2286,7 +2317,7 @@
         "id": "sense:slip:ec34d0556efe5781",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi. + adv./prep.: slip out/away/into + place",
         "definition_cn": "溜走；悄悄离开",
         "definition_en": "to go somewhere quietly or quickly, especially without being noticed",
         "note": "",
@@ -2303,7 +2334,7 @@
         "id": "sense:slip:0ab8982fe3245829",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: sales/standards slip; slip into decline",
         "definition_cn": "下滑；恶化；下降",
         "definition_en": "to decline, become worse, or move gradually to a lower level",
         "note": "",
@@ -2716,7 +2747,7 @@
     "ordinal": 4501,
     "word": "slot",
     "source_owner_path": "content/lexical/words/by-ordinal/o4501.json",
-    "source_fingerprint": "0ade153a46d6cae859565498bdd8c2ab01a202efdbfc7037b60318191c811964",
+    "source_fingerprint": "b5bc9500a0095ed085843862d113333fcd6a0999fa7a3fb3b31e4849daae1eb0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2781,16 +2812,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:6893a77e91849e1d7a4d",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "time slot",
-            "meaning_cn": "时间段",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:ee6fdf0a4d6962d64163",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "job slot",
             "meaning_cn": "职位空缺",
             "kind": "usage_example",
@@ -2878,7 +2901,16 @@
         "definition_en": "an assigned or available time in a schedule",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:6893a77e91849e1d7a4d",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "time slot",
+            "meaning_cn": "时间段",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:slot:cfd666a67b095004",
@@ -4460,7 +4492,7 @@
     "ordinal": 4512,
     "word": "smoke",
     "source_owner_path": "content/lexical/words/by-ordinal/o4512.json",
-    "source_fingerprint": "972429a9c9e5e80d66866b86a3064953b9a78be3869c340f01bdc3ac41fe2399",
+    "source_fingerprint": "701bc800120e49296f4471639d3dbafd967f829e7b8268a694b85d2e11574ae4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4523,7 +4555,7 @@
         "id": "sense:smoke:0e456eaf78cc5fac",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: smoke; smoke a cigarette/cigar/pipe",
         "definition_cn": "吸烟，抽烟",
         "definition_en": "to inhale and exhale smoke from a cigarette etc.",
         "note": "",
@@ -4813,22 +4845,30 @@
     "ordinal": 4514,
     "word": "smuggle",
     "source_owner_path": "content/lexical/words/by-ordinal/o4514.json",
-    "source_fingerprint": "b25946eaacbcda52ee336aa6004f9aa9890813183249173627daed2e5a26766c",
-    "sense_lineage": [],
+    "source_fingerprint": "905c12bf0f0c4679600b513812d9df4dca028dafde2df58ec4818fa0aecb5e4f",
+    "sense_lineage": [
+      {
+        "word_id": "word:smuggle",
+        "target_kind": "sense",
+        "from_target_id": "sense:smuggle:dfef89d0da175134",
+        "status": "merged",
+        "to_target_id": "sense:smuggle:1c88f9bd58825be2"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V"
+        "1V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "走私；秘密或非法地运送货物或人员越过或穿过某种边界；从事走私活动",
+      "summary_cn": "走私；秘密或非法运送货物或人员",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "走私；秘密或非法地运送货物或人员越过或穿过某种边界；从事走私活动"
+        "target_label": "走私；秘密或非法运送货物或人员"
       }
     },
     "senses": [
@@ -4836,7 +4876,7 @@
         "id": "sense:smuggle:1c88f9bd58825be2",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: smuggle sb/sth across/into/out of + place",
         "definition_cn": "走私；秘密或非法地运送货物或人员越过或穿过某种边界",
         "definition_en": "to move goods or people secretly or illegally across or within a boundary; customs evasion is one subtype",
         "note": "",
@@ -4862,6 +4902,32 @@
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "smuggle sth into + place"
             }
+          },
+          {
+            "id": "collocation:82a96ad158726e3ad086",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "smuggle sth in/into + place",
+            "meaning_cn": "把某物秘密/非法偷运进某地",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:82a96ad158726e3ad086",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "smuggle sth in/into + place"
+            }
+          },
+          {
+            "id": "collocation:4411949afe06f0c62320",
+            "source_locator": "record.senses[0].collocations[3]",
+            "phrase": "smuggle sth out/out of + place",
+            "meaning_cn": "把某物秘密/非法偷运出某地",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:4411949afe06f0c62320",
+              "target_locator": "record.senses[0].collocations[3]",
+              "target_label": "smuggle sth out/out of + place"
+            }
           }
         ],
         "repair": {
@@ -4869,50 +4935,6 @@
           "target_id": "sense:smuggle:1c88f9bd58825be2",
           "target_locator": "record.senses[0]",
           "target_label": "走私；秘密或非法地运送货物或人员越过或穿过某种边界"
-        }
-      },
-      {
-        "id": "sense:smuggle:dfef89d0da175134",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vi. + in/out",
-        "definition_cn": "从事走私活动",
-        "definition_en": "engage in smuggling",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e9a5899bde58c833c7b6",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "smuggle in + sth",
-            "meaning_cn": "偷运某物入境",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e9a5899bde58c833c7b6",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "smuggle in + sth"
-            }
-          },
-          {
-            "id": "collocation:8d3ddc650322451fda15",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "smuggle out + sth",
-            "meaning_cn": "偷运某物出境",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8d3ddc650322451fda15",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "smuggle out + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:smuggle:dfef89d0da175134",
-          "target_locator": "record.senses[1]",
-          "target_label": "从事走私活动"
         }
       }
     ],
@@ -5040,7 +5062,7 @@
     "ordinal": 4516,
     "word": "snake",
     "source_owner_path": "content/lexical/words/by-ordinal/o4516.json",
-    "source_fingerprint": "e1660bd6dd35c4a5921401dd7dc816951d7a6848881766229b0a86da36b05594",
+    "source_fingerprint": "e88f3a933f7f76ae4fca3a0e2708e5782f906e171ea49b5706ff12dfb6915249",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5067,16 +5089,21 @@
         "governing_pattern": "",
         "definition_cn": "蛇",
         "definition_en": "limbless scaly elongate reptile; some are venomous",
-        "note": "",
+        "note": "Use venomous for snakes that produce/deliver venom, typically by bite; not every snake is venomous",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:c36df420cc7b3d1bb227",
+            "id": "collocation:480a680cd6cf32b9f2c5",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a poisonous snake",
-            "meaning_cn": "毒蛇",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "a venomous snake",
+            "meaning_cn": "毒蛇（通过咬伤等注入毒液）",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:480a680cd6cf32b9f2c5",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "a venomous snake"
+            }
           }
         ],
         "repair": {
@@ -5198,7 +5225,7 @@
     "ordinal": 4517,
     "word": "snap",
     "source_owner_path": "content/lexical/words/by-ordinal/o4517.json",
-    "source_fingerprint": "9847f431b5d7fde0860dcf481247d75a934b315a0671c0cba1ab7693929bd2df",
+    "source_fingerprint": "65ab5a4defb2feede1648d475cae4d3b471e500bcb44f3a5e59dc4348db36f04",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5399,12 +5426,26 @@
         "id": "sense:snap:2d1cc4719aed0441",
         "source_locator": "record.senses[6]",
         "pos": "verb",
-        "governing_pattern": "vi. + at",
+        "governing_pattern": "vi.: snap at sb; snap back",
         "definition_cn": "厉声说、没好气地回答",
         "definition_en": "to speak or respond sharply or angrily",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:1c08e69ff5530de350b3",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "snap at sb",
+            "meaning_cn": "厉声斥责/没好气地对某人说",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1c08e69ff5530de350b3",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "snap at sb"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:snap:2d1cc4719aed0441",
@@ -5898,7 +5939,7 @@
     "ordinal": 4521,
     "word": "sniff",
     "source_owner_path": "content/lexical/words/by-ordinal/o4521.json",
-    "source_fingerprint": "adfeb94d99a2bc11f60143eb632d26b2272c87a95a74fdd8f1c08c49f737c5de",
+    "source_fingerprint": "af7fc805c0a1734662a38b7233d99f4a5cbfb56ca8f20679ebe255c455e637b5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5961,34 +6002,12 @@
         "id": "sense:sniff:204218f60d7b5114",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + at",
+        "governing_pattern": "vi.: sniff; sniff audibly",
         "definition_cn": "吸气；抽鼻子",
         "definition_en": "to inhale audibly through the nose",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e58a435676e56b810052",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "sniff at + sth",
-            "meaning_cn": "对…嗤之以鼻",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e58a435676e56b810052",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "sniff at + sth"
-            }
-          },
-          {
-            "id": "collocation:ddf25029accc7ded0e8f",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "sniff at the offer",
-            "meaning_cn": "对提议嗤之以鼻",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:sniff:204218f60d7b5114",
@@ -6038,6 +6057,14 @@
           {
             "text": "对某事表示轻蔑、鄙视或不屑",
             "lang": "cn"
+          },
+          {
+            "text": "idiomatic stance meaning; literal smelling remains compositional under the smell sense",
+            "lang": "en"
+          },
+          {
+            "text": "to treat something with contempt or dismissive disapproval",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -6636,7 +6663,7 @@
     "ordinal": 4527,
     "word": "soap",
     "source_owner_path": "content/lexical/words/by-ordinal/o4527.json",
-    "source_fingerprint": "e5f5305a5c38f73594b2adf9467cd4b0139a174167b067d401712ec567b1f0f9",
+    "source_fingerprint": "73a4447be3b46cce99f3787f0f9500f9061a322303b6cdfde45c490efb58ccdb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6673,19 +6700,6 @@
             "meaning_cn": "一块肥皂",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:f1943144b2af259ff708",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "soap opera",
-            "meaning_cn": "肥皂剧",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f1943144b2af259ff708",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "soap opera"
-            }
           }
         ],
         "repair": {
@@ -6762,7 +6776,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:b8d5216e0110750db344",
+        "source_locator": "record.constructions[0]",
+        "pattern": "soap opera",
+        "lines": [
+          {
+            "text": "肥皂剧；围绕固定角色及其关系持续播出的情节化电视/广播连续剧",
+            "lang": "cn"
+          },
+          {
+            "text": "lexicalized compound, not literal cleansing soap",
+            "lang": "en"
+          },
+          {
+            "text": "a continuing melodramatic serial drama centered on recurring characters and relationships, especially on television or radio",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:b8d5216e0110750db344",
+          "target_locator": "record.constructions[0]",
+          "target_label": "soap opera"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6776,7 +6816,7 @@
     "ordinal": 4528,
     "word": "soar",
     "source_owner_path": "content/lexical/words/by-ordinal/o4528.json",
-    "source_fingerprint": "aa10af0a3de17436daa9f40ffdb4f1eebb1a45b0ec6606c00a6cf5bc674aca32",
+    "source_fingerprint": "34573fc61075eb53df9c6bd84770e92998accdd96d83cefc6b7c2d63fa48af82",
     "sense_lineage": [
       {
         "word_id": "word:soar",
@@ -6833,7 +6873,7 @@
         "id": "sense:soar:02b4bf98bde2507f",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: prices/temperatures/spirits soar",
         "definition_cn": "猛增；骤升",
         "definition_en": "to rise rapidly to a high level",
         "note": "",
@@ -6850,7 +6890,7 @@
         "id": "sense:soar:4a262547b49c5cad",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: a structure/bird/object soars upward/high",
         "definition_cn": "上升；升高",
         "definition_en": "to go upward; to rise",
         "note": "",
@@ -6879,7 +6919,7 @@
     "ordinal": 4529,
     "word": "sob",
     "source_owner_path": "content/lexical/words/by-ordinal/o4529.json",
-    "source_fingerprint": "f074643d1c8715b1cbcce94956c2bc05b6358eb74287f379c260612abe541faf",
+    "source_fingerprint": "39eea8128ecf69e2f3e6be2488a34b68ba28ae5c7945334282ef13f9a792c67d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6903,28 +6943,15 @@
         "id": "sense:sob:6e023aad48415709",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + out",
+        "governing_pattern": "vi.: sob; sob uncontrollably",
         "definition_cn": "啜泣，呜咽",
         "definition_en": "to cry noisily while taking short, sudden breaths",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:7e079c6595ced63e3613",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "sob out + sth",
-            "meaning_cn": "哭诉某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7e079c6595ced63e3613",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "sob out + sth"
-            }
-          },
-          {
             "id": "collocation:2d30730d654fe72960f2",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "sob uncontrollably",
             "meaning_cn": "无法控制地啜泣",
             "kind": "usage_example",
@@ -6949,29 +6976,29 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:4ee96dcd4d3ab11898a6",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "sob out + sth",
-            "meaning_cn": "哭诉某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4ee96dcd4d3ab11898a6",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "sob out + sth"
-            }
-          },
-          {
             "id": "collocation:0e34670823b5b22a5be3",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "sob out one's grief",
             "meaning_cn": "哭诉自己的悲伤",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:0e34670823b5b22a5be3",
-              "target_locator": "record.senses[1].collocations[1]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "sob out one's grief"
+            }
+          },
+          {
+            "id": "collocation:b04cda446def32395797",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "sob out + sth",
+            "meaning_cn": "抽泣着说出某事",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:b04cda446def32395797",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "sob out + sth"
             }
           }
         ],
@@ -7251,7 +7278,7 @@
     "ordinal": 4532,
     "word": "sociable",
     "source_owner_path": "content/lexical/words/by-ordinal/o4532.json",
-    "source_fingerprint": "d850f08f41e24da91fbe4cb64e93ede46925755082b54b9445ec8dcbe63099a5",
+    "source_fingerprint": "e682348df867dee6909f2f1ee5b85e6d5b3da345a46a3350764c8d1b75324af4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7387,8 +7414,8 @@
           "target_word": "social",
           "lines": [
             {
-              "text": "sociable 好交际 vs social 社会的",
-              "lang": "cn"
+              "text": "sociable describes liking company; social is broader and can describe activities/interaction as well as society",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -8537,7 +8564,7 @@
     "ordinal": 4544,
     "word": "soldier",
     "source_owner_path": "content/lexical/words/by-ordinal/o4544.json",
-    "source_fingerprint": "da18fc018965ec25bf3cea271c4bd16098e032477bf4ff72eed0847bff738b95",
+    "source_fingerprint": "03b518da0c363dc955dbecb6e52e647acdb7e87c9059bed210f37888c1a659ce",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8574,19 +8601,6 @@
             "meaning_cn": "勇敢的士兵",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:d63e2272d04926e20883",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "soldier on",
-            "meaning_cn": "坚持到底；继续奋斗",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d63e2272d04926e20883",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "soldier on"
-            }
           }
         ],
         "repair": {
@@ -8607,14 +8621,14 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:2082f4d0180bf80aaa18",
+            "id": "collocation:7d196a600179fc020542",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "soldier on",
-            "meaning_cn": "坚持到底；继续奋斗",
+            "meaning_cn": "尽管困难、疲劳或受挫仍继续坚持",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:2082f4d0180bf80aaa18",
+              "target_id": "collocation:7d196a600179fc020542",
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "soldier on"
             }
@@ -8629,7 +8643,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:7bb8cdf715e2baec5474",
+        "source_locator": "record.constructions[0]",
+        "pattern": "soldier on",
+        "lines": [
+          {
+            "text": "尽管困难、疲劳或受挫仍继续做下去",
+            "lang": "cn"
+          },
+          {
+            "text": "verb construction; not a soldier-noun collocation",
+            "lang": "en"
+          },
+          {
+            "text": "to continue doing something despite difficulty, fatigue, or discouragement",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7bb8cdf715e2baec5474",
+          "target_locator": "record.constructions[0]",
+          "target_label": "soldier on"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

@@ -632,7 +632,7 @@
     "ordinal": 3591,
     "word": "pick",
     "source_owner_path": "content/lexical/words/by-ordinal/o3591.json",
-    "source_fingerprint": "e18f70b7a13aa53b245f8e2a208493ebf854dc9cd550a958d316c0aed2513cb8",
+    "source_fingerprint": "35e7114ee27e588943cefd95caa30acc12f88f335ca2d41d3962e33868775d3c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -760,14 +760,6 @@
               "target_locator": "record.senses[2].collocations[1]",
               "target_label": "pick one's teeth"
             }
-          },
-          {
-            "id": "collocation:5b5638c927c2f151576c",
-            "source_locator": "record.senses[2].collocations[2]",
-            "phrase": "pick a lock",
-            "meaning_cn": "撬锁",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -911,6 +903,31 @@
           "target_id": "construction:ad23ac400d98ed522bbe",
           "target_locator": "record.constructions[1]",
           "target_label": "pick up a language/skill"
+        }
+      },
+      {
+        "id": "construction:a69921d74a4fad3b1783",
+        "source_locator": "record.constructions[2]",
+        "pattern": "pick a lock",
+        "lines": [
+          {
+            "text": "不用钥匙撬开锁；通过工具操纵锁芯打开",
+            "lang": "cn"
+          },
+          {
+            "text": "lock-mechanism manipulation; distinct from physically removing something with a pointed tool",
+            "lang": "en"
+          },
+          {
+            "text": "to open a lock without its key by manipulating the mechanism with a tool",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a69921d74a4fad3b1783",
+          "target_locator": "record.constructions[2]",
+          "target_label": "pick a lock"
         }
       }
     ],
@@ -1190,23 +1207,23 @@
     "ordinal": 3594,
     "word": "picture",
     "source_owner_path": "content/lexical/words/by-ordinal/o3594.json",
-    "source_fingerprint": "8e277c9f3727218f4832164b800d9b246c5aca2581034b9dc8acf54a3f6d7080",
+    "source_fingerprint": "576d74464abcf070fc65ea7d1341580883cb7bd5babea6e6e89e055dccfd7ea1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "2V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "视觉图像或心理形象",
+      "summary_cn": "图像；印象；整体情况",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "视觉图像或心理形象"
+        "target_label": "图像；印象；整体情况"
       }
     },
     "senses": [
@@ -1259,14 +1276,6 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "get the picture",
             "meaning_cn": "明白，了解情况",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:5e9e606aff03bdca9378",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "picture of health",
-            "meaning_cn": "健康的形象",
             "kind": "usage_example",
             "repair": null
           }
@@ -1374,22 +1383,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:picture:ab5fe0a440940985",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "想象，设想",
-        "definition_en": "to form a mental image of something",
-        "pattern": "picture 作动词想象，非名词图画",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:picture:ab5fe0a440940985",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "想象，设想"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:70bac4ba2eaa7b4e1a81",
@@ -1406,6 +1400,31 @@
           "target_id": "construction:70bac4ba2eaa7b4e1a81",
           "target_locator": "record.constructions[0]",
           "target_label": "get the picture"
+        }
+      },
+      {
+        "id": "construction:6ba5f4239f613d8b07d4",
+        "source_locator": "record.constructions[1]",
+        "pattern": "the picture of health",
+        "lines": [
+          {
+            "text": "看起来非常健康；健康的典范",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed expression describing someone who appears extremely healthy",
+            "lang": "en"
+          },
+          {
+            "text": "appearing extremely healthy",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6ba5f4239f613d8b07d4",
+          "target_locator": "record.constructions[1]",
+          "target_label": "the picture of health"
         }
       }
     ],
@@ -1491,7 +1510,7 @@
     "ordinal": 3596,
     "word": "piece",
     "source_owner_path": "content/lexical/words/by-ordinal/o3596.json",
-    "source_fingerprint": "41e95b183d0a6c85b91fae25430411440287c78c698f3be40695447aab723f72",
+    "source_fingerprint": "ac81cd9297ef8b7ba7122198ba814f8ccaeec1c39199d011db170c5267fc08aa",
     "sense_lineage": [
       {
         "word_id": "word:piece",
@@ -1509,13 +1528,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "部分；块；片",
+      "summary_cn": "块；片；部分；作品",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "部分；块；片"
+        "target_label": "块；片；部分；作品"
       }
     },
     "senses": [
@@ -1629,6 +1648,14 @@
           {
             "text": "拼合；综合线索弄清",
             "lang": "cn"
+          },
+          {
+            "text": "assemble physical parts or combine clues/information to understand; constructional use, not a generic Core verb",
+            "lang": "en"
+          },
+          {
+            "text": "to assemble parts or combine separate clues/information into a coherent whole",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -2218,7 +2245,7 @@
     "ordinal": 3601,
     "word": "pilgrim",
     "source_owner_path": "content/lexical/words/by-ordinal/o3601.json",
-    "source_fingerprint": "3fb5c408253544c22cdb4e86d3390ecd21b55b694d1280ac8848c58796d6aaae",
+    "source_fingerprint": "edafe85124b7dca88624f5378ff86d6d3d00a8d47bf40d6fce450825ff266af6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2897,7 +2924,7 @@
     "ordinal": 3606,
     "word": "pin",
     "source_owner_path": "content/lexical/words/by-ordinal/o3606.json",
-    "source_fingerprint": "dc98002b1aaa7ea64753cf739b06dbe7484c64dc170b67b7645e0d753d22fe21",
+    "source_fingerprint": "9843051aed61502f0d784fc9bca64d8c30e4bac516d240bd24ab092c2ea991cc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2973,19 +3000,6 @@
             "meaning_cn": "把便条钉在门上",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:5667f525479106b7eb26",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "pin the blame on sb",
-            "meaning_cn": "把责任归咎于某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5667f525479106b7eb26",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "pin the blame on sb"
-            }
           }
         ],
         "repair": {
@@ -3028,7 +3042,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:95c0b7eb1c0d831bb7f1",
+        "source_locator": "record.constructions[0]",
+        "pattern": "pin blame/responsibility on sb/sth",
+        "lines": [
+          {
+            "text": "把责任或过错归咎于某人/某事",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative responsibility assignment; distinct from literal fastening",
+            "lang": "en"
+          },
+          {
+            "text": "to assign blame or responsibility to someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:95c0b7eb1c0d831bb7f1",
+          "target_locator": "record.constructions[0]",
+          "target_label": "pin blame/responsibility on sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3042,7 +3082,7 @@
     "ordinal": 3607,
     "word": "pinch",
     "source_owner_path": "content/lexical/words/by-ordinal/o3607.json",
-    "source_fingerprint": "3644e66040b84c87c11afcc5b2f3a8fe213422d684548c20dedf47b3456a9dcd",
+    "source_fingerprint": "b970a20dc3195470bb78935817c868e01560b13129028b65f9644b1eb45c6ce5",
     "sense_lineage": [
       {
         "word_id": "word:pinch",
@@ -3196,7 +3236,58 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:62d3189d401a5b20564a",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in a pinch",
+        "lines": [
+          {
+            "text": "在紧要关头；必要时；不得已时",
+            "lang": "cn"
+          },
+          {
+            "text": "emergency/necessity construction; do not reactivate a broad standalone difficulty noun",
+            "lang": "en"
+          },
+          {
+            "text": "in a difficult situation or if really necessary",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:62d3189d401a5b20564a",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in a pinch"
+        }
+      },
+      {
+        "id": "construction:dfed96488d259bffe178",
+        "source_locator": "record.constructions[1]",
+        "pattern": "take sth with a pinch/grain of salt",
+        "lines": [
+          {
+            "text": "对某事持保留态度；不要完全相信",
+            "lang": "cn"
+          },
+          {
+            "text": "BrE pinch of salt / AmE grain of salt; skeptical interpretation",
+            "lang": "en"
+          },
+          {
+            "text": "to treat a claim skeptically rather than believe it completely",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:dfed96488d259bffe178",
+          "target_locator": "record.constructions[1]",
+          "target_label": "take sth with a pinch/grain of salt"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4403,7 +4494,7 @@
     "ordinal": 3616,
     "word": "pitch",
     "source_owner_path": "content/lexical/words/by-ordinal/o3616.json",
-    "source_fingerprint": "fd17094e2e57ffaf4fe0b80d878775c9bd19f833163a32bd40425c3709d70940",
+    "source_fingerprint": "fa03dec6a78ab2fd4ed9d50d1c9fe95be303442a07cc428e9d4a856fab25b43c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4413,13 +4504,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "投掷；音高；坡度；摊位",
+      "summary_cn": "音高；投球/投掷；球场；坡度；推销/提案",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "投掷；音高；坡度；摊位"
+        "target_label": "音高；投球/投掷；球场；坡度；推销/提案"
       }
     },
     "senses": [
@@ -5816,7 +5907,7 @@
     "ordinal": 3624,
     "word": "plane",
     "source_owner_path": "content/lexical/words/by-ordinal/o3624.json",
-    "source_fingerprint": "2f2f98b0624be0a102f02b810bc13e37a5f5ad0346cef3a3b05863e66e6214c7",
+    "source_fingerprint": "9cfaf3b6648068b6dbd0a09d41df94487383674c45b1a895d91428881fd02bd7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5826,13 +5917,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "平面；飞机；刨子",
+      "summary_cn": "飞机；平面；层面",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "平面；飞机；刨子"
+        "target_label": "飞机；平面；层面"
       }
     },
     "senses": [
@@ -6094,7 +6185,7 @@
     "ordinal": 3626,
     "word": "plant",
     "source_owner_path": "content/lexical/words/by-ordinal/o3626.json",
-    "source_fingerprint": "32740cca21a085df85f6b3933820cf88c06c25497349ee16e34515d1f5062400",
+    "source_fingerprint": "b4c14b45b79fccf527b6534a4bdbcbf00ad3b74c87ff1ee1abbbb4818850eaf0",
     "sense_lineage": [
       {
         "word_id": "word:plant",
@@ -6194,7 +6285,7 @@
         "id": "sense:plant:3825b043bf435530",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: plant sth in sth; plant crops/trees",
         "definition_cn": "种植；栽种",
         "definition_en": "to put seeds, plants, or trees in the ground to grow",
         "note": "",
@@ -6314,8 +6405,8 @@
           "target_word": "plantation",
           "lines": [
             {
-              "text": "plant与plantation同根派生",
-              "lang": "cn"
+              "text": "plantation derives from planting/cultivation/estate semantics, not merely plant=organism",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -6607,7 +6698,7 @@
     "ordinal": 3629,
     "word": "plastic",
     "source_owner_path": "content/lexical/words/by-ordinal/o3629.json",
-    "source_fingerprint": "c7b753ff2bd20f43c52bdda42bd6643ba3bfc72d6ffb2ae7bb68972048dc5be4",
+    "source_fingerprint": "189a4a0a84f9e5b3f978b30ec81320ca2ee938974c1a6228a7ca764c5fd60179",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6672,21 +6763,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:50d233ab3955a9c31f26",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "plastic surgery",
-            "meaning_cn": "整形手术",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:50d233ab3955a9c31f26",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "plastic surgery"
-            }
-          },
-          {
             "id": "collocation:4ce48f89675de27b8f06",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "plastic wrap",
             "meaning_cn": "保鲜膜",
             "kind": "usage_example",
@@ -6754,7 +6832,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:385fcd00907b4f83a32f",
+        "source_locator": "record.constructions[0]",
+        "pattern": "plastic surgery",
+        "lines": [
+          {
+            "text": "整形/修复外科；修复、重建或改变身体组织外形的手术",
+            "lang": "cn"
+          },
+          {
+            "text": "lexicalized medical phrase; plastic does not mean 'made of plastic' here",
+            "lang": "en"
+          },
+          {
+            "text": "surgery to repair, reconstruct, or alter the form/appearance of body tissue",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:385fcd00907b4f83a32f",
+          "target_locator": "record.constructions[0]",
+          "target_label": "plastic surgery"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6963,7 +7067,7 @@
     "ordinal": 3631,
     "word": "plateau",
     "source_owner_path": "content/lexical/words/by-ordinal/o3631.json",
-    "source_fingerprint": "c1faefe9452ea71ee3b424863fe70b8503f1569d47d6e4772716ca04dab9aca5",
+    "source_fingerprint": "fab6e8e4284a1f457a5723e98d46f9895831284f899c490c115e5182b6a17f08",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7082,7 +7186,7 @@
     "ordinal": 3632,
     "word": "platform",
     "source_owner_path": "content/lexical/words/by-ordinal/o3632.json",
-    "source_fingerprint": "24cf3545a3cd8682186841fd34168fdbfcca170a7454b50995da20ecd51116a3",
+    "source_fingerprint": "2b0518c0e254466d053abc7874cb492973490459c865bae978226bea210d36ac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7091,13 +7195,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "平台",
+      "summary_cn": "实体平台；数字/计算平台；政纲",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "平台"
+        "target_label": "实体平台；数字/计算平台；政纲"
       }
     },
     "senses": [
@@ -7246,7 +7350,7 @@
     "ordinal": 3633,
     "word": "plausible",
     "source_owner_path": "content/lexical/words/by-ordinal/o3633.json",
-    "source_fingerprint": "b547eb6f31a48d80ec3b10d1eab8963c1ab41e29844012422b4d54affae5b98c",
+    "source_fingerprint": "a532dd7c184e7cc37384f21c396ece56b7717d39a3de2b5e0be9cfb7eb47779b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7287,7 +7391,7 @@
             "id": "collocation:3c0aacd105651528935e",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "plausible deniability",
-            "meaning_cn": "貌似可信的否认（指可以推卸责任的借口）",
+            "meaning_cn": "可合理否认性：因缺乏直接证据而可否认知情或责任的状态",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -7320,7 +7424,7 @@
     "ordinal": 3634,
     "word": "play",
     "source_owner_path": "content/lexical/words/by-ordinal/o3634.json",
-    "source_fingerprint": "79424b6ccfebbe916fa7fd642c7426c24f6d683d575a286b0de88f717eea4feb",
+    "source_fingerprint": "a0296673932629b48122bb5feb57bd29002ea28c9b4a069b77cf8e0bd1040962",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7597,7 +7701,7 @@
         "id": "sense:play:ddeaa3b5e58f42ca",
         "source_locator": "record.senses[7]",
         "pos": "verb",
-        "governing_pattern": "vt. + object / vi.",
+        "governing_pattern": "I/T: play a video/recording/song; the video/song plays",
         "definition_cn": "播放（音频、视频、录音等）",
         "definition_en": "to start or reproduce recorded audio, video, or other media",
         "note": "",
@@ -7853,7 +7957,7 @@
     "ordinal": 3637,
     "word": "plead",
     "source_owner_path": "content/lexical/words/by-ordinal/o3637.json",
-    "source_fingerprint": "7a5c9cb1dbd0cb80a50ad9671e5b749abd1fd0f5b00e88469ba0f2eea2f5b778",
+    "source_fingerprint": "3d8d74b433dc1a06ad5894dc3e84ede9916b589ea2dfdde9942dda381e86b6ae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7915,7 +8019,7 @@
         "id": "sense:plead:329fdaa466a451e8",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "plead guilty/not guilty (to a charge); plead a case/cause",
         "definition_cn": "申辩；辩护",
         "definition_en": "to state in court whether you are guilty or not",
         "note": "",
@@ -8344,7 +8448,7 @@
     "ordinal": 3641,
     "word": "pledge",
     "source_owner_path": "content/lexical/words/by-ordinal/o3641.json",
-    "source_fingerprint": "bc7e57c89f6cb399cbd77b5eef93a3957cc8fcdab468d316ff06f0890e0e8301",
+    "source_fingerprint": "1c10bc988f03a10e871bc82a5d714726b0dac623979ddaa8139f48e35e64b02a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8412,7 +8516,7 @@
         "id": "sense:pledge:f1698df324ef59b4",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "pledge sth; pledge to do sth; pledge that + clause",
         "definition_cn": "许诺；保证",
         "definition_en": "to formally promise to do something",
         "note": "",
@@ -8586,23 +8690,23 @@
     "ordinal": 3643,
     "word": "plenty",
     "source_owner_path": "content/lexical/words/by-ordinal/o3643.json",
-    "source_fingerprint": "443b2c9907edcef91e102c0495803da6712285802180401a8ca913a06dc1f34c",
+    "source_fingerprint": "98f1f1b5ecb973139fcfb1dbb9614e0834425ae9b1a53f74ce099fb04c6d2ae2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
-        "1N"
+        "1N",
+        "1DETERMINER"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "充足",
+      "summary_cn": "充足；大量的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "充足"
+        "target_label": "充足；大量的"
       }
     },
     "senses": [
@@ -8617,28 +8721,15 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:59769039239ed3a8a8ae",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "plenty of + sth",
-            "meaning_cn": "大量的……",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:59769039239ed3a8a8ae",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "plenty of + sth"
-            }
-          },
-          {
             "id": "collocation:7bf500c7dbc0f6cf253a",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "in plenty",
             "meaning_cn": "大量；充足",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:7bf500c7dbc0f6cf253a",
-              "target_locator": "record.senses[0].collocations[1]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "in plenty"
             }
           }
@@ -8653,32 +8744,49 @@
       {
         "id": "sense:plenty:52cd100574d250af",
         "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "很多的；足够的",
-        "definition_en": "more than enough",
+        "pos": "determiner",
+        "governing_pattern": "plenty of + noun",
+        "definition_cn": "很多的；大量的；足够的",
+        "definition_en": "a large amount or number of; more than enough",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3e55ceaa5df32b79efa8",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "plenty of time",
-            "meaning_cn": "充足的时间",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:plenty:52cd100574d250af",
           "target_locator": "record.senses[1]",
-          "target_label": "很多的；足够的"
+          "target_label": "很多的；大量的；足够的"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:28bc0bff7da23939a7e8",
+        "source_locator": "record.constructions[0]",
+        "pattern": "plenty of + noun",
+        "lines": [
+          {
+            "text": "大量的；很多的；足够的",
+            "lang": "cn"
+          },
+          {
+            "text": "quantifier/determiner construction; not an ordinary adjective before a noun",
+            "lang": "en"
+          },
+          {
+            "text": "a large amount or number of; more than enough",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:28bc0bff7da23939a7e8",
+          "target_locator": "record.constructions[0]",
+          "target_label": "plenty of + noun"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9018,7 +9126,7 @@
     "ordinal": 3646,
     "word": "plough",
     "source_owner_path": "content/lexical/words/by-ordinal/o3646.json",
-    "source_fingerprint": "510be0148e5ec56b0db5a388420c65a75f9847d85f5f444affed1a024c27ee2f",
+    "source_fingerprint": "3490c66cbe9b95bc181f098daa324a555c5e1179ce4d3815ced8da2e08caf461",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9046,7 +9154,15 @@
         "definition_cn": "犁，一种农具，用于翻土和开沟",
         "definition_en": "a farm tool with one or more heavy blades to break the soil and cut a furrow prior to sowing",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "plough is the usual BrE spelling; plow the usual AmE spelling for the same farm-tool/soil-turning lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "plough is the usual BrE spelling; plow the usual AmE spelling for the same farm-tool/soil-turning lexeme"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -9063,7 +9179,15 @@
         "definition_cn": "耕，犁（地）",
         "definition_en": "to break and turn over earth with a plow",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "plough is the usual BrE spelling; plow the usual AmE spelling for the same farm-tool/soil-turning lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "plough is the usual BrE spelling; plow the usual AmE spelling for the same farm-tool/soil-turning lexeme"
+          }
+        },
         "usage": [
           {
             "id": "collocation:379265e17c7c455dab3f",
@@ -9097,7 +9221,15 @@
         "definition_cn": "艰难地前进；开路",
         "definition_en": "to move in a way resembling a plow cutting into or going through the soil",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "plough is the usual BrE spelling; plow the usual AmE spelling for the same farm-tool/soil-turning lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "plough is the usual BrE spelling; plow the usual AmE spelling for the same farm-tool/soil-turning lexeme"
+          }
+        },
         "usage": [
           {
             "id": "collocation:45da23683f68c104769f",
@@ -9150,25 +9282,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "plough ↔ plow",
-          "target_word": "plow",
-          "lines": [
-            {
-              "text": "plough is the usual British spelling and plow the usual American spelling for the same farm-tool/soil-turning lexeme. Both frozen Main Word identities remain; the proper name the Plough is separately capitalization-bounded.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:f4af27caec887ba4bbe1",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "plough ↔ plow"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -9179,7 +9293,7 @@
     "ordinal": 3647,
     "word": "plug",
     "source_owner_path": "content/lexical/words/by-ordinal/o3647.json",
-    "source_fingerprint": "a23e00f5cad726bf4215a12d21ac0c70c6a3331eb042f6aadb26afba39827f84",
+    "source_fingerprint": "c10edb6e4d8ca31d5887df2fe01a0c1a9649cfc4eacf5ccb461d01e54f1ee75d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9234,21 +9348,7 @@
         "definition_en": "an electrical device with pins that connects to a socket",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:06cce0207eecff9daf45",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "pull the plug",
-            "meaning_cn": "拔掉插头；停止，终止",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:06cce0207eecff9daf45",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "pull the plug"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:plug:f6dd25dbf9ec5043",
@@ -9358,7 +9458,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:e94b63b0c908a3fb7362",
+        "source_locator": "record.constructions[0]",
+        "pattern": "pull the plug (on sth)",
+        "lines": [
+          {
+            "text": "停止；终止；撤掉支持或资源",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative termination/support-withdrawal construction; literal electrical unplugging remains compositional",
+            "lang": "en"
+          },
+          {
+            "text": "to stop an activity or end support/resources for it",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e94b63b0c908a3fb7362",
+          "target_locator": "record.constructions[0]",
+          "target_label": "pull the plug (on sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

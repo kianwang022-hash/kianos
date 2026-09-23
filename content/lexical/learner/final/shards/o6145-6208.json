@@ -312,7 +312,7 @@
     "ordinal": 6150,
     "word": "soy",
     "source_owner_path": "content/lexical/words/by-ordinal/o6150.json",
-    "source_fingerprint": "6939d1d65971844e2c73720b48c74a4a61451baac33e6287dd3e074af976bae7",
+    "source_fingerprint": "72499ce3d175013b8342bbfe730b10351c89e6f17632fb6128c33c0ab4ce9aa4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -321,13 +321,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "大豆、黄豆；以及由大豆制成的食品或材料；酱油；大豆",
+      "summary_cn": "大豆/黄豆及其制品；大豆植株",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "大豆、黄豆；以及由大豆制成的食品或材料；酱油；大豆"
+        "target_label": "大豆/黄豆及其制品；大豆植株"
       }
     },
     "senses": [
@@ -353,7 +353,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "酱油；大豆",
+        "definition_cn": "大豆植株；黄豆植株",
         "definition_en": "erect bushy hairy annual herb having trifoliate leaves and purple to pink flowers; extensively cultivated for food and forage and soil improvement but especially for its nutritious oil-rich seeds; native to Asia",
         "note": "Botanical plant description is lower expansion; everyday soy use centers on soybean and soy-derived foods/materials.",
         "identity_overlay": null,
@@ -362,7 +362,7 @@
           "target_kind": "sense",
           "target_id": "sense:soy:82895e97f81b5054",
           "target_locator": "record.senses[1]",
-          "target_label": "酱油；大豆"
+          "target_label": "大豆植株；黄豆植株"
         }
       }
     ],
@@ -990,7 +990,7 @@
     "ordinal": 6160,
     "word": "stew",
     "source_owner_path": "content/lexical/words/by-ordinal/o6160.json",
-    "source_fingerprint": "61b19d942bd218982c34dbf3b044c1159162f87c0744c821622a54427afca31c",
+    "source_fingerprint": "c26c73d6363b6d41482f22c888c5d632282f0e847429b563c171d455a81b1f72",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1048,7 +1048,7 @@
         "id": "sense:stew:1c0bec95d385de21",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "stew over/about sth",
+        "governing_pattern": "vi. + over/about: stew over/about sth",
         "definition_cn": "为……烦恼、焦虑；反复忧虑",
         "definition_en": "informal: to worry or remain anxiously preoccupied about something",
         "note": "",
@@ -1433,7 +1433,7 @@
     "ordinal": 6166,
     "word": "strait",
     "source_owner_path": "content/lexical/words/by-ordinal/o6166.json",
-    "source_fingerprint": "e6f10d46d6239ddc7651470ad21d17716051d755216e01ea5021afde8cc22015",
+    "source_fingerprint": "0d2540ccd0fca657f258c450dc4ef45f6885e2252db8f81966dfbef9dfc2c694",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1474,16 +1474,24 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "困境；窘境",
+        "definition_cn": "困境；窘境（通常用复数 straits）",
         "definition_en": "a difficult or troubled situation, especially in the plural",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "figurative difficulty is ordinarily plural straits, especially in dire/desperate straits; singular strait is the sea-passage noun",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "figurative difficulty is ordinarily plural straits, especially in dire/desperate straits; singular strait is the sea-passage noun"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:strait:27700d5ac0bc5f8d",
           "target_locator": "record.senses[1]",
-          "target_label": "困境；窘境"
+          "target_label": "困境；窘境（通常用复数 straits）"
         }
       }
     ],
@@ -1492,7 +1500,28 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "strait",
+            "condition": "narrow sea passage",
+            "note": "singular noun for a narrow sea passage"
+          },
+          {
+            "surface": "straits",
+            "condition": "figurative difficulty",
+            "note": "ordinary figurative form is plural, especially in dire/desperate straits"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -1944,7 +1973,7 @@
     "ordinal": 6173,
     "word": "subscription",
     "source_owner_path": "content/lexical/words/by-ordinal/o6173.json",
-    "source_fingerprint": "8b453875bc7055631c1ef52dc6dd3d8cdd67081fefb2f5823d2415573f1325c7",
+    "source_fingerprint": "2f284a05cf893bfc43008811d185ca0a1f6c0734b4d47176fe5869929d148320",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1953,13 +1982,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "订阅；为持续获得服务、内容、产品或会员资格而定期付款或建立的安排；捐献；订金；订阅；签署",
+      "summary_cn": "订阅/定期付费安排；签署表示的同意",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "订阅；为持续获得服务、内容、产品或会员资格而定期付款或建立的安排；捐献；订金；订阅；签署"
+        "target_label": "订阅/定期付费安排；签署表示的同意"
       }
     },
     "senses": [
@@ -1985,7 +2014,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "捐献；订金；订阅；签署",
+        "definition_cn": "签署；签名表示的同意/认同",
         "definition_en": "agreement expressed by (or as if expressed by) signing your name",
         "note": "The act/state of subscribing remains secondary to the modern recurring-access/payment sense.",
         "identity_overlay": null,
@@ -1994,7 +2023,7 @@
           "target_kind": "sense",
           "target_id": "sense:subscription:5eaa27d3453b5a89",
           "target_locator": "record.senses[1]",
-          "target_label": "捐献；订金；订阅；签署"
+          "target_label": "签署；签名表示的同意/认同"
         }
       }
     ],
@@ -2135,7 +2164,7 @@
     "ordinal": 6176,
     "word": "sullen",
     "source_owner_path": "content/lexical/words/by-ordinal/o6176.json",
-    "source_fingerprint": "6511097e78a23b1928d60a1c6fee62e1076fdc61fbc145136c1dff997c024b1c",
+    "source_fingerprint": "f7ecb8030197ac8e8cc9eced60307daa9886113f8b33a888ce18cc0abd601317",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2159,7 +2188,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "愠怒的；沉闷的；阴沉的",
+        "definition_cn": "愠怒的；闷闷不乐的；阴郁不语的",
         "definition_en": "showing a brooding ill humor",
         "note": "",
         "identity_overlay": null,
@@ -2168,7 +2197,7 @@
           "target_kind": "sense",
           "target_id": "sense:sullen:6922be7ac02356e5",
           "target_locator": "record.senses[0]",
-          "target_label": "愠怒的；沉闷的；阴沉的"
+          "target_label": "愠怒的；闷闷不乐的；阴郁不语的"
         }
       },
       {
@@ -2176,7 +2205,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "愠怒的；沉闷的；阴沉的",
+        "definition_cn": "阴沉的；乌云密布的（天气/天空）",
         "definition_en": "darkened by clouds",
         "note": "",
         "identity_overlay": null,
@@ -2185,7 +2214,7 @@
           "target_kind": "sense",
           "target_id": "sense:sullen:a72752a4a7c25ab7",
           "target_locator": "record.senses[1]",
-          "target_label": "愠怒的；沉闷的；阴沉的"
+          "target_label": "阴沉的；乌云密布的（天气/天空）"
         }
       }
     ],
@@ -2204,7 +2233,7 @@
     "ordinal": 6177,
     "word": "sweeten",
     "source_owner_path": "content/lexical/words/by-ordinal/o6177.json",
-    "source_fingerprint": "1b0958af71d5fc181d9efdabfafb5943edc18a48e2ddf23521f1fc092eaa72c3",
+    "source_fingerprint": "9d9da966ddf039d4c744899d2cb6742227f9f7620281fb63ef3850f5f244a0a2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2228,7 +2257,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "使变甜；加糖于；使悦耳；使温和",
+        "definition_cn": "使变甜；给……加糖/甜味",
         "definition_en": "make sweeter in taste",
         "note": "",
         "identity_overlay": null,
@@ -2237,7 +2266,7 @@
           "target_kind": "sense",
           "target_id": "sense:sweeten:4ff2d96248be5e70",
           "target_locator": "record.senses[0]",
-          "target_label": "使变甜；加糖于；使悦耳；使温和"
+          "target_label": "使变甜；给……加糖/甜味"
         }
       },
       {
@@ -2245,7 +2274,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "使变甜；加糖于；使悦耳；使温和",
+        "definition_cn": "使更悦耳/更温和/更令人愉快",
         "definition_en": "make sweeter, more pleasant, or more agreeable",
         "note": "",
         "identity_overlay": null,
@@ -2254,7 +2283,7 @@
           "target_kind": "sense",
           "target_id": "sense:sweeten:126f6ef975de55d9",
           "target_locator": "record.senses[1]",
-          "target_label": "使变甜；加糖于；使悦耳；使温和"
+          "target_label": "使更悦耳/更温和/更令人愉快"
         }
       }
     ],
@@ -3450,7 +3479,7 @@
     "ordinal": 6195,
     "word": "thresh",
     "source_owner_path": "content/lexical/words/by-ordinal/o6195.json",
-    "source_fingerprint": "06d965637423951e0263e1a9e151e9f63d352157d701e6f7d849b67e19e81399",
+    "source_fingerprint": "f7c1a1f04c7871d99a75c3331e146f06cd0c87f54b83edecb9dc42e2dbb49510",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3459,13 +3488,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "打谷；摔打；反复研究；推敲；脱粒；把谷粒或种子从收割的植株中分离出来",
+      "summary_cn": "脱粒/打谷；猛烈摆动/翻腾",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "打谷；摔打；反复研究；推敲；脱粒；把谷粒或种子从收割的植株中分离出来"
+        "target_label": "脱粒/打谷；猛烈摆动/翻腾"
       }
     },
     "senses": [
@@ -3474,7 +3503,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "打谷；摔打；反复研究；推敲",
+        "definition_cn": "猛烈摆动；翻腾；挣扎",
         "definition_en": "move or stir about violently",
         "note": "",
         "identity_overlay": null,
@@ -3483,7 +3512,7 @@
           "target_kind": "sense",
           "target_id": "sense:thresh:58199b59fd1e51ea",
           "target_locator": "record.senses[0]",
-          "target_label": "打谷；摔打；反复研究；推敲"
+          "target_label": "猛烈摆动；翻腾；挣扎"
         }
       },
       {
@@ -3491,7 +3520,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "打谷；摔打；反复研究；推敲",
+        "definition_cn": "像连枷般挥动；乱甩；剧烈翻动",
         "definition_en": "move like a flail; thresh about",
         "note": "",
         "identity_overlay": null,
@@ -3500,7 +3529,7 @@
           "target_kind": "sense",
           "target_id": "sense:thresh:08302ca1370754e6",
           "target_locator": "record.senses[1]",
-          "target_label": "打谷；摔打；反复研究；推敲"
+          "target_label": "像连枷般挥动；乱甩；剧烈翻动"
         }
       },
       {
@@ -3508,7 +3537,7 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "脱粒；把谷粒或种子从收割的植株中分离出来",
+        "definition_cn": "脱粒；打谷",
         "definition_en": "to separate grain or seeds from harvested plants by beating or mechanical action",
         "note": "",
         "identity_overlay": null,
@@ -3517,7 +3546,7 @@
           "target_kind": "sense",
           "target_id": "sense:thresh:695f5a944f91934b",
           "target_locator": "record.senses[2]",
-          "target_label": "脱粒；把谷粒或种子从收割的植株中分离出来"
+          "target_label": "脱粒；打谷"
         }
       }
     ],
@@ -3588,7 +3617,7 @@
     "ordinal": 6197,
     "word": "tickle",
     "source_owner_path": "content/lexical/words/by-ordinal/o6197.json",
-    "source_fingerprint": "adce904c0e99fd1c0965cccf6bd4db5a1276da3f84fdc53ae9055f44d8c1b39f",
+    "source_fingerprint": "7fff65fb0d447df73d5883ebfcabf6e233b2831cf8197a05665df9cdd363d326",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3630,7 +3659,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "胳肢；使发痒；使快乐；逗乐",
+        "definition_cn": "胳肢；使发痒",
         "definition_en": "touch (a body part) lightly so as to excite the surface nerves and cause uneasiness, laughter, or spasmodic movements",
         "note": "",
         "identity_overlay": null,
@@ -3639,7 +3668,7 @@
           "target_kind": "sense",
           "target_id": "sense:tickle:0034fb9997bc59a5",
           "target_locator": "record.senses[1]",
-          "target_label": "胳肢；使发痒；使快乐；逗乐"
+          "target_label": "胳肢；使发痒"
         }
       },
       {
@@ -3647,7 +3676,7 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "逗乐；使感兴趣、取悦",
+        "definition_cn": "逗乐；使感兴趣；取悦",
         "definition_en": "figurative: to amuse, interest, or please someone",
         "note": "",
         "identity_overlay": null,
@@ -3656,7 +3685,7 @@
           "target_kind": "sense",
           "target_id": "sense:tickle:74aa390004846a8c",
           "target_locator": "record.senses[2]",
-          "target_label": "逗乐；使感兴趣、取悦"
+          "target_label": "逗乐；使感兴趣；取悦"
         }
       }
     ],
@@ -3693,7 +3722,7 @@
     "ordinal": 6198,
     "word": "toad",
     "source_owner_path": "content/lexical/words/by-ordinal/o6198.json",
-    "source_fingerprint": "8eb3586f70a235e53265667adc86d06d56d4bd4239c0da4c263a3d55aa1380e9",
+    "source_fingerprint": "59b109c440cfaa0784963f8a1ec934b83cfed345a0279eae22e8efe02e07b859",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3702,13 +3731,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "蟾蜍；癞蛤蟆；讨厌的家伙",
+      "summary_cn": "蟾蜍；癞蛤蟆",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "蟾蜍；癞蛤蟆；讨厌的家伙"
+        "target_label": "蟾蜍；癞蛤蟆"
       }
     },
     "senses": [
@@ -3717,7 +3746,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "蟾蜍；癞蛤蟆；讨厌的家伙",
+        "definition_cn": "蟾蜍；癞蛤蟆",
         "definition_en": "any of various tailless stout-bodied amphibians with long hind limbs for leaping; semiaquatic and terrestrial species",
         "note": "The amphibian is learner-main. Insulting person-use, if retained, is informal/disparaging rather than neutral.",
         "identity_overlay": null,
@@ -3726,7 +3755,7 @@
           "target_kind": "sense",
           "target_id": "sense:toad:511a67107f6c51ed",
           "target_locator": "record.senses[0]",
-          "target_label": "蟾蜍；癞蛤蟆；讨厌的家伙"
+          "target_label": "蟾蜍；癞蛤蟆"
         }
       },
       {

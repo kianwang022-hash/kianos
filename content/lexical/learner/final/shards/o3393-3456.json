@@ -538,7 +538,7 @@
     "ordinal": 3399,
     "word": "outlet",
     "source_owner_path": "content/lexical/words/by-ordinal/o3399.json",
-    "source_fingerprint": "730daf975d33f79abc37537e27a52e7fc89509bf47a16cd40c915f5849020e4f",
+    "source_fingerprint": "29f9701e3b1dd802a5d53316c1730c1bf15be27f6716f60fa1161bb33cb80434",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -547,13 +547,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "释放或逃逸的途径",
+      "summary_cn": "出口/发泄途径；零售店；插座",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "释放或逃逸的途径"
+        "target_label": "出口/发泄途径；零售店；插座"
       }
     },
     "senses": [
@@ -1330,7 +1330,7 @@
     "ordinal": 3405,
     "word": "outside",
     "source_owner_path": "content/lexical/words/by-ordinal/o3405.json",
-    "source_fingerprint": "96debdf83a73dd239453712bab8df143f9950e6b7a58672585640168ea2000a4",
+    "source_fingerprint": "044ce9d4c0e6d193e9a99235c0be2b0297b637f67af15dfebc949807cdd771b5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1342,13 +1342,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "外面",
+      "summary_cn": "外面；在…外/超出…范围",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "外面"
+        "target_label": "外面；在…外/超出…范围"
       }
     },
     "senses": [
@@ -1513,7 +1513,7 @@
     "ordinal": 3406,
     "word": "outskirts",
     "source_owner_path": "content/lexical/words/by-ordinal/o3406.json",
-    "source_fingerprint": "bbf22f796137d4d6cbd588d6e86a02729683a7622ce7e11d6a95e6df58a782d5",
+    "source_fingerprint": "bc26e91880835d63d52e7ffb6ead7e4731d749f43de84fe462e39e7f59d356dc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1540,7 +1540,15 @@
         "definition_cn": "近郊；市郊",
         "definition_en": "outlying areas (as of a city or town)",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "Ordinary learner-facing form is plural the outskirts, especially on the outskirts of + place; singular outskirt is rare/nondefault.",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "Ordinary learner-facing form is plural the outskirts, especially on the outskirts of + place; singular outskirt is rare/nondefault."
+          }
+        },
         "usage": [
           {
             "id": "collocation:d8468d7c3d9cb86b38da",
@@ -1568,25 +1576,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "outskirts ↔ outskirt",
-          "target_word": "outskirt",
-          "lines": [
-            {
-              "text": "Ordinary learner-main expression is plural the outskirts, including on the outskirts of. Singular outskirt is rare/lower; preserve both stable owners for continuity.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:2f82467bf44de6700135",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "outskirts ↔ outskirt"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -2015,7 +2005,7 @@
     "ordinal": 3411,
     "word": "over",
     "source_owner_path": "content/lexical/words/by-ordinal/o3411.json",
-    "source_fingerprint": "7b3ba38031db6198feba46c4c1382c155e3a5df59286002cdf7645d5898b3f40",
+    "source_fingerprint": "2ff220466aa10f789cca2dd10d3498fd53f212eb10d31436792de844a73ba4a6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2026,13 +2016,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "在……上方；越过；结束",
+      "summary_cn": "在…上方；越过；超过/多于；结束",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "在……上方；越过；结束"
+        "target_label": "在…上方；越过；超过/多于；结束"
       }
     },
     "senses": [
@@ -2629,11 +2619,19 @@
     "ordinal": 3415,
     "word": "overflow",
     "source_owner_path": "content/lexical/words/by-ordinal/o3415.json",
-    "source_fingerprint": "d951bd40f190e53124169bcb6e5aa1524888e2001f21bb57175227e4cb5d7a40",
-    "sense_lineage": [],
+    "source_fingerprint": "3cd991266a5bd6fbdec134156ddf486b6aed92c9fac277c6fedb6d944c73cad9",
+    "sense_lineage": [
+      {
+        "word_id": "word:overflow",
+        "target_kind": "sense",
+        "from_target_id": "sense:overflow:5ac758c235fb5bfa",
+        "status": "merged",
+        "to_target_id": "sense:overflow:10a8cee526035339"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1N"
       ],
       "density": "rich"
@@ -2653,70 +2651,23 @@
         "id": "sense:overflow:10a8cee526035339",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + over",
-        "definition_cn": "溢出，漫出",
-        "definition_en": "to flow over the edge or brim",
+        "governing_pattern": "I/T: overflow; overflow sth / overflow its banks",
+        "definition_cn": "溢出；漫出；漫过边界",
+        "definition_en": "for a container or place to become too full and spill, or for a liquid to flow over an edge, bank, or boundary",
         "note": "",
-        "identity_overlay": {
-          "text": "Verb overflow normally has main stress on the second element; noun overflow normally has main stress on the first element.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "Verb overflow normally has main stress on the second element; noun overflow normally has main stress on the first element."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:1d4b1b53c806cbb32bf3",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "overflow with + sth",
-            "meaning_cn": "充满，洋溢",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1d4b1b53c806cbb32bf3",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "overflow with + sth"
-            }
-          },
-          {
             "id": "collocation:0b34c88fc279d0aa83fc",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "The river overflowed its banks.",
             "meaning_cn": "河水漫过了堤岸。",
             "kind": "usage_example",
             "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:overflow:10a8cee526035339",
-          "target_locator": "record.senses[0]",
-          "target_label": "溢出，漫出"
-        }
-      },
-      {
-        "id": "sense:overflow:5ac758c235fb5bfa",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使溢出，使泛滥",
-        "definition_en": "to cause to flow over",
-        "note": "",
-        "identity_overlay": {
-          "text": "Verb overflow normally has main stress on the second element; noun overflow normally has main stress on the first element.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "Verb overflow normally has main stress on the second element; noun overflow normally has main stress on the first element."
-          }
-        },
-        "usage": [
+          },
           {
             "id": "collocation:bb03fe8cbde2e7b7b043",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[0].collocations[1]",
             "phrase": "overflow the container",
             "meaning_cn": "使容器溢出",
             "kind": "usage_example",
@@ -2725,32 +2676,24 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:overflow:5ac758c235fb5bfa",
-          "target_locator": "record.senses[1]",
-          "target_label": "使溢出，使泛滥"
+          "target_id": "sense:overflow:10a8cee526035339",
+          "target_locator": "record.senses[0]",
+          "target_label": "溢出；漫出；漫过边界"
         }
       },
       {
         "id": "sense:overflow:f6f08f9ff1fd5060",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "溢出，泛滥，溢出的液体",
         "definition_en": "the act of overflowing or the excess liquid",
         "note": "",
-        "identity_overlay": {
-          "text": "Verb overflow normally has main stress on the second element; noun overflow normally has main stress on the first element.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "Verb overflow normally has main stress on the second element; noun overflow normally has main stress on the first element."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:5c38c8711b265172df87",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "an overflow of water",
             "meaning_cn": "水的溢出",
             "kind": "usage_example",
@@ -2758,7 +2701,7 @@
           },
           {
             "id": "collocation:ed1d0ddf2ca9f986a3f2",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "overflow pipe",
             "meaning_cn": "溢流管",
             "kind": "usage_example",
@@ -2768,13 +2711,39 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:overflow:f6f08f9ff1fd5060",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "溢出，泛滥，溢出的液体"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:cb11fb6392d25e13c467",
+        "source_locator": "record.constructions[0]",
+        "pattern": "overflow with + sth",
+        "lines": [
+          {
+            "text": "充满；洋溢着",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative/fullness construction distinct from literal spilling",
+            "lang": "en"
+          },
+          {
+            "text": "to be extremely full of something, especially an emotion, quality, or people/things",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cb11fb6392d25e13c467",
+          "target_locator": "record.constructions[0]",
+          "target_label": "overflow with + sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2788,23 +2757,23 @@
     "ordinal": 3416,
     "word": "overhaul",
     "source_owner_path": "content/lexical/words/by-ordinal/o3416.json",
-    "source_fingerprint": "3fdca32cc99e54f7c91fa25b9588e921b12ffb8f97945961e6e2f410a8af3c92",
+    "source_fingerprint": "2acff7b96ee0d3aa4ebd5c8deebceed576d80f32ee6759633c5e4411f46642c9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
-        "1N"
+        "2V",
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "彻底检修；大检修",
+      "summary_cn": "彻底检修；彻底改革",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "彻底检修；大检修"
+        "target_label": "彻底检修；彻底改革"
       }
     },
     "senses": [
@@ -2816,15 +2785,7 @@
         "definition_cn": "彻底检修，翻修",
         "definition_en": "to examine and repair thoroughly",
         "note": "",
-        "identity_overlay": {
-          "text": "Verb overhaul normally has main stress on the second element; noun overhaul normally has main stress on the first element.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "Verb overhaul normally has main stress on the second element; noun overhaul normally has main stress on the first element."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:89b31228ffcba2d993c0",
@@ -2850,15 +2811,7 @@
         "definition_cn": "大检修，翻修",
         "definition_en": "a thorough examination and repair",
         "note": "",
-        "identity_overlay": {
-          "text": "Verb overhaul normally has main stress on the second element; noun overhaul normally has main stress on the first element.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "Verb overhaul normally has main stress on the second element; noun overhaul normally has main stress on the first element."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:08bba4c46e55790caf52",
@@ -2874,6 +2827,68 @@
           "target_id": "sense:overhaul:d710c80424ae5f49",
           "target_locator": "record.senses[1]",
           "target_label": "大检修，翻修"
+        }
+      },
+      {
+        "id": "sense:overhaul:5b78ebdddc013bcd",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vt. + system/process/organization",
+        "definition_cn": "彻底改革；全面整顿",
+        "definition_en": "to examine and change a system, process, or organization thoroughly so that it works more effectively",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c5de66401e08dde76cb7",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "overhaul a system/process",
+            "meaning_cn": "彻底改革制度/流程",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c5de66401e08dde76cb7",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "overhaul a system/process"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:overhaul:5b78ebdddc013bcd",
+          "target_locator": "record.senses[2]",
+          "target_label": "彻底改革；全面整顿"
+        }
+      },
+      {
+        "id": "sense:overhaul:77975779ed694f91",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "彻底改革；全面整顿",
+        "definition_en": "a thorough or major change to a system, process, or organization",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:53c9de4e513bdfc7f4a8",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a major overhaul of the system",
+            "meaning_cn": "对制度的重大改革",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:53c9de4e513bdfc7f4a8",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "a major overhaul of the system"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:overhaul:77975779ed694f91",
+          "target_locator": "record.senses[3]",
+          "target_label": "彻底改革；全面整顿"
         }
       }
     ],
@@ -3024,7 +3039,7 @@
     "ordinal": 3418,
     "word": "overhear",
     "source_owner_path": "content/lexical/words/by-ordinal/o3418.json",
-    "source_fingerprint": "b77fff85fd398004c22ac2140bc034941a46980cf300e0a04f8047a7e7c09be5",
+    "source_fingerprint": "e97ba44cece047e10d3f2379dda2a0822cf7028942e69b61fda67ac070bc676b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3047,9 +3062,9 @@
         "id": "sense:overhear:1dbdbf54f034550f",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "无意中听到，偷听",
-        "definition_en": "hear (a conversation or speaker) without their knowledge",
+        "governing_pattern": "vt. + object / overhear sb doing/saying",
+        "definition_cn": "无意中听到；偶然听到",
+        "definition_en": "to hear a conversation or remark by chance, without intending to listen to it",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3079,7 +3094,7 @@
           "target_kind": "sense",
           "target_id": "sense:overhear:1dbdbf54f034550f",
           "target_locator": "record.senses[0]",
-          "target_label": "无意中听到，偷听"
+          "target_label": "无意中听到；偶然听到"
         }
       }
     ],
@@ -3246,7 +3261,7 @@
     "ordinal": 3420,
     "word": "overlook",
     "source_owner_path": "content/lexical/words/by-ordinal/o3420.json",
-    "source_fingerprint": "717a5bc4d530ef55aaaf4143c4e91021d79c5bbb40bf60663de34dfd3de51142",
+    "source_fingerprint": "57a87768290b0a684d2693d76ba6535596491ef204720c739995d39b2dd560f4",
     "sense_lineage": [
       {
         "word_id": "word:overlook",
@@ -3258,81 +3273,50 @@
     ],
     "recall_map": {
       "parts": [
-        "2V"
+        "1V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "忽视；俯瞰",
+      "summary_cn": "忽视或俯瞰",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "忽视；俯瞰"
+        "target_label": "忽视或俯瞰"
       }
     },
     "senses": [
       {
-        "id": "sense:overlook:d5bd9d0f628554ba",
+        "id": "sense:overlook:a97427eaaa16edb4",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "忽视；没注意到；未考虑到",
-        "definition_en": "to fail to notice, see, or consider something",
+        "governing_pattern": "vt. + fault/error/absence",
+        "definition_cn": "宽容；有意不追究",
+        "definition_en": "to deliberately forgive, ignore, or choose not to punish a fault or bad behavior",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:116ed125826d5e255e81",
+            "id": "collocation:38f54f95d6a1c524bfcb",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "overlook a detail/problem",
-            "meaning_cn": "忽略细节/问题",
+            "phrase": "overlook an error/absence this time",
+            "meaning_cn": "这次宽容/不追究错误或缺席",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:116ed125826d5e255e81",
+              "target_id": "collocation:38f54f95d6a1c524bfcb",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "overlook a detail/problem"
+              "target_label": "overlook an error/absence this time"
             }
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:overlook:d5bd9d0f628554ba",
+          "target_id": "sense:overlook:a97427eaaa16edb4",
           "target_locator": "record.senses[0]",
-          "target_label": "忽视；没注意到；未考虑到"
-        }
-      },
-      {
-        "id": "sense:overlook:2582536ebd975f90",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "俯瞰；从高处可看到",
-        "definition_en": "to have a view of something from above",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ab116ba7e1fc3c3d4f6a",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "a room overlooking the sea",
-            "meaning_cn": "俯瞰大海的房间",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ab116ba7e1fc3c3d4f6a",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "a room overlooking the sea"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:overlook:2582536ebd975f90",
-          "target_locator": "record.senses[1]",
-          "target_label": "俯瞰；从高处可看到"
+          "target_label": "宽容；有意不追究"
         }
       }
     ],
@@ -4535,7 +4519,7 @@
     "ordinal": 3431,
     "word": "own",
     "source_owner_path": "content/lexical/words/by-ordinal/o3431.json",
-    "source_fingerprint": "d8ed4c7e915cdac2da41fae0f694ac36cacec780e93647ce670dc90b7acaee4f",
+    "source_fingerprint": "9132032c5c1cb2a35528fc8b872b57291f04b81a36c121501b4c8013d51d1ab0",
     "sense_lineage": [
       {
         "word_id": "word:own",
@@ -4547,102 +4531,21 @@
     ],
     "recall_map": {
       "parts": [
-        "(2+1)V",
-        "1A"
+        "1V+"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "自己的；拥有；承认（次要）",
+      "summary_cn": "自己的；拥有",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "自己的；拥有；承认（次要）"
+        "target_label": "自己的；拥有"
       }
     },
-    "senses": [
-      {
-        "id": "sense:own:e34fcdba29115330",
-        "source_locator": "record.senses[0]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "自己的；属于某个特定所有者的",
-        "definition_en": "belonging to oneself or to the specified possessor, usually after a possessive determiner",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:79591dbb8462da814b94",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "my/your own + noun",
-            "meaning_cn": "我/你自己的……",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:79591dbb8462da814b94",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "my/your own + noun"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:own:e34fcdba29115330",
-          "target_locator": "record.senses[0]",
-          "target_label": "自己的；属于某个特定所有者的"
-        }
-      },
-      {
-        "id": "sense:own:c07b737b77965295",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "拥有；具有所有权",
-        "definition_en": "to have ownership or possession of something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:2f5f6978fb6eed68e557",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "own a house/business",
-            "meaning_cn": "拥有房屋/企业",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2f5f6978fb6eed68e557",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "own a house/business"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:own:c07b737b77965295",
-          "target_locator": "record.senses[1]",
-          "target_label": "拥有；具有所有权"
-        }
-      },
-      {
-        "id": "sense:own:28f18ea0e4b65749",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + that-clause / own up to",
-        "definition_cn": "承认；供认",
-        "definition_en": "to admit or acknowledge something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:own:28f18ea0e4b65749",
-          "target_locator": "record.senses[2]",
-          "target_label": "承认；供认"
-        }
-      }
-    ],
+    "senses": [],
     "secondary_senses": [
       {
         "id": "deep:secondary_senses:own:ec334af33fc4c20d",
@@ -4670,8 +4573,8 @@
             "lang": "cn"
           },
           {
-            "text": "admission branch, not possession",
-            "lang": "en"
+            "text": "own + that-clause 承认",
+            "lang": "cn"
           },
           {
             "text": "to admit or acknowledge",
@@ -4693,14 +4596,6 @@
           {
             "text": "坦白；承认",
             "lang": "cn"
-          },
-          {
-            "text": "informal admission construction",
-            "lang": "en"
-          },
-          {
-            "text": "to admit or confess something, especially something wrong",
-            "lang": "en"
           }
         ],
         "repair": {
@@ -4708,6 +4603,56 @@
           "target_id": "construction:7bf9b25951b2100e0fa7",
           "target_locator": "record.constructions[1]",
           "target_label": "own up to sth/doing sth"
+        }
+      },
+      {
+        "id": "construction:10a941483f88577c4235",
+        "source_locator": "record.constructions[2]",
+        "pattern": "on one's own",
+        "lines": [
+          {
+            "text": "独自；独立地；靠自己",
+            "lang": "cn"
+          },
+          {
+            "text": "possessive own construction, not possession verb",
+            "lang": "en"
+          },
+          {
+            "text": "alone or without another person; by extension, without help",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:10a941483f88577c4235",
+          "target_locator": "record.constructions[2]",
+          "target_label": "on one's own"
+        }
+      },
+      {
+        "id": "construction:432836529234a501288d",
+        "source_locator": "record.constructions[3]",
+        "pattern": "of one's own",
+        "lines": [
+          {
+            "text": "属于自己独有的",
+            "lang": "cn"
+          },
+          {
+            "text": "possessive exclusivity construction",
+            "lang": "en"
+          },
+          {
+            "text": "belonging exclusively to the person or group, not shared or borrowed",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:432836529234a501288d",
+          "target_locator": "record.constructions[3]",
+          "target_label": "of one's own"
         }
       }
     ],
@@ -4807,11 +4752,11 @@
     "ordinal": 3433,
     "word": "ownership",
     "source_owner_path": "content/lexical/words/by-ordinal/o3433.json",
-    "source_fingerprint": "ec2bde69a07250ad0460426444f07a6081bf233fcef9c86ed6923603085f8c99",
+    "source_fingerprint": "f0cff7962cf5326b099842a55435bce2ec70be1aa11feb57a4a4bf03f1da7d04",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -4850,21 +4795,8 @@
             }
           },
           {
-            "id": "collocation:c791547bc754a7f503ea",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "take ownership of + sth",
-            "meaning_cn": "承担对某物的责任；接管某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c791547bc754a7f503ea",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "take ownership of + sth"
-            }
-          },
-          {
             "id": "collocation:d0ff341084472bb69bee",
-            "source_locator": "record.senses[0].collocations[2]",
+            "source_locator": "record.senses[0].collocations[1]",
             "phrase": "private ownership",
             "meaning_cn": "私有制",
             "kind": "usage_example",
@@ -4876,6 +4808,37 @@
           "target_id": "sense:ownership:44ce91a43b7f5ef1",
           "target_locator": "record.senses[0]",
           "target_label": "所有权的状态或事实"
+        }
+      },
+      {
+        "id": "sense:ownership:0848d1da89b4eb50",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "责任担当；对任务/问题/结果的负责",
+        "definition_en": "acceptance of responsibility and accountability for a task, problem, decision, or result",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c791547bc754a7f503ea",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "take ownership of + sth",
+            "meaning_cn": "承担对某事的责任；负责到底",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c791547bc754a7f503ea",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "take ownership of + sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:ownership:0848d1da89b4eb50",
+          "target_locator": "record.senses[1]",
+          "target_label": "责任担当；对任务/问题/结果的负责"
         }
       }
     ],
@@ -4905,7 +4868,7 @@
     "ordinal": 3434,
     "word": "ox",
     "source_owner_path": "content/lexical/words/by-ordinal/o3434.json",
-    "source_fingerprint": "7920e221091896eab5776473de1e2aa1bde34a0452e83706cc4a0d4c5efbde83",
+    "source_fingerprint": "5dc26a4642ff620fd16cf9a1f468cfdb1d242a25368ef7141d99fd533432349f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4932,7 +4895,15 @@
         "definition_cn": "牛；公牛",
         "definition_en": "a large animal kept for meat or used for pulling heavy loads",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "singular ox; irregular plural oxen",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "singular ox; irregular plural oxen"
+          }
+        },
         "usage": [
           {
             "id": "collocation:49cde6e318cbfeba45d7",
@@ -5183,11 +5154,11 @@
     "ordinal": 3438,
     "word": "pace",
     "source_owner_path": "content/lexical/words/by-ordinal/o3438.json",
-    "source_fingerprint": "b3faaa5b377798d8f4b0b3f68eb950db1e23e34bb4f21bad67ccc648b6357522",
+    "source_fingerprint": "4357ac665aa270f0ec212147abe8e02519b9640bdc4a52f0c8d474a98ec06f5f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "2N"
       ],
       "density": "rich"
@@ -5248,36 +5219,10 @@
         }
       },
       {
-        "id": "sense:pace:c6013b45b4be543f",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "一步，步幅",
-        "definition_en": "a single step or the distance covered in one step",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3c4e89319d3f0d83a9e2",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "take a pace forward",
-            "meaning_cn": "向前迈一步",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:pace:c6013b45b4be543f",
-          "target_locator": "record.senses[1]",
-          "target_label": "一步，步幅"
-        }
-      },
-      {
         "id": "sense:pace:8f04a9e33ee15626",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + (about/around)",
+        "governing_pattern": "I/T: pace up/down/about; pace + place",
         "definition_cn": "踱步，来回走动",
         "definition_en": "to walk back and forth in a small area, often because you are anxious",
         "note": "",
@@ -5285,20 +5230,20 @@
         "usage": [
           {
             "id": "collocation:9da9393c844772143504",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "pace up and down",
             "meaning_cn": "来回踱步",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:9da9393c844772143504",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "pace up and down"
             }
           },
           {
             "id": "collocation:2603bbff64adb3895552",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "pace the room",
             "meaning_cn": "在房间里踱步",
             "kind": "usage_example",
@@ -5308,8 +5253,34 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:pace:8f04a9e33ee15626",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "踱步，来回走动"
+        }
+      },
+      {
+        "id": "sense:pace:c6013b45b4be543f",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "一步，步幅",
+        "definition_en": "a single step or the distance covered in one step",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3c4e89319d3f0d83a9e2",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "take a pace forward",
+            "meaning_cn": "向前迈一步",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pace:c6013b45b4be543f",
+          "target_locator": "record.senses[2]",
+          "target_label": "一步，步幅"
         }
       },
       {
@@ -5342,50 +5313,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "用步测"
         }
-      },
-      {
-        "id": "sense:pace:397b6f0a4ad2ebad",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vt. + self/object",
-        "definition_cn": "调整/控制速度或用力程度",
-        "definition_en": "to regulate the speed, rate, or effort of oneself or an activity",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c89d8b95de175beeeeb2",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "pace yourself",
-            "meaning_cn": "控制自己的节奏/体力",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c89d8b95de175beeeeb2",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "pace yourself"
-            }
-          },
-          {
-            "id": "collocation:788695c0e8cea96a3fa6",
-            "source_locator": "record.senses[4].collocations[1]",
-            "phrase": "pace the work/race",
-            "meaning_cn": "控制工作/比赛节奏",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:788695c0e8cea96a3fa6",
-              "target_locator": "record.senses[4].collocations[1]",
-              "target_label": "pace the work/race"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:pace:397b6f0a4ad2ebad",
-          "target_locator": "record.senses[4]",
-          "target_label": "调整/控制速度或用力程度"
-        }
       }
     ],
     "secondary_senses": [],
@@ -5403,7 +5330,7 @@
     "ordinal": 3439,
     "word": "pack",
     "source_owner_path": "content/lexical/words/by-ordinal/o3439.json",
-    "source_fingerprint": "1ef0e5058516ce7419495c20e3055966fbb4657a453a93d69d75c06573ff7d52",
+    "source_fingerprint": "2c77e1ff80923b28cc0da57b0a7383a5052dc925eba1b5e465e0587c9a3931a7",
     "sense_lineage": [
       {
         "word_id": "word:pack",
@@ -6100,15 +6027,8 @@
     "ordinal": 3444,
     "word": "paddle",
     "source_owner_path": "content/lexical/words/by-ordinal/o3444.json",
-    "source_fingerprint": "4a96afc37a8aa8181f7741922dff74a70be575cdc5a6e173a5e88bb2717e1b07",
+    "source_fingerprint": "b41c040f836477961696061868003d06c6779685686937b3036d52222757e139",
     "sense_lineage": [
-      {
-        "word_id": "word:paddle",
-        "target_kind": "sense",
-        "from_target_id": "sense:paddle:401c3898b3895f74",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:paddle",
         "target_kind": "sense",
@@ -6133,82 +6053,36 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
-        "1N"
+        "1V"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "桨；划桨",
+      "summary_cn": "桨，划桨",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "桨；划桨"
+        "target_label": "桨，划桨"
       }
     },
     "senses": [
       {
-        "id": "sense:paddle:31f8486cbaff5e75",
+        "id": "sense:paddle:401c3898b3895f74",
         "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "短桨；桨",
-        "definition_en": "a short light oar used without an oarlock to propel a canoe or small boat",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:bbe75f66f5398d6bc383",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a canoe paddle",
-            "meaning_cn": "独木舟桨",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:bbe75f66f5398d6bc383",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "a canoe paddle"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:paddle:31f8486cbaff5e75",
-          "target_locator": "record.senses[0]",
-          "target_label": "短桨；桨"
-        }
-      },
-      {
-        "id": "sense:paddle:d35675e705c35a09",
-        "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. / vt.",
-        "definition_cn": "用桨划船",
-        "definition_en": "to move or propel a canoe or small boat through water using a paddle",
-        "note": "",
+        "governing_pattern": "vi.: paddle in/at + shallow water",
+        "definition_cn": "涉水；戏水（尤英式）",
+        "definition_en": "chiefly BrE, to walk or wade with bare feet in shallow water, especially for pleasure",
+        "note": "Chiefly BrE.",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:314bb688946ef3a3e557",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "paddle a canoe / paddle across the lake",
-            "meaning_cn": "划独木舟/划过湖面",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:314bb688946ef3a3e557",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "paddle a canoe / paddle across the lake"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:paddle:d35675e705c35a09",
-          "target_locator": "record.senses[1]",
-          "target_label": "用桨划船"
+          "target_id": "sense:paddle:401c3898b3895f74",
+          "target_locator": "record.senses[0]",
+          "target_label": "涉水；戏水（尤英式）"
         }
       }
     ],
@@ -6227,7 +6101,7 @@
     "ordinal": 3445,
     "word": "page",
     "source_owner_path": "content/lexical/words/by-ordinal/o3445.json",
-    "source_fingerprint": "7343fc8324c523fe5f844c764d7d4be557c12b52f38fd6699ac2e35b08f268df",
+    "source_fingerprint": "bdb374397f18d92efe7f0eb84d4825d419bf370568d0f600f4c16b00a7b8ec56",
     "sense_lineage": [
       {
         "word_id": "word:page",
@@ -6258,50 +6132,76 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "页；页面",
+      "summary_cn": "页；页面；网页",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "页；页面"
+        "target_label": "页；页面；网页"
       }
     },
     "senses": [
       {
-        "id": "sense:page:050bd6ee5c405d15",
+        "id": "sense:page:03e13d32b61e4407",
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "页；书页；页面",
-        "definition_en": "one side of a leaf in a book, document, or similar work",
+        "definition_cn": "网页；数字页面",
+        "definition_en": "a document or unit of information on the internet, usually part of a website or digital service",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:ad0b814e375808f8b5e9",
+            "id": "collocation:aa4325ff792b121ea2bb",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "on page 10 / turn the page",
-            "meaning_cn": "在第10页/翻页",
+            "phrase": "web page / home page",
+            "meaning_cn": "网页 / 主页",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:ad0b814e375808f8b5e9",
+              "target_id": "collocation:aa4325ff792b121ea2bb",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "on page 10 / turn the page"
+              "target_label": "web page / home page"
             }
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:page:050bd6ee5c405d15",
+          "target_id": "sense:page:03e13d32b61e4407",
           "target_locator": "record.senses[0]",
-          "target_label": "页；书页；页面"
+          "target_label": "网页；数字页面"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:e74d1421dd0efcc63102",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be on the same page",
+        "lines": [
+          {
+            "text": "意见一致；有相同理解/目标",
+            "lang": "cn"
+          },
+          {
+            "text": "idiomatic agreement/understanding construction",
+            "lang": "en"
+          },
+          {
+            "text": "to share the same understanding, assumptions, or goals",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e74d1421dd0efcc63102",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be on the same page"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6667,7 +6567,7 @@
     "ordinal": 3448,
     "word": "paint",
     "source_owner_path": "content/lexical/words/by-ordinal/o3448.json",
-    "source_fingerprint": "f1809e9cbc09e03c8ed3cfac09c763c7a1d98d3cb6f88909fb87183bde7a21ff",
+    "source_fingerprint": "c96a64d2990d0408d4a19c44b6ba32ac25e187e27dc5f1603ee56e379733d1af",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6738,14 +6638,6 @@
             "meaning_cn": "粉刷墙壁",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:1b49ae7181c4542c209e",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "paint a picture",
-            "meaning_cn": "画一幅画",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -6759,7 +6651,7 @@
         "id": "sense:paint:424eecd14e6e54c9",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi.",
+        "governing_pattern": "I/T: paint; paint a picture/portrait; paint in oils",
         "definition_cn": "用颜料作画",
         "definition_en": "to make a picture using paints",
         "note": "",
@@ -6770,6 +6662,14 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "paint in oils",
             "meaning_cn": "用油画颜料作画",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:1b49ae7181c4542c209e",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "paint a picture",
+            "meaning_cn": "画一幅画",
             "kind": "usage_example",
             "repair": null
           }
@@ -6783,7 +6683,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:25b9ec7f4c4fe48ad79e",
+        "source_locator": "record.constructions[0]",
+        "pattern": "paint a picture (of sth)",
+        "lines": [
+          {
+            "text": "描绘；描述；把情况呈现成某种样子",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative description construction",
+            "lang": "en"
+          },
+          {
+            "text": "to describe, represent, or make a situation seem a particular way",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:25b9ec7f4c4fe48ad79e",
+          "target_locator": "record.constructions[0]",
+          "target_label": "paint a picture (of sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6874,15 +6800,8 @@
     "ordinal": 3450,
     "word": "painting",
     "source_owner_path": "content/lexical/words/by-ordinal/o3450.json",
-    "source_fingerprint": "c939d19128b92a47face149b63b996598eb1f0ef5994290ca800a268d2f9f4b7",
+    "source_fingerprint": "389ad20d9eab673eb13096fa5b38933b5f60b4585f8fea4c7a2a3874238eff3f",
     "sense_lineage": [
-      {
-        "word_id": "word:painting",
-        "target_kind": "sense",
-        "from_target_id": "sense:painting:239287ae6fc15213",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:painting",
         "target_kind": "sense",
@@ -6893,81 +6812,36 @@
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "绘画作品；绘画艺术/行为",
+      "summary_cn": "绘画艺术或行为，或画作",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "绘画作品；绘画艺术/行为"
+        "target_label": "绘画艺术或行为，或画作"
       }
     },
     "senses": [
       {
-        "id": "sense:painting:d0cc8488d82b5bdb",
+        "id": "sense:painting:239287ae6fc15213",
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "画；绘画作品",
-        "definition_en": "a picture or work of art created by applying paint to a surface",
+        "definition_cn": "刷漆；涂漆",
+        "definition_en": "the act or work of applying paint to a surface",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ba6851351225f7592a1c",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "an oil painting",
-            "meaning_cn": "一幅油画",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ba6851351225f7592a1c",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "an oil painting"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:painting:d0cc8488d82b5bdb",
+          "target_id": "sense:painting:239287ae6fc15213",
           "target_locator": "record.senses[0]",
-          "target_label": "画；绘画作品"
-        }
-      },
-      {
-        "id": "sense:painting:72a3d8419d625c37",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "绘画；作画艺术/行为",
-        "definition_en": "the art or act of creating pictures with paint",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8442f05ae04bede4b681",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "the art of painting",
-            "meaning_cn": "绘画艺术",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8442f05ae04bede4b681",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "the art of painting"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:painting:72a3d8419d625c37",
-          "target_locator": "record.senses[1]",
-          "target_label": "绘画；作画艺术/行为"
+          "target_label": "刷漆；涂漆"
         }
       }
     ],
@@ -6986,7 +6860,7 @@
     "ordinal": 3451,
     "word": "pair",
     "source_owner_path": "content/lexical/words/by-ordinal/o3451.json",
-    "source_fingerprint": "d573af3d08c46cd58240bb7d37e5740b42ba5e8e6b560c192f448dcf237cad9e",
+    "source_fingerprint": "f9e26fa8095baea4232b12ebcfb75d6207014462684c6fcf69c31f7ba998eca5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7070,7 +6944,7 @@
         "id": "sense:pair:47943cc8d1c75e61",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: pair A with B; A pairs (well) with B; pair up (with sb)",
         "definition_cn": "使成对，配对",
         "definition_en": "form a pair or pairs",
         "note": "",
@@ -7111,7 +6985,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:24b95d9782338ea7085a",
+        "source_locator": "record.constructions[0]",
+        "pattern": "pair A with B / pair up (with sb)",
+        "lines": [
+          {
+            "text": "把A与B配对；（与某人）组成一对",
+            "lang": "cn"
+          },
+          {
+            "text": "transitive pair A with B and intransitive pair/pair up share the same pairing sense",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:24b95d9782338ea7085a",
+          "target_locator": "record.constructions[0]",
+          "target_label": "pair A with B / pair up (with sb)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7220,7 +7116,7 @@
     "ordinal": 3453,
     "word": "pale",
     "source_owner_path": "content/lexical/words/by-ordinal/o3453.json",
-    "source_fingerprint": "49230ae8bc8620aa1b55db14a4982997d247589f238b1549d85ef1f08d7ad3b5",
+    "source_fingerprint": "e12d46583be8085bc794a8421da16ef0ab7271e53ca90ef4e94d162866f27b30",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7354,21 +7250,7 @@
         "definition_en": "a wooden stake used in fences; a boundary or limit",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:0e32e90f8687d6aae56e",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "beyond the pale",
-            "meaning_cn": "越轨的，令人无法接受的",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0e32e90f8687d6aae56e",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "beyond the pale"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:pale:e7071b7d1a1c51ad",
@@ -7380,7 +7262,7 @@
         "id": "sense:pale:def8cc603c9d3ae3",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vi. + in comparison/beside",
+        "governing_pattern": "vi. + in comparison with/to / beside",
         "definition_cn": "相形见绌；相比之下显得逊色",
         "definition_en": "to seem less impressive, important, or serious when compared with something else",
         "note": "",
@@ -7422,7 +7304,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:ddec56ea051f71b1a0da",
+        "source_locator": "record.constructions[0]",
+        "pattern": "beyond the pale",
+        "lines": [
+          {
+            "text": "超出可接受/合理的界限；令人无法接受",
+            "lang": "cn"
+          },
+          {
+            "text": "lexicalized idiom; do not require the rare historical noun pale for ordinary interpretation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ddec56ea051f71b1a0da",
+          "target_locator": "record.constructions[0]",
+          "target_label": "beyond the pale"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

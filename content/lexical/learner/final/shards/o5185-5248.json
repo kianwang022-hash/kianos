@@ -1010,7 +1010,7 @@
     "ordinal": 5193,
     "word": "undertake",
     "source_owner_path": "content/lexical/words/by-ordinal/o5193.json",
-    "source_fingerprint": "994ce4ff9db10e43d04d7d43bbcc689d3315ca9b4df8ab05fa2af44b90dfeca2",
+    "source_fingerprint": "5729e7c7105f508161a6f1b76fca062d44ad720febbe484f4e973ba78eb57ab7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1046,19 +1046,6 @@
             "meaning_cn": "承担一个项目",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:6e116813555e3db07763",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "undertake to do sth",
-            "meaning_cn": "承诺做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6e116813555e3db07763",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "undertake to do sth"
-            }
           }
         ],
         "repair": {
@@ -1072,21 +1059,21 @@
         "id": "sense:undertake:37262e02302e5483",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + to do",
+        "governing_pattern": "infinitival complement: undertake to do sth",
         "definition_cn": "承诺；保证",
         "definition_en": "to promise to do something",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:509fe0259539dd123a8f",
+            "id": "collocation:c6e753b59986d544142d",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "undertake to do sth",
-            "meaning_cn": "承诺做某事",
+            "meaning_cn": "承诺/保证做某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:509fe0259539dd123a8f",
+              "target_id": "collocation:c6e753b59986d544142d",
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "undertake to do sth"
             }
@@ -1618,7 +1605,7 @@
     "ordinal": 5199,
     "word": "unfold",
     "source_owner_path": "content/lexical/words/by-ordinal/o5199.json",
-    "source_fingerprint": "137467a685c3dce6a5e4e44d51ae515e035af81a1f5d57d8e785d358dd13e5a2",
+    "source_fingerprint": "cea6251bdeecdb927424da9ff0624667004102d47b84e5c842142f63e1f17e1a",
     "sense_lineage": [
       {
         "word_id": "word:unfold",
@@ -1649,7 +1636,7 @@
         "id": "sense:unfold:9552486e612e50f5",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: unfold a map; the flower/petals unfolded",
         "definition_cn": "展开；打开",
         "definition_en": "open or spread out from a folded state",
         "note": "",
@@ -2430,7 +2417,7 @@
     "ordinal": 5206,
     "word": "unite",
     "source_owner_path": "content/lexical/words/by-ordinal/o5206.json",
-    "source_fingerprint": "3a03ccd19fd9402f36f4eea8dd70538a5b59070dc577b274f1a4418054d08bae",
+    "source_fingerprint": "eb7cd3ffb94b54748d5f30a325db8b8931787874761dfe6999bf331165289482",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2453,7 +2440,7 @@
         "id": "sense:unite:4b5651b009c954f9",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "vi.: unite with sb/sth; unite against sth",
         "definition_cn": "联合；团结",
         "definition_en": "to join together with others for a common purpose",
         "note": "",
@@ -2484,22 +2471,6 @@
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "unite against + sth"
             }
-          },
-          {
-            "id": "collocation:075b9f1aac61feb58aad",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "unite the two parties",
-            "meaning_cn": "联合两党",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:55ef16571876f344111e",
-            "source_locator": "record.senses[0].collocations[3]",
-            "phrase": "unite forces",
-            "meaning_cn": "联合力量",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -2544,12 +2515,29 @@
         "id": "sense:unite:b31bd977d53e5366",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object; unite people/things",
+        "governing_pattern": "vt.: unite people/things; unite the two parties; unite forces",
         "definition_cn": "使团结、使联合；把人或事物结合成整体",
         "definition_en": "to bring people or things together into one group or whole",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:075b9f1aac61feb58aad",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "unite the two parties",
+            "meaning_cn": "联合两党",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:55ef16571876f344111e",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "unite forces",
+            "meaning_cn": "联合力量",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:unite:b31bd977d53e5366",
@@ -3253,7 +3241,7 @@
     "ordinal": 5214,
     "word": "unload",
     "source_owner_path": "content/lexical/words/by-ordinal/o5214.json",
-    "source_fingerprint": "8d40affa47425191eba1fe8c4ebeab1509313f6bebf2d93a50de5e80bdca96df",
+    "source_fingerprint": "50c793c360a740a6cf30c96205e9fd5fa62c85713ed0938e52b66102009caf4d",
     "sense_lineage": [
       {
         "word_id": "word:unload",
@@ -3284,7 +3272,7 @@
         "id": "sense:unload:76baca5046cd5f1a",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: unload a truck/cargo; the ship/truck unloads at the port",
         "definition_cn": "从…卸下；卸（货）",
         "definition_en": "take the load off (a container or vehicle)",
         "note": "",
@@ -4825,23 +4813,31 @@
     "ordinal": 5226,
     "word": "upward",
     "source_owner_path": "content/lexical/words/by-ordinal/o5226.json",
-    "source_fingerprint": "52a82550b8fede7a8a9b956f84a15ce0909f85b98a1ec0b37208c225ab0f24d1",
-    "sense_lineage": [],
+    "source_fingerprint": "53f524abf010e91ec6777ea16586d1d0a9cf16c19029bafe0dceb0a58c9abf54",
+    "sense_lineage": [
+      {
+        "word_id": "word:upward",
+        "target_kind": "sense",
+        "from_target_id": "sense:upward:0842211ba7785e28",
+        "status": "merged",
+        "to_target_id": "sense:upward:f9fef89e4d525b93"
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A",
-        "2ADV"
+        "1ADV"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "向上的；向上；也指向更高数量、水平或价值；向更高数量、水平或价值",
+      "summary_cn": "向上的；向上；向更高数量、水平或价值",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "向上的；向上；也指向更高数量、水平或价值；向更高数量、水平或价值"
+        "target_label": "向上的；向上；向更高数量、水平或价值"
       }
     },
     "senses": [
@@ -4895,23 +4891,6 @@
           "target_id": "sense:upward:f9fef89e4d525b93",
           "target_locator": "record.senses[1]",
           "target_label": "向上；也指向更高数量、水平或价值"
-        }
-      },
-      {
-        "id": "sense:upward:0842211ba7785e28",
-        "source_locator": "record.senses[2]",
-        "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "向更高数量、水平或价值",
-        "definition_en": "toward a higher amount, level, or value",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:upward:0842211ba7785e28",
-          "target_locator": "record.senses[2]",
-          "target_label": "向更高数量、水平或价值"
         }
       }
     ],
@@ -5064,11 +5043,19 @@
     "ordinal": 5228,
     "word": "urge",
     "source_owner_path": "content/lexical/words/by-ordinal/o5228.json",
-    "source_fingerprint": "ebed30662b360c7b19228697296ca31a131b31e13b1844868d30a34025cba5fe",
-    "sense_lineage": [],
+    "source_fingerprint": "26e92a03db9584a39df65254617afd1ecbe7d50e4bdf83606c868ffacbac6e88",
+    "sense_lineage": [
+      {
+        "word_id": "word:urge",
+        "target_kind": "sense",
+        "from_target_id": "sense:urge:d209329369ff5fab",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1N"
       ],
       "density": "rich"
@@ -5088,7 +5075,7 @@
         "id": "sense:urge:416b7e38e7785250",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + sb to do sth",
+        "governing_pattern": "urge sb to do sth; urge that + clause; urge sth",
         "definition_cn": "力劝，敦促",
         "definition_en": "to strongly encourage someone to do something",
         "note": "",
@@ -5165,37 +5152,6 @@
           "target_id": "sense:urge:c003ca8a21615212",
           "target_locator": "record.senses[1]",
           "target_label": "强烈的欲望，冲动"
-        }
-      },
-      {
-        "id": "sense:urge:d209329369ff5fab",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + for",
-        "definition_cn": "强烈要求",
-        "definition_en": "to make a strong request or demand",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:0cd948087274205f39a0",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "urge for + sth",
-            "meaning_cn": "强烈要求某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0cd948087274205f39a0",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "urge for + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:urge:d209329369ff5fab",
-          "target_locator": "record.senses[2]",
-          "target_label": "强烈要求"
         }
       }
     ],
@@ -5383,23 +5339,31 @@
     "ordinal": 5231,
     "word": "use",
     "source_owner_path": "content/lexical/words/by-ordinal/o5231.json",
-    "source_fingerprint": "b4132bd692be4a1f4d464613df0d4f9b86fbd84134f57950aaf088e3ca2e3144",
-    "sense_lineage": [],
+    "source_fingerprint": "26c4c28f820b61ad2a6ab9a58a3bff0f2c552d7fda7833d45ef47fbede101ff1",
+    "sense_lineage": [
+      {
+        "word_id": "word:use",
+        "target_kind": "sense",
+        "from_target_id": "sense:use:61ddd9dabd6a5811",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使用，利用",
+      "summary_cn": "使用，利用；使用/用法",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使用，利用"
+        "target_label": "使用，利用；使用/用法"
       }
     },
     "senses": [
@@ -5480,64 +5444,13 @@
           "target_locator": "record.senses[1]",
           "target_label": "使用，用法"
         }
-      },
-      {
-        "id": "sense:use:61ddd9dabd6a5811",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "惯常，过去常常",
-        "definition_en": "to do something in the past habitually (used only in past tense)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:use:61ddd9dabd6a5811",
-          "target_locator": "record.senses[2]",
-          "target_label": "惯常，过去常常"
-        }
       }
     ],
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:055a71433c42dd202c5a",
-        "source_locator": "record.constructions[0]",
-        "pattern": "used to do sth",
-        "lines": [
-          {
-            "text": "过去常常做…",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:055a71433c42dd202c5a",
-          "target_locator": "record.constructions[0]",
-          "target_label": "used to do sth"
-        }
-      },
-      {
-        "id": "construction:edb95d8f8d00c1c4085c",
-        "source_locator": "record.constructions[1]",
-        "pattern": "used to do/be",
-        "lines": [
-          {
-            "text": "过去常做/曾经处于某状态",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:edb95d8f8d00c1c4085c",
-          "target_locator": "record.constructions[1]",
-          "target_label": "used to do/be"
-        }
-      },
-      {
         "id": "construction:ca346ef3c943a2bb25f6",
-        "source_locator": "record.constructions[2]",
+        "source_locator": "record.constructions[0]",
         "pattern": "be used to + n/V-ing",
         "lines": [
           {
@@ -5548,13 +5461,13 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:ca346ef3c943a2bb25f6",
-          "target_locator": "record.constructions[2]",
+          "target_locator": "record.constructions[0]",
           "target_label": "be used to + n/V-ing"
         }
       },
       {
         "id": "construction:da14fb5687f64519bb8a",
-        "source_locator": "record.constructions[3]",
+        "source_locator": "record.constructions[1]",
         "pattern": "get used to + n/V-ing",
         "lines": [
           {
@@ -5565,8 +5478,33 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:da14fb5687f64519bb8a",
-          "target_locator": "record.constructions[3]",
+          "target_locator": "record.constructions[1]",
           "target_label": "get used to + n/V-ing"
+        }
+      },
+      {
+        "id": "construction:3a5e7b51721d16ba18a3",
+        "source_locator": "record.constructions[2]",
+        "pattern": "used to + base verb",
+        "lines": [
+          {
+            "text": "过去常常做……；过去曾处于某状态（现在通常不再如此）",
+            "lang": "cn"
+          },
+          {
+            "text": "past habitual/state construction; distinct from be/get used to + noun/V-ing = be/become accustomed",
+            "lang": "en"
+          },
+          {
+            "text": "used for a past habit or state that is no longer true or no longer current",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3a5e7b51721d16ba18a3",
+          "target_locator": "record.constructions[2]",
+          "target_label": "used to + base verb"
         }
       }
     ],

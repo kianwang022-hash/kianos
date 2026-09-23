@@ -158,7 +158,7 @@
     "ordinal": 4674,
     "word": "starve",
     "source_owner_path": "content/lexical/words/by-ordinal/o4674.json",
-    "source_fingerprint": "ce9891fb2ed210477d0e002cfeb8a0f4a081aa43e9b570aad7629c262432f426",
+    "source_fingerprint": "53eb47a51cbfe3d280e85645ed97fbe0c1ee7e126a6a9327f000121728261a55",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -181,7 +181,7 @@
         "id": "sense:starve:58636bd6b6675d40",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "vi.: starve; starve to death; figurative starve for sth",
         "definition_cn": "挨饿；饿死",
         "definition_en": "to suffer or die because you do not have enough food",
         "note": "",
@@ -211,19 +211,6 @@
               "target_id": "collocation:077218b8d92651331091",
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "starve for + sth"
-            }
-          },
-          {
-            "id": "collocation:69dc5178728d215bed6d",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "starve sb",
-            "meaning_cn": "使某人挨饿",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:69dc5178728d215bed6d",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "starve sb"
             }
           }
         ],
@@ -277,12 +264,26 @@
         "id": "sense:starve:9e3e807fc9c95d19",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt.: starve sb",
         "definition_cn": "使挨饿；使饿死",
         "definition_en": "to make someone suffer or die by not giving them food",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:276e60a8d2ea24746d50",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "starve sb",
+            "meaning_cn": "使某人挨饿；不给食物使其受苦或死亡",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:276e60a8d2ea24746d50",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "starve sb"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:starve:9e3e807fc9c95d19",
@@ -705,11 +706,11 @@
     "ordinal": 4678,
     "word": "static",
     "source_owner_path": "content/lexical/words/by-ordinal/o4678.json",
-    "source_fingerprint": "f2aa098a69acb381a0fbabc3870edd69db131c94c91a6a6552a3060117857d5d",
+    "source_fingerprint": "23023199e30642bdadba5cd67ad647869f22879c383de65776d8076969ce7e5c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
+        "2A",
         "2N"
       ],
       "density": "rich"
@@ -736,16 +737,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:f0fb829e36fece3cf14a",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "static electricity",
-            "meaning_cn": "静电",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:0ed6d35cf6cd4a646299",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "static analysis",
             "meaning_cn": "静态分析",
             "kind": "usage_example",
@@ -814,6 +807,37 @@
           "target_id": "sense:static:70bbcc11dbf15433",
           "target_locator": "record.senses[2]",
           "target_label": "指责，批评"
+        }
+      },
+      {
+        "id": "sense:static:cffdb0e466eac8b9",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "静电的；与静止电荷有关的",
+        "definition_en": "relating to electric charge at rest; electrostatic",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a9d44f109087690330a6",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "static electricity",
+            "meaning_cn": "静电",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a9d44f109087690330a6",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "static electricity"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:static:cffdb0e466eac8b9",
+          "target_locator": "record.senses[3]",
+          "target_label": "静电的；与静止电荷有关的"
         }
       }
     ],
@@ -1237,7 +1261,7 @@
     "ordinal": 4682,
     "word": "statistics",
     "source_owner_path": "content/lexical/words/by-ordinal/o4682.json",
-    "source_fingerprint": "30809871f629b3ace7f06cb20af0e693bc2b0f2554646b26b622173c90436d36",
+    "source_fingerprint": "221b66564b7ef2884e3ca6895f0313020f4b9275f83ed6357240b9849ae4deb5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1264,7 +1288,15 @@
         "definition_cn": "统计学",
         "definition_en": "the science of collecting and analyzing numerical data",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "statistics as the academic field is normally treated as singular: Statistics is ...",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "statistics as the academic field is normally treated as singular: Statistics is ..."
+          }
+        },
         "usage": [
           {
             "id": "collocation:6d12cbd512ff79ebac92",
@@ -1290,7 +1322,15 @@
         "definition_cn": "统计资料，统计数据",
         "definition_en": "a collection of numerical data",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "statistics meaning numerical data is plural: The statistics are ...",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "statistics meaning numerical data is plural: The statistics are ..."
+          }
+        },
         "usage": [
           {
             "id": "collocation:4b8be14eb622cd6c75f3",
@@ -1563,7 +1603,7 @@
     "ordinal": 4685,
     "word": "statute",
     "source_owner_path": "content/lexical/words/by-ordinal/o4685.json",
-    "source_fingerprint": "639fdc01c3d542277afd77beb2a4ff77a4fab932e0d6cfa0a65cf2b517052ad0",
+    "source_fingerprint": "0c360ff142dfcf107546b75184e48e7fdc82d99bc0394703bc492b17fbab670a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1617,6 +1657,19 @@
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "by statute"
             }
+          },
+          {
+            "id": "collocation:d50114ffbc8e60d7e464",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "statute of limitations",
+            "meaning_cn": "诉讼时效法规；规定提起法律程序期限的法律",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:d50114ffbc8e60d7e464",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "statute of limitations"
+            }
           }
         ],
         "repair": {
@@ -1635,21 +1688,7 @@
         "definition_en": "a rule or regulation",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d50114ffbc8e60d7e464",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "statute of limitations",
-            "meaning_cn": "诉讼时效",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d50114ffbc8e60d7e464",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "statute of limitations"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:statute:88ce94ddf16956bf",
@@ -2071,12 +2110,12 @@
     "ordinal": 4689,
     "word": "steal",
     "source_owner_path": "content/lexical/words/by-ordinal/o4689.json",
-    "source_fingerprint": "cdf9be450edd0b7eced94dfb6b36382283a036e6523dd4b6d001fdd2e4762bbe",
+    "source_fingerprint": "fecbdcfd804e1e6b1854325a996b532f44925921f397701b3b10413c8e63885f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "4V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -2261,21 +2300,43 @@
         "definition_en": "an act of stealing, especially a stolen base",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c1b27036d5d265eab569",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "a steal at this price",
-            "meaning_cn": "这个价格真便宜",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:steal:3f927feafdb559cd",
           "target_locator": "record.senses[4]",
           "target_label": "偷窃；偷垒"
+        }
+      },
+      {
+        "id": "sense:steal:2d99b96e4d171c66",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "便宜货；非常划算的东西/价格",
+        "definition_en": "informal: a bargain; something obtained for an exceptionally low price compared with its value",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:50f15dc86ba0030049ad",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "a steal at this price",
+            "meaning_cn": "这个价格非常划算",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:50f15dc86ba0030049ad",
+              "target_locator": "record.senses[5].collocations[0]",
+              "target_label": "a steal at this price"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:steal:2d99b96e4d171c66",
+          "target_locator": "record.senses[5]",
+          "target_label": "便宜货；非常划算的东西/价格"
         }
       }
     ],
@@ -2620,7 +2681,7 @@
     "ordinal": 4692,
     "word": "steep",
     "source_owner_path": "content/lexical/words/by-ordinal/o4692.json",
-    "source_fingerprint": "57a7cdfaa6ab7e46c52588a7a31c7d23ff30e0de7da5ae3f29bde30f92d8f12e",
+    "source_fingerprint": "6568a1a69c8943c9532bec1e545419c5d0f02190d6841f6607f5725ee33de9fa",
     "sense_lineage": [
       {
         "word_id": "word:steep",
@@ -2687,7 +2748,7 @@
         "id": "sense:steep:848f99d7b6fc5c0b",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: steep tea/herbs in liquid; the tea is steeping; let it steep",
         "definition_cn": "浸泡",
         "definition_en": "to soak something in a liquid",
         "note": "",
@@ -2837,7 +2898,7 @@
     "ordinal": 4693,
     "word": "steer",
     "source_owner_path": "content/lexical/words/by-ordinal/o4693.json",
-    "source_fingerprint": "d1aceb1e87e8f91864a3646c45c315184dafa587efa0e7f0527fd6b2cbbd9aba",
+    "source_fingerprint": "f2258342ed36edda171b03047c54113b20fcbb900efa430187167cb03e3e9a08",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2874,19 +2935,6 @@
             "meaning_cn": "驾驶汽车",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:fe9374c2ee2b4b219a70",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "steer toward + sth",
-            "meaning_cn": "朝某方向行驶",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:fe9374c2ee2b4b219a70",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "steer toward + sth"
-            }
           }
         ],
         "repair": {
@@ -3008,6 +3056,14 @@
           {
             "text": "有意避开某人、某地、某话题或危险",
             "lang": "cn"
+          },
+          {
+            "text": "idiomatic avoidance construction; not the ordinary guide/direct-someone branch",
+            "lang": "en"
+          },
+          {
+            "text": "to deliberately avoid someone, something, or a situation",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -4085,7 +4141,7 @@
     "ordinal": 4702,
     "word": "still",
     "source_owner_path": "content/lexical/words/by-ordinal/o4702.json",
-    "source_fingerprint": "1bc0ee1784bbf67265465e1b12cc2efdcf378f2e3c51547eb058b05ae801fd00",
+    "source_fingerprint": "9dfff1f97cda5a1716807bfeeaf5a39134f51991cd3b9632a40f29936d08fa8b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4194,7 +4250,7 @@
         "id": "sense:still:385c1f953a6f522a",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: still the crowd/water; the wind/room stilled",
         "definition_cn": "(使)平静；(使)静止",
         "definition_en": "make or become still; quiet",
         "note": "",
@@ -4349,11 +4405,19 @@
     "ordinal": 4703,
     "word": "stimulate",
     "source_owner_path": "content/lexical/words/by-ordinal/o4703.json",
-    "source_fingerprint": "2426b8c501c1e3fc588a33d0b9cd854bc03d479230edf866f4a001b2d1e93f88",
-    "sense_lineage": [],
+    "source_fingerprint": "91cf05916b220f686bb0e19f556d0dc4ef1e311c6fc524bbebf37608f505641e",
+    "sense_lineage": [
+      {
+        "word_id": "word:stimulate",
+        "target_kind": "sense",
+        "from_target_id": "sense:stimulate:4504ff2c369857c9",
+        "status": "merged",
+        "to_target_id": "sense:stimulate:aa5293ad9125521d"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V"
+        "2V"
       ],
       "density": "rich"
     },
@@ -4431,37 +4495,6 @@
           "target_id": "sense:stimulate:8d55dc1667b65fab",
           "target_locator": "record.senses[1]",
           "target_label": "激励，鼓舞"
-        }
-      },
-      {
-        "id": "sense:stimulate:4504ff2c369857c9",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + to",
-        "definition_cn": "起刺激作用",
-        "definition_en": "to act as a stimulant",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b874bff89a44375c49c0",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "stimulate to + sth",
-            "meaning_cn": "促使...，刺激...",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b874bff89a44375c49c0",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "stimulate to + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:stimulate:4504ff2c369857c9",
-          "target_locator": "record.senses[2]",
-          "target_label": "起刺激作用"
         }
       }
     ],
@@ -5005,7 +5038,7 @@
     "ordinal": 4708,
     "word": "stock",
     "source_owner_path": "content/lexical/words/by-ordinal/o4708.json",
-    "source_fingerprint": "b85e6690c60fbe500352896ee0b4b68f616798b4fc3a7dd145c8bf9f239ecb7a",
+    "source_fingerprint": "e06afed9ad55b3f40e4dfe4d1e4623214d45490b4e59e5f351ecd7cdfa62ea76",
     "sense_lineage": [
       {
         "word_id": "word:stock",
@@ -5149,28 +5182,15 @@
         "id": "sense:stock:d223478f2bcf5d91",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: stock a shelf/shop with sth",
         "definition_cn": "进货；备有",
         "definition_en": "to supply or keep a supply of goods",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:381d74039cd4bc1fd617",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "stock up on + sth",
-            "meaning_cn": "囤积某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:381d74039cd4bc1fd617",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "stock up on + sth"
-            }
-          },
-          {
             "id": "collocation:497e2578a5ab4ef55145",
-            "source_locator": "record.senses[4].collocations[1]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "stock a shelf with books",
             "meaning_cn": "在书架上摆满书",
             "kind": "usage_example",
@@ -5218,7 +5238,33 @@
         }
       }
     ],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:72cb0645bf6d0e8746ca",
+        "source_locator": "record.constructions[0]",
+        "pattern": "stock up (on sth)",
+        "lines": [
+          {
+            "text": "大量购买/储备某物以备将来使用",
+            "lang": "cn"
+          },
+          {
+            "text": "intransitive/phrasal supply-building frame; distinct from transitive stock a shelf/shop with sth",
+            "lang": "en"
+          },
+          {
+            "text": "to obtain and store a large supply of something for future use",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:72cb0645bf6d0e8746ca",
+          "target_locator": "record.constructions[0]",
+          "target_label": "stock up (on sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5770,7 +5816,7 @@
     "ordinal": 4713,
     "word": "stoop",
     "source_owner_path": "content/lexical/words/by-ordinal/o4713.json",
-    "source_fingerprint": "dfb7b50744d9679d73e40cbac709d80b1dca01c6987bf0cfc37d0380f04c0672",
+    "source_fingerprint": "775b5936af5b8552929fa37361e714bbf09415c024aaf073c9159081827ca2c6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5794,35 +5840,22 @@
         "id": "sense:stoop:ab6e3cbc51145f20",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "vi.: stoop; stoop down",
         "definition_cn": "弯腰；俯身",
         "definition_en": "to bend the top half of the body forward and down",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:f4c8391a28e2857f0310",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "stoop to + sth",
-            "meaning_cn": "屈尊做某事；堕落到做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f4c8391a28e2857f0310",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "stoop to + sth"
-            }
-          },
-          {
             "id": "collocation:9939f71515124ba382f4",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "stoop down",
             "meaning_cn": "弯腰",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:9939f71515124ba382f4",
-              "target_locator": "record.senses[0].collocations[1]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "stoop down"
             }
           }
@@ -5845,25 +5878,25 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:1a6bb110310832ed2bce",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "stoop to + sth",
-            "meaning_cn": "屈尊做某事；堕落到做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1a6bb110310832ed2bce",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "stoop to + sth"
-            }
-          },
-          {
             "id": "collocation:e31fca5e506e6fcf416f",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "stoop to cheating",
             "meaning_cn": "堕落到作弊",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:e99a8e7de537e992048c",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "stoop to sth/doing sth",
+            "meaning_cn": "屈尊/堕落到做某事",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e99a8e7de537e992048c",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "stoop to sth/doing sth"
+            }
           }
         ],
         "repair": {
@@ -5915,7 +5948,7 @@
     "ordinal": 4714,
     "word": "stop",
     "source_owner_path": "content/lexical/words/by-ordinal/o4714.json",
-    "source_fingerprint": "d2540e4a8e2cec6a57cbc82e5a53d49683d253238c5d89cfcffc53939dd7b37f",
+    "source_fingerprint": "ba25f2695afb3df5f2c4cb5b4f5ebcd6a0c31b24c89bc2e91202b123fd326d9b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6115,6 +6148,14 @@
           {
             "text": "停下正在做的事，以便去做另一件事",
             "lang": "cn"
+          },
+          {
+            "text": "contrasts with stop doing sth = cease that activity",
+            "lang": "en"
+          },
+          {
+            "text": "to pause another activity in order to do a new action",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -6122,6 +6163,31 @@
           "target_id": "construction:8c1f47b13ed3034f3c20",
           "target_locator": "record.constructions[0]",
           "target_label": "stop to do sth"
+        }
+      },
+      {
+        "id": "construction:5438a7c20d521731aeaf",
+        "source_locator": "record.constructions[1]",
+        "pattern": "stop doing sth vs stop to do sth",
+        "lines": [
+          {
+            "text": "stop doing = 停止该活动；stop to do = 暂停原活动以便去做另一件事",
+            "lang": "cn"
+          },
+          {
+            "text": "gerund means cease the activity; infinitive means pause another activity for a new purpose",
+            "lang": "en"
+          },
+          {
+            "text": "stop doing means cease that activity; stop to do means pause another activity in order to do something else",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:5438a7c20d521731aeaf",
+          "target_locator": "record.constructions[1]",
+          "target_label": "stop doing sth vs stop to do sth"
         }
       }
     ],
@@ -6479,7 +6545,7 @@
     "ordinal": 4717,
     "word": "storey",
     "source_owner_path": "content/lexical/words/by-ordinal/o4717.json",
-    "source_fingerprint": "d5b94b738013789d65ccd2e2074f41d9adec3178f48a907c866593322fa647d7",
+    "source_fingerprint": "4a741c76b72acca8835cb186ba98238c3a478b86c235a1e71c6448588b04f00b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6506,7 +6572,15 @@
         "definition_cn": "楼层；层",
         "definition_en": "a floor or level of a building",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "BrE storey and AmE story are spelling counterparts only for the building-floor sense; narrative story is unrelated",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "BrE storey and AmE story are spelling counterparts only for the building-floor sense; narrative story is unrelated"
+          }
+        },
         "usage": [
           {
             "id": "collocation:a9c2bc858ba5e727d1e8",
@@ -6537,25 +6611,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "storey ↔ story",
-          "target_word": "story",
-          "lines": [
-            {
-              "text": "BrE storey and AmE story are spelling counterparts only for the building-floor sense; narrative story senses are unrelated",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:a0533b9371c9d0dc9de6",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "storey ↔ story"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -6566,7 +6622,7 @@
     "ordinal": 4718,
     "word": "storm",
     "source_owner_path": "content/lexical/words/by-ordinal/o4718.json",
-    "source_fingerprint": "c29bf99ed87e734682f2808af903550e87aefa42b10c6c3ff17c79672830166f",
+    "source_fingerprint": "5abe7a2c2d370e91f7d98b3c1d3c726b3a6d76468170efdcf6de626901d3afb3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6739,7 +6795,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bfc41b6f4c2fd1fc36ee",
+        "source_locator": "record.constructions[0]",
+        "pattern": "take sb/sth/a place by storm",
+        "lines": [
+          {
+            "text": "迅速征服/打动某人或市场；突然大获成功、风靡一时",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative success/popularity construction; distinct from literal military capture",
+            "lang": "en"
+          },
+          {
+            "text": "to become suddenly and extremely successful or popular, or to impress/conquer an audience, market, or place very quickly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bfc41b6f4c2fd1fc36ee",
+          "target_locator": "record.constructions[0]",
+          "target_label": "take sb/sth/a place by storm"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6753,7 +6835,7 @@
     "ordinal": 4719,
     "word": "story",
     "source_owner_path": "content/lexical/words/by-ordinal/o4719.json",
-    "source_fingerprint": "8f36e65571654ca0eef585ffaa12ffc18032aa01a7ed8629019d1734007e80cd",
+    "source_fingerprint": "c5f2e6a000bc9cb64bda6ed8be5c3051fcbed2d210bd4d5e9f1795e923e0816a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6853,7 +6935,15 @@
         "definition_cn": "楼层",
         "definition_en": "a floor or level of a building",
         "note": "US; UK usually storey",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "AmE story and BrE storey are spelling counterparts only for the building-floor sense; narrative story is unrelated",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "AmE story and BrE storey are spelling counterparts only for the building-floor sense; narrative story is unrelated"
+          }
+        },
         "usage": [
           {
             "id": "collocation:f59c65589de41864bdb6",
@@ -6876,25 +6966,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "story ↔ storey",
-          "target_word": "storey",
-          "lines": [
-            {
-              "text": "BrE storey and AmE story are spelling counterparts only for the building-floor sense; narrative story senses are unrelated",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:a0533b9371c9d0dc9de6",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "story ↔ storey"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -7755,7 +7827,7 @@
     "ordinal": 4725,
     "word": "strange",
     "source_owner_path": "content/lexical/words/by-ordinal/o4725.json",
-    "source_fingerprint": "8cf6c3bc0cc6a1ee64ad54adc7af777278923af6e35187b2f4995d5052587048",
+    "source_fingerprint": "438a8a131cf28263528e47559c0458680bb6524e8c4aef0f5481428010db987f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7856,7 +7928,7 @@
       "form": null,
       "family": [
         {
-          "target_word": "",
+          "target_word": "stranger",
           "lines": [],
           "source_locator": "record.word_family[0]"
         }
@@ -7869,7 +7941,7 @@
     "ordinal": 4726,
     "word": "stranger",
     "source_owner_path": "content/lexical/words/by-ordinal/o4726.json",
-    "source_fingerprint": "6799bbce9b7edf50f47b7ee204915e918f9bb9117dc8e8c6319869b598982e27",
+    "source_fingerprint": "259ec7d81805c169b8019d4d9883071a5231d2536091e8263f3ac26b33832283",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7965,8 +8037,8 @@
           "target_word": "strange",
           "lines": [
             {
-              "text": "strange 奇怪的，stranger 陌生人",
-              "lang": "cn"
+              "text": "stranger = an unknown/unfamiliar person; strange here = unfamiliar, not odd/unusual",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"

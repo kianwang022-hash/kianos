@@ -82,6 +82,8 @@ A and B may run concurrently all the way to o7946.
 
 A and B use the fixed dedicated branches recorded in their lane-state files. They push durable review artifacts and their own cursor to those branches only; they do not merge review evidence to `main` during the sweep.
 
+After the campaign is fully closed and C has durably consumed the final shared prefix, A/B review artifacts may be archived to `main` as immutable provenance. Post-closure archival does not retroactively change the independence rule and does not grant A/B canonical mutation authority.
+
 ### Remote transport fast path
 
 When a connected Remote Desktop has a local clone containing the campaign's frozen baseline object, A and B should prefer local immutable Git-object reads for the review data path when this materially reduces transport overhead.

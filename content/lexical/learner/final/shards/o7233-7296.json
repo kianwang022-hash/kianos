@@ -5,7 +5,7 @@
     "ordinal": 7233,
     "word": "ovation",
     "source_owner_path": "content/lexical/words/by-ordinal/o7233.json",
-    "source_fingerprint": "8813a7616f36b5b60d8da43af8687aa1c8057edaf3b498f7affcd2e6012b7ef7",
+    "source_fingerprint": "13715121fa783461995c47560cedc17933d500791142910aef7ca4ef8ced87cb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -29,7 +29,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "热烈欢迎, 大喝采, 小凯旋式",
+        "definition_cn": "热烈欢迎；热烈喝彩；长时间掌声/欢呼",
         "definition_en": "enthusiastic recognition (especially one accompanied by loud applause)",
         "note": "",
         "identity_overlay": null,
@@ -38,7 +38,7 @@
           "target_kind": "sense",
           "target_id": "sense:ovation:5d690c2877a15470",
           "target_locator": "record.senses[0]",
-          "target_label": "热烈欢迎, 大喝采, 小凯旋式"
+          "target_label": "热烈欢迎；热烈喝彩；长时间掌声/欢呼"
         }
       }
     ],
@@ -584,7 +584,7 @@
     "ordinal": 7242,
     "word": "parch",
     "source_owner_path": "content/lexical/words/by-ordinal/o7242.json",
-    "source_fingerprint": "b9187f0d764d2b8e25ab874e996a0fa38cd5cd79a00467715fd41dde1c6d966b",
+    "source_fingerprint": "11282db4b615f476b3c80b95a250226106770a5c0386a12f4363aff5264c3f1b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -607,7 +607,7 @@
         "id": "sense:parch:51b7cdfd52af589d",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: heat/sun parches sth; land/throat/material parches",
         "definition_cn": "使极度干燥；变得干裂、干枯",
         "definition_en": "to make or become extremely dry because of heat or lack of moisture",
         "note": "",
@@ -636,12 +636,20 @@
     "ordinal": 7243,
     "word": "parody",
     "source_owner_path": "content/lexical/words/by-ordinal/o7243.json",
-    "source_fingerprint": "c9b1fc1cb0fc345ead07fa093fb0370d7e30301cbf639a576e3f67cf4201ca32",
-    "sense_lineage": [],
+    "source_fingerprint": "1b9fd0eda7b779903974b594ec210a081e56eca149f800361c36f7466ece52aa",
+    "sense_lineage": [
+      {
+        "word_id": "word:parody",
+        "target_kind": "sense",
+        "from_target_id": "sense:parody:f8fa897b5c00511f",
+        "status": "merged",
+        "to_target_id": "sense:parody:020a8d5070b45943"
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
@@ -678,7 +686,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "打油诗文, 诙谐的模仿诗文, 拙劣的模仿",
+        "definition_cn": "戏仿；滑稽/讽刺性模仿作品",
         "definition_en": "a composition that imitates or misrepresents somebody's style, usually in a humorous way",
         "note": "",
         "identity_overlay": null,
@@ -687,24 +695,7 @@
           "target_kind": "sense",
           "target_id": "sense:parody:020a8d5070b45943",
           "target_locator": "record.senses[1]",
-          "target_label": "打油诗文, 诙谐的模仿诗文, 拙劣的模仿"
-        }
-      },
-      {
-        "id": "sense:parody:f8fa897b5c00511f",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "打油诗文, 诙谐的模仿诗文, 拙劣的模仿",
-        "definition_en": "humorous or satirical mimicry",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:parody:f8fa897b5c00511f",
-          "target_locator": "record.senses[2]",
-          "target_label": "打油诗文, 诙谐的模仿诗文, 拙劣的模仿"
+          "target_label": "戏仿；滑稽/讽刺性模仿作品"
         }
       }
     ],
@@ -775,7 +766,7 @@
     "ordinal": 7245,
     "word": "partake",
     "source_owner_path": "content/lexical/words/by-ordinal/o7245.json",
-    "source_fingerprint": "aa3a8c00806d31e6406b2af62a54df8db17c62686df7511bac6634c85f1ff04c",
+    "source_fingerprint": "7c44fe97ae802d8534a3bc0c8da0d6bad4e962bfbb2dbd6b6f95a84a4b4439f9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -798,8 +789,8 @@
         "id": "sense:partake:58de01f1e905548e",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "参与, 分担, 分享",
+        "governing_pattern": "vi. + of: partake of sth",
+        "definition_cn": "具有……的性质/特征；带有……意味",
         "definition_en": "have some of the qualities or attributes of something",
         "note": "",
         "identity_overlay": null,
@@ -808,14 +799,14 @@
           "target_kind": "sense",
           "target_id": "sense:partake:58de01f1e905548e",
           "target_locator": "record.senses[0]",
-          "target_label": "参与, 分担, 分享"
+          "target_label": "具有……的性质/特征；带有……意味"
         }
       },
       {
         "id": "sense:partake:0df224b273c850b8",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: partake in sth; partake of sth",
         "definition_cn": "参与, 分担, 分享",
         "definition_en": "have, give, or receive a share of",
         "note": "",
@@ -832,7 +823,7 @@
         "id": "sense:partake:ab723b9fe0565e5f",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi. + of: partake of sth",
         "definition_cn": "参与, 分担, 分享",
         "definition_en": "consume",
         "note": "",
@@ -1217,7 +1208,7 @@
     "ordinal": 7251,
     "word": "penetrating",
     "source_owner_path": "content/lexical/words/by-ordinal/o7251.json",
-    "source_fingerprint": "c9147c50b4a88eda42d8bfc69287550a43f47e276d10ddea6b3eaa5f255c4711",
+    "source_fingerprint": "d1d9f5905731603b4ec439859d82a2fd4780a2939ff600bff10db06a374c8a0f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1241,7 +1232,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "敏锐的, 尖锐的, 伸入很深的, 了解透彻的",
+        "definition_cn": "洞察力强的；敏锐的；能辨别细微差别的",
         "definition_en": "having or demonstrating ability to recognize or draw fine distinctions",
         "note": "",
         "identity_overlay": null,
@@ -1250,7 +1241,7 @@
           "target_kind": "sense",
           "target_id": "sense:penetrating:80085abe7b9e5441",
           "target_locator": "record.senses[0]",
-          "target_label": "敏锐的, 尖锐的, 伸入很深的, 了解透彻的"
+          "target_label": "洞察力强的；敏锐的；能辨别细微差别的"
         }
       },
       {
@@ -1258,7 +1249,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "敏锐的, 尖锐的, 伸入很深的, 了解透彻的",
+        "definition_cn": "穿透力强的；能刺入/深入的",
         "definition_en": "tending to penetrate; having the power of entering or piercing",
         "note": "",
         "identity_overlay": null,
@@ -1267,7 +1258,7 @@
           "target_kind": "sense",
           "target_id": "sense:penetrating:547d1fdd6d895c6e",
           "target_locator": "record.senses[1]",
-          "target_label": "敏锐的, 尖锐的, 伸入很深的, 了解透彻的"
+          "target_label": "穿透力强的；能刺入/深入的"
         }
       }
     ],
@@ -1753,7 +1744,7 @@
     "ordinal": 7259,
     "word": "perjury",
     "source_owner_path": "content/lexical/words/by-ordinal/o7259.json",
-    "source_fingerprint": "f62fbc2f4b3190d549345fc7ca1b491093d28452feec51d1ea8eebb58c911e42",
+    "source_fingerprint": "a0e4e9713a19abee8a685fa713d95566b86b6a3729f18b1a4c0d7835e6341f20",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1777,7 +1768,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "伪誓, 伪证, 背信弃义",
+        "definition_cn": "伪证罪；宣誓后作虚假陈述",
         "definition_en": "criminal offense of making false statements under oath",
         "note": "",
         "identity_overlay": null,
@@ -1786,7 +1777,7 @@
           "target_kind": "sense",
           "target_id": "sense:perjury:4b0f3afaa46e50cf",
           "target_locator": "record.senses[0]",
-          "target_label": "伪誓, 伪证, 背信弃义"
+          "target_label": "伪证罪；宣誓后作虚假陈述"
         }
       }
     ],
@@ -1927,7 +1918,7 @@
     "ordinal": 7262,
     "word": "perspire",
     "source_owner_path": "content/lexical/words/by-ordinal/o7262.json",
-    "source_fingerprint": "e66328f846a162e5e8477a31663000fe91e61545eaba8917cf1ec32026b8f116",
+    "source_fingerprint": "ab60c786fe5308d03ba8f5401702af77113bf62d07c14ed7d37d1f1259bac210",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1951,7 +1942,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "出汗, 流汗, 分泌, 渗出",
+        "definition_cn": "出汗；流汗；排汗",
         "definition_en": "excrete perspiration through the pores in the skin",
         "note": "",
         "identity_overlay": null,
@@ -1960,7 +1951,7 @@
           "target_kind": "sense",
           "target_id": "sense:perspire:3ed909e2acd65e00",
           "target_locator": "record.senses[0]",
-          "target_label": "出汗, 流汗, 分泌, 渗出"
+          "target_label": "出汗；流汗；排汗"
         }
       }
     ],
@@ -1979,7 +1970,7 @@
     "ordinal": 7263,
     "word": "perturb",
     "source_owner_path": "content/lexical/words/by-ordinal/o7263.json",
-    "source_fingerprint": "b65db2b613399e0447a25a04707c8d64b6ec73134cc14d3cce868494b8922179",
+    "source_fingerprint": "727300d93c45c4b8708d28ca8103435797c646bd66e9a32d165ecac5b56ba81c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2003,7 +1994,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "扰乱, 使混乱, 使心绪不宁",
+        "definition_cn": "使焦虑/不安；扰乱心绪",
         "definition_en": "disturb in mind or make uneasy or cause to be worried or alarmed",
         "note": "",
         "identity_overlay": null,
@@ -2012,7 +2003,7 @@
           "target_kind": "sense",
           "target_id": "sense:perturb:824db135541a5ebe",
           "target_locator": "record.senses[0]",
-          "target_label": "扰乱, 使混乱, 使心绪不宁"
+          "target_label": "使焦虑/不安；扰乱心绪"
         }
       },
       {
@@ -2020,7 +2011,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "扰乱, 使混乱, 使心绪不宁",
+        "definition_cn": "（物理）扰动原子/电子的通常路径或状态",
         "definition_en": "disturb or interfere with the usual path of an electron or atom",
         "note": "",
         "identity_overlay": null,
@@ -2029,7 +2020,7 @@
           "target_kind": "sense",
           "target_id": "sense:perturb:cdf8c39fe6f651d5",
           "target_locator": "record.senses[1]",
-          "target_label": "扰乱, 使混乱, 使心绪不宁"
+          "target_label": "（物理）扰动原子/电子的通常路径或状态"
         }
       },
       {
@@ -2037,7 +2028,7 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "扰乱, 使混乱, 使心绪不宁",
+        "definition_cn": "（天文）摄动；使天体轨道偏离规则运动",
         "definition_en": "cause a celestial body to deviate from a theoretically regular orbital motion, especially as a result of interposed or extraordinary gravitational pull",
         "note": "",
         "identity_overlay": null,
@@ -2046,7 +2037,7 @@
           "target_kind": "sense",
           "target_id": "sense:perturb:33f9e2e0274351a8",
           "target_locator": "record.senses[2]",
-          "target_label": "扰乱, 使混乱, 使心绪不宁"
+          "target_label": "（天文）摄动；使天体轨道偏离规则运动"
         }
       }
     ],
@@ -2292,13 +2283,13 @@
     "ordinal": 7267,
     "word": "petrify",
     "source_owner_path": "content/lexical/words/by-ordinal/o7267.json",
-    "source_fingerprint": "83433991c3e9c8ffde1df8c534db3f369f09a907ec04644d744d5753ad11bf35",
+    "source_fingerprint": "b0061dd2e153b73367dfafa225a4b80fc7ed6b71e1904a22665862911bbe37f3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V"
+        "2V"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "使石化；（比喻）使吓呆、吓得动弹不得",
@@ -2315,9 +2306,9 @@
         "id": "sense:petrify:01679985758959f9",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "使石化；（比喻）使吓呆、吓得动弹不得",
-        "definition_en": "to turn into stone or stonelike material; figuratively to terrify someone so much that they feel unable to move or react",
+        "governing_pattern": "I/T: sth petrifies; petrify sth",
+        "definition_cn": "石化；变成石质；使石化",
+        "definition_en": "to become stone or stonelike material, or to turn something into stone or stonelike material",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2325,7 +2316,24 @@
           "target_kind": "sense",
           "target_id": "sense:petrify:01679985758959f9",
           "target_locator": "record.senses[0]",
-          "target_label": "使石化；（比喻）使吓呆、吓得动弹不得"
+          "target_label": "石化；变成石质；使石化"
+        }
+      },
+      {
+        "id": "sense:petrify:45e95aac9322d806",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "vt.: petrify sb",
+        "definition_cn": "使吓呆；使惊恐得动弹不得",
+        "definition_en": "to terrify someone so much that they feel unable to move or react",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:petrify:45e95aac9322d806",
+          "target_locator": "record.senses[1]",
+          "target_label": "使吓呆；使惊恐得动弹不得"
         }
       }
     ],
@@ -2344,7 +2352,7 @@
     "ordinal": 7268,
     "word": "phlegmatic",
     "source_owner_path": "content/lexical/words/by-ordinal/o7268.json",
-    "source_fingerprint": "ef039abcfe8d6d408f5b0b901a265bd4e208d178f72b359d9ddb9629ac42d9ab",
+    "source_fingerprint": "6fdb9d8f7a6ffcdd436d813c416af55c304d860cf2df9445032ef8276457ca3d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2368,7 +2376,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "粘液质的, (正式)平静的, 不动情的, 不动感情的, 冷漠的, 冷淡的, 迟钝的",
+        "definition_cn": "沉着少情绪的；冷静而不易激动的",
         "definition_en": "showing little emotion",
         "note": "",
         "identity_overlay": null,
@@ -2377,7 +2385,7 @@
           "target_kind": "sense",
           "target_id": "sense:phlegmatic:244e080e046e5f14",
           "target_locator": "record.senses[0]",
-          "target_label": "粘液质的, (正式)平静的, 不动情的, 不动感情的, 冷漠的, 冷淡的, 迟钝的"
+          "target_label": "沉着少情绪的；冷静而不易激动的"
         }
       }
     ],
@@ -2535,7 +2543,7 @@
     "ordinal": 7271,
     "word": "pinnacle",
     "source_owner_path": "content/lexical/words/by-ordinal/o7271.json",
-    "source_fingerprint": "6707967706ceeb98e04fe242db8c952b458d2ffd5da69cc0353f5647a5b7919c",
+    "source_fingerprint": "0356dc7b52082de5f04d6508a0c7d9fd3d2d077c0ac825d18678341398dcc212",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2560,7 +2568,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "小尖塔, 尖峰, 高峰, 极点",
+        "definition_cn": "（建筑）尖塔；扶壁/塔顶上的细长尖饰",
         "definition_en": "(architecture) a slender upright spire at the top of a buttress of tower",
         "note": "",
         "identity_overlay": null,
@@ -2569,7 +2577,7 @@
           "target_kind": "sense",
           "target_id": "sense:pinnacle:d62f8539caee5378",
           "target_locator": "record.senses[0]",
-          "target_label": "小尖塔, 尖峰, 高峰, 极点"
+          "target_label": "（建筑）尖塔；扶壁/塔顶上的细长尖饰"
         }
       },
       {
@@ -2622,7 +2630,7 @@
     "ordinal": 7272,
     "word": "pivot",
     "source_owner_path": "content/lexical/words/by-ordinal/o7272.json",
-    "source_fingerprint": "9ff217749c09a768f316dd75531972c959fcb53ed93bd83a624a32bc6094e1f4",
+    "source_fingerprint": "8e6379f2d2c1b6a29421a6465fd8e5ee461c1e4a52922e6190c458fcfd221fb4",
     "sense_lineage": [
       {
         "word_id": "word:pivot",
@@ -2671,7 +2679,7 @@
         "id": "sense:pivot:539ccdfd0d865593",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: pivot on/around sth; pivot to/toward sth; pivot sth",
         "definition_cn": "绕支点转动；（比喻）转变方向、战略或重点",
         "definition_en": "to turn around a central point, or figuratively to change direction, strategy, or focus",
         "note": "",
@@ -2873,7 +2881,7 @@
     "ordinal": 7276,
     "word": "plank",
     "source_owner_path": "content/lexical/words/by-ordinal/o7276.json",
-    "source_fingerprint": "ac0786bf2882111e397c29564e1eb9de1c0e85ee4e3e5ffc9ae50b738d86b211",
+    "source_fingerprint": "ccb03308035c6c1e038d7dcd94ee1429b8f7d8ad2bab43e4fae213d943d4097d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2898,7 +2906,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "在...上铺板, 撂下, 立即付款",
+        "definition_cn": "重重放下/坐下；砰地放置",
         "definition_en": "set (something or oneself) down with or as if with a noise",
         "note": "",
         "identity_overlay": null,
@@ -2907,7 +2915,7 @@
           "target_kind": "sense",
           "target_id": "sense:plank:008385c6a8d05bff",
           "target_locator": "record.senses[0]",
-          "target_label": "在...上铺板, 撂下, 立即付款"
+          "target_label": "重重放下/坐下；砰地放置"
         }
       },
       {
@@ -2977,7 +2985,7 @@
     "ordinal": 7277,
     "word": "pliable",
     "source_owner_path": "content/lexical/words/by-ordinal/o7277.json",
-    "source_fingerprint": "6bb871be3023fe55d9a99b3f331654820ef0848d71ad4526273211e89ee97f2d",
+    "source_fingerprint": "f4885baac5762c58995344e9aca27466099c5ee3ab9a44645a318b455dbc3757",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3001,7 +3009,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "易弯的, 柔顺的, 圆通的",
+        "definition_cn": "易受引导/影响的；顺从可塑的",
         "definition_en": "susceptible to being led or directed",
         "note": "",
         "identity_overlay": null,
@@ -3010,7 +3018,7 @@
           "target_kind": "sense",
           "target_id": "sense:pliable:7d952df006245de2",
           "target_locator": "record.senses[0]",
-          "target_label": "易弯的, 柔顺的, 圆通的"
+          "target_label": "易受引导/影响的；顺从可塑的"
         }
       },
       {
@@ -3018,7 +3026,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "易弯的, 柔顺的, 圆通的",
+        "definition_cn": "柔韧可弯的；可塑形/延展的",
         "definition_en": "capable of being shaped or bent or drawn out",
         "note": "",
         "identity_overlay": null,
@@ -3027,7 +3035,7 @@
           "target_kind": "sense",
           "target_id": "sense:pliable:a80e42f985d4547f",
           "target_locator": "record.senses[1]",
-          "target_label": "易弯的, 柔顺的, 圆通的"
+          "target_label": "柔韧可弯的；可塑形/延展的"
         }
       },
       {
@@ -3035,7 +3043,7 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "易弯的, 柔顺的, 圆通的",
+        "definition_cn": "适应性强的；能灵活调整的",
         "definition_en": "able to adjust readily to different conditions",
         "note": "",
         "identity_overlay": null,
@@ -3044,7 +3052,7 @@
           "target_kind": "sense",
           "target_id": "sense:pliable:f2dd77de41205828",
           "target_locator": "record.senses[2]",
-          "target_label": "易弯的, 柔顺的, 圆通的"
+          "target_label": "适应性强的；能灵活调整的"
         }
       }
     ],
@@ -3063,7 +3071,7 @@
     "ordinal": 7278,
     "word": "plow",
     "source_owner_path": "content/lexical/words/by-ordinal/o7278.json",
-    "source_fingerprint": "27fb52a8ac2506df19e43295ac1a16356276ceb86e9e38d5ac2f2b8bc86c8fcf",
+    "source_fingerprint": "08d3376f0e5df09b27dd817ee16a38be7bb4f80d677800cdc7c3fea483096b62",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3091,7 +3099,15 @@
         "definition_cn": "犁；翻土耕地的农具",
         "definition_en": "a farm implement with blades used to break and turn soil before planting",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "plow is the usual AmE spelling; plough the usual BrE spelling for the same farm-tool/soil-turning lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "plow is the usual AmE spelling; plough the usual BrE spelling for the same farm-tool/soil-turning lexeme"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3104,11 +3120,19 @@
         "id": "sense:plow:8bcef37396ba5cb6",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt.: plow a field/land",
         "definition_cn": "犁地；翻土",
         "definition_en": "to break and turn over soil with a plow or similar implement",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "plow is the usual AmE spelling; plough the usual BrE spelling for the same farm-tool/soil-turning lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "plow is the usual AmE spelling; plough the usual BrE spelling for the same farm-tool/soil-turning lexeme"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3121,11 +3145,19 @@
         "id": "sense:plow:a676e3439ad953a9",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi. + through: plow through sth",
         "definition_cn": "（比喻）费力而强行穿过、推进",
         "definition_en": "figurative: to move or force one's way through something heavily or persistently",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "plow is the usual AmE spelling; plough the usual BrE spelling for the same farm-tool/soil-turning lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "plow is the usual AmE spelling; plough the usual BrE spelling for the same farm-tool/soil-turning lexeme"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3280,7 +3312,7 @@
     "ordinal": 7280,
     "word": "poise",
     "source_owner_path": "content/lexical/words/by-ordinal/o7280.json",
-    "source_fingerprint": "3d770ee4e11e31b2591e8c7de2498a6a4bed66205f7ae30b2dd251468e48c247",
+    "source_fingerprint": "991348e81151b0bcff2de239e6141f6dcc621f77547366ef8d2fba2f5a151158",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3339,7 +3371,7 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "平衡, 均衡, 姿势, 镇静, 安静, 砝码",
+        "definition_cn": "泊（poise）：厘米-克-秒制动力黏度单位",
         "definition_en": "a cgs unit of dynamic viscosity equal to one dyne-second per square centimeter; the viscosity of a fluid in which a force of one dyne per square centimeter maintains a velocity of 1 centimeter per second",
         "note": "",
         "identity_overlay": null,
@@ -3348,7 +3380,7 @@
           "target_kind": "sense",
           "target_id": "sense:poise:be87ba5f4f2e5f87",
           "target_locator": "record.senses[2]",
-          "target_label": "平衡, 均衡, 姿势, 镇静, 安静, 砝码"
+          "target_label": "泊（poise）：厘米-克-秒制动力黏度单位"
         }
       },
       {
@@ -3436,7 +3468,7 @@
     "ordinal": 7282,
     "word": "ponderous",
     "source_owner_path": "content/lexical/words/by-ordinal/o7282.json",
-    "source_fingerprint": "a5a07c529d842fb59fe6915889e9465a5c92bc31cffb9f3f18e20bed9523c5e9",
+    "source_fingerprint": "0f5a3bc2d47a2e26c330535bf160a6d9cbfb721a919b85dfbf37dd4d4c003ae4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3460,7 +3492,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "沉重的, 笨重的, 毫无趣味的, 生硬的",
+        "definition_cn": "沉重的；笨重难搬的",
         "definition_en": "having great mass and weight and unwieldiness",
         "note": "",
         "identity_overlay": null,
@@ -3469,7 +3501,7 @@
           "target_kind": "sense",
           "target_id": "sense:ponderous:42ca92a0b1e95f01",
           "target_locator": "record.senses[0]",
-          "target_label": "沉重的, 笨重的, 毫无趣味的, 生硬的"
+          "target_label": "沉重的；笨重难搬的"
         }
       },
       {
@@ -3477,7 +3509,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "沉重的, 笨重的, 毫无趣味的, 生硬的",
+        "definition_cn": "冗长沉闷的；费力而乏味的；行文笨重的",
         "definition_en": "labored and dull",
         "note": "",
         "identity_overlay": null,
@@ -3486,7 +3518,7 @@
           "target_kind": "sense",
           "target_id": "sense:ponderous:0c8f445fc28758b0",
           "target_locator": "record.senses[1]",
-          "target_label": "沉重的, 笨重的, 毫无趣味的, 生硬的"
+          "target_label": "冗长沉闷的；费力而乏味的；行文笨重的"
         }
       }
     ],
@@ -3894,7 +3926,7 @@
     "ordinal": 7289,
     "word": "practice",
     "source_owner_path": "content/lexical/words/by-ordinal/o7289.json",
-    "source_fingerprint": "2abaa6edb2215219fe36d1095e6a0ab6c08496a34546341472bcce9ee99e90d7",
+    "source_fingerprint": "e26aea272d180c615c3caebd6eb74f1759e7c95758770079ef012a5089179ebe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3922,7 +3954,15 @@
         "definition_cn": "对通常做法的实践知识或熟悉程度",
         "definition_en": "knowledge or familiarity with how something is normally done",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3939,7 +3979,15 @@
         "definition_cn": "实践；实际应用",
         "definition_en": "the actual application or use of an idea, method, or principle",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3956,7 +4004,15 @@
         "definition_cn": "惯例；常规做法",
         "definition_en": "a customary or established way of doing something",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3973,7 +4029,15 @@
         "definition_cn": "练习；反复训练",
         "definition_en": "repeated performance or training intended to improve a skill",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3990,7 +4054,15 @@
         "definition_cn": "执业；专业业务；诊所/事务所业务",
         "definition_en": "the professional work or business of a doctor, lawyer, or other practitioner",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[4].lexical_identity_overlay",
+            "target_label": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -4003,11 +4075,19 @@
         "id": "sense:practice:2da3f5f85c8b707b",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: practice a skill/law/medicine; practice regularly",
         "definition_cn": "（美式）练习；实践；从事某专业",
         "definition_en": "AmE: to perform or train repeatedly, or to work professionally in a field",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[5].lexical_identity_overlay",
+            "target_label": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -4144,7 +4224,7 @@
     "ordinal": 7292,
     "word": "precipitation",
     "source_owner_path": "content/lexical/words/by-ordinal/o7292.json",
-    "source_fingerprint": "f7d39bbe9eed749053da9bbe7cb8cb57b911719fda3f10b4e49cdf52679628a5",
+    "source_fingerprint": "8c26ad78fa3c552c3263c8dc783137e593972bdcddec088ea8f9022ea98127f7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4168,7 +4248,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "坠落, 沉淀, 降水, 轻率, 急速, 猛冲, 突如其来",
+        "definition_cn": "降水量",
         "definition_en": "the quantity of water falling to earth at a specific place within a specified period of time",
         "note": "",
         "identity_overlay": null,
@@ -4177,7 +4257,7 @@
           "target_kind": "sense",
           "target_id": "sense:precipitation:97d2d6a3b51e50b7",
           "target_locator": "record.senses[0]",
-          "target_label": "坠落, 沉淀, 降水, 轻率, 急速, 猛冲, 突如其来"
+          "target_label": "降水量"
         }
       },
       {
@@ -4185,7 +4265,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "坠落, 沉淀, 降水, 轻率, 急速, 猛冲, 突如其来",
+        "definition_cn": "降水；雨/雪/雹/雨夹雪等落到地面的过程",
         "definition_en": "the falling to earth of any form of water (rain or snow or hail or sleet or mist)",
         "note": "",
         "identity_overlay": null,
@@ -4194,7 +4274,7 @@
           "target_kind": "sense",
           "target_id": "sense:precipitation:9086b86591305629",
           "target_locator": "record.senses[1]",
-          "target_label": "坠落, 沉淀, 降水, 轻率, 急速, 猛冲, 突如其来"
+          "target_label": "降水；雨/雪/雹/雨夹雪等落到地面的过程"
         }
       },
       {
@@ -4202,7 +4282,7 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "坠落, 沉淀, 降水, 轻率, 急速, 猛冲, 突如其来",
+        "definition_cn": "（化学）沉淀；形成沉淀物的过程",
         "definition_en": "the process of forming a chemical precipitate",
         "note": "",
         "identity_overlay": null,
@@ -4211,7 +4291,7 @@
           "target_kind": "sense",
           "target_id": "sense:precipitation:07cc1b2ad26c5445",
           "target_locator": "record.senses[2]",
-          "target_label": "坠落, 沉淀, 降水, 轻率, 急速, 猛冲, 突如其来"
+          "target_label": "（化学）沉淀；形成沉淀物的过程"
         }
       }
     ],
@@ -4230,7 +4310,7 @@
     "ordinal": 7293,
     "word": "precipitous",
     "source_owner_path": "content/lexical/words/by-ordinal/o7293.json",
-    "source_fingerprint": "9647ee53110b1b68534a59e76a0710a9a0b53cb4f9dc7e2601519d42508b70d6",
+    "source_fingerprint": "f965836d93a3d43b70d294b5b85c928d9093080b0a660837aacb9440459946f5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4254,7 +4334,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "陡峭的, 轻率的",
+        "definition_cn": "仓促的；轻率的；未经充分考虑的",
         "definition_en": "done with very great haste and without due deliberation",
         "note": "",
         "identity_overlay": null,
@@ -4263,7 +4343,7 @@
           "target_kind": "sense",
           "target_id": "sense:precipitous:4bcc63809d885ea9",
           "target_locator": "record.senses[0]",
-          "target_label": "陡峭的, 轻率的"
+          "target_label": "仓促的；轻率的；未经充分考虑的"
         }
       },
       {
@@ -4271,7 +4351,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "陡峭的, 轻率的",
+        "definition_cn": "陡峭的；险峻的",
         "definition_en": "extremely steep",
         "note": "",
         "identity_overlay": null,
@@ -4280,7 +4360,7 @@
           "target_kind": "sense",
           "target_id": "sense:precipitous:375ceac3c347583b",
           "target_locator": "record.senses[1]",
-          "target_label": "陡峭的, 轻率的"
+          "target_label": "陡峭的；险峻的"
         }
       }
     ],

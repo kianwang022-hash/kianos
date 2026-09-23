@@ -881,7 +881,7 @@
     "ordinal": 3081,
     "word": "mission",
     "source_owner_path": "content/lexical/words/by-ordinal/o3081.json",
-    "source_fingerprint": "adae8108b65cf6b3c1b4b4452a309ffeaf51d7dd2ef46e883c3f1dcda30af58e",
+    "source_fingerprint": "73f072bf0f490318ce1d2c2b7e585dd81d85531b89ad840710cd17b4976321ee",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -891,13 +891,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使命/宗旨；特殊任务；传教团",
+      "summary_cn": "被指派的任务或使命",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使命/宗旨；特殊任务；传教团"
+        "target_label": "被指派的任务或使命"
       }
     },
     "senses": [
@@ -912,16 +912,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:12c7efbe0f4cf28d1c1f",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "mission statement",
-            "meaning_cn": "使命宣言",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:7269bf2937cb1cd6ce38",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "on a mission",
             "meaning_cn": "在执行任务",
             "kind": "usage_example",
@@ -1003,17 +995,12 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:3d5a319e76906a16036d",
+            "id": "collocation:12c7efbe0f4cf28d1c1f",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "an organization's mission / mission in life",
-            "meaning_cn": "组织使命/人生使命",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3d5a319e76906a16036d",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "an organization's mission / mission in life"
-            }
+            "phrase": "mission statement",
+            "meaning_cn": "使命宣言",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1039,7 +1026,7 @@
     "ordinal": 3082,
     "word": "missionary",
     "source_owner_path": "content/lexical/words/by-ordinal/o3082.json",
-    "source_fingerprint": "eb6d8cfe0665f0fcdae154f9d635a37b284ba5218887f32af832042768c4ec34",
+    "source_fingerprint": "c4f3d33262662b55802aa572e621acf789a22414ed35c7b972276f8bfabfd003",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1064,8 +1051,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "传教士；负有任务者",
-        "definition_en": "someone sent on a mission--especially a religious or charitable mission to a foreign country",
+        "definition_cn": "传教士",
+        "definition_en": "a person sent to promote or spread a religion, often in another place or country and sometimes doing educational, medical, or charitable work",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1090,7 +1077,7 @@
           "target_kind": "sense",
           "target_id": "sense:missionary:9ee3b4c935465eb9",
           "target_locator": "record.senses[0]",
-          "target_label": "传教士；负有任务者"
+          "target_label": "传教士"
         }
       },
       {
@@ -1102,16 +1089,7 @@
         "definition_en": "relating to or connected to a religious mission",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b83b0a77c8488f1e76dc",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "missionary position",
-            "meaning_cn": "传教士体位（性交姿势）",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:missionary:75458f9fa1865e8a",
@@ -1121,7 +1099,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:d1c09066045d39c4e1b9",
+        "source_locator": "record.constructions[0]",
+        "pattern": "missionary position",
+        "lines": [
+          {
+            "text": "固定的非宗教短语名称",
+            "lang": "cn"
+          },
+          {
+            "text": "lexicalized phrase; not the literal religious-mission adjective sense",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d1c09066045d39c4e1b9",
+          "target_locator": "record.constructions[0]",
+          "target_label": "missionary position"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1267,7 +1267,7 @@
     "ordinal": 3084,
     "word": "mistake",
     "source_owner_path": "content/lexical/words/by-ordinal/o3084.json",
-    "source_fingerprint": "8385443896a9fd9bc34d26aa932c0223651db33f3d76852db000292e023ee6f3",
+    "source_fingerprint": "8db6f24f23c5b658dfbb34d961e92ebd6124492698af561c601b5410095128c6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1351,18 +1351,9 @@
         "governing_pattern": "",
         "definition_cn": "犯错",
         "definition_en": "to make an error",
-        "note": "",
+        "note": "Rare/older intransitive use meaning to make an error; not the normal productive modern pattern.",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:58a2af45762684336cc1",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "to err is human",
-            "meaning_cn": "人非圣贤，孰能无过",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:mistake:c8742094ac8655f9",
@@ -1390,29 +1381,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "mistake ↔ fault",
-          "target_word": "fault",
-          "lines": [
-            {
-              "text": "fault侧重责任归属，mistake侧重行为错误",
-              "lang": "cn"
-            },
-            {
-              "text": "a wrong action attributable to bad judgment or ignorance or inattention",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "deep:semantic_contrast:fault:1839e89a429d6335",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "mistake ↔ fault"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -1566,7 +1535,7 @@
     "ordinal": 3087,
     "word": "mix",
     "source_owner_path": "content/lexical/words/by-ordinal/o3087.json",
-    "source_fingerprint": "4aaa935f7c8c8fa3e0a1e179fa953a4a4c108a19a77dd63799f76e33a2057e8e",
+    "source_fingerprint": "67afdd2a581eb1e8636cd001ae1f897f272c4571fd67821ffff915bade53622d",
     "sense_lineage": [
       {
         "word_id": "word:mix",
@@ -1954,7 +1923,7 @@
     "ordinal": 3090,
     "word": "mob",
     "source_owner_path": "content/lexical/words/by-ordinal/o3090.json",
-    "source_fingerprint": "13aa9369d2e485421ae41c466a2834ac68f5738232dc6a35427267d9baaf042b",
+    "source_fingerprint": "5b25d55799213f8ef148a7ec367a00cdac58f7c2306e619269f3ec3868f016ad",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2323,13 +2292,13 @@
     "ordinal": 3093,
     "word": "mock",
     "source_owner_path": "content/lexical/words/by-ordinal/o3093.json",
-    "source_fingerprint": "70ff4bf30202d4f1b15823a5c638c120a74766b8cca4b25ceed19b5f681fe1b9",
+    "source_fingerprint": "898e1f6534518316d8b956e3ecc994151b6bbc22001b9f52c976cf35a60ea4df",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
         "1A",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -2365,19 +2334,6 @@
               "target_id": "collocation:33a5468c1148e4309f91",
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "mock someone"
-            }
-          },
-          {
-            "id": "collocation:844260cad882b238acc4",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "mock at",
-            "meaning_cn": "嘲笑",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:844260cad882b238acc4",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "mock at"
             }
           }
         ],
@@ -2500,6 +2456,37 @@
           "target_id": "sense:mock:e2c52b6dff0f5ae7",
           "target_locator": "record.senses[3]",
           "target_label": "嘲笑或讥讽的行为"
+        }
+      },
+      {
+        "id": "sense:mock:997152526404fb59",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "模拟考试（正式考试前的练习考试，尤英式；常用复数 mocks）",
+        "definition_en": "practice examinations taken before the real exams, chiefly British English and often plural mocks",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:e66576058aec9207b4cc",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "sit/take your mocks",
+            "meaning_cn": "参加模拟考试",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e66576058aec9207b4cc",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "sit/take your mocks"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mock:997152526404fb59",
+          "target_locator": "record.senses[4]",
+          "target_label": "模拟考试（正式考试前的练习考试，尤英式；常用复数 mocks）"
         }
       }
     ],
@@ -2675,7 +2662,7 @@
     "ordinal": 3095,
     "word": "model",
     "source_owner_path": "content/lexical/words/by-ordinal/o3095.json",
-    "source_fingerprint": "f7a368aab07fcf972da562530e99753e56e4b2c3f1df4d2f95c4a66cad76d005",
+    "source_fingerprint": "9e4489b8d3f9798134567a0b5bfc8368314017f6a179f459ff443a237804b868",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2887,12 +2874,13 @@
     "ordinal": 3096,
     "word": "moderate",
     "source_owner_path": "content/lexical/words/by-ordinal/o3096.json",
-    "source_fingerprint": "8015a47b0b5531bf1cfd08a8c9f2fde312ba3dc1b5fd4cd4bee9b005037b8da5",
+    "source_fingerprint": "e7078217a029717ed93c636fc85695676ab2cef76428f167668ca8c83c488967",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "1A"
+        "2A",
+        "1N"
       ],
       "density": "rich"
     },
@@ -2916,12 +2904,12 @@
         "definition_en": "average in amount, intensity, or degree",
         "note": "",
         "identity_overlay": {
-          "text": "adjective moderate /ˈmɒdərət/ versus verb moderate /ˈmɒdəreɪt/; dialectal vowel variation may occur.",
+          "text": "adjective/noun moderate contrasts with verb /ˈmɒdəreɪt/; dialectal vowels vary",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "adjective moderate /ˈmɒdərət/ versus verb moderate /ˈmɒdəreɪt/; dialectal vowel variation may occur."
+            "target_label": "adjective/noun moderate contrasts with verb /ˈmɒdəreɪt/; dialectal vowels vary"
           }
         },
         "usage": [
@@ -2958,12 +2946,12 @@
         "definition_en": "to make something less extreme or intense",
         "note": "",
         "identity_overlay": {
-          "text": "adjective moderate /ˈmɒdərət/ versus verb moderate /ˈmɒdəreɪt/; dialectal vowel variation may occur.",
+          "text": "verb moderate ends in /eɪt/",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "adjective moderate /ˈmɒdərət/ versus verb moderate /ˈmɒdəreɪt/; dialectal vowel variation may occur."
+            "target_label": "verb moderate ends in /eɪt/"
           }
         },
         "usage": [
@@ -2992,12 +2980,12 @@
         "definition_en": "to become less extreme or intense",
         "note": "",
         "identity_overlay": {
-          "text": "adjective moderate /ˈmɒdərət/ versus verb moderate /ˈmɒdəreɪt/; dialectal vowel variation may occur.",
+          "text": "verb moderate ends in /eɪt/",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "adjective moderate /ˈmɒdərət/ versus verb moderate /ˈmɒdəreɪt/; dialectal vowel variation may occur."
+            "target_label": "verb moderate ends in /eɪt/"
           }
         },
         "usage": [
@@ -3026,12 +3014,12 @@
         "definition_en": "to preside over a meeting or discussion",
         "note": "",
         "identity_overlay": {
-          "text": "adjective moderate /ˈmɒdərət/ versus verb moderate /ˈmɒdəreɪt/; dialectal vowel variation may occur.",
+          "text": "verb moderate ends in /eɪt/",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "adjective moderate /ˈmɒdərət/ versus verb moderate /ˈmɒdəreɪt/; dialectal vowel variation may occur."
+            "target_label": "verb moderate ends in /eɪt/"
           }
         },
         "usage": [
@@ -3049,6 +3037,70 @@
           "target_id": "sense:moderate:a9185c676f0e5dca",
           "target_locator": "record.senses[3]",
           "target_label": "主持（会议、讨论）"
+        }
+      },
+      {
+        "id": "sense:moderate:7cef1bdc7e22e9b4",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "温和的；不极端的",
+        "definition_en": "not extreme in opinion, policy, position, or behavior",
+        "note": "",
+        "identity_overlay": {
+          "text": "adjective/noun moderate contrasts with verb /ˈmɒdəreɪt/; dialectal vowels vary",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[4].lexical_identity_overlay",
+            "target_label": "adjective/noun moderate contrasts with verb /ˈmɒdəreɪt/; dialectal vowels vary"
+          }
+        },
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:moderate:7cef1bdc7e22e9b4",
+          "target_locator": "record.senses[4]",
+          "target_label": "温和的；不极端的"
+        }
+      },
+      {
+        "id": "sense:moderate:81f911fdaee05fa4",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "温和派；持中间立场的人",
+        "definition_en": "a person whose political or social views are not extreme",
+        "note": "",
+        "identity_overlay": {
+          "text": "adjective/noun moderate contrasts with verb /ˈmɒdəreɪt/; dialectal vowels vary",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[5].lexical_identity_overlay",
+            "target_label": "adjective/noun moderate contrasts with verb /ˈmɒdəreɪt/; dialectal vowels vary"
+          }
+        },
+        "usage": [
+          {
+            "id": "collocation:31cfa1035844ac0fe5b5",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "a political moderate",
+            "meaning_cn": "政治观点温和的人",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:31cfa1035844ac0fe5b5",
+              "target_locator": "record.senses[5].collocations[0]",
+              "target_label": "a political moderate"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:moderate:81f911fdaee05fa4",
+          "target_locator": "record.senses[5]",
+          "target_label": "温和派；持中间立场的人"
         }
       }
     ],
@@ -3134,7 +3186,7 @@
     "ordinal": 3098,
     "word": "modernisation",
     "source_owner_path": "content/lexical/words/by-ordinal/o3098.json",
-    "source_fingerprint": "b7bed5a59906a8513ac0e7e014b771d56346ff020b6724531db8f0bbd7f71788",
+    "source_fingerprint": "5266137057d24747973155a7f3442ff262e5afaceb891c6ed3663e28bf07922c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3161,7 +3213,15 @@
         "definition_cn": "现代化",
         "definition_en": "the act of making something modern in appearance or behavior",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "modernisation with -s- is common in BrE; modernization with -z- is standard AmE and also accepted in some British styles; same lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "modernisation with -s- is common in BrE; modernization with -z- is standard AmE and also accepted in some British styles; same lexeme"
+          }
+        },
         "usage": [
           {
             "id": "collocation:415fc50601d34ea4dd5d",
@@ -3184,25 +3244,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "modernisation ↔ modernization",
-          "target_word": "modernization",
-          "lines": [
-            {
-              "text": "modernisation and modernization are spelling variants. -s- is common in British usage; -z- is standard American and also accepted by some British styles. Do not teach a strict UK-vs-US rule.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:a65b4f8c093855104199",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "modernisation ↔ modernization"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -4681,7 +4723,7 @@
     "ordinal": 3113,
     "word": "monkey",
     "source_owner_path": "content/lexical/words/by-ordinal/o3113.json",
-    "source_fingerprint": "f927349e6e1db63ac6911668beb4639b1f75608ec75525e0134629f074a0b05e",
+    "source_fingerprint": "27c7359393837c9aac80850dfdb06f8b171a3f0d5ccd1797bb61a690afc25505",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4737,8 +4779,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "猴子；猿",
-        "definition_en": "an animal closely related to humans that usually has a long tail and climbs trees",
+        "definition_cn": "猴子；猴类",
+        "definition_en": "a monkey; a primate of the monkey groups, typically with a tail",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -4746,7 +4788,7 @@
           "target_kind": "sense",
           "target_id": "sense:monkey:fc110889a6e75522",
           "target_locator": "record.senses[1]",
-          "target_label": "猴子；猿"
+          "target_label": "猴子；猴类"
         }
       },
       {
@@ -4796,7 +4838,7 @@
     "ordinal": 3114,
     "word": "monopoly",
     "source_owner_path": "content/lexical/words/by-ordinal/o3114.json",
-    "source_fingerprint": "7a66888092caa983a620d86aa9e45b93de6db8e92b4c7c7c5e5ab50cbf60b6b1",
+    "source_fingerprint": "5942fcefaaa488a1287dbd1a7f4650cce56bdfbcbbe5b0775621ac8b0499be03",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4888,7 +4930,15 @@
         "definition_cn": "大富翁游戏",
         "definition_en": "a board game in which players try to gain a monopoly on real estate",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "capitalize Monopoly when naming the board game; lowercase monopoly is the ordinary common noun",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "capitalize Monopoly when naming the board game; lowercase monopoly is the ordinary common noun"
+          }
+        },
         "usage": [
           {
             "id": "collocation:2ff84bb89f1a34c6a450",
@@ -6295,7 +6345,7 @@
     "ordinal": 3128,
     "word": "mosaic",
     "source_owner_path": "content/lexical/words/by-ordinal/o3128.json",
-    "source_fingerprint": "2494eef730577102333aa31d90482387c6c46f646b8191a4cea58780deefb762",
+    "source_fingerprint": "089b4163dd0483835018e3f1cfeac7f4c997f5db5b1d018621be50ace84b3cd3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6306,13 +6356,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "由小块拼成的图案或艺术",
+      "summary_cn": "马赛克；多种成分组成的整体",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "由小块拼成的图案或艺术"
+        "target_label": "马赛克；多种成分组成的整体"
       }
     },
     "senses": [
@@ -6331,14 +6381,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "mosaic tile",
             "meaning_cn": "马赛克瓷砖",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:ae5afea6965015d2b5c6",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "a mosaic of cultures",
-            "meaning_cn": "多元文化的融合",
             "kind": "usage_example",
             "repair": null
           }
@@ -6453,7 +6495,16 @@
         "definition_en": "a combination of many different parts forming one whole",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:ae5afea6965015d2b5c6",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "a mosaic of cultures",
+            "meaning_cn": "多元文化的融合",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:mosaic:4456686d5059561d",
@@ -6791,7 +6842,7 @@
     "ordinal": 3133,
     "word": "mother",
     "source_owner_path": "content/lexical/words/by-ordinal/o3133.json",
-    "source_fingerprint": "78d2550c91a6aa8098438068cb992f8e2afd3657f2e4e61d7f9615b292a85566",
+    "source_fingerprint": "8962a1975cab54a65013f9961260c452a0bd74fbac78849fa9785db80343f0aa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6922,7 +6973,7 @@
     "ordinal": 3134,
     "word": "motion",
     "source_owner_path": "content/lexical/words/by-ordinal/o3134.json",
-    "source_fingerprint": "dcf358c4d983bc4a220d6d714a3e0503e115dc25fec6114a55a534aba44fac0b",
+    "source_fingerprint": "6d5089bb07d164b3572a2576f9c400cfad14735617c9d6ce8aa2dc37d259f297",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6995,21 +7046,7 @@
         "definition_en": "a gesture or movement of the body",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:65efc460315f4695c799",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "motion to sb",
-            "meaning_cn": "向某人示意",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:65efc460315f4695c799",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "motion to sb"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:motion:0a72badba4da5c86",

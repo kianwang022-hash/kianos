@@ -525,7 +525,7 @@
     "ordinal": 5960,
     "word": "marvellous",
     "source_owner_path": "content/lexical/words/by-ordinal/o5960.json",
-    "source_fingerprint": "eb7fcf3938caa8bacade4c88615a207427ebc461c164fd0f8e960c6fb03c016a",
+    "source_fingerprint": "b97e2f1963fa6755b9091bf8e8b2ca49abd58f4d1142254d1a5fb6fe374b5fbd",
     "sense_lineage": [
       {
         "word_id": "word:marvellous",
@@ -560,7 +560,15 @@
         "definition_cn": "极好的；了不起的",
         "definition_en": "extremely good, impressive, or enjoyable",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "marvellous is the common BrE spelling; marvelous is the common AmE spelling; same adjective",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "marvellous is the common BrE spelling; marvelous is the common AmE spelling; same adjective"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -574,25 +582,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "marvellous ↔ marvelous",
-          "target_word": "marvelous",
-          "lines": [
-            {
-              "text": "marvellous is the common BrE spelling and marvelous the common AmE spelling; preserve both stable owners as regional spelling equivalents.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:bb99df473523c55435cc",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "marvellous ↔ marvelous"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -793,7 +783,7 @@
     "ordinal": 5964,
     "word": "mechanics",
     "source_owner_path": "content/lexical/words/by-ordinal/o5964.json",
-    "source_fingerprint": "89f1a63b698c0b7efc1f1ffb332c4bbdc9f7a5686e2b8746ebf95d9dd36eac99",
+    "source_fingerprint": "5208a9e74bb7e72d58f15d52d3a67597440e6c55395c7a52bb93354902c83aff",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -820,7 +810,15 @@
         "definition_cn": "力学",
         "definition_en": "the branch of physics concerned with forces and the motion of bodies",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "mechanics as the field/branch of physics normally takes singular agreement: Mechanics is ...",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "mechanics as the field/branch of physics normally takes singular agreement: Mechanics is ..."
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -837,7 +835,15 @@
         "definition_cn": "运作原理；具体机制",
         "definition_en": "the practical details or way in which something works or is done",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "mechanics meaning practical details, workings, or procedures commonly takes plural agreement: The mechanics are ...",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "mechanics meaning practical details, workings, or procedures commonly takes plural agreement: The mechanics are ..."
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -862,7 +868,7 @@
     "ordinal": 5965,
     "word": "meditate",
     "source_owner_path": "content/lexical/words/by-ordinal/o5965.json",
-    "source_fingerprint": "8e2a77a44a5576b23451f9b9bd4f2b9432b73567925886b1cda2a3cf86a069cb",
+    "source_fingerprint": "0a998a8dd3157098d51d2cb0312eccd6f96212b5f15de623d61726b30fea5e22",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -885,7 +891,7 @@
         "id": "sense:meditate:2494d908a69f59cb",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi. + on/upon: meditate on/upon sth",
         "definition_cn": "深思；认真思考",
         "definition_en": "to think or reflect deeply and carefully",
         "note": "",
@@ -902,7 +908,7 @@
         "id": "sense:meditate:e887ff9e2d6a5777",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: meditate",
         "definition_cn": "冥想；进行精神或心智上的静修",
         "definition_en": "to engage in meditation as a spiritual or mental practice",
         "note": "",
@@ -1645,7 +1651,7 @@
     "ordinal": 5977,
     "word": "minimize",
     "source_owner_path": "content/lexical/words/by-ordinal/o5977.json",
-    "source_fingerprint": "d297c22170eeec75d424aff0b4856a8e5a81fc93dbc23c8f424ba4920ba36b5f",
+    "source_fingerprint": "91b529dbadc85fa440bee94b8d8aa93a1a424103cf68fe19aeee00ea205af9f9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1669,16 +1675,24 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "将...减到最少",
+        "definition_cn": "使减到最低/最少；尽量减少",
         "definition_en": "make small or insignificant",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "minimize is the common AmE spelling; minimise is the common BrE spelling; same reduce/play-down lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "minimize is the common AmE spelling; minimise is the common BrE spelling; same reduce/play-down lexeme"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:minimize:89bbe24d4e875ad9",
           "target_locator": "record.senses[0]",
-          "target_label": "将...减到最少"
+          "target_label": "使减到最低/最少；尽量减少"
         }
       },
       {
@@ -1686,16 +1700,24 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "将...减到最少",
+        "definition_cn": "淡化；贬低严重性/重要性；轻描淡写",
         "definition_en": "cause to seem less serious; play down",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "minimize is the common AmE spelling; minimise is the common BrE spelling; same reduce/play-down lexeme",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "minimize is the common AmE spelling; minimise is the common BrE spelling; same reduce/play-down lexeme"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:minimize:d11244228ef65142",
           "target_locator": "record.senses[1]",
-          "target_label": "将...减到最少"
+          "target_label": "淡化；贬低严重性/重要性；轻描淡写"
         }
       }
     ],
@@ -1703,25 +1725,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "minimize ↔ minimise",
-          "target_word": "minimise",
-          "lines": [
-            {
-              "text": "minimize is the common AmE spelling and minimise the common BrE spelling; preserve both stable owners for the same reduce/play-down semantic space.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:0827b8d5430073309225",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "minimize ↔ minimise"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -2660,7 +2664,7 @@
     "ordinal": 5992,
     "word": "mountainous",
     "source_owner_path": "content/lexical/words/by-ordinal/o5992.json",
-    "source_fingerprint": "3c420897ea9369b2abba29b9ecb5b48d30b42c8bf6faa6082f085a42ec52b04d",
+    "source_fingerprint": "b89f984b5c5009acc09ac817d7f08b744334fd841f387effc3cf0e1a020c127a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2684,7 +2688,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "多山的；如山的；巨大的",
+        "definition_cn": "如山般巨大的；庞大的",
         "definition_en": "like a mountain in size and impressiveness",
         "note": "Figurative secondary use: extremely large or mountain-like in size.",
         "identity_overlay": null,
@@ -2693,7 +2697,7 @@
           "target_kind": "sense",
           "target_id": "sense:mountainous:cc1135af8a5d545e",
           "target_locator": "record.senses[0]",
-          "target_label": "多山的；如山的；巨大的"
+          "target_label": "如山般巨大的；庞大的"
         }
       },
       {
@@ -2886,7 +2890,7 @@
     "ordinal": 5995,
     "word": "narration",
     "source_owner_path": "content/lexical/words/by-ordinal/o5995.json",
-    "source_fingerprint": "f35427b9d522b63907b82594a9a220a920a0a16a5cc2a8191e6c7a20c3218016",
+    "source_fingerprint": "5e7292dd31e8fe32564ec46ba2bf2843e7efdd5e980cee6e9cd4f3ea4d86d258",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2927,7 +2931,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "叙述；故事；叙述文",
+        "definition_cn": "（古典修辞）叙事部分；陈述事实部分",
         "definition_en": "(rhetoric) the second section of an oration in which the facts are set forth",
         "note": "",
         "identity_overlay": null,
@@ -2936,7 +2940,7 @@
           "target_kind": "sense",
           "target_id": "sense:narration:496caf15472d5cb5",
           "target_locator": "record.senses[1]",
-          "target_label": "叙述；故事；叙述文"
+          "target_label": "（古典修辞）叙事部分；陈述事实部分"
         }
       }
     ],
@@ -3111,7 +3115,7 @@
     "ordinal": 5999,
     "word": "northward",
     "source_owner_path": "content/lexical/words/by-ordinal/o5999.json",
-    "source_fingerprint": "cdd39ef8a0935fd6d343361205155ddaff9242321999be0d8f71eecea453ce92",
+    "source_fingerprint": "7dd18c64ff23d78be7103701c96f6827febd1f46ca17ce6e21f975ce20dd9b7f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3139,7 +3143,15 @@
         "definition_cn": "向北",
         "definition_en": "toward the north",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "northward may be adjective or adverb; northwards is the adverbial -wards variant",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "northward may be adjective or adverb; northwards is the adverbial -wards variant"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3156,7 +3168,15 @@
         "definition_cn": "向北的",
         "definition_en": "moving or facing toward the north",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "northward may be adjective or adverb; northwards is the adverbial -wards variant",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "northward may be adjective or adverb; northwards is the adverbial -wards variant"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3170,25 +3190,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "northward ↔ northwards",
-          "target_word": "northwards",
-          "lines": [
-            {
-              "text": "northward may be adjective or adverb; northwards is the adverbial -wards variant. Shared directional meaning must remain aligned without merging the stable owners.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:cf118e0d48ee77d8a3ec",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "northward ↔ northwards"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -3199,7 +3201,7 @@
     "ordinal": 6000,
     "word": "northwards",
     "source_owner_path": "content/lexical/words/by-ordinal/o6000.json",
-    "source_fingerprint": "ae41ea565dbf7f76226e1ff94da90da3ce34b0770949681bfce5cde8c39ee8ee",
+    "source_fingerprint": "481e001b2ff4cf8ba710e3f39bd6d24a21c71c8b2fd750b57d35af97e7c67eec",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3226,7 +3228,15 @@
         "definition_cn": "向北；朝北",
         "definition_en": "toward the north",
         "note": "Adverbial -wards variant of northward; use for movement or direction toward the north.",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "northwards is an adverbial -wards variant; northward may be adjective or adverb",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "northwards is an adverbial -wards variant; northward may be adjective or adverb"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3240,25 +3250,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "northwards ↔ northward",
-          "target_word": "northward",
-          "lines": [
-            {
-              "text": "northward may be adjective or adverb; northwards is the adverbial -wards variant. Shared directional meaning must remain aligned without merging the stable owners.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:cf118e0d48ee77d8a3ec",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "northwards ↔ northward"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -3269,7 +3261,7 @@
     "ordinal": 6001,
     "word": "nought",
     "source_owner_path": "content/lexical/words/by-ordinal/o6001.json",
-    "source_fingerprint": "ea9bef5881ed0bb3f54e842ee0d0a6939e2149968a14b3d451eab7d3dd49f7bf",
+    "source_fingerprint": "8fd6b7757c7593df64b562eb0085dbb8cd533269b92c17b0474555f340c49ee7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3296,7 +3288,15 @@
         "definition_cn": "零；无（尤英式或数学语境）",
         "definition_en": "zero; nothing, especially in British or formal mathematical usage",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "nought and naught overlap in zero/nothing; nought is especially BrE/mathematical, naught more literary/AmE in some uses; preserve exact spellings",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "nought and naught overlap in zero/nothing; nought is especially BrE/mathematical, naught more literary/AmE in some uses; preserve exact spellings"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3310,25 +3310,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "nought ↔ naught",
-          "target_word": "naught",
-          "lines": [
-            {
-              "text": "nought and naught overlap in the zero/nothing meaning with regional/style differences; preserve both exact-spelling owners and do not blind-alias them.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:1f24ffd0beb596b689ea",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "nought ↔ naught"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -3651,7 +3633,7 @@
     "ordinal": 6007,
     "word": "offence",
     "source_owner_path": "content/lexical/words/by-ordinal/o6007.json",
-    "source_fingerprint": "a6985962e83f8e6daeafb5ac389a3535c4f6cb8ad5f933767215bb61311c0787",
+    "source_fingerprint": "81959ef8e43d918dfb02248f1a9d8d727395e1e150594be407a05d4aea53b6ce",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3660,13 +3642,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "违法行为；罪行；违反",
+      "summary_cn": "违法/违规行为；冒犯/得罪",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "违法行为；罪行；违反"
+        "target_label": "违法/违规行为；冒犯/得罪"
       }
     },
     "senses": [
@@ -3897,7 +3879,7 @@
     "ordinal": 6010,
     "word": "onward",
     "source_owner_path": "content/lexical/words/by-ordinal/o6010.json",
-    "source_fingerprint": "e3e2793ae5f6f616e0464fa21b4376ff6fecadad23ac1f81db1fd059d1e17f2c",
+    "source_fingerprint": "65509271a4ec761f11cba89ed86222458a0eb16f95f9c13bda8320c4381d4616",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3925,7 +3907,15 @@
         "definition_cn": "向前地；继续向前",
         "definition_en": "in a forward direction",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "onward can be adjective or adverb and covers direction/time/progression; onwards is the adverbial -wards variant",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "onward can be adjective or adverb and covers direction/time/progression; onwards is the adverbial -wards variant"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3942,7 +3932,15 @@
         "definition_cn": "从某时起向后；在时间、顺序或程度上继续",
         "definition_en": "forward in time, order, or degree",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "onward can be adjective or adverb and covers direction/time/progression; onwards is the adverbial -wards variant",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "onward can be adjective or adverb and covers direction/time/progression; onwards is the adverbial -wards variant"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3959,7 +3957,15 @@
         "definition_cn": "继续向前的；向前发展的",
         "definition_en": "continuing or moving forward in direction, time, or progress",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "onward can be adjective or adverb and covers direction/time/progression; onwards is the adverbial -wards variant",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "onward can be adjective or adverb and covers direction/time/progression; onwards is the adverbial -wards variant"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3991,25 +3997,7 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "onward ↔ onwards",
-          "target_word": "onwards",
-          "lines": [
-            {
-              "text": "onward can be adjective or adverb and covers direction/time/progression; onwards is the adverbial -wards variant. Preserve both stable owners without duplicate semantic drift.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:bb3bd4556fbfb88c2cfc",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "onward ↔ onwards"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -4020,7 +4008,7 @@
     "ordinal": 6011,
     "word": "onwards",
     "source_owner_path": "content/lexical/words/by-ordinal/o6011.json",
-    "source_fingerprint": "a2b9c2a3d4122b5b3797cfa787f609e9472c90e5162fbb6a742400adede3669c",
+    "source_fingerprint": "cfb9b49cc5f71909b5e4b18402c31ba89e1abd9be80c4a569df560bcb0f1fa70",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4047,7 +4035,15 @@
         "definition_cn": "向前；继续往后；在时间、顺序或进程上向前",
         "definition_en": "forward in direction, time, order, or progress",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "onwards is an adverbial -wards variant; onward may also be adjective and adverb",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "onwards is an adverbial -wards variant; onward may also be adjective and adverb"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -4061,25 +4057,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "onwards ↔ onward",
-          "target_word": "onward",
-          "lines": [
-            {
-              "text": "onward can be adjective or adverb and covers direction/time/progression; onwards is the adverbial -wards variant. Preserve both stable owners without duplicate semantic drift.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:bb3bd4556fbfb88c2cfc",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "onwards ↔ onward"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }

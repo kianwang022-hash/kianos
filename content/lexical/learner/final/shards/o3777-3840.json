@@ -74,7 +74,7 @@
     "ordinal": 3778,
     "word": "principal",
     "source_owner_path": "content/lexical/words/by-ordinal/o3778.json",
-    "source_fingerprint": "687040bbb30d671adf3ce5a71925c6034a032c93a467fafc66acaa2a2e10d2de",
+    "source_fingerprint": "a24547c784f1a555a3c5ac01fc6d07736bed1acd01f96c56586067ea5741fe00",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -240,7 +240,25 @@
           }
         }
       ],
-      "relations": [],
+      "relations": [
+        {
+          "title": "principal ↔ primary",
+          "target_word": "primary",
+          "lines": [
+            {
+              "text": "primary and principal overlap in 'main/most important'. primary additionally has first/direct/basic/secondary-opposition uses; principal more strongly means chief/main and has independent noun senses.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:horizontal:00f77cec3d4d5cd5b41b",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "principal ↔ primary"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -251,7 +269,7 @@
     "ordinal": 3779,
     "word": "principle",
     "source_owner_path": "content/lexical/words/by-ordinal/o3779.json",
-    "source_fingerprint": "df79269b6c1a883e58715d15b531e15fa7584a891dccdc7c90f61c88a6d28cfd",
+    "source_fingerprint": "5e18d04c13b39cafd8ba549b64053a9c68007ff423c283bf0ace3b74d9a9e16f",
     "sense_lineage": [
       {
         "word_id": "word:principle",
@@ -303,21 +321,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:91dcb379dfb8c04b9892",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "in principle",
-            "meaning_cn": "原则上",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:91dcb379dfb8c04b9892",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "in principle"
-            }
-          },
-          {
             "id": "collocation:e690c69f900bd66101da",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "basic principle",
             "meaning_cn": "基本原则",
             "kind": "usage_example",
@@ -333,7 +338,58 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:dc49ebed64efcb0cd180",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in principle",
+        "lines": [
+          {
+            "text": "原则上；理论上；从一般原则看（实际细节可能不同）",
+            "lang": "cn"
+          },
+          {
+            "text": "theory/general-rule construction",
+            "lang": "en"
+          },
+          {
+            "text": "in theory or as a general rule/idea, though practical details may differ",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:dc49ebed64efcb0cd180",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in principle"
+        }
+      },
+      {
+        "id": "construction:7439ed3f35a18084a33b",
+        "source_locator": "record.constructions[1]",
+        "pattern": "on principle",
+        "lines": [
+          {
+            "text": "出于原则；因为遵循某一道德规则、信念或标准",
+            "lang": "cn"
+          },
+          {
+            "text": "moral-rule/belief construction",
+            "lang": "en"
+          },
+          {
+            "text": "because of a moral rule, belief, or standard one follows",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7439ed3f35a18084a33b",
+          "target_locator": "record.constructions[1]",
+          "target_label": "on principle"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -365,7 +421,7 @@
     "ordinal": 3780,
     "word": "print",
     "source_owner_path": "content/lexical/words/by-ordinal/o3780.json",
-    "source_fingerprint": "0ef39020d6c230ed15947031e37e025b35845cfc9653bd940dac3d693706f5c4",
+    "source_fingerprint": "074b3f144a82793f335316d3c079110f42a950f8ddbbbd66734fc52bf73596a4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -428,29 +484,7 @@
         "definition_en": "the text or images produced by printing",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9f32184c6a6b6c6aaa22",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "in print",
-            "meaning_cn": "已出版；仍在销售",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9f32184c6a6b6c6aaa22",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "in print"
-            }
-          },
-          {
-            "id": "collocation:f8b747a36f4c4365ff7f",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "small print",
-            "meaning_cn": "小字；细则",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:print:a7bb818b340b5324",
@@ -486,7 +520,83 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:819ced9239ebddf64de2",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in print",
+        "lines": [
+          {
+            "text": "仍在印刷/出版并可正常买到",
+            "lang": "cn"
+          },
+          {
+            "text": "publication availability, not generic printed text",
+            "lang": "en"
+          },
+          {
+            "text": "currently available in printed/publication form",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:819ced9239ebddf64de2",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in print"
+        }
+      },
+      {
+        "id": "construction:7b0943ba86166d38f09d",
+        "source_locator": "record.constructions[1]",
+        "pattern": "out of print",
+        "lines": [
+          {
+            "text": "已绝版；不再印刷/出版，通常无法买到新品",
+            "lang": "cn"
+          },
+          {
+            "text": "publication availability",
+            "lang": "en"
+          },
+          {
+            "text": "no longer being printed/published and therefore not normally available new",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7b0943ba86166d38f09d",
+          "target_locator": "record.constructions[1]",
+          "target_label": "out of print"
+        }
+      },
+      {
+        "id": "construction:6ed029b9968f5538a17f",
+        "source_locator": "record.constructions[2]",
+        "pattern": "the small/fine print",
+        "lines": [
+          {
+            "text": "小字细则；不显眼的详细条件或限制",
+            "lang": "cn"
+          },
+          {
+            "text": "detailed terms/restrictions, not generic font size",
+            "lang": "en"
+          },
+          {
+            "text": "detailed conditions or restrictions, often less noticeable than the main message",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6ed029b9968f5538a17f",
+          "target_locator": "record.constructions[2]",
+          "target_label": "the small/fine print"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1239,12 +1349,12 @@
     "ordinal": 3787,
     "word": "privilege",
     "source_owner_path": "content/lexical/words/by-ordinal/o3787.json",
-    "source_fingerprint": "87ed0cd485728ca6f0150e0c468dcbc0082ff826aefa415b099cc4e196e8f1e0",
+    "source_fingerprint": "00369107865df3985dc4d0c88da5a7bc777548299a0d7e35e1ec0d9716137ecc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -1353,6 +1463,40 @@
           "target_id": "sense:privilege:ed1e657c0c9955e8",
           "target_locator": "record.senses[2]",
           "target_label": "给予特权；特免"
+        }
+      },
+      {
+        "id": "sense:privilege:cee2515a9c9f7141",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "荣幸；难得而珍贵的机会",
+        "definition_en": "a special opportunity or honor that is highly valued or gives pleasure",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:07a55b0a7089588f6842",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "It was a privilege to work with her.",
+            "meaning_cn": "能和她共事是一种荣幸",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:e9fb795ac9dd28184472",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "the privilege of meeting ...",
+            "meaning_cn": "有幸见到……",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:privilege:cee2515a9c9f7141",
+          "target_locator": "record.senses[3]",
+          "target_label": "荣幸；难得而珍贵的机会"
         }
       }
     ],
@@ -2117,7 +2261,7 @@
     "ordinal": 3794,
     "word": "proceed",
     "source_owner_path": "content/lexical/words/by-ordinal/o3794.json",
-    "source_fingerprint": "3e43b83d36b1ee195444bb31cd50cf58b458c41bfb0cd7872fff4674f04192ab",
+    "source_fingerprint": "babe547a90165f1411ca31af19a5a6a2282e6d53f8d507756e1a037674fa0285",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2140,7 +2284,7 @@
         "id": "sense:proceed:ce58f7f8b25d52e6",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "proceed with sth; proceed to sth; proceed to do sth; proceed along/to + place",
         "definition_cn": "继续进行；前进",
         "definition_en": "to continue doing something or move forward",
         "note": "",
@@ -2254,33 +2398,8 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:proceed:70dd167c63995da1",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vi. + with",
-        "lines": [
-          {
-            "text": "继续进行；前进",
-            "lang": "cn"
-          },
-          {
-            "text": "proceed with + 名词",
-            "lang": "cn"
-          },
-          {
-            "text": "to continue doing something or move forward",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:proceed:70dd167c63995da1",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vi. + with"
-        }
-      },
-      {
         "id": "construction:ceb65bd041df4f651762",
-        "source_locator": "record.constructions[1]",
+        "source_locator": "record.constructions[0]",
         "pattern": "proceed to do sth",
         "lines": [
           {
@@ -2295,7 +2414,7 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:ceb65bd041df4f651762",
-          "target_locator": "record.constructions[1]",
+          "target_locator": "record.constructions[0]",
           "target_label": "proceed to do sth"
         }
       }
@@ -2331,7 +2450,7 @@
     "ordinal": 3795,
     "word": "proceedings",
     "source_owner_path": "content/lexical/words/by-ordinal/o3795.json",
-    "source_fingerprint": "41b76733b8cbf82da950b1e5b16e5c65e885a5478a24183155d6ca69179a278e",
+    "source_fingerprint": "b23f65f38d6470e2e50dcebdfd63bc65d70827582bc482c63533647fa38a7933",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2399,8 +2518,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "会议记录；记录汇编",
-        "definition_en": "a written record of what happened at a meeting",
+        "definition_cn": "会议/会议论文集；官方或出版记录汇编",
+        "definition_en": "an official or published record or collection of material from a meeting, conference, learned society, etc., often including papers, reports, or decisions",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2417,7 +2536,7 @@
           "target_kind": "sense",
           "target_id": "sense:proceedings:4887c62d506059e0",
           "target_locator": "record.senses[1]",
-          "target_label": "会议记录；记录汇编"
+          "target_label": "会议/会议论文集；官方或出版记录汇编"
         }
       },
       {
@@ -2796,11 +2915,11 @@
     "ordinal": 3799,
     "word": "produce",
     "source_owner_path": "content/lexical/words/by-ordinal/o3799.json",
-    "source_fingerprint": "6687d27d9a72f7ad451cfefdfbd2622957e0a7aa049cb4249343827b0fc707af",
+    "source_fingerprint": "589ad6e8615421e01db115cc0cfb21a64a4c245fbf0022160bc5fba31a40aac1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)V",
+        "3V",
         "1N"
       ],
       "density": "rich"
@@ -2824,7 +2943,15 @@
         "definition_cn": "生产；制造",
         "definition_en": "to make or create something",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb produce has final stress; noun produce (fresh agricultural goods) has initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "verb produce has final stress; noun produce (fresh agricultural goods) has initial stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:407ae06f6a79a36b4d8f",
@@ -2863,7 +2990,15 @@
         "definition_cn": "产生；引起",
         "definition_en": "to cause a result or effect",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb produce has final stress; noun produce (fresh agricultural goods) has initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "verb produce has final stress; noun produce (fresh agricultural goods) has initial stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:c0b16947c7da91609d6a",
@@ -2897,7 +3032,15 @@
         "definition_cn": "出示；拿出",
         "definition_en": "to show or bring out something for inspection",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb produce has final stress; noun produce (fresh agricultural goods) has initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "verb produce has final stress; noun produce (fresh agricultural goods) has initial stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:f6920aa7e99a401db3a3",
@@ -2931,7 +3074,15 @@
         "definition_cn": "农产品",
         "definition_en": "fresh fruits and vegetables grown for sale",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun produce has initial stress; verb produce has final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "noun produce has initial stress; verb produce has final stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:61d0c787572ba9b09955",
@@ -2958,22 +3109,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:produce:36b3f1c1ecaf12dd",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "出示；拿出",
-        "definition_en": "to show or bring out something for inspection",
-        "pattern": "produce a ticket",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:produce:36b3f1c1ecaf12dd",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "出示；拿出"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -3868,7 +4004,7 @@
     "ordinal": 3808,
     "word": "profile",
     "source_owner_path": "content/lexical/words/by-ordinal/o3808.json",
-    "source_fingerprint": "cf879ce9a4a57a9f05e31939851d06b05bd9455d549bce9312bab68654e722af",
+    "source_fingerprint": "cfdf11e3aae9ba488e40112e92c987bd580ecd503557643b58dc632580fb862d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4065,7 +4201,58 @@
         }
       }
     ],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:dbb928aa14df93866b47",
+        "source_locator": "record.constructions[0]",
+        "pattern": "high-profile",
+        "lines": [
+          {
+            "text": "备受公众关注的；知名度高的",
+            "lang": "cn"
+          },
+          {
+            "text": "public-attention phraseology",
+            "lang": "en"
+          },
+          {
+            "text": "attracting a lot of public attention; prominent",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:dbb928aa14df93866b47",
+          "target_locator": "record.constructions[0]",
+          "target_label": "high-profile"
+        }
+      },
+      {
+        "id": "construction:7bd97a1ac73ea08ef250",
+        "source_locator": "record.constructions[1]",
+        "pattern": "keep/maintain a low profile",
+        "lines": [
+          {
+            "text": "刻意保持低调；避免引起公众注意",
+            "lang": "cn"
+          },
+          {
+            "text": "deliberately avoid notice",
+            "lang": "en"
+          },
+          {
+            "text": "to deliberately avoid public attention or notice",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7bd97a1ac73ea08ef250",
+          "target_locator": "record.constructions[1]",
+          "target_label": "keep/maintain a low profile"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4578,7 +4765,7 @@
     "ordinal": 3813,
     "word": "progress",
     "source_owner_path": "content/lexical/words/by-ordinal/o3813.json",
-    "source_fingerprint": "4561ba280ec269966aff0c40a4256c373754ef48fb695dd34d08a3db293769a1",
+    "source_fingerprint": "bcad264646c1e3294a218efff965951e55ff39212d4dcba9fd0cd17c06f24b49",
     "sense_lineage": [
       {
         "word_id": "word:progress",
@@ -4614,7 +4801,15 @@
         "definition_cn": "前进，进展",
         "definition_en": "the act of moving forward (as toward a goal)",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun progress typically has initial stress; verb progress typically has final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "noun progress typically has initial stress; verb progress typically has final stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:1620e5b0643a4e1d5d67",
@@ -4661,7 +4856,15 @@
         "definition_cn": "进步，进展",
         "definition_en": "develop in a positive way",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb progress typically has final stress; noun progress typically has initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "verb progress typically has final stress; noun progress typically has initial stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:f63092b51a52841d5561",
@@ -4701,25 +4904,7 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [
-        {
-          "title": "progress ↔ progress noun ↔ progress verb",
-          "target_word": "progress noun ↔ progress verb",
-          "lines": [
-            {
-              "text": "progress noun typically has initial stress; progress verb typically has final stress.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:16d9328de352525d6df5",
-            "target_locator": "record.confusables[0]",
-            "target_label": "progress ↔ progress noun ↔ progress verb"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [],
       "form": {
         "boundary": "",
@@ -5020,11 +5205,11 @@
     "ordinal": 3816,
     "word": "project",
     "source_owner_path": "content/lexical/words/by-ordinal/o3816.json",
-    "source_fingerprint": "8f7b2ae5268925575bf01ab7ce48a431a95c4cdd502c28d04f4536869f3b8ee0",
+    "source_fingerprint": "399474f80dc81cea0b329e0165d44f41e2bf8f25903557d5c3aa9b819b81b0a1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(4+1)V",
+        "4V",
         "1N"
       ],
       "density": "rich"
@@ -5048,7 +5233,15 @@
         "definition_cn": "项目；计划；工程",
         "definition_en": "a planned piece of work or activity",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun project has initial stress; verb project normally has final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "noun project has initial stress; verb project normally has final stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:4fe1312c262a84206c50",
@@ -5082,7 +5275,15 @@
         "definition_cn": "投射；放映",
         "definition_en": "to cause light, an image, etc. to fall on a surface or screen",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb project normally has final stress; noun project has initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "verb project normally has final stress; noun project has initial stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:dd1808ffc048b3f1057c",
@@ -5121,7 +5322,15 @@
         "definition_cn": "预测；推断",
         "definition_en": "to estimate or forecast something based on present data",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb project normally has final stress; noun project has initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "verb project normally has final stress; noun project has initial stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:9ac4673133cc9fc2173b",
@@ -5160,7 +5369,15 @@
         "definition_cn": "突出；凸出",
         "definition_en": "to stick out or protrude",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb project normally has final stress; noun project has initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "verb project normally has final stress; noun project has initial stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:d0263de3a19a041f869d",
@@ -5199,7 +5416,15 @@
         "definition_cn": "展示；传达（某种形象、印象、信心等）",
         "definition_en": "to convey, communicate, or present a particular image, impression, confidence, authority, or quality",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb project normally has final stress; noun project has initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[4].lexical_identity_overlay",
+            "target_label": "verb project normally has final stress; noun project has initial stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:845e44b184bcf1d192ef",
@@ -5218,22 +5443,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:project:9505899b67c0cfea",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "预测；推断",
-        "definition_en": "to estimate or forecast something based on present data",
-        "pattern": "project 预测/推断",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:project:9505899b67c0cfea",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "预测；推断"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -5512,7 +5722,7 @@
     "ordinal": 3820,
     "word": "promise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3820.json",
-    "source_fingerprint": "b46f20503237548273de5cacaafbd76eeaba20f905a9a2ebb2f708f827bd8e1f",
+    "source_fingerprint": "18e4437842ef6880186935e7631c7889d6b993aa659859f67619a87ce3251bf0",
     "sense_lineage": [
       {
         "word_id": "word:promise",
@@ -5520,18 +5730,11 @@
         "from_target_id": "sense:promise:1dae294267b85ac7",
         "status": "merged",
         "to_target_id": "sense:promise:05d0b6dde03d55fd"
-      },
-      {
-        "word_id": "word:promise",
-        "target_kind": "sense",
-        "from_target_id": "sense:promise:1e61185489e554fd",
-        "status": "merged",
-        "to_target_id": "sense:promise:05d0b6dde03d55fd"
       }
     ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "2N"
       ],
       "density": "rich"
@@ -5641,6 +5844,45 @@
           "target_id": "sense:promise:87733f89ca3f5d9b",
           "target_locator": "record.senses[2]",
           "target_label": "希望；前途；成功的迹象"
+        }
+      },
+      {
+        "id": "sense:promise:1e61185489e554fd",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "I/T: promise to be/do; promise sth",
+        "definition_cn": "预示；有望；给人充分理由期待",
+        "definition_en": "to show signs of likely future success or results; to give good reason to expect something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a7712fc05f5b5edf6352",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "promise to be effective/successful",
+            "meaning_cn": "有望有效/成功",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a7712fc05f5b5edf6352",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "promise to be effective/successful"
+            }
+          },
+          {
+            "id": "collocation:cacddb977d715a651f9a",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "promise better results",
+            "meaning_cn": "预示会有更好的结果",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:promise:1e61185489e554fd",
+          "target_locator": "record.senses[3]",
+          "target_label": "预示；有望；给人充分理由期待"
         }
       }
     ],
@@ -6224,7 +6466,7 @@
     "ordinal": 3824,
     "word": "prone",
     "source_owner_path": "content/lexical/words/by-ordinal/o3824.json",
-    "source_fingerprint": "a79b057b696292d023a2fd149a9b433fa221e43f13c6a4279857949a939ce785",
+    "source_fingerprint": "501aa8d3fe710f0163e49b0089f1686be588a2878dc344892c01f322695b124b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6306,6 +6548,14 @@
           {
             "text": "易于；有…倾向；容易遭受…",
             "lang": "cn"
+          },
+          {
+            "text": "tendency/susceptibility, usually negative; not physical face-down posture",
+            "lang": "en"
+          },
+          {
+            "text": "to be likely or susceptible to something, usually negative",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -7037,7 +7287,7 @@
     "ordinal": 3832,
     "word": "proper",
     "source_owner_path": "content/lexical/words/by-ordinal/o3832.json",
-    "source_fingerprint": "69c684bc5f757ece8249542939e62952d58849647404dfe7457dc39286284704",
+    "source_fingerprint": "f507457f904601c98f2ca793632b073285643171688d0c76a3ec9316f4e0fc33",
     "sense_lineage": [
       {
         "word_id": "word:proper",
@@ -7113,7 +7363,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:350c1f8512617e8d5b49",
+        "source_locator": "record.constructions[0]",
+        "pattern": "proper noun/name",
+        "lines": [
+          {
+            "text": "专有名词/专名：特指某个人、地点、组织等的名称，英语中通常首字母大写",
+            "lang": "cn"
+          },
+          {
+            "text": "technical grammar phrase; does not make proper generally mean capitalized/name",
+            "lang": "en"
+          },
+          {
+            "text": "a name for a particular person, place, organization, etc., conventionally capitalized in English",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:350c1f8512617e8d5b49",
+          "target_locator": "record.constructions[0]",
+          "target_label": "proper noun/name"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7127,11 +7403,11 @@
     "ordinal": 3833,
     "word": "property",
     "source_owner_path": "content/lexical/words/by-ordinal/o3833.json",
-    "source_fingerprint": "ba563ee7381f1f1a35cfd33dd872ea21fd612f4d000c6bf0e4a8e58e02513986",
+    "source_fingerprint": "d871c4846f3ac0fac5ee57250ece5454a6cf9b42b474463629e7fa6d1ce67ffb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -7231,24 +7507,51 @@
           "target_locator": "record.senses[2]",
           "target_label": "性质；属性；特性"
         }
-      }
-    ],
-    "secondary_senses": [
+      },
       {
-        "id": "deep:secondary_senses:property:94cd08b099c4815f",
-        "source_locator": "record.secondary_senses[0]",
+        "id": "sense:property:5f5cd0d4407db3dc",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
-        "definition_cn": "性质；属性",
-        "definition_en": "a characteristic or attribute of something",
-        "pattern": "chemical properties 化学性质",
+        "governing_pattern": "",
+        "definition_cn": "房地产；房产；土地或建筑物资产",
+        "definition_en": "land and/or buildings owned by someone; a building or piece of land considered as an asset",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:08aa2893d7a67f4ec618",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "property prices",
+            "meaning_cn": "房价/房地产价格",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:fac60079477600f71fdc",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "buy/sell a property",
+            "meaning_cn": "购买/出售房产",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:b2ccc60090fa4320bf74",
+            "source_locator": "record.senses[3].collocations[2]",
+            "phrase": "commercial property",
+            "meaning_cn": "商业地产",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:property:94cd08b099c4815f",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "性质；属性"
+          "target_kind": "sense",
+          "target_id": "sense:property:5f5cd0d4407db3dc",
+          "target_locator": "record.senses[3]",
+          "target_label": "房地产；房产；土地或建筑物资产"
         }
       }
     ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -7350,12 +7653,20 @@
     "ordinal": 3835,
     "word": "proportion",
     "source_owner_path": "content/lexical/words/by-ordinal/o3835.json",
-    "source_fingerprint": "5198d42759069677cbb4fa7b6326112a52a8eee8ad5cdeb5eb6ea2b62a0af3cc",
-    "sense_lineage": [],
+    "source_fingerprint": "13df69d64320464725d97e6d99d58a7cf3d2ce9e276f88bc19d74b2a84bc5dad",
+    "sense_lineage": [
+      {
+        "word_id": "word:proportion",
+        "target_kind": "sense",
+        "from_target_id": "sense:proportion:5e6b1c9b2fb8ef9d",
+        "status": "merged",
+        "to_target_id": "sense:proportion:e26cd9308ffe5921"
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -7446,25 +7757,8 @@
         }
       },
       {
-        "id": "sense:proportion:5e6b1c9b2fb8ef9d",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "一部分；占比",
-        "definition_en": "a part or share of a whole",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:proportion:5e6b1c9b2fb8ef9d",
-          "target_locator": "record.senses[2]",
-          "target_label": "一部分；占比"
-        }
-      },
-      {
         "id": "sense:proportion:e26cd9308ffe5921",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "比例；比率；两数量之间的比例关系",
@@ -7474,14 +7768,14 @@
         "usage": [
           {
             "id": "collocation:d601c0251467c6b56a32",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "the proportion of A to B",
             "meaning_cn": "A 与 B 的比例",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:d601c0251467c6b56a32",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "the proportion of A to B"
             }
           }
@@ -7489,13 +7783,64 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:proportion:e26cd9308ffe5921",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "比例；比率；两数量之间的比例关系"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:5b3e95ede36841b52b02",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in proportion (to sth)",
+        "lines": [
+          {
+            "text": "与…成适当比例；相称",
+            "lang": "cn"
+          },
+          {
+            "text": "appropriate relative amount/size",
+            "lang": "en"
+          },
+          {
+            "text": "in the correct or appropriate relative amount or size",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:5b3e95ede36841b52b02",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in proportion (to sth)"
+        }
+      },
+      {
+        "id": "construction:0a9d9195d32a7482efee",
+        "source_locator": "record.constructions[1]",
+        "pattern": "out of proportion (to sth)",
+        "lines": [
+          {
+            "text": "与…不成比例；相对过大/过小/过强；夸大失衡",
+            "lang": "cn"
+          },
+          {
+            "text": "relative mismatch; figuratively exaggerated",
+            "lang": "en"
+          },
+          {
+            "text": "too large, small, or strong relative to something else; figuratively exaggerated",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0a9d9195d32a7482efee",
+          "target_locator": "record.constructions[1]",
+          "target_label": "out of proportion (to sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7609,7 +7954,7 @@
     "ordinal": 3837,
     "word": "propose",
     "source_owner_path": "content/lexical/words/by-ordinal/o3837.json",
-    "source_fingerprint": "297dd69ed8cec9e609ef3fce8afaddd496c35c0f0e9a182a95af90880a4cadb0",
+    "source_fingerprint": "f8e225561f997c603ce4bf66877747f77ca973f57bccc308eeb006e70cdf450e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7632,7 +7977,7 @@
         "id": "sense:propose:7fb845ce74115c26",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "propose sth; propose doing sth; propose that + clause",
         "definition_cn": "建议，提议",
         "definition_en": "to suggest a plan or idea for consideration",
         "note": "",
@@ -7671,10 +8016,10 @@
         "id": "sense:propose:3646bd2bd3df59aa",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "propose to do sth",
         "definition_cn": "计划，打算",
         "definition_en": "to intend to do something",
-        "note": "",
+        "note": "propose to do = intend/plan; do not confuse with propose doing = suggest doing",
         "identity_overlay": null,
         "usage": [
           {
@@ -7802,7 +8147,7 @@
     "ordinal": 3838,
     "word": "proposition",
     "source_owner_path": "content/lexical/words/by-ordinal/o3838.json",
-    "source_fingerprint": "a054e0413fa29d24e523fbad15105e4514377cf99521e942cea47813ba674461",
+    "source_fingerprint": "53c27b3376075bf1fbd0d82b666c85c1504638e6d1ff06626c0fa5f5b7844493",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7879,9 +8224,9 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "向…提出猥亵要求",
-        "definition_en": "to suggest sex to someone",
-        "note": "",
+        "definition_cn": "向某人提出发生性关系的要求/提议",
+        "definition_en": "to ask someone, typically someone with whom one is not already in a sexual relationship, whether they would like to have sex; to make a sexual proposition to someone",
+        "note": "The proposition may be unwelcome or inappropriate in context, but that is not inherent in the lexical meaning itself",
         "identity_overlay": null,
         "usage": [
           {
@@ -7902,7 +8247,7 @@
           "target_kind": "sense",
           "target_id": "sense:proposition:caadd9fe6baa5f10",
           "target_locator": "record.senses[2]",
-          "target_label": "向…提出猥亵要求"
+          "target_label": "向某人提出发生性关系的要求/提议"
         }
       }
     ],
@@ -8006,7 +8351,7 @@
     "ordinal": 3840,
     "word": "prosecute",
     "source_owner_path": "content/lexical/words/by-ordinal/o3840.json",
-    "source_fingerprint": "f44c7d2af103da19041d8fec68d51101bb304a6b0513ed1ba79e7708de4a6c52",
+    "source_fingerprint": "6ab7f6d00219b10a274b56bae96d94b879193e58ba3f30e1c84159af10b24ae7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8029,9 +8374,9 @@
         "id": "sense:prosecute:d8c125abf8125d52",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "起诉；告发",
-        "definition_en": "to officially charge someone with a crime and try to prove it in a court of law",
+        "governing_pattern": "vt.: prosecute sb for sth; prosecute a case",
+        "definition_cn": "起诉某人；代表控方办理/进行案件",
+        "definition_en": "to bring or conduct criminal proceedings against someone, or to conduct a case for the prosecution",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8061,7 +8406,7 @@
           "target_kind": "sense",
           "target_id": "sense:prosecute:d8c125abf8125d52",
           "target_locator": "record.senses[0]",
-          "target_label": "起诉；告发"
+          "target_label": "起诉某人；代表控方办理/进行案件"
         }
       },
       {

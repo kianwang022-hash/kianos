@@ -224,7 +224,7 @@
     "ordinal": 4419,
     "word": "shrug",
     "source_owner_path": "content/lexical/words/by-ordinal/o4419.json",
-    "source_fingerprint": "f61f87f066c65677af4176dd8d14933f7d08be8b9f5602d170536489659b256e",
+    "source_fingerprint": "00417a966d8f7fc6e659b4dd0cab49a19ae8c47b3ee176081fccf02af01698fe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -248,7 +248,7 @@
         "id": "sense:shrug:95d288baf09d561f",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: shrug; shrug one's shoulders",
         "definition_cn": "耸肩（表示不在乎或无奈）",
         "definition_en": "raise one's shoulders to indicate indifference or resignation",
         "note": "",
@@ -960,7 +960,7 @@
     "ordinal": 4425,
     "word": "sick",
     "source_owner_path": "content/lexical/words/by-ordinal/o4425.json",
-    "source_fingerprint": "a3866796b12b01c3ce9cb9c01d21451b0189e0e4695da9566e3d4aa11bd850ef",
+    "source_fingerprint": "531b2c8e4a801739e0159510e88c843f046a379a580565015d208de44acf8827",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -991,16 +991,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:4f06a7521bf73a57443f",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "feel sick",
-            "meaning_cn": "感到恶心",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:d701292dffd024e8d4bd",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "sick leave",
             "meaning_cn": "病假",
             "kind": "usage_example",
@@ -1021,7 +1013,7 @@
         "governing_pattern": "",
         "definition_cn": "恶心的",
         "definition_en": "feeling nauseous or wanting to vomit",
-        "note": "",
+        "note": "BrE commonly uses feel sick for nausea; in broader/AmE contexts sick can also mean generally ill",
         "identity_overlay": null,
         "usage": [
           {
@@ -1031,6 +1023,19 @@
             "meaning_cn": "呕吐",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:fdf42447a536b8397671",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "feel sick",
+            "meaning_cn": "感到恶心；想吐",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:fdf42447a536b8397671",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "feel sick"
+            }
           }
         ],
         "repair": {
@@ -1733,7 +1738,7 @@
     "ordinal": 4430,
     "word": "sight",
     "source_owner_path": "content/lexical/words/by-ordinal/o4430.json",
-    "source_fingerprint": "344f3e0939bf85f3ca095712d70626d2696b354c308836c54e363d96effbbb38",
+    "source_fingerprint": "013fd8d0e4b5e26a69e4b41feddebbb6a990c8670ae4d7123079e9373ccf98c2",
     "sense_lineage": [
       {
         "word_id": "word:sight",
@@ -1820,7 +1825,58 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:7bcf619767c19559d08f",
+        "source_locator": "record.constructions[0]",
+        "pattern": "catch sight of sb/sth",
+        "lines": [
+          {
+            "text": "突然看见；瞥见",
+            "lang": "cn"
+          },
+          {
+            "text": "brief/sudden seeing construction",
+            "lang": "en"
+          },
+          {
+            "text": "to suddenly see someone or something, often briefly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7bcf619767c19559d08f",
+          "target_locator": "record.constructions[0]",
+          "target_label": "catch sight of sb/sth"
+        }
+      },
+      {
+        "id": "construction:b528b1ebe099fa47dc20",
+        "source_locator": "record.constructions[1]",
+        "pattern": "in sight / out of sight",
+        "lines": [
+          {
+            "text": "在视线内/看得见；在视线外/看不见",
+            "lang": "cn"
+          },
+          {
+            "text": "visibility-state phraseology",
+            "lang": "en"
+          },
+          {
+            "text": "visible within one’s range of vision / no longer visible",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:b528b1ebe099fa47dc20",
+          "target_locator": "record.constructions[1]",
+          "target_label": "in sight / out of sight"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -1957,7 +2013,7 @@
     "ordinal": 4432,
     "word": "sign",
     "source_owner_path": "content/lexical/words/by-ordinal/o4432.json",
-    "source_fingerprint": "54b4d4d1a279bb8729a792c5152d6e0cea7db1e597f89a4bdd94345e097d12bc",
+    "source_fingerprint": "8c5a47008794e3de0331b18ea1e722c677d3836729932d7b002ecf95c2db644a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2033,19 +2089,6 @@
             "meaning_cn": "交通标志",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:2708322a95620e1a0103",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "sign up",
-            "meaning_cn": "报名；签约",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2708322a95620e1a0103",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "sign up"
-            }
           }
         ],
         "repair": {
@@ -2179,6 +2222,14 @@
           {
             "text": "报名、注册或加入",
             "lang": "cn"
+          },
+          {
+            "text": "verb phrasal construction; not the public notice/signboard noun",
+            "lang": "en"
+          },
+          {
+            "text": "to register, enrol, or join",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -2977,7 +3028,7 @@
     "ordinal": 4439,
     "word": "silent",
     "source_owner_path": "content/lexical/words/by-ordinal/o4439.json",
-    "source_fingerprint": "195f55d2aadce6dfbe1d16350d157c629842bbee655857d0792bd4532c665be9",
+    "source_fingerprint": "88dc2b99bca39f83c04f11e7f93377818ec69e52c34a6ed2f263dad77bfee1dd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3044,16 +3095,7 @@
         "definition_en": "refraining from speech; not speaking",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:65e671cafc050dac7d9e",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "silent partner",
-            "meaning_cn": "不参与经营的合伙人",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:silent:3fe1a57ddb89501a",
@@ -3115,7 +3157,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:d47efc53943da6c1fab9",
+        "source_locator": "record.constructions[0]",
+        "pattern": "silent partner",
+        "lines": [
+          {
+            "text": "不参与日常经营管理的合伙人/投资者（美式；英式常 sleeping partner）",
+            "lang": "cn"
+          },
+          {
+            "text": "business phrase; US silent partner, UK often sleeping partner",
+            "lang": "en"
+          },
+          {
+            "text": "a partner or investor who does not take an active role in management",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d47efc53943da6c1fab9",
+          "target_locator": "record.constructions[0]",
+          "target_label": "silent partner"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3129,7 +3197,7 @@
     "ordinal": 4440,
     "word": "silicon",
     "source_owner_path": "content/lexical/words/by-ordinal/o4440.json",
-    "source_fingerprint": "b1a65760c2cf8e57c2bdd94322ff778783bc3267ca919f475a4e78821ef02739",
+    "source_fingerprint": "c8a907e7c3f72bd25e928564808e7638500948fda0bf3facac2af179973b3b5e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3165,19 +3233,6 @@
             "meaning_cn": "硅芯片",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:0e9049c4269ec637b7f7",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "Silicon Valley",
-            "meaning_cn": "硅谷",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0e9049c4269ec637b7f7",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "Silicon Valley"
-            }
           }
         ],
         "repair": {
@@ -3189,7 +3244,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:e0935b6d155661add715",
+        "source_locator": "record.constructions[0]",
+        "pattern": "Silicon Valley",
+        "lines": [
+          {
+            "text": "硅谷：美国加州著名科技产业地区及其引申的科技产业集群",
+            "lang": "cn"
+          },
+          {
+            "text": "capitalization-sensitive proper-name expression; not a literal chemical-element collocation",
+            "lang": "en"
+          },
+          {
+            "text": "the proper name of the California technology region, and by extension its technology-industry cluster",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e0935b6d155661add715",
+          "target_locator": "record.constructions[0]",
+          "target_label": "Silicon Valley"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -3221,7 +3302,7 @@
     "ordinal": 4441,
     "word": "silk",
     "source_owner_path": "content/lexical/words/by-ordinal/o4441.json",
-    "source_fingerprint": "69a8b27ea05af8445f6c144f018303b3557195753e93cd4397cf5f6d7c809dfc",
+    "source_fingerprint": "379cdd189f8ef37a85d7d30ff6611be197ff254827abd6c519158480218ccfa5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3252,21 +3333,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:0b95f78bf97d9250c4ef",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "silk road",
-            "meaning_cn": "丝绸之路",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0b95f78bf97d9250c4ef",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "silk road"
-            }
-          },
-          {
             "id": "collocation:2e06ae3d08612fb4d20e",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a silk dress",
             "meaning_cn": "一件丝绸连衣裙",
             "kind": "usage_example",
@@ -3308,7 +3376,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:83c6a25a44796454606a",
+        "source_locator": "record.constructions[0]",
+        "pattern": "the Silk Road",
+        "lines": [
+          {
+            "text": "丝绸之路：连接欧亚各地的历史性贸易路线网络",
+            "lang": "cn"
+          },
+          {
+            "text": "capitalization-sensitive historical/geographic proper name; not a literal silk-material collocation",
+            "lang": "en"
+          },
+          {
+            "text": "the historical network of trade routes linking regions across Eurasia",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:83c6a25a44796454606a",
+          "target_locator": "record.constructions[0]",
+          "target_label": "the Silk Road"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3663,19 +3757,12 @@
     "ordinal": 4445,
     "word": "simple",
     "source_owner_path": "content/lexical/words/by-ordinal/o4445.json",
-    "source_fingerprint": "a995281a1c9276641e391af12806fd2d0512789a3fb081a5a3d1b7ba7ab434c5",
+    "source_fingerprint": "d260131de46b4f4846878104fdc2c0f2d91a3d693a490d9b9f30e2db25afcf4f",
     "sense_lineage": [
       {
         "word_id": "word:simple",
         "target_kind": "sense",
         "from_target_id": "sense:simple:1c7aeddc2aec59b0",
-        "status": "deprecated",
-        "to_target_id": null
-      },
-      {
-        "word_id": "word:simple",
-        "target_kind": "sense",
-        "from_target_id": "sense:simple:9b45a45f1ec952aa",
         "status": "deprecated",
         "to_target_id": null
       },
@@ -3689,7 +3776,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
@@ -3736,6 +3823,50 @@
           "target_id": "sense:simple:04b557c7900651b8",
           "target_locator": "record.senses[1]",
           "target_label": "单纯的；易懂的"
+        }
+      },
+      {
+        "id": "sense:simple:9b45a45f1ec952aa",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "朴素的；简朴的；不加装饰的",
+        "definition_en": "plain, basic, or without decoration or ornament",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c7f1442356713d9a4bcc",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a simple dress/design",
+            "meaning_cn": "简朴的连衣裙/设计",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c7f1442356713d9a4bcc",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "a simple dress/design"
+            }
+          },
+          {
+            "id": "collocation:901d59970ea9c1e42413",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "a simple meal",
+            "meaning_cn": "简单朴素的一餐",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:901d59970ea9c1e42413",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "a simple meal"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:simple:9b45a45f1ec952aa",
+          "target_locator": "record.senses[2]",
+          "target_label": "朴素的；简朴的；不加装饰的"
         }
       }
     ],
@@ -4327,13 +4458,13 @@
     "ordinal": 4452,
     "word": "since",
     "source_owner_path": "content/lexical/words/by-ordinal/o4452.json",
-    "source_fingerprint": "dff3f283c1484bc2e7fa86e42213fab435ea7da485b84a50ff706b276fc69519",
+    "source_fingerprint": "278c1d8c505d7a2950cba3705245a2f632883db9c81e0ee0ae0e046df6283b3b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1ADV",
         "1PREP",
-        "1CONJUNCTION"
+        "2CONJUNCTION"
       ],
       "density": "rich"
     },
@@ -4463,6 +4594,37 @@
           "target_id": "sense:since:661ac5b76e3c548b",
           "target_locator": "record.senses[2]",
           "target_label": "自那以后；从某一参照时间起到后来/现在"
+        }
+      },
+      {
+        "id": "sense:since:3487db1afdd88fdc",
+        "source_locator": "record.senses[3]",
+        "pos": "conjunction",
+        "governing_pattern": "conj. + clause",
+        "definition_cn": "自从……以来；从过去某事件发生时起一直到后来/现在",
+        "definition_en": "from the time when a past event happened until a later reference time or the present",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:cf823584c4a55c668691",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "I've known her since we were children.",
+            "meaning_cn": "自从我们还是孩子时起我就认识她。",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:cf823584c4a55c668691",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "I've known her since we were children."
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:since:3487db1afdd88fdc",
+          "target_locator": "record.senses[3]",
+          "target_label": "自从……以来；从过去某事件发生时起一直到后来/现在"
         }
       }
     ],
@@ -7283,7 +7445,7 @@
     "ordinal": 4474,
     "word": "skilful",
     "source_owner_path": "content/lexical/words/by-ordinal/o4474.json",
-    "source_fingerprint": "aacb5a226452b96e0361ef17de4d475a6b76b29a1067b73e5fa0f1ceed14e00e",
+    "source_fingerprint": "251c84597f7fbd199ddb5b317e1528f74543568c5372ccdb57c5d11abd4371e4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7310,7 +7472,15 @@
         "definition_cn": "熟练的，灵巧的，有技巧的",
         "definition_en": "having or showing knowledge and skill and aptitude",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "skilful is standard/common BrE spelling; skillful is standard/common AmE spelling; same adjective",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "skilful is standard/common BrE spelling; skillful is standard/common AmE spelling; same adjective"
+          }
+        },
         "usage": [
           {
             "id": "collocation:24e30d5ac48b737f2a07",
@@ -7338,25 +7508,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "skilful ↔ skillful",
-          "target_word": "skillful",
-          "lines": [
-            {
-              "text": "skilful is standard/common British spelling; skillful is standard/common American spelling. Same adjective.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:68ab8ac8ace6ded7d7b9",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "skilful ↔ skillful"
-          }
-        }
-      ],
+      "relations": [],
       "form": {
         "boundary": "",
         "boundaries": [
@@ -7544,7 +7696,7 @@
     "ordinal": 4477,
     "word": "skim",
     "source_owner_path": "content/lexical/words/by-ordinal/o4477.json",
-    "source_fingerprint": "ee5df11ddd866a315989db550dcd9c9df340112a0e8e40443fbef72d89735a44",
+    "source_fingerprint": "cb27df74908215d124610be3e14a3afba7edd0ea1b78f764a6cacb404ba7f89e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7567,7 +7719,7 @@
         "id": "sense:skim:b066dd1d6eeb5ba6",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: skim the report/article; skim through/over the report/article",
         "definition_cn": "略读；浏览",
         "definition_en": "to read or glance through something quickly",
         "note": "",
@@ -7802,7 +7954,7 @@
     "ordinal": 4479,
     "word": "skip",
     "source_owner_path": "content/lexical/words/by-ordinal/o4479.json",
-    "source_fingerprint": "75befd56a699901c2fddb22bc4c4e917eb2cb450070f18d5a8693fd3e22d574f",
+    "source_fingerprint": "d1019b2f4985fe78c764217d72a8031c9486d695cad31e74618f6e691284ce10",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7872,23 +8024,18 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:b2d4802ff19abc7da514",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "skip over + sth",
-            "meaning_cn": "跳过某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b2d4802ff19abc7da514",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "skip over + sth"
-            }
-          },
-          {
             "id": "collocation:987f96fc4df4efbc34a0",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "skip down the street",
             "meaning_cn": "沿街蹦跳",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:d4a5eb4f4ba886c704a9",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "skip over a puddle",
+            "meaning_cn": "蹦跳着越过水坑",
             "kind": "usage_example",
             "repair": null
           }
@@ -8020,7 +8167,7 @@
     "ordinal": 4480,
     "word": "skirt",
     "source_owner_path": "content/lexical/words/by-ordinal/o4480.json",
-    "source_fingerprint": "bb2168d15c3d80db8d9300a1d95e6a0057bc135e52dbd3eebae9ad8e4caac9c1",
+    "source_fingerprint": "44cc58878e688be68b762efc2021cc5af609b94dbd29cf326ff8d8a9e442f3c4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8104,7 +8251,7 @@
         "id": "sense:skirt:597ab4feb5ee5354",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: skirt the issue; skirt the edge of sth; skirt around sth/around the town",
         "definition_cn": "绕过；回避",
         "definition_en": "to go around the edge of something; to avoid dealing with something difficult",
         "note": "",

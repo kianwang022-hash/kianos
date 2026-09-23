@@ -363,11 +363,18 @@
     "ordinal": 4997,
     "word": "thought",
     "source_owner_path": "content/lexical/words/by-ordinal/o4997.json",
-    "source_fingerprint": "9a8e032fb7794150c1ea4c2d5f0414a3200b6411797f49bc21a797085b593e71",
-    "sense_lineage": [],
+    "source_fingerprint": "32ce039caf717b1ea7e3a7edf24b4a81aea907c6dd8244e06b17114ba92b54f0",
+    "sense_lineage": [
+      {
+        "word_id": "word:thought",
+        "target_kind": "sense",
+        "from_target_id": "sense:thought:5a8144af086d508f",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "4N"
       ],
       "density": "rich"
@@ -391,7 +398,15 @@
         "definition_cn": "想法；看法",
         "definition_en": "an idea or opinion produced by thinking",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "surface thought is also the irregular past/past participle of think; the noun senses here are independent lexical meanings",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "surface thought is also the irregular past/past participle of think; the noun senses here are independent lexical meanings"
+          }
+        },
         "usage": [
           {
             "id": "collocation:565a08e13eccad4101a0",
@@ -430,7 +445,15 @@
         "definition_cn": "思维；思考",
         "definition_en": "the process of thinking",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "surface thought is also the irregular past/past participle of think; the noun senses here are independent lexical meanings",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "surface thought is also the irregular past/past participle of think; the noun senses here are independent lexical meanings"
+          }
+        },
         "usage": [
           {
             "id": "collocation:07addcca7a46c2ea6ebe",
@@ -454,35 +477,26 @@
         }
       },
       {
-        "id": "sense:thought:5a8144af086d508f",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "think的过去式和过去分词",
-        "definition_en": "past tense and past participle of think",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:thought:5a8144af086d508f",
-          "target_locator": "record.senses[2]",
-          "target_label": "think的过去式和过去分词"
-        }
-      },
-      {
         "id": "sense:thought:09def9983d855f26",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "思想；思潮",
         "definition_en": "the beliefs or ideas of a particular group or period",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "surface thought is also the irregular past/past participle of think; the noun senses here are independent lexical meanings",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "surface thought is also the irregular past/past participle of think; the noun senses here are independent lexical meanings"
+          }
+        },
         "usage": [
           {
             "id": "collocation:4b04448b1376689cb906",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "modern thought",
             "meaning_cn": "现代思想",
             "kind": "usage_example",
@@ -492,30 +506,38 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:thought:09def9983d855f26",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "思想；思潮"
         }
       },
       {
         "id": "sense:thought:1b25f9efb0955917",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "关心；挂念",
         "definition_en": "care or consideration for someone",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "surface thought is also the irregular past/past participle of think; the noun senses here are independent lexical meanings",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "surface thought is also the irregular past/past participle of think; the noun senses here are independent lexical meanings"
+          }
+        },
         "usage": [
           {
             "id": "collocation:ad50cd4571a05f4eaaf2",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "thought for + sb",
             "meaning_cn": "对某人的关心",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:ad50cd4571a05f4eaaf2",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "thought for + sb"
             }
           }
@@ -523,7 +545,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:thought:1b25f9efb0955917",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "关心；挂念"
         }
       }
@@ -534,18 +556,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [
-        {
-          "target_word": "think",
-          "lines": [
-            {
-              "text": "thought is the irregular past/past participle of think and also an independent noun lexeme.",
-              "lang": "en"
-            }
-          ],
-          "source_locator": "record.word_family[0]"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -554,15 +565,8 @@
     "ordinal": 4998,
     "word": "thoughtful",
     "source_owner_path": "content/lexical/words/by-ordinal/o4998.json",
-    "source_fingerprint": "db4686783197e460c3ed434cd6c19ba9bacf110748475a252b8f1e886b4ec361",
+    "source_fingerprint": "3aed2f11f6b19cbffc44d08fa704f642bd6a4079fb4cfb737451c6f6aabe57a2",
     "sense_lineage": [
-      {
-        "word_id": "word:thoughtful",
-        "target_kind": "sense",
-        "from_target_id": "sense:thoughtful:0094e9d34ef350c6",
-        "status": "merged",
-        "to_target_id": "sense:thoughtful:227184ada1f557c1"
-      },
       {
         "word_id": "word:thoughtful",
         "target_kind": "sense",
@@ -580,18 +584,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "深思的、考虑周到的；也指体贴他人的",
+      "summary_cn": "深思熟虑的；体贴的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "深思的、考虑周到的；也指体贴他人的"
+        "target_label": "深思熟虑的；体贴的"
       }
     },
     "senses": [
@@ -600,25 +604,87 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "深思的、考虑周到的；也指体贴他人的",
-        "definition_en": "showing careful or reflective thought; also considerate of other people",
+        "definition_cn": "深思熟虑的；经过认真思考的",
+        "definition_en": "showing careful, serious, or reflective thought",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:ab0115463638057c8664",
+            "id": "collocation:1ee12b602ebca46048d5",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a thoughtful analysis",
             "meaning_cn": "深思熟虑的分析",
-            "kind": "usage_example",
-            "repair": null
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1ee12b602ebca46048d5",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "a thoughtful analysis"
+            }
+          },
+          {
+            "id": "collocation:0fd295e82e654d3d4970",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "a thoughtful answer",
+            "meaning_cn": "经过认真思考的回答",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:0fd295e82e654d3d4970",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "a thoughtful answer"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:thoughtful:227184ada1f557c1",
           "target_locator": "record.senses[0]",
-          "target_label": "深思的、考虑周到的；也指体贴他人的"
+          "target_label": "深思熟虑的；经过认真思考的"
+        }
+      },
+      {
+        "id": "sense:thoughtful:0094e9d34ef350c6",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "体贴的；关心他人感受和需要的",
+        "definition_en": "kind and considerate of other people's feelings or needs",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:f6c5612e74e4aaa94345",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a thoughtful friend/person",
+            "meaning_cn": "体贴的朋友/人",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:f6c5612e74e4aaa94345",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "a thoughtful friend/person"
+            }
+          },
+          {
+            "id": "collocation:5bc515a4271e87e27d58",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a thoughtful gift/gesture",
+            "meaning_cn": "体贴周到的礼物/举动",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5bc515a4271e87e27d58",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "a thoughtful gift/gesture"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:thoughtful:0094e9d34ef350c6",
+          "target_locator": "record.senses[1]",
+          "target_label": "体贴的；关心他人感受和需要的"
         }
       }
     ],
@@ -1124,7 +1190,7 @@
     "ordinal": 5002,
     "word": "threaten",
     "source_owner_path": "content/lexical/words/by-ordinal/o5002.json",
-    "source_fingerprint": "2166116ed9342f4c4219caf26bc02c095bf528ebf7e1112eb8fb7b9403d069e4",
+    "source_fingerprint": "c8c24bca255f8a928be72256e69c1bf2f526339cf8d9da916b00b3a4cc61f574",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1147,7 +1213,7 @@
         "id": "sense:threaten:d7756159186b5fb1",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: threaten sb; threaten sb with sth; threaten to do sth",
         "definition_cn": "威胁、扬言伤害或造成不利后果",
         "definition_en": "to threaten or state an intention to harm or cause an adverse consequence",
         "note": "",
@@ -2621,7 +2687,7 @@
     "ordinal": 5014,
     "word": "thumb",
     "source_owner_path": "content/lexical/words/by-ordinal/o5014.json",
-    "source_fingerprint": "8787751396b8a143ad8b0d8c882525d87fd3356c0aad669b70fae4ca53792d51",
+    "source_fingerprint": "e3d5a0981f7e43e31c391e50f207571952865243a2c4fba7d128caea0cd3bba0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2650,34 +2716,7 @@
         "definition_en": "the short, thick first digit of the human hand, set lower and apart from the other four",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8a8428d9222e9cb586c4",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "rule of thumb",
-            "meaning_cn": "经验法则",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8a8428d9222e9cb586c4",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "rule of thumb"
-            }
-          },
-          {
-            "id": "collocation:f23f7737914a624ee7f1",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "thumb a ride",
-            "meaning_cn": "搭便车",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f23f7737914a624ee7f1",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "thumb a ride"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:thumb:941a63e9e9635e8f",
@@ -2720,7 +2759,7 @@
         "id": "sense:thumb:be9f1759e0db5f53",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "I/T: thumb for a ride; thumb a ride",
         "definition_cn": "搭便车",
         "definition_en": "to hitchhike by signaling with the thumb",
         "note": "",
@@ -2746,6 +2785,19 @@
             "meaning_cn": "搭便车",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:d09c148f6eedecad1d09",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "thumb a ride",
+            "meaning_cn": "竖拇指搭便车",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:d09c148f6eedecad1d09",
+              "target_locator": "record.senses[2].collocations[2]",
+              "target_label": "thumb a ride"
+            }
           }
         ],
         "repair": {
@@ -2757,7 +2809,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:b33a1d989adb046a1361",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a rule of thumb",
+        "lines": [
+          {
+            "text": "经验法则；基于经验而非精确理论/计算的实用近似规则",
+            "lang": "cn"
+          },
+          {
+            "text": "idiomatic heuristic phrase; not a literal thumb meaning",
+            "lang": "en"
+          },
+          {
+            "text": "a practical approximate rule based on experience rather than exact theory or calculation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:b33a1d989adb046a1361",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a rule of thumb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3475,7 +3553,7 @@
     "ordinal": 5020,
     "word": "tide",
     "source_owner_path": "content/lexical/words/by-ordinal/o5020.json",
-    "source_fingerprint": "448dbb3e53003072508d8486cdc72b7438db0509e2b8f8fd40e50fb8de44f8b0",
+    "source_fingerprint": "471aebacc339d136b354c051e401748e177cc9b473d416c5844cd77749e15ef3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3582,7 +3660,7 @@
         "id": "sense:tide:d46e9267c61b5639",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + over",
+        "governing_pattern": "phrasal transitive: tide sb/sth over; tide sb over until sth happens",
         "definition_cn": "帮助某人或某事物渡过暂时的困难时期",
         "definition_en": "to help someone or something through a temporary difficult period until conditions improve",
         "note": "",
@@ -3620,6 +3698,14 @@
           {
             "text": "帮助某人/某事物渡过暂时困难",
             "lang": "cn"
+          },
+          {
+            "text": "transitive phrasal construction",
+            "lang": "en"
+          },
+          {
+            "text": "to help someone or something through a temporary difficult period until conditions improve",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -3643,7 +3729,7 @@
     "ordinal": 5021,
     "word": "tidy",
     "source_owner_path": "content/lexical/words/by-ordinal/o5021.json",
-    "source_fingerprint": "0437fd3c5adef133198fff44a7567b8601795ea90a3d39472533872a0e3c99f1",
+    "source_fingerprint": "6fb402219bf959d287e388e15695318f1826b63583968918fa1a64b16fa372ff",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3680,19 +3766,6 @@
             "meaning_cn": "整洁的房间",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:b1335d7d5a6cf81afb29",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "tidy up",
-            "meaning_cn": "整理；收拾",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b1335d7d5a6cf81afb29",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "tidy up"
-            }
           }
         ],
         "repair": {
@@ -3706,7 +3779,7 @@
         "id": "sense:tidy:d947aab6e39b5b5a",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: tidy the room; tidy sth up; tidy up",
         "definition_cn": "整理；收拾",
         "definition_en": "to make something neat and orderly",
         "note": "",
@@ -3732,6 +3805,19 @@
             "meaning_cn": "整理房间",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:fc5ab2146ae8112c6f95",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "tidy up / tidy sth up",
+            "meaning_cn": "整理；收拾（某处/某物）",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:fc5ab2146ae8112c6f95",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "tidy up / tidy sth up"
+            }
           }
         ],
         "repair": {
@@ -5661,7 +5747,7 @@
     "ordinal": 5035,
     "word": "tire",
     "source_owner_path": "content/lexical/words/by-ordinal/o5035.json",
-    "source_fingerprint": "653ea3cc75e916f93e7f84bdfc3cbe795983935a91dbe9ae990ca2719d19f387",
+    "source_fingerprint": "3145418bae134198734ddadd4c46aac6b0b864eb2002a7151f025f90023e8136",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5807,19 +5893,14 @@
       },
       "family": [
         {
-          "target_word": "",
-          "lines": [],
-          "source_locator": "record.word_family[0]"
-        },
-        {
           "target_word": "tired",
           "lines": [
             {
-              "text": "tire is the base verb/noun lexeme; tired is its adjectival/past-participle family member. Keep tyre only as the wheel-noun regional spelling boundary.",
+              "text": "tire (make/become weary) → tired (fatigued); unrelated to tire = wheel covering",
               "lang": "en"
             }
           ],
-          "source_locator": "record.word_family[1]"
+          "source_locator": "record.word_family[0]"
         }
       ]
     }
@@ -5830,7 +5911,7 @@
     "ordinal": 5036,
     "word": "tired",
     "source_owner_path": "content/lexical/words/by-ordinal/o5036.json",
-    "source_fingerprint": "c8328ced5377065140b7fc348165fb23dc6c089dc6db77099351ca9fe4ddefa2",
+    "source_fingerprint": "0062166f9c87ddd7a9feb5e8d8a1ca276a1f810223fec4af62b3bc979f039a03",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5935,7 +6016,7 @@
           "target_word": "tire",
           "lines": [
             {
-              "text": "tire is the base verb/noun lexeme; tired is its adjectival/past-participle family member. Keep tyre only as the wheel-noun regional spelling boundary.",
+              "text": "tired (fatigued) ↔ tire (make/become weary); unrelated to tire = wheel covering",
               "lang": "en"
             }
           ],
@@ -6302,7 +6383,7 @@
     "ordinal": 5040,
     "word": "to",
     "source_owner_path": "content/lexical/words/by-ordinal/o5040.json",
-    "source_fingerprint": "5df8acdec24bf60510f42c96576c2fe99409cb97b52705d93a83eada72651fda",
+    "source_fingerprint": "2933fe83cc19ab5e7e2a8521a82350310aa3bd37708420e31b762ced7975a7af",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6379,10 +6460,10 @@
         "id": "sense:to:c1a599a89e6359a2",
         "source_locator": "record.senses[2]",
         "pos": "particle",
-        "governing_pattern": "prep. + infinitive",
+        "governing_pattern": "particle / infinitive marker + base verb",
         "definition_cn": "不定式标记，置于动词原形前",
         "definition_en": "the infinitive marker used before the base form of a verb",
-        "note": "",
+        "note": "Infinitival to is a particle/infinitive marker here, not a preposition",
         "identity_overlay": null,
         "usage": [
           {
@@ -6691,7 +6772,7 @@
     "ordinal": 5043,
     "word": "today",
     "source_owner_path": "content/lexical/words/by-ordinal/o5043.json",
-    "source_fingerprint": "b8888dc327a138cb196a28f9dbdd0aab1ff04bd1730a53e7f7ce3a554e80cdb5",
+    "source_fingerprint": "eb457a1dc27d9156cd228eb955a390b826623f319002245555a6b56dcd5f1e02",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6754,6 +6835,14 @@
             "meaning_cn": "当今的年轻人",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:4ee53c73d54d2d692d48",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "today's world",
+            "meaning_cn": "当今世界",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6791,10 +6880,10 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:4ee53c73d54d2d692d48",
+            "id": "collocation:c05a4fcdaef6e5a344b6",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "today's world",
-            "meaning_cn": "当今世界",
+            "phrase": "People work differently today.",
+            "meaning_cn": "如今人们的工作方式不同。",
             "kind": "usage_example",
             "repair": null
           }
@@ -6822,7 +6911,7 @@
     "ordinal": 5044,
     "word": "toe",
     "source_owner_path": "content/lexical/words/by-ordinal/o5044.json",
-    "source_fingerprint": "ea795ac7844c124b69c57e99ccf39d9b321db36bf170c0c0a103703d974aecd4",
+    "source_fingerprint": "7f975424bf8580cf4a8a368e2ea4648cada21cbae83828bdbc96230f0fa2acd8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6859,19 +6948,6 @@
             "meaning_cn": "大脚趾",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:0f857dc0ad21432f0cc8",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "toe the line",
-            "meaning_cn": "服从；遵守规则",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0f857dc0ad21432f0cc8",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "toe the line"
-            }
           }
         ],
         "repair": {
@@ -6961,6 +7037,14 @@
           {
             "text": "遵守规则、服从标准或要求",
             "lang": "cn"
+          },
+          {
+            "text": "idiomatic obedience/conformity construction; not a literal toe noun collocation",
+            "lang": "en"
+          },
+          {
+            "text": "to conform to or obey a rule, standard, policy, or authority",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -8367,7 +8451,7 @@
     "ordinal": 5056,
     "word": "ton",
     "source_owner_path": "content/lexical/words/by-ordinal/o5056.json",
-    "source_fingerprint": "7c9557937fd2d6b8943a0c28e62fc75aec33ae1ffa5f9de6166a90de0636e855",
+    "source_fingerprint": "389e1af357805fef6dd45ff3c71589c6063c4dba7d65177deda51971e4a7ddf1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8393,7 +8477,7 @@
         "governing_pattern": "",
         "definition_cn": "（美）吨（2000磅）",
         "definition_en": "a unit of weight in the US equal to 2000 pounds",
-        "note": "",
+        "note": "US short ton = 2,000 lb; do not confuse with metric ton/tonne = 1,000 kg",
         "identity_overlay": null,
         "usage": [
           {
@@ -8408,14 +8492,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "a ton of + sth"
             }
-          },
-          {
-            "id": "collocation:17739f56ad397c67691c",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "metric ton",
-            "meaning_cn": "公吨",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -8432,7 +8508,7 @@
         "governing_pattern": "",
         "definition_cn": "（英）吨（2240磅）",
         "definition_en": "a unit of weight in the UK equal to 2240 pounds",
-        "note": "",
+        "note": "UK long ton = 2,240 lb; metric tonne = 1,000 kg",
         "identity_overlay": null,
         "usage": [
           {

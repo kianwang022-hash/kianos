@@ -212,7 +212,7 @@
     "ordinal": 4099,
     "word": "research",
     "source_owner_path": "content/lexical/words/by-ordinal/o4099.json",
-    "source_fingerprint": "3f16b742a7b8d10b98c6e2def6863f3a6286e786730a4fb89b43c06731dc36f1",
+    "source_fingerprint": "9d111808e1d7927cb573bea97a05aa68792e3fbed017fa18dd6acc6168cd3515",
     "sense_lineage": [
       {
         "word_id": "word:research",
@@ -283,7 +283,7 @@
         "id": "sense:research:5d9884aa177b5177",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: research a topic/question/person; research into/on a subject",
         "definition_cn": "研究；调查",
         "definition_en": "to investigate systematically",
         "note": "",
@@ -1035,22 +1035,22 @@
     "ordinal": 4106,
     "word": "residence",
     "source_owner_path": "content/lexical/words/by-ordinal/o4106.json",
-    "source_fingerprint": "4ae3448d8bf81c4247109b46d62e240076b80614fc589547a94903da6076a122",
+    "source_fingerprint": "6b3c82f0fd134e6935a2f897b4d366f0d5032a62bce623c8700f22cd8e80bfae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "居住的地方；居住的行为或期间",
+      "summary_cn": "住所；居住/居留",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "居住的地方；居住的行为或期间"
+        "target_label": "住所；居住/居留"
       }
     },
     "senses": [
@@ -1086,6 +1086,63 @@
           "target_id": "sense:residence:cfc16b3945015d4f",
           "target_locator": "record.senses[1]",
           "target_label": "重要人物的官邸或住所"
+        }
+      },
+      {
+        "id": "sense:residence:a74978d6e26c2635",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "居住；居留；居住期间",
+        "definition_en": "the state or period of living in a particular place or country",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:14110b8c47443c7f5a5b",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "residence in a country/city",
+            "meaning_cn": "在某国/城市居住",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:14110b8c47443c7f5a5b",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "residence in a country/city"
+            }
+          },
+          {
+            "id": "collocation:31a8b63b21f87cb3fef9",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "period of residence",
+            "meaning_cn": "居住期间",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:31a8b63b21f87cb3fef9",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "period of residence"
+            }
+          },
+          {
+            "id": "collocation:639de2da6a5be3519dbd",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "permanent residence",
+            "meaning_cn": "永久居留",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:639de2da6a5be3519dbd",
+              "target_locator": "record.senses[2].collocations[2]",
+              "target_label": "permanent residence"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:residence:a74978d6e26c2635",
+          "target_locator": "record.senses[2]",
+          "target_label": "居住；居留；居住期间"
         }
       }
     ],
@@ -1556,7 +1613,7 @@
     "ordinal": 4111,
     "word": "resistance",
     "source_owner_path": "content/lexical/words/by-ordinal/o4111.json",
-    "source_fingerprint": "4f1b5d938ac7671b414bab4297c81899cda4d9ce86f76fcfff99e3a8a28764b1",
+    "source_fingerprint": "b6db4cbc761590c8b8706ce1b2bd1e300f7e940db9c4afae294ffebad7a8e512",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1982,15 +2039,8 @@
     "ordinal": 4115,
     "word": "resolve",
     "source_owner_path": "content/lexical/words/by-ordinal/o4115.json",
-    "source_fingerprint": "3c8971cca3cbb004ca289ead2dcd6be553723a09abea8ea40a9af5dd68206668",
+    "source_fingerprint": "0cdd44211762bb2e6185ab6d88f94a7c442e579e88a3c5f554683a8ac5a4d54b",
     "sense_lineage": [
-      {
-        "word_id": "word:resolve",
-        "target_kind": "sense",
-        "from_target_id": "sense:resolve:54d5370538b55b85",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:resolve",
         "target_kind": "sense",
@@ -2008,7 +2058,8 @@
     ],
     "recall_map": {
       "parts": [
-        "2V"
+        "2V",
+        "1N"
       ],
       "density": "rich"
     },
@@ -2044,7 +2095,7 @@
         "id": "sense:resolve:ed4cfc3470ef52c6",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "resolve to do sth",
+        "governing_pattern": "resolve to do sth; resolve that + clause",
         "definition_cn": "决心；决定",
         "definition_en": "to make a firm decision to do something",
         "note": "",
@@ -2055,6 +2106,37 @@
           "target_id": "sense:resolve:ed4cfc3470ef52c6",
           "target_locator": "record.senses[1]",
           "target_label": "决心；决定"
+        }
+      },
+      {
+        "id": "sense:resolve:54d5370538b55b85",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "决心；坚定意志",
+        "definition_en": "strong or firm determination to achieve something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:efb246b80dfbbd2a7e2c",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "show/strengthen one's resolve",
+            "meaning_cn": "表现出/增强决心",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:efb246b80dfbbd2a7e2c",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "show/strengthen one's resolve"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:resolve:54d5370538b55b85",
+          "target_locator": "record.senses[2]",
+          "target_label": "决心；坚定意志"
         }
       }
     ],
@@ -2095,15 +2177,8 @@
     "ordinal": 4116,
     "word": "resort",
     "source_owner_path": "content/lexical/words/by-ordinal/o4116.json",
-    "source_fingerprint": "039438f06f01ed961847e71da8cba4110fb4ddd94ec92b8f37c44941a7dd45b9",
+    "source_fingerprint": "e3a9e9e6861720b2c47ba499726b64c5ab29d49f36c003b0277e7fea02ec1467",
     "sense_lineage": [
-      {
-        "word_id": "word:resort",
-        "target_kind": "sense",
-        "from_target_id": "sense:resort:4440ec16f5015ea4",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:resort",
         "target_kind": "sense",
@@ -2115,18 +2190,18 @@
     "recall_map": {
       "parts": [
         "(1+1)V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "求助或休闲的场所或手段",
+      "summary_cn": "度假胜地；诉诸；最后手段",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "求助或休闲的场所或手段"
+        "target_label": "度假胜地；诉诸；最后手段"
       }
     },
     "senses": [
@@ -2162,6 +2237,37 @@
           "target_id": "sense:resort:b7b95371e8575ee7",
           "target_locator": "record.senses[1]",
           "target_label": "诉诸，求助于"
+        }
+      },
+      {
+        "id": "sense:resort:4440ec16f5015ea4",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "最后手段；不得已的办法",
+        "definition_en": "a course of action or means used when other options have failed or are unavailable",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:cd66424edb7f7a3b4e33",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "last resort",
+            "meaning_cn": "最后手段",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:cd66424edb7f7a3b4e33",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "last resort"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:resort:4440ec16f5015ea4",
+          "target_locator": "record.senses[2]",
+          "target_label": "最后手段；不得已的办法"
         }
       }
     ],
@@ -2201,6 +2307,31 @@
           "target_id": "construction:1950609c290c999b36d0",
           "target_locator": "record.constructions[0]",
           "target_label": "resort to sth"
+        }
+      },
+      {
+        "id": "construction:c85509dd7ba3072b1124",
+        "source_locator": "record.constructions[1]",
+        "pattern": "as a last resort",
+        "lines": [
+          {
+            "text": "作为最后手段；万不得已时",
+            "lang": "cn"
+          },
+          {
+            "text": "noun last-resort construction; distinct from the verb resort to sth",
+            "lang": "en"
+          },
+          {
+            "text": "as a final course of action when other options have failed or are unavailable",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c85509dd7ba3072b1124",
+          "target_locator": "record.constructions[1]",
+          "target_label": "as a last resort"
         }
       }
     ],
@@ -2572,15 +2703,8 @@
     "ordinal": 4120,
     "word": "respond",
     "source_owner_path": "content/lexical/words/by-ordinal/o4120.json",
-    "source_fingerprint": "7b31fcbf46bc7b24844e2bfb6a08f8926adad61ef60eb1298dc779bfa6b8bdc3",
+    "source_fingerprint": "76832c5d6388c1996b8183fcc43d9877f115c7eaa7876bb9d72a6b6addcadbe2",
     "sense_lineage": [
-      {
-        "word_id": "word:respond",
-        "target_kind": "sense",
-        "from_target_id": "sense:respond:2a68e2f069d95ddf",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:respond",
         "target_kind": "sense",
@@ -2591,18 +2715,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1V"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "回应",
+      "summary_cn": "回应；对治疗/刺激产生反应",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "回应"
+        "target_label": "回应；对治疗/刺激产生反应"
       }
     },
     "senses": [
@@ -2621,6 +2745,23 @@
           "target_id": "sense:respond:cba033438d535e3c",
           "target_locator": "record.senses[0]",
           "target_label": "回答；回应"
+        }
+      },
+      {
+        "id": "sense:respond:2a68e2f069d95ddf",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "vi. + to",
+        "definition_cn": "对治疗/刺激有良好反应；奏效",
+        "definition_en": "to react positively or as hoped to treatment, medicine, stimulation, or a measure",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:respond:2a68e2f069d95ddf",
+          "target_locator": "record.senses[1]",
+          "target_label": "对治疗/刺激有良好反应；奏效"
         }
       }
     ],
@@ -2663,6 +2804,10 @@
           {
             "text": "有良好反应；响应",
             "lang": "cn"
+          },
+          {
+            "text": "favorable therapeutic/functional response, distinct from ordinary reply/reaction",
+            "lang": "en"
           },
           {
             "text": "to react positively or as hoped",
@@ -2940,7 +3085,7 @@
     "ordinal": 4123,
     "word": "responsible",
     "source_owner_path": "content/lexical/words/by-ordinal/o4123.json",
-    "source_fingerprint": "30f7abadb7af8c5b3891983588a9a8c313c489636b7611cd2b5439acb4ca64f8",
+    "source_fingerprint": "cbf12b55921a16c81cc2589b78fa53f67aa0b08f22f16c901fc27dea6a893eab",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3070,28 +3215,36 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:a5296962e7f7889f2036",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be responsible for sth/doing sth",
+        "lines": [
+          {
+            "text": "负责某事/做某事；或对某结果负有因果责任",
+            "lang": "cn"
+          },
+          {
+            "text": "responsible for managing/doing X selects duty/control; responsible for an accident/damage selects causal/blame",
+            "lang": "en"
+          },
+          {
+            "text": "context selects duty/control versus causal responsibility",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a5296962e7f7889f2036",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be responsible for sth/doing sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "responsible ↔ blame/cause ↔ responsible for duty",
-          "target_word": "blame/cause ↔ responsible for duty",
-          "lines": [
-            {
-              "text": "responsible for has two high-value readings: duty/control ('responsible for managing X') and causal/blame ('responsible for the accident'). Context selects the sense.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:4fb7188b63e95616119d",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "responsible ↔ blame/cause ↔ responsible for duty"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -4153,7 +4306,7 @@
     "ordinal": 4132,
     "word": "resultant",
     "source_owner_path": "content/lexical/words/by-ordinal/o4132.json",
-    "source_fingerprint": "f775aa86c0d81d9c94494d216833e85f551df7f6fd948279e9845e373c425304",
+    "source_fingerprint": "4e65a775207ba41eb02eaa09558753dde145775ed4fc4821f0fc9de58d4fccaf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4204,14 +4357,31 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "结果；后果",
-        "definition_en": "the final point in a process",
+        "definition_cn": "结果；由多种因素共同产生的结果",
+        "definition_en": "a result or outcome produced by the interaction or combination of factors",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:resultant:fc567f4d08d55b7a",
+          "target_locator": "record.senses[1]",
+          "target_label": "结果；由多种因素共同产生的结果"
+        }
+      },
+      {
+        "id": "sense:resultant:5ffb4f0495105a29",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "合力；合矢量",
+        "definition_en": "the vector sum of two or more vectors",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:fb8f423ba8bea20c8ce9",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "the resultant of the forces",
             "meaning_cn": "力的合力",
             "kind": "usage_example",
@@ -4220,26 +4390,9 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:resultant:fc567f4d08d55b7a",
-          "target_locator": "record.senses[1]",
-          "target_label": "结果；后果"
-        }
-      },
-      {
-        "id": "sense:resultant:5ffb4f0495105a29",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "合力",
-        "definition_en": "a vector sum of two or more vectors",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
           "target_id": "sense:resultant:5ffb4f0495105a29",
           "target_locator": "record.senses[2]",
-          "target_label": "合力"
+          "target_label": "合力；合矢量"
         }
       }
     ],
@@ -4258,7 +4411,7 @@
     "ordinal": 4133,
     "word": "resume",
     "source_owner_path": "content/lexical/words/by-ordinal/o4133.json",
-    "source_fingerprint": "5f1f9435bfb4cb19831509142a81fc4b4b086149cf2e34ff391eba1ae89e1197",
+    "source_fingerprint": "01eb1740e6c0dd395942256768761f73f3f77c5cdb1cef986ef5a1b485957ad4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4282,7 +4435,7 @@
         "id": "sense:resume:07630ca29c245831",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: resume work/speaking; talks/work resume",
         "definition_cn": "重新开始；恢复",
         "definition_en": "to begin again after a pause",
         "note": "",
@@ -4938,7 +5091,7 @@
     "ordinal": 4138,
     "word": "retort",
     "source_owner_path": "content/lexical/words/by-ordinal/o4138.json",
-    "source_fingerprint": "961caf37dfcc7eb90cbce6580aa4447ec8ffcf747e509ae3671962df9fd67111",
+    "source_fingerprint": "b26fa7e04f47073f2cc9c77871639fa0790e23615913777ab9635c5ad31ba9f1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4966,7 +5119,15 @@
         "definition_cn": "反驳，回嘴",
         "definition_en": "a quick, sharp reply",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun retort has initial stress; verb retort has final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "noun retort has initial stress; verb retort has final stress"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -4983,7 +5144,15 @@
         "definition_cn": "反驳，回嘴",
         "definition_en": "to reply quickly and sharply, often in anger",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb retort has final stress; noun retort has initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "verb retort has final stress; noun retort has initial stress"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -5000,7 +5169,15 @@
         "definition_cn": "蒸馏器，曲颈甑",
         "definition_en": "a glass container used for heating substances in chemistry",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun retort has initial stress; verb retort has final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "noun retort has initial stress; verb retort has final stress"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -5025,7 +5202,7 @@
     "ordinal": 4139,
     "word": "retreat",
     "source_owner_path": "content/lexical/words/by-ordinal/o4139.json",
-    "source_fingerprint": "bbe089f8b81d168e206b2135ab15b0112d3003828d11c1956a46da97aa74554f",
+    "source_fingerprint": "28751f444996b8e2f665f99b506b51ad2402c97e21d328d42fbfd3b300617bff",
     "sense_lineage": [
       {
         "word_id": "word:retreat",
@@ -5074,7 +5251,7 @@
         "id": "sense:retreat:2ad456b1b8685957",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: retreat; retreat from/to + place/situation",
         "definition_cn": "撤退；退却",
         "definition_en": "to move back or withdraw, especially from a dangerous or unpleasant situation",
         "note": "",
@@ -5187,7 +5364,7 @@
     "ordinal": 4141,
     "word": "retrospect",
     "source_owner_path": "content/lexical/words/by-ordinal/o4141.json",
-    "source_fingerprint": "46b747b5fa5a2abdceb937dee5748ca07fe910e7b11c0385fd4073b71a9778c3",
+    "source_fingerprint": "94342944522421798a41124925a76777f7981e0629494b4e287aecd696521f9b",
     "sense_lineage": [
       {
         "word_id": "word:retrospect",
@@ -5242,6 +5419,14 @@
           {
             "text": "回想起来；事后看来",
             "lang": "cn"
+          },
+          {
+            "text": "hindsight/looking-back construction; do not reactivate deprecated verb",
+            "lang": "en"
+          },
+          {
+            "text": "when looking back on past events with later knowledge; with hindsight",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -6135,7 +6320,7 @@
     "ordinal": 4148,
     "word": "review",
     "source_owner_path": "content/lexical/words/by-ordinal/o4148.json",
-    "source_fingerprint": "0e77dcaf274ec8c43d6bf4f554ff217f357d29528edeccbbfe319e5c1e2cd57a",
+    "source_fingerprint": "9850daaa24af3d1a5b9cccbb3b58f1b58c52f8d7698e658e94ed017fe57398bb",
     "sense_lineage": [
       {
         "word_id": "word:review",
@@ -6168,19 +6353,19 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
-        "1N"
+        "2V",
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "复习、审查；评论或评审",
+      "summary_cn": "复习/回顾；审查/评估；评论",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "复习、审查；评论或评审"
+        "target_label": "复习/回顾；审查/评估；评论"
       }
     },
     "senses": [
@@ -6217,6 +6402,107 @@
           "target_locator": "record.senses[1]",
           "target_label": "评论文章"
         }
+      },
+      {
+        "id": "sense:review:6dfa890be5e4d5c1",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "审查；检查；评估；回顾",
+        "definition_en": "to examine or assess something systematically, often in order to decide whether changes are needed",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:22bfb732d774dc5d387b",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "review a policy/case/performance",
+            "meaning_cn": "审查/评估政策、案件或表现",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:22bfb732d774dc5d387b",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "review a policy/case/performance"
+            }
+          },
+          {
+            "id": "collocation:a02d3f5c8b24474e2afd",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "review the system",
+            "meaning_cn": "审查该系统",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a02d3f5c8b24474e2afd",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "review the system"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:review:6dfa890be5e4d5c1",
+          "target_locator": "record.senses[2]",
+          "target_label": "审查；检查；评估；回顾"
+        }
+      },
+      {
+        "id": "sense:review:cee67748eca962d0",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "审查；评估；复盘",
+        "definition_en": "a formal or careful examination or assessment of a situation, policy, performance, case, or system",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:702c005d0b0866aaa2b7",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "conduct a review",
+            "meaning_cn": "进行审查/评估",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:702c005d0b0866aaa2b7",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "conduct a review"
+            }
+          },
+          {
+            "id": "collocation:59ea2f6d15d93d1a9a3c",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "a review of the policy",
+            "meaning_cn": "对该政策的审查",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:59ea2f6d15d93d1a9a3c",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "a review of the policy"
+            }
+          },
+          {
+            "id": "collocation:653a7f26fb611754cfce",
+            "source_locator": "record.senses[3].collocations[2]",
+            "phrase": "under review",
+            "meaning_cn": "正在审查中",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:653a7f26fb611754cfce",
+              "target_locator": "record.senses[3].collocations[2]",
+              "target_label": "under review"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:review:cee67748eca962d0",
+          "target_locator": "record.senses[3]",
+          "target_label": "审查；评估；复盘"
+        }
       }
     ],
     "secondary_senses": [],
@@ -6234,7 +6520,7 @@
     "ordinal": 4149,
     "word": "revise",
     "source_owner_path": "content/lexical/words/by-ordinal/o4149.json",
-    "source_fingerprint": "9a30c5ccfc0c9e807249f35764520123386037288492f8a1b9a6e21dbd713e9a",
+    "source_fingerprint": "70d0989237ee4a7288302fe241bfbc53d5ccfd037f8b34a6ea9fe4b5d89cc556",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6296,10 +6582,10 @@
         "id": "sense:revise:1783306963975aa4",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "BrE: revise a subject/topic/notes; revise for an exam",
         "definition_cn": "复习",
         "definition_en": "to study again something you have already learned, especially before an exam",
-        "note": "",
+        "note": "In AmE, review/study is normally used for this exam-study meaning",
         "identity_overlay": null,
         "usage": [
           {
@@ -6347,7 +6633,7 @@
     "ordinal": 4150,
     "word": "revive",
     "source_owner_path": "content/lexical/words/by-ordinal/o4150.json",
-    "source_fingerprint": "5528fd9261c856cd5b4bbaa9a39d142ba768152f22bfecc35472effaa916142b",
+    "source_fingerprint": "b9663092c3b11b194d3f741d495e261bf082a6ab5df010daf5fb9758af9e2529",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6388,19 +6674,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "revive sb"
             }
-          },
-          {
-            "id": "collocation:099479d9b99aef6f8cab",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "revive from + sth",
-            "meaning_cn": "从……中恢复",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:099479d9b99aef6f8cab",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "revive from + sth"
-            }
           }
         ],
         "repair": {
@@ -6440,12 +6713,26 @@
         "id": "sense:revive:f64dfa923a725450",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + from",
+        "governing_pattern": "vi.: sb/sth revives; revive from + state",
         "definition_cn": "苏醒；恢复",
         "definition_en": "to become conscious or healthy again",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:5878358daf297c79625e",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "revive from + sth",
+            "meaning_cn": "从昏迷、虚弱或低迷状态中恢复",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5878358daf297c79625e",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "revive from + sth"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:revive:f64dfa923a725450",
@@ -6464,6 +6751,14 @@
           {
             "text": "从昏迷、虚弱或低迷状态中恢复",
             "lang": "cn"
+          },
+          {
+            "text": "intransitive recovery branch, not causative revive sb/sth",
+            "lang": "en"
+          },
+          {
+            "text": "to recover from unconsciousness, weakness, or a depressed state",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -6660,7 +6955,7 @@
     "ordinal": 4152,
     "word": "revolution",
     "source_owner_path": "content/lexical/words/by-ordinal/o4152.json",
-    "source_fingerprint": "21cd6de409fda3f22e9b3d2c05bf05766d947649bd3e826c23839ad4e492c814",
+    "source_fingerprint": "edac1172c0120e7bcb608d7020b63e4eae4618aeef99e80157dde13111f56eac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6696,14 +6991,6 @@
             "meaning_cn": "法国大革命",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:7594ae53eab51cc32d6f",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "industrial revolution",
-            "meaning_cn": "工业革命",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -6728,6 +7015,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a revolution in technology",
             "meaning_cn": "技术革命",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:7594ae53eab51cc32d6f",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "industrial revolution",
+            "meaning_cn": "工业革命",
             "kind": "usage_example",
             "repair": null
           }
@@ -6982,7 +7277,7 @@
     "ordinal": 4154,
     "word": "revolve",
     "source_owner_path": "content/lexical/words/by-ordinal/o4154.json",
-    "source_fingerprint": "2cc951f790ce9834656f07c4e357dbb4ac31aab627aaf0f56dbcb6bec0076fde",
+    "source_fingerprint": "3e9c45c4795aa1e6d289ed28c8d44173491bc73293e94a1814f5649fe953eec5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7023,14 +7318,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "revolve around + sth"
             }
-          },
-          {
-            "id": "collocation:86d073025cf1b3f97390",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "revolve a wheel",
-            "meaning_cn": "转动轮子",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -7080,7 +7367,16 @@
         "definition_en": "to cause to turn around",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:86d073025cf1b3f97390",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "revolve a wheel",
+            "meaning_cn": "转动轮子",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:revolve:189623b930a85018",
@@ -7116,6 +7412,14 @@
           {
             "text": "使某物旋转，例如 revolve a wheel",
             "lang": "cn"
+          },
+          {
+            "text": "causative transitive branch",
+            "lang": "en"
+          },
+          {
+            "text": "to cause something to turn around an axis or center",
+            "lang": "en"
           }
         ],
         "repair": {

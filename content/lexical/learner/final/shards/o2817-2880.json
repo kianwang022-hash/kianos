@@ -5,7 +5,7 @@
     "ordinal": 2817,
     "word": "liberty",
     "source_owner_path": "content/lexical/words/by-ordinal/o2817.json",
-    "source_fingerprint": "11f58c9ad85085b7f7d248580ced2cce9a43f7a2cf3c45b57a1ab062d506df78",
+    "source_fingerprint": "ccecee00b3cb51978bc28106863bdbc555e90a3fbeec866e994a6e03fe2828ce",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -45,19 +45,6 @@
               "target_id": "collocation:ae9318ebe9852178eedc",
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "at liberty"
-            }
-          },
-          {
-            "id": "collocation:302e4d143fefd010c479",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "take the liberty of doing sth",
-            "meaning_cn": "冒昧做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:302e4d143fefd010c479",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "take the liberty of doing sth"
             }
           }
         ],
@@ -101,7 +88,42 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:633fc89119a6a437090b",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be at liberty to do sth",
+        "lines": [
+          {
+            "text": "可自由/获准做某事",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:633fc89119a6a437090b",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be at liberty to do sth"
+        }
+      },
+      {
+        "id": "construction:6c1dddb46205891c8ee9",
+        "source_locator": "record.constructions[1]",
+        "pattern": "take the liberty of doing sth",
+        "lines": [
+          {
+            "text": "未先征得许可便做可能影响他人的事",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6c1dddb46205891c8ee9",
+          "target_locator": "record.constructions[1]",
+          "target_label": "take the liberty of doing sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -313,7 +335,7 @@
     "ordinal": 2820,
     "word": "license",
     "source_owner_path": "content/lexical/words/by-ordinal/o2820.json",
-    "source_fingerprint": "a562e8ec6c96b25c241be52c8fe96e6c4bc82ed1dbf89ec0b86bace3f6fc1b88",
+    "source_fingerprint": "7098d6df88c4114b93e4e38d3d340275214c1bc36cf5bcf924e40c5c500e34aa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -342,12 +364,12 @@
         "definition_en": "a legal document giving official permission to do something",
         "note": "license is the AmE noun and verb spelling; BrE normally uses licence for the noun and license for the verb; preserve one lexical identity and the existing licence alias.",
         "identity_overlay": {
-          "text": "license is the AmE noun and verb spelling; BrE normally uses licence for the noun and license for the verb; preserve one lexical identity and the existing licence alias.",
+          "text": "AmE noun license; BrE noun licence",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "license is the AmE noun and verb spelling; BrE normally uses licence for the noun and license for the verb; preserve one lexical identity and the existing licence alias."
+            "target_label": "AmE noun license; BrE noun licence"
           }
         },
         "usage": [
@@ -388,7 +410,15 @@
         "definition_cn": "放纵，自由",
         "definition_en": "freedom to deviate from rules, especially in behavior or speech",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "AmE noun license; BrE noun licence",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "AmE noun license; BrE noun licence"
+          }
+        },
         "usage": [
           {
             "id": "collocation:9230ec4169debdf7c5b0",
@@ -415,12 +445,12 @@
         "definition_en": "to give official permission for something",
         "note": "license is the AmE noun and verb spelling; BrE normally uses licence for the noun and license for the verb; preserve one lexical identity and the existing licence alias.",
         "identity_overlay": {
-          "text": "license is the AmE noun and verb spelling; BrE normally uses licence for the noun and license for the verb; preserve one lexical identity and the existing licence alias.",
+          "text": "verb license in both AmE and BrE",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "license is the AmE noun and verb spelling; BrE normally uses licence for the noun and license for the verb; preserve one lexical identity and the existing licence alias."
+            "target_label": "verb license in both AmE and BrE"
           }
         },
         "usage": [
@@ -469,7 +499,7 @@
     "ordinal": 2821,
     "word": "lick",
     "source_owner_path": "content/lexical/words/by-ordinal/o2821.json",
-    "source_fingerprint": "9b01a7659b7de4adf5f4683fe282adb58836ce3d8963de903d890db54a551c18",
+    "source_fingerprint": "e69570738919e7ae9e06042d9c6b536b5bec2b3825d2d9943a9e77c80ebec765",
     "sense_lineage": [
       {
         "word_id": "word:lick",
@@ -494,13 +524,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "舔",
+      "summary_cn": "舔；舔舐动作/少量",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "舔"
+        "target_label": "舔；舔舐动作/少量"
       }
     },
     "senses": [
@@ -582,7 +612,7 @@
     "ordinal": 2822,
     "word": "lid",
     "source_owner_path": "content/lexical/words/by-ordinal/o2822.json",
-    "source_fingerprint": "8eb3a86440fc557e5554fbab44fd5525984d964db968a550bd6fdb6c3d08c947",
+    "source_fingerprint": "5c6843d12493f987b16b61e16825c347a819bcb2830549ba50a17e8e7fdf624b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -623,19 +653,6 @@
               "target_id": "collocation:ad9d240bc6cc2c66026b",
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "put a lid on"
-            }
-          },
-          {
-            "id": "collocation:1e2f998c4183ff02e307",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "keep a lid on",
-            "meaning_cn": "控制；保密",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1e2f998c4183ff02e307",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "keep a lid on"
             }
           }
         ],
@@ -708,7 +725,42 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:ff14bf6953534a54d820",
+        "source_locator": "record.constructions[0]",
+        "pattern": "put a lid on sth",
+        "lines": [
+          {
+            "text": "限制、阻止或控制某事",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ff14bf6953534a54d820",
+          "target_locator": "record.constructions[0]",
+          "target_label": "put a lid on sth"
+        }
+      },
+      {
+        "id": "construction:c945976c761e48c4fe19",
+        "source_locator": "record.constructions[1]",
+        "pattern": "keep a lid on sth",
+        "lines": [
+          {
+            "text": "控制某事使其不扩大/失控；也可表示保密",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c945976c761e48c4fe19",
+          "target_locator": "record.constructions[1]",
+          "target_label": "keep a lid on sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -722,7 +774,7 @@
     "ordinal": 2823,
     "word": "lie",
     "source_owner_path": "content/lexical/words/by-ordinal/o2823.json",
-    "source_fingerprint": "05ee06db63454b3655b36fc80976cd191b7501da1ee6ff528cdb399844ed9ae8",
+    "source_fingerprint": "a95c6bc7c9c8e03202ae75d5ecc6358a92ed1aeb3cef470f68a45aa9ef39a183",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -750,7 +802,15 @@
         "definition_cn": "躺；平躺",
         "definition_en": "to be in or assume a horizontal position on a surface",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "lie (recline/be situated): past lay, past participle lain",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "lie (recline/be situated): past lay, past participle lain"
+          }
+        },
         "usage": [
           {
             "id": "collocation:8a51888f5121b282193c",
@@ -828,7 +888,15 @@
         "definition_cn": "说谎",
         "definition_en": "to say something that is not true in order to deceive",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "lie (say something untrue): past/past participle lied/lied",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "lie (say something untrue): past/past participle lied/lied"
+          }
+        },
         "usage": [
           {
             "id": "collocation:92df1fc29e05b26d21d2",
@@ -933,26 +1001,26 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [
+      "confusables": [],
+      "relations": [
         {
           "title": "lie ↔ lay",
           "target_word": "lay",
           "lines": [
             {
-              "text": "lay = put/place, normally transitive, past laid; lie = recline/be situated, normally intransitive, past lay, past participle lain. Keep lie='say something untrue' separate.",
+              "text": "lay = put/place something, normally transitive (laid-laid); lie = recline/be situated, normally intransitive (lay-lain); lie meaning say something untrue is separate (lied-lied)",
               "lang": "en"
             }
           ],
           "differences": [],
           "repair": {
             "target_kind": "relation",
-            "target_id": "confusable:horizontal:dec62e3b0facbbf9e468",
-            "target_locator": "record.confusables[0]",
+            "target_id": "relation:streaming-c:lay-lie:v1",
+            "target_locator": "record.semantic_neighbors[0]",
             "target_label": "lie ↔ lay"
           }
         }
       ],
-      "relations": [],
       "form": null,
       "family": []
     }
@@ -963,7 +1031,7 @@
     "ordinal": 2824,
     "word": "life",
     "source_owner_path": "content/lexical/words/by-ordinal/o2824.json",
-    "source_fingerprint": "ab8db781fa555bc81345982fd7d8e142b36dde08c8f7f8d93bcdc46fb74f5225",
+    "source_fingerprint": "5c6426df0c50652aee359c97735a661a3a18cc1ce485174fc42fc97a78139f8d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -999,14 +1067,6 @@
             "meaning_cn": "预期寿命",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:d4d8e8bda8f4644721d6",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "way of life",
-            "meaning_cn": "生活方式",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -1039,6 +1099,14 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "private life",
             "meaning_cn": "私生活",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:d4d8e8bda8f4644721d6",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "way of life",
+            "meaning_cn": "生活方式",
             "kind": "usage_example",
             "repair": null
           }
@@ -1206,7 +1274,7 @@
     "ordinal": 2826,
     "word": "lift",
     "source_owner_path": "content/lexical/words/by-ordinal/o2826.json",
-    "source_fingerprint": "c7197bc61a05da100abb228bd50f4413eac4936d3ae741e67d22b72cf10467d3",
+    "source_fingerprint": "75b62f950cfb19521cd4b64540bd5b599034869cc822a6f0dace012251ab72c8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1315,16 +1383,16 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:5809adaedf1a1e6eb5c9",
+            "id": "collocation:ba8133264abb60db23e0",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "give sb a lift",
-            "meaning_cn": "让某人搭车；使某人振奋",
+            "phrase": "give sb/sth a lift",
+            "meaning_cn": "使某人更振奋/使某事有所改善",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:5809adaedf1a1e6eb5c9",
+              "target_id": "collocation:ba8133264abb60db23e0",
               "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "give sb a lift"
+              "target_label": "give sb/sth a lift"
             }
           }
         ],
@@ -1361,7 +1429,21 @@
         "definition_en": "a free ride in another person's vehicle",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:5809adaedf1a1e6eb5c9",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "give sb a lift",
+            "meaning_cn": "让某人搭车；使某人振奋",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5809adaedf1a1e6eb5c9",
+              "target_locator": "record.senses[5].collocations[0]",
+              "target_label": "give sb a lift"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:lift:075975c791ea57ac",
@@ -1385,12 +1467,12 @@
     "ordinal": 2827,
     "word": "light",
     "source_owner_path": "content/lexical/words/by-ordinal/o2827.json",
-    "source_fingerprint": "4bd8ffe4563b488041d9b7bf0bc9b0f2e538e7f95a30a7e410c24e14044e9ec3",
+    "source_fingerprint": "6bfc8da0034c4660c977c504a16b038214c77994f85ff9808a894526f8d94c91",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "1A",
+        "3A",
         "3N"
       ],
       "density": "rich"
@@ -1417,21 +1499,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:f6930843a0cdb8c2a306",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "in the light of",
-            "meaning_cn": "鉴于，由于",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f6930843a0cdb8c2a306",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "in the light of"
-            }
-          },
-          {
             "id": "collocation:b6794a25abc6835441a8",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "light source",
             "meaning_cn": "光源",
             "kind": "usage_example",
@@ -1472,34 +1541,8 @@
         }
       },
       {
-        "id": "sense:light:1301b9960cc051c9",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "点燃，照亮",
-        "definition_en": "to cause to start burning; ignite",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:79bdf742b4ad289727c5",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "light a fire",
-            "meaning_cn": "点火",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:light:1301b9960cc051c9",
-          "target_locator": "record.senses[2]",
-          "target_label": "点燃，照亮"
-        }
-      },
-      {
         "id": "sense:light:dcb430d6f8285e3a",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "角度，方面",
@@ -1509,14 +1552,14 @@
         "usage": [
           {
             "id": "collocation:32c0da83e180df211669",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "in a new light",
             "meaning_cn": "以新的角度",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:32c0da83e180df211669",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "in a new light"
             }
           }
@@ -1524,23 +1567,31 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:light:dcb430d6f8285e3a",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "角度，方面"
         }
       },
       {
         "id": "sense:light:82010ee7fa255634",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "轻的",
         "definition_en": "of little weight; not heavy",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "gradable adjective light forms comparative lighter and superlative lightest; exact-spelling word:lighter remains an independent noun owner",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "gradable adjective light forms comparative lighter and superlative lightest; exact-spelling word:lighter remains an independent noun owner"
+          }
+        },
         "usage": [
           {
             "id": "collocation:800d9705684a5a9e479e",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "light weight",
             "meaning_cn": "轻重量",
             "kind": "usage_example",
@@ -1550,8 +1601,34 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:light:82010ee7fa255634",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "轻的"
+        }
+      },
+      {
+        "id": "sense:light:1301b9960cc051c9",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "点燃，照亮",
+        "definition_en": "to cause to start burning; ignite",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:79bdf742b4ad289727c5",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "light a fire",
+            "meaning_cn": "点火",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:light:1301b9960cc051c9",
+          "target_locator": "record.senses[4]",
+          "target_label": "点燃，照亮"
         }
       },
       {
@@ -1584,6 +1661,98 @@
           "target_locator": "record.senses[5]",
           "target_label": "点着，变亮"
         }
+      },
+      {
+        "id": "sense:light:c100fd5068e4e8b0",
+        "source_locator": "record.senses[6]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "浅色的；淡色的",
+        "definition_en": "pale or not dark in color",
+        "note": "",
+        "identity_overlay": {
+          "text": "gradable adjective light forms comparative lighter and superlative lightest; exact-spelling word:lighter remains an independent noun owner",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[6].lexical_identity_overlay",
+            "target_label": "gradable adjective light forms comparative lighter and superlative lightest; exact-spelling word:lighter remains an independent noun owner"
+          }
+        },
+        "usage": [
+          {
+            "id": "collocation:efb9cc1cca3b6bd3902f",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "light blue",
+            "meaning_cn": "浅蓝色的",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:8698163a443732ae1cb9",
+            "source_locator": "record.senses[6].collocations[1]",
+            "phrase": "light hair",
+            "meaning_cn": "浅色头发",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:light:c100fd5068e4e8b0",
+          "target_locator": "record.senses[6]",
+          "target_label": "浅色的；淡色的"
+        }
+      },
+      {
+        "id": "sense:light:3a1547d0dd0c95bf",
+        "source_locator": "record.senses[7]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "轻度的；少量的；不强烈的",
+        "definition_en": "not heavy, severe, dense, rich, or intense",
+        "note": "",
+        "identity_overlay": {
+          "text": "gradable adjective light forms comparative lighter and superlative lightest; exact-spelling word:lighter remains an independent noun owner",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[7].lexical_identity_overlay",
+            "target_label": "gradable adjective light forms comparative lighter and superlative lightest; exact-spelling word:lighter remains an independent noun owner"
+          }
+        },
+        "usage": [
+          {
+            "id": "collocation:b685665f0e192f98fe28",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "light rain",
+            "meaning_cn": "小雨",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:3b20a509712f2048538d",
+            "source_locator": "record.senses[7].collocations[1]",
+            "phrase": "light meal",
+            "meaning_cn": "清淡/少量的一餐",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:b160c3034df05401fcd3",
+            "source_locator": "record.senses[7].collocations[2]",
+            "phrase": "light exercise",
+            "meaning_cn": "轻度运动",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:light:3a1547d0dd0c95bf",
+          "target_locator": "record.senses[7]",
+          "target_label": "轻度的；少量的；不强烈的"
+        }
       }
     ],
     "secondary_senses": [],
@@ -1604,29 +1773,28 @@
           "target_locator": "record.constructions[0]",
           "target_label": "shed/cast light on sth"
         }
+      },
+      {
+        "id": "construction:a32813c609e0f71abd69",
+        "source_locator": "record.constructions[1]",
+        "pattern": "in the light of sth",
+        "lines": [
+          {
+            "text": "鉴于；考虑到；根据……来看",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a32813c609e0f71abd69",
+          "target_locator": "record.constructions[1]",
+          "target_label": "in the light of sth"
+        }
       }
     ],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "light ↔ lighter",
-          "target_word": "lighter",
-          "lines": [
-            {
-              "text": "lighter is an independent noun owner here, while the same surface is also the comparative form of adjective light. Preserve word:lighter exact-spelling ownership; do not create a comparative sense under this owner or steal its lookup for light.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:4f4dfc3a2c0ed31d937f",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "light ↔ lighter"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -3924,7 +4092,7 @@
     "ordinal": 2846,
     "word": "lip",
     "source_owner_path": "content/lexical/words/by-ordinal/o2846.json",
-    "source_fingerprint": "0501071b8228437e53befce3f9b413f6b437e4ffa115c07d844561201222db4a",
+    "source_fingerprint": "14664ff840e154a77638deb41053064c889c180226de8b21cbb687bf5f9c16d8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4032,7 +4200,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:83cda21719fafb93e068",
+        "source_locator": "record.constructions[0]",
+        "pattern": "pay/give lip service to sth",
+        "lines": [
+          {
+            "text": "口头支持但无实际行动",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:83cda21719fafb93e068",
+          "target_locator": "record.constructions[0]",
+          "target_label": "pay/give lip service to sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4046,7 +4232,7 @@
     "ordinal": 2847,
     "word": "liquid",
     "source_owner_path": "content/lexical/words/by-ordinal/o2847.json",
-    "source_fingerprint": "9e68e682a60707b509bede143126f0b955cc289f707608dba11af0ff759f9c23",
+    "source_fingerprint": "54f5b441fadd434dde6445f86d9a56bbfecf44e37e1a10adbbf7a685d580593c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4593,22 +4779,22 @@
     "ordinal": 2851,
     "word": "literacy",
     "source_owner_path": "content/lexical/words/by-ordinal/o2851.json",
-    "source_fingerprint": "2a499fd26811735a873289395998c5d8a546809c29cea27469351d61fed36065",
+    "source_fingerprint": "53b259a6ca64f277b431b2f5b8cebbc6b633000a8330c323180aff983b4ccd1f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "读写能力",
+      "summary_cn": "读写能力；领域素养",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "读写能力"
+        "target_label": "读写能力；领域素养"
       }
     },
     "senses": [
@@ -4645,6 +4831,48 @@
           "target_locator": "record.senses[0]",
           "target_label": "读写能力；识字"
         }
+      },
+      {
+        "id": "sense:literacy:01adc46f8a2c6a79",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（某领域的）基本理解与运用能力；素养",
+        "definition_en": "competence, knowledge, and ability to understand and use information in a particular field",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:8a736491fc67baa485d6",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "digital literacy",
+            "meaning_cn": "数字素养",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:126ffd28e530d3750418",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "financial literacy",
+            "meaning_cn": "金融素养",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:e124bc0579a719fe0718",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "health literacy",
+            "meaning_cn": "健康素养",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:literacy:01adc46f8a2c6a79",
+          "target_locator": "record.senses[1]",
+          "target_label": "（某领域的）基本理解与运用能力；素养"
+        }
       }
     ],
     "secondary_senses": [],
@@ -4662,7 +4890,7 @@
     "ordinal": 2852,
     "word": "literally",
     "source_owner_path": "content/lexical/words/by-ordinal/o2852.json",
-    "source_fingerprint": "d1a5a70718f610d48ae807c89b13f8c476c232aa5618b9984b89a0cbe65d0242",
+    "source_fingerprint": "ab69cc5e254730b6ac96131afd2d1b70e2e52eddf3798d701b9326e14a69929b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4671,13 +4899,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "按字面意义；确实地",
+      "summary_cn": "按字面；（口语）加强语气",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "按字面意义；确实地"
+        "target_label": "按字面；（口语）加强语气"
       }
     },
     "senses": [
@@ -4712,9 +4940,9 @@
         "source_locator": "record.senses[1]",
         "pos": "adverb",
         "governing_pattern": "",
-        "definition_cn": "确实地；不夸张地（用于强调）",
-        "definition_en": "used to emphasize that something is true, even if it seems exaggerated",
-        "note": "",
+        "definition_cn": "（口语强调）简直；真的（有时并非严格按字面）",
+        "definition_en": "used informally for strong emphasis, sometimes even when the statement is not literally true",
+        "note": "In careful/formal writing, use literally for truly literal claims when ambiguity matters.",
         "identity_overlay": null,
         "usage": [
           {
@@ -4730,7 +4958,7 @@
           "target_kind": "sense",
           "target_id": "sense:literally:147e191e74af566c",
           "target_locator": "record.senses[1]",
-          "target_label": "确实地；不夸张地（用于强调）"
+          "target_label": "（口语强调）简直；真的（有时并非严格按字面）"
         }
       }
     ],
@@ -4875,7 +5103,7 @@
     "ordinal": 2854,
     "word": "literature",
     "source_owner_path": "content/lexical/words/by-ordinal/o2854.json",
-    "source_fingerprint": "5ccd2b9989444c4559ce7587c8899653dff3694f9fea74a182148553df3aed97",
+    "source_fingerprint": "16eedfd5cde4d4da31b7e7830948cf8f7567cbe1af1cf38b1ffa0fedc900aa8e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4911,14 +5139,6 @@
             "meaning_cn": "英国文学",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:5626170484ead6d3efad",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "literature review",
-            "meaning_cn": "文献综述",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -4943,6 +5163,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "scientific literature",
             "meaning_cn": "科学文献",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:5626170484ead6d3efad",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "literature review",
+            "meaning_cn": "文献综述",
             "kind": "usage_example",
             "repair": null
           }
@@ -5057,7 +5285,7 @@
     "ordinal": 2856,
     "word": "litter",
     "source_owner_path": "content/lexical/words/by-ordinal/o2856.json",
-    "source_fingerprint": "7057607e0693e1c10d793552625b3877a7c980dbae3a3a64636106ac09829a88",
+    "source_fingerprint": "2c354b70b5b7a12055fb9148a8f58d43887a0645c6c983b8e270c4aa4955f81c",
     "sense_lineage": [
       {
         "word_id": "word:litter",
@@ -5075,13 +5303,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "垃圾；一窝幼崽",
+      "summary_cn": "垃圾；一窝幼崽；乱丢/散落",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "垃圾；一窝幼崽"
+        "target_label": "垃圾；一窝幼崽；乱丢/散落"
       }
     },
     "senses": [
@@ -5230,7 +5458,7 @@
     "ordinal": 2857,
     "word": "little",
     "source_owner_path": "content/lexical/words/by-ordinal/o2857.json",
-    "source_fingerprint": "ff230cd8f3841ade5c8e9853513ca0faf7a04dfcafae00cb59a14c0aeb80b0d5",
+    "source_fingerprint": "ee5839997715ce95f75887ab1fe9b662499f712ef887ccd7967cb9039268cc02",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5428,7 +5656,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:5f9bd60ee8aeb8fa25d4",
+        "source_locator": "record.constructions[0]",
+        "pattern": "little + uncountable noun vs a little + uncountable noun",
+        "lines": [
+          {
+            "text": "little 表几乎没有/不够；a little 表有一些/少量",
+            "lang": "cn"
+          },
+          {
+            "text": "little has a negative/insufficient implication; a little asserts some positive amount",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:5f9bd60ee8aeb8fa25d4",
+          "target_locator": "record.constructions[0]",
+          "target_label": "little + uncountable noun vs a little + uncountable noun"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5442,12 +5692,12 @@
     "ordinal": 2858,
     "word": "live",
     "source_owner_path": "content/lexical/words/by-ordinal/o2858.json",
-    "source_fingerprint": "0547fa16ee8c29ba40171cd90a6350fb7c96c687919d021928394c71612be126",
+    "source_fingerprint": "e99fe3e9a45e0293d80d392d94aebb1033975516f9fbc94e8cc2f6066fe2671f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "2A",
+        "4A",
         "1ADV"
       ],
       "density": "rich"
@@ -5472,12 +5722,12 @@
         "definition_en": "to have life; to be alive",
         "note": "",
         "identity_overlay": {
-          "text": "verb live /lɪv/ versus adjective/adverb live /laɪv/, as in live broadcast and broadcast live",
+          "text": "pronunciation_by_part_of_speech",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "verb live /lɪv/ versus adjective/adverb live /laɪv/, as in live broadcast and broadcast live"
+            "target_label": "pronunciation_by_part_of_speech"
           }
         },
         "usage": [],
@@ -5496,7 +5746,15 @@
         "definition_cn": "居住",
         "definition_en": "to make one's home in a particular place",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "pronunciation_by_part_of_speech",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "pronunciation_by_part_of_speech"
+          }
+        },
         "usage": [
           {
             "id": "collocation:7da42e56b2c8b89def6c",
@@ -5541,12 +5799,12 @@
         "definition_en": "broadcast or performed at the time of occurrence",
         "note": "",
         "identity_overlay": {
-          "text": "verb live /lɪv/ versus adjective/adverb live /laɪv/, as in live broadcast and broadcast live",
+          "text": "pronunciation_by_part_of_speech",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "verb live /lɪv/ versus adjective/adverb live /laɪv/, as in live broadcast and broadcast live"
+            "target_label": "pronunciation_by_part_of_speech"
           }
         },
         "usage": [
@@ -5574,7 +5832,15 @@
         "definition_cn": "过着（某种生活）",
         "definition_en": "to lead a particular kind of life",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "pronunciation_by_part_of_speech",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "pronunciation_by_part_of_speech"
+          }
+        },
         "usage": [
           {
             "id": "collocation:414ed2db9147ed4e3d6f",
@@ -5600,7 +5866,15 @@
         "definition_cn": "活的",
         "definition_en": "not dead; alive",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "pronunciation_by_part_of_speech",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[4].lexical_identity_overlay",
+            "target_label": "pronunciation_by_part_of_speech"
+          }
+        },
         "usage": [
           {
             "id": "collocation:519f39749c4f5f921fd9",
@@ -5627,12 +5901,12 @@
         "definition_en": "in a live manner",
         "note": "",
         "identity_overlay": {
-          "text": "verb live /lɪv/ versus adjective/adverb live /laɪv/, as in live broadcast and broadcast live",
+          "text": "pronunciation_by_part_of_speech",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[5].lexical_identity_overlay",
-            "target_label": "verb live /lɪv/ versus adjective/adverb live /laɪv/, as in live broadcast and broadcast live"
+            "target_label": "pronunciation_by_part_of_speech"
           }
         },
         "usage": [
@@ -5650,6 +5924,84 @@
           "target_id": "sense:live:e5badd82cbe55d60",
           "target_locator": "record.senses[5]",
           "target_label": "实况地"
+        }
+      },
+      {
+        "id": "sense:live:de57ff1e05a60222",
+        "source_locator": "record.senses[6]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "带电的；通电的",
+        "definition_en": "carrying electric current or connected to a source of electricity",
+        "note": "",
+        "identity_overlay": {
+          "text": "pronunciation_by_part_of_speech",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[6].lexical_identity_overlay",
+            "target_label": "pronunciation_by_part_of_speech"
+          }
+        },
+        "usage": [
+          {
+            "id": "collocation:18dc38cec0c149db60cd",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "live wire/cable",
+            "meaning_cn": "带电的电线/电缆",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:18dc38cec0c149db60cd",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "live wire/cable"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:live:de57ff1e05a60222",
+          "target_locator": "record.senses[6]",
+          "target_label": "带电的；通电的"
+        }
+      },
+      {
+        "id": "sense:live:fba91ad746c31098",
+        "source_locator": "record.senses[7]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "实弹的；装有真实炸药/弹药的",
+        "definition_en": "containing real explosive ammunition or capable of exploding",
+        "note": "",
+        "identity_overlay": {
+          "text": "pronunciation_by_part_of_speech",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[7].lexical_identity_overlay",
+            "target_label": "pronunciation_by_part_of_speech"
+          }
+        },
+        "usage": [
+          {
+            "id": "collocation:7cd6a6410e0e58b56f93",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "live ammunition/round",
+            "meaning_cn": "实弹/实弹弹药",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:7cd6a6410e0e58b56f93",
+              "target_locator": "record.senses[7].collocations[0]",
+              "target_label": "live ammunition/round"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:live:fba91ad746c31098",
+          "target_locator": "record.senses[7]",
+          "target_label": "实弹的；装有真实炸药/弹药的"
         }
       }
     ],
@@ -6047,11 +6399,11 @@
     "ordinal": 2862,
     "word": "load",
     "source_owner_path": "content/lexical/words/by-ordinal/o2862.json",
-    "source_fingerprint": "d102b082ebde78797e8e764868643b60a3d1266a88e1416aeaf7d099398ad7f2",
+    "source_fingerprint": "25cd6a3267d33665ac87589ca35d0a0c62e9251589d3863beb8f855b516a3721",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "(3+1)V",
         "2N"
       ],
       "density": "rich"
@@ -6195,6 +6547,45 @@
           "target_locator": "record.senses[3]",
           "target_label": "工作量；负载"
         }
+      },
+      {
+        "id": "sense:load:6fe2c39442bcbf4e",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "I/T",
+        "definition_cn": "加载；装入（数据/程序）；（页面/程序）载入并就绪",
+        "definition_en": "to put data, a program, or content into a computer/system; or for a page/app/program to appear or become ready",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:23d438b24375a7ef0254",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "load data/a program into/onto sth",
+            "meaning_cn": "把数据/程序加载到某处",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:23d438b24375a7ef0254",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "load data/a program into/onto sth"
+            }
+          },
+          {
+            "id": "collocation:7c2ceeba19a3ea3ad4b7",
+            "source_locator": "record.senses[4].collocations[1]",
+            "phrase": "the page/app loads",
+            "meaning_cn": "页面/应用完成加载",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:load:6fe2c39442bcbf4e",
+          "target_locator": "record.senses[4]",
+          "target_label": "加载；装入（数据/程序）；（页面/程序）载入并就绪"
+        }
       }
     ],
     "secondary_senses": [
@@ -6213,7 +6604,25 @@
         }
       }
     ],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:13381c45db94e4f2c0c9",
+        "source_locator": "record.constructions[0]",
+        "pattern": "load A with B vs load B into/onto A",
+        "lines": [
+          {
+            "text": "load A with B：把B装入A；load B into/onto A：把B装入/装上A",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:13381c45db94e4f2c0c9",
+          "target_locator": "record.constructions[0]",
+          "target_label": "load A with B vs load B into/onto A"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -6495,7 +6904,7 @@
     "ordinal": 2865,
     "word": "lobby",
     "source_owner_path": "content/lexical/words/by-ordinal/o2865.json",
-    "source_fingerprint": "42397ec5f191ad4f4717f79c87839ea1ac48007783625986a613755c9a7f8cfb",
+    "source_fingerprint": "2638fc8014204302508e9958b5b41bea9fdb1acd0d3077fc8924ecf03f2674e8",
     "sense_lineage": [
       {
         "word_id": "word:lobby",
@@ -6579,7 +6988,7 @@
         "id": "sense:lobby:7c92209effb65aa8",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + for/against",
+        "governing_pattern": "I/T: lobby for/against sth; lobby sb/officials; lobby sb to do sth",
         "definition_cn": "游说",
         "definition_en": "to try to influence politicians or other decision-makers on an issue",
         "note": "",
@@ -6629,7 +7038,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:5e967699f71d3e2752d1",
+        "source_locator": "record.constructions[0]",
+        "pattern": "lobby for/against sth; lobby sb/officials",
+        "lines": [
+          {
+            "text": "游说支持/反对某事；游说某人或官员",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:5e967699f71d3e2752d1",
+          "target_locator": "record.constructions[0]",
+          "target_label": "lobby for/against sth; lobby sb/officials"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6643,7 +7070,7 @@
     "ordinal": 2866,
     "word": "local",
     "source_owner_path": "content/lexical/words/by-ordinal/o2866.json",
-    "source_fingerprint": "d7b0578bd2dc353f74db01b4a79c640af24d8516be0d6fa7e9a8dd590431106f",
+    "source_fingerprint": "7712913d4fa93869d30bc48779bdeded91f323e8beb7f44914bf8be8ee9668b2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6986,7 +7413,7 @@
     "ordinal": 2869,
     "word": "location",
     "source_owner_path": "content/lexical/words/by-ordinal/o2869.json",
-    "source_fingerprint": "50aa6dc813067c09c44c9eb119e30f41fb2748afdfe4ac522cda8d8cc6b7716e",
+    "source_fingerprint": "15ec8153b13ff103095725f1c0175d69fd01e29d5cfb4b29d63c8290c7abccab",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7022,19 +7449,6 @@
             "meaning_cn": "黄金地段",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:c0b4a6dd9906db7f33eb",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "on location",
-            "meaning_cn": "在外景地",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c0b4a6dd9906db7f33eb",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "on location"
-            }
           }
         ],
         "repair": {
@@ -7061,6 +7475,19 @@
             "meaning_cn": "在外景拍摄",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:c0b4a6dd9906db7f33eb",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "on location",
+            "meaning_cn": "在外景地/实景地拍摄",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c0b4a6dd9906db7f33eb",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "on location"
+            }
           }
         ],
         "repair": {
@@ -8317,7 +8744,7 @@
     "ordinal": 2879,
     "word": "long",
     "source_owner_path": "content/lexical/words/by-ordinal/o2879.json",
-    "source_fingerprint": "9708e46a9177e4929bdc83a4e6e9a0f9cbe0033fc76d6fec0eb4d3eabf228fd6",
+    "source_fingerprint": "5790292f8110b7da34794d94fd6741b1d63d178cfc6b788a69b8e05ccb905b1c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8486,7 +8913,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:bc4ada988afd73bc89dc",
+        "source_locator": "record.constructions[0]",
+        "pattern": "as long as / so long as + clause",
+        "lines": [
+          {
+            "text": "只要；条件是",
+            "lang": "cn"
+          },
+          {
+            "text": "conditional provided that; distinct from literal duration use",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bc4ada988afd73bc89dc",
+          "target_locator": "record.constructions[0]",
+          "target_label": "as long as / so long as + clause"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

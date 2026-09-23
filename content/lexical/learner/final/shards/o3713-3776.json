@@ -241,7 +241,7 @@
     "ordinal": 3715,
     "word": "power",
     "source_owner_path": "content/lexical/words/by-ordinal/o3715.json",
-    "source_fingerprint": "5baec575197b9c3908eb056bdd12d6b5eff99a36ae187c13b21bfaf8ed157ed6",
+    "source_fingerprint": "c9dc2fff12515ac9574afb8784e9715350a9c3f8833d1568c77705b712b38c3e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -251,13 +251,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "力量；权力；动力",
+      "summary_cn": "能力/力量；权力；电力/动力",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "力量；权力；动力"
+        "target_label": "能力/力量；权力；电力/动力"
       }
     },
     "senses": [
@@ -588,7 +588,7 @@
     "ordinal": 3717,
     "word": "practical",
     "source_owner_path": "content/lexical/words/by-ordinal/o3717.json",
-    "source_fingerprint": "7cc74b34da383c8b1746794a6719a6178bc9ba08961120e3f9fb96b2a4a38e14",
+    "source_fingerprint": "c97735fe8c6cb5be4d5681f4404c7aa3151ea885c1f98fad34f9305b106ab028",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -735,7 +735,7 @@
     "ordinal": 3718,
     "word": "practise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3718.json",
-    "source_fingerprint": "7bd8235c7e9eee6938199464d51114461351849feb9f453a67dfafbc04112d28",
+    "source_fingerprint": "57306971a048e82bd1c5ca4ad7a390c131ae6b0651ccdd95b832f46a550463aa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -758,11 +758,19 @@
         "id": "sense:practise:cbcaec17dc4a53d9",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: practise sth; practise regularly; practise law/medicine; practise as + profession",
         "definition_cn": "练习；训练",
         "definition_en": "to do something repeatedly to improve one's skill",
         "note": "BrE verb spelling: practise. AmE normally spells the verb practice; the noun is practice in both varieties.",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb"
+          }
+        },
         "usage": [
           {
             "id": "collocation:f252a804b170cfeea8cb",
@@ -797,11 +805,19 @@
         "id": "sense:practise:acdba0b73d935045",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: practise sth; practise regularly; practise law/medicine; practise as + profession",
         "definition_cn": "从事（职业）；实践",
         "definition_en": "to carry out or perform (a job, profession, etc.)",
         "note": "BrE verb spelling: practise (e.g. practise medicine/law). AmE normally uses practice as the verb spelling.",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb"
+          }
+        },
         "usage": [
           {
             "id": "collocation:dd2e547f0e39f7a64710",
@@ -832,25 +848,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "practise ↔ practice",
-          "target_word": "practice",
-          "lines": [
-            {
-              "text": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb. Both frozen Main Word identities remain, and the relation carries the regional/POS spelling boundary.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:0caa5ca11fa46fd07fd7",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "practise ↔ practice"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -1085,7 +1083,7 @@
     "ordinal": 3721,
     "word": "pray",
     "source_owner_path": "content/lexical/words/by-ordinal/o3721.json",
-    "source_fingerprint": "bfce22d9e4b75861ccad7b3a556de00f7d001d0b5f95eeb5ef7364901992eb81",
+    "source_fingerprint": "4d7bd7126d85fd8d84091658f7f8a3033b669f25cf4ea89190e6c0e51e0829a8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1152,10 +1150,10 @@
         "id": "sense:pray:c1920a5117fb5643",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "formal/old-fashioned: pray sb to do; pray tell",
         "definition_cn": "恳求；请求",
         "definition_en": "to make a serious request or entreaty",
-        "note": "",
+        "note": "Not a neutral everyday production pattern; current everyday requests normally use ask/beg. Fixed older/formal uses include pray tell and I pray you ...",
         "identity_overlay": null,
         "usage": [
           {
@@ -1784,7 +1782,7 @@
     "ordinal": 3727,
     "word": "preceding",
     "source_owner_path": "content/lexical/words/by-ordinal/o3727.json",
-    "source_fingerprint": "c24973c04fdae7c3e38c624801f0d26f4b5ead744be5439a718f23cf74c4d4da",
+    "source_fingerprint": "a9245f64af7f6eb431b4efa6c2075ecfe6a49a9b1a05e5853443f7a77166a1cf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1846,7 +1844,7 @@
       "form": null,
       "family": [
         {
-          "target_word": "",
+          "target_word": "precede",
           "lines": [
             {
               "text": "preceding is transparently related to the -ing participial form of precede; do not teach it as an ordinary derivational noun/adjective family rule",
@@ -1864,23 +1862,30 @@
     "ordinal": 3728,
     "word": "precious",
     "source_owner_path": "content/lexical/words/by-ordinal/o3728.json",
-    "source_fingerprint": "720e38cc4fb692efcc7db3d510d754b97a3d0cf5f2fc9dddd133a39bb9a14ad1",
-    "sense_lineage": [],
+    "source_fingerprint": "ec9c4e78747fce39149232b3609c491b3c732395f2f8f32bfb21bb0ff50b0b0e",
+    "sense_lineage": [
+      {
+        "word_id": "word:precious",
+        "target_kind": "sense",
+        "from_target_id": "sense:precious:d9006aae9099514e",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A",
-        "1ADV"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "珍贵的，宝贵的",
+      "summary_cn": "珍贵的；宝贵的；也可指矫揉造作的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "珍贵的，宝贵的"
+        "target_label": "珍贵的；宝贵的；也可指矫揉造作的"
       }
     },
     "senses": [
@@ -1943,36 +1948,36 @@
           "target_locator": "record.senses[1]",
           "target_label": "过于精致的，矫揉造作的"
         }
-      },
-      {
-        "id": "sense:precious:d9006aae9099514e",
-        "source_locator": "record.senses[2]",
-        "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "极其，非常",
-        "definition_en": "extremely (used for emphasis)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:1d904265b4cb80fc1cf7",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "precious little",
-            "meaning_cn": "极少",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:precious:d9006aae9099514e",
-          "target_locator": "record.senses[2]",
-          "target_label": "极其，非常"
-        }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:74e51ed2c9176159efed",
+        "source_locator": "record.constructions[0]",
+        "pattern": "precious little/few",
+        "lines": [
+          {
+            "text": "极少；几乎没有",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed/emphatic construction, often disapproving; not productive precious + arbitrary adjective/adverb",
+            "lang": "en"
+          },
+          {
+            "text": "very little/few; hardly any",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:74e51ed2c9176159efed",
+          "target_locator": "record.constructions[0]",
+          "target_label": "precious little/few"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2834,7 +2839,7 @@
     "ordinal": 3737,
     "word": "prefer",
     "source_owner_path": "content/lexical/words/by-ordinal/o3737.json",
-    "source_fingerprint": "c8cc454bec02b37f2898b0893c9a90012ab594c707185bba95d492c5a1e7396f",
+    "source_fingerprint": "84c3da497b8e3a874579bafb53921617f3f80118e5663438c0889f919daa11eb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2857,7 +2862,7 @@
         "id": "sense:prefer:f5bc1b1b4076562f",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + to do / vt. + object + to",
+        "governing_pattern": "prefer A to B; prefer doing A to doing B; prefer to do A rather than do B; would prefer to do sth",
         "definition_cn": "更喜欢；宁愿",
         "definition_en": "to like better; choose as more valuable",
         "note": "",
@@ -3321,7 +3326,7 @@
     "ordinal": 3741,
     "word": "prejudice",
     "source_owner_path": "content/lexical/words/by-ordinal/o3741.json",
-    "source_fingerprint": "2f41b88be6a0f25107aaff6b46874f2fb6a4e183f5237f34dfce341e27f888e0",
+    "source_fingerprint": "926c5c3b37de4d786d7d8b662a8aaed8fb4c31d1dd37397a38f4cf52a964b0ad",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3371,19 +3376,6 @@
             "meaning_cn": "种族偏见",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:3018b6ddb65c6e269603",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "without prejudice",
-            "meaning_cn": "无偏见地；不影响法律权益",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3018b6ddb65c6e269603",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "without prejudice"
-            }
           }
         ],
         "repair": {
@@ -3439,7 +3431,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:49d3af87a5290af9d18a",
+        "source_locator": "record.constructions[0]",
+        "pattern": "without prejudice (to sth)",
+        "lines": [
+          {
+            "text": "在不损害/不放弃既有法律权利、主张或立场的前提下",
+            "lang": "cn"
+          },
+          {
+            "text": "formal legal phrase; exact legal effect depends on context and jurisdiction",
+            "lang": "en"
+          },
+          {
+            "text": "without intending to waive, surrender, or adversely affect existing legal rights, claims, or positions",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:49d3af87a5290af9d18a",
+          "target_locator": "record.constructions[0]",
+          "target_label": "without prejudice (to sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -3910,7 +3928,7 @@
     "ordinal": 3745,
     "word": "premium",
     "source_owner_path": "content/lexical/words/by-ordinal/o3745.json",
-    "source_fingerprint": "4ca714738d3cdb26749e38d487eefe409680b9278070f328200744f1adca573c",
+    "source_fingerprint": "c31e856daaaf1109a3f9177102764c70f0004fc8b5b0c8e01b51f1d7812d0d91",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3975,28 +3993,15 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:49f3eee3cab4e4bd929c",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "at a premium",
-            "meaning_cn": "溢价；奇缺的",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:49f3eee3cab4e4bd929c",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "at a premium"
-            }
-          },
-          {
             "id": "collocation:050f24a340d3f234997b",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "pay a premium for + sth",
             "meaning_cn": "为某物支付额外费用",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:050f24a340d3f234997b",
-              "target_locator": "record.senses[1].collocations[1]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "pay a premium for + sth"
             }
           }
@@ -4090,6 +4095,31 @@
           "target_id": "construction:4c5bc08bc4951d118ec1",
           "target_locator": "record.constructions[0]",
           "target_label": "put/place a premium on sth"
+        }
+      },
+      {
+        "id": "construction:7c01e3f35f12be7037c5",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be at a premium",
+        "lines": [
+          {
+            "text": "稀缺而特别宝贵/昂贵；很受重视或需求很高",
+            "lang": "cn"
+          },
+          {
+            "text": "scarcity/high-value construction; distinct from literally paying an extra premium",
+            "lang": "en"
+          },
+          {
+            "text": "to be scarce or hard to obtain and therefore especially valuable/expensive; by extension highly valued or in strong demand",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7c01e3f35f12be7037c5",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be at a premium"
         }
       }
     ],
@@ -4632,7 +4662,7 @@
     "ordinal": 3750,
     "word": "prescription",
     "source_owner_path": "content/lexical/words/by-ordinal/o3750.json",
-    "source_fingerprint": "b9fd6bf9e6e4233487036a529f22d6e86142eeaf6e48a5bbf4a2efc7b78c45a6",
+    "source_fingerprint": "505639edb400328343108670c1cc7f974839144955ef56837e6b2dc665360060",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4642,13 +4672,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "处方；药方",
+      "summary_cn": "处方；治疗/用药授权",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "处方；药方"
+        "target_label": "处方；治疗/用药授权"
       }
     },
     "senses": [
@@ -4657,8 +4687,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "处方；药方",
-        "definition_en": "a written instruction from a doctor or dentist to a druggist for the form and dosage of a drug",
+        "definition_cn": "处方；治疗/用药授权指令",
+        "definition_en": "an authorized instruction or order from a qualified healthcare professional for a medicine or treatment, often written or electronic",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4683,7 +4713,7 @@
           "target_kind": "sense",
           "target_id": "sense:prescription:cddd10feee635cc2",
           "target_locator": "record.senses[0]",
-          "target_label": "处方；药方"
+          "target_label": "处方；治疗/用药授权指令"
         }
       },
       {
@@ -4722,8 +4752,8 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "凭处方方可购买的",
-        "definition_en": "available only with a doctor's written prescription",
+        "definition_cn": "凭处方授权方可获得的",
+        "definition_en": "available legally only on an authorized prescription from a qualified healthcare professional",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4740,7 +4770,7 @@
           "target_kind": "sense",
           "target_id": "sense:prescription:c7d7a91c215b52d1",
           "target_locator": "record.senses[2]",
-          "target_label": "凭处方方可购买的"
+          "target_label": "凭处方授权方可获得的"
         }
       }
     ],
@@ -4759,7 +4789,7 @@
     "ordinal": 3751,
     "word": "presence",
     "source_owner_path": "content/lexical/words/by-ordinal/o3751.json",
-    "source_fingerprint": "3653ad02393a589a0464a92b3712437114d1405970a9fedf0b7b9d10b3211def",
+    "source_fingerprint": "39f80c45a176144389a8e4f9ac337e6776028282ec0b08378dc9b4a3d72b6eb2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4800,14 +4830,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "in the presence of + sb/sth"
             }
-          },
-          {
-            "id": "collocation:7cb134977ec1eaeca625",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "presence of mind",
-            "meaning_cn": "镇定，沉着",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -4819,7 +4841,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:78276a1f800676fbd7d0",
+        "source_locator": "record.constructions[0]",
+        "pattern": "presence of mind",
+        "lines": [
+          {
+            "text": "临危不乱；在困难、危险或意外情况下保持镇定并有效思考/行动的能力",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed idiom, not compositional existence/presence of the mind",
+            "lang": "en"
+          },
+          {
+            "text": "the ability to stay calm and think or act effectively in a difficult, dangerous, or surprising situation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:78276a1f800676fbd7d0",
+          "target_locator": "record.constructions[0]",
+          "target_label": "presence of mind"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4833,7 +4881,7 @@
     "ordinal": 3752,
     "word": "present",
     "source_owner_path": "content/lexical/words/by-ordinal/o3752.json",
-    "source_fingerprint": "3c873f96e0b3726dd0c5b3d80a96aaa96ea786966adab25db6a7f58143fe676f",
+    "source_fingerprint": "1d29ed9d705306595d349eabc8a52630dc4bd8452b08e10cb2be18b9421760b6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4862,7 +4910,15 @@
         "definition_cn": "现在的；当前的",
         "definition_en": "existing or happening now",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective present has initial stress; the verb present has final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "noun/adjective present has initial stress; the verb present has final stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:fe85923a17fe09588ff7",
@@ -4888,7 +4944,15 @@
         "definition_cn": "现在；目前",
         "definition_en": "the time now",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective present has initial stress; the verb present has final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "noun/adjective present has initial stress; the verb present has final stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:8a758edb0636802c1507",
@@ -4919,7 +4983,15 @@
         "definition_cn": "呈现；提出；赠予；授予",
         "definition_en": "to show, offer, give, or formally award something",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb present has final stress; noun/adjective present has initial stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "verb present has final stress; noun/adjective present has initial stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:7dbcd0d25226af4c9dd4",
@@ -4945,7 +5017,15 @@
         "definition_cn": "礼物；赠品",
         "definition_en": "a gift",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective present has initial stress; the verb present has final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "noun/adjective present has initial stress; the verb present has final stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:39a4f00214cc1a6f7b69",
@@ -4971,7 +5051,15 @@
         "definition_cn": "出席的；在场的",
         "definition_en": "being in a particular place",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun/adjective present has initial stress; the verb present has final stress",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[4].lexical_identity_overlay",
+            "target_label": "noun/adjective present has initial stress; the verb present has final stress"
+          }
+        },
         "usage": [
           {
             "id": "collocation:e455c9a147689c6d4005",
@@ -5053,25 +5141,7 @@
       }
     ],
     "reference": {
-      "confusables": [
-        {
-          "title": "present ↔ adjective/present noun ↔ present verb",
-          "target_word": "adjective/present noun ↔ present verb",
-          "lines": [
-            {
-              "text": "adjective/present noun ↔ present verb",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:5d51a999c293b9d84bd6",
-            "target_locator": "record.confusables[0]",
-            "target_label": "present ↔ adjective/present noun ↔ present verb"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [],
       "form": {
         "boundary": "",
@@ -5105,8 +5175,8 @@
           "target_word": "presentation",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
-              "lang": "cn"
+              "text": "present (show/explain) → presentation (act of presenting information)",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -5386,7 +5456,7 @@
     "ordinal": 3755,
     "word": "preside",
     "source_owner_path": "content/lexical/words/by-ordinal/o3755.json",
-    "source_fingerprint": "99ca517e7f1e67a3ba7e82ca843608320c64f7df492898339778147094c5a0a6",
+    "source_fingerprint": "1a49cc34cd43a7f217a03c16766868b31514e259326efe685df969a399519baf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5409,7 +5479,7 @@
         "id": "sense:preside:b71ea8fb024c5339",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + over",
+        "governing_pattern": "vi. + over/at",
         "definition_cn": "主持，负责",
         "definition_en": "to be in charge of a meeting, ceremony, or organization",
         "note": "",
@@ -5627,7 +5697,7 @@
     "ordinal": 3757,
     "word": "press",
     "source_owner_path": "content/lexical/words/by-ordinal/o3757.json",
-    "source_fingerprint": "df6001ec107fc22c520bdb572567848b6a36728f31f7737cf62200eeb6ba38f9",
+    "source_fingerprint": "1c49eb9ad8c494ba2b106be749cd50c8f5d38979ac93f9acbc99b23a066cf21d",
     "sense_lineage": [
       {
         "word_id": "word:press",
@@ -5646,7 +5716,7 @@
     ],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "2V",
         "2N"
       ],
       "density": "rich"
@@ -5765,7 +5835,7 @@
         "id": "sense:press:64e989cb57965235",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "press sb to do sth; press sb for sth; press for sth",
         "definition_cn": "逼迫；催促",
         "definition_en": "to urge or force someone to do something",
         "note": "",
@@ -5806,22 +5876,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:press:4bc3a8eede21c127",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "逼迫；催促",
-        "definition_en": "to urge or force someone to do something",
-        "pattern": "press sb to do sth 催促",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:press:4bc3a8eede21c127",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "逼迫；催促"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:3417327b2623bdeb336e",
@@ -7156,7 +7211,7 @@
     "ordinal": 3769,
     "word": "prey",
     "source_owner_path": "content/lexical/words/by-ordinal/o3769.json",
-    "source_fingerprint": "363d16ac6bc189f178d58d0e3bc52588dde916c36ddab2dc943767864cd9fe38",
+    "source_fingerprint": "400ecd8c35f064ec25f6231c44d4e8a417547df45d122a9d1be08aceda63d765",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7197,19 +7252,6 @@
               "target_id": "collocation:cfb4e6c5431c0c62648e",
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "a bird of prey"
-            }
-          },
-          {
-            "id": "collocation:843dacaf145ff61737dd",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "fall prey to + sth",
-            "meaning_cn": "成为…的牺牲品",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:843dacaf145ff61737dd",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "fall prey to + sth"
             }
           }
         ],
@@ -7334,6 +7376,31 @@
           "target_id": "construction:0c8cbc0c00157bfecee1",
           "target_locator": "record.constructions[0]",
           "target_label": "prey on one's mind"
+        }
+      },
+      {
+        "id": "construction:bc238d24d10b5e4e934e",
+        "source_locator": "record.constructions[1]",
+        "pattern": "fall prey to sb/sth",
+        "lines": [
+          {
+            "text": "成为…的受害者；受…侵害、欺骗、捕获或严重影响",
+            "lang": "cn"
+          },
+          {
+            "text": "victim/result meaning; literal animal predation can instantiate it but figurative scam/disease uses are not zoological-only",
+            "lang": "en"
+          },
+          {
+            "text": "to become a victim of or be badly affected by someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bc238d24d10b5e4e934e",
+          "target_locator": "record.constructions[1]",
+          "target_label": "fall prey to sb/sth"
         }
       }
     ],
@@ -7818,7 +7885,7 @@
     "ordinal": 3773,
     "word": "primary",
     "source_owner_path": "content/lexical/words/by-ordinal/o3773.json",
-    "source_fingerprint": "70586bf12b6bfda3f1111fabe04894e5a73e2066a68669f8768ffc9de68fb7af",
+    "source_fingerprint": "b89a83ec7bd4ad80ed6a1fe16eefc08a2fa8d99636ece10d9af55443c453c7b4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [

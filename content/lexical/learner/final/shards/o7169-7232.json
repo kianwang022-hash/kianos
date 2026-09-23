@@ -511,7 +511,7 @@
     "ordinal": 7176,
     "word": "munch",
     "source_owner_path": "content/lexical/words/by-ordinal/o7176.json",
-    "source_fingerprint": "c8fbe7ba5d75ec2e5b65fe0f9590269a1008dc34ebf09abb84ffde5c173303a9",
+    "source_fingerprint": "d30cf101fcc14b91b69b4f10422f784ce4a6033690a51f7a7d03a45d8765db8a",
     "sense_lineage": [
       {
         "word_id": "word:munch",
@@ -560,7 +560,7 @@
         "id": "sense:munch:ed3cbb01434c7770",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: munch sth; munch on sth",
         "definition_cn": "大口/咔嚓咔嚓地吃；持续咀嚼",
         "definition_en": "to chew or eat steadily, often noisily or with noticeable bites",
         "note": "",
@@ -727,7 +727,7 @@
     "ordinal": 7179,
     "word": "muster",
     "source_owner_path": "content/lexical/words/by-ordinal/o7179.json",
-    "source_fingerprint": "33fcbac1c48808ea8584cbe3f8384270401c5cc685404457531cb8c258452931",
+    "source_fingerprint": "eb43e9924f495d9638f36ea399cf362433de2b6e1a381f6a27a5244ddb36ae5e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -769,7 +769,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "召集, 集合, 检阅, 清单, 花名册, 样品",
+        "definition_cn": "集合；点名集合；部队集合",
         "definition_en": "a gathering of military personnel for duty",
         "note": "",
         "identity_overlay": null,
@@ -778,7 +778,7 @@
           "target_kind": "sense",
           "target_id": "sense:muster:c401c466eaf05be1",
           "target_locator": "record.senses[1]",
-          "target_label": "召集, 集合, 检阅, 清单, 花名册, 样品"
+          "target_label": "集合；点名集合；部队集合"
         }
       },
       {
@@ -1040,7 +1040,7 @@
     "ordinal": 7182,
     "word": "naught",
     "source_owner_path": "content/lexical/words/by-ordinal/o7182.json",
-    "source_fingerprint": "5a1f6ca4913f6fa052232da89303515606b4c7ca2afbb21167699ee3a09b80aa",
+    "source_fingerprint": "6b2a5108797c78c678787f8e9dae3bc5d1606a683c05fc8045767c8334aaa4e1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1067,7 +1067,15 @@
         "definition_cn": "无；零；毫无结果",
         "definition_en": "nothing; zero; no result or value, especially in literary or American use",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "naught and nought overlap in zero/nothing with regional/style differences; preserve exact spellings",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "naught and nought overlap in zero/nothing with regional/style differences; preserve exact spellings"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -1099,25 +1107,7 @@
     ],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "naught ↔ nought",
-          "target_word": "nought",
-          "lines": [
-            {
-              "text": "nought and naught overlap in the zero/nothing meaning with regional/style differences; preserve both exact-spelling owners and do not blind-alias them.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:1f24ffd0beb596b689ea",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "naught ↔ nought"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -1128,7 +1118,7 @@
     "ordinal": 7183,
     "word": "navigate",
     "source_owner_path": "content/lexical/words/by-ordinal/o7183.json",
-    "source_fingerprint": "fb2e39ac726797cbf209a04e15c507967f992fe268c91c0803c99c5806650765",
+    "source_fingerprint": "fadb000f106eba2cf9714a2cbdf2bd88b68eac52f3f20ca0d710583789e2fde7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1151,7 +1141,7 @@
         "id": "sense:navigate:bab3ef4b9afc5a35",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: navigate a ship/route; navigate through/around/across sth",
         "definition_cn": "导航；规划并指引路线",
         "definition_en": "to plan, find, or direct a route through physical space, especially for a vehicle, vessel, or aircraft",
         "note": "",
@@ -1168,7 +1158,7 @@
         "id": "sense:navigate:1285e490784357fb",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: navigate a system/website/rules; navigate through/around sth",
         "definition_cn": "在地点、系统、网站、规则或复杂情境中找到并引导路径",
         "definition_en": "to find or direct one's way carefully through a place, system, website, rules, or difficult situation",
         "note": "",
@@ -1267,7 +1257,7 @@
     "ordinal": 7185,
     "word": "negation",
     "source_owner_path": "content/lexical/words/by-ordinal/o7185.json",
-    "source_fingerprint": "f4cabb938a4488ad5b37a6c8f0832e16d232c780b7db31fa33e3682a223a97c7",
+    "source_fingerprint": "91d6b5483afecd9a14cb1428a8b93ffbf7eeefa48922989f0d97f0d0297e8cf6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1291,7 +1281,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "否定, 反面, 不存在",
+        "definition_cn": "否定陈述；否定命题",
         "definition_en": "a negative statement; a statement that is a refusal or denial of some other statement",
         "note": "",
         "identity_overlay": null,
@@ -1300,7 +1290,7 @@
           "target_kind": "sense",
           "target_id": "sense:negation:7f2db41fe1225930",
           "target_locator": "record.senses[0]",
-          "target_label": "否定, 反面, 不存在"
+          "target_label": "否定陈述；否定命题"
         }
       },
       {
@@ -1308,7 +1298,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "否定, 反面, 不存在",
+        "definition_cn": "否定这一言语行为；否认",
         "definition_en": "the speech act of negating",
         "note": "",
         "identity_overlay": null,
@@ -1317,7 +1307,7 @@
           "target_kind": "sense",
           "target_id": "sense:negation:f5c7abb92aa85a67",
           "target_locator": "record.senses[1]",
-          "target_label": "否定, 反面, 不存在"
+          "target_label": "否定这一言语行为；否认"
         }
       },
       {
@@ -1325,7 +1315,7 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "否定, 反面, 不存在",
+        "definition_cn": "（逻辑）否定；逻辑非",
         "definition_en": "(logic) a proposition that is true if and only if another proposition is false",
         "note": "",
         "identity_overlay": null,
@@ -1334,7 +1324,7 @@
           "target_kind": "sense",
           "target_id": "sense:negation:86cfe7b8db5953c6",
           "target_locator": "record.senses[2]",
-          "target_label": "否定, 反面, 不存在"
+          "target_label": "（逻辑）否定；逻辑非"
         }
       }
     ],
@@ -1648,7 +1638,7 @@
     "ordinal": 7190,
     "word": "neutrality",
     "source_owner_path": "content/lexical/words/by-ordinal/o7190.json",
-    "source_fingerprint": "277a142963394e2b5d2f483a34ab03167943bb0356404bff78fd4441ec282884",
+    "source_fingerprint": "f5edab3a53096d84ffc22e8e7b22f28a24d89017276fb48dffb43b77f981baa8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1689,7 +1679,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "中立, 不偏不倚, 中间状态",
+        "definition_cn": "（化学）中性；pH 7",
         "definition_en": "pH value of 7",
         "note": "Technical chemistry: neutrality corresponds to neither acidic nor basic conditions, often pH 7 under standard aqueous conditions.",
         "identity_overlay": null,
@@ -1698,7 +1688,7 @@
           "target_kind": "sense",
           "target_id": "sense:neutrality:4e209bea39565426",
           "target_locator": "record.senses[1]",
-          "target_label": "中立, 不偏不倚, 中间状态"
+          "target_label": "（化学）中性；pH 7"
         }
       }
     ],
@@ -1717,7 +1707,7 @@
     "ordinal": 7191,
     "word": "nibble",
     "source_owner_path": "content/lexical/words/by-ordinal/o7191.json",
-    "source_fingerprint": "0ed16fe01443248e9c59731992ed23636931dea6c244940464c5568b620ae614",
+    "source_fingerprint": "50cb4e1ed7d1502de674b9c4f00ddd8b500d1b92b68e71449c9d0f426df2dc3e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1758,7 +1748,7 @@
         "id": "sense:nibble:71473d419e34523b",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: nibble sth; nibble at/on sth",
         "definition_cn": "小口吃；一点点咬",
         "definition_en": "to eat or bite off very small pieces, often gradually",
         "note": "",
@@ -1775,7 +1765,7 @@
         "id": "sense:nibble:ce703099236a59bd",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: nibble sth; nibble at/on sth",
         "definition_cn": "轻咬；一点点啃",
         "definition_en": "to bite gently or repeatedly in small bites",
         "note": "",
@@ -1925,7 +1915,7 @@
     "ordinal": 7193,
     "word": "nimble",
     "source_owner_path": "content/lexical/words/by-ordinal/o7193.json",
-    "source_fingerprint": "4002a02508c72e455ea27b9c50c6ff55f990f4b51a0e431806c94a58573bd71e",
+    "source_fingerprint": "5b75c7c79ad87d808bfa4a00b5a73914ee2155bac2c4575abc50b7bea126fab5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1949,7 +1939,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "敏捷的, 伶俐的, 聪明的",
+        "definition_cn": "动作敏捷的；轻快灵活的",
         "definition_en": "moving quickly and lightly",
         "note": "",
         "identity_overlay": null,
@@ -1958,7 +1948,7 @@
           "target_kind": "sense",
           "target_id": "sense:nimble:93e1bb4dbc3d5cbf",
           "target_locator": "record.senses[0]",
-          "target_label": "敏捷的, 伶俐的, 聪明的"
+          "target_label": "动作敏捷的；轻快灵活的"
         }
       },
       {
@@ -1966,7 +1956,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "敏捷的, 伶俐的, 聪明的",
+        "definition_cn": "思维敏捷的；机敏的",
         "definition_en": "mentally quick",
         "note": "",
         "identity_overlay": null,
@@ -1975,7 +1965,7 @@
           "target_kind": "sense",
           "target_id": "sense:nimble:0f68f9d45cd55648",
           "target_locator": "record.senses[1]",
-          "target_label": "敏捷的, 伶俐的, 聪明的"
+          "target_label": "思维敏捷的；机敏的"
         }
       }
     ],
@@ -1994,13 +1984,21 @@
     "ordinal": 7194,
     "word": "nocturnal",
     "source_owner_path": "content/lexical/words/by-ordinal/o7194.json",
-    "source_fingerprint": "e8b916b50fa93805788f51ce37af8465653e4478f9aee93b6434330f86e1ab7a",
-    "sense_lineage": [],
+    "source_fingerprint": "79fada8389cb2b228a76a7bf930b170bd72f8b22cc30467851235e28c199cd4b",
+    "sense_lineage": [
+      {
+        "word_id": "word:nocturnal",
+        "target_kind": "sense",
+        "from_target_id": "sense:nocturnal:11865650735a5dc4",
+        "status": "merged",
+        "to_target_id": "sense:nocturnal:09dcdbda722d5403"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "夜的, 夜曲的",
@@ -2018,7 +2016,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "夜的, 夜曲的",
+        "definition_cn": "夜间的；夜间活动/发生的",
         "definition_en": "belonging to or active during the night",
         "note": "",
         "identity_overlay": null,
@@ -2027,24 +2025,7 @@
           "target_kind": "sense",
           "target_id": "sense:nocturnal:09dcdbda722d5403",
           "target_locator": "record.senses[0]",
-          "target_label": "夜的, 夜曲的"
-        }
-      },
-      {
-        "id": "sense:nocturnal:11865650735a5dc4",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "夜的, 夜曲的",
-        "definition_en": "of or relating to or occurring in the night",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:nocturnal:11865650735a5dc4",
-          "target_locator": "record.senses[1]",
-          "target_label": "夜的, 夜曲的"
+          "target_label": "夜间的；夜间活动/发生的"
         }
       }
     ],
@@ -2133,7 +2114,7 @@
     "ordinal": 7196,
     "word": "notation",
     "source_owner_path": "content/lexical/words/by-ordinal/o7196.json",
-    "source_fingerprint": "a432d61b491e81fb551053394bb7a8e4cf7076adb0605fd3694ad137a8ba6140",
+    "source_fingerprint": "4acadb5c479f47dc8235e86f2e30b1d66e6fcc28f0f506cb5cf0e2485e22081d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2157,7 +2138,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "记号, 符号表示法, 注释",
+        "definition_cn": "记号表示；用特殊符号记录/表示的行为或方法",
         "definition_en": "the activity of representing something by a special system of marks or characters",
         "note": "",
         "identity_overlay": null,
@@ -2166,7 +2147,7 @@
           "target_kind": "sense",
           "target_id": "sense:notation:f59563a0a17c5463",
           "target_locator": "record.senses[0]",
-          "target_label": "记号, 符号表示法, 注释"
+          "target_label": "记号表示；用特殊符号记录/表示的行为或方法"
         }
       },
       {
@@ -2174,7 +2155,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "记号, 符号表示法, 注释",
+        "definition_cn": "符号系统；专业记谱/记号体系",
         "definition_en": "a technical system of symbols used to represent special things",
         "note": "",
         "identity_overlay": null,
@@ -2183,7 +2164,7 @@
           "target_kind": "sense",
           "target_id": "sense:notation:b1f4eced6df65b65",
           "target_locator": "record.senses[1]",
-          "target_label": "记号, 符号表示法, 注释"
+          "target_label": "符号系统；专业记谱/记号体系"
         }
       }
     ],
@@ -2515,7 +2496,7 @@
     "ordinal": 7202,
     "word": "nullify",
     "source_owner_path": "content/lexical/words/by-ordinal/o7202.json",
-    "source_fingerprint": "c9728ddd92a959e8c754608243a1f5aafcd1187f30788360ae98b523d4a7ec7b",
+    "source_fingerprint": "2d47958700222b2279ffb918a87cb8f1e73632d4fc0968c1746dca7c04c8427a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2539,7 +2520,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "使无效, 废弃, 取消",
+        "definition_cn": "抵消；使效果归零/失效",
         "definition_en": "make ineffective by counterbalancing the effect of",
         "note": "",
         "identity_overlay": null,
@@ -2548,7 +2529,7 @@
           "target_kind": "sense",
           "target_id": "sense:nullify:47ebe824fde05ef2",
           "target_locator": "record.senses[0]",
-          "target_label": "使无效, 废弃, 取消"
+          "target_label": "抵消；使效果归零/失效"
         }
       },
       {
@@ -2556,7 +2537,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "使无效, 废弃, 取消",
+        "definition_cn": "宣布无效；正式撤销效力",
         "definition_en": "declare invalid",
         "note": "",
         "identity_overlay": null,
@@ -2565,7 +2546,7 @@
           "target_kind": "sense",
           "target_id": "sense:nullify:8d768cf254fa5255",
           "target_locator": "record.senses[1]",
-          "target_label": "使无效, 废弃, 取消"
+          "target_label": "宣布无效；正式撤销效力"
         }
       },
       {
@@ -2573,7 +2554,7 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "使无效, 废弃, 取消",
+        "definition_cn": "证明无效/不成立",
         "definition_en": "show to be invalid",
         "note": "",
         "identity_overlay": null,
@@ -2582,7 +2563,7 @@
           "target_kind": "sense",
           "target_id": "sense:nullify:4cf46ea751fc5f8a",
           "target_locator": "record.senses[2]",
-          "target_label": "使无效, 废弃, 取消"
+          "target_label": "证明无效/不成立"
         }
       }
     ],
@@ -2791,7 +2772,7 @@
     "ordinal": 7206,
     "word": "oblique",
     "source_owner_path": "content/lexical/words/by-ordinal/o7206.json",
-    "source_fingerprint": "f86ca4ac0a6933678756532792b13c8fa26c86e150524d6aeb06c401932adbc1",
+    "source_fingerprint": "6ae6c140c31d3093772884a61ae787fb3653dbe4bf8ab85e88d9770d259f9f9f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2816,7 +2797,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "斜的, 倾斜的, 间接的, 不光明正大的, 躲躲闪闪的",
+        "definition_cn": "（语法）斜格；非主格",
         "definition_en": "any grammatical case other than the nominative",
         "note": "Grammar: an oblique case is a case other than the nominative in many descriptions.",
         "identity_overlay": null,
@@ -2825,7 +2806,7 @@
           "target_kind": "sense",
           "target_id": "sense:oblique:aa89edb6d35a5234",
           "target_locator": "record.senses[0]",
-          "target_label": "斜的, 倾斜的, 间接的, 不光明正大的, 躲躲闪闪的"
+          "target_label": "（语法）斜格；非主格"
         }
       },
       {
@@ -2930,7 +2911,7 @@
     "ordinal": 7208,
     "word": "oblivion",
     "source_owner_path": "content/lexical/words/by-ordinal/o7208.json",
-    "source_fingerprint": "df6926bf2224f02c00efd5496195b7050234ff6163cb2e34212150996649a4c7",
+    "source_fingerprint": "5dcf3d01a0ab08749f7c2541eb23fb8a9f0e6ee3fc7bdc5092db8fc57d9d0f38",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2954,7 +2935,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "遗忘, (头脑的)一片空白状, 湮没, 大赦, 赦免",
+        "definition_cn": "被遗忘；湮没；无人记得/注意的状态",
         "definition_en": "the state of being disregarded or forgotten",
         "note": "",
         "identity_overlay": null,
@@ -2963,7 +2944,7 @@
           "target_kind": "sense",
           "target_id": "sense:oblivion:3edd3623dacf51c8",
           "target_locator": "record.senses[0]",
-          "target_label": "遗忘, (头脑的)一片空白状, 湮没, 大赦, 赦免"
+          "target_label": "被遗忘；湮没；无人记得/注意的状态"
         }
       }
     ],
@@ -3121,7 +3102,7 @@
     "ordinal": 7211,
     "word": "obsess",
     "source_owner_path": "content/lexical/words/by-ordinal/o7211.json",
-    "source_fingerprint": "54e975f21630dbbaf0c89ae1b2763124a6ce9cb16253df411d079b702ec4122d",
+    "source_fingerprint": "112d45ea2328311a523479e4bb8299c8fbb7cb1e38d81f1fd668a4e5cf0cba69",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3144,7 +3125,7 @@
         "id": "sense:obsess:45d3935f2bb45683",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: sth obsesses sb; obsess over/about sth",
         "definition_cn": "使着迷、困扰；反复过度想着某事",
         "definition_en": "to occupy someone's mind persistently or excessively; to be preoccupied repeatedly with something",
         "note": "",
@@ -3277,7 +3258,7 @@
     "ordinal": 7213,
     "word": "obtrude",
     "source_owner_path": "content/lexical/words/by-ordinal/o7213.json",
-    "source_fingerprint": "5574e35f15c65067bff03b3d510ebafee40c15ddc56497cf24862dc7365a9a81",
+    "source_fingerprint": "12e7be25fe11e1aa71a4ea3c06f9ffc22a1dd701b378b424d347901211d533d1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3301,7 +3282,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "逼使, 强迫, 伸出",
+        "definition_cn": "突出；伸出；向外推/凸出",
         "definition_en": "push to thrust outward",
         "note": "",
         "identity_overlay": null,
@@ -3310,7 +3291,7 @@
           "target_kind": "sense",
           "target_id": "sense:obtrude:eb2eefe178e65b2f",
           "target_locator": "record.senses[0]",
-          "target_label": "逼使, 强迫, 伸出"
+          "target_label": "突出；伸出；向外推/凸出"
         }
       },
       {
@@ -3364,7 +3345,7 @@
     "ordinal": 7214,
     "word": "obtrusive",
     "source_owner_path": "content/lexical/words/by-ordinal/o7214.json",
-    "source_fingerprint": "2a7f708e262483e057c897e821f920b2c47e817c10ea96f0d34b6c73e25191f9",
+    "source_fingerprint": "041afc23e21169cd1e25bf7e2924b0e68e58e67198e9c0865c28b67798b59f1f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3388,7 +3369,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "强迫人的, 冒失的, 莽撞的, 伸出的",
+        "definition_cn": "惹眼的；显眼得令人不快/碍眼的",
         "definition_en": "undesirably noticeable",
         "note": "",
         "identity_overlay": null,
@@ -3397,7 +3378,7 @@
           "target_kind": "sense",
           "target_id": "sense:obtrusive:9b07e1f8e0df5af6",
           "target_locator": "record.senses[0]",
-          "target_label": "强迫人的, 冒失的, 莽撞的, 伸出的"
+          "target_label": "惹眼的；显眼得令人不快/碍眼的"
         }
       },
       {
@@ -3405,7 +3386,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "强迫人的, 冒失的, 莽撞的, 伸出的",
+        "definition_cn": "突出的；凸出的；伸出的",
         "definition_en": "sticking out; protruding",
         "note": "",
         "identity_overlay": null,
@@ -3414,7 +3395,7 @@
           "target_kind": "sense",
           "target_id": "sense:obtrusive:368c90df3b8851d8",
           "target_locator": "record.senses[1]",
-          "target_label": "强迫人的, 冒失的, 莽撞的, 伸出的"
+          "target_label": "突出的；凸出的；伸出的"
         }
       }
     ],
@@ -3433,7 +3414,7 @@
     "ordinal": 7215,
     "word": "offhand",
     "source_owner_path": "content/lexical/words/by-ordinal/o7215.json",
-    "source_fingerprint": "a1f5cec02177aca359decdd999aba2ff2016a8a8e050f685b99e5c206180b4b3",
+    "source_fingerprint": "7a12f8256ed376260a3ea929233a87523f1fae2cd76486cdf5bae503b33e26a8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3458,7 +3439,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "即时的, 即席的, 无准备的, 随便的, 简慢的, 不友好的",
+        "definition_cn": "随便的；轻率不体贴的；冷淡失礼的",
         "definition_en": "casually thoughtless or inconsiderate",
         "note": "",
         "identity_overlay": null,
@@ -3467,7 +3448,7 @@
           "target_kind": "sense",
           "target_id": "sense:offhand:4a45313a14fd579c",
           "target_locator": "record.senses[0]",
-          "target_label": "即时的, 即席的, 无准备的, 随便的, 简慢的, 不友好的"
+          "target_label": "随便的；轻率不体贴的；冷淡失礼的"
         }
       },
       {
@@ -3475,7 +3456,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adverb",
         "governing_pattern": "",
-        "definition_cn": "即时地, 即席地, 随便地",
+        "definition_cn": "即席地；未经准备地",
         "definition_en": "without previous thought or preparation",
         "note": "",
         "identity_overlay": null,
@@ -3484,7 +3465,7 @@
           "target_kind": "sense",
           "target_id": "sense:offhand:7f24638bc0875fca",
           "target_locator": "record.senses[1]",
-          "target_label": "即时地, 即席地, 随便地"
+          "target_label": "即席地；未经准备地"
         }
       },
       {
@@ -3492,7 +3473,7 @@
         "source_locator": "record.senses[2]",
         "pos": "adverb",
         "governing_pattern": "",
-        "definition_cn": "即时地, 即席地, 随便地",
+        "definition_cn": "随便无礼地；漫不经心而不体贴地",
         "definition_en": "in a casually inconsiderate manner",
         "note": "",
         "identity_overlay": null,
@@ -3501,7 +3482,7 @@
           "target_kind": "sense",
           "target_id": "sense:offhand:a918b67a19f95cea",
           "target_locator": "record.senses[2]",
-          "target_label": "即时地, 即席地, 随便地"
+          "target_label": "随便无礼地；漫不经心而不体贴地"
         }
       }
     ],
@@ -3641,7 +3622,7 @@
     "ordinal": 7218,
     "word": "onset",
     "source_owner_path": "content/lexical/words/by-ordinal/o7218.json",
-    "source_fingerprint": "fb63b5e4b48b7f0986ae5531bac91a4669fd79af9828069524a0c08b567786b7",
+    "source_fingerprint": "088fb38ab959461193a0b822a6ecde8d81c72c9746d7db87174b95c6c21f06b0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3665,7 +3646,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "开始, 攻击, 进攻",
+        "definition_cn": "开始；发作；初期；起始阶段",
         "definition_en": "the beginning or early stages",
         "note": "",
         "identity_overlay": null,
@@ -3674,7 +3655,7 @@
           "target_kind": "sense",
           "target_id": "sense:onset:f1ae7b54f9ee56dc",
           "target_locator": "record.senses[0]",
-          "target_label": "开始, 攻击, 进攻"
+          "target_label": "开始；发作；初期；起始阶段"
         }
       }
     ],
@@ -3937,7 +3918,7 @@
     "ordinal": 7222,
     "word": "orator",
     "source_owner_path": "content/lexical/words/by-ordinal/o7222.json",
-    "source_fingerprint": "d4948de67520ac23cf105e597955c3d6233d4954410b73cfa74479b375b359be",
+    "source_fingerprint": "71214526f4bb6bf226238c5132ebd471530f6e8d4db40e2a7d632196fdd22d75",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3961,7 +3942,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "演说者, 演讲者, 雄辩家, 原告, 请愿人",
+        "definition_cn": "演说者；演讲者；雄辩家",
         "definition_en": "a person who delivers a speech or oration",
         "note": "",
         "identity_overlay": null,
@@ -3970,7 +3951,7 @@
           "target_kind": "sense",
           "target_id": "sense:orator:4e10e2c0ead5516f",
           "target_locator": "record.senses[0]",
-          "target_label": "演说者, 演讲者, 雄辩家, 原告, 请愿人"
+          "target_label": "演说者；演讲者；雄辩家"
         }
       }
     ],
@@ -4058,7 +4039,7 @@
     "ordinal": 7224,
     "word": "originality",
     "source_owner_path": "content/lexical/words/by-ordinal/o7224.json",
-    "source_fingerprint": "5a1bc17b8a4a8ab926e27fd5b0cacc463aea22ce66bc34c5cc74077e259e290d",
+    "source_fingerprint": "d5477ac339822568561aed05a568e12ec89cab159c1323d16aac26cc62419f6f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4082,7 +4063,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "创意, 新奇, 独创能力, 原始",
+        "definition_cn": "原创性；独创性；新颖而非衍生的性质",
         "definition_en": "the quality of being new and original (not derived from something else)",
         "note": "",
         "identity_overlay": null,
@@ -4091,7 +4072,7 @@
           "target_kind": "sense",
           "target_id": "sense:originality:90ec44c9eba4569d",
           "target_locator": "record.senses[0]",
-          "target_label": "创意, 新奇, 独创能力, 原始"
+          "target_label": "原创性；独创性；新颖而非衍生的性质"
         }
       },
       {
@@ -4099,7 +4080,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "创意, 新奇, 独创能力, 原始",
+        "definition_cn": "独立思考/行动的能力；创造性",
         "definition_en": "the ability to think and act independently",
         "note": "",
         "identity_overlay": null,
@@ -4108,7 +4089,7 @@
           "target_kind": "sense",
           "target_id": "sense:originality:b51f7bd30bb755d6",
           "target_locator": "record.senses[1]",
-          "target_label": "创意, 新奇, 独创能力, 原始"
+          "target_label": "独立思考/行动的能力；创造性"
         }
       }
     ],
@@ -4127,7 +4108,7 @@
     "ordinal": 7225,
     "word": "oscillate",
     "source_owner_path": "content/lexical/words/by-ordinal/o7225.json",
-    "source_fingerprint": "6b1d0be3acb8c1358207119f14748bd85da73d4efa247b7e7b3979770e58813a",
+    "source_fingerprint": "2bd7247607e395f0765ff7af627f12e11ab93bff411d69c7af848bfff2740051",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4150,7 +4131,7 @@
         "id": "sense:oscillate:1dc36ee080fd5363",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: oscillate between A and B; oscillate around a value",
         "definition_cn": "来回摆动；反复波动；在数值、状态或观点之间摇摆",
         "definition_en": "to move or swing repeatedly back and forth, or to fluctuate repeatedly between values, states, opinions, or choices",
         "note": "",
@@ -4551,7 +4532,7 @@
     "ordinal": 7231,
     "word": "outrageous",
     "source_owner_path": "content/lexical/words/by-ordinal/o7231.json",
-    "source_fingerprint": "7b8a26893e68eaa5395d894e553894343efe812ae4261a6e811de13ee4901318",
+    "source_fingerprint": "3f1837de18a3a227d68545e3979c0fa13a862340c6f8379131f3e73abe16a008",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4575,7 +4556,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "暴虐的, 极无礼的, 可恶的",
+        "definition_cn": "骇人的；极端冒犯/违背道德的；令人愤慨的",
         "definition_en": "grossly offensive to decency or morality; causing horror",
         "note": "",
         "identity_overlay": null,
@@ -4584,7 +4565,7 @@
           "target_kind": "sense",
           "target_id": "sense:outrageous:b4d7a3c8ce5a599d",
           "target_locator": "record.senses[0]",
-          "target_label": "暴虐的, 极无礼的, 可恶的"
+          "target_label": "骇人的；极端冒犯/违背道德的；令人愤慨的"
         }
       },
       {
@@ -4592,7 +4573,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "暴虐的, 极无礼的, 可恶的",
+        "definition_cn": "离谱的；极不合理的；过分得惊人的",
         "definition_en": "greatly exceeding bounds of reason or moderation",
         "note": "",
         "identity_overlay": null,
@@ -4601,7 +4582,7 @@
           "target_kind": "sense",
           "target_id": "sense:outrageous:948446867a645aab",
           "target_locator": "record.senses[1]",
-          "target_label": "暴虐的, 极无礼的, 可恶的"
+          "target_label": "离谱的；极不合理的；过分得惊人的"
         }
       }
     ],

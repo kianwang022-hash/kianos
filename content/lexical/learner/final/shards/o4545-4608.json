@@ -3267,12 +3267,12 @@
     "ordinal": 4573,
     "word": "sound",
     "source_owner_path": "content/lexical/words/by-ordinal/o4573.json",
-    "source_fingerprint": "f3cb03935c07b05caf34761f7c9944e4344dc4da8d72e29e154e7e81d295d454",
+    "source_fingerprint": "df43d67f91dcf9ebb8d1c2db64d703e67e8904fda915c9c923addecf9c3f7aba",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "1A",
+        "2A",
         "2N"
       ],
       "density": "rich"
@@ -3383,14 +3383,6 @@
             "meaning_cn": "合理的建议",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:6d83378958ad4167bd58",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "a sound sleep",
-            "meaning_cn": "熟睡；安稳、深沉且不受打扰的睡眠",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -3458,6 +3450,37 @@
           "target_id": "sense:sound:598e0ca938342632",
           "target_locator": "record.senses[5]",
           "target_label": "发出声音；使……发出声音"
+        }
+      },
+      {
+        "id": "sense:sound:a615c5b80236f23d",
+        "source_locator": "record.senses[6]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "深沉而安稳的；酣睡的（尤指睡眠）",
+        "definition_en": "deep, peaceful, and undisturbed, especially of sleep",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b0f98c5a45077812e6e9",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "a sound sleep",
+            "meaning_cn": "酣睡；深沉安稳的睡眠",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:b0f98c5a45077812e6e9",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "a sound sleep"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:sound:a615c5b80236f23d",
+          "target_locator": "record.senses[6]",
+          "target_label": "深沉而安稳的；酣睡的（尤指睡眠）"
         }
       }
     ],
@@ -3801,7 +3824,7 @@
     "ordinal": 4576,
     "word": "source",
     "source_owner_path": "content/lexical/words/by-ordinal/o4576.json",
-    "source_fingerprint": "a2144b548cb294ff6b121ce2a273275a36bba3354626f72cd205879ae48c5e05",
+    "source_fingerprint": "35dfb9b4b00c723c7231ec8151aeee1601733e48e0535179f100136274420008",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3890,7 +3913,7 @@
         "id": "sense:source:d55656d84a1d51e1",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt.: source sth from sb/sth/place",
         "definition_cn": "从…获得/采购（产品、材料、信息等）",
         "definition_en": "to obtain a product, material, information, or other resource from a particular place or supplier",
         "note": "",
@@ -4566,7 +4589,7 @@
     "ordinal": 4582,
     "word": "sow",
     "source_owner_path": "content/lexical/words/by-ordinal/o4582.json",
-    "source_fingerprint": "3482073b86737032afcb4de707bd0ecdb04e8a6dcf5e6bcabf65856c3067e57e",
+    "source_fingerprint": "11bba6caea2045457bed822c25b7249363bc4d99d7a3dbf45a4a840e1d1dcef5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4594,7 +4617,15 @@
         "definition_cn": "播种",
         "definition_en": "to plant seeds in the ground",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb sow = plant/spread; noun sow = adult female pig /saʊ/",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "verb sow = plant/spread; noun sow = adult female pig /saʊ/"
+          }
+        },
         "usage": [
           {
             "id": "collocation:d312cd131c3f28744f6f",
@@ -4633,7 +4664,15 @@
         "definition_cn": "散布，传播",
         "definition_en": "to introduce or spread something",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "verb sow = plant/spread; noun sow = adult female pig /saʊ/",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "verb sow = plant/spread; noun sow = adult female pig /saʊ/"
+          }
+        },
         "usage": [
           {
             "id": "collocation:3cebdd7e1ecedebacbe3",
@@ -4667,7 +4706,15 @@
         "definition_cn": "母猪",
         "definition_en": "an adult female pig",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "noun sow = adult female pig; verb sow = plant/spread with /səʊ/ BrE or /soʊ/ AmE",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "noun sow = adult female pig; verb sow = plant/spread with /səʊ/ BrE or /soʊ/ AmE"
+          }
+        },
         "usage": [
           {
             "id": "collocation:2933b30603065a2a355a",
@@ -4689,25 +4736,7 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [
-        {
-          "title": "sow ↔ saʊ/sow ↔ sow/soʊ",
-          "target_word": "saʊ/sow ↔ sow/soʊ",
-          "lines": [
-            {
-              "text": "sow /saʊ/ = adult female pig; sow /səʊ/ BrE or /soʊ/ AmE = plant/scatter seed.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:98576ed77f6052624808",
-            "target_locator": "record.confusables[0]",
-            "target_label": "sow ↔ saʊ/sow ↔ sow/soʊ"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [],
       "form": {
         "boundary": "",
@@ -5383,7 +5412,7 @@
     "ordinal": 4588,
     "word": "spare",
     "source_owner_path": "content/lexical/words/by-ordinal/o4588.json",
-    "source_fingerprint": "aab36d50f264aa924bdbcacfa567448a66109beed38af45aff48855a14c30b26",
+    "source_fingerprint": "ddd21919633af72b3583b298deb78be3085e1f99022c145d97a739349e111b6e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5427,6 +5456,14 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "spare part",
             "meaning_cn": "备用零件",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:87b9cc000e9db0e59b98",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "spare tire",
+            "meaning_cn": "备用轮胎",
             "kind": "usage_example",
             "repair": null
           }
@@ -5563,12 +5600,17 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:87b9cc000e9db0e59b98",
+            "id": "collocation:66ac167280e367cefc51",
             "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "spare tire",
-            "meaning_cn": "备用轮胎",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "keep/carry a spare",
+            "meaning_cn": "留/带一个备用品",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:66ac167280e367cefc51",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "keep/carry a spare"
+            }
           }
         ],
         "repair": {
@@ -5629,7 +5671,7 @@
     "ordinal": 4589,
     "word": "spark",
     "source_owner_path": "content/lexical/words/by-ordinal/o4589.json",
-    "source_fingerprint": "c010664577bc70f0d1713c1dc7b6427d81de74078e54823a198781648b0feb57",
+    "source_fingerprint": "bc5ae8ee2d4949baf48de84a74a084d19cebb908816e2f95b7f50acde2c0ce2f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5660,16 +5702,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:19604ae0817af93fa13d",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a spark of hope",
-            "meaning_cn": "一丝希望",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:9229d2f9a7a08245ee38",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "spark plug",
             "meaning_cn": "火花塞",
             "kind": "usage_example",
@@ -5752,7 +5786,16 @@
         "definition_en": "a small trace, beginning, or trigger of a feeling, idea, or development",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:19604ae0817af93fa13d",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a spark of hope",
+            "meaning_cn": "一丝希望",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:spark:51535dfff5e67bb5",
@@ -6353,7 +6396,7 @@
     "ordinal": 4594,
     "word": "special",
     "source_owner_path": "content/lexical/words/by-ordinal/o4594.json",
-    "source_fingerprint": "74ce5ffd1f6213289f1351d3f351db78a865047f7b369cbfe7bc5bf000160826",
+    "source_fingerprint": "333b90f18898b121f88b0f07da03d8941eb5848483b3815f2172318adbded707",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6403,6 +6446,14 @@
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "special to + sb"
             }
+          },
+          {
+            "id": "collocation:13e998600c7b010f88ed",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "special offer",
+            "meaning_cn": "特价",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6423,20 +6474,25 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:13e998600c7b010f88ed",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "special offer",
-            "meaning_cn": "特价",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:97ef8d2e163c85f011c8",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "special education",
             "meaning_cn": "特殊教育",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:fe82a6855a118b3fb39c",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "special equipment",
+            "meaning_cn": "专用设备",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:fe82a6855a118b3fb39c",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "special equipment"
+            }
           }
         ],
         "repair": {
@@ -6646,7 +6702,7 @@
     "ordinal": 4596,
     "word": "specialist",
     "source_owner_path": "content/lexical/words/by-ordinal/o4596.json",
-    "source_fingerprint": "f3adfb0dcd7dcd3829b5694884ebec9de2c76c0cb345a050ead02734106f5209",
+    "source_fingerprint": "ffbb85d513f238dacb0f3df73634af067c71f0ff6e1e2968278e3bb5b7a0944e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6742,8 +6798,8 @@
           "target_word": "special",
           "lines": [
             {
-              "text": "specialist 专家 vs special 特别的",
-              "lang": "cn"
+              "text": "specialist = person focused on a particular specialized field; special here = intended for a particular purpose/field, not merely unusually good",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -6891,7 +6947,7 @@
     "ordinal": 4598,
     "word": "species",
     "source_owner_path": "content/lexical/words/by-ordinal/o4598.json",
-    "source_fingerprint": "7df42bfa3dcf235ee5cba29ca33f1112f7acb8f294c79be69825a1332ead1535",
+    "source_fingerprint": "ce3bd5fffc6bd21dcf7ed901ea132c9d5dedb7a297fa7fcab912644dcfefe03a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6918,7 +6974,15 @@
         "definition_cn": "（生物学）物种，可杂交的分类群",
         "definition_en": "(biology) taxonomic group whose members can interbreed",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "species has the same form in singular and plural: a/one species; two/many species; agreement follows intended number/context",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "species has the same form in singular and plural: a/one species; two/many species; agreement follows intended number/context"
+          }
+        },
         "usage": [
           {
             "id": "collocation:4a3a1ab56fe5481a0e07",
@@ -6957,7 +7021,15 @@
         "definition_cn": "某物的特定种类",
         "definition_en": "a specific kind of something",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "species has the same form in singular and plural: a/one species; two/many species; agreement follows intended number/context",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "species has the same form in singular and plural: a/one species; two/many species; agreement follows intended number/context"
+          }
+        },
         "usage": [
           {
             "id": "collocation:21c0df97d1af27cffc16",
@@ -7846,7 +7918,7 @@
     "ordinal": 4607,
     "word": "speculate",
     "source_owner_path": "content/lexical/words/by-ordinal/o4607.json",
-    "source_fingerprint": "7a417422a8240909eaaac05f7c92674450fc2a7b95e24ef5cb8ae363ffed56b4",
+    "source_fingerprint": "731751fcfe823652d5b4023abd7b7be3e356d4ec8cb3e4edc991e299179f87a3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7869,7 +7941,7 @@
         "id": "sense:speculate:dd038bb4e79b5af9",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + about/on/upon",
+        "governing_pattern": "vi.: speculate about/on/upon sth; speculate that + clause",
         "definition_cn": "推测，猜测",
         "definition_en": "to guess or form opinions without having complete knowledge",
         "note": "",
@@ -7954,6 +8026,10 @@
           {
             "text": "推测、猜测……",
             "lang": "cn"
+          },
+          {
+            "text": "to guess or form an opinion that something is the case without complete evidence",
+            "lang": "en"
           }
         ],
         "repair": {

@@ -122,8 +122,8 @@ for (const ordinal of listLexicalOrdinals()) {
 }
 
 assert.ok(counts.owners > 0, 'Current lexical owner inventory must not be empty');
-assert.match(studyRuntimeSource, /data-target-kind="core"/, 'Study runtime must expose Core / Word Feel as an optional exact Repair surface');
-assert.match(studyRuntimeSource, /data-target-kind="form_identity"/, 'Study runtime must expose material form / identity distinctions as optional exact Repair surfaces');
+assert.match(studyRuntimeSource, /data-target-kind=\{repair\(wordFeel\.repair\)\.target_kind \|\| 'core'\}/, 'Study runtime must expose Core / Word Feel as an optional exact Repair surface');
+assert.match(studyRuntimeSource, /data-target-kind=\{(?:repair\(overlay\.repair\)|repair\(form\.repair\))\.target_kind \|\| 'form_identity'\}/, 'Study runtime must expose material form / identity distinctions as optional exact Repair surfaces');
 assert.match(studyRuntimeSource, /target_revision:\s*target\.id\s*\?\s*null\s*:\s*\(sourceHash/, 'Locator-only local Repair state must retain owner revision for portable exact identity');
 assert.equal(counts.rendered_core_targets, counts.core_objects, 'Every present Core object must expose one Repair-capable target surface');
 assert.equal(counts.rendered_form_identity_targets, counts.identity_overlays, 'Every present lexical identity overlay must expose one form_identity Repair-capable target surface');

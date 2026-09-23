@@ -3822,7 +3822,7 @@
     "ordinal": 227,
     "word": "appal",
     "source_owner_path": "content/lexical/words/by-ordinal/o0227.json",
-    "source_fingerprint": "3b2ee8ad12e8f86fc566336b20496cd05dea177634cc1e7d5b40470870817bfa",
+    "source_fingerprint": "68e66e3265c665cf4d000d587ec6ae43e019524756c0f5be255e7e3f5f2eb52e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3849,7 +3849,15 @@
         "definition_cn": "使惊骇，使吓坏",
         "definition_en": "to shock or horrify someone greatly",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "appal and appall are spelling variants of the same verb",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "appal and appall are spelling variants of the same verb"
+          }
+        },
         "usage": [
           {
             "id": "collocation:2d3c4409114538bbaea0",
@@ -3890,25 +3898,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "appal ↔ appall",
-          "target_word": "appall",
-          "lines": [
-            {
-              "text": "appall and appal are spelling variants of the same verb; preserve both stable exact-spelling owners and align their shock/disgust semantics.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:f27e3c5d419bc3c615cd",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "appal ↔ appall"
-          }
-        }
-      ],
+      "relations": [],
       "form": {
         "boundary": "appal and appall are spelling variants of the same verb. Preserve both stable exact-spelling Word owners.",
         "boundaries": [

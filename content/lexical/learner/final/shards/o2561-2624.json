@@ -5,7 +5,7 @@
     "ordinal": 2561,
     "word": "insist",
     "source_owner_path": "content/lexical/words/by-ordinal/o2561.json",
-    "source_fingerprint": "edcd592561891dbd006b389af1f29cbaf0db7f9d88f4cd5601c3b16bc74774b2",
+    "source_fingerprint": "9c41eaa1fde9e7a3f7faff9852b926c7a344c4999dd0818049ae26d844166290",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -31,7 +31,7 @@
         "governing_pattern": "vi. + on/upon",
         "definition_cn": "坚决要求，坚持",
         "definition_en": "to demand something firmly and refuse to give up",
-        "note": "",
+        "note": "Demand use: require an action; mandative base verb or should may occur.",
         "identity_overlay": null,
         "usage": [
           {
@@ -75,7 +75,7 @@
         "governing_pattern": "vt. + that-clause",
         "definition_cn": "坚称，断言",
         "definition_en": "to state firmly that something is true",
-        "note": "",
+        "note": "Assertion use: state firmly that a proposition is true.",
         "identity_overlay": null,
         "usage": [
           {
@@ -109,7 +109,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:e7d215072fb2aa5336cb",
+        "source_locator": "record.constructions[2]",
+        "pattern": "insist that + subject + (should) + base verb",
+        "lines": [
+          {
+            "text": "坚持要求某个行动发生；与“坚称某事为真”的普通 that 从句区分",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e7d215072fb2aa5336cb",
+          "target_locator": "record.constructions[2]",
+          "target_label": "insist that + subject + (should) + base verb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -630,11 +648,11 @@
     "ordinal": 2566,
     "word": "installation",
     "source_owner_path": "content/lexical/words/by-ordinal/o2566.json",
-    "source_fingerprint": "bb2c4ddf7f918e2c6badf8374fa45299dda1d157f7bb4e5a81a588dd15ad6ce0",
+    "source_fingerprint": "c616e625c17335b0025e1e31e9bc4139acac0facdd52635a295cb43da56bc364",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -742,6 +760,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "就职"
         }
+      },
+      {
+        "id": "sense:installation:61192e2e1e064f1f",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "装置艺术作品",
+        "definition_en": "a work of art made or arranged for a particular space, often using multiple objects or media",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:d3e9e60386db202fdc75",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "art installation",
+            "meaning_cn": "装置艺术作品",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:installation:61192e2e1e064f1f",
+          "target_locator": "record.senses[3]",
+          "target_label": "装置艺术作品"
+        }
       }
     ],
     "secondary_senses": [],
@@ -770,11 +814,19 @@
     "ordinal": 2567,
     "word": "instalment",
     "source_owner_path": "content/lexical/words/by-ordinal/o2567.json",
-    "source_fingerprint": "8dc373e679ef9d97b1060f3a24d332ad112a048ee7c036a203c60555dfc46cef",
-    "sense_lineage": [],
+    "source_fingerprint": "212abdbd8b6467aa7cbce46fdc60d0d0ae06ef1dc5c2e3b6277b10004a608494",
+    "sense_lineage": [
+      {
+        "word_id": "word:instalment",
+        "target_kind": "sense",
+        "from_target_id": "sense:instalment:f0c8e54e906852eb",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -790,25 +842,8 @@
     },
     "senses": [
       {
-        "id": "sense:instalment:f0c8e54e906852eb",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "安装",
-        "definition_en": "the act of installing something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:instalment:f0c8e54e906852eb",
-          "target_locator": "record.senses[0]",
-          "target_label": "安装"
-        }
-      },
-      {
         "id": "sense:instalment:70b51ca92b5e5721",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "分期付款；分期部分",
@@ -819,7 +854,7 @@
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_locator": "record.senses[0].lexical_identity_overlay",
             "target_label": "instalment/installment BrE/AmE spelling boundary"
           }
         },
@@ -827,13 +862,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:instalment:70b51ca92b5e5721",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "分期付款；分期部分"
         }
       },
       {
         "id": "sense:instalment:eb0ef4742f5a5c49",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "连续故事或广播的一集",
@@ -844,7 +879,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:instalment:eb0ef4742f5a5c49",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "连续故事或广播的一集"
         }
       }
@@ -882,7 +917,7 @@
     "ordinal": 2568,
     "word": "instance",
     "source_owner_path": "content/lexical/words/by-ordinal/o2568.json",
-    "source_fingerprint": "77cdab55aab4fae946238c5b5e9fbf11fe29d04d6033306bd1937e0aaed1fb1e",
+    "source_fingerprint": "dac6f406f52792dfb7e25598c8e813929e91ec91b96869ad6f5a558d5406d9aa",
     "sense_lineage": [
       {
         "word_id": "word:instance",
@@ -918,21 +953,7 @@
         "definition_en": "a particular situation or occasion",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ff81c0dd90ea63b4b503",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "in the first instance",
-            "meaning_cn": "首先，起初",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ff81c0dd90ea63b4b503",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "in the first instance"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:instance:41812c2f140e574f",
@@ -976,6 +997,23 @@
           "target_locator": "record.constructions[0]",
           "target_label": "for instance"
         }
+      },
+      {
+        "id": "construction:cba5e2c002ca12edae76",
+        "source_locator": "record.constructions[1]",
+        "pattern": "in the first instance",
+        "lines": [
+          {
+            "text": "首先；起初；作为第一步或第一次尝试",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cba5e2c002ca12edae76",
+          "target_locator": "record.constructions[1]",
+          "target_label": "in the first instance"
+        }
       }
     ],
     "reference": {
@@ -991,11 +1029,11 @@
     "ordinal": 2569,
     "word": "instant",
     "source_owner_path": "content/lexical/words/by-ordinal/o2569.json",
-    "source_fingerprint": "ee00e45824869e451cc2e73c8fbe5a1aab839ed16bb4138196ea30c32c4d3d12",
+    "source_fingerprint": "6fa18a74f4cbe2088d2fe6c395888c9f87883705d7f7db7b76f1e974af70d652",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
+        "2A",
         "1N"
       ],
       "density": "rich"
@@ -1046,10 +1084,27 @@
         "definition_en": "happening immediately",
         "note": "",
         "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:instant:f73193fd86f8527f",
+          "target_locator": "record.senses[1]",
+          "target_label": "立即的，即时的"
+        }
+      },
+      {
+        "id": "sense:instant:a656ae875ba65842",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "速成的；即用/即食/速溶的",
+        "definition_en": "prepared or designed for immediate use with little preparation",
+        "note": "",
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:6ec6ad570f8db950edd5",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "instant coffee",
             "meaning_cn": "速溶咖啡",
             "kind": "usage_example",
@@ -1058,9 +1113,9 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:instant:f73193fd86f8527f",
-          "target_locator": "record.senses[1]",
-          "target_label": "立即的，即时的"
+          "target_id": "sense:instant:a656ae875ba65842",
+          "target_locator": "record.senses[2]",
+          "target_label": "速成的；即用/即食/速溶的"
         }
       }
     ],
@@ -1747,22 +1802,22 @@
     "ordinal": 2576,
     "word": "instruction",
     "source_owner_path": "content/lexical/words/by-ordinal/o2576.json",
-    "source_fingerprint": "e8e2e9dc80ecb50ddc670b6596d4e1204c4bc32a6c0832307ed070600f86b715",
+    "source_fingerprint": "19a6305216e4c31c0fa9f3bf43cfecdb871a8f7b33af9bf8b6e2b1cb221efd35",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "指令；教导",
+      "summary_cn": "指示/说明；教学；（计算机）指令",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "指令；教导"
+        "target_label": "指示/说明；教学；（计算机）指令"
       }
     },
     "senses": [
@@ -1797,8 +1852,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "用法说明；操作指南",
-        "definition_en": "detailed information about how to do something",
+        "definition_cn": "指示；说明；操作指南",
+        "definition_en": "a direction or information telling someone what to do or how to do something",
         "note": "a direction or order, and also detailed teaching or information about how to do something; computer instructions are a specialist branch.",
         "identity_overlay": null,
         "usage": [
@@ -1815,7 +1870,38 @@
           "target_kind": "sense",
           "target_id": "sense:instruction:cbbbf0e1776e52e8",
           "target_locator": "record.senses[1]",
-          "target_label": "用法说明；操作指南"
+          "target_label": "指示；说明；操作指南"
+        }
+      },
+      {
+        "id": "sense:instruction:0b615f527ef67d24",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "教学；指导",
+        "definition_en": "the act or process of teaching or giving training or instruction",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:357b3bd43845dcb8ffe3",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "instruction in sth",
+            "meaning_cn": "某方面的教学或指导",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:357b3bd43845dcb8ffe3",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "instruction in sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:instruction:0b615f527ef67d24",
+          "target_locator": "record.senses[2]",
+          "target_label": "教学；指导"
         }
       }
     ],
@@ -1834,12 +1920,12 @@
     "ordinal": 2577,
     "word": "instrument",
     "source_owner_path": "content/lexical/words/by-ordinal/o2577.json",
-    "source_fingerprint": "e2b8cb8fdaf9927412ac99e1c9191fb9ccb7a43ce9f95cf9eca40199a4bd7515",
+    "source_fingerprint": "5b89ed5871961055535a86604df086d42ae5e8ef4216851fba17fb0c8822851e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "5N"
       ],
       "density": "rich"
     },
@@ -1859,22 +1945,14 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "仪器，器械",
-        "definition_en": "a device that requires skill for proper use",
+        "definition_cn": "仪器；器械；技术装置",
+        "definition_en": "a tool, apparatus, or device used for technical, scientific, or medical work",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:c1280d3e3628972471ee",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "musical instrument",
-            "meaning_cn": "乐器",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:683a6f58cdb2f4e1d3aa",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "precision instrument",
             "meaning_cn": "精密仪器",
             "kind": "usage_example",
@@ -1885,7 +1963,7 @@
           "target_kind": "sense",
           "target_id": "sense:instrument:f1be7344d9ad5897",
           "target_locator": "record.senses[0]",
-          "target_label": "仪器，器械"
+          "target_label": "仪器；器械；技术装置"
         }
       },
       {
@@ -1972,6 +2050,58 @@
           "target_id": "sense:instrument:1ee7657e691c505e",
           "target_locator": "record.senses[3]",
           "target_label": "用仪器装备"
+        }
+      },
+      {
+        "id": "sense:instrument:baee341ecf120cfe",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "乐器",
+        "definition_en": "an object such as a piano, guitar, or drum that is played to produce music",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c1280d3e3628972471ee",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "musical instrument",
+            "meaning_cn": "乐器",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:instrument:baee341ecf120cfe",
+          "target_locator": "record.senses[4]",
+          "target_label": "乐器"
+        }
+      },
+      {
+        "id": "sense:instrument:febe4d8dd432d722",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "正式文件；法律文书",
+        "definition_en": "a formal legal document that records, creates, or gives effect to a right, agreement, or act",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:fda86d9aa539e7403807",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "legal instrument",
+            "meaning_cn": "法律文书",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:instrument:febe4d8dd432d722",
+          "target_locator": "record.senses[5]",
+          "target_label": "正式文件；法律文书"
         }
       }
     ],
@@ -2125,7 +2255,7 @@
     "ordinal": 2579,
     "word": "insulate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2579.json",
-    "source_fingerprint": "c70b9679e115f58dc2a6b3fe3fdf5aa759d7c5d520786b687f208979918b3d34",
+    "source_fingerprint": "318b54d48c974822a9eb31163a0ee406e380526ccbb0d4052d4ba0e17133b146",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2149,8 +2279,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "使绝缘，使隔热，使隔音",
-        "definition_en": "to protect something from heat, cold, or noise by covering it with a material that prevents the passage of heat, sound, etc.",
+        "definition_cn": "使绝缘；隔热；隔音",
+        "definition_en": "to protect or separate using material that prevents the passage of heat, sound, or electric current",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2166,13 +2296,21 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "insulate a house against cold"
             }
+          },
+          {
+            "id": "collocation:3fcabde343db49ab0446",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "insulate wires/cables",
+            "meaning_cn": "使电线/电缆绝缘",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:insulate:f5b5fe85ab4e5e7a",
           "target_locator": "record.senses[0]",
-          "target_label": "使绝缘，使隔热，使隔音"
+          "target_label": "使绝缘；隔热；隔音"
         }
       },
       {
@@ -2222,7 +2360,7 @@
     "ordinal": 2580,
     "word": "insult",
     "source_owner_path": "content/lexical/words/by-ordinal/o2580.json",
-    "source_fingerprint": "b8a3b2aa59a3499f8d55cfde7145c57d665317cd6a50b0527794ec97c9fb8d12",
+    "source_fingerprint": "fb4559d7f4e8603ae5b2673067d2b98f118f8bf63d5b6aa9b4333e9e0c5c3890",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2332,7 +2470,25 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:d4d437449e5981a1ecd5",
+        "source_locator": "record.constructions[0]",
+        "pattern": "add insult to injury",
+        "lines": [
+          {
+            "text": "使已经糟糕或不公平的处境雪上加霜",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d4d437449e5981a1ecd5",
+          "target_locator": "record.constructions[0]",
+          "target_label": "add insult to injury"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2346,15 +2502,8 @@
     "ordinal": 2581,
     "word": "insurance",
     "source_owner_path": "content/lexical/words/by-ordinal/o2581.json",
-    "source_fingerprint": "a27bb125b962977174b1de2103175f22dc7bb00231d1847919d082e974f7a173",
+    "source_fingerprint": "1da468d9fe4483705021d05e786a9462e1e2d7f3513c88b2f12b8f5b0c4bfd29",
     "sense_lineage": [
-      {
-        "word_id": "word:insurance",
-        "target_kind": "sense",
-        "from_target_id": "sense:insurance:3bef98ed18465597",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:insurance",
         "target_kind": "sense",
@@ -2365,18 +2514,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "保险",
+      "summary_cn": "保险；保险业",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "保险"
+        "target_label": "保险；保险业"
       }
     },
     "senses": [
@@ -2395,6 +2544,32 @@
           "target_id": "sense:insurance:43f1d5ad96be5be5",
           "target_locator": "record.senses[0]",
           "target_label": "保险；保险安排"
+        }
+      },
+      {
+        "id": "sense:insurance:3bef98ed18465597",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "保险业",
+        "definition_en": "the business or industry of providing insurance",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:59d42670afa698ea6dc0",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "work in insurance",
+            "meaning_cn": "从事保险业",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:insurance:3bef98ed18465597",
+          "target_locator": "record.senses[1]",
+          "target_label": "保险业"
         }
       }
     ],
@@ -2424,7 +2599,7 @@
     "ordinal": 2582,
     "word": "insure",
     "source_owner_path": "content/lexical/words/by-ordinal/o2582.json",
-    "source_fingerprint": "8bf8c6da2fa7a4e350d5d9e30c3cc2a4558d168d8e20db6afa6fd1e22118cba0",
+    "source_fingerprint": "34d2c3bb90fde7de5034f5ac23999a2eea533d9f6fcf8ad7464c9680734128be",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2433,13 +2608,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "为……投保；保障免受经济损失",
+      "summary_cn": "保险；确保",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "为……投保；保障免受经济损失"
+        "target_label": "保险；确保"
       }
     },
     "senses": [
@@ -2481,7 +2656,7 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "确保",
         "definition_en": "to make certain; ensure",
-        "note": "Variant/lower use meaning make certain. For standard learner writing, prefer ensure for “make certain”; insure primarily means protect against financial/insurance risk.",
+        "note": "insure primarily means protect against loss or provide insurance; ensure is the default learner choice for make certain. The make-certain use is lower/variant.",
         "identity_overlay": null,
         "usage": [
           {
@@ -2507,44 +2682,28 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:49caa4c8773c46a779d9",
+        "source_locator": "record.constructions[1]",
+        "pattern": "insure sb/sth against sth",
+        "lines": [
+          {
+            "text": "为某人/某物投保以防某种风险",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:49caa4c8773c46a779d9",
+          "target_locator": "record.constructions[1]",
+          "target_label": "insure sb/sth against sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "insure ↔ ensure",
-          "target_word": "ensure",
-          "lines": [
-            {
-              "text": "insure primarily means provide insurance; ensure means make certain; assure typically takes a person who is made confident or certain.",
-              "lang": "en"
-            },
-            {
-              "text": "insure sb/sth against/for risk",
-              "lang": "en"
-            },
-            {
-              "text": "ensure sth / ensure that ...",
-              "lang": "en"
-            },
-            {
-              "text": "assure sb (that) / assure sb of sth",
-              "lang": "en"
-            },
-            {
-              "text": "现代一般写作中，保险义优先 insure；确保结果优先 ensure。",
-              "lang": "cn"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:final-standard:assure-ensure-insure:usage_boundary",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "insure ↔ ensure"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -3017,7 +3176,7 @@
     "ordinal": 2587,
     "word": "intellectual",
     "source_owner_path": "content/lexical/words/by-ordinal/o2587.json",
-    "source_fingerprint": "13417ed12c4fd7a46bc1675245cd264a337fee6ca5bf9088fc112c6048fb87d4",
+    "source_fingerprint": "1758ac39f689251f423176545af03143ba1a14267d21e97b55781e3874bc6cd3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3076,8 +3235,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "知识分子",
-        "definition_en": "a person who uses the mind creatively",
+        "definition_cn": "知识分子；严肃从事思想、学术、写作或文化活动的人",
+        "definition_en": "a person who engages seriously with ideas, study, writing, culture, or public thought",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3094,7 +3253,7 @@
           "target_kind": "sense",
           "target_id": "sense:intellectual:b65dce011ec35331",
           "target_locator": "record.senses[1]",
-          "target_label": "知识分子"
+          "target_label": "知识分子；严肃从事思想、学术、写作或文化活动的人"
         }
       }
     ],
@@ -3104,7 +3263,7 @@
         "source_locator": "record.secondary_senses[0]",
         "pos": "noun",
         "definition_cn": "知识分子",
-        "definition_en": "a person who uses the mind creatively",
+        "definition_en": "a person who engages seriously with ideas, study, writing, culture, or public thought",
         "pattern": "public intellectual",
         "repair": {
           "target_kind": "secondary_sense",
@@ -3257,7 +3416,7 @@
     "ordinal": 2589,
     "word": "intelligent",
     "source_owner_path": "content/lexical/words/by-ordinal/o2589.json",
-    "source_fingerprint": "c1650987f884e69cc5f5be603ea5c2a0084ad70780769cb2ac8852086a8a31b5",
+    "source_fingerprint": "38520ee88d0b8df574ac9492f4b5ba0baa98ce87d3efd61823f13c2c84510aa9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3333,7 +3492,25 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "intelligent ↔ intelligible",
+          "target_word": "intelligible",
+          "lines": [
+            {
+              "text": "intelligent = having/showing intelligence or ability to reason; intelligible = able to be understood",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:streaming-c:intelligent-intelligible:v1",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "intelligent ↔ intelligible"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -3344,7 +3521,7 @@
     "ordinal": 2590,
     "word": "intelligible",
     "source_owner_path": "content/lexical/words/by-ordinal/o2590.json",
-    "source_fingerprint": "dbe6de32aba2443acf60eb974059f9ac377f98c3bc379b403d6c0e2f60f0fb8a",
+    "source_fingerprint": "7dc5bc4fb38a2b2000726447a89505b9fbcab5495188b7dd8c771b672b112b60",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3407,7 +3584,25 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "intelligible ↔ intelligent",
+          "target_word": "intelligent",
+          "lines": [
+            {
+              "text": "intelligent = having/showing intelligence or ability to reason; intelligible = able to be understood",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:streaming-c:intelligent-intelligible:v1",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "intelligible ↔ intelligent"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -3418,7 +3613,7 @@
     "ordinal": 2591,
     "word": "intend",
     "source_owner_path": "content/lexical/words/by-ordinal/o2591.json",
-    "source_fingerprint": "a5133b1e5dd4b0e11d178eb7e7d98b34b77659e3e2ff7a66f2a49c34112b6e4a",
+    "source_fingerprint": "38a39fb5f712327e957096dc8db370358bc4cc0338df556566f93c8674885f2e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3555,6 +3750,23 @@
           "target_locator": "record.constructions[0]",
           "target_label": "vt. + to do / vt. + that clause"
         }
+      },
+      {
+        "id": "construction:6e2214a64daf70429d9f",
+        "source_locator": "record.constructions[2]",
+        "pattern": "be intended to do sth",
+        "lines": [
+          {
+            "text": "旨在做某事；被设计用于做某事",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6e2214a64daf70429d9f",
+          "target_locator": "record.constructions[2]",
+          "target_label": "be intended to do sth"
+        }
       }
     ],
     "reference": {
@@ -3570,7 +3782,7 @@
     "ordinal": 2592,
     "word": "intense",
     "source_owner_path": "content/lexical/words/by-ordinal/o2592.json",
-    "source_fingerprint": "bed1cba779bd1371a7b3b4e9d852a896a66161a44d172acbe12692438a4f6c00",
+    "source_fingerprint": "e770e619e499f198c18522f3026fe00bfe6eaabdf523fc738e5fc4464bc07d64",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3662,7 +3874,25 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "intense ↔ intensive",
+          "target_word": "intensive",
+          "lines": [
+            {
+              "text": "intense = very strong/extreme in degree or feeling; intensive = concentrated/thorough, involving much effort or activity in a limited period/area",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:streaming-c:intense-intensive:v1",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "intense ↔ intensive"
+          }
+        }
+      ],
       "form": null,
       "family": [
         {
@@ -3808,7 +4038,7 @@
     "ordinal": 2594,
     "word": "intensive",
     "source_owner_path": "content/lexical/words/by-ordinal/o2594.json",
-    "source_fingerprint": "e8f6a267030f9a376e3621a59c5f2edbb4729d18e83b20fc2493354a857ba82f",
+    "source_fingerprint": "b2d5b4a0b967cd583363f966dd75ecb40bd783c0d4d0e0f848645c6501963934",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3918,7 +4148,25 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "intensive ↔ intense",
+          "target_word": "intense",
+          "lines": [
+            {
+              "text": "intense = very strong/extreme in degree or feeling; intensive = concentrated/thorough, involving much effort or activity in a limited period/area",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:streaming-c:intense-intensive:v1",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "intensive ↔ intense"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -4183,23 +4431,23 @@
     "ordinal": 2598,
     "word": "interest",
     "source_owner_path": "content/lexical/words/by-ordinal/o2598.json",
-    "source_fingerprint": "b9a0cb1515f7a9271e06e4a0feba010a5e64f475b0617d8c15fae737e46250d8",
+    "source_fingerprint": "89c209e8f1f622aa07ff64bbf8a4be9db1eea353576dd632aabeaeb9172f0e72",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "(4+1)N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "兴趣；利息；利益/权益/福祉；使感兴趣",
+      "summary_cn": "兴趣或利益",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "兴趣；利息；利益/权益/福祉；使感兴趣"
+        "target_label": "兴趣或利益"
       }
     },
     "senses": [
@@ -4379,22 +4627,7 @@
         }
       }
     ],
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:interest:818f4453004d204d",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "利益；权益；股份",
-        "definition_en": "a right or legal share in something; a financial involvement",
-        "pattern": "in the interest of + sth",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:interest:818f4453004d204d",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "利益；权益；股份"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:9fdda6b1d0c378bc3bdd",
@@ -4404,14 +4637,6 @@
           {
             "text": "为了…的利益；为实现/保障…",
             "lang": "cn"
-          },
-          {
-            "text": "in the interest(s) of sth = for the benefit/welfare/purpose of",
-            "lang": "en"
-          },
-          {
-            "text": "for the benefit, advantage, welfare, or purpose of something/someone",
-            "lang": "en"
           }
         ],
         "repair": {
@@ -4509,22 +4734,23 @@
     "ordinal": 2600,
     "word": "interface",
     "source_owner_path": "content/lexical/words/by-ordinal/o2600.json",
-    "source_fingerprint": "1a20cfd18661eed1c53dbbd02e477267aeafe0f01605fd3b0a13ec19e2c07104",
+    "source_fingerprint": "ed8eac2776dc99a8ce880d3cdb63adf4c84cdc7da65547ba6360d206285683c5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
+        "1V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "两个事物相遇并相互作用的地点或表面",
+      "summary_cn": "界面/接口；交界；连接或相互作用",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "两个事物相遇并相互作用的地点或表面"
+        "target_label": "界面/接口；交界；连接或相互作用"
       }
     },
     "senses": [
@@ -4628,10 +4854,45 @@
           "target_locator": "record.senses[2]",
           "target_label": "交叉点；相互联系"
         }
+      },
+      {
+        "id": "sense:interface:e62c0fb414b0c8d6",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vi. + with",
+        "definition_cn": "连接；衔接；相互作用",
+        "definition_en": "to connect or interact with another system, component, subject, or group",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:interface:e62c0fb414b0c8d6",
+          "target_locator": "record.senses[3]",
+          "target_label": "连接；衔接；相互作用"
+        }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:c889f2f5e64ffc86e15d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "interface with sb/sth",
+        "lines": [
+          {
+            "text": "与某人/某物连接、衔接或相互作用",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c889f2f5e64ffc86e15d",
+          "target_locator": "record.constructions[0]",
+          "target_label": "interface with sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5227,7 +5488,7 @@
     "ordinal": 2605,
     "word": "intermediate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2605.json",
-    "source_fingerprint": "2d78f92995fd7bd7b319a43ef5c2105f9c0f32f1cec926627fdcf5744a796fcd",
+    "source_fingerprint": "1beac614badacff26cf5b4b2d1968d26701d69bb6a8b60126e8948b49aed145d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5353,7 +5614,25 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "intermediate ↔ intermittent",
+          "target_word": "intermittent",
+          "lines": [
+            {
+              "text": "intermediate = between levels/stages/extremes; intermittent = stopping and starting again at intervals",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:streaming-c:intermediate-intermittent:v1",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "intermediate ↔ intermittent"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -5364,7 +5643,7 @@
     "ordinal": 2606,
     "word": "intermittent",
     "source_owner_path": "content/lexical/words/by-ordinal/o2606.json",
-    "source_fingerprint": "718a08268a979a8f5a15f33ecbd24e0d286a35a3b719eabe65013cd043010278",
+    "source_fingerprint": "c86e40ceee16f7b44d19d8073515bfbc8b3f20ee7a2e568a7a09ceb30fdf6cc5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5422,7 +5701,25 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "intermittent ↔ intermediate",
+          "target_word": "intermediate",
+          "lines": [
+            {
+              "text": "intermediate = between levels/stages/extremes; intermittent = stopping and starting again at intervals",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:streaming-c:intermediate-intermittent:v1",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "intermittent ↔ intermediate"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }
@@ -5568,8 +5865,16 @@
     "ordinal": 2608,
     "word": "international",
     "source_owner_path": "content/lexical/words/by-ordinal/o2608.json",
-    "source_fingerprint": "13e14715cb59d08852a604f792655ae3bcb3b6964fcdf7f8af3afb7d481b0937",
-    "sense_lineage": [],
+    "source_fingerprint": "39e089e9e2ae15b57f532b66faaf9739b3d1427ae57cfef3a4e3c86bd2fa91bd",
+    "sense_lineage": [
+      {
+        "word_id": "word:international",
+        "target_kind": "sense",
+        "from_target_id": "sense:international:7764c4895fe7532b",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A",
@@ -5615,20 +5920,29 @@
         }
       },
       {
-        "id": "sense:international:7764c4895fe7532b",
+        "id": "sense:international:8a6c28fabe2a6730",
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "国际组织",
-        "definition_en": "any of several international socialist organizations",
+        "definition_cn": "国际比赛；国家队选手",
+        "definition_en": "especially BrE: an international match or contest, or a player who represents a country internationally",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:7c277bfc0f2685401868",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "an international",
+            "meaning_cn": "国际比赛；国家队选手",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:international:7764c4895fe7532b",
+          "target_id": "sense:international:8a6c28fabe2a6730",
           "target_locator": "record.senses[1]",
-          "target_label": "国际组织"
+          "target_label": "国际比赛；国家队选手"
         }
       }
     ],
@@ -5721,11 +6035,11 @@
     "ordinal": 2610,
     "word": "interpret",
     "source_owner_path": "content/lexical/words/by-ordinal/o2610.json",
-    "source_fingerprint": "0fb7630ddf80702c6e2a19462bde84b50bbfe7974d35a8566a811b94c572369f",
+    "source_fingerprint": "36d46ec8df42ec3df0d00c4323c3082beb874672f07a683730de3eb5aff2a51b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V"
+        "4V"
       ],
       "density": "rich"
     },
@@ -5843,10 +6157,45 @@
           "target_locator": "record.senses[2]",
           "target_label": "演绎；演奏；表演"
         }
+      },
+      {
+        "id": "sense:interpret:04d9b9035cb308ec",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object + as",
+        "definition_cn": "把……理解/解释为；认为……意味着",
+        "definition_en": "to understand or regard something as having a particular meaning",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:interpret:04d9b9035cb308ec",
+          "target_locator": "record.senses[3]",
+          "target_label": "把……理解/解释为；认为……意味着"
+        }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:c43e94c102b4b7674f7a",
+        "source_locator": "record.constructions[0]",
+        "pattern": "interpret A as B",
+        "lines": [
+          {
+            "text": "把 A 理解或解释为 B",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c43e94c102b4b7674f7a",
+          "target_locator": "record.constructions[0]",
+          "target_label": "interpret A as B"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5860,7 +6209,7 @@
     "ordinal": 2611,
     "word": "interrupt",
     "source_owner_path": "content/lexical/words/by-ordinal/o2611.json",
-    "source_fingerprint": "34522d8330205c3d90f65e088471e03dc6f4e973a5ddc7afb739da8c573cdd03",
+    "source_fingerprint": "f596b67ff3a1711e7b7912c9ba7491baec0985e4c4c44397d0892b258db267fe",
     "sense_lineage": [
       {
         "word_id": "word:interrupt",
@@ -6535,7 +6884,7 @@
     "ordinal": 2616,
     "word": "intimate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2616.json",
-    "source_fingerprint": "4866aa738b33ec6b339838643e4b0c3fd91971ff0b00b4540eb5e01830c10994",
+    "source_fingerprint": "1b06e373d91525cbde4e7a14771c912d982038369c16a6a8ed78293e687e4e8f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6564,7 +6913,15 @@
         "definition_cn": "亲密的，密切的",
         "definition_en": "having a very close and friendly relationship",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "pronunciation_by_part_of_speech",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "pronunciation_by_part_of_speech"
+          }
+        },
         "usage": [
           {
             "id": "collocation:998f88908208f08f9b9e",
@@ -6603,7 +6960,15 @@
         "definition_cn": "私人的，个人的",
         "definition_en": "private and personal",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "pronunciation_by_part_of_speech",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "pronunciation_by_part_of_speech"
+          }
+        },
         "usage": [
           {
             "id": "collocation:60a13a5b5942b43d3c35",
@@ -6629,7 +6994,15 @@
         "definition_cn": "暗示，提示",
         "definition_en": "to suggest or hint something indirectly",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "pronunciation_by_part_of_speech",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "pronunciation_by_part_of_speech"
+          }
+        },
         "usage": [
           {
             "id": "collocation:d6320c1faf006f06ed2c",
@@ -6668,7 +7041,15 @@
         "definition_cn": "至交，密友",
         "definition_en": "a close friend",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "pronunciation_by_part_of_speech",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "pronunciation_by_part_of_speech"
+          }
+        },
         "usage": [
           {
             "id": "collocation:3694b642c5e16ff0e7cb",
@@ -6717,25 +7098,7 @@
       }
     ],
     "reference": {
-      "confusables": [
-        {
-          "title": "intimate ↔ intimate adjective/noun ↔ intimate verb",
-          "target_word": "intimate adjective/noun ↔ intimate verb",
-          "lines": [
-            {
-              "text": "intimate adjective/noun ends /-mət/; intimate verb ends /-meɪt/.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "confusable:horizontal:c6de2b308af09db4e598",
-            "target_locator": "record.confusables[0]",
-            "target_label": "intimate ↔ intimate adjective/noun ↔ intimate verb"
-          }
-        }
-      ],
+      "confusables": [],
       "relations": [],
       "form": null,
       "family": []
@@ -6821,7 +7184,7 @@
     "ordinal": 2618,
     "word": "into",
     "source_owner_path": "content/lexical/words/by-ordinal/o2618.json",
-    "source_fingerprint": "9168c694c2dbbc5c5f10c92cb4c19fbf50efc524a57a0a00d29bb484696c066a",
+    "source_fingerprint": "9aff008ccb3bbf383b2f230bc8bfb285f04a7ce49df68ce11ff0e11fb2cf0bae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6909,6 +7272,14 @@
             "meaning_cn": "变成蝴蝶",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:f7a0f270cebfdbf8da96",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "get into trouble",
+            "meaning_cn": "陷入麻烦",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6940,14 +7311,6 @@
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "be into + sth"
             }
-          },
-          {
-            "id": "collocation:f7a0f270cebfdbf8da96",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "get into trouble",
-            "meaning_cn": "陷入麻烦",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -7034,12 +7397,12 @@
     "ordinal": 2620,
     "word": "intrigue",
     "source_owner_path": "content/lexical/words/by-ordinal/o2620.json",
-    "source_fingerprint": "c2dfe8e017acb0225c225794a3b9bc3ad96bdf29076085f3538e324afa49299e",
+    "source_fingerprint": "4d4b91e70006d33221fe26b464121029ffb0bf7290aaff3936e08aae1861b35c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -7148,6 +7511,45 @@
           "target_id": "sense:intrigue:d06e3b7aae715b69",
           "target_locator": "record.senses[2]",
           "target_label": "密谋，私通"
+        }
+      },
+      {
+        "id": "sense:intrigue:d6c937e7e3430812",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "神秘感；引人好奇之处；吸引力",
+        "definition_en": "a feeling or quality of fascination or curiosity, especially because something is mysterious or complex",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:f9685ee2e7b67812e5ce",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a sense of intrigue",
+            "meaning_cn": "神秘感；好奇感",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:f9685ee2e7b67812e5ce",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "a sense of intrigue"
+            }
+          },
+          {
+            "id": "collocation:b77def8b0e8769c247b9",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "mystery and intrigue",
+            "meaning_cn": "神秘与吸引力",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:intrigue:d6c937e7e3430812",
+          "target_locator": "record.senses[3]",
+          "target_label": "神秘感；引人好奇之处；吸引力"
         }
       }
     ],
@@ -7397,11 +7799,11 @@
     "ordinal": 2623,
     "word": "introduction",
     "source_owner_path": "content/lexical/words/by-ordinal/o2623.json",
-    "source_fingerprint": "a3eaf2ef181691e2a9ca9002afd409ed1eb147ef1945274c37b13151cd09c889",
+    "source_fingerprint": "f33c99c40bbbdd2d4368a0e4ec363b47f576aaeb70f3d36fa75fcba11f1e2583",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4N"
+        "5N"
       ],
       "density": "rich"
     },
@@ -7473,8 +7875,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "入门书；初级读物",
-        "definition_en": "a basic or elementary instructional text",
+        "definition_cn": "入门介绍；入门课程/书籍",
+        "definition_en": "a basic first explanation, course, or book that introduces a subject",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7491,7 +7893,7 @@
           "target_kind": "sense",
           "target_id": "sense:introduction:9a9b386a197f5fea",
           "target_locator": "record.senses[2]",
-          "target_label": "入门书；初级读物"
+          "target_label": "入门介绍；入门课程/书籍"
         }
       },
       {
@@ -7509,6 +7911,37 @@
           "target_id": "sense:introduction:2abf86a1d8015acb",
           "target_locator": "record.senses[3]",
           "target_label": "新提议；新方案"
+        }
+      },
+      {
+        "id": "sense:introduction:e92985e56519b009",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "介绍；引见",
+        "definition_en": "the act of making one person known to another",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2e486744f5c2d922095f",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "make an introduction",
+            "meaning_cn": "作介绍；引见",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:2e486744f5c2d922095f",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "make an introduction"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:introduction:e92985e56519b009",
+          "target_locator": "record.senses[4]",
+          "target_label": "介绍；引见"
         }
       }
     ],

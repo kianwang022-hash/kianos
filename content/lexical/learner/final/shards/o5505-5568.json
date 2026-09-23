@@ -231,7 +231,7 @@
     "ordinal": 5509,
     "word": "arabian",
     "source_owner_path": "content/lexical/words/by-ordinal/o5509.json",
-    "source_fingerprint": "1c79b2751acfecf8694b9083fc4bf163b2e93f8551291e829a05d5c52a22ed80",
+    "source_fingerprint": "a6ec9076cf7069dcea3568a0d189f3d1fbb9fc8f68b9a2bbef91967be36c24f1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -258,7 +258,15 @@
         "definition_cn": "阿拉伯半岛的；阿拉伯的",
         "definition_en": "relating to Arabia or the Arabian Peninsula",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "Arabian is the canonical capitalized adjective relating to Arabia/the Arabian Peninsula",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "Arabian is the canonical capitalized adjective relating to Arabia/the Arabian Peninsula"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -1633,13 +1641,13 @@
     "ordinal": 5529,
     "word": "enroll",
     "source_owner_path": "content/lexical/words/by-ordinal/o5529.json",
-    "source_fingerprint": "7d087d86ae5f573030c7ff00bd37db9a49c61c6fb0db630f59a0026ec127fdc8",
+    "source_fingerprint": "139ed9b752d4533f2e2a0ef37fa0407190b4d3115344a72a29913df738bdc8e8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "登记；注册；入学",
@@ -1656,12 +1664,39 @@
         "id": "sense:enroll:fe581c3e3bd053cf",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: enroll in/on a course/program/school; enroll sb in/on sth",
         "definition_cn": "登记；注册；入学",
         "definition_en": "to officially register or be registered as a member, student, or participant",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:dbb10aed37c8e11d6754",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "enroll in/on a course/program",
+            "meaning_cn": "注册/报名参加课程或项目",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:dbb10aed37c8e11d6754",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "enroll in/on a course/program"
+            }
+          },
+          {
+            "id": "collocation:b9354144069af9ec2379",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "enroll sb in/on sth",
+            "meaning_cn": "为某人登记/注册参加某项目",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:b9354144069af9ec2379",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "enroll sb in/on sth"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:enroll:fe581c3e3bd053cf",
@@ -2820,7 +2855,7 @@
     "ordinal": 5549,
     "word": "immigrate",
     "source_owner_path": "content/lexical/words/by-ordinal/o5549.json",
-    "source_fingerprint": "1c0b4219b53b21a1528ea0da977e44575b11282001f14cb4f8dc587dbf3cc266",
+    "source_fingerprint": "140f6ae723391643631c426809a9d9de76f11ee251c2a9715fcaa4f32fa834c1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2843,7 +2878,7 @@
         "id": "sense:immigrate:7e5253228c5956e5",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: immigrate to + country/place",
         "definition_cn": "移居入境；移民到",
         "definition_en": "to come to another country to live there permanently or for a long period",
         "note": "",
@@ -3631,7 +3666,7 @@
     "ordinal": 5558,
     "word": "jeans",
     "source_owner_path": "content/lexical/words/by-ordinal/o5558.json",
-    "source_fingerprint": "ac2f479a7ee7c652a54ddd253061e9cabd9b90e1e6219a1aee83552a0f3e3b31",
+    "source_fingerprint": "bf6119609d918cc29ee46dd582d28c6a9b6b30a2d80a8f26b3aebcd130b2fa64",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3658,7 +3693,15 @@
         "definition_cn": "牛仔裤",
         "definition_en": "trousers made of denim or a similar strong cotton cloth",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "ordinary clothing use takes plural agreement; count as a pair/two pairs of jeans, not *a jean for one garment",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "ordinary clothing use takes plural agreement; count as a pair/two pairs of jeans, not *a jean for one garment"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",

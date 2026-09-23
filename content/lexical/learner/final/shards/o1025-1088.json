@@ -2445,7 +2445,7 @@
     "ordinal": 1045,
     "word": "contaminate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1045.json",
-    "source_fingerprint": "a4fae031cc2007e60c8ee68a514abc1dd21d837c3992892f9e002a31aabc9e44",
+    "source_fingerprint": "434cb169fd79af57222a99687dab8d8232d9b978bb96063da2c295615e40f68e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2503,7 +2503,29 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
+      "relations": [
+        {
+          "title": "contaminate ↔ pollute",
+          "target_word": "pollute",
+          "lines": [
+            {
+              "text": "contaminate foregrounds making something impure/unsafe by unwanted substance or contact; pollute foregrounds environmental or impurity pollution",
+              "lang": "en"
+            },
+            {
+              "text": "make impure",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "deep:semantic_contrast:pollute:d862a461f78b783a",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "contaminate ↔ pollute"
+          }
+        }
+      ],
       "form": null,
       "family": []
     }

@@ -388,12 +388,12 @@
     "ordinal": 4228,
     "word": "sacrifice",
     "source_owner_path": "content/lexical/words/by-ordinal/o4228.json",
-    "source_fingerprint": "73002a7b8c2a41386e1cc79d997a40bf784f3289d83c91c4efe3f109fb97e1cf",
+    "source_fingerprint": "0b33e42c3bceaf78e336bd457f9094519b814a1f1f62c870c4ed1be262c0d451",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
-        "1N"
+        "2V",
+        "2N"
       ],
       "density": "rich"
     },
@@ -494,6 +494,68 @@
           "target_id": "sense:sacrifice:c4d6bb7ad80257cd",
           "target_locator": "record.senses[1]",
           "target_label": "牺牲，献祭"
+        }
+      },
+      {
+        "id": "sense:sacrifice:a09c19320593a34a",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "献祭；祭品（尤指献给神祇的动物或其他供物）",
+        "definition_en": "an offering, especially an animal or other valuable thing, made to a deity in a religious rite",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3829151ae4b11bca26db",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "offer/make a sacrifice",
+            "meaning_cn": "献祭；献上祭品",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:3829151ae4b11bca26db",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "offer/make a sacrifice"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:sacrifice:a09c19320593a34a",
+          "target_locator": "record.senses[2]",
+          "target_label": "献祭；祭品（尤指献给神祇的动物或其他供物）"
+        }
+      },
+      {
+        "id": "sense:sacrifice:2d323ab6f7d14d53",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "献祭；把动物或其他供物献给神祇",
+        "definition_en": "to offer or kill an animal or other offering as a religious sacrifice",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:f18b95e681d21d2d8500",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "sacrifice an animal",
+            "meaning_cn": "献祭动物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:f18b95e681d21d2d8500",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "sacrifice an animal"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:sacrifice:2d323ab6f7d14d53",
+          "target_locator": "record.senses[3]",
+          "target_label": "献祭；把动物或其他供物献给神祇"
         }
       }
     ],
@@ -607,7 +669,7 @@
     "ordinal": 4230,
     "word": "saddle",
     "source_owner_path": "content/lexical/words/by-ordinal/o4230.json",
-    "source_fingerprint": "829dbca1735825de5681d673c7b35e3fc8bba0f3ea3d8c3bd1e4def60127fdbb",
+    "source_fingerprint": "1d75a6af11bd84ff067f1ba3c3f9019c296903d740d298bf04a153db4b4afb76",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -649,14 +711,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "in the saddle"
             }
-          },
-          {
-            "id": "collocation:77bab6bc122dd962c5f1",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "saddle a horse",
-            "meaning_cn": "给马上鞍",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -688,14 +742,6 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "saddle up + a horse"
             }
-          },
-          {
-            "id": "collocation:052ed4d95f934b48685f",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "saddle a horse",
-            "meaning_cn": "给马上鞍",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -1413,7 +1459,7 @@
     "ordinal": 4237,
     "word": "sake",
     "source_owner_path": "content/lexical/words/by-ordinal/o4237.json",
-    "source_fingerprint": "6efc1e9cd0815887d9057cebbe506ff2876f8a000a388bb9e54eb526e986e376",
+    "source_fingerprint": "adf1a476ff74afda7361e520b51b2f309d621c628357e32827e795019c8fd54d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1440,7 +1486,15 @@
         "definition_cn": "缘故，理由",
         "definition_en": "a reason for wanting something done",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "purpose/benefit/reason sake is /seɪk/; the Japanese rice drink uses a Japanese-derived pronunciation",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "purpose/benefit/reason sake is /seɪk/; the Japanese rice drink uses a Japanese-derived pronunciation"
+          }
+        },
         "usage": [
           {
             "id": "collocation:0b4920c8414255e7d2c9",
@@ -1484,7 +1538,15 @@
         "definition_cn": "目的",
         "definition_en": "the purpose of achieving or obtaining",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "purpose/benefit/reason sake is /seɪk/; the Japanese rice drink uses a Japanese-derived pronunciation",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "purpose/benefit/reason sake is /seɪk/; the Japanese rice drink uses a Japanese-derived pronunciation"
+          }
+        },
         "usage": [
           {
             "id": "collocation:042ef8a5ec802e9908f2",
@@ -1515,7 +1577,15 @@
         "definition_cn": "日本清酒",
         "definition_en": "Japanese alcoholic beverage made from fermented rice; usually served hot",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "Japanese rice-drink identity; pronunciation distinguishes it from sake /seɪk/ meaning purpose/reason",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_label": "Japanese rice-drink identity; pronunciation distinguishes it from sake /seɪk/ meaning purpose/reason"
+          }
+        },
         "usage": [
           {
             "id": "collocation:c8855588619cbac07bf5",
@@ -1713,7 +1783,7 @@
     "ordinal": 4240,
     "word": "sale",
     "source_owner_path": "content/lexical/words/by-ordinal/o4240.json",
-    "source_fingerprint": "dabe9effa01ce1d2e61415e049a527b47c3be7ca0b526eb23a213828cfbc713f",
+    "source_fingerprint": "2a579175a2bcde949fa796ba3a1375b5d15388cfb443b4ef41d564758ff8592d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1753,19 +1823,6 @@
               "target_id": "collocation:e96dd17504c03cb04720",
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "for sale"
-            }
-          },
-          {
-            "id": "collocation:6b2ce09f66e99f1cee96",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "on sale",
-            "meaning_cn": "出售中；廉价出售",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6b2ce09f66e99f1cee96",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "on sale"
             }
           }
         ],
@@ -1830,7 +1887,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:a8a98ba1419797ac3fd2",
+        "source_locator": "record.constructions[0]",
+        "pattern": "on sale",
+        "lines": [
+          {
+            "text": "正在出售；（美式英语中常）正在打折销售",
+            "lang": "cn"
+          },
+          {
+            "text": "BrE and many non-AmE contexts can mean available/offered for purchase; AmE commonly means offered at a reduced price",
+            "lang": "en"
+          },
+          {
+            "text": "available/offered for purchase; in AmE commonly being sold at a reduced price",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a8a98ba1419797ac3fd2",
+          "target_locator": "record.constructions[0]",
+          "target_label": "on sale"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2116,7 +2199,7 @@
     "ordinal": 4244,
     "word": "salute",
     "source_owner_path": "content/lexical/words/by-ordinal/o4244.json",
-    "source_fingerprint": "ed0436ea20ab7ddba7f5fe743076cde5358fc3e1f91532f8a0b7044312e5ffec",
+    "source_fingerprint": "e824aa4f34f4de4f5d380796fa40684531513895317a638285ff10f862391326",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2184,16 +2267,7 @@
         "definition_en": "greet in a friendly way",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:41678aa35302c783226f",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "salute the flag",
-            "meaning_cn": "向国旗敬礼",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:salute:a6f0257fa4435c6f",
@@ -2232,8 +2306,8 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "行礼；致敬",
-        "definition_en": "make a gesture of respect",
+        "definition_cn": "正式敬礼；致敬；公开表彰/赞扬",
+        "definition_en": "to make a formal gesture or sign of respect, or to publicly honor or praise someone or something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2249,13 +2323,21 @@
               "target_locator": "record.senses[3].collocations[0]",
               "target_label": "salute sb/sth"
             }
+          },
+          {
+            "id": "collocation:41678aa35302c783226f",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "salute the flag",
+            "meaning_cn": "向国旗敬礼",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:salute:c20960235d355543",
           "target_locator": "record.senses[3]",
-          "target_label": "行礼；致敬"
+          "target_label": "正式敬礼；致敬；公开表彰/赞扬"
         }
       },
       {
@@ -2291,11 +2373,11 @@
     "ordinal": 4245,
     "word": "salvation",
     "source_owner_path": "content/lexical/words/by-ordinal/o4245.json",
-    "source_fingerprint": "2db463bd89265360f49a7f651438bfa63d1993c3735bdaa000005aefff1809bb",
+    "source_fingerprint": "d9ec8571aa7e626282e6e30ac2675be8cb034a1e4944427e7074421885296e7f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -2391,6 +2473,50 @@
           "target_id": "sense:salvation:60755722cf225423",
           "target_locator": "record.senses[1]",
           "target_label": "救星；解救办法"
+        }
+      },
+      {
+        "id": "sense:salvation:111f3129580c64d6",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（宗教，尤指基督教）救赎；灵魂从罪恶及其后果中得救",
+        "definition_en": "in religion, especially Christianity, deliverance of the soul from sin or evil and its consequences through faith or divine saving",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2f57c0507017f657fb38",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "eternal salvation",
+            "meaning_cn": "永恒救赎",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:2f57c0507017f657fb38",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "eternal salvation"
+            }
+          },
+          {
+            "id": "collocation:4947b824d02c7036b3a6",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "seek/find salvation",
+            "meaning_cn": "寻求/获得救赎",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:4947b824d02c7036b3a6",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "seek/find salvation"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:salvation:111f3129580c64d6",
+          "target_locator": "record.senses[2]",
+          "target_label": "（宗教，尤指基督教）救赎；灵魂从罪恶及其后果中得救"
         }
       }
     ],
@@ -3707,7 +3833,7 @@
     "ordinal": 4258,
     "word": "saturate",
     "source_owner_path": "content/lexical/words/by-ordinal/o4258.json",
-    "source_fingerprint": "0ba611bd6fe32db2bffc6e10844afbeb4a7046db8b38d45fc65021324e030818",
+    "source_fingerprint": "0b0f58cf4e679a839254b7e52b65319892aa44810f4788aabe21d70d1e7d3b98",
     "sense_lineage": [
       {
         "word_id": "word:saturate",
@@ -3728,7 +3854,7 @@
       "parts": [
         "1V"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "使完全浸透、充满或达到饱和；可延伸到市场/科学语境",
@@ -3745,22 +3871,62 @@
         "id": "sense:saturate:e2fc1532e5585dfc",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "使浸透，使饱和",
-        "definition_en": "to make something completely wet or full, so that no more can be absorbed",
+        "governing_pattern": "vt.: saturate sth; be saturated with sth",
+        "definition_cn": "使完全浸透、充满或达到饱和，使其不能再吸收/容纳更多",
+        "definition_en": "to fill, soak, or supply something completely so that no more can be absorbed, added, or effectively taken up",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:d4ebc90d36658f56472f",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "be saturated with sth",
+            "meaning_cn": "被……完全浸透/充满；达到饱和",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:d4ebc90d36658f56472f",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "be saturated with sth"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:saturate:e2fc1532e5585dfc",
           "target_locator": "record.senses[0]",
-          "target_label": "使浸透，使饱和"
+          "target_label": "使完全浸透、充满或达到饱和，使其不能再吸收/容纳更多"
         }
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:96ddfc9adb3f8ba8ed6e",
+        "source_locator": "record.constructions[0]",
+        "pattern": "saturate the market",
+        "lines": [
+          {
+            "text": "使市场供给过剩/饱和，使需求被充分满足甚至超过",
+            "lang": "cn"
+          },
+          {
+            "text": "market-supply saturation, not literal wetness",
+            "lang": "en"
+          },
+          {
+            "text": "to supply so much of a product or service that demand is effectively filled or exceeded",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:96ddfc9adb3f8ba8ed6e",
+          "target_locator": "record.constructions[0]",
+          "target_label": "saturate the market"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4407,12 +4573,12 @@
     "ordinal": 4265,
     "word": "saving",
     "source_owner_path": "content/lexical/words/by-ordinal/o4265.json",
-    "source_fingerprint": "235ccfa7723d18191b18d250c15774503e9b0031f1f87d4baef5d914172c7268",
+    "source_fingerprint": "6931fe1ec3c044db3fb3ded8180f21829e1d89b6ac2018057c073e0b1b7fbbcb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A",
-        "1N",
+        "2N",
         "1PREP"
       ],
       "density": "rich"
@@ -4433,16 +4599,38 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "存款，储蓄",
-        "definition_en": "an amount of money that you have saved",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
+        "definition_cn": "积蓄；储蓄的钱（通常用复数 savings）",
+        "definition_en": "money kept for future use, normally expressed in the plural savings",
+        "note": "For accumulated banked money, the ordinary form is plural savings: personal/life savings; My savings are ...",
+        "identity_overlay": {
+          "text": "plural savings normally means accumulated saved money; singular a saving means an amount/reduction saved",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "plural savings normally means accumulated saved money; singular a saving means an amount/reduction saved"
+          }
+        },
+        "usage": [
+          {
+            "id": "collocation:02ede188696b782f06a4",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "personal/life savings",
+            "meaning_cn": "个人/毕生积蓄",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:02ede188696b782f06a4",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "personal/life savings"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:saving:ceeb4ce27fac5bf5",
           "target_locator": "record.senses[0]",
-          "target_label": "存款，储蓄"
+          "target_label": "积蓄；储蓄的钱（通常用复数 savings）"
         }
       },
       {
@@ -4477,6 +4665,50 @@
           "target_id": "sense:saving:ffcd9645bd1c51a9",
           "target_locator": "record.senses[2]",
           "target_label": "除...之外"
+        }
+      },
+      {
+        "id": "sense:saving:ab2d4368b4775125",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "节省额；省下的费用/用量",
+        "definition_en": "an amount not spent or used; a reduction in cost or use",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:feddb36c9857bda9d1f0",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a saving of $50",
+            "meaning_cn": "节省50美元",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:feddb36c9857bda9d1f0",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "a saving of $50"
+            }
+          },
+          {
+            "id": "collocation:411ab4f242e953b2c557",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "make savings",
+            "meaning_cn": "实现节省；降低开支",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:411ab4f242e953b2c557",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "make savings"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:saving:ab2d4368b4775125",
+          "target_locator": "record.senses[3]",
+          "target_label": "节省额；省下的费用/用量"
         }
       }
     ],
@@ -4516,7 +4748,7 @@
     "ordinal": 4266,
     "word": "saw",
     "source_owner_path": "content/lexical/words/by-ordinal/o4266.json",
-    "source_fingerprint": "175c8e2c7079dc5818bf77bb791d779d47c6f4356cf10e77cb7223dbb4718315",
+    "source_fingerprint": "b1c76c31fc4ee2f485fc02882855d99aec14d372fbcb1d24650b243947822182",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4526,13 +4758,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "锯子；锯开；来回拉锯",
+      "summary_cn": "锯子；锯开；来回拉锯；另需识别 saw 也是 see 的过去式",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "锯子；锯开；来回拉锯"
+        "target_label": "锯子；锯开；来回拉锯；另需识别 saw 也是 see 的过去式"
       }
     },
     "senses": [
@@ -4686,7 +4918,7 @@
     "ordinal": 4267,
     "word": "say",
     "source_owner_path": "content/lexical/words/by-ordinal/o4267.json",
-    "source_fingerprint": "eafc08bedc9c1d0a2ccf71311cb974c027fbae9b3c1cbfc7ed8b1c94615a60b6",
+    "source_fingerprint": "59b9b4e81b3715804a08107bf35c0fabe35a71a1bdd13fc866d75fe8b8b3ee40",
     "sense_lineage": [
       {
         "word_id": "word:say",
@@ -4851,12 +5083,52 @@
         "id": "sense:say:82a0d956fa2a5d0d",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "the sign/report/data says + clause; it says here that + clause",
         "definition_cn": "写着；显示；表明",
         "definition_en": "for writing, signs, data, or other information to state or indicate something",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:7c119cdfad9b2a8a977d",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "the sign says ...",
+            "meaning_cn": "标牌上写着……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:7c119cdfad9b2a8a977d",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "the sign says ..."
+            }
+          },
+          {
+            "id": "collocation:33df00e1aa222d36e137",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "it says here that ...",
+            "meaning_cn": "这里写着/显示……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:33df00e1aa222d36e137",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "it says here that ..."
+            }
+          },
+          {
+            "id": "collocation:ba720fef4438b92a62b8",
+            "source_locator": "record.senses[3].collocations[2]",
+            "phrase": "the report says that ...",
+            "meaning_cn": "报告指出……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:ba720fef4438b92a62b8",
+              "target_locator": "record.senses[3].collocations[2]",
+              "target_label": "the report says that ..."
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:say:82a0d956fa2a5d0d",
@@ -5500,7 +5772,7 @@
     "ordinal": 4271,
     "word": "scar",
     "source_owner_path": "content/lexical/words/by-ordinal/o4271.json",
-    "source_fingerprint": "97cb6592ae07211a52df620507cf64e7e91e3a497bede0dcdd3097aa7582781f",
+    "source_fingerprint": "6aa6c44fe5d04c5ff0d268b2b9e52fbf15cc63e3c96418b334af2654184468fc",
     "sense_lineage": [
       {
         "word_id": "word:scar",
@@ -5571,7 +5843,7 @@
         "id": "sense:scar:9300bef65ac855b6",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: scar sb/sth; be scarred by sth; scar over",
         "definition_cn": "（使）留下伤痕；结疤",
         "definition_en": "to mark with a scar or become scarred",
         "note": "",
@@ -5665,7 +5937,7 @@
     "ordinal": 4272,
     "word": "scarce",
     "source_owner_path": "content/lexical/words/by-ordinal/o4272.json",
-    "source_fingerprint": "d4ba7868bbb14df2b3073c367806b1a2962e67cd9b5c179cc71740219522efc3",
+    "source_fingerprint": "7c172e05f53aacdc0eefc774ad55f01ed91b344aa6ac7741b94659689fd36cf2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5701,19 +5973,6 @@
             "meaning_cn": "稀缺资源",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:9d6075c6bdc8430fbdff",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "make oneself scarce",
-            "meaning_cn": "躲开，溜走",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9d6075c6bdc8430fbdff",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "make oneself scarce"
-            }
           }
         ],
         "repair": {
@@ -5725,7 +5984,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:7a6dbeef14f02bce079c",
+        "source_locator": "record.constructions[0]",
+        "pattern": "make yourself/oneself scarce",
+        "lines": [
+          {
+            "text": "离开；躲开；溜走（尤指避免麻烦或不想被注意）",
+            "lang": "cn"
+          },
+          {
+            "text": "informal avoidance/departure idiom; not literal scarcity",
+            "lang": "en"
+          },
+          {
+            "text": "to leave or go away, especially to avoid trouble or being noticed",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7a6dbeef14f02bce079c",
+          "target_locator": "record.constructions[0]",
+          "target_label": "make yourself/oneself scarce"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5750,7 +6035,7 @@
     "ordinal": 4273,
     "word": "scarcely",
     "source_owner_path": "content/lexical/words/by-ordinal/o4273.json",
-    "source_fingerprint": "d7dcd494d3fed52804b0a1d3d7a10deecf8a65e28481ea7b4432a32a531ed5b8",
+    "source_fingerprint": "6f25e6d37c3c3b3b7d03c73ad907dc17bfc955e2dd9427dd9c37201e27f9736c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5822,21 +6107,7 @@
         "definition_en": "only a very short time before",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e6b6e04aa900d6be6679",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "scarcely had ... when",
-            "meaning_cn": "刚……就……",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e6b6e04aa900d6be6679",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "scarcely had ... when"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:scarcely:b91e8f67996a521d",
@@ -5846,7 +6117,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:17ce6f96109d7270e3d1",
+        "source_locator": "record.constructions[0]",
+        "pattern": "Scarcely had + subject + past participle + when ...",
+        "lines": [
+          {
+            "text": "刚……就……",
+            "lang": "cn"
+          },
+          {
+            "text": "fronted scarcely triggers subject–auxiliary inversion",
+            "lang": "en"
+          },
+          {
+            "text": "used with inversion to say one event had only just happened when another followed",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:17ce6f96109d7270e3d1",
+          "target_locator": "record.constructions[0]",
+          "target_label": "Scarcely had + subject + past participle + when ..."
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -5882,7 +6179,7 @@
     "ordinal": 4274,
     "word": "scare",
     "source_owner_path": "content/lexical/words/by-ordinal/o4274.json",
-    "source_fingerprint": "92b90f34d61bf5da59bdcc42b8809911e20af515164164c70e8e0ca358eaf3ff",
+    "source_fingerprint": "fc80a4b52fa487ad3e7bad28356743698c3d16de5be3e5e9bb90c6ddf495b62d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5968,14 +6265,6 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "give sb a scare"
             }
-          },
-          {
-            "id": "collocation:9c848ab44bfba3353a3d",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "a scare story",
-            "meaning_cn": "恐怖故事",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -6004,7 +6293,33 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:f1c34d7c55230b6cf3ca",
+        "source_locator": "record.constructions[0]",
+        "pattern": "scare story",
+        "lines": [
+          {
+            "text": "引起公众担忧或恐慌的报道/故事，常带有夸大或不必要的警吓色彩",
+            "lang": "cn"
+          },
+          {
+            "text": "public-alarm phrase; distinct from a private sudden feeling of fear",
+            "lang": "en"
+          },
+          {
+            "text": "a report or story that causes public worry, often unnecessarily or exaggeratedly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f1c34d7c55230b6cf3ca",
+          "target_locator": "record.constructions[0]",
+          "target_label": "scare story"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6131,7 +6446,7 @@
     "ordinal": 4276,
     "word": "scatter",
     "source_owner_path": "content/lexical/words/by-ordinal/o4276.json",
-    "source_fingerprint": "c08870b194dcdc88ad3365dd9a69fc9f1807e375b0957d57c056e4992a2def11",
+    "source_fingerprint": "1f2b7c4fd2a2899e58b3c61d25ca59614144a018567b4088e69861638e0230a3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6194,9 +6509,9 @@
         "id": "sense:scatter:b317dae4897a5e39",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使分散，驱散",
-        "definition_en": "to make a group of people or things move apart in different directions",
+        "governing_pattern": "I/T: the crowd scattered; scatter the crowd",
+        "definition_cn": "分散；四散；使分散/驱散",
+        "definition_en": "to move apart in different directions, or to cause a group of people or things to do so",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6207,13 +6522,26 @@
             "meaning_cn": "驱散人群",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:2cb5e29317989ef7eed2",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "the crowd/protesters scattered",
+            "meaning_cn": "人群/抗议者四散",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:2cb5e29317989ef7eed2",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "the crowd/protesters scattered"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:scatter:b317dae4897a5e39",
           "target_locator": "record.senses[1]",
-          "target_label": "使分散，驱散"
+          "target_label": "分散；四散；使分散/驱散"
         }
       },
       {
@@ -6782,7 +7110,7 @@
     "ordinal": 4281,
     "word": "sceptical",
     "source_owner_path": "content/lexical/words/by-ordinal/o4281.json",
-    "source_fingerprint": "181b7f230f0f14d85fd016c6a767b78ea0a19eafe6533e48c44a9f26384b06d9",
+    "source_fingerprint": "4941f624a122e4a357aedb431e061f4cbd067cd02966c45590367cf3fd9700bb",
     "sense_lineage": [
       {
         "word_id": "word:sceptical",
@@ -6817,7 +7145,15 @@
         "definition_cn": "表示怀疑的，好怀疑的",
         "definition_en": "marked by or given to doubt",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "sceptical is a common BrE spelling; skeptical is the standard AmE spelling; same lexeme and meaning",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "sceptical is a common BrE spelling; skeptical is the standard AmE spelling; same lexeme and meaning"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -6831,25 +7167,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "sceptical ↔ skeptical",
-          "target_word": "skeptical",
-          "lines": [
-            {
-              "text": "sceptical is a common British spelling; skeptical is standard American spelling. Both frozen Word owners are preserved with local stable senses.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:fb799ef9b1c5310e750a",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "sceptical ↔ skeptical"
-          }
-        }
-      ],
+      "relations": [],
       "form": {
         "boundary": "",
         "boundaries": [
@@ -7552,7 +7870,7 @@
     "ordinal": 4287,
     "word": "science",
     "source_owner_path": "content/lexical/words/by-ordinal/o4287.json",
-    "source_fingerprint": "51e9bf5f988cfc19069febd790fc7be6e5f87f4a338ef937c37f60c3688bb39d",
+    "source_fingerprint": "ea1ae546456646195d839cefb96d5ccb1458a968efdb4386b1612b486f90004f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7561,13 +7879,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "关于物质或自然世界的系统知识",
+      "summary_cn": "科学；系统研究和证据形成的知识体系",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "关于物质或自然世界的系统知识"
+        "target_label": "科学；系统研究和证据形成的知识体系"
       }
     },
     "senses": [
@@ -7576,8 +7894,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "科学；自然科学",
-        "definition_en": "the study of the structure and behaviour of the physical and natural world through observation and experiment",
+        "definition_cn": "科学；通过系统观察、证据、研究和方法形成知识的学科体系",
+        "definition_en": "systematic study and knowledge developed through observation, evidence, investigation, and method, including natural and social sciences",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7596,13 +7914,26 @@
             "meaning_cn": "社会科学",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:dc53e8fe8d7f860247f8",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "natural science",
+            "meaning_cn": "自然科学",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:dc53e8fe8d7f860247f8",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "natural science"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:science:490f7d96bfe95e88",
           "target_locator": "record.senses[0]",
-          "target_label": "科学；自然科学"
+          "target_label": "科学；通过系统观察、证据、研究和方法形成知识的学科体系"
         }
       },
       {

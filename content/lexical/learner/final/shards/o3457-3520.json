@@ -102,7 +102,7 @@
     "ordinal": 3458,
     "word": "panel",
     "source_owner_path": "content/lexical/words/by-ordinal/o3458.json",
-    "source_fingerprint": "9c5c82239722facb77f4a65bf9632038f2acccece64c8a0b04e1cad8ca5c66e4",
+    "source_fingerprint": "bc302b9f467e2cae75faa04eebf7b6421cb1406d419bf8ddea3396dfb342d0ea",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -112,13 +112,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "板；小组",
+      "summary_cn": "面板；专家/评审小组；控制面板",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "板；小组"
+        "target_label": "面板；专家/评审小组；控制面板"
       }
     },
     "senses": [
@@ -631,7 +631,7 @@
     "ordinal": 3462,
     "word": "pants",
     "source_owner_path": "content/lexical/words/by-ordinal/o3462.json",
-    "source_fingerprint": "74c1bff39f19420773a32a3452fb3993815b45fc609d5f970f12fa3f0d5674ca",
+    "source_fingerprint": "58562a20f41c22948c5468de925f4a72d797b318bacb6c7c6879b532d4865270",
     "sense_lineage": [
       {
         "word_id": "word:pants",
@@ -688,12 +688,12 @@
         "definition_en": "trousers; a garment covering the body from the waist to the ankles, especially the usual American-English sense",
         "note": "In American English, pants normally means trousers. In British English, pants commonly means underpants/underwear.",
         "identity_overlay": {
-          "text": "The surface form pants can also occur as third-person singular of the verb pant in running text; that verb belongs to the pant lexeme, not to the clothing lexeme pants.",
+          "text": "The clothing noun pants is plural in form and normally takes plural agreement (These pants are ...); count garments with a pair/two pairs of pants. Surface pants can also be 3sg of the verb pant, which belongs to the pant lexeme.",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "The surface form pants can also occur as third-person singular of the verb pant in running text; that verb belongs to the pant lexeme, not to the clothing lexeme pants."
+            "target_label": "The clothing noun pants is plural in form and normally takes plural agreement (These pants are ...); count garments with a pair/two pairs of pants. Surface pants can also be 3sg of the verb pant, which belongs to the pant lexeme."
           }
         },
         "usage": [
@@ -734,7 +734,15 @@
         "definition_cn": "内裤；衬裤（英式常用）",
         "definition_en": "underpants or underwear, especially the common British-English sense",
         "note": "Common British-English clothing sense; compare AmE pants = trousers.",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "The clothing noun pants is plural in form and normally takes plural agreement (These pants are ...); count garments with a pair/two pairs of pants. Surface pants can also be 3sg of the verb pant, which belongs to the pant lexeme.",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "The clothing noun pants is plural in form and normally takes plural agreement (These pants are ...); count garments with a pair/two pairs of pants. Surface pants can also be 3sg of the verb pant, which belongs to the pant lexeme."
+          }
+        },
         "usage": [
           {
             "id": "collocation:2206156010d07b6aa104",
@@ -773,7 +781,7 @@
     "ordinal": 3463,
     "word": "paper",
     "source_owner_path": "content/lexical/words/by-ordinal/o3463.json",
-    "source_fingerprint": "52f4be93ce8921ac6ba0f2b5fcd2b19aa2b700e6ee5ec6800aa84df0e915b54a",
+    "source_fingerprint": "311184a3a25168f1f84ee90ac820c79572fa8e3b1dfa310657c231e9020bfc0b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -897,16 +905,7 @@
         "definition_en": "made of paper; existing only in theory or on paper",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d1e7a3c786c43d5271c1",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "paper tiger",
-            "meaning_cn": "纸老虎",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:paper:54ce07237ba25416",
@@ -960,7 +959,50 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:eb93c4e39611494a4757",
+        "source_locator": "record.constructions[0]",
+        "pattern": "paper tiger",
+        "lines": [
+          {
+            "text": "纸老虎；看似强大或危险、实际很弱的人/组织/力量",
+            "lang": "cn"
+          },
+          {
+            "text": "lexicalized noun phrase; not simply an adjective meaning made of paper",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:eb93c4e39611494a4757",
+          "target_locator": "record.constructions[0]",
+          "target_label": "paper tiger"
+        }
+      },
+      {
+        "id": "construction:1b968201591ad735071c",
+        "source_locator": "record.constructions[1]",
+        "pattern": "on paper",
+        "lines": [
+          {
+            "text": "按计划、理论或书面信息看；尚未由实际表现证明",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative reading contrasted with demonstrated practice",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1b968201591ad735071c",
+          "target_locator": "record.constructions[1]",
+          "target_label": "on paper"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1841,7 +1883,7 @@
     "ordinal": 3472,
     "word": "paralyse",
     "source_owner_path": "content/lexical/words/by-ordinal/o3472.json",
-    "source_fingerprint": "ac10275463852e665076889b145134a4cf17fdbf39517e6e4f9378e2175c9141",
+    "source_fingerprint": "ae14648473f73ec0baa632a32ca7e0d05885f5c543a7ebcfdcea3d1d0b263efe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1868,7 +1910,15 @@
         "definition_cn": "使瘫痪，使麻痹",
         "definition_en": "cause (a person or part of the body) to become unable to move or feel",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "paralyse is the common BrE spelling; paralyze is the common AmE spelling; same verb identity",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "paralyse is the common BrE spelling; paralyze is the common AmE spelling; same verb identity"
+          }
+        },
         "usage": [
           {
             "id": "collocation:6a6e414c65dce29152be",
@@ -1907,7 +1957,15 @@
         "definition_cn": "使（系统、组织等）陷入瘫痪",
         "definition_en": "make (a system, organization, etc.) unable to operate",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "paralyse is the common BrE spelling; paralyze is the common AmE spelling; same verb identity",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "paralyse is the common BrE spelling; paralyze is the common AmE spelling; same verb identity"
+          }
+        },
         "usage": [
           {
             "id": "collocation:609e969b20495fbd4e91",
@@ -1930,25 +1988,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [
-        {
-          "title": "paralyse ↔ paralyze",
-          "target_word": "paralyze",
-          "lines": [
-            {
-              "text": "paralyze is the common AmE spelling and paralyse the common BrE spelling; preserve physical paralysis as prototypical and keep figurative/system inability branches aligned.",
-              "lang": "en"
-            }
-          ],
-          "differences": [],
-          "repair": {
-            "target_kind": "relation",
-            "target_id": "relation:horizontal:234fb7cdf574b4f0ede1",
-            "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "paralyse ↔ paralyze"
-          }
-        }
-      ],
+      "relations": [],
       "form": null,
       "family": []
     }
@@ -2500,7 +2540,7 @@
     "ordinal": 3477,
     "word": "parent",
     "source_owner_path": "content/lexical/words/by-ordinal/o3477.json",
-    "source_fingerprint": "eabd0ac403292475476032409622d35a1de76f13ad9c7164c081a5a1675c3835",
+    "source_fingerprint": "57f8365e2d48ba716af62d36b4ae99f83195913a56be590d67cabf7ec48b826a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2509,13 +2549,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "父母；根源",
+      "summary_cn": "父母；来源/母体组织",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "父母；根源"
+        "target_label": "父母；来源/母体组织"
       }
     },
     "senses": [
@@ -2543,21 +2583,8 @@
             }
           },
           {
-            "id": "collocation:d656dfde828c1d4ee4c5",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "parent company",
-            "meaning_cn": "母公司",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d656dfde828c1d4ee4c5",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "parent company"
-            }
-          },
-          {
             "id": "collocation:662b6cb8aa774b4eaa3c",
-            "source_locator": "record.senses[0].collocations[2]",
+            "source_locator": "record.senses[0].collocations[1]",
             "phrase": "a parent of two children",
             "meaning_cn": "两个孩子的父母",
             "kind": "usage_example",
@@ -2615,8 +2642,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "根源；起源",
-        "definition_en": "a source or origin; something from which other things derive",
+        "definition_cn": "根源；来源；母体/上级组织",
+        "definition_en": "a source or origin; a company or organization from which another entity derives or is controlled",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2640,13 +2667,26 @@
             "meaning_cn": "所有现代计算机的鼻祖",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:d656dfde828c1d4ee4c5",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "parent company",
+            "meaning_cn": "母公司；控股/上级公司",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:d656dfde828c1d4ee4c5",
+              "target_locator": "record.senses[2].collocations[2]",
+              "target_label": "parent company"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:parent:27ec14139baf5b16",
           "target_locator": "record.senses[2]",
-          "target_label": "根源；起源"
+          "target_label": "根源；来源；母体/上级组织"
         }
       }
     ],
@@ -2665,7 +2705,7 @@
     "ordinal": 3478,
     "word": "park",
     "source_owner_path": "content/lexical/words/by-ordinal/o3478.json",
-    "source_fingerprint": "74e9778552a70598b88b3f216d2d383fbd3f2ab33d4567f224d07acd5f320824",
+    "source_fingerprint": "3ca3e6fea752749590fcc0509cee7523372ddbde396f4b4a3528745cbc49d1b0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2675,13 +2715,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "公园/园区；停车；停车挡",
+      "summary_cn": "公园/园区；停车",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "公园/园区；停车；停车挡"
+        "target_label": "公园/园区；停车"
       }
     },
     "senses": [
@@ -3256,7 +3296,7 @@
     "ordinal": 3482,
     "word": "participant",
     "source_owner_path": "content/lexical/words/by-ordinal/o3482.json",
-    "source_fingerprint": "e107da762698f747c3dbca7b1051a211f0426b3766f79e0cb8af215c56a50837",
+    "source_fingerprint": "8df7466821e0204955571ec7bd44e4c149a536dab20793e304ed89615e81f92c",
     "sense_lineage": [
       {
         "word_id": "word:participant",
@@ -3541,7 +3581,7 @@
     "ordinal": 3485,
     "word": "particular",
     "source_owner_path": "content/lexical/words/by-ordinal/o3485.json",
-    "source_fingerprint": "7482446a35ee1539150fce2efb07bd2e5eeff81eeab7f106b08a18362afddf7a",
+    "source_fingerprint": "64cf891a8d6e703ec92aabbec2651807b4daea5df3fea637255e450c4242a9ce",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3572,21 +3612,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:4a639f9fe707c7a82116",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "in particular",
-            "meaning_cn": "尤其；特别",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4a639f9fe707c7a82116",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "in particular"
-            }
-          },
-          {
             "id": "collocation:09178e27950a8a704f3f",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "particular case",
             "meaning_cn": "特定情况",
             "kind": "usage_example",
@@ -3690,7 +3717,29 @@
       }
     ],
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:df7802ac32490279cc17",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in particular",
+        "lines": [
+          {
+            "text": "尤其；特别；具体地说，用来单独指出某人/某物/细节",
+            "lang": "cn"
+          },
+          {
+            "text": "adverbial construction; distinct from bare adjective syntax",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:df7802ac32490279cc17",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in particular"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -3941,40 +3990,20 @@
     "ordinal": 3488,
     "word": "party",
     "source_owner_path": "content/lexical/words/by-ordinal/o3488.json",
-    "source_fingerprint": "f57615fe4121b7f8c110d50ccad74a72b4bec761af49562c136e43537ae6d031",
+    "source_fingerprint": "aa5e22cb0580d37e2feebeae22575680536e0d68ff277a7e58f530b874d6f23f",
     "sense_lineage": [
-      {
-        "word_id": "word:party",
-        "target_kind": "sense",
-        "from_target_id": "sense:party:234e3b1805a25867",
-        "status": "merged",
-        "to_target_id": "sense:party:60fcdfb200fb5d07"
-      },
-      {
-        "word_id": "word:party",
-        "target_kind": "sense",
-        "from_target_id": "sense:party:2aa08be4ed4f5851",
-        "status": "merged",
-        "to_target_id": "sense:party:60fcdfb200fb5d07"
-      },
-      {
-        "word_id": "word:party",
-        "target_kind": "sense",
-        "from_target_id": "sense:party:4b8f6d94ecd758f6",
-        "status": "merged",
-        "to_target_id": "sense:party:60fcdfb200fb5d07"
-      },
       {
         "word_id": "word:party",
         "target_kind": "sense",
         "from_target_id": "sense:party:51f36d5a6ff85d99",
         "status": "merged",
-        "to_target_id": "sense:party:60fcdfb200fb5d07"
+        "to_target_id": "sense:party:eeb74c1e22ef5993"
       }
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1V",
+        "4N"
       ],
       "density": "rich"
     },
@@ -4053,6 +4082,97 @@
           "target_locator": "record.senses[1]",
           "target_label": "聚会；宴会；社交活动"
         }
+      },
+      {
+        "id": "sense:party:234e3b1805a25867",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "当事人；（协议、诉讼、交易等中的）一方",
+        "definition_en": "a person or group involved as one side in a legal case, agreement, transaction, dispute, or formal arrangement",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:5c54b2b4e2fa21eaa7d2",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a party to an agreement/contract",
+            "meaning_cn": "协议/合同的一方",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5c54b2b4e2fa21eaa7d2",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "a party to an agreement/contract"
+            }
+          },
+          {
+            "id": "collocation:bdd5a4a6dcac2ca56da4",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "both parties",
+            "meaning_cn": "双方；两方当事人",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:party:234e3b1805a25867",
+          "target_locator": "record.senses[2]",
+          "target_label": "当事人；（协议、诉讼、交易等中的）一方"
+        }
+      },
+      {
+        "id": "sense:party:4b8f6d94ecd758f6",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "一行人；一起旅行、工作或活动的一组人",
+        "definition_en": "a group of people travelling, working, visiting, or doing an activity together",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:166fe2c96273ff89a811",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a party of tourists / a party of eight",
+            "meaning_cn": "一群游客/一行八人",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:party:4b8f6d94ecd758f6",
+          "target_locator": "record.senses[3]",
+          "target_label": "一行人；一起旅行、工作或活动的一组人"
+        }
+      },
+      {
+        "id": "sense:party:2aa08be4ed4f5851",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "vi.",
+        "definition_cn": "参加聚会；尽情社交娱乐",
+        "definition_en": "to enjoy oneself socially, especially at a party, often by drinking or dancing",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:5ad3b3e7e3f96bfe6cda",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "party till dawn",
+            "meaning_cn": "聚会狂欢到天亮",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:party:2aa08be4ed4f5851",
+          "target_locator": "record.senses[4]",
+          "target_label": "参加聚会；尽情社交娱乐"
+        }
       }
     ],
     "secondary_senses": [],
@@ -4070,7 +4190,7 @@
     "ordinal": 3489,
     "word": "pass",
     "source_owner_path": "content/lexical/words/by-ordinal/o3489.json",
-    "source_fingerprint": "ea8f034a62a6a6c3719cf8541bff41ac29837b8014de3e62b2087e8c2040a578",
+    "source_fingerprint": "4246a800df1fd1d03fe6ddef81b759495ca2628f1e9299ac86517a90e307df87",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4407,7 +4527,7 @@
     "ordinal": 3490,
     "word": "passage",
     "source_owner_path": "content/lexical/words/by-ordinal/o3490.json",
-    "source_fingerprint": "27e38e7ac222ea8d74d99fa81d9b5ada8ea9f8af385f1a537369a7353ba16523",
+    "source_fingerprint": "ff13521877a2778ae3e2b16bb07af7e2e3aa87681c56957cd75131a1042432af",
     "sense_lineage": [
       {
         "word_id": "word:passage",
@@ -4424,13 +4544,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "通道或一段文字",
+      "summary_cn": "通道；一段文字；经过/流逝；法案通过",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "通道或一段文字"
+        "target_label": "通道；一段文字；经过/流逝；法案通过"
       }
     },
     "senses": [
@@ -4655,7 +4775,7 @@
     "ordinal": 3492,
     "word": "passerby",
     "source_owner_path": "content/lexical/words/by-ordinal/o3492.json",
-    "source_fingerprint": "18c6071fc3e0812206b04428ea2b05a144bdcbd690428ac2d81a25d2ce0ef52c",
+    "source_fingerprint": "11884cca5ce0529193769e0dec5cd4588a4e3dd03aed93a2c685f6525af99e32",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4682,7 +4802,15 @@
         "definition_cn": "过路人，行人",
         "definition_en": "a person who is going past a particular place",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "singular passerby; plural passersby (not *passerbys)",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "singular passerby; plural passersby (not *passerbys)"
+          }
+        },
         "usage": [
           {
             "id": "collocation:f2ab5a74750a6e87bce8",
@@ -5514,7 +5642,7 @@
     "ordinal": 3500,
     "word": "pat",
     "source_owner_path": "content/lexical/words/by-ordinal/o3500.json",
-    "source_fingerprint": "bc2897f68cef91a6ddf01d31ac87de33dd3228b67934ecf80a529abf8d25fb2c",
+    "source_fingerprint": "ca3de58287b3463cbf3c7e9b07c249dd49c2782a6a72c8b46885c5833d1bd480",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5526,13 +5654,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "轻拍；恰好",
+      "summary_cn": "轻拍；现成/过于简单的；熟记地",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "轻拍；恰好"
+        "target_label": "轻拍；现成/过于简单的；熟记地"
       }
     },
     "senses": [
@@ -6808,19 +6936,11 @@
     "ordinal": 3510,
     "word": "pattern",
     "source_owner_path": "content/lexical/words/by-ordinal/o3510.json",
-    "source_fingerprint": "7a871539be4af449618fa66a5fd083f1cc8529d71db8c4c3051235d8ef097641",
-    "sense_lineage": [
-      {
-        "word_id": "word:pattern",
-        "target_kind": "sense",
-        "from_target_id": "sense:pattern:95d57af28e2f58d6",
-        "status": "deprecated",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "366ce019ceedfdbb2f1d94326a4ea58d20017c0e53885ab35961fd7b852b599f",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V+",
+        "1V",
         "3N"
       ],
       "density": "rich"
@@ -6845,16 +6965,7 @@
         "definition_en": "a model considered worthy of imitation",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c2dd3b3fb6c29653358a",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a pattern of behavior",
-            "meaning_cn": "行为模式",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:pattern:9f8b5999fef25c9a",
@@ -6877,6 +6988,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "weather pattern",
             "meaning_cn": "天气模式",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:c2dd3b3fb6c29653358a",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a pattern of behavior",
+            "meaning_cn": "行为模式",
             "kind": "usage_example",
             "repair": null
           }
@@ -6913,24 +7032,53 @@
           "target_locator": "record.senses[2]",
           "target_label": "图案，花样"
         }
-      }
-    ],
-    "secondary_senses": [
+      },
       {
-        "id": "deep:secondary_senses:pattern:bb095bde6eab85f9",
-        "source_locator": "record.secondary_senses[0]",
+        "id": "sense:pattern:95d57af28e2f58d6",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
-        "definition_cn": "模仿，仿造；以图案装饰",
-        "definition_en": "to form a pattern or to imitate a particular pattern",
-        "pattern": "pattern oneself after sb",
+        "governing_pattern": "vt.: pattern sth/oneself after/on sth/sb",
+        "definition_cn": "仿照；使按某种模式形成；以图案装饰",
+        "definition_en": "to model or shape something after/on a pattern; to decorate with a pattern",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a24f71702b8a610aed0c",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "pattern sth after/on sth",
+            "meaning_cn": "仿照某种模式形成某物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a24f71702b8a610aed0c",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "pattern sth after/on sth"
+            }
+          },
+          {
+            "id": "collocation:a1f85dd5d6e1356df1b6",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "pattern oneself after/on sb",
+            "meaning_cn": "仿效某人",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a1f85dd5d6e1356df1b6",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "pattern oneself after/on sb"
+            }
+          }
+        ],
         "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:pattern:bb095bde6eab85f9",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "模仿，仿造；以图案装饰"
+          "target_kind": "sense",
+          "target_id": "sense:pattern:95d57af28e2f58d6",
+          "target_locator": "record.senses[3]",
+          "target_label": "仿照；使按某种模式形成；以图案装饰"
         }
       }
     ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -6945,7 +7093,7 @@
     "ordinal": 3511,
     "word": "pause",
     "source_owner_path": "content/lexical/words/by-ordinal/o3511.json",
-    "source_fingerprint": "62fd0c38e85a6e1ba06cd5c0359f8bb8649b4d5c70f7b55ec6e00b939b7189c4",
+    "source_fingerprint": "f8ae600f0573625248a3cd6b39a5aa3e56336a672429a41db3f6774d54a4a836",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7008,7 +7156,7 @@
         "id": "sense:pause:4dd0ab13cceb59bb",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "vi.; pause for + noun; pause to do sth",
         "definition_cn": "暂停；中止",
         "definition_en": "cease an action temporarily",
         "note": "",
@@ -7171,7 +7319,7 @@
     "ordinal": 3513,
     "word": "pavement",
     "source_owner_path": "content/lexical/words/by-ordinal/o3513.json",
-    "source_fingerprint": "5974057cdc95f6b821035687e0abf60138747127f10de2acc542b13640e2f59b",
+    "source_fingerprint": "b35b840ef9c1426b92d4cbc959c9232b61bd528433e43be30a0f6dc508b62970",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7180,13 +7328,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "铺筑的表面",
+      "summary_cn": "英式：人行道；美式：铺筑的路面/地面",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "铺筑的表面"
+        "target_label": "英式：人行道；美式：铺筑的路面/地面"
       }
     },
     "senses": [
@@ -7195,8 +7343,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "路面",
-        "definition_en": "the paved surface of a road or street",
+        "definition_cn": "铺筑的路面/地面（尤美式）",
+        "definition_en": "the hard paved surface of a road or ground, especially in American English",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7226,7 +7374,7 @@
           "target_kind": "sense",
           "target_id": "sense:pavement:c5b20d35ebc95912",
           "target_locator": "record.senses[0]",
-          "target_label": "路面"
+          "target_label": "铺筑的路面/地面（尤美式）"
         }
       },
       {
@@ -7234,8 +7382,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "人行道",
-        "definition_en": "a paved path for pedestrians at the side of a road (British)",
+        "definition_cn": "人行道（英式）",
+        "definition_en": "a hard path beside a road for pedestrians in British English (AmE sidewalk)",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7252,7 +7400,7 @@
           "target_kind": "sense",
           "target_id": "sense:pavement:f25a28585b245443",
           "target_locator": "record.senses[1]",
-          "target_label": "人行道"
+          "target_label": "人行道（英式）"
         }
       }
     ],
@@ -7289,7 +7437,7 @@
     "ordinal": 3514,
     "word": "paw",
     "source_owner_path": "content/lexical/words/by-ordinal/o3514.json",
-    "source_fingerprint": "1c2e2bde2995b236b00d80f9d85080ee4d658ffe35377604735fe6703c015957",
+    "source_fingerprint": "e73235afb44368fce6149140dbeee4886eac7212bc65c2b7c7c1ded85651f16a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7339,7 +7487,7 @@
         "id": "sense:paw:6309ea9dcfc95cf7",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: paw at sth; paw through sth; paw sth",
         "definition_cn": "用爪子抓，笨拙地触摸",
         "definition_en": "touch or scrape with a paw or hand",
         "note": "",
@@ -7390,7 +7538,7 @@
     "ordinal": 3515,
     "word": "pay",
     "source_owner_path": "content/lexical/words/by-ordinal/o3515.json",
-    "source_fingerprint": "a5afedd69da62e09e804342bf56ef31520e6af3de1b68e5e24d4ad3a815ced23",
+    "source_fingerprint": "462a911121f5fa92d00dee2172b636dc80e398a89238853ac30ae6822422e9c1",
     "sense_lineage": [
       {
         "word_id": "word:pay",
@@ -7436,7 +7584,7 @@
         "id": "sense:pay:10b3932f0c4d567d",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: pay the bill / pay sb / pay an amount; pay for sth; pay amount for sth",
         "definition_cn": "支付；付钱",
         "definition_en": "give money in exchange for goods or services",
         "note": "",
@@ -7581,86 +7729,49 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:pay:da1e7c0cc2988d87",
-        "source_locator": "record.constructions[0]",
-        "pattern": "pay attention to sth",
-        "lines": [
-          {
-            "text": "注意",
-            "lang": "cn"
-          },
-          {
-            "text": "报答；回报",
-            "lang": "cn"
-          },
-          {
-            "text": "fixed nonfinancial expression",
-            "lang": "en"
-          },
-          {
-            "text": "to give attention to something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:pay:da1e7c0cc2988d87",
-          "target_locator": "record.constructions[0]",
-          "target_label": "pay attention to sth"
-        }
-      },
-      {
-        "id": "deep:constructions:pay:82602f6d7d01b122",
-        "source_locator": "record.constructions[1]",
-        "pattern": "pay a visit to sb/sth",
-        "lines": [
-          {
-            "text": "拜访",
-            "lang": "cn"
-          },
-          {
-            "text": "报答；回报",
-            "lang": "cn"
-          },
-          {
-            "text": "fixed nonfinancial expression",
-            "lang": "en"
-          },
-          {
-            "text": "to visit someone or a place",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:pay:82602f6d7d01b122",
-          "target_locator": "record.constructions[1]",
-          "target_label": "pay a visit to sb/sth"
-        }
-      },
-      {
         "id": "construction:8fa08dd57acd07400966",
-        "source_locator": "record.constructions[2]",
+        "source_locator": "record.constructions[0]",
         "pattern": "pay off",
         "lines": [
           {
-            "text": "取得成功；奏效；还清债务",
+            "text": "取得成功；奏效；带来回报",
             "lang": "cn"
           },
           {
-            "text": "benefit/success branch for nonfinancial pay off; debt-repayment use remains context-sensitive",
+            "text": "benefit/success reading; distinct from paying a debt in full",
             "lang": "en"
           },
           {
-            "text": "to succeed, yield a benefit, or repay a debt depending on context",
+            "text": "to succeed, yield a benefit, or prove worthwhile",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:8fa08dd57acd07400966",
-          "target_locator": "record.constructions[2]",
+          "target_locator": "record.constructions[0]",
           "target_label": "pay off"
+        }
+      },
+      {
+        "id": "construction:067aa20a74aaf2c4cabe",
+        "source_locator": "record.constructions[1]",
+        "pattern": "pay off a debt/loan",
+        "lines": [
+          {
+            "text": "还清债务/贷款",
+            "lang": "cn"
+          },
+          {
+            "text": "money-payment reading: repay a debt completely",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:067aa20a74aaf2c4cabe",
+          "target_locator": "record.constructions[1]",
+          "target_label": "pay off a debt/loan"
         }
       }
     ],

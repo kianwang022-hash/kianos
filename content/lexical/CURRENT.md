@@ -8,18 +8,22 @@ Learner-facing Vocabulary / Lexical belongs under **English**. This file owns on
 
 ## Canonical entry
 
-For the current unfinished-catalog semantic sweep:
+The full-catalog final-standard semantic sweep is **CLOSED**. Historical campaign routing is retained only for provenance:
 
 ```text
-content/lexical/CURRENT.md
+current maintenance
+→ content/lexical/CURRENT.md
+→ exact Word / Relation / Form owner
+→ only the contract needed for that defect or new Source
+
+closed campaign provenance
 → content/lexical/SEMANTIC_PIPELINE.md
-→ content/lexical/chat-roles/SEMANTIC_<A|B|C>.md
 → content/lexical/execution/dual-review.json
-→ content/lexical/execution/dual-review-<A|B|C>.json
-→ exact lane artifact for the assigned range
+→ content/lexical/execution/dual-review-C.json
+→ final checkpoint receipt
 ```
 
-**Campaign baseline/scope lives in `execution/dual-review.json`; concurrent lane progress lives separately in `dual-review-A.json`, `dual-review-B.json`, and `dual-review-C.json`.**
+**Campaign baseline/scope lives in `execution/dual-review.json`; A/B/C are now COMPLETE through o7946 and are no longer live continuation cursors.**
 
 The older `execution/live-batch.json` remains historical evidence for the superseded serialized BF25-era flow and is not the normal controller for this dual-review sweep. Legacy `execution/three-chat-board.json` is also history only.
 
@@ -27,9 +31,9 @@ Target: **2–3 precise GitHub reads before effective work.**
 
 ---
 
-## Active program
+## Closed program
 
-The full-catalog final-standard continuation is active under the already-frozen semantic ruler:
+The full-catalog final-standard continuation is closed under the already-frozen semantic ruler:
 
 - `FINAL_SEMANTIC_FREEZE.md`
 - `FINAL_SEMANTIC_FREEZE_SCOPE_AMENDMENT_20260922.md`
@@ -39,13 +43,13 @@ The full-catalog final-standard continuation is active under the already-frozen 
 - `SEMANTIC_PIPELINE.md`
 - `execution/dual-review.json`
 
-Scope remains the reopened catalog continuation through o7946. This is not enrichment-by-default. Simple words may remain simple.
+Scope o2551–o7946 is complete. No active batch remains. This was never enrichment-by-default; simple words may remain simple.
 
 A mutation requires a real correctness, decision, structure, phraseology, ownership, register/Form, productive-value, testability, or redundancy gap.
 
 ---
 
-## Frozen execution chain
+## Historical frozen execution chain
 
 ```text
 frozen semantic baseline
@@ -70,15 +74,11 @@ A and B never modify canonical lexical truth and never read each other's finding
 
 ## User-facing control
 
-Kian should normally need only:
-
-```text
-继续词汇
-```
+Learner-facing `继续词汇` belongs to English/Vocabulary learning and does **not** reopen this closed backend campaign.
 
 Standing delegation (Kian, 2026-09-22) authorizes routine bounded batch approval after the exact proposal is frozen and quality gates pass. `p` remains available only for an exceptional bounded Gate.
 
-A/B/C are durable execution roles for this campaign. The user selects a role by opening a dedicated `词义A`, `词义B`, or later `词义C` Chat; GitHub role files own the exact behavior.
+A/B/C are retained as closed execution provenance for this campaign. Do not reopen those roles from old branch names or cursors; any future lexical work must start from a concrete Current defect, new Source, or explicit new scope.
 
 ---
 
@@ -94,7 +94,7 @@ A/B/C are durable execution roles for this campaign. The user selects a role by 
 | Form / spelling / pronunciation / inflection identity | exact Word Form/Identity owner |
 | Final learner objects | `content/lexical/learner/final/` |
 | Independent audit | `content/lexical/INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md` |
-| Active semantic sweep | `content/lexical/SEMANTIC_PIPELINE.md` + `execution/dual-review.json` |
+| Closed semantic sweep provenance | `content/lexical/SEMANTIC_PIPELINE.md` + `execution/dual-review.json` + final checkpoint receipt |
 | Visual product brief | `static-web/LEXICAL_PRODUCT_BRIEF.md` |
 | Final acceptance | `content/lexical/ACCEPTANCE.md` |
 
@@ -120,16 +120,16 @@ Natural Owners remain semantic truth. Final Learner Objects are derived learner 
 
 ## Exact next action
 
-Read `execution/dual-review.json` plus the requested lane state file, then obey that lane's role file and `next_ordinal`.
+No lexical production batch is active. `execution/dual-review.json` and the final checkpoint receipt close the o2551–o7946 campaign at `next_ordinal=7947`. Reopen only the smallest Current owner for a real content defect, new Source, or explicit new scope.
 
-Do not infer progress from Chat memory, old BF branches, `live-batch.json`, or the legacy board.
+Do not infer new work from Chat memory, retired A/B branches, old BF branches, `live-batch.json`, or the legacy board.
 
 
 ---
 
-## Hot-path delivery contract
+## Historical hot-path delivery contract
 
-The active semantic sweep uses a deliberately thin production path.
+The closed semantic sweep used a deliberately thin production path. This section is retained as historical execution provenance, not a live continuation.
 
 Per ~100-owner C semantic window:
 
