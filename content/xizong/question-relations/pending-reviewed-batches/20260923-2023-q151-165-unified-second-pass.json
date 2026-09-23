@@ -1,0 +1,44 @@
+[
+  {
+    "question_id": "xizong-official-2023-n155",
+    "system_id": "circulation",
+    "block_id": "circulation-b11",
+    "primary_kp_id": "circulation-b11-kp15",
+    "supporting_kp_ids": [
+      "circulation-b11-kp21"
+    ],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2023/q151-175.json",
+      "question_truth_blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
+      "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md",
+      "knowledge_blob_sha": "7dc2ac10835d1f6305c518fff4a01f2501579a7a"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent SECOND_PASS solve: B11 KP15 explicitly includes nesiritide under acute vasodilators and levosimendan/digitalis-type agents under scenario-dependent inotropes; KP21 explicitly says ivabradine is for selected chronic HFrEF and not acute HF. This jointly closes official ACD without turning them into a universal fixed regimen."
+    }
+  },
+  {
+    "question_id": "xizong-official-2023-n156",
+    "system_id": "final_clinical_modules",
+    "block_id": "final-f02",
+    "primary_kp_id": "final-f02-kp06",
+    "supporting_kp_ids": [],
+    "review_status": "REVIEWED",
+    "provenance": {
+      "question_truth_path": "content/xizong/questions/shards/2023/q151-175.json",
+      "question_truth_blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
+      "knowledge_path": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "knowledge_blob_sha": "f7765469fe1c9dd478ef6017edc2554ff6afa710"
+    },
+    "review": {
+      "semantic_owner": "Chat",
+      "anti_anchored": true,
+      "old_mapping_inherited": false,
+      "basis": "Independent SECOND_PASS solve: Current F2 KP06 explicitly freezes attached 2023N156X: 2% sodium bicarbonate may be used for parathion, dichlorvos and dimethoate, while trichlorfon is excluded because alkali converts it to more toxic dichlorvos."
+    }
+  }
+]
