@@ -2,8 +2,8 @@
   "schema": "kianos.lexical.dual_review_lane.v1",
   "lane": "C",
   "status": "ACTIVE_PREFIX_GATED",
-  "next_ordinal": 5751,
-  "completed_through": 5750,
+  "next_ordinal": 5851,
+  "completed_through": 5850,
   "campaign": "content/lexical/execution/dual-review.json",
   "source_branches": {
     "A": "work/lexical-dual-review-A-20260923",
@@ -21,9 +21,9 @@
   "checkpoint": {
     "start_ordinal": 5551,
     "target_end_ordinal": 6050,
-    "semantic_completed_through": 5750,
-    "semantic_decided_through": 5750,
-    "canonical_applied_through": 5750,
+    "semantic_completed_through": 5850,
+    "semantic_decided_through": 5850,
+    "canonical_applied_through": 5850,
     "pending_batch_apply": false,
     "pending_full_7946_flob_rebuild": false,
     "windows": [
@@ -46,6 +46,16 @@
         "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
         "c_mutation_commit": "17719646a7fbbe93221d3e74020b8d1c271800dc",
         "decision_manifest": "content/lexical/semantic-review/dual/C/o5651-o5750.decision.json"
+      },
+      {
+        "range": [
+          5751,
+          5850
+        ],
+        "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
+        "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
+        "c_mutation_commit": "07c84b81da654c0dcfbaa0beebae48ff1eb729f0",
+        "decision_manifest": "content/lexical/semantic-review/dual/C/o5751-o5850.decision.json"
       }
     ]
   },
@@ -99,7 +109,7 @@
   "active_checkpoint_branch": null,
   "checkpoint_start_ordinal": 5551,
   "checkpoint_target_through": 6050,
-  "checkpoint_staged_through": 5750,
+  "checkpoint_staged_through": 5850,
   "checkpoint_full_rebuild_pending": false,
   "window_receipts": [
     "content/lexical/execution/mutation-receipts/dual-review-c-o2551-o2650.json",
@@ -131,11 +141,12 @@
     "content/lexical/execution/mutation-receipts/dual-review-c-o5351-o5450.json",
     "content/lexical/execution/mutation-receipts/dual-review-c-o5451-o5550.json",
     "content/lexical/execution/mutation-receipts/dual-review-c-o5551-o5650.json",
-    "content/lexical/execution/mutation-receipts/dual-review-c-o5651-o5750.json"
+    "content/lexical/execution/mutation-receipts/dual-review-c-o5651-o5750.json",
+    "content/lexical/execution/mutation-receipts/dual-review-c-o5751-o5850.json"
   ],
-  "semantic_decided_through": 5750,
-  "canonical_applied_through": 5750,
-  "next_semantic_ordinal": 5751,
+  "semantic_decided_through": 5850,
+  "canonical_applied_through": 5850,
+  "next_semantic_ordinal": 5851,
   "checkpoint_batch_apply_pending": false,
   "pending_decision_manifests": [],
   "deferred_beyond_c_frontier": [],
