@@ -13,11 +13,11 @@ Fresh Chat entry:
 5. form the union of findings;
 6. adjudicate only hit/disagreement owners and required dependencies;
 7. emit exact final mutation package;
-8. apply fail-closed;
-9. rebuild exactly 7,946 FLOB;
-10. targeted readback + validators;
-11. merge through the normal authorized path;
-12. write a closure receipt binding the exact A review commit, B review commit, and C mutation commit, then advance C closure cursor.
+8. apply fail-closed to canonical owners only;
+9. targeted readback of changed owners/dependencies;
+10. commit the semantic window on the active C checkpoint branch;
+11. after roughly 500 eligible ordinals, rebuild exactly 7,946 FLOB once and run global validators once;
+12. merge that checkpoint through the normal authorized path, with receipts binding exact A/B review commits and C window commits.
 
 Streaming safety rules:
 
@@ -26,7 +26,7 @@ Streaming safety rules:
 - If a Relation/Form/Identity dependency reaches beyond the shared watermark, mark it DEFERRED_CROSS_WATERMARK and do not settle that remote endpoint early.
 - Once a batch has been consumed by a C closure receipt, A/B may correct it only through an explicit correction commit; never silently rewrite consumed review history.
 
-C is not a third 100/100 audit.
+C is not a third 100/100 audit. It reads only A/B CHANGE/BLOCKED hits; A+B NO_CHANGE owners are skipped without reopening.
 
 C rules:
 

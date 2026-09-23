@@ -1,7 +1,7 @@
 {
   "schema": "kianos.lexical.dual_review_lane.v1",
   "lane": "C",
-  "status": "ACTIVE_PREFIX_GATED",
+  "status": "ACTIVE_CHECKPOINT_BRANCH",
   "next_ordinal": 2551,
   "completed_through": 2550,
   "campaign": "content/lexical/execution/dual-review.json",
@@ -12,5 +12,12 @@
   "eligibility_rule": "NEXT_WINDOW_END_LTE_MIN_A_COMPLETED_THROUGH_B_COMPLETED_THROUGH",
   "input_freeze_rule": "CLOSURE_RECEIPT_BINDS_EXACT_A_AND_B_REVIEW_COMMITS",
   "cross_watermark_rule": "DEFER_SHARED_OWNER_IF_ANY_CAMPAIGN_ENDPOINT_EXCEEDS_SHARED_WATERMARK",
-  "consumed_history_rule": "EXPLICIT_CORRECTION_REQUIRED_NO_SILENT_REWRITE"
+  "consumed_history_rule": "EXPLICIT_CORRECTION_REQUIRED_NO_SILENT_REWRITE",
+  "active_checkpoint_branch": "work/lexical-c-checkpoint-o2551-o3050-20260923",
+  "branch_cursor_authority": "READ_EXACT_C_CURSOR_FROM_ACTIVE_CHECKPOINT_BRANCH",
+  "semantic_window_size_default": 100,
+  "semantic_window_size_dense": 50,
+  "checkpoint_span_default": 500,
+  "derived_rebuild_policy": "NO_FULL_REBUILD_PER_WINDOW_FULL_7946_REBUILD_ONCE_PER_CHECKPOINT",
+  "window_read_policy": "READ_ONLY_A_B_CHANGE_BLOCKED_HITS_SKIP_DOUBLE_NO_CHANGE"
 }
