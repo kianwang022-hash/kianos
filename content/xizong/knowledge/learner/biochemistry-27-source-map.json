@@ -16,7 +16,8 @@
     "learning_owner": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
     "question_relation_owner": "content/xizong/question-relations/",
     "rule": "This map owns current Source→canonical routing only and executes the scoped Biochemistry contract. It does not become a second medical Core, Learning constitution, question-relation owner, learner-state owner or official-question membership owner.",
-    "biochemistry_contract": "content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md"
+    "biochemistry_contract": "content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md",
+    "canonical_hierarchy_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M1_蛋白质酶与维生素_学习阅读版_v1_最终执行版.md"
   },
   "learner_execution": {
     "first_pass": "FOLLOW_27_SOURCE_ORDER_END_TO_END",
@@ -58,7 +59,19 @@
       "connections": [
         "D7/D8 metabolic-state and diabetes drug interface"
       ],
-      "notes": "M1 support here is JIT enzyme/control language, not M1 completion."
+      "notes": "M1 support here is JIT enzyme/control language, not M1 completion.",
+      "canonical_content": [
+        {
+          "block": "M1",
+          "layer": "L3",
+          "kp": [
+            9,
+            12
+          ],
+          "role": "SUPPORT_JIT",
+          "note": "enzyme/control language only; does not form or close M1"
+        }
+      ]
     },
     {
       "id": "BIO27-S02",
@@ -130,7 +143,27 @@
       "connections": [
         "D7/D8 fed-fasting and diabetes interface"
       ],
-      "notes": "Contains the current M3 NADPH wording conflict; keep fail-closed during semantic review."
+      "notes": "Contains the current M3 NADPH wording conflict; keep fail-closed during semantic review.",
+      "canonical_content": [
+        {
+          "block": "M1",
+          "layer": "L3",
+          "kp": [
+            9,
+            12
+          ],
+          "role": "SUPPORT"
+        },
+        {
+          "block": "M1",
+          "layer": "L5",
+          "kp": [
+            15,
+            17
+          ],
+          "role": "SUPPORT"
+        }
+      ]
     },
     {
       "id": "BIO27-S04",
@@ -158,7 +191,18 @@
       "connections": [
         "thyroid/thermogenesis and poisoning interfaces"
       ],
-      "notes": "Completes the current Source contact needed for the M2 energy model."
+      "notes": "Completes the current Source contact needed for the M2 energy model.",
+      "canonical_content": [
+        {
+          "block": "M1",
+          "layer": "L5",
+          "kp": [
+            15,
+            17
+          ],
+          "role": "SUPPORT"
+        }
+      ]
     },
     {
       "id": "BIO27-S05",
@@ -302,7 +346,18 @@
       "connections": [
         "hematology megaloblastic; liver ammonia; endocrine/catecholamine interfaces"
       ],
-      "notes": "Contains ALA-synthase/heme and vitamin-cofactor bridges; those remain M10/M1 support, not duplicate Primary."
+      "notes": "Contains ALA-synthase/heme and vitamin-cofactor bridges; those remain M10/M1 support, not duplicate Primary.",
+      "canonical_content": [
+        {
+          "block": "M1",
+          "layer": "L5",
+          "kp": [
+            15,
+            17
+          ],
+          "role": "SUPPORT"
+        }
+      ]
     },
     {
       "id": "BIO27-S09",
@@ -325,7 +380,27 @@
       "connections": [
         "D4 protein absorption; renal proteinuria interface"
       ],
-      "notes": "P059-P060 are Source-inserted protein maps before the explicit 1.8 header and are part of this natural unit."
+      "notes": "P059-P060 are Source-inserted protein maps before the explicit 1.8 header and are part of this natural unit.",
+      "canonical_content": [
+        {
+          "block": "M1",
+          "layer": "L1",
+          "kp": [
+            1,
+            5
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "M1",
+          "layer": "L2",
+          "kp": [
+            6,
+            8
+          ],
+          "role": "PRIMARY_FORMATION"
+        }
+      ]
     },
     {
       "id": "BIO27-S10",
@@ -388,7 +463,18 @@
       "connections": [
         "hematology hemolysis; hepatobiliary jaundice"
       ],
-      "notes": "P079 is an explicit Source bridge into biotransformation."
+      "notes": "P079 is an explicit Source bridge into biotransformation.",
+      "canonical_content": [
+        {
+          "block": "M1",
+          "layer": "L5",
+          "kp": [
+            15,
+            17
+          ],
+          "role": "SUPPORT"
+        }
+      ]
     },
     {
       "id": "BIO27-S12",
@@ -434,7 +520,37 @@
       "connections": [
         "multiple disease/diagnostic enzyme interfaces"
       ],
-      "notes": "P090 is a Source-inserted vitamin/cofactor map and bridges into S14."
+      "notes": "P090 is a Source-inserted vitamin/cofactor map and bridges into S14.",
+      "canonical_content": [
+        {
+          "block": "M1",
+          "layer": "L3",
+          "kp": [
+            9,
+            12
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "M1",
+          "layer": "L4",
+          "kp": [
+            13,
+            14
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "M1",
+          "layer": "L5",
+          "kp": [
+            15,
+            17
+          ],
+          "role": "SUPPORT_AND_PRIME",
+          "note": "P090 is the vitamin/cofactor bridge; S14 completes the vitamin-facing portion"
+        }
+      ]
     },
     {
       "id": "BIO27-S14",
@@ -452,6 +568,18 @@
       "support": [],
       "connections": [
         "D23 VitD; coagulation VitK; multiple metabolism cofactor interfaces"
+      ],
+      "canonical_content": [
+        {
+          "block": "M1",
+          "layer": "L5",
+          "kp": [
+            16,
+            17
+          ],
+          "role": "PRIMARY_COMPLETION",
+          "closes_block_source_contact": true
+        }
       ]
     },
     {
@@ -780,5 +908,15 @@
     "S11-S12 heme/bilirubin/biotransformation against M10",
     "S15-S22 molecular branch against G1-G5",
     "system/cross-system + learning + question/explanation/evidence reconciliation"
-  ]
+  ],
+  "canonical_mapping_semantics": {
+    "role": "Direct Source→canonical Knowledge hierarchy mapping. Source order remains teacher order; canonical layer mapping never creates a Block-centric reading order.",
+    "layer_ids": {
+      "L1": "M1 protein identity and conformation / KP01–KP05",
+      "L2": "M1 protein physicochemical handling and turnover / KP06–KP08",
+      "L3": "M1 enzyme execution mechanism and flux control / KP09–KP12",
+      "L4": "M1 kinetic readout and inhibition perturbation / KP13–KP14",
+      "L5": "M1 cofactor chemistry and vitamin interfaces / KP15–KP17"
+    }
+  }
 }
