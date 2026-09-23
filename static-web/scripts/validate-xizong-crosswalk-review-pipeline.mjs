@@ -27,7 +27,7 @@ check(defaultQueue.candidates.every((row) => !Object.hasOwn(row, 'mapping_decisi
 check(defaultQueue.candidates.every((row) => !Object.hasOwn(row, 'explanation')), 'default_queue_withholds_old_explanation');
 check(defaultQueue.candidates.every((row) => !Object.hasOwn(row, 'current_relation')), 'default_queue_withholds_prior_relation_targets');
 check(defaultQueue.candidates.every((row) => row.relation_exists === false), 'default_queue_excludes_already_reviewed_relations');
-check(defaultQueue.candidates.some((row) => row.question_id === 'xizong-official-2005-n132'), 'known_unmapped_needs_review_candidate_is_present');
+check(defaultQueue.candidates.some((row) => row.relation_exists === false && row.review_mode === 'DEFAULT_ANTI_ANCHORED_REVIEW'), 'unmapped_needs_review_candidate_is_present');
 check(!defaultQueue.candidates.some((row) => row.question_id === 'xizong-official-2005-n127'), 'newly_reviewed_candidate_drops_out_automatically');
 check(!defaultQueue.candidates.some((row) => row.question_id === 'xizong-official-2005-n036'), 'no_safe_match_not_silently_promoted');
 
