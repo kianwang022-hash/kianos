@@ -1,0 +1,61 @@
+{
+  "schema": "kianos.lexical.streaming_c_checkpoint_receipt.v1",
+  "status": "PASS",
+  "range": [
+    5551,
+    6050
+  ],
+  "final_mutation_commit": "5e158a9c46daa0cc3e8b0d382a92d5dd1f84edb6",
+  "semantic_decided_through": 6050,
+  "canonical_applied_through": 6050,
+  "full_flob_rebuild_run": false,
+  "flob_required_for_semantic_closure": false,
+  "website_projection_status": "BUILD_TIME_DERIVED_INCREMENTAL_PR907",
+  "checkpoint_incremental_projection_qa": {
+    "status": "PASS",
+    "validated_words": 86,
+    "changed_paths": 163,
+    "writes": 0
+  },
+  "natural_owner_audit": "PASS",
+  "current_owner_lineage": {
+    "broken_lineage_count": 0,
+    "missing_k_record_count": 0,
+    "broken_source_pointer_count": 0
+  },
+  "decision_manifests": [
+    "content/lexical/semantic-review/dual/C/o5551-o5650.decision.json",
+    "content/lexical/semantic-review/dual/C/o5651-o5750.decision.json",
+    "content/lexical/semantic-review/dual/C/o5751-o5850.decision.json",
+    "content/lexical/semantic-review/dual/C/o5851-o5950.decision.json",
+    "content/lexical/semantic-review/dual/C/o5951-o6050.decision.json"
+  ],
+  "window_receipts": [
+    "content/lexical/execution/mutation-receipts/dual-review-c-o5551-o5650.json",
+    "content/lexical/execution/mutation-receipts/dual-review-c-o5651-o5750.json",
+    "content/lexical/execution/mutation-receipts/dual-review-c-o5751-o5850.json",
+    "content/lexical/execution/mutation-receipts/dual-review-c-o5851-o5950.json",
+    "content/lexical/execution/mutation-receipts/dual-review-c-o5951-o6050.json"
+  ],
+  "checkpoint_no_regression": {
+    "start_counts": {
+      "learner_array_status_leaks": 42,
+      "active_secondary_duplicates": 82,
+      "relation_owner_file_count": 430,
+      "relation_manifest_count": 430,
+      "exact_construction_collocation_surface_duplicates": 105,
+      "words_requiring_web_judgment_if_unfixed": 116
+    },
+    "end_counts": {
+      "learner_array_status_leaks": 42,
+      "active_secondary_duplicates": 82,
+      "relation_owner_file_count": 424,
+      "relation_manifest_count": 424,
+      "exact_construction_collocation_surface_duplicates": 105,
+      "words_requiring_web_judgment_if_unfixed": 116
+    },
+    "status": "IMPROVED_OR_EQUAL_ALL_TRACKED_METRICS"
+  },
+  "checkpoint_direct_render_status": "BLOCKED_PREEXISTING_ONLY",
+  "projection_policy": "PR907_CHANGED_OWNER_AND_REVERSE_RELATION_DEPENDANT; ONE_CHECKPOINT_FULL_AUDIT; NO_FULL_FLOB_REBUILD"
+}

@@ -1,0 +1,93 @@
+{
+  "schema": "kianos.lexical.streaming_c_decision_manifest.v1",
+  "status": "DECIDED_FOR_IMMEDIATE_APPLY",
+  "range": [
+    5551,
+    5650
+  ],
+  "semantic_baseline_sha": "12766cf94b89bd135016e3213637e31edd19adfe",
+  "shared_watermark_at_reconcile": 7946,
+  "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
+  "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
+  "anomaly_count": 12,
+  "decisions": [
+    {
+      "ordinal": 5555,
+      "word": "intern",
+      "disposition": "NOOP",
+      "final_decision": "NOOP_CURRENT_ALREADY_CORRECT: noun/verb intern stress identity already explicit"
+    },
+    {
+      "ordinal": 5558,
+      "word": "jeans",
+      "disposition": "APPLY",
+      "final_decision": "add plural-only clothing number identity for jeans"
+    },
+    {
+      "ordinal": 5562,
+      "word": "lieutenant",
+      "disposition": "NOOP",
+      "final_decision": "NOOP_CURRENT_ALREADY_CORRECT: BrE/AmE lieutenant pronunciation boundary already explicit"
+    },
+    {
+      "ordinal": 5575,
+      "word": "optics",
+      "disposition": "APPLY",
+      "final_decision": "add field-singular vs public-image-plural usage identity for optics"
+    },
+    {
+      "ordinal": 5578,
+      "word": "outskirt",
+      "disposition": "NOOP",
+      "final_decision": "NOOP_CURRENT_ALREADY_CORRECT: singular outskirt already rare/reference and productive plural outskirts explicit"
+    },
+    {
+      "ordinal": 5580,
+      "word": "Pacific",
+      "disposition": "NOOP",
+      "final_decision": "NOOP_CURRENT_ALREADY_CORRECT: Pacific geographic vs lowercase pacific peaceful capitalization identity already explicit"
+    },
+    {
+      "ordinal": 5589,
+      "word": "practicable",
+      "disposition": "APPLY",
+      "final_decision": "add exact practical target sense anchor to practicable contrast"
+    },
+    {
+      "ordinal": 5606,
+      "word": "Soviet",
+      "disposition": "APPLY",
+      "final_decision": "add Soviet proper historical adjective vs lowercase soviet council capitalization identity"
+    },
+    {
+      "ordinal": 5620,
+      "word": "transformer",
+      "disposition": "APPLY",
+      "final_decision": "add electrical lowercase transformer vs named AI Transformer domain capitalization boundary"
+    },
+    {
+      "ordinal": 5622,
+      "word": "trousers",
+      "disposition": "APPLY",
+      "final_decision": "add plural-only clothing number identity for trousers"
+    },
+    {
+      "ordinal": 5638,
+      "word": "x-ray",
+      "disposition": "NOOP",
+      "final_decision": "NOOP_CURRENT_ALREADY_CORRECT: X-ray/x-ray casing boundary already explicit"
+    },
+    {
+      "ordinal": 5648,
+      "word": "affluence",
+      "disposition": "APPLY",
+      "final_decision": "remove unsupported 流注 from affluence Chinese definition"
+    }
+  ],
+  "dependency_mutations": [],
+  "flob_required_for_semantic_closure": false,
+  "implementation_notes": [
+    "Current Natural Owner remains semantic authority.",
+    "No per-window full-catalog audit and no full FLOB rebuild."
+  ]
+}

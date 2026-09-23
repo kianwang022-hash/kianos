@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "dc6f4d2ffdb26e6eea59cdb61f740fae3d00cf4423b4bdf58b2ccf66cdfbcc39",
+    "content_hash": "f45a578ee2677e2aaf2633117453e4da113e57fd930d87bd15d8f15386845360",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "新郎",
@@ -26,8 +26,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "新郎",
-        "definition_en": "a man who has recently been married",
+        "definition_cn": "新郎；刚结婚的男子",
+        "definition_en": "a man at his wedding or recently married",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
@@ -37,37 +37,6 @@
         "sense_id": "sense:bridegroom:0211518362235b59",
         "sense_label_en": "a man who has recently been married",
         "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:ecdict:da3ea6cd3534d39034f4",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://cet6/1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
-            "source_type": "learner_dictionary"
-          },
-          {
-            "evidence_id": "source-fact:wiktionary-wiktextract:668eddd3408945700bb3",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://cet6/1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "新郎",
-        "definition_en": "a man participant in his own marriage ceremony",
-        "depth": "full_card",
-        "domain_tag": "cet6",
-        "frequency_tag": "cet6",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:bridegroom:3dbd1fdd8c6c5cc3",
-        "sense_label_en": "a man participant in his own marriage ceremony",
-        "sort_order": 2,
         "source_evidence": [
           {
             "evidence_id": "source-fact:ecdict:da3ea6cd3534d39034f4",
@@ -100,7 +69,24 @@
     "word_id": "word:bridegroom"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:bridegroom:3dbd1fdd8c6c5cc3",
+      "status": "merged",
+      "merged_into_sense_id": "sense:bridegroom:0211518362235b59",
+      "pos": "noun",
+      "definition_cn": "新郎",
+      "definition_en": "a man participant in his own marriage ceremony",
+      "semantic_key": "dae475842f377a88d1872e895d58029295c938d6df65daa2d95c10e9368da4cc",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-08-22T21:34:23+00:00",
+      "source_row": 15917,
+      "source_path": "content/lexical/canonical/senses/shards/o5665-5696.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -112,8 +98,8 @@
       },
       {
         "sense_id": "sense:bridegroom:3dbd1fdd8c6c5cc3",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:bridegroom:0211518362235b59",
         "source_row": 15917,
         "source_path": "content/lexical/canonical/senses/shards/o5665-5696.json"
       }
@@ -142,7 +128,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5689-5696.json",
-    "source_content_hash": "dc6f4d2ffdb26e6eea59cdb61f740fae3d00cf4423b4bdf58b2ccf66cdfbcc39",
+    "source_content_hash": "f45a578ee2677e2aaf2633117453e4da113e57fd930d87bd15d8f15386845360",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
