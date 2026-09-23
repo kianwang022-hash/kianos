@@ -7,9 +7,18 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "ec344ff9acb6891175682d111c4249f50dc73023ee1e165f4dc973a6be17b8f9",
+    "content_hash": "ad4c7c155c6f3532046788f10ae5f2c243adbe1a1ee5d6a00ed2d56287aab4b9",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "热带地区",
+          "label_en": "the tropical regions between the two Tropics",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:tropic:ce0732d10d5b7450"
+          ]
+        }
+      ],
       "core_meaning_cn": "回归线",
       "core_meaning_en": "one of the two parallels of latitude",
       "mental_model_cn": "回归线",
@@ -52,11 +61,49 @@
         "definition_en": "either of two parallels of latitude about 23.5 degrees north and south of the equator",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "capitalization_geographic_name_boundary",
+          "note": "Tropic of Cancer/Capricorn are capitalized named lines; lowercase the tropics refers to the tropical regions",
+          "paired_form": "the tropics",
+          "surface_lemma": "Tropic"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:tropic:08c2ff2da2a55ba2",
         "sense_label_en": "either of two parallels of latitude about 23.5 degrees north and south o",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:673de2f1d72398466a1f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:tropic:ce0732d10d5b7450:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "热带地区",
+            "phrase": "the tropics"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "热带地区",
+        "definition_en": "the regions of the Earth between the Tropic of Cancer and the Tropic of Capricorn",
+        "governing_pattern": "",
+        "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "capitalization_geographic_name_boundary",
+          "note": "lowercase the tropics = tropical regions; named Tropic of Cancer/Capricorn is capitalized",
+          "paired_form": "Tropic of Cancer/Capricorn",
+          "surface_lemma": "the tropics"
+        },
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:tropic:ce0732d10d5b7450",
+        "sense_label_en": "the regions of the Earth between the Tropic of Cancer and the Tropic of Capricorn",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -129,11 +176,19 @@
         "merged_into_sense_id": null,
         "source_row": 14641,
         "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json"
+      },
+      {
+        "sense_id": "sense:tropic:ce0732d10d5b7450",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14698,
+        "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json"
       }
     ],
     "active_collocations": [
       "collocation:0244f2afb252218c8bf1",
-      "collocation:517f10f72419e889441f"
+      "collocation:517f10f72419e889441f",
+      "collocation:673de2f1d72398466a1f"
     ],
     "facts": [
       {
@@ -151,6 +206,11 @@
       {
         "id": "collocation:517f10f72419e889441f",
         "source_row": 6880,
+        "source_path": "content/lexical/canonical/collocations/shards/o5121-5152.json"
+      },
+      {
+        "id": "collocation:673de2f1d72398466a1f",
+        "source_row": 21406,
         "source_path": "content/lexical/canonical/collocations/shards/o5121-5152.json"
       }
     ],
@@ -180,7 +240,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5137-5144.json",
-    "source_content_hash": "ec344ff9acb6891175682d111c4249f50dc73023ee1e165f4dc973a6be17b8f9",
+    "source_content_hash": "ad4c7c155c6f3532046788f10ae5f2c243adbe1a1ee5d6a00ed2d56287aab4b9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

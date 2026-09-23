@@ -90,12 +90,12 @@
   },
   "word_views": [
     {
-      "source_word_id": "word:vest",
-      "source_ordinal": 5282,
+      "source_word_id": "word:invest",
+      "source_ordinal": 2635,
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "vest 授予 vs invest 授予；vest 侧重权利归属",
+        "boundary": "vest and formal invest can both confer/assign authority or rights; vest foregrounds legal/formal placement or belonging of authority/property/rights",
         "codex_reviewed": false,
         "definition_cn": null,
         "definition_en": null,
@@ -130,8 +130,61 @@
         "pos": null,
         "priority": "A",
         "publication_status": "publishable",
-        "shared_definition": "provide with power and authority",
+        "shared_definition": "to confer or place authority, power, rights, or responsibilities",
+        "source_sense_id": "sense:invest:5624ec75c3bd5ea9",
+        "target_sense_id": "sense:vest:42bdfb60388e5198",
+        "target_word": "vest",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      }
+    },
+    {
+      "source_word_id": "word:vest",
+      "source_ordinal": 5282,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "vest and formal invest can both confer/assign authority or rights; vest foregrounds legal/formal placement or belonging of authority/property/rights",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "vest authority in sb",
+          "core_meaning": "授予权利/财产",
+          "exam_trap": "vest/invest 拼写混淆",
+          "register": "正式",
+          "semantic_prosody": "中性",
+          "strength": "强",
+          "syntax": "及物+in/with",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:02391530-v",
+            "evidence_status": "source_checked",
+            "source_locator": "02391530-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:vest:1be0262bcee5f796",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": "to confer or place authority, power, rights, or responsibilities",
         "source_sense_id": "sense:vest:42bdfb60388e5198",
+        "target_sense_id": "sense:invest:5624ec75c3bd5ea9",
         "target_word": "invest",
         "task_tags": [
           "reading"

@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6567c3dad830cfa63b8eafb1de843f52c5fd7df27630d795af086741b525e9a4",
+    "content_hash": "d5e750cec3269db8b5a2fd34b1c224674bdfd72ed25ae88df2bba7f5c480b1dd",
     "core_concept": {
       "core_clusters": [
         {
@@ -85,15 +85,6 @@
             ],
             "meaning_cn": "谎言的网络",
             "phrase": "web of lies"
-          },
-          {
-            "collocation_id": "collocation:7e6c7a2f0bea0efc41a2",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:web:ff2d1f8f5e835fb1:collocation:1"
-            ],
-            "meaning_cn": "万维网",
-            "phrase": "World Wide Web"
           }
         ],
         "confidence": "medium",
@@ -157,7 +148,26 @@
         "transitivity": "vi"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:7e6c7a2f0bea0efc41a2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:web:ff2d1f8f5e835fb1:collocation:1"
+            ],
+            "meaning_cn": "万维网",
+            "phrase": "World Wide Web"
+          },
+          {
+            "collocation_id": "collocation:50d37f1ab08d2df442ab",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:web:98f2b1da6a890cde:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "万维网",
+            "phrase": "the World Wide Web / the Web"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "万维网；互联网页面和在线资源构成的 Web",
         "definition_en": "the World Wide Web: the interconnected system of online pages and resources",
@@ -233,6 +243,7 @@
     "active_collocations": [
       "collocation:17c3657ca2d7a6cfc27a",
       "collocation:4c98dded01826c4dd620",
+      "collocation:50d37f1ab08d2df442ab",
       "collocation:7e6c7a2f0bea0efc41a2",
       "collocation:a9dc30d5cc9b5d39278e",
       "collocation:e1160da0e0fe824a8802"
@@ -262,6 +273,11 @@
       {
         "id": "collocation:e1160da0e0fe824a8802",
         "source_row": 19034,
+        "source_path": "content/lexical/canonical/collocations/shards/o5345-5376.json"
+      },
+      {
+        "id": "collocation:50d37f1ab08d2df442ab",
+        "source_row": 21604,
         "source_path": "content/lexical/canonical/collocations/shards/o5345-5376.json"
       }
     ],
@@ -296,7 +312,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5369-5376.json",
-    "source_content_hash": "6567c3dad830cfa63b8eafb1de843f52c5fd7df27630d795af086741b525e9a4",
+    "source_content_hash": "d5e750cec3269db8b5a2fd34b1c224674bdfd72ed25ae88df2bba7f5c480b1dd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

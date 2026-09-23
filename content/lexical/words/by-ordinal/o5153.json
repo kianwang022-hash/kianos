@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "74a10ef7ce3a5e929bd206332c8efab627289871d9f71f8679ce54a3dc98b6d0",
+    "content_hash": "871c03707737d2daadfac1e007c8e08487f6a3867ff03c369f0deabed0da2d84",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "跌倒；翻滚",
@@ -107,10 +107,21 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:2fc35cd790dd0596f43f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:tumble:0e139db192ee52a5:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "价格/股价暴跌",
+            "phrase": "prices/shares tumbled"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "暴跌；骤降",
         "definition_en": "to fall sharply and suddenly in amount, price, value, or level",
+        "governing_pattern": "vi.: prices/values/shares/temperatures tumble",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -135,7 +146,8 @@
             "source_operation_sha256": "49654cfba7b746a6038b0d02ef24cd41d01f98068d3efce66e78fc2b80b06de8",
             "verification_status": "auditor_verified"
           }
-        ]
+        ],
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -192,6 +204,7 @@
     ],
     "active_collocations": [
       "collocation:0b040b980f4421f43084",
+      "collocation:2fc35cd790dd0596f43f",
       "collocation:3f9cf8bb9ce57d3c5a81",
       "collocation:985aa10900a919704738",
       "collocation:d59b62e86f7a1e8b2d30"
@@ -216,6 +229,11 @@
       {
         "id": "collocation:d59b62e86f7a1e8b2d30",
         "source_row": 18070,
+        "source_path": "content/lexical/canonical/collocations/shards/o5153-5184.json"
+      },
+      {
+        "id": "collocation:2fc35cd790dd0596f43f",
+        "source_row": 21321,
         "source_path": "content/lexical/canonical/collocations/shards/o5153-5184.json"
       }
     ],
@@ -250,7 +268,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5153-5160.json",
-    "source_content_hash": "74a10ef7ce3a5e929bd206332c8efab627289871d9f71f8679ce54a3dc98b6d0",
+    "source_content_hash": "871c03707737d2daadfac1e007c8e08487f6a3867ff03c369f0deabed0da2d84",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

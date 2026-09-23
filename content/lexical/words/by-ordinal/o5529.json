@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3f21ed2e7b57fa11d356421e2c1e259a2bf7d1f3c5cef7c33b5590a9693b860d",
+    "content_hash": "412aa3a300d53471a0617f009b7f2ef1fa1273501f70868e483c07faab046863",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "登记；注册；入学",
@@ -16,6 +16,26 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "BF16 existing-truth Form migration 2026-09-22",
+      "boundaries": [
+        {
+          "condition": "American English",
+          "note": "usual AmE spelling",
+          "surface": "enroll"
+        },
+        {
+          "condition": "British English",
+          "note": "common BrE spelling",
+          "surface": "enrol"
+        }
+      ],
+      "boundary": "enroll is the usual American spelling; enrol is the common British spelling. Both frozen Word owners remain distinct catalogue identities.",
+      "form_type": "regional_spelling_identity",
+      "identity_rule": "paired_frozen_word_spelling_variant",
+      "spelling": "enroll",
+      "variants": []
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,11 +46,30 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:dbb10aed37c8e11d6754",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:enroll:fe581c3e3bd053cf:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "注册/报名参加课程或项目",
+            "phrase": "enroll in/on a course/program"
+          },
+          {
+            "collocation_id": "collocation:b9354144069af9ec2379",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:enroll:fe581c3e3bd053cf:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "为某人登记/注册参加某项目",
+            "phrase": "enroll sb in/on sth"
+          }
+        ],
         "confidence": "auditor_approved",
         "definition_cn": "登记；注册；入学",
         "definition_en": "to officially register or be registered as a member, student, or participant",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: enroll in/on a course/program/school; enroll sb in/on sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -48,7 +87,7 @@
           "source-fact:wiktionary-wiktextract:eeba3cd234e13fcb6e4c",
           "source-fact:wiktionary-wiktextract:fabd75b30bc74dd5b27b"
         ],
-        "transitivity": null
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -62,27 +101,7 @@
     },
     "word": "enroll",
     "word_family": [],
-    "word_id": "word:enroll",
-    "form_identity": {
-      "form_type": "regional_spelling_identity",
-      "spelling": "enroll",
-      "identity_rule": "paired_frozen_word_spelling_variant",
-      "boundary": "enroll is the usual American spelling; enrol is the common British spelling. Both frozen Word owners remain distinct catalogue identities.",
-      "boundaries": [
-        {
-          "surface": "enroll",
-          "condition": "American English",
-          "note": "usual AmE spelling"
-        },
-        {
-          "surface": "enrol",
-          "condition": "British English",
-          "note": "common BrE spelling"
-        }
-      ],
-      "variants": [],
-      "authority": "BF16 existing-truth Form migration 2026-09-22"
-    }
+    "word_id": "word:enroll"
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -96,9 +115,23 @@
         "source_path": "content/lexical/canonical/senses/shards/o5505-5536.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:b9354144069af9ec2379",
+      "collocation:dbb10aed37c8e11d6754"
+    ],
     "facts": [],
-    "collocations": [],
+    "collocations": [
+      {
+        "id": "collocation:b9354144069af9ec2379",
+        "source_row": 21355,
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+      },
+      {
+        "id": "collocation:dbb10aed37c8e11d6754",
+        "source_row": 21356,
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+      }
+    ],
     "exam-mappings": [],
     "packs": [
       {
@@ -125,7 +158,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5529-5536.json",
-    "source_content_hash": "3f21ed2e7b57fa11d356421e2c1e259a2bf7d1f3c5cef7c33b5590a9693b860d",
+    "source_content_hash": "412aa3a300d53471a0617f009b7f2ef1fa1273501f70868e483c07faab046863",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "9b9703b2abbbb39662f5908c56b4ebe50b7470f03397d780ac06ff172a4b7655",
+    "content_hash": "933eea28311c5d358e3e521bd135ee737497d8bb230279b0aa13f0c42789cdd8",
     "core_concept": {
       "core_clusters": [
         {
@@ -68,6 +68,15 @@
             ],
             "meaning_cn": "弄湿",
             "phrase": "get wet"
+          },
+          {
+            "collocation_id": "collocation:802e4ff58de5692de918",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:wet:2f954acf95fa5402:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "油漆还没干。",
+            "phrase": "The paint is still wet."
           }
         ],
         "confidence": "medium",
@@ -116,28 +125,20 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:4512eab4f304d7e71d8b",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:wet:75e98086dbb058d3:collocation:0"
-            ],
-            "meaning_cn": "油漆还没干。",
-            "phrase": "The paint is still wet."
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "变湿",
         "definition_en": "to become wet",
         "governing_pattern": "vi.",
-        "level": "L2",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
+        "register": "rare/limited intransitive use",
         "sense_id": "sense:wet:75e98086dbb058d3",
         "sense_label_en": "to become wet",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "Intransitive wet = become wet is limited; ordinary learner production usually uses get/become wet. Do not use copular “be wet” as evidence of this verb sense."
       },
       {
         "collocations": [
@@ -219,8 +220,8 @@
     "active_collocations": [
       "collocation:1fe0c31cdab78041d38c",
       "collocation:30b449cc7aff2ceae659",
-      "collocation:4512eab4f304d7e71d8b",
       "collocation:56e3114175f352598318",
+      "collocation:802e4ff58de5692de918",
       "collocation:98d6bf3c234b9473a77f",
       "collocation:c222dab8d076c52eec97"
     ],
@@ -255,6 +256,11 @@
         "id": "collocation:c222dab8d076c52eec97",
         "source_row": 16417,
         "source_path": "content/lexical/canonical/collocations/shards/o5377-5408.json"
+      },
+      {
+        "id": "collocation:802e4ff58de5692de918",
+        "source_row": 21053,
+        "source_path": "content/lexical/canonical/collocations/shards/o5377-5408.json"
       }
     ],
     "exam-mappings": [],
@@ -283,7 +289,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5385-5392.json",
-    "source_content_hash": "9b9703b2abbbb39662f5908c56b4ebe50b7470f03397d780ac06ff172a4b7655",
+    "source_content_hash": "933eea28311c5d358e3e521bd135ee737497d8bb230279b0aa13f0c42789cdd8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

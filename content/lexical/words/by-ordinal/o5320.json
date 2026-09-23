@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "98ddc5663eb352ffb37dff020b08409b0a4cde7d4eeb741901f1055d14694a0d",
+    "content_hash": "9f920ba2697f393813571571b9e7ce8a18103b55b08a5d0525dc2ed83f555ad3",
     "core_concept": {
       "core_clusters": [
         {
@@ -61,15 +61,6 @@
             ],
             "meaning_cn": "填补空虚",
             "phrase": "fill the void"
-          },
-          {
-            "collocation_id": "collocation:bac82ed1f1c560da35c9",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:void:9a46b25fefd654cb:collocation:1"
-            ],
-            "meaning_cn": "缺乏；没有",
-            "phrase": "void of"
           }
         ],
         "confidence": "medium",
@@ -85,11 +76,30 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:bac82ed1f1c560da35c9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:void:9a46b25fefd654cb:collocation:1"
+            ],
+            "meaning_cn": "缺乏；没有",
+            "phrase": "void of"
+          },
+          {
+            "collocation_id": "collocation:c7687852f7befcc396a7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:void:81aed3effde553c1:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "完全没有；缺乏某物",
+            "phrase": "be void of sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "空的；空无的",
         "definition_en": "containing nothing; empty",
-        "governing_pattern": "",
+        "governing_pattern": "adjective: be void of sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
@@ -245,6 +255,7 @@
       "collocation:87f920c8499ebb740d82",
       "collocation:bac82ed1f1c560da35c9",
       "collocation:bf04fad247fcafaa0f9f",
+      "collocation:c7687852f7befcc396a7",
       "collocation:d56affa58db67de00621"
     ],
     "facts": [],
@@ -277,6 +288,11 @@
       {
         "id": "collocation:d56affa58db67de00621",
         "source_row": 18045,
+        "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
+      },
+      {
+        "id": "collocation:c7687852f7befcc396a7",
+        "source_row": 21392,
         "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
       }
     ],
@@ -311,7 +327,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5313-5320.json",
-    "source_content_hash": "98ddc5663eb352ffb37dff020b08409b0a4cde7d4eeb741901f1055d14694a0d",
+    "source_content_hash": "9f920ba2697f393813571571b9e7ce8a18103b55b08a5d0525dc2ed83f555ad3",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

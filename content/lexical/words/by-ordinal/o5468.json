@@ -24,7 +24,7 @@
         "source_sense_id": "sense:worthwhile:26cf32e255625ced"
       }
     ],
-    "content_hash": "1299151259172bc2a3bef7307a053d9c7555513042bb05310dadacfec1b14d36",
+    "content_hash": "aaebce57c61337f62446cf02aa561007cdf35310746f94b5520164e626ae8dff",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "值得的",
@@ -43,15 +43,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:e7cfa1c46e403c682c64",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:worthwhile:26cf32e255625ced:collocation:0"
-            ],
-            "meaning_cn": "值得做某事",
-            "phrase": "be worthwhile to do + sth"
-          },
-          {
             "collocation_id": "collocation:24594ed10a00130eed9d",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -59,6 +50,15 @@
             ],
             "meaning_cn": "一个值得做的项目",
             "phrase": "a worthwhile project"
+          },
+          {
+            "collocation_id": "collocation:a3962e9b71f81b46bbcf",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:worthwhile:26cf32e255625ced:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "值得投入时间/精力的项目/活动",
+            "phrase": "a worthwhile project/activity"
           }
         ],
         "confidence": "medium",
@@ -107,7 +107,7 @@
     ],
     "active_collocations": [
       "collocation:24594ed10a00130eed9d",
-      "collocation:e7cfa1c46e403c682c64"
+      "collocation:a3962e9b71f81b46bbcf"
     ],
     "facts": [],
     "collocations": [
@@ -119,6 +119,11 @@
       {
         "id": "collocation:e7cfa1c46e403c682c64",
         "source_row": 19645,
+        "source_path": "content/lexical/canonical/collocations/shards/o5441-5472.json"
+      },
+      {
+        "id": "collocation:a3962e9b71f81b46bbcf",
+        "source_row": 21618,
         "source_path": "content/lexical/canonical/collocations/shards/o5441-5472.json"
       }
     ],
@@ -153,7 +158,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5465-5472.json",
-    "source_content_hash": "1299151259172bc2a3bef7307a053d9c7555513042bb05310dadacfec1b14d36",
+    "source_content_hash": "aaebce57c61337f62446cf02aa561007cdf35310746f94b5520164e626ae8dff",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -8,40 +8,6 @@
     "confusables": [],
     "constructions": [
       {
-        "construction_id": "construction:055a71433c42dd202c5a",
-        "level": "L1",
-        "meaning_cn": "过去常常做…",
-        "pattern": "used to do sth",
-        "source_evidence_objects": [
-          {
-            "collocation_id": "collocation:bc14abfe31187337c7e0",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:use:61ddd9dabd6a5811:collocation:0"
-            ],
-            "meaning_cn": "过去常常做某事",
-            "phrase": "used to + do"
-          },
-          {
-            "collocation_id": "collocation:9ebe354489ef9768580b",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:use:61ddd9dabd6a5811:collocation:1"
-            ],
-            "meaning_cn": "我过去常常游泳。",
-            "phrase": "I used to swim."
-          }
-        ]
-      },
-      {
-        "construction_id": "construction:edb95d8f8d00c1c4085c",
-        "direction": "R+P",
-        "level": "L1",
-        "meaning_cn": "过去常做/曾经处于某状态",
-        "pattern": "used to do/be",
-        "source_sense_id": "sense:use:61ddd9dabd6a5811"
-      },
-      {
         "construction_id": "construction:ca346ef3c943a2bb25f6",
         "direction": "R+P",
         "level": "L1",
@@ -54,14 +20,23 @@
         "level": "L1",
         "meaning_cn": "逐渐习惯于……",
         "pattern": "get used to + n/V-ing"
+      },
+      {
+        "boundary": "past habitual/state construction; distinct from be/get used to + noun/V-ing = be/become accustomed",
+        "construction_id": "construction:3a5e7b51721d16ba18a3",
+        "definition_en": "used for a past habit or state that is no longer true or no longer current",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "过去常常做……；过去曾处于某状态（现在通常不再如此）",
+        "pattern": "used to + base verb"
       }
     ],
-    "content_hash": "1d9e4e637843e2d89323a74618dc2c3223706e394a26aceb109a7b1a900dedc0",
+    "content_hash": "926667edb5584d95b4c2e11aeaa244c1ee5de67b79fb615754e85fc706f9b283",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "使用，利用；惯常，过去常常",
-          "label_en": "to employ something for a particular purpose; to do something in the past habitually (used only in past tense)",
+          "label_cn": "使用，利用",
+          "label_en": "to employ something for a particular purpose",
           "pos": "verb",
           "sense_ids": [
             "sense:use:c397c46e97f15de9"
@@ -76,9 +51,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "使用，利用",
-      "core_meaning_en": "to employ something for a purpose; the act of employing",
-      "mental_model_cn": "使用，利用",
+      "core_meaning_cn": "使用，利用；使用/用法",
+      "core_meaning_en": "to employ something for a purpose; the act or manner of using",
+      "mental_model_cn": "使用，利用；使用/用法",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -174,20 +149,6 @@
         "sense_label_en": "the act of using something",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "惯常，过去常常",
-        "definition_en": "to do something in the past habitually (used only in past tense)",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:use:61ddd9dabd6a5811",
-        "sense_label_en": "to do something in the past habitually (used only in past tense)",
-        "sort_order": 999,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -217,12 +178,36 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:use:61ddd9dabd6a5811",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "惯常，过去常常",
+      "definition_en": "to do something in the past habitually (used only in past tense)",
+      "semantic_key": "7e633964dd3d4f0fa82e1112c692a434a3c1fc1a94c38b37fbb7959412764a64",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "use:l2:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "use:l2:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 14899,
+      "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:use:61ddd9dabd6a5811",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 14899,
         "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
@@ -323,7 +308,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5225-5232.json",
-    "source_content_hash": "1d9e4e637843e2d89323a74618dc2c3223706e394a26aceb109a7b1a900dedc0",
+    "source_content_hash": "926667edb5584d95b4c2e11aeaa244c1ee5de67b79fb615754e85fc706f9b283",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

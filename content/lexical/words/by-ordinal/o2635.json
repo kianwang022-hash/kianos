@@ -23,7 +23,7 @@
         "source_sense_id": "sense:invest:5624ec75c3bd5ea9"
       }
     ],
-    "content_hash": "eec80c035c23b27b5cd73409acfc8be341c6e16d19644bed9e5121db8c18b976",
+    "content_hash": "3160ecdd88eb0d8d0f330cec54d2a1b8b5dbb4beb3a9f6402c1fa4776549b5fc",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "投资",
@@ -106,7 +106,14 @@
     "word_family": [],
     "word_id": "word:invest"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:vest:1be0262bcee5f796",
+      "owner_path": "content/lexical/relations/by-id/33/33d218f0e9bfbec6d26668ea67577d7141a2736752b4bec43ce108eb3d4d24f5.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [
     {
       "stable_sense_id": "sense:invest:8af34f19799055c4",
@@ -221,7 +228,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2633-2640.json",
-    "source_content_hash": "eec80c035c23b27b5cd73409acfc8be341c6e16d19644bed9e5121db8c18b976",
+    "source_content_hash": "3160ecdd88eb0d8d0f330cec54d2a1b8b5dbb4beb3a9f6402c1fa4776549b5fc",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

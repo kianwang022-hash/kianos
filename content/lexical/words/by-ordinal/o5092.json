@@ -8,10 +8,10 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "train sb to do sth",
+        "boundary": "transitive teaching/training branch",
         "codex_reviewed": false,
         "definition_cn": "训练；教育",
-        "definition_en": "to teach a person or animal a skill or behavior",
+        "definition_en": "to teach or develop a person's or animal's ability to do something",
         "dimensions": {},
         "direction": "R+P",
         "evidence": [
@@ -57,12 +57,12 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "2241be10d5a844ce6b731a51a0b35d6e7712d6dbe3748e3c8a44ad4e14776e65",
+    "content_hash": "3f905cfe52fa3de915b59c460e90c00afc7b9b60eab10c77f8690fdc70963554",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "火车；列车",
-          "label_en": "a connected series of railway cars pulled by a locomotive",
+          "label_en": "a connected series of railway cars",
           "pos": "noun",
           "sense_ids": [
             "sense:train:ea2e5f129cbc5703"
@@ -70,16 +70,24 @@
         },
         {
           "label_cn": "受训练；锻炼",
-          "label_en": "to practice or undergo instruction to prepare for a sport or job",
+          "label_en": "to practice or undergo instruction for a sport/job",
           "pos": "verb",
           "sense_ids": [
             "sense:train:2e217bfa94875567"
           ]
+        },
+        {
+          "label_cn": "训练；教育；培养技能",
+          "label_en": "to teach or develop a person/animal through instruction/practice",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:train:5457a182d3a955d7"
+          ]
         }
       ],
-      "core_meaning_cn": "火车；列车；受训练；锻炼",
-      "core_meaning_en": "a connected series of railway cars pulled by a locomotive; to practice or undergo instruction to prepare for a sport or job",
-      "mental_model_cn": "火车；列车；受训练；锻炼",
+      "core_meaning_cn": "火车；接受训练；训练他人/动物",
+      "core_meaning_en": "train as railway vehicle; undergo training; train/teach a person or animal",
+      "mental_model_cn": "火车；接受训练；训练他人/动物",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -127,16 +135,59 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:708a556c553d6cbd0ca9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:train:2e217bfa94875567:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "为比赛/工作进行训练",
+            "phrase": "train for a race/job"
+          },
+          {
+            "collocation_id": "collocation:30578695352ec7a33960",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:train:2e217bfa94875567:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "接受训练以成为/做……",
+            "phrase": "train to be/do sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "受训练；锻炼",
         "definition_en": "to practice or undergo instruction to prepare for a sport or job",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: train for a race/job; train to be/do sth; train at + place",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:train:2e217bfa94875567",
         "sense_label_en": "to practice or undergo instruction to prepare for a sport or job",
+        "sort_order": 999,
+        "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e51baa93f765fc878223",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:train:5457a182d3a955d7:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "训练某人/某物",
+            "phrase": "train sb/sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "训练；教育；培养技能",
+        "definition_en": "to teach or develop a person or animal's skills, behavior, or ability through instruction or practice",
+        "governing_pattern": "vt.: train sb/sth; train sb to do sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:train:5457a182d3a955d7",
+        "sense_label_en": "to teach or develop a person or animal's skills, behavior, or ability through instruction or practice",
         "sort_order": 999,
         "transitivity": "vt"
       }
@@ -220,31 +271,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:train:5457a182d3a955d7",
-      "status": "active",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "训练；教育；培养技能",
-      "definition_en": "to teach a person or animal a skill or behavior",
-      "semantic_key": "3e85689d680cd1de554ce9a46efb45750ca538aa7be590a59905834cad51dfdb",
-      "semantic_key_history": [
-        "65f6429e5017ee965dc337d17217bfd4fe383a976e912755a327f10bed01a9cd"
-      ],
-      "legacy_aliases": [
-        "train:l1:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "train:l1:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-15T05:20:00Z",
-      "source_row": 14497,
-      "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:train:66cb2b31b0565ba7",
       "status": "merged",
       "merged_into_sense_id": "sense:train:ea2e5f129cbc5703",
@@ -316,8 +342,11 @@
       }
     ],
     "active_collocations": [
+      "collocation:30578695352ec7a33960",
+      "collocation:708a556c553d6cbd0ca9",
       "collocation:d3d69c5c510bac4ae141",
-      "collocation:dc62f0a0ab1ccbd1b318"
+      "collocation:dc62f0a0ab1ccbd1b318",
+      "collocation:e51baa93f765fc878223"
     ],
     "facts": [
       {
@@ -381,6 +410,21 @@
         "id": "collocation:b11d61c1d7a44740b359",
         "source_row": 21471,
         "source_path": "content/lexical/canonical/collocations/shards/o5089-5120.json"
+      },
+      {
+        "id": "collocation:30578695352ec7a33960",
+        "source_row": 21472,
+        "source_path": "content/lexical/canonical/collocations/shards/o5089-5120.json"
+      },
+      {
+        "id": "collocation:708a556c553d6cbd0ca9",
+        "source_row": 21473,
+        "source_path": "content/lexical/canonical/collocations/shards/o5089-5120.json"
+      },
+      {
+        "id": "collocation:e51baa93f765fc878223",
+        "source_row": 21474,
+        "source_path": "content/lexical/canonical/collocations/shards/o5089-5120.json"
       }
     ],
     "exam-mappings": [],
@@ -409,7 +453,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5089-5096.json",
-    "source_content_hash": "2241be10d5a844ce6b731a51a0b35d6e7712d6dbe3748e3c8a44ad4e14776e65",
+    "source_content_hash": "3f905cfe52fa3de915b59c460e90c00afc7b9b60eab10c77f8690fdc70963554",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
