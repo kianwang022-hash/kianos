@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.future_source_slot.v1",
-  "status": "SOURCE_ARRIVED_DELTA_REVIEW_PENDING",
+  "status": "DELTA_REVIEWED_CANONICAL_UPGRADES_PENDING",
   "slot_id": "xizong-2027-biochemistry-delta",
   "source_cycle": "27考研",
   "domain": "Biochemistry",
@@ -24,9 +24,14 @@
       "M7",
       "M8",
       "M9",
-      "M10"
+      "M10",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5"
     ],
-    "rule": "This slot owns future-source identity, fidelity, delta and invalidation metadata only. Medical truth remains in the responsible Current M Block/KP owners; learner state, Forecast and scheduling remain separate owners."
+    "rule": "This slot owns current-year Biochemistry source identity, fidelity, delta and invalidation metadata only. The complete Biochemistry source spans M1-M10 and G1-G5; medical truth remains in those responsible Current Block/KP owners."
   },
   "prior_baseline": {
     "canonical_core": {
@@ -177,7 +182,7 @@
   },
   "current_state": {
     "source_present": true,
-    "current_year_delta_known": false,
+    "current_year_delta_known": true,
     "exact_workload_minutes": null,
     "source_identity": {
       "source_cycle": "27考研",
@@ -187,6 +192,19 @@
       "received_at": "2026-09-24",
       "markdown_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md"
     },
-    "action_now": "RUN_PRESERVE_UPDATE_NEW_RETIRE_CONFLICT_REVIEW_AGAINST_CURRENT_M1_M10"
+    "action_now": "APPLY_ONLY_REVIEWED_BOUNDED_CANONICAL_UPGRADES",
+    "delta_audit": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
+    "delta_summary": {
+      "preserve": "M1-M10/G1-G5 topology and most current Core",
+      "update_candidates": [
+        "D8: xiglitazar sodium / dorzagliatin Source Precision",
+        "G4: HIF-VHL mechanism bridge",
+        "G5: eukaryotic low-fidelity TLS polymerases zeta/eta/iota/kappa"
+      ],
+      "conflict": [
+        "M3: literal 'NADPH only for biotransformation' wording must not overwrite current broader NADPH model"
+      ],
+      "retire": []
+    }
   }
 }
