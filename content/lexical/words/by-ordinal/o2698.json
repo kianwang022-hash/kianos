@@ -13,21 +13,29 @@
         "level": "L2",
         "meaning_cn": "继续做某事",
         "pattern": "keep doing sth"
+      },
+      {
+        "construction_id": "construction:d93fdc77fbe34894f07c",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "阻止某人/某物做某事",
+        "pattern": "keep sb/sth from doing sth"
       }
     ],
-    "content_hash": "213ed73261af9918a9bb5484731d970a9794ef1e2ab44cbb1cac9345510ff94e",
+    "content_hash": "258b7323474540237923c2f3d5dddbf79865dc180d02de160b57e1dadcd157a8",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "保持；使保持；保留；保存；照顾；饲养；遵守；履行；继续",
-          "label_en": "cause to remain in a certain state or condition; retain possession of; look after; take care of; fulfill or comply with (a promise, law, etc.); continue doing something",
+          "label_cn": "保持/保留；照料；持续；记录/维护记录",
+          "label_en": "to retain, maintain, continue, care for, or regularly maintain a record",
           "pos": "verb",
           "sense_ids": [
             "sense:keep:f892f797890753c2",
             "sense:keep:af3204aee72a5b4f",
             "sense:keep:32b3d47528ac5edb",
             "sense:keep:683a2bb0324f523e",
-            "sense:keep:81ac184e68255ebc"
+            "sense:keep:81ac184e68255ebc",
+            "sense:keep:fd96ae7a90334489"
           ]
         },
         {
@@ -111,15 +119,6 @@
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:31b2ee0ac76f6c3753b7",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:keep:32b3d47528ac5edb:collocation:0"
-            ],
-            "meaning_cn": "记日记",
-            "phrase": "keep a diary"
-          },
           {
             "collocation_id": "collocation:c61950bed3f2f1ef160e",
             "exam_value": "usage_example",
@@ -222,6 +221,57 @@
         "sense_label_en": "means of support; livelihood",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:31b2ee0ac76f6c3753b7",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:keep:32b3d47528ac5edb:collocation:0"
+            ],
+            "meaning_cn": "记日记",
+            "phrase": "keep a diary"
+          },
+          {
+            "collocation_id": "collocation:d55a4e439559756b3214",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:keep:fd96ae7a90334489:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "保存/维护记录",
+            "phrase": "keep a record"
+          },
+          {
+            "collocation_id": "collocation:1afd6d75969a008c7780",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:keep:fd96ae7a90334489:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "记账",
+            "phrase": "keep accounts"
+          },
+          {
+            "collocation_id": "collocation:ff71667d5000733c3663",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:keep:fd96ae7a90334489:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "持续记录日志",
+            "phrase": "keep a log"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "记录；持续维护（日记、记录、账目等）",
+        "definition_en": "to maintain or regularly make a record, diary, account, or log",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:keep:fd96ae7a90334489",
+        "sense_label_en": "to maintain or regularly make a record, diary, account, or log",
+        "sort_order": 6,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -288,18 +338,28 @@
         "merged_into_sense_id": null,
         "source_row": 7456,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
+      },
+      {
+        "sense_id": "sense:keep:fd96ae7a90334489",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7519,
+        "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
       }
     ],
     "active_collocations": [
       "collocation:0a26173b36e49e8ac045",
       "collocation:132a43407e569ad8ac1d",
+      "collocation:1afd6d75969a008c7780",
       "collocation:20bdf855639121705670",
       "collocation:31b2ee0ac76f6c3753b7",
       "collocation:52f40a7dfa91bbdd5c41",
       "collocation:791a1790951d14e3e125",
       "collocation:7c094702bee951a16ea0",
       "collocation:c61950bed3f2f1ef160e",
-      "collocation:c8bc0c21c66e11b20a2d"
+      "collocation:c8bc0c21c66e11b20a2d",
+      "collocation:d55a4e439559756b3214",
+      "collocation:ff71667d5000733c3663"
     ],
     "facts": [],
     "collocations": [
@@ -347,6 +407,21 @@
         "id": "collocation:c8bc0c21c66e11b20a2d",
         "source_row": 16963,
         "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:1afd6d75969a008c7780",
+        "source_row": 21489,
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:d55a4e439559756b3214",
+        "source_row": 21491,
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:ff71667d5000733c3663",
+        "source_row": 21493,
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
       }
     ],
     "exam-mappings": [],
@@ -385,7 +460,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2697-2704.json",
-    "source_content_hash": "213ed73261af9918a9bb5484731d970a9794ef1e2ab44cbb1cac9345510ff94e",
+    "source_content_hash": "258b7323474540237923c2f3d5dddbf79865dc180d02de160b57e1dadcd157a8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

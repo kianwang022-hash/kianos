@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1ef51bea0976e0781a00807872a1102f069b7c292281b2af0da8dcb46859d475",
+    "content_hash": "180920b89848b80b7815b65dd41715f020a90b7a46df18daf6199db367009fa0",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "证明正当；辩护",
@@ -21,8 +21,7 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:justify:9a46f9630fc6886d",
-      "relation:deep:word_family:justify:9a46f9630fc6886d",
-      "semantic-reconciliation:o2625-o2824"
+      "relation:deep:word_family:justify:9a46f9630fc6886d"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -59,6 +58,30 @@
         "sense_label_en": "to show to be reasonable or provide adequate ground for",
         "sort_order": 0,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d714a1024637d66092ba",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:justify:e9899eb6ea6c5ea6:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "将文字两端/边缘对齐",
+            "phrase": "justify text"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "调整文字/段落使边缘对齐；对齐",
+        "definition_en": "to adjust spacing so text is aligned evenly with one or both margins",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:justify:e9899eb6ea6c5ea6",
+        "sense_label_en": "to adjust spacing so text is aligned evenly with one or both margins",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -79,7 +102,7 @@
     "word": "justify",
     "word_family": [
       {
-        "boundary": "justify derives from just = fair/right, not adverb just = recently",
+        "boundary": "justify = just + ify",
         "codex_reviewed": false,
         "definition_cn": null,
         "definition_en": null,
@@ -109,7 +132,7 @@
         "publication_status": "publishable",
         "shared_definition": null,
         "source_sense_id": "sense:justify:0a15fbd9e2eb59eb",
-        "target_sense_id": "sense:just:ea4dd2a970d95a6c",
+        "target_sense_id": "sense:just:132301a6bf83552f",
         "target_word": "just",
         "task_tags": [
           "reading"
@@ -146,31 +169,6 @@
       "source_row": 7441,
       "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:justify:e9899eb6ea6c5ea6",
-      "status": "merged",
-      "merged_into_sense_id": "sense:justify:0a15fbd9e2eb59eb",
-      "pos": "verb",
-      "definition_cn": "调整（文字）两端对齐",
-      "definition_en": "to adjust the spaces between words",
-      "semantic_key": "bbcb47ee4932b2a6bc0f7de4ea8932f43dc4ed0bb0d00a48c9f05caf78f6f66a",
-      "semantic_key_history": [
-        "0085feafc16f567844a8af98d04df2203a60dc49806be8b88526f59d28ee7ac4"
-      ],
-      "legacy_aliases": [
-        "justify:l3:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "justify:l3:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7442,
-      "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -191,15 +189,16 @@
       },
       {
         "sense_id": "sense:justify:e9899eb6ea6c5ea6",
-        "status": "merged",
-        "merged_into_sense_id": "sense:justify:0a15fbd9e2eb59eb",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 7442,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
       }
     ],
     "active_collocations": [
       "collocation:25d1f1068abd33f2430d",
-      "collocation:d36b79d5fee3c39145fa"
+      "collocation:d36b79d5fee3c39145fa",
+      "collocation:d714a1024637d66092ba"
     ],
     "facts": [
       {
@@ -232,6 +231,11 @@
       {
         "id": "collocation:d36b79d5fee3c39145fa",
         "source_row": 17869,
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:d714a1024637d66092ba",
+        "source_row": 21492,
         "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
       }
     ],
@@ -281,7 +285,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2689-2696.json",
-    "source_content_hash": "0922a41734b7de34d40425bfd2aacc1073f4e36c9ca7c439313e33de9709b6bf",
+    "source_content_hash": "180920b89848b80b7815b65dd41715f020a90b7a46df18daf6199db367009fa0",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

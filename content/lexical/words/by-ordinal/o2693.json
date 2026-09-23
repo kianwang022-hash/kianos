@@ -7,16 +7,17 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d75833e11aed2fb5459a873d963b6c5b953c7a473da9501c7233991cf561c26b",
+    "content_hash": "da57d02b9d072b33ed1669e2e2d764f4c702f1f356261d189c6ba681952b5285",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "刚刚；正好；仅仅；只是",
-          "label_en": "exactly at this moment or the moment described; only; merely",
+          "label_cn": "刚刚；仅仅；恰好；勉强/只差一点",
+          "label_en": "recently, only, exactly, or by a very small amount",
           "pos": "adverb",
           "sense_ids": [
             "sense:just:132301a6bf83552f",
-            "sense:just:bebf9bce38a25cb0"
+            "sense:just:bebf9bce38a25cb0",
+            "sense:just:244d635a495c3e60"
           ]
         },
         {
@@ -156,6 +157,48 @@
         "sense_label_en": "exactly at this moment or the moment described",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:02e9ca89358bec2e4b87",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:just:244d635a495c3e60:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "刚刚够",
+            "phrase": "just enough"
+          },
+          {
+            "collocation_id": "collocation:a6dd6edcf10bc4006102",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:just:244d635a495c3e60:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "差一点错过",
+            "phrase": "just missed"
+          },
+          {
+            "collocation_id": "collocation:04115fcac6ccb038552e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:just:244d635a495c3e60:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "刚刚超过/低于",
+            "phrase": "just over/under"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "勉强；刚刚；只差一点",
+        "definition_en": "by a very small amount; barely; only just",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adverb",
+        "sense_id": "sense:just:244d635a495c3e60",
+        "sense_label_en": "by a very small amount; barely; only just",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -208,15 +251,25 @@
         "merged_into_sense_id": null,
         "source_row": 7436,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
+      },
+      {
+        "sense_id": "sense:just:244d635a495c3e60",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7518,
+        "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
       }
     ],
     "active_collocations": [
+      "collocation:02e9ca89358bec2e4b87",
+      "collocation:04115fcac6ccb038552e",
       "collocation:0a69e59c0cfc9f87c2c0",
       "collocation:1ce5006c6712677f9911",
       "collocation:42986091ea45b72c3cf0",
       "collocation:5b8502ea7d0e8812a9da",
       "collocation:5de368b3443a71c6205c",
-      "collocation:7633af2321b446fdd7b7"
+      "collocation:7633af2321b446fdd7b7",
+      "collocation:a6dd6edcf10bc4006102"
     ],
     "facts": [],
     "collocations": [
@@ -248,6 +301,21 @@
       {
         "id": "collocation:7633af2321b446fdd7b7",
         "source_row": 9976,
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:02e9ca89358bec2e4b87",
+        "source_row": 21487,
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:04115fcac6ccb038552e",
+        "source_row": 21488,
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:a6dd6edcf10bc4006102",
+        "source_row": 21490,
         "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
       }
     ],
@@ -287,7 +355,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2689-2696.json",
-    "source_content_hash": "d75833e11aed2fb5459a873d963b6c5b953c7a473da9501c7233991cf561c26b",
+    "source_content_hash": "da57d02b9d072b33ed1669e2e2d764f4c702f1f356261d189c6ba681952b5285",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
