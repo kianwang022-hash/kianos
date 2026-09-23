@@ -6,8 +6,27 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "a080fe7120da063949c0308786933b10177fe43c59af08e20c7cede29299a0c8",
+    "constructions": [
+      {
+        "boundary": "prohibition, not absence of necessity",
+        "construction_id": "construction:dbb184d6d8a6adaeedc1",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "不得；不许做某事",
+        "pattern": "must not / mustn't + base verb",
+        "source_sense_id": "sense:must:a12c20ee1fdf503e"
+      },
+      {
+        "boundary": "past inference from evidence, not obligation",
+        "construction_id": "construction:2cca5df17aa42b90ddb9",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "一定已经……；想必已经……",
+        "pattern": "must have + past participle",
+        "source_sense_id": "sense:must:706d6af7e59fa738"
+      }
+    ],
+    "content_hash": "5c852c0410ffc1783a3b62ecab31dc4eee42e463bd156bb481609f0a2c78c6e4",
     "core_concept": {
       "core_clusters": [
         {
@@ -170,7 +189,14 @@
     "word_family": [],
     "word_id": "word:must"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:must:bd8e1771fe5f0841",
+      "owner_path": "content/lexical/relations/by-id/6e/6e82498d3aa319dd82d93fe03bb05888130f3bc3cbdee7e75da83f1b3c1426aa.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -245,7 +271,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3161-3168.json",
-    "source_content_hash": "a080fe7120da063949c0308786933b10177fe43c59af08e20c7cede29299a0c8",
+    "source_content_hash": "5c852c0410ffc1783a3b62ecab31dc4eee42e463bd156bb481609f0a2c78c6e4",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

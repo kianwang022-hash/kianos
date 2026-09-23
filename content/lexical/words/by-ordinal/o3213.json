@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "43f5b6736ab49a262a3d17c24232c4a1f907da09ffb8c93e25ce58b52f362aa0",
+    "content_hash": "836fe4611a0f81d39ffb622f6a9a9647674b5c12b4991142d0f9b2ddc66c7dd1",
     "core_concept": {
       "core_clusters": [
         {
@@ -30,11 +30,12 @@
           ]
         },
         {
-          "label_cn": "用网捕",
-          "label_en": "to catch with a net",
+          "label_cn": "用网捕；净赚/净得/带来结果",
+          "label_en": "to catch with a net; to earn/yield an amount or result",
           "pos": "verb",
           "sense_ids": [
-            "sense:net:b385bf6324c052a6"
+            "sense:net:b385bf6324c052a6",
+            "sense:net:d8433b7b559ab45b"
           ]
         }
       ],
@@ -203,6 +204,48 @@
         "sense_label_en": "game equipment consisting of a strip of netting dividing the playing are",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7795b401c6a8ddcf63e7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:net:d8433b7b559ab45b:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "净赚利润",
+            "phrase": "net a profit"
+          },
+          {
+            "collocation_id": "collocation:971d6010d4eb2415ed96",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:net:d8433b7b559ab45b:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "净得X金额",
+            "phrase": "net $X"
+          },
+          {
+            "collocation_id": "collocation:4715ce44c404eb3916a0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:net:d8433b7b559ab45b:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "为某人带来一个结果",
+            "phrase": "net sb a result"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "净赚；净得；获得/带来",
+        "definition_en": "to earn, obtain, or yield an amount after deductions, or to gain a result",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:net:d8433b7b559ab45b",
+        "sense_label_en": "to earn, obtain, or yield an amount after deductions, or to gain a result",
+        "sort_order": 6,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -269,15 +312,25 @@
         "merged_into_sense_id": null,
         "source_row": 8945,
         "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+      },
+      {
+        "sense_id": "sense:net:d8433b7b559ab45b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8995,
+        "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
       }
     ],
     "active_collocations": [
       "collocation:264811170a7f5aceefde",
       "collocation:3efb897f13e194c78826",
       "collocation:44059d9b66f2c28e613f",
+      "collocation:4715ce44c404eb3916a0",
       "collocation:50445b36f9b8a5696bab",
       "collocation:57fadba25aaf5a1713b4",
+      "collocation:7795b401c6a8ddcf63e7",
       "collocation:8090362696f744393acc",
+      "collocation:971d6010d4eb2415ed96",
       "collocation:d4f2be4c241ad6ba29ed"
     ],
     "facts": [],
@@ -315,6 +368,21 @@
       {
         "id": "collocation:d4f2be4c241ad6ba29ed",
         "source_row": 18000,
+        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:4715ce44c404eb3916a0",
+        "source_row": 21417,
+        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:7795b401c6a8ddcf63e7",
+        "source_row": 21419,
+        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:971d6010d4eb2415ed96",
+        "source_row": 21422,
         "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
       }
     ],
@@ -354,7 +422,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3209-3216.json",
-    "source_content_hash": "43f5b6736ab49a262a3d17c24232c4a1f907da09ffb8c93e25ce58b52f362aa0",
+    "source_content_hash": "836fe4611a0f81d39ffb622f6a9a9647674b5c12b4991142d0f9b2ddc66c7dd1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

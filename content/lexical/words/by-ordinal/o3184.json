@@ -7,16 +7,17 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "b121cfef2e16af5280bb6e85b81d32d7b15dce5fcf3362b838d35732e94c37d8",
+    "content_hash": "5b23defad9396685b43b6ea361d39a5b2eff09263cdce27ebacce55822bfa0bf",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "本国的，本地的；与生俱来的",
-          "label_en": "characteristic of or existing by virtue of geographic origin; belonging to one by birth",
+          "label_cn": "本地/原产的；与生俱来的；母语的",
+          "label_en": "native to a place; innate; relating to a first language",
           "pos": "adjective",
           "sense_ids": [
             "sense:native:84a02df549e855df",
-            "sense:native:b145b22810ef521e"
+            "sense:native:b145b22810ef521e",
+            "sense:native:9ab26e02111d8aff"
           ]
         },
         {
@@ -44,15 +45,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:8f91cb239cda8ae298b8",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:native:84a02df549e855df:collocation:0"
-            ],
-            "meaning_cn": "母语",
-            "phrase": "native language"
-          },
           {
             "collocation_id": "collocation:f34653f15079ef7b1b9b",
             "exam_value": "usage_example",
@@ -94,15 +86,6 @@
             ],
             "meaning_cn": "某地人",
             "phrase": "a native of + place"
-          },
-          {
-            "collocation_id": "collocation:ab9079a22df10284fefe",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:native:b4982b01f2a455e1:collocation:1"
-            ],
-            "meaning_cn": "母语者",
-            "phrase": "native speaker"
           }
         ],
         "confidence": "medium",
@@ -115,7 +98,8 @@
         "sense_id": "sense:native:b4982b01f2a455e1",
         "sense_label_en": "a person born in a particular place or country",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "a native of X is neutral birthplace/origin wording. Using standalone native as a label for Indigenous or colonized peoples can be old-fashioned and offensive."
       },
       {
         "collocations": [
@@ -153,6 +137,48 @@
         "sense_id": "sense:native:ec375482449152cf",
         "sense_label_en": "indigenous plants and animals",
         "sort_order": 3,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8f91cb239cda8ae298b8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:native:84a02df549e855df:collocation:0"
+            ],
+            "meaning_cn": "母语",
+            "phrase": "native language"
+          },
+          {
+            "collocation_id": "collocation:ab9079a22df10284fefe",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:native:b4982b01f2a455e1:collocation:1"
+            ],
+            "meaning_cn": "母语者",
+            "phrase": "native speaker"
+          },
+          {
+            "collocation_id": "collocation:d42dc0c62226423477d4",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:native:9ab26e02111d8aff:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "母语",
+            "phrase": "native tongue"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "母语的；从幼年起作为第一语言使用的",
+        "definition_en": "relating to the first language a person learns or has used from earliest childhood",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:native:9ab26e02111d8aff",
+        "sense_label_en": "relating to the first language a person learns or has used from earliest childhood",
+        "sort_order": 4,
         "transitivity": "nonverb"
       }
     ],
@@ -206,6 +232,13 @@
         "merged_into_sense_id": null,
         "source_row": 8863,
         "source_path": "content/lexical/canonical/senses/shards/o3169-3200.json"
+      },
+      {
+        "sense_id": "sense:native:9ab26e02111d8aff",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8906,
+        "source_path": "content/lexical/canonical/senses/shards/o3169-3200.json"
       }
     ],
     "active_collocations": [
@@ -213,6 +246,7 @@
       "collocation:84bd139f6e457af6a6bb",
       "collocation:8f91cb239cda8ae298b8",
       "collocation:ab9079a22df10284fefe",
+      "collocation:d42dc0c62226423477d4",
       "collocation:e03991445a66dd5141e1",
       "collocation:f34653f15079ef7b1b9b"
     ],
@@ -246,6 +280,11 @@
       {
         "id": "collocation:f34653f15079ef7b1b9b",
         "source_row": 20605,
+        "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
+      },
+      {
+        "id": "collocation:d42dc0c62226423477d4",
+        "source_row": 21356,
         "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
       }
     ],
@@ -285,7 +324,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3177-3184.json",
-    "source_content_hash": "b121cfef2e16af5280bb6e85b81d32d7b15dce5fcf3362b838d35732e94c37d8",
+    "source_content_hash": "5b23defad9396685b43b6ea361d39a5b2eff09263cdce27ebacce55822bfa0bf",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

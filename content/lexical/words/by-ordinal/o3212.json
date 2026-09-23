@@ -7,12 +7,30 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3027bd0cfa55a1f0925a0d9deab59c027b0024fbcc605e48522c44bbd7244e00",
+    "content_hash": "1a251370915307b8028963104bc4e9f587cd96bf007e9fff8abd1caee94027a6",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "巢；筑巢",
-      "core_meaning_en": "a structure for animals to lay eggs or live; to build such a structure",
-      "mental_model_cn": "巢；筑巢",
+      "core_clusters": [
+        {
+          "label_cn": "巢；窝",
+          "label_en": "an animal nest",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:nest:d124ccd150dd5227"
+          ]
+        },
+        {
+          "label_cn": "筑巢；套叠/嵌套",
+          "label_en": "to build/use a nest; to fit/place things in nested levels",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:nest:760d1fe8ebeb5ef9",
+            "sense:nest:6951dafd1c195de9"
+          ]
+        }
+      ],
+      "core_meaning_cn": "巢；筑巢；套叠/嵌套",
+      "core_meaning_en": "an animal nest; to nest; to fit/place things inside one another",
+      "mental_model_cn": "巢；筑巢；套叠/嵌套",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -50,6 +68,39 @@
         "sense_label_en": "to build or use a nest",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b2b6a995f4d06b1fb12f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:nest:6951dafd1c195de9:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "套叠的盒子",
+            "phrase": "nested boxes"
+          },
+          {
+            "collocation_id": "collocation:2e17d13c790ffa7d6f2e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:nest:6951dafd1c195de9:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "把一个容器套在另一个里面",
+            "phrase": "nest one container inside another"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "套叠；把……嵌套/置于另一物中",
+        "definition_en": "to fit or place one thing inside another, or arrange things in nested levels",
+        "governing_pattern": "I/T: nest sth inside sth; be nested",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:nest:6951dafd1c195de9",
+        "sense_label_en": "to fit or place one thing inside another, or arrange things in nested levels",
+        "sort_order": 999,
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -99,31 +150,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:nest:6951dafd1c195de9",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "使套叠；嵌套",
-      "definition_en": "to place one thing inside another; to embed",
-      "semantic_key": "f0197f9d92177ee6d46c672b45a276360d636060611255e3532614eed9a4f558",
-      "semantic_key_history": [
-        "ca89a10f60d6668c04837459105c58a7494d5ded2e73b3c9b7337ef140221e0f"
-      ],
-      "legacy_aliases": [
-        "nest:l2:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "nest:l2:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8936,
-      "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:nest:f8541958ee065bcc",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -160,7 +186,7 @@
       },
       {
         "sense_id": "sense:nest:6951dafd1c195de9",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 8936,
         "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
@@ -187,7 +213,10 @@
         "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:2e17d13c790ffa7d6f2e",
+      "collocation:b2b6a995f4d06b1fb12f"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -213,6 +242,16 @@
       {
         "id": "collocation:c4273e420b3b3e459d5c",
         "source_row": 16595,
+        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:2e17d13c790ffa7d6f2e",
+        "source_row": 21416,
+        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:b2b6a995f4d06b1fb12f",
+        "source_row": 21423,
         "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
       }
     ],
@@ -247,7 +286,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3209-3216.json",
-    "source_content_hash": "3027bd0cfa55a1f0925a0d9deab59c027b0024fbcc605e48522c44bbd7244e00",
+    "source_content_hash": "1a251370915307b8028963104bc4e9f587cd96bf007e9fff8abd1caee94027a6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

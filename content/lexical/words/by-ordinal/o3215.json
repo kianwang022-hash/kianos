@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "03752f656d0e0b58edd463d337608d1325d187c1b1ef33b136449e4b807f341b",
+    "content_hash": "dcb6343df8736cd04535a05fbd18cc450e23ce70062f115135239276e2a3c502",
     "core_concept": {
       "core_clusters": [
         {
@@ -20,11 +20,12 @@
           ]
         },
         {
-          "label_cn": "中立者，中立国",
-          "label_en": "a person or country that does not take sides in a dispute",
+          "label_cn": "中立者/中立国；车辆空挡",
+          "label_en": "a neutral person/country; the neutral gear position in a vehicle",
           "pos": "noun",
           "sense_ids": [
-            "sense:neutral:e73bd8241944525d"
+            "sense:neutral:e73bd8241944525d",
+            "sense:neutral:662539231f7357c3"
           ]
         },
         {
@@ -153,6 +154,39 @@
         "sense_label_en": "in scientific use, neither acidic nor basic and/or having no net electrical charge",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0808868ce1b4f17037c0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:neutral:662539231f7357c3:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "处于空挡",
+            "phrase": "in neutral"
+          },
+          {
+            "collocation_id": "collocation:69bf88b4dd980120f921",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:neutral:662539231f7357c3:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "把车挂空挡",
+            "phrase": "put the car in neutral"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "空挡；发动机与车轮不接合的挡位/位置",
+        "definition_en": "the gear or position in which a vehicle's engine is not connected to the wheels",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:neutral:662539231f7357c3",
+        "sense_label_en": "the gear or position in which a vehicle's engine is not connected to the wheels",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -205,9 +239,18 @@
         "merged_into_sense_id": null,
         "source_row": 8994,
         "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+      },
+      {
+        "sense_id": "sense:neutral:662539231f7357c3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8996,
+        "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
       }
     ],
     "active_collocations": [
+      "collocation:0808868ce1b4f17037c0",
+      "collocation:69bf88b4dd980120f921",
       "collocation:8aac4a0b63ce78b648bd",
       "collocation:a990da7751e864bf9c95",
       "collocation:b4bf277a792d52d2e7e2",
@@ -239,6 +282,16 @@
       {
         "id": "collocation:e3f67d6db52b93a921e9",
         "source_row": 21413,
+        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:0808868ce1b4f17037c0",
+        "source_row": 21415,
+        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:69bf88b4dd980120f921",
+        "source_row": 21418,
         "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
       }
     ],
@@ -278,7 +331,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3209-3216.json",
-    "source_content_hash": "03752f656d0e0b58edd463d337608d1325d187c1b1ef33b136449e4b807f341b",
+    "source_content_hash": "dcb6343df8736cd04535a05fbd18cc450e23ce70062f115135239276e2a3c502",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
