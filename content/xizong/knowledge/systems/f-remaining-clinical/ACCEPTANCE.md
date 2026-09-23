@@ -12,7 +12,7 @@ This file owns F-scoped readiness truth only. It does not own medical Core, lear
 
 | Gate / stage | Status | Evidence / note |
 | --- | --- | --- |
-| S1 — medical / first-learning Source boundary | **PASS** | approved original/current Lecture sources were re-bound from File Library by title/page locator; F6/F8 stale reading gaps closed; remaining exact gaps explicit and fail-closed |
+| S1 — medical / first-learning Source boundary | **PASS_AFTER_27_REFINED_DELTA** | approved original/current Lecture sources were re-bound; 27 refined surgery Source closed F4 first-day fluid-formula gap and restored F3/F9 visual access; remaining semantic gaps stay explicit / fail-closed |
 | S2 — exact official F System question membership | **UNTESTED** | separate later boundary; no membership inferred from Outline placement |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; bounded repair split acute disturbance-control from planned/ongoing intervention-safety while preserving identity/source/owner boundaries |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent L audit; 9 Blocks / 121 KP → 40 LG; 3 whole + 5 natural + 1 integration; 0 hard edges; 2 non-gating PSRs |
@@ -48,20 +48,21 @@ The old transition Guide's 12-Block operational route is not Current stable F id
 
 ## S1 — PASS after Source rebind
 
-The repository still does not mount the relevant original F page images, but approved Current lecture sources were recovered from the user's File Library and re-read using durable title/page locators.
+Approved Current lecture sources are bound by durable title/page locators. The newly arrived `27外科精编版【带导图】.pdf` is now also registered as current-year Source/delta evidence, with a GitHub-auditable Markdown snapshot; the original PDF remains the highest-fidelity visual Source.
 
 Verified closures:
 
 - **F6:** original surgery Source confirms the intended postoperative **1–4 day** vs **2–7 day** timing language; `UNCERTAIN_SOURCE_READING` is closed.
 - **F8:** original P270 nerve-block complication matrix was recovered/reviewed; the prior matrix Source-reading gap is closed. The matrix remains original-Source visual truth rather than duplicated Block truth.
-- **F3/F4:** original surgery Source was recovered sufficiently to verify the current main trunk/boundary statements; narrow exact gaps remain where the page evidence has not yet been securely extracted.
+- **F3:** 27 refined original pages are now visually available; the delayed-primary / secondary-closure taxonomy detail still remains a semantic Source gap.
+- **F4:** 27 refined PDF P248–P249 closes the prior complete first-day burn-fluid coefficient / weight–area / intraday-distribution gap without changing Block/KP identity.
+- **F9:** 27 refined original pages are now visually available; the complete laparoscopy complication list remains absent from a stable Source reading.
 
 Remaining bounded exact gaps include:
 
 - F1 selected exact poison-manifestation mappings;
 - F2 delayed-neuropathy / rebound exact Source wording;
 - F3 delayed-primary / secondary-closure taxonomy detail;
-- F4 complete first-day burn-fluid coefficient / weight–area formula / intraday distribution;
 - F9 complete laparoscopy complication list.
 
 These gaps are explicit and fail-closed. Source PASS means the authoritative boundary is clear enough for downstream Knowledge work without silent guessing; it does not require fabricating or deleting unresolved Source facts.
