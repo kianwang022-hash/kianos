@@ -6,8 +6,28 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e63546c2864573755f2196e326a108a7dc40b7629049543d52b1a956b20cc998",
+    "constructions": [
+      {
+        "boundary": "viewpoint/perspective; distinct from a place or moment",
+        "construction_id": "construction:c190278e768a5d516afd",
+        "definition_en": "a particular way of thinking about, judging, or seeing something",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "观点；看法；视角",
+        "pattern": "point of view"
+      },
+      {
+        "boundary": "purpose/benefit construction",
+        "construction_id": "construction:4d4c987dc08e2c15dc4c",
+        "definition_en": "there is no useful purpose or benefit in doing it",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "做某事没有意义/用处",
+        "pattern": "there is no point (in) doing sth",
+        "source_sense_id": "sense:point:412a3c7814195a90"
+      }
+    ],
+    "content_hash": "26b2089353096dfc360e3c3fff0d631806695127517d96e5686f364c7e2dad58",
     "core_concept": {
       "core_clusters": [
         {
@@ -44,45 +64,7 @@
       "deep:deep:secondary_senses:point:cb8b62bd4f5e5402",
       "semantic-reconciliation:o3625-o3874"
     ],
-    "secondary_senses": [
-      {
-        "boundary": "the point of 要点",
-        "codex_reviewed": false,
-        "definition_cn": "要点，核心",
-        "definition_en": "the main idea or purpose",
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:point:cb50cedc31d4",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "point:l1:2",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:secondary_senses:point:cb8b62bd4f5e5402",
-        "family_sources": [],
-        "label_en": "the main idea or purpose",
-        "level": "L1",
-        "meaning_cn": null,
-        "module": "secondary_senses",
-        "pattern": null,
-        "pos": "noun",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:point:412a3c7814195a90",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
-      }
-    ],
+    "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -95,15 +77,6 @@
             ],
             "meaning_cn": "在那时，在那一点",
             "phrase": "at that point"
-          },
-          {
-            "collocation_id": "collocation:e2585ba247d095e91105",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:point:5eac0d1ea501535e:collocation:1"
-            ],
-            "meaning_cn": "观点，看法",
-            "phrase": "point of view"
           }
         ],
         "confidence": "medium",
@@ -332,7 +305,6 @@
       "collocation:8e1302956a70531fefe2",
       "collocation:b1c20d74a2bfb69b17f4",
       "collocation:c76a5658fbcf6d2d67b5",
-      "collocation:e2585ba247d095e91105",
       "collocation:e39eed8a57c083a90126"
     ],
     "facts": [
@@ -425,7 +397,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3657-3664.json",
-    "source_content_hash": "f2547de1ec7810b90dcbf2315ad3d33085a110bc6acad7d6a9c88ea0a17431f8",
+    "source_content_hash": "26b2089353096dfc360e3c3fff0d631806695127517d96e5686f364c7e2dad58",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
