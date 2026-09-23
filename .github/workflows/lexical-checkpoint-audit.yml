@@ -33,6 +33,9 @@ jobs:
           node-version: '22'
       - name: Prepare reports
         run: mkdir -p lexical-checkpoint-audit
+      - name: Materialize ephemeral Current lexical projection
+        run: python tools/lexical_build_final_learner_objects.py
+
       - name: Validate Final Learner Object decisions
         continue-on-error: true
         run: node content/lexical/tools/validate-final-learner-object.mjs
