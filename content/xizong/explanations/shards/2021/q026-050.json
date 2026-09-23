@@ -16,14 +16,26 @@
       "大肠杆菌更常用‘转化’，病毒介导进入细胞则通常称感染/转导。"
     ],
     "transfer_rule": "真核细胞导入核酸常称transfection。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.用质粒将外源DNA转入动物细胞。向真核/动物细胞导入外源核酸通常称为转染。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "大肠杆菌摄取外源DNA通常称转化。"
+      },
+      {
+        "option": "C",
+        "reason": "病毒载体介导核酸进入细胞通常称感染/转导。"
+      }
+    ],
+    "common_failure_node": "不按受体细胞和载体区分转染、转化、转导。"
   },
   {
     "question_id": "xizong-official-2021-n027",
@@ -37,17 +49,32 @@
     "exam_target": "SH3结构域结合序列",
     "decision_axis": "SH3结构域经典识别富含脯氨酸的短肽序列，是信号蛋白相互作用模块之一。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "SH3结构域常识别PXXP等富脯氨酸序列。",
+      "因此四项中B最符合。",
+      "Current Knowledge没有把SH3—富脯氨酸这条分子互作规则冻结在一个可投影最小KP中，因此答案保留、Crosswalk fail-closed。"
     ],
     "transfer_rule": "SH2看磷酸酪氨酸，SH3看proline-rich。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.SH3。SH3结构域经典识别富含脯氨酸的短肽序列，是信号蛋白相互作用模块。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "SH2主要识别含磷酸化酪氨酸的序列。"
+      },
+      {
+        "option": "C",
+        "reason": "PH结构域常与膜磷脂结合。"
+      }
+    ],
+    "common_failure_node": "只背SH2/SH3缩写，不记各自识别的配体特征。",
+    "source_gap_note": "Current Knowledge未建立SH3结构域识别富脯氨酸序列的最小可投影owner。"
   },
   {
     "question_id": "xizong-official-2021-n028",
@@ -66,14 +93,26 @@
       "它不必改变编码区，所以不会自动造成肽链缩短、提前终止或点突变增加。"
     ],
     "transfer_rule": "enhancer增强，silencer抑制。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.基因转录减慢。沉默子是负性顺式调控元件，可降低目标基因转录而不必改变编码区。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "沉默子不直接改变肽链长度。"
+      },
+      {
+        "option": "B",
+        "reason": "它也不会自动产生提前终止密码。"
+      }
+    ],
+    "common_failure_node": "把转录调控元件的作用误认为编码序列突变。"
   },
   {
     "question_id": "xizong-official-2021-n029",
@@ -87,17 +126,32 @@
     "exam_target": "化生机制",
     "decision_axis": "化生通常来自组织干/祖细胞在持续刺激下重新分化，而不是成熟细胞直接“变成”另一成熟细胞。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "化生是适应性表型重编程。",
+      "经典机制强调干/祖细胞分化程序改变，而非成熟细胞直接互变。",
+      "题源据此判A错误；Current仓库只有器官级化生shorthand，没有完整一般病理owner，因此不建立relation。"
     ],
     "transfer_rule": "化生本质是分化程序重定向。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.由成熟细胞转变所致。一般病理上化生主要理解为干/祖细胞在持续刺激下重新分化，而不是一个成熟细胞直接变成另一成熟细胞。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "化生常能提高对某种持续刺激的耐受性，但可能牺牲原有功能。"
+      },
+      {
+        "option": "D",
+        "reason": "化生可见于上皮，也可见于间叶组织。"
+      }
+    ],
+    "common_failure_node": "把“一个成熟组织类型被另一个成熟类型取代”的结果描述误当成成熟细胞直接转分化的机制。",
+    "source_gap_note": "Current器官Block只零散使用“化生”作为形态结果，未冻结一般病理层面的发生机制；不拿器官shorthand代替总论owner。"
   },
   {
     "question_id": "xizong-official-2021-n030",
@@ -111,17 +165,32 @@
     "exam_target": "小动脉纤维素样坏死",
     "decision_axis": "严重高血压或免疫性血管损伤可使小动脉壁出现嗜酸性纤维素样物质沉积和坏死。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "纤维素样坏死是血管壁严重损伤的经典形态。",
+      "题源因此选择D。",
+      "Current证据分散在急进型高血压、SLE、移植排斥等多个owner，没有单一一般病理KP完整承接。"
     ],
     "transfer_rule": "纤维素样坏死经典见血管壁和结缔组织。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.纤维素样坏死。小动脉壁在严重高血压、免疫性血管损伤等情况下可出现纤维素样坏死。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "凝固性坏死更常用于实质器官缺血性坏死。"
+      },
+      {
+        "option": "B",
+        "reason": "液化性坏死常见于脑梗死和脓肿。"
+      }
+    ],
+    "common_failure_node": "看到某个疾病Block有纤维素样坏死，就把“一般细小动脉坏死类型”硬归给单一疾病owner。",
+    "source_gap_note": "本题是一般血管病理总论；Current中纤维素样坏死分散于B5、H14、H16等疾病owner，无单一最小owner。"
   },
   {
     "question_id": "xizong-official-2021-n031",
@@ -135,17 +204,31 @@
     "exam_target": "胃MALT淋巴瘤与H. pylori",
     "decision_axis": "胃MALT淋巴瘤与幽门螺杆菌慢性抗原刺激密切相关，早期部分病例根除H. pylori可获缓解。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "胃MALT淋巴瘤可由长期H. pylori抗原刺激驱动。",
+      "Current H11 KP07明确保留胃MALT需要根除Hp治疗，反向证明病因关联被Current冻结。",
+      "因此选C。"
     ],
     "transfer_rule": "胃MALT lymphoma经典联想H. pylori。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.幽门螺杆菌。胃MALT淋巴瘤与H. pylori长期抗原刺激密切相关，Current H11甚至保留“胃MALT需抗Hp治疗”。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "金黄色葡萄球菌不是胃MALT淋巴瘤的经典病因。"
+      },
+      {
+        "option": "B",
+        "reason": "草绿色链球菌主要与亚急性感染性心内膜炎等相关。"
+      }
+    ],
+    "common_failure_node": "只记MALT是淋巴瘤亚型，不记胃MALT与H. pylori这一高价值病因关联。"
   },
   {
     "question_id": "xizong-official-2021-n032",
@@ -159,17 +242,28 @@
     "exam_target": "急性重型肝炎残存肝细胞",
     "decision_axis": "大块/亚大块坏死后残存肝细胞常位于小叶周边等相对保留区域，并可出现再生反应。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "急性重型肝炎可发生广泛大块坏死。",
+      "题源进一步规定少量残留肝细胞多见于小叶周边，答案B保留。",
+      "Current D16冻结坏死范围与再生差异，但未冻结该精确空间细节，因此NO_SAFE_MATCH。"
     ],
     "transfer_rule": "重型肝炎看坏死范围与残存/再生肝细胞分布。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.肝小叶周边为题源官方答案。急性重型肝炎为大块坏死、网状支架塌陷，仅残留少量肝细胞；但Current D16未冻结“残留细胞具体多位于小叶周边”这一空间细节。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "中央静脉周围不是题源所给残留细胞主要位置。"
+      }
+    ],
+    "common_failure_node": "因为D16拥有“急性重型=大块坏死”，就把未冻结的残余细胞空间分布也一并映射。",
+    "source_gap_note": "Current D16 KP08未明确冻结“急性重型肝炎残余肝细胞主要位于小叶周边”这一精确形态细节。"
   },
   {
     "question_id": "xizong-official-2021-n033",
@@ -188,14 +282,26 @@
       "这不是化脓性炎，也不是以嗜酸性粒细胞或单纯浆液渗出为主。"
     ],
     "transfer_rule": "RA病理核心=增生性滑膜炎+血管翳。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.非化脓性增生性滑膜炎。RA核心关节病理是慢性增生性滑膜炎，进一步形成血管翳并侵蚀软骨骨。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "嗜酸性粒细胞不是RA滑膜炎的主要炎细胞。"
+      },
+      {
+        "option": "D",
+        "reason": "RA不是单纯浆液渗出性炎。"
+      }
+    ],
+    "common_failure_node": "只记RA是“慢性炎症”，却不会落到滑膜增生—血管翳这一病理主轴。"
   },
   {
     "question_id": "xizong-official-2021-n034",
@@ -214,14 +320,22 @@
       "这类题考的是教材常见部位分布，不要把胃底或前后壁当作等概率位置。"
     ],
     "transfer_rule": "该题按经典病理教材部位分布掌握。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.胃窦。题源/Current Study经典部位分布把胃窦、小弯侧作为胃癌高发区。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "胃底不是本题经典最好发部位。"
+      }
+    ],
+    "common_failure_node": "把近年的近端胃癌流行变化直接替换掉题源Current Study的经典部位口径。"
   },
   {
     "question_id": "xizong-official-2021-n035",
@@ -235,17 +349,32 @@
     "exam_target": "心衰细胞",
     "decision_axis": "慢性肺淤血时肺泡巨噬细胞吞噬红细胞并积聚含铁血黄素，形成所谓心衰细胞。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "慢性左心衰导致肺静脉淤血和红细胞外渗。",
+      "肺泡巨噬细胞吞噬红细胞并积聚含铁血黄素，形成心衰细胞。",
+      "Current仓库未建立这一一般肺淤血病理的最小owner，因此不建relation。"
     ],
     "transfer_rule": "心衰细胞=含铁血黄素肺泡巨噬细胞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肺内吞噬含铁血黄素的巨噬细胞。慢性肺淤血时红细胞漏出，肺泡巨噬细胞吞噬后形成含铁血黄素，即心衰细胞。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "心衰细胞不是特殊形态的心肌细胞。"
+      },
+      {
+        "option": "B",
+        "reason": "吞噬炭末的是尘细胞/肺泡巨噬细胞另一种内容物。"
+      }
+    ],
+    "common_failure_node": "把“心衰细胞”按名字理解成心肌细胞。",
+    "source_gap_note": "Current Knowledge未找到明确冻结“心衰细胞=肺内含铁血黄素巨噬细胞”的最小可投影owner。"
   },
   {
     "question_id": "xizong-official-2021-n036",
@@ -259,17 +388,27 @@
     "exam_target": "透明血栓成分",
     "decision_axis": "透明血栓主要由纤维蛋白构成，形成于毛细血管和小血管，是DIC等微循环障碍的典型形态。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "DIC时凝血广泛激活。",
+      "Current B12 KP04明确写“毛细血管内纤维蛋白微血栓”，与透明血栓身份一致。",
+      "因此选A。"
     ],
     "transfer_rule": "透明血栓=微血管内纤维蛋白血栓。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.纤维蛋白。透明血栓是微循环内以纤维蛋白为主的微血栓，DIC中尤为典型。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "血小板可参与形成，但题目问透明血栓的主要成分，Current B12明确强调纤维蛋白微血栓。"
+      }
+    ],
+    "common_failure_node": "把所有血栓都按动脉白色血栓“血小板为主”去套。"
   },
   {
     "question_id": "xizong-official-2021-n037",
@@ -288,14 +427,26 @@
       "鳞状化生和黏液腺增生可伴随慢性炎症，但不是支扩形成的决定性结构故障。"
     ],
     "transfer_rule": "支扩本质=支气管壁破坏→不可逆扩张。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.支气管壁结构破坏。肌层、弹力组织等支撑结构破坏后，支气管腔发生不可逆扩张。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "鳞状化生可伴慢性刺激，但不是支扩形成的决定性结构基础。"
+      },
+      {
+        "option": "B",
+        "reason": "黏液腺增生更偏慢性支气管炎。"
+      }
+    ],
+    "common_failure_node": "把伴随的上皮/腺体改变当成不可逆扩张的第一故障层。"
   },
   {
     "question_id": "xizong-official-2021-n038",
@@ -314,14 +465,22 @@
       "这个形态与免疫复合物沉积相符，是本病非常高价值的病理识别点。"
     ],
     "transfer_rule": "PSGN电镜经典=subepithelial humps。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.急性弥漫性增生性肾小球肾炎。感染后GN电镜典型见上皮下“驼峰”样电子致密物。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "膜增生性GN更强调系膜插入、双轨等模式。"
+      }
+    ],
+    "common_failure_node": "看到免疫复合物沉积就不再区分沉积位置和特征形态。"
   },
   {
     "question_id": "xizong-official-2021-n039",
@@ -340,14 +499,26 @@
       "若看到明确绒毛结构，反而应优先考虑葡萄胎相关病变而不是绒癌。"
     ],
     "transfer_rule": "绒毛膜癌核心“无绒毛”。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肿瘤自身无间质血管。绒毛膜癌缺乏真正绒毛、间质和自身血管，常伴显著出血坏死。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "绒毛膜癌通常出血坏死明显。"
+      },
+      {
+        "option": "C",
+        "reason": "出现完整绒毛结构更偏葡萄胎相关病变。"
+      }
+    ],
+    "common_failure_node": "把“滋养细胞肿瘤”都理解成保留绒毛结构。"
   },
   {
     "question_id": "xizong-official-2021-n040",
@@ -366,14 +537,22 @@
       "乳头状癌看核特征，滤泡癌看包膜/血管侵犯，未分化癌则是高度异型。"
     ],
     "transfer_rule": "MTC=C细胞+降钙素+淀粉样间质。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.髓样癌。甲状腺髓样癌起源于C细胞，间质常有由降钙素相关肽形成的淀粉样物。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "乳头状癌的高价值身份是典型核特征，不是淀粉样间质。"
+      }
+    ],
+    "common_failure_node": "只按甲状腺癌名称记忆，不把C细胞—降钙素—淀粉样物串起来。"
   },
   {
     "question_id": "xizong-official-2021-n041",
@@ -392,14 +571,22 @@
       "不能把肝细胞性黄疸机械理解成只升高某一种胆红素。"
     ],
     "transfer_rule": "尿胆红素出现说明血中有可滤过的结合胆红素。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.尿胆红素阳性。肝细胞排泄结合胆红素受损时，水溶性结合胆红素可反流入血并从尿中排出。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "尿胆原可随肝细胞处理能力变化，不是“必然降低”的简单规则。"
+      }
+    ],
+    "common_failure_node": "把肝细胞性黄疸误学成只有非结合胆红素升高。"
   },
   {
     "question_id": "xizong-official-2021-n042",
@@ -418,14 +605,22 @@
       "FEV₁%pred主要用于气流受限程度分级，不是建立COPD身份的第一阈值。"
     ],
     "transfer_rule": "COPD确诊关键是post-BD持续气流受限。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.吸入支气管扩张剂后FEV₁/FVC<70%。这是Current Study用于确认持续性气流受限的COPD肺功能标准。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "FEV₁%pred主要用于气流受限程度分级，而不是建立COPD身份的核心阈值。"
+      }
+    ],
+    "common_failure_node": "把“诊断阈值”和“严重度分级指标”混淆。"
   },
   {
     "question_id": "xizong-official-2021-n043",
@@ -439,17 +634,31 @@
     "exam_target": "危重哮喘治疗禁忌辨析",
     "decision_axis": "危重哮喘核心处理是氧合、支气管扩张和全身糖皮质激素等，常规大剂量静脉利尿并非针对气道阻塞的治疗。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "患者有极重度通气失败：意识模糊、PaCO₂ 92、pH 7.10。",
+      "Current R4 KP16明确严重哮喘需持续支扩、静脉GC，并在意识障碍/CO₂排出失败时有创通气。",
+      "大剂量利尿不处理气道痉挛，故D错误。"
     ],
     "transfer_rule": "危重哮喘治疗围绕气道和通气，不把利尿剂当常规方案。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.静脉应用大剂量利尿剂。危重哮喘治疗应持续支气管扩张、尽早全身糖皮质激素、支持氧合；本例意识障碍和PaCO₂ 92 mmHg还需要有创通气，利尿不是针对气道阻塞的治疗。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "雾化支气管扩张剂是迅速开气道的核心措施。"
+      },
+      {
+        "option": "C",
+        "reason": "意识障碍、严重CO₂潴留和酸中毒符合有创机械通气接口。"
+      }
+    ],
+    "common_failure_node": "看到呼吸困难就套心衰肺水肿治疗，错误使用大剂量利尿剂。"
   },
   {
     "question_id": "xizong-official-2021-n044",
@@ -468,14 +677,22 @@
       "它与吸入性肺脓肿常见的厌氧菌/混合感染来源不同。"
     ],
     "transfer_rule": "血源性肺脓肿要想到S. aureus和右心感染来源。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.金黄色葡萄球菌。血源性肺脓肿常来自菌血症/感染性栓子，金葡菌是经典病原。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "厌氧菌更常见于吸入性肺脓肿。"
+      }
+    ],
+    "common_failure_node": "不区分血源性与吸入性肺脓肿的病原谱。"
   },
   {
     "question_id": "xizong-official-2021-n045",
@@ -494,14 +711,22 @@
       "其他药也可降压，但在蛋白尿/肾病保护这一轴上不如RAAS阻断直接。"
     ],
     "transfer_rule": "蛋白尿CKD常优先考虑RAAS阻断类。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.培哚普利。高血压伴蛋白尿、糖尿病和肾功能受累时，ACEI可兼顾降压与降低肾小球内压/蛋白尿。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "CCB可降压，但在蛋白尿肾保护这一轴上RAAS阻断更直接。"
+      }
+    ],
+    "common_failure_node": "只按降压强度选药，不先利用蛋白尿/糖尿病肾病这一合并症线索。"
   },
   {
     "question_id": "xizong-official-2021-n046",
@@ -515,7 +740,9 @@
     "exam_target": "心梗早期标志物旧肌红蛋白口径",
     "decision_axis": "题源在发病2小时选择肌红蛋白作为最早升高指标；Current高敏肌钙蛋白已成为更核心的早期生物标志物，旧“最早异常”排序不宜升级。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现代检测技术边界 fail-closed。"
+      "题源在发病2小时按传统时间轴选择肌红蛋白。",
+      "Current诊断强调高敏肌钙蛋白动态变化。",
+      "因此历史答案保留，但不建立Current relation。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current ACS生物标志物以高敏肌钙蛋白体系为核心。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -525,7 +752,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.肌红蛋白为题源官方答案；旧教材按发病约2小时“最早升高”选择肌红蛋白，但Current高敏肌钙蛋白已改变早期心肌梗死生物标志物路径。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "高敏肌钙蛋白已成为现代急性心肌损伤诊断的核心标志物，不能沿旧时间表机械排除。"
+      }
+    ],
+    "common_failure_node": "把历史标志物升高时间表当成现代检测平台下的永久排序。",
+    "source_boundary_note": "题源“2小时最可能异常=肌红蛋白”属于旧检测时代排序；Current高敏肌钙蛋白路径不把该排序冻结为统一规则。"
   },
   {
     "question_id": "xizong-official-2021-n047",
@@ -544,14 +780,26 @@
       "关键是区分心肌本体炎症与心包腔压力灾难。"
     ],
     "transfer_rule": "心肌炎重点看心肌损伤、心律和泵功能。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.心脏压塞。急性心肌炎可出现心衰、恶性心律失常、猝死或心梗样表现，但压塞属于心包腔压力综合征，不是一般表现。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "急性肺水肿可由严重心肌泵功能下降引起。"
+      },
+      {
+        "option": "D",
+        "reason": "心肌炎可表现为类似急性心肌梗死的胸痛和心肌损伤。"
+      }
+    ],
+    "common_failure_node": "把心肌炎与心包炎/心包积液并发症混为一类。"
   },
   {
     "question_id": "xizong-official-2021-n048",
@@ -570,14 +818,22 @@
       "这道题不是在问杂音名称，而是在问AR为什么会缺血性胸痛。"
     ],
     "transfer_rule": "AR心绞痛同时看需氧↑和舒张期冠脉灌注↓。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.主动脉瓣关闭不全。AR使左室容量负荷和耗氧增加，同时舒张压降低导致冠脉灌注压下降，可出现心绞痛。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "二尖瓣狭窄主要造成左房和肺循环压力负荷，不是这条舒张压—冠灌注机制。"
+      }
+    ],
+    "common_failure_node": "只根据杂音位置判断瓣膜病，却不解释为何会出现心绞痛。"
   },
   {
     "question_id": "xizong-official-2021-n049",
@@ -596,14 +852,26 @@
       "做题时把‘反流反复损伤黏膜’能直接推导出的并发症放在一组。"
     ],
     "transfer_rule": "GERD并发症沿炎症→狭窄/Barrett理解。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.食管憩室。GERD可并发出血、狭窄和Barrett食管，食管憩室不是典型反流并发症。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "反复炎症和瘢痕可形成食管狭窄。"
+      },
+      {
+        "option": "D",
+        "reason": "Barrett食管是长期反流的重要并发症。"
+      }
+    ],
+    "common_failure_node": "只要是食管疾病就当成GERD并发症。"
   },
   {
     "question_id": "xizong-official-2021-n050",
@@ -622,13 +890,25 @@
       "十二指肠溃疡更偏空腹/夜间痛，肝硬化曲张静脉出血也缺乏相应肝病背景。"
     ],
     "transfer_rule": "GU痛多餐后较早；DU更偏空腹/夜间。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.胃溃疡出血。餐后约1小时痛符合胃溃疡节律，咖啡渣样呕吐和黑便说明并发上消化道出血。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "十二指肠溃疡更常空腹/夜间痛，进食可暂时缓解。"
+      },
+      {
+        "option": "D",
+        "reason": "曲张静脉破裂缺乏肝硬化/门脉高压背景。"
+      }
+    ],
+    "common_failure_node": "只看出血表现，不用长期疼痛节律定位溃疡部位。"
   }
 ]
