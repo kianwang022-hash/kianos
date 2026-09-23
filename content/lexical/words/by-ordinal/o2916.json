@@ -6,22 +6,46 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "5f3a685263ba02285195167849ce1d1840719062a30e073f48b66c71edebcfb8",
+    "constructions": [
+      {
+        "construction_id": "construction:c8285d3e699c1de2fc8b",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "非常喜欢；着迷（非正式，尤英式）",
+        "pattern": "be mad about sb/sth"
+      }
+    ],
+    "content_hash": "3d5907e1dd1ce95d2a77494ea016a9c1893c411deee24abae69cc60dc50c3a1b",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "疯狂的；精神错乱的；生气的；恼火的；愚蠢的；不明智的",
-          "label_en": "mentally ill; insane; very angry; very foolish",
+          "label_cn": "生气的",
+          "label_en": "angry (informal, especially AmE)",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:mad:0580d1745cb15eb1"
+          ]
+        },
+        {
+          "label_cn": "愚蠢的；疯狂的",
+          "label_en": "foolish or crazy",
           "pos": "adjective",
           "sense_ids": [
             "sense:mad:ad6efbeea26c59c7"
           ]
+        },
+        {
+          "label_cn": "精神失常的（旧式/可能冒犯）",
+          "label_en": "mentally ill (old-fashioned/offensive of a person)",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:mad:379787419721525f"
+          ]
         }
       ],
-      "core_meaning_cn": "精神错乱或非常生气",
-      "core_meaning_en": "mentally ill or very angry",
-      "mental_model_cn": "精神错乱或非常生气",
+      "core_meaning_cn": "生气的；愚蠢/疯狂的；（旧式且可能冒犯）精神失常的",
+      "core_meaning_en": "angry; foolish/crazy; old-fashioned/offensive mental-illness use",
+      "mental_model_cn": "生气的；愚蠢/疯狂的；（旧式且可能冒犯）精神失常的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -41,10 +65,12 @@
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
+        "register": "informal, especially AmE",
         "sense_id": "sense:mad:0580d1745cb15eb1",
         "sense_label_en": "very angry",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "angry use is informal; mad at/with sb"
       },
       {
         "collocations": [
@@ -79,11 +105,12 @@
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
+        "register": "old-fashioned/offensive when used of a person",
         "sense_id": "sense:mad:379787419721525f",
         "sense_label_en": "mentally ill; insane",
         "sort_order": 2,
         "transitivity": "nonverb",
-        "usage_note": "traditional mental-state use; register and sensitivity boundary applies."
+        "usage_note": "Use cautiously when interpreting older/informal source context."
       }
     ],
     "verification_summary": {
@@ -231,7 +258,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2913-2920.json",
-    "source_content_hash": "5f3a685263ba02285195167849ce1d1840719062a30e073f48b66c71edebcfb8",
+    "source_content_hash": "3d5907e1dd1ce95d2a77494ea016a9c1893c411deee24abae69cc60dc50c3a1b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

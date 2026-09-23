@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "10ecabe1640c84d5cd0d15d62a770212fed286325f5550f1f356588e14254338",
+    "content_hash": "d4a933c81dc5af13fde7ab9b692310b60f2c9f253346cb1634bf2a1ad12f7c5e",
     "core_concept": {
       "core_clusters": [
         {
@@ -29,9 +29,7 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [
-      "semantic-reconciliation:o2825-o3024"
-    ],
+    "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -78,11 +76,36 @@
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
+        "register": "traditional generic",
         "sense_id": "sense:man:bcf5c751a2c05b7b",
         "sense_label_en": "human beings collectively; the human race",
         "sort_order": 1,
         "transitivity": "nonverb",
-        "usage_note": "Generic man meaning humanity is reading-relevant, especially in older/formal expressions, but neutral current writing often prefers humanity, humankind, human beings, or people."
+        "usage_note": "For current neutral/inclusive production, humanity, humankind, human beings, or people is often safer."
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:09137ec6d85ed26448d2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:man:7d4b8ad5d26f589f:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "值守服务台/接听电话",
+            "phrase": "man the desk/phones"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "给……配备人员；值守/操作（岗位、设备等）",
+        "definition_en": "to staff, crew, or operate a post, station, or piece of equipment",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:man:7d4b8ad5d26f589f",
+        "sense_label_en": "to staff, crew, or operate a post, station, or piece of equipment",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -105,38 +128,12 @@
     "word_id": "word:man"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:man:7d4b8ad5d26f589f",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "为...配备人手；操纵",
-      "definition_en": "to provide with men; to operate or staff",
-      "semantic_key": "897f06515f60690dd10ab081e874c70bb45afce9ef036e2092dece43994915a6",
-      "semantic_key_history": [
-        "7033952d508697036244aa128774c7f7dc99ea6ecb5e70121e1f2d1216e4422f"
-      ],
-      "legacy_aliases": [
-        "man:l3:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "man:l3:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8182,
-      "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:man:7d4b8ad5d26f589f",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 8182,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
@@ -158,6 +155,7 @@
     ],
     "active_collocations": [
       "collocation:04dbe2d46fd7e6f4828f",
+      "collocation:09137ec6d85ed26448d2",
       "collocation:c56b026d9e8abdc2d389"
     ],
     "facts": [],
@@ -175,6 +173,11 @@
       {
         "id": "collocation:dd03642b6db6de21aaf2",
         "source_row": 18699,
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:09137ec6d85ed26448d2",
+        "source_row": 21516,
         "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
       }
     ],
@@ -214,7 +217,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2937-2944.json",
-    "source_content_hash": "82a702f135a0858c38fe74047c21e719faace1990f03173a834e9f6ecc00c554",
+    "source_content_hash": "d4a933c81dc5af13fde7ab9b692310b60f2c9f253346cb1634bf2a1ad12f7c5e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

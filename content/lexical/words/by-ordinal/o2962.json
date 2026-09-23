@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f486152a4a2d4dd1364ee2d7ccb4007fe639b27bdd166e080759f894511a5043",
+    "content_hash": "b253532affa4411f4be54e5a4df68d18ac1e52a246f38f552d95c3886c36e838",
     "core_concept": {
       "core_clusters": [
         {
@@ -21,11 +21,12 @@
           ]
         },
         {
-          "label_cn": "做标记于；标明",
-          "label_en": "to make a mark on something",
+          "label_cn": "做标记；标志着/表明；批改评分",
+          "label_en": "to mark physically; signify an event/change; grade schoolwork",
           "pos": "verb",
           "sense_ids": [
-            "sense:mark:b8ddf34fd04a53a3"
+            "sense:mark:b8ddf34fd04a53a3",
+            "sense:mark:f4a4a0c3187c5c37"
           ]
         }
       ],
@@ -113,15 +114,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:23ea829a2e024ceb5407",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:mark:b8ddf34fd04a53a3:collocation:0"
-            ],
-            "meaning_cn": "给答案打分",
-            "phrase": "mark the answer"
-          },
-          {
             "collocation_id": "collocation:7693c8265fda49788694",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -188,6 +180,48 @@
             "verification_status": "auditor_verified"
           }
         ]
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:23ea829a2e024ceb5407",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:mark:b8ddf34fd04a53a3:collocation:0"
+            ],
+            "meaning_cn": "给答案打分",
+            "phrase": "mark the answer"
+          },
+          {
+            "collocation_id": "collocation:acaba85f9fb3177e93ae",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mark:412e6802f3d1fdb9:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "批改考试",
+            "phrase": "mark an exam"
+          },
+          {
+            "collocation_id": "collocation:1b2fa5c612c4191666f9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mark:412e6802f3d1fdb9:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "批改试卷/作业",
+            "phrase": "mark a paper/assignment"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "批改；评分",
+        "definition_en": "to assess and give a grade or score to schoolwork, an exam, or an answer",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:mark:412e6802f3d1fdb9",
+        "sense_label_en": "to assess and give a grade or score to schoolwork, an exam, or an answer",
+        "sort_order": 5,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -247,14 +281,23 @@
         "merged_into_sense_id": null,
         "source_row": 8254,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:mark:412e6802f3d1fdb9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8302,
+        "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
       }
     ],
     "active_collocations": [
       "collocation:18c9415a3096921f7e3d",
       "collocation:1936feb0fdb88f8c24d2",
+      "collocation:1b2fa5c612c4191666f9",
       "collocation:23ea829a2e024ceb5407",
       "collocation:7693c8265fda49788694",
       "collocation:7f48adcfc1908ae14fc5",
+      "collocation:acaba85f9fb3177e93ae",
       "collocation:c1dd7d65c4f5cef72847",
       "collocation:f3b2e62e35f55572edbc"
     ],
@@ -294,6 +337,16 @@
         "id": "collocation:f3b2e62e35f55572edbc",
         "source_row": 20641,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:1b2fa5c612c4191666f9",
+        "source_row": 21482,
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:acaba85f9fb3177e93ae",
+        "source_row": 21484,
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
       }
     ],
     "exam-mappings": [],
@@ -327,7 +380,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2961-2968.json",
-    "source_content_hash": "f486152a4a2d4dd1364ee2d7ccb4007fe639b27bdd166e080759f894511a5043",
+    "source_content_hash": "b253532affa4411f4be54e5a4df68d18ac1e52a246f38f552d95c3886c36e838",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
