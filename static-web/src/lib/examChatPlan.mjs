@@ -122,7 +122,7 @@ function normalizeExamChatPlanPresentation(value) {
     if (!label) throw new Error(`presentation.week_reference[${index}].label is required.`);
     let progressRatio = null;
     if (raw.progress_ratio !== null && raw.progress_ratio !== undefined) {
-      const number = Number(raw.progress_ratio);
+      const number = raw.progress_ratio;
       if (!Number.isFinite(number) || number < 0 || number > 1) {
         throw new Error(`Invalid presentation.week_reference[${index}].progress_ratio.`);
       }

@@ -45,6 +45,17 @@ function materiallyEqual(a,b){
   return JSON.stringify(materialPacket(a))===JSON.stringify(materialPacket(b));
 }
 
+// A successful Git push proves transport only. Report evidence separately from
+// the exact packet accepted by the relay, without re-projecting in the server.
+function evidenceStatus(packet){
+  return {
+    learner_evidence_ready: Boolean(packet.learner_evidence_basis)
+      && ['xizong','english','politics'].every(subject=>packet.coverage?.[subject]==='attached'),
+    coverage: packet.coverage || null,
+    generated_at: packet.generated_at
+  };
+}
+
 function packetOrder(a,b){
   if(a.study_day!==b.study_day)return a.study_day.localeCompare(b.study_day);
   return Date.parse(a.generated_at)-Date.parse(b.generated_at);
@@ -191,7 +202,7 @@ export async function publishDailyLearningPacket(input,{
       throw new Error('KIANOS_PACKET_SAME_IDENTITY_CONFLICT');
     }
     if(packet.study_day===current.study_day&&materiallyEqual(packet,current)){
-      return{state:'ready',status:'idempotent',study_day:packet.study_day};
+      return{state:'ready',status:'idempotent',study_day:current.study_day,...evidenceStatus(current)};
     }
   }
 
@@ -226,7 +237,8 @@ export async function publishDailyLearningPacket(input,{
     current_path:config.currentPath,
     sealed_day:sealDay,
     commit,
-    study_day:packet.study_day
+    study_day:packet.study_day,
+    ...evidenceStatus(packet)
   };
 }
 

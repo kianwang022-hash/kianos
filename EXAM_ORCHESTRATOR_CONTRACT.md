@@ -162,6 +162,7 @@ kianos.exam.chat-plan.v1
 
 study_day
 generated_at
+learner_evidence_basis  required; copy the current same-day Daily Packet basis exactly
 subjects
   xizong / english / politics
     target_minutes   optional
@@ -171,6 +172,8 @@ subjects
 next_subject         optional
 attention            optional
 ```
+
+The machine owners are [plan validation](static-web/src/lib/examChatPlan.mjs) and [control command validation](static-web/src/lib/privateControlCommand.mjs). Exact private submission, retry and receipt routing is [Personal OS control delivery](https://github.com/kianwang022-hash/kian-personal-os/blob/main/runtime/kianos-control/README.md). A missing/stale basis allows advice and native Resume, not a fabricated executable plan.
 
 This packet is private learner/control state. It must not be committed to public canonical Content.
 

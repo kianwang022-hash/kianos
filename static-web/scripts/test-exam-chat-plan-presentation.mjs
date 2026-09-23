@@ -87,3 +87,11 @@ assert.equal(stale.presentation.today_tasks[0].id, 'keep-task',
 const wrongDay = readExamChatPlan(staleStorage, '2026-09-23');
 assert.equal(wrongDay.presentation, null, 'yesterday presentation must not leak into a new study day');
 console.log('PASS same-day stale plan keeps display projection but not execution');
+
+for (const progress_ratio of [true,false,'',' ',[],{},'0.5']) {
+  assert.throws(()=>validateExamChatPlan({...base,presentation:{week_reference:[{id:'bad-ratio',label:'unknown',progress_ratio}]}}),/progress_ratio/);
+}
+for (const progress_ratio of [0,1,0.5,null]) {
+  assert.equal(validateExamChatPlan({...base,presentation:{week_reference:[{id:'ratio',label:'known',progress_ratio}]}}).presentation.week_reference[0].progress_ratio,progress_ratio);
+}
+console.log('PASS progress is numeric evidence or unknown, never coercion');

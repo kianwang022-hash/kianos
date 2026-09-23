@@ -18,6 +18,7 @@ const mainRemoteRef = ['refs', 'heads', 'main'].join('/');
 
 const rows = [];
 let failed = false;
+let learnerEvidenceReady = false;
 const jsonOutput = process.argv.includes('--json');
 const startedAt = new Date().toISOString();
 
@@ -194,6 +195,11 @@ if (siteOk) {
     const relay = packetRelay.value?.relay || {};
     if (relay.state === 'ready') {
       record('PASS', 'Daily Learning Packet relay', [relay.status, relay.study_day].filter(Boolean).join(' · ') || 'ready');
+      const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+      learnerEvidenceReady = relay.learner_evidence_ready === true && relay.study_day === today;
+      record(learnerEvidenceReady ? 'PASS' : 'WARN', 'Learner evidence for current-day planning',
+        learnerEvidenceReady ? 'current-day basis and subject evidence attached' :
+          `unavailable or stale · day=${relay.study_day || 'unknown'} · coverage=${JSON.stringify(relay.coverage || {})} · healthy native learning remains available`);
     } else if (relay.state === 'missing' && relay.reason === 'private-checkpoint-missing') {
       record('WARN', 'Daily Learning Packet relay', 'not exercised · no local learner checkpoint yet');
     } else if (relay.state === 'disabled') {
@@ -249,7 +255,9 @@ const report = {
   schema: 'kianos.current-doctor.v1',
   generated_at: new Date().toISOString(),
   started_at: startedAt,
-  ready: !failed,
+  ready: !failed && learnerEvidenceReady,
+  transport_ready: !failed,
+  learner_evidence_ready: learnerEvidenceReady,
   base_url: base + '/',
   mirror_dir: mirrorDir,
   private_dir: privateDir,
@@ -260,7 +268,7 @@ const report = {
 
 if (jsonOutput) {
   console.log(JSON.stringify(report));
-  process.exit(failed ? 1 : 0);
+  process.exit(report.ready ? 0 : 1);
 }
 
 console.log('');
@@ -270,8 +278,8 @@ for (const row of rows) {
 }
 console.log('');
 
-if (failed) {
-  console.error('NOT READY: run "npm run current:install" from the KianOS repository, then rerun "npm run current:doctor".');
+if (!report.ready) {
+  console.error('NOT READY: inspect the failed/warned owner above. A reachable relay does not prove current learner evidence. Native learning may remain available.');
   process.exit(1);
 }
 

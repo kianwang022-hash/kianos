@@ -29,6 +29,7 @@ const packet=(day,generated,total,x=0,e=0,p=0,basisTag='a')=>({
   timezone:'Asia/Shanghai',
   generated_at:generated,
   learner_evidence_basis:basis(day,basisTag),
+  coverage:{xizong:'attached',english:'attached',politics:'attached'},
   total_minutes:total,
   timer:{running:false,active_subject:null,review_candidates:[]},
   control:null,
@@ -54,6 +55,7 @@ try{
   const d1a=packet('2026-09-20','2026-09-20T01:00:00.000Z',30,30,0,0);
   const first=await publishDailyLearningPacket(d1a,{env,home:temp});
   assert.equal(first.status,'published');
+  assert.equal(first.learner_evidence_ready,true);
 
   const ref='refs/heads/'+branch;
   const sha1=execFileSync('git',['--git-dir',remote,'rev-parse',ref],{encoding:'utf8'}).trim();
@@ -66,6 +68,8 @@ try{
     generated_at:'2026-09-20T01:05:00.000Z'
   },{env,home:temp});
   assert.equal(replay.status,'idempotent','timestamp-only refresh must not publish');
+  assert.equal(replay.learner_evidence_ready,true);
+  assert.equal(replay.generated_at,d1a.generated_at,'idempotent readback uses remote packet timestamp');
   assert.equal(execFileSync('git',['--git-dir',remote,'rev-parse',ref],{encoding:'utf8'}).trim(),sha1);
 
   const reprojected={
@@ -130,6 +134,13 @@ try{
     ()=>publishDailyLearningPacket(packet('2026-09-20','2026-09-20T23:00:00.000Z',999,999,0,0),{env,home:temp}),
     /OLDER_THAN_REMOTE_CURRENT/
   );
+
+  const degraded={...d2b,generated_at:'2026-09-21T03:00:00.000Z',learner_evidence_basis:null,coverage:{xizong:'unavailable',english:'attached',politics:'attached'}};
+  const degradedPublish=await publishDailyLearningPacket(degraded,{env,home:temp});
+  assert.equal(degradedPublish.state,'ready','transport succeeds even when evidence is partial');
+  assert.equal(degradedPublish.learner_evidence_ready,false);
+  const degradedRetry=await publishDailyLearningPacket(degraded,{env,home:temp});
+  assert.equal(degradedRetry.learner_evidence_ready,false,'idempotent transport must not erase evidence failure');
 
   console.log('PASS Daily Learning Packet relay: current learner_evidence_basis preserved, basis changes publish, one current, one sealed file/day, root-only runtime ref, no stale rollback');
 }finally{

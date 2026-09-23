@@ -96,7 +96,7 @@ export function initExamHome(root) {
   };
   const writeTaskCheck = (id, checked) => {
     const state = readTaskChecks();
-    if (checked) state[id] = true;
+    if (checked) Object.defineProperty(state, id, { value: true, enumerable: true, configurable: true, writable: true });
     else delete state[id];
     try { localStorage.setItem(taskChecksKey(), JSON.stringify(state)); } catch {}
   };
@@ -109,7 +109,7 @@ export function initExamHome(root) {
   const remainingTaskCount = (presentation) => {
     const rows = presentation?.todayTasks || [];
     const checked = readTaskChecks();
-    return rows.filter((row) => !checked[row.id]).length;
+    return rows.filter((row) => !(Object.hasOwn(checked, row.id) && checked[row.id] === true)).length;
   };
   const renderCapacitySummary = () => {
     const node = $('[data-exam-capacity]');
@@ -314,7 +314,7 @@ export function initExamHome(root) {
       row.dataset.taskId = task.id;
       const input = document.createElement('input');
       input.type = 'checkbox';
-      input.checked = Boolean(checked[task.id]);
+      input.checked = Object.hasOwn(checked, task.id) && checked[task.id] === true;
       input.setAttribute('aria-label', `完成：${task.label}`);
       const copy = document.createElement('span');
       copy.className = 'examTaskCopy';

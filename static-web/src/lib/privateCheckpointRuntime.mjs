@@ -86,17 +86,38 @@ function rememberBase(storage, id, warnings) {
   try { storage.setItem(PRIVATE_CHECKPOINT_BASE_KEY, id); }
   catch { warnings.push('checkpoint:shared:PRIVATE_CHECKPOINT_BASE_UNAVAILABLE'); }
 }
+// These keys contain navigation/liveness metadata, not new learner evidence.
+// Only a locally newer observation of the SAME paused state/position can prove
+// equivalence. Active timing, answers, ledger rows and receipts stay exact.
+function sameRecoveredValue(key, localRaw, durableRaw) {
+  if (sameCheckpointRaw(localRaw, durableRaw)) return true;
+  try {
+    const local = JSON.parse(localRaw), durable = JSON.parse(durableRaw);
+    if (!local || !durable || Array.isArray(local) || Array.isArray(durable)) return false;
+    let fields;
+    if (['kianos-xizong-last-location-v1', 'kianos-politics-last-location-v1'].includes(key)) {
+      const a = Date.parse(local.observed_at), b = Date.parse(durable.observed_at);
+      if (!Number.isFinite(a) || !Number.isFinite(b) || a < b) return false;
+      fields = ['observed_at'];
+    } else if (key === STUDY_TIMER_STATE_KEY && local.running === false && durable.running === false) {
+      fields = ['lastSeenAt', 'updatedAt', 'revision'];
+      if (!fields.every(field => Number.isFinite(local[field]) && Number.isFinite(durable[field]) && local[field] >= durable[field])) return false;
+    } else return false;
+    for (const field of fields) { delete local[field]; delete durable[field]; }
+    return sameCheckpointRaw(JSON.stringify(local), JSON.stringify(durable));
+  } catch { return false; }
+}
 function localContainsCheckpoint(storage, checkpoint, day, { includeReceipt = true } = {}) {
   const entries = Object.values(checkpoint.payload?.subjects || {}).flatMap(subjectCheckpointEntries);
   const projection = sharedProjection(checkpoint.payload?.shared, day);
   if (projection.warnings.length) return false;
-  if (!entries.every(([key, raw]) => storage.getItem(key) != null && sameCheckpointRaw(storage.getItem(key), raw))) return false;
+  if (!entries.every(([key, raw]) => storage.getItem(key) != null && sameRecoveredValue(key, storage.getItem(key), raw))) return false;
   // Native timer readers define an absent timer as empty. Compare that read
   // model, so an initial empty save need not manufacture local storage keys.
   const local = sharedProjection(captureSharedControlCheckpoint(storage, { studyDay: day }), day);
   return !local.warnings.length && [...projection.staged.map]
     .filter(([key])=>includeReceipt || key!==CONTROL_LOCAL_RECEIPT_KEY)
-    .every(([key, raw]) => sameCheckpointRaw(local.staged.getItem(key), raw));
+    .every(([key, raw]) => sameRecoveredValue(key, local.staged.getItem(key), raw));
 }
 
 export async function restoreSharedControlFromPrivate(storage, {

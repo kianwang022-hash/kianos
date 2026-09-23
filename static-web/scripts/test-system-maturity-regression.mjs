@@ -71,6 +71,49 @@ await saveSharedControlToPrivate(partialTimer,{now:now+1,readCheckpoint:async()=
 }});
 pass('partial shared restore/save retains the existing hour rather than zero');
 
+// Restart after harmless navigation / paused-timer heartbeats must not leave
+// two identical learning histories permanently unable to establish ancestry.
+{
+  const location = { block: 'same-block', observed_at: new Date(now - 2000).toISOString() };
+  const source = new Storage(Object.fromEntries(timer.map));
+  source.setItem(xzA, JSON.stringify(location));
+  const backup = buildPrivateLearnerCheckpoint({ studyDay: day, now,
+    shared: captureSharedControlCheckpoint(source, { studyDay: day, now }),
+    subjects: capturePrivateSubjectCheckpoints(source, {}, { now }) });
+  const newer = () => {
+    const browser = new Storage(Object.fromEntries(source.map));
+    browser.setItem(xzA, JSON.stringify({ ...location, observed_at: stamp }));
+    browser.setItem(STUDY_TIMER_STATE_KEY, JSON.stringify({ ...JSON.parse(source.getItem(STUDY_TIMER_STATE_KEY)), lastSeenAt: now+1, updatedAt: now+1, revision: 2 }));
+    return browser;
+  };
+  const browser = newer(), original = Object.fromEntries(browser.map);
+  const readCheckpoint = async () => ({ status: 'ready', checkpoint: backup });
+  const recovery = await restoreSharedControlFromPrivate(browser, { now, readCheckpoint });
+  assert.deepEqual(recovery.warnings, []);
+  assert.equal(browser.getItem(PRIVATE_CHECKPOINT_BASE_KEY), backup.checkpoint_id);
+  for (const [key, raw] of Object.entries(original)) assert.equal(browser.getItem(key), raw, 'recovery preserves every existing byte');
+  const save = await saveSharedControlToPrivate(browser, { now: now+2, readCheckpoint, writeCheckpoint: async value => {
+    assert.deepEqual(value.payload.shared.capture_warnings, []);
+    assert.equal(value.payload.shared.study_timer_ledger.sessions.length, 1);
+  }});
+  assert.equal(save.status, 'saved');
+  for (const [label, mutate] of [
+    ['different navigation', b => b.setItem(xzA, JSON.stringify({ ...location, block: 'other', observed_at: stamp }))],
+    ['older navigation', b => b.setItem(xzA, JSON.stringify({ ...location, observed_at: new Date(now-3000).toISOString() }))],
+    ['invalid navigation time', b => b.setItem(xzA, JSON.stringify({ ...location, observed_at: 'bad' }))],
+    ['running timer', b => b.setItem(STUDY_TIMER_STATE_KEY, JSON.stringify({ ...JSON.parse(b.getItem(STUDY_TIMER_STATE_KEY)), running: true, segmentStartedAt: now, subject: 'english' }))],
+    ['different paused context', b => b.setItem(STUDY_TIMER_STATE_KEY, JSON.stringify({ ...JSON.parse(b.getItem(STUDY_TIMER_STATE_KEY)), manualPaused: false }))],
+    ['different ledger', b => b.setItem(STUDY_TIMER_LEDGER_KEY, JSON.stringify({ schema: STUDY_TIMER_SCHEMA, sessions: [] }))]
+  ]) {
+    const divergent = newer(); mutate(divergent);
+    await restoreSharedControlFromPrivate(divergent, { now, readCheckpoint });
+    assert.equal(divergent.getItem(PRIVATE_CHECKPOINT_BASE_KEY), null, label + ' cannot authorize overwrite');
+    const rejected = await saveSharedControlToPrivate(divergent, { now: now+3, readCheckpoint, writeCheckpoint: async () => {} });
+    assert.equal(rejected.status, 'partial', label + ' must remain a visible conflict');
+  }
+  pass('neutral metadata restart recovers ancestry without relaxing real conflicts');
+}
+
 const brokenShared=structuredClone(checkpoint);brokenShared.payload.shared.exam_profile={bad:true};
 const healthyRecovery=new Storage();
 const isolatedShared=await restoreSharedControlFromPrivate(healthyRecovery,{now,readCheckpoint:async()=>({status:'ready',checkpoint:brokenShared})});
