@@ -57,10 +57,11 @@ A/B independently advance on the frozen baseline
 → C frontier <= min(A.completed_through, B.completed_through)
 → C: reconcile A ∪ B findings for eligible windows
 → canonical mutation only in C
-→ rebuild 7,946 Final Learner Objects
-→ targeted final readback of changed owners/dependencies
-→ validators
+→ Natural Owner audit + targeted readback of changed owners/dependencies
+→ canonical validators
 → normal authorized merge
+→ website build derives 7,946 Final Learner Objects from merged semantic truth
+→ Astro build consumes that derived projection
 ```
 
 A and B never modify canonical lexical truth and never read each other's findings. C is not a third full-catalog audit. It only adjudicates findings-hit/disagreement owners plus required dependencies.
@@ -97,7 +98,7 @@ A/B/C are durable execution roles for this campaign. The user selects a role by 
 | Visual product brief | `static-web/LEXICAL_PRODUCT_BRIEF.md` |
 | Final acceptance | `content/lexical/ACCEPTANCE.md` |
 
-Natural Owners remain semantic truth. Final Learner Objects are derived learner assets. Website is a fixed consumer, not a semantic compiler.
+Natural Owners remain semantic truth. Final Learner Objects are derived learner assets, never a C semantic gate. The website build pipeline materializes Final Learner Objects from current Natural Owners before Astro build; the browser runtime remains a fixed consumer.
 
 ---
 

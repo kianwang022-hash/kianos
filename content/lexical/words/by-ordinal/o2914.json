@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "43dd0117e91838eddd28d173c1dc8564161d12ce4aad0cab3e7ba4325dd6b2f9",
+    "content_hash": "e1d6d6fffe31785d78917816d6f2eccafe0ba2d9bd6109749f51010ef7b40a7e",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "机器或机构",
@@ -50,6 +50,30 @@
         "sense_label_en": "an intricate organization that accomplishes its goals efficiently",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:81f7ab53f232acbc08e4",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:machine:9795ae4c4e055ba3:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "用机器加工金属零件",
+            "phrase": "machine a metal part"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "用机器加工/制造",
+        "definition_en": "to make, shape, or finish something by machine",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:machine:9795ae4c4e055ba3",
+        "sense_label_en": "to make, shape, or finish something by machine",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -97,31 +121,6 @@
       "source_row": 8112,
       "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:machine:9795ae4c4e055ba3",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "用机器制造",
-      "definition_en": "make by machinery",
-      "semantic_key": "40cea2c65c06910e01f9b3a09b11cf422267e4eebf98e324cc64855cc63df4d0",
-      "semantic_key_history": [
-        "74291ba869e59393f972028f24d88dfaacaab72373273a15b48096925a1f4890"
-      ],
-      "legacy_aliases": [
-        "machine:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "machine:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8114,
-      "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -142,7 +141,7 @@
       },
       {
         "sense_id": "sense:machine:9795ae4c4e055ba3",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 8114,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
@@ -155,7 +154,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:81f7ab53f232acbc08e4"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -181,6 +182,11 @@
       {
         "id": "collocation:ed7dcd6d02baef23d827",
         "source_row": 20127,
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:81f7ab53f232acbc08e4",
+        "source_row": 21518,
         "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
       }
     ],
@@ -210,7 +216,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2913-2920.json",
-    "source_content_hash": "43dd0117e91838eddd28d173c1dc8564161d12ce4aad0cab3e7ba4325dd6b2f9",
+    "source_content_hash": "e1d6d6fffe31785d78917816d6f2eccafe0ba2d9bd6109749f51010ef7b40a7e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

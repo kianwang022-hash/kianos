@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "465cc4c9c910a1a06c4228456a6bc5057b051f3c31dea9be68a34c40f58e7842",
+    "constructions": [
+      {
+        "construction_id": "construction:13381c45db94e4f2c0c9",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "load A with B：把B装入A；load B into/onto A：把B装入/装上A",
+        "pattern": "load A with B vs load B into/onto A"
+      }
+    ],
+    "content_hash": "7ae53f998dd7225efd14448ca1ba1d7f45de0cb21eb0d0c44ae0a803946cb7d6",
     "core_concept": {
       "core_clusters": [
         {
@@ -196,6 +204,39 @@
         "sense_label_en": "the amount of work or power that a system can handle",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:23d438b24375a7ef0254",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:load:6fe2c39442bcbf4e:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "把数据/程序加载到某处",
+            "phrase": "load data/a program into/onto sth"
+          },
+          {
+            "collocation_id": "collocation:7c2ceeba19a3ea3ad4b7",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:load:6fe2c39442bcbf4e:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "页面/应用完成加载",
+            "phrase": "the page/app loads"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "加载；装入（数据/程序）；（页面/程序）载入并就绪",
+        "definition_en": "to put data, a program, or content into a computer/system; or for a page/app/program to appear or become ready",
+        "governing_pattern": "I/T",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:load:6fe2c39442bcbf4e",
+        "sense_label_en": "to put data, a program, or content into a computer/system; or for a page/app/program to appear or become ready",
+        "sort_order": 4,
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -255,11 +296,20 @@
         "merged_into_sense_id": null,
         "source_row": 7966,
         "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      },
+      {
+        "sense_id": "sense:load:6fe2c39442bcbf4e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8023,
+        "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
       }
     ],
     "active_collocations": [
+      "collocation:23d438b24375a7ef0254",
       "collocation:2e7340e635a163364110",
       "collocation:3821fa3a874a91e30afd",
+      "collocation:7c2ceeba19a3ea3ad4b7",
       "collocation:9c82277bb1a6b3f1e3e3",
       "collocation:f427cce889826099adef",
       "collocation:f5e315f0c06ac6217bb7",
@@ -307,6 +357,16 @@
         "id": "collocation:f92f00e48ee6a646486d",
         "source_row": 21105,
         "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:23d438b24375a7ef0254",
+        "source_row": 21503,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:7c2ceeba19a3ea3ad4b7",
+        "source_row": 21504,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
       }
     ],
     "exam-mappings": [],
@@ -345,7 +405,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2857-2864.json",
-    "source_content_hash": "465cc4c9c910a1a06c4228456a6bc5057b051f3c31dea9be68a34c40f58e7842",
+    "source_content_hash": "7ae53f998dd7225efd14448ca1ba1d7f45de0cb21eb0d0c44ae0a803946cb7d6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

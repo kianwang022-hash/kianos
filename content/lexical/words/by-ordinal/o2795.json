@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "1a38312650436b4d47273d352fe2df4c45648dd8427ba3279dace5018263c9b0",
+    "constructions": [
+      {
+        "construction_id": "construction:1a794e406699d2cf9201",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "来自较早一代但仍在使用的旧技术/旧系统",
+        "pattern": "legacy system"
+      }
+    ],
+    "content_hash": "bdd0eac5e08af3ab9fb1b61937b3a71611ceb0fe0d5a1c52ebf3af41e529c4af",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "遗产，遗赠物",
@@ -26,26 +34,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b05e216859fde9f91027",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:legacy:6eb7f252170d5cb6:collocation:0"
-            ],
-            "meaning_cn": "文化遗产",
-            "phrase": "cultural legacy"
-          },
-          {
-            "collocation_id": "collocation:dbf248948d33ba7c2fae",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:legacy:6eb7f252170d5cb6:collocation:1"
-            ],
-            "meaning_cn": "遗留系统",
-            "phrase": "legacy system"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "遗产；遗赠",
         "definition_en": "money or property left to someone after a person dies",
@@ -59,7 +48,17 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:b05e216859fde9f91027",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:legacy:6eb7f252170d5cb6:collocation:0"
+            ],
+            "meaning_cn": "文化遗产",
+            "phrase": "cultural legacy"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "历史遗产；遗留影响；后果",
         "definition_en": "something remaining from the past, especially a lasting result or effect of earlier events or actions",
@@ -127,8 +126,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:b05e216859fde9f91027",
-      "collocation:dbf248948d33ba7c2fae"
+      "collocation:b05e216859fde9f91027"
     ],
     "facts": [],
     "collocations": [
@@ -174,7 +172,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2793-2800.json",
-    "source_content_hash": "1a38312650436b4d47273d352fe2df4c45648dd8427ba3279dace5018263c9b0",
+    "source_content_hash": "bdd0eac5e08af3ab9fb1b61937b3a71611ceb0fe0d5a1c52ebf3af41e529c4af",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

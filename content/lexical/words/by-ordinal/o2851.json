@@ -7,12 +7,12 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "439434d78737f1f82be2b0e9719363c7b016798f90c7a6c7113b965c0a6cecf5",
+    "content_hash": "97a2a432e57b2b75b53f97f1164ad3d20bc70d475a6c49d75ad9aeceac3f82f4",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "读写能力",
-      "core_meaning_en": "ability to read and write",
-      "mental_model_cn": "读写能力",
+      "core_meaning_cn": "读写能力；领域素养",
+      "core_meaning_en": "ability to read/write; also competence in a particular domain",
+      "mental_model_cn": "读写能力；领域素养",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,6 +55,48 @@
         "sense_label_en": "the ability to read and write",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8a736491fc67baa485d6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:literacy:01adc46f8a2c6a79:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "数字素养",
+            "phrase": "digital literacy"
+          },
+          {
+            "collocation_id": "collocation:126ffd28e530d3750418",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:literacy:01adc46f8a2c6a79:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "金融素养",
+            "phrase": "financial literacy"
+          },
+          {
+            "collocation_id": "collocation:e124bc0579a719fe0718",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:literacy:01adc46f8a2c6a79:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "健康素养",
+            "phrase": "health literacy"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（某领域的）基本理解与运用能力；素养",
+        "definition_en": "competence, knowledge, and ability to understand and use information in a particular field",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:literacy:01adc46f8a2c6a79",
+        "sense_label_en": "competence, knowledge, and ability to understand and use information in a particular field",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -86,11 +128,21 @@
         "merged_into_sense_id": null,
         "source_row": 7928,
         "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      },
+      {
+        "sense_id": "sense:literacy:01adc46f8a2c6a79",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8020,
+        "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
       }
     ],
     "active_collocations": [
+      "collocation:126ffd28e530d3750418",
+      "collocation:8a736491fc67baa485d6",
       "collocation:bb8dff7ba192be19259d",
-      "collocation:d9ea2a81cc7c3695a62d"
+      "collocation:d9ea2a81cc7c3695a62d",
+      "collocation:e124bc0579a719fe0718"
     ],
     "facts": [],
     "collocations": [
@@ -102,6 +154,21 @@
       {
         "id": "collocation:d9ea2a81cc7c3695a62d",
         "source_row": 18432,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:126ffd28e530d3750418",
+        "source_row": 21501,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:8a736491fc67baa485d6",
+        "source_row": 21506,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:e124bc0579a719fe0718",
+        "source_row": 21507,
         "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
       }
     ],
@@ -136,7 +203,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2849-2856.json",
-    "source_content_hash": "439434d78737f1f82be2b0e9719363c7b016798f90c7a6c7113b965c0a6cecf5",
+    "source_content_hash": "97a2a432e57b2b75b53f97f1164ad3d20bc70d475a6c49d75ad9aeceac3f82f4",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

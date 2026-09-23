@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "45ffc49850efbe2f785a47d004ec65a7b9f16dc70664966071e7ddcdc3a3d631",
+    "content_hash": "739197703aee7fd153c52076343779cfc6e26121f410384e92b08a02d2aaa5db",
     "core_concept": {
       "core_clusters": [
         {
@@ -88,15 +88,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:d8e6fdb7c93de741c55d",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:major:748004c42b3056a8:collocation:0"
-            ],
-            "meaning_cn": "主修某科目",
-            "phrase": "major in + subject"
-          },
-          {
             "collocation_id": "collocation:3d2fcbaf16f750edb2c2",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -154,6 +145,30 @@
         "sense_id": "sense:major:dff3bb5fd1dc5497",
         "sense_label_en": "a military officer of middle rank",
         "sort_order": 3,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:2ca599c7736da44e2a57",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:major:a24e87f200b115a5:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "英语专业学生",
+            "phrase": "an English major"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "主修某专业的学生",
+        "definition_en": "a student whose principal field of study is a specified subject",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:major:a24e87f200b115a5",
+        "sense_label_en": "a student whose principal field of study is a specified subject",
+        "sort_order": 4,
         "transitivity": "nonverb"
       }
     ],
@@ -247,13 +262,20 @@
         "merged_into_sense_id": null,
         "source_row": 8169,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      },
+      {
+        "sense_id": "sense:major:a24e87f200b115a5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8198,
+        "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
       }
     ],
     "active_collocations": [
+      "collocation:2ca599c7736da44e2a57",
       "collocation:3a719de24fe3cd21c907",
       "collocation:3d2fcbaf16f750edb2c2",
       "collocation:688f807c757f0e32619d",
-      "collocation:d8e6fdb7c93de741c55d",
       "collocation:e57167098cecb5a53c74"
     ],
     "facts": [
@@ -287,6 +309,11 @@
       {
         "id": "collocation:e57167098cecb5a53c74",
         "source_row": 19431,
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:2ca599c7736da44e2a57",
+        "source_row": 21517,
         "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
       }
     ],
@@ -331,7 +358,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2929-2936.json",
-    "source_content_hash": "45ffc49850efbe2f785a47d004ec65a7b9f16dc70664966071e7ddcdc3a3d631",
+    "source_content_hash": "739197703aee7fd153c52076343779cfc6e26121f410384e92b08a02d2aaa5db",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

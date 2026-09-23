@@ -13,9 +13,17 @@
         "level": "L2",
         "meaning_cn": "在某事上投入时间、精力或努力",
         "pattern": "invest time/effort/energy in sth"
+      },
+      {
+        "construction_id": "construction:f17d6c319671b00df210",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "授予某人/某物权力或权限",
+        "pattern": "invest sb/sth with authority/power",
+        "source_sense_id": "sense:invest:5624ec75c3bd5ea9"
       }
     ],
-    "content_hash": "d450f098e16541830e9a1953bbb3959b4b40d378c99e25a44247c8da45f45c94",
+    "content_hash": "eec80c035c23b27b5cd73409acfc8be341c6e16d19644bed9e5121db8c18b976",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "投资",
@@ -63,6 +71,20 @@
         "sense_label_en": "to put money into something to make a profit, or devote time, effort, or energy to achieve a result",
         "sort_order": 0,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "授予（权力、权利、职责）；使具有",
+        "definition_en": "to give or confer authority, power, rights, or a quality on someone or something",
+        "governing_pattern": "invest sb/sth with sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:invest:5624ec75c3bd5ea9",
+        "sense_label_en": "to give or confer authority, power, rights, or a quality on someone or something",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -86,31 +108,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:invest:5624ec75c3bd5ea9",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "授予",
-      "definition_en": "to give power or authority to someone",
-      "semantic_key": "94b7c026900a30ec24974149326e5dc71bd19034152d8dce5e907f82bdab2caf",
-      "semantic_key_history": [
-        "201425a5c88f0a77354749781bcbb4f614a618542ced7a14d7618f5bbb3a9dd5"
-      ],
-      "legacy_aliases": [
-        "invest:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "invest:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7263,
-      "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:invest:8af34f19799055c4",
       "status": "deprecated",
@@ -141,7 +138,7 @@
     "senses": [
       {
         "sense_id": "sense:invest:5624ec75c3bd5ea9",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 7263,
         "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
@@ -224,7 +221,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2633-2640.json",
-    "source_content_hash": "d450f098e16541830e9a1953bbb3959b4b40d378c99e25a44247c8da45f45c94",
+    "source_content_hash": "eec80c035c23b27b5cd73409acfc8be341c6e16d19644bed9e5121db8c18b976",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

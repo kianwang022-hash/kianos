@@ -7,9 +7,18 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3a398d41138ee140b790b82544b4f5528c863d9d45ff4d5eec2b63cbbaf9deac",
+    "content_hash": "7f325adaaf52597c8184327aa9a54877bb9aacafc7c37d8843ea22d04ceebc3f",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "方法/手段；财力/资源",
+          "label_en": "a method/way; financial resources",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:means:e3041c7f06915845"
+          ]
+        }
+      ],
       "core_meaning_cn": "方法，手段；财力",
       "core_meaning_en": "a method or way of doing something; resources",
       "mental_model_cn": "方法，手段；财力",
@@ -75,17 +84,44 @@
             ],
             "meaning_cn": "量入为出",
             "phrase": "live within one's means"
+          },
+          {
+            "collocation_id": "collocation:831f732fe68ad01366c2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:means:e3041c7f06915845:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "量入为出/超出经济能力",
+            "phrase": "within/beyond one's means"
+          },
+          {
+            "collocation_id": "collocation:0ec933cb3e240a9fa304",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:means:e3041c7f06915845:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "有能力/财力做某事",
+            "phrase": "have the means to do sth"
+          },
+          {
+            "collocation_id": "collocation:7f3e02d066d5af149ca5",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:means:e3041c7f06915845:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "有财力的人",
+            "phrase": "a person of means"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "财产，收入",
-        "definition_en": "considerable capital (wealth or income)",
+        "definition_cn": "财力；可支配的金钱/资源",
+        "definition_en": "money or resources available to someone",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:means:e3041c7f06915845",
-        "sense_label_en": "considerable capital (wealth or income)",
+        "sense_label_en": "money or resources available to someone",
         "sort_order": 2,
         "transitivity": "nonverb"
       }
@@ -160,6 +196,9 @@
       }
     ],
     "active_collocations": [
+      "collocation:0ec933cb3e240a9fa304",
+      "collocation:7f3e02d066d5af149ca5",
+      "collocation:831f732fe68ad01366c2",
       "collocation:ba946eec761177754fb4",
       "collocation:c751fe5a2a7876d4b8f9",
       "collocation:cc8475c149b432f652e2",
@@ -185,6 +224,21 @@
       {
         "id": "collocation:de58fa47e27baaabba95",
         "source_row": 18822,
+        "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
+      {
+        "id": "collocation:0ec933cb3e240a9fa304",
+        "source_row": 21291,
+        "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
+      {
+        "id": "collocation:7f3e02d066d5af149ca5",
+        "source_row": 21293,
+        "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
+      {
+        "id": "collocation:831f732fe68ad01366c2",
+        "source_row": 21294,
         "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
       }
     ],
@@ -219,7 +273,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2993-3000.json",
-    "source_content_hash": "3a398d41138ee140b790b82544b4f5528c863d9d45ff4d5eec2b63cbbaf9deac",
+    "source_content_hash": "7f325adaaf52597c8184327aa9a54877bb9aacafc7c37d8843ea22d04ceebc3f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

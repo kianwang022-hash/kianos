@@ -7,12 +7,12 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6be48d41c4ad952f23ea0b62cab508a4be0e20004aa37630e6a721e1bdd7a082",
+    "content_hash": "6b6fa5c0e20ff3633d15e28293e91ebf4f5374a967d318298ea6d26f0c02ae01",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "面具；口罩；面部遮盖物",
-          "label_en": "a covering worn over the face to conceal or protect it",
+          "label_cn": "用于伪装或遮住脸部的遮盖物；试图掩盖某事的活动；戴在脸上的防护罩",
+          "label_en": "a covering to disguise or conceal the face; activity that tries to conceal something; a protective covering worn over the face",
           "pos": "noun",
           "sense_ids": [
             "sense:mask:bf25b733e12e5180",
@@ -20,34 +20,24 @@
           ]
         },
         {
-          "label_cn": "给……戴面具/遮盖",
-          "label_en": "put a mask on or cover with a mask",
+          "label_cn": "给...戴面具或遮盖；掩饰或隐藏某物",
+          "label_en": "put a mask on or cover with a mask; conceal or hide something",
           "pos": "verb",
           "sense_ids": [
             "sense:mask:4dc262fcac6458c1"
           ]
-        },
-        {
-          "label_cn": "掩饰；隐藏",
-          "label_en": "conceal or prevent something from being noticed",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:mask:9bb60421fb805d20"
-          ]
         }
       ],
-      "core_meaning_cn": "面具/遮盖物；遮盖或掩饰",
-      "core_meaning_en": "a face covering, to cover with a mask, or to conceal something",
-      "mental_model_cn": "面具/遮盖物；遮盖或掩饰",
+      "core_meaning_cn": "遮盖物，掩饰",
+      "core_meaning_en": "a covering that hides or protects",
+      "mental_model_cn": "遮盖物，掩饰",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [
-      "semantic-reconciliation:o2825-o3024"
-    ],
+    "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -61,15 +51,6 @@
             ],
             "meaning_cn": "戴口罩/面具",
             "phrase": "wear a mask"
-          },
-          {
-            "collocation_id": "collocation:38f026e0e32a41d377ba",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:mask:bf25b733e12e5180:collocation:1"
-            ],
-            "meaning_cn": "外科口罩",
-            "phrase": "surgical mask"
           }
         ],
         "confidence": "medium",
@@ -118,6 +99,15 @@
             ],
             "meaning_cn": "防护面罩",
             "phrase": "protective mask"
+          },
+          {
+            "collocation_id": "collocation:38f026e0e32a41d377ba",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:mask:bf25b733e12e5180:collocation:1"
+            ],
+            "meaning_cn": "外科口罩",
+            "phrase": "surgical mask"
           }
         ],
         "confidence": "medium",
@@ -131,30 +121,6 @@
         "sense_label_en": "a protective covering worn over the face",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:622129450134d5b00970",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:mask:9bb60421fb805d20:collocation:retro-o0025-o0224"
-            ],
-            "meaning_cn": "掩盖气味/问题/影响",
-            "phrase": "mask the smell/problem/effect"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "掩饰；隐藏；使不易察觉",
-        "definition_en": "to conceal, hide, or prevent something from being noticed or recognized",
-        "governing_pattern": "vt. + object",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:mask:9bb60421fb805d20",
-        "sense_label_en": "to conceal, hide, or prevent something from being noticed or recognized",
-        "sort_order": 3,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -178,6 +144,31 @@
   },
   "relation_refs": [],
   "reference_senses": [
+    {
+      "stable_sense_id": "sense:mask:9bb60421fb805d20",
+      "status": "active",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "掩饰；隐藏；使不易察觉",
+      "definition_en": "to conceal, hide, or prevent something from being noticed or recognized",
+      "semantic_key": "b36acf453ecf1836e2972b6ef2760f4b52fadfdd9d0543e3691ac9bf1b2e0ba4",
+      "semantic_key_history": [
+        "b1746a3d7fcd7448fab9054340ac0fc92ff5f304c021af320ccc535cf0e3a22c"
+      ],
+      "legacy_aliases": [
+        "mask:l1:5"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "mask:l1:5",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T09:40:00Z",
+      "source_row": 8273,
+      "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json",
+      "reference_only": true
+    },
     {
       "stable_sense_id": "sense:mask:d96d40f4adec5e38",
       "status": "deprecated",
@@ -244,7 +235,6 @@
     ],
     "active_collocations": [
       "collocation:38f026e0e32a41d377ba",
-      "collocation:622129450134d5b00970",
       "collocation:c32783c6d7d8bb3dbcb2",
       "collocation:d9dc4243559f7463d81c",
       "collocation:eca2b256411a4b31d0d8"
@@ -259,11 +249,6 @@
       {
         "id": "collocation:38f026e0e32a41d377ba",
         "source_row": 4820,
-        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
-      },
-      {
-        "id": "collocation:622129450134d5b00970",
-        "source_row": 21480,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
       },
       {
@@ -284,6 +269,11 @@
       {
         "id": "collocation:eca2b256411a4b31d0d8",
         "source_row": 20055,
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:622129450134d5b00970",
+        "source_row": 21480,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
       }
     ],
@@ -318,7 +308,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2969-2976.json",
-    "source_content_hash": "7cd015ca6291664e659e2b41b5083aa4e9da3998b37120d3746da382d3fe52e7",
+    "source_content_hash": "6b6fa5c0e20ff3633d15e28293e91ebf4f5374a967d318298ea6d26f0c02ae01",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

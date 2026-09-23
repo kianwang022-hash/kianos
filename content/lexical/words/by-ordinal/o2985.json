@@ -6,8 +6,17 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "f12b9dd21a774a38371a11c233fb4beea8421403b9130282a1b553cfa9c64a87",
+    "constructions": [
+      {
+        "boundary": "reasonable/easiest choice when no better alternative is apparent",
+        "construction_id": "construction:08bcd5c19607964717f5",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "不妨；还是……为好；反正可以……",
+        "pattern": "may as well + base verb"
+      }
+    ],
+    "content_hash": "9cbb4c1b46d598d6477063730a5a934381dac576c58d33067de4c8242997cb69",
     "core_concept": {
       "core_clusters": [
         {
@@ -66,6 +75,11 @@
         "definition_en": "used to express possibility or permission",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "canonical_surface": "may",
+          "identity_type": "case_sensitive_sense",
+          "note": "modal is lowercase except normal sentence-initial capitalization"
+        },
         "needs_human_review": 0,
         "pos": "modal",
         "sense_id": "sense:may:23b7f1b450c25f1f",
@@ -89,13 +103,11 @@
         "definition_cn": "五月",
         "definition_en": "the month following April and preceding June",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "lexical_identity_overlay": {
-          "case_sensitive": true,
-          "identity_type": "case_sensitive_lexeme",
-          "lexical_identity_id": "identity:338f395f1eb49c62bf2f",
-          "recommended_disposition": null,
-          "surface_lemma": "May"
+          "canonical_surface": "May",
+          "identity_type": "case_sensitive_sense",
+          "note": "month is capitalized"
         },
         "needs_human_review": 0,
         "pos": "noun",
@@ -192,7 +204,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2985-2992.json",
-    "source_content_hash": "f12b9dd21a774a38371a11c233fb4beea8421403b9130282a1b553cfa9c64a87",
+    "source_content_hash": "9cbb4c1b46d598d6477063730a5a934381dac576c58d33067de4c8242997cb69",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

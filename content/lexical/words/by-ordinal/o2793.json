@@ -12,39 +12,41 @@
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "向左转、向左走或向左移动",
-        "pattern": "turn/go/move left"
+        "pattern": "turn/go/move left",
+        "source_sense_id": "sense:left:de3056633408a702"
       }
     ],
-    "content_hash": "91863ac32a8bb21229f264803e8415fdba67d10588cd1b0a7394ab2515d2115b",
+    "content_hash": "63b3054b0a251af46c13ab6c585ef5307628e1bba765f98909bc80b88bd85af7",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "左边，左侧；左派，左翼",
-          "label_en": "the side or direction that is on the left when facing east; political groups supporting social or economic change",
+          "label_cn": "左边；左侧",
+          "label_en": "the left side",
           "pos": "noun",
           "sense_ids": [
-            "sense:left:b8ee2f61de1c5b88",
-            "sense:left:cfbb1311bce95e8c"
+            "sense:left:b8ee2f61de1c5b88"
           ]
         },
         {
-          "label_cn": "离开；留下（leave的过去式/过去分词）",
-          "label_en": "past tense and past participle of leave",
-          "pos": "verb",
-          "sense_ids": []
-        },
-        {
           "label_cn": "左边的",
-          "label_en": "located on the left side",
+          "label_en": "on or toward the left side",
           "pos": "adjective",
           "sense_ids": [
             "sense:left:457ff06c8fe2522c"
           ]
+        },
+        {
+          "label_cn": "向左",
+          "label_en": "toward the left",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:left:de3056633408a702"
+          ]
         }
       ],
-      "core_meaning_cn": "左边；离开（leave的过去式）",
-      "core_meaning_en": "the left side or direction; past tense of leave",
-      "mental_model_cn": "左边；离开（leave的过去式）",
+      "core_meaning_cn": "左边；左侧；向左；（政治）左派",
+      "core_meaning_en": "the left side/direction; toward the left; the political left",
+      "mental_model_cn": "左边；左侧；向左；（政治）左派",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -130,7 +132,7 @@
         "definition_cn": "左边的",
         "definition_en": "located on the left side",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:left:457ff06c8fe2522c",
@@ -172,14 +174,7 @@
     "word_family": [],
     "word_id": "word:left"
   },
-  "relation_refs": [
-    {
-      "relation_id": "relation:4cd622d3e0a763cd3a14",
-      "owner_path": "content/lexical/relations/by-id/6f/6fd57b401960c713283e4d066ffdd859ed0ba694e89ef34da90fa36fbcab2ddb.json",
-      "field": "semantic_neighbors",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [
     {
       "stable_sense_id": "sense:left:a1926a1a99c150c8",
@@ -303,7 +298,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2793-2800.json",
-    "source_content_hash": "91863ac32a8bb21229f264803e8415fdba67d10588cd1b0a7394ab2515d2115b",
+    "source_content_hash": "63b3054b0a251af46c13ab6c585ef5307628e1bba765f98909bc80b88bd85af7",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

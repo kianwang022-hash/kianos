@@ -7,16 +7,17 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "96bfdbb225a288ab39721fece01ddb5b069d684114a050b0c8b12bc4a7eaaf34",
+    "content_hash": "41c8ba870863aa014680dfcbf78f4136c3a09d9a8b151bbe397897695e584510",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "跳，跳跃；跃过，跳过",
-          "label_en": "to push yourself off the ground into the air using your legs; to move over or across something by jumping",
+          "label_cn": "跳；猛增/突然上升",
+          "label_en": "to jump physically or increase suddenly/sharply",
           "pos": "verb",
           "sense_ids": [
             "sense:jump:1b7c25484e9e5c6c",
-            "sense:jump:b3721b899f3356e7"
+            "sense:jump:b3721b899f3356e7",
+            "sense:jump:fae54dc345b37bc9"
           ]
         },
         {
@@ -196,6 +197,39 @@
         "sense_label_en": "a descent from an aircraft using a parachute",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:01d8ade53cb8fd07e74b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:jump:fae54dc345b37bc9:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "价格猛增",
+            "phrase": "prices jumped"
+          },
+          {
+            "collocation_id": "collocation:5258d3c8b4a8c300edcc",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:jump:fae54dc345b37bc9:collocation:streaming-c-o2651-o2750"
+            ],
+            "meaning_cn": "猛增了/猛增至某数值",
+            "phrase": "jump by/to + amount"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "猛增；突然上升",
+        "definition_en": "to increase suddenly or sharply",
+        "governing_pattern": "vi.",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:jump:fae54dc345b37bc9",
+        "sense_label_en": "to increase suddenly or sharply",
+        "sort_order": 6,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -262,11 +296,20 @@
         "merged_into_sense_id": null,
         "source_row": 7415,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
+      },
+      {
+        "sense_id": "sense:jump:fae54dc345b37bc9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7427,
+        "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
       }
     ],
     "active_collocations": [
+      "collocation:01d8ade53cb8fd07e74b",
       "collocation:2ad6271f8e8b8a57ba59",
       "collocation:328ce390af139423afed",
+      "collocation:5258d3c8b4a8c300edcc",
       "collocation:741f47b6fae8fa9045ab",
       "collocation:74ffb60d1ecf3cc49a7a",
       "collocation:c8cde16a9fd469899801",
@@ -309,6 +352,16 @@
         "id": "collocation:f54b95f3e4bc9e8aee1d",
         "source_row": 20773,
         "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+      },
+      {
+        "id": "collocation:01d8ade53cb8fd07e74b",
+        "source_row": 21326,
+        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+      },
+      {
+        "id": "collocation:5258d3c8b4a8c300edcc",
+        "source_row": 21327,
+        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
       }
     ],
     "exam-mappings": [],
@@ -337,7 +390,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2681-2688.json",
-    "source_content_hash": "96bfdbb225a288ab39721fece01ddb5b069d684114a050b0c8b12bc4a7eaaf34",
+    "source_content_hash": "41c8ba870863aa014680dfcbf78f4136c3a09d9a8b151bbe397897695e584510",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

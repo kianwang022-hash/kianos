@@ -1,0 +1,99 @@
+{
+  "schema": "kianos.lexical.streaming_c_window_receipt.v1",
+  "status": "STAGED_CHECKPOINT_PENDING_FULL_REBUILD",
+  "range": [
+    2651,
+    2750
+  ],
+  "shared_watermark_at_start": 4150,
+  "frozen_semantic_baseline": "12766cf94b89bd135016e3213637e31edd19adfe",
+  "input_reviews": {
+    "A": {
+      "branch": "work/lexical-dual-review-A-20260923",
+      "commit_sha": "53269a12a21f5d3fd3cf5ff97f11a3a75e760f59",
+      "artifact": "content/lexical/semantic-review/dual/A/o2651-o2750.review.md"
+    },
+    "B": {
+      "branch": "work/lexical-dual-review-B-20260923",
+      "commit_sha": "d60a1e0ef8eec76be9514b13e2e19aba0cc34df6",
+      "artifact": "content/lexical/semantic-review/dual/B/o2651-o2750.review.md"
+    }
+  },
+  "c_mutation_commit": "3d0b37eb7dcb2b96a71e20cd43339064a20f451a",
+  "review_policy": "READ_ONLY_A_B_CHANGE_BLOCKED_HITS_SKIP_DOUBLE_NO_CHANGE",
+  "counts": {
+    "window_ordinals": 100,
+    "double_no_change_skipped": 63,
+    "union_hits": 37,
+    "mutated_word_owners": 36,
+    "whole_hit_deferred_cross_watermark": 1
+  },
+  "deferred_cross_watermark": [
+    {
+      "source": "o2669 job",
+      "remote": "o5458 work",
+      "action": "job/work decision Relation",
+      "status": "DEFERRED_CROSS_WATERMARK",
+      "word_local_action": "duty/responsibility sense landed"
+    },
+    {
+      "source": "o2708 kilometre",
+      "remote": "o5560 kilometer",
+      "action": "regional-spelling Relation/Form migration",
+      "status": "DEFERRED_CROSS_WATERMARK",
+      "word_local_action": "none"
+    }
+  ],
+  "verification": {
+    "natural_owner_build": "PASS",
+    "changed_word_owner_scope": "o2651-o2750 only",
+    "full_flob_rebuild": "DEFERRED_TO_CHECKPOINT",
+    "flob_files_changed": 0,
+    "unrelated_word_owner_drift": false
+  },
+  "next_ordinal": 2751,
+  "checkpoint": {
+    "start": 2551,
+    "target_end": 3050,
+    "pending_full_7946_flob_rebuild": true
+  },
+  "changed_word_ordinals": [
+    2653,
+    2657,
+    2658,
+    2659,
+    2664,
+    2666,
+    2668,
+    2669,
+    2670,
+    2672,
+    2678,
+    2679,
+    2680,
+    2685,
+    2689,
+    2690,
+    2693,
+    2695,
+    2698,
+    2700,
+    2703,
+    2705,
+    2710,
+    2713,
+    2716,
+    2718,
+    2724,
+    2729,
+    2731,
+    2733,
+    2738,
+    2739,
+    2743,
+    2747,
+    2748,
+    2750
+  ],
+  "changed_word_count": 36
+}

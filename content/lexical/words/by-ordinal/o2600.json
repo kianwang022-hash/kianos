@@ -6,13 +6,22 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "146115f52578f64865ebc2713f30678ef64b91269cc77e1664dfcb33af2343d2",
+    "constructions": [
+      {
+        "construction_id": "construction:c889f2f5e64ffc86e15d",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "与某人/某物连接、衔接或相互作用",
+        "pattern": "interface with sb/sth",
+        "source_sense_id": "sense:interface:e62c0fb414b0c8d6"
+      }
+    ],
+    "content_hash": "22dc457b5ec2da823a9dcca7f141f5fb645b9fe98b9861f9a3e710d436db5e82",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "两个事物相遇并相互作用的地点或表面",
-      "core_meaning_en": "a point or surface where two things meet and interact",
-      "mental_model_cn": "两个事物相遇并相互作用的地点或表面",
+      "core_meaning_cn": "界面/接口；交界；连接或相互作用",
+      "core_meaning_en": "a boundary or means of interaction; also to connect or interact",
+      "mental_model_cn": "界面/接口；交界；连接或相互作用",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -103,6 +112,20 @@
         "sense_label_en": "a point where two subjects, systems, or phenomena interact or overlap",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "连接；衔接；相互作用",
+        "definition_en": "to connect or interact with another system, component, subject, or group",
+        "governing_pattern": "vi. + with",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:interface:e62c0fb414b0c8d6",
+        "sense_label_en": "to connect or interact with another system, component, subject, or group",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -147,6 +170,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 7174,
+        "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      },
+      {
+        "sense_id": "sense:interface:e62c0fb414b0c8d6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7237,
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
       }
     ],
@@ -205,7 +235,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2593-2600.json",
-    "source_content_hash": "146115f52578f64865ebc2713f30678ef64b91269cc77e1664dfcb33af2343d2",
+    "source_content_hash": "22dc457b5ec2da823a9dcca7f141f5fb645b9fe98b9861f9a3e710d436db5e82",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

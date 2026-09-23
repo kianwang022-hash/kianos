@@ -16,8 +16,7 @@
         "module": "constructions",
         "pattern": "lay the blame on sb/sth",
         "priority": "S",
-        "source_sense_id": "sense:lay:af1b89a167e75105",
-        "boundary": "lay the blame on sb/sth"
+        "source_sense_id": null
       },
       {
         "construction_id": "construction:ef9499b7cd07ba9f6708",
@@ -28,8 +27,7 @@
         "module": "constructions",
         "pattern": "lay claim to sth",
         "priority": "A",
-        "source_sense_id": "sense:lay:af1b89a167e75105",
-        "boundary": "lay claim to sth"
+        "source_sense_id": null
       },
       {
         "construction_id": "construction:7d544a0e9d312f5d74c4",
@@ -40,8 +38,7 @@
         "module": "constructions",
         "pattern": "lay emphasis on sth",
         "priority": "A",
-        "source_sense_id": "sense:lay:af1b89a167e75105",
-        "boundary": "lay emphasis on sth"
+        "source_sense_id": null
       },
       {
         "construction_id": "construction:19c7b58b01feae502798",
@@ -58,8 +55,7 @@
         "meaning_cn": "铺开；陈列；安排/阐明（按具体语境）",
         "module": "constructions",
         "pattern": "lay sth out",
-        "source_sense_id": "sense:lay:8b8f1913af275ec2",
-        "boundary": "lay sth out"
+        "source_sense_id": null
       },
       {
         "construction_id": "construction:1990ada014f362eff0ce",
@@ -77,11 +73,10 @@
         "meaning_cn": "为…奠定基础；为…作准备",
         "module": "constructions",
         "pattern": "lay the groundwork/basis/foundation(s) for sth",
-        "source_sense_id": "sense:lay:8b8f1913af275ec2",
-        "boundary": "lay the groundwork/basis/foundation(s) for sth"
+        "source_sense_id": null
       }
     ],
-    "content_hash": "ecea052107188b14594d39c1874a44cad21f3548a2bf8a040c1a969ec601e505",
+    "content_hash": "bbb03afeedb006384c6434ff8606c797a9e68f8370ab36648152db3439b127be",
     "core_concept": {
       "core_clusters": [
         {
@@ -118,14 +113,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:construction:0525a1305b47e6250b70",
       "construction:construction:7d544a0e9d312f5d74c4",
-      "construction:construction:ef9499b7cd07ba9f6708",
-      "semantic-reconciliation:o3875-o4124"
+      "construction:construction:ef9499b7cd07ba9f6708"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -156,6 +150,11 @@
         "definition_en": "to put something down or place it somewhere, especially carefully or in a flat/horizontal position",
         "governing_pattern": "vt. + object",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "identity_type": "inflection_and_transitivity",
+          "note": "lay (put/place) is normally transitive; past/past participle laid/laid",
+          "surface_lemma": "lay"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:lay:89e6732f5aec5294",
@@ -304,14 +303,8 @@
   },
   "relation_refs": [
     {
-      "relation_id": "deep:confusables:lay:0b468d8cc922af6e",
-      "owner_path": "content/lexical/relations/by-id/1f/1fe26770d948a5e3b343100ec4dd6a04678cf47314cceaf824dbe6fa18ce0da7.json",
-      "field": "confusables",
-      "index": 0
-    },
-    {
-      "relation_id": "deep:semantic_contrast:put:b67ea3da7de6a557",
-      "owner_path": "content/lexical/relations/by-id/73/7398719e3463e43d18729ac38fb3fbf6a5b35dfbf52f570d62baefeba40fdc67.json",
+      "relation_id": "relation:streaming-c:lay-lie:v1",
+      "owner_path": "content/lexical/relations/by-id/67/675473fc1bbc587d7cb05b9e23bed8493d47161eb843ed0f7b59adf4a8762740.json",
       "field": "semantic_neighbors",
       "index": 0
     }
@@ -461,7 +454,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2769-2776.json",
-    "source_content_hash": "b1e25b6f4f5a355da1538764c0983bcffe46e7d9c3f8c6ba6ff8ce941851588d",
+    "source_content_hash": "bbb03afeedb006384c6434ff8606c797a9e68f8370ab36648152db3439b127be",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,45 +6,87 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "0c1d1f04a2076ec47ee81c690a53dcb66a8133f40b030d14408dd861f60d089c",
+    "constructions": [
+      {
+        "boundary": "mean + that从句 表意思是",
+        "codex_reviewed": false,
+        "definition_cn": "意思是，意味着",
+        "definition_en": "mean or intend to express or convey",
+        "dimensions": {},
+        "direction": "R+P",
+        "evidence": [
+          {
+            "evidence_id": "evidence:core-card:mean:c64fab266891",
+            "evidence_status": "source_checked",
+            "source_labels": [],
+            "source_locator": "mean:l1:1",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:constructions:mean:b17a7ea22ab54a6d",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": "意思是……",
+        "module": "constructions",
+        "pattern": "mean + that-clause",
+        "pos": "verb",
+        "presentation_merge": {
+          "merge_id": "presentation-merge:7edd359cd224c7b5334a",
+          "metadata_tags": [
+            "cloze",
+            "collocation",
+            "construction",
+            "writing"
+          ],
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:b076747683f42ca9d862"
+        },
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:mean:63d9f8463f1b5a1c",
+        "target_sense_id": null,
+        "target_word": null,
+        "task_tags": [
+          "cloze",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      },
+      {
+        "construction_id": "construction:b22b48f5db0f6a2a9848",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "意味着/需要做某事；作为结果或要求会涉及做某事",
+        "pattern": "mean doing sth"
+      }
+    ],
+    "content_hash": "c0b0b0e452f3afba31fb579ed5d7a7a64a09178ad4cc92b955fd0360b648f62f",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "意思是；意味着；表示",
-          "label_en": "intend, signify, or denote",
+          "label_cn": "意思是，意味着；表示……的意思；有意义，重要",
+          "label_en": "mean or intend to express or convey; denote or connote; have a specified degree of importance",
           "pos": "verb",
           "sense_ids": [
             "sense:mean:63d9f8463f1b5a1c",
-            "sense:mean:d65dc91078395439"
-          ]
-        },
-        {
-          "label_cn": "有意义；重要",
-          "label_en": "have a specified degree of importance",
-          "pos": "verb",
-          "sense_ids": [
+            "sense:mean:d65dc91078395439",
             "sense:mean:19da749e06c2567b"
           ]
         },
         {
-          "label_cn": "刻薄的；吝啬的",
-          "label_en": "unkind, low, or stingy",
+          "label_cn": "低劣的，吝啬的；平均的，中间的",
+          "label_en": "having a low or unkind character; stingy; being the average or middle value",
           "pos": "adjective",
           "sense_ids": [
             "sense:mean:1c02859d9e385818"
           ]
         },
         {
-          "label_cn": "平均的；中间值的",
-          "label_en": "being the average or middle value",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:mean:950e964b21775a76"
-          ]
-        },
-        {
-          "label_cn": "平均数；中值",
+          "label_cn": "平均数，中间",
           "label_en": "an average of numbers",
           "pos": "noun",
           "sense_ids": [
@@ -52,9 +94,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "意思是/意味着；刻薄的；平均的；平均数",
-      "core_meaning_en": "to mean/signify; unkind; average/intermediate; an arithmetic mean",
-      "mental_model_cn": "意思是/意味着；刻薄的；平均的；平均数",
+      "core_meaning_cn": "意思是，意味着；平均的",
+      "core_meaning_en": "to intend or signify; average",
+      "mental_model_cn": "意思是，意味着；平均的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,8 +106,7 @@
     "review_signature": [
       "construction:deep:constructions:mean:b17a7ea22ab54a6d",
       "deep:deep:constructions:mean:b17a7ea22ab54a6d",
-      "deep:deep:secondary_senses:mean:53856d10958645b6",
-      "semantic-reconciliation:o2825-o3024"
+      "deep:deep:secondary_senses:mean:53856d10958645b6"
     ],
     "secondary_senses": [
       {
@@ -111,15 +152,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:35a206144e9ddad3a0ea",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:mean:63d9f8463f1b5a1c:collocation:0"
-            ],
-            "meaning_cn": "打算做某事",
-            "phrase": "mean to do sth"
-          },
-          {
             "collocation_id": "collocation:b076747683f42ca9d862",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -142,20 +174,6 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "平均的；中间的",
-        "definition_en": "being the average or middle value",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:mean:950e964b21775a76",
-        "sense_label_en": "being the average or middle value",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
         "collocations": [
           {
             "collocation_id": "collocation:6d16af33bbd9f38b19b9",
@@ -176,8 +194,22 @@
         "pos": "verb",
         "sense_id": "sense:mean:d65dc91078395439",
         "sense_label_en": "denote or connote",
-        "sort_order": 2,
+        "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "平均的；中间的",
+        "definition_en": "being the average or middle value",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:mean:950e964b21775a76",
+        "sense_label_en": "being the average or middle value",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       },
       {
         "collocations": [],
@@ -190,7 +222,7 @@
         "pos": "verb",
         "sense_id": "sense:mean:19da749e06c2567b",
         "sense_label_en": "have a specified degree of importance",
-        "sort_order": 3,
+        "sort_order": 2,
         "transitivity": "vi"
       },
       {
@@ -214,7 +246,7 @@
         "pos": "adjective",
         "sense_id": "sense:mean:1c02859d9e385818",
         "sense_label_en": "having a low or unkind character; stingy",
-        "sort_order": 4,
+        "sort_order": 3,
         "transitivity": "nonverb"
       },
       {
@@ -238,8 +270,41 @@
         "pos": "noun",
         "sense_id": "sense:mean:8888f3859fa35f05",
         "sense_label_en": "an average of numbers",
-        "sort_order": 5,
+        "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:35a206144e9ddad3a0ea",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mean:63d9f8463f1b5a1c:collocation:0"
+            ],
+            "meaning_cn": "打算做某事",
+            "phrase": "mean to do sth"
+          },
+          {
+            "collocation_id": "collocation:c3cc4c559a74c4de5fb6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:mean:ae19ae892e5f5180:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "我不是故意/并没打算……",
+            "phrase": "I didn't mean to ..."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "打算；意欲",
+        "definition_en": "to intend or plan to do something",
+        "governing_pattern": "vt. + to do",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:mean:ae19ae892e5f5180",
+        "sense_label_en": "to intend or plan to do something",
+        "sort_order": 5,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -306,6 +371,13 @@
         "merged_into_sense_id": null,
         "source_row": 8346,
         "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
+      },
+      {
+        "sense_id": "sense:mean:ae19ae892e5f5180",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8392,
+        "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
       }
     ],
     "active_collocations": [
@@ -313,7 +385,8 @@
       "collocation:164db9fcb110a6c742b8",
       "collocation:35a206144e9ddad3a0ea",
       "collocation:6d16af33bbd9f38b19b9",
-      "collocation:b076747683f42ca9d862"
+      "collocation:b076747683f42ca9d862",
+      "collocation:c3cc4c559a74c4de5fb6"
     ],
     "facts": [
       {
@@ -357,6 +430,11 @@
         "id": "collocation:b076747683f42ca9d862",
         "source_row": 14948,
         "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
+      {
+        "id": "collocation:c3cc4c559a74c4de5fb6",
+        "source_row": 21297,
+        "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
       }
     ],
     "exam-mappings": [],
@@ -390,8 +468,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2985-2992.json",
-    "source_content_hash": "b6bb3343a2edceb9188510f7b5229c0f034b7a5b15f49d027fdbd7b96dc6cab0",
-    "semantic_delta": 1,
+    "source_content_hash": "c0b0b0e452f3afba31fb579ed5d7a7a64a09178ad4cc92b955fd0360b648f62f",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
