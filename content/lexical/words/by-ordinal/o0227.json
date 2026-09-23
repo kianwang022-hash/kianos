@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "bc480523c9116728f4ab79531d7afa7a22a838c8ae2a87c1a405bb4c6c286b05",
+    "content_hash": "55a6f7c90a0eb479cc29220f8d69b0d978191f0f3d9507142ffd1dad377d27b9",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "使震惊、惊骇",
@@ -16,6 +16,26 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "preclosed targeted cleanup 2026-09-23",
+      "boundaries": [
+        {
+          "condition": "spelling variant",
+          "note": "same verb identity as appall",
+          "surface": "appal"
+        },
+        {
+          "condition": "spelling variant",
+          "note": "same verb identity as appal",
+          "surface": "appall"
+        }
+      ],
+      "boundary": "appal and appall are spelling variants of the same verb. Preserve both stable exact-spelling Word owners.",
+      "form_type": "spelling_variant_identity",
+      "identity_rule": "paired_frozen_word_spelling_variant",
+      "spelling": "appal",
+      "variants": []
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -49,6 +69,13 @@
         "definition_en": "to shock or horrify someone greatly",
         "governing_pattern": "vt. + object",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "spelling_variant_identity",
+          "note": "appal and appall are spelling variants of the same verb",
+          "paired_form": "appall",
+          "surface_lemma": "appal"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:appal:6644703003c65bf9",
@@ -74,36 +101,9 @@
     },
     "word": "appal",
     "word_family": [],
-    "word_id": "word:appal",
-    "form_identity": {
-      "form_type": "spelling_variant_identity",
-      "spelling": "appal",
-      "identity_rule": "paired_frozen_word_spelling_variant",
-      "boundary": "appal and appall are spelling variants of the same verb. Preserve both stable exact-spelling Word owners.",
-      "boundaries": [
-        {
-          "surface": "appal",
-          "condition": "spelling variant",
-          "note": "same verb identity as appall"
-        },
-        {
-          "surface": "appall",
-          "condition": "spelling variant",
-          "note": "same verb identity as appal"
-        }
-      ],
-      "variants": [],
-      "authority": "preclosed targeted cleanup 2026-09-23"
-    }
+    "word_id": "word:appal"
   },
-  "relation_refs": [
-    {
-      "relation_id": "relation:horizontal:f27e3c5d419bc3c615cd",
-      "owner_path": "content/lexical/relations/by-id/f8/f8e01e602c1183db7311beac04472be03a92c0d5168d54516c708142262c2664.json",
-      "field": "semantic_neighbors",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -153,7 +153,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0225-0232.json",
-    "source_content_hash": "bc480523c9116728f4ab79531d7afa7a22a838c8ae2a87c1a405bb4c6c286b05",
+    "source_content_hash": "55a6f7c90a0eb479cc29220f8d69b0d978191f0f3d9507142ffd1dad377d27b9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

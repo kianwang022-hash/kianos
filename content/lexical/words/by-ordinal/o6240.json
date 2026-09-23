@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "273cc708cb8ddce11d4e8e9ba7090e0c358f01ecaef5e795cd5298a744ef951e",
+    "content_hash": "89c32a41a1262c48b95e80193df0f552cc457413800d059b21c6d81e8e0b5723",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "精力；活力；力量",
@@ -16,6 +16,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "C semantic reconciliation o6151-o6250",
+      "boundaries": [
+        {
+          "condition": "BrE",
+          "note": "common British spelling",
+          "surface": "vigour"
+        },
+        {
+          "condition": "AmE",
+          "note": "common American spelling",
+          "surface": "vigor"
+        }
+      ],
+      "type": "regional_spelling_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -32,6 +48,13 @@
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "regional_spelling_variant",
+          "note": "vigour is the common BrE spelling; vigor is the common AmE spelling; same semantic space, preserve exact-spelling owners",
+          "paired_form": "vigor",
+          "surface_lemma": "vigour"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:vigour:f58c4ae0bd275863",
@@ -77,6 +100,13 @@
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "regional_spelling_variant",
+          "note": "vigour is the common BrE spelling; vigor is the common AmE spelling; same semantic space, preserve exact-spelling owners",
+          "paired_form": "vigor",
+          "surface_lemma": "vigour"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:vigour:40e4f00b16475236",
@@ -127,14 +157,7 @@
     "word_family": [],
     "word_id": "word:vigour"
   },
-  "relation_refs": [
-    {
-      "relation_id": "relation:horizontal:04b0d676430ce4228706",
-      "owner_path": "content/lexical/relations/by-id/3a/3af98add726e86466fd97b5f3efc6ea423bcdc466a954e49411f2e3bf37d52e7.json",
-      "field": "semantic_neighbors",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -177,7 +200,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6233-6240.json",
-    "source_content_hash": "273cc708cb8ddce11d4e8e9ba7090e0c358f01ecaef5e795cd5298a744ef951e",
+    "source_content_hash": "89c32a41a1262c48b95e80193df0f552cc457413800d059b21c6d81e8e0b5723",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

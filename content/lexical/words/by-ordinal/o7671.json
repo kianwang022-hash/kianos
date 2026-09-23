@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "116a79b05e4feafde3a05efeebaa92de8a9695d92a198c4dfa08d1a8975ec5cd",
+    "content_hash": "c66590f828ef9cecb10e2937895c428e42016d5d4f73cac0452812d09969c1b1",
     "core_concept": {
       "core_clusters": [
         {
@@ -25,6 +25,22 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "C semantic reconciliation o6151-o6250",
+      "boundaries": [
+        {
+          "condition": "AmE",
+          "note": "common American spelling",
+          "surface": "vigor"
+        },
+        {
+          "condition": "BrE",
+          "note": "common British spelling",
+          "surface": "vigour"
+        }
+      ],
+      "type": "regional_spelling_boundary"
+    },
     "identity_note": "AmE vigor@o7671 and BrE vigour@o6240 remain distinct stable Word owners with exact-spelling lookup ownership and shared reciprocal relation relation:horizontal:04b0d676430ce4228706. Do not merge or add a cross-owner Form alias.",
     "needs_delta_review": false,
     "processing_status": "completed",
@@ -42,6 +58,13 @@
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "regional_spelling_variant",
+          "note": "vigor is the common AmE spelling; vigour is the common BrE spelling; same semantic space, preserve exact-spelling owners",
+          "paired_form": "vigour",
+          "surface_lemma": "vigor"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:vigor:214f6c73ea075780",
@@ -71,14 +94,7 @@
     "word_family": [],
     "word_id": "word:vigor"
   },
-  "relation_refs": [
-    {
-      "relation_id": "relation:horizontal:04b0d676430ce4228706",
-      "owner_path": "content/lexical/relations/by-id/3a/3af98add726e86466fd97b5f3efc6ea423bcdc466a954e49411f2e3bf37d52e7.json",
-      "field": "semantic_neighbors",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -114,7 +130,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7665-7672.json",
-    "source_content_hash": "116a79b05e4feafde3a05efeebaa92de8a9695d92a198c4dfa08d1a8975ec5cd",
+    "source_content_hash": "c66590f828ef9cecb10e2937895c428e42016d5d4f73cac0452812d09969c1b1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

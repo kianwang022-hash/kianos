@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4a17b59882c83c4894d348dd53b1589ac39938de6edc8b01d07a140b5b856e90",
+    "content_hash": "3114a35ad7bc44c46511fdb434a3899188185eb82287c430b8c960ee04dde757",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "使丧胆, 使惊骇",
@@ -16,6 +16,26 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "C semantic reconciliation o6351-o6450",
+      "boundaries": [
+        {
+          "condition": "spelling variant",
+          "note": "same verb identity as appal",
+          "surface": "appall"
+        },
+        {
+          "condition": "spelling variant",
+          "note": "same verb identity as appall",
+          "surface": "appal"
+        }
+      ],
+      "boundary": "appall and appal are spelling variants of the same verb; preserve both stable exact-spelling Word owners.",
+      "form_type": "spelling_variant_identity",
+      "identity_rule": "paired_frozen_word_spelling_variant",
+      "spelling": "appall",
+      "variants": []
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -26,12 +46,19 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "使丧胆, 使惊骇",
+        "definition_cn": "使震惊；使惊骇；使大吃一惊",
         "definition_en": "fill with apprehension or alarm; cause to be unpleasantly surprised",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "spelling_variant_identity",
+          "note": "appall and appal are spelling variants of the same verb",
+          "paired_form": "appal",
+          "surface_lemma": "appall"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:appall:586218a3ea0659bd",
@@ -50,12 +77,19 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "使丧胆, 使惊骇",
+        "definition_cn": "使厌恶；使反感；使作呕",
         "definition_en": "strike with disgust or revulsion",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "spelling_variant_identity",
+          "note": "appall and appal are spelling variants of the same verb",
+          "paired_form": "appal",
+          "surface_lemma": "appall"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:appall:f01ebe227c40593f",
@@ -85,14 +119,7 @@
     "word_family": [],
     "word_id": "word:appall"
   },
-  "relation_refs": [
-    {
-      "relation_id": "relation:horizontal:f27e3c5d419bc3c615cd",
-      "owner_path": "content/lexical/relations/by-id/f8/f8e01e602c1183db7311beac04472be03a92c0d5168d54516c708142262c2664.json",
-      "field": "semantic_neighbors",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -135,7 +162,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6353-6360.json",
-    "source_content_hash": "4a17b59882c83c4894d348dd53b1589ac39938de6edc8b01d07a140b5b856e90",
+    "source_content_hash": "3114a35ad7bc44c46511fdb434a3899188185eb82287c430b8c960ee04dde757",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
