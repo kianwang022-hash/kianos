@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0492e69dfe6ae7ccc5063062f4dd00d276937f21eee3211763b2ae9cb324b1e7",
+    "content_hash": "25f22759d909439594be8068e257ef44d46317d768cc1e66f1c25e8c803af6ee",
     "core_concept": {
       "core_clusters": [
         {
@@ -87,19 +87,29 @@
             ],
             "meaning_cn": "缺少…",
             "phrase": "want for + sth"
+          },
+          {
+            "collocation_id": "collocation:fe3060fb90507a2040bd",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:want:e67e8843f8e95a8e:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "什么也不缺",
+            "phrase": "want for nothing"
           }
         ],
         "confidence": "medium",
         "definition_cn": "缺少；缺乏",
         "definition_en": "be without or deficient in",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "formal/literary: want for sth; want for nothing; not want for anything",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
+        "register": "formal/literary",
         "sense_id": "sense:want:e67e8843f8e95a8e",
         "sense_label_en": "be without or deficient in",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vi"
       },
       {
         "collocations": [
@@ -175,7 +185,8 @@
       "collocation:91bafc017e56cada38d2",
       "collocation:931a5f9f3fbbcf976945",
       "collocation:962f49fddfb7e4b9ace8",
-      "collocation:ec3985d14262ea021123"
+      "collocation:ec3985d14262ea021123",
+      "collocation:fe3060fb90507a2040bd"
     ],
     "facts": [
       {
@@ -203,6 +214,11 @@
       {
         "id": "collocation:ec3985d14262ea021123",
         "source_row": 20018,
+        "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
+      },
+      {
+        "id": "collocation:fe3060fb90507a2040bd",
+        "source_row": 21393,
         "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
       }
     ],
@@ -232,8 +248,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5337-5344.json",
-    "source_content_hash": "0492e69dfe6ae7ccc5063062f4dd00d276937f21eee3211763b2ae9cb324b1e7",
-    "semantic_delta": 1,
+    "source_content_hash": "25f22759d909439594be8068e257ef44d46317d768cc1e66f1c25e8c803af6ee",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

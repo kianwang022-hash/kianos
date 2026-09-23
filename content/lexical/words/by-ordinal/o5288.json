@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "42004e4739fd55d21134b1d8d08fdb66ca553a4fa021fbc8525d87520c17fd6a",
+    "constructions": [
+      {
+        "boundary": "bound combining/prefixal form vice- = deputy/next in rank; distinct from formal preposition vice = in place of",
+        "construction_id": "construction:8f95825a4e7aafce7979",
+        "definition_en": "a bound combining form meaning deputy or next in rank to, as in vice president or vice chair",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "副职；职位级别仅次于正职，如 vice president / vice chair",
+        "pattern": "vice- + title/office"
+      }
+    ],
+    "content_hash": "3867998f3d60ea2ee7a7784bd02cf2fa84b7ab4c5bbb16223ea4fc3957a8792d",
     "core_concept": {
       "core_clusters": [
         {
@@ -163,13 +173,13 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:29a31270c09c208c6c05",
-            "exam_value": "fixed_pattern",
+            "collocation_id": "collocation:1edd4401a4bace211d7f",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
-              "sense:vice:d6e072bd49dc509c:collocation:0"
+              "sense:vice:d6e072bd49dc509c:collocation:streaming-c-checkpoint-o2851-o3050"
             ],
-            "meaning_cn": "副总统；副总裁",
-            "phrase": "vice president"
+            "meaning_cn": "被任命替代 Smith（正式用法）",
+            "phrase": "appointed vice Smith"
           }
         ],
         "confidence": "medium",
@@ -238,7 +248,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:29a31270c09c208c6c05",
+      "collocation:1edd4401a4bace211d7f",
       "collocation:38759123de86aa7b0c20",
       "collocation:726c80d33be92c2558b9",
       "collocation:d696151639b65fd621eb",
@@ -275,6 +285,11 @@
       {
         "id": "collocation:f1cd8c23d455e6eb2e63",
         "source_row": 20490,
+        "source_path": "content/lexical/canonical/collocations/shards/o5281-5312.json"
+      },
+      {
+        "id": "collocation:1edd4401a4bace211d7f",
+        "source_row": 21200,
         "source_path": "content/lexical/canonical/collocations/shards/o5281-5312.json"
       }
     ],
@@ -327,7 +342,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5281-5288.json",
-    "source_content_hash": "42004e4739fd55d21134b1d8d08fdb66ca553a4fa021fbc8525d87520c17fd6a",
+    "source_content_hash": "3867998f3d60ea2ee7a7784bd02cf2fa84b7ab4c5bbb16223ea4fc3957a8792d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
