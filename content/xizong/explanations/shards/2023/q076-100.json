@@ -9,21 +9,33 @@
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
     "exam_target": "亚急性感染性心内膜炎识别",
-    "decision_axis": "持续低热、乏力出汗，已有瓣膜病基础并出现结膜出血点、脾大、贫血和血尿等外周表现，提示亚急性感染性心内膜炎。",
+    "decision_axis": "异常瓣膜基础上的持续发热，合并贫血、脾大、结膜出血点和镜下血尿，形成感染性心内膜炎的典型多系统线索。",
     "reasoning_chain": [
-      "已有二尖瓣脱垂基础，现在出现持续低热、贫血、脾大、结膜出血点和血尿，构成感染性心内膜炎的典型多系统线索。",
-      "病程较缓、原有瓣膜异常，更符合亚急性感染性心内膜炎，选B。",
-      "关键是‘异常瓣膜 + 持续感染表现 + 外周免疫/栓塞证据’这一组合。"
+      "二尖瓣脱垂提供易感瓣膜基础。",
+      "持续低热、乏力和炎症指标升高提示亚急性感染过程。",
+      "结膜淤点、脾大、贫血和血尿是感染性心内膜炎常见外周/免疫表现，因此选B。"
     ],
-    "transfer_rule": "IE抓发热+易感心脏病+新/重杂音+栓塞/免疫现象。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "IE抓“易感心脏病 + 持续感染 + 新/重杂音 + 栓塞或免疫现象”的组合。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.亚急性感染性心内膜炎。原有二尖瓣病变后出现持续低热、贫血、脾大、结膜出血点和镜下血尿，整体最符合亚急性感染性心内膜炎。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "甲亢可有心悸、消瘦和出汗，但不能统一解释脾大、结膜出血点及镜下血尿。"
+      },
+      {
+        "option": "C",
+        "reason": "风湿热可累及心脏，但题干缺少游走性关节炎等典型线索，且感染性心内膜炎的外周表现更集中。"
+      }
+    ],
+    "common_failure_node": "被既往甲亢或单个心脏杂音牵走，忽略“异常瓣膜+持续发热+外周免疫/栓塞表现”的整体模式。"
   },
   {
     "question_id": "xizong-official-2023-n077",
@@ -34,22 +46,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "Osler结节",
-    "decision_axis": "Osler结节是感染性心内膜炎的经典外周免疫现象之一，表现为指趾端疼痛性小结节。",
+    "exam_target": "感染性心内膜炎的Osler结节",
+    "decision_axis": "Osler结节是感染性心内膜炎经典免疫性外周表现，为指趾端疼痛性小结节。",
     "reasoning_chain": [
-      "Osler结节是感染性心内膜炎经典外周体征之一，表现为指趾端疼痛性小结节。",
-      "因此选A。",
-      "Janeway损害通常无痛，环形红斑属于风湿热，Graefe征则是甲亢眼征。"
+      "先锁定病例为感染性心内膜炎。",
+      "Osler结节与IE相关，典型特点是疼痛性指/趾端小结节。",
+      "Janeway损害也见于IE，但多为无痛性掌跖皮损；因此选A。"
     ],
-    "transfer_rule": "Osler痛；Janeway多无痛。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "IE皮肤体征：Osler=痛性指趾结节；Janeway=无痛性掌跖损害。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.Osler结节。它是感染性心内膜炎的经典外周免疫现象，常表现为疼痛性指趾端结节。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "Janeway损害同样见于感染性心内膜炎，但典型为无痛性掌跖斑/结节。"
+      },
+      {
+        "option": "B",
+        "reason": "环形红斑更支持风湿热，而不是本病例的感染性心内膜炎。"
+      }
+    ],
+    "common_failure_node": "只记“IE有皮疹”而混淆Osler结节与Janeway损害的疼痛和部位特征。"
   },
   {
     "question_id": "xizong-official-2023-n078",
@@ -60,22 +84,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "感染性心内膜炎超声心动图",
-    "decision_axis": "超声心动图用于寻找赘生物、瓣膜破坏和并发症，是感染性心内膜炎结构性评估的核心检查；血培养则提供微生物学证据。",
+    "exam_target": "感染性心内膜炎的超声心动图评估",
+    "decision_axis": "超声心动图可直接寻找赘生物、瓣膜破坏及心内并发症，是感染性心内膜炎结构性评估的核心检查。",
     "reasoning_chain": [
-      "感染性心内膜炎需要同时证明病原和心内膜结构损害。",
-      "超声心动图能寻找赘生物、瓣膜破坏和瓣周并发症，因此本题选D。",
-      "血培养提供微生物学证据；超声则回答‘心脏结构上到底发生了什么’。"
+      "病例已高度怀疑感染性心内膜炎。",
+      "进一步检查需要寻找瓣膜赘生物及结构损害。",
+      "四个选项中只有超声心动图直接回答这一结构性问题，因此选D。"
     ],
-    "transfer_rule": "IE两大证据轴：血培养+超声。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "疑IE：血培养给微生物证据，超声心动图给赘生物/瓣膜破坏等结构证据。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.超声心动图检查。可评价赘生物、瓣膜破坏和相关心内并发症，是疑似感染性心内膜炎的重要结构检查。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "CRP只能提示炎症活动，缺乏感染性心内膜炎的结构特异性。"
+      },
+      {
+        "option": "B",
+        "reason": "胸部CT不是寻找瓣膜赘生物的核心检查。"
+      }
+    ],
+    "common_failure_node": "把非特异炎症指标当成能够确认心内膜结构病变的检查。"
   },
   {
     "question_id": "xizong-official-2023-n079",
@@ -87,21 +123,33 @@
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
     "exam_target": "肠结核识别",
-    "decision_axis": "既往肺结核、低热、右下腹痛、便秘腹泻交替并触及右下腹肿块，符合回盲部肠结核的典型临床方向。",
+    "decision_axis": "既往肺结核、低热、慢性右下腹痛、便秘腹泻交替及右下腹肿块共同指向回盲部肠结核。",
     "reasoning_chain": [
-      "既往肺结核、低热、右下腹痛、便秘腹泻交替，再加回盲部肿块，构成肠结核典型临床画面。",
-      "因此选B。",
-      "Crohn病也可累及回盲部，但结核病史和结核样全身表现把概率明显推向肠结核。"
+      "病程慢、伴低热和ESR升高，提示慢性炎症/感染。",
+      "既往肺结核提高肠结核先验概率。",
+      "回盲部是肠结核常见部位，右下腹肿块和排便改变进一步吻合，因此选B。"
     ],
-    "transfer_rule": "TB史+低热+回盲部症状/包块→肠结核重要鉴别。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肠结核常抓“结核背景 + 低热消耗 + 回盲部疼痛/包块 + 排便改变”。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.肠结核。结核病史、低热、右下腹慢性疼痛和可触及包块构成典型回盲部肠结核图景。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "克罗恩病也偏回盲部并可有腹泻和包块，但本题结核既往史与低热更支持肠结核。"
+      },
+      {
+        "option": "A",
+        "reason": "右侧结肠癌可有右下腹包块，但31岁且伴结核背景、低热，更不符合首选。"
+      }
+    ],
+    "common_failure_node": "只因回盲部病变就机械选克罗恩病，忽略明确结核背景和全身感染线索。"
   },
   {
     "question_id": "xizong-official-2023-n080",
@@ -112,22 +160,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肠结核结肠镜",
-    "decision_axis": "结肠镜可直接观察回盲部黏膜病变并取活检，有助于肠结核与克罗恩病、肿瘤等鉴别。",
+    "exam_target": "肠结核的结肠镜检查",
+    "decision_axis": "结肠镜可直接观察回盲部黏膜并取活检，能在肠结核、克罗恩病和肿瘤之间提供形态与组织学证据。",
     "reasoning_chain": [
-      "怀疑回盲部肠结核时，既要直接观察黏膜形态，也要取得组织学证据。",
-      "结肠镜可进入回盲部并活检，因此最有价值，选C。",
-      "B超和钡灌肠只能提供间接形态信息，不能替代内镜取材。"
+      "临床首先考虑回盲部肠结核。",
+      "下一步需要直接观察病变并获得组织材料。",
+      "结肠镜同时完成黏膜观察和活检，信息量高于便检、腹部B超或单纯钡灌肠，因此选C。"
     ],
-    "transfer_rule": "回盲部慢性病变要争取内镜+活检证据。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "回盲部慢性炎症性病变需要鉴别时，能“直视+活检”的内镜价值最高。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.结肠镜。它可直视回盲部病变并取活检，是鉴别肠结核、克罗恩病及肿瘤的重要检查。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "钡剂灌肠可显示形态异常，但不能直接取组织，诊断闭环能力弱于结肠镜。"
+      },
+      {
+        "option": "B",
+        "reason": "腹部B超可观察包块等，但难以直接评价黏膜并取得病理。"
+      }
+    ],
+    "common_failure_node": "只看“右下腹包块”就选择影像，而忘记本题真正需要的是黏膜观察与病理取材。"
   },
   {
     "question_id": "xizong-official-2023-n081",
@@ -138,22 +198,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肠结核抗结核治疗",
-    "decision_axis": "确诊或高度支持的肠结核以规范抗结核药物治疗为主，手术主要用于穿孔、梗阻、瘘等并发症或诊断困难情形。",
+    "exam_target": "肠结核的抗结核治疗",
+    "decision_axis": "无穿孔、完全梗阻等急症并发症时，肠结核的基础治疗是规范抗结核药物；手术用于并发症或诊断困难。",
     "reasoning_chain": [
-      "肠结核的治疗主轴是规范抗结核药物治疗。",
-      "因此选A。",
-      "手术主要留给梗阻、穿孔、瘘等并发症或诊断困难，不是无并发症病例的首要路径。"
+      "前两题已把病例定位为肠结核。",
+      "题干未给穿孔、腹膜炎或完全梗阻等必须手术的并发症。",
+      "因此首要治疗是规范抗结核治疗，选A。"
     ],
-    "transfer_rule": "肠结核主线=抗结核治疗；手术解决并发症。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肠结核：药物抗结核是主线；穿孔、梗阻、瘘或诊断困难才进入手术路径。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.抗结核治疗。未见需急诊手术的并发症时，规范抗结核药物治疗是肠结核的基本治疗。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "手术主要处理梗阻、穿孔、瘘等并发症，不能替代无并发症肠结核的基础药物治疗。"
+      },
+      {
+        "option": "D",
+        "reason": "柳氮磺吡啶用于炎症性肠病等场景，不是肠结核的病因治疗。"
+      }
+    ],
+    "common_failure_node": "看到右下腹包块就直接跳到手术，忽略肠结核治疗首先针对结核感染本身。"
   },
   {
     "question_id": "xizong-official-2023-n082",
@@ -164,22 +236,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "尿红细胞相差显微镜",
-    "decision_axis": "相差显微镜可观察尿红细胞形态；异形红细胞比例升高支持肾小球来源血尿。",
+    "exam_target": "相差显微镜判断肾小球源性血尿",
+    "decision_axis": "相差显微镜观察尿红细胞形态；明显异形红细胞支持红细胞经受损肾小球滤过屏障进入尿液。",
     "reasoning_chain": [
-      "急性肾炎病例有明显血尿，下一步若要判断血尿是不是来自肾小球，要看红细胞形态。",
-      "相差显微镜下异形红细胞比例升高支持肾小球来源，因此选D。",
-      "单纯尿红细胞‘多’只能说明有血尿，不能定位出血层级。"
+      "感染后出现水肿、高血压、蛋白尿和血尿，首先考虑肾小球性肾炎。",
+      "若要进一步判断血尿来源，应评价尿红细胞形态。",
+      "相差显微镜最适合观察异形红细胞，因此选D。"
     ],
-    "transfer_rule": "血尿定位：dysmorphic RBC→glomerular。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "血尿定位：异形RBC/红细胞管型偏肾小球；形态均一更偏非肾小球来源。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.尿相差显微镜检查。可观察尿红细胞形态，异形红细胞比例升高支持肾小球源性血尿。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "尿本周蛋白用于浆细胞病相关轻链蛋白尿评估，不能定位本题血尿来源。"
+      },
+      {
+        "option": "B",
+        "reason": "血常规可评估感染或贫血，但不能直接判断血尿是否来自肾小球。"
+      }
+    ],
+    "common_failure_node": "把“急性肾炎”诊断本身和“血尿来源定位”混为一谈。"
   },
   {
     "question_id": "xizong-official-2023-n083",
@@ -190,22 +274,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "链球菌感染后肾炎病理",
-    "decision_axis": "链球菌感染后急性肾小球肾炎典型光镜为毛细血管内增生性改变，伴内皮和系膜细胞增生及中性粒细胞浸润。",
+    "exam_target": "链球菌感染后肾炎的毛细血管内增生病理",
+    "decision_axis": "咽部感染后约2周出现急性肾炎综合征，典型链球菌感染后肾炎光镜为毛细血管内增生性肾小球肾炎。",
     "reasoning_chain": [
-      "链球菌感染后急性肾小球肾炎的典型光镜病理是毛细血管内增生。",
-      "可见内皮/系膜细胞增生并有中性粒细胞浸润，因此选C。",
-      "新月体代表更重的急进性损伤，不是普通典型PSGN的主形态。"
+      "咽痛后2周出现水肿、高血压、血尿和蛋白尿，符合感染后急性肾小球肾炎。",
+      "其典型光镜表现为肾小球毛细血管内细胞增生并伴炎细胞浸润。",
+      "因此选C。"
     ],
-    "transfer_rule": "PSGN=endocapillary proliferative GN。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "PSGN时间轴：链球菌感染后潜伏期→急性肾炎综合征→毛细血管内增生。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.毛细血管内增生性肾小球肾炎。感染后急性肾炎的典型光镜模式就是毛细血管内增生。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "新月体肾炎对应快速进展性肾小球肾炎，通常伴快速恶化的肾功能。"
+      },
+      {
+        "option": "A",
+        "reason": "系膜毛细血管性肾炎有不同的病理和补体背景，不是经典链球菌感染后急性肾炎的首选。"
+      }
+    ],
+    "common_failure_node": "看到血尿蛋白尿就笼统归入“增生性肾炎”，没有利用感染后时间轴锁定典型病理。"
   },
   {
     "question_id": "xizong-official-2023-n084",
@@ -216,22 +312,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "急性肾炎高血压水钠潴留",
-    "decision_axis": "急性肾炎GFR下降后水钠排泄减少，容量扩张是水肿和高血压的重要机制。",
+    "exam_target": "急性肾炎高血压的水钠潴留机制",
+    "decision_axis": "急性肾炎时GFR下降、肾小球滤过和钠水排泄减少，容量扩张同时推动水肿和高血压。",
     "reasoning_chain": [
-      "急性肾炎时GFR下降，肾脏不能有效排出Na⁺和水。",
-      "容量扩张后就会同时出现水肿和高血压，所以选B。",
-      "这条链比单独归因于醛固酮或原发性高血压更接近第一故障层。"
+      "病例为感染后急性肾炎综合征。",
+      "水肿和高血压同时出现提示有效循环容量增加。",
+      "核心机制是水、钠潴留而非原发性高血压或肾动脉狭窄，因此选B。"
     ],
-    "transfer_rule": "急性肾炎水肿/高压核心=Na⁺水潴留。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "急性肾炎“水肿+高血压”优先从GFR下降后的钠水潴留和容量扩张解释。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.水、钠潴留。急性肾炎时钠水排泄减少导致容量扩张，是高血压和水肿的重要共同机制。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "RAAS可参与容量调节，但本题急性肾炎高血压的考试主轴是钠水潴留和容量扩张。"
+      },
+      {
+        "option": "C",
+        "reason": "肾动脉狭窄属于肾血管性高血压机制，与感染后急性肾炎不符。"
+      }
+    ],
+    "common_failure_node": "见高血压就套用RAAS或肾动脉狭窄，忽略急性肾炎的容量负荷机制。"
   },
   {
     "question_id": "xizong-official-2023-n085",
@@ -243,21 +351,33 @@
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
     "exam_target": "溶血性贫血识别",
-    "decision_axis": "贫血同时伴巩膜黄染和轻度脾大，提示红细胞破坏增加，应优先考虑溶血性贫血。",
+    "decision_axis": "明显贫血同时出现轻度黄疸和脾大，提示红细胞破坏增加，优先考虑溶血性贫血。",
     "reasoning_chain": [
-      "贫血同时伴巩膜黄染和轻度脾大，首先提示红细胞破坏增加。",
-      "因此最符合溶血性贫血，选D。",
-      "缺铁/巨幼贫可以造成贫血，但不会天然形成这一组‘贫血 + 黄疸 + 脾大’组合。"
+      "Hb 75g/L提示中重度贫血。",
+      "巩膜黄染提示胆红素生成增加，脾大提示网状内皮系统参与红细胞清除。",
+      "“贫血+黄疸+脾大”组合最支持溶血，选D。"
     ],
-    "transfer_rule": "贫血+黄疸+脾大→先想hemolysis。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "贫血鉴别先看伴随线索：黄疸、脾大、网织红增高强烈指向溶血。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.溶血性贫血。贫血合并轻度黄疸和脾大，是红细胞破坏增多的典型组合。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "巨幼细胞贫血也可有无效造血和轻度黄疸，但通常还需大细胞性改变、神经/营养等证据。"
+      },
+      {
+        "option": "C",
+        "reason": "再障多见全血细胞减少，本题白细胞和血小板正常且有黄疸、脾大。"
+      }
+    ],
+    "common_failure_node": "只盯Hb下降而不利用黄疸、脾大判断贫血机制。"
   },
   {
     "question_id": "xizong-official-2023-n086",
@@ -268,22 +388,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "网织红细胞与溶血",
-    "decision_axis": "网织红细胞计数反映骨髓红系代偿反应；溶血导致红细胞寿命缩短时，骨髓功能正常者通常出现网织红细胞增多。",
+    "exam_target": "网织红细胞评估溶血的骨髓代偿",
+    "decision_axis": "网织红细胞计数直接反映骨髓对外周红细胞丢失/破坏的代偿性红系生成，是怀疑溶血时的关键检查。",
     "reasoning_chain": [
-      "怀疑溶血后要先确认骨髓有没有对外周红细胞破坏作出代偿。",
-      "网织红细胞计数最直接反映近期红系生成，溶血而骨髓功能完整时通常升高，因此选C。",
-      "ESR、白细胞分类和粪隐血都不能直接回答这个代偿问题。"
+      "病例已高度提示溶血性贫血。",
+      "下一步需要判断骨髓是否对红细胞破坏作出代偿。",
+      "网织红细胞在骨髓功能正常的溶血中通常升高，因此选C。"
     ],
-    "transfer_rule": "贫血先问骨髓是否在补：Ret↑提示外周破坏/失血后代偿。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "贫血机制判断：网织红细胞高偏“外周丢失/破坏”，低偏“生成不足”。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.血网织红细胞计数。溶血时骨髓通常代偿性增加红细胞生成，表现为网织红细胞增多。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "粪隐血用于寻找消化道失血，不能直接评估溶血性骨髓代偿。"
+      },
+      {
+        "option": "A",
+        "reason": "ESR是非特异指标，不能回答红细胞生成反应是否增强。"
+      }
+    ],
+    "common_failure_node": "把“贫血的病因筛查”与“骨髓代偿能力评估”混淆。"
   },
   {
     "question_id": "xizong-official-2023-n087",
@@ -294,22 +426,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "溶血性贫血的骨髓反应",
-    "decision_axis": "溶血使外周红细胞破坏增加，骨髓红系通常代偿性增生；题干“明显增生”与溶血方向一致。",
+    "exam_target": "溶血性贫血的骨髓红系代偿",
+    "decision_axis": "外周红细胞破坏增加时，只要骨髓储备尚可，就会出现红系代偿性增生，骨髓整体呈明显增生活跃。",
     "reasoning_chain": [
-      "外周红细胞被大量破坏后，正常骨髓会加速红系生成作为代偿。",
-      "因此骨髓通常表现为明显增生，选D。",
-      "如果骨髓反而增生减低，就要考虑造血衰竭而不是单纯溶血。"
+      "病例前两题已确定溶血方向并预计网织红细胞升高。",
+      "网织红细胞升高来自骨髓红系代偿性增生。",
+      "因此骨髓应表现为明显增生，选D。"
     ],
-    "transfer_rule": "溶血=外周破坏↑，骨髓多代偿性红系增生。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "溶血=外周破坏↑→EPO刺激↑→骨髓红系增生↑→网织红细胞↑。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.明显增生。溶血导致外周红细胞寿命缩短，骨髓红系通常出现明显代偿性增生。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "巨幼样变提示DNA合成障碍，不是典型溶血代偿形态。"
+      },
+      {
+        "option": "C",
+        "reason": "增生减低更支持再生障碍等生成不足性贫血。"
+      }
+    ],
+    "common_failure_node": "把“贫血很重”误等同于“骨髓生成差”，忽略溶血时骨髓通常是在加速代偿。"
   },
   {
     "question_id": "xizong-official-2023-n088",
@@ -320,20 +464,35 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "糖尿病视网膜病变旧分期",
-    "decision_axis": "题源按旧版糖尿病视网膜病变分期作答；现行眼底分级与治疗决策不应直接沿用旧固定分期。",
+    "exam_target": "糖尿病视网膜病变Ⅳ期与自主神经病变识别",
+    "decision_axis": "Current D8明确保留Study分期：出现视网膜/视盘新生血管即进入Ⅳ期增生早期；膀胱残余尿增多、排尿异常提示糖尿病自主神经病变。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "眼底已有新生血管，按Current Study DR分期属于Ⅳ期（增生早期）。",
+      "膀胱残余尿量增加提示膀胱排空障碍，糖尿病自主神经病变可造成尿潴留/失禁。",
+      "两部分同时成立，因此选C。"
     ],
-    "transfer_rule": "只保留题源时代分期，不升级为Current规则。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "DR Study分期：新生血管=Ⅳ期入口；糖尿病膀胱排空异常/尿潴留属于自主神经受累。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.糖尿病视网膜改变Ⅳ期，糖尿病自主神经病变。新生血管对应Current Study的Ⅳ期增生早期；残余尿增加和排尿异常符合自主神经膀胱功能障碍。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "一旦出现视网膜或视盘新生血管，Current Study已进入Ⅳ期，不再属于Ⅲ期重度NPDR。"
+      },
+      {
+        "option": "D",
+        "reason": "周围神经病变主要表现为远端感觉/运动异常；膀胱残余尿增加更支持自主神经病变。"
+      }
+    ],
+    "common_failure_node": "只盯“咳嗽漏尿”而误判单纯压力性尿失禁，忽略残余尿增加所提示的膀胱自主神经功能障碍。",
+    "source_boundary_note": "“Ⅳ期”是Current D8明确保留的Study考试分期语言；用于本题作答，不自动等同所有现代眼科指南的命名体系。"
   },
   {
     "question_id": "xizong-official-2023-n089",
@@ -344,20 +503,35 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "糖尿病合并肾损害的降压药选择",
-    "decision_axis": "题源固定选择ACEI，但Current用药需结合eGFR、白蛋白尿、血钾、妊娠等条件，不能把旧单选题固化为统一处方。",
+    "exam_target": "糖尿病肾病合并高血压的ACEI选择",
+    "decision_axis": "长期1型糖尿病伴微血管并发症、肾功能受损和高血压，Current D8 KP14明确将ACEI/ARB作为DKD高血压的Study首选，并强调降压、降蛋白尿和肾保护角色。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "病程25年的1型糖尿病已有视网膜和神经并发症，同时Cr升高，支持糖尿病慢性肾损害背景。",
+      "血压160/100mmHg需要降压治疗。",
+      "Current D8 KP14明确：DKD合并高血压Study首选ACEI/ARB，因此四项中选D。"
     ],
-    "transfer_rule": "RAAS抑制剂可有肾保护价值，但Current必须按具体适应证。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "DKD合并高血压的Study主轴：ACEI/ARB兼顾降压、降低蛋白尿和肾保护；实际使用仍需监测肾功能和血钾。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.血管紧张素转换酶抑制剂。Current D8明确将ACEI/ARB作为糖尿病肾病合并高血压的Study首选。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "钙通道阻滞剂可以降压，但不具备本题Current Study所强调的DKD首选角色。"
+      },
+      {
+        "option": "A",
+        "reason": "利尿剂可用于容量管理和联合降压，但不是本题DKD高血压的首选轴。"
+      }
+    ],
+    "common_failure_node": "看到肌酐升高就把ACEI机械视为禁忌；真正需要的是结合肾功能变化、血钾及具体禁忌证监测使用。",
+    "source_boundary_note": "本题映射的是Current Study“DKD高血压首选ACEI/ARB”口径；临床处方仍需结合eGFR、血钾、妊娠及启药后的肌酐变化。"
   },
   {
     "question_id": "xizong-official-2023-n090",
@@ -368,22 +542,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "1型糖尿病基础-餐时胰岛素",
-    "decision_axis": "1型糖尿病需要基础胰岛素覆盖并配合餐时胰岛素，核心是模拟生理性基础-餐时分泌。",
+    "exam_target": "1型糖尿病基础-餐时胰岛素方案",
+    "decision_axis": "1型糖尿病存在绝对胰岛素缺乏，需要基础胰岛素覆盖并配合餐时胰岛素，基础-餐时方案最能模拟生理分泌。",
     "reasoning_chain": [
-      "1型糖尿病的本质是胰岛素绝对缺乏，需要全天基础胰岛素加进餐时胰岛素覆盖。",
-      "因此基础长效/中长效联合三餐餐时胰岛素最接近生理分泌，选B。",
-      "单用基础胰岛素或依赖口服药都不能满足T1DM基本治疗需求。"
+      "患者为长期1型糖尿病，口服降糖药不能替代胰岛素。",
+      "当前预混每日2次且HbA1c 8.6%，提示控制不足。",
+      "基础胰岛素+三餐餐时胰岛素提供更完整的基础/餐后覆盖，因此选B。"
     ],
-    "transfer_rule": "T1DM胰岛素替代抓 basal + bolus。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "T1DM强化治疗核心是basal-bolus：基础胰岛素管全天背景，餐时胰岛素覆盖进餐。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.每日1次中长效基础胰岛素联合3次餐时胰岛素。该方案符合1型糖尿病所需的基础-餐时胰岛素替代。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "二甲双胍不能替代1型糖尿病的胰岛素需求，且本病例肾功能受损更需谨慎。"
+      },
+      {
+        "option": "D",
+        "reason": "单用基础胰岛素缺少餐时覆盖，不能满足1型糖尿病的完整替代需要。"
+      }
+    ],
+    "common_failure_node": "把1型糖尿病当成“加一种降糖药即可”的2型糖尿病式阶梯治疗。"
   },
   {
     "question_id": "xizong-official-2023-n091",
@@ -395,21 +581,33 @@
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
     "exam_target": "Behçet病识别",
-    "decision_axis": "反复口腔/生殖器溃疡并眼部炎症是Behçet病的经典组合。",
+    "decision_axis": "反复口腔溃疡、生殖器溃疡和眼炎构成Behçet病最经典的临床组合。",
     "reasoning_chain": [
-      "反复口腔溃疡、阴囊溃疡和反复眼炎，是Behçet病最经典的多系统组合。",
-      "因此选D。",
-      "其他自身免疫或炎症性疾病可以有其中一部分表现，但不能如此集中地解释黏膜双轴加眼病。"
+      "口腔溃疡反复5年，是Behçet常见入口。",
+      "同时有阴囊溃疡和反复眼炎，形成口腔-生殖器-眼三联线索。",
+      "四个选项中Behçet病最能统一解释，选D。"
     ],
-    "transfer_rule": "反复口腔溃疡+生殖器溃疡+眼炎高度提示Behçet。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "Behçet抓“复发口疮 + 生殖器溃疡 + 眼炎”，再补皮肤、血管或针刺反应等证据。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.贝赫切特病。复发性口腔溃疡、生殖器溃疡和眼炎是最具代表性的组合。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Reiter综合征更典型为尿道炎、关节炎和结膜炎/葡萄膜炎，不能最好解释反复生殖器溃疡。"
+      },
+      {
+        "option": "C",
+        "reason": "克罗恩病可有口腔和眼部表现，但题干没有胃肠道主线，且生殖器溃疡组合更支持Behçet。"
+      }
+    ],
+    "common_failure_node": "看到“眼炎+口腔溃疡”就联想到Reiter或炎症性肠病，忽略生殖器溃疡这一高价值线索。"
   },
   {
     "question_id": "xizong-official-2023-n092",
@@ -420,22 +618,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "Behçet病结节性红斑",
-    "decision_axis": "Behçet病可出现结节性红斑样皮损，是常见皮肤表现之一。",
+    "exam_target": "Behçet病的结节性红斑样皮损",
+    "decision_axis": "Behçet病常见皮肤表现包括结节性红斑样皮损，与复发口腔/生殖器溃疡和眼炎可共同出现。",
     "reasoning_chain": [
-      "Behçet病常见皮肤表现包括结节性红斑样皮损。",
-      "因此选C。",
-      "盘状红斑偏SLE；尿道烧灼感更偏感染或反应性关节炎；心脏扩大不是本病典型识别入口。"
+      "病例诊断已经指向Behçet病。",
+      "需要从选项中选择与其常见系统表现相符者。",
+      "结节性红斑样皮损属于Behçet的典型皮肤表现，因此选C。"
     ],
-    "transfer_rule": "Behçet不仅看溃疡，也看眼、皮肤和血管受累。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "Behçet除口-生殖器-眼外，还要记结节性红斑样皮损、痤疮样皮损和血管受累。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.结节性红斑。Behçet病可出现结节性红斑样皮损，是常见皮肤表现。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "尿道烧灼感更偏尿道炎，常作为Reiter综合征线索。"
+      },
+      {
+        "option": "B",
+        "reason": "盘状红斑更典型关联系统性红斑狼疮。"
+      }
+    ],
+    "common_failure_node": "把不同风湿免疫病的标志性皮损混在一起背，缺少疾病-体征一一配对。"
   },
   {
     "question_id": "xizong-official-2023-n093",
@@ -447,21 +657,33 @@
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
     "exam_target": "急性胆管炎识别",
-    "decision_axis": "腹痛、发热、黄疸构成Charcot三联征；若再有低血压/意识障碍提示重症胆管炎。",
+    "decision_axis": "右上腹痛、发热寒战和黄疸构成Charcot三联征；同时低血压提示病情重并需要警惕AOSC/脓毒症。",
     "reasoning_chain": [
-      "腹痛、发热、黄疸构成Charcot三联征，提示急性胆管炎。",
-      "本例还有低血压，说明病情更重，因此选D。",
-      "急性胆囊炎通常不以明显黄疸为主轴；胃肠炎和胰腺炎也不能解释这组胆道梗阻表现。"
+      "有胆总管结石背景，具备胆道梗阻的基础。",
+      "腹痛+寒战高热+黄疸是典型Charcot三联征。",
+      "低血压提示重症进展，因此诊断急性胆管炎，选D。"
     ],
-    "transfer_rule": "Charcot三联征=腹痛+发热+黄疸。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "胆管炎先认Charcot三联征；再看休克和神经精神异常判断是否进入Reynolds五联征/重症。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.急性胆管炎。胆总管结石背景下出现右上腹痛、发热寒战和黄疸，符合Charcot三联征。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "急性胆囊炎以右上腹痛和发热为主，黄疸并非典型核心组合。"
+      },
+      {
+        "option": "C",
+        "reason": "急性胰腺炎可有上腹痛，但本题黄疸、寒战和胆道梗阻线索更符合胆管炎。"
+      }
+    ],
+    "common_failure_node": "把所有胆石相关腹痛都归为胆囊炎，忽略黄疸和寒战所指向的胆管感染。"
   },
   {
     "question_id": "xizong-official-2023-n094",
@@ -472,22 +694,35 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "胆道梗阻的MRCP评估",
-    "decision_axis": "MRCP可无创显示胆道树和梗阻部位，适合胆管炎病因及胆道解剖评估。",
+    "exam_target": "胆道梗阻的MRCP无创评估",
+    "decision_axis": "Current D19明确MRCP是观察胰胆管形态的最佳无创方法，可显示梗阻部位、上游扩张和管道连续性。",
     "reasoning_chain": [
-      "胆管炎需要明确胆道树形态和梗阻位置。",
-      "MRCP可以无创显示肝内外胆管、结石和梗阻层级，因此本题选C。",
-      "ERCP更偏诊疗一体化的侵入性通路，MRCP适合先做解剖评估。"
+      "病例已识别为胆管炎并怀疑胆总管结石。",
+      "题目此处比较的是胆道解剖/梗阻的检查方式。",
+      "MRCP无需侵入胆道即可描绘胆管树，因此按题源选C。"
     ],
-    "transfer_rule": "胆道结构评估：MRCP无创，ERCP兼具治疗。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "MRCP=无创画胆道；ERCP/PTC=侵入性，并可进一步接取石、活检或引流。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.MRCP。可无创显示胆道树、梗阻位置及上游扩张，是Current D19保留的胆道形态评估核心检查。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "ERCP可诊断并直接治疗，但属于侵入性操作；当题轴是“最佳无创胆道成像”时不如MRCP。"
+      },
+      {
+        "option": "D",
+        "reason": "PTC同样有侵入性，更多用于特定胆道造影/引流场景。"
+      }
+    ],
+    "common_failure_node": "把“能治疗”误当成“所有情况下最合适的诊断成像”，没有先辨认题目是在比较无创形态评估还是急诊引流。",
+    "source_boundary_note": "本病例已有低血压；真实急诊路径中应同步复苏并尽快解除梗阻，不能为了完善MRCP而延误重症胆管炎的胆道减压。"
   },
   {
     "question_id": "xizong-official-2023-n095",
@@ -498,20 +733,35 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "急性胆管炎胆道引流旧固定术式",
-    "decision_axis": "题源固定选择ENBD；Current胆道减压方式需按病情、内镜条件、解剖和引流目标决定，不能泛化为唯一方案。",
+    "exam_target": "重症胆管炎的紧急胆道减压与ENBD引流",
+    "decision_axis": "低血压背景下的急性胆管炎属于重症警报，Current D19 KP16要求紧急解除胆道梗阻、减压引流；KP04明确ENBD是可用的内镜引流方式。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "病例有Charcot三联征并出现低血压，提示重症胆管炎/脓毒症风险。",
+      "Current治疗主轴不是先做根治性胆道手术，而是复苏、抗感染并尽快减压引流。",
+      "四个选项中ENBD直接实现内镜胆道引流，因此按题源选C。"
     ],
-    "transfer_rule": "保留“重症胆管炎需及时减压”原则，不固化旧术式。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "AOSC/重症胆管炎：先复苏+抗感染+胆道减压；急性期稳定后再处理结石等根治问题。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.经内镜鼻胆管引流术。Current D19明确重症胆管炎应紧急解除梗阻、减压引流，ENBD是正式保留的内镜引流接口。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "单纯非手术支持不能解除持续的胆道梗阻，重症胆管炎需要源控制/减压。"
+      },
+      {
+        "option": "D",
+        "reason": "胆总管切开取石属于更侵入的根治性路径；急性重症期优先快速减压和稳定循环。"
+      }
+    ],
+    "common_failure_node": "把“最终要去除结石”提前成急性期第一步，忽略重症胆管炎首先需要源控制和减压。",
+    "source_boundary_note": "ENBD是本题给定选项中的题源答案和Current D19明确引流方式之一；现代临床可根据内镜条件、解剖和引流目标选择其他等效胆道引流方式，不应泛化为唯一方案。"
   },
   {
     "question_id": "xizong-official-2023-n096",
@@ -522,22 +772,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "酒精相关急性胰腺炎",
-    "decision_axis": "大量饮酒背景下急性持续上腹痛并淀粉酶升高，符合急性胰腺炎。",
+    "exam_target": "酒精相关急性胰腺炎识别",
+    "decision_axis": "饮酒后急性持续上腹痛伴恶心呕吐，血淀粉酶显著升高，首先考虑急性胰腺炎。",
     "reasoning_chain": [
-      "饮酒后突发持续上腹痛、恶心呕吐，血淀粉酶明显升高，符合急性胰腺炎。",
-      "因此选A。",
-      "没有黄疸和胆管炎三联征，也没有阑尾炎的转移性右下腹痛模式。"
+      "起病与饮酒相关，疼痛位于上腹并伴恶心呕吐。",
+      "血淀粉酶1000U/L提供胰腺炎的酶学支持。",
+      "无典型胆管炎黄疸寒战或阑尾炎转移性右下腹痛，因此选A。"
     ],
-    "transfer_rule": "急性胰腺炎抓典型疼痛+胰酶/影像证据。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "急性胰腺炎诊断先抓典型上腹痛，再结合胰酶和影像；病因再看胆石、酒精等。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.急性胰腺炎。饮酒诱因、急性上腹痛和显著淀粉酶升高共同支持该诊断。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "急性胆管炎通常需要发热寒战、黄疸和胆道梗阻线索，本题均不突出。"
+      },
+      {
+        "option": "D",
+        "reason": "急性胃炎可有上腹痛、恶心，但不能很好解释显著胰酶升高。"
+      }
+    ],
+    "common_failure_node": "只把“饮酒后上腹痛”理解为胃炎，忽略胰酶证据。"
   },
   {
     "question_id": "xizong-official-2023-n097",
@@ -548,20 +810,35 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "急性胰腺炎吗啡旧禁忌观念",
-    "decision_axis": "题源将吗啡作为不宜用药的旧口径；现代镇痛并不以“Oddi括约肌痉挛”简单排除吗啡。",
+    "exam_target": "急性胰腺炎镇痛的Source-bound吗啡口径",
+    "decision_axis": "Current D20 KP13明确保留Lecture考试口径：“急性胰腺炎不用吗啡，使用哌替啶”等；因此在该Source语境中，“常用吗啡镇痛”是应排除的选项。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "病例已确认为急性胰腺炎。",
+      "Current D20保守治疗包括禁食/补液、镇痛等，并明确保留本套Lecture的镇痛药考试口径。",
+      "在这一Source-bound口径下，“常用吗啡镇痛”不符合本题要求，因此官方答案为D。"
     ],
-    "transfer_rule": "旧题镇痛禁忌不升级为Current治疗规则。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "考试Source内按D20保留“胰腺炎镇痛避免吗啡、可用哌替啶”的题源口径；不要把它无限外推为现代所有指南的一般禁忌。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.常用吗啡镇痛。按Current D20明确保留的Lecture考试口径，急性胰腺炎不选“常用吗啡”，而采用其他镇痛方案。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "禁食与补液属于Current D20保守支持治疗主线。"
+      },
+      {
+        "option": "C",
+        "reason": "生长抑素/奥曲肽在Current D20被保留为抑制胰液分泌的Source接口，因此不是本题应排除项。"
+      }
+    ],
+    "common_failure_node": "用外部现代镇痛知识直接覆盖本项目已经显式标注的Source-bound考试口径，导致与官方答案脱节。",
+    "source_boundary_note": "Current D20明确将“急性胰腺炎不用吗啡/可用哌替啶”标为SOURCE_BOUNDARY，仅作为当前Lecture考试知识保留；现代真实临床镇痛不应机械套用该旧禁忌。"
   },
   {
     "question_id": "xizong-official-2023-n098",
@@ -572,22 +849,34 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "BillrothⅡ术后输入袢梗阻",
-    "decision_axis": "胃大部切除BillrothⅡ术后早期出现上腹胀痛、呕吐而呕吐物不含胆汁，提示输入袢梗阻。",
+    "exam_target": "BillrothⅡ术后急性输入袢梗阻",
+    "decision_axis": "BillrothⅡ术后一周出现急性上腹痛和呕吐，呕吐物不含胆汁，Current D10 KP23将这一组合归入急性完全输入袢梗阻。",
     "reasoning_chain": [
-      "BillrothⅡ术后一周出现上腹痛和呕吐，且呕吐物不含胆汁，要优先考虑输入袢梗阻。",
-      "因此选B。",
-      "输出袢梗阻更常导致含胆汁呕吐；倾倒综合征和胃瘫也不符合这种急性机械性梗阻模式。"
+      "手术方式是BillrothⅡ，存在输入袢/输出袢相关梗阻风险。",
+      "术后早期突发上腹痛和呕吐提示机械性并发症。",
+      "Current D10表格中急性完全输入袢梗阻典型为胆汁不能进入胃侧，呕吐物无胆汁，因此选B。"
     ],
-    "transfer_rule": "BillrothⅡ后梗阻要结合呕吐物是否含胆汁定位。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "BillrothⅡ术后梗阻靠呕吐物定位：急性完全输入袢常无胆汁；输出袢更常食物与胆汁均受阻。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.输入袢梗阻。BillrothⅡ术后早期急性腹痛、呕吐且不含胆汁，与Current D10的急性完全输入袢梗阻模式吻合。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "输出袢梗阻时食物和胆汁均无法正常下行，临床模式与本题无胆汁呕吐的输入袢定位不同。"
+      },
+      {
+        "option": "D",
+        "reason": "术后胃瘫更偏胃排空障碍，不以急性剧痛和输入袢特征性胆汁线索为核心。"
+      }
+    ],
+    "common_failure_node": "只记“BillrothⅡ术后会梗阻”，却不会用呕吐物中食物/胆汁来做解剖定位。"
   },
   {
     "question_id": "xizong-official-2023-n099",
@@ -598,20 +887,35 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "输入袢梗阻的检查禁忌",
-    "decision_axis": "输入袢梗阻属于机械性梗阻问题，灌肠不能解决上消化道输入袢病变。",
+    "exam_target": "BillrothⅡ输入袢梗阻处理题的题源答案边界",
+    "decision_axis": "Current D10可确认输入袢梗阻的解剖定位，并明确无绞窄/腹膜炎时先保守、出现绞窄时手术；但当前Question Truth缺少原始询问方向，且D10未把“灌肠通便”建立为正式禁忌规则，因此不强行建立Current关系。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "承接N098，病例可定位为BillrothⅡ术后输入袢梗阻。",
+      "Current D10支持“无绞窄/腹膜炎先保守，出现绞窄则手术”的处理框架。",
+      "本题正式答案为B，但现存Question Truth仅保留病例、选项和答案，没有保留“正确/错误/不宜”等原始问法；因此只能保留题源答案，不把“灌肠通便”泛化成Current知识点。"
     ],
-    "transfer_rule": "术后梗阻先按解剖定位，避免无关侵入性操作。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "术后机械性梗阻的Current处理先看是否绞窄/腹膜炎决定保守或手术；不要从缺失问句的旧题反推出新的绝对禁忌。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.灌肠通便为正式题源答案；但由于当前题源缺失原始问句，无法安全判断它是在问“错误措施”“不宜措施”还是其他方向，因此不把该结论升级为Current规则。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "胃肠减压属于上消化道梗阻常见保守支持措施，至少与Current D10的保守路径方向一致。"
+      },
+      {
+        "option": "C",
+        "reason": "Current D10明确出现绞窄时进入手术路径，所以手术并非在所有输入袢梗阻中都错误。"
+      }
+    ],
+    "common_failure_node": "看到官方答案B就自行补写一个不存在于Question Truth中的问句，并据此制造“灌肠绝对禁忌”等伪Current规则。",
+    "source_gap_note": "当前Question Truth保留病例、选项和正式答案B，但缺少原始询问方向；因此Explanation保留题源答案，Crosswalk按NO_SAFE_MATCH fail-closed。"
   },
   {
     "question_id": "xizong-official-2023-n100",
@@ -622,21 +926,33 @@
       "blob_sha": "13d87c23393d9499dca4ff113f5945d2f89525af",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "先天性胆管扩张的MRCP",
-    "decision_axis": "MRCP可完整评估胆总管扩张、肝内胆管及胰胆管汇合关系。",
+    "exam_target": "先天性胆管扩张症的MRCP评估",
+    "decision_axis": "MRCP可无创显示胆总管、肝内胆管以及胰胆管汇合关系，适合先天性胆管扩张症的整体解剖评估。",
     "reasoning_chain": [
-      "先天性胆管扩张症需要看扩张范围、肝内胆管以及胰胆管汇合关系。",
-      "MRCP能无创完整显示胆道树，因此选C。",
-      "ERCP/PTC更侵入，通常不作为仅为描绘解剖而优先选择的检查。"
+      "B超已提示胆总管显著扩张，需要进一步描绘胆道全貌。",
+      "先天性胆管扩张的关键是明确扩张范围、肝内外胆管和胰胆管汇合关系。",
+      "MRCP能无创完成这些解剖评估，因此选C。"
     ],
-    "transfer_rule": "胆管扩张症结构评估优先看完整胆道解剖。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "胆道先天解剖异常需要“全管道地图”时，优先想到MRCP的无创全景优势。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.MRCP。可无创评估胆总管扩张范围、肝内胆管及胰胆管汇合关系，适合先天性胆管扩张症。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "ERCP也能显示胆胰管并可干预，但有侵入性，不是单纯解剖评估的首选无创方式。"
+      },
+      {
+        "option": "D",
+        "reason": "PTC属于侵入性胆道造影/引流手段，不宜作为本题首选解剖评估。"
+      }
+    ],
+    "common_failure_node": "因为ERCP信息丰富就忽略“无创完整显示胆道解剖”这一题轴。"
   }
 ]
