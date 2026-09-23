@@ -11,17 +11,32 @@
     "exam_target": "减压病氮气栓塞",
     "decision_axis": "深潜时高压使氮溶入组织，快速上浮时氮析出形成气泡，可造成氮气栓塞和减压病。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "深潜时环境高压使更多氮溶解于血液和组织。",
+      "快速上浮导致环境压力骤降，溶解氮来不及经肺排出而析出为气泡。",
+      "这些氮气泡可造成减压病和气体栓塞，因此题源选B；但当前仓库只有局部“氮气栓塞接口”，没有安全的通用最小owner。"
     ],
     "transfer_rule": "深潜快速上浮要联想溶解氮析出气泡。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.氮气栓塞。深潜后快速减压使组织内溶解氮析出成气泡，是减压病的核心机制。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "脂肪栓塞更典型见长骨骨折、骨髓损伤等场景。"
+      },
+      {
+        "option": "C",
+        "reason": "空气栓塞强调外界空气直接进入血管，不是高压氮析出的减压病机制。"
+      }
+    ],
+    "common_failure_node": "把“气体栓塞”都叫空气栓塞，忽略气体来源决定病名。",
+    "source_gap_note": "减压病/氮气栓塞目前仅在其他疾病Block或System Guide中作为接口出现，没有可投影的通用气体栓塞最小Current owner。"
   },
   {
     "question_id": "xizong-official-2019-n127",
@@ -40,14 +55,26 @@
       "脂肪栓塞多发生在长骨骨折后的较早时相；氮气栓塞见减压病，空气栓塞需要明确气体进入静脉系统的场景。"
     ],
     "transfer_rule": "骨折+长期卧床+突然死亡，优先考虑DVT脱落。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.血栓栓塞。长骨骨折后卧床3周形成下肢DVT，起立活动时血栓脱落可造成致死性肺血栓栓塞。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "脂肪栓塞多发生在长骨骨折后的较早时相，而不是卧床3周后起立突然死亡的典型机制。"
+      },
+      {
+        "option": "B",
+        "reason": "氮气栓塞需要潜水/减压等高压暴露背景。"
+      }
+    ],
+    "common_failure_node": "看到“长骨骨折”就条件反射选脂肪栓塞，不看时间轴已经进入长期卧床DVT阶段。"
   },
   {
     "question_id": "xizong-official-2019-n128",
@@ -61,7 +88,9 @@
     "exam_target": "瓣膜病左心衰旧排序",
     "decision_axis": "题源选择二尖瓣狭窄为“最易发生左心功能不全”的瓣膜病，但该绝对排序不能安全推广为Current血流动力学规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "二尖瓣狭窄会显著升高左房压力并造成肺静脉淤血、肺水肿等左心衰样临床表现。",
+      "2019题源据此把C作为“最易发生左心功能不全临床表现”的答案。",
+      "但四种瓣膜病谁“最易”发生左心功能不全并不存在可稳定迁移的Current绝对排序，因此只保留历史答案。"
     ],
     "transfer_rule": "仅保留题源/Study边界；瓣膜病心衰表现按具体血流动力学判断。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -71,7 +100,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.二尖瓣狭窄为题源官方答案；其确可通过左房压升高造成肺淤血，但不把“最易发生左心功能不全”的旧绝对排序升级为Current规则。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "主动脉瓣狭窄长期造成左室压力负荷和肥厚，也可在晚期发生左室衰竭。"
+      },
+      {
+        "option": "D",
+        "reason": "二尖瓣关闭不全造成左房、左室容量负荷，同样可进展为左心衰。"
+      }
+    ],
+    "common_failure_node": "把某个旧教材“最易/最常”排序当作瓣膜血流动力学的永久绝对规律。",
+    "source_boundary_note": "保留2019题源“二尖瓣狭窄最易出现左心功能不全临床表现”的历史比较答案；Current学习应回到各瓣膜病具体压力/容量负荷，不冻结绝对排序。"
   },
   {
     "question_id": "xizong-official-2019-n129",
@@ -90,14 +132,26 @@
       "主动脉瓣关闭不全和二尖瓣关闭不全更偏容量负荷；二尖瓣狭窄的主要压力首先堆在左房而不是左室。"
     ],
     "transfer_rule": "压力负荷→向心性肥厚；主动脉瓣狭窄是经典例子。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.主动脉瓣狭窄。固定左室流出道阻力造成持续压力负荷，长期最典型形成向心性左室肥厚。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "主动脉瓣关闭不全更偏左室容量负荷和离心性重构。"
+      },
+      {
+        "option": "C",
+        "reason": "二尖瓣狭窄的压力首先堆积在左房和肺循环，而非左室。"
+      }
+    ],
+    "common_failure_node": "只按“左心瓣膜病”分类，不区分压力负荷和容量负荷落在哪个心腔。"
   },
   {
     "question_id": "xizong-official-2019-n130",
@@ -116,14 +170,26 @@
       "阿托品走相反的抗M方向并导致散瞳；甲醇和乙醇中毒没有这一经典胆碱能缩瞳轴。"
     ],
     "transfer_rule": "有机磷中毒典型可见miosis。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.有机磷中毒。胆碱酯酶被抑制后ACh积聚，M受体过度兴奋使瞳孔括约肌收缩，出现明显缩瞳。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "阿托品阻断M受体，典型方向是散瞳而不是缩瞳。"
+      },
+      {
+        "option": "C",
+        "reason": "甲醇中毒的核心是代谢性酸中毒和视神经毒性，不是胆碱能缩瞳。"
+      }
+    ],
+    "common_failure_node": "把所有中毒的瞳孔改变都靠死记，未用M受体兴奋/阻断方向推导。"
   },
   {
     "question_id": "xizong-official-2019-n131",
@@ -142,14 +208,26 @@
       "同一套边界可反向记：有机磷偏“湿、慢、缩、动”，阿托品过量偏“干、快、散瞳”，不能把治疗达到阿托品化和真正阿托品中毒混成一件事。"
     ],
     "transfer_rule": "阿托品中毒抓散瞳+干燥+心动过速。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.阿托品中毒。M受体阻断使瞳孔括约肌作用减弱，出现散瞳，并常伴口干、皮肤干热和心动过速。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "有机磷中毒走胆碱能过度方向，典型是缩瞳。"
+      },
+      {
+        "option": "D",
+        "reason": "乙醇中毒没有典型抗胆碱能散瞳综合征。"
+      }
+    ],
+    "common_failure_node": "把“有机磷治疗用阿托品”与“阿托品过量的抗胆碱能表现”混成一件事。"
   },
   {
     "question_id": "xizong-official-2019-n132",
@@ -168,14 +246,26 @@
       "支链氨基酸在这里承担的是肝功能不全营养配方接口；精氨酸和核苷酸不是本题Current Source的目标。"
     ],
     "transfer_rule": "肠黏膜营养经典联想谷氨酰胺。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.谷氨酰胺。Current D5把谷氨酰胺作为肠上皮的重要营养底物和肠屏障维护接口。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "支链氨基酸在本套Study中主要承接肝功能不全营养配方接口。"
+      },
+      {
+        "option": "C",
+        "reason": "精氨酸不是本题Current Source指定的肠黏膜主要营养底物。"
+      }
+    ],
+    "common_failure_node": "把“都是氨基酸”理解成对肠黏膜作用完全等价。"
   },
   {
     "question_id": "xizong-official-2019-n133",
@@ -194,14 +284,27 @@
       "这是Source-bound营养记忆，不外推成所有肝病患者、所有阶段都必须使用同一配方；实际营养策略仍需按肝病阶段和肝性脑病等情境分层。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current肝病营养按个体化评估。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.支链氨基酸。Current D5 KP18明确保留“肝功能不全加用支链氨基酸”的PN考试接口，因此旧relation可继续成立。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "谷氨酰胺在本Block主要用于肠黏膜营养接口，并非这道肝功能不全PN题的目标。"
+      },
+      {
+        "option": "C",
+        "reason": "精氨酸不是Current D5为肝功能不全PN冻结的特异配方接口。"
+      }
+    ],
+    "common_failure_node": "把这条考试营养接口扩大成“所有肝病患者、所有阶段都必须固定使用BCAA配方”。",
+    "source_boundary_note": "Current D5 KP18确实保留“肝功能不全加用支链氨基酸”的Study接口，因此relation有效；实际营养处方仍需按肝病阶段、肝性脑病与肠内/肠外营养可行性个体化。"
   },
   {
     "question_id": "xizong-official-2019-n134",
@@ -220,14 +323,26 @@
       "纤维腺瘤、乳管内乳头状瘤和乳腺癌都不以这种周期性波动作为核心识别轴。"
     ],
     "transfer_rule": "周期性乳房胀痛、经前加重常见于良性纤维囊性改变。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.乳腺囊性增生病。疼痛和结节感可随月经周期波动，是纤维囊性改变的经典识别轴。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "纤维腺瘤更典型是局限、活动性肿块，不以周期性胀痛作为主身份。"
+      },
+      {
+        "option": "C",
+        "reason": "乳管内乳头状瘤更典型从单孔血性/浆液性溢液进入。"
+      }
+    ],
+    "common_failure_node": "看到乳房肿块就忽略“是否随月经周期波动”这一高价值时间轴。"
   },
   {
     "question_id": "xizong-official-2019-n135",
@@ -246,14 +361,26 @@
       "囊性增生更强调周期性胀痛，纤维腺瘤偏局限活动肿块；乳腺癌可有溢液，但不是本题最典型配对。"
     ],
     "transfer_rule": "血性乳头溢液要想到乳管内乳头状瘤，同时需排除恶性病变。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.乳管内乳头状瘤。导管内病灶脆弱出血后可直接沿乳管排出，典型表现为单侧单孔血性溢液。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "乳腺囊性增生更强调周期性胀痛和结节感。"
+      },
+      {
+        "option": "D",
+        "reason": "乳腺癌可出现血性溢液，但本题经典配对仍是乳管内乳头状瘤。"
+      }
+    ],
+    "common_failure_node": "把“血性溢液也能见于癌”误当成题目在问最危险病因，而不是经典疾病—表现配对。"
   },
   {
     "question_id": "xizong-official-2019-n136",
@@ -267,17 +394,32 @@
     "exam_target": "第二信使介导受体",
     "decision_axis": "G蛋白偶联受体可经cAMP或IP3/DAG等第二信使传导；膜型鸟苷酸环化酶受体可生成cGMP。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "GPCR通过Gs/Gi/Gq等耦联产生cAMP或IP3/DAG等胞质第二信使。",
+      "膜型鸟苷酸环化酶受体受配体激活后生成cGMP，也属于第二信使介导。",
+      "离子通道型受体直接改变离子通透性，核受体主要调转录；因此题源选B、D。但Current证据分散，没有单一最小owner同时完整承接两类受体。"
     ],
     "transfer_rule": "GPCR→cAMP/IP3-DAG；GC受体→cGMP。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、D正确：GPCR依赖cAMP/IP₃-DAG等第二信使，膜型鸟苷酸环化酶受体生成cGMP；A为直接门控离子通道，C主要走胞内受体—转录调控。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "离子通道型受体的核心是配体直接改变通道开放，不需要胞质第二信使作为中介。"
+      },
+      {
+        "option": "C",
+        "reason": "核受体与脂溶性配体结合后主要直接调节基因转录。"
+      }
+    ],
+    "common_failure_node": "只因为Current D6有“膜受体—第二信使”总述，就把所有膜受体亚型和cGMP受体分类强行塞进同一个KP。",
+    "source_gap_note": "GPCR第二信使与鸟苷酸环化酶受体-cGMP在Current Knowledge中分散承接，没有单一最小KP完整拥有题目B+D两条轴。"
   },
   {
     "question_id": "xizong-official-2019-n137",
@@ -296,14 +438,22 @@
       "肾血管并不是这道题的小剂量β₂舒张代表，不能把“部分血管舒张”泛化为全身所有血管都舒张。"
     ],
     "transfer_rule": "小剂量肾上腺素优先β效应。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、C、D正确。小剂量肾上腺素时β效应较突出：β₂使骨骼肌血管舒张，β₁使心率和心肌收缩力增加。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "肾血管不是本题小剂量β₂舒张的经典代表，不能把“部分血管舒张”泛化成所有血管。"
+      }
+    ],
+    "common_failure_node": "只背“肾上腺素收缩血管”或“β₂舒血管”单一方向，忽略剂量与血管床差异。"
   },
   {
     "question_id": "xizong-official-2019-n138",
@@ -322,14 +472,22 @@
       "肺气肿的核心是弹性回缩力下降和肺泡结构破坏，表面活性物质不能防止它，因此B不选。"
     ],
     "transfer_rule": "表面活性物质=降表面张力→防萎陷、稳肺泡、易扩张。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、C、D正确。表面活性物质降低表面张力，可提高顺应性、减少吸气做功，稳定不同大小肺泡，并减少液体向肺泡内滤出的倾向。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肺气肿的核心是肺泡壁破坏与弹性回缩力下降，表面活性物质并不能防止其发生。"
+      }
+    ],
+    "common_failure_node": "把“降低表面张力”泛化成能预防所有肺部疾病。"
   },
   {
     "question_id": "xizong-official-2019-n139",
@@ -343,17 +501,23 @@
     "exam_target": "胃肠激素共同特征",
     "decision_axis": "胃肠激素可调节消化功能并具营养作用，内分泌细胞分布于胃肠胰，作用方式可包括内分泌和旁分泌。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "胃肠激素可调节分泌、运动和消化过程，并可具有黏膜营养/生长作用。",
+      "胃肠内分泌细胞分布在胃肠道并与胰腺内分泌网络相互联系，局部调控还可采用旁分泌方式。",
+      "题源因此ABCD全选；但Current D2/D3/D7只分散承接各子轴，没有单一最小owner完整冻结这四条“共同特征”。"
     ],
     "transfer_rule": "胃肠激素不仅调节分泌运动，也可有营养作用和多种分泌方式。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D均为题源答案：胃肠激素参与消化调节、可有营养作用，相关分泌细胞分布于胃肠胰系统，并存在内分泌/旁分泌等作用方式。",
+    "valuable_distractors": [],
+    "common_failure_node": "看到若干Current Block分别支持其中几项，就跨Block拼出一条不存在的“胃肠激素共同特征”relation。",
+    "source_gap_note": "题目四个正确项跨胃肠激素功能、营养作用、胃肠胰细胞分布和内分泌/旁分泌方式；Current D2/D3/D7为分散owner，无单一最小Current owner。"
   },
   {
     "question_id": "xizong-official-2019-n140",
@@ -372,14 +536,26 @@
       "肾交感兴奋不是浓缩尿的必要条件；小管液本身“高溶质”也不能替代髓质梯度和集合管通水这两个核心条件。"
     ],
     "transfer_rule": "浓缩尿=髓质高渗+ADH。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、C正确。尿液浓缩必须同时有高渗的肾髓质间质梯度，以及ADH使集合管水通透性升高。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "肾交感兴奋可影响肾血流和肾素，但不是浓缩尿的必要条件。"
+      },
+      {
+        "option": "D",
+        "reason": "小管液自身溶质浓度高不能替代髓质梯度和集合管通水这两个核心条件。"
+      }
+    ],
+    "common_failure_node": "只记ADH而忘记没有髓质高渗梯度时“有水通道也无水可沿梯度回收”。"
   },
   {
     "question_id": "xizong-official-2019-n141",
@@ -398,14 +574,26 @@
       "做题时要按“易化区 vs 抑制区”成组恢复，不要只凭某结构参与运动调节就判为易化。"
     ],
     "transfer_rule": "肌紧张调控要区分脑干前庭系统与小脑不同分区。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、C正确。前庭核属于经典肌紧张易化中枢；小脑后叶中间部参与姿势肌张力与进行中运动调节。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "运动皮层参与运动控制，但不是本题Current Study列出的经典易化中枢。"
+      },
+      {
+        "option": "D",
+        "reason": "小脑前叶蚓部在这套题源/Study分区中不属于本题易化组合。"
+      }
+    ],
+    "common_failure_node": "把“参与运动”宽泛等同于“属于肌紧张易化中枢”。"
   },
   {
     "question_id": "xizong-official-2019-n142",
@@ -424,14 +612,17 @@
       "四个选项落在不同故障层，但都能改变氧化磷酸化，故ABCD全选。"
     ],
     "transfer_rule": "氧化磷酸化看底物/ADP、呼吸链、膜梯度和线粒体完整性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D均可影响氧化磷酸化：ADP供给、甲状腺激素相关能量消耗、线粒体DNA完整性以及ATP合酶功能都位于不同控制层。",
+    "valuable_distractors": [],
+    "common_failure_node": "多选全对题为了形式强行制造假干扰项。"
   },
   {
     "question_id": "xizong-official-2019-n143",
@@ -450,14 +641,22 @@
       "谷氨酸不是Current Study列出的甘油磷脂直接头基原料，所以D不选。"
     ],
     "transfer_rule": "甘油磷脂头基常见胆碱、乙醇胺、丝氨酸、肌醇。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C正确。胆碱、丝氨酸和肌醇可分别作为不同甘油磷脂的头基来源；谷氨酸不是本题Current直接原料。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "谷氨酸虽参与广泛氨基酸代谢，但不是本题列举甘油磷脂头基的直接原料。"
+      }
+    ],
+    "common_failure_node": "把“含氮分子”都误认为可以直接成为磷脂头基。"
   },
   {
     "question_id": "xizong-official-2019-n144",
@@ -476,14 +675,17 @@
       "这题考的是修复分类框架，不是在比较哪一种最常见或最重要。"
     ],
     "transfer_rule": "DNA修复要区分直接、切除和重组三大思路。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D均正确。Current G5将直接修复、碱基切除、核苷酸切除和重组/双链断裂修复都纳入DNA损伤修复框架。",
+    "valuable_distractors": [],
+    "common_failure_node": "把某一种修复机制背成“唯一DNA修复方式”。"
   },
   {
     "question_id": "xizong-official-2019-n145",
@@ -497,17 +699,28 @@
     "exam_target": "真核启动子调控对象",
     "decision_axis": "真核细胞中编码miRNA、rRNA、tRNA等基因均有相应启动子并受转录调控；DNA聚合酶Ⅱ是蛋白而非选项中的RNA产物基因类型。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "miRNA、rRNA和tRNA都由相应基因转录产生，并受其转录起始调控。",
+      "题源官方答案为A、B、C，同时排除D“DNA pol II”。",
+      "但若D意指DNA聚合酶Ⅱ这种蛋白，其编码基因同样需要真核启动子；若D是术语误写，又存在语义不清。因此官方ABC不应升级为Current通用生物学规则。"
     ],
     "transfer_rule": "不同RNA由不同RNA聚合酶转录，但都依赖相应启动子/调控元件。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C为题源官方答案；但D“DNA pol II”的语义使该排除在Current下不安全：蛋白编码基因同样具有启动子，不能据此构造稳定规则。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "题源把D排除，但“蛋白质由基因编码”并不意味着其基因没有真核启动子；该选项存在明显语义/口径问题。"
+      }
+    ],
+    "common_failure_node": "为了维护官方答案，编造“只有RNA产物的基因才受启动子调控”这种错误Current概念。",
+    "source_conflict_note": "题源官方答案ABC排除D“DNA pol II”；按Current基因表达原则，蛋白质编码基因同样需要启动子，且“DNA pol II”术语本身含糊，不能把题源排除D升级为Current规则。"
   },
   {
     "question_id": "xizong-official-2019-n146",
@@ -521,17 +734,23 @@
     "exam_target": "蛋白质翻译后修饰",
     "decision_axis": "蛋白质翻译后可发生乙酰化、甲基化、特定氨基酸修饰及二硫键形成等化学加工。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "乙酰化、甲基化和二硫键形成都可发生于翻译后的蛋白加工/成熟过程。",
+      "2019题源还把“形成硒代半胱氨酸”列为翻译后氨基酸化学修饰。",
+      "Current G3/M8明确：硒代半胱氨酸可通过密码子重编码在翻译过程中直接插入，是第21种编码氨基酸接口，不应作为一般翻译后修饰记忆。因此历史ABCD保留但不映射。"
     ],
     "transfer_rule": "翻译完成后仍可通过共价修饰和结构加工改变蛋白性质。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D为题源官方答案；Current学习时A、B、D可归入翻译后加工，而C“硒代半胱氨酸”不应作为一般翻译后修饰规则。",
+    "valuable_distractors": [],
+    "common_failure_node": "把历史题源对硒代半胱氨酸的分类静默覆盖Current“可直接编码插入”的21st amino acid接口。",
+    "source_conflict_note": "题源把“形成硒代半胱氨酸”列为翻译后修饰；Current G3/M8明确硒代半胱氨酸可通过重编码在翻译过程中直接插入，属于20+1编码氨基酸接口。历史ABCD保留，Current不学C为一般翻译后修饰。"
   },
   {
     "question_id": "xizong-official-2019-n147",
@@ -550,14 +769,26 @@
       "胆道完全梗阻会减少胆红素进入肠道，尿胆原反而下降；尿液酸碱度不是本题决定性轴，所以A、D不选。"
     ],
     "transfer_rule": "尿胆原增多常见于溶血/胆红素生成增加及肝细胞功能受损。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、C正确。胆红素生成增加会增加肠道尿胆原来源；肝细胞功能受损时对门静脉回流尿胆原的摄取/再处理下降，也会使尿尿胆原增多。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "完全胆道梗阻减少胆红素进入肠道，尿胆原反而下降或消失。"
+      },
+      {
+        "option": "A",
+        "reason": "尿液酸碱度不是本题尿胆原生成/清除链的决定轴。"
+      }
+    ],
+    "common_failure_node": "只记“黄疸时尿胆原高”，不按生成、肝清除和胆道通畅三个层级判断方向。"
   },
   {
     "question_id": "xizong-official-2019-n148",
@@ -571,17 +802,28 @@
     "exam_target": "细胞内玻璃样变性",
     "decision_axis": "Mallory小体、肾小管上皮蛋白重吸收小滴和浆细胞Russell小体均属细胞内嗜酸性玻璃样物质积聚的经典例子。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Mallory小体是肝细胞内角蛋白等聚集形成的嗜酸性玻璃样物。",
+      "肾小管上皮重吸收过多蛋白可形成胞质蛋白小滴，浆细胞内免疫球蛋白积聚形成Russell小体，均属经典细胞内玻璃样变。",
+      "病毒包涵体不属于这一病理分类；因此题源选B、C、D。但Current证据分散在不同系统，且通用P0玻璃样变owner未项目化。"
     ],
     "transfer_rule": "细胞内玻璃样变常见蛋白性包涵或重吸收蛋白小滴。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、C、D正确：Mallory小体、肾小管上皮蛋白小滴和Russell小体都是经典细胞内玻璃样物积聚；病毒包涵体不是该类变性。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "病毒包涵体是病毒感染相关的胞内包涵结构，不等同于病理总论中的细胞内玻璃样变。"
+      }
+    ],
+    "common_failure_node": "因为三个例子分别在不同疾病Block出现，就跨系统拼成一个并不存在的通用病理owner。",
+    "source_gap_note": "细胞内玻璃样变的三个正确例子目前分散在肝病、肾病/病理总论接口和浆细胞相关Block，通用P0病理owner未项目化；不跨系统拼relation。"
   },
   {
     "question_id": "xizong-official-2019-n149",
@@ -600,14 +842,26 @@
       "一看到滋养细胞肿瘤，先问“有无绒毛”，再看异型、出血坏死和远处行为，比只背病名更稳。"
     ],
     "transfer_rule": "鉴别关键抓“绒毛膜癌无绒毛”。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B、D正确。绒癌较侵袭性葡萄胎出血坏死更显著，且关键是完全没有水泡状绒毛；两者都可有滋养细胞增生和浸润。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "两者都可呈浸润性生长，不能作为稳定鉴别点。"
+      },
+      {
+        "option": "C",
+        "reason": "滋养细胞增生同样不是绒癌独有。"
+      }
+    ],
+    "common_failure_node": "只看“侵袭/滋养细胞增生”这种共同特征，漏掉“有无绒毛”这个一票否决轴。"
   },
   {
     "question_id": "xizong-official-2019-n150",
@@ -621,16 +875,23 @@
     "exam_target": "单核巨噬细胞系统来源",
     "decision_axis": "小胶质细胞、伤寒细胞、心衰细胞及Langhans巨细胞均与单核-巨噬细胞谱系相关。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "小胶质细胞属于中枢神经系统驻留巨噬细胞谱系；伤寒细胞本质为巨噬细胞。",
+      "心衰细胞是吞噬含铁血黄素的肺泡巨噬细胞，Langhans巨细胞由巨噬细胞融合形成。",
+      "传统病理题源因此ABCD全选；但这些身份分散在N1/H23/肺病理/结核等多个owner，且现代对小胶质细胞胚胎来源的表述比旧“单核-巨噬系统”更精细，故不建立单一relation。"
     ],
     "transfer_rule": "遇到吞噬细胞或多核巨细胞，先回到单核-巨噬细胞谱系判断。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A、B、C、D均为题源答案：四者在传统病理“单核-巨噬细胞系统”框架下均与巨噬细胞谱系相关。",
+    "valuable_distractors": [],
+    "common_failure_node": "把传统“单核-巨噬细胞系统”当成现代所有组织驻留巨噬细胞完全同源的严格发育学分类。",
+    "source_boundary_note": "题源采用传统“单核-巨噬细胞系统”广义分类；现代小胶质细胞等组织驻留巨噬细胞的胚胎来源表述更精细。考试答案保留，但不把该旧分类升级为严格现代发育学同源规则。",
+    "source_gap_note": "四个正确项分散在神经、伤寒、肺病理和结核等多个Current owner，没有单一最小KP完整承接。"
   }
 ]
