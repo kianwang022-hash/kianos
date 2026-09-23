@@ -82,6 +82,22 @@ A and B may run concurrently all the way to o7946.
 
 A and B use the fixed dedicated branches recorded in their lane-state files. They push durable review artifacts and their own cursor to those branches only; they do not merge review evidence to `main` during the sweep.
 
+### Remote transport fast path
+
+When a connected Remote Desktop has a local clone containing the campaign's frozen baseline object, A and B should prefer local immutable Git-object reads for the review data path when this materially reduces transport overhead.
+
+Required invariants:
+
+- authority remains the exact frozen SHA from `dual-review.json`, never the Remote working tree or its current branch;
+- verify the frozen commit object exists locally before use;
+- read each Word owner with an immutable form such as `git show <frozen_sha>:<owner_path>`;
+- read required Relation / Form / reference dependencies from that same frozen SHA;
+- transport chunking or local batch parsing may change, but the semantic atomic unit remains 100/100 Fresh Read followed by Self Attack;
+- Remote must never be used to read the peer lane's result directory or Chat findings; independence rules are unchanged;
+- do not reuse or mutate a dirty user worktree for lane writes; use an isolated worktree or equivalent clean checkout;
+- before any lane push, fetch the remote lane, verify expected cursor/HEAD, and push fast-forward only;
+- GitHub connector/API reads remain the fallback and may be used for final durable-state verification.
+
 
 ## 5. C — the only canonical writer
 
