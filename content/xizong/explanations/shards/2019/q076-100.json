@@ -11,7 +11,9 @@
     "exam_target": "胸痛病例旧ACS诊断口径",
     "decision_axis": "题源答案指向急性心肌梗死，但病例仅有非特异T波改变且缺少心肌坏死标志物等关键证据；Current ACS诊断需结合动态心电图、肌钙蛋白和风险评估，不能由该旧题组合直接升级。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "病例胸闷气促持续时间长短不一、与活动关系不典型，心电图仅有少数导联T波低平，单凭现有证据不足以Current确诊急性心肌梗死。",
+      "2019题源官方答案为急性心肌梗死，必须保留历史答案。",
+      "Current ACS诊断需结合动态心电图和心肌肌钙蛋白等坏死证据，因此本题不建立正向Current relation。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current ACS诊断按动态心电图、肌钙蛋白与风险分层。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -21,7 +23,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.急性心肌梗死为题源官方答案；但现存病例缺少肌钙蛋白/动态ST-T等足以Current确认AMI的关键证据，只保留历史考试口径。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "持续静息症状可进入ACS鉴别，但没有坏死标志物时不应仅凭非特异T波改变把UA与MI定死。"
+      },
+      {
+        "option": "D",
+        "reason": "单侧下肢轻度水肿可让人想到VTE，但题干没有低氧、心动过速、右心负荷等足够证据。"
+      }
+    ],
+    "common_failure_node": "为了服从官方答案，把非特异T波低平直接升级成“已确诊AMI”。",
+    "source_conflict_note": "2019题源答案按当年考试口径保留；Current急性胸痛/ACS路径需要动态心电图、心肌肌钙蛋白与风险分层，不能由本题残存证据直接确诊AMI、单纯观察或固定进入运动负荷试验。"
   },
   {
     "question_id": "xizong-official-2019-n077",
@@ -35,7 +50,9 @@
     "exam_target": "疑似ACS旧观察处置口径",
     "decision_axis": "题源在同一胸痛病例中选择对症观察；Current持续胸部症状的处置应先完成急性冠脉综合征及其他致命胸痛的系统排查，不能把“观察”固化为统一策略。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "同一病例当前仍有持续胸部症状，急性冠脉综合征及肺栓塞等致命胸痛尚未被系统排除。",
+      "2019题源答案选择“对症处理，临床观察”。",
+      "Current处置应先完成心电图动态复查、肌钙蛋白和风险评估等急性胸痛路径，不能把单纯观察作为统一策略。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；不得据此生成Current胸痛处置规则。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -45,7 +62,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.对症处理、临床观察为题源官方答案；Current持续胸痛不能在未排除ACS等高危病因前仅做观察。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "是否溶栓需要明确STEMI等再灌注指征，题干并无此证据。"
+      },
+      {
+        "option": "D",
+        "reason": "急诊介入同样需要明确高危ACS/冠脉证据，不能由现有信息直接跳到PCI。"
+      }
+    ],
+    "common_failure_node": "在“溶栓/介入证据不足”与“可以只观察”之间画等号。",
+    "source_conflict_note": "2019题源答案按当年考试口径保留；Current急性胸痛/ACS路径需要动态心电图、心肌肌钙蛋白与风险分层，不能由本题残存证据直接确诊AMI、单纯观察或固定进入运动负荷试验。"
   },
   {
     "question_id": "xizong-official-2019-n078",
@@ -59,7 +89,9 @@
     "exam_target": "胸痛旧运动负荷检查口径",
     "decision_axis": "题源选择运动负荷心电图进一步评估；Current检查选择取决于是否已排除急性心肌损伤、基础心电图可解释性和临床风险，不能从该旧共享病例固化检查顺序。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源把运动负荷心电图作为进一步检查，但病例在1小时前症状再发且持续不缓解，首先应完成急性胸痛排查。",
+      "运动负荷试验只适用于已经排除急性心肌损伤且临床稳定、基础心电图可解释的特定患者。",
+      "因此官方C保留为历史题源答案，但不作为Current检查顺序。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current检查路径需按急性风险和适应证选择。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -69,7 +101,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.运动负荷心电图为题源官方答案；Current只有在急性损伤已排除且患者稳定时才进入负荷缺血评估，不能对持续胸部症状直接固定选C。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "冠脉造影不是所有低中危胸痛患者的第一步，也需风险分层。"
+      },
+      {
+        "option": "A",
+        "reason": "超声可评价结构和壁运动，但不能单独完成ACS排除。"
+      }
+    ],
+    "common_failure_node": "把稳定性胸痛的缺血评估工具直接搬到尚未排除急性冠脉事件的患者。",
+    "source_conflict_note": "2019题源答案按当年考试口径保留；Current急性胸痛/ACS路径需要动态心电图、心肌肌钙蛋白与风险分层，不能由本题残存证据直接确诊AMI、单纯观察或固定进入运动负荷试验。"
   },
   {
     "question_id": "xizong-official-2019-n079",
@@ -88,14 +133,26 @@
       "肠结核更偏环形横行溃疡和干酪性肉芽肿；结肠癌、肠淋巴瘤也不能解释这种典型节段性炎症形态。"
     ],
     "transfer_rule": "Crohn经典形态抓纵行溃疡、裂隙和鹅卵石样改变。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.克罗恩病。年轻患者慢性右下腹痛腹泻，回盲部纵行溃疡和鹅卵石征是Crohn病高价值形态组合。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "肠结核更典型为环形/横行溃疡、回盲部结核背景及干酪性肉芽肿。"
+      },
+      {
+        "option": "D",
+        "reason": "结肠癌不能解释年轻患者的长期节段性炎症和鹅卵石样改变。"
+      }
+    ],
+    "common_failure_node": "只按“回盲部病变”报肠结核，忽略纵行裂隙和鹅卵石征。"
   },
   {
     "question_id": "xizong-official-2019-n080",
@@ -114,14 +171,26 @@
       "PPD、B超和普通腹部CT可提供背景或并发症信息，但都不能替代内镜+活检对黏膜病变本体的确认。"
     ],
     "transfer_rule": "IBD确诊与分型重视内镜+组织学，而非仅靠影像筛查。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.结肠镜检查及活检。它能直视节段性黏膜病变并取得组织学证据，是疑似Crohn病确认与鉴别的关键检查。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "PPD只能提供结核感染背景，不能直接确认Crohn黏膜病变。"
+      },
+      {
+        "option": "C",
+        "reason": "CT有助评估肠壁和并发症，但不能替代内镜活检的黏膜与组织证据。"
+      }
+    ],
+    "common_failure_node": "把影像“看到肠壁异常”和病理性“确认炎症性肠病身份”混为一层。"
   },
   {
     "question_id": "xizong-official-2019-n081",
@@ -140,14 +209,26 @@
       "穿孔、出血和腹腔脓肿都可以发生，但在Current Study中并不是最常见并发症。"
     ],
     "transfer_rule": "Crohn全层炎症后果可沿狭窄/梗阻、瘘、脓肿理解。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肠梗阻。Crohn病全层反复炎症可导致纤维化狭窄，因此梗阻是经典常见结构性并发症。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "穿孔可发生但相对不是最常见并发症。"
+      },
+      {
+        "option": "D",
+        "reason": "脓肿属于穿透型并发症，也不是题源所问最常见结构后果。"
+      }
+    ],
+    "common_failure_node": "只记Crohn“全层→瘘/脓肿”，漏掉长期纤维狭窄导致梗阻。"
   },
   {
     "question_id": "xizong-official-2019-n082",
@@ -166,14 +247,26 @@
       "水肿、高血压和肾功能变化都可能出现，但鉴别价值不如感染后的时间间隔。"
     ],
     "transfer_rule": "血尿“同步感染”先想IgA；感染后潜伏1～3周更偏感染后肾炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.有无上呼吸道感染后迅速发病。IgA肾病肉眼血尿常与感染同步或在1～3天内出现，是与感染后肾炎区分的关键时间轴。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "水肿可有可无，鉴别特异性低。"
+      },
+      {
+        "option": "C",
+        "reason": "高血压也可出现在多种肾小球疾病中，时间轴更有辨识度。"
+      }
+    ],
+    "common_failure_node": "只看“感染后血尿”而不问感染与血尿相隔几天。"
   },
   {
     "question_id": "xizong-official-2019-n083",
@@ -192,14 +285,26 @@
       "血清IgA可升高但不特异；尿红细胞形态和蛋白定量能说明肾小球损伤程度，却不能单独确定IgA肾病身份。"
     ],
     "transfer_rule": "IgA肾病确诊=肾活检+系膜IgA沉积。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.肾活检病理学检查。IgA肾病确诊依赖肾组织免疫荧光显示系膜区IgA优势/共优势沉积。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "血清IgA升高不够特异，不能确诊。"
+      },
+      {
+        "option": "A",
+        "reason": "尿红细胞形态支持肾小球源性血尿，但不能定义IgA沉积。"
+      }
+    ],
+    "common_failure_node": "把支持“肾小球性血尿”的证据误当成特定病种的确诊证据。"
   },
   {
     "question_id": "xizong-official-2019-n084",
@@ -218,14 +323,26 @@
       "狼疮性肾炎、肾淀粉样变和糖尿病肾病都有不同的系统背景与病理证据，不是这里最接近的镜像疾病。"
     ],
     "transfer_rule": "IgA肾病与IgA血管炎肾炎是同一IgA沉积谱系的重要对照。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.过敏性紫癜肾炎。IgA血管炎肾损害与原发IgA肾病在肾脏可共享IgA主导沉积，主要靠全身血管炎表现区分。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "狼疮肾炎常见full-house免疫沉积及SLE系统证据。"
+      },
+      {
+        "option": "D",
+        "reason": "糖尿病肾病有长期糖尿病与典型结节/基底膜改变背景。"
+      }
+    ],
+    "common_failure_node": "把肾脏IgA沉积视为IgA肾病绝对专属。"
   },
   {
     "question_id": "xizong-official-2019-n085",
@@ -244,14 +361,26 @@
       "分期先找IV期结外证据，再看是否跨膈，比单纯数淋巴结个数更稳。"
     ],
     "transfer_rule": "淋巴瘤分期先看膈肌：同侧Ⅱ，跨膈Ⅲ，弥漫结外Ⅳ。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.Ⅲ期。颈部淋巴结在膈上、腹股沟淋巴结在膈下，跨膈受累而无弥漫结外器官证据，符合Ann ArborⅢ期。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Ⅱ期要求病变局限在膈肌同一侧。"
+      },
+      {
+        "option": "D",
+        "reason": "Ⅳ期需要肝、骨髓等弥漫性结外受累证据。"
+      }
+    ],
+    "common_failure_node": "按淋巴结个数分期，而不是先看是否跨膈和有无弥漫结外受累。"
   },
   {
     "question_id": "xizong-official-2019-n086",
@@ -270,14 +399,26 @@
       "瘙痒可见于HL，但不属于正式B症状分组门槛；腹痛腹泻和食欲下降也不是这个三联定义。"
     ],
     "transfer_rule": "HL分期后缀B抓发热、盗汗、体重下降。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.有无体重减轻。HL的B症状是发热、盗汗和6个月内显著体重下降。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "皮肤瘙痒可见于HL，但不属于正式B症状三联。"
+      },
+      {
+        "option": "D",
+        "reason": "食欲减退不属于Ann Arbor B症状定义。"
+      }
+    ],
+    "common_failure_node": "把“淋巴瘤常见全身不适”与正式B症状分期条件混在一起。"
   },
   {
     "question_id": "xizong-official-2019-n087",
@@ -296,14 +437,27 @@
       "CHOP主要用于NHL；单纯放疗更偏早期局限HL；本题按当前Study处理，不把外部更新静默替换进来。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current HL治疗按分期和现代方案执行。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.ABVD方案化疗。Current H11对Ⅲ/Ⅳ期HL保留“化疗为主”并明确保留ABVD这一Source-bound方案，因此题给选项中D有安全Current owner。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "CHOP是NHL经典方案，不是HL的标准Source方案。"
+      },
+      {
+        "option": "A",
+        "reason": "Ⅲ期HL不是单纯局部放疗路径。"
+      }
+    ],
+    "common_failure_node": "要么把ABVD误当成所有现代HL场景的唯一方案，要么因方案不断更新就否认Current Source中仍存在的ABVD治疗角色。",
+    "source_boundary_note": "Current H11明确保留ABVD作为Source-bound HL方案，同时也保留BV-AVD等接口；本题正向映射只表示ABVD在题给选项中的治疗角色，不升级为所有Ⅲ/Ⅳ期HL的唯一现代方案。"
   },
   {
     "question_id": "xizong-official-2019-n088",
@@ -322,14 +476,26 @@
       "单纯心衰、心包炎或慢性肾衰都难同时解释非凹陷性黏液性水肿和神经肌肉反应减慢。"
     ],
     "transfer_rule": "甲减抓慢、冷、干、肿、便秘和反射弛缓期延长。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.甲状腺功能减退症。心动过缓、嗜睡、皮肤干燥、便秘、非凹陷性水肿和腱反射减弱构成典型甲减表型。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "心衰可解释水肿气短，但不能同时解释黏液性非凹陷水肿、皮肤干燥、便秘和反射减慢。"
+      },
+      {
+        "option": "A",
+        "reason": "心包积液可继发于甲减，不能替代上游系统性诊断。"
+      }
+    ],
+    "common_failure_node": "被心界扩大和颈静脉充盈吸引，只报心包积液/心衰，漏掉全身低代谢综合征。"
   },
   {
     "question_id": "xizong-official-2019-n089",
@@ -348,14 +514,26 @@
       "BNP、肾功能和电解质可以评估鉴别或并发症，但不能替代甲状腺功能检查对病因轴的确认。"
     ],
     "transfer_rule": "甲状腺功能问题先看TSH+FT4/甲状腺激素。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.T₃、T₄、TSH。临床首先怀疑甲减时，应直接用甲状腺激素和TSH确认功能及轴方向。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "NT-proBNP可评估心衰负荷，但不能替代甲状腺功能确认。"
+      },
+      {
+        "option": "C",
+        "reason": "肾功能有助鉴别水肿，但不能解释完整低代谢表型。"
+      }
+    ],
+    "common_failure_node": "看到气短水肿就先查心衰/肾衰指标，忘记当前最强病因假设是甲减。"
   },
   {
     "question_id": "xizong-official-2019-n090",
@@ -374,14 +552,26 @@
       "手术、免疫抑制和放疗都不能纠正这种激素缺乏状态。"
     ],
     "transfer_rule": "原发甲减治疗核心=甲状腺激素替代。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.替代治疗。明确甲状腺激素缺乏后，核心治疗是补充甲状腺激素恢复正常代谢状态。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "甲减不是通过切除甲状腺治疗。"
+      },
+      {
+        "option": "C",
+        "reason": "多数甲减即使有自身免疫背景，也不以免疫抑制作为基础治疗。"
+      }
+    ],
+    "common_failure_node": "把病因是自身免疫误推成治疗就应免疫抑制，而不先纠正激素缺乏。"
   },
   {
     "question_id": "xizong-official-2019-n091",
@@ -400,14 +590,26 @@
       "SLE口腔溃疡常偏无痛；风湿热和RA也不能同时解释反复口腔溃疡、眼病和肠道表现。"
     ],
     "transfer_rule": "Behçet抓反复口腔/生殖器溃疡+眼炎，并可累及皮肤、关节和血管。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.贝赫切特病。反复口腔溃疡叠加眼部、关节和胃肠道受累，构成典型多系统血管炎组合。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "SLE可有关节和口腔表现，但题干“反复口腔溃疡+眼病+肠道”组合更指向Behçet。"
+      },
+      {
+        "option": "C",
+        "reason": "RA不能解释反复口腔溃疡和典型眼/肠受累组合。"
+      }
+    ],
+    "common_failure_node": "抓住一个“关节痛”就按风湿病单轴诊断，没做多系统组合。"
   },
   {
     "question_id": "xizong-official-2019-n092",
@@ -426,14 +628,26 @@
       "环形红斑更偏风湿热，盘状红斑偏SLE，类风湿结节偏RA。"
     ],
     "transfer_rule": "Behçet皮肤可见结节性红斑样损害和痤疮样皮损。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.结节性红斑。结节性红斑样皮损是Behçet病常见皮肤表现之一。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "盘状红斑是SLE经典皮肤表现。"
+      },
+      {
+        "option": "D",
+        "reason": "类风湿结节属于RA相关皮下结节。"
+      }
+    ],
+    "common_failure_node": "不按疾病特异皮损配对，只按“都是红斑/结节”混选。"
   },
   {
     "question_id": "xizong-official-2019-n093",
@@ -452,14 +666,26 @@
       "急性胰腺炎、肠扭转和消化道穿孔都缺少“房颤+突发缺血性腹痛”这条决定性链。"
     ],
     "transfer_rule": "房颤+突发腹痛且早期疼痛重于体征，警惕急性肠系膜缺血。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肠系膜上动脉栓塞。房颤提供栓子来源，突发剧烈腹痛并出现“症重征轻”，随后腹膜刺激征加重，符合急性肠系膜缺血进展。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肠扭转可致急腹症，但缺少房颤这一强栓塞来源和典型症征不符。"
+      },
+      {
+        "option": "D",
+        "reason": "消化道穿孔更常有突发持续痛、膈下游离气等线索。"
+      }
+    ],
+    "common_failure_node": "看到后期腹膜炎就只按“穿孔/扭转”处理，忽略早期房颤+突发缺血痛。"
   },
   {
     "question_id": "xizong-official-2019-n094",
@@ -478,14 +704,27 @@
       "血淀粉酶、腹部平片和B超都只能提供间接信息，不能像血管造影一样直接回答“哪条动脉是否堵住”。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current急性肠系膜缺血影像路径按CTA等现行策略。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.选择性腹腔动脉造影。题给选项中它能直接显示肠系膜血管闭塞，Current D14仍保留其“有助确诊”的Source-bound角色；现实急诊首要影像通常还需结合CTA路径。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "血淀粉酶不能直接回答肠系膜血管是否闭塞。"
+      },
+      {
+        "option": "B",
+        "reason": "腹部平片多为间接或晚期征象，不能替代血管成像。"
+      }
+    ],
+    "common_failure_node": "把“Current首选检查”与“题给选项中可直接确证血管闭塞的检查”混为一层，或反过来把旧造影口径升级成所有患者的第一步。",
+    "source_boundary_note": "Current D14仍保留选择性腹腔动脉造影“有助确诊”的Source-bound接口，因此题给选项D可正向映射；现实急性肠系膜缺血初始影像通常优先CTA，不把本题升级为固定首检顺序。"
   },
   {
     "question_id": "xizong-official-2019-n095",
@@ -499,7 +738,9 @@
     "exam_target": "术后液体平衡共享题缺失子问",
     "decision_axis": "当前Question Truth仅保留共享病例及容量选项，缺少该子问具体询问内容；虽有正式答案3500ml，但无法安全恢复它对应的计算量。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "现存Question Truth只有同一术后出入量病例和四个容量选项，没有保存该子问究竟询问“显性失液、隐性失液、补液量还是正平衡量”。",
+      "不同计算目标可从同一组数字得到不同结果。",
+      "因此官方答案C=3500ml只能作为题源答案保留，无法安全重建Current判断轴。"
     ],
     "transfer_rule": "仅保留题源答案；共享子问缺失时不反向猜测计算目标。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -509,7 +750,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.3500ml为题源官方答案；由于具体子问文字缺失，无法确认它对应哪一个液体平衡计算量，不建立Current relation。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "4500ml只是总输入量本身，若原问不是“输入量”则没有直接意义。"
+      },
+      {
+        "option": "B",
+        "reason": "2000ml可能出现在某些差额计算中，进一步说明缺少子问无法唯一恢复公式。"
+      }
+    ],
+    "common_failure_node": "从官方数字反推出一个并不存在于Question Truth里的计算题目。",
+    "source_gap_note": "共享病例的具体子问文字未保留；仅凭容量选项和官方答案无法唯一恢复所求液体平衡变量，因此不建立正向Crosswalk。"
   },
   {
     "question_id": "xizong-official-2019-n096",
@@ -523,7 +777,9 @@
     "exam_target": "术后液体平衡共享题缺失子问",
     "decision_axis": "当前Question Truth仅保留共享病例及容量选项，缺少该子问具体询问内容；虽有正式答案1000ml，但无法安全恢复它对应的计算量。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "共享病例保留了输入4500ml及多项显性输出，但未保存本子问具体要求计算的变量。",
+      "答案A=1000ml可能对应某一特定损失/平衡分量，但无法仅凭选项唯一判定。",
+      "因此只保存历史官方答案，不制造Current公式。"
     ],
     "transfer_rule": "仅保留题源答案；共享子问缺失时不反向猜测计算目标。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -533,7 +789,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.1000ml为题源官方答案；具体子问缺失，不能确定它对应何种液体平衡量。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "2500ml等于尿量，若原问不同则不能直接选。"
+      },
+      {
+        "option": "D",
+        "reason": "3500ml可由其他组合计算得到，说明仅凭答案无法恢复问题语义。"
+      }
+    ],
+    "common_failure_node": "把“某个数字能从病例里算出来”误当成“已经恢复了题目真正问的量”。",
+    "source_gap_note": "共享病例的具体子问文字未保留；仅凭容量选项和官方答案无法唯一恢复所求液体平衡变量，因此不建立正向Crosswalk。"
   },
   {
     "question_id": "xizong-official-2019-n097",
@@ -547,7 +816,9 @@
     "exam_target": "术后液体平衡共享题缺失子问",
     "decision_axis": "当前Question Truth仅保留共享病例及容量选项，缺少该子问具体询问内容；虽有正式答案1500ml，但无法安全恢复它对应的计算量。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "与N095/N096相同，当前只剩共享出入量病例和容量选项，子问文本丢失。",
+      "官方答案C=1500ml不能唯一指向某个标准液体管理变量。",
+      "缺失的语义无法由答案反推，因此fail-closed。"
     ],
     "transfer_rule": "仅保留题源答案；共享子问缺失时不反向猜测计算目标。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -557,7 +828,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.1500ml为题源官方答案；具体子问缺失，无法安全恢复对应计算目标。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "500ml可能对应部分显性引流量组合，但无法证明是本题所问。"
+      },
+      {
+        "option": "D",
+        "reason": "2000ml也可出现在差额计算中，不能据选项反推题意。"
+      }
+    ],
+    "common_failure_node": "认为一组三道数字题一定能靠答案组合“猜回”原子问。",
+    "source_gap_note": "共享病例的具体子问文字未保留；仅凭容量选项和官方答案无法唯一恢复所求液体平衡变量，因此不建立正向Crosswalk。"
   },
   {
     "question_id": "xizong-official-2019-n098",
@@ -576,14 +860,26 @@
       "胆囊不大、肝外胆管不扩张也支持问题在肝内而不是胆囊或远端胆总管。"
     ],
     "transfer_rule": "局限肝内胆管扩张+结石+叶萎缩提示长期肝内胆管结石。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.左肝内胆管结石、胆管炎。MRCP显示左侧肝内胆管局限扩张伴多发低信号结石，结合反复高热腹痛和左叶萎缩，定位明确。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "肝脓肿应见局灶脓腔/液性占位，而非胆管内多发低信号结石。"
+      },
+      {
+        "option": "D",
+        "reason": "胆囊不大且病变定位左肝内胆管，不支持单纯胆囊炎。"
+      }
+    ],
+    "common_failure_node": "只看发热肝区痛报“肝脓肿”，忽略MRCP已经直接显示胆管结石与局限扩张。"
   },
   {
     "question_id": "xizong-official-2019-n099",
@@ -602,14 +898,27 @@
       "EST、胆囊切除或单纯PTCD都不能处理已经萎缩并反复感染的局灶肝内病变本体。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current术式按病变范围和可切除性个体化。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.保守治疗后左半肝切除术。局限左侧肝内结石反复胆管炎并伴左叶萎缩，Current D19明确支持控制急性炎症后切除不可逆病变肝段/叶。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "PTCD可用于特定引流场景，但不能根治已经萎缩、反复感染且结石难清除的病变肝叶。"
+      },
+      {
+        "option": "A",
+        "reason": "EST主要处理远端胆总管/乳头部问题，不能解决左肝内局限病变。"
+      }
+    ],
+    "common_failure_node": "把“胆道结石都先取石/引流”机械化，忽略局限肝叶已经萎缩纤维化时病变肝叶本身就是治疗对象。",
+    "source_boundary_note": "题源具体术式答案可由Current D19“局限病变肝段/叶伴萎缩、纤维化、反复感染等→切除病变肝段/叶”承接；实际术式仍需结合结石分布、狭窄、肝功能和可切除性。"
   },
   {
     "question_id": "xizong-official-2019-n100",
@@ -628,13 +937,25 @@
       "Dixon保留肛门并吻合；Hartmann保留远端封闭直肠残端；单纯乙状结肠造瘘也不会让肛门消失。"
     ],
     "transfer_rule": "永久结肠造口+切除肛门括约肌装置，联想Miles术。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.Miles手术。永久左下腹结肠造口且肛门已被切除，是腹会阴联合直肠癌根治术的典型术后解剖结果。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Dixon术保留肛门并行低位吻合，不会出现“肛门已不存在”。"
+      },
+      {
+        "option": "C",
+        "reason": "Hartmann术形成近端造口但保留封闭的远端直肠/肛门结构。"
+      }
+    ],
+    "common_failure_node": "只看到“有造口”就选Hartmann，忽略“肛门不存在”这一决定Miles的关键线索。"
   }
 ]
