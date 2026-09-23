@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6d133aaf2d0fc49e941e66b89321d7fbc2e577f05db55255bca312847246be4f",
+    "content_hash": "8e1161cd814d0c38b99a699bc908f3fee8b952749f0cedaeb5f108c9aead3ae7",
     "core_concept": {
       "core_clusters": [
         {
@@ -35,6 +35,37 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md",
+      "boundary": "noun produce has initial stress; verb produce has final stress",
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "identity_rule": "same_word_owner_pos_conditioned_pronunciation",
+      "spelling": "produce",
+      "variants": [
+        {
+          "ipa_ame": "/ˈproʊ.duːs/",
+          "ipa_bre": "/ˈprɒd.juːs/",
+          "learner_key": "initial stress",
+          "pos": [
+            "noun"
+          ],
+          "role": "noun",
+          "surface": "produce",
+          "variant_id": "form:produce:noun"
+        },
+        {
+          "ipa_ame": "/prəˈduːs/",
+          "ipa_bre": "/prəˈdjuːs/",
+          "learner_key": "final stress",
+          "pos": [
+            "verb"
+          ],
+          "role": "verb",
+          "surface": "produce",
+          "variant_id": "form:produce:verb"
+        }
+      ]
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -42,45 +73,7 @@
       "deep:deep:secondary_senses:produce:36b3f1c1ecaf12dd",
       "semantic-reconciliation:o3625-o3874"
     ],
-    "secondary_senses": [
-      {
-        "boundary": "produce a ticket",
-        "codex_reviewed": false,
-        "definition_cn": "出示；拿出",
-        "definition_en": "to show or bring out something for inspection",
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:produce:2d88090a18af",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "produce:l2:3",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:secondary_senses:produce:36b3f1c1ecaf12dd",
-        "family_sources": [],
-        "label_en": "to show or bring out something for inspection",
-        "level": "L2",
-        "meaning_cn": null,
-        "module": "secondary_senses",
-        "pattern": null,
-        "pos": "verb",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:produce:0d7c8a3c49cd5e5b",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
-      }
-    ],
+    "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -109,6 +102,14 @@
         "definition_en": "to make or create something",
         "governing_pattern": "vt. + object",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "note": "verb produce has final stress; noun produce (fresh agricultural goods) has initial stress",
+          "paired_form": "noun",
+          "pronunciation": "verb produce: final stress (UK /prəˈdʒuːs/, US /prəˈduːs/)",
+          "surface_lemma": "produce"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:produce:c9df4a35160158e1",
@@ -142,6 +143,14 @@
         "definition_en": "to cause a result or effect",
         "governing_pattern": "vt. + object",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "note": "verb produce has final stress; noun produce (fresh agricultural goods) has initial stress",
+          "paired_form": "noun",
+          "pronunciation": "verb produce: final stress (UK /prəˈdʒuːs/, US /prəˈduːs/)",
+          "surface_lemma": "produce"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:produce:170217bb294551da",
@@ -175,6 +184,14 @@
         "definition_en": "to show or bring out something for inspection",
         "governing_pattern": "vt. + object",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "note": "verb produce has final stress; noun produce (fresh agricultural goods) has initial stress",
+          "paired_form": "noun",
+          "pronunciation": "verb produce: final stress (UK /prəˈdʒuːs/, US /prəˈduːs/)",
+          "surface_lemma": "produce"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:produce:0d7c8a3c49cd5e5b",
@@ -208,6 +225,14 @@
         "definition_en": "fresh fruits and vegetables grown for sale",
         "governing_pattern": "",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "note": "noun produce has initial stress; verb produce has final stress",
+          "paired_form": "verb",
+          "pronunciation": "noun produce: initial stress (UK /ˈprɒdʒ.uːs/, US /ˈproʊ.duːs/)",
+          "surface_lemma": "produce"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:produce:4cba701dcc105561",
@@ -233,38 +258,7 @@
     },
     "word": "produce",
     "word_family": [],
-    "word_id": "word:produce",
-    "form_identity": {
-      "form_type": "same_spelling_pos_conditioned_pronunciation",
-      "spelling": "produce",
-      "identity_rule": "same_word_owner_pos_conditioned_pronunciation",
-      "boundary": "noun produce has initial stress; verb produce has final stress",
-      "variants": [
-        {
-          "variant_id": "form:produce:noun",
-          "surface": "produce",
-          "pos": [
-            "noun"
-          ],
-          "ipa_bre": "/ˈprɒd.juːs/",
-          "ipa_ame": "/ˈproʊ.duːs/",
-          "learner_key": "initial stress",
-          "role": "noun"
-        },
-        {
-          "variant_id": "form:produce:verb",
-          "surface": "produce",
-          "pos": [
-            "verb"
-          ],
-          "ipa_bre": "/prəˈdjuːs/",
-          "ipa_ame": "/prəˈduːs/",
-          "learner_key": "final stress",
-          "role": "verb"
-        }
-      ],
-      "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md"
-    }
+    "word_id": "word:produce"
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -394,7 +388,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3793-3800.json",
-    "source_content_hash": "3afdadf789100f9a693516b98da2355eaf6353434515fc674e944ae20cc36d69",
+    "source_content_hash": "8e1161cd814d0c38b99a699bc908f3fee8b952749f0cedaeb5f108c9aead3ae7",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

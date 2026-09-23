@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "96197b3176370771755baf1b24f7a57da8c60cf67c0d8f868811f2436492f4a2",
+    "content_hash": "f69608db5061f41156b101cadc09c1785a23b528a7a5cc718e05013434619012",
     "core_concept": {
       "core_clusters": [
         {
@@ -33,6 +33,14 @@
           "sense_ids": [
             "sense:property:a56f18865e615218"
           ]
+        },
+        {
+          "label_cn": "房地产；房产",
+          "label_en": "land/buildings considered as owned assets",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:property:5f5cd0d4407db3dc"
+          ]
         }
       ],
       "core_meaning_cn": "财产；性质/属性",
@@ -48,45 +56,7 @@
       "deep:deep:secondary_senses:property:94cd08b099c4815f",
       "semantic-reconciliation:o3625-o3874"
     ],
-    "secondary_senses": [
-      {
-        "boundary": "chemical properties 化学性质",
-        "codex_reviewed": false,
-        "definition_cn": "性质；属性",
-        "definition_en": "a characteristic or attribute of something",
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:property:adc3b165fb24",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "property:l1:2",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:secondary_senses:property:94cd08b099c4815f",
-        "family_sources": [],
-        "label_en": "a characteristic or attribute of something",
-        "level": "L1",
-        "meaning_cn": null,
-        "module": "secondary_senses",
-        "pattern": null,
-        "pos": "noun",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:property:e8f9398f1bf15486",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
-      }
-    ],
+    "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -169,6 +139,48 @@
         "sense_label_en": "a characteristic, quality, or attribute of something",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:08aa2893d7a67f4ec618",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:property:5f5cd0d4407db3dc:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "房价/房地产价格",
+            "phrase": "property prices"
+          },
+          {
+            "collocation_id": "collocation:fac60079477600f71fdc",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:property:5f5cd0d4407db3dc:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "购买/出售房产",
+            "phrase": "buy/sell a property"
+          },
+          {
+            "collocation_id": "collocation:b2ccc60090fa4320bf74",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:property:5f5cd0d4407db3dc:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "商业地产",
+            "phrase": "commercial property"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "房地产；房产；土地或建筑物资产",
+        "definition_en": "land and/or buildings owned by someone; a building or piece of land considered as an asset",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:property:5f5cd0d4407db3dc",
+        "sense_label_en": "land and/or buildings owned by someone; a building or piece of land considered as an asset",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -214,13 +226,23 @@
         "merged_into_sense_id": null,
         "source_row": 10672,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
+      },
+      {
+        "sense_id": "sense:property:5f5cd0d4407db3dc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19501,
+        "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       }
     ],
     "active_collocations": [
+      "collocation:08aa2893d7a67f4ec618",
       "collocation:4680297086be0104c414",
       "collocation:555a9255a3697d12e5f9",
       "collocation:5e6c8c86b3f2e4322333",
-      "collocation:b798651026d2aac08558"
+      "collocation:b2ccc60090fa4320bf74",
+      "collocation:b798651026d2aac08558",
+      "collocation:fac60079477600f71fdc"
     ],
     "facts": [
       {
@@ -246,11 +268,6 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       },
       {
-        "id": "collocation:5e6c8c86b3f2e4322333",
-        "source_row": 21626,
-        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
-      },
-      {
         "id": "collocation:b798651026d2aac08558",
         "source_row": 15571,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
@@ -258,6 +275,26 @@
       {
         "id": "collocation:d9f5ff23c0c1b301e06b",
         "source_row": 18440,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:5e6c8c86b3f2e4322333",
+        "source_row": 21626,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:08aa2893d7a67f4ec618",
+        "source_row": 21629,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:b2ccc60090fa4320bf74",
+        "source_row": 21631,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:fac60079477600f71fdc",
+        "source_row": 21633,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       }
     ],
@@ -297,7 +334,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3833-3840.json",
-    "source_content_hash": "6c19e769ea3410f9000f4d3eedb1ae6fc7652dea5202161be162f8bb983e324f",
+    "source_content_hash": "f69608db5061f41156b101cadc09c1785a23b528a7a5cc718e05013434619012",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "8d68260ade4ccf81273be56b0ab1619fb1bb58e1f2d6c91aa5ec352479c86cb7",
+    "content_hash": "038f1a2a4f23dea60d1306e90224120f299610140b2b7dbc1f63dd4542a34fac",
     "core_concept": {
       "core_clusters": [
         {
@@ -25,6 +25,14 @@
           "pos": "verb",
           "sense_ids": [
             "sense:privilege:ed1e657c0c9955e8"
+          ]
+        },
+        {
+          "label_cn": "荣幸；难得的机会",
+          "label_en": "a valued special opportunity or honor",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:privilege:cee2515a9c9f7141"
           ]
         }
       ],
@@ -121,6 +129,39 @@
         "sense_label_en": "to bestow a privilege upon",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:07a55b0a7089588f6842",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:privilege:cee2515a9c9f7141:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "能和她共事是一种荣幸",
+            "phrase": "It was a privilege to work with her."
+          },
+          {
+            "collocation_id": "collocation:e9fb795ac9dd28184472",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:privilege:cee2515a9c9f7141:collocation:streaming-c-checkpoint-o2851-o3050"
+            ],
+            "meaning_cn": "有幸见到……",
+            "phrase": "the privilege of meeting ..."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "荣幸；难得而珍贵的机会",
+        "definition_en": "a special opportunity or honor that is highly valued or gives pleasure",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:privilege:cee2515a9c9f7141",
+        "sense_label_en": "a special opportunity or honor that is highly valued or gives pleasure",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -166,13 +207,22 @@
         "merged_into_sense_id": null,
         "source_row": 10546,
         "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
+      },
+      {
+        "sense_id": "sense:privilege:cee2515a9c9f7141",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10602,
+        "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
       }
     ],
     "active_collocations": [
+      "collocation:07a55b0a7089588f6842",
       "collocation:68affd056c386f950238",
       "collocation:a974a1cacda18987f4b5",
       "collocation:d07475e6576de0ce60fe",
-      "collocation:e957c98e2de8028fe042"
+      "collocation:e957c98e2de8028fe042",
+      "collocation:e9fb795ac9dd28184472"
     ],
     "facts": [],
     "collocations": [
@@ -194,6 +244,16 @@
       {
         "id": "collocation:e957c98e2de8028fe042",
         "source_row": 19767,
+        "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
+      },
+      {
+        "id": "collocation:07a55b0a7089588f6842",
+        "source_row": 21521,
+        "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
+      },
+      {
+        "id": "collocation:e9fb795ac9dd28184472",
+        "source_row": 21522,
         "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
       }
     ],
@@ -238,7 +298,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3785-3792.json",
-    "source_content_hash": "8d68260ade4ccf81273be56b0ab1619fb1bb58e1f2d6c91aa5ec352479c86cb7",
+    "source_content_hash": "038f1a2a4f23dea60d1306e90224120f299610140b2b7dbc1f63dd4542a34fac",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
