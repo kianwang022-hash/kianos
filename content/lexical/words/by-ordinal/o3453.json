@@ -6,8 +6,17 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "afeb6ec6442079b5196971dd7893545b0e7d982102913e64594b689b4bb4df57",
+    "constructions": [
+      {
+        "boundary": "lexicalized idiom; do not require the rare historical noun pale for ordinary interpretation",
+        "construction_id": "construction:ddec56ea051f71b1a0da",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "超出可接受/合理的界限；令人无法接受",
+        "pattern": "beyond the pale"
+      }
+    ],
+    "content_hash": "00c9c85c32f8aaf6a05634f6f2b537e109c0a1a2e95c90abc808de805990cede",
     "core_concept": {
       "core_clusters": [
         {
@@ -150,17 +159,7 @@
         "transitivity": "vi"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:0e32e90f8687d6aae56e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:pale:e7071b7d1a1c51ad:collocation:0"
-            ],
-            "meaning_cn": "越轨的，令人无法接受的",
-            "phrase": "beyond the pale"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "栅栏；界线；范围",
         "definition_en": "a wooden stake used in fences; a boundary or limit",
@@ -197,14 +196,14 @@
         "confidence": "medium",
         "definition_cn": "相形见绌；相比之下显得逊色",
         "definition_en": "to seem less impressive, important, or serious when compared with something else",
-        "governing_pattern": "vi. + in comparison/beside",
+        "governing_pattern": "vi. + in comparison with/to / beside",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:pale:def8cc603c9d3ae3",
         "sense_label_en": "to seem less impressive, important, or serious when compared with something else",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -245,13 +244,6 @@
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       },
       {
-        "sense_id": "sense:pale:def8cc603c9d3ae3",
-        "status": "active",
-        "merged_into_sense_id": null,
-        "source_row": 9593,
-        "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
-      },
-      {
         "sense_id": "sense:pale:e7071b7d1a1c51ad",
         "status": "active",
         "merged_into_sense_id": null,
@@ -264,10 +256,16 @@
         "merged_into_sense_id": null,
         "source_row": 9582,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
+      },
+      {
+        "sense_id": "sense:pale:def8cc603c9d3ae3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9593,
+        "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       }
     ],
     "active_collocations": [
-      "collocation:0e32e90f8687d6aae56e",
       "collocation:0effb5fa78f9f72203ca",
       "collocation:3477bbeeb1d9e34473d3",
       "collocation:46d8df670e669be76f62",
@@ -294,11 +292,6 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       },
       {
-        "id": "collocation:46d8df670e669be76f62",
-        "source_row": 21609,
-        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
-      },
-      {
         "id": "collocation:84015cfb18155b3538b5",
         "source_row": 11191,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
@@ -316,6 +309,11 @@
       {
         "id": "collocation:b3008a1df13ded92c130",
         "source_row": 21608,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
+        "id": "collocation:46d8df670e669be76f62",
+        "source_row": 21609,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       }
     ],
@@ -355,7 +353,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3449-3456.json",
-    "source_content_hash": "ae38b8847f609aa0570ddde63998150410349fcbc70cb374da8a04c70e912023",
+    "source_content_hash": "00c9c85c32f8aaf6a05634f6f2b537e109c0a1a2e95c90abc808de805990cede",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,8 +6,25 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "81a2e443a4c7ac4ea80a2d26920e3285c888aea0b51a9321e07e72a351d67a0f",
+    "constructions": [
+      {
+        "boundary": "lexicalized noun phrase; not simply an adjective meaning made of paper",
+        "construction_id": "construction:eb93c4e39611494a4757",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "纸老虎；看似强大或危险、实际很弱的人/组织/力量",
+        "pattern": "paper tiger"
+      },
+      {
+        "boundary": "figurative reading contrasted with demonstrated practice",
+        "construction_id": "construction:1b968201591ad735071c",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "按计划、理论或书面信息看；尚未由实际表现证明",
+        "pattern": "on paper"
+      }
+    ],
+    "content_hash": "fae379ee106b5f6f63f066c7419fecd1611b9057e303901ded3cf37a356e2e6d",
     "core_concept": {
       "core_clusters": [
         {
@@ -150,17 +167,7 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:d1e7a3c786c43d5271c1",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:paper:54ce07237ba25416:collocation:0"
-            ],
-            "meaning_cn": "纸老虎",
-            "phrase": "paper tiger"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "纸做的；纸上的",
         "definition_en": "made of paper; existing only in theory or on paper",
@@ -253,17 +260,17 @@
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
       },
       {
-        "sense_id": "sense:paper:82f20f089dd6c11e",
-        "status": "active",
-        "merged_into_sense_id": null,
-        "source_row": 9688,
-        "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
-      },
-      {
         "sense_id": "sense:paper:c13acb9bb99d58c5",
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9616,
+        "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
+      },
+      {
+        "sense_id": "sense:paper:82f20f089dd6c11e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9688,
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
       }
     ],
@@ -274,16 +281,10 @@
       "collocation:5276a05ea213174aa443",
       "collocation:6f22ef767d06e1174790",
       "collocation:b4d9224c388aa8de42ae",
-      "collocation:d1e7a3c786c43d5271c1",
       "collocation:e1633434a2e1e6e30af1"
     ],
     "facts": [],
     "collocations": [
-      {
-        "id": "collocation:03b9376945c4d774ff7c",
-        "source_row": 21415,
-        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
-      },
       {
         "id": "collocation:2ef12398ee154c42b527",
         "source_row": 3972,
@@ -305,11 +306,6 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
       },
       {
-        "id": "collocation:b4d9224c388aa8de42ae",
-        "source_row": 21414,
-        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
-      },
-      {
         "id": "collocation:d1e7a3c786c43d5271c1",
         "source_row": 17733,
         "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
@@ -317,6 +313,16 @@
       {
         "id": "collocation:e1633434a2e1e6e30af1",
         "source_row": 19060,
+        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
+      },
+      {
+        "id": "collocation:b4d9224c388aa8de42ae",
+        "source_row": 21414,
+        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
+      },
+      {
+        "id": "collocation:03b9376945c4d774ff7c",
+        "source_row": 21415,
         "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
       }
     ],
@@ -346,7 +352,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3457-3464.json",
-    "source_content_hash": "f76fb8e7692b3256dc3a9ab4f045aa226af939a5e8bd07b9c96561a747d790b2",
+    "source_content_hash": "fae379ee106b5f6f63f066c7419fecd1611b9057e303901ded3cf37a356e2e6d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

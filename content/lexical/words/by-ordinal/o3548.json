@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3b000555441eb653b90840efcb962c2d3bfefe6ff1df702a62b329a5b80df9ef",
+    "content_hash": "1503d9786c9e708a4c726b6758856ed55a1329338adac42d94eb331d3595df27",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "执行或表演",
@@ -24,45 +24,7 @@
       "deep:deep:word_family:perform:6d3fc35f5ee519f8",
       "relation:deep:word_family:perform:6d3fc35f5ee519f8"
     ],
-    "secondary_senses": [
-      {
-        "boundary": "perform well 表现良好",
-        "codex_reviewed": false,
-        "definition_cn": "运作，表现",
-        "definition_en": "to function or work in a particular way",
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:perform:af7e14951098",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "perform:l1:2",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:secondary_senses:perform:17c5c522464b7969",
-        "family_sources": [],
-        "label_en": "to function or work in a particular way",
-        "level": "L1",
-        "meaning_cn": null,
-        "module": "secondary_senses",
-        "pattern": null,
-        "pos": "verb",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:perform:e95d04500762554c",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
-      }
-    ],
+    "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -146,14 +108,14 @@
         "confidence": "medium",
         "definition_cn": "表演，演出",
         "definition_en": "to give a performance of a play, piece of music, etc.",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: perform a play/piece/song; perform on stage/in a place/for an audience",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:perform:590c7a2b11c25807",
         "sense_label_en": "to give a performance of a play, piece of music, etc.",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -174,7 +136,7 @@
     "word": "perform",
     "word_family": [
       {
-        "boundary": "perform 动词 → performance 名词",
+        "boundary": "artistic perform ↔ artistic performance",
         "codex_reviewed": true,
         "definition_cn": null,
         "definition_en": null,
@@ -203,8 +165,47 @@
         "priority": "A",
         "publication_status": "codex_reviewed",
         "shared_definition": null,
-        "source_sense_id": "sense:perform:0c516067995650cb",
+        "source_sense_id": "sense:perform:590c7a2b11c25807",
         "target_sense_id": "sense:performance:db5deedc800a5c57",
+        "target_word": "performance",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      },
+      {
+        "boundary": "function/how-well perform ↔ performance",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {},
+        "direction": "R+P",
+        "evidence": [
+          {
+            "evidence_id": "evidence:family:perform:performance",
+            "evidence_status": "source_checked",
+            "source_locator": "perform|performance",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:word_family:perform:9c3ea14cee52f1ab",
+        "family_sources": [
+          "curated core-card derivative",
+          "local morphology candidate"
+        ],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "word_family",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:perform:e95d04500762554c",
+        "target_sense_id": "sense:performance:8e15281d0ee15e94",
         "target_word": "performance",
         "task_tags": [
           "reading"
@@ -257,6 +258,11 @@
       {
         "id": "deep:word_family:perform:6d3fc35f5ee519f8",
         "source_row": 846,
+        "source_path": "content/lexical/canonical/facts/shards/o3521-3552.json"
+      },
+      {
+        "id": "deep:word_family:perform:9c3ea14cee52f1ab",
+        "source_row": 848,
         "source_path": "content/lexical/canonical/facts/shards/o3521-3552.json"
       }
     ],
@@ -323,7 +329,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3545-3552.json",
-    "source_content_hash": "3b000555441eb653b90840efcb962c2d3bfefe6ff1df702a62b329a5b80df9ef",
+    "source_content_hash": "1503d9786c9e708a4c726b6758856ed55a1329338adac42d94eb331d3595df27",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
