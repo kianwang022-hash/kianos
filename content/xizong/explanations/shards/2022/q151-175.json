@@ -16,14 +16,27 @@
       "免疫表型要结合形态和分子证据，不能靠单一标志独立定病名。"
     ],
     "transfer_rule": "淋巴瘤免疫表型先区分B/T来源，再看亚型特征标志。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "C、D正确。B细胞淋巴瘤可表达CD19等B细胞谱系标志，部分生发中心来源亚型还可表达CD10。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "CD2更偏T/NK细胞谱系。"
+      },
+      {
+        "option": "B",
+        "reason": "CD3是T细胞谱系标志。"
+      }
+    ],
+    "common_failure_node": "把所有CD分子都当成“淋巴瘤通用标志”，不按谱系和分化阶段解读。"
   },
   {
     "question_id": "xizong-official-2022-n152",
@@ -42,14 +55,18 @@
       "这是结核的经典细胞免疫组织反应模式。"
     ],
     "transfer_rule": "TB granuloma=干酪坏死+上皮样细胞+Langhans巨细胞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A、B、C、D均正确。典型结核结节可有中央干酪样坏死，周围由上皮样细胞、Langhans巨细胞和淋巴细胞构成。",
+    "valuable_distractors": [],
+    "common_failure_node": "全选题为了制造陷阱而错误否定结核肉芽肿真实组成。"
   },
   {
     "question_id": "xizong-official-2022-n153",
@@ -68,14 +85,27 @@
       "甲型和戊型肝炎通常不形成这一慢性致癌链。"
     ],
     "transfer_rule": "HCC主要病毒危险因素抓HBV/HCV。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B、C正确。慢性HBV和HCV感染都能形成持续肝损伤—再生—纤维化链，并显著增加HCC风险。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "HAV通常不形成慢性感染。"
+      },
+      {
+        "option": "D",
+        "reason": "HEV典型也不形成这条慢性致癌链。"
+      }
+    ],
+    "common_failure_node": "把“都能引起肝炎”误等同于“都能形成慢性肝癌风险”。"
   },
   {
     "question_id": "xizong-official-2022-n154",
@@ -89,17 +119,24 @@
     "exam_target": "阻塞性通气障碍疾病",
     "decision_axis": "COPD、细支气管炎、弥漫性泛细支气管炎和支气管扩张等均可因气道阻力增加表现阻塞性通气功能障碍。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "阻塞性通气障碍的共同本质是呼气气流受限/气道阻力增加，而不要求疾病名称必须含“阻塞”。",
+      "COPD、闭塞性/弥漫性细支气管炎和支气管扩张均可通过小气道狭窄、炎症或分泌物潴留出现阻塞性肺功能。",
+      "题源因此ABCD全对；但这些正确项分散在不同Current呼吸Block，没有单一最小owner完整承接。"
     ],
     "transfer_rule": "阻塞性障碍核心=呼气流速下降、FEV1/FVC降低。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A、B、C、D均可出现阻塞性通气功能障碍：COPD是经典持续性阻塞，细/泛细支气管炎和支气管扩张也可因小气道病变、分泌物潴留等增加气道阻力。",
+    "valuable_distractors": [],
+    "common_failure_node": "看到“支气管扩张”字面上管腔变大，就误认为不可能出现阻塞性通气障碍。",
+    "source_gap_note": "正确项横跨COPD、细支气管炎/泛细支气管炎和支气管扩张不同Current owner；未找到单一最小KP完整冻结ABCD全套阻塞性通气疾病集合。"
   },
   {
     "question_id": "xizong-official-2022-n155",
@@ -122,8 +159,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A、C、D为题源猝死高危因素：不明原因晕厥、反复NSVT和最大室壁厚度≥30 mm；运动时高血压并非题源高危项。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "运动中血压异常反应在不同风险模型中需具体定义，题源并未把“高血压”列为高危。"
+      }
+    ],
+    "common_failure_node": "把旧HCM风险因子清单直接当成Current唯一风险计算模型。",
+    "source_boundary_note": "题源采用固定HCM猝死危险因素清单；Current评估更依赖系统临床风险因素与风险模型，不升级旧列表为唯一规则。"
   },
   {
     "question_id": "xizong-official-2022-n156",
@@ -146,8 +193,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A、C、D为题源一级预防答案：病因/肝病管理、NSBB和特定高危曲张内镜结扎可用于预防首次出血；生长抑素/垂体加压素属于急性出血控制药物。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "生长抑素或血管加压素类主要服务急性曲张静脉出血，不是一级预防长期方案。"
+      }
+    ],
+    "common_failure_node": "把“急性止血药”与“首次出血前的长期一级预防”混为一层。",
+    "source_boundary_note": "题源一级预防组合按当年口径保留；Current门脉高压首次出血预防需按高危静脉曲张、肝病阶段和指南选择NSBB/内镜等，不机械套固定组合。"
   },
   {
     "question_id": "xizong-official-2022-n157",
@@ -170,8 +227,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "B、C、D为题源慢性肾衰竭饮食原则答案：注意维生素、限制磷并保证足量热量；高蛋白并非常规方向。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "未透析CKD通常不采用高蛋白饮食；具体蛋白目标还取决于分期、透析和营养状态。"
+      }
+    ],
+    "common_failure_node": "把旧“低蛋白低磷”表机械套给所有CKD/透析患者，不做营养风险分层。",
+    "source_boundary_note": "题源采用固定CKD饮食原则；Current营养处方需结合CKD分期、是否透析、营养风险和个体蛋白/能量目标。"
   },
   {
     "question_id": "xizong-official-2022-n158",
@@ -190,14 +257,23 @@
       "铁蛋白下降是最直接的储存铁不足信号之一。"
     ],
     "transfer_rule": "IDA：Fe↓、Ferritin↓、TSAT↓、TIBC↑。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A、B、D正确。缺铁时血清铁、铁蛋白和转铁蛋白饱和度下降，而总铁结合力通常升高。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "缺铁时TIBC通常升高，而不是降低。"
+      }
+    ],
+    "common_failure_node": "把转铁蛋白/TIBC和转铁蛋白饱和度方向记反。"
   },
   {
     "question_id": "xizong-official-2022-n159",
@@ -211,17 +287,29 @@
     "exam_target": "DKA液体钾和碳酸氢盐治疗阈值",
     "decision_axis": "题源包含DKA补液、补钾和碳酸氢盐等固定阈值；Current治疗阈值和顺序需依据实时血钾、pH、循环状态和指南执行，不能固化为单一考试处方。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "DKA首先存在显著容量缺失，Current D8 KP09明确“补液是关键”，同时使用小剂量静脉普通胰岛素，而非大剂量快速归一血糖。",
+      "Current D8 KP10明确：血钾正常且尿量>40 mL/h时开始治疗即补钾，因为总钾储备往往已明显缺失。",
+      "同一KP仅在严重酸中毒达到Study门槛（pH≤6.9）时考虑适量碳酸氢盐，因此A、C、D按题源/Current Study可成立。"
     ],
     "transfer_rule": "现实DKA治疗按液体-胰岛素-钾监测动态调整。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A、C、D正确。DKA首先积极补液；血钾正常且尿量>40 mL/h时治疗开始即需补钾；只有严重酸中毒达到Current Study门槛时才考虑适量补碱。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "DKA使用小剂量静脉普通胰岛素逐步降糖和抑制酮体，不能用“大剂量胰岛素迅速降至正常”。"
+      }
+    ],
+    "common_failure_node": "只看血清K“正常”就不补钾，或为快速纠酸/降糖而过度使用胰岛素和碳酸氢盐。",
+    "source_boundary_note": "relation承接D8当前Study的DKA液体、补钾和严重酸中毒补碱口径；具体剂量/阈值不替代真实临床医嘱。"
   },
   {
     "question_id": "xizong-official-2022-n160",
@@ -240,14 +328,23 @@
       "不能用淀粉酶‘越高越重’来判断严重度。"
     ],
     "transfer_rule": "淀粉酶高不等于病情重；诊断还需症状和影像。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A、B、D正确。淀粉酶升高幅度与胰腺炎严重度不平行，下降后再升高可提示病情反复，诊断价值受升高幅度和检测时机影响；正常值不能绝对排除。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "淀粉酶不高不能排除急性胰腺炎，尤其受时相、病因等影响。"
+      }
+    ],
+    "common_failure_node": "把淀粉酶“高不高”同时当成诊断、严重度和排除标准。"
   },
   {
     "question_id": "xizong-official-2022-n161",
@@ -266,14 +363,23 @@
       "表现轻并不代表病变轻。"
     ],
     "transfer_rule": "老年阑尾炎=临床轻、病理可能重。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A、B、C正确。老年阑尾炎常症状体征不典型、腹痛相对轻，但病理进展快、穿孔和并发症风险高，因此不能因表现轻而保守等待。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "老年急性阑尾炎并非因为症状轻就应尽量保守治疗。"
+      }
+    ],
+    "common_failure_node": "把临床反应轻误认为病理损伤轻。"
   },
   {
     "question_id": "xizong-official-2022-n162",
@@ -296,8 +402,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A、B、D为题源可用止血方式。肝癌破裂可采用手术切除、肝动脉栓塞或特定情况下填压止血；具体路径高度依赖循环状态、肝功能和肿瘤可切除性。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "单纯肝动脉化疗不是急性破裂出血的直接止血手段。"
+      }
+    ],
+    "common_failure_node": "把“可用止血方式”背成所有患者都可任选的统一治疗清单。",
+    "source_boundary_note": "肝癌破裂出血的手术、介入或填压选择高度依赖血流动力学、肝功能、肿瘤范围和可切除性；题源ABD不升级为统一Current方案。"
   },
   {
     "question_id": "xizong-official-2022-n163",
@@ -316,14 +432,23 @@
       "严重血管损伤或尿路完全离断时甚至可能没有明显血尿。"
     ],
     "transfer_rule": "肾外伤不能用血尿多少直接判严重度。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A、B、C正确。肾挫伤可有肉眼或镜下血尿，也可能无明显血尿；局部血肿还可形成腰部肿块。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "会阴部放射痛不是肾挫伤的典型核心表现。"
+      }
+    ],
+    "common_failure_node": "用“有没有血尿”单独判断肾损伤有无和严重度。"
   },
   {
     "question_id": "xizong-official-2022-n164",
@@ -342,14 +467,27 @@
       "骨不连、延迟愈合等属于后期愈合阶段问题。"
     ],
     "transfer_rule": "早期并发症抓休克、脂肪栓塞、神经血管/脏器损伤。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A、C正确。脂肪栓塞和神经损伤均可在骨折早期发生；坠积性肺炎和急性骨萎缩更偏制动/恢复期并发症。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "坠积性肺炎更多见于长期卧床后的继发并发症。"
+      },
+      {
+        "option": "D",
+        "reason": "急性骨萎缩属于较后期的营养/交感相关改变。"
+      }
+    ],
+    "common_failure_node": "不按时间轴区分骨折并发症。"
   },
   {
     "question_id": "xizong-official-2022-n165",
@@ -368,13 +506,22 @@
       "结构性侧凸则存在固定椎体旋转和形态改变。"
     ],
     "transfer_rule": "非结构性侧凸=可逆、无固定椎体旋转畸形。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2022"
+    },
+    "correct_option_reason": "A、B、C正确。姿势性、癔症性和神经根刺激造成的侧凸可随体位/病因改善，属于非结构性；先天性侧凸有固定结构异常。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "先天性脊柱侧凸由椎体结构异常造成，属于结构性侧凸。"
+      }
+    ],
+    "common_failure_node": "只按“侧凸能不能看到”分类，不看是否存在固定椎体结构改变。"
   }
 ]

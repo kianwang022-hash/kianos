@@ -1,1 +1,992 @@
-[{"question_id":"xizong-official-2018-n101","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"T管胆道造影视觉判读","decision_axis":"本题明确依赖原始T管胆道造影图，题源答案为左肝管显影不良；Fast Owner文本路径不替代Visual Truth重判图像。","reasoning_chain":["保留题源正式答案，并将视觉判读留在原始造影图证据层。"],"transfer_rule":"仅保留题源/Visual Truth边界；不得脱离原图生成通用影像判断规则。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n102","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"异常T管造影后的进一步检查","decision_axis":"本子问承接N101的异常造影信息，题源选择肝脏CT进一步评价；离开共享视觉证据后无法安全独立恢复完整判断轴。","reasoning_chain":["按共享题源正式答案保留，并对视觉依赖fail-closed。"],"transfer_rule":"仅保留题源/Visual Truth边界；不得据此反向改写Current canonical。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n103","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"脊柱损伤合并脊髓损伤识别","decision_axis":"高处坠落后胸背痛提示脊柱损伤，双下肢立即不能活动说明神经功能受损，最符合脊柱损伤合并脊髓损伤。","reasoning_chain":["高能量坠落后出现胸背部疼痛，首先提示脊柱结构损伤。","同时双下肢不能活动，是明确的神经功能缺失，说明损伤已经累及脊髓或相关神经结构。","因此应把两者合并判断为脊柱损伤合并脊髓损伤，选B，而不是只按骨折或骨盆损伤解释。"],"transfer_rule":"脊柱创伤题只要出现肢体运动/感觉异常，就必须把神经结构损伤提到前面。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n104","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"脊髓损伤影像检查","decision_axis":"MRI能直接评价脊髓、椎间盘、韧带、血肿及压迫等软组织损伤，是疑似脊髓受压/损伤最有价值的检查。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"脊髓与软组织结构优先MRI；骨折细节更多依赖CT。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n105","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"疑似脊柱损伤搬运原则","decision_axis":"搬运疑似脊柱损伤患者时应保持头颈躯干同轴、整体平移至硬板，避免屈曲、旋转和牵拉造成继发性脊髓损伤。","reasoning_chain":["这类患者最怕搬运过程中脊柱发生二次屈曲或扭转，使原有不稳定损伤进一步移位。","因此搬运目标不是“快抬走”，而是保持头、颈、躯干作为一个整体同轴移动。","D描述保持躯干平直成一体平移至木板，最符合这一原则；其余方法均可能产生牵拉或弯折。"],"transfer_rule":"疑似脊柱损伤搬运记“同轴、平移、硬板”，不要抱头抱脚或拖拉。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n106","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"脊柱结核病例识别","decision_axis":"腰背痛伴低热、盗汗，既往有肺结核史并有局部棘突压痛，构成典型慢性结核感染背景，最符合脊柱结核。","reasoning_chain":["病程1个月、低热和盗汗提示慢性消耗性感染，而不是典型急性化脓性过程。","既往肺结核史显著提高脊柱结核先验概率，局部胸11～12棘突压痛进一步把病变定位到脊柱。","因此最符合脊柱结核，选C；脊柱肿瘤和强直性脊柱炎都不能同时解释这一结核全身症状组合。"],"transfer_rule":"脊柱结核高频入口：慢性背痛 + 低热盗汗 + 结核史/结核证据 + 局部脊柱压痛。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n107","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"脊柱结核影像选择","decision_axis":"MRI对椎体、椎间盘、椎旁脓肿、硬膜外受累和神经结构受压最敏感，可较完整评估脊柱结核范围。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"怀疑脊柱感染且要看软组织/神经受累，优先MRI。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n108","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"医师专业精神基本原则","decision_axis":"“患者利益优先”属于医学专业精神的基本原则；诚实、保密和提高医疗质量更多表现为具体专业责任。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"区分原则层与责任层：患者福利/自主/社会公正属于上位原则。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n109","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"医患关系性质","decision_axis":"把一次穿刺成功与否直接折算为退款金额，把复杂专业信托关系简单商品化，实质是把医患关系误解为普通消费关系。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"医患关系不是单纯商品买卖，而包含专业、信托、权利义务等多层关系。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n110","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"患者强送红包的旧伦理处置","decision_axis":"题源给出“暂收上交、术后归还”的考试处置，但现实合规制度、医院流程和反腐要求具有时代与机构差异，不固化为Current统一规则。","reasoning_chain":["按题源正式答案保留，并对现实合规流程fail-closed。"],"transfer_rule":"仅保留题源/法规时代边界；不得据此生成现实收受财物操作规则。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n111","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"医师法定义务旧法条口径","decision_axis":"题源以“妥善保管病历”为医师义务作答；具体法定义务需以现行《医师法》及医疗机构病历管理规范为准，旧题选项不升级Current法条。","reasoning_chain":["按题源正式答案保留，并对法规更新fail-closed。"],"transfer_rule":"仅保留题源/法规时代边界；不得反向改写Current canonical。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n112","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"昏迷患者停止治疗的伦理首要因素","decision_axis":"面对无决策能力患者及家属放弃治疗要求，首要应基于患者病情、预后、治疗获益与负担，再进入代理决策和价值偏好讨论。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"先医学事实与可逆性，再谈代理决定；社会地位和经济条件不能替代医学判断。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n113","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"HIV信息报告与保密例外旧法规口径","decision_axis":"题源认为依法向疾病预防控制机构报告可构成保密义务的法定例外；具体报告主体、流程与数据规则须按现行传染病/HIV管理规范执行。","reasoning_chain":["按题源正式答案保留，并对法规细节fail-closed。"],"transfer_rule":"仅保留“法定公共卫生报告可构成保密例外”的原则，不固化旧流程。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n114","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"临床试验风险获益伦理","decision_axis":"临床研究的科学与社会价值不能凌驾于受试者安全，伦理核心是合理的风险-获益平衡、风险最小化和充分保护受试者。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"研究价值是必要条件，但不能用“为了科学”正当化不必要伤害。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n115","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"未亲诊开具证明的旧法条题","decision_axis":"题源依据旧《执业医师法》口径要求未亲自诊查不得开具诊断/休假证明；现行法律名称与具体规范已更新，不将旧法条表述写入Current。","reasoning_chain":["按题源正式答案保留，并对法规更新fail-closed。"],"transfer_rule":"仅保留题源/法规时代边界；不得反向改写Current canonical。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n116","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"ACEI识别","decision_axis":"卡托普利抑制血管紧张素转换酶，属于ACEI；氯沙坦是ARB，美托洛尔是β受体阻滞剂，维拉帕米是非二氢吡啶类钙拮抗剂。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"药名后缀-pril联想ACEI。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n117","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"ARB识别","decision_axis":"氯沙坦阻断血管紧张素ⅡAT1受体，属于ARB；与ACEI作用靶点不同。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"药名后缀-sartan联想ARB。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n118","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"帕金森病多巴胺替代","decision_axis":"帕金森病黑质-纹状体多巴胺功能不足，左旋多巴可进入中枢后转化为多巴胺，从而改善运动迟缓和少动。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"少动型基底节疾病抓多巴胺不足，左旋多巴补底物。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n119","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"舞蹈病利血平旧药物口径","decision_axis":"题源用利血平耗竭单胺来降低舞蹈样运动；Current亨廷顿病舞蹈症治疗更多采用VMAT2抑制剂等，利血平不应升级为现代固定首选。","reasoning_chain":["按题源正式答案保留，并对现代治疗口径fail-closed。"],"transfer_rule":"仅保留题源/Study边界；不得据此反向改写Current canonical。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n120","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"翻译后修饰形成羟脯氨酸","decision_axis":"胶原蛋白合成后，脯氨酸残基可经脯氨酰羟化酶羟化形成羟脯氨酸，因此羟脯氨酸属于翻译后修饰产物。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"羟脯氨酸/羟赖氨酸是胶原翻译后羟化的经典产物。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n121","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"蛋白磷酸化残基","decision_axis":"丝氨酸、苏氨酸和酪氨酸侧链含羟基，均可成为常见蛋白激酶磷酸化位点；本题选项中只有苏氨酸符合。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"蛋白磷酸化经典残基记Ser/Thr/Tyr。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n122","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"分子伴侣与蛋白折叠","decision_axis":"热休克蛋白可作为分子伴侣，结合新生或错误折叠多肽，促进正确折叠并防止异常聚集。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"蛋白正确折叠先想分子伴侣/HSP。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n123","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"蛋白激酶作为信号开关","decision_axis":"蛋白激酶通过可逆磷酸化改变靶蛋白活性，与磷酸酶共同构成许多信号通路的开关机制。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"可逆磷酸化的开关=激酶加磷酸、磷酸酶去磷酸。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n124","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"甲状腺乳头状癌核特征","decision_axis":"乳头状癌诊断高度依赖特征性核改变，如核透明/毛玻璃样、核沟和核内包涵体，乳头结构本身不是唯一条件。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"甲状腺乳头癌先看核；滤泡癌主要看包膜/血管侵犯。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2018-n125","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2018/q101-125.json","blob_sha":"58d41a6d841f4e72151a17e59d44fbf07f5955fa","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"甲状腺滤泡癌生物学行为诊断","decision_axis":"滤泡癌与滤泡性腺瘤细胞形态可高度相似，关键看包膜侵犯和血管侵犯等生物学行为证据。","reasoning_chain":["按题干与选项，依据上述判断轴确定题源答案。"],"transfer_rule":"滤泡性肿瘤良恶性不能只看细胞异型，核心是侵包膜/侵血管。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}}]
+[
+  {
+    "question_id": "xizong-official-2018-n101",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "T管胆道造影视觉判读",
+    "decision_axis": "本题明确依赖原始T管胆道造影图，题源答案为左肝管显影不良；Fast Owner文本路径不替代Visual Truth重判图像。",
+    "reasoning_chain": [
+      "本题明确依赖原始T管胆道造影图，题源答案为左肝管显影不良；Fast Owner文本路径不替代Visual Truth重判图像。",
+      "官方答案按题源视觉/共享病例证据保留，不用文本常识替代缺失的决定性证据。",
+      "因此Explanation保留答案，但mapping_decision保持NO_SAFE_MATCH。"
+    ],
+    "transfer_rule": "仅保留题源/Visual Truth边界；不得脱离原图生成通用影像判断规则。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "D.左肝管显影不良。造影图是本题决定性证据，文字转录不能替代对左肝管充盈/显影的视觉判读。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "B.胆总管残余结石：不符合本题核心判断轴；把图像题降格成文本题，凭胆道常识猜结论。"
+      },
+      {
+        "option": "C",
+        "reason": "C.壶腹部狭窄：不符合本题核心判断轴；把图像题降格成文本题，凭胆道常识猜结论。"
+      }
+    ],
+    "common_failure_node": "把图像题降格成文本题，凭胆道常识猜结论。",
+    "source_gap_note": "该题决定性信息位于原始T管胆道造影图；文本Knowledge不能替代Visual Truth重新判图，因此不建立正向relation。"
+  },
+  {
+    "question_id": "xizong-official-2018-n102",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "异常T管造影后的进一步检查",
+    "decision_axis": "本子问承接N101的异常造影信息，题源选择肝脏CT进一步评价；离开共享视觉证据后无法安全独立恢复完整判断轴。",
+    "reasoning_chain": [
+      "本子问承接N101的异常造影信息，题源选择肝脏CT进一步评价；离开共享视觉证据后无法安全独立恢复完整判断轴。",
+      "官方答案按题源视觉/共享病例证据保留，不用文本常识替代缺失的决定性证据。",
+      "因此Explanation保留答案，但mapping_decision保持NO_SAFE_MATCH。"
+    ],
+    "transfer_rule": "仅保留题源/Visual Truth边界；不得据此反向改写Current canonical。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "D.肝脏CT检查。本题处理选择依赖N101造影异常的具体视觉含义；共享视觉语义缺失时不能独立升级Current检查路径。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.常规拔除T管：不符合本题核心判断轴；脱离上一题的异常造影信息，机械背“胆道异常就做CT”。"
+      },
+      {
+        "option": "B",
+        "reason": "B.经T管窦道胆管镜取出结石：不符合本题核心判断轴；脱离上一题的异常造影信息，机械背“胆道异常就做CT”。"
+      }
+    ],
+    "common_failure_node": "脱离上一题的异常造影信息，机械背“胆道异常就做CT”。",
+    "source_gap_note": "本题承接N101视觉异常，但当前子题文本未独立保存该异常的完整语义；后续检查选择不能脱离共享视觉证据独立映射。"
+  },
+  {
+    "question_id": "xizong-official-2018-n103",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "脊柱损伤合并脊髓损伤识别",
+    "decision_axis": "高处坠落后胸背痛提示脊柱损伤，双下肢立即不能活动说明神经功能受损，最符合脊柱损伤合并脊髓损伤。",
+    "reasoning_chain": [
+      "高处坠落后胸背痛提示脊柱损伤，双下肢立即不能活动说明神经功能受损，最符合脊柱损伤合并脊髓损伤。",
+      "在给定选项中，B“脊柱损伤合并脊髓损伤”直接命中上述决定轴。",
+      "其余选项不能同时解释题干的关键定位证据，因此选B。"
+    ],
+    "transfer_rule": "脊柱创伤题只要出现肢体运动/感觉异常，就必须把神经结构损伤提到前面。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B.脊柱损伤合并脊髓损伤。高处坠落后胸背痛先定位脊柱损伤，双下肢立即不能活动进一步证明神经功能受损，因此是脊柱损伤合并脊髓损伤。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.脊柱损伤合并骨盆骨折：不符合本题核心判断轴；只看到背痛而忽略双下肢运动丧失这一神经红旗。"
+      },
+      {
+        "option": "C",
+        "reason": "C.脊柱损伤合并双下肢骨折：不符合本题核心判断轴；只看到背痛而忽略双下肢运动丧失这一神经红旗。"
+      }
+    ],
+    "common_failure_node": "只看到背痛而忽略双下肢运动丧失这一神经红旗。"
+  },
+  {
+    "question_id": "xizong-official-2018-n104",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "脊髓损伤影像检查",
+    "decision_axis": "MRI能直接评价脊髓、椎间盘、韧带、血肿及压迫等软组织损伤，是疑似脊髓受压/损伤最有价值的检查。",
+    "reasoning_chain": [
+      "MRI能直接评价脊髓、椎间盘、韧带、血肿及压迫等软组织损伤，是疑似脊髓受压/损伤最有价值的检查。",
+      "在给定选项中，B“MRI检查”直接命中上述决定轴。",
+      "其余选项不能同时解释题干的关键定位证据，因此选B。"
+    ],
+    "transfer_rule": "脊髓与软组织结构优先MRI；骨折细节更多依赖CT。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B.MRI检查。疑似脊髓损伤时，MRI能直接显示脊髓、椎间盘、韧带、血肿及压迫等软组织结构，最能回答神经损伤范围。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "C.X线检查：不符合本题核心判断轴；把骨折常规X线的地位误套到脊髓/韧带软组织损伤。"
+      },
+      {
+        "option": "D",
+        "reason": "D.脑脊液穿刺检查：不符合本题核心判断轴；把骨折常规X线的地位误套到脊髓/韧带软组织损伤。"
+      }
+    ],
+    "common_failure_node": "把骨折常规X线的地位误套到脊髓/韧带软组织损伤。"
+  },
+  {
+    "question_id": "xizong-official-2018-n105",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "疑似脊柱损伤搬运原则",
+    "decision_axis": "搬运疑似脊柱损伤患者时应保持头颈躯干同轴、整体平移至硬板，避免屈曲、旋转和牵拉造成继发性脊髓损伤。",
+    "reasoning_chain": [
+      "搬运疑似脊柱损伤患者时应保持头颈躯干同轴、整体平移至硬板，避免屈曲、旋转和牵拉造成继发性脊髓损伤。",
+      "在给定选项中，D“两人将躯干保持平直状态成一体平移至木板上”直接命中上述决定轴。",
+      "其余选项不能同时解释题干的关键定位证据，因此选D。"
+    ],
+    "transfer_rule": "疑似脊柱损伤搬运记“同轴、平移、硬板”，不要抱头抱脚或拖拉。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "D.两人将躯干保持平直状态成一体平移至木板上。搬运目标是避免不稳定脊柱再次屈曲、旋转或移位；保持头颈躯干同轴整体平移至硬板最符合这一原则。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.一人用一手抱颈，另一手抱脚放于担架上：不符合本题核心判断轴；追求“抬得快”而破坏脊柱轴线，造成继发脊髓损伤。"
+      },
+      {
+        "option": "B",
+        "reason": "B.一人抬头，另一人抬足放于木板上：不符合本题核心判断轴；追求“抬得快”而破坏脊柱轴线，造成继发脊髓损伤。"
+      }
+    ],
+    "common_failure_node": "追求“抬得快”而破坏脊柱轴线，造成继发脊髓损伤。"
+  },
+  {
+    "question_id": "xizong-official-2018-n106",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "脊柱结核病例识别",
+    "decision_axis": "腰背痛伴低热、盗汗，既往有肺结核史并有局部棘突压痛，构成典型慢性结核感染背景，最符合脊柱结核。",
+    "reasoning_chain": [
+      "腰背痛伴低热、盗汗，既往有肺结核史并有局部棘突压痛，构成典型慢性结核感染背景，最符合脊柱结核。",
+      "在给定选项中，C“脊柱结核”直接命中上述决定轴。",
+      "其余选项不能同时解释题干的关键定位证据，因此选C。"
+    ],
+    "transfer_rule": "脊柱结核高频入口：慢性背痛 + 低热盗汗 + 结核史/结核证据 + 局部脊柱压痛。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "C.脊柱结核。慢性腰背痛 + 低热盗汗 + 既往肺结核 + 局部棘突压痛构成脊柱结核的高识别组合。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.脊柱肿瘤：不符合本题核心判断轴；看到脊柱压痛就只想肿瘤/化脓性感染，忽略结核的慢性全身症状和既往史。"
+      },
+      {
+        "option": "D",
+        "reason": "D.化脓性脊柱炎：不符合本题核心判断轴；看到脊柱压痛就只想肿瘤/化脓性感染，忽略结核的慢性全身症状和既往史。"
+      }
+    ],
+    "common_failure_node": "看到脊柱压痛就只想肿瘤/化脓性感染，忽略结核的慢性全身症状和既往史。"
+  },
+  {
+    "question_id": "xizong-official-2018-n107",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "脊柱结核影像选择",
+    "decision_axis": "MRI对椎体、椎间盘、椎旁脓肿、硬膜外受累和神经结构受压最敏感，可较完整评估脊柱结核范围。",
+    "reasoning_chain": [
+      "MRI对椎体、椎间盘、椎旁脓肿、硬膜外受累和神经结构受压最敏感，可较完整评估脊柱结核范围。",
+      "在给定选项中，A“MRI”直接命中上述决定轴。",
+      "其余选项不能同时解释题干的关键定位证据，因此选A。"
+    ],
+    "transfer_rule": "怀疑脊柱感染且要看软组织/神经受累，优先MRI。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A.MRI。MRI对早期椎体、椎间盘、椎旁脓肿、硬膜外和神经受压范围最敏感，最适合脊柱结核早期整体评估。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "B.X线片：不符合本题核心判断轴；把X线的空间定位价值误当成早期病变敏感性。"
+      },
+      {
+        "option": "D",
+        "reason": "D.结核菌素试验：不符合本题核心判断轴；把X线的空间定位价值误当成早期病变敏感性。"
+      }
+    ],
+    "common_failure_node": "把X线的空间定位价值误当成早期病变敏感性。"
+  },
+  {
+    "question_id": "xizong-official-2018-n108",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "医师专业精神基本原则",
+    "decision_axis": "“患者利益优先”属于医学专业精神的基本原则；诚实、保密和提高医疗质量更多表现为具体专业责任。",
+    "reasoning_chain": [
+      "“患者利益优先”属于医学专业精神的基本原则；诚实、保密和提高医疗质量更多表现为具体专业责任。",
+      "题源官方答案为A“将患者利益放在首位”，与该历史伦理/规范比较轴一致。",
+      "但Current Xizong Knowledge没有足够安全的人文/法规owner，因此答案保留而Crosswalk fail-closed。"
+    ],
+    "transfer_rule": "区分原则层与责任层：患者福利/自主/社会公正属于上位原则。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A.将患者利益放在首位。题源将“患者利益优先”列为专业精神基本原则，但当前Xizong Knowledge无独立人文Current owner，不能制造跨域KP。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "B.对患者诚实：不符合本题核心判断轴；因为概念看起来稳定就强行塞进临床Knowledge Block。"
+      },
+      {
+        "option": "C",
+        "reason": "C.为患者保守秘密：不符合本题核心判断轴；因为概念看起来稳定就强行塞进临床Knowledge Block。"
+      }
+    ],
+    "common_failure_node": "因为概念看起来稳定就强行塞进临床Knowledge Block。",
+    "source_gap_note": "Current Xizong Knowledge的人文/医学伦理独立owner尚未建立；Explanation保留题源答案，但Crosswalk不制造临床KP映射。"
+  },
+  {
+    "question_id": "xizong-official-2018-n109",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "医患关系性质",
+    "decision_axis": "把一次穿刺成功与否直接折算为退款金额，把复杂专业信托关系简单商品化，实质是把医患关系误解为普通消费关系。",
+    "reasoning_chain": [
+      "把一次穿刺成功与否直接折算为退款金额，把复杂专业信托关系简单商品化，实质是把医患关系误解为普通消费关系。",
+      "题源官方答案为B“消费关系”，与该历史伦理/规范比较轴一致。",
+      "但Current Xizong Knowledge没有足够安全的人文/法规owner，因此答案保留而Crosswalk fail-closed。"
+    ],
+    "transfer_rule": "医患关系不是单纯商品买卖，而包含专业、信托、权利义务等多层关系。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B.消费关系。把专业医疗承诺商品化为退款规则，题源定义为“消费关系”；但当前Xizong Knowledge无医患关系人文owner。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.技术关系：不符合本题核心判断轴；用日常语言理解题意后直接制造一个不存在的人文KP。"
+      },
+      {
+        "option": "D",
+        "reason": "D.信托关系：不符合本题核心判断轴；用日常语言理解题意后直接制造一个不存在的人文KP。"
+      }
+    ],
+    "common_failure_node": "用日常语言理解题意后直接制造一个不存在的人文KP。",
+    "source_gap_note": "Current Xizong Knowledge的人文/医学伦理独立owner尚未建立；Explanation保留题源答案，但Crosswalk不制造临床KP映射。"
+  },
+  {
+    "question_id": "xizong-official-2018-n110",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "患者强送红包的旧伦理处置",
+    "decision_axis": "题源给出“暂收上交、术后归还”的考试处置，但现实合规制度、医院流程和反腐要求具有时代与机构差异，不固化为Current统一规则。",
+    "reasoning_chain": [
+      "题源给出“暂收上交、术后归还”的考试处置，但现实合规制度、医院流程和反腐要求具有时代与机构差异，不固化为Current统一规则。",
+      "题源官方答案为B“实在推脱不掉，收下红包上交，手术后归还给患者”，与该历史伦理/规范比较轴一致。",
+      "但Current Xizong Knowledge没有足够安全的人文/法规owner，因此答案保留而Crosswalk fail-closed。"
+    ],
+    "transfer_rule": "仅保留题源/法规时代边界；不得据此生成现实收受财物操作规则。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B.实在推脱不掉，收下红包上交，手术后归还给患者。题源以“暂收—上交—术后归还”作为历史考试处置；现实合规流程受机构制度与现行规范约束，且Current无人文/合规owner。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.收取红包，归自己所有：不符合本题核心判断轴；把历史伦理题答案当成今天任何医院都可照做的操作流程。"
+      },
+      {
+        "option": "D",
+        "reason": "D.执意拒绝红包，如果患者非要给，就拒绝手术：不符合本题核心判断轴；把历史伦理题答案当成今天任何医院都可照做的操作流程。"
+      }
+    ],
+    "common_failure_node": "把历史伦理题答案当成今天任何医院都可照做的操作流程。",
+    "source_boundary_note": "“暂收上交、术后归还”为2018考试情境答案；现实红包/利益冲突处置应遵循现行法律、医院制度和合规流程，不将该操作模板升级为Current统一规则。"
+  },
+  {
+    "question_id": "xizong-official-2018-n111",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "医师法定义务旧法条口径",
+    "decision_axis": "题源以“妥善保管病历”为医师义务作答；具体法定义务需以现行《医师法》及医疗机构病历管理规范为准，旧题选项不升级Current法条。",
+    "reasoning_chain": [
+      "题源以“妥善保管病历”为医师义务作答；具体法定义务需以现行《医师法》及医疗机构病历管理规范为准，旧题选项不升级Current法条。",
+      "题源官方答案为D“妥善保管病历”，与该历史伦理/规范比较轴一致。",
+      "但Current Xizong Knowledge没有足够安全的人文/法规owner，因此答案保留而Crosswalk fail-closed。"
+    ],
+    "transfer_rule": "仅保留题源/法规时代边界；不得反向改写Current canonical。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "D.妥善保管病历。题源将妥善保管病历作为医师义务作答；法定义务必须以现行法律与病历管理制度为准，当前Xizong Knowledge无人文法规模块承接。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.开展科学研究：不符合本题核心判断轴；把2018旧法条选择题当成现行法条全文。"
+      },
+      {
+        "option": "B",
+        "reason": "B.保障自身安全：不符合本题核心判断轴；把2018旧法条选择题当成现行法条全文。"
+      }
+    ],
+    "common_failure_node": "把2018旧法条选择题当成现行法条全文。",
+    "source_boundary_note": "题源依据当时法规范畴作答；现行医师法与病历管理责任需按Current法规核对，本题只保留历史考试口径。"
+  },
+  {
+    "question_id": "xizong-official-2018-n112",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "昏迷患者停止治疗的伦理首要因素",
+    "decision_axis": "面对无决策能力患者及家属放弃治疗要求，首要应基于患者病情、预后、治疗获益与负担，再进入代理决策和价值偏好讨论。",
+    "reasoning_chain": [
+      "面对无决策能力患者及家属放弃治疗要求，首要应基于患者病情、预后、治疗获益与负担，再进入代理决策和价值偏好讨论。",
+      "题源官方答案为D“患者的病情状况”，与该历史伦理/规范比较轴一致。",
+      "但Current Xizong Knowledge没有足够安全的人文/法规owner，因此答案保留而Crosswalk fail-closed。"
+    ],
+    "transfer_rule": "先医学事实与可逆性，再谈代理决定；社会地位和经济条件不能替代医学判断。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "D.患者的病情状况。无决策能力患者的治疗决策首先要评估病情、预后、获益与负担，再进入代理决策；但Current Xizong Knowledge没有安全的人文伦理owner。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "B.患者家属的意愿：不符合本题核心判断轴；把“家属要求”直接等同于医学上应立即停止治疗，或反过来完全忽略代理决策。"
+      },
+      {
+        "option": "C",
+        "reason": "C.患者的经济条件：不符合本题核心判断轴；把“家属要求”直接等同于医学上应立即停止治疗，或反过来完全忽略代理决策。"
+      }
+    ],
+    "common_failure_node": "把“家属要求”直接等同于医学上应立即停止治疗，或反过来完全忽略代理决策。",
+    "source_gap_note": "Current Xizong Knowledge的人文/医学伦理独立owner尚未建立；Explanation保留题源答案，但Crosswalk不制造临床KP映射。"
+  },
+  {
+    "question_id": "xizong-official-2018-n113",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "HIV信息报告与保密例外旧法规口径",
+    "decision_axis": "题源认为依法向疾病预防控制机构报告可构成保密义务的法定例外；具体报告主体、流程与数据规则须按现行传染病/HIV管理规范执行。",
+    "reasoning_chain": [
+      "题源认为依法向疾病预防控制机构报告可构成保密义务的法定例外；具体报告主体、流程与数据规则须按现行传染病/HIV管理规范执行。",
+      "题源官方答案为C“将检测结果报告给疾病预防控制中心”，在题源知识体系下可以成立。",
+      "但Current Knowledge缺少足够精确的法规/伦理/具体药名或残基owner，因此Explanation保留、Crosswalk fail-closed。"
+    ],
+    "transfer_rule": "仅保留“法定公共卫生报告可构成保密例外”的原则，不固化旧流程。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "C.将检测结果报告给疾病预防控制中心。依法报告传染病可构成保密义务例外，但报告主体、流程和数据处理必须服从现行法规；Current无人文/法规owner。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.将检测结果报告给患者单位的领导：把“保密”理解成绝对不能依法报告，或把旧报告流程当成Current固定模板。"
+      },
+      {
+        "option": "B",
+        "reason": "B.将检测结果告知前来问询的患者父亲：把“保密”理解成绝对不能依法报告，或把旧报告流程当成Current固定模板。"
+      }
+    ],
+    "common_failure_node": "把“保密”理解成绝对不能依法报告，或把旧报告流程当成Current固定模板。",
+    "source_boundary_note": "该题涉及医学伦理/法规的历史考试口径；Current Xizong Knowledge无独立人文法规owner，且现实执行须按现行法律与制度核对。"
+  },
+  {
+    "question_id": "xizong-official-2018-n114",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "临床试验风险获益伦理",
+    "decision_axis": "临床研究的科学与社会价值不能凌驾于受试者安全，伦理核心是合理的风险-获益平衡、风险最小化和充分保护受试者。",
+    "reasoning_chain": [
+      "临床研究的科学与社会价值不能凌驾于受试者安全，伦理核心是合理的风险-获益平衡、风险最小化和充分保护受试者。",
+      "题源官方答案为C“只有在发展医学知识与不伤害受试者之间做出最佳平衡，对受试者可能造成的风险是最低的临床试验，才可以得到伦理辩护”，在题源知识体系下可以成立。",
+      "但Current Knowledge缺少足够精确的法规/伦理/具体药名或残基owner，因此Explanation保留、Crosswalk fail-closed。"
+    ],
+    "transfer_rule": "研究价值是必要条件，但不能用“为了科学”正当化不必要伤害。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "C.只有在发展医学知识与不伤害受试者之间做出最佳平衡，对受试者可能造成的风险是最低的临床试验，才可以得到伦理辩护。临床研究伦理的核心是科学/社会价值与受试者保护之间做合理风险—获益平衡并尽量降低风险；Current无人文伦理owner。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.只有能够使受试者个人受益的临床试验才可以得到伦理辩护：用“有科学价值”替代风险最小化与受试者保护。"
+      },
+      {
+        "option": "D",
+        "reason": "D.为了科学知识的增长和未来患者健康利益，对少数受试者的伤害是医学发展所必须的，可以得到伦理辩护：用“有科学价值”替代风险最小化与受试者保护。"
+      }
+    ],
+    "common_failure_node": "用“有科学价值”替代风险最小化与受试者保护。",
+    "source_boundary_note": "该题涉及医学伦理/法规的历史考试口径；Current Xizong Knowledge无独立人文法规owner，且现实执行须按现行法律与制度核对。"
+  },
+  {
+    "question_id": "xizong-official-2018-n115",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "未亲诊开具证明的旧法条题",
+    "decision_axis": "题源依据旧《执业医师法》口径要求未亲自诊查不得开具诊断/休假证明；现行法律名称与具体规范已更新，不将旧法条表述写入Current。",
+    "reasoning_chain": [
+      "题源依据旧《执业医师法》口径要求未亲自诊查不得开具诊断/休假证明；现行法律名称与具体规范已更新，不将旧法条表述写入Current。",
+      "题源官方答案为A“未亲自诊治患者，不予开具假条”，在题源知识体系下可以成立。",
+      "但Current Knowledge缺少足够精确的法规/伦理/具体药名或残基owner，因此Explanation保留、Crosswalk fail-closed。"
+    ],
+    "transfer_rule": "仅保留题源/法规时代边界；不得反向改写Current canonical。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A.未亲自诊治患者，不予开具假条。题源按旧《执业医师法》口径要求未亲自诊查不得开具诊断/休假证明；现行法规范畴已更新，Current无人文法规owner。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "B.考虑患者行动不便，予开具假条：把旧法条题直接背成今天的现行法原文。"
+      },
+      {
+        "option": "D",
+        "reason": "D.落实简化就医流程，予开具假条：把旧法条题直接背成今天的现行法原文。"
+      }
+    ],
+    "common_failure_node": "把旧法条题直接背成今天的现行法原文。",
+    "source_boundary_note": "该题涉及医学伦理/法规的历史考试口径；Current Xizong Knowledge无独立人文法规owner，且现实执行须按现行法律与制度核对。"
+  },
+  {
+    "question_id": "xizong-official-2018-n116",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "ACEI识别",
+    "decision_axis": "卡托普利抑制血管紧张素转换酶，属于ACEI；氯沙坦是ARB，美托洛尔是β受体阻滞剂，维拉帕米是非二氢吡啶类钙拮抗剂。",
+    "reasoning_chain": [
+      "卡托普利抑制血管紧张素转换酶，属于ACEI；氯沙坦是ARB，美托洛尔是β受体阻滞剂，维拉帕米是非二氢吡啶类钙拮抗剂。",
+      "题源官方答案为C“卡托普利”，在题源知识体系下可以成立。",
+      "但Current Knowledge缺少足够精确的法规/伦理/具体药名或残基owner，因此Explanation保留、Crosswalk fail-closed。"
+    ],
+    "transfer_rule": "药名后缀-pril联想ACEI。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "C.卡托普利。卡托普利属于ACEI这一药名—药类配对本身成立，但Current Knowledge只有ACEI机制/类别，没有冻结“卡托普利”这一具体药名owner。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "D.氯沙坦：看到同类机制owner就越过“具体药名未冻结”的边界硬映。"
+      },
+      {
+        "option": "B",
+        "reason": "B.美托洛尔：看到同类机制owner就越过“具体药名未冻结”的边界硬映。"
+      }
+    ],
+    "common_failure_node": "看到同类机制owner就越过“具体药名未冻结”的边界硬映。",
+    "source_gap_note": "Current Knowledge已覆盖相关机制/治疗角色，但未把具体药名“卡托普利”冻结为该题所需的最小Current owner；不为覆盖率硬映。"
+  },
+  {
+    "question_id": "xizong-official-2018-n117",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "ARB识别",
+    "decision_axis": "氯沙坦阻断血管紧张素ⅡAT1受体，属于ARB；与ACEI作用靶点不同。",
+    "reasoning_chain": [
+      "氯沙坦阻断血管紧张素ⅡAT1受体，属于ARB；与ACEI作用靶点不同。",
+      "题源官方答案为D“氯沙坦”，在题源知识体系下可以成立。",
+      "但Current Knowledge缺少足够精确的法规/伦理/具体药名或残基owner，因此Explanation保留、Crosswalk fail-closed。"
+    ],
+    "transfer_rule": "药名后缀-sartan联想ARB。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "D.氯沙坦。氯沙坦属于ARB这一药名—药类配对成立，但Current Knowledge未冻结“氯沙坦”这一具体药名owner。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "C.卡托普利：用ACEI/ARB机制常识替代具体药名的Current证据。"
+      },
+      {
+        "option": "A",
+        "reason": "A.维拉帕米：用ACEI/ARB机制常识替代具体药名的Current证据。"
+      }
+    ],
+    "common_failure_node": "用ACEI/ARB机制常识替代具体药名的Current证据。",
+    "source_gap_note": "Current Knowledge已覆盖相关机制/治疗角色，但未把具体药名“氯沙坦”冻结为该题所需的最小Current owner；不为覆盖率硬映。"
+  },
+  {
+    "question_id": "xizong-official-2018-n118",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "帕金森病多巴胺替代",
+    "decision_axis": "帕金森病黑质-纹状体多巴胺功能不足，左旋多巴可进入中枢后转化为多巴胺，从而改善运动迟缓和少动。",
+    "reasoning_chain": [
+      "帕金森病黑质-纹状体多巴胺功能不足，左旋多巴可进入中枢后转化为多巴胺，从而改善运动迟缓和少动。",
+      "题源官方答案为D“左旋多巴”，在题源知识体系下可以成立。",
+      "但Current Knowledge缺少足够精确的法规/伦理/具体药名或残基owner，因此Explanation保留、Crosswalk fail-closed。"
+    ],
+    "transfer_rule": "少动型基底节疾病抓多巴胺不足，左旋多巴补底物。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "D.左旋多巴。左旋多巴是多巴胺前体并可改善帕金森运动减少；Current N8只冻结“补多巴胺前体”的治疗角色，没有把左旋多巴药名作为该角色的Current owner。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.利血平：把“治疗角色已冻结”误当成“具体药名也已冻结”。"
+      },
+      {
+        "option": "B",
+        "reason": "B.哌唑嗪：把“治疗角色已冻结”误当成“具体药名也已冻结”。"
+      }
+    ],
+    "common_failure_node": "把“治疗角色已冻结”误当成“具体药名也已冻结”。",
+    "source_gap_note": "Current Knowledge已覆盖相关机制/治疗角色，但未把具体药名“左旋多巴”冻结为该题所需的最小Current owner；不为覆盖率硬映。"
+  },
+  {
+    "question_id": "xizong-official-2018-n119",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "舞蹈病利血平旧药物口径",
+    "decision_axis": "题源用利血平耗竭单胺来降低舞蹈样运动；Current亨廷顿病舞蹈症治疗更多采用VMAT2抑制剂等，利血平不应升级为现代固定首选。",
+    "reasoning_chain": [
+      "亨廷顿/舞蹈症的运动过多与基底节递质失衡有关，Current N8保留“减弱DA效应或减少囊泡储存”的治疗角色。",
+      "Current N2明确写明利血平阻断囊泡递质摄取，使多巴胺等单胺逐渐耗竭。",
+      "因此按2018题源选A利血平；学习时只保留历史考试药理角色，不升级为现代一线治疗。"
+    ],
+    "transfer_rule": "仅保留题源/Study边界；不得据此反向改写Current canonical。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A.利血平。利血平抑制囊泡单胺储存并使多巴胺等递质耗竭；Current N8又明确保留亨廷顿/舞蹈症“减少囊泡储存或减弱DA效应”的Source-bound治疗角色，因此题源答案可安全映射但需保留现代治疗边界。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "D.左旋多巴：把历史考试药理角色直接升级成现代一线治疗。"
+      },
+      {
+        "option": "B",
+        "reason": "B.哌唑嗪：把历史考试药理角色直接升级成现代一线治疗。"
+      }
+    ],
+    "common_failure_node": "把历史考试药理角色直接升级成现代一线治疗。",
+    "source_boundary_note": "Current N8/N2可承接“减少囊泡单胺储存→降低舞蹈样运动”的考试机制与利血平身份；但这不是现代亨廷顿病舞蹈症的一线治疗推荐，不把历史药理角色升级为Current首选。"
+  },
+  {
+    "question_id": "xizong-official-2018-n120",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "翻译后修饰形成羟脯氨酸",
+    "decision_axis": "胶原蛋白合成后，脯氨酸残基可经脯氨酰羟化酶羟化形成羟脯氨酸，因此羟脯氨酸属于翻译后修饰产物。",
+    "reasoning_chain": [
+      "胶原蛋白合成后，脯氨酸残基可经脯氨酰羟化酶羟化形成羟脯氨酸，因此羟脯氨酸属于翻译后修饰产物。",
+      "在给定选项中，A“羟脯氨酸”直接命中上述决定轴。",
+      "其余选项不具备该关键结构/机制特征，因此选A。"
+    ],
+    "transfer_rule": "羟脯氨酸/羟赖氨酸是胶原翻译后羟化的经典产物。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A.羟脯氨酸。羟脯氨酸由蛋白中的脯氨酸残基在翻译后经羟化形成，不是翻译时按独立密码子直接装入多肽。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "C.硒代半胱氨酸：把“存在于蛋白质”误当成“必然由密码子直接编码”。"
+      },
+      {
+        "option": "D",
+        "reason": "D.亮氨酸：把“存在于蛋白质”误当成“必然由密码子直接编码”。"
+      }
+    ],
+    "common_failure_node": "把“存在于蛋白质”误当成“必然由密码子直接编码”。"
+  },
+  {
+    "question_id": "xizong-official-2018-n121",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "蛋白磷酸化残基",
+    "decision_axis": "丝氨酸、苏氨酸和酪氨酸侧链含羟基，均可成为常见蛋白激酶磷酸化位点；本题选项中只有苏氨酸符合。",
+    "reasoning_chain": [
+      "丝氨酸、苏氨酸和酪氨酸侧链含羟基，均可成为常见蛋白激酶磷酸化位点；本题选项中只有苏氨酸符合。",
+      "题源官方答案为B“苏氨酸”，在题源知识体系下可以成立。",
+      "但Current Knowledge缺少足够精确的法规/伦理/具体药名或残基owner，因此Explanation保留、Crosswalk fail-closed。"
+    ],
+    "transfer_rule": "蛋白磷酸化经典残基记Ser/Thr/Tyr。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B.苏氨酸。题源考“Ser/Thr/Tyr羟基残基可被磷酸化”；Current G3只冻结了“磷酸化属于翻译后修饰”，未冻结具体可磷酸化残基清单，不能硬映苏氨酸答案。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.羟脯氨酸：把“存在磷酸化修饰”偷换成“Current已拥有具体残基名单”。"
+      },
+      {
+        "option": "D",
+        "reason": "D.亮氨酸：把“存在磷酸化修饰”偷换成“Current已拥有具体残基名单”。"
+      }
+    ],
+    "common_failure_node": "把“存在磷酸化修饰”偷换成“Current已拥有具体残基名单”。",
+    "source_gap_note": "Current G3明确“磷酸化属于翻译后修饰”，但未冻结Ser/Thr/Tyr作为常见磷酸化残基的精确列表；因此本题不建立正向relation。"
+  },
+  {
+    "question_id": "xizong-official-2018-n122",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "分子伴侣与蛋白折叠",
+    "decision_axis": "热休克蛋白可作为分子伴侣，结合新生或错误折叠多肽，促进正确折叠并防止异常聚集。",
+    "reasoning_chain": [
+      "热休克蛋白可作为分子伴侣，结合新生或错误折叠多肽，促进正确折叠并防止异常聚集。",
+      "在给定选项中，B“热激（休克）蛋白”直接命中上述决定轴。",
+      "其余选项不具备该关键结构/机制特征，因此选B。"
+    ],
+    "transfer_rule": "蛋白正确折叠先想分子伴侣/HSP。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B.热激（休克）蛋白。热休克蛋白/Hsp可作为分子伴侣，帮助新生或错误折叠多肽获得正确构象并减少聚集。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.泛素：把“参与蛋白质质量控制”的泛素与“帮助正确折叠”的分子伴侣混淆。"
+      },
+      {
+        "option": "D",
+        "reason": "D.蛋白激酶：把“参与蛋白质质量控制”的泛素与“帮助正确折叠”的分子伴侣混淆。"
+      }
+    ],
+    "common_failure_node": "把“参与蛋白质质量控制”的泛素与“帮助正确折叠”的分子伴侣混淆。"
+  },
+  {
+    "question_id": "xizong-official-2018-n123",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "蛋白激酶作为信号开关",
+    "decision_axis": "蛋白激酶通过可逆磷酸化改变靶蛋白活性，与磷酸酶共同构成许多信号通路的开关机制。",
+    "reasoning_chain": [
+      "蛋白激酶通过可逆磷酸化改变靶蛋白活性，与磷酸酶共同构成许多信号通路的开关机制。",
+      "在给定选项中，D“蛋白激酶”直接命中上述决定轴。",
+      "其余选项不具备该关键结构/机制特征，因此选D。"
+    ],
+    "transfer_rule": "可逆磷酸化的开关=激酶加磷酸、磷酸酶去磷酸。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "D.蛋白激酶。蛋白激酶位于多种膜受体—第二信使通路的下游，通过磷酸化改变靶蛋白状态并放大信号，因此可作为信号传递中的功能开关。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.泛素：把“参与翻译/降解”的蛋白与“直接改变信号通路靶蛋白状态”的激酶混为一类。"
+      },
+      {
+        "option": "B",
+        "reason": "B.热激（休克）蛋白：把“参与翻译/降解”的蛋白与“直接改变信号通路靶蛋白状态”的激酶混为一类。"
+      }
+    ],
+    "common_failure_node": "把“参与翻译/降解”的蛋白与“直接改变信号通路靶蛋白状态”的激酶混为一类。"
+  },
+  {
+    "question_id": "xizong-official-2018-n124",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "甲状腺乳头状癌核特征",
+    "decision_axis": "乳头状癌诊断高度依赖特征性核改变，如核透明/毛玻璃样、核沟和核内包涵体，乳头结构本身不是唯一条件。",
+    "reasoning_chain": [
+      "乳头状癌诊断高度依赖特征性核改变，如核透明/毛玻璃样、核沟和核内包涵体，乳头结构本身不是唯一条件。",
+      "在给定选项中，A“乳头状癌”直接命中上述决定轴。",
+      "其余选项不具备该关键结构/机制特征，因此选A。"
+    ],
+    "transfer_rule": "甲状腺乳头癌先看核；滤泡癌主要看包膜/血管侵犯。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A.乳头状癌。乳头状甲状腺癌即使结构呈滤泡样，也依赖毛玻璃核、核沟、核内假包涵体等特征性核改变识别。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "B.滤泡状癌：只按“乳头/滤泡排列形态”命名肿瘤，忽略乳头癌的核特征才是关键身份。"
+      },
+      {
+        "option": "C",
+        "reason": "C.髓样癌：只按“乳头/滤泡排列形态”命名肿瘤，忽略乳头癌的核特征才是关键身份。"
+      }
+    ],
+    "common_failure_node": "只按“乳头/滤泡排列形态”命名肿瘤，忽略乳头癌的核特征才是关键身份。"
+  },
+  {
+    "question_id": "xizong-official-2018-n125",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2018/q101-125.json",
+      "blob_sha": "58d41a6d841f4e72151a17e59d44fbf07f5955fa",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "甲状腺滤泡癌生物学行为诊断",
+    "decision_axis": "滤泡癌与滤泡性腺瘤细胞形态可高度相似，关键看包膜侵犯和血管侵犯等生物学行为证据。",
+    "reasoning_chain": [
+      "滤泡癌与滤泡性腺瘤细胞形态可高度相似，关键看包膜侵犯和血管侵犯等生物学行为证据。",
+      "在给定选项中，B“滤泡状癌”直接命中上述决定轴。",
+      "其余选项不具备该关键结构/机制特征，因此选B。"
+    ],
+    "transfer_rule": "滤泡性肿瘤良恶性不能只看细胞异型，核心是侵包膜/侵血管。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "format": "FAST_OWNER",
+      "learner_state_included": false,
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B.滤泡状癌。滤泡癌与滤泡性腺瘤细胞形态可非常接近，决定恶性的关键是包膜侵犯和血管侵犯等生物学行为。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A.乳头状癌：企图只凭细胞异型性区分滤泡腺瘤和滤泡癌。"
+      },
+      {
+        "option": "C",
+        "reason": "C.髓样癌：企图只凭细胞异型性区分滤泡腺瘤和滤泡癌。"
+      }
+    ],
+    "common_failure_node": "企图只凭细胞异型性区分滤泡腺瘤和滤泡癌。"
+  }
+]

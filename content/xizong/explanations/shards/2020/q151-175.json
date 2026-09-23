@@ -16,14 +16,23 @@
       "明显细胞异型不是这个炎症性坏死-修复过程的定义特征，C不选。"
     ],
     "transfer_rule": "重型肝炎病理沿大片坏死→支架塌陷→结节再生理解。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A、B、D正确。亚急性重型肝炎可见亚大块坏死、网状支架塌陷，并伴显著肝细胞结节状再生。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "明显细胞异型更提示肿瘤性异常，不是重型肝炎坏死—修复过程的定义特征。"
+      }
+    ],
+    "common_failure_node": "把“再生结节”误认为“肿瘤异型”，忽略修复性再生与恶性异型不是同一概念。"
   },
   {
     "question_id": "xizong-official-2020-n152",
@@ -42,14 +51,27 @@
       "A、B更多反映局部或区域进展，不能单凭它们判成晚期。"
     ],
     "transfer_rule": "胃癌远处转移经典记左锁骨上结节和Krukenberg瘤。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "C、D正确。双侧卵巢Krukenberg转移和左锁骨上Virchow结节均属于胃癌经典远处/晚期播散表现。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "浸润至黏膜下层仍属于局部深度轴，甚至可落在早期胃癌定义内。"
+      },
+      {
+        "option": "B",
+        "reason": "区域淋巴结转移本身不等同于题目所指的晚期远处转移。"
+      }
+    ],
+    "common_failure_node": "把“有淋巴结转移”直接等同于晚期，而不区分区域与远处播散。"
   },
   {
     "question_id": "xizong-official-2020-n153",
@@ -68,14 +90,23 @@
       "抗GBM病典型为沿GBM的线状荧光，A不选。"
     ],
     "transfer_rule": "颗粒状=免疫复合物；线状=抗GBM。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "B、C、D正确。链球菌感染后GN、狼疮性肾炎和IgA肾病属于免疫复合物型，免疫荧光可呈颗粒状。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "抗GBM/肺出血肾炎综合征典型是沿GBM线状荧光。"
+      }
+    ],
+    "common_failure_node": "只记“免疫荧光阳性”，不区分颗粒型免疫复合物与线状抗GBM。"
   },
   {
     "question_id": "xizong-official-2020-n154",
@@ -89,17 +120,24 @@
     "exam_target": "胸腔积液低葡萄糖",
     "decision_axis": "脓胸、类风湿性胸膜炎、恶性胸腔积液及部分狼疮相关积液均可因细胞/微生物消耗或转运障碍出现低胸水葡萄糖。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "胸水葡萄糖下降可来自细胞/微生物消耗增加或葡萄糖转运受限。",
+      "题源将脓胸、RA、恶性胸水和SLE全部列为可低糖。",
+      "Current R10只冻结胸水葡萄糖低的一般渗出液接口，未完整冻结四病集合，因此fail-closed。"
     ],
     "transfer_rule": "胸水低糖常提示感染、恶性或类风湿等高代谢/转运障碍状态。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A、B、C、D为题源答案。脓胸、类风湿性胸膜炎、恶性胸腔积液和部分SLE胸水都可出现低葡萄糖，但Current R10未把这四病完整集合冻结为一个最小owner。",
+    "valuable_distractors": [],
+    "common_failure_node": "看到R10有“渗出液葡萄糖低”总表，就把所有渗出液或四个病名直接等同于低糖胸水。",
+    "source_gap_note": "Current R10只明确胸水葡萄糖低这一检查方向，没有单一KP完整冻结脓胸、RA、恶性胸水、SLE四病低糖集合。"
   },
   {
     "question_id": "xizong-official-2020-n155",
@@ -113,17 +151,33 @@
     "exam_target": "心梗后心功能评价",
     "decision_axis": "超声心动图和核素心功能检查均可评价心室收缩功能和射血分数，用于心梗后心功能评估。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "心功能评估核心是心室容积、壁运动和射血分数。",
+      "超声可直接完成这一任务，核素显像也能量化心室功能。",
+      "Current这些角色分散于循环多个Block，没有单一最小owner同时完整承接B、C，因此不建relation。"
     ],
     "transfer_rule": "看心功能要用能量化室壁运动/EF的检查。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "B、C正确。超声心动图可直接评价心室容积、壁运动和LVEF；核素心脏检查也可评价心室功能/射血分数。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "动态心电图主要评估节律和缺血性ST-T变化，不直接量化整体泵功能。"
+      },
+      {
+        "option": "D",
+        "reason": "冠状动脉造影主要回答冠脉解剖和狭窄，不等同于心功能评价。"
+      }
+    ],
+    "common_failure_node": "把“心脏检查”都当成“心功能检查”，不先问它回答的是泵功能、节律还是冠脉解剖。",
+    "source_gap_note": "超声心功能角色与核素心功能角色分散在不同Current模块，没有单一最小owner完整承接题目B、C两条正确项。"
   },
   {
     "question_id": "xizong-official-2020-n156",
@@ -142,14 +196,23 @@
       "胃本身并不负责维生素B12的主要吸收，所以C不选。"
     ],
     "transfer_rule": "自身免疫胃炎→内因子缺乏→B12吸收障碍。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A、B、D正确。壁细胞破坏使内因子减少，抗内因子抗体使其功能异常，最终造成末端回肠维生素B₁₂吸收下降。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "维生素B₁₂主要在末端回肠吸收，不是胃黏膜直接吸收。"
+      }
+    ],
+    "common_failure_node": "知道恶性贫血与胃有关，就误以为B₁₂是在胃里吸收。"
   },
   {
     "question_id": "xizong-official-2020-n157",
@@ -168,14 +231,23 @@
       "pH 7.25虽然提示酸中毒，但单独这一数值通常还要结合是否难治及整体病情，B不作为本题必选。"
     ],
     "transfer_rule": "紧急透析抓AEIOU：酸中毒、电解质、毒物、容量、尿毒症。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A、C、D正确。K⁺ 7.0 mmol/L、严重尿毒症性脑病和利尿无效的严重肺水肿都属于紧急KRT指征。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "pH 7.25提示酸中毒，但单独该数值通常还需结合是否难治和整体病情，不能作为本题必选。"
+      }
+    ],
+    "common_failure_node": "背“AEIOU”后把任何轻中度酸中毒都自动当成紧急透析。"
   },
   {
     "question_id": "xizong-official-2020-n158",
@@ -189,7 +261,9 @@
     "exam_target": "MDS RAEB-T旧FAB分型",
     "decision_axis": "题源按旧FAB把RAEB-T作为MDS亚型；Current WHO/ICC已重构MDS/AML界限和命名，不能把该旧分类写入Current。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对旧分类体系 fail-closed。"
+      "题目明确要求旧FAB体系。",
+      "题源用外周血原始细胞、骨髓20%–30%原始细胞及Auer小体定义RAEB-T。",
+      "Current分类体系已重构该边界，因此只保留历史答案，不建立Current relation。"
     ],
     "transfer_rule": "仅保留题源/FAB时代边界；Current按现行MDS/AML分类。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -198,8 +272,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A、B、C为题源旧FAB RAEB-T标准答案；RAEB-T这一MDS亚型及MDS/AML原始细胞界限已被现代WHO/ICC重构。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "环形铁粒幼细胞≥15%属于旧FAB其他MDS亚型识别点，不是RAEB-T核心。"
+      }
+    ],
+    "common_failure_node": "把旧FAB RAEB-T阈值当成现行MDS/AML分类标准。",
+    "source_boundary_note": "RAEB-T属于旧FAB MDS分类；现代WHO/ICC已重构MDS/AML边界和命名，本题仅保留历史考试口径。"
   },
   {
     "question_id": "xizong-official-2020-n159",
@@ -218,14 +302,23 @@
       "贫血不是其典型核心表现，A不选。"
     ],
     "transfer_rule": "Cushing抓代谢、骨骼、精神和ACTH相关皮肤表现。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "B、C、D正确。Cushing可出现ACTH依赖型色素沉着、骨质疏松/病理性骨折和精神心理异常。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "贫血不是Cushing综合征典型核心表现。"
+      }
+    ],
+    "common_failure_node": "把所有Cushing病例都理解成ACTH低，忽略ACTH依赖型可有色素沉着。"
   },
   {
     "question_id": "xizong-official-2020-n160",
@@ -239,17 +332,29 @@
     "exam_target": "肺癌常见组织类型时代变化",
     "decision_axis": "题源以小细胞癌、鳞癌、腺癌作为“目前常见”类型；肺癌病理分类和“大细胞癌”等命名随WHO版本变化，带“目前”的排序/集合不宜升级。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对病理分类时代边界 fail-closed。"
+      "Current R11把肺癌组织学主要入口按腺癌、鳞癌、神经内分泌癌等组织来源重构。",
+      "同一Current Study明确给出发病率：腺癌 > 鳞癌 > 小细胞癌。",
+      "因此题源B、C、D与Current Study一致，可做R11 Block-level relation。"
     ],
     "transfer_rule": "仅保留题源/Study边界；Current肺癌分类以现行WHO病理体系为准。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "B、C、D正确。Current R11 Study明确保留肺癌组织学发病率为“腺癌 > 鳞癌 > 小细胞癌”，大细胞癌不在当前常见前三入口。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "大细胞癌在现代分类和当前Study中不属于这道题所列的常见前三组织学类型。"
+      }
+    ],
+    "common_failure_node": "把“历史上有大细胞癌这一名称”误当成它仍属于Current最常见主型集合。",
+    "source_boundary_note": "本relation承接Current R11的Source-bound组织学常见类型/发病率口径；不外推到未来WHO分类或人群流行病学变化。"
   },
   {
     "question_id": "xizong-official-2020-n161",
@@ -263,7 +368,9 @@
     "exam_target": "失血量固定输血阈值旧口径",
     "decision_axis": "题源按失血百分比给出固定输血原则；Current复苏更依据血流动力学、持续出血、Hb、凝血和大出血方案，不宜固化单一比例阈值。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对现行复苏阈值 fail-closed。"
+      "题源按失血比例给出A/B/C三条固定处理。",
+      "Current B12只保留失血严重度和随失血增加逐步补充红细胞/血制品的方向，并未冻结这套10/20/30%阈值。",
+      "因此历史答案保留，Crosswalk fail-closed。"
     ],
     "transfer_rule": "仅保留题源/Study边界；Current输血按患者状态与大出血协议综合决定。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -272,8 +379,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A、B、C为题源旧失血分层答案；Current B12保留“失血越多逐步加入血制品”和休克严重度，但未冻结这道题10%/20%/30%的完整输血阈值表。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "失血>30%并不意味着必须“全部输入全血”；现代复苏重视成分治疗、持续出血和凝血状态。"
+      }
+    ],
+    "common_failure_node": "把历史固定失血百分比直接当成现代成分输血和大出血复苏阈值。",
+    "source_boundary_note": "Current B12没有完整冻结题源10%/20%/30%输血分层；现实输血还需结合血流动力学、持续出血、Hb与凝血状态。"
   },
   {
     "question_id": "xizong-official-2020-n162",
@@ -292,14 +409,23 @@
       "肾功能损害不是Current PN并发症框架中的典型固定项，B不选。"
     ],
     "transfer_rule": "长期PN并发症要看肝胆、代谢、电解质和骨骼。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A、C、D正确。长期PN可造成肝胆损害、水电解质/代谢紊乱和代谢性骨病/骨质疏松。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肾功能损害不是Current PN并发症框架中的典型固定项。"
+      }
+    ],
+    "common_failure_node": "只记导管感染和肝损伤，漏掉电解质、肠屏障和骨代谢等长期并发症。"
   },
   {
     "question_id": "xizong-official-2020-n163",
@@ -318,14 +444,23 @@
       "它属于浅表淋巴管网的非化脓性炎，通常不以组织坏死为主，所以C不选。"
     ],
     "transfer_rule": "丹毒=链球菌+浅表淋巴管炎+界清红斑。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A、B、D正确。丹毒多由β溶血性链球菌引起，可从皮肤/黏膜破损进入，并且容易复发；通常不以组织坏死为主。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "丹毒是浅表淋巴管网的非化脓性炎，反复发作并不以组织坏死为典型结局。"
+      }
+    ],
+    "common_failure_node": "把丹毒和坏死性软组织感染混为一谈。"
   },
   {
     "question_id": "xizong-official-2020-n164",
@@ -344,14 +479,18 @@
       "关键是“半屈状态下的负重旋转剪切”，不是把某一个动作孤立成唯一原因。"
     ],
     "transfer_rule": "半月板损伤常发生在负重屈膝伴旋转剪切。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A、B、C、D均正确。半屈位、挤压、内收/外展和旋转共同构成半月板的经典剪切—挤压损伤机制。",
+    "valuable_distractors": [],
+    "common_failure_node": "多选全对时为了找“唯一关键动作”而错误否定其他协同受力因素。"
   },
   {
     "question_id": "xizong-official-2020-n165",
@@ -370,13 +509,22 @@
       "急性肩部挫伤并不是Current Study认为的最主要激发因素，A不选。"
     ],
     "transfer_rule": "冻结肩核心=主动+被动活动都受限。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "B、C、D正确。冻结肩以盂肱关节囊粘连僵硬、主动和被动活动受限为本体，可与颈肩疾病相关，并常有自限过程。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "急性肩部挫伤不是Current Study认为的最主要激发因素。"
+      }
+    ],
+    "common_failure_node": "只要有肩痛就归因外伤，忽略冻结肩的关节囊粘连和自限性病程。"
   }
 ]

@@ -11,17 +11,33 @@
     "exam_target": "直肠癌术后肝转移识别",
     "decision_axis": "既往直肠癌手术后出现肝占位时，结直肠癌经门静脉系统转移至肝是常见复发模式，题源答案为肝转移癌。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "当前Question Truth只保留既往直肠癌手术、左下腹造口和肛门已不存在，这只能证明既往直肠癌手术史，并没有保存任何肝占位影像或复发检查结果。",
+      "官方答案D“肝转移癌”说明原题应有未保留的肝脏子问或检查上下文。",
+      "缺少决定性肝脏证据时，不能仅凭直肠癌既往史把一个未描述的肝病变Current确诊为转移癌，因此保留历史答案但Crosswalk fail-closed。"
     ],
     "transfer_rule": "有消化道恶性肿瘤史的新发肝占位先评估转移性病变。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "D.肝转移癌为题源官方答案；但当前Question Truth缺少肝占位本身的影像/检查信息，无法安全重建诊断链。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "直肠癌确实常转移至肝，但既往肿瘤史不能在没有肝病灶证据时单独排除原发性肝癌。"
+      },
+      {
+        "option": "B",
+        "reason": "肝血管瘤是常见良性占位；缺少影像特征时不能仅凭既往直肠癌史排除。"
+      }
+    ],
+    "common_failure_node": "看见“既往直肠癌”就把Question Truth里并未描述的肝占位自动补出来，再反推成转移癌。",
+    "source_gap_note": "共享病例缺少决定性肝脏子问/检查证据；官方答案保留，但不能从残缺上下文反向制造“术后新发肝占位”的Current事实。"
   },
   {
     "question_id": "xizong-official-2019-n102",
@@ -35,7 +51,9 @@
     "exam_target": "结直肠癌肝转移旧切除策略",
     "decision_axis": "题源对该共享病例选择肝部分切除，但肝转移治疗需结合转移灶数目/分布、剩余肝体积、肝外病灶及系统治疗反应，不能仅凭旧共享题固定术式。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源答案保留为B。",
+      "Current D15只保留“可切除且条件合适时可处理肝转移”的方向。",
+      "具体切除范围和是否先系统治疗需要完整分期/可切除性信息，因此不建立正向relation。"
     ],
     "transfer_rule": "仅保留题源/Study时代边界；Current肝转移治疗需多学科可切除性评估。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -44,8 +62,14 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.肝部分切除术为题源官方答案；Current结直肠癌肝转移治疗需结合病灶数目/分布、可切除性、剩余肝体积、肝外病灶和系统治疗反应，不能仅凭残存共享病例固定术式。",
+    "valuable_distractors": [],
+    "common_failure_node": "把“可切除肝转移可手术”偷换成“任何此类病例固定做部分肝切除”。",
+    "source_gap_note": "共享病例/子问的决定性信息未完整保留在当前Question Truth；官方答案保留，但不能从残缺上下文反向制造Current诊断或处置链。",
+    "source_boundary_note": "共享病例缺少肝转移灶数目、分布、剩余肝体积、肝外病灶等Current手术决策信息；题源固定“肝部分切除术”不升级为统一Current术式。"
   },
   {
     "question_id": "xizong-official-2019-n103",
@@ -59,17 +83,32 @@
     "exam_target": "腰椎/神经结构MRI检查",
     "decision_axis": "腰痛合并鞍区感觉异常提示椎管内神经结构受累，MRI可评价椎间盘、椎管、马尾及软组织，是本题最有价值的影像检查。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "鞍区感觉异常把普通腰痛升级为椎管内神经结构受累。",
+      "需要直接显示椎间盘、椎管及马尾/神经根压迫。",
+      "Current O4明确MRI最适合根、髓和软组织受压评价，因此选B。"
     ],
     "transfer_rule": "腰椎症状伴鞍区感觉异常时要重视MRI评价椎管和马尾。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.MRI。腰痛合并鞍区感觉异常提示椎管内神经结构受累，MRI最清楚显示椎间盘、神经根、马尾及软组织压迫。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "X线主要显示骨性结构、曲度和间隙，不能清楚显示神经/马尾受压。"
+      },
+      {
+        "option": "C",
+        "reason": "肌电图可帮助功能定位，但不能直接显示椎管内压迫结构。"
+      }
+    ],
+    "common_failure_node": "出现神经红旗后仍只做普通X线，忽略MRI对神经软组织受压的直接价值。"
   },
   {
     "question_id": "xizong-official-2019-n104",
@@ -83,17 +122,32 @@
     "exam_target": "腰椎管狭窄临床特点",
     "decision_axis": "腰椎管狭窄常见主观症状明显而静息查体阳性体征相对少，典型还包括神经源性间歇性跛行。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current O4对腰椎管狭窄给出两个最具区分力特征：症状多、体征少，以及神经源性间歇跛行。",
+      "本题四项中C直接命中该模式。",
+      "因此选C。"
     ],
     "transfer_rule": "腰椎管狭窄常见“症状多、体征少”并伴神经源性跛行。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.症状多阳性体征少。腰椎管狭窄的高价值模式是主观症状明显、静息查体阳性体征相对少，并常有神经源性间歇跛行。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "经典是“间歇性”神经源性跛行，不是持续跛行。"
+      },
+      {
+        "option": "D",
+        "reason": "鞍区感觉异常属于马尾/圆锥红旗接口，不是腰椎管狭窄最典型的普遍特征。"
+      }
+    ],
+    "common_failure_node": "把所有腰椎退变压迫都按腰椎间盘突出根性体征模板处理。"
   },
   {
     "question_id": "xizong-official-2019-n105",
@@ -107,7 +161,9 @@
     "exam_target": "腰椎疾病旧非手术治疗选择",
     "decision_axis": "题源选择非手术治疗，但当前Question Truth缺少明确诊断名称和完整治疗适应证；鞍区感觉异常又涉及潜在马尾受压风险，不能把该答案升级为Current统一处置。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源答案保留C。",
+      "Current O4允许部分腰椎退变病先保守，但二便障碍、进行性无力等马尾红旗会改变处置。",
+      "本题缺少具体诊断与完整红旗信息，无法安全建立治疗relation。"
     ],
     "transfer_rule": "仅保留题源/Study边界；存在马尾危险信号时必须重新按Current评估。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -116,8 +172,13 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.非手术治疗为题源官方答案；但现存病例缺少明确诊断和完整手术指征信息，且已有鞍区感觉异常，Current不能把“保守治疗”固化为统一处置。",
+    "valuable_distractors": [],
+    "common_failure_node": "看到“腰痛3个月、肌力正常”就忽略鞍区感觉异常这一马尾/圆锥风险信号。",
+    "source_gap_note": "当前Question Truth未保留足以确定具体腰椎疾病和手术指征的完整子问语义；鞍区感觉异常又属于需要升级定位的风险线索。"
   },
   {
     "question_id": "xizong-official-2019-n106",
@@ -131,7 +192,9 @@
     "exam_target": "前臂刀伤共享子问语义缺失",
     "decision_axis": "题干仅描述垂腕及掌指关节不能伸直，正式答案却为骨筋膜室切开减压；当前记录缺少可恢复的具体子问，无法安全解释为何选择减压术。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "垂腕和掌指关节不能伸首先定位桡神经/伸肌系统。",
+      "题源却给出骨筋膜室切开减压作为答案，说明当前记录缺少关键子问或临床信息。",
+      "因此保留历史答案但不制造Current relation。"
     ],
     "transfer_rule": "仅保留题源答案；共享子问语义缺失时不反向猜测治疗指征。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -140,8 +203,13 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.前臂骨筋膜室切开减压术为题源官方答案；但现存题干仅显示垂腕和伸指障碍，更直接提示桡神经损伤，缺少“为何需筋膜室减压”的具体子问/体征。",
+    "valuable_distractors": [],
+    "common_failure_node": "从官方答案反推不存在的骨筋膜室综合征体征，或忽略垂腕首先提示桡神经损伤。",
+    "source_gap_note": "共享病例的具体子问或关键体征缺失，无法解释为何题源选择骨筋膜室切开减压。"
   },
   {
     "question_id": "xizong-official-2019-n107",
@@ -160,14 +228,27 @@
       "尺神经主要看手内肌和尺侧感觉，正中神经偏屈肌/对掌；它们都不能解释典型垂腕+垂指。"
     ],
     "transfer_rule": "垂腕=桡神经损伤的经典定位线索。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "D.桡神经。垂腕并掌指关节不能主动伸直，说明腕指伸肌群失去神经支配，典型定位桡神经。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "正中神经损伤更影响前臂屈肌、鱼际和对掌等功能，不能解释典型垂腕。"
+      },
+      {
+        "option": "A",
+        "reason": "尺神经损伤主要影响骨间肌、尺侧手内肌和相应感觉。"
+      }
+    ],
+    "common_failure_node": "只按伤口在前臂就猜血管/神经，不从动作缺失反推支配神经。"
   },
   {
     "question_id": "xizong-official-2019-n108",
@@ -181,17 +262,29 @@
     "exam_target": "医学美德仁爱",
     "decision_axis": "患者生命垂危且无法联系代理人时，医生以患者生命利益为先及时救治，题源将其归于仁爱/关怀患者的医学美德。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "患者生命垂危且无法联系代理人时，医生以患者生命利益为先及时救治，题源将其归于仁爱/关怀患者的医学美德。",
+      "按2019题源比较轴选择A。",
+      "Current Xizong Knowledge没有独立人文/伦理最小owner，因此Explanation保留而Crosswalk fail-closed。"
     ],
     "transfer_rule": "医学美德题先看行为核心：以患者利益为中心体现仁爱。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A.仁爱。医生在患者危急且无法联系代理人时仍以患者生命利益为先积极救治。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "奉献强调职业投入/牺牲，不是本题最直接的患者利益关怀轴。"
+      }
+    ],
+    "common_failure_node": "把人文/伦理题因为概念稳定就硬塞进没有对应owner的临床Knowledge Block。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理owner；不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2019-n109",
@@ -205,17 +298,29 @@
     "exam_target": "医患信托关系",
     "decision_axis": "患者基于对专业能力和善意的高度信任，把诊疗决策托付给医生，体现医患关系中的信托性质。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "患者基于对专业能力和善意的高度信任，把诊疗决策托付给医生，体现医患关系中的信托性质。",
+      "按2019题源比较轴选择D。",
+      "Current Xizong Knowledge没有独立人文/伦理最小owner，因此Explanation保留而Crosswalk fail-closed。"
     ],
     "transfer_rule": "医患关系不仅是契约，更具有专业信托属性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "D.信托关系。患者将专业判断与治疗托付给医生，体现高度信任基础上的信托关系。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "契约关系强调约定与权利义务，不足以概括题干强调的专业托付与信任。"
+      }
+    ],
+    "common_failure_node": "把人文/伦理题因为概念稳定就硬塞进没有对应owner的临床Knowledge Block。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理owner；不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2019-n110",
@@ -229,17 +334,33 @@
     "exam_target": "医患沟通避免否定情绪",
     "decision_axis": "“其他患者都做了，有什么可紧张的”否定并贬低患者的真实担忧，不利于共情和建立治疗联盟，应避免。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "“其他患者都做了，有什么可紧张的”否定并贬低患者的真实担忧，不利于共情和建立治疗联盟，应避免。",
+      "按2019题源比较轴选择A。",
+      "Current Xizong Knowledge没有独立人文/伦理最小owner，因此Explanation保留而Crosswalk fail-closed。"
     ],
     "transfer_rule": "沟通先承认情绪和解释必要性，不用比较或否定患者感受。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A.其他患者都做了，有什么可紧张的。该说法否定患者真实焦虑并带有比较/贬低，不利于共情沟通。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "解释检查必要性属于信息沟通。"
+      },
+      {
+        "option": "C",
+        "reason": "提供陪伴与安抚有助降低焦虑。"
+      }
+    ],
+    "common_failure_node": "把人文/伦理题因为概念稳定就硬塞进没有对应owner的临床Knowledge Block。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理owner；不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2019-n111",
@@ -253,17 +374,29 @@
     "exam_target": "儿童医患沟通",
     "decision_axis": "儿童虽由监护人参与医疗决定，但应按年龄和理解能力与患儿本人沟通，同时与家长充分沟通。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "儿童虽由监护人参与医疗决定，但应按年龄和理解能力与患儿本人沟通，同时与家长充分沟通。",
+      "按2019题源比较轴选择C。",
+      "Current Xizong Knowledge没有独立人文/伦理最小owner，因此Explanation保留而Crosswalk fail-closed。"
     ],
     "transfer_rule": "儿科沟通是患儿+监护人双通道，不把儿童排除在沟通之外。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.既要与家长沟通，也要与患儿本人沟通。儿童由监护人参与决定，但仍应按年龄与理解能力向患儿解释并尊重其参与。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "只与家长沟通会忽视患儿本人的知情和参与。"
+      }
+    ],
+    "common_failure_node": "把人文/伦理题因为概念稳定就硬塞进没有对应owner的临床Knowledge Block。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理owner；不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2019-n112",
@@ -277,7 +410,9 @@
     "exam_target": "遗传咨询非亲子信息旧伦理处置",
     "decision_axis": "题源选择只告知妻子并向丈夫隐瞒非亲子信息；现实遗传咨询中的保密、知情同意、家庭利益和披露政策高度依赖具体制度与事前约定，不能固化为Current统一伦理规则。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源以减少家庭/儿童伤害为理由选择只告知妻子。",
+      "现实遗传咨询的非亲子信息处理高度依赖事前告知、当地法律与机构政策。",
+      "因此保留题源答案但不建立Current relation。"
     ],
     "transfer_rule": "仅保留题源/伦理时代边界；现实非亲子发现应按现行伦理规范和机构政策处理。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -286,8 +421,13 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.只将信息和建议告知妻子为题源官方答案；非亲子发现的披露涉及事前知情同意、保密、家庭伤害和机构政策，不能固化为Current统一伦理规则。",
+    "valuable_distractors": [],
+    "common_failure_node": "把旧考试情境中的单一披露答案当成所有遗传咨询场景的统一规则。",
+    "source_boundary_note": "非亲子信息披露的Current处置依赖法律、机构政策和事前知情同意框架；不升级2019单一情境答案。"
   },
   {
     "question_id": "xizong-official-2019-n113",
@@ -301,17 +441,29 @@
     "exam_target": "双重效应原则",
     "decision_axis": "医疗行为以善的直接效果为目的但可预见伴随非目的性的伤害时，双重效应原则用于讨论在严格条件下该副作用能否获得伦理辩护。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "医疗行为以善的直接效果为目的但可预见伴随非目的性的伤害时，双重效应原则用于讨论在严格条件下该副作用能否获得伦理辩护。",
+      "按2019题源比较轴选择B。",
+      "Current Xizong Knowledge没有独立人文/伦理最小owner，因此Explanation保留而Crosswalk fail-closed。"
     ],
     "transfer_rule": "双重效应：好的目的不能以坏结果作为手段，且获益需与风险相称。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.双重效应原则。善意医疗行为的直接目标是获益、同时可预见但非目的性地伴随伤害时，用双重效应原则讨论伦理可辩护性。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "“风险效应原则”不是题源所指经典伦理原则。"
+      }
+    ],
+    "common_failure_node": "把人文/伦理题因为概念稳定就硬塞进没有对应owner的临床Knowledge Block。",
+    "source_gap_note": "Current Xizong Knowledge尚无独立医学人文/伦理owner；不为覆盖率制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2019-n114",
@@ -325,17 +477,33 @@
     "exam_target": "赫尔辛基宣言",
     "decision_axis": "世界医学会1964年发布《赫尔辛基宣言》，用于规范涉及人的医学研究伦理，并在之后多次修订。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "《纽伦堡法典》后，世界医学会于1964年制定涉及人类受试者医学研究的伦理原则。",
+      "该国际文献就是《赫尔辛基宣言》，此后又多次修订。",
+      "Current Xizong Knowledge没有研究伦理史owner，因此只保留题源Explanation。"
     ],
     "transfer_rule": "人体医学研究伦理的重要国际文献=赫尔辛基宣言。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.赫尔辛基宣言。世界医学会1964年发布该宣言，成为涉及人的医学研究伦理的重要国际规范。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "《贝尔蒙报告》发表于美国1979年，时间和发布机构均不符。"
+      },
+      {
+        "option": "D",
+        "reason": "《希波克拉底誓言》是古典医学伦理传统，不是1964年临床研究伦理文件。"
+      }
+    ],
+    "common_failure_node": "只记“都是医学伦理文件”，不按制定机构和时间识别。",
+    "source_gap_note": "Current Xizong Knowledge尚无医学研究伦理史/赫尔辛基宣言的独立owner；Explanation保留题源事实，不制造临床KP映射。"
   },
   {
     "question_id": "xizong-official-2019-n115",
@@ -349,7 +517,9 @@
     "exam_target": "三级医疗事故旧法规分类",
     "decision_axis": "题源按旧《医疗事故处理条例》分级口径把轻度残疾、一般功能障碍归为三级医疗事故；现行法律责任与损害评价体系不能直接由该旧分类替代。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "题源依据旧《医疗事故处理条例》分级，把“轻度残疾、器官组织损伤导致一般功能障碍”归为三级医疗事故。",
+      "因此2019题源答案为C。",
+      "现行医疗损害责任和伤残评价体系不能由这道旧分级题直接替代，且Current Xizong Knowledge无现行法规owner。"
     ],
     "transfer_rule": "仅保留题源/法规时代边界；不得据此生成Current医疗损害定级规则。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -358,8 +528,22 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.造成患者轻度残疾、器官组织损伤导致一般功能障碍，是题源旧医疗事故分级中三级的表述。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "重度残疾对应更严重等级，不是三级。"
+      },
+      {
+        "option": "D",
+        "reason": "中度残疾、严重功能障碍在旧分级中也属于更严重等级。"
+      }
+    ],
+    "common_failure_node": "把旧“医疗事故等级”分类直接当成当前所有医疗损害责任/伤残等级体系。",
+    "source_boundary_note": "题源依据旧《医疗事故处理条例》的事故等级表作答；现行医疗损害责任与伤残评价需按当前法律规范处理，不将旧分类升级为Current规则。"
   },
   {
     "question_id": "xizong-official-2019-n116",
@@ -373,17 +557,32 @@
     "exam_target": "细胞外K升高对膜电位",
     "decision_axis": "细胞外K+升高减小跨膜K+浓度梯度，使静息膜电位去极化；持续去极化可使Na+通道可用性下降，从而动作电位幅度减小。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "细胞外K⁺升高使跨膜K⁺浓度梯度和K⁺外流驱动力减小，静息膜电位去极化，即负值绝对值减小。",
+      "持续去极化会使部分电压门控Na⁺通道失活。",
+      "Na⁺通道可用性下降使动作电位上升期和幅度减小，因此选A。"
     ],
     "transfer_rule": "高外K：静息电位绝对值减小，过度去极化可降低AP幅度。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A.静息电位减小，动作电位幅度减小。高外K⁺使膜去极化，并在持续/明显升高时通过Na⁺通道失活降低动作电位幅度。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "高K⁺确实使静息电位去极化，但持续去极化不会让动作电位幅度增加。"
+      },
+      {
+        "option": "D",
+        "reason": "高K⁺不会让静息电位变得更负。"
+      }
+    ],
+    "common_failure_node": "只记“更接近阈值→兴奋性升高”，忘记持续去极化会使Na⁺通道失活并降低动作电位幅度。"
   },
   {
     "question_id": "xizong-official-2019-n117",
@@ -397,17 +596,33 @@
     "exam_target": "细胞外Na升高对动作电位",
     "decision_axis": "增加细胞外Na+主要提高Na+平衡电位和动作电位上升期的驱动力，使动作电位峰值/幅度增大；题源同时给出静息电位减小，应按题源保留而不把其幅度外推为一般定量规则。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "细胞外Na⁺升高会提高Na⁺平衡电位和动作电位上升期的电化学驱动力，动作电位峰值/幅度可增大。",
+      "题源同时给出“静息电位减小”，但Current Knowledge未冻结高外Na⁺对静息膜电位这一完整定性组合。",
+      "因此官方C保留，不能只用局部“Na⁺驱动力增大”去制造完整Current relation。"
     ],
     "transfer_rule": "外Na变化对动作电位影响明显强于对静息电位，静息仍主要受K+通透性支配。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.静息电位减小、动作电位幅度增大为题源官方答案；Current只安全承接Na⁺驱动力/动作电位幅度方向，未完整冻结静息电位变化。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "把Na⁺升高同时解释成静息电位绝对值增加和动作电位幅度增加，缺少Current支持。"
+      },
+      {
+        "option": "A",
+        "reason": "动作电位幅度减小与Na⁺外液升高造成的内向驱动力增强方向不符。"
+      }
+    ],
+    "common_failure_node": "找到“Na⁺影响动作电位”这一部分机制后，就把题源对静息电位的完整组合也一并硬映。",
+    "source_gap_note": "Current Knowledge仅安全承接外Na⁺增加会增强Na⁺内向驱动力/动作电位幅度方向，未形成“静息电位减小 + 动作电位幅度增大”完整最小owner。"
   },
   {
     "question_id": "xizong-official-2019-n118",
@@ -426,14 +641,27 @@
       "毛细血管负责交换，静脉负责容量储存；都不是全身阻力和压降的主闸门。"
     ],
     "transfer_rule": "最大压降发生在阻力血管小动脉/微动脉。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.小、微动脉。它们是体循环主要阻力血管，血流通过该段时阻力最大，因此压力下降最显著。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "毛细血管虽总横截面积巨大，但全身最主要阻力和最大压降集中在小动脉/微动脉段。"
+      },
+      {
+        "option": "D",
+        "reason": "静脉顺应性大、容量大，但不是主要阻力血管。"
+      }
+    ],
+    "common_failure_node": "把“血流最慢/横截面积最大”的毛细血管误当成“阻力最大/压降最大”。"
   },
   {
     "question_id": "xizong-official-2019-n119",
@@ -452,14 +680,27 @@
       "大中动脉主要输送和缓冲压力，小微动脉主要提供阻力，毛细血管主要负责交换。"
     ],
     "transfer_rule": "静脉=容量血管/血液储库。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "D.静脉系统。静脉顺应性高、容积大，静息状态容纳全身大部分血量，因此称容量血管。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "大中动脉主要承担输送和弹性储能，不是最大血容量储库。"
+      },
+      {
+        "option": "B",
+        "reason": "小微动脉主要承担阻力调节。"
+      }
+    ],
+    "common_failure_node": "把“血管粗”误当成“容纳血量最多”，忽略顺应性决定容量储存。"
   },
   {
     "question_id": "xizong-official-2019-n120",
@@ -478,14 +719,27 @@
       "HMG-CoA还原酶属于胆固醇合成；乙酰CoA羧化酶属于脂肪酸合成；脂酰CoA合成酶负责脂肪酸活化。"
     ],
     "transfer_rule": "酮体生成抓线粒体HMG-CoA合酶。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "A.HMG-CoA合酶。肝线粒体酮体生成中，HMG-CoA合酶生成HMG-CoA，是酮体合成的重要关键酶。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "HMG-CoA还原酶是胆固醇合成关键酶。"
+      },
+      {
+        "option": "B",
+        "reason": "乙酰CoA羧化酶是脂肪酸从头合成关键酶。"
+      }
+    ],
+    "common_failure_node": "只看到“HMG-CoA”就把酮体合成与胆固醇合成两个酶混淆。"
   },
   {
     "question_id": "xizong-official-2019-n121",
@@ -504,14 +758,27 @@
       "HMG-CoA合酶走酮体，HMG-CoA还原酶走胆固醇，脂酰CoA合成酶走脂肪酸活化，三者都不是脂肪酸从头合成的关键酶。"
     ],
     "transfer_rule": "脂肪酸合成限速=ACC；胆固醇合成限速=HMG-CoA还原酶。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.乙酰CoA羧化酶。ACC催化乙酰CoA→丙二酰CoA，是脂肪酸从头合成的关键限速步骤。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "HMG-CoA合酶更偏酮体合成。"
+      },
+      {
+        "option": "D",
+        "reason": "脂酰CoA合成酶负责脂肪酸活化，不是从头合成关键限速酶。"
+      }
+    ],
+    "common_failure_node": "把“脂肪酸活化”与“脂肪酸从头合成”混成同一过程。"
   },
   {
     "question_id": "xizong-official-2019-n122",
@@ -530,14 +797,27 @@
       "丙氨酸、天冬氨酸和酪氨酸各有其他代谢角色，但不是这道题的一碳单位高频原料答案。"
     ],
     "transfer_rule": "一碳单位来源重点记Ser/Gly等，丝氨酸贡献尤其重要。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.丝氨酸。丝氨酸可通过丝氨酸羟甲基转移酶向FH₄提供一碳单位并转为甘氨酸，是经典一碳来源。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "天冬氨酸直接参与尿素循环和核苷酸合成，但不是本题一碳单位经典原料。"
+      },
+      {
+        "option": "A",
+        "reason": "丙氨酸主要参与转氨和葡萄糖-丙氨酸循环。"
+      }
+    ],
+    "common_failure_node": "把“参与含氮代谢”宽泛等同于“一碳单位来源”。"
   },
   {
     "question_id": "xizong-official-2019-n123",
@@ -556,14 +836,27 @@
       "鸟氨酸、瓜氨酸等只是循环中间载体；丙氨酸和丝氨酸也不是尿素第二个氮的直接来源。"
     ],
     "transfer_rule": "尿素两个N：一个游离NH3，一个Asp。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.天冬氨酸。尿素两个氮分别来自游离氨和天冬氨酸，天冬氨酸通过精氨酸代琥珀酸步骤提供第二个氮。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "丙氨酸可运输氮到肝，但不是尿素分子的直接第二氮供体。"
+      },
+      {
+        "option": "B",
+        "reason": "丝氨酸是一碳单位重要来源，不是尿素循环直接供氮者。"
+      }
+    ],
+    "common_failure_node": "把“把氮送到肝”的氨基酸与“直接把氮写进尿素分子”的底物混淆。"
   },
   {
     "question_id": "xizong-official-2019-n124",
@@ -577,17 +870,32 @@
     "exam_target": "心肌梗死坏死类型",
     "decision_axis": "缺血性心肌梗死属于实质器官缺血性坏死，典型病理类型为凝固性坏死。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "心肌梗死是冠脉供血中断导致的实质器官缺血性坏死。",
+      "除脑组织外，多数实质器官缺血性梗死典型表现为凝固性坏死。",
+      "Current B6 KP19也明确把新鲜心肌梗死写为凝固性坏死，因此选C。"
     ],
     "transfer_rule": "除脑组织外，多数实质器官缺血梗死=凝固性坏死。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "C.凝固性坏死。心肌梗死的经典病理类型是凝固性坏死。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "液化性坏死典型见脑梗死和脓肿等场景，不是心肌梗死。"
+      },
+      {
+        "option": "D",
+        "reason": "脂肪坏死更典型见急性胰腺炎周围脂肪或创伤性脂肪组织。"
+      }
+    ],
+    "common_failure_node": "把“梗死”一律等同于同一种坏死，忘记脑组织是液化性坏死的重要例外。"
   },
   {
     "question_id": "xizong-official-2019-n125",
@@ -601,16 +909,32 @@
     "exam_target": "阿米巴肝脓肿坏死类型",
     "decision_axis": "阿米巴滋养体造成肝组织溶解破坏形成脓肿样腔隙，病理上属于液化性坏死。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "阿米巴滋养体可造成肝组织溶解破坏并形成脓肿样腔隙，题源将其病理类型归为液化性坏死。",
+      "Current D19有阿米巴肝脓肿识别和巧克力酱样脓液接口，但未明确冻结“液化性坏死”这一通用病理分类。",
+      "因此答案B保留，但不把D19的临床识别KP扩张成病理坏死类型owner。"
     ],
     "transfer_rule": "脓肿/脑梗死等常见液化性坏死。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2019"
+    },
+    "correct_option_reason": "B.液化性坏死。题源把阿米巴肝脓肿的组织溶解破坏归为液化性坏死；Current现有临床owner未完整承担该病理分类。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "凝固性坏死更典型见多数实质器官缺血性梗死。"
+      },
+      {
+        "option": "D",
+        "reason": "脂肪坏死不是阿米巴肝脓肿的主要病理类型。"
+      }
+    ],
+    "common_failure_node": "因为Current有“阿米巴肝脓肿”临床Block，就反向把任何阿米巴相关病理知识都硬塞给该KP。",
+    "source_gap_note": "Current D19拥有阿米巴肝脓肿临床识别，但未明确冻结“液化性坏死”这一病理类型；不跨层扩大owner。"
   }
 ]

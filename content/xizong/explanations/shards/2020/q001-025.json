@@ -11,17 +11,33 @@
     "exam_target": "生理调节与反馈",
     "decision_axis": "正反馈并非以维持稳态为最终目的，而是使原效应继续增强直至特定生理过程完成。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "调定点用于把被调变量维持在某一工作范围附近。",
+      "负反馈比较实际值与参照点并反向纠偏，因此调定点可作为比较器的参照。",
+      "正反馈的作用是继续放大原效应直到事件终止，并不以回到调定点为终极目标，所以C错误。"
     ],
     "transfer_rule": "负反馈维稳，正反馈推动事件完成。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "C.正反馈调控的终极目标。调定点是负反馈控制系统的参照工作点；正反馈会放大原变化直至特定过程完成，并不以回到调定点为目标。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "调定点可理解为自动控制系统设定的目标工作点。"
+      },
+      {
+        "option": "D",
+        "reason": "负反馈中的比较器需要把实际值与参照点比较后产生纠偏。"
+      }
+    ],
+    "common_failure_node": "把“反馈”都理解成围绕调定点维持稳态，忽略正反馈是放大型过程。",
+    "source_gap_note": "一般控制系统“调定点—比较器—负反馈”当前主要由P0/System Guide承接；D5 KP13只完整拥有体温调定点，不足以承担本题一般化概念。"
   },
   {
     "question_id": "xizong-official-2020-n002",
@@ -35,17 +51,33 @@
     "exam_target": "动作电位参数与离子平衡电位",
     "decision_axis": "在题设条件下钠平衡电位改变而阈值等参数并不必然同步改变，判断要区分膜通透性与离子平衡电位。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "离子平衡电位主要由该离子膜内外浓度比决定。",
+      "单次动作电位搬运的离子量相对总离子库极少，浓度梯度近似不变，因此ENa基本不变。",
+      "而Na⁺电导、膜电位以及Na⁺/K⁺电化学驱动力都会随动作电位时相变化，所以选B。"
     ],
     "transfer_rule": "动作电位幅度更直接受Na平衡电位影响，阈值另有决定因素。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "B.Na⁺平衡电位。一次动作电位期间膜通透性和膜电位迅速变化，但细胞内外Na⁺浓度几乎不变，因此由浓度梯度决定的Na⁺平衡电位基本不变。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Na⁺电导会随电压门控Na⁺通道开放和失活显著变化。"
+      },
+      {
+        "option": "D",
+        "reason": "Na⁺电化学驱动力取决于膜电位与ENa之差，膜电位在动作电位中大幅变化，因此驱动力也变。"
+      }
+    ],
+    "common_failure_node": "把“膜电位变化”与“离子平衡电位变化”混为一谈；单次动作电位改变的是通透性/驱动力，不会显著改变体液离子浓度。",
+    "source_gap_note": "Current Knowledge有电导与电化学驱动力接口，但未形成“单次动作电位期间Na⁺平衡电位近似不变”的最小可投影owner。"
   },
   {
     "question_id": "xizong-official-2020-n003",
@@ -64,14 +96,27 @@
       "这正是骨骼肌与心肌兴奋-收缩耦联的重要区别：骨骼肌可以靠“L型变构→RyR放钙”完成触发。"
     ],
     "transfer_rule": "骨骼肌EC耦联核心是DHPR构象变化→RyR开放。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "C.无Ca²⁺跨细胞膜流动，通道变构使终池释放Ca²⁺。骨骼肌L型Ca²⁺通道主要作为电压感受器，与RyR机械耦联。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "心肌更依赖外源Ca²⁺内流触发钙诱导钙释放；骨骼肌不是靠大量外钙直接触发。"
+      },
+      {
+        "option": "B",
+        "reason": "骨骼肌并非先靠少量外源Ca²⁺内流再触发终池放钙。"
+      }
+    ],
+    "common_failure_node": "把心肌“Ca²⁺诱导Ca²⁺释放”机制机械套到骨骼肌。"
   },
   {
     "question_id": "xizong-official-2020-n004",
@@ -90,14 +135,27 @@
       "恶性贫血的核心断点是自身免疫导致内因子不足，不等同于回肠切除。"
     ],
     "transfer_rule": "B12吸收部位=末端回肠。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "D.巨幼细胞贫血。维生素B₁₂-内因子复合物在末端回肠吸收，远端回肠切除可导致B₁₂缺乏和DNA合成障碍。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "恶性贫血的核心是自身免疫破坏壁细胞/内因子缺乏，而非回肠切除本身。"
+      },
+      {
+        "option": "B",
+        "reason": "溶血性贫血属于红细胞破坏增加，不符合本题吸收障碍机制。"
+      }
+    ],
+    "common_failure_node": "把B₁₂缺乏的不同断点都统称为“恶性贫血”。"
   },
   {
     "question_id": "xizong-official-2020-n005",
@@ -116,14 +174,27 @@
       "血小板异常和维生素K问题可以叠加，但不能替代“肝合成功能失败”这个主轴；Ca²⁺缺乏也不是本题的主要机制。"
     ],
     "transfer_rule": "肝病出血倾向先想凝血因子合成减少。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "C.凝血因子合成减少。肝硬化使肝细胞合成功能下降，多种凝血因子来源减少，是凝血障碍的主要机制。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "维生素K不足可加重凝血异常，但不能替代肝合成凝血因子下降这一主轴。"
+      },
+      {
+        "option": "A",
+        "reason": "血小板数量/功能异常也可叠加，但题目问主要凝血机制。"
+      }
+    ],
+    "common_failure_node": "把肝硬化出血只归因于血小板或维生素K，漏掉肝合成功能失败。"
   },
   {
     "question_id": "xizong-official-2020-n006",
@@ -142,14 +213,27 @@
       "低胶体渗透压和通透性增高可造成水肿，但不是右心衰这道题的第一故障层。"
     ],
     "transfer_rule": "静脉淤血→毛细血管静水压↑→水肿。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A.毛细血管血压升高。右心衰使体静脉压升高并传导至毛细血管，推动液体滤出形成外周水肿。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "低白蛋白血症可致水肿，但不是右心衰最直接的第一机制。"
+      },
+      {
+        "option": "D",
+        "reason": "毛细血管通透性增高更常见于炎症等屏障损伤。"
+      }
+    ],
+    "common_failure_node": "看到水肿就只背低白蛋白，未先定位静脉淤血和毛细血管静水压。"
   },
   {
     "question_id": "xizong-official-2020-n007",
@@ -168,14 +252,23 @@
       "低于这一拐点后曲线转陡，PaO₂继续下降时SaO₂才会更快下落。"
     ],
     "transfer_rule": "PaO₂ 60 mmHg大致对应SaO₂ 90%。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "D.90%。氧解离曲线在PaO₂约60 mmHg以上处于相对平坦段，SaO₂通常仍约90%以上。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "80%对应更低的PaO₂范围；60 mmHg是临床常用的氧合曲线重要拐点附近。"
+      }
+    ],
+    "common_failure_node": "不会用氧解离曲线的“60–90”高频接口，只凭比例直觉猜。"
   },
   {
     "question_id": "xizong-official-2020-n008",
@@ -194,14 +287,27 @@
       "质子泵、碳酸酐酶和迷走神经会改变当下分泌活动，但不能替代壁细胞总量这个容量上限。"
     ],
     "transfer_rule": "最大酸分泌看壁细胞量。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A.壁细胞的数量。最大胃酸分泌能力首先受壁细胞总量限制，决定整个胃的分泌容量上限。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "质子泵活性会改变当前分泌强度，但最大容量更直接与壁细胞总量相关。"
+      },
+      {
+        "option": "D",
+        "reason": "迷走活动是调节信号，不决定壁细胞总容量。"
+      }
+    ],
+    "common_failure_node": "把“调节当下分泌”的因素误当成“决定最大分泌容量”的因素。"
   },
   {
     "question_id": "xizong-official-2020-n009",
@@ -220,14 +326,27 @@
       "乳糜微粒是在脂质进入肠上皮后重新组装、负责离开上皮走淋巴的颗粒，不能和微胶粒混淆。"
     ],
     "transfer_rule": "脂质跨不搅动水层靠混合微胶粒。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A.混合微胶粒。胆盐形成的混合微胶粒携带长链脂肪酸、单酰甘油等穿过静水层到达刷状缘。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "乳糜微粒是在脂质进入肠上皮后重新酯化、组装并经淋巴输出的颗粒。"
+      },
+      {
+        "option": "B",
+        "reason": "载脂蛋白参与脂蛋白结构和运输，不承担肠腔静水层中的脂质递送。"
+      }
+    ],
+    "common_failure_node": "把肠腔内微胶粒和肠上皮内形成的乳糜微粒混为一谈。"
   },
   {
     "question_id": "xizong-official-2020-n010",
@@ -246,14 +365,27 @@
       "脑和肝可大量产热，白色脂肪主要储能，但都不是这一机制的代表组织。"
     ],
     "transfer_rule": "非战栗产热经典部位=棕色脂肪。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "D.褐色脂肪组织。褐脂富含线粒体和UCP1，通过氧化磷酸化解偶联产生强非战栗性产热。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "白色脂肪主要负责储能，不是非寒战产热的经典主组织。"
+      },
+      {
+        "option": "B",
+        "reason": "肝是重要产热器官，但不以UCP1介导的非战栗产热为主要身份。"
+      }
+    ],
+    "common_failure_node": "只按“代谢旺盛”判断产热组织，忽略褐脂UCP1解偶联这一特异机制。"
   },
   {
     "question_id": "xizong-official-2020-n011",
@@ -272,14 +404,27 @@
       "内皮间隙、基膜和足细胞构成滤过屏障，但题目问的是可调节Kf的功能活动。"
     ],
     "transfer_rule": "Kf=通透性×滤过面积；系膜收缩可减面积。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "C.球内系膜细胞的舒缩。系膜细胞收缩可减少开放毛细血管袢的有效滤过面积，降低Kf。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "足细胞参与滤过屏障，但题目问可主动调节有效滤过面积/Kf的功能活动。"
+      },
+      {
+        "option": "B",
+        "reason": "基膜更新不是短时调节GFR的主要功能性机制。"
+      }
+    ],
+    "common_failure_node": "把“滤过膜结构组成”与“可调Kf的主动细胞行为”混在一起。"
   },
   {
     "question_id": "xizong-official-2020-n012",
@@ -298,14 +443,27 @@
       "AngⅡ存在肾素负反馈；Current Study也把VP、内皮素等放在抑制/低频精细调节一侧，不能与β₁促肾素混淆。"
     ],
     "transfer_rule": "肾素调节抓灌注压、致密斑NaCl和β1交感。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "B.肾上腺素。儿茶酚胺可通过近球细胞β₁受体促进肾素释放。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "AngⅡ对肾素有负反馈抑制。"
+      },
+      {
+        "option": "C",
+        "reason": "血管升压素不是经典促肾素体液信号。"
+      }
+    ],
+    "common_failure_node": "把所有升压激素都误认为会促进肾素；RAAS内部存在AngⅡ负反馈。"
   },
   {
     "question_id": "xizong-official-2020-n013",
@@ -324,14 +482,27 @@
       "外耳道、听骨链和鼓膜张肌参与传音或保护，但不承担这项压力平衡任务。"
     ],
     "transfer_rule": "中耳调压靠咽鼓管。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "C.咽鼓管。咽鼓管连接中耳与鼻咽，开放时可使鼓室压力与外界气压趋于一致。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "听骨链负责传音，不负责中耳压力平衡。"
+      },
+      {
+        "option": "D",
+        "reason": "鼓膜张肌参与中耳肌反射/机械调节，不是主要压力平衡通道。"
+      }
+    ],
+    "common_failure_node": "把中耳所有结构都按“传音”理解，忘记咽鼓管承担通气和压力平衡。"
   },
   {
     "question_id": "xizong-official-2020-n014",
@@ -350,14 +521,27 @@
       "胰岛素主要持续促进合成；糖皮质激素更偏分解；GH的代谢图也不是题干所描述的这组经典双向变化。"
     ],
     "transfer_rule": "甲状腺激素有剂量依赖的代谢效应：适量促合成，过量偏分解。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "C.甲状腺激素。生理量支持生长和蛋白合成；过量时整体代谢周转加速，可出现蛋白分解和消耗。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "胰岛素总体以促进合成和储存为主。"
+      },
+      {
+        "option": "D",
+        "reason": "糖皮质激素在代谢上更偏分解，不符合“正常偏合成、过量偏分解”的经典双向。"
+      }
+    ],
+    "common_failure_node": "只记甲状腺激素“提高代谢率”，漏掉不同浓度下蛋白代谢净效应。"
   },
   {
     "question_id": "xizong-official-2020-n015",
@@ -376,14 +560,27 @@
       "缺乏糖皮质激素时，血管对NE等缩血管信号反应会减弱；这就是“允许作用”的含义。"
     ],
     "transfer_rule": "GC经典允许作用：维持血管对儿茶酚胺反应。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "D.糖皮质激素。GC维持血管对儿茶酚胺的反应性，对去甲肾上腺素缩血管效应具有允许作用。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "VP自身可缩血管，但这不是题目所问的“对NE起允许作用”。"
+      },
+      {
+        "option": "B",
+        "reason": "甲状腺激素并非该经典允许作用答案。"
+      }
+    ],
+    "common_failure_node": "把“自身有升压作用”和“允许另一个激素正常发挥效应”混成同一概念。"
   },
   {
     "question_id": "xizong-official-2020-n016",
@@ -402,14 +599,27 @@
       "睾酮是重要循环雄激素，但在这些组织里还可以被进一步加工成作用更强的DHT。"
     ],
     "transfer_rule": "DHT是经典作用更强的雄激素。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "D.双氢睾酮。睾酮在靶组织经5α还原酶转化为DHT，DHT与雄激素受体结合更强、效力更高。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "睾酮是重要循环雄激素，但在部分靶组织还会转化为效力更强的DHT。"
+      },
+      {
+        "option": "C",
+        "reason": "雄烯二酮雄激素活性较弱，更偏前体角色。"
+      }
+    ],
+    "common_failure_node": "把“血中主要雄激素”误等同于“生物活性最强雄激素”。"
   },
   {
     "question_id": "xizong-official-2020-n017",
@@ -428,14 +638,27 @@
       "这题的判断轴就是“核心组蛋白 vs 连接组蛋白”，不是比较哪种组蛋白最丰富。"
     ],
     "transfer_rule": "核心八聚体无H1。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A.H1。核小体核心八聚体由H2A、H2B、H3、H4各两分子组成，H1主要结合连接DNA。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "H2A属于核心组蛋白。"
+      },
+      {
+        "option": "C",
+        "reason": "H3同样是核心八聚体成员。"
+      }
+    ],
+    "common_failure_node": "把所有组蛋白都当成核小体核心八聚体成员。"
   },
   {
     "question_id": "xizong-official-2020-n018",
@@ -454,14 +677,27 @@
       "TPP主要转移醛基/活化醛基，FH₄搬运一碳单位，CoASH搬运酰基，任务不能互换。"
     ],
     "transfer_rule": "FAD/FADH2属于递氢递电子辅酶。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "B.FAD。FAD/FMN参与氧化还原反应，可接受和转移氢/电子。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "TPP主要参与活化醛基/氧化脱羧等，不是递氢辅酶。"
+      },
+      {
+        "option": "C",
+        "reason": "FH₄主要转运一碳单位。"
+      }
+    ],
+    "common_failure_node": "不按“辅酶搬运什么基团/电子”分类，只背维生素来源。"
   },
   {
     "question_id": "xizong-official-2020-n019",
@@ -480,14 +716,27 @@
       "关键是分清F-2,6-BP这个调节分子与糖酵解中间体F-1,6-BP。"
     ],
     "transfer_rule": "F2,6BP强激活PFK-1。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "D.果糖-2,6-二磷酸。F-2,6-BP是PFK-1的强效别构激活剂，显著推动糖酵解。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "ATP在能量充足时抑制PFK-1。"
+      },
+      {
+        "option": "B",
+        "reason": "柠檬酸也偏抑制PFK-1，提示碳流/能量充足。"
+      }
+    ],
+    "common_failure_node": "把F-2,6-BP与糖酵解中间体F-1,6-BP混淆。"
   },
   {
     "question_id": "xizong-official-2020-n020",
@@ -506,14 +755,27 @@
       "NADH属于氧化还原当量，磷酸肌酸不在TCA循环这一步生成。"
     ],
     "transfer_rule": "TCA唯一底物水平磷酸化→GTP。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "B.GTP。琥珀酰CoA转为琥珀酸时发生TCA唯一一次底物水平磷酸化，本题按题源生成GTP。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "NADH是氧化还原当量，不属于底物水平磷酸化直接生成的高能磷酸化产物。"
+      },
+      {
+        "option": "A",
+        "reason": "某些组织/酶型可与ATP接口相连，但本题官方口径指定GTP。"
+      }
+    ],
+    "common_failure_node": "把“ATP等价高能量”与“这一步直接生成什么核苷三磷酸”混淆。"
   },
   {
     "question_id": "xizong-official-2020-n021",
@@ -532,14 +794,27 @@
       "脂肪动员和β氧化的方向都是增强而不是减弱；TAG合成增加也不是酮症形成的主轴。"
     ],
     "transfer_rule": "DKA酮体主看乙酰乙酸和β-羟丁酸。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "D.乙酰乙酸和β-羟丁酸增加。胰岛素缺乏使脂解、脂肪酸β氧化和肝酮体生成增强。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "DKA中脂肪动员是增强而不是减弱。"
+      },
+      {
+        "option": "C",
+        "reason": "β氧化增强，为酮体生成提供大量乙酰CoA。"
+      }
+    ],
+    "common_failure_node": "只看到“糖尿病”就只想高血糖，不沿胰岛素缺乏→脂解→酮体链推理。"
   },
   {
     "question_id": "xizong-official-2020-n022",
@@ -558,14 +833,27 @@
       "这也是经复合体Ⅱ进入呼吸链时ATP产量较少的重要原因之一。"
     ],
     "transfer_rule": "不泵H+的是复合体II。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "B.复合体Ⅱ。复合体I、III、IV泵质子，复合体II把电子传给CoQ但不泵H⁺。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "复合体I把NADH电子传给CoQ并伴质子泵。"
+      },
+      {
+        "option": "D",
+        "reason": "复合体IV将电子交给O₂并泵质子。"
+      }
+    ],
+    "common_failure_node": "把“参与呼吸链电子传递”误等同于“必然具备质子泵功能”。"
   },
   {
     "question_id": "xizong-official-2020-n023",
@@ -584,14 +872,27 @@
       "乳酸循环主要搬运碳，不承担这条肌肉氮运输主线。"
     ],
     "transfer_rule": "肌肉运氮到肝经典路径=丙氨酸-葡萄糖循环。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "C.葡萄糖-丙氨酸循环。肌肉将氮转给丙酮酸形成丙氨酸，送肝后释放氮并回收碳骨架。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "乳酸循环主要回收乳酸碳骨架，不承担氨基氮运输主线。"
+      },
+      {
+        "option": "D",
+        "reason": "柠檬酸-丙酮酸循环主要服务乙酰CoA/脂肪酸合成相关碳转运。"
+      }
+    ],
+    "common_failure_node": "把各类“循环”只按名字记忆，不问它究竟搬运碳、氮还是乙酰基。"
   },
   {
     "question_id": "xizong-official-2020-n024",
@@ -610,14 +911,27 @@
       "TFIIA、TFIIB、TFIIF都参与复合物形成，但不是题目所问的TATA直接识别因子。"
     ],
     "transfer_rule": "TFIID/TBP↔TATA盒。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "C.TFIID。TFIID中的TBP直接识别TATA盒并组织RNA polymerase II前起始复合体。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "TFIIB参与后续PIC组装与定位，但不是TATA盒的直接经典识别者。"
+      },
+      {
+        "option": "D",
+        "reason": "TFIIF与RNApol II结合参与复合物组装，不负责TATA直接识别。"
+      }
+    ],
+    "common_failure_node": "把所有通用转录因子都当成可以直接识别TATA盒。"
   },
   {
     "question_id": "xizong-official-2020-n025",
@@ -636,13 +950,26 @@
       "把起始tRNA进入P位的规则机械套到延长阶段，是这题最常见的混淆。"
     ],
     "transfer_rule": "A位incoming，P位peptide，E位exit。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2020"
+    },
+    "correct_option_reason": "A.A位。翻译延长时新进入的氨基酰-tRNA进入A位，P位承载肽酰-tRNA，E位为离开位。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "起始tRNA会先进入P位，但题目问的是“新进入”的氨基酰-tRNA延长阶段。"
+      },
+      {
+        "option": "C",
+        "reason": "E位容纳准备离开的去酰化tRNA。"
+      }
+    ],
+    "common_failure_node": "把翻译起始阶段“起始tRNA进P位”机械套到延长阶段。"
   }
 ]

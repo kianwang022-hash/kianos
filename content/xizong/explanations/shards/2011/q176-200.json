@@ -1,1 +1,163 @@
-[{"question_id":"xizong-official-2011-n176","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2011/q176-200.json","blob_sha":"8b6597a2b197e3655bf61b085b678bd4efeb279b","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"外科引流的目的","decision_axis":"外科引流用于排出渗血、渗液和脓液，也可在已经发生吻合口漏时建立通畅引流；引流不能从机制上预防吻合口漏本身。","reasoning_chain":["区分“排出已存在液体/污染物”和“阻止吻合口发生漏”两类目的。"],"transfer_rule":"引流的本质是把积液、脓液、漏出物引出体外，不等于预防吻合口结构性失败。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2011-n177","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2011/q176-200.json","blob_sha":"8b6597a2b197e3655bf61b085b678bd4efeb279b","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"膀胱肿瘤组织学类型发生率的旧统计口径","decision_axis":"题源按当时教材统计，将移行细胞癌、腺癌和鳞癌列为发生率超过2%的膀胱肿瘤类型。现行命名以尿路上皮癌替代“移行细胞癌”，各组织学类型比例也依赖人群与版本，因此不把固定2%阈值写成当前canonical规则。","reasoning_chain":["保留题源统计判断，不跨版本迁移固定比例。"],"transfer_rule":"稳定核心：膀胱恶性肿瘤绝大多数为尿路上皮癌，鳞癌和腺癌明显少见。","mapping_decision":"NO_SAFE_MATCH","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2011-n178","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2011/q176-200.json","blob_sha":"8b6597a2b197e3655bf61b085b678bd4efeb279b","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"气性坏疽的病原与处理原则","decision_axis":"气性坏疽本质是梭状芽胞杆菌相关的严重肌坏死/肌炎，可合并其他细菌感染并因溶血、毒血症出现黄疸；治疗关键是尽早彻底清创和切除坏死组织，抗生素是重要辅助但不是唯一关键。","reasoning_chain":["先识别产气性肌坏死，再判断其系统毒性和治疗优先级。"],"transfer_rule":"气性坏疽=急诊外科感染：尽快广泛清创/切除坏死组织+抗菌治疗。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2011-n179","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2011/q176-200.json","blob_sha":"8b6597a2b197e3655bf61b085b678bd4efeb279b","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"可缺乏骨折特有体征的骨折类型","decision_axis":"裂缝、嵌插、青枝和其他不完全骨折常无明显断端移位，因此异常活动、骨擦音和明显畸形等骨折特有体征可以不出现。","reasoning_chain":["特有体征依赖断端明显分离和异常活动；稳定或不完全骨折可能没有。"],"transfer_rule":"没有骨擦音/异常活动不能排除骨折，尤其是不完全或嵌插骨折。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}},{"question_id":"xizong-official-2011-n180","truth_gate":"PASS","explanation_status":"APPROVED","question_truth_ref":{"path":"content/xizong/questions/shards/2011/q176-200.json","blob_sha":"8b6597a2b197e3655bf61b085b678bd4efeb279b","source_status":"CURRENT_FORMAL_QUESTION_TRUTH"},"exam_target":"Thomas征与髋屈曲挛缩结构","decision_axis":"Thomas征阳性反映髋关节屈曲挛缩，可由髂腰肌、髂股韧带及髋前方关节囊挛缩造成；内收肌挛缩主要限制外展，并非典型屈曲挛缩来源。","reasoning_chain":["先把Thomas征定义为髋屈曲挛缩，再寻找前方屈曲相关软组织。"],"transfer_rule":"Thomas test阳性=髋屈曲挛缩，不是单纯内收受限。","mapping_decision":"NEEDS_CHAT_MAPPING_REVIEW","upgrade_decision":"NO_CHANGE","review":{"semantic_owner":"Chat","format":"FAST_OWNER","learner_state_included":false,"old_explanation_inherited":false}}]
+[
+  {
+    "question_id": "xizong-official-2011-n176",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2011/q176-200.json",
+      "blob_sha": "8b6597a2b197e3655bf61b085b678bd4efeb279b",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "外科引流的目的",
+    "decision_axis": "外科引流用于排出渗血、渗液和脓液，也可在已经发生吻合口漏时建立通畅引流；引流不能从机制上预防吻合口漏本身。",
+    "reasoning_chain": [
+      "外科引流用于排出渗血、渗液和脓液，也可在已经发生吻合口漏时建立通畅引流；引流不能从机制上预防吻合口漏本身。",
+      "外科引流的直接目的包括排出渗血/渗液、脓液，以及在已经发生吻合口漏时控制漏出物和污染；引流本身不能阻止吻合口结构性失败发生，因此ABD。"
+    ],
+    "transfer_rule": "引流的本质是把积液、脓液、漏出物引出体外，不等于预防吻合口结构性失败。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "cycle": "SECOND_PASS_2011",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    },
+    "correct_option_reason": "外科引流的直接目的包括排出渗血/渗液、脓液，以及在已经发生吻合口漏时控制漏出物和污染；引流本身不能阻止吻合口结构性失败发生，因此ABD。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "预防吻合口漏的关键是血供、张力、技术和全身状态等，放置引流并不等于防止漏发生。"
+      }
+    ],
+    "common_failure_node": "把“能更早发现/控制漏”误写成“能预防漏”。"
+  },
+  {
+    "question_id": "xizong-official-2011-n177",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2011/q176-200.json",
+      "blob_sha": "8b6597a2b197e3655bf61b085b678bd4efeb279b",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "膀胱肿瘤组织学类型发生率的旧统计口径",
+    "decision_axis": "题源按当时教材统计，将移行细胞癌、腺癌和鳞癌列为发生率超过2%的膀胱肿瘤类型。现行命名以尿路上皮癌替代“移行细胞癌”，各组织学类型比例也依赖人群与版本，因此不把固定2%阈值写成当前canonical规则。",
+    "reasoning_chain": [
+      "题源按当时教材统计，将移行细胞癌、腺癌和鳞癌列为发生率超过2%的膀胱肿瘤类型。现行命名以尿路上皮癌替代“移行细胞癌”，各组织学类型比例也依赖人群与版本，因此不把固定2%阈值写成当前canonical规则。",
+      "按2011统计口径，移行细胞癌、腺癌和鳞癌均被列为占膀胱肿瘤2%以上的类型，故ACD；现代命名已以尿路上皮癌替代“移行细胞癌”，比例也依人群变化。"
+    ],
+    "transfer_rule": "稳定核心：膀胱恶性肿瘤绝大多数为尿路上皮癌，鳞癌和腺癌明显少见。",
+    "mapping_decision": "NO_SAFE_MATCH",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "cycle": "SECOND_PASS_2011",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    },
+    "correct_option_reason": "按2011统计口径，移行细胞癌、腺癌和鳞癌均被列为占膀胱肿瘤2%以上的类型，故ACD；现代命名已以尿路上皮癌替代“移行细胞癌”，比例也依人群变化。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肉瘤属于膀胱罕见非上皮性肿瘤，题源认为不足2%。"
+      }
+    ],
+    "common_failure_node": "把旧年代固定流行病学百分比当成现代跨人群常数。",
+    "source_conflict_note": "保留2011正式答案ACD。Current以“尿路上皮癌”作为主要命名，鳞癌、腺癌等比例随地区和危险因素不同；旧题“≥2%”阈值不建立Current关系。"
+  },
+  {
+    "question_id": "xizong-official-2011-n178",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2011/q176-200.json",
+      "blob_sha": "8b6597a2b197e3655bf61b085b678bd4efeb279b",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "气性坏疽的病原与处理原则",
+    "decision_axis": "气性坏疽本质是梭状芽胞杆菌相关的严重肌坏死/肌炎，可合并其他细菌感染并因溶血、毒血症出现黄疸；治疗关键是尽早彻底清创和切除坏死组织，抗生素是重要辅助但不是唯一关键。",
+    "reasoning_chain": [
+      "气性坏疽本质是梭状芽胞杆菌相关的严重肌坏死/肌炎，可合并其他细菌感染并因溶血、毒血症出现黄疸；治疗关键是尽早彻底清创和切除坏死组织，抗生素是重要辅助但不是唯一关键。",
+      "气性坏疽/梭菌性肌坏死是产毒梭状芽胞杆菌相关的暴发性肌坏死，可为混合感染并因溶血和毒血症出现黄疸；治疗核心是紧急彻底清创/切除坏死组织并联合抗菌，因此ABC。"
+    ],
+    "transfer_rule": "气性坏疽=急诊外科感染：尽快广泛清创/切除坏死组织+抗菌治疗。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "cycle": "SECOND_PASS_2011",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    },
+    "correct_option_reason": "气性坏疽/梭菌性肌坏死是产毒梭状芽胞杆菌相关的暴发性肌坏死，可为混合感染并因溶血和毒血症出现黄疸；治疗核心是紧急彻底清创/切除坏死组织并联合抗菌，因此ABC。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "抗生素非常重要，但不能替代尽早彻底外科清创，故“抗生素治疗最关键”不正确。"
+      }
+    ],
+    "common_failure_node": "把严重软组织感染当成纯药物感染病，延误外科源控制。"
+  },
+  {
+    "question_id": "xizong-official-2011-n179",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2011/q176-200.json",
+      "blob_sha": "8b6597a2b197e3655bf61b085b678bd4efeb279b",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "可缺乏骨折特有体征的骨折类型",
+    "decision_axis": "裂缝、嵌插、青枝和其他不完全骨折常无明显断端移位，因此异常活动、骨擦音和明显畸形等骨折特有体征可以不出现。",
+    "reasoning_chain": [
+      "裂缝、嵌插、青枝和其他不完全骨折常无明显断端移位，因此异常活动、骨擦音和明显畸形等骨折特有体征可以不出现。",
+      "裂缝、嵌插、青枝和其他不完全骨折可因断端稳定或未完全分离而缺少畸形、异常活动、骨擦感等所谓特有体征，因此ABCD。"
+    ],
+    "transfer_rule": "没有骨擦音/异常活动不能排除骨折，尤其是不完全或嵌插骨折。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "cycle": "SECOND_PASS_2011",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    },
+    "correct_option_reason": "裂缝、嵌插、青枝和其他不完全骨折可因断端稳定或未完全分离而缺少畸形、异常活动、骨擦感等所谓特有体征，因此ABCD。",
+    "valuable_distractors": [],
+    "common_failure_node": "把没有骨擦音或异常活动误当成排除骨折。"
+  },
+  {
+    "question_id": "xizong-official-2011-n180",
+    "truth_gate": "PASS",
+    "explanation_status": "APPROVED",
+    "question_truth_ref": {
+      "path": "content/xizong/questions/shards/2011/q176-200.json",
+      "blob_sha": "8b6597a2b197e3655bf61b085b678bd4efeb279b",
+      "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
+    },
+    "exam_target": "Thomas征与髋屈曲挛缩结构",
+    "decision_axis": "Thomas征阳性反映髋关节屈曲挛缩，可由髂腰肌、髂股韧带及髋前方关节囊挛缩造成；内收肌挛缩主要限制外展，并非典型屈曲挛缩来源。",
+    "reasoning_chain": [
+      "Thomas征阳性反映髋关节屈曲挛缩，可由髂腰肌、髂股韧带及髋前方关节囊挛缩造成；内收肌挛缩主要限制外展，并非典型屈曲挛缩来源。",
+      "Thomas征用于检出髋屈曲挛缩；髂腰肌、髂股韧带和髋关节前方关节囊挛缩均可限制髋伸展并使Thomas征阳性，因此BCD。"
+    ],
+    "transfer_rule": "Thomas test阳性=髋屈曲挛缩，不是单纯内收受限。",
+    "mapping_decision": "REVIEWED",
+    "upgrade_decision": "NO_CHANGE",
+    "review": {
+      "semantic_owner": "Chat",
+      "cycle": "SECOND_PASS_2011",
+      "learner_state_included": false,
+      "old_explanation_inherited": false
+    },
+    "correct_option_reason": "Thomas征用于检出髋屈曲挛缩；髂腰肌、髂股韧带和髋关节前方关节囊挛缩均可限制髋伸展并使Thomas征阳性，因此BCD。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "内收肌挛缩主要造成髋外展受限，不是Thomas征所测的典型屈曲挛缩结构。"
+      }
+    ],
+    "common_failure_node": "没有先定义Thomas征检测的是髋屈曲挛缩。"
+  }
+]

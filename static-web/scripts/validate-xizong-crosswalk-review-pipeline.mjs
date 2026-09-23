@@ -21,13 +21,21 @@ check(defaultQueue.independent_analysis_contract?.decision_axis, 'queue_defines_
 check(defaultQueue.independent_analysis_contract?.answer_logic, 'queue_defines_independent_answer_logic');
 check(defaultQueue.independent_analysis_contract?.mapping_fit, 'queue_defines_smallest_sufficient_mapping_fit');
 check(defaultQueue.independent_analysis_contract?.uncertainty, 'queue_defines_fail_closed_uncertainty');
-check(defaultQueue.candidate_count > 0, 'default_queue_has_review_candidates', String(defaultQueue.candidate_count));
+if (defaultQueue.candidate_count > 0) {
+  check(true, 'default_queue_has_review_candidates', String(defaultQueue.candidate_count));
+} else {
+  check(defaultQueue.candidates.length === 0, 'default_queue_closed_backlog_is_legal', '0');
+}
 check(defaultQueue.candidates.every((row) => row.review_mode === 'DEFAULT_ANTI_ANCHORED_REVIEW'), 'default_queue_uses_anti_anchored_review_mode');
 check(defaultQueue.candidates.every((row) => !Object.hasOwn(row, 'mapping_decision')), 'default_queue_withholds_mapping_decision');
 check(defaultQueue.candidates.every((row) => !Object.hasOwn(row, 'explanation')), 'default_queue_withholds_old_explanation');
 check(defaultQueue.candidates.every((row) => !Object.hasOwn(row, 'current_relation')), 'default_queue_withholds_prior_relation_targets');
 check(defaultQueue.candidates.every((row) => row.relation_exists === false), 'default_queue_excludes_already_reviewed_relations');
-check(defaultQueue.candidates.some((row) => row.relation_exists === false && row.review_mode === 'DEFAULT_ANTI_ANCHORED_REVIEW'), 'unmapped_needs_review_candidate_is_present');
+if (defaultQueue.candidate_count > 0) {
+  check(defaultQueue.candidates.some((row) => row.relation_exists === false && row.review_mode === 'DEFAULT_ANTI_ANCHORED_REVIEW'), 'unmapped_needs_review_candidate_is_present');
+} else {
+  check(true, 'unmapped_needs_review_backlog_is_closed');
+}
 check(!defaultQueue.candidates.some((row) => row.question_id === 'xizong-official-2005-n127'), 'newly_reviewed_candidate_drops_out_automatically');
 check(!defaultQueue.candidates.some((row) => row.question_id === 'xizong-official-2005-n036'), 'no_safe_match_not_silently_promoted');
 

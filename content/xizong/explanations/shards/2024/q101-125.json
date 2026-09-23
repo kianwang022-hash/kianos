@@ -8,20 +8,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肝脓肿进一步影像",
-    "decision_axis": "CT可更清楚显示肝脓肿的部位、大小、分隔及与周围结构关系，并指导引流规划。",
+    "exam_target": "肝脓肿进一步CT评估",
+    "decision_axis": "B超已提示较大肝脓肿后，CT可进一步显示低密度灶、边缘强化、分隔及与周围结构关系，并帮助引流规划。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "病例已有寒战高热、肝区叩痛和8×6cm肝内低回声区，肝脓肿诊断方向明确。",
+      "Current D19 KP25把B超作为首选检查，同时保留CT用于进一步影像描述。",
+      "因此在已做B超的情境下，进一步检查选腹部CT，答案A。"
     ],
-    "transfer_rule": "肝脓肿B超后常用CT进一步分层。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肝脓肿影像：B超先发现，CT进一步定范围/分隔；穿刺用于确证和病原学并兼治疗接口。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.腹部CT。Current D19 KP25明确保留CT对肝脓肿低密度灶、边缘强化等进一步评估价值。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "肝穿刺更偏确证、培养和引流，不是单纯进一步影像评估。"
+      },
+      {
+        "option": "C",
+        "reason": "ERCP主要用于胆道造影/取石/引流，并非肝实质脓肿常规进一步影像。"
+      }
+    ],
+    "common_failure_node": "看到“脓肿”就直接跳穿刺，忽略题轴问的是B超后的进一步影像评估。"
   },
   {
     "question_id": "xizong-official-2024-n102",
@@ -32,22 +47,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肝脓肿并发脓毒症",
-    "decision_axis": "大型细菌性肝脓肿可造成持续菌血症和脓毒症，是需要警惕的重要全身并发症。",
+    "exam_target": "大型细菌性肝脓肿并发脓毒症",
+    "decision_axis": "大型细菌性肝脓肿可持续释放细菌和炎症介质入血，菌血症/脓毒症是重要全身并发症。",
     "reasoning_chain": [
-      "肝脓肿的危险不只是局部脓腔，还可进入菌血症和全身感染失控。",
-      "因此最危险的并发症之一是脓毒症，选B。",
-      "转移扩散是肿瘤语言，破裂和肝功能受损也可发生但不是这里最关键的全身致死出口。"
+      "患者高热寒战和明显白细胞增多提示全身感染反应。",
+      "肝内8×6cm脓肿提供持续感染源。",
+      "Current D19 KP24明确列菌血症/脓毒症为肝脓肿扩散并发症，因此选B。"
     ],
-    "transfer_rule": "局部脓肿+高热寒战要警惕sepsis。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肝脓肿并发症不只局部破裂，还要警惕菌血症/脓毒症这一全身出口。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.脓毒症。大型细菌性肝脓肿可造成持续菌血症并进展为脓毒症。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "破裂出血并非肝脓肿最典型的全身严重并发症。"
+      },
+      {
+        "option": "D",
+        "reason": "肝功能受损可发生，但题干高热寒战更强调感染播散风险。"
+      }
+    ],
+    "common_failure_node": "只盯脓肿局部大小，不识别感染源可驱动系统性脓毒症。"
   },
   {
     "question_id": "xizong-official-2024-n103",
@@ -58,22 +86,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "骨肉瘤识别",
-    "decision_axis": "青少年膝周持续疼痛、肿胀、皮温高和浅静脉怒张是骨肉瘤经典临床线索。",
+    "exam_target": "青少年膝周骨肉瘤识别",
+    "decision_axis": "青少年、膝周持续疼痛、肿胀、皮温升高和浅静脉怒张，是骨肉瘤经典临床组合。",
     "reasoning_chain": [
-      "17岁、膝周持续痛肿、皮温高、静脉怒张和关节活动受限，典型符合青少年长骨干骺端恶性骨肿瘤。",
-      "最符合骨肉瘤，选C。",
-      "骨结核和骨髓炎更强调感染/慢性炎症证据，风湿性关节炎也不形成这种局部骨肿瘤表现。"
+      "17岁符合骨肉瘤高发年龄。",
+      "膝周即股骨远端/胫骨近端是高发部位。",
+      "持续疼痛、肿胀和静脉怒张支持恶性骨肿瘤，因此选C。"
     ],
-    "transfer_rule": "青少年+膝周骨痛肿块→先排骨肉瘤。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "骨肉瘤入口：青少年+膝周长骨干骺端+持续痛肿；再看成骨性影像。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.骨肉瘤。年龄、膝周部位和持续疼痛肿胀的组合符合Current O16骨肉瘤模型。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "骨髓炎可有高热感染表现，本题病程2月且无明显感染毒血症。"
+      },
+      {
+        "option": "A",
+        "reason": "骨结核通常起病更慢、全身炎症反应较轻，影像和局部表现不同。"
+      }
+    ],
+    "common_failure_node": "被“外伤后出现疼痛”锚定创伤/感染，忽略外伤常只是肿瘤被注意到的时间点。"
   },
   {
     "question_id": "xizong-official-2024-n104",
@@ -84,22 +125,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "骨肉瘤日光射线征",
-    "decision_axis": "骨肉瘤可产生放射状肿瘤骨，X线形成“日光射线”样骨膜反应。",
+    "exam_target": "骨肉瘤日光射线样骨膜反应",
+    "decision_axis": "骨肉瘤成骨性肿瘤快速生长，可形成放射状肿瘤骨和“日光射线”样骨膜反应。",
     "reasoning_chain": [
-      "骨肉瘤常形成侵袭性成骨反应，可出现针状新骨垂直骨皮质排列的‘日光射线’征。",
-      "因此选A。",
-      "虫蚀样破坏更不特异，关节间隙变窄主要是关节病语言。"
+      "前题已定位骨肉瘤。",
+      "Current O16 KP09明确保存日光射线等成骨性影像特征。",
+      "因此选A。"
     ],
-    "transfer_rule": "骨肉瘤影像：成骨、Codman三角、sunburst。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "骨肉瘤影像高频：成骨性破坏、日光射线、Codman三角；必须结合年龄和部位。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.“日光射线”形态。它是骨肉瘤经典X线成骨性骨膜反应。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "虫蚀样破坏可见多种侵袭性病变，并非骨肉瘤最典型标志。"
+      },
+      {
+        "option": "D",
+        "reason": "关节间隙变窄更常见于关节软骨破坏性疾病。"
+      }
+    ],
+    "common_failure_node": "只记“恶性骨肿瘤都有骨破坏”，没有识别骨肉瘤的特征性成骨反应。"
   },
   {
     "question_id": "xizong-official-2024-n105",
@@ -110,22 +164,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "骨肉瘤与碱性磷酸酶",
-    "decision_axis": "骨形成活跃时血清碱性磷酸酶可升高，可作为骨肉瘤的辅助和预后相关指标之一。",
+    "exam_target": "骨肉瘤血清碱性磷酸酶辅助指标",
+    "decision_axis": "骨肉瘤存在活跃成骨，血清碱性磷酸酶可升高，可作为辅助和预后相关指标。",
     "reasoning_chain": [
-      "成骨活跃的骨肉瘤可使血清碱性磷酸酶升高，并可作为肿瘤负荷/预后辅助指标。",
-      "因此选C。",
-      "血常规、ASO和血培养都不能直接反映恶性成骨活动。"
+      "题目已定位骨肉瘤。",
+      "骨形成活跃可提高ALP。",
+      "血常规、ESR/ASO和血培养更偏感染/炎症鉴别，因此选C。"
     ],
-    "transfer_rule": "ALP可反映成骨活跃，但诊断仍靠影像+病理。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "成骨性骨肿瘤可伴ALP升高，但ALP不是单独确诊依据。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.血清碱性磷酸酶。骨肉瘤成骨活动旺盛时ALP可升高。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "血培养用于菌血症/骨感染病原学，不是骨肉瘤辅助指标。"
+      },
+      {
+        "option": "B",
+        "reason": "ESR和ASO更偏炎症/链球菌相关疾病评估。"
+      }
+    ],
+    "common_failure_node": "把所有骨痛病例都按感染筛查，忽略成骨性肿瘤的代谢指标。"
   },
   {
     "question_id": "xizong-official-2024-n106",
@@ -136,22 +203,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "化脓性关节炎识别",
-    "decision_axis": "儿童急起高热、单关节红肿热痛、活动显著受限并关节间隙增宽，符合化脓性关节炎。",
+    "exam_target": "儿童急性化脓性关节炎识别",
+    "decision_axis": "儿童急起高热、单关节红肿热痛、活动受限且早期关节间隙增宽，符合化脓性关节炎。",
     "reasoning_chain": [
-      "儿童急性高热、单关节红肿热痛、活动严重受限并且关节间隙增宽，提示关节腔大量炎性渗出。",
-      "最符合急性化脓性关节炎，选D。",
-      "结核性关节炎通常更慢，风湿/类风湿也不呈这种急性化脓性单关节模式。"
+      "1天急性高热说明感染性急症。",
+      "左膝单关节明显红肿热痛、活动严重受限。",
+      "Current O13 KP06明确早期大量渗出可使关节间隙增宽，因此选D。"
     ],
-    "transfer_rule": "急性发热单关节炎=先排感染。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "化脓性关节炎：儿童+急高热+单关节剧痛肿胀；早期积液可使关节间隙增宽。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.化脓性关节炎。Current O13 KP06完整匹配儿童急性高热、单关节红肿热痛和早期间隙增宽。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "关节结核通常慢性、低热，病程和炎症强度不符。"
+      },
+      {
+        "option": "B",
+        "reason": "风湿性关节炎更常游走性多关节，不符合单个膝关节急性化脓性图景。"
+      }
+    ],
+    "common_failure_node": "误以为“关节间隙增宽”排除感染；化脓性关节炎早期大量渗出反而可增宽。"
   },
   {
     "question_id": "xizong-official-2024-n107",
@@ -162,20 +242,36 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "化脓性关节炎旧局部抗菌方案",
-    "decision_axis": "题源涉及关节腔内注射抗生素等固定处理；Current治疗核心是及时引流/清创和系统抗菌，局部注药并非通用标准。",
+    "exam_target": "化脓性关节炎的关节腔局部抗菌Study治疗",
+    "decision_axis": "Current O13 KP08明确保存化脓性关节炎治疗链：全身抗生素+功能位固定+关节腔注射抗生素或持续灌洗，失败/已化脓则关节镜处理。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "病例为急性化脓性关节炎。",
+      "选项中抗结核、NSAID或直接滑膜切除均不对应Current治疗主轴。",
+      "Current O13明确保留关节腔注射抗生素这一Study局部处理接口，因此选C。"
     ],
-    "transfer_rule": "感染性关节炎按Current引流+系统抗菌方案处理。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "化脓性关节炎治疗核心是系统抗菌+关节腔有效清除；局部注药/灌洗是Current Study接口之一。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.关节腔内注射抗生素。Current O13 KP08明确将其列入当前Study治疗链。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "NSAID仅对症，不能清除关节腔感染。"
+      },
+      {
+        "option": "D",
+        "reason": "Current治疗升级更偏关节镜清创/持续冲洗，并非直接把滑膜切除作为首选。"
+      }
+    ],
+    "common_failure_node": "用现代单一习惯替换项目Current Source，误把已明确保留的局部注药Study接口判成错误。",
+    "source_boundary_note": "Current O13保留“关节腔注射抗生素”作为Study考试接口；真实临床仍以系统抗菌、及时引流/灌洗和感染源控制为核心，局部用药不应脱离具体规范机械外推。"
   },
   {
     "question_id": "xizong-official-2024-n108",
@@ -186,20 +282,36 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "医务人员严谨求实与创新",
-    "decision_axis": "提出并验证新的解决方案、推动研究进展体现严谨求实和勇于创新的职业精神。",
+    "exam_target": "医务人员严谨求实与勇于创新",
+    "decision_axis": "针对耐药难题提出并验证解决方案、拓展疾病应用，体现科学求实基础上的创新精神。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题干核心是解决科研难题并获得权威验证。",
+      "这既要求严谨求证，也体现创新。",
+      "因此选B。"
     ],
-    "transfer_rule": "科研创新必须建立在严谨求实基础上。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "专业创新不是“追新”本身，而是基于证据、科学价值和患者利益解决真实问题。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.严谨求实，勇于创新。题干强调科学问题解决和新进展验证，最符合这一专业精神。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "乐于奉献/公益并非题干科研创新的直接轴。"
+      },
+      {
+        "option": "D",
+        "reason": "医患服务关系不是本题科研行为的核心。"
+      }
+    ],
+    "common_failure_node": "看到杰出人物事迹就泛化为奉献精神，没有抓题干真正描述的科研行为。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2024-n109",
@@ -210,20 +322,36 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "利益冲突披露",
-    "decision_axis": "医生与药企存在可能影响专业判断的关系时，应主动披露利益冲突并保持专业独立。",
+    "exam_target": "医生利益冲突的披露与管理",
+    "decision_axis": "与药企存在关系本身不必然违规；关键是识别、披露并管理利益冲突，保持专业判断独立。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "专业合作可以存在，A/B的全面禁止过度。",
+      "“公布所有收益”也超过合理利益冲突披露边界。",
+      "主动申明可能影响判断的利益冲突最符合规范，因此选C。"
     ],
-    "transfer_rule": "利益冲突不等于禁止合作，关键是披露与管理。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "利益冲突题先区分“存在关系”和“被关系支配判断”；核心动作是识别、披露、管理。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.医生应公开申明其利益冲突。Current humanities明确把披露和管理冲突作为专业责任。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "并非所有与药企合作都禁止，重点是透明和专业独立。"
+      },
+      {
+        "option": "D",
+        "reason": "利益冲突披露并不等同向社会公布所有个人收益。"
+      }
+    ],
+    "common_failure_node": "把“利益冲突管理”误解成“完全禁止所有行业合作”。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2024-n110",
@@ -234,20 +362,36 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "患者知情同意权",
-    "decision_axis": "医生解释诊疗方案并在患者同意后实施，体现对患者知情同意和自主决策的尊重。",
+    "exam_target": "解释方案并征得同意体现知情同意权",
+    "decision_axis": "医生提供诊疗方案信息、回答疑问并在患者自主同意后实施，体现知情同意权。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题干强调详细介绍方案。",
+      "实施前必须征得患者同意。",
+      "这正对应知情、理解、自愿和授权，因此选C。"
     ],
-    "transfer_rule": "知情同意=充分说明后自主授权。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "知情同意不是签字文件，而是充分信息+理解+自愿+授权的过程。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.知情同意权。解释诊疗方案并获得患者同意后实施，直接体现知情同意和自主决策。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "隐私权关注信息保密，不是本题“解释并同意”的决策过程。"
+      },
+      {
+        "option": "D",
+        "reason": "医疗监督权不对应个体诊疗方案的自主授权。"
+      }
+    ],
+    "common_failure_node": "把“患者有权问问题”笼统归医疗监督，而忽略实施方案前的自主授权。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2024-n111",
@@ -258,20 +402,36 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "医患沟通回应患者疑问",
-    "decision_axis": "面对患者询问病因，医生应给予可理解的解释，而非拒绝沟通或以专业壁垒压制提问。",
+    "exam_target": "面对患者病因疑问的有效沟通",
+    "decision_axis": "有效沟通应尊重患者、具体且可理解；面对病因询问应解释，而不是敷衍、拒绝或用专业壁垒压制。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "患者提出合理医学疑问。",
+      "A/B/C均属于拒绝沟通或贬低患者理解能力。",
+      "D主动解释且尊重患者，因此最佳。"
     ],
-    "transfer_rule": "沟通要回应问题、解释不确定性、避免傲慢。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "沟通题优先选“尊重+解释+可理解+回应需求”，避免敷衍、威胁、羞辱和虚假保证。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.“导致神经性耳鸣的原因很多，我为您解释一下吧。”这体现尊重、回应和可理解的信息沟通。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "直接让患者离开并不回应其合理疑问。"
+      },
+      {
+        "option": "C",
+        "reason": "以“说了也听不懂”拒绝解释违反尊重和有效沟通原则。"
+      }
+    ],
+    "common_failure_node": "把“医生忙/专业复杂”当成拒绝患者合理知情需求的正当理由。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2024-n112",
@@ -282,20 +442,37 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "传染病诊疗法律义务",
-    "decision_axis": "本题涉及传染病转诊/救治规范及医师法律义务，Current结论应以现行法规和当地制度为准。",
+    "exam_target": "活动性肺结核转诊中的传染病诊疗法律义务",
+    "decision_axis": "题源把活动性肺结核按传染病医疗救治规范转诊，归入医师遵守法律法规、执行传染病诊疗规范的义务。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "患者已确诊活动性肺结核。",
+      "转诊到承担相应传染病救治职责的机构属于规范化传染病管理。",
+      "因此题源答案为D。"
     ],
-    "transfer_rule": "法律与公共卫生题只保留题源，Current需查现行规范。",
+    "transfer_rule": "卫生法题先看行为是否来自法定报告、转诊、救治或公共卫生规范；具体对象和程序必须按Current法源核对。",
     "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.遵守法律法规，执行传染病医疗救治规范。该转诊行为在本题Source中体现传染病诊疗规范义务。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "隐私保护当然重要，但不是题干“要求转诊”的直接义务来源。"
+      },
+      {
+        "option": "B",
+        "reason": "健康教育不等同于本题的传染病医疗救治规范执行。"
+      }
+    ],
+    "common_failure_node": "只按一般医德义务答题，不识别题干实际是在考传染病法定/规范性处置。",
+    "source_boundary_note": "传染病转诊、定点救治等具体制度可能随法规和地区体系调整；本Explanation保留2024正式题源结论，Current执行必须核对现行规范。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2024-n113",
@@ -306,20 +483,37 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "保密原则与教学使用",
-    "decision_axis": "经患者同意后把病例用于临床教学，符合授权和目的限定的保密原则。",
+    "exam_target": "保密原则下经授权的教学使用",
+    "decision_axis": "医疗信息原则上保密；在患者明确同意的范围内将病例用于临床教学，符合授权和目的限定。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "朋友圈公开完整病例信息明显越界。",
+      "食堂实名讨论同样缺乏必要性和场景保护。",
+      "HIV阳性信息也存在法定报告等特定例外，不能写成“绝不向任何机构透露”。",
+      "D具有患者同意和教学目的，因此正确。"
     ],
-    "transfer_rule": "病例教学使用需患者同意和隐私保护。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "保密题先查授权/法定例外，再看最小必要、去标识化和目的限定。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.经患者同意，将其病例资料用于医院的临床教学。明确授权使教学使用具备基本伦理正当性。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "朋友圈公开患者全部信息违反保密和最小必要原则。"
+      },
+      {
+        "option": "C",
+        "reason": "保密并非绝对，某些传染病/公共卫生场景存在法定报告义务。"
+      }
+    ],
+    "common_failure_node": "把“保密”绝对化为任何情况下都不得向任何机构披露。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2024-n114",
@@ -330,20 +524,36 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "临床试验招募中的治疗误解",
-    "decision_axis": "把研究包装成免费常规医疗会诱导受试者产生治疗性误解，违反透明招募和知情同意要求。",
+    "exam_target": "临床试验招募中的治疗性误解",
+    "decision_axis": "把研究描述成“免费常规医疗”会模糊研究与治疗边界，诱导受试者产生治疗性误解，损害真正知情同意。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "已上市药物拓展新适应场景仍属于研究，需要伦理审查和研究知情同意。",
+      "招募广告若只强调免费检查，可能让人把试验当普通诊疗福利。",
+      "因此D正确。"
     ],
-    "transfer_rule": "研究招募不得把试验伪装成常规治疗福利。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "研究招募要透明说明研究身份、风险和替代方案，不能借“免费治疗/检查”制造治疗性误解。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.该招募广告的描述误导受试者将试验理解为常规医疗。研究与治疗边界被模糊，会削弱有效知情同意。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "药物已上市不代表新的临床试验可免伦理审查。"
+      },
+      {
+        "option": "A",
+        "reason": "参与研究需要研究层面的知情同意，不能只靠常规临床医疗同意。"
+      }
+    ],
+    "common_failure_node": "把“已上市药物”误等于“任何新用途研究都不是临床试验”。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2024-n115",
@@ -354,20 +564,37 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "《医师法》执业注册变更",
-    "decision_axis": "本题直接考现行医师法关于变更执业注册的情形，法律规定可能调整，不应脱离现行法条泛化。",
+    "exam_target": "《医师法》执业注册变更的题源结论",
+    "decision_axis": "题源把“调动到医疗联合体外的医院执业”作为需要办理变更注册手续的情形；会诊、进修、规范化培训并不等同于执业地点的正式调动。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "题目直接考现行法条精确适用。",
+      "A/B/D属于会诊、进修、培训等特定活动。",
+      "C是正式调动到医联体外执业，题源答案为需要变更注册。"
     ],
-    "transfer_rule": "法律题Current必须核对现行《医师法》及配套规定。",
+    "transfer_rule": "法律题要区分临时专业活动与正式变更执业机构；精确程序必须按当前有效法条核验。",
     "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.调动到医疗联合体外的医院执业。按2024正式题源，这是需要办理变更注册手续的情形。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "会诊属于临时专业协作，不等同正式执业机构变更。"
+      },
+      {
+        "option": "B",
+        "reason": "进修的法律身份不同于正式调动执业。"
+      }
+    ],
+    "common_failure_node": "把“去别的医院做任何医疗相关活动”都机械视为执业注册变更。",
+    "source_boundary_note": "本题涉及《医师法》精确注册规则；Current humanities要求法律题版本优先，具体变更程序应按现行法条和配套规定核对。",
+    "source_gap_note": "Current clinical-humanities owner can calibrate this Explanation, but its authority boundary explicitly excludes Question→KP relations; therefore no A1–F clinical relation is manufactured."
   },
   {
     "question_id": "xizong-official-2024-n116",
@@ -378,22 +605,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "阻塞性通气功能",
-    "decision_axis": "阻塞性肺病气流排出受限，FEV1/FVC下降并常伴气体潴留、残气量增加。",
+    "exam_target": "阻塞性通气障碍：FEV₁/FVC下降、余气量增加",
+    "decision_axis": "阻塞性肺病呼气流速受限，FEV₁下降比例大于FVC，FEV₁/FVC下降；气体潴留使RV增加。",
     "reasoning_chain": [
-      "阻塞性通气障碍的核心是呼气速度下降，FEV₁/FVC因此降低，同时气体潴留使余气量增加。",
-      "因此选C。",
-      "限制性疾病主要是总肺容量变小，一秒率常正常或升高。"
+      "气道阻力增加首先降低呼气流速。",
+      "呼不净造成气体潴留和余气量增多。",
+      "因此组合为FEV₁/FVC下降+RV增加，选C。"
     ],
-    "transfer_rule": "阻塞性=比值↓+RV常↑。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "阻塞：流速先坏+气体潴留；限制：容积整体缩小而比值常正常/升高。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.FEV₁/FVC比值减小，余气量增多。Current R1 KP03明确阻塞性通气障碍的这一模式。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "FEV₁/FVC基本不变不符合典型阻塞性气流受限。"
+      },
+      {
+        "option": "D",
+        "reason": "阻塞性肺病常有气体潴留，余气量通常不是减少。"
+      }
+    ],
+    "common_failure_node": "只记FEV₁下降，不会把比值和肺容积变化结合。"
   },
   {
     "question_id": "xizong-official-2024-n117",
@@ -404,22 +644,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "限制性通气功能",
-    "decision_axis": "限制性肺病总体肺容积下降，FEV1与FVC多成比例下降，FEV1/FVC常正常或升高，残气量可减少。",
+    "exam_target": "限制性通气障碍：FEV₁/FVC保留、肺容积下降",
+    "decision_axis": "限制性肺病使肺容积整体下降，FEV₁与FVC相对同比例下降，FEV₁/FVC通常正常或升高，RV可减少。",
     "reasoning_chain": [
-      "限制性通气障碍的核心是肺容量整体减少，而气道通畅性相对保留。",
-      "因此FEV₁/FVC可基本正常，而余气量/肺容量减少，选B。",
-      "与阻塞性‘一秒率低 + 气体潴留’形成对照。"
+      "限制性问题核心是“装不下”，不是呼气流速选择性受限。",
+      "FVC明显下降，FEV₁也随之下降。",
+      "比值保留而余气量减少，因此选B。"
     ],
-    "transfer_rule": "限制性=肺容积↓、比值多保留。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "限制性：TLC/FVC等容积↓，FEV₁/FVC不低；阻塞性：FEV₁/FVC↓且RV常↑。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.FEV₁/FVC基本不变，余气量减少。符合限制性通气障碍的整体肺容积下降模式。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "比值下降且RV增多更典型阻塞性。"
+      },
+      {
+        "option": "A",
+        "reason": "RV增多不符合典型限制性肺容积缩小。"
+      }
+    ],
+    "common_failure_node": "把“FEV₁下降”本身当作阻塞证据，忘记要看FEV₁/FVC。"
   },
   {
     "question_id": "xizong-official-2024-n118",
@@ -430,22 +683,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "输尿管梗阻与GFR",
-    "decision_axis": "输尿管结石导致梗阻，逆向升高肾小囊/肾小管内压，降低有效滤过压和GFR。",
+    "exam_target": "输尿管梗阻升高肾小囊内压降低GFR",
+    "decision_axis": "输尿管结石造成下游梗阻，压力逆传至肾小管/肾小囊，使肾小囊内压升高，有效滤过压下降。",
     "reasoning_chain": [
-      "输尿管结石造成尿路梗阻后，压力可向上游传到肾盂和肾小囊。",
-      "肾小囊内压升高会抵消肾小球滤过压，使GFR和尿量下降，因此选A。",
-      "决定性变量是梗阻后的反向压力，而不是滤过膜本身坏了。"
+      "梗阻不是先改变滤过膜通透性。",
+      "尿路内压力升高会反向抵消肾小球毛细血管滤过压。",
+      "因此尿量减少主要由肾小囊内压升高，选A。"
     ],
-    "transfer_rule": "尿路梗阻→Bowman囊压↑→GFR↓。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "GFR三压力：P_GC促滤过；P_BS和π_GC抗滤过。尿路梗阻主要抬高P_BS。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.肾小囊内压升高。Current urinary B2 KP08明确尿路梗阻通过升高囊内压降低有效滤过压。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "结石梗阻并非通过降低滤过膜通透性作为主要机制。"
+      },
+      {
+        "option": "C",
+        "reason": "血浆胶体渗透压升高不是本例尿路梗阻的主要变化。"
+      }
+    ],
+    "common_failure_node": "见尿少就统一归“肾血流下降”，忽略梗阻可通过囊内压直接降低GFR。"
   },
   {
     "question_id": "xizong-official-2024-n119",
@@ -456,22 +722,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "大量失血时GFR下降",
-    "decision_axis": "大量失血使肾灌注下降并引起肾血管收缩，从而降低GFR；题源选项用“有效滤过总面积减少”表述这一结果。",
+    "exam_target": "大量失血导致肾灌注下降与GFR下降",
+    "decision_axis": "大量失血使有效循环血量和肾灌注下降，交感/RAAS收缩肾血管；题源用“肾小球滤过总面积减少”表达GFR下降方向。",
     "reasoning_chain": [
-      "大量失血引起强烈交感和AngⅡ反应，不仅降低肾灌注，还可使系膜细胞收缩、有效滤过面积和Kf下降。",
-      "因此题源所列最符合的是肾小球滤过总面积减少，选D。",
-      "实际少尿是灌注、RPF、Kf和重吸收多层共同作用的结果。"
+      "失血首先降低肾灌注压。",
+      "强烈交感和血管收缩减少有效滤过。",
+      "四项中D最符合题源对GFR下降机制的表述，因此选D。"
     ],
-    "transfer_rule": "失血少尿本质先看肾灌注和GFR下降。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "失血少尿主轴是低灌注+肾血管收缩；不要把它和尿路梗阻的囊内压升高混淆。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.肾小球滤过总面积减少。按Current urinary B2与题源口径，大量失血导致肾灌注和有效滤过下降。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "囊内压升高更典型见尿路梗阻。"
+      },
+      {
+        "option": "C",
+        "reason": "失血并不以血浆胶体渗透压升高作为主要少尿机制。"
+      }
+    ],
+    "common_failure_node": "把不同原因导致的GFR下降都套成同一个Starling变量。"
   },
   {
     "question_id": "xizong-official-2024-n120",
@@ -482,20 +761,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "糖酵解与磷酸戊糖途径共同物",
-    "decision_axis": "葡萄糖-6-磷酸既可进入糖酵解，也可由G6PD引导进入磷酸戊糖途径。",
+    "exam_target": "糖酵解与PPP共同中间物G-6-P",
+    "decision_axis": "G-6-P是葡萄糖进入糖代谢后的核心分流点，可继续走糖酵解，也可经G6PD进入磷酸戊糖途径。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "糖酵解从G-6-P继续向F-6-P推进。",
+      "PPP也以G-6-P为入口。",
+      "Current M4 KP01明确把G-6-P定义为多路分流枢纽，因此选C。"
     ],
-    "transfer_rule": "G6P是糖代谢的重要分流点。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "看到“共同中间物”优先画分流枢纽：G-6-P连接糖酵解、PPP、糖原和糖异生末端。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.葡萄糖-6-磷酸。Current M4 KP01明确G-6-P可进入糖酵解和磷酸戊糖途径。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "F-6-P属于糖酵解主链，但不是PPP氧化阶段入口。"
+      },
+      {
+        "option": "D",
+        "reason": "6-磷酸葡萄糖酸内酯属于PPP专有早期中间物。"
+      }
+    ],
+    "common_failure_node": "只按代谢物是否“见过”做选择，没有先画通路分叉。"
   },
   {
     "question_id": "xizong-official-2024-n121",
@@ -506,20 +800,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "糖原合成与分解共同中间物",
-    "decision_axis": "糖原合成和糖原分解都经由葡萄糖-1-磷酸/葡萄糖-6-磷酸相互转换，题源选项共同落在G6P。",
+    "exam_target": "糖原合成与分解共同接口G-6-P",
+    "decision_axis": "糖原合成走G→G-6-P↔G-1-P→UDPG→糖原；分解走糖原→G-1-P↔G-6-P，因此G-6-P是两向共同接口。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "合成和分解方向都经过G-1-P/G-6-P相互转换。",
+      "选项中只有G-6-P同时存在于两条链。",
+      "Current M4 KP01明确写“糖原合成/分解共同接口”，因此选C。"
     ],
-    "transfer_rule": "糖原代谢与游离葡萄糖代谢在G6P汇合。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "糖原双向共同节点记G-1-P↔G-6-P；选项若只有G-6-P则直接锁定。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.葡萄糖-6-磷酸。Current M4 KP01明确其是糖原合成与分解的共同接口。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "F-6-P主要属于糖酵解/糖异生，不是糖原代谢直接共同接口。"
+      },
+      {
+        "option": "D",
+        "reason": "6-磷酸葡萄糖酸内酯属于PPP。"
+      }
+    ],
+    "common_failure_node": "把“所有糖代谢都互通”理解成任意糖酵解中间物都能作为糖原双向接口。"
   },
   {
     "question_id": "xizong-official-2024-n122",
@@ -530,22 +839,35 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "脂肪酸合成碳源",
-    "decision_axis": "脂肪酸合成以胞质乙酰CoA为起始碳源，先生成丙二酰CoA后延长。",
+    "exam_target": "脂肪酸合成以乙酰CoA为起始原料",
+    "decision_axis": "脂肪酸合成在胞质以乙酰CoA起始，经ACC生成丙二酰CoA后由脂肪酸合酶延长。",
     "reasoning_chain": [
-      "脂肪酸从头合成以乙酰CoA作为碳源入口，并先经ACC生成丙二酰CoA。",
-      "因此选A。",
-      "脂肪酰CoA是活化后的脂肪酸形式，甲羟戊酸走胆固醇，乙酰乙酸走酮体。"
+      "脂肪酰CoA是已有脂肪酸被活化后的形式，不是新生脂肪酸起始碳源。",
+      "甲羟戊酸属于胆固醇合成。",
+      "乙酰CoA是脂肪酸合成起点，因此选A。"
     ],
-    "transfer_rule": "FA synthesis起点=acetyl-CoA，限速ACC。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "脂肪酸合成：乙酰CoA→丙二酰CoA→FAS；胆固醇：乙酰CoA→HMG-CoA→甲羟戊酸。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.乙酰CoA。Current M7 KP04明确其为脂肪酸合成起始碳源。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "甲羟戊酸属于胆固醇合成主链。"
+      },
+      {
+        "option": "B",
+        "reason": "脂肪酰CoA多用于β氧化、酯化等，是已形成脂肪酸的活化形式。"
+      }
+    ],
+    "common_failure_node": "把脂肪酸“合成原料”和脂肪酸“活化后形式”混淆。"
   },
   {
     "question_id": "xizong-official-2024-n123",
@@ -556,20 +878,36 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "HMG-CoA还原酶反馈调节",
-    "decision_axis": "胆固醇合成下游产物可负反馈抑制HMG-CoA还原酶；题源以甲羟戊酸体现产物反馈。",
+    "exam_target": "HMG-CoA还原酶的题源“甲羟戊酸别构抑制”口径",
+    "decision_axis": "正式题源答案为甲羟戊酸；Current M6只安全冻结HMG-CoA还原酶受产物/胆固醇反馈、磷酸化和激素调节，并未明确把甲羟戊酸定义为稳定的别构抑制剂。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "甲羟戊酸是HMG-CoA还原酶反应直接产物。",
+      "历史/题源将其作为反馈/别构抑制答案C。",
+      "但Current M6没有保存这一精确机制表述，因此只保留官方答案，不升级为Current relation。"
     ],
-    "transfer_rule": "胆固醇合成限速酶受产物和激素多层调节。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "代谢调节题要区分“反馈抑制”与“别构抑制”的精确机制；Current没有冻结时不要用旧题答案反推新规则。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.甲羟戊酸为2024正式题源答案；Current M6仅保留产物/胆固醇反馈主轴，并未确认“甲羟戊酸=别构抑制剂”这一精确表述。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "乙酰CoA是胆固醇合成上游底物来源，不是题源抑制剂。"
+      },
+      {
+        "option": "D",
+        "reason": "乙酰乙酸属于酮体代谢接口。"
+      }
+    ],
+    "common_failure_node": "把“反应产物可反馈”自动等同于“该产物就是经典别构抑制剂”。",
+    "source_gap_note": "Current M6 KP04只冻结“产物/胆固醇反馈”与激素/磷酸化方向，没有明确支持“甲羟戊酸作为HMG-CoA还原酶别构抑制剂”；Crosswalk fail-closed。"
   },
   {
     "question_id": "xizong-official-2024-n124",
@@ -580,20 +918,36 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "骨折后迟发血栓栓塞",
-    "decision_axis": "骨折两周后突然栓塞更符合卧床和静脉血栓形成后脱落，而脂肪栓塞多发生更早。",
+    "exam_target": "股骨骨折两周后血栓栓塞",
+    "decision_axis": "长骨骨折两周后患者常经历制动/卧床，静脉淤滞增加DVT风险，血栓脱落形成血栓栓塞；脂肪栓塞通常更接近伤后早期。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "两周时程明显晚于典型脂肪栓塞综合征的早期窗口。",
+      "骨折后制动造成静脉淤滞，是Virchow三要素中的血流异常。",
+      "Current B4明确“长期卧床→DVT”和血栓→栓子→栓塞链，因此选A。"
     ],
-    "transfer_rule": "骨折后数天至数周突发PE要想到DVT。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "骨折后栓塞先读时间轴：伤后早期警惕脂肪栓塞；持续制动后更要警惕DVT血栓栓塞。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.血栓栓塞。骨折后两周的制动/卧床增加DVT风险，血栓脱落可造成栓塞。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "脂肪栓塞更典型发生在长骨骨折后的较早阶段，不以两周后迟发为典型。"
+      },
+      {
+        "option": "B",
+        "reason": "空气栓塞需要血管内空气进入的特定操作/创伤机制。"
+      }
+    ],
+    "common_failure_node": "看到“股骨骨折”就条件反射选脂肪栓塞，不看发作时程。",
+    "source_boundary_note": "Current B4 relation承接的是“长期卧床→DVT→血栓栓塞”链；脂肪栓塞具体时间窗并非该KP的Primary精度内容。"
   },
   {
     "question_id": "xizong-official-2024-n125",
@@ -604,19 +958,34 @@
       "blob_sha": "25ae77e1b233e6399ef4dbd5d0ab5b7c10a421c9",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "减压病氮气栓塞",
-    "decision_axis": "深潜后上浮过快导致溶解氮迅速析出形成气泡，可引起减压病和氮气栓塞。",
+    "exam_target": "减压病的氮气栓塞",
+    "decision_axis": "潜水员快速上浮时环境压力骤降，组织和血液中溶解氮析出形成气泡，可造成减压病和氮气栓塞。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "深潜时高压使更多氮溶入组织。",
+      "上浮过快时氮来不及经肺排出而形成气泡。",
+      "Current O10 KP03明确保存“潜水员病（氮气栓塞接口）”，因此选D。"
     ],
-    "transfer_rule": "潜水快速上浮=氮气泡。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "减压病=压力下降过快→溶解氮析出气泡；与外源空气直接进入血管的空气栓塞不同。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.氮气栓塞。Current O10 KP03明确将潜水员/减压病与氮气栓塞接口相连。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "空气栓塞指外界空气直接进入血管，本题是溶解氮因减压析出。"
+      },
+      {
+        "option": "C",
+        "reason": "脂肪栓塞多与长骨骨折、严重软组织损伤等相关。"
+      }
+    ],
+    "common_failure_node": "把所有“气泡造成的栓塞”都称为空气栓塞，忽略减压病的氮气来源。"
   }
 ]

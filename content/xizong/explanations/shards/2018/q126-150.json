@@ -16,14 +16,23 @@
       "淋巴细胞、浆细胞或多核巨细胞可见于其他炎症背景，但都不是本题伤寒肉芽肿的主要细胞。"
     ],
     "transfer_rule": "伤寒肉芽肿抓巨噬细胞/伤寒细胞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A.巨噬细胞。伤寒肉芽肿/伤寒小结的主角是增生并吞噬细菌、红细胞碎片等的伤寒细胞，本质为巨噬细胞。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "浆细胞是梅毒等慢性特异性炎症的重要识别细胞，不是伤寒小结的主要细胞。"
+      }
+    ],
+    "common_failure_node": "把“肉芽肿”统一理解成上皮样细胞/多核巨细胞，而忽略伤寒属于巨噬细胞主导的急性增生性炎。"
   },
   {
     "question_id": "xizong-official-2018-n127",
@@ -42,14 +51,23 @@
       "上皮样细胞和Langhans样多核巨细胞可以出现，但不是梅毒肉芽肿的主要细胞。"
     ],
     "transfer_rule": "梅毒病理先联想浆细胞+闭塞性动脉内膜炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "D.浆细胞。梅毒性树胶肿及血管周围炎症常见大量浆细胞，是经典病理识别点。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "巨噬细胞可存在于多种慢性炎症，但梅毒最有价值的细胞学提示是浆细胞丰富。"
+      }
+    ],
+    "common_failure_node": "把所有特异性肉芽肿都按结核样“上皮样细胞+巨细胞”模板处理。"
   },
   {
     "question_id": "xizong-official-2018-n128",
@@ -63,7 +81,8 @@
     "exam_target": "心房扑动心电图视觉判读",
     "decision_axis": "本题明确依赖原始心电图，题源答案为心房扑动；Fast Owner文本路径不替代ECG Visual Truth重判。",
     "reasoning_chain": [
-      "保留题源正式答案，并将节律形态判读留在原始心电图证据层。"
+      "本题明确依赖原始心电图，题源答案为心房扑动；Fast Owner文本路径不替代ECG Visual Truth重判。",
+      "C.心房扑动为题源官方视觉答案；最终判读必须回原始ECG识别规则性F波/房扑节律，文本Explanation不替代图像。"
     ],
     "transfer_rule": "仅保留题源/Visual Truth边界；不得脱离原图生成判图规则。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -72,8 +91,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "C.心房扑动为题源官方视觉答案；最终判读必须回原始ECG识别规则性F波/房扑节律，文本Explanation不替代图像。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "房颤应表现为无规则F波/基线纤颤并伴绝对不规则心室律；本题需回原图确认。"
+      }
+    ],
+    "common_failure_node": "脱离原始心电图，仅凭答案或疾病常识反推波形。",
+    "source_gap_note": "该题的决定性证据是原始ECG图像；文本Explanation保留题源答案，但不以文字推断替代Visual Truth，因此不建立正向relation。"
   },
   {
     "question_id": "xizong-official-2018-n129",
@@ -87,7 +116,8 @@
     "exam_target": "阵发性室上速心电图视觉判读",
     "decision_axis": "本题明确依赖原始心电图，题源答案为阵发性室上性心动过速；Fast Owner文本路径不替代ECG Visual Truth重判。",
     "reasoning_chain": [
-      "保留题源正式答案，并将节律形态判读留在原始心电图证据层。"
+      "本题明确依赖原始心电图，题源答案为阵发性室上性心动过速；Fast Owner文本路径不替代ECG Visual Truth重判。",
+      "B.阵发性室上性心动过速为题源官方视觉答案；应回原ECG确认规则窄QRS心动过速及P波关系。"
     ],
     "transfer_rule": "仅保留题源/Visual Truth边界；不得脱离原图生成判图规则。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -96,8 +126,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B.阵发性室上性心动过速为题源官方视觉答案；应回原ECG确认规则窄QRS心动过速及P波关系。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "窦速通常仍可辨认窦性P波且起止渐变；本题必须以原始心电图为准。"
+      }
+    ],
+    "common_failure_node": "把所有规则窄QRS快速心律都直接命名为PSVT，不做视觉鉴别。",
+    "source_gap_note": "该题的决定性证据是原始ECG图像；文本Explanation保留题源答案，但不以文字推断替代Visual Truth，因此不建立正向relation。"
   },
   {
     "question_id": "xizong-official-2018-n130",
@@ -111,17 +151,31 @@
     "exam_target": "有机磷中毒特征气味",
     "decision_axis": "有机磷农药中毒经典查体线索之一是呼气、呕吐物或污染物呈蒜臭样气味。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "有机磷农药中毒经典查体线索之一是呼气、呕吐物或污染物呈蒜臭样气味。",
+      "C.蒜臭味。Current F1明确把有机磷列入“蒜味”中毒识别线索。"
     ],
     "transfer_rule": "有机磷=蒜臭味；气味只是辅助线索，不能替代胆碱能综合征。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "C.蒜臭味。Current F1明确把有机磷列入“蒜味”中毒识别线索。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "烂苹果味更典型指向酮症酸中毒。"
+      },
+      {
+        "option": "B",
+        "reason": "苦杏仁味是氰化物的经典考试线索。"
+      }
+    ],
+    "common_failure_node": "把气味当成单独确诊证据；它只能作为暴露史和胆碱能表现之外的辅助线索。"
   },
   {
     "question_id": "xizong-official-2018-n131",
@@ -135,17 +189,27 @@
     "exam_target": "氰化物中毒特征气味",
     "decision_axis": "氰化物中毒经典描述可出现苦杏仁样气味，但并非所有人都能嗅出，因此只能作为辅助识别点。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "氰化物中毒经典描述可出现苦杏仁样气味，但并非所有人都能嗅出，因此只能作为辅助识别点。",
+      "B.苦杏仁味。Current F1把氰化物与苦杏仁味配对，但同时应知道并非所有人都能感知该气味。"
     ],
     "transfer_rule": "氰化物=苦杏仁味是经典考试线索。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B.苦杏仁味。Current F1把氰化物与苦杏仁味配对，但同时应知道并非所有人都能感知该气味。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "蒜臭味在Current Study中更偏有机磷、黄磷、砷等。"
+      }
+    ],
+    "common_failure_node": "把“闻不到苦杏仁味”当成排除氰化物中毒的依据。"
   },
   {
     "question_id": "xizong-official-2018-n132",
@@ -159,7 +223,8 @@
     "exam_target": "甲状腺乳头状癌长期预后旧统计口径",
     "decision_axis": "题源以乳头状甲状腺癌术后长期生存显著优于其他选项作答；固定“15年以上”的预后数字受分期和时代影响，不升级Current阈值。",
     "reasoning_chain": [
-      "按题源正式答案保留，并对固定生存期口径fail-closed。"
+      "题源以乳头状甲状腺癌术后长期生存显著优于其他选项作答；固定“15年以上”的预后数字受分期和时代影响，不升级Current阈值。",
+      "C.甲状腺乳头状癌为题源官方答案；它总体预后优于其余选项，但“术后一般存活15年以上”是时代、分期和治疗相关的旧统计表达，不升级为Current阈值。"
     ],
     "transfer_rule": "仅保留“乳头状癌总体预后较好”的方向，不固化旧生存年限。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -168,8 +233,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "C.甲状腺乳头状癌为题源官方答案；它总体预后优于其余选项，但“术后一般存活15年以上”是时代、分期和治疗相关的旧统计表达，不升级为Current阈值。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "胰腺导管腺癌总体预后明显较差，不符合题源“长期存活”比较。"
+      }
+    ],
+    "common_failure_node": "把历史生存年限数字当成不随分期和治疗进步改变的恒定属性。",
+    "source_boundary_note": "题源“术后一般能存活15年以上”为历史预后比较表达；Current只保留乳头状甲状腺癌总体预后较好的方向，不冻结固定生存年限。"
   },
   {
     "question_id": "xizong-official-2018-n133",
@@ -183,7 +258,8 @@
     "exam_target": "胰腺导管腺癌术后预后旧统计口径",
     "decision_axis": "题源以胰腺导管腺癌术后5年生存差作答；具体生存率随分期、切除性和现代综合治疗变化，不固化为Current固定预后阈值。",
     "reasoning_chain": [
-      "按题源正式答案保留，并对固定预后数字fail-closed。"
+      "题源以胰腺导管腺癌术后5年生存差作答；具体生存率随分期、切除性和现代综合治疗变化，不固化为Current固定预后阈值。",
+      "A.胰腺导管腺癌为题源官方答案；其总体预后较差，但“术后很少存活5年”属于历史统计口径，不能作为Current固定概率规则。"
     ],
     "transfer_rule": "仅保留胰腺导管腺癌总体预后差的方向，不固化旧年限统计。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -192,8 +268,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A.胰腺导管腺癌为题源官方答案；其总体预后较差，但“术后很少存活5年”属于历史统计口径，不能作为Current固定概率规则。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "甲状腺乳头状癌总体预后明显更好，与本题“预后最差”方向相反。"
+      }
+    ],
+    "common_failure_node": "把群体历史预后数字直接套到今天任何分期的个体患者。",
+    "source_boundary_note": "题源“术后很少存活5年”为历史预后比较表达；Current胰腺导管腺癌预后需按分期、可切除性和现代综合治疗理解，不冻结固定生存年限。"
   },
   {
     "question_id": "xizong-official-2018-n134",
@@ -207,7 +293,8 @@
     "exam_target": "梗阻性直肠癌Hartmann术旧术式选择",
     "decision_axis": "题源对高龄、梗阻、距肛缘15cm直肠癌选择Hartmann术；现代急诊结直肠癌处理受肿瘤位置、全身状况、吻合风险和桥接策略影响，不升级为固定首选。",
     "reasoning_chain": [
-      "按题源正式答案保留，并对现代术式选择fail-closed。"
+      "题源对高龄、梗阻、距肛缘15cm直肠癌选择Hartmann术；现代急诊结直肠癌处理受肿瘤位置、全身状况、吻合风险和桥接策略影响，不升级为固定首选。",
+      "C.Hartmann术为2018题源答案；高龄、梗阻、吻合风险高支持分期/非一期吻合思路，但Current急诊结直肠癌术式需结合位置、全身情况和桥接策略，不能固定化。"
     ],
     "transfer_rule": "仅保留题源/Study边界；不得据此生成Current固定术式规则。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -216,8 +303,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "C.Hartmann术为2018题源答案；高龄、梗阻、吻合风险高支持分期/非一期吻合思路，但Current急诊结直肠癌术式需结合位置、全身情况和桥接策略，不能固定化。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Dixon术的一期保肛吻合需要更合适的局部及全身条件，梗阻高龄病例不能机械套用。"
+      }
+    ],
+    "common_failure_node": "把“梗阻性直肠癌”直接等同于某一种固定术式。",
+    "source_boundary_note": "2018题源按高龄梗阻性直肠癌选择Hartmann术；Current急诊术式需结合肿瘤位置、患者状态、吻合风险及桥接策略，不升级为固定首选。"
   },
   {
     "question_id": "xizong-official-2018-n135",
@@ -231,7 +328,8 @@
     "exam_target": "低位直肠癌Miles术旧术式选择",
     "decision_axis": "题源以距肛缘4cm且肿物固定的低位直肠癌选择Miles术；Current保肛可能性取决于肿瘤与括约肌/提肛肌关系、分期和新辅助治疗等，不仅由距离决定。",
     "reasoning_chain": [
-      "按题源正式答案保留，并对现代保肛边界fail-closed。"
+      "题源以距肛缘4cm且肿物固定的低位直肠癌选择Miles术；Current保肛可能性取决于肿瘤与括约肌/提肛肌关系、分期和新辅助治疗等，不仅由距离决定。",
+      "A.Miles术为题源答案；低位、固定直肠癌提示保肛困难，但Current是否行APR/Miles取决于括约肌/提肛肌受侵、分期、新辅助治疗和切缘可行性，不只看距肛缘4cm。"
     ],
     "transfer_rule": "仅保留题源/Study边界；不得用单一距离阈值替代Current术式评估。",
     "mapping_decision": "NO_SAFE_MATCH",
@@ -240,8 +338,18 @@
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A.Miles术为题源答案；低位、固定直肠癌提示保肛困难，但Current是否行APR/Miles取决于括约肌/提肛肌受侵、分期、新辅助治疗和切缘可行性，不只看距肛缘4cm。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Dixon是否可行不是单凭距离决定，关键还看括约肌保留和肿瘤学安全切缘。"
+      }
+    ],
+    "common_failure_node": "用“距肛缘多少厘米”一个数字替代完整的低位直肠癌手术评估。",
+    "source_boundary_note": "2018题源按低位固定直肠癌选择Miles术；Current保肛/腹会阴切除决策还取决于括约肌/提肛肌受侵、分期、切缘与新辅助治疗，不仅由肛缘距离决定。"
   },
   {
     "question_id": "xizong-official-2018-n136",
@@ -255,17 +363,28 @@
     "exam_target": "静息电位决定因素",
     "decision_axis": "静息电位由离子浓度梯度及膜相对通透性共同决定，静息时K+通透性占主导，因此K+平衡电位和跨膜K+浓度差尤其重要。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "静息电位由离子浓度梯度及膜相对通透性共同决定，静息时K+通透性占主导，因此K+平衡电位和跨膜K+浓度差尤其重要。",
+      "A、B、D为题源答案：静息电位受K⁺平衡电位/跨膜浓度梯度及Na⁺、K⁺相对通透性共同影响；但Current Knowledge没有一个最小KP完整冻结这三个决定因素。"
     ],
     "transfer_rule": "静息电位抓浓度梯度×相对通透性，主角是K+。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A、B、D为题源答案：静息电位受K⁺平衡电位/跨膜浓度梯度及Na⁺、K⁺相对通透性共同影响；但Current Knowledge没有一个最小KP完整冻结这三个决定因素。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "Na⁺平衡电位会影响Na⁺驱动力，但静息电位并不把Na⁺平衡电位本身列为本题主要决定因素。"
+      }
+    ],
+    "common_failure_node": "看到Current里零散出现“静息电位接近K⁺平衡电位”就硬拼成完整Goldman决定因素owner。",
+    "source_gap_note": "Current Knowledge仅零散承接K⁺平衡电位/静息电位接口，未形成完整的“浓度梯度 + Na⁺/K⁺相对通透性”最小Current owner；不为覆盖率硬映。"
   },
   {
     "question_id": "xizong-official-2018-n137",
@@ -284,14 +403,27 @@
       "因子Ⅴ缺乏也可造成凝血异常，却不是本题所指的经典血友病类型，因此B不选。"
     ],
     "transfer_rule": "A=Ⅷ，B=Ⅸ。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "C、D正确。血友病A对应FⅧ缺乏，血友病B对应FⅨ缺乏；均属于遗传性凝血因子缺陷。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "维生素K缺乏会同时影响Ⅱ、Ⅶ、Ⅸ、Ⅹ等，不等同血友病。"
+      },
+      {
+        "option": "B",
+        "reason": "FⅤ缺乏不是经典血友病A/B。"
+      }
+    ],
+    "common_failure_node": "只记“APTT延长”而不把血友病A/B对应到具体凝血因子。"
   },
   {
     "question_id": "xizong-official-2018-n138",
@@ -310,14 +442,27 @@
       "动脉压下降会降低灌注压；相反，心肌代谢增强会产生腺苷、H⁺等局部舒血管信号，使冠脉舒张，所以D正确、C错误。"
     ],
     "transfer_rule": "冠脉调节优先想局部代谢，而非自主神经直接作用。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B、D正确。外周阻力增加可提高主动脉/冠脉灌注压力，而心肌代谢增强会通过腺苷等局部代谢性舒张显著增加冠脉流量。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "心率加快会缩短舒张期，冠脉尤其左冠主要在舒张期灌注，因此并非简单增加冠流。"
+      },
+      {
+        "option": "C",
+        "reason": "动脉压降低会降低冠脉灌注压。"
+      }
+    ],
+    "common_failure_node": "只按全身血管舒缩推冠脉，不考虑舒张灌注与局部代谢调节。"
   },
   {
     "question_id": "xizong-official-2018-n139",
@@ -336,14 +481,23 @@
       "下丘脑温度敏感神经元会随温度改变而改变放电，提供控制器层面的依据；中暑则是调定点未变而散热失败/中枢故障，因此A不支持、D支持。"
     ],
     "transfer_rule": "发热=调定点重设；中暑=热负荷/散热失败。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B、C、D正确。调定点升高可解释发热初期寒战，调定点回落可解释退热期出汗；下丘脑温敏神经元构成调节中枢基础。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "高温高湿中暑属于散热失败/非调节性高热，不要求调定点上移。"
+      }
+    ],
+    "common_failure_node": "把“体温升高”都等同于发热；中暑的关键是调定点不变。"
   },
   {
     "question_id": "xizong-official-2018-n140",
@@ -362,14 +516,27 @@
       "痛觉承担持续报警，适应很慢/不易适应；“快适应”恰好相反，所以D不选。"
     ],
     "transfer_rule": "痛觉感受器抓换能、编码、慢适应。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B、C正确。痛觉感受器能把伤害性刺激换能为电信号并编码刺激强度，且通常不易适应。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "痛觉可由机械、热、化学等多类伤害性刺激触发，不按普通感受器的单一适宜刺激模式理解。"
+      },
+      {
+        "option": "D",
+        "reason": "痛觉感受器适应慢/不易适应，而非快适应。"
+      }
+    ],
+    "common_failure_node": "套用普通感觉感受器模板，误认为伤害感受器有单一适宜刺激且快适应。"
   },
   {
     "question_id": "xizong-official-2018-n141",
@@ -388,14 +555,27 @@
       "纹状体和大脑皮层运动区参与运动选择/随意运动控制，但不是本题所列的经典肌紧张易化中枢，所以B、D不选。"
     ],
     "transfer_rule": "肌紧张调控抓脑干前庭/网状系统与小脑分区。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A、C正确。前庭核属于经典肌紧张易化中枢；小脑中间区/脊髓小脑参与姿势肌张力和进行中动作调节。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "纹状体参与基底节运动调控，但不是本题经典肌紧张易化中枢选项。"
+      },
+      {
+        "option": "D",
+        "reason": "运动皮层可调节运动输出，不能等同于本题列举的脑干/小脑易化中枢。"
+      }
+    ],
+    "common_failure_node": "把“参与运动控制”宽泛等同于“属于经典肌紧张易化中枢”。"
   },
   {
     "question_id": "xizong-official-2018-n142",
@@ -414,14 +594,27 @@
       "鸟氨酸主要是尿素循环中间体；谷氨酸是转氨/集氮枢纽，但不是血中运输氨的两大主要形式，因此B、D不选。"
     ],
     "transfer_rule": "血氨运输两主角：谷氨酰胺、丙氨酸。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A、C正确。骨骼肌可用丙氨酸把氮送往肝；多数组织尤其脑/肌也把氨固定成谷氨酰胺进行安全跨器官运输。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "鸟氨酸主要是尿素循环中间物，不是血中氨的主要运输氨基酸。"
+      },
+      {
+        "option": "D",
+        "reason": "谷氨酸是氮代谢枢纽，但游离氨的主要安全运输形式是谷氨酰胺/丙氨酸。"
+      }
+    ],
+    "common_failure_node": "把“参与氨基转移/尿素循环”的氨基酸都误当成血氨主要运输形式。"
   },
   {
     "question_id": "xizong-official-2018-n143",
@@ -440,14 +633,18 @@
       "CO可抑制细胞色素氧化酶复合体IV的末端电子传递，因此D也成立；四项均选。"
     ],
     "transfer_rule": "氧化磷酸化看底物/ADP、呼吸链、膜梯度与线粒体完整性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A、B、C、D均可影响氧化磷酸化：ADP/ATP能荷调节呼吸速率，甲状腺激素改变能量消耗/偶联状态，线粒体突变破坏呼吸链，CO可阻断复合体Ⅳ/Cyt a₃。",
+    "valuable_distractors": [],
+    "common_failure_node": "误以为“多选全对”一定需要人为制造一个错误干扰项。"
   },
   {
     "question_id": "xizong-official-2018-n144",
@@ -466,14 +663,27 @@
       "UTP更典型用于糖原/糖基供体相关反应，CTP常见于磷脂等合成；它们不是蛋白质翻译的主要能量物质，所以B、D不选。"
     ],
     "transfer_rule": "翻译能量：ATP管氨基酸活化，GTP管核糖体流程。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A、C正确。氨基酸活化/氨酰-tRNA形成消耗ATP；翻译起始、延长、转位和终止多个步骤由GTP水解驱动。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "CTP不是蛋白质翻译的主要能量核苷酸。"
+      },
+      {
+        "option": "D",
+        "reason": "UTP主要见于糖代谢等活化过程，不承担翻译主能量账。"
+      }
+    ],
+    "common_failure_node": "只记“翻译用GTP”，漏掉氨基酸活化先消耗ATP。"
   },
   {
     "question_id": "xizong-official-2018-n145",
@@ -492,14 +702,23 @@
       "密码子位于mRNA，决定翻译时氨基酸对应关系，属于翻译层而不是转录调控结构，因此D不选。"
     ],
     "transfer_rule": "转录调控看DNA顺式元件；密码子属于翻译层。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A、B、C正确。启动子、增强子和衰减子都可参与转录调控；密码子属于mRNA翻译信息。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "密码子决定翻译时氨基酸对应，不是DNA转录调控顺式结构。"
+      }
+    ],
+    "common_failure_node": "把“基因表达相关序列”都混为转录调控元件，忽略密码子属于翻译层。"
   },
   {
     "question_id": "xizong-official-2018-n146",
@@ -518,14 +737,23 @@
       "“生物转化”不等于“一定解毒”：某些代谢物反而更活跃或毒性更强，因此D正确。"
     ],
     "transfer_rule": "生物转化不是等同“解毒”，它可解毒也可增毒。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A、B、D正确。肝生物转化通常降低活性、提高水溶性并可灭活激素，但也可能生物活化生成更有毒产物。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "生物转化通常使物质更极性/更水溶，便于排泄，而不是使多数非营养物水溶性降低。"
+      }
+    ],
+    "common_failure_node": "把“生物转化”简单等同于“解毒”；核心是更易处理/排泄，产物毒性方向不一定。"
   },
   {
     "question_id": "xizong-official-2018-n147",
@@ -544,14 +772,27 @@
       "酵母双杂交主要研究蛋白-蛋白相互作用；ELISA主要用于抗原/抗体等免疫检测，不是本题DNA-蛋白结合技术，所以B、D不选。"
     ],
     "transfer_rule": "DNA-蛋白：EMSA/ChIP；蛋白-蛋白常见酵母双杂交。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A、C正确。EMSA通过迁移率变化检测DNA-蛋白结合，ChIP在细胞内富集与特定蛋白结合的染色质。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "酵母双杂交经典用于蛋白—蛋白相互作用。"
+      },
+      {
+        "option": "D",
+        "reason": "ELISA主要检测抗原—抗体/蛋白量，不直接回答特定DNA—蛋白结合。"
+      }
+    ],
+    "common_failure_node": "把“都能研究分子相互作用”的技术混成同一用途。"
   },
   {
     "question_id": "xizong-official-2018-n148",
@@ -570,14 +811,27 @@
       "胆红素处理下降主要解释黄疸；“纤维组织压迫肝静脉主干”也不是肝硬化腹水的标准主机制，因此B、C不选。"
     ],
     "transfer_rule": "肝硬化腹水是门压↑+低白蛋白+钠水潴留+淋巴生成/外漏共同作用。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A、D正确。门静脉高压提高肝窦静水压并增加肝淋巴生成，过量淋巴可自肝包膜外渗进入腹腔。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "胆红素处理下降体现肝细胞功能障碍，但不是腹水形成的直接机制。"
+      },
+      {
+        "option": "C",
+        "reason": "肝硬化的阻力主要来自肝内结构重构/窦性阻力，并非“纤维组织压迫肝静脉主干”这一固定表述。"
+      }
+    ],
+    "common_failure_node": "把肝硬化所有异常都当成腹水的直接机制。"
   },
   {
     "question_id": "xizong-official-2018-n149",
@@ -591,17 +845,28 @@
     "exam_target": "心肌褐色萎缩形态",
     "decision_axis": "长期消耗或衰老导致心肌细胞萎缩并积聚脂褐素，心脏体积可缩小；随心肌萎缩，冠状动脉相对冗长而呈迂曲。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "长期消耗或衰老导致心肌细胞萎缩并积聚脂褐素，心脏体积可缩小；随心肌萎缩，冠状动脉相对冗长而呈迂曲。",
+      "A、C为题源答案：心肌褐色萎缩可见心脏体积缩小、脂褐素沉积，并因心肌量减少使冠状动脉相对冗长迂曲；但Current Knowledge没有单一安全KP完整承接这组形态。"
     ],
     "transfer_rule": "褐色萎缩=萎缩+脂褐素，不是虎斑心脂肪变。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "A、C为题源答案：心肌褐色萎缩可见心脏体积缩小、脂褐素沉积，并因心肌量减少使冠状动脉相对冗长迂曲；但Current Knowledge没有单一安全KP完整承接这组形态。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "虎斑心对应心肌脂肪变性/心肌脂肪沉积的条纹外观，不是褐色萎缩。"
+      }
+    ],
+    "common_failure_node": "把“脂褐素”“虎斑心”和脂肪变性混成同一病理改变。",
+    "source_gap_note": "Current Knowledge未发现单一KP完整冻结心肌褐色萎缩的“心脏缩小 + 冠脉相对迂曲”形态组合；Explanation保留，Crosswalk fail-closed。"
   },
   {
     "question_id": "xizong-official-2018-n150",
@@ -615,16 +880,31 @@
     "exam_target": "纤维素样坏死疾病举例",
     "decision_axis": "SLE等免疫性结缔组织病和风湿性心肌炎的结缔组织病变可出现纤维素样坏死；良性高血压和单纯膜性肾病不是经典对应。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "SLE等免疫性结缔组织病和风湿性心肌炎的结缔组织病变可出现纤维素样坏死；良性高血压和单纯膜性肾病不是经典对应。",
+      "B、C为题源答案：SLE血管损伤和风湿性心肌炎/风湿病灶都可见纤维素样坏死；但这两条Current证据分属H16与循环B7，没有单一最小owner完整承担本题。"
     ],
     "transfer_rule": "纤维素样坏死多见免疫性结缔组织损伤和严重血管壁损伤。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2018"
+    },
+    "correct_option_reason": "B、C为题源答案：SLE血管损伤和风湿性心肌炎/风湿病灶都可见纤维素样坏死；但这两条Current证据分属H16与循环B7，没有单一最小owner完整承担本题。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "膜性肾病的核心是基底膜/免疫复合物相关改变，不以纤维素样坏死为经典特征。"
+      },
+      {
+        "option": "D",
+        "reason": "良性高血压典型为玻璃样小动脉硬化；纤维素样坏死更偏恶性/急进性高血压。"
+      }
+    ],
+    "common_failure_node": "看到两个正确选项分别有Current证据，就强行跨两个owner拼成一条relation。",
+    "source_gap_note": "本题正确轴横跨H16的SLE血管纤维素样坏死与循环B7的风湿性病变；没有单一最小Current owner完整承接两条正确项，因此不制造跨owner relation。"
   }
 ]

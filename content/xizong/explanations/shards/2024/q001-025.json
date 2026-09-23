@@ -8,20 +8,36 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "反馈调节的反馈信息",
-    "decision_axis": "反馈是受控部分输出状态返回控制部分的信息，用于调整后续控制活动。",
+    "exam_target": "自动控制系统中的反馈信息",
+    "decision_axis": "反馈信息是受控部分的输出状态返回控制部分的信息，用于比较目标与实际状态并调整后续控制。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "自动控制系统要不断知道受控部分当前处于什么状态。",
+      "由受控部分返回控制部分的这一路信息就是反馈。",
+      "前馈发生在扰动/输出变化前，指令信息则由控制部分发出，因此选C。"
     ],
-    "transfer_rule": "反馈信息从受控对象返回控制器。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "控制论方向要看信息流：控制部分→受控部分是指令；受控部分→控制部分是反馈。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.反馈信息。它由受控部分发出并返回控制部分，使系统据此修正后续控制。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "前馈是在扰动真正改变被控量前提前调节，不是受控部分返回控制部分的信息。"
+      },
+      {
+        "option": "D",
+        "reason": "指令信息由控制部分发向受控部分，方向与题干相反。"
+      }
+    ],
+    "common_failure_node": "只记“反馈=调节”而不看信息传递方向。",
+    "source_gap_note": "Current Xizong A1–F Knowledge有多处反馈/前馈应用，但没有一个单一通用控制论KP完整定义“受控部分→控制部分=反馈信息”；Explanation保留题源知识，Crosswalk按NO_SAFE_MATCH。"
   },
   {
     "question_id": "xizong-official-2024-n002",
@@ -32,20 +48,36 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "动作电位不应期与放电频率",
-    "decision_axis": "相邻动作电位的最短间隔不能短于绝对不应期，因此绝对不应期限制最高放电频率。",
+    "exam_target": "神经纤维动作电位的绝对不应期与最短放电间隔",
+    "decision_axis": "在绝对不应期内无论刺激多强都不能再产生新的动作电位，因此两个先后锋电位的最短间隔至少等于绝对不应期。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "第一个动作电位发生后，Na⁺通道进入失活状态。",
+      "绝对不应期内不能再次产生动作电位。",
+      "只有绝对不应期结束后才可能出现下一个锋电位，所以选A。"
     ],
-    "transfer_rule": "绝对不应期决定最大放电频率上限。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "绝对不应期限定最高放电频率：最短间隔≥绝对不应期。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.≥绝对不应期。绝对不应期内神经纤维不能再次产生动作电位，因此相邻锋电位间隔不能更短。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "相对不应期内用更强刺激已可能产生新的动作电位，因此不是最短间隔的硬下限。"
+      },
+      {
+        "option": "C",
+        "reason": "超常期发生得更晚，不能决定最高放电频率。"
+      }
+    ],
+    "common_failure_node": "把“兴奋性尚未完全恢复”误认为“完全不能产生新动作电位”，混淆绝对与相对不应期。",
+    "source_gap_note": "Current N4和B3分别在骨骼肌/心肌语境保存不应期接口，但没有单一神经纤维Primary KP完整承载本题“最短锋电位间隔”规则；不跨器官硬映射。"
   },
   {
     "question_id": "xizong-official-2024-n003",
@@ -56,22 +88,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "后负荷增加时骨骼肌收缩",
-    "decision_axis": "后负荷增加时肌肉需先产生更大张力才开始缩短，缩短速度和程度下降；“张力下降”不成立。",
+    "exam_target": "后负荷增加时骨骼肌收缩改变",
+    "decision_axis": "后负荷越大，肌肉需先发展更高张力才开始缩短；缩短开始更晚、速度更慢、距离更短，“产生的张力减小”错误。",
     "reasoning_chain": [
-      "后负荷越大，肌肉先要用更长的等长收缩建立足够张力，之后才开始缩短。",
-      "因此缩短开始更晚、速度更慢、距离更小，但达到的张力反而更大；题目错误项是B。",
-      "把后负荷记成“张力↑，速度↓，程度↓，起始晚”即可一口气判断四项。"
+      "后负荷是肌肉缩短前必须克服的外部负荷。",
+      "负荷增大使等长收缩阶段延长，并要求更高张力。",
+      "同时缩短速度和幅度下降，所以错误项为B。"
     ],
-    "transfer_rule": "后负荷↑→缩短开始晚、速度慢、幅度小。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "后负荷↑：张力要求↑，开始缩短延迟，缩短速度↓、距离↓。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.收缩产生的张力减小。后负荷增加时肌肉反而需要发展更大张力才能开始缩短，因此该项错误。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "负荷更大时达到开始缩短所需张力更晚，因此缩短起始推迟。"
+      },
+      {
+        "option": "C",
+        "reason": "负荷-速度关系决定后负荷增大时缩短速度下降。"
+      }
+    ],
+    "common_failure_node": "把“缩短减少”误写成“张力减少”，没有区分等长发展张力与等张缩短。"
   },
   {
     "question_id": "xizong-official-2024-n004",
@@ -82,20 +127,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "蛋白C抗凝机制",
-    "decision_axis": "活化蛋白C在蛋白S协助下灭活Va和VIIIa，抑制凝血放大。",
+    "exam_target": "蛋白C系统的抗凝机制",
+    "decision_axis": "凝血酶与血栓调节蛋白结合后激活蛋白C；APC在蛋白S协助下灭活Va和VIIIa，限制凝血放大。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "蛋白C系统不是直接抑制组织因子，也不是靠增强抗凝血酶。",
+      "其核心作用对象是两个凝血辅因子Va和VIIIa。",
+      "灭活这两个辅因子可削弱凝血酶原酶和内源性FX酶复合物，因此选A。"
     ],
-    "transfer_rule": "APC灭活Va/VIIIa。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "三大天然抗凝轴：AT抑制凝血酶/活化因子；PC/PS灭活Va、VIIIa；TFPI抑制TF-FVIIa启动轴。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.灭活FⅧa和FⅤa。Current B4 KP11明确APC+PS灭活Va、VIIIa，限制凝血扩展。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "抑制TF-FVIIa复合物是TFPI轴的核心。"
+      },
+      {
+        "option": "C",
+        "reason": "增强抗凝血酶活性是肝素的主要机制。"
+      }
+    ],
+    "common_failure_node": "把三套生理抗凝系统的靶点混在一起背。"
   },
   {
     "question_id": "xizong-official-2024-n005",
@@ -106,20 +166,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "局部代谢对微循环的调节",
-    "decision_axis": "真毛细血管开放主要受前毛细血管括约肌和局部代谢产物调节。",
+    "exam_target": "局部代谢对毛细血管前括约肌的调节",
+    "decision_axis": "前毛细血管括约肌是微循环“分闸门”，主要随组织局部代谢需求舒缩，而不是由副交感或血管紧张素直接主导。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "真毛细血管本身无平滑肌，入口血流由后微动脉/前括约肌调节。",
+      "局部缺氧、代谢产物积聚会使局部血管舒张、增加灌注。",
+      "Current B2 KP06明确前括约肌更受局部代谢控制，因此选D。"
     ],
-    "transfer_rule": "组织代谢越强，局部微循环越开放。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "微循环：微动脉更多受全身神经调节；前毛细血管括约肌更看局部代谢需求。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.局部代谢产物。Current B2明确毛细血管前括约肌主要受局部代谢控制。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "交感神经对微动脉等阻力血管影响明显，但前毛细血管括约肌更受局部代谢支配。"
+      },
+      {
+        "option": "C",
+        "reason": "血管紧张素Ⅱ是全身性缩血管因子，不是前毛细血管括约肌日常舒缩的主要局部调节因素。"
+      }
+    ],
+    "common_failure_node": "把所有血管平滑肌都当成受同一套神经-激素控制。"
   },
   {
     "question_id": "xizong-official-2024-n006",
@@ -130,20 +205,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "迷走神经对心室收缩力",
-    "decision_axis": "迷走神经对窦房结和房室结作用明显，对心室肌直接支配较少，因此负性肌力作用有限。",
+    "exam_target": "心迷走神经对心室收缩力影响有限",
+    "decision_axis": "迷走神经主要支配窦房结、房室结和心房，对心室肌直接支配较少，因此明显减弱心室肌收缩力并非典型效应。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "迷走兴奋会减慢窦房结放电，心率下降。",
+      "也会减慢房室结传导，并可减弱心房收缩。",
+      "Current B2 KP05明确对心室肌支配弱，所以A是不明显发生的改变。"
     ],
-    "transfer_rule": "副交感主要管心率和房室传导，心室肌影响较弱。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "迷走效应集中“室上”：HR↓、AV传导↓、心房肌力↓；心室直接负性肌力弱。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.心室肌收缩力减弱。心迷走神经对心室肌直接支配少，不会出现像心率和房室传导那样明显的改变。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "窦房结受迷走影响明显，心率下降是典型效应。"
+      },
+      {
+        "option": "D",
+        "reason": "迷走兴奋抑制房室结传导，可使心内传导明显减慢。"
+      }
+    ],
+    "common_failure_node": "把“副交感抑制心脏”笼统理解为所有心肌和传导组织都同等受抑。"
   },
   {
     "question_id": "xizong-official-2024-n007",
@@ -154,22 +244,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "2,3-BPG与氧解离曲线",
-    "decision_axis": "红细胞糖酵解增强可增加2,3-BPG，使Hb氧亲和力下降、曲线右移，利于组织释氧。",
+    "exam_target": "2,3-BPG与氧解离曲线右移",
+    "decision_axis": "红细胞糖酵解增强可提高2,3-BPG，稳定Hb低亲和T态，使氧解离曲线右移、促进组织释氧。",
     "reasoning_chain": [
-      "红细胞糖酵解加强可使2,3-DPG生成增加。",
-      "2,3-DPG稳定Hb低亲和力状态，使氧解离曲线右移、促进组织卸氧，因此选D。",
-      "CO中毒、碱中毒和PaCO₂下降都偏向左移。"
+      "曲线右移意味着Hb对O₂亲和力下降。",
+      "2,3-BPG升高可降低Hb氧亲和力。",
+      "红细胞糖酵解增强可增加2,3-BPG，因此D正确。"
     ],
-    "transfer_rule": "2,3-BPG↑→曲线右移→释氧↑。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "右移因素：酸、CO₂、温度、2,3-BPG↑；左移反之并包括CO中毒。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.红细胞糖酵解加强。2,3-BPG增加会降低Hb氧亲和力，使氧解离曲线右移。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "CO与Hb高亲和结合并使剩余结合位点亲和力升高，曲线左移。"
+      },
+      {
+        "option": "B",
+        "reason": "pH升高为碱中毒方向，通常使曲线左移。"
+      }
+    ],
+    "common_failure_node": "只记“缺氧要多放氧”而不掌握曲线左右移的具体分子因素。"
   },
   {
     "question_id": "xizong-official-2024-n008",
@@ -181,21 +284,34 @@
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
     "exam_target": "酸性食糜刺激促胰液素",
-    "decision_axis": "十二指肠酸性食糜刺激S细胞释放促胰液素，促进胰液水和HCO3-分泌。",
+    "decision_axis": "十二指肠酸性食糜刺激S细胞释放促胰液素，主要促进胰液和胆汁中的HCO₃⁻/水分泌以中和胃酸。",
     "reasoning_chain": [
-      "酸性食糜进入十二指肠后，最直接刺激促胰液素释放。",
-      "促胰液素主要促进胰管分泌富含HCO₃⁻和水的胰液，用于中和胃酸，因此选A。",
-      "CCK更偏胰酶分泌和胆囊收缩。"
+      "题干刺激物是“酸性食糜”。",
+      "该信号最典型激活十二指肠S细胞。",
+      "S细胞分泌促胰液素，驱动富HCO₃⁻胰液，因此选A。"
     ],
-    "transfer_rule": "酸入十二指肠→secretin→HCO3-。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "胃肠激素速配：酸→secretin→HCO₃⁻；脂肪/蛋白→CCK→胰酶+胆囊收缩。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.促胰液素。酸性食糜入十二指肠刺激S细胞释放促胰液素，促进富HCO₃⁻胰液分泌。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "CCK更主要响应脂肪酸和氨基酸，促进胰酶分泌和胆囊收缩。"
+      },
+      {
+        "option": "B",
+        "reason": "促胃液素主要促进胃酸分泌，与本题酸入小肠后的中和反应方向相反。"
+      }
+    ],
+    "common_failure_node": "把“促进胰液”全部归给CCK，忘记胰液有酶成分和HCO₃⁻/水成分两条调控轴。"
   },
   {
     "question_id": "xizong-official-2024-n009",
@@ -207,21 +323,34 @@
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
     "exam_target": "基础代谢率计算",
-    "decision_axis": "基础代谢率需按耗氧/产热并校正体表面积和时间；题源数值约为202 kJ/(m²·h)。",
+    "decision_axis": "先用耗氧量×氧热价求每小时产热，再除以体表面积：16.7×20.2÷1.67≈202 kJ/(m²·h)。",
     "reasoning_chain": [
-      "基础状态耗氧量16.7 L/h × 非蛋白氧热价20.2 kJ/L，约为337 kJ/h。",
-      "再除以体表面积1.67 m²，约202 kJ/(m²·h)，最接近C。",
-      "这题只需把“耗氧量→能量→再按体表面积标准化”三步写清。"
+      "每小时产热≈16.7 L/h×20.2 kJ/L≈337 kJ/h。",
+      "按体表面积1.67m²校正：337÷1.67≈202。",
+      "最接近200，因此选C。"
     ],
-    "transfer_rule": "BMR数值题先统一能量、体表面积和时间单位。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "BMR计算：耗氧量×氧热价÷体表面积；先确认所有量都已统一到“每小时”。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.200 kJ/(m²·h)。16.7×20.2÷1.67≈202，与200最接近。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "常见于计算后忘记或错误进行体表面积校正。"
+      },
+      {
+        "option": "D",
+        "reason": "结果明显高于按题给耗氧量与体表面积推得的约202。"
+      }
+    ],
+    "common_failure_node": "只算总产热而忘记基础代谢率需要按体表面积标准化。"
   },
   {
     "question_id": "xizong-official-2024-n010",
@@ -232,20 +361,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "髓袢升支粗段水通透性",
-    "decision_axis": "髓袢升支粗段主动重吸收NaCl但对水通透性低，是稀释段的重要基础。",
+    "exam_target": "髓袢升支粗段对水不通透",
+    "decision_axis": "TAL通过NKCC2主动重吸收NaCl，但对水几乎不通透，因此管液被稀释，是“稀释段”和髓质梯度建立的重要环节。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "近端小管和髓袢降支均具有较高水通透性。",
+      "集合管水通透性受ADH调节。",
+      "髓袢升支粗段本身对水不通透，因此选A。"
     ],
-    "transfer_rule": "TAL=盐出、水不跟。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肾小管水通透性：降支“走水”，升支尤其TAL“走盐不走水”；集合管看ADH。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.髓袢升支粗段。Current urinary B3 KP15明确TAL对水不通透。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "髓袢降支细段对水通透性高，是逆流系统中水外流的重要部位。"
+      },
+      {
+        "option": "D",
+        "reason": "集合管水通透性受ADH调节，并非固定不通透。"
+      }
+    ],
+    "common_failure_node": "把“升支主动重吸收盐”记住了，却忘记其成为稀释段的关键前提是水不随行。"
   },
   {
     "question_id": "xizong-official-2024-n011",
@@ -256,22 +400,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "侧向抑制",
-    "decision_axis": "侧向抑制增强刺激中心与周围的反差，提高空间分辨和定位精度。",
+    "exam_target": "侧向抑制提高感觉分辨率",
+    "decision_axis": "感觉通路中的侧向抑制压低邻近通路活动，增强中心-周围反差，从而提高刺激定位和空间分辨能力。",
     "reasoning_chain": [
-      "侧向抑制让兴奋最强的中心通路抑制相邻较弱通路，从而拉大空间对比。",
-      "边界更清楚后，感觉系统的空间分辨能力提高，因此选A。",
-      "交互抑制、反馈抑制和突触前抑制解决的是其他网络控制问题。"
+      "分辨能力需要把相邻输入差异拉大。",
+      "中心通路兴奋的同时抑制旁侧通路，可增强边界。",
+      "这正是侧向抑制，因此选A。"
     ],
-    "transfer_rule": "侧向抑制=增强边界和定位。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "侧向抑制=增强对比度；交互抑制更常见于运动拮抗肌协调。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.侧向抑制。它通过抑制邻近传入通路、增强空间对比，提高感觉定位和分辨率。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "交互抑制主要用于协调激动肌与拮抗肌等运动回路。"
+      },
+      {
+        "option": "D",
+        "reason": "突触前抑制主要降低特定传入末梢递质释放，不以增强空间分辨为核心功能。"
+      }
+    ],
+    "common_failure_node": "看到“抑制”就只按突触机制分类，没有联系其功能结果。"
   },
   {
     "question_id": "xizong-official-2024-n012",
@@ -282,22 +439,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "α运动神经元与肌梭",
-    "decision_axis": "单独兴奋α运动神经元使梭外肌缩短，若无γ共同激活可使肌梭松弛、Ia传入减少。",
+    "exam_target": "α运动神经元兴奋与肌梭传入",
+    "decision_axis": "单独增加α运动神经元活动会使梭外肌缩短，肌梭被卸载、Ia传入可下降；γ运动神经元则收缩梭内肌端部、维持/增强肌梭敏感性。",
     "reasoning_chain": [
-      "肌梭感受肌肉长度变化，肌肉被动拉长或γ运动神经元兴奋都会把感受区拉紧，使传入增加。",
-      "单独α运动神经元兴奋会使梭外肌缩短，肌梭反而变松，因此‘α冲动增加使肌梭传入增加’错误，选B。",
-      "关键是区分α收缩梭外肌、γ收缩梭内肌两端。"
+      "肌梭感受肌肉长度及变化。",
+      "α兴奋使梭外肌缩短，若无γ共同激活，梭内感受区松弛。",
+      "因此“α传出增加使肌梭传入增加”错误，选B。"
     ],
-    "transfer_rule": "α-γ共同激活维持肌梭敏感性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "α管梭外肌收缩；γ调肌梭敏感性。α-γ共同激活才能在缩短时维持肌梭传入。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.α传出冲动增加时，肌梭传入冲动增加。单独α兴奋会使梭外肌缩短并卸载肌梭，传入反而可减少。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "γ兴奋使梭内肌两端收缩、牵拉感受区，可增加肌梭传入。"
+      },
+      {
+        "option": "D",
+        "reason": "外界牵拉使肌梭感受区伸长，Ia传入增加。"
+      }
+    ],
+    "common_failure_node": "把α和γ运动神经元都简单理解成“让肌肉收缩，所以都会增加肌梭放电”。"
   },
   {
     "question_id": "xizong-official-2024-n013",
@@ -308,22 +478,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "下丘脑摄食中枢",
-    "decision_axis": "刺激下丘脑外侧区可促进摄食行为，经典上称摄食中枢。",
+    "exam_target": "下丘脑外侧区摄食中枢",
+    "decision_axis": "经典实验中刺激下丘脑外侧区可促进摄食，而腹内侧核更与饱食相关。",
     "reasoning_chain": [
-      "下丘脑外侧区是经典摄食中枢入口。",
-      "刺激外侧区可引起进食增加，因此选C。",
-      "腹内侧核更偏饱食中枢，损毁后才会出现多食。"
+      "题干问电刺激后导致“多食”的部位。",
+      "下丘脑外侧区是经典摄食中枢。",
+      "因此刺激外侧区可增强摄食，选C。"
     ],
-    "transfer_rule": "外侧下丘脑促摄食。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "经典下丘脑食欲定位：外侧区→摄食；腹内侧核→饱食。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.外侧区。刺激下丘脑外侧区可引起摄食增加。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "腹内侧核经典上与饱食中枢相关，损毁反而可引起多食。"
+      },
+      {
+        "option": "B",
+        "reason": "弓状核参与多种食欲信号整合，但本题经典电刺激定位答案是外侧区。"
+      }
+    ],
+    "common_failure_node": "把现代食欲网络的弓状核调控与经典“摄食/饱食中枢”实验定位混在一起。"
   },
   {
     "question_id": "xizong-official-2024-n014",
@@ -334,22 +517,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "PTH与活性维生素D",
-    "decision_axis": "PTH促进肾脏1α-羟化酶，使25-OH-D转为1,25-(OH)2D3。",
+    "exam_target": "PTH促进活性维生素D生成",
+    "decision_axis": "PTH促进肾近端小管1α-羟化酶活性，使25-OH-D转为1,25-(OH)₂-D₃，从而增强钙磷吸收和血钙调节。",
     "reasoning_chain": [
-      "PTH可刺激肾脏1α-羟化酶，把25-(OH)D进一步转成活性1,25-(OH)₂-D₃。",
-      "因此能促进肾脏合成活性维生素D₃的是PTH，选D。",
-      "这是PTH升钙作用里连接‘肾—肠’的一条重要链。"
+      "活性维生素D最终活化步骤发生在肾脏。",
+      "PTH在低血钙时促进肾1α-羟化。",
+      "因此能促进活性Vit D₃合成的是PTH，选D。"
     ],
-    "transfer_rule": "PTH可通过活化VitD间接促进肠钙吸收。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "低钙→PTH↑→肾1α-羟化↑→1,25-(OH)₂D↑→肠钙吸收↑。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.PTH。Current D23明确PTH促进肾脏1α-羟化酶，增加活性维生素D生成。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "GH主要通过IGF等促进生长和代谢，不是活性Vit D肾脏合成的核心调节激素。"
+      },
+      {
+        "option": "C",
+        "reason": "甲状腺激素不承担这一经典1α-羟化调节角色。"
+      }
+    ],
+    "common_failure_node": "把所有与骨生长/钙代谢有关的激素都当成能直接促进活性Vit D生成。"
   },
   {
     "question_id": "xizong-official-2024-n015",
@@ -360,20 +556,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "长期糖皮质激素骤停",
-    "decision_axis": "长期外源糖皮质激素抑制HPA轴，突然停药可诱发肾上腺皮质功能不全。",
+    "exam_target": "长期大剂量糖皮质激素骤停与HPA轴抑制",
+    "decision_axis": "长期外源GC负反馈抑制CRH/ACTH，使肾上腺束状带、网状带萎缩；突然停药时内源皮质醇不能迅速恢复，可发生肾上腺功能不全。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "外源皮质醇长期存在会抑制下丘脑和垂体。",
+      "ACTH长期下降导致肾上腺皮质相关层萎缩。",
+      "骤停后短期无法产生足够内源GC，因此选D。"
     ],
-    "transfer_rule": "长期激素不能骤停，先考虑HPA轴抑制。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "长期GC不能骤停：负反馈→ACTH↓→皮质萎缩→骤停/应激时危象。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.反馈抑制ACTH释放而致肾上腺皮质萎缩。Current D22 KP03明确保存这条骤停危象链。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "骤停的核心危险不是单纯血糖下降，而是HPA轴尚未恢复导致内源GC不足。"
+      },
+      {
+        "option": "C",
+        "reason": "长期外源GC后ACTH和内源皮质醇并不会立即反弹大量分泌，恰恰是被抑制。"
+      }
+    ],
+    "common_failure_node": "只记“激素药要逐渐减量”，却说不清真正原因是HPA轴抑制和肾上腺皮质萎缩。"
   },
   {
     "question_id": "xizong-official-2024-n016",
@@ -384,20 +595,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "输卵管结扎与卵巢功能",
-    "decision_axis": "输卵管结扎阻断配子通道，不直接破坏卵巢排卵和激素周期，月经通常仍存在。",
+    "exam_target": "输卵管结扎后仍有排卵和月经",
+    "decision_axis": "输卵管只负责精卵相遇和早期运输，结扎不破坏卵巢周期或子宫内膜周期，因此仍可排卵、仍有月经。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "排卵由卵巢周期决定，输卵管不是排卵器官。",
+      "月经由卵巢激素变化作用于子宫内膜产生。",
+      "Current SR3 KP11明确“结扎输卵管：有排卵、有月经”，因此选C。"
     ],
-    "transfer_rule": "结扎管道≠切除卵巢。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "器官功能分离：卵巢决定排卵/激素；子宫执行月经；输卵管主要负责受精与运输。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.有排卵，有月经。Current SR3 KP11明确输卵管结扎不破坏卵巢排卵和月经周期。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "结扎并不会阻断卵巢排卵。"
+      },
+      {
+        "option": "D",
+        "reason": "月经仍由卵巢周期驱动子宫内膜变化，不因输卵管阻断而消失。"
+      }
+    ],
+    "common_failure_node": "把“绝育”误解为“停止卵巢功能”。"
   },
   {
     "question_id": "xizong-official-2024-n017",
@@ -408,22 +634,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "α螺旋的结构层级",
-    "decision_axis": "单个α螺旋属于蛋白质二级结构；多个二级结构组合才可形成模体或结构域。",
+    "exam_target": "α螺旋不是蛋白质模体",
+    "decision_axis": "单个α螺旋属于二级结构；模体通常由多个二级结构元件按特定方式组合形成，如螺旋-转角-螺旋、亮氨酸拉链、锌指等。",
     "reasoning_chain": [
-      "α螺旋本身是蛋白质二级结构的一种规则局部构象。",
-      "模体则是由多个二级结构元件按特定方式组合形成的重复结构单元，因此单独α螺旋不属于模体，选B。",
-      "亮氨酸拉链、锌指和α螺旋-β转角-α螺旋都可作为模体例子。"
+      "先区分二级结构与超二级结构/模体。",
+      "α螺旋本身只是基本二级结构单元。",
+      "其余选项都是由特定结构组合形成的识别模体，因此B不属于模体。"
     ],
-    "transfer_rule": "α螺旋/β折叠=二级结构。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "二级结构是“砖”：α螺旋/β折叠；模体是“砖的固定组合”。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.α-螺旋。单个α螺旋是蛋白质二级结构，不是由多个二级结构元件组成的模体。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "亮氨酸拉链是典型DNA结合/二聚化结构模体。"
+      },
+      {
+        "option": "D",
+        "reason": "锌指也是经典结构模体。"
+      }
+    ],
+    "common_failure_node": "看到有明确名称的局部结构就都称作“模体”，忽略结构层级。"
   },
   {
     "question_id": "xizong-official-2024-n018",
@@ -434,20 +673,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "lncRNA",
-    "decision_axis": "lncRNA一般指长度超过200 nt且不编码蛋白的RNA，可参与多层次基因调控。",
+    "exam_target": "lncRNA属于长链非编码RNA",
+    "decision_axis": "lncRNA按定义是长度通常>200 nt且不编码蛋白的长链RNA；tRNA、siRNA、miRNA均属于其他类别且长度更短。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题干直接考非编码RNA按长度/类别识别。",
+      "Current G4 KP10明确把lncRNA作为“>200 nt长链非编码RNA”识别接口。",
+      "因此选D。"
     ],
-    "transfer_rule": "lncRNA核心定义：>200 nt非编码RNA。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "非编码RNA识别：mi/si多为小RNA；lncRNA通常>200 nt。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.lncRNA。Current G4 KP10明确将其定义为长度通常超过200 nt的长链非编码RNA。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "siRNA通常约21–23 nt，属于小干扰RNA。"
+      },
+      {
+        "option": "C",
+        "reason": "miRNA同样属于小非编码RNA，而不是长链非编码RNA。"
+      }
+    ],
+    "common_failure_node": "把“非编码RNA”当成同一长度类别，只按是否编码蛋白判断。"
   },
   {
     "question_id": "xizong-official-2024-n019",
@@ -458,22 +712,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "辅酶A组成",
-    "decision_axis": "辅酶A含泛酸、腺苷和巯基乙胺等成分，泛酸是其维生素来源。",
+    "exam_target": "辅酶A中的泛酸",
+    "decision_axis": "辅酶A含泛酸衍生结构和末端巯基，是多种酰基转移反应的酰基载体；泛酸即维生素B5。",
     "reasoning_chain": [
-      "辅酶A的关键维生素来源是泛酸，也就是维生素B5。",
-      "CoA负责携带酰基，因此酰基转移酶类常与它配对，选B。",
-      "B1偏TPP，生物素偏羧化，叶酸偏一碳单位转移。"
+      "题目问CoA结构中的维生素来源。",
+      "CoA的关键组成之一是泛酸。",
+      "因此选B。"
     ],
-    "transfer_rule": "CoA对应维生素B5泛酸。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "辅酶-维生素配对：CoA→泛酸(B5)；TPP→B1；生物素→羧化酶；THF→叶酸。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.泛酸。辅酶A含泛酸，是酰基转移反应的重要辅酶。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "维生素B1形成TPP，主要参与氧化脱羧和转酮反应。"
+      },
+      {
+        "option": "C",
+        "reason": "生物素是羧化酶的CO₂载体。"
+      }
+    ],
+    "common_failure_node": "把各种B族维生素只按“都做辅酶”记忆，没有建立具体辅酶配对。"
   },
   {
     "question_id": "xizong-official-2024-n020",
@@ -484,22 +751,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "蛋白质泛素化调控",
-    "decision_axis": "泛素化常通过蛋白酶体改变蛋白丰度，属于相对较慢的代谢/信号调节方式。",
+    "exam_target": "泛素化通过改变蛋白丰度实现慢调节",
+    "decision_axis": "别构和磷酸化可快速改变既有酶活性；泛素化常把蛋白送入蛋白酶体降解，通过改变酶/蛋白数量实现相对较慢调节。",
     "reasoning_chain": [
-      "别构调节、磷酸化和酶原激活都能快速改变已有酶的活性。",
-      "泛素化常通过标记蛋白进入降解通路，改变的是酶蛋白数量，属于较慢调节，因此选D。",
-      "做题先分‘改活性’还是‘改酶量’，速度层级就清楚了。"
+      "快速调节多直接改变已有蛋白的构象或共价修饰状态。",
+      "泛素化常触发蛋白降解，需要改变蛋白丰度。",
+      "这一过程相对慢，因此选D。"
     ],
-    "transfer_rule": "快调控多改酶活性，慢调控可改蛋白量。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "快调节改“活性”；慢调节常改“数量/表达/降解”。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.酶泛素化修饰调节。泛素化常通过蛋白酶体改变蛋白丰度，属于相对慢的调节方式。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "别构调节直接改变酶构象和活性，通常很快。"
+      },
+      {
+        "option": "B",
+        "reason": "可逆磷酸化可在短时间内改变既有酶活性。"
+      }
+    ],
+    "common_failure_node": "看到“共价修饰”就都归为快速调节，忽略泛素化常以降解和蛋白数量变化为结果。"
   },
   {
     "question_id": "xizong-official-2024-n021",
@@ -510,22 +790,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "异柠檬酸脱氢酶",
-    "decision_axis": "异柠檬酸脱氢酶催化异柠檬酸氧化脱羧生成α-酮戊二酸并产生NADH。",
+    "exam_target": "TCA循环的异柠檬酸脱氢酶氧化脱羧",
+    "decision_axis": "异柠檬酸脱氢酶催化异柠檬酸氧化脱羧生成α-酮戊二酸，同时产生CO₂和NADH，是TCA关键脱羧步骤之一。",
     "reasoning_chain": [
-      "TCA循环中有两步氧化脱羧：异柠檬酸→α-酮戊二酸和α-酮戊二酸→琥珀酰CoA。",
-      "四个选项中只有异柠檬酸脱氢酶直接催化脱羧，选C。",
-      "琥珀酸、延胡索酸和苹果酸相关酶都不放出CO₂。"
+      "琥珀酸脱氢酶只做氧化生成延胡索酸，不脱羧。",
+      "延胡索酸酶是水合反应，苹果酸脱氢酶是氧化。",
+      "异柠檬酸脱氢酶兼具氧化和脱羧，因此选C。"
     ],
-    "transfer_rule": "TCA氧化脱羧步骤之一=异柠檬酸脱氢酶。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "TCA两次氧化脱羧：异柠檬酸脱氢酶、α-酮戊二酸脱氢酶复合体。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.异柠檬酸脱氢酶。它催化异柠檬酸氧化脱羧并生成α-酮戊二酸、CO₂和NADH。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "琥珀酸脱氢酶催化脱氢生成延胡索酸，不释放CO₂。"
+      },
+      {
+        "option": "D",
+        "reason": "苹果酸脱氢酶催化苹果酸氧化为草酰乙酸，也不脱羧。"
+      }
+    ],
+    "common_failure_node": "只看酶名中的“脱氢”就认为都会伴随脱羧。"
   },
   {
     "question_id": "xizong-official-2024-n022",
@@ -536,22 +829,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "脂肪酸氧化与酮体生成",
-    "decision_axis": "肝内脂肪酸β氧化生成大量乙酰CoA，在糖供应不足时可转向酮体合成。",
+    "exam_target": "脂肪酸β氧化为酮体生成提供乙酰CoA",
+    "decision_axis": "肝内脂肪酸β氧化大量生成乙酰CoA；在饥饿/胰岛素不足等情况下草酰乙酸偏向糖异生，乙酰CoA因而转入酮体生成。",
     "reasoning_chain": [
-      "空腹或胰岛素不足时，脂肪酸β氧化大量生成乙酰CoA。",
-      "这些乙酰CoA在肝线粒体内可转向酮体合成，因此选C。",
-      "糖酵解在胞浆生成丙酮酸，并不是这道题要找的酮体直接原料来源。"
+      "酮体直接原料是乙酰CoA。",
+      "饥饿时脂肪动员增强，脂肪酸进入肝线粒体β氧化。",
+      "β氧化大量产生乙酰CoA，因此选C。"
     ],
-    "transfer_rule": "脂肪动员→β氧化→乙酰CoA→酮体。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "酮体来源链：脂解→脂肪酸→β氧化→乙酰CoA→酮体。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.脂肪酸β氧化。它在肝线粒体中产生大量乙酰CoA，是酮体合成的重要原料来源。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "糖酵解产生丙酮酸，不是饥饿产酮时乙酰CoA的主要来源。"
+      },
+      {
+        "option": "D",
+        "reason": "鸟氨酸循环处理氨生成尿素，不提供酮体合成乙酰CoA。"
+      }
+    ],
+    "common_failure_node": "只记乙酰CoA来自葡萄糖有氧氧化，忽略饥饿/糖尿病时脂肪酸β氧化才是产酮主供给。"
   },
   {
     "question_id": "xizong-official-2024-n023",
@@ -562,22 +868,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "苹果酸-天冬氨酸穿梭",
-    "decision_axis": "苹果酸-天冬氨酸穿梭通过天冬氨酸/谷氨酸等转运和转氨步骤传递胞质NADH还原当量。",
+    "exam_target": "苹果酸-天冬氨酸穿梭中的天冬氨酸",
+    "decision_axis": "胞质NADH不能直接跨线粒体内膜；苹果酸-天冬氨酸穿梭借苹果酸/草酰乙酸与天冬氨酸/谷氨酸的转换传递还原当量。",
     "reasoning_chain": [
-      "胞浆NADH不能直接穿过线粒体内膜，需要穿梭系统转移还原当量。",
-      "肝常用苹果酸-天冬氨酸穿梭，其中天冬氨酸参与跨膜循环，因此选D。",
-      "磷酸二羟丙酮更常出现在甘油磷酸穿梭。"
+      "题干问胞质NADH还原当量进入线粒体呼吸链所用的分子。",
+      "苹果酸-天冬氨酸穿梭中天冬氨酸是重要转运/转氨组分。",
+      "因此选D。"
     ],
-    "transfer_rule": "MAS把胞质NADH还原当量送入线粒体。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "两类NADH穿梭：苹果酸-天冬氨酸穿梭效率高；甘油-3-磷酸穿梭走FAD。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.天冬氨酸。它参与苹果酸-天冬氨酸穿梭，把胞质NADH的还原当量转入线粒体。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "磷酸二羟丙酮参与甘油-3-磷酸穿梭，但题源此处问的是肝细胞典型苹果酸-天冬氨酸穿梭成员。"
+      },
+      {
+        "option": "C",
+        "reason": "丙氨酸并不是该NADH穿梭的关键分子。"
+      }
+    ],
+    "common_failure_node": "把两种胞质NADH穿梭的分子成员混在一起。"
   },
   {
     "question_id": "xizong-official-2024-n024",
@@ -588,22 +907,35 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "苯丙酮尿症",
-    "decision_axis": "经典PKU由苯丙氨酸羟化酶缺陷导致苯丙氨酸不能正常转为酪氨酸。",
+    "exam_target": "苯丙酮尿症的苯丙氨酸羟化酶缺陷",
+    "decision_axis": "经典PKU由苯丙氨酸羟化酶缺陷，使苯丙氨酸不能正常羟化为酪氨酸，苯丙氨酸及旁路代谢物蓄积。",
     "reasoning_chain": [
-      "苯丙氨酸正常由苯丙氨酸羟化酶转化为酪氨酸。",
-      "该酶缺陷会使苯丙氨酸及旁路代谢物积聚，形成苯丙酮尿症，因此选D。",
-      "这题考的是苯丙氨酸→酪氨酸入口，而不是完整遗传病管理。"
+      "正常反应为苯丙氨酸→酪氨酸。",
+      "催化酶是苯丙氨酸羟化酶。",
+      "该酶缺陷是经典PKU最常见机制，因此选D。"
     ],
-    "transfer_rule": "PKU经典缺酶=phenylalanine hydroxylase。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "PKU：Phe hydroxylase/BH4轴异常→Phe↑、Tyr相对不足。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.苯丙氨酸羟化酶缺陷。经典PKU因该酶缺陷导致苯丙氨酸不能正常转化为酪氨酸。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "酪氨酸羟化酶参与儿茶酚胺合成，不是PKU关键酶。"
+      },
+      {
+        "option": "A",
+        "reason": "酪氨酸转氨酶缺陷属于不同酪氨酸代谢异常。"
+      }
+    ],
+    "common_failure_node": "只看到“苯丙氨酸/酪氨酸”就混淆上下游不同酶。"
   },
   {
     "question_id": "xizong-official-2024-n025",
@@ -614,21 +946,34 @@
       "blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "IMP转AMP",
-    "decision_axis": "IMP生成AMP需经腺苷酸代琥珀酸中间体，体现嘌呤核苷酸分支合成。",
+    "exam_target": "IMP生成AMP的腺苷酸代琥珀酸中间体",
+    "decision_axis": "IMP向AMP分支先与天冬氨酸反应生成腺苷酸代琥珀酸，再裂解生成AMP；IMP向GMP分支则经过XMP。",
     "reasoning_chain": [
-      "嘌呤从头合成先形成IMP，再分别分流到AMP和GMP。",
-      "IMP走向AMP时先形成腺苷酸代琥珀酸，再裂解生成AMP，因此选C。",
-      "XMP是IMP走向GMP支路的中间产物。"
+      "IMP是嘌呤从头合成分叉点。",
+      "AMP分支的特征性中间体是腺苷酸代琥珀酸。",
+      "XMP属于GMP分支，因此选C。"
     ],
-    "transfer_rule": "IMP是AMP/GMP共同前体。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "IMP分叉：→AMP经腺苷酸代琥珀酸；→GMP经XMP。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.腺苷酸代琥珀酸。IMP生成AMP时先形成该中间体。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "XMP是IMP生成GMP的中间体。"
+      },
+      {
+        "option": "D",
+        "reason": "SAM是甲基供体，不是IMP→AMP分支中间物。"
+      }
+    ],
+    "common_failure_node": "把IMP到AMP和GMP两条分支的特征性中间体记反。"
   }
 ]

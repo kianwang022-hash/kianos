@@ -8,22 +8,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肠结核的影像/内镜征象",
-    "decision_axis": "肠结核好发回盲部，可见黏膜溃疡、狭窄及钡剂“跳跃征”等经典表现。",
+    "exam_target": "肠结核的回盲部跳跃征",
+    "decision_axis": "回盲部慢性腹痛、腹泻、低热并有钡剂跳跃征，典型指向肠结核。",
     "reasoning_chain": [
-      "右下腹慢性痛、低热、腹泻和回盲部肿块先把定位拉到回盲部结核/CD鉴别。",
-      "钡剂‘跳跃征’是肠结核的经典行为线索，因此选A。",
-      "最终确诊仍依赖内镜/活检等更直接证据，影像征只是高权重提示。"
+      "肠结核好发回盲部。",
+      "钡剂检查“跳跃征”来自痉挛、狭窄和排空加快，是经典题源征象。",
+      "结合半年低热和右下腹肿块，选A。"
     ],
-    "transfer_rule": "回盲部慢性炎症+结核证据是主轴。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "回盲部慢性病变鉴别时，结核背景/低热+跳跃征支持肠结核；纵行裂隙/鹅卵石更偏Crohn。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.肠结核。回盲部受累、慢性低热腹泻和钡剂“跳跃征”是经典肠结核组合。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Crohn也常累及回盲部，但更典型为纵行裂隙溃疡、鹅卵石样改变等。"
+      },
+      {
+        "option": "D",
+        "reason": "肠淋巴瘤可形成肿块，但不能最好解释跳跃征和结核样慢性炎症图景。"
+      }
+    ],
+    "common_failure_node": "只看“关节痛+腹泻”就选Crohn，忽略影像高价值征象。"
   },
   {
     "question_id": "xizong-official-2024-n052",
@@ -34,22 +47,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "代偿期肝硬化体征",
-    "decision_axis": "代偿期肝硬化可已有门静脉高压相关脾大，而明显腹水、黄疸等常提示进一步失代偿。",
+    "exam_target": "代偿期肝硬化可出现脾大",
+    "decision_axis": "代偿期尚未出现明显功能失代偿，但门静脉高压可已存在，脾大可较早出现。",
     "reasoning_chain": [
-      "肝硬化代偿期可以已经出现门脉高压的早期表现，其中脾大很常见。",
-      "因此选D。",
-      "黄疸、明显贫血出血和男性乳房发育更偏肝功能失代偿/激素代谢失败逐渐突出后的表现。"
+      "肝硬化的结构重塑可先造成门静脉压力升高。",
+      "脾静脉回流受阻后出现脾大。",
+      "明显黄疸、出血和重度内分泌改变更提示功能进一步失代偿，因此选D。"
     ],
-    "transfer_rule": "肝硬化分期要区分“已有结构/门高压”与失代偿事件。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "代偿/失代偿先看功能崩溃信号；脾大可在门脉高压早期就出现。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.脾大。代偿期肝硬化可已有门静脉高压及脾大，而明显黄疸、出血等更偏失代偿。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "明显皮肤巩膜黄染提示胆红素处理能力下降，通常更偏失代偿。"
+      },
+      {
+        "option": "C",
+        "reason": "贫血和出血可涉及脾亢、凝血因子减少等，明显出现时通常提示病情更进展。"
+      }
+    ],
+    "common_failure_node": "把“代偿期”误解为完全没有体征。"
   },
   {
     "question_id": "xizong-official-2024-n053",
@@ -60,22 +86,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "白细胞管型定位",
-    "decision_axis": "白细胞管型形成于肾小管，提示肾实质/上尿路炎症，不符合单纯膀胱炎。",
+    "exam_target": "膀胱炎最不可能出现白细胞管型",
+    "decision_axis": "白细胞管型在肾小管内形成，提示肾实质/上尿路炎症；单纯膀胱炎可有脓尿、轻蛋白尿和细菌培养阳性。",
     "reasoning_chain": [
-      "尿频、尿急、尿痛但无发热、无肾区叩击痛，首先符合急性膀胱炎。",
-      "膀胱炎可有脓尿和大肠埃希菌培养阳性，但白细胞管型在肾小管内形成，更提示肾实质受累，所以C最不可能。",
-      "这题的关键是用WBC管型区分下尿路与上尿路。"
+      "尿频尿急尿痛、无发热和肾区叩痛符合下尿路感染。",
+      "WBC增多及大肠埃希菌培养阳性均常见。",
+      "白细胞管型必须在肾单位内形成，提示肾盂肾炎等上尿路病变，因此选C。"
     ],
-    "transfer_rule": "WBC cast→肾脏实质受累。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "尿沉渣“管型”先定位肾实质；膀胱内不能形成管型。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.沉渣镜检可见白细胞管型。白细胞管型提示肾实质/上尿路炎症，最不符合单纯膀胱炎。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "膀胱炎可因炎症出现微量蛋白尿。"
+      },
+      {
+        "option": "D",
+        "reason": "大肠埃希菌是社区尿路感染最常见病原之一。"
+      }
+    ],
+    "common_failure_node": "只把白细胞管型理解成“尿里白细胞很多”，忽略其肾小管来源。"
   },
   {
     "question_id": "xizong-official-2024-n054",
@@ -86,22 +125,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "PNH与再障背景",
-    "decision_axis": "再障患者后续出现血红蛋白尿、溶血证据和网织红细胞增多，应考虑PNH克隆演化。",
+    "exam_target": "再障背景下PNH克隆演化",
+    "decision_axis": "既往再障后出现血红蛋白尿、Ret明显升高和血细胞减少，应警惕PNH；尿RBC阴性而隐血阳性支持游离血红蛋白尿。",
     "reasoning_chain": [
-      "尿沉渣无红细胞但隐血阳性提示血红蛋白尿，而Ret 12%说明存在明显溶血代偿。",
-      "既往再障背景、当前三系偏低、慢性血管内溶血并伴缺铁，最符合PNH，选D。",
-      "PNH可同时连接骨髓衰竭、血红蛋白尿和异常血栓三条线。"
+      "尿色深但镜检无RBC、隐血阳性，提示血红蛋白尿而非真正血尿。",
+      "Ret 12%提示骨髓对外周红细胞破坏有代偿。",
+      "PNH与再障存在克隆演化/重叠关系，因此选D。"
     ],
-    "transfer_rule": "再障+血管内溶血/晨起血红蛋白尿→PNH。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "“尿隐血+、RBC阴性”先想Hb/Mb；再障史+溶血+细胞减少强烈提示PNH。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.阵发性睡眠性血红蛋白尿症。再障背景、血红蛋白尿和溶血性代偿组合最符合PNH。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "虽有低铁和低铁蛋白，但缺铁不能解释血红蛋白尿和高网织红。"
+      },
+      {
+        "option": "C",
+        "reason": "AIHA可溶血，但再障背景和血红蛋白尿/多系细胞减少更支持PNH。"
+      }
+    ],
+    "common_failure_node": "被低铁蛋白锚定缺铁，忽略更强的血管内溶血证据。"
   },
   {
     "question_id": "xizong-official-2024-n055",
@@ -112,20 +164,36 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "原醛症ARR旧固定阈值",
-    "decision_axis": "醛固酮/肾素比值的筛查阈值受检测方法、单位、药物和实验室影响，题源固定数值不能作为Current统一诊断阈值。",
+    "exam_target": "原醛ARR题源固定阈值与Current冲突",
+    "decision_axis": "原醛筛查核心是醛固酮相对高、肾素被抑制、ARR升高；但Current D22已显式登记正文>30与2024题>50的双口径冲突。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "低钾、代谢性碱中毒等只能支持矿皮质激素效应，不能单独确诊原醛。",
+      "ARR是高价值筛查/功能证据。",
+      "题源把>50设为答案B，但Current D22不冻结这一数值为统一阈值，因此只保留官方答案。"
     ],
-    "transfer_rule": "ARR用于筛查，但具体cutoff必须按Current方法学。",
+    "transfer_rule": "ARR看“醛固酮高+肾素低+比值升高”；具体阈值必须服从实验室方法、单位、药物与Current Source。",
     "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.血浆醛固酮/血浆肾素活性比值＞50为2024正式题源答案；Current只安全保留ARR升高主轴，不统一冻结>50。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "尿钾升高可反映排钾增加，但不能完成原醛确诊。"
+      },
+      {
+        "option": "D",
+        "reason": "代谢性碱中毒是醛固酮效应的下游结果，特异性不足。"
+      }
+    ],
+    "common_failure_node": "把某一旧/题源ARR数字当成跨实验室、跨版本固定诊断线。",
+    "source_conflict_note": "Current D22已显式登记ARR Source Conflict：内科正文写>30，而2024题选项以>50为答案；只冻结“醛固酮高、肾素低、ARR升高”主轴，不静默统一数值。"
   },
   {
     "question_id": "xizong-official-2024-n056",
@@ -136,20 +204,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "痛风首发关节",
-    "decision_axis": "痛风首次发作最典型部位是第一跖趾关节，称podagra。",
+    "exam_target": "痛风最常首发第一跖趾关节",
+    "decision_axis": "急性痛风性关节炎最典型、最常见首发部位是单侧第一跖趾关节，即podagra。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "尿酸盐结晶易在远端较冷关节沉积。",
+      "第一跖趾关节是经典首发部位。",
+      "Current H15 KP13明确保存该高频入口，因此选A。"
     ],
-    "transfer_rule": "痛风经典首发=第一跖趾关节。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "痛风首发记podagra：夜间/清晨急性单关节剧痛，第一跖趾最典型。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.第一跖趾关节。Current H15 KP13明确其为痛风急性发作最常见部位。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "DIP更常作为骨关节炎Heberden结节等定位，不是痛风最常首发点。"
+      },
+      {
+        "option": "D",
+        "reason": "掌指关节可受累，但不是最常见首发部位。"
+      }
+    ],
+    "common_failure_node": "把“痛风可累及多个关节”误成首发部位没有特异性。"
   },
   {
     "question_id": "xizong-official-2024-n057",
@@ -160,22 +243,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "幽门梗阻酸碱紊乱",
-    "decision_axis": "持续呕吐胃酸造成H+和Cl-丢失，并伴容量缩小和K+丢失，形成低氯低钾性代谢性碱中毒。",
+    "exam_target": "幽门梗阻导致低氯低钾代谢性碱中毒",
+    "decision_axis": "持续呕吐胃内容物使HCl丢失，同时容量缩小激活RAAS并增加K⁺丢失，形成低氯、低钾性代谢性碱中毒。",
     "reasoning_chain": [
-      "幽门梗阻反复呕吐胃内容物会丢失HCl，首先造成低氯性代谢性碱中毒。",
-      "持续呕吐和容量缩小又常伴钾丢失，因此最符合低氯、低钾性碱中毒，选B。",
-      "这是‘丢胃酸 + 容量收缩 + 继发钾丢失’的组合。"
+      "胃酸丢失直接造成H⁺和Cl⁻减少。",
+      "容量不足促进肾脏保钠并增加K⁺/H⁺排出。",
+      "因此选B。"
     ],
-    "transfer_rule": "高位呕吐→低Cl低K代碱。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "长期胃液丢失：低Cl+低K+代谢性碱中毒。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.低氯、低钾性碱中毒。幽门梗阻反复呕吐胃酸并伴容量缩小，形成经典低氯低钾性代谢性碱中毒。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "持续呕吐及继发醛固酮作用通常导致低钾，而非高钾。"
+      },
+      {
+        "option": "D",
+        "reason": "丢失胃酸方向是碱中毒，不是酸中毒。"
+      }
+    ],
+    "common_failure_node": "只记“呕吐→碱中毒”，没有把低氯、低钾一起串起来。"
   },
   {
     "question_id": "xizong-official-2024-n058",
@@ -186,20 +282,36 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "利多卡因局麻最大剂量旧固定值",
-    "decision_axis": "局麻药最大安全剂量取决于体重、是否合用肾上腺素、给药部位和制剂；题源固定400 mg不宜泛化。",
+    "exam_target": "利多卡因局部浸润麻醉Current Study一次限量400mg",
+    "decision_axis": "Current F8 KP10明确冻结利多卡因神经阻滞/局部浸润一次限量400mg，属于高密度MI-D考试数字。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "题目限定利多卡因局部浸润麻醉。",
+      "Current Study一次限量表中该方式为400mg。",
+      "因此选C。"
     ],
-    "transfer_rule": "局麻剂量必须按mg/kg及制剂条件计算。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "局麻药剂量题必须区分药物、给药方式和是否含血管收缩剂；本项目当前Study对该题冻结400mg。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.400mg。Current F8 KP10明确保存利多卡因神经阻滞/局部浸润一次限量400mg。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "100mg是Current表中利多卡因表面麻醉限量，不是局部浸润。"
+      },
+      {
+        "option": "D",
+        "reason": "600mg超过当前Study局部浸润一次限量。"
+      }
+    ],
+    "common_failure_node": "把表面麻醉与局部浸润的限量混淆，或把现实按体重剂量公式替代题源Study数字。",
+    "source_boundary_note": "400mg是Current F8明确保存的Study一次限量/MI-D考试数字；真实给药还需结合体重、是否加肾上腺素、部位和患者风险，不能无条件外推。"
   },
   {
     "question_id": "xizong-official-2024-n059",
@@ -210,22 +322,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "破伤风临床表现",
-    "decision_axis": "破伤风可出现刺激诱发痉挛和自主神经功能紊乱，意识通常清楚；严重时可有排尿排便障碍。",
+    "exam_target": "破伤风可出现尿潴留且意识常清楚",
+    "decision_axis": "破伤风毒素阻断抑制性神经递质，导致刺激诱发的肌痉挛及自主神经功能紊乱；发作时意识通常清楚，可有尿潴留。",
     "reasoning_chain": [
-      "破伤风毒素解除抑制后产生刺激诱发的全身强直痉挛，发作时神志通常清楚。",
-      "肌群受累和自主神经紊乱还可造成尿潴留，因此正确项是D。",
-      "最早常见牙关紧闭；光、声、触碰都可诱发痉挛。"
+      "最早常见牙关紧闭/咀嚼肌受累，不是颈肌首先。",
+      "声光等外界刺激可诱发痉挛。",
+      "意识多清楚，自主神经/排尿功能可异常，所以D正确。"
     ],
-    "transfer_rule": "破伤风核心=肌强直/痉挛+意识多清楚。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "破伤风三点：刺激诱发痉挛、意识通常清楚、自主神经紊乱。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.可出现尿潴留。严重破伤风可有自主神经和排尿功能异常；痉挛发作时患者通常神志清楚。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "光、声、触碰等均可诱发全身痉挛。"
+      },
+      {
+        "option": "C",
+        "reason": "破伤风典型痉挛并不以意识丧失为特征。"
+      }
+    ],
+    "common_failure_node": "把强烈痉挛等同癫痫发作，误以为患者必然神志不清。"
   },
   {
     "question_id": "xizong-official-2024-n060",
@@ -236,22 +361,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "甲状腺髓样癌细胞来源",
-    "decision_axis": "甲状腺髓样癌起源于滤泡旁C细胞，可分泌降钙素。",
+    "exam_target": "甲状腺髓样癌起源于滤泡旁C细胞",
+    "decision_axis": "髓样癌源自滤泡旁C细胞，可分泌降钙素并可发生淋巴、血行转移；“起源于滤泡上皮”错误。",
     "reasoning_chain": [
-      "甲状腺髓样癌来源于滤泡旁C细胞，而不是甲状腺滤泡上皮。",
-      "因此错误项是B。",
-      "它可分泌降钙素，并可经淋巴和血行转移。"
+      "滤泡上皮产生甲状腺激素并形成乳头状/滤泡性癌等。",
+      "C细胞分泌降钙素，是髓样癌来源。",
+      "因此错误项B。"
     ],
-    "transfer_rule": "髓样癌=C细胞=calcitonin。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "甲状腺肿瘤来源：乳头/滤泡/未分化→滤泡上皮；髓样癌→C细胞→降钙素。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.起源于甲状腺滤泡上皮。髓样癌实际起源于滤泡旁C细胞，因此该项错误。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "C细胞可分泌降钙素，故髓样癌可作为其肿瘤标志。"
+      },
+      {
+        "option": "D",
+        "reason": "髓样癌可发生淋巴和血行转移。"
+      }
+    ],
+    "common_failure_node": "把“甲状腺癌”都默认来自滤泡上皮。"
   },
   {
     "question_id": "xizong-official-2024-n061",
@@ -262,22 +400,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "乳头血性溢液",
-    "decision_axis": "乳管内乳头状瘤是单侧、单孔、自发性血性乳头溢液的经典良性原因。",
+    "exam_target": "单侧血性乳头溢液与乳管内乳头状瘤",
+    "decision_axis": "乳管内乳头状瘤是自发、单侧、单孔血性乳头溢液的经典良性病因。",
     "reasoning_chain": [
-      "单侧血性乳头溢液、往往摸不到明显肿块，是乳管内乳头状瘤非常典型的临床入口。",
-      "因此选C。",
-      "囊性增生更偏周期性疼痛，纤维腺瘤偏活动肿块。"
+      "血性溢液首先定位乳管内病变。",
+      "乳头状瘤生长在乳管内，表面易出血。",
+      "45岁、反复血性溢液最符合C。"
     ],
-    "transfer_rule": "血性乳头溢液要想到乳管内乳头状瘤并排恶性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "血性乳头溢液先想乳管内乳头状瘤，同时需要排除恶性病变。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.乳管内乳头状瘤。它是单侧、单孔、自发性血性乳头溢液的经典原因。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Paget病更典型为乳头乳晕湿疹样糜烂改变。"
+      },
+      {
+        "option": "D",
+        "reason": "纤维腺瘤多表现为无痛、活动性肿块，不以血性溢液为主。"
+      }
+    ],
+    "common_failure_node": "见“血性”就直接等同乳腺癌，忽略乳管内乳头状瘤这一经典良性病因。"
   },
   {
     "question_id": "xizong-official-2024-n062",
@@ -288,22 +439,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "张力性气胸紧急减压",
-    "decision_axis": "张力性气胸是临床急诊诊断，循环/呼吸受损时应立即胸膜腔减压，不应等待影像确认。",
+    "exam_target": "张力性气胸先立即胸膜腔穿刺减压",
+    "decision_axis": "张力性气胸持续升高胸膜腔压力，可迅速造成呼吸衰竭和阻塞性休克，必须先紧急减压。",
     "reasoning_chain": [
-      "张力性气胸是气体单向进入胸膜腔、压力持续升高的立即致命急症。",
-      "第一步必须立刻穿刺减压，选B，之后再完成胸腔闭式引流等后续处理。",
-      "不能为了等影像、插管或开胸而延误减压。"
+      "这是临床急诊诊断，不应等待影像。",
+      "穿刺减压可立即释放高压气体。",
+      "后续再行胸腔闭式引流等确定处理，因此选B。"
     ],
-    "transfer_rule": "张力性气胸=先减压，后完善处理。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "张力性气胸：先减压、后引流；不要先气管插管等待或搬去检查。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.胸膜腔穿刺减压。张力性气胸首要是立即解除胸膜腔高压。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "气管插管不能解除胸膜腔高压，正压通气还可能恶化张力性气胸。"
+      },
+      {
+        "option": "A",
+        "reason": "剖胸探查不是绝大多数张力性气胸的首个急救动作。"
+      }
+    ],
+    "common_failure_node": "把“呼吸困难”惯性处理成先插管，忘记病理故障在胸膜腔高压。"
   },
   {
     "question_id": "xizong-official-2024-n063",
@@ -314,22 +478,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "中央型肺癌与肺不张",
-    "decision_axis": "中央型肺癌阻塞叶支气管可导致肺叶不张，并形成肺门或中心型肿块。",
+    "exam_target": "中央型肺癌阻塞支气管导致肺不张",
+    "decision_axis": "肺门肿块紧邻右上叶不张提示中心型肿瘤阻塞叶/段支气管，中央型肺癌最符合。",
     "reasoning_chain": [
-      "右上叶肺不张旁边紧邻肺门肿块，提示肿瘤从中央大支气管生长并造成阻塞。",
-      "因此首先考虑中央型肺癌，选C。",
-      "周围型肺癌通常位于肺野外周，不以近肺门阻塞性肺不张为典型入口。"
+      "肺不张提示近端气道被堵塞。",
+      "同时看到肺门部肿块，为中心支气管来源提供直接线索。",
+      "因此选C。"
     ],
-    "transfer_rule": "肺门肿块+相应肺不张→中央型阻塞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肺门肿块+叶性肺不张=先想中央型肺癌的支气管阻塞。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.中央型肺癌。中心肿瘤阻塞上叶支气管可造成右上叶肺不张并形成肺门肿块。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "周围型肺癌更常表现外周肺野结节/肿块，不典型造成近端叶支气管阻塞。"
+      },
+      {
+        "option": "D",
+        "reason": "错构瘤多为周围孤立结节，不符合肺门阻塞性肺不张。"
+      }
+    ],
+    "common_failure_node": "只看“肺里有肿块”而不利用肺不张反推气道阻塞位置。"
   },
   {
     "question_id": "xizong-official-2024-n064",
@@ -340,22 +517,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "滑动性疝",
-    "decision_axis": "滑动性疝的特点是疝内容脏器的一部分构成疝囊壁。",
+    "exam_target": "疝囊壁由盲肠构成提示滑动性疝",
+    "decision_axis": "滑动性疝中腹膜后脏器的一部分构成疝囊壁，右侧可涉及盲肠/升结肠。",
     "reasoning_chain": [
-      "滑动性疝的定义是某个脏器的一部分直接构成疝囊壁。",
-      "术中看到盲肠构成疝囊的一部分，正符合滑动性疝，选B。",
-      "它不同于Richter疝只嵌顿部分肠壁。"
+      "普通腹股沟疝囊壁由腹膜形成。",
+      "若盲肠本身成为疝囊的一部分，说明脏器参与囊壁。",
+      "这就是滑动性疝，选B。"
     ],
-    "transfer_rule": "滑动疝=脏器壁本身参与疝囊。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "滑动性疝定义抓“脏器构成疝囊壁”，不是单纯作为疝内容物。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.滑动性疝。盲肠构成疝囊壁的一部分是滑动性疝的定义性特征。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Richter疝仅肠壁一部分嵌入疝环，但肠壁不是“疝囊壁”的定义。"
+      },
+      {
+        "option": "C",
+        "reason": "逆行性嵌顿疝强调腹腔内肠袢受累的W形嵌顿机制。"
+      }
+    ],
+    "common_failure_node": "把“肠壁参与”就选Richter疝，没有区分“构成疝囊壁”与“只有部分肠壁被嵌顿”。"
   },
   {
     "question_id": "xizong-official-2024-n065",
@@ -366,22 +556,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "桡神经功能",
-    "decision_axis": "桡神经损伤典型导致伸腕、伸指无力并出现垂腕。",
+    "exam_target": "肱骨中下1/3骨折的桡神经运动缺失",
+    "decision_axis": "桡神经高位损伤典型累及伸腕、伸指，出现垂腕和垂指。",
     "reasoning_chain": [
-      "肱骨中下1/3骨折最常牵涉桡神经。",
-      "桡神经支配腕和指伸肌，因此可出现伸腕、伸指功能丧失，选A。",
-      "屈腕屈指主要由正中/尺神经系统承担。"
+      "肱骨中下段邻近桡神经沟，是桡神经高危位置。",
+      "桡神经支配腕指伸肌群。",
+      "因此选A。"
     ],
-    "transfer_rule": "伸腕伸指障碍→桡神经。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肱骨干中下段骨折→先查桡神经：伸腕、伸指和手背桡侧感觉。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.伸指、伸腕。桡神经损伤会使腕和手指伸展功能受损。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "屈腕、屈指主要由正中神经和尺神经系统承担。"
+      },
+      {
+        "option": "C",
+        "reason": "并指主要由尺神经支配的骨间肌完成。"
+      }
+    ],
+    "common_failure_node": "只记“垂腕”而漏掉伸指同属桡神经。"
   },
   {
     "question_id": "xizong-official-2024-n066",
@@ -392,22 +595,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "骨样骨瘤好发部位",
-    "decision_axis": "骨样骨瘤常见于青少年长骨皮质，股骨和胫骨较常见。",
+    "exam_target": "骨样骨瘤好发于胫骨等长骨皮质",
+    "decision_axis": "骨样骨瘤多见于青少年/年轻人长骨皮质，股骨和胫骨是常见部位。",
     "reasoning_chain": [
-      "骨样骨瘤常见于青少年/青年长骨皮质，胫骨和股骨是经典好发部位。",
-      "四个选项中胫骨最符合，选D。",
-      "它最有辨识度的临床特征是夜间痛、对NSAIDs高度敏感。"
+      "题目只比较常见部位。",
+      "骨样骨瘤偏好长骨皮质。",
+      "四项中胫骨最典型，因此选D。"
     ],
-    "transfer_rule": "青少年夜痛、NSAID缓解+小nidus→骨样骨瘤。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "骨样骨瘤：年轻人、夜痛、NSAIDs缓解、长骨皮质小nidus；股骨/胫骨高频。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.胫骨。骨样骨瘤常见于长骨皮质，尤其股骨和胫骨。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "颅骨不是其典型高发部位。"
+      },
+      {
+        "option": "B",
+        "reason": "脊柱也可发生，但并非本题最常见部位。"
+      }
+    ],
+    "common_failure_node": "只记“骨肿瘤可发生任何骨”，忽略年龄和好发骨段。"
   },
   {
     "question_id": "xizong-official-2024-n067",
@@ -418,22 +634,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "腰椎间盘突出症",
-    "decision_axis": "腰痛伴下肢放射痛、咳嗽喷嚏加重和直腿抬高试验阳性，符合神经根型腰椎间盘突出。",
+    "exam_target": "腰椎间盘突出症的根性放射痛与直腿抬高阳性",
+    "decision_axis": "腰痛伴单侧下肢放射、咳嗽用力加重、直腿抬高及加强试验阳性，典型神经根受压型腰椎间盘突出。",
     "reasoning_chain": [
-      "反复腰痛伴单侧下肢放射痛，咳嗽和用力时加重，说明神经根受到压力/炎症刺激。",
-      "直腿抬高和加强试验均阳性，再加L4-5椎间隙变窄，最符合腰椎间盘突出症，选D。",
-      "腰椎管狭窄更强调神经源性间歇跛行。"
+      "咳嗽/用力增加椎管内压力使根性痛加重。",
+      "SLR及加强试验阳性支持坐骨神经根牵拉。",
+      "L4-5间隙变窄提供结构线索，因此选D。"
     ],
-    "transfer_rule": "腰痛+坐骨神经放射痛+SLR阳性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "腰突抓“腰痛+沿神经根放射+咳嗽加重+SLR阳性”。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.腰椎间盘突出症。根性放射痛、咳嗽加重和直腿抬高试验阳性构成典型组合。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "腰椎管狭窄更典型是神经源性间歇性跛行，前屈/坐位缓解。"
+      },
+      {
+        "option": "B",
+        "reason": "梨状肌综合征可有坐骨神经痛，但缺少腰椎根性诱发与椎间隙异常的整套证据。"
+      }
+    ],
+    "common_failure_node": "看到下肢放射痛就只按坐骨神经周围卡压判断，忽略脊柱诱发征。"
   },
   {
     "question_id": "xizong-official-2024-n068",
@@ -444,20 +673,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肺气肿触觉语颤",
-    "decision_axis": "肺气肿使肺含气量增加并削弱声音传导，双侧触觉语颤可减弱。",
+    "exam_target": "COPD/肺气肿的语音震颤减弱",
+    "decision_axis": "肺含气量增加使声音经肺组织向胸壁传导下降，因此COPD肺气肿常双侧语音震颤减弱、叩诊过清、呼吸音减弱。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "患者长期COPD，已有桶状/过度充气方向体征。",
+      "过多空气降低声振传导效率。",
+      "Current R3明确表列语音震颤减弱，因此选A。"
     ],
-    "transfer_rule": "含气过多→叩诊过清、语颤减弱。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "含气过多常“隔音”：语颤↓、呼吸音↓、叩诊过清；实变则语颤可增强。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "A.双侧语颤减弱。Current R3的COPD体征表明确指出过多空气使语音震颤减弱。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "管状呼吸音更典型见肺实变区域，而不是弥漫肺气肿。"
+      },
+      {
+        "option": "D",
+        "reason": "COPD过度充气通常使肺泡呼吸音减弱而非增强。"
+      }
+    ],
+    "common_failure_node": "把“有感染湿啰音”误认为整个肺都实变，从而选语颤增强/管状呼吸音。"
   },
   {
     "question_id": "xizong-official-2024-n069",
@@ -468,22 +712,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "慢性肺心病心脏改变",
-    "decision_axis": "长期肺动脉高压先造成右心室压力负荷增加，继而右室肥厚、扩大并可累及右房。",
+    "exam_target": "慢性肺心病的右房右室改变",
+    "decision_axis": "长期COPD导致低氧性肺血管收缩和重构，形成肺高压，先右室肥厚、后扩张并可累及右房。",
     "reasoning_chain": [
-      "长期COPD发展慢性肺心病后，持续肺动脉高压造成右心压力负荷。",
-      "心电图可见右心房增大和右心室肥厚，因此选C。",
-      "这不是左心房/左心室负荷为主的疾病。"
+      "30年COPD提供慢性肺高压基础。",
+      "颈静脉充盈、下肢水肿提示右心衰。",
+      "因此ECG方向为右房增大+右室肥厚，选C。"
     ],
-    "transfer_rule": "肺高压→右心改变。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "慢性肺心病是“肺→肺高压→右心”，不是左房左室主轴。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.窦性心律，右心房增大，右心室肥厚。长期肺高压造成右心压力负荷和结构改变。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "左房左室肥厚更支持左心系统高压负荷，不符合本病例。"
+      },
+      {
+        "option": "B",
+        "reason": "完全左束支阻滞不是慢性肺心病的典型结构性组合。"
+      }
+    ],
+    "common_failure_node": "一看到心衰和水肿就默认左心衰，忽略病史明确是长期肺病。"
   },
   {
     "question_id": "xizong-official-2024-n070",
@@ -494,20 +751,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "COPDⅡ型呼吸衰竭血气",
-    "decision_axis": "通气不足导致PaCO2升高，同时低氧；急性失代偿时可伴呼吸性酸中毒。",
+    "exam_target": "COPD急性加重Ⅱ型呼吸衰竭并呼吸性酸中毒",
+    "decision_axis": "感染诱发COPD急性失代偿时肺泡通气不足可造成PaCO₂升高，同时低氧；若CO₂急性进一步潴留，pH下降形成呼吸性酸中毒。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "患者嗜睡、发绀提示严重气体交换/通气失败。",
+      "COPD长期基础上感染加重，最典型是低氧伴CO₂潴留。",
+      "急性失代偿补偿不及，可出现pH下降，因此选D。"
     ],
-    "transfer_rule": "Ⅱ型呼衰=低氧+高碳酸血症。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "COPD嗜睡先警惕高碳酸血症：PaO₂↓+PaCO₂↑；pH判断是否急性失代偿。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.PaO₂降低，PaCO₂增高，pH下降。Current R3明确COPD通气不足可导致Ⅱ型呼衰，急性加重时可伴呼吸性酸中毒。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "PaCO₂降低更符合过度通气型低氧，不符合本例嗜睡和通气失败。"
+      },
+      {
+        "option": "C",
+        "reason": "PaO₂正常与明显发绀/重症COPD不符，且急性CO₂潴留不应以碱血症为主。"
+      }
+    ],
+    "common_failure_node": "机械背“COPD=Ⅱ型呼衰”而不结合pH判断急慢性失代偿。"
   },
   {
     "question_id": "xizong-official-2024-n071",
@@ -518,22 +790,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肾炎性水肿特点",
-    "decision_axis": "肾炎水肿常先见眼睑/颜面，伴少尿和高血压，反映水钠潴留。",
+    "exam_target": "颜面晨起水肿、少尿高血压提示肾源性水肿",
+    "decision_axis": "肾炎性水肿常先从眼睑颜面出现，晨起明显，并伴少尿和高血压。",
     "reasoning_chain": [
-      "晨起颜面水肿明显、少尿、高血压，再加咽部感染背景，都把病因定位到肾脏。",
-      "因此属于肾源性水肿，选B。",
-      "心源性水肿通常先在低垂部位明显，肝源性还会有明确肝病背景。"
+      "心肺无明显异常，不支持心源性。",
+      "无黄疸/肝脾表现，不支持肝源性。",
+      "颜面先发、少尿、高血压最符合肾源性水肿，因此选B。"
     ],
-    "transfer_rule": "晨起眼睑水肿+高压/血尿→肾性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肾源水肿高频：晨起眼睑/颜面+少尿+高血压；心源水肿更常先下垂部位。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.肾源性水肿。晨起颜面水肿、少尿和高血压是典型肾炎性水肿组合。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "心源性水肿常以下垂部位为先，并伴心衰体征。"
+      },
+      {
+        "option": "C",
+        "reason": "肝源性水肿常与腹水、低白蛋白和慢性肝病体征并存。"
+      }
+    ],
+    "common_failure_node": "只看“双下肢可凹性水肿”就选心衰，忽略水肿起始部位和伴随少尿高压。"
   },
   {
     "question_id": "xizong-official-2024-n072",
@@ -544,22 +829,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "急性肾炎水肿机制",
-    "decision_axis": "急性肾小球炎症导致GFR下降和肾脏钠水排泄减少，是容量扩张和水肿主要机制。",
+    "exam_target": "急性肾炎水肿主要由钠水潴留",
+    "decision_axis": "肾小球炎症使GFR下降并激活钠水潴留，容量扩张是急性肾炎水肿和高血压的共同主轴。",
     "reasoning_chain": [
-      "急性肾炎时GFR下降，Na⁺和水排泄减少，容量扩张后形成水肿和高血压。",
-      "因此该病例水肿最主要机制是钠、水潴留，选D。",
-      "胶体渗透压下降更突出于大量蛋白尿的肾病综合征。"
+      "尿量明显减少说明排水能力下降。",
+      "血压160/90提示容量负荷增加。",
+      "因此最主要机制为钠、水潴留，选D。"
     ],
-    "transfer_rule": "急性肾炎水肿=肾性Na水潴留。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "急性肾炎“水肿+高压”优先用容量扩张解释，而不是先归因低白蛋白。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "D.钠、水潴留。GFR下降及肾脏钠水排泄减少导致容量扩张，是本例水肿核心机制。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "血浆胶体渗透压下降更典型驱动肾病综合征/肝病等水肿，不是本题肾炎主轴。"
+      },
+      {
+        "option": "C",
+        "reason": "淋巴回流障碍通常造成局部非对称性水肿。"
+      }
+    ],
+    "common_failure_node": "一见肾病水肿就统一用“低白蛋白”解释。"
   },
   {
     "question_id": "xizong-official-2024-n073",
@@ -570,22 +868,36 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肺栓塞合并肾功能不全的影像选择",
-    "decision_axis": "严重肾功能不全时需权衡含碘对比剂风险，通气/灌注显像可作为肺栓塞评估的替代路径之一。",
+    "exam_target": "严重肾功能不全疑PE时V/Q显像替代CTPA",
+    "decision_axis": "CTPA通常为首选，但Cr显著升高时碘对比剂风险增加；V/Q显像可作为严重肾功能不全患者的替代影像路径。",
     "reasoning_chain": [
-      "术后突发呼吸困难高度怀疑PTE，但Cr 366 μmol/L提示严重肾功能异常，不适合优先使用含碘造影剂的CTPA。",
-      "此时可用肺通气/灌注显像寻找通气—灌注失配，因此选C。",
-      "胸片和超声可辅助，但不能直接替代肺血管/灌注层面的确诊证据。"
+      "术后突发呼吸困难有PE高风险。",
+      "Cr 366 μmol/L提示严重肾功能不全。",
+      "Current R9明确V/Q用于严重肾功能不全/碘过敏等场景，因此选C。"
     ],
-    "transfer_rule": "PE影像选择结合肾功能和胸片/可用性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "PE影像：一般CTPA；严重肾功能不全/碘禁忌时考虑V/Q等替代。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "C.放射性核素肺通气/血流灌注显像。Current R9明确其是严重肾功能不全时避免碘对比剂的替代路径。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "CTPA通常首选，但本题Cr 366使含碘对比剂成为关键限制。"
+      },
+      {
+        "option": "A",
+        "reason": "胸片可帮助鉴别其他胸部疾病，但不能作为确诊PE的核心检查。"
+      }
+    ],
+    "common_failure_node": "只背“PE首选CTPA”，不读取题干给出的肾功能禁忌变量。",
+    "source_boundary_note": "Current R9把V/Q作为严重肾功能不全时的替代影像路径；具体可用性仍受胸片背景、核医学资源和临床稳定性影响。"
   },
   {
     "question_id": "xizong-official-2024-n074",
@@ -596,22 +908,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肺栓塞心电图S1Q3T3",
-    "decision_axis": "急性右心负荷可出现S1Q3T3，但敏感性和特异性均有限，只能作支持证据。",
+    "exam_target": "急性肺栓塞ECG可见SⅠQⅢTⅢ",
+    "decision_axis": "急性右室压力负荷可形成SⅠQⅢTⅢ等ECG改变，但敏感性和特异性有限，只能作为支持证据。",
     "reasoning_chain": [
-      "急性肺栓塞可造成急性右心负荷，心电图可出现经典SⅠQⅢTⅢ模式。",
-      "因此选B。",
-      "这个征象并不敏感，但在合适临床背景下是高频考试线索。"
+      "PE造成急性肺血管阻力增加和右心负荷。",
+      "SⅠQⅢTⅢ是经典但并不常见/特异的ECG模式。",
+      "四项中B最符合PE支持性心电图表现。"
     ],
-    "transfer_rule": "S1Q3T3支持PE但不能单独确诊。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "S1Q3T3是PE“提示”而非排除/确诊标准；正常ECG也不能排PE。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.SⅠQⅢTⅢ。急性肺栓塞可因右心负荷出现这一经典心电图模式。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "电轴左偏不符合急性右心负荷的典型方向。"
+      },
+      {
+        "option": "C",
+        "reason": "完全左束支阻滞不是PE的经典特征性支持表现。"
+      }
+    ],
+    "common_failure_node": "把S1Q3T3当成“没有就没有PE”的高敏感性标准。"
   },
   {
     "question_id": "xizong-official-2024-n075",
@@ -622,21 +947,35 @@
       "blob_sha": "61b1f9742c566927c7efaed472e8eb32a2ee3f08",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肺栓塞重度肾功能不全抗凝",
-    "decision_axis": "题源固定选择低分子肝素；显著肾功能不全时抗凝药种类和剂量需按肾功能及现行指南调整。",
+    "exam_target": "严重肾功能不全PE的抗凝药选择边界",
+    "decision_axis": "题源固定选低分子量肝素，但Cr 366 μmol/L提示显著肾功能不全；LMWH存在肾清除和蓄积问题，实际抗凝种类/剂量必须按肾功能与现行规范选择。",
     "reasoning_chain": [
-      "患者血压稳定，没有休克或高危右心衰竭证据，治疗主轴是抗凝而不是溶栓。",
-      "低分子量肝素可作为初始抗凝方案，因此选B。",
-      "华法林起效慢，通常不能单独承担最初急性期抗凝；抗血小板也不是PTE基础治疗。"
+      "患者血流动力学稳定，没有休克，不属于立即系统溶栓的高危PE表型。",
+      "PE治疗主轴应抗凝，而不是抗血小板。",
+      "但题源B把LMWH固定为答案；Current R9只安全支持“抗凝是基础”，没有在该重度肾功能情境冻结LMWH，因此不建立Current relation。"
     ],
-    "transfer_rule": "PE抗凝不能忽略eGFR和出血风险。",
+    "transfer_rule": "PE稳定患者以抗凝为主；具体UFH/LMWH/DOAC等必须读肾功能、出血风险和Current方案。",
     "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
-      "old_explanation_inherited": false
-    }
+      "old_explanation_inherited": false,
+      "cycle": "SECOND_PASS_2024"
+    },
+    "correct_option_reason": "B.低分子量肝素抗凝治疗为2024正式题源答案；但显著肾功能不全下药物与剂量不能从该旧单选题外推为统一Current方案。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "患者血压稳定、神清，无高危休克证据，不属于题源即刻全身溶栓主轴。"
+      },
+      {
+        "option": "D",
+        "reason": "抗血小板不是急性静脉血栓栓塞的核心治疗。"
+      }
+    ],
+    "common_failure_node": "知道“PE要抗凝”后就忽略肾功能对具体抗凝药物选择和剂量的约束。",
+    "source_boundary_note": "Current R9安全支持“稳定PE以抗凝为主”，但未冻结Cr 366 μmol/L时固定使用LMWH；显著肾功能不全需按当前肾功能适配抗凝方案。"
   }
 ]
