@@ -11,17 +11,32 @@
     "exam_target": "前馈控制",
     "decision_axis": "比赛发令前因预期活动而出现心率等生理变化，是在误差真正出现前由中枢预测性启动的前馈控制。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "前馈控制的特征是预测性：被调变量尚未真正偏离目标，就先启动调节。",
+      "百米赛跑发令前，运动员因预期运动而出现心率上升，真实运动负荷还没有发生。",
+      "因此D是前馈；Current一般前馈概念仅在System Guide/P0层冻结，不建立器官KP relation。"
     ],
     "transfer_rule": "尚未发生偏差就提前调节=前馈。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.发令枪尚未响时心率已增加。变化发生在真实运动负荷/误差出现之前，由中枢预期提前启动，属于前馈控制。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "压力感受器反射根据血压偏差作负反馈纠正。"
+      },
+      {
+        "option": "B",
+        "reason": "踩钉回撤是刺激发生后的反射性反馈反应。"
+      }
+    ],
+    "common_failure_node": "把所有“提前发生的反射”都当成前馈；前馈关键是预测性、误差尚未真正出现。",
+    "source_gap_note": "一般生理“负反馈/正反馈/前馈”当前主要由System Guide/P0承接，没有可投影的最小Current KP。"
   },
   {
     "question_id": "xizong-official-2023-n002",
@@ -35,17 +50,32 @@
     "exam_target": "甘油跨膜运输",
     "decision_axis": "甘油分子较小且不带电，题源按简单扩散通过细胞膜的经典生理分类作答。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题目考一般跨膜运输分类。",
+      "葡萄糖和氨基酸典型依赖载体，肽类激素也不靠简单穿过脂双层进入细胞；题源将甘油归为单纯扩散。",
+      "Current Knowledge未冻结“甘油=单纯扩散”这一精确通用跨膜规则，因此只保留题源答案。"
     ],
     "transfer_rule": "简单扩散通常适合小的脂溶性或部分小分子物质。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.甘油。题源按经典生理学跨膜运输分类，把小分子、不带电的甘油归为单纯扩散。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "葡萄糖跨膜主要依赖易化扩散或继发性主动转运。"
+      },
+      {
+        "option": "C",
+        "reason": "氨基酸常依赖载体和Na⁺耦联等转运。"
+      }
+    ],
+    "common_failure_node": "把“能穿膜”与“无需载体的单纯扩散”混为一类。",
+    "source_gap_note": "Current Knowledge未找到明确冻结“甘油经单纯扩散跨膜”的最小可投影owner。"
   },
   {
     "question_id": "xizong-official-2023-n003",
@@ -64,14 +94,26 @@
       "产生肌丝滑行的直接机械互动就是横桥-肌动蛋白循环。"
     ],
     "transfer_rule": "横桥=肌球蛋白头；轨道=肌动蛋白。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肌动蛋白。肌球蛋白头部形成横桥后直接与肌动蛋白结合并完成动力冲程。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "肌钙蛋白负责Ca²⁺感知和调控，不是横桥直接结合对象。"
+      },
+      {
+        "option": "B",
+        "reason": "原肌球蛋白调节肌动蛋白结合位点暴露。"
+      }
+    ],
+    "common_failure_node": "把调控蛋白与直接机械相互作用蛋白混淆。"
   },
   {
     "question_id": "xizong-official-2023-n004",
@@ -90,14 +132,26 @@
       "ABO的A/B/H抗原属于另一套血型系统。"
     ],
     "transfer_rule": "Rh阳性通常指D抗原阳性。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.D抗原。临床Rh阳性主要指红细胞表达Rh系统的D抗原。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "A抗原属于ABO系统。"
+      },
+      {
+        "option": "C",
+        "reason": "H抗原是ABO抗原合成底座。"
+      }
+    ],
+    "common_failure_node": "把ABO和Rh两个独立血型系统混在一起。"
   },
   {
     "question_id": "xizong-official-2023-n005",
@@ -116,14 +170,22 @@
       "第二心音才与主动脉瓣和肺动脉瓣关闭更相关。"
     ],
     "transfer_rule": "S1=AV瓣关闭=等容收缩开始。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.等容收缩期。第一心音主要来自房室瓣关闭及心室收缩早期振动，标志心室收缩开始。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "等容舒张期开始更对应第二心音后的阶段。"
+      }
+    ],
+    "common_failure_node": "只记S1/S2却不会放回瓣膜开闭和心动周期。"
   },
   {
     "question_id": "xizong-official-2023-n006",
@@ -142,14 +204,22 @@
       "这和起搏细胞If电流的自动去极化作用不同。"
     ],
     "transfer_rule": "IK1重点记稳定静息膜电位和终末复极。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.IK1。内向整流K⁺电流在工作心肌静息期稳定静息电位，并参与动作电位末期复极。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "L型Ca²⁺电流是平台期重要内向电流，但不维持静息电位。"
+      }
+    ],
+    "common_failure_node": "把平台期参与电流与静息期稳定电流混成一张表。"
   },
   {
     "question_id": "xizong-official-2023-n007",
@@ -168,14 +238,22 @@
       "Ⅰ型细胞主要承担气体交换面积。"
     ],
     "transfer_rule": "type II pneumocyte=surfactant+再生储备。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.肺泡Ⅱ型上皮细胞。Ⅱ型细胞合成并分泌肺表面活性物质。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Ⅰ型肺泡细胞主要承担气体交换面积。"
+      }
+    ],
+    "common_failure_node": "只按Ⅰ型/Ⅱ型数字记忆，不绑定“气体交换 vs 表活/修复”功能。"
   },
   {
     "question_id": "xizong-official-2023-n008",
@@ -194,14 +272,22 @@
       "NSAIDs抑制PG合成后溃疡风险增加正说明这条保护轴。"
     ],
     "transfer_rule": "PGE保护胃黏膜：少酸+多黏液/HCO₃⁻+好血流。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.前列腺素。胃黏膜PG抑制胃酸并促进黏液、HCO₃⁻和黏膜血流，构成黏膜保护。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "组胺通过H₂受体促进胃酸分泌。"
+      }
+    ],
+    "common_failure_node": "把黏膜保护因子与促酸因子方向记反。"
   },
   {
     "question_id": "xizong-official-2023-n009",
@@ -215,17 +301,28 @@
     "exam_target": "不感蒸发量估算",
     "decision_axis": "题源按生理学常用近似值将成人每日皮肤和呼吸道不感蒸发合计约记为1000mL；实际量会受环境、体温和通气等影响。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "不感蒸发来自皮肤和呼吸道黏膜，不依赖汗腺。",
+      "2023题源官方答案把成人24h总量记为约1000 mL。",
+      "Current D5 KP10则明确冻结约600–700 mL，故必须保留历史答案并显式标记冲突。"
     ],
     "transfer_rule": "不感蒸发是近似生理量，随环境和发热变化。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.1000 mL为题源官方答案；Current D5明确冻结成人24h不感蒸发约600–700 mL，因此这一旧数值与Current直接冲突。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Current Study的600–700 mL更接近题源B而非官方C，但本题必须保留历史官方答案。"
+      }
+    ],
+    "common_failure_node": "把旧生理固定数字静默升级，或反过来擅自改写官方答案。",
+    "source_conflict_note": "2023题源官方答案为24h不感蒸发约1000 mL；Current D5 KP10明确冻结约600–700 mL，数值口径直接冲突。"
   },
   {
     "question_id": "xizong-official-2023-n010",
@@ -244,14 +341,22 @@
       "它是自由水调节的关键激素。"
     ],
     "transfer_rule": "ADH决定集合管是否“开水门”。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.血管升压素。ADH通过V₂-cAMP-AQP2提高集合管水通透性，是自由水重吸收和尿浓缩的关键激素。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "醛固酮主要调节Na⁺重吸收/K⁺分泌，不是尿浓缩自由水轴的核心激素。"
+      }
+    ],
+    "common_failure_node": "把容量调节和渗透/自由水调节混成一个激素轴。"
   },
   {
     "question_id": "xizong-official-2023-n011",
@@ -270,14 +375,22 @@
       "抑制碳酸酐酶会同时削弱这两条酸碱处理链。"
     ],
     "transfer_rule": "肾排酸/回收HCO₃⁻都离不开CA加速CO₂-H₂CO₃反应。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.碳酸酐酶。它快速催化CO₂/H₂O与H⁺/HCO₃⁻互变，为肾小管泌酸和HCO₃⁻回收提供基础。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "Na⁺-K⁺ ATPase提供跨膜梯度，但不是题目所问酸碱反应关键酶。"
+      }
+    ],
+    "common_failure_node": "把转运驱动泵和酸碱化学反应酶混淆。"
   },
   {
     "question_id": "xizong-official-2023-n012",
@@ -296,14 +409,22 @@
       "它作用在突触后受体，不是抑制ACh释放。"
     ],
     "transfer_rule": "非去极化肌松药=竞争性阻断Nm受体。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.影响突触后膜受体活性。筒箭毒碱竞争阻断神经肌接头突触后N型烟碱受体。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "它不以抑制突触前ACh释放为主要机制。"
+      }
+    ],
+    "common_failure_node": "把神经肌接头阻断药一律归到突触前递质释放。"
   },
   {
     "question_id": "xizong-official-2023-n013",
@@ -322,14 +443,22 @@
       "汗腺虽由交感神经支配，但节后递质是ACh，不能把‘交感’简单等同‘去甲肾上腺素’。"
     ],
     "transfer_rule": "皮肤血管交感去甲肾上腺素；汗腺是交感胆碱能例外。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.寒冷时引起皮肤血管收缩的神经纤维。皮肤血管受交感肾上腺素能缩血管纤维支配。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "汗腺虽由交感节后纤维支配，但主要释放ACh。"
+      }
+    ],
+    "common_failure_node": "把“交感”机械等同“肾上腺素能”，忘记汗腺胆碱能例外。"
   },
   {
     "question_id": "xizong-official-2023-n014",
@@ -348,14 +477,22 @@
       "判题关键是分清‘看近物’与‘受光照’。"
     ],
     "transfer_rule": "near response=会聚+调节+缩瞳。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.瞳孔对光反射。视近调节三联包括会聚、晶状体变凸和瞳孔缩小；对光反射由光刺激单独触发。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "双眼会聚是视近反应组成。"
+      }
+    ],
+    "common_failure_node": "把“瞳孔缩小”本身误认为必然是对光反射。"
   },
   {
     "question_id": "xizong-official-2023-n015",
@@ -374,14 +511,22 @@
       "甲亢整体是高代谢和升糖需求增加的状态。"
     ],
     "transfer_rule": "甲亢代谢总体偏高，不把低血糖当典型并发症。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.低血糖。甲亢可有心衰、骨质疏松和精神兴奋等高代谢表现，低血糖并非典型直接表现。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "持续心动过速/房颤等可加重心脏负荷并导致心衰。"
+      }
+    ],
+    "common_failure_node": "只记甲亢“代谢快”，便错误推成血糖一定下降。"
   },
   {
     "question_id": "xizong-official-2023-n016",
@@ -400,14 +545,22 @@
       "记忆时把inhibin固定成“FSH刹车”。"
     ],
     "transfer_rule": "inhibin→FSH↓。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.抑制FSH。睾丸Sertoli细胞分泌抑制素，对腺垂体FSH形成选择性负反馈。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "LH主要受GnRH和睾酮反馈轴调节。"
+      }
+    ],
+    "common_failure_node": "把inhibin泛化为“抑制所有性腺轴激素”。"
   },
   {
     "question_id": "xizong-official-2023-n017",
@@ -426,14 +579,22 @@
       "它比模体更大、更具独立结构和功能完整性。"
     ],
     "transfer_rule": "domain=可相对独立折叠/发挥功能的三级结构单元。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.三级结构。结构域是蛋白质三级结构层次中可相对独立折叠并承担功能的单元。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "α螺旋属于二级结构。"
+      }
+    ],
+    "common_failure_node": "把模体、结构域和二级结构单元混淆。"
   },
   {
     "question_id": "xizong-official-2023-n018",
@@ -452,14 +613,26 @@
       "这道题考‘改现有酶活性’与‘改变酶量’的时间尺度。"
     ],
     "transfer_rule": "快调节改现有酶活性；慢调节改酶量。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.酶蛋白合成是酶的快速调节，错误。改变酶量需转录/翻译，速度慢于变构或共价修饰。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "构象变化可快速改变已有酶活性。"
+      },
+      {
+        "option": "B",
+        "reason": "共价修饰也是快速调节常见方式。"
+      }
+    ],
+    "common_failure_node": "把“调节酶量”和“调节现有酶活性”放在同一时间尺度。"
   },
   {
     "question_id": "xizong-official-2023-n019",
@@ -478,14 +651,22 @@
       "这和FAD/FMN的黄素辅酶体系是不同维生素来源。"
     ],
     "transfer_rule": "niacin→NAD/NADP。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.维生素PP。烟酸/维生素PP是NAD⁺、NADP⁺的维生素前体。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "维生素B₂对应FAD/FMN黄素辅酶体系。"
+      }
+    ],
+    "common_failure_node": "把不同递氢辅酶的维生素来源串错。"
   },
   {
     "question_id": "xizong-official-2023-n020",
@@ -504,14 +685,22 @@
       "这是糖酵解的底物水平磷酸化和重要不可逆调节点。"
     ],
     "transfer_rule": "PEP→pyruvate+ATP=pyruvate kinase。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.丙酮酸激酶。它催化PEP把高能磷酸基转给ADP，生成丙酮酸和ATP。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "磷酸甘油酸激酶催化另一处糖酵解底物水平磷酸化。"
+      }
+    ],
+    "common_failure_node": "只记“糖酵解会产ATP”，不会定位具体产ATP步骤。"
   },
   {
     "question_id": "xizong-official-2023-n021",
@@ -530,14 +719,22 @@
       "它决定长链脂肪酸能否进入β氧化。"
     ],
     "transfer_rule": "长链脂肪酸入线粒体=肉碱穿梭；CPT-I受丙二酰CoA抑制。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.肉碱脂酰转移酶Ⅰ。CPT-I控制长链脂酰CoA进入线粒体肉碱穿梭，是β氧化的重要调控入口。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "脂酰CoA合成酶负责脂肪酸活化，不是线粒体进入的限速闸门。"
+      }
+    ],
+    "common_failure_node": "把脂肪酸活化步骤误当成β氧化通量控制点。"
   },
   {
     "question_id": "xizong-official-2023-n022",
@@ -556,14 +753,22 @@
       "这也是从复合体Ⅱ进入的电子产生ATP较少的原因之一。"
     ],
     "transfer_rule": "唯一不泵H⁺的经典呼吸链复合体=II。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.复合体Ⅱ。呼吸链Ⅰ、Ⅲ、Ⅳ泵H⁺，复合体Ⅱ传递电子给CoQ但不泵质子。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "复合体Ⅰ是质子泵。"
+      }
+    ],
+    "common_failure_node": "把“参与电子传递”误等同于“参与质子泵偶联”。"
   },
   {
     "question_id": "xizong-official-2023-n023",
@@ -577,17 +782,28 @@
     "exam_target": "尿素循环关键酶题源争议",
     "decision_axis": "题源在给定选项中选择精氨酸代琥珀酸合成酶，但标准生化学通常把线粒体CPS-I视为尿素循环限速酶；题目选项和“关键酶”表述不能安全泛化。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断，同时对Current边界 fail-closed。"
+      "尿素循环启动时，线粒体CPS-I生成氨基甲酰磷酸，Current M8把它称为“启动的限速酶”。",
+      "进入胞浆后，精氨酸代琥珀酸合成酶控制启动后的通量，Current M8专门称其为“启动后的限速酶/油门”。",
+      "因此题源B可按Current Study双门口径承接，但不能简化成“CPS-I不重要”。"
     ],
     "transfer_rule": "尿素循环限速酶标准联想CPS-I；本题仅保留题源答案边界。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.精氨酸代琥珀酸合成酶。Current M8明确保留“双门”Study口径：CPS-I是启动限速酶，精氨酸代琥珀酸合成酶是启动后的限速酶。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "OCT属于单向反应酶，但Current M8明确不把它列为关键调节酶。"
+      }
+    ],
+    "common_failure_node": "把“CPS-I是尿素循环经典限速酶”理解成题源B必须完全判废，忽略Current Study专门保留的双门考试语言。",
+    "source_boundary_note": "Current M8 SB01明确保留“双门”口径：CPS-I=启动限速，精氨酸代琥珀酸合成酶=启动后的限速。relation仅承接题源“关键酶”考试语言，不改写为单一外部限速酶模型。"
   },
   {
     "question_id": "xizong-official-2023-n024",
@@ -606,14 +822,26 @@
       "题目考的是‘直接构成环’而不是‘参与整个代谢网络’。"
     ],
     "transfer_rule": "问“直接原子来源”要区分一碳单位供体与生成一碳单位的氨基酸。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.丝氨酸。丝氨酸通过提供一碳单位间接参与嘌呤合成，但不是嘌呤环的直接原子供体。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "谷氨酰胺直接贡献嘌呤环氮原子。"
+      },
+      {
+        "option": "B",
+        "reason": "天冬氨酸也直接贡献嘌呤环原子。"
+      }
+    ],
+    "common_failure_node": "把“参与整个代谢网络”与“直接构成嘌呤环”混在一起。"
   },
   {
     "question_id": "xizong-official-2023-n025",
@@ -632,13 +860,21 @@
       "不同细胞周期还可使用非同源末端连接，但题目问的是重组修复入口。"
     ],
     "transfer_rule": "DSB修复重点联想HR和NHEJ。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.重组修复。DNA双链断裂可由同源重组等重组修复途径处理。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "碱基切除修复主要针对小范围碱基损伤。"
+      }
+    ],
+    "common_failure_node": "把所有DNA修复类型按名称随机配对，不看损伤类型。"
   }
 ]
