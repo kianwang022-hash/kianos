@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "4dd100e97a773526a4de7b41077dbd0b2f85a4b307b3a7e2664904356814fd8c",
+    "constructions": [
+      {
+        "boundary": "lexicalized medical phrase; plastic does not mean 'made of plastic' here",
+        "construction_id": "construction:385fcd00907b4f83a32f",
+        "definition_en": "surgery to repair, reconstruct, or alter the form/appearance of body tissue",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "整形/修复外科；修复、重建或改变身体组织外形的手术",
+        "pattern": "plastic surgery"
+      }
+    ],
+    "content_hash": "2155f4107f59b2ed166c5d0ca68bdd751e9b4e65c8a7e3e2177adb5d66a7a5f8",
     "core_concept": {
       "core_clusters": [
         {
@@ -86,15 +96,6 @@
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:50d233ab3955a9c31f26",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:plastic:eec46ab4887950c2:collocation:0"
-            ],
-            "meaning_cn": "整形手术",
-            "phrase": "plastic surgery"
-          },
           {
             "collocation_id": "collocation:4ce48f89675de27b8f06",
             "exam_value": "usage_example",
@@ -204,23 +205,22 @@
         "source_path": "content/lexical/canonical/senses/shards/o3617-3648.json"
       },
       {
-        "sense_id": "sense:plastic:76d9d508dbb40f11",
-        "status": "active",
-        "merged_into_sense_id": null,
-        "source_row": 10163,
-        "source_path": "content/lexical/canonical/senses/shards/o3617-3648.json"
-      },
-      {
         "sense_id": "sense:plastic:eec46ab4887950c2",
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10103,
         "source_path": "content/lexical/canonical/senses/shards/o3617-3648.json"
+      },
+      {
+        "sense_id": "sense:plastic:76d9d508dbb40f11",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10163,
+        "source_path": "content/lexical/canonical/senses/shards/o3617-3648.json"
       }
     ],
     "active_collocations": [
       "collocation:4ce48f89675de27b8f06",
-      "collocation:50d233ab3955a9c31f26",
       "collocation:5bdc1119f58f4421de24",
       "collocation:5d9b497dda607b862c1d",
       "collocation:6f0a633e8d6f1d804a42",
@@ -244,11 +244,6 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3617-3648.json"
       },
       {
-        "id": "collocation:5d9b497dda607b862c1d",
-        "source_row": 21588,
-        "source_path": "content/lexical/canonical/collocations/shards/o3617-3648.json"
-      },
-      {
         "id": "collocation:6f0a633e8d6f1d804a42",
         "source_row": 9380,
         "source_path": "content/lexical/canonical/collocations/shards/o3617-3648.json"
@@ -256,6 +251,11 @@
       {
         "id": "collocation:c733e1ec204d9aab2422",
         "source_row": 16848,
+        "source_path": "content/lexical/canonical/collocations/shards/o3617-3648.json"
+      },
+      {
+        "id": "collocation:5d9b497dda607b862c1d",
+        "source_row": 21588,
         "source_path": "content/lexical/canonical/collocations/shards/o3617-3648.json"
       }
     ],
@@ -295,7 +295,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3625-3632.json",
-    "source_content_hash": "fddecd61517f88dd36bb93a30dacc35f160425cc78f24806ee4d840184d19bce",
+    "source_content_hash": "2155f4107f59b2ed166c5d0ca68bdd751e9b4e65c8a7e3e2177adb5d66a7a5f8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
