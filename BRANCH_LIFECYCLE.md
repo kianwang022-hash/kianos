@@ -51,24 +51,30 @@ If step 3 or 4 is false, keep the branch and state why it remains ACTIVE.
 On pushes to `main` it:
 
 - deletes every non-`main` branch whose head is fully merged into `main`;
+- deletes a non-Codex branch when its live head exactly equals the recorded head SHA of a merged PR whose base is `main`, provided the branch has no open PR;
 - deletes branches explicitly listed in `.github/retired-branches.txt` after a Chat has verified semantic supersession;
+- keeps Codex task branches on their stricter Issue-completion + exact-head lifecycle;
 - leaves every other unmerged branch untouched.
 
-This means automation may delete only two safe classes:
+This means automation may delete only three safe classes:
 
-- commit-merged branches; or
+- commit-merged branches;
+- exact-head squash/rebase execution branches already merged directly to `main`; or
 - explicitly retired branches.
 
-It must never guess that a diverged branch is obsolete from age, name, or topic similarity.
+The exact-head merged-to-main class is mechanical only: `baseRefName == main`, live branch HEAD == merged PR `headRefOid`, and no open PR. A post-merge commit breaks the equality and therefore protects the branch automatically.
+
+It must never guess that a diverged branch is obsolete from age, name, topic similarity, or the existence of an older merged PR.
 
 ## Standing authorization
 
 The learner has explicitly authorized repository-wide automatic deletion of:
 
-- temporary branches fully merged into `main`; and
+- temporary branches fully merged into `main`;
+- non-Codex branch heads that exactly match a merged PR head whose base is `main`, with no open PR; and
 - diverged branches explicitly entered into the retired-branch ledger after Current verification.
 
-This standing authorization does **not** authorize deleting an unmerged branch that has not been explicitly retired.
+This standing authorization does **not** authorize deleting any other unmerged branch. In particular, age, closed PR state, a historical merge with a different live head, or a merge into a non-`main` base is insufficient.
 
 ## Migration / audit branches
 

@@ -46,6 +46,10 @@ def workflow_safety_errors(raw: str) -> list[str]:
     required = {
         "OPEN_PR_FAIL_CLOSED_GUARD_MISSING": "branch_has_open_pr",
         "OPEN_PR_QUERY_MISSING": "--state open",
+        "SQUASH_MAIN_PR_CACHE_MISSING": "merged_main_prs=",
+        "SQUASH_MAIN_BASE_GUARD_MISSING": '.baseRefName == "main"',
+        "SQUASH_MAIN_HEAD_NAME_GUARD_MISSING": ".headRefName == $branch",
+        "SQUASH_MAIN_CODEX_EXCLUSION_MISSING": "^codex/issue[0-9]+-",
         "CODEX_EXACT_HEAD_FIELD_MISSING": "headRefOid",
         "CODEX_BRANCH_HEAD_BINDING_MISSING": 'branch_head="$(git rev-parse "origin/$branch")"',
         "CODEX_EXACT_HEAD_COMPARE_MISSING": "select(.headRefOid == $head)",
