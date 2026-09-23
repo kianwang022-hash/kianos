@@ -1,0 +1,70 @@
+{
+  "schema": "kianos.lexical.streaming_c_checkpoint_receipt.v1",
+  "status": "PASS",
+  "range": [
+    5051,
+    5550
+  ],
+  "final_mutation_commit": "9fd0875ee74e0fe7685aa055ab46315a2ef24e72",
+  "semantic_decided_through": 5550,
+  "canonical_applied_through": 5550,
+  "full_flob_rebuild_run": false,
+  "flob_required_for_semantic_closure": false,
+  "website_projection_status": "BUILD_TIME_DERIVED_INCREMENTAL_PR907",
+  "checkpoint_incremental_projection_qa": {
+    "status": "PASS",
+    "validated_words": 63,
+    "changed_paths": 137,
+    "writes": 0
+  },
+  "natural_owner_audit": "PASS",
+  "current_owner_lineage": {
+    "broken_lineage_count": 0,
+    "missing_k_record_count": 0,
+    "broken_source_pointer_count": 0
+  },
+  "decision_manifests": [
+    "content/lexical/semantic-review/dual/C/o5051-o5150.decision.json",
+    "content/lexical/semantic-review/dual/C/o5151-o5250.decision.json",
+    "content/lexical/semantic-review/dual/C/o5251-o5350.decision.json",
+    "content/lexical/semantic-review/dual/C/o5351-o5450.decision.json",
+    "content/lexical/semantic-review/dual/C/o5451-o5550.decision.json"
+  ],
+  "window_receipts": [
+    "content/lexical/execution/mutation-receipts/dual-review-c-o5051-o5150.json",
+    "content/lexical/execution/mutation-receipts/dual-review-c-o5151-o5250.json",
+    "content/lexical/execution/mutation-receipts/dual-review-c-o5251-o5350.json",
+    "content/lexical/execution/mutation-receipts/dual-review-c-o5351-o5450.json",
+    "content/lexical/execution/mutation-receipts/dual-review-c-o5451-o5550.json"
+  ],
+  "checkpoint_no_regression": {
+    "start_counts": {
+      "learner_array_status_leaks": 42,
+      "active_secondary_duplicates": 82,
+      "relation_owner_file_count": 433,
+      "relation_manifest_count": 433,
+      "exact_construction_collocation_surface_duplicates": 105,
+      "words_requiring_web_judgment_if_unfixed": 116
+    },
+    "end_counts": {
+      "learner_array_status_leaks": 42,
+      "active_secondary_duplicates": 82,
+      "relation_owner_file_count": 430,
+      "relation_manifest_count": 430,
+      "exact_construction_collocation_surface_duplicates": 105,
+      "words_requiring_web_judgment_if_unfixed": 116
+    },
+    "status": "IMPROVED_OR_EQUAL_ALL_TRACKED_METRICS"
+  },
+  "checkpoint_direct_render_status": "BLOCKED_PREEXISTING_ONLY",
+  "closure_remediation": {
+    "introduced_duplicate_count_detected": 2,
+    "introduced_duplicate_count_after_fix": 0,
+    "removed_collocation_surfaces": [
+      "o5092 train sb to do sth",
+      "o5139 trouble to do sth"
+    ],
+    "authoritative_constructions_preserved": true
+  },
+  "projection_policy": "PR907_CHANGED_OWNER_AND_REVERSE_RELATION_DEPENDANT; CHECKPOINT_FULL_AUDIT_WITH_TARGETED_REMEDIATION_RECHECK; NO_FULL_FLOB_REBUILD"
+}
