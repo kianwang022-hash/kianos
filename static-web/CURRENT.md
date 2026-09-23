@@ -18,7 +18,7 @@ Kian approved the Mac-landscape Home / Steward / Radar / global Dock upgrade on 
 
 Current implementation cursor:
 - branch: `work/steward-ui-vnext-20260924`
-- current remote head at this cursor update: `e27f6f5d92f045c217d75620622f80ffbd5b17cf`
+- current remote head at this cursor update: `1cd55e7132ec090a5b2f24afff39c352eb232477`
 - preview: `static-web/ui-preview/steward-vnext.html`
 - `main`: **no integrated replacement UI from this preview**
 - preview data: **sample only**, never learner/mail/Health truth
@@ -34,10 +34,10 @@ Current preview coverage:
 - Radar `需要处理 / 值得知道`;
 - floating draggable Dock and dense record/break popovers.
 
-Still incomplete:
-- final unified Mac-wide visual/interaction pass across all preview surfaces;
-- explicit Kian UI Human Gate;
-- exact native return/runtime integration and real data delivery.
+Current UI state:
+- first unified Mac-wide visual/interaction pass completed across all preview surfaces at 1512×820;
+- current candidate is waiting on explicit Kian UI Human Gate;
+- exact native return/runtime integration and real data delivery remain intentionally unstarted for this candidate.
 
 Important Human-Gate decisions already made during preview:
 - UI is high-density and clear; do not create density by shrinking ordinary visible text.
@@ -48,7 +48,7 @@ Important Human-Gate decisions already made during preview:
 
 [Surface split](https://github.com/kianwang022-hash/kian-personal-os/blob/main/HOME_PROJECTION.md), [execution contract](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/STEWARD_CONSOLE_CONTRACT.md), and [Radar / mail semantics](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/INTAKE.md) remain the product owners. Reuse native learning, Timer, Resume, private control/checkpoint and Packet interfaces; do not create parallel state owners.
 
-**Next:** finish the UI preview and obtain explicit Kian UI approval before runtime integration or merge to `main`. Full Steward plan/reality and Radar delivery still require registered validators/consumers and real browser/runtime acceptance; preview HTML does not make those capabilities shipped.
+**Next:** Kian reviews the unified preview and names any remaining visual/interaction corrections. Only explicit UI approval advances this branch toward runtime integration or eventual merge to `main`. Full Steward plan/reality and Radar delivery still require registered validators/consumers and real browser/runtime acceptance; preview HTML does not make those capabilities shipped.
 
 ## Route from the reported symptom
 
