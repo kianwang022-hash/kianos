@@ -1392,7 +1392,7 @@
     },
     "M1": {
       "first_pass_focus": "蛋白质为什么能形成稳定而特异的功能构象；酶怎样识别底物、降低活化能并控制代谢流量；维生素怎样转化为辅酶，把电子、氢和化学基团送进反应？",
-      "stop_line": "只建立蛋白结构—酶学—维生素/辅因子共同语言；GSH–NADPH归M3，一碳/氨基酸/尿素归M8，完整疾病/药理/长维生素缺乏表后置；原图动力学/维生素图回MarginNote。",
+      "stop_line": "只建立蛋白结构—酶学—维生素/辅因子共同语言；GSH–NADPH归M3，一碳/氨基酸/尿素归M8，完整疾病/药理/长维生素缺乏表后置；当前第一遍只接触27跟课原PDF，26精编解释已吸收入Framework/KP，不形成第二套Source阅读任务。",
       "recall_spine": "序列/结构/折叠 → 蛋白理化评价/分离 → 酶机制/通量控制 → 动力学/抑制 → 辅因子/维生素",
       "readiness": {
         "requires": [],
@@ -1410,10 +1410,12 @@
           "G1",
           "G2",
           "G3",
-          "D20"
+          "D20",
+          "G4",
+          "G5"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：蛋白质结构、折叠与变性[STRUCTURE_CAUSAL] → 等电点、蛋白评价与分离/降解[PHYSICOCHEMICAL_HANDLING] → 酶身份、催化与调节[ENZYME_MECHANISM_CONTROL] → 酶动力学与抑制比较[KINETIC_PERTURBATION] → 辅因子、维生素与医学酶学[COFACTOR_VITAMIN_MAP]。",
+      "partition_rationale": "27 Source rebase 后仍保留五个认知任务：蛋白质结构、折叠与变性[STRUCTURE_CAUSAL] → 等电点、蛋白评价与分离/受控降解[PHYSICOCHEMICAL_HANDLING] → 酶身份、催化与调节[ENZYME_MECHANISM_CONTROL] → 酶动力学与抑制比较[KINETIC_PERTURBATION] → 辅因子、维生素与医学酶学[COFACTOR_VITAMIN_MAP]。Source contact 改为3个自然单元，因为27蛋白质/酶/维生素在讲义中彼此不连续且蛋白质/维生素主要以导图+附题出现；LG仍是retrieval/closure，不等于Source段。",
       "learner_order": [
         "b-m01-lg01",
         "b-m01-lg02",
@@ -1440,8 +1442,8 @@
           ],
           "label": "等电点、蛋白评价与分离/降解",
           "cognitive_job": "PHYSICOCHEMICAL_HANDLING",
-          "goal": "把pI/电荷、营养学评价、分离方法和蛋白清除视为“如何按理化性质识别/处理蛋白”的技术分类图。",
-          "closure": "给出pH与pI、蛋白样品或分离/降解任务，能选择电荷方向或合适技术；不强行把这些点编成一条因果链。",
+          "goal": "把pI/电荷、营养学评价、分离方法和蛋白清除视为“如何按理化性质识别/处理蛋白”的技术分类图，并用27 Source的VHL–HIF例把泛素-蛋白酶体连接到受控蛋白降解。",
+          "closure": "给出pH与pI、蛋白样品、分离/降解或VHL–HIF场景，能选择电荷方向/技术/降解路径；HIF后续转录调控转交G4，不在M1重建基因调控。",
           "continuity_rationale": "KP06–KP08共同完成“等电点、蛋白评价与分离/降解”这一PHYSICOCHEMICAL_HANDLING任务。前一组“蛋白质结构、折叠与变性”承担不同的STRUCTURE_CAUSAL任务。后一组“酶身份、催化与调节”切换到不同的ENZYME_MECHANISM_CONTROL任务。"
         },
         "b-m01-lg03": {
@@ -1477,6 +1479,44 @@
           "closure": "给出辅酶/维生素缺乏或某类化学转移任务，能匹配主要辅因子并说明其在后续代谢通路的角色。",
           "continuity_rationale": "KP15–KP17共同完成“辅因子、维生素与医学酶学”这一COFACTOR_VITAMIN_MAP任务。前一组“酶动力学与抑制比较”承担不同的KINETIC_PERTURBATION任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "NATURAL_SOURCE_UNITS",
+        "current_source": "27生化跟课版合集【不带导图】.pdf",
+        "explanatory_substrate": "26生化精编 / 生物化学讲义_AI阅读版(1).md",
+        "rule": "Continuous first-pass contact uses the 27 Source only. 26 refined explanations may shape canonical Framework/KP Core but do not create a second learner Source pass.",
+        "units": [
+          {
+            "id": "M1-SU1",
+            "label": "蛋白质结构—理化性质—分离/降解",
+            "locator": "27 PDF P059–P065 / printed P55–P59",
+            "releases": [
+              "b-m01-lg01",
+              "b-m01-lg02"
+            ],
+            "note": "Source is mainly mind-map/question/visual form; canonical KP supplies validated explanation after/along Source contact."
+          },
+          {
+            "id": "M1-SU2",
+            "label": "酶机制—调节—动力学—抑制—结合酶—医学酶学",
+            "locator": "27 PDF P081–P089 / printed P74–P82",
+            "releases": [
+              "b-m01-lg03",
+              "b-m01-lg04"
+            ],
+            "primes": [
+              "b-m01-lg05"
+            ]
+          },
+          {
+            "id": "M1-SU3",
+            "label": "维生素与辅因子总图",
+            "locator": "27 PDF P090–P092 / printed P83–P84",
+            "releases": [
+              "b-m01-lg05"
+            ]
+          }
+        ]
       }
     },
     "M2": {
