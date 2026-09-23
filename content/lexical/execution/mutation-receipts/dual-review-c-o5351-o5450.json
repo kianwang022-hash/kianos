@@ -1,0 +1,39 @@
+{
+  "schema": "kianos.lexical.streaming_c_window_receipt.v1",
+  "status": "PASS",
+  "range": [
+    5351,
+    5450
+  ],
+  "semantic_baseline_sha": "12766cf94b89bd135016e3213637e31edd19adfe",
+  "shared_watermark_at_reconcile": 7946,
+  "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
+  "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
+  "c_mutation_commit": "c2001ac47e4558ca7e3f96f83de5298b6ba4e7d1",
+  "decision_manifest": "content/lexical/semantic-review/dual/C/o5351-o5450.decision.json",
+  "semantic_decided_through": 5450,
+  "canonical_applied_through": 5450,
+  "natural_owner_materialization": "PASS",
+  "targeted_readback": "PASS",
+  "incremental_projection_qa": {
+    "status": "PASS",
+    "validated_words": 14,
+    "changed_paths": 30,
+    "writes": 0,
+    "mode": "PR907_CHANGED_OWNER_AND_REVERSE_RELATION_DEPENDANT"
+  },
+  "per_window_full_catalog_audit_run": false,
+  "noop_ordinals": [
+    5361
+  ],
+  "remote_dependency_ordinals": [
+    5471
+  ],
+  "cleanup": [
+    "re-homed wind heteronym and wind→wound inflection to Form/Identity",
+    "moved capitalization-sensitive West/Western phraseology to dedicated branches",
+    "kept Watt proper-name protection as already-correct NOOP"
+  ],
+  "flob_required_for_semantic_closure": false,
+  "full_flob_rebuild_run": false
+}
