@@ -610,10 +610,15 @@ LATE-STAGE MATERIAL
 → 27 materials enter by delta/replacement only
 
 VISUAL
-continuous sparse high-value Extension batches
-A1/A2/A3 additive only
-B/C selective
-D Visual-heavy only after stable accepted content owners
+2026-09-24 release baseline FROZEN for the current final version
+→ 42 new reviewed physical Source Visual files materialized in this freeze
+→ A2 declared hard Visual gap closed: 1/1
+→ A3 declared hard Visual gaps closed: 4/4
+→ E visual_required baseline: 25/25 Logic Groups have reviewed Source Visual contact
+→ F visual_required baseline: 11/11 Logic Groups have reviewed Source Visual contact (includes the current-main F4-LG03 fluid-resuscitation visual)
+→ D: existing O14 retained + selected O3/O4/O12/O16 high-value additions; still sparse by design, not exhaustive
+→ current physical inventory: 87 files under source-visuals + 7 SOURCE_VISUAL files under extensions = 94 image files
+No percentage-complete target is introduced by this freeze. Future Visual work is post-freeze additive delta only for a real defect, authoritative Source change, or explicit new real-use need.
 ```
 
 This file coordinates work; it does not override scoped Current / Acceptance truth.

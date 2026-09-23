@@ -1,0 +1,132 @@
+{
+  "schema": "kianos.xizong.learning_cues.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED_VISUAL_FREEZE_2026_09_24",
+  "system_id": "remaining-clinical",
+  "canonical_id": "F",
+  "system_owner": "content/xizong/knowledge/systems/f-remaining-clinical/system.json",
+  "medical_core_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/",
+  "learning_support": "content/xizong/knowledge/learner/f-remaining-clinical-learning.json",
+  "role": "SELECTIVE_PRECISION_AND_VISUAL_TRIGGER_INDEX_ONLY",
+  "rules": {
+    "no_second_owner": "Cues identify sparse high-value visual learning moments only. They do not copy or replace canonical medical Core or the original Lecture.",
+    "precision_selection": "SELECTIVE_HIGH_VALUE_INDEX_NOT_EXHAUSTIVE",
+    "precision_absence": "Absence from this index does not downgrade any canonical KP or fact.",
+    "first_pass": "Visual cues stay inside the accepted Learning flow and do not create a second Source-contact sequence.",
+    "visual_behavior": "Show the reviewed Project canonical Source crop at the relevant Logic Group with one bounded micro-task; missing imagery remains legal and fail-closed.",
+    "source_truth": "Exact medical meaning remains in canonical F Block/KP and Project canonical Source PDF."
+  },
+  "precision_index": [],
+  "visual_bindings": [
+    {
+      "id": "f-f1-lg02-visual",
+      "anchor": {
+        "block_id": "F1",
+        "logic_group_id": "F1-LG02"
+      },
+      "source_locator": "内科_27内科精编版合集_带导图.pdf · PDF P350｜中毒体征/毒物线索",
+      "task": "把气味、瞳孔、皮肤/黏膜、呼吸和器官表现当作多类加权线索；先判断受损生理层与威胁，再组合推毒物。",
+      "answer_bearing": true
+    },
+    {
+      "id": "f-f3-lg02-visual",
+      "anchor": {
+        "block_id": "F3",
+        "logic_group_id": "F3-LG02"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P230｜无菌术/术野边界",
+      "task": "在原图上明确无菌区、污染方向和手术人员/器械运动边界；一旦破坏只选择最小必要纠正，不自行扩写额外规程。",
+      "answer_bearing": true
+    },
+    {
+      "id": "f-f4-lg02-visual",
+      "anchor": {
+        "block_id": "F4",
+        "logic_group_id": "F4-LG02"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P202–203｜烧伤面积与深度",
+      "task": "先独立判断面积（九分法/手掌法）和深度（分层组织损伤），再叠加年龄、部位/吸入伤等升级因素得严重度。",
+      "answer_bearing": true
+    },
+    {
+      "id": "f-f7-lg01-visual",
+      "anchor": {
+        "block_id": "F7",
+        "logic_group_id": "F7-LG01"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P218｜全麻功能与气道",
+      "task": "把催眠、镇痛、反射抑制、肌松与气道/通气支持分层；看到器械/气道图先问缺的是哪项功能，再谈药物。",
+      "answer_bearing": true
+    },
+    {
+      "id": "f-f8-lg01-visual",
+      "anchor": {
+        "block_id": "F8",
+        "logic_group_id": "F8-LG01"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P219｜局部/区域麻醉空间",
+      "task": "按药物实际沉积空间区分浸润、区域/神经阻滞，并从邻近血管/神经结构预测效果和并发症。",
+      "answer_bearing": true
+    },
+    {
+      "id": "f-f8-lg04-visual",
+      "anchor": {
+        "block_id": "F8",
+        "logic_group_id": "F8-LG04"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P221｜蛛网膜下 vs 硬膜外空间",
+      "task": "先在横断/矢状空间认蛛网膜下与硬膜外，再沿穿刺层次、平面控制和阻滞顺序预测范围与生理后果。",
+      "answer_bearing": true
+    },
+    {
+      "id": "f-f8-lg05-visual",
+      "anchor": {
+        "block_id": "F8",
+        "logic_group_id": "F8-LG05"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P222｜椎管内并发症/骶管与鞍区",
+      "task": "把全脊麻、典型腰麻并发症与产生它的空间/平面挂钩，并区分骶管与鞍区技术的部位用途。",
+      "answer_bearing": true
+    },
+    {
+      "id": "f-f9-lg02-visual",
+      "anchor": {
+        "block_id": "F9",
+        "logic_group_id": "F9-LG02"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P231｜CO₂气腹/腹腔镜接口",
+      "task": "只保留 CO₂ 气腹建立、腹压/呼吸循环影响与腹腔镜空间关系；完整并发症清单若 Source 未明确则继续 fail-closed。",
+      "answer_bearing": true
+    },
+    {
+      "id": "f-f9-lg03-visual",
+      "anchor": {
+        "block_id": "F9",
+        "logic_group_id": "F9-LG03"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P232｜色素性体表病变",
+      "task": "用部位、边界、颜色/形态和行为轴比较基底细胞癌、黑色素瘤与交界痣；先识别恶性警示方向，不重建整套皮肤病理。",
+      "answer_bearing": true
+    },
+    {
+      "id": "f-f9-lg04-visual",
+      "anchor": {
+        "block_id": "F9",
+        "logic_group_id": "F9-LG04"
+      },
+      "source_locator": "27 外科跟课合集改.pdf · PDF P232｜常见良性体表肿物",
+      "task": "按部位、质地、与皮肤关系、内容物、深浅和生长行为定位脂肪瘤/皮脂腺囊肿/皮样囊肿，再决定是否升级恶性评估。",
+      "answer_bearing": true
+    },
+    {
+      "id": "f-f4-lg03-visual",
+      "anchor": {
+        "block_id": "F4",
+        "logic_group_id": "F4-LG03"
+      },
+      "source_locator": "27外科精编版【带导图】.pdf · PDF P248｜烧伤第一个/第二个24h补液公式与分配",
+      "task": "沿第一个24h补液公式拆开烧伤面积、体重、晶体/胶体比例与2000ml葡萄糖，再把前8h/后16h和第二个24h“晶胶液减半”放回时间轴；不要把整体液体机械减半。",
+      "answer_bearing": true
+    }
+  ]
+}

@@ -6,7 +6,7 @@
   "canonical_id": "A2",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "Preserves reviewed sparse A2 source visuals. The former R1 LG04 obstructive/restrictive screenshot and R10 LG01 pleural-fluid mechanism/Light screenshots were migrated to native STRUCTURED_TABLE Extension slots and are intentionally absent here.",
+  "notes": "Preserves reviewed sparse A2 source visuals. The former R1 LG04 obstructive/restrictive screenshot and R10 LG01 pleural-fluid mechanism/Light screenshots were migrated to native STRUCTURED_TABLE Extension slots and are intentionally absent here. Freeze 2026-09-24 adds the reviewed R09 pulmonary-hypertension/cor-pulmonale Source visual.",
   "bundles": [
     {
       "cue_id": "a2-r01-lg01-visual",
@@ -352,6 +352,24 @@
           "height": 262,
           "source_crop_sha256": "366fe94125fc07a7c58b801488db8d75621773262513e097e464883312fd081a",
           "derived_asset_sha256": "3f1d8683474d0648a301a1b6f2b17e23a4706852c31a688a190088f1ca6ad742"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r09-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-lecture-internal-medicine-pdf-v2:4ebf1bf62eea5eb1:p15:freeze:r09-p15-pulmonary-hypertension-cor-pulmonale",
+          "source_page": 15,
+          "usage_role": "A2_R09_LG01_VISUAL",
+          "usage_label": "内科_27内科精编版合集_带导图.pdf · PDF P15",
+          "alt": "肺动脉高压/肺心病：肺血管重构→右心后负荷与P2/分裂。",
+          "asset_path": "a2-r09-lg01/r09-p15-pulmonary-hypertension-cor-pulmonale.webp",
+          "width": 651,
+          "height": 1000,
+          "derived_asset_sha256": "4680289cddb102b2f81005076d2cdec9002b42ef51845594285a238e9f0f4ade"
         }
       ]
     }
