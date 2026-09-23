@@ -16,6 +16,10 @@ Fresh Chat entry:
 10. advance only `dual-review-A.json`;
 11. continue to the next A batch while capacity allows.
 
+### Transport fast path
+
+If Remote Desktop is connected and its local clone contains the frozen campaign SHA, prefer immutable local Git-object reads from that exact SHA for Word owners and required dependencies. This is transport optimization only: 100/100 Fresh Read, Self Attack, lane independence, and frozen-baseline authority do not change. Never trust the Remote working tree as semantic authority, never read the peer lane through Remote, and never write lane output through a dirty user worktree. Use a clean isolated worktree for durable lane writes and verify remote lane HEAD/cursor before fast-forward push.
+
 A must not read any file under `semantic-review/dual/B/`.
 A must not read B Chat summaries or conclusions.
 
