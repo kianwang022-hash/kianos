@@ -1,0 +1,165 @@
+{
+  "schema": "kianos.lexical.streaming_c_decision_manifest.v1",
+  "status": "DECIDED_FOR_IMMEDIATE_APPLY",
+  "range": [
+    5651,
+    5750
+  ],
+  "semantic_baseline_sha": "12766cf94b89bd135016e3213637e31edd19adfe",
+  "shared_watermark_at_reconcile": 7946,
+  "a_review_commit": "90e7482e1615319f9cb07a76737d12a7f0f09a24",
+  "b_review_commit": "80df7a2b073bb53689429358f17567e66aab0a2f",
+  "anomaly_count": 24,
+  "decisions": [
+    {
+      "ordinal": 5651,
+      "word": "alignment",
+      "disposition": "APPLY",
+      "final_decision": "separate spatial alignment, device calibration, and figurative/strategic alignment glosses"
+    },
+    {
+      "ordinal": 5658,
+      "word": "antarctic",
+      "disposition": "NOOP",
+      "final_decision": "NOOP_CURRENT_ALREADY_CORRECT: Antarctic proper geographic capitalization already explicit"
+    },
+    {
+      "ordinal": 5661,
+      "word": "arctic",
+      "disposition": "NOOP",
+      "final_decision": "NOOP_CURRENT_ALREADY_CORRECT: Arctic geographic vs lowercase arctic extreme-cold identity already explicit"
+    },
+    {
+      "ordinal": 5668,
+      "word": "bacterium",
+      "disposition": "APPLY",
+      "final_decision": "add bacterium→bacteria irregular number identity"
+    },
+    {
+      "ordinal": 5670,
+      "word": "bamboo",
+      "disposition": "APPLY",
+      "final_decision": "separate bamboo material/cane from bamboo plant"
+    },
+    {
+      "ordinal": 5674,
+      "word": "barley",
+      "disposition": "APPLY",
+      "final_decision": "separate barley grain from barley crop/plant"
+    },
+    {
+      "ordinal": 5679,
+      "word": "beetle",
+      "disposition": "APPLY",
+      "final_decision": "remove unsupported hammer gloss from insect beetle branch"
+    },
+    {
+      "ordinal": 5691,
+      "word": "bridegroom",
+      "disposition": "APPLY",
+      "final_decision": "merge duplicate bridegroom senses into one wedding/recently-married branch"
+    },
+    {
+      "ordinal": 5693,
+      "word": "brightness",
+      "disposition": "APPLY",
+      "final_decision": "separate visual brightness from intelligence brightness"
+    },
+    {
+      "ordinal": 5694,
+      "word": "buddhism",
+      "disposition": "NOOP",
+      "final_decision": "NOOP_CURRENT_ALREADY_CORRECT: Buddhism capitalization already explicit"
+    },
+    {
+      "ordinal": 5701,
+      "word": "calibration",
+      "disposition": "APPLY",
+      "final_decision": "tighten calibration CN to 校准/标定"
+    },
+    {
+      "ordinal": 5705,
+      "word": "cartridge",
+      "disposition": "APPLY",
+      "final_decision": "separate ammunition cartridge from replaceable equipment-module cartridge"
+    },
+    {
+      "ordinal": 5711,
+      "word": "charcoal",
+      "disposition": "APPLY",
+      "final_decision": "separate charcoal material from drawing charcoal stick"
+    },
+    {
+      "ordinal": 5721,
+      "word": "clown",
+      "disposition": "APPLY",
+      "final_decision": "correct clown verb gloss to act/play the clown"
+    },
+    {
+      "ordinal": 5731,
+      "word": "consul",
+      "disposition": "APPLY",
+      "final_decision": "keep modern consul as 领事 only and leave Roman consul historical branch separate"
+    },
+    {
+      "ordinal": 5734,
+      "word": "converse",
+      "disposition": "NOOP",
+      "final_decision": "NOOP_CURRENT_ALREADY_CORRECT: converse stress/POS identity already explicit"
+    },
+    {
+      "ordinal": 5735,
+      "word": "corps",
+      "disposition": "APPLY",
+      "final_decision": "separate military/general corps glosses and add invariant spelling singular/plural pronunciation boundary"
+    },
+    {
+      "ordinal": 5738,
+      "word": "courteous",
+      "disposition": "APPLY",
+      "final_decision": "merge duplicate courteous senses into one polite/good-manners branch"
+    },
+    {
+      "ordinal": 5739,
+      "word": "cozy",
+      "disposition": "APPLY",
+      "final_decision": "separate physical coziness from warm/friendly social atmosphere"
+    },
+    {
+      "ordinal": 5741,
+      "word": "crooked",
+      "disposition": "APPLY",
+      "final_decision": "separate crooked physical shape from dishonest/improper figurative sense"
+    },
+    {
+      "ordinal": 5742,
+      "word": "cruelty",
+      "disposition": "APPLY",
+      "final_decision": "separate cruelty act/event from cruelty quality/disposition"
+    },
+    {
+      "ordinal": 5743,
+      "word": "cuckoo",
+      "disposition": "APPLY",
+      "final_decision": "correct cuckoo verb gloss to monotonous repetition"
+    },
+    {
+      "ordinal": 5748,
+      "word": "datum",
+      "disposition": "NOOP",
+      "final_decision": "NOOP_CURRENT_ALREADY_CORRECT: datum→data number/usage boundary already explicit"
+    },
+    {
+      "ordinal": 5750,
+      "word": "deceptive",
+      "disposition": "APPLY",
+      "final_decision": "keep two deceptive branches with explicit misleading-impression vs deliberate-deception selector"
+    }
+  ],
+  "dependency_mutations": [],
+  "flob_required_for_semantic_closure": false,
+  "implementation_notes": [
+    "Current Natural Owner remains semantic authority.",
+    "No per-window full-catalog audit and no full FLOB rebuild."
+  ]
+}

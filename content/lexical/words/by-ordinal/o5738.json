@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2db91e8dd662874ebe7dd4af95f36b55f1ec076fe238564004252001d7561a10",
+    "content_hash": "30533ab003297d0e0425884019cea20885367fc74a70aa8a70c3423065f9906d",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "彬彬有礼；谦恭的",
@@ -26,8 +26,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "彬彬有礼；谦恭的",
-        "definition_en": "exhibiting courtesy and politeness",
+        "definition_cn": "有礼貌的；谦恭的；彬彬有礼的",
+        "definition_en": "polite, respectful, and showing good manners",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
@@ -37,37 +37,6 @@
         "sense_id": "sense:courteous:c8397c314af55cec",
         "sense_label_en": "exhibiting courtesy and politeness",
         "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:ecdict:75e03b1051a7e52ad616",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://cet6/1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
-            "source_type": "learner_dictionary"
-          },
-          {
-            "evidence_id": "source-fact:wiktionary-wiktextract:7ccbf44a9fcf8f86a9d1",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://cet6/1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "彬彬有礼；谦恭的",
-        "definition_en": "characterized by courtesy and gracious good manners",
-        "depth": "full_card",
-        "domain_tag": "cet6",
-        "frequency_tag": "cet6",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:courteous:bca19f81a2335554",
-        "sense_label_en": "characterized by courtesy and gracious good manners",
-        "sort_order": 2,
         "source_evidence": [
           {
             "evidence_id": "source-fact:ecdict:75e03b1051a7e52ad616",
@@ -100,13 +69,30 @@
     "word_id": "word:courteous"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:courteous:bca19f81a2335554",
+      "status": "merged",
+      "merged_into_sense_id": "sense:courteous:c8397c314af55cec",
+      "pos": "adjective",
+      "definition_cn": "彬彬有礼；谦恭的",
+      "definition_en": "characterized by courtesy and gracious good manners",
+      "semantic_key": "aec0e2adfc8785d8604ceac196661b5cebd8318069102bf7f664cc9bc8a0dff3",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-08-22T21:34:23+00:00",
+      "source_row": 15997,
+      "source_path": "content/lexical/canonical/senses/shards/o5729-5760.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:courteous:bca19f81a2335554",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:courteous:c8397c314af55cec",
         "source_row": 15997,
         "source_path": "content/lexical/canonical/senses/shards/o5729-5760.json"
       },
@@ -142,7 +128,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5737-5744.json",
-    "source_content_hash": "2db91e8dd662874ebe7dd4af95f36b55f1ec076fe238564004252001d7561a10",
+    "source_content_hash": "30533ab003297d0e0425884019cea20885367fc74a70aa8a70c3423065f9906d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
