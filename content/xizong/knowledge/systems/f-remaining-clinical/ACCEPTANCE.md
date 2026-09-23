@@ -13,7 +13,7 @@ This file owns F-scoped readiness truth only. It does not own medical Core, lear
 | Gate / stage | Status | Evidence / note |
 | --- | --- | --- |
 | S1 — medical / first-learning Source boundary | **PASS_AFTER_27_REFINED_DELTA** | approved original/current Lecture sources were re-bound; 27 refined surgery Source closed F4 first-day fluid-formula gap and restored F3/F9 visual access; remaining semantic gaps stay explicit / fail-closed |
-| S2 — exact official F System question membership | **UNTESTED** | separate later boundary; no membership inferred from Outline placement |
+| S2 — exact official F System question membership | **PASS_AFTER_EXTERNAL_OWNER_REPAIR / CLOSED / 70 qids** | canonical scope owner and reconstruction receipt accepted; precise Question→KP mapping remains separate |
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; bounded repair split acute disturbance-control from planned/ongoing intervention-safety while preserving identity/source/owner boundaries |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent L audit; 9 Blocks / 121 KP → 40 LG; 3 whole + 5 natural + 1 integration; 0 hard edges; 2 non-gating PSRs |
 | Content Realization / Optimization | **PASS_AFTER_BOUNDED_REPAIR / CLOSED** | fresh Phase 5D whole-F audit; 10 residual Recall-front surfaces repaired across 8 LGs; identity/release/wrapper/visual/Page-disappearance/no-duplicate/boundary attacks PASS |
@@ -143,7 +143,6 @@ Remaining exact gaps stay explicit and fail-closed:
 - F1 selected poison-manifestation mappings;
 - F2 delayed-neuropathy / rebound wording;
 - F3 delayed-primary / secondary-closure taxonomy detail;
-- F4 complete first-day burn-fluid formula / intraday distribution;
 - F9 complete laparoscopy complication list.
 
 F6 postoperative timing and F8 P270 matrix remain verified closures.
@@ -271,7 +270,7 @@ Preserved fail-closed truth:
 - F9 complete laparoscopy complication list;
 - 10 visual-required LGs remain Source-owned;
 - external-owner truth remains external;
-- S2 exact official F System question membership remains UNTESTED.
+- S2 exact official F System question membership is CLOSED at 70 qids; this still does not imply Question→Block/LG/KP mapping.
 
 Verified Source closures remain closed:
 
