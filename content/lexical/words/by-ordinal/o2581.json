@@ -7,12 +7,12 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4ce38521b16975729dbd902aff7c512bd0de5ce9c626e351ffbab9bafd3ac768",
+    "content_hash": "5100c03cbde4d6e848458017d2ec700cea72d9458da3e3201f30939cdf2ef98b",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "保险",
-      "core_meaning_en": "a contract or arrangement providing financial protection against loss",
-      "mental_model_cn": "保险",
+      "core_meaning_cn": "保险；保险业",
+      "core_meaning_en": "insurance protection or the insurance business",
+      "mental_model_cn": "保险；保险业",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -37,6 +37,30 @@
         "pos": "noun",
         "sense_id": "sense:insurance:43f1d5ad96be5be5",
         "sense_label_en": "an arrangement with a company in which you pay them money and they pay you if something bad happens",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:59d42670afa698ea6dc0",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:insurance:3bef98ed18465597:collocation:streaming-c-o2551-o2650"
+            ],
+            "meaning_cn": "从事保险业",
+            "phrase": "work in insurance"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "保险业",
+        "definition_en": "the business or industry of providing insurance",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:insurance:3bef98ed18465597",
+        "sense_label_en": "the business or industry of providing insurance",
         "sort_order": 999,
         "transitivity": "nonverb"
       }
@@ -102,31 +126,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:insurance:3bef98ed18465597",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "保险业",
-      "definition_en": "the business of providing insurance",
-      "semantic_key": "0a9ebfaa89de56f0a8ba1d0e8e1c1e6c72c77925f76f32c17036efbc316e5439",
-      "semantic_key_history": [
-        "4bededf5b606cc384e1533f1cd50113b2a015124d5584d5c3784d7470eabc6b2"
-      ],
-      "legacy_aliases": [
-        "insurance:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "insurance:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7130,
-      "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:insurance:7379535252575237",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -156,7 +155,7 @@
     "senses": [
       {
         "sense_id": "sense:insurance:3bef98ed18465597",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 7130,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
@@ -176,7 +175,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:59d42670afa698ea6dc0"
+    ],
     "facts": [
       {
         "id": "deep:word_family:insurance:39b5d2e9890c1439",
@@ -203,6 +204,11 @@
       {
         "id": "collocation:f45a332346b34f558bd8",
         "source_row": 20691,
+        "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json"
+      },
+      {
+        "id": "collocation:59d42670afa698ea6dc0",
+        "source_row": 21596,
         "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json"
       }
     ],
@@ -242,7 +248,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2577-2584.json",
-    "source_content_hash": "4ce38521b16975729dbd902aff7c512bd0de5ce9c626e351ffbab9bafd3ac768",
+    "source_content_hash": "5100c03cbde4d6e848458017d2ec700cea72d9458da3e3201f30939cdf2ef98b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,13 +6,71 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "25e50a9455fdec9fb58c8d69400b82acd7fcbcc4037facb4e11363878260865a",
+    "constructions": [
+      {
+        "boundary": "insure + that 从句 确保",
+        "codex_reviewed": false,
+        "definition_cn": "确保",
+        "definition_en": "to make certain; ensure",
+        "dimensions": {},
+        "direction": "R+P",
+        "evidence": [
+          {
+            "evidence_id": "evidence:core-card:insure:1ec4dc13c60b",
+            "evidence_status": "source_checked",
+            "source_labels": [],
+            "source_locator": "insure:l2:2",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:constructions:insure:bbce102904c6e93e",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": "确保…",
+        "module": "constructions",
+        "pattern": "insure + that clause",
+        "pos": "verb",
+        "presentation_merge": {
+          "merge_id": "presentation-merge:1b11458975dd5f79bd21",
+          "metadata_tags": [
+            "cloze",
+            "collocation",
+            "construction",
+            "writing"
+          ],
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:7f3038ca592baf5202fb"
+        },
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:insure:ee634ed719fe5029",
+        "target_sense_id": null,
+        "target_word": null,
+        "task_tags": [
+          "cloze",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true
+      },
+      {
+        "construction_id": "construction:49caa4c8773c46a779d9",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "为某人/某物投保以防某种风险",
+        "pattern": "insure sb/sth against sth",
+        "source_sense_id": "sense:insure:8e0a474a3516532e"
+      }
+    ],
+    "content_hash": "dba4b8db28d277f3d287054510104442e107947aab0c3bcf02c512c176d36534",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "为……投保；保障免受经济损失",
-      "core_meaning_en": "to insure/protect against financial or insurance risk; ensure is the default learner verb for make certain",
-      "mental_model_cn": "为……投保；保障免受经济损失",
+      "core_meaning_cn": "保险；确保",
+      "core_meaning_en": "to protect against loss or guarantee",
+      "mental_model_cn": "保险；确保",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -21,8 +79,7 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:deep:constructions:insure:bbce102904c6e93e",
-      "deep:deep:constructions:insure:bbce102904c6e93e",
-      "semantic-reconciliation:o2425-o2624"
+      "deep:deep:constructions:insure:bbce102904c6e93e"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -67,14 +124,14 @@
         "definition_cn": "确保",
         "definition_en": "to make certain; ensure",
         "governing_pattern": "vt. + object",
-        "level": "L3",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:insure:ee634ed719fe5029",
         "sense_label_en": "to make certain; ensure",
-        "sort_order": 1,
+        "sort_order": 2,
         "transitivity": "vt",
-        "usage_note": "Variant/lower use meaning make certain. For standard learner writing, prefer ensure for “make certain”; insure primarily means protect against financial/insurance risk."
+        "usage_note": "insure primarily means protect against loss or provide insurance; ensure is the default learner choice for make certain. The make-certain use is lower/variant."
       }
     ],
     "verification_summary": {
@@ -96,14 +153,7 @@
     "word_family": [],
     "word_id": "word:insure"
   },
-  "relation_refs": [
-    {
-      "relation_id": "relation:final-standard:assure-ensure-insure:usage_boundary",
-      "owner_path": "content/lexical/relations/by-id/2b/2bb78d313cde3c174cc229739123b2f1569299fcd82b59152226c3b534cec4cd.json",
-      "field": "semantic_neighbors",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -181,8 +231,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2577-2584.json",
-    "source_content_hash": "3580a98e6982c8a552b15a746b5c0b09ed686538526dd58d7507c86887a2bfdc",
-    "semantic_delta": 1,
+    "source_content_hash": "dba4b8db28d277f3d287054510104442e107947aab0c3bcf02c512c176d36534",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

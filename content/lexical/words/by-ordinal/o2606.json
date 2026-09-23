@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e997fe4d03937c9de95f160556aaea4d1277f60d2e9bbca74aeed7c535fe42cf",
+    "content_hash": "d77a54991e3d45229b63fb01b6cf7bb943ca7b5ed075f13c38b5236d9ca932cb",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "间歇的，断断续续的",
@@ -76,7 +76,14 @@
     "word_family": [],
     "word_id": "word:intermittent"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:streaming-c:intermediate-intermittent:v1",
+      "owner_path": "content/lexical/relations/by-id/1d/1d6423ca11c32ad5857d63db0c103f0db8aee318a54c0102a6e5e3fef95e1edc.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -136,7 +143,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2601-2608.json",
-    "source_content_hash": "e997fe4d03937c9de95f160556aaea4d1277f60d2e9bbca74aeed7c535fe42cf",
+    "source_content_hash": "d77a54991e3d45229b63fb01b6cf7bb943ca7b5ed075f13c38b5236d9ca932cb",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

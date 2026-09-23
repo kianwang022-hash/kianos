@@ -12,5 +12,10 @@
   "eligibility_rule": "NEXT_WINDOW_END_LTE_MIN_A_COMPLETED_THROUGH_B_COMPLETED_THROUGH",
   "input_freeze_rule": "CLOSURE_RECEIPT_BINDS_EXACT_A_AND_B_REVIEW_COMMITS",
   "cross_watermark_rule": "DEFER_SHARED_OWNER_IF_ANY_CAMPAIGN_ENDPOINT_EXCEEDS_SHARED_WATERMARK",
-  "consumed_history_rule": "EXPLICIT_CORRECTION_REQUIRED_NO_SILENT_REWRITE"
+  "consumed_history_rule": "EXPLICIT_CORRECTION_REQUIRED_NO_SILENT_REWRITE",
+  "semantic_window_size_default": 100,
+  "semantic_window_size_dense": 50,
+  "checkpoint_span_default": 500,
+  "derived_rebuild_policy": "NO_FULL_REBUILD_PER_WINDOW_FULL_7946_REBUILD_ONCE_PER_CHECKPOINT",
+  "window_read_policy": "READ_ONLY_A_B_CHANGE_BLOCKED_HITS_SKIP_DOUBLE_NO_CHANGE"
 }

@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2b60a16c788df7b8f05b6dd7676d816e04df85c32af1d7c718b62aad503c4142",
+    "content_hash": "1a8549878c7ac2e4ea7047db21a7dd5acafabf72e58691cb8b36d106815b4073",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,9 +27,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "输入；投入",
-      "core_meaning_en": "something put in, or the act of putting in",
-      "mental_model_cn": "输入；投入",
+      "core_meaning_cn": "输入；投入；意见/信息",
+      "core_meaning_en": "something put or contributed in; to enter data",
+      "mental_model_cn": "输入；投入；意见/信息",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -59,17 +59,35 @@
             ],
             "meaning_cn": "数据输入",
             "phrase": "data input"
+          },
+          {
+            "collocation_id": "collocation:cbc1ba545aa1d51ef7ec",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:input:822cc1fffffd5892:collocation:streaming-c-o2551-o2650"
+            ],
+            "meaning_cn": "来自某人的意见或信息",
+            "phrase": "input from sb"
+          },
+          {
+            "collocation_id": "collocation:84200716815290ee5c69",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:input:822cc1fffffd5892:collocation:streaming-c-o2551-o2650"
+            ],
+            "meaning_cn": "关于某事的意见或信息",
+            "phrase": "input on sth"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "输入；投入；输入物",
-        "definition_en": "something that is put into a system or process, such as data or resources",
+        "definition_cn": "输入；投入；提供的意见或信息",
+        "definition_en": "something contributed to a system, process, discussion, or decision, including data, resources, ideas, information, or advice",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:input:822cc1fffffd5892",
-        "sense_label_en": "something that is put into a system or process, such as data or resource",
+        "sense_label_en": "something contributed to a system, process, discussion, or decision, including data, resources, ideas, information, or advice",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -148,7 +166,9 @@
     "active_collocations": [
       "collocation:0224ea266bcf5669450b",
       "collocation:8029c2384f3fa40872a1",
+      "collocation:84200716815290ee5c69",
       "collocation:8ebecfbfea0a9961edd2",
+      "collocation:cbc1ba545aa1d51ef7ec",
       "collocation:ffc026bccd65384a8a0e"
     ],
     "facts": [],
@@ -171,6 +191,16 @@
       {
         "id": "collocation:ffc026bccd65384a8a0e",
         "source_row": 21607,
+        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+      },
+      {
+        "id": "collocation:84200716815290ee5c69",
+        "source_row": 21610,
+        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+      },
+      {
+        "id": "collocation:cbc1ba545aa1d51ef7ec",
+        "source_row": 21611,
         "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
       }
     ],
@@ -215,7 +245,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2553-2560.json",
-    "source_content_hash": "2b60a16c788df7b8f05b6dd7676d816e04df85c32af1d7c718b62aad503c4142",
+    "source_content_hash": "1a8549878c7ac2e4ea7047db21a7dd5acafabf72e58691cb8b36d106815b4073",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
