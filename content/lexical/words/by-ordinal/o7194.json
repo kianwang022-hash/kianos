@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "23c636f97bdab92aa1ec11b6d4b9aaa51fa48a9ce88b5f7c1824ca0625b18bf6",
+    "content_hash": "57d5cfbcb7cec05794e913793b61cf2447fe2d3c5f865aef4dbd25060ff1b4dc",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "夜的, 夜曲的",
@@ -26,7 +26,7 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "夜的, 夜曲的",
+        "definition_cn": "夜间的；夜间活动/发生的",
         "definition_en": "belonging to or active during the night",
         "depth": "full_card",
         "domain_tag": "toefl",
@@ -37,30 +37,6 @@
         "sense_id": "sense:nocturnal:09dcdbda722d5403",
         "sense_label_en": "belonging to or active during the night",
         "sort_order": 1,
-        "source_evidence": [
-          {
-            "evidence_id": "source-fact:ff747a38a40470f9c2e9a2b5",
-            "evidence_status": "source_checked",
-            "role": "external_semantic_auditor",
-            "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
-            "source_type": "learner_dictionary"
-          }
-        ]
-      },
-      {
-        "collocations": [],
-        "confidence": "high",
-        "definition_cn": "夜的, 夜曲的",
-        "definition_en": "of or relating to or occurring in the night",
-        "depth": "full_card",
-        "domain_tag": "toefl",
-        "frequency_tag": "toefl",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:nocturnal:11865650735a5dc4",
-        "sense_label_en": "of or relating to or occurring in the night",
-        "sort_order": 2,
         "source_evidence": [
           {
             "evidence_id": "source-fact:ff747a38a40470f9c2e9a2b5",
@@ -86,7 +62,24 @@
     "word_id": "word:nocturnal"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:nocturnal:11865650735a5dc4",
+      "status": "merged",
+      "merged_into_sense_id": "sense:nocturnal:09dcdbda722d5403",
+      "pos": "adjective",
+      "definition_cn": "夜的, 夜曲的",
+      "definition_en": "of or relating to or occurring in the night",
+      "semantic_key": "90961be75458df823a5499f07f6a181062f698c676da42e2cc3b4258e094d2d9",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-08-23T00:00:00+00:00",
+      "source_row": 18421,
+      "source_path": "content/lexical/canonical/senses/shards/o7169-7200.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -98,8 +91,8 @@
       },
       {
         "sense_id": "sense:nocturnal:11865650735a5dc4",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:nocturnal:09dcdbda722d5403",
         "source_row": 18421,
         "source_path": "content/lexical/canonical/senses/shards/o7169-7200.json"
       }
@@ -128,7 +121,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o7193-7200.json",
-    "source_content_hash": "23c636f97bdab92aa1ec11b6d4b9aaa51fa48a9ce88b5f7c1824ca0625b18bf6",
+    "source_content_hash": "57d5cfbcb7cec05794e913793b61cf2447fe2d3c5f865aef4dbd25060ff1b4dc",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
