@@ -82,6 +82,62 @@ This task is the current material/content mainline exception. Prior closed B wor
 
 ---
 
+# 0B｜ACTIVE PARALLEL TASK — 27 Surgery comprehensive rebase
+
+Status: **ACTIVE / DURABLE CROSS-SYSTEM SOURCE REBASE**
+
+Exact task owner:
+
+`content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json`
+
+Source-lane skeleton:
+
+`content/xizong/knowledge/learner/surgery-27-source-map.json`
+
+Scope:
+
+```text
+27 Surgery refined Source (285 PDF pages)
+vs legacy 27 follow-along / old Surgery AI-reader bindings
+vs Current canonical Knowledge across A1/A2/A3/B/C/D/E/F
+→ 38-unit Source map
+→ comprehensive Source rebind
+→ semantic PRESERVE / UPDATE / NEW / RETIRE / CONFLICT review
+→ affected System / Block / KP reconstruction where needed
+→ affected Learning / Content / Visual / Precision / Memory reconciliation
+→ affected Question→Knowledge + explanation revalidation
+→ source-revision evidence classification
+→ scoped re-acceptance and closeout
+```
+
+Hard rules:
+
+- **27 外科精编 is Current Surgery Source truth**; legacy follow-along / old `外科学讲义_AI阅读版.md` is provenance/substrate, not a competing Current Primary Study.
+- The prior 2026-09-24 bounded delta receipt is useful evidence but **does not count as comprehensive absorption**.
+- Stable System / Block / KP identity is preserved unless the deep Source comparison demonstrates a concrete semantic defect.
+- Every affected Block must close both semantic review and stale Source-locator review; PRESERVE medical Core can still require Source rebind.
+- Original PDF remains highest-fidelity for diagrams/tables/spatial relations; decision-relevant ambiguity stays fail-closed.
+- Official-question System membership reopens only for real owner/corpus evidence; changed Knowledge still triggers affected relation/explanation review.
+- Surgery spans multiple Systems. Exact medical truth remains in each System/Block owner; the task slot is only a durable cursor.
+- The Biochemistry rebase remains active. Surgery may progress on disjoint owners, but shared B system/learning/manifest and shared question/explanation manifest writes must refresh main and serialize rather than race.
+
+Completion definition:
+
+```text
+S  27 refined Surgery Source identity + 38-unit map + locators/gaps verified
+K  all Surgery-consuming canonical Block/KP Core + affected System/cross-System logic reaccepted
+L  affected learner order / LG / Source-contact semantics reaccepted
+C  affected Content / Precision / Visual / Memory / Repair roles reconciled
+Q  affected reviewed Question→Knowledge relations revalidated
+X  affected learner-facing official-question explanations revalidated
+E  source-revision impact on historical learner evidence classified
+A  affected scoped CURRENT / ACCEPTANCE owners reconciled and task closed
+```
+
+Current first batch is **SUR27-U01–U04: neck / esophagus / breast / thorax**. Initial audit already confirms stale legacy/follow-along Surgery bindings in B:D21, B:D23, B:D9, B:D11, A2:R10 and A2:R11; deep semantic comparison and E:E10–E14 review are next.
+
+---
+
 # 1｜Durable content lanes
 
 Xizong content production has three long-running lanes:
