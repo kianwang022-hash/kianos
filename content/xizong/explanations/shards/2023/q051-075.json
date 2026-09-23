@@ -21,7 +21,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.血清淀粉酶为题源答案；但它主要帮助确认急性胰腺炎，而非直接完成病因诊断，且Current更常强调脂肪酶等证据。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "心电图用于排除心肌缺血等鉴别，不直接回答胰腺炎病因。"
+      },
+      {
+        "option": "D",
+        "reason": "急诊胃镜不是这类典型胰腺炎病例的首要确诊手段。"
+      }
+    ],
+    "common_failure_node": "把“疾病诊断有价值”偷换成“病因诊断最有价值”。",
+    "source_boundary_note": "题源把血清淀粉酶称为“病因最有价值检查”；Current中它主要支持胰腺炎诊断，病因需另查胆道/酒精等，且脂肪酶常更有诊断价值。"
   },
   {
     "question_id": "xizong-official-2023-n052",
@@ -40,14 +53,22 @@
       "血行播散可以发生，但远不是普通成人急性肾盂肾炎的主路径。"
     ],
     "transfer_rule": "UTI最常见路径=尿道→膀胱→输尿管→肾。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.上行性感染。急性肾盂肾炎绝大多数由下尿路细菌沿输尿管向上进入肾盂和肾实质。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "血行播散可发生，但不是普通成人急性肾盂肾炎的主要感染路径。"
+      }
+    ],
+    "common_failure_node": "只按“感染可经血传播”作答，不抓尿路感染的典型上行机制。"
   },
   {
     "question_id": "xizong-official-2023-n053",
@@ -66,14 +87,26 @@
       "这比单纯脾大或淋巴结肿大更能把亚型身份暴露出来。"
     ],
     "transfer_rule": "NSE+且NaF抑制→单核系；M4/M5常见牙龈浸润。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.牙龈增生、肿胀。MPO弱阳性、NSE阳性且NaF可抑制提示单核细胞分化，单核细胞白血病易牙龈/皮肤浸润。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "淋巴结肿大可见于多种白血病/淋巴瘤，亚型特异性较低。"
+      },
+      {
+        "option": "C",
+        "reason": "睾丸浸润更常作为ALL等特定情境接口。"
+      }
+    ],
+    "common_failure_node": "会认“急性白血病”却不会用细胞化学继续分亚型。"
   },
   {
     "question_id": "xizong-official-2023-n054",
@@ -97,7 +130,20 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.大剂量地塞米松抑制试验为题源病因诊断答案；Current Cushing病因定位依赖ACTH、动态试验和影像组合，不把单一大剂量试验固化为最有价值步骤。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "24小时尿游离皮质醇主要用于确认高皮质醇状态。"
+      },
+      {
+        "option": "D",
+        "reason": "小剂量地塞米松更偏筛查/确认高皮质醇。"
+      }
+    ],
+    "common_failure_node": "把历史动态试验流程当成现代唯一病因定位算法。",
+    "source_boundary_note": "题源固定大剂量地塞米松作为ACTH之外最有价值病因检查；Current Cushing定位依赖动态试验与影像组合。"
   },
   {
     "question_id": "xizong-official-2023-n055",
@@ -111,17 +157,31 @@
     "exam_target": "银屑病关节炎归属脊柱关节炎",
     "decision_axis": "银屑病关节炎属于脊柱关节炎谱系，可累及中轴和外周关节并与银屑病相关。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Current H15先按疾病家族分类风湿病。",
+      "H15 KP02明确把银屑病关节炎列入血清阴性脊柱关节病/SpA谱系。",
+      "因此选A，可安全正向映射。"
     ],
     "transfer_rule": "SpA谱系联想AS、PsA、反应性关节炎、IBD相关关节炎等。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.银屑病关节炎。Current H15明确把AS、银屑病关节炎、反应性关节炎和肠病性关节炎归入血清阴性脊柱关节病谱系。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "骨关节炎属于退变性骨关节病。"
+      },
+      {
+        "option": "D",
+        "reason": "类风湿关节炎属于弥漫性结缔组织病/炎症性关节炎，不属于SpA谱系。"
+      }
+    ],
+    "common_failure_node": "把所有炎性关节病都混在“风湿病”大类，不先做疾病家族分类。"
   },
   {
     "question_id": "xizong-official-2023-n056",
@@ -139,14 +199,22 @@
       "确诊需要抗磷脂抗体证据，因此B最有价值；ANA可以提示SLE背景，但不能替代APS的特异实验室证据。"
     ],
     "transfer_rule": "APS=血栓/妊娠不良+抗磷脂抗体。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.血抗磷脂抗体。下肢静脉血栓、反复流产和血小板减少高度提示APS，关键实验室证据是抗磷脂抗体持续阳性。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "ANA可提示SLE背景，但不能替代APS特异实验室证据。"
+      }
+    ],
+    "common_failure_node": "看到年轻女性反复流产就只查ANA，忽略血栓+流产+低PLT的APS组合。"
   },
   {
     "question_id": "xizong-official-2023-n057",
@@ -165,14 +233,26 @@
       "判断时把因素按‘让伤口更弱’还是‘让张力更大’两条链整理。"
     ],
     "transfer_rule": "切口裂开风险=愈合差+腹压高；减张缝合是预防措施。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.行切口减张缝合是错误项。营养不良、剧烈咳嗽和糖皮质激素都可增加切口裂开风险；减张缝合用于降低张力。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "营养不良损害胶原合成和伤口愈合。"
+      },
+      {
+        "option": "B",
+        "reason": "剧烈咳嗽会突然升高腹压和切口张力。"
+      }
+    ],
+    "common_failure_node": "把预防措施误当作危险因素。"
   },
   {
     "question_id": "xizong-official-2023-n058",
@@ -196,7 +276,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.禁食12小时、禁饮4小时为题源旧常规。Current择期麻醉禁食/清液规则通常更短，并需按手术、胃排空和误吸风险分层。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "现代常见规则中清液禁饮窗口往往可短至约2小时，但具体依现行麻醉指南。"
+      }
+    ],
+    "common_failure_node": "把历史“午夜禁食”式固定数字当成所有患者Current规则。",
+    "source_boundary_note": "题源采用术前禁食12h/禁饮4h旧常规；Current择期麻醉禁食规则按食物类型、清液和误吸风险更新。"
   },
   {
     "question_id": "xizong-official-2023-n059",
@@ -220,7 +309,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.平衡盐溶液为题源等待配血时首选液体；Current严重失血强调限制晶体、尽早血制品和损伤控制复苏，不能固定为统一首选。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "5%葡萄糖不适合失血性休克的快速有效血容量复苏。"
+      }
+    ],
+    "common_failure_node": "把传统晶体复苏顺序当成现代大出血固定路径。",
+    "source_boundary_note": "题源固定平衡盐晶体为等待配血首选；Current严重失血强调限制晶体、尽早血制品和损伤控制复苏。"
   },
   {
     "question_id": "xizong-official-2023-n060",
@@ -239,14 +337,26 @@
       "PSA升高首先是重新评估前列腺癌风险，而不是直接等同于BPH需要手术。"
     ],
     "transfer_rule": "BPH手术主要看症状难治和梗阻并发症，不看轻度PSA升高。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.血清PSA轻度升高不是BPH手术指征。反复尿潴留、反复感染和继发膀胱结石都属于梗阻并发症，可推动手术决策。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "反复尿潴留是经典BPH手术指征之一。"
+      },
+      {
+        "option": "D",
+        "reason": "继发膀胱结石提示长期出口梗阻后果。"
+      }
+    ],
+    "common_failure_node": "把“需要排查前列腺癌的PSA异常”误当成“BPH必须手术”的指征。"
   },
   {
     "question_id": "xizong-official-2023-n061",
@@ -270,7 +380,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.胸腔穿刺为题源明确胸腔积液性质的答案；但Current胸部创伤常把eFAST/超声、胸片和治疗性胸管引流并行，不能固化成必须先诊断性胸穿。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "胸部超声在创伤中对液体很敏感，且可快速床旁完成。"
+      }
+    ],
+    "common_failure_node": "把非创伤胸水诊断流程直接搬到大量创伤性胸腔积液。",
+    "source_boundary_note": "题源固定诊断性胸腔穿刺；Current创伤胸腔积液常用eFAST/超声、胸片并与治疗性胸管引流同步。"
   },
   {
     "question_id": "xizong-official-2023-n062",
@@ -289,14 +408,22 @@
       "甲状腺癌快速增大更常是无痛并伴浸润/固定等警报；亚甲炎则不是既有局灶结节突然囊性膨大的模式。"
     ],
     "transfer_rule": "甲状腺良性结节突然疼痛增大→先想囊内出血。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.甲状腺腺瘤囊内出血。原有光滑、可移动结节突然短期增大并疼痛，最典型提示囊内出血。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "亚急性甲状腺炎常表现为弥漫/片状疼痛和炎症背景，不是局灶光滑结节突然膨大。"
+      }
+    ],
+    "common_failure_node": "看到“甲状腺痛”就只想到亚急性甲状腺炎。"
   },
   {
     "question_id": "xizong-official-2023-n063",
@@ -315,14 +442,26 @@
       "直疝多见老年、嵌顿较少；‘外侧、经深环、易嵌顿’更像斜疝。"
     ],
     "transfer_rule": "直疝=腹壁下动脉内侧；斜疝=外侧并经深环。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.堵住深环后站立仍可突出。直疝从腹壁下动脉内侧Hesselbach三角突出，不经深环。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "位于腹壁下动脉外侧、经深环是斜疝特点。"
+      },
+      {
+        "option": "D",
+        "reason": "直疝颈部宽，嵌顿绞窄相对少。"
+      }
+    ],
+    "common_failure_node": "不会用“是否经过深环”区分直疝和斜疝。"
   },
   {
     "question_id": "xizong-official-2023-n064",
@@ -346,7 +485,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.急诊经皮经肝胆囊穿刺引流术为题源高龄高危方案；Current是否引流还是早期手术需结合器官功能、脓毒症和手术风险分级。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "90岁且多重心脑血管病史使急诊手术风险显著上升，但是否绝对不能手术仍需分层。"
+      }
+    ],
+    "common_failure_node": "把“高龄高危”机械等同某一固定术式，而不做严重度/手术风险分层。",
+    "source_boundary_note": "题源固定高龄高危急性胆囊炎经皮胆囊引流；Current需按严重度、器官功能和手术风险分层决定引流或早期手术。"
   },
   {
     "question_id": "xizong-official-2023-n065",
@@ -370,7 +518,16 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.休克→尿道损伤→骨盆骨折为题源固定顺序；Current严重骨盆创伤强调ABCDE、出血控制和多学科并行处置，不能写成唯一线性步骤。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "先复苏/止血方向正确，但后续骨盆稳定和尿道处理常需并行而非固定串行。"
+      }
+    ],
+    "common_failure_node": "把复杂创伤处置简化成永不变化的三个步骤排序。",
+    "source_boundary_note": "题源给出休克→尿道损伤→骨盆骨折线性顺序；Current严重创伤按ABCDE和出血控制多问题并行。"
   },
   {
     "question_id": "xizong-official-2023-n066",
@@ -388,14 +545,22 @@
       "因此发生率最高的是前脱位，选C。"
     ],
     "transfer_rule": "肩脱位最常见=前脱位。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.前脱位。肩关节脱位绝大多数为前脱位，常见机制为外展外旋暴力。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "后脱位少见，需警惕癫痫/电击等特定机制。"
+      }
+    ],
+    "common_failure_node": "只记肩关节“容易脱位”，不记最常见方向。"
   },
   {
     "question_id": "xizong-official-2023-n067",
@@ -414,14 +579,26 @@
       "远端脉搏存在也不能排除早期骨筋膜室综合征。"
     ],
     "transfer_rule": "compartment syndrome最早抓pain out of proportion。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.患肢持续性剧烈疼痛。骨筋膜室压力升高最早引起组织缺血，出现与损伤程度不相称的持续剧痛并在被动牵伸时加重。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "肌力减退属于神经肌肉缺血更进展后的表现。"
+      },
+      {
+        "option": "A",
+        "reason": "皮肤发黑已属严重晚期缺血坏死。"
+      }
+    ],
+    "common_failure_node": "等待“5P”全部出现才诊断骨筋膜室综合征。"
   },
   {
     "question_id": "xizong-official-2023-n068",
@@ -435,17 +612,31 @@
     "exam_target": "大量右侧胸腔积液体征",
     "decision_axis": "右中下肺叩诊浊音、呼吸音消失并伴气管向对侧偏移，提示大量右侧胸腔积液。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "胸膜腔大量液体隔开肺与胸壁，导致语颤/呼吸音减弱或消失，叩诊浊音。",
+      "Current R10 KP05/KP06明确大量胸水还能把纵隔推向健侧。",
+      "本题右侧浊音+呼吸音消失+气管左偏，因此选D。"
     ],
     "transfer_rule": "积液=浊音+呼吸音低；大量可推纵隔向对侧。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.右侧胸腔积液。右中下肺叩浊、呼吸音消失且气管向左偏，符合大量右侧胸腔积液并把纵隔推向健侧。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "肺炎实变可叩浊，但通常不会造成大量液体样呼吸音消失和明显纵隔推移。"
+      },
+      {
+        "option": "B",
+        "reason": "胸膜肥厚可叩浊但不典型把纵隔推向对侧。"
+      }
+    ],
+    "common_failure_node": "只看“既往肺结核”就把所有胸部体征归为胸膜肥厚。"
   },
   {
     "question_id": "xizong-official-2023-n069",
@@ -459,17 +650,27 @@
     "exam_target": "胸腔积液胸部超声",
     "decision_axis": "胸部超声能敏感发现和定位胸腔积液、评估分隔，并可指导安全穿刺。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "已高度怀疑胸腔积液后，需要快速确认液体并精确定位。",
+      "Current R10 KP07明确超声对胸水最敏感、定位准确且可引导穿刺。",
+      "因此选A。"
     ],
     "transfer_rule": "胸水床旁评估和定位穿刺优先超声。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.胸部B超。Current R10明确超声对胸腔积液最敏感、定位准确并可指导穿刺。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "CT可帮助判断胸水性质/病因，但简单确认和定位胸水时超声更直接。"
+      }
+    ],
+    "common_failure_node": "认为CT永远比床旁超声更“高级”因此一定更有价值。"
   },
   {
     "question_id": "xizong-official-2023-n070",
@@ -483,17 +684,28 @@
     "exam_target": "肝硬化自发性细菌性腹膜炎",
     "decision_axis": "肝硬化腹水患者出现低热、腹痛和腹膜刺激征，应高度警惕自发性细菌性腹膜炎并行诊断性腹穿。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "肝硬化腹水患者出现低热、腹痛和腹膜刺激征，应把SBP放在最前。",
+      "Current D17 KP16正以“低热+腹膜刺激+炎症性PMN腹水”定义识别主轴。",
+      "因此选A。"
     ],
     "transfer_rule": "cirrhosis+ascites+fever/abdominal pain→先排SBP。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肝硬化并发自发性细菌性腹膜炎。肝硬化腹水患者出现低热、腹痛和腹膜刺激征，应首先警惕SBP。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "门静脉血栓可腹痛/腹水增多，但更缺少发热、腹膜刺激和炎症性腹水主轴。"
+      }
+    ],
+    "common_failure_node": "看到腹水加重只考虑门脉高压本身，不寻找感染并发症。",
+    "source_boundary_note": "relation承接Current D17 KP16的SBP Study口径；腹水细胞阈值按当前Study保存，不外推为所有新版指南的唯一阈值。"
   },
   {
     "question_id": "xizong-official-2023-n071",
@@ -507,17 +719,28 @@
     "exam_target": "SBP临床支持证据",
     "decision_axis": "肝硬化腹水背景下低热、全腹压痛/反跳痛和移动性浊音阳性共同支持腹水感染方向。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "肝硬化背景本身不能证明SBP，需要感染和腹膜炎证据。",
+      "低热、全腹压痛/反跳痛说明感染/腹膜刺激，移动性浊音说明存在腹水。",
+      "这一组合正命中D17 KP16，故选B。"
     ],
     "transfer_rule": "SBP临床上症状可轻，腹水患者新发发热/腹痛就要腹穿。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.低热+全腹压痛/反跳痛+移动性浊音阳性最支持SBP：既有腹水，又出现感染/腹膜刺激证据。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "肝病史、蜘蛛痣和黄疸主要证明肝硬化背景，不能单独证明SBP。"
+      }
+    ],
+    "common_failure_node": "把“存在肝硬化”误当成“已经证明腹水感染”。",
+    "source_boundary_note": "relation承接Current D17 KP16的SBP Study口径；腹水细胞阈值按当前Study保存，不外推为所有新版指南的唯一阈值。"
   },
   {
     "question_id": "xizong-official-2023-n072",
@@ -531,17 +754,32 @@
     "exam_target": "SBP腹水PMN阈值",
     "decision_axis": "选项C腹水白细胞900×10⁶/L且多核60%，推算PMN约540/μL，超过250/μL诊断阈值，支持SBP。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "SBP腹水应表现为炎症性细胞增加并以多形核细胞为主。",
+      "选项C总白细胞900×10⁶/L、多核60%，PMN约540×10⁶/L，符合Current Study的>500且PMN主导方向。",
+      "所以选C。"
     ],
     "transfer_rule": "SBP关键阈值：腹水PMN≥250/μL。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.腹水WBC 900×10⁶/L且多核60%，多形核细胞约540×10⁶/L，满足Current Study炎症性PMN腹水方向并支持SBP。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "单核细胞98%更偏结核/慢性炎症方向，不符合SBP以PMN为主。"
+      },
+      {
+        "option": "A",
+        "reason": "低细胞数、低蛋白透明腹水更像非感染性肝硬化腹水。"
+      }
+    ],
+    "common_failure_node": "只看腹水总白细胞，不计算/判断多形核细胞比例。",
+    "source_boundary_note": "relation承接Current D17 KP16的SBP Study口径；腹水细胞阈值按当前Study保存，不外推为所有新版指南的唯一阈值。"
   },
   {
     "question_id": "xizong-official-2023-n073",
@@ -560,14 +798,22 @@
       "PaCO₂明显升高本身就提示通气泵/有效肺泡通气问题很突出。"
     ],
     "transfer_rule": "COPD气体交换障碍核心先想V/Q失衡和肺泡通气。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.弥散功能障碍不是AECOPD重度低氧高碳酸血症的主要机制。核心更偏肺泡通气不足、VA/Q失衡、无效腔增加和气流陷闭。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "PaCO₂显著升高直接提示有效肺泡通气不足。"
+      }
+    ],
+    "common_failure_node": "看到低氧就一律归因于弥散障碍。"
   },
   {
     "question_id": "xizong-official-2023-n074",
@@ -584,14 +830,27 @@
       "按题干与选项，依据上述判断轴确定题源答案。"
     ],
     "transfer_rule": "AECOPD常见病原优先典型呼吸道细菌，支原体非主流。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肺炎支原体为题源“不属于常见AECOPD细菌诱因”答案；Current R3未冻结这套A/B/C/D完整病原比较，故不建立relation。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "流感嗜血杆菌是经典AECOPD细菌病原之一。"
+      },
+      {
+        "option": "B",
+        "reason": "肺炎链球菌也是常见细菌诱因。"
+      }
+    ],
+    "common_failure_node": "把社区肺炎常见病原和AECOPD常见病原当成同一张表。",
+    "source_gap_note": "Current R3未冻结“流感嗜血/肺炎链球菌/铜绿为常见AECOPD病原，而支原体不典型”的完整四项比较。"
   },
   {
     "question_id": "xizong-official-2023-n075",
@@ -615,6 +874,15 @@
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.有创机械通气为题源答案；但pH 7.31、PaCO₂ 78且神志清楚的AECOPD在Current通常应先评估NIV适应证，除非存在禁忌或无创失败。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "Current高碳酸性AECOPD若神志清楚、可保护气道，常优先考虑无创通气。"
+      }
+    ],
+    "common_failure_node": "把血气数值达到某程度直接等同必须插管，忽略NIV适应证和失败标准。",
+    "source_conflict_note": "题源在pH7.31、PaCO₂78、神志清楚时直接选择有创通气；Current此类AECOPD通常先评估NIV，除非存在禁忌或无创失败。"
   }
 ]
