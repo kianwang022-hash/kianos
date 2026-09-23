@@ -7,6 +7,7 @@ export const CONTROL_OPERATION_KINDS=Object.freeze([
   'english.generated_drill',
   'english.session',
   'english.exam_score_return',
+  'lexical.challenge',
   'xizong.session',
   'xizong.chat_return',
   'xizong.system_wu_return',
@@ -51,11 +52,13 @@ export function validateControlCommand(value){
     : [];
   if(!operations.length||operations.length>20)fail('OP_COUNT_INVALID',String(operations.length));
 
-  const singletonKinds=['english.session','english.exam_score_return','xizong.session','xizong.chat_return','xizong.system_wu_return','politics.memory_plan','exam.chat_plan'];
+  const singletonKinds=['lexical.challenge','english.session','english.exam_score_return','xizong.session','xizong.chat_return','xizong.system_wu_return','politics.memory_plan','exam.chat_plan'];
   for(const kind of singletonKinds){
     if(operations.filter(op=>op.kind===kind).length>1)fail('OP_DUPLICATE',kind);
   }
 
+  const lexicalChallenge=operations.find(op=>op.kind==='lexical.challenge')?.payload||null;
+  if(lexicalChallenge && lexicalChallenge.study_day!==studyDay)fail('LEXICAL_CHALLENGE_DAY_MISMATCH');
   const englishSession=operations.find(op=>op.kind==='english.session')?.payload||null;
   const xizongSession=operations.find(op=>op.kind==='xizong.session')?.payload||null;
   const xizongChatReturn=operations.find(op=>op.kind==='xizong.chat_return')?.payload||null;
@@ -139,10 +142,12 @@ export function validateBrowserControlCommand(value,expectedDay=null){
     ? value.operations.map((op,i)=>normalizeOperation(op,i,{browserOnly:true}))
     : [];
   if(!operations.length||operations.length>10)fail('BROWSER_OP_COUNT_INVALID',String(operations.length));
-  const singletonKinds=['english.session','english.exam_score_return','xizong.session','xizong.chat_return','xizong.system_wu_return','politics.memory_plan','exam.chat_plan'];
+  const singletonKinds=['lexical.challenge','english.session','english.exam_score_return','xizong.session','xizong.chat_return','xizong.system_wu_return','politics.memory_plan','exam.chat_plan'];
   for(const kind of singletonKinds){
     if(operations.filter(op=>op.kind===kind).length>1)fail('OP_DUPLICATE',kind);
   }
+  const lexicalChallenge=operations.find(op=>op.kind==='lexical.challenge')?.payload||null;
+  if(lexicalChallenge && lexicalChallenge.study_day!==studyDay)fail('LEXICAL_CHALLENGE_DAY_MISMATCH');
   const englishSession=operations.find(op=>op.kind==='english.session')?.payload||null;
   const xizongSession=operations.find(op=>op.kind==='xizong.session')?.payload||null;
   const xizongChatReturn=operations.find(op=>op.kind==='xizong.chat_return')?.payload||null;

@@ -78,7 +78,7 @@ const chatText = serializeLexicalChatStateForChat(packet);
 assert.match(chatText, /^KIANOS_LEXICAL_HANDOFF_V1/m);
 assert.match(chatText, /HOW TO READ IT/);
 assert.match(chatText, /WHAT CHAT SHOULD DO/);
-assert.match(chatText, /content\/lexical\/CURRENT\.md/);
+assert.match(chatText, /content\/lexical\/LEARNING_CONTRACT\.md/);
 assert.match(chatText, /kianos\.lexical\.challenge_packet\.v1/);
 assert.match(chatText, /LEXICAL_CHAT_STATE_JSON/);
 assert.match(chatText, /"current_challenge_id": "c1"/);

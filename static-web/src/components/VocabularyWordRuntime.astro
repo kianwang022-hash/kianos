@@ -406,10 +406,12 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
 </section>
 
 <script>
-  import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, emptyLexicalLedger, legacyEventId, normalizeLexicalLedger } from '../lib/lexicalEvidence.mjs';
+  import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, legacyEventId } from '../lib/lexicalEvidence.mjs';
   import { DEFAULT_PRONUNCIATION, LEXICAL_SETTINGS_STORAGE_KEY, normalizeLexicalSettings } from '../lib/lexicalSettings.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable } from '../lib/lexicalBrowserState.mjs';
   void learnerWriterReady.then(() => {
+  if (!lexicalBrowserStateReadable()) return;
 
 
   const initializeVocabularyRoot = (root) => {
@@ -457,8 +459,8 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
         button.classList.toggle('active', button.getAttribute('data-vocab-speak') === preferred);
       });
     };
-    const readLedger = () => normalizeLexicalLedger(readJson(LEXICAL_LEDGER_STORAGE_KEY, emptyLexicalLedger()));
-    const saveLedger = (ledger) => saveJson(LEXICAL_LEDGER_STORAGE_KEY, ledger);
+    const readLedger = () => readBrowserLexicalLedger();
+    const saveLedger = (ledger) => writeBrowserLexicalLedger(ledger);
     let selectedIndex = -1;
     let state = { revealed: false, repairTargets: {}, lastSeenAt: '', meta: { word_id: objectId, ordinal, word, source_hash: sourceHash } };
 
@@ -581,6 +583,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
     root.querySelectorAll('[data-vocab-speak]').forEach((button) => button.addEventListener('click', () => speak(button.getAttribute('data-vocab-speak') || 'en-US')));
 
     const setRepair = (button, active) => {
+      if (!lexicalBrowserStateReadable()) return;
       const target = targetFromButton(button);
       if (active) {
         state.repairTargets[target.key] = {

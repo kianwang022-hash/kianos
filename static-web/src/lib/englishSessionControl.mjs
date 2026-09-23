@@ -1,4 +1,5 @@
 import {assertEnglishLexicalLedgerReadable} from './englishLexicalReturn.mjs';
+import { readLexicalChatState } from './lexicalChatState.mjs';
 import {advanceEnglishSourceRevision,atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY,inspectEnglishObjectiveResults} from './englishLearnerEvidence.mjs';
 import {
   ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION,
@@ -1095,7 +1096,7 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), cat
     inventory_meta: packetInventory.inventory_meta,
     performance_profile: {...buildEnglishPerformanceProfile(rawInventory.filter(row=>row.source_current!==false)),source_revision_checked:currentCatalog!==null,source_stale_attempt_count:rawInventory.filter(row=>row.source_current===false).length},
     long_horizon_recurrence: buildEnglishLongHorizonRecurrenceDigest(storage,{recentExactTruncated:packetInventory.inventory_meta.truncated}),
-    lexical: lexicalRetentionTransferEvidence(storage),
+    lexical: { ...lexicalRetentionTransferEvidence(storage), chat_state: readLexicalChatState(storage, { now }) },
     forecast_progress: englishForecastProgress(storage, day, catalog),
     resume: englishResumeEvidence(storage, day, catalog),
     tasks: clone({

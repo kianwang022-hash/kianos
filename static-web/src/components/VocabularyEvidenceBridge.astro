@@ -6,7 +6,7 @@ const { nextHref = '/vocabulary/' } = Astro.props;
   .lexicalRoutingControls{display:flex;flex-wrap:wrap;gap:.55rem;justify-content:center;margin-top:.9rem}.lexicalRoutingControls button{border:1px solid currentColor;background:transparent;color:inherit;border-radius:.75rem;padding:.62rem .82rem;font:inherit;cursor:pointer}.lexicalRoutingControls button[data-route="known"],.lexicalRoutingControls button[data-route="mastered"]{font-weight:700}.lexicalRoutingHint{display:block;margin-top:.45rem;text-align:center;font-size:.8rem;opacity:.62}
 </style>
 <script>
-  import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, emptyLexicalLedger, legacyEventId, normalizeLexicalLedger } from '../lib/lexicalEvidence.mjs';
+  import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, legacyEventId } from '../lib/lexicalEvidence.mjs';
   import {
     DEFAULT_DAILY_NEW_LIMIT,
     LEXICAL_INTAKE_STORAGE_KEY,
@@ -20,7 +20,9 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     registerLexicalIntroduction
   } from '../lib/lexicalSettings.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable } from '../lib/lexicalBrowserState.mjs';
   void learnerWriterReady.then(() => {
+  if (!lexicalBrowserStateReadable()) return;
 
   const bridge=document.querySelector('[data-vocab-evidence-bridge]');
   const root=document.querySelector('[data-local-port="vocabulary"]');
@@ -37,8 +39,8 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     const storageKey=`kianos-vocabulary-astro-v2:${objectId}`;
     const readJson=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||'null')||fallback}catch{return fallback}};
     const saveJson=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch{}};
-    const readLedger=()=>normalizeLexicalLedger(readJson(LEXICAL_LEDGER_STORAGE_KEY,emptyLexicalLedger()));
-    const saveLedger=(ledger)=>saveJson(LEXICAL_LEDGER_STORAGE_KEY,ledger);
+    const readLedger=()=>readBrowserLexicalLedger();
+    const saveLedger=(ledger)=>writeBrowserLexicalLedger(ledger);
     const browserEventId=(prefix='browser')=>`${prefix}:${globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random().toString(36).slice(2)}`}`;
     const syncProjection=(ledger)=>{const existing=readJson(storageKey,{revealed:false,repairTargets:{},lastSeenAt:'',meta:{word_id:objectId,ordinal,word,source_hash:sourceHash}});const previous=existing?.repairTargets&&typeof existing.repairTargets==='object'?existing.repairTargets:{};const active=compileRepairTargets(ledger).filter((target)=>target.word_id===objectId);existing.repairTargets=Object.fromEntries(active.map((target)=>{const key=target.target_id||`${target.target_kind}:${target.target_locator||''}`;const prior=previous[key]||{};return [key,{target_kind:target.target_kind,target_id:target.target_id||null,target_locator:target.target_locator||null,target_revision:target.target_revision||null,label:prior.label||target.word||word,source:'evidence_reducer',outcome:'ADDED',observed_at:target.last_evidence_at||target.activated_at||new Date().toISOString()}]}));existing.meta={...(existing.meta||{}),word_id:objectId,ordinal,word,source_hash:sourceHash};existing.lastSeenAt=new Date().toISOString();saveJson(storageKey,existing)};
     const append=(event)=>{const result=appendEvidenceEvent(readLedger(),event);saveLedger(result.ledger);syncProjection(result.ledger);window.dispatchEvent(new CustomEvent('kianos:lexical-evidence-changed'));return result};
@@ -91,6 +93,7 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     };
 
     const undoRouting=()=>{
+      if(!lexicalBrowserStateReadable())return;
       const routing=readRouting();
       const last=routing.history.at(-1);
       if(!last)return;
@@ -112,6 +115,7 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     };
 
     const submitRoute=(route)=>{
+      if(!lexicalBrowserStateReadable())return;
       if(mode!=='study')return;
       const routingBefore=readRouting();
       const prior=routingBefore.latest_by_word?.[objectId]||null;
