@@ -15,7 +15,7 @@
         "pattern": "wind up doing/in/with sth"
       }
     ],
-    "content_hash": "9d70c07d4ac67fdfcd3f3fcba4974bdb42133432d7219da109f283de04e540fe",
+    "content_hash": "be654ef4af7e1ae3573d145faec0b719679d414e5acda1db7ea39b2f13fc419c",
     "core_concept": {
       "core_clusters": [
         {
@@ -130,6 +130,14 @@
         "definition_en": "air moving naturally, especially outdoors",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_homograph_boundary",
+          "note": "moving-air noun wind is /wɪnd/; turn/twist verb wind is /waɪnd/",
+          "paired_form": "wind /waɪnd/",
+          "pronunciation": "noun wind (moving air): /wɪnd/",
+          "surface_lemma": "wind"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:wind:eb5d8230fadf5b8b",
@@ -144,6 +152,14 @@
         "definition_en": "to twist or coil something around something else",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_and_inflection_boundary",
+          "note": "wind /waɪnd/ → wound /waʊnd/; injury wound is a separate lexeme pronounced /wuːnd/",
+          "paired_form": "wound",
+          "pronunciation": "verb wind: /waɪnd/; past/past participle wound: /waʊnd/",
+          "surface_lemma": "wind"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:wind:af50828cee0d596a",
@@ -156,14 +172,22 @@
         "confidence": "medium",
         "definition_cn": "蜿蜒、曲折前进",
         "definition_en": "to follow a twisting or curving course",
-        "governing_pattern": "",
+        "governing_pattern": "vi.: the road/path winds through/around the hills",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_and_inflection_boundary",
+          "note": "wind /waɪnd/ → wound /waʊnd/; injury wound is a separate lexeme pronounced /wuːnd/",
+          "paired_form": "wound",
+          "pronunciation": "verb wind: /waɪnd/; past/past participle wound: /waʊnd/",
+          "surface_lemma": "wind"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:wind:03e0e5a3dfb15a24",
         "sense_label_en": "to follow a twisting or curving course",
         "sort_order": 999,
-        "transitivity": "vt"
+        "transitivity": "vi"
       },
       {
         "collocations": [],
@@ -172,6 +196,14 @@
         "definition_en": "to tighten or turn the spring of a clock, watch, or mechanism",
         "governing_pattern": "",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_and_inflection_boundary",
+          "note": "wind /waɪnd/ → wound /waʊnd/; injury wound is a separate lexeme pronounced /wuːnd/",
+          "paired_form": "wound",
+          "pronunciation": "verb wind: /waɪnd/; past/past participle wound: /waʊnd/",
+          "surface_lemma": "wind"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:wind:07f376699e4e590b",
@@ -214,20 +246,7 @@
     "word_family": [],
     "word_id": "word:wind"
   },
-  "relation_refs": [
-    {
-      "relation_id": "confusable:horizontal:20771f8484517b8e2ade",
-      "owner_path": "content/lexical/relations/by-id/a2/a2e98d915c27be4f7ab995d5f173884504ddf629aa4c442368ff7b0d17db156a.json",
-      "field": "confusables",
-      "index": 0
-    },
-    {
-      "relation_id": "relation:horizontal:4062971cef5fb6e6bbb6",
-      "owner_path": "content/lexical/relations/by-id/04/04f91decbf4b0fd025254ba6730dcfa9bb212bc4485b31f02f3688ca9fe617c7.json",
-      "field": "semantic_neighbors",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [
     {
       "stable_sense_id": "sense:wind:c4f9e743e46b5ed1",
@@ -376,7 +395,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5425-5432.json",
-    "source_content_hash": "9d70c07d4ac67fdfcd3f3fcba4974bdb42133432d7219da109f283de04e540fe",
+    "source_content_hash": "be654ef4af7e1ae3573d145faec0b719679d414e5acda1db7ea39b2f13fc419c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
