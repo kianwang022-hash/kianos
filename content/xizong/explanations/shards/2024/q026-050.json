@@ -8,22 +8,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "线粒体DNA聚合酶",
-    "decision_axis": "真核线粒体DNA复制主要依赖DNA聚合酶γ。",
+    "exam_target": "线粒体DNA复制的DNA聚合酶γ",
+    "decision_axis": "真核细胞核DNA复制主要依赖α/δ/ε等聚合酶，而线粒体DNA复制的特异聚合酶是DNA聚合酶γ。",
     "reasoning_chain": [
-      "真核细胞核DNA复制主要由α、δ、ε等聚合酶参与，而线粒体DNA有自己的复制酶。",
-      "线粒体DNA复制使用DNA聚合酶γ，因此选C。",
-      "把‘核DNA聚合酶’和‘mtDNA聚合酶γ’分开即可。"
+      "先区分核DNA复制和线粒体DNA复制。",
+      "DNA聚合酶γ定位于线粒体并负责mtDNA复制与修复。",
+      "因此选C。"
     ],
-    "transfer_rule": "mtDNA复制=DNA pol γ。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "真核聚合酶定位：Pol γ→线粒体DNA；Pol α/δ/ε→核DNA复制主线；Pol β→碱基切除修复接口。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.DNA聚合酶γ。它是真核线粒体DNA复制的主要DNA聚合酶。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "DNA聚合酶α主要参与核DNA复制起始，与引物酶协同。"
+      },
+      {
+        "option": "D",
+        "reason": "DNA聚合酶δ主要参与核DNA复制延伸。"
+      }
+    ],
+    "common_failure_node": "只按“真核DNA聚合酶”背列表，没有区分细胞核与线粒体定位。"
   },
   {
     "question_id": "xizong-official-2024-n027",
@@ -34,22 +46,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "选择性剪接",
-    "decision_axis": "同一前体mRNA通过不同外显子组合生成不同成熟mRNA和蛋白，是选择性剪接。",
+    "exam_target": "同一前体mRNA的选择性剪接",
+    "decision_axis": "同一基因通过选择不同外显子组合生成不同成熟mRNA并编码不同蛋白，属于选择性剪接。",
     "reasoning_chain": [
-      "同一个前体mRNA通过选择不同外显子组合，可生成不同成熟mRNA和不同蛋白产物。",
-      "题干A只用外显子1，而B使用1-2、4，决定性加工机制是选择性剪接，选B。",
-      "这不是RNA编辑，也不是NMD。"
+      "蛋白A与B来自同一基因，但外显子组合不同。",
+      "普通剪切只描述去除内含子；这里关键是外显子选择不同。",
+      "因此机制为前体mRNA选择性剪接，选B。"
     ],
-    "transfer_rule": "一个基因多蛋白常抓alternative splicing。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "alternative splicing看“同一基因→不同外显子组合→不同成熟mRNA/蛋白”。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.前体mRNA选择性剪接。外显子组合不同导致同一基因产生不同蛋白产物。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "普通前体mRNA剪切不能解释为什么外显子组合被选择性改变。"
+      },
+      {
+        "option": "C",
+        "reason": "RNA编辑是在RNA序列层面发生碱基改变，不是外显子组合选择。"
+      }
+    ],
+    "common_failure_node": "见到“转录后加工”就只答普通剪接，忽略题干明确给出的外显子重组模式。"
   },
   {
     "question_id": "xizong-official-2024-n028",
@@ -60,20 +84,35 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "GPCR的IP3/DAG通路",
-    "decision_axis": "Gq偶联受体激活PLC，生成IP3和DAG，继而升高胞质Ca2+并激活PKC。",
+    "exam_target": "GPCR的Gq-PLC-IP₃/DAG-PKC通路",
+    "decision_axis": "Gq偶联GPCR激活PLC，PIP₂裂解生成IP₃和DAG；IP₃升高胞质Ca²⁺，DAG协同Ca²⁺激活PKC，因此选C。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "Smad主要属于TGF-β受体丝/苏氨酸激酶通路。",
+      "JAK-STAT属于细胞因子受体相关激酶通路。",
+      "IP₃/DAG-PKC是经典Gq-GPCR第二信使轴，因此选C。"
     ],
-    "transfer_rule": "Gq→PLC→IP3/DAG→Ca2+/PKC。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "GPCR高频两支：Gs/Gi→cAMP-PKA；Gq→PLC→IP₃+DAG→Ca²⁺/PKC。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.IP₃/DAG-PKC途径。经典Gq偶联受体经PLC裂解PIP₂生成IP₃和DAG，并激活Ca²⁺/PKC信号。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Smad是TGF-β受体信号的典型下游。"
+      },
+      {
+        "option": "B",
+        "reason": "JAK-STAT属于细胞因子受体相关激酶通路。"
+      }
+    ],
+    "common_failure_node": "把所有膜受体的激酶级联混成一类，不先判断GPCR、酶联受体还是细胞因子受体。",
+    "source_gap_note": "Current D1保存GPCR-Gq-PLC-IP₃链、M6保存PLC-DAG接口，但当前A1–F没有一个单一最小KP完整承载“Gq→PLC→IP₃+DAG→PKC”整条通用信号轴；不拼接多owner制造relation。"
   },
   {
     "question_id": "xizong-official-2024-n029",
@@ -84,20 +123,35 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "萎缩的本质",
-    "decision_axis": "细胞萎缩常伴细胞体积和细胞器数量减少；自噬可增加并形成脂褐素。",
+    "exam_target": "萎缩的细胞体积和细胞器减少本质",
+    "decision_axis": "萎缩的核心是已分化细胞体积缩小，常伴细胞器和胞质成分减少；自噬往往增加，脂褐素可因自噬残体积聚而增加。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "萎缩不是主要靠间质细胞减少定义。",
+      "细胞为适应营养/负荷下降会减少结构蛋白和细胞器。",
+      "因此“细胞器减少”最符合本质，选A。"
     ],
-    "transfer_rule": "萎缩=细胞体积/细胞器减少，常伴自噬。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "萎缩=细胞体积↓、细胞器/结构蛋白↓；自噬↑，可见脂褐素积聚。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.细胞器减少。萎缩细胞体积缩小并减少细胞器和结构成分，是其基本形态学本质。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "萎缩时脂褐素可因自噬残体积聚而增加，而不是典型减少。"
+      },
+      {
+        "option": "D",
+        "reason": "自噬常增强以清除细胞器，并非减少。"
+      }
+    ],
+    "common_failure_node": "把“整体组织变小”误理解为所有细胞成分和清除过程都同步减少。",
+    "source_gap_note": "Current A1–F Knowledge尚无独立通用病理萎缩Primary KP完整保存“细胞器减少/自噬增加/脂褐素”这一基础病理轴；Explanation保留，Crosswalk fail-closed。"
   },
   {
     "question_id": "xizong-official-2024-n030",
@@ -108,20 +162,35 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "心肌脂肪变性",
-    "decision_axis": "脂肪变性是实质细胞内甘油三酯异常蓄积，心肌可见胞质内细小脂滴。",
+    "exam_target": "心肌脂肪变性的细胞内脂滴形态",
+    "decision_axis": "脂肪变性是实质细胞内甘油三酯异常蓄积；心肌常出现沿肌原纤维排列的细小脂滴，可呈串珠样，而不是心外膜脂肪增多。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题目问的是“心肌脂肪变性”，核心必须发生在心肌细胞内。",
+      "细小脂滴沿肌纤维分布可形成串珠/虎斑相关形态。",
+      "因此选B。"
     ],
-    "transfer_rule": "脂肪变性看“细胞内脂滴”，不是脂肪组织浸润。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "脂肪变性看“实质细胞内脂滴”；心外膜脂肪增多属于脂肪浸润/肥胖相关改变，不是同一概念。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.心肌细胞内出现串珠状脂滴。脂肪变性本质是心肌细胞内脂质异常蓄积。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "心外膜下脂肪增加属于组织间脂肪沉积，不等于心肌细胞脂肪变性。"
+      },
+      {
+        "option": "C",
+        "reason": "核受脂滴挤压偏位更典型见明显肝细胞脂肪变等大脂滴场景，不是本题心肌特征性描述。"
+      }
+    ],
+    "common_failure_node": "把细胞内脂肪变与心外膜/间质脂肪浸润混为一谈。",
+    "source_gap_note": "Current系统仅有器官病中的脂肪变接口，未找到单一Current Primary KP完整拥有“心肌细胞串珠状脂滴”这一基础病理形态；不硬映射。"
   },
   {
     "question_id": "xizong-official-2024-n031",
@@ -132,20 +201,35 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "心衰细胞来源",
-    "decision_axis": "慢性肺淤血时肺泡巨噬细胞吞噬红细胞和含铁血黄素形成心衰细胞。",
+    "exam_target": "慢性肺淤血心衰细胞来源于巨噬细胞",
+    "decision_axis": "慢性肺淤血时红细胞漏入肺泡，被肺泡巨噬细胞吞噬并分解血红蛋白，形成含铁血黄素巨噬细胞，即心衰细胞。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "肺静脉长期淤血使毛细血管压力升高并有红细胞外渗。",
+      "肺泡巨噬细胞吞噬红细胞后积累含铁血黄素。",
+      "因此心衰细胞来源是巨噬细胞，选C。"
     ],
-    "transfer_rule": "心衰细胞=含铁血黄素巨噬细胞。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "心衰细胞=含铁血黄素肺泡巨噬细胞；“红细胞”是被吞噬来源，不是细胞身份。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.巨噬细胞。心衰细胞是吞噬红细胞并含含铁血黄素的肺泡巨噬细胞。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "红细胞提供血红蛋白/铁来源，但不是心衰细胞本身。"
+      },
+      {
+        "option": "A",
+        "reason": "中性粒细胞是急性化脓性炎症主力，不构成心衰细胞。"
+      }
+    ],
+    "common_failure_node": "把“心衰细胞里有红细胞来源的铁”误成“心衰细胞由红细胞转化”。",
+    "source_gap_note": "Current循环/呼吸Blocks未找到单一Primary KP明确保存“心衰细胞=含铁血黄素肺泡巨噬细胞”这一通用病理定义；Explanation完整保留但不制造关系。"
   },
   {
     "question_id": "xizong-official-2024-n032",
@@ -156,20 +240,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肿瘤分级与分期",
-    "decision_axis": "活检提示低分化只能反映组织学分级，不能单凭分化程度确定TNM分期。",
+    "exam_target": "肿瘤分级不能替代TNM分期",
+    "decision_axis": "“低分化”描述组织学分级/分化程度；TNM分期需要原发肿瘤范围、淋巴结和远处转移信息，单凭胃镜活检不能确定临床分期。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "病理活检已告诉我们肿瘤类型和分化程度。",
+      "但题干没有肿瘤浸润深度、淋巴结和远处转移资料。",
+      "Current O9 KP05明确分级与分期是不同坐标，因此选D。"
     ],
-    "transfer_rule": "grade看分化，stage看范围。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "分级问“长得多坏/分化多差”；分期问“长到多大、走到多远”，需要T/N/M。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.目前不能确定。低分化只说明组织学分级，不能单凭活检分化程度确定TNM分期。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "Ⅰ期不能由“低分化”直接推断。"
+      },
+      {
+        "option": "C",
+        "reason": "Ⅲ期同样必须依赖解剖范围和淋巴结等分期证据。"
+      }
+    ],
+    "common_failure_node": "把“低分化=恶性度高”直接换算成“分期晚”。"
   },
   {
     "question_id": "xizong-official-2024-n033",
@@ -180,20 +278,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "HIV靶细胞",
-    "decision_axis": "HIV主要感染表达CD4及相关共受体的辅助性T细胞等细胞。",
+    "exam_target": "HIV主要靶向CD4辅助性T细胞",
+    "decision_axis": "HIV通过gp120结合CD4并使用CCR5/CXCR4等共受体，主要损伤CD4辅助性T细胞系统。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "HIV的核心免疫缺陷是CD4 T细胞数量和功能进行性下降。",
+      "辅助性T淋巴细胞表达CD4，是主要靶细胞。",
+      "因此选A。"
     ],
-    "transfer_rule": "HIV核心靶细胞=CD4+ T。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "HIV：主靶=CD4 T；单核-巨噬细胞等可作感染/储存接口，但B细胞不是主要直接靶。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.辅助性T淋巴细胞。Current H13 KP03明确HIV主要感染和摧毁CD4辅助性T细胞。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "CD8细胞毒性T细胞并非HIV主要直接靶细胞。"
+      },
+      {
+        "option": "C",
+        "reason": "B细胞可发生功能异常，但不是HIV主要感染靶细胞。"
+      }
+    ],
+    "common_failure_node": "看到AIDS有抗体/B细胞异常就误选B细胞，忘记核心是CD4 T细胞耗竭。"
   },
   {
     "question_id": "xizong-official-2024-n034",
@@ -204,22 +316,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "动脉粥样硬化最早病变",
-    "decision_axis": "脂质沉积和泡沫细胞聚集形成脂纹，是肉眼可见早期粥样硬化改变。",
+    "exam_target": "动脉粥样硬化最早脂纹与泡沫细胞聚集",
+    "decision_axis": "粥样硬化早期内膜先出现脂质摄取的巨噬细胞/平滑肌细胞形成泡沫细胞，聚集成脂纹；胶原、胆固醇结晶和钙化属于更进展阶段。",
     "reasoning_chain": [
-      "动脉粥样硬化最早期的内膜细胞事件之一，是单核细胞进入内膜后吞脂形成泡沫细胞并聚集。",
-      "因此选A。",
-      "胶原、胆固醇结晶和钙盐沉积都更偏后续斑块演进阶段。"
+      "内皮功能障碍后脂蛋白进入并修饰。",
+      "单核细胞进入内膜、转为巨噬细胞吞噬脂质形成泡沫细胞。",
+      "因此最早病变是泡沫细胞聚集，选A。"
     ],
-    "transfer_rule": "粥样硬化早期抓泡沫细胞/脂纹。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "AS时间轴：内皮损伤/脂质进入→泡沫细胞脂纹→纤维斑块→复杂病变/钙化。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.泡沫细胞聚集。泡沫细胞形成脂纹，是动脉粥样硬化最早的典型内膜病变。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "胶原纤维沉积更偏纤维斑块形成阶段。"
+      },
+      {
+        "option": "D",
+        "reason": "钙盐沉积是更晚期复杂斑块改变。"
+      }
+    ],
+    "common_failure_node": "把成熟粥样斑块里最显眼的胆固醇结晶/钙化误当成最早事件。"
   },
   {
     "question_id": "xizong-official-2024-n035",
@@ -230,20 +354,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "风湿性心肌炎特征细胞",
-    "decision_axis": "Aschoff结节中的Anitschkow细胞等来源于活化的巨噬细胞。",
+    "exam_target": "风湿性心肌炎Aschoff细胞来源于巨噬细胞",
+    "decision_axis": "Aschoff小体中的Anitschkow/风湿细胞为活化、增生的巨噬细胞来源，是风湿性心肌炎特征性细胞。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "风湿性心肌炎特征病变是Aschoff小体。",
+      "Current B7 KP06明确风湿细胞来自增生巨噬细胞。",
+      "因此选C。"
     ],
-    "transfer_rule": "风湿小体特征细胞来自单核-巨噬系统。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "风湿病理：Aschoff小体；Anitschkow/风湿细胞属于活化巨噬细胞谱系。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.巨噬细胞。Current B7 KP06明确Aschoff小体中的风湿细胞来源于增生的巨噬细胞。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "中性粒细胞不是Aschoff特征细胞来源。"
+      },
+      {
+        "option": "B",
+        "reason": "浆细胞可见于多种慢性炎症，但不构成风湿性Aschoff特征细胞。"
+      }
+    ],
+    "common_failure_node": "只记Aschoff小体名称，不知道其中典型细胞的组织来源。"
   },
   {
     "question_id": "xizong-official-2024-n036",
@@ -254,20 +392,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "微小病变性肾病光镜特点",
-    "decision_axis": "微小病变病光镜下肾小球近乎正常，肾小管可因蛋白尿出现脂质重吸收；关键诊断改变在电镜足突融合。",
+    "exam_target": "微小病变性肾病光镜下近端小管脂质沉积",
+    "decision_axis": "MCD光镜下肾小球通常基本正常；因大量蛋白尿及脂蛋白重吸收，近端肾小管上皮可出现脂质沉积，“脂性肾病”由此得名。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "题目特意问HE光镜，而不是电镜。",
+      "足突融合属于电镜改变，不在选项中。",
+      "Current urinary B11 KP13明确LM肾小球基本正常、近端小管可脂质沉积，因此选D。"
     ],
-    "transfer_rule": "MCD：LM近正常，EM足突融合。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "MCD分层记：LM肾小球近正常+小管脂质；IF阴性；EM足突融合。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.肾小管上皮细胞内脂质沉积。Current B11 KP13明确MCD光镜下肾小球基本正常，而近端小管可见脂质沉积。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "节段性系膜细胞增生不是典型MCD光镜特征。"
+      },
+      {
+        "option": "A",
+        "reason": "肾小球微小坏死灶并非“微小病变”名称的含义。"
+      }
+    ],
+    "common_failure_node": "把“微小病变”误解成“肾小球里有微小坏死灶”，或只会背电镜足突融合。"
   },
   {
     "question_id": "xizong-official-2024-n037",
@@ -278,22 +430,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "R-S细胞起源",
-    "decision_axis": "经典霍奇金淋巴瘤R-S细胞多数来源于生发中心或生发中心后B细胞。",
+    "exam_target": "霍奇金淋巴瘤R-S细胞的B细胞来源",
+    "decision_axis": "经典霍奇金淋巴瘤的R-S细胞多数源于生发中心或生发中心后B细胞，尽管可丢失许多典型B细胞表型。",
     "reasoning_chain": [
-      "经典霍奇金淋巴瘤R-S细胞虽然形态特殊，但本质来源于生发中心/后生发中心B细胞。",
-      "因此选C。",
-      "周围大量炎细胞是反应性背景，并不是R-S细胞本身的来源。"
+      "R-S细胞是霍奇金淋巴瘤诊断性肿瘤细胞。",
+      "分子研究支持其多数为B细胞克隆来源。",
+      "因此选C。"
     ],
-    "transfer_rule": "Hodgkin R-S本质多为B细胞来源。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "HL中R-S细胞看起来特殊，但多数仍是B细胞来源；背景炎细胞不是肿瘤克隆主体。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.B淋巴细胞。经典霍奇金淋巴瘤R-S细胞多数起源于生发中心相关B细胞。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "巨噬细胞可在肿瘤微环境中出现，但不是R-S细胞主要来源。"
+      },
+      {
+        "option": "D",
+        "reason": "T细胞常构成背景反应细胞，但经典R-S细胞多数并非T细胞来源。"
+      }
+    ],
+    "common_failure_node": "因为R-S细胞表型异常、背景炎细胞复杂，就误判其来源不是B细胞。"
   },
   {
     "question_id": "xizong-official-2024-n038",
@@ -304,22 +468,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "革囊胃",
-    "decision_axis": "胃壁弥漫浸润并纤维化增厚、僵硬形成革囊胃，对应弥漫浸润型胃癌。",
+    "exam_target": "革囊胃对应弥漫浸润型胃癌",
+    "decision_axis": "胃癌沿胃壁广泛浸润并引起显著纤维间质反应，使胃壁增厚、僵硬、失去伸展性，形成“革囊胃”。",
     "reasoning_chain": [
-      "‘革囊胃’表示胃壁广泛增厚、僵硬，胃腔缩小，来源于肿瘤弥漫浸润胃壁。",
-      "因此对应弥漫浸润型胃癌，选D。",
-      "它不是局限息肉、蕈伞或典型溃疡样生长。"
+      "革囊胃不是一个单独组织学名称，而是大体浸润形态。",
+      "病变不是局灶息肉、蕈伞或溃疡，而是弥漫累及胃壁。",
+      "因此对应弥漫浸润型，选D。"
     ],
-    "transfer_rule": "linitis plastica=弥漫浸润型胃癌。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "linitis plastica/革囊胃=弥漫浸润+纤维化→胃壁僵硬。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.弥漫浸润型。胃壁广泛浸润和纤维化使胃变厚变硬，形成革囊胃。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "溃疡型以局灶溃疡性肿块为主，不形成全胃革囊样僵硬。"
+      },
+      {
+        "option": "A",
+        "reason": "息肉型向腔内生长，与弥漫壁内浸润相反。"
+      }
+    ],
+    "common_failure_node": "只按肉眼“胃壁厚”选肿块型，未理解革囊胃是弥漫壁内浸润。"
   },
   {
     "question_id": "xizong-official-2024-n039",
@@ -330,20 +506,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "伪膜性炎",
-    "decision_axis": "伪膜由纤维蛋白、坏死组织和炎细胞等构成，本质属纤维素性炎。",
+    "exam_target": "伪膜性炎本质为纤维素性炎",
+    "decision_axis": "黏膜坏死后纤维蛋白原渗出并形成纤维蛋白，混合坏死组织和炎细胞覆盖表面形成假膜，因此本质是纤维素性炎。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "“伪膜”是黏膜表面的纤维蛋白性渗出物。",
+      "其核心炎症形态是纤维素大量渗出。",
+      "Current H23 KP08明确假膜性炎属于黏膜纤维素性炎，因此选B。"
     ],
-    "transfer_rule": "伪膜性炎=纤维素性炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "伪膜=纤维蛋白+坏死组织+炎细胞贴附黏膜表面→纤维素性炎。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.纤维素性炎。Current H23 KP08明确伪膜性炎的本质是黏膜表面的纤维蛋白性渗出。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "假膜可伴中性粒细胞，但分类关键是纤维蛋白渗出，不等同化脓性炎。"
+      },
+      {
+        "option": "C",
+        "reason": "肉芽肿性炎以巨噬细胞/上皮样细胞聚集为核心，不形成典型假膜。"
+      }
+    ],
+    "common_failure_node": "看到假膜里有炎细胞就按细胞类型选“化脓性炎”，忽略炎症分类看主要渗出物。"
   },
   {
     "question_id": "xizong-official-2024-n040",
@@ -354,20 +544,35 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "化生的组织学边界",
-    "decision_axis": "化生是可逆的分化方向改变，通常发生于同类组织系统；肠腺上皮直接变为软骨不符合常见化生。",
+    "exam_target": "化生的分化谱系边界",
+    "decision_axis": "化生是干/祖细胞重新分化使一种成熟组织类型被另一种适应性成熟组织取代；常见于相近上皮或间叶谱系，肠腺上皮直接变软骨不符合经典化生。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "支气管柱状上皮鳞化和Barrett柱状化都是经典上皮化生。",
+      "胃黏膜可发生肠化生。",
+      "肠腺上皮直接转为软骨跨越上皮与间叶谱系，不是常见化生，故选D。"
     ],
-    "transfer_rule": "化生是干/祖细胞重编程，不是任意跨组织转换。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "化生不是成熟细胞直接“变身”，而是重编程后换一种适应性分化；考试常见上皮↔另一上皮、结缔组织内骨/软骨化生。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.肠腺上皮细胞被软骨细胞取代。该跨上皮—间叶谱系的直接替代不属于经典常见化生。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "慢性刺激下支气管纤毛柱状上皮可发生鳞状化生。"
+      },
+      {
+        "option": "B",
+        "reason": "Barrett食管即下段鳞状上皮被柱状/肠型上皮替代。"
+      }
+    ],
+    "common_failure_node": "把“任何一种细胞被另一种细胞替代”都叫化生，不考虑组织谱系和经典适应场景。",
+    "source_gap_note": "Current E1/D9分别保存化生定义和Barrett实例，但未找到单一通用Primary KP完整规定本题的上皮-间叶谱系边界；不以分散例子制造整题relation。"
   },
   {
     "question_id": "xizong-official-2024-n041",
@@ -378,22 +583,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "二尖瓣狭窄杂音",
-    "decision_axis": "典型二尖瓣狭窄为心尖部低调舒张期隆隆样杂音，左侧卧位更易听清。",
+    "exam_target": "二尖瓣狭窄心尖部舒张期杂音左侧卧位增强",
+    "decision_axis": "典型MS为心尖部低调、隆隆样舒张期杂音，左侧卧位使心尖更贴近胸壁，听诊更清楚。",
     "reasoning_chain": [
-      "二尖瓣狭窄典型杂音位于心尖区，为低调隆隆样舒张中晚期杂音。",
-      "左侧卧位让心尖更贴近胸壁，所以杂音更清楚，选D。",
-      "它一般不向剑突传导，也不是典型递增递减型喷射性杂音。"
+      "MS产生舒张期跨二尖瓣湍流。",
+      "杂音最响点在心尖，通常局限不远传。",
+      "左侧卧位强化心尖听诊，因此选D。"
     ],
-    "transfer_rule": "MS杂音=心尖、舒张期、隆隆样、左侧卧位增强。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "MS杂音：心尖、低调、舒张期隆隆样；左侧卧位更明显。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.左侧卧位更明显。Current B7 KP21明确二尖瓣狭窄的心尖部舒张期杂音在左侧卧位更易听清。",
+    "valuable_distractors": [
+      {
+        "option": "C",
+        "reason": "MS杂音通常局限于心尖，不典型向剑突方向传导。"
+      },
+      {
+        "option": "A",
+        "reason": "递增递减型更典型见喷射性杂音，不是MS隆隆样舒张杂音的基本描述。"
+      }
+    ],
+    "common_failure_node": "只记“舒张期杂音”，不掌握最响部位、体位和传导特点。"
   },
   {
     "question_id": "xizong-official-2024-n042",
@@ -404,20 +621,35 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "昏迷程度判断",
-    "decision_axis": "对声光无反应但疼痛刺激仍有反应、角膜和吞咽反射保留，符合题源所称轻度昏迷。",
+    "exam_target": "题源昏迷分级：疼痛反应存在且脑干反射保留",
+    "decision_axis": "题源以对声光无反应、仍能对疼痛刺激反应且角膜/吞咽反射保留，归入“轻度昏迷”；昏迷分级命名和阈值需服从具体Source，不能跨体系泛化。",
     "reasoning_chain": [
-      "按题干与选项，依据上述判断轴确定题源答案。"
+      "患者不能被声光唤醒，已超过昏睡。",
+      "仍有疼痛刺激反应，角膜和吞咽反射存在，提示脑干反射保存。",
+      "按本题正式分级答案为轻度昏迷，选B。"
     ],
-    "transfer_rule": "意识障碍分级看疼痛反应和脑干反射。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "意识题先描述客观反应：唤醒、疼痛反应、瞳孔/角膜/吞咽反射，再映射到题源分级；不要只背“轻中深”标签。",
+    "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.轻度昏迷。按题源分级，对声光无反应但疼痛刺激仍有反应、角膜和吞咽反射保留，归为轻度昏迷。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "昏睡通常仍可被较强刺激唤醒并有一定言语/动作反应，本例不能被声光唤醒。"
+      },
+      {
+        "option": "D",
+        "reason": "深昏迷通常疼痛反应和多种脑干反射明显消失，本例均未达到。"
+      }
+    ],
+    "common_failure_node": "用“有没有反应”一刀切，不区分声光、疼痛和脑干反射的层级。",
+    "source_gap_note": "Current神经系统Knowledge未找到与本题“轻/中/深昏迷”旧分级完全同构的单一Primary owner；保留客观反应和正式答案，不制造关系。"
   },
   {
     "question_id": "xizong-official-2024-n043",
@@ -428,22 +660,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "支气管哮喘本质",
-    "decision_axis": "哮喘本质是多细胞和炎症介质参与的慢性气道炎症，伴可变气流受限和气道高反应。",
+    "exam_target": "支气管哮喘本质为慢性气道炎症",
+    "decision_axis": "哮喘是多种炎症细胞和介质参与的慢性气道炎症性疾病，伴气道高反应性和可变性气流受限。",
     "reasoning_chain": [
-      "支气管哮喘的疾病本质是慢性气道炎症，并伴气道高反应性和可变性气流受限。",
-      "因此选D。",
-      "气流受限可以明显可逆，不能把本质归结为某一个单独受体功能异常。"
+      "哮喘气流受限具有可变性，不能定义为不可逆。",
+      "疾病本质也不是单一β₂受体低下或M受体亢进。",
+      "Current R4以慢性气道炎症作为主干，因此选D。"
     ],
-    "transfer_rule": "哮喘核心=慢性气道炎症+可变气流受限。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "哮喘三核心：慢性气道炎症、气道高反应、可变气流受限。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.慢性气道炎症性疾病。Current R4把慢性气道炎症作为哮喘疾病本质。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "不可逆持续气流受限更接近COPD主轴，哮喘强调可变性/可逆性。"
+      },
+      {
+        "option": "B",
+        "reason": "β₂受体功能不是定义哮喘本质的单一机制。"
+      }
+    ],
+    "common_failure_node": "把哮喘等同于“支气管平滑肌痉挛”，忽略其长期炎症底座。"
   },
   {
     "question_id": "xizong-official-2024-n044",
@@ -454,22 +698,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "肺炎链球菌肺炎",
-    "decision_axis": "急起寒战高热、咳嗽咳痰、局灶实变体征和中性粒细胞增多符合典型细菌性肺炎。",
+    "exam_target": "肺炎链球菌肺炎的急性实变型表现",
+    "decision_axis": "青年急起寒战高热、咳嗽咳痰，中性粒细胞显著增多并有局灶语颤增强/湿啰音，符合典型社区获得性细菌性实变肺炎，肺炎链球菌最契合。",
     "reasoning_chain": [
-      "青年急性高热寒战、咳痰，中性粒细胞显著升高，同时右上肺语颤增强提示肺泡实变。",
-      "最符合肺炎链球菌性大叶性肺炎，选C。",
-      "肺结核通常更亚急性，肺脓肿常需坏死空洞和大量脓臭痰等线索。"
+      "2天急性起病和高热寒战支持细菌性感染。",
+      "右上肺语颤增强提示实变。",
+      "WBC及中性粒显著增高，与肺炎链球菌肺炎典型图景一致，因此选C。"
     ],
-    "transfer_rule": "年轻人急性高热+肺实变体征→典型肺炎。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "肺炎链球菌：急起高热寒战+咳嗽咳痰+局灶实变体征+中性粒增高。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.肺炎链球菌肺炎。急性高热寒战、局灶实变体征和明显中性粒细胞增多共同支持。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "肺结核多为亚急/慢性低热盗汗等，和本题2天急性高热不符。"
+      },
+      {
+        "option": "B",
+        "reason": "肺脓肿常需坏死/脓腔及大量脓臭痰等线索，本题暂无。"
+      }
+    ],
+    "common_failure_node": "只看“右上肺”就想到结核，忽略时间轴和急性细菌感染证据。"
   },
   {
     "question_id": "xizong-official-2024-n045",
@@ -480,22 +736,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "继发性肺结核识别",
-    "decision_axis": "低热盗汗、消瘦、慢性咳嗽并上肺片状影，优先考虑肺结核。",
+    "exam_target": "继发性肺结核的慢性消耗症状与上肺影",
+    "decision_axis": "低热、盗汗、消瘦、慢性咳嗽持续2月余，并有上肺密度不均片状影，典型指向继发性肺结核。",
     "reasoning_chain": [
-      "低热、盗汗、消瘦、咳嗽咳痰持续两个月，再加上上肺片状影，是典型肺结核入口。",
-      "因此选A。",
-      "肺炎通常病程更急，肺脓肿偏高热脓痰，肺癌虽可在吸烟者出现，但这组结核中毒症状更典型。"
+      "病程为数月，不像普通急性肺炎。",
+      "低热、盗汗、消瘦属于结核高价值全身线索。",
+      "上肺影进一步加强继发性肺结核定位，因此选A。"
     ],
-    "transfer_rule": "慢性全身症状+上肺病灶要排TB。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "成人继发TB常抓：慢性咳嗽+低热盗汗消瘦+上肺/尖后段病变。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.肺结核。慢性消耗症状与左上肺片状影组合最支持继发性肺结核。",
+    "valuable_distractors": [
+      {
+        "option": "D",
+        "reason": "吸烟史提高肺癌风险，但低热盗汗和上肺片状炎性影并不能单靠吸烟解释。"
+      },
+      {
+        "option": "B",
+        "reason": "普通肺炎通常急性起病，数月盗汗消瘦不典型。"
+      }
+    ],
+    "common_failure_node": "被“56岁+吸烟30年”锚定肺癌，忽略更强的结核时间轴与全身症状。"
   },
   {
     "question_id": "xizong-official-2024-n046",
@@ -506,20 +774,39 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "ACS合并心源性休克的旧固定IABP方案",
-    "decision_axis": "题源固定选择IABP同时PCI；Current ACS心源性休克强调及时血运重建，但IABP不再作为所有患者的常规固定方案。",
+    "exam_target": "NSTEMI/AMI合并心源性休克的紧急再灌注与IABP Study桥接",
+    "decision_axis": "持续缺血、cTnT升高、低血压、肺水肿和末梢湿凉提示AMI/NSTE-ACS合并心源性休克；Current B12强调再灌注是根本，IABP仅作为过渡机械支持接口。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "ST-T动态缺血改变+cTnT升高说明已有急性心肌坏死，且无ST抬高谱系，符合NSTEMI方向。",
+      "BP 88/50、肺湿啰音、末梢湿凉提示心源性休克并急性左衰，是极高危状态。",
+      "应紧急侵入再血管化；给定选项中C同时满足PCI并提供题源Study桥接支持，因此选C。"
     ],
-    "transfer_rule": "保留“休克合并ACS需紧急血运重建”原则，不固化IABP。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "ACS+休克：根本任务是尽快血运重建；机械支持是选择性桥接，不能替代再灌注。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "C.即刻在置入IABP同时行冠脉介入治疗。Current B12明确AMI休克“再灌注是根本、IABP为过渡接口”，与本题给定选项匹配。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "左心源性休克并肺水肿时盲目快速大量扩容可进一步加重淤血。"
+      },
+      {
+        "option": "B",
+        "reason": "NSTEMI不走STEMI静脉溶栓路径，且休克应紧急侵入再灌注。"
+      },
+      {
+        "option": "D",
+        "reason": "低血压和低灌注时立即强扩血管/利尿可能进一步恶化灌注，不能替代血运重建。"
+      }
+    ],
+    "common_failure_node": "看到肺水肿只想着利尿扩管，或把IABP误学成心源性休克的常规根治治疗。",
+    "source_boundary_note": "Current B12保留“AMI休克：再灌注根本、IABP过渡接口”的Study角色；relation只承接给定选项中的桥接逻辑，不表示现代所有AMI心源性休克常规使用IABP。"
   },
   {
     "question_id": "xizong-official-2024-n047",
@@ -530,22 +817,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "急性心肌缺血的动态ST-T",
-    "decision_axis": "ST段和T波随症状动态变化可直接反映一过性心肌缺血，比固定解剖狭窄更能提示急性过程。",
+    "exam_target": "急性心肌缺血最敏感于ST-T动态改变",
+    "decision_axis": "急性心肌缺血的核心是“动态供需失衡”；症状相关的ST段/T波动态变化比固定冠脉狭窄更直接反映正在发生的缺血。",
     "reasoning_chain": [
-      "急性心肌缺血最关键的是‘正在变化的电活动’。",
-      "心电图ST-T动态改变直接反映缺血随时间演变，因此选B。",
-      "固定的冠脉狭窄只说明解剖病变，弥漫室壁运动减弱也不特异指向急性缺血。"
+      "冠脉狭窄>70%是固定解剖底物，不证明当前正在急性缺血。",
+      "ST-T随症状变化可反映心肌复极的急性缺血改变。",
+      "因此B最能反映急性心肌缺血。"
     ],
-    "transfer_rule": "急性缺血抓症状与动态ECG变化。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "解剖狭窄说明底物；动态ST-T说明当前缺血；肌钙蛋白升高说明已有坏死。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "B.心电图出现ST-T动态改变。它最直接提示随时间变化的急性心肌缺血过程。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "严重固定狭窄可长期存在，并不能单独证明此刻发生急性缺血。"
+      },
+      {
+        "option": "C",
+        "reason": "弥漫性室壁运动减弱缺乏急性局灶缺血特异性。"
+      }
+    ],
+    "common_failure_node": "把“冠脉狭窄严重”与“正在发生急性心肌缺血”当成同一层证据。"
   },
   {
     "question_id": "xizong-official-2024-n048",
@@ -556,20 +855,35 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "心动过缓起搏治疗的视觉依赖",
-    "decision_axis": "本题必须结合原始心电图判断传导阻滞类型；在未完整核对视觉证据前不能把永久起搏作为Current统一结论。",
+    "exam_target": "症状性三度房室传导阻滞与永久起搏",
+    "decision_axis": "官方ECG可见P波与QRS各自规律但无固定关系、心室慢率，结合反复黑矇/晕厥提示症状性三度AVB；Current B10 KP17及其精确Study资产明确不可逆高阶阻滞走永久起搏路径。",
     "reasoning_chain": [
-      "按题干与正式答案保留题源判断；涉及Current治疗、法律、阈值或旧分类时不向canonical泛化。"
+      "心室率约40/min，第一心音强弱不等，临床已有反复脑低灌注性黑矇/短暂意识丧失。",
+      "官方ECG显示房室分离：P波独立行进，QRS慢而与P无固定关系，符合三度AVB。",
+      "慢性反复症状提示不可逆高阶阻滞，不只是短暂过渡性AV结抑制，因此最佳治疗为永久心脏起搏器，选D。"
     ],
-    "transfer_rule": "起搏指征先定心律/传导障碍类型，再按Current指南判断。",
-    "mapping_decision": "NO_SAFE_MATCH",
+    "transfer_rule": "三度AVB：P-QRS完全脱节、房率>室率；伴明显过慢/Adams-Stokes需起搏，不可逆高阶阻滞进入永久起搏路径。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.植入永久心脏起搏器。官方ECG和症状符合不可逆症状性三度AVB，Current B10的Study起搏规则支持永久起搏。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "阿托品可作为部分短期AV结性缓慢节律接口，但不能解决长期反复症状的不可逆三度AVB。"
+      },
+      {
+        "option": "C",
+        "reason": "临时起搏用于急性过渡/可逆原因或等待最终治疗；本题已有1年反复症状，最佳长期方案是永久起搏。"
+      }
+    ],
+    "common_failure_node": "只看到“HR 40”就选阿托品或临时起搏，未先用P-QRS关系识别三度AVB并判断其长期不可逆性。",
+    "source_boundary_note": "本题已核对官方ECG视觉证据；Current B10的精确Study资产明确“不可逆高阶阻滞按永久起搏路径”，故relation不是仅凭文字症状推断。"
   },
   {
     "question_id": "xizong-official-2024-n049",
@@ -580,22 +894,34 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "慢性心衰β受体阻滞剂作用",
-    "decision_axis": "循证β受体阻滞剂可抑制长期交感激活、改善重构并降低死亡和住院风险，核心不只是控心率。",
+    "exam_target": "慢性HFrEF β受体阻滞剂用于延缓疾病进展",
+    "decision_axis": "循证β受体阻滞剂通过抑制长期交感过度激活、改善心室重构并降低死亡/住院，核心目的是改善长期结局和延缓进展，而非单纯控心率。",
     "reasoning_chain": [
-      "慢性稳定性心衰使用β受体拮抗剂的核心价值不是单纯压心率，而是长期抗交感、抗重构。",
-      "因此最主要目的是延缓疾病进展并改善预后，选A。",
-      "急性失代偿/休克时不能把这一慢性获益逻辑机械套用。"
+      "慢性心衰的长期治疗要区分改善症状与改善预后。",
+      "β受体阻滞剂长期抑制神经体液激活并逆转部分重构。",
+      "因此最主要目的是延缓疾病进展，选A。"
     ],
-    "transfer_rule": "HFrEF β阻滞剂是改善预后的神经体液治疗。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "HFrEF药物分角色：利尿剂主要减淤血；β阻滞剂等长期结局药核心是抑制重构、降死亡住院。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "A.延缓疾病进展。Current B11明确β受体阻滞剂的核心长期价值是抑制交感激活、改善重构和预后。",
+    "valuable_distractors": [
+      {
+        "option": "B",
+        "reason": "β阻滞剂可降低心率，但在慢性HFrEF中的主要治疗目标不只是控率。"
+      },
+      {
+        "option": "D",
+        "reason": "减少体液潴留主要依靠利尿和相关容量管理。"
+      }
+    ],
+    "common_failure_node": "因为β阻滞剂会降心率，就把慢性心衰中的主要目的误成“控制心室率”。"
   },
   {
     "question_id": "xizong-official-2024-n050",
@@ -606,21 +932,33 @@
       "blob_sha": "cc55ea59d93622f0cdce40e58cf55a3c27862012",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "溃疡性结肠炎严重度指标",
-    "decision_axis": "经典Truelove-Witts严重度关注排便/便血、体温、脉率、血红蛋白、ESR等；白细胞计数不是其核心原始指标。",
+    "exam_target": "UC经典严重度不以白细胞计数为核心原始指标",
+    "decision_axis": "经典Truelove-Witts严重度使用排便次数/便血及体温、脉率、Hb、ESR等全身指标；外周白细胞计数不属于核心原始判据。",
     "reasoning_chain": [
-      "UC严重度常看每日大便次数、体温、心率、血红蛋白和ESR等轴。",
-      "外周白细胞计数并不是Current Study的分度核心指标，因此选D。",
-      "要分清‘炎症时可能升高’和‘正式严重度分层项’不是一回事。"
+      "病情严重度既看肠道活动也看全身反应。",
+      "每日大便次数、体温和Hb均进入经典严重度判断框架。",
+      "白细胞计数虽可反映炎症，但不是该经典评分核心原始指标，因此选D。"
     ],
-    "transfer_rule": "UC严重度先识别经典活动度评价框架。",
-    "mapping_decision": "NEEDS_CHAT_MAPPING_REVIEW",
+    "transfer_rule": "UC经典严重度高频：便次/便血 + 体温 + 脉率 + Hb + ESR；不要随意加入所有炎症实验室指标。",
+    "mapping_decision": "REVIEWED",
     "upgrade_decision": "NO_CHANGE",
     "review": {
       "semantic_owner": "Chat",
       "format": "FAST_OWNER",
       "learner_state_included": false,
       "old_explanation_inherited": false
-    }
+    },
+    "correct_option_reason": "D.外周血白细胞计数。Current D12保存的经典严重度框架不把白细胞计数列为核心原始指标。",
+    "valuable_distractors": [
+      {
+        "option": "A",
+        "reason": "每日大便次数是UC活动/严重度的重要临床指标。"
+      },
+      {
+        "option": "C",
+        "reason": "血红蛋白反映失血和全身严重度，属于经典判断指标。"
+      }
+    ],
+    "common_failure_node": "看到“炎症病严重度”就把WBC、CRP等所有炎症指标自动塞进经典评分。"
   }
 ]
