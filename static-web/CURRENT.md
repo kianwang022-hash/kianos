@@ -18,7 +18,7 @@ Kian approved the Mac-landscape Home / Steward / Radar / global Dock upgrade on 
 
 Current implementation cursor:
 - branch: `work/steward-ui-vnext-20260924`
-- current remote head at this cursor update: `1cd55e7132ec090a5b2f24afff39c352eb232477`
+- current remote head at this cursor update: `09ce33445a7f5a0c01b8d76a738782ba9e1f727a`
 - preview: `static-web/ui-preview/steward-vnext.html`
 - `main`: **no integrated replacement UI from this preview**
 - preview data: **sample only**, never learner/mail/Health truth
@@ -28,9 +28,9 @@ Current preview coverage:
 - Steward Today timeline;
 - Nutrition combination + single-item + grams + deterministic macro arithmetic;
 - Training actuals + future Apple Watch/Health display slot;
-- Steward Week plan-vs-observed and seven-day allocation view;
-- Steward Month phase / Gate / commitment / coarse-history view;
-- Steward Review future-useful decision view without readiness/efficiency scoring;
+- Steward Week compact subject-time + day-by-day view;
+- Steward Month compact phase/checkpoint/meaningful-date view;
+- Review removed as a persistent tab; it remains an on-demand judgment output only when useful;
 - Radar `需要处理 / 值得知道`;
 - floating draggable Dock and dense record/break popovers.
 
@@ -48,7 +48,7 @@ Important Human-Gate decisions already made during preview:
 
 [Surface split](https://github.com/kianwang022-hash/kian-personal-os/blob/main/HOME_PROJECTION.md), [execution contract](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/STEWARD_CONSOLE_CONTRACT.md), and [Radar / mail semantics](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/INTAKE.md) remain the product owners. Reuse native learning, Timer, Resume, private control/checkpoint and Packet interfaces; do not create parallel state owners.
 
-**Next:** Kian reviews the unified preview and names any remaining visual/interaction corrections. Only explicit UI approval advances this branch toward runtime integration or eventual merge to `main`. Full Steward plan/reality and Radar delivery still require registered validators/consumers and real browser/runtime acceptance; preview HTML does not make those capabilities shipped.
+**Next:** Kian reviews the simplified preview and names any remaining visual/interaction corrections. Foreground only what is useful; keep backend analysis details backstage. Only explicit UI approval advances this branch toward runtime integration or eventual merge to `main`. Full Steward plan/reality and Radar delivery still require registered validators/consumers and real browser/runtime acceptance; preview HTML does not make those capabilities shipped.
 
 ## Route from the reported symptom
 
