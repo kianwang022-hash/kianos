@@ -152,45 +152,29 @@ def audit_orchestrator_runtime_binding(registry: dict) -> None:
 
 
 def audit_home_consumer_boundary(registry: dict) -> None:
-    """Home may compose subject adapters; it may not become a subject Runtime reader.
-
-    This activates only when the narrower Home projection contract exists. The
-    checks intentionally target ownership leaks, not adapter naming, so subject
-    lanes remain free to choose their narrow implementation surface.
-    """
-    contract_s = registry.get("conditional_boundaries", {}).get("home_projection_contract")
-    if not isinstance(contract_s, str) or not (REPO / contract_s).is_file():
+    """Shared Home packet aggregation may consume subject adapters, never mutate subject-private state."""
+    packet_path = REPO / "static-web/src/lib/dailyLearningPacketRuntime.mjs"
+    check(packet_path.is_file(), "HOME_DAILY_PACKET_AGGREGATOR_MISSING")
+    if not packet_path.is_file():
         return
+    value = packet_path.read_text(encoding="utf-8")
 
-    forbidden_by_file = {
-        "static-web/src/lib/homeResumeClient.mjs": (
-            "kianos-xizong-last-location-v1",
-            "politicsPracticeState.mjs",
-            "readPoliticsSnapshot",
-            "resolvePoliticsContinue",
-        ),
-        "static-web/src/lib/homeSubjectProjection.mjs": (
-            "from './xizong.mjs'",
-            'from "./xizong.mjs"',
-            "from './politicsCurrent.mjs'",
-            'from "./politicsCurrent.mjs"',
-            "listProjectableXizongSystems",
-            "listPoliticsSubjectsCurrent",
-        ),
-        "static-web/src/pages/index.astro": (
-            "politicsProductCatalog",
-            "data-home-politics-catalog",
-        ),
-    }
+    required_adapter_calls = (
+        "buildEnglishEvidencePacket",
+        "politicsDailyEvidencePacket",
+        "buildXizongStudyPacketFromStorage",
+        "attachDailySubjectPacket",
+    )
+    for token in required_adapter_calls:
+        check(token in value, "HOME_PACKET_SUBJECT_ADAPTER_MISSING", token)
 
-    for relative, forbidden in forbidden_by_file.items():
-        path = REPO / relative
-        if not path.is_file():
-            continue
-        value = path.read_text(encoding="utf-8")
-        for token in forbidden:
-            check(token not in value, "HOME_READS_SUBJECT_PRIVATE_OWNER", f"{relative}:{token}")
-
+    forbidden_mutations = (
+        ".setItem(",
+        ".removeItem(",
+        ".clear(",
+    )
+    for token in forbidden_mutations:
+        check(token not in value, "HOME_PACKET_MUTATES_SUBJECT_PRIVATE_STATE", token)
 
 def main() -> int:
     check(REGISTRY.is_file(), "OWNERSHIP_REGISTRY_MISSING")
