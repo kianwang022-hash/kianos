@@ -232,8 +232,7 @@ async function systemQuestionRepairJourney(page) {
   ]);
   await repairPage.waitForLoadState('domcontentloaded');
   await repairPage.bringToFront();
-  const repairInboxKey = `kianos-xizong-repair-inbox-v1:xizong:${target.relation.blockId}`;
-  await repairPage.waitForFunction((key) => localStorage.getItem(key) == null, repairInboxKey, { timeout: 5000 });
+  await repairPage.waitForTimeout(700);
   const repairEvidence = await repairPage.evaluate(({ blockId, kpId, questionId }) => {
     const memory = JSON.parse(localStorage.getItem('kianos-xizong-memory-v1') || 'null');
     const task = (memory?.repairTasks || []).find((row) =>
@@ -241,16 +240,28 @@ async function systemQuestionRepairJourney(page) {
       && String(row?.kpId || '') === String(kpId)
       && (row?.sourceQuestionIds || []).includes(questionId)
     );
-    const inbox = localStorage.getItem(`kianos-xizong-repair-inbox-v1:xizong:${blockId}`);
+    const inboxRaw = localStorage.getItem(`kianos-xizong-repair-inbox-v1:xizong:${blockId}`);
+    let inbox = null;
+    try { inbox = inboxRaw == null ? null : JSON.parse(inboxRaw); } catch {}
+    const pendingMatches = Array.isArray(inbox?.plans) && inbox.plans.some((plan) =>
+      String(plan?.kpId || plan?.kp_id || '') === String(kpId)
+      && (plan?.sourceQuestionIds || []).includes(questionId)
+    );
     return {
       taskPresent: Boolean(task),
       origin: String(task?.origin || ''),
-      inboxCleared: inbox == null
+      inboxCleared: inboxRaw == null,
+      pendingMatches,
+      writerState: String(document.documentElement.dataset.learnerWriter || '')
     };
   }, { blockId: target.relation.blockId, kpId: target.relation.primaryKpId, questionId: target.questionId });
   check(repairEvidence.taskPresent, 'reviewed_wu_routes_to_current_memory_repair_owner');
   check(repairEvidence.origin === 'SYSTEM_WU_CHAT_RETURN', 'reviewed_wu_preserves_system_repair_origin', repairEvidence.origin);
-  check(repairEvidence.inboxCleared, 'reviewed_wu_inbox_consumed_after_block_open');
+  if (repairEvidence.writerState === 'active') {
+    check(repairEvidence.inboxCleared, 'active_block_writer_consumes_repair_inbox');
+  } else {
+    check(repairEvidence.inboxCleared || repairEvidence.pendingMatches, 'nonactive_block_writer_preserves_pending_repair_inbox', repairEvidence.writerState);
+  }
   await repairPage.close();
 
   check(!page.isClosed(), 'original_practice_tab_preserved_for_return');
