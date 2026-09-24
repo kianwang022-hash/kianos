@@ -1415,7 +1415,7 @@
           "G5"
         ]
       },
-      "partition_rationale": "M1 preserves its existing Logic Groups as the local retrieval/closure units inside the shared System→Block→Logic Group→KP hierarchy. The prior L1/L2/L3 layer interpretation is withdrawn. Current 27 Source order may form these LG/KP objects non-contiguously; the global Source map owns teacher order and final direct Block/LG/KP routing.",
+      "partition_rationale": "M1 preserves five existing Logic Groups as the local retrieval/closure units: protein structure/folding → physicochemical handling → enzyme mechanism/control → kinetics/inhibition → cofactor/vitamin map. These are Learning-owned LGs inside System→Block→Logic Group→KP, not a second canonical layer topology. Current 27 Source forms them non-contiguously through the global Source map.",
       "learner_order": [
         "b-m01-lg01",
         "b-m01-lg02",
@@ -1481,15 +1481,49 @@
         }
       },
       "source_contact": {
-        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_PENDING_DIRECT_LG_KP_RECONCILIATION",
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_DIRECT_LG_KP_CURRENT",
         "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
-        "rule": "The global Source map owns teacher order/page contact only. Final bindings must resolve directly to this Block's existing Logic Groups/KPs or explicit support/Connection roles; no parallel L-layer topology is allowed.",
+        "rule": "The global Source map owns teacher order/page contact and maps directly to M1's existing Logic Groups/KPs or explicit support/Connection roles. No intermediate layer exists.",
         "block_source_closure": {
           "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
           "block": "M1",
           "after_unit": "BIO27-S14",
           "after_pdf": 92
-        }
+        },
+        "logic_group_formation": [
+          {
+            "logic_group": "b-m01-lg01",
+            "source_units": [
+              "BIO27-S09"
+            ]
+          },
+          {
+            "logic_group": "b-m01-lg02",
+            "source_units": [
+              "BIO27-S09"
+            ]
+          },
+          {
+            "logic_group": "b-m01-lg03",
+            "source_units": [
+              "BIO27-S13"
+            ]
+          },
+          {
+            "logic_group": "b-m01-lg04",
+            "source_units": [
+              "BIO27-S13"
+            ]
+          },
+          {
+            "logic_group": "b-m01-lg05",
+            "source_units": [
+              "BIO27-S13",
+              "BIO27-S14"
+            ],
+            "closure_unit": "BIO27-S14"
+          }
+        ]
       }
     },
     "M2": {
