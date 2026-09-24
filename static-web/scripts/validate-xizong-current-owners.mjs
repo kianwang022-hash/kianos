@@ -155,5 +155,5 @@ if (surgeryMap.architecture_v3?.downstream_revalidation?.acceptance_owner !== SU
 if (!xizongCurrent.includes('27 Biochemistry lifecycle owner:') || !xizongCurrent.includes(BIO_LIFECYCLE)) fail('CURRENT_BIOCHEMISTRY_LIFECYCLE_ROUTE');
 if (!xizongCurrent.includes('27 Surgery lifecycle owner:') || !xizongCurrent.includes(SURGERY_LIFECYCLE)) fail('CURRENT_SURGERY_LIFECYCLE_ROUTE');
 if (/27 (?:Biochemistry|Surgery).*is CLOSED \/ CURRENT/.test(xizongCurrent)) fail('CURRENT_LIFECYCLE_ENUM_MIRROR');
-if (!contentMainline.includes('Lifecycle is owned only by the exact task owner below')) fail('MAINLINE_LIFECYCLE_ROUTE_MISSING');
+if (!contentMainline.includes(BIO_LIFECYCLE) || !contentMainline.includes(SURGERY_LIFECYCLE)) fail('MAINLINE_LIFECYCLE_ROUTE_MISSING');
 if (/Status: \*\*CLOSED \/ CURRENT · S\/K\/L\/Content/.test(contentMainline)) fail('MAINLINE_LIFECYCLE_ENUM_MIRROR');

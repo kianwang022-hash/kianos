@@ -420,14 +420,15 @@ The accepted learning product subtree is:
 Home
 ├─ 西综
 ├─ 政治
-└─ English
-   ├─ Reading A
-   ├─ Cloze
-   ├─ Part B
-   ├─ Translation
-   ├─ Writing
-   ├─ Vocabulary / Lexical
-   └─ External Reading
+├─ English
+│  ├─ Reading A
+│  ├─ Cloze
+│  ├─ Part B
+│  ├─ Translation
+│  ├─ Writing
+│  ├─ Vocabulary / Lexical
+│  └─ External Reading
+└─ Skills
 ```
 
 Lexical may retain independent backend canonical ownership and engineering continuation where that lowers ambiguity and protects lexical Truth.
@@ -436,7 +437,9 @@ But learner-facing Vocabulary / Lexical is an **English child function**, not a 
 
 Likewise, External Reading is an English child surface and another data source for the shared Reading task family, not another top-level product.
 
-This is **not** the complete KianOS product-navigation authority. Non-learning product surfaces such as Steward may coexist in the shared shell under their own current Visual/Product owners. The learning subtree must not be used to erase or redefine those surfaces.
+Skills is a learner-facing L1 library backed by its own canonical Skill content plus one generic reader; it is not an English child and does not create a second learning-content owner in the website.
+
+This is **not** the complete KianOS product-navigation authority. Non-learning product surfaces such as Steward may coexist in the shared shell under their own current Visual/Product owners. The learning subtree must not be used to erase or redefine those surfaces. Concrete shipped L1 membership is consumed through the registered shared navigation implementation rather than copied into multiple contracts.
 
 Hard distinction:
 

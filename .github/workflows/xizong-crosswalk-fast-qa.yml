@@ -55,7 +55,7 @@ jobs:
       - name: Validate staged reviewed decisions without writing
         run: node scripts/apply-xizong-crosswalk-reviewed-batches.mjs --check
       - name: Audit reviewed relation freshness
-        run: node scripts/audit-xizong-reviewed-relation-freshness.mjs --out .qa/xizong-relation-freshness.json
+        run: node scripts/audit-xizong-reviewed-relation-freshness.mjs --strict --out .qa/xizong-relation-freshness.json
       - name: Validate relation manifest synchronization
         run: node scripts/sync-xizong-question-relations-manifest.mjs --check
       - name: Install dependencies
