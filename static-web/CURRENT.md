@@ -56,7 +56,7 @@ Follow `KIAN_UI_PREFERENCES.md` + `UI_STYLE_BRIEF.md`:
 
 A dedicated `Steward UI Browser` workflow now exercises `/steward/` through the Astro dev server independently of the repository-wide static build. It checks L1 ownership, no fake L2, Today→Week→Month exclusivity, Today reset to 日程, Week x7 time geometry, Month calendar geometry, visible-text floor and backend-copy leakage, and saves 1512×820 screenshots.
 
-This isolated Steward gate is the relevant functional/geometry proof while the repository-wide Astro build is independently blocked by current Xizong content drift (`CURRENT_XIZONG_B_KP_MARKER_COUNT_MISMATCH:G1:9/10`). Do not misattribute that Xizong build blocker to Steward.
+This isolated Steward gate is the relevant functional/geometry proof for Steward. The repository-wide Astro build currently passes; the prior Xizong G1 KP-marker drift is no longer a Current blocker and must not be copied back into this router as stale status.
 
 **Human Gate remains OPEN.** Do not claim the integrated Steward UI is visually accepted until Kian reviews a real representative Mac surface. Radar and deeper Nutrition/Training/reality-capture delivery remain later UI/runtime work after Steward's primary time workspace is stable.
 
