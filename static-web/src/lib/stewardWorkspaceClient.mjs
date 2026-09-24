@@ -179,7 +179,7 @@ const MEAL_PRESETS = Object.freeze({
     protein: '35–42 g',
     carb: '40–65 g',
     fat: '低（坚果前）',
-    note: '组合参考来自当前 Recipe owner；具体营养值以当天实际产品和克数为准。',
+    note: '组合参考来自当前已接受食谱；具体营养值以当天实际产品和克数为准。',
     items: [
       { label: '高蛋白酸奶', amount: 300, unit: 'g', range: '当前熟悉基准 300 g' },
       { label: '黑麦片', amount: 50, unit: 'g', range: '常用范围 40–60 g' },
@@ -208,7 +208,7 @@ const MEAL_PRESETS = Object.freeze({
     protein: '约 50+ g',
     carb: '以黑麦 / 酸奶为主',
     fat: '很低（额外脂肪前）',
-    note: '甜虾营养仍是 provisional reference；当前标签值出现时应覆盖参考值。',
+    note: '甜虾营养仍是暂定参考；拿到当天产品标签后，以标签值覆盖参考值。',
     items: [
       { label: '甜虾', amount: 85, unit: 'g', range: '常用 85–170 g' },
       { label: '黑麦片', amount: 50, unit: 'g', range: '基准约 50 g' },
@@ -222,16 +222,16 @@ const SINGLE_FOODS = Object.freeze({
   yogurt: { title: '高蛋白酸奶', role: '蛋白 / 乳制品', amount: 300, range: '按当前产品标签计算' },
   rye: { title: '黑麦片', role: '碳水 / 纤维', amount: 50, range: '常用 40–60 g' },
   salmon: { title: '三文鱼', role: '蛋白 / 脂肪', amount: 150, range: '具体 SKU / 部位会影响能量和脂肪' },
-  shrimp: { title: '甜虾', role: '低脂蛋白', amount: 85, range: '当前 provisional range 85–170 g' }
+  shrimp: { title: '甜虾', role: '低脂蛋白', amount: 85, range: '暂定常用范围 85–170 g' }
 });
 
 const EXERCISE_REFERENCE = Object.freeze({
-  KN01: { title: 'Smith squat', mode: 'strength', hint: '当前负重由实际 RPE 决定，不沿用旧 PR。', dose: '6–10 reps · RPE 6–8' },
+  KN01: { title: 'Smith squat', mode: 'strength', hint: '当前负重由实际 RPE 决定，不沿用旧负重。', dose: '6–10 reps · RPE 6–8' },
   PR01: { title: 'Smith bench press', mode: 'strength', hint: '稳定主推；负重以当前动作质量和 RPE 为准。', dose: '6–12 reps · RPE 6–8' },
-  PU03: { title: 'One-arm cable row', mode: 'strength', hint: '本地 cable setting + reps + RPE 才是比较单位。', dose: '10–14 / side' },
+  PU03: { title: 'One-arm cable row', mode: 'strength', hint: '器械档位 + 次数 + RPE 才是可比较记录。', dose: '10–14 / side' },
   CD02: { title: 'Incline treadmill walk', mode: 'cardio', hint: '当前高适配有氧候选；记录实际时长和 RPE。', dose: '15–35 min · RPE 4–6' },
   CD01: { title: 'Easy walk', mode: 'cardio', hint: '恢复 / 过渡候选；保持低负荷。', dose: '10–30 min' },
-  MV03: { title: '90/90 slow breathing', mode: 'recovery', hint: '低输入 reset；只有有实际作用时才使用。', dose: '3–6 slow breaths' },
+  MV03: { title: '90/90 slow breathing', mode: 'recovery', hint: '低输入恢复动作；只有实际有帮助时才使用。', dose: '3–6 slow breaths' },
   MV02: { title: 'Open-book rotation', mode: 'recovery', hint: '轻量胸椎活动；记录实际完成即可。', dose: '4–8 / side' }
 });
 

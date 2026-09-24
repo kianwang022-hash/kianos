@@ -204,7 +204,7 @@ try {
     await page.screenshot({ path: path.join(auditDir, 'month-1512x820.png'), fullPage: false });
 
     const bodyText = await page.locator('body').innerText();
-    check(!/coverage|validator|confidence|UNKNOWN|证据覆盖|候选规律/i.test(bodyText), 'backend_copy_leak');
+    check(!/coverage|validator|confidence|UNKNOWN|证据覆盖|候选规律|\bowner\b|provisional|schema|payload|hash|旧 PR|cable setting|\breset\b/i.test(bodyText), 'backend_copy_leak');
 
     const bodyOverflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     check(bodyOverflow <= 1, 'page_horizontal_overflow', String(bodyOverflow));
