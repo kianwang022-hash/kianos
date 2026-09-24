@@ -224,7 +224,7 @@ Presentation
 
 - **Artifact Truth** lives in the natural source/content/runtime owner.
 - **Acceptance Truth** lives in the narrowest applicable acceptance owner.
-- **Learner Truth** is private learner/runtime evidence and is never inferred from repository progress.
+- **Learner / execution evidence** is private runtime evidence of observed/reported activity and bounded derivations; it is never inferred from repository progress and does not by itself authorize broader interpretations such as stable mastery, preference or strategy.
 - **Work Cursor** routes active construction; it is not a durable semantic owner.
 - **Derived Read Model** is a read-only projection for another surface.
 - **Presentation** renders accepted meaning; it does not invent it.
@@ -256,7 +256,7 @@ Subject surfaces may own second-level information architecture and local composi
 
 The concrete Current L1 membership is **not duplicated in this contract**.
 
-`ARCHITECTURE.md` owns product-navigation semantics; `AUTHORITY_OWNERSHIP.json` registers the one shared navigation implementation owner at `static-web/src/lib/sharedNavigation.mjs`; `static-web/CURRENT.md` owns current website implementation/status. This contract owns only the invariant that there is one global rail and downstream surfaces consume it rather than recreating or mirroring its membership.
+`ARCHITECTURE.md` owns the durable product-responsibility model; `static-web/PRODUCT_SURFACE_CONTRACT.md` owns the current product surface split; `AUTHORITY_OWNERSHIP.json` registers the one shared navigation implementation owner at `static-web/src/lib/sharedNavigation.mjs`; `static-web/CURRENT.md` owns current website implementation/status. This contract owns only the invariant that there is one global rail and downstream surfaces consume it rather than recreating or mirroring its membership.
 
 Learner-product placement such as English child functions is resolved from the current Architecture / exact product owner, not restated here as another mutable navigation list.
 
