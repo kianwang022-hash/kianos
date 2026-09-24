@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.cognitive_projection.block.v1",
-  "status": "CALIBRATION_DERIVED_CURRENT",
+  "status": "CALIBRATION_DERIVED_CURRENT_REVALIDATED_2026_09_24",
   "system_id": "urinary",
   "block_id": "urinary-b05",
   "sources": [
@@ -8,13 +8,13 @@
       "id": "core",
       "kind": "MEDICAL_CORE",
       "path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md",
-      "blob_sha": "54da6727803de8c760efeef085ee0a5e27609bba"
+      "blob_sha": "65c61426a0d6d23d599d01d4df4cbf48d16f0399"
     },
     {
       "id": "learning",
       "kind": "LEARNING_SUPPORT",
       "path": "content/xizong/knowledge/learner/a3-urinary-learning.json",
-      "blob_sha": "f3f4fba9445b0fe17b0c254d3df798359e2cdf50"
+      "blob_sha": "9f4e7f2c563180305a3c403f7710e0aa5453bc45"
     },
     {
       "id": "external_contract",
@@ -275,5 +275,16 @@
   "calibration_notes": [
     "Tests a multi-source Block without promoting supplementary external sources into a learner-facing second owner.",
     "The same schema handles five-variable coordinates, priority algorithm and ownership boundary; no urinary-specific top-level schema branch is introduced."
-  ]
+  ],
+  "revalidation": {
+    "reason": "27 Surgery Source rebind changed the canonical B5 core blob; all five derived-fragment selectors and current handoff semantics were re-resolved against Current core.",
+    "selector_checks": [
+      "中心问题 labeled blockquote",
+      "five-variable coordinate anchor",
+      "priority algorithm anchor",
+      "urinary-b05-framework-main marker",
+      "2｜Ownership 与动作边界 heading"
+    ],
+    "result": "PASS_NO_SEMANTIC_RECOMPILE"
+  }
 }
