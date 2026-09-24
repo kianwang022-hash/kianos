@@ -17,6 +17,7 @@ on:
       - "static-web/scripts/test-current-build-recovery.mjs"
       - "static-web/scripts/test-current-static-slots.mjs"
       - "static-web/scripts/test-current-static-runtime.mjs"
+      - "static-web/scripts/test-current-runtime-reload.mjs"
       - "static-web/package.json"
       - "static-web/CURRENT.md"
       - ".github/workflows/current-static-runtime.yml"
@@ -47,6 +48,7 @@ jobs:
           node --check scripts/privateExternalReadingBridge.mjs
           node --check scripts/privateControlBridge.mjs
           node --check scripts/test-current-static-runtime.mjs
+          node --check scripts/test-current-runtime-reload.mjs
       - name: Verify Current build-impact gate
         run: node scripts/test-current-static-impact.mjs
       - name: Prove failed build retention and bounded retry
