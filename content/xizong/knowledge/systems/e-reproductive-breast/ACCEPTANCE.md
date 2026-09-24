@@ -50,7 +50,7 @@ S1 PASS does **not** mean every original figure is available or every clinical d
 
 Current canonical Block locators are operational. AI-reader `Source-local` pages and original-PDF/book pages are different coordinate systems; both may be retained when explicitly verified.
 
-Historical System Guide locators may aid re-binding, but historical coordinates do not override Current Block Source truth by themselves.
+Pre-cutover Guide locators preserved in Git history may aid bounded re-binding, but provenance coordinates never override Current Block Source truth by themselves.
 
 ### Preserved negative space
 
