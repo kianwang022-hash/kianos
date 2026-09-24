@@ -238,28 +238,32 @@ def audit_home_boundary(registry: dict) -> None:
     check("<ExamOrchestratorHome" in value, "HOME_CHAT_PLAN_PROJECTION_MISSING", rel(index_path))
 
 def audit_external_reading_boundary(registry: dict) -> None:
-    brief = registry.get("conditional_boundaries", {}).get("external_reading_product_brief")
-    if not isinstance(brief, str) or not (REPO / brief).is_file():
+    owner_s = registry.get("conditional_boundaries", {}).get("external_reading_owner")
+    check(isinstance(owner_s, str), "EXTERNAL_READING_OWNER_UNREGISTERED")
+    if not isinstance(owner_s, str):
+        return
+    owner = REPO / owner_s
+    check(owner.is_file(), "EXTERNAL_READING_OWNER_MISSING", owner_s)
+
+    workspace_s = "static-web/src/components/ExternalReadingWorkspace.astro"
+    workspace = REPO / workspace_s
+    check(workspace.is_file(), "EXTERNAL_READING_WORKSPACE_MISSING", workspace_s)
+    if not workspace.is_file():
         return
 
-    adapter = REPO / "static-web/src/components/SharedReadingWorkspace.astro"
-    if not adapter.is_file():
-        return
-    value = text(adapter)
+    value = text(workspace)
+    # External Reading may own its own local state. It may not reach into
+    # Reading A's private session / attempt stores merely to reuse a UI.
+    for token in (
+        "kianos-reading-continuous-session-v1",
+        "kianos-reading-attempt-v1:",
+        "kianos-reading-last-location-v1",
+    ):
+        check(token not in value, "EXTERNAL_READING_READS_FOREIGN_RUNTIME_KEY", f"{workspace_s}:{token}")
     check(
-        "kianos-reading-continuous-session-v1" not in value,
-        "ADAPTER_READS_FOREIGN_RUNTIME_KEY",
-        rel(adapter),
-    )
-    check(
-        "localStorage" not in value,
-        "ADAPTER_MUTATES_FOREIGN_RUNTIME_STORE",
-        rel(adapter),
-    )
-    check(
-        "querySelector" not in value,
-        "ADAPTER_PATCHES_OWNER_DOM_AFTER_RENDER",
-        rel(adapter),
+        "kianos-english-external-reading-attempt-v1:" in value,
+        "EXTERNAL_READING_OWN_STATE_IDENTITY_MISSING",
+        workspace_s,
     )
 
 
