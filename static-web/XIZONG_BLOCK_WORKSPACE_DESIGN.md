@@ -1,6 +1,6 @@
 # Xizong Block Workspace — accepted design
 
-Status: **CURRENT — MAC-WIDE BLOCK WORKSPACE + BLOCK TAIL HUMAN-GATE ACCEPTED / MERGED 2026-09-18**
+Status: **CURRENT — ACCEPTED BLOCK WORKSPACE DESIGN**
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
