@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.biochemistry-source-map.v1",
-  "status": "CURRENT_27_SOURCE_TRUTH_ARCHITECTURE_RECONCILIATION_REQUIRED",
+  "status": "CURRENT_27_DIRECT_BLOCK_LG_KP_MAPPING_COMPLETE_CONTENT_REACCEPTANCE_PENDING",
   "role": "Single machine owner for mapping the current 27 Biochemistry continuous Source lane onto stable canonical M1-M10/G1-G5 Knowledge without forcing learner switching.",
   "source": {
     "cycle": "27考研",
@@ -1057,41 +1057,45 @@
       "canonical_content": [
         {
           "block": "G5",
-          "layer": "L1",
           "kp": [
             1,
             5
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g05-lg01",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G5",
-          "layer": "L3",
           "kp": [
             6,
             11
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g05-lg03",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G4",
-          "layer": "L1",
           "kp": [
             1,
             2
           ],
           "role": "SUPPORT",
-          "note": "oncogene/epigenetic control interface only"
+          "note": "oncogene/epigenetic control interface only",
+          "logic_group": "b-g04-lg01",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G2",
-          "layer": "L2",
           "kp": [
             8,
             9
           ],
           "role": "SUPPORT",
-          "note": "reverse-transcription/cDNA interface only"
+          "note": "reverse-transcription/cDNA interface only",
+          "logic_group": "b-g02-lg02",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         }
       ]
     },
@@ -1123,30 +1127,33 @@
       "canonical_content": [
         {
           "block": "G1",
-          "layer": "L1",
           "kp": [
             1,
             3
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g01-lg01",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G1",
-          "layer": "L2",
           "kp": [
             4,
             6
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g01-lg02",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G1",
-          "layer": "L3",
           "kp": [
             7,
             9
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g01-lg03",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         }
       ]
     },
@@ -1184,41 +1191,45 @@
       "canonical_content": [
         {
           "block": "G2",
-          "layer": "L1",
           "kp": [
             1,
             7
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g02-lg01",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G2",
-          "layer": "L2",
           "kp": [
             8,
             9
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g02-lg02",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G2",
-          "layer": "L3",
           "kp": [
             10,
             11
           ],
           "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": true
+          "closes_block_source_contact": true,
+          "logic_group": "b-g02-lg03",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G5",
-          "layer": "L2",
           "kp": [
             12,
             13
           ],
           "role": "SUPPORT",
-          "note": "replication-fidelity/repair preview only"
+          "note": "replication-fidelity/repair preview only",
+          "logic_group": "b-g05-lg02",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         }
       ]
     },
@@ -1251,31 +1262,34 @@
       "canonical_content": [
         {
           "block": "G3",
-          "layer": "L1",
           "kp": [
             1,
             5
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g03-lg01",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G3",
-          "layer": "L2",
           "kp": [
             6,
             8
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g03-lg02",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G2",
-          "layer": "L3",
           "kp": [
             10,
             11
           ],
           "role": "SUPPORT_RECAP",
-          "note": "replication-vs-transcription comparison"
+          "note": "replication-vs-transcription comparison",
+          "logic_group": "b-g02-lg03",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         }
       ]
     },
@@ -1312,40 +1326,44 @@
       "canonical_content": [
         {
           "block": "G3",
-          "layer": "L3",
           "kp": [
             9,
             13
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g03-lg03",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G3",
-          "layer": "L4",
           "kp": [
             14,
             14
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g03-lg04",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G3",
-          "layer": "L5",
           "kp": [
             15,
             15
           ],
           "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": true
+          "closes_block_source_contact": true,
+          "logic_group": "b-g03-lg05",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G1",
-          "layer": "L3",
           "kp": [
             7,
             9
           ],
-          "role": "SUPPORT_APPLICATION"
+          "role": "SUPPORT_APPLICATION",
+          "logic_group": "b-g01-lg03",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         }
       ]
     },
@@ -1383,41 +1401,45 @@
       "canonical_content": [
         {
           "block": "G4",
-          "layer": "L1",
           "kp": [
             1,
             2
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g04-lg01",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G4",
-          "layer": "L2",
           "kp": [
             3,
             6
           ],
-          "role": "PRIMARY_FORMATION"
+          "role": "PRIMARY_FORMATION",
+          "logic_group": "b-g04-lg02",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G4",
-          "layer": "L3",
           "kp": [
             7,
             10
           ],
           "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": true
+          "closes_block_source_contact": true,
+          "logic_group": "b-g04-lg03",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G1",
-          "layer": "L4",
           "kp": [
             10,
             10
           ],
           "role": "SUPPORT",
-          "note": "expression-organization boundary"
+          "note": "expression-organization boundary",
+          "logic_group": "b-g01-lg04",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         }
       ]
     },
@@ -1446,23 +1468,25 @@
       "canonical_content": [
         {
           "block": "G1",
-          "layer": "L4",
           "kp": [
             10,
             10
           ],
           "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": true
+          "closes_block_source_contact": true,
+          "logic_group": "b-g01-lg04",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G4",
-          "layer": "L3",
           "kp": [
             7,
             10
           ],
           "role": "SUPPORT",
-          "note": "eukaryotic organization/regulation boundary"
+          "note": "eukaryotic organization/regulation boundary",
+          "logic_group": "b-g04-lg03",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         }
       ]
     },
@@ -1492,23 +1516,25 @@
       "canonical_content": [
         {
           "block": "G5",
-          "layer": "L2",
           "kp": [
             12,
             13
           ],
           "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": true
+          "closes_block_source_contact": true,
+          "logic_group": "b-g05-lg02",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         },
         {
           "block": "G2",
-          "layer": "L1",
           "kp": [
             1,
             7
           ],
           "role": "SUPPORT",
-          "note": "repair/fidelity boundary"
+          "note": "repair/fidelity boundary",
+          "logic_group": "b-g02-lg01",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
         }
       ]
     }
@@ -1613,46 +1639,14 @@
     "system/cross-system + learning + question/explanation/evidence reconciliation"
   ],
   "canonical_mapping_semantics": {
-    "role": "Temporary grouping evidence from the interrupted rebase. Current canonical hierarchy is System→Block→Logic Group→KP; final Source routing must bind directly to existing Block/LG/KP owners or explicit support/Connection roles.",
-    "block_layers": {
-      "G1": {
-        "L1": "nucleic identity, direction and measurement / KP01–KP03",
-        "L2": "DNA double helix, packaging and reversible opening / KP04–KP06",
-        "L3": "RNA, genetic code and pre-translation accuracy / KP07–KP09",
-        "L4": "eukaryotic genome organization / KP10"
-      },
-      "G2": {
-        "L1": "DNA replication execution system / KP01–KP07",
-        "L2": "telomere and reverse-transcription solutions / KP08–KP09",
-        "L3": "nuclease/ligase/primer and replication-transcription exit compare / KP10–KP11"
-      },
-      "G3": {
-        "L1": "transcription execution / KP01–KP05",
-        "L2": "RNA processing and quality control / KP06–KP08",
-        "L3": "translation execution / KP09–KP13",
-        "L4": "protein maturation / KP14",
-        "L5": "protein targeting and translation-interference boundary / KP15"
-      },
-      "G4": {
-        "L1": "expression specificity, chromatin access and epigenetic gate / KP01–KP02",
-        "L2": "prokaryotic operon control / KP03–KP06",
-        "L3": "eukaryotic cis/trans/PIC and post-transcriptional control / KP07–KP10"
-      },
-      "G5": {
-        "L1": "proto-oncogene/tumor-suppressor growth-control failure / KP01–KP05",
-        "L2": "mutation classes and DNA repair systems / KP12–KP13",
-        "L3": "recombinant DNA, PCR, blot and interaction-tool map / KP06–KP11"
-      }
-    },
-    "status": "PROVISIONAL_NOT_CANONICAL"
+    "role": "Direct Source→existing Block/Logic Group/KP mapping plus explicit support/Connection roles. Source teacher order does not create a parallel Knowledge hierarchy.",
+    "status": "CURRENT_DIRECT_BLOCK_LG_KP"
   },
-  "source_map_status": "SOURCE_IDENTITY_AND_UNIT_ORDER_CURRENT; LAYER_MAPPING_PROVISIONAL_NOT_CANONICAL",
+  "source_map_status": "CURRENT_22_UNIT_DIRECT_BLOCK_LG_KP_MAPPING_COMPLETE",
   "mapping_completion": {
-    "status": "REOPENED_FOR_DIRECT_BLOCK_LG_KP_RECONCILIATION",
+    "status": "DIRECT_BLOCK_LG_KP_MAPPING_COMPLETE",
     "source_units": 22,
     "canonical_blocks": 15,
-    "preserved_truth": "Source identity, teacher order, page ranges, Source boundaries/conflicts, and reviewed 27-vs-26 semantic findings remain usable.",
-    "invalidated_claim": "22-unit → canonical L-layer completion is not an accepted architecture result.",
     "reconciled_blocks": [
       "M1",
       "M2",
@@ -1663,8 +1657,16 @@
       "M7",
       "M8",
       "M9",
-      "M10"
-    ]
+      "M10",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5"
+    ],
+    "remaining_parallel_layer_refs": 0,
+    "preserved_truth": "Source identity, teacher order, page ranges, explicit Source conflicts/bounds, and reviewed 27-vs-26 semantic findings remain current.",
+    "acceptance_boundary": "This proves Source routing architecture only; K/L/Content/P acceptance remains separate."
   },
   "architecture_rule": {
     "canonical_hierarchy": "System → Block → Logic Group → KP",
@@ -2346,6 +2348,431 @@
         }
       },
       "rule": "No intermediate canonical layer. Source order remains teacher authority; LG/KP identity remains Learning/Knowledge authority."
+    },
+    "G1": {
+      "status": "RECONCILED_CURRENT",
+      "hierarchy": "Block → Logic Group → KP",
+      "source_bindings": [
+        {
+          "source_unit": "BIO27-S16",
+          "pdf": [
+            105,
+            114
+          ],
+          "logic_group": "b-g01-lg01",
+          "kp": [
+            1,
+            3
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S16",
+          "pdf": [
+            105,
+            114
+          ],
+          "logic_group": "b-g01-lg02",
+          "kp": [
+            4,
+            6
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S16",
+          "pdf": [
+            105,
+            114
+          ],
+          "logic_group": "b-g01-lg03",
+          "kp": [
+            7,
+            9
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S19",
+          "pdf": [
+            139,
+            150
+          ],
+          "logic_group": "b-g01-lg03",
+          "kp": [
+            7,
+            9
+          ],
+          "role": "SUPPORT_APPLICATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S20",
+          "pdf": [
+            151,
+            165
+          ],
+          "logic_group": "b-g01-lg04",
+          "kp": [
+            10,
+            10
+          ],
+          "role": "SUPPORT",
+          "closes_block_source_contact": false,
+          "note": "expression-organization boundary"
+        },
+        {
+          "source_unit": "BIO27-S21",
+          "pdf": [
+            166,
+            168
+          ],
+          "logic_group": "b-g01-lg04",
+          "kp": [
+            10,
+            10
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true,
+          "note": null
+        }
+      ],
+      "rule": "No intermediate canonical layer. Source order remains teacher authority; canonical KP/file order and learner order remain separate concerns."
+    },
+    "G2": {
+      "status": "RECONCILED_CURRENT",
+      "hierarchy": "Block → Logic Group → KP",
+      "source_bindings": [
+        {
+          "source_unit": "BIO27-S15",
+          "pdf": [
+            93,
+            104
+          ],
+          "logic_group": "b-g02-lg02",
+          "kp": [
+            8,
+            9
+          ],
+          "role": "SUPPORT",
+          "closes_block_source_contact": false,
+          "note": "reverse-transcription/cDNA interface only"
+        },
+        {
+          "source_unit": "BIO27-S17",
+          "pdf": [
+            115,
+            127
+          ],
+          "logic_group": "b-g02-lg01",
+          "kp": [
+            1,
+            7
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S17",
+          "pdf": [
+            115,
+            127
+          ],
+          "logic_group": "b-g02-lg02",
+          "kp": [
+            8,
+            9
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S17",
+          "pdf": [
+            115,
+            127
+          ],
+          "logic_group": "b-g02-lg03",
+          "kp": [
+            10,
+            11
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S18",
+          "pdf": [
+            128,
+            138
+          ],
+          "logic_group": "b-g02-lg03",
+          "kp": [
+            10,
+            11
+          ],
+          "role": "SUPPORT_RECAP",
+          "closes_block_source_contact": false,
+          "note": "replication-vs-transcription comparison"
+        },
+        {
+          "source_unit": "BIO27-S22",
+          "pdf": [
+            169,
+            170
+          ],
+          "logic_group": "b-g02-lg01",
+          "kp": [
+            1,
+            7
+          ],
+          "role": "SUPPORT",
+          "closes_block_source_contact": false,
+          "note": "repair/fidelity boundary"
+        }
+      ],
+      "rule": "No intermediate canonical layer. Source order remains teacher authority; canonical KP/file order and learner order remain separate concerns."
+    },
+    "G3": {
+      "status": "RECONCILED_CURRENT",
+      "hierarchy": "Block → Logic Group → KP",
+      "source_bindings": [
+        {
+          "source_unit": "BIO27-S18",
+          "pdf": [
+            128,
+            138
+          ],
+          "logic_group": "b-g03-lg01",
+          "kp": [
+            1,
+            5
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S18",
+          "pdf": [
+            128,
+            138
+          ],
+          "logic_group": "b-g03-lg02",
+          "kp": [
+            6,
+            8
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S19",
+          "pdf": [
+            139,
+            150
+          ],
+          "logic_group": "b-g03-lg03",
+          "kp": [
+            9,
+            13
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S19",
+          "pdf": [
+            139,
+            150
+          ],
+          "logic_group": "b-g03-lg04",
+          "kp": [
+            14,
+            14
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S19",
+          "pdf": [
+            139,
+            150
+          ],
+          "logic_group": "b-g03-lg05",
+          "kp": [
+            15,
+            15
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true,
+          "note": null
+        }
+      ],
+      "rule": "No intermediate canonical layer. Source order remains teacher authority; canonical KP/file order and learner order remain separate concerns."
+    },
+    "G4": {
+      "status": "RECONCILED_CURRENT",
+      "hierarchy": "Block → Logic Group → KP",
+      "source_bindings": [
+        {
+          "source_unit": "BIO27-S15",
+          "pdf": [
+            93,
+            104
+          ],
+          "logic_group": "b-g04-lg01",
+          "kp": [
+            1,
+            2
+          ],
+          "role": "SUPPORT",
+          "closes_block_source_contact": false,
+          "note": "oncogene/epigenetic control interface only"
+        },
+        {
+          "source_unit": "BIO27-S20",
+          "pdf": [
+            151,
+            165
+          ],
+          "logic_group": "b-g04-lg01",
+          "kp": [
+            1,
+            2
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S20",
+          "pdf": [
+            151,
+            165
+          ],
+          "logic_group": "b-g04-lg02",
+          "kp": [
+            3,
+            6
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S20",
+          "pdf": [
+            151,
+            165
+          ],
+          "logic_group": "b-g04-lg03",
+          "kp": [
+            7,
+            10
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S21",
+          "pdf": [
+            166,
+            168
+          ],
+          "logic_group": "b-g04-lg03",
+          "kp": [
+            7,
+            10
+          ],
+          "role": "SUPPORT",
+          "closes_block_source_contact": false,
+          "note": "eukaryotic organization/regulation boundary"
+        }
+      ],
+      "rule": "No intermediate canonical layer. Source order remains teacher authority; canonical KP/file order and learner order remain separate concerns."
+    },
+    "G5": {
+      "status": "RECONCILED_CURRENT",
+      "hierarchy": "Block → Logic Group → KP",
+      "source_bindings": [
+        {
+          "source_unit": "BIO27-S15",
+          "pdf": [
+            93,
+            104
+          ],
+          "logic_group": "b-g05-lg01",
+          "kp": [
+            1,
+            5
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S15",
+          "pdf": [
+            93,
+            104
+          ],
+          "logic_group": "b-g05-lg03",
+          "kp": [
+            6,
+            11
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": false,
+          "note": null
+        },
+        {
+          "source_unit": "BIO27-S17",
+          "pdf": [
+            115,
+            127
+          ],
+          "logic_group": "b-g05-lg02",
+          "kp": [
+            12,
+            13
+          ],
+          "role": "SUPPORT",
+          "closes_block_source_contact": false,
+          "note": "replication-fidelity/repair preview only"
+        },
+        {
+          "source_unit": "BIO27-S22",
+          "pdf": [
+            169,
+            170
+          ],
+          "logic_group": "b-g05-lg02",
+          "kp": [
+            12,
+            13
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true,
+          "note": null
+        }
+      ],
+      "rule": "No intermediate canonical layer. Source order remains teacher authority; canonical KP/file order and learner order remain separate concerns."
     }
   }
 }
