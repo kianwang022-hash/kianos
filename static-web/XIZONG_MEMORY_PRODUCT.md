@@ -1,6 +1,6 @@
 # Xizong Memory Workspace
 
-Status: **IMPLEMENTATION CONTRACT · PHASE 1**  
+Status: **CURRENT PRODUCT / RUNTIME CONTRACT**  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md` §12.5–12.7  
 Execution policy: `content/xizong/knowledge/learner/study-policy.json`  
 Visual reference: `static-web/XIZONG_VISUAL_REFERENCE.md`
