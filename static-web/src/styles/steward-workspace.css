@@ -351,19 +351,73 @@
   line-height: 1.4;
 }
 
-.stewardActualSegment {
+.stewardActualBlock {
   position: absolute;
-  right: 5px;
-  width: 10px;
-  min-height: 4px;
-  border-radius: 99px;
-  background: var(--actual-color, var(--study-green));
-  opacity: .78;
+  z-index: 3;
+  overflow: hidden;
+  border-left: 3px solid var(--actual-color, var(--study-green));
+  border-radius: 6px;
+  background: rgba(255,255,255,.92);
+  box-shadow: inset 0 0 0 1px rgba(32,52,44,.10);
+  padding: 5px 8px;
 }
 
-.stewardActualSegment[data-subject="english"] { --actual-color: #667fa0; }
-.stewardActualSegment[data-subject="politics"] { --actual-color: #9a7b4f; }
-.stewardActualSegment[data-subject="xizong"] { --actual-color: #4d806f; }
+.stewardActualBlock.withPlan {
+  right: 7px;
+  left: 58%;
+}
+
+.stewardActualBlock.withoutPlan {
+  right: 8px;
+  left: 10px;
+  background: color-mix(in srgb, var(--actual-soft, var(--study-green-soft)) 64%, white);
+}
+
+.stewardActualBlock[data-subject="english"] {
+  --actual-color: #667fa0;
+  --actual-soft: #eef2f7;
+}
+
+.stewardActualBlock[data-subject="politics"] {
+  --actual-color: #9a7b4f;
+  --actual-soft: #f7f1e8;
+}
+
+.stewardActualBlock[data-subject="xizong"] {
+  --actual-color: #4d806f;
+  --actual-soft: #edf5f1;
+}
+
+.stewardActualBlock strong,
+.stewardActualBlock span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stewardActualBlock strong {
+  color: var(--study-ink);
+  font-size: 15px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.25;
+}
+
+.stewardActualBlock span {
+  margin-top: 1px;
+  color: var(--study-muted);
+  font-size: 15px;
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.2;
+}
+
+.stewardActualBlock.short {
+  padding-block: 2px;
+}
+
+.stewardActualBlock.short span {
+  display: none;
+}
 
 .stewardNowLine {
   position: absolute;
