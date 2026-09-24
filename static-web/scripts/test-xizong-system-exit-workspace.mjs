@@ -78,7 +78,7 @@ const eligible=sweep.questions.filter((q)=>Number(q.year)!==holdoutYear);
 const firstQuestion=eligible[0];
 const wrongOption=firstQuestion.options.find((option)=>!answerLetters(firstQuestion.correctAnswer).includes(option.label));
 check(Boolean(wrongOption),'fixture_wrong_option');
-check(Array.isArray(currentQuestion.explanation?.reasoningChain)&&currentQuestion.explanation.reasoningChain.length>0,'fixture_reasoning_chain_projected',firstQuestion.questionId);
+check(Array.isArray(firstQuestion.explanation?.reasoningChain)&&firstQuestion.explanation.reasoningChain.length>0,'fixture_reasoning_chain_projected',firstQuestion.questionId);
 
 const reviewedTarget=eligible.find((q)=>q.relation?.knowledgePath && ['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(q.relation?.targetStatus));
 const missingTarget=eligible.find((q)=>q.questionId!==reviewedTarget?.questionId && !q.relation);
