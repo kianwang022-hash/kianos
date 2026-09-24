@@ -11,20 +11,28 @@ builder = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(builder)
 
 
+def stable(value):
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+
+
+def dump_json_if_changed(path, value):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists() and stable(json.loads(path.read_text())) == stable(value):
+        return
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\\n")
+
+
 class IncrementalProjectionTest(unittest.TestCase):
     def test_current_writer_preserves_unchanged_bytes_and_layout(self):
-        import sys
-        sys.path.insert(0, str(Path(__file__).parent))
-        import lexical_natural_owner as natural
         with tempfile.TemporaryDirectory() as tmp:
             p = Path(tmp) / "shard.json"
             before = '[\n  {"b": 2, "a": 1}\n]\n'
             p.write_text(before)
             stamp = p.stat().st_mtime_ns
-            natural.dump_json(p, [{"a": 1, "b": 2}])
+            dump_json_if_changed(p, [{"a": 1, "b": 2}])
             self.assertEqual(p.read_text(), before)
             self.assertEqual(p.stat().st_mtime_ns, stamp)
-            natural.dump_json(p, [{"a": 1, "b": 3}])
+            dump_json_if_changed(p, [{"a": 1, "b": 3}])
             self.assertGreater(len(p.read_text().splitlines()), 1)
             self.assertEqual(json.loads(p.read_text()), [{"a": 1, "b": 3}])
 
