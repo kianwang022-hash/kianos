@@ -1,17 +1,17 @@
-# Lexical Visual / Surface Blueprint — Candidate
+# Lexical Visual / Surface Blueprint
 
-Status: **VOCABULARY V2 LEARNER SURFACE ACCEPTED — 2026-09-18**  
+Status: **CURRENT — ACCEPTED LEXICAL VISUAL / SURFACE BLUEPRINT OWNER**  
 Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Rule / Model owner: `content/lexical/LEARNING_CONTRACT.md`  
 Content-quality owner: `content/lexical/CONTENT_ASSET_CONTRACT.md`  
 Control router: `content/lexical/CURRENT.md`
 
-This file defines the **candidate learner-facing Vocabulary / Lexical product model** under Architecture v2.
+This file defines the current learner-facing Vocabulary / Lexical Visual / Surface blueprint under Architecture v2.
 
 It does not own lexical semantics, learner state, evidence meaning, scheduler policy or Engineering implementation.
 
-Material page geometry remains candidate until Kian reviews real-browser screenshots, except the accepted L3 Depth baseline recorded below.
+Only geometry not explicitly accepted below remains subject to its applicable Human Gate. Engineering/implementation status lives in `static-web/CURRENT.md` and exact surface/runtime owners, not in this design owner.
 
 ---
 
