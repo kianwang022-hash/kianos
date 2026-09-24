@@ -1,10 +1,10 @@
 # Lexical Baseline-v2 o0101–o0200 — Final-Standard Fresh Independent Audit Brief
 
-Status: READY_FOR_FRESH_INDEPENDENT_AUDIT  
-Candidate: `BF01`  
-Candidate branch: `work/lexical-continuous-bf01-20260920`  
-Materialized learner-object head: `2652aa1ae8172a7904d315d45f74ce6a90e20dee`  
-Semantic standard: `content/lexical/FINAL_SEMANTIC_FREEZE.md`
+Status: READY_FOR_FRESH_INDEPENDENT_AUDIT
+Candidate: `BF01`
+Candidate branch: `work/lexical-continuous-bf01-20260920`
+Materialized learner-object head: `2652aa1ae8172a7904d315d45f74ce6a90e20dee`
+Semantic standard: `content/lexical/audit/history/2026-09-final-catalog/FINAL_SEMANTIC_FREEZE.md`
 
 This candidate is the mechanically materialized result of the already Human-approved o0101–o0200 Production proposal. It is not permission to reopen the broad semantic standard.
 
@@ -34,7 +34,7 @@ Before opening Production reasoning:
    - `content/lexical/INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md`
    - `content/lexical/SEMANTIC_AUDIT_RISK_ROUTER_SPEC.md`
    - `content/lexical/CONTENT_EXECUTION.md`
-   - `content/lexical/FINAL_SEMANTIC_FREEZE.md`
+   - `content/lexical/audit/history/2026-09-final-catalog/FINAL_SEMANTIC_FREEZE.md`
 4. inspect candidate Word owners plus mandatory Relation/Form/Test dependencies;
 5. record Pass-A provisional desired states **before** reading the detailed Production proposal.
 

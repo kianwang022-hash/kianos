@@ -7,7 +7,8 @@ import {
   buildExamChatPlanBasis,
   validateExamChatPlan,
   readExamChatPlan,
-  writeExamChatPlan
+  writeExamChatPlan,
+  examChatPlanEffectMatches
 } from '../src/lib/examChatPlan.mjs';
 import { buildChatControlledExamReadModel } from '../src/lib/examPlanReadModel.mjs';
 import { applyPrivateControlCommand } from '../src/lib/privateControlRuntime.mjs';
@@ -20,6 +21,7 @@ const readRepo = (rel) => fs.readFileSync(path.join(repoRoot, rel), 'utf8');
 const fail = (code, detail = '') => { throw new Error(`${code}${detail ? `:${detail}` : ''}`); };
 
 const client = readWeb('src/lib/examOrchestratorClient.mjs');
+const orchestrator = readWeb('src/lib/examOrchestrator.mjs');
 const home = readWeb('src/components/ExamOrchestratorHome.astro');
 const contract = readRepo('EXAM_ORCHESTRATOR_CONTRACT.md');
 
@@ -32,7 +34,24 @@ for (const required of ['readExamChatPlan', 'buildChatControlledExamReadModel', 
 // Chat ownership is a runtime/contract invariant, not mandatory learner-facing copy.
 if (home.includes('保存并重排') || home.includes('自动重排三科')) fail('HOME_LOCAL_REPLAN_COPY_REGRESSION');
 if (!contract.includes('## 0｜Current control boundary — Chat owns orchestration')) fail('CHAT_AUTHORITY_CONTRACT_MISSING');
-if (!contract.includes('no production learner surface may call it')) fail('LEGACY_PLANNER_PRODUCTION_BAN_MISSING');
+if (orchestrator.includes('buildExamPlan')) fail('AUTONOMOUS_PLANNER_IMPLEMENTATION_REINTRODUCED');
+if (fs.existsSync(path.join(webRoot, 'src/lib/examDemand.mjs'))) fail('AUTONOMOUS_DEMAND_READER_REINTRODUCED');
+if (!contract.includes('It may not independently choose subject allocation, priority or next action.')) {
+  fail('CHAT_ONLY_STRATEGY_CONTRACT_MISSING');
+}
+
+let futurePlanRejected = false;
+try {
+  validateExamChatPlan({
+    schema: EXAM_CHAT_PLAN_SCHEMA,
+    study_day: '2099-01-01',
+    generated_at: '2099-01-01T00:00:00Z',
+    subjects: {}
+  }, '2099-01-01');
+} catch (error) {
+  futurePlanRejected = String(error?.message || '') === 'CHAT_PLAN_FUTURE_GENERATED_AT';
+}
+if (!futurePlanRejected) fail('FUTURE_CHAT_PLAN_MUST_REJECT_AT_NATIVE_OWNER');
 
 const sample = validateExamChatPlan({
   schema: EXAM_CHAT_PLAN_SCHEMA,
@@ -94,6 +113,23 @@ const storage = {
 const stale = readExamChatPlan(storage, '2026-09-18');
 if (stale.status !== 'stale' || stale.plan !== null) fail('STALE_PLAN_MUST_FAIL_CLOSED');
 
+const staleProjection = buildChatControlledExamReadModel({
+  day: '2026-09-18',
+  chatPlanState: {
+    status: 'stale',
+    plan: null,
+    presentation: {
+      today_tasks: [{ id: 'old-task', label: 'old task' }],
+      week_reference: [],
+      schedule_blocks: [{ id: 'old-block', start: '10:00', end: null, label: 'old block' }]
+    }
+  },
+  nativeContinue
+});
+if (staleProjection.presentation !== null) {
+  fail('STALE_PLAN_PRESENTATION_MUST_FAIL_CLOSED');
+}
+
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -102,6 +138,34 @@ class MemoryStorage {
   getItem(key) { return this.map.has(key) ? this.map.get(key) : null; }
   setItem(key, value) { this.map.set(String(key), String(value)); }
   removeItem(key) { this.map.delete(String(key)); }
+}
+
+const recoveryStorage = new MemoryStorage();
+const recoveryBasis = buildExamChatPlanBasis(recoveryStorage, '2026-09-18');
+const recoveryPlan = {
+  ...sample,
+  generated_at: '2026-09-18T05:00:00+08:00',
+  learner_evidence_basis: recoveryBasis
+};
+recoveryStorage.setItem(EXAM_CHAT_PLAN_KEY, JSON.stringify({
+  ...recoveryPlan,
+  generated_at: '2099-01-01T00:00:00Z'
+}));
+if (readExamChatPlan(recoveryStorage, '2026-09-18').status !== 'invalid') {
+  fail('FUTURE_POISONED_PLAN_MUST_NOT_READ_READY');
+}
+writeExamChatPlan(recoveryStorage, recoveryPlan, '2026-09-18');
+const recoveredPlan = readExamChatPlan(recoveryStorage, '2026-09-18');
+if (recoveredPlan.status !== 'ready'
+    || Date.parse(recoveredPlan.plan?.generated_at || 0) !== Date.parse(recoveryPlan.generated_at)) {
+  fail('VALID_PLAN_MUST_RECOVER_FROM_FUTURE_POISON');
+}
+if (!examChatPlanEffectMatches(recoveryStorage, recoveryPlan, '2026-09-18')) {
+  fail('RECOVERED_PLAN_EFFECT_READBACK_MUST_MATCH');
+}
+recoveryStorage.removeItem(EXAM_CHAT_PLAN_KEY);
+if (examChatPlanEffectMatches(recoveryStorage, recoveryPlan, '2026-09-18')) {
+  fail('MISSING_PLAN_EFFECT_MUST_NOT_MATCH');
 }
 
 const evidenceStorage = new MemoryStorage();
@@ -115,6 +179,37 @@ writeExamChatPlan(evidenceStorage, e0Plan, '2026-09-18');
 if (readExamChatPlan(evidenceStorage, '2026-09-18').status !== 'ready') {
   fail('CURRENT_BASIS_PLAN_MUST_BE_READY');
 }
+
+let olderPlanRejected = false;
+try {
+  writeExamChatPlan(evidenceStorage, {
+    ...e0Plan,
+    generated_at: '2026-09-18T04:59:00+08:00',
+    subjects: { ...e0Plan.subjects, english: { target_minutes: 30, role: 'older' } }
+  }, '2026-09-18');
+} catch (error) {
+  olderPlanRejected = String(error?.message || '') === 'CHAT_PLAN_OLDER_THAN_CURRENT';
+}
+if (!olderPlanRejected) fail('OLDER_SAME_DAY_PLAN_MUST_NOT_OVERWRITE_CURRENT');
+const currentAfterOlderReject = readExamChatPlan(evidenceStorage, '2026-09-18').plan;
+if (!currentAfterOlderReject
+    || Date.parse(currentAfterOlderReject.generated_at) !== Date.parse(e0Plan.generated_at)) {
+  fail('OLDER_PLAN_REJECTION_MUST_PRESERVE_CURRENT');
+}
+
+const idempotentPlan = writeExamChatPlan(evidenceStorage, e0Plan, '2026-09-18');
+if (Date.parse(idempotentPlan.generated_at) !== Date.parse(e0Plan.generated_at)) fail('IDENTICAL_PLAN_REPLAY_MUST_BE_IDEMPOTENT');
+
+let sameGenerationConflictRejected = false;
+try {
+  writeExamChatPlan(evidenceStorage, {
+    ...e0Plan,
+    subjects: { ...e0Plan.subjects, english: { target_minutes: 31, role: 'conflict' } }
+  }, '2026-09-18');
+} catch (error) {
+  sameGenerationConflictRejected = String(error?.message || '') === 'CHAT_PLAN_GENERATION_CONFLICT';
+}
+if (!sameGenerationConflictRejected) fail('SAME_GENERATION_CONFLICT_MUST_REJECT');
 
 evidenceStorage.setItem('kianos-politics-evidence-v1', JSON.stringify([{
   schema: 'kianos.politics.analysis-evidence.v1',
@@ -203,6 +298,29 @@ if (controlStorage.getItem(EXAM_CHAT_PLAN_KEY) !== null) {
   fail('PRIVATE_CONTROL_STALE_BASIS_MUST_NOT_WRITE_PLAN');
 }
 
+const poisonedControlStorage = new MemoryStorage();
+const poisonedControlBasis = buildExamChatPlanBasis(poisonedControlStorage, '2026-09-18');
+const poisonedRecoveryPlan = {
+  ...sample,
+  generated_at: '2026-09-18T05:30:00+08:00',
+  learner_evidence_basis: poisonedControlBasis
+};
+poisonedControlStorage.setItem(EXAM_CHAT_PLAN_KEY, JSON.stringify({
+  ...poisonedRecoveryPlan,
+  generated_at: '2099-01-01T00:00:00Z'
+}));
+const poisonedRecovery = await applyPrivateControlCommand(
+  poisonedControlStorage,
+  browserCommand('control-future-poison-recovery-001', poisonedRecoveryPlan),
+  { day: '2026-09-18', now: Date.parse('2026-09-18T05:31:00+08:00') }
+);
+if (poisonedRecovery.status !== 'applied') fail('PRIVATE_CONTROL_FUTURE_POISON_MUST_REAPPLY');
+const recoveredControlPlan = readExamChatPlan(poisonedControlStorage, '2026-09-18');
+if (recoveredControlPlan.status !== 'ready'
+    || Date.parse(recoveredControlPlan.plan?.generated_at || 0) !== Date.parse(poisonedRecoveryPlan.generated_at)) {
+  fail('PRIVATE_CONTROL_FUTURE_POISON_RECOVERY_FAILED');
+}
+
 const controlBasisE1 = buildExamChatPlanBasis(controlStorage, '2026-09-18');
 const controlPlanE1 = {
   ...controlPlanE0,
@@ -218,6 +336,23 @@ if (privateApplied.status !== 'applied' || !controlStorage.getItem(EXAM_CHAT_PLA
   fail('PRIVATE_CONTROL_FRESH_BASIS_MUST_APPLY');
 }
 
+// A durable control receipt is not proof that its native effect still exists.
+// If local plan bytes disappear, replay of the exact same command must
+// reconcile through the native plan owner instead of returning false idempotency.
+controlStorage.removeItem(EXAM_CHAT_PLAN_KEY);
+const repairedAfterLostEffect = await applyPrivateControlCommand(
+  controlStorage,
+  browserCommand('control-basis-fresh-001', controlPlanE1),
+  { day: '2026-09-18', now: Date.parse('2026-09-18T05:26:00+08:00') }
+);
+if (repairedAfterLostEffect.status === 'idempotent') {
+  fail('CONTROL_RECEIPT_MUST_NOT_HIDE_MISSING_NATIVE_EFFECT');
+}
+if (!controlStorage.getItem(EXAM_CHAT_PLAN_KEY)
+    || readExamChatPlan(controlStorage, '2026-09-18').status !== 'ready') {
+  fail('CONTROL_REPLAY_MUST_RESTORE_MISSING_NATIVE_EFFECT');
+}
+
 console.log(JSON.stringify({
   status: 'PASS',
   strategy_owner: model.control.strategyOwner,
@@ -227,9 +362,18 @@ console.log(JSON.stringify({
   missing_plan_infers_allocation: false,
   missing_plan_infers_next: false,
   stale_plan_fails_closed: true,
+  stale_plan_presentation_hidden: true,
+  older_same_day_plan_rejected: true,
+  identical_plan_replay_idempotent: true,
+  same_generation_conflict_rejected: true,
+  future_plan_rejected: true,
+  future_poison_recoverable: true,
+  native_plan_effect_readback_required: true,
   learner_evidence_basis_required: true,
   politics_e1_stales_e0_plan: true,
   later_stability_stales_old_heavy_plan: true,
   private_control_stale_basis_rejected: true,
-  private_control_fresh_basis_applied: true
+  private_control_fresh_basis_applied: true,
+  private_control_future_poison_recoverable: true,
+  private_control_receipt_requires_native_effect: true
 }, null, 2));

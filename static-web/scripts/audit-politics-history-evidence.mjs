@@ -12,7 +12,7 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
   : path.resolve(process.cwd(), '..');
 
 const unitReturnEnhancer = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/PoliticsUnitReturnEnhancer.astro'), 'utf8');
-const chapterRuntime = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/PoliticsChapterRuntime.astro'), 'utf8');
+const practiceClient = fs.readFileSync(path.join(repoRoot, 'static-web/src/lib/politicsPracticeClient.mjs'), 'utf8');
 const failures = [];
 
 function emptyStore() {
@@ -48,10 +48,10 @@ for (const requiredSnippet of [
   }
 }
 
-if (!chapterRuntime.includes('if (needsRepair) recordPoliticsEvidence')) {
+if (!practiceClient.includes("if (p.outcome === 'WRONG' || p.uncertain) {")) {
   failures.push({ code: 'HISTORY_E_DURABLE_REPAIR_DEBT_NOT_GATED' });
 }
-if (!chapterRuntime.includes("outcome,\n      selected,")) {
+if (!practiceClient.includes("outcome: p.outcome, uncertain: p.uncertain, selected: p.selected, correct_answer: p.review.answer")) {
   failures.push({ code: 'HISTORY_E_REPAIR_EVENT_OUTCOME_NOT_PRESERVED' });
 }
 

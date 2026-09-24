@@ -130,5 +130,5 @@ if (!process.exitCode) {
   }));
 }
 
-await import('./audit-politics-k03-pilot.mjs');
+await import('./audit-politics-k03-runtime-evidence.mjs');
 await import('./validate-politics-repair-memory.mjs');

@@ -13,7 +13,7 @@
 
 ## 0. Maturity admission discipline
 
-This standard is **KianOS-owned**. Its acceptance semantics inherit from `LEARNING_ACCEPTANCE.md`, the exact subject owners and KianOS architecture/authority rules. Personal OS `SYSTEM_ULTRA_MATURITY_STANDARD.md` may be consulted only as a cross-system P5/P6 risk catalog when that audit is explicitly in scope; it is not an upstream subject gate, startup read or authority over KianOS learning acceptance.
+This standard is **KianOS-owned**. Its acceptance semantics inherit from `LEARNING_ACCEPTANCE.md`, the exact subject owners and KianOS architecture/authority rules. Cross-system P5/P6 attack work belongs to the parent convergence project when explicitly in scope; it is not an upstream subject gate, startup read or authority over KianOS learning acceptance.
 
 Old claims such as “content complete / integration green / one Fresh audit PASS” are evidence only. They do not automatically establish final subject maturity.
 

@@ -65,13 +65,12 @@ ACCEPTANCE_PATHS = discover_acceptance_paths()
 # a competing status / continuation owner and must fail closed.
 RETIRED_JSON_PATHS = []
 
-RETIRED_MARKDOWN_PATHS = [
+RETIRED_MARKDOWN_PATHS = []
+
+ABSENT_RETIRED_PATHS = [
     "content/english/FINAL_LEARNER_ACCEPTANCE_BRIEF.md",
     "content/politics/FINAL_LEARNER_ACCEPTANCE_BRIEF.md",
     "content/xizong/FINAL_LEARNER_ACCEPTANCE_BRIEF.md",
-]
-
-ABSENT_RETIRED_PATHS = [
     "RECOVERY_COGNITIVE_CAPACITY_MODEL.md",
     "RECOVERY_COGNITIVE_CAPACITY_ACCEPTANCE.md",
     "content/english/continuation.json",

@@ -8,29 +8,6 @@
     "senses": {"manifest":"content/lexical/canonical/senses/manifest.json","manifest_blob":"c4cbc5c5e1e26a9e41e9b1ef2160187bdf018b3f","max_shard_bytes":84703,"record_count":19499,"selected_width":32,"shard_count":249,"unanchored_record_count":0},
     "words": {"manifest":"content/lexical/canonical/words/manifest.json","manifest_blob":"36047371178bf17b3767141023c067ab3f37a01e","max_shard_bytes":130987,"record_count":7946,"selected_width":8,"shard_count":994,"unanchored_record_count":0}
   },
-  "compatibility_projections": {
-    "authoritative": false,
-    "files": [
-      {"blob":"9c4ec2b1d5da6b8942b88cd62b3a8e547316c1c2","logical_store":"words","path":"word_card_bundles.v3.jsonl","sha256":"b969a44ae3a7b7ea6418f9f97ba64ff8d16ce35637df599b1468be8dea2564f8","size":24655152,"status":"NON_AUTHORITATIVE_REBUILDABLE_COMPATIBILITY_PROJECTION"},
-      {"blob":"b40b49eefdfc4b9a123b61c250a60a43d92183b5","logical_store":"senses","path":"sense_registry.v3.jsonl","sha256":"69bd33b3321ecf2b89789180414956949a4f7c969ab6731a591a1f860ad90945","size":12083945,"status":"NON_AUTHORITATIVE_REBUILDABLE_COMPATIBILITY_PROJECTION"},
-      {"blob":"c1b3a4b4b51f4034fe877816a98c1a2015bf02ca","logical_store":"facts","path":"deep_vocabulary_facts.v3.jsonl","sha256":"240e70d8c27331bb3bb822db35deaefa81f69956740e5fdda7700d64e9540ed3","size":2632039,"status":"NON_AUTHORITATIVE_REBUILDABLE_COMPATIBILITY_PROJECTION"},
-      {"blob":"cead3b6f7fe00a4a5d5ac1bb09966e81db0b9a1f","logical_store":"exam-mappings","path":"exam_mappings.v3.jsonl","sha256":"fa9c97fa4373fc574049735ca9bfafeafcc7b2effc99a9da42c77ab666473da9","size":591822,"status":"NON_AUTHORITATIVE_REBUILDABLE_COMPATIBILITY_PROJECTION"},
-      {"blob":"4508e3083021cc72c31cbe05ec74f928588fce07","logical_store":"collocations","path":"collocation_registry.v1.jsonl","sha256":"1953112160c207d065ce828cdc9410ab487502741398aec490cd8b68df8ce226","size":9617782,"status":"NON_AUTHORITATIVE_REBUILDABLE_COMPATIBILITY_PROJECTION"},
-      {"blob":"2d5d09748a35268aaf0598346a48e13c934f1fda","logical_store":"relations","path":"lexical_relations.v3.jsonl","sha256":"6689ba38dba380fa8aab68310c0525648a71811bd00e59861104006dcf41dfe9","size":134746,"status":"NON_AUTHORITATIVE_REBUILDABLE_COMPATIBILITY_PROJECTION"},
-      {"blob":"5ee53c7d8729a4b553a14ab7af8c1430f3108ad1","logical_store":"packs","path":"pack_memberships.v1.jsonl","sha256":"d1d46f0c1247156bfd878007f73857459c7b3053a0583fe4be5037dcee526874","size":7209647,"status":"NON_AUTHORITATIVE_REBUILDABLE_COMPATIBILITY_PROJECTION"}
-    ],
-    "rebuildable_from_bounded_stores": true,
-    "roundtrip": {
-      "collocations":{"byte_exact":true,"duplicate":0,"extra":0,"mismatched":0,"omitted":0,"records":21628,"sha256":"1953112160c207d065ce828cdc9410ab487502741398aec490cd8b68df8ce226"},
-      "exam-mappings":{"byte_exact":true,"duplicate":0,"extra":0,"mismatched":0,"omitted":0,"records":157,"sha256":"fa9c97fa4373fc574049735ca9bfafeafcc7b2effc99a9da42c77ab666473da9"},
-      "facts":{"byte_exact":true,"duplicate":0,"extra":0,"mismatched":0,"omitted":0,"records":1278,"sha256":"240e70d8c27331bb3bb822db35deaefa81f69956740e5fdda7700d64e9540ed3"},
-      "packs":{"byte_exact":true,"duplicate":0,"extra":0,"mismatched":0,"omitted":0,"records":20361,"sha256":"d1d46f0c1247156bfd878007f73857459c7b3053a0583fe4be5037dcee526874"},
-      "relations":{"byte_exact":true,"duplicate":0,"extra":0,"mismatched":0,"omitted":0,"records":46,"sha256":"6689ba38dba380fa8aab68310c0525648a71811bd00e59861104006dcf41dfe9"},
-      "senses":{"byte_exact":true,"duplicate":0,"extra":0,"mismatched":0,"omitted":0,"records":19499,"sha256":"69bd33b3321ecf2b89789180414956949a4f7c969ab6731a591a1f860ad90945"},
-      "words":{"byte_exact":true,"duplicate":0,"extra":0,"mismatched":0,"omitted":0,"records":7946,"sha256":"b969a44ae3a7b7ea6418f9f97ba64ff8d16ce35637df599b1468be8dea2564f8"}
-    }
-  },
-  "governance": {"formal_low_friction_pool":"Basic pool","formal_simple_words_category_introduced":false,"l0_first":true,"learner_rule":"learning/english/vocabulary.md"},
   "lookup": {"manifest":"content/lexical/canonical/lookup/manifest.json","manifest_blob":"e5780ffa39981855a161a515eafb3e6a7c220064","semantic_authority":false,"spelling_bucket_count":223,"stable_id_bucket_count":256},
   "migration_proof": {"inferred_semantic_links":0,"l0_active_semantic_mutation":963,"learner_facing_l1_l2_l3_restoration":0,"learner_state_mutation":0,"pos_context_heuristic_sense_splits":0,"primary_local_private_state_mutation":0,"semantic_mutation":963,"seven_store_record_counts":{"collocations":21628,"exam-mappings":157,"facts":1278,"packs":20361,"relations":46,"senses":19499,"words":7946},"site_or_production_deploy":false,"study_mutation":0,"unanchored_exam_mappings":41,"unreviewed_semantic_deltas_admitted":0},
   "owner_path":"content/lexical/canonical/",
@@ -40,6 +17,5 @@
   "stable_identity": {"duplicate_ids":0,"frozen_ordinal_rule":"exact initial word_card_bundles order; existing ordinals immutable; new words append","inventory_rule":"UTF-8 lexicographic word_id joined by newline with one trailing newline","inventory_sha256":"5b2f5ebacb0d3a170f105d9929d0edda53a937c178210703a10815f05fc8c62e","max_ordinal":7946,"min_ordinal":1,"missing_ids":0,"ordinal_inventory_sha256":"3bdba3e3a97466a8d1b64b677c83a094ba8c652622ad3c225573a94f71f51bc7","unique_word_ids":7946,"word_count":7946},
   "stage":"NATURAL_OWNER_CUTOVER_COMPLETE",
   "status":"REFERENCE_ONLY_POST_NATURAL_OWNER_CUTOVER",
-  "continuation_authority":"content/lexical/canonical/continuation.json",
   "historical_progress_policy":"Historical progress evidence is audit-only and MUST NOT participate in Current semantics."
 }

@@ -29,7 +29,7 @@ receipts_opened_before_checkpoint: false
 - C `system.json`；
 - H1–H27 canonical Block Core；
 - C Source / ownership boundaries；
-- `C_PHASE6_FRESH_L_AUDIT_BRIEF.md` 仅作 fresh-audit protocol，不作 candidate 答案。
+- fresh-audit protocol 仅作当时的审计方法，不作 candidate 答案；一次性协议保存在 Git history。
 
 本 checkpoint 的基本约束：
 

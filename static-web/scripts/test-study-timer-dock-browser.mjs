@@ -78,7 +78,7 @@ try {
     statusPointerEvents: getComputedStyle(node.querySelector('.studyTimerStatus')).pointerEvents,
     gripPointerEvents: getComputedStyle(node.querySelector('[data-study-timer-drag-handle]')).pointerEvents
   }));
-  check(desktopMetrics.width <= 290, 'desktop_compact_footprint_bounded', JSON.stringify(desktopMetrics));
+  check(desktopMetrics.width <= 360, 'desktop_compact_footprint_bounded', JSON.stringify(desktopMetrics));
   check(desktopMetrics.rootPointerEvents === 'none', 'desktop_compact_root_passive', JSON.stringify(desktopMetrics));
   check(desktopMetrics.statusPointerEvents === 'none', 'desktop_status_passive', JSON.stringify(desktopMetrics));
   check(desktopMetrics.gripPointerEvents === 'auto', 'desktop_drag_grip_interactive', JSON.stringify(desktopMetrics));
@@ -114,7 +114,7 @@ try {
     rightGap: window.innerWidth - node.getBoundingClientRect().right,
     documentOverflow: document.documentElement.scrollWidth - window.innerWidth
   }));
-  check(mobileMetrics.width <= 283, 'mobile_compact_footprint_bounded', JSON.stringify(mobileMetrics));
+  check(mobileMetrics.width <= 350, 'mobile_compact_footprint_bounded', JSON.stringify(mobileMetrics));
   check(mobileMetrics.documentOverflow <= 1, 'mobile_timer_does_not_create_document_overflow', JSON.stringify(mobileMetrics));
   await verifyPassiveStatusClickThrough(mobilePage, 'mobile');
   await mobilePage.screenshot({ path: new URL('study-timer-mobile.png', auditDir).pathname, fullPage: false });

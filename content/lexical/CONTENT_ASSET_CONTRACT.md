@@ -840,18 +840,16 @@ The target is:
 
 ---
 
-## Final broad semantic freeze
+## Current broad semantic change guard
 
-Broad semantic review is frozen by:
+The 7,946-word broad catalog campaign is closed. This contract owns the durable semantic change guard:
 
-`content/lexical/FINAL_SEMANTIC_FREEZE.md`
-
-This contract remains the semantic ruler. The freeze prevents future Chats from inventing a newer broad generation and replaying it across accepted catalog owners.
-
-After final closure:
-- accepted content defaults to PRESERVE;
+- accepted content defaults to **PRESERVE**;
 - semantic mutations are evidence-triggered and local;
 - STYLE_POLISH, a newer taxonomy, a newer audit method, or a different Chat preference cannot justify broad re-review;
-- broad semantic reopening requires explicit Kian revocation of the freeze.
+- a plausible systemic defect may justify a bounded diagnostic, but its output is evidence, not automatic catalog-wide debt;
+- reopening a broad catalog program requires an explicit new Current scope decision before any ordinal/batch campaign exists.
 
-This freeze does not prevent correction of concrete factual, identity, ownership, decision, structure, phraseology, register/form, productive-value or testability defects. It prevents another **broad semantic campaign without concrete local evidence**.
+This guard does not prevent correction of concrete factual, identity, ownership, decision, structure, phraseology, register/form, productive-value or testability defects. It prevents another **broad semantic campaign without concrete evidence and explicit scope**.
+
+The completed 2026-09 broad-catalog campaign rules, scope amendments and delegation records are historical execution evidence under `content/lexical/audit/history/`; they are not Current control.

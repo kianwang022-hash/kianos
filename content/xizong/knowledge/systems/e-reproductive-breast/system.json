@@ -1,7 +1,7 @@
 {
   "schema": "kianos.xizong.system_knowledge.v1",
-  "status": "FREEZE_CANDIDATE",
-  "semantic_authority": "CHAT_APPROVED_KNOWLEDGE_CANDIDATE",
+  "status": "CURRENT",
+  "semantic_authority": "CHAT_APPROVED",
   "system_id": "reproductive-breast",
   "canonical_id": "E",
   "title": "Reproductive / Breast",
@@ -38,12 +38,10 @@
   "ownership": {
     "system_level_owner": "content/xizong/knowledge/systems/e-reproductive-breast/system.json",
     "medical_core_owner": "20 canonical Block Markdown files under sr-sr1-sr6/ and e-e1-e14/",
-    "historical_system_guide": "content/xizong/knowledge/system-guides/西综生殖_乳腺_System_Guide_v1_完整导学_认知依赖与学习顺序.md",
-    "historical_guide_role": "REFERENCE_ONLY_FOR_SOURCE_COVERAGE_AND_RECONSTRUCTION_CLUES; NOT_CURRENT_K_OR_LEARNING_AUTHORITY",
-    "learning_owner": "NOT_YET_ACCEPTED",
+    "learning_owner": "content/xizong/knowledge/learner/e-reproductive-breast-learning.json",
     "question_truth_owner": "content/xizong/questions/",
     "question_relation_owner": "content/xizong/question-relations/",
-    "rule": "System Knowledge owns cross-Block medical model, boundaries and interfaces only. Block Markdown remains medical Core. Learner order, hard readiness, Logic Groups and Source-contact choreography belong to later Learning; Question Truth remains separate."
+    "rule": "System Knowledge owns cross-Block medical model, boundaries and interfaces only. Block Markdown remains medical Core. Learner order, hard readiness, Logic Groups and Source-contact choreography belong to the accepted System Learning owner; Question Truth remains separate."
   },
   "source_boundary": {
     "reconstruction_basis": "20 current canonical Block Markdown owners, their Primary Source locators, explicit Source boundaries/gaps/conflicts and visual-gate states",
@@ -124,7 +122,7 @@
     "locator_policy": {
       "current_rule": "Current canonical Block Source locators are the operational Source coordinates.",
       "dual_coordinate_rule": "AI-reader Source-local pages and original-PDF/book pages are different coordinate systems. Preserve both when independently bound; do not silently force one arithmetic mapping onto the other.",
-      "historical_guide_rule": "Historical Guide page coordinates may be used as re-binding clues only. They do not override Current canonical Block locators without explicit Source verification."
+      "provenance_rebinding_rule": "Pre-cutover Guide coordinates preserved in Git history may be used only as bounded re-binding clues. They never override Current canonical Block locators without explicit Source verification."
     },
     "visual_state": {
       "verified_source_pages_available": [

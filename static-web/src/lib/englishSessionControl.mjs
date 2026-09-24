@@ -296,6 +296,18 @@ export function readEnglishSessionInstruction(storage, expectedDay = null, {cata
   }
 }
 
+export function englishSessionInstructionEffectMatches(storage, input, expectedDay = null) {
+  try {
+    const expected = validateEnglishSessionInstruction(input, expectedDay);
+    const current = readEnglishSessionInstruction(storage, expectedDay);
+    if (!current.instruction || !['ready','stale_source'].includes(current.status)) return false;
+    return current.instruction.session_id === expected.session_id
+      && Date.parse(current.instruction.generated_at) === Date.parse(expected.generated_at);
+  } catch {
+    return false;
+  }
+}
+
 export function writeEnglishSessionInstruction(storage, input, expectedDay = null, { catalog, now = Date.now() } = {}) {
   if (!storage?.setItem) throw new Error('ENGLISH_SESSION_STORAGE_UNAVAILABLE');
   const instruction = parseEnglishSessionInstruction(input, expectedDay);

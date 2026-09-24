@@ -15,11 +15,7 @@ Current owners:
 - medical Core → canonical D / M / G Block Markdown under `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/`
 - shared learning semantics → `content/xizong/LEARNING_CONTRACT.md` + `study-policy.json`
 
-Bounded historical explanatory provenance:
-
-- path: `content/xizong/knowledge/system-guides/西综消化_物质代谢_内分泌_System_Guide_v2_生化完整整合版.md`
-- last full pre-retirement ref: `0a7cfcd751cdadc181948822931d582db871df8b`
-- use: explanation pattern only; **not Current authority**
+Historical migration provenance is preserved in Git history only and is not part of Current routing.
 
 ---
 
@@ -328,22 +324,3 @@ DNA→RNA→蛋白 / 修复 / 克隆控制是否是当前主问题？
 ```
 
 先完成定位，再进入疾病或 Source Precision。
-
----
-
-## 9｜Historical migration receipt
-
-Intentionally migrated after Current re-verification:
-
-- 把 B 当成多条 flow 而不是三门课拼接的解释方式；
-- “输入流 / 能量流 / 氮与一碳 / 控制流 / 信息流 / 疾病流”的 beginner frame；
-- B 必须采用 DAG、不能强排成一条超长直线的教学解释；
-- 不让孤立酶名、辅酶、数字、TNM、术式阻塞 mechanism 主线的 Memory 解释。
-
-Explicitly not migrated:
-
-- old `26生化.pdf` provisional source status；
-- old page / question / Scope Audit counts；
-- old Block completion state and workload estimates；
-- old Primary / Recall / Deferred / Overlay provisional ownership；
-- any historical fact not resolved to Current B owners.

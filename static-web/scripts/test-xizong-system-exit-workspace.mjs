@@ -234,7 +234,8 @@ try {
   await practice.waitFor({state:'visible'});
   const releasedPracticeLocation=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
   check(releasedPracticeLocation?.resumeKind==='PRACTICE_SYSTEM','released_system_practice_becomes_resume');
-  check(await practice.locator('[data-holdout-gate]').isVisible(),'practice_holdout_gate_visible_without_setting');
+  check(await practice.locator('[data-holdout-gate]').isHidden(),'practice_holdout_is_optional_without_setting');
+  check(await practice.locator('[data-question-card]').isVisible(),'practice_available_without_holdout_setting');
   check(await practice.locator('[data-question-map]').count()===1,'practice_owns_question_map');
   check(await practice.locator('[data-reasoning-chain]').count()===1,'practice_owns_reasoning_chain_projection');
 
@@ -247,6 +248,11 @@ try {
   check((await practice.locator('[data-question-stem]').textContent()||'').trim().length>10,'practice_question_stem_visible');
   check(await practice.locator('.xzpOption').count()>=4,'practice_options_visible');
   check(await practice.locator('.xzpMapItem').count()>10,'practice_map_populated');
+  const firstPracticeMeta=(await practice.locator('[data-question-meta]').textContent()||'').trim();
+  const currentQuestion=sweep.questions.find((q)=>firstPracticeMeta.includes(String(q.year))&&firstPracticeMeta.includes(`第 ${q.number} 题`));
+  check(Boolean(currentQuestion),'practice_current_question_resolves',firstPracticeMeta);
+  const currentWrongOption=currentQuestion.options.find((option)=>!answerLetters(currentQuestion.correctAnswer).includes(option.label));
+  check(Boolean(currentWrongOption),'practice_current_wrong_option');
 
   const geometry=await practice.evaluate((node)=>{
     const box=node.getBoundingClientRect();
@@ -277,7 +283,7 @@ try {
   await practice.locator('[data-question-mark]').click();
   check((await practice.locator('[data-question-mark]').getAttribute('aria-pressed'))==='false','mark_clear');
 
-  await practice.locator(`.xzpOption[data-option="${wrongOption.label}"]`).click();
+  await practice.locator(`.xzpOption[data-option="${currentWrongOption.label}"]`).click();
   await practice.locator('[data-submit-answer]').click();
   check(await practice.locator('[data-practice-back]').isVisible(),'wrong_auto_flips_to_back');
   check(!(await practice.locator('[data-practice-front]').isVisible()),'front_hidden_on_wrong_back');
@@ -289,7 +295,7 @@ try {
   let reviewMeta = await page.evaluate(({key,id})=>{
     const state=JSON.parse(localStorage.getItem(key)||'null');
     return state?.reviewMeta?.[id]||null;
-  },{key:sweepKey,id:firstQuestion.questionId});
+  },{key:sweepKey,id:currentQuestion.questionId});
   check(reviewMeta?.cause==='options','quick_cause_persisted',String(reviewMeta?.cause||''));
   check(reviewMeta?.note==='需要回看选项边界','quick_note_persisted',String(reviewMeta?.note||''));
 
@@ -298,13 +304,13 @@ try {
   check(!(await practice.locator('[data-practice-back]').isVisible()),'back_hidden_after_space');
   await page.keyboard.press('Space');
   check(await practice.locator('[data-practice-back]').isVisible(),'space_reopens_back');
-  check((await practice.locator('[data-reasoning-chain] li').count())===firstQuestion.explanation.reasoningChain.length,'repeat_flip_keeps_reasoning_chain_idempotent');
+  check((await practice.locator('[data-reasoning-chain] li').count())===currentQuestion.explanation.reasoningChain.length,'repeat_flip_keeps_reasoning_chain_idempotent');
   check(await practice.locator('[data-exam-target-wrap]').isVisible(),'exam_target_visible');
   check(await practice.locator('[data-decision-axis-wrap]').isVisible(),'decision_axis_visible');
   check(await practice.locator('[data-reasoning-chain-wrap]').isVisible(),'reasoning_chain_visible');
   const renderedChain=await practice.locator('[data-reasoning-chain] li').allTextContents();
-  check(renderedChain.length===firstQuestion.explanation.reasoningChain.length,'reasoning_chain_count_exact',String(renderedChain.length));
-  check(renderedChain[0]===firstQuestion.explanation.reasoningChain[0],'reasoning_chain_text_exact',renderedChain[0]||'');
+  check(renderedChain.length===currentQuestion.explanation.reasoningChain.length,'reasoning_chain_count_exact',String(renderedChain.length));
+  check(renderedChain[0]===currentQuestion.explanation.reasoningChain[0],'reasoning_chain_text_exact',renderedChain[0]||'');
 
   const optionalChecks=[
     ['correctOptionReason','[data-correct-reason-wrap]'],
@@ -312,17 +318,17 @@ try {
     ['transferRule','[data-transfer-rule-wrap]']
   ];
   for(const [key,selector] of optionalChecks) {
-    const expected=Boolean(String(firstQuestion.explanation?.[key]||'').trim());
+    const expected=Boolean(String(currentQuestion.explanation?.[key]||'').trim());
     check((await practice.locator(selector).isVisible())===expected,`adaptive_${key}_visibility`,String(expected));
   }
-  const distractorsExpected=Array.isArray(firstQuestion.explanation?.valuableDistractors)&&firstQuestion.explanation.valuableDistractors.length>0;
+  const distractorsExpected=Array.isArray(currentQuestion.explanation?.valuableDistractors)&&currentQuestion.explanation.valuableDistractors.length>0;
   check((await practice.locator('[data-distractors-wrap]').isVisible())===distractorsExpected,'adaptive_distractor_visibility',String(distractorsExpected));
   await scanVisibleType(practice,'practice_wrong_review');
   await page.screenshot({path:practiceShot,fullPage:false});
 
   const stored=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),sweepKey);
-  check(stored?.results?.[firstQuestion.questionId]?.status==='wrong','practice_attempt_persisted');
-  check((stored?.attemptHistory||[]).some((event)=>event.question_id===firstQuestion.questionId),'practice_attempt_history_append');
+  check(stored?.results?.[currentQuestion.questionId]?.status==='wrong','practice_attempt_persisted');
+  check((stored?.attemptHistory||[]).some((event)=>event.question_id===currentQuestion.questionId),'practice_attempt_history_append');
 
   await page.keyboard.press('Enter');
   await practice.locator('[data-question-card]').waitFor({state:'visible'});

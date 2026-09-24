@@ -58,6 +58,23 @@ try {
     const context = await browser.newContext({ viewport: { width: 1512, height: 820 } });
     await context.addInitScript(() => {
       const now = Date.now();
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Shanghai',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      }).formatToParts(new Date(now));
+      const year = parts.find((part) => part.type === 'year')?.value;
+      const month = parts.find((part) => part.type === 'month')?.value;
+      const day = parts.find((part) => part.type === 'day')?.value;
+      const studyDay = `${year}-${month}-${day}`;
+      const atShanghai = (hour, minute) => Date.parse(
+        `${studyDay}T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:00+08:00`
+      );
+      const todayXizongStart = atShanghai(9, 0);
+      const todayXizongEnd = atShanghai(10, 0);
+      const todayEnglishStart = atShanghai(10, 15);
+      const todayEnglishEnd = atShanghai(10, 45);
       const state = {
         schema: 'kianos.study-timer.v2',
         running: false,
@@ -76,8 +93,8 @@ try {
             id: 'steward-test-prev-xz',
             subject: 'xizong',
             context: { subject: 'xizong', route: 'test', detailKey: 'cardio', detailLabel: '循环系统' },
-            startedAt: now - 24 * 60 * 60 * 1000 - 95 * 60 * 1000,
-            endedAt: now - 24 * 60 * 60 * 1000 - 20 * 60 * 1000,
+            startedAt: todayXizongStart - 24 * 60 * 60 * 1000,
+            endedAt: todayXizongEnd - 24 * 60 * 60 * 1000,
             source: 'timer',
             excluded: false,
             edited: false
@@ -86,8 +103,8 @@ try {
             id: 'steward-test-prev2-pol',
             subject: 'politics',
             context: { subject: 'politics', route: 'test', detailKey: 'mainline', detailLabel: '一轮主线' },
-            startedAt: now - 48 * 60 * 60 * 1000 - 70 * 60 * 1000,
-            endedAt: now - 48 * 60 * 60 * 1000 - 10 * 60 * 1000,
+            startedAt: todayEnglishStart - 48 * 60 * 60 * 1000,
+            endedAt: todayEnglishEnd - 48 * 60 * 60 * 1000,
             source: 'timer',
             excluded: false,
             edited: false
@@ -96,8 +113,8 @@ try {
             id: 'steward-test-xz',
             subject: 'xizong',
             context: { subject: 'xizong', route: 'test', detailKey: 'respiratory', detailLabel: '呼吸系统' },
-            startedAt: now - 110 * 60 * 1000,
-            endedAt: now - 50 * 60 * 1000,
+            startedAt: todayXizongStart,
+            endedAt: todayXizongEnd,
             source: 'timer',
             excluded: false,
             edited: false
@@ -106,8 +123,8 @@ try {
             id: 'steward-test-en',
             subject: 'english',
             context: { subject: 'english', route: 'test', detailKey: 'reading', detailLabel: 'Reading A' },
-            startedAt: now - 45 * 60 * 1000,
-            endedAt: now - 15 * 60 * 1000,
+            startedAt: todayEnglishStart,
+            endedAt: todayEnglishEnd,
             source: 'timer',
             excluded: false,
             edited: false
@@ -149,33 +166,14 @@ try {
     check(visibleToday === 'today', 'today_only_view', String(visibleToday));
 
     await page.locator('[data-steward-mode="nutrition"]').click();
-    check(await page.locator('[data-steward-mode-panel="nutrition"]').getAttribute('class') === 'stewardModePanel active', 'nutrition_switch');
-    check(await page.locator('.stewardNutritionGrid').isVisible(), 'nutrition_workspace_visible');
-    check(await page.locator('[data-steward-meal-preset]').count() === 3, 'nutrition_combo_count');
-    await page.locator('[data-steward-meal-preset="z03"]').click();
-    check((await page.locator('[data-steward-meal-title]').textContent())?.includes('Z03'), 'nutrition_z03_select');
-    const gramInput = page.locator('[data-steward-meal-grams]').first();
-    await gramInput.fill('170');
-    check((await gramInput.inputValue()) === '170', 'nutrition_grams_edit');
-    await page.locator('[data-steward-food-mode="single"]').click();
-    check((await page.locator('[data-steward-meal-title]').textContent())?.includes('高蛋白酸奶'), 'nutrition_single_mode');
-    await page.locator('[data-steward-food-mode="combo"]').click();
-    await page.locator('[data-steward-meal-preset="z03"]').click();
-    await page.screenshot({ path: path.join(auditDir, 'nutrition-1512x820.png'), fullPage: false });
+    check(await page.locator('[data-steward-nutrition-unavailable]').isVisible(), 'nutrition_unavailable_state');
+    check(await page.locator('[data-steward-meal-preset]').count() === 0, 'nutrition_no_copied_presets');
+    check(!/Z01|Z02|Z03|黑麦酸奶碗|三文鱼组合|甜虾组合/.test(await page.locator('body').innerText()), 'nutrition_personal_semantics_leak');
 
     await page.locator('[data-steward-mode="training"]').click();
-    check(await page.locator('.stewardTrainingGrid').isVisible(), 'training_workspace_visible');
-    check(await page.locator('[data-steward-set-row]').count() === 3, 'training_strength_rows');
-    await page.locator('[data-steward-training-mode="cardio"]').click();
-    check((await page.locator('[data-steward-training-title]').textContent())?.includes('Incline treadmill walk'), 'training_cardio_select');
-    check(await page.locator('[data-steward-set-row]').count() === 1, 'training_cardio_row');
-    const trainingInputs = page.locator('[data-steward-training-input]');
-    await trainingInputs.nth(0).fill('25');
-    await trainingInputs.nth(1).fill('5');
-    check((await page.locator('[data-steward-training-set-count]').textContent())?.trim() === '1', 'training_record_count');
-    check((await page.locator('[data-steward-training-status]').textContent())?.trim() === '记录中', 'training_record_status');
-    await page.locator('[data-steward-training-title]').focus();
-    await page.screenshot({ path: path.join(auditDir, 'training-1512x820.png'), fullPage: false });
+    check(await page.locator('[data-steward-training-unavailable]').isVisible(), 'training_unavailable_state');
+    check(await page.locator('[data-steward-exercise]').count() === 0, 'training_no_copied_exercises');
+    check(!/KN01|PR01|PU03|CD01|CD02|MV02|MV03|Smith squat|Smith bench press|Incline treadmill walk/.test(await page.locator('body').innerText()), 'training_personal_semantics_leak');
 
     await page.locator('[data-steward-mode="schedule"]').click();
     check(await page.locator('[data-steward-mode-panel="schedule"]').getAttribute('class') === 'stewardModePanel active', 'schedule_return_after_local_modes');

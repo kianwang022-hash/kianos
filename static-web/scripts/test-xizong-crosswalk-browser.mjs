@@ -3,6 +3,11 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { loadXizongSystem, loadXizongBlock } from '../src/lib/xizong.mjs';
+import {
+  ensureXizongQuestionSweepState,
+  recordXizongQuestionAttempt,
+  startNextXizongQuestionRound
+} from '../src/lib/xizongQuestionAttempts.mjs';
 
 const PORT = 4328;
 const BASE = `http://127.0.0.1:${PORT}`;
@@ -60,30 +65,56 @@ async function runJourney(page) {
       ratings: Object.fromEntries(block.kpRecords.map((kp) => [kp.kpId, 'known']))
     }];
   }));
-  await page.evaluate(({ rows, mappedId, unmappedId, heldYear }) => {
+  let fixtureId = 0;
+  const makeFixtureId = (prefix) => `${prefix}-crosswalk-${++fixtureId}`;
+  const attemptContext = {
+    systemId: payload.systemId,
+    canonicalId: payload.canonicalId,
+    scopeHash: payload.scopeHash,
+    questionInventoryHash: payload.questionInventoryHash,
+    questionSemanticHash: payload.questionSemanticHash || '',
+    questionSemanticRevisions: payload.questionSemanticRevisions || {},
+    questions: payload.questions,
+    attemptContext: 'SYSTEM_SWEEP',
+    resultVisibility: 'immediate',
+    studyPhase: 'FIRST_PASS',
+    queueMode: 'TARGETED',
+    holdoutYears: [holdoutYear]
+  };
+  let secondPassFixture = ensureXizongQuestionSweepState({ results: {} }, attemptContext, {
+    now: '2026-09-18T01:00:00.000Z',
+    makeId: makeFixtureId
+  });
+  secondPassFixture = recordXizongQuestionAttempt(secondPassFixture, {
+    question: mapped,
+    status: 'uncertain',
+    selected: answerLetters(mapped.correctAnswer),
+    context: attemptContext,
+    holdoutYears: [holdoutYear]
+  }, { now: '2026-09-18T01:01:00.000Z', makeId: makeFixtureId });
+  secondPassFixture = recordXizongQuestionAttempt(secondPassFixture, {
+    question: unmapped,
+    status: 'wrong',
+    selected: answerLetters(unmapped.correctAnswer),
+    context: attemptContext,
+    holdoutYears: [holdoutYear]
+  }, { now: '2026-09-18T01:02:00.000Z', makeId: makeFixtureId });
+  secondPassFixture = startNextXizongQuestionRound(
+    secondPassFixture,
+    [mapped.questionId, unmapped.questionId],
+    { now: '2026-09-18T01:03:00.000Z', makeId: makeFixtureId },
+    { studyPhase: 'SECOND_PASS', queueMode: 'TARGETED' }
+  );
+
+  await page.evaluate(({ rows, heldYear, secondPassState }) => {
     Object.entries(rows).forEach(([id, state]) => {
       localStorage.setItem(`kianos-xizong-astro-v2:xizong:${id}`, JSON.stringify(state));
     });
     const now = new Date().toISOString();
     localStorage.setItem('kianos:xizong:system-recall:respiratory:v1', JSON.stringify({ completedAt: now }));
     localStorage.setItem('kianos:xizong:full-paper-holdout-years:v1', JSON.stringify([heldYear]));
-    localStorage.setItem('kianos:xizong:system-question-sweep:respiratory:v1', JSON.stringify({
-      results: {},
-      attemptHistoryBootstrappedAt: now,
-      attemptHistory: [
-        { type: 'QUESTION_ATTEMPT', question_id: mappedId, study_phase: 'FIRST_PASS', status: 'uncertain', submitted_at: now },
-        { type: 'QUESTION_ATTEMPT', question_id: unmappedId, study_phase: 'FIRST_PASS', status: 'wrong', submitted_at: now }
-      ],
-      round: {
-        id: 'crosswalk-second-pass',
-        studyPhase: 'SECOND_PASS',
-        queueMode: 'TARGETED',
-        ordinal: 2,
-        startedAt: now,
-        evidenceOrigin: 'BROWSER_ACCEPTANCE_FIXTURE'
-      }
-    }));
-  }, { rows: completedBlocks, mappedId: mapped.questionId, unmappedId: unmapped.questionId, heldYear: holdoutYear });
+    localStorage.setItem('kianos:xizong:system-question-sweep:respiratory:v1', JSON.stringify(secondPassState));
+  }, { rows: completedBlocks, heldYear: holdoutYear, secondPassState: secondPassFixture });
   await page.reload({ waitUntil: 'domcontentloaded' });
 
   practice = page.locator('[data-xizong-practice="respiratory"]');

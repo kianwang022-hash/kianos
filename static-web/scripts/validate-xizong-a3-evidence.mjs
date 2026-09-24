@@ -22,11 +22,15 @@ const activeQuestionIds = (questions, holdoutYears) => {
   return questions.filter((question) => !held.has(Number(question.year))).map((question) => question.questionId);
 };
 
+const questionScope = JSON.parse(read('content/xizong/knowledge/learner/a3-urinary-question-scope.json'));
+const expectedQuestionCount = Number(questionScope?.question_count || 0);
+assert(expectedQuestionCount > 0, 'question-scope-count-missing');
+
 const system = loadXizongSystem('urinary');
 const sweep = loadXizongSystemQuestionSweep(system);
 assert(system.canonicalId === 'A3', 'wrong-system');
 assert(system.blocks.length === 14, `blocks:${system.blocks.length}`);
-assert(sweep?.questionCount === 243, `questions:${sweep?.questionCount}`);
+assert(sweep?.questionCount === expectedQuestionCount, `questions:${sweep?.questionCount}/${expectedQuestionCount}`);
 
 let totalKp = 0;
 let totalGroups = 0;
@@ -73,7 +77,7 @@ assert(years.length > 1, 'not-enough-years-for-holdout-probe');
 const heldYear = years[years.length - 1];
 const activeWithoutHoldout = activeQuestionIds(sweep.questions, []);
 const activeWithHoldout = activeQuestionIds(sweep.questions, [heldYear]);
-assert(activeWithoutHoldout.length === 243, 'empty-holdout-must-not-hide-questions');
+assert(activeWithoutHoldout.length === expectedQuestionCount, 'empty-holdout-must-not-hide-questions');
 assert(activeWithHoldout.length < activeWithoutHoldout.length, 'holdout-does-not-protect-whole-paper-year');
 assert(sweep.questions.filter((question) => Number(question.year) === heldYear).every((question) => !activeWithHoldout.includes(question.questionId)), 'held-year-question-leaked-into-sweep');
 
@@ -89,6 +93,7 @@ const practicePage = read('static-web/src/pages/xizong/practice/[system].astro')
 const practiceUi = read('static-web/src/components/XizongPracticeWorkbench.astro');
 const questionAttemptLib = read('static-web/src/lib/xizongQuestionAttempts.mjs');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
+const systemWuReturn = read('static-web/src/lib/xizongSystemWuReturn.mjs');
 
 assert(blockGuard.includes('kianos-xizong-stale-evidence-v1:'), 'stale-block-evidence-not-archived');
 assert(blockGuard.includes('localStorage.removeItem(studyKey)'), 'stale-block-progress-not-invalidated');
@@ -106,16 +111,17 @@ assert(memoryModel.includes('export function completeRepairTask'), 'resolved-rep
 assert(memoryWorkspace.includes('completeRepairTask(state, item.id)'), 'visible-repair-not-closed-through-owner');
 assert(memoryWorkspace.includes('不把修完自动写成 mastery'), 'repair-closure-semantics-too-strong');
 
-assert(repairReturn.includes('kianos-xizong-repair-inbox-v1:'), 'system-repair-return-bypasses-inbox');
+assert(systemWuReturn.includes("inboxKey:'kianos-xizong-repair-inbox-v1:xizong:'"), 'system-repair-return-bypasses-inbox');
+assert(systemWuReturn.includes('storage.setItem(inboxKey'), 'system-repair-return-does-not-persist-inbox-first');
 assert(!repairReturn.includes('kianos-xizong-memory-review-v2:${objectId}'), 'system-repair-return-competes-for-block-evidence-store');
 assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
 assert(repairBridge.includes('kianos-xizong-repair-inbox-v1:'), 'repair-inbox-not-consumed');
-assert(repairBridge.includes('kianos-xizong-memory-review-v2:'), 'repair-inbox-does-not-merge-into-current-block-store');
-assert(repairBridge.includes("type: 'SYSTEM_WU_PLAN_IMPORTED'"), 'repair-inbox-import-event-missing');
-assert(repairBridge.includes("evidence_role: 'REPAIR_ONLY'"), 'repair-inbox-promoted-beyond-repair');
-assert(repairBridge.includes('source_question_ids:'), 'repair-inbox-loses-question-provenance');
+assert(repairBridge.includes('XIZONG_MEMORY_STORAGE_KEY') && repairBridge.includes('setRepairTasks'), 'repair-inbox-does-not-merge-into-current-memory-owner');
+assert(systemWuReturn.includes("origin:'SYSTEM_WU_CHAT_RETURN'"), 'repair-inbox-import-origin-missing');
+assert(repairBridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);'), 'repair-inbox-promoted-beyond-repair');
+assert(repairBridge.includes('sourceQuestionIds,'), 'repair-inbox-loses-question-provenance');
 assert(repairBridge.includes("window.addEventListener('storage'"), 'already-open-block-tab-cannot-receive-inbox');
-assert(repairBridge.includes('window.location.reload();'), 'repair-inbox-consume-does-not-rebuild-in-memory-owner');
+assert(repairBridge.includes("window.dispatchEvent(new CustomEvent('kianos:xizong-repair-inbox-migrated'"), 'repair-inbox-consume-does-not-announce-current-memory-state');
 
 assert(systemGuard.includes("phase = answered === 0 ? 'PRE_QUESTION'"), 'system-recall-phase-ledger-missing');
 assert(systemGuard.includes("'POST_QUESTION'"), 'post-question-recall-phase-missing');
@@ -125,7 +131,8 @@ assert(systemGuard.includes('stale_block_question_plans'), 'stale-question-deriv
 assert(systemGuard.includes('stale_block_repair_inboxes'), 'stale-repair-inbox-not-archived');
 assert(systemGuard.includes('stale_visible_memory_repairs'), 'stale-visible-repair-not-archived');
 assert(systemGuard.includes('localStorage.removeItem(inboxKey)'), 'stale-system-repair-inbox-not-invalidated');
-assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-system-sweep-not-invalidated');
+assert(systemGuard.includes('results: {},'), 'stale-system-sweep-results-not-cleared');
+assert(systemGuard.includes('current_revision_valid: false'), 'stale-system-sweep-history-not-invalidated');
 assert(recallPage.includes('<XizongSystemEvidenceGuard system={system} sweep={questionSweep} />'), 'recall-system-evidence-guard-not-mounted');
 assert(practicePage.includes('<XizongSystemEvidenceGuard system={system} sweep={sweep} />'), 'practice-system-evidence-guard-not-mounted');
 
@@ -138,8 +145,9 @@ assert(questionAttemptLib.includes('Boolean(marks[questionId])'), 'marked-target
 assert(practiceUi.includes("if (relation?.knowledgePath && ['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(relation.targetStatus))"), 'missing-relation-is-being-guessed');
 assert(practiceUi.includes("if (relationWrap) {\n        relationWrap.hidden = true;"), 'missing-relation-does-not-fail-closed');
 
-assert(repairReturn.includes('allowed.has(row.questionId)'), 'repair-plan-not-scoped-to-actual-wu');
-assert(repairReturn.includes('!relation?.blockId || !relation?.primaryKpId'), 'repair-route-not-reviewed-only');
+assert(systemWuReturn.includes('currentXizongSystemWuEvidence'), 'repair-plan-not-bound-to-current-wu-owner');
+assert(systemWuReturn.includes('assertCurrentWuBinding'), 'repair-plan-not-scoped-to-actual-wu');
+assert(systemWuReturn.includes('!relation?.blockId || !relation?.primaryKpId || !route'), 'repair-route-not-reviewed-only');
 assert(!repairReturn.includes('localStorage.setItem("content/'), 'private-learner-evidence-writing-shared-content');
 
 console.log([

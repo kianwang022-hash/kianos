@@ -67,7 +67,7 @@ Hard naming rule:
 
 > **Guide means explanation; Framework means structure.**
 
-Do not call a System cognitive canvas, mechanism map, relation model or Block cognitive map a learner-facing `Guide`. The historical file path `XIZONG_SYSTEM_GUIDE_DESIGN.md` is retained only for compatibility; that file now owns the **System Framework** surface, not the Beginner Guide text asset.
+Do not call a System cognitive canvas, mechanism map, relation model or Block cognitive map a learner-facing `Guide`. The Current **System Framework** design owner is `XIZONG_SYSTEM_FRAMEWORK_DESIGN.md`; Beginner Guide text remains a separate explanatory asset.
 
 ---
 
@@ -370,7 +370,7 @@ The responsibilities below remain shared product boundaries. Exact accepted surf
 | Surface | Detailed product owner |
 | --- | --- |
 | Xizong Home | `static-web/XIZONG_HOME_DESIGN.md` |
-| System Framework / Cognitive Canvas | `static-web/XIZONG_SYSTEM_GUIDE_DESIGN.md` |
+| System Framework / Cognitive Canvas | `static-web/XIZONG_SYSTEM_FRAMEWORK_DESIGN.md` |
 | Block / Logic Group / handoff / KP Recall / Block Recall / After Learn | `static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md` |
 | System Recall / completion handoff | `static-web/XIZONG_SYSTEM_COMPLETION_DESIGN.md` |
 | All formal question practice / System scope / W-U-Marked / whole paper | `static-web/XIZONG_PRACTICE_DESIGN.md` |
@@ -406,7 +406,7 @@ System Framework is the recurring structured orientation surface, not a chapter 
 
 System Recall / System Exit stays later-stage and must not compete with first-pass orientation before learner eligibility.
 
-The accepted Block Route / System Canvas / conditional Context direction is owned by `XIZONG_SYSTEM_GUIDE_DESIGN.md`.
+The accepted Block Route / System Canvas / conditional Context direction is owned by `XIZONG_SYSTEM_FRAMEWORK_DESIGN.md`.
 
 ## C｜Block Workspace
 

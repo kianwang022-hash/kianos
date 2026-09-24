@@ -3,7 +3,7 @@
 - Candidate: `BF04`
 - Scope: `o0401–o0500`
 - Candidate readback head: `f7e9ec38ddbb77167978d887600533e32338e58e`
-- Semantic standard: `content/lexical/FINAL_SEMANTIC_FREEZE.md`
+- Semantic standard: `content/lexical/audit/history/2026-09-final-catalog/FINAL_SEMANTIC_FREEZE.md`
 
 ## Mission
 

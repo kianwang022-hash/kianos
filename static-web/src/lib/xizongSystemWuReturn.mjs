@@ -147,6 +147,24 @@ export function stageXizongSystemWuReturn(storage, input, {
   return {status:existing?'replaced':'staged',entry:clone(entry)};
 }
 
+export function xizongSystemWuReturnEffectMatches(storage, input) {
+  try {
+    const value = validateXizongSystemWuReturn(input);
+    const state = readXizongSystemWuPendingState(storage);
+    const pending = state.pending_by_system?.[value.system_id] || null;
+    if (pending
+        && pending.return_id === value.return_id
+        && JSON.stringify(pending.return_packet) === JSON.stringify(value)) return true;
+    const receipt = state.last_receipt;
+    return Boolean(receipt
+      && receipt.return_id === value.return_id
+      && receipt.system_id === value.system_id
+      && ['APPLIED','ALREADY_APPLIED','STALE','REJECTED'].includes(receipt.status));
+  } catch {
+    return false;
+  }
+}
+
 function currentWuObservation(state, questionId) {
   const result = state?.results?.[questionId] || null;
   if (!result || !['wrong','uncertain'].includes(String(result.status || ''))) return null;

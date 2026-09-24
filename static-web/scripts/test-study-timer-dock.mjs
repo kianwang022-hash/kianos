@@ -37,12 +37,12 @@ assert.match(client, /setInterval\(render, 1000\)/, 'Visible elapsed time must r
 assert.match(css, /position:\s*fixed/, 'Timer dock must stay viewport-fixed.');
 assert.match(css, /right:\s*24px/, 'Desktop default must remain bottom-right.');
 assert.match(css, /bottom:\s*22px/, 'Desktop default must remain bottom-right.');
-assert.match(css, /width:\s*286px/, 'Compact desktop dock must stay bounded instead of consuming a large page corner.');
+assert.match(css, /width:\s*356px/, 'Compact desktop dock must preserve the accepted 15px + Today-action visual floor without consuming a large page corner.');
 assert.match(css, /\.studyTimerDock[\s\S]*pointer-events:\s*none/, 'Compact dock background/status must not lock learner content underneath.');
 assert.match(css, /\.studyTimerDock\[data-expanded="true"\][^{]*\{[^}]*pointer-events:\s*auto/, 'Expanded timer panel must remain an intentional interactive overlay.');
 assert.match(css, /\.studyTimerDragGrip[\s\S]*pointer-events:\s*auto/, 'Dedicated drag grip must remain interactive.');
 assert.match(css, /\.studyTimerStatus[\s\S]*pointer-events:\s*none/, 'Passive subject/time status must allow underlying learner interaction.');
 assert.match(css, /touch-action:\s*none/, 'Drag grip must work with pointer/touch input.');
-assert.match(css, /width:\s*min\(282px,\s*calc\(100vw - 20px\)\)/, 'Compact mobile dock must reduce its visual footprint.');
+assert.match(css, /width:\s*min\(350px,\s*calc\(100vw - 20px\)\)/, 'Compact mobile dock must preserve the accepted readable control footprint without overflowing the viewport.');
 
 console.log('PASS shared study timer dock contract');

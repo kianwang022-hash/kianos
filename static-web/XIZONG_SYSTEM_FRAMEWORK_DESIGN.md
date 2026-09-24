@@ -7,7 +7,7 @@ Shared evolvability requirement: root `PROJECT_DEFINITION.md` R10 + `ARCHITECTUR
 
 This file records the accepted learner-facing System Framework direction. It does not change medical Content, Learning Logic, learner order, Evidence semantics, learner progress, or S/K/L/P/R/E/U claims.
 
-**Compatibility note:** the filename remains `XIZONG_SYSTEM_GUIDE_DESIGN.md` to avoid broad path churn. Its owned learner surface is now named **System Framework**. The separate **Beginner Guide** is the skippable explanatory text asset under `content/xizong/knowledge/learner/*-guide.md`.
+This owner is the accepted **System Framework** design. The separate **Beginner Guide** is the skippable explanatory text asset under `content/xizong/knowledge/learner/*-guide.md`.
 
 Naming boundary:
 

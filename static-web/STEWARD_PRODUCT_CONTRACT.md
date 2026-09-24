@@ -3,7 +3,7 @@
 Status: APPROVED PRODUCT REQUIREMENTS · UI AND INTEGRATED RUNTIME NOT YET ACCEPTED
 Updated: 2026-09-24
 Semantic owner: KianOS Steward product interaction, reality-capture behavior and product acceptance boundary. It does not own Personal recovery meaning, cross-subject Chat judgment, native Health facts or learner truth.
-Reasoning upstream: `kianwang022-hash/kian-personal-os/exam/roles/STEWARD.md`; planning upstream: `kianwang022-hash/kian-personal-os/EXAM_CONTROL.md`; information upstream: `kianwang022-hash/kian-personal-os/exam/roles/INTAKE.md`.
+Reasoning upstream: `kianwang022-hash/kian-personal-os/exam/roles/STEWARD.md`; planning upstream: `kianwang022-hash/kian-personal-os/exam/CONTROL.md`; information upstream: `kianwang022-hash/kian-personal-os/exam/roles/INTAKE.md`.
 Surface split: `static-web/PRODUCT_SURFACE_CONTRACT.md`; current implementation/delivery truth: `static-web/CURRENT.md`.
 The existing `kianwang022-hash/kian-personal-os/runtime/steward-console/` remains a standalone implementation/reference until the integrated replacement passes its journeys. An approved requirement is not a shipped feature.
 

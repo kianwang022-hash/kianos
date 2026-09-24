@@ -84,7 +84,7 @@ For a material change, automatically apply
 user outcome
 → parent Rule / Model
 → exact domain/design owner
-→ affected Content / Visual / Runtime responsibility
+→ affected Content / Visual / Engineering (including Runtime) responsibility
 → actual consumer
 → smallest justified delta
 → verify affected behavior

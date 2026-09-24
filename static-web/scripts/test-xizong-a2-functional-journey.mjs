@@ -90,20 +90,21 @@ async function blockResumeAndEvidenceJourney(page) {
 
   const allKpIds = await recallCards.evaluateAll((cards) => cards.map((c) => c.getAttribute('data-kp-id')).filter(Boolean));
   await page.evaluate(({ key, kpIds }) => {
+    const current = JSON.parse(localStorage.getItem(key) || '{}');
     const learned = Object.fromEntries(kpIds.map((id) => [id, true]));
     const ratings = Object.fromEntries(kpIds.map((id) => [id, 'mastered']));
     localStorage.setItem(key, JSON.stringify({
+      ...current,
       stage: 'block_recall',
       groupIndex: 0,
       kpIndex: 0,
-      sourceContactDone: true,
       learned,
       ratings,
-      ttsxEvidence: {},
-      ttsxAnnotations: {},
       pendingTtsx: null,
       blockRecallDone: false,
-      completed: false
+      blockRecallCompletedAt: null,
+      completed: false,
+      completedAt: null
     }));
   }, { key: studyKey, kpIds: allKpIds });
   await page.reload({ waitUntil: 'domcontentloaded' });
@@ -193,12 +194,26 @@ async function systemQuestionRepairJourney(page) {
 
   const repair = page.locator('[data-xizong-repair-return="respiratory"]');
   await repair.locator(':scope > summary').click();
-  const plan = JSON.stringify({ plan: [{
-    question_id: target.questionId,
-    reason: 'A2 functional journey',
-    action: 'repair reviewed owning KP only',
-    priority: 'high'
-  }] });
+  const currentAttempt = [...(firstPassState?.attemptHistory || [])].reverse().find((event) =>
+    event?.question_id === target.questionId && event?.status === 'uncertain'
+  );
+  const currentResult = firstPassState?.results?.[target.questionId] || {};
+  const plan = JSON.stringify({
+    schema: 'kianos.xizong.system_wu_return.v1',
+    return_id: `a2-functional-${target.questionId}`,
+    system_id: 'respiratory',
+    decision: 'REPAIR',
+    plan: [{
+      question_id: target.questionId,
+      status: 'uncertain',
+      attempt_id: String(currentResult?.attemptId || currentAttempt?.attempt_id || ''),
+      submitted_at: String(currentResult?.updatedAt || currentAttempt?.submitted_at || ''),
+      round_id: String(currentResult?.roundId || currentAttempt?.round_id || ''),
+      reason: 'A2 functional journey',
+      action: 'repair reviewed owning KP only',
+      priority: 'high'
+    }]
+  });
   await repair.locator('[data-plan-text]').fill(plan);
   await repair.locator('[data-apply-plan]').click();
 
@@ -216,17 +231,37 @@ async function systemQuestionRepairJourney(page) {
     routeLink.click()
   ]);
   await repairPage.waitForLoadState('domcontentloaded');
-  await repairPage.waitForTimeout(500);
-  const repairEvidence = await repairPage.evaluate(({ blockId, kpId }) => {
-    const ext = JSON.parse(localStorage.getItem(`kianos-xizong-memory-review-v2:xizong:${blockId}`) || 'null');
+  await repairPage.bringToFront();
+  await repairPage.waitForTimeout(700);
+  const repairEvidence = await repairPage.evaluate(({ blockId, kpId, questionId }) => {
+    const memory = JSON.parse(localStorage.getItem('kianos-xizong-memory-v1') || 'null');
+    const task = (memory?.repairTasks || []).find((row) =>
+      String(row?.blockId || '') === String(blockId)
+      && String(row?.kpId || '') === String(kpId)
+      && (row?.sourceQuestionIds || []).includes(questionId)
+    );
+    const inboxRaw = localStorage.getItem(`kianos-xizong-repair-inbox-v1:xizong:${blockId}`);
+    let inbox = null;
+    try { inbox = inboxRaw == null ? null : JSON.parse(inboxRaw); } catch {}
+    const pendingMatches = Array.isArray(inbox?.plans) && inbox.plans.some((plan) =>
+      String(plan?.kpId || plan?.kp_id || '') === String(kpId)
+      && (plan?.sourceQuestionIds || []).includes(questionId)
+    );
     return {
-      inPlan: Array.isArray(ext?.reviewPlan) && ext.reviewPlan.some((row) => String(row?.kpId || row?.kp_id || row || '') === kpId),
-      imported: Array.isArray(ext?.evidenceHistory) && ext.evidenceHistory.some((row) =>
-        row?.type === 'SYSTEM_WU_PLAN_IMPORTED' && row?.evidence_role === 'REPAIR_ONLY'
-      )
+      taskPresent: Boolean(task),
+      origin: String(task?.origin || ''),
+      inboxCleared: inboxRaw == null,
+      pendingMatches,
+      writerState: String(document.documentElement.dataset.learnerWriter || '')
     };
-  }, { blockId: target.relation.blockId, kpId: target.relation.primaryKpId });
-  check(repairEvidence.inPlan && repairEvidence.imported, 'reviewed_wu_routes_to_owner_as_repair_only');
+  }, { blockId: target.relation.blockId, kpId: target.relation.primaryKpId, questionId: target.questionId });
+  check(repairEvidence.taskPresent, 'reviewed_wu_routes_to_current_memory_repair_owner');
+  check(repairEvidence.origin === 'SYSTEM_WU_CHAT_RETURN', 'reviewed_wu_preserves_system_repair_origin', repairEvidence.origin);
+  if (repairEvidence.writerState === 'active') {
+    check(repairEvidence.inboxCleared, 'active_block_writer_consumes_repair_inbox');
+  } else {
+    check(repairEvidence.inboxCleared || repairEvidence.pendingMatches, 'nonactive_block_writer_preserves_pending_repair_inbox', repairEvidence.writerState);
+  }
   await repairPage.close();
 
   check(!page.isClosed(), 'original_practice_tab_preserved_for_return');

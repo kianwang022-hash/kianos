@@ -54,7 +54,7 @@ Therefore Current F identity is **9 Blocks / 121 KP**.
 
 The transition Guide:
 
-`content/xizong/knowledge/system-guides/西综剩余总论_独立模块_System_Guide_v1_完整导学_认知依赖与学习顺序.md`
+the historical pre-cutover F System Guide preserved in Git history
 
 still contains an old 12-Block operational route.
 

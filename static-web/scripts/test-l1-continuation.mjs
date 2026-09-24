@@ -39,7 +39,7 @@ const timer={
 };
 const profile={
  EXAM_PROFILE_KEY:K.profile,GATES:[],dayDistance:()=>0,resolveExamPhase:()=>null,
- emptyExamProfile:()=>({schema:'kianos.exam.orchestrator.v1',defaultDailyMinutes:null,capacityByDay:{},maintenanceByDay:{},floorMinutes:null,observations:[],reports:[],gateReports:[],reminders:{}}),
+ emptyExamProfile:()=>({schema:'kianos.exam.orchestrator.v1',defaultDailyMinutes:null,capacityByDay:{},maintenanceByDay:{},observations:[],reports:[],gateReports:[],reminders:{}}),
  validateExamProfile:v=>{if(!v||v.schema!=='kianos.exam.orchestrator.v1'||(v.defaultDailyMinutes!=null&&(!Number.isFinite(v.defaultDailyMinutes)||v.defaultDailyMinutes<0)))throw Error('PROFILE_INVALID');return v;}
 };
 const receipt={

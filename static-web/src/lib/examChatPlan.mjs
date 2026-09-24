@@ -254,7 +254,6 @@ const planningProfileBasis = (storage, studyDay) => {
       defaultDailyMinutes: value.defaultDailyMinutes ?? null,
       capacityByDay: value.capacityByDay || {},
       maintenanceByDay: value.maintenanceByDay || {},
-      floorMinutes: value.floorMinutes ?? null,
       observations: Array.isArray(value.observations) ? value.observations : [],
       reports: Array.isArray(value.reports) ? value.reports : [],
       gateReports: Array.isArray(value.gateReports) ? value.gateReports : []
@@ -375,6 +374,9 @@ export function validateExamChatPlan(value, expectedDay = null) {
   if (!generatedAt || Number.isNaN(Date.parse(generatedAt))) {
     throw new Error('Chat Plan generated_at is missing or invalid.');
   }
+  if (Date.parse(generatedAt) > Date.now() + 60_000) {
+    throw new Error('CHAT_PLAN_FUTURE_GENERATED_AT');
+  }
   const learnerEvidenceBasis = normalizeExamChatPlanBasis(value.learner_evidence_basis, value.study_day);
   const presentation = normalizeExamChatPlanPresentation(value.presentation);
 
@@ -475,14 +477,10 @@ export function readExamChatPlan(storage, expectedDay) {
       };
     } catch (error) {
       if (/CHAT_PLAN_EVIDENCE_BASIS_(?:REQUIRED|STALE|DAY_MISMATCH)/.test(String(error?.message || ''))) {
-        let presentation = null;
-        try {
-          presentation = validateExamChatPlan(parsed, expectedDay).presentation;
-        } catch {}
         return {
           status: 'stale',
           plan: null,
-          presentation,
+          presentation: null,
           error: error instanceof Error ? error.message : String(error)
         };
       }
@@ -498,9 +496,48 @@ export function readExamChatPlan(storage, expectedDay) {
   }
 }
 
+export function examChatPlanEffectMatches(storage, input, expectedDay = null) {
+  try {
+    const state = readExamChatPlan(storage, expectedDay);
+    if (state.status !== 'ready' || !state.plan) return false;
+    const expected = validateExamChatPlan(input, expectedDay);
+    const withoutBasis = (value) => {
+      const { learner_evidence_basis, ...rest } = value || {};
+      return rest;
+    };
+    return JSON.stringify(withoutBasis(state.plan)) === JSON.stringify(withoutBasis(expected));
+  } catch {
+    return false;
+  }
+}
+
 export function writeExamChatPlan(storage, value, expectedDay) {
-  if (!storage?.setItem) throw new Error('Storage is unavailable.');
+  if (!storage?.setItem || !storage?.getItem) throw new Error('Storage is unavailable.');
   const plan = validateExamChatPlanAgainstStorage(storage, value, expectedDay);
+
+  let currentRaw = null;
+  try { currentRaw = storage.getItem(EXAM_CHAT_PLAN_KEY); }
+  catch { throw new Error('Storage is unreadable.'); }
+
+  if (currentRaw != null) {
+    try {
+      const current = validateExamChatPlan(JSON.parse(currentRaw));
+      if (current.study_day === plan.study_day) {
+        const currentTime = Date.parse(current.generated_at);
+        const nextTime = Date.parse(plan.generated_at);
+        if (nextTime < currentTime) throw new Error('CHAT_PLAN_OLDER_THAN_CURRENT');
+        if (nextTime === currentTime) {
+          if (JSON.stringify(current) === JSON.stringify(plan)) return current;
+          throw new Error('CHAT_PLAN_GENERATION_CONFLICT');
+        }
+      }
+    } catch (error) {
+      if (/^CHAT_PLAN_(?:OLDER_THAN_CURRENT|GENERATION_CONFLICT)$/.test(String(error?.message || ''))) throw error;
+      // Invalid prior bytes are not a valid freshness owner; the new validated
+      // plan may replace them without guessing their intended ordering.
+    }
+  }
+
   storage.setItem(EXAM_CHAT_PLAN_KEY, JSON.stringify(plan));
   return plan;
 }

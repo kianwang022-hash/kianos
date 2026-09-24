@@ -127,7 +127,7 @@ Projection PASS does not move Chengfeng continuous reading into Astro; iPad/Marg
 ## R｜PASS after one repair
 
 Mode: `EXECUTED + ADVERSARIAL`  
-Journey owner: `static-web/scripts/test-politics-mao-runtime.mjs`
+Current Runtime guard: `static-web/scripts/validate-politics-runtime.mjs`. The dedicated Mao runtime journey used for this acceptance is historical executed proof preserved in Git history.
 
 First real R failure:
 
@@ -175,7 +175,7 @@ The original result and complete first-attempt object remain unchanged through r
 
 Review owner: `content/politics/learning/mao/evidence-review.json`  
 Whole-module audit: `static-web/scripts/audit-politics-mao-evidence.mjs`  
-Browser journey: `static-web/scripts/test-politics-mao-evidence.mjs`
+Historical browser journey: the dedicated Mao Evidence browser test used for this acceptance is preserved in Git history. Current whole-module evidence audit: `static-web/scripts/audit-politics-mao-evidence.mjs`; current repair/runtime guard: `static-web/scripts/validate-politics-repair-memory.mjs`.
 
 ### Strongest attack / first real E failure
 

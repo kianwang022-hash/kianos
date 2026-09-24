@@ -15,11 +15,7 @@ Current owners:
 - medical Core → `content/xizong/knowledge/systems/a2-respiratory/blocks/`
 - shared learning semantics → `content/xizong/LEARNING_CONTRACT.md` + `study-policy.json`
 
-Bounded historical explanatory provenance:
-
-- path: `content/xizong/knowledge/system-guides/西综呼吸系统_System_Guide_v1_完整导学_认知依赖与学习顺序.md`
-- last full pre-retirement ref: `a77fdbf3e9bcd4e9947f42b9f1886ae17a537286`
-- use: explanation pattern only; **not Current authority**
+Historical migration provenance is preserved in Git history only and is not part of Current routing.
 
 ---
 
@@ -202,22 +198,3 @@ Hb / CaO2？
 然后再进入对应 Block。
 
 如果只记住 COPD、肺炎、结核、肺癌四套章节，而不能把它们放回同一条气体运输链，System Guide 的任务还没有完成。
-
----
-
-## 9｜Historical migration receipt
-
-Intentionally migrated after Current re-verification:
-
-- “先建立空气如何到达血液的正常链，再按 Failure Mode 学疾病”；
-- “气道→风箱→肺泡→弥散→VA/Q→Hb”的 beginner explanation pattern；
-- 把胸膜 / 胸壁放回通气机械，而不是作为孤立外科章节；
-- 最后在低氧 / CO₂ 潴留 / 呼吸衰竭汇合的系统出口概念。
-
-Explicitly not migrated:
-
-- old source page ranges and Scope Audit tables;
-- old implementation state;
-- old Primary / Recall / Deferred ownership;
-- old tumor-overlay provisional decisions;
-- any historical fact not resolved to Current A2 owners.

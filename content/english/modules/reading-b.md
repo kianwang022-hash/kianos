@@ -7,7 +7,7 @@ Reading B / Part B is the English I objective-task trainer for **discourse recon
 Parent contracts:
 
 - `content/english/LEARNING_CONTRACT.md`;
-- `content/english/modules/objective-runtime.md`.
+- `SYSTEM_CONTRACT.md` for shared Engineering / Runtime capability.
 
 Its task surface varies by exam form, but the stable cognitive object is:
 
