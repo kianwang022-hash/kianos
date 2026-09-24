@@ -100,6 +100,7 @@ learner order = Learning owner 决定怎样形成 / Recall / Closure
 
 ---
 
+<!-- kianos:kp id="dme-g05-kp01" -->
 ## KP01｜肿瘤分子三道门：生长信号、抑制与DNA修复
 
 > **主提示：** 原癌基因｜抑癌基因｜DNA修复｜三道门各失控后果
