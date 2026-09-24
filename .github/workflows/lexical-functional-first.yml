@@ -21,12 +21,6 @@ jobs:
       - name: Install Astro dependencies
         working-directory: static-web
         run: npm install --no-audit --no-fund
-      - name: Materialize authorized full-catalog K readback corrections
-        if: github.ref == 'refs/heads/lexical/full-catalog-k-reacceptance'
-        run: python tools/lexical_fix_full_catalog_k_gaps.py
-      - name: Repair modern Form boundary learner projection
-        if: github.ref == 'refs/heads/lexical/full-catalog-k-reacceptance'
-        run: python tools/lexical_fix_full_catalog_projection_gaps.py
       - name: Verify full-catalog K intrinsic integrity and projection fidelity
         working-directory: static-web
         run: node scripts/verify-lexical-full-catalog-k.mjs
@@ -82,16 +76,6 @@ jobs:
       - name: Execute sparse and rich content-shape journey
         working-directory: static-web
         run: node scripts/test-lexical-content-shape-browser.mjs
-      - name: Persist full-catalog K corrections and evidence
-        if: success() && github.ref == 'refs/heads/lexical/full-catalog-k-reacceptance'
-        run: |
-          git config user.name Kian
-          git config user.email kianwang022@gmail.com
-          git add content/lexical/canonical content/lexical/words/by-ordinal/o3375.json content/lexical/words/by-ordinal/o4115.json content/lexical/words/by-ordinal/o5902.json content/lexical/acceptance/full-catalog-k-materialization-corrections.json content/lexical/acceptance/full-catalog-k-conclusions.json content/lexical/acceptance/full-catalog-k-report.json content/lexical/acceptance/full-catalog-k-browser.json static-web/src/components/VocabularyWordRuntime.astro
-          if ! git diff --cached --quiet; then
-            git commit -m 'lexical: preserve full-catalog K corrections and evidence [skip ci]'
-            git push origin HEAD:lexical/full-catalog-k-reacceptance
-          fi
       - name: Preserve bounded browser evidence
         if: always()
         uses: actions/upload-artifact@v4
