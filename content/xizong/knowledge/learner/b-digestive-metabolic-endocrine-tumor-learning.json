@@ -1941,7 +1941,7 @@
           "D8 chronic-risk context"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：脂蛋白身份、组成与方向[LIPOPROTEIN_IDENTITY] → CM/VLDL-LDL/HDL三条运输线[LIPOPROTEIN_TRANSPORT] → apo、酶、受体与运输故障定位[LIPOPROTEIN_INTERFACE_LOCALIZATION]。",
+      "partition_rationale": "M5 Learning now consumes the canonical hierarchy directly. Existing Logic Group identities map 1:1 onto canonical layers; KP identities remain stable. Source order/page truth remains owned only by biochemistry-27-source-map.json.",
       "learner_order": [
         "b-m05-lg01",
         "b-m05-lg02",
@@ -1957,7 +1957,8 @@
           "cognitive_job": "LIPOPROTEIN_IDENTITY",
           "goal": "按来源、主要载荷、密度/蛋白脂质比例与运输方向建立CM/VLDL/LDL/HDL身份坐标。",
           "closure": "给出颗粒来源或主要运输任务，能判断最可能脂蛋白并说明外源/内源/逆向转运方向。",
-          "continuity_rationale": "KP01–KP03共同完成“脂蛋白身份、组成与方向”这一LIPOPROTEIN_IDENTITY任务。这是本Block当前学习顺序的第一个闭环任务。后一组“CM/VLDL-LDL/HDL三条运输线”切换到不同的LIPOPROTEIN_TRANSPORT任务。"
+          "continuity_rationale": "KP01–KP03共同完成“脂蛋白身份、组成与方向”这一LIPOPROTEIN_IDENTITY任务。这是本Block当前学习顺序的第一个闭环任务。后一组“CM/VLDL-LDL/HDL三条运输线”切换到不同的LIPOPROTEIN_TRANSPORT任务。",
+          "canonical_layer": "L1"
         },
         "b-m05-lg02": {
           "kp": [
@@ -1968,7 +1969,8 @@
           "cognitive_job": "LIPOPROTEIN_TRANSPORT",
           "goal": "把小肠CM、肝VLDL→IDL→LDL和HDL逆向转运三条线按卸货、残粒/受体回收连续运行。",
           "closure": "给出餐后脂质、肝输出或外周胆固醇回收场景，能沿相应颗粒变化与组织去向走完整路径。",
-          "continuity_rationale": "KP04–KP07共同完成“CM/VLDL-LDL/HDL三条运输线”这一LIPOPROTEIN_TRANSPORT任务。前一组“脂蛋白身份、组成与方向”承担不同的LIPOPROTEIN_IDENTITY任务。后一组“apo、酶、受体与运输故障定位”切换到不同的LIPOPROTEIN_INTERFACE_LOCALIZATION任务。"
+          "continuity_rationale": "KP04–KP07共同完成“CM/VLDL-LDL/HDL三条运输线”这一LIPOPROTEIN_TRANSPORT任务。前一组“脂蛋白身份、组成与方向”承担不同的LIPOPROTEIN_IDENTITY任务。后一组“apo、酶、受体与运输故障定位”切换到不同的LIPOPROTEIN_INTERFACE_LOCALIZATION任务。",
+          "canonical_layer": "L2"
         },
         "b-m05-lg03": {
           "kp": [
@@ -1979,7 +1981,68 @@
           "cognitive_job": "LIPOPROTEIN_INTERFACE_LOCALIZATION",
           "goal": "把apo、LPL/LCAT和LDL/清道夫受体作为颗粒识别、酶处理和回收接口。",
           "closure": "给出apo/酶/受体缺陷，能预测哪类颗粒积聚或逆向转运受损，并连接动脉粥样硬化/脂肪肝而不重讲其完整病理。",
-          "continuity_rationale": "KP08–KP10共同完成“apo、酶、受体与运输故障定位”这一LIPOPROTEIN_INTERFACE_LOCALIZATION任务。前一组“CM/VLDL-LDL/HDL三条运输线”承担不同的LIPOPROTEIN_TRANSPORT任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP08–KP10共同完成“apo、酶、受体与运输故障定位”这一LIPOPROTEIN_INTERFACE_LOCALIZATION任务。前一组“CM/VLDL-LDL/HDL三条运输线”承担不同的LIPOPROTEIN_TRANSPORT任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L3"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M5_血浆脂蛋白_学习阅读版_v1_最终执行版.md",
+        "mother_model": "particle identity → transport lines → apo/enzyme/receptor handoff → fault localization",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              3
+            ],
+            "logic_group": "b-m05-lg01"
+          },
+          "L2": {
+            "kp": [
+              4,
+              7
+            ],
+            "logic_group": "b-m05-lg02"
+          },
+          "L3": {
+            "kp": [
+              8,
+              10
+            ],
+            "logic_group": "b-m05-lg03"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers and must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning releases retrieval from canonical layer formation and keeps no duplicate per-Block Source registry.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-m05-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-m05-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-m05-lg03"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "M5",
+          "after_unit": "BIO27-S05",
+          "after_pdf": 30,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
@@ -2005,7 +2068,7 @@
           "D23"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：胆固醇合成与HMG-CoA还原酶[CHOLESTEROL_SYNTHESIS_CONTROL] → 胆固醇去路、胆汁酸、VitD与类固醇[CHOLESTEROL_DESTINATION_MAP] → 甘油磷脂合成与磷脂酶[PHOSPHOLIPID_REACTION_MAP]。",
+      "partition_rationale": "M6 Learning now consumes the canonical hierarchy directly. Existing Logic Group identities map 1:1 onto canonical layers; KP identities remain stable. Source order/page truth remains owned only by biochemistry-27-source-map.json.",
       "learner_order": [
         "b-m06-lg01",
         "b-m06-lg02",
@@ -2021,7 +2084,8 @@
           "cognitive_job": "CHOLESTEROL_SYNTHESIS_CONTROL",
           "goal": "从线粒体乙酰CoA转运到胞浆合成胆固醇，并把HMG-CoA还原酶作为关键调节点。",
           "closure": "给出乙酰CoA/NADPH供应、胆固醇反馈或关键酶受抑，能预测胆固醇合成方向。",
-          "continuity_rationale": "KP01–KP04共同完成“胆固醇合成与HMG-CoA还原酶”这一CHOLESTEROL_SYNTHESIS_CONTROL任务。这是本Block当前学习顺序的第一个闭环任务。后一组“胆固醇去路、胆汁酸、VitD与类固醇”切换到不同的CHOLESTEROL_DESTINATION_MAP任务。"
+          "continuity_rationale": "KP01–KP04共同完成“胆固醇合成与HMG-CoA还原酶”这一CHOLESTEROL_SYNTHESIS_CONTROL任务。这是本Block当前学习顺序的第一个闭环任务。后一组“胆固醇去路、胆汁酸、VitD与类固醇”切换到不同的CHOLESTEROL_DESTINATION_MAP任务。",
+          "canonical_layer": "L1"
         },
         "b-m06-lg02": {
           "kp": [
@@ -2032,7 +2096,8 @@
           "cognitive_job": "CHOLESTEROL_DESTINATION_MAP",
           "goal": "把游离/酯化胆固醇与胆汁酸、VitD、类固醇激素等去路组织成前体分配图。",
           "closure": "给出胆固醇进入细胞或某下游需求变化，能指出主要储存/排泄/衍生去路并连接D19/D22/D23。",
-          "continuity_rationale": "KP05–KP08共同完成“胆固醇去路、胆汁酸、VitD与类固醇”这一CHOLESTEROL_DESTINATION_MAP任务。前一组“胆固醇合成与HMG-CoA还原酶”承担不同的CHOLESTEROL_SYNTHESIS_CONTROL任务。后一组“甘油磷脂合成与磷脂酶”切换到不同的PHOSPHOLIPID_REACTION_MAP任务。"
+          "continuity_rationale": "KP05–KP08共同完成“胆固醇去路、胆汁酸、VitD与类固醇”这一CHOLESTEROL_DESTINATION_MAP任务。前一组“胆固醇合成与HMG-CoA还原酶”承担不同的CHOLESTEROL_SYNTHESIS_CONTROL任务。后一组“甘油磷脂合成与磷脂酶”切换到不同的PHOSPHOLIPID_REACTION_MAP任务。",
+          "canonical_layer": "L2"
         },
         "b-m06-lg03": {
           "kp": [
@@ -2043,7 +2108,68 @@
           "cognitive_job": "PHOSPHOLIPID_REACTION_MAP",
           "goal": "把甘油磷脂共同骨架、合成与PLA/PLC等切割位置接到膜结构和信号/脂肪酸衍生接口。",
           "closure": "给出磷脂酶类型或膜磷脂底物，能判断切割产物与进入信号/炎症接口的方向。",
-          "continuity_rationale": "KP09–KP11共同完成“甘油磷脂合成与磷脂酶”这一PHOSPHOLIPID_REACTION_MAP任务。前一组“胆固醇去路、胆汁酸、VitD与类固醇”承担不同的CHOLESTEROL_DESTINATION_MAP任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP09–KP11共同完成“甘油磷脂合成与磷脂酶”这一PHOSPHOLIPID_REACTION_MAP任务。前一组“胆固醇去路、胆汁酸、VitD与类固醇”承担不同的CHOLESTEROL_DESTINATION_MAP任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L3"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M6_胆固醇磷脂与胆汁酸_学习阅读版_v1_最终执行版.md",
+        "mother_model": "cholesterol pool synthesis/storage → destination routing + phospholipid assembly/cleavage",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              4
+            ],
+            "logic_group": "b-m06-lg01"
+          },
+          "L2": {
+            "kp": [
+              5,
+              8
+            ],
+            "logic_group": "b-m06-lg02"
+          },
+          "L3": {
+            "kp": [
+              9,
+              11
+            ],
+            "logic_group": "b-m06-lg03"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers and must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning releases retrieval from canonical layer formation and keeps no duplicate per-Block Source registry.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-m06-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-m06-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-m06-lg03"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "M6",
+          "after_unit": "BIO27-S06",
+          "after_pdf": 35,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
@@ -2070,7 +2196,7 @@
           "D20"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：TAG/脂肪酸合成与储能[LIPID_STORAGE_SYNTHESIS] → 脂解、肉碱穿梭与β氧化[LIPID_MOBILIZATION_OXIDATION] → 酮体生成—利用—酸中毒[KETONE_STATE_CHAIN] → 必需脂肪酸与类花生酸接口[ESSENTIAL_FA_CONNECTION]。",
+      "partition_rationale": "M7 Learning now consumes the canonical hierarchy directly. Existing Logic Group identities map 1:1 onto canonical layers; KP identities remain stable. Source order/page truth remains owned only by biochemistry-27-source-map.json.",
       "learner_order": [
         "b-m07-lg01",
         "b-m07-lg02",
@@ -2087,7 +2213,8 @@
           "cognitive_job": "LIPID_STORAGE_SYNTHESIS",
           "goal": "把餐后脂肪酸/TAG合成、甘油骨架与NADPH/乙酰CoA来源组织成储能通路，并与分解方向互斥。",
           "closure": "给出餐后胰岛素高、碳源过剩或合成关键步骤变化，能预测FA/TAG合成与储存方向。",
-          "continuity_rationale": "KP01–KP06共同完成“TAG/脂肪酸合成与储能”这一LIPID_STORAGE_SYNTHESIS任务。这是本Block当前学习顺序的第一个闭环任务。后一组“脂解、肉碱穿梭与β氧化”切换到不同的LIPID_MOBILIZATION_OXIDATION任务。"
+          "continuity_rationale": "KP01–KP06共同完成“TAG/脂肪酸合成与储能”这一LIPID_STORAGE_SYNTHESIS任务。这是本Block当前学习顺序的第一个闭环任务。后一组“脂解、肉碱穿梭与β氧化”切换到不同的LIPID_MOBILIZATION_OXIDATION任务。",
+          "canonical_layer": "L1"
         },
         "b-m07-lg02": {
           "kp": [
@@ -2098,7 +2225,8 @@
           "cognitive_job": "LIPID_MOBILIZATION_OXIDATION",
           "goal": "从脂肪库动员FFA接到长链脂肪酸肉碱入线粒体和β氧化生成乙酰CoA/NADH/FADH₂。",
           "closure": "给出空腹/儿茶酚胺、肉碱穿梭受阻或奇偶数碳脂肪酸，能预测脂解、β氧化和能量/糖异生接口。",
-          "continuity_rationale": "KP07–KP12共同完成“脂解、肉碱穿梭与β氧化”这一LIPID_MOBILIZATION_OXIDATION任务。前一组“TAG/脂肪酸合成与储能”承担不同的LIPID_STORAGE_SYNTHESIS任务。后一组“酮体生成—利用—酸中毒”切换到不同的KETONE_STATE_CHAIN任务。"
+          "continuity_rationale": "KP07–KP12共同完成“脂解、肉碱穿梭与β氧化”这一LIPID_MOBILIZATION_OXIDATION任务。前一组“TAG/脂肪酸合成与储能”承担不同的LIPID_STORAGE_SYNTHESIS任务。后一组“酮体生成—利用—酸中毒”切换到不同的KETONE_STATE_CHAIN任务。",
+          "canonical_layer": "L2"
         },
         "b-m07-lg03": {
           "kp": [
@@ -2109,7 +2237,8 @@
           "cognitive_job": "KETONE_STATE_CHAIN",
           "goal": "把肝内乙酰CoA过剩→产酮、肝外利用和过量酮体导致酸中毒接成状态切换链。",
           "closure": "给出饥饿或糖尿病胰岛素不足，能解释为何肝产酮却不能自身利用、哪些组织使用以及何时进入酮症酸中毒。",
-          "continuity_rationale": "KP13–KP15共同完成“酮体生成—利用—酸中毒”这一KETONE_STATE_CHAIN任务。前一组“脂解、肉碱穿梭与β氧化”承担不同的LIPID_MOBILIZATION_OXIDATION任务。后一组“必需脂肪酸与类花生酸接口”切换到不同的ESSENTIAL_FA_CONNECTION任务。"
+          "continuity_rationale": "KP13–KP15共同完成“酮体生成—利用—酸中毒”这一KETONE_STATE_CHAIN任务。前一组“脂解、肉碱穿梭与β氧化”承担不同的LIPID_MOBILIZATION_OXIDATION任务。后一组“必需脂肪酸与类花生酸接口”切换到不同的ESSENTIAL_FA_CONNECTION任务。",
+          "canonical_layer": "L3"
         },
         "b-m07-lg04": {
           "kp": [
@@ -2120,7 +2249,81 @@
           "cognitive_job": "ESSENTIAL_FA_CONNECTION",
           "goal": "把必需脂肪酸和类花生酸前体作为独立连接地图，不让其阻塞酮体主链。",
           "closure": "能识别必需脂肪酸来源和向前列腺素/白三烯等炎症介质的接口，并明确完整炎症/药理后置。",
-          "continuity_rationale": "KP16–KP16共同完成“必需脂肪酸与类花生酸接口”这一ESSENTIAL_FA_CONNECTION任务。前一组“酮体生成—利用—酸中毒”承担不同的KETONE_STATE_CHAIN任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP16–KP16共同完成“必需脂肪酸与类花生酸接口”这一ESSENTIAL_FA_CONNECTION任务。前一组“酮体生成—利用—酸中毒”承担不同的KETONE_STATE_CHAIN任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L4"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M7_TAG脂肪酸与酮体_学习阅读版_v1_最终执行版.md",
+        "mother_model": "storage synthesis ↔ mobilization/oxidation → acetyl-CoA routing/ketones + essential-FA interface",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              6
+            ],
+            "logic_group": "b-m07-lg01"
+          },
+          "L2": {
+            "kp": [
+              7,
+              12
+            ],
+            "logic_group": "b-m07-lg02"
+          },
+          "L3": {
+            "kp": [
+              13,
+              15
+            ],
+            "logic_group": "b-m07-lg03"
+          },
+          "L4": {
+            "kp": [
+              16,
+              16
+            ],
+            "logic_group": "b-m07-lg04"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers and must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning releases retrieval from canonical layer formation and keeps no duplicate per-Block Source registry.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-m07-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-m07-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-m07-lg03"
+            ]
+          },
+          {
+            "canonical_layer": "L4",
+            "releases": [
+              "b-m07-lg04"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "M7",
+          "after_unit": "BIO27-S07",
+          "after_pdf": 44,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
