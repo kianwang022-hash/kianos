@@ -330,6 +330,34 @@
         "G5 low-fidelity/translesion polymerase group boundary"
       ],
       "note": "These verified facts remain evidence under the current accepted owners. They do not create a second Source, parallel hierarchy or learner-progress claim."
+    },
+    "downstream_revalidation": {
+      "status": "CURRENT_TARGETED_REVALIDATED",
+      "source_revision_sha256": "17d991896f0edea0b2e1274fdee76862998a1f3bd0c4bad03155bf9e4b27ce1c",
+      "question_relations": {
+        "M3_NADPH": [
+          "2015N029 — REVIEWED block-level M3 relation revalidated against Current M3; PPP remains the major NADPH source.",
+          "2023N142 — REVIEWED M3 relation revalidated against Current M3; mature-RBC glycolysis + PPP/NADPH model preserved."
+        ],
+        "M3_exact_boundary": "2025N123 remains NO_SAFE_MATCH: Current M3 supports NADPH→GSH redox defense but does not freeze a universal direct methemoglobin-reduction rule.",
+        "G5_DSB": "2023N25 REVIEWED G5/KP13 relation revalidated: official exam route remains DSB→recombination repair while HR/NHEJ remain the mechanistic boundary.",
+        "G4_HIF_VHL": "Current 27 HIF–VHL→EPO enhancer update is retained in G4; current Source-attached 2025N23/N25/N145 test other G4 axes, so no Question→KP remap is manufactured.",
+        "D8_drug_precision": "西格列他钠 and GKA/多格列艾汀 remain Source Precision in D8; no Question→KP relation is manufactured from current-year Lecture precision alone."
+      },
+      "explanations": {
+        "revalidated_qids": [
+          "xizong-official-2015-n029",
+          "xizong-official-2023-n142",
+          "xizong-official-2023-n025",
+          "xizong-official-2025-n123"
+        ],
+        "rule": "Changed/current-27 semantics are checked against the learner-facing explanation. Unchanged explanations remain preserved; NO_SAFE_MATCH stays legal."
+      },
+      "evidence": {
+        "rule": "B/D8/M3/G4/G5 Block markdown changes alter the runtime block sourceHash. Existing learner progress bound to an older sourceHash becomes STALE_SOURCE_REVISION/REVISION_PENDING and cannot reduce Forecast or authorize current completion until Current Source contact is re-established.",
+        "regression": "static-web/scripts/test-xizong-source-revision-transitive.mjs",
+        "learner_truth": "No repository revalidation manufactures learner completion, mastery or fresh exposure."
+      }
     }
   },
   "delta_review": {
@@ -421,7 +449,9 @@
       "projection": "PASS — Xizong Projection Validation run 35942643802",
       "integration_qa": "Static Web Xizong QA run 35943462333 reached B Core 38/38/600 unique, B Knowledge PASS candidate, B Learning Issues=0, and Crosswalk PASS before later unrelated A2 Evidence failure",
       "boundary": "A2 Evidence system-repair-return-bypasses-inbox is outside Biochemistry scope and does not reopen this task",
-      "learner_truth": "No learner progress or U evidence manufactured"
+      "learner_truth": "No learner progress or U evidence manufactured",
+      "question_explanation": "PASS — targeted Current-27 Q/X revalidation receipt records M3 NADPH and G5 DSB-sensitive official items; G4 HIF–VHL and D8 drug additions do not manufacture new Question→KP mappings.",
+      "evidence_revision": "PASS — runtime sourceHash revision invalidation blocks stale learner completion/Forecast authorization; historical observations remain append-preserved."
     }
   },
   "governance": {
