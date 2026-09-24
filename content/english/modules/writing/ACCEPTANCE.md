@@ -8,6 +8,25 @@ This file owns current **Acceptance Truth** for Writing. It does not own content
 
 ---
 
+## Current main reconciliation — after English final integration
+
+The earlier final-audit boundary below predates the final source recovery and release decision. Current merged-main integration truth is `content/english/ACCEPTANCE.md` (PR #498).
+
+Current local release claim:
+
+```text
+Writing engineering / tested product path  ACCEPTED on integrated main
+2011 / 2026 Big-Writing Source recovery    CLOSED with separately identified approved replacement assets
+material Mac-presentation release hold      REMOVED BY KIAN for #498
+U                                           UNTESTED — real learner use only
+```
+
+This does **not** rewrite the recovered web assets as the lost original PNG bytes and does not claim that CI performed a Human Gate. It only removes the stale child-level BLOCKED status that was resolved later by the English-wide integration owner.
+
+The older S/P BLOCKED candidate table below remains historical audit provenance and must not be used as Current readiness after this reconciliation.
+
+
+
 > **Architecture-v2 interpretation:** the S/K/L/P/R/E labels below are preserved as historical Acceptance dimensions only. They do not define Current architecture layers or canonical owners. Current ownership remains Rule / Model → Content / Visual / Engineering; this file owns Acceptance Truth only.
 
 
