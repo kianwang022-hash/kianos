@@ -4,7 +4,8 @@ import { loadXizongBlock, loadXizongSystem } from '../src/lib/xizong.mjs';
 import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
 import {
   loadReviewedXizongQuestionRelation,
-  loadXizongQuestionCrosswalkForBlock
+  loadXizongQuestionCrosswalkForBlock,
+  xizongQuestionRelationFreshnessSummary
 } from '../src/lib/xizongQuestionCrosswalk.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
@@ -31,6 +32,20 @@ check(Boolean(sweep?.questions?.length), 'respiratory_sweep_available');
 check(sweep.questions.some((question) => question.questionId === mappedId && question.relation?.knowledgePath === mapped.knowledgePath), 'system_sweep_uses_shared_crosswalk');
 const unmapped = sweep.questions.find((question) => !question.relation);
 check(Boolean(unmapped), 'missing_mapping_is_legal', unmapped?.questionId || 'none');
+
+const freshness = xizongQuestionRelationFreshnessSummary();
+check(
+  freshness.currentReviewedRelationCount + freshness.nonCurrentReviewedRelationCount === freshness.reviewedRelationCount,
+  'reviewed_relation_freshness_partition'
+);
+if (freshness.nonCurrentReviewedRelationCount > 0) {
+  const sample = freshness.sampleNonCurrentRelations[0];
+  check(
+    loadReviewedXizongQuestionRelation(sample.questionId) === null,
+    'stale_reviewed_relation_fails_closed',
+    `${sample.questionId}:${sample.freshnessStatus}`
+  );
+}
 
 const r02 = loadXizongBlock('respiratory', 'r02');
 const reverse = loadXizongQuestionCrosswalkForBlock(r02);
