@@ -20,7 +20,7 @@
         "B:D21",
         "B:D23"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "KNOWLEDGE_AND_LEARNING_UPDATED_DOWNSTREAM_REVALIDATION_PENDING",
       "semantic_delta_receipt": {
@@ -31,10 +31,56 @@
         "notes": "Refined surgical framing (indication→extent→complication), neck-mass spatial table, cystic-hemorrhage boundary and thyroid-surgery rationale absorbed without creating a second thyroid model."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_PRESERVED; only D21 LG goal/closure refined",
+        "projection_status": "B compiled Projection requires targeted binding revalidation because D21/D23 canonical owners changed",
+        "bindings": [
+          {
+            "system": "B",
+            "block": "D21",
+            "logic_groups": [
+              "b-d21-lg04",
+              "b-d21-lg08",
+              "b-d21-lg09",
+              "b-d21-lg10",
+              "b-d21-lg11"
+            ],
+            "kp_ranges": [
+              "KP12-KP13",
+              "KP19-KP22",
+              "KP23-KP25",
+              "KP26-KP28",
+              "KP29"
+            ],
+            "content_families": [
+              "Block Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision/MI-D",
+              "Visual",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "B",
+            "block": "D23",
+            "logic_groups": [
+              "b-d23-lg02"
+            ],
+            "kp_ranges": [
+              "KP07-KP09"
+            ],
+            "content_families": [
+              "KP Core",
+              "Visual",
+              "Precision/MI-D"
+            ]
+          }
+        ],
+        "content_role_validation": "MATURE_BLOCK_ROLES_PRESENT",
+        "learning_validation": "LEARNER_ORDER_PRESERVED; only D21 LG goal/closure refined",
+        "projection_validation": "B compiled Projection requires targeted binding revalidation because D21/D23 canonical owners changed"
       }
     },
     {
@@ -45,7 +91,7 @@
         "B:D9",
         "B:D11"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "KNOWLEDGE_AND_LEARNING_UPDATED_DOWNSTREAM_REVALIDATION_PENDING",
       "semantic_delta_receipt": {
@@ -56,10 +102,47 @@
         "notes": "Achalasia mechanism/visual rebind and refined radiotherapy rationale absorbed; teacher blood-supply rationale explicitly not promoted to a universal oncology rule."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_PRESERVED; D11 LG02 goal/closure refined only",
+        "projection_status": "B compiled Projection targeted revalidation required for D9/D11",
+        "bindings": [
+          {
+            "system": "B",
+            "block": "D11",
+            "logic_groups": [
+              "b-d11-lg02"
+            ],
+            "kp_ranges": [
+              "KP04-KP08"
+            ],
+            "content_families": [
+              "Block Framework",
+              "KP Core",
+              "Boundary",
+              "Precision/MI-D",
+              "Visual"
+            ]
+          },
+          {
+            "system": "B",
+            "block": "D9",
+            "logic_groups": [
+              "b-d09-lg04"
+            ],
+            "kp_ranges": [
+              "KP11-KP12"
+            ],
+            "content_families": [
+              "KP Core",
+              "Boundary/Confusable",
+              "Visual"
+            ]
+          }
+        ],
+        "content_role_validation": "MATURE_BLOCK_ROLES_PRESENT",
+        "learning_validation": "LEARNER_ORDER_PRESERVED; D11 LG02 goal/closure refined only",
+        "projection_validation": "B compiled Projection targeted revalidation required for D9/D11"
       }
     },
     {
@@ -73,7 +156,7 @@
         "E:E13",
         "E:E14"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_PRESERVE_LEARNING_ALREADY_ALIGNED_DOWNSTREAM_REVALIDATION_PENDING",
       "semantic_delta_receipt": {
@@ -84,10 +167,112 @@
         "notes": "Refined ‘systemic disease’ framing, risk→classification→extent→molecular→local/regional/systemic/receptor treatment is already represented by E12–E14; no duplicate rewrite."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNING_TOPOLOGY_PRESERVED; refined notes fit existing E LG model",
+        "projection_status": "E Projection not broadly compiled; no Projection truth invented",
+        "bindings": [
+          {
+            "system": "E",
+            "block": "E10",
+            "logic_groups": [
+              "E10-LG01",
+              "E10-LG02",
+              "E10-LG03"
+            ],
+            "kp_ranges": [
+              "KP01-KP10"
+            ],
+            "content_families": [
+              "Framework",
+              "Boundary/Confusable",
+              "Visual",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "E",
+            "block": "E11",
+            "logic_groups": [
+              "E11-LG01",
+              "E11-LG02",
+              "E11-LG03",
+              "E11-LG04"
+            ],
+            "kp_ranges": [
+              "KP01-KP10"
+            ],
+            "content_families": [
+              "Framework",
+              "Source Control",
+              "Visual",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "E",
+            "block": "E12",
+            "logic_groups": [
+              "E12-LG01",
+              "E12-LG02",
+              "E12-LG03",
+              "E12-LG04"
+            ],
+            "kp_ranges": [
+              "KP01-KP19"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Visual",
+              "Precision"
+            ]
+          },
+          {
+            "system": "E",
+            "block": "E13",
+            "logic_groups": [
+              "E13-LG01",
+              "E13-LG02",
+              "E13-LG03",
+              "E13-LG04",
+              "E13-LG05"
+            ],
+            "kp_ranges": [
+              "KP01-KP18"
+            ],
+            "content_families": [
+              "Framework",
+              "Precision/MI-D",
+              "Visual",
+              "Boundary"
+            ]
+          },
+          {
+            "system": "E",
+            "block": "E14",
+            "logic_groups": [
+              "E14-LG01",
+              "E14-LG02",
+              "E14-LG03",
+              "E14-LG04",
+              "E14-LG05"
+            ],
+            "kp_ranges": [
+              "KP01-KP16"
+            ],
+            "content_families": [
+              "Framework",
+              "Decision/Boundary",
+              "Precision",
+              "Visual"
+            ]
+          }
+        ],
+        "content_role_validation": "MATURE_BLOCK_ROLES_PRESENT",
+        "learning_validation": "LEARNING_TOPOLOGY_PRESERVED; refined notes fit existing E LG model",
+        "projection_validation": "E Projection not broadly compiled; no Projection truth invented"
       }
     },
     {
@@ -98,7 +283,7 @@
         "A2:R10",
         "A2:R11"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_PRESERVE_LEARNING_ALREADY_ALIGNED_DOWNSTREAM_REVALIDATION_PENDING",
       "semantic_delta_receipt": {
@@ -109,10 +294,46 @@
         "notes": "Rib fracture/flail chest/traumatic asphyxia and mediastinal localization refined explanations are already captured by A2 R10/R11."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "A2 compiled Projection targeted binding revalidation required",
+        "bindings": [
+          {
+            "system": "A2",
+            "block": "respiratory-r10",
+            "logic_groups": [
+              "respiratory-r10-lg05"
+            ],
+            "kp_ranges": [
+              "thoracic-trauma KP subset"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Visual",
+              "Precision"
+            ]
+          },
+          {
+            "system": "A2",
+            "block": "respiratory-r11",
+            "logic_groups": [
+              "respiratory-r11-lg06"
+            ],
+            "kp_ranges": [
+              "mediastinal-localization KP subset"
+            ],
+            "content_families": [
+              "Framework",
+              "Visual",
+              "Recognition"
+            ]
+          }
+        ],
+        "content_role_validation": "MATURE_BLOCK_ROLES_PRESENT",
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "A2 compiled Projection targeted binding revalidation required"
       }
     },
     {
@@ -122,7 +343,7 @@
       "candidate_primary": [
         "B:D11"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_SCREENED_LEARNING_GUIDE_DEEP_REVIEW_PENDING",
       "semantic_delta_receipt": {
@@ -133,10 +354,37 @@
         "notes": "Refined early-gastric definition, spread, diagnostic hierarchy and resection/lymph-node explanations are already represented in D11; no duplicate prose inflation."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_PRESERVED",
+        "projection_status": "B compiled Projection targeted binding revalidation required for D11",
+        "bindings": [
+          {
+            "system": "B",
+            "block": "D11",
+            "logic_groups": [
+              "b-d11-lg03",
+              "b-d11-lg04",
+              "b-d11-lg05",
+              "b-d11-lg06"
+            ],
+            "kp_ranges": [
+              "KP09-KP24"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary",
+              "Precision/MI-D",
+              "Connection",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "content_role_validation": "MATURE_BLOCK_ROLES_PRESENT",
+        "learning_validation": "LEARNER_ORDER_PRESERVED",
+        "projection_validation": "B compiled Projection targeted binding revalidation required for D11"
       }
     },
     {
@@ -146,7 +394,7 @@
       "candidate_primary": [
         "B:D13"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_SCREENED_LEARNING_GUIDE_DEEP_REVIEW_PENDING",
       "semantic_delta_receipt": {
@@ -157,10 +405,33 @@
         "notes": "Parietal-vs-visceral pain, primary-vs-secondary peritonitis and subphrenic/pelvic abscess explanations already map directly to D13."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_PRESERVED",
+        "projection_status": "B compiled Projection targeted binding revalidation required for D13",
+        "bindings": [
+          {
+            "system": "B",
+            "block": "D13",
+            "logic_groups": [
+              "b-d13-lg01"
+            ],
+            "kp_ranges": [
+              "KP01-KP06"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Source Control",
+              "Boundary",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "content_role_validation": "MATURE_BLOCK_ROLES_PRESENT",
+        "learning_validation": "LEARNER_ORDER_PRESERVED",
+        "projection_validation": "B compiled Projection targeted binding revalidation required for D13"
       }
     },
     {
@@ -173,7 +444,7 @@
       "cross_system": [
         "A1:shock/volume interface"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_SCREENED_LEARNING_GUIDE_DEEP_REVIEW_PENDING",
       "semantic_delta_receipt": {
@@ -184,10 +455,36 @@
         "notes": "Refined solid-vs-hollow organ, delayed splenic rupture, pancreas/colon timing and puncture/exploration explanations are already explicit in D13."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_PRESERVED",
+        "projection_status": "B compiled Projection targeted binding revalidation required for D13",
+        "bindings": [
+          {
+            "system": "B",
+            "block": "D13",
+            "logic_groups": [
+              "b-d13-lg02",
+              "b-d13-lg03",
+              "b-d13-lg04"
+            ],
+            "kp_ranges": [
+              "KP07-KP16"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary",
+              "Connection",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "content_role_validation": "MATURE_BLOCK_ROLES_PRESENT",
+        "learning_validation": "LEARNER_ORDER_PRESERVED",
+        "projection_validation": "B compiled Projection targeted binding revalidation required for D13"
       }
     },
     {
@@ -197,7 +494,7 @@
       "candidate_primary": [
         "B:D14"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_SCREENED_LEARNING_GUIDE_DEEP_REVIEW_PENDING",
       "semantic_delta_receipt": {
@@ -208,10 +505,34 @@
         "notes": "‘痛吐胀停’ is not stored as a slogan-only model; current D14 already reconstructs mechanism, level, time course and blood-supply danger."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_PRESERVED",
+        "projection_status": "B compiled Projection targeted binding revalidation required for D14",
+        "bindings": [
+          {
+            "system": "B",
+            "block": "D14",
+            "logic_groups": [
+              "b-d14-lg01",
+              "b-d14-lg02"
+            ],
+            "kp_ranges": [
+              "KP01-KP11"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "content_role_validation": "MATURE_BLOCK_ROLES_PRESENT",
+        "learning_validation": "LEARNER_ORDER_PRESERVED",
+        "projection_validation": "B compiled Projection targeted binding revalidation required for D14"
       }
     },
     {
@@ -221,7 +542,7 @@
       "candidate_primary": [
         "B:D14"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_SCREENED_LEARNING_GUIDE_DEEP_REVIEW_PENDING",
       "semantic_delta_receipt": {
@@ -232,10 +553,34 @@
         "notes": "Refined appendicitis progression, transferred pain and abscess/exception explanations are already represented; no topology change."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_PRESERVED",
+        "projection_status": "B compiled Projection targeted binding revalidation required for D14",
+        "bindings": [
+          {
+            "system": "B",
+            "block": "D14",
+            "logic_groups": [
+              "b-d14-lg03",
+              "b-d14-lg04"
+            ],
+            "kp_ranges": [
+              "KP12-KP20"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "content_role_validation": "MATURE_BLOCK_ROLES_PRESENT",
+        "learning_validation": "LEARNER_ORDER_PRESERVED",
+        "projection_validation": "B compiled Projection targeted binding revalidation required for D14"
       }
     },
     {
@@ -245,7 +590,7 @@
       "candidate_primary": [
         "B:D15"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_SCREENED_LEARNING_GUIDE_DEEP_REVIEW_PENDING",
       "semantic_delta_receipt": {
@@ -256,10 +601,36 @@
         "notes": "Refined colon-side operation logic, obstruction handling and rectal operation comparison are already captured; source-version-sensitive distance rules remain explicit rather than flattened."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_PRESERVED",
+        "projection_status": "B compiled Projection targeted binding revalidation required for D15",
+        "bindings": [
+          {
+            "system": "B",
+            "block": "D15",
+            "logic_groups": [
+              "b-d15-lg01",
+              "b-d15-lg02",
+              "b-d15-lg03",
+              "b-d15-lg04"
+            ],
+            "kp_ranges": [
+              "KP01-KP12"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary",
+              "Precision/MI-D",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "content_role_validation": "MATURE_BLOCK_ROLES_PRESENT",
+        "learning_validation": "LEARNER_ORDER_PRESERVED",
+        "projection_validation": "B compiled Projection targeted binding revalidation required for D15"
       }
     },
     {
@@ -269,7 +640,7 @@
       "candidate_primary": [
         "B:D15"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_SCREENED_LEARNING_GUIDE_DEEP_REVIEW_PENDING",
       "semantic_delta_receipt": {
@@ -280,10 +651,34 @@
         "notes": "Dentate-line anatomy, fissure pain cycle, abscess depth/local-vs-systemic pattern and fistula-sphincter relation are already explicit in D15."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_PRESERVED",
+        "projection_status": "B compiled Projection targeted binding revalidation required for D15",
+        "bindings": [
+          {
+            "system": "B",
+            "block": "D15",
+            "logic_groups": [
+              "b-d15-lg06",
+              "b-d15-lg07"
+            ],
+            "kp_ranges": [
+              "KP14-KP19"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "content_role_validation": "MATURE_BLOCK_ROLES_PRESENT",
+        "learning_validation": "LEARNER_ORDER_PRESERVED",
+        "projection_validation": "B compiled Projection targeted binding revalidation required for D15"
       }
     },
     {
@@ -293,7 +688,7 @@
       "candidate_primary": [
         "B:D14"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_SCREENED_LEARNING_GUIDE_DEEP_REVIEW_PENDING",
       "semantic_delta_receipt": {
@@ -304,10 +699,34 @@
         "notes": "Refined hernia definition, strangulation venous→arterial sequence, inguinal anatomy and direct/indirect/femoral differentiation are already represented by D14."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_PRESERVED",
+        "projection_status": "B compiled Projection targeted binding revalidation required for D14",
+        "bindings": [
+          {
+            "system": "B",
+            "block": "D14",
+            "logic_groups": [
+              "b-d14-lg05",
+              "b-d14-lg06"
+            ],
+            "kp_ranges": [
+              "KP21-KP28"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "content_role_validation": "MATURE_BLOCK_ROLES_PRESENT",
+        "learning_validation": "LEARNER_ORDER_PRESERVED",
+        "projection_validation": "B compiled Projection targeted binding revalidation required for D14"
       }
     },
     {
@@ -982,6 +1401,11 @@
     "preserved_work": "All v2 medical/source comparisons and real semantic repairs remain evidence; v2 acceptance labels are downgraded to semantic-delta receipts, not full K/L/Content/P acceptance.",
     "source_map_rule": "Source unit/source-contact segment maps directly to existing Block/LG/KP and impacted canonical content families. No L1/L2/L3 or other intermediate semantic hierarchy.",
     "current_gap": "Most 38 units have Block-level and content-family dispositions, but exact LG/KP/content-family binding and full mature Block-role validation were not uniformly proven.",
-    "acceptance_state": "REOPENED_FOR_ARCHITECTURE_RECONCILIATION"
+    "acceptance_state": "REOPENED_FOR_ARCHITECTURE_RECONCILIATION",
+    "progress": {
+      "units_reconciled": 12,
+      "units_total": 38,
+      "next": "SUR27-U13-U19"
+    }
   }
 }
