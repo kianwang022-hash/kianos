@@ -763,7 +763,7 @@ K6 已完成尿三杯唯一 Primary，本 Block只调用：
 | source-local `p0131` | 检查层级、尿三杯与血尿位置图 | ROUTE VERIFIED |
 | source-local `p0132` | 四种泌尿肿瘤比较图与病例识别入口 | ROUTE VERIFIED |
 
-> 这些编号来自 `外科学讲义_AI阅读版.md` 的 preprocessing / IMAGE_PAGES 路由，**不等于当前合并 PDF 的物理页码**。本批已验证 source route，但当前工具未成功渲染每一张原图，因此这里不声称 pixel-level visual audit。学习时仍须按 route 回原图。
+> 这些编号来自历史 `外科学讲义_AI阅读版.md` preprocessing / IMAGE_PAGES 兼容路由，**不等于当前合并 PDF 的物理页码**。本批已验证 source route，但当前工具未成功渲染每一张原图，因此这里不声称 pixel-level visual audit。学习时仍须按 route 回原图。
 
 ---
 

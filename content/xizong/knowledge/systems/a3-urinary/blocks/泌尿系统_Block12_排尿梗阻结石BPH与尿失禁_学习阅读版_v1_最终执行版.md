@@ -776,7 +776,7 @@ BPH 的时相：
 必须回原 Study：
 
 1. `27精编生理合集【带导图】.pdf` P263–264：膀胱压力—容量、排尿反射和神经层级；
-2. `外科学讲义_AI阅读版.md` 对应 source-local 泌外梗阻 asset：前列腺移行带 / 外周带、逼尿肌与出口示意；
+2. 历史 `外科学讲义_AI阅读版.md` preprocessing 对应的兼容 source-local 泌外梗阻 asset：前列腺移行带 / 外周带、逼尿肌与出口示意；
 3. 对应 source-local asset：四类结石外观与 X 线显影；
 4. 对应 source-local asset：肾—输尿管—膀胱结石位置及尺寸—术式矩阵；
 5. 对应 source-local 尿失禁 asset：四类尿失禁比较图。
