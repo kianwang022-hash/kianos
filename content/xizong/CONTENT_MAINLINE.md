@@ -21,9 +21,9 @@ Old Chats, prompts, Issue titles and branch names are provenance, not Current tr
 
 ---
 
-# 0｜CLOSED MAINLINE TASK — 27 Biochemistry comprehensive rebase
+# 0｜ACTIVE MAINLINE TASK — 27 Biochemistry architecture/content reconciliation
 
-Status: **CLOSED / CURRENT 27 CANONICAL REBASE COMPLETE**
+Status: **ACTIVE / ARCHITECTURE CORRECTION LOCKED · CONTENT RECONCILIATION PENDING**
 
 Exact task owner:
 
@@ -33,39 +33,106 @@ Scoped top-level rule:
 
 `content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md`
 
-The scoped contract remains **CURRENT and locked for execution**. This closeout does not reopen the contract; future ordinary Source/KP/question defects still route to the smallest responsible owner.
+Parent learning architecture:
 
-Closed result:
+`content/xizong/LEARNING_CONTRACT.md`
+
+## Why this task is reopened
+
+The 27 Source audit remains valuable, but the interrupted rebase incorrectly promoted temporary biochemical groupings into a parallel `Block → L-layer → KP` hierarchy and demoted mature Block-owned content jobs. That acceptance claim is withdrawn.
+
+Current architecture is now locked:
 
 ```text
-S  PASS — current 27 Source identity + 22 Source units + page locators/gaps current
-K  PASS — M1–M10 + G1–G5 stable canonical Blocks/KPs revalidated and reorganized into canonical layer hierarchies
-   + system.json closes Biochemistry into 物质—能量网络 + 信息生命周期
-L  PASS — all 15 M/G Blocks consume canonical layers through the completed global Source map
-C  PASS — Core / Boundary / Precision / Connection + current visual/source-bound roles reconciled
-Q  PRESERVE — hierarchy rebase created no Question→KP relation; existing reviewed relations remain separately owned
-X  PRESERVE — no ritual explanation rewrite where target medical semantics/owner remained unchanged
-E  PRESERVE — historical learner observations remain historical; repository rebase creates no learner progress
-A  PASS — B CURRENT / ACCEPTANCE reconciled; Biochemistry bounded exception closed
-UI no static-web content fork — website remains downstream of GitHub canonical truth
+one canonical hierarchy
+System → Block → Logic Group → KP
+
+Source unit / Source-contact segment
+= first-pass execution unit only
+
+Framework / mother model
+Memory Routing / MI-G / MI-D
+Precision / Visual / Connection / Extension
+Recall / Closure / Compression
+Question Probe / Repair
+= content jobs / learning states
+= not hierarchy
 ```
 
-Current Source / Knowledge shape:
+Biochemistry remains special only where the subject actually needs it:
 
-- **27 跟课 remains the only continuous first-pass Biochemistry Source**.
-- **26 精编 remains explanation reconstruction substrate**, not a second learner-reading path.
-- 22 Source units map directly to 15 canonical M/G Blocks and their canonical layers/KPs or explicit support connections.
-- stable Block/KP identity was preserved; no split / merge / renumber was introduced for symmetry.
-- current exact non-gating boundaries remain explicit: M3 NADPH wording, M4 P015 FBPase-1 conflict, G5 first low-fidelity-polymerase Greek glyph.
-- lecture-attached question coverage is Source-position accounting only; it does not infer official Question→Knowledge relations.
+- **27 跟课 is the only continuous first-pass Biochemistry Source**;
+- **26 精编 is explanation reconstruction substrate**, not a second reading path;
+- source order may differ from Block/LG/KP learner order;
+- minimal JIT Prelude is allowed when current Source precedes formal terminology;
+- state-variable reconstruction is preferred over isolated pathway recitation;
+- first-pass Source continuity should avoid routine course switching.
 
-Reopen only for:
+Biochemistry is **not** a separate Knowledge island. Cross-System integration follows:
 
-1. a new/revised authoritative Biochemistry Source;
-2. a concrete defect in canonical medical meaning, Source mapping, Learning consumption or the two mother maps;
-3. a demonstrated downstream rendering/mapping bug where GitHub truth is already correct.
+```text
+JIT Connection during Biochemistry Source
+→ Block/LG Connection Hook or Recall
+→ after the relevant owners are learned: cross-Block/System Reconstruction
+```
 
-Otherwise this task stays closed. The active Surgery rebase below proceeds independently and must refresh shared owners before writes.
+High-value integration explicitly includes:
+
+- M4 ↔ D7 fed/fasting + insulin/glucagon;
+- M7 ↔ D7/D8 storage/mobilization/ketogenesis/diabetes;
+- M5 ↔ D3/D4 intestinal lipid digestion/absorption;
+- M6 ↔ D3/D4/D19 bile-acid digestion/absorption/hepatobiliary disease;
+- M8 ↔ D17 ammonia/urea/hepatic failure;
+- M10 ↔ D17/D19 bilirubin/jaundice;
+- biochemical RBC/folate/B12/heme ↔ hematology;
+- HIF/nuclear receptor ↔ physiology/endocrine;
+- oncogene/repair ↔ tumor-general.
+
+## Preserved work
+
+Keep as evidence, not as acceptance proof:
+
+- current 27 Source identity/hash/page ranges;
+- 22 Source-unit teacher order;
+- verified 27-vs-26 semantic findings;
+- current lecture-attached question source-position counts;
+- explicit Source conflicts / SOURCE_BOUND exactness;
+- real semantic updates already routed to correct owners.
+
+## Invalidated / to reconcile
+
+- invented L1/L2/L3... canonical layer topology;
+- Source→L-layer mapping as final Knowledge mapping;
+- duplicate Learning `canonical_hierarchy` topology;
+- physical KP/file reorder used only to express learner order;
+- demotion of explicit Block Framework / Memory Routing / MI-G / MI-D into disposable derived support.
+
+## Required completion sequence
+
+```text
+S  preserve/verify current 27 Source truth
+→ K  reconcile all 15 M/G Blocks to mature canonical content architecture
+→ L  revalidate existing Logic Groups, learner_order, Source-contact and closure semantics
+→ C  revalidate Block-owned Framework/Prompt/Core/Boundary/Precision/Visual/Connection/Memory/Exit responsibilities
+→ Q/X  revalidate only where actual target medical semantics changed
+→ P  revalidate existing Projection bindings / learner-object consumption
+→ R/E only if a real downstream dependency changed
+→ A  reconcile B CURRENT / ACCEPTANCE and close
+```
+
+Do **not** generate more Biochemistry content until the architecture reconciliation pass has established, Block by Block, what existing content should be preserved, reverted, or rebuilt.
+
+Do **not** touch `static-web` for ordinary content correction. The intended chain remains:
+
+```text
+GitHub canonical System / Block / LG / KP
++ accepted content jobs
++ accepted Learning
+→ Cognitive Projection / Learner Object
+→ shared renderer
+```
+
+The parallel Surgery rebase below may continue on independent owners; shared B owners must refresh main and serialize writes.
 
 ---
 
