@@ -115,7 +115,7 @@ assert.equal(pending.status,'REVISION_PENDING');
 assert.equal(pending.blocked,true);
 
 // Browser owner must reopen completion and require current Source contact + Block Recall.
-const component=fs.readFileSync('static-web/src/components/XizongBlockV6.astro','utf8');
+const component=fs.readFileSync(new URL('../src/components/XizongBlockV6.astro', import.meta.url),'utf8');
 assert.match(component,/sourceRevisionPending: true/);
 assert.match(component,/sourceRevisionReason: evidenceSourceHash \? 'SOURCE_REVISION_CHANGED' : 'SOURCE_IDENTITY_UNBOUND'/);
 assert.match(component,/completed: false/);
