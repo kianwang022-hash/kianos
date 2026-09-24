@@ -173,6 +173,12 @@ assert.equal(questionScope.status,'CURRENT');
 assert.equal(learning.question_stage?.exact_membership_gate,'CURRENT_B_QUESTION_SCOPE_ACCEPTED');
 assert.equal(learning.question_stage?.question_scope_owner,'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json');
 
+assert.equal(learning.status,'CURRENT','accepted B Learning owner must remain CURRENT');
+assert.equal(learning.construction_status,'PHASE6_INDEPENDENT_L_ACCEPTED','candidate builder must not overwrite accepted B Learning owner');
+const builderText=text('static-web/scripts/build-xizong-b-learning-candidate.mjs');
+assert.match(builderText,/B_L_CANONICAL_CURRENT_OVERWRITE_FORBIDDEN/,'candidate builder must fail closed on accepted Current');
+assert.match(builderText,/\.qa\/xizong-b-learning-candidate\.json/,'candidate builder default output must be non-canonical');
+
 assert.equal(learning.biochemistry_first_pass_lane?.status,'CURRENT_27_REACCEPTED');
 assert.equal(learning.biochemistry_first_pass_lane?.source_map_status,'CURRENT_27_SOURCE_ROUTING_REACCEPTED');
 assert.match(String(learning.biochemistry_first_pass_lane?.source_mapping_ownership||''),/SINGLE_OWNER_SOURCE_MAP/);
