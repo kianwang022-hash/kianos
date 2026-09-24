@@ -133,6 +133,22 @@ try {
       };
       localStorage.setItem('kianos-study-timer-state-v2', JSON.stringify(state));
       localStorage.setItem('kianos-study-timer-ledger-v2', JSON.stringify(ledger));
+      localStorage.setItem('kianos-steward-reality-v1', JSON.stringify({
+        schema: 'kianos.steward-reality.v1',
+        revision: 1,
+        events: [{
+          id: 'steward-test-break',
+          kind: 'BREAK',
+          startedAt: atShanghai(11, 0),
+          endedAt: atShanghai(11, 10),
+          plannedRestMinutes: 10,
+          methods: ['walk', 'water'],
+          customMethod: '',
+          note: '午前短休息',
+          preBreakContext: { subject: 'xizong', route: 'test', detailKey: 'respiratory', detailLabel: '呼吸系统' },
+          reentry: { status: 'PARTIAL', note: '清醒一些', at: atShanghai(11, 11) }
+        }]
+      }));
     });
 
     const page = await context.newPage();
@@ -160,6 +176,10 @@ try {
     check(await page.locator('[data-steward-mode="schedule"]').getAttribute('class') === 'active', 'schedule_default');
     check(await page.locator('.stewardActualBlock').count() >= 1, 'today_actual_blocks');
     check(await page.locator('.stewardActualBlock strong').first().isVisible(), 'today_actual_label');
+    const realityText = await page.locator('[data-steward-reality]').innerText();
+    check(realityText.includes('休息 10m'), 'today_break_reality_visible', realityText);
+    check(realityText.includes('部分恢复'), 'today_reentry_reality_visible', realityText);
+    check(!/readiness|恢复分|债务分|recovery score/i.test(realityText), 'today_recovery_has_no_invented_score', realityText);
     check(await page.locator('[data-steward-task-section]').isHidden(), 'empty_task_region_hidden');
 
     const visibleToday = await page.locator('[data-steward-view-panel].active').getAttribute('data-steward-view-panel');
