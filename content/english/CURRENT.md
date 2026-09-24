@@ -3,7 +3,7 @@
 Role: **English engineering Work Cursor + scope router**
 Parent: root `CURRENT.md`
 
-This file does not own English Learning Logic, canonical Content, Acceptance Truth, learner history, or shared-platform authority.
+This file does not own English Learning Logic, canonical Content, Acceptance Truth, private learner state / learner truth, or shared-platform authority.
 
 A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / 继续词汇` is LEARN unless the conversation explicitly establishes BUILD / UI / CONTROL work.
 
