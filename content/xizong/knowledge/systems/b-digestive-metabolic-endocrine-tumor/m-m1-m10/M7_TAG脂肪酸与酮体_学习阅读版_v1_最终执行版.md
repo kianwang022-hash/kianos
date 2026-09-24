@@ -6,11 +6,16 @@ block_id: M7
 type: block_learning_reader
 version: v1
 status: FINAL_EXECUTION
-primary_source: 生物化学讲义_AI阅读版.md
-coverage_source: 生化_Embedded_Questions_Ledger.md
-embedded_questions_primary: 17
-visual_status: VISUAL_SOURCE_GAP_OPEN
-source_conflict_status: OPEN
+primary_source: 生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md
+primary_source_pdf: 27生化跟课版合集【不带导图】.pdf
+source_cycle: 27考研
+explanatory_substrate: 生物化学讲义_AI阅读版(1).md / 26生化.pdf
+coverage_source: current 27 lecture-attached questions + official Question Truth
+embedded_questions_primary: 19
+visual_status: SOURCE_AVAILABLE_EXTERNAL_PRIMARY_27_PDF
+source_conflict_status: NONE_CURRENT_AFTER_27_REBASE
+source_gap_status: OPEN
+source_boundary_status: OPEN
 ---
 
 # M7｜三酰甘油、脂肪酸与酮体
@@ -26,19 +31,17 @@ source_conflict_status: OPEN
 
 ### Study 主范围
 
-- `#pdf-p041`–`#pdf-p050`｜原讲义印刷页 P34–42、脂代谢小结与总图；
-- P041–P042 脂肪合成、脂肪酸合成、TAG合成与脂肪动员；
-- P043–P044 β氧化、奇数碳与酮体；
-- P045–P048 必需脂肪酸、内嵌题、部位总表；
-- P049–P050 总通路图与高视觉收口。
+- **BIO27-S07｜PDF P036–P044** 是 M7 current 27 primary Source：TAG/脂肪酸合成、脂肪动员、肉碱穿梭、β氧化、酮体、必需脂肪酸、19 道讲义附题与脂代谢总图；
+- M2/M3/M4/M6 只提供 ATP、NADPH、糖异生、柠檬酸/HMG-CoA 等调用接口；
+- 26 精编只作 verified reconstruction substrate，不形成第二套 learner Source。
 
 ### Embedded Questions Primary
 
-- P045：4题；
-- P046：6题；
-- P047：6题；
-- P048：1题；
-- **合计 17 / 17 accounted**。
+- BIO27-S07 / P040–P043：**19 题**；
+- 相比旧 baseline 新增：
+  - **2025N19｜酮体特点 / 可过血脑屏障**；
+  - **2025N143｜花生四烯酸 → PG / TX / LT**；
+- **合计 19 / 19 source-position accounted**。
 
 ### 前序调用
 
@@ -56,137 +59,85 @@ source_conflict_status: OPEN
 - 前列腺素、白三烯、血栓素完整炎症 / 药理网络：病理炎症与后续系统只作Apply；
 - 全部脂肪酸碳数、每种酶名、所有能量计算与低频药物：MI-D。
 
-### Source conflict / Gap
+### Source boundary / Gap
+
+Current 27 revision resolves one old conflict：
+
+- **RETIRED M7-SC01**：旧 26 曾把“磷脂酸→DAG”标为 PLC；current 27 P037 已明确写 **磷脂酸磷酸酶**，不再保留该冲突。
+
+Still open：
 
 ```text
-SOURCE_CONFLICT / 待核对｜M7-SC01
-P042 将“磷脂酸→DAG”标为由 PLC 催化；
-该标注与 M6 同页PLC作为膜磷脂切割酶的语境产生内部冲突。
-本文件保留可靠的通路骨架“磷脂酸→DAG→TAG”，不为该步静默指定另一酶。
+SOURCE_GAP
+P037 “1分子甘油完全分解生成ATP”数值缺失；不猜。
 ```
 
 ```text
-SOURCE_GAP｜M7-SG01
-P042“1分子甘油完全分解生成ATP”数字在文字层缺失，仅残留16.5/18.5候选，无法Source-bound裁决。
-本文件不选择其中任一数值。
+SOURCE_BOUND
+P039 含“只有脂肪酸β氧化来源乙酰CoA可成酮体”等宽泛解释；
+canonical 只保留当前稳定机制：空腹/糖利用不足 → 脂解与β氧化↑ → 肝线粒体乙酰CoA积聚 → 产酮↑。
 ```
 
 ```text
-UNCERTAIN_SOURCE_READING｜M7-SG02
-P043 解释性段落含“只有β氧化来源乙酰CoA可成酮体”及“糖尿病时该酶活性异常升高”等宽泛表述，指代不唯一。
-本文件仅采用明确 Pathway Spine：脂肪酸β氧化提供乙酰CoA，糖利用不足时酮体生成增加；不把模糊句扩写为普遍规则。
+SOURCE_BOUNDARY
+P040 current Study 将亚油酸、亚麻酸、花生四烯酸共同列为必需脂肪酸；
+保留考试 Source 口径，不用外部教材静默改写。
 ```
 
-```text
-SOURCE_BOUNDARY｜M7-SB01
-P045按当前Study把亚油酸、亚麻酸、花生四烯酸共同列为必需脂肪酸。
-本文件保留该考试口径，不用外部教材静默修改。
-```
-
-
-```text
-SOURCE_BOUNDARY｜M7-SB02
-P041把脂肪酸从头合成的乙酰CoA主要归于糖和某些氨基酸，并明确不把“脂肪酸自身分解后再原样合成”作为当前原料链。
-本文件保留这一Study组织方式，不把它扩写成超出Source的普遍定律。
-```
-
-
-```text
-VISUAL_SOURCE_GAP
-P041、P043–P045、P049–P050含柠檬酸转运、ACC调节、肉碱穿梭、β氧化循环、酮体分流与全脂代谢总图；
-原 SOURCE_PAGES 未挂载到当前成品目录。
-```
+P036 对从头脂肪酸合成碳源的组织方式也按 current Source 保持，不扩写成超出 Source 的普遍定律。视觉 exactness 以 27 P036–P044 为准。
 
 ---
 
-## 1｜第一轮固定流程
+## 1｜Canonical Knowledge Hierarchy
+
+### M7 母模型｜在“储存脂肪”与“动员燃料”之间切换，并决定乙酰CoA去向
 
 ```text
-Framework Orientation
-→ P041–P042：TAG/脂肪酸合成 + 脂肪动员
-→ P043：脂酰CoA活化—肉碱穿梭—β氧化—能量
-→ P044：奇数碳分支 + 酮体生成/利用
-→ P045–P048：必需脂肪酸 + Embedded Questions + 部位表
-→ P049–P050：回原图恢复合成/分解总开关
-→ Lecture Done
-→ Framework Reconstruction：储存线 + 动员线 + β氧化线 + 酮体线
-→ KP Active Recall
-→ Embedded Questions Quick Check（按需、低压力）
-→ TTSX Lecture-attached Questions
-→ Block Complete
+能量充足 / 餐后
+→ 胞浆乙酰CoA + NADPH
+→ ACC → malonyl-CoA
+→ 脂肪酸合成 + TAG储存
+→ malonyl-CoA 抑制 CPT-I，避免边合成边β氧化
+
+空腹 / 糖利用不足
+→ TAG脂解 → 甘油 + FFA
+→ FFA经肉碱进入线粒体 → β氧化
+→ NADH / FADH₂ + 乙酰CoA
+→ TCA 或肝内产酮
+→ 肝外组织利用酮体
 ```
 
-第一轮先守住八个门槛：
+M7 的核心是**状态开关与碳流方向**，不是分别背“脂肪合成、脂肪分解、β氧化、酮体”四章。
 
+### L1｜脂肪酸 / TAG合成与储能｜KP01–KP06
+
+**Core relation**
 ```text
-小肠一酰甘油途径 ≠ 肝/脂肪细胞甘油二酯途径
-脂肪/骨骼肌甘油激酶低，甘油骨架主要依赖糖酵解
-ACC管脂肪酸合成，CPT-I管长链脂酰CoA入线粒体
-丙二酰CoA一边代表合成，一边抑制CPT-I
-脂肪动员关键酶是HSL，血中CM/VLDL卸货酶是LPL
-β氧化四步：脱氢—加水—脱氢—硫解
-偶数碳脂肪酸通常不净生糖，奇数碳丙酰CoA是例外接口
-肝生成酮体、肝外利用；脑空腹用酮体但不能β氧化脂肪酸
+过剩碳源
+→ 柠檬酸把乙酰CoA碳带到胞浆
+→ ACC：乙酰CoA → malonyl-CoA
+→ ACP承载脂酰基 → 脂肪酸
+→ 甘油骨架 + 3脂酰CoA → TAG储存
 ```
 
----
+**Boundary**
+- 小肠甘油一酯途径与肝/脂肪细胞甘油二酯途径是不同入口；
+- 脂肪细胞/骨骼肌甘油激酶低，甘油骨架更依赖糖酵解；
+- ACP 是胞浆脂肪酸合成载体，不是血浆 apo。
 
-## 2｜总 Framework
+**Precision**
+- ACC 是脂肪酸合成关键酶，需生物素；
+- malonyl-CoA 是合成中间物，同时抑制 CPT-I；
+- NADPH 主要调用 PPP / 柠檬酸—丙酮酸循环。
 
-```text
-A｜餐后储存线
-外源长链脂质
-→ 小肠一酰甘油途径 → TAG → CM
-
-葡萄糖过剩
-→ DHAP → 3-磷酸甘油
-→ 乙酰CoA经柠檬酸出线粒体
---ACC→ 丙二酰CoA
-→ 脂肪酸 / 脂酰CoA
-+ 3-磷酸甘油
-→ 磷脂酸 → DAG → TAG
-→ 肝 / 脂肪组织储存或输出
-
-B｜空腹动员线
-脂肪细胞TAG
---ATGL→ DAG + FFA
---HSL→ MAG + FFA
---MAG脂肪酶→ 甘油 + FFA
-├─ 甘油 → 肝 → 糖异生 / TAG再合成
-└─ FFA → 白蛋白运输 → 组织氧化
-
-C｜长链脂肪酸氧化线
-脂肪酸 --脂酰CoA合成酶→ 脂酰CoA
-→ CPT-I / 肉碱 / 转位酶 / CPT-II
-→ 线粒体
-→ 脱氢—加水—脱氢—硫解
-→ 每轮少2C + FADH₂ + NADH + 乙酰CoA
-→ TCA / OXPHOS
-
-D｜奇数碳分支
-末端丙酰CoA
-→ 琥珀酰CoA
-→ 草酰乙酸 / PEP
-→ 糖异生接口
-
-E｜酮体输出线
-糖不足 / 糖利用障碍
-→ 草酰乙酸偏向糖异生
-→ 脂肪大量动员、β氧化
-→ 肝线粒体乙酰CoA堆积
-→ 乙酰乙酰CoA → HMG-CoA
-→ 乙酰乙酸 / β-羟丁酸 / 丙酮
-→ 血液 → 肝外组织利用
-```
-
-### 一句话恢复
-
-> **能量多时把乙酰CoA和甘油骨架合成TAG；能量缺时HSL拆库、CPT-I开门、β氧化产乙酰CoA，肝再把过量乙酰CoA包装成酮体输出。**
+**Connection**
+- M6 提供柠檬酸—乙酰CoA与 HMG-CoA 对照；
+- D7 只调用餐后合成状态，不重建通路。
 
 ---
 
 <!-- kianos:kp id="biochem-m7-kp01" -->
-## KP01｜TAG的两条合成入口：小肠接收外源脂质，肝/脂肪细胞处理内源底物
+#### KP01｜TAG的两条合成入口：小肠接收外源脂质，肝/脂肪细胞处理内源底物
 
 > **主提示：** 一酰甘油途径｜部位｜需CM｜甘油二酯途径｜组织3｜共同终点
 
@@ -197,7 +148,7 @@ E｜酮体输出线
 - 长链脂肪酸重合成 TAG；
 - 与 apoB48 等组装成 CM，经淋巴输出。
 
-### 甘油二酯途径
+##### 甘油二酯途径
 
 - 部位：肝、脂肪细胞等胞浆；
 - 先形成3-磷酸甘油与脂酰CoA；
@@ -208,7 +159,7 @@ E｜酮体输出线
 ---
 
 <!-- kianos:kp id="biochem-m7-kp02" -->
-## KP02｜甘油骨架来源：为什么肝能回收甘油，脂肪和骨骼肌更依赖葡萄糖
+#### KP02｜甘油骨架来源：为什么肝能回收甘油，脂肪和骨骼肌更依赖葡萄糖
 
 > **主提示：** 2来源｜甘油激酶｜肝2路｜脂/肌1路｜无效循环边界
 
@@ -229,7 +180,7 @@ E｜酮体输出线
 ---
 
 <!-- kianos:kp id="biochem-m7-kp03" -->
-## KP03｜脂肪酸从头合成的原料与区室：乙酰CoA、NADPH和ATP怎样汇合
+#### KP03｜脂肪酸从头合成的原料与区室：乙酰CoA、NADPH和ATP怎样汇合
 
 > **主提示：** 脂肪酸合成原料3｜乙酰CoA怎么到胞浆｜NADPH来源｜区室｜能量状态
 
@@ -255,7 +206,7 @@ E｜酮体输出线
 ---
 
 <!-- kianos:kp id="biochem-m7-kp04" -->
-## KP04｜ACC：把乙酰CoA变成丙二酰CoA，并决定合成开不开
+#### KP04｜ACC：把乙酰CoA变成丙二酰CoA，并决定合成开不开
 
 > **主提示：** 反应｜辅因子｜关键酶｜激活4｜抑制2+药｜磷酸化｜双重开关
 
@@ -282,7 +233,7 @@ ACC开 → 丙二酰CoA↑ → 脂肪酸合成↑
 ---
 
 <!-- kianos:kp id="biochem-m7-kp05" -->
-## KP05｜ACP vs CoA：合成脂肪酸与延长碳链使用不同载体语境
+#### KP05｜ACP vs CoA：合成脂肪酸与延长碳链使用不同载体语境
 
 > **主提示：** 胞浆合成谁载｜维生素｜延长部位2｜谁载｜高能硫酯
 
@@ -295,7 +246,7 @@ ACC开 → 丙二酰CoA↑ → 脂肪酸合成↑
 ---
 
 <!-- kianos:kp id="biochem-m7-kp06" -->
-## KP06｜甘油二酯途径怎样把甘油骨架和3条脂肪酸拼成TAG
+#### KP06｜甘油二酯途径怎样把甘油骨架和3条脂肪酸拼成TAG
 
 > **主提示：** G3P→磷脂酸→DAG→TAG｜3条脂酰CoA何时接入
 
@@ -316,8 +267,38 @@ ACC开 → 丙二酰CoA↑ → 脂肪酸合成↑
 
 ---
 
+### L2｜脂解、肉碱门与β氧化｜KP07–KP12
+
+**Core relation**
+```text
+TAG --ATGL/HSL/MAG lipase→ 甘油 + 3 FFA
+FFA + CoA → 脂酰CoA
+→ CPT-I / 转位酶 / CPT-II
+→ 线粒体脂酰CoA
+→ β氧化：脱氢 → 加水 → 再脱氢 → 硫解
+→ 每轮 FADH₂ + NADH + 乙酰CoA
+```
+
+**Boundary**
+- HSL = 脂肪细胞内储存 TAG 动员；LPL = 血管侧 CM/VLDL 卸货；
+- 肉碱搬运脂酰基，不是把 CoA 本体穿过内膜；
+- 大多数偶数碳脂肪酸不能净生糖；奇数碳通过丙酰CoA→琥珀酰CoA形成例外接口。
+
+**Precision**
+- 长链脂肪酸活化消耗 2 个高能磷酸键；
+- CPT-I 是 current Study 的长链脂肪酸入线粒体限速门；
+- malonyl-CoA 抑制 CPT-I；
+- β氧化每轮缩短 2C。
+
+**Connection**
+- 甘油 → M4 糖异生；
+- NADH/FADH₂/乙酰CoA → M2；
+- 奇数碳琥珀酰CoA → TCA / 糖异生接口。
+
+---
+
 <!-- kianos:kp id="biochem-m7-kp07" -->
-## KP07｜脂肪动员：ATGL—HSL—MAG脂肪酶连续拆掉三条脂肪酸
+#### KP07｜脂肪动员：ATGL—HSL—MAG脂肪酶连续拆掉三条脂肪酸
 
 > **主提示：** 3步3酶｜关键酶｜产物4｜激活2｜抑制2｜磷酸化特殊
 
@@ -342,7 +323,7 @@ TAG
 ---
 
 <!-- kianos:kp id="biochem-m7-kp08" -->
-## KP08｜动员后两种产物：甘油去肝，FFA进入氧化
+#### KP08｜动员后两种产物：甘油去肝，FFA进入氧化
 
 > **主提示：** 脂解后甘油 vs FFA各去哪｜运输方式｜能否净生糖｜乙酰CoA信号意义
 
@@ -356,13 +337,13 @@ TAG
 
 当前 Study明确：2分子甘油用于糖异生消耗2个ATP接口。
 
-### 游离脂肪酸
+##### 游离脂肪酸
 
 - 与白蛋白结合在血中运输；
 - 在组织活化为脂酰CoA；
 - 进入β氧化供能。
 
-### 生糖边界
+##### 生糖边界
 
 - TAG中的**甘油**可生糖；
 - 大多数偶数碳脂肪酸→乙酰CoA，通常不能净生糖；
@@ -373,7 +354,7 @@ TAG
 ---
 
 <!-- kianos:kp id="biochem-m7-kp09" -->
-## KP09｜脂肪酸活化与肉碱穿梭：长链脂酰CoA怎样进入线粒体
+#### KP09｜脂肪酸活化与肉碱穿梭：长链脂酰CoA怎样进入线粒体
 
 > **主提示：** 活化酶｜耗能2键｜CPT-I｜肉碱｜转位酶｜CPT-II｜限速｜丙二酰抑制
 
@@ -395,7 +376,7 @@ TAG
 ---
 
 <!-- kianos:kp id="biochem-m7-kp10" -->
-## KP10｜β氧化四步循环：每轮少2个碳并产生三类高能产物
+#### KP10｜β氧化四步循环：每轮少2个碳并产生三类高能产物
 
 > **主提示：** 4步｜辅酶2｜少2C｜产物3｜部位｜终点
 
@@ -426,7 +407,7 @@ TAG
 ---
 
 <!-- kianos:kp id="biochem-m7-kp11" -->
-## KP11｜偶数碳脂肪酸能量账：循环次数、乙酰CoA数与活化成本
+#### KP11｜偶数碳脂肪酸能量账：循环次数、乙酰CoA数与活化成本
 
 > **主提示：** 偶数碳脂肪酸：循环次数｜乙酰CoA数｜每轮还原当量｜活化成本｜总能量公式
 
@@ -454,7 +435,7 @@ NADH数 = N/2 - 1
 ---
 
 <!-- kianos:kp id="biochem-m7-kp12" -->
-## KP12｜奇数碳脂肪酸：末端丙酰CoA提供少数生糖例外
+#### KP12｜奇数碳脂肪酸：末端丙酰CoA提供少数生糖例外
 
 > **主提示：** 末产2类｜丙酰+CO₂｜琥珀酰｜OAA/PEP｜生糖例外｜非完整TCA
 
@@ -480,8 +461,39 @@ NADH数 = N/2 - 1
 
 ---
 
+### L3｜乙酰CoA分流与酮体状态链｜KP13–KP15
+
+**Core relation**
+```text
+空腹 / 糖利用障碍
+→ 脂解↑ → β氧化↑
+→ 肝线粒体乙酰CoA↑
++ 草酰乙酸被糖异生牵引
+→ 乙酰CoA更难进入TCA
+→ HMG-CoA途径产酮
+→ 乙酰乙酸 / β-羟丁酸 / 丙酮
+→ 肝外组织转回乙酰CoA利用
+```
+
+**Boundary**
+- 肝负责产酮，但缺乏利用酮体的关键转硫/硫激酶接口，不能把自己产的酮体作为主要燃料；
+- 酮体可过血脑屏障，长时间饥饿时脑可大量利用；脂肪酸本身不能作为脑常规主要燃料；
+- 酮体不能净转成葡萄糖。
+
+**Precision**
+- 三种酮体：乙酰乙酸、β-羟丁酸、丙酮；
+- HMG-CoA合酶 / 裂解酶属于产酮链；
+- 乙酰乙酸硫激酶 / 琥珀酰CoA转硫酶属于利用接口；
+- current 27 新增 2025N19 强化“易过血脑屏障”Precision。
+
+**Connection**
+- 饥饿状态回 D7；
+- DKA 完整临床诊疗归 D8，只调用“糖利用障碍→脂解/产酮↑”机制。
+
+---
+
 <!-- kianos:kp id="biochem-m7-kp13" -->
-## KP13｜酮体生成：肝把过量乙酰CoA包装成三种可输出燃料
+#### KP13｜酮体生成：肝把过量乙酰CoA包装成三种可输出燃料
 
 > **主提示：** 部位｜起点3步｜3酮体｜肝/肾｜原料来源｜HMG酶辨析
 
@@ -511,7 +523,7 @@ NADH数 = N/2 - 1
 ---
 
 <!-- kianos:kp id="biochem-m7-kp14" -->
-## KP14｜酮体利用：肝输出，肝外在线粒体把它还原为乙酰CoA
+#### KP14｜酮体利用：肝输出，肝外在线粒体把它还原为乙酰CoA
 
 > **主提示：** 肝产不用｜肝外用｜2利用酶｜脑条件｜FA过BBB边界｜丙酮
 
@@ -542,7 +554,7 @@ NADH数 = N/2 - 1
 ---
 
 <!-- kianos:kp id="biochem-m7-kp15" -->
-## KP15｜为什么糖不足会酮体增多，过量又会进入酮症酸中毒
+#### KP15｜为什么糖不足会酮体增多，过量又会进入酮症酸中毒
 
 > **主提示：** 糖不足→酮体↑：触发｜OAA去向｜脂解/β氧化｜生成与利用失衡｜酸中毒接口
 
@@ -568,8 +580,33 @@ NADH数 = N/2 - 1
 
 ---
 
+### L4｜必需脂肪酸与类花生酸接口｜KP16
+
+**Core relation**
+```text
+current Source 必需脂肪酸集合
+→ 亚油酸 / 亚麻酸 / 花生四烯酸
+→ 花生四烯酸
+→ 前列腺素 / 血栓素 / 白三烯
+```
+
+**Boundary**
+- 这是高价值连接层，不应阻塞 TAG—β氧化—酮体主线；
+- current Study 的“必需脂肪酸”名单按 Source 保留，不用外部教材静默覆盖；
+- 完整炎症介质合成、COX/LOX药理归相应 owner。
+
+**Precision**
+- 2025N143 current Source 新增：花生四烯酸可转 PG / TX / LT；
+- 泛素不属于该衍生链。
+
+**Connection**
+- 磷脂 PLA2 释放花生四烯酸接口来自 M6；
+- 完整炎症/药理网络后置。
+
+---
+
 <!-- kianos:kp id="biochem-m7-kp16" -->
-## KP16｜必需脂肪酸与活性衍生物：从膜脂肪酸接到炎症、血小板和气道
+#### KP16｜必需脂肪酸与活性衍生物：从膜脂肪酸接到炎症、血小板和气道
 
 > **主提示：** 必需脂肪酸：种类/来源｜不饱和性｜AA衍生物3类｜炎症/血小板/气道
 
@@ -597,7 +634,11 @@ NADH数 = N/2 - 1
 
 ---
 
-## 3｜Framework Reconstruction｜四张图闭卷恢复
+## 2｜Derived Learner Support
+
+> 以下只消费 M7 canonical Knowledge；Recall、Memory、Questions 和网站呈现都不得反向定义 M7。
+
+### 2.1｜Framework Reconstruction｜储存—动员—氧化—产酮
 
 ### 图1｜储存
 
@@ -640,9 +681,9 @@ FA → 脂酰CoA → CPT-I/肉碱 → 线粒体
 
 ---
 
-## 4｜Memory Routing
+### 2.2｜Memory Routing
 
-### MI-G
+#### MI-G
 
 - TAG两条合成入口；
 - 肝 vs 脂肪/肌的甘油激酶差异；
@@ -660,7 +701,7 @@ FA → 脂酰CoA → CPT-I/肉碱 → 线粒体
 - 糖不足—脂解—β氧化—酮体—酸中毒链；
 - 当前 Study三类必需脂肪酸与PG/LT/TXA₂接口。
 
-### MI-D
+#### MI-D
 
 - ACC全部激活 / 抑制剂；
 - ACP与所有脂肪酸合成酶步骤；
@@ -674,99 +715,52 @@ FA → 脂酰CoA → CPT-I/肉碱 → 线粒体
 
 ---
 
-## 5｜原图门禁
+### 2.3｜Current 27 Source Visual / Exactness Gate
 
-必须回 `26生化.pdf`：
+BIO27-S07 / P036–P044 is current visual truth：
 
-1. P041 柠檬酸—丙酮酸循环、ACC调节与甘油来源图；
-2. P042 TAG合成—脂肪动员三酶图；
-3. P043 肉碱穿梭与β氧化循环；
-4. P044 奇数碳与酮体生成 / 利用图；
-5. P045、P049 脂代谢总分流；
-6. P050 本章总结图。
+- P036–P037：FA/TAG合成、ACC、脂解；
+- P038：肉碱穿梭、β氧化与能量；
+- P039：酮体生成 / 利用；
+- P040：必需脂肪酸 + 讲义题起点；
+- P041–P043：其余讲义附题；
+- P044：全脂代谢总图。
 
-```text
-visual_gate_required = true
-visual_source_access = false_in_current_artifact_runtime
-visual_status = VISUAL_SOURCE_GAP_OPEN
-```
-
-文字版不替代肉碱穿梭的膜两侧空间、β氧化每轮碳数变化与 HMG-CoA两条分支原图。
+空间关系无法可靠线性化时保持 `SOURCE_BOUND`；旧 26 图不再是 learner Source。
 
 ---
 
-## 6｜Embedded Questions Coverage Safety Net
-
-### 生成侧
+### 2.4｜Embedded Questions Coverage Safety Net
 
 ```text
-embedded_questions_total = 17
-accounted = 17
-mapped_primary = 17
-unmapped_embedded_questions = 0
+embedded_questions_total = 19
+source_position_accounted = 19
+unaccounted_source_questions = 0
+question_to_kp_relations_inferred_here = 0
 duplicate_primary = 0
 ```
 
-问题身份：
-
-- P045：BIO26-P045-Q01-2013N127-128B；BIO26-P045-Q02-2014N31A；BIO26-P045-Q03-2014N131-132B；BIO26-P045-Q04-2014N157X
-- P046：BIO26-P046-Q01-2015N131-132B；BIO26-P046-Q02-2015N157X；BIO26-P046-Q03-2016N31A；BIO26-P046-Q04-2016N127-128B；BIO26-P046-Q05-2019N120-121B；BIO26-P046-Q06-2020N21A
-- P047：BIO26-P047-Q01-2021N120-121B；BIO26-P047-Q02-2022N20A；BIO26-P047-Q03-2022N120-121B；BIO26-P047-Q04-2023N21A；BIO26-P047-Q05-2023N122-123B；BIO26-P047-Q06-2024N22A
-- P048：BIO26-P048-Q01-2024N122-123B
-
-### 学习者侧
-
-Embedded Questions主要检查：CPT-I、肉碱、β氧化四步、HMG-CoA分流、ACC、酮体利用酶、DKA脂代谢方向、花生四烯酸衍生物和乙酰CoA。P048的配对题中，“脂肪酸合成原料”归M7 Primary，“HMG-CoA还原酶抑制剂”只Recall M6；题目身份仍在本页一次accounted，不制造第二个Primary。它们是Coverage Safety Net，不是第一轮必须清空的独立题库。
+BIO27-S07 / P040–P043 共 19 题；新增 **2025N19** 与 **2025N143** 已纳入 current Source coverage。
 
 ---
 
-## 7｜Lecture Knowledge Routing Ledger
+### 2.5｜Source→Knowledge Routing
 
-| Lecture 范围 | Primary 路由 | Knowledge Role | Memory / 边界 |
-|---|---|---|---|
-| P041 一酰甘油途径 | KP01 | CORE + CONNECTION | Recall D4后整合 |
-| P041 甘油来源 | KP02 | CORE + CONFUSABLE + MI-G | 组织差异 |
-| P041 FA合成/ACC | KP03–KP05 | CORE + SPECIAL + MI-G/MI-D | 药物仅接口 |
-| P042 TAG合成 | KP06 | CORE + BOUNDARY | M7-SC01 |
-| P042 脂肪动员/甘油 | KP07–KP08 | CORE + CONFUSABLE | M7-SG01 |
-| P043 活化/穿梭/β氧化 | KP09–KP11 | CORE + VISUAL_ONLY + MI-G | M7-SG02限制 |
-| P044 奇数碳 | KP12 | SPECIAL + CONFUSABLE + MI-G | 生糖例外 |
-| P044 酮体 | KP13–KP15 | CORE + CONNECTION + BOUNDARY | DKA治疗Defer |
-| P045 必需脂肪酸 | KP16 | SPECIAL + CONNECTION | M7-SB01 |
-| P045–P048题目 | Coverage | RECOGNITION | 17题Primary |
-| P048部位表 | Framework / MI-D | CONFUSABLE + RECOGNITION | 部位核对 |
-| P049–P050总图 | Framework | VISUAL_ONLY | Visual Gap |
+| Current 27 Source | Canonical Knowledge | Role |
+|---|---|---|
+| BIO27-S07 / P036–P044 | L1 + L2 + L3 + L4 | PRIMARY_FORMATION + M7 SOURCE CLOSURE |
 
-```text
-unrouted_lecture_knowledge = 0
-external_medical_expansion = 0
-silent_source_correction = 0
-source_conflict_open = M7-SC01
-source_gap_open = M7-SG01,M7-SG02
-source_boundary_open = M7-SB01,M7-SB02
-```
+One Source unit forms four canonical layers without creating four separate Source reads.
 
 ---
 
-## 8｜First-pass Question Probe
+### 2.6｜First-pass Lecture-attached Question Contact
 
-```text
-来源：
-TTSX Lecture-attached Questions
-
-选择方式：
-LectureQuestionBinding 自动提供
-
-绑定范围：
-26生化 Lecture P041–P050 的 source-position relation
-
-状态：
-待绑定
-```
+19 道 M7-owned 讲义附题随 BIO27-S07 / P040–P043 处理。Question→Knowledge 关系仍由 reviewed relation owner 决定。
 
 ---
 
-## 9｜Block Exit｜闭卷 24 问
+### 2.7｜Block Exit｜闭卷 24 问
 
 1. TAG的两条合成入口分别位于哪里？
 2. 为什么小肠长链脂质需要CM？
@@ -795,7 +789,7 @@ LectureQuestionBinding 自动提供
 
 ---
 
-## 10｜Block Production Gate
+### 2.8｜Block Production Gate
 
 ```text
 Study_continuity = PASS
@@ -818,18 +812,16 @@ Source_boundary_open = M7-SB01
 Visual_gate = VISUAL_SOURCE_GAP_OPEN
 ```
 
-### Block Complete 定义
+#### Block Complete 定义
 
 ```text
-Framework已建立
-+ P041–P050已连续学习
-+ 储存/动员/β氧化/酮体四条链可闭卷重建
-+ ACC—丙二酰CoA—CPT-I总开关可解释
-+ Source Conflict、Source Gap与当前Study口径边界已知晓
-+ 原图已回看或Visual Gap已显式保留
-+ KP Active Recall完成
-+ Embedded Questions按需扫漏
-+ TTSX Lecture-bound Question Probe完成或待绑定
+27 Source lane 已到达 BIO27-S07 / P044
++ L1–L4 canonical Knowledge 已形成
++ 能闭卷恢复“储存 ↔ 动员 → β氧化 → 乙酰CoA分流 / 产酮”状态链
++ ACC—malonyl-CoA—CPT-I 开关可解释
++ current Source Gap / Boundary / exactness 已显式保留
++ 四个 canonical layer Retrieval 已达到当前要求
++ 19 道讲义附题 source-position accounted；不在本 Block 推断 Question→KP relation
 ```
 
-允许：**Block Complete + Source Gap Open + VISUAL_SOURCE_GAP Open + MI-D Open**。只有HSL/LPL、ACC/CPT-I、β氧化四步、偶/奇数生糖边界或肝产酮—肝外用酮仍混乱时，才先做最小修复后进入 M8。
+允许：**Block Complete + explicit Source Gap / Boundary + non-gating SOURCE_BOUND + MI-D Open**。只有 HSL/LPL、ACC/CPT-I、β氧化、偶/奇数生糖边界或肝产酮—肝外用酮仍混乱时，才修最小失败轴。
