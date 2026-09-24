@@ -44,16 +44,14 @@ Eligible only when deliberately prioritized or reopened by evidence:
 
 Real learner U remains private evidence and is never manufactured by this program router.
 
-## Active bounded tasks — 2026-09-24
+## Active bounded tasks
 
-These are **explicit user-requested scoped tasks**, not a reopened broad Xizong campaign.
+No Xizong content-construction task is currently open from the three-system convergence program.
 
-| Task | State | Exact entry | First action |
-| --- | --- | --- | --- |
-| Surgery optimization / upgrade | ACTIVE · SCOPED_CONTENT_OPTIMIZATION | `content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json` → `SURGERY_CONTRACT.md` → exact affected D/O/A owner | Use Change Continuity only far enough to preserve the current Surgery design, then make the smallest content/learning upgrade justified by the concrete target. Do not reopen broad lifecycle/UI/runtime unless the local change exposes a real dependency. This lane is the simple-change cleanliness test. |
-| Biochemistry content update | ACTIVE · FULL_CHAIN_REVISION | `content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json` → `BIOCHEMISTRY_CONTRACT.md` → affected M/G owners → real downstream dependents | Treat this as an upstream-to-downstream revision: recover Source / Rule / Knowledge / Learning / Content plus real relation/projection/acceptance/runtime consumers, define the dependency/write-set first, then change owners and propagate only to true dependents. Preserve stable identities unless the revision itself proves they are wrong. This lane is the full Change-Propagation stress test. |
+The 27 Surgery and Biochemistry lifecycle owners are CLOSED for their admitted domain revisions. Their use as **architecture validation samples** is owned only by Personal Issue #47 and must not reopen or mirror content-task state here.
 
-Task truth stays with the exact owner. This Mainline owns only that these two bounded lanes are currently admitted and may proceed independently unless they hit a real shared dependency.
+If Issue #47 requests a replay, the replay must be a new bounded real change routed through the exact current owner; it does not reactivate the historical 38-unit Surgery or 22-unit Biochemistry campaigns.
+
 ## Durable lanes
 
 | Lane | Current state | Exact entry | Reopen condition |
