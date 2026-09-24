@@ -274,13 +274,9 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
     }
   }
   if(planOp){
-    const prior=readJson(shadow,EXAM_CHAT_PLAN_KEY);
-    if(prior?.generated_at
-      && Date.parse(prior.generated_at)>Date.parse(planOp.payload?.generated_at||0)){
-      throw new Error('KIANOS_CONTROL_OLDER_EXAM_PLAN');
-    }
-    // Validate the original basis before staging; then bind the installed plan
-    // to this command's own native writes. Later evidence still makes it stale.
+    // The native Chat Plan owner alone decides generation ordering, replay,
+    // conflicts and recovery from invalid/future-poisoned stored bytes.
+    // Control only rebinds the plan to this transaction's final native evidence.
     writeExamChatPlan(shadow,{
       ...planOp.payload,
       learner_evidence_basis:buildExamChatPlanBasis(shadow,day)
