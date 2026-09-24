@@ -568,7 +568,7 @@ export function listCurrentXizongSystemIdentities() {
       title: identity.title,
       semanticAuthority: String(system?.semantic_authority || ''),
       lifecycleStatus: String(system?.status || ''),
-      projectionAccepted: systemProjectionAccepted(dirName),
+      projectionAccepted: systemProjectionMaterialized(identity),
       blockCount: Number.isFinite(canonicalBlockCount) && canonicalBlockCount > 0 ? canonicalBlockCount : null,
       kpCount: Number.isFinite(canonicalKpCount) && canonicalKpCount > 0 ? canonicalKpCount : null,
       logicGroupCount: Number.isFinite(canonicalLogicGroupCount) && canonicalLogicGroupCount > 0 ? canonicalLogicGroupCount : null,
