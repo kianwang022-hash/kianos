@@ -26,7 +26,8 @@
       "M5": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M5_血浆脂蛋白_学习阅读版_v1_最终执行版.md",
       "M6": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M6_胆固醇磷脂与胆汁酸_学习阅读版_v1_最终执行版.md",
       "M7": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M7_TAG脂肪酸与酮体_学习阅读版_v1_最终执行版.md",
-      "M8": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M8_氨基酸氨尿素与一碳单位_学习阅读版_v1_最终执行版.md"
+      "M8": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M8_氨基酸氨尿素与一碳单位_学习阅读版_v1_最终执行版.md",
+      "M9": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M9_核苷酸代谢与抗代谢物_学习阅读版_v1_最终执行版.md"
     }
   },
   "learner_execution": {
@@ -737,6 +738,36 @@
       ],
       "connections": [
         "G1/G5 information and antimetabolite bridge"
+      ],
+      "canonical_content": [
+        {
+          "block": "M9",
+          "layer": "L1",
+          "kp": [
+            1,
+            5
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "M9",
+          "layer": "L2",
+          "kp": [
+            6,
+            10
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "M9",
+          "layer": "L3",
+          "kp": [
+            11,
+            15
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true
+        }
       ]
     },
     {
@@ -1268,6 +1299,11 @@
         "L3": "carbon-nitrogen partition, trans/deamination and safe ammonia transport / KP08–KP13",
         "L4": "urea-cycle detoxification / KP14–KP16",
         "L5": "FH4 one-carbon, folate-B12 and methionine cycle / KP17–KP18"
+      },
+      "M9": {
+        "L1": "PRPP and purine supply-salvage-clearance / KP01–KP05",
+        "L2": "pyrimidine supply, deoxy conversion and dTMP one-carbon entry / KP06–KP10",
+        "L3": "antimetabolite target map / KP11–KP15"
       }
     }
   }
