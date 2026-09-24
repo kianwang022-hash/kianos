@@ -1,6 +1,6 @@
 # Xizong Practice Workbench — accepted design
 
-Status: **ACCEPTED PRACTICE BASELINE — WHOLE-PAPER EXTENSION AT HUMAN GATE 2026-09-18 · REAL LEARNER U PENDING**
+Status: **CURRENT — ACCEPTED PRACTICE DESIGN**
 
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Visual L2: `static-web/XIZONG_VISUAL_LANGUAGE.md`  
