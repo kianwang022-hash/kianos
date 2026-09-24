@@ -6,82 +6,69 @@ Work branches are temporary execution surfaces. They are not Current owners, con
 
 ## Default rule
 
-`WORK_BRANCH -> land accepted work on main -> verify Current -> retire branch`
+`WORK_BRANCH → land accepted work on main → verify Current → retire branch`
 
 A task is not fully closed while its temporary branch remains live without an explicit continuing purpose.
 
 ## Branch states
 
-Every non-`main` branch is conceptually one of three states:
-
 ### ACTIVE
 
-The branch still contains independent work that has not yet been accepted into Current.
+The branch still contains independent work that has not yet been accepted or intentionally remains under review/reconciliation.
 
-Keep it only while that work is genuinely active or still needs review/reconciliation.
+Keep it only while that purpose is real.
 
-### MERGED
+### MERGED / mechanically proven superseded
 
-The branch head is already an ancestor of `main@HEAD`.
+A branch is safe for automatic retirement when current Git/GitHub facts prove one of:
 
-It must be deleted automatically. Git history already preserves the work.
+- its head is an ancestor of `main@HEAD`; or
+- for a non-Codex branch, its live head exactly equals the recorded head SHA of a merged PR whose base is `main`, and it has no open PR;
+- for a Codex branch, its exact Issue is completed and its live head exactly matches a merged PR head under the stricter Codex lifecycle.
 
-### SUPERSEDED
+Git history already preserves the work.
 
-The exact branch commits may not be ancestors of `main` because work was squash-merged, cherry-picked, reimplemented, or replaced by a later accepted Current solution, but the branch no longer owns any needed independent continuation.
+### SEMANTICALLY SUPERSEDED BUT NOT MECHANICALLY PROVEN
 
-Once the responsible Chat verifies that Current contains the accepted result, the branch must be explicitly marked retired and deleted. Do not keep it "just in case"; Git history is the recovery plane.
+A squash/cherry-pick/reimplementation can make a branch obsolete even when Git ancestry or exact-head proof is unavailable.
 
-## Closure checklist
+Do **not** maintain a permanent retired-branch ledger for this class.
 
-Before reporting a branch-backed task as closed, frozen, accepted, or moved back to `main`, the responsible Chat must check:
+Instead, the responsible Chat performs one bounded Current verification:
 
-1. the accepted result exists on current `main@HEAD`;
-2. the relevant acceptance/QA state is recorded where required;
-3. no private learner state or unreviewed unique work exists only on the branch;
-4. the branch has no continuing task purpose;
-5. the branch is retired in the same work session.
+1. accepted result exists on current `main@HEAD`;
+2. no private learner state or unique unreviewed work remains only on the branch;
+3. no open/continuing task still needs the branch;
+4. delete the exact branch in that same work session.
 
-If step 3 or 4 is false, keep the branch and state why it remains ACTIVE.
+If any point cannot be proven, leave the branch ACTIVE and state the uncertainty. Age, name similarity, an old closed PR, or a vaguely similar Current implementation is never deletion proof.
 
 ## Automatic cleanup
 
-`.github/workflows/branch-hygiene.yml` is the execution layer.
+`.github/workflows/branch-hygiene.yml` is intentionally mechanical and fail-closed.
 
-On pushes to `main` it:
-
-- deletes every non-`main` branch whose head is fully merged into `main`;
-- deletes a non-Codex branch when its live head exactly equals the recorded head SHA of a merged PR whose base is `main`, provided the branch has no open PR;
-- deletes branches explicitly listed in `.github/retired-branches.txt` after a Chat has verified semantic supersession;
-- keeps Codex task branches on their stricter Issue-completion + exact-head lifecycle;
-- leaves every other unmerged branch untouched.
-
-This means automation may delete only three safe classes:
+On pushes to `main` it may retire only:
 
 - commit-merged branches;
-- exact-head squash/rebase execution branches already merged directly to `main`; or
-- explicitly retired branches.
+- exact-head merged-to-main non-Codex branches with no open PR;
+- completed Codex branches that satisfy their exact Issue + merged-head proof.
 
-The exact-head merged-to-main class is mechanical only: `baseRefName == main`, live branch HEAD == merged PR `headRefOid`, and no open PR. A post-merge commit breaks the equality and therefore protects the branch automatically.
+Every other non-main branch survives automatically.
 
-It must never guess that a diverged branch is obsolete from age, name, topic similarity, or the existence of an older merged PR.
+This keeps automation stateless: current GitHub facts decide, not a historical list of branch names.
 
 ## Standing authorization
 
-The learner has explicitly authorized repository-wide automatic deletion of:
+Kian has authorized automatic deletion only for the mechanically proven classes above.
 
-- temporary branches fully merged into `main`;
-- non-Codex branch heads that exactly match a merged PR head whose base is `main`, with no open PR; and
-- diverged branches explicitly entered into the retired-branch ledger after Current verification.
-
-This standing authorization does **not** authorize deleting any other unmerged branch. In particular, age, closed PR state, a historical merge with a different live head, or a merge into a non-`main` base is insufficient.
+Semantic supersession outside those classes is a bounded repository-maintenance action after Current verification; it is not delegated to a standing historical ledger.
 
 ## Migration / audit branches
 
-Bounded migration, import, transfer, calibration, audit, repair, and acceptance branches are temporary by default. When their bounded task closes and accepted results are in Current, they must be retired under the same rule.
+Migration, import, transfer, calibration, audit, repair and acceptance branches are temporary by default. Close and remove them when their bounded result is accepted and no unique work remains.
 
 ## Main stays special
 
 `main` is never deleted or rewritten by branch hygiene.
 
-Branch hygiene is repository maintenance only. It does not change semantic authority, learner evidence, acceptance status, or the recovery boundary.
+Branch hygiene is repository maintenance only. It does not change semantic authority, learner evidence, acceptance status or any Current owner.
