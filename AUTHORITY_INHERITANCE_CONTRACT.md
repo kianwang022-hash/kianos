@@ -1,11 +1,13 @@
 # KianOS Authority Inheritance Contract
 
-**Status:** canonical cross-system contract  
-**Scope:** authority hierarchy, ownership, derivation, synchronization and shared implementation boundaries
+**Status:** CURRENT — canonical KianOS authority / inheritance contract  
+**Scope:** KianOS-internal authority hierarchy, ownership, derivation, synchronization and shared implementation boundaries
 
-This contract owns one system question:
+This contract owns one KianOS system question:
 
 > **How may KianOS have layered rules without allowing two inconsistent truths for the same fact?**
+
+Cross-system responsibility/interface questions inherit the frozen mother architecture through `PROJECT_DEFINITION.md` → `kianwang022-hash/kian-personal-os/KERNEL.md §2`; this file does not restate or supersede that owner.
 
 It refines `PROJECT_DEFINITION.md`, `ARCHITECTURE.md`, `SYSTEM_CONTRACT.md`, `PROJECT_MANAGEMENT_CONTRACT.md`, and `BRANCH_LIFECYCLE.md`. It does not replace any domain Learning Contract or scoped Acceptance Truth.
 
