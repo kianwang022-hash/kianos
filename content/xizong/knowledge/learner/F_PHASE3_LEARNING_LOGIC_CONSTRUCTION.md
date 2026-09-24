@@ -211,8 +211,4 @@ This is **not independent acceptance**.
 L = UNTESTED / CANDIDATE_READY_FOR_FRESH_INDEPENDENT_AUDIT
 ```
 
-Next:
-
-`content/xizong/knowledge/learner/F_PHASE4_FRESH_INDEPENDENT_L_AUDIT_BRIEF.md`
-
-Do not start F Content before fresh L acceptance.
+The next action at construction time was a fresh independent L audit. Its one-shot audit brief is preserved in Git history; current acceptance status is owned by the F Acceptance owner.
