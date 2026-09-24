@@ -57,7 +57,7 @@ def iter_source_files(*suffixes: str):
 
 def audit_registered_owners(registry: dict) -> None:
     declared: list[tuple[str, str]] = []
-    for group_name in ("durable_authorities", "lane_work_cursors", "shared_platform"):
+    for group_name in ("durable_authorities", "product_owners", "lane_work_cursors", "shared_platform"):
         group = registry.get(group_name, {})
         check(isinstance(group, dict), "OWNERSHIP_GROUP_INVALID", group_name)
         if not isinstance(group, dict):
@@ -150,13 +150,13 @@ def audit_current_routing(registry: dict) -> None:
 
 def audit_product_owners(registry: dict) -> None:
     """Protect the migrated Product/Steward semantic owners and their routing."""
-    durable = registry.get("durable_authorities", {})
+    products = registry.get("product_owners", {})
     expected = {
         "product_surface_contract": "static-web/PRODUCT_SURFACE_CONTRACT.md",
         "steward_product_contract": "static-web/STEWARD_PRODUCT_CONTRACT.md",
     }
     for key, owner in expected.items():
-        check(durable.get(key) == owner, "PRODUCT_OWNER_REGISTRY_DRIFT", f"{key}={durable.get(key)}")
+        check(products.get(key) == owner, "PRODUCT_OWNER_REGISTRY_DRIFT", f"{key}={products.get(key)}")
         check((REPO / owner).is_file(), "PRODUCT_OWNER_MISSING", owner)
 
     website_current = REPO / "static-web" / "CURRENT.md"
