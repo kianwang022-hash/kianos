@@ -2866,7 +2866,7 @@
           "tumor/hematology drug interfaces"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：PRPP与嘌呤从头/补救/分解[PURINE_SUPPLY_RECOVERY] → 嘧啶、脱氧核苷酸与dTMP[PYRIMIDINE_DEOXY_DTMP] → 抗代谢物靶点地图[ANTIMETABOLITE_TARGET_MAP]。",
+      "partition_rationale": "M9 Learning consumes the canonical 3-layer hierarchy directly: PRPP/purine supply-recovery → pyrimidine/deoxy/dTMP → antimetabolite target map. KP identities remain stable; Source order is owned only by the global Biochemistry Source map.",
       "learner_order": [
         "b-m09-lg01",
         "b-m09-lg02",
@@ -2882,7 +2882,8 @@
           "cognitive_job": "PURINE_SUPPLY_RECOVERY",
           "goal": "把PRPP枢纽、嘌呤从头/补救和尿酸分解终点组织成供给—回收—清除网络。",
           "closure": "给出PRPP、HGPRT/补救或黄嘌呤氧化等变化，能预测嘌呤供给与尿酸方向。",
-          "continuity_rationale": "KP01–KP05共同完成“PRPP与嘌呤从头/补救/分解”这一PURINE_SUPPLY_RECOVERY任务。这是本Block当前学习顺序的第一个闭环任务。后一组“嘧啶、脱氧核苷酸与dTMP”切换到不同的PYRIMIDINE_DEOXY_DTMP任务。"
+          "continuity_rationale": "KP01–KP05共同完成“PRPP与嘌呤从头/补救/分解”这一PURINE_SUPPLY_RECOVERY任务。这是本Block当前学习顺序的第一个闭环任务。后一组“嘧啶、脱氧核苷酸与dTMP”切换到不同的PYRIMIDINE_DEOXY_DTMP任务。",
+          "canonical_layer": "L1"
         },
         "b-m09-lg02": {
           "kp": [
@@ -2893,7 +2894,8 @@
           "cognitive_job": "PYRIMIDINE_DEOXY_DTMP",
           "goal": "比较嘧啶先造环后接PRPP，并接上核糖核苷酸还原与dUMP→dTMP的一碳依赖。",
           "closure": "能区分嘌呤/嘧啶从头逻辑、CPS-I/II与dTMP所需叶酸接口，并从RNA原料走到DNA原料。",
-          "continuity_rationale": "KP06–KP10共同完成“嘧啶、脱氧核苷酸与dTMP”这一PYRIMIDINE_DEOXY_DTMP任务。前一组“PRPP与嘌呤从头/补救/分解”承担不同的PURINE_SUPPLY_RECOVERY任务。后一组“抗代谢物靶点地图”切换到不同的ANTIMETABOLITE_TARGET_MAP任务。"
+          "continuity_rationale": "KP06–KP10共同完成“嘧啶、脱氧核苷酸与dTMP”这一PYRIMIDINE_DEOXY_DTMP任务。前一组“PRPP与嘌呤从头/补救/分解”承担不同的PURINE_SUPPLY_RECOVERY任务。后一组“抗代谢物靶点地图”切换到不同的ANTIMETABOLITE_TARGET_MAP任务。",
+          "canonical_layer": "L2"
         },
         "b-m09-lg03": {
           "kp": [
@@ -2904,7 +2906,68 @@
           "cognitive_job": "ANTIMETABOLITE_TARGET_MAP",
           "goal": "把6-MP、别嘌呤醇、5-FU、MTX、阿糖胞苷等放回核苷酸网络的具体阻断层。",
           "closure": "给出药物名或被阻断反应，能定位到嘌呤/嘧啶/叶酸/dTMP/聚合层并预测主要供给后果。",
-          "continuity_rationale": "KP11–KP15共同完成“抗代谢物靶点地图”这一ANTIMETABOLITE_TARGET_MAP任务。前一组“嘧啶、脱氧核苷酸与dTMP”承担不同的PYRIMIDINE_DEOXY_DTMP任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP11–KP15共同完成“抗代谢物靶点地图”这一ANTIMETABOLITE_TARGET_MAP任务。前一组“嘧啶、脱氧核苷酸与dTMP”承担不同的PYRIMIDINE_DEOXY_DTMP任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L3"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M9_核苷酸代谢与抗代谢物_学习阅读版_v1_最终执行版.md",
+        "mother_model": "PRPP supply/recovery → pyrimidine/deoxy/dTMP conversion → antimetabolite target localization",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              5
+            ],
+            "logic_group": "b-m09-lg01"
+          },
+          "L2": {
+            "kp": [
+              6,
+              10
+            ],
+            "logic_group": "b-m09-lg02"
+          },
+          "L3": {
+            "kp": [
+              11,
+              15
+            ],
+            "logic_group": "b-m09-lg03"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers and must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning keeps no duplicate M9 Source registry.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-m09-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-m09-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-m09-lg03"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "M9",
+          "after_unit": "BIO27-S10",
+          "after_pdf": 74,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
