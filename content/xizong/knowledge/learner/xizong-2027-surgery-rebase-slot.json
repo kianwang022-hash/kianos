@@ -141,6 +141,31 @@
         "B:D15 rebound to U10/U11; existing colorectal operation, dentate-line, anal disease and fistula decision models preserved"
       ],
       "next_action": "Continue to SUR27-U13-U19 hepatobiliary/pancreas/vascular/urinary batch; keep refined-note routing under SURGERY_CONTRACT and avoid UI changes."
+    },
+    "third_batch": {
+      "scope": [
+        "SUR27-U13",
+        "SUR27-U14",
+        "SUR27-U15",
+        "SUR27-U16",
+        "SUR27-U17",
+        "SUR27-U18",
+        "SUR27-U19"
+      ],
+      "label": "liver abscess / portal hypertension / pancreas / biliary / peripheral vascular / urinary surgery",
+      "status": "SOURCE_REBIND_COMPLETE_CORE_PRESERVE_WITH_PRIOR_D19_BOUNDED_UPDATES",
+      "completed_actions": [
+        "B:D17 rebound to 27 refined portal-hypertension P086-P092; existing pressure/collateral/bleeding-control model preserved",
+        "B:D19 rebound to liver-abscess P082-P085 + biliary P098-P122; prior T-tube/AOSC bounded updates preserved",
+        "B:D20 rebound to pancreatic-tumor P093-P097; existing pancreas tumor/Whipple/obstructive-jaundice model preserved",
+        "A1:Block9 rebound to peripheral-vascular P123-P127; existing artery-vs-vein/Raynaud/acute-vs-chronic/DVT model preserved",
+        "A3:Block12/14 rebound to U19 P133-P141; existing obstruction/stone/incontinence and urinary-trauma models preserved",
+        "A3:Block13 rebound to U18 P128-P132; source map corrected so bacterial UTI Block8 is not falsely duplicated into Surgery chapter ownership"
+      ],
+      "mapping_repairs": [
+        "SUR27-U18 candidate owner A3:Block8 removed; title ‘泌外感染和肿瘤’ does not override actual source content identity."
+      ],
+      "next_action": "Advance to SUR27-U20-U29 Orthopedics; compare refined explanatory notes against O1-O16 current Knowledge/Learning, then U30-U38 Surgery General."
     }
   },
   "governance": {
