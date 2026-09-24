@@ -5147,6 +5147,160 @@
       "integration": "JIT_CONNECTION → CONNECTION_HOOK_OR_RECALL → POST_FORMATION_RECONSTRUCTION",
       "principle": "Source continuity can be domain-specific; Knowledge integration must remain System-wide.",
       "reconciliation": "All M1–M10/G1–G5 direct Source mappings now target existing Logic Groups/KPs or explicit support/Connection roles; the interrupted L-layer topology has been removed."
+    },
+    "cross_system_integration": {
+      "status": "CURRENT",
+      "principle": "Source continuity can be domain-specific; Knowledge integration must remain System-wide.",
+      "timing": [
+        {
+          "phase": "JIT_NOW",
+          "when": "The current Biochemistry Source cannot be understood without one external idea.",
+          "action": "Expose only the smallest sufficient external concept; do not switch into the external Block as a new Source-learning task.",
+          "learner_truth_rule": "This preview creates no completion/mastery/evidence for the external owner."
+        },
+        {
+          "phase": "RECALL_OR_FUTURE_HOOK",
+          "when": "A Biochemistry Block/LG reaches a real reusable relation to another formal owner.",
+          "action": "If the target owner is already learned, Recall it briefly. If not, expose a Future Connection to the exact formal owner and continue the Biochemistry Source lane.",
+          "ownership_rule": "External medical Core remains in the target owner; no duplication."
+        },
+        {
+          "phase": "POST_FORMATION_RECONSTRUCTION",
+          "when": "Both sides of the relation have actually been formed.",
+          "action": "Actively reconstruct the shared physiologic/clinical state across Blocks/Systems instead of leaving the subjects isolated.",
+          "examples": [
+            "fed vs fasting",
+            "diabetes / glucose-utilization failure",
+            "lipid absorption→transport→storage/mobilization",
+            "hepatic nitrogen detoxification",
+            "bilirubin generation→hepatic handling→biliary excretion"
+          ]
+        }
+      ],
+      "reviewed_routes": [
+        {
+          "source": [
+            "M4"
+          ],
+          "targets": [
+            "D7",
+            "D8"
+          ],
+          "shared_model": "fed/fasting glucose output; insulin/glucagon state switch; diabetes applies but does not own the biochemical pathway",
+          "first_pass": "JIT/HOOK_ONLY",
+          "post_formation": "RECONSTRUCT"
+        },
+        {
+          "source": [
+            "M5"
+          ],
+          "targets": [
+            "D3",
+            "D4"
+          ],
+          "shared_model": "intestinal lipid digestion/absorption hands off to chylomicron/plasma transport",
+          "first_pass": "RECALL_IF_LEARNED_ELSE_FUTURE_HOOK",
+          "post_formation": "RECONSTRUCT"
+        },
+        {
+          "source": [
+            "M6"
+          ],
+          "targets": [
+            "D3",
+            "D4",
+            "D19",
+            "D22",
+            "D23"
+          ],
+          "shared_model": "cholesterol pool → bile acids / vitamin D / steroid derivatives; digestion/absorption and hepatobiliary/endocrine consequences stay in their formal owners",
+          "first_pass": "JIT/HOOK_ONLY",
+          "post_formation": "RECONSTRUCT"
+        },
+        {
+          "source": [
+            "M7"
+          ],
+          "targets": [
+            "D7",
+            "D8"
+          ],
+          "shared_model": "fed/fasting storage vs mobilization; glucose-utilization failure → beta-oxidation/ketogenesis → DKA application",
+          "first_pass": "JIT/HOOK_ONLY",
+          "post_formation": "RECONSTRUCT"
+        },
+        {
+          "source": [
+            "M8"
+          ],
+          "targets": [
+            "D17"
+          ],
+          "shared_model": "ammonia transport/urea detoxification → hepatic failure/hyperammonemia application",
+          "first_pass": "RECALL_IF_LEARNED_ELSE_FUTURE_HOOK",
+          "post_formation": "RECONSTRUCT"
+        },
+        {
+          "source": [
+            "M10"
+          ],
+          "targets": [
+            "D17",
+            "D19"
+          ],
+          "shared_model": "bilirubin generation/conjugation/excretion → hepatocellular vs obstructive jaundice localization",
+          "first_pass": "RECALL_IF_LEARNED_ELSE_FUTURE_HOOK",
+          "post_formation": "RECONSTRUCT"
+        },
+        {
+          "source": [
+            "M3",
+            "M8",
+            "M10"
+          ],
+          "targets": [
+            "C"
+          ],
+          "shared_model": "RBC redox / folate-B12 / heme-bilirubin mechanisms connect to hematology without duplicating hematology Core",
+          "first_pass": "JIT/HOOK_ONLY",
+          "post_formation": "RECONSTRUCT_WHEN_TARGET_OWNER_LEARNED"
+        },
+        {
+          "source": [
+            "G4"
+          ],
+          "targets": [
+            "D22",
+            "D23"
+          ],
+          "shared_model": "nuclear-receptor / transcription-control language connects to endocrine signaling while endocrine physiology remains externally owned",
+          "first_pass": "JIT/HOOK_ONLY",
+          "post_formation": "RECONSTRUCT_WHEN_TARGET_OWNER_LEARNED"
+        },
+        {
+          "source": [
+            "G5"
+          ],
+          "targets": [
+            "O9",
+            "D11",
+            "D15",
+            "D18",
+            "D19",
+            "D20",
+            "D21"
+          ],
+          "shared_model": "oncogene/tumor-suppressor/repair failure supplies molecular mechanism; tumor morphology/staging/treatment remain pathology/organ owned",
+          "first_pass": "FUTURE_HOOK_OR_RECALL_ONLY",
+          "post_formation": "RECONSTRUCT"
+        }
+      ],
+      "anti_rules": [
+        "Do not routinely interleave full digestive/endocrine Source study into the continuous Biochemistry Source lane.",
+        "Do not duplicate external medical Core inside Biochemistry.",
+        "Do not mark an external target learned because a JIT preview or Connection Hook was shown.",
+        "Do not defer integration forever: once both owners are formed, the relation should be actively reconstructed."
+      ]
     }
   },
   "biochemistry_contract": {
