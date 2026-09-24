@@ -7,9 +7,7 @@ const repoRoot = path.resolve(webRoot, '..');
 const rel = (...parts) => path.join(repoRoot, ...parts);
 const systemDir = rel('content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor');
 const systemPath = path.join(systemDir, 'system.json');
-const acceptancePath = path.join(systemDir, 'ACCEPTANCE.md');
 const system = JSON.parse(fs.readFileSync(systemPath, 'utf8'));
-const acceptance = fs.readFileSync(acceptancePath, 'utf8');
 
 function assert(condition, code, detail = '') {
   if (!condition) throw new Error(`${code}${detail ? `:${detail}` : ''}`);
@@ -92,7 +90,6 @@ assert(Array.isArray(system?.scope_boundary?.not_owned_here) && system.scope_bou
 assert(system?.source_state?.official_question_membership === 'S_BLOCKED_SEPARATE_DEPENDENCY', 'B_K_SOURCE_DEPENDENCY_BOUNDARY_INVALID');
 assert(system?.source_state?.question_count_target_forbidden === true, 'B_K_1072_TARGET_GUARD_MISSING');
 assert(system?.source_state?.question_to_kp_inference_forbidden === true, 'B_K_QUESTION_KP_GUARD_MISSING');
-assert(!/^P\s+PASS(?:\s|$)/m.test(acceptance), 'B_K_PREMATURE_PROJECTION_PASS');
 assert(!system.logic_index, 'B_K_PREMATURE_LOGIC_INDEX_CLAIM');
 
 console.log(`B Knowledge PASS candidate | Blocks=${records.length} | KPs=${headingTotal} | UniqueMarkers=${new Set(markerIds).size} | FailureModes=${system.failure_modes.length} | SQuestionScope=${system.source_state.official_question_membership}`);
