@@ -153,6 +153,44 @@ try {
   await page.goto(`${BASE}${MEMORY_ROUTE}`, { waitUntil: 'networkidle' });
   check((await page.locator('[data-memory-summary-today]').textContent())?.trim() === '0', 'today_remains_clear_after_block_reopen');
 
+  // Canonical revision refresh: keep stable card identities and historical Memory
+  // evidence, but replace stale card payloads even if the new Block revision has
+  // already invalidated first-pass completion.
+  await page.goto(`${BASE}${BLOCK_ROUTE}`, { waitUntil: 'networkidle' });
+  const preRevision = await page.evaluate(({ memoryKey, studyKey, blockId }) => {
+    const memory = JSON.parse(localStorage.getItem(memoryKey) || 'null');
+    const study = JSON.parse(localStorage.getItem(studyKey) || 'null');
+    const currentHash = memory?.releasedBlocks?.[blockId]?.sourceHash || '';
+    const evidenceCount = Array.isArray(memory?.evidence) ? memory.evidence.length : 0;
+    if (!memory || !study || !currentHash) return { currentHash, evidenceCount };
+    memory.releasedBlocks[blockId].sourceHash = 'stale-fixture-source';
+    for (const card of Object.values(memory.cards || {})) {
+      if (card?.blockId === blockId) card.sourceHash = 'stale-fixture-source';
+    }
+    study.completed = false;
+    study.blockRecallDone = false;
+    localStorage.setItem(memoryKey, JSON.stringify(memory));
+    localStorage.setItem(studyKey, JSON.stringify(study));
+    return { currentHash, evidenceCount };
+  }, { memoryKey: MEMORY_KEY, studyKey, blockId: fixture.blockId });
+  check(Boolean(preRevision.currentHash), 'revision_fixture_has_current_source_hash');
+
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForFunction(({ memoryKey, blockId, currentHash }) => {
+    const state = JSON.parse(localStorage.getItem(memoryKey) || 'null');
+    return state?.releasedBlocks?.[blockId]?.sourceHash === currentHash;
+  }, { memoryKey: MEMORY_KEY, blockId: fixture.blockId, currentHash: preRevision.currentHash });
+
+  memory = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), MEMORY_KEY);
+  check(memory.releasedBlocks[fixture.blockId].sourceHash === preRevision.currentHash, 'content_revision_refreshes_release_hash');
+  check(memory.evidence.length === preRevision.evidenceCount, 'content_revision_preserves_memory_evidence');
+  check(Object.values(memory.cards).filter((card) => card?.blockId === fixture.blockId).every((card) => card.sourceHash === preRevision.currentHash), 'content_revision_refreshes_card_payload_version');
+  check(Boolean(memory.cards[`core:${fixture.kpIds[0]}`]?.contentChangedAt), 'content_revision_marks_changed_core');
+  check(memory?.attention?.[`core:${fixture.kpIds[0]}`]?.reviewRequested !== true, 'content_revision_does_not_replay_first_pass_weak_signal');
+
+  await page.goto(`${BASE}${MEMORY_ROUTE}`, { waitUntil: 'networkidle' });
+  check((await page.locator('[data-memory-summary-today]').textContent())?.trim() === '1', 'content_revision_surfaces_changed_evidence_for_review');
+
   report.completed_at = new Date().toISOString();
   report.status = 'PASS';
   report.block_id = fixture.blockId;

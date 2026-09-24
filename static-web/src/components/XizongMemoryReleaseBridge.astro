@@ -38,13 +38,14 @@ const { objectId = '', sourceHash = '' } = Astro.props;
       console.error(error);
       return;
     }
-    if (!result?.released) return;
+    if (!result?.released && !result?.refreshed) return;
     try {
       localStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(result.state));
       window.dispatchEvent(new CustomEvent('kianos:xizong-memory-release', {
         detail: {
           schema: result.schema,
           blockId: result.blockId,
+          action: result.refreshed ? 'CONTENT_REVISION_REFRESHED' : 'BLOCK_COMPLETE_RELEASED',
           coreCount: result.coreCardIds?.length || 0,
           precisionCount: result.precisionCardIds?.length || 0,
           attentionCount: result.attentionCardIds?.length || 0

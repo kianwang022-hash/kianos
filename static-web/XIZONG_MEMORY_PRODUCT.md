@@ -42,7 +42,19 @@ Core      core:<kp_id>
 Precision precision:<current_precision_cue_id>
 ```
 
-Releasing the same Block twice is idempotent. Weakness never creates another card identity.
+Releasing the same Block twice is idempotent **for the same canonical content revision**. Weakness never creates another card identity.
+
+When the stable Block/KP identity remains the same but the canonical Block source/content revision changes:
+
+```text
+same card identity
+→ refresh Core / Precision payload from the Current learner object
+→ preserve historical Memory evidence as historical evidence
+→ set contentChangedAt on changed cards
+→ surface CONTENT_CHANGED_AFTER_LAST_EVIDENCE when prior evidence predates the refreshed content
+```
+
+This revision refresh is allowed even if the Block Evidence Guard has already archived/reset first-pass study completion for the new revision. It must not replay an old first-pass `unknown/fuzzy` signal, manufacture mastery, or create a second card identity.
 
 ### Core card
 
