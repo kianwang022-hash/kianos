@@ -18,6 +18,7 @@ User-facing rule:
 - Do not ask Kian to choose repository mechanics when the system can resolve them safely.
 - If a real decision is needed, surface only that decision and its consequences.
 - If Kian repeatedly has to remember backend state, treat that as a design defect to simplify.
+- Upstream Personal requirement: `kianwang022-hash/kian-personal-os/LONG_TERM.md` owns Kian's adopted net-leverage rule. For KianOS tooling/automation/governance, include setup, verification, rework, failure recovery and maintenance in the cost; do not count moving that burden onto Kian as an improvement.
 
 ---
 
