@@ -1,6 +1,6 @@
-# Politics Product Brief — discussion freeze
+# Politics Visual / Surface Blueprint
 
-Status: ACTIVE DISCUSSION BRIEF  
+Status: **CURRENT — ACCEPTED POLITICS VISUAL / SURFACE BLUEPRINT OWNER**  
 Parent cursor: `static-web/CURRENT.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Style owner: `static-web/UI_STYLE_BRIEF.md`
