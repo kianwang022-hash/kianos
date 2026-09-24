@@ -1126,4 +1126,42 @@ console.log('PASS historical sealed scores preserved while Current calibration r
   }
   assert.equal(applyXizongForecastScenario(forecast, { startDay: '2026-02-31', dailyMinutes: 10000 }).first_round.band_dates.p50.date, null);
 }
+{
+  for (const absent of [undefined, null]) {
+    const progress = {
+      schema: 'kianos.xizong.forecast-progress.v1',
+      runtime_evidence: { completed_blocks: absent },
+      canonical_scope: { blocks: absent }
+    };
+    const result = buildXizongScoreEvidence(progress).capabilities.source_model;
+    assert.equal(result.evidence_status, 'PARTIAL_OR_UNKNOWN', 'missing counts do not prove closure; explicit zero observations stay zero');
+    assert.equal(result.completed_blocks, null);
+    assert.equal(result.canonical_blocks, null);
+  }
+  const progress = {
+    schema: 'kianos.xizong.forecast-progress.v1',
+    runtime_evidence: { completed_blocks: 0 },
+    canonical_scope: { blocks: 3 }
+  };
+  assert.equal(buildXizongScoreEvidence(progress).capabilities.source_model.completed_blocks, 0);
+  progress.runtime_evidence.completed_blocks = 3;
+  assert.equal(buildXizongScoreEvidence(progress).capabilities.source_model.evidence_status, 'FULL_RUNTIME_CLOSURE_OBSERVED');
+}
+{
+  for (const band of [{}, { p20: 0 }, { p20: null, p50: null, p80: null }, { p20: 0, p50: NaN, p80: 0 }, { p20: 3, p50: 2, p80: 1 }]) {
+    const forecast = { schema: XIZONG_FORECAST_MODEL_SCHEMA, first_round: { full_band_minutes: band }, score_formation: { full_band_minutes: band } };
+    const result = assessXizongDeadlineFeasibility(forecast, { startDay: '2026-09-21', deadlineDay: '2026-09-21', dailyMinutes: 0 });
+    assert.equal(result.status, 'UNPRICED', 'invalid bands never become zero work or full-scope fit');
+    assert.equal(result.fit, null);
+    assert.equal(result.full_scope, false);
+  }
+  const band = { p20: 0, p50: 0, p80: 0 };
+  const forecast = { schema: XIZONG_FORECAST_MODEL_SCHEMA, first_round: { full_band_minutes: band }, score_formation: { full_band_minutes: band } };
+  assert.equal(assessXizongDeadlineFeasibility(forecast, { startDay: '2026-09-21', deadlineDay: '2026-09-21', dailyMinutes: 0 }).status, 'P80_FITS');
+  forecast.score_formation = { full_band_minutes: {}, known_priced_band_minutes: { p20: 1, p50: 2, p80: 3 } };
+  const lower = assessXizongDeadlineFeasibility(forecast, { startDay: '2026-09-21', deadlineDay: '2026-09-21', dailyMinutes: 100 });
+  assert.equal(lower.status, 'UNPRICED');
+  assert.equal(lower.full_scope, false);
+  assert.equal(lower.fit, null);
+}
 console.log('PASS Forecast native closure, unique observations, known exposure, unknown score/capacity, and failed-calibration regression');
