@@ -327,6 +327,19 @@ function readPair(storage) {
   return { instruction, runtime: validateRuntime(runtimeRaw, instruction) };
 }
 
+export function xizongSessionInstructionEffectMatches(storage, input, expectedDay = null) {
+  try {
+    const expected = validateXizongSessionInstruction(input, expectedDay);
+    const current = readPair(storage);
+    if (!current.instruction || !current.runtime) return false;
+    return JSON.stringify(current.instruction) === JSON.stringify(expected)
+      && current.runtime.session_id === expected.session_id
+      && current.runtime.instruction_generated_at === expected.generated_at;
+  } catch {
+    return false;
+  }
+}
+
 function writeAtomically(storage, writes) {
   const keys = [...new Set(writes.map(([key]) => key))];
   const before = new Map(keys.map((key) => [key, storage.getItem(key)]));
