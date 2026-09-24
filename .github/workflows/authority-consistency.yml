@@ -24,6 +24,8 @@ on:
       - 'static-web/scripts/**'
       - 'tools/authority_consistency_audit.py'
       - 'tools/authority_projection_audit.py'
+      - 'tools/governance_current_audit.py'
+      - 'tools/test_anti_drift_invariants.py'
       - '.github/workflows/authority-consistency.yml'
   pull_request:
     paths:
@@ -47,6 +49,8 @@ on:
       - 'static-web/scripts/**'
       - 'tools/authority_consistency_audit.py'
       - 'tools/authority_projection_audit.py'
+      - 'tools/governance_current_audit.py'
+      - 'tools/test_anti_drift_invariants.py'
       - '.github/workflows/authority-consistency.yml'
 
 permissions:
@@ -69,3 +73,5 @@ jobs:
         run: python tools/authority_consistency_audit.py
       - name: Audit derived projections and conditional shared capabilities
         run: python tools/authority_projection_audit.py
+      - name: Run anti-drift mutation tests
+        run: python tools/test_anti_drift_invariants.py
