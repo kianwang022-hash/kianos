@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.biochemistry-source-map.v1",
-  "status": "CURRENT_22_UNIT_CANONICAL_MAPPING_COMPLETE",
+  "status": "CURRENT_27_SOURCE_TRUTH_ARCHITECTURE_RECONCILIATION_REQUIRED",
   "role": "Single machine owner for mapping the current 27 Biochemistry continuous Source lane onto stable canonical M1-M10/G1-G5 Knowledge without forcing learner switching.",
   "source": {
     "cycle": "27考研",
@@ -1564,7 +1564,7 @@
     "system/cross-system + learning + question/explanation/evidence reconciliation"
   ],
   "canonical_mapping_semantics": {
-    "role": "Direct Source→canonical Knowledge hierarchy mapping. Source order remains teacher order; canonical layer mapping never creates a Block-centric reading order.",
+    "role": "Temporary grouping evidence from the interrupted rebase. Current canonical hierarchy is System→Block→Logic Group→KP; final Source routing must bind directly to existing Block/LG/KP owners or explicit support/Connection roles.",
     "block_layers": {
       "M1": {
         "L1": "protein identity and conformation / KP01–KP05",
@@ -1648,30 +1648,22 @@
         "L2": "mutation classes and DNA repair systems / KP12–KP13",
         "L3": "recombinant DNA, PCR, blot and interaction-tool map / KP06–KP11"
       }
-    }
+    },
+    "status": "PROVISIONAL_NOT_CANONICAL"
   },
-  "source_map_status": "CURRENT_22_UNIT_CANONICAL_MAPPING_COMPLETE",
+  "source_map_status": "SOURCE_IDENTITY_AND_UNIT_ORDER_CURRENT; LAYER_MAPPING_PROVISIONAL_NOT_CANONICAL",
   "mapping_completion": {
+    "status": "REOPENED_FOR_DIRECT_BLOCK_LG_KP_RECONCILIATION",
     "source_units": 22,
     "canonical_blocks": 15,
-    "scope": [
-      "M1",
-      "M2",
-      "M3",
-      "M4",
-      "M5",
-      "M6",
-      "M7",
-      "M8",
-      "M9",
-      "M10",
-      "G1",
-      "G2",
-      "G3",
-      "G4",
-      "G5"
-    ],
-    "result": "ALL_CURRENT_27_SOURCE_UNITS_ROUTE_TO_CANONICAL_BLOCK_LAYER_KP_OR_EXPLICIT_SUPPORT_CONNECTION",
-    "rule": "Teacher Source order remains authoritative for first-pass contact; canonical hierarchy owners remain authoritative for medical meaning."
+    "preserved_truth": "Source identity, teacher order, page ranges, Source boundaries/conflicts, and reviewed 27-vs-26 semantic findings remain usable.",
+    "invalidated_claim": "22-unit → canonical L-layer completion is not an accepted architecture result."
+  },
+  "architecture_rule": {
+    "canonical_hierarchy": "System → Block → Logic Group → KP",
+    "source_unit_role": "FIRST_PASS_EXECUTION_UNIT_ONLY",
+    "mapping_target": "DIRECT_TO_EXISTING_BLOCK_LOGIC_GROUP_KP_OR_EXPLICIT_SUPPORT_CONNECTION",
+    "forbidden": "Do not promote Source units, pathway bands, Frameworks, mother models, or L1/L2/L3 groupings into a parallel canonical hierarchy.",
+    "current_reconciliation": "The existing `canonical_content[].layer` and `canonical_mapping_semantics.block_layers` produced during the 2026-09-24 rebase are retained only as provisional work evidence until direct LG/KP reconciliation removes/replaces them. They are NOT Current canonical hierarchy."
   }
 }
