@@ -10,42 +10,59 @@ This file does not own medical Core, Xizong Learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
-**Active / earliest unresolved eligible gate:** **NONE for the 27 Biochemistry revision — CLOSED/CURRENT**. Other active source revisions route through their exact task owners / `CONTENT_MAINLINE.md`.  
-**S status:** PASS — exact Current B official-question membership accepted at 1071 qids.  
-**K status:** **PASS / CURRENT for Biochemistry** — M1–M10 + G1–G5 are current on 27 Source with canonical hierarchies and direct Source mapping; stable Block/KP identity preserved. Other bounded source revisions may independently reopen only their affected owners.  
-**L status:** **PASS / CURRENT for Biochemistry** — all M1–M10 + G1–G5 Learning consumes canonical layers through the completed global 27 Source map; no duplicate per-Block Source registry.  
-**P status:** **PASS / preserved for Biochemistry** — stable Block/KP identity and owner boundaries were preserved; the 27 rebase did not create a new Projection topology.  
+**Active / earliest unresolved eligible gate:** `K — Biochemistry architecture/content reconciliation after hierarchy correction`.  
+**S status:** PASS — current 27 Biochemistry Source identity, teacher order, page locators and reviewed source deltas remain usable; exact B official-question membership remains accepted at 1071 qids.  
+**K status:** **REOPENED — M1–M10/G1–G5 only**. The interrupted rebase introduced a parallel Block→L-layer→KP topology and misclassified mature Block-owned content jobs. Canonical hierarchy is now locked back to `System → Block → Logic Group → KP`; affected M/G Content must be reconciled before K can close.  
+**L status:** previous accepted B Learning model remains the baseline; the newly added Biochemistry layer topology has been removed from the Learning owner. Direct 27 Source→existing LG/KP reconciliation is pending.  
+**P status:** previous B Projection remains preserved/provisional for affected M/G until upstream K/L/Content revalidation; no new UI design is authorized.  
 **R status:** previous PASS preserved; no broad Runtime rebuild is authorized.  
-**E status:** **PASS / preserved semantics** — historical learner evidence remains historical; this rebase creates no learner progress, and Current completion must bind to current 27 Source evidence.  
+**E status:** previous PASS semantics preserved; repository reconstruction creates no learner progress.  
 **U:** UNTESTED — real learner validation only.
 
 ```text
-Phase 0  A1-quality calibration                         PASS
-Phase 1  Route / dependency / intermediate compression PASS
-Phase 2  38-Block learning-control review              PASS
-Phase 3  600-KP / 170-LG semantic re-acceptance        PASS
-Phase 4  Progressive compression closure               PASS
-Phase 5  Cross-surface + negative-space audit          PASS
-Phase 6  Fresh independent L acceptance                PASS
+Accepted hierarchy: System → Block → Logic Group → KP
+
+Content jobs around those owners:
+Guide / Orientation
+Framework
+Prompt / Core
+Boundary / Confusable
+Precision
+Visual
+Connection / Extension
+Memory Routing / MI-G / MI-D
+Recall / Closure
+Compression
+Question Probe / Repair
 ```
 
-Learning construction / acceptance task: GitHub Issue `#135` — completed.
-
-**Next action:** **none for the 27 Biochemistry source-revision task**. Do not reopen it without a new Source revision or a concrete canonical defect. Website/UI remains downstream of GitHub canonical truth.
+**Next action:** reconcile the 15 Biochemistry Blocks against the mature Xizong architecture before generating/reaccepting content:
+1. preserve verified 27 Source facts/deltas;
+2. remove provisional L1/L2/L3 hierarchy semantics from canonical content/mapping;
+3. restore explicit Block-owned Framework / Memory Routing / MI-G / MI-D and related content jobs where Current owners support them;
+4. map 27 Source directly to existing Block / Logic Group / KP identities or explicit support/Connection roles;
+5. restore stable canonical KP/file identity where learner order was physically imposed;
+6. review digestive/endocrine/other integration as JIT Connection → Connection Hook/Recall → post-formation Reconstruction;
+7. only then run fresh K → L → Content → P acceptance.
 
 ---
 
-## Closed 27 Biochemistry revision
+## Reopened 27 Biochemistry architecture/content reconciliation
 
-- Current learner Source decision: **27 跟课 is the only continuous first-pass Biochemistry Source**.
-- 26 精编 is retained as **explanatory reconstruction substrate**, not a second learner reading path.
-- 22 current 27 Source units are mapped to all 15 M/G canonical Blocks/layers/KPs or explicit support connections.
-- System compression is current as the contract-defined two mother maps: **物质—能量网络** + **信息生命周期**.
-- Remaining exact Source boundaries stay explicit rather than blocking closure: M3 NADPH wording boundary, M4 P015 FBPase-1 conflict, and G5 first low-fidelity-polymerase Greek glyph exactness.
-- Ordinary content changes flow **Chat → GitHub canonical truth → existing website mapping**; no static-web content fork was created.
-- Initial audit found all 15 M/G Blocks on the old 26 Source basis. **All M1–M10 + G1–G5 are now rebuilt/revalidated on the 27 Source with explicit canonical hierarchies and direct Source→Knowledge→Learning mapping.**
-- Stable Block/KP identity was preserved through the completed deep comparison; no split/merge/renumber was introduced for symmetry.
-- Valid 26 explanation should live in Framework / Logic Group / KP Core or cross-System relation when useful; invalid/conflicting explanation is not grandfathered merely because it was in 26.
+- **27 跟课 remains the only continuous first-pass Biochemistry Source**.
+- 26 精编 remains **verified explanatory reconstruction substrate**, not a second learner reading path.
+- Biochemistry remains a **dedicated Source/Learning execution lane**, not a separate Knowledge architecture.
+- Canonical hierarchy is exactly **System → Block → Logic Group → KP**.
+- Source units / source-contact segments are execution units only; they do not become canonical levels.
+- The two Biochemistry mother maps remain **System Framework / compression objects**, not hierarchy.
+- Explicit Block Framework / Memory Routing / MI-G / MI-D / Visual / Boundary / Connection / Exit semantics remain durable content jobs and must survive revalidation.
+- Source continuity and cross-System integration are both required:
+  - during Source: minimal JIT Connection, no routine course switch;
+  - at Block/LG: Recall an already learned external owner or create a Future Connection to the formal owner;
+  - after relevant owners are formed: active cross-Block/System Reconstruction with digestive/endocrine/hematology/hepatobiliary/tumor models.
+- Verified 27-vs-26 Source findings, question-position counts and explicit Source conflicts/bounds are preserved as evidence.
+- The prior claim that 22 Source units had completed mapping to a canonical L-layer hierarchy is **withdrawn**.
+- Ordinary website behavior remains downstream: **GitHub canonical truth → Learning/Projection → shared renderer**. Do not touch static-web unless a downstream rendering/mapping defect is later demonstrated.
 
 ## Frozen Knowledge substrate
 
