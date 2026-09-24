@@ -30,7 +30,7 @@ async function waitForServer() {
   throw new Error('server not ready');
 }
 
-const server = spawn('npm',['run','preview','--','--host','127.0.0.1','--port',String(port)],{
+const server = spawn('npm',['run','dev','--','--host','127.0.0.1','--port',String(port)],{
   cwd:process.cwd(),stdio:['ignore','pipe','pipe'],detached:process.platform!=='win32'
 });
 let browser;
