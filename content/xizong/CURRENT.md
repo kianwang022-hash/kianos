@@ -11,7 +11,7 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 - Final learner acceptance engineering is **CLOSED / RETIRED**. Exact result: ACCEPTANCE.md.
 - Broad D/E/F medical-content construction and A1-F exact System-question membership are closed in CONTENT_MAINLINE.md; do not duplicate their status here.
-- **27 Biochemistry is an active bounded architecture/content reconciliation in CONTENT_MAINLINE.md.** The architecture correction is locked: canonical hierarchy remains System → Block → Logic Group → KP; Biochemistry is Source/Learning-execution-specialized only. Do not treat prior L1/L2/L3 layer grouping or the premature closeout as Current acceptance.
+- **27 Biochemistry architecture/content reconciliation is complete at S/K/L/Content/P and is in final integration-QA closeout.** Canonical hierarchy remains System → Block → Logic Group → KP; Biochemistry is Source/Learning-execution-specialized only. No more Biochemistry content rebuild is authorized without a concrete defect.
 - Unified Question SECOND_PASS and reviewed Question → Knowledge Crosswalk are **CLOSED** for the current 2005–2026 corpus: 3750/3750 rich explanations, 3043 REVIEWED relations, 707 legal NO_SAFE_MATCH, 0 NEEDS. Reopen only for a real defect, authoritative Source change, or explicit new corpus.
 - Subject maturity cursor is **Stage B — first-pass learner capability / Real-U acquisition**. MATURITY_PACKAGE.md owns the 270-protect / 275-working-score control path.
 - Real learner U remains private real-use truth and is not manufactured by engineering proof.
@@ -20,7 +20,7 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 ### Next
 
 explicitly active bounded content program
-→ 27 Biochemistry architecture/content reconciliation via CONTENT_MAINLINE.md
+→ 27 Biochemistry final integration-QA closeout via CONTENT_MAINLINE.md
 → otherwise real Stage-B study
 → concrete defect or authoritative new Source appears
 → reopen the smallest exact owner
