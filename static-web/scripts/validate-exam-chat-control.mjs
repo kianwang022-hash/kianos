@@ -39,6 +39,19 @@ if (!contract.includes('It may not independently choose subject allocation, prio
   fail('CHAT_ONLY_STRATEGY_CONTRACT_MISSING');
 }
 
+let futurePlanRejected = false;
+try {
+  validateExamChatPlan({
+    schema: EXAM_CHAT_PLAN_SCHEMA,
+    study_day: '2099-01-01',
+    generated_at: '2099-01-01T00:00:00Z',
+    subjects: {}
+  }, '2099-01-01');
+} catch (error) {
+  futurePlanRejected = String(error?.message || '') === 'CHAT_PLAN_FUTURE_GENERATED_AT';
+}
+if (!futurePlanRejected) fail('FUTURE_CHAT_PLAN_MUST_REJECT_AT_NATIVE_OWNER');
+
 const sample = validateExamChatPlan({
   schema: EXAM_CHAT_PLAN_SCHEMA,
   study_day: '2026-09-18',
@@ -284,6 +297,7 @@ console.log(JSON.stringify({
   older_same_day_plan_rejected: true,
   identical_plan_replay_idempotent: true,
   same_generation_conflict_rejected: true,
+  future_plan_rejected: true,
   learner_evidence_basis_required: true,
   politics_e1_stales_e0_plan: true,
   later_stability_stales_old_heavy_plan: true,
