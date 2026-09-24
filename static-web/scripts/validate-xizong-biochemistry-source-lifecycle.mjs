@@ -191,10 +191,8 @@ assert.equal(learning.question_stage?.exact_membership_gate,'CURRENT_B_QUESTION_
 assert.equal(learning.question_stage?.question_scope_owner,'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json');
 
 assert.equal(learning.status,'CURRENT','accepted B Learning owner must remain CURRENT');
-assert.equal(learning.construction_status,'PHASE6_INDEPENDENT_L_ACCEPTED','candidate builder must not overwrite accepted B Learning owner');
-const builderText=text('static-web/scripts/build-xizong-b-learning-candidate.mjs');
-assert.match(builderText,/B_L_CANONICAL_CURRENT_OVERWRITE_FORBIDDEN/,'candidate builder must fail closed on accepted Current');
-assert.match(builderText,/\.qa\/xizong-b-learning-candidate\.json/,'candidate builder default output must be non-canonical');
+assert.equal(learning.construction_status,'PHASE6_INDEPENDENT_L_ACCEPTED','accepted B Learning construction status drift');
+assert.ok(!exists('static-web/scripts/build-xizong-b-learning-candidate.mjs'),'retired B Learning candidate builder must stay absent from Current');
 
 const d8Path='content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D8_糖尿病_学习阅读版_v1_最终执行版.md';
 const m3Path=sourceMap.authority_boundary.canonical_hierarchy_owners.M3;
