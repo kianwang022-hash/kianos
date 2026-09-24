@@ -2,23 +2,24 @@
 type: block_guide
 schema_version: 1
 content_version: 1
+source_cycle: 27考研
+primary_source_pdf: 27生化跟课版合集【不带导图】.pdf
+source_snapshot: content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md
+explanatory_substrate: 生物化学讲义_AI阅读版(1).md / 26生化.pdf
 system_id: digestive-metabolism-endocrine
 block_id: dme-g02
 title: DNA复制、逆转录与端粒
 order: G2
 study_refs:
-  - source_id: biochemistry-lecture-ai
-    label: 生物化学讲义｜DNA合成与复制—转录串联
-    source_pdf: 26生化.pdf
-    source_pdf_page_start: 123
-    source_pdf_page_end: 138
-    book_page_start: 103
-    book_page_end: 116
+  - source_id: biochemistry-27-unified
+    label: 27生化跟课｜2.3 DNA的合成
+    source_pdf: 27生化跟课版合集【不带导图】.pdf
+    source_pdf_page_start: 115
+    source_pdf_page_end: 127
 coverage_source:
-  source_id: bio26-embedded-questions
-  question_pages: [135, 136]
-embedded_questions_total: 12
-embedded_questions_accounted: 12
+  source_id: bio27-current-lecture-attached-questions
+embedded_questions_total: 13
+embedded_questions_accounted: 13
 unmapped_embedded_questions: 0
 kp_count: 11
 prerequisites:
@@ -33,9 +34,9 @@ visual_gates:
   - bio26-p132-telomerase
   - bio26-p133-reverse-transcription
   - bio26-p138-replication-vs-transcription
-visual_gate_status: VISUAL_SOURCE_GAP
-source_gap_status: VISUAL_SOURCE_GAP + UNCERTAIN_SOURCE_READING_P125_P130_P131
-first_pass_question_probe: PENDING_LECTUREQUESTION_BINDING
+visual_gate_status: SOURCE_AVAILABLE_EXTERNAL_PRIMARY_27_PDF
+source_gap_status: SOURCE_BOUND_CURRENT_27_SPATIAL_ONLY
+first_pass_question_probe: CURRENT_SOURCE_POSITION_ACCOUNTED_RELATION_OWNER_SEPARATE
 ---
 
 # G2｜DNA复制、逆转录与端粒
@@ -53,80 +54,40 @@ first_pass_question_probe: PENDING_LECTUREQUESTION_BINDING
 
 ---
 
-# 0｜统一入口：复制系统同时解决四个工程约束
+# 0｜Current Source / Authority
 
-```text
-信息必须保真
-+ 两条模板方向相反
-+ 新链只能5′→3′
-+ 线性末端无法常规补齐
-```
+- Current first-pass Source：BIO27-S17 / P115–P127。
+- Source map owner：content/xizong/knowledge/learner/biochemistry-27-source-map.json。
+- 26 refined 只作为 explanation reconstruction substrate，不形成第二套 learner Source。
+- S17 在一个自然 Source 单元中形成 G2 全部 canonical layers；S22 只回灌 DNA repair support。
 
-对应四组方案：
+# 1｜Canonical Knowledge Hierarchy
 
-```text
-半保留 + 校对 / 修复
-复制叉 + 前导 / 后随链
-引物 + 冈崎片段 + 连接酶
-端粒 + 端粒酶
-```
+## Mother Model｜复制约束 → 复制叉执行与高保真 → 端粒 / 逆转录特殊解法 → 工具与转录出口比较
 
-逆转录则把模板从 DNA 换成 RNA，但仍要形成最终双链 DNA。
+## L1｜DNA复制执行系统｜KP01–KP07
 
----
+**Core relation**
+- semiconservative + bidirectional + semidiscontinuous；
+- primer 提供 3′-OH；
+- DNA polymerase 只能 5′→3′ 延长；
+- helicase / topoisomerase / SSB / primase 协同复制叉；
+- proofreading + repair 维持高保真。
 
-# 1｜总 Framework
+**Boundary**
+- 前导 / 后随差异来自模板反向平行与聚合方向限制。
+- polymerase 不能从零连接两个游离 dNTP。
+- dedicated DNA damage repair taxonomy 归 G5。
 
-<!-- kianos:framework id="dme-g02-framework-main" -->
+**Precision**
+- 原核 Pol I / II / III 与真核 α / δ / ε 等 current Study 角色；
+- 3′→5′ exonuclease 校对与 Pol I 的 5′→3′ exonuclease 边界；
+- PCNA / sliding clamp、Okazaki fragment exactness 回 current 27 Source。
 
-```text
-A｜复制起点
-DnaA辨认 → 拓扑异构酶松弛 → 解旋酶打开 → SSB稳定
+**Connection**
+- G1 提供结构 / 方向；G3 从这里切换到“不需引物的转录”。
 
-B｜引发
-DnaG / 真核相关体系合成RNA引物
-→ 提供3′-OH
-
-C｜延长
-DNApol 5′→3′聚合
-前导链连续
-后随链形成冈崎片段
-
-D｜保真
-碱基选择
-+ 3′→5′校对
-+ 修复系统
-
-E｜成熟
-去RNA引物
-→ 补空隙
-→ DNA连接酶封缺口
-
-F｜真核特化
-多复制子 + PCNA + 核小体装配
-+ mtDNA D环
-+ 端粒酶补末端
-
-G｜逆转录支路
-RNA → RNA/DNA → ssDNA → dsDNA
-```
-
-## 1.1 Ownership 与边界
-
-| 内容 | 动作 | 边界 |
-|---|---|---|
-| DNA结构 | **Recall** | G1 |
-| 复制、端粒、逆转录 | **Primary Learn** | 本 Block |
-| DNA损伤修复完整分类 | **Interface / Defer** | G5 |
-| 转录与RNA加工 | **Interface / Defer** | G3 |
-| PCR和重组DNA | **Interface / Defer** | G5 |
-| 全部聚合酶亚型、复制蛋白细节 | **MI-D / Source Boundary** | 不阻断主线 |
-
----
-
-<!-- kianos:kp id="dme-g02-kp01" -->
-
-## KP01｜DNA复制的四个总特征
+### KP01｜DNA复制的四个总特征
 
 > **讲义定位 →** 生化 Lecture PDF P123–125，印刷页 P103–105。  
 > **主提示**：复制4特征｜每个特征各由什么机制保证
@@ -143,7 +104,7 @@ RNA → RNA/DNA → ssDNA → dsDNA
 **Routing**：CORE｜CONFUSABLE｜MI-G
 <!-- kianos:kp id="dme-g02-kp02" -->
 
-## KP02｜复制叉、前导链与后随链：为什么会半不连续
+### KP02｜复制叉、前导链与后随链：为什么会半不连续
 
 > **讲义定位 →** 生化 Lecture PDF P124、P127–129，印刷页 P104、P107–109。  
 > **主提示**：复制叉头尾｜3个固定方向｜前/后随｜冈崎｜引物次数
@@ -170,7 +131,7 @@ RNA → RNA/DNA → ssDNA → dsDNA
 **Routing**：CORE｜VISUAL_ONLY｜CONFUSABLE｜MI-G
 <!-- kianos:kp id="dme-g02-kp03" -->
 
-## KP03｜dNTP、引物与能量：DNA聚合酶为什么不能从零开始
+### KP03｜dNTP、引物与能量：DNA聚合酶为什么不能从零开始
 
 > **讲义定位 →** 生化 Lecture PDF P124–126，印刷页 P104–106。  
 > **主提示**：原料｜延长方向｜为什么需要引物｜dNTP能量从哪来
@@ -193,12 +154,12 @@ RNA引物的3′-OH
 **Routing**：CORE｜CONFUSABLE｜MI-G
 <!-- kianos:kp id="dme-g02-kp04" -->
 
-## KP04｜DNA聚合酶：聚合、校对、切引物与高保真
+### KP04｜DNA聚合酶：聚合、校对、切引物与高保真
 
 > **讲义定位 →** 生化 Lecture PDF P125–126，印刷页 P105–106。  
 > **主提示**：3类活性｜Pol I/II/III各主事｜Klenow｜校对方向
 
-### 三类酶学动作
+#### 三类酶学动作
 
 | 活性 | 方向 | 当前作用 |
 |---|---|---|
@@ -206,7 +167,7 @@ RNA引物的3′-OH
 | 外切校对 | 3′→5′ | 从新链末端切除错配碱基 |
 | 外切切除 | 5′→3′ | 讲义主要归于 DNApol I 小片段，去除 RNA 引物 / 损伤片段 |
 
-### 原核三类聚合酶的主角色
+#### 原核三类聚合酶的主角色
 
 - DNApol III：复制延长主酶，含滑动夹与校对核心；
 - DNApol I：切除 RNA 引物并填补空隙；Klenow 大片段保留聚合功能；
@@ -222,7 +183,7 @@ Pol I/II/III均有聚合及3′→5′校对活性；Pol I另有5′→3′外�
 **Routing**：CORE｜CONFUSABLE｜BOUNDARY｜MI-G/MI-D
 <!-- kianos:kp id="dme-g02-kp05" -->
 
-## KP05｜复制叉工具组：松超螺旋、解双链、护单链、做引物
+### KP05｜复制叉工具组：松超螺旋、解双链、护单链、做引物
 
 > **讲义定位 →** 生化 Lecture PDF P126–128，印刷页 P106–108。  
 > **主提示**：4任务｜Topo I/II差3｜DnaA/B/C/G｜SSB｜引发体不含谁
@@ -237,7 +198,7 @@ Pol I/II/III均有聚合及3′→5′校对活性；Pol I另有5′→3′外�
 合成RNA引物：DnaG
 ```
 
-### 拓扑异构酶 I vs II
+#### 拓扑异构酶 I vs II
 
 | 维度 | I | II / 促旋酶 |
 |---|---|---|
@@ -252,12 +213,12 @@ Pol I/II/III均有聚合及3′→5′校对活性；Pol I另有5′→3′外�
 **Routing**：CORE｜VISUAL_ONLY｜CONFUSABLE｜MI-G
 <!-- kianos:kp id="dme-g02-kp06" -->
 
-## KP06｜原核复制三阶段：起始—延长—终止
+### KP06｜原核复制三阶段：起始—延长—终止
 
 > **讲义定位 →** 生化 Lecture PDF P126–129，印刷页 P106–109。  
 > **主提示**：起始5步｜延长前/后｜终止2酶｜最后缺口谁封
 
-### 起始
+#### 起始
 
 ```text
 DnaA辨认富AT起点
@@ -267,11 +228,11 @@ DnaA辨认富AT起点
 → DnaG合成RNA引物
 ```
 
-### 延长
+#### 延长
 
 DNApol III 以 dNTP 为原料，在两条模板上同步推进：前导链连续，后随链形成冈崎片段。讲义用“回环复制”解释同一复制机器如何协调两条链。
 
-### 终止与成熟
+#### 终止与成熟
 
 ```text
 DNApol I 去除RNA引物并填补
@@ -285,7 +246,7 @@ DNA 连接酶只能封闭双链 DNA 中的单链缺口，不能把两条完全�
 **Routing**：CORE｜CONNECTION｜MI-G
 <!-- kianos:kp id="dme-g02-kp07" -->
 
-## KP07｜原核 vs 真核复制：同一逻辑，组织规模不同
+### KP07｜原核 vs 真核复制：同一逻辑，组织规模不同
 
 > **讲义定位 →** 生化 Lecture PDF P130–131，印刷页 P110。  
 > **主提示**：起点数｜速度｜引物/冈崎长短｜Pol｜PCNA｜核小体｜mtDNA
@@ -308,20 +269,37 @@ mtDNA 可用 D 环复制、DNApol γ 和两个复制起点不在同一位点作�
 **Routing**：CORE｜CONFUSABLE｜BOUNDARY｜MI-G/MI-D
 <!-- kianos:kp id="dme-g02-kp08" -->
 
-## KP08｜端粒与端粒酶：线性DNA末端怎样避免越复制越丢
+## L2｜端粒与逆转录：两种 RNA模板→DNA 解法｜KP08–KP09
+
+**Core relation**
+- linear chromosome end problem → telomerase carries its own RNA template → extends maternal 3′ end → conventional primer/DNA synthesis fills complement；
+- RNA genome / RNA template → reverse transcriptase → DNA → dsDNA。
+
+**Boundary**
+- 端粒酶与病毒逆转录酶都可做 RNA→DNA，但解决的问题不同。
+- 端粒 = DNA + associated proteins，不只是重复序列本身。
+
+**Precision**
+- current 27 P123 的端粒酶组成与爬行机制；
+- reverse-transcriptase template / primer / fidelity exactness 以 Source 为准。
+
+**Connection**
+- G5 重组 / cDNA 工具调用逆转录能力。
+
+### KP08｜端粒与端粒酶：线性DNA末端怎样避免越复制越丢
 
 > **讲义定位 →** 生化 Lecture PDF P131–132，印刷页 P110–111。  
 > **主提示**：端粒2作用｜位置/序列｜端粒酶3组分｜爬行5步｜肿瘤接口
 
     线性 DNA 去除末端 RNA 引物后，常规 DNA 聚合酶无法从零补回最末端，因此真核染色体需要端粒系统。
 
-### 端粒
+#### 端粒
 
 - 维持染色体末端稳定；
 - 保证复制完整性；
 - 位于线性 DNA 末端，讲义强调 3′端富含 GT、可形成 G 四联体接口。
 
-### 端粒酶
+#### 端粒酶
 
 ```text
 RNA模板
@@ -336,7 +314,7 @@ RNA模板
 **Routing**：CORE｜VISUAL_ONLY｜CONNECTION｜MI-G
 <!-- kianos:kp id="dme-g02-kp09" -->
 
-## KP09｜逆转录：RNA信息怎样变成双链DNA
+### KP09｜逆转录：RNA信息怎样变成双链DNA
 
 > **讲义定位 →** 生化 Lecture PDF P133–134，印刷页 P112–113。  
 > **主提示**：4阶段｜3活性｜引物谁｜缺1校对｜2类应用
@@ -363,19 +341,38 @@ RNA
 **Routing**：CORE｜CONNECTION｜MI-G
 <!-- kianos:kp id="dme-g02-kp10" -->
 
-## KP10｜核酸酶、连接酶与“谁需要引物”的总比较
+## L3｜核酸工具、引物与复制—转录出口比较｜KP10–KP11
+
+**Core relation**
+- cut nucleic acid → nuclease；
+- seal DNA nick → ligase；
+- copy DNA → primer required；
+- transcribe DNA→RNA → no primer；
+- 工具选择由 molecule + reaction + direction 决定。
+
+**Boundary**
+- nuclease / ligase 是化学任务分类，不等于某一完整实验技术。
+- 复制与转录共享模板读取，但原料、酶、引物需求和产物不同。
+
+**Precision**
+- endonuclease / exonuclease、ligase、primer comparison 按 current S17。
+
+**Connection**
+- G3 直接接转录；G5 工具层再使用 cut / ligate 语言。
+
+### KP10｜核酸酶、连接酶与“谁需要引物”的总比较
 
 > **讲义定位 →** 生化 Lecture PDF P133–134，印刷页 P112–113。  
 > **主提示**：内/外切｜限制酶识别｜连接酶3场景｜引物4过程
 
-### 核酸酶
+#### 核酸酶
 
 - DNase / RNase：按底物分类；
 - 外切酶：从链末端水解；
 - 内切酶：从链内部切割；
 - 限制性核酸内切酶：识别特异回文 / 反向重复序列并切双链 DNA，是 G5 重组 DNA 的“剪刀”。
 
-### DNA连接酶的三类场景
+#### DNA连接酶的三类场景
 
 1. 复制中连接冈崎片段；
 2. DNA 损伤修复中封闭缺口；
@@ -384,7 +381,7 @@ RNA
 <!-- approved-27-audit: B4A-G2-05 -->
 磷酸二酯键的生成/水解对照：DNA连接酶生成缺口处的3′,5′磷酸二酯键；核酸内切酶/外切酶水解该键，差异在切割位置。
 
-### 引物总表
+#### 引物总表
 
 | 过程 | 是否需引物 | 引物 |
 |---|---|---|
@@ -396,7 +393,7 @@ RNA
 **Routing**：CORE｜CONFUSABLE｜CONNECTION｜MI-G
 <!-- kianos:kp id="dme-g02-kp11" -->
 
-## KP11｜DNA复制 vs 转录：进入G3前的出口比较
+### KP11｜DNA复制 vs 转录：进入G3前的出口比较
 
 > **讲义定位 →** 生化 Lecture PDF P138，印刷页 P116。  
 > **主提示**：模板范围｜原料｜引物｜酶/校对｜配对｜产物｜共同方向
@@ -417,7 +414,11 @@ RNA
 **Routing**：CORE｜CONFUSABLE｜MI-G
 
 
-# 13｜Memory Routing
+# 2｜Derived Learner Support
+
+> 以下只消费 canonical Knowledge；Recall、Memory、Questions 与网站呈现都不得反向定义 G2。
+
+## 2.1｜Memory Routing
 
 ## MI-G
 
@@ -441,48 +442,27 @@ RNA
 
 ---
 
-# 14｜Study 原图门禁
+## 2.2｜Current 27 Source Visual / Exactness Gate
 
-本环境没有 `26生化.pdf` 原页图像，登记 **VISUAL_SOURCE_GAP**：
+Current visual truth = BIO27-S17。复制叉、前导/后随、原/真核 polymerase、端粒与逆转录图若不能唯一线性化，保持 SOURCE_BOUND。
 
-- P123–129：复制叉、回环复制、前导 / 后随链；
-- P130–131：原核 / 真核复制表；
-- P132：端粒酶爬行；
-- P133：逆转录四阶段；
-- P138：复制 vs 转录总表。
+旧 26 P125/P130/P131 uncertain reading 不再作为 current debt。
 
-其中 P125、P130–131 还存在 AI 阅读版明确的 `UNCERTAIN_SOURCE_READING`，精确表格必须回原图核对。
+## 2.3｜Embedded Questions Coverage
 
----
+embedded_questions_total = 13
+source_position_accounted = 13
+unaccounted_source_questions = 0
+question_to_kp_relations_inferred_here = 0
 
-# 15｜Embedded Questions Coverage
+S17 共 13/13；新增 current 27：2025N22。
+正式 Question→Knowledge relation 仍由 reviewed relation owner 决定。
 
-| 题目组 | Accounted 状态 | 主要归属 |
-|---|---|---|
-| P135 Q01、Q03–Q05 | mapped_primary | KP01、KP04、KP05、KP07 |
-| P135 Q02、Q06 | mapped_primary | KP08、KP09 |
-| P136 Q01、Q04 | mapped_primary | KP08–KP09 |
-| P136 Q02–Q03 | mapped_primary | KP01–KP02、KP07 |
-| P136 Q05–Q06 | mapped_primary | KP03、KP07 |
+## 2.4｜First-pass Lecture-attached Question Contact
 
-```text
-embedded_questions_total = 12
-accounted = 12
-mapped_primary = 12
-unmapped_embedded_questions = 0
-```
+讲义附题在 current 27 Source 原位置随课处理；不在 Block 末尾制造第二套题库。Source-position accounting 不等于 Question→KP semantic mapping。
 
----
-
-# 16｜First-pass Question Probe
-
-**来源**：TTSX Lecture-attached Questions  
-**选择方式**：LectureQuestionBinding 自动提供  
-**状态**：**待绑定**
-
----
-
-# 17｜Block Exit
+## 2.5｜Block Exit
 
 闭卷重建：
 
