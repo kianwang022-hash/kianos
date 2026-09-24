@@ -25,6 +25,103 @@ It does not own medical truth. Exact medical meaning stays in the responsible Cu
 
 ---
 
+## 0A｜Canonical architecture — locked
+
+This Surgery task must obey the already-accepted Xizong architecture. It must not invent a Surgery-specific hierarchy.
+
+The only compulsory learner/canonical hierarchy is:
+
+```text
+System
+→ Block
+→ Logic Group
+→ KP
+```
+
+Hard distinctions:
+
+```text
+canonical hierarchy
+≠ learner order
+≠ Source-contact segment
+≠ page order
+≠ question taxonomy
+≠ Projection / UI state
+```
+
+The following are **content jobs / families or execution units, not new hierarchy levels**:
+
+- Block Framework / System Framework;
+- Prompt / Core;
+- Boundary / Confusable / Recognition;
+- Precision / MI-G / MI-D;
+- Visual;
+- Connection;
+- Memory Routing / compression;
+- Source locator / Outline locator;
+- Source-contact segment;
+- Repair / PSR / Projection.
+
+### Canonical Block-owned content
+
+When 27 refined Surgery adds explanatory material, first ask whether the existing canonical Block should improve one of its own content jobs:
+
+```text
+center problem / ownership / Source boundary
+Block Framework
+KP Prompt + canonical Core
+Boundary / Confusable / Recognition / Connection
+Precision / MI-G / MI-D
+Visual / Source gate
+Memory Routing / compression
+Coverage / routing ledger / Block Exit when materially affected
+```
+
+Framework, Memory Routing and MI-G / MI-D are not temporary derived UI support. They are canonical content semantics owned by the Block or its reviewed content family.
+
+### Learning owner
+
+System-specific `*-learning.json` owns only learner organization such as:
+
+- first_pass_focus / stop_line / recall_spine;
+- learner_order;
+- Logic Group membership / cognitive_job / goal / closure;
+- accepted Source-contact mode / natural Source units;
+- PSR / progressive compression timing.
+
+Learning may reorder **when/how** stable KPs are learned. It must not physically reorder canonical KP identity or restate medical Core.
+
+### Source-map rule
+
+The Surgery Source map is a Source execution/audit object. It may map:
+
+```text
+27 Source unit / Source-contact segment
+→ existing System / Block / Logic Group / KP
+→ content-family impact (Framework/Core/Boundary/Precision/Visual/Connection/Memory)
+```
+
+It must never create an intermediate semantic layer between Block/LG/KP.
+
+A Block-level candidate binding is not enough for acceptance when the refined delta clearly belongs to a specific LG/KP/content family.
+
+### Projection / website rule
+
+Website consumption remains:
+
+```text
+canonical Knowledge + Learning + reviewed content families
+→ semantic adapter / Projection when needed
+→ learner object
+→ shared renderer
+```
+
+Projection may select, hide, foreground or reorder approved meaning for learner state. It may not become a second Knowledge or Learning owner.
+
+No UI change is part of this Surgery rebase unless a concrete renderer defect prevents Current canonical meaning from appearing.
+
+---
+
 ## 1｜Source authority
 
 Current Surgery Source truth:
@@ -75,27 +172,30 @@ Rule:
 
 Do not create new KP merely because the teacher added another explanatory paragraph. Prefer enriching the existing Framework / detailed expansion / boundary of the smallest responsible KP.
 
-### B｜Learning / Guide / Logic Group / Content realization
+### B｜Learning owner — learner order / Logic Group / Source-contact semantics
 
-Send the increment to the Current Learning owner when it mainly improves **how Kian should understand, retrieve or apply already-valid Knowledge**:
+Send the increment to the Current Learning owner only when it changes **when/how Kian should form, retrieve, close or revisit already-valid canonical Knowledge**:
 
 - “整体认识” / “理顺知识点”;
 - what to look at first in a case;
 - branch order / discrimination order;
-- high-value comparison structure;
-- chapter-level mental model;
+- Logic Group goal / closure or source-contact grouping;
+- learner-order / retrieval sequencing;
 - “先定位什么，再判断什么”;
 - recall spine / compression;
 - teacher summaries that reorganize stable facts into a better decision model.
 
-Possible targets:
+Possible Learning targets:
 
 - `first_pass_focus`
 - `stop_line`
 - `recall_spine`
-- Logic Group `goal` / `closure`
-- accepted Source-contact natural units
-- learner-facing Content / compression cues
+- `learner_order`
+- Logic Group membership / `cognitive_job` / `goal` / `closure`
+- accepted Source-contact mode / natural Source units
+- PSR / progressive-compression timing
+
+If a refined note improves a Block Framework, comparison, boundary, MI-G/MI-D, Visual, Connection or Memory Routing without changing learner order/topology, update the canonical Block/content family rather than `*-learning.json`.
 
 Rule:
 
@@ -103,9 +203,9 @@ Rule:
 
 Do not revive historical System Guides as Current owners. Current `system.json`, `*-learning.json`, canonical Block Markdown and accepted Content owners remain authoritative.
 
-### C｜Precision
+### C｜Precision / Memory Routing
 
-Use Precision / MI-D style storage for exact details whose value is mainly exact retention:
+Use the existing canonical Precision / MI-G / MI-D content semantics for exact details whose value is mainly exact retention:
 
 - thresholds;
 - dates / weeks / hours;

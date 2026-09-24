@@ -125,7 +125,7 @@ E  source-revision impact on historical learner evidence classified
 A  affected scoped CURRENT / ACCEPTANCE owners reconciled and task closed
 ```
 
-Current status: **Reprocess v2 content pass is complete across SUR27-U01–U38 (38/38)**. All refined explanatory additions were re-routed explicitly across Knowledge / Learning / Precision / Visual, stale Current-primary Surgery bindings were cleaned, and UI was intentionally left unchanged. Remaining work is bounded downstream revalidation for the blocks with real semantic/learner-facing changes, followed by evidence/source-revision classification and scoped acceptance closeout.
+Current status: **Reprocess v3 architecture reconciliation ACTIVE.** The v2 38/38 pass remains valid as a Source/refined-note semantic-delta receipt, but its `content complete` interpretation is withdrawn. Full closure now requires reconciliation against the accepted canonical model `System → Block → Logic Group → KP`, mature Block-owned content roles (Framework/Core/Boundary/Precision/Visual/Connection/Memory Routing), Learning-only learner order/LG/source-contact semantics, and affected Projection bindings. No new intermediate hierarchy is allowed; UI remains unchanged unless a concrete renderer defect is found.
 
 ---
 
