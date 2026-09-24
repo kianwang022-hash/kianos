@@ -1,79 +1,41 @@
-# U5 Source Review｜长期高精力 baseline
+# U5 Source Review｜容量增长
 
-Status: SOURCE REVIEW COMPLETE  
-Scope: U5 Long-term High-Energy Baseline
+Status: SOURCE REVIEW COMPLETE
 
 ## Review rule
+Keep broad-evidence high-leverage capacity levers and separate foundations from experimental brain-endurance claims.
 
-U5 keeps broad-evidence, high-leverage baseline factors and avoids turning High Energy into a supplement/biohacking stack or personalized medical prescription.
+### Sleep foundation
+AASM / CDC guidance: regular sufficient sleep is a basic health / performance foundation. Population guidance is not a personal optimum.
 
-## Accepted source set
+### Physical activity
+WHO / CDC guidance: regular aerobic + muscle-strengthening activity supports broad health / physical capacity. Exact exam-season dose is not owned here.
 
-### S1｜Sleep amount and quality
+### Mindfulness / cognitive regulation
+PMID: 37578065  
+https://pubmed.ncbi.nlm.nih.gov/37578065/
 
-CDC About Sleep  
-https://www.cdc.gov/sleep/about/
+Accepted: meta-analysis of 111 RCTs found small-to-moderate improvements in several cognitive domains, including sustained attention and some working-memory / inhibition accuracy measures.
 
-Accepted: adults 18–60 are generally recommended to obtain at least 7 hours of sleep; sleep quality also matters.
+Boundary: not a universal brain booster and not a sleep / fitness substitute.
 
-Boundary: population guidance is not Kian's exact performance optimum.
+### Practice / automaticity
+PMID: 30944847  
+https://pubmed.ncbi.nlm.nih.gov/30944847/
 
-### S2｜Sleep regularity
+Accepted: practice can increase fluency / speed and reduce cognitive load for practiced behavior.
 
-PMID: 41259946  
-https://pubmed.ncbi.nlm.nih.gov/41259946/
+Use: task efficiency is a legitimate form of effective capacity growth.
 
-Accepted: regularity is an important dimension of sleep health in addition to duration.
+### Brain Endurance Training
+PMID: 42318508  
+https://pubmed.ncbi.nlm.nih.gov/42318508/
 
-### S3｜Physical activity
+Accepted: preliminary pooled evidence suggests possible fatigue-resistance / endurance and some cognitive benefits.
 
-CDC / Physical Activity Guidelines for Americans  
-https://www.cdc.gov/physical-activity/php/guidelines-recommendations/index.html
+Boundary: nine articles / eleven studies, limited power and protocol heterogeneity; no basis here to rank BET above sleep, fitness, task practice or ordinary progressive high-quality study.
 
-Accepted: regular aerobic and muscle-strengthening activity supports broad health.
-
-Boundary: no exam-period personalized training prescription.
-
-### S4｜Diet quality
-
-WHO Healthy Diet, 2026  
-https://www.who.int/news-room/fact-sheets/detail/healthy-diet
-
-Accepted: healthy diets are grounded in adequacy, balance, moderation and diversity, emphasizing nutrient-dense minimally processed foods.
-
-Boundary: no personalized macros, supplements or disease-specific diet.
-
-### S5｜Hydration and executive function
-
-Systematic review PMID: 33547031  
-https://pubmed.ncbi.nlm.nih.gov/33547031/
-
-Accepted: hydration status can influence some executive-function outcomes, but evidence is heterogeneous.
-
-Learner use: obvious thirst/dehydration is a direct body-state variable worth correcting.
-
-Boundary: no universal water-volume target.
-
-### S6｜Caffeine and sleep
-
-PMID: 36870101; PMID: 39377163.
-
-Accepted: caffeine can impair later sleep in a dose- and timing-dependent way.
-
-### S7｜Persistent unexplained fatigue
-
-NHS / Mayo Clinic fatigue guidance.
-
-Accepted: persistent/excessive fatigue, fatigue affecting daily life, or fatigue with concerning symptoms should not be managed indefinitely as a lifestyle optimization problem.
-
-Boundary: the Skill does not diagnose the cause.
+> **BET remains experimental / optional, not a default High Energy prescription.**
 
 ## Deliberately excluded
-
-- supplement stacks;
-- hormone optimization;
-- HRV-driven prescriptions;
-- cold exposure as a requirement;
-- rigid meal timing or water quotas;
-- dopamine-detox frameworks;
-- any claim that one habit guarantees high energy.
+supplement stacks; hormone optimization; HRV-driven training prescriptions; grind-longer-as-brain-training; dopamine-detox frameworks; guaranteed high-energy protocols.

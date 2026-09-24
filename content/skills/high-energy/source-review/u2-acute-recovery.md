@@ -1,88 +1,51 @@
-# U2 Source Review｜瞬时恢复
+# U2 Source Review｜高效恢复
 
-Status: SOURCE REVIEW COMPLETE  
-Scope: U2 Acute Regulation  
-Role: evidence gate for learner-facing content; not learner performance evidence.
+Status: SOURCE REVIEW COMPLETE
 
 ## Review rule
+Only evidence that changes immediate recovery choice / dose enters U2. No intervention becomes a universal prescription.
 
-U2 only admits evidence that changes an immediate action choice. No single intervention is allowed to become a universal recovery prescription.
-
-## Accepted source set
-
-### S1｜Micro-breaks
-
-Albulescu P et al. PLoS One. 2022. PMID: 36044424  
+### Micro-breaks
+PMID: 36044424  
 https://pubmed.ncbi.nlm.nih.gov/36044424/
 
-Accepted: micro-breaks show small improvements in vigor and fatigue; overall performance benefit was not significant and lower-demand tasks showed clearer benefit.
+Accepted: small improvements in vigor / fatigue; difficult cognitive performance does not reliably rebound merely because a short break occurred.
 
-Learner use: a short break is a reasonable low-cost experiment, but subjective relief is not proof that high-level cognition recovered.
+### Acute exercise
+PMID: 39883421  
+https://pubmed.ncbi.nlm.nih.gov/39883421/
 
-Boundary: no universal break length or fixed Pomodoro interval.
+Accepted: meta-review of 30 systematic reviews / meta-analyses found a small-to-medium average acute cognitive benefit across several domains.
 
-### S2｜Acute exercise and cognition
+Use: strong low-cost probe for low arousal, prolonged sitting and some cognitive-fatigue states. Not a sleep substitute.
 
-Meta-review PMID: 39883421; healthy young-adult meta-analysis PMID: 39242965.  
-https://pubmed.ncbi.nlm.nih.gov/39883421/  
-https://pubmed.ncbi.nlm.nih.gov/39242965/
+### Daytime nap
+PMID: 34639511; 36041284  
+https://pubmed.ncbi.nlm.nih.gov/34639511/  
+https://pubmed.ncbi.nlm.nih.gov/36041284/
 
-Accepted: a single bout of exercise has, on average, a small beneficial effect on cognition with substantial task/protocol heterogeneity.
+Accepted: naps can improve subsequent cognition / alertness. No universal nap duration is promoted.
 
-Learner use: movement is a plausible recovery/arousal probe, especially after sedentary or low-arousal states.
+### Breathwork
+PMID: 36624160  
+https://pubmed.ncbi.nlm.nih.gov/36624160/
 
-Boundary: exercise is not guaranteed to restore performance and is not a substitute for sleep when true sleepiness is the bottleneck.
+Accepted: small-to-medium average reduction in self-reported stress, with evidence-quality / heterogeneity caveats.
 
-### S3｜Daytime naps and cognition
+Use: stress / over-arousal regulation, not universal cognitive recovery.
 
-PMID: 36041284; PMID: 34639511.  
-https://pubmed.ncbi.nlm.nih.gov/36041284/  
-https://pubmed.ncbi.nlm.nih.gov/34639511/
+### Caffeine / later sleep
+PMID: 36870101  
+https://pubmed.ncbi.nlm.nih.gov/36870101/
 
-Accepted: daytime naps can improve aggregate cognition, memory, vigilance and/or processing speed in laboratory studies.
+Use: alertness tool with downstream sleep cost, not recovery.
 
-Learner use: when true sleepiness is the bottleneck and sleep opportunity exists, sleep is qualitatively different from stimulation.
+## Projection
 
-Boundary: no universal nap duration; sleep inertia and schedule effects still matter.
-
-### S4｜Caffeine and later sleep
-
-Systematic review PMID: 36870101; randomized dose/timing trial PMID: 39377163.  
-https://pubmed.ncbi.nlm.nih.gov/36870101/  
-https://pubmed.ncbi.nlm.nih.gov/39377163/
-
-Accepted: caffeine can improve alertness while impairing subsequent sleep; effects depend strongly on dose and timing.
-
-Learner use: caffeine is an alertness tool, not recovery.
-
-Boundary: group-average results do not define Kian's personal cutoff.
-
-### S5｜Interrupting prolonged sitting
-
-PMID: 42212020; PMID: 42443952.  
-https://pubmed.ncbi.nlm.nih.gov/42212020/  
-https://pubmed.ncbi.nlm.nih.gov/42443952/
-
-Accepted: activity breaks may help some cognitive outcomes, but evidence is heterogeneous and certainty is low for several domains.
-
-Learner use: movement is a low-cost probe when prolonged sitting/body stiffness is part of the pattern.
-
-Boundary: do not prescribe stand-every-X-minutes as a cognitive law.
-
-## Deliberately excluded
-
-- universal recovery stack;
-- fixed Pomodoro timing;
-- universal nap duration;
-- universal caffeine cutoff;
-- mandatory breathing/cold/supplement protocols;
-- movement as guaranteed cognitive recovery;
-- stimulation as proof of recovery.
-
-## Source → learner projection
-
-true sleepiness → sleep opportunity has a different status from stimulation  
-mental fatigue → break may improve fatigue; performance still requires re-entry  
-low arousal / sedentary state → movement is a plausible probe, not a guarantee  
-caffeine → alertness tool with downstream sleep cost  
-all actions → smallest reversible step → re-entry test
+~~~text
+sleepiness → sleep opportunity
+brain fog / low arousal → movement probe
+cognitive saturation → genuine input reduction
+stress occupation → breath / detachment
+all actions → sufficient dose → re-entry test
+~~~
