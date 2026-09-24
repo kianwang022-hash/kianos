@@ -17,6 +17,23 @@ on:
       - 'static-web/scripts/test-xizong-a2-extension-tables.mjs'
       - 'static-web/scripts/test-xizong-crosswalk-browser.mjs'
       - '.github/workflows/static-web-xizong-a2-functional-journey.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/xizong/knowledge/systems/a2-respiratory/**'
+      - 'content/xizong/knowledge/learner/a2-respiratory-*.json'
+      - 'static-web/src/components/Xizong*.astro'
+      - 'static-web/src/lib/xizong*.mjs'
+      - 'static-web/src/assets/xizong/source-visuals/**'
+      - 'static-web/src/pages/xizong/**'
+      - 'static-web/src/styles/xizong-presentation.css'
+      - 'static-web/src/styles/xizong-dense-calm.css'
+      - 'static-web/scripts/test-xizong-a2-functional-journey.mjs'
+      - 'static-web/scripts/test-xizong-a2-r3-source-visual.mjs'
+      - 'static-web/scripts/test-xizong-a2-kp-precision.mjs'
+      - 'static-web/scripts/test-xizong-a2-extension-tables.mjs'
+      - 'static-web/scripts/test-xizong-crosswalk-browser.mjs'
+      - '.github/workflows/static-web-xizong-a2-functional-journey.yml'
   workflow_dispatch:
 
 permissions:
