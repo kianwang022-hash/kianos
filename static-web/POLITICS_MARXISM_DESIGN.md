@@ -1,6 +1,6 @@
 # Politics Marxism — Cognitive Projection Design
 
-Status: GRAMMAR FROZEN FOR PRODUCT BRIEF / IMPLEMENTATION NOT STARTED  
+Status: **CURRENT — ACCEPTED MARXISM COGNITIVE PROJECTION GRAMMAR**  
 Parent: `static-web/POLITICS_PRODUCT_BRIEF.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Current subject owner: `content/politics/learning/marxism/`
