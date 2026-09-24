@@ -129,7 +129,15 @@ for(const failure of ['network','http500','wrong-echo']){
     observed_at:'2026-09-21T10:00:30Z',
     error:null
   };
-  const storage=new Storage({[receiptKey]:JSON.stringify(receipt)});
+  const storage=new Storage({
+    [receiptKey]:JSON.stringify(receipt),
+    'kianos-exam-chat-plan-v1':JSON.stringify({
+      schema:'kianos.exam.chat-plan.v1',
+      study_day:'2026-09-21',
+      generated_at:'2099-01-01T00:00:00Z',
+      subjects:{}
+    })
+  });
   const rt=await runtime({
     planEffectMatches:()=>false,
     writePlan:(shadow,value)=>shadow.setItem('kianos-exam-chat-plan-v1',JSON.stringify(value))
@@ -137,7 +145,8 @@ for(const failure of ['network','http500','wrong-echo']){
   const result=await rt.apply(storage,planCommand,options);
   assert.equal(result.status,'applied');
   assert.equal(rt.planWrites(),1);
-  assert.ok(storage.getItem('kianos-exam-chat-plan-v1'));
+  const restoredPlan=JSON.parse(storage.getItem('kianos-exam-chat-plan-v1'));
+  assert.equal(restoredPlan.generated_at,'2026-09-21T09:59:00Z');
   count++;
 }
 {
