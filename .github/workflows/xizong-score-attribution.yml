@@ -15,6 +15,21 @@ on:
       - 'static-web/scripts/validate-xizong-score-attribution.mjs'
       - 'static-web/scripts/validate-xizong-score-attribution-packet.mjs'
       - '.github/workflows/xizong-score-attribution.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/xizong/LEARNING_CONTRACT.md'
+      - 'content/xizong/knowledge/learner/study-policy.json'
+      - 'content/xizong/questions/exam-format.json'
+      - 'content/xizong/question-relations/**'
+      - 'static-web/src/lib/xizongQuestions.mjs'
+      - 'static-web/src/lib/xizongQuestionAttempts.mjs'
+      - 'static-web/src/lib/xizongScoreAttribution.mjs'
+      - 'static-web/src/lib/xizongStudyPacket.mjs'
+      - 'static-web/scripts/validate-xizong-score-attribution.mjs'
+      - 'static-web/scripts/validate-xizong-score-attribution-packet.mjs'
+      - '.github/workflows/xizong-score-attribution.yml'
+
 
 permissions:
   contents: read
