@@ -144,8 +144,9 @@ assert(questionAttemptLib.includes('Boolean(marks[questionId])'), 'marked-target
 assert(practiceUi.includes("if (relation?.knowledgePath && ['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(relation.targetStatus))"), 'missing-relation-is-being-guessed');
 assert(practiceUi.includes("if (relationWrap) {\n        relationWrap.hidden = true;"), 'missing-relation-does-not-fail-closed');
 
-assert(repairReturn.includes('allowed.has(row.questionId)'), 'repair-plan-not-scoped-to-actual-wu');
-assert(repairReturn.includes('!relation?.blockId || !relation?.primaryKpId'), 'repair-route-not-reviewed-only');
+assert(systemWuReturn.includes('currentXizongSystemWuEvidence'), 'repair-plan-not-bound-to-current-wu-owner');
+assert(systemWuReturn.includes('assertCurrentWuBinding'), 'repair-plan-not-scoped-to-actual-wu');
+assert(systemWuReturn.includes('!relation?.blockId || !relation?.primaryKpId || !route'), 'repair-route-not-reviewed-only');
 assert(!repairReturn.includes('localStorage.setItem("content/'), 'private-learner-evidence-writing-shared-content');
 
 console.log([
