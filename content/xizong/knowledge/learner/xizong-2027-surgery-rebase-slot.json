@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.future_source_slot.v1",
-  "status": "COMPREHENSIVE_SOURCE_REBASE_PREPARED_AND_STARTED",
+  "status": "COMPREHENSIVE_REFINED_NOTE_REPROCESS_V2_ACTIVE",
   "slot_id": "xizong-2027-surgery-rebase",
   "source_cycle": "27考研",
   "domain": "Surgery",
@@ -212,6 +212,32 @@
       ],
       "status": "DEEP_LEARNING_GUIDE_REVIEW_REQUIRED_BEFORE_SURGERY_GENERAL_CLOSEOUT",
       "rule": "Return to these individual-surgery units and explicitly classify refined 理顺/机制/总结 into Knowledge/Core vs Learning/Guide vs Precision/Visual. Source rebinding alone is not closure."
+    },
+    "reprocess_v2": {
+      "started_at": "2026-09-24",
+      "scope": [
+        "SUR27-U01",
+        "...",
+        "SUR27-U38"
+      ],
+      "reason": "Re-run the entire 27 Surgery refined-note layer because prior work over-counted Source rebind / quick Core screening as absorption.",
+      "authoritative_rule": "content/xizong/knowledge/learner/SURGERY_CONTRACT.md",
+      "sequence": [
+        "U01-U12",
+        "U13-U19",
+        "U20-U29",
+        "U30-U38",
+        "global downstream revalidation"
+      ],
+      "completion_bar": [
+        "explicit Knowledge/Core disposition",
+        "explicit Learning/Guide disposition",
+        "Precision disposition",
+        "Visual disposition",
+        "stale source locator cleanup",
+        "downstream relation/explanation/evidence impact classification"
+      ],
+      "ui_boundary": "No UI redesign. Existing Xizong site reads canonical Markdown/Learning owners; content-only changes should propagate through the existing loader."
     }
   },
   "governance": {

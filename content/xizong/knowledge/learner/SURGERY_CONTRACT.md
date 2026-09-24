@@ -227,6 +227,23 @@ One fact should have one canonical owner.
 
 ---
 
+## 6A｜Reprocess v2 override
+
+The 2026-09-24 first pass mixed three different states: Source rebind, quick Core screening, and true refined-note absorption. That ambiguity is superseded.
+
+For **SUR27-U01–U38**, no earlier label such as `SOURCE_REBOUND`, `CORE_PRESERVE`, or `LEARNING_REVALIDATED` counts as closure by itself.
+
+Every unit must be re-opened once and reviewed explicitly across four lanes:
+
+```text
+Knowledge / Framework
+Learning / Guide
+Precision
+Visual
+```
+
+Only then may it close. This override exists specifically to clean prior over-claims and stale source bindings.
+
 ## 7｜Acceptance rule
 
 A bounded Surgery batch closes only when:
