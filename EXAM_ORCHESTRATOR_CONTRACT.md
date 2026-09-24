@@ -179,7 +179,7 @@ This packet is private learner/control state. It must not be committed to public
 
 ### Approved integrated surface extension — not current wire capability
 
-The 2026-09-24 product direction separates strategic Home, detailed Steward (Today/Week/Month/Review plus life execution), filtered Radar and shared quick-capture Dock. Exact requirements stay in [Personal surface projection](https://github.com/kianwang022-hash/kian-personal-os/blob/main/HOME_PROJECTION.md) and [execution contract](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/STEWARD_CONSOLE_CONTRACT.md); [INTAKE](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/INTAKE.md) owns mail/Radar filtering and obligation closure.
+The 2026-09-24 product direction separates strategic Home, detailed Steward (Today/Week/Month/Review plus life execution), filtered Radar and shared quick-capture Dock. KianOS product semantics live in [Product Surface Contract](static-web/PRODUCT_SURFACE_CONTRACT.md) and [Steward Product Contract](static-web/STEWARD_PRODUCT_CONTRACT.md); upstream Chat information filtering remains owned by [Personal INTAKE](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/INTAKE.md).
 
 The `presentation` shape and UI-only checklist boundaries above remain the CURRENT machine contract. Week/month Steward data, life actuals, exact per-block native task links and proposed Steward/Radar command kinds require an explicit versioned adapter/validator/consumer/checkpoint extension; they cannot be smuggled into old fields or treated as implemented. Keep future reference plans distinct from today's basis-bound executable plan.
 
