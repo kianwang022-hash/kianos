@@ -27,8 +27,6 @@ Current architecture basis:
 
 ### Current formal implementation on `main`
 
-The earlier standalone `ui-preview/steward-vnext.html` is now reference-only.
-
 Formal files:
 - `src/pages/steward/index.astro`
 - `src/styles/steward-workspace.css`
