@@ -21,6 +21,27 @@ on:
       - "static-web/package.json"
       - "static-web/CURRENT.md"
       - ".github/workflows/current-static-runtime.yml"
+  push:
+    branches: [main]
+    paths:
+      - "static-web/scripts/kianos-current-sync.mjs"
+      - "static-web/scripts/install-current-macos.sh"
+      - "static-web/scripts/privateLearnerBridge.mjs"
+      - "static-web/scripts/privateDailyLearningPacketRelayWorker.mjs"
+      - "static-web/scripts/test-private-daily-learning-packet-worker.mjs"
+      - "static-web/scripts/privateExternalReadingBridge.mjs"
+      - "static-web/scripts/privateControlBridge.mjs"
+      - "static-web/scripts/kianos-static-server.mjs"
+      - "static-web/scripts/currentStaticImpact.mjs"
+      - "static-web/scripts/currentStaticSlots.mjs"
+      - "static-web/scripts/test-current-static-impact.mjs"
+      - "static-web/scripts/test-current-build-recovery.mjs"
+      - "static-web/scripts/test-current-static-slots.mjs"
+      - "static-web/scripts/test-current-static-runtime.mjs"
+      - "static-web/scripts/test-current-runtime-reload.mjs"
+      - "static-web/package.json"
+      - "static-web/CURRENT.md"
+      - ".github/workflows/current-static-runtime.yml"
 
 jobs:
   proof:
