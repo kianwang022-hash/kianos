@@ -338,7 +338,7 @@ A bare learner request such as `继续英语` does not automatically mean `conti
 
 # 2｜Three cross-cutting truth guards
 
-The five responsibilities are constrained by three truth guards.
+These product responsibilities are constrained by three truth guards.
 
 These guards are **not additional product layers**.
 
@@ -372,7 +372,7 @@ A file existing, page rendering, build passing, Runtime working or screenshot lo
 
 # 3｜S / K / L / P / R / E / U is learning acceptance, not architecture
 
-For formal learning assets, the acceptance gates map naturally onto the five-responsibility model:
+For formal learning assets, the acceptance gates map naturally onto the product-responsibility model:
 
 ```text
 S  Source      → is Source reliable?
