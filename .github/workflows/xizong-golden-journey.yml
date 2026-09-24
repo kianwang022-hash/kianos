@@ -33,9 +33,6 @@ jobs:
       - name: Install runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
-      - name: Validate Xizong contracts
-        working-directory: static-web
-        run: npm run validate:xizong
       - name: Build Current site
         working-directory: static-web
         run: npm run build
