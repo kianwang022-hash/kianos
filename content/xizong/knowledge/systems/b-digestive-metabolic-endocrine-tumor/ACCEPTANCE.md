@@ -15,6 +15,17 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 
 Status: **S/K/L/Content/P REACCEPTED · FINAL INTEGRATION QA RUNNING**
 
+```text
+S  PASS — current 27 Source truth + 22-unit direct mapping
+K  PASS — 191 M/G KP reaccepted under mature hierarchy
+L  PASS — accepted LG/learner topology preserved; direct 27 Source contact current
+Content  PASS — mature Block-owned content responsibilities restored
+P  PASS — Projection exact-binding/adversarial validation reaccepted
+R  PASS / PRESERVED
+E  PASS / PRESERVED
+U  UNTESTED
+```
+
 The interrupted 27 rebase introduced a redundant Block→L-layer→KP topology. That topology has now been removed without discarding the verified 27 Source work.
 
 Current invariant:
