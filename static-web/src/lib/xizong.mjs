@@ -10,6 +10,7 @@ const KNOWLEDGE_ROOT = 'content/xizong/knowledge';
 const OWNER_MANIFEST = `${KNOWLEDGE_ROOT}/manifest.json`;
 const SYSTEMS_ROOT = `${KNOWLEDGE_ROOT}/systems`;
 const LEARNER_ROOT = `${KNOWLEDGE_ROOT}/learner`;
+const PROJECTION_MANIFEST = 'content/xizong/projection/manifest.json';
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -71,10 +72,25 @@ function isChatApproved(system) {
   return String(system?.semantic_authority || '').startsWith('CHAT_APPROVED');
 }
 
-function systemProjectionAccepted(dirName) {
-  const acceptancePath = `${SYSTEMS_ROOT}/${dirName}/ACCEPTANCE.md`;
-  if (!fs.existsSync(absolute(acceptancePath))) return false;
-  return /^P\s+PASS(?:\s|$)/m.test(readText(acceptancePath));
+function systemProjectionMaterialized(identity) {
+  if (!fs.existsSync(absolute(PROJECTION_MANIFEST))) {
+    throw new Error('CURRENT_XIZONG_PROJECTION_MANIFEST_MISSING');
+  }
+  const manifest = readJson(PROJECTION_MANIFEST);
+  if (!String(manifest?.status || '').startsWith('CURRENT_')) {
+    throw new Error(`CURRENT_XIZONG_PROJECTION_MANIFEST_INVALID:${manifest?.status || 'unknown'}`);
+  }
+  const projection = manifest?.systems?.[identity.systemId];
+  if (!projection) return false;
+  if (projection.canonical_id !== identity.canonicalId) {
+    throw new Error(`CURRENT_XIZONG_PROJECTION_IDENTITY_MISMATCH:${identity.systemId}`);
+  }
+  return Boolean(
+    String(projection.system_projection || '').trim()
+    && Number(projection.block_count || 0) > 0
+    && Array.isArray(projection.blocks)
+    && projection.blocks.length === Number(projection.block_count)
+  );
 }
 
 function directBlockRoute(system) {
@@ -104,7 +120,7 @@ function systemRecordFromDir(dirName) {
     system,
     identity,
     sourceHash: sha256(text),
-    projectionAccepted: systemProjectionAccepted(dirName)
+    projectionAccepted: systemProjectionMaterialized(identity)
   };
 }
 
