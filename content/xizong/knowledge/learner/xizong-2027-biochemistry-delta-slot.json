@@ -196,7 +196,7 @@
       "received_at": "2026-09-24",
       "markdown_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md"
     },
-    "action_now": "M1–M8_CANONICAL_HIERARCHY_AND_DIRECT_MAPPING_CLOSED; NEXT=M9_NUCLEOTIDE_CANONICAL_HIERARCHY_REBASE",
+    "action_now": "M1–M9_CANONICAL_HIERARCHY_AND_DIRECT_MAPPING_CLOSED; NEXT=M10_HEME_BILIRUBIN_BIOTRANSFORMATION_CANONICAL_HIERARCHY_REBASE",
     "delta_audit": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
     "delta_summary": {
       "preserve": "M1–M10 + G1–G5 topology and most Current Core",
@@ -221,12 +221,11 @@
       "batch_1_carbohydrate_energy": "ANALYZED",
       "batch_2_lipid": "ANALYZED",
       "remaining": [
-        "M9 nucleotide",
         "M10 heme/bilirubin/biotransformation",
         "G1-G5 molecular branch",
         "System/cross-System logic + Learning/Content reacceptance"
       ],
-      "key_finding": "M1–M8 are now rebuilt on current 27 Source with explicit canonical hierarchies and direct Source→Knowledge→Learning mapping; M9–M10/G1–G5 remain in the bounded rebase.",
+      "key_finding": "M1–M9 are now rebuilt on current 27 Source with explicit canonical hierarchies and direct Source→Knowledge→Learning mapping; M10/G1–G5 remain in the bounded rebase.",
       "batch_M1_protein_enzyme_vitamin": {
         "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
         "current_source": {
@@ -397,6 +396,19 @@
           "P048 CO2 'formyl' wording remains exact Source-bound terminology"
         ],
         "mapping": "S08 maps directly to M8 L1–L5; Learning consumes global map without duplicate Source registry.",
+        "website": "No static-web edit."
+      },
+      "batch_M9_nucleotide": {
+        "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
+        "source_unit": "BIO27-S10",
+        "shape": "1 mother model → 3 layers → 15 stable KPs",
+        "questions": "17/17; +2025N21",
+        "closure": "S10/P074",
+        "repairs": [
+          "retired old UTP→CTP methylation conflict; current 27 states UTP + Gln → CTP",
+          "retired old broad amino-acid→acetyl-CoA side-note as non-current M9 truth"
+        ],
+        "mapping": "S10 maps directly to M9 L1–L3; Learning consumes global map.",
         "website": "No static-web edit."
       }
     },
