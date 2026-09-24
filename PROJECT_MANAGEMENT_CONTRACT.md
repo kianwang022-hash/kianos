@@ -428,6 +428,25 @@ Do not create a GitHub Issue by default just because something is called a task.
 
 If persistence fails, say the task was **not created**. Never claim a durable task from Chat memory alone.
 
+### Engineering execution routing
+
+Chat is itself an engineering worker. Do not delegate merely because a task involves code or GitHub.
+
+Choose the cheaper reliable path:
+
+```text
+bounded / understandable / low-context engineering
+→ Chat may execute directly
+
+sustained / repetitive / local-only / browser-build-heavy / context-heavy implementation
+→ Codex may execute as an extension
+
+semantic / product / owner decision unresolved
+→ keep in Chat until resolved
+```
+
+Codex exists to reduce management and execution cost, not to remove engineering capability from Chat. Model and executor choice must be proportional to reasoning difficulty, failure cost, verification ease and quota value.
+
 ### Chat → GitHub → Codex execution envelope
 
 Use a GitHub Issue **only when an external Codex/local executor is genuinely useful** after Chat has already resolved the semantic/product decision. The Issue is an execution envelope, not a second task registry and not a new semantic owner.
