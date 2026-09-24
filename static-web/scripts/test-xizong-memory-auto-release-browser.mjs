@@ -61,14 +61,17 @@ try {
   const fixture = await page.evaluate(() => {
     const root = document.querySelector('[data-xizong-v6-block]');
     const payload = document.querySelector('[data-xizong-learner-object-payload]');
+    const bridge = document.querySelector('[data-xizong-memory-release-bridge]');
     const learner = JSON.parse(payload?.textContent || 'null');
     const objectId = root?.getAttribute('data-study-object') || '';
+    const sourceHash = bridge?.getAttribute('data-source-hash') || '';
     const kpIds = (learner?.kps || []).map((kp) => kp?.identity?.kpId).filter(Boolean);
     const precisionCount = (learner?.kps || []).reduce((sum, kp) => sum + (kp?.precision?.length || 0), 0)
       + (learner?.logicGroups || []).reduce((sum, group) => sum + (group?.precision?.length || 0), 0);
     return {
       learner,
       objectId,
+      sourceHash,
       kpIds,
       blockId: learner?.identity?.blockId || '',
       precisionCount
@@ -77,6 +80,7 @@ try {
   check(fixture.learner?.schema === 'kianos.xizong.learner_object.v1', 'learner_object_schema');
   check(fixture.kpIds.length > 1, 'representative_block_has_multiple_kps', String(fixture.kpIds.length));
   check(Boolean(fixture.objectId) && Boolean(fixture.blockId), 'release_identity_present');
+  check(Boolean(fixture.sourceHash), 'release_source_hash_present');
   check(fixture.precisionCount > 0, 'representative_block_has_precision', String(fixture.precisionCount));
 
   const ratings = Object.fromEntries(fixture.kpIds.map((kpId, index) => [kpId, index === 0 ? 'unknown' : 'known']));
@@ -96,7 +100,8 @@ try {
       ratings,
       blockRecallDone: true,
       completed: false,
-      sourceContactDone: true
+      sourceContactDone: true,
+      sourceHash: fixture.sourceHash
     }
   });
   await page.reload({ waitUntil: 'networkidle' });
