@@ -50,14 +50,7 @@ first_pass_question_probe: CURRENT_SOURCE_POSITION_ACCOUNTED_RELATION_OWNER_SEPA
 ## 学习阅读版 v1｜最终执行版
 
 > **中心问题**：正常生长控制怎样因原癌基因激活、抑癌基因失活和DNA修复失败而失控；又怎样用重组DNA、PCR、杂交和相互作用技术识别、复制或操作这些改变？
->
 > **文件性质**：分子支路第五个 canonical Block，也是全局肿瘤 Gate 的**分子半层**。完整 O9 仍需病理 U019 的形态与生物学行为层；本批不是整个 System 最后一批，也不生成 System Integration。
->
-> **Primary Study**：`生物化学讲义_AI阅读版.md`，原 PDF P101–111（印刷页 P85–92）及 P181–183（印刷页 P154–155）。
->
-> **Coverage Safety Net**：Embedded Questions **26 / 26 accounted**；`unmapped_embedded_questions = 0`。
->
-> **第一轮流程**：Framework → Lecture及原图 → Framework Reconstruction → KP Active Recall → Embedded Questions optional / low-pressure → TTSX Lecture-attached Questions → Block Complete。
 
 ---
 
@@ -66,37 +59,52 @@ first_pass_question_probe: CURRENT_SOURCE_POSITION_ACCOUNTED_RELATION_OWNER_SEPA
 - Current first-pass Source：BIO27-S15 / P093–P104（原癌/抑癌、重组与分子技术） + BIO27-S22 / P169–P170（DNA损伤）。
 - Source map owner：content/xizong/knowledge/learner/biochemistry-27-source-map.json。
 - 26 refined 只作为 explanation reconstruction substrate，不形成第二套 learner Source。
-- Source order 与 canonical Knowledge order 分离：S15 先形成 L1 与 L3；S22 后形成 L2 并闭合 G5，但 canonical 内容仍按 L1→L2→L3 组织。
+- Source order 与 canonical Knowledge order 分离：S15 先形成 b-g05-lg01（原癌油门、抑癌刹车与生长控制失效） 与 b-g05-lg03（重组DNA、PCR、印迹与相互作用技术）；S22 后形成 b-g05-lg02（突变类型与DNA修复系统） 并闭合 G5，但 canonical 内容仍按 b-g05-lg01（原癌油门、抑癌刹车与生长控制失效）→b-g05-lg02（突变类型与DNA修复系统）→b-g05-lg03（重组DNA、PCR、印迹与相互作用技术） 组织。
 
-# 1｜Canonical Knowledge Hierarchy
+---
+
+# 1｜总 Framework
 
 ## Mother Model｜生长控制失效 → 突变 / 修复决定基因组稳定 → 分子工具检测、复制和操作这些改变
 
-## L1｜原癌油门、抑癌刹车与生长控制失效｜KP01–KP05
 
-**Core relation**
-- normal proto-oncogene / growth signaling；
-- activation by mutation / amplification / translocation / enhancer capture → oncogenic drive↑；
-- tumor suppressor / checkpoint 通过 mutation / LOH / methylation 等失活 → brake↓；
-- 两类变化共同推动 clonal growth-control failure。
+## 1.1｜第一轮形成顺序
 
-**Boundary**
-- 原癌基因是正常细胞已有基因；癌基因是异常激活状态。
-- “油门增强”和“刹车失效”是不同故障类型。
-- 分子异常不直接等于器官肿瘤 TNM / 治疗。
+```text
+按 global 27 Source lane 连续学习
+→ BIO27-S15 / P093–P104｜PRIMARY_FORMATION → b-g05-lg01 / KP01–KP05；PRIMARY_FORMATION → b-g05-lg03 / KP06–KP11
+→ BIO27-S17 / P115–P127｜SUPPORT → b-g05-lg02 / KP12–KP13
+→ BIO27-S22 / P169–P170｜PRIMARY_FORMATION → b-g05-lg02 / KP12–KP13
+→ 已形成的既有 Logic Group 释放对应 KP Recall
+→ Logic Group closure
+→ Block Source closure checkpoint 后做 Block Recall
+```
 
-**Precision**
-- 点突变、扩增、易位 / 融合、获得强调控元件四类激活；
-- p53 / RB-p16 等 current Study 控制轴。
+Source teacher order、canonical KP/file order、learner order 三者允许不同：
 
-**Connection**
-- G4 提供表达调控语言；病理 Tumor Gate 负责形态行为和器官肿瘤应用。
+```text
+Source order = 什么时候遇到材料
+canonical order = 稳定 Knowledge identity
+learner order = Learning owner 决定怎样形成 / Recall / Closure
+```
 
-### KP01｜肿瘤分子三道门：生长信号、抑制与DNA修复
+不得通过物理重排 KP 或新增层级让三者看起来一致。
+
+## 1.2｜Logic Group / ownership boundary
+
+- **b-g05-lg01｜原癌油门、抑癌刹车与生长控制失效**：用原癌基因激活四路、癌基因产物信号链与抑癌基因失活/p53停—修—死建立克隆失控的控制模型。 Closure：给出点突变、扩增、易位/强增强子或p53/RB失活，能判断油门变强还是刹车失灵及位于信号链哪一层。
+- **b-g05-lg02｜突变类型与DNA修复系统**：先把点突变/插缺/移码等“异常怎样产生”接到直接、BER/NER、错配、双链断裂和SOS等“怎样修”，完成基因组稳定层。 Closure：给出损伤/突变类型或修复缺陷，能预测编码后果并选择相应修复类别；解释修复失败为何为肿瘤控制失效提供突变底物。
+- **b-g05-lg03｜重组DNA、PCR、印迹与相互作用技术**：在知道异常来源后，再用取—切—接—导—筛、PCR、S/N/W和DNA/蛋白相互作用技术建立“怎样检测/复制/操作”的工具地图。 Closure：给出目标是扩增DNA、测RNA/蛋白、构建重组载体、检测DNA-蛋白或蛋白-蛋白相互作用，能选择正确技术并说明它回答什么问题。
+
+这些 Logic Group 是正式局部学习层；下面的 Framework / Boundary / Precision / Connection 内容只服务它们，不再创建第二套 L1/L2/L3 hierarchy。
+
+---
+
+## KP01｜肿瘤分子三道门：生长信号、抑制与DNA修复
 
 > **主提示：** 原癌基因｜抑癌基因｜DNA修复｜三道门各失控后果
 
-#### 快速核对
+### 快速核对
 
 肿瘤分子层先抓三道门：
 
@@ -107,8 +115,11 @@ first_pass_question_probe: CURRENT_SOURCE_POSITION_ACCOUNTED_RELATION_OWNER_SEPA
 → 增殖、存活和基因组稳定失控
 ```
 
+
+---
+
 <!-- kianos:kp id="dme-g05-kp02" -->
-### KP02｜原癌基因、癌基因与抑癌基因：正常细胞本来就有的两套调节器
+## KP02｜原癌基因、癌基因与抑癌基因：正常细胞本来就有的两套调节器
 
 > **讲义定位 →** 生化 Lecture PDF P101–102、P109，印刷页 P85–86。  
 > **主提示**：原癌基因 vs 抑癌基因｜正常作用方向｜激活/失活后果｜正常细胞是否存在
@@ -129,22 +140,24 @@ first_pass_question_probe: CURRENT_SOURCE_POSITION_ACCOUNTED_RELATION_OWNER_SEPA
 （易混：肿瘤不是“癌基因凭空出现”；正常原癌基因被突变、扩增、易位或异常调控后才形成持续促生长效应。）
 
 **Routing**：CORE｜CONFUSABLE｜MI-G
-<!-- kianos:kp id="dme-g05-kp03" -->
 
-### KP03｜原癌基因激活的四条路
+---
+
+<!-- kianos:kp id="dme-g05-kp03" -->
+## KP03｜原癌基因激活的四条路
 
 > **讲义定位 →** 生化 Lecture PDF P101、P109，印刷页 P85。  
 > **主提示**：突变｜扩增｜易位/融合｜获启动/增强｜各1例
 
-#### 1｜点突变
+### 1｜点突变
 
 K-RAS 突变可使 GTP酶开关持续处于活化状态，持续驱动 MAPK 级联。
 
-#### 2｜基因扩增
+### 2｜基因扩增
 
 基因拷贝数增加 → 表达量增加。讲义接口：HER2扩增与乳腺癌、MYC扩增与部分肿瘤。
 
-#### 3｜染色体易位 / 融合
+### 3｜染色体易位 / 融合
 
 ```text
 易位
@@ -155,16 +168,18 @@ K-RAS 突变可使 GTP酶开关持续处于活化状态，持续驱动 MAPK 级�
 
 讲义接口包括 c-MYC易位、BCR-ABL融合。
 
-#### 4｜获得启动子 / 增强子
+### 4｜获得启动子 / 增强子
 
 逆转录病毒整合携带强启动子 / LTR，插入原癌基因附近，使其异常高表达。
 
 （易混：这四条路有的改蛋白结构，有的主要改拷贝数或表达量。）
 
 **Routing**：CORE｜CONNECTION｜MI-G
-<!-- kianos:kp id="dme-g05-kp04" -->
 
-### KP04｜癌基因产物按信号链定位
+---
+
+<!-- kianos:kp id="dme-g05-kp04" -->
+## KP04｜癌基因产物按信号链定位
 
 > **讲义定位 →** 生化 Lecture PDF P101–102、P105–109。  
 > **主提示**：5层产物｜配体/受体/胞内/TF/周期｜高频例子各2
@@ -187,20 +202,22 @@ K-RAS 突变可使 GTP酶开关持续处于活化状态，持续驱动 MAPK 级�
 //MI-D：完整基因—肿瘤—染色体配对进入记忆岛；第一轮先能按信号链定位产物类型。
 
 **Routing**：CORE｜RECOGNITION｜MI-G/MI-D
-<!-- kianos:kp id="dme-g05-kp05" -->
 
-### KP05｜抑癌基因怎样失活：甲基化、杂合性丢失与突变
+---
+
+<!-- kianos:kp id="dme-g05-kp05" -->
+## KP05｜抑癌基因怎样失活：甲基化、杂合性丢失与突变
 
 > **讲义定位 →** 生化 Lecture PDF P102、P108–109，印刷页 P86、P92。  
 > **主提示**：失活3路｜p53 3输出｜RB/p16检查点｜修不好怎么办
 
-#### 三类失活入口
+### 三类失活入口
 
 1. 启动子 CpG 岛甲基化 → 染色质压紧 → 表达受抑；
 2. 杂合性丢失 / 基因片段丢失；
 3. 基因突变使蛋白功能丧失。
 
-#### p53
+### p53
 
 讲义把 p53 称为“基因组卫士”，其产物为转录因子。DNA损伤后可通过：
 
@@ -214,146 +231,16 @@ K-RAS 突变可使 GTP酶开关持续处于活化状态，持续驱动 MAPK 级�
 → 修不好则凋亡
 ```
 
-#### RB / p16
+### RB / p16
 
 两者均进入细胞周期抑制 / G1-S检查点记忆岛。当前 Study不展开完整 cyclin-CDK-RB网络，只保留“限制周期推进”的考试身份。
 
 **Routing**：CORE｜CONNECTION｜MI-G/MI-D
+
+---
+
 <!-- kianos:kp id="dme-g05-kp06" -->
-
-## L2｜突变类型与DNA修复系统｜KP12–KP13
-
-**Core relation**
-- damage / replication error → mutation class；
-- direct repair / BER / NER / mismatch / recombination-DSB repair；
-- widespread damage → SOS / translesion low-fidelity bypass；
-- repair success preserves genome；repair failure feeds clonal evolution。
-
-**Boundary**
-- 点突变可错义 / 无义 / 同义；插入缺失是否移码取决于 3 的倍数。
-- current 27 明确 DSB 的 exam route = recombination repair。
-- SOS / 低保真是“容忍损伤继续复制”，不是高保真恢复原序列。
-
-**Precision**
-- current 27 P170：原核 SOS polymerase IV / V；真核低保真 / translesion polymerase group 只保留 group-level identity。
-- 第一枚希腊字形 exact identity 仍保持 SOURCE_BOUND，不冻结 ξ / ζ 争议。
-
-**Connection**
-- G2 提供复制 / 校对；L1 把 repair failure 当作肿瘤演化的突变输入。
-
-### KP12｜突变类型：点突变、错义、无义、同义与移码
-
-> **讲义定位 →** 生化 Lecture PDF P181、P183，印刷页 P154–155。  
-> **主提示**：点突变3结局｜插/缺×3倍数｜移码｜重排｜镰贫例
-
-#### 点突变的三类翻译结果
-
-<!-- approved-27-audit: B4C-G5-20 -->
-DNA突变首先是核酸一级结构/碱基序列的改变。
-
-- 同义：密码子改变但氨基酸不变，调用G1的密码子简并性；
-- 错义：氨基酸改变；讲义用血红蛋白β链相关的镰状细胞贫血 Glu→Val作例；
-- 无义：提前形成终止密码子。
-
-#### 插入 / 缺失
-
-```text
-非3倍数
-→ 可读框整体移动
-→ 后续密码子连续改变
-
-3的倍数
-→ 增加或减少若干氨基酸
-→ 后续阅读框可不移位
-```
-
-<!-- approved-27-audit: B4C-G5-22,B4C-G5-23 -->
-移码会连锁改变后续密码子，调用G1的密码子连续性；这里只链接原因轴，不重复遗传密码正文。
-
-重排、易位可改变大片段或基因组合，是癌基因激活与结构变异的接口。
-
-**Routing**：CORE｜CONFUSABLE｜MI-G
-<!-- kianos:kp id="dme-g05-kp13" -->
-
-### KP13｜DNA修复系统：直接修、切掉重补、纠错、双链断裂与SOS
-
-> **讲义定位 →** 生化 Lecture PDF P181–183，印刷页 P154–155。  
-> **主提示**：5大类｜光修/连接｜BER链｜NER识别｜双断裂｜SOS特点｜缺陷病
-
-#### 1｜直接修复
-
-- 光裂合酶直接拆开紫外线造成的嘧啶二聚体；
-- DNA连接酶可封闭双链 DNA 中的单链缺口。
-
-#### 2｜切除修复
-
-<!-- approved-27-audit: B4C-G5-24 -->
-按当前Study口径，切除/纠错层并列BER、NER与错配修复，且“切除修复最普遍”仅作为当前讲义框架语言，不外推为通用taxonomy。
-
-**碱基切除修复 BER**：
-
-```text
-糖苷酶去异常碱基
-→ AP位点
-→ AP内切酶切开
-→ DNApol填补
-→ 连接酶封口
-```
-
-**核苷酸切除修复 NER**：识别 DNA 双螺旋空间扭曲，讲义联系 XP 蛋白和着色性干皮病。
-
-<!-- approved-27-audit: B4C-G5-25 -->
-NER识别对照：原核Uvr系统；真核XP蛋白。
-
-#### 3｜错配修复
-
-识别复制后错配并切除、重补，是高保真的后续保障。
-
-#### 4｜双链断裂 / 重组修复接口
-
-讲义把原核 RecA、真核 DNA-PK / XRCC4 列为双链断裂修复入口。
-
-#### 5｜SOS修复
-
-面对广泛损伤的紧急、低特异、高错误率修复；属于“先救命、可带来突变”的原核接口。
-
-<!-- approved-27-audit: B4C-G5-28,B4C-G5-29 -->
-当前Study的SOS相关聚合酶为DNApol IV/V。
-
-**27 生化跟课 Source update（PDF P170）**：原页把低保真复制做成“原核 vs 真核”对照，明确提示**真核也存在低保真 / 跨损伤聚合酶组**。当前 MD/OCR 对该手写组首字符存在 `ξ/ζ` 字形歧义，因此本轮只升级这一**机制边界**，不把首字符写成硬背的 exact recall；需要精确希腊字母时回原页视觉 Source。
-
-MI-D缺陷配对：NER→着色性干皮病/毛发低硫营养不良/Cockayne；错配修复→遗传性非息肉病性结肠癌；重组修复→遗传性乳腺癌/Bloom。
-
-**SOURCE_CONFLICT / 待核对**：P183 把“重组修复”与 DNA-PK/XRCC4 放在同一条双链断裂链中，未细分同源重组与非同源末端连接。本文按 Study 保留“均属双链断裂修复入口”，不擅自改写专业分类。
-
-//MI-D：修复缺陷疾病完整配对——着色性干皮病、遗传性非息肉病性结肠癌、遗传性乳腺癌等——进入记忆岛。
-
-**Routing**：CORE｜CONFUSABLE｜BOUNDARY｜MI-G/MI-D
-
-
-## L3｜重组DNA、PCR、印迹与相互作用工具｜KP06–KP11
-
-**Core relation**
-- define target → obtain DNA / cDNA → restriction cut → ligate into vector → deliver → select / express；
-- PCR → amplify DNA；
-- Southern / Northern / Western → DNA / RNA / protein；
-- interaction assays → protein-protein or DNA-protein；
-- sequence analysis → read identity。
-
-**Boundary**
-- 工具按“研究哪种分子、回答什么问题”选择，不按名字背诵。
-- cloning workflow 与 PCR / blot / interaction assay 是不同实验任务层。
-
-**Precision**
-- restriction palindrome / sticky ends / vector anti-self-ligation；
-- transformation / transfection / infection；
-- PCR denature–anneal–extend 与关键试剂；
-- S / N / W 的分子对象。
-
-**Connection**
-- G1 / G2 / G3 提供核酸、复制和表达语言；工具层只负责检测与操作。
-
-### KP06｜重组DNA的总流程：取—切—接—导—筛—表达
+## KP06｜重组DNA的总流程：取—切—接—导—筛—表达
 
 > **讲义定位 →** 生化 Lecture PDF P103–104、P110，印刷页 P87–88。  
 > **主提示**：6步｜目的基因3来源｜工具酶4｜载体3条件｜筛选1例
@@ -367,18 +254,18 @@ MI-D缺陷配对：NER→着色性干皮病/毛发低硫营养不良/Cockayne；
 → 扩增或表达
 ```
 
-#### 目的基因来源
+### 目的基因来源
 
 - 从基因组 / cDNA文库筛选；
 - PCR扩增；
 - 以 mRNA 逆转录合成 cDNA；
 - 化学合成接口。
 
-#### 关键工具
+### 关键工具
 
 限制性核酸内切酶、DNA连接酶、逆转录酶、DNApol I / Klenow等。
 
-#### 载体
+### 载体
 
 质粒、噬菌体、染色体等。载体需能携带目的序列、在宿主中维持 / 复制，并具有可筛选标志。
 
@@ -388,9 +275,11 @@ MI-D缺陷配对：NER→着色性干皮病/毛发低硫营养不良/Cockayne；
 克隆载体类型与三项基本条件维持原文，不指定“最基本”。筛选只新增三类骨架：载体标记、序列特异性、亲和；每类具体方法等完整27 Lecture。
 
 **Routing**：CORE｜VISUAL_ONLY｜MI-G
-<!-- kianos:kp id="dme-g05-kp07" -->
 
-### KP07｜限制酶、黏性末端与载体防自连
+---
+
+<!-- kianos:kp id="dme-g05-kp07" -->
+## KP07｜限制酶、黏性末端与载体防自连
 
 > **讲义定位 →** 生化 Lecture PDF P103–104、P106–107、P110。  
 > **主提示**：RE 3特征｜回文判法｜黏/平端｜同酶连接｜磷酸酶防什么
@@ -408,9 +297,11 @@ MI-D缺陷配对：NER→着色性干皮病/毛发低硫营养不良/Cockayne；
 （易混：限制酶负责“切”，DNA连接酶负责“接”；PCR引物与模板退火不叫黏性末端连接。）
 
 **Routing**：CORE｜CONFUSABLE｜MI-G
-<!-- kianos:kp id="dme-g05-kp08" -->
 
-### KP08｜转化、转染与感染：重组DNA怎样进入细胞
+---
+
+<!-- kianos:kp id="dme-g05-kp08" -->
+## KP08｜转化、转染与感染：重组DNA怎样进入细胞
 
 > **讲义定位 →** 生化 Lecture PDF P103、P106–107。  
 > **主提示**：转化/转染/感染各对象｜病毒作载体归谁｜质粒身份
@@ -428,14 +319,16 @@ MI-D缺陷配对：NER→着色性干皮病/毛发低硫营养不良/Cockayne；
 （边界：不同技术领域对术语可有更细定义；本文件保留当前 Lecture 的考试口径。）
 
 **Routing**：CORE｜CONFUSABLE｜BOUNDARY｜MI-G
-<!-- kianos:kp id="dme-g05-kp09" -->
 
-### KP09｜PCR：体外怎样指数扩增目标DNA
+---
+
+<!-- kianos:kp id="dme-g05-kp09" -->
+## KP09｜PCR：体外怎样指数扩增目标DNA
 
 > **讲义定位 →** 生化 Lecture PDF P105–107、P111，印刷页 P89–91。  
 > **主提示**：5组分｜变复延3温｜2引物｜循环特点｜4类用途
 
-#### 反应体系
+### 反应体系
 
 ```text
 模板DNA
@@ -445,7 +338,7 @@ MI-D缺陷配对：NER→着色性干皮病/毛发低硫营养不良/Cockayne；
 + 缓冲与离子条件
 ```
 
-#### 一个循环
+### 一个循环
 
 ```text
 约94℃ 变性
@@ -458,9 +351,11 @@ MI-D缺陷配对：NER→着色性干皮病/毛发低硫营养不良/Cockayne；
 （易混：PCR扩增 DNA；若起始材料是 RNA，需先逆转录形成 cDNA。PCR 本身不是 Western / Northern / Southern 印迹。）
 
 **Routing**：CORE｜CONFUSABLE｜MI-G
-<!-- kianos:kp id="dme-g05-kp10" -->
 
-### KP10｜Southern、Northern、Western与表达检测
+---
+
+<!-- kianos:kp id="dme-g05-kp10" -->
+## KP10｜Southern、Northern、Western与表达检测
 
 > **讲义定位 →** 生化 Lecture PDF P105–107、P111。  
 > **主提示**：S/N/W各对象｜RT-PCR｜基因诊断不能用谁｜表达量常用谁
@@ -482,27 +377,29 @@ MI-D缺陷配对：NER→着色性干皮病/毛发低硫营养不良/Cockayne；
 //MI-D：各印迹具体操作步骤不在当前 Source展开。
 
 **Routing**：CORE｜CONFUSABLE｜MI-G
-<!-- kianos:kp id="dme-g05-kp11" -->
 
-### KP11｜相互作用与序列分析技术：先问“研究哪两类分子”
+---
+
+<!-- kianos:kp id="dme-g05-kp11" -->
+## KP11｜相互作用与序列分析技术：先问“研究哪两类分子”
 
 > **讲义定位 →** 生化 Lecture PDF P105–107、P111。  
 > **主提示**：蛋白-蛋白4法｜DNA-蛋白3法｜测序1法｜启动子分析组合
 
-#### 蛋白质—蛋白质
+### 蛋白质—蛋白质
 
 - 酵母双杂交；
 - 免疫共沉淀；
 - GST pull-down；
 - FRET 接近 / 能量转移接口。
 
-#### DNA—蛋白质
+### DNA—蛋白质
 
 - 电泳迁移率变动测定 EMSA；
 - 染色质免疫沉淀 ChIP，适合体内相互作用；
 - 酵母单杂交接口。
 
-#### 序列
+### 序列
 
 DNA链末端合成终止法用于测序；PCR结合测序、DNA—蛋白质相互作用技术可用于启动子结构分析。
 
@@ -512,13 +409,172 @@ DNA链末端合成终止法用于测序；PCR结合测序、DNA—蛋白质相�
 （易混：酵母“双”杂交看蛋白—蛋白；ChIP主要看体内DNA—蛋白；不要把蛋白质印迹当相互作用实验。）
 
 **Routing**：CORE｜CONFUSABLE｜MI-G/MI-D
+
+---
+
 <!-- kianos:kp id="dme-g05-kp12" -->
+## KP12｜突变类型：点突变、错义、无义、同义与移码
 
-# 2｜Derived Learner Support
+> **讲义定位 →** 生化 Lecture PDF P181、P183，印刷页 P154–155。  
+> **主提示**：点突变3结局｜插/缺×3倍数｜移码｜重排｜镰贫例
 
-> 以下只消费 canonical Knowledge；Recall、Memory、Questions 与网站呈现都不得反向定义 G5。
+### 点突变的三类翻译结果
 
-## 2.1｜Memory Routing
+<!-- approved-27-audit: B4C-G5-20 -->
+DNA突变首先是核酸一级结构/碱基序列的改变。
+
+- 同义：密码子改变但氨基酸不变，调用G1的密码子简并性；
+- 错义：氨基酸改变；讲义用血红蛋白β链相关的镰状细胞贫血 Glu→Val作例；
+- 无义：提前形成终止密码子。
+
+### 插入 / 缺失
+
+```text
+非3倍数
+→ 可读框整体移动
+→ 后续密码子连续改变
+
+3的倍数
+→ 增加或减少若干氨基酸
+→ 后续阅读框可不移位
+```
+
+<!-- approved-27-audit: B4C-G5-22,B4C-G5-23 -->
+移码会连锁改变后续密码子，调用G1的密码子连续性；这里只链接原因轴，不重复遗传密码正文。
+
+重排、易位可改变大片段或基因组合，是癌基因激活与结构变异的接口。
+
+**Routing**：CORE｜CONFUSABLE｜MI-G
+
+---
+
+<!-- kianos:kp id="dme-g05-kp13" -->
+## KP13｜DNA修复系统：直接修、切掉重补、纠错、双链断裂与SOS
+
+> **讲义定位 →** 生化 Lecture PDF P181–183，印刷页 P154–155。  
+> **主提示**：5大类｜光修/连接｜BER链｜NER识别｜双断裂｜SOS特点｜缺陷病
+
+### 1｜直接修复
+
+- 光裂合酶直接拆开紫外线造成的嘧啶二聚体；
+- DNA连接酶可封闭双链 DNA 中的单链缺口。
+
+### 2｜切除修复
+
+<!-- approved-27-audit: B4C-G5-24 -->
+按当前Study口径，切除/纠错层并列BER、NER与错配修复，且“切除修复最普遍”仅作为当前讲义框架语言，不外推为通用taxonomy。
+
+**碱基切除修复 BER**：
+
+```text
+糖苷酶去异常碱基
+→ AP位点
+→ AP内切酶切开
+→ DNApol填补
+→ 连接酶封口
+```
+
+**核苷酸切除修复 NER**：识别 DNA 双螺旋空间扭曲，讲义联系 XP 蛋白和着色性干皮病。
+
+<!-- approved-27-audit: B4C-G5-25 -->
+NER识别对照：原核Uvr系统；真核XP蛋白。
+
+### 3｜错配修复
+
+识别复制后错配并切除、重补，是高保真的后续保障。
+
+### 4｜双链断裂 / 重组修复接口
+
+讲义把原核 RecA、真核 DNA-PK / XRCC4 列为双链断裂修复入口。
+
+### 5｜SOS修复
+
+面对广泛损伤的紧急、低特异、高错误率修复；属于“先救命、可带来突变”的原核接口。
+
+<!-- approved-27-audit: B4C-G5-28,B4C-G5-29 -->
+当前Study的SOS相关聚合酶为DNApol IV/V。
+
+**27 生化跟课 Source update（PDF P170）**：原页把低保真复制做成“原核 vs 真核”对照，明确提示**真核也存在低保真 / 跨损伤聚合酶组**。当前 MD/OCR 对该手写组首字符存在 `ξ/ζ` 字形歧义，因此本轮只升级这一**机制边界**，不把首字符写成硬背的 exact recall；需要精确希腊字母时回原页视觉 Source。
+
+MI-D缺陷配对：NER→着色性干皮病/毛发低硫营养不良/Cockayne；错配修复→遗传性非息肉病性结肠癌；重组修复→遗传性乳腺癌/Bloom。
+
+**SOURCE_CONFLICT / 待核对**：P183 把“重组修复”与 DNA-PK/XRCC4 放在同一条双链断裂链中，未细分同源重组与非同源末端连接。本文按 Study 保留“均属双链断裂修复入口”，不擅自改写专业分类。
+
+//MI-D：修复缺陷疾病完整配对——着色性干皮病、遗传性非息肉病性结肠癌、遗传性乳腺癌等——进入记忆岛。
+
+**Routing**：CORE｜CONFUSABLE｜BOUNDARY｜MI-G/MI-D
+
+---
+
+# 2｜高密度比较 / Boundary / Connection Map
+
+## 原癌油门、抑癌刹车与生长控制失效
+
+**Core relation**
+- normal proto-oncogene / growth signaling；
+- activation by mutation / amplification / translocation / enhancer capture → oncogenic drive↑；
+- tumor suppressor / checkpoint 通过 mutation / LOH / methylation 等失活 → brake↓；
+- 两类变化共同推动 clonal growth-control failure。
+
+**Boundary**
+- 原癌基因是正常细胞已有基因；癌基因是异常激活状态。
+- “油门增强”和“刹车失效”是不同故障类型。
+- 分子异常不直接等于器官肿瘤 TNM / 治疗。
+
+**Precision**
+- 点突变、扩增、易位 / 融合、获得强调控元件四类激活；
+- p53 / RB-p16 等 current Study 控制轴。
+
+**Connection**
+- G4 提供表达调控语言；病理 Tumor Gate 负责形态行为和器官肿瘤应用。
+
+## 突变类型与DNA修复系统
+
+**Core relation**
+- damage / replication error → mutation class；
+- direct repair / BER / NER / mismatch / recombination-DSB repair；
+- widespread damage → SOS / translesion low-fidelity bypass；
+- repair success preserves genome；repair failure feeds clonal evolution。
+
+**Boundary**
+- 点突变可错义 / 无义 / 同义；插入缺失是否移码取决于 3 的倍数。
+- current 27 明确 DSB 的 exam route = recombination repair。
+- SOS / 低保真是“容忍损伤继续复制”，不是高保真恢复原序列。
+
+**Precision**
+- current 27 P170：原核 SOS polymerase IV / V；真核低保真 / translesion polymerase group 只保留 group-level identity。
+- 第一枚希腊字形 exact identity 仍保持 SOURCE_BOUND，不冻结 ξ / ζ 争议。
+
+**Connection**
+- G2 提供复制 / 校对；b-g05-lg01（原癌油门、抑癌刹车与生长控制失效） 把 repair failure 当作肿瘤演化的突变输入。
+
+## 重组DNA、PCR、印迹与相互作用技术
+
+**Core relation**
+- define target → obtain DNA / cDNA → restriction cut → ligate into vector → deliver → select / express；
+- PCR → amplify DNA；
+- Southern / Northern / Western → DNA / RNA / protein；
+- interaction assays → protein-protein or DNA-protein；
+- sequence analysis → read identity。
+
+**Boundary**
+- 工具按“研究哪种分子、回答什么问题”选择，不按名字背诵。
+- cloning workflow 与 PCR / blot / interaction assay 是不同实验任务层。
+
+**Precision**
+- restriction palindrome / sticky ends / vector anti-self-ligation；
+- transformation / transfection / infection；
+- PCR denature–anneal–extend 与关键试剂；
+- S / N / W 的分子对象。
+
+**Connection**
+- G1 / G2 / G3 提供核酸、复制和表达语言；工具层只负责检测与操作。
+
+> 这一节是 Block-owned Content compression，不是新的 Knowledge hierarchy。
+
+---
+
+# 3｜Memory Routing
 
 ## MI-G
 
@@ -546,13 +602,17 @@ DNA链末端合成终止法用于测序；PCR结合测序、DNA—蛋白质相�
 
 ---
 
-## 2.2｜Current 27 Source Visual / Exactness Gate
+---
+
+# 4｜Current 27 Source Visual / Exactness Gate
 
 Current visual truth = S15 + S22。肿瘤基因、重组/PCR、repair 分类图保持 current 27。
 
 旧 DSB repair taxonomy conflict 已由 current 27 2023N25 明确为重组修复后退休。仅真核低保真 polymerase 第一枚希腊字形 exact identity 保持 SOURCE_BOUND。
 
-## 2.3｜Embedded Questions Coverage
+---
+
+# 5｜Embedded Questions Coverage
 
 embedded_questions_total = 29
 source_position_accounted = 29
@@ -562,11 +622,15 @@ question_to_kp_relations_inferred_here = 0
 S15 24题 + S22 5题 = 29/29；新增 current 27：2025N26、2025N28、2025N147。
 正式 Question→Knowledge relation 仍由 reviewed relation owner 决定。
 
-## 2.4｜First-pass Lecture-attached Question Contact
+---
+
+# 6｜First-pass Lecture-attached Question Contact
 
 讲义附题在 current 27 Source 原位置随课处理；不在 Block 末尾制造第二套题库。Source-position accounting 不等于 Question→KP semantic mapping。
 
-## 2.5｜Block Exit
+---
+
+# 7｜Block Exit
 
 闭卷重建：
 
