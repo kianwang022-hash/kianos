@@ -77,20 +77,18 @@ A Beginner Guide must not become the owner of those inputs merely because it exp
 
 ### Current path resolution
 
-`guide-bindings.json` is the Current explanatory-Guide path resolver for systems explicitly listed there.
+`guide-bindings.json` is the only Current Beginner Guide path resolver.
 
-For A1 / A2 / A3 / B:
+For systems explicitly listed there:
 
 ```text
 guide-bindings.json
 → Current learner/*-guide.md
 ```
 
-wins over any historical `system_fields.*.guide_path` value that still appears in older shared projection metadata.
+The resolver only selects an explanation asset. It never elevates a Guide above `system.json`, Block Core or the accepted System Learning owner.
 
-That precedence only resolves **which explanation asset is Current**. It does not elevate the Guide above `system.json`, Block Core or accepted learning owners.
-
-Systems not explicitly migrated in `guide-bindings.json` must follow their own Current / transitional System-level resolution. Do not infer a symmetric migration for C / D / E / F.
+Systems absent from `guide-bindings.json` simply have no separate Beginner Guide surface. They continue through their canonical Current System/Learning owners and never fall back to a pre-cutover System Guide.
 
 ## 4｜Bounded historical provenance rule
 
