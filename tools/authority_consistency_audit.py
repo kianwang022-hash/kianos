@@ -62,7 +62,7 @@ def load_registry() -> dict:
     except Exception as exc:
         errors.append(f"OWNERSHIP_REGISTRY_INVALID:{exc}")
         return {}
-    check(value.get("schema") == "kianos.authority_ownership.v1", "OWNERSHIP_SCHEMA_INVALID")
+    check(value.get("schema") == "kianos.authority_ownership.v2", "OWNERSHIP_SCHEMA_INVALID")
     return value
 
 
@@ -75,7 +75,7 @@ def iter_source_files(*suffixes: str):
 
 def audit_registered_owners(registry: dict) -> None:
     declared: list[tuple[str, str]] = []
-    for group_name in ("durable_authorities", "product_owners", "lane_work_cursors", "shared_platform"):
+    for group_name in ("durable_authorities", "product_owners", "scope_work_cursors", "shared_platform"):
         group = registry.get(group_name, {})
         check(isinstance(group, dict), "OWNERSHIP_GROUP_INVALID", group_name)
         if not isinstance(group, dict):
@@ -105,41 +105,41 @@ def audit_current_routing(registry: dict) -> None:
         check(contract in root_routes, "CURRENT_MISSING_AUTHORITY_ROUTE", rel(root_current))
         check(owner_registry in root_routes, "CURRENT_MISSING_OWNER_REGISTRY_ROUTE", rel(root_current))
 
-    lane_work_cursors = registry.get("lane_work_cursors", {})
-    check(isinstance(lane_work_cursors, dict), "LANE_CURSOR_REGISTRY_INVALID")
-    if not isinstance(lane_work_cursors, dict):
+    scope_work_cursors = registry.get("scope_work_cursors", {})
+    check(isinstance(scope_work_cursors, dict), "SCOPE_CURSOR_REGISTRY_INVALID")
+    if not isinstance(scope_work_cursors, dict):
         return
 
     if root_current.is_file():
-        routed_lanes = {
+        routed_scopes = {
             route.split("/")[1]: route
             for route in root_routes
             if re.fullmatch(r"content/[^/]+/(?:CURRENT|CONTENT_MAINLINE)\.md", route)
         }
-        for lane, route in routed_lanes.items():
+        for scope, route in routed_scopes.items():
             check(
-                lane in lane_work_cursors,
-                "ROOT_CURRENT_LANE_UNREGISTERED",
-                f"{lane}:{route}",
+                scope in scope_work_cursors,
+                "ROOT_CURRENT_SCOPE_UNREGISTERED",
+                f"{scope}:{route}",
             )
-        for lane, cursor in lane_work_cursors.items():
+        for scope, cursor in scope_work_cursors.items():
             check(
-                lane in routed_lanes,
-                "REGISTERED_LANE_MISSING_ROOT_ROUTE",
-                f"{lane}:{cursor}",
+                scope in routed_scopes,
+                "REGISTERED_SCOPE_MISSING_ROOT_ROUTE",
+                f"{scope}:{cursor}",
             )
-            if lane in routed_lanes:
-                route = routed_lanes[lane]
+            if scope in routed_scopes:
+                route = routed_scopes[scope]
                 if route != cursor:
                     # Xizong's program router explicitly names the registered
                     # work cursor as its Parent; no second registration is needed.
                     mainline = "content/xizong/CONTENT_MAINLINE.md"
-                    related = lane == "xizong" and route == mainline and (REPO / mainline).is_file() and re.search(
+                    related = scope == "xizong" and route == mainline and (REPO / mainline).is_file() and re.search(
                         rf"(?m)^Parent: `{re.escape(cursor)}`$", text(REPO / mainline)
                     )
-                    check(bool(related), "ROOT_CURRENT_LANE_OWNER_MISMATCH", f"{lane}:{route}!={cursor}")
+                    check(bool(related), "ROOT_CURRENT_SCOPE_OWNER_MISMATCH", f"{scope}:{route}!={cursor}")
 
-    # Shared-platform terms are allowed in a lane Current only as a route to the
+    # Shared-platform terms are allowed in a scope Current only as a route to the
     # registered upstream owner/current writer. A subject Current must never turn
     # a temporary Chat assignment into durable ownership.
     shared_terms = (
@@ -156,19 +156,19 @@ def audit_current_routing(registry: dict) -> None:
         re.compile(r"(?is)global\s+`?k`?\s+rail.{0,120}\bowned\s+by\b.{0,120}\b(?:english|xizong|politics|lexical|chat)\b"),
     )
 
-    for lane, relative in lane_work_cursors.items():
+    for scope, relative in scope_work_cursors.items():
         if not isinstance(relative, str):
             continue
         path = REPO / relative
-        check(path.is_file(), "CURRENT_OWNER_MISSING", f"{lane}:{relative}")
+        check(path.is_file(), "CURRENT_OWNER_MISSING", f"{scope}:{relative}")
         if not path.is_file():
             continue
         value = text(path)
         lowered = value.lower()
         touches_shared = any(term in lowered for term in shared_terms)
         if touches_shared:
-            check(owner_registry in value, "LANE_SHARED_ROUTE_MISSING_OWNER_REGISTRY", relative)
-            check(contract in value, "LANE_SHARED_ROUTE_MISSING_AUTHORITY_CONTRACT", relative)
+            check(owner_registry in value, "SCOPE_SHARED_ROUTE_MISSING_OWNER_REGISTRY", relative)
+            check(contract in value, "SCOPE_SHARED_ROUTE_MISSING_AUTHORITY_CONTRACT", relative)
         for pattern in forbidden_subject_claims:
             check(not pattern.search(value), "SUBJECT_CLAIMS_SHARED_PLATFORM_AUTHORITY", relative)
 
