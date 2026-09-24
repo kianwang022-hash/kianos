@@ -45,7 +45,7 @@ Current allowed conclusion:
 - A3 Runtime acceptance probe → `static-web/scripts/validate-xizong-a3-runtime.mjs`.
 - A3 Evidence acceptance probe → `static-web/scripts/validate-xizong-a3-evidence.mjs`.
 - Shared repair-inbox contract probe → `static-web/scripts/validate-xizong-repair-inbox.mjs`.
-- Historical System Guide is transitional/reference evidence only, not a competing Current owner.
+- Pre-cutover System Guide provenance is preserved in Git history only and is not part of Current routing or authority.
 
 ---
 
