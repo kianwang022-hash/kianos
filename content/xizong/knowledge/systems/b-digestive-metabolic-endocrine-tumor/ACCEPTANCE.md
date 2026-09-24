@@ -11,9 +11,11 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 
 ## Gate status
 
-## Reopened Source revision — Biochemistry architecture/content reconciliation
+## Scoped Source revision — Biochemistry architecture-corrected reacceptance
 
-The 27 Source audit produced useful Source truth and several valid semantic updates, but the interrupted reconstruction also introduced an **unaccepted parallel Block→L-layer→KP topology** and demoted some mature Block-owned content jobs into derived support. That architecture claim is withdrawn.
+Status: **S/K/L/Content/P REACCEPTED · FINAL INTEGRATION QA RUNNING**
+
+The interrupted 27 rebase introduced a redundant Block→L-layer→KP topology. That topology has now been removed without discarding the verified 27 Source work.
 
 Current invariant:
 
@@ -24,69 +26,88 @@ Source unit / Source-contact segment = execution only
 
 Framework / mother model
 Memory Routing / MI-G / MI-D
-Precision / Visual / Connection
+Precision / Visual / Connection / Extension
 Recall / Closure / Compression
-= content jobs or learning states around the canonical owners
+Question Probe / Repair
+= content jobs / learning states around existing owners
 = NOT extra hierarchy
 ```
 
-Biochemistry's scoped specialization remains valid only for:
+Biochemistry remains specialized only where the subject actually benefits:
 
 - one continuous current 27 Source lane;
 - minimal non-gating JIT Prelude;
-- source-order-independent formation of existing Block/LG/KP owners;
-- state-based reconstruction;
-- low-switching integration with digestive/endocrine/other systems.
+- state-variable reconstruction;
+- Source order independent from canonical KP/file order and learner order;
+- low-switching cross-System integration.
 
-Cross-System integration is required but must not become routine Source switching:
-
-```text
-during Source
-→ minimal JIT Connection
-
-at Block / Logic Group
-→ Recall if external owner already learned
-→ Future Connection if not yet learned
-
-after relevant owners form
-→ cross-Block / cross-System Reconstruction
-```
-
-Preserved evidence from the interrupted rebase:
-
-- current 27 Source identity, teacher order, page ranges and 22 Source units;
-- verified 27-vs-26 semantic findings;
-- lecture-attached question source-position accounting;
-- explicit Source conflicts / SOURCE_BOUND items;
-- valid real semantic updates already routed to their formal owners.
-
-Withdrawn / reopened claims:
-
-- any L1/L2/L3... grouping as canonical hierarchy;
-- 22-unit → canonical-layer mapping as K/L acceptance proof;
-- Learning `canonical_hierarchy` fields that duplicated existing Logic Groups;
-- physical canonical KP/file reorder used merely to express learner order;
-- demotion of explicit Framework / Memory Routing / MI-G / MI-D into disposable derived support;
-- the previous declaration that the Biochemistry revision was fully closed.
-
-Current gate:
+Cross-System timing is now explicit:
 
 ```text
-S  PASS / PRESERVED — current 27 Source truth
-K  REOPENED — reconcile M1–M10/G1–G5 to the mature Block/LG/KP content architecture
-L  FROZEN_FOR_REVALIDATION_BEHIND_K — preserve mature accepted B Learning baseline
-C  FROZEN_FOR_REVALIDATION_BEHIND_K/L — explicit content jobs and Recall protection must be rechecked
-P  PRESERVE_EXISTING_AS_PROVISIONAL — revalidate only after K/L/C close
-R  PRESERVE_PREVIOUS_PASS — no broad rebuild authorized
-E  PRESERVE_SEMANTICS — no learner progress is manufactured
-U  UNTESTED — real learner use only
+JIT Connection during current Biochemistry Source
+→ Recall if the target owner was already learned
+  or Future Connection if it was not
+→ after both owners form: cross-Block / cross-System Reconstruction
 ```
 
-Biochemistry may remain **Source-independent** in first-pass execution while remaining **Knowledge-integrated** with the rest of B and external Systems.
+### Fresh scoped evidence
+
+```text
+S
+22 current 27 Source units
+15 M/G canonical Blocks
+direct Source → existing Block/LG/KP or explicit support/Connection mapping
+remaining Source-map layer refs = 0
+
+K
+M1–M10 + G1–G5 = 191 stable KP
+stable canonical KP/file order restored
+G5 canonical order = KP01→…→KP13
+191/191 KP Core bodies semantic-diff = 0 vs the verified 27 pre-correction content
+approved-27-audit markers lost = 0
+explicit SOURCE_BOUND / SOURCE_CONFLICT evidence preserved
+
+L
+15/15 learner_order unchanged vs accepted B Learning baseline
+15/15 Logic Group identity / KP membership / label / cognitive_job / goal / closure unchanged
+15/15 readiness unchanged
+Learning parallel canonical_hierarchy fields = 0
+LG canonical_layer fields = 0
+27 Source contact now binds directly to existing LG/KP owners
+cross-System integration timing is explicit and does not manufacture external learner progress
+
+Content
+15/15 M/G Blocks retain mature Block-owned content responsibilities:
+scope / first-pass route / Framework / KP Core /
+Boundary / Precision / Connection /
+Memory Routing / MI-G / MI-D /
+Visual or exactness gate / coverage-routing /
+Lecture-attached question contact / Block Exit
+parallel L-layer headings = 0
+Derived Learner Support demotion = 0
+
+P
+Xizong Projection Validation run 35942643802 = PASS
+exact bindings + adversarial mutations + Current reconciliation passed after stable-marker/schema repair
+Projection still consumes stable KP identity and Learning-owned learner order; no L-layer topology exists
+
+Q / X
+no new Question→Knowledge relation was inferred by this architecture correction
+existing reviewed relation semantics are preserved because canonical KP medical Core/identity did not change
+
+R / E
+no broad Runtime semantic change
+historical learner evidence preserved; repository reconstruction creates no learner completion
+
+U
+UNTESTED — real learner use only
+```
+
+The current Biochemistry design is therefore:
 
 > **Source continuity can be domain-specific; Knowledge integration must remain System-wide.**
 
-The Biochemistry exception may close only after fresh K → L → Content → P revalidation under this architecture.
+The remaining full-repository QA is integration evidence only. A downstream unrelated failure reopens its own gate; it does not silently revoke the scoped S/K/L/Content evidence above.
 
 ---
 
