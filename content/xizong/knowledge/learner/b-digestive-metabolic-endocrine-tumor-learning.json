@@ -2989,7 +2989,7 @@
           "G5"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：核酸身份、方向与测量[NUCLEIC_IDENTITY_DIRECTION] → DNA双螺旋、包装与可逆打开[DNA_STRUCTURE_PACKAGING_STABILITY] → RNA、遗传密码与翻译前准确性[RNA_DECODING_PRECONDITIONS] → 真核基因组组织[EUK_GENOME_ORGANIZATION]。",
+      "partition_rationale": "G1 Learning consumes the canonical Knowledge hierarchy directly. Existing Logic Group identities map 1:1 onto canonical layers; KP identities remain stable. Global teacher Source order may form canonical layers non-contiguously and never creates a second content topology.",
       "learner_order": [
         "b-g01-lg01",
         "b-g01-lg02",
@@ -3006,7 +3006,8 @@
           "cognitive_job": "NUCLEIC_IDENTITY_DIRECTION",
           "goal": "从核苷/核苷酸、5′→3′一级结构接到碱基组成与A260/A280等身份/纯度判断。",
           "closure": "给出DNA/RNA样品、序列方向、碱基组成或吸光比，能判断分子身份/单双链或污染方向，并区分结构信息与样品纯度问题。",
-          "continuity_rationale": "KP01–KP03共同完成“核酸身份、方向与测量”这一NUCLEIC_IDENTITY_DIRECTION任务。这是本Block当前学习顺序的第一个闭环任务。后一组“DNA双螺旋、包装与可逆打开”切换到不同的DNA_STRUCTURE_PACKAGING_STABILITY任务。"
+          "continuity_rationale": "KP01–KP03共同完成“核酸身份、方向与测量”这一NUCLEIC_IDENTITY_DIRECTION任务。这是本Block当前学习顺序的第一个闭环任务。后一组“DNA双螺旋、包装与可逆打开”切换到不同的DNA_STRUCTURE_PACKAGING_STABILITY任务。",
+          "canonical_layer": "L1"
         },
         "b-g01-lg02": {
           "kp": [
@@ -3017,7 +3018,8 @@
           "cognitive_job": "DNA_STRUCTURE_PACKAGING_STABILITY",
           "goal": "把B-DNA稳定力、大/小沟、核小体包装与变性—Tm—复性/杂交组织成“既稳定又可读取”的结构模型。",
           "closure": "给出GC/离子强度、组蛋白/核小体或变性条件变化，能预测Tm/开放性，并说明一级结构是否被破坏及杂交需要什么前提。",
-          "continuity_rationale": "KP04–KP06共同完成“DNA双螺旋、包装与可逆打开”这一DNA_STRUCTURE_PACKAGING_STABILITY任务。前一组“核酸身份、方向与测量”承担不同的NUCLEIC_IDENTITY_DIRECTION任务。后一组“RNA、遗传密码与翻译前准确性”切换到不同的RNA_DECODING_PRECONDITIONS任务。"
+          "continuity_rationale": "KP04–KP06共同完成“DNA双螺旋、包装与可逆打开”这一DNA_STRUCTURE_PACKAGING_STABILITY任务。前一组“核酸身份、方向与测量”承担不同的NUCLEIC_IDENTITY_DIRECTION任务。后一组“RNA、遗传密码与翻译前准确性”切换到不同的RNA_DECODING_PRECONDITIONS任务。",
+          "canonical_layer": "L2"
         },
         "b-g01-lg03": {
           "kp": [
@@ -3028,7 +3030,8 @@
           "cognitive_job": "RNA_DECODING_PRECONDITIONS",
           "goal": "把mRNA/tRNA/rRNA角色、密码子特性和aaRS/tRNA/核糖体三层准确性建立成翻译前准备模型。",
           "closure": "给出密码子突变、tRNA/aaRS错误或RNA类型，能判断信息读取/氨基酸装载/核糖体层的后果，并解释简并与移码差异。",
-          "continuity_rationale": "KP07–KP09共同完成“RNA、遗传密码与翻译前准确性”这一RNA_DECODING_PRECONDITIONS任务。前一组“DNA双螺旋、包装与可逆打开”承担不同的DNA_STRUCTURE_PACKAGING_STABILITY任务。后一组“真核基因组组织”切换到不同的EUK_GENOME_ORGANIZATION任务。"
+          "continuity_rationale": "KP07–KP09共同完成“RNA、遗传密码与翻译前准确性”这一RNA_DECODING_PRECONDITIONS任务。前一组“DNA双螺旋、包装与可逆打开”承担不同的DNA_STRUCTURE_PACKAGING_STABILITY任务。后一组“真核基因组组织”切换到不同的EUK_GENOME_ORGANIZATION任务。",
+          "canonical_layer": "L3"
         },
         "b-g01-lg04": {
           "kp": [
@@ -3039,7 +3042,81 @@
           "cognitive_job": "EUK_GENOME_ORGANIZATION",
           "goal": "把断裂基因、外显子/内含子/UTR、单顺反子和多复制子作为真核信息组织的独立地图。",
           "closure": "能从前体RNA到成熟mRNA说明哪些序列去留，并比较原核多顺反子/单复制子与真核组织方式；不提前展开G3/G4。",
-          "continuity_rationale": "KP10–KP10共同完成“真核基因组组织”这一EUK_GENOME_ORGANIZATION任务。前一组“RNA、遗传密码与翻译前准确性”承担不同的RNA_DECODING_PRECONDITIONS任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP10–KP10共同完成“真核基因组组织”这一EUK_GENOME_ORGANIZATION任务。前一组“RNA、遗传密码与翻译前准确性”承担不同的RNA_DECODING_PRECONDITIONS任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L4"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md",
+        "mother_model": "nucleic identity → DNA packaging/opening → RNA decoding preconditions → eukaryotic genome organization",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              3
+            ],
+            "logic_group": "b-g01-lg01"
+          },
+          "L2": {
+            "kp": [
+              4,
+              6
+            ],
+            "logic_group": "b-g01-lg02"
+          },
+          "L3": {
+            "kp": [
+              7,
+              9
+            ],
+            "logic_group": "b-g01-lg03"
+          },
+          "L4": {
+            "kp": [
+              10,
+              10
+            ],
+            "logic_group": "b-g01-lg04"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers; it must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning releases retrieval from canonical layer formation and keeps no duplicate per-Block Source registry.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-g01-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-g01-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-g01-lg03"
+            ]
+          },
+          {
+            "canonical_layer": "L4",
+            "releases": [
+              "b-g01-lg04"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "G1",
+          "after_unit": "BIO27-S21",
+          "after_pdf": 168,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
@@ -3059,7 +3136,7 @@
           "G5"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：DNA复制执行系统[DNA_REPLICATION_EXECUTION] → 端粒与逆转录：两种反向复制解法[REVERSE_TRANSCRIPTASE_SOLUTIONS] → 核酸工具、引物与复制/转录出口比较[TOOL_PRIMER_EXIT_COMPARE]。",
+      "partition_rationale": "G2 Learning consumes the canonical Knowledge hierarchy directly. Existing Logic Group identities map 1:1 onto canonical layers; KP identities remain stable. Global teacher Source order may form canonical layers non-contiguously and never creates a second content topology.",
       "learner_order": [
         "b-g02-lg01",
         "b-g02-lg02",
@@ -3075,7 +3152,8 @@
           "cognitive_job": "DNA_REPLICATION_EXECUTION",
           "goal": "用半保留/双向/半不连续/高保真四约束组织复制叉、引物、聚合酶/工具组、起始—延长—成熟及原核/真核差异。",
           "closure": "给出模板方向、引物/聚合酶/解旋/连接等故障，能预测前导/后随链和复制结果，并解释新链始终5′→3′。",
-          "continuity_rationale": "KP01–KP07共同完成“DNA复制执行系统”这一DNA_REPLICATION_EXECUTION任务。这是本Block当前学习顺序的第一个闭环任务。后一组“端粒与逆转录：两种反向复制解法”切换到不同的REVERSE_TRANSCRIPTASE_SOLUTIONS任务。"
+          "continuity_rationale": "KP01–KP07共同完成“DNA复制执行系统”这一DNA_REPLICATION_EXECUTION任务。这是本Block当前学习顺序的第一个闭环任务。后一组“端粒与逆转录：两种反向复制解法”切换到不同的REVERSE_TRANSCRIPTASE_SOLUTIONS任务。",
+          "canonical_layer": "L1"
         },
         "b-g02-lg02": {
           "kp": [
@@ -3086,7 +3164,8 @@
           "cognitive_job": "REVERSE_TRANSCRIPTASE_SOLUTIONS",
           "goal": "比较端粒酶用自带RNA模板补线性DNA末端与逆转录病毒用RNA模板生成双链DNA，两者共享逆转录但解决不同问题。",
           "closure": "给出染色体末端缺失或RNA病毒/cDNA场景，能选择端粒酶/逆转录酶并说清模板、引物和校对边界。",
-          "continuity_rationale": "KP08–KP09共同完成“端粒与逆转录：两种反向复制解法”这一REVERSE_TRANSCRIPTASE_SOLUTIONS任务。前一组“DNA复制执行系统”承担不同的DNA_REPLICATION_EXECUTION任务。后一组“核酸工具、引物与复制/转录出口比较”切换到不同的TOOL_PRIMER_EXIT_COMPARE任务。"
+          "continuity_rationale": "KP08–KP09共同完成“端粒与逆转录：两种反向复制解法”这一REVERSE_TRANSCRIPTASE_SOLUTIONS任务。前一组“DNA复制执行系统”承担不同的DNA_REPLICATION_EXECUTION任务。后一组“核酸工具、引物与复制/转录出口比较”切换到不同的TOOL_PRIMER_EXIT_COMPARE任务。",
+          "canonical_layer": "L2"
         },
         "b-g02-lg03": {
           "kp": [
@@ -3097,7 +3176,68 @@
           "cognitive_job": "TOOL_PRIMER_EXIT_COMPARE",
           "goal": "把核酸酶/连接酶、哪些过程需引物，以及DNA复制vs转录的模板/原料/酶/方向作语言切换。",
           "closure": "给出切/接、是否需引物或DNA→DNA/DNA→RNA任务，能选择工具并准确区分复制与转录，为G3入口做好转换。",
-          "continuity_rationale": "KP10–KP11共同完成“核酸工具、引物与复制/转录出口比较”这一TOOL_PRIMER_EXIT_COMPARE任务。前一组“端粒与逆转录：两种反向复制解法”承担不同的REVERSE_TRANSCRIPTASE_SOLUTIONS任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP10–KP11共同完成“核酸工具、引物与复制/转录出口比较”这一TOOL_PRIMER_EXIT_COMPARE任务。前一组“端粒与逆转录：两种反向复制解法”承担不同的REVERSE_TRANSCRIPTASE_SOLUTIONS任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L3"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G2_DNA复制逆转录与端粒_学习阅读版_v1_最终执行版.md",
+        "mother_model": "replication constraints → fork execution/fidelity → telomere/reverse-transcription solutions → tool/primer exit compare",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              7
+            ],
+            "logic_group": "b-g02-lg01"
+          },
+          "L2": {
+            "kp": [
+              8,
+              9
+            ],
+            "logic_group": "b-g02-lg02"
+          },
+          "L3": {
+            "kp": [
+              10,
+              11
+            ],
+            "logic_group": "b-g02-lg03"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers; it must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning releases retrieval from canonical layer formation and keeps no duplicate per-Block Source registry.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-g02-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-g02-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-g02-lg03"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "G2",
+          "after_unit": "BIO27-S17",
+          "after_pdf": 127,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
@@ -3119,7 +3259,7 @@
           "G5"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：转录执行：模板、启动、延长与终止[TRANSCRIPTION_EXECUTION] → RNA加工与质量控制[RNA_PROCESSING_QUALITY] → 翻译体系、能量与起始—延长—终止[TRANSLATION_EXECUTION] → 蛋白成熟、折叠与修饰[PROTEIN_MATURATION] → 蛋白靶向与翻译干扰接口[TARGETING_INTERFERENCE_BOUNDARY]。",
+      "partition_rationale": "G3 Learning consumes the canonical Knowledge hierarchy directly. Existing Logic Group identities map 1:1 onto canonical layers; KP identities remain stable. Global teacher Source order may form canonical layers non-contiguously and never creates a second content topology.",
       "learner_order": [
         "b-g03-lg01",
         "b-g03-lg02",
@@ -3137,7 +3277,8 @@
           "cognitive_job": "TRANSCRIPTION_EXECUTION",
           "goal": "从模板/编码链方向接到原核RNApol/启动子、起始—延长—两类终止，并纳入真核Pol I/II/III产物比较。",
           "closure": "给出启动子/σ、模板方向、终止结构或RNApol类型，能预测转录是否开始/停止及产物类别，并说明转录无需引物。",
-          "continuity_rationale": "KP01–KP05共同完成“转录执行：模板、启动、延长与终止”这一TRANSCRIPTION_EXECUTION任务。这是本Block当前学习顺序的第一个闭环任务。后一组“RNA加工与质量控制”切换到不同的RNA_PROCESSING_QUALITY任务。"
+          "continuity_rationale": "KP01–KP05共同完成“转录执行：模板、启动、延长与终止”这一TRANSCRIPTION_EXECUTION任务。这是本Block当前学习顺序的第一个闭环任务。后一组“RNA加工与质量控制”切换到不同的RNA_PROCESSING_QUALITY任务。",
+          "canonical_layer": "L1"
         },
         "b-g03-lg02": {
           "kp": [
@@ -3148,7 +3289,8 @@
           "cognitive_job": "RNA_PROCESSING_QUALITY",
           "goal": "把mRNA帽/尾/剪接/编辑、tRNA/rRNA加工和异常mRNA监控组织成前体RNA到可用RNA的质量控制层。",
           "closure": "给出GU-AG、加帽/加尾、编辑或NMD等场景，能判断改变的是成熟度、序列内容还是异常转录物清除。",
-          "continuity_rationale": "KP06–KP08共同完成“RNA加工与质量控制”这一RNA_PROCESSING_QUALITY任务。前一组“转录执行：模板、启动、延长与终止”承担不同的TRANSCRIPTION_EXECUTION任务。后一组“翻译体系、能量与起始—延长—终止”切换到不同的TRANSLATION_EXECUTION任务。"
+          "continuity_rationale": "KP06–KP08共同完成“RNA加工与质量控制”这一RNA_PROCESSING_QUALITY任务。前一组“转录执行：模板、启动、延长与终止”承担不同的TRANSCRIPTION_EXECUTION任务。后一组“翻译体系、能量与起始—延长—终止”切换到不同的TRANSLATION_EXECUTION任务。",
+          "canonical_layer": "L2"
         },
         "b-g03-lg03": {
           "kp": [
@@ -3159,7 +3301,8 @@
           "cognitive_job": "TRANSLATION_EXECUTION",
           "goal": "把mRNA、氨酰tRNA、A/P/E位、aaRS能量账与原/真核起始、延长/终止串成完整翻译执行链。",
           "closure": "给出密码子、tRNA装载、起始因子、进位/成肽/转位或终止变化，能定位步骤、能量消耗和原/真核差异。",
-          "continuity_rationale": "KP09–KP13共同完成“翻译体系、能量与起始—延长—终止”这一TRANSLATION_EXECUTION任务。前一组“RNA加工与质量控制”承担不同的RNA_PROCESSING_QUALITY任务。后一组“蛋白成熟、折叠与修饰”切换到不同的PROTEIN_MATURATION任务。"
+          "continuity_rationale": "KP09–KP13共同完成“翻译体系、能量与起始—延长—终止”这一TRANSLATION_EXECUTION任务。前一组“RNA加工与质量控制”承担不同的RNA_PROCESSING_QUALITY任务。后一组“蛋白成熟、折叠与修饰”切换到不同的PROTEIN_MATURATION任务。",
+          "canonical_layer": "L3"
         },
         "b-g03-lg04": {
           "kp": [
@@ -3170,7 +3313,8 @@
           "cognitive_job": "PROTEIN_MATURATION",
           "goal": "把蛋白水解、化学修饰、二硫键、分子伴侣、亚基/辅基装配作为翻译后获得功能的独立闭环。",
           "closure": "给出羟化/糖基化、二硫键或错误折叠场景，能判断改变的是翻译后成熟而非编码序列，并预测功能/定位后果。",
-          "continuity_rationale": "KP14–KP14共同完成“蛋白成熟、折叠与修饰”这一PROTEIN_MATURATION任务。前一组“翻译体系、能量与起始—延长—终止”承担不同的TRANSLATION_EXECUTION任务。后一组“蛋白靶向与翻译干扰接口”切换到不同的TARGETING_INTERFERENCE_BOUNDARY任务。"
+          "continuity_rationale": "KP14–KP14共同完成“蛋白成熟、折叠与修饰”这一PROTEIN_MATURATION任务。前一组“翻译体系、能量与起始—延长—终止”承担不同的TRANSLATION_EXECUTION任务。后一组“蛋白靶向与翻译干扰接口”切换到不同的TARGETING_INTERFERENCE_BOUNDARY任务。",
+          "canonical_layer": "L4"
         },
         "b-g03-lg05": {
           "kp": [
@@ -3181,7 +3325,94 @@
           "cognitive_job": "TARGETING_INTERFERENCE_BOUNDARY",
           "goal": "在同一KP内保留两条边界轴：信号肽/SRP决定蛋白去向；药物/毒物按核糖体或因子层阻断翻译。",
           "closure": "能根据N端信号肽/核定位序列判断蛋白靶向；也能根据原核/真核大小亚基或因子靶点定位翻译干扰，并明确两轴只是共享“翻译机器接口”。",
-          "continuity_rationale": "KP15–KP15共同完成“蛋白靶向与翻译干扰接口”这一TARGETING_INTERFERENCE_BOUNDARY任务。前一组“蛋白成熟、折叠与修饰”承担不同的PROTEIN_MATURATION任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP15–KP15共同完成“蛋白靶向与翻译干扰接口”这一TARGETING_INTERFERENCE_BOUNDARY任务。前一组“蛋白成熟、折叠与修饰”承担不同的PROTEIN_MATURATION任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L5"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G3_转录RNA加工与翻译_学习阅读版_v1_最终执行版.md",
+        "mother_model": "DNA selection → transcription → RNA processing/quality → translation → protein maturation → targeting/interference",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              5
+            ],
+            "logic_group": "b-g03-lg01"
+          },
+          "L2": {
+            "kp": [
+              6,
+              8
+            ],
+            "logic_group": "b-g03-lg02"
+          },
+          "L3": {
+            "kp": [
+              9,
+              13
+            ],
+            "logic_group": "b-g03-lg03"
+          },
+          "L4": {
+            "kp": [
+              14,
+              14
+            ],
+            "logic_group": "b-g03-lg04"
+          },
+          "L5": {
+            "kp": [
+              15,
+              15
+            ],
+            "logic_group": "b-g03-lg05"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers; it must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning releases retrieval from canonical layer formation and keeps no duplicate per-Block Source registry.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-g03-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-g03-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-g03-lg03"
+            ]
+          },
+          {
+            "canonical_layer": "L4",
+            "releases": [
+              "b-g03-lg04"
+            ]
+          },
+          {
+            "canonical_layer": "L5",
+            "releases": [
+              "b-g03-lg05"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "G3",
+          "after_unit": "BIO27-S19",
+          "after_pdf": 150,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
@@ -3200,7 +3431,7 @@
           "G5"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：表达特异性、染色质与表观调控[CHROMATIN_ACCESS] → 原核操纵子负/正与衰减调控[OPERON_CONTROL] → 真核顺式/反式、PIC与转录后调控[EUK_EXPRESSION_LAYERS]。",
+      "partition_rationale": "G4 Learning consumes the canonical Knowledge hierarchy directly. Existing Logic Group identities map 1:1 onto canonical layers; KP identities remain stable. Global teacher Source order may form canonical layers non-contiguously and never creates a second content topology.",
       "learner_order": [
         "b-g04-lg01",
         "b-g04-lg02",
@@ -3216,7 +3447,8 @@
           "cognitive_job": "CHROMATIN_ACCESS",
           "goal": "从时空特异/管家诱导阻遏接到DNA甲基化与组蛋白乙酰化改变染色质可及性，建立表达的第一道闸。",
           "closure": "给出组织/阶段表达、CpG甲基化或组蛋白乙酰化变化，能预测转录可及性与表达方向，并不把DNA复制算作基因表达。",
-          "continuity_rationale": "KP01–KP02共同完成“表达特异性、染色质与表观调控”这一CHROMATIN_ACCESS任务。这是本Block当前学习顺序的第一个闭环任务。后一组“原核操纵子负/正与衰减调控”切换到不同的OPERON_CONTROL任务。"
+          "continuity_rationale": "KP01–KP02共同完成“表达特异性、染色质与表观调控”这一CHROMATIN_ACCESS任务。这是本Block当前学习顺序的第一个闭环任务。后一组“原核操纵子负/正与衰减调控”切换到不同的OPERON_CONTROL任务。",
+          "canonical_layer": "L1"
         },
         "b-g04-lg02": {
           "kp": [
@@ -3227,7 +3459,8 @@
           "cognitive_job": "OPERON_CONTROL",
           "goal": "用lac的阻遏+CAP正调控和trp的阻遏+衰减比较原核如何按营养状态快速控制多顺反子。",
           "closure": "给出乳糖/葡萄糖或色氨酸高低，能预测操纵子表达强弱、发卡结构/终止状态，并区分粗调和衰减精调。",
-          "continuity_rationale": "KP03–KP06共同完成“原核操纵子负/正与衰减调控”这一OPERON_CONTROL任务。前一组“表达特异性、染色质与表观调控”承担不同的CHROMATIN_ACCESS任务。后一组“真核顺式/反式、PIC与转录后调控”切换到不同的EUK_EXPRESSION_LAYERS任务。"
+          "continuity_rationale": "KP03–KP06共同完成“原核操纵子负/正与衰减调控”这一OPERON_CONTROL任务。前一组“表达特异性、染色质与表观调控”承担不同的CHROMATIN_ACCESS任务。后一组“真核顺式/反式、PIC与转录后调控”切换到不同的EUK_EXPRESSION_LAYERS任务。",
+          "canonical_layer": "L2"
         },
         "b-g04-lg03": {
           "kp": [
@@ -3238,7 +3471,68 @@
           "cognitive_job": "EUK_EXPRESSION_LAYERS",
           "goal": "把顺式元件、反式因子、RNApol II前起始复合物接到RNAi/mRNA稳定和蛋白降解，形成真核多层表达控制图。",
           "closure": "给出增强子/TF、TFIID/TFIIH、miRNA/siRNA或泛素蛋白酶体变化，能定位表达调控发生在DNA可及/转录起始/转录后/蛋白稳定哪一层。",
-          "continuity_rationale": "KP07–KP10共同完成“真核顺式/反式、PIC与转录后调控”这一EUK_EXPRESSION_LAYERS任务。前一组“原核操纵子负/正与衰减调控”承担不同的OPERON_CONTROL任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP07–KP10共同完成“真核顺式/反式、PIC与转录后调控”这一EUK_EXPRESSION_LAYERS任务。前一组“原核操纵子负/正与衰减调控”承担不同的OPERON_CONTROL任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L3"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G4_基因表达调控_学习阅读版_v1_最终执行版.md",
+        "mother_model": "chromatin access → prokaryotic nutrient response → eukaryotic cis/trans/PIC → post-transcriptional/protein stability control",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              2
+            ],
+            "logic_group": "b-g04-lg01"
+          },
+          "L2": {
+            "kp": [
+              3,
+              6
+            ],
+            "logic_group": "b-g04-lg02"
+          },
+          "L3": {
+            "kp": [
+              7,
+              10
+            ],
+            "logic_group": "b-g04-lg03"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers; it must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning releases retrieval from canonical layer formation and keeps no duplicate per-Block Source registry.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-g04-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-g04-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-g04-lg03"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "G4",
+          "after_unit": "BIO27-S20",
+          "after_pdf": 165,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
@@ -3266,7 +3560,7 @@
           "D19 tumor LGs"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：原癌油门、抑癌刹车与生长控制失效[TUMOR_CONTROL_FAILURE] → 突变类型与DNA修复系统[MUTATION_REPAIR] → 重组DNA、PCR、印迹与相互作用技术[MOLECULAR_TOOL_MAP]。",
+      "partition_rationale": "G5 Learning consumes the canonical Knowledge hierarchy directly. Existing Logic Group identities map 1:1 onto canonical layers; KP identities remain stable. Global teacher Source order may form canonical layers non-contiguously and never creates a second content topology.",
       "learner_order": [
         "b-g05-lg01",
         "b-g05-lg02",
@@ -3282,7 +3576,8 @@
           "cognitive_job": "TUMOR_CONTROL_FAILURE",
           "goal": "用原癌基因激活四路、癌基因产物信号链与抑癌基因失活/p53停—修—死建立克隆失控的控制模型。",
           "closure": "给出点突变、扩增、易位/强增强子或p53/RB失活，能判断油门变强还是刹车失灵及位于信号链哪一层。",
-          "continuity_rationale": "KP01–KP05共同完成“原癌油门、抑癌刹车与生长控制失效”这一TUMOR_CONTROL_FAILURE任务。这是本Block当前学习顺序的第一个闭环任务。后一组“突变类型与DNA修复系统”切换到不同的MUTATION_REPAIR任务。"
+          "continuity_rationale": "KP01–KP05共同完成“原癌油门、抑癌刹车与生长控制失效”这一TUMOR_CONTROL_FAILURE任务。这是本Block当前学习顺序的第一个闭环任务。后一组“突变类型与DNA修复系统”切换到不同的MUTATION_REPAIR任务。",
+          "canonical_layer": "L1"
         },
         "b-g05-lg02": {
           "kp": [
@@ -3293,7 +3588,8 @@
           "cognitive_job": "MUTATION_REPAIR",
           "goal": "先把点突变/插缺/移码等“异常怎样产生”接到直接、BER/NER、错配、双链断裂和SOS等“怎样修”，完成基因组稳定层。",
           "closure": "给出损伤/突变类型或修复缺陷，能预测编码后果并选择相应修复类别；解释修复失败为何为肿瘤控制失效提供突变底物。",
-          "continuity_rationale": "KP12–KP13共同完成“突变类型与DNA修复系统”这一MUTATION_REPAIR任务。前一组“原癌油门、抑癌刹车与生长控制失效”承担不同的TUMOR_CONTROL_FAILURE任务。后一组“重组DNA、PCR、印迹与相互作用技术”切换到不同的MOLECULAR_TOOL_MAP任务。"
+          "continuity_rationale": "KP12–KP13共同完成“突变类型与DNA修复系统”这一MUTATION_REPAIR任务。前一组“原癌油门、抑癌刹车与生长控制失效”承担不同的TUMOR_CONTROL_FAILURE任务。后一组“重组DNA、PCR、印迹与相互作用技术”切换到不同的MOLECULAR_TOOL_MAP任务。",
+          "canonical_layer": "L2"
         },
         "b-g05-lg03": {
           "kp": [
@@ -3304,7 +3600,68 @@
           "cognitive_job": "MOLECULAR_TOOL_MAP",
           "goal": "在知道异常来源后，再用取—切—接—导—筛、PCR、S/N/W和DNA/蛋白相互作用技术建立“怎样检测/复制/操作”的工具地图。",
           "closure": "给出目标是扩增DNA、测RNA/蛋白、构建重组载体、检测DNA-蛋白或蛋白-蛋白相互作用，能选择正确技术并说明它回答什么问题。",
-          "continuity_rationale": "KP06–KP11共同完成“重组DNA、PCR、印迹与相互作用技术”这一MOLECULAR_TOOL_MAP任务。前一组“突变类型与DNA修复系统”承担不同的MUTATION_REPAIR任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP06–KP11共同完成“重组DNA、PCR、印迹与相互作用技术”这一MOLECULAR_TOOL_MAP任务。前一组“突变类型与DNA修复系统”承担不同的MUTATION_REPAIR任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L3"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md",
+        "mother_model": "growth-control failure → mutation/repair and genome stability → molecular tools for detection/replication/manipulation",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              5
+            ],
+            "logic_group": "b-g05-lg01"
+          },
+          "L2": {
+            "kp": [
+              12,
+              13
+            ],
+            "logic_group": "b-g05-lg02"
+          },
+          "L3": {
+            "kp": [
+              6,
+              11
+            ],
+            "logic_group": "b-g05-lg03"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers; it must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning releases retrieval from canonical layer formation and keeps no duplicate per-Block Source registry.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-g05-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-g05-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-g05-lg03"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "G5",
+          "after_unit": "BIO27-S22",
+          "after_pdf": 170,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
