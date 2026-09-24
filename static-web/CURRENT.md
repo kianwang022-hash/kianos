@@ -17,6 +17,9 @@ Content production remains independent: vocabulary, Xizong explanations/relation
 Kian reopened the integrated UI work on 2026-09-24 after clarifying the current website architecture.
 
 Current architecture basis:
+- product surface / information architecture owner: `PRODUCT_SURFACE_CONTRACT.md`;
+- Steward interaction / reality-capture product owner: `STEWARD_PRODUCT_CONTRACT.md`;
+- upstream day-of judgment / Personal models remain referenced from `kian-personal-os`; they are not copied into KianOS product truth;
 - the website is built from GitHub `static-web/` source and uses the existing Current delivery path;
 - L1 / L2 / L3 are ownership levels, not three mandatory visible navigation rows;
 - Steward is an L1 destination in the shared global rail;
