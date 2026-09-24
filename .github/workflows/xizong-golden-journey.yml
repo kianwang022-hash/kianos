@@ -14,6 +14,20 @@ on:
       - 'static-web/src/styles/xizong-dense-calm.css'
       - 'static-web/scripts/test-xizong-golden-journey.mjs'
       - '.github/workflows/xizong-golden-journey.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/xizong/knowledge/systems/a1-circulation/**'
+      - 'content/xizong/knowledge/learner/a1-circulation-*.json'
+      - 'static-web/XIZONG_PRODUCT_STATUS.md'
+      - 'static-web/package.json'
+      - 'static-web/src/components/Xizong*.astro'
+      - 'static-web/src/lib/xizong*.mjs'
+      - 'static-web/src/pages/xizong/**'
+      - 'static-web/src/styles/xizong-presentation.css'
+      - 'static-web/src/styles/xizong-dense-calm.css'
+      - 'static-web/scripts/test-xizong-golden-journey.mjs'
+      - '.github/workflows/xizong-golden-journey.yml'
   workflow_dispatch:
 
 permissions:
