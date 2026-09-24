@@ -266,7 +266,7 @@ The path must be calibrated to the learner’s real state rather than inferred f
 ### Hard rule: Engineering State ≠ Learner State
 
 ```text
-Shared Current / continuation
+Engineering Current / exact work cursor
 = what the product/repository is building or validating
 
 Private Learner State
@@ -704,7 +704,7 @@ It may present a coherent map without exposing every internal file/skill/enginee
 ## 6.3 Continue must come from private learner state
 
 ```text
-GitHub Current / continuation
+GitHub Current / exact work cursor
 → what the product is building/validating
 
 Private learner state
@@ -889,6 +889,6 @@ Reports should identify concrete Current evidence rather than infer completion f
 - `LEARNING_ASSET_STANDARD.md` makes material surface ownership a Learning-Logic decision before Projection/Runtime.
 - `LEARNING_ACCEPTANCE.md` defines the evidence required before those capabilities may be called learner-ready and defines final Global/Home acceptance.
 - `CURRENT.md` describes current system state; it must not become private learner progress.
-- Domain manifests/continuations are child Current objects and cannot override these root-level acceptance rules.
+- Domain manifests and exact Current/work-cursor owners may specialize local routing, but cannot override these root-level acceptance rules. Retired continuation files are not a Current object class.
 
 When a lane-specific contract conflicts with this document on acceptance semantics, the lane may specialize cognition and surface choice but may not weaken the distinction between source/content/build completion and real learner readiness without explicit repository-level revision.
