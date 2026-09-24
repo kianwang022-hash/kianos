@@ -27,7 +27,8 @@
       "M6": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M6_胆固醇磷脂与胆汁酸_学习阅读版_v1_最终执行版.md",
       "M7": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M7_TAG脂肪酸与酮体_学习阅读版_v1_最终执行版.md",
       "M8": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M8_氨基酸氨尿素与一碳单位_学习阅读版_v1_最终执行版.md",
-      "M9": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M9_核苷酸代谢与抗代谢物_学习阅读版_v1_最终执行版.md"
+      "M9": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M9_核苷酸代谢与抗代谢物_学习阅读版_v1_最终执行版.md",
+      "M10": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M10_血红素胆红素与生物转化_学习阅读版_v1_最终执行版.md"
     }
   },
   "learner_execution": {
@@ -663,6 +664,16 @@
           ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true
+        },
+        {
+          "block": "M10",
+          "layer": "L1",
+          "kp": [
+            1,
+            4
+          ],
+          "role": "SUPPORT",
+          "note": "ALA/B6/amino-acid interface only"
         }
       ]
     },
@@ -810,6 +821,34 @@
             17
           ],
           "role": "SUPPORT"
+        },
+        {
+          "block": "M10",
+          "layer": "L1",
+          "kp": [
+            1,
+            4
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "M10",
+          "layer": "L2",
+          "kp": [
+            5,
+            9
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "M10",
+          "layer": "L3",
+          "kp": [
+            10,
+            13
+          ],
+          "role": "SUPPORT_AND_PRIME",
+          "note": "P079 biotransformation bridge"
         }
       ]
     },
@@ -829,6 +868,18 @@
       "support": [],
       "connections": [
         "hepatic drug/hormone handling interface"
+      ],
+      "canonical_content": [
+        {
+          "block": "M10",
+          "layer": "L3",
+          "kp": [
+            10,
+            13
+          ],
+          "role": "PRIMARY_COMPLETION",
+          "closes_block_source_contact": true
+        }
       ]
     },
     {
@@ -1304,6 +1355,11 @@
         "L1": "PRPP and purine supply-salvage-clearance / KP01–KP05",
         "L2": "pyrimidine supply, deoxy conversion and dTMP one-carbon entry / KP06–KP10",
         "L3": "antimetabolite target map / KP11–KP15"
+      },
+      "M10": {
+        "L1": "heme synthesis and heme-protein lifecycle entry / KP01–KP04",
+        "L2": "bilirubin generation-liver handling-excretion and jaundice localization / KP05–KP09",
+        "L3": "Phase I/II biotransformation and hepatic chemical hub / KP10–KP13"
       }
     }
   }
