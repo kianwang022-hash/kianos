@@ -37,8 +37,8 @@ on:
       - 'static-web/scripts/validate-english-exam-session.mjs'
       - 'static-web/scripts/test-english-exam-session-browser.mjs'
       - 'static-web/scripts/test-english-exam-seal-integrity.mjs'
-      - 'static-web/scripts/test-freeze-integrity.mjs'
-      - 'static-web/scripts/test-freeze-browser.mjs'
+      - 'static-web/scripts/test-english-objective-completion-integrity.mjs'
+      - 'static-web/scripts/test-english-exam-corruption-browser.mjs'
       - '.github/workflows/static-web-english-exam-session.yml'
   push:
     branches: [main]
@@ -60,8 +60,8 @@ on:
       - 'static-web/scripts/validate-english-exam-session.mjs'
       - 'static-web/scripts/test-english-exam-session-browser.mjs'
       - 'static-web/scripts/test-english-exam-seal-integrity.mjs'
-      - 'static-web/scripts/test-freeze-integrity.mjs'
-      - 'static-web/scripts/test-freeze-browser.mjs'
+      - 'static-web/scripts/test-english-objective-completion-integrity.mjs'
+      - 'static-web/scripts/test-english-exam-corruption-browser.mjs'
       - '.github/workflows/static-web-english-exam-session.yml'
   workflow_dispatch:
 
@@ -92,7 +92,7 @@ jobs:
         working-directory: static-web
         run: |
           node scripts/validate-english-exam-session.mjs
-          node --test scripts/test-english-exam-seal-integrity.mjs scripts/test-freeze-integrity.mjs
+          node --test scripts/test-english-exam-seal-integrity.mjs scripts/test-english-objective-completion-integrity.mjs
           node scripts/test-english-evidence-resume.mjs
       - name: Build learner site
         id: build
@@ -111,7 +111,7 @@ jobs:
         working-directory: static-web
         run: node scripts/test-english-exam-session-browser.mjs
       - name: Run corruption and two-page browser journeys
-        id: freeze_browser
+        id: integrity_browser
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         working-directory: static-web
         run: |
@@ -120,7 +120,7 @@ jobs:
             manager=$!
             trap "kill $manager 2>/dev/null || true" EXIT
             sleep 1
-            node scripts/test-freeze-browser.mjs
+            node scripts/test-english-exam-corruption-browser.mjs
           '
       - name: Upload full-paper proof
         if: always()
