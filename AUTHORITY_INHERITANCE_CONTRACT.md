@@ -407,6 +407,34 @@ The fix belongs at the earliest responsible owner.
 
 The checkers intentionally do **not** interpret learning semantics. Domain semantic acceptance remains with domain owners.
 
+### Enforcement map
+
+Do not build one universal validator that pretends to understand every domain. Enforce each invariant at the narrowest layer that can prove it:
+
+| Invariant | Enforcement point |
+| --- | --- |
+| Single Current Authority / registered shared owner | `tools/authority_consistency_audit.py` + `AUTHORITY_OWNERSHIP.json` |
+| Derived projection binding + declared freshness proof | `tools/authority_projection_audit.py` + the projection's exact validator/workflow |
+| Current router size / retired Current paths / history re-entry | `tools/governance_current_audit.py` |
+| Reviewed-derivation revision witness | exact domain/content validator that can resolve the stable semantic identity and current owner revision |
+| Closure consistency for a lifecycle owner | exact lifecycle validator; structural helper may be shared, but lifecycle meaning stays with the owner |
+| Bounded snapshot freshness / stale replay | exact packet/command/runtime validator |
+| Domain semantic correctness after upstream change | exact domain Acceptance / semantic validator; never the governance checker |
+| Fresh-Chat bounded recovery | Current/router audits plus representative recovery tests in the owning surface |
+
+A reusable structural helper is welcome when several validators need the same syntax-level rule, but the helper does not become a semantic owner.
+
+For `DERIVED_PROJECTION`, the machine registry must declare how freshness is proven. A source path alone is insufficient. Current supported proof mode:
+
+```text
+VALIDATED_AGAINST_CURRENT_SOURCE
+→ named validator
+→ named workflow
+→ source + projection + validator changes trigger PR and main gates
+```
+
+For `REVIEWED_DERIVATION`, do not require a single universal field name across all domains. The exact owner may choose its schema, but its validator must be able to distinguish stable identity, current revision and reviewed-against witness and must fail closed when a stale witness is still presented as Current/REVIEWED.
+
 ---
 
 ## 12. Change test
