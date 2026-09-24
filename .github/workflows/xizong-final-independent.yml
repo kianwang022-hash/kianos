@@ -1,13 +1,6 @@
-name: Xizong Fresh Independent Acceptance
+name: Xizong Fresh Independent Acceptance (Explicit)
 on:
   workflow_dispatch:
-  pull_request:
-    branches: [main]
-    paths:
-      - '.github/workflows/xizong-final-independent.yml'
-      - 'static-web/src/**'
-      - 'static-web/scripts/test-xizong-final-*.mjs'
-      - 'content/xizong/**'
 permissions:
   contents: read
 concurrency:
