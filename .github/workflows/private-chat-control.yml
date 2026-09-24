@@ -46,6 +46,8 @@ on:
       - "static-web/scripts/test-private-daily-learning-packet-relay.mjs"
       - "static-web/scripts/test-private-daily-learning-packet-bridge.mjs"
       - "static-web/scripts/test-private-checkpoint-blur-flush.mjs"
+      - "static-web/scripts/test-private-learner-checkpoint.mjs"
+      - "static-web/scripts/test-shared-control-three-subjects.mjs"
       - ".github/workflows/private-chat-control.yml"
   pull_request:
     branches: [main]
@@ -93,6 +95,8 @@ on:
       - "static-web/scripts/test-private-daily-learning-packet-relay.mjs"
       - "static-web/scripts/test-private-daily-learning-packet-bridge.mjs"
       - "static-web/scripts/test-private-checkpoint-blur-flush.mjs"
+      - "static-web/scripts/test-private-learner-checkpoint.mjs"
+      - "static-web/scripts/test-shared-control-three-subjects.mjs"
       - ".github/workflows/private-chat-control.yml"
 
 concurrency:
@@ -119,6 +123,8 @@ jobs:
           node scripts/test-private-daily-learning-packet-relay.mjs
           node scripts/test-private-daily-learning-packet-bridge.mjs
           node scripts/test-private-checkpoint-blur-flush.mjs
+          node scripts/test-private-learner-checkpoint.mjs
+          node scripts/test-shared-control-three-subjects.mjs
           node scripts/test-english-generated-daily-packet.mjs
           node scripts/test-english-evidence-resume.mjs
           node scripts/test-english-generated-drill-store.mjs
