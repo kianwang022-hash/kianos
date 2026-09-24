@@ -111,7 +111,16 @@ try {
   check(!(await completeButton.isDisabled()), 'block_complete_gate_satisfied');
   check(await page.evaluate((key) => localStorage.getItem(key) === null, MEMORY_KEY), 'no_release_before_completion_confirmation');
 
+  await page.evaluate(() => {
+    window.__xizongBlockCompleteEvents = [];
+    window.addEventListener('kianos:xizong-block-complete', (event) => {
+      window.__xizongBlockCompleteEvents.push(event?.detail || null);
+    });
+  });
   await completeButton.click();
+  await page.waitForFunction(() => Array.isArray(window.__xizongBlockCompleteEvents) && window.__xizongBlockCompleteEvents.length === 1);
+  const completeEvent = await page.evaluate(() => window.__xizongBlockCompleteEvents[0]);
+  check(completeEvent?.object_id === fixture.objectId && completeEvent?.block_id === fixture.blockId, 'block_complete_semantic_event_matches_persisted_owner');
   await page.waitForFunction((key) => Boolean(localStorage.getItem(key)), MEMORY_KEY);
   let memory = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), MEMORY_KEY);
   check(Boolean(memory?.releasedBlocks?.[fixture.blockId]), 'block_complete_released_library');

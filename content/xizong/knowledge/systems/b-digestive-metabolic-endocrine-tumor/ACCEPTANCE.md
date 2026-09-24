@@ -11,6 +11,8 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 
 ## Gate status
 
+P  PASS — existing whole-B Projection acceptance remains current; the Biochemistry and Surgery source revisions were revalidated against that accepted Projection rather than narrowing it.
+
 
 ## Scoped Source revision — 27 Surgery refined-source reacceptance
 
