@@ -98,7 +98,7 @@
         "SUR27-U04"
       ],
       "label": "neck / esophagus / breast / thorax",
-      "status": "SOURCE_REBIND_AND_SEMANTIC_UPGRADE_IN_PROGRESS",
+      "status": "CONTENT_AND_LEARNING_UPGRADE_APPLIED_DOWNSTREAM_REVALIDATION_PENDING",
       "verified_stale_current_bindings": [
         "B:D21 still names 外科学讲义_AI阅读版.md and 27跟课 Source-local pages",
         "B:D23 still names 外科学讲义_AI阅读版.md and reports surgery_visual_gate gap",
@@ -120,6 +120,27 @@
     "concurrency": {
       "active_biochemistry_rebase": true,
       "rule": "Proceed on disjoint owners; refresh and serialize any shared B system/learning/manifest or shared question/explanation manifest write."
+    },
+    "second_batch": {
+      "scope": [
+        "SUR27-U05",
+        "SUR27-U06",
+        "SUR27-U07",
+        "SUR27-U08",
+        "SUR27-U09",
+        "SUR27-U10",
+        "SUR27-U11",
+        "SUR27-U12"
+      ],
+      "label": "gastric / abdominal infection-trauma / obstruction-appendix / colorectal-anorectal / hernia",
+      "status": "SOURCE_REBIND_COMPLETE_CORE_REVIEW_PRESERVE_WITH_EXISTING_FRAMEWORK_COVERAGE",
+      "completed_actions": [
+        "B:D11 current Surgery source rebound includes 27 refined gastric P032-P036; esophageal refined explanation selectively added without turning teacher rationale into a universal oncology rule",
+        "B:D13 rebound to U06/U07; existing Framework already covers refined wall-vs-visceral peritoneum, abscess-space, bleeding/contamination and organ-space explanations",
+        "B:D14 rebound to U08/U09/U12; existing pain-vomit-distension-obstipation, obstruction mechanism, appendicitis and hernia decision models preserved",
+        "B:D15 rebound to U10/U11; existing colorectal operation, dentate-line, anal disease and fistula decision models preserved"
+      ],
+      "next_action": "Continue to SUR27-U13-U19 hepatobiliary/pancreas/vascular/urinary batch; keep refined-note routing under SURGERY_CONTRACT and avoid UI changes."
     }
   },
   "governance": {
