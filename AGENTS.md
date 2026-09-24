@@ -1,561 +1,169 @@
 # KianOS Worker Instructions
 
-This file owns **how a Chat / Agent / worker enters and operates inside KianOS**.
+This file owns only **how a Chat / Agent / worker enters KianOS and finds the right owner**.
 
-It does not own project requirements, architecture, domain learning semantics, Acceptance Truth, learner progress, or product content.
+It does not own project requirements, architecture, domain semantics, Acceptance Truth, learner progress, branch policy, or detailed execution machinery.
 
-The operating goal is simple:
+Goal:
 
-> **Kian says what he wants to do; the worker resolves the correct scope/owner and hides repository complexity unless it is actually needed.**
+> **Kian says what he wants; the worker resolves the smallest correct scope, reads only the owners that can change the answer, does the bounded work, proves the real effect, and stops.**
 
 ---
 
 # 1｜Intent first
 
-Before reading a Work Cursor, classify the user's request by what they are trying to do.
+Classify the user's actual job before reading an engineering cursor:
 
 ```text
-LEARN    use a learning capability / continue studying
-USE      use a non-learning KianOS product or its current private/runtime state
+LEARN    use / continue a learning capability
+USE      use a non-learning KianOS product or private runtime state
 BUILD    construct, audit or change Rule / Content / product / runtime semantics
-UI       change product-facing presentation / interaction / visual implementation
-CONTROL  ask for cross-scope status, priorities, blockers or project management
+UI       change product-facing presentation / interaction
+CONTROL  cross-scope status, priority, blocker, task or project management
 ```
 
-Natural language is authoritative. Do not require Kian to name these modes.
+Natural language is authoritative; Kian does not need to name the mode.
 
-Default rule:
-
-> **A bare learner-facing continuation such as “继续英语 / 继续政治 / 继续循环 / 继续 Translation” means LEARN unless the current conversation clearly establishes an engineering/UI task.**
->
-> **A request to use or inspect a non-learning product such as Steward means USE unless Kian asks to change, redesign, debug or manage it.**
-
-Engineering words such as `内容建设 / audit / PR / CI / runtime / contract / UI / 页面 / 视觉 / implementation` may resolve BUILD or UI.
-
-`CURRENT.md` is an **engineering Work Cursor**. It must not silently override learner or product-use intent.
-
-Therefore:
+Examples:
 
 ```text
-“继续英语”         → LEARN / learner state
-“看看今天的 Steward” → USE / current product-private state
-“优化 Steward”     → BUILD + Design-aware change interface
-“改 Steward UI”    → UI + Design-aware change interface when material
-“继续英语 UI”      → English UI scope
-“继续英语内容建设”  → English BUILD scope
-“英语做到哪了”      → CONTROL / status
+继续英语             → LEARN
+看看今天的 Steward   → USE
+优化 Steward         → BUILD
+改 Steward UI        → UI
+继续英语内容建设     → BUILD
+英语做到哪了         → CONTROL
 ```
+
+A bare learner continuation stays LEARN unless the current conversation clearly establishes engineering work. A normal product-use request stays USE unless Kian asks to redesign/debug/manage it.
 
 ---
 
 # 2｜Small read paths
 
-Do not reread the governance hierarchy as ritual.
-
-## USE
-
-Use the smallest product-facing path:
-
-```text
-known product / surface
-→ actual private runtime state or exact product owner when needed
-→ applicable Rule / Model only when interpretation is needed
-→ use
-```
-
-Do **not** enter engineering `CURRENT.md` merely because the product is implemented in KianOS. A normal Steward/time/recovery/product-use request is not a BUILD task.
-
-If use reveals a concrete defect, route only that defect to BUILD/UI. If use produces reality evidence, keep the raw fact with its native Runtime/source owner; open-ended interpretation or durable personal meaning returns to Chat / Personal rather than being silently inferred by Runtime.
-
 ## LEARN
-
-Use the smallest learner-facing path:
 
 ```text
 known domain/task
 → actual learner/runtime state or Resume owner
-→ domain Learning Contract only when needed to interpret the next action
+→ domain Learning owner only when needed
 → learn
 ```
 
-Do **not** enter an engineering `CURRENT.md` merely because one exists.
+Do not enter root engineering `CURRENT.md` merely because it exists.
 
-For a promoted non-exam Skill, use `content/skills/CURRENT.md` → exact Skill manifest / learner asset → learn. The generic Skill renderer is a learner surface, not a new strategy owner.
+A Daily Learning Packet / `KIANOS_DAILY_LEARNING_HANDOFF_V1` is learner evidence/planning input, not an engineering cursor. Use the current subject evidence and Exam/Chat planning boundary; preserve UNKNOWN and use the existing private control path only when execution is authorized.
 
-### Daily learner handoff
-
-A message containing `KIANOS_DAILY_LEARNING_HANDOFF_V1` or a `kianos.daily-learning-packet.v1` object is itself **LEARN** state.
-
-Use it as:
+## USE
 
 ```text
-Daily Learning Packet
-→ read factual time / capacity / subject-owned evidence
-→ preserve missing evidence as unknown
-→ if Kian asks to start / continue / arrange today, apply EXAM_ORCHESTRATOR_CONTRACT planning policy
-→ return one valid kianos.exam.chat-plan.v1 for the same study_day
-→ deliver through the existing supported private control path and verify its receipt
-→ study
+known product/surface
+→ actual private runtime state or exact product owner
+→ Rule / Model only when interpretation is needed
+→ use
 ```
 
-Planning follows [Exam Orchestrator §0](EXAM_ORCHESTRATOR_CONTRACT.md). Exact private delivery and recovery follow Personal OS `EXAM_CHAT_ROUTER.md`; this entry does not define another delivery procedure. Manual export/import is a degraded recovery option only, never the normal learner handoff. An unavailable relay must be stated honestly; it neither proves successful delivery nor prevents useful learning from healthy available evidence.
-
-
-Do not route through root engineering `CURRENT.md` by default just because GitHub is available. Read an exact subject Learning/Content owner only when the learner question actually requires semantic/source context. USE / BUILD / UI / CONTROL requests remain separate.
-
-Subject-specific diagnosis/repair still uses that subject's existing typed Return contract. The Daily Packet is evidence/planning input; it is not a universal mutation packet.
+Do not route ordinary Steward/product use through engineering Current. If use exposes a defect, route only the defect to BUILD/UI. Raw reality stays with its native Runtime/source; open-ended personal interpretation returns to Chat / Personal.
 
 ## BUILD
 
 ```text
 target scope CURRENT
-→ applicable design / domain Contract (goal, rationale, invariants)
+→ applicable Rule / Model / domain design owner
 → exact canonical object + affected consumer
-→ Acceptance owner only when the acceptance claim matters
+→ Acceptance owner only when the claim matters
 → work
 ```
 
-“看看设定 / 架构” requests explanation or inspection, not automatic implementation.
-“优化 / 升级 / 补充” requests an incremental change inside the existing design;
-it does not waive inherited responsibilities or authorize a replacement design.
-Resolve this from the conversation; Kian need not supply mode names.
-
-For a new or materially changed BUILD scope, use the bounded
-[change continuity rule](AUTHORITY_INHERITANCE_CONTRACT.md#31-change-continuity).
-A cursor or completed-count summary cannot substitute for the design it routes to.
-Reuse already-read, still-current owners; the two-or-three-read target is for
-locating the owner, not a ceiling on evidence needed to understand a change.
-
-
-### Design-aware change interface
-
-Natural-language requests such as:
-
-- `优化 / 升级 / 重构 / 改架构`;
-- `重新设计这个系统`;
-- `把这个逻辑理顺 / 收口`;
-- or an equivalent request to materially change an existing KianOS capability
-
-automatically invoke **Change continuity** before choosing the edit.
-
-This is a KianOS interface capability, not a request for Kian to name files or explain the existing architecture again.
-
-Use:
+For a material change, automatically apply
+[Change continuity](AUTHORITY_INHERITANCE_CONTRACT.md#31-change-continuity):
 
 ```text
-user intent
-→ resolve the narrow target scope
-→ recover the relevant design chain:
-   user outcome / purpose
-   → parent Rule / Model
-   → exact domain/design owner
-   → affected Content / Visual / Runtime responsibility
-   → actual consumer(s)
-→ identify what must survive
-→ define the smallest justified delta
-→ write the exact owner(s)
-→ verify the affected consumer / behavior
+user outcome
+→ parent Rule / Model
+→ exact domain/design owner
+→ affected Content / Visual / Runtime responsibility
+→ actual consumer
+→ smallest justified delta
+→ verify affected behavior
 ```
 
-"Relevant design chain" means **complete enough to preserve the responsibility**, not "read the whole repository". Follow only the parent/consumer links that can change the meaning of the proposed edit.
+Read the **relevant design chain**, not the whole repository. A Current cursor or easy-to-edit implementation is never the full design by itself.
 
-A local file, current implementation or Work Cursor must never be treated as the whole design merely because it is easy to edit. If the relevant rationale or consumer cannot be resolved, keep that part UNKNOWN and avoid silently replacing it with a locally convenient architecture.
-
-The canonical semantics of this interface remain owned by
-[Change continuity](AUTHORITY_INHERITANCE_CONTRACT.md#31-change-continuity);
-this section only defines how Kian's natural-language change request enters that capability.
+If an upstream owner changes during the task, apply
+[Change propagation](AUTHORITY_INHERITANCE_CONTRACT.md#32-change-propagation-and-dependency-freshness)
+only to real dependents; do not restart unrelated accepted work.
 
 ## UI
 
-Use the exact shared entry before designing a learner-facing surface:
-
 ```text
-static-web/KIAN_UI_PREFERENCES.md (accepted KianOS visual requirements + bounded preference evidence)
-→ static-web/UI_STYLE_BRIEF.md (shared visual and navigation rules)
+static-web/KIAN_UI_PREFERENCES.md
+→ static-web/UI_STYLE_BRIEF.md when shared visual rules matter
 → exact surface/product owner
-→ existing layout/component and applicable shared styles
+→ existing layout/component/styles
 → work
 ```
 
-For shell integration, inspect `static-web/src/layouts/Base.astro`,
-`static-web/src/layouts/BaseFrame.astro` and
-`static-web/src/lib/sharedNavigation.mjs`. Skills is an example of reusing this
-shell with task-specific geometry, not a second visual authority.
+`KIAN_UI_PREFERENCES.md` owns accepted **KianOS visual requirements + bounded preference evidence**, not Kian's general personal preference truth.
 
-Use the existing shell and tokens for an integrated UI candidate. Standalone HTML
-may explore an interaction, but is not proof of site integration. Navigation levels
-express ownership, not a requirement to display three navigation bars. Verify the
-actual route registry before calling a proposed destination shipped.
-
-Do not load unrelated subject content to change shared presentation, and do not load broad governance to change one bounded surface.
+Material UI change still inherits BUILD change continuity. Accepted surface geometry is not reopened merely because CSS/component code is being refactored.
 
 ## CONTROL
 
-Use root `CURRENT.md` as the **single control entrypoint**, then route into only the lane/orchestrator owners needed for the requested status or decision.
-
-### Unified task dispatch
-
-Natural-language control requests should resolve automatically.
-
-Examples:
-
 ```text
-“看看西综主线”
-→ root CURRENT
-→ content/xizong/CURRENT.md
-→ content/xizong/CONTENT_MAINLINE.md
-→ read exact active task cursors needed to report the current task set
-
-“看看西综 UI”
-→ root CURRENT
-→ content/xizong/CURRENT.md
-→ active Xizong UI owner / branch state
-
-“开始 D”
-or, after a task list, “开始第一个”
-→ re-read the selected task's exact CURRENT/cursor
-→ read only the minimum required Contract / Acceptance / canonical owner
-→ execute the task
-```
-
-The user should not need to remember file names, branch names, issue numbers, stage codes, or repository paths.
-
-### Task ownership and update propagation
-
-Do not duplicate exact task state into Root Control.
-
-```text
-exact task CURRENT / cursor
-→ owns exact “where are we / what next”
-
-program mainline / orchestrator
-→ owns lane priority, dependency and active-task set
-
 root CURRENT
-→ owns cross-program visibility and routing only
+→ exact program/domain Current
+→ PROJECT_MANAGEMENT_CONTRACT.md when coordination/execution policy matters
+→ exact task owner
 ```
 
-### Task creation is persistent
+Detailed task dispatch, GitHub Issue/Codex execution, Remote usage, batching, cursor atomicity, context budget and reporting discipline live in
+[PROJECT_MANAGEMENT_CONTRACT.md](PROJECT_MANAGEMENT_CONTRACT.md), not here.
 
-When Kian explicitly asks to create / add / queue a project task, the task does not exist merely because Chat acknowledged it.
-
-```text
-create task request
-→ resolve the narrow program / lane owner
-→ write the task into the existing program mainline / exact CURRENT owner
-→ commit it
-→ only then report “created”
-```
-
-Use the narrowest existing owner that can represent the task. Do not create a new task registry, issue type or governance layer merely to store it.
-
-Typical routing:
-
-```text
-new task inside an existing active lane
-→ exact lane CURRENT / cursor
-
-new queued task that changes a program's active/next task set
-→ program mainline / orchestrator
-
-cross-program task or priority that genuinely changes the whole project
-→ root CURRENT in addition to the exact/program owner
-```
-
-Do not create a GitHub Issue by default just because something is called a task. Use the existing Current/Mainline owner unless Issue tracking has a separate real purpose or Kian asks for an Issue.
-
-If persistence fails, say the task was **not created**. Never claim a durable task from Chat memory alone.
-
-### Chat → GitHub → Codex execution envelope
-
-Use a GitHub Issue **only when an external Codex/local executor is genuinely useful** after Chat has already resolved the semantic/product decision. The Issue is an execution envelope, not a second task registry and not a new semantic owner.
-
-Good uses:
-- local/browser/binary work Chat cannot directly execute;
-- a bounded implementation whose decisions are already fixed;
-- repetitive mechanical repository work;
-- one task that should continue without keeping the originating Chat alive.
-
-Do not create an Issue merely because work exists. If Chat itself can complete the bounded repository change safely in the active turn, use the normal exact owner.
-
-When delegating, Chat creates one Issue titled:
-
-`Codex execution: <bounded task>`
-
-The body must also contain the machine marker:
-
-`<!-- kian-codex-task:v1 -->`
-
-Optional execution markers are deliberately tiny:
-
-```text
-<!-- kian-codex-runtime:local -->          # only when the task must touch this Mac / localhost / LaunchAgent / private local state
-<!-- kian-codex-model:sol -->              # reasoning-heavy task; Terra is the default
-<!-- kian-codex-model:astra -->
-<!-- kian-codex-astra-approved-by-kian:v1 -->  # required together; Chat must obtain Kian approval first
-```
-
-Do not silently escalate to Astra. Terra / Sol may be chosen by Chat from task difficulty and expected ROI; Astra requires an explicit Kian-facing notice and approval before the Issue is made actionable.
-
-The body should contain only the execution-relevant context:
-
-```text
-Goal
-Current start point / exact owner
-Decisions already made by Chat
-Write-set
-Must preserve / must not change
-Proof required
-STOP / return-to-Chat conditions
-Merge / Human-Gate boundary
-Return receipt
-```
-
-The canonical semantic/task state still lives in the existing Current/Mainline owner. If creating the delegated task materially changes that owner's active/next task set, update that owner in the same Chat-side dispatch. The Issue does not replace it.
-
-Codex execution lifecycle:
-
-```text
-GitHub Issue
-→ re-read main@HEAD + AGENTS.md + static-web/CURRENT.md + exact owner
-→ create temporary codex/issue<N>-<slug> branch/worktree
-→ execute only the bounded write-set
-→ update result + exact cursor atomically when durable state changes
-→ open PR with machine/browser proof and "Closes #N"
-→ merge only when current owner / Human Gate permits
-→ verify accepted result on fresh main@HEAD
-→ remote Branch Hygiene retires merged branch
-→ local hygiene retires safe local codex branch/worktree
-→ compact receipt
-```
-
-Codex must not:
-- treat the Issue text as authority over newer Current truth;
-- broaden scope because another defect is nearby;
-- force-push over concurrent work;
-- keep a completed temporary branch/worktree merely as history;
-- delete a dirty/unmerged/local-only worktree to make cleanup look green.
-
-Compact completion receipt:
-
-```text
-DONE / BLOCKED
-final main state
-PR
-proof
-deviation / remaining blocker (only if any)
-```
-
-No long implementation diary is required.
-
-Local cleanup command after accepted merge:
-
-`npm --prefix static-web run codex:hygiene:apply`
-
-It may delete only local branches matching `codex/issue<digits>-*` when the remote branch is already gone, the exact Issue is `CLOSED/COMPLETED`, an exact-head PR for that branch is merged, and any attached worktree is clean. The local tip must either already be contained in `origin/main` or exactly match the merged PR head (safe squash-merge case). Everything else is skipped fail-closed.
-
-#### Low-cost local trigger + Codex executor
-
-Do **not** wake a model merely to discover that the GitHub queue is empty.
-
-Normal trigger / executor routing:
-
-```text
-lightweight LaunchAgent watcher (default every 5 minutes; no model)
-→ read open marked `Codex execution:` Issues + open PR heads
-→ no new actionable task = quiet exit, zero model invocation
-→ persist and read back the bounded execution claim
-→ one local Codex attempt for one task body
-→ validate the bound PR_READY / BLOCKED result and exact GitHub readback
-→ stop; accepted merge/closure and safe hygiene remain owner-controlled
-```
-
-The watcher owns only execution claim/deduplication metadata. Chat owns which task exists, its scope and any decision to resume it. Automatic Cloud dispatch and Cloud-to-local fallback are disabled; a configured Cloud environment does not enable them.
-
-Attention / model defaults:
-- Terra / medium is the default local executor; Chat may choose Sol / medium for worthwhile reasoning-heavy work;
-- Astra requires both the request marker and Kian's explicit approval marker; an unapproved request is blocked once and must not starve ordinary tasks;
-- only one watcher/executor dispatch may run at a time; network commands and the owned executor process group have bounded deadlines;
-- an unchanged task body receives at most **one model attempt**, with no automatic retry, cooldown reawakening or model escalation; comments and timestamp changes do not reset the budget, and `--force` does not bypass it;
-- a changed task body may receive a new bounded attempt only after Chat has resolved the scope; mutation detected during execution and legacy attempted tasks require explicit reconciliation rather than silent retry;
-- persist the claim before any dispatch. An orphaned claim whose owned process group is confirmed gone becomes BLOCKED once; the same task is not retried and unrelated work may proceed;
-- a live process group or unknown dispatch remains protected. Chat/Engineering reconciles the existing state and receipts; Kian is not asked to operate locks, rearm markers or queue metadata;
-- accept only the structured result bound to this issue, run ID and task digest. PR_READY requires the exact open PR head; it is not DONE, accepted work or learner completion. Exit zero, an existing branch and an issue timestamp change are not results;
-- publish only bounded allowlisted result fields and exact proof links, never arbitrary stdout/stderr or credential material;
-- if upkeep or allowance exceeds the waiting/attention saved, use on-demand execution instead of adding another controller.
-
-Keep the retired hourly model-based queue poller disabled. Do not re-enable it as a fallback or create a second trigger.
-
-On a STOP condition, return the bounded BLOCKED reason and existing proof pointers. The watcher persists/readbacks the result when possible; write failure remains unproven and must not trigger another model attempt. Do not invent a substitute, generate follow-up tasks or ask Kian to collect logs. Return control to Chat.
-
-The executor does not decide which engineering work should exist, rewrite priority, auto-merge/deploy, mutate learner state or turn the backlog into automatic work.
-
-### Task result / cursor atomicity
-
-When work advances:
-
-1. update the **task artifact/result and its exact CURRENT/cursor in the same active branch / PR**;
-2. do not claim the stage complete if the result changed but the cursor still points to the old next action;
-3. update the program mainline only when lane stage / priority / dependency materially changes;
-4. update root `CURRENT.md` only when the cross-program snapshot materially changes.
-
-If a program mainline names an active branch / PR for the selected task, read the exact task cursor from that active ref. Do not silently fall back to `main`.
-
-If the active ref is missing or its expected cursor cannot be resolved, fail closed and report **task cursor unresolved** instead of reconstructing progress from Chat history.
-
-Therefore a fresh control request should **read through the owner chain and active ref when one is named**, not trust a stale copied Root summary when a child cursor has moved.
-
-Normal target after scope resolution:
-
-> **roughly 2–3 precise reads before effective work; 4 only when the task genuinely crosses an authority boundary.**
-
-If a known-scope task routinely needs broad repository search, history archaeology or many unrelated documents, treat that as a routing/ownership defect.
+Branch retirement lives in [BRANCH_LIFECYCLE.md](BRANCH_LIFECYCLE.md).
+Concurrent-main validity lives in [SEMANTIC_BASE_VALIDITY.md](SEMANTIC_BASE_VALIDITY.md).
 
 ---
 
-### Remote Desktop Commander: batch mechanical work, keep judgment in Chat
+# 3｜Permanent operating boundaries
 
-Remote is a local execution transport, not a second semantic owner.
-
-Use it only when the task needs local truth or local capability: worktrees, files, localhost/runtime, binary material, bulk mechanical transforms, validators, builds, or a bounded local executor. Public-web research should stay on Web when Web can do it; GitHub remains canonical for repository truth.
-
-Default operating shape:
+Keep these truth classes distinct:
 
 ```text
-Chat / Sol decides what must be understood or changed
-→ one bounded Remote evidence/snapshot phase
-→ Chat / Sol makes semantic decisions
-→ one bounded Remote apply phase when needed
-→ one bounded Remote verify/readback phase
+Artifact Truth
+Acceptance Truth
+Learner / Execution Truth
+Work Cursor
+Derived Read Model
+Presentation
 ```
 
-Do not turn one bounded phase into a long series of tiny Remote calls when the same mechanical work can be safely bundled. In particular:
+One fact has one canonical owner. Other layers reference, derive, adapt or refine it.
 
-- prefer one repo snapshot over separate HEAD / branch / status / upstream / worktree queries;
-- prefer one bounded evidence packet over repeated grep/read/grep/read loops;
-- compose coherent content/mutation batches in Chat before writing instead of write-per-unit;
-- reuse existing materializers, validators, QA and build commands instead of creating another runner framework;
-- start a long local process once. Use a long blocking read or one later status read; do not busy-poll PID / `ps` / temp files every few seconds;
-- keep full logs on disk and return compact status/tails first. Read full logs only for a failure or a real diagnostic need;
-- after an interrupted Chat, inspect current Git/local state and recent Remote call history when available before repeating a mutating action.
+For ownership/inheritance, derived freshness, Current-vs-History and closure consistency, use
+[AUTHORITY_INHERITANCE_CONTRACT.md](AUTHORITY_INHERITANCE_CONTRACT.md).
 
-Thin helpers exist only to reduce transport chatter:
+Hard defaults:
 
-```bash
-npm run remote:snapshot -- --repo <worktree>
-npm run remote:packet -- --repo <worktree> [--file PATH] [--range PATH:START:END] [--scope DIR --grep REGEX]
-npm run remote:verify -- --repo <worktree> --cmd '<existing validator/build command>' [--cmd '...']
-```
-
-These helpers may collect, execute and summarize. They must not decide medical meaning, learner state, product policy, acceptance, task priority, or whether a semantic relation is safe.
-
-Use a helper only when it is cheaper than the direct operation. One simple local command should remain one simple local command.
-
-# 3｜Truth boundaries
-
-Keep these distinct:
-
-```text
-Artifact Truth    what actually exists
-Acceptance Truth  what current evidence proves
-Learner Truth     what Kian has actually learned/done
-Work Cursor       what an engineering worker should do next
-```
-
-Hard rule:
-
-> **Artifact ≠ Acceptance ≠ Learner; Work Cursor manufactures none of them.**
-
-A build PASS does not mean learning-ready. Engineering readiness does not mean Kian studied it. A learner Resume does not become repository engineering Current.
+- current canonical authority outranks stale Chat/history;
+- independent scopes proceed independently;
+- one blocker freezes only its real dependency chain;
+- ordinary work changes only the owner that owns the requested effect plus the smallest required acceptance/cursor update;
+- GitHub is repository truth; Remote is local execution transport only;
+- do not create another Contract/registry/router/ledger when an existing owner or smaller repair is enough;
+- history/retired assets are not normal fallback;
+- missing evidence degrades only the dependent claim;
+- implementation/build success never manufactures learner or personal truth.
 
 ---
 
-# 4｜Current-first applies to engineering continuation
+# 4｜Context discipline
 
-For BUILD/UI work, current canonical authority outranks stale Chat narrative.
+Context is a working set, not a log sink.
 
-```text
-engineering continuation
-→ target CURRENT
-→ exact Current owner(s)
-→ work
-```
+Known-scope work should normally reach the responsible owner in roughly **2–3 precise reads**. More reads are justified only by real evidence/authority boundaries, not by repository size.
 
-If Current says the old blocker is closed or the scope moved, do not continue the old Chat narrative.
-
-For LEARN, resume from real learner/runtime evidence instead. Do not reinterpret a bare “continue” as the latest engineering cursor.
-
-History, retired branches, old Issues, old repositories and prior implementation snapshots are not normal Current fallback. Use them only for a bounded recovery/history/rollback task.
-
----
-
-# 5｜Ownership, dependency and containment
-
-One responsibility has one canonical owner. Lower scopes may refine inherited rules but must not duplicate or contradict them.
-
-Scheduling follows real dependency, not hierarchy:
-
-```text
-no real dependency → proceed independently
-real dependency    → name the narrow owner and freeze only the affected chain
-```
-
-A cross-scope defect may be reported or escalated. It is not permission to repair unrelated siblings.
-
-When a subject task finds a shared-platform blocker:
-
-```text
-subject worker records the blocker
-→ shared owner fixes it in its own bounded scope
-→ subject receives only the closure result
-→ subject revalidates the affected slice
-```
-
-Do not drag another owner's debug history, CI logs or artifact archaeology into the blocked subject Chat.
-
----
-
-# 6｜Minimal writes
-
-Ordinary work changes only the owner that actually owns the requested effect plus the smallest required acceptance/cursor update.
-
-Examples:
-
-```text
-content wording / KP / relation
-→ canonical content owner
-
-shared typography / radius / color primitive
-→ shared visual owner
-
-Politics Natural Unit geometry
-→ Politics surface owner
-
-one-page exceptional overflow
-→ exact page/surface owner
-```
-
-Do not update root governance or parent routers merely to record local progress.
-
-`main` advancing for unrelated work is not a blocker. Reconcile only for real write-set overlap, authority change, inherited-rule change or newly discovered dependency.
-
----
-
-# 7｜No new governance by default
-
-Before adding a Contract, registry, router, Current type, validator, migration layer or permanent abstraction, first try to simplify or reuse an existing owner.
-
-A new durable governance object is allowed only when the existing owner model cannot represent a recurring real responsibility without ambiguity or duplication.
-
-Hard default:
-
-> **Execution friction → simplify the narrow owner first; do not answer with another governance layer.**
-
----
-
-# 8｜Substantial-work context pack
-
-For genuinely cross-layer or risky work, compress the required context before implementation:
+For substantial cross-layer work, compress the basis to:
 
 ```text
 Goal
@@ -566,108 +174,48 @@ Write-set
 Success / stop condition
 ```
 
-Carry this compressed context, not the full text of every upstream document.
+Then carry that compressed basis instead of upstream documents, CI logs, branch history or unrelated sibling state.
 
-For ordinary known-scope work, do not manufacture a Context Pack ceremony.
+A long Chat is not permission to restart. Re-ground from current owners and the durable cursor.
 
 ---
 
-# 9｜Plain-language reporting
+# 5｜Verification and stop
 
-Engineering complexity stays in the backend unless Kian asks for it.
+Use the smallest proof that can establish the requested effect:
 
-Normal progress reporting answers only what matters:
+```text
+exact owner read
+→ bounded mutation
+→ affected-owner / real-dependency verification
+→ durable readback
+→ stop
+```
+
+Do not run a full-repository audit/build/browser gate for a routine local change unless its current owner or actual defect requires it.
+
+For learner-facing visual changes, use representative real-surface proof and the applicable Human Gate. For semantic/domain changes, engineering green is not semantic acceptance.
+
+Normal reporting is outcome-level:
 
 ```text
 现在在哪
-已经完成什么
+完成了什么
 真实 blocker（没有就说没有）
 下一步
 是否需要 Kian 做什么
 ```
 
-Do not expose branch mechanics, CI archaeology, CSS specificity or long SHA lists unless they materially affect a decision.
-
-For CONTROL/status reporting, prefer the compact shape:
+# 6｜Compact rule
 
 ```text
-Stage
-Next
-Blocker
-Owner
-Human Gate (when relevant)
-```
-
----
-
-# 10｜Compact operating rule
-
-```text
-understand Kian's intent
-→ resolve the narrow scope
-→ read the minimum current owner set
+understand intent
+→ resolve narrow scope
+→ read minimum Current owners
 → preserve upstream semantics
-→ do the smallest correct work
-→ prove the requested real effect
+→ do smallest correct work
+→ prove requested real effect
 → stop
 ```
 
-KianOS succeeds when fresh Chats restart quickly and normal changes are cheap—not when workers can recite the repository's governance history.
-
-## Anti-stall batch execution discipline — ACTIVE
-
-Marker: `KIANOS_ANTI_STALL_BATCH_EXECUTION_V1`
-
-Long-running BUILD / CONTROL work must optimize for **few high-information repository operations**, not a diary of tiny reads/writes.
-
-Default execution shape:
-
-```text
-current-first narrow read
-→ compact batch extraction
-→ one staging/write bundle
-→ one derived rebuild / expensive CI trigger when possible
-→ one bounded readback
-→ final result
-```
-
-Hard rules:
-
-1. **Batch remote reads.** Prefer one compact owner/matrix/manifest extraction over dozens of serial per-file round trips. If many owners must be inspected, return only the fields needed for the decision; do not dump full large JSON objects into Chat unless the full object is itself the task.
-2. **Batch writes.** When a task changes many bounded files under one already-decided scope, stage the semantic decisions first and land them in as few commits/triggers as practical. Do not trigger an expensive derived build after each tiny edit.
-3. **Do not use Chat context as a log sink.** Large machine outputs, full catalog rows, long diffs and repeated workflow payloads should stay in GitHub/artifacts. Surface only compact counts, findings, changed owners and exact blockers.
-4. **No high-frequency CI polling.** After triggering a workflow, do not repeatedly request the same status while nothing has changed. Inspect the run once, then re-read only for a meaningful state transition, a specific failing job, or the final merge decision. Never create a tight status-poll loop.
-5. **Separate semantic work from mechanical transport.** Once the semantic/product decision is fixed, prefer the repository's existing mechanical executor/materializer for repetitive JSON transport/rebuilds. Chat should not manually walk every derived file unless the executor is defective.
-6. **One expensive derived rebuild per coherent batch by default.** Rebuild again only after a real reconciliation mutation, not after documentation/receipt-only commits.
-7. **Compact verification.** Verify the smallest decisive surface: changed owners + shared dependencies + derived manifest/count + targeted gates. Do not re-read unchanged frozen inputs merely because the Chat is long.
-8. **Long Chat is not permission to restart.** If context becomes heavy, re-ground from current GitHub truth and continue from the exact durable cursor. Do not repeat completed A/C review, accepted Human Gates, or previously closed batches just to reconstruct context.
-9. **If a tool call is too large, reduce payload—not correctness.** Split by meaningful batch boundary or extract only needed fields; do not fall back to one-file-at-a-time chatter.
-10. **User updates stay outcome-level.** Report real findings, phase transitions and blockers. Do not narrate every low-level fetch, commit, workflow status or retry.
-
-Exception: a safety-critical or identity-sensitive mutation may require smaller fail-closed steps. Even then, minimize repeated remote calls and keep durable receipts in GitHub.
-
-
----
-
-## Hot-path verification budget
-
-Routine content production must optimize for bounded correctness, not repository-wide reassurance.
-
-For canonical content changes:
-
-```text
-exact owner read
-→ bounded mutation
-→ changed-owner / dependency QA
-→ durable commit
-→ continue production
-```
-
-Hard rules:
-
-- GitHub is the default repository truth and write surface; do not route ordinary GitHub reads/writes through Remote Desktop Commander.
-- Remote is reserved for local-only capability: worktrees, localhost, builds, processes, binary/local files, or a bounded local executor.
-- A routine semantic window must not run full-repository audits, full learner-object materialization, full Astro builds, or browser acceptance unless the exact current owner declares that window a checkpoint or a renderer/runtime defect requires it.
-- Long validators run once at their declared checkpoint. Do not duplicate the same proof in Chat, Remote, PR CI, and post-merge CI.
-- Website delivery follows merged `main` asynchronously through Current. Content production does not wait for Current/Astro completion before beginning the next independent semantic window.
-- If a cheap targeted validator and a historical full validator disagree about whether the full validator belongs on the hot path, the current domain owner decides; historical workflow existence is not authority.
+KianOS succeeds when fresh Chats restart quickly and normal changes stay cheap—not when every worker loads the repository's governance history.
