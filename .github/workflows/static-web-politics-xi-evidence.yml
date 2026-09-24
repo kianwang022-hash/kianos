@@ -1,17 +1,26 @@
-name: Politics Xi Evidence Journey
+name: Politics Xi Acceptance
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
-      - 'content/politics/**'
+      - 'content/politics/learning/xi/**'
       - 'static-web/src/components/Politics*.astro'
       - 'static-web/src/lib/politics*.mjs'
       - 'static-web/src/pages/politics/**'
       - 'static-web/scripts/audit-politics-xi-evidence.mjs'
-      - 'static-web/scripts/test-politics-xi-evidence.mjs'
+      - 'static-web/scripts/test-politics-subject-workbench-journey.mjs'
       - '.github/workflows/static-web-politics-xi-evidence.yml'
-  workflow_dispatch:
-
+  push:
+    branches: [main]
+    paths:
+      - 'content/politics/learning/xi/**'
+      - 'static-web/src/components/Politics*.astro'
+      - 'static-web/src/lib/politics*.mjs'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/scripts/audit-politics-xi-evidence.mjs'
+      - 'static-web/scripts/test-politics-subject-workbench-journey.mjs'
+      - '.github/workflows/static-web-politics-xi-evidence.yml'
 permissions:
   contents: read
 
