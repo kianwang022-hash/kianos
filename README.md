@@ -1,16 +1,27 @@
 # KianOS
 
-KianOS is the clean Current repository for learning content and the Astro learner runtime.
+KianOS is Chat's durable **knowledge + visual + runtime + reality-feedback** product extension for Kian. It exists where durable assets, high-quality presentation, stateful interaction or real-use evidence add value beyond ordinary Chat.
 
 The active model is intentionally small:
 
-`Source Truth → Chat-approved GitHub Current content → Astro learner UI → local learner state`
+```text
+Chat / accepted Rule
+→ GitHub canonical Rule + Content + Visual
+→ Engineering / Runtime
+→ Product / Website
+→ private real-use evidence when applicable
+→ Chat
+```
 
-- `content/` owns shared editable learning content.
-- `static-web/` owns learner-facing UI and interaction.
-- learner state stays outside shared content and is local-only.
+- `content/` owns durable Knowledge / learning Content that has earned canonical asset status.
+- `static-web/` owns shared/product Visual, website implementation and Runtime surfaces.
+- private learner/execution state stays outside shared canonical Content.
+- raw PDFs, videos, transcripts and other unprocessed references normally remain in Drive / Library / Files / original sources until a real KianOS need justifies Knowledge reconstruction.
+- formal learning assets keep their full Source → Knowledge → Learning Logic → Content → Visual/Runtime quality chain.
 - `EXAM_ORCHESTRATOR_CONTRACT.md` owns cross-subject exam scheduling, hard Gates, capacity arbitration, score-closure, and material-refresh timing; it does not replace subject-local learning or learner truth.
 - `kianwang022-hash/kianos-legacy` is recovery/reference only and is never a normal input.
+
+Chat is the open-ended cognition layer. KianOS Runtime may execute bounded approved logic and return reality evidence, but does not silently become a second strategy brain.
 
 ## Where to start
 
