@@ -1,13 +1,6 @@
 name: Xizong Fresh Independent Acceptance
 on:
-  push:
-    branches: [work/xizong-final-learner-20260919-independent, work/xizong-typed-chat-return-20260919]
-    paths:
-      - '.github/workflows/xizong-final-independent.yml'
-      - 'static-web/src/**'
-      - 'static-web/scripts/test-xizong-final-*.mjs'
-      - 'content/xizong/knowledge/**'
-      - 'content/xizong/projection/**'
+  workflow_dispatch:
   pull_request:
     branches: [main]
     paths:
