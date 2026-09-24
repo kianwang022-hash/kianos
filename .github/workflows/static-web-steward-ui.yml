@@ -1,0 +1,58 @@
+name: Steward UI Browser
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'static-web/src/pages/steward/**'
+      - 'static-web/src/styles/steward-workspace.css'
+      - 'static-web/src/lib/stewardWorkspaceClient.mjs'
+      - 'static-web/src/lib/sharedNavigation.mjs'
+      - 'static-web/src/layouts/BaseFrame.astro'
+      - 'static-web/scripts/test-steward-ui-browser.mjs'
+      - '.github/workflows/static-web-steward-ui.yml'
+  pull_request:
+    paths:
+      - 'static-web/src/pages/steward/**'
+      - 'static-web/src/styles/steward-workspace.css'
+      - 'static-web/src/lib/stewardWorkspaceClient.mjs'
+      - 'static-web/src/lib/sharedNavigation.mjs'
+      - 'static-web/src/layouts/BaseFrame.astro'
+      - 'static-web/scripts/test-steward-ui-browser.mjs'
+      - '.github/workflows/static-web-steward-ui.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: steward-ui-\${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        run: npm install --no-audit --no-fund
+      - name: Install isolated Chromium
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Prove Steward UI journey
+        run: node scripts/test-steward-ui-browser.mjs
+      - name: Upload Steward UI evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: steward-ui-\${{ github.sha }}
+          path: steward-ui-audit/
+          retention-days: 14
