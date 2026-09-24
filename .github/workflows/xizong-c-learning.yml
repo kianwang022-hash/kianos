@@ -1,0 +1,54 @@
+name: Xizong C Learning
+
+on:
+  pull_request:
+    paths:
+      - 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning.json'
+      - 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning/**'
+      - 'content/xizong/knowledge/systems/c-hematology-immunity-infection/**'
+      - 'static-web/scripts/validate-xizong-c-learning.mjs'
+      - 'static-web/scripts/validate-xizong-c-learning-semantic-contracts.mjs'
+      - 'static-web/scripts/validate-xizong-learning-owner-lifecycle.mjs'
+      - '.github/workflows/xizong-c-learning.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning.json'
+      - 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning/**'
+      - 'content/xizong/knowledge/systems/c-hematology-immunity-infection/**'
+      - 'static-web/scripts/validate-xizong-c-learning.mjs'
+      - 'static-web/scripts/validate-xizong-c-learning-semantic-contracts.mjs'
+      - 'static-web/scripts/validate-xizong-learning-owner-lifecycle.mjs'
+      - '.github/workflows/xizong-c-learning.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: xizong-c-learning-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate C canonical Learning structure
+        run: node static-web/scripts/validate-xizong-c-learning.mjs
+
+      - name: Validate C semantic contracts
+        run: node static-web/scripts/validate-xizong-c-learning-semantic-contracts.mjs
+
+      - name: Validate Xizong live Learning-owner lifecycle
+        run: node static-web/scripts/validate-xizong-learning-owner-lifecycle.mjs
+
+      - name: Confirm QA is read-only
+        run: git diff --exit-code
