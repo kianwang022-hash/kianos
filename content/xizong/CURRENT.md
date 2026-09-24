@@ -7,25 +7,25 @@ This file does not own medical Knowledge, Learning Logic, Acceptance Truth, lear
 
 Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and machine-registered in AUTHORITY_OWNERSHIP.json; Xizong consumes those owners and does not fork them.
 
-## Current state
+## Current routing
 
-- Final learner acceptance engineering is **CLOSED / RETIRED**. Exact result: ACCEPTANCE.md.
-- Broad D/E/F medical-content construction and A1-F exact System-question membership are closed in CONTENT_MAINLINE.md; do not duplicate their status here.
-- **27 Biochemistry lifecycle owner:** `content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json`. This router does not mirror its lifecycle enum. Canonical hierarchy remains System → Block → Logic Group → KP; Biochemistry is Source/Learning-execution-specialized only.
-- **27 Surgery lifecycle owner:** `content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json`. This router does not mirror its lifecycle enum. Current Surgery Source is `27外科精编版【带导图】.pdf`; 38/38 Source units route through existing System → Block → Logic Group → KP owners.
-- Unified Question SECOND_PASS explanation construction is **CLOSED** for the current 2005–2026 corpus. The broad Question → Knowledge review/storage campaign is also closed, but Current Crosswalk consumption is revision-freshness-gated: stored `REVIEWED` rows whose Knowledge witness no longer matches Current become `STALE_REVIEW_WITNESS` / needs re-review and are excluded until revalidated. Do not treat the stored reviewed count as Current-admissible coverage. Reopen only the affected relation for a real Knowledge/Source revision or defect; an explicit new corpus may open a new bounded program.
-- Subject maturity cursor is **Stage B — first-pass learner capability / Real-U acquisition**. MATURITY_PACKAGE.md owns the 270-protect / 275-working-score control path.
-- Real learner U remains private real-use truth and is not manufactured by engineering proof.
-- Known Source limit: B1 KP03 still references two authoritative original PNGs whose bytes are unavailable. Keep those figures UPSTREAM_SOURCE_MISSING; never generate or substitute them.
+- Ordinary Xizong learning bypasses this engineering cursor and uses the native learning/runtime path.
+- Subject maturity / 270–275 questions route to `MATURITY_PACKAGE.md`; its current stage, calibration and acceptance claims are not mirrored here.
+- Content construction, Question→Knowledge work and content defects route through `CONTENT_MAINLINE.md` and then the smallest exact owner.
+- 2027 Biochemistry and Surgery revisions route only to their exact lifecycle/Source owners when that lifecycle is actually relevant; this router does not restate their enum, closure or acceptance.
+- Question/Crosswalk freshness and re-review behavior belongs to the exact relation owner/validator, not this cursor.
+- Acceptance/readiness questions route to `ACCEPTANCE.md` or the exact System Acceptance owner.
+- Real learner U remains private real-use truth and is never inferred from engineering proof.
 
 ### Next
 
-real Stage-B study
-→ if an explicitly active bounded content program is later created, route through CONTENT_MAINLINE.md
-→ concrete defect or authoritative new Source appears
-→ reopen the smallest exact owner
+real Xizong study
+→ or an explicit bounded BUILD/CONTROL request
+→ route to the exact owner above
+→ repair/construct only the affected scope
+→ stop after targeted proof
 
-Do not restart Final Learner Acceptance, broad UI migration, or closed medical-content construction because historical branches or receipts exist.
+Historical campaigns, branch receipts and prior closure narratives are not continuation authority.
 
 ## Route by need
 
