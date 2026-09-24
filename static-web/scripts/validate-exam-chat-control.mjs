@@ -149,7 +149,9 @@ try {
   olderPlanRejected = String(error?.message || '') === 'CHAT_PLAN_OLDER_THAN_CURRENT';
 }
 if (!olderPlanRejected) fail('OLDER_SAME_DAY_PLAN_MUST_NOT_OVERWRITE_CURRENT');
-if (readExamChatPlan(evidenceStorage, '2026-09-18').plan?.generated_at !== e0Plan.generated_at) {
+const currentAfterOlderReject = readExamChatPlan(evidenceStorage, '2026-09-18').plan;
+if (!currentAfterOlderReject
+    || Date.parse(currentAfterOlderReject.generated_at) !== Date.parse(e0Plan.generated_at)) {
   fail('OLDER_PLAN_REJECTION_MUST_PRESERVE_CURRENT');
 }
 
