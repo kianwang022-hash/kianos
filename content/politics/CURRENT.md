@@ -7,22 +7,23 @@ This file does not own Source, Knowledge, Learning semantics, Acceptance Truth, 
 
 Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and machine-registered in AUTHORITY_OWNERSHIP.json; Politics consumes those owners and does not become their durable owner.
 
-## Current state
+## Current routing
 
-- Whole-cycle maturity engineering is **CLOSED** at the shared mother-standard SYSTEM_LOGIC_ACCEPTED boundary. Current package: MATURITY_PACKAGE.md; fresh independent result: MATURITY_FRESH_INDEPENDENT_AUDIT.md.
-- Audited first-round learner paths are **CLOSED**. Exact path-level Acceptance Truth lives in ACCEPTANCE.md; do not reproduce its evidence ledger here.
-- KIAN_SPECIFIC_CALIBRATED remains **REAL-U gated**. Synthetic/browser proof does not become learner progress.
-- Current-year exact formulations, current affairs, Xiao8/Xiao4 and final Mock authority remain **Source gated** until the real annual Source arrives.
-- Cross-day Memory evidence is already supported. Xiao1000 Wrong/Uncertain Review is already durable enough for normal use.
-- Fixed Politics-only spaced-repetition cadence, mastery/priority score, second recovery stack, and second scheduler remain rejected architecture; do not recreate them without contrary real-use evidence.
+- Ordinary Politics learning bypasses this engineering cursor.
+- Whole-cycle maturity questions route to `MATURITY_PACKAGE.md`; its current maturity/calibration verdict is not mirrored here.
+- Acceptance/readiness questions route to `ACCEPTANCE.md` or the exact child Acceptance owner.
+- Current-year formulations, current affairs, Xiao8/Xiao4 and final-Mock work begin only through their exact admitted Source/later-stage owner; this router does not maintain a second Source-readiness status.
+- Learner progress and cross-day evidence remain private/native learner truth.
+- Politics-specific Learning/Interaction contracts own the durable learning model; this cursor does not recreate a second scheduler, cadence or scoring model.
 
 ### Next
 
 real Politics study
-→ real annual Source / authentic-modality evidence / concrete defect
-→ reopen only the smallest exact owner
+→ or an explicit Source/content/product/runtime defect or BUILD/CONTROL request
+→ route to the smallest exact owner
+→ stop after targeted proof
 
-Broad maturity construction, first-round re-auditing, and speculative Politics-only infrastructure are not Current work.
+Historical maturity campaigns, first-round audit receipts and candidate branches are not Current work.
 
 ## Stable learning roles
 
