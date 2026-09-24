@@ -15,7 +15,7 @@ Current rules:
 - there is no active ordinal frontier, live batch, package queue, Human-Gate board, or review branch;
 - old batch manifests, receipts and completed review state are provenance only;
 - accepted lexical truth defaults to PRESERVE;
-- broad semantic re-review remains frozen by `FINAL_SEMANTIC_FREEZE.md`;
+- broad semantic re-review remains closed by the Current change guard in `CONTENT_ASSET_CONTRACT.md`;
 - maintenance reopens only for a concrete defect, admitted new Source, explicit new scope, or real learner evidence that exposes a concrete content/product defect.
 
 Current authority remains:
@@ -89,7 +89,8 @@ The following classes may remain because they are bounded provenance, not Curren
 - `execution/mutation-receipts/**`;
 - `execution/receipts/**`;
 - `execution/historical-routes.json`;
-- historical semantic-review / reconciliation evidence.
+- historical semantic-review / reconciliation evidence;
+- completed catalog-campaign control/protocol records under `audit/history/**`.
 
 Normal maintenance must not read these to discover “where to continue.” Git history remains the fallback for removed controller implementations and superseded runtime protocols.
 

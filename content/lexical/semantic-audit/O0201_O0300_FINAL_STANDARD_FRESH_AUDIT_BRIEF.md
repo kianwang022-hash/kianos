@@ -4,7 +4,7 @@ Status: READY_FOR_CLOSURE_AUDIT
 Candidate: `BF02`
 Candidate branch: `work/lexical-continuous-bf02-20260921`
 Candidate owner-read head: `cbe86b9f058f265d0b6042cdb467e97737933648`
-Semantic standard: `content/lexical/FINAL_SEMANTIC_FREEZE.md`
+Semantic standard: `content/lexical/audit/history/2026-09-final-catalog/FINAL_SEMANTIC_FREEZE.md`
 
 ## Mission
 

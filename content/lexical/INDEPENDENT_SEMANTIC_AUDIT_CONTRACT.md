@@ -2,7 +2,7 @@
 
 Status: **CURRENT · BOUNDED_MAINTENANCE**  
 Scope authority: `content/lexical/CURRENT.md`  
-Semantic ruler: `CONTENT_ASSET_CONTRACT.md` + `FINAL_SEMANTIC_FREEZE.md`
+Semantic ruler: `CONTENT_ASSET_CONTRACT.md`
 
 This file owns the independent semantic challenge method for a **bounded Lexical maintenance repair**. It is not a production campaign, batch scheduler, audit cursor, K-status mirror, or permission to reopen the 7,946-word catalog.
 
@@ -29,7 +29,7 @@ Do not widen scope by ordinal adjacency, an old batch boundary, a historical cur
 
 If a bounded audit reveals a credible repeated defect class outside the current write/read set, preserve the concrete finding, do not silently expand into a catalog campaign, identify only the smallest additional class supported by evidence, and require an explicit Current/scope decision before broadening beyond bounded maintenance.
 
-Broad semantic re-review remains frozen unless Kian explicitly revokes the final broad freeze.
+Broad semantic re-review remains closed unless a new explicit Current scope decision reopens a catalog-wide program.
 
 ## 3. Independent challenge
 
@@ -66,7 +66,8 @@ The following may remain as historical/acceptance evidence but are not Current w
 - `content/lexical/semantic-audit/**`;
 - `content/lexical/semantic-reconciliation/**`;
 - `content/lexical/audit/knowledge-reacceptance/**`;
-- prior full-catalog K acceptance artifacts.
+- prior full-catalog K acceptance artifacts;
+- completed catalog-campaign control/protocol records under `content/lexical/audit/history/**`.
 
 Normal fresh work starts from `CURRENT.md` and the exact Natural Owner, not from those directories.
 

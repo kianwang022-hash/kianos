@@ -4,7 +4,7 @@
 - Scope: `o0501–o0600`
 - Candidate branch: `work/lexical-continuous-bf05-final-20260921`
 - Candidate readback head: `4690918ee422b04593f63196b66080d17d515d81`
-- Semantic standard: `content/lexical/FINAL_SEMANTIC_FREEZE.md`
+- Semantic standard: `content/lexical/audit/history/2026-09-final-catalog/FINAL_SEMANTIC_FREEZE.md`
 
 ## Mission
 
