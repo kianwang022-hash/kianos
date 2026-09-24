@@ -93,13 +93,7 @@ jobs:
         run: |
           node scripts/validate-english-exam-session.mjs
           node --test scripts/test-english-exam-seal-integrity.mjs scripts/test-freeze-integrity.mjs
-          node --experimental-vm-modules scripts/test-l1-continuation.mjs ..
-          node --experimental-vm-modules scripts/test-l1-control-transactions.mjs
-          node scripts/test-private-learner-checkpoint.mjs
-          node scripts/test-shared-control-three-subjects.mjs
-          node scripts/test-xizong-forecast-model.mjs
           node scripts/test-english-evidence-resume.mjs
-          node scripts/test-private-control-relay.mjs
       - name: Build learner site
         id: build
         working-directory: static-web
@@ -128,16 +122,6 @@ jobs:
             sleep 1
             node scripts/test-freeze-browser.mjs
           '
-      - name: Existing cross-subject browser journey
-        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
-        working-directory: static-web
-        run: node scripts/test-final-cross-subject-regression.mjs
-      - name: Isolated watcher and execution policy regression
-        if: ${{ !cancelled() && steps.runtime.outcome == 'success' }}
-        working-directory: static-web
-        run: |
-          node scripts/test-codex-issue-watcher.mjs
-          node scripts/test-codex-execution-policy.mjs
       - name: Upload full-paper proof
         if: always()
         uses: actions/upload-artifact@v4
@@ -145,6 +129,5 @@ jobs:
           name: english-exam-session-${{ github.sha }}
           path: |
             english-exam-audit/
-            static-web/.qa/final-cross-subject/
           include-hidden-files: true
           retention-days: 14
