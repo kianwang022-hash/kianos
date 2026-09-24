@@ -58,6 +58,23 @@ try {
     const context = await browser.newContext({ viewport: { width: 1512, height: 820 } });
     await context.addInitScript(() => {
       const now = Date.now();
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Shanghai',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      }).formatToParts(new Date(now));
+      const year = parts.find((part) => part.type === 'year')?.value;
+      const month = parts.find((part) => part.type === 'month')?.value;
+      const day = parts.find((part) => part.type === 'day')?.value;
+      const studyDay = `${year}-${month}-${day}`;
+      const atShanghai = (hour, minute) => Date.parse(
+        `${studyDay}T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:00+08:00`
+      );
+      const todayXizongStart = atShanghai(9, 0);
+      const todayXizongEnd = atShanghai(10, 0);
+      const todayEnglishStart = atShanghai(10, 15);
+      const todayEnglishEnd = atShanghai(10, 45);
       const state = {
         schema: 'kianos.study-timer.v2',
         running: false,
@@ -76,8 +93,8 @@ try {
             id: 'steward-test-prev-xz',
             subject: 'xizong',
             context: { subject: 'xizong', route: 'test', detailKey: 'cardio', detailLabel: '循环系统' },
-            startedAt: now - 24 * 60 * 60 * 1000 - 95 * 60 * 1000,
-            endedAt: now - 24 * 60 * 60 * 1000 - 20 * 60 * 1000,
+            startedAt: todayXizongStart - 24 * 60 * 60 * 1000,
+            endedAt: todayXizongEnd - 24 * 60 * 60 * 1000,
             source: 'timer',
             excluded: false,
             edited: false
@@ -86,8 +103,8 @@ try {
             id: 'steward-test-prev2-pol',
             subject: 'politics',
             context: { subject: 'politics', route: 'test', detailKey: 'mainline', detailLabel: '一轮主线' },
-            startedAt: now - 48 * 60 * 60 * 1000 - 70 * 60 * 1000,
-            endedAt: now - 48 * 60 * 60 * 1000 - 10 * 60 * 1000,
+            startedAt: todayEnglishStart - 48 * 60 * 60 * 1000,
+            endedAt: todayEnglishEnd - 48 * 60 * 60 * 1000,
             source: 'timer',
             excluded: false,
             edited: false
@@ -96,8 +113,8 @@ try {
             id: 'steward-test-xz',
             subject: 'xizong',
             context: { subject: 'xizong', route: 'test', detailKey: 'respiratory', detailLabel: '呼吸系统' },
-            startedAt: now - 110 * 60 * 1000,
-            endedAt: now - 50 * 60 * 1000,
+            startedAt: todayXizongStart,
+            endedAt: todayXizongEnd,
             source: 'timer',
             excluded: false,
             edited: false
@@ -106,8 +123,8 @@ try {
             id: 'steward-test-en',
             subject: 'english',
             context: { subject: 'english', route: 'test', detailKey: 'reading', detailLabel: 'Reading A' },
-            startedAt: now - 45 * 60 * 1000,
-            endedAt: now - 15 * 60 * 1000,
+            startedAt: todayEnglishStart,
+            endedAt: todayEnglishEnd,
             source: 'timer',
             excluded: false,
             edited: false
