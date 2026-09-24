@@ -119,6 +119,96 @@ status or design. A handoff should resume from those owners without needing the
 originating Chat. If only a local candidate exists, say so; repository presence,
 live Project prompt installation and observed fresh-Chat behavior are different proofs.
 
+### 3.2 Change propagation and dependency freshness
+
+Change continuity answers **what must be understood before a change**. Change propagation answers **what becomes stale after a canonical owner changes**.
+
+Do not solve propagation with a hand-maintained global dependency graph by default. Prefer dependency edges that are already explicit in the consumer, import, manifest, schema or exact owner reference.
+
+Every material dependency must fit one of four modes:
+
+#### A. LIVE_REFERENCE
+
+The consumer resolves the canonical owner at use time and stores no competing semantic snapshot.
+
+```text
+owner changes
+→ next read/use sees Current
+```
+
+No revision witness is required unless the consumer also persists a derived decision that must later explain its basis.
+
+#### B. DERIVED_PROJECTION
+
+The consumer is mechanically derivable from one or more named owners.
+
+Freshness must be proved by either:
+
+- deterministic regeneration from Current owners; or
+- a validator that recomputes/compares the projection against the Current source on every relevant source/projection change.
+
+A Git SHA may be carried as provenance, but SHA equality is not required when semantic equivalence is mechanically checked from the Current owner. The projection must remain non-authoritative and independently edited semantic fields are invalid.
+
+#### C. REVIEWED_DERIVATION
+
+The consumer contains a human/Chat-reviewed semantic judgment that cannot be regenerated safely by syntax alone.
+
+It must keep distinct:
+
+```text
+stable upstream identity
+current upstream revision
+reviewed-against revision / provenance witness
+current review status
+```
+
+A blob/commit hash is a **revision witness**, never the semantic identity itself.
+
+When the upstream revision changes:
+
+```text
+no material dependency
+→ preserve consumer after bounded reconciliation
+
+possible material dependency
+→ consumer becomes stale / provisional
+→ exact semantic re-review
+→ preserve / revise / retire
+```
+
+Do not silently advance a review witness merely because the target identity stayed the same.
+
+#### D. BOUNDED_SNAPSHOT
+
+A plan, command, packet or current-day decision may intentionally freeze a momentary basis.
+
+It must carry enough identity/freshness information to reject stale replay: source/basis reference, revision or equivalent witness when material, generation time/study day, and expiry/reconciliation behavior as applicable.
+
+A bounded snapshot is execution state, not a new durable semantic owner.
+
+### 3.3 Current / history isolation and closure consistency
+
+Historical evidence may remain useful, but it must not participate in Current resolution.
+
+Allowed shapes include Git history, explicit archive/evidence owners, or fields whose semantics are unambiguously historical/provenance-only. A Current resolver/validator must ignore those fields as lifecycle authority.
+
+For any owner that declares a Current lifecycle, `CLOSED` is a hard state:
+
+```text
+CLOSED
+→ no live required next_action
+→ no live blocker required before closeout
+→ no live required acceptance still pending
+→ no live active concurrency/dependency claim
+```
+
+Historical `previous_*` / `historical_*` evidence may describe former pending work, but a Current consumer must never treat it as a live instruction.
+
+If one object needs a large implementation diary to explain how it became CLOSED, that diary belongs in Git history or bounded evidence—not in the Current control surface.
+
+The correct repair for contradictory Current state is to identify the single lifecycle owner and make other views derived/reference-only. Do not synchronize several writable lifecycle mirrors.
+
+---
 ## 4. Truth classes must not collapse
 
 These remain separate:
