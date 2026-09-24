@@ -40,6 +40,50 @@ teacher Source order
 ≠ official-question order
 ```
 
+## Architecture boundary｜Biochemistry is an execution specialization, not a second content architecture
+
+Biochemistry inherits the **same canonical hierarchy as every mature Xizong System**:
+
+```text
+System
+→ Block
+→ Logic Group
+→ KP
+```
+
+This scoped contract may specialize **how the Source is contacted, when local retrieval is released, how state reconstruction works, and how cross-System connections are timed**. It may not create another canonical level such as:
+
+```text
+Block → Layer → Logic Group / KP
+Block → pathway band → KP
+Source unit → canonical layer
+```
+
+A biochemical “mother model”, pathway family, state model or submodel is a **Framework / compression object** owned by the existing System or Block. If it groups the same KPs as an existing Logic Group, the Logic Group remains the canonical local learning unit; do not duplicate it with a second topology.
+
+Likewise, the following remain content jobs around the same Block/LG/KP owners:
+
+```text
+Framework
+Core
+Boundary / Confusable
+Precision
+Visual
+Connection
+Memory Routing
+MI-G / MI-D
+Recall / Closure
+Compression
+Question Probe / Repair
+```
+
+They may be rendered or scheduled differently, but they are not new Knowledge hierarchy.
+
+**Dedicated Biochemistry lane ≠ isolated Biochemistry Knowledge.**
+
+The lane may be Source-continuous; the Knowledge must remain integrated with digestive, endocrine, hematology, hepatobiliary and tumor owners through reviewed Connection / Recall / Reconstruction semantics.
+
+
 ---
 
 # 1｜Top-level learning decision
@@ -51,7 +95,7 @@ Normal Biochemistry first learning is:
 ```text
 current authoritative Biochemistry Source
 → continuous Source contact in teacher order
-→ shadow-map Source segments to canonical M1–M10 / G1–G5
+→ map Source segments to existing canonical Block / Logic Group / KP owners
 → local KP/LG retrieval only when the owning material has actually been formed
 → Block closure only after its last required current-Source segment is complete
 → state-based cross-Block reconstruction
@@ -319,24 +363,32 @@ A later-pass asset should become thinner while preserving the variable that dete
 
 # 6｜Framework, Logic Group and KP roles
 
+Biochemistry does not change the shared hierarchy. The roles below operate **inside**:
+
+```text
+System → Block → Logic Group → KP
+```
+
 ## Framework
 
-Framework = thin cognitive map that makes the Block / Source segment navigable.
+Framework = canonical System/Block-owned cognitive map that makes the Block or current Source segment navigable.
 
 For Biochemistry it should usually expose:
 
 - input / output;
-- decisive branch;
+- decisive branch or switch;
 - energy / redox currency;
 - compartment / tissue;
 - physiologic-state control;
 - one or two confusable boundaries.
 
-It should not duplicate every KP.
+A Framework can be rich and answer-bearing. It is still a **content job**, not a level between Block and Logic Group.
+
+Explicit Block Framework content remains canonical Block content and must not be demoted to a disposable derived layer.
 
 ## Logic Group
 
-Logic Group = local reconstruction / closure unit.
+Logic Group = the canonical local reconstruction / retrieval / closure unit inside a Block.
 
 A Biochemistry LG should group KPs that answer one causal job such as:
 
@@ -349,18 +401,40 @@ A Biochemistry LG should group KPs that answer one causal job such as:
 
 It does not automatically equal a continuous Source segment.
 
+If a proposed “layer” has the same KP membership and cognitive job as an existing LG, **use the LG**. Do not create a parallel layer.
+
 ## KP
 
 KP = stable canonical Knowledge identity.
 
-It may receive:
+A KP may own or receive:
 
-- Core mechanism;
+- Prompt;
+- canonical Core mechanism;
 - current Source Precision;
 - verified explanatory reconstruction;
-- Boundary / Connection.
+- Boundary / Confusable;
+- Visual;
+- Connection / Extension.
 
-It does not dictate first-pass Source order.
+It does not dictate first-pass Source order or learner order.
+
+## Block-owned content jobs
+
+When current canonical Block content explicitly contains them, preserve:
+
+- center question / ownership boundary;
+- first-pass route;
+- Framework;
+- high-density comparisons;
+- Memory Routing;
+- MI-G / MI-D;
+- Visual / exactness gates;
+- coverage / routing ledgers;
+- Lecture-attached question checkpoint;
+- Block Exit / Recall target.
+
+These jobs are part of durable Content Realization. They are not a second Lecture, but neither are they disposable engineering metadata.
 
 ---
 
@@ -485,24 +559,50 @@ Missing mapping remains legal; never infer one from title similarity.
 
 # 10｜Cross-System integration
 
-Biochemistry should connect aggressively in **meaning**, but conservatively in **ownership**.
+Biochemistry should connect aggressively in **meaning**, but conservatively in **ownership and Source switching**.
 
-Use a cross-System connection when it materially improves the biochemical model, for example:
+The default integration ladder is:
 
-- RBC ↔ hematology;
-- bilirubin / bile acids ↔ hepatobiliary disease;
-- fasting / ketones ↔ diabetes;
-- cholesterol ↔ endocrine / atherosclerosis;
-- heme / folate / B12 ↔ hematology;
-- HIF / nuclear receptors ↔ physiology / endocrine;
+```text
+1. JIT Connection during current Biochemistry Source
+   → only the minimum outside idea needed to understand the current biochemical mechanism
+   → no course switch
+
+2. Connection Hook / Recall at Block or Logic Group level
+   → already learned target owner: Recall it
+   → not-yet-learned target owner: mark the formal future owner
+   → no duplicate external Core
+
+3. Post-formation cross-Block / cross-System Reconstruction
+   → combine biochemical mechanism with digestive / endocrine / clinical state
+   → use shared state variables rather than rereading both courses
+```
+
+Therefore Biochemistry may keep a dedicated continuous Source lane **without becoming an isolated knowledge island**.
+
+High-value integration examples include:
+
+- M4 glucose output ↔ D7 fed/fasting and insulin/glucagon control;
+- M7 storage/mobilization/ketogenesis ↔ D7/D8 fasting, diabetes and glucose-utilization failure;
+- M5 lipoprotein transport ↔ D3/D4 intestinal lipid digestion/absorption;
+- M6 bile-acid synthesis ↔ D3/D4 digestion/absorption ↔ D19 hepatobiliary disease;
+- M8 ammonia/urea ↔ D17 hepatic failure / hyperammonemia;
+- M10 bilirubin handling ↔ D17/D19 jaundice localization;
+- RBC / folate / B12 / heme ↔ hematology;
+- HIF / nuclear receptor ↔ physiology / endocrine;
 - oncogene / repair ↔ tumor-general.
 
 Rules:
 
 - Connection may Recall or preview one external idea;
-- external medical Core stays external;
+- external medical Core stays in its formal owner;
 - a durable deferred hook requires one formal Current target owner;
-- no full-course switching merely because a connection exists.
+- no full-course switching merely because a connection exists;
+- after the relevant owners are learned, Reconstruction should actively **recombine** them rather than leaving the knowledge graph as isolated subjects.
+
+A useful summary is:
+
+> **Source continuity can be domain-specific; Knowledge integration must remain System-wide.**
 
 ---
 
@@ -541,6 +641,16 @@ A  scoped Current / Acceptance reconciled
 ```
 
 Unchanged objects should be preserved rather than rebuilt for symmetry.
+
+Additional architecture gates:
+
+- canonical hierarchy remains exactly `System → Block → Logic Group → KP`;
+- no Source unit, pathway family, “L1/L2/L3 layer”, mother model or Framework is promoted into a parallel hierarchy;
+- Source maps bind current Source to existing Block/LG/KP identities or explicit support/Connection roles;
+- learner order may differ from stable KP/file order without physically reordering canonical identity;
+- explicit Framework / Memory Routing / MI-G / MI-D and other Block-owned content jobs survive Content revalidation;
+- digestive/endocrine/clinical connections are preserved through JIT / Connection / Recall / Reconstruction rather than routine Source switching.
+
 
 ---
 
