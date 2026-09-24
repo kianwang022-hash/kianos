@@ -28,7 +28,12 @@
       "M7": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M7_TAG脂肪酸与酮体_学习阅读版_v1_最终执行版.md",
       "M8": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M8_氨基酸氨尿素与一碳单位_学习阅读版_v1_最终执行版.md",
       "M9": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M9_核苷酸代谢与抗代谢物_学习阅读版_v1_最终执行版.md",
-      "M10": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M10_血红素胆红素与生物转化_学习阅读版_v1_最终执行版.md"
+      "M10": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M10_血红素胆红素与生物转化_学习阅读版_v1_最终执行版.md",
+      "G1": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md",
+      "G2": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G2_DNA复制逆转录与端粒_学习阅读版_v1_最终执行版.md",
+      "G3": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G3_转录RNA加工与翻译_学习阅读版_v1_最终执行版.md",
+      "G4": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G4_基因表达调控_学习阅读版_v1_最终执行版.md",
+      "G5": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"
     }
   },
   "learner_execution": {
@@ -1000,7 +1005,47 @@
       "connections": [
         "O9 tumor-general; hematology/organ tumor interfaces"
       ],
-      "notes": "P093-P096 are Source-inserted maps before the explicit 2.1 header."
+      "notes": "P093-P096 are Source-inserted maps before the explicit 2.1 header.",
+      "canonical_content": [
+        {
+          "block": "G5",
+          "layer": "L1",
+          "kp": [
+            1,
+            5
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "G5",
+          "layer": "L3",
+          "kp": [
+            6,
+            11
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "G4",
+          "layer": "L1",
+          "kp": [
+            1,
+            2
+          ],
+          "role": "SUPPORT",
+          "note": "oncogene/epigenetic control interface only"
+        },
+        {
+          "block": "G2",
+          "layer": "L2",
+          "kp": [
+            8,
+            9
+          ],
+          "role": "SUPPORT",
+          "note": "reverse-transcription/cDNA interface only"
+        }
+      ]
     },
     {
       "id": "BIO27-S16",
@@ -1026,6 +1071,35 @@
       "support": [],
       "connections": [
         "G2/G3 entry language"
+      ],
+      "canonical_content": [
+        {
+          "block": "G1",
+          "layer": "L1",
+          "kp": [
+            1,
+            3
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "G1",
+          "layer": "L2",
+          "kp": [
+            4,
+            6
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "G1",
+          "layer": "L3",
+          "kp": [
+            7,
+            9
+          ],
+          "role": "PRIMARY_FORMATION"
+        }
       ]
     },
     {
@@ -1058,7 +1132,47 @@
       "connections": [
         "G5 repair boundary"
       ],
-      "notes": "Replication fidelity/repair references are support until the dedicated DNA-damage unit."
+      "notes": "Replication fidelity/repair references are support until the dedicated DNA-damage unit.",
+      "canonical_content": [
+        {
+          "block": "G2",
+          "layer": "L1",
+          "kp": [
+            1,
+            7
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "G2",
+          "layer": "L2",
+          "kp": [
+            8,
+            9
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "G2",
+          "layer": "L3",
+          "kp": [
+            10,
+            11
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true
+        },
+        {
+          "block": "G5",
+          "layer": "L2",
+          "kp": [
+            12,
+            13
+          ],
+          "role": "SUPPORT",
+          "note": "replication-fidelity/repair preview only"
+        }
+      ]
     },
     {
       "id": "BIO27-S18",
@@ -1085,6 +1199,36 @@
       ],
       "connections": [
         "G4 regulation entry"
+      ],
+      "canonical_content": [
+        {
+          "block": "G3",
+          "layer": "L1",
+          "kp": [
+            1,
+            5
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "G3",
+          "layer": "L2",
+          "kp": [
+            6,
+            8
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "G2",
+          "layer": "L3",
+          "kp": [
+            10,
+            11
+          ],
+          "role": "SUPPORT_RECAP",
+          "note": "replication-vs-transcription comparison"
+        }
       ]
     },
     {
@@ -1116,6 +1260,45 @@
       ],
       "connections": [
         "protein maturation/targeting; antimicrobial/toxin interfaces"
+      ],
+      "canonical_content": [
+        {
+          "block": "G3",
+          "layer": "L3",
+          "kp": [
+            9,
+            13
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "G3",
+          "layer": "L4",
+          "kp": [
+            14,
+            14
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "G3",
+          "layer": "L5",
+          "kp": [
+            15,
+            15
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true
+        },
+        {
+          "block": "G1",
+          "layer": "L3",
+          "kp": [
+            7,
+            9
+          ],
+          "role": "SUPPORT_APPLICATION"
+        }
       ]
     },
     {
@@ -1148,7 +1331,47 @@
       "connections": [
         "endocrine nuclear-receptor and hypoxia/HIF interfaces"
       ],
-      "notes": "Includes the verified 27 HIF–VHL→EPO enhancer update."
+      "notes": "Includes the verified 27 HIF–VHL→EPO enhancer update.",
+      "canonical_content": [
+        {
+          "block": "G4",
+          "layer": "L1",
+          "kp": [
+            1,
+            2
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "G4",
+          "layer": "L2",
+          "kp": [
+            3,
+            6
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "G4",
+          "layer": "L3",
+          "kp": [
+            7,
+            10
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true
+        },
+        {
+          "block": "G1",
+          "layer": "L4",
+          "kp": [
+            10,
+            10
+          ],
+          "role": "SUPPORT",
+          "note": "expression-organization boundary"
+        }
+      ]
     },
     {
       "id": "BIO27-S21",
@@ -1171,6 +1394,28 @@
       ],
       "connections": [
         "G3/G4 expression-organization boundary"
+      ],
+      "canonical_content": [
+        {
+          "block": "G1",
+          "layer": "L4",
+          "kp": [
+            10,
+            10
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true
+        },
+        {
+          "block": "G4",
+          "layer": "L3",
+          "kp": [
+            7,
+            10
+          ],
+          "role": "SUPPORT",
+          "note": "eukaryotic organization/regulation boundary"
+        }
       ]
     },
     {
@@ -1195,7 +1440,29 @@
       "connections": [
         "tumor/genome-stability interface"
       ],
-      "notes": "Exact first Greek low-fidelity polymerase glyph remains visual-source-bound until resolved."
+      "notes": "Exact first Greek low-fidelity polymerase glyph remains visual-source-bound until resolved.",
+      "canonical_content": [
+        {
+          "block": "G5",
+          "layer": "L2",
+          "kp": [
+            12,
+            13
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true
+        },
+        {
+          "block": "G2",
+          "layer": "L1",
+          "kp": [
+            1,
+            7
+          ],
+          "role": "SUPPORT",
+          "note": "repair/fidelity boundary"
+        }
+      ]
     }
   ],
   "block_source_closure_checkpoints": {
@@ -1360,6 +1627,34 @@
         "L1": "heme synthesis and heme-protein lifecycle entry / KP01–KP04",
         "L2": "bilirubin generation-liver handling-excretion and jaundice localization / KP05–KP09",
         "L3": "Phase I/II biotransformation and hepatic chemical hub / KP10–KP13"
+      },
+      "G1": {
+        "L1": "nucleic identity, direction and measurement / KP01–KP03",
+        "L2": "DNA double helix, packaging and reversible opening / KP04–KP06",
+        "L3": "RNA, genetic code and pre-translation accuracy / KP07–KP09",
+        "L4": "eukaryotic genome organization / KP10"
+      },
+      "G2": {
+        "L1": "DNA replication execution system / KP01–KP07",
+        "L2": "telomere and reverse-transcription solutions / KP08–KP09",
+        "L3": "nuclease/ligase/primer and replication-transcription exit compare / KP10–KP11"
+      },
+      "G3": {
+        "L1": "transcription execution / KP01–KP05",
+        "L2": "RNA processing and quality control / KP06–KP08",
+        "L3": "translation execution / KP09–KP13",
+        "L4": "protein maturation / KP14",
+        "L5": "protein targeting and translation-interference boundary / KP15"
+      },
+      "G4": {
+        "L1": "expression specificity, chromatin access and epigenetic gate / KP01–KP02",
+        "L2": "prokaryotic operon control / KP03–KP06",
+        "L3": "eukaryotic cis/trans/PIC and post-transcriptional control / KP07–KP10"
+      },
+      "G5": {
+        "L1": "proto-oncogene/tumor-suppressor growth-control failure / KP01–KP05",
+        "L2": "mutation classes and DNA repair systems / KP12–KP13",
+        "L3": "recombinant DNA, PCR, blot and interaction-tool map / KP06–KP11"
       }
     }
   }
