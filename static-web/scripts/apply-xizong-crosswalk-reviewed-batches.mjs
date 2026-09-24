@@ -11,7 +11,6 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 const ownerRoot = path.join(repoRoot, 'content/xizong/question-relations');
 const pendingRoot = path.join(ownerRoot, 'pending-reviewed-batches');
 const manifestPath = path.join(ownerRoot, 'manifest.json');
-const continuationPath = path.join(ownerRoot, 'continuation.json');
 const qidPattern = /^xizong-official-(\d{4})-n(\d{3})$/;
 const resolveRelationFreshness = createXizongReviewedRelationFreshnessResolver({ repoRoot });
 
@@ -52,24 +51,6 @@ function pendingFiles() {
     .map((entry) => path.join(pendingRoot, entry.name))
     .sort();
 }
-function advanceContinuation(beforeCount, addedQuestionIds) {
-  if (!fs.existsSync(continuationPath)) return;
-  const continuation = loadJson(continuationPath);
-  const sortedIds = [...addedQuestionIds].sort((a, b) => qidOrder(a) - qidOrder(b));
-  continuation.last_growth = {
-    date: new Date().toISOString().slice(0, 10),
-    reviewed_relation_count_before: beforeCount,
-    reviewed_relation_count_after: beforeCount + sortedIds.length,
-    added_question_ids: sortedIds,
-    notes: [
-      `Materializer advanced the C2 cursor automatically from ${beforeCount} to ${beforeCount + sortedIds.length}; no post-materialization human cursor commit is required.`,
-      'Only explicit Chat-reviewed exact-owner rows were materialized; semantic details remain in each relation review.basis and provenance.',
-      'Missing mappings, source-conflicted questions, framework-only matches and incompletely owned details remain legal absences.'
-    ]
-  };
-  fs.writeFileSync(continuationPath, `${JSON.stringify(continuation, null, 2)}\n`);
-  console.log(`XIZONG_REVIEWED_BATCH_CONTINUATION_ADVANCED:${beforeCount}->${beforeCount + sortedIds.length}`);
-}
 
 const files = pendingFiles();
 if (!files.length) {
@@ -97,7 +78,7 @@ for (const batchPath of files) {
 
 // Pending batches are staging, not published relation truth. CI validates them
 // read-only; the content worker runs this once at the approved checkpoint and
-// commits shards, manifest and cursor together with the reviewed decisions.
+// commits canonical relation shards. Manifest verification remains with its existing owner.
 if (process.argv.includes('--check')) {
   console.log(`XIZONG_REVIEWED_BATCHES_CHECK_PASS:${files.length}:${seenPending.size}`);
   process.exit(0);
@@ -118,8 +99,6 @@ for (const [relativeShard, incoming] of grouped) {
   fs.writeFileSync(absoluteShard, `${JSON.stringify(existing)}\n`);
   console.log(`XIZONG_REVIEWED_BATCH_MATERIALIZED:${relativeShard}:added=${incoming.length}:total=${existing.length}`);
 }
-
-advanceContinuation(beforeCount, seenPending);
 
 for (const batchPath of files) fs.unlinkSync(batchPath);
 try {
