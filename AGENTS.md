@@ -170,7 +170,7 @@ this section only defines how Kian's natural-language change request enters that
 Use the exact shared entry before designing a learner-facing surface:
 
 ```text
-static-web/KIAN_UI_PREFERENCES.md (user taste; explicit preferences vs hypotheses)
+static-web/KIAN_UI_PREFERENCES.md (accepted KianOS visual requirements + bounded preference evidence)
 → static-web/UI_STYLE_BRIEF.md (shared visual and navigation rules)
 → exact surface/product owner
 → existing layout/component and applicable shared styles
