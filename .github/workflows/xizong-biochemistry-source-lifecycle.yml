@@ -15,6 +15,16 @@ on:
       - 'content/xizong/source-snapshots/27/manifest.json'
       - 'content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md'
       - 'content/xizong/MATURITY_PACKAGE.md'
+      - 'static-web/src/lib/xizongStudyPacket.mjs'
+      - 'static-web/src/lib/xizong.mjs'
+      - 'static-web/scripts/test-xizong-source-revision-transitive.mjs'
+      - 'content/xizong/explanations/shards/2025/q101-125.json'
+      - 'content/xizong/explanations/shards/2023/q001-025.json'
+      - 'content/xizong/explanations/shards/2023/q126-150.json'
+      - 'content/xizong/explanations/shards/2015/q026-050.json'
+      - 'content/xizong/question-relations/shards/2023/q001-025.json'
+      - 'content/xizong/question-relations/shards/2023/q126-150.json'
+      - 'content/xizong/question-relations/shards/2015/q026-050.json'
       - 'static-web/scripts/build-xizong-b-learning-candidate.mjs'
       - 'static-web/scripts/validate-xizong-b-knowledge.mjs'
       - 'static-web/scripts/validate-xizong-biochemistry-source-lifecycle.mjs'
@@ -32,6 +42,16 @@ on:
       - 'content/xizong/source-snapshots/27/manifest.json'
       - 'content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md'
       - 'content/xizong/MATURITY_PACKAGE.md'
+      - 'static-web/src/lib/xizongStudyPacket.mjs'
+      - 'static-web/src/lib/xizong.mjs'
+      - 'static-web/scripts/test-xizong-source-revision-transitive.mjs'
+      - 'content/xizong/explanations/shards/2025/q101-125.json'
+      - 'content/xizong/explanations/shards/2023/q001-025.json'
+      - 'content/xizong/explanations/shards/2023/q126-150.json'
+      - 'content/xizong/explanations/shards/2015/q026-050.json'
+      - 'content/xizong/question-relations/shards/2023/q001-025.json'
+      - 'content/xizong/question-relations/shards/2023/q126-150.json'
+      - 'content/xizong/question-relations/shards/2015/q026-050.json'
       - 'static-web/scripts/build-xizong-b-learning-candidate.mjs'
       - 'static-web/scripts/validate-xizong-b-knowledge.mjs'
       - 'static-web/scripts/validate-xizong-biochemistry-source-lifecycle.mjs'
@@ -50,4 +70,6 @@ jobs:
           node-version: '22'
       - name: Validate Current 27 Biochemistry Source lifecycle
         working-directory: static-web
-        run: node scripts/validate-xizong-biochemistry-source-lifecycle.mjs
+        run: |
+          node scripts/validate-xizong-biochemistry-source-lifecycle.mjs
+          node scripts/test-xizong-source-revision-transitive.mjs
