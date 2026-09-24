@@ -169,9 +169,11 @@ Final integration is:
 
 ```text
 real Block Complete
+→ persist Current Block state
+→ emit explicit kianos:xizong-block-complete semantic event
 → build descriptor from the already-resolved Current learner object
 → releaseBlockMemory(...)
 → return to Block flow
 ```
 
-The bridge must be tiny, idempotent and downstream of real Block Complete. It must not infer completion from DOM presence or from the existence of canonical content.
+The bridge also performs one idempotent startup check for a Block completed before the bridge mounted. It must remain tiny and downstream of real Block Complete; it must not infer completion from a DOM click, DOM presence or the existence of canonical content.

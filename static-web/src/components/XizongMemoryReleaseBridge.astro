@@ -59,12 +59,13 @@ const { objectId = '', sourceHash = '' } = Astro.props;
   // Handles a Block that was completed before this bridge existed or before a reload.
   attemptRelease();
 
-  // BlockV6 owns the completion write. This bridge listens after that interaction and
-  // consumes the persisted result; it does not redefine canComplete or mutate Block state.
-  root?.addEventListener('click', (event) => {
-    const target = event.target instanceof Element ? event.target : null;
-    if (!target?.closest('[data-block-complete]')) return;
-    queueMicrotask(attemptRelease);
+  // BlockV6 owns the completion write and emits this event only after the Current
+  // Block state is persisted. Memory consumes that explicit semantic event instead
+  // of inferring completion from a DOM click.
+  window.addEventListener('kianos:xizong-block-complete', (event) => {
+    const detail = event instanceof CustomEvent ? event.detail : null;
+    if (detail?.object_id && detail.object_id !== objectId) return;
+    attemptRelease();
   });
 
   });

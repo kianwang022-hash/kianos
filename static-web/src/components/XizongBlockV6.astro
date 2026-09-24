@@ -884,8 +884,17 @@ window.__kianosLearnerWriterReady.then(() => {
         state.completedAt = new Date().toISOString();
       }
       event.currentTarget.textContent = 'Block 第一轮已完成';
-      save();
+      const persisted = save();
       syncState();
+      if (persisted) {
+        window.dispatchEvent(new CustomEvent('kianos:xizong-block-complete', {
+          detail: {
+            object_id: objectId,
+            block_id: root.dataset.studyBlockId || '',
+            source_hash: currentSourceHash
+          }
+        }));
+      }
     });
 
     const setCollapsed = (kind, collapsed) => {
