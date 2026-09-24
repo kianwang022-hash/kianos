@@ -9,7 +9,7 @@ type: block_learning_reader
 schema_version: 1
 content_version: 1
 status: FINAL_EXECUTION
-primary_source: 外科学讲义_AI阅读版.md｜乳腺癌分期、分子亚型、临床表现与检查｜Source-local P20–21
+primary_source: 27外科精编版【带导图】.pdf｜SUR27-U03｜乳腺癌分期、分子亚型、临床表现与检查｜PDF P019–P020
 supporting_source:
   - E12｜乳腺癌病理身份与扩散
   - E10｜良性乳房与乳头症状
