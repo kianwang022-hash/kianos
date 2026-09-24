@@ -15,32 +15,21 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
 
-CURRENT_PATHS = [
-    "CURRENT.md",
-    "static-web/CURRENT.md",
-    "content/english/CURRENT.md",
-    "content/english/external/CURRENT.md",
-    "content/english/modules/objective/CURRENT.md",
-    "content/english/modules/translation/CURRENT.md",
-    "content/english/modules/writing/CURRENT.md",
-    "content/xizong/CURRENT.md",
-    "content/xizong/knowledge/systems/a1-circulation/CURRENT.md",
-    "content/xizong/knowledge/systems/a2-respiratory/CURRENT.md",
-    "content/xizong/knowledge/systems/a3-urinary/CURRENT.md",
-    "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/CURRENT.md",
-    "content/xizong/knowledge/systems/c-hematology-immunity-infection/CURRENT.md",
-    "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/CURRENT.md",
-    "content/xizong/knowledge/systems/e-reproductive-breast/CURRENT.md",
-    "content/xizong/knowledge/systems/f-remaining-clinical/CURRENT.md",
-    "content/lexical/CURRENT.md",
-    "content/skills/CURRENT.md",
-    "content/politics/CURRENT.md",
-    "content/politics/learning/marxism/CURRENT.md",
-    "content/politics/learning/history/CURRENT.md",
-    "content/politics/learning/mao/CURRENT.md",
-    "content/politics/learning/xi/CURRENT.md",
-    "content/politics/learning/ethics-law/CURRENT.md",
-]
+def discover_current_paths() -> list[str]:
+    paths = ["CURRENT.md", "static-web/CURRENT.md"]
+    content_root = REPO / "content"
+    if content_root.is_dir():
+        paths.extend(
+            sorted(
+                p.relative_to(REPO).as_posix()
+                for p in content_root.rglob("CURRENT.md")
+                if p.is_file()
+            )
+        )
+    return list(dict.fromkeys(paths))
+
+
+CURRENT_PATHS = discover_current_paths()
 
 PARENT_ROUTER_PATHS = {
     "content/english/CURRENT.md",
@@ -55,29 +44,21 @@ ROUTER_ONLY_CURRENT_PATHS = {
     "content/skills/CURRENT.md",
 }
 
-ACCEPTANCE_PATHS = [
-    "GOVERNANCE_ACCEPTANCE.md",
-    "content/english/ACCEPTANCE.md",
-    "content/english/modules/objective/ACCEPTANCE.md",
-    "content/english/modules/translation/ACCEPTANCE.md",
-    "content/english/modules/writing/ACCEPTANCE.md",
-    "content/xizong/ACCEPTANCE.md",
-    "content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md",
-    "content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md",
-    "content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md",
-    "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/ACCEPTANCE.md",
-    "content/xizong/knowledge/systems/c-hematology-immunity-infection/ACCEPTANCE.md",
-    "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/ACCEPTANCE.md",
-    "content/xizong/knowledge/systems/e-reproductive-breast/ACCEPTANCE.md",
-    "content/xizong/knowledge/systems/f-remaining-clinical/ACCEPTANCE.md",
-    "content/lexical/ACCEPTANCE.md",
-    "content/politics/ACCEPTANCE.md",
-    "content/politics/learning/marxism/ACCEPTANCE.md",
-    "content/politics/learning/history/ACCEPTANCE.md",
-    "content/politics/learning/mao/ACCEPTANCE.md",
-    "content/politics/learning/xi/ACCEPTANCE.md",
-    "content/politics/learning/ethics-law/ACCEPTANCE.md",
-]
+def discover_acceptance_paths() -> list[str]:
+    paths = ["GOVERNANCE_ACCEPTANCE.md"]
+    content_root = REPO / "content"
+    if content_root.is_dir():
+        paths.extend(
+            sorted(
+                p.relative_to(REPO).as_posix()
+                for p in content_root.rglob("ACCEPTANCE.md")
+                if p.is_file()
+            )
+        )
+    return list(dict.fromkeys(paths))
+
+
+ACCEPTANCE_PATHS = discover_acceptance_paths()
 
 # Retired parallel state owners are removed completely.
 # Their absence is the protected boundary: recreating one would reintroduce
