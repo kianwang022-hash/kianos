@@ -8,7 +8,8 @@ import {
 } from './privateControlCommand.mjs';
 import {
   ENGLISH_SESSION_KEY,
-  writeEnglishSessionInstruction
+  writeEnglishSessionInstruction,
+  englishSessionInstructionEffectMatches
 } from './englishSessionControl.mjs';
 import {
   inspectEnglishExamSession,
@@ -20,12 +21,25 @@ import {
   EXAM_CHAT_PLAN_KEY,
   buildExamChatPlanBasis,
   validateExamChatPlanAgainstStorage,
-  writeExamChatPlan
+  writeExamChatPlan,
+  examChatPlanEffectMatches
 } from './examChatPlan.mjs';
-import { installAndActivateXizongSessionInstruction } from './xizongSessionInstruction.mjs';
-import { stageXizongChatReturn } from './xizongPendingChatReturn.mjs';
-import { stageXizongSystemWuReturn } from './xizongSystemWuReturn.mjs';
-import { stagePoliticsMemoryPlan } from './politicsMemoryRuntime.mjs';
+import {
+  installAndActivateXizongSessionInstruction,
+  xizongSessionInstructionEffectMatches
+} from './xizongSessionInstruction.mjs';
+import {
+  stageXizongChatReturn,
+  xizongChatReturnEffectMatches
+} from './xizongPendingChatReturn.mjs';
+import {
+  stageXizongSystemWuReturn,
+  xizongSystemWuReturnEffectMatches
+} from './xizongSystemWuReturn.mjs';
+import {
+  stagePoliticsMemoryPlan,
+  politicsMemoryPlanEffectMatches
+} from './politicsMemoryRuntime.mjs';
 
 const ENDPOINT='/__kianos-private/control';
 
@@ -154,12 +168,45 @@ function appliedReceipt(storage,command){
 }
 
 function receiptNativeEffectPresent(storage,command){
-  const lexical=command.operations.find(op=>op.kind==='lexical.challenge');
-  if(lexical && !lexicalChallengePacketMatches(storage,lexical.payload))return false;
-  const score=command.operations.find(op=>op.kind==='english.exam_score_return');
-  if(!score)return true;
-  const native=inspectEnglishExamSession(storage);
-  return native.status==='ready' && englishExamProductiveScoreMatches(native.session,score.payload);
+  for(const operation of command.operations){
+    if(operation.kind==='lexical.challenge'){
+      if(!lexicalChallengePacketMatches(storage,operation.payload))return false;
+      continue;
+    }
+    if(operation.kind==='english.session'){
+      if(!englishSessionInstructionEffectMatches(storage,operation.payload,command.study_day))return false;
+      continue;
+    }
+    if(operation.kind==='english.exam_score_return'){
+      const native=inspectEnglishExamSession(storage);
+      if(native.status!=='ready' || !englishExamProductiveScoreMatches(native.session,operation.payload))return false;
+      continue;
+    }
+    if(operation.kind==='xizong.session'){
+      if(!xizongSessionInstructionEffectMatches(storage,operation.payload,command.study_day))return false;
+      continue;
+    }
+    if(operation.kind==='xizong.chat_return'){
+      if(!xizongChatReturnEffectMatches(storage,operation.payload))return false;
+      continue;
+    }
+    if(operation.kind==='xizong.system_wu_return'){
+      if(!xizongSystemWuReturnEffectMatches(storage,operation.payload))return false;
+      continue;
+    }
+    if(operation.kind==='politics.memory_plan'){
+      if(!politicsMemoryPlanEffectMatches(storage,operation.payload,command.study_day))return false;
+      continue;
+    }
+    if(operation.kind==='exam.chat_plan'){
+      if(!examChatPlanEffectMatches(storage,operation.payload,command.study_day))return false;
+      continue;
+    }
+    // Server-only or unknown operations can never justify a browser-side
+    // idempotent shortcut without their own native effect proof.
+    return false;
+  }
+  return true;
 }
 
 export async function applyPrivateControlCommand(storage,input,{day=localDay(),now=Date.now()}={}){
