@@ -59,19 +59,115 @@ import Base from '../../layouts/Base.astro';
           </section>
 
           <section class="stewardModePanel" data-steward-mode-panel="nutrition">
-            <div class="stewardEmptyWorkspace">
-              <div>
-                <h2>饮食与营养</h2>
-                <p>今天还没有接入可直接执行的餐饮计划。这里会承载组合、单品、克数编辑和营养计算，不会自行猜测摄入。</p>
+            <div class="stewardNutritionWorkspace">
+              <header class="stewardSubToolbar">
+                <nav class="stewardSubTabs" aria-label="饮食选择方式">
+                  <button type="button" class="active" data-steward-food-mode="combo">组合</button>
+                  <button type="button" data-steward-food-mode="single">单品</button>
+                </nav>
+                <span class="stewardSubStatus">今日目标 · 等待今日计划</span>
+              </header>
+
+              <div class="stewardNutritionGrid">
+                <aside class="stewardChoiceRail">
+                  <div data-steward-food-panel="combo">
+                    <header><h3>常用组合</h3><span>从熟悉结构开始</span></header>
+                    <button type="button" class="active" data-steward-meal-preset="z01">
+                      <strong>Z01 · 黑麦酸奶碗</strong><span>早餐 / 轻午餐</span>
+                    </button>
+                    <button type="button" data-steward-meal-preset="z02">
+                      <strong>Z02 · 三文鱼组合</strong><span>零烹饪午餐</span>
+                    </button>
+                    <button type="button" data-steward-meal-preset="z03">
+                      <strong>Z03 · 甜虾组合</strong><span>轻量高蛋白午餐</span>
+                    </button>
+                  </div>
+                  <div data-steward-food-panel="single" hidden>
+                    <header><h3>常用单品</h3><span>按角色补充</span></header>
+                    <button type="button" data-steward-single-food="yogurt"><strong>高蛋白酸奶</strong><span>蛋白 / 乳制品</span></button>
+                    <button type="button" data-steward-single-food="rye"><strong>黑麦片</strong><span>碳水 / 纤维</span></button>
+                    <button type="button" data-steward-single-food="salmon"><strong>三文鱼</strong><span>蛋白 / 脂肪</span></button>
+                    <button type="button" data-steward-single-food="shrimp"><strong>甜虾</strong><span>低脂蛋白</span></button>
+                  </div>
+                </aside>
+
+                <section class="stewardMealEditor">
+                  <header>
+                    <div><span>这餐</span><h2 data-steward-meal-title>Z01 · 黑麦酸奶碗</h2></div>
+                    <p data-steward-meal-role>早餐 / 轻午餐 · 熟悉、低摩擦</p>
+                  </header>
+                  <div class="stewardMealRows" data-steward-meal-rows></div>
+                  <footer>
+                    <span>克数是可编辑基准，不代表今天已吃。</span>
+                  </footer>
+                </section>
+
+                <aside class="stewardMacroPanel">
+                  <header><span>组合参考</span><strong data-steward-meal-reference>310–440 kcal</strong></header>
+                  <dl>
+                    <div><dt>蛋白</dt><dd data-steward-meal-protein>35–42 g</dd></div>
+                    <div><dt>碳水</dt><dd data-steward-meal-carb>40–65 g</dd></div>
+                    <div><dt>脂肪</dt><dd data-steward-meal-fat>低（坚果前）</dd></div>
+                  </dl>
+                  <p data-steward-meal-note>具体营养值以当天选中的当前产品和实际克数为准。</p>
+                </aside>
               </div>
             </div>
           </section>
 
           <section class="stewardModePanel" data-steward-mode-panel="training">
-            <div class="stewardEmptyWorkspace">
-              <div>
-                <h2>训练</h2>
-                <p>今天还没有接入可直接执行的训练处方。这里会记录动作、重量、次数、RPE 和训练后状态。</p>
+            <div class="stewardTrainingWorkspace">
+              <header class="stewardSubToolbar">
+                <nav class="stewardSubTabs" aria-label="训练类型">
+                  <button type="button" class="active" data-steward-training-mode="strength">力量</button>
+                  <button type="button" data-steward-training-mode="cardio">有氧</button>
+                  <button type="button" data-steward-training-mode="recovery">恢复</button>
+                </nav>
+                <span class="stewardSubStatus">今日训练 · 等待今日计划</span>
+              </header>
+
+              <div class="stewardTrainingGrid">
+                <aside class="stewardChoiceRail">
+                  <header><h3>动作库</h3><span>候选，不是自动处方</span></header>
+                  <div data-steward-training-library="strength">
+                    <button type="button" class="active" data-steward-exercise="KN01"><strong>Smith squat</strong><span>6–10 · RPE 6–8</span></button>
+                    <button type="button" data-steward-exercise="PR01"><strong>Smith bench press</strong><span>6–12 · RPE 6–8</span></button>
+                    <button type="button" data-steward-exercise="PU03"><strong>One-arm cable row</strong><span>10–14 / side</span></button>
+                  </div>
+                  <div data-steward-training-library="cardio" hidden>
+                    <button type="button" data-steward-exercise="CD02"><strong>Incline treadmill walk</strong><span>15–35 min · RPE 4–6</span></button>
+                    <button type="button" data-steward-exercise="CD01"><strong>Easy walk</strong><span>10–30 min</span></button>
+                  </div>
+                  <div data-steward-training-library="recovery" hidden>
+                    <button type="button" data-steward-exercise="MV03"><strong>90/90 slow breathing</strong><span>3–6 slow breaths</span></button>
+                    <button type="button" data-steward-exercise="MV02"><strong>Open-book rotation</strong><span>4–8 / side</span></button>
+                  </div>
+                </aside>
+
+                <section class="stewardTrainingEditor">
+                  <header>
+                    <div><span>本次记录</span><h2 data-steward-training-title>Smith squat</h2></div>
+                    <p data-steward-training-hint>当前负重由实际 RPE 决定，不沿用旧 PR。</p>
+                  </header>
+                  <div class="stewardSetRows" data-steward-set-rows></div>
+                  <footer class="stewardTrainingEffect">
+                    <span>训练后</span>
+                    <button type="button">很好</button>
+                    <button type="button">正常</button>
+                    <button type="button">累</button>
+                    <input type="text" placeholder="备注（可选）" aria-label="训练后备注" />
+                  </footer>
+                </section>
+
+                <aside class="stewardTrainingSummary">
+                  <header><span>本次</span><strong data-steward-training-status>未开始</strong></header>
+                  <dl>
+                    <div><dt>动作</dt><dd data-steward-training-exercise-count>1</dd></div>
+                    <div><dt>已记录组</dt><dd data-steward-training-set-count>0</dd></div>
+                    <div><dt>时长</dt><dd>—</dd></div>
+                  </dl>
+                  <p>这里记录实际，不把候选动作当成已完成训练。</p>
+                </aside>
               </div>
             </div>
           </section>
