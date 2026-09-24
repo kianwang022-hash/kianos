@@ -20,8 +20,9 @@ const command={schema:'kianos.control-browser-command.v1',command_id:'control-tr
 const options={day:'2026-09-21',now:Date.parse('2026-09-21T10:01:00Z')};
 const clone=value=>JSON.parse(JSON.stringify(value));
 const receiptResponse=body=>({ok:true,json:async()=>({status:'saved',receipt:JSON.parse(body)})});
-async function runtime({fetchImpl,writeSession,validatePlan}={}){
+async function runtime({fetchImpl,writeSession,validatePlan,writePlan,planEffectMatches}={}){
   let calls=0;
+  let planWrites=0;
   const noop=()=>{};
   const sandbox={console,Date,fetch:fetchImpl||(async(url,opts)=>url.endsWith('/receipt')?receiptResponse(opts.body):{ok:true,json:async()=>({collections:[]})}),window:{dispatchEvent:noop},document:{querySelector:()=>({textContent:'[{"object_id":"synthetic-object"}]'})},CustomEvent:class{constructor(type,opts){this.type=type;this.detail=opts?.detail;}}};
   const context=vm.createContext(sandbox);
@@ -31,7 +32,7 @@ async function runtime({fetchImpl,writeSession,validatePlan}={}){
     './privateControlCommand.mjs':{CONTROL_LOCAL_RECEIPT_KEY:receiptKey,CONTROL_RECEIPT_SCHEMA:'kianos.control-receipt.v1',validateBrowserControlCommand:clone,validateControlReceipt:value=>{if(value?.schema!=='kianos.control-receipt.v1')throw new Error('INVALID_RECEIPT');return clone(value);}},
     './englishSessionControl.mjs':{ENGLISH_SESSION_KEY:sessionKey,writeEnglishSessionInstruction:(storage,value)=>{calls++;if(writeSession)writeSession(storage,value);else storage.setItem(sessionKey,JSON.stringify(value));},englishSessionInstructionEffectMatches:()=>true},
     './englishExamSession.mjs':{englishExamProductiveScoreMatches:()=>false,inspectEnglishExamSession:noop,applyEnglishExamProductiveScoreReturn:noop,writeEnglishExamSession:noop},
-    './examChatPlan.mjs':{EXAM_CHAT_PLAN_KEY:'kianos-exam-chat-plan-v1',validateExamChatPlanAgainstStorage:validatePlan||noop,writeExamChatPlan:noop,buildExamChatPlanBasis:()=>({}),examChatPlanEffectMatches:()=>true},
+    './examChatPlan.mjs':{EXAM_CHAT_PLAN_KEY:'kianos-exam-chat-plan-v1',validateExamChatPlanAgainstStorage:validatePlan||noop,writeExamChatPlan:(storage,value)=>{planWrites++;if(writePlan)writePlan(storage,value);else storage.setItem('kianos-exam-chat-plan-v1',JSON.stringify(value));return value;},buildExamChatPlanBasis:()=>({}),examChatPlanEffectMatches:planEffectMatches||(()=>true)},
     './xizongSessionInstruction.mjs':{installAndActivateXizongSessionInstruction:noop,xizongSessionInstructionEffectMatches:()=>true},
     './xizongPendingChatReturn.mjs':{stageXizongChatReturn:noop,xizongChatReturnEffectMatches:()=>true},
     './xizongSystemWuReturn.mjs':{stageXizongSystemWuReturn:noop,xizongSystemWuReturnEffectMatches:()=>true},
@@ -40,7 +41,7 @@ async function runtime({fetchImpl,writeSession,validatePlan}={}){
   const module=new vm.SourceTextModule(source,{context});
   await module.link(spec=>{const exports=modules[spec];assert.ok(exports,`Unexpected dependency: ${spec}`);return new vm.SyntheticModule(Object.keys(exports),function(){for(const[key,value]of Object.entries(exports))this.setExport(key,value);},{context});});
   await module.evaluate();
-  return{apply:module.namespace.applyPrivateControlCommand,calls:()=>calls};
+  return{apply:module.namespace.applyPrivateControlCommand,calls:()=>calls,planWrites:()=>planWrites};
 }
 let count=0;
 {
@@ -108,6 +109,36 @@ for(const failure of ['network','http500','wrong-echo']){
   const value={...clone(command),operations:[...clone(command.operations),{kind:'exam.chat_plan',payload:{schema:'kianos.exam.chat-plan.v1'}}]};
   await assert.rejects(rt.apply(storage,value,options),/EVIDENCE_BASIS_STALE/);
   assert.equal(storage.getItem(sessionKey),null);count++;
+}
+{
+  const planCommand={
+    schema:'kianos.control-browser-command.v1',
+    command_id:'control-plan-effect-fixture-1',
+    command_hash:'3'.repeat(64),
+    study_day:'2026-09-21',
+    generated_at:'2026-09-21T10:00:00Z',
+    expires_at:null,
+    operations:[{kind:'exam.chat_plan',payload:{schema:'kianos.exam.chat-plan.v1',study_day:'2026-09-21',generated_at:'2026-09-21T09:59:00Z',subjects:{}}}]
+  };
+  const receipt={
+    schema:'kianos.control-receipt.v1',
+    command_id:planCommand.command_id,
+    command_hash:planCommand.command_hash,
+    command_generated_at:planCommand.generated_at,
+    status:'APPLIED',
+    observed_at:'2026-09-21T10:00:30Z',
+    error:null
+  };
+  const storage=new Storage({[receiptKey]:JSON.stringify(receipt)});
+  const rt=await runtime({
+    planEffectMatches:()=>false,
+    writePlan:(shadow,value)=>shadow.setItem('kianos-exam-chat-plan-v1',JSON.stringify(value))
+  });
+  const result=await rt.apply(storage,planCommand,options);
+  assert.equal(result.status,'applied');
+  assert.equal(rt.planWrites(),1);
+  assert.ok(storage.getItem('kianos-exam-chat-plan-v1'));
+  count++;
 }
 {
   // Bounded transaction must not eagerly read unrelated raw localStorage values.
