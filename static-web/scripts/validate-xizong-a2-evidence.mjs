@@ -109,11 +109,11 @@ assert(
 );
 assert(
   repairBridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);')
-    && repairBridge.includes("window.dispatchEvent(new CustomEvent('kianos:xizong-repair-inbox-migrated'"),
+    && repairBridge.includes("if (!writeJson(XIZONG_MEMORY_STORAGE_KEY, next)) throw new Error('Repair save failed');"),
   'repair-inbox-bridge-consumption-semantics-missing'
 );
 assert(repairBridge.includes("window.addEventListener('storage'"), 'open-block-tab-cannot-receive-repair');
-assert(repairBridge.includes('window.location.reload();'), 'inbox-consume-does-not-rebuild-local-owner-state');
+assert(repairBridge.includes("window.dispatchEvent(new CustomEvent('kianos:xizong-repair-inbox-migrated'"), 'inbox-consume-does-not-announce-current-state');
 
 assert(systemGuard.includes("phase = answered === 0 ? 'PRE_QUESTION'"), 'system-recall-phase-ledger-missing');
 assert(systemGuard.includes("'POST_QUESTION'"), 'post-question-recall-phase-missing');
