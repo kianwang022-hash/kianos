@@ -458,7 +458,7 @@ This package coordinates; exact owners still own truth.
 - [x] 2027 exam scope/geometry is explicitly authority-BLOCKED with historical 165/300 fallback kept prior-only
 - [x] humanistic/non-System baseline has exact Current owner, H1–H4 training/evidence path, 80 exact historical qids, and bounded 2027 BLOCKED delta
 - [x] F exact System question scope closed — **70 qids / zero A1–E overlap / PR #642**
-- [x] 2027 Biochemistry Source revision is **CLOSED / CURRENT · S/K/L/Content/P REACCEPTED**; 27 is the sole continuous Source and historical 26 material is explanatory-only
+- [x] 2027 Biochemistry no longer constitutes a Stage-A hard-coverage gap; exact lifecycle state lives in `xizong-2027-biochemistry-delta-slot.json`, scoped readiness in B `ACCEPTANCE.md`, and historical 26 material remains explanatory-only
 - [x] 26 Case/Cram baseline, X8 role, overlap and 27 delta slot are closed; 27 net-new remains legitimate future-UNKNOWN
 - [x] four-mock baseline, leakage boundary and future X9/current-year delta slot are defined
 - [x] final-five-hour baseline and direct Case/Cram overlap/replacement rule are closed
