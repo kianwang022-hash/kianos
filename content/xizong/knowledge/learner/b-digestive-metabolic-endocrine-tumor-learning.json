@@ -1821,7 +1821,7 @@
           "D8 chronic-risk context"
         ]
       },
-      "partition_rationale": "M5 preserves its existing Logic Groups as the local retrieval/closure units inside the shared System→Block→Logic Group→KP hierarchy. The prior L1/L2/L3 layer interpretation is withdrawn. Current 27 Source order may form these LG/KP objects non-contiguously; the global Source map owns teacher order and final direct Block/LG/KP routing.",
+      "partition_rationale": "M5 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 teacher order may form those LG/KP objects non-contiguously; no intermediate L-layer exists.",
       "learner_order": [
         "b-m05-lg01",
         "b-m05-lg02",
@@ -1863,15 +1863,88 @@
         }
       },
       "source_contact": {
-        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_PENDING_DIRECT_LG_KP_RECONCILIATION",
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_DIRECT_LG_KP_CURRENT",
         "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
-        "rule": "The global Source map owns teacher order/page contact only. Final bindings must resolve directly to this Block's existing Logic Groups/KPs or explicit support/Connection roles; no parallel L-layer topology is allowed.",
+        "rule": "The global Source map owns teacher order/page contact and maps directly to M5's existing Logic Groups/KPs or explicit support/Connection roles. No intermediate layer exists.",
         "block_source_formation_checkpoint": {
           "block": "M5",
           "after_unit": "BIO27-S05",
           "after_pdf": 30,
           "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
-        }
+        },
+        "logic_group_formation": [
+          {
+            "logic_group": "b-m05-lg01",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S05",
+                "pdf": [
+                  27,
+                  30
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  1,
+                  3
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m05-lg02",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S05",
+                "pdf": [
+                  27,
+                  30
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  4,
+                  7
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m05-lg03",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S05",
+                "pdf": [
+                  27,
+                  30
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  8,
+                  10
+                ],
+                "note": null,
+                "closes_block_source_contact": true
+              },
+              {
+                "source_unit": "BIO27-S06",
+                "pdf": [
+                  31,
+                  35
+                ],
+                "role": "SUPPORT",
+                "kp": [
+                  8,
+                  10
+                ],
+                "note": "LCAT/ACAT/cholesterol-pool interface only",
+                "closes_block_source_contact": false
+              }
+            ]
+          }
+        ]
       }
     },
     "M6": {
@@ -1896,7 +1969,7 @@
           "D23"
         ]
       },
-      "partition_rationale": "M6 preserves its existing Logic Groups as the local retrieval/closure units inside the shared System→Block→Logic Group→KP hierarchy. The prior L1/L2/L3 layer interpretation is withdrawn. Current 27 Source order may form these LG/KP objects non-contiguously; the global Source map owns teacher order and final direct Block/LG/KP routing.",
+      "partition_rationale": "M6 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 teacher order may form those LG/KP objects non-contiguously; no intermediate L-layer exists.",
       "learner_order": [
         "b-m06-lg01",
         "b-m06-lg02",
@@ -1938,15 +2011,88 @@
         }
       },
       "source_contact": {
-        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_PENDING_DIRECT_LG_KP_RECONCILIATION",
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_DIRECT_LG_KP_CURRENT",
         "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
-        "rule": "The global Source map owns teacher order/page contact only. Final bindings must resolve directly to this Block's existing Logic Groups/KPs or explicit support/Connection roles; no parallel L-layer topology is allowed.",
+        "rule": "The global Source map owns teacher order/page contact and maps directly to M6's existing Logic Groups/KPs or explicit support/Connection roles. No intermediate layer exists.",
         "block_source_formation_checkpoint": {
           "block": "M6",
           "after_unit": "BIO27-S06",
           "after_pdf": 35,
           "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
-        }
+        },
+        "logic_group_formation": [
+          {
+            "logic_group": "b-m06-lg01",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S06",
+                "pdf": [
+                  31,
+                  35
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  1,
+                  4
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              },
+              {
+                "source_unit": "BIO27-S07",
+                "pdf": [
+                  36,
+                  44
+                ],
+                "role": "SUPPORT_RECAP",
+                "kp": [
+                  1,
+                  4
+                ],
+                "note": "citrate/acetyl-CoA/HMG-CoA interface",
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m06-lg02",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S06",
+                "pdf": [
+                  31,
+                  35
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  5,
+                  8
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m06-lg03",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S06",
+                "pdf": [
+                  31,
+                  35
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  9,
+                  11
+                ],
+                "note": null,
+                "closes_block_source_contact": true
+              }
+            ]
+          }
+        ]
       }
     },
     "M7": {
@@ -1972,7 +2118,7 @@
           "D20"
         ]
       },
-      "partition_rationale": "M7 preserves its existing Logic Groups as the local retrieval/closure units inside the shared System→Block→Logic Group→KP hierarchy. The prior L1/L2/L3 layer interpretation is withdrawn. Current 27 Source order may form these LG/KP objects non-contiguously; the global Source map owns teacher order and final direct Block/LG/KP routing.",
+      "partition_rationale": "M7 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 teacher order may form those LG/KP objects non-contiguously; no intermediate L-layer exists.",
       "learner_order": [
         "b-m07-lg01",
         "b-m07-lg02",
@@ -2026,15 +2172,93 @@
         }
       },
       "source_contact": {
-        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_PENDING_DIRECT_LG_KP_RECONCILIATION",
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_DIRECT_LG_KP_CURRENT",
         "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
-        "rule": "The global Source map owns teacher order/page contact only. Final bindings must resolve directly to this Block's existing Logic Groups/KPs or explicit support/Connection roles; no parallel L-layer topology is allowed.",
+        "rule": "The global Source map owns teacher order/page contact and maps directly to M7's existing Logic Groups/KPs or explicit support/Connection roles. No intermediate layer exists.",
         "block_source_formation_checkpoint": {
           "block": "M7",
           "after_unit": "BIO27-S07",
           "after_pdf": 44,
           "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
-        }
+        },
+        "logic_group_formation": [
+          {
+            "logic_group": "b-m07-lg01",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S07",
+                "pdf": [
+                  36,
+                  44
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  1,
+                  6
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m07-lg02",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S07",
+                "pdf": [
+                  36,
+                  44
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  7,
+                  12
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m07-lg03",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S07",
+                "pdf": [
+                  36,
+                  44
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  13,
+                  15
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m07-lg04",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S07",
+                "pdf": [
+                  36,
+                  44
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  16,
+                  16
+                ],
+                "note": null,
+                "closes_block_source_contact": true
+              }
+            ]
+          }
+        ]
       }
     },
     "M8": {
@@ -2063,7 +2287,7 @@
           "D22"
         ]
       },
-      "partition_rationale": "M8 preserves its existing Logic Groups as the local retrieval/closure units inside the shared System→Block→Logic Group→KP hierarchy. The prior L1/L2/L3 layer interpretation is withdrawn. Current 27 Source order may form these LG/KP objects non-contiguously; the global Source map owns teacher order and final direct Block/LG/KP routing.",
+      "partition_rationale": "M8 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 teacher order may form those LG/KP objects non-contiguously; no intermediate L-layer exists.",
       "learner_order": [
         "b-m08-lg01",
         "b-m08-lg02",
@@ -2129,15 +2353,112 @@
         }
       },
       "source_contact": {
-        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_PENDING_DIRECT_LG_KP_RECONCILIATION",
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_DIRECT_LG_KP_CURRENT",
         "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
-        "rule": "The global Source map owns teacher order/page contact only. Final bindings must resolve directly to this Block's existing Logic Groups/KPs or explicit support/Connection roles; no parallel L-layer topology is allowed.",
+        "rule": "The global Source map owns teacher order/page contact and maps directly to M8's existing Logic Groups/KPs or explicit support/Connection roles. No intermediate layer exists.",
         "block_source_formation_checkpoint": {
           "block": "M8",
           "after_unit": "BIO27-S08",
           "after_pdf": 58,
           "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
-        }
+        },
+        "logic_group_formation": [
+          {
+            "logic_group": "b-m08-lg01",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S08",
+                "pdf": [
+                  45,
+                  58
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  1,
+                  3
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m08-lg02",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S08",
+                "pdf": [
+                  45,
+                  58
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  4,
+                  7
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m08-lg03",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S08",
+                "pdf": [
+                  45,
+                  58
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  8,
+                  13
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m08-lg04",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S08",
+                "pdf": [
+                  45,
+                  58
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  14,
+                  16
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m08-lg05",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S08",
+                "pdf": [
+                  45,
+                  58
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  17,
+                  18
+                ],
+                "note": null,
+                "closes_block_source_contact": true
+              }
+            ]
+          }
+        ]
       }
     },
     "D5": {
@@ -2496,7 +2817,7 @@
           "tumor/hematology drug interfaces"
         ]
       },
-      "partition_rationale": "M9 preserves its existing Logic Groups as the local retrieval/closure units inside the shared System→Block→Logic Group→KP hierarchy. The prior L1/L2/L3 layer interpretation is withdrawn. Current 27 Source order may form these LG/KP objects non-contiguously; the global Source map owns teacher order and final direct Block/LG/KP routing.",
+      "partition_rationale": "M9 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 teacher order may form those LG/KP objects non-contiguously; no intermediate L-layer exists.",
       "learner_order": [
         "b-m09-lg01",
         "b-m09-lg02",
@@ -2538,15 +2859,74 @@
         }
       },
       "source_contact": {
-        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_PENDING_DIRECT_LG_KP_RECONCILIATION",
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_DIRECT_LG_KP_CURRENT",
         "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
-        "rule": "The global Source map owns teacher order/page contact only. Final bindings must resolve directly to this Block's existing Logic Groups/KPs or explicit support/Connection roles; no parallel L-layer topology is allowed.",
+        "rule": "The global Source map owns teacher order/page contact and maps directly to M9's existing Logic Groups/KPs or explicit support/Connection roles. No intermediate layer exists.",
         "block_source_formation_checkpoint": {
           "block": "M9",
           "after_unit": "BIO27-S10",
           "after_pdf": 74,
           "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
-        }
+        },
+        "logic_group_formation": [
+          {
+            "logic_group": "b-m09-lg01",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S10",
+                "pdf": [
+                  66,
+                  74
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  1,
+                  5
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m09-lg02",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S10",
+                "pdf": [
+                  66,
+                  74
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  6,
+                  10
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m09-lg03",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S10",
+                "pdf": [
+                  66,
+                  74
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  11,
+                  15
+                ],
+                "note": null,
+                "closes_block_source_contact": true
+              }
+            ]
+          }
+        ]
       }
     },
     "G1": {
@@ -3881,7 +4261,7 @@
           "hematology hemolysis interface"
         ]
       },
-      "partition_rationale": "M10 preserves its existing Logic Groups as the local retrieval/closure units inside the shared System→Block→Logic Group→KP hierarchy. The prior L1/L2/L3 layer interpretation is withdrawn. Current 27 Source order may form these LG/KP objects non-contiguously; the global Source map owns teacher order and final direct Block/LG/KP routing.",
+      "partition_rationale": "M10 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 teacher order may form those LG/KP objects non-contiguously; no intermediate L-layer exists.",
       "learner_order": [
         "b-m10-lg01",
         "b-m10-lg02",
@@ -3923,15 +4303,102 @@
         }
       },
       "source_contact": {
-        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_PENDING_DIRECT_LG_KP_RECONCILIATION",
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_DIRECT_LG_KP_CURRENT",
         "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
-        "rule": "The global Source map owns teacher order/page contact only. Final bindings must resolve directly to this Block's existing Logic Groups/KPs or explicit support/Connection roles; no parallel L-layer topology is allowed.",
+        "rule": "The global Source map owns teacher order/page contact and maps directly to M10's existing Logic Groups/KPs or explicit support/Connection roles. No intermediate layer exists.",
         "block_source_formation_checkpoint": {
           "block": "M10",
           "after_unit": "BIO27-S12",
           "after_pdf": 80,
           "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
-        }
+        },
+        "logic_group_formation": [
+          {
+            "logic_group": "b-m10-lg01",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S08",
+                "pdf": [
+                  45,
+                  58
+                ],
+                "role": "SUPPORT",
+                "kp": [
+                  1,
+                  4
+                ],
+                "note": "ALA/B6/amino-acid interface only",
+                "closes_block_source_contact": false
+              },
+              {
+                "source_unit": "BIO27-S11",
+                "pdf": [
+                  75,
+                  79
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  1,
+                  4
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m10-lg02",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S11",
+                "pdf": [
+                  75,
+                  79
+                ],
+                "role": "PRIMARY_FORMATION",
+                "kp": [
+                  5,
+                  9
+                ],
+                "note": null,
+                "closes_block_source_contact": false
+              }
+            ]
+          },
+          {
+            "logic_group": "b-m10-lg03",
+            "source_bindings": [
+              {
+                "source_unit": "BIO27-S11",
+                "pdf": [
+                  75,
+                  79
+                ],
+                "role": "SUPPORT_AND_PRIME",
+                "kp": [
+                  10,
+                  13
+                ],
+                "note": "P079 biotransformation bridge",
+                "closes_block_source_contact": false
+              },
+              {
+                "source_unit": "BIO27-S12",
+                "pdf": [
+                  80,
+                  80
+                ],
+                "role": "PRIMARY_COMPLETION",
+                "kp": [
+                  10,
+                  13
+                ],
+                "note": null,
+                "closes_block_source_contact": true
+              }
+            ]
+          }
+        ]
       }
     },
     "D16": {
