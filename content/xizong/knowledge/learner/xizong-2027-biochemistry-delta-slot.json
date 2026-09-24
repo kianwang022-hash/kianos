@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.future_source_slot.v1",
-  "status": "REOPENED_AFTER_ARCHITECTURE_CORRECTION",
+  "status": "ARCHITECTURE_CORRECTED_REACCEPTED_VALIDATION_CLOSEOUT",
   "slot_id": "xizong-2027-biochemistry-delta",
   "source_cycle": "27考研",
   "domain": "Biochemistry",
@@ -196,7 +196,7 @@
       "received_at": "2026-09-24",
       "markdown_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md"
     },
-    "action_now": "ARCHITECTURE_CORRECTION_LOCKED; NEXT=RECONCILE_M1–M10_G1–G5_CONTENT_TO_EXISTING_BLOCK_LOGIC_GROUP_KP_MODEL_BEFORE_ANY_ACCEPTANCE_CLOSE",
+    "action_now": "S_K_L_CONTENT_P_REACCEPTED_AFTER_ARCHITECTURE_CORRECTION; FINAL_INTEGRATION_QA_AND_CLOSEOUT_ONLY; NO_MORE_CONTENT_REBUILD_UNLESS_CONCRETE_DEFECT",
     "delta_audit": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
     "delta_summary": {
       "preserve": "M1–M10 + G1–G5 stable Block/KP identities and validated medical Core; canonical content hierarchy and Current Source bindings are now 27-based.",
@@ -222,16 +222,10 @@
       "batch_1_carbohydrate_energy": "ANALYZED",
       "batch_2_lipid": "ANALYZED",
       "remaining": [
-        "M1–M10 content-architecture reconciliation: restore mature Block content jobs around existing LG/KP identities; remove provisional layer topology.",
-        "G1–G5 content-architecture reconciliation, including restoring stable canonical KP/file identity where learner order had been physically imposed.",
-        "Direct 27 Source→existing Block/LG/KP or explicit support/Connection mapping.",
-        "Cross-system JIT/Connection/Recall/Reconstruction review for digestive/endocrine and other formal owners.",
-        "Fresh independent K acceptance.",
-        "Fresh independent L acceptance.",
-        "Fresh Content sufficiency / density / Recall-front / website-disappearance closure.",
-        "Projection revalidation only after upstream K/L/Content close; Runtime/Evidence only if real dependency changes."
+        "Run final current-main integration QA with B projectable again and the corrected K validator responsibility boundary.",
+        "If integration QA is green, reconcile exact CURRENT/Mainline closeout; if a downstream unrelated defect appears, repair only that owner."
       ],
-      "key_finding": "The 27 factual/source audit was useful, but the interrupted rebase introduced a redundant Block→L-layer→KP topology and misclassified mature Block-owned content jobs. Architecture is now corrected; affected K/L/Content acceptance is reopened.",
+      "key_finding": "Architecture correction complete: the redundant L-layer topology is gone; all 15 M/G Blocks are restored to the mature System→Block→Logic Group→KP model, 27 Source maps directly to existing LG/KP owners, 191 KP Core semantics are preserved, and cross-System timing is explicit.",
       "batch_M1_protein_enzyme_vitamin": {
         "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
         "current_source": {
@@ -496,7 +490,7 @@
     },
     "source_map": {
       "owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
-      "status": "SOURCE_TRUTH_CURRENT; DIRECT_BLOCK_LG_KP_MAPPING_PENDING",
+      "status": "CURRENT_22_UNIT_DIRECT_BLOCK_LG_KP_MAPPING_COMPLETE",
       "units": 22,
       "mapped_canonical_blocks": 15,
       "rule": "Use current 27 teacher order for first-pass contact. Final mapping must target existing Block/Logic Group/KP identities or explicit support/Connection roles; no L-layer hierarchy."
@@ -512,7 +506,7 @@
       "result": "M1–M10 + G1–G5 are compressed into the two contract-defined mother maps without creating new Block/KP identities."
     },
     "architecture_correction": {
-      "status": "CURRENT_AND_LOCKED_FOR_REBUILD",
+      "status": "COMPLETE_REACCEPTED",
       "parent_owner": "content/xizong/LEARNING_CONTRACT.md",
       "scoped_owner": "content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md",
       "canonical_hierarchy": "System → Block → Logic Group → KP",
@@ -540,7 +534,15 @@
         "Learning canonical_hierarchy objects that duplicated Logic Group topology",
         "physical canonical-file reordering merely to express learner order",
         "demotion of explicit Block Framework / Memory Routing into disposable derived support"
-      ]
+      ],
+      "reacceptance_evidence": {
+        "source_mapping": "22 units / 15 blocks / 0 parallel layer refs",
+        "knowledge": "191 stable M/G KP; 191/191 Core semantic diff=0 vs verified 27 pre-correction content; stable order restored",
+        "learning": "15/15 learner_order, LG identity/membership/goal/closure/readiness unchanged vs accepted baseline; direct Source→LG/KP Current",
+        "content": "15/15 mature Block content responsibilities restored; no Derived Learner Support demotion",
+        "projection": "Xizong Projection Validation run 35942643802 PASS",
+        "learner_truth": "no learner progress manufactured"
+      }
     },
     "preserved_from_interrupted_rebase": {
       "source_identity": true,
@@ -583,10 +585,10 @@
     "topology_change": false
   },
   "mainline_task": {
-    "status": "ACTIVE_ARCHITECTURE_RECONCILIATION",
+    "status": "VALIDATION_CLOSEOUT",
     "program_owner": "content/xizong/CONTENT_MAINLINE.md",
     "scope_owner": "content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json",
-    "working_mode": "ARCHITECTURE_FIRST_THEN_BOUNDED_CONTENT_RECONSTRUCTION",
+    "working_mode": "NO_MORE_CONTENT_REBUILD; FINAL_INTEGRATION_QA_AND_CLOSEOUT_ONLY",
     "completion_definition": {
       "source": [
         "27 source identity/hash/page locators verified",
