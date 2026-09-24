@@ -1,6 +1,6 @@
 # Politics History C01 — Cognitive Projection Pilot
 
-Status: HISTORY GRAMMAR FROZEN / IMPLEMENTATION NOT STARTED  
+Status: **CURRENT — ACCEPTED HISTORY COGNITIVE PROJECTION GRAMMAR**  
 Parent: `static-web/POLITICS_PRODUCT_BRIEF.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Current content owner: `content/politics/learning/history/ch01.json`
