@@ -10,10 +10,10 @@ This file does not own medical Core, Xizong Learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
-**Active / earliest unresolved eligible gate:** `K — bounded M8 amino-acid / nitrogen / one-carbon Source→Knowledge hierarchy rebase`.  
+**Active / earliest unresolved eligible gate:** `K — bounded M9 nucleotide Source→Knowledge hierarchy rebase`.  
 **S status:** PASS — exact Current B official-question membership accepted at 1071 qids.  
-**K status:** **BOUNDED_REOPEN — M/G only**; D1–D23 remain accepted. **M1–M7 are Current after canonical hierarchy reconstruction + direct 27 Source mapping**; M8–M10/G1–G5 remain inside the bounded reopen.  
-**L status:** previous PASS remains historical evidence; **M1–M7 Learning now consume canonical hierarchies directly through the global Biochemistry Source map**; remaining affected M/G Learning stays frozen behind K.  
+**K status:** **BOUNDED_REOPEN — M/G only**; D1–D23 remain accepted. **M1–M8 are Current after canonical hierarchy reconstruction + direct 27 Source mapping**; M9–M10/G1–G5 remain inside the bounded reopen.  
+**L status:** previous PASS remains historical evidence; **M1–M8 Learning now consume canonical hierarchies directly through the global Biochemistry Source map**; remaining affected M/G Learning stays frozen behind K.  
 **P status:** previous PASS preserved; affected M/G Projection is provisional until K/L revalidation.  
 **R status:** previous PASS preserved; no broad Runtime rebuild is authorized.  
 **E status:** previous PASS preserved; stale/current learner evidence must follow Source-revision semantics once affected Block revisions land.  
@@ -31,7 +31,7 @@ Phase 6  Fresh independent L acceptance                PASS
 
 Learning construction / acceptance task: GitHub Issue `#135` — completed.
 
-**Next action:** rebase **M8 amino-acid / nitrogen / one-carbon metabolism**: current 27 Source → canonical Knowledge hierarchy → direct Source mapping → Learning consumption. Do not touch website/UI.
+**Next action:** rebase **M9 nucleotide metabolism**: current 27 Source → canonical Knowledge hierarchy → direct Source mapping → Learning consumption. Do not touch website/UI.
 
 ---
 
@@ -39,7 +39,7 @@ Learning construction / acceptance task: GitHub Issue `#135` — completed.
 
 - Current learner Source decision: **27 跟课 is the only continuous first-pass Biochemistry Source**.
 - 26 精编 is retained as **explanatory reconstruction substrate**, not a second learner reading path.
-- Initial audit found all 15 M/G Blocks on the old 26 Source basis. **M1–M7 are now rebuilt on the 27 Source with explicit canonical hierarchies and direct Source→Knowledge→Learning mapping**; M8–M10/G1–G5 remain under bounded rebase.
+- Initial audit found all 15 M/G Blocks on the old 26 Source basis. **M1–M8 are now rebuilt on the 27 Source with explicit canonical hierarchies and direct Source→Knowledge→Learning mapping**; M9–M10/G1–G5 remain under bounded rebase.
 - Stable Block/KP identity is presumed preserved until deep comparison proves otherwise; no split/merge/renumber for symmetry.
 - Valid 26 explanation should live in Framework / Logic Group / KP Core or cross-System relation when useful; invalid/conflicting explanation is not grandfathered merely because it was in 26.
 
