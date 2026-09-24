@@ -11,25 +11,25 @@
 学科自己的认知、材料、证据和学习方法优先。
 共享标准规定的是**必须回答的问题**，不是强迫三科使用同一种学习模型。
 
-## 0. Ultra-Maturity admission discipline
+## 0. Maturity admission discipline
 
-本标准现在同时受 Personal OS `SYSTEM_ULTRA_MATURITY_STANDARD.md` 的 whole-system maturity ladder 约束。
+This standard is **KianOS-owned**. Its acceptance semantics inherit from `LEARNING_ACCEPTANCE.md`, the exact subject owners and KianOS architecture/authority rules. Personal OS `SYSTEM_ULTRA_MATURITY_STANDARD.md` may be consulted only as a cross-system P5/P6 risk catalog when that audit is explicitly in scope; it is not an upstream subject gate, startup read or authority over KianOS learning acceptance.
 
-旧的“内容完整 / integration 绿 / 一次 Fresh audit PASS”都只能作为证据，不能自动等于最终单科成熟。
+Old claims such as “content complete / integration green / one Fresh audit PASS” are evidence only. They do not automatically establish final subject maturity.
 
-每科必须把现有证据重新映射到适用的 U0–U13 gate，并遵守：
+Each subject must map current evidence to the applicable **local maturity dimensions** already owned by this standard and `LEARNING_ACCEPTANCE.md`:
 
 ```text
 need / score truth
 → owner / boundary truth
+→ Source / material / method / evidence truth
 → minimal subject-native design
 → implementation
 → deterministic proof
 → semantic / builder attack
 → adversarial stress
-→ Fresh Independent anti-anchored audit
+→ independent current-candidate acceptance
 → cross-layer integration
-→ synthetic / browser / runtime lifecycle proof
 → degraded / recovery proof
 → maintenance / repair-burden proof
 → compact subject maturity package
