@@ -782,200 +782,49 @@ If a Gate becomes infeasible, the response order is:
 5. only then reconsider a hard stop-line.
 
 
-## 4.5 Recovery / cognitive-capacity evidence model
+## 4.5 Recovery / cognitive-capacity input
 
-Detailed operational/model specification: [Recovery & Cognitive Capacity Model](RECOVERY_COGNITIVE_CAPACITY_MODEL.md). This contract remains the authority; the model document refines the evidence/calibration procedure without creating a second scheduler or learner ledger.
+KianOS does **not** own Kian's personal recovery / readiness model.
 
-Recovery evidence is a **private planning input**, not a health score, diagnosis, subject-priority engine, or autonomous scheduler.
-
-The planning question is deliberately narrow:
-
-> given Kian's current physiological/recovery context and current functional state, what constraint should Chat place on **usable cognitive capacity, block intensity and time placement** today?
-
-It must not answer:
-
-> which subject matters more?
-
-Subject priority still comes from Gate / Demand / score / workload evidence under this contract.
-
-### Evidence layers
-
-Use four distinct layers and keep missing values as `UNKNOWN`:
-
-1. **Sleep / circadian context**
-   - sleep duration and timing;
-   - continuity / fragmentation when reliably available;
-   - recent schedule regularity;
-   - current time-of-day.
-
-2. **Autonomic / physiological recovery context**
-   - HRV relative to the individual's own recent baseline;
-   - resting heart rate relative to the individual's own recent baseline;
-   - recent workout / activity load;
-   - optional respiratory rate, temperature, oxygen saturation or other wearable metrics only as supporting anomaly context when their collection quality is adequate.
-
-3. **Current subjective-functional state**
-   - sleepiness;
-   - mental fatigue;
-   - attention fragmentation / arousal;
-   - pain, illness or other obvious physical limitation.
-
-4. **Observed study-performance feedback**
-   - actual usable study minutes;
-   - whether high-load blocks remain effective;
-   - task-specific throughput / accuracy when the subject runtime can support a valid comparison;
-   - whether a recovery action is followed by successful re-entry into real work.
-
-Wearable signals must not replace the subjective-functional layer. A watch can provide context about recovery; it cannot directly measure "how much Xizong reasoning is available now."
-
-### Sleep / circadian backbone and two planning scales
-
-For cognitive work, recovery is not only a morning physiology snapshot.
-
-Use the mature fatigue-model decomposition as the conceptual backbone:
+Current ownership:
 
 ```text
-S = homeostatic sleep pressure / recent sleep-wake history
-C = circadian phase / time-of-day modulation
-I = sleep inertia after waking
-P = physiological recovery modifier (HRV / RHR / activity / other reliable vitals)
-F = current subjective + observed functional state
+Health / wearable source facts
+→ native Health source
+
+personal recovery / capacity interpretation
+→ Personal `health/RECOVERY.md`
+
+exam demand / subject priority / cross-subject planning priors
+→ this contract + subject owners
+
+adaptive allocation / day plan
+→ Chat
 ```
 
-Do not pretend these are independent or fully observable from a watch.
-
-The useful outputs exist on two scales:
-
-1. **Day capacity envelope** — a bounded estimate of how much usable cognitive work the day can realistically support.
-2. **Intraday load curve** — which windows are more or less suitable for high-load cognition, without claiming minute-level precision.
-
-A morning readiness signal may modify the envelope. Sleep timing / circadian context / time awake shape the intraday curve. Current functional evidence can override a stale or misleading wearable interpretation.
-
-### Personal baseline, not population thresholds
-
-Interpret physiological metrics primarily as **within-person deviations**.
-
-Preferred baseline behavior:
-
-- use multiple timescales rather than one magic window;
-- a short recent window can detect acute change, while a longer baseline anchors what is normal for Kian;
-- after roughly 7 usable nights a signal may become directionally informative, but confidence should continue increasing with longer history;
-- 3–7 day, ~28 day and ~60 day summaries may all be useful when data density supports them;
-- median plus a robust dispersion estimate such as MAD / IQR is preferred over mean-only thresholds for noisy wearable data;
-- preserve source/device identity and measurement timing when they materially affect comparability;
-- treat a new device / sparse history as a calibration period, not as evidence of abnormal recovery.
-
-Population reference ranges may support health interpretation but must not be used as fake personalized readiness thresholds.
-
-### No universal readiness score
-
-Do not collapse sleep, HRV, resting heart rate, activity and subjective state into one learner-facing `0–100` score.
-
-The private planning projection should instead preserve interpretable dimensions such as:
+When recovery materially affects exam execution, Chat may consume a **bounded Personal recovery/capacity conclusion** such as:
 
 ```text
-sleep_context
-autonomic_recovery
-physical_load
-current_sleepiness
-mental_fatigue
-attention_arousal
-data_confidence
+usable capacity: normal | constrained | unknown
+high-load tolerance: normal | reduced | unknown
+placement / recovery constraint: bounded natural-language conclusion
+confidence / important missingness when decision-relevant
 ```
 
-Chat may derive bounded planning consequences such as:
+This is an interface boundary, not a requirement for a fixed schema. Missing Personal/Health evidence degrades only the dependent recovery claim; it does not block ordinary native study or authorize KianOS to reconstruct a replacement personal model.
 
-```text
-usable_capacity_hint      normal | constrained | unknown
-high_load_tolerance       normal | reduced | unknown
-block_duration_hint       normal | shorter | unknown
-recovery_window_need      none | useful | strong | unknown
-time_placement_hint       optional evidence-bound suggestion
-```
+KianOS owns only the **exam/product consequence** of that input:
 
-These are planning hints, not learner capability Truth.
+- preserve Gate / Demand / score / workload priority semantics;
+- place or shorten high-load work when the accepted constraint justifies it;
+- keep lower-load work available where useful;
+- preserve user agency and UNKNOWN;
+- never turn favorable recovery into extra study obligation;
+- never convert health interpretation into learner mastery or public repository truth.
 
-### Evidence fusion
+Raw health samples and personal calibration remain outside shared KianOS Content. Real task-performance evidence remains KianOS learner/execution evidence and may return to Chat / Personal for interpretation.
 
-A single wearable deviation is weak evidence.
-
-Planning weight increases when independent layers agree:
-
-```text
-objective deviation
-+ matching subjective state
-+ matching functional-performance change
-=> stronger confidence that capacity/load should be adjusted
-```
-
-Conflicting layers should remain visible. For example:
-
-- low HRV with normal sleepiness and normal task performance does not automatically reduce the day;
-- ordinary HRV with strong sleepiness and repeated functional failure can still justify a lighter block;
-- a wearable signal that is sparse, stale or affected by a source change has low or zero planning weight.
-
-No physiological signal may directly suppress a subject floor or hard Gate. Chat first changes block intensity / placement / realistic usable capacity, then performs the normal cross-subject allocation with that revised capacity.
-
-### Calibration lifecycle
-
-Use a staged model rather than pretending to be personalized on day one.
-
-**Stage 0 — observe / baseline**
-
-- first roughly 7–14 useful days after a new wearable source;
-- collect objective context plus real study outcomes;
-- construct provisional S / C / I timing context plus physiological baselines;
-- do not let ordinary wearable fluctuations materially rewrite the plan;
-- obvious illness / concerning symptoms follow the health boundary, not the productivity model.
-
-**Stage 1 — evidence-fusion heuristics**
-
-- once baseline coverage is adequate, use robust within-person deviations;
-- adjust only when the evidence is sufficiently coherent;
-- keep effects bounded and reversible;
-- verify with the next real study block rather than creating extra tests.
-
-**Stage 2 — personal outcome calibration**
-
-After enough comparable observations exist, estimate relationships between recovery context and Kian's actual outcomes.
-
-Candidate outcomes:
-
-- total usable cognitive minutes;
-- probability that a planned high-load block is completed effectively;
-- within-task throughput / error deviation from that task family's own baseline;
-- successful re-entry after recovery.
-
-Prefer simple regularized / robust models and chronological holdout validation before more complex ML. Do not pool incomparable subjects or task families merely to increase sample size. A model may influence planning only if it improves held-out calibration or decision usefulness over the simpler baseline.
-
-### Task-load interface
-
-The recovery model constrains **load**, not domain priority.
-
-Subject-native planning may expose a small task-load description when useful, for example:
-
-```text
-high cognitive load
-medium cognitive load
-low cognitive load / maintenance
-```
-
-The exact meaning stays subject-owned. Cross-subject Chat may use that description to place high-load work into the best available window and move lower-load work into constrained windows without rewriting the subject's learning semantics.
-
-### Health boundary
-
-Wearable data is wellness / recovery context, not medical diagnosis.
-
-Persistent or unusual fatigue, marked physiological change, illness symptoms, syncope, chest pain, severe dyspnea or other concerning symptoms must not be normalized into a productivity adjustment. The correct response is health evaluation, not increasingly aggressive scheduling.
-
-### Runtime / privacy boundary
-
-If implemented, extend the existing private Daily Learning Packet / Chat-controlled planning path with optional recovery context. Do not create a public learner-health ledger or a second scheduler.
-
-Raw personal health samples stay private. Shared GitHub may contain only generic semantics, schema rules and non-personal test fixtures.
-
-
----
+The retired `RECOVERY_COGNITIVE_CAPACITY_MODEL.md` and its Acceptance file are provenance only and are not Current planning authority.
 
 # 5｜Evidence → mastery/stability estimate → workload
 
