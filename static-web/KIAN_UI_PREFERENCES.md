@@ -1,332 +1,152 @@
 # KianOS Visual Requirements & Preference Evidence
 
-Status: CURRENT KIANOS VISUAL REQUIREMENT OWNER  
-Scope: accepted KianOS-specific UI / interaction requirements and the product evidence that supports them  
-Applies to: `static-web/` productization across KianOS surfaces  
+Status: **CURRENT KIANOS-SPECIFIC REQUIREMENT / EVIDENCE OWNER**
+Scope: accepted user-facing requirements that materially constrain KianOS Visual / Interaction choices.
 
-This file does **not** own Kian's general personal UI taste. Durable personal preferences belong to Personal. This file owns only the KianOS-specific visual/product requirements that have been accepted for implementation, plus bounded preference evidence needed to justify those requirements without reconstructing old Chats.
+This file does **not** own Kian's general personal taste, shared CSS rules, presentation mechanics, task-specific Learning Logic or surface implementation.
 
-Hard distinction:
+Ownership:
 
 ```text
-explicit user preference
-≠
-assistant inference / working hypothesis
+Personal
+→ general durable personal preference when it matters beyond KianOS
+
+this file
+→ accepted KianOS-specific visual / interaction requirement + bounded evidence
+
+UI_STYLE_BRIEF.md
+→ shared visual rules / operational defaults
+
+PRESENTATION_CONTRACT.md
+→ representation / geometry / Blueprint / Human-Gate semantics
+
+exact Product / Learning / surface owner
+→ task-specific behavior and layout
 ```
 
-Explicit preferences may guide product decisions directly when they do not conflict with domain semantics. Inferences are only design hypotheses and must yield immediately to direct user feedback or real-use evidence.
+Do not copy downstream style rules back into this file merely to keep them nearby.
 
----
+## 1｜Primary environment
 
-## 1｜Explicit device / workspace preferences
+- Mac / wide landscape is the primary KianOS design origin.
+- iPad is an important companion surface, especially where the approved Source action is continuous reading such as MarginNote.
+- Use horizontal space deliberately; do not stretch a mobile composition across a desktop canvas.
+- Protect vertical working height when the focal learner object scrolls. Persistent side context is preferable to stacked chrome when it genuinely helps the task.
+- Narrow/responsive layouts must remain usable, but are fallback rather than the main design origin.
 
-- Primary web-learning device is **Mac in wide landscape**.
-- Main desktop layouts should use horizontal space deliberately rather than behave like stretched mobile pages.
-- iPad is an important companion learning device, especially for continuous source / lecture reading such as MarginNote.
-- Cross-device design should assign each device the job it is best at instead of duplicating the same continuous content on both screens.
-- Responsive narrow layouts should remain usable, but they are not the main design origin.
-- When the primary learner object is vertically scrollable, **protect vertical working height**. Do not stack persistent headers, method bars, status strips and tool rows above/below the main content merely because they fit. Prefer moving persistent navigation, context and auxiliary tools into left/right space when Mac width can carry them.
-- Side regions are conditional workspace, not decoration: they should earn their width with useful current-task information and collapse/return space to the main learner object when empty or low-value.
+## 2｜Accepted visual direction
 
----
+KianOS should feel:
 
-## 2｜Explicit visual taste
+- restrained, calm, mature and intentional;
+- information-rich without disorder;
+- readable for sustained use;
+- visually substantial rather than thin/light/washed out;
+- structurally clear with visible hierarchy;
+- like a refined desktop knowledge/learning workspace rather than a SaaS/admin/dashboard or documentation site.
 
-Kian consistently prefers:
+Shared KianOS direction:
 
-- restrained, simple, logical interfaces;
-- clear frameworks and visible structure;
-- larger, comfortably readable type;
-- **substantial Regular/Medium typography with visible weight rather than thin/light rendering**;
-- **Chinese UI typography with a broad, full-bodied, stable glyph feel** rather than narrow/condensed/squeezed proportions;
-- stronger contrast;
-- **high useful information density when the screen has room for it**;
-- low-friction interaction;
-- visually calm pages that still contain enough information;
-- polished desktop-product feel rather than study-app decoration;
-- Apple-like interaction quality / predictability;
-- Raycast-level restraint is broadly acceptable;
-- typography that feels stable, editorial and comfortable for sustained reading rather than thin, generic engineering/admin UI;
-- in Lexical and other true English lexical-reading contexts, the older `4173` / legacy site's stronger serif/editorial English treatment is a positive visual reference, while Chinese explanation and UI chrome may remain sans-serif.
+- useful density over decorative whitespace;
+- content/task more noticeable than software chrome;
+- strong hierarchy and alignment before borders/cards;
+- few cards and little decorative color/animation;
+- broad, full-bodied Chinese rendering rather than condensed/squeezed glyphs;
+- Chinese UI uses the accepted PingFang-first direction on Mac;
+- English lexical/editorial content may use a stronger serif treatment when task-native.
 
-Kian dislikes:
+Exact typography sizes/weights, token rules, navigation levels, density rules and screenshot acceptance live only in `UI_STYLE_BRIEF.md`.
 
-- tiny text that makes sustained reading tiring;
-- **thin / light / weak-looking type, especially when combined with gray low-contrast text**;
-- **narrow / condensed / squeezed-looking Chinese glyphs**, including Chinese headings made visually thinner by aggressive negative letter-spacing;
-- using smallness or light font weight as the primary way to mark secondary information;
-- pages that are too empty and waste large amounts of space;
-- interfaces that hide useful structure behind excessive whitespace;
-- **low-density pages that still shrink visible text instead of using the available screen**;
+## 3｜Positive / negative reference evidence
+
+Positive evidence:
+
+- legacy `4173` Politics Learn-mode Chinese UI is an accepted reference for full-bodied PingFang-based Chinese character and stronger active-state weight;
+- legacy `4173` lexical English treatment is a positive reference for editorial serif character;
+- Apple-like predictability and Raycast-like restraint are useful quality references, not clone targets;
+- early Steward HTML has useful visual direction for a light, refined, clearly layered native-Mac feel; its exact controls/layout/backend were never blanket-approved.
+
+Negative direction:
+
+- tiny + light + gray useful text;
+- narrow/condensed Chinese;
+- excessive empty space;
 - card/panel piles;
-- visually loud, flashy, highly saturated Arc-like treatment;
-- decorative color for its own sake;
-- excessive animation / novelty;
-- engineering/debug/status information competing with learner content;
-- visual treatment that feels like an internal documentation site, low-code dashboard, generic SaaS admin page, or cheap component library.
+- generic admin/dashboard composition;
+- flashy saturated decoration or novelty animation;
+- backend/debug/status vocabulary competing with the actual task.
 
-These are **shared site-wide taste defaults**, not Home-only preferences. Subject/surface-specific presentation may vary when its actual learning/task geometry requires it, but should not silently revert to thin typography, weak contrast, generic dashboard composition or card-heavy styling.
+Historical screenshots and named products are evidence only. They never restore retired semantics/runtime.
 
-These are taste constraints, not instructions to clone Apple, Raycast, Arc, the legacy site, or any named product. Legacy screenshots are visual evidence for typography/density/taste, not authority to restore retired semantics or runtime behavior.
+## 4｜Accepted interaction requirements
 
-### Steward clarification — 2026-09-24
+- High autonomy: allow jump/compare/scroll/backtrack where the native task permits it; do not force wizard ceremony.
+- Important first-round structure should usually be visible when Mac space can carry it; repeated reveal clicks should not be the default organization method.
+- Stable/correct work should be fast and visually quiet.
+- Wrong / meaningful Uncertain may reveal more information when that information is useful.
+- Preserve interrupted context and a clear return path across approved surface/tool handoffs.
+- Text is the safe default representation; use diagrams/arrows only when they reduce real reconstruction cost without inventing meaning.
+- Rich backend state should disappear behind simple frontstage behavior; do not expose structure merely because it exists.
 
-Kian explicitly reaffirmed Mac landscape and a light, refined, clearly layered
-native-Mac feel. This means interaction quality and hierarchy, not tiny/light text.
-Kian prefers the early Steward HTML's visual direction to the later standalone
-redesigns; its functional placement needs improvement. Preserve that reference as
-visual evidence while using the real shared shell, readable typography and the
-existing site's navigation ownership. No preview is blanket approval of its exact
-layout, controls, or backend integration.
+## 5｜Accepted exam-workspace geometry requirements
 
-### Accepted Chinese UI font reference
+Exam-like tasks preserve their native whole object rather than being fragmented for component convenience.
 
-Kian explicitly accepts the Chinese UI character shown by the legacy `4173` Politics Learn mode row:
+Accepted examples:
+
+- Reading A: passage + full question set simultaneously visible on Mac, with independent scrolling where appropriate;
+- Cloze: complete passage + all 20 answer rows together; Mac options use exam-like horizontal typesetting where practical;
+- Part B: preserve the complete candidate/material/placement context needed for global reconciliation;
+- Translation: source + learner translation simultaneously visible;
+- Writing: prompt/material + a dominant authoring workspace.
+
+Scrolling is valid when native to the task. Before submit, selection means only the learner's current choice; it must not imply correctness. Wrong/Uncertain repair should preserve task context when practical.
+
+## 6｜Content / tool boundary requirements
+
+- Do not duplicate a truth owner merely to make a page self-contained.
+- When another approved surface owns the cognitive action, KianOS web is a companion rather than a competing second course.
+- Chat should keep semantic coaching/discussion where Chat is the better surface instead of forcing JSON round-trips or copying the same analysis into the website.
+- Dense learner content must not be semantically thinned merely to make a mockup or first viewport look cleaner.
+
+## 7｜Design-process requirement
+
+For material UI change:
 
 ```text
-继续 / 随机 / 错题 / 到期 / 收藏
+recover current Rule / Learning / Interaction / existing consumer
+→ explain the important behavior that must survive
+→ establish focal composition
+→ implement the smallest coherent visual change
+→ real browser proof
+→ Kian Human Gate when taste/product behavior is material
 ```
 
-Exact evidence:
+Do not redesign from one component in isolation. Do not treat build PASS as visual acceptance.
+
+## 8｜Working hypotheses — not authority
+
+Current useful hypotheses:
+
+- overview/relationships often help before forced micro-steps;
+- Kian tolerates high information density but not disorder;
+- low-ceremony interaction is usually higher value;
+- sophisticated backend behavior should collapse into simple frontstage behavior;
+- Mac side-by-side relationships are often useful;
+- polish matters because KianOS is a high-frequency personal tool.
+
+Authority order:
 
 ```text
-kianos-legacy@5cb002b4f775dbac0aa777ef8954f65db09904ab
+Kian's current explicit feedback
+> real-use evidence
+> these hypotheses
 ```
 
-The accepted shared Chinese stack is:
+Never defend a hypothesis against direct user correction.
 
-```css
-"PingFang SC",
--apple-system,
-BlinkMacSystemFont,
-"Noto Sans CJK SC",
-sans-serif
-```
+## 9｜Update rule
 
-For Chinese learner-facing UI on Mac, `PingFang SC` is intentionally first rather than left to generic system fallback resolution. The accepted optical baseline is the 2026-09-18 real macOS Chromium proof with `fontFamily = "PingFang SC"`, `fontWeight = 600`, and `fontCheck = true`. The active legacy `错题` state remains positive evidence for a stronger current/active weight, not for a different family.
+Update this file only when Kian explicitly changes/generalizes a durable KianOS visual/interaction requirement or when repeated real-use evidence materially changes the requirement.
 
-Explicit preference:
-- this is the default Chinese UI / Chinese learner-text family across KianOS;
-- Chinese headings stay in the same sans family by default;
-- do **not** use the old `Georgia, "Songti SC", serif` Politics hero/title treatment as the shared Chinese direction;
-- active/current/important Chinese may be heavier, while normal body text stays comfortably Medium;
-- English typography is deliberately outside this rule for now.
-- Linux/Ubuntu screenshots are never valid evidence for Chinese typeface Human Gate. They may validate geometry/runtime only.
-- Chinese typography Human Gate requires macOS visual evidence with an explicit PingFang availability/rendering proof before the screenshot is accepted.
-
-This is an L1 preference. Subject L2/L3 may choose size, hierarchy and weight within the shared family, but must not silently replace the Chinese font family.
-
-### Visible text carries a reading obligation
-
-- If a learner-facing surface chooses to show text by default, Kian will treat that text as something worth reading or identifying. **Visible therefore implies readable and useful.**
-- On the primary Mac-wide learning surface, **15px is a hard lower bound for normal default-visible learner text, not a target size**. Normal secondary/navigation text should usually be around **16px or larger**; body copy, explanations, relationships and task instructions should generally be **17–18px or larger** when space permits.
-- Normal learner-facing typography should feel optically solid: Regular/Medium is the default voice; Light/Thin should not dominate ordinary learner text.
-- Do not use tiny or thin type as a way to say “this is secondary.” Lower visual priority through position, tone, grouping, spacing, or by deferring/hiding genuinely nonessential information.
-- If an engineering ID, provenance/status label, debug field or other datum is not worth comfortable reading, it should not remain permanently visible merely because there is room for it.
-- Density problems should be solved first by removing duplicate chrome, using Mac width better, grouping related content, or local scrolling — **not by shrinking learner text**.
-- Real browser acceptance should inspect the smallest default-visible learner text **and its rendered weight/contrast**, not only headlines and body paragraphs.
-- For Chinese UI, acceptance also inspects the **actual rendered typeface and glyph proportion**. A nominal CSS weight such as 700/760 does not pass if fallback rendering still looks narrow, lanky or under-bodied.
-- Negative tracking on Chinese learner-facing headings/labels is disallowed by default. Use normal tracking unless a real screenshot proves a specific exception improves readability without squeezing the glyph body.
-
-### Screen space must earn its keep
-
-- Kian strongly prefers a Mac-wide viewport to show **substantial useful information per screen**. A large desktop canvas should not behave like a sparse mobile composition stretched outward.
-- Every persistent region should either carry information worth seeing now, support the current action, or provide a high-value control. Empty structure, decorative chrome and oversized spacing do not count as useful density.
-- **Low information density never justifies small text.** If a page is sparse, text should remain comfortably readable and the layout should use the available space better rather than appearing both empty and tiny.
-- Whitespace is valid when it improves grouping, scanning, or when the cognitive action genuinely benefits from an uncluttered stage. It is not a visual goal by itself, and it should not consume large parts of the viewport without a learner-facing reason.
-- High density is acceptable and preferred when hierarchy, alignment and reading rhythm remain clear. When a surface truly becomes dense, modest type reduction may be considered, but never below the readable floor merely to preserve a composition.
-- Default-visible content should be biased toward **effective learner information**, not software self-description.
-
-### Preserve semantic density in intrinsically dense learning surfaces
-
-- Do **not** simplify, thin out, or split apart a high-density learning asset merely to make a Guide, mockup, diagram, or one-screen composition look cleaner.
-- Presentation compression is not semantic compression. Reorganization may change hierarchy, spatial placement, typography, grouping, or navigation; it must not silently reduce the accepted terminology, relations, distinctions, claims, or first-round useful detail of the source/Current learning asset.
-- A diagram, role matrix, summary strip, or card is an orientation device, not a substitute for the complete useful content when that content is part of the learner-facing Guide.
-- A Guide is allowed to be information-dense and may extend beyond one viewport. `Fits on one screen` is never a goal when achieving it requires deleting or flattening meaningful content.
-- Use Mac width, strong hierarchy, nested structure, local scrolling, stable context, and selective emphasis to organize dense information before considering omission.
-- Content may be deferred or hidden only when the domain Learning/Projection authority says it is genuinely secondary, later-phase, reference-only, or not needed for the current cognitive action — never merely for visual cleanliness.
-- This applies especially to English Task Guides / First Learning assets and Xizong System / Block Guides, where the underlying information density is itself part of the learning value.
-
----
-
-## 3｜Explicit interaction preferences
-
-### High autonomy
-
-- Do not force wizard-style step-by-step interaction when the task does not require it.
-- Do not add confirmation rituals merely because a state machine exists.
-- The learner should be able to jump, compare, scroll, backtrack and reopen context freely where the native task allows it.
-- Stable/correct paths should be extremely fast.
-
-### Reduce interaction used only to reveal information
-
-- On the primary Mac-wide workspace, important structure and first-round useful content should preferably be **visible by default** instead of hidden behind repeated `click to expand` interactions.
-- Progressive disclosure is still useful for genuinely secondary/deep material, but should not become the mechanism that keeps the whole page tidy.
-- Do not make the learner repeatedly open cards, accordions, details panels or modal layers simply to reconstruct one coherent knowledge object.
-- Prefer spatial organization, typography, grouping and simultaneous visibility over interaction-heavy disclosure when the Mac viewport can carry the information comfortably.
-- This preference is especially important for high-density learning surfaces such as Politics cognitive workspaces and Xizong Block/KP learning, where excessive reveal interactions can become an additional learning barrier.
-
-### Structure should be visible
-
-- Important relations, maps, hierarchy, causal chains and task structure should be visually apparent rather than requiring the learner to reconstruct them from prose or repeated clicks.
-- Rich backend content may exist, but the default surface should expose the structure needed for the current cognitive action without visually flattening the full useful content of that object.
-- Do not flatten distinct cognitive objects into one generic card template.
-
-### Representation serves the learning purpose
-
-- Start from the learner goal, not from the fact that a backend asset is called `Map`, `Projection`, `Chain`, or another structural name.
-- **Text is the default representation when clear structured text communicates the idea safely and quickly.** A diagram is justified only when it materially reduces reconstruction cost, comparison cost, or ambiguity.
-- Do not draw a diagram merely because the data contains edges or topology. Visual layout itself can accidentally invent hierarchy, causality, grouping, or direction that the knowledge does not claim.
-- Parallel concepts should normally remain parallel in typography/list/columns unless Current explicitly owns a stronger relation.
-- Use arrows only for relations whose direction is both explicit and educationally useful. Never let an automatic layout imply that several peer concepts are causes, prerequisites, children, or inputs of another concept when that is not the intended meaning.
-- Prefer a small number of safe representation primitives: structured text, simple explicit chain, timeline, compare/boundary, or true hierarchy. When uncertain, fall back to readable text rather than a clever diagram.
-- Projection exists to decide **what the learner should understand and which relations matter**; it does not obligate the UI to visualize every semantic object as a graphic.
-- Readability outranks diagram density. Do not reduce font size to preserve a decorative framework. On Mac learning surfaces, comfortably readable type is a hard acceptance condition.
-
-### Failure may increase interface weight
-
-- Stable work should remain visually quiet.
-- Wrong / meaningful Uncertain may reveal more information because the added information is useful.
-- Repair should happen in place when practical instead of ejecting the learner into a separate dashboard or wizard.
-- Deep review / Chat escalation should be optional and earned by a real problem.
-
-### Preserve context and return
-
-- Cross-lane / cross-surface tool use should preserve the interrupted task and offer a clear return path.
-- Examples: English → Lexical → return to the exact passage; Politics → Chengfeng / Chat → return to the exact Unit/question.
-- A temporary tool handoff should not feel like abandoning the main task.
-
----
-
-## 4｜Explicit exam-workspace preferences
-
-Kian prefers exam-like tasks to retain their **native whole-object geometry** rather than being fragmented for component convenience.
-
-Current accepted examples:
-
-- Reading A: Passage left + the **full question set** right; both independently scrollable on Mac.
-- Cloze: complete passage left + **all 20 blank rows together** right.
-- Cloze A/B/C/D options should default to **horizontal exam-paper typesetting** on Mac, not four vertical app cards.
-- Part B should preserve the full candidate pool / material / placement map needed for global reconciliation.
-- Translation should keep source + translation simultaneously visible.
-- Writing should keep prompt + a dominant authoring area simultaneously visible.
-
-For exam work:
-
-- scrolling is acceptable when it matches the real task; do not over-optimize for no-scroll wizard interaction;
-- before submit, selected answer styling must mean only `my current choice`, not correctness;
-- whole-task submit/answer-gating rules must remain intact;
-- after submit, Wrong/Uncertain should preferably expand in place while the original task remains visible.
-
----
-
-## 5｜Explicit content/tool boundaries
-
-- Do not duplicate truth owners just to make a page self-contained.
-- Example: Reading/Cloze/Translation may route a selected word to LexicalOS, but should not build a second dictionary locally.
-- Chat should be used where semantic discussion is actually better in Chat instead of copying the same analysis back into the website.
-- Example: Writing website owns the writing workspace; Chat owns semantic essay review/coaching. Structured JSON round-trip should not become a normal learner ritual merely so the webpage can redisplay Chat's analysis.
-- Original source surfaces should remain primary when they are the approved learning owner (for example Chengfeng continuous study in MarginNote).
-
----
-
-## 6｜Explicit discussion / design-process preferences
-
-When discussing a KianOS UI surface with Kian:
-
-1. **Read the full current chain first** — Logic / Projection / Runtime / Repair / Return / existing functions — before proposing a redesign.
-2. Do not start from generic UX taste or from a single current component.
-3. Discuss **one surface / task type at a time** rather than dumping the whole system at once.
-4. Before proposing changes, clearly explain the **important existing functions** so Kian can judge what would be preserved or lost.
-5. Use simple, visual, Mac-wide ASCII sketches when useful, but never treat a simplified sketch as permission to reduce the source asset's information density or detail level.
-6. Keep explanations concrete and colloquial; do not bury the decision under architecture language.
-7. Once a decision is accepted, write it to GitHub so later Chats/Codex do not reconstruct it from conversation history.
-8. Finish the relevant family / subject product discussion before handing implementation to Codex.
-9. Aesthetics are part of acceptance; `build PASS` is not enough. Review real screenshots.
-10. When visual taste is being calibrated, show Kian representative screenshots and discuss them before promoting a local success into a shared style rule.
-11. For a learner-facing visual change, establish the **focal hierarchy / composition first**, then component/card treatment; do not build the screen by styling every available data field independently.
-
----
-
-## 7｜Explicit product feel
-
-Desired overall feel:
-
-> **A complete, coherent, beautiful desktop learning website whose task/content is more noticeable than the software itself.**
-
-The learner-facing site should feel:
-
-- mature;
-- calm;
-- efficient;
-- intentional;
-- information-rich without being disorderly;
-- coherent across subjects;
-- aesthetically polished enough to enjoy daily use;
-- structurally rich without feeling busy;
-- closer to a refined editorial/knowledge workspace than to an engineering dashboard.
-
-It should not feel like:
-
-- an engineering console;
-- a component demo;
-- a course-management dashboard;
-- a generic SaaS admin/product dashboard;
-- a documentation site with tiny gray metadata;
-- a gamified study app;
-- a mobile app stretched across a Mac;
-- several disconnected Gold pages with no shared Home / navigation / return model.
-
----
-
-## 8｜Working hypotheses from observed usage — NOT hard requirements
-
-The following are **assistant inferences**, useful for proposing options but not authoritative user preferences until confirmed by Kian or supported by real-use evidence.
-
-### H1｜Overview before guided micro-steps
-Kian appears to work better when the system/relationship is visible first and he can then move quickly through details, rather than being guided through many small mandatory steps.
-
-### H2｜High information tolerance, low disorder tolerance
-Kian appears comfortable with substantial information density when hierarchy is strong, but dislikes having to reconstruct structure from scattered cards/prose. The explicit preference in §2 now additionally establishes that dense learner assets must not be semantically thinned merely for cleaner presentation.
-
-### H3｜Low ceremony tolerance
-Kian appears particularly sensitive to operations that exist for system completeness rather than learner value: repeated confirmations, duplicate Chat→web imports, mandatory checkpoints, exposed backend states, etc.
-
-### H4｜Backend richness should disappear into front-end simplicity
-Kian appears to value sophisticated underlying evidence/runtime behavior while preferring the learner-facing UI to remain simple, direct and low-friction. `Simplicity` here means interaction/chrome simplicity, not deletion of intrinsically dense learner content.
-
-### H5｜Spatial relationships are high leverage
-On Mac, Kian likely benefits from simultaneous side-by-side context when two objects must be compared or used together, rather than repeated page switching.
-
-### H6｜Polish matters because this is a high-frequency personal tool
-Aesthetics are not merely branding; visual fatigue, typography, spacing and interaction feel are likely to affect long-term willingness to use the system daily.
-
-Rule for all hypotheses:
-
-> **Kian's direct feedback > real-use evidence > these hypotheses.**
-
-Never defend an inferred preference against explicit user correction.
-
----
-
-## 9｜Relationship to other UI owners
-
-- `static-web/PRESENTATION_CONTRACT.md` owns shared cognition → projection rules.
-- this file owns **personal UI / interaction preference evidence**.
-- `static-web/UI_STYLE_BRIEF.md` turns those preferences plus product constraints into a shared visual language.
-- lane `*_PRODUCT_BRIEF.md` files own task-specific product choices.
-- domain Learning / Interaction contracts remain semantic authority and outrank taste when a real conflict exists.
-
-Codex must not reinterpret this file as permission to change learning semantics.
-
----
-
-## 10｜Update rule
-
-Update this file when Kian explicitly states a durable UI / interaction preference or explicitly rejects one.
-
-- Preserve the distinction between explicit preference and inference.
-- Do not silently promote one successful mockup into a universal rule.
-- Do not infer a global preference from one task-specific decision unless Kian explicitly generalizes it.
-- When Kian explicitly states that a visual preference is **common/shared across the site**, record it here as a shared default and let `UI_STYLE_BRIEF.md` own the implementation rule.
-- When a later explicit preference conflicts with an older one, update the Current preference rather than carrying both as equal truth.
+Do not copy implementation details or downstream style rules here. When a downstream shared visual rule changes without changing the upstream user requirement, update only `UI_STYLE_BRIEF.md`.
