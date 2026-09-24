@@ -13,14 +13,14 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 
 ## Current Source-revision exception — Biochemistry M1–M10 / G1–G5
 
-The prior B S/K/L/P/R/E acceptance remains valid historical evidence and remains Current for unaffected D1–D23 scope. The authoritative **27 Biochemistry follow-along Source** materially changed the Source basis for all M/G Blocks. **M1–M8 are now Current after canonical hierarchy reconstruction and direct Source→Knowledge→Learning mapping**; M9–M10/G1–G5 remain in the bounded exception.
+The prior B S/K/L/P/R/E acceptance remains valid historical evidence and remains Current for unaffected D1–D23 scope. The authoritative **27 Biochemistry follow-along Source** materially changed the Source basis for all M/G Blocks. **M1–M9 are now Current after canonical hierarchy reconstruction and direct Source→Knowledge→Learning mapping**; M10/G1–G5 remain in the bounded exception.
 
 Therefore, until the bounded reconstruction closes:
 
 ```text
-M1–M8 K / Learning mapping = CURRENT_AFTER_CANONICAL_HIERARCHY_RECONSTRUCTION
-M1–M8 Question relations / explanations = PRESERVE unless canonical medical semantics/owner boundaries changed
-M9–M10/G1–G5 Source rebase = IN_PROGRESS
+M1–M9 K / Learning mapping = CURRENT_AFTER_CANONICAL_HIERARCHY_RECONSTRUCTION
+M1–M9 Question relations / explanations = PRESERVE unless canonical medical semantics/owner boundaries changed
+M10/G1–G5 Source rebase = IN_PROGRESS
 remaining M/G K      = BOUNDED_REOPEN
 remaining M/G L / Content = FROZEN_FOR_REVALIDATION_BEHIND_K
 M/G P                = PROVISIONAL / preserve existing work
