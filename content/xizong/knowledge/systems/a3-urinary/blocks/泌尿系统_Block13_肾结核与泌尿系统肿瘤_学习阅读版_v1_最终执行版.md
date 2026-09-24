@@ -8,9 +8,9 @@ title: 肾结核与泌尿系统肿瘤
 order: 13
 study_refs:
   - source_id: surgery-lecture
-    label: 外科学讲义｜泌外感染和肿瘤
-    book_page_start: 104
-    book_page_end: 107
+    label: 27外科精编版【带导图】｜SUR27-U18｜肾结核与泌尿系统肿瘤
+    pdf_page_start: 128
+    pdf_page_end: 132
     source_local_asset_start: IMAGE_PAGES/p0129.png
     source_local_asset_end: IMAGE_PAGES/p0133.png
     source_locator_semantics: source-local preprocessing assets, not physical pages in the current merged PDF
@@ -44,7 +44,7 @@ source_gap_status: SOURCE_ROUTING_AND_CLINICAL_BOUNDARIES_EXPLICIT
 >
 > **文件性质**：泌尿系统第十三个 canonical Block。它第一次完整建立肾结核的器官特异模型，以及肾癌、上尿路癌、膀胱癌和前列腺癌的器官特异诊疗框架。
 >
-> **Primary Study**：`外科学讲义_AI阅读版.md` 书页 P104–107《泌外感染和肿瘤》。历史 preprocessing 还把对应视觉资产编号为 `IMAGE_PAGES/p0129.png`–`p0133.png`；**这些是 source-local asset id，不是当前合并 PDF 的物理第129–133页**。
+> **Primary Study**：`27外科精编版【带导图】.pdf` SUR27-U18，PDF P128–P132《泌外感染和肿瘤》。该单元实际主体为肾结核与泌尿肿瘤，不把细菌性尿路感染重复并入本 Block。历史 `IMAGE_PAGES/p0129.png`–`p0133.png` 只作为兼容 asset id；Current 物理页以 P128–P132 为准。
 >
 > **Primary Outline**：外科 U026 共14题；其中“分肾功能的三个检查”和“尿三杯”已在 K6 完成唯一 Primary，本 Block只 Recall / Apply。其余 **12 / 12** 为本 Block Primary，`duplicate_primary = 0`。
 >
