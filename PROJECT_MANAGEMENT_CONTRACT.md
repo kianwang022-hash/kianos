@@ -444,11 +444,17 @@ When delegating, Chat creates one Issue titled:
 
 `Codex execution: <bounded task>`
 
-The body must also contain the machine marker:
+**Quota-aware default: manual pickup.** Creating the Issue prepares durable execution context but does not spend Codex allowance by itself. Kian may open Codex and say:
+
+`推进 GitHub 当前工程任务`
+
+Codex must resolve the current execution Issue and canonical owners from GitHub; Kian does not copy/paste the task body, PR state, logs or prior Chat context.
+
+Only when Kian explicitly wants unattended/automatic Codex dispatch should Chat add the watcher marker:
 
 `<!-- kian-codex-task:v1 -->`
 
-Optional execution markers are deliberately tiny:
+Without that marker, the installed watcher ignores the Issue and consumes no model call. Optional execution markers remain deliberately tiny:
 
 ```text
 <!-- kian-codex-runtime:local -->          # only when the task must touch this Mac / localhost / LaunchAgent / private local state
@@ -474,6 +480,8 @@ Return receipt
 ```
 
 The canonical semantic/task state still lives in the existing Current/Mainline owner. If creating the delegated task materially changes that owner's active/next task set, update that owner in the same Chat-side dispatch. The Issue does not replace it.
+
+After Codex works, Chat/Engineer reads GitHub directly (Issue, PR, commits, checks and compact proof) for review/acceptance. Kian is never the transport layer between Codex and Chat. If GitHub does not contain enough evidence, Chat asks Codex/the execution task to produce the missing bounded proof rather than asking Kian to summarize what happened.
 
 Codex execution lifecycle:
 
