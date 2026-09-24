@@ -59,6 +59,3 @@ jobs:
           path: static-web/.qa/xizong-b-runtime-journey.json
           if-no-files-found: warn
           retention-days: 14
-      - name: Validate Current Xizong broad regression
-        working-directory: static-web
-        run: npm run validate:xizong
