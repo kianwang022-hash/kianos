@@ -1,6 +1,6 @@
 # Xizong System Framework — accepted design direction
 
-Status: **MAC-WIDE L3 HUMAN-GATE ACCEPTED 2026-09-18 — TARGETED CI / MERGE PENDING**  
+Status: **CURRENT — ACCEPTED SYSTEM FRAMEWORK DESIGN**  
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`  
 Shared evolvability requirement: root `PROJECT_DEFINITION.md` R10 + `ARCHITECTURE.md` §7.1
