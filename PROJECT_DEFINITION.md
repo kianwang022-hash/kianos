@@ -80,7 +80,7 @@ Failure modes include requiring prior-chat recall, broad repository archaeology,
 
 ## R2｜Local autonomy — independently continued scopes can stand on their own
 
-A learning scope that is important enough to be entered and continued independently must have enough local authority and routing to resume without loading unrelated domains.
+A scope that is important enough to be entered and continued independently must have enough local authority and routing to resume without loading unrelated domains. Formal learning scopes keep their additional Learning/Acceptance owners where applicable.
 
 KianOS must support recursive autonomy where it reduces continuation cost, while avoiding hierarchy for hierarchy's sake.
 
@@ -112,7 +112,7 @@ KianOS must keep at least these distinctions permanently explicit:
 
 1. what artifacts/product capabilities actually exist;
 2. what quality/readiness has actually been demonstrated by evidence;
-3. what Kian has actually learned, attempted, repaired, transferred, or used;
+3. what Kian has actually done or used in reality; for learning, what he has actually learned, attempted, repaired or transferred;
 4. what the current worker is trying to do next.
 
 Hard invariant:
@@ -121,9 +121,11 @@ Hard invariant:
 
 Examples:
 
+- implemented runtime ≠ observed real use;
 - implemented runtime ≠ accepted learning path;
 - accepted module ≠ Kian has learned the module;
 - worker plans learner testing ≠ Kian is already at that learner stage;
+- a persisted timer/state transition ≠ an inferred personal preference or strategy;
 - build green ≠ learning acceptance PASS.
 
 Architecture may choose names/owners for these distinctions, but it may not collapse them.
@@ -171,7 +173,7 @@ Architecture must specifically resist:
 - repeated rule copies across lanes;
 - historical/legacy material returning as normal fallback;
 - worker re-entry expanding into repository-wide search;
-- learner state leaking into shared product state;
+- private user/learner state leaking into shared product state;
 - temporary execution structures becoming permanent authorities.
 
 ## R9｜Semantic / learning quality outranks engineering completion
@@ -198,12 +200,12 @@ This Project Definition owns only the requirement that engineering proxies must 
 
 ## R10｜Content evolvability — normal content change must not require product rewrites
 
-KianOS must remain easy to change as learning content, question assets, relationships, learning-support metadata and projection needs evolve.
+KianOS must remain easy to change as durable Content/Knowledge, question assets, product semantics, learning-support metadata and projection needs evolve.
 
 Normal content evolution should usually follow:
 
 ```text
-canonical Content / Learning asset changes
+canonical Content / semantic or Learning asset changes
 → Projection / representation asset changes when needed
 → validation
 → existing product/runtime consumes the new Current asset
@@ -221,7 +223,7 @@ content changes
 Architecture must therefore preserve a useful separation between:
 
 - stable identity / ownership;
-- evolving domain semantics and learning assets;
+- evolving domain semantics, Knowledge and learning assets;
 - stage/state-specific Projection;
 - reusable product/workspace/runtime behavior.
 
@@ -242,9 +244,9 @@ This requirement does **not** mean pre-building every future feature. It means c
 
 The following are stronger than ordinary implementation preferences. Architecture must preserve them unless this Project Definition is explicitly revised from new real requirements.
 
-## I1｜Chat is a worker, not project memory
+## I1｜Chat is cognition / worker, not durable project memory
 
-No critical current state may require one specific Chat transcript to remain available.
+Chat supplies open-ended reasoning and may perform work, but no critical current state may require one specific Chat transcript to remain available.
 
 ## I2｜Current reasoning is present-focused
 
@@ -260,9 +262,9 @@ Low-frequency standards/contracts and high-frequency work position must not be f
 
 Repository-wide invariants belong upstream. Child scopes add only genuine differences rather than copying parent rules.
 
-## I5｜Private learner truth remains private learner truth
+## I5｜Private reality remains private reality
 
-Shared engineering/product progress must never manufacture personal learning progress, mastery, review debt, or learner next-action claims.
+Shared engineering/product progress must never manufacture personal execution facts, preferences, outcomes or learner progress. For formal learning, mastery, review debt and learner next-action claims remain private learner truth unless supported by the proper evidence owner.
 
 ## I6｜Complexity requires a requirement owner
 
@@ -276,7 +278,7 @@ If no requirement owner exists, the complexity is presumptively unnecessary.
 
 Routine change in content, questions, learning support, relations, or projection detail should normally be absorbed by the responsible Current asset layer rather than by duplicating domain truth into page/runtime code.
 
-A product/runtime rewrite is justified when the learner behavior, task geometry, surface ownership, evidence semantics, or true domain model changes—not merely because one content object gained, lost, reordered, or refined learner-facing structure.
+A product/runtime rewrite is justified when user/learner behavior, task geometry, surface ownership, evidence semantics, or the true domain model changes—not merely because one content object gained, lost, reordered, or refined presentation structure.
 
 ---
 
@@ -311,7 +313,7 @@ Given only a known target scope, a fresh Chat should normally recover enough inf
 - the next action;
 - blockers / frozen downstream work;
 - the exact owners required to continue;
-- which facts must not be inferred as learner progress.
+- which facts must not be inferred as real use / learner progress.
 
 If it requires broad search or history reconstruction, the design fails this test.
 
@@ -327,7 +329,7 @@ For one scope, the system must be able to answer separately and unambiguously:
 
 - what actually exists;
 - what has actually been accepted/proven;
-- what Kian has actually learned/done;
+- what Kian has actually done/used; for learning, what he has actually learned;
 - what the current worker should do next.
 
 If one answer is being guessed from another, the architecture fails.
@@ -355,7 +357,7 @@ The architecture should still avoid:
 - repository-wide search for routine continuation;
 - rule updates requiring edits across many duplicated child files;
 - Work Cursor turning into a historical log;
-- shared product state being mistaken for Kian's learner state.
+- shared product state being mistaken for Kian's private real-use / learner state.
 
 If the likely answer is that these problems will recur, the architecture is not yet sufficient.
 
@@ -365,13 +367,13 @@ For learner-facing modules, the strongest readiness language must match actual l
 
 A build, page, content inventory, or simulated journey may support a gate, but may not replace the learning-acceptance standard or real user validation where required.
 
-## T7｜Content Change Absorption Test
+## T7｜Content / Semantic Change Absorption Test
 
-Take a representative accepted learner surface and change only its legitimate Current content/projection assets—for example add or remove a relation, reorder a cognitive object, add a reviewed comparison, refine a question explanation, or add an optional enrichment—without changing the learner action itself.
+Take a representative accepted surface and change only its legitimate Current semantic/content/projection assets without changing the underlying user action—for example add or remove a learning relation, refine a question explanation, reorder an approved cognitive object, or change a product-owned semantic/configuration object that an existing renderer already understands.
 
-The architecture should normally permit that change to reach the learner through asset/projection updates plus validation, without requiring page-specific domain rewrites or a new runtime state machine.
+The architecture should normally permit that change to reach the consumer through asset/projection updates plus validation, without requiring page-specific domain rewrites or a new runtime state machine.
 
-If routine content evolution repeatedly requires special-case UI code, duplicated semantic copies, or schema migrations unrelated to learner behavior, the architecture fails this test.
+If routine semantic/content evolution repeatedly requires special-case UI code, duplicated semantic copies, or schema migrations unrelated to user/learner behavior, the architecture fails this test.
 
 ---
 
