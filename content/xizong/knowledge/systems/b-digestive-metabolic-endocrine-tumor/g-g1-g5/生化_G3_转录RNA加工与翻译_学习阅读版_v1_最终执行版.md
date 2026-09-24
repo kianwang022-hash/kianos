@@ -100,6 +100,7 @@ learner order = Learning owner 决定怎样形成 / Recall / Closure
 
 ---
 
+<!-- kianos:kp id="dme-g03-kp01" -->
 ## KP01｜转录的模板、编码链与反应体系
 
 > **讲义定位 →** 生化 Lecture PDF P138–139，印刷页 P116–117。  
