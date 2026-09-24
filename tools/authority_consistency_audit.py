@@ -207,29 +207,35 @@ def audit_current_sync(registry: dict) -> None:
 
 
 def audit_home_boundary(registry: dict) -> None:
-    contract = registry.get("conditional_boundaries", {}).get("home_projection_contract")
-    if not isinstance(contract, str) or not (REPO / contract).is_file():
-        return
-
+    """Home composes subject-owned surfaces; it must not become a private subject-state reader."""
     index_path = REPO / "static-web/src/pages/index.astro"
     check(index_path.is_file(), "HOME_ENTRY_MISSING")
     if not index_path.is_file():
         return
     value = text(index_path)
-    forbidden_native = (
+
+    required_surfaces = (
         "XizongHomeTools",
         "PoliticsHomeTools",
         "EnglishResume",
+        "ExamOrchestratorHome",
     )
-    for token in forbidden_native:
-        check(token not in value, "HOME_NATIVE_PRESENTATION_LEAK", token)
+    for token in required_surfaces:
+        check(token in value, "HOME_REQUIRED_COMPOSITE_SURFACE_MISSING", token)
 
-    check(
-        "homeSubjectProjection" in value or "HomeSubjectProjection" in value,
-        "HOME_STABLE_READ_MODEL_MISSING",
-        rel(index_path),
+    forbidden_private = (
+        "localStorage",
+        "readPoliticsSnapshot",
+        "readEnglishSessionInstruction",
+        "buildEnglishEvidencePacket",
+        "buildXizongStudyPacketFromStorage",
+        "resolvePoliticsMemoryResume",
+        "privateCheckpointRuntime",
     )
+    for token in forbidden_private:
+        check(token not in value, "HOME_READS_SUBJECT_PRIVATE_RUNTIME", token)
 
+    check("<ExamOrchestratorHome" in value, "HOME_CHAT_PLAN_PROJECTION_MISSING", rel(index_path))
 
 def audit_external_reading_boundary(registry: dict) -> None:
     brief = registry.get("conditional_boundaries", {}).get("external_reading_product_brief")
