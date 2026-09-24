@@ -1,22 +1,6 @@
-name: Politics Final Fresh Execution
+name: Politics Final Fresh Execution (Explicit)
 on:
-  pull_request:
-    paths:
-      - 'content/politics/**'
-      - 'static-web/src/lib/politics*.mjs'
-      - 'static-web/src/components/Politics*.astro'
-      - 'static-web/src/pages/politics/**'
-      - 'static-web/scripts/*politics*.mjs'
-      - '.github/workflows/politics-final-fresh-execution.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'content/politics/**'
-      - 'static-web/src/lib/politics*.mjs'
-      - 'static-web/src/components/Politics*.astro'
-      - 'static-web/src/pages/politics/**'
-      - 'static-web/scripts/*politics*.mjs'
-      - '.github/workflows/politics-final-fresh-execution.yml'
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
