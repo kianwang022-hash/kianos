@@ -68,6 +68,8 @@ RETIRED_JSON_PATHS = [
 # Their absence is now the protected boundary: recreating either file would
 # reintroduce a parallel status/continuation owner and must fail closed.
 ABSENT_RETIRED_PATHS = [
+    "RECOVERY_COGNITIVE_CAPACITY_MODEL.md",
+    "RECOVERY_COGNITIVE_CAPACITY_ACCEPTANCE.md",
     "content/xizong/knowledge/learner/continuation.json",
     "content/xizong/knowledge/learner/acceptance-status.json",
 ]
