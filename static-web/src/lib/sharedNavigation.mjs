@@ -4,6 +4,7 @@
 export function globalNavigation(base = '/') {
   return [
     { key: 'home', label: 'Home', href: base, icon: 'M3 10 12 3l9 7M5 9v11h5v-6h4v6h5V9' },
+    { key: 'steward', label: 'Steward', href: `${base}steward/`, icon: 'M12 3v3m0 12v3M3 12h3m12 0h3M6.8 6.8l2.1 2.1m6.2 6.2 2.1 2.1m0-10.4-2.1 2.1m-6.2 6.2-2.1 2.1M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z' },
     { key: 'xizong', label: '西综', href: `${base}xizong/`, icon: 'M12 3v18M3 12h18M6 6l12 12M6 18 18 6' },
     { key: 'politics', label: '政治', href: `${base}politics/`, icon: 'M4 20h16M6 17V8m6 9V8m6 9V8M3 6l9-3 9 3H3Z' },
     { key: 'english', label: 'English', href: `${base}english/`, icon: 'M4 5h7a4 4 0 0 1 4 4v11a4 4 0 0 0-4-3H4V5Zm11 4a4 4 0 0 1 4-4h2v12h-2a4 4 0 0 0-4 3' },
@@ -109,6 +110,7 @@ export function resolveGlobalActive(localPath = '', active = 'home') {
   if (segment === 'xizong') return 'xizong';
   if (segment === 'politics') return 'politics';
   if (segment === 'skills') return 'skills';
+  if (segment === 'steward') return 'steward';
   return active;
 }
 
