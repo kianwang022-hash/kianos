@@ -6,7 +6,7 @@ Role: thin website engineering router. Root [CURRENT](../CURRENT.md) owns cross-
 
 The shared shell and existing subject surfaces are landed. Broad UI construction remains closed; reopen only for a concrete learner-visible defect, platform change, or explicit new need.
 
-Accepted shared-runtime provenance lives in [L1_SHARED_RUNTIME_CLOSURE.md](L1_SHARED_RUNTIME_CLOSURE.md) and Git history. Do not copy old PRs, workflow runs, candidate SHAs, or historical PASS narratives back into this cursor.
+Historical shared-runtime provenance remains in Git history. Do not copy old PRs, workflow runs, candidate SHAs, or historical PASS narratives back into this cursor.
 
 The managed macOS Current mirror, private checkpoint path, Daily Learning Packet relay, private control path, and External Reading source are active operational surfaces. Their live truth comes from [Current doctor](scripts/kianos-current-doctor.mjs) and the exact runtime owner, never a status copied here.
 
