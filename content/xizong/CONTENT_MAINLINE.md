@@ -21,9 +21,9 @@ Old Chats, prompts, Issue titles and branch names are provenance, not Current tr
 
 ---
 
-# 0｜VALIDATION CLOSEOUT — 27 Biochemistry architecture-corrected rebase
+# 0｜CLOSED MAINLINE TASK — 27 Biochemistry architecture-corrected rebase
 
-Status: **S/K/L/Content/P REACCEPTED · FINAL INTEGRATION QA / CLOSEOUT ONLY**
+Status: **CLOSED / CURRENT · S/K/L/Content/P REACCEPTED**
 
 Exact task owner:
 
@@ -37,43 +37,41 @@ Parent learning architecture:
 
 `content/xizong/LEARNING_CONTRACT.md`
 
-Current result:
+Closed result:
 
 ```text
 canonical hierarchy
 System → Block → Logic Group → KP
 
-27 Source units
-→ direct mapping to existing Block/LG/KP or explicit support/Connection roles
-→ no parallel L-layer topology
-
-Biochemistry specialisation
-= continuous Source lane + JIT Prelude + state reconstruction + timed cross-System integration
-≠ separate Knowledge architecture
+S       PASS — 22 current 27 Source units → 15 M/G Blocks via direct LG/KP/support/Connection mapping
+K       PASS — 191 stable M/G KP; canonical order restored; 191/191 Core semantics preserved
+L       PASS — accepted learner_order / LG / membership / goal / closure / readiness preserved
+Content PASS — mature Block-owned Framework/Core/Boundary/Precision/Connection/Memory/Visual/Exit roles restored
+P       PASS — Projection exact bindings/adversarial/current reconciliation validated
+R/E     PRESERVED
+U       UNTESTED
 ```
 
-Fresh scoped evidence:
+Key architecture result:
 
-- 22 current 27 Source units / 15 M/G Blocks / remaining layer refs 0;
-- M1–M10 + G1–G5 = **191 stable KP**;
-- **191/191 KP Core semantic diff = 0** versus the verified 27 pre-correction content;
-- approved 27 audit markers lost = 0;
-- 15/15 learner order / LG identity / KP membership / goal / closure / readiness unchanged versus accepted B Learning baseline;
-- G5 canonical file/KP order restored to `KP01→…→KP13`, while learner order remains `KP01–05 → KP12–13 → KP06–11`;
-- explicit Framework / Boundary / Precision / Connection / Memory Routing / MI-G / MI-D / Visual / question-contact / Block Exit responsibilities restored;
-- cross-System timing = JIT Connection → Recall/Future Connection → post-formation Reconstruction;
-- Xizong Projection Validation run `35942643802` = **PASS**.
+- Source units / Source-contact segments are execution units only.
+- Biochemistry remains a dedicated continuous 27 Source lane, but **not** a separate Knowledge architecture.
+- Two mother maps remain System Framework/compression objects, not hierarchy.
+- G5 stable canonical order is `KP01→…→KP13`; learner order remains `KP01–05 → KP12–13 → KP06–11`.
+- Cross-System integration is timed as **JIT Connection → Recall/Future Connection → post-formation Reconstruction**.
+- High-value digestive/endocrine/clinical integration remains explicit without routine Source switching or duplicated external Core.
+- No static-web content fork was created.
 
-Current action:
+Executed evidence:
 
-```text
-no more Biochemistry content rebuild
-→ final current-main integration QA
-→ if green: exact closeout only
-→ if a downstream unrelated defect appears: repair that smallest owner without reopening the Biochemistry content architecture
-```
+- Xizong Projection Validation run `35942643802` — **PASS**.
+- Static Web Xizong QA run `35943462333` passed relation sync, semantic adapter, Projection/Current reconciliation, owner lifecycle, Crosswalk, B Core, B Knowledge and B Learning.
+- B Core: **38/38 Blocks · 600 KP · 600 unique markers · 0 missing/duplicate**.
+- B Knowledge: **PASS candidate**.
+- B Learning structure: **Issues=0**.
+- That broader workflow later stopped at unrelated **A2 Evidence** `system-repair-return-bypasses-inbox`; it is outside this Biochemistry scope and does not reopen this closed task.
 
-No static-web content fork was created. Website remains downstream of GitHub canonical truth.
+Reopen only for a new/revised authoritative Biochemistry Source or a concrete defect in accepted Source / Knowledge / Learning / Content / Projection owners.
 
 ---
 
