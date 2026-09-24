@@ -32,10 +32,6 @@ fs.writeFileSync(path.join(shardRoot, 'q001-025.json'), `${JSON.stringify(existi
 fs.writeFileSync(path.join(ownerRoot, 'manifest.json'), `${JSON.stringify({
   canonical_storage: { reviewed_relation_count: 1 }
 })}\n`);
-fs.writeFileSync(path.join(ownerRoot, 'continuation.json'), `${JSON.stringify({
-  schema: 'kianos.xizong.question_relations.continuation.v2',
-  last_growth: { reviewed_relation_count_before: 0, reviewed_relation_count_after: 1 }
-}, null, 2)}\n`);
 const incoming = [{
   question_id: 'xizong-official-2099-n002',
   system_id: 'test-system',
@@ -69,13 +65,8 @@ try {
     throw new Error('canonical_materialization_failed');
   }
   if (fs.existsSync(pendingRoot)) throw new Error('staging_not_deleted');
-  const continuation = JSON.parse(fs.readFileSync(path.join(ownerRoot, 'continuation.json'), 'utf8'));
-  const growth = continuation.last_growth;
-  if (growth?.reviewed_relation_count_before !== 1 || growth?.reviewed_relation_count_after !== 2) {
-    throw new Error('continuation_count_advance_failed');
-  }
-  if (JSON.stringify(growth?.added_question_ids) !== JSON.stringify(['xizong-official-2099-n002'])) {
-    throw new Error('continuation_question_ids_failed');
+  if (fs.existsSync(path.join(ownerRoot, 'continuation.json'))) {
+    throw new Error('continuation_artifact_reintroduced');
   }
 
   fs.mkdirSync(pendingRoot, { recursive: true });
@@ -94,7 +85,7 @@ try {
     throw new Error(`stale_witness_not_rejected:${staleRun.stderr || staleRun.stdout}`);
   }
 
-  console.log('XIZONG_CROSSWALK_THROUGHPUT_OK materialize=PASS continuation=1->2 stale_witness=REJECTED');
+  console.log('XIZONG_CROSSWALK_THROUGHPUT_OK materialize=PASS continuation=ABSENT stale_witness=REJECTED');
 } finally {
   fs.rmSync(tempRoot, { recursive: true, force: true });
 }
