@@ -17,7 +17,7 @@ This file owns D-scoped readiness truth only. It does not own medical Core, lear
 | K — Knowledge | **PASS** | `system.json` + 27 canonical Block Core; 27 Blocks / 356 stable KPs |
 | L — Learning Logic | **PASS_AFTER_REPAIR** | Phase 6C fresh defect → Phase 6D bounded repair → Phase 6E fresh independent PASS |
 | Content Realization / Optimization | **PASS** | Phase 7A role model; Phase 7B wrappers; Phase 7C neural; Phase 7D orthopedic; **Phase 7E fresh independent whole-D closure PASS** |
-| P — Projection | **UNTESTED / ACTIVE NEXT** | Content is accepted; scoped Projection is now the earliest eligible downstream gate |
+| P — Projection | **UNTESTED** | Content is accepted; Projection readiness is unresolved here. Whether Projection work is active/eligible is owned by D `CURRENT.md`. |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | U — Learner Use | **NO_CLAIM** | real Kian use only |
@@ -35,7 +35,7 @@ The 27 Surgery refined Source rebase did not change D System topology.
 - Mature Block-owned Framework / KP Core / Boundary / Precision / Visual / Connection / Memory roles were re-read across the orthopedic branch.
 - Source unit / Source-contact segment remains execution only and does not become a hierarchy layer.
 - Canonical KP order was not changed to express learner order.
-- P remains **UNTESTED / ACTIVE NEXT** exactly as before; no Surgery task result promotes D Runtime/Evidence/User gates.
+- P remains **UNTESTED**; this Acceptance owner does not schedule Projection work. D `CURRENT.md` owns whether Projection is merely eligible or explicitly active. No Surgery task result promotes D Runtime/Evidence/User gates.
 - The directly affected O3 Question→Knowledge / explanation path was revalidated without changing its canonical target.
 
 Therefore the existing D S1/K/L/Content PASS claims remain current after this bounded Source revision.
