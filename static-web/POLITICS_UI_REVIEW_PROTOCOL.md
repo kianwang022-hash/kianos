@@ -202,7 +202,7 @@ For ordinary Politics UI implementation/review:
 ```text
 1. content/politics/CURRENT.md
 2. content/politics/SURFACE_MAPPING_CONTRACT.md
-3. static-web/POLITICS_PRODUCT_STATUS.md
+3. static-web/POLITICS_PRODUCT_BRIEF.md
 4. this POLITICS_UI_REVIEW_PROTOCOL.md
 5. content/politics/LEARNING_CONTRACT.md
 6. content/politics/INTERACTION_CONTRACT.md
