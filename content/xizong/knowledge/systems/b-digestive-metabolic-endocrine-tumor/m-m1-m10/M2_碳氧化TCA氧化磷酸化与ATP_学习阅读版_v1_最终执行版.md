@@ -6,10 +6,13 @@ block_id: M2
 type: block_learning_reader
 version: v1
 status: FINAL_EXECUTION
-primary_source: 生物化学讲义_AI阅读版.md
-coverage_source: 生化_Embedded_Questions_Ledger.md
-embedded_questions_primary: 27
-visual_status: VISUAL_SOURCE_GAP_OPEN
+primary_source: 生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md
+primary_source_pdf: 27生化跟课版合集【不带导图】.pdf
+source_cycle: 27考研
+explanatory_substrate: 生物化学讲义_AI阅读版(1).md / 26生化.pdf
+coverage_source: current 27 lecture-attached questions + official Question Truth
+embedded_questions_primary: 28
+visual_status: SOURCE_AVAILABLE_EXTERNAL_PRIMARY_27_PDF
 ---
 
 # M2｜碳氧化、TCA、氧化磷酸化与 ATP
@@ -25,17 +28,19 @@ visual_status: VISUAL_SOURCE_GAP_OPEN
 
 ### Study 主范围
 
-- 糖无氧 / 有氧氧化：`#pdf-p002`–`#pdf-p007`｜印刷页 P1–6；
-- 高能化合物与混合真题：`#pdf-p008`–`#pdf-p013` 中 M2 所有权部分；
-- 氧化磷酸化：`#pdf-p014`–`#pdf-p022`｜印刷页 P11–18。
+- **Current 27 Source Primary**：
+  - `BIO27-S01`｜PDF P003–P008：糖酵解、乳酸/PDH 分叉与 TCA；形成 L1，并形成 L2 的 TCA/还原当量骨架；
+  - `BIO27-S04`｜PDF P019–P026：胞浆 NADH 穿梭、呼吸链、化学渗透、P/O 与 30/32 ATP；完成 L2 并形成 L3。
+- **Current 27 Source Support**：
+  - `BIO27-S02`｜PDF P009–P012：高能化合物与 RBC 串联；M2 只吸收高能/能量接口；
+  - `BIO27-S03`｜PDF P013–P018：糖代谢总联系；M2 只吸收 G-6-P / 调节接口。
+- **26 精编**：只作为已验证解释性 reconstruction substrate，不形成第二套 learner Source。
 
 ### Embedded Questions Primary
 
-- 糖酵解 / PDH / TCA / 高能化合物：13 题；
-- 氧化磷酸化 / 穿梭 / ATP：14 题；
-- **合计 27 / 27 accounted**。
-
-P012 的红细胞题 2 道、P013 的红细胞题 1 道唯一 Primary 归 M3，不在 M2 重复。
+- S01 中 M2-owned：13 题（3 道 RBC Primary 转交 M3）；
+- S04：15 题（新增 2025N20 甘油-3-磷酸穿梭）；
+- **合计 28 / 28 source-position accounted**。
 
 ### 前序调用
 
@@ -72,76 +77,51 @@ PEP → 丙酮酸：底物水平磷酸化
 
 ---
 
-## 1｜第一轮固定流程
+## 1｜Canonical Knowledge Hierarchy
+
+### M2 母模型｜把碳骨架的化学能逐层转换成 ATP
 
 ```text
-Framework Orientation
-→ M2a：P002–P007 糖酵解 / PDH / TCA
-→ M2b：P014–P018 穿梭 / 呼吸链 / 化学渗透
-→ M2c：P019–P022 ATP计算 / 空间原图 / 调节
-→ Lecture Done
-→ Framework Reconstruction：碳流 + 电子流 + 质子流 + ATP流
-→ KP Active Recall
-→ Embedded Questions Quick Check（按需、低压力）
-→ TTSX Lecture-attached Questions
-→ Block Complete
+葡萄糖碳流
+→ 丙酮酸分叉
+→ 乙酰CoA / TCA 抽取还原当量
+→ NADH / FADH₂把高能电子交给呼吸链
+→ 电子传递驱动质子泵
+→ 质子梯度驱动 ATP 合酶
+→ ATP 供能；故障可按“碳 / 电子 / 质子 / ATP”定位
 ```
 
-第一轮六个门槛：
+M2 的核心不是背四条独立通路，而是理解**能量逐级换一种载体保存**：碳键 → 还原当量 → 电子势能 → 质子势能 → ATP。
+
+### L1｜碳入口、分叉与不可逆控制｜KP01–KP05
+
+**Core relation**
 
 ```text
-糖酵解在胞浆；PDH和TCA在线粒体
-无氧分支回收NAD⁺，有氧分支把NADH送入呼吸链
-乙酰CoA是三大营养物质共同枢纽
-TCA产还原当量，呼吸链才把它们换成大量ATP
-复合体II不泵质子
-抑制 ≠ 解偶联：氧耗、ATP与产热方向不同
+葡萄糖
+→ 糖酵解 → 丙酮酸
+├─ 缺氧 / 无线粒体：乳酸，回收 NAD⁺
+└─ 有氧：PDH → 乙酰CoA，进入线粒体碳氧化主线
 ```
 
----
+**Boundary**
+- 无氧分支的关键任务是再生 NAD⁺，不是“没有氧就完全不产能”；
+- PDH 不可逆，乙酰CoA不能按原路回丙酮酸；
+- 糖原 / 糖异生属于 M4，成熟 RBC 完整模型属于 M3。
 
-## 2｜总 Framework
+**Precision**
+- 糖酵解净 2 ATP、NADH 生成点与两处底物水平磷酸化；
+- HK / PFK-1 / PK 三个关键酶及主要调节；
+- PDH 的部位、氧化脱羧身份与 M1 辅因子接口。
 
-<!-- approved-27-audit: B1-M2-01 -->
-当前 Study 的有氧氧化跨段整合：共有7个关键酶，6个受ATP抑制；己糖激酶为例外。此句只作为跨段 Framework 提示，具体各酶仍在相应KP中学习。
-
-```text
-A｜碳流
-葡萄糖(6C)
-→ 糖酵解 → 2丙酮酸(3C)
-├─ 缺氧 / 无线粒体：乳酸
-└─ 有氧：PDH → 乙酰CoA(2C) → TCA → CO₂
-        ↓
-B｜还原当量流
-糖酵解 / PDH / TCA脱氢
-→ NADH、FADH₂
-→ 把高能电子送入呼吸链
-        ↓
-C｜电子流
-NADH → 复合体I
-FADH₂ → 复合体II
-→ CoQ → 复合体III → Cyt c → 复合体IV → O₂ → H₂O
-        ↓
-D｜质子流
-复合体I、III、IV把H⁺泵至膜间隙
-→ 建立电化学梯度
-→ H⁺经F₀回流
-→ F₁合成ATP
-        ↓
-E｜能量结算
-底物水平磷酸化
-+ 氧化磷酸化
-→ 每葡萄糖按穿梭不同形成30 / 32 ATP的Study口径
-```
-
-### 一句话恢复
-
-> **糖酵解拆碳，TCA剥电子，呼吸链泵质子，ATP合酶收势能。**
+**Connection**
+- 缺氧、运动、肿瘤乳酸只验证分叉模型；
+- 餐后/空腹与完整激素控制交回 D7/D8。
 
 ---
 
 <!-- kianos:kp id="biochem-m2-kp01" -->
-## KP01｜氧化、还原与三种葡萄糖去路
+#### KP01｜氧化、还原与三种葡萄糖去路
 
 > **主提示：** 氧化2形式｜胞浆分叉2｜NADH去向｜终产物｜巴斯德
 
@@ -161,7 +141,7 @@ E｜能量结算
 ---
 
 <!-- kianos:kp id="biochem-m2-kp02" -->
-## KP02｜糖酵解：耗能—裂解—放能三段式
+#### KP02｜糖酵解：耗能—裂解—放能三段式
 
 > **主提示：** 糖酵解3段｜耗能点｜裂解点｜放能点｜NADH点｜净能量账
 
@@ -179,7 +159,7 @@ E｜能量结算
 → 丙酮酸
 ```
 
-### 能量账
+##### 能量账
 
 - 耗能：G→G-6-P、F-6-P→F-1,6-BP，各耗 1 ATP；
 - 裂解：1 个 6C 变成 2 个 3C；
@@ -195,7 +175,7 @@ E｜能量结算
 ---
 
 <!-- kianos:kp id="biochem-m2-kp03" -->
-## KP03｜糖酵解三个关键酶：入口、承诺步骤与出口
+#### KP03｜糖酵解三个关键酶：入口、承诺步骤与出口
 
 > **主提示：** 3关键酶｜各催化｜PFK1激活3/抑制2｜PK前馈/抑制2｜HK/GK对比
 
@@ -205,7 +185,7 @@ E｜能量结算
 | PFK-1 | F-6-P→F-1,6-BP | AMP、ADP、F-2,6-BP激活；F-2,6-BP最强；ATP、柠檬酸抑制 |
 | 丙酮酸激酶 | PEP→丙酮酸并产ATP | F-1,6-BP前馈激活；ATP、丙氨酸抑制 |
 
-### 己糖激酶 vs 葡萄糖激酶
+##### 己糖激酶 vs 葡萄糖激酶
 
 - 葡萄糖激酶是己糖激酶 IV 型同工酶，位于肝和胰岛 β 细胞；
 - Km 高、亲和力低，高血糖时才明显处理葡萄糖；
@@ -216,7 +196,7 @@ E｜能量结算
 ---
 
 <!-- kianos:kp id="biochem-m2-kp04" -->
-## KP04｜乳酸分支：缺氧快速供能与 NAD⁺再生
+#### KP04｜乳酸分支：缺氧快速供能与 NAD⁺再生
 
 > **主提示：** 反应方向｜氢来源｜2意义+RBC/肿瘤接口｜LDH代表谁｜巴斯德
 
@@ -237,7 +217,7 @@ LDH 催化丙酮酸—乳酸可逆反应，其活性可作为无氧氧化活跃�
 ---
 
 <!-- kianos:kp id="biochem-m2-kp05" -->
-## KP05｜PDH：把胞浆丙酮酸送入线粒体碳氧化主线
+#### KP05｜PDH：把胞浆丙酮酸送入线粒体碳氧化主线
 
 > **主提示：** 部位｜反应4产物｜6辅因子｜不可逆意义｜B1缺乏链｜M1 Recall
 
@@ -265,8 +245,36 @@ VitB1缺乏
 
 ---
 
+### L2｜TCA、还原当量与能量接驳｜KP06–KP09
+
+**Core relation**
+
+```text
+乙酰CoA + 草酰乙酸
+→ TCA 再生草酰乙酸
+→ CO₂ + NADH + FADH₂ + 少量底物水平 GTP/ATP
+→ 还原当量交给呼吸链
+→ 胞浆 NADH 通过穿梭转换为线粒体可接收的还原当量
+```
+
+**Boundary**
+- TCA 的主要价值是抽取还原当量并连接三大营养物质，不是直接产生大量 ATP；
+- 底物水平磷酸化与氧化磷酸化是两种不同产能方式；
+- 高能化合物不等于 ATP，NTP/酰CoA/PEP 等属于不同能量载体。
+
+**Precision**
+- TCA “1—2—3—4”；
+- 每乙酰CoA 当前口径约 10 ATP；
+- 两种胞浆 NADH 穿梭：脑/骨骼肌 → FADH₂ 级，肝/心/肾 → NADH 级。
+
+**Connection**
+- 乙酰CoA 是糖、脂、氨基酸碳流的共同接口；
+- 后续 M7/M8 只接入这一能量枢纽，不重建整套 M2。
+
+---
+
 <!-- kianos:kp id="biochem-m2-kp06" -->
-## KP06｜TCA 路线：乙酰CoA进入、草酰乙酸再生
+#### KP06｜TCA 路线：乙酰CoA进入、草酰乙酸再生
 
 > **主提示：** 8中间物顺序｜起点2底物｜回到谁｜部位｜共同枢纽
 
@@ -289,28 +297,28 @@ TCA 在线粒体进行。乙酰 CoA 是糖、脂和氨基酸碳骨架的共同�
 ---
 
 <!-- kianos:kp id="biochem-m2-kp07" -->
-## KP07｜TCA 的“1—2—3—4”压缩身份
+#### KP07｜TCA 的“1—2—3—4”压缩身份
 
 > **主提示：** 1部位/1底物磷酸化｜2脱羧｜3关键酶｜4脱氢｜每乙酰10ATP
 
-### 1
+##### 1
 
 - 一个主要部位：线粒体；
 - 一次底物水平磷酸化：琥珀酰 CoA→琥珀酸，生成 GTP / ATP。
 
-### 2
+##### 2
 
 - 两次氧化脱羧：
   - 异柠檬酸→α-酮戊二酸；
   - α-酮戊二酸→琥珀酰 CoA。
 
-### 3
+##### 3
 
 - 柠檬酸合酶；
 - 异柠檬酸脱氢酶；
 - α-酮戊二酸脱氢酶复合体。
 
-### 4
+##### 4
 
 - 3 次生成 NADH；
 - 1 次生成 FADH₂（琥珀酸→延胡索酸）。
@@ -320,7 +328,7 @@ TCA 在线粒体进行。乙酰 CoA 是糖、脂和氨基酸碳骨架的共同�
 ---
 
 <!-- kianos:kp id="biochem-m2-kp08" -->
-## KP08｜底物水平磷酸化与高能化合物：不经过呼吸链也能直接产能
+#### KP08｜底物水平磷酸化与高能化合物：不经过呼吸链也能直接产能
 
 > **主提示：** 底物磷酸化3处｜高能键2类｜NTP/NDP/NMP｜磷酸肌酸｜6非典型｜排除3
 
@@ -344,7 +352,7 @@ TCA 在线粒体进行。乙酰 CoA 是糖、脂和氨基酸碳骨架的共同�
 ---
 
 <!-- kianos:kp id="biochem-m2-kp09" -->
-## KP09｜胞浆 NADH 为什么需要穿梭
+#### KP09｜胞浆 NADH 为什么需要穿梭
 
 > **主提示：** 胞浆NADH为何不能直接进去｜2条穿梭/组织｜受体形式｜ATP差异｜谁更高效
 
@@ -360,8 +368,40 @@ TCA 在线粒体进行。乙酰 CoA 是糖、脂和氨基酸碳骨架的共同�
 
 ---
 
+### L3｜电子—质子—ATP耦联与故障定位｜KP10–KP15
+
+**Core relation**
+
+```text
+NADH → I ─┐
+           ├→ CoQ → III → Cyt c → IV → O₂ → H₂O
+FADH₂ → II┘
+
+I / III / IV 泵 H⁺
+→ 膜间隙质子势
+→ H⁺经 F₀ 回流
+→ F₁ 合成 ATP
+```
+
+**Boundary**
+- 复合体 II 传电子但不泵质子；
+- 呼吸链抑制、ATP 合酶抑制、解偶联是三个不同故障层；
+- NADPH 不作为本链常规供能还原当量。
+
+**Precision**
+- P/O：NADH 2.5、FADH₂ 1.5；
+- 当前 Study：约 4 H⁺ / ATP；
+- 一分子葡萄糖 30 / 32 ATP 的差值来自胞浆 NADH 穿梭；
+- ADP 是直接的能量需求信号。
+
+**Connection**
+- CN / CO / 解偶联只用于故障定位；
+- 甲状腺、棕色脂肪、线粒体病完整模型交回相应 owner。
+
+---
+
 <!-- kianos:kp id="biochem-m2-kp10" -->
-## KP10｜呼吸链两条入口与四个复合体
+#### KP10｜呼吸链两条入口与四个复合体
 
 > **主提示：** NADH链｜FADH₂链｜I–IV酶/辅基｜Q/Cytc游离｜双/单电子｜终受体
 
@@ -389,7 +429,7 @@ FADH₂ → II┘
 ---
 
 <!-- kianos:kp id="biochem-m2-kp11" -->
-## KP11｜化学渗透：电子传递怎样变成质子势能
+#### KP11｜化学渗透：电子传递怎样变成质子势能
 
 > **主提示：** 呼吸链泵哪些复合体｜H⁺方向｜质子势能｜回流通道｜F₀/F₁分工｜H⁺/ATP
 
@@ -410,7 +450,7 @@ FADH₂ → II┘
 ---
 
 <!-- kianos:kp id="biochem-m2-kp12" -->
-## KP12｜P/O 比值：同样一对电子为什么 NADH 比 FADH₂产能多
+#### KP12｜P/O 比值：同样一对电子为什么 NADH 比 FADH₂产能多
 
 > **主提示：** P/O定义｜NADH vs FADH₂泵H⁺差异｜ATP差异｜差在哪个复合体｜特殊电子供体
 
@@ -424,11 +464,11 @@ P/O：生成 ATP 数与消耗 1/2 O₂的比值。
 ---
 
 <!-- kianos:kp id="biochem-m2-kp13" -->
-## KP13｜一分子葡萄糖的 30 / 32 ATP 怎样结算
+#### KP13｜一分子葡萄糖的 30 / 32 ATP 怎样结算
 
 > **主提示：** 葡萄糖总ATP账：前期耗能｜底物磷酸化｜胞浆NADH穿梭｜PDH｜TCA｜为何两种总数
 
-### 糖酵解
+##### 糖酵解
 
 - 消耗 2 ATP；
 - 生成 4 ATP；
@@ -437,11 +477,11 @@ P/O：生成 ATP 数与消耗 1/2 O₂的比值。
   - α-磷酸甘油穿梭：2×1.5；
   - 苹果酸—天冬氨酸穿梭：2×2.5。
 
-### 丙酮酸脱氢
+##### 丙酮酸脱氢
 
 - 2 个丙酮酸各产生 1 NADH：2×2.5。
 
-### TCA
+##### TCA
 
 - 2 个乙酰 CoA：2×10 ATP。
 
@@ -455,7 +495,7 @@ P/O：生成 ATP 数与消耗 1/2 O₂的比值。
 ---
 
 <!-- kianos:kp id="biochem-m2-kp14" -->
-## KP14｜氧化磷酸化调节：ADP 是最直接的“缺能量信号”
+#### KP14｜氧化磷酸化调节：ADP 是最直接的“缺能量信号”
 
 > **主提示：** 最强调节1｜转运2｜mtDNA｜甲状腺2链｜负反馈
 
@@ -471,7 +511,7 @@ P/O：生成 ATP 数与消耗 1/2 O₂的比值。
 ---
 
 <!-- kianos:kp id="biochem-m2-kp15" -->
-## KP15｜抑制剂、ATP合酶抑制剂与解偶联剂：看电子、质子和ATP三条流
+#### KP15｜抑制剂、ATP合酶抑制剂与解偶联剂：看电子、质子和ATP三条流
 
 > **主提示：** 3故障层｜直接断点｜O₂/磷酸化｜ATP｜热｜代表药5｜CN/CO边界
 
@@ -490,7 +530,7 @@ P/O：生成 ATP 数与消耗 1/2 O₂的比值。
 - ATP合酶：寡霉素结合 F₀ 的 c 亚基；DCCD；
 - 解偶联：2,4-二硝基苯酚、解偶联蛋白、游离脂肪酸。
 
-### 临床识别边界
+##### 临床识别边界
 
 - CN⁻抑制细胞利用 O₂，当前 Study 用“静脉血氧分压升高”解释；
 - CO 也可抑制呼吸链，但当前 Study 强调其主要问题是与 Hb 结合、血氧含量下降。
@@ -502,7 +542,11 @@ P/O：生成 ATP 数与消耗 1/2 O₂的比值。
 
 ---
 
-## 3｜Framework Reconstruction｜四条流闭卷重建
+## 2｜Derived Learner Support
+
+> 以下只消费 M2 canonical Knowledge；Recall、Memory、题目和页面展示都不能反向定义 M2。
+
+### 2.1｜Framework Reconstruction｜四条流闭卷重建
 
 ```text
 碳流：G → 丙酮酸 → 乳酸 / 乙酰CoA → TCA → CO₂
@@ -515,9 +559,9 @@ ATP流：底物水平 + 氧化磷酸化 → 30/32
 
 ---
 
-## 4｜Memory Routing
+### 2.2｜Memory Routing
 
-### MI-G
+#### MI-G
 
 - 糖酵解三段、3个关键酶、净2 ATP；
 - 乳酸分支回收 NAD⁺；
@@ -530,7 +574,7 @@ ATP流：底物水平 + 氧化磷酸化 → 30/32
 - F₀ / F₁；P/O；30 / 32；
 - 抑制 vs 解偶联的方向。
 
-### MI-D
+#### MI-D
 
 - 糖酵解全部中间物口诀；
 - TCA每步酶、全部抑制剂；
@@ -541,91 +585,55 @@ ATP流：底物水平 + 氧化磷酸化 → 30/32
 
 ---
 
-## 5｜原图门禁
+### 2.3｜Current 27 Source Visual / Exactness Gate
 
-必须回 `26生化.pdf`：
+Current visual truth is the **27 PDF**, not the old 26 pages:
 
-1. P2–P7 糖酵解 / PDH / TCA总图；
-2. P14 两种穿梭；
-3. P15 呼吸链复合体与电子顺序；
-4. P16–P21 H⁺泵、F₀/F₁和解偶联空间图；
-5. P19 30 / 32 ATP 计算图；
-6. P22 全节思维导图。
+- S01 / P003–P008：糖酵解、PDH、TCA 空间与调节图；
+- S02 / P009–P012：RBC / 高能化合物串联；
+- S04 / P019–P026：穿梭、呼吸链、质子泵、ATP 合酶与 30/32 ATP 图。
 
-```text
-VISUAL_SOURCE_GAP_OPEN
-AI Lecture有Pathway Reconstruction，原图未嵌入本文件。
-```
+空间箭头、复合体排列和穿梭方向无法可靠线性化时保持 `SOURCE_BOUND`，回 27 原 PDF；26 仅保留为解释 provenance。
 
 ---
 
-## 6｜Embedded Questions Coverage Safety Net
+### 2.4｜Embedded Questions Coverage Safety Net
 
 ```text
-embedded_questions_total = 27
-accounted = 27
-mapped_primary = 27
-unmapped_embedded_questions = 0
+embedded_questions_total = 28
+source_position_accounted = 28
+unaccounted_source_questions = 0
+question_to_kp_relations_inferred_here = 0
 duplicate_primary = 0
 ```
 
-- PDF P011｜5：BIO26-P011-Q01-2013N28A；BIO26-P011-Q02-2013N30A；BIO26-P011-Q03-2014N28A；BIO26-P011-Q04-2014N29A；BIO26-P011-Q05-2015N28A
-- PDF P012｜5：BIO26-P012-Q02-2016N29A；BIO26-P012-Q04-2018N20A；BIO26-P012-Q05-2019N20A；BIO26-P012-Q06-2020N19A；BIO26-P012-Q07-2020N20A
-- PDF P013｜3：BIO26-P013-Q01-2022N19A；BIO26-P013-Q02-2023N20A；BIO26-P013-Q04-2024N21A
-- PDF P017｜6：BIO26-P017-Q01-2014N32A；BIO26-P017-Q02-2015N32A；BIO26-P017-Q03-2015N127-128B；BIO26-P017-Q04-2016N28A；BIO26-P017-Q05-2016N32A；BIO26-P017-Q06-2017N20A
-- PDF P018｜7：BIO26-P018-Q01-2018N21A；BIO26-P018-Q02-2018N143X；BIO26-P018-Q03-2019N21A；BIO26-P018-Q04-2019N142X；BIO26-P018-Q05-2020N22A；BIO26-P018-Q06-2021N19A；BIO26-P018-Q07-2023N22A
-- PDF P019｜1：BIO26-P019-Q01-2024N23A
+- S01 / P010–P012：M2-owned **13**；RBC 的 2015N160、2017N28、2023N142 转交 M3；
+- S04 / P022–P024：**15**，包含新增 **2025N20 甘油-3-磷酸穿梭**。
 
-P012 的 RBC 两题与 P013 的 RBC 一题已显式路由 M3，不构成 M2 silent unmapped。
-
-学习者只按需扫题；Ledger 中 `NOT_EXPLICIT_IN_SOURCE` 的答案身份不由本文件伪造。
+讲义附题只做 Source-position accounting；正式 Question→Knowledge relation 仍由 question-relations owner 决定。
 
 ---
 
-## 7｜Lecture Knowledge Routing Ledger
+### 2.5｜Source→Knowledge Routing
 
-| Lecture 范围 | 路由 | Knowledge Role | 边界 |
-|---|---|---|---|
-| P002–P007 | KP01–KP07 | CORE + CONFUSABLE | M2 Primary |
-| P008 高能化合物 | KP08 | CORE + MI-D | RBC部分→M3 |
-| P009–P010 | Framework / Visual Gate | REDUNDANT_EXPOSITION + VISUAL_ONLY | 不另造KP |
-| P011–P013 | Coverage + KP02–KP08 | RECOGNITION | 3道RBC题→M3 |
-| P014 | KP09 / KP08 | CORE + VISUAL_ONLY | 穿梭原图 |
-| P015–P016 | KP10–KP15 | CORE + CONFUSABLE | UNCERTAIN项显式保留 |
-| P017–P019 | Coverage + KP09–KP15 | RECOGNITION + CONNECTION | 题目/能量计算 |
-| P020–P021 | KP11 | VISUAL_ONLY + CORE | 空间方向 |
-| P022 | Framework | VISUAL_ONLY | Visual Gap |
+| Current 27 Source | Canonical Knowledge | Role |
+|---|---|---|
+| BIO27-S01 / P003–P008 | L1 + L2 | PRIMARY_FORMATION |
+| BIO27-S02 / P009–P012 | L2 | SUPPORT；RBC Primary → M3 |
+| BIO27-S03 / P013–P018 | L1 | SUPPORT / cross-branch summary |
+| BIO27-S04 / P019–P026 | L2 + L3 | PRIMARY_FORMATION + M2 SOURCE CLOSURE |
 
-```text
-unrouted_lecture_knowledge = 0
-external_medical_expansion = 0
-silent_source_correction = 0
-source_conflict_open = P003-explanatory-paragraph
-```
+Source map owns exact machine mapping; this table is human-readable projection only.
 
 ---
 
-## 8｜First-pass Question Probe
+### 2.6｜First-pass Lecture-attached Question Contact
 
-```text
-来源：
-TTSX Lecture-attached Questions
-
-选择方式：
-LectureQuestionBinding 自动提供
-
-绑定范围：
-26生化 Lecture P002–P022 中属于 M2 的 source-position relation
-
-状态：
-待绑定
-```
-
-Embedded Questions accounting 与 LectureQuestionBinding 分开，当前不建立 Question → KP 语义图。
+讲义附题随 S01 / S04 原 Source 位置出现时低压力处理，不在 M2 末尾再造第二遍题库。26 题目位置只保留 provenance，不再作为 current first-pass binding。
 
 ---
 
-## 9｜Block Exit｜闭卷 20 问
+### 2.7｜Block Exit｜闭卷 20 问
 
 1. 有氧与无氧真正在哪个节点分流？
 2. 糖酵解为什么先耗能再放能？
@@ -648,16 +656,15 @@ Embedded Questions accounting 与 LectureQuestionBinding 分开，当前不建�
 19. 呼吸链抑制、ATP合酶抑制与解偶联，当前Source各明确了哪些方向？
 20. CN与CO在当前Study的主要识别边界是什么？
 
-### Block Complete 定义
+#### Block Complete 定义
 
 ```text
-Framework已建立
-+ P002–P022对应连续内容已学
-+ 关键原图已核对或Visual Gap显式保留
-+ 碳流/电子流/质子流/ATP流可闭卷重建
-+ KP Active Recall完成
-+ Embedded Questions按需扫漏
-+ TTSX Lecture-bound Question Probe完成或待绑定
+27 Source lane 已到达 BIO27-S04 / P026
++ L1–L3 canonical Knowledge 已形成
++ Current 27 原图已核对，或非阻塞 exactness 标为 SOURCE_BOUND
++ 能闭卷恢复“碳 → 还原当量 → 电子 → 质子 → ATP”能量转换链
++ 三个 canonical layer Retrieval 已达到当前要求
++ 28 道讲义附题 source-position accounted；不在本 Block 推断 Question→KP relation
 ```
 
-允许：**Block Complete + Source Conflict / Visual Gap Open**。只有四条流仍混乱，或抑制与解偶联方向错误时，才先做最小修复再进入 M3。
+允许：**Block Complete + explicit SOURCE_CONFLICT / non-gating SOURCE_BOUND**。只有能量转换层级或抑制/解偶联故障定位仍错误时，才修最小失败轴；下一 Source 单元由 global Source map 决定。
