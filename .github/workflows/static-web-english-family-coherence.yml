@@ -6,6 +6,11 @@ on:
     paths:
       - 'content/english/**'
       - 'static-web/src/layouts/Base.astro'
+      - 'static-web/src/lib/sharedNavigation.mjs'
+      - 'static-web/src/components/EnglishObjectiveLocalNav.astro'
+      - 'static-web/ENGLISH_PRODUCT_BRIEF.md'
+      - 'static-web/UI_STYLE_BRIEF.md'
+      - 'static-web/scripts/test-english-navigation-hierarchy.mjs'
       - 'static-web/src/pages/english.astro'
       - 'static-web/src/pages/objective-learn.astro'
       - 'static-web/src/pages/translation-learn.astro'
@@ -51,6 +56,11 @@ on:
     paths:
       - 'content/english/**'
       - 'static-web/src/layouts/Base.astro'
+      - 'static-web/src/lib/sharedNavigation.mjs'
+      - 'static-web/src/components/EnglishObjectiveLocalNav.astro'
+      - 'static-web/ENGLISH_PRODUCT_BRIEF.md'
+      - 'static-web/UI_STYLE_BRIEF.md'
+      - 'static-web/scripts/test-english-navigation-hierarchy.mjs'
       - 'static-web/src/pages/english.astro'
       - 'static-web/src/pages/objective-learn.astro'
       - 'static-web/src/pages/translation-learn.astro'
@@ -142,6 +152,9 @@ jobs:
       - name: Execute English family coherence journey
         working-directory: static-web
         run: node scripts/test-english-family-coherence.mjs
+      - name: Prove English navigation hierarchy
+        working-directory: static-web
+        run: node scripts/test-english-navigation-hierarchy.mjs
       - name: Assert Objective Guide readability and editorial geometry
         working-directory: static-web
         run: node scripts/test-objective-guide-visual.mjs
@@ -156,4 +169,5 @@ jobs:
           path: |
             english-family-audit/
             english-language-audit/
+            english-navigation-audit/
           retention-days: 14
