@@ -8,10 +8,10 @@ Role: the single root routing entry for engineering/status requests. Normal lear
 | --- | --- |
 | Website, local delivery, shared Runtime, recovery or bounded engineering closure | [Website Current](static-web/CURRENT.md) |
 | Steward / non-learning product implementation or runtime defect | [Website Current](static-web/CURRENT.md) → exact surface/runtime owner |
-| Xizong content production | [Xizong mainline](content/xizong/CONTENT_MAINLINE.md), then its exact declared current owner/continuation authority |
+| Xizong content production | [Xizong mainline](content/xizong/CONTENT_MAINLINE.md), then its exact declared Current/canonical owner |
 | English content or source boundary | [English Current](content/english/CURRENT.md) |
 | Politics content or source boundary | [Politics Current](content/politics/CURRENT.md) |
-| Vocabulary content production | [Lexical Current](content/lexical/CURRENT.md), then its exact declared continuation authority |
+| Vocabulary content production | [Lexical Current](content/lexical/CURRENT.md), then its exact canonical owner / active work cursor when one exists |
 | Skill Library / promoted non-exam learning assets | [Skills Current](content/skills/CURRENT.md), then the exact Skill manifest |
 | Operating permissions, task dispatch and executor boundary | [AGENTS](AGENTS.md) |
 | Ownership/inheritance conflict | [Authority contract](AUTHORITY_INHERITANCE_CONTRACT.md); [machine topology](AUTHORITY_OWNERSHIP.json) only when needed |
@@ -25,11 +25,11 @@ Chat interprets, diagnoses and plans. GitHub preserves canonical Rule / Content 
 
 Rule/Content/Visual asset work and website engineering are separate responsibilities. Continuing vocabulary, Xizong explanations, Skill content or another bounded product asset does not reopen platform architecture. Broad subject/product UI rebuilding remains closed unless a concrete defect or explicit new need justifies the smallest owner change.
 
-The website's accepted implementation, remaining interaction decisions and operational readback routes live only in [Website Current](static-web/CURRENT.md). Personal Project prompts, natural archive and cross-chat interpretation remain in Personal OS; do not mirror their state here.
+Website implementation/delivery state lives in [Website Current](static-web/CURRENT.md). Product/surface semantics live in the exact KianOS product owner (for example `static-web/PRODUCT_SURFACE_CONTRACT.md` / `static-web/STEWARD_PRODUCT_CONTRACT.md`); visual rules and Acceptance remain with their exact owners. Personal Project prompts, natural archive and cross-chat interpretation remain upstream and are not mirrored here.
 
 ## Continuation and stop
 
-A content route must lead to its one live continuation authority; historical Issues, PR comments and chat summaries are not fallback progress stores. Do not copy child status, remaining counts or next cursors into this root file.
+A content route must lead to its one live Current/work-cursor or canonical owner; retired continuation files, historical Issues, PR comments and chat summaries are not fallback progress stores. Do not copy child status, remaining counts or next cursors into this root file.
 
 Known-scope work should reach the responsible owner in two or three precise reads. Evidence collection can require further bounded reads; a routine request must not trigger repository archaeology or a full-system audit.
 
