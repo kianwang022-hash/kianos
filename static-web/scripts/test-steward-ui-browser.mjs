@@ -121,6 +121,9 @@ try {
 
     check(await page.locator('[data-steward-view="today"]').getAttribute('class') === 'active', 'today_default');
     check(await page.locator('[data-steward-mode="schedule"]').getAttribute('class') === 'active', 'schedule_default');
+    check(await page.locator('.stewardActualBlock').count() >= 1, 'today_actual_blocks');
+    check(await page.locator('.stewardActualBlock strong').first().isVisible(), 'today_actual_label');
+    check(await page.locator('[data-steward-task-section]').isHidden(), 'empty_task_region_hidden');
 
     const visibleToday = await page.locator('[data-steward-view-panel].active').getAttribute('data-steward-view-panel');
     check(visibleToday === 'today', 'today_only_view', String(visibleToday));
