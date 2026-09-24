@@ -1,6 +1,6 @@
 # Lexical Final Learner Object Contract
 
-Status: **CANDIDATE — Direct-consumption learner object layer**
+Status: **CURRENT — Content-owned direct-consumption learner object layer**
 
 Authority chain:
 
@@ -89,7 +89,7 @@ A suppression / promotion is valid only when an explicit Content-owned role, mer
 
 Default rule is **preserve**. Exceptional default-Depth dispositions live in:
 
-`content/lexical/learner/final/overrides.json`
+`content/lexical/final-learner-object-decisions.json`
 
 This is derived Content, not semantic Truth. It may reference only stable Current identities, is consumed only by the canonical Final Learner Object materializer, and must remain sparse.
 
