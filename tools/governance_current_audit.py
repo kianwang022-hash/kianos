@@ -123,6 +123,65 @@ def read_json(relative: str):
         return None
 
 
+HISTORICAL_KEY_PREFIXES = ("historical_", "previous_")
+HISTORICAL_SUBTREE_KEYS = {"history", "provenance", "audit_history", "receipts"}
+CLOSED_CONFLICT_STATUS = re.compile(r"PENDING|REQUIRED_BEFORE_CLOSEOUT|REVALIDATION_PENDING|BLOCKED_UNTIL", re.I)
+
+
+def _nonempty_live_value(value) -> bool:
+    if value is None or value is False:
+        return False
+    if isinstance(value, str):
+        return value.strip().upper() not in {"", "NONE", "N/A", "NA", "CLOSED", "COMPLETE"}
+    if isinstance(value, (list, dict, tuple, set)):
+        return bool(value)
+    return bool(value)
+
+
+def closure_consistency_conflicts(value: dict) -> list[str]:
+    """Syntax-level helper for an exact lifecycle validator.
+
+    This does not decide whether an object *should* be CLOSED. It only catches
+    structurally live instructions that contradict an already-declared CLOSED
+    Current lifecycle. Historical/provenance subtrees are intentionally ignored.
+    """
+    if not isinstance(value, dict) or "CLOSED" not in str(value.get("status", "")).upper():
+        return []
+
+    conflicts: list[str] = []
+
+    def walk(node, path: tuple[str, ...] = ()) -> None:
+        if isinstance(node, dict):
+            for key, child in node.items():
+                key_s = str(key)
+                lowered = key_s.lower()
+                if lowered in HISTORICAL_SUBTREE_KEYS or lowered.startswith(HISTORICAL_KEY_PREFIXES):
+                    continue
+                child_path = path + (key_s,)
+                label = ".".join(child_path)
+                if path and lowered == "status" and isinstance(child, str) and CLOSED_CONFLICT_STATUS.search(child):
+                    conflicts.append(f"LIVE_STATUS:{label}={child}")
+                elif lowered == "next_action" and _nonempty_live_value(child):
+                    conflicts.append(f"LIVE_NEXT_ACTION:{label}")
+                elif lowered in {"blocker", "blockers", "required_before_closeout"} and _nonempty_live_value(child):
+                    conflicts.append(f"LIVE_BLOCKER:{label}")
+                elif lowered == "acceptance_status" and isinstance(child, str) and CLOSED_CONFLICT_STATUS.search(child):
+                    conflicts.append(f"LIVE_ACCEPTANCE:{label}={child}")
+                elif lowered.startswith("active_") and child is True:
+                    conflicts.append(f"LIVE_ACTIVE_FLAG:{label}")
+                walk(child, child_path)
+        elif isinstance(node, list):
+            for index, child in enumerate(node):
+                walk(child, path + (str(index),))
+
+    walk(value)
+    return conflicts
+
+
+def reviewed_derivation_revision_conflict(current_revision, reviewed_against, claims_current: bool) -> bool:
+    """Generic identity/revision witness rule; domain validator owns semantics."""
+    return bool(claims_current and current_revision and reviewed_against and current_revision != reviewed_against)
+
 def audit_current(relative: str) -> None:
     global checks
     path = require_file(relative)
