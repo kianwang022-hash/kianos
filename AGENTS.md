@@ -95,13 +95,25 @@ target scope CURRENT
 
 ## UI
 
+Use the exact shared entry before designing a learner-facing surface:
+
 ```text
-exact UI/surface scope
-→ shared visual/presentation authority that actually applies
-→ exact surface owner
-→ preserve list from domain/runtime owner only when needed
+static-web/KIAN_UI_PREFERENCES.md (user taste; explicit preferences vs hypotheses)
+→ static-web/UI_STYLE_BRIEF.md (shared visual and navigation rules)
+→ exact surface/product owner
+→ existing layout/component and applicable shared styles
 → work
 ```
+
+For shell integration, inspect `static-web/src/layouts/Base.astro`,
+`static-web/src/layouts/BaseFrame.astro` and
+`static-web/src/lib/sharedNavigation.mjs`. Skills is an example of reusing this
+shell with task-specific geometry, not a second visual authority.
+
+Use the existing shell and tokens for an integrated UI candidate. Standalone HTML
+may explore an interaction, but is not proof of site integration. Navigation levels
+express ownership, not a requirement to display three navigation bars. Verify the
+actual route registry before calling a proposed destination shipped.
 
 Do not load unrelated subject content to change shared presentation, and do not load broad governance to change one bounded surface.
 

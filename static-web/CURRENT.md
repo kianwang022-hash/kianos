@@ -12,9 +12,9 @@ The managed macOS Current mirror, private checkpoint path, Daily Learning Packet
 
 Content production remains independent: vocabulary, Xizong explanations/relations/visual assets, English sources, Politics sources, and Skills continue only through their exact content owners.
 
-## Active Home / Steward / Radar design handoff — not shipped
+## Home / Steward / Radar design direction — not shipped
 
-Kian approved the broader Home / Steward / Radar / global Dock direction on 2026-09-24. The current task is a **design-led integrated UI implementation**, not a request to reproduce the latest experimental preview.
+Kian approved the broader Home / Steward / Radar / global Dock direction on 2026-09-24. This records the product direction for a future bounded UI task. Kian stopped the present Steward UI implementation attempt; do not infer an active page-build assignment from this section or reproduce the experimental previews.
 
 ### Product model
 
@@ -43,6 +43,10 @@ Treat that as a mental model, not a pixel spec. Codex may improve the visual tre
 - Preserve continuity: quick capture should not interrupt study; Steward should not feel like leaving the current workspace.
 - Plan / actual time / learner evidence / subjective state / Health observations remain distinct even when shown together.
 - Floating Dock should not reserve dead page space.
+
+### Implementation entry
+
+Start with [UI preferences](KIAN_UI_PREFERENCES.md) and [shared visual/navigation rules](UI_STYLE_BRIEF.md), then the actual `src/layouts/Base.astro` → `BaseFrame.astro` shell and `src/lib/sharedNavigation.mjs` route registry. Reuse that shell for the integrated candidate; standalone HTML is reference only. Existing Skills demonstrates this composition without requiring another subject bar. Do not describe proposed Steward/Radar entries as already present in the live rail.
 
 ### Reference sources
 

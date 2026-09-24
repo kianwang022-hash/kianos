@@ -352,6 +352,16 @@ L3 = local task / workspace
 - L1/L2 may share substantial navigation typography; semantic level comes from ownership and spatial hierarchy, not from making lower levels tiny or thin.
 - A full-task immersive Runtime may temporarily suppress L2 when persistent chrome would materially reduce the task workspace.
 
+These are ownership levels, not three mandatory visible rows. A destination without
+stable subject-wide capabilities does not need an invented L2 bar. Reuse the shared
+shell; let the exact task own its geometry. Current global destinations are defined
+by `src/lib/sharedNavigation.mjs`, not by examples in a proposal.
+
+For the proposed Steward destination, Today / Week / Month express one time model
+at different scales. Day-local schedule / nutrition / training controls remain
+within that workspace; neither control group creates another global navigation.
+This is a design mapping, not a claim that Steward is already shipped.
+
 Current English example:
 
 ```text
