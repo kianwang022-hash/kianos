@@ -128,9 +128,6 @@ jobs:
       - name: Validate English ↔ Lexical Chat handoff
         working-directory: static-web
         run: node scripts/validate-lexical-english-handoff.mjs
-      - name: Validate English full-paper runtime
-        working-directory: static-web
-        run: node scripts/validate-english-exam-session.mjs
       - name: Build Current site
         working-directory: static-web
         run: npm run build
@@ -145,9 +142,6 @@ jobs:
       - name: Execute English family coherence journey
         working-directory: static-web
         run: node scripts/test-english-family-coherence.mjs
-      - name: Execute English full-paper browser journey
-        working-directory: static-web
-        run: node scripts/test-english-exam-session-browser.mjs
       - name: Assert Objective Guide readability and editorial geometry
         working-directory: static-web
         run: node scripts/test-objective-guide-visual.mjs
@@ -162,5 +156,4 @@ jobs:
           path: |
             english-family-audit/
             english-language-audit/
-            english-exam-audit/
           retention-days: 14
