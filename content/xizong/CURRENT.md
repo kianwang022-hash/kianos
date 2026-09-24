@@ -39,7 +39,7 @@ Historical campaigns, branch receipts and prior closure narratives are not conti
 | Learning / cognition | LEARNING_CONTRACT.md → exact learner/study owner |
 | Official Question Truth | questions/ |
 | Learner-facing explanations | explanations/README.md → exact shard |
-| Reviewed Question → Knowledge | question-relations/README.md → continuation.json only as its work cursor |
+| Reviewed Question → Knowledge | question-relations/README.md → exact reviewed/stale relation owner; manifest/freshness resolver for aggregate Current use |
 | Clinical humanities | humanities/current.json |
 | Visual / presentation | root static-web/PRESENTATION_CONTRACT.md → exact surface owner |
 | Runtime / engineering | root SYSTEM_CONTRACT.md → exact runtime/component owner |
