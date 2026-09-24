@@ -147,6 +147,35 @@ def audit_current_routing(registry: dict) -> None:
             check(not pattern.search(value), "SUBJECT_CLAIMS_SHARED_PLATFORM_AUTHORITY", relative)
 
 
+
+def audit_product_owners(registry: dict) -> None:
+    """Protect the migrated Product/Steward semantic owners and their routing."""
+    durable = registry.get("durable_authorities", {})
+    expected = {
+        "product_surface_contract": "static-web/PRODUCT_SURFACE_CONTRACT.md",
+        "steward_product_contract": "static-web/STEWARD_PRODUCT_CONTRACT.md",
+    }
+    for key, owner in expected.items():
+        check(durable.get(key) == owner, "PRODUCT_OWNER_REGISTRY_DRIFT", f"{key}={durable.get(key)}")
+        check((REPO / owner).is_file(), "PRODUCT_OWNER_MISSING", owner)
+
+    website_current = REPO / "static-web" / "CURRENT.md"
+    root_current = REPO / "CURRENT.md"
+    check(website_current.is_file(), "WEBSITE_CURRENT_MISSING")
+    if website_current.is_file():
+        value = text(website_current)
+        for owner in expected.values():
+            check(Path(owner).name in value, "WEBSITE_CURRENT_MISSING_PRODUCT_ROUTE", owner)
+
+    if root_current.is_file():
+        value = text(root_current)
+        check(
+            "Steward / non-learning product implementation or runtime defect" in value
+            and "static-web/CURRENT.md" in value,
+            "ROOT_CURRENT_MISSING_STEWARD_ROUTE",
+        )
+
+
 def audit_shared_shell(registry: dict) -> None:
     shared = registry.get("shared_platform", {})
     shell_owner = str(shared.get("shell_markup_owner", ""))
@@ -272,6 +301,7 @@ def main() -> int:
     if registry:
         audit_registered_owners(registry)
         audit_current_routing(registry)
+        audit_product_owners(registry)
         audit_shared_shell(registry)
         audit_current_sync(registry)
         audit_home_boundary(registry)
