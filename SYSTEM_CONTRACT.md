@@ -117,7 +117,7 @@ Do not add new global imports such as subject-specific `english-*`, `politics-*`
 
 Likewise, subject-specific bridges/components should mount at the applicable family/task boundary, not in global Base unless their behavior is genuinely cross-site.
 
-Temporary historical global imports may remain during bounded migration, but they are Engineering debt, not the target architecture. Consolidation should move toward:
+Subject-specific styling now stays on its family/task boundary rather than in the global Base. The stable ownership shape is:
 
 ```text
 Base
