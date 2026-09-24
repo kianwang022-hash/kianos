@@ -1,0 +1,837 @@
+/* Steward workspace.
+   Inherits KianOS L1 shared visual tokens. Owns only Steward-local geometry. */
+
+.stewardWorkspace {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  color: var(--study-ink);
+}
+
+.stewardHeader {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--study-space-5);
+  padding: 2px 2px 10px;
+  border-bottom: 1px solid var(--study-line);
+}
+
+.stewardHeaderCopy {
+  min-width: 0;
+}
+
+.stewardHeaderCopy > span {
+  display: block;
+  margin-bottom: 1px;
+  color: var(--study-green);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-strong);
+}
+
+.stewardHeaderCopy h1 {
+  margin: 0;
+  color: var(--study-ink);
+  font-size: 27px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.stewardHeaderCopy p {
+  margin: 3px 0 0;
+  color: var(--study-muted);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.35;
+}
+
+.stewardViewTabs,
+.stewardModeTabs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.stewardViewTabs button,
+.stewardModeTabs button {
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: var(--study-radius-control);
+  background: transparent;
+  color: var(--study-muted);
+  font-size: var(--study-type-control);
+  font-weight: var(--study-weight-secondary);
+  cursor: pointer;
+}
+
+.stewardViewTabs button:hover,
+.stewardModeTabs button:hover {
+  background: var(--study-surface-muted);
+  color: var(--study-ink);
+}
+
+.stewardViewTabs button.active,
+.stewardModeTabs button.active {
+  background: var(--study-green-soft);
+  color: var(--study-green);
+  font-weight: var(--study-weight-title);
+}
+
+.stewardViewPanel {
+  display: none;
+  min-height: 0;
+  flex: 1 1 auto;
+  padding-top: 10px;
+}
+
+.stewardViewPanel.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.stewardTodayFrame {
+  display: grid;
+  min-height: 0;
+  flex: 1 1 auto;
+  grid-template-columns: 184px minmax(620px, 1fr) 252px;
+  overflow: hidden;
+  border: 1px solid var(--study-line);
+  border-radius: var(--study-radius-small);
+  background: var(--study-surface);
+}
+
+.stewardTodayAside,
+.stewardNowRail {
+  min-width: 0;
+  padding: 14px 14px 12px;
+  overflow: auto;
+  background: var(--study-surface);
+}
+
+.stewardTodayAside {
+  border-right: 1px solid var(--study-line);
+}
+
+.stewardNowRail {
+  border-left: 1px solid var(--study-line);
+}
+
+.stewardAsideSection + .stewardAsideSection {
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px solid var(--study-line);
+}
+
+.stewardAsideHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.stewardAsideHead h2,
+.stewardAsideHead h3 {
+  margin: 0;
+  font-size: var(--study-type-secondary);
+  font-weight: var(--study-weight-title);
+  line-height: 1.25;
+}
+
+.stewardAsideHead span {
+  color: var(--study-faint);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-secondary);
+}
+
+.stewardTaskList,
+.stewardRealityList,
+.stewardSubjectTotals {
+  display: grid;
+}
+
+.stewardTaskRow {
+  padding: 6px 0;
+  color: var(--study-ink);
+  font-size: 15px;
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.38;
+}
+
+.stewardTaskRow + .stewardTaskRow,
+.stewardRealityRow + .stewardRealityRow,
+.stewardSubjectTotal + .stewardSubjectTotal {
+  border-top: 1px solid rgba(215, 223, 218, .72);
+}
+
+.stewardEmpty {
+  margin: 0;
+  padding: 8px 0;
+  color: var(--study-muted);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.45;
+}
+
+.stewardTodayMain {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  background: #fff;
+}
+
+.stewardModeTabs {
+  flex: 0 0 auto;
+  padding: 8px 12px 0;
+}
+
+.stewardModePanel {
+  display: none;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.stewardModePanel.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.stewardModeHead {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 16px 10px;
+  border-bottom: 1px solid var(--study-line);
+}
+
+.stewardModeHead h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.25;
+}
+
+.stewardModeHead p {
+  margin: 2px 0 0;
+  color: var(--study-muted);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.35;
+}
+
+.stewardPlanState {
+  color: var(--study-muted);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-secondary);
+  white-space: nowrap;
+}
+
+.stewardPlanState[data-state="ready"] {
+  color: var(--study-green);
+}
+
+.stewardPlanState[data-state="stale"],
+.stewardPlanState[data-state="invalid"] {
+  color: #8a6234;
+}
+
+.stewardTimelineViewport {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.stewardTimeline {
+  position: relative;
+  min-height: 710px;
+  margin: 12px 14px 16px 64px;
+  border-left: 1px solid var(--study-line);
+  background: repeating-linear-gradient(
+    to bottom,
+    #fff 0,
+    #fff 41px,
+    #edf1ee 41px,
+    #edf1ee 42px
+  );
+}
+
+.stewardHour {
+  position: absolute;
+  right: calc(100% + 12px);
+  width: 48px;
+  transform: translateY(-7px);
+  color: var(--study-faint);
+  font-size: 13px;
+  font-weight: var(--study-weight-secondary);
+  text-align: right;
+}
+
+.stewardPlanBlock {
+  position: absolute;
+  left: 10px;
+  right: 18px;
+  overflow: hidden;
+  border-left: 3px solid var(--block-accent, var(--study-green));
+  border-radius: 6px;
+  background: var(--block-soft, var(--study-green-soft));
+  padding: 7px 10px;
+}
+
+.stewardPlanBlock[data-subject="english"] {
+  --block-accent: #667fa0;
+  --block-soft: #eef2f7;
+}
+
+.stewardPlanBlock[data-subject="politics"] {
+  --block-accent: #9a7b4f;
+  --block-soft: #f7f1e8;
+}
+
+.stewardPlanBlock[data-subject="xizong"] {
+  --block-accent: #4d806f;
+  --block-soft: #edf5f1;
+}
+
+.stewardPlanBlock[data-subject="life"] {
+  --block-accent: #7d6d88;
+  --block-soft: #f2eff5;
+}
+
+.stewardPlanBlock strong {
+  display: block;
+  overflow: hidden;
+  color: var(--study-ink);
+  font-size: 15px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stewardPlanBlock span {
+  display: block;
+  margin-top: 2px;
+  overflow: hidden;
+  color: var(--study-muted);
+  font-size: 13px;
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stewardPlanBlock.short {
+  padding-block: 2px;
+}
+
+.stewardPlanBlock.short span {
+  display: none;
+}
+
+.stewardActualSegment {
+  position: absolute;
+  right: 5px;
+  width: 7px;
+  min-height: 4px;
+  border-radius: 99px;
+  background: var(--actual-color, var(--study-green));
+  opacity: .78;
+}
+
+.stewardActualSegment[data-subject="english"] { --actual-color: #667fa0; }
+.stewardActualSegment[data-subject="politics"] { --actual-color: #9a7b4f; }
+.stewardActualSegment[data-subject="xizong"] { --actual-color: #4d806f; }
+
+.stewardNowLine {
+  position: absolute;
+  right: 0;
+  left: -7px;
+  z-index: 4;
+  height: 1px;
+  background: #b77560;
+}
+
+.stewardNowLine::before {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b77560;
+  content: "";
+}
+
+.stewardNowLine span {
+  position: absolute;
+  top: -18px;
+  right: 0;
+  padding: 0 4px;
+  background: #fff;
+  color: #a26451;
+  font-size: 13px;
+  font-weight: var(--study-weight-secondary);
+}
+
+.stewardNowLabel {
+  display: block;
+  color: var(--study-muted);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-secondary);
+}
+
+.stewardNowSubject {
+  display: block;
+  margin-top: 1px;
+  color: var(--study-ink);
+  font-size: 19px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.3;
+}
+
+.stewardNowElapsed {
+  display: block;
+  margin-top: 2px;
+  color: var(--study-ink);
+  font-variant-numeric: tabular-nums;
+  font-size: 27px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.15;
+}
+
+.stewardNowMeta {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 5px 7px;
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.stewardNowMeta dt {
+  color: var(--study-faint);
+}
+
+.stewardNowMeta dd {
+  margin: 0;
+  color: var(--study-ink);
+  font-weight: var(--study-weight-secondary);
+}
+
+.stewardSubjectTotal {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 15px;
+}
+
+.stewardSubjectTotal span {
+  color: var(--study-muted);
+}
+
+.stewardSubjectTotal strong {
+  color: var(--study-ink);
+  font-weight: var(--study-weight-title);
+  font-variant-numeric: tabular-nums;
+}
+
+.stewardRealityRow {
+  display: grid;
+  gap: 1px;
+  padding: 6px 0;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.stewardRealityRow time {
+  color: var(--study-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.stewardRealityRow span {
+  color: var(--study-muted);
+}
+
+.stewardEmptyWorkspace {
+  display: grid;
+  min-height: 0;
+  flex: 1 1 auto;
+  place-items: center;
+  padding: 28px;
+}
+
+.stewardEmptyWorkspace > div {
+  width: min(520px, 100%);
+  padding: 18px 0;
+  border-block: 1px solid var(--study-line);
+}
+
+.stewardEmptyWorkspace h2 {
+  margin: 0;
+  color: var(--study-ink);
+  font-size: 20px;
+  font-weight: var(--study-weight-title);
+}
+
+.stewardEmptyWorkspace p {
+  margin: 6px 0 0;
+  color: var(--study-muted);
+  font-size: var(--study-type-secondary);
+  line-height: 1.5;
+}
+
+/* Week — same time system, seven parallel day columns. */
+
+.stewardPeriodToolbar {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  margin-bottom: 7px;
+}
+
+.stewardPeriodToolbar button {
+  min-width: 34px;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--study-line);
+  border-radius: var(--study-radius-control);
+  background: var(--study-surface);
+  color: var(--study-ink);
+  font-size: 15px;
+  font-weight: var(--study-weight-control);
+  cursor: pointer;
+}
+
+.stewardPeriodToolbar button:hover {
+  background: var(--study-surface-muted);
+}
+
+.stewardPeriodToolbar strong {
+  min-width: 190px;
+  color: var(--study-ink);
+  font-size: 16px;
+  font-weight: var(--study-weight-title);
+  text-align: center;
+}
+
+.stewardWeekShell {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  border: 1px solid var(--study-line);
+  border-radius: var(--study-radius-small);
+  background: var(--study-surface);
+  overscroll-behavior: contain;
+}
+
+.stewardWeekGrid {
+  display: grid;
+  min-width: 1080px;
+  grid-template-columns: 62px repeat(7, minmax(138px, 1fr));
+  grid-template-rows: 38px 710px;
+}
+
+.stewardWeekCorner,
+.stewardWeekDayHead {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  border-bottom: 1px solid var(--study-line);
+  background: #f7f9f7;
+}
+
+.stewardWeekCorner {
+  left: 0;
+  z-index: 7;
+  border-right: 1px solid var(--study-line);
+}
+
+.stewardWeekDayHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 0 8px;
+  border-right: 1px solid var(--study-line);
+}
+
+.stewardWeekDayHead.today {
+  background: var(--study-green-soft);
+  color: var(--study-green);
+}
+
+.stewardWeekDayHead b {
+  font-size: 15px;
+  font-weight: var(--study-weight-title);
+}
+
+.stewardWeekDayHead span {
+  color: var(--study-muted);
+  font-size: 13px;
+  font-weight: var(--study-weight-secondary);
+}
+
+.stewardWeekAxis,
+.stewardWeekDay {
+  position: relative;
+  height: 710px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #fff 0,
+    #fff 41px,
+    #edf1ee 41px,
+    #edf1ee 42px
+  );
+}
+
+.stewardWeekAxis {
+  position: sticky;
+  left: 0;
+  z-index: 4;
+  border-right: 1px solid var(--study-line);
+  background-color: #f9faf9;
+}
+
+.stewardWeekAxis span {
+  position: absolute;
+  right: 8px;
+  transform: translateY(-7px);
+  color: var(--study-faint);
+  font-size: 13px;
+  font-weight: var(--study-weight-secondary);
+}
+
+.stewardWeekDay {
+  border-right: 1px solid var(--study-line);
+}
+
+.stewardWeekDay.today {
+  background-color: #f3f8f5;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 41px,
+    #e4eae6 41px,
+    #e4eae6 42px
+  );
+}
+
+.stewardWeekPlan,
+.stewardWeekActual {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.stewardWeekPlan {
+  left: 4px;
+  right: 4px;
+  border-left: 3px solid var(--block-accent, var(--study-green));
+  background: var(--block-soft, var(--study-green-soft));
+  padding: 4px 6px;
+}
+
+.stewardWeekActual {
+  right: 4px;
+  left: 42%;
+  z-index: 2;
+  border-left: 3px solid var(--actual-color, var(--study-green));
+  background: rgba(255,255,255,.80);
+  box-shadow: inset 0 0 0 1px rgba(31, 52, 44, .08);
+  padding: 3px 5px;
+}
+
+.stewardWeekPlan[data-subject="xizong"],
+.stewardWeekActual[data-subject="xizong"] { --block-accent: #4d806f; --block-soft: #edf5f1; --actual-color: #4d806f; }
+.stewardWeekPlan[data-subject="english"],
+.stewardWeekActual[data-subject="english"] { --block-accent: #667fa0; --block-soft: #eef2f7; --actual-color: #667fa0; }
+.stewardWeekPlan[data-subject="politics"],
+.stewardWeekActual[data-subject="politics"] { --block-accent: #9a7b4f; --block-soft: #f7f1e8; --actual-color: #9a7b4f; }
+
+.stewardWeekPlan b,
+.stewardWeekActual b {
+  display: block;
+  overflow: hidden;
+  color: var(--study-ink);
+  font-size: 14px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.18;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stewardWeekPlan small,
+.stewardWeekActual small {
+  display: block;
+  margin-top: 1px;
+  overflow: hidden;
+  color: var(--study-muted);
+  font-size: 12px;
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stewardWeekPlan.short small,
+.stewardWeekActual.short small {
+  display: none;
+}
+
+/* Month — real calendar, quiet by default. */
+
+.stewardMonthShell {
+  display: grid;
+  min-height: 0;
+  flex: 1 1 auto;
+  grid-template-rows: minmax(0, 1fr) auto;
+  overflow: hidden;
+  border: 1px solid var(--study-line);
+  border-radius: var(--study-radius-small);
+  background: var(--study-surface);
+}
+
+.stewardMonthGrid {
+  display: grid;
+  min-height: 0;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-rows: 34px;
+  grid-auto-rows: minmax(74px, 1fr);
+  gap: 1px;
+  background: var(--study-line);
+}
+
+.stewardMonthHead {
+  display: grid;
+  place-items: center;
+  background: #f7f9f7;
+  color: var(--study-muted);
+  font-size: 15px;
+  font-weight: var(--study-weight-secondary);
+}
+
+.stewardMonthCell {
+  position: relative;
+  min-height: 0;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  color: var(--study-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.stewardMonthCell:hover {
+  background: #fafcfb;
+}
+
+.stewardMonthCell.outside {
+  background: #f7f8f7;
+  color: #aab4ae;
+  cursor: default;
+}
+
+.stewardMonthCell.today {
+  background: #edf5f1;
+}
+
+.stewardMonthCell.selected {
+  box-shadow: inset 0 0 0 2px var(--study-green);
+}
+
+.stewardMonthCell b {
+  font-size: 15px;
+  font-weight: var(--study-weight-title);
+}
+
+.stewardMonthCell small {
+  display: block;
+  margin-top: 7px;
+  color: var(--study-green);
+  font-size: 14px;
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.3;
+}
+
+.stewardMonthMarks {
+  position: absolute;
+  right: 10px;
+  bottom: 9px;
+  left: 10px;
+  display: flex;
+  gap: 3px;
+}
+
+.stewardMonthMarks i {
+  height: 4px;
+  flex: 1 1 0;
+  border-radius: 99px;
+  opacity: .86;
+}
+
+.stewardMonthMarks .xizong { background: #4d806f; }
+.stewardMonthMarks .english { background: #667fa0; }
+.stewardMonthMarks .politics { background: #9a7b4f; }
+
+.stewardMonthDetail {
+  min-height: 52px;
+  padding: 9px 12px;
+  border-top: 1px solid var(--study-line);
+  color: var(--study-muted);
+  font-size: 15px;
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.45;
+}
+
+.stewardMonthDetail strong {
+  color: var(--study-ink);
+  font-weight: var(--study-weight-title);
+}
+
+@media (max-width: 1280px) {
+  .stewardTodayFrame {
+    grid-template-columns: 168px minmax(520px, 1fr) 224px;
+  }
+
+  .stewardWeekGrid {
+    min-width: 1040px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .stewardHeader {
+    align-items: flex-start;
+  }
+
+  .stewardTodayFrame {
+    grid-template-columns: 1fr;
+    overflow: auto;
+  }
+
+  .stewardTodayAside,
+  .stewardNowRail {
+    border: 0;
+    border-bottom: 1px solid var(--study-line);
+  }
+
+  .stewardNowRail {
+    border-top: 1px solid var(--study-line);
+  }
+
+  .stewardTodayMain {
+    min-height: 640px;
+  }
+}
