@@ -20,10 +20,13 @@ on:
       - 'static-web/scripts/test-xizong-forecast-real-u-adapter.mjs'
       - 'static-web/scripts/validate-xizong-paper-practice.mjs'
       - 'static-web/scripts/audit-xizong-mother-standard-final-v3.mjs'
-      - 'static-web/scripts/validate-xizong-biochemistry-future-source-slot.mjs'
+      - 'static-web/scripts/validate-xizong-biochemistry-source-lifecycle.mjs'
       - 'static-web/scripts/validate-xizong-2027-exam-format-slot.mjs'
       - 'content/xizong/MATURITY_PACKAGE.md'
       - 'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json'
+      - 'content/xizong/knowledge/learner/biochemistry-27-source-map.json'
+      - 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
+      - 'content/xizong/source-snapshots/27/manifest.json'
       - 'content/xizong/questions/exam-format-2027-slot.json'
       - '.github/workflows/xizong-forecast-clean.yml'
   pull_request:
@@ -45,6 +48,9 @@ on:
       - 'static-web/scripts/audit-xizong-mother-standard-final-v3.mjs'
       - 'content/xizong/MATURITY_PACKAGE.md'
       - 'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json'
+      - 'content/xizong/knowledge/learner/biochemistry-27-source-map.json'
+      - 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
+      - 'content/xizong/source-snapshots/27/manifest.json'
       - 'content/xizong/questions/exam-format-2027-slot.json'
       - '.github/workflows/xizong-forecast-clean.yml'
 
@@ -76,7 +82,7 @@ jobs:
           node scripts/test-private-learner-checkpoint.mjs
           node scripts/test-private-daily-learning-packet.mjs
           node scripts/stress-xizong-architecture-plus.mjs
-          node scripts/validate-xizong-biochemistry-future-source-slot.mjs
+          node scripts/validate-xizong-biochemistry-source-lifecycle.mjs
           node scripts/validate-xizong-2027-exam-format-slot.mjs
           node scripts/audit-xizong-mother-standard-final-v3.mjs
       - name: Build Current site
