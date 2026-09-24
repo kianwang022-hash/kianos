@@ -1,416 +1,125 @@
 # Lexical Content Execution
 
-Status: operating protocol; production is controlled by `CURRENT.md`.  
-Content quality: `CONTENT_ASSET_CONTRACT.md`. Learner rules: `LEARNING_CONTRACT.md`.  
-This file owns transport, bounded execution and recovery mechanics only. It cannot grant semantic PASS or reactivate Catalog work.
+Status: **CURRENT maintenance protocol · broad catalog production CLOSED**  
+Parent router: `content/lexical/CURRENT.md`
 
-## 1. Package is not a Chat turn
+This file owns only the **mechanical execution boundary for bounded Lexical maintenance**. It does not own Word / Relation / Form semantics, learner state, Acceptance Truth, a production frontier, or a second Current cursor.
 
-A package is an allocation/landing container, normally about 150–250 owners (200 is a planning target, not a quota). A semantic shard is the bounded unit that actually closes. A Chat turn normally closes at most one shard and leaves a durable checkpoint rather than exhausting context.
+## 1. Current boundary
 
-A shard is often 25–50 owners, but **semantic/byte budget wins over count**. A rich cluster may need far fewer; simple healthy owners may permit more. Increasing package size while retaining per-word remote reads/writes is prohibited as a throughput strategy.
+The 7,946-word broad semantic campaign is closed.
 
-Engineering budgets are not learner study quotas. Initial tool defaults are 48,000 compact UTF-8 bytes and at most 50 owners per returned bundle. Tune only with measured output size and semantic complexity. Do not shorten lexical truth to hit a byte budget.
+Current rules:
 
-## 2. One local-close cycle
+- there is no active A / B / C production lane;
+- there is no active ordinal frontier, live batch, package queue, Human-Gate board, or review branch;
+- old batch manifests, receipts and completed review state are provenance only;
+- accepted lexical truth defaults to PRESERVE;
+- broad semantic re-review remains frozen by `FINAL_SEMANTIC_FREEZE.md`;
+- maintenance reopens only for a concrete defect, admitted new Source, explicit new scope, or real learner evidence that exposes a concrete content/product defect.
 
-`Current + contract hashes → compact Current owner/dependency bundle → fresh judgments → staged patch → validation → complete final-object readback → local receipt → integrate / CI → main acceptance`
-
-One package may contain several closed shards in one PR. A bounded shard may land separately when capacity or an interruption makes that safer. Neither one PR per 12 words nor one compulsory monolithic 200-word PR is canonical.
-
-Do not inspect several shards into a repair-spec backlog. A semantic checkpoint immediately before applying the same shard is valid; a growing future repair queue is not. Naming the work S-series, Batch or Wave does not change this rule. There is no new numbering system to memorize.
-
-## 3. What may be compressed
-
-Keep all semantic fields, active and reference senses, Core, Expansion, usage/form/register boundaries, stable IDs, lifecycle, uncertainty, relevant evidence and resolved Relation payloads. Unknown fields survive by default.
-
-The initial tool omits only top-level provenance/lookup pointers and known operational record metadata from the **review view**, while retaining original bytes in the repository and exact file hashes. Metadata is not deleted by a semantic edit. Shared Relation objects are included once per bundle, with each Word's relation references preserved.
-
-An oversized word fails explicitly. Expand the one-owner budget or inspect a bounded coherent object, never truncate a record or hide an unsent field behind an automatic PASS. A compact bundle is a transport projection, not a new semantic owner.
-
-## 3A. Module-level stability receipt
-
-Every fresh owner review must record a module matrix before closure.
-
-Required module keys:
+Current authority remains:
 
 ```text
-core
-senses
-familiar_new
-construction
-phraseology
-decision_boundary
-relation_confusable
-register_stance
-family_morphology
-form_identity
-productive_use
-repair_test
+content/lexical/CURRENT.md
+→ applicable Content / Learning rule
+→ exact Word / Relation / Form owner
+→ affected derived consumer only when needed
 ```
 
-Each key is exactly one of:
+Historical execution state must never choose a Current next action.
+
+## 2. Maintenance execution path
+
+For an admitted bounded repair:
 
 ```text
-NOT_NEEDED
-PRESERVE
-UPGRADED
-BLOCKED
+Current defect / admitted Source / explicit scope
+→ read latest exact Natural Owner + real semantic dependencies
+→ make the smallest evidence-supported owner delta
+→ run changed-owner / dependency QA
+→ rebuild derived Final Learner Objects when their inputs changed
+→ verify the affected real consumer only when presentation/runtime behavior changed
+→ durable readback
+→ stop
 ```
 
-For every `UPGRADED` or `BLOCKED` module, record at least one allowed change reason from `CONTENT_ASSET_CONTRACT.md §4A`.
+There is no cursor advancement after a maintenance repair. A second independent defect is a new bounded task, not continuation of an old catalog campaign.
 
-A `NO_CHANGE` owner may still be `DEPTH_READY`; its module matrix proves that no module was silently skipped.
+## 3. Current tools
 
-During **Baseline v2 full re-validation**, every owner/module must still receive a fresh judgment under the frozen rules; historical module state cannot skip the read.
+### Bounded transport
 
-After Baseline v2 closes, a later maintenance pass must read the latest closed module matrix and may not rewrite a `PRESERVE` module unless new evidence establishes an allowed gap.
+`tools/lexical_shard.py` remains a standard-library inspection/staging helper.
 
-This matrix belongs in the receipt / audit evidence, not in semantic Natural Owners.
+It may:
 
----
+- export a bounded complete Current-owner/dependency view;
+- verify bundle integrity and byte limits;
+- prepare a candidate from explicit edits;
+- produce a publication plan only when the root Lexical `CURRENT.md` explicitly activates catalog execution.
 
-## 3B. Standing delegation + exceptional Human Gate
+Current `content/lexical/CURRENT.md` contains no `Catalog execution: ACTIVE` directive, so publication-plan behavior fails closed today. The tool is transport, not a production cursor or semantic authority.
 
-Baseline-v2 review is **read-first, self-attack, standing delegated approval when eligible, then independent semantic closure**.
+Its active regression owner is:
 
-**Standing delegation — Kian, 2026-09-22:** after the post-attack proposal is frozen, Chat may approve the exact bounded batch without waiting for a per-batch `p` when the proposal stays inside the frozen semantic ruler, evidence is sufficient, and no unresolved material identity/meaning ambiguity remains. The approval reference must explicitly cite this standing delegation. This is delegation of routine bounded execution, not permission to invent semantics or lower evidence standards.
+`.github/workflows/lexical-shard-tools.yml`
 
-The normal semantic atom remains approximately **100 owners**. Backend semantic execution remains bounded in normally **≤50-owner shards**. One Chat may close multiple consecutive ~100-owner atoms serially when capacity allows; each atom still requires full Fresh Read, Self Attack, fail-closed materialization, Independent Audit and final readback. Larger throughput must never reduce semantic or audit coverage.
+### Derived Final Learner Objects
 
-Required sequence:
+`tools/lexical_build_final_learner_objects.py` is the deterministic derived-object materializer/validator.
+
+Natural Owners remain semantic authority. Final Learner Objects under `content/lexical/learner/final/` are derived learner assets and may be rebuilt from Current owners; a derived rebuild never creates new lexical truth.
+
+Active gates:
+
+- `.github/workflows/lexical-content-fast-qa.yml` for bounded content changes;
+- `.github/workflows/lexical-runtime.yml` for the learner-facing derived/runtime path.
+
+### Read-only diagnostics
+
+The remaining `tools/lexical_*_audit.py` / owner-lineage diagnostics are on-demand evidence tools. They may identify a concrete local defect; their existence does not authorize another full-catalog campaign or create a persistent review queue.
+
+## 4. Historical execution evidence
+
+The following classes may remain because they are bounded provenance, not Current control:
+
+- completed `execution/dual-review*.json` campaign records;
+- `execution/manifests/**`;
+- `execution/mutation-receipts/**`;
+- `execution/receipts/**`;
+- `execution/historical-routes.json`;
+- historical semantic-review / reconciliation evidence.
+
+Normal maintenance must not read these to discover “where to continue.” Git history remains the fallback for removed controller implementations and superseded runtime protocols.
+
+The former live-batch board, three-Chat runtime, continuous implementation queue and final-mutation executor are retired from Current operation. They must not be recreated unless a new explicit catalog-wide scope is accepted and the current owner is deliberately changed first.
+
+## 5. Concurrency and stale-input safety
+
+Before a semantic write:
+
+- refresh the exact owner revision;
+- refresh every material semantic dependency in the write/read set;
+- reconcile only real overlapping changes;
+- never force an old package over newer Current truth.
+
+Unrelated `main` movement is not a blocker.
+
+For a multi-file bounded repair, prefer one atomic Git write set after the semantic decision is fixed. A stale owner/dependency blocks only that repair.
+
+## 6. Verification and stop
+
+Use the smallest proof that establishes the requested effect:
 
 ```text
-fresh-read the whole shard
-→ judge Content + Repair Test needs together
-→ run the mandatory Production self-adversarial attack in §3C
-→ freeze the post-attack proposal
-→ record the exact bounded delta
-→ apply standing delegated approval when eligible; otherwise surface only the exceptional bounded Gate
-→ automatically apply only the reported/approved Content fixes on an isolated branch
-→ automatically write the reported/approved Repair Test blueprints
-→ rebuild derived Final Learner Objects
-→ run fresh Independent Semantic Audit under the blind-first contract
-→ automatically narrow/remove/refine already-approved mutations when the auditor stays within the approved learner intent
-→ if the auditor finds new material semantic scope, show Kian only that bounded delta before mutation
-→ complete final-object readback + validation
-→ write receipts / advance the exact cursor
-→ immediately begin the next ~100-owner Human-Gate batch
+exact owner read
+→ bounded repair
+→ changed-owner/dependency validator
+→ derived rebuild only if affected
+→ real consumer proof only if affected
+→ readback
+→ stop
 ```
 
-The single pre-change report should cover the whole shard and include only decision-relevant items:
-
-- words/modules with a real Content problem, why it matters, and the smallest proposed fix;
-- exact lexical targets that deserve a Repair Test blueprint and why;
-- words that need no change / no Test may be summarized rather than expanded one by one;
-- learner-page/UI impact (normally **none**).
-
-One exact approval reference — normally the standing delegation, exceptionally a fresh Kian Gate — authorizes all items explicitly included in that report:
-
-- the reported Word / Relation / Form semantic fixes;
-- the reported Repair Test blueprint writes;
-- mechanical Final Learner Object materialization;
-- validation / receipt updates;
-- exact cursor advancement to the next shard.
-
-Do **not** insert a routine second approval gate between Content, Repair Test, materialization, and Independent Audit. A fresh user Gate is exceptional: use it only when the proposal changes the learning-policy boundary itself, contains unresolved material meaning/identity ambiguity that the frozen ruler cannot safely decide, or Independent Audit discovers genuinely new material scope outside both the approved report and standing delegation. Routine background Form / Identity truth does not create a Gate by itself.
-
-Hard rules:
-
-- no semantic Content or Repair Test mutation before an exact approval reference is recorded;
-- standing delegation may authorize later batches only after each later batch has its own frozen post-attack proposal; it is not permission to pre-approve unseen content;
-- no bundling hidden extra fixes into an approved batch;
-- `PRESERVE` / `NOT_NEEDED` decisions may be recorded without mutation;
-- mechanical derived materialization after approved changes does not need separate approval;
-- if writeback/readback or Independent Audit exposes a **new semantic problem not present in the approved report**, first test whether it is safely covered by the frozen ruler + standing delegation; if yes, reconcile it as a bounded correction with explicit evidence; if not, stop that new mutation and request one exceptional bounded Gate;
-- a critical correctness defect may be repaired under the same standing delegation only when the correct state is evidence-resolved and bounded; unresolved identity/meaning ambiguity still fails closed.
-
-Learner-page / UI changes remain governed separately and are never implied by Content approval.
-
----
-
-## 3C. Production self-adversarial attack — mandatory before approval
-
-Baseline-v2 production must not send its first draft judgment directly to Kian.
-
-After the whole ~100-owner semantic atom has received a fresh owner/module judgment, the **same Production Chat** performs one bounded self-adversarial pass before freezing the proposal.
-
-This is stronger than casual self-review, but it is **not independent audit evidence**.
-
-Required challengers:
-
-```text
-A. OVER-UPGRADE
-   If we do nothing, would the learner actually lose a material decision,
-   transfer advantage, or high-leverage Expansion?
-   If no, remove/narrow the proposed mutation.
-
-B. UNDER-UPGRADE
-   What is the strongest plausible missed Core/Decision or high-leverage Expansion?
-   Look especially for familiar-new branches, non-obvious Form, morphology,
-   academic/professional use, and real cross-word boundaries.
-
-C. LAYER PLACEMENT
-   Is this truth correctly placed in Core / Expansion / Reference?
-   Good knowledge in the wrong attention layer is still a defect.
-
-D. OWNER PLACEMENT
-   Does the truth belong to Word, Relation, or Form/Identity?
-   Do not manufacture a Relation because a Form boundary exists, or a fake Sense
-   because pronunciation/capitalization owns the distinction.
-
-E. NEGATIVE SPACE
-   What should deliberately stay out of default Study?
-   Attack dictionary-completeness inflation, rare specialist micro-senses,
-   historical trivia, and decorative family trees.
-
-F. TEST INFLATION
-   If the learner answered the proposed Test wrong, would that change the next
-   Repair decision?
-   If no, do not prebuild the Test merely because the Content is worth learning.
-
-G. EXAM-ONLY OVERPRUNING
-   Did exam priority cause us to discard a genuinely high-leverage lexical asset
-   that supports broader vocabulary growth, academic English, morphology,
-   pronunciation/form recognition, or productive transfer?
-```
-
-The post-attack judgment supersedes the first draft.
-
-Record at batch level:
-
-```text
-draft upgrades/tests
-→ self-attack removals
-→ self-attack additions
-→ self-attack re-layerings / owner corrections
-→ final proposed bounded delta
-```
-
-The approval boundary sees only the **post-attack** proposal. Under standing delegation, the exact proposal is recorded durably and execution continues without interrupting Kian; an exceptional user Gate, when required, shows only the bounded decision-relevant delta in plain language.
-
-Same-Chat self-attack may never be described as fresh or independent acceptance.
-
-## 4. Fresh judgment and readback
-
-Each owner in a shard receives exactly one current-generation decision:
-
-- operation: `NO_CHANGE` or `UPGRADED`;
-- final quality: `SAFE_SIMPLE`, `DEPTH_READY` or `BLOCKED`;
-- a concise, actual semantic rationale;
-- the complete module matrix from §3A;
-- explicit allowed change reason(s) for every upgraded / blocked module;
-- exact before/dependency hashes and final view identity;
-- for BLOCKED: the unmet requirement and smallest admissible closure evidence.
-
-Old `FRESH_PASS_NO_CHANGE` / `VERIFIED_NO_DELTA` labels describe no mutation; they do not independently establish final quality. Reference-only is a placement decision for valid low-value material, not a shortcut for excluding an ordinary Main Word from coverage.
-
-A simple word may pass quickly after reading its actual semantic object. Field presence, old audit approval, a no-diff file or a green validator cannot manufacture that judgment.
-
-Final-object accountability covers **every** owner. For an unchanged owner whose own and dependency hashes still match, the just-reviewed full view may be reused without another remote fetch. Modified owners need their complete staged final view, not just a diff. Any relevant dependency/contract change invalidates only affected conclusions. Never substitute “read rich changed words only” for coverage of the rest.
-
-## 5. Tool boundary and commands
-
-`tools/lexical_shard.py` is a standard-library transport/staging tool. It does not call a model, classify semantic quality, mutate the source repository, push Git, merge a PR or update Acceptance. It outputs one bounded bundle or one staged candidate at a time.
-
-```sh
-python tools/lexical_shard.py export --root . --start 25 --end 224 --out /tmp/review.json
-python tools/lexical_shard.py prepare --root . --bundle /tmp/review.json --patch /tmp/patch.json --out /tmp/candidate.json
-python tools/lexical_shard.py publish-plan --root . --bundle /tmp/review.json --candidate /tmp/candidate.json --ack /tmp/readback.json --out /tmp/plan.json
-```
-
-`export` and `prepare` are inspection/staging only. `publish-plan` refuses unless Current has the exact standalone directive `Catalog execution: ACTIVE`; a PAUSED directive wins. Production activation is a deliberate Current change, never a CLI side effect.
-
-Patch format:
-
-```json
-{"bundle_id":"exact bundle hash","decisions":[{"ordinal":25,"operation":"UPGRADED","quality":"DEPTH_READY","rationale":"actual fresh reasoning","edits":[{"pointer":"/record/core_concept","value":{"mental_model_cn":"complete reviewed replacement for this field"}}]}]}
-```
-
-The decisions array must contain every bundled ordinal exactly once. A NO_CHANGE decision has no edits. The illustrative patch above is not lexical content evidence. Use stable array identities; replace a complete named field rather than editing a numeric array position. Original unmentioned fields survive.
-
-Readback acknowledgment contains the exact `candidate_id`, a reviewer identifier, and `reviewed_views` mapping every bundled ordinal to its final view hash. The tool reconstructs the candidate from original files and declared edits before producing Git tree elements. Rehashed but contradictory views/candidates are rejected.
-
-The resulting receipt is `LOCAL_CLOSED_PENDING_INTEGRATION`, **not main acceptance**. Apply all approved tree elements in one isolated branch commit; run the existing Natural Owner/integration checks and exact-head CI, including cache/projection consistency. Only then reconcile current main, publish, read back final identities and count accepted coverage. Never copy all files from an old branch or advance K merely because the local receipt exists.
-
-Initial implementation supports Word-local edits only. Relation/Form changes require a narrow shared-owner handoff; they are not silently patched by ordinal workers. This is an explicit capability boundary, not permission to bury cross-owner debt.
-
-## 5A. Baseline-v2 fast transport path
-
-The first o1151–o1250 run proved the semantic protocol but also exposed an avoidable transport bottleneck. From the next Human-Gate batch onward, **remote per-owner GitHub reads/writes are fallback only**, not the normal execution path.
-
-### Pre-Gate review transport
-
-For one ~100-owner Human-Gate batch:
-
-1. freeze one exact branch/head;
-2. generate bounded review bundles with `tools/lexical_shard.py export`;
-3. consume as many ≤50-owner / byte-bounded bundles as needed to cover the full range; the byte budget may make a healthy 100-owner batch require many small bundles, and that is preferable to semantic truncation;
-4. include shared Relation dependencies once per bundle and preserve exact read-set hashes;
-5. Production reads the bundles, performs fresh judgment + self-attack, and only fetches an individual owner again for an oversized object, missing dependency, or explicit evidence escalation.
-
-A Chat must not simulate bundling by issuing dozens of sequential `fetch_file` calls when the bundle path is available.
-
-The repository workflow `.github/workflows/lexical-review-bundle-export.yml` is the normal remote wrapper. A batch Chat writes one request file on its working branch, downloads the resulting **single artifact containing all bounded bundles**, and reviews that artifact as the frozen transport projection. The artifact is not semantic authority.
-
-### Post-approval write transport
-
-After the exact approval reference is recorded:
-
-- accumulate all approved mutations before writing;
-- preserve untouched operational metadata such as existing `card_version`, stable IDs, provenance fields and lifecycle placement;
-- apply Word-local edits through the staged patch / replay path where supported;
-- reconcile shared Relation writes in one bounded shared-owner pass;
-- write Repair Test blueprints in one bounded pass;
-- use Git Data batching so normal landing is **category-batched**, not one remote write per owner;
-- rebuild Final Learner Objects with the existing materializer workflow only after the approved canonical candidate is complete.
-
-Normal target for one ~100-owner batch is at most a few branch commits for semantic materialization, not dozens of per-file commits.
-
-### Readback reuse
-
-Unchanged owners whose bundle owner/dependency hashes still match do not require another remote fetch merely to prove they are unchanged. Modified owners and changed dependencies require complete staged final-view readback. This is the same semantic standard as §4 with less transport duplication.
-
-### Failure fallback
-
-Per-owner remote reads/writes are allowed only when one of these is true:
-
-- `BUNDLE_OVERSIZED`;
-- shared dependency cannot be represented safely in the bundle;
-- relevant main/contract/read-set drift invalidates the frozen packet;
-- GitHub artifact transport is unavailable;
-- a bounded debugging read is required after a failed validation.
-
-A fallback must stay bounded and must not silently become the default for the rest of the batch.
-
-This section changes **transport only**. It does not reduce fresh-read coverage, the self-adversarial pass, approval-boundary scope, Independent Audit coverage, or final readback requirements.
-
-
-## 5B. Final Mutation Executor — mechanical candidate landing
-
-Once an approved semantic write is allowed by the serialized frontier, the semantic Chat should stop hand-writing GitHub files one by one.
-
-The same mechanical executor is used at both write stages:
-
-```text
-Stage 1 · approved candidate materialization
-exactly approved Production delta (normally standing delegation; exceptionally fresh user Gate)
-→ frontier = MATERIALIZE_ALLOWED
-→ final-mutation-package.json
-→ executor
-→ candidate semantic files + 7,946 FLOB rebuild
-→ fresh Independent Audit
-
-Stage 2 · post-audit correction, only when needed
-A/C semantic reconciliation
-→ frontier = RECONCILE_ALLOWED / AUDIT_CORRECTION_ALLOWED
-→ bounded final-mutation-package.json
-→ executor
-→ corrected candidate + 7,946 FLOB rebuild
-
-Then:
-→ candidate PR / final merge remains an explicit Chat/human landing decision
-```
-
-A clean Independent Audit that requires no semantic mutation skips Stage 2.
-
-Authority boundary:
-
-- the executor has **zero semantic authority**;
-- it cannot invent, expand, narrow, rerank or reinterpret lexical content;
-- it only executes the exact package emitted after semantic decision;
-- it never merges `main`.
-
-Hard guards:
-
-1. execution is allowed only on `work/lexical-continuous-*` branches;
-2. the package request commit must change only `content/lexical/execution/final-mutation-package.json`;
-3. `source_head` must equal that request commit's parent;
-4. the live board must name the same candidate as the serialized frontier;
-5. frontier state must be one of `MATERIALIZE_ALLOWED / RECONCILE_ALLOWED / AUDIT_CORRECTION_ALLOWED`;
-6. the package must record the exact approval reference (standing delegation or exceptional user Gate);
-7. every existing file mutation carries the exact pre-write SHA256; direct write drift is `STALE_FILE` and fails closed;
-8. every material related semantic dependency that supports the final judgment is recorded in `semantic_dependency_read_set` with an exact file SHA256; any drift is `STALE_SEMANTIC_DEPENDENCY` and fails closed even if that file is not being written;
-9. new Relation files must be declared as expected-absent and must satisfy the deterministic Relation path hash;
-10. numeric array-index patching is forbidden; the package replaces complete named semantic fields/arrays so identity is reviewable;
-11. write scope is restricted to Lexical Word / Relation / Repair-Test / JSON receipt owners;
-12. Word identity/lifecycle and Relation reciprocal-view integrity are checked mechanically;
-13. the executor must preserve any pre-existing Relation-manifest count gap without worsening it; every newly created Relation owner must increase the manifest count by exactly one;
-14. Final Learner Object closure must remain exactly 7,946;
-15. the one-shot package file is removed after execution and a durable mutation receipt is preserved;
-16. `main_merge_authorized=false` remains in the receipt. Final merge is deliberately outside the executor.
-
-### Semantic dependency read-set
-
-The executor's write hashes prevent two workers from editing the same stale file, but that is not sufficient for lexical semantics. Two batches can write different files while relying on the same semantic boundary.
-
-Therefore every package must carry the exact hashes of material related truth used during final reconciliation:
-
-```json
-"semantic_dependency_read_set": {
-  "content/lexical/words/by-ordinal/o0182.json": "<sha256>",
-  "content/lexical/words/by-ordinal/o3277.json": "<sha256>",
-  "content/lexical/relations/by-id/...json": "<sha256>"
-}
-```
-
-Include dependencies whose change could alter the proposed decision: related Word/Sense branches, family targets, Form/identity boundaries, Construction ownership, Relation truth, Repair Test targets, or layer/lifecycle truth. Do not include unrelated files merely to create broad locks.
-
-If any hash changed, the executor stops with `STALE_SEMANTIC_DEPENDENCY`. The semantic Chat then rereads only the affected dependency and reconciles against latest main; it must not blindly replay the old proposal.
-
-Package example:
-`content/lexical/execution/final-mutation-package.example.json`
-
-Executor:
-`tools/lexical_apply_final_mutation_package.py`
-
-Workflow:
-`.github/workflows/lexical-apply-final-mutation-package.yml`
-
-This is the preferred write path both after approval and after any audit reconciliation. Direct per-file Chat writes remain a bounded fallback only when the executor itself is broken or the required mutation is outside its declared safe capability.
-
-
----
-
-## 6. Continuation without a long Chat
-
-For an activated package, its machine manifest owns only range allocation and shard checkpoints, not a second human Work Cursor. It records: package ID, acceptance generation, baseline/contract fingerprints, claimed nonoverlapping ranges, exact write/read sets, shard statuses, receipt/commit identities, unresolved holes and the next smallest action.
-
-Use `PENDING → REVIEWING → STAGED → LOCAL_CLOSED → INTEGRATED`, with `BLOCKED`/`INTERRUPTED` when appropriate. Reviewed-terminal count, accepted count, integrated count and contiguous frontier are different quantities. A BLOCKED word may not stop independent ranges, but it remains a visible gap and never counts as accepted.
-
-Do not create an active package manifest while Catalog is paused. On interruption, persist at most the current bounded shard checkpoint. A staged or branch-committed patch is not accepted main content. Next Chat reads Current → active package/checkpoint → the exact current shard, not old Chat history or every prior receipt.
-
-## 6A. Content lane cannot edit learner pages
-
-Continuous lexical Content execution may mutate canonical lexical owners, derived learner objects, Repair Test blueprints and receipts only.
-
-It must not modify `static-web/**`, learner-page layout, navigation, typography, interactions, renderer semantic inclusion, or accepted Vocabulary surface geometry.
-
-If final-object readback reveals that correct Content is not faithfully shown, emit a bounded renderer defect and route it to the UI owner. Do not distort Content to compensate.
-
----
-
-## 7. Concurrency and history
-
-Ordinals may be allocated to 2–3 workers only after the single-worker transport/closure path is proven. Allocation ranges are disjoint; shared Relation/Form writes go to one reconciler using current hashes. No stacked branch dependencies. An unrelated main advance does not invalidate independent work; changed read/write sets or contracts do.
-
-Historical candidates are opt-in accelerators for a **named bounded salvage task**, never default input. Read Current first; retain veto power; accept useful semantics as a new current patch. Do not merge a historical CURRENT/ACCEPTANCE or replay its old acceptance labels.
-
-Historical branch disposition lives in `execution/historical-routes.json`. Preserve unique work until a bounded salvage review or verified archive makes deletion safe. Exact duplicate refs may be retired after their shared head is verified. Age, branch name and ahead/behind counts alone are not semantic acceptance or deletion proof.
-
-## 8. Stop retrying non-progress
-
-At most one retry of an unchanged transport/CI operation. Then change method or return the precise checkpoint and infrastructure limitation. Do not cycle through old commits, ZIPs, branch names and the same oversized response. No permanent requirement for an unavailable historical artifact unless the claim is historical fidelity itself.
-
-Differentiate `SEMANTIC_BLOCKED`, `SHARED_OWNER_HANDOFF`, `STALE_READ_SET`, `BUNDLE_OVERSIZED`, `TRANSPORT_UNAVAILABLE`, `CI_EXECUTION_UNAVAILABLE` and `INTEGRATION_PENDING`. An infrastructure failure cannot become a semantic failure or a false PASS.
-
-Stop the turn while there is still room to checkpoint and explain the result. Measure semantic decisions, accepted/integrated owners, payload bytes, remote round trips, repetitions and failure recovery separately. A transport-only pilot on 50 current owners proves transport only: semantic acceptance delta and learner-state mutation remain zero.
-
-
----
-
-## Historical production-first sweep — CLOSED
-
-The former `PRODUCTION_SWEEP_ONLY` rule applied only to the completed o0001–o1150 backfill phase. It is historical evidence and **does not govern the current full-catalog continuation**.
-
-Current continuation follows the live frontier in `THREE_CHAT_RUNTIME.md` and `execution/live-batch.json`: close each ~100-owner semantic atom through proposal → approval → materialization → Independent Audit → reconciliation/merge, then advance. Multiple consecutive atoms may be closed serially in one Chat under the standing delegation; do not accumulate a hidden multi-batch semantic backlog.
+Do not run a full-catalog semantic audit, full-site/browser suite, or historical campaign harness for a routine local maintenance change unless the exact defect genuinely crosses that boundary.

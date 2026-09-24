@@ -1,4 +1,5 @@
-name: Lexical Shard Tools
+name: Lexical Bounded Transport
+
 on:
   workflow_dispatch:
     inputs:
@@ -17,22 +18,30 @@ on:
   push:
     branches: [main]
     paths:
+      - 'content/lexical/CONTENT_ASSET_CONTRACT.md'
+      - 'content/lexical/CONTENT_EXECUTION.md'
+      - 'content/lexical/schema.json'
       - 'tools/lexical_shard.py'
-      - 'tools/lexical_apply_final_mutation_package.py'
-      - 'tools/test_lexical*.py'
+      - 'tools/test_lexical_shard.py'
+      - 'tools/test_lexical_transport_guards.py'
       - '.github/workflows/lexical-shard-tools.yml'
   pull_request:
     paths:
+      - 'content/lexical/CONTENT_ASSET_CONTRACT.md'
+      - 'content/lexical/CONTENT_EXECUTION.md'
+      - 'content/lexical/schema.json'
       - 'tools/lexical_shard.py'
-      - 'tools/lexical_apply_final_mutation_package.py'
-      - 'tools/test_lexical*.py'
+      - 'tools/test_lexical_shard.py'
+      - 'tools/test_lexical_transport_guards.py'
       - '.github/workflows/lexical-shard-tools.yml'
 
 permissions:
   contents: read
+
 concurrency:
-  group: lexical-shard-tools-${{ github.ref }}
+  group: lexical-bounded-transport-${{ github.ref }}
   cancel-in-progress: true
+
 jobs:
   transport:
     runs-on: ubuntu-latest
@@ -42,12 +51,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Synthetic safety tests (not semantic K/E/U acceptance)
+      - name: Synthetic transport safety tests
         shell: bash
         run: |
           mkdir -p /tmp/lexical-shard-evidence
           python tools/test_lexical_transport_guards.py 2>&1 | tee /tmp/lexical-shard-evidence/tests.txt
-          python tools/test_lexical_final_mutation_executor.py 2>&1 | tee /tmp/lexical-shard-evidence/mutation-executor-tests.txt
       - name: Transport-only pilot on 50 Current owners
         if: github.event_name != 'workflow_dispatch'
         run: |
