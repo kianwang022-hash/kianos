@@ -93,8 +93,25 @@ assert(
 );
 assert(!repairReturn.includes('kianos-xizong-memory-review-v2:${objectId}'), 'system-repair-return-still-writes-block-evidence-store');
 assert(repairBridge.includes('kianos-xizong-repair-inbox-v1:'), 'block-repair-inbox-not-consumed');
-assert(repairBridge.includes("type: 'SYSTEM_WU_PLAN_IMPORTED'"), 'inbox-import-evidence-missing');
-assert(repairBridge.includes("evidence_role: 'REPAIR_ONLY'"), 'inbox-import-evidence-role-regressed');
+assert(
+  systemWuReturn.includes("schema:'kianos.xizong.system_wu_return_receipt.v1'")
+    && systemWuReturn.includes('repair_tasks:(detail.repairTasks || []).map((task)=>({')
+    && systemWuReturn.includes('task_id:task.id')
+    && systemWuReturn.includes('origin:task.origin'),
+  'system-wu-return-bounded-receipt-missing'
+);
+assert(
+  systemWuReturn.includes("origin:'SYSTEM_WU_CHAT_RETURN'")
+    && systemWuReturn.includes('sourceQuestionIds:plan.sourceQuestionIds')
+    && systemWuReturn.includes("status:'ACTIVE'")
+    && systemWuReturn.includes('nextMemory=setRepairTasks(memory,[...kept,...tasks])'),
+  'system-wu-return-repair-only-task-semantics-missing'
+);
+assert(
+  repairBridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);')
+    && repairBridge.includes("window.dispatchEvent(new CustomEvent('kianos:xizong-repair-inbox-migrated'"),
+  'repair-inbox-bridge-consumption-semantics-missing'
+);
 assert(repairBridge.includes("window.addEventListener('storage'"), 'open-block-tab-cannot-receive-repair');
 assert(repairBridge.includes('window.location.reload();'), 'inbox-consume-does-not-rebuild-local-owner-state');
 
@@ -120,7 +137,7 @@ console.log([
   'Memory=selective+stable-exit',
   'RecallHistory=single-owner+repeated-attempts-preserved',
   'ChatRepair=repair-only+single-owner-queue-closure',
-  'RepairReturn=atomic-inbox+cross-tab-safe',
+  'RepairReturn=shared-owner-receipt+repair-only+atomic-inbox+cross-tab-safe',
   'SystemRecall=pre/mid/post-distinct',
   'StaleEvidence=archive+fail-closed',
   'LearnerState=browser-private',
