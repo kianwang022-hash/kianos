@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.future_source_slot.v1",
-  "status": "COMPREHENSIVE_REFINED_NOTE_REPROCESS_V2_ACTIVE",
+  "status": "COMPREHENSIVE_REFINED_NOTE_REPROCESS_V2_CONTENT_COMPLETE_DOWNSTREAM_PENDING",
   "slot_id": "xizong-2027-surgery-rebase",
   "source_cycle": "27考研",
   "domain": "Surgery",
@@ -237,7 +237,28 @@
         "stale source locator cleanup",
         "downstream relation/explanation/evidence impact classification"
       ],
-      "ui_boundary": "No UI redesign. Existing Xizong site reads canonical Markdown/Learning owners; content-only changes should propagate through the existing loader."
+      "ui_boundary": "No UI redesign. Existing Xizong site reads canonical Markdown/Learning owners; content-only changes should propagate through the existing loader.",
+      "result": {
+        "units_reprocessed": "38/38",
+        "content_status": "COMPLETE",
+        "source_cleanup_status": "CURRENT_PRIMARY_BINDINGS_CLEANED_WITH_HISTORICAL_ALIASES_EXPLICIT",
+        "ui_status": "UNCHANGED_BY_DESIGN",
+        "material_semantic_updates": [
+          "D21 thyroid/neck: surgery decision framing + neck-mass source-bound recognition + cystic hemorrhage boundary",
+          "D11 esophagus: refined radiotherapy/surgical-rationale framing kept bounded",
+          "D17 portal hypertension: surgical objective clarified as prevention/control of variceal bleeding rather than portal-pressure number alone",
+          "O3 spinal injury: surgery purpose clarified as relieving ongoing compression/restoring stability/reducing secondary injury rather than reversing irreversible cord damage"
+        ],
+        "learning_updates": [
+          "B:D21 surgery learning closure",
+          "B:D11 esophageal treatment reasoning closure",
+          "B:D19 liver-abscess evidence/decision closure",
+          "D:O11 chronic-injury treatment ladder",
+          "D:O2 emergency-priority closure"
+        ],
+        "preserved_but_revalidated": "All other refined explanatory notes were explicitly reviewed and either already represented by Current Knowledge/Learning or kept as Precision/Visual/Source-bound material; no duplicate prose inflation or topology rebuild.",
+        "next_action": "Revalidate downstream Question→Knowledge relations and learner-facing explanations only for blocks with real semantic/learner-facing changes; classify source-revision evidence impact; then close scoped acceptance."
+      }
     }
   },
   "governance": {

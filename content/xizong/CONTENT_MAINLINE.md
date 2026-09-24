@@ -125,7 +125,7 @@ E  source-revision impact on historical learner evidence classified
 A  affected scoped CURRENT / ACCEPTANCE owners reconciled and task closed
 ```
 
-Current first batch is **SUR27-U01–U04: neck / esophagus / breast / thorax**. Initial audit already confirms stale legacy/follow-along Surgery bindings in B:D21, B:D23, B:D9, B:D11, A2:R10 and A2:R11; deep semantic comparison and E:E10–E14 review are next.
+Current status: **Reprocess v2 content pass is complete across SUR27-U01–U38 (38/38)**. All refined explanatory additions were re-routed explicitly across Knowledge / Learning / Precision / Visual, stale Current-primary Surgery bindings were cleaned, and UI was intentionally left unchanged. Remaining work is bounded downstream revalidation for the blocks with real semantic/learner-facing changes, followed by evidence/source-revision classification and scoped acceptance closeout.
 
 ---
 
