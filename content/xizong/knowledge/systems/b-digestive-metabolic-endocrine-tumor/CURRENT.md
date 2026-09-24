@@ -10,7 +10,7 @@ This file does not own medical Core, Xizong Learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
-**Active / earliest unresolved eligible gate:** `A — Biochemistry final integration QA / closeout`.  
+**Active / earliest unresolved eligible gate:** **NONE for the 27 Biochemistry revision — CLOSED / CURRENT**. Other active source revisions route through their exact task owners / `CONTENT_MAINLINE.md`.  
 **S status:** **PASS / CURRENT** — 27 Source identity + 22 Source units + direct Source→existing Block/LG/KP mapping current; remaining parallel layer refs = 0.  
 **K status:** **PASS / REACCEPTED for Biochemistry** — M1–M10 + G1–G5 = 191 stable KP; canonical file/KP order restored; 191/191 Core semantics preserved from the verified 27 content; mature Block content jobs restored.  
 **L status:** **PASS / REACCEPTED for Biochemistry** — accepted learner_order / Logic Groups / KP membership / goal / closure / readiness unchanged; direct 27 Source contact and cross-System timing added without new hierarchy.  
@@ -35,11 +35,11 @@ JIT Connection
 → post-formation Reconstruction
 ```
 
-**Next action:** final integration QA / closeout only. Do **not** regenerate M1–M10/G1–G5 content unless a concrete defect appears. If full-repository QA finds an unrelated downstream defect, repair that smallest owner without reopening the Biochemistry hierarchy/content reconstruction.
+**Next action:** none for the 27 Biochemistry revision. Do **not** regenerate M1–M10/G1–G5 content unless a new/revised authoritative Biochemistry Source or a concrete accepted-owner defect appears. The later A2 Evidence failure in full Xizong QA is outside this scope.
 
 ---
 
-## 27 Biochemistry architecture correction — content work complete / validation closeout
+## Closed 27 Biochemistry architecture-corrected revision
 
 - **27 跟课 remains the only continuous first-pass Biochemistry Source**.
 - 26 精编 remains verified explanatory reconstruction substrate only.
