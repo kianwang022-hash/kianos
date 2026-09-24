@@ -18,7 +18,7 @@ Chat / accepted Rule
 - private learner/execution state stays outside shared canonical Content.
 - raw PDFs, videos, transcripts and other unprocessed references normally remain in Drive / Library / Files / original sources until a real KianOS need justifies Knowledge reconstruction.
 - formal learning assets keep their full Source → Knowledge → Learning Logic → Content → Visual/Runtime quality chain.
-- `EXAM_ORCHESTRATOR_CONTRACT.md` owns cross-subject exam scheduling, hard Gates, capacity arbitration, score-closure, and material-refresh timing; it does not replace subject-local learning or learner truth.
+- `EXAM_ORCHESTRATOR_CONTRACT.md` owns the durable cross-subject exam orchestration Rule/Model: Phase/Gate/material-window facts, score/forecast boundaries and the policy constraints used by Chat. It does **not** own today's allocation/next-subject judgment, subject-local learning or learner truth.
 - `kianwang022-hash/kianos-legacy` is recovery/reference only and is never a normal input.
 
 Chat is the open-ended cognition layer. KianOS Runtime may execute bounded approved logic and return reality evidence, but does not silently become a second strategy brain.
