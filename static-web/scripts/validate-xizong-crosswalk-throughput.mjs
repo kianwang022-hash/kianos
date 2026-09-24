@@ -20,7 +20,11 @@ const knowledgeBody = 'synthetic current knowledge owner\n';
 fs.writeFileSync(knowledgeAbsolute, knowledgeBody);
 const knowledgeBuffer = Buffer.from(knowledgeBody, 'utf8');
 const knowledgeBlobSha = crypto.createHash('sha1')
-  .update(Buffer.concat([Buffer.from(`blob ${knowledgeBuffer.length}\\0`, 'utf8'), knowledgeBuffer]))
+  .update(Buffer.concat([
+    Buffer.from(`blob ${knowledgeBuffer.length}`, 'utf8'),
+    Buffer.from([0]),
+    knowledgeBuffer
+  ]))
   .digest('hex');
 
 const existing = [{ question_id: 'xizong-official-2099-n001' }];
