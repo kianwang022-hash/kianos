@@ -30,7 +30,7 @@ MARKER_RE = re.compile(r"<!--\s*kianos-semantic-base:([0-9a-f]{40})\s*-->", re.I
 MARKER_TEMPLATE = "<!-- kianos-semantic-base:{sha} -->"
 
 ROOT_AUTHORITY_EXCLUDE = {"root_work_cursor"}
-LANES = ("english", "xizong", "politics", "lexical")
+SCOPES = ("english", "xizong", "politics", "lexical")
 
 
 def run(*args: str, check: bool = True) -> str:
@@ -171,23 +171,23 @@ def commit_exists(sha: str) -> bool:
     ).returncode == 0
 
 
-def infer_lanes(paths: Iterable[str]) -> set[str]:
-    lanes: set[str] = set()
+def infer_scopes(paths: Iterable[str]) -> set[str]:
+    scopes: set[str] = set()
     for path in paths:
         low = path.lower()
-        for lane in LANES:
-            if low.startswith(f"content/{lane}/"):
-                lanes.add(lane)
+        for scope in SCOPES:
+            if low.startswith(f"content/{scope}/"):
+                scopes.add(scope)
         if low.startswith("static-web/"):
             if "english" in low or "reading" in low or "translation" in low or "writing" in low or "external" in low:
-                lanes.add("english")
+                scopes.add("english")
             if "xizong" in low:
-                lanes.add("xizong")
+                scopes.add("xizong")
             if "politic" in low:
-                lanes.add("politics")
+                scopes.add("politics")
             if "lexical" in low or "vocab" in low:
-                lanes.add("lexical")
-    return lanes
+                scopes.add("lexical")
+    return scopes
 
 
 def infer_capabilities(paths: Iterable[str]) -> set[str]:
@@ -276,13 +276,13 @@ def classify(
         reasons.append("ROOT_AUTHORITY_CHANGED")
         relevant_paths.update(root_hits)
 
-    lanes = infer_lanes(pr_changes)
-    for lane in lanes:
-        lane_cursor = registry.get("lane_work_cursors", {}).get(lane)
+    scopes = infer_scopes(pr_changes)
+    for scope in scopes:
+        lane_cursor = registry.get("scope_work_cursors", {}).get(scope)
         if lane_cursor and lane_cursor in main_changes:
-            reasons.append(f"{lane.upper()}_CURRENT_CHANGED")
+            reasons.append(f"{scope.upper()}_CURRENT_CHANGED")
             relevant_paths.add(lane_cursor)
-        prefix = f"content/{lane}/"
+        prefix = f"content/{scope}/"
         lane_contract_hits = {
             p
             for p in main_changes
@@ -293,7 +293,7 @@ def classify(
             )
         }
         if lane_contract_hits:
-            reasons.append(f"{lane.upper()}_AUTHORITY_CHANGED")
+            reasons.append(f"{scope.upper()}_AUTHORITY_CHANGED")
             relevant_paths.update(lane_contract_hits)
 
     caps = infer_capabilities(pr_changes)
@@ -401,7 +401,7 @@ def self_test(registry: dict) -> None:
             {"static-web/src/styles/xizong-system-workspace.css"},
             {"static-web/src/lib/studyTimer.mjs"},
             False,
-            "unrelated lane CSS must not invalidate Timer",
+            "unrelated scope CSS must not invalidate Timer",
         ),
         (
             {"AUTHORITY_INHERITANCE_CONTRACT.md"},
@@ -419,7 +419,7 @@ def self_test(registry: dict) -> None:
             {"content/politics/CURRENT.md"},
             {"content/politics/projection/sample.json"},
             True,
-            "lane Current must invalidate same-lane work",
+            "scope Current must invalidate same-scope work",
         ),
         (
             {"static-web/src/lib/studyTimer.mjs"},
