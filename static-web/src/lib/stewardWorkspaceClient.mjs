@@ -638,6 +638,8 @@ export function initStewardWorkspace(root) {
       const day = dateAdd(monday, index);
       const column = document.createElement('div');
       column.className = `stewardWeekDay${day === today ? ' today' : ''}`;
+      const dayPlanBlocks = day === today ? (presentation?.scheduleBlocks || []) : [];
+      const hasPlanDay = dayPlanBlocks.length > 0;
 
       if (day === today) {
         for (const block of presentation?.scheduleBlocks || []) {
@@ -663,7 +665,7 @@ export function initStewardWorkspace(root) {
         const geometry = sessionClockGeometry(session);
         if (!geometry) continue;
         const node = document.createElement('div');
-        node.className = `stewardWeekActual${geometry.height < 4 ? ' short' : ''}`;
+        node.className = `stewardWeekActual ${hasPlanDay ? 'withPlan' : 'withoutPlan'}${geometry.height < 4 ? ' short' : ''}`;
         node.dataset.subject = session.subject;
         node.style.top = `${geometry.top}%`;
         node.style.height = `${geometry.height}%`;
