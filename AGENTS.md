@@ -15,9 +15,10 @@ The operating goal is simple:
 Before reading a Work Cursor, classify the user's request by what they are trying to do.
 
 ```text
-LEARN    use the learning system / continue studying
-BUILD    construct, audit or change content / learning assets / runtime semantics
-UI       change learner-facing presentation / interaction / visual implementation
+LEARN    use a learning capability / continue studying
+USE      use a non-learning KianOS product or its current private/runtime state
+BUILD    construct, audit or change Rule / Content / product / runtime semantics
+UI       change product-facing presentation / interaction / visual implementation
 CONTROL  ask for cross-scope status, priorities, blockers or project management
 ```
 
@@ -26,18 +27,23 @@ Natural language is authoritative. Do not require Kian to name these modes.
 Default rule:
 
 > **A bare learner-facing continuation such as “继续英语 / 继续政治 / 继续循环 / 继续 Translation” means LEARN unless the current conversation clearly establishes an engineering/UI task.**
+>
+> **A request to use or inspect a non-learning product such as Steward means USE unless Kian asks to change, redesign, debug or manage it.**
 
 Engineering words such as `内容建设 / audit / PR / CI / runtime / contract / UI / 页面 / 视觉 / implementation` may resolve BUILD or UI.
 
-`CURRENT.md` is an **engineering Work Cursor**. It must not silently override learner intent.
+`CURRENT.md` is an **engineering Work Cursor**. It must not silently override learner or product-use intent.
 
 Therefore:
 
 ```text
-“继续英语”        → learner continuation / learner state
-“继续英语 UI”     → English UI scope
-“继续英语内容建设” → English BUILD scope
-“英语做到哪了”     → CONTROL / status
+“继续英语”         → LEARN / learner state
+“看看今天的 Steward” → USE / current product-private state
+“优化 Steward”     → BUILD + Design-aware change interface
+“改 Steward UI”    → UI + Design-aware change interface when material
+“继续英语 UI”      → English UI scope
+“继续英语内容建设”  → English BUILD scope
+“英语做到哪了”      → CONTROL / status
 ```
 
 ---
@@ -45,6 +51,21 @@ Therefore:
 # 2｜Small read paths
 
 Do not reread the governance hierarchy as ritual.
+
+## USE
+
+Use the smallest product-facing path:
+
+```text
+known product / surface
+→ actual private runtime state or exact product owner when needed
+→ applicable Rule / Model only when interpretation is needed
+→ use
+```
+
+Do **not** enter engineering `CURRENT.md` merely because the product is implemented in KianOS. A normal Steward/time/recovery/product-use request is not a BUILD task.
+
+If use reveals a concrete defect, route only that defect to BUILD/UI. If use produces reality evidence, keep the raw fact with its native Runtime/source owner; open-ended interpretation or durable personal meaning returns to Chat / Personal rather than being silently inferred by Runtime.
 
 ## LEARN
 
@@ -80,7 +101,7 @@ Daily Learning Packet
 Planning follows [Exam Orchestrator §0](EXAM_ORCHESTRATOR_CONTRACT.md). Exact private delivery and recovery follow Personal OS `EXAM_CHAT_ROUTER.md`; this entry does not define another delivery procedure. Manual export/import is a degraded recovery option only, never the normal learner handoff. An unavailable relay must be stated honestly; it neither proves successful delivery nor prevents useful learning from healthy available evidence.
 
 
-Do not route through root engineering `CURRENT.md` by default just because GitHub is available. Read an exact subject Learning/Content owner only when the learner question actually requires semantic/source context. BUILD / UI / CONTROL requests remain separate.
+Do not route through root engineering `CURRENT.md` by default just because GitHub is available. Read an exact subject Learning/Content owner only when the learner question actually requires semantic/source context. USE / BUILD / UI / CONTROL requests remain separate.
 
 Subject-specific diagnosis/repair still uses that subject's existing typed Return contract. The Daily Packet is evidence/planning input; it is not a universal mutation packet.
 
