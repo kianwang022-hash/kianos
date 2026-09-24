@@ -1,17 +1,28 @@
-name: Politics Ethics Evidence Journey
+name: Politics Ethics Acceptance
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
-      - 'content/politics/**'
+      - 'content/politics/learning/ethics-law/**'
       - 'static-web/src/components/Politics*.astro'
       - 'static-web/src/lib/politics*.mjs'
       - 'static-web/src/pages/politics/**'
       - 'static-web/scripts/audit-politics-ethics-evidence.mjs'
-      - 'static-web/scripts/test-politics-ethics-evidence.mjs'
+      - 'static-web/scripts/audit-politics-ethics-projection.mjs'
+      - 'static-web/scripts/test-politics-subject-workbench-journey.mjs'
       - '.github/workflows/static-web-politics-ethics-evidence.yml'
-  workflow_dispatch:
-
+  push:
+    branches: [main]
+    paths:
+      - 'content/politics/learning/ethics-law/**'
+      - 'static-web/src/components/Politics*.astro'
+      - 'static-web/src/lib/politics*.mjs'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/scripts/audit-politics-ethics-evidence.mjs'
+      - 'static-web/scripts/audit-politics-ethics-projection.mjs'
+      - 'static-web/scripts/test-politics-subject-workbench-journey.mjs'
+      - '.github/workflows/static-web-politics-ethics-evidence.yml'
 permissions:
   contents: read
 
@@ -39,6 +50,9 @@ jobs:
       - name: Build Current site
         working-directory: static-web
         run: npm run build
+      - name: Audit Ethics Projection
+        working-directory: static-web
+        run: node scripts/audit-politics-ethics-projection.mjs
       - name: Audit Ethics Evidence model
         working-directory: static-web
         run: node scripts/audit-politics-ethics-evidence.mjs
