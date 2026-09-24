@@ -94,6 +94,10 @@ Source-lane skeleton:
 
 `content/xizong/knowledge/learner/surgery-27-source-map.json`
 
+Scoped top-level rule:
+
+`content/xizong/knowledge/learner/SURGERY_CONTRACT.md`
+
 Scope:
 
 ```text
