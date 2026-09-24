@@ -65,6 +65,12 @@ ACCEPTANCE_PATHS = discover_acceptance_paths()
 # a competing status / continuation owner and must fail closed.
 RETIRED_JSON_PATHS = []
 
+RETIRED_MARKDOWN_PATHS = [
+    "content/english/FINAL_LEARNER_ACCEPTANCE_BRIEF.md",
+    "content/politics/FINAL_LEARNER_ACCEPTANCE_BRIEF.md",
+    "content/xizong/FINAL_LEARNER_ACCEPTANCE_BRIEF.md",
+]
+
 ABSENT_RETIRED_PATHS = [
     "RECOVERY_COGNITIVE_CAPACITY_MODEL.md",
     "RECOVERY_COGNITIVE_CAPACITY_ACCEPTANCE.md",
@@ -93,6 +99,11 @@ FORBIDDEN_CURRENT_TOKENS = [
     "working_preferences",
     "after_validation",
     "secondary_semantic_repair_queue",
+]
+
+FORBIDDEN_ACCEPTANCE_TOKENS = [
+    "ACTIVE NEXT",
+    "candidate is not merged",
 ]
 
 errors: list[str] = []
@@ -262,6 +273,30 @@ def audit_current(relative: str) -> None:
                 fail("CURRENT_REQUIRES_CONTINUATION", f"{relative}:{line.strip()}")
 
 
+
+def audit_acceptance(relative: str) -> None:
+    global checks
+    path = require_file(relative)
+    if not path:
+        return
+    value = path.read_text(encoding="utf-8")
+    for token in FORBIDDEN_ACCEPTANCE_TOKENS:
+        checks += 1
+        if token.lower() in value.lower():
+            fail("ACCEPTANCE_OWNS_WORK_STATE", f"{relative}:{token}")
+
+
+def audit_retired_markdown(relative: str) -> None:
+    global checks
+    path = require_file(relative)
+    if not path:
+        return
+    value = path.read_text(encoding="utf-8")
+    checks += 1
+    if "RETIRED FROM CURRENT" not in value:
+        fail("RETIRED_MARKDOWN_REACTIVATED", relative)
+
+
 def audit_retired_json(relative: str) -> None:
     global checks
     path = require_file(relative)
@@ -327,7 +362,10 @@ def main() -> int:
         audit_current(path)
 
     for path in ACCEPTANCE_PATHS:
-        require_file(path)
+        audit_acceptance(path)
+
+    for path in RETIRED_MARKDOWN_PATHS:
+        audit_retired_markdown(path)
 
     for path in RETIRED_JSON_PATHS:
         audit_retired_json(path)
@@ -344,6 +382,7 @@ def main() -> int:
         "checks": checks,
         "current_files": len(CURRENT_PATHS),
         "acceptance_files": len(ACCEPTANCE_PATHS),
+        "retired_markdown_paths": len(RETIRED_MARKDOWN_PATHS),
         "retired_paths": len(RETIRED_JSON_PATHS),
         "absent_retired_paths": len(ABSENT_RETIRED_PATHS),
         "manifests": len(MANIFEST_PATHS),
