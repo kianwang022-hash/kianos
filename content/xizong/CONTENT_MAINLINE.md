@@ -21,9 +21,9 @@ Old Chats, prompts, Issue titles and branch names are provenance, not Current tr
 
 ---
 
-# 0｜ACTIVE MAINLINE TASK — 27 Biochemistry comprehensive rebase
+# 0｜CLOSED MAINLINE TASK — 27 Biochemistry comprehensive rebase
 
-Status: **ACTIVE / DURABLE MAINLINE TASK**
+Status: **CLOSED / CURRENT 27 CANONICAL REBASE COMPLETE**
 
 Exact task owner:
 
@@ -33,52 +33,39 @@ Scoped top-level rule:
 
 `content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md`
 
-The scoped contract is **CURRENT and locked for execution**. Ordinary 27 Source/Knowledge/question defects do not reopen the contract; they are repaired at the smallest responsible owner.
+The scoped contract remains **CURRENT and locked for execution**. This closeout does not reopen the contract; future ordinary Source/KP/question defects still route to the smallest responsible owner.
 
-Scope:
-
-```text
-27 Biochemistry follow-along Source
-vs 26 refined explanatory substrate
-vs Current M1–M10 + G1–G5 canonical Knowledge
-→ comprehensive Source rebase
-→ Knowledge / System / cross-System logic reconstruction where needed
-→ Learning / Logic Group / Content revalidation
-→ Visual / Precision / Memory implications
-→ affected official-question → Knowledge relation review
-→ affected learner-facing question explanation review
-→ affected Source-revision / learner-evidence invalidation
-→ final bounded re-acceptance and closeout
-```
-
-Hard rules:
-
-- **27 跟课 is the only continuous first-pass Biochemistry Source**.
-- **26 精编 is explanatory reconstruction substrate**, not a second learner-reading path.
-- Do not merely append 27 facts to 26-shaped Blocks; compare 27 Source, 26 explanation and Current Knowledge semantically.
-- Preserve stable M/G Block/KP identity unless a concrete semantic defect requires change.
-- Revisit System mother model, Block Framework, Logic Groups, KP Core, cross-System relations and source locators when the comparison materially changes them.
-- Official-question **System membership does not automatically reopen** if the question corpus/ownership is unchanged.
-- Reviewed **Question→Knowledge relations and learner-facing explanations must be rechecked wherever changed Knowledge, boundaries, terminology, precision or owner routing can make them stale**.
-- Historical attempts remain historical observations; Current authorization follows Source-revision semantics.
-- Do not reopen unrelated D1–D23 or broad Runtime/Projection work.
-- Missing / ambiguous current-year Source remains fail-closed.
-- Work in bounded batches, but do not declare completion until the completion definition below is closed.
-
-Completion definition:
+Closed result:
 
 ```text
-S  current 27 Biochemistry Source identity / page locators / gaps verified
-K  M1–M10 + G1–G5 canonical medical Core + System/cross-System logic reaccepted
-L  affected learning order / LG / Source-contact semantics reaccepted
-C  affected learner Content / Precision / Visual / Memory roles reconciled
-Q  affected reviewed Question→Knowledge relations revalidated
-X  affected learner-facing official-question explanations revalidated
-E  source-revision impact on historical learner evidence classified
-A  B scoped acceptance/current owners reconciled and task closed
+S  PASS — current 27 Source identity + 22 Source units + page locators/gaps current
+K  PASS — M1–M10 + G1–G5 stable canonical Blocks/KPs revalidated and reorganized into canonical layer hierarchies
+   + system.json closes Biochemistry into 物质—能量网络 + 信息生命周期
+L  PASS — all 15 M/G Blocks consume canonical layers through the completed global Source map
+C  PASS — Core / Boundary / Precision / Connection + current visual/source-bound roles reconciled
+Q  PRESERVE — hierarchy rebase created no Question→KP relation; existing reviewed relations remain separately owned
+X  PRESERVE — no ritual explanation rewrite where target medical semantics/owner remained unchanged
+E  PRESERVE — historical learner observations remain historical; repository rebase creates no learner progress
+A  PASS — B CURRENT / ACCEPTANCE reconciled; Biochemistry bounded exception closed
+UI no static-web content fork — website remains downstream of GitHub canonical truth
 ```
 
-This task is the current material/content mainline exception. Prior closed B work remains valid outside the bounded Biochemistry impact cone.
+Current Source / Knowledge shape:
+
+- **27 跟课 remains the only continuous first-pass Biochemistry Source**.
+- **26 精编 remains explanation reconstruction substrate**, not a second learner-reading path.
+- 22 Source units map directly to 15 canonical M/G Blocks and their canonical layers/KPs or explicit support connections.
+- stable Block/KP identity was preserved; no split / merge / renumber was introduced for symmetry.
+- current exact non-gating boundaries remain explicit: M3 NADPH wording, M4 P015 FBPase-1 conflict, G5 first low-fidelity-polymerase Greek glyph.
+- lecture-attached question coverage is Source-position accounting only; it does not infer official Question→Knowledge relations.
+
+Reopen only for:
+
+1. a new/revised authoritative Biochemistry Source;
+2. a concrete defect in canonical medical meaning, Source mapping, Learning consumption or the two mother maps;
+3. a demonstrated downstream rendering/mapping bug where GitHub truth is already correct.
+
+Otherwise this task stays closed. The active Surgery rebase below proceeds independently and must refresh shared owners before writes.
 
 ---
 
