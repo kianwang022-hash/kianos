@@ -235,7 +235,7 @@ Examples:
 Reference artifacts are **design evidence**, not authority over every pixel:
 
 1. `kianwang022-hash/kian-personal-os/runtime/steward-console/index.html` and earlier Steward HTML variants — standalone interaction reference, especially Today / Week / Month; physical hosting in Personal does not transfer product ownership.
-2. KianOS `work/steward-ui-vnext-20260924` — exploratory visual/interaction work; contains both useful ideas and abandoned directions.
+2. Other exploratory visual variants remain historical design evidence off the Current path; accepted behavior/design logic must live in this contract rather than requiring a historical branch read.
 3. Human Gate screenshots/feedback — strongest evidence for density, wording and interaction feel when available to the implementing session.
 
 Codex may redesign implementation details when it improves the product while preserving the design logic above.
