@@ -99,6 +99,23 @@ const storage = {
 const stale = readExamChatPlan(storage, '2026-09-18');
 if (stale.status !== 'stale' || stale.plan !== null) fail('STALE_PLAN_MUST_FAIL_CLOSED');
 
+const staleProjection = buildChatControlledExamReadModel({
+  day: '2026-09-18',
+  chatPlanState: {
+    status: 'stale',
+    plan: null,
+    presentation: {
+      today_tasks: [{ id: 'old-task', label: 'old task' }],
+      week_reference: [],
+      schedule_blocks: [{ id: 'old-block', start: '10:00', end: null, label: 'old block' }]
+    }
+  },
+  nativeContinue
+});
+if (staleProjection.presentation !== null) {
+  fail('STALE_PLAN_PRESENTATION_MUST_FAIL_CLOSED');
+}
+
 
 class MemoryStorage {
   constructor(entries = {}) { this.map = new Map(Object.entries(entries)); }
@@ -120,6 +137,35 @@ writeExamChatPlan(evidenceStorage, e0Plan, '2026-09-18');
 if (readExamChatPlan(evidenceStorage, '2026-09-18').status !== 'ready') {
   fail('CURRENT_BASIS_PLAN_MUST_BE_READY');
 }
+
+let olderPlanRejected = false;
+try {
+  writeExamChatPlan(evidenceStorage, {
+    ...e0Plan,
+    generated_at: '2026-09-18T04:59:00+08:00',
+    subjects: { ...e0Plan.subjects, english: { target_minutes: 30, role: 'older' } }
+  }, '2026-09-18');
+} catch (error) {
+  olderPlanRejected = String(error?.message || '') === 'CHAT_PLAN_OLDER_THAN_CURRENT';
+}
+if (!olderPlanRejected) fail('OLDER_SAME_DAY_PLAN_MUST_NOT_OVERWRITE_CURRENT');
+if (readExamChatPlan(evidenceStorage, '2026-09-18').plan?.generated_at !== e0Plan.generated_at) {
+  fail('OLDER_PLAN_REJECTION_MUST_PRESERVE_CURRENT');
+}
+
+const idempotentPlan = writeExamChatPlan(evidenceStorage, e0Plan, '2026-09-18');
+if (idempotentPlan.generated_at !== e0Plan.generated_at) fail('IDENTICAL_PLAN_REPLAY_MUST_BE_IDEMPOTENT');
+
+let sameGenerationConflictRejected = false;
+try {
+  writeExamChatPlan(evidenceStorage, {
+    ...e0Plan,
+    subjects: { ...e0Plan.subjects, english: { target_minutes: 31, role: 'conflict' } }
+  }, '2026-09-18');
+} catch (error) {
+  sameGenerationConflictRejected = String(error?.message || '') === 'CHAT_PLAN_GENERATION_CONFLICT';
+}
+if (!sameGenerationConflictRejected) fail('SAME_GENERATION_CONFLICT_MUST_REJECT');
 
 evidenceStorage.setItem('kianos-politics-evidence-v1', JSON.stringify([{
   schema: 'kianos.politics.analysis-evidence.v1',
@@ -232,6 +278,10 @@ console.log(JSON.stringify({
   missing_plan_infers_allocation: false,
   missing_plan_infers_next: false,
   stale_plan_fails_closed: true,
+  stale_plan_presentation_hidden: true,
+  older_same_day_plan_rejected: true,
+  identical_plan_replay_idempotent: true,
+  same_generation_conflict_rejected: true,
   learner_evidence_basis_required: true,
   politics_e1_stales_e0_plan: true,
   later_stability_stales_old_heavy_plan: true,
