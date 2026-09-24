@@ -61,15 +61,6 @@ jobs:
             git push origin --delete "$branch"
           }
 
-          if [[ -f .github/retired-branches.txt ]]; then
-            while IFS= read -r line || [[ -n "$line" ]]; do
-              branch="${line%%#*}"
-              branch="$(printf '%s' "$branch" | xargs)"
-              [[ -z "$branch" ]] && continue
-              delete_branch "$branch"
-            done < .github/retired-branches.txt
-          fi
-
           git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*'
 
           while IFS= read -r remote_ref; do
