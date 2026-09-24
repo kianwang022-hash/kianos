@@ -156,7 +156,7 @@ if (!currentAfterOlderReject
 }
 
 const idempotentPlan = writeExamChatPlan(evidenceStorage, e0Plan, '2026-09-18');
-if (idempotentPlan.generated_at !== e0Plan.generated_at) fail('IDENTICAL_PLAN_REPLAY_MUST_BE_IDEMPOTENT');
+if (Date.parse(idempotentPlan.generated_at) !== Date.parse(e0Plan.generated_at)) fail('IDENTICAL_PLAN_REPLAY_MUST_BE_IDEMPOTENT');
 
 let sameGenerationConflictRejected = false;
 try {
