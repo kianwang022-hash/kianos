@@ -2,7 +2,7 @@
 
 Status: **CURRENT VISUAL REFERENCE / NON-SEMANTIC**  
 Scope: Xizong learner-facing UI convergence  
-Authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/XIZONG_PRODUCT_STATUS.md` remain authoritative. This file only fixes Kian's current visual preference so future UI work does not drift stylistically.
+Authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/XIZONG_PRODUCT_BRIEF.md` + `static-web/XIZONG_VISUAL_LANGUAGE.md`. This file is non-semantic reference evidence only.
 
 ## 1｜Reference direction
 
