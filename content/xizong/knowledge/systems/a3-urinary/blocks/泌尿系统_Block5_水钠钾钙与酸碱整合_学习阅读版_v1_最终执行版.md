@@ -8,7 +8,7 @@ title: 水、Na⁺、K⁺、Ca²⁺与酸碱整合
 order: 5
 study_refs:
   - source_id: surgery-lecture
-    label: 外科学讲义｜体液、电解质与酸碱失衡
+    label: 27外科精编版【带导图】｜SUR27-U31｜体液、电解质与酸碱失衡 PDF P236–P241
     book_page_start: 191
     book_page_end: 195
   - source_id: physiology-lecture
@@ -41,7 +41,7 @@ next_blocks:
 >
 > **文件性质**：泌尿系统第五个 canonical Block，也是 Global Map 中 O7“容量—水电解质—酸碱”的唯一完整 Primary。循环已经提供有效循环量与休克，呼吸已经提供 PaCO₂，K3–K4已经提供小管、ADH、醛固酮与K⁺ / H⁺机制；本 Block把它们汇合成临床判断语言。
 >
-> **Primary Study**：`27 外科跟课合集改.pdf` 书页 P191–195《体液失衡》；生理 P276–279排酸保碱与K⁺-H⁺竞争为 Recall；呼吸系统 PaCO₂与呼吸性酸碱入口为 Recall。
+> **Primary Study**：`27外科精编版【带导图】.pdf` SUR27-U31，PDF P236–P241《体液失衡》；生理 P276–279排酸保碱与K⁺-H⁺竞争为 Recall；呼吸系统 PaCO₂与呼吸性酸碱入口为 Recall。旧跟课页码仅保留 provenance。
 >
 > **Primary Outline**：外科 U047 16题 + U048 9题，共 **25题**。
 >
@@ -1021,7 +1021,7 @@ Lecture完成后闭卷完成：
 
 # 10｜Study原图 / 表格门禁
 
-必须回 `27 外科跟课合集改.pdf`：
+必须回 `27外科精编版【带导图】.pdf` SUR27-U31 原页：
 
 1. P191三类脱水总表；
 2. P191水中毒与高钾病因表；
