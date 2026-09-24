@@ -13,9 +13,9 @@ study_refs:
     page_end: 264
     action: recall
   - source_id: surgery-lecture
-    label: 外科学讲义｜泌外梗阻、结石与尿失禁
-    book_page_start: 108
-    book_page_end: 112
+    label: 27外科精编版【带导图】｜SUR27-U19｜泌外梗阻、结石与尿失禁
+    pdf_page_start: 133
+    pdf_page_end: 141
 outline_units:
   - SUR-U027
   - SUR-U028
@@ -40,7 +40,7 @@ visual_gate_status: REQUIRED_ORIGINAL_PDF_REVIEW
 >
 > **文件性质**：泌尿系统第十二个 canonical Block，也是医学肾脏分支进入泌尿外科“尿路出口模型”的入口。K1 已完整建立正常排尿反射，K6 已建立尿液证据与分肾功能，K7 已建立肾后性 AKI，K8 已建立感染与梗阻接口；本 Block 不重复这些 Primary，而是把它们应用到 BPH、尿潴留、结石、梗阻与四类尿失禁。
 >
-> **Primary Study**：`外科学讲义_AI阅读版.md` 书页 P108–109《前列腺增生、泌尿系结石》与 P112《尿失禁》；生理 P263–264 排尿反射只做 Recall / Apply。P110–111 的完整外伤模型后置 K14。
+> **Primary Study**：`27外科精编版【带导图】.pdf` SUR27-U19，PDF P133–P141；前列腺增生/结石主体见 P133–P135，尿失禁串联见 P137，外伤主体后置 K14。生理 P263–264 排尿反射只做 Recall / Apply。旧 source-local asset id 仅保留 provenance。
 >
 > **Primary Outline**：外科 U027 中 BPH 5题 + 泌尿系结石 9题，以及 U028 尿失禁 1题，共 **15 / 15**。U027“尿道外伤金标准”归 K14，不在本 Block制造第二 Primary。
 >
