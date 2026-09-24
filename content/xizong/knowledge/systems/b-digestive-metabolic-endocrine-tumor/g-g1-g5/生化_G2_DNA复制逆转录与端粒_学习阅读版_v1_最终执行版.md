@@ -94,6 +94,7 @@ learner order = Learning owner 决定怎样形成 / Recall / Closure
 
 ---
 
+<!-- kianos:kp id="dme-g02-kp01" -->
 ## KP01｜DNA复制的四个总特征
 
 > **讲义定位 →** 生化 Lecture PDF P123–125，印刷页 P103–105。  
