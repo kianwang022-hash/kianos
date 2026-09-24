@@ -22,9 +22,11 @@ The same repaired candidate had already passed the pre-merge integrated PR run `
 
 Evidence includes:
 
-- `static-web/scripts/audit-politics-final-fresh.mjs`: 13 fresh semantic/runtime assertions, including whole-item readiness, source fidelity, mapping boundaries, immutable first evidence, frozen provenance and corrupt-state handling;
-- `static-web/scripts/test-politics-final-fresh-browser.mjs`: 16 real-browser attacks/journeys, including clean attempt, prebuilt backside, optional review, exact return, process restart, failed persistence, provider failures and corrupt state;
-- `static-web/scripts/test-politics-sequence-readability.mjs`: long-sequence text geometry, content/order/transition preservation and settled submitted controls on real macOS;
+- Historical final-fresh semantic/runtime harness — 13 assertions covering whole-item readiness, source fidelity, mapping boundaries, immutable first evidence, frozen provenance and corrupt-state handling;
+- Historical final-fresh browser harness — 16 attacks/journeys covering clean attempt, prebuilt backside, optional review, exact return, process restart, failed persistence, provider failures and corrupt state;
+- Historical long-sequence macOS readability harness — text geometry, content/order/transition preservation and settled submitted controls;
+
+Those one-off final-acceptance harness files have been retired from the active tree after closure; the exact tested code and workflow remain recoverable from Git history. Current regression responsibility belongs to the narrower Politics QA / Functional Journey / Mac Visual gates, not to a permanently runnable final-acceptance campaign.
 - twelve bounded heterogeneous regression scripts listed in the workflow, across all five subjects;
 - inherited shared-checkpoint foundation regression, limited to that foundation's registered payload and behavior.
 
