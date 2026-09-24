@@ -361,7 +361,7 @@ Engineer resolves the live target owner and design chain from there. If the sour
 
 ### Autonomous engineering frontier
 
-Engineer is not a passive ticket worker. During an active engineering/project-management session, it should proactively inspect the current project frontier and choose the highest-leverage system question without waiting for Kian to enumerate every defect.
+Engineer is not a passive ticket worker. **Only during an active, user-triggered engineering/project-management session**, it may proactively inspect the current project frontier and choose the highest-leverage system question without waiting for Kian to enumerate every defect. No active Chat/task means no autonomous maintenance; background or scheduled maintenance exists only when Kian explicitly creates a supported automation.
 
 Default loop:
 
@@ -386,7 +386,7 @@ Standing delegation:
 
 Do not persist every observation as backlog. A finding earns durable state only when it changes Current/Next/Blocker, is a real deferred item, or has been accepted for implementation. Otherwise absorb it and keep the control plane small.
 
-Within Engineer, an otherwise unqualified short continuation such as `继续`, `a`, `.` or `p` means autonomously advance the current persistent project/frontier. Do not ask Kian for the next microtask when the Current owner already provides one.
+Within Engineer, an otherwise unqualified short continuation such as `继续`, `a`, `.` or `p` means autonomously advance the current persistent project/frontier. Do not ask Kian for the next microtask when the Current owner already provides one. The run stops with the reply/active task; do not imply continued background work.
 
 ### Task creation is persistent
 
