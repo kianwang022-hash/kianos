@@ -1,6 +1,7 @@
 name: Xizong Source Revision Transitive
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'static-web/src/components/XizongBlockV6.astro'
@@ -8,8 +9,12 @@ on:
       - 'static-web/scripts/test-xizong-source-revision-transitive.mjs'
       - '.github/workflows/xizong-source-revision-transitive.yml'
   push:
-    branches:
-      - work/xizong-source-revision-transitive-fix-20260921
+    branches: [main]
+    paths:
+      - 'static-web/src/components/XizongBlockV6.astro'
+      - 'static-web/src/lib/xizongStudyPacket.mjs'
+      - 'static-web/scripts/test-xizong-source-revision-transitive.mjs'
+      - '.github/workflows/xizong-source-revision-transitive.yml'
 
 jobs:
   source-revision:
