@@ -3,7 +3,7 @@
 Status: **CURRENT — learner-facing representation policy**  
 Scope: Xizong System / Block / Logic Group / KP learner surfaces  
 Parent presentation authority: `static-web/PRESENTATION_CONTRACT.md`  
-Product owner: `static-web/XIZONG_PRODUCT_STATUS.md`  
+Product owner: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Projection owner: `content/xizong/projection/PROJECTION_CONTRACT.md`  
 Learner aggregation owner: `content/xizong/LEARNER_OBJECT_CONTRACT.md`
 
