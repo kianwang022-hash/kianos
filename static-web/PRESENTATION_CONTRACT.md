@@ -12,7 +12,7 @@ It is downstream of:
 - `ARCHITECTURE.md` — five durable responsibilities;
 - domain `LEARNING_CONTRACT.md` — cognition, learner order and surface ownership;
 - canonical Content — what the knowledge/task actually means;
-- `KIAN_UI_PREFERENCES.md` — Kian's durable personal visual preferences;
+- `KIAN_UI_PREFERENCES.md` — accepted KianOS-specific visual / interaction requirements and bounded preference evidence;
 - `UI_STYLE_BRIEF.md` — shared visual language.
 
 Engineering behavior such as shortcuts, persistence, answer gating and Runtime belongs to `SYSTEM_CONTRACT.md` and implementation owners.
