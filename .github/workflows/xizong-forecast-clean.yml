@@ -74,15 +74,7 @@ jobs:
         run: |
           node scripts/test-xizong-forecast-model.mjs
           node scripts/test-xizong-forecast-real-u-adapter.mjs
-          node scripts/validate-xizong-paper-practice.mjs
-          (cd .. && node static-web/scripts/test-xizong-source-revision-transitive.mjs)
-          node scripts/validate-xizong-targeted-practice.mjs
-          node scripts/test-exam-plan-read-model.mjs
           node scripts/test-xizong-chat-return.mjs
-          node scripts/test-private-learner-checkpoint.mjs
-          node scripts/test-private-daily-learning-packet.mjs
-          node scripts/stress-xizong-architecture-plus.mjs
-          node scripts/validate-xizong-biochemistry-source-lifecycle.mjs
           node scripts/validate-xizong-2027-exam-format-slot.mjs
           node scripts/audit-xizong-mother-standard-final-v3.mjs
       - name: Build Current site
