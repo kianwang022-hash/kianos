@@ -22,11 +22,15 @@ const activeQuestionIds = (questions, holdoutYears) => {
   return questions.filter((question) => !held.has(Number(question.year))).map((question) => question.questionId);
 };
 
+const questionScope = JSON.parse(read('content/xizong/knowledge/learner/a3-urinary-question-scope.json'));
+const expectedQuestionCount = Number(questionScope?.question_count || 0);
+assert(expectedQuestionCount > 0, 'question-scope-count-missing');
+
 const system = loadXizongSystem('urinary');
 const sweep = loadXizongSystemQuestionSweep(system);
 assert(system.canonicalId === 'A3', 'wrong-system');
 assert(system.blocks.length === 14, `blocks:${system.blocks.length}`);
-assert(sweep?.questionCount === 243, `questions:${sweep?.questionCount}`);
+assert(sweep?.questionCount === expectedQuestionCount, `questions:${sweep?.questionCount}/${expectedQuestionCount}`);
 
 let totalKp = 0;
 let totalGroups = 0;
@@ -73,7 +77,7 @@ assert(years.length > 1, 'not-enough-years-for-holdout-probe');
 const heldYear = years[years.length - 1];
 const activeWithoutHoldout = activeQuestionIds(sweep.questions, []);
 const activeWithHoldout = activeQuestionIds(sweep.questions, [heldYear]);
-assert(activeWithoutHoldout.length === 243, 'empty-holdout-must-not-hide-questions');
+assert(activeWithoutHoldout.length === expectedQuestionCount, 'empty-holdout-must-not-hide-questions');
 assert(activeWithHoldout.length < activeWithoutHoldout.length, 'holdout-does-not-protect-whole-paper-year');
 assert(sweep.questions.filter((question) => Number(question.year) === heldYear).every((question) => !activeWithHoldout.includes(question.questionId)), 'held-year-question-leaked-into-sweep');
 
