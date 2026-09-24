@@ -1,3 +1,13 @@
+import {
+  STEWARD_REALITY_KEY,
+  beginStewardBreak,
+  endLatestStewardBreak,
+  latestOpenStewardBreak,
+  readStewardReality,
+  recordStewardBreakReentry,
+  updateStewardBreak
+} from './stewardReality.mjs';
+
 const POSITION_KEY = 'kianos-study-timer-dock-position-v1';
 const SUBJECT_LABELS = { xizong: '西综', politics: '政治', english: 'English' };
 const EDGE = 10;
@@ -47,6 +57,18 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
   const pendingTitle = $('[data-study-timer-pending-title]');
   const handle = $('[data-study-timer-drag-handle]');
   const reset = $('[data-study-timer-reset-position]');
+  const restPanel = $('[data-study-timer-rest]');
+  const restStatus = $('[data-study-timer-rest-status]');
+  const restCustom = $('[data-study-timer-rest-custom]');
+  const restNote = $('[data-study-timer-rest-note]');
+  const restSaveStatus = $('[data-study-timer-rest-save-status]');
+  const restSave = $('[data-study-timer-rest-save]');
+  const restDismiss = $('[data-study-timer-rest-dismiss]');
+  const reentryPanel = $('[data-study-timer-reentry]');
+  const reentryNote = $('[data-study-timer-reentry-note]');
+  const reentrySaveStatus = $('[data-study-timer-reentry-save-status]');
+  const reentrySave = $('[data-study-timer-reentry-save]');
+  const reentryDismiss = $('[data-study-timer-reentry-dismiss]');
   const subjectTotals = {
     xizong: $('[data-study-timer-total-xizong]'),
     politics: $('[data-study-timer-total-politics]'),
@@ -55,6 +77,98 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
 
   let lastModel = null;
   let drag = null;
+  let activeBreakId = null;
+  let hydratedBreakId = null;
+  let pendingReentryId = null;
+  let restPanelDismissed = false;
+  let reentryDismissed = false;
+
+  const emitRealityChange = (detail = {}) => {
+    window.dispatchEvent(new CustomEvent('kianos:steward-reality-change', { detail }));
+  };
+
+  const currentBreak = () => activeBreakId
+    ? readStewardReality(storage).events.find(event => event.id === activeBreakId) || null
+    : latestOpenStewardBreak(storage);
+
+  const latestPendingReentry = (now = Date.now()) => [...readStewardReality(storage).events]
+    .reverse()
+    .find(event => event.endedAt != null && !event.reentry && now - event.endedAt <= 4 * 60 * 60 * 1000) || null;
+
+  const setRealityControlsDisabled = (disabled) => {
+    $$('[data-study-timer-rest-minutes], [data-study-timer-rest-method], [data-study-timer-rest-custom], [data-study-timer-rest-note], [data-study-timer-rest-save], [data-study-timer-reentry-status], [data-study-timer-reentry-note], [data-study-timer-reentry-save]')
+      .forEach(node => { node.disabled = Boolean(disabled); });
+  };
+
+  const realityWriteError = (message = '休息记录无法安全读取，原数据未改动。') => {
+    setRealityControlsDisabled(true);
+    if (restSaveStatus) restSaveStatus.textContent = message;
+    if (reentrySaveStatus) reentrySaveStatus.textContent = message;
+  };
+
+  function hydrateRestPanel(event) {
+    if (!event || !restPanel) return;
+    activeBreakId = event.id;
+    if (hydratedBreakId === event.id) return;
+    hydratedBreakId = event.id;
+    restCustom.value = event.customMethod || '';
+    restNote.value = event.note || '';
+    $$('[data-study-timer-rest-minutes]').forEach(button => {
+      const minutes = button.dataset.studyTimerRestMinutes === '' ? null : Number(button.dataset.studyTimerRestMinutes);
+      button.setAttribute('aria-pressed', String(minutes === event.plannedRestMinutes));
+    });
+    $$('[data-study-timer-rest-method]').forEach(button => {
+      button.setAttribute('aria-pressed', String((event.methods || []).includes(button.dataset.studyTimerRestMethod)));
+    });
+    if (restSaveStatus) restSaveStatus.textContent = '';
+  }
+
+  function renderRecoveryPanels(now = Date.now()) {
+    const reality = readStewardReality(storage);
+    if (reality.unavailable) {
+      activeBreakId = null;
+      hydratedBreakId = null;
+      pendingReentryId = null;
+      setRealityControlsDisabled(true);
+      const paused = lastModel?.active?.subject && !lastModel?.active?.running;
+      if (restPanel) restPanel.hidden = !paused || restPanelDismissed;
+      if (restStatus) restStatus.textContent = '学习已暂停；休息记录无法安全读取，原数据未改动。';
+      if (restSaveStatus) restSaveStatus.textContent = '先保留原记录，仍可手动继续学习。';
+      if (reentryPanel) reentryPanel.hidden = true;
+      return;
+    }
+    setRealityControlsDisabled(false);
+    const open = [...reality.events].reverse().find(event => event.endedAt == null) || null;
+    if (open) {
+      activeBreakId = open.id;
+      hydrateRestPanel(open);
+      if (restPanel) restPanel.hidden = restPanelDismissed;
+      if (restStatus) {
+        if (open.plannedRestMinutes) {
+          const readyAt = open.startedAt + open.plannedRestMinutes * 60_000;
+          const remaining = Math.max(0, Math.ceil((readyAt - now) / 60_000));
+          restStatus.textContent = now >= readyAt
+            ? '已到你设的休息时长；学习仍保持暂停，只有你手动继续才会恢复。'
+            : `计时已暂停 · 目标 ${open.plannedRestMinutes} 分钟 · 约剩 ${remaining} 分钟`;
+        } else {
+          restStatus.textContent = '计时已暂停。没有设置结束时间，也不会自动恢复学习。';
+        }
+      }
+    } else {
+      activeBreakId = null;
+      hydratedBreakId = null;
+      if (restPanel) restPanel.hidden = true;
+    }
+
+    const pending = pendingReentryId
+      ? readStewardReality(storage).events.find(event => event.id === pendingReentryId && !event.reentry) || null
+      : latestPendingReentry(now);
+    pendingReentryId = pending?.id || null;
+    if (reentryPanel) reentryPanel.hidden = !pending || reentryDismissed;
+    if (pending && reentryPanel) {
+      if (reentrySaveStatus) reentrySaveStatus.textContent = '';
+    }
+  }
 
   function clampXY(x, y) {
     const rect = root.getBoundingClientRect();
@@ -121,6 +235,7 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
     });
 
     root.hidden = false;
+    renderRecoveryPanels();
   }
 
   function toggleExpanded(force) {
@@ -134,8 +249,38 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
 
   pause.addEventListener('click', () => {
     const active = lastModel?.active;
-    if (active?.running) timer.pause();
-    else timer.resume();
+    const now = Date.now();
+    if (active?.running) {
+      const context = { subject: active.subject || '', ...(active.context || {}) };
+      timer.pause(now);
+      restPanelDismissed = false;
+      reentryDismissed = false;
+      toggleExpanded(true);
+      try {
+        const event = beginStewardBreak(storage, { startedAt: now, preBreakContext: context });
+        activeBreakId = event.id;
+        hydratedBreakId = null;
+        pendingReentryId = null;
+        hydrateRestPanel(event);
+        emitRealityChange({ kind: 'break-started', break_id: event.id });
+      } catch {
+        activeBreakId = null;
+        hydratedBreakId = null;
+        pendingReentryId = null;
+        realityWriteError();
+      }
+    } else {
+      let ended = null;
+      try { ended = endLatestStewardBreak(storage, now); } catch {}
+      if (ended) pendingReentryId = ended.id;
+      restPanelDismissed = true;
+      reentryDismissed = false;
+      timer.resume(now);
+      if (ended) {
+        toggleExpanded(true);
+        emitRealityChange({ kind: 'break-ended', break_id: ended.id });
+      }
+    }
     render();
   });
 
@@ -143,9 +288,102 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
 
   $$('[data-study-timer-switch]').forEach(button => {
     button.addEventListener('click', () => {
-      timer.switchSubject(button.dataset.studyTimerSwitch);
+      const now = Date.now();
+      let ended = null;
+      try { ended = endLatestStewardBreak(storage, now); } catch {}
+      if (ended) {
+        pendingReentryId = ended.id;
+        restPanelDismissed = true;
+        reentryDismissed = false;
+      }
+      timer.switchSubject(button.dataset.studyTimerSwitch, now);
+      if (ended) emitRealityChange({ kind: 'break-ended', break_id: ended.id });
       render();
     });
+  });
+
+  $$('[data-study-timer-rest-minutes]').forEach(button => {
+    button.addEventListener('click', () => {
+      const event = currentBreak();
+      if (!event) return;
+      const raw = button.dataset.studyTimerRestMinutes;
+      const plannedRestMinutes = raw === '' ? null : Number(raw);
+      try {
+        updateStewardBreak(storage, event.id, { plannedRestMinutes });
+        $$('[data-study-timer-rest-minutes]').forEach(node => node.setAttribute('aria-pressed', String(node === button)));
+        emitRealityChange({ kind: 'break-detail', break_id: event.id });
+        renderRecoveryPanels();
+      } catch { realityWriteError(); }
+    });
+  });
+
+  $$('[data-study-timer-rest-method]').forEach(button => {
+    button.addEventListener('click', () => {
+      const event = currentBreak();
+      if (!event) return;
+      const method = button.dataset.studyTimerRestMethod || '';
+      const methods = new Set(event.methods || []);
+      methods.has(method) ? methods.delete(method) : methods.add(method);
+      try {
+        updateStewardBreak(storage, event.id, { methods: [...methods] });
+        button.setAttribute('aria-pressed', String(methods.has(method)));
+        emitRealityChange({ kind: 'break-detail', break_id: event.id });
+      } catch { realityWriteError(); }
+    });
+  });
+
+  restSave?.addEventListener('click', () => {
+    const event = currentBreak();
+    if (!event) return;
+    try {
+      updateStewardBreak(storage, event.id, {
+        customMethod: restCustom?.value || '',
+        note: restNote?.value || ''
+      });
+      if (restSaveStatus) restSaveStatus.textContent = '已保存';
+      emitRealityChange({ kind: 'break-detail', break_id: event.id });
+    } catch { realityWriteError(); }
+  });
+
+  restDismiss?.addEventListener('click', () => {
+    restPanelDismissed = true;
+    if (restPanel) restPanel.hidden = true;
+  });
+
+  $$('[data-study-timer-reentry-status]').forEach(button => {
+    button.addEventListener('click', () => {
+      $$('[data-study-timer-reentry-status]').forEach(node => node.setAttribute('aria-pressed', String(node === button)));
+      if (reentrySaveStatus) reentrySaveStatus.textContent = '';
+    });
+  });
+
+  reentrySave?.addEventListener('click', () => {
+    if (!pendingReentryId) return;
+    const selected = $('[data-study-timer-reentry-status][aria-pressed="true"]');
+    const status = selected?.dataset.studyTimerReentryStatus || '';
+    if (!status) {
+      if (reentrySaveStatus) reentrySaveStatus.textContent = '可选择一个状态，或直接跳过';
+      return;
+    }
+    try {
+      const event = recordStewardBreakReentry(storage, pendingReentryId, {
+        status,
+        note: reentryNote?.value || '',
+        at: Date.now()
+      });
+      if (!event) return;
+      if (reentrySaveStatus) reentrySaveStatus.textContent = '已保存';
+      emitRealityChange({ kind: 'break-reentry', break_id: event.id, status });
+      pendingReentryId = null;
+      window.setTimeout(() => {
+        if (reentryPanel) reentryPanel.hidden = true;
+      }, 500);
+    } catch { realityWriteError(); }
+  });
+
+  reentryDismiss?.addEventListener('click', () => {
+    reentryDismissed = true;
+    if (reentryPanel) reentryPanel.hidden = true;
   });
 
   reset.addEventListener('click', () => {
@@ -178,7 +416,21 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
   handle.addEventListener('pointerup', endDrag);
   handle.addEventListener('pointercancel', endDrag);
 
-  const onTimerChange = () => render();
+  const onTimerChange = () => {
+    const model = timer.read(Date.now());
+    const open = latestOpenStewardBreak(storage);
+    if (model?.active?.running && open) {
+      let ended = null;
+      try { ended = endLatestStewardBreak(storage, Date.now()); } catch {}
+      if (ended) {
+        pendingReentryId = ended.id;
+        restPanelDismissed = true;
+        reentryDismissed = false;
+        emitRealityChange({ kind: 'break-ended', break_id: ended.id });
+      }
+    }
+    render();
+  };
   const onResize = () => window.requestAnimationFrame(clampCurrentPosition);
   const onStorage = event => {
     if (event.key === POSITION_KEY) {
@@ -186,6 +438,7 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
       if (saved) placeAt(saved.x, saved.y, false);
       else resetPosition();
     }
+    if (event.key === STEWARD_REALITY_KEY) renderRecoveryPanels();
   };
   window.addEventListener('kianos:study-timer-change', onTimerChange);
   window.addEventListener('resize', onResize);

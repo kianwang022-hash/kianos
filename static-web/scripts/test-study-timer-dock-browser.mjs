@@ -101,6 +101,41 @@ try {
   const dragged = await dock.evaluate(node => ({ left: node.style.left, top: node.style.top }));
   check(Boolean(dragged.left && dragged.top), 'desktop_drag_still_works', JSON.stringify(dragged));
 
+  const pauseControl = dock.locator('[data-study-timer-pause]');
+  await page.waitForFunction(() => document.querySelector('[data-study-timer-pause]')?.textContent?.trim() === '暂停');
+  await pauseControl.click();
+  await dock.locator('[data-study-timer-rest]').waitFor({ state: 'visible' });
+  const pausedState = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-study-timer-state-v2') || 'null'));
+  check(pausedState?.running === false && pausedState?.manualPaused === true, 'recovery_pause_happens_before_optional_capture');
+
+  await dock.locator('[data-study-timer-rest-minutes="10"]').click();
+  await dock.locator('[data-study-timer-rest-method="walk"]').click();
+  await dock.locator('[data-study-timer-rest-method="eyes_closed"]').click();
+  await dock.locator('[data-study-timer-rest-custom]').fill('阳台吹风');
+  await dock.locator('[data-study-timer-rest-note]').fill('有点困，先离开屏幕');
+  await dock.locator('[data-study-timer-rest-save]').click();
+
+  const openReality = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-steward-reality-v1') || 'null'));
+  const openBreak = openReality?.events?.[0];
+  check(Boolean(openBreak) && openBreak.endedAt == null, 'recovery_break_open_after_pause');
+  check(openBreak?.plannedRestMinutes === 10, 'recovery_break_duration_persisted', String(openBreak?.plannedRestMinutes));
+  check((openBreak?.methods || []).includes('walk') && (openBreak?.methods || []).includes('eyes_closed'), 'recovery_break_methods_persisted');
+  check(openBreak?.note === '有点困，先离开屏幕', 'recovery_break_note_persisted');
+
+  await pauseControl.click();
+  const resumedState = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-study-timer-state-v2') || 'null'));
+  check(resumedState?.running === true && resumedState?.manualPaused === false, 'recovery_resume_is_explicit');
+  await dock.locator('[data-study-timer-reentry]').waitFor({ state: 'visible' });
+  await dock.locator('[data-study-timer-reentry-status="PARTIAL"]').click();
+  await dock.locator('[data-study-timer-reentry-note]').fill('清醒一些，但还没完全恢复');
+  await dock.locator('[data-study-timer-reentry-save]').click();
+
+  const finalReality = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-steward-reality-v1') || 'null'));
+  const finalBreak = finalReality?.events?.[0];
+  check(Number.isFinite(finalBreak?.endedAt) && finalBreak.endedAt >= finalBreak.startedAt, 'recovery_break_closes_on_manual_resume');
+  check(finalBreak?.reentry?.status === 'PARTIAL', 'recovery_reentry_report_persisted', String(finalBreak?.reentry?.status || ''));
+  check(!/readiness|recovery_score|debt_score/i.test(JSON.stringify(finalReality)), 'recovery_reality_has_no_readiness_score');
+
   await page.screenshot({ path: new URL('study-timer-desktop.png', auditDir).pathname, fullPage: false });
   await desktop.close();
 

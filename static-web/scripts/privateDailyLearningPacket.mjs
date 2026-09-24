@@ -200,6 +200,14 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
     coverage: result.coverage,
     warnings: [...new Set([...(result.packet.warnings || []), ...restoreWarnings, ...result.warnings])]
   };
+  if (restoreWarnings.includes('SHARED_CHECKPOINT_STEWARD_REALITY_INVALID')) {
+    packet.steward = {
+      schema: 'kianos.steward-reality-summary.v1',
+      study_day: checkpoint.study_day,
+      breaks: null,
+      error: 'SHARED_CHECKPOINT_STEWARD_REALITY_INVALID'
+    };
+  }
   if (failedSubjects.includes('shared')) {
     packet.total_minutes = null;
     packet.timer = { running: null, active_subject: null, error: 'SHARED_CHECKPOINT_UNAVAILABLE' };

@@ -6,6 +6,7 @@ import {
   CONTROL_LOCAL_RECEIPT_KEY,
   validateControlReceipt
 } from './privateControlCommand.mjs';
+import { buildStewardRealityDailySummary } from './stewardReality.mjs';
 
 const cloneJson = (value) => value == null ? null : JSON.parse(JSON.stringify(value));
 
@@ -77,6 +78,7 @@ export function buildDailyLearningPacket({
     total_minutes: time.total_minutes,
     timer: cloneJson(time.timer),
     control: cloneJson(receipt),
+    steward: buildStewardRealityDailySummary(storage, { day: time.study_day, timeZone: time.timezone }),
     schedule: usablePlan ? {
       schema: plan.schema || null,
       phase: cloneJson(plan.phase),
@@ -122,6 +124,7 @@ export function serializeDailyLearningPacketForChat(packet) {
     '- If semantic/source context is actually needed, read only the exact subject Learning/Content owner required for that learner question.',
     '- The schedule is a current plan/capacity snapshot, not proof that the learner completed the planned work.',
     '- control, when present, is transport receipt only. APPLIED means the Website accepted the command; it does not mean the learner completed or mastered the task.',
+    '- steward.breaks contains intentionally recorded pause/rest/re-entry reality only. Re-entry is a learner report, not a readiness score and not permission to invent a recovery judgment or automatically change the plan.',
     '',
     'WHAT CHAT SHOULD DO',
     '- Summarize only what the packet actually proves; stable work should not create review debt and missing evidence means unknown. When an estimate changes the plan, explain its evidence, assumptions, range, missing scope and what would change the decision; see EXAM_ORCHESTRATOR_CONTRACT section 0.',

@@ -15,6 +15,7 @@ import {
   STUDY_TIMER_SCHEMA,
   STUDY_TIMER_STATE_KEY
 } from '../src/lib/studyTimer.mjs';
+import { STEWARD_REALITY_KEY } from '../src/lib/stewardReality.mjs';
 import {
   captureSharedControlCheckpoint
 } from '../src/lib/sharedControlCheckpoint.mjs';
@@ -140,6 +141,23 @@ const timerLedger={
   ]
 };
 
+const stewardReality={
+  schema:'kianos.steward-reality.v1',
+  revision:1,
+  events:[{
+    id:'private-break-1',
+    kind:'BREAK',
+    startedAt:Date.parse('2026-09-20T01:25:00+08:00'),
+    endedAt:Date.parse('2026-09-20T01:37:00+08:00'),
+    plannedRestMinutes:10,
+    methods:['walk','water'],
+    customMethod:'',
+    note:'short reset',
+    preBreakContext:{subject:'english',route:'reading/test',detailKey:'reading',detailLabel:'Reading A'},
+    reentry:{status:'PARTIAL',note:'clearer but not fully restored',at:Date.parse('2026-09-20T01:38:00+08:00')}
+  }]
+};
+
 const englishSession={
   schema:'kianos.english.session-instruction.v1',
   session_id:'english-day-resume',
@@ -161,6 +179,7 @@ const storage=new MemoryStorage({
   [EXAM_PROFILE_KEY]:JSON.stringify(profile),
   [STUDY_TIMER_STATE_KEY]:JSON.stringify(timerState),
   [STUDY_TIMER_LEDGER_KEY]:JSON.stringify(timerLedger),
+  [STEWARD_REALITY_KEY]:JSON.stringify(stewardReality),
 
   'kianos-xizong-last-location-v1':JSON.stringify({
     href:'/xizong/'+system.systemId+'/'+blockRef.slug+'/',
@@ -286,6 +305,13 @@ assert.equal(packet.subjects.xizong.time.minutes,30,
 assert.equal(packet.subjects.english.time.minutes,40);
 assert.equal(packet.subjects.politics.time.minutes,0);
 assert.equal(packet.total_minutes,70);
+assert.equal(packet.steward.schema,'kianos.steward-reality-summary.v1');
+assert.equal(packet.steward.breaks.length,1);
+assert.equal(packet.steward.breaks[0].observed_minutes,12);
+assert.deepEqual(packet.steward.breaks[0].methods,['walk','water']);
+assert.equal(packet.steward.breaks[0].reentry.status,'PARTIAL');
+assert.equal(Object.hasOwn(packet.steward,'readiness'),false);
+assert.equal(/readiness|recovery_score|debt_score/i.test(JSON.stringify(packet.steward)),false);
 
 assert.equal(packet.subjects.xizong.evidence.schema,'kianos.xizong.study_packet.v3');
 assert.equal(packet.subjects.xizong.evidence.current.block_id,block.blockId);
@@ -306,6 +332,7 @@ for (const subject of ['xizong','english','politics']) {
   assert.deepEqual(packet.subjects[subject].time,home.packet.subjects[subject].time);
 }
 assert.deepEqual(packet.control,home.packet.control);
+assert.deepEqual(packet.steward,home.packet.steward,'private relay must preserve the same bounded Steward reality as Home');
 assert.equal(packet.total_minutes,home.packet.total_minutes);
 assert.ok(xzForecast.runtime_evidence.observed_blocks>=1);
 assert.match(xzForecast.evidence_boundary,/does not prove unstudied/i);
@@ -344,6 +371,13 @@ assert.equal(packet.schedule.phase.id,'A');
 assert.equal(packet.subjects.xizong.plan.role,'主推');
 assert.equal(result.source_checkpoint_id,'daily-packet-proof');
 
+
+const malformedStewardCheckpoint=structuredClone(checkpoint);
+malformedStewardCheckpoint.payload.shared.steward_reality_raw='{broken';
+const malformedStewardResult=buildDailyLearningPacketFromPrivateCheckpoint(malformedStewardCheckpoint,{now,englishCatalog});
+assert.equal(malformedStewardResult.packet.steward.breaks,null,'malformed Steward reality is UNKNOWN, not empty');
+assert.equal(malformedStewardResult.packet.steward.error,'SHARED_CHECKPOINT_STEWARD_REALITY_INVALID');
+assert.ok(malformedStewardResult.warnings.includes('SHARED_CHECKPOINT_STEWARD_REALITY_INVALID'));
 
 // Known pre-binding data remains byte-preserved but cannot become current evidence.
 const legacyEntries={

@@ -250,6 +250,79 @@
   outline-offset: 2px;
 }
 
+.studyTimerRestFlow,
+.studyTimerReentry {
+  display: grid;
+  gap: 9px;
+  margin: 10px 0 12px;
+  padding: 11px;
+  border: 1px solid rgba(49, 65, 58, .11);
+  border-radius: 11px;
+  background: #f8faf9;
+}
+.studyTimerRestFlow[hidden],
+.studyTimerReentry[hidden] { display: none; }
+.studyTimerFlowHead {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.studyTimerFlowHead > div { display: grid; gap: 2px; }
+.studyTimerFlowHead span { color: #7a8580; font-size: 13px; font-weight: 780; letter-spacing: .07em; text-transform: uppercase; }
+.studyTimerFlowHead strong { font-size: 15px; line-height: 1.35; }
+.studyTimerFlowHead > button,
+.studyTimerFlowActions button,
+.studyTimerChoiceRow button { border: 0; font: inherit; cursor: pointer; }
+.studyTimerFlowHead > button { padding: 2px 4px; background: transparent; color: #77817c; font-size: 13px; }
+.studyTimerRestFlow > p,
+.studyTimerReentry > p { margin: 0; color: #647069; font-size: 14px; line-height: 1.45; }
+.studyTimerChoiceRow { display: flex; flex-wrap: wrap; gap: 5px; }
+.studyTimerChoiceRow button {
+  min-height: 31px;
+  padding: 0 9px;
+  border-radius: 8px;
+  background: #eef2f0;
+  color: #52605a;
+  font-size: 14px;
+  font-weight: 680;
+}
+.studyTimerChoiceRow button[aria-pressed="true"] {
+  background: #dfece6;
+  color: #24654f;
+  box-shadow: inset 0 0 0 1px rgba(36, 101, 79, .15);
+}
+.studyTimerRestFlow input,
+.studyTimerReentry input {
+  min-height: 34px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(49, 65, 58, .13);
+  border-radius: 8px;
+  padding: 0 9px;
+  background: #fff;
+  color: #2f3b36;
+  font: inherit;
+  font-size: 14px;
+}
+.studyTimerFlowActions {
+  display: flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.studyTimerFlowActions span { color: #5f6c66; font-size: 13px; }
+.studyTimerFlowActions button {
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: 8px;
+  background: #2f6f59;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 720;
+}
+
 @media (max-width: 620px) {
   .studyTimerDock { right: 10px; bottom: 10px; width: min(350px, calc(100vw - 20px)); }
   .studyTimerDock[data-expanded="true"] { width: min(390px, calc(100vw - 20px)); }

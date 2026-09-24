@@ -16,6 +16,7 @@ import {
 } from './studyTimer.mjs';
 
 import { CONTROL_LOCAL_RECEIPT_KEY, validateControlReceipt } from './privateControlCommand.mjs';
+import { STEWARD_REALITY_KEY, validateStewardReality } from './stewardReality.mjs';
 
 export const SHARED_CONTROL_CHECKPOINT_SCHEMA = 'kianos.shared-control-checkpoint.v1';
 
@@ -50,6 +51,7 @@ export function captureSharedControlCheckpoint(storage, {
     exam_profile: profile,
     chat_plan: chatPlan,
     control_receipt_raw: receiptRaw,
+    steward_reality_raw: storage.getItem(STEWARD_REALITY_KEY),
     study_timer_state: readStudyTimerState(storage),
     study_timer_ledger: readStudyTimerLedger(storage)
   };
@@ -80,6 +82,15 @@ export function restoreSharedControlCheckpoint(storage, checkpoint, {
     [STUDY_TIMER_LEDGER_KEY, timerLedger]
   ];
   const warnings = [];
+  if (checkpoint.steward_reality_raw != null) {
+    try {
+      if (typeof checkpoint.steward_reality_raw !== 'string') throw new Error('STEWARD_REALITY_RAW_INVALID');
+      validateStewardReality(JSON.parse(checkpoint.steward_reality_raw));
+      writes.push([STEWARD_REALITY_KEY, checkpoint.steward_reality_raw]);
+    } catch {
+      warnings.push('SHARED_CHECKPOINT_STEWARD_REALITY_INVALID');
+    }
+  }
   // A shared-only restore cannot prove a subject operation survived. The full
   // recovery coordinator opts in only in its disposable projection, then admits
   // the receipt after the matching native checkpoint is actually present.
@@ -98,7 +109,7 @@ export function restoreSharedControlCheckpoint(storage, checkpoint, {
   try {
     for (const [key, value] of writes) {
       if (value == null) storage.removeItem?.(key);
-      else storage.setItem(key, key === CONTROL_LOCAL_RECEIPT_KEY ? value : JSON.stringify(value));
+      else storage.setItem(key, [CONTROL_LOCAL_RECEIPT_KEY, STEWARD_REALITY_KEY].includes(key) ? value : JSON.stringify(value));
     }
   } catch (error) {
     for (const [key, raw] of before.entries()) {
