@@ -1764,7 +1764,7 @@
       "candidate_primary": [
         "C:H2"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U30_U38",
       "previous_review": "REQUIRED",
       "last_reviewed_at": "2026-09-24",
       "semantic_delta_receipt": {
@@ -1775,10 +1775,35 @@
         "notes": "Febrile/hemolytic/allergic/overload reactions, IgA interface and component selection are already represented in H2; only Current Source rebind was needed."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "C is eligible but not compiled; no placeholder Projection created",
+        "bindings": [
+          {
+            "system": "C",
+            "block": "hematology-h02",
+            "logic_groups": [
+              "c-h02-lg03",
+              "c-h02-lg04",
+              "c-h02-lg05",
+              "c-h02-lg06"
+            ],
+            "kp_ranges": [
+              "KP07-KP15"
+            ],
+            "content_families": [
+              "Block Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision/MI-D",
+              "Connection",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "C is eligible but not compiled; no placeholder Projection created"
       }
     },
     {
@@ -1791,7 +1816,7 @@
       "cross_system": [
         "A1:volume/perfusion interface"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U30_U38",
       "previous_review": "REQUIRED",
       "last_reviewed_at": "2026-09-24",
       "semantic_delta_receipt": {
@@ -1802,10 +1827,38 @@
         "notes": "Refined dehydration compensation, K-H/ROMK, safe K replacement and Ca excitability fit existing A3 Block5; external acid-base contract remains narrow and does not override Surgery Source."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "A3 compiled Projection targeted binding revalidation required for B5",
+        "bindings": [
+          {
+            "system": "A3",
+            "block": "urinary-b05",
+            "logic_groups": [
+              "urinary-b05-lg01",
+              "urinary-b05-lg02",
+              "urinary-b05-lg03",
+              "urinary-b05-lg04",
+              "urinary-b05-lg05",
+              "urinary-b05-lg06"
+            ],
+            "kp_ranges": [
+              "KP01-KP20"
+            ],
+            "content_families": [
+              "Block Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision/MI-D",
+              "Visual",
+              "Connection",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "A3 compiled Projection targeted binding revalidation required for B5"
       }
     },
     {
@@ -1815,7 +1868,7 @@
       "candidate_primary": [
         "B:D5"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U30_U38",
       "previous_review": "REQUIRED",
       "last_reviewed_at": "2026-09-24",
       "semantic_delta_receipt": {
@@ -1826,10 +1879,32 @@
         "notes": "Muscle/immune nutrition markers, stress catabolism, EN-first when gut works, short-bowel elemental feeding, PN route/complications, gut-barrier bacterial translocation and glutamine are already explicit in D5."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "B compiled Projection targeted binding revalidation required for D5",
+        "bindings": [
+          {
+            "system": "B",
+            "block": "D5",
+            "logic_groups": [
+              "b-d05-lg04"
+            ],
+            "kp_ranges": [
+              "KP15-KP19"
+            ],
+            "content_families": [
+              "Block Framework",
+              "KP Core",
+              "Boundary",
+              "Precision/MI-D",
+              "Connection",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "B compiled Projection targeted binding revalidation required for D5"
       }
     },
     {
@@ -1839,7 +1914,7 @@
       "candidate_primary": [
         "F:F4"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U30_U38",
       "previous_review": "REQUIRED",
       "last_reviewed_at": "2026-09-24",
       "semantic_delta_receipt": {
@@ -1850,10 +1925,36 @@
         "notes": "Refined endothelial leak, skin-depth regeneration, I-degree exclusion, resuscitation formula, blister/coverage and inhalation-injury bronchoscopy are already integrated in F4."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "F Projection not compiled/currently downstream; no Projection truth invented",
+        "bindings": [
+          {
+            "system": "F",
+            "block": "F4",
+            "logic_groups": [
+              "F4-LG01",
+              "F4-LG02",
+              "F4-LG03",
+              "F4-LG04",
+              "F4-LG05"
+            ],
+            "kp_ranges": [
+              "KP01-KP14"
+            ],
+            "content_families": [
+              "Block Framework",
+              "KP Core",
+              "Boundary",
+              "Precision/MI-D",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "F Projection not compiled/currently downstream; no Projection truth invented"
       }
     },
     {
@@ -1865,7 +1966,7 @@
         "C:H26",
         "C:H27"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U30_U38",
       "previous_review": "REQUIRED",
       "last_reviewed_at": "2026-09-24",
       "semantic_delta_receipt": {
@@ -1876,10 +1977,79 @@
         "notes": "Furuncle/carbuncle/cellulitis/erysipelas, hand-space infection, sepsis high/low response and tetanus/gas-gangrene distinctions are already distributed correctly across H25-H27."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "C is eligible but not compiled; no placeholder Projection created",
+        "bindings": [
+          {
+            "system": "C",
+            "block": "hematology-h25",
+            "logic_groups": [
+              "c-h25-lg01",
+              "c-h25-lg02",
+              "c-h25-lg03",
+              "c-h25-lg04",
+              "c-h25-lg05"
+            ],
+            "kp_ranges": [
+              "KP01-KP16"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Source Control",
+              "Boundary/Confusable",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "C",
+            "block": "hematology-h26",
+            "logic_groups": [
+              "c-h26-lg01",
+              "c-h26-lg02",
+              "c-h26-lg03"
+            ],
+            "kp_ranges": [
+              "KP01-KP09"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Urgent Recognition",
+              "Source Control",
+              "Boundary",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "C",
+            "block": "hematology-h27",
+            "logic_groups": [
+              "c-h27-lg01",
+              "c-h27-lg02",
+              "c-h27-lg03",
+              "c-h27-lg04"
+            ],
+            "kp_ranges": [
+              "KP01-KP11"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision",
+              "Visual",
+              "Source Control",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "C is eligible but not compiled; no placeholder Projection created"
       }
     },
     {
@@ -1890,7 +2060,7 @@
         "F:F5",
         "F:F6"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U30_U38",
       "previous_review": "REQUIRED",
       "last_reviewed_at": "2026-09-24",
       "semantic_delta_receipt": {
@@ -1901,10 +2071,57 @@
         "notes": "Refined emergency-operation examples are treated as cross-chapter recall; F5 owns urgency/reserve and fasting/glucose, F6 owns postoperative timing/incision complications. Current Source rebind replaces old follow-along."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "F Projection not compiled/currently downstream",
+        "bindings": [
+          {
+            "system": "F",
+            "block": "F5",
+            "logic_groups": [
+              "F5-LG01",
+              "F5-LG02",
+              "F5-LG03",
+              "F5-LG04",
+              "F5-LG05"
+            ],
+            "kp_ranges": [
+              "KP01-KP12"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary",
+              "Precision/MI-D",
+              "Connection",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "F",
+            "block": "F6",
+            "logic_groups": [
+              "F6-LG01",
+              "F6-LG02",
+              "F6-LG03",
+              "F6-LG04"
+            ],
+            "kp_ranges": [
+              "KP01-KP14"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "F Projection not compiled/currently downstream"
       }
     },
     {
@@ -1915,7 +2132,7 @@
         "F:F7",
         "F:F8"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U30_U38",
       "previous_review": "REQUIRED",
       "last_reviewed_at": "2026-09-24",
       "semantic_delta_receipt": {
@@ -1926,10 +2143,57 @@
         "notes": "Premedication, muscle-relaxant N2 logic, local-anesthetic Na-channel model, regional complication anatomy, neuraxial space/plane and total-spinal risk are already represented in F7/F8; no false visual closure."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "F Projection not compiled/currently downstream; Visual gaps remain fail-closed",
+        "bindings": [
+          {
+            "system": "F",
+            "block": "F7",
+            "logic_groups": [
+              "F7-LG01",
+              "F7-LG02",
+              "F7-LG03",
+              "F7-LG04"
+            ],
+            "kp_ranges": [
+              "KP01-KP12"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "F",
+            "block": "F8",
+            "logic_groups": [
+              "F8-LG01",
+              "F8-LG02",
+              "F8-LG03",
+              "F8-LG04",
+              "F8-LG05"
+            ],
+            "kp_ranges": [
+              "KP01-KP17"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary",
+              "Precision/MI-D",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "F Projection not compiled/currently downstream; Visual gaps remain fail-closed"
       }
     },
     {
@@ -1939,7 +2203,7 @@
       "candidate_primary": [
         "A1:Block12"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U30_U38",
       "previous_review": "REQUIRED",
       "last_reviewed_at": "2026-09-24",
       "semantic_delta_receipt": {
@@ -1950,10 +2214,37 @@
         "notes": "Refined shock notes are subsumed by the stronger A1 Block12 model: pulse first, true tissue perfusion, volume/pump/distribution/obstruction, microcirculation, CVP/PAWP and treatment matched to first failure layer."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED; cardiac-arrest LG remains outside this Surgery Source unit",
+        "projection_status": "A1 compiled Projection targeted binding revalidation required for B12",
+        "bindings": [
+          {
+            "system": "A1",
+            "block": "circulation-b12",
+            "logic_groups": [
+              "circulation-b12-lg01",
+              "circulation-b12-lg02",
+              "circulation-b12-lg03",
+              "circulation-b12-lg04",
+              "circulation-b12-lg05"
+            ],
+            "kp_ranges": [
+              "shock/perfusion KP subset before cardiac-arrest branch"
+            ],
+            "content_families": [
+              "Block Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision",
+              "Visual",
+              "Connection",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED; cardiac-arrest LG remains outside this Surgery Source unit",
+        "projection_validation": "A1 compiled Projection targeted binding revalidation required for B12"
       }
     },
     {
@@ -1963,7 +2254,7 @@
       "candidate_primary": [
         "F:F9"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U30_U38",
       "previous_review": "REQUIRED",
       "last_reviewed_at": "2026-09-24",
       "semantic_delta_receipt": {
@@ -1974,10 +2265,59 @@
         "notes": "Sterilization vs disinfection, open-wound handling, transplant/tumor recall, laparoscopy CO2 interface and surface-mass discrimination are already routed to F3/F9; delayed-closure taxonomy and full laparoscopy complication list remain fail-closed."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED; F9 remains ownership-first integration-primary",
+        "projection_status": "F Projection not compiled/currently downstream; F3/F9 Source gaps remain fail-closed",
+        "bindings": [
+          {
+            "system": "F",
+            "block": "F3",
+            "logic_groups": [
+              "F3-LG01",
+              "F3-LG02",
+              "F3-LG03",
+              "F3-LG04"
+            ],
+            "kp_ranges": [
+              "KP01-KP11"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary",
+              "Precision",
+              "Visual",
+              "Source Control",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "F",
+            "block": "F9",
+            "logic_groups": [
+              "F9-LG01",
+              "F9-LG02",
+              "F9-LG03",
+              "F9-LG04"
+            ],
+            "kp_ranges": [
+              "KP01-KP13"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Ownership Split",
+              "Boundary",
+              "Precision",
+              "Visual",
+              "Connection",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED; F9 remains ownership-first integration-primary",
+        "projection_validation": "F Projection not compiled/currently downstream; F3/F9 Source gaps remain fail-closed"
       }
     }
   ],
@@ -2015,9 +2355,19 @@
     "current_gap": "Most 38 units have Block-level and content-family dispositions, but exact LG/KP/content-family binding and full mature Block-role validation were not uniformly proven.",
     "acceptance_state": "REOPENED_FOR_ARCHITECTURE_RECONCILIATION",
     "progress": {
-      "units_reconciled": 29,
+      "units_reconciled": 38,
       "units_total": 38,
-      "next": "SUR27-U30-U38"
+      "next": "TARGETED_PROJECTION_BINDING_REVALIDATION_A1_A2_A3_B"
+    },
+    "architecture_reconciliation_result": {
+      "hierarchy": "System → Block → Logic Group → KP",
+      "units": "38/38",
+      "direct_source_bindings": "38/38 reviewed at existing Block/LG/KP/content-family scope",
+      "new_intermediate_hierarchy": false,
+      "physical_kp_reorder": false,
+      "mature_block_role_validation": "complete for all affected canonical Blocks touched by Surgery rebase",
+      "learning_topology": "preserved except bounded goal/closure refinements; no new LG layer",
+      "ui_change": false
     }
   }
 }
