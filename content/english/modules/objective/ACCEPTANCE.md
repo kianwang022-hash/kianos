@@ -8,6 +8,23 @@ This file owns current **Acceptance Truth** for the Objective learner-facing sco
 
 ---
 
+## Current main reconciliation — after English final integration
+
+The earlier final-audit section below was written before its candidate fixes were integrated. Current merged-main authority is `content/english/ACCEPTANCE.md` (PR #498).
+
+Current local claim:
+
+```text
+S/K/L/P/R/E  ACCEPTED for the Objective scope on integrated main
+U            UNTESTED — real learner use only
+```
+
+The integrated English owner confirms Reading A / Cloze / Part B behavior plus Objective Runtime/Evidence are current and green. The older phrases “candidate evidence” / “until integrated” below are retained only as provenance for that audit and do not override this reconciliation.
+
+This local Acceptance still owns Objective-scoped claims; English-wide integration owns cross-module/release claims.
+
+
+
 > **Architecture-v2 interpretation:** the S/K/L/P/R/E labels below are preserved as historical Acceptance dimensions only. They do not define Current architecture layers or canonical owners. Current ownership remains Rule / Model → Content / Visual / Engineering; this file owns Acceptance Truth only.
 
 
