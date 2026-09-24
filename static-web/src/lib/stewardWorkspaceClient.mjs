@@ -251,7 +251,7 @@ export function initStewardWorkspace(root) {
     const values = $$('[data-steward-meal-grams]').map((input) => Number(input.value || 0)).filter(Number.isFinite);
     const total = values.reduce((sum, value) => sum + Math.max(0, value), 0);
     const node = $('[data-steward-meal-grams-total]');
-    if (node) node.textContent = total > 0 ? \`\${Math.round(total)} g\` : '—';
+    if (node) node.textContent = total > 0 ? `${Math.round(total)} g` : '—';
   }
 
   function renderMealRows(items) {
@@ -274,7 +274,7 @@ export function initStewardWorkspace(root) {
       input.step = '1';
       input.value = String(item.amount ?? 0);
       input.dataset.stewardMealGrams = '';
-      input.setAttribute('aria-label', \`\${item.label} 克数\`);
+      input.setAttribute('aria-label', `${item.label} 克数`);
       input.addEventListener('input', updateMealGramTotal);
       inputWrap.append(input, createText('span', '', item.unit || 'g'));
       row.append(copy, inputWrap);
@@ -373,7 +373,7 @@ export function initStewardWorkspace(root) {
         row.className = 'stewardSetRow';
         row.dataset.stewardSetRow = '';
         row.append(
-          createText('b', '', \`\${index}\`),
+          createText('b', '', `${index}`),
           trainingInput('负重', 'kg', { step: .5, placeholder: '—' }),
           trainingInput('次数', 'reps', { max: 100, placeholder: '—' }),
           trainingInput('RPE', '', { min: 1, max: 10, step: .5, placeholder: '—' })
