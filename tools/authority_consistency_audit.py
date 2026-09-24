@@ -35,6 +35,24 @@ def text(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
 
+def local_routes(value: str, source: Path) -> set[str]:
+    """Resolve Markdown links against their actual source, without reading labels."""
+    routes: set[str] = set()
+    for target in re.findall(r"\]\(([^)]+)\)", value):
+        target = target.split("#", 1)[0]
+        if not target or ":" in target or target.startswith("/"):
+            continue
+        resolved = (source.parent / target).resolve()
+        try:
+            route = rel(resolved)
+        except ValueError:
+            check(False, "ROUTE_OUTSIDE_REPOSITORY", f"{rel(source)}:{target}")
+            continue
+        check(resolved.is_file(), "ROUTE_TARGET_MISSING", f"{rel(source)}:{target}")
+        routes.add(route)
+    return routes
+
+
 def load_registry() -> dict:
     check(REGISTRY_PATH.is_file(), "OWNERSHIP_REGISTRY_MISSING", rel(REGISTRY_PATH))
     if not REGISTRY_PATH.is_file():
@@ -83,8 +101,9 @@ def audit_current_routing(registry: dict) -> None:
     check(root_current.is_file(), "CURRENT_OWNER_MISSING", rel(root_current))
     if root_current.is_file():
         value = text(root_current)
-        check(contract in value, "CURRENT_MISSING_AUTHORITY_ROUTE", rel(root_current))
-        check(owner_registry in value, "CURRENT_MISSING_OWNER_REGISTRY_ROUTE", rel(root_current))
+        root_routes = local_routes(value, root_current)
+        check(contract in root_routes, "CURRENT_MISSING_AUTHORITY_ROUTE", rel(root_current))
+        check(owner_registry in root_routes, "CURRENT_MISSING_OWNER_REGISTRY_ROUTE", rel(root_current))
 
     lane_work_cursors = registry.get("lane_work_cursors", {})
     check(isinstance(lane_work_cursors, dict), "LANE_CURSOR_REGISTRY_INVALID")
@@ -92,13 +111,10 @@ def audit_current_routing(registry: dict) -> None:
         return
 
     if root_current.is_file():
-        root_value = text(root_current)
         routed_lanes = {
-            lane: route
-            for route, lane in re.findall(
-                r"\((content/([^/]+)/(?:CURRENT\.md|CONTENT_MAINLINE\.md))\)",
-                root_value,
-            )
+            route.split("/")[1]: route
+            for route in root_routes
+            if re.fullmatch(r"content/[^/]+/(?:CURRENT|CONTENT_MAINLINE)\.md", route)
         }
         for lane, route in routed_lanes.items():
             check(
@@ -112,6 +128,16 @@ def audit_current_routing(registry: dict) -> None:
                 "REGISTERED_LANE_MISSING_ROOT_ROUTE",
                 f"{lane}:{cursor}",
             )
+            if lane in routed_lanes:
+                route = routed_lanes[lane]
+                if route != cursor:
+                    # Xizong's program router explicitly names the registered
+                    # work cursor as its Parent; no second registration is needed.
+                    mainline = "content/xizong/CONTENT_MAINLINE.md"
+                    related = lane == "xizong" and route == mainline and (REPO / mainline).is_file() and re.search(
+                        rf"(?m)^Parent: `{re.escape(cursor)}`$", text(REPO / mainline)
+                    )
+                    check(bool(related), "ROOT_CURRENT_LANE_OWNER_MISMATCH", f"{lane}:{route}!={cursor}")
 
     # Shared-platform terms are allowed in a lane Current only as a route to the
     # registered upstream owner/current writer. A subject Current must never turn
@@ -165,13 +191,18 @@ def audit_product_owners(registry: dict) -> None:
     if website_current.is_file():
         value = text(website_current)
         for owner in expected.values():
-            check(Path(owner).name in value, "WEBSITE_CURRENT_MISSING_PRODUCT_ROUTE", owner)
+            check(
+                Path(owner).name in value and (REPO / owner).is_file(),
+                "WEBSITE_CURRENT_MISSING_PRODUCT_ROUTE", owner,
+            )
 
     if root_current.is_file():
         value = text(root_current)
+        steward_rows = [line for line in value.splitlines() if line.startswith("|") and "Steward" in line.split("|", 2)[1]]
         check(
-            "Steward / non-learning product implementation or runtime defect" in value
-            and "static-web/CURRENT.md" in value,
+            len(steward_rows) == 1
+            and "static-web/CURRENT.md" in local_routes(steward_rows[0], root_current)
+            and (REPO / "static-web/CURRENT.md").is_file(),
             "ROOT_CURRENT_MISSING_STEWARD_ROUTE",
         )
 
