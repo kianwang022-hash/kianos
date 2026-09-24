@@ -19,7 +19,7 @@ def dump_json_if_changed(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists() and stable(json.loads(path.read_text())) == stable(value):
         return
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\\n")
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n")
 
 
 class IncrementalProjectionTest(unittest.TestCase):
