@@ -1,6 +1,6 @@
 # Xizong Home — accepted surface design
 
-Status: **ACTIVE SURFACE DESIGN — MAC-WIDE L3 ACCEPTED 2026-09-18**  
+Status: **CURRENT — ACCEPTED XIZONG HOME DESIGN**  
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
