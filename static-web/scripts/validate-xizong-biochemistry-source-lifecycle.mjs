@@ -266,13 +266,17 @@ assert.doesNotMatch(
   /(?:CLOSED \/ CURRENT|CURRENT_27_REACCEPTED|BLOCKED_UNTIL_27_SOURCE|CONTENT_REVALIDATION_PENDING|CONTENT_REACCEPTANCE_PENDING)/,
   'B Current must not mirror Biochemistry lifecycle state'
 );
-assert.match(bAcceptance,/Status: \*\*CLOSED \/ CURRENT · S\/K\/L\/Content\/P REACCEPTED AFTER ARCHITECTURE CORRECTION\*\*/);
+assert.match(bAcceptance,/xizong-2027-biochemistry-delta-slot\.json/,'B Acceptance must reference the Biochemistry lifecycle owner');
+assert.match(bAcceptance,/xizong-2027-surgery-rebase-slot\.json/,'B Acceptance must reference the Surgery lifecycle owner');
+assert.doesNotMatch(bAcceptance,/Status:\s*\*\*CLOSED \/ CURRENT|CURRENT_27_REACCEPTED/,'B Acceptance must not mirror lifecycle enum');
 
 const lifecycleConsumers=[xizongCurrent,contentMainline,bCurrent,bAcceptance,maturity].join('\n');
 assert.doesNotMatch(lifecycleConsumers,/BLOCKED_UNTIL_27_SOURCE|CONTENT_REVALIDATION_PENDING|CONTENT_REACCEPTANCE_PENDING/,'Current Biochemistry lifecycle consumer regressed to a pre-27 state');
 
 assert.match(maturity,/G3 — 2027 Biochemistry delta/);
-assert.match(maturity,/CLOSED \/ CURRENT · S\/K\/L\/Content\/P REACCEPTED/);
+assert.match(maturity,/xizong-2027-biochemistry-delta-slot\.json/);
+assert.match(maturity,/Biochemistry is not a current Stage-A hard-coverage gap/);
+assert.doesNotMatch(maturity,/Current status:\s*\*\*CLOSED \/ CURRENT|S\/K\/L\/Content\/P REACCEPTED/,'Maturity must not mirror Biochemistry lifecycle/readiness enum');
 assert.doesNotMatch(maturity,/2027 Biochemistry delta\s+—\s+BLOCKED/i);
 assert.doesNotMatch(surgerySlot,/"active_biochemistry_rebase"\s*:\s*true/);
 assert.doesNotMatch(surgeryMap,/"active_biochemistry_rebase"/);
