@@ -7,7 +7,8 @@ import {
   buildExamChatPlanBasis,
   validateExamChatPlan,
   readExamChatPlan,
-  writeExamChatPlan
+  writeExamChatPlan,
+  examChatPlanEffectMatches
 } from '../src/lib/examChatPlan.mjs';
 import { buildChatControlledExamReadModel } from '../src/lib/examPlanReadModel.mjs';
 import { applyPrivateControlCommand } from '../src/lib/privateControlRuntime.mjs';
@@ -137,6 +138,34 @@ class MemoryStorage {
   getItem(key) { return this.map.has(key) ? this.map.get(key) : null; }
   setItem(key, value) { this.map.set(String(key), String(value)); }
   removeItem(key) { this.map.delete(String(key)); }
+}
+
+const recoveryStorage = new MemoryStorage();
+const recoveryBasis = buildExamChatPlanBasis(recoveryStorage, '2026-09-18');
+const recoveryPlan = {
+  ...sample,
+  generated_at: '2026-09-18T05:00:00+08:00',
+  learner_evidence_basis: recoveryBasis
+};
+recoveryStorage.setItem(EXAM_CHAT_PLAN_KEY, JSON.stringify({
+  ...recoveryPlan,
+  generated_at: '2099-01-01T00:00:00Z'
+}));
+if (readExamChatPlan(recoveryStorage, '2026-09-18').status !== 'invalid') {
+  fail('FUTURE_POISONED_PLAN_MUST_NOT_READ_READY');
+}
+writeExamChatPlan(recoveryStorage, recoveryPlan, '2026-09-18');
+const recoveredPlan = readExamChatPlan(recoveryStorage, '2026-09-18');
+if (recoveredPlan.status !== 'ready'
+    || Date.parse(recoveredPlan.plan?.generated_at || 0) !== Date.parse(recoveryPlan.generated_at)) {
+  fail('VALID_PLAN_MUST_RECOVER_FROM_FUTURE_POISON');
+}
+if (!examChatPlanEffectMatches(recoveryStorage, recoveryPlan, '2026-09-18')) {
+  fail('RECOVERED_PLAN_EFFECT_READBACK_MUST_MATCH');
+}
+recoveryStorage.removeItem(EXAM_CHAT_PLAN_KEY);
+if (examChatPlanEffectMatches(recoveryStorage, recoveryPlan, '2026-09-18')) {
+  fail('MISSING_PLAN_EFFECT_MUST_NOT_MATCH');
 }
 
 const evidenceStorage = new MemoryStorage();
@@ -315,6 +344,8 @@ console.log(JSON.stringify({
   identical_plan_replay_idempotent: true,
   same_generation_conflict_rejected: true,
   future_plan_rejected: true,
+  future_poison_recoverable: true,
+  native_plan_effect_readback_required: true,
   learner_evidence_basis_required: true,
   politics_e1_stales_e0_plan: true,
   later_stability_stales_old_heavy_plan: true,
