@@ -5,7 +5,16 @@ import { fileURLToPath } from 'node:url';
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const repoRoot = path.resolve(webRoot, '..');
 const bRoot = path.join(repoRoot, 'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor');
-const outPath = path.join(repoRoot, 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json');
+const canonicalOutPath = path.join(repoRoot, 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json');
+const requestedOut = String(process.env.B_LEARNING_OUTPUT_PATH || '').trim();
+const outPath = requestedOut ? path.resolve(repoRoot, requestedOut) : path.join(webRoot, '.qa/xizong-b-learning-candidate.json');
+if (path.resolve(outPath) === path.resolve(canonicalOutPath)) {
+  const existing = fs.existsSync(canonicalOutPath) ? JSON.parse(fs.readFileSync(canonicalOutPath,'utf8')) : null;
+  if (existing?.status === 'CURRENT' || existing?.construction_status === 'PHASE6_INDEPENDENT_L_ACCEPTED') {
+    throw new Error('B_L_CANONICAL_CURRENT_OVERWRITE_FORBIDDEN: generate a candidate via B_LEARNING_OUTPUT_PATH instead of overwriting accepted Current');
+  }
+}
+fs.mkdirSync(path.dirname(outPath), {recursive:true});
 const system = JSON.parse(fs.readFileSync(path.join(bRoot, 'system.json'), 'utf8'));
 
 const semanticGroups = {
