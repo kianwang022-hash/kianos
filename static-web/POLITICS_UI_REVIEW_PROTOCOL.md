@@ -5,8 +5,7 @@ Scope: learner-facing Politics UI implementation / product optimization
 Learning authority: `content/politics/LEARNING_CONTRACT.md`  
 Interaction authority: `content/politics/INTERACTION_CONTRACT.md`  
 Representation authority: `content/politics/SURFACE_MAPPING_CONTRACT.md`  
-Product status: `static-web/POLITICS_PRODUCT_STATUS.md`  
-Capability ledger: `static-web/POLITICS_LEGACY_FUNCTION_PARITY.md`
+Product owner: `static-web/POLITICS_PRODUCT_BRIEF.md`  
 
 This protocol does not own Politics knowledge, Learning Logic, Question Truth, Runtime semantics, Evidence semantics, learner progress, or new semantic design.
 
