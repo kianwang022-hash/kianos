@@ -260,7 +260,12 @@ assert.match(xizongCurrent,/27 Biochemistry lifecycle owner:/);
 assert.match(xizongCurrent,/xizong-2027-biochemistry-delta-slot\.json/);
 assert.match(contentMainline,/content\/xizong\/knowledge\/learner\/xizong-2027-biochemistry-delta-slot\.json/);
 assert.doesNotMatch(contentMainline,/# 0｜27 Biochemistry architecture-corrected rebase|Lifecycle is owned only by the exact task owner below/,'Mainline must not restore retired Biochemistry campaign prose');
-assert.match(bCurrent,/NONE for the 27 Biochemistry revision — CLOSED \/ CURRENT/);
+assert.match(bCurrent,/exact lifecycle owner/i,'B Current must route source-revision work to the exact lifecycle owner');
+assert.doesNotMatch(
+  bCurrent,
+  /(?:CLOSED \/ CURRENT|CURRENT_27_REACCEPTED|BLOCKED_UNTIL_27_SOURCE|CONTENT_REVALIDATION_PENDING|CONTENT_REACCEPTANCE_PENDING)/,
+  'B Current must not mirror Biochemistry lifecycle state'
+);
 assert.match(bAcceptance,/Status: \*\*CLOSED \/ CURRENT · S\/K\/L\/Content\/P REACCEPTED AFTER ARCHITECTURE CORRECTION\*\*/);
 
 const lifecycleConsumers=[xizongCurrent,contentMainline,bCurrent,bAcceptance,maturity].join('\n');
