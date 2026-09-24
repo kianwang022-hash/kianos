@@ -374,9 +374,12 @@ export function initStewardWorkspace(root) {
       const day = dateAdd(monday, index);
       const head = document.createElement('div');
       head.className = `stewardWeekDayHead${day === today ? ' today' : ''}`;
+      const daily = aggregateStudyTime(storage, { day, now: Date.now(), timeZone: STUDY_TIMER_TIMEZONE });
+      const dailyMinutes = Math.round((daily.totalMs || 0) / 60000);
+      head.title = day;
       head.append(
         createText('b', '', `${dayLabels[index]} ${Number(day.slice(8))}`),
-        createText('span', '', day.slice(5).replace('-', '/'))
+        createText('span', '', dailyMinutes > 0 ? formatMinutes(dailyMinutes) : '')
       );
       grid.appendChild(head);
     }
