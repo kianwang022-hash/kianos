@@ -163,7 +163,7 @@ export function buildChatControlledExamReadModel({
     subjects,
     next,
     attention,
-    presentation: clonePresentation(plan?.presentation || chatPlanState?.presentation),
+    presentation: clonePresentation(plan?.presentation),
     time: timeOverlay ? {
       usesTimer: Boolean(timeOverlay.usesTimer),
       sourceBySubject: { ...(timeOverlay.sourceBySubject || {}) },
