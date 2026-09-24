@@ -496,6 +496,21 @@ export function readExamChatPlan(storage, expectedDay) {
   }
 }
 
+export function examChatPlanEffectMatches(storage, input, expectedDay = null) {
+  try {
+    const state = readExamChatPlan(storage, expectedDay);
+    if (state.status !== 'ready' || !state.plan) return false;
+    const expected = validateExamChatPlan(input, expectedDay);
+    const withoutBasis = (value) => {
+      const { learner_evidence_basis, ...rest } = value || {};
+      return rest;
+    };
+    return JSON.stringify(withoutBasis(state.plan)) === JSON.stringify(withoutBasis(expected));
+  } catch {
+    return false;
+  }
+}
+
 export function writeExamChatPlan(storage, value, expectedDay) {
   if (!storage?.setItem || !storage?.getItem) throw new Error('Storage is unavailable.');
   const plan = validateExamChatPlanAgainstStorage(storage, value, expectedDay);
