@@ -183,6 +183,12 @@ try{
     .find(row=>row.object_id===drill.object_id);
   assert(catalogRow,'generated object must exist in the live External catalog');
   assert.equal(catalogRow.content_hash,drill.content_hash);
+  const passageResponse=await fetch(base+'/__kianos-private/external-reading/passage?id='+encodeURIComponent(drill.object_id),{cache:'no-store'});
+  const passageData=await passageResponse.json();
+  assert.equal(passageResponse.status,200,'generated passage endpoint must remain readable after control apply');
+  assert.equal(passageData.passage?.object_id,drill.object_id);
+  assert.equal(passageData.passage?.question_origin,'CHAT_GENERATED');
+  assert.equal(passageData.passage?.drill_origin,'CHAT_GENERATED_SYNTHETIC');
 
   // Then prove the subject Resume projected the same session.
   try{
