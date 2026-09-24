@@ -90,20 +90,21 @@ async function blockResumeAndEvidenceJourney(page) {
 
   const allKpIds = await recallCards.evaluateAll((cards) => cards.map((c) => c.getAttribute('data-kp-id')).filter(Boolean));
   await page.evaluate(({ key, kpIds }) => {
+    const current = JSON.parse(localStorage.getItem(key) || '{}');
     const learned = Object.fromEntries(kpIds.map((id) => [id, true]));
     const ratings = Object.fromEntries(kpIds.map((id) => [id, 'mastered']));
     localStorage.setItem(key, JSON.stringify({
+      ...current,
       stage: 'block_recall',
       groupIndex: 0,
       kpIndex: 0,
-      sourceContactDone: true,
       learned,
       ratings,
-      ttsxEvidence: {},
-      ttsxAnnotations: {},
       pendingTtsx: null,
       blockRecallDone: false,
-      completed: false
+      blockRecallCompletedAt: null,
+      completed: false,
+      completedAt: null
     }));
   }, { key: studyKey, kpIds: allKpIds });
   await page.reload({ waitUntil: 'domcontentloaded' });
