@@ -10,13 +10,13 @@ This file does not own medical Core, Xizong Learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
-**Active / earliest unresolved eligible gate:** `K — bounded G1–G5 information-lifecycle Source→Knowledge hierarchy rebase`.  
+**Active / earliest unresolved eligible gate:** **NONE for the 27 Biochemistry revision — CLOSED/CURRENT**. Other active source revisions route through their exact task owners / `CONTENT_MAINLINE.md`.  
 **S status:** PASS — exact Current B official-question membership accepted at 1071 qids.  
-**K status:** **BOUNDED_REOPEN — G branch only**; D1–D23 and **M1–M10 are Current after canonical hierarchy reconstruction + direct 27 Source mapping**; G1–G5 remain inside the bounded reopen.  
-**L status:** previous PASS remains historical evidence; **M1–M10 Learning now consume canonical hierarchies directly through the global Biochemistry Source map**; G1–G5 Learning remains frozen behind K.  
-**P status:** previous PASS preserved; affected M/G Projection is provisional until K/L revalidation.  
+**K status:** **PASS / CURRENT for Biochemistry** — M1–M10 + G1–G5 are current on 27 Source with canonical hierarchies and direct Source mapping; stable Block/KP identity preserved. Other bounded source revisions may independently reopen only their affected owners.  
+**L status:** **PASS / CURRENT for Biochemistry** — all M1–M10 + G1–G5 Learning consumes canonical layers through the completed global 27 Source map; no duplicate per-Block Source registry.  
+**P status:** **PASS / preserved for Biochemistry** — stable Block/KP identity and owner boundaries were preserved; the 27 rebase did not create a new Projection topology.  
 **R status:** previous PASS preserved; no broad Runtime rebuild is authorized.  
-**E status:** previous PASS preserved; stale/current learner evidence must follow Source-revision semantics once affected Block revisions land.  
+**E status:** **PASS / preserved semantics** — historical learner evidence remains historical; this rebase creates no learner progress, and Current completion must bind to current 27 Source evidence.  
 **U:** UNTESTED — real learner validation only.
 
 ```text
@@ -31,16 +31,20 @@ Phase 6  Fresh independent L acceptance                PASS
 
 Learning construction / acceptance task: GitHub Issue `#135` — completed.
 
-**Next action:** rebase **G1–G5 information lifecycle** using the same chain: current 27 Source → canonical Knowledge hierarchy → direct Source mapping → Learning consumption. Do not touch website/UI.
+**Next action:** **none for the 27 Biochemistry source-revision task**. Do not reopen it without a new Source revision or a concrete canonical defect. Website/UI remains downstream of GitHub canonical truth.
 
 ---
 
-## Current bounded Biochemistry revision
+## Closed 27 Biochemistry revision
 
 - Current learner Source decision: **27 跟课 is the only continuous first-pass Biochemistry Source**.
 - 26 精编 is retained as **explanatory reconstruction substrate**, not a second learner reading path.
-- Initial audit found all 15 M/G Blocks on the old 26 Source basis. **M1–M10 material/energy branch is now rebuilt on the 27 Source with explicit canonical hierarchies and direct Source→Knowledge→Learning mapping**; G1–G5 information branch remains under bounded rebase.
-- Stable Block/KP identity is presumed preserved until deep comparison proves otherwise; no split/merge/renumber for symmetry.
+- 22 current 27 Source units are mapped to all 15 M/G canonical Blocks/layers/KPs or explicit support connections.
+- System compression is current as the contract-defined two mother maps: **物质—能量网络** + **信息生命周期**.
+- Remaining exact Source boundaries stay explicit rather than blocking closure: M3 NADPH wording boundary, M4 P015 FBPase-1 conflict, and G5 first low-fidelity-polymerase Greek glyph exactness.
+- Ordinary content changes flow **Chat → GitHub canonical truth → existing website mapping**; no static-web content fork was created.
+- Initial audit found all 15 M/G Blocks on the old 26 Source basis. **All M1–M10 + G1–G5 are now rebuilt/revalidated on the 27 Source with explicit canonical hierarchies and direct Source→Knowledge→Learning mapping.**
+- Stable Block/KP identity was preserved through the completed deep comparison; no split/merge/renumber was introduced for symmetry.
 - Valid 26 explanation should live in Framework / Logic Group / KP Core or cross-System relation when useful; invalid/conflicting explanation is not grandfathered merely because it was in 26.
 
 ## Frozen Knowledge substrate
