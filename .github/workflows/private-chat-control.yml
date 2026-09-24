@@ -17,6 +17,10 @@ on:
       - "static-web/scripts/privateExternalReadingBridge.mjs"
       - "static-web/src/components/EnglishResume.astro"
       - "static-web/src/components/EnglishSessionControl.astro"
+      - "static-web/src/components/XizongHomeTools.astro"
+      - "static-web/src/components/PoliticsHomeTools.astro"
+      - "static-web/src/components/ExamOrchestratorHome.astro"
+      - "static-web/src/pages/index.astro"
       - "static-web/src/components/ExternalReadingWorkspace.astro"
       - "static-web/src/lib/englishSessionControl.mjs"
       - "static-web/src/lib/examPlanReadModel.mjs"
@@ -31,6 +35,8 @@ on:
       - "static-web/src/layouts/BaseFrame.astro"
       - "static-web/astro.config.mjs"
       - "static-web/scripts/test-private-control-*.mjs"
+      - "static-web/scripts/test-total-home-direct-workspace-browser.mjs"
+      - "static-web/scripts/test-total-home-live-control-browser.mjs"
       - "static-web/scripts/test-english-generated-*.mjs"
       - "static-web/scripts/test-english-evidence-resume.mjs"
       - "static-web/scripts/test-english-external-combined-store.mjs"
@@ -58,6 +64,10 @@ on:
       - "static-web/scripts/privateExternalReadingBridge.mjs"
       - "static-web/src/components/EnglishResume.astro"
       - "static-web/src/components/EnglishSessionControl.astro"
+      - "static-web/src/components/XizongHomeTools.astro"
+      - "static-web/src/components/PoliticsHomeTools.astro"
+      - "static-web/src/components/ExamOrchestratorHome.astro"
+      - "static-web/src/pages/index.astro"
       - "static-web/src/components/ExternalReadingWorkspace.astro"
       - "static-web/src/lib/englishSessionControl.mjs"
       - "static-web/src/lib/examPlanReadModel.mjs"
@@ -72,6 +82,8 @@ on:
       - "static-web/src/layouts/BaseFrame.astro"
       - "static-web/astro.config.mjs"
       - "static-web/scripts/test-private-control-*.mjs"
+      - "static-web/scripts/test-total-home-direct-workspace-browser.mjs"
+      - "static-web/scripts/test-total-home-live-control-browser.mjs"
       - "static-web/scripts/test-english-generated-*.mjs"
       - "static-web/scripts/test-english-evidence-resume.mjs"
       - "static-web/scripts/test-english-external-combined-store.mjs"
@@ -139,3 +151,5 @@ jobs:
           node scripts/test-english-generated-stale-import-browser.mjs
           node scripts/test-english-home-exact-workspace-browser.mjs
           node scripts/test-private-control-browser.mjs
+          node scripts/test-total-home-direct-workspace-browser.mjs
+          node scripts/test-total-home-live-control-browser.mjs
