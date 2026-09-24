@@ -284,7 +284,13 @@ export function initStewardWorkspace(root) {
       rootNode.appendChild(label);
     }
 
-    for (const block of presentation?.scheduleBlocks || []) {
+    const scheduleBlocks = presentation?.scheduleBlocks || [];
+    if (!scheduleBlocks.length) {
+      const empty = createText('p', 'stewardTimelineEmpty', '今天还没有安排；真实学习时间仍会显示在时间轴上。');
+      rootNode.appendChild(empty);
+    }
+
+    for (const block of scheduleBlocks) {
       const start = clockMinute(block.start);
       const end = block.end ? clockMinute(block.end) : Math.min(END_MINUTE, (start ?? START_MINUTE) + 45);
       if (start == null || end == null) continue;
