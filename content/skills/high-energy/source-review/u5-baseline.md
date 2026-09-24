@@ -9,7 +9,9 @@ Keep broad-evidence high-leverage capacity levers and separate foundations from 
 AASM / CDC guidance: regular sufficient sleep is a basic health / performance foundation. Population guidance is not a personal optimum.
 
 ### Physical activity
-WHO / CDC guidance: regular aerobic + muscle-strengthening activity supports broad health / physical capacity. Exact exam-season dose is not owned here.
+WHO / CDC guidance: regular aerobic + muscle-strengthening activity supports broad health / physical capacity.
+
+Boundary: High Energy may identify physical capacity as a bottleneck; exact sleep-health / exercise / training method and dose belong to health-physical.
 
 ### Mindfulness / cognitive regulation
 PMID: 37578065  
@@ -25,7 +27,9 @@ https://pubmed.ncbi.nlm.nih.gov/30944847/
 
 Accepted: practice can increase fluency / speed and reduce cognitive load for practiced behavior.
 
-Use: task efficiency is a legitimate form of effective capacity growth.
+Use: task efficiency is a legitimate form of task-specific effective capacity growth.
+
+Boundary: High Energy owns the implication for usable performance; learning-method selection, practice / retention / transfer and automaticity formation belong to adaptive-learning or the subject-native learning owner.
 
 ### Brain Endurance Training
 PMID: 42318508  

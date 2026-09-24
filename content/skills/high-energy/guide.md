@@ -98,6 +98,11 @@
 
 > **把任务学熟，本身就是有效容量增加。**
 
+这里 High Energy 只拥有“这些因素怎样改变可用表现、哪个容量方向值得补”的判断。
+
+- 具体睡眠健康、运动与训练方法 / 剂量 → health-physical；
+- 具体怎样练习、形成长期记忆、迁移和自动化 → adaptive-learning 或 subject-native learning owner。
+
 直接 Brain Endurance Training 目前证据仍较早期，不作为默认方案。
 
 ## 7｜真正值得越来越好的 5 个东西

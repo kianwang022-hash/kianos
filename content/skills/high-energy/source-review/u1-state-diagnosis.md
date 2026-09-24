@@ -7,7 +7,9 @@ Role: evidence gate for learner-facing content; not learner performance evidence
 
 ## 1｜Review rule
 
-只有会改变判断和行为的结论进入 U1。
+U1 现在使用 local / combined / system-level 作为**决策抽象**，不是医学分类，也不是声称人体存在三个互斥疲劳类型。它只决定：小 reset 是否可能足够、是否需要真正恢复、以及什么时候该扩大到日 / 周尺度。
+
+底层具体信号仍来自下列 accepted sources。只有会改变判断和行为的结论进入 U1。
 
 Source claim 只有在帮助区分以下状态时才进入 learner content：
 
