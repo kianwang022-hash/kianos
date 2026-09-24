@@ -403,11 +403,22 @@ export function initStewardWorkspace(root) {
         node.dataset.subject = session.subject;
         node.style.top = `${geometry.top}%`;
         node.style.height = `${geometry.height}%`;
+        node.title = `${SUBJECT_LABEL[session.subject] || session.subject} · ${formatClock(session.startedAt)}–${formatClock(session.endedAt)}`;
         node.append(
           createText('b', '', SUBJECT_LABEL[session.subject] || session.subject),
           createText('small', '', `${formatClock(session.startedAt)}–${formatClock(session.endedAt)}`)
         );
         column.appendChild(node);
+      }
+
+      if (day === today) {
+        const nowMinute = localClock(Date.now()).total;
+        if (nowMinute >= START_MINUTE && nowMinute <= END_MINUTE) {
+          const line = document.createElement('div');
+          line.className = 'stewardWeekNowLine';
+          line.style.top = `${percentForMinute(nowMinute)}%`;
+          column.appendChild(line);
+        }
       }
 
       grid.appendChild(column);
@@ -490,8 +501,9 @@ export function initStewardWorkspace(root) {
         cell.appendChild(marks);
       }
 
+      if (day === today) cell.classList.add('selected');
       cell.addEventListener('click', () => {
-        $$('.stewardMonthCell.selected').forEach((item) => item.classList.remove('selected'));
+        $('.stewardMonthCell.selected').forEach((item) => item.classList.remove('selected'));
         cell.classList.add('selected');
         renderMonthDetail(day);
       });
@@ -502,7 +514,17 @@ export function initStewardWorkspace(root) {
   }
 
   function activateView(view) {
-    $$('[data-steward-view]').forEach((button) => {
+    const headerCopy = {
+      today: ['今天怎么过', '时间安排、实际执行、饮食、训练和恢复。'],
+      week: ['这一周', '把七天放在同一根时间轴上看。'],
+      month: ['这个月', '用月历看方向、安排和真实发生过的学习。']
+    }[view] || ['Steward', ''];
+    const title = $('[data-steward-header-title]');
+    const description = $('[data-steward-header-description]');
+    if (title) title.textContent = headerCopy[0];
+    if (description) description.textContent = headerCopy[1];
+
+    $('[data-steward-view]').forEach((button) => {
       button.classList.toggle('active', button.dataset.stewardView === view);
     });
     $$('[data-steward-view-panel]').forEach((panel) => {
