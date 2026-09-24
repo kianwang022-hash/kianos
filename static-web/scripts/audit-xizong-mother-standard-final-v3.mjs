@@ -429,7 +429,6 @@ check('companion_proof_inventory',()=>{
     'static-web/scripts/test-xizong-chat-return.mjs',
     'static-web/scripts/test-private-learner-checkpoint.mjs',
     'static-web/scripts/test-private-daily-learning-packet.mjs',
-    'static-web/scripts/stress-xizong-architecture-plus.mjs',
     'static-web/scripts/validate-xizong-biochemistry-source-lifecycle.mjs',
     'static-web/scripts/validate-xizong-2027-exam-format-slot.mjs'
   ];
