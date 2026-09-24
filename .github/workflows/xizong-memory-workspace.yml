@@ -2,6 +2,24 @@ name: Xizong Memory Workspace
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'static-web/XIZONG_MEMORY_PRODUCT.md'
+      - 'static-web/src/lib/xizongMemory*.mjs'
+      - 'static-web/src/components/XizongMemoryWorkspace.astro'
+      - 'static-web/src/components/XizongMemoryReleaseBridge.astro'
+      - 'static-web/src/pages/xizong/memory/**'
+      - 'static-web/src/pages/xizong/[system]/[block].astro'
+      - 'static-web/src/styles/xizong-memory-workspace.css'
+      - 'static-web/scripts/validate-xizong-memory-style-ownership.mjs'
+      - 'static-web/scripts/validate-xizong-memory-workspace.mjs'
+      - 'static-web/scripts/validate-xizong-memory-retention.mjs'
+      - 'static-web/scripts/validate-xizong-memory-auto-release.mjs'
+      - 'static-web/scripts/test-xizong-memory-workspace-browser.mjs'
+      - 'static-web/scripts/test-xizong-memory-auto-release-browser.mjs'
+      - '.github/workflows/xizong-memory-workspace.yml'
   pull_request:
     paths:
       - 'static-web/XIZONG_MEMORY_PRODUCT.md'
