@@ -79,6 +79,7 @@ ABSENT_RETIRED_PATHS = [
     "content/politics/continuation.json",
     "content/xizong/knowledge/learner/continuation.json",
     "content/xizong/knowledge/learner/acceptance-status.json",
+    "content/xizong/question-relations/continuation.json",
 ]
 MANIFEST_PATHS = [
     "content/english/manifest.json",
