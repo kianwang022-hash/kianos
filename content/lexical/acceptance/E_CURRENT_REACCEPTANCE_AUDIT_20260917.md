@@ -62,11 +62,11 @@ This is identity projection, not learner evidence and not a mastery state.
 
 Therefore a user does not need to visit Home first for old evidence to reconcile safely.
 
-## Durable tests
+## Current durable guard + historical browser proof
 
-### Reducer / Current-owner gate
+### Current real-owner lineage gate
 
-`static-web/scripts/validate-lexical-evidence-identity-lineage.mjs` uses the real `abnormal@7` Current owner and proves:
+`static-web/scripts/test-lexical-identity-lineage.mjs` uses the real `abnormal@7` Current owner and proves:
 
 - explicit merge projects old evidence to the exact successor;
 - historical event payload remains old/historical;
@@ -80,9 +80,9 @@ Therefore a user does not need to visit Home first for old evidence to reconcile
 
 Result on PR #327 head `9c12c5e8d57410dca5e373640448cbe248c827d9`: **PASS**.
 
-### Real browser gate
+### Historical real-browser proof
 
-`static-web/scripts/test-lexical-functional-first-identity-lineage-browser.mjs` seeds real persisted old evidence, enters `/vocabulary/7/` directly and proves:
+The dedicated PR #327 browser journey is preserved in Git history. It seeded real persisted old evidence, entered `/vocabulary/7/` directly and proved:
 
 - Current merge lineage is registered before Word Repair projection;
 - old merged evidence restores the Current successor's `+` state;
@@ -101,8 +101,8 @@ On the same exact head:
 
 - LexicalOS Current Runtime run `35165384491` — PASS, including Current catalog hydration and Astro build;
 - Lexical Functional First run `35165384498` — PASS;
-- the new static identity-lineage gate — PASS;
-- the new real-browser identity-lineage journey — PASS;
+- the Current real-owner identity-lineage gate — PASS;
+- the PR #327 real-browser identity-lineage journey — PASS (historical executed proof preserved in Git history);
 - all pre-existing full-catalog, Form, accepted-fixture, English handoff, ledger projection, Challenge resume and sparse/rich browser gates — PASS.
 
 ## Fresh E verdict
