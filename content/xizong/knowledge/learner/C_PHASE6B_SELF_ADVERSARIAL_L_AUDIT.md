@@ -277,4 +277,4 @@ Crosswalk = UNCHANGED
 learner_state = UNCHANGED
 ```
 
-The next legal step is **one genuinely fresh independent L audit** using `C_PHASE6_FRESH_L_AUDIT_BRIEF.md` and the Current Core. Only if that actor independently returns PASS may the candidate be promoted atomically to the canonical live `c-hematology-immunity-infection-learning.json` owner and P become eligible to start.
+The next legal step was **one genuinely fresh independent L audit** against the Current Core. The one-shot audit protocol is preserved in Git history only; the accepted result is owned by the current C Acceptance/evidence owners.
