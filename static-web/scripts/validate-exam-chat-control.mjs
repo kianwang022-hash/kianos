@@ -298,6 +298,29 @@ if (controlStorage.getItem(EXAM_CHAT_PLAN_KEY) !== null) {
   fail('PRIVATE_CONTROL_STALE_BASIS_MUST_NOT_WRITE_PLAN');
 }
 
+const poisonedControlStorage = new MemoryStorage();
+const poisonedControlBasis = buildExamChatPlanBasis(poisonedControlStorage, '2026-09-18');
+const poisonedRecoveryPlan = {
+  ...sample,
+  generated_at: '2026-09-18T05:30:00+08:00',
+  learner_evidence_basis: poisonedControlBasis
+};
+poisonedControlStorage.setItem(EXAM_CHAT_PLAN_KEY, JSON.stringify({
+  ...poisonedRecoveryPlan,
+  generated_at: '2099-01-01T00:00:00Z'
+}));
+const poisonedRecovery = await applyPrivateControlCommand(
+  poisonedControlStorage,
+  browserCommand('control-future-poison-recovery-001', poisonedRecoveryPlan),
+  { day: '2026-09-18', now: Date.parse('2026-09-18T05:31:00+08:00') }
+);
+if (poisonedRecovery.status !== 'applied') fail('PRIVATE_CONTROL_FUTURE_POISON_MUST_REAPPLY');
+const recoveredControlPlan = readExamChatPlan(poisonedControlStorage, '2026-09-18');
+if (recoveredControlPlan.status !== 'ready'
+    || Date.parse(recoveredControlPlan.plan?.generated_at || 0) !== Date.parse(poisonedRecoveryPlan.generated_at)) {
+  fail('PRIVATE_CONTROL_FUTURE_POISON_RECOVERY_FAILED');
+}
+
 const controlBasisE1 = buildExamChatPlanBasis(controlStorage, '2026-09-18');
 const controlPlanE1 = {
   ...controlPlanE0,
@@ -351,5 +374,6 @@ console.log(JSON.stringify({
   later_stability_stales_old_heavy_plan: true,
   private_control_stale_basis_rejected: true,
   private_control_fresh_basis_applied: true,
+  private_control_future_poison_recoverable: true,
   private_control_receipt_requires_native_effect: true
 }, null, 2));
