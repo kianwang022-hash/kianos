@@ -65,6 +65,8 @@ known product/surface
 
 Do not route ordinary Steward/product use through engineering Current. If use exposes a defect, route only the defect to BUILD/UI. Raw reality stays with its native Runtime/source; open-ended personal interpretation returns to Chat / Personal.
 
+Chat may execute BUILD/UI/CONTROL work directly when the task is bounded and the active context remains sufficient. Codex is an optional execution extension, not a mandatory handoff. Delegate when doing so reduces execution/context cost without losing semantic control.
+
 ## BUILD
 
 ```text
