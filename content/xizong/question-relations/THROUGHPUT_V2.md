@@ -11,7 +11,7 @@ Reduce mechanical review/CI overhead without relaxing the exact-owner gate.
 - Default accepted batch target: 25–40 relations.
 - Candidate packet: 100 questions.
 - `pending-reviewed-batches` remains transport only.
-- Materializer now advances canonical shards, deletes staging, and advances `continuation.json` in the same deterministic pass.
+- Materializer advances canonical shards and deletes staging in one deterministic pass. Aggregate Current coverage/freshness remains manifest/resolver-owned; no separate continuation history is written.
 - Relation-only PRs use Crosswalk Fast QA.
 - Fast QA still runs manifest validation, Crosswalk validation, review-pipeline validation and Astro build.
 - A full Xizong contract/browser regression is automatically added when a batch crosses a 50-relation coverage boundary.
