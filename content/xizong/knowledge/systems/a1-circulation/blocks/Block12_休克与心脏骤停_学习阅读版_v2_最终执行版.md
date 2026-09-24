@@ -8,9 +8,9 @@ title: 休克与心脏骤停
 order: 12
 study_refs:
   - source_id: surgery-lecture
-    label: 外科学讲义｜休克
-    page_start: 223
-    page_end: 227
+    label: 27外科精编版【带导图】｜SUR27-U37｜休克
+    page_start: 276
+    page_end: 281
   - source_id: internal-medicine-lecture
     label: 内科学讲义｜心脏骤停
     page_start: 398

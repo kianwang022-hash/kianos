@@ -559,8 +559,16 @@
       "candidate_primary": [
         "C:H2"
       ],
-      "review": "REPROCESS_V2_REQUIRED",
-      "previous_review": "REQUIRED"
+      "review": "REPROCESS_V2_ACCEPTED_U30_U38",
+      "previous_review": "REQUIRED",
+      "reprocess_v2": {
+        "knowledge": "PRESERVE_EXISTING_CORE",
+        "learning": "PRESERVE_EXISTING_REACTION_AND_COMPONENT_DECISION_MODEL",
+        "precision": "PRESERVE_SOURCE_BOUND_TRANSFUSION_THRESHOLDS_AND_COMPONENT_DETAILS",
+        "visual": "NO_NEW_VISUAL_REQUIRED_BEYOND_SOURCE_TABLES",
+        "notes": "Febrile/hemolytic/allergic/overload reactions, IgA interface and component selection are already represented in H2; only Current Source rebind was needed."
+      },
+      "last_reviewed_at": "2026-09-24"
     },
     {
       "id": "SUR27-U31",
@@ -572,8 +580,16 @@
       "cross_system": [
         "A1:volume/perfusion interface"
       ],
-      "review": "REPROCESS_V2_REQUIRED",
-      "previous_review": "REQUIRED"
+      "review": "REPROCESS_V2_ACCEPTED_U30_U38",
+      "previous_review": "REQUIRED",
+      "reprocess_v2": {
+        "knowledge": "PRESERVE_EXISTING_CORE",
+        "learning": "PRESERVE_EXISTING_FIVE_VARIABLE_AND_DANGER_FIRST_MODEL",
+        "precision": "PRESERVE_CURRENT_SOURCE_FLUID_K_CA_NUMBERS",
+        "visual": "ELECTROLYTE_AND_ACID_BASE_TABLES_SOURCE_BOUND",
+        "notes": "Refined dehydration compensation, K-H/ROMK, safe K replacement and Ca excitability fit existing A3 Block5; external acid-base contract remains narrow and does not override Surgery Source."
+      },
+      "last_reviewed_at": "2026-09-24"
     },
     {
       "id": "SUR27-U32",
@@ -582,8 +598,16 @@
       "candidate_primary": [
         "B:D5"
       ],
-      "review": "REPROCESS_V2_REQUIRED",
-      "previous_review": "REQUIRED"
+      "review": "REPROCESS_V2_ACCEPTED_U30_U38",
+      "previous_review": "REQUIRED",
+      "reprocess_v2": {
+        "knowledge": "PRESERVE_EXISTING_CORE",
+        "learning": "PRESERVE_EXISTING_STRESS_NUTRITION_DECISION_MODEL",
+        "precision": "PRESERVE_SOURCE_BOUND_EN_PN_TIMING_AND_NUTRIENT_NUMBERS",
+        "visual": "NO_ADDITIONAL_VISUAL_REQUIRED",
+        "notes": "Muscle/immune nutrition markers, stress catabolism, EN-first when gut works, short-bowel elemental feeding, PN route/complications, gut-barrier bacterial translocation and glutamine are already explicit in D5."
+      },
+      "last_reviewed_at": "2026-09-24"
     },
     {
       "id": "SUR27-U33",
@@ -592,8 +616,16 @@
       "candidate_primary": [
         "F:F4"
       ],
-      "review": "REPROCESS_V2_REQUIRED",
-      "previous_review": "REQUIRED"
+      "review": "REPROCESS_V2_ACCEPTED_U30_U38",
+      "previous_review": "REQUIRED",
+      "reprocess_v2": {
+        "knowledge": "PRESERVE_WITH_PRIOR_FLUID_FORMULA_UPDATE",
+        "learning": "PRESERVE_EXISTING_SYSTEMIC_MECHANISM_EXTENT_DEPTH_PHASE_MODEL",
+        "precision": "PRESERVE_1_5ML_KG_PERCENT_PLUS_2000ML_AND_SECOND_DAY_RULE",
+        "visual": "BURN_DEPTH_AREA_AND_FLUID_VISUAL_REQUIRED",
+        "notes": "Refined endothelial leak, skin-depth regeneration, I-degree exclusion, resuscitation formula, blister/coverage and inhalation-injury bronchoscopy are already integrated in F4."
+      },
+      "last_reviewed_at": "2026-09-24"
     },
     {
       "id": "SUR27-U34",
@@ -604,8 +636,16 @@
         "C:H26",
         "C:H27"
       ],
-      "review": "REPROCESS_V2_REQUIRED",
-      "previous_review": "REQUIRED"
+      "review": "REPROCESS_V2_ACCEPTED_U30_U38",
+      "previous_review": "REQUIRED",
+      "reprocess_v2": {
+        "knowledge": "PRESERVE_EXISTING_CORE",
+        "learning": "PRESERVE_EXISTING_LOCAL_SOURCE_CONTROL_SEPSIS_AND_SPORE_MODELS",
+        "precision": "PRESERVE_CURRENT_SOURCE_IMMUNIZATION_AND_INCISION_DETAILS",
+        "visual": "HAND_SPACE_AND_INFECTION_VISUAL_WHEN_DECISIVE",
+        "notes": "Furuncle/carbuncle/cellulitis/erysipelas, hand-space infection, sepsis high/low response and tetanus/gas-gangrene distinctions are already distributed correctly across H25-H27."
+      },
+      "last_reviewed_at": "2026-09-24"
     },
     {
       "id": "SUR27-U35",
@@ -615,8 +655,16 @@
         "F:F5",
         "F:F6"
       ],
-      "review": "REPROCESS_V2_REQUIRED",
-      "previous_review": "REQUIRED"
+      "review": "REPROCESS_V2_ACCEPTED_U30_U38",
+      "previous_review": "REQUIRED",
+      "reprocess_v2": {
+        "knowledge": "PRESERVE_WITH_PRIOR_GLUCOSE_UPDATE",
+        "learning": "PRESERVE_EXISTING_URGENCY_RESERVE_PREP_RECOVERY_AND_WOUND_MODELS",
+        "precision": "PRESERVE_FASTING_2_4_6_6_8_GLUCOSE_AND_SUTURE_TIMING",
+        "visual": "POSTOP_POSITION_AND_WOUND_VISUAL_AS_NEEDED",
+        "notes": "Refined emergency-operation examples are treated as cross-chapter recall; F5 owns urgency/reserve and fasting/glucose, F6 owns postoperative timing/incision complications. Current Source rebind replaces old follow-along."
+      },
+      "last_reviewed_at": "2026-09-24"
     },
     {
       "id": "SUR27-U36",
@@ -626,8 +674,16 @@
         "F:F7",
         "F:F8"
       ],
-      "review": "REPROCESS_V2_REQUIRED",
-      "previous_review": "REQUIRED"
+      "review": "REPROCESS_V2_ACCEPTED_U30_U38",
+      "previous_review": "REQUIRED",
+      "reprocess_v2": {
+        "knowledge": "PRESERVE_EXISTING_CORE",
+        "learning": "PRESERVE_EXISTING_FUNCTION_AGENT_SPACE_LEVEL_MODELS",
+        "precision": "PRESERVE_CURRENT_SOURCE_DRUG_LIMITS_AND_LEVEL_LANDMARKS",
+        "visual": "CURRENT_ORIGINAL_ANESTHESIA_VISUAL_STILL_REQUIRED_FAIL_CLOSED_IF_UNAVAILABLE",
+        "notes": "Premedication, muscle-relaxant N2 logic, local-anesthetic Na-channel model, regional complication anatomy, neuraxial space/plane and total-spinal risk are already represented in F7/F8; no false visual closure."
+      },
+      "last_reviewed_at": "2026-09-24"
     },
     {
       "id": "SUR27-U37",
@@ -636,8 +692,16 @@
       "candidate_primary": [
         "A1:Block12"
       ],
-      "review": "REPROCESS_V2_REQUIRED",
-      "previous_review": "REQUIRED"
+      "review": "REPROCESS_V2_ACCEPTED_U30_U38",
+      "previous_review": "REQUIRED",
+      "reprocess_v2": {
+        "knowledge": "PRESERVE_EXISTING_CORE",
+        "learning": "PRESERVE_EXISTING_PULSE_LOW_PERFUSION_FAILURE_LAYER_MODEL",
+        "precision": "PRESERVE_SOURCE_BOUND_SHOCK_MONITORING_AND_FLUID_NUMBERS",
+        "visual": "HEMODYNAMIC_TABLES_SOURCE_BOUND",
+        "notes": "Refined shock notes are subsumed by the stronger A1 Block12 model: pulse first, true tissue perfusion, volume/pump/distribution/obstruction, microcirculation, CVP/PAWP and treatment matched to first failure layer."
+      },
+      "last_reviewed_at": "2026-09-24"
     },
     {
       "id": "SUR27-U38",
@@ -646,8 +710,16 @@
       "candidate_primary": [
         "F:F9"
       ],
-      "review": "REPROCESS_V2_REQUIRED",
-      "previous_review": "REQUIRED"
+      "review": "REPROCESS_V2_ACCEPTED_U30_U38",
+      "previous_review": "REQUIRED",
+      "reprocess_v2": {
+        "knowledge": "PRESERVE_EXISTING_SPLIT_OWNERSHIP_CORE",
+        "learning": "PRESERVE_EXISTING_F3_F9_OWNERSHIP_SPLIT_AND_MICRO_PRIMARY",
+        "precision": "PRESERVE_CURRENT_SOURCE_STERILITY_TRANSPLANT_TUMOR_SURFACE_MASS_DETAILS",
+        "visual": "P282_P285_SOURCE_VISUAL_REQUIRED_FOR_STERILE_FIELD_LAPAROSCOPY_AND_SURFACE_MASSES",
+        "notes": "Sterilization vs disinfection, open-wound handling, transplant/tumor recall, laparoscopy CO2 interface and surface-mass discrimination are already routed to F3/F9; delayed-closure taxonomy and full laparoscopy complication list remain fail-closed."
+      },
+      "last_reviewed_at": "2026-09-24"
     }
   ],
   "concurrency": {
