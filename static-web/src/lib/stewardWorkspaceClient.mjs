@@ -176,7 +176,7 @@ export function initStewardWorkspace(root) {
 
   const storage = window.localStorage;
   const $ = (selector) => root.querySelector(selector);
-  const $ = (selector) => [...root.querySelectorAll(selector)];
+  const queryAll = (selector) => [...root.querySelectorAll(selector)];
 
   let today = currentStudyDay();
   let weekCursor = today;
@@ -556,7 +556,7 @@ export function initStewardWorkspace(root) {
     root.querySelectorAll('[data-steward-view]').forEach((button) => {
       button.classList.toggle('active', button.dataset.stewardView === view);
     });
-    $$('[data-steward-view-panel]').forEach((panel) => {
+    queryAll('[data-steward-view-panel]').forEach((panel) => {
       panel.classList.toggle('active', panel.dataset.stewardViewPanel === view);
     });
 
@@ -571,19 +571,19 @@ export function initStewardWorkspace(root) {
   }
 
   function activateMode(mode) {
-    $$('[data-steward-mode]').forEach((button) => {
+    queryAll('[data-steward-mode]').forEach((button) => {
       button.classList.toggle('active', button.dataset.stewardMode === mode);
     });
-    $$('[data-steward-mode-panel]').forEach((panel) => {
+    queryAll('[data-steward-mode-panel]').forEach((panel) => {
       panel.classList.toggle('active', panel.dataset.stewardModePanel === mode);
     });
   }
 
 
-  $$('[data-steward-view]').forEach((button) => {
+  queryAll('[data-steward-view]').forEach((button) => {
     button.addEventListener('click', () => activateView(button.dataset.stewardView));
   });
-  $$('[data-steward-mode]').forEach((button) => {
+  queryAll('[data-steward-mode]').forEach((button) => {
     button.addEventListener('click', () => activateMode(button.dataset.stewardMode));
   });
 
