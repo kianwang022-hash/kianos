@@ -9,6 +9,7 @@ on:
       - 'content/english/LEARNING_CONTRACT.md'
       - 'content/english/manifest.json'
       - 'content/english/modules/writing/**'
+      - 'content/english/provenance.json'
       - 'content/english/source/question_bank.v1.json'
       - 'content/english/source/global_source_truth.v1.json'
       - 'static-web/package.json'
@@ -26,7 +27,9 @@ on:
       - 'static-web/src/pages/writing.astro'
       - 'static-web/src/pages/writing/**'
       - 'static-web/src/pages/writing-learn.astro'
+      - 'static-web/src/pages/index.astro'
       - 'static-web/scripts/*writing*.mjs'
+      - 'static-web/scripts/inspect-writing-source.mjs'
       - '.github/workflows/static-web-writing-qa.yml'
   pull_request:
     paths:
@@ -35,6 +38,7 @@ on:
       - 'content/english/LEARNING_CONTRACT.md'
       - 'content/english/manifest.json'
       - 'content/english/modules/writing/**'
+      - 'content/english/provenance.json'
       - 'content/english/source/question_bank.v1.json'
       - 'content/english/source/global_source_truth.v1.json'
       - 'static-web/package.json'
@@ -52,7 +56,9 @@ on:
       - 'static-web/src/pages/writing.astro'
       - 'static-web/src/pages/writing/**'
       - 'static-web/src/pages/writing-learn.astro'
+      - 'static-web/src/pages/index.astro'
       - 'static-web/scripts/*writing*.mjs'
+      - 'static-web/scripts/inspect-writing-source.mjs'
       - '.github/workflows/static-web-writing-qa.yml'
 
 concurrency:
@@ -75,6 +81,8 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Inspect Current Writing source boundary
+        run: node scripts/inspect-writing-source.mjs
       - name: Validate Writing acceptance evidence
         run: npm run validate:writing
       - name: Build Astro
