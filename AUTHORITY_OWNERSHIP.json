@@ -33,7 +33,12 @@
     "exam_orchestrator_current": {
       "path": "EXAM_ORCHESTRATOR_CURRENT.json",
       "source": "EXAM_ORCHESTRATOR_CONTRACT.md",
-      "authority": "DERIVED_PROJECTION"
+      "authority": "DERIVED_PROJECTION",
+      "freshness": {
+        "mode": "VALIDATED_AGAINST_CURRENT_SOURCE",
+        "validator": "static-web/scripts/validate-exam-orchestrator-current.mjs",
+        "workflow": ".github/workflows/exam-orchestrator-current.yml"
+      }
     }
   },
   "conditional_boundaries": {
