@@ -202,8 +202,8 @@ For an accepted System such as A1, the review set normally includes:
 
 Examples:
 
-### Discussing System Guide
-Do not read only `XizongSystemV6.astro`. Also understand:
+### Discussing System Framework
+Do not read only `XizongSystemWorkspace.astro`. Also understand:
 
 ```text
 System orientation
