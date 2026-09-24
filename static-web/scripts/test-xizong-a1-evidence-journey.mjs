@@ -138,13 +138,34 @@ try {
   await cdp.evaluate('sessionStorage.clear()');
   await cdp.reload();
   const allB2KpIds = b2.kpRecords.map((row) => row.kpId);
-  await setLocalFixture(cdp, b2StudyKey, {
-    stage:'kp_recall', groupIndex:0, kpIndex:0, sourceContactDone:true,
-    learned:Object.fromEntries(allB2KpIds.map((id) => [id, true])),
-    ratings:{}, ttsxEvidence:{}, ttsxAnnotations:{}, pendingTtsx:null,
-    blockRecallDone:false, completed:false
-  });
   await cdp.reload();
+  await cdp.send('Page.bringToFront');
+  let writerReady = false;
+  for (let i = 0; i < 40; i += 1) {
+    writerReady = await cdp.evaluate(`document.documentElement.dataset.learnerWriter === 'active'`);
+    if (writerReady) break;
+    await sleep(50);
+  }
+  check(writerReady, 'learner_writer_active_for_evidence_journey');
+
+  const visibleStage = () => cdp.evaluate(`document.querySelector('[data-study-stage]:not([hidden])')?.getAttribute('data-study-stage') || ''`);
+  check(await visibleStage() === 'block_learn', 'clean_a1_evidence_fixture_starts_at_orientation');
+  await cdp.evaluate(clickExpr('[data-stage-next="logic_group"]'));
+  await sleep(100);
+  check(await visibleStage() === 'source_contact', 'a1_evidence_enters_current_source_contact');
+  await cdp.evaluate(clickExpr('[data-source-contact-done]'));
+  await sleep(120);
+  let stageAfterSource = await visibleStage();
+  if (stageAfterSource === 'ttsx_checkpoint') {
+    await cdp.evaluate(clickExpr('[data-ttsx-done]'));
+    await sleep(120);
+    stageAfterSource = await visibleStage();
+  }
+  check(stageAfterSource === 'kp_recall', 'a1_evidence_source_contact_enters_recall', stageAfterSource);
+  const postSourceState = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(b2StudyKey)})||'null')`);
+  check(postSourceState?.sourceContactDone === true, 'a1_evidence_source_contact_persisted');
+  check(Object.values(postSourceState?.learned || {}).filter(Boolean).length === allB2KpIds.length, 'a1_evidence_source_contact_releases_all_kps');
+
   check(await cdp.evaluate(`document.querySelectorAll('.xv6MemoryReview').length`) === 0, 'retired_after_learn_ui_absent');
   check(await cdp.evaluate(`Boolean(document.querySelector('[data-xizong-recall-evidence-bridge]')?.hidden)`), 'recall_evidence_bridge_is_nonvisual');
   check(await cdp.evaluate(`Boolean(document.querySelector('[data-xizong-memory-release-bridge]')?.hidden)`), 'memory_release_bridge_is_nonvisual');
