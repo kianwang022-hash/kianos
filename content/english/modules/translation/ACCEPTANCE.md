@@ -8,6 +8,23 @@ This file owns current **Acceptance Truth** for Translation. It does not own con
 
 ---
 
+## Current main reconciliation — after English final integration
+
+The earlier final-audit section below predates integration of the tested candidate. Current merged-main authority for the integration boundary is `content/english/ACCEPTANCE.md` (PR #498).
+
+Current local claim:
+
+```text
+S/K/L/P/R/E  ACCEPTED for the tested Translation scope on integrated main
+U            UNTESTED — real learner use only
+```
+
+Whole-set first output, reference protection, immutable first output, exact typed return and learner reconstruction remain the accepted local Translation behavior. Older “candidate / until integrated” language below is historical audit provenance, not current blocking status.
+
+This file owns Translation-scoped Acceptance only; English-wide cross-module/release claims remain upstream.
+
+
+
 > **Architecture-v2 interpretation:** the S/K/L/P/R/E labels below are preserved as historical Acceptance dimensions only. They do not define Current architecture layers or canonical owners. Current ownership remains Rule / Model → Content / Visual / Engineering; this file owns Acceptance Truth only.
 
 
