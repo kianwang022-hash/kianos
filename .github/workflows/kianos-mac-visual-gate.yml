@@ -13,6 +13,9 @@ on:
       - 'static-web/scripts/test-home-mac-visual.mjs'
       - 'static-web/src/styles/visual-convergence.css'
       - 'static-web/src/styles/shared-shell.css'
+      - 'static-web/src/styles/english*.css'
+      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/scripts/test-english-l1-typography-mac.mjs'
       - 'static-web/src/styles/xizong-practice-workspace.css'
       - 'static-web/src/components/XizongPracticeWorkbench.astro'
       - 'static-web/src/pages/xizong/practice/**'
@@ -45,6 +48,9 @@ on:
       - 'static-web/scripts/test-home-mac-visual.mjs'
       - 'static-web/src/styles/visual-convergence.css'
       - 'static-web/src/styles/shared-shell.css'
+      - 'static-web/src/styles/english*.css'
+      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/scripts/test-english-l1-typography-mac.mjs'
       - 'static-web/src/styles/xizong-practice-workspace.css'
       - 'static-web/src/components/XizongPracticeWorkbench.astro'
       - 'static-web/src/pages/xizong/practice/**'
@@ -112,6 +118,9 @@ jobs:
       - name: Verify Chromium can use PingFang
         run: node scripts/verify-macos-pingfang.mjs
 
+      - name: Verify English L1 Mac typography
+        run: node scripts/test-english-l1-typography-mac.mjs
+
       - name: Capture Home Mac visual evidence
         run: node scripts/test-home-mac-visual.mjs
 
@@ -123,6 +132,14 @@ jobs:
 
       - name: Capture Xizong Block Mac visual evidence
         run: node scripts/test-xizong-block-workspace.mjs
+
+      - name: Upload English Mac typography evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: english-mac-typography-${{ github.sha }}
+          path: english-mac-typography-audit/
+          retention-days: 14
 
       - name: Upload Home Mac visual evidence
         if: always()
