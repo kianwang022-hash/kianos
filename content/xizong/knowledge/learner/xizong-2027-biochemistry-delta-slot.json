@@ -196,7 +196,7 @@
       "received_at": "2026-09-24",
       "markdown_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md"
     },
-    "action_now": "M1–M4_CANONICAL_HIERARCHY_AND_DIRECT_MAPPING_CLOSED; NEXT=M5–M7_LIPID_CANONICAL_HIERARCHY_REBASE",
+    "action_now": "M1–M7_CANONICAL_HIERARCHY_AND_DIRECT_MAPPING_CLOSED; NEXT=M8_AMINO_NITROGEN_ONE_CARBON_CANONICAL_HIERARCHY_REBASE",
     "delta_audit": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
     "delta_summary": {
       "preserve": "M1–M10 + G1–G5 topology and most Current Core",
@@ -221,14 +221,13 @@
       "batch_1_carbohydrate_energy": "ANALYZED",
       "batch_2_lipid": "ANALYZED",
       "remaining": [
-        "M5–M7 lipid branch full Source rebind + downstream closure",
         "M8 amino-acid/nitrogen/one-carbon",
         "M9 nucleotide",
         "M10 heme/bilirubin/biotransformation",
         "G1-G5 molecular branch",
         "System/cross-System logic + Learning/Content reacceptance"
       ],
-      "key_finding": "Initial audit found all 15 M/G Blocks on the old 26 Source basis. M1–M4 are now rebuilt on current 27 Source with explicit canonical hierarchies and direct Source→Knowledge→Learning mapping; M5–M10/G1–G5 remain in the bounded rebase.",
+      "key_finding": "M1–M7 are now rebuilt on current 27 Source with explicit canonical hierarchies and direct Source→Knowledge→Learning mapping; M8–M10/G1–G5 remain in the bounded rebase.",
       "batch_M1_protein_enzyme_vitamin": {
         "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
         "current_source": {
@@ -357,6 +356,35 @@
         "question_relations": "PRESERVE_EXISTING_REVIEWED_RELATIONS: KP identities, medical semantics and owner boundaries did not change; lecture-attached Source coverage changes do not create or infer official Question→KP relations.",
         "explanations": "PRESERVE_EXISTING_EXPLANATIONS unless a later semantic repair changes a target mechanism/precision/boundary.",
         "website": "No static-web content edit. Existing website mapping consumes GitHub canonical content and relations."
+      },
+      "batch_M5_M7_lipid": {
+        "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
+        "source_units": [
+          "BIO27-S05",
+          "BIO27-S06",
+          "BIO27-S07"
+        ],
+        "blocks": {
+          "M5": {
+            "shape": "1 mother model → 3 layers → 10 stable KPs",
+            "questions": "5/5",
+            "closure": "S05/P030"
+          },
+          "M6": {
+            "shape": "1 mother model → 3 layers → 11 stable KPs",
+            "questions": "9/9",
+            "closure": "S06/P035",
+            "repair": "retired old 26 phospholipase→DAG universal conflict; current 27 P033 has explicit differentiated cleavage map"
+          },
+          "M7": {
+            "shape": "1 mother model → 4 layers → 16 stable KPs",
+            "questions": "19/19; +2025N19 +2025N143",
+            "closure": "S07/P044",
+            "repair": "retired old 26 phosphatidic-acid→DAG PLC conflict; current 27 P037 identifies phosphatidic acid phosphatase"
+          }
+        },
+        "mapping": "S05–S07 mapped directly to M5–M7 canonical layers; Learning consumes global map without duplicate Source registries.",
+        "website": "No static-web edit; existing website mapping consumes GitHub canonical truth."
       }
     },
     "learning_design_decision": {
