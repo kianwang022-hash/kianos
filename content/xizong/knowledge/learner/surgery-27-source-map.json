@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.surgery_27_source_map.v1",
-  "status": "REPROCESS_V3_ARCHITECTURE_RECONCILIATION_ACTIVE",
+  "status": "REPROCESS_V3_DOWNSTREAM_COMPLETE_ACCEPTANCE_PENDING",
   "source_cycle": "27考研",
   "domain": "Surgery",
   "source_identity": {
@@ -2441,6 +2441,12 @@
         "commit": "19154f3de32bb9a23f30e3382167065a7d3e6419"
       },
       "result": "No UI/render redesign; all affected compiled Projection consumers remain semantically resolvable after Surgery rebase."
+    },
+    "downstream_revalidation": {
+      "q_status": "PASS_TARGETED_NO_CANONICAL_Q_OR_X_MUTATION_REQUIRED",
+      "x_status": "PASS_TARGETED_NO_CANONICAL_Q_OR_X_MUTATION_REQUIRED",
+      "evidence_status": "CLASSIFIED_AND_RUNTIME_GAP_REPAIRED",
+      "acceptance_status": "PENDING_EXACT_SYSTEM_OWNER_RECONCILIATION_AND_FINAL_QA"
     }
   }
 }

@@ -309,8 +309,8 @@
         "completed_scope": [
           "SUR27-U01-U38"
         ],
-        "result": "Architecture reconciliation complete at Source→existing Block/LG/KP/content-family level. Framework/Memory/Precision/Visual/Connection remain canonical content jobs, not derived L layers. Stable KP identity/order preserved.",
-        "next": "Revalidate Q/X only for true semantic changes; classify source-revision evidence impact; reconcile scoped CURRENT/ACCEPTANCE."
+        "result": "S/K/L/C/P architecture and content reconciliation complete; targeted Q/X revalidation complete; evidence revision impact classified and Memory revision-refresh defect repaired.",
+        "next": "Reconcile exact affected System CURRENT/ACCEPTANCE owners, read final Static Web Xizong QA for the current head, then close the Surgery task."
       },
       "projection_revalidation": {
         "status": "TARGETED_COMPILED_BINDINGS_REVALIDATED",
@@ -376,6 +376,94 @@
           "E10 visual gap restored fail-closed because its required inflammatory-mimic visual is not actually supplied"
         ],
         "acceptance_effect": "No System/Block/LG/KP identity change. E Source/Learning acceptance wording reconciled; prior broad claim that E9/E10/E11 all had visual gaps is retired."
+      },
+      "downstream_revalidation": {
+        "question_and_explanation": {
+          "status": "PASS_TARGETED_NO_CANONICAL_Q_OR_X_MUTATION_REQUIRED",
+          "current_owner_blobs": {
+            "D21": "6c2f9d8ca940eb3a4aa10660a3d1fa9bbfa553ee",
+            "D11": "21b053bbb6fa35bff4a4b045213b57ed8f5c7066",
+            "D17": "60013d90a1fccb9dbe94749da73ebd8d6e036f7d",
+            "O3": "b09e6ae3b0dffa07c2aa193778ecd50c17834d0a"
+          },
+          "q_review": {
+            "rule": "Revalidate only relations whose tested decision axis could be affected by the real Surgery semantic changes; do not rescan or rewrite the 3750-question corpus.",
+            "D21": {
+              "checked_question_ids": [
+                "xizong-official-2010-n083",
+                "xizong-official-2020-n097",
+                "xizong-official-2022-n097",
+                "xizong-official-2022-n098",
+                "xizong-official-2022-n099",
+                "xizong-official-2023-n062",
+                "xizong-official-2025-n063",
+                "xizong-official-2026-n134"
+              ],
+              "result": "Existing reviewed targets remain semantically valid. New neck-mass/cystic-hemorrhage/surgery-decision framing clarifies boundaries without changing the stable target identities."
+            },
+            "D11": {
+              "checked_scope": "All reviewed D11 relations were screened for dependence on the newly added esophageal radiotherapy/surgical rationale.",
+              "result": "No reviewed relation depends on the newly added rationale in a way that changes target identity or official-answer reasoning. Existing D11 mappings remain valid."
+            },
+            "D17": {
+              "checked_question_ids": [
+                "xizong-official-2005-n101",
+                "xizong-official-2006-n099",
+                "xizong-official-2013-n087",
+                "xizong-official-2020-n133",
+                "xizong-official-2025-n135"
+              ],
+              "result": "Existing reviewed relations already encode the same surgical objective/strategy boundary: prevent/control variceal bleeding; distinguish devascularization vs shunt/TIPS. No target mutation required."
+            },
+            "O3": {
+              "checked_question_ids": [
+                "xizong-official-2014-n120"
+              ],
+              "result": "Existing block-level relation remains correct. Current explanation already states decompression plus restoration of stability, matching the new explicit boundary that surgery does not reverse irreversible cord injury."
+            },
+            "provenance_boundary": "Existing relation knowledge_blob_sha remains the historical blob reviewed at the original relation decision. Runtime re-resolves stable Block/KP identity against Current Knowledge. This revalidation receipt records the Current-owner check without rewriting historical provenance."
+          },
+          "x_review": {
+            "checked_question_ids": [
+              "xizong-official-2005-n101",
+              "xizong-official-2006-n099",
+              "xizong-official-2010-n083",
+              "xizong-official-2013-n087",
+              "xizong-official-2014-n120",
+              "xizong-official-2020-n097",
+              "xizong-official-2020-n133",
+              "xizong-official-2023-n062",
+              "xizong-official-2025-n063",
+              "xizong-official-2025-n135",
+              "xizong-official-2026-n134"
+            ],
+            "result": "Learner-facing explanations already express the accepted Current decision axes and Source boundaries; no explanation text mutation is needed."
+          }
+        },
+        "evidence": {
+          "status": "CLASSIFIED_AND_RUNTIME_GAP_REPAIRED",
+          "block_first_pass_evidence": {
+            "classification": "STALE_AS_CURRENT / PRESERVE_AS_ARCHIVED_HISTORY",
+            "mechanism": "XizongBlockEvidenceGuard evidenceVersion includes Block sourceHash + System sourceHash + Learning sourceHash. Revision mismatch archives prior study/personal/extension/repair payload, resets Current study/repair evidence, and preserves private KP annotation payload while requiring current-version reconfirmation."
+          },
+          "memory_evidence": {
+            "classification": "PRESERVE_HISTORICAL_EVIDENCE + REFRESH_CURRENT_CARD_CONTENT",
+            "defect_found": "Already-released Memory cards previously returned ALREADY_RELEASED after canonical Block revision, leaving stale Core/Precision payloads.",
+            "repair_commits": [
+              "689e72bf69e958f8a052834357bf1b6ccc844c4d",
+              "3203f0fd29f789ffaba254ee5df91c21868d7187"
+            ],
+            "current_behavior": "Stable card identity is refreshed from the Current learner object on source/content revision; old Memory evidence is preserved; contentChangedAt makes prior evidence due as CONTENT_CHANGED_AFTER_LAST_EVIDENCE; old first-pass weak signals are not replayed."
+          },
+          "question_attempt_evidence": {
+            "classification": "PRESERVE",
+            "reason": "Question Truth / question semantic revision did not change in this Surgery rebase. Knowledge/source rebind does not rewrite the historical correctness of an official-question attempt."
+          },
+          "system_derived_evidence": {
+            "classification": "REVALIDATE_FROM_CURRENT_BLOCK_EVIDENCE",
+            "reason": "Current System/Resume release already consumes current-version Block evidence and must not infer Current completion from archived stale Block state."
+          }
+        }
       }
     }
   },
