@@ -11,9 +11,16 @@ This file owns B readiness claims only. It does not own medical Core, Learning s
 ## Current B readiness
 
 ```text
-S / K / L / P / R / E   PASS for the currently admitted B scope and tested paths
-U                       UNTESTED — real learner use only
+S PASS
+K PASS
+L PASS
+P PASS
+R PASS
+E PASS
+U UNTESTED — real learner use only
 ```
+
+The separate lines above are also the existing machine-readable gate surface used by KianOS projection discovery; keep them explicit rather than compressing them into a combined prose status.
 
 Current claim boundaries:
 
