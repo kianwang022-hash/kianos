@@ -1,5 +1,5 @@
-// Shared learner-facing navigation hierarchy only.
-// Canonical domain ownership remains with its existing lane owners.
+// Shared KianOS L1 product-navigation implementation only.
+// Product/domain semantics remain with Architecture and the exact product/lane owners.
 
 export function globalNavigation(base = '/') {
   return [

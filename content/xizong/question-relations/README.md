@@ -12,11 +12,15 @@ Coverage counts are owned by `manifest.json`; do not copy a hand-maintained fixe
 
 Current rules:
 
-- positive mapping truth exists only as a `REVIEWED` row under this owner;
+- positive mapping review evidence exists only as a `REVIEWED` row under this owner;
+- `REVIEWED` records the semantic judgment against a specific Knowledge revision; it is not by itself a claim that the row is still Current;
+- Current consumers recompute revision freshness from `knowledge_path` + the effective reviewed-against blob witness (`knowledge_revalidated_blob_sha` when present, otherwise `knowledge_blob_sha`);
+- a revision mismatch becomes `STALE_REVIEW_WITNESS` / needs re-review and is excluded from Current learner-facing Crosswalk consumption until revalidated;
+- the manifest reviewed count is a storage/review-evidence count, not Current-admissible coverage;
 - inferred relations: 0;
 - unresolved / no-safe mappings remain outside this owner;
-- missing mapping is a legal state and does not block practice;
-- reverse lookup is derived from these rows and is never separately authored.
+- missing or stale mapping is a legal fail-closed state and does not block practice;
+- reverse lookup is derived only from freshness-admissible reviewed rows and is never separately authored.
 
 ## Compilation stages
 
@@ -48,4 +52,6 @@ A periodic full regression is automatically re-enabled when an accepted batch cr
 
 `static-web/scripts/build-xizong-kp-lookup-index.mjs` creates a derived review-acceleration index with KP id, Block/System identity, exact title/snippet, canonical path and current Git blob SHA. The index is **not semantic authority** and never authorizes a Mapping by itself; it only reduces mechanical lookup calls before Chat reads the exact Current owner.
 
-When new reviewed rows are staged, do not hand-edit canonical shards. The materializer owns routing, duplicate rejection, canonical append/sort, staging deletion, manifest synchronization and continuation advance. The existing Crosswalk consumer should become more precise automatically without product/UI redevelopment.
+When new reviewed rows are staged, do not hand-edit canonical shards. The materializer owns routing, duplicate rejection, canonical append/sort, staging deletion, manifest synchronization and continuation advance, and rejects a staged row whose reviewed Knowledge witness is already stale against Current. The existing Crosswalk consumer should become more precise automatically without product/UI redevelopment.
+
+Knowledge revisions do not rewrite old review evidence. The freshness resolver used by audit + materializer + Current Crosswalk consumer supplies the current review status. Broad historical REVIEWED storage may therefore coexist with a smaller Current-admissible set without silently treating stale decisions as Current.

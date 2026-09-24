@@ -1,3 +1,4 @@
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -10,8 +11,21 @@ const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-xizong-crosswalk-
 const ownerRoot = path.join(tempRoot, 'content/xizong/question-relations');
 const shardRoot = path.join(ownerRoot, 'shards/2099');
 const pendingRoot = path.join(ownerRoot, 'pending-reviewed-batches');
+const knowledgePath = 'content/xizong/knowledge/test.md';
+const knowledgeAbsolute = path.join(tempRoot, knowledgePath);
 fs.mkdirSync(shardRoot, { recursive: true });
 fs.mkdirSync(pendingRoot, { recursive: true });
+fs.mkdirSync(path.dirname(knowledgeAbsolute), { recursive: true });
+const knowledgeBody = 'synthetic current knowledge owner\n';
+fs.writeFileSync(knowledgeAbsolute, knowledgeBody);
+const knowledgeBuffer = Buffer.from(knowledgeBody, 'utf8');
+const knowledgeBlobSha = crypto.createHash('sha1')
+  .update(Buffer.concat([
+    Buffer.from(`blob ${knowledgeBuffer.length}`, 'utf8'),
+    Buffer.from([0]),
+    knowledgeBuffer
+  ]))
+  .digest('hex');
 
 const existing = [{ question_id: 'xizong-official-2099-n001' }];
 fs.writeFileSync(path.join(shardRoot, 'q001-025.json'), `${JSON.stringify(existing)}\n`);
@@ -32,8 +46,8 @@ const incoming = [{
   provenance: {
     question_truth_path: 'content/xizong/questions/shards/2099/q001-025.json',
     question_truth_blob_sha: 'question-sha',
-    knowledge_path: 'content/xizong/knowledge/test.md',
-    knowledge_blob_sha: 'knowledge-sha'
+    knowledge_path: knowledgePath,
+    knowledge_blob_sha: knowledgeBlobSha
   },
   review: {
     semantic_owner: 'Chat',
@@ -63,7 +77,24 @@ try {
   if (JSON.stringify(growth?.added_question_ids) !== JSON.stringify(['xizong-official-2099-n002'])) {
     throw new Error('continuation_question_ids_failed');
   }
-  console.log('XIZONG_CROSSWALK_THROUGHPUT_OK materialize=PASS continuation=1->2 staging=deleted');
+
+  fs.mkdirSync(pendingRoot, { recursive: true });
+  const staleIncoming = [{
+    ...incoming[0],
+    question_id: 'xizong-official-2099-n003',
+    provenance: { ...incoming[0].provenance, knowledge_blob_sha: 'stale-witness' }
+  }];
+  fs.writeFileSync(path.join(pendingRoot, 'stale.json'), `${JSON.stringify(staleIncoming, null, 2)}\n`);
+  const staleRun = spawnSync(process.execPath, [materializer], {
+    cwd: webRoot,
+    env: { ...process.env, KIANOS_REPO_ROOT: tempRoot },
+    encoding: 'utf8'
+  });
+  if (staleRun.status === 0 || !String(staleRun.stderr || staleRun.stdout).includes('XIZONG_REVIEWED_BATCH_STALE_KNOWLEDGE_WITNESS')) {
+    throw new Error(`stale_witness_not_rejected:${staleRun.stderr || staleRun.stdout}`);
+  }
+
+  console.log('XIZONG_CROSSWALK_THROUGHPUT_OK materialize=PASS continuation=1->2 stale_witness=REJECTED');
 } finally {
   fs.rmSync(tempRoot, { recursive: true, force: true });
 }

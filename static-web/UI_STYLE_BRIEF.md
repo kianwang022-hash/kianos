@@ -357,10 +357,9 @@ stable subject-wide capabilities does not need an invented L2 bar. Reuse the sha
 shell; let the exact task own its geometry. Current global destinations are defined
 by `src/lib/sharedNavigation.mjs`, not by examples in a proposal.
 
-For the proposed Steward destination, Today / Week / Month express one time model
-at different scales. Day-local schedule / nutrition / training controls remain
-within that workspace; neither control group creates another global navigation.
-This is a design mapping, not a claim that Steward is already shipped.
+For Steward, Today / Week / Month express one time model at different scales.
+Day-local schedule / nutrition / training controls remain within that workspace;
+neither control group creates another global navigation.
 
 Current English example:
 

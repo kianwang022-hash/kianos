@@ -115,7 +115,7 @@ assert.equal(pending.status,'REVISION_PENDING');
 assert.equal(pending.blocked,true);
 
 // Browser owner must reopen completion and require current Source contact + Block Recall.
-const component=fs.readFileSync('static-web/src/components/XizongBlockV6.astro','utf8');
+const component=fs.readFileSync(new URL('../src/components/XizongBlockV6.astro', import.meta.url),'utf8');
 assert.match(component,/sourceRevisionPending: true/);
 assert.match(component,/sourceRevisionReason: evidenceSourceHash \? 'SOURCE_REVISION_CHANGED' : 'SOURCE_IDENTITY_UNBOUND'/);
 assert.match(component,/completed: false/);
@@ -214,7 +214,7 @@ assert.ok(prepareXizongPrivateCheckpointRestore(retiredStorage, currentBackup).c
 // This tests storage failure ordering; real route/browser acceptance is separate.
 const vm = await import('node:vm');
 const { normalizeXizongMemoryState, XIZONG_MEMORY_STORAGE_KEY } = await import('../src/lib/xizongMemoryModel.mjs');
-const guardSource = fs.readFileSync('static-web/src/components/XizongSystemEvidenceGuard.astro', 'utf8');
+const guardSource = fs.readFileSync(new URL('../src/components/XizongSystemEvidenceGuard.astro', import.meta.url), 'utf8');
 const guardScript = guardSource.match(/<script>\s*([\s\S]*?)<\/script>/)[1].replace(/^\s*import[^;]+;/gm, '');
 for (const failure of ['archive', 'sweep', 'meta', null]) {
   class Element { constructor(attrs = {}) { this.attrs = attrs; this.inert = false; } getAttribute(key) { return this.attrs[key]; } before() {} setAttribute() {} }

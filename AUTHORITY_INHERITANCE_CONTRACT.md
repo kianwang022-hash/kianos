@@ -254,13 +254,11 @@ shared platform contract
 
 Subject surfaces may own second-level information architecture and local composition. They must not recreate the global `K` rail, maintain a second top-level product tree, or locally override global route identity.
 
-The accepted learner-facing top level is:
+The concrete Current L1 membership is **not duplicated in this contract**.
 
-```text
-Home / Xizong / Politics / English
-```
+`ARCHITECTURE.md` owns product-navigation semantics; `AUTHORITY_OWNERSHIP.json` registers the one shared navigation implementation owner at `static-web/src/lib/sharedNavigation.mjs`; `static-web/CURRENT.md` owns current website implementation/status. This contract owns only the invariant that there is one global rail and downstream surfaces consume it rather than recreating or mirroring its membership.
 
-Vocabulary and External Reading are English children at the learner-facing navigation layer even when their backend/canonical ownership is more granular.
+Learner-product placement such as English child functions is resolved from the current Architecture / exact product owner, not restated here as another mutable navigation list.
 
 ### Shared capability runtime
 

@@ -68,6 +68,8 @@ jobs:
           node-version: '22'
       - name: Validate relation manifest synchronization
         run: node scripts/sync-xizong-question-relations-manifest.mjs --check
+      - name: Audit reviewed Question→Knowledge freshness
+        run: node scripts/audit-xizong-reviewed-relation-freshness.mjs --out .qa/xizong-relation-freshness.json
       - name: Install dependencies
         run: npm install --no-audit --no-fund
       - name: Validate shared Current semantic adapter

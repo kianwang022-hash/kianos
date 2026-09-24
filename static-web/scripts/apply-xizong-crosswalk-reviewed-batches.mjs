@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createXizongReviewedRelationFreshnessResolver } from '../src/lib/xizongReviewedRelationFreshness.mjs';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const repoRoot = process.env.KIANOS_REPO_ROOT
@@ -12,6 +13,7 @@ const pendingRoot = path.join(ownerRoot, 'pending-reviewed-batches');
 const manifestPath = path.join(ownerRoot, 'manifest.json');
 const continuationPath = path.join(ownerRoot, 'continuation.json');
 const qidPattern = /^xizong-official-(\d{4})-n(\d{3})$/;
+const resolveRelationFreshness = createXizongReviewedRelationFreshnessResolver({ repoRoot });
 
 function pad3(value) { return String(value).padStart(3, '0'); }
 function shardRelativePath(questionId) {
@@ -36,6 +38,10 @@ function validateRow(row, batchPath) {
   if (!String(row?.review?.basis || '').trim()) throw new Error(`XIZONG_REVIEWED_BATCH_MISSING_BASIS:${batchPath}:${qid}`);
   for (const field of ['question_truth_path', 'question_truth_blob_sha', 'knowledge_path', 'knowledge_blob_sha']) {
     if (!String(row?.provenance?.[field] || '').trim()) throw new Error(`XIZONG_REVIEWED_BATCH_MISSING_${field.toUpperCase()}:${batchPath}:${qid}`);
+  }
+  const freshness = resolveRelationFreshness(row);
+  if (freshness.status !== 'CURRENT') {
+    throw new Error(`XIZONG_REVIEWED_BATCH_STALE_KNOWLEDGE_WITNESS:${batchPath}:${qid}:${freshness.status}`);
   }
   return qid;
 }

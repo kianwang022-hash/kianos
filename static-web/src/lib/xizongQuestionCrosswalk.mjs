@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { listProjectableXizongSystems, loadXizongBlock } from './xizong.mjs';
+import { createXizongReviewedRelationFreshnessResolver } from './xizongReviewedRelationFreshness.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -9,6 +10,7 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 
 const RELATION_ROOT = 'content/xizong/question-relations';
 const QUESTION_ROOT = 'content/xizong/questions';
+const resolveRelationFreshness = createXizongReviewedRelationFreshnessResolver({ repoRoot });
 
 let reviewedIndexCache = null;
 let systemRegistryCache = null;
@@ -50,6 +52,7 @@ function normalizeReviewedRow(row) {
   if (!row || row.review_status !== 'REVIEWED') return null;
   const questionId = String(row.question_id || '');
   routeForQuestionId(questionId);
+  const freshness = resolveRelationFreshness(row);
   return {
     questionId,
     sourceSystemId: String(row.system_id || ''),
@@ -58,7 +61,12 @@ function normalizeReviewedRow(row) {
     primaryKpId: String(row.primary_kp_id || ''),
     supportingKpIds: [...new Set((Array.isArray(row.supporting_kp_ids) ? row.supporting_kp_ids : []).map(String).filter(Boolean))],
     reviewedBridgeTargetRefs: Array.isArray(row.reviewed_bridge_target_refs) ? row.reviewed_bridge_target_refs : [],
-    knowledgeOwnerPath: String(row?.provenance?.knowledge_path || ''),
+    knowledgeOwnerPath: freshness.knowledge_path,
+    knowledgeBlobSha: freshness.knowledge_blob_sha || '',
+    knowledgeRevalidatedBlobSha: freshness.knowledge_revalidated_blob_sha || '',
+    effectiveReviewWitness: freshness.effective_review_witness || '',
+    currentKnowledgeBlobSha: freshness.current_blob_sha || '',
+    reviewFreshnessStatus: freshness.status,
     reviewStatus: 'REVIEWED'
   };
 }
@@ -75,6 +83,7 @@ function loadReviewedIndex() {
 
   const relations = [];
   const byQuestionId = new Map();
+  const freshnessCounts = { CURRENT: 0, STALE_REVIEW_WITNESS: 0, OWNER_MISSING: 0, WITNESS_MISSING: 0 };
   for (const shardMeta of storage.shards) {
     const relativePath = `${RELATION_ROOT}/${String(shardMeta?.path || '')}`;
     if (!shardMeta?.path || !fs.existsSync(absolute(relativePath))) {
@@ -96,6 +105,7 @@ function loadReviewedIndex() {
       }
       relations.push(relation);
       byQuestionId.set(relation.questionId, relation);
+      freshnessCounts[relation.reviewFreshnessStatus] = (freshnessCounts[relation.reviewFreshnessStatus] || 0) + 1;
     }
   }
 
@@ -105,6 +115,9 @@ function loadReviewedIndex() {
 
   reviewedIndexCache = {
     reviewedRelationCount: relations.length,
+    currentReviewedRelationCount: freshnessCounts.CURRENT || 0,
+    nonCurrentReviewedRelationCount: relations.length - (freshnessCounts.CURRENT || 0),
+    freshnessCounts,
     relations,
     byQuestionId
   };
@@ -281,8 +294,44 @@ function questionSummary(questionId) {
   };
 }
 
+export function inspectXizongQuestionRelationFreshness(questionId) {
+  const row = loadReviewedIndex().byQuestionId.get(String(questionId || '')) || null;
+  if (!row) {
+    return {
+      questionId: String(questionId || ''),
+      reviewStatus: 'MISSING',
+      freshnessStatus: 'NO_REVIEWED_RELATION',
+      current: false
+    };
+  }
+  return {
+    questionId: row.questionId,
+    reviewStatus: row.reviewStatus,
+    freshnessStatus: row.reviewFreshnessStatus,
+    current: row.reviewFreshnessStatus === 'CURRENT',
+    knowledgeOwnerPath: row.knowledgeOwnerPath,
+    currentKnowledgeBlobSha: row.currentKnowledgeBlobSha,
+    effectiveReviewWitness: row.effectiveReviewWitness
+  };
+}
+
+export function xizongQuestionRelationFreshnessSummary() {
+  const index = loadReviewedIndex();
+  return {
+    reviewedRelationCount: index.reviewedRelationCount,
+    currentReviewedRelationCount: index.currentReviewedRelationCount,
+    nonCurrentReviewedRelationCount: index.nonCurrentReviewedRelationCount,
+    freshnessCounts: { ...index.freshnessCounts },
+    sampleNonCurrentRelations: index.relations
+      .filter((row) => row.reviewFreshnessStatus !== 'CURRENT')
+      .slice(0, 20)
+      .map((row) => ({ questionId: row.questionId, freshnessStatus: row.reviewFreshnessStatus }))
+  };
+}
+
 export function loadReviewedXizongQuestionRelation(questionId) {
   const row = loadReviewedIndex().byQuestionId.get(String(questionId || '')) || null;
+  if (!row || row.reviewFreshnessStatus !== 'CURRENT') return null;
   return projectRelation(row);
 }
 
@@ -298,9 +347,12 @@ export function loadXizongQuestionCrosswalkForBlock(block) {
     currentAliases.add(String(block.systemId));
   }
 
-  const rawRelations = loadReviewedIndex().relations.filter((row) => (
+  const index = loadReviewedIndex();
+  const matchingRelations = index.relations.filter((row) => (
     row.blockId === block.blockId && currentAliases.has(row.sourceSystemId)
   ));
+  const rawRelations = matchingRelations.filter((row) => row.reviewFreshnessStatus === 'CURRENT');
+  const staleReviewedQuestionCount = matchingRelations.length - rawRelations.length;
   const questions = rawRelations
     .map(projectRelation)
     .filter(Boolean)
@@ -348,8 +400,11 @@ export function loadXizongQuestionCrosswalkForBlock(block) {
 
   return {
     blockId: block.blockId,
-    reviewedRelationCount: loadReviewedIndex().reviewedRelationCount,
+    reviewedRelationCount: index.reviewedRelationCount,
+    currentReviewedRelationCount: index.currentReviewedRelationCount,
+    nonCurrentReviewedRelationCount: index.nonCurrentReviewedRelationCount,
     reviewedQuestionCount: questions.length,
+    staleReviewedQuestionCount,
     logicGroups,
     blockOnlyQuestions
   };
