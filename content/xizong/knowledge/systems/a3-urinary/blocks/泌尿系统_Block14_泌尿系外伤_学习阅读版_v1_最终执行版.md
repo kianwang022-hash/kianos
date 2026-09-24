@@ -8,9 +8,9 @@ title: 泌尿系外伤
 order: 14
 study_refs:
   - source_id: surgery-lecture
-    label: 外科学讲义｜泌尿系外伤
-    book_page_start: 110
-    book_page_end: 113
+    label: 27外科精编版【带导图】｜SUR27-U19｜泌尿系外伤
+    pdf_page_start: 135
+    pdf_page_end: 141
     source_locator_semantics: visual P136-P139 labels are source-local preprocessing/IMAGE_PAGES routes, not current merged-PDF physical page numbers
 outline_units:
   - SUR-U027
@@ -33,11 +33,11 @@ visual_gate_status: MANDATORY_SOURCE_LOCAL_VISUAL_REVIEW_PIXEL_AUDIT_NOT_CLAIMED
 >
 > **文件性质**：泌尿系统第十四个疾病 Block。K1 已建立排尿通路，K6 已建立血尿与尿路定位，K12 已建立尿路出口与梗阻。本 Block 第一次把“损伤位置 → 血 / 尿向哪里走 → 稳定性 → 检查 → 引流 / 修补 / 止血”构造成泌尿外伤空间模型。
 >
-> **Primary Study**：`外科学讲义_AI阅读版.md` 书页 P110–113《泌尿系外伤》；P110 尿道外伤，P111 膀胱与肾外伤，P112–113 Lecture-attached Questions / 视觉复核。历史 `P136–P139` 标识来自 source-local preprocessing / IMAGE_PAGES，不是当前合并 PDF 物理页码。
+> **Primary Study**：`27外科精编版【带导图】.pdf` SUR27-U19，泌尿系外伤主体 PDF P135–P137，后续 P138–P141 为题目/复核范围。历史 `P136–P139` source-local preprocessing 标识仅作兼容 provenance；Current 物理页以本范围为准。
 >
 > **Primary Outline**：外科 U027“尿道外伤金标准”1题 + U028 泌尿外伤6题 = **7 / 7**。U028“尿失禁”已由 K12 Primary，不在本 Block重复。
 >
-> **第一轮流程**：Framework → Lecture P110–111 连续学习与 Source-local Visual Gate → Framework Reconstruction → KP Active Recall → Outline optional / low-pressure → TTSX Lecture-attached Questions → Block Complete。
+> **第一轮流程**：Framework → 27外科精编 PDF P135–P137 连续学习与原图 Visual Gate → Framework Reconstruction → KP Active Recall → Outline optional / low-pressure → TTSX Lecture-attached Questions → Block Complete。
 >
 > **Source boundary**：保留当前 Study 的前/后尿道、尿生殖膈、膀胱腹膜内外、三型肾外伤和尿外渗空间作为 306 Core；对“RUG金标准、浮动前列腺、腹膜外膀胱手术、大出血一律探查”等旧压缩句加入 Current 情境边界。完整创伤分级与复杂重建仍不展开。
 >
@@ -851,7 +851,7 @@ System_final_gate = NOT_RUN_B5_STILL_BLOCKED
 
 ```text
 Framework已建立
-+ 外科P110–111已连续学习并完成source-local Visual Gate路由
++ 27外科精编 PDF P135–P137 已完成 Current Source 重绑定；历史 source-local Visual Gate 路由只保留兼容引用
 + 能闭卷重建稳定性门、前后尿道、腹膜内外膀胱与肾外伤空间图
 + 能说明RUG、膀胱造影、CT、持续引流、栓塞和探查各解决什么问题
 + 不再把腹膜外膀胱破裂等同于一律手术
