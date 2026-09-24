@@ -22,6 +22,7 @@ const slot=read(slotPath);
 const sourceMap=read(sourceMapPath);
 const learning=read(learningPath);
 const system=read(systemPath);
+const questionScope=read('content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json');
 const manifest=read(manifestPath);
 const maturity=text('content/xizong/MATURITY_PACKAGE.md');
 const snapshot=text(snapshotPath);
@@ -162,7 +163,15 @@ for(const routeRow of route){
   assert.deepEqual(marker,expectedKps,b+' stable canonical KP/file order drift');
   assert.match(body,/27生化跟课版合集【不带导图】\.pdf|生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1\.md/,b+' lacks current 27 Source binding');
   assert.doesNotMatch(body,/primary_(?:source|study)\s*:\s*[^\n]*26生化/i,b+' still has a 26 Primary Study binding');
+  assert.doesNotMatch(body,/canonical layers/i,b+' retains obsolete canonical-layer wording');
 }
+
+assert.equal(system.mental_model?.biochemistry_two_mother_maps?.status,'CURRENT_FRAMEWORK_ROLE');
+assert.equal(system.source_state?.official_question_membership,'CURRENT_SEPARATE_OWNER_ACCEPTED');
+assert.equal(system.source_state?.official_question_owner,'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json');
+assert.equal(questionScope.status,'CURRENT');
+assert.equal(learning.question_stage?.exact_membership_gate,'CURRENT_B_QUESTION_SCOPE_ACCEPTED');
+assert.equal(learning.question_stage?.question_scope_owner,'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json');
 
 assert.equal(learning.biochemistry_first_pass_lane?.status,'CURRENT_27_REACCEPTED');
 assert.equal(learning.biochemistry_first_pass_lane?.source_map_status,'CURRENT_27_SOURCE_ROUTING_REACCEPTED');
