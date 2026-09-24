@@ -11,6 +11,14 @@ Management objective:
 
 > **Keep backend rigor; make normal use, modification and continuation simple.**
 
+User-facing rule:
+
+- Kian gives goals, feedback, constraints and real product choices.
+- Engineer handles routing, owner resolution, project state, branch/PR/CI mechanics, cleanup, recovery and proof.
+- Do not ask Kian to choose repository mechanics when the system can resolve them safely.
+- If a real decision is needed, surface only that decision and its consequences.
+- If Kian repeatedly has to remember backend state, treat that as a design defect to simplify.
+
 ---
 
 # 1｜Management success
