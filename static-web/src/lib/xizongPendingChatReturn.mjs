@@ -109,6 +109,29 @@ export function stageXizongChatReturn(storage, input, {
   return { status:existing ? 'replaced' : 'staged', entry:clone(incoming) };
 }
 
+export function xizongChatReturnEffectMatches(storage, input) {
+  try {
+    const raw = parseXizongChatReturn(input);
+    const handoffId = text(raw.handoff_id, 160);
+    const returnId = text(raw.return_id, 160);
+    if (!handoffId || !returnId) return false;
+    const state = readXizongPendingChatReturnState(storage);
+    const pending = Object.values(state.pending_by_object || {}).some((entry) =>
+      entry?.handoff_id === handoffId
+      && entry?.return_id === returnId
+      && JSON.stringify(entry?.return_packet) === JSON.stringify(raw)
+    );
+    if (pending) return true;
+    const receipt = state.last_receipt;
+    return Boolean(receipt
+      && receipt.handoff_id === handoffId
+      && receipt.return_id === returnId
+      && ['APPLIED','ALREADY_APPLIED','STALE','REJECTED'].includes(receipt.status));
+  } catch {
+    return false;
+  }
+}
+
 function receipt(entry, status, {
   decision = '',
   repairKpIds = [],
