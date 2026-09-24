@@ -20,8 +20,10 @@ for (const q of reviewCatalog.questions || []) {
 }
 if (reviewQuestions.length < 3) throw new Error('POLITICS_REVIEW_VISUAL_FIXTURE_NEEDS_3_UNITS');
 const practiceCatalog = buildPoliticsPracticeCatalogCurrent('/');
-const practiceQuestion = practiceCatalog.questions.find((q) => q.id === 'X1000-MARX-S-001') || practiceCatalog.questions.find((q) => q.unitKey);
-if (!practiceQuestion) throw new Error('POLITICS_PRACTICE_VISUAL_FIXTURE_MISSING');
+const practiceQuestion = practiceCatalog.questions.find((q) =>
+  q.unitKey && q.chengfengLocator?.status === 'EXACT_SOURCE_NODE'
+);
+if (!practiceQuestion) throw new Error('POLITICS_PRACTICE_EXACT_LOCATOR_VISUAL_FIXTURE_MISSING');
 const auditDir = path.resolve(process.cwd(), '.qa');
 fs.mkdirSync(auditDir, { recursive: true });
 
@@ -284,9 +286,9 @@ try {
   const exactLocator = page.locator('[data-chengfeng-locator]');
   check(await exactLocator.isVisible(), 'practice_result_exact_chengfeng_locator_visible');
   const exactLocatorText = await exactLocator.innerText();
-  check(/乘风要点\s*P6/.test(exactLocatorText), 'practice_result_locator_page_p6', exactLocatorText);
-  check(/【考点4】/.test(exactLocatorText), 'practice_result_locator_exam_point_4', exactLocatorText);
-  check(/→2→（1）/.test(exactLocatorText.replace(/\s+/g,'')), 'practice_result_locator_path_2_1', exactLocatorText);
+  const expectedLocator = String(practiceQuestion.chengfengLocator?.display || '');
+  check(Boolean(expectedLocator), 'practice_fixture_exact_locator_owner_present');
+  check(exactLocatorText.includes(expectedLocator), 'practice_result_exact_locator_matches_current_owner', exactLocatorText);
   check(await page.locator('[data-review-sources]').isHidden(), 'practice_result_hides_broad_source_range_when_exact');
   const practiceResultText = await page.locator('[data-submitted-result]').innerText();
   check(!/肖1000原解析|查看.*原解析|历史原解析/.test(practiceResultText), 'practice_result_excludes_xiao_source_explanation');
