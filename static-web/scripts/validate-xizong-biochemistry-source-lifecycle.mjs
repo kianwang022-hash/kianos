@@ -25,6 +25,11 @@ const system=read(systemPath);
 const questionScope=read('content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json');
 const manifest=read(manifestPath);
 const maturity=text('content/xizong/MATURITY_PACKAGE.md');
+const biochemistryContract=text('content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md');
+const xizongCurrent=text('content/xizong/CURRENT.md');
+const contentMainline=text('content/xizong/CONTENT_MAINLINE.md');
+const bCurrent=text('content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/CURRENT.md');
+const bAcceptance=text('content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/ACCEPTANCE.md');
 const snapshot=text(snapshotPath);
 const surgerySlot=text('content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json');
 const surgeryMap=text('content/xizong/knowledge/learner/surgery-27-source-map.json');
@@ -189,6 +194,18 @@ const g5Order=g5.learner_order.flatMap((lg)=>{
   return Array.from({length:z-a+1},(_,i)=>a+i);
 });
 assert.deepEqual(g5Order,[1,2,3,4,5,12,13,6,7,8,9,10,11],'G5 learner order must remain independent of stable KP/file order');
+
+assert.match(biochemistryContract,/System\s*\n?→ Block\s*\n?→ Logic Group\s*\n?→ KP/,'Biochemistry contract canonical hierarchy drift');
+assert.match(biochemistryContract,/may not create another canonical level/i,'Biochemistry contract must forbid a second canonical hierarchy');
+
+assert.match(xizongCurrent,/27 Biochemistry architecture-corrected rebase is \*\*CLOSED \/ CURRENT at S\/K\/L\/Content\/P\.\*\*/);
+assert.match(contentMainline,/# 0｜CLOSED MAINLINE TASK — 27 Biochemistry architecture-corrected rebase/);
+assert.match(contentMainline,/Status: \*\*CLOSED \/ CURRENT · S\/K\/L\/Content\/P REACCEPTED\*\*/);
+assert.match(bCurrent,/NONE for the 27 Biochemistry revision — CLOSED \/ CURRENT/);
+assert.match(bAcceptance,/Status: \*\*CLOSED \/ CURRENT · S\/K\/L\/Content\/P REACCEPTED AFTER ARCHITECTURE CORRECTION\*\*/);
+
+const lifecycleConsumers=[xizongCurrent,contentMainline,bCurrent,bAcceptance,maturity].join('\n');
+assert.doesNotMatch(lifecycleConsumers,/BLOCKED_UNTIL_27_SOURCE|CONTENT_REVALIDATION_PENDING|CONTENT_REACCEPTANCE_PENDING/,'Current Biochemistry lifecycle consumer regressed to a pre-27 state');
 
 assert.match(maturity,/G3 — 2027 Biochemistry delta/);
 assert.match(maturity,/CLOSED \/ CURRENT · S\/K\/L\/Content\/P REACCEPTED/);
