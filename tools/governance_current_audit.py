@@ -57,23 +57,20 @@ ACCEPTANCE_PATHS = [
     "content/politics/learning/history/ACCEPTANCE.md",
 ]
 
-# Retired paths that intentionally remain as explicit NONE-authority tombstones.
-RETIRED_JSON_PATHS = [
-    "content/english/continuation.json",
-    "content/lexical/continuation.json",
-    "content/politics/continuation.json",
-]
+# Retired parallel state owners are removed completely.
+# Their absence is the protected boundary: recreating one would reintroduce
+# a competing status / continuation owner and must fail closed.
+RETIRED_JSON_PATHS = []
 
-# Retired Xizong state files were fully removed rather than retained as stubs.
-# Their absence is now the protected boundary: recreating either file would
-# reintroduce a parallel status/continuation owner and must fail closed.
 ABSENT_RETIRED_PATHS = [
     "RECOVERY_COGNITIVE_CAPACITY_MODEL.md",
     "RECOVERY_COGNITIVE_CAPACITY_ACCEPTANCE.md",
+    "content/english/continuation.json",
+    "content/lexical/continuation.json",
+    "content/politics/continuation.json",
     "content/xizong/knowledge/learner/continuation.json",
     "content/xizong/knowledge/learner/acceptance-status.json",
 ]
-
 MANIFEST_PATHS = [
     "content/english/manifest.json",
     "content/xizong/knowledge/manifest.json",
