@@ -87,7 +87,10 @@ assert(Array.isArray(system.failure_modes) && system.failure_modes.length === 13
 assert(Array.isArray(system.judgment_axes) && system.judgment_axes.length >= 10, 'B_K_JUDGMENT_AXES_INCOMPLETE');
 assert(Array.isArray(system.dependency_dag) && system.dependency_dag.length >= 8, 'B_K_DEPENDENCY_DAG_INCOMPLETE');
 assert(Array.isArray(system?.scope_boundary?.not_owned_here) && system.scope_boundary.not_owned_here.length >= 6, 'B_K_NEGATIVE_SPACE_MISSING');
-assert(system?.source_state?.official_question_membership === 'S_BLOCKED_SEPARATE_DEPENDENCY', 'B_K_SOURCE_DEPENDENCY_BOUNDARY_INVALID');
+assert(system?.source_state?.official_question_membership === 'CURRENT_SEPARATE_OWNER_ACCEPTED', 'B_K_SOURCE_DEPENDENCY_BOUNDARY_INVALID');
+const qScope=JSON.parse(fs.readFileSync(rel('content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json'),'utf8'));
+assert(qScope?.status === 'CURRENT', 'B_K_QUESTION_SCOPE_OWNER_NOT_CURRENT');
+assert(system?.source_state?.official_question_owner === 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json', 'B_K_QUESTION_SCOPE_OWNER_MISMATCH');
 assert(system?.source_state?.question_count_target_forbidden === true, 'B_K_1072_TARGET_GUARD_MISSING');
 assert(system?.source_state?.question_to_kp_inference_forbidden === true, 'B_K_QUESTION_KP_GUARD_MISSING');
 assert(!system.logic_index, 'B_K_PREMATURE_LOGIC_INDEX_CLAIM');
