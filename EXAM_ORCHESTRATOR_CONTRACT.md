@@ -187,17 +187,15 @@ Internal Steward time placement is not a Calendar write and is not restricted to
 
 A same resolved day's coupled exam/execution projections must apply consistently, with immutable command ID/hash, latest-base reconciliation and verified applied effect. Radar and native mail/Calendar actions are independently acknowledged, never fabricated as part of a universal transaction. Runtime reality is private and semantically separate from subject evidence; public content/builds must never contain personal payloads. UI geometry remains pending Kian discussion.
 
-### Legacy scheduling text below
+### Planning semantics for Chat
 
-The phase/capacity/score-gap/recoverability rules below remain valuable **planning priors for Chat** and historical rationale.
+The phase/capacity/score-gap/recoverability rules below are **Current planning priors for Chat**, not an autonomous Website scheduler.
 
 Whenever later text says that the “Orchestrator” allocates, recalculates, ranks, protects a floor, or chooses a next action, interpret that as:
 
-> **Chat uses these priors plus current learner evidence to decide the plan; the Website does not execute that strategy autonomously.**
+> **Chat uses these priors plus current learner evidence to decide the plan; the Website validates, presents and records the accepted plan but does not execute that strategy autonomously.**
 
-This section has precedence over older runtime-allocation wording.
-
-The legacy `buildExamPlan()` implementation may remain temporarily for compatibility/tests during migration, but no production learner surface may call it once the Chat-control cutover is active.
+The machine path may expose phase/Gate projections, validate plan identity/freshness/capacity and render Current state. It may not independently choose subject allocation, priority or next action.
 
 ---
 

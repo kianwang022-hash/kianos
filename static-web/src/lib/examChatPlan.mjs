@@ -254,7 +254,6 @@ const planningProfileBasis = (storage, studyDay) => {
       defaultDailyMinutes: value.defaultDailyMinutes ?? null,
       capacityByDay: value.capacityByDay || {},
       maintenanceByDay: value.maintenanceByDay || {},
-      floorMinutes: value.floorMinutes ?? null,
       observations: Array.isArray(value.observations) ? value.observations : [],
       reports: Array.isArray(value.reports) ? value.reports : [],
       gateReports: Array.isArray(value.gateReports) ? value.gateReports : []
