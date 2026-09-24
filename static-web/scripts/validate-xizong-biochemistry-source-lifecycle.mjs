@@ -258,8 +258,8 @@ assert.match(biochemistryContract,/may not create another canonical level/i,'Bio
 
 assert.match(xizongCurrent,/27 Biochemistry lifecycle owner:/);
 assert.match(xizongCurrent,/xizong-2027-biochemistry-delta-slot\.json/);
-assert.match(contentMainline,/# 0｜27 Biochemistry architecture-corrected rebase/);
-assert.match(contentMainline,/Lifecycle is owned only by the exact task owner below/);
+assert.match(contentMainline,/content\/xizong\/knowledge\/learner\/xizong-2027-biochemistry-delta-slot\.json/);
+assert.doesNotMatch(contentMainline,/# 0｜27 Biochemistry architecture-corrected rebase|Lifecycle is owned only by the exact task owner below/,'Mainline must not restore retired Biochemistry campaign prose');
 assert.match(bCurrent,/NONE for the 27 Biochemistry revision — CLOSED \/ CURRENT/);
 assert.match(bAcceptance,/Status: \*\*CLOSED \/ CURRENT · S\/K\/L\/Content\/P REACCEPTED AFTER ARCHITECTURE CORRECTION\*\*/);
 
