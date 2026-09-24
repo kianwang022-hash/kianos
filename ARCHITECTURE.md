@@ -97,6 +97,21 @@ Control does not manufacture Truth.
 
 Root rules live in root authority. Domain/product-specific rules live in the exact Rule / Model, Learning or Content owners that genuinely own those differences.
 
+### Personal-derived requirements are inputs, not copied KianOS truth
+
+When an accepted Personal owner supplies a user requirement, preference, constraint or personal model that should change KianOS behavior:
+
+```text
+Personal canonical owner
+→ upstream requirement
+→ KianOS exact Rule / Model owner
+→ Content / Visual / Engineering implementation as needed
+```
+
+KianOS owns the **translation into product/domain behavior**, not a second copy of the personal conclusion. If the upstream Personal conclusion changes, the KianOS rule is re-evaluated against that owner; it does not independently reinterpret Kian's personal state.
+
+Likewise, private KianOS execution evidence remains evidence until Chat / Personal interprets and, when justified, accepts a durable personal conclusion.
+
 ---
 
 ## 1.2 CONTENT｜durable knowledge / semantic assets
