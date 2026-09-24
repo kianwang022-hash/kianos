@@ -1594,7 +1594,7 @@
           "D8"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：糖酵解、乳酸与PDH入口[CARBON_ENTRY_BRANCHING] → TCA、底物水平能量与还原当量接驳[ENERGY_ACCOUNT_INTERFACE] → 电子→质子→ATP与故障定位[ETC_FAULT_LOCALIZATION]。",
+      "partition_rationale": "M2 Learning consumes the canonical 3-layer Knowledge hierarchy: L1 carbon entry/branching → L2 TCA/reducing-equivalent interface → L3 electron-proton-ATP coupling/fault localization. KP identity is stable. Source order remains owned by the global Biochemistry Source map.",
       "learner_order": [
         "b-m02-lg01",
         "b-m02-lg02",
@@ -1610,7 +1610,8 @@
           "cognitive_job": "CARBON_ENTRY_BRANCHING",
           "goal": "建立葡萄糖在胞浆到丙酮酸后按缺氧/有氧分成乳酸再生NAD⁺或PDH进入乙酰CoA的第一处分叉。",
           "closure": "能从葡萄糖走到丙酮酸，给出缺氧/无线粒体或有氧条件时预测乳酸/PDH方向，并指出关键不可逆控制点。",
-          "continuity_rationale": "KP01–KP05共同完成“糖酵解、乳酸与PDH入口”这一CARBON_ENTRY_BRANCHING任务。这是本Block当前学习顺序的第一个闭环任务。后一组“TCA、底物水平能量与还原当量接驳”切换到不同的ENERGY_ACCOUNT_INTERFACE任务。"
+          "continuity_rationale": "KP01–KP05共同完成“糖酵解、乳酸与PDH入口”这一CARBON_ENTRY_BRANCHING任务。这是本Block当前学习顺序的第一个闭环任务。后一组“TCA、底物水平能量与还原当量接驳”切换到不同的ENERGY_ACCOUNT_INTERFACE任务。",
+          "canonical_layer": "L1"
         },
         "b-m02-lg02": {
           "kp": [
@@ -1621,7 +1622,8 @@
           "cognitive_job": "ENERGY_ACCOUNT_INTERFACE",
           "goal": "把TCA输出的CO₂、NADH/FADH₂和底物水平磷酸化组织成向呼吸链交货的能量账，并接入胞浆NADH穿梭。",
           "closure": "能恢复TCA主环与主要还原当量/底物水平ATP产出，并根据穿梭入口预测胞浆NADH的产能差。",
-          "continuity_rationale": "KP06–KP09共同完成“TCA、底物水平能量与还原当量接驳”这一ENERGY_ACCOUNT_INTERFACE任务。前一组“糖酵解、乳酸与PDH入口”承担不同的CARBON_ENTRY_BRANCHING任务。后一组“电子→质子→ATP与故障定位”切换到不同的ETC_FAULT_LOCALIZATION任务。"
+          "continuity_rationale": "KP06–KP09共同完成“TCA、底物水平能量与还原当量接驳”这一ENERGY_ACCOUNT_INTERFACE任务。前一组“糖酵解、乳酸与PDH入口”承担不同的CARBON_ENTRY_BRANCHING任务。后一组“电子→质子→ATP与故障定位”切换到不同的ETC_FAULT_LOCALIZATION任务。",
+          "canonical_layer": "L2"
         },
         "b-m02-lg03": {
           "kp": [
@@ -1632,7 +1634,69 @@
           "cognitive_job": "ETC_FAULT_LOCALIZATION",
           "goal": "把I/II→Q→III→Cyt c→IV→O₂电子流、I/III/IV泵H⁺与ATP合酶统一成电子—质子—ATP三流模型。",
           "closure": "给出呼吸链抑制、ATP合酶阻断或解偶联，能分别判断电子流、氧耗、质子梯度、产热和ATP变化，并解释NADH/FADH₂ P/O差异。",
-          "continuity_rationale": "KP10–KP15共同完成“电子→质子→ATP与故障定位”这一ETC_FAULT_LOCALIZATION任务。前一组“TCA、底物水平能量与还原当量接驳”承担不同的ENERGY_ACCOUNT_INTERFACE任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP10–KP15共同完成“电子→质子→ATP与故障定位”这一ETC_FAULT_LOCALIZATION任务。前一组“TCA、底物水平能量与还原当量接驳”承担不同的ENERGY_ACCOUNT_INTERFACE任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L3"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M2_碳氧化TCA氧化磷酸化与ATP_学习阅读版_v1_最终执行版.md",
+        "mother_model": "carbon flow → reducing equivalents → electron/proton coupling → ATP/fault localization",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              5
+            ],
+            "logic_group": "b-m02-lg01"
+          },
+          "L2": {
+            "kp": [
+              6,
+              9
+            ],
+            "logic_group": "b-m02-lg02"
+          },
+          "L3": {
+            "kp": [
+              10,
+              15
+            ],
+            "logic_group": "b-m02-lg03"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers; it must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning releases retrieval from canonical layer formation and keeps no duplicate per-Block Source registry.",
+        "closure_note": "Source formation may occur before formal M1 Source contact. Existing readiness still governs Block closure/downstream authorization; the Biochemistry Prelude is only just-in-time comprehension language, not M1 completion.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-m02-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-m02-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-m02-lg03"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "M2",
+          "after_unit": "BIO27-S04",
+          "after_pdf": 26,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
@@ -1653,7 +1717,7 @@
           "M10"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：RBC糖酵解、ATP与2,3-DPG[RBC_SPECIAL_BRANCH] → PPP—NADPH—GSH抗氧化[REDOX_DEFENSE]。",
+      "partition_rationale": "M3 Learning consumes the canonical 2-layer Knowledge hierarchy: L1 RBC constraint/ATP/2,3-DPG → L2 PPP-NADPH-GSH redox defense. Source order remains global; M3 does not maintain a second Source topology.",
       "learner_order": [
         "b-m03-lg01",
         "b-m03-lg02"
@@ -1668,7 +1732,8 @@
           "cognitive_job": "RBC_SPECIAL_BRANCH",
           "goal": "在成熟RBC无线粒体前提下，把无氧糖酵解ATP与2,3-DPG旁路接到膜维持和Hb放氧。",
           "closure": "给出RBC无线粒体、ATP下降或2,3-DPG变化，能预测细胞稳定与氧解离方向。",
-          "continuity_rationale": "KP01–KP03共同完成“RBC糖酵解、ATP与2,3-DPG”这一RBC_SPECIAL_BRANCH任务。这是本Block当前学习顺序的第一个闭环任务。后一组“PPP—NADPH—GSH抗氧化”切换到不同的REDOX_DEFENSE任务。"
+          "continuity_rationale": "KP01–KP03共同完成“RBC糖酵解、ATP与2,3-DPG”这一RBC_SPECIAL_BRANCH任务。这是本Block当前学习顺序的第一个闭环任务。后一组“PPP—NADPH—GSH抗氧化”切换到不同的REDOX_DEFENSE任务。",
+          "canonical_layer": "L1"
         },
         "b-m03-lg02": {
           "kp": [
@@ -1679,7 +1744,56 @@
           "cognitive_job": "REDOX_DEFENSE",
           "goal": "从G-6-P分流到PPP生成NADPH，再维持GSH还原状态抵抗氧化，接到G6PD缺陷接口。",
           "closure": "给出氧化应激、G6PD下降或NADPH/GSH变化，能预测RBC氧化损伤方向，并区分NADPH的抗氧化/合成角色与NADH产ATP角色。",
-          "continuity_rationale": "KP04–KP07共同完成“PPP—NADPH—GSH抗氧化”这一REDOX_DEFENSE任务。前一组“RBC糖酵解、ATP与2,3-DPG”承担不同的RBC_SPECIAL_BRANCH任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP04–KP07共同完成“PPP—NADPH—GSH抗氧化”这一REDOX_DEFENSE任务。前一组“RBC糖酵解、ATP与2,3-DPG”承担不同的RBC_SPECIAL_BRANCH任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L2"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M3_成熟红细胞与磷酸戊糖途径_学习阅读版_v1_最终执行版.md",
+        "mother_model": "mitochondria-free RBC constraint → ATP/oxygen-release/redox-defense functional branching",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              3
+            ],
+            "logic_group": "b-m03-lg01"
+          },
+          "L2": {
+            "kp": [
+              4,
+              7
+            ],
+            "logic_group": "b-m03-lg02"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers; it must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning releases retrieval from canonical layer formation and keeps no duplicate per-Block Source registry.",
+        "closure_note": "S02/S03 may form M3 content while upstream readiness is still pending; readiness governs closure/downstream authorization, not permission to encounter the current Source.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-m03-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-m03-lg02"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "M3",
+          "after_unit": "BIO27-S03",
+          "after_pdf": 18,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
@@ -1703,7 +1817,7 @@
           "D8"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：G-6-P与糖原存取[STORAGE_OUTPUT_DECISION] → 糖异生、Cori与能量账[GLUCONEOGENESIS_RECONSTRUCTION] → 胰高血糖素与空腹时间轴[STATE_SWITCH]。",
+      "partition_rationale": "M4 Learning consumes the canonical 3-layer Knowledge hierarchy: L1 G-6-P/glycogen storage-output decision → L2 gluconeogenesis reconstruction → L3 hormonal/fasting state switch. One Source unit can form several layers without creating multiple Source reads.",
       "learner_order": [
         "b-m04-lg01",
         "b-m04-lg02",
@@ -1719,7 +1833,8 @@
           "cognitive_job": "STORAGE_OUTPUT_DECISION",
           "goal": "用G-6-P枢纽组织肝/肌糖原合成与分解，并突出肝能输出血糖而肌只能自用。",
           "closure": "给出餐后/短期空腹或肝肌差异，能预测糖原合成/分解和血糖输出方向，并解释G6Pase边界。",
-          "continuity_rationale": "KP01–KP04共同完成“G-6-P与糖原存取”这一STORAGE_OUTPUT_DECISION任务。这是本Block当前学习顺序的第一个闭环任务。后一组“糖异生、Cori与能量账”切换到不同的GLUCONEOGENESIS_RECONSTRUCTION任务。"
+          "continuity_rationale": "KP01–KP04共同完成“G-6-P与糖原存取”这一STORAGE_OUTPUT_DECISION任务。这是本Block当前学习顺序的第一个闭环任务。后一组“糖异生、Cori与能量账”切换到不同的GLUCONEOGENESIS_RECONSTRUCTION任务。",
+          "canonical_layer": "L1"
         },
         "b-m04-lg02": {
           "kp": [
@@ -1730,7 +1845,8 @@
           "cognitive_job": "GLUCONEOGENESIS_RECONSTRUCTION",
           "goal": "把不可逆糖酵解绕行、乳酸/甘油/氨基酸原料、Cori循环与能量成本组织成维持血糖的重建链。",
           "closure": "给出空腹原料或某关键酶受阻，能恢复糖异生绕行并判断能否净生糖及能量代价。",
-          "continuity_rationale": "KP05–KP08共同完成“糖异生、Cori与能量账”这一GLUCONEOGENESIS_RECONSTRUCTION任务。前一组“G-6-P与糖原存取”承担不同的STORAGE_OUTPUT_DECISION任务。后一组“胰高血糖素与空腹时间轴”切换到不同的STATE_SWITCH任务。"
+          "continuity_rationale": "KP05–KP08共同完成“糖异生、Cori与能量账”这一GLUCONEOGENESIS_RECONSTRUCTION任务。前一组“G-6-P与糖原存取”承担不同的STORAGE_OUTPUT_DECISION任务。后一组“胰高血糖素与空腹时间轴”切换到不同的STATE_SWITCH任务。",
+          "canonical_layer": "L2"
         },
         "b-m04-lg03": {
           "kp": [
@@ -1741,7 +1857,69 @@
           "cognitive_job": "STATE_SWITCH",
           "goal": "把激素调节和肝糖原→糖异生的时间接力压成空腹血糖维持轴。",
           "closure": "给出餐后数小时到延长空腹，能判断主要血糖来源如何切换，并把完整胰岛激素生理留给D7。",
-          "continuity_rationale": "KP09–KP10共同完成“胰高血糖素与空腹时间轴”这一STATE_SWITCH任务。前一组“糖异生、Cori与能量账”承担不同的GLUCONEOGENESIS_RECONSTRUCTION任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP09–KP10共同完成“胰高血糖素与空腹时间轴”这一STATE_SWITCH任务。前一组“糖异生、Cori与能量账”承担不同的GLUCONEOGENESIS_RECONSTRUCTION任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L3"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M4_糖原与糖异生_学习阅读版_v1_最终执行版.md",
+        "mother_model": "G-6-P hub → store/release → gluconeogenic reconstruction → fasting-state switching",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              4
+            ],
+            "logic_group": "b-m04-lg01"
+          },
+          "L2": {
+            "kp": [
+              5,
+              8
+            ],
+            "logic_group": "b-m04-lg02"
+          },
+          "L3": {
+            "kp": [
+              9,
+              10
+            ],
+            "logic_group": "b-m04-lg03"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers; it must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning releases retrieval from canonical layer formation and keeps no duplicate per-Block Source registry.",
+        "closure_note": "S03 can form M4 while readiness is pending; readiness governs closure/downstream authorization, not Source contact.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-m04-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-m04-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-m04-lg03"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "M4",
+          "after_unit": "BIO27-S03",
+          "after_pdf": 18,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
