@@ -63,6 +63,34 @@ def audit_derived(registry: dict) -> None:
         check(value.get("source") == source_s, "DERIVED_SOURCE_BINDING_DRIFT", name)
         check(value.get("authority") == authority, "DERIVED_AUTHORITY_BINDING_DRIFT", name)
 
+        freshness = spec.get("freshness")
+        check(isinstance(freshness, dict), "DERIVED_FRESHNESS_PROOF_MISSING", name)
+        if not isinstance(freshness, dict):
+            continue
+        mode = freshness.get("mode")
+        validator_s = freshness.get("validator")
+        workflow_s = freshness.get("workflow")
+        check(mode == "VALIDATED_AGAINST_CURRENT_SOURCE", "DERIVED_FRESHNESS_MODE_INVALID", f"{name}:{mode}")
+        check(isinstance(validator_s, str), "DERIVED_FRESHNESS_VALIDATOR_INVALID", name)
+        check(isinstance(workflow_s, str), "DERIVED_FRESHNESS_WORKFLOW_INVALID", name)
+        if not isinstance(validator_s, str) or not isinstance(workflow_s, str):
+            continue
+        validator = REPO / validator_s
+        workflow = REPO / workflow_s
+        check(validator.is_file(), "DERIVED_FRESHNESS_VALIDATOR_MISSING", validator_s)
+        check(workflow.is_file(), "DERIVED_FRESHNESS_WORKFLOW_MISSING", workflow_s)
+        if validator.is_file():
+            validator_text = validator.read_text(encoding="utf-8")
+            check(path_s in validator_text or Path(path_s).name in validator_text, "DERIVED_VALIDATOR_MISSES_PROJECTION", name)
+            check(source_s in validator_text or Path(source_s).name in validator_text, "DERIVED_VALIDATOR_MISSES_SOURCE", name)
+        if workflow.is_file():
+            workflow_text = workflow.read_text(encoding="utf-8")
+            check(source_s in workflow_text, "DERIVED_WORKFLOW_MISSES_SOURCE_TRIGGER", name)
+            check(path_s in workflow_text, "DERIVED_WORKFLOW_MISSES_PROJECTION_TRIGGER", name)
+            check(validator_s in workflow_text or Path(validator_s).name in workflow_text, "DERIVED_WORKFLOW_MISSES_VALIDATOR", name)
+            check("pull_request:" in workflow_text, "DERIVED_WORKFLOW_MISSES_PR_GATE", name)
+            check("push:" in workflow_text and "main" in workflow_text, "DERIVED_WORKFLOW_MISSES_MAIN_GATE", name)
+
 
 def audit_conditional_capabilities(registry: dict) -> None:
     capabilities = registry.get("conditional_capabilities", {})
