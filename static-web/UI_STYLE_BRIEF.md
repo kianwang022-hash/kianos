@@ -2,7 +2,7 @@
 
 Status: **CURRENT SHARED VISUAL DIRECTION — EXPLICIT KIAN CALIBRATION 2026-09-18**  
 Scope: learner-facing `static-web/`  
-Preference owner: `KIAN_UI_PREFERENCES.md`  
+Upstream requirement/evidence: `KIAN_UI_PREFERENCES.md`  
 Semantic parent: `PRESENTATION_CONTRACT.md` + exact domain Product/Learning/Interaction owners
 
 This file turns Kian's durable UI preferences into **shared visual rules**. It does not own subject cognition, learning semantics, question truth, learner state or task-specific geometry.
