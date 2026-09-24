@@ -1,8 +1,8 @@
 {
   "schema": "kianos.xizong.system_learning_support.v1",
-  "status": "L_CANDIDATE",
-  "construction_status": "PHASE5_CROSS_SURFACE_CLOSED_PENDING_INDEPENDENT_L_ACCEPTANCE",
-  "authority": "CURRENT_PHASE0_5_COMPILED_LEARNING_CONSTRUCTION",
+  "status": "CURRENT",
+  "construction_status": "PHASE6_INDEPENDENT_L_ACCEPTED",
+  "authority": "CHAT_APPROVED_LEARNING_ACCEPTANCE",
   "system_id": "digestive-metabolic-endocrine-tumor",
   "canonical_id": "B",
   "scope": "ALL_38_CANONICAL_BLOCKS_SYSTEM_BELOW_ONLY",
@@ -1070,11 +1070,11 @@
   "question_stage": {
     "timing": "AFTER_REAL_SYSTEM_LEARNING_AND_PRE_QUESTION_SYSTEM_RECALL",
     "exact_membership_gate": "CURRENT_B_QUESTION_SCOPE_ACCEPTED",
-    "question_scope_owner": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json",
     "question_order_owns_learning": false,
     "lecture_attached_questions": "remain with original Lecture / MarginNote",
     "repair": "Wrong / Uncertain only; precise Block/KP routing uses reviewed relations only",
-    "whole_paper_holdout": "learner-selected and private; excluded wholesale from ordinary System sweep"
+    "whole_paper_holdout": "learner-selected and private; excluded wholesale from ordinary System sweep",
+    "question_scope_owner": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json"
   },
   "memory_and_precision": {
     "rule": "Recall weakness may enter selective Memory; important current-owner Precision is identified and begins memory on first pass, but first instability does not stall the mainline indefinitely.",
@@ -1393,7 +1393,7 @@
     },
     "M1": {
       "first_pass_focus": "蛋白质为什么能形成稳定而特异的功能构象；酶怎样识别底物、降低活化能并控制代谢流量；维生素怎样转化为辅酶，把电子、氢和化学基团送进反应？",
-      "stop_line": "只建立蛋白结构—酶学—维生素/辅因子共同语言；GSH–NADPH归M3，一碳/氨基酸/尿素归M8，完整疾病/药理/长维生素缺乏表后置；原图动力学/维生素图回MarginNote。",
+      "stop_line": "只建立蛋白结构—酶学—维生素/辅因子共同语言；GSH–NADPH归M3，一碳/氨基酸/尿素归M8，完整疾病/药理/长维生素缺乏表后置；当前第一遍只接触27跟课原PDF，26精编解释已吸收入Framework/KP，不形成第二套Source阅读任务。",
       "recall_spine": "序列/结构/折叠 → 蛋白理化评价/分离 → 酶机制/通量控制 → 动力学/抑制 → 辅因子/维生素",
       "readiness": {
         "requires": [],
@@ -1411,10 +1411,12 @@
           "G1",
           "G2",
           "G3",
-          "D20"
+          "D20",
+          "G4",
+          "G5"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：蛋白质结构、折叠与变性[STRUCTURE_CAUSAL] → 等电点、蛋白评价与分离/降解[PHYSICOCHEMICAL_HANDLING] → 酶身份、催化与调节[ENZYME_MECHANISM_CONTROL] → 酶动力学与抑制比较[KINETIC_PERTURBATION] → 辅因子、维生素与医学酶学[COFACTOR_VITAMIN_MAP]。",
+      "partition_rationale": "M1 preserves five existing Logic Groups as the local retrieval/closure units: protein structure/folding → physicochemical handling → enzyme mechanism/control → kinetics/inhibition → cofactor/vitamin map. These are Learning-owned LGs inside System→Block→Logic Group→KP, not a second canonical layer topology. Current 27 Source forms them non-contiguously through the global Source map.",
       "learner_order": [
         "b-m01-lg01",
         "b-m01-lg02",
@@ -1441,8 +1443,8 @@
           ],
           "label": "等电点、蛋白评价与分离/降解",
           "cognitive_job": "PHYSICOCHEMICAL_HANDLING",
-          "goal": "把pI/电荷、营养学评价、分离方法和蛋白清除视为“如何按理化性质识别/处理蛋白”的技术分类图。",
-          "closure": "给出pH与pI、蛋白样品或分离/降解任务，能选择电荷方向或合适技术；不强行把这些点编成一条因果链。",
+          "goal": "把pI/电荷、营养学评价、分离方法和蛋白清除视为“如何按理化性质识别/处理蛋白”的技术分类图，并用27 Source的VHL–HIF例把泛素-蛋白酶体连接到受控蛋白降解。",
+          "closure": "给出pH与pI、蛋白样品、分离/降解或VHL–HIF场景，能选择电荷方向/技术/降解路径；HIF后续转录调控转交G4，不在M1重建基因调控。",
           "continuity_rationale": "KP06–KP08共同完成“等电点、蛋白评价与分离/降解”这一PHYSICOCHEMICAL_HANDLING任务。前一组“蛋白质结构、折叠与变性”承担不同的STRUCTURE_CAUSAL任务。后一组“酶身份、催化与调节”切换到不同的ENZYME_MECHANISM_CONTROL任务。"
         },
         "b-m01-lg03": {
@@ -1478,6 +1480,11 @@
           "closure": "给出辅酶/维生素缺乏或某类化学转移任务，能匹配主要辅因子并说明其在后续代谢通路的角色。",
           "continuity_rationale": "KP15–KP17共同完成“辅因子、维生素与医学酶学”这一COFACTOR_VITAMIN_MAP任务。前一组“酶动力学与抑制比较”承担不同的KINETIC_PERTURBATION任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data."
       }
     },
     "M2": {
@@ -1502,7 +1509,7 @@
           "D8"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：糖酵解、乳酸与PDH入口[CARBON_ENTRY_BRANCHING] → TCA、底物水平能量与还原当量接驳[ENERGY_ACCOUNT_INTERFACE] → 电子→质子→ATP与故障定位[ETC_FAULT_LOCALIZATION]。",
+      "partition_rationale": "M2 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 Source forms those LG/KP objects according to the global teacher-order map; no intermediate L-layer exists.",
       "learner_order": [
         "b-m02-lg01",
         "b-m02-lg02",
@@ -1542,6 +1549,12 @@
           "closure": "给出呼吸链抑制、ATP合酶阻断或解偶联，能分别判断电子流、氧耗、质子梯度、产热和ATP变化，并解释NADH/FADH₂ P/O差异。",
           "continuity_rationale": "KP10–KP15共同完成“电子→质子→ATP与故障定位”这一ETC_FAULT_LOCALIZATION任务。前一组“TCA、底物水平能量与还原当量接驳”承担不同的ENERGY_ACCOUNT_INTERFACE任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data.",
+        "readiness_note": "Source formation may occur before formal M1 Source contact. Existing readiness still governs Block closure/downstream authorization; the Biochemistry Prelude is only just-in-time comprehension language, not M1 completion."
       }
     },
     "M3": {
@@ -1561,7 +1574,7 @@
           "M10"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：RBC糖酵解、ATP与2,3-DPG[RBC_SPECIAL_BRANCH] → PPP—NADPH—GSH抗氧化[REDOX_DEFENSE]。",
+      "partition_rationale": "M3 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 Source forms those LG/KP objects according to the global teacher-order map; no intermediate L-layer exists.",
       "learner_order": [
         "b-m03-lg01",
         "b-m03-lg02"
@@ -1589,6 +1602,12 @@
           "closure": "给出氧化应激、G6PD下降或NADPH/GSH变化，能预测RBC氧化损伤方向，并区分NADPH的抗氧化/合成角色与NADH产ATP角色。",
           "continuity_rationale": "KP04–KP07共同完成“PPP—NADPH—GSH抗氧化”这一REDOX_DEFENSE任务。前一组“RBC糖酵解、ATP与2,3-DPG”承担不同的RBC_SPECIAL_BRANCH任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data.",
+        "readiness_note": "S02/S03 may form M3 content while upstream readiness is still pending; readiness governs closure/downstream authorization, not permission to encounter the current Source."
       }
     },
     "M4": {
@@ -1611,7 +1630,7 @@
           "D8"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：G-6-P与糖原存取[STORAGE_OUTPUT_DECISION] → 糖异生、Cori与能量账[GLUCONEOGENESIS_RECONSTRUCTION] → 胰高血糖素与空腹时间轴[STATE_SWITCH]。",
+      "partition_rationale": "M4 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 Source forms those LG/KP objects according to the global teacher-order map; no intermediate L-layer exists.",
       "learner_order": [
         "b-m04-lg01",
         "b-m04-lg02",
@@ -1651,6 +1670,12 @@
           "closure": "给出餐后数小时到延长空腹，能判断主要血糖来源如何切换，并把完整胰岛激素生理留给D7。",
           "continuity_rationale": "KP09–KP10共同完成“胰高血糖素与空腹时间轴”这一STATE_SWITCH任务。前一组“糖异生、Cori与能量账”承担不同的GLUCONEOGENESIS_RECONSTRUCTION任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data.",
+        "readiness_note": "S03 can form M4 while readiness is pending; readiness governs closure/downstream authorization, not Source contact."
       }
     },
     "M5": {
@@ -1671,7 +1696,7 @@
           "D8 chronic-risk context"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：脂蛋白身份、组成与方向[LIPOPROTEIN_IDENTITY] → CM/VLDL-LDL/HDL三条运输线[LIPOPROTEIN_TRANSPORT] → apo、酶、受体与运输故障定位[LIPOPROTEIN_INTERFACE_LOCALIZATION]。",
+      "partition_rationale": "M5 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 teacher order may form those LG/KP objects non-contiguously; no intermediate L-layer exists.",
       "learner_order": [
         "b-m05-lg01",
         "b-m05-lg02",
@@ -1711,6 +1736,11 @@
           "closure": "给出apo/酶/受体缺陷，能预测哪类颗粒积聚或逆向转运受损，并连接动脉粥样硬化/脂肪肝而不重讲其完整病理。",
           "continuity_rationale": "KP08–KP10共同完成“apo、酶、受体与运输故障定位”这一LIPOPROTEIN_INTERFACE_LOCALIZATION任务。前一组“CM/VLDL-LDL/HDL三条运输线”承担不同的LIPOPROTEIN_TRANSPORT任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data."
       }
     },
     "M6": {
@@ -1735,7 +1765,7 @@
           "D23"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：胆固醇合成与HMG-CoA还原酶[CHOLESTEROL_SYNTHESIS_CONTROL] → 胆固醇去路、胆汁酸、VitD与类固醇[CHOLESTEROL_DESTINATION_MAP] → 甘油磷脂合成与磷脂酶[PHOSPHOLIPID_REACTION_MAP]。",
+      "partition_rationale": "M6 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 teacher order may form those LG/KP objects non-contiguously; no intermediate L-layer exists.",
       "learner_order": [
         "b-m06-lg01",
         "b-m06-lg02",
@@ -1775,6 +1805,11 @@
           "closure": "给出磷脂酶类型或膜磷脂底物，能判断切割产物与进入信号/炎症接口的方向。",
           "continuity_rationale": "KP09–KP11共同完成“甘油磷脂合成与磷脂酶”这一PHOSPHOLIPID_REACTION_MAP任务。前一组“胆固醇去路、胆汁酸、VitD与类固醇”承担不同的CHOLESTEROL_DESTINATION_MAP任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data."
       }
     },
     "M7": {
@@ -1800,7 +1835,7 @@
           "D20"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：TAG/脂肪酸合成与储能[LIPID_STORAGE_SYNTHESIS] → 脂解、肉碱穿梭与β氧化[LIPID_MOBILIZATION_OXIDATION] → 酮体生成—利用—酸中毒[KETONE_STATE_CHAIN] → 必需脂肪酸与类花生酸接口[ESSENTIAL_FA_CONNECTION]。",
+      "partition_rationale": "M7 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 teacher order may form those LG/KP objects non-contiguously; no intermediate L-layer exists.",
       "learner_order": [
         "b-m07-lg01",
         "b-m07-lg02",
@@ -1852,6 +1887,11 @@
           "closure": "能识别必需脂肪酸来源和向前列腺素/白三烯等炎症介质的接口，并明确完整炎症/药理后置。",
           "continuity_rationale": "KP16–KP16共同完成“必需脂肪酸与类花生酸接口”这一ESSENTIAL_FA_CONNECTION任务。前一组“酮体生成—利用—酸中毒”承担不同的KETONE_STATE_CHAIN任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data."
       }
     },
     "M8": {
@@ -1880,7 +1920,7 @@
           "D22"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：氨基酸身份与分类[AA_IDENTITY_CLASSIFICATION] → 氨基酸衍生物与供体地图[AA_DERIVATIVE_DONOR_MAP] → 碳氮分流、转氨与安全运氨[NITROGEN_HANDLING] → 尿素循环、两个氮与调节[UREA_CYCLE_EXECUTION] → 一碳单位、叶酸与B12[ONE_CARBON_FOLATE_B12]。",
+      "partition_rationale": "M8 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 teacher order may form those LG/KP objects non-contiguously; no intermediate L-layer exists.",
       "learner_order": [
         "b-m08-lg01",
         "b-m08-lg02",
@@ -1944,6 +1984,11 @@
           "closure": "给出叶酸/B12缺乏或一碳需求，能预测核苷酸合成/同型半胱氨酸等方向并连接M9/血液系统。",
           "continuity_rationale": "KP17–KP18共同完成“一碳单位、叶酸与B12”这一ONE_CARBON_FOLATE_B12任务。前一组“尿素循环、两个氮与调节”承担不同的UREA_CYCLE_EXECUTION任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data."
       }
     },
     "D5": {
@@ -2302,7 +2347,7 @@
           "tumor/hematology drug interfaces"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：PRPP与嘌呤从头/补救/分解[PURINE_SUPPLY_RECOVERY] → 嘧啶、脱氧核苷酸与dTMP[PYRIMIDINE_DEOXY_DTMP] → 抗代谢物靶点地图[ANTIMETABOLITE_TARGET_MAP]。",
+      "partition_rationale": "M9 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 teacher order may form those LG/KP objects non-contiguously; no intermediate L-layer exists.",
       "learner_order": [
         "b-m09-lg01",
         "b-m09-lg02",
@@ -2342,6 +2387,11 @@
           "closure": "给出药物名或被阻断反应，能定位到嘌呤/嘧啶/叶酸/dTMP/聚合层并预测主要供给后果。",
           "continuity_rationale": "KP11–KP15共同完成“抗代谢物靶点地图”这一ANTIMETABOLITE_TARGET_MAP任务。前一组“嘧啶、脱氧核苷酸与dTMP”承担不同的PYRIMIDINE_DEOXY_DTMP任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data."
       }
     },
     "G1": {
@@ -2362,7 +2412,7 @@
           "G5"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：核酸身份、方向与测量[NUCLEIC_IDENTITY_DIRECTION] → DNA双螺旋、包装与可逆打开[DNA_STRUCTURE_PACKAGING_STABILITY] → RNA、遗传密码与翻译前准确性[RNA_DECODING_PRECONDITIONS] → 真核基因组组织[EUK_GENOME_ORGANIZATION]。",
+      "partition_rationale": "G1 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Stable canonical KP/file identity is independent of learner_order. Current 27 Source maps directly to these LG/KP owners through the global Source map; no intermediate L-layer exists.",
       "learner_order": [
         "b-g01-lg01",
         "b-g01-lg02",
@@ -2414,6 +2464,11 @@
           "closure": "能从前体RNA到成熟mRNA说明哪些序列去留，并比较原核多顺反子/单复制子与真核组织方式；不提前展开G3/G4。",
           "continuity_rationale": "KP10–KP10共同完成“真核基因组组织”这一EUK_GENOME_ORGANIZATION任务。前一组“RNA、遗传密码与翻译前准确性”承担不同的RNA_DECODING_PRECONDITIONS任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data."
       }
     },
     "G2": {
@@ -2432,7 +2487,7 @@
           "G5"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：DNA复制执行系统[DNA_REPLICATION_EXECUTION] → 端粒与逆转录：两种反向复制解法[REVERSE_TRANSCRIPTASE_SOLUTIONS] → 核酸工具、引物与复制/转录出口比较[TOOL_PRIMER_EXIT_COMPARE]。",
+      "partition_rationale": "G2 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Stable canonical KP/file identity is independent of learner_order. Current 27 Source maps directly to these LG/KP owners through the global Source map; no intermediate L-layer exists.",
       "learner_order": [
         "b-g02-lg01",
         "b-g02-lg02",
@@ -2472,6 +2527,11 @@
           "closure": "给出切/接、是否需引物或DNA→DNA/DNA→RNA任务，能选择工具并准确区分复制与转录，为G3入口做好转换。",
           "continuity_rationale": "KP10–KP11共同完成“核酸工具、引物与复制/转录出口比较”这一TOOL_PRIMER_EXIT_COMPARE任务。前一组“端粒与逆转录：两种反向复制解法”承担不同的REVERSE_TRANSCRIPTASE_SOLUTIONS任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data."
       }
     },
     "G3": {
@@ -2492,7 +2552,7 @@
           "G5"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：转录执行：模板、启动、延长与终止[TRANSCRIPTION_EXECUTION] → RNA加工与质量控制[RNA_PROCESSING_QUALITY] → 翻译体系、能量与起始—延长—终止[TRANSLATION_EXECUTION] → 蛋白成熟、折叠与修饰[PROTEIN_MATURATION] → 蛋白靶向与翻译干扰接口[TARGETING_INTERFERENCE_BOUNDARY]。",
+      "partition_rationale": "G3 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Stable canonical KP/file identity is independent of learner_order. Current 27 Source maps directly to these LG/KP owners through the global Source map; no intermediate L-layer exists.",
       "learner_order": [
         "b-g03-lg01",
         "b-g03-lg02",
@@ -2556,6 +2616,11 @@
           "closure": "能根据N端信号肽/核定位序列判断蛋白靶向；也能根据原核/真核大小亚基或因子靶点定位翻译干扰，并明确两轴只是共享“翻译机器接口”。",
           "continuity_rationale": "KP15–KP15共同完成“蛋白靶向与翻译干扰接口”这一TARGETING_INTERFERENCE_BOUNDARY任务。前一组“蛋白成熟、折叠与修饰”承担不同的PROTEIN_MATURATION任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data."
       }
     },
     "G4": {
@@ -2573,7 +2638,7 @@
           "G5"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：表达特异性、染色质与表观调控[CHROMATIN_ACCESS] → 原核操纵子负/正与衰减调控[OPERON_CONTROL] → 真核顺式/反式、PIC与转录后调控[EUK_EXPRESSION_LAYERS]。",
+      "partition_rationale": "G4 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Stable canonical KP/file identity is independent of learner_order. Current 27 Source maps directly to these LG/KP owners through the global Source map; no intermediate L-layer exists.",
       "learner_order": [
         "b-g04-lg01",
         "b-g04-lg02",
@@ -2613,6 +2678,11 @@
           "closure": "给出增强子/TF、TFIID/TFIIH、miRNA/siRNA或泛素蛋白酶体变化，能定位表达调控发生在DNA可及/转录起始/转录后/蛋白稳定哪一层。",
           "continuity_rationale": "KP07–KP10共同完成“真核顺式/反式、PIC与转录后调控”这一EUK_EXPRESSION_LAYERS任务。前一组“原核操纵子负/正与衰减调控”承担不同的OPERON_CONTROL任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data."
       }
     },
     "G5": {
@@ -2639,7 +2709,7 @@
           "D19 tumor LGs"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：原癌油门、抑癌刹车与生长控制失效[TUMOR_CONTROL_FAILURE] → 突变类型与DNA修复系统[MUTATION_REPAIR] → 重组DNA、PCR、印迹与相互作用技术[MOLECULAR_TOOL_MAP]。",
+      "partition_rationale": "G5 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Stable canonical KP/file identity is independent of learner_order. Current 27 Source maps directly to these LG/KP owners through the global Source map; no intermediate L-layer exists.",
       "learner_order": [
         "b-g05-lg01",
         "b-g05-lg02",
@@ -2679,12 +2749,17 @@
           "closure": "给出目标是扩增DNA、测RNA/蛋白、构建重组载体、检测DNA-蛋白或蛋白-蛋白相互作用，能选择正确技术并说明它回答什么问题。",
           "continuity_rationale": "KP06–KP11共同完成“重组DNA、PCR、印迹与相互作用技术”这一MOLECULAR_TOOL_MAP任务。前一组“突变类型与DNA修复系统”承担不同的MUTATION_REPAIR任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data."
       }
     },
     "D21": {
-      "first_pass_focus": "甲状腺激素怎样合成、储存、释放、反馈并调节代谢；面对甲状腺肿大、甲状腺毒症、甲减或结节时，怎样把“功能异常”和“形态异常”分开定位，再进入药物、核素、病理或外科决策？",
-      "stop_line": "完整拥有甲状腺正常轴、甲亢/甲减、结节炎症、癌和外科安全；D6共同语言和代谢接口只Recall，Tumor Gate仅癌组调用；PTH主体归D23，外部甲状腺指南不替换Current。",
-      "recall_spine": "TSH–FT4功能轴+结构/疼痛 → 甲亢/甲减/结节炎症/肿瘤定位 → 病因证据 → 常规治疗 vs 甲危急救 vs 外科安全 → 妊娠/颈部残余边界",
+      "first_pass_focus": "甲状腺激素怎样合成、反馈并改变全身代谢；面对甲状腺/颈前肿物时，先分功能轴与形态轴，再用疼痛、对称性、位置、结节功能和恶性证据进入药物、核素或外科决策。",
+      "stop_line": "完整拥有甲状腺正常轴、甲亢/甲减、结节炎症、癌和外科安全；D6共同语言和代谢接口只Recall，Tumor Gate仅癌组调用；PTH主体归D23。27精编新增的颈部肿块位置表只作为Source-bound Recognition，不扩成新的颈外科课程。",
+      "recall_spine": "TSH–FT4功能轴 + 弥漫/结节/疼痛/颈部位置 → 甲亢/甲减/炎症/良性结节/肿瘤定位 → 病因证据 → 常规治疗 vs 甲危急救 vs 外科安全",
       "readiness": {
         "requires": [
           "D6",
@@ -2801,7 +2876,7 @@
           "label": "甲状腺肿、结节与炎症",
           "cognitive_job": "THYROID_MORPHOLOGY_DISCRIMINATION",
           "goal": "把弥漫/结节性肿大、甲状腺炎和单个结节按功能、疼痛、质地和影像/穿刺分流。",
-          "closure": "给出疼痛、功能状态、结节超声或FNA线索，能区分炎症/良性结节/需要肿瘤评估的方向。",
+          "closure": "给出疼痛、功能状态、结节超声/FNA或囊内出血线索，能区分炎症/良性结节/肿瘤评估方向；同时不把‘迅速增大’或‘囊内出血’机械等同恶性或手术。",
           "continuity_rationale": "KP19–KP22共同完成“甲状腺肿、结节与炎症”这一THYROID_MORPHOLOGY_DISCRIMINATION任务。前一组“甲减定位与替代”承担不同的HYPOTHYROID_LOCALIZATION任务。后一组“四类甲状腺癌与处理”切换到不同的THYROID_TUMOR_GATE任务。"
         },
         "b-d21-lg09": {
@@ -2822,8 +2897,8 @@
           ],
           "label": "甲状腺外科准备与术后安全",
           "cognitive_job": "THYROID_SURGICAL_SAFETY",
-          "goal": "把甲亢术前准备、喉返/喉上神经、甲旁和术后出血/低钙等组织成甲状腺手术安全地图。",
-          "closure": "给出术后声音、低钙、颈部肿胀或术前甲亢状态，能定位并发症并指出紧急处理优先级。",
+          "goal": "先用“能不能手术→做多大范围→最怕什么并发症”组织甲亢/甲状腺癌外科，再把术前准备、喉返/喉上神经、甲旁和术后出血/低钙放回手术安全地图。",
+          "closure": "给出术前甲亢状态、肿瘤范围或术后声音/低钙/颈部肿胀，能依次回答手术适应性、范围大方向与当前最危险并发症，并指出紧急处理优先级。",
           "continuity_rationale": "KP26–KP28共同完成“甲状腺外科准备与术后安全”这一THYROID_SURGICAL_SAFETY任务。前一组“四类甲状腺癌与处理”承担不同的THYROID_TUMOR_GATE任务。后一组“甲状舌管囊肿识别”切换到不同的NECK_REMNANT_RECOGNITION任务。"
         },
         "b-d21-lg11": {
@@ -2833,8 +2908,8 @@
           ],
           "label": "甲状舌管囊肿识别",
           "cognitive_job": "NECK_REMNANT_RECOGNITION",
-          "goal": "把甲状舌管囊肿作为胚胎残余的独立颈部识别点，不并入甲状腺手术安全链。",
-          "closure": "给出中线随吞咽/伸舌移动的颈部包块，能识别甲状舌管囊肿方向及其与甲状腺结节的区别。",
+          "goal": "把甲状舌管囊肿放回颈前中线胚胎残余，并用27精编位置表建立最低限度的颈部肿块空间候选意识。",
+          "closure": "给出颈部包块的位置、单/多发和随伸舌移动等线索，能先形成Source支持的候选类别，再区分甲状舌管囊肿与甲状腺结节；不靠位置表直接下最终诊断。",
           "continuity_rationale": "KP29–KP29共同完成“甲状舌管囊肿识别”这一NECK_REMNANT_RECOGNITION任务。前一组“甲状腺外科准备与术后安全”承担不同的THYROID_SURGICAL_SAFETY任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
       }
@@ -3181,8 +3256,8 @@
           ],
           "label": "食管癌识别—证据—治疗",
           "cognitive_job": "ESOPHAGEAL_CANCER",
-          "goal": "从进行性吞咽困难进入食管癌，用部位/病理、钡餐/内镜证据和可切除性形成完整病例闭环。",
-          "closure": "给出吞咽症状、肿瘤部位或检查结果，能判断首选确证与治疗大方向，并区分失弛缓等良性动力障碍。",
+          "goal": "从进行性吞咽困难进入食管癌，用部位/病理、钡餐/内镜证据和可切除性形成病例闭环，并理解27精编为何把部分颈段/胸上段或远处转移场景推向放疗。",
+          "closure": "给出吞咽症状、肿瘤部位、检查结果和可切除性，能判断确证与治疗大方向；能把精编的放疗解释当作方向感，而不是脱离分期/位置机械套规则。",
           "continuity_rationale": "KP04–KP08共同完成“食管癌识别—证据—治疗”这一ESOPHAGEAL_CANCER任务。前一组“共同肿瘤语言与消化道壁深度”承担不同的COMMON_TUMOR_GATE_WALL任务。后一组“胃腺癌身份、形态与扩散”切换到不同的GASTRIC_IDENTITY_SPREAD任务。"
         },
         "b-d11-lg03": {
@@ -3621,7 +3696,7 @@
           "hematology hemolysis interface"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：血红素合成与含铁卟啉入口[HEME_SYNTHESIS] → UCB→CB→肠道与三类黄疸[BILIRUBIN_LOCALIZATION] → Ⅰ相/Ⅱ相生物转化[BIOTRANSFORMATION_PHASE_MAP]。",
+      "partition_rationale": "M10 preserves its existing Logic Groups as the local retrieval/closure units inside System→Block→Logic Group→KP. Current 27 teacher order may form those LG/KP objects non-contiguously; no intermediate L-layer exists.",
       "learner_order": [
         "b-m10-lg01",
         "b-m10-lg02",
@@ -3661,6 +3736,11 @@
           "closure": "给出一种药物/激素处理或结合供体，能判断属于Ⅰ相还是Ⅱ相及对水溶性/排泄的方向；不扩写完整药物相互作用。",
           "continuity_rationale": "KP10–KP13共同完成“Ⅰ相/Ⅱ相生物转化”这一BIOTRANSFORMATION_PHASE_MAP任务。前一组“UCB→CB→肠道与三类黄疸”承担不同的BILIRUBIN_LOCALIZATION任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
+      },
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "Resolve exact current 27 Source-unit/page→LG/KP formation and block Source-closure checkpoint from the Source map. Learning owns Recall/closure semantics only and does not duplicate Source locator/mapping data."
       }
     },
     "D16": {
@@ -4008,8 +4088,8 @@
           ],
           "label": "肝脓肿来源、证据、引流与鉴别",
           "cognitive_job": "LIVER_ABSCESS",
-          "goal": "从胆道/门静脉等感染来源接到寒战高热肝区痛、B超/CT/穿刺证据与抗菌±引流，并比较阿米巴性。",
-          "closure": "给出发热肝区痛、影像和脓液/来源线索，能判断细菌性脓肿、选择抗菌/引流并与阿米巴脓肿区分。",
+          "goal": "从胆道/门静脉等感染来源接到寒战高热肝区痛，用‘小而多感染像 + B超液性暗区 + CT边缘强化但非特异 + 穿刺病原证据’组织检查，再按抗菌±引流处理并比较阿米巴性。",
+          "closure": "给出发热肝区痛、影像和脓液/来源线索，能识别细菌性脓肿；知道边缘强化不能单独排除转移瘤，并能按小多发药物主线 vs 较大可达病灶引流选择处理。",
           "continuity_rationale": "KP23–KP26共同完成“肝脓肿来源、证据、引流与鉴别”这一LIVER_ABSCESS任务。前一组“蛔虫、闭锁、扩张与黄疸定位”承担不同的RARE_CONGENITAL_LOCALIZATION任务。这是本Block当前学习顺序的最后一个闭环任务。"
         }
       }
@@ -4109,5 +4189,326 @@
         }
       }
     }
+  },
+  "biochemistry_first_pass_lane": {
+    "status": "CURRENT_27_REACCEPTED",
+    "scope_blocks": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "M7",
+      "M8",
+      "M9",
+      "M10",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5"
+    ],
+    "rationale": "Biochemistry has unusually strong continuous-pathway and information-flow structure. For first-pass Source formation, preserving the current 27 Lecture continuity is more valuable than forcing canonical Block order or interleaving digestive/endocrine Blocks. Canonical Block/KP identity remains unchanged.",
+    "source_rule": {
+      "primary_continuous_source": "27生化跟课版合集【不带导图】.pdf",
+      "execution": "FOLLOW_CURRENT_27_SOURCE_ORDER_END_TO_END",
+      "canonical_mapping": "DIRECT_SOURCE_TO_EXISTING_BLOCK_LOGIC_GROUP_KP_OR_EXPLICIT_SUPPORT_CONNECTION_WITHOUT_FORCING_BLOCK_SWITCHES",
+      "source_precedence": "27 current Source truth > validated 26 explanatory substrate",
+      "second_reader_forbidden": true,
+      "note": "26 refined explanations may be reconstructed into Framework/Logic/KP/Connection, but Kian is not asked to read 26 as a second continuous course."
+    },
+    "route_rule": {
+      "mode": "BIOCHEMISTRY_SOURCE_LANE_LOW_SWITCHING",
+      "interleave_with_digestive_endocrine": false,
+      "cross_system_behavior": "DO_NOT_ROUTINELY_SWITCH_SOURCE; USE JIT_CONNECTION_NOW, RECALL_IF_ALREADY_LEARNED, FUTURE_CONNECTION_IF_NOT_YET_LEARNED, THEN POST_FORMATION_CROSS_SYSTEM_RECONSTRUCTION",
+      "block_readiness_interpretation": "For this lane, existing M/G readiness relations gate Recall/closure and downstream authorization, not permission to encounter an earlier current-Source segment.",
+      "return_behavior": "After relevant biochemical and digestive/endocrine owners are formed, actively recombine them through state-based cross-Block/System reconstruction rather than leaving subjects isolated."
+    },
+    "minimal_prelude": {
+      "role": "NON_CANONICAL_NON_GATING_JUST_IN_TIME_LANGUAGE",
+      "items": [
+        "关键酶 / 不可逆控制点",
+        "ATP/GTP 与高能键",
+        "NADH/FADH2：电子进入呼吸链并支持ATP生成",
+        "NADPH：还原合成 / 抗氧化 / 生物转化接口",
+        "CoA：酰基搬运",
+        "胞浆 vs 线粒体；肝/肌/RBC/脑的组织边界"
+      ],
+      "rule": "Use only the smallest explanation needed to understand the early 27 Source. This is not M1 completion, creates no Memory debt, and is replaced/strengthened when formal M1 material arrives."
+    },
+    "mental_models": {
+      "metabolism": {
+        "label": "物质—能量网络",
+        "coordinates": [
+          "carbon_flow",
+          "ATP_energy",
+          "redox_NADH_FADH2_vs_NADPH",
+          "group_carriers",
+          "compartment",
+          "tissue_state",
+          "fed_fasting_stress"
+        ],
+        "core_hubs": [
+          "G-6-P",
+          "pyruvate",
+          "acetyl-CoA",
+          "oxaloacetate",
+          "TCA",
+          "ATP/GTP",
+          "NADH/FADH2",
+          "NADPH",
+          "CoA",
+          "FH4",
+          "SAM",
+          "PRPP"
+        ]
+      },
+      "information": {
+        "label": "信息生命周期",
+        "spine": [
+          "DNA identity/packaging",
+          "replication",
+          "transcription",
+          "RNA processing",
+          "translation",
+          "expression control",
+          "damage/repair",
+          "oncogene/tumor-suppressor failure",
+          "molecular tools"
+        ]
+      }
+    },
+    "recall_policy": {
+      "local": "Release KP/LG Recall only after the owning current-Source material has actually been encountered and the needed prerequisite language is available.",
+      "cross_block_state_reconstruction": [
+        "fed vs fasting metabolic flow",
+        "mature RBC energy/redox flow",
+        "hypoxia / respiratory-chain inhibition / uncoupling",
+        "diabetes / glucose-utilization failure",
+        "lipid storage vs mobilization",
+        "DNA information-flow / regulation / repair"
+      ],
+      "rule": "Prefer reconstructing state variables and flow over reciting pathway names or Block titles."
+    },
+    "memory_policy": {
+      "target": "HIGH_REUSE_SWITCHES_AND_BOUNDARIES",
+      "examples": [
+        "NADH vs NADPH",
+        "cytosol vs mitochondrion",
+        "liver vs muscle",
+        "mitochondria-present vs absent",
+        "fed vs fasting",
+        "malonyl-CoA ↔ CPT-I",
+        "LPL vs HSL",
+        "LCAT vs ACAT",
+        "HMG-CoA cholesterol vs ketone branch",
+        "reversible vs irreversible control",
+        "substrate-level vs oxidative phosphorylation"
+      ],
+      "anti_rule": "Do not create Memory debt by duplicating whole pathways that can be reconstructed from the mother model."
+    },
+    "question_diagnostic_axes": [
+      "IDENTITY",
+      "DIRECTION",
+      "COMPARTMENT_OR_TISSUE_LOCALIZATION",
+      "PHYSIOLOGIC_STATE",
+      "BOUNDARY_OR_CONFUSABLE",
+      "MECHANISM",
+      "PRECISION"
+    ],
+    "completion_boundary": "Biochemistry first-pass Source continuity can finish before digestive/endocrine interleaving resumes. Completion of the Source lane does not itself equal mastery; canonical Block Recall, cross-Block reconstruction, official questions and delayed evidence remain separate.",
+    "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+    "source_map_status": "CURRENT_27_SOURCE_ROUTING_REACCEPTED",
+    "contract_owner": "content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md",
+    "canonical_hierarchy_status": "SHARED_SYSTEM_BLOCK_LOGIC_GROUP_KP_ONLY",
+    "two_mother_maps_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json",
+    "website_mapping_rule": "Website consumes canonical System/Block/LG/KP truth plus accepted content jobs/Learning/Projection. It must not treat provisional Source grouping annotations as a new hierarchy.",
+    "architecture_rule": {
+      "hierarchy": "System → Block → Logic Group → KP",
+      "no_parallel_layer": true,
+      "framework_role": "CANONICAL_SYSTEM_OR_BLOCK_CONTENT_JOB_NOT_HIERARCHY",
+      "source_lane_role": "DEDICATED_FIRST_PASS_EXECUTION_ONLY",
+      "integration": "JIT_CONNECTION → CONNECTION_HOOK_OR_RECALL → POST_FORMATION_RECONSTRUCTION",
+      "principle": "Source continuity can be domain-specific; Knowledge integration must remain System-wide.",
+      "reconciliation": "All M1–M10/G1–G5 direct Source mappings now target existing Logic Groups/KPs or explicit support/Connection roles; the interrupted L-layer topology has been removed."
+    },
+    "cross_system_integration": {
+      "status": "CURRENT",
+      "principle": "Source continuity can be domain-specific; Knowledge integration must remain System-wide.",
+      "timing": [
+        {
+          "phase": "JIT_NOW",
+          "when": "The current Biochemistry Source cannot be understood without one external idea.",
+          "action": "Expose only the smallest sufficient external concept; do not switch into the external Block as a new Source-learning task.",
+          "learner_truth_rule": "This preview creates no completion/mastery/evidence for the external owner."
+        },
+        {
+          "phase": "RECALL_OR_FUTURE_HOOK",
+          "when": "A Biochemistry Block/LG reaches a real reusable relation to another formal owner.",
+          "action": "If the target owner is already learned, Recall it briefly. If not, expose a Future Connection to the exact formal owner and continue the Biochemistry Source lane.",
+          "ownership_rule": "External medical Core remains in the target owner; no duplication."
+        },
+        {
+          "phase": "POST_FORMATION_RECONSTRUCTION",
+          "when": "Both sides of the relation have actually been formed.",
+          "action": "Actively reconstruct the shared physiologic/clinical state across Blocks/Systems instead of leaving the subjects isolated.",
+          "examples": [
+            "fed vs fasting",
+            "diabetes / glucose-utilization failure",
+            "lipid absorption→transport→storage/mobilization",
+            "hepatic nitrogen detoxification",
+            "bilirubin generation→hepatic handling→biliary excretion"
+          ]
+        }
+      ],
+      "reviewed_routes": [
+        {
+          "source": [
+            "M4"
+          ],
+          "targets": [
+            "D7",
+            "D8"
+          ],
+          "shared_model": "fed/fasting glucose output; insulin/glucagon state switch; diabetes applies but does not own the biochemical pathway",
+          "first_pass": "JIT/HOOK_ONLY",
+          "post_formation": "RECONSTRUCT"
+        },
+        {
+          "source": [
+            "M5"
+          ],
+          "targets": [
+            "D3",
+            "D4"
+          ],
+          "shared_model": "intestinal lipid digestion/absorption hands off to chylomicron/plasma transport",
+          "first_pass": "RECALL_IF_LEARNED_ELSE_FUTURE_HOOK",
+          "post_formation": "RECONSTRUCT"
+        },
+        {
+          "source": [
+            "M6"
+          ],
+          "targets": [
+            "D3",
+            "D4",
+            "D19",
+            "D22",
+            "D23"
+          ],
+          "shared_model": "cholesterol pool → bile acids / vitamin D / steroid derivatives; digestion/absorption and hepatobiliary/endocrine consequences stay in their formal owners",
+          "first_pass": "JIT/HOOK_ONLY",
+          "post_formation": "RECONSTRUCT"
+        },
+        {
+          "source": [
+            "M7"
+          ],
+          "targets": [
+            "D7",
+            "D8"
+          ],
+          "shared_model": "fed/fasting storage vs mobilization; glucose-utilization failure → beta-oxidation/ketogenesis → DKA application",
+          "first_pass": "JIT/HOOK_ONLY",
+          "post_formation": "RECONSTRUCT"
+        },
+        {
+          "source": [
+            "M8"
+          ],
+          "targets": [
+            "D17"
+          ],
+          "shared_model": "ammonia transport/urea detoxification → hepatic failure/hyperammonemia application",
+          "first_pass": "RECALL_IF_LEARNED_ELSE_FUTURE_HOOK",
+          "post_formation": "RECONSTRUCT"
+        },
+        {
+          "source": [
+            "M10"
+          ],
+          "targets": [
+            "D17",
+            "D19"
+          ],
+          "shared_model": "bilirubin generation/conjugation/excretion → hepatocellular vs obstructive jaundice localization",
+          "first_pass": "RECALL_IF_LEARNED_ELSE_FUTURE_HOOK",
+          "post_formation": "RECONSTRUCT"
+        },
+        {
+          "source": [
+            "M3",
+            "M8",
+            "M10"
+          ],
+          "targets": [
+            "C"
+          ],
+          "shared_model": "RBC redox / folate-B12 / heme-bilirubin mechanisms connect to hematology without duplicating hematology Core",
+          "first_pass": "JIT/HOOK_ONLY",
+          "post_formation": "RECONSTRUCT_WHEN_TARGET_OWNER_LEARNED"
+        },
+        {
+          "source": [
+            "G4"
+          ],
+          "targets": [
+            "D22",
+            "D23"
+          ],
+          "shared_model": "nuclear-receptor / transcription-control language connects to endocrine signaling while endocrine physiology remains externally owned",
+          "first_pass": "JIT/HOOK_ONLY",
+          "post_formation": "RECONSTRUCT_WHEN_TARGET_OWNER_LEARNED"
+        },
+        {
+          "source": [
+            "G5"
+          ],
+          "targets": [
+            "O9",
+            "D11",
+            "D15",
+            "D18",
+            "D19",
+            "D20",
+            "D21"
+          ],
+          "shared_model": "oncogene/tumor-suppressor/repair failure supplies molecular mechanism; tumor morphology/staging/treatment remain pathology/organ owned",
+          "first_pass": "FUTURE_HOOK_OR_RECALL_ONLY",
+          "post_formation": "RECONSTRUCT"
+        }
+      ],
+      "anti_rules": [
+        "Do not routinely interleave full digestive/endocrine Source study into the continuous Biochemistry Source lane.",
+        "Do not duplicate external medical Core inside Biochemistry.",
+        "Do not mark an external target learned because a JIT preview or Connection Hook was shown.",
+        "Do not defer integration forever: once both owners are formed, the relation should be actively reconstructed."
+      ]
+    },
+    "source_mapping_ownership": "SINGLE_OWNER_SOURCE_MAP: exact Source-unit/page→LG/KP mappings and Source-closure checkpoints live only in biochemistry-27-source-map.json; Block source_contact objects are semantic pointers only."
+  },
+  "biochemistry_contract": {
+    "owner": "content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md",
+    "status": "CURRENT",
+    "scope": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "M7",
+      "M8",
+      "M9",
+      "M10",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5"
+    ],
+    "rule": "This scoped contract specializes Biochemistry learning/content semantics under the parent Xizong Learning Contract; this machine owner executes it and must not fork it."
   }
 }
