@@ -11,7 +11,7 @@ title: O15｜OA、AS与RA骨科坐标
 order: 15
 status: FINAL_EXECUTION
 study_refs:
-  - source_id: surgery-ai-lecture | label: 外科学讲义_AI阅读版｜5.5 非化脓性关节炎 P172–P176 | action: primary
+  - source_id: surgery-ai-lecture | label: 27外科精编版【带导图】｜SUR27-U24｜非化脓性关节炎 PDF P171–P175 | action: primary
   - source_id: hematology-h17 | label: H17｜类风湿关节炎免疫与内科主体 | action: recall_benefit
   - source_id: orthopedics-o10 | label: O10｜股骨头坏死与继发性OA接口 | action: recall_apply_benefit
   - source_id: orthopedics-o14 | label: O14｜骨关节结核与脊柱影像鉴别 | action: recall_compare_benefit
