@@ -11,47 +11,52 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 
 ## Gate status
 
-## Current Source-revision exception — Biochemistry M1–M10 / G1–G5
+## Closed Source revision — Biochemistry M1–M10 / G1–G5
 
-The prior B S/K/L/P/R/E acceptance remains valid historical evidence and remains Current for unaffected D1–D23 scope. The authoritative **27 Biochemistry follow-along Source** materially changed the Source basis for all M/G Blocks. **M1–M10 are now Current after canonical hierarchy reconstruction and direct Source→Knowledge→Learning mapping**; G1–G5 remain in the bounded exception.
-
-Therefore, until the bounded reconstruction closes:
+The authoritative **27 Biochemistry follow-along Source** has completed the bounded Source→Knowledge reconstruction for all M1–M10 + G1–G5. Stable Block/KP identity is preserved; canonical content hierarchy, global Source mapping and Learning consumption are Current.
 
 ```text
-M1–M10 K / Learning mapping = CURRENT_AFTER_CANONICAL_HIERARCHY_RECONSTRUCTION
-M1–M10 Question relations / explanations = PRESERVE unless canonical medical semantics/owner boundaries changed
-G1–G5 Source rebase = IN_PROGRESS
-remaining M/G K      = BOUNDED_REOPEN
-remaining M/G L / Content = FROZEN_FOR_REVALIDATION_BEHIND_K
-M/G P                = PROVISIONAL / preserve existing work
-Runtime broad rebuild= NOT AUTHORIZED
-historical learner evidence = PRESERVE; Current authorization follows each Block's Source-revision status
+27 Source identity / 22-unit map       = PASS / CURRENT
+M1–M10 + G1–G5 canonical Knowledge    = PASS / CURRENT
+two mother maps in system.json         = PASS / CURRENT
+Learning global-map consumption        = PASS / CURRENT
+duplicate local Block Source registries= 0
+Question→Knowledge inference from lecture coverage = FORBIDDEN / 0 CREATED
+historical learner evidence            = PRESERVE
+learner progress manufactured by rebase = 0
+static-web content fork                = 0
 ```
 
-This does **not** reopen D1–D23, B official-question membership, or the whole B architecture. Stable M/G Block/KP identities are preserved unless the deep comparison finds a concrete semantic reason to change them.
+Current explicit non-gating Source boundaries remain visible rather than silently fixed:
 
+- M3: the literal NADPH wording is bounded by the broader same-current-Source model; NADPH is not routine OXPHOS fuel but is used for GSH / reductive synthesis / biotransformation.
+- M4: 27 P015 FBPase-1 inhibitor wording remains SOURCE_CONFLICT / fail-closed.
+- G5: the eukaryotic low-fidelity/translesion polymerase group is Current; the first Greek glyph remains exact-visual SOURCE_BOUND.
+
+These boundaries do not reopen Block/KP identity or the Biochemistry learning model.
 
 ```text
 S  PASS — exact Current official-question membership accepted (1071 qids)
-K  PASS — 38 stable Blocks / 600 stable KPs + accepted System model
-L  PASS — fresh independent Learning acceptance complete
-P  PASS — fresh revalidation of the existing 1 System + 38 Block Projection assets
-R  PASS — executed B shared Runtime browser journey
-E  PASS — executed B official-question / Repair / stale-evidence browser semantics
+K  PASS — 38 stable Blocks / 600 stable KPs + accepted System model; Biochemistry M/G Current on 27
+L  PASS — accepted Learning logic; all M/G consume canonical layers through the completed 27 Source map
+P  PASS — prior accepted Projection preserved; no Block/KP topology change
+R  PASS — prior executed B shared Runtime journey preserved; no broad Runtime rebuild required
+E  PASS — evidence/runtime semantics preserved; historical observations do not equal Current learner completion
 U  UNTESTED — real learner use only
 ```
 
 Current allowed conclusion:
 
-> **B remains accepted outside the bounded M/G Biochemistry revision. M1 is Current on the 27 Source with canonical L1–L5 Knowledge hierarchy and direct mapping; M2–M10/G1–G5 remain under Source→Knowledge revalidation and must not use the old 26 Source binding as Current learner authorization.**
+> **B Biochemistry Source revision is closed/current: M1–M10 + G1–G5 now use 27 Source → canonical Knowledge hierarchy → global Source mapping → Learning consumption. Website presentation remains downstream of GitHub canonical truth.**
 
 Dependency-scoped rule:
 
-- exact B System-question membership is now accepted and may be consumed only after real B System completion + pre-question System Reconstruction;
-- S PASS does **not** create Question→Block/LG/KP relations and does not alter K/L/P semantics.
+- exact B System-question membership remains separate from Source-position lecture coverage;
+- no new Question→Block/LG/KP relation is inferred by this rebase;
+- existing reviewed relations/explanations are preserved unless a concrete target semantic/owner change separately reopens them;
+- actual learner completion still requires current learner evidence and is not created by repository reconstruction.
 
 ---
-
 ## S — PASS｜official-question membership sub-boundary
 
 Canonical owner:
