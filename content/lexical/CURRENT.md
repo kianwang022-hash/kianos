@@ -4,15 +4,16 @@ Role: **Lexical backend engineering Work Cursor + scope router**
 
 Learner-facing Vocabulary / Lexical belongs under **English**. This file owns only current Lexical BUILD / CONTROL routing. It does not own semantic truth, learner progress, Acceptance Truth, or a historical batch cursor.
 
-## Current state
+## Current routing
 
-- The 7,946-word final-standard semantic campaign is **closed**.
-- No A/B/C production batch or ordinal frontier is active.
-- Current work is maintenance-only: concrete semantic/Form/Relation defect, admitted new Source, or explicit new scope.
-- Final Learner Objects are derived from current Natural Owners and remain downstream learner assets rather than a semantic owner.
-- Learner truth remains private; content/runtime readiness never manufactures vocabulary mastery.
+- There is no live A/B/C ordinal production cursor in this file.
+- A concrete Word/Form/Relation semantic defect routes directly to its Natural Owner.
+- Materialization/runtime mechanics route to `CONTENT_EXECUTION.md` and the exact active tool/consumer.
+- Acceptance/readiness questions route to `ACCEPTANCE.md`; this cursor does not restate campaign closure or gate results.
+- An admitted new Source or explicit new lexical scope opens only the smallest responsible owner/program.
+- Final Learner Objects remain derived learner assets; learner truth remains private and is never manufactured by content/runtime readiness.
 
-Historical A/B/C campaigns, BF branches, live-batch/board machinery, checkpoint narratives and per-window delivery procedures are provenance only. They are not normal continuation and need not remain in this Current cursor.
+Historical A/B/C campaigns, BF branches, batch boards, checkpoint narratives and per-window delivery procedures are provenance only, not continuation authority.
 
 ## Owner map
 
