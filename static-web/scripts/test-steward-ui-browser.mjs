@@ -108,6 +108,17 @@ try {
     check((await page.locator('.kianosRailItem.active').textContent())?.trim() === 'Steward', 'l1_active');
     check(await page.locator('[data-kianos-subject-bar]').count() === 0, 'invented_l2');
 
+    const dock = page.locator('[data-study-timer-dock]');
+    await dock.waitFor({ state: 'visible' });
+    const dockSubject = String(await dock.locator('[data-study-timer-subject]').textContent() || '').trim();
+    check(dockSubject.includes('西综') && dockSubject.includes('呼吸系统'), 'dock_native_detail', dockSubject);
+    const todayHref = await dock.locator('[data-study-timer-today]').getAttribute('href');
+    check(Boolean(todayHref && todayHref.endsWith('/steward/')), 'dock_today_route', String(todayHref));
+    for (const selector of ['[data-study-timer-subject]', '[data-study-timer-pause]', '[data-study-timer-today]']) {
+      const size = Number.parseFloat(await dock.locator(selector).evaluate((node) => getComputedStyle(node).fontSize));
+      check(size >= 15, 'dock_text_below_floor', `${selector}:${size}`);
+    }
+
     check(await page.locator('[data-steward-view="today"]').getAttribute('class') === 'active', 'today_default');
     check(await page.locator('[data-steward-mode="schedule"]').getAttribute('class') === 'active', 'schedule_default');
 
