@@ -160,7 +160,7 @@ assert(result.state.cards['core:respiratory-r01-kp01'].contentChangedAt === '202
 assert(result.state.cards['core:respiratory-r01-kp01'].coreHtml.includes('v2'), 'revision-refresh-core-not-updated');
 assert(result.state.attention['core:respiratory-r01-kp01']?.reviewRequested !== true, 'revision-refresh-replayed-first-pass-weak-signal');
 const revisedToday = todayMemoryQueue(result.state, { now: Date.parse('2026-09-20T08:01:00Z') });
-assert(revisedToday.some((card) => card.id === 'core:respiratory-r01-kp01' && card.retention?.dueReason === 'CONTENT_CHANGED_AFTER_LAST_EVIDENCE'), 'revision-refresh-not-due-content-changed');
+assert(revisedToday.some((card) => card.id === 'core:respiratory-r01-kp01' && card.dueReason === 'CONTENT_CHANGED_AFTER_LAST_EVIDENCE'), 'revision-refresh-not-due-content-changed');
 
 let invalidFailed = false;
 try {
