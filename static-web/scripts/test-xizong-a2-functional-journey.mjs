@@ -231,7 +231,9 @@ async function systemQuestionRepairJourney(page) {
     routeLink.click()
   ]);
   await repairPage.waitForLoadState('domcontentloaded');
-  await repairPage.waitForTimeout(500);
+  await repairPage.bringToFront();
+  const repairInboxKey = `kianos-xizong-repair-inbox-v1:xizong:${target.relation.blockId}`;
+  await repairPage.waitForFunction((key) => localStorage.getItem(key) == null, repairInboxKey, { timeout: 5000 });
   const repairEvidence = await repairPage.evaluate(({ blockId, kpId, questionId }) => {
     const memory = JSON.parse(localStorage.getItem('kianos-xizong-memory-v1') || 'null');
     const task = (memory?.repairTasks || []).find((row) =>
