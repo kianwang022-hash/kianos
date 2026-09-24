@@ -22,7 +22,7 @@ Implementation entrypoints:
 - styles → `src/styles/steward-workspace.css`;
 - shared navigation/shell → registered Shared Platform owners.
 
-The integrated Steward time workspace is implemented on `main`. Current implementation uses the existing Chat Plan / StudyTimer inputs and shared StudyTimerDock; unsupported Nutrition / Training / richer reality-capture inputs remain honest missing/empty states rather than invented data.
+The integrated Steward time workspace is implemented on `main`. Current implementation uses the existing Chat Plan / StudyTimer inputs and shared StudyTimerDock. The Dock now supports bounded Recovery reality capture — immediate Pause, optional rest duration/method/note, explicit Resume, optional re-entry outcome — and that same private reality is available to Steward Today and the existing private Daily Packet. It does not own recovery judgment, readiness scoring or automatic replanning. Nutrition / Training and other richer reality inputs remain honest missing/empty states rather than invented data.
 
 Do not copy product requirements, layout rules or Human-Gate verdicts into this cursor. Read those claims from their exact owners.
 
