@@ -1069,11 +1069,12 @@
   },
   "question_stage": {
     "timing": "AFTER_REAL_SYSTEM_LEARNING_AND_PRE_QUESTION_SYSTEM_RECALL",
-    "exact_membership_gate": "S_BLOCKED_UNTIL_CURRENT_B_QUESTION_SCOPE_ACCEPTED",
+    "exact_membership_gate": "CURRENT_B_QUESTION_SCOPE_ACCEPTED",
     "question_order_owns_learning": false,
     "lecture_attached_questions": "remain with original Lecture / MarginNote",
     "repair": "Wrong / Uncertain only; precise Block/KP routing uses reviewed relations only",
-    "whole_paper_holdout": "learner-selected and private; excluded wholesale from ordinary System sweep"
+    "whole_paper_holdout": "learner-selected and private; excluded wholesale from ordinary System sweep",
+    "question_scope_owner": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-question-scope.json"
   },
   "memory_and_precision": {
     "rule": "Recall weakness may enter selective Memory; important current-owner Precision is identified and begins memory on first pass, but first instability does not stall the mainline indefinitely.",
