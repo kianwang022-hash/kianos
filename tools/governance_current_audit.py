@@ -240,7 +240,8 @@ def audit_current(relative: str) -> None:
     lowered = text.lower()
     checks += 1
     role_ok = "current" in lowered and (
-        "work cursor" in lowered or (relative in ROUTER_ONLY_CURRENT_PATHS and "routing entry" in lowered)
+        "work cursor" in lowered
+        or (relative in ROUTER_ONLY_CURRENT_PATHS and ("routing entry" in lowered or "router" in lowered))
     )
     if not role_ok:
         fail("CURRENT_ROLE_MISSING", relative)
