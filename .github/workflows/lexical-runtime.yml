@@ -68,7 +68,6 @@ jobs:
           roots = [
               Path('content/lexical/manifest.json'),
               Path('content/lexical/schema.json'),
-              Path('content/lexical/continuation.json'),
               Path('content/lexical/learner/packet-contract.json'),
           ]
           roots += list(Path('content/lexical/words/by-ordinal').glob('*.json'))
