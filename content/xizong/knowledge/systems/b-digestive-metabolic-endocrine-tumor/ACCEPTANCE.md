@@ -11,6 +11,33 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 
 ## Gate status
 
+
+## Scoped Source revision — 27 Surgery refined-source reacceptance
+
+Status: **BOUNDED REVALIDATION COMPLETE · EXISTING B S/K/L/P CLAIMS PRESERVED**
+
+The Surgery source revision was reaccepted through the mature B architecture rather than through a new content hierarchy.
+
+```text
+Current Surgery Source
+→ existing B Block / Logic Group / KP owners
+→ Framework / Core / Boundary / Precision / Visual / Connection / Memory jobs
+→ existing Learning owner where learner order / LG closure truly changed
+→ existing Projection consumers
+```
+
+Result:
+
+- Current Surgery Primary was rebound on D5/D9/D11/D13/D14/D15/D17/D19/D20/D21/D23.
+- Semantic repairs: D21 thyroid/neck surgery framing and cystic-hemorrhage boundary; D11 bounded esophageal-treatment rationale; D17 portal-hypertension surgical objective.
+- Learning-only refinement: D19 liver-abscess evidence/decision closure, plus bounded D21/D11 LG closure wording.
+- Stable B Block/KP identity and canonical KP order were preserved.
+- Existing B Projection assets resolve the Current owners after revalidation.
+- Targeted Q/X review found no relation/explanation target that requires canonical mutation.
+- Source-revision learner evidence remains historical rather than Current until the current Block revision is revalidated; Memory cards refresh Current content while preserving historical Memory evidence.
+
+This bounded Surgery receipt does not alter the separately closed Biochemistry architecture-corrected acceptance above.
+
 ## Scoped Source revision — Biochemistry architecture-corrected reacceptance
 
 Status: **CLOSED / CURRENT · S/K/L/Content/P REACCEPTED AFTER ARCHITECTURE CORRECTION**

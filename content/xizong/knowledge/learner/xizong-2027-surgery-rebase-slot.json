@@ -464,6 +464,23 @@
             "reason": "Current System/Resume release already consumes current-version Block evidence and must not infer Current completion from archived stale Block state."
           }
         }
+      },
+      "acceptance_reconciliation": {
+        "status": "EXACT_OWNER_RECONCILIATION_COMPLETE_PENDING_FINAL_QA",
+        "mutated_exact_owners": [
+          "B CURRENT / ACCEPTANCE — bounded Surgery revalidation recorded",
+          "D CURRENT / ACCEPTANCE — bounded orthopedic Surgery revalidation recorded",
+          "E CURRENT / ACCEPTANCE — U12/E9 omission + E9/E11 visual truth reconciled",
+          "F CURRENT / ACCEPTANCE — refined Surgery Source made Current Primary; legacy source demoted to provenance"
+        ],
+        "preserved_without_owner_text_mutation": [
+          "A1 — Source-only Block rebind / existing accepted semantics and compiled Projection revalidated; no gate claim changed",
+          "A2 — Source-only R10/R11 rebind / compiled Projection revalidated; no gate claim changed",
+          "A3 — Source-only B5/B12/B13/B14 rebind; B5 Projection derived selectors revalidated; no medical gate claim changed",
+          "C — Source-only H2/H25-H27 rebind; no current C Projection was fabricated and no gate claim changed"
+        ],
+        "rule": "Only exact owners whose acceptance wording materially changed were edited. Unchanged accepted claims are not churned for symmetry.",
+        "next": "Read final Static Web Xizong QA on current head; if the failure is unrelated pre-existing work, do not broaden Surgery scope. If Surgery-owned checks pass, close task slot/mainline."
       }
     }
   },

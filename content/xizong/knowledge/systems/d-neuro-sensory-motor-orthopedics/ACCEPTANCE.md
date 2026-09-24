@@ -22,6 +22,24 @@ This file owns D-scoped readiness truth only. It does not own medical Core, lear
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | U — Learner Use | **NO_CLAIM** | real Kian use only |
 
+
+## 27 Surgery orthopedic Source revision — bounded reacceptance
+
+Status: **S/K/L/Content PRESERVED AFTER BOUNDED REVALIDATION · P STILL UNTESTED**
+
+The 27 Surgery refined Source rebase did not change D System topology.
+
+- O1–O16 Current Surgery locators were rebound to the refined PDF.
+- O3 received one explicit treatment-purpose boundary; stable KP identity remained unchanged.
+- O11 and O2 received bounded Learning closure refinements only.
+- Mature Block-owned Framework / KP Core / Boundary / Precision / Visual / Connection / Memory roles were re-read across the orthopedic branch.
+- Source unit / Source-contact segment remains execution only and does not become a hierarchy layer.
+- Canonical KP order was not changed to express learner order.
+- P remains **UNTESTED / ACTIVE NEXT** exactly as before; no Surgery task result promotes D Runtime/Evidence/User gates.
+- The directly affected O3 Question→Knowledge / explanation path was revalidated without changing its canonical target.
+
+Therefore the existing D S1/K/L/Content PASS claims remain current after this bounded Source revision.
+
 ---
 
 ## S2 question-scope boundary — PASS_AFTER_BOUNDED_REPAIR

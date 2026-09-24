@@ -37,6 +37,28 @@ JIT Connection
 
 **Next action:** none for the 27 Biochemistry revision. Do **not** regenerate M1–M10/G1–G5 content unless a new/revised authoritative Biochemistry Source or a concrete accepted-owner defect appears. The later A2 Evidence failure in full Xizong QA is outside this scope.
 
+
+## 27 Surgery refined-source bounded revalidation — 2026-09-24
+
+The cross-System Surgery rebase re-read B's affected Blocks against Current `27外科精编版【带导图】.pdf` without changing B hierarchy or stable identity.
+
+Current bounded result:
+
+- affected B Blocks: **D5 / D9 / D11 / D13 / D14 / D15 / D17 / D19 / D20 / D21 / D23**;
+- legacy follow-along / old Surgery AI-reader bindings are provenance only after each affected Block rebind;
+- real Knowledge changes are bounded to **D21**, **D11** and **D17**; **D19** received a learner-facing evidence/decision closure improvement;
+- the remaining affected B Core was explicitly revalidated as PRESERVE rather than duplicated with refined-note prose;
+- learner order, Logic Group topology and stable KP identity/order remain unchanged except the already-recorded bounded LG goal/closure wording improvements;
+- compiled B Projection bindings were revalidated against Current owners; no UI redesign or new Projection truth was introduced;
+- impacted reviewed Question→Knowledge relations and learner explanations were rechecked on the changed decision axes and remain semantically valid without canonical Q/X mutation;
+- Current-version Block evidence remains version-gated; historical evidence is preserved as history rather than promoted to the new revision.
+
+Durable cross-System receipt:
+
+`content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json`
+
+This is a bounded Source-revision reacceptance, not a new B construction program.
+
 ---
 
 ## Closed 27 Biochemistry architecture-corrected revision

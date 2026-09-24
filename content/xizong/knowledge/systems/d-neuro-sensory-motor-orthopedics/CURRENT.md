@@ -31,6 +31,26 @@ U Learner Use                                 = no repository claim
 
 Construction issue: GitHub `#272`.
 
+
+## 27 Surgery orthopedic refined-source revalidation — 2026-09-24
+
+SUR27-U20–U29 were re-read against the accepted D architecture rather than reconstructed as a new orthopedic hierarchy.
+
+Result:
+
+- **O1–O16** Surgery Source bindings now use Current `27外科精编版【带导图】.pdf` ranges; old follow-along/AI-reader bindings are provenance only.
+- Canonical identity remains **16 orthopedic Blocks / 206 orthopedic KP / 72 orthopedic Logic Groups**.
+- One bounded Knowledge clarification was added to **O3**: spinal surgery relieves ongoing compression, restores stability and reduces secondary injury; it does not reverse already irreversible cord damage.
+- Learning-only refinements remain bounded to **O11-LG01** treatment-ladder closure and **O2-LG05** emergency-priority closure.
+- All other refined orthopedic explanation was revalidated against existing Framework/Core/Boundary/Precision/Visual/Memory roles and PRESERVED when already represented.
+- No physical KP reorder and no new hierarchy were introduced.
+- D Projection remains the separately eligible next gate; this Surgery rebase does **not** fabricate D P/R/E acceptance.
+- The O3 official-question relation/explanation impact cone was rechecked; the existing 2014-n120 block-level relation and explanation already express decompression + stability and remain valid.
+
+Durable receipt:
+
+`content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json`
+
 ---
 
 ## Canonical owners
