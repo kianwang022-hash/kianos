@@ -1,0 +1,134 @@
+---
+import '../../styles/steward-workspace.css';
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Steward" active="steward" showLead={false}>
+  <section class="stewardWorkspace" data-steward-workspace>
+    <header class="stewardHeader">
+      <div class="stewardHeaderCopy">
+        <span>Steward</span>
+        <h1>今天怎么过</h1>
+        <p>时间安排、实际执行、饮食、训练和恢复。</p>
+      </div>
+      <nav class="stewardViewTabs" aria-label="Steward 时间视图">
+        <button type="button" class="active" data-steward-view="today">今日</button>
+        <button type="button" data-steward-view="week">周</button>
+        <button type="button" data-steward-view="month">月</button>
+      </nav>
+    </header>
+
+    <section class="stewardViewPanel active" data-steward-view-panel="today">
+      <div class="stewardTodayFrame">
+        <aside class="stewardTodayAside" aria-label="今日辅助信息">
+          <section class="stewardAsideSection">
+            <header class="stewardAsideHead">
+              <h2>今日重点</h2>
+            </header>
+            <div class="stewardTaskList" data-steward-tasks></div>
+          </section>
+          <section class="stewardAsideSection">
+            <header class="stewardAsideHead">
+              <h3>今日学习</h3>
+            </header>
+            <div class="stewardSubjectTotals">
+              <div class="stewardSubjectTotal"><span>西综</span><strong data-steward-total="xizong">0m</strong></div>
+              <div class="stewardSubjectTotal"><span>English</span><strong data-steward-total="english">0m</strong></div>
+              <div class="stewardSubjectTotal"><span>政治</span><strong data-steward-total="politics">0m</strong></div>
+            </div>
+          </section>
+        </aside>
+
+        <section class="stewardTodayMain">
+          <nav class="stewardModeTabs" aria-label="今日工作区">
+            <button type="button" class="active" data-steward-mode="schedule">日程</button>
+            <button type="button" data-steward-mode="nutrition">饮食与营养</button>
+            <button type="button" data-steward-mode="training">训练</button>
+          </nav>
+
+          <section class="stewardModePanel active" data-steward-mode-panel="schedule">
+            <header class="stewardModeHead">
+              <div>
+                <h2>今日时间轴</h2>
+                <p>计划 · 实际 · 状态</p>
+              </div>
+              <span class="stewardPlanState" data-steward-plan-state>读取安排…</span>
+            </header>
+            <div class="stewardTimelineViewport" data-steward-timeline-viewport>
+              <div class="stewardTimeline" data-steward-timeline></div>
+            </div>
+          </section>
+
+          <section class="stewardModePanel" data-steward-mode-panel="nutrition">
+            <div class="stewardEmptyWorkspace">
+              <div>
+                <h2>饮食与营养</h2>
+                <p>今天还没有接入可直接执行的餐饮计划。这里会承载组合、单品、克数编辑和营养计算，不会自行猜测摄入。</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="stewardModePanel" data-steward-mode-panel="training">
+            <div class="stewardEmptyWorkspace">
+              <div>
+                <h2>训练</h2>
+                <p>今天还没有接入可直接执行的训练处方。这里会记录动作、重量、次数、RPE 和训练后状态。</p>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <aside class="stewardNowRail" aria-label="当前学习与最近记录">
+          <section class="stewardAsideSection">
+            <span class="stewardNowLabel">现在</span>
+            <strong class="stewardNowSubject" data-steward-now-subject>读取中…</strong>
+            <b class="stewardNowElapsed" data-steward-now-elapsed>—</b>
+            <dl class="stewardNowMeta">
+              <dt>计划</dt><dd data-steward-now-plan>—</dd>
+              <dt>下一项</dt><dd data-steward-next>—</dd>
+            </dl>
+          </section>
+          <section class="stewardAsideSection">
+            <header class="stewardAsideHead">
+              <h3>最近记录</h3>
+            </header>
+            <div class="stewardRealityList" data-steward-reality></div>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section class="stewardViewPanel" data-steward-view-panel="week">
+      <div class="stewardPeriodToolbar">
+        <button type="button" data-steward-week-prev aria-label="上一周">‹</button>
+        <strong data-steward-week-label></strong>
+        <button type="button" data-steward-week-next aria-label="下一周">›</button>
+        <button type="button" data-steward-week-now>本周</button>
+      </div>
+      <div class="stewardWeekShell">
+        <div class="stewardWeekGrid" data-steward-week-grid></div>
+      </div>
+    </section>
+
+    <section class="stewardViewPanel" data-steward-view-panel="month">
+      <div class="stewardPeriodToolbar">
+        <button type="button" data-steward-month-prev aria-label="上一月">‹</button>
+        <strong data-steward-month-label></strong>
+        <button type="button" data-steward-month-next aria-label="下一月">›</button>
+        <button type="button" data-steward-month-now>本月</button>
+      </div>
+      <div class="stewardMonthShell">
+        <div class="stewardMonthGrid" data-steward-month-grid></div>
+        <div class="stewardMonthDetail" data-steward-month-detail>选择一天查看安排。</div>
+      </div>
+    </section>
+  </section>
+</Base>
+
+<script>
+  import { initStewardWorkspace } from '../../lib/stewardWorkspaceClient.mjs';
+  import { learnerWriterReady } from '../../lib/browserLearnerWriter.mjs';
+
+  void learnerWriterReady.then(() => {
+    initStewardWorkspace(document.querySelector('[data-steward-workspace]'));
+  });
+</script>
