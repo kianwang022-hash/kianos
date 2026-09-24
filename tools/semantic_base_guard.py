@@ -206,6 +206,8 @@ def infer_capabilities(paths: Iterable[str]) -> set[str]:
             caps.add("current_sync")
         if "external" in low and ("english" in low or low.startswith("static-web/")):
             caps.add("external_reading")
+        if "steward" in low:
+            caps.add("steward")
     return caps
 
 
@@ -243,10 +245,14 @@ def shared_owner_groups(registry: dict) -> dict[str, set[str]]:
             .values()
         ),
         "home_boundary": {
-            registry.get("conditional_boundaries", {}).get("home_projection_contract", "")
+            registry.get("product_owners", {}).get("product_surface_contract", "")
+        },
+        "steward_boundary": {
+            registry.get("product_owners", {}).get("product_surface_contract", ""),
+            registry.get("product_owners", {}).get("steward_product_contract", ""),
         },
         "external_boundary": {
-            registry.get("conditional_boundaries", {}).get("external_reading_product_brief", "")
+            registry.get("conditional_boundaries", {}).get("external_reading_owner", "")
         },
     }
     return {name: {p for p in paths if p} for name, paths in groups.items()}
@@ -306,6 +312,7 @@ def classify(
     hit("current_sync", "current_sync" in caps)
     hit("study_timer", bool(caps & {"home", "study_timer"}))
     hit("home_boundary", "home" in caps)
+    hit("steward_boundary", "steward" in caps)
     hit("external_boundary", "external_reading" in caps)
 
     reasons = list(dict.fromkeys(reasons))
