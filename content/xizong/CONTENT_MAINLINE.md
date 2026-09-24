@@ -75,63 +75,59 @@ Reopen only for a new/revised authoritative Biochemistry Source or a concrete de
 
 ---
 
-# 0B｜ACTIVE PARALLEL TASK — 27 Surgery comprehensive rebase
+# 0B｜CLOSED MAINLINE TASK — 27 Surgery architecture-corrected comprehensive rebase
 
-Status: **ACTIVE / DURABLE CROSS-SYSTEM SOURCE REBASE**
+Status: **CLOSED / CURRENT · S/K/L/Content/P/Q/X/E/A REACCEPTED**
 
 Exact task owner:
 
 `content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json`
 
-Source-lane skeleton:
+Current Source map:
 
 `content/xizong/knowledge/learner/surgery-27-source-map.json`
 
-Scoped top-level rule:
+Scoped rule:
 
 `content/xizong/knowledge/learner/SURGERY_CONTRACT.md`
 
-Scope:
+Closed result:
 
 ```text
-27 Surgery refined Source (285 PDF pages)
-vs legacy 27 follow-along / old Surgery AI-reader bindings
-vs Current canonical Knowledge across A1/A2/A3/B/C/D/E/F
-→ 38-unit Source map
-→ comprehensive Source rebind
-→ semantic PRESERVE / UPDATE / NEW / RETIRE / CONFLICT review
-→ affected System / Block / KP reconstruction where needed
-→ affected Learning / Content / Visual / Precision / Memory reconciliation
-→ affected Question→Knowledge + explanation revalidation
-→ source-revision evidence classification
-→ scoped re-acceptance and closeout
+canonical hierarchy
+System → Block → Logic Group → KP
+
+S       PASS — 27外科精编 is Current Surgery Source; 38/38 Source units reconciled
+K       PASS — stable System/Block/KP identity preserved; only D21/D11/D17/O3 needed bounded semantic clarification
+L       PASS — existing LG / learner-order / Source-contact model preserved; bounded real closure refinements only
+Content PASS — mature Framework/Core/Boundary/Precision/Visual/Connection/Memory/Exit roles preserved
+P       PASS / scoped revalidation — affected compiled bindings resolve Current owners; no UI redesign
+Q       PASS / PRESERVE — targeted reviewed relations revalidated; 0 canonical remaps
+X       PASS / PRESERVE — affected learner-facing explanations remain valid; 0 rewrites
+E       PASS / CLASSIFIED — old-source first-pass evidence archived/stale-as-Current; official attempts preserved; Memory refresh defect repaired
+A       PASS — exact B/D/E/F acceptance wording reconciled; A1/A2/A3/C preserved where accepted claims did not change
+U       UNTESTED — repository work creates no learner mastery
 ```
 
-Hard rules:
+Material semantic changes stayed bounded:
 
-- **27 外科精编 is Current Surgery Source truth**; legacy follow-along / old `外科学讲义_AI阅读版.md` is provenance/substrate, not a competing Current Primary Study.
-- The prior 2026-09-24 bounded delta receipt is useful evidence but **does not count as comprehensive absorption**.
-- Stable System / Block / KP identity is preserved unless the deep Source comparison demonstrates a concrete semantic defect.
-- Every affected Block must close both semantic review and stale Source-locator review; PRESERVE medical Core can still require Source rebind.
-- Original PDF remains highest-fidelity for diagrams/tables/spatial relations; decision-relevant ambiguity stays fail-closed.
-- Official-question System membership reopens only for real owner/corpus evidence; changed Knowledge still triggers affected relation/explanation review.
-- Surgery spans multiple Systems. Exact medical truth remains in each System/Block owner; the task slot is only a durable cursor.
-- The Biochemistry architecture-corrected rebase is CLOSED / CURRENT. Surgery may progress on its active scope; any shared B system/learning/manifest or shared question/explanation write must still refresh main and serialize rather than race.
+- **B:D21** — thyroid/neck surgical decision framing, cystic-hemorrhage boundary, Source-bound neck-mass recognition;
+- **B:D11** — refined esophageal radiotherapy/surgical rationale, explicitly bounded and not generalized into oncology doctrine;
+- **B:D17** — portal-hypertension surgical objective clarified as prevention/control of gastroesophageal variceal bleeding rather than lowering a pressure number for its own sake;
+- **D:O3** — spinal surgery relieves ongoing compression/restores stability/reduces secondary injury; it does not reverse already irreversible cord damage.
 
-Completion definition:
+Learning-only refinements remained bounded to D21/D11/D19/O11/O2. All other refined explanations were reviewed and preserved/routed without duplicate prose inflation or topology rebuild.
 
-```text
-S  27 refined Surgery Source identity + 38-unit map + locators/gaps verified
-K  all Surgery-consuming canonical Block/KP Core + affected System/cross-System logic reaccepted
-L  affected learner order / LG / Source-contact semantics reaccepted
-C  affected Content / Precision / Visual / Memory / Repair roles reconciled
-Q  affected reviewed Question→Knowledge relations revalidated
-X  affected learner-facing official-question explanations revalidated
-E  source-revision impact on historical learner evidence classified
-A  affected scoped CURRENT / ACCEPTANCE owners reconciled and task closed
-```
+Cross-System omission repair also closed SUR27-U12 correctly across **B:D14 + E:E9**; E9/E11 current visual truth was verified and E10 remains fail-closed where its required visual is absent.
 
-Current status: **Reprocess v3 architecture reconciliation ACTIVE.** The v2 38/38 pass remains valid as a Source/refined-note semantic-delta receipt, but its `content complete` interpretation is withdrawn. Full closure now requires reconciliation against the accepted canonical model `System → Block → Logic Group → KP`, mature Block-owned content roles (Framework/Core/Boundary/Precision/Visual/Connection/Memory Routing), Learning-only learner order/LG/source-contact semantics, and affected Projection bindings. No new intermediate hierarchy is allowed; UI remains unchanged unless a concrete renderer defect is found.
+Executed evidence:
+
+- Xizong Projection Validation run `35942643802` — **PASS**.
+- Static Web Xizong QA run `35943462333` passed relation sync, semantic adapter, Projection/Current reconciliation, owner lifecycle, Crosswalk, B Core, B Knowledge and B Learning before an unrelated A2 failure.
+- On head `782ada3ec317df07b75b742b5ddb13e28803b5f3`, relation sync, semantic adapter and compiled Projection assets passed; Memory model/release/retention gates and Astro build also passed.
+- Later closeout commits only reconcile acceptance/status wording; they do not change Surgery medical Core, Learning topology or UI.
+
+No `static-web` content fork was created. Reopen this Surgery revision only for a new/revised authoritative Surgery Source or a concrete defect in accepted Source / Knowledge / Learning / Content / Projection / Q/X/E owners.
 
 ---
 
