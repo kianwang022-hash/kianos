@@ -117,11 +117,11 @@ assert(!repairReturn.includes('kianos-xizong-memory-review-v2:${objectId}'), 'sy
 assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
 assert(repairBridge.includes('kianos-xizong-repair-inbox-v1:'), 'repair-inbox-not-consumed');
 assert(repairBridge.includes('kianos-xizong-memory-review-v2:'), 'repair-inbox-does-not-merge-into-current-block-store');
-assert(repairBridge.includes("type: 'SYSTEM_WU_PLAN_IMPORTED'"), 'repair-inbox-import-event-missing');
-assert(repairBridge.includes("evidence_role: 'REPAIR_ONLY'"), 'repair-inbox-promoted-beyond-repair');
-assert(repairBridge.includes('source_question_ids:'), 'repair-inbox-loses-question-provenance');
+assert(systemWuReturn.includes("origin:'SYSTEM_WU_CHAT_RETURN'"), 'repair-inbox-import-origin-missing');
+assert(repairBridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);'), 'repair-inbox-promoted-beyond-repair');
+assert(repairBridge.includes('sourceQuestionIds,'), 'repair-inbox-loses-question-provenance');
 assert(repairBridge.includes("window.addEventListener('storage'"), 'already-open-block-tab-cannot-receive-inbox');
-assert(repairBridge.includes('window.location.reload();'), 'repair-inbox-consume-does-not-rebuild-in-memory-owner');
+assert(repairBridge.includes("window.dispatchEvent(new CustomEvent('kianos:xizong-repair-inbox-migrated'"), 'repair-inbox-consume-does-not-announce-current-memory-state');
 
 assert(systemGuard.includes("phase = answered === 0 ? 'PRE_QUESTION'"), 'system-recall-phase-ledger-missing');
 assert(systemGuard.includes("'POST_QUESTION'"), 'post-question-recall-phase-missing');
