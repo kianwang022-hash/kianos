@@ -390,8 +390,11 @@ High-value inspection targets include duplicate authority, manual synchronizatio
 
 Standing delegation:
 - correctness, drift, dead/stale machinery, owner cleanup and bounded maintainability repairs that preserve accepted product semantics may be fixed autonomously;
+- implementation detail, refactoring, tests, CI/build mechanics, branch/PR handling, migrations and other engineering choices that do not change accepted semantics normally stay backstage;
 - a new capability already implied by an accepted requirement may be designed/implemented when the owner and effect are clear;
-- changes that materially choose Kian's product behavior, workflow, visual taste, values or trade-offs must be surfaced for Kian's decision before they become accepted product truth.
+- stop for Kian mainly when the work materially chooses **interaction behavior, user workflow, visual/product feel, values/trade-offs, or unresolved domain semantics**. Those decisions require a Human/semantic gate before becoming accepted product truth.
+
+Kian should review the product and the meaningful choice—not the implementation diary.
 
 Do not persist every observation as backlog. A finding earns durable state only when it changes Current/Next/Blocker, is a real deferred item, or has been accepted for implementation. Otherwise absorb it and keep the control plane small.
 
