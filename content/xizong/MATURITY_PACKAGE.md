@@ -173,26 +173,23 @@ Stage-A consequence:
 
 Type:
 
-CURRENT_YEAR_SOURCE_RECONCILED
+`CURRENT_YEAR_SOURCE_RECONCILED`
 
-Durable revision owner:
+Durable lifecycle owner:
 
-content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json
+`content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json`
 
-Current status: **CLOSED / CURRENT · S/K/L/Content/P REACCEPTED**.
+Scoped readiness owner:
 
-Current truth:
+`content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/ACCEPTANCE.md`
 
-    27 authoritative Source identity/hash/pages verified
-    → 22 Source units cover PDF P003–P170 without gap/overlap
-    → direct Source→existing Block/LG/KP mapping
-    → 15 M/G Blocks / 191 stable KP
-    → Learning/Content/Projection reaccepted
-    → no parallel layer topology or duplicate Source registry
+Planning interpretation:
 
-The current 27 Source is 27生化跟课版合集【不带导图】.pdf. Valid 26 material is historical/explanatory reconstruction substrate only and is never a second continuous learner Source.
+> **Biochemistry is not a current Stage-A hard-coverage gap.**
 
-Reopen only for a new/revised authoritative Biochemistry Source or a concrete defect in the accepted Current owners.
+This Maturity package does **not** own or mirror the Biochemistry lifecycle enum, reacceptance receipt, Source-arrival state or exact revision proof. Those are read from the lifecycle/Acceptance owners above when the claim matters.
+
+For maturity planning, the only derived conclusion needed here is that the currently admitted Biochemistry revision does not justify a new broad construction workload. A new/revised authoritative Source or a concrete defect in the exact owners reopens only the dependent maturity judgment.
 
 ## G4 — 2027 exam-format / scoring geometry
 
