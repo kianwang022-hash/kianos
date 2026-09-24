@@ -1,7 +1,7 @@
 # Xizong Cognitive Projection Contract
 
 Status: **A1/A2/A3/B COMPILED ASSETS · CURRENT ELIGIBILITY RECONCILED · C ELIGIBLE NOT COMPILED · RUNTIME ADOPTION NOT CLAIMED**  
-Parent product: `static-web/XIZONG_PRODUCT_STATUS.md`  
+Parent product: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Current semantic adapter: `static-web/src/lib/xizongSemanticAdapter.mjs`  
 Root evolvability requirement: `PROJECT_DEFINITION.md` R10 + `ARCHITECTURE.md` §7.1  
