@@ -29,7 +29,7 @@ Closed for the current admitted scope:
 - 27 Surgery refined-source revision chain — exact lifecycle owner: `content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json`;
 - D / E / F main medical-content construction;
 - exact official System-question membership for the current corpus;
-- reviewed Question → Knowledge Crosswalk for the current corpus;
+- broad Question → Knowledge review/storage construction for the current corpus; Current consumption remains revision-freshness-gated and stale reviewed rows reopen only at the exact relation boundary;
 - 26-cycle late-stage baseline ingestion / role classification.
 
 These closure statements are routing facts only. Exact status/evidence belongs to the exact Current / Acceptance / canonical owner and may not be reconstructed from this summary.
@@ -58,7 +58,7 @@ If Issue #47 requests a replay, the replay must be a new bounded real change rou
 | --- | --- | --- | --- |
 | Main medical Content | broad construction closed | exact System `CURRENT` / Knowledge / Learning owner | concrete defect or admitted new/revised Source |
 | Questions / System membership | current corpus closed | `content/xizong/questions/` + exact System owner | real question/source ownership defect or new corpus |
-| Question → Knowledge | current corpus closed | `content/xizong/question-relations/README.md` | real defect, affected Knowledge revision, or new corpus |
+| Question → Knowledge | broad corpus construction closed; Current consumption freshness-gated | `content/xizong/question-relations/README.md` | exact stale relation after Knowledge/Source revision, real defect, or new corpus |
 | Late-stage material | 26 baseline absorbed | `content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json` | authoritative new-cycle material |
 | Visual / Extension | selective additive only | `content/xizong/EXTENSION_ASSET_CONTRACT.md` → exact stable owner | high-value need / real gap / new authoritative Source |
 
