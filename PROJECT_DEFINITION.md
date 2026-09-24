@@ -14,22 +14,38 @@ It does **not** define file layout, `CURRENT.md` schema, continuation format, br
 
 # 1｜Purpose
 
-KianOS is a **long-lived personal learning operating system** for Kian.
+KianOS is Kian's **long-lived durable knowledge, learning, visual and runtime product extension to Chat**.
 
-Its purpose is not to maximize files, pages, automation, metadata, or governance. Its purpose is to let Kian use AI and durable learning assets continuously over long periods while preserving:
+Chat remains the open-ended cognition layer: discussion, interpretation, research synthesis, strategy, personal meaning and major design judgment happen through Chat / its specialized roles. KianOS exists where durable assets or executable product behavior add value that ordinary conversation alone cannot provide well.
 
-- high learning quality;
+Its responsibilities include:
+- high-quality processed Knowledge / Content worth keeping and reusing;
+- formal learning assets when Kian actually needs to form a capability;
+- stable Visual / Presentation for content that benefits from better display than chat text;
+- interactive workspaces and Runtime for actions that need immediate stateful behavior;
+- private execution / learner evidence and bounded reality feedback that can return to Chat for later interpretation;
+- durable rules and product assets needed to keep those experiences restartable and cheap to evolve.
+
+Raw PDFs, videos, transcripts, files and other unprocessed reference material do **not** enter KianOS merely because they may be useful later. They may remain in Drive, Library, Files or their original source until a real need justifies research or durable Knowledge reconstruction.
+
+KianOS does not become a second open-ended strategy brain. Runtime may execute bounded approved logic, projections, state transitions, validation and adaptation whose semantics are already owned by the applicable Rule / Model. When evidence requires interpretation, personal calibration, a new strategy or a change in values/trade-offs, that reasoning returns to Chat.
+
+Its purpose is not to maximize files, pages, automation, metadata, or governance. Its purpose is to let Chat + Kian build and use durable knowledge/product capabilities continuously over long periods while preserving:
+
+- high knowledge and learning quality where learning is the goal;
+- strong presentation and interaction where Chat alone is insufficient;
+- reality evidence that can improve later Chat judgment without becoming automatic personal inference;
 - low-friction continuation across replaceable Chats;
-- independent parallel progress across learning domains and independently continuable scopes at any depth;
+- independent parallel progress across domains and independently continuable scopes;
 - clear ownership of current truth;
-- strict separation between product state, validation evidence, and Kian's real learner state;
+- strict separation between product state, validation evidence, and Kian's real use/learner state;
 - bounded recovery cost as the repository grows;
 - maintainability that does not degrade simply because the system has been used for months;
-- evolvability in which normal content / learning-asset change can usually be absorbed without rewriting the product or runtime architecture.
+- evolvability in which normal Rule / Content / Visual change can usually be absorbed without rewriting unrelated product/runtime architecture.
 
 Compact product statement:
 
-> **KianOS is a long-lived, restartable, federated, concurrent, evolvable personal learning operating system with bounded context recovery, strict truth separation, dependency-driven scheduling, and evidence-based learning quality.**
+> **KianOS is Chat's durable knowledge + visual + runtime + reality-feedback extension: a restartable, federated and evolvable product system whose approved Rules and assets can be rendered, interacted with and observed in reality without creating a second autonomous strategy brain.**
 
 ---
 
@@ -38,11 +54,13 @@ Compact product statement:
 The normal operating reality is:
 
 - Chat / Agent / worker instances are replaceable and may reach context limits;
-- multiple learning domains and independently continuable scopes may be worked on in parallel;
-- the repository is the durable shared product/learning-asset authority, not the Chat transcript;
-- Kian's private learner state is distinct from shared repository construction state;
-- learning assets may evolve through repeated design, implementation, acceptance, real use, and revision;
-- old history may remain recoverable without being part of normal Current reasoning.
+- Chat supplies open-ended reasoning; KianOS supplies durable assets, visual/product behavior, Runtime and reality evidence;
+- multiple knowledge/learning domains and independently continuable product scopes may be worked on in parallel;
+- GitHub is the durable canonical authority for shared KianOS Rules, Content, Visual and Engineering assets, not the Chat transcript;
+- private learner/execution state is distinct from shared repository construction state;
+- assets may evolve through repeated discussion, design, implementation, acceptance, real use and revision;
+- real-use evidence may return to Chat without being auto-promoted into Personal conclusions;
+- old history may remain recoverable without becoming normal Current reasoning.
 
 KianOS must be designed for this usage pattern by default rather than treating it as an exceptional case.
 
@@ -156,9 +174,9 @@ Architecture must specifically resist:
 - learner state leaking into shared product state;
 - temporary execution structures becoming permanent authorities.
 
-## R9｜Learning quality outranks engineering completion
+## R9｜Semantic / learning quality outranks engineering completion
 
-KianOS is a learning system, not merely a content repository or web application.
+For learning assets, KianOS is a learning system rather than merely a content repository or web application. For non-learning product surfaces, the same principle holds: engineering completion cannot substitute for the upstream Rule / Model or the real user outcome.
 
 A learner-facing module is not considered learning-ready merely because:
 
