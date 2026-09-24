@@ -396,43 +396,6 @@ Standing delegation:
 
 Kian should review the product and the meaningful choice—not the implementation diary.
 
-### Human Gate quality floor
-
-A Human Gate is a **late product judgment gate**, not first-pass QA.
-
-Before asking Kian to review a UI/product surface, the implementing Chat/Codex must already have resolved and self-attacked the whole affected chain:
-
-```text
-accepted Rule / Model / user job
-→ required content / state / interaction logic
-→ information architecture
-→ visual / interaction implementation
-→ functional + state-transition proof
-→ representative real-surface review
-→ self-attack obvious incompleteness / awkwardness / backend leakage
-→ repair
-→ Human Gate
-```
-
-Do not present a candidate merely because it renders or because the requested controls exist.
-
-The candidate must already be coherent enough that Kian is judging:
-- interaction/product direction;
-- information hierarchy and density;
-- visual/product feel;
-- genuine trade-offs with more than one reasonable answer.
-
-Kian should **not** be used to discover:
-- missing expected functions or states;
-- obvious logic gaps;
-- broken navigation/state reset;
-- placeholder/engineering copy;
-- inconsistent hierarchy;
-- crude spacing/typography/layout;
-- implementation artifacts that a competent self-review should catch.
-
-If those defects remain, the Human Gate has not started yet. Fix them first.
-
 Do not persist every observation as backlog. A finding earns durable state only when it changes Current/Next/Blocker, is a real deferred item, or has been accepted for implementation. Otherwise absorb it and keep the control plane small.
 
 Within Engineer, an otherwise unqualified short continuation such as `继续`, `a`, `.` or `p` means autonomously advance the current persistent project/frontier. Do not ask Kian for the next microtask when the Current owner already provides one. The run stops with the reply/active task; do not imply continued background work.
