@@ -21,9 +21,9 @@ Old Chats, prompts, Issue titles and branch names are provenance, not Current tr
 
 ---
 
-# 0｜ACTIVE MAINLINE TASK — 27 Biochemistry architecture/content reconciliation
+# 0｜VALIDATION CLOSEOUT — 27 Biochemistry architecture-corrected rebase
 
-Status: **ACTIVE / ARCHITECTURE CORRECTION LOCKED · CONTENT RECONCILIATION PENDING**
+Status: **S/K/L/Content/P REACCEPTED · FINAL INTEGRATION QA / CLOSEOUT ONLY**
 
 Exact task owner:
 
@@ -37,102 +37,43 @@ Parent learning architecture:
 
 `content/xizong/LEARNING_CONTRACT.md`
 
-## Why this task is reopened
-
-The 27 Source audit remains valuable, but the interrupted rebase incorrectly promoted temporary biochemical groupings into a parallel `Block → L-layer → KP` hierarchy and demoted mature Block-owned content jobs. That acceptance claim is withdrawn.
-
-Current architecture is now locked:
+Current result:
 
 ```text
-one canonical hierarchy
+canonical hierarchy
 System → Block → Logic Group → KP
 
-Source unit / Source-contact segment
-= first-pass execution unit only
+27 Source units
+→ direct mapping to existing Block/LG/KP or explicit support/Connection roles
+→ no parallel L-layer topology
 
-Framework / mother model
-Memory Routing / MI-G / MI-D
-Precision / Visual / Connection / Extension
-Recall / Closure / Compression
-Question Probe / Repair
-= content jobs / learning states
-= not hierarchy
+Biochemistry specialisation
+= continuous Source lane + JIT Prelude + state reconstruction + timed cross-System integration
+≠ separate Knowledge architecture
 ```
 
-Biochemistry remains special only where the subject actually needs it:
+Fresh scoped evidence:
 
-- **27 跟课 is the only continuous first-pass Biochemistry Source**;
-- **26 精编 is explanation reconstruction substrate**, not a second reading path;
-- source order may differ from Block/LG/KP learner order;
-- minimal JIT Prelude is allowed when current Source precedes formal terminology;
-- state-variable reconstruction is preferred over isolated pathway recitation;
-- first-pass Source continuity should avoid routine course switching.
+- 22 current 27 Source units / 15 M/G Blocks / remaining layer refs 0;
+- M1–M10 + G1–G5 = **191 stable KP**;
+- **191/191 KP Core semantic diff = 0** versus the verified 27 pre-correction content;
+- approved 27 audit markers lost = 0;
+- 15/15 learner order / LG identity / KP membership / goal / closure / readiness unchanged versus accepted B Learning baseline;
+- G5 canonical file/KP order restored to `KP01→…→KP13`, while learner order remains `KP01–05 → KP12–13 → KP06–11`;
+- explicit Framework / Boundary / Precision / Connection / Memory Routing / MI-G / MI-D / Visual / question-contact / Block Exit responsibilities restored;
+- cross-System timing = JIT Connection → Recall/Future Connection → post-formation Reconstruction;
+- Xizong Projection Validation run `35942643802` = **PASS**.
 
-Biochemistry is **not** a separate Knowledge island. Cross-System integration follows:
+Current action:
 
 ```text
-JIT Connection during Biochemistry Source
-→ Block/LG Connection Hook or Recall
-→ after the relevant owners are learned: cross-Block/System Reconstruction
+no more Biochemistry content rebuild
+→ final current-main integration QA
+→ if green: exact closeout only
+→ if a downstream unrelated defect appears: repair that smallest owner without reopening the Biochemistry content architecture
 ```
 
-High-value integration explicitly includes:
-
-- M4 ↔ D7 fed/fasting + insulin/glucagon;
-- M7 ↔ D7/D8 storage/mobilization/ketogenesis/diabetes;
-- M5 ↔ D3/D4 intestinal lipid digestion/absorption;
-- M6 ↔ D3/D4/D19 bile-acid digestion/absorption/hepatobiliary disease;
-- M8 ↔ D17 ammonia/urea/hepatic failure;
-- M10 ↔ D17/D19 bilirubin/jaundice;
-- biochemical RBC/folate/B12/heme ↔ hematology;
-- HIF/nuclear receptor ↔ physiology/endocrine;
-- oncogene/repair ↔ tumor-general.
-
-## Preserved work
-
-Keep as evidence, not as acceptance proof:
-
-- current 27 Source identity/hash/page ranges;
-- 22 Source-unit teacher order;
-- verified 27-vs-26 semantic findings;
-- current lecture-attached question source-position counts;
-- explicit Source conflicts / SOURCE_BOUND exactness;
-- real semantic updates already routed to correct owners.
-
-## Invalidated / to reconcile
-
-- invented L1/L2/L3... canonical layer topology;
-- Source→L-layer mapping as final Knowledge mapping;
-- duplicate Learning `canonical_hierarchy` topology;
-- physical KP/file reorder used only to express learner order;
-- demotion of explicit Block Framework / Memory Routing / MI-G / MI-D into disposable derived support.
-
-## Required completion sequence
-
-```text
-S  preserve/verify current 27 Source truth
-→ K  reconcile all 15 M/G Blocks to mature canonical content architecture
-→ L  revalidate existing Logic Groups, learner_order, Source-contact and closure semantics
-→ C  revalidate Block-owned Framework/Prompt/Core/Boundary/Precision/Visual/Connection/Memory/Exit responsibilities
-→ Q/X  revalidate only where actual target medical semantics changed
-→ P  revalidate existing Projection bindings / learner-object consumption
-→ R/E only if a real downstream dependency changed
-→ A  reconcile B CURRENT / ACCEPTANCE and close
-```
-
-Do **not** generate more Biochemistry content until the architecture reconciliation pass has established, Block by Block, what existing content should be preserved, reverted, or rebuilt.
-
-Do **not** touch `static-web` for ordinary content correction. The intended chain remains:
-
-```text
-GitHub canonical System / Block / LG / KP
-+ accepted content jobs
-+ accepted Learning
-→ Cognitive Projection / Learner Object
-→ shared renderer
-```
-
-The parallel Surgery rebase below may continue on independent owners; shared B owners must refresh main and serialize writes.
+No static-web content fork was created. Website remains downstream of GitHub canonical truth.
 
 ---
 
