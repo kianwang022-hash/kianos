@@ -474,14 +474,10 @@ export function readExamChatPlan(storage, expectedDay) {
       };
     } catch (error) {
       if (/CHAT_PLAN_EVIDENCE_BASIS_(?:REQUIRED|STALE|DAY_MISMATCH)/.test(String(error?.message || ''))) {
-        let presentation = null;
-        try {
-          presentation = validateExamChatPlan(parsed, expectedDay).presentation;
-        } catch {}
         return {
           status: 'stale',
           plan: null,
-          presentation,
+          presentation: null,
           error: error instanceof Error ? error.message : String(error)
         };
       }
@@ -498,8 +494,32 @@ export function readExamChatPlan(storage, expectedDay) {
 }
 
 export function writeExamChatPlan(storage, value, expectedDay) {
-  if (!storage?.setItem) throw new Error('Storage is unavailable.');
+  if (!storage?.setItem || !storage?.getItem) throw new Error('Storage is unavailable.');
   const plan = validateExamChatPlanAgainstStorage(storage, value, expectedDay);
+
+  let currentRaw = null;
+  try { currentRaw = storage.getItem(EXAM_CHAT_PLAN_KEY); }
+  catch { throw new Error('Storage is unreadable.'); }
+
+  if (currentRaw != null) {
+    try {
+      const current = validateExamChatPlan(JSON.parse(currentRaw));
+      if (current.study_day === plan.study_day) {
+        const currentTime = Date.parse(current.generated_at);
+        const nextTime = Date.parse(plan.generated_at);
+        if (nextTime < currentTime) throw new Error('CHAT_PLAN_OLDER_THAN_CURRENT');
+        if (nextTime === currentTime) {
+          if (JSON.stringify(current) === JSON.stringify(plan)) return current;
+          throw new Error('CHAT_PLAN_GENERATION_CONFLICT');
+        }
+      }
+    } catch (error) {
+      if (/^CHAT_PLAN_(?:OLDER_THAN_CURRENT|GENERATION_CONFLICT)$/.test(String(error?.message || ''))) throw error;
+      // Invalid prior bytes are not a valid freshness owner; the new validated
+      // plan may replace them without guessing their intended ordering.
+    }
+  }
+
   storage.setItem(EXAM_CHAT_PLAN_KEY, JSON.stringify(plan));
   return plan;
 }
