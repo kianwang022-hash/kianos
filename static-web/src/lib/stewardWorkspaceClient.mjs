@@ -204,10 +204,9 @@ export function initStewardWorkspace(root) {
     if (!rootNode) return;
     rootNode.innerHTML = '';
     const tasks = presentation?.todayTasks || [];
-    if (!tasks.length) {
-      rootNode.appendChild(createText('p', 'stewardEmpty', '没有额外事项。'));
-      return;
-    }
+    const section = $('[data-steward-task-section]');
+    if (section) section.hidden = tasks.length === 0;
+    if (!tasks.length) return;
     for (const task of tasks) {
       const row = createText('div', 'stewardTaskRow', task.label);
       rootNode.appendChild(row);
@@ -308,15 +307,22 @@ export function initStewardWorkspace(root) {
       rootNode.appendChild(node);
     }
 
+    const hasPlan = scheduleBlocks.length > 0;
     for (const session of sessionsForDay(storage, today)) {
       const geometry = sessionClockGeometry(session);
       if (!geometry) continue;
-      const node = document.createElement('i');
-      node.className = 'stewardActualSegment';
+      const node = document.createElement('div');
+      node.className = `stewardActualBlock${hasPlan ? ' withPlan' : ' withoutPlan'}${geometry.height < 4 ? ' short' : ''}`;
       node.dataset.subject = session.subject;
       node.style.top = `${geometry.top}%`;
       node.style.height = `${geometry.height}%`;
-      node.title = `${formatClock(session.startedAt)}–${formatClock(session.endedAt)} ${SUBJECT_LABEL[session.subject] || session.subject}`;
+      const subject = SUBJECT_LABEL[session.subject] || session.subject;
+      const detail = String(session.context?.detailLabel || '').trim();
+      node.title = `${formatClock(session.startedAt)}–${formatClock(session.endedAt)} ${subject}${detail ? ` · ${detail}` : ''}`;
+      node.append(
+        createText('strong', '', detail && detail !== session.subject ? `${subject} · ${detail}` : subject),
+        createText('span', '', `实际 ${formatClock(session.startedAt)}–${formatClock(session.endedAt)}`)
+      );
       rootNode.appendChild(node);
     }
 
