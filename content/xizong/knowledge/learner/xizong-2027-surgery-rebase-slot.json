@@ -98,7 +98,7 @@
         "SUR27-U04"
       ],
       "label": "neck / esophagus / breast / thorax",
-      "status": "SOURCE_BINDING_AUDIT_STARTED",
+      "status": "SOURCE_REBIND_AND_SEMANTIC_UPGRADE_IN_PROGRESS",
       "verified_stale_current_bindings": [
         "B:D21 still names 外科学讲义_AI阅读版.md and 27跟课 Source-local pages",
         "B:D23 still names 外科学讲义_AI阅读版.md and reports surgery_visual_gate gap",
@@ -107,11 +107,24 @@
         "A2:R10 still names 27 外科跟课合集改.pdf as Primary Study",
         "A2:R11 still names 27 外科跟课合集改.pdf as Primary Study"
       ],
-      "next_action": "Deep compare SUR27-U01-U04 against B:D21/D23/D9/D11, E:E10-E14 and A2:R10/R11; close source rebind + semantic delta before moving to abdominal units."
+      "next_action": "Finish U01-U04 Learning/Guide delta review under SURGERY_CONTRACT, revalidate affected cues/relations/explanations only where semantics changed, then advance to U05-U12 abdominal/gut batch.",
+      "completed_actions": [
+        "B:D21 rebound to 27 refined Surgery Source; added Source-bound neck-mass spatial table and non-mechanical cystic-hemorrhage surgery boundary",
+        "B:D23 rebound to 27 refined Surgery Source; Surgery visual gate closed to verified current source page",
+        "B:D9 rebound to 27 refined Surgery Source; achalasia/Heller visual source gate closed",
+        "B:D11 Surgery source identity rebound for esophageal/gastric ranges; gastric semantic review remains coupled to SUR27-U05",
+        "E:E10-E14 primary/supporting Surgery source locators rebound to 27 refined SUR27-U03",
+        "A2:R10/R11 thoracic-trauma/mediastinum Surgery source locators rebound to 27 refined SUR27-U04"
+      ]
     },
     "concurrency": {
       "active_biochemistry_rebase": true,
       "rule": "Proceed on disjoint owners; refresh and serialize any shared B system/learning/manifest or shared question/explanation manifest write."
     }
+  },
+  "governance": {
+    "contract_owner": "content/xizong/knowledge/learner/SURGERY_CONTRACT.md",
+    "status": "CURRENT_AND_LOCKED_FOR_EXECUTION",
+    "rule": "Route 27 refined-note deltas by responsibility: medical meaning → canonical Knowledge; understanding/retrieval/apply organization → Current Learning/Guide; exact values → Precision; spatial/table relations → Source Visual. Do not revive legacy Guides or redesign UI."
   }
 }
