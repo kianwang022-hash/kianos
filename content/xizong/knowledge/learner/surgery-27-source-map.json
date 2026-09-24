@@ -1118,7 +1118,7 @@
       "candidate_primary": [
         "D:O12"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U20_U29",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_PRESERVE_LEARNING_REVALIDATED",
       "semantic_delta_receipt": {
@@ -1129,10 +1129,34 @@
         "notes": "Torticollis direction, DDH age-stage testing/treatment and structural-vs-nonstructural scoliosis are already explicit in O12."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "D Projection remains downstream/uncompiled for this scope; no Projection truth invented",
+        "bindings": [
+          {
+            "system": "D",
+            "block": "O12",
+            "logic_groups": [
+              "O12-LG01",
+              "O12-LG02",
+              "O12-LG03"
+            ],
+            "kp_ranges": [
+              "KP01-KP10"
+            ],
+            "content_families": [
+              "Block Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision/MI-D",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "D Projection remains downstream/uncompiled for this scope; no Projection truth invented"
       }
     },
     {
@@ -1142,7 +1166,7 @@
       "candidate_primary": [
         "D:O11"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U20_U29",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_PRESERVE_LEARNING_REVALIDATED",
       "semantic_delta_receipt": {
@@ -1153,10 +1177,35 @@
         "notes": "Refined stepwise chronic-injury treatment logic is now in O11 Learning; shoulder/tendon/apophysis/carpal-tunnel mechanisms were already present."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_PRESERVED; O11-LG01 goal/closure refined only",
+        "projection_status": "D Projection remains downstream/uncompiled for this scope",
+        "bindings": [
+          {
+            "system": "D",
+            "block": "O11",
+            "logic_groups": [
+              "O11-LG01",
+              "O11-LG02",
+              "O11-LG03",
+              "O11-LG04"
+            ],
+            "kp_ranges": [
+              "KP01-KP09"
+            ],
+            "content_families": [
+              "Block Framework",
+              "KP Core",
+              "Boundary",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_PRESERVED; O11-LG01 goal/closure refined only",
+        "projection_validation": "D Projection remains downstream/uncompiled for this scope"
       }
     },
     {
@@ -1169,7 +1218,7 @@
         "D:O9",
         "D:O10"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U20_U29",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_PRESERVE_LEARNING_REVALIDATED",
       "semantic_delta_receipt": {
@@ -1180,10 +1229,109 @@
         "notes": "Hand repair timing/function position, replant storage, AVN blood supply, meniscus vascular zones/tests and peripheral nerve localization are already represented in O5/O8/O9/O10."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_STABLE_KP_ORDER_PRESERVED; no physical KP reorder",
+        "projection_status": "D Projection remains downstream/uncompiled for this scope",
+        "bindings": [
+          {
+            "system": "D",
+            "block": "O8",
+            "logic_groups": [
+              "O8-LG01",
+              "O8-LG02",
+              "O8-LG03"
+            ],
+            "kp_ranges": [
+              "KP01-KP07"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "D",
+            "block": "O10",
+            "logic_groups": [
+              "O10-LG01",
+              "O10-LG02",
+              "O10-LG03"
+            ],
+            "kp_ranges": [
+              "KP01-KP08"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Conflict",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "D",
+            "block": "O9",
+            "logic_groups": [
+              "O9-LG01",
+              "O9-LG02",
+              "O9-LG03"
+            ],
+            "kp_ranges": [
+              "KP01-KP07"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision",
+              "Visual"
+            ]
+          },
+          {
+            "system": "D",
+            "block": "O5",
+            "logic_groups": [
+              "O5-LG01",
+              "O5-LG02",
+              "O5-LG03",
+              "O5-LG04",
+              "O5-LG05"
+            ],
+            "kp_ranges": [
+              "KP01-KP15"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary",
+              "Connection",
+              "Precision",
+              "Visual"
+            ]
+          },
+          {
+            "system": "D",
+            "block": "O11",
+            "logic_groups": [
+              "O11-LG05"
+            ],
+            "kp_ranges": [
+              "KP10-KP13"
+            ],
+            "content_families": [
+              "KP Core",
+              "Boundary/Confusable",
+              "Visual"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_STABLE_KP_ORDER_PRESERVED; no physical KP reorder",
+        "projection_validation": "D Projection remains downstream/uncompiled for this scope"
       }
     },
     {
@@ -1194,7 +1342,7 @@
         "D:O13",
         "D:O14"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U20_U29",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_PRESERVE_LEARNING_REVALIDATED",
       "semantic_delta_receipt": {
@@ -1205,10 +1353,57 @@
         "notes": "Metaphyseal spread, MRI-first/early X-ray-negative, layered aspiration, septic-joint spread, chronic sequestrum/dead-space and bone/joint TB reasoning already captured in O13/O14."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "D Projection remains downstream/uncompiled for this scope",
+        "bindings": [
+          {
+            "system": "D",
+            "block": "O13",
+            "logic_groups": [
+              "O13-LG01",
+              "O13-LG02",
+              "O13-LG03",
+              "O13-LG04"
+            ],
+            "kp_ranges": [
+              "KP01-KP13"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Source Control",
+              "Boundary",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "D",
+            "block": "O14",
+            "logic_groups": [
+              "O14-LG01",
+              "O14-LG02",
+              "O14-LG03",
+              "O14-LG04"
+            ],
+            "kp_ranges": [
+              "KP01-KP13"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "D Projection remains downstream/uncompiled for this scope"
       }
     },
     {
@@ -1218,7 +1413,7 @@
       "candidate_primary": [
         "D:O15"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U20_U29",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_PRESERVE_LEARNING_REVALIDATED",
       "semantic_delta_receipt": {
@@ -1229,10 +1424,36 @@
         "notes": "OA cartilage origin, AS sacroiliac/enthesis origin and RA synovial coordinate are already organized in O15 rather than copied as three unrelated lists."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "D Projection remains downstream/uncompiled for this scope",
+        "bindings": [
+          {
+            "system": "D",
+            "block": "O15",
+            "logic_groups": [
+              "O15-LG01",
+              "O15-LG02",
+              "O15-LG03",
+              "O15-LG04"
+            ],
+            "kp_ranges": [
+              "KP01-KP12"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Connection",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "D Projection remains downstream/uncompiled for this scope"
       }
     },
     {
@@ -1242,7 +1463,7 @@
       "candidate_primary": [
         "D:O16"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U20_U29",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_PRESERVE_LEARNING_REVALIDATED",
       "semantic_delta_receipt": {
@@ -1253,10 +1474,41 @@
         "notes": "ECT sensitivity-not-specificity, osteochondroma natural history, GCT soap-bubble, osteosarcoma/Ewing periosteal patterns and spine differential are already explicit in O16."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "D Projection remains downstream/uncompiled for this scope",
+        "bindings": [
+          {
+            "system": "D",
+            "block": "O16",
+            "logic_groups": [
+              "O16-LG01",
+              "O16-LG02",
+              "O16-LG03",
+              "O16-LG04",
+              "O16-LG05",
+              "O16-LG06",
+              "O16-LG07",
+              "O16-LG08"
+            ],
+            "kp_ranges": [
+              "KP01-KP20"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Recognition",
+              "Precision",
+              "Visual",
+              "Connection",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "D Projection remains downstream/uncompiled for this scope"
       }
     },
     {
@@ -1266,7 +1518,7 @@
       "candidate_primary": [
         "D:O3"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U20_U29",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_PRESERVE_LEARNING_REVALIDATED",
       "semantic_delta_receipt": {
@@ -1277,10 +1529,38 @@
         "notes": "Added refined boundary that surgery relieves ongoing compression/restores stability/reduces secondary injury rather than reversing irreversible cord injury; existing force-pattern and conus/cauda models preserved."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "D Projection remains downstream/uncompiled for this scope",
+        "bindings": [
+          {
+            "system": "D",
+            "block": "O3",
+            "logic_groups": [
+              "O3-LG01",
+              "O3-LG02",
+              "O3-LG03",
+              "O3-LG04",
+              "O3-LG05",
+              "O3-LG06"
+            ],
+            "kp_ranges": [
+              "KP01-KP17"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary",
+              "Precision",
+              "Visual",
+              "Connection",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "D Projection remains downstream/uncompiled for this scope"
       }
     },
     {
@@ -1290,7 +1570,7 @@
       "candidate_primary": [
         "D:O4"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U20_U29",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_PRESERVE_LEARNING_REVALIDATED",
       "semantic_delta_receipt": {
@@ -1301,10 +1581,37 @@
         "notes": "Refined anatomy, degeneration chain, root/cord types, level localization and cauda red flags are already captured in O4; saddle anesthesia is not treated as a standalone automatic surgery rule."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "D Projection remains downstream/uncompiled for this scope",
+        "bindings": [
+          {
+            "system": "D",
+            "block": "O4",
+            "logic_groups": [
+              "O4-LG01",
+              "O4-LG02",
+              "O4-LG03",
+              "O4-LG04",
+              "O4-LG05"
+            ],
+            "kp_ranges": [
+              "KP01-KP18"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision",
+              "Visual",
+              "Connection",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "D Projection remains downstream/uncompiled for this scope"
       }
     },
     {
@@ -1315,7 +1622,7 @@
         "D:O6",
         "D:O7"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U20_U29",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_PRESERVE_LEARNING_REVALIDATED",
       "semantic_delta_receipt": {
@@ -1326,10 +1633,57 @@
         "notes": "Mechanism→displacement→neurovascular danger→functional goal structure already covers refined upper/lower limb explanations in O6/O7."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_status": "D Projection remains downstream/uncompiled for this scope",
+        "bindings": [
+          {
+            "system": "D",
+            "block": "O6",
+            "logic_groups": [
+              "O6-LG01",
+              "O6-LG02",
+              "O6-LG03",
+              "O6-LG04"
+            ],
+            "kp_ranges": [
+              "KP01-KP12"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "D",
+            "block": "O7",
+            "logic_groups": [
+              "O7-LG01",
+              "O7-LG02",
+              "O7-LG03",
+              "O7-LG04",
+              "O7-LG05"
+            ],
+            "kp_ranges": [
+              "KP01-KP15"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_AND_LG_TOPOLOGY_PRESERVED",
+        "projection_validation": "D Projection remains downstream/uncompiled for this scope"
       }
     },
     {
@@ -1340,7 +1694,7 @@
         "D:O1",
         "D:O2"
       ],
-      "review": "V2_SEMANTIC_DELTA_REVIEWED_V3_ARCHITECTURE_ACCEPTANCE_PENDING",
+      "review": "V3_ARCHITECTURE_RECONCILED_U20_U29",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_PRESERVE_LEARNING_REVALIDATED",
       "semantic_delta_receipt": {
@@ -1351,10 +1705,56 @@
         "notes": "Direct/indirect/fatigue/open fracture logic, healing timeline, complications, functional-vs-anatomic reduction and traction principles already captured in O2; emergency-priority Learning closure was strengthened."
       },
       "architecture_v3": {
-        "exact_binding_status": "NEEDS_REVIEWED_BLOCK_LG_KP_CONTENT_FAMILY_BINDING",
-        "content_role_status": "NEEDS_MATURE_BLOCK_ROLE_VALIDATION",
-        "learning_status": "NEEDS_CONFIRM_NO_MEDICAL_CORE_OR_FRAMEWORK_WAS_MOVED_INTO_LEARNING",
-        "projection_status": "REVALIDATE_ONLY_IF_CHANGED_OWNER_BINDINGS_AFFECT_COMPILED_PROJECTION"
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
+        "learning_status": "LEARNER_ORDER_PRESERVED; O2-LG05 closure refined only; canonical KP order unchanged",
+        "projection_status": "D Projection remains downstream/uncompiled for this scope",
+        "bindings": [
+          {
+            "system": "D",
+            "block": "O2",
+            "logic_groups": [
+              "O2-LG01",
+              "O2-LG02",
+              "O2-LG03",
+              "O2-LG04",
+              "O2-LG05",
+              "O2-LG06"
+            ],
+            "kp_ranges": [
+              "KP01-KP16"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision",
+              "Visual",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "D",
+            "block": "O1",
+            "logic_groups": [
+              "O1-LG02",
+              "O1-LG03",
+              "O1-LG04"
+            ],
+            "kp_ranges": [
+              "KP04-KP10 supporting integration subset"
+            ],
+            "content_families": [
+              "Framework",
+              "Evidence/Recognition",
+              "Boundary",
+              "Visual",
+              "Compression"
+            ]
+          }
+        ],
+        "learning_validation": "LEARNER_ORDER_PRESERVED; O2-LG05 closure refined only; canonical KP order unchanged",
+        "projection_validation": "D Projection remains downstream/uncompiled for this scope"
       }
     },
     {
@@ -1615,9 +2015,9 @@
     "current_gap": "Most 38 units have Block-level and content-family dispositions, but exact LG/KP/content-family binding and full mature Block-role validation were not uniformly proven.",
     "acceptance_state": "REOPENED_FOR_ARCHITECTURE_RECONCILIATION",
     "progress": {
-      "units_reconciled": 19,
+      "units_reconciled": 29,
       "units_total": 38,
-      "next": "SUR27-U20-U29"
+      "next": "SUR27-U30-U38"
     }
   }
 }
