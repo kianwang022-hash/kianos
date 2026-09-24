@@ -138,44 +138,61 @@ def _nonempty_live_value(value) -> bool:
 
 
 def closure_consistency_conflicts(value: dict) -> list[str]:
-    """Syntax-level helper for an exact lifecycle validator.
+    """Syntax-level helper for exact lifecycle validators.
 
-    This does not decide whether an object *should* be CLOSED. It only catches
-    structurally live instructions that contradict an already-declared CLOSED
-    Current lifecycle. Historical/provenance subtrees are intentionally ignored.
+    This does not decide whether an object *should* be CLOSED. It finds any
+    non-historical subtree that already declares CLOSED and rejects structurally
+    live instructions underneath that subtree.
     """
-    if not isinstance(value, dict) or "CLOSED" not in str(value.get("status", "")).upper():
+    if not isinstance(value, dict):
         return []
 
-    conflicts: list[str] = []
+    conflicts: set[str] = set()
 
-    def walk(node, path: tuple[str, ...] = ()) -> None:
+    def ignored(key: str) -> bool:
+        lowered = key.lower()
+        return lowered in HISTORICAL_SUBTREE_KEYS or lowered.startswith(HISTORICAL_KEY_PREFIXES)
+
+    def scan_live(node, path: tuple[str, ...]) -> None:
         if isinstance(node, dict):
             for key, child in node.items():
                 key_s = str(key)
-                lowered = key_s.lower()
-                if lowered in HISTORICAL_SUBTREE_KEYS or lowered.startswith(HISTORICAL_KEY_PREFIXES):
+                if ignored(key_s):
                     continue
+                lowered = key_s.lower()
                 child_path = path + (key_s,)
                 label = ".".join(child_path)
-                if path and lowered == "status" and isinstance(child, str) and CLOSED_CONFLICT_STATUS.search(child):
-                    conflicts.append(f"LIVE_STATUS:{label}={child}")
+                if lowered == "status" and isinstance(child, str) and CLOSED_CONFLICT_STATUS.search(child):
+                    conflicts.add(f"LIVE_STATUS:{label}={child}")
                 elif lowered == "next_action" and _nonempty_live_value(child):
-                    conflicts.append(f"LIVE_NEXT_ACTION:{label}")
+                    conflicts.add(f"LIVE_NEXT_ACTION:{label}")
                 elif lowered in {"blocker", "blockers", "required_before_closeout"} and _nonempty_live_value(child):
-                    conflicts.append(f"LIVE_BLOCKER:{label}")
+                    conflicts.add(f"LIVE_BLOCKER:{label}")
                 elif lowered == "acceptance_status" and isinstance(child, str) and CLOSED_CONFLICT_STATUS.search(child):
-                    conflicts.append(f"LIVE_ACCEPTANCE:{label}={child}")
+                    conflicts.add(f"LIVE_ACCEPTANCE:{label}={child}")
                 elif lowered.startswith("active_") and child is True:
-                    conflicts.append(f"LIVE_ACTIVE_FLAG:{label}")
-                walk(child, child_path)
+                    conflicts.add(f"LIVE_ACTIVE_FLAG:{label}")
+                scan_live(child, child_path)
         elif isinstance(node, list):
             for index, child in enumerate(node):
-                walk(child, path + (str(index),))
+                scan_live(child, path + (str(index),))
 
-    walk(value)
-    return conflicts
+    def find_closed(node, path: tuple[str, ...] = ()) -> None:
+        if isinstance(node, dict):
+            status = node.get("status")
+            if isinstance(status, str) and "CLOSED" in status.upper():
+                scan_live(node, path)
+            for key, child in node.items():
+                key_s = str(key)
+                if ignored(key_s):
+                    continue
+                find_closed(child, path + (key_s,))
+        elif isinstance(node, list):
+            for index, child in enumerate(node):
+                find_closed(child, path + (str(index),))
 
+    find_closed(value)
+    return sorted(conflicts)
 
 def reviewed_derivation_revision_conflict(current_revision, reviewed_against, claims_current: bool) -> bool:
     """Generic identity/revision witness rule; domain validator owns semantics."""
