@@ -150,6 +150,32 @@ try {
 
     await page.locator('[data-steward-mode="nutrition"]').click();
     check(await page.locator('[data-steward-mode-panel="nutrition"]').getAttribute('class') === 'stewardModePanel active', 'nutrition_switch');
+    check(await page.locator('.stewardNutritionGrid').isVisible(), 'nutrition_workspace_visible');
+    check(await page.locator('[data-steward-meal-preset]').count() === 3, 'nutrition_combo_count');
+    await page.locator('[data-steward-meal-preset="z03"]').click();
+    check((await page.locator('[data-steward-meal-title]').textContent())?.includes('Z03'), 'nutrition_z03_select');
+    const gramInput = page.locator('[data-steward-meal-grams]').first();
+    await gramInput.fill('170');
+    check((await gramInput.inputValue()) === '170', 'nutrition_grams_edit');
+    await page.locator('[data-steward-food-mode="single"]').click();
+    check((await page.locator('[data-steward-meal-title]').textContent())?.includes('高蛋白酸奶'), 'nutrition_single_mode');
+    await page.screenshot({ path: path.join(auditDir, 'nutrition-1512x820.png'), fullPage: false });
+
+    await page.locator('[data-steward-mode="training"]').click();
+    check(await page.locator('.stewardTrainingGrid').isVisible(), 'training_workspace_visible');
+    check(await page.locator('[data-steward-set-row]').count() === 3, 'training_strength_rows');
+    await page.locator('[data-steward-training-mode="cardio"]').click();
+    check((await page.locator('[data-steward-training-title]').textContent())?.includes('Incline treadmill walk'), 'training_cardio_select');
+    check(await page.locator('[data-steward-set-row]').count() === 1, 'training_cardio_row');
+    const trainingInputs = page.locator('[data-steward-training-input]');
+    await trainingInputs.nth(0).fill('25');
+    await trainingInputs.nth(1).fill('5');
+    check((await page.locator('[data-steward-training-set-count]').textContent())?.trim() === '1', 'training_record_count');
+    check((await page.locator('[data-steward-training-status]').textContent())?.trim() === '记录中', 'training_record_status');
+    await page.screenshot({ path: path.join(auditDir, 'training-1512x820.png'), fullPage: false });
+
+    await page.locator('[data-steward-mode="schedule"]').click();
+    check(await page.locator('[data-steward-mode-panel="schedule"]').getAttribute('class') === 'stewardModePanel active', 'schedule_return_after_local_modes');
 
     await page.locator('[data-steward-view="week"]').click();
     check((await page.locator('[data-steward-header-title]').textContent())?.trim() === '这一周', 'week_header');
