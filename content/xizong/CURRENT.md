@@ -12,7 +12,9 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 - Ordinary Xizong learning bypasses this engineering cursor and uses the native learning/runtime path.
 - Subject maturity / 270–275 questions route to `MATURITY_PACKAGE.md`; its current stage, calibration and acceptance claims are not mirrored here.
 - Content construction, Question→Knowledge work and content defects route through `CONTENT_MAINLINE.md` and then the smallest exact owner.
-- 2027 Biochemistry and Surgery revisions route only to their exact lifecycle/Source owners when that lifecycle is actually relevant; this router does not restate their enum, closure or acceptance.
+- 27 Biochemistry lifecycle owner: `content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json`.
+- 27 Surgery lifecycle owner: `content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json`.
+- These are routing pointers only. This Current does not mirror either lifecycle enum, closure/acceptance status or held-out architecture-validation state.
 - Question/Crosswalk freshness and re-review behavior belongs to the exact relation owner/validator, not this cursor.
 - Acceptance/readiness questions route to `ACCEPTANCE.md` or the exact System Acceptance owner.
 - Real learner U remains private real-use truth and is never inferred from engineering proof.
