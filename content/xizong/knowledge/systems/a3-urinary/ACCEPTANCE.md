@@ -150,7 +150,7 @@ Validation evidence: run `34717326529`.
 
 ## P — PASS
 
-Accepted projection owners include the shared Xizong loader/projection helpers, System/Block pages, `XizongSystemV6.astro`, `XizongBlockV6.astro`, `XizongStudyEnhancer.astro`, and the later System Exit components.
+Accepted projection owners include the shared Xizong loader/projection helpers, System/Block pages, `XizongSystemWorkspace.astro`, `XizongBlockV6.astro`, `XizongStudyEnhancer.astro`, and the later System Exit components.
 
 Accepted behavior:
 
