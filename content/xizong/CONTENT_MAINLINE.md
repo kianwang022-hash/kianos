@@ -116,7 +116,7 @@ Hard rules:
 - Original PDF remains highest-fidelity for diagrams/tables/spatial relations; decision-relevant ambiguity stays fail-closed.
 - Official-question System membership reopens only for real owner/corpus evidence; changed Knowledge still triggers affected relation/explanation review.
 - Surgery spans multiple Systems. Exact medical truth remains in each System/Block owner; the task slot is only a durable cursor.
-- The Biochemistry rebase remains active. Surgery may progress on disjoint owners, but shared B system/learning/manifest and shared question/explanation manifest writes must refresh main and serialize rather than race.
+- The Biochemistry architecture-corrected rebase is CLOSED / CURRENT. Surgery may progress on its active scope; any shared B system/learning/manifest or shared question/explanation write must still refresh main and serialize rather than race.
 
 Completion definition:
 
