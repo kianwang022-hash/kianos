@@ -232,16 +232,23 @@ async function systemQuestionRepairJourney(page) {
   ]);
   await repairPage.waitForLoadState('domcontentloaded');
   await repairPage.waitForTimeout(500);
-  const repairEvidence = await repairPage.evaluate(({ blockId, kpId }) => {
-    const ext = JSON.parse(localStorage.getItem(`kianos-xizong-memory-review-v2:xizong:${blockId}`) || 'null');
+  const repairEvidence = await repairPage.evaluate(({ blockId, kpId, questionId }) => {
+    const memory = JSON.parse(localStorage.getItem('kianos-xizong-memory-v1') || 'null');
+    const task = (memory?.repairTasks || []).find((row) =>
+      String(row?.blockId || '') === String(blockId)
+      && String(row?.kpId || '') === String(kpId)
+      && (row?.sourceQuestionIds || []).includes(questionId)
+    );
+    const inbox = localStorage.getItem(`kianos-xizong-repair-inbox-v1:xizong:${blockId}`);
     return {
-      inPlan: Array.isArray(ext?.reviewPlan) && ext.reviewPlan.some((row) => String(row?.kpId || row?.kp_id || row || '') === kpId),
-      imported: Array.isArray(ext?.evidenceHistory) && ext.evidenceHistory.some((row) =>
-        row?.type === 'SYSTEM_WU_PLAN_IMPORTED' && row?.evidence_role === 'REPAIR_ONLY'
-      )
+      taskPresent: Boolean(task),
+      origin: String(task?.origin || ''),
+      inboxCleared: inbox == null
     };
-  }, { blockId: target.relation.blockId, kpId: target.relation.primaryKpId });
-  check(repairEvidence.inPlan && repairEvidence.imported, 'reviewed_wu_routes_to_owner_as_repair_only');
+  }, { blockId: target.relation.blockId, kpId: target.relation.primaryKpId, questionId: target.questionId });
+  check(repairEvidence.taskPresent, 'reviewed_wu_routes_to_current_memory_repair_owner');
+  check(repairEvidence.origin === 'SYSTEM_WU_CHAT_RETURN', 'reviewed_wu_preserves_system_repair_origin', repairEvidence.origin);
+  check(repairEvidence.inboxCleared, 'reviewed_wu_inbox_consumed_after_block_open');
   await repairPage.close();
 
   check(!page.isClosed(), 'original_practice_tab_preserved_for_return');
