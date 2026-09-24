@@ -256,7 +256,7 @@ Subject surfaces may own second-level information architecture and local composi
 
 The concrete Current L1 membership is **not duplicated in this contract**.
 
-`ARCHITECTURE.md` owns the durable product-responsibility model; `static-web/PRODUCT_SURFACE_CONTRACT.md` owns the current product surface split; `AUTHORITY_OWNERSHIP.json` registers the one shared navigation implementation owner at `static-web/src/lib/sharedNavigation.mjs`; `static-web/CURRENT.md` owns current website implementation/status. This contract owns only the invariant that there is one global rail and downstream surfaces consume it rather than recreating or mirroring its membership.
+`ARCHITECTURE.md` owns the durable product-responsibility model; `static-web/PRODUCT_SURFACE_CONTRACT.md` owns the current product surface split; `static-web/STEWARD_PRODUCT_CONTRACT.md` owns Steward product interaction / reality-capture semantics and product acceptance; `AUTHORITY_OWNERSHIP.json` registers these durable product owners plus the one shared navigation implementation owner at `static-web/src/lib/sharedNavigation.mjs`; `static-web/CURRENT.md` owns current website implementation/status. This contract owns only the inheritance/one-owner invariants; it does not duplicate those product semantics.
 
 Learner-product placement such as English child functions is resolved from the current Architecture / exact product owner, not restated here as another mutable navigation list.
 
