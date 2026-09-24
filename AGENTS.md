@@ -94,6 +94,22 @@ If an upstream owner changes during the task, apply
 [Change propagation](AUTHORITY_INHERITANCE_CONTRACT.md#32-change-propagation-and-dependency-freshness)
 only to real dependents; do not restart unrelated accepted work.
 
+### Entering from another Chat Project
+
+A promoted request from Personal / Study / StudyHub / Steward / Review should arrive as a **thin implementation pointer**, not a copied conversation.
+
+```text
+implementation pointer
+→ source decision owner + relevant revision
+→ current target KianOS owner
+→ relevant design chain
+→ smallest justified implementation
+```
+
+Re-read the source owner when its revision matters. If it materially changed, reconcile before mutation. The pointer is routing only; the originating owner keeps the semantic/personal/research truth.
+
+Do not ask Kian to restate context already recoverable from GitHub. Do not create a new handoff document when an existing Current/Mainline can carry the pointer.
+
 ## UI
 
 ```text
