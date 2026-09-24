@@ -20,7 +20,7 @@ E PASS
 U UNTESTED — real learner use only
 ```
 
-The separate lines above are also the existing machine-readable gate surface used by KianOS projection discovery; keep them explicit rather than compressing them into a combined prose status.
+The separate lines above are human-readable Acceptance claims only. Runtime/projectability must not parse this Markdown as machine configuration; materialized projection identity is read from `content/xizong/projection/manifest.json`.
 
 Current claim boundaries:
 
