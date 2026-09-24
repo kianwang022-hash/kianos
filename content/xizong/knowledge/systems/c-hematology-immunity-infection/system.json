@@ -1,7 +1,7 @@
 {
   "schema": "kianos.xizong.system.v1",
-  "status": "FREEZE_CANDIDATE",
-  "semantic_authority": "CHAT_APPROVED_KNOWLEDGE_CANDIDATE",
+  "status": "CURRENT",
+  "semantic_authority": "CHAT_APPROVED",
   "system_id": "hematology-immunity-infection",
   "canonical_id": "C",
   "title": "血液·免疫·感染",
@@ -48,10 +48,11 @@
   "ownership": {
     "system_level_owner": "system.json",
     "medical_core_owner": "H1–H27 canonical Block Markdown under this directory",
-    "logic_index_role": "NOT_YET_ACCEPTED_AT_K_CANDIDATE_STAGE",
+    "learning_owner": "content/xizong/knowledge/learner/c-hematology-immunity-infection-learning.json",
+    "logic_index_role": "STRUCTURAL_LEARNING_INDEX_ONLY",
     "question_truth_owner": "content/xizong/questions/",
     "question_relation_owner": "content/xizong/question-relations/",
-    "rule": "System Knowledge owns the cross-Block medical model, boundaries and interfaces only. Block Markdown remains the medical Core. Logic Groups and learner order belong to a later Learning stage and must not be inferred from this file. Question Truth and reviewed Question→Knowledge relations remain separate owners."
+    "rule": "System Knowledge owns the cross-Block medical model, boundaries and interfaces only. Block Markdown remains the medical Core. Learner order and Logic Groups belong to the accepted System Learning owner, not this Knowledge owner. Question Truth and reviewed Question→Knowledge relations remain separate owners."
   },
   "source_boundary": {
     "supported_current_scope": [
