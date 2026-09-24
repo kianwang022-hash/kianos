@@ -49,6 +49,45 @@ Compact product statement:
 
 ---
 
+# 1.5｜Input / output and upstream requirement boundary
+
+KianOS consumes **approved durable inputs**, not another system's whole state.
+
+Typical inputs are:
+
+```text
+accepted Rule / requirement
++ canonical Content / Source-derived Knowledge
++ accepted Visual direction
++ explicit user action / private runtime state
+```
+
+Its durable outputs are:
+
+```text
+canonical Rule / Content / Visual / Engineering assets
++ executable product behavior
++ private execution / learner evidence produced by real use
+```
+
+A Personal conclusion may become an **upstream requirement** for a KianOS capability. KianOS then owns only the product/domain semantics needed to implement that requirement. It must reference the Personal owner rather than copy the personal model and become a second owner.
+
+Hard boundary:
+
+```text
+Personal
+= what is true / accepted about Kian and what Kian wants
+
+KianOS
+= how an approved requirement is represented and executed inside the product
+
+KianOS real-use evidence
+→ may return to Chat / Personal for interpretation
+→ does not auto-create a new personal conclusion
+```
+
+Wellness / recovery interpretation about Kian as a person therefore belongs to Personal / the appropriate native health source. KianOS may consume a bounded recovery/capacity conclusion when it changes product or exam execution, and may own the exact **mapping from that input to KianOS task/runtime behavior**; it must not maintain a competing personal recovery model.
+
 # 2｜Primary usage model
 
 The normal operating reality is:
