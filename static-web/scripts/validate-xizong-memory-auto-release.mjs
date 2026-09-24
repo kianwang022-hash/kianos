@@ -139,6 +139,29 @@ assert(result.state.releasedBlocks['respiratory-r01'].refreshedAt === refreshedA
 assert(result.state.attention['core:respiratory-r01-kp01']?.reviewRequested !== true, 'repeat-release-resurrected-stale-weak-signal');
 assert(todayMemoryQueue(result.state, { now: Date.parse('2026-09-18T08:01:00Z') }).length === 0, 'repeat-release-mutated-immediate-memory-state');
 
+// Canonical content revision must refresh already-released stable card identities
+// even though the Block's first-pass study state is no longer complete. Existing
+// Memory evidence is preserved; the changed Core becomes due because its content
+// changed after the latest evidence.
+const revisionEvidenceBefore = result.state.evidence.length;
+const oldCoreSourceHash = result.state.cards['core:respiratory-r01-kp01'].sourceHash;
+const revisedLearner = structuredClone(learner);
+revisedLearner.kps[0].core = { markdown: 'KP1 canonical markdown v2', html: '<p>KP1 canonical Core v2</p>' };
+result = releaseCompletedBlockToMemory(result.state, revisedLearner, { ...validStudy, completed: false }, {
+  sourceHash: 'fixture-source-v2',
+  refreshedAt: '2026-09-20T08:00:00Z'
+});
+assert(!result.released && result.refreshed === true && result.reason === 'CONTENT_REVISION_REFRESHED', 'revision-refresh-not-detected');
+assert(result.state.evidence.length === revisionEvidenceBefore, 'revision-refresh-mutated-evidence-history');
+assert(result.state.releasedBlocks['respiratory-r01'].sourceHash === 'fixture-source-v2', 'revision-refresh-release-hash');
+assert(result.state.cards['core:respiratory-r01-kp01'].sourceHash === 'fixture-source-v2', 'revision-refresh-card-hash');
+assert(result.state.cards['core:respiratory-r01-kp01'].sourceHash !== oldCoreSourceHash, 'revision-refresh-card-hash-unchanged');
+assert(result.state.cards['core:respiratory-r01-kp01'].contentChangedAt === '2026-09-20T08:00:00.000Z', 'revision-refresh-content-changed-at');
+assert(result.state.cards['core:respiratory-r01-kp01'].coreHtml.includes('v2'), 'revision-refresh-core-not-updated');
+assert(result.state.attention['core:respiratory-r01-kp01']?.reviewRequested !== true, 'revision-refresh-replayed-first-pass-weak-signal');
+const revisedToday = todayMemoryQueue(result.state, { now: Date.parse('2026-09-20T08:01:00Z') });
+assert(revisedToday.some((card) => card.id === 'core:respiratory-r01-kp01' && card.retention?.dueReason === 'CONTENT_CHANGED_AFTER_LAST_EVIDENCE'), 'revision-refresh-not-due-content-changed');
+
 let invalidFailed = false;
 try {
   releaseCompletedBlockToMemory(createXizongMemoryState(), { ...learner, schema: 'wrong.schema' }, validStudy);

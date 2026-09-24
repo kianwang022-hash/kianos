@@ -81,25 +81,53 @@ function applyPrivateReleaseState(stateInput, descriptor, releasedAt = null) {
 
 export function releaseCompletedBlockToMemory(memoryStateInput, learnerObject, studyState, options = {}) {
   const memory = normalizeXizongMemoryState(memoryStateInput);
+  const { blockId } = learnerKpIds(learnerObject);
+  const currentSourceHash = text(options?.sourceHash || learnerObject?.sourceHash);
+  const previousRelease = memory.releasedBlocks?.[blockId] || null;
+
+  // A released Memory library is a copy of Current canonical content, not a frozen
+  // first-pass snapshot. If the owning Block revision changes, refresh the stable
+  // card identities immediately so old evidence stays historical while retention
+  // can surface CONTENT_CHANGED_AFTER_LAST_EVIDENCE. Do this independently of
+  // current Block completion: the evidence guard may already have archived/reset
+  // first-pass study state for the new revision.
+  if (previousRelease?.sourceHash && currentSourceHash && previousRelease.sourceHash !== currentSourceHash) {
+    const refreshDescriptor = buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject, {
+      sourceHash: currentSourceHash
+    });
+    const state = releaseBlockMemory(memory, refreshDescriptor, options?.refreshedAt || options?.releasedAt || null);
+    return {
+      schema: XIZONG_MEMORY_AUTO_RELEASE_SCHEMA,
+      state,
+      released: false,
+      refreshed: true,
+      reason: 'CONTENT_REVISION_REFRESHED',
+      blockId,
+      missingKpIds: []
+    };
+  }
+
   const completion = inspectXizongBlockCompletion(learnerObject, studyState);
   if (!completion.complete) {
     return {
       schema: XIZONG_MEMORY_AUTO_RELEASE_SCHEMA,
       state: memory,
       released: false,
+      refreshed: false,
       reason: completion.reason,
       blockId: completion.blockId,
       missingKpIds: completion.missingKpIds || []
     };
   }
 
-  // Block Complete is the release event. Re-opening an already released Block must
-  // never replay first-pass weak signals after later Memory evidence has stabilized.
-  if (memory.releasedBlocks?.[completion.blockId]) {
+  // Same-revision re-entry remains idempotent: never replay first-pass weak signals
+  // after later Memory evidence has stabilized.
+  if (previousRelease) {
     return {
       schema: XIZONG_MEMORY_AUTO_RELEASE_SCHEMA,
       state: memory,
       released: false,
+      refreshed: false,
       reason: 'ALREADY_RELEASED',
       blockId: completion.blockId,
       missingKpIds: []
@@ -107,7 +135,7 @@ export function releaseCompletedBlockToMemory(memoryStateInput, learnerObject, s
   }
 
   const descriptor = buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject, {
-    sourceHash: text(options?.sourceHash),
+    sourceHash: currentSourceHash,
     recallRatings: studyState?.ratings || {},
     promptOverrides: options?.promptOverrides || {},
     markedFragments: options?.markedFragments || []
