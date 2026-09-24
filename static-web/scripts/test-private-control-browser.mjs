@@ -94,7 +94,8 @@ const server=spawn('npm',['run','dev','--','--host','127.0.0.1','--port',String(
     KIANOS_CONTROL_DIR:controlDir,
     KIANOS_ENGLISH_GENERATED_DIR:generatedDir,
     KIANOS_EXTERNAL_READING_SOURCE_ROOT:sourceRoot,
-    KIANOS_EXTERNAL_READING_DIR:externalPrivate
+    KIANOS_EXTERNAL_READING_DIR:externalPrivate,
+    KIANOS_PRIVATE_DIR:path.join(temp,'learner-state')
   },
   stdio:['ignore','pipe','pipe'],
   detached:process.platform!=='win32'
@@ -234,6 +235,7 @@ try{
 
   await page.locator('[data-exam-next]').click();
   await page.waitForURL(url=>url.pathname==='/external-reading/'&&url.searchParams.get('id')===drill.object_id);
+  await page.waitForFunction(() => document.querySelector('[data-external-kind]')?.textContent?.trim() === 'CHAT · SYNTHETIC', null, { timeout: 10000 });
   assert.equal((await page.locator('[data-external-kind]').textContent())?.trim(),'CHAT · SYNTHETIC');
 
   console.log('PASS private Chat command -> local relay -> browser control -> Total Home -> exact English Workspace');
