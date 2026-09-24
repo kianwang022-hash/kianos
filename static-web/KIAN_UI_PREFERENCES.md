@@ -69,6 +69,16 @@ These are **shared site-wide taste defaults**, not Home-only preferences. Subjec
 
 These are taste constraints, not instructions to clone Apple, Raycast, Arc, the legacy site, or any named product. Legacy screenshots are visual evidence for typography/density/taste, not authority to restore retired semantics or runtime behavior.
 
+### Steward clarification — 2026-09-24
+
+Kian explicitly reaffirmed Mac landscape and a light, refined, clearly layered
+native-Mac feel. This means interaction quality and hierarchy, not tiny/light text.
+Kian prefers the early Steward HTML's visual direction to the later standalone
+redesigns; its functional placement needs improvement. Preserve that reference as
+visual evidence while using the real shared shell, readable typography and the
+existing site's navigation ownership. No preview is blanket approval of its exact
+layout, controls, or backend integration.
+
 ### Accepted Chinese UI font reference
 
 Kian explicitly accepts the Chinese UI character shown by the legacy `4173` Politics Learn mode row:
