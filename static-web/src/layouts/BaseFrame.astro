@@ -34,7 +34,7 @@ const subjectNav = subjectShell(localPath, base);
 const isHub = ['', 'english', 'vocabulary', 'politics', 'xizong'].includes(localPath);
 const isWordStudy = /^vocabulary\/\d+$/.test(localPath);
 const isVocabularyRoute = localPath === 'vocabulary' || localPath.startsWith('vocabulary/');
-const stageOne = englishFamily || ['lexical', 'politics', 'xizong'].includes(active) || localPath === '';
+const stageOne = englishFamily || ['lexical', 'politics', 'xizong', 'steward'].includes(active) || localPath === '';
 const currentStatusUrl = `${base}__kianos-current.json`;
 ---
 <!doctype html>
