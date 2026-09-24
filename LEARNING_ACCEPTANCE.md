@@ -407,7 +407,7 @@ Examples:
 
 ### Shared rule ≠ private learner strategy
 
-Shared Current may define fresh/holdout semantics, evidence states, and scheduling constraints. It must not hard-code one learner’s chosen holdout years, personal progress, wrong/uncertain history, timing, notes, or transfer ledger as product truth.
+Shared Rule / Learning / Evidence owners may define fresh/holdout semantics, evidence states and bounded scheduling constraints when those semantics belong to them. Current/work cursors only route active work; they do not become semantic or learner-state owners. No shared owner may hard-code one learner’s chosen holdout years, personal progress, wrong/uncertain history, timing, notes or transfer ledger as product truth.
 
 ---
 
@@ -883,12 +883,12 @@ Reports should identify concrete Current evidence rather than infer completion f
 
 # 10｜Relationship to other root governance
 
-- `AGENTS.md` defines Current authority, read/write boundaries, content ownership, runtime boundaries, and repository operating rules.
+- `AGENTS.md` defines worker entry/routing and repository operating boundaries; it does not own domain semantics or Acceptance Truth.
 - `ARCHITECTURE.md` separates ownership hierarchy from dependency-driven scheduling.
 - `SYSTEM_CONTRACT.md` defines minimum platform capabilities plus the cross-KianOS surface-ownership boundary for first-class learner surfaces.
 - `LEARNING_ASSET_STANDARD.md` makes material surface ownership a Learning-Logic decision before Projection/Runtime.
 - `LEARNING_ACCEPTANCE.md` defines the evidence required before those capabilities may be called learner-ready and defines final Global/Home acceptance.
-- `CURRENT.md` describes current system state; it must not become private learner progress.
+- `CURRENT.md` routes current engineering/status work; it is not a semantic system-state owner and must not become private learner progress or an acceptance mirror.
 - Domain manifests and exact Current/work-cursor owners may specialize local routing, but cannot override these root-level acceptance rules. Retired continuation files are not a Current object class.
 
 When a lane-specific contract conflicts with this document on acceptance semantics, the lane may specialize cognition and surface choice but may not weaken the distinction between source/content/build completion and real learner readiness without explicit repository-level revision.
