@@ -67,7 +67,7 @@ Hard naming rule:
 
 > **Guide means explanation; Framework means structure.**
 
-Do not call a System cognitive canvas, mechanism map, relation model or Block cognitive map a learner-facing `Guide`. The historical file path `XIZONG_SYSTEM_FRAMEWORK_DESIGN.md` is retained only for compatibility; that file now owns the **System Framework** surface, not the Beginner Guide text asset.
+Do not call a System cognitive canvas, mechanism map, relation model or Block cognitive map a learner-facing `Guide`. The Current **System Framework** design owner is `XIZONG_SYSTEM_FRAMEWORK_DESIGN.md`; Beginner Guide text remains a separate explanatory asset.
 
 ---
 
