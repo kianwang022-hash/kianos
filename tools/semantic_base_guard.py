@@ -427,6 +427,30 @@ def self_test(registry: dict) -> None:
             True,
             "Timer owner must invalidate Home",
         ),
+        (
+            {"static-web/STEWARD_PRODUCT_CONTRACT.md"},
+            {"static-web/src/pages/steward/index.astro"},
+            True,
+            "Steward product owner must invalidate Steward work",
+        ),
+        (
+            {"static-web/STEWARD_PRODUCT_CONTRACT.md"},
+            {"content/politics/projection/sample.json"},
+            False,
+            "Steward product owner must not invalidate unrelated Politics work",
+        ),
+        (
+            {"static-web/PRODUCT_SURFACE_CONTRACT.md"},
+            {"static-web/src/pages/index.astro"},
+            True,
+            "Product surface owner must invalidate Home work",
+        ),
+        (
+            {"content/english/external/CURRENT.md"},
+            {"static-web/src/components/ExternalReadingWorkspace.astro"},
+            True,
+            "External Reading owner must invalidate External Reading work",
+        ),
     ]
     for main_changes, pr_changes, expected, label in cases:
         actual, reasons, _ = classify(main_changes, pr_changes, registry)
