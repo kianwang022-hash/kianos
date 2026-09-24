@@ -12,6 +12,7 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 - Final learner acceptance engineering is **CLOSED / RETIRED**. Exact result: ACCEPTANCE.md.
 - Broad D/E/F medical-content construction and A1-F exact System-question membership are closed in CONTENT_MAINLINE.md; do not duplicate their status here.
 - **27 Biochemistry architecture-corrected rebase is CLOSED / CURRENT at S/K/L/Content/P.** Canonical hierarchy remains System → Block → Logic Group → KP; Biochemistry is Source/Learning-execution-specialized only. Reopen only for a new/revised authoritative Biochemistry Source or a concrete accepted-owner defect.
+- **27 Surgery architecture-corrected comprehensive rebase is CLOSED / CURRENT at S/K/L/Content/P/Q/X/E/A.** Current Surgery Source is `27外科精编版【带导图】.pdf`; 38/38 Source units are reconciled through existing System → Block → Logic Group → KP owners. Reopen only for a new/revised authoritative Surgery Source or a concrete accepted-owner defect.
 - Unified Question SECOND_PASS and reviewed Question → Knowledge Crosswalk are **CLOSED** for the current 2005–2026 corpus: 3750/3750 rich explanations, 3043 REVIEWED relations, 707 legal NO_SAFE_MATCH, 0 NEEDS. Reopen only for a real defect, authoritative Source change, or explicit new corpus.
 - Subject maturity cursor is **Stage B — first-pass learner capability / Real-U acquisition**. MATURITY_PACKAGE.md owns the 270-protect / 275-working-score control path.
 - Real learner U remains private real-use truth and is not manufactured by engineering proof.
@@ -19,9 +20,8 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Next
 
-explicitly active bounded content program
-→ CONTENT_MAINLINE.md → exact active task owner (currently Surgery)
-→ otherwise real Stage-B study
+real Stage-B study
+→ if an explicitly active bounded content program is later created, route through CONTENT_MAINLINE.md
 → concrete defect or authoritative new Source appears
 → reopen the smallest exact owner
 
