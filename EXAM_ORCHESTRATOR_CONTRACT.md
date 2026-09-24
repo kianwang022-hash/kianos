@@ -824,7 +824,6 @@ KianOS owns only the **exam/product consequence** of that input:
 
 Raw health samples and personal calibration remain outside shared KianOS Content. Real task-performance evidence remains KianOS learner/execution evidence and may return to Chat / Personal for interpretation.
 
-The retired `RECOVERY_COGNITIVE_CAPACITY_MODEL.md` and its Acceptance file are provenance only and are not Current planning authority.
 
 # 5｜Evidence → mastery/stability estimate → workload
 
