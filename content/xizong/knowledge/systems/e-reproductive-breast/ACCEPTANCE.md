@@ -58,7 +58,7 @@ Historical System Guide locators may aid re-binding, but historical coordinates 
 - complete male reproductive clinical management;
 - full breast-imaging/pathology specialty curriculum;
 - E7 explicit unresolved ovarian Outline subquestion;
-- E9/E10/E11 visual Source gaps;
+- E10 visual Source gap remains explicit; E9/E11 original 27-refined visuals are verified Current Source;
 - E13/E14 partial visual Source support;
 - modern external staging/treatment/guideline replacement;
 - duplicate prostate, generic HPV/infection or tumor-general Primary.
@@ -171,9 +171,11 @@ Fresh independent route and readiness attack accepted **0 inside-E hard prerequi
 
 One real bounded Learning defect was found. E10's canonical Block declares `VISUAL_SOURCE_GAP`, including plasma-cell-mastitis adhesion / nipple-inversion relations, but the original Learning candidate had no E10 `visual_required` LG. The smallest repair added visual closure only to E10-LG03 and preserved `VISUAL_SOURCE_GAP`.
 
+The later 27 Surgery refined-source rebase directly re-read the original PDF rather than inferring from the AI-reader: E9-LG02 is now visually verified from P077–P078 and E11-LG03 from P023. E10-LG03 remains `VISUAL_SOURCE_GAP`; the refined Source has useful text but does not supply the required inflammatory-mimic spatial visual.
+
 After re-audit:
 
-- E9-LG02 / E10-LG03 / E11-LG03 keep visual gaps fail-closed;
+- E9-LG02 / E11-LG03 = verified Current original visual; E10-LG03 = fail-closed visual gap;
 - E13-LG01/LG02 and E14-LG01/LG03 retain partial visual debt;
 - prose cannot certify never-seen visual relations;
 - E6 still separates local invasion from metastatic competence / spread;

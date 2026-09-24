@@ -85,7 +85,7 @@ SR1–SR6       physiology
 E1–E8        reproductive pathology
 E12          breast pathology
 E9–E11,
-E13–E14      surgery
+E13–E14      surgery · Current Primary = `27外科精编版【带导图】.pdf` for affected refined-source ranges
 ```
 
 Important locator rule:
@@ -100,7 +100,7 @@ Live Source limits include:
 - no complete male reproductive clinical curriculum;
 - no full breast-imaging/pathology specialty curriculum;
 - E7 one explicit ovarian Outline subquestion Source Gap;
-- E9/E10/E11 visual Source gaps;
+- E10 visual Source gap remains fail-closed; E9/E11 original 27-refined visuals were directly verified on 2026-09-24;
 - E13/E14 partial source-page visual support;
 - no silent modernization of Current Study staging/treatment wording;
 - prostate, generic HPV/infection and tumor-general truth remain with their real external owners.
@@ -165,9 +165,9 @@ Accepted Learning shape:
 3 non-gating Partial-System Reconstructions
 ```
 
-Fresh independent L audit accepted the zero-hard-edge result after add/delete attack: useful order remains guidance, not hard legality. It also found one bounded L defect: E10 carried a real visual Source gap but no LG-level visual closure requirement. Only E10-LG03 was repaired to require real visual Source contact while remaining `VISUAL_SOURCE_GAP`.
+Fresh independent L audit accepted the zero-hard-edge result after add/delete attack: useful order remains guidance, not hard legality. It also found one bounded L defect: E10 carried a real visual Source gap but no LG-level visual closure requirement. E10-LG03 therefore still requires real visual Source contact and remains `VISUAL_SOURCE_GAP`.
 
-The accepted Learning owner preserves the K repair separating **local invasion** from **metastatic competence / spread extent**, keeps E9/E10/E11 visual gaps and E13/E14 partial visual support fail-closed, and preserves Current-Study staging/treatment version boundaries.
+The 27 Surgery rebase later supplied and directly verified real original visuals for E9-LG02 (PDF P077–P078) and E11-LG03 (PDF P023). Their visual gates are now `VERIFIED_SOURCE_VISUAL_AVAILABLE_2026_09_24`; E10 remains fail-closed because its required inflammatory-mimic visual relation is not actually supplied by the refined page. The accepted Learning owner otherwise preserves the K repair separating **local invasion** from **metastatic competence / spread extent**, E13/E14 partial visual support, and Current-Study staging/treatment version boundaries.
 
 ## Accepted Content — PASS_AFTER_BOUNDED_REPAIR
 

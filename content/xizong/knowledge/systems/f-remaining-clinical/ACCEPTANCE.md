@@ -48,7 +48,7 @@ The old transition Guide's 12-Block operational route is not Current stable F id
 
 ## S1 — PASS after Source rebind
 
-Approved Current lecture sources are bound by durable title/page locators. The newly arrived `27外科精编版【带导图】.pdf` is now also registered as current-year Source/delta evidence, with a GitHub-auditable Markdown snapshot; the original PDF remains the highest-fidelity visual Source.
+Approved Current lecture sources are bound by durable title/page locators. `27外科精编版【带导图】.pdf` is the Current Surgery Primary for the affected F ranges, with a GitHub-auditable Markdown snapshot for search/diff; the original PDF remains the highest-fidelity visual Source. The old follow-along Surgery source is provenance only after rebind.
 
 Verified closures:
 

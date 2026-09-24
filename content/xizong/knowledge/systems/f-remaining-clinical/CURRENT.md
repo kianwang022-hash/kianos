@@ -118,11 +118,13 @@ A current F `system.json` Knowledge candidate now exists. The Guide remains tran
 
 The repository itself still does not mount the required original F page images, but approved Current lecture sources were recovered from the user's File Library and re-read by title/page locator. Source authority is therefore available even though the binary pages are not copied into this repository.
 
-Re-bound Source titles include:
+Current Source titles include:
 
-- `27 外科跟课合集改.pdf`;
-- `外科学讲义_AI阅读版.md`;
+- `27外科精编版【带导图】.pdf` — Current Surgery Primary for affected F ranges; original PDF is highest-fidelity visual Source;
+- `content/xizong/source-snapshots/27/外科学讲义_AI阅读版_27精编_UnifiedSource_v1.md` — auditable search/diff snapshot, not a second Knowledge owner;
 - `内科学讲义_AI阅读版_最终UnifiedSource_v2.md` / equivalent Current internal-medicine unified source.
+
+The old `27 外科跟课合集改.pdf` / legacy `外科学讲义_AI阅读版.md` are historical provenance only after the affected F Block rebind.
 
 Opaque File-Library object IDs are intentionally not persisted. Durable provenance uses source title + printed/PDF page locator.
 
@@ -146,11 +148,11 @@ Opaque File-Library object IDs are intentionally not persisted. Durable provenan
    - Current Study precision now includes 1.5 ml/kg/% + 2000 ml 5% glucose, crystal:colloid 2:1 (source notes 1:1 for extensive deep burns), first 8h half / next 16h half, and second-day crystal/colloid half.
 
 5. **F6 — Postoperative recovery / incision / complications — REBOUND / CLOSED**
-   - surgery book P211–215 / PDF P262–266;
+   - 27 refined surgery PDF P262–P266;
    - original Source confirms **1–4 d** early noninfectious fever tendency and **2–7 d** increased infection likelihood; prior typography uncertainty is closed.
 
 6. **F8 — Local / regional / neuraxial anesthesia — REBOUND / CLOSED**
-   - surgery book P217–220 / PDF P269–272;
+   - 27 refined surgery PDF P268–P272;
    - P270 nerve-block complication matrix was re-read from the approved original PDF and is no longer a Source-reading gap; exact visual pairing remains original-Source-owned.
 
 7. **F9 — Laparoscopy + surface lesions**

@@ -683,26 +683,27 @@
     },
     {
       "id": "SUR27-U12",
-      "title": "腹外疝",
+      "title": "腹外疝 + 隐睾/鞘膜积液接口",
       "pdf_pages": "P073-P081",
       "candidate_primary": [
-        "B:D14"
+        "B:D14",
+        "E:E9"
       ],
-      "review": "V3_ARCHITECTURE_RECONCILED_U01_U12",
+      "review": "V3_ARCHITECTURE_RECONCILED_U12_AFTER_E9_OMISSION_REPAIR",
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_SCREENED_LEARNING_GUIDE_DEEP_REVIEW_PENDING",
       "semantic_delta_receipt": {
         "knowledge": "PRESERVE_EXISTING_CORE",
         "learning": "PRESERVE_EXISTING_HERNIA_SPACE_IDENTITY_AND_REPAIR_BOUNDARY",
         "precision": "PRESERVE_CURRENT_SOURCE_OPERATION_NAMES_AND_PEDIATRIC_BOUNDARIES",
-        "visual": "ORIGINAL_INGUINAL_FEMORAL_ANATOMY_VISUAL_REQUIRED",
-        "notes": "Refined hernia definition, strangulation venous→arterial sequence, inguinal anatomy and direct/indirect/femoral differentiation are already represented by D14."
+        "visual": "ORIGINAL_INGUINAL_FEMORAL_ANATOMY_AND_E9_PROCESSUS_HYDROCELE_VISUAL_VERIFIED",
+        "notes": "Refined hernia definition, strangulation venous→arterial sequence and inguinal anatomy remain represented by D14. The same Source unit also contains E9 cryptorchidism/hydrocele Primary material: PDF P077–P078 directly verifies processus/inguinal spatial relations and three hydrocele-type visuals."
       },
       "architecture_v3": {
-        "exact_binding_status": "REVIEWED_DIRECT_BINDING",
-        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED",
-        "learning_status": "LEARNER_ORDER_PRESERVED",
-        "projection_status": "B compiled Projection targeted binding revalidation required for D14",
+        "exact_binding_status": "REVIEWED_DIRECT_BINDING_AFTER_CROSS_SYSTEM_OMISSION_REPAIR",
+        "content_role_status": "MATURE_BLOCK_ROLE_SET_VERIFIED_B_D14_AND_E_E9",
+        "learning_status": "LEARNER_ORDER_PRESERVED; E9-LG02 visual source state verified from Current original PDF",
+        "projection_status": "B D14 compiled binding previously revalidated; E Projection remains uncompiled/eligible",
         "bindings": [
           {
             "system": "B",
@@ -720,6 +721,26 @@
               "Boundary/Confusable",
               "Precision",
               "Visual",
+              "Memory Routing"
+            ]
+          },
+          {
+            "system": "E",
+            "block": "E9",
+            "logic_groups": [
+              "E9-LG01",
+              "E9-LG02"
+            ],
+            "kp_ranges": [
+              "KP01-KP07"
+            ],
+            "content_families": [
+              "Framework",
+              "KP Core",
+              "Boundary/Confusable",
+              "Precision/MI-D",
+              "Visual",
+              "Connection",
               "Memory Routing"
             ]
           }
