@@ -26,9 +26,9 @@ Current Beginner Guide set introduced by the 2026-09-17 Guide / Framework conten
 - `a3-urinary-guide.md`
 - `b-digestive-metabolic-endocrine-tumor-guide.md`
 
-These four files exist because A1 / A2 / A3 / B had already completed the old System Guide authority cutover and therefore needed a new **Current explanation layer** rather than restoration of retired files. C / D / E / F remain governed by their own transitional System-level state and are not silently migrated by this list.
+These four files are the currently accepted Beginner Guide assets. C / D / E / F already have canonical Current System/Learning owners but do not yet have separate Beginner Guide assets; absence means no Guide is rendered, not permission to fall back to an older System Guide.
 
-For A1 / A2 / A3 / B, `guide-bindings.json` is now the Current explanatory-Guide resolver. A legacy `system-guides/**` value that still appears inside older shared projection metadata is **not** permission to route learning back to the retired Guide.
+`guide-bindings.json` is the only Current beginner-Guide path resolver. Historical System Guide provenance lives in Git history and is not part of normal routing.
 
 ## Block pre-entry content boundary
 

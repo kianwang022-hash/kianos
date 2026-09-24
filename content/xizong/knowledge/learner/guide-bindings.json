@@ -7,7 +7,6 @@
   "runtime_adoption_claimed": false,
   "rules": {
     "current_owner_first": true,
-    "legacy_system_guide_fallback_for_migrated_systems": false,
     "missing_binding_behavior": "FAIL_CLOSED_TO_KNOWLEDGE_MANIFEST_SYSTEM_LEVEL_RESOLUTION",
     "medical_authority": "NONE",
     "learning_route_authority": "NONE",
@@ -17,34 +16,25 @@
     "circulation": {
       "canonical_id": "A1",
       "guide_path": "content/xizong/knowledge/learner/a1-circulation-guide.md",
-      "guide_role": "BEGINNER_EXPLANATION_ONLY",
-      "legacy_guide_resolution": "RETIRED_NON_CURRENT"
+      "guide_role": "BEGINNER_EXPLANATION_ONLY"
     },
     "respiratory": {
       "canonical_id": "A2",
       "guide_path": "content/xizong/knowledge/learner/a2-respiratory-guide.md",
-      "guide_role": "BEGINNER_EXPLANATION_ONLY",
-      "legacy_guide_resolution": "RETIRED_NON_CURRENT"
+      "guide_role": "BEGINNER_EXPLANATION_ONLY"
     },
     "urinary": {
       "canonical_id": "A3",
       "guide_path": "content/xizong/knowledge/learner/a3-urinary-guide.md",
-      "guide_role": "BEGINNER_EXPLANATION_ONLY",
-      "legacy_guide_resolution": "RETIRED_NON_CURRENT"
+      "guide_role": "BEGINNER_EXPLANATION_ONLY"
     },
     "digestive-metabolic-endocrine": {
       "canonical_id": "B",
       "guide_path": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-guide.md",
-      "guide_role": "BEGINNER_EXPLANATION_ONLY",
-      "legacy_guide_resolution": "RETIRED_NON_CURRENT"
+      "guide_role": "BEGINNER_EXPLANATION_ONLY"
     }
   },
-  "transitional_systems": {
-    "rule": "C / D / E / F are intentionally not rebound here. Resolve their System-level transitional state through content/xizong/knowledge/manifest.json and their own Current / Acceptance state. Do not infer symmetry from A1 / A2 / A3 / B."
-  },
-  "legacy_metadata_boundary": {
-    "path": "content/xizong/knowledge/learner/shared-fields.json",
-    "field": "system_fields.*.guide_path",
-    "rule": "For A1 / A2 / A3 / B, any legacy system-guides path still present in shared-fields is historical projection metadata and MUST NOT be used as the Current Guide resolver. Current resolution is this file."
+  "unbound_systems": {
+    "rule": "C / D / E / F have canonical Current System/Learning owners but no separate Beginner Guide asset. Missing binding means no beginner guide is rendered; never fall back to historical System Guides."
   }
 }

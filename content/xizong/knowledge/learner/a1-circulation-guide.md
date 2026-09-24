@@ -15,11 +15,7 @@ Current owners:
 - medical Core → `content/xizong/knowledge/systems/a1-circulation/blocks/`
 - shared learning semantics → `content/xizong/LEARNING_CONTRACT.md` + `content/xizong/knowledge/learner/study-policy.json`
 
-Historical explanatory provenance, bounded to the last full pre-retirement Guide only:
-
-- path: `content/xizong/knowledge/system-guides/西综循环系统_System_Guide_v2_完整导学_认知依赖与学习顺序.md`
-- pre-retirement commit: `d2228c07a2f6213a65fd6a3d86871cbfd3f7a87a`
-- use: explanatory pattern / metaphor provenance only; **not Current authority**
+Historical migration provenance is preserved in Git history only and is not part of Current routing.
 
 ---
 
@@ -216,22 +212,3 @@ Framework 不是“摘要卡片”，而是这个 Block 在学 KP 前先装进�
 ```
 
 如果只能按 B1–B12 背章名，而不能把一个新场景放回这套变量与 Failure Map，System Guide 的任务还没有完成。
-
----
-
-## 9｜Historical migration receipt
-
-From the bounded pre-retirement Guide, this Current asset intentionally preserves only:
-
-- “泵—阀—管路—容量池—节律—调节—交换”的 beginner metaphor；
-- “循环最终不是只维持血压”的系统任务解释；
-- 用统一运行模型替代按学科目录重复学习的解释方式；
-- 先运行模型、再按 Failure / Block 分支的教学顺序。
-
-Explicitly **not migrated**:
-
-- old page ranges / source tables;
-- old Block implementation state;
-- old timing / workload estimates;
-- old Primary / Recall / Deferred ownership claims;
-- any old medical statement not re-resolved to Current A1 owners.

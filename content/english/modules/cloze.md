@@ -7,7 +7,7 @@ Cloze is the English I objective-task trainer for **best-fit decisions under slo
 Parent contracts:
 
 - `content/english/LEARNING_CONTRACT.md`;
-- `content/english/modules/objective-runtime.md`.
+- `SYSTEM_CONTRACT.md` for shared Engineering / Runtime capability.
 
 Cloze does not own a separate vocabulary system and must not become a twenty-question word-definition review page.
 

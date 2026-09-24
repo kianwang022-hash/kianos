@@ -9,7 +9,7 @@ Target: **40/40 in training**, with execution stable enough to support the overa
 Parent contracts:
 
 - `content/english/LEARNING_CONTRACT.md`;
-- `content/english/modules/objective-runtime.md`.
+- `SYSTEM_CONTRACT.md` for shared Engineering / Runtime capability.
 
 Learner path:
 

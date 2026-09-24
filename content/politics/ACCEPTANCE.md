@@ -7,7 +7,7 @@ Work cursor: `content/politics/CURRENT.md`
 
 This file owns only current lane-wide acceptance claims. Subject-local Acceptance owners remain authoritative for their scoped claims. Source, Content, Learning semantics, private learner state and engineering work position keep their exact owners.
 
-The retired `FINAL_LEARNER_ACCEPTANCE_BRIEF.md` is historical execution provenance, not a Current task or checklist.
+The retired final learner-acceptance execution brief is preserved in Git history only; it is not a Current task, checklist, blocker list or candidate-state source.
 
 ## Current verdict
 

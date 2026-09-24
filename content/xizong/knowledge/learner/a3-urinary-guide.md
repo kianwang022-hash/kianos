@@ -15,11 +15,7 @@ Current owners:
 - medical Core → `content/xizong/knowledge/systems/a3-urinary/blocks/`
 - shared learning semantics → `content/xizong/LEARNING_CONTRACT.md` + `study-policy.json`
 
-Bounded historical explanatory provenance:
-
-- path: `content/xizong/knowledge/system-guides/西综泌尿系统_System_Guide_v1_完整导学_认知依赖与学习顺序.md`
-- last full pre-retirement ref: `6c4f2a6de4368c6270b24169803fb5f0cbd6dc03`
-- use: explanation pattern only; **not Current authority**
+Historical migration provenance is preserved in Git history only and is not part of Current routing.
 
 ---
 
@@ -207,22 +203,3 @@ A3 的空间、方向和变量非常多，所以 Framework 尤其重要：先知
 ```
 
 如果只能背“B1–B14 各讲什么”，而不能从尿液和稳态变量反推第一故障，System Guide 的任务还没完成。
-
----
-
-## 9｜Historical migration receipt
-
-Intentionally migrated after Current re-verification:
-
-- “大量滤过 → 绝大部分回收 → 少量精调 → 终尿”的 beginner explanation；
-- 用一条统一肾单位主线连接生理、内科和泌尿外科入口；
-- “肾内科与泌尿外科共享空间 / 尿液 / 梗阻 / 功能语言，但主体不同”的边界解释；
-- 不让孤立数字、病理形态和术式阻塞机制主线的学习解释。
-
-Explicitly not migrated:
-
-- old source page ranges / Scope Audit；
-- old statement about missing independent renal pathology lecture as a Current fact owner；
-- old implementation state and provisional source decisions；
-- old Primary / Recall / Deferred ownership；
-- any historical fact not resolved to Current A3 owners.

@@ -7,7 +7,7 @@ Work cursor: `content/english/CURRENT.md`
 
 This file owns only current English-wide acceptance claims. Child/module Acceptance owners remain authoritative for their local claims. Source, Content, Learning semantics, private learner state and engineering work position keep their exact owners.
 
-The retired `FINAL_LEARNER_ACCEPTANCE_BRIEF.md` is historical execution provenance, not a Current task or checklist.
+The retired final learner-acceptance execution brief is preserved in Git history only; it is not a Current task, checklist, blocker list or candidate-state source.
 
 ## Current verdict
 

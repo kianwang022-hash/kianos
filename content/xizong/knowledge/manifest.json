@@ -69,8 +69,7 @@
     },
     "system_level": {
       "preferred_owner": "systems/**/system.json",
-      "transition_owner": "system-guides/*.md",
-      "rule": "When a same-system system.json exists on Current main@HEAD with Chat-approved semantic authority, it is the single System-level owner. Its lifecycle status (for example CURRENT or FREEZE_CANDIDATE) describes maturity, not permission to revive a parallel guide owner. The same-system guide remains prior substrate/reference only. When no system.json exists yet, the corresponding system guide remains the transitional System-level substrate.",
+      "rule": "systems/**/system.json is the single System-level owner when present. Lifecycle status describes maturity only. Historical System Guides are Git-history provenance and are never fallback owners; a missing Current System owner fails closed until explicitly constructed and accepted.",
       "parallel_owner_forbidden": true
     },
     "block_medical_core": {
@@ -93,7 +92,6 @@
     }
   },
   "stable_roots": {
-    "system_guides": "system-guides/",
     "systems": "systems/",
     "macro_domain_logic_legacy_path": "supersystems/",
     "overlays": "overlays/",

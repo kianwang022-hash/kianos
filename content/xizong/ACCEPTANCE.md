@@ -7,7 +7,7 @@ Work cursor: `content/xizong/CURRENT.md`
 
 This file owns only current Xizong-wide integration claims. Exact System Acceptance owners remain authoritative for System-local S/K/L/P/R/E/U and Content claims.
 
-The retired `FINAL_LEARNER_ACCEPTANCE_BRIEF.md` is historical execution provenance, not a Current task, blocker list or candidate-state source.
+The retired final learner-acceptance execution brief is preserved in Git history only; it is not a Current task, checklist, blocker list or candidate-state source.
 
 ## Current verdict
 
