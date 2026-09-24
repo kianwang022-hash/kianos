@@ -71,7 +71,7 @@ It uses:
 - actual PR changed paths as the write-set;
 - `AUTHORITY_OWNERSHIP.json` as the shared-owner registry;
 - lane path identity for English / Xizong / Politics / Lexical;
-- known shared capability boundaries such as Shell, Orchestrator, Timer, Home and Current delivery;
+- known shared/product capability boundaries such as Shell, Orchestrator, Timer, Home, Steward, External Reading and Current delivery;
 - the PR base branch for explicit stack dependency.
 
 The guard must not duplicate domain semantics or guess learner meaning.
