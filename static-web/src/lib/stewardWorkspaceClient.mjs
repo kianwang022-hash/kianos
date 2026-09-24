@@ -171,6 +171,17 @@ function subjectMinutes(timerModel, subject) {
 }
 
 
+export function initStewardWorkspace(root) {
+  if (!(root instanceof HTMLElement) || typeof window === 'undefined' || !window.localStorage) return;
+
+  const storage = window.localStorage;
+  const $ = (selector) => root.querySelector(selector);
+  const $ = (selector) => [...root.querySelectorAll(selector)];
+
+  let today = currentStudyDay();
+  let weekCursor = today;
+  let monthCursor = today.slice(0, 7);
+
   const read = () => {
     today = currentStudyDay();
     const chatPlanState = readExamChatPlan(storage, today);
