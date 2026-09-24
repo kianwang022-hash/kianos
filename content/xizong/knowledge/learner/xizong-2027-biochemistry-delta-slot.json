@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.future_source_slot.v1",
-  "status": "ARCHITECTURE_CORRECTED_REACCEPTED_VALIDATION_CLOSEOUT",
+  "status": "CLOSED_CURRENT_AFTER_ARCHITECTURE_CORRECTED_REACCEPTANCE",
   "slot_id": "xizong-2027-biochemistry-delta",
   "source_cycle": "27考研",
   "domain": "Biochemistry",
@@ -196,7 +196,7 @@
       "received_at": "2026-09-24",
       "markdown_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md"
     },
-    "action_now": "S_K_L_CONTENT_P_REACCEPTED_AFTER_ARCHITECTURE_CORRECTION; FINAL_INTEGRATION_QA_AND_CLOSEOUT_ONLY; NO_MORE_CONTENT_REBUILD_UNLESS_CONCRETE_DEFECT",
+    "action_now": "REBASE_CLOSED; 27_SOURCE_DIRECT_TO_EXISTING_BLOCK_LG_KP; S_K_L_CONTENT_P_REACCEPTED; REOPEN_ONLY_FOR_NEW_SOURCE_OR_CONCRETE_DEFECT",
     "delta_audit": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
     "delta_summary": {
       "preserve": "M1–M10 + G1–G5 stable Block/KP identities and validated medical Core; canonical content hierarchy and Current Source bindings are now 27-based.",
@@ -221,11 +221,8 @@
     "deep_review": {
       "batch_1_carbohydrate_energy": "ANALYZED",
       "batch_2_lipid": "ANALYZED",
-      "remaining": [
-        "Run final current-main integration QA with B projectable again and the corrected K validator responsibility boundary.",
-        "If integration QA is green, reconcile exact CURRENT/Mainline closeout; if a downstream unrelated defect appears, repair only that owner."
-      ],
-      "key_finding": "Architecture correction complete: the redundant L-layer topology is gone; all 15 M/G Blocks are restored to the mature System→Block→Logic Group→KP model, 27 Source maps directly to existing LG/KP owners, 191 KP Core semantics are preserved, and cross-System timing is explicit.",
+      "remaining": [],
+      "key_finding": "Closed/current. The redundant L-layer topology was removed; all 15 M/G Blocks use the mature System→Block→Logic Group→KP architecture, 22 current 27 Source units map directly to existing LG/KP owners, 191 KP Core semantics are preserved, and cross-System timing is explicit.",
       "batch_M1_protein_enzyme_vitamin": {
         "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
         "current_source": {
@@ -585,10 +582,10 @@
     "topology_change": false
   },
   "mainline_task": {
-    "status": "VALIDATION_CLOSEOUT",
+    "status": "CLOSED_AFTER_ARCHITECTURE_CORRECTED_REACCEPTANCE",
     "program_owner": "content/xizong/CONTENT_MAINLINE.md",
     "scope_owner": "content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json",
-    "working_mode": "NO_MORE_CONTENT_REBUILD; FINAL_INTEGRATION_QA_AND_CLOSEOUT_ONLY",
+    "working_mode": "CLOSED_CURRENT",
     "completion_definition": {
       "source": [
         "27 source identity/hash/page locators verified",
@@ -639,7 +636,16 @@
         "no duplicate external medical Core"
       ]
     },
-    "closed_result": null
+    "closed_result": {
+      "source": "PASS — current 27 Source identity + 22 Source units + direct Block/LG/KP mapping; parallel layer refs=0",
+      "knowledge": "PASS — M1–M10/G1–G5 191 stable KP; stable canonical order restored; 191/191 Core semantic diff=0 vs verified 27 content",
+      "learning": "PASS — accepted learner_order/LG identity/membership/goal/closure/readiness preserved; direct 27 Source contact current",
+      "content": "PASS — mature Block-owned Framework/Core/Boundary/Precision/Connection/Memory/Visual/question-contact/Exit responsibilities restored",
+      "projection": "PASS — Xizong Projection Validation run 35942643802",
+      "integration_qa": "Static Web Xizong QA run 35943462333 reached B Core 38/38/600 unique, B Knowledge PASS candidate, B Learning Issues=0, and Crosswalk PASS before later unrelated A2 Evidence failure",
+      "boundary": "A2 Evidence system-repair-return-bypasses-inbox is outside Biochemistry scope and does not reopen this task",
+      "learner_truth": "No learner progress or U evidence manufactured"
+    }
   },
   "governance": {
     "contract_owner": "content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md",
