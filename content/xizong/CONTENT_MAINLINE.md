@@ -44,6 +44,16 @@ Eligible only when deliberately prioritized or reopened by evidence:
 
 Real learner U remains private evidence and is never manufactured by this program router.
 
+## Active bounded tasks — 2026-09-24
+
+These are **explicit user-requested scoped tasks**, not a reopened broad Xizong campaign.
+
+| Task | State | Exact entry | First action |
+| --- | --- | --- | --- |
+| Biochemistry content update | ACTIVE · DESIGN_RESTORE_FIRST | `content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json` → `BIOCHEMISTRY_CONTRACT.md` → affected M/G owners | Apply Change Continuity, recover the current Source/Knowledge/Learning/Content chain, then define the smallest content delta before mutation. Preserve current stable M1–M10/G1–G5 identities unless a concrete defect requires change. |
+| Surgery optimization / upgrade | ACTIVE · DESIGN_RESTORE_FIRST | `content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json` → `SURGERY_CONTRACT.md` → affected D/O/A owners | Apply Change Continuity across current refined Source → Knowledge/Learning → consumer chain, then separate genuine upgrade opportunities from historical closure/provenance residue. Do not reopen broad UI/runtime by default. |
+
+Task truth stays with the exact owner. This Mainline owns only that these two bounded lanes are currently admitted and may proceed independently unless they hit a real shared dependency.
 ## Durable lanes
 
 | Lane | Current state | Exact entry | Reopen condition |
