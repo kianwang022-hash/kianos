@@ -336,10 +336,25 @@
   display: none;
 }
 
+.stewardTimelineEmpty {
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  z-index: 2;
+  margin: 0;
+  padding: 4px 7px;
+  border-radius: 6px;
+  background: rgba(255,255,255,.88);
+  color: var(--study-muted);
+  font-size: 15px;
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.4;
+}
+
 .stewardActualSegment {
   position: absolute;
   right: 5px;
-  width: 7px;
+  width: 10px;
   min-height: 4px;
   border-radius: 99px;
   background: var(--actual-color, var(--study-green));
@@ -645,7 +660,7 @@
   right: 5px;
   left: auto;
   z-index: 2;
-  width: 8px;
+  width: 10px;
   background: var(--actual-color, var(--study-green));
   opacity: .76;
   padding: 0;
