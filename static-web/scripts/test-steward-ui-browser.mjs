@@ -73,6 +73,26 @@ try {
         schema: 'kianos.study-timer.v2',
         sessions: [
           {
+            id: 'steward-test-prev-xz',
+            subject: 'xizong',
+            context: { subject: 'xizong', route: 'test', detailKey: 'cardio', detailLabel: '循环系统' },
+            startedAt: now - 24 * 60 * 60 * 1000 - 95 * 60 * 1000,
+            endedAt: now - 24 * 60 * 60 * 1000 - 20 * 60 * 1000,
+            source: 'timer',
+            excluded: false,
+            edited: false
+          },
+          {
+            id: 'steward-test-prev2-pol',
+            subject: 'politics',
+            context: { subject: 'politics', route: 'test', detailKey: 'mainline', detailLabel: '一轮主线' },
+            startedAt: now - 48 * 60 * 60 * 1000 - 70 * 60 * 1000,
+            endedAt: now - 48 * 60 * 60 * 1000 - 10 * 60 * 1000,
+            source: 'timer',
+            excluded: false,
+            edited: false
+          },
+          {
             id: 'steward-test-xz',
             subject: 'xizong',
             context: { subject: 'xizong', route: 'test', detailKey: 'respiratory', detailLabel: '呼吸系统' },
@@ -135,7 +155,8 @@ try {
     check((await page.locator('[data-steward-header-title]').textContent())?.trim() === '这一周', 'week_header');
     check(await page.locator('.stewardWeekDayHead').count() === 7, 'week_x7_heads', pageErrors.join(' | '));
     check(await page.locator('.stewardWeekAxis span').count() >= 8, 'week_time_axis');
-    check(await page.locator('.stewardWeekActual').count() >= 1, 'week_actual_trace');
+    check(await page.locator('.stewardWeekActual').count() >= 3, 'week_actual_trace');
+    check(await page.locator('.stewardWeekDayHead span').filter({ hasText: /h|m/ }).count() >= 2, 'week_daily_totals');
     check(await page.locator('[data-steward-view-panel].active').count() === 1, 'week_view_exclusive');
     await page.screenshot({ path: path.join(auditDir, 'week-1512x820.png'), fullPage: false });
 
