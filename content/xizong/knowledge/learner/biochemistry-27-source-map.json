@@ -17,7 +17,13 @@
     "question_relation_owner": "content/xizong/question-relations/",
     "rule": "This map owns current Source→canonical routing only and executes the scoped Biochemistry contract. It does not become a second medical Core, Learning constitution, question-relation owner, learner-state owner or official-question membership owner.",
     "biochemistry_contract": "content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md",
-    "canonical_hierarchy_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M1_蛋白质酶与维生素_学习阅读版_v1_最终执行版.md"
+    "canonical_hierarchy_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M1_蛋白质酶与维生素_学习阅读版_v1_最终执行版.md",
+    "canonical_hierarchy_owners": {
+      "M1": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M1_蛋白质酶与维生素_学习阅读版_v1_最终执行版.md",
+      "M2": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M2_碳氧化TCA氧化磷酸化与ATP_学习阅读版_v1_最终执行版.md",
+      "M3": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M3_成熟红细胞与磷酸戊糖途径_学习阅读版_v1_最终执行版.md",
+      "M4": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M4_糖原与糖异生_学习阅读版_v1_最终执行版.md"
+    }
   },
   "learner_execution": {
     "first_pass": "FOLLOW_27_SOURCE_ORDER_END_TO_END",
@@ -70,6 +76,27 @@
           ],
           "role": "SUPPORT_JIT",
           "note": "enzyme/control language only; does not form or close M1"
+        },
+        {
+          "block": "M2",
+          "layer": "L1",
+          "kp": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "M2",
+          "layer": "L2",
+          "kp": [
+            6,
+            7
+          ],
+          "role": "PRIMARY_FORMATION"
         }
       ]
     },
@@ -99,7 +126,38 @@
       "connections": [
         "hematology RBC interface"
       ],
-      "notes": "Introduces PPP/NADPH only as RBC interface; full PPP ownership closes in S03."
+      "notes": "Introduces PPP/NADPH only as RBC interface; full PPP ownership closes in S03.",
+      "canonical_content": [
+        {
+          "block": "M2",
+          "layer": "L2",
+          "kp": [
+            8
+          ],
+          "role": "SUPPORT"
+        },
+        {
+          "block": "M3",
+          "layer": "L1",
+          "kp": [
+            1,
+            2,
+            3
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "M3",
+          "layer": "L2",
+          "kp": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "role": "SUPPORT_AND_PRIME"
+        }
+      ]
     },
     {
       "id": "BIO27-S03",
@@ -162,6 +220,62 @@
             17
           ],
           "role": "SUPPORT"
+        },
+        {
+          "block": "M2",
+          "layer": "L1",
+          "kp": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "role": "SUPPORT_RECAP"
+        },
+        {
+          "block": "M3",
+          "layer": "L2",
+          "kp": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true
+        },
+        {
+          "block": "M4",
+          "layer": "L1",
+          "kp": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "M4",
+          "layer": "L2",
+          "kp": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "role": "PRIMARY_FORMATION"
+        },
+        {
+          "block": "M4",
+          "layer": "L3",
+          "kp": [
+            9,
+            10
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true
         }
       ]
     },
@@ -201,6 +315,29 @@
             17
           ],
           "role": "SUPPORT"
+        },
+        {
+          "block": "M2",
+          "layer": "L2",
+          "kp": [
+            8,
+            9
+          ],
+          "role": "PRIMARY_COMPLETION"
+        },
+        {
+          "block": "M2",
+          "layer": "L3",
+          "kp": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "role": "PRIMARY_FORMATION",
+          "closes_block_source_contact": true
         }
       ]
     },
@@ -917,6 +1054,29 @@
       "L3": "M1 enzyme execution mechanism and flux control / KP09–KP12",
       "L4": "M1 kinetic readout and inhibition perturbation / KP13–KP14",
       "L5": "M1 cofactor chemistry and vitamin interfaces / KP15–KP17"
+    },
+    "block_layers": {
+      "M1": {
+        "L1": "protein identity and conformation / KP01–KP05",
+        "L2": "protein physicochemical handling and turnover / KP06–KP08",
+        "L3": "enzyme execution mechanism and flux control / KP09–KP12",
+        "L4": "kinetic readout and inhibition perturbation / KP13–KP14",
+        "L5": "cofactor chemistry and vitamin interfaces / KP15–KP17"
+      },
+      "M2": {
+        "L1": "carbon entry, branching and irreversible control / KP01–KP05",
+        "L2": "TCA, reducing-equivalent and energy interface / KP06–KP09",
+        "L3": "electron-proton-ATP coupling and fault localization / KP10–KP15"
+      },
+      "M3": {
+        "L1": "RBC metabolic constraint, ATP and oxygen release / KP01–KP03",
+        "L2": "PPP-NADPH-GSH redox defense / KP04–KP07"
+      },
+      "M4": {
+        "L1": "G-6-P hub and glycogen storage/output / KP01–KP04",
+        "L2": "gluconeogenesis reconstruction, substrates and energy / KP05–KP08",
+        "L3": "hormonal direction and fasting timeline / KP09–KP10"
+      }
     }
   }
 }
