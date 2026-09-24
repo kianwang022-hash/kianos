@@ -101,9 +101,11 @@ for (const readableRule of [
 ]) requireText(readable, readableRule, 'purpose-first readable layer');
 
 for (const preferenceRule of [
-  'larger, comfortably readable type',
-  'tiny text that makes sustained reading tiring',
-  'Kian\'s direct feedback > real-use evidence > these hypotheses.'
+  'readable for sustained use',
+  'tiny + light + gray useful text',
+  'Kian\'s current explicit feedback',
+  '> real-use evidence',
+  '> these hypotheses'
 ]) requireText(preferences, preferenceRule, 'learner UI preference owner');
 
 for (const forbiddenProjection of [
