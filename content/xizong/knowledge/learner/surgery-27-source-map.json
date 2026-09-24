@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.surgery_27_source_map.v1",
-  "status": "CLOSED_CURRENT_38_UNIT_DIRECT_ARCHITECTURE_RECONCILIATION",
+  "status": "CURRENT_38_UNIT_DIRECT_ARCHITECTURE_RECONCILIATION",
   "source_cycle": "27考研",
   "domain": "Surgery",
   "source_identity": {
@@ -2351,7 +2351,7 @@
       "units_accepted": 38,
       "units_total": 38,
       "accepted_at": "2026-09-24",
-      "downstream_pending": [
+      "historical_downstream_pending_before_v3_closeout": [
         "question-relations for semantic-change blocks",
         "learner-facing explanations for semantic-change blocks",
         "evidence/source-revision classification",
@@ -2369,12 +2369,10 @@
     ],
     "preserved_work": "All v2 medical/source comparisons and real semantic repairs remain evidence; v2 acceptance labels are downgraded to semantic-delta receipts, not full K/L/Content/P acceptance.",
     "source_map_rule": "Source unit/source-contact segment maps directly to existing Block/LG/KP and impacted canonical content families. No L1/L2/L3 or other intermediate semantic hierarchy.",
-    "current_gap": "Most 38 units have Block-level and content-family dispositions, but exact LG/KP/content-family binding and full mature Block-role validation were not uniformly proven.",
-    "acceptance_state": "REOPENED_FOR_ARCHITECTURE_RECONCILIATION",
     "progress": {
       "units_reconciled": 38,
       "units_total": 38,
-      "next": "Q_X_E_A_DOWNSTREAM_CLOSEOUT"
+      "next": "NONE_CLOSED"
     },
     "architecture_reconciliation_result": {
       "hierarchy": "System → Block → Logic Group → KP",
@@ -2442,7 +2440,8 @@
       "q_status": "PASS_TARGETED_NO_CANONICAL_Q_OR_X_MUTATION_REQUIRED",
       "x_status": "PASS_TARGETED_NO_CANONICAL_Q_OR_X_MUTATION_REQUIRED",
       "evidence_status": "CLASSIFIED_AND_RUNTIME_GAP_REPAIRED",
-      "acceptance_status": "PENDING_EXACT_SYSTEM_OWNER_RECONCILIATION_AND_FINAL_QA"
+      "acceptance_owner": "content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json",
+      "acceptance_result": "CLOSED_IN_LIFECYCLE_OWNER"
     },
     "status": "CLOSED_CURRENT",
     "units_reconciled": "38/38",
@@ -2452,10 +2451,13 @@
       "result": "All 38 Current Surgery Source units are reconciled to existing canonical System/Block/Logic Group/KP/content-family owners. No parallel Knowledge hierarchy was created.",
       "downstream": "Targeted Projection/Q/X/E/A revalidation completed in xizong-2027-surgery-rebase-slot.json.",
       "reopen_rule": "Reopen only for a new/revised authoritative Surgery Source or a concrete defect in accepted current owners."
-    }
+    },
+    "historical_gap_before_reconciliation": "Most 38 units have Block-level and content-family dispositions, but exact LG/KP/content-family binding and full mature Block-role validation were not uniformly proven.",
+    "historical_acceptance_state_before_reconciliation": "REOPENED_FOR_ARCHITECTURE_RECONCILIATION"
   },
   "shared_owner_coordination": {
-    "biochemistry_revision_state": "CLOSED_CURRENT",
-    "rule": "No active Biochemistry writer lock remains. Any future shared-owner write must refresh current main and serialize only with actually active work."
-  }
+    "rule": "No active Biochemistry lifecycle mirror lives here. Future shared-owner writes refresh main and reconcile only against actually active exact owners.",
+    "biochemistry_revision_owner": "content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json"
+  },
+  "lifecycle_owner": "content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json"
 }

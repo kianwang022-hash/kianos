@@ -27,7 +27,8 @@
       "E reproductive-breast",
       "F remaining-clinical"
     ],
-    "rule": "This slot is only a durable rebase cursor. It owns no medical truth. Current System/Block/KP owners remain canonical."
+    "rule": "This slot is only a durable rebase cursor. It owns no medical truth. Current System/Block/KP owners remain canonical. This slot top-level status is the sole durable Surgery task-lifecycle state; nested batch records are provenance or scoped acceptance evidence only.",
+    "lifecycle_owner": "content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json"
   },
   "source_precedence": {
     "current_primary": "27外科精编版【带导图】.pdf",
@@ -89,7 +90,6 @@
     "current_year_delta_known": true,
     "prior_bounded_delta_receipt": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
     "prior_bounded_delta_interpretation": "Useful first-pass delta only; not proof of comprehensive Surgery absorption.",
-    "source_map_status": "CLOSED_CURRENT_38_UNIT_ARCHITECTURE_RECONCILED",
     "first_batch": {
       "scope": [
         "SUR27-U01",
@@ -98,7 +98,6 @@
         "SUR27-U04"
       ],
       "label": "neck / esophagus / breast / thorax",
-      "status": "CONTENT_AND_LEARNING_UPGRADE_APPLIED_DOWNSTREAM_REVALIDATION_PENDING",
       "verified_stale_current_bindings": [
         "B:D21 still names 外科学讲义_AI阅读版.md and 27跟课 Source-local pages",
         "B:D23 still names 外科学讲义_AI阅读版.md and reports surgery_visual_gate gap",
@@ -107,7 +106,6 @@
         "A2:R10 still names 27 外科跟课合集改.pdf as Primary Study",
         "A2:R11 still names 27 外科跟课合集改.pdf as Primary Study"
       ],
-      "next_action": "Finish U01-U04 Learning/Guide delta review under SURGERY_CONTRACT, revalidate affected cues/relations/explanations only where semantics changed, then advance to U05-U12 abdominal/gut batch.",
       "completed_actions": [
         "B:D21 rebound to 27 refined Surgery Source; added Source-bound neck-mass spatial table and non-mechanical cystic-hemorrhage surgery boundary",
         "B:D23 rebound to 27 refined Surgery Source; Surgery visual gate closed to verified current source page",
@@ -115,11 +113,13 @@
         "B:D11 Surgery source identity rebound for esophageal/gastric ranges; gastric semantic review remains coupled to SUR27-U05",
         "E:E10-E14 primary/supporting Surgery source locators rebound to 27 refined SUR27-U03",
         "A2:R10/R11 thoracic-trauma/mediastinum Surgery source locators rebound to 27 refined SUR27-U04"
-      ]
+      ],
+      "historical_status": "CONTENT_AND_LEARNING_UPGRADE_APPLIED_DOWNSTREAM_REVALIDATION_PENDING",
+      "historical_next_action": "Finish U01-U04 Learning/Guide delta review under SURGERY_CONTRACT, revalidate affected cues/relations/explanations only where semantics changed, then advance to U05-U12 abdominal/gut batch."
     },
     "concurrency": {
-      "rule": "Proceed on disjoint owners; refresh and serialize any shared B system/learning/manifest or shared question/explanation manifest write.",
-      "biochemistry_revision_state": "CLOSED_CURRENT"
+      "rule": "Shared-owner writes refresh main and reconcile the exact current owners. This Surgery slot carries no active Biochemistry lifecycle mirror.",
+      "biochemistry_revision_owner": "content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json"
     },
     "second_batch": {
       "scope": [
@@ -133,14 +133,14 @@
         "SUR27-U12"
       ],
       "label": "gastric / abdominal infection-trauma / obstruction-appendix / colorectal-anorectal / hernia",
-      "status": "SOURCE_REBIND_COMPLETE_CORE_REVIEW_PRESERVE_WITH_EXISTING_FRAMEWORK_COVERAGE",
       "completed_actions": [
         "B:D11 current Surgery source rebound includes 27 refined gastric P032-P036; esophageal refined explanation selectively added without turning teacher rationale into a universal oncology rule",
         "B:D13 rebound to U06/U07; existing Framework already covers refined wall-vs-visceral peritoneum, abscess-space, bleeding/contamination and organ-space explanations",
         "B:D14 rebound to U08/U09/U12; existing pain-vomit-distension-obstipation, obstruction mechanism, appendicitis and hernia decision models preserved",
         "B:D15 rebound to U10/U11; existing colorectal operation, dentate-line, anal disease and fistula decision models preserved"
       ],
-      "next_action": "Continue to SUR27-U13-U19 hepatobiliary/pancreas/vascular/urinary batch; keep refined-note routing under SURGERY_CONTRACT and avoid UI changes."
+      "historical_status": "SOURCE_REBIND_COMPLETE_CORE_REVIEW_PRESERVE_WITH_EXISTING_FRAMEWORK_COVERAGE",
+      "historical_next_action": "Continue to SUR27-U13-U19 hepatobiliary/pancreas/vascular/urinary batch; keep refined-note routing under SURGERY_CONTRACT and avoid UI changes."
     },
     "third_batch": {
       "scope": [
@@ -153,7 +153,6 @@
         "SUR27-U19"
       ],
       "label": "liver abscess / portal hypertension / pancreas / biliary / peripheral vascular / urinary surgery",
-      "status": "SOURCE_REBIND_COMPLETE_CORE_PRESERVE_WITH_PRIOR_D19_BOUNDED_UPDATES",
       "completed_actions": [
         "B:D17 rebound to 27 refined portal-hypertension P086-P092; existing pressure/collateral/bleeding-control model preserved",
         "B:D19 rebound to liver-abscess P082-P085 + biliary P098-P122; prior T-tube/AOSC bounded updates preserved",
@@ -165,7 +164,8 @@
       "mapping_repairs": [
         "SUR27-U18 candidate owner A3:Block8 removed; title ‘泌外感染和肿瘤’ does not override actual source content identity."
       ],
-      "next_action": "Advance to SUR27-U20-U29 Orthopedics; compare refined explanatory notes against O1-O16 current Knowledge/Learning, then U30-U38 Surgery General."
+      "historical_status": "SOURCE_REBIND_COMPLETE_CORE_PRESERVE_WITH_PRIOR_D19_BOUNDED_UPDATES",
+      "historical_next_action": "Advance to SUR27-U20-U29 Orthopedics; compare refined explanatory notes against O1-O16 current Knowledge/Learning, then U30-U38 Surgery General."
     },
     "fourth_batch": {
       "scope": [
@@ -181,7 +181,6 @@
         "SUR27-U29"
       ],
       "label": "orthopedics full refined-source rebase",
-      "status": "SOURCE_REBIND_COMPLETE_CORE_PRESERVE_LEARNING_REVALIDATED",
       "completed_actions": [
         "O1-O16 Surgery source bindings migrated from legacy follow-along/AI-reader to 27 refined SUR27-U20-U29 ranges",
         "Current orthopedic Framework/KP Core rechecked against refined-note mechanisms: DDH/scoliosis, chronic soft-tissue overload, hand repair/function, meniscus/nerve localization, osteomyelitis/TB, OA/AS/RA, bone tumors, axial trauma/SCI, cervical-lumbar compression, limb fractures and fracture-general remain structurally valid",
@@ -189,7 +188,8 @@
         "Known O14 treatment wording conflict and other pre-existing fail-closed boundaries remain explicit; refined notes did not authorize silent modernization"
       ],
       "learning_interpretation": "Refined orthopedics is mostly a Guide-quality upgrade already anticipated by Current D Learning. Preserve the stable 16-Block/206-KP/72-LG orthopedic topology; absorb only material explanation/decision improvements.",
-      "next_action": "Before closing Surgery General, return to SUR27-U05-U19 for a deep refined-note Knowledge + Learning/Guide pass (gastric, abdominal infection/trauma, obstruction/appendix/colorectal/hernia, liver/portal/pancreas/biliary, vascular, urinary). Then finish U30-U38 and global downstream revalidation."
+      "historical_status": "SOURCE_REBIND_COMPLETE_CORE_PRESERVE_LEARNING_REVALIDATED",
+      "historical_next_action": "Before closing Surgery General, return to SUR27-U05-U19 for a deep refined-note Knowledge + Learning/Guide pass (gastric, abdominal infection/trauma, obstruction/appendix/colorectal/hernia, liver/portal/pancreas/biliary, vascular, urinary). Then finish U30-U38 and global downstream revalidation."
     },
     "correction_2026_09_24": {
       "reason": "Do not confuse Source rebind/Core preserve screening with full absorption of the 27 refined explanatory layer.",
@@ -210,8 +210,8 @@
         "SUR27-U18",
         "SUR27-U19"
       ],
-      "status": "DEEP_LEARNING_GUIDE_REVIEW_REQUIRED_BEFORE_SURGERY_GENERAL_CLOSEOUT",
-      "rule": "Return to these individual-surgery units and explicitly classify refined 理顺/机制/总结 into Knowledge/Core vs Learning/Guide vs Precision/Visual. Source rebinding alone is not closure."
+      "rule": "Return to these individual-surgery units and explicitly classify refined 理顺/机制/总结 into Knowledge/Core vs Learning/Guide vs Precision/Visual. Source rebinding alone is not closure.",
+      "historical_status": "DEEP_LEARNING_GUIDE_REVIEW_REQUIRED_BEFORE_SURGERY_GENERAL_CLOSEOUT"
     },
     "reprocess_v2": {
       "started_at": "2026-09-24",
@@ -257,7 +257,7 @@
           "D:O2 emergency-priority closure"
         ],
         "preserved_but_revalidated": "All other refined explanatory notes were explicitly reviewed and either already represented by Current Knowledge/Learning or kept as Precision/Visual/Source-bound material; no duplicate prose inflation or topology rebuild.",
-        "next_action": "Revalidate downstream Question→Knowledge relations and learner-facing explanations only for blocks with real semantic/learner-facing changes; classify source-revision evidence impact; then close scoped acceptance."
+        "historical_next_action": "Revalidate downstream Question→Knowledge relations and learner-facing explanations only for blocks with real semantic/learner-facing changes; classify source-revision evidence impact; then close scoped acceptance."
       }
     },
     "architecture_v3": {
@@ -504,11 +504,12 @@
         "ui_boundary": "No static-web content fork or redesign was created for this Surgery content revision.",
         "learner_truth_boundary": "Repository closeout creates no learner completion/mastery. Real-U remains private real-use evidence."
       }
-    }
+    },
+    "source_map_owner": "content/xizong/knowledge/learner/surgery-27-source-map.json"
   },
   "governance": {
     "contract_owner": "content/xizong/knowledge/learner/SURGERY_CONTRACT.md",
-    "status": "CURRENT_AND_LOCKED_FOR_EXECUTION",
+    "status": "CONTRACT_CURRENT",
     "rule": "Route 27 refined-note deltas by responsibility: medical meaning → canonical Knowledge; understanding/retrieval/apply organization → Current Learning/Guide; exact values → Precision; spatial/table relations → Source Visual. Do not revive legacy Guides or redesign UI."
   }
 }

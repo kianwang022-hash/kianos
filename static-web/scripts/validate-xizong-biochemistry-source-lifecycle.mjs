@@ -198,9 +198,10 @@ assert.deepEqual(g5Order,[1,2,3,4,5,12,13,6,7,8,9,10,11],'G5 learner order must 
 assert.match(biochemistryContract,/System\s*\n?→ Block\s*\n?→ Logic Group\s*\n?→ KP/,'Biochemistry contract canonical hierarchy drift');
 assert.match(biochemistryContract,/may not create another canonical level/i,'Biochemistry contract must forbid a second canonical hierarchy');
 
-assert.match(xizongCurrent,/27 Biochemistry architecture-corrected rebase is \*\*CLOSED \/ CURRENT at S\/K\/L\/Content\/P\.\*\*/);
-assert.match(contentMainline,/# 0｜CLOSED MAINLINE TASK — 27 Biochemistry architecture-corrected rebase/);
-assert.match(contentMainline,/Status: \*\*CLOSED \/ CURRENT · S\/K\/L\/Content\/P REACCEPTED\*\*/);
+assert.match(xizongCurrent,/27 Biochemistry lifecycle owner:/);
+assert.match(xizongCurrent,/xizong-2027-biochemistry-delta-slot\.json/);
+assert.match(contentMainline,/# 0｜27 Biochemistry architecture-corrected rebase/);
+assert.match(contentMainline,/Lifecycle is owned only by the exact task owner below/);
 assert.match(bCurrent,/NONE for the 27 Biochemistry revision — CLOSED \/ CURRENT/);
 assert.match(bAcceptance,/Status: \*\*CLOSED \/ CURRENT · S\/K\/L\/Content\/P REACCEPTED AFTER ARCHITECTURE CORRECTION\*\*/);
 

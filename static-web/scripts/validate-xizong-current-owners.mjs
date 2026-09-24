@@ -112,3 +112,48 @@ console.log([
   'LegacyFilenameVersion=NON_AUTHORITY',
   'DetectionPower=NEGATIVE_DUPLICATE_REJECTED'
 ].join(' | '));
+
+// 27 Source task lifecycle ownership: exact task slots own lifecycle;
+// routers/maps may reference or derive, but must not maintain a second live enum.
+const readRepoJson = (relative) => JSON.parse(fs.readFileSync(path.join(repoRoot, relative), 'utf8'));
+const readRepoText = (relative) => fs.readFileSync(path.join(repoRoot, relative), 'utf8');
+const BIO_LIFECYCLE = 'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json';
+const SURGERY_LIFECYCLE = 'content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json';
+const SURGERY_MAP = 'content/xizong/knowledge/learner/surgery-27-source-map.json';
+
+const bioLifecycle = readRepoJson(BIO_LIFECYCLE);
+const surgeryLifecycle = readRepoJson(SURGERY_LIFECYCLE);
+const surgeryMap = readRepoJson(SURGERY_MAP);
+const xizongCurrent = readRepoText('content/xizong/CURRENT.md');
+const contentMainline = readRepoText('content/xizong/CONTENT_MAINLINE.md');
+
+if (!/^CLOSED_CURRENT/.test(String(bioLifecycle.status || ''))) fail('BIOCHEMISTRY_LIFECYCLE_NOT_CLOSED_CURRENT');
+if (!/^CLOSED_CURRENT/.test(String(surgeryLifecycle.status || ''))) fail('SURGERY_LIFECYCLE_NOT_CLOSED_CURRENT');
+if (surgeryLifecycle.owner_boundary?.lifecycle_owner !== SURGERY_LIFECYCLE) fail('SURGERY_LIFECYCLE_OWNER_POINTER');
+if (surgeryLifecycle.current_state?.source_map_owner !== SURGERY_MAP) fail('SURGERY_SOURCE_MAP_POINTER');
+if (surgeryLifecycle.governance?.status !== 'CONTRACT_CURRENT') fail('SURGERY_GOVERNANCE_STATUS');
+
+for (const key of ['first_batch', 'second_batch', 'third_batch', 'fourth_batch']) {
+  const row = surgeryLifecycle.current_state?.[key] || {};
+  if ('status' in row) fail('SURGERY_LIVE_BATCH_STATUS:' + key);
+  if ('next_action' in row) fail('SURGERY_LIVE_BATCH_NEXT:' + key);
+}
+if ('status' in (surgeryLifecycle.current_state?.correction_2026_09_24 || {})) fail('SURGERY_LIVE_CORRECTION_STATUS');
+if (/"next_action"\s*:/.test(JSON.stringify(surgeryLifecycle.current_state || {}))) fail('SURGERY_CLOSED_HAS_LIVE_NEXT_ACTION');
+if ('active_biochemistry_rebase' in (surgeryLifecycle.current_state?.concurrency || {})) fail('SURGERY_ACTIVE_BIOCHEMISTRY_MIRROR');
+if (surgeryLifecycle.current_state?.concurrency?.biochemistry_revision_owner !== BIO_LIFECYCLE) fail('SURGERY_BIOCHEMISTRY_OWNER_POINTER');
+
+if (surgeryMap.status !== 'CURRENT_38_UNIT_DIRECT_ARCHITECTURE_RECONCILIATION') fail('SURGERY_MAP_STATUS_NOT_ROUTING_ONLY');
+if (surgeryMap.lifecycle_owner !== SURGERY_LIFECYCLE) fail('SURGERY_MAP_LIFECYCLE_POINTER');
+if ('biochemistry_revision_state' in (surgeryMap.shared_owner_coordination || {})) fail('SURGERY_MAP_BIOCHEMISTRY_STATE_MIRROR');
+if (surgeryMap.shared_owner_coordination?.biochemistry_revision_owner !== BIO_LIFECYCLE) fail('SURGERY_MAP_BIOCHEMISTRY_OWNER_POINTER');
+if ('downstream_pending' in (surgeryMap.reprocess_v2?.content_acceptance || {})) fail('SURGERY_MAP_LIVE_DOWNSTREAM_PENDING');
+if (surgeryMap.architecture_v3?.progress?.next !== 'NONE_CLOSED') fail('SURGERY_MAP_LIVE_NEXT');
+if ('acceptance_status' in (surgeryMap.architecture_v3?.downstream_revalidation || {})) fail('SURGERY_MAP_ACCEPTANCE_STATUS_MIRROR');
+if (surgeryMap.architecture_v3?.downstream_revalidation?.acceptance_owner !== SURGERY_LIFECYCLE) fail('SURGERY_MAP_ACCEPTANCE_OWNER');
+
+if (!xizongCurrent.includes('27 Biochemistry lifecycle owner:') || !xizongCurrent.includes(BIO_LIFECYCLE)) fail('CURRENT_BIOCHEMISTRY_LIFECYCLE_ROUTE');
+if (!xizongCurrent.includes('27 Surgery lifecycle owner:') || !xizongCurrent.includes(SURGERY_LIFECYCLE)) fail('CURRENT_SURGERY_LIFECYCLE_ROUTE');
+if (/27 (?:Biochemistry|Surgery).*is CLOSED \/ CURRENT/.test(xizongCurrent)) fail('CURRENT_LIFECYCLE_ENUM_MIRROR');
+if (!contentMainline.includes('Lifecycle is owned only by the exact task owner below')) fail('MAINLINE_LIFECYCLE_ROUTE_MISSING');
+if (/Status: \*\*CLOSED \/ CURRENT · S\/K\/L\/Content/.test(contentMainline)) fail('MAINLINE_LIFECYCLE_ENUM_MIRROR');

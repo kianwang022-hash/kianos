@@ -21,9 +21,9 @@ Old Chats, prompts, Issue titles and branch names are provenance, not Current tr
 
 ---
 
-# 0｜CLOSED MAINLINE TASK — 27 Biochemistry architecture-corrected rebase
+# 0｜27 Biochemistry architecture-corrected rebase
 
-Status: **CLOSED / CURRENT · S/K/L/Content/P REACCEPTED**
+Lifecycle is owned only by the exact task owner below; this program coordinator does not maintain a second lifecycle enum.
 
 Exact task owner:
 
@@ -75,9 +75,9 @@ Reopen only for a new/revised authoritative Biochemistry Source or a concrete de
 
 ---
 
-# 0B｜CLOSED MAINLINE TASK — 27 Surgery architecture-corrected comprehensive rebase
+# 0B｜27 Surgery architecture-corrected comprehensive rebase
 
-Status: **CLOSED / CURRENT · S/K/L/Content/P/Q/X/E/A REACCEPTED**
+Lifecycle is owned only by the exact task owner below; this program coordinator does not maintain a second lifecycle enum.
 
 Exact task owner:
 
