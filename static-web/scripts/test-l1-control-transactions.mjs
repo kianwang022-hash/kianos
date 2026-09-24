@@ -29,13 +29,13 @@ async function runtime({fetchImpl,writeSession,validatePlan}={}){
     './lexicalChallenge.mjs':{stageLexicalChallengePacket:()=>({changes:[]}),lexicalChallengePacketMatches:()=>true},
     './browserLearnerWriter.mjs':{assertLearnerStorageWritable:()=>{},commitLearnerStorageChanges},
     './privateControlCommand.mjs':{CONTROL_LOCAL_RECEIPT_KEY:receiptKey,CONTROL_RECEIPT_SCHEMA:'kianos.control-receipt.v1',validateBrowserControlCommand:clone,validateControlReceipt:value=>{if(value?.schema!=='kianos.control-receipt.v1')throw new Error('INVALID_RECEIPT');return clone(value);}},
-    './englishSessionControl.mjs':{ENGLISH_SESSION_KEY:sessionKey,writeEnglishSessionInstruction:(storage,value)=>{calls++;if(writeSession)writeSession(storage,value);else storage.setItem(sessionKey,JSON.stringify(value));}},
+    './englishSessionControl.mjs':{ENGLISH_SESSION_KEY:sessionKey,writeEnglishSessionInstruction:(storage,value)=>{calls++;if(writeSession)writeSession(storage,value);else storage.setItem(sessionKey,JSON.stringify(value));},englishSessionInstructionEffectMatches:()=>true},
     './englishExamSession.mjs':{englishExamProductiveScoreMatches:()=>false,inspectEnglishExamSession:noop,applyEnglishExamProductiveScoreReturn:noop,writeEnglishExamSession:noop},
-    './examChatPlan.mjs':{EXAM_CHAT_PLAN_KEY:'kianos-exam-chat-plan-v1',validateExamChatPlanAgainstStorage:validatePlan||noop,writeExamChatPlan:noop,buildExamChatPlanBasis:()=>({})},
-    './xizongSessionInstruction.mjs':{installAndActivateXizongSessionInstruction:noop},
-    './xizongPendingChatReturn.mjs':{stageXizongChatReturn:noop},
-    './xizongSystemWuReturn.mjs':{stageXizongSystemWuReturn:noop},
-    './politicsMemoryRuntime.mjs':{stagePoliticsMemoryPlan:noop}
+    './examChatPlan.mjs':{EXAM_CHAT_PLAN_KEY:'kianos-exam-chat-plan-v1',validateExamChatPlanAgainstStorage:validatePlan||noop,writeExamChatPlan:noop,buildExamChatPlanBasis:()=>({}),examChatPlanEffectMatches:()=>true},
+    './xizongSessionInstruction.mjs':{installAndActivateXizongSessionInstruction:noop,xizongSessionInstructionEffectMatches:()=>true},
+    './xizongPendingChatReturn.mjs':{stageXizongChatReturn:noop,xizongChatReturnEffectMatches:()=>true},
+    './xizongSystemWuReturn.mjs':{stageXizongSystemWuReturn:noop,xizongSystemWuReturnEffectMatches:()=>true},
+    './politicsMemoryRuntime.mjs':{stagePoliticsMemoryPlan:noop,politicsMemoryPlanEffectMatches:()=>true}
   };
   const module=new vm.SourceTextModule(source,{context});
   await module.link(spec=>{const exports=modules[spec];assert.ok(exports,`Unexpected dependency: ${spec}`);return new vm.SyntheticModule(Object.keys(exports),function(){for(const[key,value]of Object.entries(exports))this.setExport(key,value);},{context});});
