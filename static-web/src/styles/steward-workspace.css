@@ -711,21 +711,32 @@
 }
 
 .stewardWeekActual {
+  z-index: 2;
+  border-left: 3px solid var(--actual-color, var(--study-green));
+}
+
+.stewardWeekActual.withPlan {
   right: 5px;
   left: auto;
-  z-index: 2;
   width: 10px;
   background: var(--actual-color, var(--study-green));
   opacity: .76;
   padding: 0;
 }
 
+.stewardWeekActual.withoutPlan {
+  right: 4px;
+  left: 4px;
+  background: color-mix(in srgb, var(--actual-soft, var(--study-green-soft)) 70%, white);
+  padding: 4px 6px;
+}
+
 .stewardWeekPlan[data-subject="xizong"],
-.stewardWeekActual[data-subject="xizong"] { --block-accent: #4d806f; --block-soft: #edf5f1; --actual-color: #4d806f; }
+.stewardWeekActual[data-subject="xizong"] { --block-accent: #4d806f; --block-soft: #edf5f1; --actual-color: #4d806f; --actual-soft: #edf5f1; }
 .stewardWeekPlan[data-subject="english"],
-.stewardWeekActual[data-subject="english"] { --block-accent: #667fa0; --block-soft: #eef2f7; --actual-color: #667fa0; }
+.stewardWeekActual[data-subject="english"] { --block-accent: #667fa0; --block-soft: #eef2f7; --actual-color: #667fa0; --actual-soft: #eef2f7; }
 .stewardWeekPlan[data-subject="politics"],
-.stewardWeekActual[data-subject="politics"] { --block-accent: #9a7b4f; --block-soft: #f7f1e8; --actual-color: #9a7b4f; }
+.stewardWeekActual[data-subject="politics"] { --block-accent: #9a7b4f; --block-soft: #f7f1e8; --actual-color: #9a7b4f; --actual-soft: #f7f1e8; }
 
 .stewardWeekPlan b {
   display: block;
@@ -754,9 +765,14 @@
   display: none;
 }
 
-.stewardWeekActual b,
-.stewardWeekActual small {
+.stewardWeekActual.withPlan b,
+.stewardWeekActual.withPlan small {
   display: none;
+}
+
+.stewardWeekActual.withoutPlan b,
+.stewardWeekActual.withoutPlan small {
+  display: block;
 }
 
 .stewardWeekNowLine {
