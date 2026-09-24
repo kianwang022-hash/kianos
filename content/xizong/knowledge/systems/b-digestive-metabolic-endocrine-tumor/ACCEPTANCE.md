@@ -13,7 +13,7 @@ This file owns B's current S/K/L/P/R/E/U readiness claims. It does not own medic
 
 ## Scoped Source revision — Biochemistry architecture-corrected reacceptance
 
-Status: **S/K/L/Content/P REACCEPTED · FINAL INTEGRATION QA RUNNING**
+Status: **CLOSED / CURRENT · S/K/L/Content/P REACCEPTED AFTER ARCHITECTURE CORRECTION**
 
 ```text
 S  PASS — current 27 Source truth + 22-unit direct mapping
@@ -118,7 +118,24 @@ The current Biochemistry design is therefore:
 
 > **Source continuity can be domain-specific; Knowledge integration must remain System-wide.**
 
-The remaining full-repository QA is integration evidence only. A downstream unrelated failure reopens its own gate; it does not silently revoke the scoped S/K/L/Content evidence above.
+Final current-main integration evidence is now sufficient for this scoped closeout:
+
+```text
+Static Web Xizong QA run 35943462333
+→ relation manifest synchronization PASS
+→ shared semantic adapter PASS
+→ Projection assets + Current reconciliation PASS
+→ Current-owner uniqueness PASS
+→ Learning-owner lifecycle PASS
+→ reviewed Question Crosswalk PASS
+→ B Core probe PASS: 38/38 Blocks, 600 KP, 600 unique markers, 0 missing/duplicate
+→ B Knowledge PASS candidate
+→ B Learning structure probe: Issues=0
+```
+
+That workflow later stopped at **A2 Evidence** with `system-repair-return-bypasses-inbox`, after all B/Biochemistry gates above had already passed. The A2 defect is outside this Biochemistry Source-revision scope and does not reopen B S/K/L/Content/P.
+
+Therefore the 27 Biochemistry architecture-corrected rebase is **CLOSED / CURRENT**. Reopen only for a new/revised authoritative Biochemistry Source or a concrete defect in the accepted owners.
 
 ---
 
