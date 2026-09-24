@@ -101,6 +101,13 @@ try {
       blockRecallDone: true,
       completed: false,
       sourceContactDone: true,
+      sourceContactEvidence: [{
+        segment_id: `block-cumulative:${fixture.objectId}`,
+        coverage_kind: 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION',
+        kp_ids: [...fixture.kpIds],
+        completed_at: new Date().toISOString(),
+        source_hash: fixture.sourceHash
+      }],
       sourceHash: fixture.sourceHash
     }
   });
