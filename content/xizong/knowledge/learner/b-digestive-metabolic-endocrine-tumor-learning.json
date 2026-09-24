@@ -2353,7 +2353,7 @@
           "D22"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：氨基酸身份与分类[AA_IDENTITY_CLASSIFICATION] → 氨基酸衍生物与供体地图[AA_DERIVATIVE_DONOR_MAP] → 碳氮分流、转氨与安全运氨[NITROGEN_HANDLING] → 尿素循环、两个氮与调节[UREA_CYCLE_EXECUTION] → 一碳单位、叶酸与B12[ONE_CARBON_FOLATE_B12]。",
+      "partition_rationale": "M8 Learning consumes the canonical 5-layer hierarchy directly: identity/classification → derivatives/donors → carbon/nitrogen handling → urea detoxification → one-carbon/folate-B12. KP identities remain stable; Source order is owned only by the global Biochemistry Source map.",
       "learner_order": [
         "b-m08-lg01",
         "b-m08-lg02",
@@ -2371,7 +2371,8 @@
           "cognitive_job": "AA_IDENTITY_CLASSIFICATION",
           "goal": "按必需性、侧链/极性和生糖/生酮去路建立氨基酸多轴身份表。",
           "closure": "给出一个氨基酸或分类任务，能在至少两个高价值轴上正确归类，并不把分类本身等同于代谢反应链。",
-          "continuity_rationale": "KP01–KP03共同完成“氨基酸身份与分类”这一AA_IDENTITY_CLASSIFICATION任务。这是本Block当前学习顺序的第一个闭环任务。后一组“氨基酸衍生物与供体地图”切换到不同的AA_DERIVATIVE_DONOR_MAP任务。"
+          "continuity_rationale": "KP01–KP03共同完成“氨基酸身份与分类”这一AA_IDENTITY_CLASSIFICATION任务。这是本Block当前学习顺序的第一个闭环任务。后一组“氨基酸衍生物与供体地图”切换到不同的AA_DERIVATIVE_DONOR_MAP任务。",
+          "canonical_layer": "L1"
         },
         "b-m08-lg02": {
           "kp": [
@@ -2382,7 +2383,8 @@
           "cognitive_job": "AA_DERIVATIVE_DONOR_MAP",
           "goal": "把酪氨酸/色氨酸/组氨酸等衍生活性分子与SAM、硫酸/PAPS等供体组织成跨系统连接图。",
           "closure": "给出儿茶酚胺、甲状腺激素、黑色素、递质或甲基化等产物，能追溯主要氨基酸/供体接口。",
-          "continuity_rationale": "KP04–KP07共同完成“氨基酸衍生物与供体地图”这一AA_DERIVATIVE_DONOR_MAP任务。前一组“氨基酸身份与分类”承担不同的AA_IDENTITY_CLASSIFICATION任务。后一组“碳氮分流、转氨与安全运氨”切换到不同的NITROGEN_HANDLING任务。"
+          "continuity_rationale": "KP04–KP07共同完成“氨基酸衍生物与供体地图”这一AA_DERIVATIVE_DONOR_MAP任务。前一组“氨基酸身份与分类”承担不同的AA_IDENTITY_CLASSIFICATION任务。后一组“碳氮分流、转氨与安全运氨”切换到不同的NITROGEN_HANDLING任务。",
+          "canonical_layer": "L2"
         },
         "b-m08-lg03": {
           "kp": [
@@ -2393,7 +2395,8 @@
           "cognitive_job": "NITROGEN_HANDLING",
           "goal": "把转氨/脱氨、碳骨架去向以及丙氨酸/谷氨酰胺安全运氨接成氮从组织到肝的主链。",
           "closure": "给出外周组织产氨、转氨酶或运输形式，能说明氮和碳骨架分别去哪，并预测肝/肾接口。",
-          "continuity_rationale": "KP08–KP13共同完成“碳氮分流、转氨与安全运氨”这一NITROGEN_HANDLING任务。前一组“氨基酸衍生物与供体地图”承担不同的AA_DERIVATIVE_DONOR_MAP任务。后一组“尿素循环、两个氮与调节”切换到不同的UREA_CYCLE_EXECUTION任务。"
+          "continuity_rationale": "KP08–KP13共同完成“碳氮分流、转氨与安全运氨”这一NITROGEN_HANDLING任务。前一组“氨基酸衍生物与供体地图”承担不同的AA_DERIVATIVE_DONOR_MAP任务。后一组“尿素循环、两个氮与调节”切换到不同的UREA_CYCLE_EXECUTION任务。",
+          "canonical_layer": "L3"
         },
         "b-m08-lg04": {
           "kp": [
@@ -2404,7 +2407,8 @@
           "cognitive_job": "UREA_CYCLE_EXECUTION",
           "goal": "从线粒体CPS-I起步把尿素循环位置、两个氮来源、能量与TCA接口组织成解毒执行链。",
           "closure": "能闭卷走完尿素循环、指出两个氮来源和关键调节，并解释肝衰时高氨为何出现。",
-          "continuity_rationale": "KP14–KP16共同完成“尿素循环、两个氮与调节”这一UREA_CYCLE_EXECUTION任务。前一组“碳氮分流、转氨与安全运氨”承担不同的NITROGEN_HANDLING任务。后一组“一碳单位、叶酸与B12”切换到不同的ONE_CARBON_FOLATE_B12任务。"
+          "continuity_rationale": "KP14–KP16共同完成“尿素循环、两个氮与调节”这一UREA_CYCLE_EXECUTION任务。前一组“碳氮分流、转氨与安全运氨”承担不同的NITROGEN_HANDLING任务。后一组“一碳单位、叶酸与B12”切换到不同的ONE_CARBON_FOLATE_B12任务。",
+          "canonical_layer": "L4"
         },
         "b-m08-lg05": {
           "kp": [
@@ -2415,7 +2419,94 @@
           "cognitive_job": "ONE_CARBON_FOLATE_B12",
           "goal": "把FH4一碳单位、叶酸/B12与dTMP/嘌呤、甲基化和巨幼细胞成熟接口连起来。",
           "closure": "给出叶酸/B12缺乏或一碳需求，能预测核苷酸合成/同型半胱氨酸等方向并连接M9/血液系统。",
-          "continuity_rationale": "KP17–KP18共同完成“一碳单位、叶酸与B12”这一ONE_CARBON_FOLATE_B12任务。前一组“尿素循环、两个氮与调节”承担不同的UREA_CYCLE_EXECUTION任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP17–KP18共同完成“一碳单位、叶酸与B12”这一ONE_CARBON_FOLATE_B12任务。前一组“尿素循环、两个氮与调节”承担不同的UREA_CYCLE_EXECUTION任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L5"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M8_氨基酸氨尿素与一碳单位_学习阅读版_v1_最终执行版.md",
+        "mother_model": "amino-acid identity → carbon/nitrogen split → safe ammonia transport → urea detoxification → one-carbon/methyl flow",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              3
+            ],
+            "logic_group": "b-m08-lg01"
+          },
+          "L2": {
+            "kp": [
+              4,
+              7
+            ],
+            "logic_group": "b-m08-lg02"
+          },
+          "L3": {
+            "kp": [
+              8,
+              13
+            ],
+            "logic_group": "b-m08-lg03"
+          },
+          "L4": {
+            "kp": [
+              14,
+              16
+            ],
+            "logic_group": "b-m08-lg04"
+          },
+          "L5": {
+            "kp": [
+              17,
+              18
+            ],
+            "logic_group": "b-m08-lg05"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers and must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning keeps no duplicate M8 Source registry.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-m08-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-m08-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-m08-lg03"
+            ]
+          },
+          {
+            "canonical_layer": "L4",
+            "releases": [
+              "b-m08-lg04"
+            ]
+          },
+          {
+            "canonical_layer": "L5",
+            "releases": [
+              "b-m08-lg05"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "M8",
+          "after_unit": "BIO27-S08",
+          "after_pdf": 58,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
