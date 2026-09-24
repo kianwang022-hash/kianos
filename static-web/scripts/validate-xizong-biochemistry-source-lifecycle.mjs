@@ -1,11 +1,23 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 
 const root=path.resolve('..');
 const read=(p)=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
 const text=(p)=>fs.readFileSync(path.join(root,p),'utf8');
 const exists=(p)=>fs.existsSync(path.join(root,p));
+const gitBlobSha=(p)=>{
+  const b=fs.readFileSync(path.join(root,p));
+  return crypto.createHash('sha1').update(Buffer.from('blob '+b.length+'\0')).update(b).digest('hex');
+};
+const rowByQuestion=(p,qid)=>{
+  const rows=read(p);
+  if(!Array.isArray(rows)) throw new Error('QX_SHARD_NOT_ARRAY:'+p);
+  const row=rows.find((x)=>x?.question_id===qid);
+  if(!row) throw new Error('QX_ROW_MISSING:'+qid);
+  return row;
+};
 
 const blocks=[
   ...Array.from({length:10},(_,i)=>'M'+(i+1)),
@@ -183,6 +195,54 @@ assert.equal(learning.construction_status,'PHASE6_INDEPENDENT_L_ACCEPTED','candi
 const builderText=text('static-web/scripts/build-xizong-b-learning-candidate.mjs');
 assert.match(builderText,/B_L_CANONICAL_CURRENT_OVERWRITE_FORBIDDEN/,'candidate builder must fail closed on accepted Current');
 assert.match(builderText,/\.qa\/xizong-b-learning-candidate\.json/,'candidate builder default output must be non-canonical');
+
+const d8Path='content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D8_糖尿病_学习阅读版_v1_最终执行版.md';
+const m3Path=sourceMap.authority_boundary.canonical_hierarchy_owners.M3;
+const g4Path=sourceMap.authority_boundary.canonical_hierarchy_owners.G4;
+const g5Path=sourceMap.authority_boundary.canonical_hierarchy_owners.G5;
+const d8Body=text(d8Path);
+const m3Body=text(m3Path);
+const g4Body=text(g4Path);
+const g5Body=text(g5Path);
+assert.match(d8Body,/西格列他钠/,'D8 lost current-27 PPAR Source Precision');
+assert.match(d8Body,/多格列艾汀/,'D8 lost current-27 GKA Source Precision');
+assert.match(m3Body,/NADPH不是 OXPHOS 供能载体[^\n]*只能生物转化/,'M3 lost the current NADPH boundary');
+assert.match(g4Body,/VHL[^\n]*HIF|HIF[^\n]*VHL/,'G4 lost HIF–VHL current-27 update');
+assert.match(g4Body,/EPO[^\n]*enhancer|增强子[^\n]*EPO|EPO[^\n]*增强子/i,'G4 lost HIF→EPO enhancer bridge');
+assert.match(g5Body,/translesion polymerase group|低保真 \/ translesion polymerase group/i,'G5 lost the current translesion-polymerase boundary');
+assert.match(g5Body,/SOURCE_BOUND/,'G5 exact low-fidelity polymerase glyph must remain source-bound');
+
+const m3Blob=gitBlobSha(m3Path);
+const g5Blob=gitBlobSha(g5Path);
+for(const [p,qid,blob] of [
+  ['content/xizong/question-relations/shards/2015/q026-050.json','xizong-official-2015-n029',m3Blob],
+  ['content/xizong/question-relations/shards/2023/q126-150.json','xizong-official-2023-n142',m3Blob],
+  ['content/xizong/question-relations/shards/2023/q001-025.json','xizong-official-2023-n025',g5Blob]
+]){
+  const row=rowByQuestion(p,qid);
+  assert.equal(row.review_status,'REVIEWED',qid+' relation is no longer REVIEWED');
+  assert.equal(row.provenance?.knowledge_revalidated_blob_sha,blob,qid+' Current knowledge revalidation drift');
+  assert.equal(row.review?.source_revision_revalidated,'BIOCHEMISTRY_27_CURRENT',qid+' missing 27 relation revalidation receipt');
+}
+for(const [p,qid] of [
+  ['content/xizong/explanations/shards/2015/q026-050.json','xizong-official-2015-n029'],
+  ['content/xizong/explanations/shards/2023/q126-150.json','xizong-official-2023-n142'],
+  ['content/xizong/explanations/shards/2023/q001-025.json','xizong-official-2023-n025'],
+  ['content/xizong/explanations/shards/2025/q101-125.json','xizong-official-2025-n123']
+]){
+  const row=rowByQuestion(p,qid);
+  assert.equal(row.explanation_status,'APPROVED',qid+' explanation is not approved');
+  assert.equal(row.review?.source_revision_revalidated,'BIOCHEMISTRY_27_CURRENT',qid+' missing 27 explanation revalidation receipt');
+}
+const m3Exact=rowByQuestion('content/xizong/explanations/shards/2025/q101-125.json','xizong-official-2025-n123');
+assert.equal(m3Exact.mapping_decision,'NO_SAFE_MATCH','2025N123 must remain fail-closed at the exact NADPH/Hb boundary');
+assert.match(String(m3Exact.source_boundary_note||''),/NADPH.*GSH|GSH.*NADPH/,'2025N123 lost the Current M3 source boundary');
+const g5Dsb=rowByQuestion('content/xizong/explanations/shards/2023/q001-025.json','xizong-official-2023-n025');
+assert.match(g5Dsb.reasoning_chain.join(' '),/同源重组/,'2023N25 lost HR boundary');
+assert.match(g5Dsb.reasoning_chain.join(' '),/非同源末端连接/,'2023N25 lost NHEJ boundary');
+
+assert.equal(slot.current_state.downstream_revalidation?.status,'CURRENT_TARGETED_REVALIDATED');
+assert.equal(slot.current_state.downstream_revalidation?.evidence?.regression,'static-web/scripts/test-xizong-source-revision-transitive.mjs');
 
 assert.equal(learning.biochemistry_first_pass_lane?.status,'CURRENT_27_REACCEPTED');
 assert.equal(learning.biochemistry_first_pass_lane?.source_map_status,'CURRENT_27_SOURCE_ROUTING_REACCEPTED');
