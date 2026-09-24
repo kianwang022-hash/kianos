@@ -535,7 +535,7 @@ export function initStewardWorkspace(root) {
     if (title) title.textContent = headerCopy[0];
     if (description) description.textContent = headerCopy[1];
 
-    $('[data-steward-view]').forEach((button) => {
+    root.querySelectorAll('[data-steward-view]').forEach((button) => {
       button.classList.toggle('active', button.dataset.stewardView === view);
     });
     $$('[data-steward-view-panel]').forEach((panel) => {
