@@ -47,7 +47,7 @@ S  PASS — current 27 Source truth + 22-unit direct mapping
 K  PASS — 191 M/G KP reaccepted under mature hierarchy
 L  PASS — accepted LG/learner topology preserved; direct 27 Source contact current
 Content  PASS — mature Block-owned content responsibilities restored
-P  PASS — Projection exact-binding/adversarial validation reaccepted
+Biochemistry Projection  PASS — exact-binding/adversarial validation reaccepted for the scoped Biochemistry revision
 R  PASS / PRESERVED
 E  PASS / PRESERVED
 U  UNTESTED
