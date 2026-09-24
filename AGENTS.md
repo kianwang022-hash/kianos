@@ -227,6 +227,8 @@ Do not run a full-repository audit/build/browser gate for a routine local change
 
 For learner-facing visual changes, use representative real-surface proof and the applicable Human Gate. For semantic/domain changes, engineering green is not semantic acceptance.
 
+Human Gate starts only after obvious defects are repaired. For UI/product work, the worker must first verify the accepted Rule/Model, required content/state/interaction logic, representative navigation/state transitions, and the actual rendered surface; then self-attack obvious incompleteness, awkwardness and backend/debug leakage. Kian reviews meaningful product/interaction/visual choices, not unfinished implementation.
+
 Normal reporting is outcome-level:
 
 ```text
