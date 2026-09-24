@@ -1,4 +1,3 @@
-import { examDay } from './examOrchestrator.mjs';
 import { readExamChatPlan } from './examChatPlan.mjs';
 import {
   aggregateStudyTime,
@@ -18,9 +17,21 @@ const SUBJECT_LABEL = Object.freeze({
 const START_MINUTE = 6 * 60;
 const END_MINUTE = 22 * 60 + 30;
 const DISPLAY_MINUTES = END_MINUTE - START_MINUTE;
-const DAY_MS = 24 * 60 * 60 * 1000;
-
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+function currentStudyDay(now = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: STUDY_TIMER_TIMEZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(now);
+  const year = parts.find((part) => part.type === 'year')?.value;
+  const month = parts.find((part) => part.type === 'month')?.value;
+  const day = parts.find((part) => part.type === 'day')?.value;
+  if (!year || !month || !day) throw new Error('STEWARD_DAY_UNAVAILABLE');
+  return `${year}-${month}-${day}`;
+}
 
 function localClock(timestamp) {
   const parts = new Intl.DateTimeFormat('en-GB', {
@@ -166,12 +177,12 @@ export function initStewardWorkspace(root) {
   const $ = (selector) => root.querySelector(selector);
   const $$ = (selector) => [...root.querySelectorAll(selector)];
 
-  let today = examDay();
+  let today = currentStudyDay();
   let weekCursor = today;
   let monthCursor = today.slice(0, 7);
 
   const read = () => {
-    today = examDay();
+    today = currentStudyDay();
     const chatPlanState = readExamChatPlan(storage, today);
     const timerModel = buildStudyTimerReadModel(storage, Date.now(), STUDY_TIMER_TIMEZONE);
     return {
