@@ -159,6 +159,8 @@ try {
     check((await gramInput.inputValue()) === '170', 'nutrition_grams_edit');
     await page.locator('[data-steward-food-mode="single"]').click();
     check((await page.locator('[data-steward-meal-title]').textContent())?.includes('高蛋白酸奶'), 'nutrition_single_mode');
+    await page.locator('[data-steward-food-mode="combo"]').click();
+    await page.locator('[data-steward-meal-preset="z03"]').click();
     await page.screenshot({ path: path.join(auditDir, 'nutrition-1512x820.png'), fullPage: false });
 
     await page.locator('[data-steward-mode="training"]').click();
@@ -172,6 +174,7 @@ try {
     await trainingInputs.nth(1).fill('5');
     check((await page.locator('[data-steward-training-set-count]').textContent())?.trim() === '1', 'training_record_count');
     check((await page.locator('[data-steward-training-status]').textContent())?.trim() === '记录中', 'training_record_status');
+    await page.locator('[data-steward-training-title]').focus();
     await page.screenshot({ path: path.join(auditDir, 'training-1512x820.png'), fullPage: false });
 
     await page.locator('[data-steward-mode="schedule"]').click();
