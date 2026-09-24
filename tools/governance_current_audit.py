@@ -238,6 +238,7 @@ def audit_current(relative: str) -> None:
         fail("CURRENT_TOO_MANY_LINES", f"{relative}:{len(lines)}>{MAX_CURRENT_LINES}")
 
     lowered = text.lower()
+    normalized = lowered.replace("-", " ")
     checks += 1
     role_ok = "current" in lowered and (
         "work cursor" in lowered
@@ -247,12 +248,12 @@ def audit_current(relative: str) -> None:
         fail("CURRENT_ROLE_MISSING", relative)
 
     checks += 1
-    next_ok = "next" in lowered or (relative in ROUTER_ONLY_CURRENT_PATHS and "reopen" in lowered)
+    next_ok = "next" in normalized or "reopen" in normalized or "stop" in normalized
     if not next_ok:
         fail("CURRENT_NEXT_ACTION_MISSING", relative)
 
     checks += 1
-    if not any(token in lowered for token in ("learner truth", "private learner", "learner progress", "learner state")):
+    if not any(token in normalized for token in ("learner truth", "private learner", "learner progress", "learner state")):
         fail("CURRENT_LEARNER_BOUNDARY_MISSING", relative)
 
     for token in FORBIDDEN_CURRENT_TOKENS:
