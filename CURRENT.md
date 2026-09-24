@@ -14,6 +14,7 @@ Role: the single root routing entry for engineering/status requests. Normal lear
 | Skill Library / promoted non-exam learning assets | [Skills Current](content/skills/CURRENT.md), then the exact Skill manifest |
 | Operating permissions, task dispatch and executor boundary | [AGENTS](AGENTS.md) |
 | Ownership/inheritance conflict | [Authority contract](AUTHORITY_INHERITANCE_CONTRACT.md); [machine topology](AUTHORITY_OWNERSHIP.json) only when needed |
+| Understand or improve an existing design | exact domain design/learning owner through the routes above; apply [change continuity](AUTHORITY_INHERITANCE_CONTRACT.md#31-change-continuity) before a change |
 
 For a known symptom, take the matching route directly. Read the latest exact owner/ref before reporting status or writing; do not infer completion from a historical PASS, a branch name or an old conversation.
 
