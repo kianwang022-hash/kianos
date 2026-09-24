@@ -170,6 +170,71 @@ function subjectMinutes(timerModel, subject) {
   return Math.max(0, Math.round((timerModel?.today?.bySubject?.[subject]?.ms || 0) / 60000));
 }
 
+
+const MEAL_PRESETS = Object.freeze({
+  z01: {
+    title: 'Z01 · 黑麦酸奶碗',
+    role: '早餐 / 轻午餐 · 熟悉、低摩擦',
+    reference: '310–440 kcal',
+    protein: '35–42 g',
+    carb: '40–65 g',
+    fat: '低（坚果前）',
+    note: '组合参考来自当前 Recipe owner；具体营养值以当天实际产品和克数为准。',
+    items: [
+      { label: '高蛋白酸奶', amount: 300, unit: 'g', range: '当前熟悉基准 300 g' },
+      { label: '黑麦片', amount: 50, unit: 'g', range: '常用范围 40–60 g' },
+      { label: '水果', amount: 0, unit: 'g', range: '可选：蓝莓 / 香蕉' },
+      { label: '坚果', amount: 0, unit: 'g', range: '可选：需要更多饱腹 / 能量时加入' }
+    ]
+  },
+  z02: {
+    title: 'Z02 · 三文鱼组合',
+    role: '零烹饪午餐 · 饱腹 / 训练支持',
+    reference: '520–650+ kcal',
+    protein: '50–60 g',
+    carb: '35–45 g',
+    fat: '主要来自三文鱼',
+    note: '三文鱼具体 SKU 仍可能改变总能量和脂肪；不把参考范围当成精确摄入。',
+    items: [
+      { label: '三文鱼', amount: 150, unit: 'g', range: '基准约 150 g' },
+      { label: '黑麦片', amount: 50, unit: 'g', range: '基准约 50 g' },
+      { label: '高蛋白酸奶', amount: 175, unit: 'g', range: '常用约 150–200 g' }
+    ]
+  },
+  z03: {
+    title: 'Z03 · 甜虾组合',
+    role: '轻量高蛋白午餐 · 低脂低摩擦',
+    reference: '约 400–430 kcal',
+    protein: '约 50+ g',
+    carb: '以黑麦 / 酸奶为主',
+    fat: '很低（额外脂肪前）',
+    note: '甜虾营养仍是 provisional reference；当前标签值出现时应覆盖参考值。',
+    items: [
+      { label: '甜虾', amount: 85, unit: 'g', range: '常用 85–170 g' },
+      { label: '黑麦片', amount: 50, unit: 'g', range: '基准约 50 g' },
+      { label: '高蛋白酸奶', amount: 300, unit: 'g', range: '常用 200–300 g' },
+      { label: '蔬菜 / 毛豆', amount: 0, unit: 'g', range: '按当天饱腹和蔬菜需要添加' }
+    ]
+  }
+});
+
+const SINGLE_FOODS = Object.freeze({
+  yogurt: { title: '高蛋白酸奶', role: '蛋白 / 乳制品', amount: 300, range: '按当前产品标签计算' },
+  rye: { title: '黑麦片', role: '碳水 / 纤维', amount: 50, range: '常用 40–60 g' },
+  salmon: { title: '三文鱼', role: '蛋白 / 脂肪', amount: 150, range: '具体 SKU / 部位会影响能量和脂肪' },
+  shrimp: { title: '甜虾', role: '低脂蛋白', amount: 85, range: '当前 provisional range 85–170 g' }
+});
+
+const EXERCISE_REFERENCE = Object.freeze({
+  KN01: { title: 'Smith squat', mode: 'strength', hint: '当前负重由实际 RPE 决定，不沿用旧 PR。', dose: '6–10 reps · RPE 6–8' },
+  PR01: { title: 'Smith bench press', mode: 'strength', hint: '稳定主推；负重以当前动作质量和 RPE 为准。', dose: '6–12 reps · RPE 6–8' },
+  PU03: { title: 'One-arm cable row', mode: 'strength', hint: '本地 cable setting + reps + RPE 才是比较单位。', dose: '10–14 / side' },
+  CD02: { title: 'Incline treadmill walk', mode: 'cardio', hint: '当前高适配有氧候选；记录实际时长和 RPE。', dose: '15–35 min · RPE 4–6' },
+  CD01: { title: 'Easy walk', mode: 'cardio', hint: '恢复 / 过渡候选；保持低负荷。', dose: '10–30 min' },
+  MV03: { title: '90/90 slow breathing', mode: 'recovery', hint: '低输入 reset；只有有实际作用时才使用。', dose: '3–6 slow breaths' },
+  MV02: { title: 'Open-book rotation', mode: 'recovery', hint: '轻量胸椎活动；记录实际完成即可。', dose: '4–8 / side' }
+});
+
 export function initStewardWorkspace(root) {
   if (!(root instanceof HTMLElement) || typeof window === 'undefined' || !window.localStorage) return;
 
@@ -180,6 +245,179 @@ export function initStewardWorkspace(root) {
   let today = currentStudyDay();
   let weekCursor = today;
   let monthCursor = today.slice(0, 7);
+
+
+  function updateMealGramTotal() {
+    const values = $$('[data-steward-meal-grams]').map((input) => Number(input.value || 0)).filter(Number.isFinite);
+    const total = values.reduce((sum, value) => sum + Math.max(0, value), 0);
+    const node = $('[data-steward-meal-grams-total]');
+    if (node) node.textContent = total > 0 ? \`\${Math.round(total)} g\` : '—';
+  }
+
+  function renderMealRows(items) {
+    const rootNode = $('[data-steward-meal-rows]');
+    if (!rootNode) return;
+    rootNode.innerHTML = '';
+    for (const item of items) {
+      const row = document.createElement('div');
+      row.className = 'stewardMealRow';
+      const copy = document.createElement('div');
+      copy.append(
+        createText('strong', '', item.label),
+        createText('small', '', item.range || '')
+      );
+      const inputWrap = document.createElement('label');
+      inputWrap.className = 'stewardGramInput';
+      const input = document.createElement('input');
+      input.type = 'number';
+      input.min = '0';
+      input.step = '1';
+      input.value = String(item.amount ?? 0);
+      input.dataset.stewardMealGrams = '';
+      input.setAttribute('aria-label', \`\${item.label} 克数\`);
+      input.addEventListener('input', updateMealGramTotal);
+      inputWrap.append(input, createText('span', '', item.unit || 'g'));
+      row.append(copy, inputWrap);
+      rootNode.appendChild(row);
+    }
+    updateMealGramTotal();
+  }
+
+  function renderMealPreset(id) {
+    const preset = MEAL_PRESETS[id] || MEAL_PRESETS.z01;
+    $('[data-steward-meal-title]').textContent = preset.title;
+    $('[data-steward-meal-role]').textContent = preset.role;
+    $('[data-steward-meal-reference]').textContent = preset.reference;
+    $('[data-steward-meal-protein]').textContent = preset.protein;
+    $('[data-steward-meal-carb]').textContent = preset.carb;
+    $('[data-steward-meal-fat]').textContent = preset.fat;
+    $('[data-steward-meal-note]').textContent = preset.note;
+    $$('[data-steward-meal-preset]').forEach((button) => {
+      button.classList.toggle('active', button.dataset.stewardMealPreset === id);
+    });
+    renderMealRows(preset.items);
+  }
+
+  function renderSingleFood(id) {
+    const food = SINGLE_FOODS[id] || SINGLE_FOODS.yogurt;
+    $('[data-steward-meal-title]').textContent = food.title;
+    $('[data-steward-meal-role]').textContent = food.role;
+    $('[data-steward-meal-reference]').textContent = '等待当前产品值';
+    $('[data-steward-meal-protein]').textContent = '—';
+    $('[data-steward-meal-carb]').textContent = '—';
+    $('[data-steward-meal-fat]').textContent = '—';
+    $('[data-steward-meal-note]').textContent = '单品营养应使用当前产品标签；这里不从旧值猜精确数字。';
+    $$('[data-steward-single-food]').forEach((button) => {
+      button.classList.toggle('active', button.dataset.stewardSingleFood === id);
+    });
+    renderMealRows([{ label: food.title, amount: food.amount, unit: 'g', range: food.range }]);
+  }
+
+  function activateFoodMode(mode) {
+    $$('[data-steward-food-mode]').forEach((button) => {
+      button.classList.toggle('active', button.dataset.stewardFoodMode === mode);
+    });
+    $$('[data-steward-food-panel]').forEach((panel) => {
+      panel.hidden = panel.dataset.stewardFoodPanel !== mode;
+    });
+    if (mode === 'combo') renderMealPreset('z01');
+    else renderSingleFood('yogurt');
+  }
+
+  function updateTrainingCounts() {
+    const inputs = $$('[data-steward-training-input]');
+    const activeRows = new Set();
+    for (const input of inputs) {
+      if (String(input.value || '').trim()) {
+        const row = input.closest('[data-steward-set-row]');
+        if (row) activeRows.add(row);
+      }
+    }
+    const node = $('[data-steward-training-set-count]');
+    if (node) node.textContent = String(activeRows.size);
+    const status = $('[data-steward-training-status]');
+    if (status) status.textContent = activeRows.size ? '记录中' : '未开始';
+  }
+
+  function trainingInput(label, unit, { min = 0, max = 999, step = 1, placeholder = '' } = {}) {
+    const wrap = document.createElement('label');
+    wrap.className = 'stewardSetInput';
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.min = String(min);
+    input.max = String(max);
+    input.step = String(step);
+    input.placeholder = placeholder;
+    input.dataset.stewardTrainingInput = '';
+    input.setAttribute('aria-label', label);
+    input.addEventListener('input', updateTrainingCounts);
+    wrap.append(input, createText('span', '', unit));
+    return wrap;
+  }
+
+  function renderTrainingExercise(id) {
+    const ref = EXERCISE_REFERENCE[id] || EXERCISE_REFERENCE.KN01;
+    $('[data-steward-training-title]').textContent = ref.title;
+    $('[data-steward-training-hint]').textContent = ref.hint;
+    $$('[data-steward-exercise]').forEach((button) => {
+      button.classList.toggle('active', button.dataset.stewardExercise === id);
+    });
+
+    const rows = $('[data-steward-set-rows]');
+    if (!rows) return;
+    rows.innerHTML = '';
+
+    if (ref.mode === 'strength') {
+      for (let index = 1; index <= 3; index += 1) {
+        const row = document.createElement('div');
+        row.className = 'stewardSetRow';
+        row.dataset.stewardSetRow = '';
+        row.append(
+          createText('b', '', \`\${index}\`),
+          trainingInput('负重', 'kg', { step: .5, placeholder: '—' }),
+          trainingInput('次数', 'reps', { max: 100, placeholder: '—' }),
+          trainingInput('RPE', '', { min: 1, max: 10, step: .5, placeholder: '—' })
+        );
+        rows.appendChild(row);
+      }
+    } else if (ref.mode === 'cardio') {
+      const row = document.createElement('div');
+      row.className = 'stewardSetRow compact';
+      row.dataset.stewardSetRow = '';
+      row.append(
+        createText('b', '', '实际'),
+        trainingInput('时长', 'min', { max: 240, placeholder: '—' }),
+        trainingInput('RPE', '', { min: 1, max: 10, step: .5, placeholder: '—' })
+      );
+      rows.appendChild(row);
+    } else {
+      const row = document.createElement('div');
+      row.className = 'stewardSetRow compact';
+      row.dataset.stewardSetRow = '';
+      row.append(
+        createText('b', '', '实际'),
+        trainingInput('次数或呼吸', 'reps', { max: 100, placeholder: '—' }),
+        trainingInput('时长', 'min', { max: 120, placeholder: '—' })
+      );
+      rows.appendChild(row);
+    }
+    updateTrainingCounts();
+  }
+
+  function activateTrainingMode(mode) {
+    $$('[data-steward-training-mode]').forEach((button) => {
+      button.classList.toggle('active', button.dataset.stewardTrainingMode === mode);
+    });
+    $$('[data-steward-training-library]').forEach((panel) => {
+      panel.hidden = panel.dataset.stewardTrainingLibrary !== mode;
+    });
+    const first = {
+      strength: 'KN01',
+      cardio: 'CD02',
+      recovery: 'MV03'
+    }[mode] || 'KN01';
+    renderTrainingExercise(first);
+  }
 
   const read = () => {
     today = currentStudyDay();
@@ -576,6 +814,31 @@ export function initStewardWorkspace(root) {
     });
   }
 
+
+  $$('[data-steward-food-mode]').forEach((button) => {
+    button.addEventListener('click', () => activateFoodMode(button.dataset.stewardFoodMode));
+  });
+  $$('[data-steward-meal-preset]').forEach((button) => {
+    button.addEventListener('click', () => renderMealPreset(button.dataset.stewardMealPreset));
+  });
+  $$('[data-steward-single-food]').forEach((button) => {
+    button.addEventListener('click', () => renderSingleFood(button.dataset.stewardSingleFood));
+  });
+
+  $$('[data-steward-training-mode]').forEach((button) => {
+    button.addEventListener('click', () => activateTrainingMode(button.dataset.stewardTrainingMode));
+  });
+  $$('[data-steward-exercise]').forEach((button) => {
+    button.addEventListener('click', () => renderTrainingExercise(button.dataset.stewardExercise));
+  });
+  $$('.stewardTrainingEffect button').forEach((button) => {
+    button.addEventListener('click', () => {
+      const wasActive = button.classList.contains('active');
+      $$('.stewardTrainingEffect button').forEach((item) => item.classList.remove('active'));
+      if (!wasActive) button.classList.add('active');
+    });
+  });
+
   $$('[data-steward-view]').forEach((button) => {
     button.addEventListener('click', () => activateView(button.dataset.stewardView));
   });
@@ -629,5 +892,7 @@ export function initStewardWorkspace(root) {
 
   window.addEventListener('pagehide', () => window.clearInterval(interval), { once: true });
 
+  activateFoodMode('combo');
+  activateTrainingMode('strength');
   activateView('today');
 }
