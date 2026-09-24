@@ -26,11 +26,11 @@ Current rules:
 
 - `CALIBRATION.md` records C0 relation-model calibration and the boundary between relation truth, Question Truth and Explanation.
 - `static-web/scripts/build-xizong-crosswalk-review-queue.mjs` builds **anti-anchored** C1 review packets. For the default backlog it may use approved Explanation routing state only as a hidden mechanical eligibility hint; the reviewer packet itself contains Question Truth and withholds old Explanation semantics, old `mapping_decision`, and prior relation targets until an independent provisional judgment exists. Explicit qids bypass backlog selection. It intentionally emits no suggested System/Block/KP target.
-- `continuation.json` is a work-cursor policy only; it does not define semantic truth or imply a linear catalog frontier.
+- No standing broad continuation cursor is Current. Broad corpus construction is closed; exact stale/new relations reopen on demand through this owner. A future explicit broad program may create its own bounded work cursor if genuinely needed.
 
-## C2 throughput contract
+## C2 throughput contract — only when explicitly reopened
 
-C2 is a progressive content program, not a UI-development loop. The default operating unit is now a **25–40 accepted-relation batch**, usually reviewed from a larger candidate packet. Numeric batch size is a throughput target only; exact-owner quality remains the gate and smaller batches are legal when the candidate pool is weak.
+Broad C2 construction is currently closed. If a real new corpus or explicit broad content program reopens it, C2 is a progressive content program, not a UI-development loop. The default operating unit is now a **25–40 accepted-relation batch**, usually reviewed from a larger candidate packet. Numeric batch size is a throughput target only; exact-owner quality remains the gate and smaller batches are legal when the candidate pool is weak.
 
 The accepted transport is:
 
@@ -39,12 +39,12 @@ large review packet
 → Chat exact-owner review
 → pending-reviewed-batches/*.json
 → materializer
-→ canonical shards + manifest + continuation cursor
+→ canonical shards + manifest/freshness verification
 → Crosswalk Fast QA
 → merge
 ```
 
-`apply-xizong-crosswalk-reviewed-batches.mjs` automatically advances `continuation.json` from the pre-materialization manifest count and the exact staged question ids. A separate human cursor commit and a second clean-head QA run are therefore not part of the normal C2 batch cycle.
+`apply-xizong-crosswalk-reviewed-batches.mjs` materializes only the approved canonical relation rows. Aggregate count/freshness stays with the manifest + freshness resolver; no separate historical cursor is written. A second cursor commit is not part of the batch cycle.
 
 Relation-only PRs use `.github/workflows/xizong-crosswalk-fast-qa.yml`. The fast lane validates canonical materialization, manifest synchronization, Crosswalk behavior and review-queue behavior, builds a larger review packet plus a derived KP lookup index, and performs an Astro build. It does **not** rerun every unrelated A1/A2/A3/browser contract for every content increment.
 
