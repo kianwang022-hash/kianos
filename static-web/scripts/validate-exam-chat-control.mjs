@@ -284,6 +284,23 @@ if (privateApplied.status !== 'applied' || !controlStorage.getItem(EXAM_CHAT_PLA
   fail('PRIVATE_CONTROL_FRESH_BASIS_MUST_APPLY');
 }
 
+// A durable control receipt is not proof that its native effect still exists.
+// If local plan bytes disappear, replay of the exact same command must
+// reconcile through the native plan owner instead of returning false idempotency.
+controlStorage.removeItem(EXAM_CHAT_PLAN_KEY);
+const repairedAfterLostEffect = await applyPrivateControlCommand(
+  controlStorage,
+  browserCommand('control-basis-fresh-001', controlPlanE1),
+  { day: '2026-09-18', now: Date.parse('2026-09-18T05:26:00+08:00') }
+);
+if (repairedAfterLostEffect.status === 'idempotent') {
+  fail('CONTROL_RECEIPT_MUST_NOT_HIDE_MISSING_NATIVE_EFFECT');
+}
+if (!controlStorage.getItem(EXAM_CHAT_PLAN_KEY)
+    || readExamChatPlan(controlStorage, '2026-09-18').status !== 'ready') {
+  fail('CONTROL_REPLAY_MUST_RESTORE_MISSING_NATIVE_EFFECT');
+}
+
 console.log(JSON.stringify({
   status: 'PASS',
   strategy_owner: model.control.strategyOwner,
@@ -302,5 +319,6 @@ console.log(JSON.stringify({
   politics_e1_stales_e0_plan: true,
   later_stability_stales_old_heavy_plan: true,
   private_control_stale_basis_rejected: true,
-  private_control_fresh_basis_applied: true
+  private_control_fresh_basis_applied: true,
+  private_control_receipt_requires_native_effect: true
 }, null, 2));
