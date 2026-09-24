@@ -105,6 +105,45 @@ A cursor or completed-count summary cannot substitute for the design it routes t
 Reuse already-read, still-current owners; the two-or-three-read target is for
 locating the owner, not a ceiling on evidence needed to understand a change.
 
+
+### Design-aware change interface
+
+Natural-language requests such as:
+
+- `优化 / 升级 / 重构 / 改架构`;
+- `重新设计这个系统`;
+- `把这个逻辑理顺 / 收口`;
+- or an equivalent request to materially change an existing KianOS capability
+
+automatically invoke **Change continuity** before choosing the edit.
+
+This is a KianOS interface capability, not a request for Kian to name files or explain the existing architecture again.
+
+Use:
+
+```text
+user intent
+→ resolve the narrow target scope
+→ recover the relevant design chain:
+   user outcome / purpose
+   → parent Rule / Model
+   → exact domain/design owner
+   → affected Content / Visual / Runtime responsibility
+   → actual consumer(s)
+→ identify what must survive
+→ define the smallest justified delta
+→ write the exact owner(s)
+→ verify the affected consumer / behavior
+```
+
+"Relevant design chain" means **complete enough to preserve the responsibility**, not "read the whole repository". Follow only the parent/consumer links that can change the meaning of the proposed edit.
+
+A local file, current implementation or Work Cursor must never be treated as the whole design merely because it is easy to edit. If the relevant rationale or consumer cannot be resolved, keep that part UNKNOWN and avoid silently replacing it with a locally convenient architecture.
+
+The canonical semantics of this interface remain owned by
+[Change continuity](AUTHORITY_INHERITANCE_CONTRACT.md#31-change-continuity);
+this section only defines how Kian's natural-language change request enters that capability.
+
 ## UI
 
 Use the exact shared entry before designing a learner-facing surface:
