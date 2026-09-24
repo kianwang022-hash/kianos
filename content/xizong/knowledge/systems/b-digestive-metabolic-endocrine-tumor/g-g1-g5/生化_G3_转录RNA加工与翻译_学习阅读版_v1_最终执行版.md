@@ -2,30 +2,29 @@
 type: block_guide
 schema_version: 1
 content_version: 1
+source_cycle: 27考研
+primary_source_pdf: 27生化跟课版合集【不带导图】.pdf
+source_snapshot: content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md
+explanatory_substrate: 生物化学讲义_AI阅读版(1).md / 26生化.pdf
 system_id: digestive-metabolism-endocrine
 block_id: dme-g03
 title: 转录、RNA加工与翻译
 order: G3
 study_refs:
-  - source_id: biochemistry-lecture-ai
-    label: 生物化学讲义｜转录及调控
-    source_pdf: 26生化.pdf
-    source_pdf_page_start: 138
-    source_pdf_page_end: 149
-    book_page_start: 116
-    book_page_end: 126
-  - source_id: biochemistry-lecture-ai
-    label: 生物化学讲义｜翻译
-    source_pdf: 26生化.pdf
-    source_pdf_page_start: 150
-    source_pdf_page_end: 162
-    book_page_start: 127
-    book_page_end: 137
+  - source_id: biochemistry-27-unified
+    label: 27生化跟课｜2.4 转录 + DNA复制VS转录
+    source_pdf: 27生化跟课版合集【不带导图】.pdf
+    source_pdf_page_start: 128
+    source_pdf_page_end: 138
+  - source_id: biochemistry-27-unified
+    label: 27生化跟课｜2.5 翻译
+    source_pdf: 27生化跟课版合集【不带导图】.pdf
+    source_pdf_page_start: 139
+    source_pdf_page_end: 150
 coverage_source:
-  source_id: bio26-embedded-questions
-  question_pages: [147, 148, 159, 160, 161]
-embedded_questions_total: 23
-embedded_questions_accounted: 23
+  source_id: bio27-current-lecture-attached-questions
+embedded_questions_total: 25
+embedded_questions_accounted: 25
 unmapped_embedded_questions: 0
 kp_count: 15
 prerequisites:
@@ -41,9 +40,9 @@ visual_gates:
   - bio26-p150-p155-translation-cycle
   - bio26-p156-p158-folding-and-targeting
   - bio26-p159-p162-translation-question-map
-visual_gate_status: VISUAL_SOURCE_GAP
-source_gap_status: VISUAL_SOURCE_GAP + SOURCE_CONFLICT_EF_G_GTPASE
-first_pass_question_probe: PENDING_LECTUREQUESTION_BINDING
+visual_gate_status: SOURCE_AVAILABLE_EXTERNAL_PRIMARY_27_PDF
+source_gap_status: SOURCE_BOUND_CURRENT_27_TRANSLATION_SPATIAL_ONLY
+first_pass_question_probe: CURRENT_SOURCE_POSITION_ACCOUNTED_RELATION_OWNER_SEPARATE
 ---
 
 # G3｜转录、RNA加工与翻译
@@ -61,74 +60,38 @@ first_pass_question_probe: PENDING_LECTUREQUESTION_BINDING
 
 ---
 
-# 0｜统一入口：中心法则不是一根箭头，而是六道加工关
+# 0｜Current Source / Authority
 
-```text
-DNA选择模板链
-→ 转录成前体RNA
-→ 加帽 / 加尾 / 剪接 / 编辑
-→ 成熟mRNA进入胞质
-→ 核糖体按密码子翻译
-→ 新生肽链加工、折叠、靶向
-```
+- Current first-pass Source：BIO27-S18 / P128–P138（转录 + RNA加工） + BIO27-S19 / P139–P150（翻译）。
+- Source map owner：content/xizong/knowledge/learner/biochemistry-27-source-map.json。
+- 26 refined 只作为 explanation reconstruction substrate，不形成第二套 learner Source。
+- S18 形成 L1–L2；S19 形成 L3–L5 并闭合 G3。
 
-每道关都可能成为考试入口：模板方向、聚合酶、启动子、剪接位点、核糖体位点、因子、耗能、翻译后修饰与药物靶点。
+# 1｜Canonical Knowledge Hierarchy
 
----
+## Mother Model｜DNA选段 → 转录 → RNA加工/质控 → 翻译 → 蛋白成熟 → 靶向 / 干扰
 
-# 1｜总 Framework
+## L1｜转录执行：模板、启动、延长与终止｜KP01–KP05
 
-<!-- kianos:framework id="dme-g03-framework-main" -->
+**Core relation**
+- promoter selects start；
+- RNA polymerase 读取 DNA template 3′→5′；
+- RNA 5′→3′ 生长且不需 primer；
+- elongation → termination → primary RNA transcript。
 
-```text
-A｜选择并读取DNA
-模板链3′→5′
-RNA 5′→3′
+**Boundary**
+- 编码链与模板链方向不能混。
+- 原核 σ / 启动子与真核 Pol I/II/III 是不同层级。
+- 转录执行与表达调控分开，G4 才拥有“为什么开 / 关”。
 
-B｜原核转录
-启动子(-35/-10)
-→ 起始
-→ 转录泡延长
-→ ρ依赖 / 内在终止
+**Precision**
+- 原核启动子 / σ 与两类终止；
+- 真核 Pol I/II/III 产物与 current Source 药物敏感性。
 
-C｜真核前体RNA
-RNApol I / II / III
-→ 不同RNA前体
+**Connection**
+- G2 提供复制对照；G4 调用 promoter / RNApol 作为调控执行器。
 
-D｜RNA加工
-mRNA：帽、尾、剪、编
-+tRNA / rRNA加工
-+mRNA质量监控
-
-E｜翻译体系
-mRNA + 氨酰tRNA + 核糖体A/P/E
-+ 蛋白因子 + ATP/GTP
-
-F｜翻译过程
-起始 → 进位 → 成肽 → 转位 → 终止
-
-G｜蛋白成熟
-水解 / 化学修饰 / 二硫键 / 折叠
-→ 亚基与辅基
-→ 靶向内质网、核或其它位置
-```
-
-## 1.1 Ownership 与边界
-
-| 内容 | 动作 | 边界 |
-|---|---|---|
-| 核酸结构、密码子、tRNA/rRNA身份 | **Recall** | G1 |
-| DNA复制和端粒 | **Recall** | G2 |
-| 转录、RNA加工、翻译、蛋白成熟 | **Primary Learn** | 本 Block |
-| 操纵子和真核转录调控 | **Interface / Defer** | G4 |
-| 完整抗菌药理 | **MI-D / Source Boundary** | 仅保留翻译靶点 |
-| 遗传病、蛋白错误折叠疾病 | **Interface / Defer** | 不扩为疾病教材 |
-
----
-
-<!-- kianos:kp id="dme-g03-kp01" -->
-
-## KP01｜转录的模板、编码链与反应体系
+### KP01｜转录的模板、编码链与反应体系
 
 > **讲义定位 →** 生化 Lecture PDF P138–139，印刷页 P116–117。  
 > **主提示**：模板/编码链3关系｜原料｜方向｜引物？｜校对？
@@ -148,7 +111,7 @@ RNApol 沿模板链 3′→5′移动
 **Routing**：CORE｜CONFUSABLE｜MI-G
 <!-- kianos:kp id="dme-g03-kp02" -->
 
-## KP02｜原核RNA聚合酶与启动子：谁决定从哪里开始
+### KP02｜原核RNA聚合酶与启动子：谁决定从哪里开始
 
 > **讲义定位 →** 生化 Lecture PDF P139–140，印刷页 P117–118。  
 > **主提示**：RNA聚合酶组成/分工｜启动子3位点｜谁识别起始｜起始后谁离开
@@ -176,7 +139,7 @@ RNApol 沿模板链 3′→5′移动
 **Routing**：CORE｜MI-G
 <!-- kianos:kp id="dme-g03-kp03" -->
 
-## KP03｜原核转录起始：闭合—开放—首键—启动子逃逸
+### KP03｜原核转录起始：闭合—开放—首键—启动子逃逸
 
 > **讲义定位 →** 生化 Lecture PDF P140，印刷页 P118。  
 > **主提示**：起始4步｜闭/开差别｜首核苷酸磷酸｜流产式界线
@@ -196,21 +159,21 @@ RNApol 沿模板链 3′→5′移动
 **Routing**：CORE｜CONFUSABLE｜MI-G
 <!-- kianos:kp id="dme-g03-kp04" -->
 
-## KP04｜原核延长与终止：转录泡、羽毛状与两类终止
+### KP04｜原核延长与终止：转录泡、羽毛状与两类终止
 
 > **讲义定位 →** 生化 Lecture PDF P141，印刷页 P119。  
 > **主提示**：延长3象｜ρ终止2步｜内在终止2结构｜原核为何边转边译
 
     延长时核心酶形成移动的转录泡，RNA 按 5′→3′延长，酶走过后 DNA 重新配对。原核没有核膜分隔，因此新 mRNA 尚未转录完就可结合多个核糖体，形成“羽毛状”边转录边翻译。
 
-### 依赖 ρ 因子
+#### 依赖 ρ 因子
 
 ρ 结合 RNA 终止信号，并解开 RNA—DNA 杂化区，使 RNA 释放。
 
 <!-- approved-27-audit: B4B-G3-01 -->
 ρ依赖终止的最小识别接口：RNA上的 poly-C 富集区提示ρ结合/追赶；ρ以解旋酶样动作解除RNA—DNA杂化区。
 
-### 不依赖 ρ 因子
+#### 不依赖 ρ 因子
 
 ```text
 GC富集反向重复序列
@@ -224,7 +187,7 @@ GC富集反向重复序列
 **Routing**：CORE｜CONFUSABLE｜MI-G
 <!-- kianos:kp id="dme-g03-kp05" -->
 
-## KP05｜真核三类RNA聚合酶：位置、产物与毒物敏感性
+### KP05｜真核三类RNA聚合酶：位置、产物与毒物敏感性
 
 > **讲义定位 →** 生化 Lecture PDF P142，印刷页 P120。  
 > **主提示**：I/II/III｜位置｜3组产物｜鹅膏蕈碱敏感顺序
@@ -242,19 +205,39 @@ GC富集反向重复序列
 **Routing**：CORE｜CONFUSABLE｜MI-G/MI-D
 <!-- kianos:kp id="dme-g03-kp06" -->
 
-## KP06｜真核mRNA加帽与加尾：先保护，再准备翻译
+## L2｜RNA加工与质量控制｜KP06–KP08
+
+**Core relation**
+- primary RNA → cap / poly(A)；
+- splice introns / join exons；
+- editing where applicable；
+- tRNA / rRNA maturation；
+- abnormal RNA surveillance / degradation；
+- 最终形成 usable RNA pool。
+
+**Boundary**
+- 加工改变成熟度 / 稳定性；编辑可改变序列信息；二者不等同。
+- alternative splicing 不改变 genomic DNA 本身。
+
+**Precision**
+- 5′ cap、3′ polyA、GU-AG、NMD 等 current Study 口径。
+
+**Connection**
+- G1 的真核断裂基因组织在这里被真正执行。
+
+### KP06｜真核mRNA加帽与加尾：先保护，再准备翻译
 
 > **讲义定位 →** 生化 Lecture PDF P142–143，印刷页 P120–121。  
 > **主提示**：帽3点｜尾信号｜尾3作用｜DNA/RNA信号差1字母
 
-### 5′帽
+#### 5′帽
 
 - 7-甲基鸟苷结构；
 - 通过特殊 5′—5′三磷酸键连接；
 - 甲基由 SAM 提供；
 - 保护 mRNA，并参与翻译起始。
 
-### 3′ polyA 尾
+#### 3′ polyA 尾
 
 DNA 编码链信号写作 AATAAA，RNA 上为 AAUAAA。切割后由加尾系统添加 polyA。
 
@@ -272,12 +255,12 @@ DNA 编码链信号写作 AATAAA，RNA 上为 AAUAAA。切割后由加尾系统�
 **Routing**：CORE｜CONFUSABLE｜MI-G
 <!-- kianos:kp id="dme-g03-kp07" -->
 
-## KP07｜剪接、选择性剪接与RNA编辑：一个前体怎样形成不同成品
+### KP07｜剪接、选择性剪接与RNA编辑：一个前体怎样形成不同成品
 
 > **讲义定位 →** 生化 Lecture PDF P143–144、P147–148，印刷页 P121–122、P125–126。  
 > **主提示**：剪接体｜剪接边界信号｜2次反应/套索｜选择性剪接 vs RNA编辑
 
-### 剪接
+#### 剪接
 
 ```text
 hnRNA含外显子对应序列 + 内含子对应序列
@@ -292,7 +275,7 @@ hnRNA含外显子对应序列 + 内含子对应序列
 <!-- approved-27-audit: B4B-G3-03 -->
 剪接错误可连接地中海贫血的最小疾病接口；完整遗传病模型不在本KP扩写。
 
-### RNA编辑
+#### RNA编辑
 
 编辑直接改变 RNA 编码序列，使蛋白质氨基酸序列不再与原 hnRNA 编码序列完全对应。讲义以 apoB100 / apoB48 为接口；这里保留机制，不扩写治疗应用。
 
@@ -301,27 +284,27 @@ hnRNA含外显子对应序列 + 内含子对应序列
 **Routing**：CORE｜CONFUSABLE｜MI-G
 <!-- kianos:kp id="dme-g03-kp08" -->
 
-## KP08｜tRNA、rRNA加工与mRNA质量监控
+### KP08｜tRNA、rRNA加工与mRNA质量监控
 
 > **讲义定位 →** 生化 Lecture PDF P145–146，印刷页 P123–124。  
 > **主提示**：tRNA 4步｜45S→3个｜自剪2型｜正常降解3路｜异常4监控
 
-### 前体 tRNA 的四步
+#### 前体 tRNA 的四步
 
 1. RNase P 等切除 5′多余核苷酸，3′端另行修整；
 2. 3′端加 CCA；
 3. 化学修饰形成稀有碱基；
 4. 必要时剪接内含子。
 
-### 前体 rRNA
+#### 前体 rRNA
 
 45S rRNA 在核仁经 snoRNP 加工为 18S、5.8S、28S；5S rRNA 不在此链中。
 
-### 自身剪接
+#### 自身剪接
 
 组 I 型和组 II 型内含子可依靠 RNA 自身催化，不需蛋白质；切除产物分别偏线状 / 套索状识别。
 
-### mRNA降解
+#### mRNA降解
 
 正常转录物可经脱腺苷酸化—脱帽—外切酶或核酸内切酶途径降解；异常转录物由 NMD、NSD、NGD 等质量监控防止产生有害截短或停滞蛋白。
 
@@ -330,7 +313,27 @@ hnRNA含外显子对应序列 + 内含子对应序列
 **Routing**：CORE｜RECOGNITION｜MI-G/MI-D
 <!-- kianos:kp id="dme-g03-kp09" -->
 
-## KP09｜翻译体系：20+1氨基酸、mRNA、tRNA与核糖体
+## L3｜翻译体系与起始—延长—终止｜KP09–KP13
+
+**Core relation**
+- aa + tRNA --aaRS + ATP→ aminoacyl-tRNA；
+- initiation 把起始 tRNA 放入 P site；
+- A-site entry → peptide bond → translocation；
+- stop codon + release factor → polypeptide。
+
+**Boundary**
+- aaRS 装载正确性与 ribosome 解码是两层。
+- peptidyl transferase / translocation / release 不能混成一个“核糖体功能”。
+- 原核 / 真核起始 machinery 分开比较。
+
+**Precision**
+- A/P/E 位、GTP/ATP 能量节点、起始/延长因子按 current Source。
+- 若某 EF-G / GTPase 视觉标注无法唯一线性化，保持 SOURCE_BOUND，不制造冲突结论。
+
+**Connection**
+- G1 密码 / tRNA 前提在此兑现成蛋白。
+
+### KP09｜翻译体系：20+1氨基酸、mRNA、tRNA与核糖体
 
 > **讲义定位 →** 生化 Lecture PDF P150–152，印刷页 P127–129。  
 > **主提示**：翻译原料/模板/适配器/场所｜特殊AA｜定位信号｜tRNA准确性｜A/P/E
@@ -358,7 +361,7 @@ A/P/E 位：新氨酰-tRNA进 A 位，肽酰-tRNA在 P 位，空载 tRNA 经 E �
 **Routing**：CORE｜CONFUSABLE｜MI-G
 <!-- kianos:kp id="dme-g03-kp10" -->
 
-## KP10｜氨基酰-tRNA合成酶与翻译能量账
+### KP10｜氨基酰-tRNA合成酶与翻译能量账
 
 > **讲义定位 →** 生化 Lecture PDF P151、P154，印刷页 P128、P130。  
 > **主提示**：aaRS做什么｜ATP耗到哪｜翻译各阶段耗能｜每个肽键最低能量账
@@ -380,7 +383,7 @@ A/P/E 位：新氨酰-tRNA进 A 位，肽酰-tRNA在 P 位，空载 tRNA 经 E �
 **Routing**：CORE｜CONFUSABLE｜MI-G
 <!-- kianos:kp id="dme-g03-kp11" -->
 
-## KP11｜原核翻译起始：小亚基怎样找到AUG并把起始tRNA放进P位
+### KP11｜原核翻译起始：小亚基怎样找到AUG并把起始tRNA放进P位
 
 > **讲义定位 →** 生化 Lecture PDF P152、P154，印刷页 P129–130。  
 > **主提示**：起始因子3｜小亚基找AUG靠什么｜起始tRNA身份｜先落哪个位点｜复合物顺序
@@ -403,12 +406,12 @@ EF-Ts是EF-Tu的调节亚基；当前Source明确IF2、EF-Tu、RF3为GTPase。EF
 **Routing**：CORE｜VISUAL_ONLY｜MI-G
 <!-- kianos:kp id="dme-g03-kp12" -->
 
-## KP12｜延长与终止：进位—成肽—转位—释放
+### KP12｜延长与终止：进位—成肽—转位—释放
 
 > **讲义定位 →** 生化 Lecture PDF P152–154，印刷页 P129–130。  
 > **主提示**：延长3步｜A/P/E位移｜肽链生长方向｜终止密码识别｜释放因子分工
 
-### 延长循环
+#### 延长循环
 
 ```text
 进位：EF-Tu帮助氨酰-tRNA进入A位
@@ -419,7 +422,7 @@ EF-Ts是EF-Tu的调节亚基；当前Source明确IF2、EF-Tu、RF3为GTPase。EF
 
 肽链从 N 端向 C 端延长。
 
-### 终止
+#### 终止
 
 - RF1 识别 UAA、UAG；
 - RF2 识别 UAA、UGA；
@@ -431,7 +434,7 @@ EF-Ts是EF-Tu的调节亚基；当前Source明确IF2、EF-Tu、RF3为GTPase。EF
 **Routing**：CORE｜CONFUSABLE｜BOUNDARY｜MI-G
 <!-- kianos:kp id="dme-g03-kp13" -->
 
-## KP13｜原核 vs 真核翻译起始
+### KP13｜原核 vs 真核翻译起始
 
 > **讲义定位 →** 生化 Lecture PDF P155，印刷页 P131。  
 > **主提示**：原核 vs 真核起始：核糖体｜起始AA｜因子｜mRNA识别｜结合顺序
@@ -450,7 +453,24 @@ EF-Ts是EF-Tu的调节亚基；当前Source明确IF2、EF-Tu、RF3为GTPase。EF
 **Routing**：CORE｜CONFUSABLE｜MI-G/MI-D
 <!-- kianos:kp id="dme-g03-kp14" -->
 
-## KP14｜翻译后加工与折叠：新生肽链怎样成为有功能蛋白
+## L4｜蛋白成熟、折叠与修饰｜KP14
+
+**Core relation**
+- nascent polypeptide → folding / chaperone assistance；
+- cleavage / disulfide / chemical modifications；
+- subunit / cofactor assembly；
+- functional protein。
+
+**Boundary**
+- 翻译后加工改变成熟蛋白，不等于重新编码 DNA / RNA。
+
+**Precision**
+- current Source 只保留高频修饰与折叠接口。
+
+**Connection**
+- M1 的蛋白结构语言在这里作为“产物质量”被重新调用。
+
+### KP14｜翻译后加工与折叠：新生肽链怎样成为有功能蛋白
 
 > **讲义定位 →** 生化 Lecture PDF P156–157，印刷页 P132–133。  
 > **主提示**：5类加工｜化学修饰7字｜二硫键｜伴侣3类｜亚基/辅基
@@ -471,12 +491,28 @@ EF-Ts是EF-Tu的调节亚基；当前Source明确IF2、EF-Tu、RF3为GTPase。EF
 **Routing**：CORE｜CONFUSABLE｜MI-G/MI-D
 <!-- kianos:kp id="dme-g03-kp15" -->
 
-## KP15｜蛋白靶向与翻译干扰：做出来以后送到哪里，药物在哪一层截断
+## L5｜蛋白靶向与翻译干扰接口｜KP15
+
+**Core relation**
+- sorting signal → SRP / ER or organelle / nuclear targeting → protein reaches correct compartment；
+- translation inhibitor / toxin → locate ribosomal subunit / factor / step → predict synthesis failure。
+
+**Boundary**
+- 靶向与药物干扰只是共用翻译机器接口，不是一条机制。
+- 完整抗菌 / 毒理药理后置。
+
+**Precision**
+- signal peptide / SRP、核定位等 current Source 主轴。
+
+**Connection**
+- 后续各器官只调用“蛋白去哪 / 哪一步被阻断”。
+
+### KP15｜蛋白靶向与翻译干扰：做出来以后送到哪里，药物在哪一层截断
 
 > **讲义定位 →** 生化 Lecture PDF P157–161，印刷页 P133–137。  
 > **主提示**：3类分拣信号｜SRP 5步｜干扰5层｜原/真核边界
 
-### 三类分拣信号
+#### 三类分拣信号
 
 | 蛋白 | 信号位置 |
 |---|---|
@@ -484,7 +520,7 @@ EF-Ts是EF-Tu的调节亚基；当前Source明确IF2、EF-Tu、RF3为GTPase。EF
 | 内质网驻留蛋白 | C端滞留信号 |
 | 核蛋白 | 核定位序列，位置不固定 |
 
-### SRP主链
+#### SRP主链
 
 ```text
 游离核糖体合成N端信号肽
@@ -494,7 +530,7 @@ EF-Ts是EF-Tu的调节亚基；当前Source明确IF2、EF-Tu、RF3为GTPase。EF
 → 高尔基体加工 / 分选
 ```
 
-### 翻译干扰按层定位
+#### 翻译干扰按层定位
 
 - 起始复合物；
 - 原核大亚基成肽；
@@ -508,7 +544,11 @@ EF-Ts是EF-Tu的调节亚基；当前Source明确IF2、EF-Tu、RF3为GTPase。EF
 **Routing**：CORE｜CONNECTION｜MI-G/MI-D
 
 
-# 17｜Memory Routing
+# 2｜Derived Learner Support
+
+> 以下只消费 canonical Knowledge；Recall、Memory、Questions 与网站呈现都不得反向定义 G3。
+
+## 2.1｜Memory Routing
 
 ## MI-G
 
@@ -533,47 +573,27 @@ EF-Ts是EF-Tu的调节亚基；当前Source明确IF2、EF-Tu、RF3为GTPase。EF
 
 ---
 
-# 18｜Study 原图门禁
+## 2.2｜Current 27 Source Visual / Exactness Gate
 
-**VISUAL_SOURCE_GAP**：当前运行环境没有生化原页图像。必须回原 PDF 查看：
+Current visual truth = S18 + S19。转录泡、RNA加工、A/P/E位、翻译因子、SRP / 靶向图若不能唯一线性化，保持 SOURCE_BOUND。
 
-- P139–149：启动子、转录泡、剪接套索和RNA加工总图；
-- P150–155：核糖体A/P/E位、翻译起始和延长循环；
-- P156–158：折叠、SRP与翻译抑制表；
-- P159–162：整章思维导图与题旁视觉。
+旧 26 EF-G conflict 不继续作为 current conflict；current 27 若某因子 exact label 仍不清，只保持 visual exactness boundary。
 
-P142、P145、P146、P151、P154、P158有明确 `UNCERTAIN_SOURCE_READING`，精确空格 / 因子名应回原页。
+## 2.3｜Embedded Questions Coverage
 
----
+embedded_questions_total = 25
+source_position_accounted = 25
+unaccounted_source_questions = 0
+question_to_kp_relations_inferred_here = 0
 
-# 19｜Embedded Questions Coverage
+S18 9题 + S19 16题 = 25/25；新增 current 27：2025N24、2025N120-121。
+正式 Question→Knowledge relation 仍由 reviewed relation owner 决定。
 
-| 题目组 | Accounted 状态 | 主要归属 |
-|---|---|---|
-| P147 Q01–Q05 | mapped_primary | KP01、KP04、KP06–KP07 |
-| P148 Q01–Q04 | mapped_primary | KP07–KP08 |
-| P159 Q01–Q03 | mapped_primary | KP09、KP14–KP15 |
-| P160 Q01–Q07 | mapped_primary | KP10、KP12、KP14–KP15 |
-| P161 Q01–Q04 | mapped_primary | KP09、KP14 |
+## 2.4｜First-pass Lecture-attached Question Contact
 
-```text
-embedded_questions_total = 23
-accounted = 23
-mapped_primary = 23
-unmapped_embedded_questions = 0
-```
+讲义附题在 current 27 Source 原位置随课处理；不在 Block 末尾制造第二套题库。Source-position accounting 不等于 Question→KP semantic mapping。
 
----
-
-# 20｜First-pass Question Probe
-
-**来源**：TTSX Lecture-attached Questions  
-**选择方式**：LectureQuestionBinding 自动提供  
-**状态**：**待绑定**
-
----
-
-# 21｜Block Exit
+## 2.5｜Block Exit
 
 闭卷重建：
 
