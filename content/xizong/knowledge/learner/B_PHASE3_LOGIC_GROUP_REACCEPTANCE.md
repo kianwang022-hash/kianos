@@ -33,9 +33,7 @@ Every current/proposed Logic Group was challenged on:
 - justification of single-KP groups;
 - stable-KP exact coverage without reopening medical Core.
 
-The accepted semantics are compiled in:
-
-`static-web/scripts/build-xizong-b-learning-candidate.mjs`
+The accepted semantics were compiled by the bounded Phase-3 builder preserved in Git history; that one-shot builder is no longer a Current implementation entry.
 
 Phase-3 semantic compiler commit:
 
