@@ -4248,7 +4248,7 @@
           "hematology hemolysis interface"
         ]
       },
-      "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：血红素合成与含铁卟啉入口[HEME_SYNTHESIS] → UCB→CB→肠道与三类黄疸[BILIRUBIN_LOCALIZATION] → Ⅰ相/Ⅱ相生物转化[BIOTRANSFORMATION_PHASE_MAP]。",
+      "partition_rationale": "M10 Learning consumes the canonical 3-layer hierarchy directly: heme synthesis → bilirubin handling/jaundice localization → Phase I/II biotransformation. KP identities remain stable; Source order is owned only by the global Biochemistry Source map.",
       "learner_order": [
         "b-m10-lg01",
         "b-m10-lg02",
@@ -4264,7 +4264,8 @@
           "cognitive_job": "HEME_SYNTHESIS",
           "goal": "把甘氨酸+琥珀酰CoA、线粒体/胞浆往返与铁插入组织成血红素合成主链。",
           "closure": "给出B6、铅或关键步骤受阻，能预测血红素合成方向并连接RBC/细胞色素接口。",
-          "continuity_rationale": "KP01–KP04共同完成“血红素合成与含铁卟啉入口”这一HEME_SYNTHESIS任务。这是本Block当前学习顺序的第一个闭环任务。后一组“UCB→CB→肠道与三类黄疸”切换到不同的BILIRUBIN_LOCALIZATION任务。"
+          "continuity_rationale": "KP01–KP04共同完成“血红素合成与含铁卟啉入口”这一HEME_SYNTHESIS任务。这是本Block当前学习顺序的第一个闭环任务。后一组“UCB→CB→肠道与三类黄疸”切换到不同的BILIRUBIN_LOCALIZATION任务。",
+          "canonical_layer": "L1"
         },
         "b-m10-lg02": {
           "kp": [
@@ -4275,7 +4276,8 @@
           "cognitive_job": "BILIRUBIN_LOCALIZATION",
           "goal": "从血红素分解形成UCB、白蛋白运肝、UGT结合CB、胆道排肠接到溶血/肝细胞/梗阻三类黄疸。",
           "closure": "给出血/尿胆红素、尿胆原和胆道通畅性，能定位故障在生成、肝处理还是排出，并解释UCB/CB性质差异。",
-          "continuity_rationale": "KP05–KP09共同完成“UCB→CB→肠道与三类黄疸”这一BILIRUBIN_LOCALIZATION任务。前一组“血红素合成与含铁卟啉入口”承担不同的HEME_SYNTHESIS任务。后一组“Ⅰ相/Ⅱ相生物转化”切换到不同的BIOTRANSFORMATION_PHASE_MAP任务。"
+          "continuity_rationale": "KP05–KP09共同完成“UCB→CB→肠道与三类黄疸”这一BILIRUBIN_LOCALIZATION任务。前一组“血红素合成与含铁卟啉入口”承担不同的HEME_SYNTHESIS任务。后一组“Ⅰ相/Ⅱ相生物转化”切换到不同的BIOTRANSFORMATION_PHASE_MAP任务。",
+          "canonical_layer": "L2"
         },
         "b-m10-lg03": {
           "kp": [
@@ -4286,7 +4288,68 @@
           "cognitive_job": "BIOTRANSFORMATION_PHASE_MAP",
           "goal": "把CYP等Ⅰ相引入/暴露官能团与Ⅱ相结合增水溶性组织成肝脏处理外源/内源物的两阶段图。",
           "closure": "给出一种药物/激素处理或结合供体，能判断属于Ⅰ相还是Ⅱ相及对水溶性/排泄的方向；不扩写完整药物相互作用。",
-          "continuity_rationale": "KP10–KP13共同完成“Ⅰ相/Ⅱ相生物转化”这一BIOTRANSFORMATION_PHASE_MAP任务。前一组“UCB→CB→肠道与三类黄疸”承担不同的BILIRUBIN_LOCALIZATION任务。这是本Block当前学习顺序的最后一个闭环任务。"
+          "continuity_rationale": "KP10–KP13共同完成“Ⅰ相/Ⅱ相生物转化”这一BIOTRANSFORMATION_PHASE_MAP任务。前一组“UCB→CB→肠道与三类黄疸”承担不同的BILIRUBIN_LOCALIZATION任务。这是本Block当前学习顺序的最后一个闭环任务。",
+          "canonical_layer": "L3"
+        }
+      },
+      "canonical_hierarchy": {
+        "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M10_血红素胆红素与生物转化_学习阅读版_v1_最终执行版.md",
+        "mother_model": "heme synthesis → bilirubin generation/handling/excretion → Phase I/II hepatic chemical processing",
+        "layers": {
+          "L1": {
+            "kp": [
+              1,
+              4
+            ],
+            "logic_group": "b-m10-lg01"
+          },
+          "L2": {
+            "kp": [
+              5,
+              9
+            ],
+            "logic_group": "b-m10-lg02"
+          },
+          "L3": {
+            "kp": [
+              10,
+              13
+            ],
+            "logic_group": "b-m10-lg03"
+          }
+        },
+        "rule": "Knowledge hierarchy owns meaning. Learning consumes canonical layers and must not create a second content topology."
+      },
+      "learner_order_role": "RETRIEVAL_AND_CLOSURE_ORDER_ONLY_NOT_SOURCE_OR_KNOWLEDGE_AUTHORITY",
+      "source_contact": {
+        "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
+        "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+        "rule": "The Source map alone owns teacher order, page ranges and Source→canonical layer/KP mapping. Learning keeps no duplicate M10 Source registry.",
+        "layer_release": [
+          {
+            "canonical_layer": "L1",
+            "releases": [
+              "b-m10-lg01"
+            ]
+          },
+          {
+            "canonical_layer": "L2",
+            "releases": [
+              "b-m10-lg02"
+            ]
+          },
+          {
+            "canonical_layer": "L3",
+            "releases": [
+              "b-m10-lg03"
+            ]
+          }
+        ],
+        "block_source_formation_checkpoint": {
+          "block": "M10",
+          "after_unit": "BIO27-S12",
+          "after_pdf": 80,
+          "checkpoint_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
         }
       }
     },
