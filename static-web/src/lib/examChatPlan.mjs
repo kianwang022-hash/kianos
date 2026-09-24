@@ -374,6 +374,9 @@ export function validateExamChatPlan(value, expectedDay = null) {
   if (!generatedAt || Number.isNaN(Date.parse(generatedAt))) {
     throw new Error('Chat Plan generated_at is missing or invalid.');
   }
+  if (Date.parse(generatedAt) > Date.now() + 60_000) {
+    throw new Error('CHAT_PLAN_FUTURE_GENERATED_AT');
+  }
   const learnerEvidenceBasis = normalizeExamChatPlanBasis(value.learner_evidence_basis, value.study_day);
   const presentation = normalizeExamChatPlanPresentation(value.presentation);
 
