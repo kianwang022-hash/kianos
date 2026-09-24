@@ -1,9 +1,9 @@
 # KianOS Architecture
 
 Status: **CURRENT — accepted top-level architecture**  
-Version: **2.0**
+Version: **2.1**
 
-This document defines the smallest durable architecture needed for KianOS to remain understandable, restartable, editable and useful over long-term real study.
+This document defines the smallest durable architecture needed for KianOS to remain understandable, restartable, editable and useful over long-term real use.
 
 Its job is not to describe every file, workflow or implementation detail. Its job is to answer:
 
@@ -19,18 +19,19 @@ KianOS has five top-level responsibilities:
 
 ```text
                          RULE / MODEL
-              why / knowledge quality / learning /
+              why / semantics / learning when needed /
                     interaction / boundaries
                               │
              ┌────────────────┼────────────────┐
              ↓                ↓                ↓
          CONTENT           VISUAL         ENGINEERING
-         what to learn     how it appears   how it runs
-             │                │                │
-             └────────────────┴────────────────┘
+       durable meaning     how it appears   how it runs
+       / knowledge              │                │
+             │                  │                │
+             └──────────────────┴────────────────┘
                               ↓
-                           WEBSITE
-                     learner execution surface
+                     PRODUCT / WEBSITE
+                       execution surface
 
                               ↑
                            CONTROL
@@ -45,12 +46,12 @@ A responsibility may be implemented by one or several narrow canonical owners. T
 
 ## 1.1 RULE / MODEL｜why the system behaves this way
 
-Rule / Model is the upstream logic that gives KianOS its learning intent.
+Rule / Model is the upstream logic that gives a KianOS capability its purpose, semantic boundaries and approved behavior. Learning Logic is one important subtype when the capability is something Kian must actually learn.
 
 It includes five kinds of rule:
 
 ### Purpose
-Why this learner/domain exists and what outcome it optimizes.
+Why this domain/product/capability exists and what outcome it optimizes.
 
 Examples:
 
@@ -72,10 +73,12 @@ Examples may include:
 - Core / senses / familiar-new branches / constructions / phraseology / confusables in Lexical.
 
 ### Learning logic
-How the approved knowledge should actually be learned, recalled, applied, repaired and compressed.
+When the goal is capability formation, how the approved knowledge should actually be learned, recalled, applied, repaired and compressed.
+
+A non-learning KianOS surface does not need to invent a Learning Logic merely to fit this architecture; it still needs an explicit Rule / Model for the behavior it provides.
 
 ### Interaction logic
-What learner actions mean and which transitions are legitimate.
+What user actions mean and which transitions are legitimate. For learning products, these semantics remain learner-specific.
 
 Examples: whole-passage Reading attempt, conditional repair, Recall→Reveal, Writing revision, question Submit, low-friction stable exit.
 
@@ -86,21 +89,19 @@ Hard boundary:
 
 ```text
 Content does not decide page layout.
-Visual does not invent knowledge.
-Engineering does not invent Learning Logic.
-Website does not become a second content owner.
+Visual does not invent semantic meaning.
+Engineering does not invent domain / Learning Logic.
+Website / product surfaces do not become a second content owner.
 Control does not manufacture Truth.
 ```
 
-Root rules live in root authority. Domain-specific rules live in the domain Learning / Content contracts that genuinely own those differences.
+Root rules live in root authority. Domain/product-specific rules live in the exact Rule / Model, Learning or Content owners that genuinely own those differences.
 
 ---
 
-## 1.2 CONTENT｜the durable learning asset
+## 1.2 CONTENT｜durable knowledge / semantic assets
 
-Content is the most important long-lived learner asset in GitHub.
-
-Its normal causal chain is:
+Content is durable meaning that should remain useful independently of the current UI. For formal learning, it is the long-lived learner asset in GitHub and normally follows:
 
 ```text
 SOURCE
@@ -131,7 +132,9 @@ Knowledge answers:
 
 > **Has AI actually transformed that material into a coherent, accurate, learner-worthy knowledge model?**
 
-A copied lecture, copied PDF, teacher chapter order, raw question taxonomy, or rendered source text is not automatically good Knowledge.
+A copied lecture, copied PDF, teacher chapter order, raw question taxonomy, rendered source text, video or transcript is not automatically good Knowledge.
+
+Raw/reference material may remain in Drive, Library, Files or its original source until a real KianOS need justifies reconstruction into durable Content. Non-learning KianOS products may also own durable semantic/configuration assets, but transient runtime/user state does not become Content merely because it can be serialized.
 
 ### Website-disappearance rule
 
@@ -157,7 +160,7 @@ Routine content change should not require editing a duplicate page copy.
 
 ## 1.3 VISUAL｜stable presentation of accepted meaning
 
-Visual owns how already-approved meaning appears to the learner.
+Visual owns how already-approved meaning appears to Kian on a product surface.
 
 Visual has three scopes:
 
@@ -165,8 +168,8 @@ Visual has three scopes:
 Shared Visual
 → site-wide typography / weight / palette / spacing / radius / elevation / shared controls
 
-Subject Visual
-→ English / Politics / Xizong visual language where the domain genuinely differs
+Domain / Product Visual
+→ English / Politics / Xizong / Steward or another product-specific visual language where it genuinely differs
 
 Accepted Surface Blueprint
 → stable task geometry already accepted by Kian
@@ -184,18 +187,18 @@ Examples of Accepted Surface Blueprints:
 
 ### Accepted design is an asset
 
-Once a learner surface has passed Kian's Human Gate, later CSS refactors, Shell changes, owner cleanup, or new Chats do **not** reopen its layout by default.
+Once a surface has passed the applicable Kian Human Gate, later CSS refactors, Shell changes, owner cleanup, or new Chats do **not** reopen its layout by default.
 
 A surface is redesigned only when:
 
 1. Kian explicitly asks to redesign it; or
-2. upstream Rule / Learning Logic changes enough that the accepted geometry no longer expresses the real task.
+2. upstream Rule / Interaction / Learning Logic changes enough that the accepted geometry no longer expresses the real task.
 
 ### Visual does not own semantics
 
 Visual may choose hierarchy, spacing, typography, layout, disclosure and interaction affordance.
 
-It may not decide what the knowledge means, what a question tests, or what the learner should learn.
+It may not decide what the underlying meaning is, what a question tests, what the user should do, or what the learner should learn.
 
 ---
 
@@ -222,7 +225,7 @@ Typical Engineering owners include:
 
 Runtime does not form another top-level architecture.
 
-Rule decides what a learner action means. Runtime makes it executable.
+Rule decides what a user action means. Runtime makes it executable. Learning-specific Runtime remains subordinate to the applicable Learning Logic.
 
 Example:
 
@@ -267,7 +270,7 @@ Control reads the narrow current owners needed to answer:
 - what Visual is accepted / pending;
 - what Engineering capability exists / is blocked;
 - what Acceptance evidence exists;
-- what learner state is known when that private state is legitimately available;
+- what private execution / learner state is known when that state is legitimately available;
 - what should happen next.
 
 Control normally reports in a compact form:
@@ -280,7 +283,7 @@ Owner
 Human Gate when relevant
 ```
 
-`CURRENT.md` is an **engineering Work Cursor / router** inside Control. It is not learner progress and not semantic Truth.
+`CURRENT.md` is an **engineering Work Cursor / router** inside Control. It is not user/learner progress and not semantic Truth.
 
 A bare learner request such as `继续英语` does not automatically mean `continue the engineering CURRENT`.
 
@@ -298,15 +301,15 @@ Reliable factual/source boundaries must remain explicit.
 
 Do not silently invent missing source facts, official answers, provenance, mappings, or quoted teaching content.
 
-## 2.2 Learner Truth
+## 2.2 Private Reality / Learner Truth
 
-Learner Truth answers:
+Private Reality answers what actually happened in use. For learning, Learner Truth asks:
 
 > **What has Kian actually studied, attempted, repaired, retained, forgotten, deferred or demonstrated?**
 
-It is private learner/runtime evidence.
+For non-learning products it may instead be real execution/user evidence such as actions, state transitions, time or observed outcomes, owned by the exact private Runtime/source.
 
-Engineering readiness, page existence, accepted Content, CI success or a Work Cursor must never manufacture learner progress.
+Engineering readiness, page existence, accepted Content, CI success or a Work Cursor must never manufacture real-use or learner progress.
 
 ## 2.3 Acceptance Truth
 
@@ -320,9 +323,9 @@ A file existing, page rendering, build passing, Runtime working or screenshot lo
 
 ---
 
-# 3｜S / K / L / P / R / E / U is acceptance, not architecture
+# 3｜S / K / L / P / R / E / U is learning acceptance, not architecture
 
-The acceptance gates map naturally onto the five-responsibility model:
+For formal learning assets, the acceptance gates map naturally onto the five-responsibility model:
 
 ```text
 S  Source      → is Source reliable?
@@ -334,7 +337,7 @@ E  Evidence    → are meaningful learner observations preserved/interpreted cor
 U  User        → did Kian actually use the path successfully?
 ```
 
-These are **quality gates**, not seven top-level product layers.
+These are **learning quality gates**, not seven top-level KianOS product layers. Non-learning product surfaces use claim-specific Rule / Visual / Runtime / real-use evidence rather than being forced through fake Learning gates.
 
 Construction order and acceptance remain separate responsibilities:
 
@@ -350,7 +353,7 @@ LEARNING_ACCEPTANCE.md
 
 # 4｜Projection is optional derivation, not a mandatory architecture layer
 
-Projection / presentation transformation may be useful when the same canonical cognition must appear differently by learner state.
+Projection / presentation transformation may be useful when the same canonical meaning must appear differently by learner or product state.
 
 Example:
 
@@ -386,17 +389,17 @@ Hard rules:
 
 ---
 
-# 5｜Backend ownership tree ≠ learner product tree
+# 5｜Backend ownership tree ≠ product navigation tree
 
-KianOS distinguishes **backend ownership** from **learner-facing navigation**.
+KianOS distinguishes **backend ownership** from **product navigation**.
 
 A scope may deserve an independent backend lane because it has substantial canonical assets, independent maintenance, bounded continuation or parallel work.
 
 That does not require it to appear as a learner-facing top-level product.
 
-## 5.1 Current learner product tree
+## 5.1 Current learning product subtree
 
-The accepted top-level learner product is:
+The accepted learning product subtree is:
 
 ```text
 Home
@@ -417,6 +420,8 @@ Lexical may retain independent backend canonical ownership and engineering conti
 But learner-facing Vocabulary / Lexical is an **English child function**, not a fourth subject beside English.
 
 Likewise, External Reading is an English child surface and another data source for the shared Reading task family, not another top-level product.
+
+This is **not** the complete KianOS product-navigation authority. Non-learning product surfaces such as Steward may coexist in the shared shell under their own current Visual/Product owners. The learning subtree must not be used to erase or redefine those surfaces.
 
 Hard distinction:
 
@@ -439,7 +444,7 @@ Root
 → Lane
 → independently continuable Sub-lane when justified
 → Canonical Owners
-→ learner execution
+→ product / learner execution
 ```
 
 Hierarchy answers:
@@ -469,8 +474,8 @@ Hard distinction:
 ```text
 ownership hierarchy
 ≠ construction dependency
-≠ learner order
-≠ learner product navigation
+≠ user / learner order
+≠ product navigation
 ```
 
 ---
@@ -530,10 +535,10 @@ Once intent and scope are known, normal work should reach effective action after
 Normal read patterns:
 
 ```text
-LEARN
-→ actual learner/runtime state
-→ domain Rule only when needed
-→ learn
+LEARN / USE
+→ actual private runtime / learner state when needed
+→ exact domain/product Rule only when needed
+→ use / learn
 
 BUILD
 → target CURRENT
@@ -656,11 +661,11 @@ For any important current fact or rule, `Who owns this?` has one clear answer.
 
 ## A3｜Truth Separation Test
 
-Artifact/Content reality, Acceptance, Learner Truth and engineering Work Cursor remain separately resolvable.
+Artifact/Content reality, Acceptance, Private Reality/Learner Truth and engineering Work Cursor remain separately resolvable.
 
 ## A4｜Content Change Absorption Test
 
-Ordinary legitimate Content evolution reaches the learner through asset change + existing renderer/runtime without page-specific semantic rewrite.
+Ordinary legitimate Content evolution reaches its consumer through asset change + existing renderer/runtime without page-specific semantic rewrite.
 
 ## A5｜Visual Change Cost Test
 
@@ -694,33 +699,36 @@ If these recur, architecture must be simplified at the earliest responsible owne
 For ordinary KianOS work, keep this mental model:
 
 ```text
-RULE       why / quality / learning / interaction
-CONTENT    what to learn
-VISUAL     how it appears
+RULE        why / semantics / learning when needed / interaction
+CONTENT     durable knowledge / meaning
+VISUAL      how it appears
 ENGINEERING how it runs
-CONTROL    where we are
+CONTROL     where we are
 ```
 
 Constrained by:
 
 ```text
 Source Truth
-Learner Truth
+Private Reality / Learner Truth
 Acceptance
 ```
 
 Normal product flow:
 
 ```text
-Rule
+Rule / Model
 ↓
 Content + Visual
 ↓
-Engineering
+Engineering / Runtime
 ↓
-Website
+Product / Website
+↓
+real-use evidence when applicable
+→ Chat
 ```
 
 Control observes and routes the system from the side.
 
-The website is the learner-facing execution surface. **The durable asset is the Rule + Content + accepted Visual/Engineering model behind it, not the page itself.**
+The website is a product execution surface. Learning experiences remain a major, rigorously gated use case; non-learning surfaces inherit only the responsibilities they actually need. **The durable asset is the Rule / Model + Content + accepted Visual/Engineering model behind the surface, not the page itself.**
