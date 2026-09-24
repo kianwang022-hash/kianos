@@ -63,6 +63,7 @@ const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
 const recallPage = read('static-web/src/pages/xizong/[system]/recall.astro');
 const practicePage = read('static-web/src/pages/xizong/practice/[system].astro');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
+const systemWuReturn = read('static-web/src/lib/xizongSystemWuReturn.mjs');
 
 assert(blockGuard.includes('kianos-xizong-stale-evidence-v1:'), 'stale-block-evidence-not-archived');
 assert(blockGuard.includes('localStorage.removeItem(studyKey)'), 'stale-block-progress-remains-current');
@@ -81,7 +82,15 @@ assert(memoryModel.includes('export function completeRepairTask'), 'resolved-rep
 assert(memoryWorkspace.includes('completeRepairTask(state, item.id)'), 'visible-repair-not-closed-through-owner');
 assert(memoryWorkspace.includes('不把修完自动写成 mastery'), 'repair-promotes-mastery');
 
-assert(repairReturn.includes('kianos-xizong-repair-inbox-v1:'), 'system-repair-return-bypasses-inbox');
+assert(
+  repairReturn.includes('applyXizongSystemWuReturn') && repairReturn.includes('consumePendingXizongSystemWuReturn'),
+  'system-repair-return-bypasses-shared-owner'
+);
+assert(
+  systemWuReturn.includes("inboxKey:'kianos-xizong-repair-inbox-v1:xizong:'")
+    && systemWuReturn.includes('storage.setItem(inboxKey'),
+  'system-wu-return-owner-does-not-persist-repair-inbox'
+);
 assert(!repairReturn.includes('kianos-xizong-memory-review-v2:${objectId}'), 'system-repair-return-still-writes-block-evidence-store');
 assert(repairBridge.includes('kianos-xizong-repair-inbox-v1:'), 'block-repair-inbox-not-consumed');
 assert(repairBridge.includes("type: 'SYSTEM_WU_PLAN_IMPORTED'"), 'inbox-import-evidence-missing');
