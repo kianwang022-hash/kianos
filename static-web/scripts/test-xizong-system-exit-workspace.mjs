@@ -234,7 +234,8 @@ try {
   await practice.waitFor({state:'visible'});
   const releasedPracticeLocation=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
   check(releasedPracticeLocation?.resumeKind==='PRACTICE_SYSTEM','released_system_practice_becomes_resume');
-  check(await practice.locator('[data-holdout-gate]').isVisible(),'practice_holdout_gate_visible_without_setting');
+  check(await practice.locator('[data-holdout-gate]').isHidden(),'practice_holdout_is_optional_without_setting');
+  check(await practice.locator('[data-question-card]').isVisible(),'practice_available_without_holdout_setting');
   check(await practice.locator('[data-question-map]').count()===1,'practice_owns_question_map');
   check(await practice.locator('[data-reasoning-chain]').count()===1,'practice_owns_reasoning_chain_projection');
 
