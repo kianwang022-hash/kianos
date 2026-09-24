@@ -1,6 +1,6 @@
-# Xizong Product Brief — top-level logic & projection architecture freeze
+# Xizong Visual / Surface Blueprint
 
-Status: **PRODUCT / INTERACTION BASELINE ACCEPTED — PROJECTION CALIBRATION + FINAL MAC VISUAL HANDOFF STILL OPEN**  
+Status: **CURRENT — ACCEPTED XIZONG VISUAL / SURFACE BLUEPRINT OWNER**  
 Parent UI cursor: `static-web/CURRENT.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Lane router: `content/xizong/CURRENT.md`  
