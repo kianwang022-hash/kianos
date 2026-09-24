@@ -1,0 +1,41 @@
+name: Xizong Biochemistry Source Lifecycle
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json'
+      - 'content/xizong/knowledge/learner/biochemistry-27-source-map.json'
+      - 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
+      - 'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/**'
+      - 'content/xizong/source-snapshots/27/manifest.json'
+      - 'content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md'
+      - 'content/xizong/MATURITY_PACKAGE.md'
+      - 'static-web/scripts/validate-xizong-biochemistry-source-lifecycle.mjs'
+      - '.github/workflows/xizong-biochemistry-source-lifecycle.yml'
+  pull_request:
+    paths:
+      - 'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json'
+      - 'content/xizong/knowledge/learner/biochemistry-27-source-map.json'
+      - 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
+      - 'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/**'
+      - 'content/xizong/source-snapshots/27/manifest.json'
+      - 'content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md'
+      - 'content/xizong/MATURITY_PACKAGE.md'
+      - 'static-web/scripts/validate-xizong-biochemistry-source-lifecycle.mjs'
+      - '.github/workflows/xizong-biochemistry-source-lifecycle.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  source-lifecycle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate Current 27 Biochemistry Source lifecycle
+        working-directory: static-web
+        run: node scripts/validate-xizong-biochemistry-source-lifecycle.mjs
