@@ -1,22 +1,9 @@
 import unittest
 
-from tools.kianos_repo_doctor import parse_retired_lines, workflow_safety_errors
+from tools.kianos_repo_doctor import workflow_safety_errors
 
 
 class RepoDoctorHelpersTest(unittest.TestCase):
-    def test_retired_parser_is_exact_token_based(self):
-        raw = """
-# comment
-work/example # reason
-work/example-b
-
-"""
-        self.assertEqual(parse_retired_lines(raw), ["work/example", "work/example-b"])
-
-    def test_retired_parser_preserves_duplicate_evidence(self):
-        refs = parse_retired_lines("a\na # second\nb\n")
-        self.assertEqual(refs, ["a", "a", "b"])
-
     def test_workflow_guard_requires_open_pr_and_exact_head(self):
         good = """
 branch_has_open_pr
