@@ -99,6 +99,8 @@ try {
     });
 
     const page = await context.newPage();
+    const pageErrors = [];
+    page.on('pageerror', (error) => pageErrors.push(String(error?.stack || error?.message || error)));
     await page.goto(`${BASE}/steward/`, { waitUntil: 'domcontentloaded' });
     await page.locator('[data-steward-workspace]').waitFor({ state: 'visible' });
 
@@ -117,7 +119,7 @@ try {
 
     await page.locator('[data-steward-view="week"]').click();
     check((await page.locator('[data-steward-header-title]').textContent())?.trim() === '这一周', 'week_header');
-    check(await page.locator('.stewardWeekDayHead').count() === 7, 'week_x7_heads');
+    check(await page.locator('.stewardWeekDayHead').count() === 7, 'week_x7_heads', pageErrors.join(' | '));
     check(await page.locator('.stewardWeekAxis span').count() >= 8, 'week_time_axis');
     check(await page.locator('.stewardWeekActual').count() >= 1, 'week_actual_trace');
     check(await page.locator('[data-steward-view-panel].active').count() === 1, 'week_view_exclusive');
