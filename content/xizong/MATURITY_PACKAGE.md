@@ -173,24 +173,26 @@ Stage-A consequence:
 
 Type:
 
-`CURRENT_YEAR_DELTA_GAP`
+CURRENT_YEAR_SOURCE_RECONCILED
 
-Durable slot owner:
+Durable revision owner:
 
-`content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json`
+content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json
 
-Current status: **BLOCKED_UNTIL_27_SOURCE**. The slot now owns arrival identity, fidelity, delta, downstream invalidation and fallback metadata; canonical medical truth remains in B/M1–M10.
+Current status: **CLOSED / CURRENT · S/K/L/Content/P REACCEPTED**.
 
-Required closure:
+Current truth:
 
-    stable prior baseline
-    → recover/review historical 26→27 delta evidence
-    → Current source fidelity
-    → PRESERVE / UPDATE / NEW / RETIRE
-    → update responsible owner
-    → price net learner work
+    27 authoritative Source identity/hash/pages verified
+    → 22 Source units cover PDF P003–P170 without gap/overlap
+    → direct Source→existing Block/LG/KP mapping
+    → 15 M/G Blocks / 191 stable KP
+    → Learning/Content/Projection reaccepted
+    → no parallel layer topology or duplicate Source registry
 
-Do not rebuild Biochemistry from zero unless authoritative delta evidence proves that necessary.
+The current 27 Source is 27生化跟课版合集【不带导图】.pdf. Valid 26 material is historical/explanatory reconstruction substrate only and is never a second continuous learner Source.
+
+Reopen only for a new/revised authoritative Biochemistry Source or a concrete defect in the accepted Current owners.
 
 ## G4 — 2027 exam-format / scoring geometry
 
@@ -350,7 +352,7 @@ Current interpretation:
 
 - humanism historical exposure = 16 points, far larger than its 1.33-point neutral-loss baseline;
 - therefore leaving humanism entirely unowned cannot support a defensible 275 working claim even if other medical Systems are green;
-- Biochemistry has a 36-point historical domain, but only the current-year **delta** is presently unpriced — do not convert 36 points into “36 points at risk”;
+- Biochemistry has a 36-point historical domain, while the current 27 Source revision is reconciled; do not convert domain size into learner risk without Real Learner U.
 - F routing scope is closed at 70 qids and is no longer a Stage-A loss unknown;
 - X8 case/cross-System and X9 execution losses are cross-cutting and may correlate across disciplines, so they must not be double-counted into discipline buckets.
 
@@ -363,7 +365,7 @@ Loss-envelope interpretation:
 - Working target remains 275/300, so historical planning prior = maximum 25-point total loss.
 - The neutral proportional table is a diagnostic baseline only; it is not a fixed subject quota.
 - No currently known exam domain is unowned: A1–F exact System membership is closed and clinical humanities has its own Current baseline owner.
-- Current-year unknowns (2027 exam geometry, humanities delta, Biochemistry delta, 27 late-stage materials) are explicit Future Source deltas and cannot be priced exactly before arrival.
+- Remaining current-year unknowns (2027 exam geometry, humanities delta, 27 late-stage materials) are explicit Future Source deltas and cannot be priced exactly before arrival; Biochemistry is no longer in this blocked set.
 - X8/X9 learner performance, System-specific W/U, retention, Repair compression and whole-paper variance are Real Learner U, not Stage-A material defects.
 - Cross-cutting case/whole-paper failures may cause correlated losses across disciplines; do not add those losses again on top of discipline buckets.
 - Therefore Stage A does not invent an asymmetric 25-point allocation before real learner evidence. It closes the **structure of the envelope** and hands actual loss allocation to Stage E as Real U arrives.
@@ -401,7 +403,6 @@ A1–F exact System-question membership is closed; humanities baseline is closed
 
 ## P1-BLOCKED — future-source deltas
 
-- **2027 Biochemistry delta — BLOCKED_UNTIL_27_SOURCE**
 - **2027 exam-format delta — BLOCKED_UNTIL_OFFICIAL_SOURCE**
 - **2027 humanities scope delta — BLOCKED_UNTIL_OFFICIAL_SOURCE**
 
@@ -460,7 +461,7 @@ This package coordinates; exact owners still own truth.
 - [x] 2027 exam scope/geometry is explicitly authority-BLOCKED with historical 165/300 fallback kept prior-only
 - [x] humanistic/non-System baseline has exact Current owner, H1–H4 training/evidence path, 80 exact historical qids, and bounded 2027 BLOCKED delta
 - [x] F exact System question scope closed — **70 qids / zero A1–E overlap / PR #642**
-- [x] 2027 Biochemistry delta is correctly represented as **BLOCKED_UNTIL_27_SOURCE** with prior baseline preserved; no current build task exists
+- [x] 2027 Biochemistry Source revision is **CLOSED / CURRENT · S/K/L/Content/P REACCEPTED**; 27 is the sole continuous Source and historical 26 material is explanatory-only
 - [x] 26 Case/Cram baseline, X8 role, overlap and 27 delta slot are closed; 27 net-new remains legitimate future-UNKNOWN
 - [x] four-mock baseline, leakage boundary and future X9/current-year delta slot are defined
 - [x] final-five-hour baseline and direct Case/Cram overlap/replacement rule are closed
@@ -1001,7 +1002,7 @@ This is the subject-level inventory required by the highest-maturity standard. I
 | Whole-paper / formal execution | canonical whole-paper path, low-contamination protected paper when available | X9 | contamination identity mandatory |
 | Derived / synthetic | source-grounded decisive-condition, changed-context, boundary, case and cross-System probes | X6–X8 | generate only for a real capability gap; never count as official score evidence |
 | Prior-year historical baseline | \`xizong-26-late-stage-material-baseline.json\` | late-stage geometry / case / stress / compression scaffold | absorbed now; year-pinned; never Current-year truth by upload date |
-| Future current-year Source slots | 2027 Biochemistry, humanities outline, exact exam geometry, Case/Cram, mocks, final 5h, applicable current-year Source/TTSX updates | future delta | bind → validate → delta → replacement/overlap → learner use |
+| Current/future Source revision lifecycle | Biochemistry current 27 is reconciled; humanities outline, exact exam geometry, Case/Cram, mocks, final 5h and later revisions remain lifecycle inputs | source lifecycle | bind → validate → delta → replacement/overlap → learner use |
 | Reference-only / optional | retired Guides, old transitions, low-value duplicate material | context only | does not create learner debt |
 
 ## Synthetic / derived quality gate
@@ -1652,7 +1653,6 @@ The original 29 mother-standard requirements are classified explicitly:
 
 Current blocked Future Sources are **not** architecture defects:
 
-- 2027 Biochemistry delta → `BLOCKED_FUTURE_SOURCE`
 - 2027 humanities delta → `BLOCKED_FUTURE_SOURCE`
 - 2027 exam-format / scoring geometry → `BLOCKED_FUTURE_SOURCE`
 - 2027 late-stage Case/Cram / mocks / final-5h delta → `BLOCKED_FUTURE_SOURCE`

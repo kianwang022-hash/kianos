@@ -1,5 +1,5 @@
 {
-  "schema": "kianos.xizong.future_source_slot.v1",
+  "schema": "kianos.xizong.biochemistry_source_revision.v2",
   "status": "CLOSED_CURRENT_AFTER_ARCHITECTURE_CORRECTED_REACCEPTANCE",
   "slot_id": "xizong-2027-biochemistry-delta",
   "source_cycle": "27考研",
@@ -10,7 +10,7 @@
     "X6_OFFICIAL_APPLICATION",
     "X7_REPAIR_VERIFICATION"
   ],
-  "purpose": "Reconcile current 27 Biochemistry Source against the mature Xizong architecture: preserve verified 27 Source/delta truth, reconstruct canonical Block-owned content jobs, map Source directly to existing System→Block→Logic Group→KP owners, then reaccept Learning/Content/Projection dependencies without inventing a parallel hierarchy.",
+  "purpose": "Maintain the authoritative 27 Biochemistry Source revision inside the mature Xizong architecture: current Source truth maps directly to existing System→Block→Logic Group→KP owners, with bounded revision/invalidation rules for later authoritative Source changes and no parallel hierarchy.",
   "current_owner_boundary": {
     "slot_owner": "content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json",
     "canonical_medical_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json",
@@ -219,278 +219,55 @@
       "precedence": "Current 27 Source truth > validated 26 explanatory substrate; conflicts remain explicit/fail-closed rather than silently choosing 26."
     },
     "deep_review": {
-      "batch_1_carbohydrate_energy": "ANALYZED",
-      "batch_2_lipid": "ANALYZED",
+      "status": "COMPLETE_REACCEPTED",
+      "source_units_reviewed": 22,
+      "canonical_blocks_reviewed": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "M9",
+        "M10",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+      ],
+      "stable_kp_total": 191,
       "remaining": [],
-      "key_finding": "Closed/current. The redundant L-layer topology was removed; all 15 M/G Blocks use the mature System→Block→Logic Group→KP architecture, 22 current 27 Source units map directly to existing LG/KP owners, 191 KP Core semantics are preserved, and cross-System timing is explicit.",
-      "batch_M1_protein_enzyme_vitamin": {
-        "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
-        "current_source": {
-          "pdf": "27生化跟课版合集【不带导图】.pdf",
-          "protein": "PDF P059–P065 / printed P55–P59",
-          "enzyme": "PDF P081–P089 / printed P74–P82",
-          "vitamin": "PDF P090–P092 / printed P83–P84"
+      "result": "All 22 current 27 Source units are reconciled directly to the 15 existing M/G Block→Logic Group→KP owners. No intermediate layer or duplicate learner Source registry remains.",
+      "resolved_route_conflicts": [
+        {
+          "id": "BIO27-RC01",
+          "result": "Current 27 Source may teach metabolism before formal M1. JIT Prelude permits comprehension without manufacturing M1 completion; Learning readiness still governs closure/downstream authorization."
         },
-        "explanatory_substrate": "26 refined protein/enzyme/vitamin explanations retained inside canonical M1 Framework/KP; no second learner Source pass",
-        "knowledge_result": [
-          "M1 stable identity preserved: 17 KP, no split/merge/renumber",
-          "Primary Source rebound from 26 to 27",
-          "27 protein/vitamin sparse mind-map/question form compensated by canonical mechanism reconstruction, not by asking learner to reread 26",
-          "VHL→HIF ubiquitin-proteasome degradation added as M1 protein-degradation connection; full transcription control remains G4",
-          "lecture-attached question accounting updated 36→37 because 27 protein Source contains 2025N17"
-        ],
-        "learning_result": [
-          "M1 Source contact changed to 3 NATURAL_SOURCE_UNITS: protein / enzyme / vitamin",
-          "LG identities and 17-KP partition preserved",
-          "M1 downstream returns now explicitly include G4 and G5"
-        ],
-        "question_relation_result": {
-          "reviewed_rows_revalidated": 38,
-          "mapping_changes": 0,
-          "relation_manifest_synced": true,
-          "note": "System membership unchanged; only relations whose Current owner is M1 were rereviewed.",
-          "contract_reaudit": "PRESERVE_NO_KP_ID_OR_OWNER_CHANGE"
-        },
-        "explanation_result": {
-          "explanations_revalidated": 38,
-          "semantic_rewrites": 0,
-          "explanation_manifest_synced": true,
-          "contract_reaudit": "PRESERVE_NO_MEDICAL_SEMANTIC_CHANGE"
-        },
-        "evidence_result": "Historical observations remain preserved. Current learner completion still requires current 27 Source evidence; hierarchy reconstruction itself does not manufacture learner progress.",
-        "topology_change": false,
-        "canonical_hierarchy_result": {
-          "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M1_蛋白质酶与维生素_学习阅读版_v1_最终执行版.md",
-          "mother_model": "structure → catalysis → flux control → kinetic perturbation → cofactor chemistry",
-          "layers": [
-            "L1 KP01–KP05 protein identity/conformation",
-            "L2 KP06–KP08 physicochemical handling/turnover",
-            "L3 KP09–KP12 enzyme execution/flux control",
-            "L4 KP13–KP14 kinetics/inhibition",
-            "L5 KP15–KP17 cofactor chemistry/vitamin interfaces"
-          ],
-          "topology": "17 KP identities preserved; hierarchy rebuilt without split/merge/renumber",
-          "content_semantics": "Core / Boundary / Precision / Connection are separated at layer level; derived learner support no longer owns medical meaning"
-        },
-        "direct_mapping_result": {
-          "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
-          "learning_owner": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
-          "source_to_knowledge": "27 Source units map directly to M1 L1–L5/KP; teacher order remains Source authority",
-          "knowledge_to_learning": "each M1 Logic Group consumes exactly one canonical layer; Learning no longer keeps a duplicate local M1 Source-unit registry"
-        },
-        "acceptance_result": "READY_FOR_SCOPED_M1_ACCEPTANCE_READBACK; overall M2–M10/G1–G5 bounded reopen remains active.",
-        "canonical_hierarchy": {
-          "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M1_蛋白质酶与维生素_学习阅读版_v1_最终执行版.md",
-          "shape": "1 mother model → L1–L5 → 17 stable KPs",
-          "layers": {
-            "L1": "protein identity and conformation / KP01–KP05",
-            "L2": "protein physicochemical handling and turnover / KP06–KP08",
-            "L3": "enzyme execution mechanism and flux control / KP09–KP12",
-            "L4": "kinetic readout and inhibition perturbation / KP13–KP14",
-            "L5": "cofactor chemistry and vitamin interfaces / KP15–KP17"
-          },
-          "rule": "Core / Boundary / Precision / Connection are organized inside the canonical hierarchy; learner support and website presentation consume this truth rather than defining it."
-        },
-        "direct_mapping": {
-          "source_map_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
-          "source_to_knowledge": [
-            "BIO27-S09 → M1 L1/L2",
-            "BIO27-S13 → M1 L3/L4 + L5 support/prime",
-            "BIO27-S14 → M1 L5 primary completion"
-          ],
-          "learning_owner": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
-          "learning_mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP",
-          "website_rule": "Existing website mapping consumes GitHub canonical content/mappings; no static-web content fork or manual UI rewrite is required for ordinary M1 content updates."
+        {
+          "id": "BIO27-RC02",
+          "result": "G5 early exposure in BIO27-S15 is partial formation only. G5 Source formation closes at BIO27-S22 after the required information-flow context is available."
         }
-      },
-      "mapping_skeleton": "CURRENT_22_UNIT_CANONICAL_MAPPING_COMPLETE",
-      "batch_M2_M4_carbohydrate_energy": {
-        "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
-        "contract_owner": "content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md",
-        "source_units": [
-          "BIO27-S01",
-          "BIO27-S02",
-          "BIO27-S03",
-          "BIO27-S04"
-        ],
-        "blocks": {
-          "M2": {
-            "shape": "1 mother model → 3 canonical layers → 15 stable KPs",
-            "layers": [
-              "carbon entry/branching",
-              "TCA/reducing-equivalent interface",
-              "electron-proton-ATP coupling/fault localization"
-            ],
-            "source_closure": "BIO27-S04 / P026",
-            "lecture_attached_questions": "28/28 current 27 source-position accounted; +2025N20 vs old baseline"
-          },
-          "M3": {
-            "shape": "1 mother model → 2 canonical layers → 7 stable KPs",
-            "layers": [
-              "RBC constraint/ATP/2,3-DPG",
-              "PPP-NADPH-GSH redox defense"
-            ],
-            "source_closure": "BIO27-S03 / P018",
-            "lecture_attached_questions": "5/5 current 27 source-position accounted; +2025N122–123 vs old baseline",
-            "conflict": "Do not literalize NADPH 'not biooxidation/OXPHOS' into 'only biotransformation'; same current Source also owns GSH and reductive-synthesis interfaces."
-          },
-          "M4": {
-            "shape": "1 mother model → 3 canonical layers → 10 stable KPs",
-            "layers": [
-              "G-6-P/glycogen storage-output",
-              "gluconeogenesis reconstruction",
-              "hormonal/fasting state switch"
-            ],
-            "source_closure": "BIO27-S03 / P018",
-            "lecture_attached_questions": "8/8 current 27 source-position accounted; +2025N18 vs old baseline",
-            "conflict": "27 P015 FBPase-1 inhibitor line remains explicit SOURCE_CONFLICT / fail-closed."
-          }
-        },
-        "source_mapping": "biochemistry-27-source-map.json now maps S01–S04 directly to M2–M4 canonical layers/KPs while preserving teacher Source order.",
-        "learning_mapping": "B learning owner now consumes canonical layers through the global Source map and keeps no duplicate per-Block Source registry.",
-        "question_relations": "PRESERVE_EXISTING_REVIEWED_RELATIONS: KP identities, medical semantics and owner boundaries did not change; lecture-attached Source coverage changes do not create or infer official Question→KP relations.",
-        "explanations": "PRESERVE_EXISTING_EXPLANATIONS unless a later semantic repair changes a target mechanism/precision/boundary.",
-        "website": "No static-web content edit. Existing website mapping consumes GitHub canonical content and relations."
-      },
-      "batch_M5_M7_lipid": {
-        "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
-        "source_units": [
-          "BIO27-S05",
-          "BIO27-S06",
-          "BIO27-S07"
-        ],
-        "blocks": {
-          "M5": {
-            "shape": "1 mother model → 3 layers → 10 stable KPs",
-            "questions": "5/5",
-            "closure": "S05/P030"
-          },
-          "M6": {
-            "shape": "1 mother model → 3 layers → 11 stable KPs",
-            "questions": "9/9",
-            "closure": "S06/P035",
-            "repair": "retired old 26 phospholipase→DAG universal conflict; current 27 P033 has explicit differentiated cleavage map"
-          },
-          "M7": {
-            "shape": "1 mother model → 4 layers → 16 stable KPs",
-            "questions": "19/19; +2025N19 +2025N143",
-            "closure": "S07/P044",
-            "repair": "retired old 26 phosphatidic-acid→DAG PLC conflict; current 27 P037 identifies phosphatidic acid phosphatase"
-          }
-        },
-        "mapping": "S05–S07 mapped directly to M5–M7 canonical layers; Learning consumes global map without duplicate Source registries.",
-        "website": "No static-web edit; existing website mapping consumes GitHub canonical truth."
-      },
-      "batch_M8_amino_nitrogen_one_carbon": {
-        "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
-        "source_unit": "BIO27-S08",
-        "shape": "1 mother model → 5 layers → 18 stable KPs",
-        "questions": "17/17 current 27 source-position accounted; +2025N144",
-        "source_closure": "BIO27-S08 / P058",
-        "boundaries": [
-          "P049 broad alpha-keto/carbon-routing diagram stays SOURCE_BOUND rather than forced into one linear pathway",
-          "P048 dual-key urea wording preserved as current Study boundary",
-          "P048 CO2 'formyl' wording remains exact Source-bound terminology"
-        ],
-        "mapping": "S08 maps directly to M8 L1–L5; Learning consumes global map without duplicate Source registry.",
-        "website": "No static-web edit."
-      },
-      "batch_M9_nucleotide": {
-        "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
-        "source_unit": "BIO27-S10",
-        "shape": "1 mother model → 3 layers → 15 stable KPs",
-        "questions": "17/17; +2025N21",
-        "closure": "S10/P074",
-        "repairs": [
-          "retired old UTP→CTP methylation conflict; current 27 states UTP + Gln → CTP",
-          "retired old broad amino-acid→acetyl-CoA side-note as non-current M9 truth"
-        ],
-        "mapping": "S10 maps directly to M9 L1–L3; Learning consumes global map.",
-        "website": "No static-web edit."
-      },
-      "batch_M10_heme_bilirubin_biotransformation": {
-        "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
-        "source_units": [
-          "BIO27-S08",
-          "BIO27-S11",
-          "BIO27-S12"
-        ],
-        "shape": "1 mother model → 3 layers → 13 stable KPs",
-        "questions": "12/12 current 27 source-position accounted; +2025N146",
-        "source_closure": "BIO27-S12 / P080",
-        "repair": [
-          "retired old 26 UGT-Fe2+ conflict absent from current 27",
-          "retired old dual bilirubin-enterohepatic wording conflict; canonical keeps stable flow only"
-        ],
-        "mapping": "S08/S11/S12 map directly to M10 canonical layers; Learning consumes the global map without duplicate Source registry.",
-        "website": "No static-web edit."
-      },
-      "batch_G1_G5_information_lifecycle": {
-        "status": "CLOSED_AFTER_CANONICAL_HIERARCHY_REBASE_AND_DIRECT_MAPPING",
-        "source_units": [
-          "BIO27-S15",
-          "BIO27-S16",
-          "BIO27-S17",
-          "BIO27-S18",
-          "BIO27-S19",
-          "BIO27-S20",
-          "BIO27-S21",
-          "BIO27-S22"
-        ],
-        "blocks": {
-          "G1": {
-            "shape": "1 mother model → 4 layers → 10 stable KPs",
-            "questions": "17/17 current 27 source-position accounted; +2025N142",
-            "closure": "BIO27-S21 / P168"
-          },
-          "G2": {
-            "shape": "1 mother model → 3 layers → 11 stable KPs",
-            "questions": "13/13 current 27 source-position accounted; +2025N22",
-            "closure": "BIO27-S17 / P127"
-          },
-          "G3": {
-            "shape": "1 mother model → 5 layers → 15 stable KPs",
-            "questions": "25/25 current 27 source-position accounted; +2025N24 +2025N120-121",
-            "closure": "BIO27-S19 / P150"
-          },
-          "G4": {
-            "shape": "1 mother model → 3 layers → 10 stable KPs",
-            "questions": "26/26 current 27 source-position accounted; +2025N23 +2025N25 +2025N145",
-            "closure": "BIO27-S20 / P165",
-            "update": "VHL-mediated HIF degradation in normoxia → hypoxia-stabilized HIF → EPO-enhancer activation is canonical Connection; old enhancer-specificity conflict retired under current 27 wording."
-          },
-          "G5": {
-            "shape": "1 mother model → 3 layers → 13 stable KPs",
-            "canonical_order": "L1 growth-control failure KP01–05 → L2 mutation/repair KP12–13 → L3 molecular tools KP06–11",
-            "questions": "29/29 current 27 source-position accounted; +2025N26 +2025N28 +2025N147",
-            "closure": "BIO27-S22 / P170",
-            "source_order_boundary": "S15 forms L1/L3 first; S22 later forms L2. Source order does not override canonical Knowledge order.",
-            "exactness": "eukaryotic low-fidelity/translesion polymerase group is Current; exact first Greek glyph remains SOURCE_BOUND."
-          }
-        },
-        "source_mapping": "BIO27-S15–S22 map directly to G1–G5 canonical layers/KPs while teacher order remains Source authority.",
-        "learning_mapping": "G1–G5 Learning consumes canonical layers through the global Biochemistry Source map and keeps no duplicate per-Block Source registry.",
-        "question_relations": "PRESERVE_EXISTING_REVIEWED_RELATIONS: hierarchy/source-position changes do not create Question→KP mappings; no target owner/KP identity change was introduced by this rebase.",
-        "explanations": "PRESERVE_EXISTING_EXPLANATIONS where target medical semantics remain unchanged; no ritual rewrite is required by hierarchy reconstruction alone.",
-        "evidence": "Historical learner observations remain historical. The rebase does not manufacture learner progress; Current learner completion must bind to current 27 Source evidence.",
-        "website": "No static-web content edit. Existing website mapping consumes GitHub canonical Knowledge/Learning/Source truth."
-      }
+      ],
+      "source_routing_owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json"
     },
     "learning_design_decision": {
       "decided_at": "2026-09-24",
       "status": "APPROVED_CURRENT_DIRECTION",
       "decision": "Biochemistry first pass runs as its own continuous 27 Source lane rather than being routinely interleaved with digestive/endocrine Blocks.",
       "canonical_identity": "M1-M10/G1-G5 remain canonical Knowledge owners; Source order is allowed to cross their boundaries.",
-      "execution": "27 Source order → shadow-map to canonical Blocks/KPs → local Recall when eligible → state-based cross-Block reconstruction → official questions → smallest diagnostic-axis repair.",
+      "execution": "27 Source order → resolve through the single Source map to canonical Block/LG/KP owners → local Recall when eligible → state-based cross-Block reconstruction → official questions → smallest diagnostic-axis repair.",
       "integration": "Digestive/endocrine/clinical relations appear as just-in-time connections during Biochemistry and become fuller integration after the Biochemistry Source lane, not by repeatedly switching courses.",
       "memory_target": "high-reuse switches, boundaries and state reconstructions rather than duplicate pathway recitation."
     },
     "source_map": {
       "owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
-      "status": "CURRENT_22_UNIT_DIRECT_BLOCK_LG_KP_MAPPING_COMPLETE",
+      "status": "CURRENT_27_SOURCE_ROUTING_REACCEPTED",
       "units": 22,
       "mapped_canonical_blocks": 15,
-      "rule": "Use current 27 teacher order for first-pass contact. Final mapping must target existing Block/Logic Group/KP identities or explicit support/Connection roles; no L-layer hierarchy."
+      "rule": "Use current 27 teacher order for first-pass contact. Exact Source-unit/page→LG/KP routing and Source-closure checkpoints live only in biochemistry-27-source-map.json; Learning consumes that owner without copying its locators."
     },
     "system_closeout": {
       "status": "CURRENT",
@@ -541,7 +318,7 @@
         "learner_truth": "no learner progress manufactured"
       }
     },
-    "preserved_from_interrupted_rebase": {
+    "preserved_verified_evidence": {
       "source_identity": true,
       "source_unit_order_and_pages": true,
       "verified_27_vs_26_semantic_findings": true,
@@ -552,7 +329,7 @@
         "G4 HIF–VHL→EPO enhancer current-27 update",
         "G5 low-fidelity/translesion polymerase group boundary"
       ],
-      "note": "These facts remain evidence; they do not by themselves prove K/L/Content/P acceptance."
+      "note": "These verified facts remain evidence under the current accepted owners. They do not create a second Source, parallel hierarchy or learner-progress claim."
     }
   },
   "delta_review": {
@@ -650,6 +427,6 @@
   "governance": {
     "contract_owner": "content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md",
     "status": "TOP_LEVEL_RULES_CURRENT_AND_LOCKED_FOR_EXECUTION",
-    "rule": "Execute the 27 rebase under BIOCHEMISTRY_CONTRACT.md. Reopen the contract only for evidence that the Biochemistry-specific learning/content model itself is wrong; ordinary Source/KP/question defects stay at their smallest owners."
+    "rule": "Maintain the current 27 revision under BIOCHEMISTRY_CONTRACT.md. Reopen only for a new/revised authoritative Biochemistry Source or a concrete defect in the smallest accepted owner."
   }
 }

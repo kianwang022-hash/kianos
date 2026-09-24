@@ -44,7 +44,7 @@ function check(id,fn){
 check('fresh_chat_owner_recovery',()=>{
   const current=readText('content/xizong/CURRENT.md');
   const pkg=readText('content/xizong/MATURITY_PACKAGE.md');
-  assert.match(current,/subject maturity \/ 270–275 control → \`MATURITY_PACKAGE\.md\`/);
+  assert.match(current,/\| Subject maturity \/ 270-275 control \| MATURITY_PACKAGE\.md \|/);
   assert.match(pkg,/Protect floor: \*\*270\+\*\*/);
   assert.match(pkg,/Working target: \*\*275\+\*\*/);
   assert.match(pkg,/Stage B — First-pass Capability \| \*\*CURRENT \/ REAL-U REQUIRED\*\*/);
@@ -360,9 +360,11 @@ check('future_source_readiness',()=>{
   const format=readJson('content/xizong/questions/exam-format.json');
   const format27=readJson('content/xizong/questions/exam-format-2027-slot.json');
   const late=readJson('content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json');
-  assert.equal(bio.status,'BLOCKED_UNTIL_27_SOURCE');
-  assert.equal(bio.current_state.source_present,false);
-  assert.equal(bio.current_state.exact_workload_minutes,null);
+  assert.equal(bio.status,'CLOSED_CURRENT_AFTER_ARCHITECTURE_CORRECTED_REACCEPTANCE');
+  assert.equal(bio.current_state.source_present,true);
+  assert.equal(bio.current_state.current_year_delta_known,true);
+  assert.deepEqual(bio.current_state.deep_review?.remaining,[]);
+  assert.equal(bio.current_state.source_map?.status,'CURRENT_27_SOURCE_ROUTING_REACCEPTED');
   assert.equal(format27.status,'BLOCKED_UNTIL_AUTHORITATIVE_2027_SOURCE');
   assert.equal(format27.current_state.authoritative_2027_source_present,false);
   assert.equal(format27.current_state.exact_question_count,null);
@@ -377,7 +379,7 @@ check('future_source_readiness',()=>{
   const eraMax=Math.max(...(format.eras||[]).map(row=>Number(row.end_year||row.endYear||0)));
   assert.ok(eraMax<=2026,'Current exam-format owner must not fabricate 2027 geometry');
   return {
-    biochemistry:'BLOCKED_FUTURE_SOURCE',
+    biochemistry:'CURRENT_27_REACCEPTED',
     humanities:'BLOCKED_FUTURE_SOURCE',
     exam_geometry:'BLOCKED_FUTURE_SOURCE',
     exam_geometry_slot:'READY',
@@ -520,7 +522,6 @@ const delivery={
 };
 
 const future_sources=[
-  {id:'2027_BIOCHEMISTRY',status:BLOCKED_FUTURE_SOURCE,owner:'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json'},
   {id:'2027_HUMANITIES',status:BLOCKED_FUTURE_SOURCE,owner:'content/xizong/humanities/current.json'},
   {id:'2027_EXAM_FORMAT',status:BLOCKED_FUTURE_SOURCE,owner:'content/xizong/questions/exam-format-2027-slot.json'},
   {id:'2027_LATE_STAGE',status:BLOCKED_FUTURE_SOURCE,owner:'content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json'}

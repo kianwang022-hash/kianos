@@ -2342,10 +2342,6 @@
       }
     }
   ],
-  "concurrency": {
-    "active_biochemistry_rebase": "content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json",
-    "rule": "Surgery may progress on disjoint owners. Any write to shared B system/learning/manifest or shared question/explanation manifests must refresh main first and serialize with the active Biochemistry rebase."
-  },
   "reprocess_v2": {
     "started_at": "2026-09-24",
     "scope": "SUR27-U01-U38_ALL_REFINED_EXPLANATORY_DELTA",
@@ -2457,5 +2453,9 @@
       "downstream": "Targeted Projection/Q/X/E/A revalidation completed in xizong-2027-surgery-rebase-slot.json.",
       "reopen_rule": "Reopen only for a new/revised authoritative Surgery Source or a concrete defect in accepted current owners."
     }
+  },
+  "shared_owner_coordination": {
+    "biochemistry_revision_state": "CLOSED_CURRENT",
+    "rule": "No active Biochemistry writer lock remains. Any future shared-owner write must refresh current main and serialize only with actually active work."
   }
 }

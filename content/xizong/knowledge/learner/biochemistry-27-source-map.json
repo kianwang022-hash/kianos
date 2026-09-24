@@ -1,6 +1,6 @@
 {
-  "schema": "kianos.xizong.biochemistry-source-map.v1",
-  "status": "CURRENT_27_DIRECT_BLOCK_LG_KP_MAPPING_COMPLETE_CONTENT_REACCEPTANCE_PENDING",
+  "schema": "kianos.xizong.biochemistry-source-map.v2",
+  "status": "CURRENT_27_SOURCE_ROUTING_REACCEPTED",
   "role": "Single machine owner for mapping the current 27 Biochemistry continuous Source lane onto stable canonical M1-M10/G1-G5 Knowledge without forcing learner switching.",
   "source": {
     "cycle": "27考研",
@@ -33,19 +33,20 @@
       "G3": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G3_转录RNA加工与翻译_学习阅读版_v1_最终执行版.md",
       "G4": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G4_基因表达调控_学习阅读版_v1_最终执行版.md",
       "G5": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"
-    }
+    },
+    "source_routing_single_owner": "Exact 27 Source-unit/page→Block/LG/KP routing is represented once in source_units[].canonical_content; block Source-closure checkpoints are a checked derived index in this same owner. Learning consumers keep semantic pointers/release rules, not copied locator or mapping tables."
   },
   "learner_execution": {
     "first_pass": "FOLLOW_27_SOURCE_ORDER_END_TO_END",
     "block_switching": "DO_NOT_SWITCH_COURSES_FOR_CANONICAL_BLOCK_ORDER",
     "source_shadow_mapping": true,
     "lecture_attached_questions": "Remain with the original 27 Source flow; they do not become the official System question sweep.",
-    "official_questions": "Revalidate affected reviewed relations/explanations during the rebase, but learner-facing official System sweep timing remains owned by the B learning contract."
+    "official_questions": "Affected reviewed relations/explanations were revalidated during the 27 revision. Official System sweep timing remains owned by the B learning contract; this Source map never infers Question→KP relations."
   },
   "binding_status_rule": {
-    "source_pages": "VERIFIED_FROM_27_MARKDOWN_PAGE_ANCHORS",
-    "block_lg_binding": "CURRENT_SKELETON; must be confirmed/adjusted during each deep semantic batch",
-    "kp_binding": "DO_NOT_INFER_EXACT_PAGE_TO_KP_FROM_THIS_SKELETON; exact KP bindings are admitted only by the deep review",
+    "source_pages": "VERIFIED_FROM_27_MARKDOWN_PAGE_ANCHORS_AND_CURRENT_SOURCE_IDENTITY",
+    "block_lg_kp_binding": "CURRENT_DIRECT_REACCEPTED; source_units[].canonical_content is the single exact Source-routing representation",
+    "kp_selector": "kp_range is always an inclusive [start,end] range inside the named existing Logic Group",
     "cross_system": "Connection/Recall only unless a formal Current target owner is reviewed"
   },
   "source_units": [
@@ -56,22 +57,6 @@
         3,
         8
       ],
-      "primary": [
-        [
-          "M2",
-          "b-m02-lg01"
-        ],
-        [
-          "M2",
-          "b-m02-lg02"
-        ]
-      ],
-      "support": [
-        [
-          "M1",
-          "b-m01-lg03"
-        ]
-      ],
       "connections": [
         "D7/D8 metabolic-state and diabetes drug interface"
       ],
@@ -79,37 +64,34 @@
       "canonical_content": [
         {
           "block": "M1",
-          "kp": [
-            9,
-            12
-          ],
           "role": "SUPPORT_JIT",
           "note": "enzyme/control language only; does not form or close M1",
           "logic_group": "b-m01-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            9,
+            12
+          ]
         },
         {
           "block": "M2",
-          "kp": [
-            1,
-            2,
-            3,
-            4,
-            5
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m02-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            5
+          ]
         },
         {
           "block": "M2",
-          "kp": [
-            6,
-            7
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m02-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            6,
+            7
+          ]
         }
       ]
     },
@@ -120,22 +102,6 @@
         9,
         12
       ],
-      "primary": [
-        [
-          "M3",
-          "b-m03-lg01"
-        ]
-      ],
-      "support": [
-        [
-          "M3",
-          "b-m03-lg02"
-        ],
-        [
-          "M2",
-          "b-m02-lg02"
-        ]
-      ],
       "connections": [
         "hematology RBC interface"
       ],
@@ -143,35 +109,33 @@
       "canonical_content": [
         {
           "block": "M2",
-          "kp": [
-            8
-          ],
           "role": "SUPPORT",
           "logic_group": "b-m02-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            8,
+            8
+          ]
         },
         {
           "block": "M3",
-          "kp": [
-            1,
-            2,
-            3
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m03-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            3
+          ]
         },
         {
           "block": "M3",
-          "kp": [
-            4,
-            5,
-            6,
-            7
-          ],
           "role": "SUPPORT_AND_PRIME",
           "logic_group": "b-m03-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            4,
+            7
+          ]
         }
       ]
     },
@@ -182,38 +146,6 @@
         13,
         18
       ],
-      "primary": [
-        [
-          "M3",
-          "b-m03-lg02"
-        ],
-        [
-          "M4",
-          "b-m04-lg01"
-        ],
-        [
-          "M4",
-          "b-m04-lg02"
-        ],
-        [
-          "M4",
-          "b-m04-lg03"
-        ]
-      ],
-      "support": [
-        [
-          "M1",
-          "b-m01-lg03"
-        ],
-        [
-          "M1",
-          "b-m01-lg05"
-        ],
-        [
-          "M2",
-          "b-m02-lg01"
-        ]
-      ],
       "connections": [
         "D7/D8 fed-fasting and diabetes interface"
       ],
@@ -221,84 +153,75 @@
       "canonical_content": [
         {
           "block": "M1",
-          "kp": [
-            9,
-            12
-          ],
           "role": "SUPPORT",
           "logic_group": "b-m01-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            9,
+            12
+          ]
         },
         {
           "block": "M1",
-          "kp": [
-            15,
-            17
-          ],
           "role": "SUPPORT",
           "logic_group": "b-m01-lg05",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            15,
+            17
+          ]
         },
         {
           "block": "M2",
-          "kp": [
-            1,
-            2,
-            3,
-            4,
-            5
-          ],
           "role": "SUPPORT_RECAP",
           "logic_group": "b-m02-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            5
+          ]
         },
         {
           "block": "M3",
-          "kp": [
-            4,
-            5,
-            6,
-            7
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-m03-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            4,
+            7
+          ]
         },
         {
           "block": "M4",
-          "kp": [
-            1,
-            2,
-            3,
-            4
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m04-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            4
+          ]
         },
         {
           "block": "M4",
-          "kp": [
-            5,
-            6,
-            7,
-            8
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m04-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            5,
+            8
+          ]
         },
         {
           "block": "M4",
-          "kp": [
-            9,
-            10
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-m04-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            9,
+            10
+          ]
         }
       ]
     },
@@ -309,22 +232,6 @@
         19,
         26
       ],
-      "primary": [
-        [
-          "M2",
-          "b-m02-lg02"
-        ],
-        [
-          "M2",
-          "b-m02-lg03"
-        ]
-      ],
-      "support": [
-        [
-          "M1",
-          "b-m01-lg05"
-        ]
-      ],
       "connections": [
         "thyroid/thermogenesis and poisoning interfaces"
       ],
@@ -332,38 +239,34 @@
       "canonical_content": [
         {
           "block": "M1",
-          "kp": [
-            15,
-            17
-          ],
           "role": "SUPPORT",
           "logic_group": "b-m01-lg05",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            15,
+            17
+          ]
         },
         {
           "block": "M2",
-          "kp": [
-            8,
-            9
-          ],
           "role": "PRIMARY_COMPLETION",
           "logic_group": "b-m02-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            8,
+            9
+          ]
         },
         {
           "block": "M2",
-          "kp": [
-            10,
-            11,
-            12,
-            13,
-            14,
-            15
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-m02-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            10,
+            15
+          ]
         }
       ]
     },
@@ -374,55 +277,40 @@
         27,
         30
       ],
-      "primary": [
-        [
-          "M5",
-          "b-m05-lg01"
-        ],
-        [
-          "M5",
-          "b-m05-lg02"
-        ],
-        [
-          "M5",
-          "b-m05-lg03"
-        ]
-      ],
-      "support": [],
       "connections": [
         "D3/D4 absorption; atherosclerosis; fatty-liver interface"
       ],
       "canonical_content": [
         {
           "block": "M5",
-          "kp": [
-            1,
-            3
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m05-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            3
+          ]
         },
         {
           "block": "M5",
-          "kp": [
-            4,
-            7
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m05-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            4,
+            7
+          ]
         },
         {
           "block": "M5",
-          "kp": [
-            8,
-            10
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-m05-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            8,
+            10
+          ]
         }
       ]
     },
@@ -433,71 +321,51 @@
         31,
         35
       ],
-      "primary": [
-        [
-          "M6",
-          "b-m06-lg01"
-        ],
-        [
-          "M6",
-          "b-m06-lg02"
-        ],
-        [
-          "M6",
-          "b-m06-lg03"
-        ]
-      ],
-      "support": [
-        [
-          "M5",
-          "b-m05-lg03"
-        ]
-      ],
       "connections": [
         "D19 bile-acid/gallstone; D22 steroid; D23 VitD interfaces"
       ],
       "canonical_content": [
         {
           "block": "M5",
-          "kp": [
-            8,
-            10
-          ],
           "role": "SUPPORT",
           "note": "LCAT/ACAT/cholesterol-pool interface only",
           "logic_group": "b-m05-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            8,
+            10
+          ]
         },
         {
           "block": "M6",
-          "kp": [
-            1,
-            4
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m06-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            4
+          ]
         },
         {
           "block": "M6",
-          "kp": [
-            5,
-            8
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m06-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            5,
+            8
+          ]
         },
         {
           "block": "M6",
-          "kp": [
-            9,
-            11
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-m06-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            9,
+            11
+          ]
         }
       ]
     },
@@ -508,93 +376,61 @@
         36,
         44
       ],
-      "primary": [
-        [
-          "M7",
-          "b-m07-lg01"
-        ],
-        [
-          "M7",
-          "b-m07-lg02"
-        ],
-        [
-          "M7",
-          "b-m07-lg03"
-        ],
-        [
-          "M7",
-          "b-m07-lg04"
-        ]
-      ],
-      "support": [
-        [
-          "M2",
-          "b-m02-lg02"
-        ],
-        [
-          "M4",
-          "b-m04-lg03"
-        ],
-        [
-          "M6",
-          "b-m06-lg01"
-        ]
-      ],
       "connections": [
         "D7/D8 fasting/diabetes; D20 nutrition interface"
       ],
       "canonical_content": [
         {
           "block": "M6",
-          "kp": [
-            1,
-            4
-          ],
           "role": "SUPPORT_RECAP",
           "note": "citrate/acetyl-CoA/HMG-CoA interface",
           "logic_group": "b-m06-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            4
+          ]
         },
         {
           "block": "M7",
-          "kp": [
-            1,
-            6
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m07-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            6
+          ]
         },
         {
           "block": "M7",
-          "kp": [
-            7,
-            12
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m07-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            7,
+            12
+          ]
         },
         {
           "block": "M7",
-          "kp": [
-            13,
-            15
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m07-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            13,
+            15
+          ]
         },
         {
           "block": "M7",
-          "kp": [
-            16,
-            16
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-m07-lg04",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            16,
+            16
+          ]
         }
       ]
     },
@@ -605,38 +441,6 @@
         45,
         58
       ],
-      "primary": [
-        [
-          "M8",
-          "b-m08-lg01"
-        ],
-        [
-          "M8",
-          "b-m08-lg02"
-        ],
-        [
-          "M8",
-          "b-m08-lg03"
-        ],
-        [
-          "M8",
-          "b-m08-lg04"
-        ],
-        [
-          "M8",
-          "b-m08-lg05"
-        ]
-      ],
-      "support": [
-        [
-          "M10",
-          "b-m10-lg01"
-        ],
-        [
-          "M1",
-          "b-m01-lg05"
-        ]
-      ],
       "connections": [
         "hematology megaloblastic; liver ammonia; endocrine/catecholamine interfaces"
       ],
@@ -644,75 +448,75 @@
       "canonical_content": [
         {
           "block": "M1",
-          "kp": [
-            15,
-            17
-          ],
           "role": "SUPPORT",
           "logic_group": "b-m01-lg05",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            15,
+            17
+          ]
         },
         {
           "block": "M8",
-          "kp": [
-            1,
-            3
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m08-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            3
+          ]
         },
         {
           "block": "M8",
-          "kp": [
-            4,
-            7
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m08-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            4,
+            7
+          ]
         },
         {
           "block": "M8",
-          "kp": [
-            8,
-            13
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m08-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            8,
+            13
+          ]
         },
         {
           "block": "M8",
-          "kp": [
-            14,
-            16
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m08-lg04",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            14,
+            16
+          ]
         },
         {
           "block": "M8",
-          "kp": [
-            17,
-            18
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-m08-lg05",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            17,
+            18
+          ]
         },
         {
           "block": "M10",
-          "kp": [
-            1,
-            4
-          ],
           "role": "SUPPORT",
           "note": "ALA/B6/amino-acid interface only",
           "logic_group": "b-m10-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            4
+          ]
         }
       ]
     },
@@ -723,17 +527,6 @@
         59,
         65
       ],
-      "primary": [
-        [
-          "M1",
-          "b-m01-lg01"
-        ],
-        [
-          "M1",
-          "b-m01-lg02"
-        ]
-      ],
-      "support": [],
       "connections": [
         "D4 protein absorption; renal proteinuria interface"
       ],
@@ -741,23 +534,23 @@
       "canonical_content": [
         {
           "block": "M1",
-          "kp": [
-            1,
-            5
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m01-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            5
+          ]
         },
         {
           "block": "M1",
-          "kp": [
-            6,
-            8
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m01-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            6,
+            8
+          ]
         }
       ]
     },
@@ -768,60 +561,40 @@
         66,
         74
       ],
-      "primary": [
-        [
-          "M9",
-          "b-m09-lg01"
-        ],
-        [
-          "M9",
-          "b-m09-lg02"
-        ],
-        [
-          "M9",
-          "b-m09-lg03"
-        ]
-      ],
-      "support": [
-        [
-          "M8",
-          "b-m08-lg05"
-        ]
-      ],
       "connections": [
         "G1/G5 information and antimetabolite bridge"
       ],
       "canonical_content": [
         {
           "block": "M9",
-          "kp": [
-            1,
-            5
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m09-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            5
+          ]
         },
         {
           "block": "M9",
-          "kp": [
-            6,
-            10
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m09-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            6,
+            10
+          ]
         },
         {
           "block": "M9",
-          "kp": [
-            11,
-            15
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-m09-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            11,
+            15
+          ]
         }
       ]
     },
@@ -832,26 +605,6 @@
         75,
         79
       ],
-      "primary": [
-        [
-          "M10",
-          "b-m10-lg01"
-        ],
-        [
-          "M10",
-          "b-m10-lg02"
-        ]
-      ],
-      "support": [
-        [
-          "M10",
-          "b-m10-lg03"
-        ],
-        [
-          "M1",
-          "b-m01-lg05"
-        ]
-      ],
       "connections": [
         "hematology hemolysis; hepatobiliary jaundice"
       ],
@@ -859,44 +612,44 @@
       "canonical_content": [
         {
           "block": "M1",
-          "kp": [
-            15,
-            17
-          ],
           "role": "SUPPORT",
           "logic_group": "b-m01-lg05",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            15,
+            17
+          ]
         },
         {
           "block": "M10",
-          "kp": [
-            1,
-            4
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m10-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            4
+          ]
         },
         {
           "block": "M10",
-          "kp": [
-            5,
-            9
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m10-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            5,
+            9
+          ]
         },
         {
           "block": "M10",
-          "kp": [
-            10,
-            13
-          ],
           "role": "SUPPORT_AND_PRIME",
           "note": "P079 biotransformation bridge",
           "logic_group": "b-m10-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            10,
+            13
+          ]
         }
       ]
     },
@@ -907,27 +660,20 @@
         80,
         80
       ],
-      "primary": [
-        [
-          "M10",
-          "b-m10-lg03"
-        ]
-      ],
-      "support": [],
       "connections": [
         "hepatic drug/hormone handling interface"
       ],
       "canonical_content": [
         {
           "block": "M10",
-          "kp": [
-            10,
-            13
-          ],
           "role": "PRIMARY_COMPLETION",
           "closes_block_source_contact": true,
           "logic_group": "b-m10-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            10,
+            13
+          ]
         }
       ]
     },
@@ -938,22 +684,6 @@
         81,
         90
       ],
-      "primary": [
-        [
-          "M1",
-          "b-m01-lg03"
-        ],
-        [
-          "M1",
-          "b-m01-lg04"
-        ]
-      ],
-      "support": [
-        [
-          "M1",
-          "b-m01-lg05"
-        ]
-      ],
       "connections": [
         "multiple disease/diagnostic enzyme interfaces"
       ],
@@ -961,34 +691,45 @@
       "canonical_content": [
         {
           "block": "M1",
-          "kp": [
-            9,
-            12
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m01-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            9,
+            12
+          ]
         },
         {
           "block": "M1",
-          "kp": [
-            13,
-            14
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-m01-lg04",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            13,
+            14
+          ]
         },
         {
           "block": "M1",
-          "kp": [
-            15,
-            17
-          ],
-          "role": "SUPPORT_AND_PRIME",
-          "note": "P090 is the vitamin/cofactor bridge; S14 completes the vitamin-facing portion",
+          "role": "PRIMARY_FORMATION",
+          "note": "27 P085–P086 forms combined-enzyme/cofactor mechanism (KP15).",
           "logic_group": "b-m01-lg05",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            15,
+            15
+          ]
+        },
+        {
+          "block": "M1",
+          "role": "SUPPORT_AND_PRIME",
+          "note": "27 P090 primes the vitamin/cofactor bridge; BIO27-S14 completes KP16–KP17.",
+          "logic_group": "b-m01-lg05",
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            16,
+            17
+          ]
         }
       ]
     },
@@ -999,27 +740,20 @@
         91,
         92
       ],
-      "primary": [
-        [
-          "M1",
-          "b-m01-lg05"
-        ]
-      ],
-      "support": [],
       "connections": [
         "D23 VitD; coagulation VitK; multiple metabolism cofactor interfaces"
       ],
       "canonical_content": [
         {
           "block": "M1",
-          "kp": [
-            16,
-            17
-          ],
           "role": "PRIMARY_COMPLETION",
           "closes_block_source_contact": true,
           "logic_group": "b-m01-lg05",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            16,
+            17
+          ]
         }
       ]
     },
@@ -1030,26 +764,6 @@
         93,
         104
       ],
-      "primary": [
-        [
-          "G5",
-          "b-g05-lg01"
-        ],
-        [
-          "G5",
-          "b-g05-lg03"
-        ]
-      ],
-      "support": [
-        [
-          "G4",
-          "b-g04-lg01"
-        ],
-        [
-          "G2",
-          "b-g02-lg02"
-        ]
-      ],
       "connections": [
         "O9 tumor-general; hematology/organ tumor interfaces"
       ],
@@ -1057,45 +771,45 @@
       "canonical_content": [
         {
           "block": "G5",
-          "kp": [
-            1,
-            5
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g05-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            5
+          ]
         },
         {
           "block": "G5",
-          "kp": [
-            6,
-            11
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g05-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            6,
+            11
+          ]
         },
         {
           "block": "G4",
-          "kp": [
-            1,
-            2
-          ],
           "role": "SUPPORT",
           "note": "oncogene/epigenetic control interface only",
           "logic_group": "b-g04-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            2
+          ]
         },
         {
           "block": "G2",
-          "kp": [
-            8,
-            9
-          ],
           "role": "SUPPORT",
           "note": "reverse-transcription/cDNA interface only",
           "logic_group": "b-g02-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            8,
+            9
+          ]
         }
       ]
     },
@@ -1106,54 +820,39 @@
         105,
         114
       ],
-      "primary": [
-        [
-          "G1",
-          "b-g01-lg01"
-        ],
-        [
-          "G1",
-          "b-g01-lg02"
-        ],
-        [
-          "G1",
-          "b-g01-lg03"
-        ]
-      ],
-      "support": [],
       "connections": [
         "G2/G3 entry language"
       ],
       "canonical_content": [
         {
           "block": "G1",
-          "kp": [
-            1,
-            3
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g01-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            3
+          ]
         },
         {
           "block": "G1",
-          "kp": [
-            4,
-            6
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g01-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            4,
+            6
+          ]
         },
         {
           "block": "G1",
-          "kp": [
-            7,
-            9
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g01-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            7,
+            9
+          ]
         }
       ]
     },
@@ -1164,26 +863,6 @@
         115,
         127
       ],
-      "primary": [
-        [
-          "G2",
-          "b-g02-lg01"
-        ],
-        [
-          "G2",
-          "b-g02-lg02"
-        ],
-        [
-          "G2",
-          "b-g02-lg03"
-        ]
-      ],
-      "support": [
-        [
-          "G5",
-          "b-g05-lg02"
-        ]
-      ],
       "connections": [
         "G5 repair boundary"
       ],
@@ -1191,45 +870,45 @@
       "canonical_content": [
         {
           "block": "G2",
-          "kp": [
-            1,
-            7
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g02-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            7
+          ]
         },
         {
           "block": "G2",
-          "kp": [
-            8,
-            9
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g02-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            8,
+            9
+          ]
         },
         {
           "block": "G2",
-          "kp": [
-            10,
-            11
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-g02-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            10,
+            11
+          ]
         },
         {
           "block": "G5",
-          "kp": [
-            12,
-            13
-          ],
           "role": "SUPPORT",
           "note": "replication-fidelity/repair preview only",
           "logic_group": "b-g05-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            12,
+            13
+          ]
         }
       ]
     },
@@ -1240,56 +919,40 @@
         128,
         138
       ],
-      "primary": [
-        [
-          "G3",
-          "b-g03-lg01"
-        ],
-        [
-          "G3",
-          "b-g03-lg02"
-        ]
-      ],
-      "support": [
-        [
-          "G2",
-          "b-g02-lg03"
-        ]
-      ],
       "connections": [
         "G4 regulation entry"
       ],
       "canonical_content": [
         {
           "block": "G3",
-          "kp": [
-            1,
-            5
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g03-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            5
+          ]
         },
         {
           "block": "G3",
-          "kp": [
-            6,
-            8
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g03-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            6,
+            8
+          ]
         },
         {
           "block": "G2",
-          "kp": [
-            10,
-            11
-          ],
           "role": "SUPPORT_RECAP",
           "note": "replication-vs-transcription comparison",
           "logic_group": "b-g02-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            10,
+            11
+          ]
         }
       ]
     },
@@ -1300,70 +963,50 @@
         139,
         150
       ],
-      "primary": [
-        [
-          "G3",
-          "b-g03-lg03"
-        ],
-        [
-          "G3",
-          "b-g03-lg04"
-        ],
-        [
-          "G3",
-          "b-g03-lg05"
-        ]
-      ],
-      "support": [
-        [
-          "G1",
-          "b-g01-lg03"
-        ]
-      ],
       "connections": [
         "protein maturation/targeting; antimicrobial/toxin interfaces"
       ],
       "canonical_content": [
         {
           "block": "G3",
-          "kp": [
-            9,
-            13
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g03-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            9,
+            13
+          ]
         },
         {
           "block": "G3",
-          "kp": [
-            14,
-            14
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g03-lg04",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            14,
+            14
+          ]
         },
         {
           "block": "G3",
-          "kp": [
-            15,
-            15
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-g03-lg05",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            15,
+            15
+          ]
         },
         {
           "block": "G1",
-          "kp": [
-            7,
-            9
-          ],
           "role": "SUPPORT_APPLICATION",
           "logic_group": "b-g01-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            7,
+            9
+          ]
         }
       ]
     },
@@ -1374,26 +1017,6 @@
         151,
         165
       ],
-      "primary": [
-        [
-          "G4",
-          "b-g04-lg01"
-        ],
-        [
-          "G4",
-          "b-g04-lg02"
-        ],
-        [
-          "G4",
-          "b-g04-lg03"
-        ]
-      ],
-      "support": [
-        [
-          "G1",
-          "b-g01-lg04"
-        ]
-      ],
       "connections": [
         "endocrine nuclear-receptor and hypoxia/HIF interfaces"
       ],
@@ -1401,45 +1024,45 @@
       "canonical_content": [
         {
           "block": "G4",
-          "kp": [
-            1,
-            2
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g04-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            2
+          ]
         },
         {
           "block": "G4",
-          "kp": [
-            3,
-            6
-          ],
           "role": "PRIMARY_FORMATION",
           "logic_group": "b-g04-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            3,
+            6
+          ]
         },
         {
           "block": "G4",
-          "kp": [
-            7,
-            10
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-g04-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            7,
+            10
+          ]
         },
         {
           "block": "G1",
-          "kp": [
-            10,
-            10
-          ],
           "role": "SUPPORT",
           "note": "expression-organization boundary",
           "logic_group": "b-g01-lg04",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            10,
+            10
+          ]
         }
       ]
     },
@@ -1450,43 +1073,31 @@
         166,
         168
       ],
-      "primary": [
-        [
-          "G1",
-          "b-g01-lg04"
-        ]
-      ],
-      "support": [
-        [
-          "G4",
-          "b-g04-lg03"
-        ]
-      ],
       "connections": [
         "G3/G4 expression-organization boundary"
       ],
       "canonical_content": [
         {
           "block": "G1",
-          "kp": [
-            10,
-            10
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-g01-lg04",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            10,
+            10
+          ]
         },
         {
           "block": "G4",
-          "kp": [
-            7,
-            10
-          ],
           "role": "SUPPORT",
           "note": "eukaryotic organization/regulation boundary",
           "logic_group": "b-g04-lg03",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            7,
+            10
+          ]
         }
       ]
     },
@@ -1497,18 +1108,6 @@
         169,
         170
       ],
-      "primary": [
-        [
-          "G5",
-          "b-g05-lg02"
-        ]
-      ],
-      "support": [
-        [
-          "G2",
-          "b-g02-lg01"
-        ]
-      ],
       "connections": [
         "tumor/genome-stability interface"
       ],
@@ -1516,25 +1115,25 @@
       "canonical_content": [
         {
           "block": "G5",
-          "kp": [
-            12,
-            13
-          ],
           "role": "PRIMARY_FORMATION",
           "closes_block_source_contact": true,
           "logic_group": "b-g05-lg02",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            12,
+            13
+          ]
         },
         {
           "block": "G2",
-          "kp": [
-            1,
-            7
-          ],
           "role": "SUPPORT",
           "note": "repair/fidelity boundary",
           "logic_group": "b-g02-lg01",
-          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP"
+          "mapping_semantics": "DIRECT_TO_EXISTING_LOGIC_GROUP_KP",
+          "kp_range": [
+            1,
+            7
+          ]
         }
       ]
     }
@@ -1616,35 +1215,14 @@
       "status": "SOURCE_CONTACT_COMPLETE_BY_MAP"
     }
   },
-  "route_conflicts_to_resolve_during_deep_review": [
-    {
-      "id": "BIO27-RC01",
-      "issue": "Current B readiness says M2 requires full M1, but the 27 Source teaches core metabolism before formal protein/enzyme/vitamin chapters.",
-      "current_safe_execution": "Allow continuous Source contact with the minimal JIT prelude; do not force a jump to M1. Decide during K/L revalidation whether source-local Recall can count before full M1 closure and how Block Complete should be gated."
-    },
-    {
-      "id": "BIO27-RC02",
-      "issue": "G5 Source begins before G1-G4, then DNA-damage material returns at the very end.",
-      "current_safe_execution": "Treat S15 as early Source exposure/partial formation only; do not close G5 until S22 and required information-flow language is available."
-    }
-  ],
-  "next_review_batches": [
-    "S01-S04 carbohydrate/energy against M2-M4",
-    "S05-S07 lipid against M5-M7",
-    "S08 amino acid against M8",
-    "S09 + S13-S14 distributed M1",
-    "S10 nucleotide against M9",
-    "S11-S12 heme/bilirubin/biotransformation against M10",
-    "S15-S22 molecular branch against G1-G5",
-    "system/cross-system + learning + question/explanation/evidence reconciliation"
-  ],
   "canonical_mapping_semantics": {
-    "role": "Direct Source→existing Block/Logic Group/KP mapping plus explicit support/Connection roles. Source teacher order does not create a parallel Knowledge hierarchy.",
-    "status": "CURRENT_DIRECT_BLOCK_LG_KP"
+    "role": "Direct current Source→existing Block/Logic Group/KP mapping plus explicit support/Connection roles. Teacher order does not create hierarchy.",
+    "status": "CURRENT_DIRECT_BLOCK_LG_KP_REACCEPTED",
+    "selector_schema": "canonical_content[].kp_range = inclusive [start,end]"
   },
-  "source_map_status": "CURRENT_22_UNIT_DIRECT_BLOCK_LG_KP_MAPPING_COMPLETE",
+  "source_map_status": "CURRENT_27_SOURCE_ROUTING_REACCEPTED",
   "mapping_completion": {
-    "status": "DIRECT_BLOCK_LG_KP_MAPPING_COMPLETE",
+    "status": "DIRECT_BLOCK_LG_KP_MAPPING_REACCEPTED",
     "source_units": 22,
     "canonical_blocks": 15,
     "reconciled_blocks": [
@@ -1666,1113 +1244,23 @@
     ],
     "remaining_parallel_layer_refs": 0,
     "preserved_truth": "Source identity, teacher order, page ranges, explicit Source conflicts/bounds, and reviewed 27-vs-26 semantic findings remain current.",
-    "acceptance_boundary": "This proves Source routing architecture only; K/L/Content/P acceptance remains separate."
+    "acceptance_boundary": "Source routing is current/reaccepted here. K/L/Content/P acceptance remains separately owned and is CLOSED/CURRENT in the B Acceptance/Mainline owners."
   },
   "architecture_rule": {
     "canonical_hierarchy": "System → Block → Logic Group → KP",
     "source_unit_role": "FIRST_PASS_EXECUTION_UNIT_ONLY",
     "mapping_target": "DIRECT_TO_EXISTING_BLOCK_LOGIC_GROUP_KP_OR_EXPLICIT_SUPPORT_CONNECTION",
     "forbidden": "Do not promote Source units, pathway bands, Frameworks, mother models, or L1/L2/L3 groupings into a parallel canonical hierarchy.",
-    "current_reconciliation": "The existing `canonical_content[].layer` and `canonical_mapping_semantics.block_layers` produced during the 2026-09-24 rebase are retained only as provisional work evidence until direct LG/KP reconciliation removes/replaces them. They are NOT Current canonical hierarchy."
+    "current_reconciliation": "All provisional canonical-layer fields and duplicate direct-block summary views have been removed. Current Source routing contains no intermediate hierarchy."
   },
-  "direct_block_logic_group_kp": {
-    "M1": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "logic_groups": {
-        "b-m01-lg01": "KP01–KP05｜蛋白质结构、折叠与变性",
-        "b-m01-lg02": "KP06–KP08｜等电点、蛋白评价与分离/降解",
-        "b-m01-lg03": "KP09–KP12｜酶身份、催化与调节",
-        "b-m01-lg04": "KP13–KP14｜酶动力学与抑制比较",
-        "b-m01-lg05": "KP15–KP17｜辅因子、维生素与医学酶学"
-      },
-      "source_formation": [
-        "BIO27-S09 → b-m01-lg01 + b-m01-lg02 primary formation",
-        "BIO27-S13 → b-m01-lg03 + b-m01-lg04 primary formation; b-m01-lg05 support/prime",
-        "BIO27-S14 → b-m01-lg05 primary completion + M1 Source closure"
-      ],
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; LG/KP identity remains Learning/Knowledge authority."
+  "resolved_route_conflicts": [
+    {
+      "id": "BIO27-RC01",
+      "result": "Source encounter may precede M1 closure; JIT Prelude is non-gating and readiness still controls closure/downstream authorization."
     },
-    "M2": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "logic_groups": {
-        "b-m02-lg01": {
-          "source_units": [
-            "BIO27-S01"
-          ],
-          "support_units": [
-            "BIO27-S03"
-          ]
-        },
-        "b-m02-lg02": {
-          "source_units": [
-            "BIO27-S01",
-            "BIO27-S04"
-          ],
-          "support_units": [
-            "BIO27-S02"
-          ],
-          "closure_unit": "BIO27-S04"
-        },
-        "b-m02-lg03": {
-          "source_units": [
-            "BIO27-S04"
-          ],
-          "closure_unit": "BIO27-S04"
-        }
-      },
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; LG/KP identity remains Learning/Knowledge authority."
-    },
-    "M3": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "logic_groups": {
-        "b-m03-lg01": {
-          "source_units": [
-            "BIO27-S02"
-          ]
-        },
-        "b-m03-lg02": {
-          "source_units": [
-            "BIO27-S03"
-          ],
-          "support_units": [
-            "BIO27-S02"
-          ],
-          "closure_unit": "BIO27-S03"
-        }
-      },
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; LG/KP identity remains Learning/Knowledge authority."
-    },
-    "M4": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "logic_groups": {
-        "b-m04-lg01": {
-          "source_units": [
-            "BIO27-S03"
-          ]
-        },
-        "b-m04-lg02": {
-          "source_units": [
-            "BIO27-S03"
-          ]
-        },
-        "b-m04-lg03": {
-          "source_units": [
-            "BIO27-S03"
-          ],
-          "closure_unit": "BIO27-S03"
-        }
-      },
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; LG/KP identity remains Learning/Knowledge authority."
-    },
-    "M5": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "logic_groups": {
-        "b-m05-lg01": {
-          "label": "脂蛋白身份、组成与方向",
-          "kp": [
-            1,
-            3
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S05",
-              "pdf": [
-                27,
-                30
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                1,
-                3
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m05-lg02": {
-          "label": "CM/VLDL-LDL/HDL三条运输线",
-          "kp": [
-            4,
-            7
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S05",
-              "pdf": [
-                27,
-                30
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                4,
-                7
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m05-lg03": {
-          "label": "apo、酶、受体与运输故障定位",
-          "kp": [
-            8,
-            10
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S05",
-              "pdf": [
-                27,
-                30
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                8,
-                10
-              ],
-              "note": null,
-              "closes_block_source_contact": true
-            },
-            {
-              "source_unit": "BIO27-S06",
-              "pdf": [
-                31,
-                35
-              ],
-              "role": "SUPPORT",
-              "kp": [
-                8,
-                10
-              ],
-              "note": "LCAT/ACAT/cholesterol-pool interface only",
-              "closes_block_source_contact": false
-            }
-          ]
-        }
-      },
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; LG/KP identity remains Learning/Knowledge authority."
-    },
-    "M6": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "logic_groups": {
-        "b-m06-lg01": {
-          "label": "胆固醇合成与HMG-CoA还原酶",
-          "kp": [
-            1,
-            4
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S06",
-              "pdf": [
-                31,
-                35
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                1,
-                4
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            },
-            {
-              "source_unit": "BIO27-S07",
-              "pdf": [
-                36,
-                44
-              ],
-              "role": "SUPPORT_RECAP",
-              "kp": [
-                1,
-                4
-              ],
-              "note": "citrate/acetyl-CoA/HMG-CoA interface",
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m06-lg02": {
-          "label": "胆固醇去路、胆汁酸、VitD与类固醇",
-          "kp": [
-            5,
-            8
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S06",
-              "pdf": [
-                31,
-                35
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                5,
-                8
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m06-lg03": {
-          "label": "甘油磷脂合成与磷脂酶",
-          "kp": [
-            9,
-            11
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S06",
-              "pdf": [
-                31,
-                35
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                9,
-                11
-              ],
-              "note": null,
-              "closes_block_source_contact": true
-            }
-          ]
-        }
-      },
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; LG/KP identity remains Learning/Knowledge authority."
-    },
-    "M7": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "logic_groups": {
-        "b-m07-lg01": {
-          "label": "TAG/脂肪酸合成与储能",
-          "kp": [
-            1,
-            6
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S07",
-              "pdf": [
-                36,
-                44
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                1,
-                6
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m07-lg02": {
-          "label": "脂解、肉碱穿梭与β氧化",
-          "kp": [
-            7,
-            12
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S07",
-              "pdf": [
-                36,
-                44
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                7,
-                12
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m07-lg03": {
-          "label": "酮体生成—利用—酸中毒",
-          "kp": [
-            13,
-            15
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S07",
-              "pdf": [
-                36,
-                44
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                13,
-                15
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m07-lg04": {
-          "label": "必需脂肪酸与类花生酸接口",
-          "kp": [
-            16,
-            16
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S07",
-              "pdf": [
-                36,
-                44
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                16,
-                16
-              ],
-              "note": null,
-              "closes_block_source_contact": true
-            }
-          ]
-        }
-      },
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; LG/KP identity remains Learning/Knowledge authority."
-    },
-    "M8": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "logic_groups": {
-        "b-m08-lg01": {
-          "label": "氨基酸身份与分类",
-          "kp": [
-            1,
-            3
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S08",
-              "pdf": [
-                45,
-                58
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                1,
-                3
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m08-lg02": {
-          "label": "氨基酸衍生物与供体地图",
-          "kp": [
-            4,
-            7
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S08",
-              "pdf": [
-                45,
-                58
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                4,
-                7
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m08-lg03": {
-          "label": "碳氮分流、转氨与安全运氨",
-          "kp": [
-            8,
-            13
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S08",
-              "pdf": [
-                45,
-                58
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                8,
-                13
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m08-lg04": {
-          "label": "尿素循环、两个氮与调节",
-          "kp": [
-            14,
-            16
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S08",
-              "pdf": [
-                45,
-                58
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                14,
-                16
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m08-lg05": {
-          "label": "一碳单位、叶酸与B12",
-          "kp": [
-            17,
-            18
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S08",
-              "pdf": [
-                45,
-                58
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                17,
-                18
-              ],
-              "note": null,
-              "closes_block_source_contact": true
-            }
-          ]
-        }
-      },
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; LG/KP identity remains Learning/Knowledge authority."
-    },
-    "M9": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "logic_groups": {
-        "b-m09-lg01": {
-          "label": "PRPP与嘌呤从头/补救/分解",
-          "kp": [
-            1,
-            5
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S10",
-              "pdf": [
-                66,
-                74
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                1,
-                5
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m09-lg02": {
-          "label": "嘧啶、脱氧核苷酸与dTMP",
-          "kp": [
-            6,
-            10
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S10",
-              "pdf": [
-                66,
-                74
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                6,
-                10
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m09-lg03": {
-          "label": "抗代谢物靶点地图",
-          "kp": [
-            11,
-            15
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S10",
-              "pdf": [
-                66,
-                74
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                11,
-                15
-              ],
-              "note": null,
-              "closes_block_source_contact": true
-            }
-          ]
-        }
-      },
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; LG/KP identity remains Learning/Knowledge authority."
-    },
-    "M10": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "logic_groups": {
-        "b-m10-lg01": {
-          "label": "血红素合成与含铁卟啉入口",
-          "kp": [
-            1,
-            4
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S08",
-              "pdf": [
-                45,
-                58
-              ],
-              "role": "SUPPORT",
-              "kp": [
-                1,
-                4
-              ],
-              "note": "ALA/B6/amino-acid interface only",
-              "closes_block_source_contact": false
-            },
-            {
-              "source_unit": "BIO27-S11",
-              "pdf": [
-                75,
-                79
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                1,
-                4
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m10-lg02": {
-          "label": "UCB→CB→肠道与三类黄疸",
-          "kp": [
-            5,
-            9
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S11",
-              "pdf": [
-                75,
-                79
-              ],
-              "role": "PRIMARY_FORMATION",
-              "kp": [
-                5,
-                9
-              ],
-              "note": null,
-              "closes_block_source_contact": false
-            }
-          ]
-        },
-        "b-m10-lg03": {
-          "label": "Ⅰ相/Ⅱ相生物转化",
-          "kp": [
-            10,
-            13
-          ],
-          "source_bindings": [
-            {
-              "source_unit": "BIO27-S11",
-              "pdf": [
-                75,
-                79
-              ],
-              "role": "SUPPORT_AND_PRIME",
-              "kp": [
-                10,
-                13
-              ],
-              "note": "P079 biotransformation bridge",
-              "closes_block_source_contact": false
-            },
-            {
-              "source_unit": "BIO27-S12",
-              "pdf": [
-                80,
-                80
-              ],
-              "role": "PRIMARY_COMPLETION",
-              "kp": [
-                10,
-                13
-              ],
-              "note": null,
-              "closes_block_source_contact": true
-            }
-          ]
-        }
-      },
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; LG/KP identity remains Learning/Knowledge authority."
-    },
-    "G1": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "source_bindings": [
-        {
-          "source_unit": "BIO27-S16",
-          "pdf": [
-            105,
-            114
-          ],
-          "logic_group": "b-g01-lg01",
-          "kp": [
-            1,
-            3
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S16",
-          "pdf": [
-            105,
-            114
-          ],
-          "logic_group": "b-g01-lg02",
-          "kp": [
-            4,
-            6
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S16",
-          "pdf": [
-            105,
-            114
-          ],
-          "logic_group": "b-g01-lg03",
-          "kp": [
-            7,
-            9
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S19",
-          "pdf": [
-            139,
-            150
-          ],
-          "logic_group": "b-g01-lg03",
-          "kp": [
-            7,
-            9
-          ],
-          "role": "SUPPORT_APPLICATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S20",
-          "pdf": [
-            151,
-            165
-          ],
-          "logic_group": "b-g01-lg04",
-          "kp": [
-            10,
-            10
-          ],
-          "role": "SUPPORT",
-          "closes_block_source_contact": false,
-          "note": "expression-organization boundary"
-        },
-        {
-          "source_unit": "BIO27-S21",
-          "pdf": [
-            166,
-            168
-          ],
-          "logic_group": "b-g01-lg04",
-          "kp": [
-            10,
-            10
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": true,
-          "note": null
-        }
-      ],
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; canonical KP/file order and learner order remain separate concerns."
-    },
-    "G2": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "source_bindings": [
-        {
-          "source_unit": "BIO27-S15",
-          "pdf": [
-            93,
-            104
-          ],
-          "logic_group": "b-g02-lg02",
-          "kp": [
-            8,
-            9
-          ],
-          "role": "SUPPORT",
-          "closes_block_source_contact": false,
-          "note": "reverse-transcription/cDNA interface only"
-        },
-        {
-          "source_unit": "BIO27-S17",
-          "pdf": [
-            115,
-            127
-          ],
-          "logic_group": "b-g02-lg01",
-          "kp": [
-            1,
-            7
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S17",
-          "pdf": [
-            115,
-            127
-          ],
-          "logic_group": "b-g02-lg02",
-          "kp": [
-            8,
-            9
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S17",
-          "pdf": [
-            115,
-            127
-          ],
-          "logic_group": "b-g02-lg03",
-          "kp": [
-            10,
-            11
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": true,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S18",
-          "pdf": [
-            128,
-            138
-          ],
-          "logic_group": "b-g02-lg03",
-          "kp": [
-            10,
-            11
-          ],
-          "role": "SUPPORT_RECAP",
-          "closes_block_source_contact": false,
-          "note": "replication-vs-transcription comparison"
-        },
-        {
-          "source_unit": "BIO27-S22",
-          "pdf": [
-            169,
-            170
-          ],
-          "logic_group": "b-g02-lg01",
-          "kp": [
-            1,
-            7
-          ],
-          "role": "SUPPORT",
-          "closes_block_source_contact": false,
-          "note": "repair/fidelity boundary"
-        }
-      ],
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; canonical KP/file order and learner order remain separate concerns."
-    },
-    "G3": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "source_bindings": [
-        {
-          "source_unit": "BIO27-S18",
-          "pdf": [
-            128,
-            138
-          ],
-          "logic_group": "b-g03-lg01",
-          "kp": [
-            1,
-            5
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S18",
-          "pdf": [
-            128,
-            138
-          ],
-          "logic_group": "b-g03-lg02",
-          "kp": [
-            6,
-            8
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S19",
-          "pdf": [
-            139,
-            150
-          ],
-          "logic_group": "b-g03-lg03",
-          "kp": [
-            9,
-            13
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S19",
-          "pdf": [
-            139,
-            150
-          ],
-          "logic_group": "b-g03-lg04",
-          "kp": [
-            14,
-            14
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S19",
-          "pdf": [
-            139,
-            150
-          ],
-          "logic_group": "b-g03-lg05",
-          "kp": [
-            15,
-            15
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": true,
-          "note": null
-        }
-      ],
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; canonical KP/file order and learner order remain separate concerns."
-    },
-    "G4": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "source_bindings": [
-        {
-          "source_unit": "BIO27-S15",
-          "pdf": [
-            93,
-            104
-          ],
-          "logic_group": "b-g04-lg01",
-          "kp": [
-            1,
-            2
-          ],
-          "role": "SUPPORT",
-          "closes_block_source_contact": false,
-          "note": "oncogene/epigenetic control interface only"
-        },
-        {
-          "source_unit": "BIO27-S20",
-          "pdf": [
-            151,
-            165
-          ],
-          "logic_group": "b-g04-lg01",
-          "kp": [
-            1,
-            2
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S20",
-          "pdf": [
-            151,
-            165
-          ],
-          "logic_group": "b-g04-lg02",
-          "kp": [
-            3,
-            6
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S20",
-          "pdf": [
-            151,
-            165
-          ],
-          "logic_group": "b-g04-lg03",
-          "kp": [
-            7,
-            10
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": true,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S21",
-          "pdf": [
-            166,
-            168
-          ],
-          "logic_group": "b-g04-lg03",
-          "kp": [
-            7,
-            10
-          ],
-          "role": "SUPPORT",
-          "closes_block_source_contact": false,
-          "note": "eukaryotic organization/regulation boundary"
-        }
-      ],
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; canonical KP/file order and learner order remain separate concerns."
-    },
-    "G5": {
-      "status": "RECONCILED_CURRENT",
-      "hierarchy": "Block → Logic Group → KP",
-      "source_bindings": [
-        {
-          "source_unit": "BIO27-S15",
-          "pdf": [
-            93,
-            104
-          ],
-          "logic_group": "b-g05-lg01",
-          "kp": [
-            1,
-            5
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S15",
-          "pdf": [
-            93,
-            104
-          ],
-          "logic_group": "b-g05-lg03",
-          "kp": [
-            6,
-            11
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": false,
-          "note": null
-        },
-        {
-          "source_unit": "BIO27-S17",
-          "pdf": [
-            115,
-            127
-          ],
-          "logic_group": "b-g05-lg02",
-          "kp": [
-            12,
-            13
-          ],
-          "role": "SUPPORT",
-          "closes_block_source_contact": false,
-          "note": "replication-fidelity/repair preview only"
-        },
-        {
-          "source_unit": "BIO27-S22",
-          "pdf": [
-            169,
-            170
-          ],
-          "logic_group": "b-g05-lg02",
-          "kp": [
-            12,
-            13
-          ],
-          "role": "PRIMARY_FORMATION",
-          "closes_block_source_contact": true,
-          "note": null
-        }
-      ],
-      "rule": "No intermediate canonical layer. Source order remains teacher authority; canonical KP/file order and learner order remain separate concerns."
+    {
+      "id": "BIO27-RC02",
+      "result": "G5 early S15 exposure is partial; the Source-closure checkpoint is BIO27-S22."
     }
-  }
+  ]
 }
