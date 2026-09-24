@@ -7,6 +7,7 @@ import {
   studyDayAt,
   STUDY_TIMER_TIMEZONE
 } from './studyTimer.mjs';
+import { stewardRealityEventsForDay } from './stewardReality.mjs';
 
 const SUBJECT_LABEL = Object.freeze({
   xizong: '西综',
@@ -225,19 +226,43 @@ export function initStewardWorkspace(root) {
     const list = $('[data-steward-reality]');
     if (!list) return;
     list.innerHTML = '';
-    const sessions = sessionsForDay(storage, today)
-      .sort((a, b) => b.endedAt - a.endedAt)
-      .slice(0, 4);
-    if (!sessions.length) {
-      list.appendChild(createText('p', 'stewardEmpty', '今天还没有学习记录。'));
+    const sessions = sessionsForDay(storage, today).map(session => ({
+      at: session.endedAt,
+      startedAt: session.startedAt,
+      label: (SUBJECT_LABEL[session.subject] || session.subject) + ' · ' + (session.context?.detailLabel || '学习')
+    }));
+    const breaks = stewardRealityEventsForDay(storage, today);
+    if (breaks == null) {
+      list.appendChild(createText('p', 'stewardEmpty', '休息记录暂不可安全读取；原数据未改动。'));
+    }
+    const methodLabels = { walk:'走动', eyes_closed:'闭眼', phone:'手机', food:'吃点东西', water:'补水' };
+    const breakRows = (breaks || []).map(event => {
+      const minutes = event.endedAt == null ? null : Math.max(0, Math.round((event.endedAt - event.startedAt) / 60000));
+      const methods = [...(event.methods || []).map(method => methodLabels[method] || method), event.customMethod].filter(Boolean);
+      const reentry = event.reentry?.status === 'RESTORED' ? '恢复明显'
+        : event.reentry?.status === 'PARTIAL' ? '部分恢复'
+          : event.reentry?.status === 'NOT_RESTORED' ? '仍未恢复' : '';
+      return {
+        at: event.endedAt || event.startedAt,
+        startedAt: event.startedAt,
+        label: [
+          event.endedAt == null ? '休息中' : '休息 ' + minutes + 'm',
+          methods.join(' / '),
+          reentry
+        ].filter(Boolean).join(' · ')
+      };
+    });
+    const rows = [...sessions, ...breakRows].sort((a, b) => b.at - a.at).slice(0, 4);
+    if (!rows.length && breaks != null) {
+      list.appendChild(createText('p', 'stewardEmpty', '今天还没有学习或休息记录。'));
       return;
     }
-    for (const session of sessions) {
+    for (const item of rows) {
       const row = document.createElement('div');
       row.className = 'stewardRealityRow';
       row.append(
-        createText('time', '', formatClock(session.startedAt)),
-        createText('span', '', `${SUBJECT_LABEL[session.subject] || session.subject} · ${session.context?.detailLabel || '学习'}`)
+        createText('time', '', formatClock(item.startedAt)),
+        createText('span', '', item.label)
       );
       list.appendChild(row);
     }
@@ -620,6 +645,7 @@ export function initStewardWorkspace(root) {
   };
 
   window.addEventListener('kianos:study-timer-change', refresh);
+  window.addEventListener('kianos:steward-reality-change', refresh);
   window.addEventListener('kianos:control-command-applied', refresh);
   window.addEventListener('kianos:private-control-consumed', refresh);
   window.addEventListener('storage', (event) => {

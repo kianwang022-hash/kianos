@@ -31,6 +31,7 @@ import {
 } from './privateSubjectCheckpoints.mjs';
 
 import { CONTROL_LOCAL_RECEIPT_KEY } from './privateControlCommand.mjs';
+import { STEWARD_REALITY_KEY } from './stewardReality.mjs';
 
 export const PRIVATE_CHECKPOINT_RUNTIME_SCHEMA = 'kianos.private-checkpoint-runtime.v1';
 
@@ -38,7 +39,8 @@ const SHARED_STORAGE_KEYS = Object.freeze([
   EXAM_PROFILE_KEY,
   EXAM_CHAT_PLAN_KEY,
   STUDY_TIMER_STATE_KEY,
-  STUDY_TIMER_LEDGER_KEY
+  STUDY_TIMER_LEDGER_KEY,
+  STEWARD_REALITY_KEY
 ]);
 
 const readRaw = (storage, key) => {
@@ -269,6 +271,7 @@ export function initPrivateCheckpointAutosave(storage, {
   globalThis.addEventListener?.('kianos:study-timer-change', schedule);
   globalThis.addEventListener?.('kianos:exam-plan-read-model', schedule);
   globalThis.addEventListener?.('kianos:english-exam-updated', schedule);
+  globalThis.addEventListener?.('kianos:steward-reality-change', schedule);
   globalThis.addEventListener?.('storage', storageHandler);
   globalThis.addEventListener?.('focus', schedule);
   globalThis.addEventListener?.('blur', blurHandler);
@@ -287,6 +290,7 @@ export function initPrivateCheckpointAutosave(storage, {
       globalThis.removeEventListener?.('kianos:study-timer-change', schedule);
       globalThis.removeEventListener?.('kianos:exam-plan-read-model', schedule);
       globalThis.removeEventListener?.('kianos:english-exam-updated', schedule);
+      globalThis.removeEventListener?.('kianos:steward-reality-change', schedule);
       globalThis.removeEventListener?.('storage', storageHandler);
       globalThis.removeEventListener?.('focus', schedule);
       globalThis.removeEventListener?.('blur', blurHandler);

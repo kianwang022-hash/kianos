@@ -27,6 +27,51 @@ const base = import.meta.env.BASE_URL;
       <b data-study-timer-total>0m</b>
     </div>
 
+    <section class="studyTimerRestFlow" data-study-timer-rest hidden aria-label="休息记录">
+      <div class="studyTimerFlowHead">
+        <div><span>Pause</span><strong>先休息，再决定什么时候回来</strong></div>
+        <button type="button" data-study-timer-rest-dismiss aria-label="收起休息记录">收起</button>
+      </div>
+      <p data-study-timer-rest-status>计时已暂停。下面都可跳过，不会自动恢复学习。</p>
+      <div class="studyTimerChoiceRow" aria-label="预计休息时长">
+        <button type="button" data-study-timer-rest-minutes="5">5 分钟</button>
+        <button type="button" data-study-timer-rest-minutes="10">10 分钟</button>
+        <button type="button" data-study-timer-rest-minutes="15">15 分钟</button>
+        <button type="button" data-study-timer-rest-minutes="">不设结束</button>
+      </div>
+      <div class="studyTimerChoiceRow" aria-label="休息方式">
+        <button type="button" data-study-timer-rest-method="walk">走动</button>
+        <button type="button" data-study-timer-rest-method="eyes_closed">闭眼</button>
+        <button type="button" data-study-timer-rest-method="phone">手机</button>
+        <button type="button" data-study-timer-rest-method="food">吃点东西</button>
+        <button type="button" data-study-timer-rest-method="water">补水</button>
+      </div>
+      <input type="text" maxlength="120" data-study-timer-rest-custom placeholder="其他方式（可选）" />
+      <input type="text" maxlength="500" data-study-timer-rest-note placeholder="一句话备注（可选）" />
+      <div class="studyTimerFlowActions">
+        <span data-study-timer-rest-save-status></span>
+        <button type="button" data-study-timer-rest-save>保存休息记录</button>
+      </div>
+    </section>
+
+    <section class="studyTimerReentry" data-study-timer-reentry hidden aria-label="回来后的状态">
+      <div class="studyTimerFlowHead">
+        <div><span>Re-entry</span><strong>回来后实际怎么样？</strong></div>
+        <button type="button" data-study-timer-reentry-dismiss aria-label="跳过回来后记录">跳过</button>
+      </div>
+      <p>这是可选的现实反馈，不是 readiness 分数，也不会自动改计划。</p>
+      <div class="studyTimerChoiceRow" aria-label="回来后的实际状态">
+        <button type="button" data-study-timer-reentry-status="RESTORED">恢复明显</button>
+        <button type="button" data-study-timer-reentry-status="PARTIAL">部分恢复</button>
+        <button type="button" data-study-timer-reentry-status="NOT_RESTORED">仍未恢复</button>
+      </div>
+      <input type="text" maxlength="500" data-study-timer-reentry-note placeholder="一句话备注（可选）" />
+      <div class="studyTimerFlowActions">
+        <span data-study-timer-reentry-save-status></span>
+        <button type="button" data-study-timer-reentry-save>保存回来后记录</button>
+      </div>
+    </section>
+
     <div class="studyTimerTodayRows" aria-label="今日分科计时">
       <div class="studyTimerTodayRow"><span>西综</span><strong data-study-timer-total-xizong>0m</strong></div>
       <div class="studyTimerTodayRow"><span>政治</span><strong data-study-timer-total-politics>0m</strong></div>
