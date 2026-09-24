@@ -12,56 +12,55 @@ The managed macOS Current mirror, private checkpoint path, Daily Learning Packet
 
 Content production remains independent: vocabulary, Xizong explanations/relations/visual assets, English sources, Politics sources, and Skills continue only through their exact content owners.
 
-## Home / Steward / Radar design direction — not shipped
+## Home / Steward / Radar UI work — active, not yet accepted
 
-Kian approved the broader Home / Steward / Radar / global Dock direction on 2026-09-24. This records the product direction for a future bounded UI task. Kian stopped the present Steward UI implementation attempt; do not infer an active page-build assignment from this section or reproduce the experimental previews.
+Kian reopened the integrated UI work on 2026-09-24 after clarifying the current website architecture.
 
-### Product model
+Current architecture basis:
+- the website is built from GitHub `static-web/` source and uses the existing Current delivery path;
+- L1 / L2 / L3 are ownership levels, not three mandatory visible navigation rows;
+- Steward is an L1 destination in the shared global rail;
+- Steward has no invented L2 bar;
+- Today / Week / Month are Steward-local views of one time model;
+- Today-local 日程 / 饮食与营养 / 训练 are workspace modes, not new global/subject navigation;
+- formal implementation must inherit `Base.astro → BaseFrame.astro → sharedNavigation.mjs → shared visual tokens`.
 
-- **Home** → exam strategy and three-subject status.
-- **Steward** → time + reality, expressed at Today / Week / Month zoom levels.
-- **Radar** → filtered external attention.
-- **Subject pages** → actual learner work/evidence.
-- **Dock** → continuity across those surfaces.
+### Current formal implementation on `main`
 
-### Steward time model
+The earlier standalone `ui-preview/steward-vnext.html` is now reference-only.
 
-The earlier Steward HTML is the interaction reference:
-- Today = vertical day timeline;
-- Week = one shared time axis with seven day columns;
-- Month = a real calendar grid.
+Formal files:
+- `src/pages/steward/index.astro`
+- `src/styles/steward-workspace.css`
+- `src/lib/stewardWorkspaceClient.mjs`
+- Steward entry in `src/lib/sharedNavigation.mjs`
+- full-height shared-shell support through `BaseFrame.astro`
 
-Treat that as a mental model, not a pixel spec. Codex may improve the visual treatment and interaction details.
+Current behavior:
+- Today is the default view and opens to 日程;
+- Today reads the existing Chat Plan presentation when available and StudyTimer actuals; it does not fabricate learner data;
+- Week uses one shared time axis + seven day columns, with real StudyTimer history and current-day plan when available;
+- Month is a real Monday–Sunday calendar with real study-history marks and current-day schedule detail when available;
+- Nutrition / Training remain honest empty states until their existing canonical data path is integrated;
+- the existing shared StudyTimerDock is reused; no parallel timer or learner ledger was created.
 
-### Design principles
+### Visual direction
 
-- Mac landscape, Dense Calm, high information density with readable text.
-- Use space and hierarchy before shrinking type.
-- Keep current/next/action obvious.
-- Use progressive disclosure instead of permanent explanatory panels.
-- Keep backend analysis/provenance out of the ordinary foreground.
-- Preserve continuity: quick capture should not interrupt study; Steward should not feel like leaving the current workspace.
-- Plan / actual time / learner evidence / subjective state / Health observations remain distinct even when shown together.
-- Floating Dock should not reserve dead page space.
+Follow `KIAN_UI_PREFERENCES.md` + `UI_STYLE_BRIEF.md`:
+- Mac landscape / Dense Calm;
+- PingFang-first Chinese UI;
+- readable substantial text; 15px is a visible-text floor, not a target;
+- density from geometry/alignment, not tiny text;
+- few cards, little decorative chrome, no backend/debug vocabulary in the ordinary foreground;
+- Today / Week / Month should feel like zoom levels of one time workspace.
 
-### Implementation entry
+### Verification status
 
-Start with [UI preferences](KIAN_UI_PREFERENCES.md) and [shared visual/navigation rules](UI_STYLE_BRIEF.md), then the actual `src/layouts/Base.astro` → `BaseFrame.astro` shell and `src/lib/sharedNavigation.mjs` route registry. Reuse that shell for the integrated candidate; standalone HTML is reference only. Existing Skills demonstrates this composition without requiring another subject bar. Do not describe proposed Steward/Radar entries as already present in the live rail.
+A dedicated `Steward UI Browser` workflow now exercises `/steward/` through the Astro dev server independently of the repository-wide static build. It checks L1 ownership, no fake L2, Today→Week→Month exclusivity, Today reset to 日程, Week x7 time geometry, Month calendar geometry, visible-text floor and backend-copy leakage, and saves 1512×820 screenshots.
 
-### Reference sources
+This isolated Steward gate is the relevant functional/geometry proof while the repository-wide Astro build is independently blocked by current Xizong content drift (`CURRENT_XIZONG_B_KP_MARKER_COUNT_MISMATCH:G1:9/10`). Do not misattribute that Xizong build blocker to Steward.
 
-- Personal canonical product logic: `exam/STEWARD_CONSOLE_CONTRACT.md`.
-- Earlier interaction reference: Personal `runtime/steward-console/index.html`.
-- Exploratory branch: `work/steward-ui-vnext-20260924`.
-- Existing native KianOS Timer / Resume / subject runtimes remain the semantic owners.
-
-The preview branch contains useful work **and abandoned intermediate ideas**. Salvage it selectively; do not assume latest markup is the intended product.
-
-### Quality bar before Human Gate
-
-Run the real browser journeys and inspect representative Mac-wide screenshots before showing Kian. Basic view leakage, broken navigation, large accidental blank regions, unreadable type and exposed backend helper text should be caught before Human Gate.
-
-No preview or Markdown requirement means the integrated runtime is shipped. Real delivery/readback still needs its own implementation and acceptance.
+**Human Gate remains OPEN.** Do not claim the integrated Steward UI is visually accepted until Kian reviews a real representative Mac surface. Radar and deeper Nutrition/Training/reality-capture delivery remain later UI/runtime work after Steward's primary time workspace is stable.
 
 ## Route from the reported symptom
 
