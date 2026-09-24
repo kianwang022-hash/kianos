@@ -28,6 +28,21 @@ class ClosureInvariantTests(unittest.TestCase):
         self.assertTrue(any(x.startswith("LIVE_ACCEPTANCE") for x in conflicts))
         self.assertTrue(any(x.startswith("LIVE_ACTIVE_FLAG") for x in conflicts))
 
+    def test_nested_closed_subtree_rejects_live_state(self):
+        value = {
+            "status": "CURRENT",
+            "architecture_v3": {
+                "status": "CLOSED_CURRENT",
+                "downstream": {
+                    "acceptance_status": "PENDING_FINAL_QA",
+                    "next_action": "finish exact reconciliation",
+                },
+            },
+        }
+        conflicts = closure_consistency_conflicts(value)
+        self.assertTrue(any(x.startswith("LIVE_ACCEPTANCE:architecture_v3") for x in conflicts))
+        self.assertTrue(any(x.startswith("LIVE_NEXT_ACTION:architecture_v3") for x in conflicts))
+
     def test_closed_ignores_explicit_history(self):
         value = {
             "status": "CLOSED_CURRENT",
