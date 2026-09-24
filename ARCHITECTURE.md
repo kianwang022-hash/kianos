@@ -1,7 +1,7 @@
 # KianOS Architecture
 
 Status: **CURRENT — accepted top-level architecture**  
-Version: **2.1**
+Version: **2.2**
 
 This document defines the smallest durable architecture needed for KianOS to remain understandable, restartable, editable and useful over long-term real use.
 
@@ -13,9 +13,9 @@ Its job is not to describe every file, workflow or implementation detail. Its jo
 
 ---
 
-# 1｜The five durable responsibilities
+# 1｜Product responsibility flow
 
-KianOS has five top-level responsibilities:
+KianOS follows one durable product flow:
 
 ```text
                          RULE / MODEL
@@ -27,18 +27,23 @@ KianOS has five top-level responsibilities:
          CONTENT           VISUAL         ENGINEERING
        durable meaning     how it appears   how it runs
        / knowledge              │                │
-             │                  │                │
              └──────────────────┴────────────────┘
                               ↓
                      PRODUCT / WEBSITE
                        execution surface
+                              │
+                              ↓
+                           EVIDENCE
+                 bounded real-use records / feedback
+                              │
+                              └────────→ Chat
 
-                              ↑
-                           CONTROL
-                 reads current state; creates no Truth
+CONTROL / CURRENT
+= side routing / management mechanism
+= reads owners and current state; creates no Truth
 ```
 
-These are **responsibilities**, not five separate databases and not five mandatory file types.
+These are **responsibilities/functions**, not separate databases and not mandatory file types. Product / Website is the execution surface; Evidence is the bounded return from real use; Control / Current routes and manages from the side rather than becoming another product/semantic layer.
 
 A responsibility may be implemented by one or several narrow canonical owners. The hard rule is that one fact/decision still has one canonical owner.
 
@@ -274,18 +279,45 @@ Different data sources do not justify duplicate UI or duplicate Runtime.
 
 ---
 
-## 1.5 CONTROL｜know where everything is
+## 1.5 PRODUCT / WEBSITE｜execution surface
 
-Control is a read/control responsibility, not a new Truth database.
+Product / Website is where approved Rule / Content / Visual / Engineering behavior becomes usable.
 
-Control reads the narrow current owners needed to answer:
+It consumes upstream owners; it does not become a second semantic owner. A page/component may own its implementation and local runtime behavior, but not a competing copy of the meaning it renders.
+
+The product surface may disappear or be replaced without invalidating the canonical Rule / Content / accepted design behind it.
+
+---
+
+## 1.6 EVIDENCE｜bounded return from real use
+
+KianOS may preserve private execution / learner records and bounded derived evidence produced by actual use.
+
+Evidence must preserve what kind of claim it supports. In particular:
+
+```text
+OBSERVED  = runtime/device observation
+REPORTED  = Kian/user report
+DERIVED   = deterministic calculation from accepted inputs
+INFERRED  = interpretation/model judgment
+```
+
+Execution records do not automatically prove productivity, learning, preference, recovery or strategy. Open-ended interpretation returns to Chat / Personal when it becomes personal meaning or a new strategy.
+
+---
+
+## 1.7 CONTROL / CURRENT｜routing mechanism, not a product layer
+
+Control is a read/control mechanism, not a new Truth database and not a peer product responsibility.
+
+It reads the narrow current owners needed to answer:
 
 - what Rule is active;
 - what Content is mature / missing;
 - what Visual is accepted / pending;
 - what Engineering capability exists / is blocked;
 - what Acceptance evidence exists;
-- what private execution / learner state is known when that state is legitimately available;
+- what private execution / learner evidence is legitimately available;
 - what should happen next.
 
 Control normally reports in a compact form:
@@ -298,7 +330,7 @@ Owner
 Human Gate when relevant
 ```
 
-`CURRENT.md` is an **engineering Work Cursor / router** inside Control. It is not user/learner progress and not semantic Truth.
+`CURRENT.md` is an **engineering Work Cursor / router**. It is not user/learner progress and not semantic Truth.
 
 A bare learner request such as `继续英语` does not automatically mean `continue the engineering CURRENT`.
 
@@ -316,15 +348,15 @@ Reliable factual/source boundaries must remain explicit.
 
 Do not silently invent missing source facts, official answers, provenance, mappings, or quoted teaching content.
 
-## 2.2 Private Reality / Learner Truth
+## 2.2 Private execution / learner evidence
 
-Private Reality answers what actually happened in use. For learning, Learner Truth asks:
+Private Runtime owns the records/evidence it actually captures; it does not automatically own the interpretation of reality.
 
-> **What has Kian actually studied, attempted, repaired, retained, forgotten, deferred or demonstrated?**
+For learning, directly supported records may answer what Kian studied, attempted, answered, repaired, deferred or demonstrated on the observed path. Claims such as retention, forgetting, effective study, recovery or stable capability require the applicable evidence/derivation and must remain distinguishable from raw observations.
 
-For non-learning products it may instead be real execution/user evidence such as actions, state transitions, time or observed outcomes, owned by the exact private Runtime/source.
+For non-learning products the same rule applies to actions, state transitions, time and observed outcomes: preserve whether the input is OBSERVED / REPORTED / DERIVED / INFERRED when that distinction can change a decision.
 
-Engineering readiness, page existence, accepted Content, CI success or a Work Cursor must never manufacture real-use or learner progress.
+Engineering readiness, page existence, accepted Content, CI success or a Work Cursor must never manufacture real-use, learner progress or personal interpretation.
 
 ## 2.3 Acceptance Truth
 
@@ -679,7 +711,7 @@ For any important current fact or rule, `Who owns this?` has one clear answer.
 
 ## A3｜Truth Separation Test
 
-Artifact/Content reality, Acceptance, Private Reality/Learner Truth and engineering Work Cursor remain separately resolvable.
+Artifact/Content truth, Acceptance, private execution/learner evidence and engineering Work Cursor remain separately resolvable; observed/reported/derived/inferred claims do not silently collapse.
 
 ## A4｜Content Change Absorption Test
 
@@ -717,18 +749,21 @@ If these recur, architecture must be simplified at the earliest responsible owne
 For ordinary KianOS work, keep this mental model:
 
 ```text
-RULE        why / semantics / learning when needed / interaction
-CONTENT     durable knowledge / meaning
-VISUAL      how it appears
-ENGINEERING how it runs
-CONTROL     where we are
+RULE / MODEL    why / semantics / learning when needed / interaction
+CONTENT         durable knowledge / meaning
+VISUAL          how it appears
+ENGINEERING     how it runs
+PRODUCT         where approved behavior is used
+EVIDENCE        bounded records / feedback from real use
+
+CONTROL/CURRENT routes from the side; it creates no Truth.
 ```
 
 Constrained by:
 
 ```text
 Source Truth
-Private Reality / Learner Truth
+Private execution / learner evidence
 Acceptance
 ```
 
@@ -737,16 +772,12 @@ Normal product flow:
 ```text
 Rule / Model
 ↓
-Content + Visual
-↓
-Engineering / Runtime
+Content + Visual + Engineering
 ↓
 Product / Website
 ↓
-real-use evidence when applicable
+bounded real-use evidence
 → Chat
 ```
-
-Control observes and routes the system from the side.
 
 The website is a product execution surface. Learning experiences remain a major, rigorously gated use case; non-learning surfaces inherit only the responsibilities they actually need. **The durable asset is the Rule / Model + Content + accepted Visual/Engineering model behind the surface, not the page itself.**
