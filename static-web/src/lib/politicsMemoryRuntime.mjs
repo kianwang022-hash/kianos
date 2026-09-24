@@ -324,6 +324,19 @@ function validateStoredPlanShape(value) {
   return value;
 }
 
+export function politicsMemoryPlanEffectMatches(storage, input, expectedDay = null) {
+  try {
+    const expected = validateStoredPlanShape(input);
+    if (expectedDay && expected.study_day !== expectedDay) return false;
+    const raw = storage?.getItem?.(POLITICS_MEMORY_PLAN_KEY);
+    if (raw == null) return false;
+    const current = validateStoredPlanShape(JSON.parse(raw));
+    return JSON.stringify(current) === JSON.stringify(expected);
+  } catch {
+    return false;
+  }
+}
+
 function validateStoredEvidenceShape(value) {
   if (!Array.isArray(value)) fail('CHECKPOINT_EVIDENCE_INVALID');
   for (const row of value) {
