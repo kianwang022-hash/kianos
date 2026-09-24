@@ -133,6 +133,19 @@ root CURRENT
 → exact task owner
 ```
 
+For a Codex session started with natural language such as `推进 GitHub 当前工程任务`:
+
+```text
+current repo main@HEAD
+→ AGENTS.md
+→ current/open Codex execution Issue selected by Current/project state
+→ exact canonical owner(s)
+→ bounded implementation
+→ PR / proof / blocker back to GitHub
+```
+
+Do not ask Kian to paste the Issue body, previous Chat discussion, PR diff or execution receipt when GitHub can provide it. Manual pickup is the quota-aware default; automatic watcher dispatch is opt-in via the execution marker defined in `PROJECT_MANAGEMENT_CONTRACT.md`.
+
 Detailed task dispatch, GitHub Issue/Codex execution, Remote usage, batching, cursor atomicity, context budget and reporting discipline live in
 [PROJECT_MANAGEMENT_CONTRACT.md](PROJECT_MANAGEMENT_CONTRACT.md), not here.
 
