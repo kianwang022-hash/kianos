@@ -131,7 +131,8 @@ assert(systemGuard.includes('stale_block_question_plans'), 'stale-question-deriv
 assert(systemGuard.includes('stale_block_repair_inboxes'), 'stale-repair-inbox-not-archived');
 assert(systemGuard.includes('stale_visible_memory_repairs'), 'stale-visible-repair-not-archived');
 assert(systemGuard.includes('localStorage.removeItem(inboxKey)'), 'stale-system-repair-inbox-not-invalidated');
-assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-system-sweep-not-invalidated');
+assert(systemGuard.includes('results: {},'), 'stale-system-sweep-results-not-cleared');
+assert(systemGuard.includes('current_revision_valid: false'), 'stale-system-sweep-history-not-invalidated');
 assert(recallPage.includes('<XizongSystemEvidenceGuard system={system} sweep={questionSweep} />'), 'recall-system-evidence-guard-not-mounted');
 assert(practicePage.includes('<XizongSystemEvidenceGuard system={system} sweep={sweep} />'), 'practice-system-evidence-guard-not-mounted');
 
