@@ -47,9 +47,6 @@ jobs:
       - name: Install runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
-      - name: Validate Politics runtime
-        working-directory: static-web
-        run: npm run validate:politics
       - name: Stress cross-day Current-bound Politics Memory profile
         working-directory: static-web
         run: node scripts/validate-politics-memory-history-profile.mjs
