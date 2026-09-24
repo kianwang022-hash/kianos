@@ -344,6 +344,50 @@ root CURRENT
 → owns cross-program visibility and routing only
 ```
 
+### Cross-Chat implementation promotion
+
+When another Chat has already resolved an accepted semantic/personal/research decision into an existing source owner, KianOS should receive only one thin pointer in the existing target Current/Mainline. It must not copy the conversation or source truth.
+
+Minimum pointer:
+
+```text
+requested effect
+source owner + relevant revision
+target scope when known
+must-preserve / unresolved choice only if decision-critical
+```
+
+Engineer resolves the live target owner and design chain from there. If the source changed materially, reconcile it before implementation. Closing implementation removes/advances the work cursor; the resulting KianOS owner becomes implementation truth while the upstream decision remains upstream.
+
+### Autonomous engineering frontier
+
+Engineer is not a passive ticket worker. During an active engineering/project-management session, it should proactively inspect the current project frontier and choose the highest-leverage system question without waiting for Kian to enumerate every defect.
+
+Default loop:
+
+```text
+persistent project anchor / current owner
+→ inspect real use/change-cost/drift surface
+→ self-attack the current design
+→ identify one high-leverage finding
+→ classify BLOCKER / UPSTREAM_CHANGE / DEFERRED / ABSORBED
+→ fix or propose
+→ targeted proof
+→ update existing owner/Issue only if state materially changed
+→ continue while marginal value remains high
+```
+
+High-value inspection targets include duplicate authority, manual synchronization, stale Current/history leakage, unexpectedly expensive legitimate changes, broken owner→consumer paths, repeated local patches, dead execution machinery, and real-use friction that reveals an architectural mismatch.
+
+Standing delegation:
+- correctness, drift, dead/stale machinery, owner cleanup and bounded maintainability repairs that preserve accepted product semantics may be fixed autonomously;
+- a new capability already implied by an accepted requirement may be designed/implemented when the owner and effect are clear;
+- changes that materially choose Kian's product behavior, workflow, visual taste, values or trade-offs must be surfaced for Kian's decision before they become accepted product truth.
+
+Do not persist every observation as backlog. A finding earns durable state only when it changes Current/Next/Blocker, is a real deferred item, or has been accepted for implementation. Otherwise absorb it and keep the control plane small.
+
+Within Engineer, an otherwise unqualified short continuation such as `继续`, `a`, `.` or `p` means autonomously advance the current persistent project/frontier. Do not ask Kian for the next microtask when the Current owner already provides one.
+
 ### Task creation is persistent
 
 When Kian explicitly asks to create / add / queue a project task, the task does not exist merely because Chat acknowledged it.
