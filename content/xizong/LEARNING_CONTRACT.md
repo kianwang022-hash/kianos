@@ -163,6 +163,81 @@ canonical identity
 ≠ question taxonomy
 ```
 
+### Architecture invariant｜one hierarchy, many content jobs
+
+The **only formal canonical learner/knowledge hierarchy** in Xizong is:
+
+```text
+System
+→ Block
+→ Logic Group
+→ KP
+```
+
+Do not insert another semantic layer between Block, Logic Group and KP merely because a subject benefits from a mother model, submodel, pathway family, chapter band, phase, arc, layer or Source unit.
+
+In particular:
+
+- a Framework / mother model is a **Block/System-owned cognitive map**, not a new canonical level;
+- a Source-contact segment is an **execution unit**, not a Knowledge level;
+- learner order is a **Learning relation**, not canonical identity;
+- stable file/KP order may differ from learner order;
+- Projection views and Runtime states are **presentation / interaction states**, not Knowledge levels.
+
+The following are **content jobs / semantic families around the same canonical owners**, not extra hierarchy:
+
+```text
+Guide
+Framework
+Center Question / Orientation
+Prompt
+Core
+Boundary / Confusable
+Precision
+Visual
+Connection / Extension
+Memory Routing
+MI-G / MI-D
+Recall / Closure
+Compression
+Question Probe
+Repair
+Projection
+```
+
+Where explicit canonical Block content already owns Framework / Memory Routing / MI-G / MI-D, those jobs remain canonical Block content semantics. They must not be demoted to disposable “derived support” merely because a renderer or Learning owner consumes them later.
+
+A mature Block may therefore contain, when genuinely supported:
+
+```text
+scope / owner boundary
+→ first-pass route
+→ Block Framework
+→ KP Core package(s)
+→ high-density comparison / decisive boundary
+→ Memory Routing (MI-G / MI-D)
+→ Visual / exactness gate
+→ coverage / routing ledger
+→ Lecture-attached question checkpoint
+→ Block Exit / Recall target
+```
+
+This is **content realization around one Block**, not a second hierarchy.
+
+Downstream resolution remains:
+
+```text
+canonical System / Block / LG / KP truth
++ accepted Learning owner
++ reviewed Precision / Visual / Connection / Extension
++ Cognitive Projection when needed
+→ one learner object
+→ shared renderer
+```
+
+The website must consume those owners; page structure must never be used to reconstruct or redefine the hierarchy.
+
+
 ---
 
 ## 4｜First learning: Lecture-primary, KianOS-guided
