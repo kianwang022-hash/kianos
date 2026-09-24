@@ -9,6 +9,7 @@ on:
       - 'static-web/scripts/apply-xizong-crosswalk-reviewed-batches.mjs'
       - 'static-web/scripts/sync-xizong-question-relations-manifest.mjs'
       - 'static-web/scripts/validate-xizong-question-crosswalk.mjs'
+      - 'static-web/scripts/audit-xizong-reviewed-relation-freshness.mjs'
       - 'static-web/scripts/validate-xizong-crosswalk-review-pipeline.mjs'
       - 'static-web/scripts/validate-xizong-crosswalk-throughput.mjs'
       - 'static-web/scripts/build-xizong-crosswalk-review-queue.mjs'
@@ -20,6 +21,7 @@ on:
       - 'static-web/scripts/apply-xizong-crosswalk-reviewed-batches.mjs'
       - 'static-web/scripts/sync-xizong-question-relations-manifest.mjs'
       - 'static-web/scripts/validate-xizong-question-crosswalk.mjs'
+      - 'static-web/scripts/audit-xizong-reviewed-relation-freshness.mjs'
       - 'static-web/scripts/validate-xizong-crosswalk-review-pipeline.mjs'
       - 'static-web/scripts/validate-xizong-crosswalk-throughput.mjs'
       - 'static-web/scripts/build-xizong-crosswalk-review-queue.mjs'
@@ -59,6 +61,8 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Validate reviewed Question Crosswalk
         run: node scripts/validate-xizong-question-crosswalk.mjs
+      - name: Audit reviewed relation freshness
+        run: node scripts/audit-xizong-reviewed-relation-freshness.mjs --out .qa/xizong-relation-freshness.json
       - name: Validate Crosswalk review queue pipeline
         run: node scripts/validate-xizong-crosswalk-review-pipeline.mjs
       - name: Build larger next-review queue
@@ -72,6 +76,7 @@ jobs:
           path: |
             static-web/.qa/xizong-crosswalk-review-queue.json
             static-web/.qa/xizong-kp-lookup-index.json
+            static-web/.qa/xizong-relation-freshness.json
           if-no-files-found: error
       - name: Build Astro at explicit integration checkpoint
         if: github.event_name == 'workflow_dispatch'
