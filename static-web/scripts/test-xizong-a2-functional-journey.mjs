@@ -194,12 +194,26 @@ async function systemQuestionRepairJourney(page) {
 
   const repair = page.locator('[data-xizong-repair-return="respiratory"]');
   await repair.locator(':scope > summary').click();
-  const plan = JSON.stringify({ plan: [{
-    question_id: target.questionId,
-    reason: 'A2 functional journey',
-    action: 'repair reviewed owning KP only',
-    priority: 'high'
-  }] });
+  const currentAttempt = [...(firstPassState?.attemptHistory || [])].reverse().find((event) =>
+    event?.question_id === target.questionId && event?.status === 'uncertain'
+  );
+  const currentResult = firstPassState?.results?.[target.questionId] || {};
+  const plan = JSON.stringify({
+    schema: 'kianos.xizong.system_wu_return.v1',
+    return_id: `a2-functional-${target.questionId}`,
+    system_id: 'respiratory',
+    decision: 'REPAIR',
+    plan: [{
+      question_id: target.questionId,
+      status: 'uncertain',
+      attempt_id: String(currentResult?.attemptId || currentAttempt?.attempt_id || ''),
+      submitted_at: String(currentResult?.updatedAt || currentAttempt?.submitted_at || ''),
+      round_id: String(currentResult?.roundId || currentAttempt?.round_id || ''),
+      reason: 'A2 functional journey',
+      action: 'repair reviewed owning KP only',
+      priority: 'high'
+    }]
+  });
   await repair.locator('[data-plan-text]').fill(plan);
   await repair.locator('[data-apply-plan]').click();
 
