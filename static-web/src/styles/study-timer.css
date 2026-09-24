@@ -4,7 +4,7 @@
   z-index: 160;
   right: 24px;
   bottom: 22px;
-  width: 286px;
+  width: 356px;
   max-width: calc(100vw - 28px);
   border: 1px solid rgba(48, 63, 56, .14);
   border-radius: 14px;
@@ -16,12 +16,12 @@
   user-select: none;
   pointer-events: none;
 }
-.studyTimerDock[data-expanded="true"] { width: 360px; pointer-events: auto; }
+.studyTimerDock[data-expanded="true"] { width: 390px; pointer-events: auto; }
 .studyTimerDock[data-dragging="true"] { cursor: grabbing; box-shadow: 0 22px 56px rgba(31, 47, 40, .19), 0 4px 12px rgba(31, 47, 40, .1); }
 
 .studyTimerCompact {
   display: grid;
-  grid-template-columns: 18px minmax(0, 1fr) auto auto;
+  grid-template-columns: 18px minmax(0, 1fr) auto auto auto;
   align-items: center;
   gap: 5px;
   min-height: 50px;
@@ -88,6 +88,7 @@
   white-space: nowrap;
 }
 .studyTimerPauseButton,
+.studyTimerTodayButton,
 .studyTimerExpandButton,
 .studyTimerResetButton,
 .studyTimerSubjectSwitch button {
@@ -95,18 +96,34 @@
   font: inherit;
   pointer-events: auto;
 }
-.studyTimerPauseButton {
+.studyTimerPauseButton,
+.studyTimerTodayButton {
   min-height: 36px;
   padding: 0 9px;
   border-radius: 9px;
   background: #edf4f0;
   color: #2d6f58;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 760;
   cursor: pointer;
 }
 .studyTimerPauseButton:hover { background: #e4efe9; }
 .studyTimerDock[data-running="false"] .studyTimerPauseButton { background: #2f6f59; color: #fff; }
+.studyTimerTodayButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 9px;
+  border-radius: 9px;
+  background: #f1f3f2;
+  color: #3d4d46;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  pointer-events: auto;
+}
+.studyTimerTodayButton:hover { background: #e8eeeb; color: #245f4b; }
 .studyTimerExpandButton {
   display: grid;
   width: 34px;
@@ -136,7 +153,7 @@
 .studyTimerExpandedHead > div { display: grid; gap: 2px; }
 .studyTimerExpandedHead span {
   color: #7a8580;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 760;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -183,7 +200,7 @@
 .studyTimerPendingMark { width: 8px; height: 8px; margin-top: 5px; border-radius: 50%; background: #b77a25; }
 .studyTimerPending > div { display: grid; gap: 2px; }
 .studyTimerPending strong { font-size: 15px; font-weight: 760; }
-.studyTimerPending span { color: #786b59; font-size: 14px; line-height: 1.4; }
+.studyTimerPending span { color: #786b59; font-size: 15px; line-height: 1.4; }
 
 .studyTimerActions {
   display: grid;
@@ -206,7 +223,7 @@
   border-radius: 7px;
   background: transparent;
   color: #65706b;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
@@ -218,13 +235,14 @@
   padding: 0 8px;
   background: transparent;
   color: #7a8580;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 650;
   cursor: pointer;
 }
 .studyTimerResetButton:hover { color: #315f4e; }
 
 .studyTimerPauseButton:focus-visible,
+.studyTimerTodayButton:focus-visible,
 .studyTimerExpandButton:focus-visible,
 .studyTimerResetButton:focus-visible,
 .studyTimerSubjectSwitch button:focus-visible {
@@ -233,14 +251,14 @@
 }
 
 @media (max-width: 620px) {
-  .studyTimerDock { right: 10px; bottom: 10px; width: min(282px, calc(100vw - 20px)); }
-  .studyTimerDock[data-expanded="true"] { width: min(360px, calc(100vw - 20px)); }
-  .studyTimerCompact { grid-template-columns: 16px minmax(0, 1fr) auto 32px; gap: 4px; padding-inline: 5px; }
+  .studyTimerDock { right: 10px; bottom: 10px; width: min(350px, calc(100vw - 20px)); }
+  .studyTimerDock[data-expanded="true"] { width: min(390px, calc(100vw - 20px)); }
+  .studyTimerCompact { grid-template-columns: 16px minmax(0, 1fr) auto auto 32px; gap: 4px; padding-inline: 5px; }
   .studyTimerDragGrip { width: 16px; }
   .studyTimerStatus { grid-template-columns: 8px auto minmax(64px, 1fr); gap: 6px; }
-  .studyTimerStatus strong { min-width: 38px; font-size: 14px; }
+  .studyTimerStatus strong { min-width: 38px; font-size: 15px; }
   .studyTimerElapsed { font-size: 15px; }
-  .studyTimerPauseButton { padding-inline: 8px; font-size: 13px; }
+  .studyTimerPauseButton { padding-inline: 8px; font-size: 15px; }
   .studyTimerExpandButton { width: 32px; }
   .studyTimerActions { grid-template-columns: 1fr; }
   .studyTimerResetButton { justify-self: end; }
