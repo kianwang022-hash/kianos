@@ -248,9 +248,9 @@ try {
   check((await practice.locator('[data-question-stem]').textContent()||'').trim().length>10,'practice_question_stem_visible');
   check(await practice.locator('.xzpOption').count()>=4,'practice_options_visible');
   check(await practice.locator('.xzpMapItem').count()>10,'practice_map_populated');
-  const currentMeta=(await practice.locator('[data-question-meta]').textContent()||'').trim();
-  const currentQuestion=sweep.questions.find((q)=>currentMeta.includes(String(q.year))&&currentMeta.includes(`第 ${q.number} 题`));
-  check(Boolean(currentQuestion),'practice_current_question_resolves',currentMeta);
+  const firstPracticeMeta=(await practice.locator('[data-question-meta]').textContent()||'').trim();
+  const currentQuestion=sweep.questions.find((q)=>firstPracticeMeta.includes(String(q.year))&&firstPracticeMeta.includes(`第 ${q.number} 题`));
+  check(Boolean(currentQuestion),'practice_current_question_resolves',firstPracticeMeta);
   const currentWrongOption=currentQuestion.options.find((option)=>!answerLetters(currentQuestion.correctAnswer).includes(option.label));
   check(Boolean(currentWrongOption),'practice_current_wrong_option');
 
