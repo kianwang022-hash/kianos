@@ -116,7 +116,7 @@ assert(systemWuReturn.includes('storage.setItem(inboxKey'), 'system-repair-retur
 assert(!repairReturn.includes('kianos-xizong-memory-review-v2:${objectId}'), 'system-repair-return-competes-for-block-evidence-store');
 assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
 assert(repairBridge.includes('kianos-xizong-repair-inbox-v1:'), 'repair-inbox-not-consumed');
-assert(repairBridge.includes('kianos-xizong-memory-review-v2:'), 'repair-inbox-does-not-merge-into-current-block-store');
+assert(repairBridge.includes('XIZONG_MEMORY_STORAGE_KEY') && repairBridge.includes('setRepairTasks'), 'repair-inbox-does-not-merge-into-current-memory-owner');
 assert(systemWuReturn.includes("origin:'SYSTEM_WU_CHAT_RETURN'"), 'repair-inbox-import-origin-missing');
 assert(repairBridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);'), 'repair-inbox-promoted-beyond-repair');
 assert(repairBridge.includes('sourceQuestionIds,'), 'repair-inbox-loses-question-provenance');
