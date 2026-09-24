@@ -64,6 +64,7 @@ const recallPage = read('static-web/src/pages/xizong/[system]/recall.astro');
 const practicePage = read('static-web/src/pages/xizong/practice/[system].astro');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
 const systemWuReturn = read('static-web/src/lib/xizongSystemWuReturn.mjs');
+const questionOwner = read('static-web/src/lib/xizongQuestions.mjs');
 
 assert(blockGuard.includes('kianos-xizong-stale-evidence-v1:'), 'stale-block-evidence-not-archived');
 assert(blockGuard.includes('localStorage.removeItem(studyKey)'), 'stale-block-progress-remains-current');
@@ -117,16 +118,31 @@ assert(repairBridge.includes("window.dispatchEvent(new CustomEvent('kianos:xizon
 
 assert(systemGuard.includes("phase = answered === 0 ? 'PRE_QUESTION'"), 'system-recall-phase-ledger-missing');
 assert(systemGuard.includes("'POST_QUESTION'"), 'post-question-recall-phase-missing');
-assert(systemGuard.includes('question.correctAnswer'), 'question-answer-change-not-versioned');
+assert(
+  systemGuard.includes('sweep?.questionSemanticHash')
+    && questionOwner.includes("correct_answer: String(question?.correctAnswer || '')")
+    && questionOwner.includes('export function xizongQuestionSemanticHash'),
+  'question-answer-change-not-versioned'
+);
 assert(systemGuard.includes('question.relation?.primaryKpId'), 'reviewed-route-change-not-versioned');
 assert(systemGuard.includes('stale_block_question_plans'), 'stale-question-repair-plan-not-archived');
 assert(systemGuard.includes('stale_block_repair_inboxes'), 'stale-repair-inbox-not-archived');
 assert(systemGuard.includes('stale_visible_memory_repairs'), 'stale-visible-repair-not-archived');
-assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-question-results-remain-current');
+assert(
+  systemGuard.includes('if (oldSweep && !writeJson(sweepKey, {')
+    && systemGuard.includes('results: {},')
+    && systemGuard.includes('current_revision_valid: false'),
+  'stale-question-results-not-invalidated'
+);
 assert(recallPage.includes('<XizongSystemEvidenceGuard system={system} sweep={questionSweep} />'), 'recall-system-evidence-guard-not-mounted');
 assert(practicePage.includes('<XizongSystemEvidenceGuard system={system} sweep={sweep} />'), 'practice-system-evidence-guard-not-mounted');
 
-assert(repairReturn.includes('const sweepState = () => readJson'), 'system-repair-return-does-not-read-private-wu');
+assert(
+  repairReturn.includes('currentXizongSystemWuEvidence')
+    && systemWuReturn.includes('export function currentXizongSystemWuEvidence')
+    && systemWuReturn.includes('assertCurrentWuBinding'),
+  'system-repair-return-does-not-read-private-wu-through-shared-owner'
+);
 assert(!repairReturn.includes('localStorage.setItem("content/'), 'private-evidence-writing-shared-content');
 
 console.log([
