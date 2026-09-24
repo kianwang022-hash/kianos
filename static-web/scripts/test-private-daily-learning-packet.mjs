@@ -404,7 +404,7 @@ for (const row of Object.values(isolated.packet.subjects)) assert.equal(row.plan
 
 console.log('PASS private checkpoint -> same-input Home native Packet: canonical scopes + Lexical basis + day-isolated time + healthy evidence with corrupt siblings; Node producer proof, not browser/Mac acceptance');
 
-// This is the existing CI entrypoint. Keep the workflow unchanged while running
-// the checkpoint and native HTTP regression alongside its packet proof.
+// This is the existing CI entrypoint. Keep the live checkpoint regression
+// alongside its packet proof. The retired system-maturity harness is not a
+// Current dependency and must not be re-imported.
 await import('./test-private-learner-checkpoint.mjs');
-await import('./test-system-maturity-regression.mjs');
