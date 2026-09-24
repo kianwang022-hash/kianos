@@ -18,6 +18,24 @@ on:
       - 'static-web/scripts/validate-xizong-bc-production-compatibility.mjs'
       - 'static-web/scripts/test-xizong-b-runtime-journey.mjs'
       - '.github/workflows/xizong-bc-compatibility.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'content/xizong/projection/**'
+      - 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
+      - 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning.json'
+      - 'content/xizong/knowledge/learner/c-hematology-immunity-infection-learning/**'
+      - 'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/**'
+      - 'content/xizong/knowledge/systems/c-hematology-immunity-infection/**'
+      - 'static-web/XIZONG_PRODUCT_STATUS.md'
+      - 'static-web/package.json'
+      - 'static-web/src/components/XizongBlockV6.astro'
+      - 'static-web/src/lib/xizongSemanticAdapter.mjs'
+      - 'static-web/src/lib/xizongProductionProjection.mjs'
+      - 'static-web/src/lib/xizong.mjs'
+      - 'static-web/scripts/validate-xizong-bc-production-compatibility.mjs'
+      - 'static-web/scripts/test-xizong-b-runtime-journey.mjs'
+      - '.github/workflows/xizong-bc-compatibility.yml'
   workflow_dispatch:
 
 permissions:
