@@ -1,10 +1,10 @@
-# KianOS Learner UI Preferences
+# KianOS Visual Requirements & Preference Evidence
 
-Status: CURRENT PREFERENCE OWNER  
-Scope: learner-facing KianOS UI / interaction / product discussion  
-Applies to: `static-web/` productization across English / Politics / Xizong / Lexical presentation  
+Status: CURRENT KIANOS VISUAL REQUIREMENT OWNER  
+Scope: accepted KianOS-specific UI / interaction requirements and the product evidence that supports them  
+Applies to: `static-web/` productization across KianOS surfaces  
 
-This file records **Kian's personal UI / interaction preferences** separately from domain Learning Logic and separately from the shared visual system. It exists so new Chats and Codex do not have to reconstruct preferences from conversation history.
+This file does **not** own Kian's general personal UI taste. Durable personal preferences belong to Personal. This file owns only the KianOS-specific visual/product requirements that have been accepted for implementation, plus bounded preference evidence needed to justify those requirements without reconstructing old Chats.
 
 Hard distinction:
 
