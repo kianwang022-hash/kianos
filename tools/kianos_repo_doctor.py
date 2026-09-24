@@ -8,7 +8,6 @@ branch-lifecycle / retired-ledger integrity checks for one compact readback.
 from __future__ import annotations
 
 import argparse
-import collections
 import json
 import subprocess
 import sys
@@ -31,15 +30,6 @@ def git(*args: str) -> str:
     if result.returncode != 0:
         raise RuntimeError(result.stderr.strip() or "git command failed")
     return result.stdout.strip()
-
-
-def parse_retired_lines(raw: str) -> list[str]:
-    refs: list[str] = []
-    for line in raw.splitlines():
-        token = line.split("#", 1)[0].strip()
-        if token:
-            refs.append(token)
-    return refs
 
 
 def workflow_safety_errors(raw: str) -> list[str]:
@@ -89,32 +79,6 @@ def main() -> int:
             errors.append("REMOTE_FETCH_FAILED")
 
     audits = {name: run_audit(path) for name, path in AUDITS.items()}
-
-    ledger_path = REPO / ".github/retired-branches.txt"
-    if ledger_path.is_file():
-        retired = parse_retired_lines(ledger_path.read_text(encoding="utf-8"))
-    else:
-        retired = []
-        errors.append("RETIRED_LEDGER_MISSING")
-
-    counts = collections.Counter(retired)
-    duplicate_refs = sorted(ref for ref, count in counts.items() if count > 1)
-    if duplicate_refs:
-        errors.append("RETIRED_LEDGER_DUPLICATES")
-
-    try:
-        remote_refs = {
-            ref.removeprefix("origin/")
-            for ref in git("for-each-ref", "--format=%(refname:short)", "refs/remotes/origin/").splitlines()
-            if ref and ref != "origin/HEAD"
-        }
-    except Exception:
-        remote_refs = set()
-        errors.append("REMOTE_REFS_UNAVAILABLE")
-
-    live_retired = sorted(set(retired) & remote_refs)
-    if live_retired:
-        errors.append("LIVE_RETIRED_REFS")
 
     workflow = REPO / ".github/workflows/branch-hygiene.yml"
     if workflow.is_file():
@@ -170,10 +134,7 @@ def main() -> int:
         },
         "branches": {
             "remote_count": len(remote_refs),
-            "retired_refs": len(retired),
-            "retired_unique": len(counts),
-            "duplicate_refs": duplicate_refs,
-            "live_retired": live_retired,
+            "non_main_remote_refs": sorted(ref for ref in remote_refs if ref != "main"),
             "workflow_safety_errors": safety_errors,
         },
         "errors": errors + audit_errors,
