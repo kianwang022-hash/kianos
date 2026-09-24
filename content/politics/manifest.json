@@ -95,8 +95,8 @@
       "question_truth_owner": "content/politics/source/xiao_2027_questions.jsonl"
     }
   },
-  "transitional_non_content_owners": {
-    "rule": "Presentation and runtime implementation are downstream of Content. They may remain referenced here for compatibility/status routing but are not semantic Content owners.",
+  "downstream_non_content_owners": {
+    "rule": "Presentation and runtime implementation are downstream of Content. These pointers route to current implementation owners and are not semantic Content owners.",
     "surface_mapping": "content/politics/SURFACE_MAPPING_CONTRACT.md",
     "projection_root": "content/politics/projection/",
     "astro_entry": "static-web/src/pages/politics/index.astro",
