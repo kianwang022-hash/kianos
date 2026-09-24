@@ -113,6 +113,6 @@ You no longer need to `cd static-web` before running the learner runtime.
 
 Intentional postponements across **all KianOS lanes** use one lightweight parking lot: GitHub Issue #5, `KianOS Deferred Queue`.
 
-See `DEFERRED.md` for the rule. Active work stays in each lane's Current owner / continuation; only explicitly postponed work with real future value goes into the shared Deferred Queue.
+GitHub Issue #5 itself owns both the rule and the queue. Active work stays in each lane's Current owner / continuation; only explicitly postponed work with real future value goes into that shared Deferred Queue.
 
 This repository is rebuilt clean-room from explicitly admitted Current assets. Historical runtime, Site, release, compatibility, issue-driven control planes, and legacy governance are not inherited by default.
