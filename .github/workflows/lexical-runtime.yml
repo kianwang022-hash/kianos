@@ -106,6 +106,10 @@ jobs:
           }
           NODE
 
+      - name: Verify Current identity lineage
+        working-directory: static-web
+        run: node scripts/test-lexical-identity-lineage.mjs
+
       - name: Install Astro dependencies
         working-directory: static-web
         run: npm install --no-audit --no-fund
