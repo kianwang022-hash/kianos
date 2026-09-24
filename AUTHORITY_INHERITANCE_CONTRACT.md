@@ -78,6 +78,47 @@ When a local need conflicts with a parent rule, return the issue upstream. Do no
 
 ---
 
+### 3.1 Change continuity
+
+When inheriting or improving an existing scope, establish a bounded working basis
+from current owners before choosing the edit:
+
+- the user outcome and the design reason behind the relevant existing behavior;
+- the responsibilities and identities that must survive this change;
+- the exact object being changed and the consumers that depend on its meaning;
+- the observable result needed to justify this task's completion claim.
+
+This is working context, not a new manifest, mandatory report or user form. Follow
+only relevant parent/consumer links. Do not read the whole repository, reconstruct
+old Chats, or ask Kian to repeat decisions already present in current owners.
+Do not invent rationale when the owner does not record it: distinguish an explicit
+decision from an inference, and resolve only ambiguities that affect this change.
+
+Before writing, refresh the exact owner revision and conflicting active work.
+An accepted current basis may be reused within the task; a changed owner requires
+reconciliation of the affected basis, not ritual rereading of every document.
+If an entry cannot reach the required design, repair its link to the existing
+owner. Do not fill the gap by creating a second summary of that design.
+
+An optimization is a delta against this basis. Structural simplification may not
+silently remove a cognitive job, change a Source boundary, or replace a learning
+decision with a convenient UI/schema shape. A material change to those decisions
+must be explicit in the appropriate semantic owner and within authorization.
+
+Close against the original user outcome and the affected inherited behavior,
+not merely the new files. Object counts, Source mappings, validator PASS and
+prior acceptance receipts prove only their own scope. For content changes, inspect
+the affected Source / Knowledge / Learning responsibilities; for a claim of website
+availability, trace and verify the actual consumer. Do not require unchanged layers
+to repeat acceptance ceremonies. Unsupported dependent claims stay unverified and
+must not be converted into a whole-system COMPLETE label.
+
+Persist changed decisions once in their existing semantic owner, and progress
+only in its existing cursor. Other entrypoints retain references, not copied
+status or design. A handoff should resume from those owners without needing the
+originating Chat. If only a local candidate exists, say so; repository presence,
+live Project prompt installation and observed fresh-Chat behavior are different proofs.
+
 ## 4. Truth classes must not collapse
 
 These remain separate:

@@ -88,10 +88,22 @@ Subject-specific diagnosis/repair still uses that subject's existing typed Retur
 
 ```text
 target scope CURRENT
-→ exact domain Contract / canonical owner required by that cursor
+→ applicable design / domain Contract (goal, rationale, invariants)
+→ exact canonical object + affected consumer
 → Acceptance owner only when the acceptance claim matters
 → work
 ```
+
+“看看设定 / 架构” requests explanation or inspection, not automatic implementation.
+“优化 / 升级 / 补充” requests an incremental change inside the existing design;
+it does not waive inherited responsibilities or authorize a replacement design.
+Resolve this from the conversation; Kian need not supply mode names.
+
+For a new or materially changed BUILD scope, use the bounded
+[change continuity rule](AUTHORITY_INHERITANCE_CONTRACT.md#31-change-continuity).
+A cursor or completed-count summary cannot substitute for the design it routes to.
+Reuse already-read, still-current owners; the two-or-three-read target is for
+locating the owner, not a ceiling on evidence needed to understand a change.
 
 ## UI
 
