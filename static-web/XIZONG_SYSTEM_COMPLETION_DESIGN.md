@@ -1,6 +1,6 @@
 # Xizong System Completion / Recall — accepted surface design
 
-Status: **ACCEPTED FOR MAIN — FUNCTION / OWNERSHIP / L3 VISUAL 2026-09-18 · REAL LEARNER U PENDING**  
+Status: **CURRENT — ACCEPTED SYSTEM RECALL / COMPLETION DESIGN**  
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Practice owner: `static-web/XIZONG_PRACTICE_DESIGN.md`  
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`  
