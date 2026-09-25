@@ -63,7 +63,15 @@ const sample = validateExamChatPlan({
     politics: { target_minutes: 90, role: '稳推进', session_ref: 'politics-session:demo' }
   },
   next_subject: 'xizong',
-  attention: { text: '先完成西综当前 Block，再回英语。', action: '查看依据' }
+  attention: { text: '先完成西综当前 Block，再回英语。', action: '查看依据' },
+  capacity: {
+    state: 'REDUCED',
+    summary: '上午高负荷后可用认知容量下降，但仍可继续推进。',
+    basis: '当前主观状态 + 学习表现 + 可用 Health 上下文',
+    load: '西综高负荷主块后出现恢复需求',
+    action: '先做一次足量低输入恢复，再回到当前主线',
+    recheck: '看下一学习块是否恢复持续注意和处理速度'
+  }
 }, '2026-09-18');
 
 const nativeContinue = {
@@ -90,6 +98,29 @@ if (model?.subjects?.xizong?.remainingMinutes !== 300) fail('CHAT_TARGET_FACT_AR
 if (model?.subjects?.xizong?.requiredMinutes !== null || model?.subjects?.xizong?.scoreGap !== null) {
   fail('WEB_REINTRODUCED_STRATEGY_FIELDS');
 }
+if (sample.capacity?.state !== 'REDUCED'
+    || !sample.capacity?.action?.includes('低输入恢复')
+    || !sample.capacity?.recheck?.includes('下一学习块')) {
+  fail('CAPACITY_PROJECTION_NOT_PRESERVED');
+}
+
+let pseudoScoreRejected = false;
+try {
+  validateExamChatPlan({
+    schema: EXAM_CHAT_PLAN_SCHEMA,
+    study_day: '2026-09-18',
+    generated_at: '2026-09-18T04:30:00+08:00',
+    subjects: {},
+    capacity: {
+      state: 'REDUCED',
+      summary: 'test',
+      readiness_score: 63
+    }
+  }, '2026-09-18');
+} catch (error) {
+  pseudoScoreRejected = String(error?.message || '').includes('must not contain a readiness/recovery score');
+}
+if (!pseudoScoreRejected) fail('CAPACITY_PSEUDO_SCORE_MUST_REJECT');
 
 const missing = buildChatControlledExamReadModel({
   day: '2026-09-18',
