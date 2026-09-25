@@ -138,7 +138,20 @@ The old 27 follow-along Surgery PDF / legacy `外科学讲义_AI阅读版.md` is
 
 After an affected Block closes in this rebase, it may not still present the old follow-along file as Current Primary Study.
 
-Original PDF remains the highest-fidelity Source for diagrams, tables, anatomy and spatial relations.
+A Source replacement must **not silently delete useful historical explanation**. A legacy follow-along explanation may be retained only when all are true:
+
+1. it is compatible with the Current 27 refined Source truth;
+2. it materially clarifies a mechanism, causal bridge, decision order, anatomy-to-consequence relation or confusable boundary;
+3. losing it would make the canonical Framework/KP materially harder to understand, retrieve or apply;
+4. it can be absorbed into the existing System→Block→Logic Group→KP owner without creating a second Source path.
+
+Reject or demote legacy material when it is merely duplicated wording, a mnemonic/joke, unsupported precision, contradicted by 27 refined, or useful only as historical provenance.
+
+**Absence from the 27 refined lecture is not by itself RETIRE evidence.** The rebase must run a reverse preservation check from legacy explanatory substrate → Current canonical owner before declaring a unit closed.
+
+Kian's first-pass Source contact remains **27 refined only**. Retained legacy value survives as reconstructed Framework/KP/Learning meaning, not as a second continuous lecture.
+
+Original Current 27 refined PDF remains the highest-fidelity Source for diagrams, tables, anatomy and spatial relations.
 
 ---
 
@@ -250,10 +263,14 @@ A Surgery Source unit is not closed merely because medical Core is unchanged.
 For every affected unit:
 
 ```text
-27 refined Source
-→ compare with Current canonical Knowledge
+27 refined Source = Current Source truth
++ legacy follow-along = explanatory substrate only
+→ forward check: what did 27 refined add / change / clarify?
+→ reverse check: what useful legacy explanation disappeared from the new Source?
+→ compare both against the Current canonical Block/LG/KP owner
 → classify PRESERVE / UPDATE / NEW / RETIRE / CONFLICT
-→ rebind stale Surgery Source locator
+→ rebind stale Surgery Source locator to 27 refined
+→ absorb only validated legacy explanatory value into existing Framework/KP/Learning
 → decide Knowledge increment
 → decide Learning/Guide increment
 → decide Precision / Visual implication
