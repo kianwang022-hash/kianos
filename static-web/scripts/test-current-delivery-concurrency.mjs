@@ -54,7 +54,7 @@ try {
   assert.equal(rows.filter(x => x === 'build').length, 1, 'concurrent supervisors must build once');
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), sha);
   assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(path.join(releases, 'releases', sha)));
-  assert.equal(fs.existsSync(path.join(releases, 'delivery.lock')), false, 'delivery lock must be released');
+  assert.equal(fs.existsSync(path.join(releases, 'delivery.lock', 'held')), false, 'delivery ownership must be released');
   const worktrees = git(mirror, 'worktree', 'list', '--porcelain');
   assert.equal((worktrees.match(/^worktree /gm) || []).length, 2, 'mirror + one immutable release expected');
   console.log('CURRENT_DELIVERY_CONCURRENCY PASS: two supervisors serialize into one release mutation');

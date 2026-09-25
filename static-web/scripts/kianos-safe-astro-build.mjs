@@ -18,6 +18,18 @@ function outDirFromArgs(args) {
   return '';
 }
 
+export function canonicalizePath(target) {
+  let candidate = path.resolve(target);
+  const suffix = [];
+  while (!fs.existsSync(candidate)) {
+    suffix.unshift(path.basename(candidate));
+    const parent = path.dirname(candidate);
+    if (parent === candidate) return candidate;
+    candidate = parent;
+  }
+  return path.resolve(fs.realpathSync(candidate), ...suffix);
+}
+
 export function resolveSafeAstroBuildArgs(args, {
   managedCurrent = fs.existsSync(markerPath),
   currentWebRoot = webRoot
@@ -26,10 +38,11 @@ export function resolveSafeAstroBuildArgs(args, {
   const configuredOutDir = outDirFromArgs(next);
   if (!managedCurrent) return { args: next, redirected: false, outDir: configuredOutDir || null };
 
-  const liveDist = path.resolve(currentWebRoot, 'dist');
+  const liveDist = canonicalizePath(path.join(currentWebRoot, 'dist'));
   if (configuredOutDir) {
     const resolved = path.resolve(currentWebRoot, configuredOutDir);
-    if (resolved === liveDist || resolved.startsWith(`${liveDist}${path.sep}`)) {
+    const canonicalResolved = canonicalizePath(resolved);
+    if (canonicalResolved === liveDist || canonicalResolved.startsWith(`${liveDist}${path.sep}`)) {
       throw new Error('CURRENT_LIVE_DIST_BUILD_FORBIDDEN: use Current sync or a non-live --outDir');
     }
     return { args: next, redirected: false, outDir: resolved };
