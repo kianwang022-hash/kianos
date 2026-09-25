@@ -776,17 +776,17 @@ BPH 的时相：
 必须回原 Study：
 
 1. `27精编生理合集【带导图】.pdf` P263–264：膀胱压力—容量、排尿反射和神经层级；
-2. 历史 `外科学讲义_AI阅读版.md` preprocessing 对应的兼容 source-local 泌外梗阻 asset：前列腺移行带 / 外周带、逼尿肌与出口示意；
-3. 对应 source-local asset：四类结石外观与 X 线显影；
-4. 对应 source-local asset：肾—输尿管—膀胱结石位置及尺寸—术式矩阵；
-5. 对应 source-local 尿失禁 asset：四类尿失禁比较图。
+2. `27外科精编版【带导图】.pdf` SUR27-U19 PDF P133：前列腺移行带 / 外周带、BPH—出口阻力与并发症接口；
+3. 同一 Current Source PDF P133–P135：四类结石外观 / 显影、肾—输尿管—膀胱位置与尺寸—术式矩阵；
+4. 同一 Current Source PDF P137：尿失禁分类与排尿梗阻接口；
+5. 历史 `外科学讲义_AI阅读版.md` preprocessing 的 source-local asset id 仅保留 provenance，不再作为 Current 学习/视觉入口。
 
 ```text
 visual_source = AVAILABLE_VIA_PROJECT_SOURCE_ROUTING
 visual_gate = REQUIRED_ORIGINAL_SOURCE_REVIEW
 ```
 
-原图承担空间、结石外观和术式矩阵核对；本文件承担 Framework、因果链与 Recall。Source-local asset 标识不等同于当前合并 PDF 物理页码。
+原图承担空间、结石外观和术式矩阵核对；本文件承担 Framework、因果链与 Recall。Current 学习一律回 27 精编物理页；历史 source-local asset 标识不再参与 Current 路由。
 
 ---
 
@@ -988,7 +988,7 @@ Visual_gate = REQUIRED_ORIGINAL_SOURCE_REVIEW
 Framework已建立
 + 外科P108–109、P112已连续学习
 + 生理排尿反射只做Recall / Apply
-+ 前列腺带区、结石外观、尿路空间与尿失禁原图/Source-local asset已核对
++ 前列腺带区、结石外观、尿路空间与尿失禁均按 27 精编 P133–P137 原页核对；旧 source-local asset 仅 provenance
 + 能闭卷重建“出口阻力→残尿→上游压力→肾损害”
 + 能先做梗阻危险分层，再调用尺寸/术式Precision
 + KP Active Recall完成
