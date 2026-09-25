@@ -634,6 +634,7 @@ S  current Source identity / locators / gaps current
 K  M1–M10 + G1–G5 Core + System/cross-System model reaccepted
 L  Source-contact / learner route / LG / closure semantics reaccepted
 C  Content responsibilities and Recall-front protection reaccepted
+G  bound Beginner Guide / Orientation revalidated against Current System + Learning + Source-lane semantics
 Q  affected Question→Knowledge relations revalidated
 X  affected learner-facing question explanations revalidated
 E  historical learner evidence classified against the new Source revision
@@ -649,6 +650,8 @@ Additional architecture gates:
 - Source maps bind current Source to existing Block/LG/KP identities or explicit support/Connection roles;
 - learner order may differ from stable KP/file order without physically reordering canonical identity;
 - explicit Framework / Memory Routing / MI-G / MI-D and other Block-owned content jobs survive Content revalidation;
+- any bound Beginner Guide remains explanation-only but is revalidated when Source order, mother-model orientation or first-pass handoff semantics change;
+- for the Current B Guide, learner-facing orientation must preserve the distinction `teacher Source order ≠ canonical M/G order`, the JIT Prelude rule, the two Biochemistry mother models, and the one-current-Source / historical-explanation-substrate boundary;
 - digestive/endocrine/clinical connections are preserved through JIT / Connection / Recall / Reconstruction rather than routine Source switching.
 
 
