@@ -61,15 +61,18 @@ A whole-catalog diagnostic is justified only when the defect itself is plausibly
 
 ## 6. Historical evidence isolation
 
-The following may remain as historical/acceptance evidence but are not Current work cursors:
+Historical evidence must stay off the Current hot path.
+
+Main may retain bounded evidence only when a Current acceptance/reproducibility dependency still consumes it, including:
 
 - `content/lexical/semantic-audit/**`;
 - `content/lexical/semantic-reconciliation/**`;
-- `content/lexical/audit/knowledge-reacceptance/**`;
-- prior full-catalog K acceptance artifacts;
-- completed catalog-campaign control/protocol records under `content/lexical/audit/history/**`.
+- Current full-catalog K acceptance artifacts;
+- completed catalog-campaign control/protocol records under `content/lexical/audit/history/**` when still referenced by retained receipts/manifests.
 
-Normal fresh work starts from `CURRENT.md` and the exact Natural Owner, not from those directories.
+The retired pre-closure knowledge-reacceptance / migration-integrity campaign is preserved in Git history only. Do not restore its batch cursors, frozen migration authority files or campaign scheduler state into `main` merely for provenance.
+
+Normal fresh work starts from `CURRENT.md` and the exact Natural Owner.
 
 ## 7. Stop rule
 
