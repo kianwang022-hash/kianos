@@ -41,7 +41,15 @@ try {
     }).redirected, false);
   }
 
-  console.log('CURRENT_SAFE_ASTRO_BUILD PASS: lexical, symlink-alias and physical-target live dist paths are blocked');
+  // The implicit QA redirect must be physically contained too. If `.qa`
+  // itself resolves into the live served release, a default build must fail
+  // before rm/write touches that target.
+  fs.symlinkSync(servedRoot, path.join(webRoot, '.qa'), 'dir');
+  assert.throws(() => resolveSafeAstroBuildArgs([], {
+    managedCurrent: true, currentWebRoot: webRoot
+  }), /CURRENT_LIVE_DIST_BUILD_FORBIDDEN/, 'default QA output must reject a .qa symlink into live dist');
+
+  console.log('CURRENT_SAFE_ASTRO_BUILD PASS: explicit and default outputs cannot reach live dist through lexical or symlink aliases');
 } finally {
   fs.rmSync(scratch, { recursive: true, force: true });
 }

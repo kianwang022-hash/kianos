@@ -49,6 +49,10 @@ export function resolveSafeAstroBuildArgs(args, {
   }
 
   const safeOutDir = path.join(currentWebRoot, '.qa', 'astro-build');
+  const canonicalSafeOutDir = canonicalizePath(safeOutDir);
+  if (canonicalSafeOutDir === liveDist || canonicalSafeOutDir.startsWith(`${liveDist}${path.sep}`)) {
+    throw new Error('CURRENT_LIVE_DIST_BUILD_FORBIDDEN: managed Current QA output resolves inside the live served release');
+  }
   fs.rmSync(safeOutDir, { recursive: true, force: true });
   next.push('--outDir', safeOutDir);
   return { args: next, redirected: true, outDir: safeOutDir };

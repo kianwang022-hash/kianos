@@ -449,12 +449,11 @@ async function syncOnce({ initial = false } = {}) {
       });
       try {
         await probeRelease(releases.release(fetched), fetched);
-        await activateRelease(fetched);
       } catch (error) {
-        warn(`new Current release failed readiness; rolling back: ${error.message}`);
-        if (!oneShot) await rollbackRelease();
+        warn(`new Current release probe failed before activation; keeping current release: ${error.message}`);
         throw error;
       }
+      await activateRelease(fetched);
       if (!oneShot && site) {
         try {
           log('performing one controlled server reload for accepted release transition');
