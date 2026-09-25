@@ -791,6 +791,44 @@ body#kianos-workspace.surfaceBody-home .homeL3Support .examCapacity {
   line-height: 1.5;
 }
 
+body#kianos-workspace.surfaceBody-home .homeL3Support .examWorkStrategy {
+  margin: 0 0 13px;
+  padding: 10px 0 11px 12px;
+  border-left: 2px solid var(--study-green);
+  border-top: 1px solid var(--study-line);
+  border-bottom: 1px solid var(--study-line);
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examWorkStrategyHead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 9px;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examWorkStrategyHead > span {
+  color: var(--study-green);
+  font-size: 15px;
+  font-weight: var(--study-weight-title);
+  white-space: nowrap;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examWorkStrategyHead > strong {
+  min-width: 0;
+  color: var(--study-ink);
+  font-size: 17px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.42;
+}
+
+body#kianos-workspace.surfaceBody-home .homeL3Support .examWorkStrategy > p {
+  margin: 5px 0 0;
+  color: var(--study-muted);
+  font-size: 16px;
+  font-weight: var(--study-weight-body);
+  line-height: 1.45;
+}
+
 body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation {
   grid-template-columns: 52px minmax(0, 1fr) auto;
   padding: 11px 0;
