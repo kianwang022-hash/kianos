@@ -196,7 +196,7 @@
       "received_at": "2026-09-24",
       "markdown_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md"
     },
-    "action_now": "REBASE_CLOSED_CURRENT; reopen only for a new/revised authoritative Biochemistry Source or a concrete Current-owner defect.",
+    "action_now": "REBASE_CLOSED / GUIDE_REVALIDATED. No engineering action for this Source revision; proceed only to real-use Human validation or reopen the smallest owner on a new concrete defect/new authoritative Source.",
     "delta_audit": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
     "delta_summary": {
       "preserve": "M1–M10 + G1–G5 stable Block/KP identities and validated medical Core; canonical content hierarchy and Current Source bindings are now 27-based.",
@@ -460,7 +460,20 @@
       ],
       "validator": "static-web/scripts/validate-xizong-biochemistry-source-lifecycle.mjs",
       "closure_rule": "Future Biochemistry Source revisions cannot close unless the bound Beginner Guide is revalidated whenever Source order, mother-model orientation or first-pass handoff semantics change.",
-      "status": "PENDING_VALIDATION"
+      "status": "PASS_CLOSED",
+      "validation": {
+        "lifecycle_validator": "PASS — static-web/scripts/validate-xizong-biochemistry-source-lifecycle.mjs",
+        "validated_main": "69c6cbe2f0f296c87871315b3fafdbdc0e47a17d",
+        "guide_dependency_checks": [
+          "Current 27 Biochemistry Source named",
+          "single Source-map routing pointer present",
+          "物质—能量网络 + 信息生命周期 mother models present",
+          "teacher Source order ≠ canonical Block formation explained",
+          "JIT Prelude semantics present",
+          "26 refined explanation remains reconstruction substrate only",
+          "no second Biochemistry course/read path"
+        ]
+      }
     }
   },
   "delta_review": {
