@@ -9,6 +9,10 @@ const variableRows = framework.variables.rows;
 const relationRows = framework.formulas;
 const guideSections = guide?.sections || [];
 const hasGuide = guideSections.length > 0;
+const biochemistryLane = system?.biochemistryLane || null;
+const biochemistryUnits = Array.isArray(biochemistryLane?.units) ? biochemistryLane.units : [];
+const hasBiochemistryLane = biochemistryUnits.length > 0;
+const biochemistryReconstruction = biochemistryLane?.reconstruction || null;
 const hasVariableRoles = variableRows.some((row) => row.role);
 const spineLabels = framework.spine.items.map((item) => String(item || '').trim());
 const spineTotalChars = spineLabels.reduce((sum, item) => sum + [...item].length, 0);
@@ -50,6 +54,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
     <nav class="xzSystemViewTabs" aria-label="System view">
       {hasGuide && <button type="button" data-system-view-button="guide" aria-pressed="true">GUIDE</button>}
       <button type="button" data-system-view-button="framework" aria-pressed={hasGuide ? 'false' : 'true'}>FRAMEWORK</button>
+      {hasBiochemistryLane && <button type="button" data-system-view-button="biochemistry" aria-pressed="false">27 生化</button>}
     </nav>
   </header>
 
@@ -96,6 +101,112 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
                 <div class="xzSystemGuideMarkdown markdown" set:html={section.html}></div>
               </article>
             ))}
+          </div>
+        </section>
+      )}
+
+      {hasBiochemistryLane && (
+        <section class="xzSystemBiochemistryView" data-system-view="biochemistry" hidden>
+          <header class="xzBiochemistryLaneLead">
+            <div>
+              <span>27 BIOCHEMISTRY · SOURCE LANE</span>
+              <h2>沿老师顺序连续学一次，知识回到整个 B 系统。</h2>
+              <p>{biochemistryLane.sourceName} · Source 只读一条；26 精编的有效解释已经吸收到 Framework / KP，不再要求第二遍课程。</p>
+            </div>
+            <div class="xzBiochemistryMotherMaps">
+              <span>{biochemistryLane?.mentalModels?.metabolism?.label || '物质—能量网络'}</span>
+              <span>{biochemistryLane?.mentalModels?.information?.label || '信息生命周期'}</span>
+            </div>
+          </header>
+
+          <div class="xzBiochemistryLane">
+            <aside class="xzBiochemistryUnitRail" aria-label="27 生化 Source units">
+              <header>
+                <span>老师顺序</span>
+                <strong data-biochemistry-progress>0 / {biochemistryUnits.length}</strong>
+              </header>
+              <nav>
+                {biochemistryUnits.map((unit, index) => (
+                  <button type="button" data-biochemistry-unit-target={unit.id} data-unit-index={index}>
+                    <b>{String(index + 1).padStart(2, '0')}</b>
+                    <span>{unit.label}</span>
+                  </button>
+                ))}
+              </nav>
+            </aside>
+
+            <main class="xzBiochemistryUnitStage">
+              {biochemistryUnits.map((unit, index) => (
+                <article data-biochemistry-unit-panel={unit.id} hidden={index !== 0}>
+                  <header>
+                    <span>{unit.id} · PDF P{String(unit.pdf?.[0] || '').padStart(3, '0')}–P{String(unit.pdf?.[1] || '').padStart(3, '0')}</span>
+                    <h2>{unit.label}</h2>
+                  </header>
+
+                  {unit.primaryTargets?.length > 0 && (
+                    <section class="xzBioTargetSection primary">
+                      <span>这段真正形成</span>
+                      <div>
+                        {unit.primaryTargets.map((target) => (
+                          <a href={system.blocks.find((block) => block.blockId === target.blockId)?.slug
+                            ? `${base}xizong/${system.systemId}/${system.blocks.find((block) => block.blockId === target.blockId)?.slug}/`
+                            : undefined}>
+                            <b>{target.blockId}</b>
+                            <span>{target.blockTitle}</span>
+                          </a>
+                        ))}
+                      </div>
+                    </section>
+                  )}
+
+                  {unit.supportTargets?.length > 0 && (
+                    <section class="xzBioTargetSection support">
+                      <span>只借用 / 预热</span>
+                      <p>{[...new Set(unit.supportTargets.map((target) => `${target.blockId} ${target.blockTitle}`))].join(' · ')}</p>
+                    </section>
+                  )}
+
+                  {unit.connections?.length > 0 && (
+                    <section class="xzBioTargetSection connection">
+                      <span>系统连接</span>
+                      <p>{unit.connections.join(' · ')}</p>
+                    </section>
+                  )}
+
+                  {unit.notes && (
+                    <section class="xzBioTargetSection note">
+                      <span>这一段怎么理解</span>
+                      <p>{unit.notes}</p>
+                    </section>
+                  )}
+
+                  {unit.closesBlocks?.length > 0 && (
+                    <p class="xzBioClosure">学完这一段后，{unit.closesBlocks.join(' / ')} 的 Current Source 接触闭合，可回 KianOS 做对应 Recall。</p>
+                  )}
+                </article>
+              ))}
+
+              <footer class="xzBiochemistryLaneAction">
+                <div>
+                  <span data-biochemistry-current-status>准备从当前未完成 Source unit 继续。</span>
+                  <small>这里只记录真实原讲义接触；不会把 Source unit 变成新的 Knowledge 层级。</small>
+                </div>
+                <button type="button" data-biochemistry-unit-complete>本段原讲义已完成</button>
+              </footer>
+
+              {biochemistryReconstruction && (
+                <section class="xzBiochemistryReconstruction" data-biochemistry-reconstruction hidden>
+                  <span>阶段重构 · 非门槛</span>
+                  <h3>把刚学过的通路重新拼回系统，而不是按 Block 名背一遍。</h3>
+                  <p data-biochemistry-reconstruction-prompt>{biochemistryReconstruction.prompt}</p>
+                  <button type="button" data-biochemistry-reconstruction-reveal>核对这阶段应该连起来什么</button>
+                  <div data-biochemistry-reconstruction-answer hidden>
+                    <strong data-biochemistry-reconstruction-target></strong>
+                    <p data-biochemistry-reconstruction-closure></p>
+                  </div>
+                </section>
+              )}
+            </main>
           </div>
         </section>
       )}
@@ -242,10 +353,18 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
     label: mode.label,
     chain: mode.chain || failureViews[mode.id]?.chain || ''
   }])))}></script>
+  {hasBiochemistryLane && (
+    <script
+      type="application/json"
+      data-biochemistry-lane-payload
+      set:html={JSON.stringify(biochemistryLane).replace(/</g, String.fromCharCode(92) + 'u003c')}
+    ></script>
+  )}
 </section>
 
 <script>
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  import { inspectXizongBlockCompletion } from '../lib/xizongMemoryAutoRelease.mjs';
   void learnerWriterReady.then(() => {
 
   const root = document.querySelector('[data-xizong-system]');
@@ -265,6 +384,8 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
     const failureVars = root.querySelector('[data-failure-run-vars]');
     let failures = {};
     try { failures = JSON.parse(root.querySelector('[data-failure-payload]')?.textContent || '{}'); } catch {}
+    let biochemistryLane = null;
+    try { biochemistryLane = JSON.parse(root.querySelector('[data-biochemistry-lane-payload]')?.textContent || 'null'); } catch {}
 
     let selected = 0;
     try { selected = Number(sessionStorage.getItem(`kianos-xizong-system-selection:${systemId}`) || 0); } catch {}
@@ -302,12 +423,145 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
     try {
       const saved = localStorage.getItem(`kianos:xizong:system-view:${systemId}`);
       if (saved) initialView = saved;
+      const requested = new URLSearchParams(window.location.search).get('view');
+      if (requested && views.some((view) => view.getAttribute('data-system-view') === requested)) initialView = requested;
     } catch {}
     setView(initialView);
 
     viewButtons.forEach((button) => button.addEventListener('click', () => {
       setView(button.getAttribute('data-system-view-button') || defaultView);
     }));
+
+    if (biochemistryLane?.sourceHash && Array.isArray(biochemistryLane?.units)) {
+      const ledgerKey = `kianos:xizong:biochemistry-source-lane:${systemId}:v1`;
+      const unitButtons = [...root.querySelectorAll('[data-biochemistry-unit-target]')];
+      const unitPanels = [...root.querySelectorAll('[data-biochemistry-unit-panel]')];
+      const completeButton = root.querySelector('[data-biochemistry-unit-complete]');
+      const progress = root.querySelector('[data-biochemistry-progress]');
+      const currentStatus = root.querySelector('[data-biochemistry-current-status]');
+      const reconstruction = root.querySelector('[data-biochemistry-reconstruction]');
+      const reconstructionTarget = root.querySelector('[data-biochemistry-reconstruction-target]');
+      const reconstructionClosure = root.querySelector('[data-biochemistry-reconstruction-closure]');
+      const reconstructionAnswer = root.querySelector('[data-biochemistry-reconstruction-answer]');
+      const sourceHash = String(biochemistryLane.sourceHash);
+      const units = biochemistryLane.units;
+      let selectedUnit = 0;
+
+      const readLedger = () => {
+        try {
+          const row = JSON.parse(localStorage.getItem(ledgerKey) || 'null');
+          if (row?.schema === 'kianos.xizong.biochemistry-source-lane-state.v1' && Array.isArray(row.history)) return row;
+        } catch {}
+        return { schema: 'kianos.xizong.biochemistry-source-lane-state.v1', history: [] };
+      };
+      const writeLedger = (row) => {
+        try { localStorage.setItem(ledgerKey, JSON.stringify(row)); return true; } catch { return false; }
+      };
+      const currentCompleted = (row) => new Set((row?.history || [])
+        .filter((entry) => String(entry?.source_hash || '') === sourceHash)
+        .map((entry) => String(entry?.source_unit_id || ''))
+        .filter(Boolean));
+
+      const completionRequirements = (() => {
+        try {
+          const raw = JSON.parse(document.querySelector('[data-xizong-completion-input]')?.textContent || '{}');
+          return new Map((raw?.requirements || []).map((req) => [String(req?.identity?.blockId || ''), req]));
+        } catch { return new Map(); }
+      })();
+      const blockIsCurrentComplete = (blockId) => {
+        const requirement = completionRequirements.get(String(blockId || ''));
+        if (!requirement) return false;
+        try {
+          const state = JSON.parse(localStorage.getItem(`kianos-xizong-astro-v2:xizong:${blockId}`) || 'null');
+          return inspectXizongBlockCompletion(requirement, state || {}).complete === true;
+        } catch { return false; }
+      };
+
+      const syncReconstruction = () => {
+        if (!(reconstruction instanceof HTMLElement) || !biochemistryLane?.reconstruction) return;
+        const psr = biochemistryLane.reconstruction;
+        const rows = Array.isArray(psr.incremental_refreshes) ? psr.incremental_refreshes : [];
+        const fullReady = Array.isArray(psr.after_when_ready) && psr.after_when_ready.length
+          && psr.after_when_ready.every(blockIsCurrentComplete);
+        const eligible = rows.filter((row) =>
+          Array.isArray(row?.after_when_ready) && row.after_when_ready.length
+          && row.after_when_ready.every(blockIsCurrentComplete)
+        );
+        const active = fullReady
+          ? { target: psr.target || '', closure: psr.closure || '' }
+          : eligible.at(-1);
+        reconstruction.hidden = !active;
+        if (!active) return;
+        if (reconstructionTarget) reconstructionTarget.textContent = active.target || '';
+        if (reconstructionClosure) reconstructionClosure.textContent = active.closure || '';
+        if (reconstructionAnswer instanceof HTMLElement) reconstructionAnswer.hidden = true;
+      };
+
+      const renderBiochemistryLane = () => {
+        const ledger = readLedger();
+        const completed = currentCompleted(ledger);
+        const firstIncomplete = units.findIndex((unit) => !completed.has(String(unit.id || '')));
+        const nextIndex = firstIncomplete < 0 ? Math.max(0, units.length - 1) : firstIncomplete;
+        if (selectedUnit > nextIndex || selectedUnit < 0) selectedUnit = nextIndex;
+
+        unitButtons.forEach((button, index) => {
+          const unitId = button.getAttribute('data-biochemistry-unit-target') || '';
+          const done = completed.has(unitId);
+          button.classList.toggle('completed', done);
+          button.classList.toggle('selected', index === selectedUnit);
+          button.disabled = index > nextIndex;
+        });
+        unitPanels.forEach((panel, index) => { panel.hidden = index !== selectedUnit; });
+
+        if (progress) progress.textContent = `${completed.size} / ${units.length}`;
+        const selected = units[selectedUnit];
+        const selectedDone = selected ? completed.has(String(selected.id || '')) : false;
+        const allDone = completed.size >= units.length;
+        if (completeButton instanceof HTMLButtonElement) {
+          completeButton.disabled = allDone || selectedDone || selectedUnit !== nextIndex;
+          completeButton.textContent = allDone ? '27 生化 Source 已完整接触' : selectedDone ? '本段已完成' : '本段原讲义已完成';
+        }
+        if (currentStatus) {
+          currentStatus.textContent = allDone
+            ? '27 生化连续 Source 已完整接触；后续进入对应 Block Recall / 系统重构。'
+            : `当前 ${selected?.id || ''} · PDF P${String(selected?.pdf?.[0] || '').padStart(3, '0')}–P${String(selected?.pdf?.[1] || '').padStart(3, '0')}`;
+        }
+        syncReconstruction();
+      };
+
+      unitButtons.forEach((button, index) => button.addEventListener('click', () => {
+        if (button.disabled) return;
+        selectedUnit = index;
+        renderBiochemistryLane();
+      }));
+      completeButton?.addEventListener('click', () => {
+        const unit = units[selectedUnit];
+        if (!unit) return;
+        const ledger = readLedger();
+        const completed = currentCompleted(ledger);
+        if (completed.has(String(unit.id || ''))) return;
+        ledger.history = [...(ledger.history || []), {
+          source_unit_id: String(unit.id || ''),
+          source_hash: sourceHash,
+          completed_at: new Date().toISOString()
+        }];
+        ledger.updated_at = new Date().toISOString();
+        if (!writeLedger(ledger)) return;
+        window.dispatchEvent(new CustomEvent('kianos:xizong-biochemistry-source-updated', {
+          detail: { source_unit_id: unit.id, source_hash: sourceHash }
+        }));
+        selectedUnit = Math.min(units.length - 1, selectedUnit + 1);
+        renderBiochemistryLane();
+      });
+      root.querySelector('[data-biochemistry-reconstruction-reveal]')?.addEventListener('click', () => {
+        if (reconstructionAnswer instanceof HTMLElement) reconstructionAnswer.hidden = false;
+      });
+      window.addEventListener('storage', (event) => {
+        if (event.key === ledgerKey) renderBiochemistryLane();
+      });
+      window.addEventListener('kianos:xizong-block-complete', syncReconstruction);
+      renderBiochemistryLane();
+    }
 
     links.forEach((link, index) => {
       link.addEventListener('focus', () => { selected = index; renderSelection(false); });
