@@ -177,6 +177,48 @@
   line-height: 1.45;
 }
 
+.stewardCapacitySummary,
+.stewardCapacityRecovery {
+  margin: 0;
+  color: var(--study-ink);
+  font-size: 15px;
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.42;
+}
+
+.stewardCapacityMeta {
+  display: grid;
+  gap: 6px;
+  margin: 9px 0 0;
+}
+
+.stewardCapacityMeta > div {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 7px;
+}
+
+.stewardCapacityMeta dt {
+  color: var(--study-faint);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-secondary);
+}
+
+.stewardCapacityMeta dd {
+  margin: 0;
+  color: var(--study-muted);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.38;
+}
+
+.stewardCapacityRecovery {
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(215, 223, 218, .72);
+  color: var(--study-muted);
+}
+
 .stewardTodayMain {
   display: flex;
   min-width: 0;

@@ -171,11 +171,26 @@ subjects
     session_ref      optional pointer to subject Session Instruction
 next_subject         optional
 attention            optional
+capacity             optional bounded current interpretation
+  state              ORDINARY | REDUCED | UNCERTAIN | RECOVER_FIRST
+  summary            required when capacity is present
+  basis              optional plain-language evidence basis
+  load               optional current load interpretation
+  action             optional current action
+  recheck            optional re-entry / reassessment condition
 ```
 
 The machine owners are [plan validation](static-web/src/lib/examChatPlan.mjs) and [control command validation](static-web/src/lib/privateControlCommand.mjs). Exact private submission, retry and receipt routing is [Personal OS control delivery](https://github.com/kianwang022-hash/kian-personal-os/blob/main/runtime/kianos-control/README.md). A missing/stale basis allows advice and native Resume, not a fabricated executable plan.
 
 This packet is private learner/control state. It must not be committed to public canonical Content.
+
+The optional `capacity` object is a **transport/read-model projection of Chat judgment**, not native Health data and not a Personal calibration owner. It exists so Steward can show the current causal loop without forcing Kian to repeat context:
+
+```text
+current capacity → evidence basis → current load → action → recheck
+```
+
+It must not carry or imply a readiness/recovery/debt score. Raw Health/Watch samples remain in Health; subject-native performance remains in subject evidence; break/re-entry actuals remain Steward runtime reality. A new material capacity judgment is produced by Chat from those current owners and expires with the plan's same-day freshness/basis semantics.
 
 ### Approved integrated surface extension — not current wire capability
 

@@ -222,6 +222,67 @@ export function initStewardWorkspace(root) {
     }
   }
 
+  function renderCapacity(chatPlanState) {
+    const section = $('[data-steward-capacity-section]');
+    if (!section) return;
+    const capacity = chatPlanState?.status === 'ready' ? chatPlanState.plan?.capacity : null;
+    const events = stewardRealityEventsForDay(storage, today);
+    const latest = Array.isArray(events) && events.length
+      ? [...events].sort((a, b) => b.startedAt - a.startedAt)[0]
+      : null;
+
+    section.hidden = !(capacity || latest);
+    if (section.hidden) return;
+
+    const stateLabels = {
+      ORDINARY: '正常',
+      REDUCED: '降低',
+      UNCERTAIN: '待确认',
+      RECOVER_FIRST: '先恢复'
+    };
+    const stateNode = $('[data-steward-capacity-state]');
+    if (stateNode) stateNode.textContent = capacity ? (stateLabels[capacity.state] || '') : '事实记录';
+
+    const summary = $('[data-steward-capacity-summary]');
+    if (summary) {
+      summary.textContent = capacity?.summary
+        || '最近有一次恢复记录；是否需要调整，由当前真实表现决定。';
+    }
+
+    const setRow = (name, value) => {
+      const row = $(`[data-steward-capacity-${name}-row]`);
+      const node = $(`[data-steward-capacity-${name}]`);
+      if (row) row.hidden = !value;
+      if (node) node.textContent = value || '';
+    };
+    setRow('basis', capacity?.basis || '');
+    setRow('load', capacity?.load || '');
+    setRow('action', capacity?.action || '');
+    setRow('recheck', capacity?.recheck || '');
+
+    const recovery = $('[data-steward-capacity-recovery]');
+    if (!recovery) return;
+    if (!latest) {
+      recovery.hidden = true;
+      recovery.textContent = '';
+      return;
+    }
+    const methodLabels = { walk:'走动', eyes_closed:'闭眼', phone:'手机', food:'吃点东西', water:'补水' };
+    const methods = [...(latest.methods || []).map(method => methodLabels[method] || method), latest.customMethod].filter(Boolean);
+    const minutes = latest.endedAt == null
+      ? null
+      : Math.max(0, Math.round((latest.endedAt - latest.startedAt) / 60000));
+    const reentry = latest.reentry?.status === 'RESTORED' ? '恢复明显'
+      : latest.reentry?.status === 'PARTIAL' ? '部分恢复'
+        : latest.reentry?.status === 'NOT_RESTORED' ? '仍未恢复' : '';
+    recovery.hidden = false;
+    recovery.textContent = [
+      latest.endedAt == null ? '正在休息' : `最近恢复 ${minutes}m`,
+      methods.join(' / '),
+      reentry
+    ].filter(Boolean).join(' · ');
+  }
+
   function renderReality(timerModel) {
     const list = $('[data-steward-reality]');
     if (!list) return;
@@ -376,6 +437,7 @@ export function initStewardWorkspace(root) {
     renderPlanState(chatPlanState);
     renderTasks(presentation);
     renderSubjectTotals(timerModel);
+    renderCapacity(chatPlanState);
     renderReality(timerModel);
     renderNow(presentation, timerModel);
     renderTimeline(presentation);

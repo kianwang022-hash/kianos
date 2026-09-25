@@ -79,6 +79,32 @@ const presentationClock = (value, field, optional = false) => {
   return clock;
 };
 
+const CAPACITY_STATES = Object.freeze(['ORDINARY', 'REDUCED', 'UNCERTAIN', 'RECOVER_FIRST']);
+
+function normalizeExamChatPlanCapacity(value) {
+  if (value == null) return null;
+  if (!record(value)) throw new Error('Chat Plan capacity must be an object.');
+  for (const forbidden of ['score', 'readiness_score', 'recovery_score', 'debt_score']) {
+    if (Object.prototype.hasOwnProperty.call(value, forbidden)) {
+      throw new Error('Chat Plan capacity must not contain a readiness/recovery score.');
+    }
+  }
+  const state = String(value.state || '').trim().toUpperCase();
+  if (!CAPACITY_STATES.includes(state)) {
+    throw new Error('Chat Plan capacity.state is invalid.');
+  }
+  const summary = text(value.summary, 220);
+  if (!summary) throw new Error('Chat Plan capacity.summary is required.');
+  return {
+    state,
+    summary,
+    basis: text(value.basis, 300),
+    load: text(value.load, 220),
+    action: text(value.action, 220),
+    recheck: text(value.recheck, 220)
+  };
+}
+
 const presentationRows = (value, field, max) => {
   if (value === null || value === undefined) return [];
   if (!Array.isArray(value) || value.length > max) {
@@ -378,6 +404,7 @@ export function validateExamChatPlan(value, expectedDay = null) {
     throw new Error('CHAT_PLAN_FUTURE_GENERATED_AT');
   }
   const learnerEvidenceBasis = normalizeExamChatPlanBasis(value.learner_evidence_basis, value.study_day);
+  const capacity = normalizeExamChatPlanCapacity(value.capacity);
   const presentation = normalizeExamChatPlanPresentation(value.presentation);
 
   const rawSubjects = value.subjects && typeof value.subjects === 'object' && !Array.isArray(value.subjects)
@@ -433,6 +460,7 @@ export function validateExamChatPlan(value, expectedDay = null) {
     study_day: value.study_day,
     generated_at: new Date(generatedAt).toISOString(),
     learner_evidence_basis: learnerEvidenceBasis,
+    capacity,
     subjects,
     next_subject: nextSubject,
     attention,
