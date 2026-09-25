@@ -7,15 +7,17 @@ import { fileURLToPath } from 'node:url';
 
 import {
   classifyStaticBuild,
-  requiresStaticRuntimeReload,
-  staticBuildCanReuseFromBase
+  requiresStaticRuntimeReload
 } from './currentStaticImpact.mjs';
 import {
-  adoptLegacyDist,
-  isAtomicServingLink,
-  promoteStagedBuild,
+  atomicReplaceSymlink,
   resolveServedRoot
 } from './currentStaticSlots.mjs';
+import {
+  acquireDeliveryLock,
+  releasePaths,
+  runBounded
+} from './currentRelease.mjs';
 
 const execFileAsync = promisify(execFile);
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -25,17 +27,17 @@ const markerPath = path.join(repoRoot, '.git', 'kianos-current-mirror');
 const staticServerPath = path.join(webRoot, 'scripts', 'kianos-static-server.mjs');
 const statusPath = path.join(webRoot, 'public', '__kianos-current.json');
 const distPath = path.join(webRoot, 'dist');
-const stagePath = path.join(webRoot, '.current-build-next');
 const previousPath = path.join(webRoot, '.current-build-prev');
-const buildsPath = path.join(webRoot, '.current-builds');
 const failurePath = path.join(webRoot, '.current-build-failure.json');
 const intervalMs = Math.max(3000, Number(process.env.KIANOS_SYNC_INTERVAL_MS || 8000));
 const host = process.env.KIANOS_HOST || '127.0.0.1';
 const port = String(process.env.KIANOS_PORT || '4321');
 const npmBin = process.env.KIANOS_NPM_BIN || 'npm';
+const gitBin = process.env.KIANOS_GIT_BIN || 'git';
 const oneShot = process.env.KIANOS_SYNC_ONCE === '1';
 const skipAstro = process.env.KIANOS_SKIP_ASTRO === '1';
-const buildNice = Math.max(0, Math.min(20, Number(process.env.KIANOS_BUILD_NICE || 10)));
+const releases = releasePaths(repoRoot);
+const subprocessTimeoutMs = Number(process.env.KIANOS_SUBPROCESS_TIMEOUT_MS || 120000);
 
 let site = null;
 let stopping = false;
@@ -43,7 +45,9 @@ let syncing = false;
 let reloadingSite = false;
 let lastNetworkError = '';
 let lastKnownSha = '';
+let lastTargetSha = '';
 let lastSyncHealthy = true;
+let activeReleaseRoot = null;
 
 function readBuildFailure() {
   try { return JSON.parse(fs.readFileSync(failurePath, 'utf8')); } catch { return null; }
@@ -54,7 +58,11 @@ const log = (message) => console.log(`[${stamp()}] ${message}`);
 const warn = (message) => console.error(`[${stamp()}] ${message}`);
 
 async function git(args) {
-  const { stdout } = await execFileAsync('git', args, { cwd: repoRoot, maxBuffer: 16 * 1024 * 1024 });
+  const { stdout } = await execFileAsync(gitBin, args, {
+    cwd: repoRoot,
+    maxBuffer: 16 * 1024 * 1024,
+    timeout: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
+  });
   return String(stdout || '').trim();
 }
 
@@ -96,21 +104,116 @@ function readBuiltStatus(root = distPath) {
   }
 }
 
-async function runChild(file, args, { cwd = webRoot, label = file } = {}) {
-  await new Promise((resolve, reject) => {
-    const child = spawn(file, args, {
-      cwd,
-      stdio: 'inherit',
-      env: process.env
-    });
-    child.once('exit', (code) => code === 0 ? resolve() : reject(new Error(`${label} exited ${code}`)));
-    child.once('error', reject);
-  });
+function readActiveBuiltStatus() {
+  return activeReleaseRoot
+    ? readBuiltStatus(path.join(activeReleaseRoot, 'static-web', 'dist'))
+    : readBuiltStatus();
 }
 
-async function npmInstall() {
-  log('package inputs changed; refreshing static-web dependencies');
-  await runChild(npmBin, ['install', '--no-audit', '--no-fund'], { label: 'npm install' });
+async function runChild(file, args, { cwd = webRoot, label = file, env = process.env } = {}) {
+  await runBounded(file, args, { cwd, env, label, timeoutMs: subprocessTimeoutMs });
+}
+
+async function prepareRelease(sha, extra = {}) {
+  const failure = readBuildFailure();
+  if (failure?.sha === sha && failure.stage === 'build' && !(oneShot && process.env.KIANOS_RETRY_FAILED_BUILD === '1')) {
+    throw new Error(`CURRENT_BUILD_BLOCKED:${sha}:${failure.error}`);
+  }
+  fs.mkdirSync(releases.root, { recursive: true });
+  const releaseRoot = releases.release(sha);
+  if (fs.existsSync(releaseRoot)) {
+    const existingDist = path.join(releaseRoot, 'static-web', 'dist');
+    if (readBuiltStatus(existingDist)?.state === 'synced'
+      && readBuiltStatus(existingDist)?.sha === sha
+      && fs.existsSync(path.join(existingDist, 'index.html'))) {
+      return path.join(releaseRoot, 'static-web');
+    }
+    try {
+      await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
+        label: 'remove incomplete release',
+        timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
+      });
+    } catch {}
+    fs.rmSync(releaseRoot, { recursive: true, force: true });
+  }
+  if (fs.existsSync(releases.candidate)) await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releases.candidate], { label: 'remove stale candidate' });
+  await runBounded('git', ['-C', repoRoot, 'worktree', 'add', '--detach', releaseRoot, sha], {
+    label: 'git worktree add',
+    timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
+  });
+  const candidateWebRoot = path.join(releaseRoot, 'static-web');
+  try {
+    if (fs.existsSync(path.join(candidateWebRoot, 'package.json'))) {
+      await runChild(npmBin, ['install', '--no-audit', '--no-fund'], {
+        cwd: candidateWebRoot,
+        label: 'candidate npm install'
+      });
+    }
+    if (!skipAstro) {
+      const candidateStage = path.join(candidateWebRoot, '.current-build-next');
+      fs.rmSync(candidateStage, { recursive: true, force: true });
+      const args = [npmBin, 'run', 'build', '--', '--outDir', candidateStage];
+      await runChild(args[0], args.slice(1), {
+        cwd: candidateWebRoot,
+        label: 'candidate Astro build',
+        env: { ...process.env, KIANOS_RELEASE_SHA: sha }
+      });
+      writeBuiltStatus(candidateStage, sha, extra);
+      fs.renameSync(candidateStage, path.join(candidateWebRoot, 'dist'));
+    }
+  } catch (error) {
+    writeJson(failurePath, { sha, stage: /npm install/.test(error.message) ? 'install' : 'build', error: error.message, failed_at: stamp() });
+    try {
+      await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
+        label: 'cleanup failed candidate',
+        timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
+      });
+    } catch {}
+    throw error;
+  }
+  if (!skipAstro && !fs.existsSync(path.join(candidateWebRoot, 'dist', 'index.html'))) {
+    throw new Error('CURRENT_RELEASE_BUILD_INVALID');
+  }
+  fs.rmSync(failurePath, { force: true });
+  return candidateWebRoot;
+}
+
+async function activateRelease(sha) {
+  const old = fs.existsSync(releases.active) ? fs.realpathSync(releases.active) : null;
+  const next = releases.release(sha);
+  if (!fs.existsSync(next)) throw new Error(`CURRENT_RELEASE_MISSING:${sha}`);
+  if (old) atomicReplaceSymlink(old, releases.previous);
+  atomicReplaceSymlink(next, releases.active);
+  activeReleaseRoot = fs.realpathSync(releases.active);
+  return { old, active: activeReleaseRoot, sha };
+}
+
+async function pruneReleases() {
+  const retained = new Set(
+    [releases.active, releases.previous]
+      .filter(fs.existsSync)
+      .map((link) => fs.realpathSync(link))
+  );
+  const releasesRoot = path.join(releases.root, 'releases');
+  if (!fs.existsSync(releasesRoot)) return;
+  for (const entry of fs.readdirSync(releasesRoot)) {
+    const releaseRoot = path.join(releasesRoot, entry);
+    let releaseIdentity = path.resolve(releaseRoot);
+    try { releaseIdentity = fs.realpathSync(releaseRoot); } catch {}
+    if (retained.has(releaseIdentity)) continue;
+    try {
+      await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
+        label: 'prune old release',
+        timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
+      });
+    } catch {
+      fs.rmSync(releaseRoot, { recursive: true, force: true });
+    }
+  }
+  await runBounded('git', ['-C', repoRoot, 'worktree', 'prune'], {
+    label: 'prune release metadata',
+    timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
+  });
 }
 
 function recoverStaticDirectories() {
@@ -128,84 +231,38 @@ function recoverStaticDirectories() {
   }
 }
 
-function ensureAtomicServingLayout(sha) {
-  let dist = null;
-  try { dist = fs.lstatSync(distPath); } catch {}
-  if (!dist || dist.isSymbolicLink()) return resolveServedRoot(distPath);
-  if (site) throw new Error('STATIC_ATOMIC_LAYOUT_MIGRATION_REQUIRES_STOPPED_SITE');
-
-  const built = readBuiltStatus(distPath);
-  return adoptLegacyDist({
-    distPath,
-    previousPath,
-    buildsRoot: buildsPath,
-    sha: built?.sha || sha || 'legacy'
-  });
-}
-
-async function buildStatic(sha, extra = {}) {
-  const failure = readBuildFailure();
-  if (failure?.sha === sha && !(oneShot && process.env.KIANOS_RETRY_FAILED_BUILD === '1')) {
-    throw new Error(`CURRENT_BUILD_BLOCKED:${sha}:${failure.error}`);
-  }
-  fs.rmSync(stagePath, { recursive: true, force: true });
-  writeStatus('building', sha, extra);
-  // The compiler validates its content-addressed cache. Even when Git reports
-  // no lexical change, a cold/missing/corrupt projection cannot be trusted.
-  const buildScript = 'build';
-  log(
-    'building static Current ' + String(sha).slice(0, 8)
-    + ' at background priority while the previous site remains available'
-    + '; lexical projection recompiles only changed inputs'
-  );
-  const args = [npmBin, 'run', buildScript, '--', '--outDir', stagePath];
-  try {
-    if (buildNice > 0 && process.platform !== 'win32' && fs.existsSync('/usr/bin/nice')) {
-      await runChild('/usr/bin/nice', ['-n', String(buildNice), ...args], { label: 'Astro static build' });
-    } else {
-      await runChild(npmBin, args.slice(1), { label: 'Astro static build' });
-    }
-  } catch (error) {
-    writeJson(failurePath, { sha, error: error.message, failed_at: stamp() });
-    throw error;
-  }
-  writeBuiltStatus(stagePath, sha, extra);
-  fs.rmSync(failurePath, { force: true });
-}
-
-function promoteStaticBuild(sha) {
-  const promoted = promoteStagedBuild({
-    distPath,
-    previousPath,
-    stagePath,
-    buildsRoot: buildsPath,
-    sha
-  });
-  log(
-    'atomically switched static Current to ' + String(sha).slice(0, 8)
-    + (promoted.previousRoot ? '; previous slot retained for old assets' : '')
-  );
-}
-
 function startSite() {
   if (skipAstro || stopping || site) return;
-  if (!fs.existsSync(staticServerPath)) {
-    throw new Error(`KianOS static server missing at ${staticServerPath}`);
+  const pinnedWebRoot = activeReleaseRoot ? path.join(activeReleaseRoot, 'static-web') : webRoot;
+  const pinnedServerPath = path.join(pinnedWebRoot, 'scripts', 'kianos-static-server.mjs');
+  if (!fs.existsSync(pinnedServerPath)) {
+    throw new Error(`KianOS static server missing at ${pinnedServerPath}`);
   }
-  if (!resolveServedRoot(distPath)) {
+  const servedRoot = activeReleaseRoot
+    ? path.join(activeReleaseRoot, 'static-web', 'dist')
+    : distPath;
+  if (!resolveServedRoot(servedRoot)) {
     throw new Error('STATIC_CURRENT_BUILD_MISSING');
   }
   log(`starting prebuilt Current site on http://${host}:${port}`);
   site = spawn(process.execPath, [
-    staticServerPath,
+    pinnedServerPath,
     '--host', host,
     '--port', port,
-    '--root', distPath,
-    '--fallback-root', previousPath
+    '--root', servedRoot,
+    '--fallback-root', activeReleaseRoot && fs.existsSync(releases.previous)
+      ? path.join(fs.realpathSync(releases.previous), 'static-web', 'dist')
+      : previousPath
   ], {
-    cwd: webRoot,
+    cwd: pinnedWebRoot,
     stdio: 'inherit',
-    env: process.env
+    env: {
+      ...process.env,
+      ...(activeReleaseRoot ? {
+        KIANOS_REPO_ROOT: activeReleaseRoot,
+        KIANOS_CURRENT_STATUS_PATH: statusPath
+      } : {})
+    }
   });
   site.once('exit', (code, signal) => {
     const expected = stopping || reloadingSite;
@@ -248,45 +305,32 @@ async function reloadSite() {
   if (!stopping && !site) startSite();
 }
 
-function reuseStaticBuild(sha, { baseSha = '', ...extra } = {}) {
-  if (skipAstro) return false;
-  recoverStaticDirectories();
-  ensureAtomicServingLayout(sha);
-  const activeRoot = resolveServedRoot(distPath);
-  if (!activeRoot) return false;
-  const prior = readBuiltStatus(activeRoot);
-  if (!staticBuildCanReuseFromBase(prior, baseSha)) {
-    log(
-      'static build reuse refused; active build does not prove base '
-      + String(baseSha || '').slice(0, 8)
-    );
-    return false;
+async function waitForSiteReady(expectedSha, timeoutMs = 5000) {
+  const started = Date.now();
+  while (Date.now() - started < timeoutMs) {
+    if (!site) throw new Error('CURRENT_RELEASE_RUNTIME_EXITED');
+    try {
+      const response = await fetch(`http://${host}:${port}/__kianos-release.json?t=${Date.now()}`);
+      if (response.ok) {
+        const identity = await response.json();
+        if (expectedSha && identity?.sha === expectedSha) return;
+      }
+    } catch {}
+    await new Promise((resolve) => setTimeout(resolve, 100));
   }
-  writeBuiltStatus(activeRoot, sha, {
-    ...extra,
-    reused_static_build: true,
-    reused_from_sha: String(prior.sha || '')
-  });
-  return true;
+  throw new Error('CURRENT_RELEASE_RUNTIME_NOT_READY');
 }
 
-async function ensureStaticBuild(sha, extra = {}) {
-  if (skipAstro) return false;
-  recoverStaticDirectories();
-  ensureAtomicServingLayout(sha);
-
-  const activeRoot = resolveServedRoot(distPath);
-  const built = activeRoot ? readBuiltStatus(activeRoot) : null;
-  if (built?.state === 'synced' && built?.sha === sha && activeRoot) {
-    return false;
+async function rollbackRelease() {
+  await stopSite();
+  if (fs.existsSync(releases.previous)) {
+    atomicReplaceSymlink(fs.realpathSync(releases.previous), releases.active);
   }
-
-  await buildStatic(sha, extra);
-  if (!isAtomicServingLink(distPath) && fs.existsSync(distPath)) {
-    ensureAtomicServingLayout(sha);
+  activeReleaseRoot = fs.existsSync(releases.active) ? fs.realpathSync(releases.active) : null;
+  if (activeReleaseRoot) {
+    startSite();
+    await waitForSiteReady(readActiveBuiltStatus()?.sha);
   }
-  promoteStaticBuild(sha);
-  return true;
 }
 
 async function remoteMainSha() {
@@ -297,28 +341,32 @@ async function remoteMainSha() {
 async function syncOnce({ initial = false } = {}) {
   if (syncing || stopping) return false;
   syncing = true;
+  let releaseLock = null;
   try {
+    releaseLock = await acquireDeliveryLock(releases.lock);
     const local = await git(['rev-parse', 'HEAD']);
     lastKnownSha = local;
     writeStatus('checking', local);
 
     const remote = await remoteMainSha();
     if (!remote) throw new Error('origin/main did not return a SHA');
+    lastTargetSha = remote;
 
-    if (local === remote) {
-      const rebuilt = await ensureStaticBuild(local, { changed_paths: 0 });
+    const activeSha = readActiveBuiltStatus()?.sha || '';
+    if (local === remote && activeReleaseRoot && activeSha === remote) {
       lastSyncHealthy = true;
-      writeStatus('synced', local);
+      writeStatus('synced', local, { release_root: activeReleaseRoot });
       if (initial) {
-        log(`Current mirror already matches main ${local.slice(0, 8)}${rebuilt ? '; static build refreshed' : '; static build current'}`);
+        log(`Current release already matches main ${local.slice(0, 8)}`);
       }
-      return rebuilt;
+      return false;
     }
 
     writeStatus('updating', local, { target_sha: remote });
     log(`main advanced ${local.slice(0, 8)} → ${remote.slice(0, 8)}; syncing whole repository`);
     await git(['fetch', 'origin', 'main', '--prune']);
-    const fetched = await git(['rev-parse', 'origin/main']);
+    const fetched = await git(['rev-parse', 'FETCH_HEAD']);
+    lastTargetSha = fetched;
     // A previous update may have moved HEAD but failed to publish. Classify
     // from the actually served source, never from that failed checkout.
     const builtBase = readBuiltStatus();
@@ -336,58 +384,42 @@ async function syncOnce({ initial = false } = {}) {
     ].includes(file));
     const staticRuntimeChanged = requiresStaticRuntimeReload(changedPaths);
 
-    await git(['checkout', '-B', 'main', 'origin/main']);
-    await git(['reset', '--hard', 'origin/main']);
-    lastKnownSha = fetched;
-
-    if (changedPaths.some((file) => [
-      'static-web/package.json',
-      'static-web/package-lock.json',
-      'static-web/npm-shrinkwrap.json'
-    ].includes(file))) {
-      await npmInstall();
-    }
-
-    let staticBuild = 'rebuilt';
-    if (!skipAstro && !buildDecision.required) {
-      const reused = reuseStaticBuild(fetched, {
-        baseSha: impactBase,
-        changed_paths: changedPaths.length,
-        build_impact_paths: 0
-      });
-      if (reused) {
-        staticBuild = 'reused';
-        log(
-          `reused current static build for ${fetched.slice(0, 8)}; `
-          + `${changedPaths.length} changed path(s) are runtime/control-only`
-        );
-      } else {
-        await ensureStaticBuild(fetched, {
-          changed_paths: changedPaths.length,
-          build_impact_paths: 0,
-          lexical_projection_required: false,
-          lexical_projection_paths: 0
-        });
+    await prepareRelease(fetched, {
+      changed_paths: changedPaths.length,
+      build_impact_paths: buildDecision.build_paths.length,
+      lexical_projection_required: buildDecision.lexical_projection_required,
+      lexical_projection_paths: buildDecision.lexical_projection_paths.length
+    });
+    await activateRelease(fetched);
+    let runtimeReloaded = false;
+    if (!oneShot && site) {
+      try {
+        log('performing one controlled server reload for accepted release transition');
+        await reloadSite();
+        await waitForSiteReady(fetched);
+        runtimeReloaded = true;
+      } catch (error) {
+        warn(`new Current release failed readiness; rolling back: ${error.message}`);
+        await rollbackRelease();
+        throw error;
       }
-    } else {
-      await ensureStaticBuild(fetched, {
-        changed_paths: changedPaths.length,
-        build_impact_paths: buildDecision.build_paths.length,
-        lexical_projection_required: buildDecision.lexical_projection_required,
-        lexical_projection_paths: buildDecision.lexical_projection_paths.length
-      });
     }
+    lastKnownSha = fetched;
+    await git(['checkout', '-B', 'main', fetched]);
+    await git(['reset', '--hard', fetched]);
+    await pruneReleases();
 
     lastSyncHealthy = true;
     lastNetworkError = '';
     writeStatus('synced', fetched, {
+      target_sha: fetched,
       changed_paths: changedPaths.length,
-      static_build: skipAstro ? 'skipped' : staticBuild,
+      static_build: skipAstro ? 'skipped' : 'rebuilt',
       build_impact_paths: buildDecision.build_paths.length
     });
     log(
       `synced ${changedPaths.length} changed path(s); static Current is ${fetched.slice(0, 8)} `
-      + `(${skipAstro ? 'skipped' : staticBuild})`
+      + `(${skipAstro ? 'skipped' : 'rebuilt'})`
     );
 
     if (!oneShot && syncRuntimeChanged) {
@@ -396,7 +428,7 @@ async function syncOnce({ initial = false } = {}) {
       await stopSite();
       process.exit(0);
     }
-    if (!oneShot && staticRuntimeChanged && site) {
+    if (!oneShot && staticRuntimeChanged && site && !syncRuntimeChanged && !runtimeReloaded) {
       log('Current static runtime owner changed; performing one controlled server reload');
       await reloadSite();
     }
@@ -408,9 +440,9 @@ async function syncOnce({ initial = false } = {}) {
       warn(`sync/build check failed: ${message}`);
       lastNetworkError = message;
     }
-    writeStatus('degraded', readBuiltStatus()?.sha || '', {
-      target_sha: lastKnownSha,
-      build_blocked: readBuildFailure()?.sha === lastKnownSha,
+    writeStatus('degraded', readActiveBuiltStatus()?.sha || '', {
+      target_sha: lastTargetSha || lastKnownSha,
+      build_blocked: readBuildFailure()?.sha === (lastTargetSha || lastKnownSha),
       error: message
     });
     if (!oneShot && !site && !stopping && resolveServedRoot(distPath)) {
@@ -418,6 +450,7 @@ async function syncOnce({ initial = false } = {}) {
     }
     return false;
   } finally {
+    if (releaseLock) releaseLock();
     syncing = false;
   }
 }
@@ -439,6 +472,7 @@ if (!fs.existsSync(markerPath) && process.env.KIANOS_ALLOW_UNSAFE_SYNC !== '1') 
 }
 
 recoverStaticDirectories();
+if (fs.existsSync(releases.active)) activeReleaseRoot = fs.realpathSync(releases.active);
 process.on('SIGINT', () => void shutdown('SIGINT'));
 process.on('SIGTERM', () => void shutdown('SIGTERM'));
 
@@ -446,6 +480,9 @@ try {
   lastKnownSha = await git(['rev-parse', 'HEAD']);
 } catch {}
 writeStatus('starting', lastKnownSha);
+if (!oneShot) try { startSite(); } catch (error) {
+  if (resolveServedRoot(distPath)) warn(error.stack || error.message);
+}
 await syncOnce({ initial: true });
 
 if (oneShot) {
@@ -453,6 +490,6 @@ if (oneShot) {
   process.exit(lastSyncHealthy ? 0 : 1);
 }
 
-try { startSite(); } catch (error) { warn(error.stack || error.message); }
+try { if (!site) startSite(); } catch (error) { warn(error.stack || error.message); }
 log(`watching origin/main every ${Math.round(intervalMs / 1000)}s; new Current is prebuilt before learner traffic switches`);
 setInterval(() => void syncOnce(), intervalMs);

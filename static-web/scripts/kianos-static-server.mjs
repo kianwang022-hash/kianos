@@ -21,6 +21,7 @@ const fallbackRoot = fallbackRootArg ? path.resolve(fallbackRootArg) : '';
 const currentStatusPath = path.resolve(
   process.env.KIANOS_CURRENT_STATUS_PATH || path.join(process.cwd(), 'public', '__kianos-current.json')
 );
+const releaseIdentityPath = path.join(root, '__kianos-current.json');
 
 if (!Number.isInteger(port) || port < 1 || port > 65535) {
   throw new Error('KIANOS_STATIC_PORT_INVALID');
@@ -159,6 +160,21 @@ function sendCurrentStatus(req, res) {
   }
 }
 
+function sendReleaseIdentity(req, res) {
+  try {
+    const stat = fs.statSync(releaseIdentityPath);
+    if (!stat.isFile()) throw new Error('not-file');
+    return sendFile(req, res, '/__kianos-release.json', { file: releaseIdentityPath, stat }, {
+      cache: 'no-store'
+    });
+  } catch {
+    res.statusCode = 503;
+    res.setHeader('content-type', 'application/json; charset=utf-8');
+    res.setHeader('cache-control', 'no-store');
+    return res.end(JSON.stringify({ state: 'unavailable', sha: '' }));
+  }
+}
+
 const stack = [];
 const middlewares = {
   use(handler) {
@@ -186,6 +202,7 @@ function staticFallback(req, res) {
 
   const url = new URL(req.url || '/', 'http://127.0.0.1');
   if (url.pathname === '/__kianos-current.json') return sendCurrentStatus(req, res);
+  if (url.pathname === '/__kianos-release.json') return sendReleaseIdentity(req, res);
 
   const activeRoot = resolvedRoot(root);
   if (!activeRoot) {

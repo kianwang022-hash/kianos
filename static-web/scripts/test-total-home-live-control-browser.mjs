@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
@@ -8,6 +9,7 @@ const PORT=4353;
 const BASE='http://127.0.0.1:'+PORT;
 const out=path.resolve(process.cwd(),'.qa/total-home-live-control');
 fs.mkdirSync(out,{recursive:true});
+const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-total-home-live-control-'));
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function ready(){
   for(let i=0;i<120;i++){
@@ -17,7 +19,16 @@ async function ready(){
   throw new Error('SERVER_NOT_READY');
 }
 const server=spawn('npm',['run','dev','--','--host','127.0.0.1','--port',String(PORT)],{
-  cwd:process.cwd(),stdio:['ignore','pipe','pipe'],detached:process.platform!=='win32'
+  cwd:process.cwd(),
+  env:{
+    ...process.env,
+    KIANOS_PRIVATE_DIR:path.join(temp,'learner-state'),
+    KIANOS_CONTROL_DIR:path.join(temp,'control'),
+    KIANOS_CONTROL_ENABLED:'0',
+    KIANOS_EXTERNAL_READING_DIR:path.join(temp,'external-private'),
+    KIANOS_EXTERNAL_READING_SOURCE_ROOT:path.join(temp,'missing-external-source')
+  },
+  stdio:['ignore','pipe','pipe'],detached:process.platform!=='win32'
 });
 let browser;
 const report={schema:'kianos.total-home-live-control.v1',checks:[]};
@@ -255,5 +266,6 @@ try{
   fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(report,null,2)+'\n');
   try{await browser?.close();}catch{}
   try{process.kill(-server.pid,'SIGTERM');}catch{try{server.kill('SIGTERM');}catch{}}
+  fs.rmSync(temp,{recursive:true,force:true});
 }
 console.log(JSON.stringify({status:report.status,checks:report.checks.length}));
