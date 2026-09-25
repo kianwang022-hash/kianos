@@ -84,6 +84,11 @@ const CAPACITY_STATES = Object.freeze(['ORDINARY', 'REDUCED', 'UNCERTAIN', 'RECO
 function normalizeExamChatPlanCapacity(value) {
   if (value == null) return null;
   if (!record(value)) throw new Error('Chat Plan capacity must be an object.');
+  for (const forbidden of ['score', 'readiness_score', 'recovery_score', 'debt_score']) {
+    if (Object.prototype.hasOwnProperty.call(value, forbidden)) {
+      throw new Error('Chat Plan capacity must not contain a readiness/recovery score.');
+    }
+  }
   const state = String(value.state || '').trim().toUpperCase();
   if (!CAPACITY_STATES.includes(state)) {
     throw new Error('Chat Plan capacity.state is invalid.');
