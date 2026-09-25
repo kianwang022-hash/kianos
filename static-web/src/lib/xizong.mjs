@@ -476,6 +476,80 @@ function loadLearningSupport(record) {
   return { path: pathName, sourceHash: sha256(text), raw: support };
 }
 
+
+function loadBiochemistrySourceLane(record, learningSupport, blocks) {
+  if (record?.identity?.canonicalId !== 'B') return null;
+  const lane = learningSupport?.raw?.biochemistry_first_pass_lane;
+  if (!lane) return null;
+  if (lane.status !== 'CURRENT_27_REACCEPTED') {
+    throw new Error(`CURRENT_XIZONG_BIOCHEMISTRY_LANE_INVALID:${lane.status || 'unknown'}`);
+  }
+
+  const sourceMapPath = String(lane.source_map_owner || '').trim();
+  if (!sourceMapPath || !fs.existsSync(absolute(sourceMapPath))) {
+    throw new Error('CURRENT_XIZONG_BIOCHEMISTRY_SOURCE_MAP_MISSING');
+  }
+  const sourceMapText = readText(sourceMapPath);
+  const sourceMap = JSON.parse(sourceMapText);
+  if (sourceMap?.status !== 'CURRENT_27_SOURCE_ROUTING_REACCEPTED') {
+    throw new Error(`CURRENT_XIZONG_BIOCHEMISTRY_SOURCE_MAP_INVALID:${sourceMap?.status || 'unknown'}`);
+  }
+  const sourceHash = String(sourceMap?.source?.sha256 || '').trim();
+  const sourceName = String(sourceMap?.source?.visible_name || '').trim();
+  if (!sourceHash || !sourceName) throw new Error('CURRENT_XIZONG_BIOCHEMISTRY_SOURCE_IDENTITY_MISSING');
+
+  const blockById = new Map((blocks || []).map((block) => [String(block.blockId || ''), block]));
+  const units = (sourceMap.source_units || []).map((unit, index) => {
+    const canonical = Array.isArray(unit?.canonical_content) ? unit.canonical_content : [];
+    const normalizeTarget = (row) => {
+      const blockId = String(row?.block || '');
+      const block = blockById.get(blockId);
+      if (!block) throw new Error(`CURRENT_XIZONG_BIOCHEMISTRY_SOURCE_TARGET_UNKNOWN:${unit?.id || index}:${blockId}`);
+      return {
+        blockId,
+        blockLabel: String(block.label || blockId),
+        blockTitle: String(block.title || blockId),
+        role: String(row?.role || ''),
+        logicGroupId: String(row?.logic_group || ''),
+        kpRange: Array.isArray(row?.kp_range) ? row.kp_range.map(Number) : [],
+        closesBlock: row?.closes_block_source_contact === true
+      };
+    };
+    const targets = canonical.map(normalizeTarget);
+    return {
+      id: String(unit?.id || `BIO27-S${String(index + 1).padStart(2, '0')}`),
+      order: index + 1,
+      label: String(unit?.label || ''),
+      pdf: Array.isArray(unit?.pdf) ? unit.pdf.map(Number) : [],
+      connections: Array.isArray(unit?.connections) ? unit.connections.map(String) : [],
+      notes: String(unit?.notes || ''),
+      primaryTargets: targets.filter((target) => target.role.startsWith('PRIMARY')),
+      supportTargets: targets.filter((target) => !target.role.startsWith('PRIMARY')),
+      closesBlocks: [...new Set(targets.filter((target) => target.closesBlock).map((target) => target.blockId))]
+    };
+  });
+
+  const reconstruction = (learningSupport?.raw?.system_route?.partial_system_reconstructions || [])
+    .find((row) => row?.id === 'PSR-2_METABOLIC_NETWORK') || null;
+
+  return {
+    schema: 'kianos.xizong.biochemistry_source_lane_runtime.v1',
+    role: 'DERIVED_EXECUTION_VIEW_ONLY',
+    sourceMapPath,
+    sourceMapHash: sha256(sourceMapText),
+    sourceHash,
+    sourceName,
+    sourcePages: Number(sourceMap?.source?.pages || 0) || null,
+    units,
+    closureCheckpoints: sourceMap.block_source_closure_checkpoints || {},
+    minimalPrelude: lane.minimal_prelude || null,
+    mentalModels: lane.mental_models || null,
+    crossSystemIntegration: lane.cross_system_integration || null,
+    reconstruction,
+    learnerRule: 'One continuous 27 Source lane; canonical M/G owners receive formed knowledge without creating a second course.'
+  };
+}
+
 function normalizeSystem(record) {
   const { system, identity, dirName, systemPath, sourceHash } = record;
   const route = directBlockRoute(system);
@@ -511,6 +585,7 @@ function normalizeSystem(record) {
   const kpSum = blocks.reduce((sum, block) => sum + block.kpCount, 0);
   const expectedKp = Number(system?.identity?.canonical_kp_count || kpSum);
   if (expectedKp && kpSum !== expectedKp) throw new Error(`CURRENT_XIZONG_KP_COUNT_MISMATCH:${identity.systemId}`);
+  const biochemistryLane = loadBiochemistrySourceLane(record, learningSupport, blocks);
 
   return {
     systemId: identity.systemId,
@@ -535,6 +610,7 @@ function normalizeSystem(record) {
     sourcePath: systemPath,
     sourceHash,
     learningSupport,
+    biochemistryLane,
     raw: system
   };
 }
