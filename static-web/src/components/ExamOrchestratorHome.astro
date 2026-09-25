@@ -16,6 +16,13 @@ const politicsMemoryCatalog = buildPoliticsMemoryCandidateCatalogCurrent();
   <script type="application/json" data-exam-xizong-forecast-canonical-scope set:html={JSON.stringify(xizongForecastCanonicalScope).replace(/</g, '\\u003c')} />
   <header class="examTodayHead"><div><h2>今天</h2></div><button class="examQuiet" data-exam-settings>调整时间</button></header>
   <p class="examCapacity" data-exam-capacity>今天的时间与学习记录会汇总在这里。</p>
+  <section class="examWorkStrategy" data-exam-work-strategy hidden aria-live="polite">
+    <div class="examWorkStrategyHead">
+      <span data-exam-work-state></span>
+      <strong data-exam-work-summary></strong>
+    </div>
+    <p data-exam-work-action></p>
+  </section>
   <div class="examTaskList" data-exam-tasks aria-live="polite" hidden></div>
   <div class="examAllocation" data-exam-allocations aria-live="polite"></div>
   <div class="examNext"><span data-exam-next-label>下一步</span><a data-exam-next href={`${base}xizong/`}>进入学习 →</a></div>
