@@ -128,7 +128,7 @@ async function prepareRelease(sha, extra = {}) {
     if (readBuiltStatus(existingDist)?.state === 'synced'
       && readBuiltStatus(existingDist)?.sha === sha
       && fs.existsSync(path.join(existingDist, 'index.html'))) {
-      return path.join(releaseRoot, 'static-web');
+      return { webRoot: path.join(releaseRoot, 'static-web'), created: false };
     }
     try {
       await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
@@ -177,7 +177,7 @@ async function prepareRelease(sha, extra = {}) {
     throw new Error('CURRENT_RELEASE_BUILD_INVALID');
   }
   fs.rmSync(failurePath, { force: true });
-  return candidateWebRoot;
+  return { webRoot: candidateWebRoot, created: true };
 }
 
 async function cleanupPreparedRelease(sha) {
@@ -474,7 +474,7 @@ async function syncOnce({ initial = false } = {}) {
 
     let runtimeReloaded = false;
     if (!skipAstro) {
-      await prepareRelease(fetched, {
+      const preparedRelease = await prepareRelease(fetched, {
         changed_paths: changedPaths.length,
         build_impact_paths: buildDecision.build_paths.length,
         lexical_projection_required: buildDecision.lexical_projection_required,
@@ -484,7 +484,7 @@ async function syncOnce({ initial = false } = {}) {
         await probeRelease(releases.release(fetched), fetched);
       } catch (error) {
         warn(`new Current release probe failed before activation; keeping current release: ${error.message}`);
-        await cleanupPreparedRelease(fetched);
+        if (preparedRelease.created) await cleanupPreparedRelease(fetched);
         throw error;
       }
       await activateRelease(fetched);
