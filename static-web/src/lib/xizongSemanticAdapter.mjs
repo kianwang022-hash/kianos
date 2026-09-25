@@ -273,8 +273,65 @@ function sourceContactMode(learning) {
   return 'NATURAL_SOURCE_UNIT';
 }
 
-function normalizeSourceContact(learning, logicGroups) {
+function normalizeSourceContact(learning, blockSupport, blockId, logicGroups) {
   const handoff = learning?.surface_handoff_contract || {};
+  const scoped = blockSupport?.source_contact || {};
+
+  if (scoped.mode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT') {
+    const sourceMapPath = String(scoped.source_map_owner || '').trim();
+    if (!sourceMapPath || !exists(sourceMapPath)) fail('BIOCHEMISTRY_SOURCE_MAP_MISSING', blockId);
+    const sourceMap = readJson(sourceMapPath);
+    if (sourceMap?.status !== 'CURRENT_27_SOURCE_ROUTING_REACCEPTED') {
+      fail('BIOCHEMISTRY_SOURCE_MAP_INVALID', `${blockId}:${sourceMap?.status || 'unknown'}`);
+    }
+    const sourceLaneHash = String(sourceMap?.source?.sha256 || '').trim();
+    if (!sourceLaneHash) fail('BIOCHEMISTRY_SOURCE_HASH_MISSING', blockId);
+
+    const segments = [];
+    for (const unit of sourceMap.source_units || []) {
+      const rows = (unit?.canonical_content || []).filter((row) =>
+        String(row?.block || '') === blockId && String(row?.role || '').startsWith('PRIMARY')
+      );
+      if (!rows.length) continue;
+      const kpOrdinals = [...new Set(rows.flatMap((row) => {
+        const range = Array.isArray(row?.kp_range) ? row.kp_range : [];
+        if (range.length !== 2) fail('BIOCHEMISTRY_KP_RANGE_INVALID', `${blockId}:${unit?.id || ''}`);
+        return expandRange(range, `${blockId}:${unit?.id || ''}`);
+      }))].sort((a, b) => a - b);
+      const logicGroupIds = [...new Set(rows.map((row) => String(row?.logic_group || '')).filter(Boolean))];
+      segments.push({
+        segmentId: `bio27:${String(unit?.id || '')}`,
+        kind: 'GLOBAL_BIOCHEMISTRY_SOURCE_UNIT',
+        sourceUnitId: String(unit?.id || ''),
+        label: String(unit?.label || ''),
+        pdf: Array.isArray(unit?.pdf) ? unit.pdf.map(Number) : [],
+        logicGroupIds,
+        kpOrdinals,
+        closesBlockSourceContact: rows.some((row) => row?.closes_block_source_contact === true)
+      });
+    }
+    if (!segments.length) fail('BIOCHEMISTRY_SOURCE_SEGMENTS_MISSING', blockId);
+    const checkpoint = sourceMap?.block_source_closure_checkpoints?.[blockId];
+    if (!checkpoint?.after_unit) fail('BIOCHEMISTRY_SOURCE_CHECKPOINT_MISSING', blockId);
+
+    return {
+      mode: scoped.mode,
+      externalPrimarySurface: 'ORIGINAL_LECTURE_MARGINNOTE',
+      segments,
+      segmentResolution: 'EXPLICIT_FROM_GLOBAL_BIOCHEMISTRY_SOURCE_MAP',
+      logicGroupIsAutomaticSourceChunk: false,
+      logicGroupSourceReentryDefault: false,
+      returnPattern: 'GLOBAL_BIOCHEMISTRY_SOURCE_LANE_THEN_LOCAL_RECALL',
+      normalFirstPass: ['FOLLOW_CURRENT_27_SOURCE_ORDER_END_TO_END'],
+      extraSourceReturnAllowedFor: [],
+      lectureAttachedQuestionsOwner: 'ORIGINAL_LECTURE_MARGINNOTE',
+      sourceMapOwner: sourceMapPath,
+      sourceLaneHash,
+      sourceName: String(sourceMap?.source?.visible_name || ''),
+      closureUnit: String(checkpoint.after_unit)
+    };
+  }
+
   const mode = sourceContactMode(learning);
   const segments = mode === 'WHOLE_LOGIC_GROUP'
     ? logicGroups.map((group) => ({
@@ -504,7 +561,7 @@ function buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVis
   if (!blockSupport) fail('BLOCK_LEARNING_SUPPORT_MISSING', blockId);
   const kpCount = kpCountForBlock(routeRow, blockSupport, blockSupport.logic_groups);
   const logicGroups = normalizeLogicGroups(record, blockId, blockSupport, kpCount);
-  const sourceContact = normalizeSourceContact(learningOwner.raw, logicGroups);
+  const sourceContact = normalizeSourceContact(learningOwner.raw, blockSupport, blockId, logicGroups);
   const retrievalPoints = normalizeRetrieval(logicGroups, sourceContact);
   const cues = normalizeBlockCues(blockId, logicGroups, cueOwner, sourceVisualOwner);
   const extensionRefs = extensionRefsForBlock(blockId);
