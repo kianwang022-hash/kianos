@@ -23,7 +23,7 @@ try {
   for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) {
     fs.copyFileSync(path.join(scripts, name), path.join(upstream, 'static-web/scripts', name));
   }
-  fs.writeFileSync(path.join(upstream, 'static-web/scripts/kianos-static-server.mjs'), "require('fs').writeFileSync(process.env.SERVER_MARKER, 'started'); setInterval(() => {}, 1000);");
+  fs.writeFileSync(path.join(upstream, 'static-web/scripts/kianos-static-server.mjs'), `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),root=args[args.indexOf('--root')+1];fs.writeFileSync(process.env.SERVER_MARKER,String(process.pid));http.createServer((req,res)=>{if(req.url.startsWith('/__kianos-release.json'))return res.end(fs.readFileSync(path.join(root,'__kianos-current.json')));res.end('fixture');}).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
   fs.writeFileSync(path.join(upstream, '.gitignore'), 'static-web/public/\nstatic-web/.current-*\nstatic-web/dist\n');
   const commit = (file, value) => {
     fs.mkdirSync(path.dirname(path.join(upstream, file)), { recursive: true });
@@ -82,7 +82,9 @@ fs.writeFileSync(path.join(root, 'index.html'), process.env.PAGE_TEXT || 'fixtur
   assert.equal(fs.existsSync(path.join(mirror, 'static-web/.current-build-failure.json')), false);
   assert.equal(run().status, 0);
   assert.equal(count(), 4, 'unchanged successful SHA must reuse');
-  assert.equal(fs.existsSync(serverMarker), false, 'one-shot must never start the static server');
+  assert.equal(fs.existsSync(serverMarker), true, 'one-shot must probe candidate runtime readiness');
+  const probePid = Number(fs.readFileSync(serverMarker, 'utf8'));
+  assert.throws(() => process.kill(probePid, 0), /ESRCH/, 'one-shot readiness probe must not survive the sync');
   console.log('CURRENT_BUILD_RECOVERY PASS: failure retention, restart suppression, retry, served-base impact, atomic recovery');
 } finally {
   fs.rmSync(temp, { recursive: true, force: true });

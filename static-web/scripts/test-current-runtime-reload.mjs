@@ -26,7 +26,83 @@ const waitFor = async (fn) => {
   }
   throw new Error('runtime reload timeout\n' + logs);
 };
+const reservePort = async () => {
+  const server = net.createServer();
+  server.listen(0, '127.0.0.1');
+  await once(server, 'listening');
+  const value = server.address().port;
+  await new Promise(resolve => server.close(resolve));
+  return value;
+};
+const stopFixtureServer = async (child) => {
+  if (child?.exitCode != null) return;
+  child.kill('SIGTERM');
+  await Promise.race([
+    once(child, 'exit'),
+    new Promise(resolve => setTimeout(resolve, 1500))
+  ]);
+};
+async function proveProbeIsolation() {
+  const root = path.join(temp, 'probe-isolation');
+  const probeScripts = path.join(root, 'scripts');
+  const dist = path.join(root, 'dist');
+  const stateRoot = path.join(root, 'probe-state');
+  const marker = path.join(root, 'bridge-marker.txt');
+  fs.mkdirSync(probeScripts, { recursive: true });
+  fs.mkdirSync(dist, { recursive: true });
+  fs.copyFileSync(path.join(scripts, 'kianos-static-server.mjs'), path.join(probeScripts, 'kianos-static-server.mjs'));
+  fs.writeFileSync(path.join(dist, 'index.html'), '<html>probe</html>');
+  fs.writeFileSync(path.join(dist, '__kianos-current.json'), JSON.stringify({ state: 'synced', sha: 'probe-sha' }));
+  for (const [file, exportName] of [
+    ['privateLearnerBridge.mjs', 'privateLearnerBridge'],
+    ['privateExternalReadingBridge.mjs', 'privateExternalReadingBridge'],
+    ['privateControlBridge.mjs', 'privateControlBridge']
+  ]) {
+    fs.writeFileSync(path.join(probeScripts, file), `import fs from 'node:fs';\nfs.appendFileSync(process.env.KIANOS_PROBE_BRIDGE_MARKER, 'import:${exportName}\\n');\nexport function ${exportName}(){return{configureServer(){fs.appendFileSync(process.env.KIANOS_PROBE_BRIDGE_MARKER, 'configure:${exportName}|private='+process.env.KIANOS_PRIVATE_DIR+'|control='+process.env.KIANOS_CONTROL_DIR+'\\n');}};}\n`);
+  }
+  const port = await reservePort();
+  const probeEnv = {
+    ...process.env,
+    KIANOS_PROBE_BRIDGE_MARKER: marker,
+    KIANOS_PRIVATE_DIR: path.join(stateRoot, 'private'),
+    KIANOS_CONTROL_DIR: path.join(stateRoot, 'control'),
+    KIANOS_CONTROL_REPO_DIR: path.join(stateRoot, 'control-repo'),
+    KIANOS_PACKET_REPO_DIR: path.join(stateRoot, 'packet-repo'),
+    KIANOS_EXTERNAL_READING_DIR: path.join(stateRoot, 'external-reading'),
+    KIANOS_ENGLISH_GENERATED_DIR: path.join(stateRoot, 'english-generated'),
+    KIANOS_CONTROL_ENABLED: '0',
+    KIANOS_PACKET_RELAY_ENABLED: '0'
+  };
+  const launchProbe = () => spawn(process.execPath, [
+    path.join(probeScripts, 'kianos-static-server.mjs'), '--host', '127.0.0.1', '--port', String(port), '--root', dist,
+    '--release-probe-only'
+  ], {
+    cwd: root,
+    env: probeEnv,
+    stdio: ['ignore', 'pipe', 'pipe']
+  });
+
+  const probe = launchProbe();
+  try {
+    await waitFor(async () => {
+      try { return (await (await fetch(`http://127.0.0.1:${port}/__kianos-release.json`)).json()).sha === 'probe-sha'; }
+      catch { return false; }
+    });
+    const rows = fs.readFileSync(marker, 'utf8');
+    assert.match(rows, /import:privateLearnerBridge/);
+    assert.match(rows, /configure:privateControlBridge/);
+    assert.match(rows, new RegExp(stateRoot.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')));
+  } finally { await stopFixtureServer(probe); }
+
+  fs.writeFileSync(path.join(probeScripts, 'privateControlBridge.mjs'), 'export function privateControlBridge( {');
+  const broken = launchProbe();
+  try {
+    await waitFor(() => broken.exitCode !== null);
+    assert.notEqual(broken.exitCode, 0, 'broken private bridge module must fail release readiness');
+  } finally { await stopFixtureServer(broken); }
+}
 try {
+  await proveProbeIsolation();
   fs.mkdirSync(upstream);
   git(upstream, 'init', '-b', 'main');
   git(upstream, 'config', 'user.name', 'Fixture');

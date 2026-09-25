@@ -3,11 +3,8 @@ import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 
-import { privateLearnerBridge } from './privateLearnerBridge.mjs';
-import { privateExternalReadingBridge } from './privateExternalReadingBridge.mjs';
-import { privateControlBridge } from './privateControlBridge.mjs';
-
 const args = process.argv.slice(2);
+const releaseProbeOnly = args.includes('--release-probe-only') || process.env.KIANOS_RELEASE_PROBE_ONLY === '1';
 const arg = (name, fallback) => {
   const index = args.indexOf('--' + name);
   return index >= 0 && args[index + 1] ? args[index + 1] : fallback;
@@ -22,6 +19,21 @@ const currentStatusPath = path.resolve(
   process.env.KIANOS_CURRENT_STATUS_PATH || path.join(process.cwd(), 'public', '__kianos-current.json')
 );
 const releaseIdentityPath = path.join(root, '__kianos-current.json');
+
+if (releaseProbeOnly) {
+  const requiredProbeEnv = [
+    'KIANOS_PRIVATE_DIR',
+    'KIANOS_CONTROL_DIR',
+    'KIANOS_CONTROL_REPO_DIR',
+    'KIANOS_PACKET_REPO_DIR',
+    'KIANOS_EXTERNAL_READING_DIR',
+    'KIANOS_ENGLISH_GENERATED_DIR'
+  ];
+  const missing = requiredProbeEnv.filter((name) => !String(process.env[name] || '').trim());
+  if (missing.length || process.env.KIANOS_CONTROL_ENABLED !== '0' || process.env.KIANOS_PACKET_RELAY_ENABLED !== '0') {
+    throw new Error('KIANOS_RELEASE_PROBE_ISOLATION_REQUIRED:' + missing.join(','));
+  }
+}
 
 if (!Number.isInteger(port) || port < 1 || port > 65535) {
   throw new Error('KIANOS_STATIC_PORT_INVALID');
@@ -256,6 +268,15 @@ function dispatch(req, res, index = 0) {
 const server = http.createServer((req, res) => dispatch(req, res));
 const bridgeServer = { middlewares, httpServer: server };
 
+const [
+  { privateLearnerBridge },
+  { privateExternalReadingBridge },
+  { privateControlBridge }
+] = await Promise.all([
+  import('./privateLearnerBridge.mjs'),
+  import('./privateExternalReadingBridge.mjs'),
+  import('./privateControlBridge.mjs')
+]);
 for (const bridge of [
   privateLearnerBridge(),
   privateExternalReadingBridge(),

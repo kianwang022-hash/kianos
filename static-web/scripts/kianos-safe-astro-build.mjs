@@ -18,6 +18,42 @@ function outDirFromArgs(args) {
   return '';
 }
 
+export function canonicalizePath(target) {
+  const absolute = path.resolve(target);
+  const parsed = path.parse(absolute);
+  let resolved = parsed.root;
+  const pending = absolute.slice(parsed.root.length).split(path.sep).filter(Boolean);
+  let symlinkHops = 0;
+
+  while (pending.length) {
+    const segment = pending.shift();
+    const candidate = path.join(resolved, segment);
+    let stat;
+    try {
+      stat = fs.lstatSync(candidate);
+    } catch (error) {
+      if (error?.code === 'ENOENT') {
+        return path.resolve(resolved, segment, ...pending);
+      }
+      throw error;
+    }
+
+    if (stat.isSymbolicLink()) {
+      symlinkHops += 1;
+      if (symlinkHops > 64) throw new Error('CURRENT_PATH_SYMLINK_LOOP');
+      const linkTarget = path.resolve(path.dirname(candidate), fs.readlinkSync(candidate));
+      const linkParsed = path.parse(linkTarget);
+      resolved = linkParsed.root;
+      pending.unshift(...linkTarget.slice(linkParsed.root.length).split(path.sep).filter(Boolean));
+      continue;
+    }
+
+    resolved = candidate;
+  }
+
+  return path.resolve(resolved);
+}
+
 export function resolveSafeAstroBuildArgs(args, {
   managedCurrent = fs.existsSync(markerPath),
   currentWebRoot = webRoot
@@ -26,16 +62,21 @@ export function resolveSafeAstroBuildArgs(args, {
   const configuredOutDir = outDirFromArgs(next);
   if (!managedCurrent) return { args: next, redirected: false, outDir: configuredOutDir || null };
 
-  const liveDist = path.resolve(currentWebRoot, 'dist');
+  const liveDist = canonicalizePath(path.join(currentWebRoot, 'dist'));
   if (configuredOutDir) {
     const resolved = path.resolve(currentWebRoot, configuredOutDir);
-    if (resolved === liveDist) {
+    const canonicalResolved = canonicalizePath(resolved);
+    if (canonicalResolved === liveDist || canonicalResolved.startsWith(`${liveDist}${path.sep}`)) {
       throw new Error('CURRENT_LIVE_DIST_BUILD_FORBIDDEN: use Current sync or a non-live --outDir');
     }
     return { args: next, redirected: false, outDir: resolved };
   }
 
   const safeOutDir = path.join(currentWebRoot, '.qa', 'astro-build');
+  const canonicalSafeOutDir = canonicalizePath(safeOutDir);
+  if (canonicalSafeOutDir === liveDist || canonicalSafeOutDir.startsWith(`${liveDist}${path.sep}`)) {
+    throw new Error('CURRENT_LIVE_DIST_BUILD_FORBIDDEN: managed Current QA output resolves inside the live served release');
+  }
   fs.rmSync(safeOutDir, { recursive: true, force: true });
   next.push('--outDir', safeOutDir);
   return { args: next, redirected: true, outDir: safeOutDir };
