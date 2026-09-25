@@ -16,6 +16,14 @@ const chatModel = buildChatControlledExamReadModel({
       },
       next_subject: 'xizong',
       attention: null,
+      capacity: {
+        state: 'REDUCED',
+        summary: '高负荷窗口后容量下降。',
+        basis: '主观状态 + 学习表现',
+        load: '西综高认知主块',
+        action: '恢复后再决定是否继续高负荷。',
+        recheck: '下一块持续注意'
+      },
       presentation: {
         today_tasks: [{ id: 'xz-b1', subject: 'xizong', label: '西综 · 当前 Block', note: '真实速度样本' }],
         week_reference: [{ id: 'week-xz', subject: 'xizong', label: '真实速度采集中', detail: '再积累 2–3 天', value: '采样中', progress_ratio: null }],
@@ -36,6 +44,8 @@ assert.equal(chatModel.subjects.xizong.continue.subject, 'xizong',
 assert.equal(chatModel.presentation.todayTasks[0].id, 'xz-b1');
 assert.equal(chatModel.presentation.weekReference[0].value, '采样中');
 assert.equal(chatModel.presentation.scheduleBlocks[0].start, '09:00');
+assert.equal(chatModel.capacity.judgment.state, 'REDUCED');
+assert.match(chatModel.capacity.judgment.action, /恢复后/);
 
 console.log('PASS exam plan read model');
 
