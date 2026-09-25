@@ -50,6 +50,16 @@ const chatPlan = {
     load: '高认知西综主块后出现明显恢复需求',
     action: '把最值钱的西综主线留在强窗口；恢复后再判断是否继续高负荷，英语连续性放到较低负荷窗口。',
     recheck: '下一学习块的持续注意、处理速度和错误类型'
+  },
+  presentation: {
+    today_tasks: [],
+    week_reference: [],
+    schedule_blocks: [
+      { id: 'xz-am', subject: 'xizong', start: '08:30', end: '11:30', label: '西综高认知主块', detail: '强窗口' },
+      { id: 'en-mid', subject: 'english', start: '12:10', end: '13:20', label: 'English 连续性', detail: '中低负荷窗口' },
+      { id: 'xz-pm', subject: 'xizong', start: '14:00', end: '17:00', label: '西综主推进', detail: '强窗口' },
+      { id: 'pol-low', subject: 'politics', start: '19:00', end: '20:00', label: '政治连续性', detail: '较低负荷窗口' }
+    ]
   }
 };
 const timerLedger = {
@@ -211,6 +221,11 @@ try {
   check(parseFloat(strategyGeometry.borderLeftWidth) <= 2.5, 'home_work_strategy_thin_semantic_rule', JSON.stringify(strategyGeometry));
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   check(overflow <= 1, 'home_no_horizontal_overflow', String(overflow));
+
+  const scheduleText = (await page.locator('[data-exam-schedule-items]').innerText()).replace(/\s+/g, ' ');
+  check(scheduleText.includes('西综高认知主块') && scheduleText.includes('强窗口'), 'home_capacity_places_high_load_in_strong_window', scheduleText);
+  check(scheduleText.includes('English 连续性') && scheduleText.includes('中低负荷窗口'), 'home_capacity_moves_continuity_to_lower_load_window', scheduleText);
+  check(scheduleText.includes('政治连续性') && scheduleText.includes('较低负荷窗口'), 'home_low_load_continuity_visible', scheduleText);
 
   check(await page.locator('.politicsTodayCard').isHidden(), 'home_no_nested_politics_today_dashboard');
   check(await page.locator('.politicsRecentCard').isHidden(), 'home_no_nested_politics_recent_dashboard');
