@@ -1,11 +1,11 @@
 # Steward Product Contract
 
-Status: APPROVED PRODUCT REQUIREMENTS · UI AND INTEGRATED RUNTIME NOT YET ACCEPTED
-Updated: 2026-09-24
+Status: APPROVED PRODUCT REQUIREMENTS · BOUNDED REALITY DELIVERY IMPLEMENTED · HUMAN GATE OPEN
+Updated: 2026-09-25
 Semantic owner: KianOS Steward product interaction, reality-capture behavior and product acceptance boundary. It does not own Personal recovery meaning, cross-subject Chat judgment, native Health facts or learner truth.
 Reasoning upstream: `kianwang022-hash/kian-personal-os/exam/roles/STEWARD.md`; planning upstream: `kianwang022-hash/kian-personal-os/exam/CONTROL.md`; information upstream: `kianwang022-hash/kian-personal-os/exam/roles/INTAKE.md`.
 Surface split: `static-web/PRODUCT_SURFACE_CONTRACT.md`; current implementation/delivery truth: `static-web/CURRENT.md`.
-The existing `kianwang022-hash/kian-personal-os/runtime/steward-console/` remains a standalone implementation/reference until the integrated replacement passes its journeys. An approved requirement is not a shipped feature.
+The existing `kianwang022-hash/kian-personal-os/runtime/steward-console/` remains a historical interaction/reference implementation. The integrated KianOS Steward surface and bounded Recovery reality delivery are implemented on `main`, but product acceptance remains open until the real Human Gate/journeys pass. Implementation presence is not Human acceptance.
 
 ## 0. Purpose and scope
 
@@ -22,7 +22,7 @@ Chat makes judgments and resolved plans. The website executes explicit choices, 
 | Subject work, attempts, scores, learning progress and native Resume | KianOS subject Runtime; never derived from a checklist or engineering production counts |
 | Recorded study time and time corrections | Existing StudyTimer / native time evidence; no second timer/ledger |
 | Current resolved allocation | Existing Chat Plan / Exam Control decision |
-| Day/week placement, life actions and actual reality events | Steward plan/reality in the private runtime once supported |
+| Day/week placement, life actions and actual reality events | Steward plan/reality in the private runtime. Bounded break/re-entry reality is supported now; broader meal/training/life-action capture remains claim-scoped and must not be inferred from the break path. |
 | Raw sleep, HRV, activity and synced workout observations | Health; joined transiently, not copied into subject evidence |
 | External event/invitation | Native Calendar; projection is not a second Calendar |
 | Mail thread/body/read/reply state | Native Gmail/Outlook; filtered attention under INTAKE |
@@ -271,11 +271,11 @@ Submission/readback proves a submitted payload, not a website update. The matchi
 
 ## 10. Readback, privacy and retention
 
-The target is automatic private reality readback when Kian asks for 日报 / 调整 / 复盘, not manual JSON transfer. Until an actual admitted exporter/consumer exists, manual import/Handoff remains a clearly identified fallback and natural-language help remains available. File or GitHub presence alone does not prove the browser has the newest plan or Chat has the newest reality.
+The bounded Recovery reality consumer now exists: intentionally captured pause/rest/re-entry reality is stored in the existing Steward reality state, carried by the shared private checkpoint, and projected through the private Daily Learning Packet as `steward.breaks` for Chat/Steward consumption. This proves the named capture/readback delivery path only; it does not create a recovery/readiness score, automatic replanning authority, or Human acceptance. Manual import/Handoff remains a fallback only for facts not carried by an admitted private projection or when that consumer is unavailable. File or GitHub presence alone does not prove the browser has the newest plan or Chat has the newest reality.
 
 Expose meaningful freshness/coverage from the underlying observations, not merely a newly generated packet timestamp. Separate saved locally / backed up / available to Chat / plan applied. A truncated snapshot names its scope and retrieval path; important ongoing context must not silently disappear behind a last-N limit.
 
-Approved target: a bounded private Steward reality area, using existing runtime persistence primitives, for Kian's intentionally entered state/notes/breaks/meal/training facts. Default raw inspection window is about 28 days. This is NOT authorization to copy raw Health, full mail bodies, transcripts, screenshots or unrelated browsing into Git. Share only the minimized authorized current projection through an existing private channel once implemented. Rich raw notes do not become permanent Git history.
+Current bounded implementation: the existing private Steward reality area persists intentionally entered break/re-entry facts through existing runtime/checkpoint primitives and exposes the minimized current projection through the admitted private Daily Packet path. Expansion to meals/training or other reality classes remains separately claim-scoped and is not implied by the break implementation. The target raw inspection window remains about 28 days where that broader bounded area is implemented. This is NOT authorization to copy raw Health, full mail bodies, transcripts, screenshots or unrelated browsing into Git. Rich raw notes do not become permanent Git history.
 
 A rolling window is not proof of deletion: specify and test expiry across local state, snapshots and backups before claiming purge. Corrections/deletion must not be resurrected by an older backup. Keep only necessary identity/tombstone metadata, protect live sessions/unresolved obligations and never delete another native owner's evidence to satisfy Steward retention. Expired data makes the affected analysis unavailable; no invented historical precision. No deletion or retention job is enabled by this document change.
 
