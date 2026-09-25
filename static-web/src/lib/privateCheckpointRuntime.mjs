@@ -26,6 +26,7 @@ import {
   capturePrivateSubjectCheckpoints,
   preparePrivateSubjectCheckpointRestore,
   sameCheckpointRaw,
+  SUBJECT_CHECKPOINT_GROUPS,
   subjectCheckpointEntries,
   subjectCheckpointConflicts
 } from './privateSubjectCheckpoints.mjs';
@@ -65,6 +66,13 @@ function sharedForCurrentDay(shared, currentDay) {
 
 // Transport concurrency token only: no learner facts, cache, or second ledger.
 export const PRIVATE_CHECKPOINT_BASE_KEY = 'kianos-private-checkpoint-base-v1';
+export const PRIVATE_CHECKPOINT_LINEAGE_KEY = 'kianos-private-checkpoint-lineage-v2';
+const PRIVATE_CHECKPOINT_LINEAGE_SCHEMA = 'kianos.private-checkpoint-lineage.v2';
+const CHECKPOINT_SHARED_GROUP_ID = 'shared';
+const CHECKPOINT_GROUP_IDS = Object.freeze([
+  CHECKPOINT_SHARED_GROUP_ID,
+  ...SUBJECT_CHECKPOINT_GROUPS.map(({ id }) => id)
+]);
 class SharedStorage {
   constructor(storage = null) {
     this.map = new Map([...SHARED_STORAGE_KEYS, CONTROL_LOCAL_RECEIPT_KEY]
@@ -87,6 +95,50 @@ function sharedConflict(storage, projected) {
 function rememberBase(storage, id, warnings) {
   try { storage.setItem(PRIVATE_CHECKPOINT_BASE_KEY, id); }
   catch { warnings.push('checkpoint:shared:PRIVATE_CHECKPOINT_BASE_UNAVAILABLE'); }
+}
+function readLineageMap(storage) {
+  const raw = storage.getItem(PRIVATE_CHECKPOINT_LINEAGE_KEY);
+  if (typeof raw !== 'string' || !raw.trim()) return {};
+  try {
+    const parsed = JSON.parse(raw);
+    if (!parsed || parsed.schema !== PRIVATE_CHECKPOINT_LINEAGE_SCHEMA || !parsed.groups || typeof parsed.groups !== 'object' || Array.isArray(parsed.groups)) {
+      return {};
+    }
+    return Object.fromEntries(Object.entries(parsed.groups).filter(([key, value]) =>
+      CHECKPOINT_GROUP_IDS.includes(key) && typeof value === 'string' && value.trim()
+    ));
+  } catch {
+    return {};
+  }
+}
+function allowLocalChangesByGroup(storage, checkpointId) {
+  if (!checkpointId) return Object.fromEntries(CHECKPOINT_GROUP_IDS.map((id) => [id, true]));
+  const lineage = readLineageMap(storage);
+  const legacyBase = storage.getItem(PRIVATE_CHECKPOINT_BASE_KEY);
+  return Object.fromEntries(CHECKPOINT_GROUP_IDS.map((id) => [
+    id,
+    legacyBase === checkpointId || lineage[id] === checkpointId
+  ]));
+}
+function warningGroupId(warning) {
+  if (typeof warning !== 'string' || !warning.startsWith('checkpoint:')) return null;
+  const prefix = warning.slice('checkpoint:'.length);
+  const sep = prefix.indexOf(':');
+  if (sep <= 0) return null;
+  const id = prefix.slice(0, sep);
+  return CHECKPOINT_GROUP_IDS.includes(id) ? id : null;
+}
+function rememberLineage(storage, checkpointId, successfulGroupIds, warnings) {
+  try {
+    const next = readLineageMap(storage);
+    for (const groupId of successfulGroupIds) next[groupId] = checkpointId;
+    storage.setItem(PRIVATE_CHECKPOINT_LINEAGE_KEY, JSON.stringify({
+      schema: PRIVATE_CHECKPOINT_LINEAGE_SCHEMA,
+      groups: next
+    }));
+  } catch {
+    warnings.push('checkpoint:shared:PRIVATE_CHECKPOINT_LINEAGE_UNAVAILABLE');
+  }
 }
 // These keys contain navigation/liveness metadata, not new learner evidence.
 // Only a locally newer observation of the SAME paused state/position can prove
@@ -186,15 +238,15 @@ export async function saveSharedControlToPrivate(storage, {
   if (existing.status === 'ready' && existing.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) throw new Error('PRIVATE_CHECKPOINT_EXISTING_SCHEMA_INVALID');
   const previous = existing.checkpoint || null, existingSubjects = previous?.payload?.subjects || {};
   const warnings = [];
+  const groupAuthorizations = allowLocalChangesByGroup(storage, previous?.checkpoint_id || null);
   // A fresh disk read is not proof this browser descends from that checkpoint.
   // Only a previously recovered/saved token permits changed local keys to win.
-  const allowLocalChanges = !previous || storage.getItem(PRIVATE_CHECKPOINT_BASE_KEY) === previous.checkpoint_id;
   let shared;
   try {
     const staged = new SharedStorage(storage);
     if (previous) {
       const prior = sharedProjection(previous.payload.shared, studyDay);
-      if (!allowLocalChanges && sharedConflict(storage, prior.staged)) throw new Error('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT');
+      if (!groupAuthorizations[CHECKPOINT_SHARED_GROUP_ID] && sharedConflict(storage, prior.staged)) throw new Error('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT');
       for (const [key, raw] of prior.staged.map) if (staged.getItem(key) == null) staged.setItem(key, raw);
     }
     shared = captureSharedControlCheckpoint(staged, { studyDay, now });
@@ -202,10 +254,20 @@ export async function saveSharedControlToPrivate(storage, {
     warnings.push('checkpoint:shared:' + String(error.message || error));
     shared = previous?.payload?.shared || { schema: SHARED_CONTROL_CHECKPOINT_SCHEMA, study_day: studyDay, unavailable: true };
   }
-  const subjects = capturePrivateSubjectCheckpoints(storage, existingSubjects, { now, warnings, allowLocalChanges });
+  const subjects = capturePrivateSubjectCheckpoints(storage, existingSubjects, {
+    now,
+    warnings,
+    allowLocalChanges: false,
+    allowLocalChangesByGroup: Object.fromEntries(
+      SUBJECT_CHECKPOINT_GROUPS.map(({ id }) => [id, Boolean(groupAuthorizations[id])])
+    )
+  });
   shared = { ...shared, capture_warnings: warnings };
   const checkpoint = buildPrivateLearnerCheckpoint({ studyDay, now, shared, subjects });
   await writeCheckpoint(checkpoint, { expectedCheckpoint: previous });
+  const blockedGroups = new Set(warnings.map(warningGroupId).filter(Boolean));
+  const successfulGroups = CHECKPOINT_GROUP_IDS.filter((groupId) => !blockedGroups.has(groupId));
+  rememberLineage(storage, checkpoint.checkpoint_id, successfulGroups, warnings);
   // Shadow-only recovery protects the durable checkpoint, but cannot prove that
   // this browser inherited those records. Never authorize its later overwrite.
   if (!warnings.length && localContainsCheckpoint(storage, checkpoint, studyDay)) rememberBase(storage, checkpoint.checkpoint_id, warnings);
