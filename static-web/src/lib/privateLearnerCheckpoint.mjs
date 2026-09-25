@@ -11,6 +11,11 @@ const readTimeoutError = (timeoutMs) => 'PRIVATE_CHECKPOINT_READ_TIMEOUT:' + tim
 const readTimeoutMs = (timeoutMs) => Number.isFinite(timeoutMs) && timeoutMs > 0
   ? timeoutMs
   : PRIVATE_CHECKPOINT_READ_TIMEOUT_MS;
+const timedOutRead = (timeoutMs) => ({
+  status: 'unavailable',
+  checkpoint: null,
+  error: readTimeoutError(timeoutMs)
+});
 const unavailableRead = (error) => ({
   status: 'unavailable',
   checkpoint: null,
@@ -73,6 +78,7 @@ export async function readPrivateLearnerCheckpoint({
   }
   const deadlineMs = readTimeoutMs(timeoutMs);
   const controller = typeof AbortController === 'function' ? new AbortController() : null;
+  let didTimeout = false;
   let timeoutId = null;
   try {
     const readPromise = (async () => {
@@ -87,12 +93,13 @@ export async function readPrivateLearnerCheckpoint({
       if (body?.status !== 'ready' || body?.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) {
         return { status: 'invalid', checkpoint: null, error: 'invalid checkpoint response' };
       }
-      return { status: 'ready', checkpoint: clone(body.checkpoint), error: null };
-    })().catch(unavailableRead);
+      return didTimeout ? timedOutRead(deadlineMs) : { status: 'ready', checkpoint: clone(body.checkpoint), error: null };
+    })().catch((error) => didTimeout ? timedOutRead(deadlineMs) : unavailableRead(error));
     const timeoutPromise = new Promise((resolve) => {
       timeoutId = globalThis.setTimeout(() => {
+        didTimeout = true;
+        resolve(timedOutRead(deadlineMs));
         try { controller?.abort(); } catch {}
-        resolve({ status: 'unavailable', checkpoint: null, error: readTimeoutError(deadlineMs) });
       }, deadlineMs);
     });
     return await Promise.race([readPromise, timeoutPromise]);

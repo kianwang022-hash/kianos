@@ -175,6 +175,15 @@ await new Promise((resolve) => setTimeout(resolve, 0));
 assert.equal(timedOutRead.status, 'unavailable', 'late settlement must not change the timed-out read result');
 assert.equal(timedOutRead.checkpoint, null, 'late settlement must not inject checkpoint data after timeout');
 
+const abortAwareTimedOutRead = await readRemoteCheckpoint({
+  timeoutMs: 10,
+  fetchImpl: (_url, options = {}) => new Promise((_resolve, reject) => {
+    options.signal?.addEventListener('abort', () => reject(new Error('aborted by signal')), { once: true });
+  })
+});
+assert.equal(abortAwareTimedOutRead.status, 'unavailable');
+assert.equal(abortAwareTimedOutRead.error, 'PRIVATE_CHECKPOINT_READ_TIMEOUT:10');
+
 let lateReject = null;
 const unhandledRejections = [];
 const onUnhandledRejection = (error) => unhandledRejections.push(error);
