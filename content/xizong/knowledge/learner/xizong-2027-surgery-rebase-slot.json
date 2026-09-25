@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.future_source_slot.v1",
-  "status": "REOPENED_CURRENT_FOR_REFINED_SOURCE_LOCATOR_REPAIR",
+  "status": "CLOSED_CURRENT",
   "slot_id": "xizong-2027-surgery-rebase",
   "source_cycle": "27考研",
   "domain": "Surgery",
@@ -506,7 +506,7 @@
       }
     },
     "source_map_owner": "content/xizong/knowledge/learner/surgery-27-source-map.json",
-    "action_now": "RUN_POST_REPAIR_SURGERY_CURRENT_CONSUMER_AND_CONTENT_VALIDATION"
+    "action_now": "NONE_CLOSED_CURRENT_REOPEN_ONLY_FOR_NEW_REVISED_SURGERY_SOURCE_OR_CONCRETE_ACCEPTED_OWNER_DEFECT"
   },
   "governance": {
     "contract_owner": "content/xizong/knowledge/learner/SURGERY_CONTRACT.md",
@@ -514,7 +514,7 @@
     "rule": "Route 27 refined-note deltas by responsibility: medical meaning → canonical Knowledge; understanding/retrieval/apply organization → Current Learning/Guide; exact values → Precision; spatial/table relations → Source Visual. Do not revive legacy Guides or redesign UI."
   },
   "source_locator_correction_2026_09_25": {
-    "status": "SECOND_BATCH_REPAIR_APPLIED_PENDING_REVALIDATION",
+    "status": "REVALIDATED_CLOSED_CURRENT",
     "trigger": "Reverse audit of the real 27 refined Surgery asset found Current consumer/source locators that still encoded legacy follow-along page identities after the broader reprocess closeout.",
     "defect_class": "STALE_CURRENT_SOURCE_LOCATOR_AND_VISUAL_LOCATOR_DRIFT",
     "affected_owners": [
@@ -561,6 +561,22 @@
       "Rebound H20/N11 support inputs to exact 27 refined U34/U22/U26/U27 ranges and corrected corresponding visual locators.",
       "Aligned O1/O2/O3/O4/O5/F7 machine source ranges and first-pass route text with the current 27 refined PDF.",
       "Replaced remaining current learner/question-binding references to old Surgery Lecture pages in A3B13, D11, D5 and D9 with the exact refined unit/page ranges."
-    ]
+    ],
+    "validation_evidence": {
+      "validated_at": "2026-09-25",
+      "main_sha": "47fcaf6ec3d659ddca1951702a7fcfc514352775",
+      "current_consumer_scan": "PASS — no active legacy Surgery AI-reader/follow-along Primary/first-pass locator remained after excluding explicit provenance/history markers.",
+      "validators": [
+        "validate-xizong-learning.mjs PASS",
+        "validate-xizong-learning-owner-lifecycle.mjs PASS",
+        "validate-xizong-semantic-adapter.mjs PASS",
+        "validate-xizong-production-projection.mjs PASS",
+        "validate-xizong-b-knowledge.mjs PASS",
+        "validate-xizong-c-learning.mjs PASS",
+        "validate-xizong-source-visuals.mjs PASS"
+      ],
+      "current_owner_gate_before_reclose": "Expected FAIL while lifecycle top-level status was REOPENED_CURRENT_FOR_REFINED_SOURCE_LOCATOR_REPAIR; rerun required after canonical CLOSED_CURRENT write.",
+      "boundary": "Original-PDF visual gaps remain fail-closed where the original visual layer is not actually mounted. Locator repair does not manufacture learner completion or medical semantic change."
+    }
   }
 }
