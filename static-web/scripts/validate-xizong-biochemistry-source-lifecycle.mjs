@@ -39,6 +39,7 @@ const manifest=read(manifestPath);
 const maturity=text('content/xizong/MATURITY_PACKAGE.md');
 const biochemistryContract=text('content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md');
 const beginnerGuidePath='content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-guide.md';
+const guideBindings=read('content/xizong/knowledge/learner/guide-bindings.json');
 const beginnerGuide=text(beginnerGuidePath);
 const xizongCurrent=text('content/xizong/CURRENT.md');
 const contentMainline=text('content/xizong/CONTENT_MAINLINE.md');
@@ -299,6 +300,12 @@ assert.deepEqual(g5Order,[1,2,3,4,5,12,13,6,7,8,9,10,11],'G5 learner order must 
 assert.match(biochemistryContract,/System\s*\n?→ Block\s*\n?→ Logic Group\s*\n?→ KP/,'Biochemistry contract canonical hierarchy drift');
 assert.match(biochemistryContract,/may not create another canonical level/i,'Biochemistry contract must forbid a second canonical hierarchy');
 assert.match(biochemistryContract,/bound Beginner Guide \/ Orientation revalidated/i,'Biochemistry contract lost Guide revalidation gate');
+assert.equal(
+  guideBindings.bindings?.[system.system_id]?.guide_path,
+  beginnerGuidePath,
+  'B Beginner Guide binding must resolve by exact Current system_id'
+);
+assert.ok(!guideBindings.bindings?.['digestive-metabolic-endocrine'],'legacy B Guide binding key must not shadow Current system_id');
 assert.match(beginnerGuide,/27生化跟课版合集【不带导图】\.pdf/,'B Beginner Guide lost Current 27 Biochemistry Source orientation');
 assert.match(beginnerGuide,/biochemistry-27-source-map\.json/,'B Beginner Guide lost Current Source-map routing pointer');
 assert.match(beginnerGuide,/物质—能量网络/,'B Beginner Guide lost current material-energy mother model');
