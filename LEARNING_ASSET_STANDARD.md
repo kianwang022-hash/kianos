@@ -75,6 +75,27 @@ Hard rules:
 
 Output: a trustworthy Source boundary sufficient for Knowledge work.
 
+### External-research escalation boundary
+
+KianOS may proceed directly from Source to Knowledge when the source boundary is already trustworthy and the task is to build an approved learner/product capability.
+
+If the underlying external-world truth itself still requires open-ended discovery, source-family comparison, competing explanations, adversarial verification or durable research synthesis, that research belongs upstream in StudyHub. KianOS should consume the accepted research output rather than recreate a parallel research project.
+
+This distinction is about the **state of the external question**, not the file type:
+
+```text
+bounded trustworthy Source
++ learner/product need
+→ KianOS Knowledge Reconstruction
+
+open external research question
+→ StudyHub research
+→ accepted output
+→ KianOS only if a learner/product capability is later needed
+```
+
+
+
 ---
 
 # 3｜Stage 1 — Knowledge Reconstruction
