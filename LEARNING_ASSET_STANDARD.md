@@ -81,6 +81,8 @@ KianOS may proceed directly from Source to Knowledge when the source boundary is
 
 If the underlying external-world truth itself still requires open-ended discovery, source-family comparison, competing explanations, adversarial verification or durable research synthesis, that research belongs upstream in StudyHub. KianOS should consume the accepted research output rather than recreate a parallel research project.
 
+When StudyHub has already produced a mature human-readable Report / Deep Reading whose purpose is still to explain the external world, that Report remains canonical in StudyHub. KianOS should normally reference/render it and add only the product or learner-specific behavior actually needed. Presentation, navigation, Resume, interaction or Evidence do not by themselves justify copying or re-owning the Report's semantic content.
+
 This distinction is about the **state of the external question**, not the file type:
 
 ```text
