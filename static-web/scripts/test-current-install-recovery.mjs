@@ -82,5 +82,29 @@ try {
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), d);
   assert.equal(JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json'))).sha, d);
 
-  console.log('CURRENT_INSTALL_RECOVERY PASS: same SHA retries install, readiness gates promotion, skip-Astro stays control-only, stubborn probe cleanup is bounded');
+  // Probe runtime must read from the candidate release, never an inherited
+  // supervisor/control checkout KIANOS_REPO_ROOT.
+  write('fixture.txt', 'E');
+  write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),r=args[args.indexOf('--root')+1],releaseRoot=path.resolve(process.cwd(),'..'),sha=JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha;http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({sha:process.env.KIANOS_REPO_ROOT===releaseRoot?sha:'wrong'}):'ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
+  git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'probe repo root guard'); const e = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
+  const pinnedRoot = run({ KIANOS_NPM_BIN: npm, KIANOS_REPO_ROOT: mirror });
+  assert.equal(pinnedRoot.status, 0, pinnedRoot.stderr);
+  assert.equal(git(mirror, 'rev-parse', 'HEAD'), e);
+
+  // A candidate may accept the HTTP connection and then never finish the
+  // identity body. Both fetch and body consumption must obey the readiness
+  // deadline so the delivery lock cannot hang forever.
+  write('fixture.txt', 'F');
+  write('static-web/scripts/kianos-static-server.mjs', `import http from 'node:http';http.createServer((q,s)=>{if(q.url.startsWith('/__kianos-release.json')){s.writeHead(200,{'content-type':'application/json'});s.write('{"sha":"');return;}s.end('ok');}).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
+  git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'hanging probe response'); const f = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
+  const hangingStarted = Date.now();
+  const hanging = run({ KIANOS_NPM_BIN: npm });
+  const hangingElapsed = Date.now() - hangingStarted;
+  assert.notEqual(hanging.status, 0, 'hanging probe response must fail readiness');
+  assert.ok(hangingElapsed < 10000, `hanging probe exceeded bounded readiness deadline: ${hangingElapsed}ms`);
+  assert.equal(git(mirror, 'rev-parse', 'HEAD'), e, 'hanging probe must not advance control mirror');
+  assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(path.join(root, '.kianos-current-releases/releases', e)), 'hanging probe must preserve active release');
+  assert.equal(JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json'))).target_sha, f);
+
+  console.log('CURRENT_INSTALL_RECOVERY PASS: install retry, readiness, root pinning, teardown, and HTTP probe deadlines are bounded');
 } finally { fs.rmSync(root, { recursive: true, force: true }); }

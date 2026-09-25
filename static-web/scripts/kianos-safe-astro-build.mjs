@@ -48,10 +48,60 @@ export function canonicalizePath(target) {
       continue;
     }
 
-    resolved = candidate;
+    resolved = fs.realpathSync(candidate);
   }
 
   return path.resolve(resolved);
+}
+
+function flipAsciiCase(value) {
+  const chars = [...String(value)];
+  for (let i = 0; i < chars.length; i += 1) {
+    const ch = chars[i];
+    if (ch >= 'a' && ch <= 'z') {
+      chars[i] = ch.toUpperCase();
+      return chars.join('');
+    }
+    if (ch >= 'A' && ch <= 'Z') {
+      chars[i] = ch.toLowerCase();
+      return chars.join('');
+    }
+  }
+  return '';
+}
+
+function isCaseInsensitiveFilesystem(existingPath) {
+  let current = path.resolve(existingPath);
+  while (true) {
+    try {
+      const currentStat = fs.statSync(current);
+      const base = path.basename(current);
+      const alternateBase = flipAsciiCase(base);
+      if (alternateBase && alternateBase !== base) {
+        const alternate = path.join(path.dirname(current), alternateBase);
+        try {
+          const alternateStat = fs.statSync(alternate);
+          return currentStat.dev === alternateStat.dev && currentStat.ino === alternateStat.ino;
+        } catch {
+          return false;
+        }
+      }
+    } catch {}
+    const parent = path.dirname(current);
+    if (parent === current) return process.platform === 'win32';
+    current = parent;
+  }
+}
+
+function isSameOrDescendant(target, root, caseInsensitive) {
+  const normalize = (value) => {
+    const resolved = path.resolve(value);
+    return caseInsensitive ? resolved.toLowerCase() : resolved;
+  };
+  const normalizedTarget = normalize(target);
+  const normalizedRoot = normalize(root);
+  return normalizedTarget === normalizedRoot
+    || normalizedTarget.startsWith(`${normalizedRoot}${path.sep}`);
 }
 
 export function resolveSafeAstroBuildArgs(args, {
@@ -63,10 +113,11 @@ export function resolveSafeAstroBuildArgs(args, {
   if (!managedCurrent) return { args: next, redirected: false, outDir: configuredOutDir || null };
 
   const liveDist = canonicalizePath(path.join(currentWebRoot, 'dist'));
+  const caseInsensitive = isCaseInsensitiveFilesystem(currentWebRoot);
   if (configuredOutDir) {
     const resolved = path.resolve(currentWebRoot, configuredOutDir);
     const canonicalResolved = canonicalizePath(resolved);
-    if (canonicalResolved === liveDist || canonicalResolved.startsWith(`${liveDist}${path.sep}`)) {
+    if (isSameOrDescendant(canonicalResolved, liveDist, caseInsensitive)) {
       throw new Error('CURRENT_LIVE_DIST_BUILD_FORBIDDEN: use Current sync or a non-live --outDir');
     }
     return { args: next, redirected: false, outDir: resolved };
@@ -74,7 +125,7 @@ export function resolveSafeAstroBuildArgs(args, {
 
   const safeOutDir = path.join(currentWebRoot, '.qa', 'astro-build');
   const canonicalSafeOutDir = canonicalizePath(safeOutDir);
-  if (canonicalSafeOutDir === liveDist || canonicalSafeOutDir.startsWith(`${liveDist}${path.sep}`)) {
+  if (isSameOrDescendant(canonicalSafeOutDir, liveDist, caseInsensitive)) {
     throw new Error('CURRENT_LIVE_DIST_BUILD_FORBIDDEN: managed Current QA output resolves inside the live served release');
   }
   fs.rmSync(safeOutDir, { recursive: true, force: true });
