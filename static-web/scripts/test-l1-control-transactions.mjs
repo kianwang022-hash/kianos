@@ -20,19 +20,23 @@ const command={schema:'kianos.control-browser-command.v1',command_id:'control-tr
 const options={day:'2026-09-21',now:Date.parse('2026-09-21T10:01:00Z')};
 const clone=value=>JSON.parse(JSON.stringify(value));
 const receiptResponse=body=>({ok:true,json:async()=>({status:'saved',receipt:JSON.parse(body)})});
-async function runtime({fetchImpl,writeSession,validatePlan,writePlan,planEffectMatches}={}){
+const shanghaiDay=(timestamp)=>new Intl.DateTimeFormat('en-CA',{
+  timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'
+}).format(new Date(timestamp));
+async function runtime({fetchImpl,writeSession,validatePlan,writePlan,planEffectMatches,validateCommand,studyDayAt}={}){
   let calls=0;
   let planWrites=0;
   const noop=()=>{};
-  const sandbox={console,Date,fetch:fetchImpl||(async(url,opts)=>url.endsWith('/receipt')?receiptResponse(opts.body):{ok:true,json:async()=>({collections:[]})}),window:{dispatchEvent:noop},document:{querySelector:()=>({textContent:'[{"object_id":"synthetic-object"}]'})},CustomEvent:class{constructor(type,opts){this.type=type;this.detail=opts?.detail;}}};
+  const sandbox={console,Date,fetch:fetchImpl||(async(url,opts)=>url.endsWith('/receipt')?receiptResponse(opts.body):{ok:true,json:async()=>({collections:[]})}),window:{dispatchEvent:noop,location:{hostname:'127.0.0.1'},setInterval,clearInterval,addEventListener:noop,removeEventListener:noop},document:{querySelector:()=>({textContent:'[{"object_id":"synthetic-object"}]'}),addEventListener:noop,visibilityState:'visible'},CustomEvent:class{constructor(type,opts){this.type=type;this.detail=opts?.detail;}}};
   const context=vm.createContext(sandbox);
   const modules={
     './lexicalChallenge.mjs':{stageLexicalChallengePacket:()=>({changes:[]}),lexicalChallengePacketMatches:()=>true},
     './browserLearnerWriter.mjs':{assertLearnerStorageWritable:()=>{},commitLearnerStorageChanges},
-    './privateControlCommand.mjs':{CONTROL_LOCAL_RECEIPT_KEY:receiptKey,CONTROL_RECEIPT_SCHEMA:'kianos.control-receipt.v1',validateBrowserControlCommand:clone,validateControlReceipt:value=>{if(value?.schema!=='kianos.control-receipt.v1')throw new Error('INVALID_RECEIPT');return clone(value);}},
+    './privateControlCommand.mjs':{CONTROL_LOCAL_RECEIPT_KEY:receiptKey,CONTROL_RECEIPT_SCHEMA:'kianos.control-receipt.v1',validateBrowserControlCommand:validateCommand||((value,expectedDay=null)=>{if(expectedDay&&value?.study_day!==expectedDay)throw new Error('KIANOS_CONTROL_STALE_DAY:'+String(value?.study_day||''));return clone(value);}),validateControlReceipt:value=>{if(value?.schema!=='kianos.control-receipt.v1')throw new Error('INVALID_RECEIPT');return clone(value);}},
     './englishSessionControl.mjs':{ENGLISH_SESSION_KEY:sessionKey,writeEnglishSessionInstruction:(storage,value)=>{calls++;if(writeSession)writeSession(storage,value);else storage.setItem(sessionKey,JSON.stringify(value));},englishSessionInstructionEffectMatches:()=>true},
     './englishExamSession.mjs':{englishExamProductiveScoreMatches:()=>false,inspectEnglishExamSession:noop,applyEnglishExamProductiveScoreReturn:noop,writeEnglishExamSession:noop},
     './examChatPlan.mjs':{EXAM_CHAT_PLAN_KEY:'kianos-exam-chat-plan-v1',validateExamChatPlanAgainstStorage:validatePlan||noop,writeExamChatPlan:(storage,value)=>{planWrites++;if(writePlan)writePlan(storage,value);else storage.setItem('kianos-exam-chat-plan-v1',JSON.stringify(value));return value;},buildExamChatPlanBasis:()=>({}),examChatPlanEffectMatches:planEffectMatches||(()=>true)},
+    './studyTimer.mjs':{studyDayAt:studyDayAt||shanghaiDay},
     './xizongSessionInstruction.mjs':{installAndActivateXizongSessionInstruction:noop,xizongSessionInstructionEffectMatches:()=>true},
     './xizongPendingChatReturn.mjs':{stageXizongChatReturn:noop,xizongChatReturnEffectMatches:()=>true},
     './xizongSystemWuReturn.mjs':{stageXizongSystemWuReturn:noop,xizongSystemWuReturnEffectMatches:()=>true},
@@ -41,9 +45,24 @@ async function runtime({fetchImpl,writeSession,validatePlan,writePlan,planEffect
   const module=new vm.SourceTextModule(source,{context});
   await module.link(spec=>{const exports=modules[spec];assert.ok(exports,`Unexpected dependency: ${spec}`);return new vm.SyntheticModule(Object.keys(exports),function(){for(const[key,value]of Object.entries(exports))this.setExport(key,value);},{context});});
   await module.evaluate();
-  return{apply:module.namespace.applyPrivateControlCommand,calls:()=>calls,planWrites:()=>planWrites};
+  return{apply:module.namespace.applyPrivateControlCommand,init:module.namespace.initPrivateControlRuntime,calls:()=>calls,planWrites:()=>planWrites};
 }
 let count=0;
+{
+  const storage=new Storage();
+  const day='2026-09-25';
+  const dayMismatchNow=Date.parse('2026-09-24T16:30:00Z');
+  const rt=await runtime();
+  const result=await rt.apply(storage,{
+    ...command,
+    command_id:'control-canonical-day-fixture-1',
+    command_hash:'a'.repeat(64),
+    study_day:day,
+    operations:[{kind:'english.session',payload:{schema:'kianos.english.session-instruction.v1',session_id:'canonical-day-session-1',study_day:day}}]
+  },{now:dayMismatchNow});
+  assert.equal(result.status,'applied');
+  count++;
+}
 {
   const storage=new Storage({'kianos-politics-evidence-v1':'{"attempts":1}'});
   const rt=await runtime({fetchImpl:async(url,opts)=>{
@@ -154,6 +173,39 @@ for(const failure of ['network','http500','wrong-echo']){
   const storage=new Storage(Object.fromEntries(Array.from({length:2000},(_,i)=>['unrelated-'+i,'"kept"'])));
   const rt=await runtime();await rt.apply(storage,command,options);
   assert.ok(storage.reads<20,`Unrelated raw reads: ${storage.reads}`);count++;
+}
+{
+  const day=shanghaiDay(Date.now());
+  const pollCommand={
+    schema:'kianos.control-browser-command.v1',
+    command_id:'control-stale-rejected-recovery-1',
+    command_hash:'b'.repeat(64),
+    study_day:day,
+    generated_at:new Date(Date.now()-120000).toISOString(),
+    expires_at:null,
+    operations:[{kind:'english.session',payload:{schema:'kianos.english.session-instruction.v1',session_id:'stale-rejected-recovery-session-1',study_day:day}}]
+  };
+  let receiptPuts=0;
+  const rt=await runtime({fetchImpl:async(url,opts)=>{
+    if(url.includes('/current?'))return{
+      ok:true,
+      json:async()=>({
+        status:'ready',
+        command:clone(pollCommand),
+        receipt:{schema:'kianos.control-receipt.v1',command_id:pollCommand.command_id,command_hash:pollCommand.command_hash,status:'REJECTED',observed_at:new Date().toISOString(),error:'KIANOS_CONTROL_STALE_DAY:'+day}
+      })
+    };
+    if(url.endsWith('/receipt')){receiptPuts++;return receiptResponse(opts.body);}
+    return{ok:true,json:async()=>({collections:[]})};
+  }});
+  const controller=rt.init(new Storage(),{pollMs:3000});
+  await new Promise(resolve=>setTimeout(resolve,20));
+  assert.ok(receiptPuts>=1,'stale rejected server receipt must not permanently suppress local apply');
+  const afterFirst=receiptPuts;
+  await controller.poll();
+  assert.equal(receiptPuts,afterFirst,'rejected retry policy must remain locally bounded');
+  controller.stop();
+  count++;
 }
 console.log(JSON.stringify({status:'PASS',checks:count,proof:'shared orchestration with native adapter and network doubles; production browser proof remains separate'}));
 

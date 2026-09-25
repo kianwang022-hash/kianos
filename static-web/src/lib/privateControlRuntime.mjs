@@ -40,6 +40,7 @@ import {
   stagePoliticsMemoryPlan,
   politicsMemoryPlanEffectMatches
 } from './politicsMemoryRuntime.mjs';
+import { studyDayAt } from './studyTimer.mjs';
 
 const ENDPOINT='/__kianos-private/control';
 
@@ -85,7 +86,6 @@ class ShadowStorage{
   }
 }
 
-const localDay=()=>new Date().toLocaleDateString('en-CA');
 const readJson=(storage,key)=>{try{return JSON.parse(storage.getItem(key)||'null');}catch{return null;}};
 
 async function loadEnglishCatalog(){
@@ -209,9 +209,12 @@ function receiptNativeEffectPresent(storage,command){
   return true;
 }
 
-export async function applyPrivateControlCommand(storage,input,{day=localDay(),now=Date.now()}={}){
-  const command=validateBrowserControlCommand(input,day);
-  if(Date.parse(command.generated_at)>Number(now)+60_000)throw new Error('KIANOS_CONTROL_FUTURE_COMMAND');
+export async function applyPrivateControlCommand(storage,input,{day=null,now=Date.now()}={}){
+  const parsedNow=Number(now);
+  const effectiveNow=Number.isFinite(parsedNow)?parsedNow:Date.now();
+  const effectiveDay=day??studyDayAt(effectiveNow);
+  const command=validateBrowserControlCommand(input,effectiveDay);
+  if(Date.parse(command.generated_at)>effectiveNow+60_000)throw new Error('KIANOS_CONTROL_FUTURE_COMMAND');
 
   const localReceipt=appliedReceipt(storage,command);
   if(localReceipt && receiptNativeEffectPresent(storage,command)){
@@ -231,7 +234,7 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   // Finish asynchronous input reads before staging. Re-check expiry and a
   // competing completion afterwards, then perform the transaction synchronously.
   const englishCatalog=englishOp?await loadEnglishCatalog():null;
-  validateBrowserControlCommand(command,day);
+  validateBrowserControlCommand(command,effectiveDay);
   const completedWhileLoading=appliedReceipt(storage,command);
   if(completedWhileLoading && receiptNativeEffectPresent(storage,command)){
     const receiptSaved=await saveReceipt(completedWhileLoading);
@@ -239,29 +242,29 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
   }
   const shadow=new ShadowStorage(storage);
   assertLearnerStorageWritable(storage);
-  if(planOp)validateExamChatPlanAgainstStorage(shadow,planOp.payload,day);
+  if(planOp)validateExamChatPlanAgainstStorage(shadow,planOp.payload,effectiveDay);
 
   if(lexicalOp){
-    const staged=stageLexicalChallengePacket(shadow,lexicalOp.payload,{day});
+    const staged=stageLexicalChallengePacket(shadow,lexicalOp.payload,{day:effectiveDay});
     for(const [key,raw] of staged.changes)shadow.setItem(key,raw);
   }
   if(englishOp){
-    writeEnglishSessionInstruction(shadow,englishOp.payload,day,{catalog:englishCatalog,now});
+    writeEnglishSessionInstruction(shadow,englishOp.payload,effectiveDay,{catalog:englishCatalog,now:effectiveNow});
   }
   if(xizongSessionOp){
     const holdoutYears=readJson(shadow,'kianos:xizong:full-paper-holdout-years:v1')||[];
     installAndActivateXizongSessionInstruction(shadow,xizongSessionOp.payload,{
-      expectedDay:day,now,holdoutYears:Array.isArray(holdoutYears)?holdoutYears:[]
+      expectedDay:effectiveDay,now:effectiveNow,holdoutYears:Array.isArray(holdoutYears)?holdoutYears:[]
     });
   }
   if(xizongReturnOp){
-    stageXizongChatReturn(shadow,xizongReturnOp.payload,{now,replace:true,studyDay:day});
+    stageXizongChatReturn(shadow,xizongReturnOp.payload,{now:effectiveNow,replace:true,studyDay:effectiveDay});
   }
   if(xizongSystemReturnOp){
-    stageXizongSystemWuReturn(shadow,xizongSystemReturnOp.payload,{now,replace:true,studyDay:day});
+    stageXizongSystemWuReturn(shadow,xizongSystemReturnOp.payload,{now:effectiveNow,replace:true,studyDay:effectiveDay});
   }
   if(politicsMemoryOp){
-    stagePoliticsMemoryPlan(shadow,politicsMemoryOp.payload,{expectedDay:day,now});
+    stagePoliticsMemoryPlan(shadow,politicsMemoryOp.payload,{expectedDay:effectiveDay,now:effectiveNow});
   }
   if(englishScoreOp){
     const exam=inspectEnglishExamSession(shadow);
@@ -270,7 +273,7 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
     // Keep its write in this command's transaction; never persist a second score ledger.
     if(shadow.getItem(CONTROL_LOCAL_RECEIPT_KEY)!=null
       || !englishExamProductiveScoreMatches(exam.session,englishScoreOp.payload)) {
-      writeEnglishExamSession(shadow,applyEnglishExamProductiveScoreReturn(exam.session,englishScoreOp.payload,now));
+      writeEnglishExamSession(shadow,applyEnglishExamProductiveScoreReturn(exam.session,englishScoreOp.payload,effectiveNow));
     }
   }
   if(planOp){
@@ -279,8 +282,8 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
     // Control only rebinds the plan to this transaction's final native evidence.
     writeExamChatPlan(shadow,{
       ...planOp.payload,
-      learner_evidence_basis:buildExamChatPlanBasis(shadow,day)
-    },day);
+      learner_evidence_basis:buildExamChatPlanBasis(shadow,effectiveDay)
+    },effectiveDay);
   }
 
   const receipt={
@@ -289,7 +292,7 @@ export async function applyPrivateControlCommand(storage,input,{day=localDay(),n
     command_hash:command.command_hash,
     command_generated_at:command.generated_at,
     status:'APPLIED',
-    observed_at:new Date(now).toISOString(),
+    observed_at:new Date(effectiveNow).toISOString(),
     error:null
   };
   // The durable local apply receipt is part of the same write-set as the
@@ -326,6 +329,9 @@ export function initPrivateControlRuntime(storage=window.localStorage,{
   if(!['127.0.0.1','localhost'].includes(window.location.hostname))return null;
   let busy=false;
   let stopped=false;
+  let rejectedRetryKey=null;
+  let rejectedRetryNotBefore=0;
+  const rejectedRetryMs=Math.max(30_000,Math.min(5*60_000,Math.max(1500,Number(pollMs)||3000)*10));
 
   const poll=async()=>{
     if(busy||stopped)return;
@@ -339,12 +345,19 @@ export function initPrivateControlRuntime(storage=window.localStorage,{
       const localReceipt=readJson(storage,CONTROL_LOCAL_RECEIPT_KEY);
       const sameServerReceipt=data.receipt?.command_id===data.command.command_id
         && (!data.command.command_hash||data.receipt.command_hash===data.command.command_hash);
-      if(sameServerReceipt&&String(data.receipt.status||'').toUpperCase()==='REJECTED')return;
-      if(sameServerReceipt&&String(data.receipt.status||'').toUpperCase()==='APPLIED'
-        && localReceipt?.command_id===data.command.command_id
+      const localApplied=localReceipt?.command_id===data.command.command_id
         && (!data.command.command_hash||localReceipt.command_hash===data.command.command_hash)
-        && ['APPLIED','IDEMPOTENT'].includes(String(localReceipt.status||'').toUpperCase())
-        && receiptNativeEffectPresent(storage,data.command))return;
+        && ['APPLIED','IDEMPOTENT'].includes(String(localReceipt.status||'').toUpperCase());
+      const localAppliedEffectPresent=localApplied&&receiptNativeEffectPresent(storage,data.command);
+      if(sameServerReceipt&&String(data.receipt.status||'').toUpperCase()==='REJECTED'){
+        if(localAppliedEffectPresent)return;
+        const retryKey=`${data.command.command_id}:${data.command.command_hash||''}`;
+        if(rejectedRetryKey===retryKey&&Date.now()<rejectedRetryNotBefore)return;
+        rejectedRetryKey=retryKey;
+        rejectedRetryNotBefore=Date.now()+rejectedRetryMs;
+      }
+      if(sameServerReceipt&&String(data.receipt.status||'').toUpperCase()==='APPLIED'
+        && localAppliedEffectPresent)return;
       try{
         await applyPrivateControlCommand(storage,data.command);
       }catch(error){
