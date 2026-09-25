@@ -169,7 +169,179 @@ learner order ≠ construction scheduling
 
 Output: domain Learning Contract or equivalent durable learner-path decision.
 
+## 4.1｜Shared learner geometry: orient → form → deepen → compress → use → repair
+
+Across very different domains, one higher-order cognition pattern recurs:
+
+```text
+ORIENTATION
+where am I / what exists / why this structure
+↓
+GUIDE / EXPANDED MODEL
+first coherent model that actually runs
+↓
+DEEPENING
+mechanisms / distinctions / Source contact / cases / application
+↓
+COMPRESSION
+smallest callable model that preserves correct action
+↓
+USE / TRANSFER / EVIDENCE
+real or changed-context use reveals what survives
+↓
+LOOP
+reopen only the smallest failed relation / layer
+→ repair
+→ re-compress when needed
+→ use again
+```
+
+This is a **shared learning geometry**, not a universal page sequence, mandatory course template or new Acceptance ladder.
+
+### Orientation
+
+Orientation answers:
+- what terrain / system / capability am I entering?
+- why is it organized this way?
+- what prerequisites or major branches matter?
+- what model should I expect to form?
+
+Orientation should be **thin enough not to pretend to teach the whole subject**.
+
+It reduces disorientation; it does not create mastery.
+
+### Guide / Expanded Model
+
+The next job is to form the first **coherent runnable mental model**.
+
+A Guide may be short or substantial depending on the domain. It is not defined by length.
+
+It succeeds when the learner can roughly reconstruct:
+- the main structure;
+- the important relations / flow;
+- why the pieces connect;
+- what the major boundaries or failure points are.
+
+Hard rule:
+
+> **A Guide is not a glossary and not a list of headings. It should make the system internally legible.**
+
+### Deepening
+
+Deep learning makes the initial model more accurate, discriminating and transferable through whatever the domain actually requires, such as:
+
+- stronger Source contact;
+- mechanism work;
+- contrasting cases;
+- exact facts;
+- confusable near-neighbors;
+- questions / problems;
+- reconstruction;
+- application;
+- real tasks;
+- counterexamples.
+
+Deepening is not permanent expansion. Add detail only when it improves explanation, discrimination, action or future transfer.
+
+### Compression
+
+Compression comes **after enough model formation and deepening**.
+
+It is not an early summary.
+
+It preserves the smallest structure that still supports correct reconstruction / judgment / action, for example:
+- causal skeleton;
+- system loop;
+- contrast matrix;
+- decision tree;
+- protocol;
+- compact operating model.
+
+Hard distinction:
+
+```text
+early brevity
+≠ mature Compression
+```
+
+A one-screen model written before the learner has formed the expanded model is merely short; it is not evidence-based Compression.
+
+### Use / Transfer / Evidence
+
+A model becomes trustworthy only when it survives the kind of use the capability exists for.
+
+The geometry of use remains domain-specific:
+- medicine → retrieval / cases / discrimination / clinical or exam use;
+- software → build / debug / ship;
+- judgment → contrasted cases / decisions / later outcomes;
+- communication → real production / interaction;
+- world/domain understanding → explain a new case, locate a mechanism, compare systems, or reason through a changed real-world problem.
+
+Use may reveal that:
+- the orientation was wrong;
+- the Guide omitted a decisive relation;
+- deepening focused on the wrong distinction;
+- Compression deleted something load-bearing.
+
+### Loop / smallest reopen
+
+When evidence exposes a defect:
+
+```text
+failure
+→ locate earliest responsible relation / layer
+→ reopen only that scope
+→ repair
+→ re-run the interrupted cognition step
+→ update Compression only if the repaired relation changes it
+```
+
+Do not restart the whole subject because one downstream application failed.
+
+### Recursive scale
+
+The same geometry may recur at different scales:
+
+```text
+Unit
+→ System / Domain
+→ Direction / multi-domain structure
+→ whole-world / whole-capability synthesis
+```
+
+A larger Guide should not integrate child systems that are still empty labels for the learner.
+
+Likewise, the learner does **not** need every child domain to be complete before useful higher-level integration begins. Integrate only the dependencies required for the current larger model.
+
+### Relationship to the construction pipeline
+
+Keep these two dimensions distinct:
+
+```text
+BUILD DIMENSION
+Source → Knowledge → Learning Logic → Content → Presentation / Runtime → Evidence
+
+LEARNER DIMENSION
+Orientation → Guide / Expanded Model → Deepening → Compression → Use / Transfer → Repair loop
+```
+
+The first explains **how trustworthy learning assets are built**.
+
+The second explains **how learner cognition changes resolution over time**.
+
+Do not collapse one into the other.
+
+### Domain specialization rule
+
+Every domain may specialize, merge, skip or rename learner steps when its real capability demands it.
+
+The shared invariant is only:
+
+> **orient before forcing integration; form a coherent model before premature compression; deepen with domain-native evidence/tasks; compress only what has earned compression; let use reopen the smallest failed part.**
+
 ---
+
+
 
 # 5｜Stage 3 — Content Realization
 
