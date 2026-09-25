@@ -15,6 +15,7 @@ const reusable = [
   'BRANCH_LIFECYCLE.md',
   'CURRENT.md',
   'static-web/CURRENT.md',
+  'static-web/STEWARD_PRODUCT_CONTRACT.md',
   'static-web/scripts/kianos-current-sync.mjs',
   'static-web/scripts/privateLearnerBridge.mjs'
 ];

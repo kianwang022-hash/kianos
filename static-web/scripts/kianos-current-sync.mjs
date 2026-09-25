@@ -55,6 +55,10 @@ function readBuildFailure() {
   try { return JSON.parse(fs.readFileSync(failurePath, 'utf8')); } catch { return null; }
 }
 
+function readControlStatus() {
+  try { return JSON.parse(fs.readFileSync(statusPath, 'utf8')); } catch { return null; }
+}
+
 const stamp = () => new Date().toISOString();
 const log = (message) => console.log(`[${stamp()}] ${message}`);
 const warn = (message) => console.error(`[${stamp()}] ${message}`);
@@ -465,14 +469,33 @@ async function syncOnce({ initial = false } = {}) {
     const activeSha = readActiveBuiltStatus()?.sha || '';
     if (local === remote && activeReleaseRoot && activeSha === remote) {
       lastSyncHealthy = true;
-      writeStatus('synced', local, { release_root: activeReleaseRoot });
+      writeStatus('synced', activeSha, { control_sha: local, release_root: activeReleaseRoot });
       if (initial) {
         log(`Current release already matches main ${local.slice(0, 8)}`);
       }
       return false;
     }
 
-    writeStatus('updating', local, { target_sha: remote });
+    const priorControlStatus = readControlStatus();
+    if (
+      local === remote
+      && activeReleaseRoot
+      && priorControlStatus?.state === 'synced'
+      && priorControlStatus?.static_build === 'reused'
+      && priorControlStatus?.control_sha === remote
+      && priorControlStatus?.sha === activeSha
+    ) {
+      lastSyncHealthy = true;
+      writeStatus('synced', activeSha, {
+        control_sha: remote,
+        target_sha: remote,
+        static_build: 'reused',
+        release_root: activeReleaseRoot
+      });
+      return false;
+    }
+
+    writeStatus('updating', activeSha || local, { control_sha: local, target_sha: remote });
     log(`main advanced ${local.slice(0, 8)} → ${remote.slice(0, 8)}; syncing whole repository`);
     await git(['fetch', 'origin', 'main', '--prune']);
     const fetched = await git(['rev-parse', 'FETCH_HEAD']);
@@ -493,6 +516,31 @@ async function syncOnce({ initial = false } = {}) {
       'static-web/npm-shrinkwrap.json'
     ].includes(file));
     const staticRuntimeChanged = requiresStaticRuntimeReload(changedPaths);
+    const reuseActiveRelease = !skipAstro
+      && Boolean(activeReleaseRoot)
+      && !buildDecision.required
+      && !staticRuntimeChanged;
+
+    if (reuseActiveRelease) {
+      lastKnownSha = fetched;
+      await git(['checkout', '-B', 'main', fetched]);
+      await git(['reset', '--hard', fetched]);
+      lastSyncHealthy = true;
+      lastNetworkError = '';
+      writeStatus('synced', activeSha, {
+        control_sha: fetched,
+        target_sha: fetched,
+        changed_paths: changedPaths.length,
+        static_build: 'reused',
+        build_impact_paths: 0,
+        release_root: activeReleaseRoot
+      });
+      log(
+        `synced ${changedPaths.length} control-only path(s) to ${fetched.slice(0, 8)}; `
+        + `serving unchanged release ${activeSha.slice(0, 8)}`
+      );
+      return true;
+    }
 
     let runtimeReloaded = false;
     if (!skipAstro) {
@@ -535,11 +583,13 @@ async function syncOnce({ initial = false } = {}) {
 
     lastSyncHealthy = true;
     lastNetworkError = '';
-    writeStatus('synced', fetched, {
+    writeStatus('synced', skipAstro ? fetched : readActiveBuiltStatus()?.sha || fetched, {
+      control_sha: fetched,
       target_sha: fetched,
       changed_paths: changedPaths.length,
       static_build: skipAstro ? 'skipped' : 'rebuilt',
-      build_impact_paths: buildDecision.build_paths.length
+      build_impact_paths: buildDecision.build_paths.length,
+      ...(!skipAstro && activeReleaseRoot ? { release_root: activeReleaseRoot } : {})
     });
     log(
       `synced ${changedPaths.length} changed path(s); static Current is ${fetched.slice(0, 8)} `

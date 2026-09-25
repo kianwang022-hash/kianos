@@ -59,6 +59,18 @@ fs.writeFileSync(path.join(root, 'index.html'), process.env.PAGE_TEXT || 'fixtur
   let result = run();
   assert.equal(result.status, 0, result.stderr);
   assert.equal(built().sha, first);
+
+  const controlOnly = commit('CURRENT.md', 'control-only metadata');
+  git(upstream, 'push', 'origin', 'main');
+  result = run();
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(count(), 1, 'control-only update must reuse the active release without rebuilding');
+  assert.equal(git(mirror, 'rev-parse', 'HEAD'), controlOnly, 'control mirror must advance on a control-only update');
+  assert.equal(built().sha, first, 'control-only update must preserve the served release identity');
+  assert.equal(status().sha, first, 'browser Current SHA must remain the served release SHA');
+  assert.equal(status().control_sha, controlOnly, 'control status must expose the newer control mirror SHA separately');
+  assert.equal(status().static_build, 'reused');
+
   const failed = commit('content/lexical/words/by-ordinal/o0001.json', '{"changed":true}');
   git(upstream, 'push', 'origin', 'main');
   result = run({ BUILD_FAIL: '1' });
