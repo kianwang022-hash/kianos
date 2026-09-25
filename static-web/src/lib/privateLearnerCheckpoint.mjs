@@ -68,6 +68,9 @@ export async function readPrivateLearnerCheckpoint({
   timeoutMs = PRIVATE_CHECKPOINT_READ_TIMEOUT_MS
 } = {}) {
   if (typeof fetchImpl !== 'function') return { status: 'unavailable', checkpoint: null, error: 'fetch unavailable' };
+  if (typeof globalThis.setTimeout !== 'function' || typeof globalThis.clearTimeout !== 'function') {
+    return { status: 'unavailable', checkpoint: null, error: 'timer unavailable' };
+  }
   const deadlineMs = readTimeoutMs(timeoutMs);
   const controller = typeof AbortController === 'function' ? new AbortController() : null;
   let timeoutId = null;

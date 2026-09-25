@@ -136,6 +136,18 @@ assert.equal(remoteRead.status, 'ready');
 assert.equal(remoteRead.checkpoint.payload.shared.chat_plan.next_subject, 'xizong');
 const invalidTimeoutRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch, timeoutMs: 0 });
 assert.equal(invalidTimeoutRead.status, 'ready');
+const originalSetTimeout = globalThis.setTimeout;
+const originalClearTimeout = globalThis.clearTimeout;
+try {
+  globalThis.setTimeout = undefined;
+  globalThis.clearTimeout = undefined;
+  const timerUnavailableRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch });
+  assert.equal(timerUnavailableRead.status, 'unavailable');
+  assert.equal(timerUnavailableRead.error, 'timer unavailable');
+} finally {
+  globalThis.setTimeout = originalSetTimeout;
+  globalThis.clearTimeout = originalClearTimeout;
+}
 
 const unavailableRemoteRead = await readRemoteCheckpoint({
   fetchImpl: async () => {
