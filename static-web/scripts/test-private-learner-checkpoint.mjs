@@ -134,6 +134,8 @@ await writeRemoteCheckpoint(checkpoint, { fetchImpl: fakeFetch });
 const remoteRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch });
 assert.equal(remoteRead.status, 'ready');
 assert.equal(remoteRead.checkpoint.payload.shared.chat_plan.next_subject, 'xizong');
+const invalidTimeoutRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch, timeoutMs: 0 });
+assert.equal(invalidTimeoutRead.status, 'ready');
 
 const unavailableRemoteRead = await readRemoteCheckpoint({
   fetchImpl: async () => {

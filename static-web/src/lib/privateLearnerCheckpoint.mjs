@@ -8,6 +8,9 @@ const validDay = (day) => typeof day === 'string'
   && !Number.isNaN(Date.parse(day + 'T00:00:00Z'))
   && new Date(day + 'T00:00:00Z').toISOString().slice(0, 10) === day;
 const readTimeoutError = (timeoutMs) => 'PRIVATE_CHECKPOINT_READ_TIMEOUT:' + timeoutMs;
+const readTimeoutMs = (timeoutMs) => Number.isFinite(timeoutMs) && timeoutMs > 0
+  ? timeoutMs
+  : PRIVATE_CHECKPOINT_READ_TIMEOUT_MS;
 
 export function buildPrivateLearnerCheckpoint({
   studyDay,
@@ -60,6 +63,7 @@ export async function readPrivateLearnerCheckpoint({
   timeoutMs = PRIVATE_CHECKPOINT_READ_TIMEOUT_MS
 } = {}) {
   if (typeof fetchImpl !== 'function') return { status: 'unavailable', checkpoint: null, error: 'fetch unavailable' };
+  const deadlineMs = readTimeoutMs(timeoutMs);
   const controller = typeof AbortController === 'function' ? new AbortController() : null;
   let timeoutId = null;
   try {
@@ -80,8 +84,8 @@ export async function readPrivateLearnerCheckpoint({
     const timeoutPromise = new Promise((resolve) => {
       timeoutId = globalThis.setTimeout(() => {
         try { controller?.abort(); } catch {}
-        resolve({ status: 'unavailable', checkpoint: null, error: readTimeoutError(timeoutMs) });
-      }, timeoutMs);
+        resolve({ status: 'unavailable', checkpoint: null, error: readTimeoutError(deadlineMs) });
+      }, deadlineMs);
     });
     return await Promise.race([readPromise, timeoutPromise]);
   } catch (error) {
