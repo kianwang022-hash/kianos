@@ -178,6 +178,8 @@ try {
   check(typography.under15.length === 0, 'steward_visible_type_floor_15', JSON.stringify(typography.under15));
   check(typography.chineseNegativeTracking.length === 0, 'steward_no_negative_chinese_tracking', JSON.stringify(typography.chineseNegativeTracking));
 
+  await page.screenshot({ path: path.join(auditDir, 'steward-mac.png'), fullPage: false });
+
   const geometry = await page.evaluate(() => {
     const frame = document.querySelector('.stewardTodayFrame')?.getBoundingClientRect();
     const main = document.querySelector('.stewardTodayMain')?.getBoundingClientRect();
@@ -207,7 +209,6 @@ try {
     check(!fullText.includes(forbidden), 'steward_no_frontstage_' + forbidden.replace(/\W+/g, '_'));
   }
 
-  await page.screenshot({ path: path.join(auditDir, 'steward-mac.png'), fullPage: false });
   fs.writeFileSync(path.join(auditDir, 'steward-mac-visual.json'), JSON.stringify({ ...report, typography, geometry }, null, 2));
   console.log('PASS Steward Mac visual: work-first capacity loop + PingFang + bounded rail');
   await context.close();
