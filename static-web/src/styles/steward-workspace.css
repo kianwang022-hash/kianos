@@ -1424,3 +1424,319 @@
     min-height: 640px;
   }
 }
+
+/* Steward VNext formal closeout — approved visual direction, no planning authority here. */
+.stewardTimeline {
+  margin: 10px 16px 16px 72px;
+  border-left: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    #fff 0,
+    #fff 20px,
+    #f6f8f7 20px,
+    #f6f8f7 21px,
+    #fff 21px,
+    #fff 41px,
+    #e8edea 41px,
+    #e8edea 42px
+  );
+}
+.stewardTimeline::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1px;
+  background: #d7dfda;
+  content: "";
+}
+.stewardHour {
+  right: calc(100% + 14px);
+  width: 54px;
+  color: #748078;
+}
+.stewardPlanBlock {
+  left: 12px;
+  right: 10px;
+  border: 1px solid color-mix(in srgb, var(--block-accent, var(--study-green)) 18%, var(--study-line));
+  border-left: 0;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--block-soft, var(--study-green-soft)) 82%, white);
+  padding: 8px 12px 9px 14px;
+}
+.stewardPlanBlock::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--block-accent, var(--study-green));
+  content: "";
+}
+.stewardPlanBlock strong { font-size: 16px; }
+.stewardActualBlock.withPlan {
+  right: 16px;
+  left: auto;
+  width: 9px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--actual-color, var(--study-green));
+  box-shadow: none;
+  padding: 0;
+  opacity: .72;
+}
+.stewardActualBlock.withPlan strong,
+.stewardActualBlock.withPlan span { display: none; }
+.stewardNowLine { left: -5px; }
+
+.stewardNutritionContext {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+}
+.stewardNutritionContext strong {
+  font-size: 16px;
+  font-weight: var(--study-weight-title);
+}
+.stewardNutritionContext span {
+  color: var(--study-muted);
+  font-size: 15px;
+  font-weight: var(--study-weight-secondary);
+}
+.stewardNutritionGrid {
+  grid-template-columns: 176px minmax(330px, 1fr) 244px;
+}
+.stewardMealEditor > header {
+  align-items: flex-start;
+  padding: 11px 13px 8px;
+}
+.stewardMealActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.stewardMealActions button {
+  min-height: 31px;
+  padding: 4px 8px;
+  border: 1px solid var(--study-line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--study-muted);
+  font-size: 15px;
+  font-weight: var(--study-weight-control);
+  cursor: pointer;
+}
+.stewardMealActions button:hover,
+.stewardMealActions button.active {
+  border-color: rgba(47,118,95,.28);
+  background: var(--study-green-soft);
+  color: var(--study-green);
+}
+.stewardMealEditor.uncertain .stewardGramInput input {
+  border-style: dashed;
+  background: #fbfcfb;
+}
+.stewardMealRows { padding: 2px 13px 8px; }
+.stewardMealRow {
+  grid-template-columns: minmax(0, 1fr) 92px;
+  min-height: 54px;
+  gap: 10px;
+}
+.stewardMealRow small { font-size: 15px; }
+.stewardMacroPanel { padding: 11px 12px; }
+.stewardMacroPanel > header {
+  padding-bottom: 7px;
+  border-bottom: 0;
+}
+.stewardMacroBigGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+.stewardMacroBigGrid > div {
+  min-width: 0;
+  padding: 8px 9px;
+  border: 1px solid var(--study-line);
+  border-radius: 8px;
+  background: #fff;
+}
+.stewardMacroBigGrid span {
+  display: block;
+  color: var(--study-muted);
+  font-size: 15px;
+  font-weight: var(--study-weight-secondary);
+}
+.stewardMacroBigGrid strong {
+  display: block;
+  margin-top: 1px;
+  color: var(--study-ink);
+  font-size: 20px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.stewardTopupSection,
+.stewardQuickAddSection {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--study-line);
+}
+.stewardTopupSection > header,
+.stewardQuickAddSection > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.stewardTopupSection > header strong,
+.stewardQuickAddSection > header strong { font-size: 16px; }
+.stewardTopupSection > header span,
+.stewardQuickAddSection > header span {
+  color: var(--study-muted);
+  font-size: 15px;
+}
+.stewardFoodAction {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(215,223,218,.72);
+  background: transparent;
+  color: var(--study-ink);
+  text-align: left;
+  cursor: pointer;
+}
+.stewardFoodAction:last-child { border-bottom: 0; }
+.stewardFoodAction strong {
+  display: block;
+  font-size: 15px;
+  font-weight: var(--study-weight-title);
+}
+.stewardFoodAction small {
+  display: block;
+  margin-top: 1px;
+  color: var(--study-muted);
+  font-size: 15px;
+}
+.stewardFoodAction b {
+  color: var(--study-green);
+  font-size: 18px;
+  font-weight: var(--study-weight-title);
+}
+
+.stewardTrainingGrid {
+  grid-template-columns: minmax(0, 1fr) 240px;
+}
+.stewardTrainingEditor > header {
+  align-items: baseline;
+  padding: 11px 13px 8px;
+}
+.stewardExerciseCards {
+  display: grid;
+  gap: 8px;
+  padding: 6px 13px 8px;
+  overflow: auto;
+}
+.stewardExerciseCard {
+  padding: 10px 11px 9px;
+  border: 1px solid var(--study-line);
+  border-radius: 9px;
+  background: #fff;
+}
+.stewardExerciseHead,
+.stewardExerciseIdentity,
+.stewardExerciseActions,
+.stewardExercisePrescription {
+  display: flex;
+  align-items: center;
+}
+.stewardExerciseHead {
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.stewardExerciseIdentity {
+  min-width: 0;
+  align-items: flex-start;
+  gap: 9px;
+}
+.stewardExerciseRank {
+  display: grid;
+  min-width: 28px;
+  height: 24px;
+  place-items: center;
+  padding: 0 7px;
+  border-radius: 6px;
+  background: var(--study-green-soft);
+  color: var(--study-green);
+  font-size: 15px;
+  font-weight: var(--study-weight-title);
+}
+.stewardExerciseIdentity strong {
+  display: block;
+  color: var(--study-ink);
+  font-size: 16px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.25;
+}
+.stewardExerciseIdentity small {
+  display: block;
+  margin-top: 2px;
+  color: var(--study-muted);
+  font-size: 15px;
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.3;
+}
+.stewardExerciseActions { gap: 5px; }
+.stewardExerciseActions button {
+  min-height: 31px;
+  padding: 4px 9px;
+  border: 1px solid var(--study-line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--study-muted);
+  font-size: 15px;
+  font-weight: var(--study-weight-control);
+  cursor: pointer;
+}
+.stewardExerciseActions button[data-action="record"] {
+  border-color: rgba(47,118,95,.25);
+  background: var(--study-green-soft);
+  color: var(--study-green);
+}
+.stewardExercisePrescription {
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(215,223,218,.66);
+}
+.stewardExercisePrescription span {
+  color: var(--study-muted);
+  font-size: 15px;
+}
+.stewardExercisePrescription strong {
+  font-size: 15px;
+  font-weight: var(--study-weight-title);
+}
+.stewardExerciseCard .stewardSetRow {
+  grid-template-columns: repeat(3, minmax(112px, 1fr));
+  min-height: 0;
+  margin-top: 7px;
+  border-bottom: 0;
+}
+.stewardExerciseCard.recorded {
+  border-color: rgba(47,118,95,.28);
+  background: color-mix(in srgb, var(--study-green-soft) 30%, white);
+}
+.stewardTrainingEffect {
+  margin: 0 13px 10px;
+  padding: 9px 0 0;
+}
+.stewardTrainingSummary { padding: 12px; }
+
+@media (max-width: 1280px) {
+  .stewardNutritionGrid { grid-template-columns: 164px minmax(300px, 1fr) 220px; }
+  .stewardTrainingGrid { grid-template-columns: minmax(0, 1fr) 215px; }
+}

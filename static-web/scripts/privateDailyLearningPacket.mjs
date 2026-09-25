@@ -205,6 +205,8 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
       schema: 'kianos.steward-reality-summary.v1',
       study_day: checkpoint.study_day,
       breaks: null,
+      meals: null,
+      training: null,
       error: 'SHARED_CHECKPOINT_STEWARD_REALITY_INVALID'
     };
   }

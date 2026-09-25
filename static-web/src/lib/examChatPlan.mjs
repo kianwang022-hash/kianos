@@ -122,6 +122,150 @@ const assertUniquePresentationIds = (rows, field) => {
   return rows;
 };
 
+
+const boundedNumber = (value, field, { min = 0, max = 100000, optional = false } = {}) => {
+  if ((value === null || value === undefined || value === '') && optional) return null;
+  const number = Number(value);
+  if (!Number.isFinite(number) || number < min || number > max) {
+    throw new Error(`Invalid ${field}.`);
+  }
+  return number;
+};
+
+function normalizeNutritionProjection(value) {
+  if (value == null) return null;
+  if (!record(value)) throw new Error('Chat Plan presentation.nutrition must be an object.');
+  const ownerRef = text(value.owner_ref, 240);
+  if (!ownerRef) throw new Error('presentation.nutrition.owner_ref is required.');
+
+  const foods = presentationRows(value.foods, 'presentation.nutrition.foods', 24).map((raw, index) => {
+    if (!record(raw)) throw new Error(`Invalid presentation.nutrition.foods[${index}].`);
+    const id = presentationId(raw.id, `presentation.nutrition.foods[${index}].id`);
+    const label = text(raw.label, 100);
+    if (!label) throw new Error(`presentation.nutrition.foods[${index}].label is required.`);
+    const unit = text(raw.unit || 'g', 20);
+    if (!unit) throw new Error(`presentation.nutrition.foods[${index}].unit is required.`);
+    const nutrition = raw.nutrition == null ? null : raw.nutrition;
+    let normalizedNutrition = null;
+    if (nutrition != null) {
+      if (!record(nutrition)) throw new Error(`Invalid presentation.nutrition.foods[${index}].nutrition.`);
+      const basis = String(nutrition.basis || '').trim().toUpperCase();
+      if (!['PER_100G', 'PER_UNIT'].includes(basis)) {
+        throw new Error(`Invalid presentation.nutrition.foods[${index}].nutrition.basis.`);
+      }
+      normalizedNutrition = {
+        basis,
+        kcal: boundedNumber(nutrition.kcal, `presentation.nutrition.foods[${index}].nutrition.kcal`),
+        protein_g: boundedNumber(nutrition.protein_g, `presentation.nutrition.foods[${index}].nutrition.protein_g`),
+        carb_g: boundedNumber(nutrition.carb_g, `presentation.nutrition.foods[${index}].nutrition.carb_g`),
+        fat_g: boundedNumber(nutrition.fat_g, `presentation.nutrition.foods[${index}].nutrition.fat_g`)
+      };
+    }
+    return {
+      id,
+      label,
+      unit,
+      grams_per_unit: (() => {
+        const grams = raw.grams_per_unit == null
+          ? (unit === 'g' ? 1 : null)
+          : boundedNumber(raw.grams_per_unit, `presentation.nutrition.foods[${index}].grams_per_unit`, { min: .01, max: 10000 });
+        if (normalizedNutrition?.basis === 'PER_100G' && grams == null) {
+          throw new Error(`Invalid presentation.nutrition.foods[${index}].grams_per_unit; required for PER_100G.`);
+        }
+        return grams;
+      })(),
+      recommended_amount: boundedNumber(raw.recommended_amount, `presentation.nutrition.foods[${index}].recommended_amount`, { min: 0, max: 10000 }),
+      note: text(raw.note, 180),
+      nutrition: normalizedNutrition
+    };
+  });
+  const foodIds = new Set(foods.map((food) => food.id));
+  if (foodIds.size !== foods.length) throw new Error('Invalid presentation.nutrition.foods; duplicate id.');
+
+  const normalizeEntries = (rows, field, max) => presentationRows(rows, field, max).map((raw, index) => {
+    if (!record(raw)) throw new Error(`Invalid ${field}[${index}].`);
+    const foodId = presentationId(raw.food_id, `${field}[${index}].food_id`);
+    if (!foodIds.has(foodId)) throw new Error(`Invalid ${field}[${index}].food_id; unknown food.`);
+    return {
+      food_id: foodId,
+      amount: boundedNumber(raw.amount, `${field}[${index}].amount`, { min: 0, max: 10000 }),
+      role: text(raw.role, 40)
+    };
+  });
+
+  const meals = presentationRows(value.meals, 'presentation.nutrition.meals', 8).map((raw, index) => {
+    if (!record(raw)) throw new Error(`Invalid presentation.nutrition.meals[${index}].`);
+    const id = presentationId(raw.id, `presentation.nutrition.meals[${index}].id`);
+    const label = text(raw.label, 120);
+    if (!label) throw new Error(`presentation.nutrition.meals[${index}].label is required.`);
+    return {
+      id,
+      label,
+      note: text(raw.note, 180),
+      items: normalizeEntries(raw.items, `presentation.nutrition.meals[${index}].items`, 16)
+    };
+  });
+  const mealIds = new Set(meals.map((meal) => meal.id));
+  if (mealIds.size !== meals.length) throw new Error('Invalid presentation.nutrition.meals; duplicate id.');
+  const activeMealId = value.active_meal_id == null || value.active_meal_id === ''
+    ? (meals[0]?.id || null)
+    : presentationId(value.active_meal_id, 'presentation.nutrition.active_meal_id');
+  if (activeMealId && !mealIds.has(activeMealId)) {
+    throw new Error('Invalid presentation.nutrition.active_meal_id; unknown meal.');
+  }
+
+  return {
+    owner_ref: ownerRef,
+    target_label: text(value.target_label, 120),
+    foods,
+    meals,
+    active_meal_id: activeMealId,
+    topup_pool: normalizeEntries(value.topup_pool, 'presentation.nutrition.topup_pool', 8),
+    quick_add: normalizeEntries(value.quick_add, 'presentation.nutrition.quick_add', 12)
+  };
+}
+
+function normalizeTrainingExercise(raw, field, allowAlternatives = true) {
+  if (!record(raw)) throw new Error(`Invalid ${field}.`);
+  const id = presentationId(raw.id, `${field}.id`);
+  const label = text(raw.label, 120);
+  if (!label) throw new Error(`${field}.label is required.`);
+  const normalized = {
+    id,
+    label,
+    note: text(raw.note, 180),
+    prescription: text(raw.prescription, 160),
+    load_value: boundedNumber(raw.load_value, `${field}.load_value`, { min: 0, max: 100000, optional: true }),
+    load_unit: text(raw.load_unit, 20),
+    reps_value: boundedNumber(raw.reps_value, `${field}.reps_value`, { min: 0, max: 10000, optional: true }),
+    reps_unit: text(raw.reps_unit || 'reps', 20),
+    rpe: boundedNumber(raw.rpe, `${field}.rpe`, { min: 0, max: 10, optional: true })
+  };
+  if (allowAlternatives) {
+    normalized.alternatives = presentationRows(raw.alternatives, `${field}.alternatives`, 6)
+      .map((value, index) => normalizeTrainingExercise(value, `${field}.alternatives[${index}]`, false));
+  }
+  return normalized;
+}
+
+function normalizeTrainingProjection(value) {
+  if (value == null) return null;
+  if (!record(value)) throw new Error('Chat Plan presentation.training must be an object.');
+  const ownerRef = text(value.owner_ref, 240);
+  if (!ownerRef) throw new Error('presentation.training.owner_ref is required.');
+  const exercises = presentationRows(value.exercises, 'presentation.training.exercises', 8)
+    .map((raw, index) => normalizeTrainingExercise(raw, `presentation.training.exercises[${index}]`));
+  const ids = new Set(exercises.map((exercise) => exercise.id));
+  if (ids.size !== exercises.length) throw new Error('Invalid presentation.training.exercises; duplicate id.');
+  return {
+    owner_ref: ownerRef,
+    session_id: presentationId(value.session_id, 'presentation.training.session_id'),
+    title: text(value.title, 140) || '今日训练',
+    duration_label: text(value.duration_label, 80),
+    exercises
+  };
+}
+
 function normalizeExamChatPlanPresentation(value) {
   if (value == null) return null;
   if (!record(value)) throw new Error('Chat Plan presentation must be an object.');
@@ -191,7 +335,9 @@ function normalizeExamChatPlanPresentation(value) {
   return {
     today_tasks: todayTasks,
     week_reference: weekReference,
-    schedule_blocks: scheduleBlocks
+    schedule_blocks: scheduleBlocks,
+    nutrition: normalizeNutritionProjection(value.nutrition),
+    training: normalizeTrainingProjection(value.training)
   };
 }
 
