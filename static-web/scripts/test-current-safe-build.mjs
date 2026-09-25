@@ -43,6 +43,17 @@ try {
     }).redirected, false);
   }
 
+  // On case-insensitive filesystems (the real managed macOS target), an
+  // alternate spelling such as DIST/foo physically resolves under dist.
+  // Existing path components must be realpath-canonicalized before compare.
+  const legacyWebRoot = path.join(scratch, 'legacy-static-web');
+  fs.mkdirSync(path.join(legacyWebRoot, 'dist'), { recursive: true });
+  if (fs.existsSync(path.join(legacyWebRoot, 'DIST'))) {
+    assert.throws(() => resolveSafeAstroBuildArgs(['--outDir', 'DIST/qa'], {
+      managedCurrent: true, currentWebRoot: legacyWebRoot
+    }), /CURRENT_LIVE_DIST_BUILD_FORBIDDEN/, 'case-variant live dist path must be rejected on case-insensitive filesystems');
+  }
+
   // The implicit QA redirect must be physically contained too. If `.qa`
   // itself resolves into the live served release, a default build must fail
   // before rm/write touches that target.

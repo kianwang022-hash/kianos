@@ -327,18 +327,34 @@ async function reloadSite() {
   if (!stopping && !site) startSite();
 }
 
+async function fetchReleaseIdentity(url, deadlineAt) {
+  const remainingMs = deadlineAt - Date.now();
+  if (remainingMs <= 0) throw new Error('CURRENT_RELEASE_RUNTIME_NOT_READY');
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), remainingMs);
+  try {
+    const response = await fetch(url, { signal: controller.signal });
+    if (!response.ok) return null;
+    return await response.json();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function waitForSiteReady(expectedSha, timeoutMs = 5000) {
-  const started = Date.now();
-  while (Date.now() - started < timeoutMs) {
+  const deadlineAt = Date.now() + timeoutMs;
+  while (Date.now() < deadlineAt) {
     if (!site) throw new Error('CURRENT_RELEASE_RUNTIME_EXITED');
     try {
-      const response = await fetch(`http://${host}:${port}/__kianos-release.json?t=${Date.now()}`);
-      if (response.ok) {
-        const identity = await response.json();
-        if (expectedSha && identity?.sha === expectedSha) return;
-      }
+      const identity = await fetchReleaseIdentity(
+        `http://${host}:${port}/__kianos-release.json?t=${Date.now()}`,
+        deadlineAt
+      );
+      if (expectedSha && identity?.sha === expectedSha) return;
     } catch {}
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    if (Date.now() < deadlineAt) {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
   }
   throw new Error('CURRENT_RELEASE_RUNTIME_NOT_READY');
 }
@@ -372,6 +388,7 @@ async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
       ...process.env,
       KIANOS_PORT: String(probePort),
       KIANOS_RELEASE_PROBE_ONLY: '1',
+      KIANOS_REPO_ROOT: releaseRoot,
       KIANOS_PRIVATE_DIR: path.join(probeStateRoot, 'private'),
       KIANOS_CONTROL_DIR: path.join(probeStateRoot, 'control'),
       KIANOS_CONTROL_REPO_DIR: path.join(probeStateRoot, 'control-repo'),
@@ -383,14 +400,19 @@ async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
     }
   });
   try {
-    const started = Date.now();
-    while (Date.now() - started < timeoutMs) {
+    const deadlineAt = Date.now() + timeoutMs;
+    while (Date.now() < deadlineAt) {
       if (candidateServer.exitCode !== null) throw new Error('CURRENT_RELEASE_RUNTIME_EXITED');
       try {
-        const response = await fetch(`http://${host}:${probePort}/__kianos-release.json?t=${Date.now()}`);
-        if (response.ok && (await response.json())?.sha === expectedSha) return;
+        const identity = await fetchReleaseIdentity(
+          `http://${host}:${probePort}/__kianos-release.json?t=${Date.now()}`,
+          deadlineAt
+        );
+        if (identity?.sha === expectedSha) return;
       } catch {}
-      await new Promise((resolve) => setTimeout(resolve, 100));
+      if (Date.now() < deadlineAt) {
+        await new Promise((resolve) => setTimeout(resolve, 100));
+      }
     }
     throw new Error('CURRENT_RELEASE_RUNTIME_NOT_READY');
   } finally {
