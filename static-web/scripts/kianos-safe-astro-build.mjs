@@ -19,15 +19,39 @@ function outDirFromArgs(args) {
 }
 
 export function canonicalizePath(target) {
-  let candidate = path.resolve(target);
-  const suffix = [];
-  while (!fs.existsSync(candidate)) {
-    suffix.unshift(path.basename(candidate));
-    const parent = path.dirname(candidate);
-    if (parent === candidate) return candidate;
-    candidate = parent;
+  const absolute = path.resolve(target);
+  const parsed = path.parse(absolute);
+  let resolved = parsed.root;
+  const pending = absolute.slice(parsed.root.length).split(path.sep).filter(Boolean);
+  let symlinkHops = 0;
+
+  while (pending.length) {
+    const segment = pending.shift();
+    const candidate = path.join(resolved, segment);
+    let stat;
+    try {
+      stat = fs.lstatSync(candidate);
+    } catch (error) {
+      if (error?.code === 'ENOENT') {
+        return path.resolve(resolved, segment, ...pending);
+      }
+      throw error;
+    }
+
+    if (stat.isSymbolicLink()) {
+      symlinkHops += 1;
+      if (symlinkHops > 64) throw new Error('CURRENT_PATH_SYMLINK_LOOP');
+      const linkTarget = path.resolve(path.dirname(candidate), fs.readlinkSync(candidate));
+      const linkParsed = path.parse(linkTarget);
+      resolved = linkParsed.root;
+      pending.unshift(...linkTarget.slice(linkParsed.root.length).split(path.sep).filter(Boolean));
+      continue;
+    }
+
+    resolved = candidate;
   }
-  return path.resolve(fs.realpathSync(candidate), ...suffix);
+
+  return path.resolve(resolved);
 }
 
 export function resolveSafeAstroBuildArgs(args, {

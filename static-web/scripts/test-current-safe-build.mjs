@@ -12,6 +12,7 @@ fs.mkdirSync(webRoot, { recursive: true });
 fs.mkdirSync(servedRoot, { recursive: true });
 fs.symlinkSync(servedRoot, path.join(webRoot, 'dist'), 'dir');
 fs.symlinkSync(servedRoot, path.join(webRoot, 'dist-alias'), 'dir');
+fs.symlinkSync(path.join(servedRoot, 'future-explicit'), path.join(webRoot, 'dist-dangling'), 'dir');
 
 try {
   const ordinary = resolveSafeAstroBuildArgs([], { managedCurrent: false, currentWebRoot: webRoot });
@@ -27,7 +28,8 @@ try {
 
   const forbidden = [
     'dist', 'dist/_qa', 'dist/foo/bar', 'dist/../dist/nested',
-    'dist-alias', 'dist-alias/nested', path.join(servedRoot, 'absolute'), path.join(servedRoot, 'deep', 'child')
+    'dist-alias', 'dist-alias/nested', 'dist-dangling', 'dist-dangling/nested',
+    path.join(servedRoot, 'absolute'), path.join(servedRoot, 'deep', 'child')
   ];
   for (const outDir of forbidden) {
     assert.throws(() => resolveSafeAstroBuildArgs(['--outDir', outDir], {
@@ -45,7 +47,7 @@ try {
   // itself resolves into the live served release, a default build must fail
   // before rm/write touches that target.
   fs.rmSync(path.join(webRoot, '.qa'), { recursive: true, force: true });
-  fs.symlinkSync(servedRoot, path.join(webRoot, '.qa'), 'dir');
+  fs.symlinkSync(path.join(servedRoot, 'future-qa'), path.join(webRoot, '.qa'), 'dir');
   assert.throws(() => resolveSafeAstroBuildArgs([], {
     managedCurrent: true, currentWebRoot: webRoot
   }), /CURRENT_LIVE_DIST_BUILD_FORBIDDEN/, 'default QA output must reject a .qa symlink into live dist');

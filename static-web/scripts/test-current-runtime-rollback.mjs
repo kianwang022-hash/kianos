@@ -117,6 +117,8 @@ try {
   });
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), a);
   assert.equal(fs.existsSync(path.join(root, '.kianos-current-releases/active')), false);
+  assert.equal(fs.existsSync(path.join(root, '.kianos-current-releases/releases', b)), false, 'failed B release worktree must be removed');
+  assert.equal(git(mirror, 'worktree', 'list', '--porcelain').includes(b), false, 'failed B worktree metadata must be removed');
 
   // C is healthy and becomes the first isolated active release.
   write(
@@ -174,8 +176,10 @@ try {
     fs.realpathSync(path.join(root, '.kianos-current-releases/releases', c)),
     'pre-activation probe failure must preserve the current healthy active release'
   );
+  assert.equal(fs.existsSync(path.join(root, '.kianos-current-releases/releases', d)), false, 'failed D release worktree must be removed');
+  assert.equal(git(mirror, 'worktree', 'list', '--porcelain').includes(d), false, 'failed D worktree metadata must be removed');
 
-  console.log('CURRENT_RUNTIME_ROLLBACK PASS: pre-activation failures preserve legacy and isolated healthy releases without downgrade');
+  console.log('CURRENT_RUNTIME_ROLLBACK PASS: pre-activation failures preserve healthy releases and rejected candidates are cleaned');
 } finally {
   if (daemon?.exitCode === null) {
     daemon.kill('SIGTERM');

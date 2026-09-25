@@ -180,6 +180,26 @@ async function prepareRelease(sha, extra = {}) {
   return candidateWebRoot;
 }
 
+async function cleanupPreparedRelease(sha) {
+  const releaseRoot = releases.release(sha);
+  if (!fs.existsSync(releaseRoot)) return;
+  try {
+    await runBounded(gitBin, ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
+      label: 'cleanup rejected release',
+      timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
+    });
+  } catch (error) {
+    warn(`bounded rejected-release cleanup failed; pruning metadata: ${error?.message || error}`);
+    fs.rmSync(releaseRoot, { recursive: true, force: true });
+    try {
+      await runBounded(gitBin, ['-C', repoRoot, 'worktree', 'prune'], {
+        label: 'prune rejected release metadata',
+        timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
+      });
+    } catch {}
+  }
+}
+
 async function activateRelease(sha) {
   const old = fs.existsSync(releases.active) ? fs.realpathSync(releases.active) : null;
   const next = releases.release(sha);
@@ -464,6 +484,7 @@ async function syncOnce({ initial = false } = {}) {
         await probeRelease(releases.release(fetched), fetched);
       } catch (error) {
         warn(`new Current release probe failed before activation; keeping current release: ${error.message}`);
+        await cleanupPreparedRelease(fetched);
         throw error;
       }
       await activateRelease(fetched);
