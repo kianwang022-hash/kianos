@@ -441,8 +441,26 @@
         "515/515 affected explanations carry Current 27 revalidation receipt",
         "source-revision transitive regression PASS",
         "Memory revision-refresh regression PASS",
-        "Projection + learner-object validation PASS"
+        "Projection + learner-object validation PASS",
+        "bound B Beginner Guide revalidated against Current two-mother-model + Source-order/JIT + one-current-Source semantics"
       ]
+    },
+    "guide_revalidation_2026_09_26": {
+      "trigger": "Kian challenged the claimed full Source-revision closure and asked whether Beginner Guide had also changed.",
+      "finding": "The bound B Beginner Guide was an independent learner-facing explanation asset last materially authored before the 27 Biochemistry Source rebase. It remained broadly medically compatible but omitted Current Source-order semantics and therefore was an unvalidated dependent.",
+      "classification": "UPSTREAM_CHANGE_DEPENDENT / EXECUTION_DEFECT_IN_CLOSURE_GATE",
+      "guide_owner": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-guide.md",
+      "changes": [
+        "Current two mother models made explicit: 物质—能量网络 + 信息生命周期",
+        "teacher Source order separated from canonical M/G dependency / closure order",
+        "JIT Prelude explained for metabolism-before-formal-M1 Source contact",
+        "partial-formation / later-closure behavior explained, including G5-style distributed formation",
+        "27 follow-along kept as the only first-pass Biochemistry Source",
+        "26 refined kept as verified explanation/reconstruction substrate, not a second course"
+      ],
+      "validator": "static-web/scripts/validate-xizong-biochemistry-source-lifecycle.mjs",
+      "closure_rule": "Future Biochemistry Source revisions cannot close unless the bound Beginner Guide is revalidated whenever Source order, mother-model orientation or first-pass handoff semantics change.",
+      "status": "PENDING_VALIDATION"
     }
   },
   "delta_review": {
