@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.biochemistry_source_revision.v2",
-  "status": "CLOSED_CURRENT_AFTER_ARCHITECTURE_CORRECTED_REACCEPTANCE",
+  "status": "REOPENED_CURRENT_FOR_TRANSITIVE_SOURCE_REVISION_REVALIDATION",
   "slot_id": "xizong-2027-biochemistry-delta",
   "source_cycle": "27考研",
   "domain": "Biochemistry",
@@ -196,7 +196,7 @@
       "received_at": "2026-09-24",
       "markdown_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md"
     },
-    "action_now": "REBASE_CLOSED; 27_SOURCE_DIRECT_TO_EXISTING_BLOCK_LG_KP; S_K_L_CONTENT_P_REACCEPTED; REOPEN_ONLY_FOR_NEW_SOURCE_OR_CONCRETE_DEFECT",
+    "action_now": "Revalidate all downstream Question→Knowledge review witnesses and learner-facing explanations affected by the 27 Biochemistry Source revision; preserve stable mappings unless exact current semantics require remap.",
     "delta_audit": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
     "delta_summary": {
       "preserve": "M1–M10 + G1–G5 stable Block/KP identities and validated medical Core; canonical content hierarchy and Current Source bindings are now 27-based.",
@@ -358,6 +358,49 @@
         "regression": "static-web/scripts/test-xizong-source-revision-transitive.mjs",
         "learner_truth": "No repository revalidation manufactures learner completion, mastery or fresh exposure."
       }
+    },
+    "transitive_revalidation_audit_2026_09_26": {
+      "trigger": "Full Xizong dependency audit after Kian challenged the prior targeted closeout.",
+      "finding": "Prior CURRENT_TARGETED_REVALIDATED receipt was insufficient: full reviewed-relation freshness shows most Biochemistry mappings still bound to pre-rebase Knowledge blobs.",
+      "relation_freshness": {
+        "mg_total": 474,
+        "mg_current": 3,
+        "mg_stale_review_witness": 471,
+        "d8_additional_reviewed_relations_to_revalidate": 41,
+        "total_affected_relations": 515,
+        "owner_missing": 0,
+        "witness_missing": 0
+      },
+      "explanations": {
+        "affected_relation_qids_with_explanations": 515,
+        "prior_mg_explanations_revalidated_current_marker": 3,
+        "prior_mg_explanations_other_27_rebase_marker": 38,
+        "prior_mg_explanations_without_revision_marker": 433,
+        "rule": "Every affected learner-facing explanation must be explicitly revalidated against Current Knowledge; text mutates only when reasoning/precision/boundary changed."
+      },
+      "semantic_scope": {
+        "stable_identity": "M1-M10/G1-G5 stable Block/KP identities preserved.",
+        "true_27_updates": [
+          "D8 Source Precision: 西格列他钠 / GKA 多格列艾汀",
+          "G4: HIF–VHL degradation → HIF stabilization → EPO enhancer bridge",
+          "G5: eukaryotic low-fidelity/translesion-polymerase group boundary"
+        ],
+        "explicit_conflicts": [
+          "M3 NADPH wording conflict remains fail-closed",
+          "M4 FBPase-1 inhibitor line remains fail-closed"
+        ],
+        "current_review_result": "Targeted review of G4/G5/D8/M3/M4 affected axes found no required existing Question→Knowledge remap; closure work is Current-witness/explanation revalidation plus validator strengthening."
+      },
+      "already_verified_upstream_and_runtime": [
+        "22/22 Source units → 15 canonical M/G Blocks → 191/191 stable KPs",
+        "15/15 Biochemistry Projection assets resolve stable owner refs with no stale DERIVED_FRAGMENT pins",
+        "source-revision transitive invalidation regression PASS",
+        "Memory revision refresh / stale-signal replay protection PASS",
+        "learner-object resolver PASS"
+      ],
+      "defect_class": "FALSE_CLOSEOUT_FROM_TARGETED_QX_SAMPLE_INSTEAD_OF_FULL_TRANSITIVE_FRESHNESS_GATE",
+      "status": "ACTIVE",
+      "blocker": "Q/X full Current revision revalidation pending"
     }
   },
   "delta_review": {
