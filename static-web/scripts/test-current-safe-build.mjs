@@ -44,6 +44,7 @@ try {
   // The implicit QA redirect must be physically contained too. If `.qa`
   // itself resolves into the live served release, a default build must fail
   // before rm/write touches that target.
+  fs.rmSync(path.join(webRoot, '.qa'), { recursive: true, force: true });
   fs.symlinkSync(servedRoot, path.join(webRoot, '.qa'), 'dir');
   assert.throws(() => resolveSafeAstroBuildArgs([], {
     managedCurrent: true, currentWebRoot: webRoot
