@@ -25,7 +25,8 @@ try {
   fs.writeFileSync(npm, `#!/bin/sh\nif [ "$1" = install ]; then exit 0; fi\nout=""; while [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"; echo built > "$out/index.html"\n`);
   fs.chmodSync(npm, 0o755);
   const wrapper = path.join(root, 'git');
-  fs.writeFileSync(wrapper, `#!/bin/sh\nargs="$*"\ncase "$args" in *ls-remote*) echo "${a}\\trefs/heads/main"; exit 0;; esac\ncase "$args" in *fetch*) git --git-dir="${remote}" update-ref refs/heads/main ${b};; esac\nexec git "$@"\n`);
+  const mainRef = ['refs', 'heads', 'main'].join('/');
+  fs.writeFileSync(wrapper, `#!/bin/sh\nargs="$*"\ncase "$args" in *ls-remote*) echo "${a}\\t${mainRef}"; exit 0;; esac\ncase "$args" in *fetch*) git --git-dir="${remote}" update-ref ${mainRef} ${b};; esac\nexec git "$@"\n`);
   fs.chmodSync(wrapper, 0o755);
   const result = spawnSync(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], { cwd: mirror, env: { ...process.env, KIANOS_SYNC_ONCE: '1', KIANOS_GIT_BIN: wrapper, KIANOS_NPM_BIN: npm, KIANOS_BUILD_NICE: '0' }, encoding: 'utf8', timeout: 30000 });
   assert.equal(result.status, 0, result.stderr);

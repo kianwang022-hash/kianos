@@ -57,6 +57,11 @@ const sameCheckpointRaw=(a,b)=>{
 };
 const subjectCheckpointEntries=v=>Array.isArray(v?.entries)?v.entries.map(({key,raw})=>[key,raw]):Object.entries(v?.entries||{});
 const adapters={
+ SUBJECT_CHECKPOINT_GROUPS:[
+  {id:'xizong',subjects:['xizong']},
+  {id:'english+lexical',subjects:['english','lexical']},
+  {id:'politics',subjects:['politics']}
+ ],
  sameCheckpointRaw,subjectCheckpointEntries,
  subjectCheckpointConflicts:(s,v)=>subjectCheckpointEntries(v).some(([k,raw])=>s.getItem(k)!=null&&!sameCheckpointRaw(s.getItem(k),raw)),
  restorePrivateSubjectCheckpoints:(s,sub)=>{
