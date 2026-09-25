@@ -298,18 +298,22 @@ There is one durable repository Current authority:
 GitHub main@HEAD
 ```
 
-For the learner's local Current site, the approved delivery path is:
+For the learner's local Current site, the approved delivery path separates the mutable control mirror from the immutable served release:
 
 ```text
 origin/main
-→ dedicated Current mirror
-→ static-web/scripts/kianos-current-sync.mjs
-→ local main reset to origin/main
-→ Astro reads the local repository
-→ browser reloads when __kianos-current.json SHA advances
+→ dedicated mutable Current control mirror
+→ resolve and fetch one exact immutable SHA
+→ isolated detached release worktree
+→ release-local install + Astro build
+→ candidate runtime/readiness validation
+→ atomic active / previous release pointer transition
+→ static server + private/runtime consumers run from the accepted active release
+→ control mirror advances only after candidate preparation/acceptance
+→ browser reloads when __kianos-current.json release SHA advances
 ```
 
-This synchronization is repository-wide. English, Xizong, Politics, Lexical, Home, and support assets do **not** own separate GitHub→localhost sync daemons.
+The control mirror is delivery/control state, not the served runtime root. A failed install/build/readiness attempt preserves the last-known-good active release; restart/offline may serve that LKG before remote discovery. Runtime consumers that depend on repository code/content are pinned to the same accepted release through the explicit release root (including `KIANOS_REPO_ROOT` where applicable). This synchronization is repository-wide. English, Xizong, Politics, Lexical, Home, and support assets do **not** own separate GitHub→localhost sync daemons.
 
 A separate private control mirror may exist only for private Chat control transport. It must:
 - be registered as a distinct Shared Platform owner;
