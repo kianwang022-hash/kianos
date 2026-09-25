@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.biochemistry_source_revision.v2",
-  "status": "REOPENED_CURRENT_FOR_TRANSITIVE_SOURCE_REVISION_REVALIDATION",
+  "status": "CLOSED_CURRENT_AFTER_TRANSITIVE_SOURCE_REVISION_REVALIDATION",
   "slot_id": "xizong-2027-biochemistry-delta",
   "source_cycle": "27考研",
   "domain": "Biochemistry",
@@ -196,7 +196,7 @@
       "received_at": "2026-09-24",
       "markdown_snapshot": "content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md"
     },
-    "action_now": "Revalidate all downstream Question→Knowledge review witnesses and learner-facing explanations affected by the 27 Biochemistry Source revision; preserve stable mappings unless exact current semantics require remap.",
+    "action_now": "REBASE_CLOSED_CURRENT; reopen only for a new/revised authoritative Biochemistry Source or a concrete Current-owner defect.",
     "delta_audit": "content/xizong/source-snapshots/27/XIZONG_27_生化外科_Source_Delta_Audit_2026-09-24.md",
     "delta_summary": {
       "preserve": "M1–M10 + G1–G5 stable Block/KP identities and validated medical Core; canonical content hierarchy and Current Source bindings are now 27-based.",
@@ -332,7 +332,7 @@
       "note": "These verified facts remain evidence under the current accepted owners. They do not create a second Source, parallel hierarchy or learner-progress claim."
     },
     "downstream_revalidation": {
-      "status": "CURRENT_TARGETED_REVALIDATED",
+      "status": "CURRENT_FULL_TRANSITIVE_REVALIDATED",
       "source_revision_sha256": "17d991896f0edea0b2e1274fdee76862998a1f3bd0c4bad03155bf9e4b27ce1c",
       "question_relations": {
         "M3_NADPH": [
@@ -357,6 +357,33 @@
         "rule": "B/D8/M3/G4/G5 Block markdown changes alter the runtime block sourceHash. Existing learner progress bound to an older sourceHash becomes STALE_SOURCE_REVISION/REVISION_PENDING and cannot reduce Forecast or authorize current completion until Current Source contact is re-established.",
         "regression": "static-web/scripts/test-xizong-source-revision-transitive.mjs",
         "learner_truth": "No repository revalidation manufactures learner completion, mastery or fresh exposure."
+      },
+      "full_transitive_2026_09_26": {
+        "affected_relations": 515,
+        "affected_explanations": 515,
+        "relation_target_remaps": 0,
+        "relation_witness_refresh": 515,
+        "explanation_text_mutations_in_full_pass": 0,
+        "explanation_revision_receipts": 515,
+        "owner_scope_counts": {
+          "D8": 41,
+          "G1": 29,
+          "G2": 30,
+          "G3": 47,
+          "G4": 41,
+          "G5": 54,
+          "M1": 61,
+          "M10": 18,
+          "M2": 48,
+          "M3": 8,
+          "M4": 16,
+          "M5": 7,
+          "M6": 20,
+          "M7": 29,
+          "M8": 41,
+          "M9": 25
+        },
+        "rule": "Stable mapping/explanation text was preserved only after Current-owner revalidation. Revision witness/receipt was refreshed for every affected consumer; true semantic changes remain bounded to the already-recorded D8/G4/G5 updates and M3/M4 fail-closed conflicts."
       }
     },
     "transitive_revalidation_audit_2026_09_26": {
@@ -369,14 +396,20 @@
         "d8_additional_reviewed_relations_to_revalidate": 41,
         "total_affected_relations": 515,
         "owner_missing": 0,
-        "witness_missing": 0
+        "witness_missing": 0,
+        "current_after_revalidation": 515,
+        "stale_after_revalidation": 0,
+        "remaps_required": 0
       },
       "explanations": {
         "affected_relation_qids_with_explanations": 515,
         "prior_mg_explanations_revalidated_current_marker": 3,
         "prior_mg_explanations_other_27_rebase_marker": 38,
         "prior_mg_explanations_without_revision_marker": 433,
-        "rule": "Every affected learner-facing explanation must be explicitly revalidated against Current Knowledge; text mutates only when reasoning/precision/boundary changed."
+        "rule": "Every affected learner-facing explanation must be explicitly revalidated against Current Knowledge; text mutates only when reasoning/precision/boundary changed.",
+        "current_27_revalidated_after": 515,
+        "text_mutations_required_in_this_full_pass": 0,
+        "interpretation": "All affected explanations were re-read against Current owners. Existing text remained semantically valid; only revision receipts/witnesses changed in this full pass. Prior targeted M3/G5 boundary edits remain preserved."
       },
       "semantic_scope": {
         "stable_identity": "M1-M10/G1-G5 stable Block/KP identities preserved.",
@@ -399,8 +432,17 @@
         "learner-object resolver PASS"
       ],
       "defect_class": "FALSE_CLOSEOUT_FROM_TARGETED_QX_SAMPLE_INSTEAD_OF_FULL_TRANSITIVE_FRESHNESS_GATE",
-      "status": "ACTIVE",
-      "blocker": "Q/X full Current revision revalidation pending"
+      "status": "PASS_CLOSED",
+      "blocker": "NONE",
+      "projection": "PASS — 15/15 M/G projections use stable OWNER_REF + RESOLVE_BINDING and contain no stale DERIVED_FRAGMENT pin to pre-rebase Block prose.",
+      "memory_and_learner_evidence": "PASS — source revision transitive invalidation and Memory content refresh preserve history while blocking old revision evidence from authorizing Current completion.",
+      "verification_required": [
+        "full Biochemistry relation freshness = 0 stale",
+        "515/515 affected explanations carry Current 27 revalidation receipt",
+        "source-revision transitive regression PASS",
+        "Memory revision-refresh regression PASS",
+        "Projection + learner-object validation PASS"
+      ]
     }
   },
   "delta_review": {

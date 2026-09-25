@@ -47,7 +47,7 @@ const surgerySlot=text('content/xizong/knowledge/learner/xizong-2027-surgery-reb
 const surgeryMap=text('content/xizong/knowledge/learner/surgery-27-source-map.json');
 
 assert.equal(slot.schema,'kianos.xizong.biochemistry_source_revision.v2');
-assert.equal(slot.status,'CLOSED_CURRENT_AFTER_ARCHITECTURE_CORRECTED_REACCEPTANCE');
+assert.equal(slot.status,'CLOSED_CURRENT_AFTER_TRANSITIVE_SOURCE_REVISION_REVALIDATION');
 assert.deepEqual(slot.current_owner_boundary.canonical_blocks,blocks);
 assert.equal(slot.current_state.source_present,true);
 assert.equal(slot.current_state.current_year_delta_known,true);
@@ -210,6 +210,47 @@ assert.match(g4Body,/EPO[^\n]*enhancer|增强子[^\n]*EPO|EPO[^\n]*增强子/i,'
 assert.match(g5Body,/translesion polymerase group|低保真 \/ translesion polymerase group/i,'G5 lost the current translesion-polymerase boundary');
 assert.match(g5Body,/SOURCE_BOUND/,'G5 exact low-fidelity polymerase glyph must remain source-bound');
 
+const biochemistryRevisionOwnerPaths=new Set([
+  ...Object.values(sourceMap.authority_boundary?.canonical_hierarchy_owners||{}),
+  d8Path
+]);
+const relationManifest=read('content/xizong/question-relations/manifest.json');
+const affectedRevisionQids=[];
+const explanationCache=new Map();
+for(const shard of relationManifest?.canonical_storage?.shards||[]){
+  const relationPath='content/xizong/question-relations/'+String(shard.path||'');
+  const explanationPath=relationPath.replace('content/xizong/question-relations/','content/xizong/explanations/');
+  const relationRows=read(relationPath);
+  if(!Array.isArray(relationRows)) throw new Error('BIOCHEM_RELATION_SHARD_NOT_ARRAY:'+relationPath);
+  for(const row of relationRows){
+    const ownerPath=String(row?.provenance?.knowledge_path||'');
+    if(!biochemistryRevisionOwnerPaths.has(ownerPath)) continue;
+    const qid=String(row?.question_id||'');
+    assert.equal(row.review_status,'REVIEWED',qid+' relation lost REVIEWED status');
+    assert.equal(row.provenance?.knowledge_revalidated_blob_sha,gitBlobSha(ownerPath),qid+' stale Current Knowledge review witness');
+    assert.equal(row.provenance?.knowledge_revalidated_source_sha256,sourceMap.source.sha256,qid+' missing 27 Source revision witness');
+    assert.equal(row.review?.source_revision_revalidated,'BIOCHEMISTRY_27_CURRENT',qid+' missing full 27 relation revalidation receipt');
+    let explanationRows=explanationCache.get(explanationPath);
+    if(!explanationRows){
+      explanationRows=read(explanationPath);
+      explanationCache.set(explanationPath,explanationRows);
+    }
+    if(!Array.isArray(explanationRows)) throw new Error('BIOCHEM_EXPLANATION_SHARD_NOT_ARRAY:'+explanationPath);
+    const explanation=explanationRows.find((x)=>x?.question_id===qid);
+    assert.ok(explanation,qid+' explanation missing');
+    assert.equal(explanation.explanation_status,'APPROVED',qid+' explanation is not APPROVED');
+    assert.equal(explanation.review?.source_revision_revalidated,'BIOCHEMISTRY_27_CURRENT',qid+' explanation missing full 27 revalidation receipt');
+    assert.equal(explanation.review?.source_revision_sha256,sourceMap.source.sha256,qid+' explanation Source revision witness drift');
+    affectedRevisionQids.push(qid);
+  }
+}
+assert.equal(new Set(affectedRevisionQids).size,affectedRevisionQids.length,'duplicate affected Biochemistry relation qid');
+assert.equal(affectedRevisionQids.length,slot.current_state.transitive_revalidation_audit_2026_09_26?.relation_freshness?.total_affected_relations,'full transitive relation count drift');
+assert.equal(slot.current_state.transitive_revalidation_audit_2026_09_26?.status,'PASS_CLOSED');
+assert.equal(slot.current_state.transitive_revalidation_audit_2026_09_26?.relation_freshness?.stale_after_revalidation,0);
+assert.equal(slot.current_state.transitive_revalidation_audit_2026_09_26?.relation_freshness?.remaps_required,0);
+assert.equal(slot.current_state.transitive_revalidation_audit_2026_09_26?.explanations?.current_27_revalidated_after,affectedRevisionQids.length);
+
 const m3Blob=gitBlobSha(m3Path);
 const g5Blob=gitBlobSha(g5Path);
 for(const [p,qid,blob] of [
@@ -239,7 +280,7 @@ const g5Dsb=rowByQuestion('content/xizong/explanations/shards/2023/q001-025.json
 assert.match(g5Dsb.reasoning_chain.join(' '),/同源重组/,'2023N25 lost HR boundary');
 assert.match(g5Dsb.reasoning_chain.join(' '),/非同源末端连接/,'2023N25 lost NHEJ boundary');
 
-assert.equal(slot.current_state.downstream_revalidation?.status,'CURRENT_TARGETED_REVALIDATED');
+assert.equal(slot.current_state.downstream_revalidation?.status,'CURRENT_FULL_TRANSITIVE_REVALIDATED');
 assert.equal(slot.current_state.downstream_revalidation?.evidence?.regression,'static-web/scripts/test-xizong-source-revision-transitive.mjs');
 
 assert.equal(learning.biochemistry_first_pass_lane?.status,'CURRENT_27_REACCEPTED');
@@ -289,6 +330,8 @@ console.log(JSON.stringify({
   canonical_blocks:15,
   stable_kp:191,
   primary_kp_coverage:'191/191',
+  downstream_relation_freshness:affectedRevisionQids.length+'/0 stale',
+  downstream_explanations_revalidated:affectedRevisionQids.length,
   hierarchy:'System→Block→Logic Group→KP',
   duplicate_learning_source_registry:false,
   g5_stable_order:'KP01→KP13',
