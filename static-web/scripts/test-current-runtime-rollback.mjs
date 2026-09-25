@@ -179,7 +179,96 @@ try {
   assert.equal(fs.existsSync(path.join(root, '.kianos-current-releases/releases', d)), false, 'failed D release worktree must be removed');
   assert.equal(git(mirror, 'worktree', 'list', '--porcelain').includes(d), false, 'failed D worktree metadata must be removed');
 
-  console.log('CURRENT_RUNTIME_ROLLBACK PASS: pre-activation failures preserve healthy releases and rejected candidates are cleaned');
+  // Separate first-promotion case: no legacy dist and no prior site. The
+  // candidate probe passes on its isolated port, but the production runtime
+  // intentionally fails when started on the configured endpoint. The active
+  // pointer must be removed again and the mirror must remain on the old SHA.
+  if (daemon?.exitCode === null) {
+    daemon.kill('SIGTERM');
+    await once(daemon, 'exit');
+  }
+  daemon = null;
+
+  const firstRoot = path.join(root, 'first-promotion');
+  const firstUpstream = path.join(firstRoot, 'upstream');
+  const firstRemote = path.join(firstRoot, 'remote.git');
+  const firstMirror = path.join(firstRoot, 'mirror');
+  fs.mkdirSync(firstUpstream, { recursive: true });
+  git(firstUpstream, 'init', '-b', 'main');
+  git(firstUpstream, 'config', 'user.email', 'fixture@example.invalid');
+  git(firstUpstream, 'config', 'user.name', 'Fixture');
+  const writeFirst = (file, body) => {
+    fs.mkdirSync(path.dirname(path.join(firstUpstream, file)), { recursive: true });
+    fs.writeFileSync(path.join(firstUpstream, file), body);
+  };
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) {
+    writeFirst(`static-web/scripts/${name}`, fs.readFileSync(path.join(scripts, name)));
+  }
+  writeFirst('static-web/package.json', '{}');
+  writeFirst('.gitignore', 'static-web/public/\nstatic-web/dist\nstatic-web/.current-*\n');
+  writeFirst('fixture.txt', 'E0');
+  writeFirst(
+    'static-web/scripts/kianos-static-server.mjs',
+    `import http from 'node:http';http.createServer((q,s)=>s.end('E0')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`
+  );
+  git(firstUpstream, 'add', '.');
+  git(firstUpstream, 'commit', '-m', 'E0 base');
+  const e0 = git(firstUpstream, 'rev-parse', 'HEAD');
+  git(firstRoot, 'clone', '--bare', firstUpstream, firstRemote);
+  git(firstUpstream, 'remote', 'add', 'origin', firstRemote);
+  git(firstRoot, 'clone', firstRemote, firstMirror);
+  fs.writeFileSync(path.join(firstMirror, '.git/kianos-current-mirror'), '');
+
+  writeFirst('fixture.txt', 'E1');
+  writeFirst(
+    'static-web/scripts/kianos-static-server.mjs',
+    `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),r=args[args.indexOf('--root')+1];if(!args.includes('--release-probe-only'))process.exit(23);http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({sha:JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha}):'probe-ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`
+  );
+  git(firstUpstream, 'add', '.');
+  git(firstUpstream, 'commit', '-m', 'E1 probe-good production-bad');
+  const e1 = git(firstUpstream, 'rev-parse', 'HEAD');
+  git(firstUpstream, 'push', 'origin', 'main');
+
+  const firstPort = await new Promise((resolve) => {
+    const server = net.createServer().listen(0, '127.0.0.1', () => {
+      const value = server.address().port;
+      server.close(() => resolve(value));
+    });
+  });
+  let firstLogs = '';
+  const firstDaemon = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], {
+    cwd: firstMirror,
+    env: {
+      ...process.env,
+      KIANOS_PORT: String(firstPort),
+      KIANOS_NPM_BIN: npm,
+      KIANOS_BUILD_NICE: '0',
+      KIANOS_SYNC_INTERVAL_MS: '3000'
+    },
+    stdio: ['ignore', 'pipe', 'pipe']
+  });
+  firstDaemon.stdout.on('data', (chunk) => { firstLogs += chunk; });
+  firstDaemon.stderr.on('data', (chunk) => { firstLogs += chunk; });
+  try {
+    await wait(async () => {
+      if (!/new Current release failed readiness; rolling back/.test(firstLogs)) return false;
+      try {
+        const status = JSON.parse(fs.readFileSync(path.join(firstMirror, 'static-web/public/__kianos-current.json')));
+        return status.state === 'degraded' && status.target_sha === e1;
+      } catch {
+        return false;
+      }
+    });
+    assert.equal(git(firstMirror, 'rev-parse', 'HEAD'), e0, 'failed first promotion must not advance the mirror');
+    assert.equal(fs.existsSync(path.join(firstRoot, '.kianos-current-releases/active')), false, 'failed first promotion must not leave an active pointer');
+  } finally {
+    if (firstDaemon.exitCode === null) {
+      firstDaemon.kill('SIGTERM');
+      await once(firstDaemon, 'exit');
+    }
+  }
+
+  console.log('CURRENT_RUNTIME_ROLLBACK PASS: pre-activation and configured-endpoint failures preserve the last healthy release');
 } finally {
   if (daemon?.exitCode === null) {
     daemon.kill('SIGTERM');

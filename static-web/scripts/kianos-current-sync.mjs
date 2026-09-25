@@ -488,10 +488,15 @@ async function syncOnce({ initial = false } = {}) {
         throw error;
       }
       await activateRelease(fetched);
-      if (!oneShot && site) {
+      if (!oneShot) {
         try {
-          log('performing one controlled server reload for accepted release transition');
-          await reloadSite();
+          if (site) {
+            log('performing one controlled server reload for accepted release transition');
+            await reloadSite();
+          } else {
+            log('starting accepted Current release on the configured runtime endpoint');
+            startSite();
+          }
           await waitForSiteReady(fetched);
           runtimeReloaded = true;
         } catch (error) {
