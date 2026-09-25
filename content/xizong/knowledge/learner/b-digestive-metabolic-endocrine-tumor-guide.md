@@ -12,6 +12,7 @@ Current owners:
 
 - System semantics → `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json`
 - first-pass / Logic Group / Recall support → `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json`
+- current Biochemistry Source execution → `content/xizong/knowledge/learner/biochemistry-27-source-map.json`
 - medical Core → canonical D / M / G Block Markdown under `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/`
 - shared learning semantics → `content/xizong/LEARNING_CONTRACT.md` + `study-policy.json`
 
@@ -31,9 +32,16 @@ B 真正做的是把它们放进同一个物质—能量—控制系统：
 
 ---
 
-## 2｜先在脑内同时追六条流
+## 2｜先用两张母模型，再把它展开成六条流
 
-历史 Guide 的“多条 flow 并行”非常适合作为 beginner explanation；现在的 B 系统模型也支持这一点。
+Current B 的生化压缩只有两张母模型：
+
+```text
+物质—能量网络
++ 信息生命周期
+```
+
+下面六条流只是这两张母模型在整个 B 系统里的 beginner 展开，不是新的层级，也不是六套课程。它们帮助你把消化、代谢、内分泌、分子和肿瘤放回同一个系统。
 
 ### ① 输入与运输流
 
@@ -128,6 +136,27 @@ G1–G5 形成分子信息 / 修复 / 肿瘤 Gate
 ```
 
 这些支路会反复互相调用，但不该为了“都有联系”而硬排成一条假病程。
+
+### 这里最容易混淆：依赖顺序 ≠ 27 生化 Source 顺序
+
+上面的 M1→M2… 是 **canonical Knowledge 的依赖 / closure 关系**，不是要求你按 M1、M2、M3 的编号重新排老师讲义。
+
+Current 生化第一遍只沿 `27生化跟课版合集【不带导图】.pdf` 的老师顺序连续前进，并由 `biochemistry-27-source-map.json` 把当前 Source 片段映射回稳定的 M/G Block、Logic Group、KP：
+
+- 27 Source 可以先进入代谢，再正式讲完整的 M1 酶 / 辅因子语言；
+- 这时只补最小 **JIT Prelude**，帮助理解当前页，不把 M1 假装成“已经学完”；
+- 一个 Block 可以被早期 Source 部分形成、晚些 Source 再补全，只有最后需要的 Current Source 到达后才真正 closure；
+- 分子部分也允许先碰到 G5 的部分内容，再在后续信息流 / DNA 损伤 Source 到位后闭合整个 G5。
+
+所以要同时保留两个坐标：
+
+```text
+老师现在讲到哪里
+≠
+canonical Block 现在形成到哪里
+```
+
+前者决定第一遍 Source contact；后者决定 Framework、Recall、Block closure 和后续调用。
 
 ---
 
@@ -253,6 +282,8 @@ M1 蛋白质 / 酶 / 维生素语言
 
 任务：不是逐酶抄表，而是回答“底物从哪里来、往哪里去、受什么状态控制、堵住会出现什么后果”。
 
+> 这里的 M1–M10 是 canonical Knowledge 地图，不是 27 跟课的逐页阅读顺序。
+
 ### G｜信息流与肿瘤 Gate：G1–G5
 
 ```text
@@ -264,6 +295,8 @@ M1 蛋白质 / 酶 / 维生素语言
 ```
 
 任务：给代谢执行器和肿瘤机制提供信息层底座。
+
+> G1–G5 同样是 canonical Knowledge 地图；Current 27 Source 可以跨 Block、先形成局部，再在后续 Source 中闭合。
 
 ---
 
@@ -283,6 +316,15 @@ System Guide 只负责选择正确支路和认知坐标。
 ```
 
 不要让 Guide 自己展开成“第二套 600 KP 正文”。
+
+对生化还多一条硬规则：
+
+```text
+第一遍连续 Source = 27 生化跟课
+26 生化精编 = verified explanation / reconstruction substrate
+```
+
+有价值的 26 精编“理顺知识点”、机制解释和边界，经 27 Current Source 重新核对后已经吸收到 Framework / KP / Learning；它们的价值要保留，但**不形成第二套要再读一遍的生化课**。
 
 ---
 
