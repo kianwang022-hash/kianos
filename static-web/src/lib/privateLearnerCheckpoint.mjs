@@ -16,6 +16,7 @@ const timedOutRead = (timeoutMs) => ({
   checkpoint: null,
   error: readTimeoutError(timeoutMs)
 });
+const settleRead = (didTimeout, timeoutMs, value) => didTimeout ? timedOutRead(timeoutMs) : value;
 const unavailableRead = (error) => ({
   status: 'unavailable',
   checkpoint: null,
@@ -93,8 +94,8 @@ export async function readPrivateLearnerCheckpoint({
       if (body?.status !== 'ready' || body?.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) {
         return { status: 'invalid', checkpoint: null, error: 'invalid checkpoint response' };
       }
-      return didTimeout ? timedOutRead(deadlineMs) : { status: 'ready', checkpoint: clone(body.checkpoint), error: null };
-    })().catch((error) => didTimeout ? timedOutRead(deadlineMs) : unavailableRead(error));
+      return settleRead(didTimeout, deadlineMs, { status: 'ready', checkpoint: clone(body.checkpoint), error: null });
+    })().catch((error) => settleRead(didTimeout, deadlineMs, unavailableRead(error)));
     const timeoutPromise = new Promise((resolve) => {
       timeoutId = globalThis.setTimeout(() => {
         didTimeout = true;
