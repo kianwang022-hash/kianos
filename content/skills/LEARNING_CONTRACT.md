@@ -121,6 +121,8 @@ Hard rules:
 - upstream research truth stays with its research owner;
 - the final learner-facing **Deep Reading** may be authored directly from that mature research substrate;
 - KianOS does **not** require a second semantic rewrite merely to make the content "KianOS-native";
+- the final authored prose must still pass claim-level and learner-content closure: a smoother narrative must not strengthen uncertain evidence, skip decisive causal steps or hide important boundaries;
+- this validation repairs the same content asset when needed; it is not a mandatory second authoring pass;
 - once promoted, the Deep Reading asset is canonical learner Content and downstream Projection should normally render or navigate it rather than regenerate it;
 - weak learner Content must not be rescued by UI;
 - reading / page completion remains exposure or Resume evidence only, never capability evidence.
