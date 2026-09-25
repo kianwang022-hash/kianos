@@ -13,7 +13,7 @@ study_refs:
     pdf_page_end: 132
     source_local_asset_start: IMAGE_PAGES/p0129.png
     source_local_asset_end: IMAGE_PAGES/p0133.png
-    source_locator_semantics: source-local preprocessing assets, not physical pages in the current merged PDF
+    source_locator_semantics: Current 27 refined physical PDF pages; historical source-local ids are provenance only
   - source_id: respiratory-r07
     label: 呼吸R7｜结核共同病理与化疗（Recall）
 outline_units:
@@ -29,10 +29,10 @@ prerequisites:
 next_blocks:
   - urinary-b14
 visual_gates:
-  - surgery-source-local-p0129-renal-tuberculosis-map
-  - surgery-source-local-p0130-urinary-tumor-layer-map
-  - surgery-source-local-p0131-hematuria-and-exam-map
-  - surgery-source-local-p0132-tumor-comparison-map
+  - surgery-refined-p128-renal-tuberculosis-map
+  - surgery-refined-p129-p130-urinary-tumor-layer-map
+  - surgery-refined-p130-p131-hematuria-and-exam-map
+  - surgery-refined-p131-p132-tumor-comparison-map
 visual_gate_status: SOURCE_ROUTE_VERIFIED_PIXEL_REVIEW_NOT_CLAIMED
 source_gap_status: SOURCE_ROUTING_AND_CLINICAL_BOUNDARIES_EXPLICIT
 ---
@@ -48,7 +48,7 @@ source_gap_status: SOURCE_ROUTING_AND_CLINICAL_BOUNDARIES_EXPLICIT
 >
 > **Primary Outline**：外科 U026 共14题；其中“分肾功能的三个检查”和“尿三杯”已在 K6 完成唯一 Primary，本 Block只 Recall / Apply。其余 **12 / 12** 为本 Block Primary，`duplicate_primary = 0`。
 >
-> **第一轮流程**：Framework → 外科 Lecture连续学习与 Source-local Visual Gate → Framework Reconstruction → KP Active Recall → Outline optional / low-pressure → TTSX Lecture-attached Questions → Block Complete。
+> **第一轮流程**：Framework → 27外科精编连续学习与 Current refined original-page Visual Gate → Framework Reconstruction → KP Active Recall → Outline optional / low-pressure → TTSX Lecture-attached Questions → Block Complete。
 >
 > **Source boundary**：保留当前 Study 对传统病理名称、检查“首选/最佳/金标准”、分期、术式与抗结核疗程的 306 考试口径，但 Current Core 不把这些压缩表升级成跨情境绝对规则。稳定主线是：器官定位 → 风险/分期 → 合适的影像/内镜/病理证据 → 再决定器官保留、切除或系统治疗方向。
 
@@ -189,7 +189,7 @@ B｜泌尿系统肿瘤
 
 ## KP02｜肾结核总链：肺结核背景，单侧肾慢性破坏，再向下累及尿路
 
-> **讲义定位 →** 外科 Lecture P104；source-local asset p0129。  
+> **讲义定位 →** 27外科精编 SUR27-U18 PDF P128。  
 > **主提示**：来源1｜人群2｜单/双侧｜肾→输尿管→膀胱｜慢性破坏2后果。
 
 Study 口径：
@@ -246,7 +246,7 @@ Study 旁注解释肾区疼痛可不突出：感觉神经主要在肾包膜，�
 
 ## KP04｜肾结核证据：微生物学定身份，影像定位置与破坏范围
 
-> **讲义定位 →** 外科 Lecture P104、P106；source-local assets p0129/p0131。  
+> **讲义定位 →** 27外科精编 SUR27-U18 PDF P128–P130。  
 > **主提示**：培养/PCR｜影像看什么｜IVU Source角色｜肾自截链｜分肾功能。
 
 ### Current 稳定证据层
@@ -289,7 +289,7 @@ IVU / IVP 可见：
 
 ## KP05｜肾结核治疗：医疗为主，手术按破坏、梗阻与功能个体化
 
-> **讲义定位 →** 外科 Lecture P104；source-local asset p0129。  
+> **讲义定位 →** 27外科精编 SUR27-U18 PDF P128。  
 > **主提示**：Current六个月主轴｜手术按结构/功能｜旧6–9月与术前后疗程Precision｜重建接口。
 
 ### Current 稳定主轴
@@ -375,7 +375,7 @@ Study 的考试入口：
 
 ## KP08｜肾癌身份：透明细胞癌多见，增强CT主导诊断/分期；穿刺有适应场景
 
-> **讲义定位 →** 外科 Lecture P105；source-local asset p0130。  
+> **讲义定位 →** 27外科精编 SUR27-U18 PDF P129–P130。  
 > **主提示**：病理1｜肿块/癌栓｜血尿条件｜增强CT｜穿刺不是人人必需。
 
 当前 Study 识别：
@@ -425,7 +425,7 @@ Study 当前列出：
 
 ## KP10｜上尿路尿路上皮癌：传统“移行细胞癌” + 条状血块 + CTU主轴
 
-> **讲义定位 →** 外科 Lecture P105；source-local asset p0130。  
+> **讲义定位 →** 27外科精编 SUR27-U18 PDF P129–P130。  
 > **主提示**：范围2器官｜术语新旧｜血块1｜镜下1｜CTU｜URS情境｜根治术Source口径。
 
 上尿路癌包括：
@@ -476,7 +476,7 @@ CTU + 尿细胞学 / 膀胱镜排查
 
 ## KP11｜膀胱癌身份：尿路上皮癌为主；传统“移行细胞癌”是旧同义词
 
-> **讲义定位 →** 外科 Lecture P105；source-local asset p0130。  
+> **讲义定位 →** 27外科精编 SUR27-U18 PDF P129–P130。  
 > **主提示**：术语｜血块｜刺激症时相｜典型入口｜诊断主轴。
 
 当前稳定：
@@ -503,7 +503,7 @@ MRI 是**局部分期**工具之一，不能替代膀胱镜 / TURBT 的组织学
 
 ## KP12｜膀胱癌分层：Ta ≠ Tis；NMIBC 与肌层浸润边界
 
-> **讲义定位 →** 外科 Lecture P105；source-local asset p0130。  
+> **讲义定位 →** 27外科精编 SUR27-U18 PDF P129–P130。  
 > **主提示**：Ta/Tis/T1/T2｜NMIBC3类｜TURBT｜BCG Source接口｜肌层后大边界。
 
 正确分层：
@@ -613,7 +613,7 @@ PSA + ISUP grade + 临床/影像分期
 
 ## KP15｜旧“首选 / 最佳”表完整保留，但 Current 必须情境化
 
-> **讲义定位 →** 外科 Lecture P106；source-local asset p0131。  
+> **讲义定位 →** 27外科精编 SUR27-U18 PDF P130–P131。  
 > **主提示**：Source表｜Current任务层｜不能把MRI/ECT/穿刺写成万能最佳。
 
 ### //MI-D｜当前 Study 检查表
@@ -754,16 +754,16 @@ K6 已完成尿三杯唯一 Primary，本 Block只调用：
 
 ---
 
-# 12｜原图 / Source-local Asset 门禁
+# 12｜27 精编原图门禁
 
 | Visual Gate | 必须回看的内容 | 状态 |
 |---|---|---|
-| source-local `p0129` | 肾结核器官路径、虫蚀样空洞、肾自截、传统治疗分流 | ROUTE VERIFIED |
-| source-local `p0130` | 四类肿瘤位置、膀胱壁层次、Ta/Tis/T1/T2关系 | ROUTE VERIFIED |
-| source-local `p0131` | 检查层级、尿三杯与血尿位置图 | ROUTE VERIFIED |
-| source-local `p0132` | 四种泌尿肿瘤比较图与病例识别入口 | ROUTE VERIFIED |
+| Current 27精编 PDF P128 | 肾结核器官路径、虫蚀样空洞、肾自截、传统治疗分流 | CURRENT SOURCE |
+| Current 27精编 PDF P129–P130 | 四类肿瘤位置、膀胱壁层次、Ta/Tis/T1/T2关系 | CURRENT SOURCE |
+| Current 27精编 PDF P130–P131 | 检查层级、尿三杯与血尿位置图 | CURRENT SOURCE |
+| Current 27精编 PDF P131–P132 | 四种泌尿肿瘤比较图与病例识别入口 | CURRENT SOURCE |
 
-> 这些编号来自历史 `外科学讲义_AI阅读版.md` preprocessing / IMAGE_PAGES 兼容路由，**不等于当前合并 PDF 的物理页码**。本批已验证 source route，但当前工具未成功渲染每一张原图，因此这里不声称 pixel-level visual audit。学习时仍须按 route 回原图。
+> 历史 `外科学讲义_AI阅读版.md` preprocessing / IMAGE_PAGES 的 `p0129–p0132` 只保留 provenance，不再承担 Current 路由。当前工具未重新物化所有精编原图，因此不声称 pixel-level KianOS visual closure；学习时直接回上述 27 精编物理页。
 
 ---
 
@@ -868,7 +868,7 @@ LectureQuestionBinding 自动提供
 
 ```text
 Framework已定位
-→ 27外科精编 SUR27-U18 / PDF P128–P132 及当前 source-local asset 完整学习
+→ 27外科精编 SUR27-U18 / PDF P128–P132 原页完整学习；历史 source-local asset 不再作为 Current 入口
 → 能闭卷重建肾结核器官链与四类肿瘤模型
 → 能正确区分Ta/Tis/T1/T2
 → 能从血尿、血块、肿块、DRE和临床任务选择检查层级
