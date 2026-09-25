@@ -171,7 +171,12 @@ const ADAPTERS = Object.freeze({
   })
 });
 
-const RESTORE_GROUPS = [['xizong'], ['english', 'lexical'], ['politics']];
+export const SUBJECT_CHECKPOINT_GROUPS = Object.freeze([
+  Object.freeze({ id: 'xizong', subjects: Object.freeze(['xizong']) }),
+  Object.freeze({ id: 'english+lexical', subjects: Object.freeze(['english', 'lexical']) }),
+  Object.freeze({ id: 'politics', subjects: Object.freeze(['politics']) })
+]);
+const RESTORE_GROUPS = SUBJECT_CHECKPOINT_GROUPS.map(({ id, subjects }) => ({ id, subjects: [...subjects] }));
 
 export const sameCheckpointRaw = (a, b) => {
   if (a === b) return true;
@@ -185,7 +190,12 @@ export const subjectCheckpointEntries = value => Array.isArray(value?.entries)
 export const subjectCheckpointConflicts = (storage, value) => subjectCheckpointEntries(value)
   .some(([key, raw]) => storage.getItem(key) != null && !sameCheckpointRaw(storage.getItem(key), raw));
 
-export function capturePrivateSubjectCheckpoints(storage, existingSubjects = {}, { now = Date.now(), warnings = [], allowLocalChanges = false } = {}) {
+export function capturePrivateSubjectCheckpoints(storage, existingSubjects = {}, {
+  now = Date.now(),
+  warnings = [],
+  allowLocalChanges = false,
+  allowLocalChangesByGroup = {}
+} = {}) {
   if (!existingSubjects || typeof existingSubjects !== 'object' || Array.isArray(existingSubjects)) {
     throw new Error('PRIVATE_SUBJECT_CHECKPOINTS_INVALID');
   }
@@ -193,12 +203,15 @@ export function capturePrivateSubjectCheckpoints(storage, existingSubjects = {},
   for (const group of RESTORE_GROUPS) {
     try {
       const staged = new RestoreStorage(storage);
-      for (const subject of group) {
+      const localGroupChangesAllowed = Object.prototype.hasOwnProperty.call(allowLocalChangesByGroup, group.id)
+        ? Boolean(allowLocalChangesByGroup[group.id])
+        : Boolean(allowLocalChanges);
+      for (const subject of group.subjects) {
         const adapter = ADAPTERS[subject], current = adapter.capture(staged, { now });
         if (current) adapter.validate(current);
         const prior = existingSubjects[subject];
         if (prior) {
-          if (!allowLocalChanges && subjectCheckpointConflicts(storage, prior)) {
+          if (!localGroupChangesAllowed && subjectCheckpointConflicts(storage, prior)) {
             throw new Error('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT');
           }
           const prepared = adapter.prepare(staged, prior, { onlyIfEmpty: true });
@@ -206,11 +219,11 @@ export function capturePrivateSubjectCheckpoints(storage, existingSubjects = {},
           applyChanges(staged, prepared.changes || []);
         }
       }
-      const captured = Object.fromEntries(group.map(subject => [subject, ADAPTERS[subject].capture(staged, { now })]));
+      const captured = Object.fromEntries(group.subjects.map(subject => [subject, ADAPTERS[subject].capture(staged, { now })]));
       for (const [subject, value] of Object.entries(captured)) if (value) next[subject] = value;
     } catch (error) {
       // Preserve the last durable group and raw local bytes; healthy siblings save.
-      warnings.push('checkpoint:' + group.join('+') + ':' + String(error.message || error));
+      warnings.push('checkpoint:' + group.id + ':' + String(error.message || error));
     }
   }
   return next;
@@ -224,7 +237,7 @@ export function preparePrivateSubjectCheckpointRestore(storage, subjects = {}, {
   for (const group of RESTORE_GROUPS) {
     const pending = [], rows = {};
     try {
-      for (const subject of group) {
+      for (const subject of group.subjects) {
         const adapter = ADAPTERS[subject], value = subjects[subject];
         const local = adapter.capture(storage);
         if (local) adapter.validate(local);
@@ -240,7 +253,7 @@ export function preparePrivateSubjectCheckpointRestore(storage, subjects = {}, {
       }
       changes.push(...pending); Object.assign(results, rows);
     } catch (error) {
-      for (const subject of group) results[subject] = { status: 'blocked', restored: 0, reason: String(error.message || error) };
+      for (const subject of group.subjects) results[subject] = { status: 'blocked', restored: 0, reason: String(error.message || error) };
     }
   }
   return { changes, results };

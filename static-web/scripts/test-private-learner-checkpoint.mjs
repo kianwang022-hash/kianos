@@ -345,6 +345,100 @@ const politicsEvidence = [{
   study_day: day,
   observed_at: new Date(now).toISOString()
 }];
+const appendTimerSession = (storage, id, endedAt) => {
+  const ledger = JSON.parse(storage.getItem(STUDY_TIMER_LEDGER_KEY));
+  ledger.sessions.push({
+    id,
+    subject: 'xizong',
+    context: timerState.context,
+    startedAt: endedAt - 60000,
+    endedAt,
+    source: 'timer'
+  });
+  storage.setItem(STUDY_TIMER_LEDGER_KEY, JSON.stringify(ledger));
+  const state = JSON.parse(storage.getItem(STUDY_TIMER_STATE_KEY));
+  state.lastSeenAt = endedAt;
+  state.updatedAt = endedAt;
+  state.revision = Number(state.revision || 0) + 1;
+  storage.setItem(STUDY_TIMER_STATE_KEY, JSON.stringify(state));
+};
+const continuityStorage = new MemoryStorage({
+  [EXAM_PROFILE_KEY]: JSON.stringify(profile),
+  [EXAM_CHAT_PLAN_KEY]: JSON.stringify(chatPlan),
+  [STUDY_TIMER_STATE_KEY]: JSON.stringify(timerState),
+  [STUDY_TIMER_LEDGER_KEY]: JSON.stringify(timerLedger),
+  [englishExposureKey]: JSON.stringify(englishExposure),
+  [lexicalLedgerKey]: JSON.stringify(lexicalLedger)
+});
+let continuityCheckpoint = null;
+const readContinuityCheckpoint = async () => continuityCheckpoint
+  ? { status: 'ready', checkpoint: continuityCheckpoint }
+  : { status: 'missing', checkpoint: null };
+const writeContinuityCheckpoint = async (value) => {
+  continuityCheckpoint = value;
+  return { status: 'saved' };
+};
+const continuityInitial = await saveSharedControlToPrivate(continuityStorage, {
+  now,
+  readCheckpoint: readContinuityCheckpoint,
+  writeCheckpoint: writeContinuityCheckpoint
+});
+assert.equal(continuityInitial.status, 'saved');
+assert.equal(continuityCheckpoint.payload.shared.study_timer_ledger.sessions.length, 1);
+
+continuityStorage.setItem(lexicalLedgerKey, '{corrupt-json');
+appendTimerSession(continuityStorage, 's2', now + 60000);
+const continuityPartialOne = await saveSharedControlToPrivate(continuityStorage, {
+  now,
+  readCheckpoint: readContinuityCheckpoint,
+  writeCheckpoint: writeContinuityCheckpoint
+});
+assert.equal(continuityPartialOne.status, 'partial');
+assert.ok(continuityPartialOne.warnings.every((row) => !row.includes('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT')));
+assert.equal(continuityCheckpoint.payload.shared.study_timer_ledger.sessions.length, 2);
+
+appendTimerSession(continuityStorage, 's3', now + 120000);
+const continuityPartialTwo = await saveSharedControlToPrivate(continuityStorage, {
+  now,
+  readCheckpoint: readContinuityCheckpoint,
+  writeCheckpoint: writeContinuityCheckpoint
+});
+assert.equal(continuityPartialTwo.status, 'partial');
+assert.ok(continuityPartialTwo.warnings.every((row) => !row.includes('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT')));
+assert.equal(continuityCheckpoint.payload.shared.study_timer_ledger.sessions.length, 3);
+
+continuityStorage.setItem(englishExposureKey, JSON.stringify({
+  ...englishExposure,
+  materials: { ...englishExposure.materials, 'local-only': { object_id: 'local-only', events: [] } }
+}));
+appendTimerSession(continuityStorage, 's4', now + 180000);
+const continuityPartialThree = await saveSharedControlToPrivate(continuityStorage, {
+  now,
+  readCheckpoint: readContinuityCheckpoint,
+  writeCheckpoint: writeContinuityCheckpoint
+});
+assert.equal(continuityPartialThree.status, 'partial');
+assert.ok(continuityPartialThree.warnings.some((row) => row.includes('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT')));
+assert.equal(continuityCheckpoint.payload.shared.study_timer_ledger.sessions.length, 4);
+assert.equal(
+  JSON.parse(continuityCheckpoint.payload.subjects.english.entries[englishExposureKey]).materials['local-only'],
+  undefined,
+  'failed english+lexical group must not gain overwrite authority from sibling saves'
+);
+
+continuityStorage.setItem(englishExposureKey, JSON.stringify(englishExposure));
+continuityStorage.removeItem(lexicalLedgerKey);
+appendTimerSession(continuityStorage, 's5', now + 240000);
+const continuityRecovered = await saveSharedControlToPrivate(continuityStorage, {
+  now,
+  readCheckpoint: readContinuityCheckpoint,
+  writeCheckpoint: writeContinuityCheckpoint
+});
+assert.equal(continuityRecovered.status, 'saved');
+assert.ok(continuityRecovered.warnings.every((row) => !row.includes('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT')));
+assert.equal(continuityCheckpoint.payload.shared.study_timer_ledger.sessions.length, 5);
+assert.equal(continuityCheckpoint.payload.subjects.lexical.schema, 'kianos.lexical.private-payload.v1');
+
 const combinedSource = new MemoryStorage({
   [EXAM_PROFILE_KEY]: JSON.stringify(profile),
   [EXAM_CHAT_PLAN_KEY]: JSON.stringify(chatPlan),
