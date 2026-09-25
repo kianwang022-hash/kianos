@@ -156,7 +156,13 @@ function createText(tag, className, value) {
 }
 
 function planPresentation(state) {
-  return state?.plan?.presentation || state?.presentation || null;
+  const value = state?.plan?.presentation || state?.presentation || null;
+  if (!value) return null;
+  return {
+    todayTasks: value.todayTasks || value.today_tasks || [],
+    weekReference: value.weekReference || value.week_reference || [],
+    scheduleBlocks: value.scheduleBlocks || value.schedule_blocks || []
+  };
 }
 
 function planStatusText(state) {

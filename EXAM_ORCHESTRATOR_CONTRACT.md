@@ -206,6 +206,18 @@ A same resolved day's coupled exam/execution projections must apply consistently
 
 The phase/capacity/score-gap/recoverability rules below are **Current planning priors for Chat**, not an autonomous Website scheduler.
 
+For capacity-aware exam planning, inherit the current cross-subject Work-optimization decision from `kianwang022-hash/kian-personal-os/exam/CONTROL.md §4C` rather than inventing a KianOS-local recovery strategy. The downstream product translation is only:
+
+```text
+accepted capacity/load judgment
+→ which resolved Work is protected / moved / reduced
+→ current-day Chat Plan + optional capacity projection
+→ Home strategic explanation
+→ Steward time/reality execution
+```
+
+A capacity label that does not change Work selection, placement, recovery action or recheck is normally not worth foregrounding.
+
 Whenever later text says that the “Orchestrator” allocates, recalculates, ranks, protects a floor, or chooses a next action, interpret that as:
 
 > **Chat uses these priors plus current learner evidence to decide the plan; the Website validates, presents and records the accepted plan but does not execute that strategy autonomously.**

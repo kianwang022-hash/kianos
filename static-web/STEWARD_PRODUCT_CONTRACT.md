@@ -15,6 +15,33 @@ Preserve the full accepted scope: Today / Week / Month plus on-demand Review; sc
 
 Chat makes judgments and resolved plans. The website executes explicit choices, records facts, calculates and renders. It does not infer a strategy merely because data or a button exists. Natural-language interaction remains valid; the website replaces repetitive presentation/reporting, not discussion or human choice.
 
+### Exam Work optimization translation
+
+The current exam use-case is the primary high-frequency realization of the Capacity Loop.
+
+Surface responsibilities remain split:
+
+```text
+Home / Exam Orchestrator
+→ strategic allocation: what deserves the strongest capacity window and why
+
+Steward
+→ temporal execution: when it is placed, what actually happened, recovery and re-entry
+
+Review / Chat
+→ attribution: knowledge gap vs task-cost inefficiency vs load-placement mismatch vs recovery/foundation problem
+→ smallest next-cycle correction
+```
+
+The Website does not autonomously make those judgments. It must, however, make the accepted Chat judgment legible enough that Kian can execute without reconstructing the reasoning from memory.
+
+A capacity-aware plan is successful only when it improves **useful exam Work**, not merely when the capacity label is displayed. The product should support:
+- protecting high-value high-cognition work in stronger windows;
+- moving continuity / lower-load work into weaker windows when that is the resolved decision;
+- reducing avoidable task cost before demanding more endurance;
+- using re-entry to decide whether the current load remains credible;
+- letting Review challenge whether a weak block was actually a knowledge defect.
+
 ### Capacity optimization product outcome
 
 Steward is not merely a schedule viewer or a break logger. Its durable product job is to make the Personal Recovery model operational in reality:
@@ -330,6 +357,68 @@ During use, local deterministic actions handle pause/resume, capture, next-item 
 A website button does not invoke native ChatGPT by itself. `调整今天` must use a real authorized request/response executor or clearly bring Kian to Chat to say `调整一下`, with existing data readback supplying context. No silent model calls, automatic retries or unproved after-turn analysis. Data capture may be automatic; judgment is active-turn or separately authorized execution. No nightly analysis is promised merely because a Review page exists.
 
 For Radar/email triggers, unbounded Needs You safety, source freshness and action lifecycle, use `kianwang022-hash/kian-personal-os/exam/roles/INTAKE.md`. Radar is not omitted from the loop and is not stuffed into the Dock. No new recurring job is authorized here.
+
+## 11A. Kian Human Gate — Exam Work Optimization
+
+Machine/browser acceptance is a prerequisite, not the Human Gate itself.
+
+Before asking Kian to judge the product, Engineering must self-attack the candidate on the real Mac-first design basis:
+
+1. **Glance comprehension**
+   - within one screen, Home makes the current exam priority / allocation and any decision-changing capacity adjustment legible;
+   - Steward makes current actual activity, planned context, execution strategy and latest recovery/re-entry legible;
+   - no raw Health dump, backend vocabulary or duplicated strategy blocks compete with the task.
+
+2. **Planning usefulness**
+   - a reduced/uncertain capacity case changes the *explanation and resolved plan* through Chat, not through Website heuristics;
+   - strongest credible windows are used for the resolved high-load/high-value work;
+   - lower-value or lower-load work can move without being mislabeled as failure/debt;
+   - elapsed time is not spent twice and target minutes remain whole-day totals.
+
+3. **Execution continuity**
+   - Pause is immediate; rest detail remains optional;
+   - Resume preserves native return context;
+   - re-entry is visible as evidence, not a success badge;
+   - a failed recovery can lead to a new Chat judgment without forcing Kian to restate task/time/Health facts already available.
+
+4. **Review attribution**
+   - one real/synthetic Review must distinguish at least:
+     knowledge defect / task-cost inefficiency / load-placement mismatch / recovery mismatch;
+   - it changes the earliest responsible owner/lever only;
+   - one weak block does not create durable weakness or a global capacity rule.
+
+5. **Visual / interaction quality**
+   - Mac 1512-wide is the primary acceptance geometry;
+   - visible useful text respects the current readability floor and real PingFang evidence;
+   - Work Strategy is integrated into the existing editorial/workbench hierarchy rather than presented as KPI cards;
+   - no page-level horizontal overflow, no permanent blank region for the Dock, no repeated global nav, no decorative status pile.
+
+6. **Friction / privacy**
+   - Kian does not manually re-enter Health metrics, current subject, elapsed study time or a recorded break when those sources are readable;
+   - raw Health remains Health-owned and private learner/runtime evidence stays private;
+   - missing/stale evidence weakens only the dependent judgment and never becomes zero/normal.
+
+### Kian-facing gate
+
+Only after the self-attack above passes, Kian judges one real study-day journey:
+
+```text
+morning / current plan
+→ high-value Work
+→ real capacity change or meaningful sustained load
+→ Pause / recovery / Resume / re-entry when needed
+→ adjusted or preserved plan
+→ end-of-day Review
+```
+
+PASS requires Kian to be able to answer, without reconstructing backend details:
+- “现在最值钱的 Work 是什么？”
+- “为什么放在这个窗口 / 为什么现在要换负荷？”
+- “这次恢复到底有没有让我重新可用？”
+- “今天的问题更像不会、任务太贵、排错时间，还是恢复没做好？”
+- “明天真正要改哪一个杠杆？”
+
+A negative answer reopens the **smallest responsible owner** (planning semantics, Review attribution, Steward interaction, Visual or Runtime consumer). It does not reopen the cross-system architecture by default.
 
 ## 12. Acceptance / migration
 

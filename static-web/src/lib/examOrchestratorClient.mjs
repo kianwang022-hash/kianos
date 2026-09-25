@@ -111,6 +111,30 @@ export function initExamHome(root) {
     const checked = readTaskChecks();
     return rows.filter((row) => !(Object.hasOwn(checked, row.id) && checked[row.id] === true)).length;
   };
+  const renderWorkStrategy = () => {
+    const section = $('[data-exam-work-strategy]');
+    if (!section || !readModel) return;
+    const judgment = readModel.capacity?.judgment || null;
+    const visible = readable && chatPlanState.status === 'ready'
+      && judgment
+      && (judgment.state !== 'ORDINARY' || judgment.action || judgment.load);
+    section.hidden = !visible;
+    if (!visible) return;
+
+    const labels = {
+      ORDINARY: '容量正常',
+      REDUCED: '容量降低',
+      UNCERTAIN: '容量待确认',
+      RECOVER_FIRST: '先恢复'
+    };
+    const state = $('[data-exam-work-state]');
+    const summary = $('[data-exam-work-summary]');
+    const action = $('[data-exam-work-action]');
+    if (state) state.textContent = labels[judgment.state] || '容量';
+    if (summary) summary.textContent = judgment.summary || '';
+    if (action) action.textContent = judgment.action || judgment.load || '';
+  };
+
   const renderCapacitySummary = () => {
     const node = $('[data-exam-capacity]');
     if (!node || !readModel) return;
@@ -486,6 +510,7 @@ export function initExamHome(root) {
     if (phaseNode) phaseNode.textContent = `${readModel.phase?.label || '考试周期'} · 总目标 ${TARGETS.total}+`;
 
     renderCapacitySummary();
+    renderWorkStrategy();
     $('[data-exam-settings]').textContent = readModel.capacity.dayMinutes === null ? '记录可用时间' : '调整可用时间';
 
     renderTodayTasks(readModel.presentation);
@@ -573,6 +598,18 @@ export function initExamHome(root) {
     p(readModel.capacity.dayMinutes === null
       ? '今天可用时间尚未记录。'
       : `今天可用 ${formatMinutes(readModel.capacity.dayMinutes)}；已记录学习 ${formatMinutes(readModel.capacity.actualMinutes)}。`);
+
+    const work = readModel.capacity?.judgment;
+    if (work) {
+      heading('容量与 Work 调度');
+      p([
+        work.summary,
+        work.load ? `当前负荷：${work.load}` : '',
+        work.action ? `现在：${work.action}` : '',
+        work.recheck ? `再判断：${work.recheck}` : ''
+      ].filter(Boolean).join('；'));
+      if (work.basis) p(`依据：${work.basis}`);
+    }
 
     if (chatPlanState.status === 'ready') {
       p(`Chat Plan：${chatPlanState.plan.study_day} · ${chatPlanState.plan.generated_at}。`);

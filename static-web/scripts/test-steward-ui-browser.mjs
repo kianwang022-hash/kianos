@@ -189,6 +189,14 @@ try {
           load: '西综高负荷主块后出现恢复需求',
           action: '先做一次足量低输入恢复，再回到当前主线',
           recheck: '看下一学习块是否恢复持续注意和处理速度'
+        },
+        presentation: {
+          today_tasks: [],
+          week_reference: [],
+          schedule_blocks: [
+            { id: 'steward-xz-am', subject: 'xizong', start: '08:30', end: '11:30', label: '西综高认知主块', detail: '强窗口' },
+            { id: 'steward-en-mid', subject: 'english', start: '12:10', end: '13:20', label: 'English 连续性', detail: '中低负荷窗口' }
+          ]
         }
       }, studyDay);
       window.dispatchEvent(new Event('kianos:control-command-applied'));
@@ -213,6 +221,10 @@ try {
     check(await page.locator('[data-steward-mode="schedule"]').getAttribute('class') === 'active', 'schedule_default');
     check(await page.locator('.stewardActualBlock').count() >= 1, 'today_actual_blocks');
     check(await page.locator('.stewardActualBlock strong').first().isVisible(), 'today_actual_label');
+    check(await page.locator('.stewardPlanBlock').count() >= 2, 'today_plan_blocks_from_canonical_chat_plan');
+    const planText = (await page.locator('[data-steward-timeline]').innerText()).replace(/\s+/g, ' ');
+    check(planText.includes('西综高认知主块') && planText.includes('English 连续性'), 'today_plan_labels_visible', planText);
+    check(!planText.includes('今天还没有安排'), 'today_plan_must_not_fall_back_to_empty', planText);
     const realityText = await page.locator('[data-steward-reality]').innerText();
     check(realityText.includes('休息 10m'), 'today_break_reality_visible', realityText);
     check(realityText.includes('部分恢复'), 'today_reentry_reality_visible', realityText);
