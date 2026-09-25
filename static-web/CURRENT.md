@@ -28,7 +28,7 @@ Do not copy product requirements, layout rules or Human-Gate verdicts into this 
 
 ### Remaining website implementation work
 
-Only explicit current product/runtime needs reopen website construction. Current known implementation scopes include the already-approved Steward/Radar/reality-delivery work that is not yet represented by a proven native consumer. Enter the applicable product owner first, then change only the real consumer/runtime dependency.
+Only explicit current product/runtime needs reopen website construction. Bounded Steward Recovery reality already has a proven native consumer path through the private Daily Packet; broader Steward/Radar/meal/training/reality-delivery requirements remain claim-scoped and reopen implementation only when their exact product owner still lacks a real consumer. Enter the applicable product owner first, then change only the real consumer/runtime dependency.
 
 Content production remains independent and continues through the exact English / Xizong / Politics / Lexical / Skills owners.
 
@@ -51,7 +51,8 @@ Content production remains independent and continues through the exact English /
 ## Runtime boundaries
 
 - GitHub `main` is the durable shared asset/Current source; the Mac Current mirror is delivery state, not semantic authority.
-- Current builds into staging and promotes the served site only after successful build; a failed build preserves last-known-good delivery.
+- Current separates the mutable control mirror from the immutable served release. Static/content/runtime-impacting changes build and validate a candidate before atomic promotion; a failed build/readiness attempt preserves last-known-good delivery.
+- A proven control-only change may advance the mirror without rebuilding or switching the active release. Status exposes the newer `control_sha` separately while browser/runtime freshness remains pinned to the unchanged served-release `sha`.
 - Exact runtime-owner changes may perform only their admitted controlled reload/restart behavior.
 - Private learner/control transport remains separate from public canonical Content.
 - Relay failure must not roll back local learner saving.
