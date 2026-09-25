@@ -11,6 +11,11 @@ const readTimeoutError = (timeoutMs) => 'PRIVATE_CHECKPOINT_READ_TIMEOUT:' + tim
 const readTimeoutMs = (timeoutMs) => Number.isFinite(timeoutMs) && timeoutMs > 0
   ? timeoutMs
   : PRIVATE_CHECKPOINT_READ_TIMEOUT_MS;
+const unavailableRead = (error) => ({
+  status: 'unavailable',
+  checkpoint: null,
+  error: error instanceof Error ? error.message : String(error)
+});
 
 export function buildPrivateLearnerCheckpoint({
   studyDay,
@@ -80,7 +85,7 @@ export async function readPrivateLearnerCheckpoint({
         return { status: 'invalid', checkpoint: null, error: 'invalid checkpoint response' };
       }
       return { status: 'ready', checkpoint: clone(body.checkpoint), error: null };
-    })();
+    })().catch(unavailableRead);
     const timeoutPromise = new Promise((resolve) => {
       timeoutId = globalThis.setTimeout(() => {
         try { controller?.abort(); } catch {}
@@ -89,7 +94,7 @@ export async function readPrivateLearnerCheckpoint({
     });
     return await Promise.race([readPromise, timeoutPromise]);
   } catch (error) {
-    return { status: 'unavailable', checkpoint: null, error: error instanceof Error ? error.message : String(error) };
+    return unavailableRead(error);
   } finally {
     if (timeoutId != null) globalThis.clearTimeout(timeoutId);
   }

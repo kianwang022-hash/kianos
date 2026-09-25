@@ -163,6 +163,26 @@ await new Promise((resolve) => setTimeout(resolve, 0));
 assert.equal(timedOutRead.status, 'unavailable', 'late settlement must not change the timed-out read result');
 assert.equal(timedOutRead.checkpoint, null, 'late settlement must not inject checkpoint data after timeout');
 
+let lateReject = null;
+const unhandledRejections = [];
+const onUnhandledRejection = (error) => unhandledRejections.push(error);
+process.on('unhandledRejection', onUnhandledRejection);
+try {
+  const timedOutRejectedRead = await readRemoteCheckpoint({
+    timeoutMs: 10,
+    fetchImpl: () => new Promise((_resolve, reject) => {
+      lateReject = reject;
+    })
+  });
+  assert.equal(timedOutRejectedRead.status, 'unavailable');
+  assert.equal(timedOutRejectedRead.error, 'PRIVATE_CHECKPOINT_READ_TIMEOUT:10');
+  lateReject(new Error('late transport offline'));
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  assert.deepEqual(unhandledRejections, [], 'late rejection must stay observed after timeout');
+} finally {
+  process.off('unhandledRejection', onUnhandledRejection);
+}
+
 const target = new MemoryStorage();
 restoreSharedControlCheckpoint(target, remoteRead.checkpoint.payload.shared, { expectedDay: day });
 assert.equal(JSON.parse(target.getItem(EXAM_CHAT_PLAN_KEY)).next_subject, 'xizong');
