@@ -126,10 +126,83 @@ const fakeFetch = async (_url, options = {}) => {
   if (!remoteSaved) return new Response(JSON.stringify({ status: 'missing' }), { status: 404 });
   return new Response(JSON.stringify({ status: 'ready', checkpoint: remoteSaved }), { status: 200 });
 };
+const missingRemoteRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch });
+assert.equal(missingRemoteRead.status, 'missing');
+assert.equal(missingRemoteRead.checkpoint, null);
+
 await writeRemoteCheckpoint(checkpoint, { fetchImpl: fakeFetch });
 const remoteRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch });
 assert.equal(remoteRead.status, 'ready');
 assert.equal(remoteRead.checkpoint.payload.shared.chat_plan.next_subject, 'xizong');
+const invalidTimeoutRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch, timeoutMs: 0 });
+assert.equal(invalidTimeoutRead.status, 'ready');
+const originalSetTimeout = globalThis.setTimeout;
+const originalClearTimeout = globalThis.clearTimeout;
+try {
+  globalThis.setTimeout = undefined;
+  globalThis.clearTimeout = undefined;
+  const timerUnavailableRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch });
+  assert.equal(timerUnavailableRead.status, 'unavailable');
+  assert.equal(timerUnavailableRead.error, 'timer unavailable');
+} finally {
+  globalThis.setTimeout = originalSetTimeout;
+  globalThis.clearTimeout = originalClearTimeout;
+}
+
+const unavailableRemoteRead = await readRemoteCheckpoint({
+  fetchImpl: async () => {
+    throw new Error('transport offline');
+  }
+});
+assert.equal(unavailableRemoteRead.status, 'unavailable');
+assert.equal(unavailableRemoteRead.error, 'transport offline');
+
+let lateResolve = null;
+const timedReadStartedAt = Date.now();
+const timedOutRead = await readRemoteCheckpoint({
+  timeoutMs: 10,
+  fetchImpl: () => new Promise((resolve) => {
+    lateResolve = resolve;
+  })
+});
+const timedReadElapsedMs = Date.now() - timedReadStartedAt;
+assert.equal(timedOutRead.status, 'unavailable');
+assert.equal(timedOutRead.checkpoint, null);
+assert.equal(timedOutRead.error, 'PRIVATE_CHECKPOINT_READ_TIMEOUT:10');
+assert.ok(timedReadElapsedMs < 250, 'timed-out read must settle within the injected test budget window');
+lateResolve(new Response(JSON.stringify({ status: 'ready', checkpoint }), { status: 200 }));
+await new Promise((resolve) => setTimeout(resolve, 0));
+assert.equal(timedOutRead.status, 'unavailable', 'late settlement must not change the timed-out read result');
+assert.equal(timedOutRead.checkpoint, null, 'late settlement must not inject checkpoint data after timeout');
+
+const abortAwareTimedOutRead = await readRemoteCheckpoint({
+  timeoutMs: 10,
+  fetchImpl: (_url, options = {}) => new Promise((_resolve, reject) => {
+    options.signal?.addEventListener('abort', () => reject(new Error('aborted by signal')), { once: true });
+  })
+});
+assert.equal(abortAwareTimedOutRead.status, 'unavailable');
+assert.equal(abortAwareTimedOutRead.error, 'PRIVATE_CHECKPOINT_READ_TIMEOUT:10');
+
+let lateReject = null;
+const unhandledRejections = [];
+const onUnhandledRejection = (error) => unhandledRejections.push(error);
+process.on('unhandledRejection', onUnhandledRejection);
+try {
+  const timedOutRejectedRead = await readRemoteCheckpoint({
+    timeoutMs: 10,
+    fetchImpl: () => new Promise((_resolve, reject) => {
+      lateReject = reject;
+    })
+  });
+  assert.equal(timedOutRejectedRead.status, 'unavailable');
+  assert.equal(timedOutRejectedRead.error, 'PRIVATE_CHECKPOINT_READ_TIMEOUT:10');
+  lateReject(new Error('late transport offline'));
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  assert.deepEqual(unhandledRejections, [], 'late rejection must stay observed after timeout');
+} finally {
+  process.off('unhandledRejection', onUnhandledRejection);
+}
 
 const target = new MemoryStorage();
 restoreSharedControlCheckpoint(target, remoteRead.checkpoint.payload.shared, { expectedDay: day });
