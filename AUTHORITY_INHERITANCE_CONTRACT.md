@@ -309,11 +309,12 @@ origin/main
 → candidate runtime/readiness validation
 → atomic active / previous release pointer transition
 → static server + private/runtime consumers run from the accepted active release
-→ control mirror advances only after candidate preparation/acceptance
-→ browser reloads when __kianos-current.json release SHA advances
+→ control mirror advances after candidate acceptance,
+  OR independently when impact classification proves the change is control-only and needs no release mutation
+→ browser reloads only when __kianos-current.json served-release SHA advances
 ```
 
-The control mirror is delivery/control state, not the served runtime root. A failed install/build/readiness attempt preserves the last-known-good active release; restart/offline may serve that LKG before remote discovery. Runtime consumers that depend on repository code/content are pinned to the same accepted release through the explicit release root (including `KIANOS_REPO_ROOT` where applicable). This synchronization is repository-wide. English, Xizong, Politics, Lexical, Home, and support assets do **not** own separate GitHub→localhost sync daemons.
+The control mirror is delivery/control state, not the served runtime root. A control-only repository update may therefore move the mirror to a newer `control_sha` while the served `sha` remains the unchanged active release; browser freshness follows the served release identity, not the newer control commit. A failed install/build/readiness attempt preserves the last-known-good active release; restart/offline may serve that LKG before remote discovery. Runtime consumers that depend on repository code/content are pinned to the same accepted release through the explicit release root (including `KIANOS_REPO_ROOT` where applicable). This synchronization is repository-wide. English, Xizong, Politics, Lexical, Home, and support assets do **not** own separate GitHub→localhost sync daemons.
 
 A separate private control mirror may exist only for private Chat control transport. It must:
 - be registered as a distinct Shared Platform owner;

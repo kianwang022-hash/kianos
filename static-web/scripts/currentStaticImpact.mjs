@@ -68,6 +68,9 @@ export function staticBuildPathImpact(value) {
   if (file.startsWith('static-web/scripts/')) {
     return { file, requires_build: false, requires_lexical_projection: false, reason: 'local-runtime-script-only' };
   }
+  if (/^static-web\/[^/]+\.md$/.test(file)) {
+    return { file, requires_build: false, requires_lexical_projection: false, reason: 'website-engineering-doc-only' };
+  }
   if (NO_BUILD_ROOT_FILES.has(file)) {
     return { file, requires_build: false, requires_lexical_projection: false, reason: 'engineering-doc-or-control-only' };
   }
