@@ -32,25 +32,27 @@ try {
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), b);
   assert.equal(JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json'))).sha, b);
 
-  // Reusing an already-active release must never grant cleanup authority over
-  // that worktree. Simulate "release B activated, control checkout later fell
-  // back to A", then make the retry probe for B fail transiently.
+  // If the active isolated release is already B but the mutable control mirror
+  // falls back to A, catching the mirror up to B is control-only. It must not
+  // rebuild, re-probe, replace, or gain cleanup authority over the already
+  // accepted active B worktree.
   const releasesRoot = path.join(root, '.kianos-current-releases');
   const activeB = path.join(releasesRoot, 'releases', b);
   const activeLink = path.join(releasesRoot, 'active');
-  const healthyBServer = git(upstream, 'show', `${b}:static-web/scripts/kianos-static-server.mjs`);
   fs.writeFileSync(
     path.join(activeB, 'static-web/scripts/kianos-static-server.mjs'),
-    `import http from 'node:http';http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?'{"sha":"wrong"}':'retry-bad')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`
+    `throw new Error('ACTIVE_B_MUST_NOT_BE_REPROBED');`
   );
   git(mirror, 'reset', '--hard', a);
-  const reusedProbeFailure = run({ KIANOS_NPM_BIN: npm });
-  assert.notEqual(reusedProbeFailure.status, 0, 'reused active B probe must fail in this fixture');
-  assert.equal(git(mirror, 'rev-parse', 'HEAD'), a, 'failed retry must not advance control mirror');
-  assert.equal(fs.existsSync(activeB), true, 'failed retry must not delete the pre-existing active release worktree');
-  assert.equal(fs.realpathSync(activeLink), fs.realpathSync(activeB), 'failed retry must preserve active B pointer');
-  fs.writeFileSync(path.join(activeB, 'static-web/scripts/kianos-static-server.mjs'), healthyBServer);
-  git(mirror, 'reset', '--hard', b);
+  const controlCatchup = run({ KIANOS_NPM_BIN: npm });
+  assert.equal(controlCatchup.status, 0, controlCatchup.stderr);
+  assert.equal(git(mirror, 'rev-parse', 'HEAD'), b, 'control mirror must catch up to already-active B');
+  assert.equal(fs.existsSync(activeB), true, 'control catch-up must not delete the accepted active release worktree');
+  assert.equal(fs.realpathSync(activeLink), fs.realpathSync(activeB), 'control catch-up must preserve active B pointer');
+  const catchupStatus = JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json')));
+  assert.equal(catchupStatus.sha, b);
+  assert.equal(catchupStatus.control_sha, b);
+  assert.equal(catchupStatus.static_build, 'reused');
 
   write('static-web/scripts/kianos-static-server.mjs', `import http from 'node:http';http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?'{"sha":"wrong"}':'bad')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
   git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'bad runtime'); const c = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
