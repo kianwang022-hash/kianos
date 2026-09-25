@@ -192,7 +192,11 @@ try {
           recheck: '看下一学习块是否恢复持续注意和处理速度'
         },
         presentation: {
-          today_tasks: [],
+          today_tasks: [
+            { id: 'life-sunscreen', subject: null, label: '防晒', note: '' },
+            { id: 'life-walk', subject: null, label: '饭后走 10 分钟', note: '' },
+            { id: 'life-skincare', subject: null, label: '晚间护肤', note: '' }
+          ],
           week_reference: [],
           schedule_blocks: [
             { id: 'steward-xz-am', subject: 'xizong', start: '08:30', end: '11:30', label: '西综高认知主块', detail: '强窗口' },
@@ -254,6 +258,26 @@ try {
     check(await page.locator('[data-kianos-global-rail]').isVisible(), 'l1_missing');
     check((await page.locator('.kianosRailItem.active').textContent())?.trim() === 'Steward', 'l1_active');
     check(await page.locator('[data-kianos-subject-bar]').count() === 0, 'invented_l2');
+    const approvedShell = await page.evaluate(() => {
+      const rail = document.querySelector('[data-kianos-global-rail]');
+      const frame = document.querySelector('.stewardTodayFrame');
+      const left = document.querySelector('.stewardTodayAside');
+      const right = document.querySelector('.stewardNowRail');
+      const label = document.querySelector('.kianosRailItem.active .kianosRailLabel');
+      return {
+        railWidth: rail?.getBoundingClientRect().width || 0,
+        railBackground: rail ? getComputedStyle(rail).backgroundColor : '',
+        activeLabelVisible: label ? getComputedStyle(label).display !== 'none' : false,
+        frameWidth: frame?.getBoundingClientRect().width || 0,
+        leftWidth: left?.getBoundingClientRect().width || 0,
+        rightWidth: right?.getBoundingClientRect().width || 0
+      };
+    });
+    check(approvedShell.railWidth >= 186 && approvedShell.railWidth <= 190, 'approved_steward_text_rail_width', JSON.stringify(approvedShell));
+    check(approvedShell.activeLabelVisible, 'approved_steward_text_rail_visible');
+    check(!/17, 29, 25|17,29,25/.test(approvedShell.railBackground), 'approved_steward_light_rail', approvedShell.railBackground);
+    check(approvedShell.leftWidth >= 182 && approvedShell.leftWidth <= 186, 'approved_today_left_rail_width', JSON.stringify(approvedShell));
+    check(approvedShell.rightWidth >= 250 && approvedShell.rightWidth <= 254, 'approved_today_right_rail_width', JSON.stringify(approvedShell));
 
     const dock = page.locator('[data-study-timer-dock]');
     await dock.waitFor({ state: 'visible' });
@@ -271,7 +295,7 @@ try {
     check(await page.locator('.stewardActualBlock').count() >= 1, 'today_actual_blocks');
     check(await page.locator('.stewardActualBlock.withPlan').count() >= 1, 'today_actual_plan_trace');
     const actualTraceWidth = await page.locator('.stewardActualBlock.withPlan').first().evaluate((node) => node.getBoundingClientRect().width);
-    check(actualTraceWidth <= 12, 'today_actual_trace_is_quiet', String(actualTraceWidth));
+    check(actualTraceWidth <= 160, 'today_actual_trace_stays_inside_plan', String(actualTraceWidth));
     check(await page.locator('.stewardPlanBlock').count() >= 2, 'today_plan_blocks_from_canonical_chat_plan');
     const planText = (await page.locator('[data-steward-timeline]').innerText()).replace(/\s+/g, ' ');
     check(planText.includes('西综高认知主块') && planText.includes('English 连续性'), 'today_plan_labels_visible', planText);
@@ -291,7 +315,8 @@ try {
     check((await page.locator('[data-steward-capacity-recovery]').textContent())?.includes('部分恢复'), 'today_capacity_recovery_result');
     check(!/readiness|恢复分|债务分|recovery score/i.test(await capacitySection.innerText()), 'today_capacity_has_no_invented_score');
 
-    check(await page.locator('[data-steward-task-section]').isHidden(), 'empty_task_region_hidden');
+    check(await page.locator('[data-steward-task-section]').isVisible(), 'today_items_region_visible');
+    check(await page.locator('[data-steward-tasks] .stewardTaskRow').count() === 3, 'today_items_rendered');
 
     const visibleToday = await page.locator('[data-steward-view-panel].active').getAttribute('data-steward-view-panel');
     check(visibleToday === 'today', 'today_only_view', String(visibleToday));
