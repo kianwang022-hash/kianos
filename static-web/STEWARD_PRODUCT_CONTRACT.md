@@ -15,6 +15,28 @@ Preserve the full accepted scope: Today / Week / Month plus on-demand Review; sc
 
 Chat makes judgments and resolved plans. The website executes explicit choices, records facts, calculates and renders. It does not infer a strategy merely because data or a button exists. Natural-language interaction remains valid; the website replaces repetitive presentation/reporting, not discussion or human choice.
 
+### Capacity optimization product outcome
+
+Steward is not merely a schedule viewer or a break logger. Its durable product job is to make the Personal Recovery model operational in reality:
+
+```text
+current Work demand + learner progress / performance
++ current subjective state
++ decision-relevant Health / Watch context
++ actual load / time
++ break / recovery action
++ re-entry result
+→ Chat / Personal capacity judgment
+→ bounded current Capacity Projection
+→ Steward execution / display
+→ real next-block evidence
+→ later calibration in Personal
+```
+
+The product outcome is **higher-quality Work execution with less avoidable load and better Life continuity**, not more tracked minutes. Prefer removing waste and reducing task cost before asking Kian to tolerate more; for unavoidable load, help recovery become sufficient and progressively more capable.
+
+KianOS never owns the raw cross-source interpretation. A current Chat Plan may carry only a **bounded interpreted capacity projection** needed for the active day. Raw Health stays Health-owned, learner evidence stays subject-owned, and earned long-run calibration stays Personal-owned.
+
 ## 1. One owner per fact
 
 | Fact | Authority / permitted use |
@@ -22,6 +44,7 @@ Chat makes judgments and resolved plans. The website executes explicit choices, 
 | Subject work, attempts, scores, learning progress and native Resume | KianOS subject Runtime; never derived from a checklist or engineering production counts |
 | Recorded study time and time corrections | Existing StudyTimer / native time evidence; no second timer/ledger |
 | Current resolved allocation | Existing Chat Plan / Exam Control decision |
+| Current capacity projection used by the product | Existing Chat Plan / Chat judgment. It may summarize current capacity, load, action and recheck condition; it must not embed a raw Health database, readiness score or second Personal recovery model. |
 | Day/week placement, life actions and actual reality events | Steward plan/reality in the private runtime. Bounded break/re-entry reality is supported now; broader meal/training/life-action capture remains claim-scoped and must not be inferred from the break path. |
 | Raw sleep, HRV, activity and synced workout observations | Health; joined transiently, not copied into subject evidence |
 | External event/invitation | Native Calendar; projection is not a second Calendar |
@@ -43,6 +66,23 @@ Keep these quantities distinct:
 Compare like with like. A 180-minute window and 150 recorded study minutes are not automatically a 30-minute deficit or an efficiency percentage. `target_minutes` remains a whole-study-day total, never an extra-from-now budget. Do not spend already elapsed capacity again. Meal preparation/eating/cleanup, training/change/shower and external travel also occupy time.
 
 Timer evidence is recorded activity time, not proof of attention, comprehension or mastery. Pausing excludes future time; a checkbox cannot create time. Native timing-review/correction remains available for suspicious gaps. Off-site MarginNote/iPad study can continue under an explicitly selected native context; browser visibility alone does not determine whether study happened.
+
+## 2A. Capacity loop on the product surface
+
+The default Today surface should make one compact causal chain legible when capacity/recovery is decision-relevant:
+
+```text
+Current capacity
+→ why / evidence basis in plain language
+→ current real load
+→ current action
+→ recovery / re-entry result when one exists
+→ what would trigger another judgment
+```
+
+Do not turn this into a dashboard of raw Health metrics. The Capacity Projection is a current interpreted snapshot; Steward reality supplies actual rest/re-entry facts underneath it. If there is no current capacity judgment and no meaningful recovery event, the block may stay hidden.
+
+Week / Review may later expose repeated patterns only from real evidence, for example earlier drop, slower rebound, repeated rescue or downstream cost. They must not manufacture a longitudinal score from sparse days.
 
 ## 3. Today and timeline
 
