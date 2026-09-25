@@ -126,10 +126,40 @@ const fakeFetch = async (_url, options = {}) => {
   if (!remoteSaved) return new Response(JSON.stringify({ status: 'missing' }), { status: 404 });
   return new Response(JSON.stringify({ status: 'ready', checkpoint: remoteSaved }), { status: 200 });
 };
+const missingRemoteRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch });
+assert.equal(missingRemoteRead.status, 'missing');
+assert.equal(missingRemoteRead.checkpoint, null);
+
 await writeRemoteCheckpoint(checkpoint, { fetchImpl: fakeFetch });
 const remoteRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch });
 assert.equal(remoteRead.status, 'ready');
 assert.equal(remoteRead.checkpoint.payload.shared.chat_plan.next_subject, 'xizong');
+
+const unavailableRemoteRead = await readRemoteCheckpoint({
+  fetchImpl: async () => {
+    throw new Error('transport offline');
+  }
+});
+assert.equal(unavailableRemoteRead.status, 'unavailable');
+assert.equal(unavailableRemoteRead.error, 'transport offline');
+
+let lateResolve = null;
+const timedReadStartedAt = Date.now();
+const timedOutRead = await readRemoteCheckpoint({
+  timeoutMs: 10,
+  fetchImpl: () => new Promise((resolve) => {
+    lateResolve = resolve;
+  })
+});
+const timedReadElapsedMs = Date.now() - timedReadStartedAt;
+assert.equal(timedOutRead.status, 'unavailable');
+assert.equal(timedOutRead.checkpoint, null);
+assert.equal(timedOutRead.error, 'PRIVATE_CHECKPOINT_READ_TIMEOUT:10');
+assert.ok(timedReadElapsedMs < 250, 'timed-out read must settle within the injected test budget window');
+lateResolve(new Response(JSON.stringify({ status: 'ready', checkpoint }), { status: 200 }));
+await new Promise((resolve) => setTimeout(resolve, 0));
+assert.equal(timedOutRead.status, 'unavailable', 'late settlement must not change the timed-out read result');
+assert.equal(timedOutRead.checkpoint, null, 'late settlement must not inject checkpoint data after timeout');
 
 const target = new MemoryStorage();
 restoreSharedControlCheckpoint(target, remoteRead.checkpoint.payload.shared, { expectedDay: day });

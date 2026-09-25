@@ -1,11 +1,13 @@
 export const PRIVATE_CHECKPOINT_SCHEMA = 'kianos.private-checkpoint.v1';
 export const PRIVATE_CHECKPOINT_ENDPOINT = '/__kianos-private/checkpoint';
+export const PRIVATE_CHECKPOINT_READ_TIMEOUT_MS = 3000;
 
 const clone = (value) => value == null ? value : JSON.parse(JSON.stringify(value));
 const validDay = (day) => typeof day === 'string'
   && /^\d{4}-\d{2}-\d{2}$/.test(day)
   && !Number.isNaN(Date.parse(day + 'T00:00:00Z'))
   && new Date(day + 'T00:00:00Z').toISOString().slice(0, 10) === day;
+const readTimeoutError = (timeoutMs) => 'PRIVATE_CHECKPOINT_READ_TIMEOUT:' + timeoutMs;
 
 export function buildPrivateLearnerCheckpoint({
   studyDay,
@@ -54,19 +56,37 @@ export async function writePrivateLearnerCheckpoint(checkpoint, {
 
 export async function readPrivateLearnerCheckpoint({
   fetchImpl = globalThis.fetch,
-  endpoint = PRIVATE_CHECKPOINT_ENDPOINT
+  endpoint = PRIVATE_CHECKPOINT_ENDPOINT,
+  timeoutMs = PRIVATE_CHECKPOINT_READ_TIMEOUT_MS
 } = {}) {
   if (typeof fetchImpl !== 'function') return { status: 'unavailable', checkpoint: null, error: 'fetch unavailable' };
+  const controller = typeof AbortController === 'function' ? new AbortController() : null;
+  let timeoutId = null;
   try {
-    const response = await fetchImpl(endpoint, { method: 'GET', cache: 'no-store' });
-    const body = await response.json().catch(() => ({}));
-    if (response.status === 404) return { status: 'missing', checkpoint: null, error: null };
-    if (!response.ok) return { status: 'unavailable', checkpoint: null, error: body?.error || String(response.status) };
-    if (body?.status !== 'ready' || body?.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) {
-      return { status: 'invalid', checkpoint: null, error: 'invalid checkpoint response' };
-    }
-    return { status: 'ready', checkpoint: clone(body.checkpoint), error: null };
+    const readPromise = (async () => {
+      const response = await fetchImpl(endpoint, {
+        method: 'GET',
+        cache: 'no-store',
+        ...(controller ? { signal: controller.signal } : {})
+      });
+      const body = await response.json().catch(() => ({}));
+      if (response.status === 404) return { status: 'missing', checkpoint: null, error: null };
+      if (!response.ok) return { status: 'unavailable', checkpoint: null, error: body?.error || String(response.status) };
+      if (body?.status !== 'ready' || body?.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) {
+        return { status: 'invalid', checkpoint: null, error: 'invalid checkpoint response' };
+      }
+      return { status: 'ready', checkpoint: clone(body.checkpoint), error: null };
+    })();
+    const timeoutPromise = new Promise((resolve) => {
+      timeoutId = globalThis.setTimeout(() => {
+        try { controller?.abort(); } catch {}
+        resolve({ status: 'unavailable', checkpoint: null, error: readTimeoutError(timeoutMs) });
+      }, timeoutMs);
+    });
+    return await Promise.race([readPromise, timeoutPromise]);
   } catch (error) {
     return { status: 'unavailable', checkpoint: null, error: error instanceof Error ? error.message : String(error) };
+  } finally {
+    if (timeoutId != null) globalThis.clearTimeout(timeoutId);
   }
 }
