@@ -82,19 +82,15 @@ The remaining `tools/lexical_*_audit.py` / owner-lineage diagnostics are on-dema
 
 ## 4. Historical execution evidence
 
-The following classes may remain because they are bounded provenance, not Current control:
+Detailed A/B/C campaign state is retired from `main`.
 
-- completed `execution/dual-review*.json` campaign records;
-- `execution/manifests/**`;
-- `execution/mutation-receipts/**`;
-- `execution/receipts/**`;
-- `execution/historical-routes.json`;
-- historical semantic-review / reconciliation evidence;
-- completed catalog-campaign control/protocol records under `audit/history/**`.
+Git history preserves the former three-Chat roles, dual-review lane cursors, A/B review outputs, C decision manifests, C mutation/checkpoint receipts, historical route ledger, live-batch board and retired runtime/controller implementations.
 
-Normal maintenance must not read these to discover “where to continue.” Git history remains the fallback for removed controller implementations and superseded runtime protocols.
+Main retains historical evidence only when a Current reproducibility/provenance dependency still consumes it, including retained `execution/manifests/**`, non-retired receipts, semantic-audit / semantic-reconciliation evidence, and referenced catalog-control records under `audit/history/**`.
 
-The former live-batch board, three-Chat runtime, continuous implementation queue and final-mutation executor are retired from Current operation. They must not be recreated unless a new explicit catalog-wide scope is accepted and the current owner is deliberately changed first.
+Normal maintenance must not read historical execution evidence to discover “where to continue.” New work starts from `CURRENT.md` and the exact Natural Owner.
+
+The former live-batch board, three-Chat runtime, continuous implementation queue and final-mutation executor must not be recreated unless a new explicit catalog-wide scope is accepted and the current owner is deliberately changed first.
 
 ## 5. Concurrency and stale-input safety
 
