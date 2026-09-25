@@ -510,7 +510,7 @@
       }
     },
     "source_map_owner": "content/xizong/knowledge/learner/surgery-27-source-map.json",
-    "action_now": "Run reverse preservation audit against legacy 27 follow-along explanatory substrate before re-closing Surgery. Current 27 refined remains the only learner Source.",
+    "action_now": "Complete 38/38 legacy-explanatory preservation audit; repair only concrete old-value losses, then re-close Surgery. Current 27 refined remains the only learner Source.",
     "residual_rebase_2026_09_26": {
       "trigger": "User clarified the actual task: upgrade 27 follow-along Surgery content to 27 refined and absorb the refined explanatory notes, not start studying Surgery.",
       "defect_class": "FALSE_CLOSEOUT_FROM_PARTIAL_SOURCE_REBIND_AND_STALE_CONSUMERS",
@@ -566,8 +566,20 @@
         "smoke: U36 anesthesia",
         "then 38/38 reverse preservation pass if smoke does not expose a broader defect class sooner"
       ],
-      "status": "ACTIVE",
-      "blocker": "NONE"
+      "status": "ACTIVE_SMOKE_PASS_FULL_38_PENDING",
+      "blocker": "NONE",
+      "smoke_test": {
+        "status": "PASS_5_OF_5_REPRESENTATIVE_UNITS",
+        "units": {
+          "SUR27-U01": "PASS — legacy papillary-thyroid early lymph-node / favorable-prognosis decision axis remains represented in D21; official reviewed explanation preserves the 'do not infer prognosis from local node status alone' boundary.",
+          "SUR27-U08": "PASS — D14 preserves legacy complete-obstruction early distal stool/gas passage and time-dependent bowel-sound weakening in late mechanical/strangulating disease.",
+          "SUR27-U16": "PASS_AFTER_RESIDUAL_REPAIR — D19 now preserves the legacy >3-day acute-cholecystitis PTGD/cholecystostomy → delayed LC (~3 months) Source-bound exam path alongside Current refined truth.",
+          "SUR27-U29": "PASS — O2 preserves the legacy emergency priority chain: fluid/resuscitation → important tissue injury → fracture treatment.",
+          "SUR27-U36": "PASS — F7 preserves legacy anesthesia explanatory boundaries including naloxone as opioid-overdose rescue rather than premedication, tongue-base airway obstruction priority and intubation-distance precision."
+        },
+        "interpretation": "Representative reverse checks support the intended Biochemistry-style replacement model: Current 27 refined stays the only learner Source while useful legacy meaning survives in canonical owners. This is not yet 38/38 acceptance.",
+        "next": "Run all 38 units legacy-substrate→Current-owner reverse preservation audit; repair only concrete losses; then re-close."
+      }
     }
   },
   "governance": {
