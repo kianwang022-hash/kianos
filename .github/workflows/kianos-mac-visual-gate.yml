@@ -11,6 +11,10 @@ on:
       - 'static-web/src/components/XizongHomeTools.astro'
       - 'static-web/src/lib/examOrchestratorClient.mjs'
       - 'static-web/scripts/test-home-mac-visual.mjs'
+      - 'static-web/src/pages/steward/**'
+      - 'static-web/src/lib/stewardWorkspaceClient.mjs'
+      - 'static-web/src/styles/steward-workspace.css'
+      - 'static-web/scripts/test-steward-mac-visual.mjs'
       - 'static-web/src/styles/visual-convergence.css'
       - 'static-web/src/styles/shared-shell.css'
       - 'static-web/src/styles/english*.css'
@@ -46,6 +50,10 @@ on:
       - 'static-web/src/components/XizongHomeTools.astro'
       - 'static-web/src/lib/examOrchestratorClient.mjs'
       - 'static-web/scripts/test-home-mac-visual.mjs'
+      - 'static-web/src/pages/steward/**'
+      - 'static-web/src/lib/stewardWorkspaceClient.mjs'
+      - 'static-web/src/styles/steward-workspace.css'
+      - 'static-web/scripts/test-steward-mac-visual.mjs'
       - 'static-web/src/styles/visual-convergence.css'
       - 'static-web/src/styles/shared-shell.css'
       - 'static-web/src/styles/english*.css'
@@ -124,6 +132,9 @@ jobs:
       - name: Capture Home Mac visual evidence
         run: node scripts/test-home-mac-visual.mjs
 
+      - name: Capture Steward Mac visual evidence
+        run: node scripts/test-steward-mac-visual.mjs
+
       - name: Capture Politics Learn Mac visual evidence
         run: node scripts/test-politics-learn-mac-visual.mjs
 
@@ -149,6 +160,16 @@ jobs:
           path: |
             static-web/.qa/home-mac.png
             static-web/.qa/home-mac-visual.json
+          if-no-files-found: error
+
+      - name: Upload Steward Mac visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: steward-mac-visual-gate
+          path: |
+            static-web/.qa/steward-mac.png
+            static-web/.qa/steward-mac-visual.json
           if-no-files-found: error
 
       - name: Upload Politics Mac visual evidence
