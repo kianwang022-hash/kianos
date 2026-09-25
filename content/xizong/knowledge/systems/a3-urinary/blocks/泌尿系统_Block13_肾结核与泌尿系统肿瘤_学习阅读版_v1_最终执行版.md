@@ -868,7 +868,7 @@ LectureQuestionBinding 自动提供
 
 ```text
 Framework已定位
-→ 外科Lecture P104–107及source-local asset完整学习
+→ 27外科精编 SUR27-U18 / PDF P128–P132 及当前 source-local asset 完整学习
 → 能闭卷重建肾结核器官链与四类肿瘤模型
 → 能正确区分Ta/Tis/T1/T2
 → 能从血尿、血块、肿块、DRE和临床任务选择检查层级

@@ -615,7 +615,7 @@ LectureQuestionBinding 自动提供
 
 绑定范围：
 内科Lecture P78–P82
-+ 外科Lecture P12–P13 的 source-position relation
++ 27外科精编 SUR27-U02 PDF P015–P018 的 source-position relation
 
 状态：
 待绑定
