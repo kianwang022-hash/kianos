@@ -158,7 +158,8 @@ export function buildChatControlledExamReadModel({
       plannedTargetMinutes,
       overplannedMinutes: capacityConflict
         ? Math.max(0, plannedRemainingMinutes - capacityRemaining)
-        : 0
+        : 0,
+      judgment: plan?.capacity ? { ...plan.capacity } : null
     },
     subjects,
     next,
