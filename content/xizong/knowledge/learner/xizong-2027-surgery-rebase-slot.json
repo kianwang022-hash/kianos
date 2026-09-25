@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.future_source_slot.v1",
-  "status": "CLOSED_CURRENT",
+  "status": "CLOSED_CURRENT_AFTER_RESIDUAL_REBASE_2026_09_26",
   "slot_id": "xizong-2027-surgery-rebase",
   "source_cycle": "27考研",
   "domain": "Surgery",
@@ -240,24 +240,28 @@
       "ui_boundary": "No UI redesign. Existing Xizong site reads canonical Markdown/Learning owners; content-only changes should propagate through the existing loader.",
       "result": {
         "units_reprocessed": "38/38",
-        "content_status": "COMPLETE",
-        "source_cleanup_status": "CURRENT_PRIMARY_BINDINGS_CLEANED_WITH_HISTORICAL_ALIASES_EXPLICIT",
+        "content_status": "COMPLETE_AFTER_RESIDUAL_AUDIT_2026_09_26",
+        "source_cleanup_status": "CURRENT_PRIMARY_AND_ACTIVE_CONSUMER_BINDINGS_CLEAN; LEGACY FOLLOW_ALONG RETAINED_AS_PROVENANCE_ONLY",
         "ui_status": "UNCHANGED_BY_DESIGN",
         "material_semantic_updates": [
           "D21 thyroid/neck: surgery decision framing + neck-mass source-bound recognition + cystic hemorrhage boundary",
           "D11 esophagus: refined radiotherapy/surgical-rationale framing kept bounded",
           "D17 portal hypertension: surgical objective clarified as prevention/control of variceal bleeding rather than portal-pressure number alone",
-          "O3 spinal injury: surgery purpose clarified as relieving ongoing compression/restoring stability/reducing secondary injury rather than reversing irreversible cord damage"
+          "O3 spinal injury: surgery purpose clarified as relieving ongoing compression/restoring stability/reducing secondary injury rather than reversing irreversible cord damage",
+          "D13 abdominal trauma: steering-wheel/handlebar mechanism is only a clue; do not auto-diagnose pancreatic injury over more common liver/spleen trauma",
+          "D19 liver abscess/biliary: rim enhancement made explicitly nonspecific; refined >3-day acute cholecystitis PTGD/cholecystostomy→delayed LC exam path restored; gallbladder-polyp risk thresholds restored as Source-bound precision"
         ],
         "learning_updates": [
           "B:D21 surgery learning closure",
           "B:D11 esophageal treatment reasoning closure",
           "B:D19 liver-abscess evidence/decision closure",
           "D:O11 chronic-injury treatment ladder",
-          "D:O2 emergency-priority closure"
+          "D:O2 emergency-priority closure",
+          "B/D/E/F learner Surgery visual cues rebound to Current 27 refined original-page locators",
+          "A3 Block12/13 Current first-pass/visual routes rebound from legacy preprocessing ids to 27 refined physical pages"
         ],
         "preserved_but_revalidated": "All other refined explanatory notes were explicitly reviewed and either already represented by Current Knowledge/Learning or kept as Precision/Visual/Source-bound material; no duplicate prose inflation or topology rebuild.",
-        "historical_next_action": "Revalidate downstream Question→Knowledge relations and learner-facing explanations only for blocks with real semantic/learner-facing changes; classify source-revision evidence impact; then close scoped acceptance."
+        "historical_next_action": "NONE. Content/source rebase closed after residual consumer audit; proceed to real-use Human Gate only."
       }
     },
     "architecture_v3": {
@@ -506,7 +510,41 @@
       }
     },
     "source_map_owner": "content/xizong/knowledge/learner/surgery-27-source-map.json",
-    "action_now": "NONE_CLOSED_CURRENT_REOPEN_ONLY_FOR_NEW_REVISED_SURGERY_SOURCE_OR_CONCRETE_ACCEPTED_OWNER_DEFECT"
+    "action_now": "NONE_FOR_THIS_SURGERY_REVISION; content/source rebase is closed. Reopen only for a new/revised authoritative Surgery Source or a concrete real-use defect.",
+    "residual_rebase_2026_09_26": {
+      "trigger": "User clarified the actual task: upgrade 27 follow-along Surgery content to 27 refined and absorb the refined explanatory notes, not start studying Surgery.",
+      "defect_class": "FALSE_CLOSEOUT_FROM_PARTIAL_SOURCE_REBIND_AND_STALE_CONSUMERS",
+      "source_truth": "27外科精编版【带导图】.pdf remains the only Current Surgery Source; old follow-along / legacy AI-reader is provenance only.",
+      "repaired_current_consumers": [
+        "E/F System Surgery source registries",
+        "B/D/E/F learning-cue Surgery locators",
+        "A3 Block12/13 first-pass and visual routes",
+        "D13 stale legacy visual-closure wording",
+        "O14 stale legacy visual-closure wording",
+        "B/D/E/F source-visual manifests: legacy follow-along Surgery crops retired from Current rather than relabeled as refined"
+      ],
+      "refined_note_deltas_absorbed": [
+        "D13: steering-wheel/handlebar trauma is a clue, not a pancreatic-injury diagnosis; liver/spleen remain more common blunt-trauma targets",
+        "D19: rim/edge enhancement is nonspecific and must be separated from metastatic rim-enhancing/bull's-eye lesions using the full evidence stack",
+        "D19: >3-day acute cholecystitis Source-bound exam path restored as PTGD/cholecystostomy followed by delayed LC around 3 months",
+        "D19: gallbladder-polyp Source-bound cancer-risk precision restored: ≥1 cm, solitary broad base, growth, and associated gallstones"
+      ],
+      "verification": {
+        "github_main_after_repairs": "b2ad5b2b48185618ec7e67a46d7375f99dbf6ee7",
+        "readback": "PASS — active E/F registries, B/D/E/F learner cues and Current visual manifests contain no legacy follow-along Surgery source identity",
+        "validators_passed": [
+          "validate-xizong-current-owners.mjs",
+          "validate-xizong-source-visuals.mjs",
+          "validate-xizong-b-knowledge.mjs"
+        ],
+        "validators_environment_blocked": [
+          "validate-xizong-learning.mjs — local KianOS-current lacks CURRENT_XIZONG_OWNER_MANIFEST before loader startup",
+          "validate-xizong-question-crosswalk.mjs — local runtime resolves relation manifest to /Users/ben/content/... and file is absent in that runtime layout"
+        ],
+        "boundary": "Blocked validators failed on local runtime prerequisites before Surgery content evaluation; they are not counted as content PASS or content FAIL."
+      },
+      "closeout": "CLOSED_CURRENT_AFTER_RESIDUAL_REBASE; next step is Human real-use validation, not more source/content migration."
+    }
   },
   "governance": {
     "contract_owner": "content/xizong/knowledge/learner/SURGERY_CONTRACT.md",
@@ -514,7 +552,7 @@
     "rule": "Route 27 refined-note deltas by responsibility: medical meaning → canonical Knowledge; understanding/retrieval/apply organization → Current Learning/Guide; exact values → Precision; spatial/table relations → Source Visual. Do not revive legacy Guides or redesign UI."
   },
   "source_locator_correction_2026_09_25": {
-    "status": "REVALIDATED_CLOSED_CURRENT",
+    "status": "SUPERSEDED_BY_RESIDUAL_REBASE_2026_09_26",
     "trigger": "Reverse audit of the real 27 refined Surgery asset found Current consumer/source locators that still encoded legacy follow-along page identities after the broader reprocess closeout.",
     "defect_class": "STALE_CURRENT_SOURCE_LOCATOR_AND_VISUAL_LOCATOR_DRIFT",
     "affected_owners": [
