@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run build:lexical && astro build",
+    "build": "npm run build:lexical && node scripts/kianos-safe-astro-build.mjs",
     "preview": "astro preview",
     "current:serve": "node scripts/kianos-current-sync.mjs",
     "current:install": "bash scripts/install-current-macos.sh",
@@ -50,7 +50,7 @@
     "current:backup": "node scripts/kianos-current-backup.mjs",
     "current:restore": "node scripts/kianos-current-restore.mjs",
     "test:css-ownership": "node scripts/test-ui-css-ownership.mjs",
-    "test:current-static-runtime": "npm run test:current-static-slots && node scripts/test-private-daily-learning-packet-worker.mjs && node scripts/test-current-static-runtime.mjs && node scripts/test-current-runtime-reload.mjs",
+    "test:current-static-runtime": "npm run test:current-static-slots && node scripts/test-current-safe-build.mjs && node scripts/test-private-daily-learning-packet-worker.mjs && node scripts/test-current-static-runtime.mjs && node scripts/test-current-build-recovery.mjs && node scripts/test-current-runtime-reload.mjs && node scripts/test-current-offline-startup.mjs && node scripts/test-current-install-recovery.mjs && node scripts/test-current-runtime-rollback.mjs && node scripts/test-current-delivery-lock.mjs && node scripts/test-current-delivery-concurrency.mjs && node scripts/test-current-fetch-toctou.mjs && node scripts/test-current-build-identity.mjs && node scripts/test-current-release-retention.mjs",
     "static:serve": "node scripts/kianos-static-server.mjs",
     "test:external-source-hash-gate": "node scripts/test-external-reading-source-hash-gate.mjs",
     "codex:hygiene": "node scripts/codex-local-hygiene.mjs",
@@ -62,10 +62,10 @@
     "test:codex-watcher": "node scripts/test-codex-issue-watcher.mjs && node scripts/test-codex-execution-policy.mjs",
     "validate:skills": "node scripts/validate-skill-library.mjs",
     "qa:skills": "npm run validate:skills && npm run build",
-    "test:current-static-slots": "node scripts/test-current-static-slots.mjs",
+    "test:current-static-slots": "node scripts/test-current-static-slots.mjs && node scripts/test-current-release-cleanup.mjs",
     "build:lexical": "python3 ../tools/lexical_build_final_learner_objects.py",
     "test:content-fast-path": "python3 -m unittest discover -s ../tools -p test_lexical_incremental_projection.py && node scripts/test-current-static-impact.mjs && node scripts/test-current-build-recovery.mjs",
-    "build:astro": "astro build"
+    "build:astro": "node scripts/kianos-safe-astro-build.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",

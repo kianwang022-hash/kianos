@@ -36,6 +36,9 @@ const isWordStudy = /^vocabulary\/\d+$/.test(localPath);
 const isVocabularyRoute = localPath === 'vocabulary' || localPath.startsWith('vocabulary/');
 const stageOne = englishFamily || ['lexical', 'politics', 'xizong', 'steward'].includes(active) || localPath === '';
 const currentStatusUrl = `${base}__kianos-current.json`;
+const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEASE_SHA__
+  ? __KIANOS_RELEASE_SHA__
+  : '';
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -72,7 +75,7 @@ const currentStatusUrl = `${base}__kianos-current.json`;
         body.dataset.kianosRail = expanded ? 'expanded' : 'compact';
       })();
     </script>
-    <div class="kianosShellFrame" data-kianos-shell-frame>
+    <div class="kianosShellFrame" data-kianos-shell-frame data-kianos-release-sha={releaseSha}>
       <aside class="kianosGlobalRail" data-kianos-global-rail aria-label="KianOS 全局导航">
         <button type="button" class="kianosRailToggle" data-kianos-rail-toggle aria-expanded="true" aria-label="展开或收起全局导航">
           <span class="kianosRailMark">K</span>
@@ -149,7 +152,7 @@ const currentStatusUrl = `${base}__kianos-current.json`;
     const url = document.body?.dataset.currentStatusUrl;
     if (!url) return;
 
-    const refreshPolicy = createCurrentRefreshPolicy();
+    const refreshPolicy = createCurrentRefreshPolicy(document.querySelector('[data-kianos-release-sha]')?.dataset.kianosReleaseSha || null);
     let reloading = false;
 
     const reloadIfPending = () => {

@@ -12,6 +12,7 @@ const upstream = path.join(temp, 'upstream');
 const mirror = path.join(temp, 'mirror');
 const remote = path.join(temp, 'remote.git');
 const counter = path.join(temp, 'build-count');
+const serverMarker = path.join(temp, 'server-started');
 const git = (cwd, ...args) => execFileSync('git', args, { cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 try {
   fs.mkdirSync(upstream);
@@ -19,10 +20,10 @@ try {
   git(upstream, 'config', 'user.name', 'Fixture');
   git(upstream, 'config', 'user.email', 'fixture@example.invalid');
   fs.mkdirSync(path.join(upstream, 'static-web/scripts'), { recursive: true });
-  for (const name of ['kianos-current-sync.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) {
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) {
     fs.copyFileSync(path.join(scripts, name), path.join(upstream, 'static-web/scripts', name));
   }
-  fs.writeFileSync(path.join(upstream, 'static-web/scripts/kianos-static-server.mjs'), 'setInterval(() => {}, 1000);');
+  fs.writeFileSync(path.join(upstream, 'static-web/scripts/kianos-static-server.mjs'), "require('fs').writeFileSync(process.env.SERVER_MARKER, 'started'); setInterval(() => {}, 1000);");
   fs.writeFileSync(path.join(upstream, '.gitignore'), 'static-web/public/\nstatic-web/.current-*\nstatic-web/dist\n');
   const commit = (file, value) => {
     fs.mkdirSync(path.dirname(path.join(upstream, file)), { recursive: true });
@@ -37,6 +38,7 @@ try {
   git(temp, 'clone', remote, mirror);
   fs.writeFileSync(path.join(mirror, '.git/kianos-current-mirror'), '');
   const fakeNpm = path.join(temp, 'npm-fixture');
+  const releases = path.join(temp, 'releases');
   fs.writeFileSync(fakeNpm, `#!/usr/bin/env node
 const fs = require('fs'), path = require('path');
 const count = process.env.COUNTER;
@@ -49,10 +51,10 @@ fs.writeFileSync(path.join(root, 'index.html'), process.env.PAGE_TEXT || 'fixtur
   fs.chmodSync(fakeNpm, 0o755);
   const run = (extra = {}) => spawnSync(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], {
     cwd: mirror, encoding: 'utf8', timeout: 15000,
-    env: { ...process.env, KIANOS_SYNC_ONCE: '1', KIANOS_NPM_BIN: fakeNpm, KIANOS_BUILD_NICE: '0', COUNTER: counter, ...extra }
+    env: { ...process.env, KIANOS_SYNC_ONCE: '1', KIANOS_NPM_BIN: fakeNpm, KIANOS_BUILD_NICE: '0', KIANOS_RELEASES_DIR: releases, COUNTER: counter, SERVER_MARKER: serverMarker, ...extra }
   });
   const count = () => fs.readFileSync(counter, 'utf8').trim().split('\n').length;
-  const built = () => JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/dist/__kianos-current.json')));
+  const built = () => JSON.parse(fs.readFileSync(path.join(releases, 'active/static-web/dist/__kianos-current.json')));
   const status = () => JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json')));
   let result = run();
   assert.equal(result.status, 0, result.stderr);
@@ -76,10 +78,11 @@ fs.writeFileSync(path.join(root, 'index.html'), process.env.PAGE_TEXT || 'fixtur
   assert.equal(count(), 4, 'must not reuse stale site after failed content + control commit');
   assert.equal(built().sha, final);
   assert.equal(built().lexical_projection_required, true, 'include previously failed content in impact');
-  assert.equal(fs.readFileSync(path.join(mirror, 'static-web/dist/index.html'), 'utf8'), 'new content');
+  assert.equal(fs.readFileSync(path.join(releases, 'active/static-web/dist/index.html'), 'utf8'), 'new content');
   assert.equal(fs.existsSync(path.join(mirror, 'static-web/.current-build-failure.json')), false);
   assert.equal(run().status, 0);
   assert.equal(count(), 4, 'unchanged successful SHA must reuse');
+  assert.equal(fs.existsSync(serverMarker), false, 'one-shot must never start the static server');
   console.log('CURRENT_BUILD_RECOVERY PASS: failure retention, restart suppression, retry, served-base impact, atomic recovery');
 } finally {
   fs.rmSync(temp, { recursive: true, force: true });

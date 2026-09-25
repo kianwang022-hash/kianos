@@ -35,16 +35,33 @@ try {
     fs.mkdirSync(path.dirname(path.join(upstream, file)), { recursive: true });
     fs.writeFileSync(path.join(upstream, file), body);
   };
-  for (const name of ['kianos-current-sync.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) {
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) {
     write('static-web/scripts/' + name, fs.readFileSync(path.join(scripts, name)));
   }
-  write('static-web/scripts/kianos-static-server.mjs', `import http from 'node:http';
+  write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';
+import http from 'node:http';
+import path from 'node:path';
 import { version } from '../src/lib/fixture.mjs';
-http.createServer((req, res) => res.end(version)).listen(Number(process.env.KIANOS_PORT), '127.0.0.1');`);
+const root = path.resolve(process.argv[process.argv.indexOf('--root') + 1]);
+const fallbackIndex = process.argv.indexOf('--fallback-root');
+const fallbackRoot = fallbackIndex >= 0 ? path.resolve(process.argv[fallbackIndex + 1]) : '';
+const releaseIdentity = () => JSON.parse(fs.readFileSync(path.join(root, '__kianos-current.json')));
+http.createServer((req, res) => {
+  if (req.url.startsWith('/__kianos-release.json')) return res.end(JSON.stringify(releaseIdentity()));
+  if (req.url.startsWith('/__fixture-runtime.json')) return res.end(JSON.stringify({
+    version,
+    cwd: process.cwd(),
+    repo_root: process.env.KIANOS_REPO_ROOT || '',
+    static_root: root,
+    fallback_root: fallbackRoot,
+    sha: releaseIdentity().sha
+  }));
+  res.end(version);
+}).listen(Number(process.env.KIANOS_PORT), '127.0.0.1');`);
   write('static-web/src/lib/fixture.mjs', 'export const version = "v1";');
   write('.gitignore', 'static-web/public/\nstatic-web/.current-*\nstatic-web/dist\n');
   const commit = () => { git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'fixture'); return git(upstream, 'rev-parse', 'HEAD'); };
-  commit();
+  const first = commit();
   git(temp, 'clone', '--bare', upstream, remote);
   git(upstream, 'remote', 'add', 'origin', remote);
   git(temp, 'clone', remote, mirror);
@@ -66,10 +83,27 @@ fs.mkdirSync(root, {recursive:true}); fs.writeFileSync(path.join(root, 'index.ht
   write('static-web/src/lib/fixture.mjs', 'export const version = "v2";');
   const next = commit();
   git(upstream, 'push', 'origin', 'main');
-  await waitFor(async () => await served() === 'v2');
-  assert.equal(JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/dist/__kianos-current.json'))).sha, next);
+  await waitFor(async () => {
+    if (await served() !== 'v2') return false;
+    try {
+      const control = JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json')));
+      const release = await (await fetch(`http://127.0.0.1:${port}/__kianos-release.json`)).json();
+      return control.state === 'synced' && control.sha === next && release.sha === next;
+    } catch { return false; }
+  });
+  assert.equal(JSON.parse(fs.readFileSync(path.join(temp, '.kianos-current-releases/active/static-web/dist/__kianos-current.json'))).sha, next);
+  const runtime = await (await fetch(`http://127.0.0.1:${port}/__fixture-runtime.json`, { signal: AbortSignal.timeout(1000) })).json();
+  const nextRelease = fs.realpathSync(path.join(temp, '.kianos-current-releases/releases', next));
+  const firstRelease = fs.realpathSync(path.join(temp, '.kianos-current-releases/releases', first));
+  assert.equal(runtime.version, 'v2');
+  assert.equal(runtime.sha, next);
+  assert.equal(runtime.repo_root, nextRelease);
+  assert.equal(runtime.cwd, path.join(nextRelease, 'static-web'));
+  assert.equal(runtime.static_root, path.join(nextRelease, 'static-web', 'dist'));
+  assert.equal(runtime.fallback_root, path.join(firstRelease, 'static-web', 'dist'));
   assert.equal((logs.match(/performing one controlled server reload/g) || []).length, 1);
-  console.log('CURRENT_RUNTIME_RELOAD PASS: library-only update publishes new site and reloads server once');
+  assert.equal(/rolling back/.test(logs), false);
+  console.log('CURRENT_RUNTIME_RELOAD PASS: accepted handoff pins runtime, static root, repo root, fallback, and release identity');
 } finally {
   if (processHandle && processHandle.exitCode === null) {
     processHandle.kill('SIGTERM');

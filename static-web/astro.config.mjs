@@ -8,6 +8,9 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   vite: {
-    plugins: [privateLearnerBridge(), privateExternalReadingBridge(), privateControlBridge()]
+    plugins: [privateLearnerBridge(), privateExternalReadingBridge(), privateControlBridge()],
+    define: {
+      __KIANOS_RELEASE_SHA__: JSON.stringify(process.env.KIANOS_RELEASE_SHA || '')
+    }
   }
 });

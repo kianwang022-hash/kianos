@@ -10,7 +10,10 @@ on:
       - 'static-web/scripts/kianos-current-sync.mjs'
       - 'static-web/src/lib/currentRefreshPolicy.mjs'
       - 'static-web/scripts/test-current-refresh-policy.mjs'
-      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/src/layouts/BaseFrame.astro'
+      - 'static-web/astro.config.mjs'
+      - 'static-web/scripts/currentRelease.mjs'
+      - 'static-web/scripts/kianos-safe-astro-build.mjs'
   push:
     branches: [main]
     paths:
@@ -21,7 +24,10 @@ on:
       - 'static-web/scripts/kianos-current-sync.mjs'
       - 'static-web/src/lib/currentRefreshPolicy.mjs'
       - 'static-web/scripts/test-current-refresh-policy.mjs'
-      - 'static-web/src/layouts/Base.astro'
+      - 'static-web/src/layouts/BaseFrame.astro'
+      - 'static-web/astro.config.mjs'
+      - 'static-web/scripts/currentRelease.mjs'
+      - 'static-web/scripts/kianos-safe-astro-build.mjs'
 
 permissions:
   contents: read
