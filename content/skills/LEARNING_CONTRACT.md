@@ -35,6 +35,19 @@ real demand / success condition
 
 This is **one causal chain**.
 
+The learner-facing cognition hierarchy in §4 is the Skill-specific specialization of root `LEARNING_ASSET_STANDARD.md §4.1`:
+
+```text
+Orientation
+→ expanded model / Guide
+→ reconstruction + application / deepening
+→ Compression
+→ transfer / real use
+→ smallest evidence-driven repair loop
+```
+
+Do not create a competing Skill-only learning geometry. Skill-specific stages add capability detail; the root standard owns the shared abstraction.
+
 The self-attack before release and the learner's later use are different evidence moments inside the same chain, not two separate products.
 
 Hard rule:
