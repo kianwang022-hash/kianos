@@ -3,11 +3,8 @@ import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 
-import { privateLearnerBridge } from './privateLearnerBridge.mjs';
-import { privateExternalReadingBridge } from './privateExternalReadingBridge.mjs';
-import { privateControlBridge } from './privateControlBridge.mjs';
-
 const args = process.argv.slice(2);
+const releaseProbeOnly = args.includes('--release-probe-only') || process.env.KIANOS_RELEASE_PROBE_ONLY === '1';
 const arg = (name, fallback) => {
   const index = args.indexOf('--' + name);
   return index >= 0 && args[index + 1] ? args[index + 1] : fallback;
@@ -256,12 +253,23 @@ function dispatch(req, res, index = 0) {
 const server = http.createServer((req, res) => dispatch(req, res));
 const bridgeServer = { middlewares, httpServer: server };
 
-for (const bridge of [
-  privateLearnerBridge(),
-  privateExternalReadingBridge(),
-  privateControlBridge()
-]) {
-  bridge.configureServer?.(bridgeServer);
+if (!releaseProbeOnly) {
+  const [
+    { privateLearnerBridge },
+    { privateExternalReadingBridge },
+    { privateControlBridge }
+  ] = await Promise.all([
+    import('./privateLearnerBridge.mjs'),
+    import('./privateExternalReadingBridge.mjs'),
+    import('./privateControlBridge.mjs')
+  ]);
+  for (const bridge of [
+    privateLearnerBridge(),
+    privateExternalReadingBridge(),
+    privateControlBridge()
+  ]) {
+    bridge.configureServer?.(bridgeServer);
+  }
 }
 
 server.listen(port, host, () => {

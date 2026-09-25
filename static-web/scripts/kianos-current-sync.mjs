@@ -17,7 +17,8 @@ import {
 import {
   acquireDeliveryLock,
   releasePaths,
-  runBounded
+  runBounded,
+  terminateProcessTree
 } from './currentRelease.mjs';
 
 const execFileAsync = promisify(execFile);
@@ -340,11 +341,17 @@ async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
     candidateServerPath,
     '--host', host,
     '--port', String(probePort),
-    '--root', path.join(candidateWebRoot, 'dist')
+    '--root', path.join(candidateWebRoot, 'dist'),
+    '--release-probe-only'
   ], {
     cwd: candidateWebRoot,
     stdio: 'ignore',
-    env: { ...process.env, KIANOS_PORT: String(probePort) }
+    detached: process.platform !== 'win32',
+    env: {
+      ...process.env,
+      KIANOS_PORT: String(probePort),
+      KIANOS_RELEASE_PROBE_ONLY: '1'
+    }
   });
   try {
     const started = Date.now();
@@ -358,9 +365,8 @@ async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
     }
     throw new Error('CURRENT_RELEASE_RUNTIME_NOT_READY');
   } finally {
-    if (candidateServer.exitCode === null) {
-      candidateServer.kill('SIGTERM');
-      await new Promise((resolve) => candidateServer.once('exit', resolve));
+    if (candidateServer.pid) {
+      await terminateProcessTree(candidateServer.pid, { graceMs: 1000 });
     }
   }
 }

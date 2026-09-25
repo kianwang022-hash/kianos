@@ -45,5 +45,21 @@ try {
   const controlStatus = JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json')));
   assert.equal(controlStatus.sha, c);
   assert.equal(controlStatus.static_build, 'skipped');
-  console.log('CURRENT_INSTALL_RECOVERY PASS: same SHA retries install, readiness gates promotion, and skip-Astro stays control-only');
+
+  // Probe teardown must be bounded even when the candidate runtime ignores
+  // SIGTERM. The supervisor should escalate to process-group SIGKILL before
+  // releasing its delivery lock and still accept the healthy release.
+  write('fixture.txt', 'D');
+  write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),r=args[args.indexOf('--root')+1];if(args.includes('--release-probe-only'))process.on('SIGTERM',()=>{});http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({sha:JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha}):'ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
+  git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'stubborn probe runtime'); const d = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
+  const probeStarted = Date.now();
+  const stubborn = run({ KIANOS_NPM_BIN: npm });
+  const probeElapsed = Date.now() - probeStarted;
+  assert.equal(stubborn.status, 0, stubborn.stderr);
+  assert.ok(probeElapsed >= 900, `probe cleanup settled before TERM grace elapsed: ${probeElapsed}ms`);
+  assert.ok(probeElapsed < 10000, `probe cleanup exceeded bounded teardown: ${probeElapsed}ms`);
+  assert.equal(git(mirror, 'rev-parse', 'HEAD'), d);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json'))).sha, d);
+
+  console.log('CURRENT_INSTALL_RECOVERY PASS: same SHA retries install, readiness gates promotion, skip-Astro stays control-only, stubborn probe cleanup is bounded');
 } finally { fs.rmSync(root, { recursive: true, force: true }); }
