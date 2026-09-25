@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.future_source_slot.v1",
-  "status": "CLOSED_CURRENT_AFTER_RESIDUAL_REBASE_2026_09_26",
+  "status": "REOPENED_CURRENT_FOR_LEGACY_EXPLANATORY_PRESERVATION_AUDIT",
   "slot_id": "xizong-2027-surgery-rebase",
   "source_cycle": "27考研",
   "domain": "Surgery",
@@ -510,7 +510,7 @@
       }
     },
     "source_map_owner": "content/xizong/knowledge/learner/surgery-27-source-map.json",
-    "action_now": "NONE_FOR_THIS_SURGERY_REVISION; content/source rebase is closed. Reopen only for a new/revised authoritative Surgery Source or a concrete real-use defect.",
+    "action_now": "Run reverse preservation audit against legacy 27 follow-along explanatory substrate before re-closing Surgery. Current 27 refined remains the only learner Source.",
     "residual_rebase_2026_09_26": {
       "trigger": "User clarified the actual task: upgrade 27 follow-along Surgery content to 27 refined and absorb the refined explanatory notes, not start studying Surgery.",
       "defect_class": "FALSE_CLOSEOUT_FROM_PARTIAL_SOURCE_REBIND_AND_STALE_CONSUMERS",
@@ -544,6 +544,30 @@
         "boundary": "Blocked validators failed on local runtime prerequisites before Surgery content evaluation; they are not counted as content PASS or content FAIL."
       },
       "closeout": "CLOSED_CURRENT_AFTER_RESIDUAL_REBASE; next step is Human real-use validation, not more source/content migration."
+    },
+    "legacy_explanatory_preservation_audit_2026_09_26": {
+      "trigger": "Biochemistry rebase is the accepted benchmark: new Current Source replaces old learner Source while validated older explanatory value survives inside canonical Framework/KP/Learning. Surgery prior closeout proved refined-note absorption and consumer rebind, but did not uniformly prove reverse preservation of useful legacy-only explanations.",
+      "authority_rule": "content/xizong/knowledge/learner/SURGERY_CONTRACT.md",
+      "current_source": "27外科精编版【带导图】.pdf",
+      "explanatory_substrate": "27 外科跟课合集改.pdf / legacy 外科学讲义_AI阅读版.md",
+      "invariant": [
+        "Kian first-pass reads Current 27 refined only",
+        "legacy follow-along never returns as a second learner Source",
+        "absence from refined is not automatic RETIRE evidence",
+        "validated old-only mechanism/decision/boundary explanation is absorbed into the existing canonical Block/LG/KP or Learning owner",
+        "legacy mnemonics/jokes/duplicated prose/unsupported precision are retired",
+        "Current refined original PDF remains authoritative for exact visual/spatial evidence"
+      ],
+      "audit_sequence": [
+        "smoke: U01 thyroid/neck",
+        "smoke: U08 obstruction",
+        "smoke: U16 biliary",
+        "smoke: U29 fracture general",
+        "smoke: U36 anesthesia",
+        "then 38/38 reverse preservation pass if smoke does not expose a broader defect class sooner"
+      ],
+      "status": "ACTIVE",
+      "blocker": "NONE"
     }
   },
   "governance": {
