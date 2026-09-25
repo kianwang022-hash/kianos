@@ -310,7 +310,8 @@ assert.match(beginnerGuide,/不形成第二套要再读一遍的生化课/,'B Be
 
 assert.match(xizongCurrent,/27 Biochemistry lifecycle owner:/);
 assert.match(xizongCurrent,/xizong-2027-biochemistry-delta-slot\.json/);
-assert.match(contentMainline,/content\/xizong\/knowledge\/learner\/xizong-2027-biochemistry-delta-slot\.json/);
+assert.match(contentMainline,/No bounded Xizong content-revalidation task is currently open\./,'Mainline must remain a program router after closed Biochemistry work');
+assert.match(contentMainline,/Biochemistry and Surgery Source-revision work route to their exact lifecycle owners/,'Mainline lost exact-owner reopen routing');
 assert.doesNotMatch(contentMainline,/# 0｜27 Biochemistry architecture-corrected rebase|Lifecycle is owned only by the exact task owner below/,'Mainline must not restore retired Biochemistry campaign prose');
 assert.match(bCurrent,/exact lifecycle owner/i,'B Current must route source-revision work to the exact lifecycle owner');
 assert.doesNotMatch(
