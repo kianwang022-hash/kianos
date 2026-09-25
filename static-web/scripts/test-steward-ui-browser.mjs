@@ -158,6 +158,42 @@ try {
     await page.goto(`${BASE}/steward/`, { waitUntil: 'domcontentloaded' });
     await page.locator('[data-steward-workspace]').waitFor({ state: 'visible' });
 
+    const capacityDay = await page.evaluate(() => {
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Shanghai',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      }).formatToParts(new Date());
+      return `${parts.find((part) => part.type === 'year')?.value}-${parts.find((part) => part.type === 'month')?.value}-${parts.find((part) => part.type === 'day')?.value}`;
+    });
+    await page.evaluate(async (studyDay) => {
+      const mod = await import('/src/lib/examChatPlan.mjs');
+      const basis = mod.buildExamChatPlanBasis(localStorage, studyDay);
+      mod.writeExamChatPlan(localStorage, {
+        schema: 'kianos.exam.chat-plan.v1',
+        study_day: studyDay,
+        generated_at: new Date().toISOString(),
+        learner_evidence_basis: basis,
+        subjects: {
+          xizong: { target_minutes: 240, role: '主推进', note: '', session_ref: null },
+          english: null,
+          politics: null
+        },
+        next_subject: 'xizong',
+        attention: null,
+        capacity: {
+          state: 'REDUCED',
+          summary: '上午高负荷后可用认知容量下降，但仍可继续推进。',
+          basis: '主观状态 + 学习表现 + 当前可用 Health 上下文',
+          load: '西综高负荷主块后出现恢复需求',
+          action: '先做一次足量低输入恢复，再回到当前主线',
+          recheck: '看下一学习块是否恢复持续注意和处理速度'
+        }
+      }, studyDay);
+      window.dispatchEvent(new Event('kianos:control-command-applied'));
+    }, capacityDay);
+
     check(await page.locator('[data-kianos-global-rail]').isVisible(), 'l1_missing');
     check((await page.locator('.kianosRailItem.active').textContent())?.trim() === 'Steward', 'l1_active');
     check(await page.locator('[data-kianos-subject-bar]').count() === 0, 'invented_l2');
@@ -181,6 +217,17 @@ try {
     check(realityText.includes('休息 10m'), 'today_break_reality_visible', realityText);
     check(realityText.includes('部分恢复'), 'today_reentry_reality_visible', realityText);
     check(!/readiness|恢复分|债务分|recovery score/i.test(realityText), 'today_recovery_has_no_invented_score', realityText);
+
+    const capacitySection = page.locator('[data-steward-capacity-section]');
+    check(await capacitySection.isVisible(), 'today_capacity_loop_visible');
+    check((await page.locator('[data-steward-capacity-state]').textContent())?.trim() === '降低', 'today_capacity_state');
+    check((await page.locator('[data-steward-capacity-summary]').textContent())?.includes('认知容量下降'), 'today_capacity_summary');
+    check((await page.locator('[data-steward-capacity-load]').textContent())?.includes('西综高负荷'), 'today_capacity_load');
+    check((await page.locator('[data-steward-capacity-action]').textContent())?.includes('低输入恢复'), 'today_capacity_action');
+    check((await page.locator('[data-steward-capacity-recheck]').textContent())?.includes('下一学习块'), 'today_capacity_recheck');
+    check((await page.locator('[data-steward-capacity-recovery]').textContent())?.includes('部分恢复'), 'today_capacity_recovery_result');
+    check(!/readiness|恢复分|债务分|recovery score/i.test(await capacitySection.innerText()), 'today_capacity_has_no_invented_score');
+
     check(await page.locator('[data-steward-task-section]').isHidden(), 'empty_task_region_hidden');
 
     const visibleToday = await page.locator('[data-steward-view-panel].active').getAttribute('data-steward-view-panel');
