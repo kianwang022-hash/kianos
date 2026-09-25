@@ -25,8 +25,6 @@ No broad Xizong content-construction campaign is active.
 
 Closed for the current admitted scope:
 
-- 27 Biochemistry Source/Knowledge/Learning/Content/Projection revision chain — exact lifecycle owner: `content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json`;
-- 27 Surgery refined-source revision chain — exact lifecycle owner: `content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json`;
 - D / E / F main medical-content construction;
 - exact official System-question membership for the current corpus;
 - broad Question → Knowledge review/storage construction for the current corpus; Current consumption remains revision-freshness-gated and stale reviewed rows reopen only at the exact relation boundary;
@@ -46,11 +44,12 @@ Real learner U remains private evidence and is never manufactured by this progra
 
 ## Active bounded tasks
 
-No Xizong content-construction task is currently open from the three-system convergence program.
+Two concrete evidence-backed revalidation tasks are currently open; neither is a broad content campaign:
 
-The 27 Surgery and Biochemistry lifecycle owners are CLOSED for their admitted domain revisions. Their use as **architecture validation samples** is owned only by Personal Issue #47 and must not reopen or mirror content-task state here.
+- **27 Biochemistry transitive Source-revision revalidation** — exact owner: `content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json`. Full freshness audit found **515 affected reviewed Question→Knowledge / learner-facing explanation witnesses** downstream of the 27 Source revision. Preserve stable mappings/text unless exact Current semantics require change; complete Current witness/explanation revalidation and strengthen the freshness gate before re-closing.
+- **27 Surgery legacy-explanatory preservation audit** — exact owner: `content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json`. Current 27 refined remains the only learner Source; complete the bounded reverse-preservation audit so useful old-only explanatory substrate is not silently lost before re-closing.
 
-If Issue #47 requests a replay, the replay must be a new bounded real change routed through the exact current owner; it does not reactivate the historical 38-unit Surgery or 22-unit Biochemistry campaigns.
+These lanes reopened because current evidence exposed concrete closure defects, not because Personal Issue #47 replayed historical campaigns. They remain bounded to their exact dependency chains and do not reactivate the historical 22-unit Biochemistry or 38-unit Surgery construction programs.
 
 ## Durable lanes
 
@@ -58,7 +57,7 @@ If Issue #47 requests a replay, the replay must be a new bounded real change rou
 | --- | --- | --- | --- |
 | Main medical Content | broad construction closed | exact System `CURRENT` / Knowledge / Learning owner | concrete defect or admitted new/revised Source |
 | Questions / System membership | current corpus closed | `content/xizong/questions/` + exact System owner | real question/source ownership defect or new corpus |
-| Question → Knowledge | broad corpus construction closed; Current consumption freshness-gated | `content/xizong/question-relations/README.md` | exact stale relation after Knowledge/Source revision, real defect, or new corpus |
+| Question → Knowledge | broad corpus construction closed; bounded Biochemistry Source-revision revalidation active; Current consumption freshness-gated | `content/xizong/question-relations/README.md` + exact lifecycle owner | exact stale relation after Knowledge/Source revision, real defect, or new corpus |
 | Late-stage material | 26 baseline absorbed | `content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json` | authoritative new-cycle material |
 | Visual / Extension | selective additive only | `content/xizong/EXTENSION_ASSET_CONTRACT.md` → exact stable owner | high-value need / real gap / new authoritative Source |
 
