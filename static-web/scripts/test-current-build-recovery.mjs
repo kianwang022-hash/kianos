@@ -60,6 +60,15 @@ fs.writeFileSync(path.join(root, 'index.html'), process.env.PAGE_TEXT || 'fixtur
   assert.equal(result.status, 0, result.stderr);
   assert.equal(built().sha, first);
 
+  // Simulate a real migrated control mirror that still carries a stale legacy
+  // dist identity. Impact must be based on the active isolated release, not
+  // this obsolete control-checkout artifact.
+  fs.mkdirSync(path.join(mirror, 'static-web/dist'), { recursive: true });
+  fs.writeFileSync(
+    path.join(mirror, 'static-web/dist/__kianos-current.json'),
+    JSON.stringify({ state: 'synced', sha: 'legacy-stale-control-dist' })
+  );
+
   const controlOnly = commit('CURRENT.md', 'control-only metadata');
   git(upstream, 'push', 'origin', 'main');
   result = run();

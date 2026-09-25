@@ -502,7 +502,7 @@ async function syncOnce({ initial = false } = {}) {
     lastTargetSha = fetched;
     // A previous update may have moved HEAD but failed to publish. Classify
     // from the actually served source, never from that failed checkout.
-    const builtBase = readBuiltStatus();
+    const builtBase = readActiveBuiltStatus();
     const impactBase = builtBase?.state === 'synced' && builtBase?.sha ? builtBase.sha : local;
     const changed = await git(['diff', '--name-only', impactBase, fetched]);
     const changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
