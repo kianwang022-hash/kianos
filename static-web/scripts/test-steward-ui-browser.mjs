@@ -157,6 +157,7 @@ try {
     page.on('pageerror', (error) => pageErrors.push(String(error?.stack || error?.message || error)));
     await page.goto(`${BASE}/steward/`, { waitUntil: 'domcontentloaded' });
     await page.locator('[data-steward-workspace]').waitFor({ state: 'visible' });
+    await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active');
 
     const capacityDay = await page.evaluate(() => {
       const parts = new Intl.DateTimeFormat('en-US', {
@@ -196,11 +197,59 @@ try {
           schedule_blocks: [
             { id: 'steward-xz-am', subject: 'xizong', start: '08:30', end: '11:30', label: '西综高认知主块', detail: '强窗口' },
             { id: 'steward-en-mid', subject: 'english', start: '12:10', end: '13:20', label: 'English 连续性', detail: '中低负荷窗口' }
-          ]
+          ],
+          nutrition: {
+            owner_ref: 'kianwang022-hash/kian-personal-os/health/personal-day/NUTRITION.md',
+            target_label: '目标 2200–2450 kcal · P 150–175g',
+            active_meal_id: 'z02',
+            foods: [
+              { id: 'yogurt', label: '高蛋白 Greek yogurt', unit: '盒', grams_per_unit: 300, recommended_amount: 1, note: '300g/盒', nutrition: { basis: 'PER_100G', kcal: 56.9, protein_g: 10, carb_g: 4, fat_g: 0 } },
+              { id: 'rye', label: '黑麦片', unit: 'g', recommended_amount: 50, nutrition: { basis: 'PER_100G', kcal: 344.9, protein_g: 13, carb_g: 63.2, fat_g: 1.6 } },
+              { id: 'blueberry', label: '蓝莓', unit: 'g', recommended_amount: 120, nutrition: { basis: 'PER_100G', kcal: 57, protein_g: .7, carb_g: 14.5, fat_g: .3 } },
+              { id: 'nuts', label: '混合坚果', unit: '小包', grams_per_unit: 12, recommended_amount: 1, note: '12g/小包', nutrition: { basis: 'PER_100G', kcal: 600, protein_g: 18, carb_g: 20, fat_g: 52 } },
+              { id: 'salmon', label: '三文鱼', unit: 'g', recommended_amount: 200, nutrition: { basis: 'PER_100G', kcal: 208, protein_g: 20, carb_g: 0, fat_g: 13 } },
+              { id: 'shrimp', label: '北极甜虾', unit: 'g', recommended_amount: 170, nutrition: { basis: 'PER_100G', kcal: 74, protein_g: 17.1, carb_g: 1, fat_g: 0 } }
+            ],
+            meals: [
+              { id: 'b01', label: 'B01 · 熟悉早餐', note: '酸奶 + 黑麦 + 蓝莓 + 少量坚果', items: [{ food_id: 'yogurt', amount: 1 }, { food_id: 'rye', amount: 50 }, { food_id: 'blueberry', amount: 120 }, { food_id: 'nuts', amount: 1 }] },
+              { id: 'z02', label: 'Z02 · 三文鱼午餐', note: '饱腹 / 训练支持', items: [{ food_id: 'salmon', amount: 200 }, { food_id: 'rye', amount: 50 }, { food_id: 'yogurt', amount: 1 }] },
+              { id: 'z03', label: 'Z03 · 甜虾午餐', note: '更轻的午餐候选', items: [{ food_id: 'shrimp', amount: 170 }, { food_id: 'rye', amount: 50 }, { food_id: 'yogurt', amount: 1 }] }
+            ],
+            topup_pool: [
+              { food_id: 'yogurt', amount: 1, role: '补蛋白' },
+              { food_id: 'rye', amount: 30, role: '补碳水' },
+              { food_id: 'nuts', amount: 1, role: '补脂肪' }
+            ],
+            quick_add: [
+              { food_id: 'yogurt', amount: 1 },
+              { food_id: 'rye', amount: 50 },
+              { food_id: 'blueberry', amount: 120 },
+              { food_id: 'nuts', amount: 1 },
+              { food_id: 'salmon', amount: 200 },
+              { food_id: 'shrimp', amount: 170 }
+            ]
+          },
+          training: {
+            owner_ref: 'kianwang022-hash/kian-personal-os/health/personal-day/TRAINING.md',
+            session_id: 'strength-reentry-a',
+            title: '全身力量',
+            duration_label: '3 个动作 · 约 25–30 分钟',
+            exercises: [
+              { id: 'KN01', label: 'Smith squat', note: '下肢主力 · 2 × 6–8 · RPE 6–7', prescription: '70 kg × 8', load_value: 70, load_unit: 'kg', reps_value: 8, reps_unit: 'reps', rpe: 6, alternatives: [{ id: 'KN02', label: 'Goblet squat', note: '低疲劳替换', prescription: '12 reps · RPE 6', reps_value: 12, reps_unit: 'reps', rpe: 6 }] },
+              { id: 'PR01', label: 'Smith flat bench press', note: '水平推 · 2 × 6–8 · RPE 6–7', prescription: '60 kg × 8', load_value: 60, load_unit: 'kg', reps_value: 8, reps_unit: 'reps', rpe: 6, alternatives: [{ id: 'PR02', label: 'DB flat bench press', note: '哑铃替换', prescription: '10 reps · RPE 6', reps_value: 10, reps_unit: 'reps', rpe: 6 }] },
+              { id: 'PU03', label: 'One-arm cable row', note: '水平拉 · 2 × 10–14 / side', prescription: '5 档 × 12', load_value: 5, load_unit: '档', reps_value: 12, reps_unit: 'reps', rpe: 7, alternatives: [{ id: 'PU05', label: 'One-arm DB row', note: '低设置摩擦替换', prescription: '12 reps / side', reps_value: 12, reps_unit: 'reps', rpe: 7 }] }
+            ]
+          }
         }
       }, studyDay);
       window.dispatchEvent(new Event('kianos:control-command-applied'));
     }, capacityDay);
+
+    const stewardImplementationSource = [
+      fs.readFileSync(path.resolve(process.cwd(), 'src/pages/steward/index.astro'), 'utf8'),
+      fs.readFileSync(path.resolve(process.cwd(), 'src/lib/stewardWorkspaceClient.mjs'), 'utf8')
+    ].join('\n');
+    check(!/Z02|KN01|PR01|PU03|Smith squat|三文鱼午餐/.test(stewardImplementationSource), 'personal_semantics_must_arrive_via_plan_projection');
 
     check(await page.locator('[data-kianos-global-rail]').isVisible(), 'l1_missing');
     check((await page.locator('.kianosRailItem.active').textContent())?.trim() === 'Steward', 'l1_active');
@@ -220,7 +269,9 @@ try {
     check(await page.locator('[data-steward-view="today"]').getAttribute('class') === 'active', 'today_default');
     check(await page.locator('[data-steward-mode="schedule"]').getAttribute('class') === 'active', 'schedule_default');
     check(await page.locator('.stewardActualBlock').count() >= 1, 'today_actual_blocks');
-    check(await page.locator('.stewardActualBlock strong').first().isVisible(), 'today_actual_label');
+    check(await page.locator('.stewardActualBlock.withPlan').count() >= 1, 'today_actual_plan_trace');
+    const actualTraceWidth = await page.locator('.stewardActualBlock.withPlan').first().evaluate((node) => node.getBoundingClientRect().width);
+    check(actualTraceWidth <= 12, 'today_actual_trace_is_quiet', String(actualTraceWidth));
     check(await page.locator('.stewardPlanBlock').count() >= 2, 'today_plan_blocks_from_canonical_chat_plan');
     const planText = (await page.locator('[data-steward-timeline]').innerText()).replace(/\s+/g, ' ');
     check(planText.includes('西综高认知主块') && planText.includes('English 连续性'), 'today_plan_labels_visible', planText);
@@ -246,14 +297,61 @@ try {
     check(visibleToday === 'today', 'today_only_view', String(visibleToday));
 
     await page.locator('[data-steward-mode="nutrition"]').click();
-    check(await page.locator('[data-steward-nutrition-unavailable]').isVisible(), 'nutrition_unavailable_state');
-    check(await page.locator('[data-steward-meal-preset]').count() === 0, 'nutrition_no_copied_presets');
-    check(!/Z01|Z02|Z03|黑麦酸奶碗|三文鱼组合|甜虾组合/.test(await page.locator('body').innerText()), 'nutrition_personal_semantics_leak');
+    check(await page.locator('[data-steward-nutrition-unavailable]').isHidden(), 'nutrition_projection_available');
+    check(await page.locator('[data-steward-nutrition-workspace]').isVisible(), 'nutrition_workspace_visible');
+    check(await page.locator('[data-steward-meal-preset]').count() === 3, 'nutrition_plan_meals_visible');
+    check((await page.locator('[data-steward-meal-title]').textContent())?.includes('三文鱼午餐'), 'nutrition_active_meal');
+    check(await page.locator('[data-steward-food-input="salmon"]').inputValue() === '200', 'nutrition_salmon_default_200');
+    const yogurtText = await page.locator('[data-steward-meal-item="yogurt"]').innerText();
+    check(yogurtText.includes('推荐 1 盒') && yogurtText.includes('300g/盒'), 'nutrition_packaged_food_by_serving', yogurtText);
+    check(await page.locator('[data-steward-macro]').count() === 4, 'nutrition_four_big_numbers');
+    for (const key of ['kcal', 'protein', 'carb', 'fat']) {
+      check((await page.locator('[data-steward-macro="' + key + '"]').textContent())?.trim() !== '—', 'nutrition_macro_available', key);
+    }
+    check(await page.locator('[data-steward-topup-list] .stewardFoodAction').count() === 3, 'nutrition_gap_fill_kept');
+    check(await page.locator('[data-steward-quick-add] .stewardFoodAction').count() === 6, 'nutrition_quick_add_right');
+    const nutritionGeometry = await page.evaluate(() => ({
+      editor: document.querySelector('[data-steward-meal-editor]')?.getBoundingClientRect().x || 0,
+      quick: document.querySelector('[data-steward-quick-add]')?.getBoundingClientRect().x || 0
+    }));
+    check(nutritionGeometry.quick > nutritionGeometry.editor, 'nutrition_quick_add_right_geometry', JSON.stringify(nutritionGeometry));
+    await page.locator('[data-steward-meal-half]').click();
+    check(await page.locator('[data-steward-food-input="salmon"]').inputValue() === '100', 'nutrition_half_action');
+    await page.locator('[data-steward-meal-uncertain]').click();
+    check((await page.locator('[data-steward-meal-uncertain]').getAttribute('class') || '').includes('active'), 'nutrition_uncertain_action');
+    check((await page.locator('[data-steward-meal-editor]').getAttribute('class') || '').includes('uncertain'), 'nutrition_uncertain_visual');
+    await page.locator('[data-steward-meal-reset]').click();
+    check(await page.locator('[data-steward-food-input="salmon"]').inputValue() === '200', 'nutrition_reset_action');
+    const mealReality = await page.evaluate(async (studyDay) => {
+      const mod = await import('/src/lib/stewardReality.mjs');
+      return mod.buildStewardRealityDailySummary(localStorage, { day: studyDay }).meals;
+    }, capacityDay);
+    check(mealReality?.[0]?.status === 'SELECTED', 'nutrition_selection_not_consumption');
+    check(mealReality?.[0]?.items?.find(item => item.food_id === 'salmon')?.amount === 200, 'nutrition_selection_readback');
+    await page.screenshot({ path: path.join(auditDir, 'nutrition-1512x820.png'), fullPage: false });
 
     await page.locator('[data-steward-mode="training"]').click();
-    check(await page.locator('[data-steward-training-unavailable]').isVisible(), 'training_unavailable_state');
-    check(await page.locator('[data-steward-exercise]').count() === 0, 'training_no_copied_exercises');
-    check(!/KN01|PR01|PU03|CD01|CD02|MV02|MV03|Smith squat|Smith bench press|Incline treadmill walk/.test(await page.locator('body').innerText()), 'training_personal_semantics_leak');
+    check(await page.locator('[data-steward-training-unavailable]').isHidden(), 'training_projection_available');
+    check(await page.locator('[data-steward-training-workspace]').isVisible(), 'training_workspace_visible');
+    check(await page.locator('[data-steward-exercise]').count() === 3, 'training_recommended_cards');
+    const trainingText = await page.locator('[data-steward-exercise-list]').innerText();
+    check(trainingText.includes('Smith squat') && trainingText.includes('Smith flat bench press') && trainingText.includes('One-arm cable row'), 'training_plan_labels', trainingText);
+    check(await page.locator('[data-steward-exercise] [data-action="replace"]').count() === 3, 'training_replace_actions');
+    check(await page.locator('[data-steward-exercise] [data-action="record"]').count() === 3, 'training_record_actions');
+    await page.screenshot({ path: path.join(auditDir, 'training-1512x820.png'), fullPage: false });
+    const firstExercise = page.locator('[data-steward-exercise="KN01"]');
+    await firstExercise.locator('[data-action="replace"]').click();
+    check((await page.locator('[data-steward-exercise="KN01"]').innerText()).includes('Goblet squat'), 'training_authorized_replace');
+    await page.locator('[data-steward-exercise="KN01"] [data-action="record"]').click();
+    check((await page.locator('[data-steward-exercise="KN01"]').getAttribute('class') || '').includes('recorded'), 'training_record_visual');
+    await page.locator('[data-steward-training-effect="SAME"]').click();
+    const trainingReality = await page.evaluate(async (studyDay) => {
+      const mod = await import('/src/lib/stewardReality.mjs');
+      return mod.buildStewardRealityDailySummary(localStorage, { day: studyDay }).training;
+    }, capacityDay);
+    check(trainingReality?.[0]?.effect === 'SAME', 'training_effect_readback');
+    check(trainingReality?.[0]?.exercises?.[0]?.exercise_id === 'KN01', 'training_record_base_identity');
+    check(trainingReality?.[0]?.exercises?.[0]?.variant_id === 'KN02', 'training_record_authorized_variant');
 
     await page.locator('[data-steward-mode="schedule"]').click();
     check(await page.locator('[data-steward-mode-panel="schedule"]').getAttribute('class') === 'stewardModePanel active', 'schedule_return_after_local_modes');

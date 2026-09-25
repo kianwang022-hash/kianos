@@ -7,7 +7,13 @@ import {
   studyDayAt,
   STUDY_TIMER_TIMEZONE
 } from './studyTimer.mjs';
-import { stewardRealityEventsForDay } from './stewardReality.mjs';
+import {
+  stewardRealityEventsForDay,
+  stewardMealSelectionsForDay,
+  stewardTrainingActualsForDay,
+  upsertStewardMealSelection,
+  upsertStewardTrainingActual
+} from './stewardReality.mjs';
 
 const SUBJECT_LABEL = Object.freeze({
   xizong: '西综',
@@ -161,7 +167,9 @@ function planPresentation(state) {
   return {
     todayTasks: value.todayTasks || value.today_tasks || [],
     weekReference: value.weekReference || value.week_reference || [],
-    scheduleBlocks: value.scheduleBlocks || value.schedule_blocks || []
+    scheduleBlocks: value.scheduleBlocks || value.schedule_blocks || [],
+    nutrition: value.nutrition || null,
+    training: value.training || null
   };
 }
 
@@ -438,6 +446,353 @@ export function initStewardWorkspace(root) {
     });
   }
 
+
+  function foodAmountLabel(food, amount) {
+    const value = Number(amount);
+    if (!Number.isFinite(value)) return '—';
+    const shown = Number.isInteger(value) ? String(value) : String(Number(value.toFixed(1)));
+    return (shown + ' ' + (food?.unit || '')).trim();
+  }
+
+  function nutritionTotals(projection, items) {
+    const foodMap = new Map((projection?.foods || []).map(food => [food.id, food]));
+    const totals = { kcal: 0, protein: 0, carb: 0, fat: 0 };
+    for (const item of items) {
+      const food = foodMap.get(item.food_id);
+      if (!food?.nutrition) return null;
+      const scale = food.nutrition.basis === 'PER_UNIT'
+        ? Number(item.amount)
+        : (Number(item.amount) * Number(food.grams_per_unit || 0)) / 100;
+      if (!Number.isFinite(scale)) return null;
+      totals.kcal += food.nutrition.kcal * scale;
+      totals.protein += food.nutrition.protein_g * scale;
+      totals.carb += food.nutrition.carb_g * scale;
+      totals.fat += food.nutrition.fat_g * scale;
+    }
+    return totals;
+  }
+
+  function renderNutrition(presentation, chatPlanState) {
+    const unavailable = $('[data-steward-nutrition-unavailable]');
+    const workspace = $('[data-steward-nutrition-workspace]');
+    if (!unavailable || !workspace) return;
+    const projection = chatPlanState?.status === 'ready' ? presentation?.nutrition : null;
+    const available = Boolean(projection?.meals?.length && projection?.foods?.length);
+    unavailable.hidden = available;
+    workspace.hidden = !available;
+    if (!available) return;
+
+    const generatedAt = chatPlanState.plan?.generated_at || '';
+    const foodMap = new Map(projection.foods.map(food => [food.id, food]));
+    const actuals = stewardMealSelectionsForDay(storage, today) || [];
+    const currentActual = [...actuals].reverse().find(event => event.planGeneratedAt === generatedAt) || null;
+    const activeMealId = currentActual?.mealId || projection.active_meal_id || projection.meals[0].id;
+    const selectedMeal = projection.meals.find(meal => meal.id === activeMealId) || projection.meals[0];
+    const currentItems = currentActual?.mealId === selectedMeal.id
+      ? currentActual.items.map(item => ({ food_id: item.foodId, amount: item.amount, role: '' }))
+        .filter(item => foodMap.has(item.food_id))
+      : selectedMeal.items.map(item => ({ ...item }));
+    const uncertain = Boolean(currentActual?.mealId === selectedMeal.id && currentActual.uncertain);
+
+    const target = $('[data-steward-nutrition-target]');
+    if (target) target.textContent = projection.target_label || '';
+
+    const persist = (meal, items, nextUncertain = uncertain) => {
+      upsertStewardMealSelection(storage, {
+        observedAt: Date.now(),
+        mealId: meal.id,
+        label: meal.label,
+        ownerRef: projection.owner_ref,
+        planGeneratedAt: generatedAt,
+        uncertain: nextUncertain,
+        items: items.map(item => {
+          const food = foodMap.get(item.food_id);
+          return {
+            foodId: item.food_id,
+            label: food?.label || item.food_id,
+            amount: Number(item.amount) || 0,
+            unit: food?.unit || 'g'
+          };
+        })
+      });
+      window.dispatchEvent(new Event('kianos:steward-reality-change'));
+    };
+
+    const mealList = $('[data-steward-meal-list]');
+    mealList.innerHTML = '';
+    for (const meal of projection.meals) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.stewardMealPreset = meal.id;
+      if (meal.id === selectedMeal.id) button.classList.add('active');
+      button.append(createText('strong', '', meal.label));
+      if (meal.note) button.append(createText('span', '', meal.note));
+      button.addEventListener('click', () => persist(meal, meal.items.map(item => ({ ...item })), false));
+      mealList.appendChild(button);
+    }
+
+    const editor = $('[data-steward-meal-editor]');
+    editor.classList.toggle('uncertain', uncertain);
+    const title = $('[data-steward-meal-title]');
+    if (title) title.textContent = selectedMeal.label;
+
+    const rows = $('[data-steward-meal-rows]');
+    rows.innerHTML = '';
+    for (const item of currentItems) {
+      const food = foodMap.get(item.food_id);
+      if (!food) continue;
+      const row = document.createElement('div');
+      row.className = 'stewardMealRow';
+      row.dataset.stewardMealItem = food.id;
+      const copy = document.createElement('div');
+      copy.append(createText('strong', '', food.label));
+      const recommendation = '推荐 ' + foodAmountLabel(food, food.recommended_amount)
+        + (food.note ? ' · ' + food.note : '');
+      copy.append(createText('small', '', recommendation));
+      const inputWrap = document.createElement('label');
+      inputWrap.className = 'stewardGramInput';
+      const input = document.createElement('input');
+      input.type = 'number';
+      input.min = '0';
+      input.step = food.unit === 'g' ? '5' : '.5';
+      input.value = String(Number(item.amount));
+      input.dataset.stewardFoodInput = food.id;
+      inputWrap.append(input, createText('span', '', food.unit));
+      input.addEventListener('change', () => {
+        const next = currentItems.map(current => current.food_id === food.id
+          ? { ...current, amount: Math.max(0, Number(input.value) || 0) }
+          : current);
+        persist(selectedMeal, next, uncertain);
+      });
+      row.append(copy, inputWrap);
+      rows.appendChild(row);
+    }
+
+    const totals = nutritionTotals(projection, currentItems);
+    const macroValues = totals ? {
+      kcal: Math.round(totals.kcal) + ' kcal',
+      protein: totals.protein.toFixed(1) + ' g',
+      carb: totals.carb.toFixed(1) + ' g',
+      fat: totals.fat.toFixed(1) + ' g'
+    } : { kcal: '—', protein: '—', carb: '—', fat: '—' };
+    for (const [key, value] of Object.entries(macroValues)) {
+      const node = $('[data-steward-macro="' + key + '"]');
+      if (node) node.textContent = value;
+    }
+
+    const renderFoodActions = (selector, entries) => {
+      const container = $(selector);
+      if (!container) return;
+      container.innerHTML = '';
+      for (const entry of entries || []) {
+        const food = foodMap.get(entry.food_id);
+        if (!food) continue;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'stewardFoodAction';
+        const copy = document.createElement('span');
+        copy.append(createText('strong', '', entry.role || food.label));
+        copy.append(createText('small', '', food.label + ' · ' + foodAmountLabel(food, entry.amount)));
+        button.append(copy, createText('b', '', '+'));
+        button.addEventListener('click', () => {
+          const next = currentItems.map(item => ({ ...item }));
+          const existing = next.find(item => item.food_id === entry.food_id);
+          if (existing) existing.amount += entry.amount;
+          else next.push({ food_id: entry.food_id, amount: entry.amount, role: entry.role || '' });
+          persist(selectedMeal, next, uncertain);
+        });
+        container.appendChild(button);
+      }
+    };
+    renderFoodActions('[data-steward-topup-list]', projection.topup_pool);
+    renderFoodActions('[data-steward-quick-add]', projection.quick_add);
+
+    const halfButton = $('[data-steward-meal-half]');
+    if (halfButton) halfButton.onclick = () => persist(
+      selectedMeal,
+      currentItems.map(item => ({ ...item, amount: Number(item.amount) / 2 })),
+      uncertain
+    );
+
+    const uncertainButton = $('[data-steward-meal-uncertain]');
+    if (uncertainButton) {
+      uncertainButton.classList.toggle('active', uncertain);
+      uncertainButton.onclick = () => persist(selectedMeal, currentItems, !uncertain);
+    }
+
+    const resetButton = $('[data-steward-meal-reset]');
+    if (resetButton) resetButton.onclick = () => persist(
+      selectedMeal,
+      selectedMeal.items.map(item => ({ ...item })),
+      false
+    );
+  }
+
+  function renderTraining(presentation, chatPlanState) {
+    const unavailable = $('[data-steward-training-unavailable]');
+    const workspace = $('[data-steward-training-workspace]');
+    if (!unavailable || !workspace) return;
+    const projection = chatPlanState?.status === 'ready' ? presentation?.training : null;
+    const available = Boolean(projection?.exercises?.length);
+    unavailable.hidden = available;
+    workspace.hidden = !available;
+    if (!available) return;
+
+    const generatedAt = chatPlanState.plan?.generated_at || '';
+    const actuals = stewardTrainingActualsForDay(storage, today) || [];
+    const currentActual = [...actuals].reverse().find(event =>
+      event.planGeneratedAt === generatedAt && event.sessionId === projection.session_id
+    ) || null;
+    const actualMap = new Map((currentActual?.exercises || []).map(item => [item.exerciseId, item]));
+
+    const title = $('[data-steward-training-title]');
+    if (title) title.textContent = projection.title;
+    const duration = $('[data-steward-training-duration]');
+    if (duration) duration.textContent = projection.duration_label || '';
+
+    const persist = (exercises, effect = currentActual?.effect || null, note = currentActual?.note || '') => {
+      upsertStewardTrainingActual(storage, {
+        observedAt: Date.now(),
+        sessionId: projection.session_id,
+        label: projection.title,
+        ownerRef: projection.owner_ref,
+        planGeneratedAt: generatedAt,
+        effect,
+        note,
+        exercises
+      });
+      window.dispatchEvent(new Event('kianos:steward-reality-change'));
+    };
+
+    const list = $('[data-steward-exercise-list]');
+    list.innerHTML = '';
+    projection.exercises.forEach((base, index) => {
+      const actual = actualMap.get(base.id);
+      const variants = [base, ...(base.alternatives || [])];
+      const selectedId = actual?.variantId || base.id;
+      const selected = variants.find(item => item.id === selectedId) || base;
+
+      const card = document.createElement('article');
+      card.className = 'stewardExerciseCard' + (actual?.status === 'RECORDED' ? ' recorded' : '');
+      card.dataset.stewardExercise = base.id;
+
+      const head = document.createElement('div');
+      head.className = 'stewardExerciseHead';
+      const identity = document.createElement('div');
+      identity.className = 'stewardExerciseIdentity';
+      identity.append(createText('span', 'stewardExerciseRank', String(index + 1)));
+      const identityCopy = document.createElement('div');
+      identityCopy.append(createText('strong', '', selected.label));
+      identityCopy.append(createText('small', '', selected.note || selected.prescription || ''));
+      identity.appendChild(identityCopy);
+
+      const actions = document.createElement('div');
+      actions.className = 'stewardExerciseActions';
+      const replace = document.createElement('button');
+      replace.type = 'button';
+      replace.dataset.action = 'replace';
+      replace.textContent = '替换';
+      replace.disabled = variants.length <= 1;
+      replace.hidden = variants.length <= 1;
+      const record = document.createElement('button');
+      record.type = 'button';
+      record.dataset.action = 'record';
+      record.textContent = actual?.status === 'RECORDED' ? '已记录' : '记录';
+      actions.append(replace, record);
+      head.append(identity, actions);
+
+      const prescription = document.createElement('div');
+      prescription.className = 'stewardExercisePrescription';
+      prescription.append(
+        createText('span', '', '推荐'),
+        createText('strong', '', selected.prescription || '按今日处方')
+      );
+      if (selected.rpe != null) prescription.append(createText('span', '', 'RPE ' + selected.rpe));
+
+      const row = document.createElement('div');
+      row.className = 'stewardSetRow';
+      const fields = [
+        ['load', actual?.loadValue ?? selected.load_value, selected.load_unit || ''],
+        ['reps', actual?.repsValue ?? selected.reps_value, selected.reps_unit || 'reps'],
+        ['rpe', actual?.rpe ?? selected.rpe, 'RPE']
+      ];
+      for (const [name, value, unit] of fields) {
+        const wrap = document.createElement('label');
+        wrap.className = 'stewardSetInput';
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.min = '0';
+        input.step = name === 'rpe' ? '.5' : '1';
+        input.value = value == null ? '' : String(value);
+        input.dataset.stewardTrainingInput = name;
+        wrap.append(input, createText('span', '', unit));
+        row.appendChild(wrap);
+      }
+
+      const currentExerciseRows = () => [...(currentActual?.exercises || [])].map(item => ({ ...item }));
+      const replaceExercise = (nextItem) => {
+        const rows = currentExerciseRows().filter(item => item.exerciseId !== base.id);
+        rows.push({
+          exerciseId: base.id,
+          variantId: nextItem.id === base.id ? '' : nextItem.id,
+          label: nextItem.label,
+          status: 'MODIFIED',
+          loadValue: nextItem.load_value,
+          loadUnit: nextItem.load_unit,
+          repsValue: nextItem.reps_value,
+          repsUnit: nextItem.reps_unit,
+          rpe: nextItem.rpe
+        });
+        persist(rows);
+      };
+
+      replace.addEventListener('click', () => {
+        const currentIndex = Math.max(0, variants.findIndex(item => item.id === selected.id));
+        replaceExercise(variants[(currentIndex + 1) % variants.length]);
+      });
+
+      record.addEventListener('click', () => {
+        const values = Object.fromEntries([...row.querySelectorAll('[data-steward-training-input]')]
+          .map(input => [input.dataset.stewardTrainingInput, input.value === '' ? null : Number(input.value)]));
+        const rows = currentExerciseRows().filter(item => item.exerciseId !== base.id);
+        rows.push({
+          exerciseId: base.id,
+          variantId: selected.id === base.id ? '' : selected.id,
+          label: selected.label,
+          status: 'RECORDED',
+          loadValue: values.load,
+          loadUnit: selected.load_unit,
+          repsValue: values.reps,
+          repsUnit: selected.reps_unit,
+          rpe: values.rpe
+        });
+        persist(rows);
+      });
+
+      card.append(head, prescription, row);
+      list.appendChild(card);
+    });
+
+    queryAll('[data-steward-training-effect]').forEach(button => {
+      const value = button.dataset.stewardTrainingEffect;
+      button.classList.toggle('active', currentActual?.effect === value);
+      button.onclick = () => persist(
+        [...(currentActual?.exercises || [])],
+        value,
+        $('[data-steward-training-note]')?.value || currentActual?.note || ''
+      );
+    });
+    const note = $('[data-steward-training-note]');
+    if (note) {
+      note.value = currentActual?.note || '';
+      note.onchange = () => persist(
+        [...(currentActual?.exercises || [])],
+        currentActual?.effect || null,
+        note.value
+      );
+    }
+  }
+
   function renderToday() {
     const { chatPlanState, presentation, timerModel } = read();
     renderPlanState(chatPlanState);
@@ -447,6 +802,8 @@ export function initStewardWorkspace(root) {
     renderReality(timerModel);
     renderNow(presentation, timerModel);
     renderTimeline(presentation);
+    renderNutrition(presentation, chatPlanState);
+    renderTraining(presentation, chatPlanState);
   }
 
   function renderWeek() {

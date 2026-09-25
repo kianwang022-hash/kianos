@@ -60,15 +60,84 @@ import Base from '../../layouts/Base.astro';
 
           <section class="stewardModePanel" data-steward-mode-panel="nutrition">
             <div class="stewardUnavailable" data-steward-nutrition-unavailable>
-              <h2>饮食与营养尚未接入</h2>
-              <p>当前 KianOS 不复制 Personal 的食谱、营养目标或食物数值。接入真实 Personal → KianOS 投影前，这里保持空状态。</p>
+              <h2>今天还没有营养安排</h2>
+              <p>Steward 只展示当前计划明确投影的餐食与营养信息；没有安排时不自行生成。</p>
+            </div>
+            <div class="stewardNutritionWorkspace" data-steward-nutrition-workspace hidden>
+              <div class="stewardSubToolbar">
+                <div class="stewardNutritionContext"><strong>今天</strong><span>按推荐份量开始，可随手改</span></div>
+                <div class="stewardSubStatus" data-steward-nutrition-target></div>
+              </div>
+              <div class="stewardNutritionGrid">
+                <aside class="stewardChoiceRail">
+                  <header><h3>常用组合</h3></header>
+                  <div data-steward-meal-list></div>
+                </aside>
+                <section class="stewardMealEditor" data-steward-meal-editor>
+                  <header>
+                    <div><span>当前餐</span><h2 data-steward-meal-title>—</h2></div>
+                    <div class="stewardMealActions">
+                      <button type="button" data-steward-meal-half>全部减半</button>
+                      <button type="button" data-steward-meal-uncertain>份量不确定</button>
+                      <button type="button" data-steward-meal-reset>恢复推荐</button>
+                    </div>
+                  </header>
+                  <div class="stewardMealRows" data-steward-meal-rows></div>
+                </section>
+                <aside class="stewardMacroPanel">
+                  <header><span>当前估算</span></header>
+                  <div class="stewardMacroBigGrid">
+                    <div><span>热量</span><strong data-steward-macro="kcal">—</strong></div>
+                    <div><span>蛋白质</span><strong data-steward-macro="protein">—</strong></div>
+                    <div><span>碳水</span><strong data-steward-macro="carb">—</strong></div>
+                    <div><span>脂肪</span><strong data-steward-macro="fat">—</strong></div>
+                  </div>
+                  <section class="stewardTopupSection">
+                    <header><strong>补缺</strong><span>只用今日允许项</span></header>
+                    <div data-steward-topup-list></div>
+                  </section>
+                  <section class="stewardQuickAddSection">
+                    <header><strong>快速添加</strong><span>单品</span></header>
+                    <div data-steward-quick-add></div>
+                  </section>
+                  <p>选择与克数只记录实际；不自动改变营养策略或明天的目标。</p>
+                </aside>
+              </div>
             </div>
           </section>
 
           <section class="stewardModePanel" data-steward-mode-panel="training">
             <div class="stewardUnavailable" data-steward-training-unavailable>
-              <h2>训练尚未接入</h2>
-              <p>当前 KianOS 不内置 Personal 的训练动作、剂量或恢复处方。接入真实 Personal → KianOS 投影前，这里保持空状态。</p>
+              <h2>今天还没有训练安排</h2>
+              <p>训练动作与剂量由 Steward / Chat 决定；页面只执行、替换已授权动作并记录实际。</p>
+            </div>
+            <div class="stewardTrainingWorkspace" data-steward-training-workspace hidden>
+              <div class="stewardTrainingGrid">
+                <section class="stewardTrainingEditor">
+                  <header>
+                    <div><span>今日推荐</span><h2 data-steward-training-title>—</h2></div>
+                    <p data-steward-training-duration></p>
+                  </header>
+                  <div class="stewardExerciseCards" data-steward-exercise-list></div>
+                  <div class="stewardTrainingEffect">
+                    <span>训练后</span>
+                    <button type="button" data-steward-training-effect="BETTER">很好</button>
+                    <button type="button" data-steward-training-effect="SAME">正常</button>
+                    <button type="button" data-steward-training-effect="TIRED">累</button>
+                    <input type="text" data-steward-training-note placeholder="备注（可选）">
+                  </div>
+                </section>
+                <aside class="stewardTrainingSummary">
+                  <header><span>Apple Watch</span><strong>训练数据</strong></header>
+                  <dl>
+                    <div><dt>训练记录</dt><dd>—</dd></div>
+                    <div><dt>时长</dt><dd>—</dd></div>
+                    <div><dt>活动能量</dt><dd>— kcal</dd></div>
+                    <div><dt>平均心率</dt><dd>—</dd></div>
+                  </dl>
+                  <p>同步后用于训练记录与恢复判断；不会直接改变饮食额度或自动加量。</p>
+                </aside>
+              </div>
             </div>
           </section>
         </section>

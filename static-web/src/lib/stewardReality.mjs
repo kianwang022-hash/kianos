@@ -1,6 +1,7 @@
 import { STUDY_TIMER_TIMEZONE, studyDayAt } from './studyTimer.mjs';
 
-export const STEWARD_REALITY_SCHEMA = 'kianos.steward-reality.v1';
+export const STEWARD_REALITY_SCHEMA = 'kianos.steward-reality.v2';
+export const STEWARD_REALITY_LEGACY_SCHEMA = 'kianos.steward-reality.v1';
 export const STEWARD_REALITY_KEY = 'kianos-steward-reality-v1';
 export const STEWARD_BREAK_DURATIONS = Object.freeze([5, 10, 15]);
 export const STEWARD_REENTRY_STATES = Object.freeze(['RESTORED', 'PARTIAL', 'NOT_RESTORED']);
@@ -52,16 +53,103 @@ function cleanBreak(value) {
   };
 }
 
-const emptyReality = () => ({ schema: STEWARD_REALITY_SCHEMA, revision: 1, events: [] });
+
+const cleanAmount = (value, max = 100000) => {
+  const number = Number(value);
+  if (!Number.isFinite(number) || number < 0 || number > max) return null;
+  return number;
+};
+
+function cleanMeal(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const observedAt = finiteTime(value.observedAt);
+  const mealId = clean(value.mealId, 120);
+  const label = clean(value.label, 160);
+  if (observedAt == null || !mealId || !label || !Array.isArray(value.items)) return null;
+  const items = value.items.slice(0, 24).map((item) => {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) return null;
+    const foodId = clean(item.foodId, 120);
+    const foodLabel = clean(item.label, 160);
+    const amount = cleanAmount(item.amount, 10000);
+    const unit = clean(item.unit, 24);
+    if (!foodId || !foodLabel || amount == null || !unit) return null;
+    return { foodId, label: foodLabel, amount, unit };
+  }).filter(Boolean);
+  return {
+    id: clean(value.id, 180) || `meal-${studyDayAt(observedAt, STUDY_TIMER_TIMEZONE)}-${mealId}`,
+    kind: 'MEAL',
+    observedAt,
+    mealId,
+    label,
+    ownerRef: clean(value.ownerRef, 260),
+    planGeneratedAt: clean(value.planGeneratedAt, 80),
+    status: 'SELECTED',
+    uncertain: Boolean(value.uncertain),
+    items,
+    note: clean(value.note, 500)
+  };
+}
+
+const TRAINING_EFFECTS = new Set(['BETTER', 'SAME', 'TIRED']);
+const TRAINING_EXERCISE_STATES = new Set(['RECORDED', 'MODIFIED', 'SKIPPED']);
+
+function cleanTraining(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const observedAt = finiteTime(value.observedAt);
+  const sessionId = clean(value.sessionId, 120);
+  const label = clean(value.label, 160);
+  if (observedAt == null || !sessionId || !label || !Array.isArray(value.exercises)) return null;
+  const exercises = value.exercises.slice(0, 12).map((item) => {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) return null;
+    const exerciseId = clean(item.exerciseId, 120);
+    const exerciseLabel = clean(item.label, 160);
+    const status = clean(item.status, 40).toUpperCase();
+    if (!exerciseId || !exerciseLabel || !TRAINING_EXERCISE_STATES.has(status)) return null;
+    return {
+      exerciseId,
+      variantId: clean(item.variantId, 120),
+      label: exerciseLabel,
+      status,
+      loadValue: item.loadValue == null ? null : cleanAmount(item.loadValue),
+      loadUnit: clean(item.loadUnit, 24),
+      repsValue: item.repsValue == null ? null : cleanAmount(item.repsValue, 10000),
+      repsUnit: clean(item.repsUnit, 24),
+      rpe: item.rpe == null ? null : cleanAmount(item.rpe, 10)
+    };
+  }).filter(Boolean);
+  const effect = clean(value.effect, 40).toUpperCase();
+  return {
+    id: clean(value.id, 180) || `training-${studyDayAt(observedAt, STUDY_TIMER_TIMEZONE)}-${sessionId}`,
+    kind: 'TRAINING',
+    observedAt,
+    sessionId,
+    label,
+    ownerRef: clean(value.ownerRef, 260),
+    planGeneratedAt: clean(value.planGeneratedAt, 80),
+    effect: TRAINING_EFFECTS.has(effect) ? effect : null,
+    note: clean(value.note, 500),
+    exercises
+  };
+}
+
+function cleanEvent(value) {
+  const kind = clean(value?.kind, 40).toUpperCase();
+  if (!kind || kind === 'BREAK') return cleanBreak(value);
+  if (kind === 'MEAL') return cleanMeal(value);
+  if (kind === 'TRAINING') return cleanTraining(value);
+  return null;
+}
+
+const emptyReality = () => ({ schema: STEWARD_REALITY_SCHEMA, revision: 2, events: [] });
 
 export function validateStewardReality(value) {
-  if (!value || value.schema !== STEWARD_REALITY_SCHEMA || !Array.isArray(value.events)) {
+  if (!value || ![STEWARD_REALITY_SCHEMA, STEWARD_REALITY_LEGACY_SCHEMA].includes(value.schema) || !Array.isArray(value.events)) {
     throw new Error('STEWARD_REALITY_SCHEMA_INVALID');
   }
   return {
     schema: STEWARD_REALITY_SCHEMA,
-    revision: 1,
-    events: value.events.map(cleanBreak).filter(Boolean)
+    revision: 2,
+    events: value.events.map(cleanEvent).filter(Boolean)
   };
 }
 
@@ -94,7 +182,7 @@ function writeStewardReality(storage, value) {
 
 export function latestOpenStewardBreak(storage) {
   const state = readStewardReality(storage);
-  return [...state.events].reverse().find(event => event.endedAt == null) || null;
+  return [...state.events].reverse().find(event => event.kind === 'BREAK' && event.endedAt == null) || null;
 }
 
 export function beginStewardBreak(storage, {
@@ -102,7 +190,7 @@ export function beginStewardBreak(storage, {
   preBreakContext = null
 } = {}) {
   const state = writableReality(storage);
-  const existing = [...state.events].reverse().find(event => event.endedAt == null);
+  const existing = [...state.events].reverse().find(event => event.kind === 'BREAK' && event.endedAt == null);
   if (existing) return existing;
   const stamp = finiteTime(startedAt) ?? Date.now();
   const event = cleanBreak({
@@ -118,7 +206,7 @@ export function updateStewardBreak(storage, breakId, patch = {}) {
   const state = writableReality(storage);
   let updated = null;
   const events = state.events.map(event => {
-    if (event.id !== breakId) return event;
+    if (event.kind !== 'BREAK' || event.id !== breakId) return event;
     updated = cleanBreak({
       ...event,
       plannedRestMinutes: patch.plannedRestMinutes === undefined ? event.plannedRestMinutes : patch.plannedRestMinutes,
@@ -135,7 +223,7 @@ export function updateStewardBreak(storage, breakId, patch = {}) {
 
 export function endLatestStewardBreak(storage, endedAt = Date.now()) {
   const state = writableReality(storage);
-  const index = state.events.findLastIndex(event => event.endedAt == null);
+  const index = state.events.findLastIndex(event => event.kind === 'BREAK' && event.endedAt == null);
   if (index < 0) return null;
   const stamp = finiteTime(endedAt) ?? Date.now();
   const events = [...state.events];
@@ -165,12 +253,44 @@ export function recordStewardBreakReentry(storage, breakId, {
   return updated;
 }
 
-export function stewardRealityEventsForDay(storage, day, timeZone = STUDY_TIMER_TIMEZONE) {
+function realityEventsForDay(storage, day, kind, timeZone = STUDY_TIMER_TIMEZONE) {
   const state = readStewardReality(storage);
   if (state.unavailable) return null;
+  const timestamp = (event) => event.kind === 'BREAK' ? event.startedAt : event.observedAt;
   return state.events
-    .filter(event => studyDayAt(event.startedAt, timeZone) === day)
-    .sort((a, b) => a.startedAt - b.startedAt);
+    .filter(event => event.kind === kind && studyDayAt(timestamp(event), timeZone) === day)
+    .sort((a, b) => timestamp(a) - timestamp(b));
+}
+
+export function stewardRealityEventsForDay(storage, day, timeZone = STUDY_TIMER_TIMEZONE) {
+  return realityEventsForDay(storage, day, 'BREAK', timeZone);
+}
+
+export function stewardMealSelectionsForDay(storage, day, timeZone = STUDY_TIMER_TIMEZONE) {
+  return realityEventsForDay(storage, day, 'MEAL', timeZone);
+}
+
+export function stewardTrainingActualsForDay(storage, day, timeZone = STUDY_TIMER_TIMEZONE) {
+  return realityEventsForDay(storage, day, 'TRAINING', timeZone);
+}
+
+function upsertRealityEvent(storage, nextEvent) {
+  const state = writableReality(storage);
+  const events = state.events.filter((event) => event.id !== nextEvent.id);
+  writeStewardReality(storage, { ...state, events: [...events, nextEvent] });
+  return nextEvent;
+}
+
+export function upsertStewardMealSelection(storage, value = {}) {
+  const event = cleanMeal(value);
+  if (!event) throw new Error('STEWARD_MEAL_ACTUAL_INVALID');
+  return upsertRealityEvent(storage, event);
+}
+
+export function upsertStewardTrainingActual(storage, value = {}) {
+  const event = cleanTraining(value);
+  if (!event) throw new Error('STEWARD_TRAINING_ACTUAL_INVALID');
+  return upsertRealityEvent(storage, event);
 }
 
 export function buildStewardRealityDailySummary(storage, {
@@ -178,11 +298,15 @@ export function buildStewardRealityDailySummary(storage, {
   timeZone = STUDY_TIMER_TIMEZONE
 } = {}) {
   const events = stewardRealityEventsForDay(storage, day, timeZone);
-  if (events == null) {
+  const meals = stewardMealSelectionsForDay(storage, day, timeZone);
+  const training = stewardTrainingActualsForDay(storage, day, timeZone);
+  if (events == null || meals == null || training == null) {
     return {
       schema: 'kianos.steward-reality-summary.v1',
       study_day: day,
       breaks: null,
+      meals: null,
+      training: null,
       error: 'STEWARD_REALITY_UNAVAILABLE'
     };
   }
@@ -204,6 +328,44 @@ export function buildStewardRealityDailySummary(storage, {
         note: event.reentry.note || null,
         observed_at: event.reentry.at == null ? null : new Date(event.reentry.at).toISOString()
       } : null
+    })),
+    meals: meals.map(event => ({
+      id: event.id,
+      observed_at: new Date(event.observedAt).toISOString(),
+      meal_id: event.mealId,
+      label: event.label,
+      owner_ref: event.ownerRef || null,
+      plan_generated_at: event.planGeneratedAt || null,
+      status: event.status,
+      uncertain: event.uncertain,
+      items: event.items.map(item => ({
+        food_id: item.foodId,
+        label: item.label,
+        amount: item.amount,
+        unit: item.unit
+      })),
+      note: event.note || null
+    })),
+    training: training.map(event => ({
+      id: event.id,
+      observed_at: new Date(event.observedAt).toISOString(),
+      session_id: event.sessionId,
+      label: event.label,
+      owner_ref: event.ownerRef || null,
+      plan_generated_at: event.planGeneratedAt || null,
+      effect: event.effect,
+      note: event.note || null,
+      exercises: event.exercises.map(item => ({
+        exercise_id: item.exerciseId,
+        variant_id: item.variantId || null,
+        label: item.label,
+        status: item.status,
+        load_value: item.loadValue,
+        load_unit: item.loadUnit || null,
+        reps_value: item.repsValue,
+        reps_unit: item.repsUnit || null,
+        rpe: item.rpe
+      }))
     }))
   };
 }

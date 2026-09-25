@@ -79,7 +79,43 @@ const command={
         politics:null
       },
       next_subject:'english',
-      attention:null
+      attention:null,
+      presentation:{
+        today_tasks:[],
+        week_reference:[],
+        schedule_blocks:[],
+        nutrition:{
+          owner_ref:'personal/health/personal-day/NUTRITION.md',
+          target_label:'今日营养安排',
+          active_meal_id:'relay-lunch',
+          foods:[{
+            id:'relay-salmon',
+            label:'三文鱼',
+            unit:'g',
+            recommended_amount:200,
+            nutrition:{basis:'PER_100G',kcal:208,protein_g:20,carb_g:0,fat_g:13}
+          }],
+          meals:[{id:'relay-lunch',label:'三文鱼午餐',items:[{food_id:'relay-salmon',amount:200}]}],
+          topup_pool:[],
+          quick_add:[{food_id:'relay-salmon',amount:200}]
+        },
+        training:{
+          owner_ref:'personal/health/personal-day/TRAINING.md',
+          session_id:'relay-training',
+          title:'今日训练',
+          duration_label:'约 25 分钟',
+          exercises:[{
+            id:'relay-squat',
+            label:'Smith squat',
+            prescription:'2 × 6–8',
+            load_value:70,
+            load_unit:'kg',
+            reps_value:8,
+            reps_unit:'reps',
+            rpe:6
+          }]
+        }
+      }
     }}
   ]
 };
@@ -230,6 +266,8 @@ try{
     receipt:JSON.parse(localStorage.getItem('kianos-control-receipt-v1')||'null')
   }));
   assert.equal(state.plan?.subjects?.english?.session_ref,sessionId);
+  assert.equal(state.plan?.presentation?.nutrition?.meals?.[0]?.items?.[0]?.amount,200);
+  assert.equal(state.plan?.presentation?.training?.exercises?.[0]?.label,'Smith squat');
   assert.equal(state.session?.session_id,sessionId);
   assert.equal(state.receipt?.status,'APPLIED');
   assert.equal(state.receipt?.command_id,command.command_id);
