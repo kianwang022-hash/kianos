@@ -448,11 +448,11 @@
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_SCREENED_LEARNING_GUIDE_DEEP_REVIEW_PENDING",
       "semantic_delta_receipt": {
-        "knowledge": "PRESERVE_EXISTING_CORE",
+        "knowledge": "UPDATED_SELECTIVELY",
         "learning": "PRESERVE_EXISTING_BLEED_VS_CONTAMINATION_MODEL",
         "precision": "PRESERVE_ORGAN_SPECIFIC_SOURCE_BOUND_DETAILS",
         "visual": "PRESERVE_PERITONEAL_SPACE_AND_ORGAN_VISUALS",
-        "notes": "Refined solid-vs-hollow organ, delayed splenic rupture, pancreas/colon timing and puncture/exploration explanations are already explicit in D13."
+        "notes": "Refined solid-vs-hollow organ, delayed splenic rupture, pancreas/colon timing and puncture/exploration explanations are represented in D13; 2026-09-26 residual audit additionally absorbed the refined boundary that steering-wheel/handlebar mechanism is only a clue and must not automatically diagnose pancreatic injury over more common liver/spleen trauma."
       },
       "architecture_v3": {
         "exact_binding_status": "REVIEWED_DIRECT_BINDING",
@@ -761,11 +761,11 @@
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_SCREENED_LEARNING_GUIDE_DEEP_REVIEW_PENDING",
       "semantic_delta_receipt": {
-        "knowledge": "PRESERVE_WITH_REFINED_EVIDENCE_BOUNDARY_CONFIRMED",
+        "knowledge": "UPDATED_SELECTIVELY",
         "learning": "UPDATED_SELECTIVELY",
         "precision": "PRESERVE_SIZE_AND_DRAINAGE_AS_SOURCE_BOUND",
         "visual": "LIVER_SEGMENT_AND_ABSCESS_VISUAL_REQUIRED",
-        "notes": "Small/multiple abscess pattern, US-first, nonspecific rim enhancement and source-control reasoning are retained without treating one imaging sign as diagnosis."
+        "notes": "Small/multiple abscess pattern, US-first and source-control reasoning remain in D19. 2026-09-26 residual audit added the missing evidence boundary that rim/edge enhancement is nonspecific and must be distinguished from metastatic bull's-eye/rim-enhancing lesions by infection/oncology context and the full evidence stack."
       },
       "architecture_v3": {
         "exact_binding_status": "REVIEWED_DIRECT_BINDING",
@@ -908,11 +908,11 @@
       "last_reviewed_at": "2026-09-24",
       "previous_review": "SOURCE_REBOUND_CORE_SCREENED_LEARNING_GUIDE_DEEP_REVIEW_PENDING",
       "semantic_delta_receipt": {
-        "knowledge": "PRESERVE_WITH_PRIOR_T_TUBE_AND_AOSC_UPDATES",
+        "knowledge": "UPDATED_SELECTIVELY",
         "learning": "PRESERVE_EXISTING_PIPELINE_AND_EMERGENCY_MODEL",
-        "precision": "PRESERVE_T_TUBE_2W_4W_4_8W_AND_CURRENT_SOURCE_THRESHOLDS",
+        "precision": "UPDATED_SOURCE_BOUND_PTGD_TIMING_AND_POLYP_RISK",
         "visual": "BILIARY_ANATOMY_IMAGING_AND_PROCEDURE_VISUAL_REQUIRED",
-        "notes": "Refined imaging-language, PTC/ERCP/MRCP roles, T-tube timeline, gallbladder/duct obstruction logic and AOSC incomplete-pentad boundary are already integrated."
+        "notes": "Refined imaging-language, PTC/ERCP/MRCP roles, T-tube timeline and obstruction logic remain integrated. 2026-09-26 residual audit restored two missed refined-note details: >3-day acute cholecystitis PTGD/cholecystostomy → delayed LC as a Source-bound exam path, and the current gallbladder-polyp ≥1 cm / solitary broad-base / growth / stone-associated risk set."
       },
       "architecture_v3": {
         "exact_binding_status": "REVIEWED_DIRECT_BINDING",
@@ -2459,5 +2459,21 @@
     "rule": "No active Biochemistry lifecycle mirror lives here. Future shared-owner writes refresh main and reconcile only against actually active exact owners.",
     "biochemistry_revision_owner": "content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json"
   },
-  "lifecycle_owner": "content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json"
+  "lifecycle_owner": "content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json",
+  "last_residual_rebase": {
+    "date": "2026-09-26",
+    "reason": "Current consumer audit found legacy follow-along Surgery locators/crops and a small set of refined-note deltas despite prior 38/38 closure.",
+    "result": "ACTIVE_CONTENT_AND_CONSUMER_REBASE",
+    "updated_units": [
+      "SUR27-U07",
+      "SUR27-U13",
+      "SUR27-U16"
+    ],
+    "consumer_repairs": [
+      "E/F System Surgery registries rebound to 27 refined",
+      "B/D/E/F learner Surgery visual cues rebound to 27 refined",
+      "legacy follow-along Surgery visual crops retired from Current manifests",
+      "D13/O14 stale visual-closure claims fail-closed to Current refined original pages"
+    ]
+  }
 }
