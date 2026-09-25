@@ -52,7 +52,7 @@ Content production remains independent and continues through the exact English /
 
 - GitHub `main` is the durable shared asset/Current source; the Mac Current mirror is delivery state, not semantic authority.
 - Current separates the mutable control mirror from the immutable served release. Static/content/runtime-impacting changes build and validate a candidate before atomic promotion; a failed build/readiness attempt preserves last-known-good delivery.
-- A proven control-only change may advance the mirror without rebuilding or switching the active release. Status exposes the newer `control_sha` separately while browser/runtime freshness remains pinned to the unchanged served-release `sha`.
+- A proven control-only change may advance the mirror without rebuilding or switching the active release. Status exposes the newer `control_sha` separately while browser/runtime freshness remains pinned to the unchanged served-release `sha`. Impact classification is based on the currently active served release identity, never a stale legacy `dist` artifact in the mutable control checkout.
 - Exact runtime-owner changes may perform only their admitted controlled reload/restart behavior.
 - Private learner/control transport remains separate from public canonical Content.
 - Relay failure must not roll back local learner saving.
