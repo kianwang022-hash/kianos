@@ -100,6 +100,65 @@ question taxonomy ≠ knowledge ontology
 file existence ≠ readiness
 ```
 
+
+---
+
+## 1.5｜Upstream deep research and Deep Reading content
+
+KianOS does not need to rediscover or re-summarize an external domain merely because the learner asset lives here.
+
+When StudyHub or another authorized research owner has already built a mature external research basis:
+
+```text
+external Source / evidence / cases / competing explanations
+→ upstream research owner
+→ GPT / Chat authors the final learner-quality content
+→ accepted learner-facing asset becomes canonical KianOS Content
+```
+
+Hard rules:
+
+- upstream research truth stays with its research owner;
+- the final learner-facing **Deep Reading** may be authored directly from that mature research substrate;
+- KianOS does **not** require a second semantic rewrite merely to make the content "KianOS-native";
+- once promoted, the Deep Reading asset is canonical learner Content and downstream Projection should normally render or navigate it rather than regenerate it;
+- weak learner Content must not be rescued by UI;
+- reading / page completion remains exposure or Resume evidence only, never capability evidence.
+
+### Framework and Deep Reading are different content roles
+
+A learner Framework provides coordinates:
+
+- where a concept sits;
+- its parent / siblings / neighbors;
+- its role in the larger system;
+- important flows / mechanisms / interfaces.
+
+A Deep Reading provides a coherent explanatory path through one important question. It may cross multiple Framework branches, Units or Skills when the real causal chain requires it.
+
+Therefore:
+
+> **Framework boundaries must not dictate the narrative boundary of a Deep Reading.**
+
+Do not cut a high-value explanation into artificial chapters merely to preserve one Skill / Unit hierarchy.
+
+### Deep Reading and Unit are different
+
+A Deep Reading is an expanded understanding asset.
+
+A Unit remains the smallest coherent capability slice that can be reconstructed, applied, demonstrated, transferred and repaired.
+
+One Deep Reading may support several Units; one Unit may draw on several readings or cases.
+
+Do not infer:
+
+```text
+Deep Reading read
+→ Unit mastered
+```
+
+Compression still comes later, after learner evidence shows which relations are decisive enough to preserve in a smaller callable model.
+
 ---
 
 ## 2｜Pre-release content closure is mandatory
