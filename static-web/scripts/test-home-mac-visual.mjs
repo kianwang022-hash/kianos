@@ -42,7 +42,15 @@ const chatPlan = {
     politics: { target_minutes: 90, role: '保连续', note: '保持一轮推进。', session_ref: null }
   },
   next_subject: 'xizong',
-  attention: null
+  attention: null,
+  capacity: {
+    state: 'REDUCED',
+    summary: '上午高负荷后可用认知容量下降，保留高价值主线但降低无效硬顶。',
+    basis: '当前主观状态 + 已记录学习表现 + 可用 Health 上下文',
+    load: '高认知西综主块后出现明显恢复需求',
+    action: '把最值钱的西综主线留在强窗口；恢复后再判断是否继续高负荷，英语连续性放到较低负荷窗口。',
+    recheck: '下一学习块的持续注意、处理速度和错误类型'
+  }
 };
 const timerLedger = {
   schema: STUDY_TIMER_SCHEMA,
@@ -180,6 +188,30 @@ try {
     check(!combined.includes(forbidden), 'home_no_engineering_copy_' + forbidden.replace(/\W+/g, '_'));
   }
   check((await page.locator('[data-exam-next]').innerText()).startsWith('西综 · '), 'home_next_action_has_subject_label');
+
+  const workStrategy = page.locator('[data-exam-work-strategy]');
+  check(await workStrategy.isVisible(), 'home_capacity_work_strategy_visible');
+  const workText = (await workStrategy.innerText()).replace(/\s+/g, ' ');
+  check(workText.includes('容量降低'), 'home_capacity_state_plain_language', workText);
+  check(workText.includes('西综主线'), 'home_capacity_changes_real_work', workText);
+  check(!/HRV|RHR|readiness|recovery score|恢复分|债务分/i.test(workText), 'home_no_raw_health_or_score_leak', workText);
+  const strategyGeometry = await workStrategy.evaluate((node) => {
+    const box = node.getBoundingClientRect();
+    const style = getComputedStyle(node);
+    return {
+      width: box.width,
+      height: box.height,
+      borderRadius: style.borderRadius,
+      boxShadow: style.boxShadow,
+      borderLeftWidth: style.borderLeftWidth
+    };
+  });
+  check(strategyGeometry.height < 150, 'home_work_strategy_compact', JSON.stringify(strategyGeometry));
+  check(strategyGeometry.boxShadow === 'none', 'home_work_strategy_no_dashboard_shadow', JSON.stringify(strategyGeometry));
+  check(parseFloat(strategyGeometry.borderLeftWidth) <= 2.5, 'home_work_strategy_thin_semantic_rule', JSON.stringify(strategyGeometry));
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+  check(overflow <= 1, 'home_no_horizontal_overflow', String(overflow));
+
   check(await page.locator('.politicsTodayCard').isHidden(), 'home_no_nested_politics_today_dashboard');
   check(await page.locator('.politicsRecentCard').isHidden(), 'home_no_nested_politics_recent_dashboard');
 
