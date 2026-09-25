@@ -105,27 +105,53 @@ file existence ≠ readiness
 
 ## 1.5｜Upstream deep research and Deep Reading content
 
-KianOS does not need to rediscover or re-summarize an external domain merely because the learner asset lives here.
+KianOS does not rediscover or re-summarize an external domain merely because a learner/product surface exists here.
 
-When StudyHub or another authorized research owner has already built a mature external research basis:
+When StudyHub or another authorized research owner has already built a mature external research basis, keep two cases distinct.
+
+### A. Mature StudyHub Report already exists
+
+If StudyHub already owns a high-quality human-readable Report / Deep Reading whose job is to explain the external world:
 
 ```text
-external Source / evidence / cases / competing explanations
-→ upstream research owner
-→ GPT / Chat authors the final learner-quality content
-→ accepted learner-facing asset becomes canonical KianOS Content
+StudyHub Source / evidence / synthesis
+→ canonical StudyHub Report / Deep Reading
+→ KianOS reference / projection when needed
+→ presentation / navigation / Resume / interaction / Evidence
 ```
 
 Hard rules:
 
-- upstream research truth stays with its research owner;
-- the final learner-facing **Deep Reading** may be authored directly from that mature research substrate;
-- KianOS does **not** require a second semantic rewrite merely to make the content "KianOS-native";
-- the final authored prose must still pass claim-level and learner-content closure: a smoother narrative must not strengthen uncertain evidence, skip decisive causal steps or hide important boundaries;
-- this validation repairs the same content asset when needed; it is not a mandatory second authoring pass;
-- once promoted, the Deep Reading asset is canonical learner Content and downstream Projection should normally render or navigate it rather than regenerate it;
-- weak learner Content must not be rescued by UI;
-- reading / page completion remains exposure or Resume evidence only, never capability evidence.
+- the external-world Report remains canonical in StudyHub;
+- KianOS does **not** perform a second semantic rewrite merely to make it "KianOS-native";
+- a KianOS renderer/projection may hide, foreground, reorder or navigate accepted meaning when learner state requires it, but it does not become a second owner of that Report;
+- website availability, reading state, navigation, interaction and Evidence are downstream product/learning semantics, not ownership of the upstream research prose;
+- if the Report itself is weak or wrong, repair it upstream in StudyHub rather than masking the defect in KianOS.
+
+### B. KianOS adds genuinely new learner-specific meaning
+
+KianOS may create new canonical learner assets only for meaning that StudyHub does not own, for example:
+
+- Learning Logic;
+- protected Verify / practice geometry;
+- learner-specific Compression;
+- reconstruction / repair prompts;
+- learner-state-dependent projections;
+- Evidence semantics.
+
+Then:
+
+```text
+StudyHub research / Report
+→ KianOS adds only learner-specific meaning
+→ new KianOS owner references upstream StudyHub
+```
+
+The new learner asset does not replace or silently copy the StudyHub Report.
+
+### If StudyHub has research substrate but no final readable Report
+
+When a final external-world explanation is still needed, Chat authors that explanation into the StudyHub-owned Report first if its purpose remains external-world understanding. KianOS joins only for the additional product/learning function.
 
 ### Framework and Deep Reading are different content roles
 
@@ -161,7 +187,6 @@ Deep Reading read
 
 Compression still comes later, after learner evidence shows which relations are decisive enough to preserve in a smaller callable model.
 
----
 
 ## 2｜Pre-release content closure is mandatory
 
