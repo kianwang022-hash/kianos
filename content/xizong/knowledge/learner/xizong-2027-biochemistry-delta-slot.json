@@ -460,7 +460,7 @@
       ],
       "validator": "static-web/scripts/validate-xizong-biochemistry-source-lifecycle.mjs",
       "closure_rule": "Future Biochemistry Source revisions cannot close unless the bound Beginner Guide is revalidated whenever Source order, mother-model orientation or first-pass handoff semantics change.",
-      "status": "PASS_CLOSED",
+      "status": "PASS_CONTENT_AND_BINDING / LIVE_READBACK_PENDING",
       "validation": {
         "lifecycle_validator": "PASS — static-web/scripts/validate-xizong-biochemistry-source-lifecycle.mjs",
         "validated_main": "69c6cbe2f0f296c87871315b3fafdbdc0e47a17d",
@@ -473,6 +473,13 @@
           "26 refined explanation remains reconstruction substrate only",
           "no second Biochemistry course/read path"
         ]
+      },
+      "consumer_binding": {
+        "finding": "B Beginner Guide binding key used legacy/non-canonical system id `digestive-metabolic-endocrine`, while the Current System id is `digestive-metabolic-endocrine-tumor`; xizongGuide.mjs therefore returned null and the Guide was not rendered.",
+        "classification": "EXECUTION_DEFECT / EXACT_IDENTITY_BINDING_MISMATCH",
+        "repair": "guide-bindings.json now keys B by the exact Current system_id; lifecycle validator fails if the exact binding regresses or the legacy key returns.",
+        "validation": "PASS — validate-xizong-biochemistry-source-lifecycle.mjs on main@4a8d85dda",
+        "live_surface": "PENDING_DELIVERY_READBACK"
       }
     }
   },
