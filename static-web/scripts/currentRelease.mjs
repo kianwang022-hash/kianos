@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
+import { randomUUID } from 'node:crypto';
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -25,20 +26,30 @@ export async function acquireDeliveryLock(lockPath, {
   while (true) {
     try {
       const fd = fs.openSync(lockPath, 'wx');
-      fs.writeFileSync(fd, JSON.stringify({ pid: process.pid, started_at: new Date().toISOString() }));
+      const token = randomUUID();
+      fs.writeFileSync(fd, JSON.stringify({ pid: process.pid, token, started_at: new Date().toISOString() }));
       fs.closeSync(fd);
-      return () => { try { fs.rmSync(lockPath, { force: true }); } catch {} };
+      return () => {
+        try {
+          const owner = JSON.parse(fs.readFileSync(lockPath, 'utf8'));
+          if (owner.token === token) fs.rmSync(lockPath, { force: true });
+        } catch {}
+      };
     } catch (error) {
       if (error.code !== 'EEXIST') throw error;
       let stale = false;
       try {
         const stat = fs.statSync(lockPath);
-        stale = Date.now() - stat.mtimeMs > staleMs;
-        if (!stale) {
-          const owner = JSON.parse(fs.readFileSync(lockPath, 'utf8'));
-          if (owner.pid) {
-            try { process.kill(owner.pid, 0); stale = false; } catch { stale = true; }
+        const owner = JSON.parse(fs.readFileSync(lockPath, 'utf8'));
+        if (owner.pid) {
+          try {
+            process.kill(owner.pid, 0);
+            stale = false;
+          } catch {
+            stale = true;
           }
+        } else {
+          stale = Date.now() - stat.mtimeMs > staleMs;
         }
       } catch { stale = true; }
       if (stale) {
@@ -57,28 +68,50 @@ export function runBounded(file, args, {
   timeoutMs = Number(process.env.KIANOS_SUBPROCESS_TIMEOUT_MS || 120000),
   label = file
 } = {}) {
+  const waitForGroupGone = async (pid, timeout = 1000) => {
+    const deadline = Date.now() + timeout;
+    while (Date.now() < deadline) {
+      try { process.kill(-pid, 0); } catch { return; }
+      await sleep(25);
+    }
+    try { process.kill(-pid, 'SIGKILL'); } catch {}
+    while (true) {
+      try { process.kill(-pid, 0); } catch { return; }
+      await sleep(25);
+    }
+  };
   return new Promise((resolve, reject) => {
     const grouped = process.platform !== 'win32';
     const child = spawn(file, args, { cwd, env, stdio: 'inherit', detached: grouped });
     let timedOut = false;
-    let timer = setTimeout(() => {
+    let settled = false;
+    const settleTimeout = () => {
+      if (!settled) {
+        settled = true;
+        reject(new Error(`${label} timed out after ${timeoutMs}ms`));
+      }
+    };
+    const timer = setTimeout(() => {
       timedOut = true;
       try {
         if (grouped) process.kill(-child.pid, 'SIGTERM');
         else child.kill('SIGTERM');
       } catch {}
-      setTimeout(() => {
-        try {
-          if (grouped) process.kill(-child.pid, 'SIGKILL');
-          else child.kill('SIGKILL');
-        } catch {}
-      }, 1000).unref();
+      void waitForGroupGone(child.pid).then(settleTimeout);
     }, timeoutMs);
-    child.once('error', (error) => { clearTimeout(timer); reject(error); });
+    child.once('error', (error) => {
+      clearTimeout(timer);
+      if (!settled) {
+        settled = true;
+        reject(error);
+      }
+    });
     child.once('exit', (code, signal) => {
       clearTimeout(timer);
-      if (timedOut) reject(new Error(`${label} timed out after ${timeoutMs}ms`));
-      else if (code === 0) resolve();
+      if (timedOut) return;
+      if (settled) return;
+      settled = true;
+      if (code === 0) resolve();
       else reject(new Error(`${label} exited ${code ?? signal}`));
     });
   });

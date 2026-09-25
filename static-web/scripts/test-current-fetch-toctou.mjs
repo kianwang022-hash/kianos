@@ -15,6 +15,7 @@ try {
   fs.mkdirSync(upstream); git(upstream, 'init', '-b', 'main'); git(upstream, 'config', 'user.email', 'fixture@example.invalid'); git(upstream, 'config', 'user.name', 'Fixture');
   for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) write(`static-web/scripts/${name}`, fs.readFileSync(path.join(scripts, name)));
   write('static-web/package.json', '{}'); write('.gitignore', 'static-web/public/\nstatic-web/dist\nstatic-web/.current-*\n');
+  write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),root=args[args.indexOf('--root')+1];http.createServer((req,res)=>{if(req.url.startsWith('/__kianos-release.json'))return res.end(fs.readFileSync(path.join(root,'__kianos-current.json')));res.end('fixture');}).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
   write('fixture.txt', 'A'); git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'A'); const a = git(upstream, 'rev-parse', 'HEAD');
   git(root, 'clone', '--bare', upstream, remote); git(upstream, 'remote', 'add', 'origin', remote);
   write('fixture.txt', 'B'); git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'B'); const b = git(upstream, 'rev-parse', 'HEAD');

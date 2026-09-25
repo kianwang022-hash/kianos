@@ -20,10 +20,13 @@ try {
   write('static-web/package.json', '{}'); write('.gitignore', 'static-web/public/\nstatic-web/dist\nstatic-web/.current-*\n');
   write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const r=process.argv[process.argv.indexOf('--root')+1],bad=fs.existsSync(path.join(r,'bad'));http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({sha:bad?'wrong':JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha}):bad?'B':'A')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
   git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'A'); const a = git(upstream, 'rev-parse', 'HEAD'); git(root, 'clone', '--bare', upstream, remote); git(upstream, 'remote', 'add', 'origin', remote); git(root, 'clone', remote, mirror); fs.writeFileSync(path.join(mirror, '.git/kianos-current-mirror'), '');
+  fs.mkdirSync(path.join(mirror, 'static-web/dist'), { recursive: true });
+  fs.writeFileSync(path.join(mirror, 'static-web/dist/index.html'), 'A');
+  fs.writeFileSync(path.join(mirror, 'static-web/dist/__kianos-current.json'), JSON.stringify({ sha: a }));
+  write('static-web/scripts/kianos-static-server.mjs', `import http from 'node:http';http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?'{"sha":"wrong"}':'B')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`); git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'B'); const b = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
   const npm = path.join(root, 'npm'); fs.writeFileSync(npm, '#!/bin/sh\n[ "$1" = install ] && exit 0\nout="";while [ "$#" -gt 0 ];do [ "$1" = --outDir ]&&{ shift;out="$1";};shift;done;mkdir -p "$out";echo x>"$out/index.html"\n'); fs.chmodSync(npm, 0o755);
   daemon = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], { cwd: mirror, env: { ...process.env, KIANOS_PORT: String(port), KIANOS_NPM_BIN: npm, KIANOS_BUILD_NICE: '0', KIANOS_SYNC_INTERVAL_MS: '3000' }, stdio: ['ignore', 'pipe', 'pipe'] }); daemon.stdout.on('data', x => logs += x); daemon.stderr.on('data', x => logs += x);
   await wait(async () => { try { return await (await fetch(`http://127.0.0.1:${port}`)).text() === 'A'; } catch { return false; } });
-  write('static-web/scripts/kianos-static-server.mjs', `import http from 'node:http';http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?'{"sha":"wrong"}':'B')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`); git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'B'); const b = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
   await wait(async () => {
     if (!/rolling back/.test(logs)) return false;
     try {
@@ -33,7 +36,7 @@ try {
     } catch { return false; }
   });
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), a);
-  assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(path.join(root, '.kianos-current-releases/releases', a)));
+  assert.equal(fs.existsSync(path.join(root, '.kianos-current-releases/active')), false);
   const status = JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json'))); assert.equal(status.state, 'degraded'); assert.equal(status.target_sha, b);
   console.log('CURRENT_RUNTIME_ROLLBACK PASS: daemon rejects B and restores serviceable A without mirror advancement');
 } finally { if (daemon?.exitCode === null) { daemon.kill('SIGTERM'); await once(daemon, 'exit'); } fs.rmSync(root, { recursive: true, force: true }); }

@@ -36,6 +36,16 @@ try {
     managedCurrent: true,
     currentWebRoot: webRoot
   }), /CURRENT_LIVE_DIST_BUILD_FORBIDDEN/);
+  for (const outDir of ['dist/_qa', 'dist/foo/bar', path.join(webRoot, 'dist', 'absolute'), 'dist/../dist/nested']) {
+    assert.throws(() => resolveSafeAstroBuildArgs(['--outDir', outDir], {
+      managedCurrent: true,
+      currentWebRoot: webRoot
+    }), /CURRENT_LIVE_DIST_BUILD_FORBIDDEN/);
+  }
+  assert.equal(resolveSafeAstroBuildArgs(['--outDir', path.join(webRoot, '.qa', 'astro-build')], {
+    managedCurrent: true,
+    currentWebRoot: webRoot
+  }).redirected, false);
 
   console.log('CURRENT_SAFE_ASTRO_BUILD PASS: managed Current cannot mutate live dist');
 } finally {

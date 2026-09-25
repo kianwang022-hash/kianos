@@ -26,6 +26,7 @@ try {
   }
   write('static-web/package.json', '{}');
   write('.gitignore', 'static-web/public/\nstatic-web/dist\nstatic-web/.current-*\n');
+  write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),root=args[args.indexOf('--root')+1];http.createServer((req,res)=>{if(req.url.startsWith('/__kianos-release.json'))return res.end(fs.readFileSync(path.join(root,'__kianos-current.json')));res.end('fixture');}).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
   write('fixture.txt', 'A');
   git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'A');
   const sha = git(upstream, 'rev-parse', 'HEAD');

@@ -29,7 +29,7 @@ export function resolveSafeAstroBuildArgs(args, {
   const liveDist = path.resolve(currentWebRoot, 'dist');
   if (configuredOutDir) {
     const resolved = path.resolve(currentWebRoot, configuredOutDir);
-    if (resolved === liveDist) {
+    if (resolved === liveDist || resolved.startsWith(`${liveDist}${path.sep}`)) {
       throw new Error('CURRENT_LIVE_DIST_BUILD_FORBIDDEN: use Current sync or a non-live --outDir');
     }
     return { args: next, redirected: false, outDir: resolved };

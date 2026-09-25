@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import net from 'node:net';
 import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
@@ -321,13 +322,61 @@ async function waitForSiteReady(expectedSha, timeoutMs = 5000) {
   throw new Error('CURRENT_RELEASE_RUNTIME_NOT_READY');
 }
 
+async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
+  const probePort = await new Promise((resolve, reject) => {
+    const server = net.createServer();
+    server.once('error', reject);
+    server.listen(0, host, () => {
+      const address = server.address();
+      server.close(() => resolve(address.port));
+    });
+  });
+  const candidateWebRoot = path.join(releaseRoot, 'static-web');
+  const candidateServerPath = path.join(candidateWebRoot, 'scripts', 'kianos-static-server.mjs');
+  if (!fs.existsSync(candidateServerPath)) {
+    throw new Error(`CURRENT_RELEASE_RUNTIME_MISSING:${candidateServerPath}`);
+  }
+  const candidateServer = spawn(process.execPath, [
+    candidateServerPath,
+    '--host', host,
+    '--port', String(probePort),
+    '--root', path.join(candidateWebRoot, 'dist')
+  ], {
+    cwd: candidateWebRoot,
+    stdio: 'ignore',
+    env: { ...process.env, KIANOS_PORT: String(probePort) }
+  });
+  try {
+    const started = Date.now();
+    while (Date.now() - started < timeoutMs) {
+      if (candidateServer.exitCode !== null) throw new Error('CURRENT_RELEASE_RUNTIME_EXITED');
+      try {
+        const response = await fetch(`http://${host}:${probePort}/__kianos-release.json?t=${Date.now()}`);
+        if (response.ok && (await response.json())?.sha === expectedSha) return;
+      } catch {}
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
+    throw new Error('CURRENT_RELEASE_RUNTIME_NOT_READY');
+  } finally {
+    if (candidateServer.exitCode === null) {
+      candidateServer.kill('SIGTERM');
+      await new Promise((resolve) => candidateServer.once('exit', resolve));
+    }
+  }
+}
+
 async function rollbackRelease() {
   await stopSite();
   if (fs.existsSync(releases.previous)) {
     atomicReplaceSymlink(fs.realpathSync(releases.previous), releases.active);
+  } else if (fs.existsSync(releases.active)) {
+    fs.rmSync(releases.active, { force: true });
   }
   activeReleaseRoot = fs.existsSync(releases.active) ? fs.realpathSync(releases.active) : null;
   if (activeReleaseRoot) {
+    startSite();
+    await waitForSiteReady(readActiveBuiltStatus()?.sha);
+  } else if (resolveServedRoot(distPath)) {
     startSite();
     await waitForSiteReady(readActiveBuiltStatus()?.sha);
   }
@@ -384,30 +433,39 @@ async function syncOnce({ initial = false } = {}) {
     ].includes(file));
     const staticRuntimeChanged = requiresStaticRuntimeReload(changedPaths);
 
-    await prepareRelease(fetched, {
-      changed_paths: changedPaths.length,
-      build_impact_paths: buildDecision.build_paths.length,
-      lexical_projection_required: buildDecision.lexical_projection_required,
-      lexical_projection_paths: buildDecision.lexical_projection_paths.length
-    });
-    await activateRelease(fetched);
     let runtimeReloaded = false;
-    if (!oneShot && site) {
+    if (!skipAstro) {
+      await prepareRelease(fetched, {
+        changed_paths: changedPaths.length,
+        build_impact_paths: buildDecision.build_paths.length,
+        lexical_projection_required: buildDecision.lexical_projection_required,
+        lexical_projection_paths: buildDecision.lexical_projection_paths.length
+      });
       try {
-        log('performing one controlled server reload for accepted release transition');
-        await reloadSite();
-        await waitForSiteReady(fetched);
-        runtimeReloaded = true;
+        await probeRelease(releases.release(fetched), fetched);
+        await activateRelease(fetched);
       } catch (error) {
         warn(`new Current release failed readiness; rolling back: ${error.message}`);
-        await rollbackRelease();
+        if (!oneShot) await rollbackRelease();
         throw error;
+      }
+      if (!oneShot && site) {
+        try {
+          log('performing one controlled server reload for accepted release transition');
+          await reloadSite();
+          await waitForSiteReady(fetched);
+          runtimeReloaded = true;
+        } catch (error) {
+          warn(`new Current release failed readiness; rolling back: ${error.message}`);
+          await rollbackRelease();
+          throw error;
+        }
       }
     }
     lastKnownSha = fetched;
     await git(['checkout', '-B', 'main', fetched]);
     await git(['reset', '--hard', fetched]);
-    await pruneReleases();
+    if (!skipAstro) await pruneReleases();
 
     lastSyncHealthy = true;
     lastNetworkError = '';

@@ -14,6 +14,16 @@ try {
   (await acquireDeliveryLock(lock, { timeoutMs: 50 }))();
   fs.writeFileSync(lock, JSON.stringify({ pid: 99999999 }));
   (await acquireDeliveryLock(lock, { timeoutMs: 50 }))();
+  const ownerA = await acquireDeliveryLock(lock, { timeoutMs: 50 });
+  const tokenB = 'owner-b-token';
+  fs.writeFileSync(lock, JSON.stringify({ pid: process.pid, token: tokenB }));
+  ownerA();
+  assert.equal(JSON.parse(fs.readFileSync(lock, 'utf8')).token, tokenB, 'stale release must not remove a replacement lock');
+  fs.rmSync(lock);
+  const live = await acquireDeliveryLock(lock, { timeoutMs: 80 });
+  fs.utimesSync(lock, new Date(0), new Date(0));
+  await assert.rejects(acquireDeliveryLock(lock, { timeoutMs: 80, staleMs: 1 }), /CURRENT_DELIVERY_LOCK_TIMEOUT/);
+  live();
   console.log('CURRENT_DELIVERY_LOCK PASS: live owners block and stale owners recover');
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
