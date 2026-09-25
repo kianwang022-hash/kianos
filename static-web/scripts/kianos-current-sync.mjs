@@ -337,6 +337,7 @@ async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
   if (!fs.existsSync(candidateServerPath)) {
     throw new Error(`CURRENT_RELEASE_RUNTIME_MISSING:${candidateServerPath}`);
   }
+  const probeStateRoot = fs.mkdtempSync(path.join(releases.root, '.probe-state-'));
   const candidateServer = spawn(process.execPath, [
     candidateServerPath,
     '--host', host,
@@ -350,7 +351,15 @@ async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
     env: {
       ...process.env,
       KIANOS_PORT: String(probePort),
-      KIANOS_RELEASE_PROBE_ONLY: '1'
+      KIANOS_RELEASE_PROBE_ONLY: '1',
+      KIANOS_PRIVATE_DIR: path.join(probeStateRoot, 'private'),
+      KIANOS_CONTROL_DIR: path.join(probeStateRoot, 'control'),
+      KIANOS_CONTROL_REPO_DIR: path.join(probeStateRoot, 'control-repo'),
+      KIANOS_PACKET_REPO_DIR: path.join(probeStateRoot, 'packet-repo'),
+      KIANOS_EXTERNAL_READING_DIR: path.join(probeStateRoot, 'external-reading'),
+      KIANOS_ENGLISH_GENERATED_DIR: path.join(probeStateRoot, 'english-generated'),
+      KIANOS_CONTROL_ENABLED: '0',
+      KIANOS_PACKET_RELAY_ENABLED: '0'
     }
   });
   try {
@@ -365,8 +374,12 @@ async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
     }
     throw new Error('CURRENT_RELEASE_RUNTIME_NOT_READY');
   } finally {
-    if (candidateServer.pid) {
-      await terminateProcessTree(candidateServer.pid, { graceMs: 1000 });
+    try {
+      if (candidateServer.pid) {
+        await terminateProcessTree(candidateServer.pid, { graceMs: 1000 });
+      }
+    } finally {
+      fs.rmSync(probeStateRoot, { recursive: true, force: true });
     }
   }
 }

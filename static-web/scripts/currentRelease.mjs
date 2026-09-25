@@ -163,10 +163,11 @@ export async function terminateProcessTree(pid, { graceMs = 1000, kill = process
     try { kill(numericPid, 'SIGTERM'); } catch (error) { if (error?.code === 'ESRCH') return; }
     const deadline = Date.now() + graceMs;
     while (isProcessAlive(numericPid, kill) && Date.now() < deadline) await sleep(25);
-    if (isProcessAlive(numericPid, kill)) {
-      try { kill(numericPid, 'SIGKILL'); } catch (error) { if (error?.code === 'ESRCH') return; }
-      while (isProcessAlive(numericPid, kill)) await sleep(25);
-    }
+    if (!isProcessAlive(numericPid, kill)) return;
+    try { kill(numericPid, 'SIGKILL'); } catch (error) { if (error?.code === 'ESRCH') return; }
+    const killDeadline = Date.now() + graceMs;
+    while (isProcessAlive(numericPid, kill) && Date.now() < killDeadline) await sleep(25);
+    if (isProcessAlive(numericPid, kill)) throw new Error(`CURRENT_PROCESS_TREE_STILL_ALIVE:${numericPid}`);
     return;
   }
 
@@ -174,9 +175,8 @@ export async function terminateProcessTree(pid, { graceMs = 1000, kill = process
   try { kill(target, 'SIGTERM'); } catch (error) { if (error?.code === 'ESRCH') return; }
   if (await waitForProcessGroupGone(numericPid, graceMs, kill)) return;
   try { kill(target, 'SIGKILL'); } catch (error) { if (error?.code === 'ESRCH') return; }
-  // Never settle the caller while descendants remain observable. EPERM and
-  // unknown probe errors are deliberately treated as alive above.
-  while (isProcessAlive(target, kill)) await sleep(25);
+  if (await waitForProcessGroupGone(numericPid, graceMs, kill)) return;
+  throw new Error(`CURRENT_PROCESS_TREE_STILL_ALIVE:${numericPid}`);
 }
 
 export function runBounded(file, args, {
@@ -196,6 +196,11 @@ export function runBounded(file, args, {
         if (!settled) {
           settled = true;
           reject(new Error(`${label} timed out after ${timeoutMs}ms`));
+        }
+      }, (cleanupError) => {
+        if (!settled) {
+          settled = true;
+          reject(new Error(`${label} timed out after ${timeoutMs}ms; cleanup failed: ${cleanupError.message}`));
         }
       });
     }, timeoutMs);
