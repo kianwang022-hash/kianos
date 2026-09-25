@@ -22,19 +22,10 @@ import Base from '../../layouts/Base.astro';
         <aside class="stewardTodayAside" aria-label="今日辅助信息">
           <section class="stewardAsideSection" data-steward-task-section>
             <header class="stewardAsideHead">
-              <h2>今日重点</h2>
+              <h2>今日事项</h2>
+              <span>无固定节点</span>
             </header>
             <div class="stewardTaskList" data-steward-tasks></div>
-          </section>
-          <section class="stewardAsideSection">
-            <header class="stewardAsideHead">
-              <h3>今日学习</h3>
-            </header>
-            <div class="stewardSubjectTotals">
-              <div class="stewardSubjectTotal"><span>西综</span><strong data-steward-total="xizong">0m</strong></div>
-              <div class="stewardSubjectTotal"><span>English</span><strong data-steward-total="english">0m</strong></div>
-              <div class="stewardSubjectTotal"><span>政治</span><strong data-steward-total="politics">0m</strong></div>
-            </div>
           </section>
         </aside>
 
@@ -151,6 +142,16 @@ import Base from '../../layouts/Base.astro';
               <dt>计划</dt><dd data-steward-now-plan>—</dd>
               <dt>下一项</dt><dd data-steward-next>—</dd>
             </dl>
+          </section>
+          <section class="stewardAsideSection">
+            <header class="stewardAsideHead">
+              <h3>今日学习</h3>
+            </header>
+            <div class="stewardSubjectTotals">
+              <div class="stewardSubjectTotal"><span>西综</span><strong data-steward-total="xizong">0m</strong></div>
+              <div class="stewardSubjectTotal"><span>English</span><strong data-steward-total="english">0m</strong></div>
+              <div class="stewardSubjectTotal"><span>政治</span><strong data-steward-total="politics">0m</strong></div>
+            </div>
           </section>
           <section class="stewardAsideSection" data-steward-capacity-section hidden>
             <header class="stewardAsideHead">
