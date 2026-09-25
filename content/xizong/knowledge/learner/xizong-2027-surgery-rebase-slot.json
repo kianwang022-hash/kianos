@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.future_source_slot.v1",
-  "status": "CLOSED_CURRENT_AFTER_V3_ARCHITECTURE_AND_DOWNSTREAM_REACCEPTANCE",
+  "status": "REOPENED_CURRENT_FOR_REFINED_SOURCE_LOCATOR_REPAIR",
   "slot_id": "xizong-2027-surgery-rebase",
   "source_cycle": "27考研",
   "domain": "Surgery",
@@ -505,11 +505,40 @@
         "learner_truth_boundary": "Repository closeout creates no learner completion/mastery. Real-U remains private real-use evidence."
       }
     },
-    "source_map_owner": "content/xizong/knowledge/learner/surgery-27-source-map.json"
+    "source_map_owner": "content/xizong/knowledge/learner/surgery-27-source-map.json",
+    "action_now": "VERIFY_REFINED_SOURCE_LOCATOR_REPAIR_F8_H25_H26_H27_D5"
   },
   "governance": {
     "contract_owner": "content/xizong/knowledge/learner/SURGERY_CONTRACT.md",
     "status": "CONTRACT_CURRENT",
     "rule": "Route 27 refined-note deltas by responsibility: medical meaning → canonical Knowledge; understanding/retrieval/apply organization → Current Learning/Guide; exact values → Precision; spatial/table relations → Source Visual. Do not revive legacy Guides or redesign UI."
+  },
+  "source_locator_correction_2026_09_25": {
+    "status": "REPAIR_APPLIED_PENDING_REVALIDATION",
+    "trigger": "Reverse audit of the real 27 refined Surgery asset found Current consumer/source locators that still encoded legacy follow-along page identities after the broader reprocess closeout.",
+    "defect_class": "STALE_CURRENT_SOURCE_LOCATOR_AND_VISUAL_LOCATOR_DRIFT",
+    "affected_owners": [
+      "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H25_局部感染与源控制_学习阅读版_v1_最终执行版.md",
+      "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H26_脓毒症_学习阅读版_v1_最终执行版.md",
+      "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H27_破伤风与气性坏疽_学习阅读版_v1_最终执行版.md",
+      "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D5_能量体温应激与临床营养_学习阅读版_v1_最终执行版.md"
+    ],
+    "repairs": [
+      "F8 Current Primary Study rebound from legacy AI-reader/27-follow-along identity to 27 refined SUR27-U36; body, visual and Lecture-question locators corrected to refined PDF pages.",
+      "H25/H26/H27 machine source_pdf locators, first-pass routes, visual locators and Lecture-question scopes corrected from legacy follow-along pages to refined SUR27-U34 pages.",
+      "D5 stale visual-gap wording now names the current 27 refined U32 asset while preserving the honest original-PDF visual gap."
+    ],
+    "must_preserve": [
+      "no medical Core/KP semantic rewrite from locator repair alone",
+      "no learner progress manufacture",
+      "visual gaps remain fail-closed where original PDF layers are not actually mounted",
+      "27 refined Source remains Current; follow-along/legacy material remains provenance only"
+    ],
+    "verification_required": [
+      "read back affected owners from the new main commit",
+      "scan Current canonical Surgery-consuming blocks for legacy follow-along strings in active Primary/first-pass locators",
+      "run bounded Xizong/source-routing validation without broad architecture re-audit"
+    ]
   }
 }
