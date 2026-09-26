@@ -1,3 +1,4 @@
+import { latestActiveStewardActivity, transitionStewardActivity } from './stewardReality.mjs';
 import {
   adjustActiveStudyTimer,
   buildDailyStudyTimePacket,
@@ -41,6 +42,7 @@ export function initStudyTimerRuntime({ base = import.meta.env.BASE_URL } = {}) 
   const applyRouteContext = (source = 'route') => {
     captureGap(`${source}-gap-check`);
     const context = currentContext(base);
+    if (latestActiveStewardActivity(storage)) return readStudyTimerState(storage);
     if (!context) return readStudyTimerState(storage);
     const state = setStudyTimerContext(storage, context, Date.now(), { source });
     emit({ reason: source, state });
@@ -102,11 +104,13 @@ export function initStudyTimerRuntime({ base = import.meta.env.BASE_URL } = {}) 
       return state;
     },
     resume: (now = Date.now()) => {
+      if (latestActiveStewardActivity(storage)) transitionStewardActivity(storage, 'ENDED', now);
       const state = resumeStudyTimer(storage, currentContext(base), now);
       emit({ reason: 'manual-resume', state });
       return state;
     },
     switchSubject: (subject, now = Date.now()) => {
+      if (latestActiveStewardActivity(storage)) transitionStewardActivity(storage, 'ENDED', now);
       captureStudyTimerRuntimeGap(storage, now);
       const routeContext = currentContext(base);
       const context = routeContext?.subject === subject

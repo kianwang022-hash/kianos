@@ -1,1117 +1,348 @@
-import { readExamChatPlan } from './examChatPlan.mjs';
-import {
-  aggregateStudyTime,
-  buildStudyTimerReadModel,
-  readStudyTimerLedger,
-  readStudyTimerState,
-  studyDayAt,
-  STUDY_TIMER_TIMEZONE
-} from './studyTimer.mjs';
-import {
-  stewardRealityEventsForDay,
-  stewardMealSelectionsForDay,
-  stewardTrainingActualsForDay,
-  upsertStewardMealSelection,
-  upsertStewardTrainingActual
-} from './stewardReality.mjs';
+import { readExamChatPlanForDisplay, examScheduleInterval, assertExamChatPlanTimeReadable } from './examChatPlan.mjs';
+import { STUDY_TIMER_TIMEZONE, studyDayAt, buildStudyTimerReadModel, readStudyTimerLedger, readStudyTimerState, aggregateStudyTime } from './studyTimer.mjs';
+import * as reality from './stewardReality.mjs';
 
-const SUBJECT_LABEL = Object.freeze({
-  xizong: '西综',
-  english: 'English',
-  politics: '政治'
-});
-
-const START_MINUTE = 6 * 60;
-const END_MINUTE = 22 * 60 + 30;
-const DISPLAY_MINUTES = END_MINUTE - START_MINUTE;
-const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-
-function currentStudyDay(now = new Date()) {
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone: STUDY_TIMER_TIMEZONE,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit'
-  }).formatToParts(now);
-  const year = parts.find((part) => part.type === 'year')?.value;
-  const month = parts.find((part) => part.type === 'month')?.value;
-  const day = parts.find((part) => part.type === 'day')?.value;
-  if (!year || !month || !day) throw new Error('STEWARD_DAY_UNAVAILABLE');
-  return `${year}-${month}-${day}`;
-}
-
-function localClock(timestamp) {
-  const parts = new Intl.DateTimeFormat('en-GB', {
-    timeZone: STUDY_TIMER_TIMEZONE,
-    hour: '2-digit',
-    minute: '2-digit',
-    hourCycle: 'h23'
-  }).formatToParts(new Date(timestamp));
-  const hour = Number(parts.find((part) => part.type === 'hour')?.value || 0);
-  const minute = Number(parts.find((part) => part.type === 'minute')?.value || 0);
-  return { hour, minute, total: hour * 60 + minute };
-}
-
-function clockMinute(value) {
-  if (typeof value !== 'string' || !/^\d{2}:\d{2}$/.test(value)) return null;
-  const [hour, minute] = value.split(':').map(Number);
-  return hour * 60 + minute;
-}
-
-function formatClock(timestamp) {
-  return new Intl.DateTimeFormat('en-GB', {
-    timeZone: STUDY_TIMER_TIMEZONE,
-    hour: '2-digit',
-    minute: '2-digit',
-    hourCycle: 'h23'
-  }).format(new Date(timestamp));
-}
-
-function formatMinutes(minutes) {
-  const value = Math.max(0, Math.round(Number(minutes) || 0));
-  if (value < 60) return `${value}m`;
-  const hours = Math.floor(value / 60);
-  const rest = value % 60;
-  return rest ? `${hours}h ${rest}m` : `${hours}h`;
-}
-
-function formatElapsed(ms) {
-  const seconds = Math.max(0, Math.floor((Number(ms) || 0) / 1000));
-  const hours = Math.floor(seconds / 3600);
-  const minutes = Math.floor((seconds % 3600) / 60);
-  const rest = seconds % 60;
-  return [hours, minutes, rest].map((value) => String(value).padStart(2, '0')).join(':');
-}
-
-function dateAdd(day, offset) {
-  const date = new Date(`${day}T12:00:00Z`);
-  date.setUTCDate(date.getUTCDate() + offset);
-  return date.toISOString().slice(0, 10);
-}
-
-function mondayOf(day) {
-  const date = new Date(`${day}T12:00:00Z`);
-  const offset = (date.getUTCDay() + 6) % 7;
-  return dateAdd(day, -offset);
-}
-
-function monthMove(month, offset) {
-  const [year, value] = month.split('-').map(Number);
-  return new Date(Date.UTC(year, value - 1 + offset, 1)).toISOString().slice(0, 7);
-}
-
-function percentForMinute(minute) {
-  return ((clamp(minute, START_MINUTE, END_MINUTE) - START_MINUTE) / DISPLAY_MINUTES) * 100;
-}
-
-function intervalGeometry(start, end) {
-  let from = start;
-  let to = end;
-  if (to < from) to += 1440;
-  if (to <= START_MINUTE || from >= END_MINUTE) return null;
-  from = clamp(from, START_MINUTE, END_MINUTE);
-  to = clamp(to, START_MINUTE, END_MINUTE);
-  if (to <= from) return null;
-  return {
-    top: percentForMinute(from),
-    height: Math.max(.55, ((to - from) / DISPLAY_MINUTES) * 100)
-  };
-}
-
-function subjectForSchedule(block) {
-  if (['xizong', 'english', 'politics'].includes(block?.subject)) return block.subject;
-  return 'life';
-}
-
-function currentSessions(storage, now = Date.now()) {
-  const sessions = readStudyTimerLedger(storage).sessions
-    .filter((session) => !session.excluded)
-    .map((session) => ({ ...session }));
-  const state = readStudyTimerState(storage);
-  if (state.running && state.subject && state.segmentStartedAt != null && now > state.segmentStartedAt) {
-    sessions.push({
-      id: 'active',
-      subject: state.subject,
-      context: state.context,
-      startedAt: state.segmentStartedAt,
-      endedAt: now,
-      source: 'active',
-      excluded: false,
-      edited: false
-    });
+const SUBJECTS={xizong:'西综',english:'English',politics:'政治'};
+const STATUS={RECORDED:'数值已记录',COMPLETED:'已完成',MODIFIED:'有修改',SKIPPED:'已跳过'};
+const REENTRY={RESTORED:'恢复明显',PARTIAL:'部分恢复',NOT_RESTORED:'仍未恢复'};
+const METHODS={walk:'走动',eyes_closed:'闭眼',water:'补水',phone:'手机',food:'吃点东西'};
+const clock=at=>new Intl.DateTimeFormat('en-GB',{timeZone:STUDY_TIMER_TIMEZONE,hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(at));
+const minutes=ms=>{const m=Math.max(0,Math.round(ms/60000));return m<60?`${m}m`:`${Math.floor(m/60)}h${m%60?' '+m%60+'m':''}`;};
+const addDay=(d,n)=>{const x=new Date(d+'T12:00:00Z');x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10);};
+const el=(tag,cls,text='')=>{const n=document.createElement(tag);n.className=cls;n.textContent=text;return n;};
+const appendText=(node,tag,cls,text)=>{const n=el(tag,cls,text);node.append(n);return n;};
+const button=(text,action,cls='')=>{const b=el('button',cls,text);b.type='button';b.onclick=action;return b;};
+const amountLabel=(food,n)=>n==null?'份量未记录':`${Number(n.toFixed?.(2)??n)} ${food.unit||''}`;
+const eventTime=e=>e.observedAt??e.startedAt;
+const agendaVisualHeight=(start,end)=>{
+  const duration=end==null?20:Math.max(5,(Number(end)-Number(start))/60000);
+  return Math.round(Math.min(126,Math.max(50,38+Math.sqrt(duration)*6.2)));
+};
+const NUTRITION_MACROS=Object.freeze(['protein_g','carb_g','fat_g','kcal']);
+const NUTRITION_MACRO_LABEL=Object.freeze({protein_g:'蛋白质',carb_g:'碳水',fat_g:'脂肪',kcal:'能量'});
+const nutrientPerAmount=(food,macro)=>{
+  const nutrition=food?.nutrition;
+  if(!nutrition||!Number.isFinite(Number(nutrition[macro])))return null;
+  if(nutrition.basis==='PER_UNIT')return Number(nutrition[macro]);
+  const grams=Number(food.grams_per_unit);
+  if(nutrition.basis==='PER_100G'&&Number.isFinite(grams)&&grams>0)return Number(nutrition[macro])*grams/100;
+  return null;
+};
+export function buildStewardTopupRecommendations(projection,meal,items,{uncertain=false}={}){
+  if(!projection||!meal?.targets)return {status:'UNAVAILABLE',macro:null,deficit:null,suggestions:[]};
+  const foodMap=new Map((projection.foods||[]).map(food=>[food.id,food]));
+  const sums={kcal:0,protein_g:0,carb_g:0,fat_g:0};
+  let unknown=false;
+  for(const item of items||[]){
+    const food=foodMap.get(item.food_id);
+    if(item.amount==null||!food?.nutrition){unknown=true;continue;}
+    for(const macro of NUTRITION_MACROS){
+      const per=nutrientPerAmount(food,macro);
+      if(per==null){unknown=true;continue;}
+      sums[macro]+=per*Number(item.amount);
+    }
   }
-  return sessions;
+  if(uncertain||unknown)return {status:'UNKNOWN',macro:null,deficit:null,suggestions:[]};
+  const deficits=NUTRITION_MACROS
+    .map(macro=>({macro,min:meal.targets?.[macro]?.min}))
+    .filter(row=>Number.isFinite(row.min)&&sums[row.macro]+0.01<row.min)
+    .map(row=>({...row,deficit:row.min-sums[row.macro]}));
+  if(deficits.length===0)return {status:'NONE',macro:null,deficit:0,suggestions:[]};
+  if(deficits.length!==1)return {status:'MULTIPLE',macro:null,deficit:null,suggestions:[]};
+  const {macro,deficit}=deficits[0];
+  const suggestions=[];
+  for(const entry of projection.topup_pool||[]){
+    if(entry.macro!==macro)continue;
+    const food=foodMap.get(entry.food_id),per=nutrientPerAmount(food,macro);
+    if(!food||!Number.isFinite(per)||per<=0||!Number.isFinite(entry.amount)||entry.amount<=0)continue;
+    const step=food.unit==='g'?5:.5;
+    const raw=deficit/per;
+    let amount=Math.ceil(raw/step)*step;
+    const capped=amount>entry.amount;
+    amount=Math.min(amount,entry.amount);
+    const grams=food.unit==='g'?amount:(Number.isFinite(food.grams_per_unit)?amount*food.grams_per_unit:null);
+    suggestions.push({food_id:food.id,label:food.label,macro,amount,unit:food.unit,grams,capped,deficit});
+  }
+  return {status:suggestions.length?'SINGLE':'NO_OPTION',macro,deficit,suggestions};
 }
-
-function sessionsForDay(storage, day, now = Date.now()) {
-  return currentSessions(storage, now).filter((session) => studyDayAt(session.startedAt, STUDY_TIMER_TIMEZONE) === day);
-}
-
-function sessionClockGeometry(session) {
-  const start = localClock(session.startedAt).total;
-  let end = localClock(session.endedAt).total;
-  if (end < start) end += 1440;
-  return intervalGeometry(start, end);
-}
-
-function createText(tag, className, value) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  node.textContent = value;
-  return node;
-}
-
-function planPresentation(state) {
-  const value = state?.plan?.presentation || state?.presentation || null;
-  if (!value) return null;
-  return {
-    todayTasks: value.todayTasks || value.today_tasks || [],
-    weekReference: value.weekReference || value.week_reference || [],
-    scheduleBlocks: value.scheduleBlocks || value.schedule_blocks || [],
-    nutrition: value.nutrition || null,
-    training: value.training || null
-  };
-}
-
-function planStatusText(state) {
-  if (state?.status === 'ready') return '今日安排';
-  if (state?.status === 'stale') return '安排待更新';
-  if (state?.status === 'invalid') return '安排暂不可用';
-  if (state?.status === 'unavailable') return '安排暂不可读取';
-  return '暂无今日安排';
-}
-
-function subjectMinutes(timerModel, subject) {
-  return Math.max(0, Math.round((timerModel?.today?.bySubject?.[subject]?.ms || 0) / 60000));
-}
-
 
 export function initStewardWorkspace(root) {
-  if (!(root instanceof HTMLElement) || typeof window === 'undefined' || !window.localStorage) return;
-
-  const storage = window.localStorage;
-  const $ = (selector) => root.querySelector(selector);
-  const queryAll = (selector) => [...root.querySelectorAll(selector)];
-
-  let today = currentStudyDay();
-  let weekCursor = today;
-  let monthCursor = today.slice(0, 7);
-
-  const read = () => {
-    today = currentStudyDay();
-    const chatPlanState = readExamChatPlan(storage, today);
-    const timerModel = buildStudyTimerReadModel(storage, Date.now(), STUDY_TIMER_TIMEZONE);
-    return {
-      chatPlanState,
-      presentation: planPresentation(chatPlanState),
-      timerModel
-    };
-  };
-
-  function renderPlanState(state) {
-    const node = $('[data-steward-plan-state]');
-    if (!node) return;
-    node.dataset.state = state.status || 'missing';
-    node.textContent = planStatusText(state);
+  if(!(root instanceof HTMLElement))return;
+  const storage=window.localStorage,$=q=>root.querySelector(q),all=q=>[...root.querySelectorAll(q)];
+  const scrollTop=()=>{root.closest('.productCanvas')?.scrollTo(0,0);window.scrollTo(0,0);};
+  let view='today',mode='schedule',today=studyDayAt(Date.now()),weekCursor=today,monthCursor=today.slice(0,7);
+  let selectedMealId=null,selectedPlan=null,openExercises=new Set(),editingQuick=null,undoQuick=null;
+  let suppress=false,frame=null;
+  const feedback=(text='',error=false)=>{const n=$('[data-steward-feedback]');n.hidden=!text;n.textContent=text;n.dataset.error=String(error);};
+  function save(action,message='',editors=true) {
+    try {const result=action();feedback(message);suppress=true;window.dispatchEvent(new Event('kianos:steward-reality-change'));suppress=false;render(editors);return result;}
+    catch(e){suppress=false;feedback(/CONFLICT|REVISION/.test(String(e))?'记录已变化，尚未保存这次修改；请先核对最新内容。':'没有保存成功。当前输入保留，请重试。',true);return null;}
   }
-
-  function renderTasks(presentation) {
-    const rootNode = $('[data-steward-tasks]');
-    if (!rootNode) return;
-    rootNode.innerHTML = '';
-    const tasks = presentation?.todayTasks || [];
-    const section = $('[data-steward-task-section]');
-    if (section) section.hidden = tasks.length === 0;
-    if (!tasks.length) return;
-    for (const task of tasks) {
-      const row = createText('div', 'stewardTaskRow', task.label);
-      rootNode.appendChild(row);
-    }
+  function read() {
+    today=studyDayAt(Date.now());
+    const planState=readExamChatPlanForDisplay(storage,today);
+    let timer=null,activity={kind:'UNKNOWN',status:'unavailable'};
+    try {assertExamChatPlanTimeReadable(storage);timer=buildStudyTimerReadModel(storage,Date.now());activity=reality.readStewardCurrentActivity(storage,{now:Date.now()});}catch{}
+    return {planState,plan:planState.plan,presentation:planState.plan?.presentation||{},timer,activity};
   }
-
-  function renderSubjectTotals(timerModel) {
-    for (const subject of ['xizong', 'english', 'politics']) {
-      const node = $(`[data-steward-total="${subject}"]`);
-      if (node) node.textContent = formatMinutes(subjectMinutes(timerModel, subject));
-    }
+  function activityCopy(a) {
+    if(a.status==='conflict')return {label:'当前活动需核对',detail:'有重叠计时，请确认实际正在做什么',action:'核对记录'};
+    if(!['active','paused'].includes(a.status))return {label:'当前没有可确认活动',detail:'实际尚未记录',action:null};
+    const label=[a.kind==='STUDY'?SUBJECTS[a.subject]:null,a.label].filter(Boolean).join(' · ');
+    return {label,detail:a.status==='paused'?'已暂停':`${a.kind==='STUDY'?'已学习':a.kind==='TRAINING'?'已训练':'已进行'} ${minutes(a.elapsedMs)}`,action:a.kind==='STUDY'?'回到学习':a.kind==='TRAINING'?'回到训练':'继续当前'};
   }
-
-  function renderCapacity(chatPlanState) {
-    const section = $('[data-steward-capacity-section]');
-    if (!section) return;
-    const capacity = chatPlanState?.status === 'ready' ? chatPlanState.plan?.capacity : null;
-    const events = stewardRealityEventsForDay(storage, today);
-    const latest = Array.isArray(events) && events.length
-      ? [...events].sort((a, b) => b.startedAt - a.startedAt)[0]
-      : null;
-
-    section.hidden = !(capacity || latest);
-    if (section.hidden) return;
-
-    const stateLabels = {
-      ORDINARY: '正常',
-      REDUCED: '降低',
-      UNCERTAIN: '待确认',
-      RECOVER_FIRST: '先恢复'
-    };
-    const stateNode = $('[data-steward-capacity-state]');
-    if (stateNode) stateNode.textContent = capacity ? (stateLabels[capacity.state] || '') : '事实记录';
-
-    const summary = $('[data-steward-capacity-summary]');
-    if (summary) {
-      summary.textContent = capacity?.summary
-        || '最近有一次恢复记录；是否需要调整，由当前真实表现决定。';
-    }
-
-    const setRow = (name, value) => {
-      const row = $(`[data-steward-capacity-${name}-row]`);
-      const node = $(`[data-steward-capacity-${name}]`);
-      if (row) row.hidden = !value;
-      if (node) node.textContent = value || '';
-    };
-    setRow('basis', capacity?.basis || '');
-    setRow('load', capacity?.load || '');
-    setRow('action', capacity?.action || '');
-    setRow('recheck', capacity?.recheck || '');
-
-    const recovery = $('[data-steward-capacity-recovery]');
-    if (!recovery) return;
-    if (!latest) {
-      recovery.hidden = true;
-      recovery.textContent = '';
-      return;
-    }
-    const methodLabels = { walk:'走动', eyes_closed:'闭眼', phone:'手机', food:'吃点东西', water:'补水' };
-    const methods = [...(latest.methods || []).map(method => methodLabels[method] || method), latest.customMethod].filter(Boolean);
-    const minutes = latest.endedAt == null
-      ? null
-      : Math.max(0, Math.round((latest.endedAt - latest.startedAt) / 60000));
-    const reentry = latest.reentry?.status === 'RESTORED' ? '恢复明显'
-      : latest.reentry?.status === 'PARTIAL' ? '部分恢复'
-        : latest.reentry?.status === 'NOT_RESTORED' ? '仍未恢复' : '';
-    recovery.hidden = false;
-    recovery.textContent = [
-      latest.endedAt == null ? '正在休息' : `最近恢复 ${minutes}m`,
-      methods.join(' / '),
-      reentry
-    ].filter(Boolean).join(' · ');
+  function dock(action) {window.dispatchEvent(new CustomEvent('kianos:steward-dock-action',{detail:{action}}));}
+  function schedule(data) {return (data.presentation.schedule_blocks||[]).map(b=>({...b,...examScheduleInterval(b,data.plan.study_day)})).sort((a,b)=>a.start-b.start);}
+  function sessions(day,now=Date.now()) {
+    const begin=Date.parse(day+'T00:00:00+08:00'),end=Math.min(begin+86400000,now);
+    const rows=readStudyTimerLedger(storage).sessions.filter(e=>!e.excluded);
+    const s=readStudyTimerState(storage);
+    if(s.running&&s.segmentStartedAt!=null)rows.push({id:'active',subject:s.subject,context:s.context,startedAt:s.segmentStartedAt,endedAt:now});
+    return rows.map(x=>({...x,startedAt:Math.max(begin,x.startedAt),endedAt:Math.min(end,x.endedAt)})).filter(x=>x.endedAt>x.startedAt);
   }
-
-  function renderReality(timerModel) {
-    const list = $('[data-steward-reality]');
-    if (!list) return;
-    list.innerHTML = '';
-    const sessions = sessionsForDay(storage, today).map(session => ({
-      at: session.endedAt,
-      startedAt: session.startedAt,
-      label: (SUBJECT_LABEL[session.subject] || session.subject) + ' · ' + (session.context?.detailLabel || '学习')
-    }));
-    const breaks = stewardRealityEventsForDay(storage, today);
-    if (breaks == null) {
-      list.appendChild(createText('p', 'stewardEmpty', '休息记录暂不可安全读取；原数据未改动。'));
-    }
-    const methodLabels = { walk:'走动', eyes_closed:'闭眼', phone:'手机', food:'吃点东西', water:'补水' };
-    const breakRows = (breaks || []).map(event => {
-      const minutes = event.endedAt == null ? null : Math.max(0, Math.round((event.endedAt - event.startedAt) / 60000));
-      const methods = [...(event.methods || []).map(method => methodLabels[method] || method), event.customMethod].filter(Boolean);
-      const reentry = event.reentry?.status === 'RESTORED' ? '恢复明显'
-        : event.reentry?.status === 'PARTIAL' ? '部分恢复'
-          : event.reentry?.status === 'NOT_RESTORED' ? '仍未恢复' : '';
-      return {
-        at: event.endedAt || event.startedAt,
-        startedAt: event.startedAt,
-        label: [
-          event.endedAt == null ? '休息中' : '休息 ' + minutes + 'm',
-          methods.join(' / '),
-          reentry
-        ].filter(Boolean).join(' · ')
-      };
-    });
-    const rows = [...sessions, ...breakRows].sort((a, b) => b.at - a.at).slice(0, 4);
-    if (!rows.length && breaks != null) {
-      list.appendChild(createText('p', 'stewardEmpty', '今天还没有学习或休息记录。'));
-      return;
-    }
-    for (const item of rows) {
-      const row = document.createElement('div');
-      row.className = 'stewardRealityRow';
-      row.append(
-        createText('time', '', formatClock(item.startedAt)),
-        createText('span', '', item.label)
-      );
-      list.appendChild(row);
-    }
+  function recordRows(day=today) {
+    const state=reality.readStewardReality(storage);
+    if(state.unavailable)return null;
+    let study=[];try{assertExamChatPlanTimeReadable(storage);study=sessions(day).map(x=>({at:x.startedAt,text:`${SUBJECTS[x.subject]||''} · ${x.context?.detailLabel||'学习'} · ${minutes(x.endedAt-x.startedAt)}`}));}catch{}
+    const rows=state.events.filter(x=>!x.deletedAt&&studyDayAt(eventTime(x))===day&&eventTime(x)<=Date.now());
+    const superseded=new Set(rows.map(x=>x.supersedes).filter(Boolean));
+    return [...study,...rows.filter(x=>!superseded.has(x.id)).map(e=>({at:eventTime(e),event:e,text:describe(e)}))].sort((a,b)=>b.at-a.at);
   }
-
-  function renderNow(presentation, timerModel) {
-    const active = timerModel?.active || {};
-    const subjectNode = $('[data-steward-now-subject]');
-    const elapsedNode = $('[data-steward-now-elapsed]');
-    const planNode = $('[data-steward-now-plan]');
-    const nextNode = $('[data-steward-next]');
-
-    if (subjectNode) {
-      subjectNode.textContent = active.subject
-        ? `${SUBJECT_LABEL[active.subject] || active.subject} · ${active.context?.detailLabel || '学习'}`
-        : '当前未计时';
-    }
-    if (elapsedNode) elapsedNode.textContent = active.running ? formatElapsed(active.elapsedMs) : '—';
-
-    const blocks = presentation?.scheduleBlocks || [];
-    const nowClock = localClock(Date.now()).total;
-    const current = blocks.find((block) => {
-      const start = clockMinute(block.start);
-      const end = block.end ? clockMinute(block.end) : null;
-      return start != null && start <= nowClock && (end == null || nowClock < end);
-    });
-    const next = blocks.find((block) => {
-      const start = clockMinute(block.start);
-      return start != null && start > nowClock;
-    });
-
-    if (planNode) planNode.textContent = current ? `${current.start}–${current.end || ''} ${current.label}` : '—';
-    if (nextNode) nextNode.textContent = next ? `${next.start} ${next.label}` : '—';
+  function describe(e) {
+    if(e.kind==='BREAK')return [e.endedAt==null?'休息中':`休息 ${minutes(e.endedAt-e.startedAt)}`,...e.methods.map(x=>METHODS[x]||x),e.customMethod,REENTRY[e.reentry?.status],e.note].filter(Boolean).join(' · ');
+    if(e.kind==='QUICK')return [{WATER:'饮水',COFFEE:'咖啡',ENERGY:'状态',FOCUS:'专注',NOTE:'备注',WEIGHT:'体重'}[e.type],e.value==null?'':String(e.value)+(e.unit?' '+e.unit:''),e.note].filter(Boolean).join(' · ');
+    if(e.kind==='MEAL')return `${e.label} · ${e.status==='CONFIRMED'?'已吃':e.status==='SKIPPED'?'未吃':'选择草稿'}`;
+    if(e.kind==='TRAINING')return `${e.label} · ${e.exercises.filter(x=>x.status==='COMPLETED').length} 项明确完成${e.effect?' · 已记训练后感受':''}`;
+    return `${e.label} · ${e.status==='RUNNING'?'进行中':e.status==='PAUSED'?'暂停':'已结束'}`;
   }
-
-  function renderTimeline(presentation) {
-    const rootNode = $('[data-steward-timeline]');
-    if (!rootNode) return;
-    rootNode.innerHTML = '';
-
-    for (let hour = 6; hour <= 22; hour += 2) {
-      const label = createText('span', 'stewardHour', `${String(hour).padStart(2, '0')}:00`);
-      label.style.top = `${percentForMinute(hour * 60)}%`;
-      rootNode.appendChild(label);
-    }
-
-    const scheduleBlocks = presentation?.scheduleBlocks || [];
-    if (!scheduleBlocks.length) {
-      const empty = createText('p', 'stewardTimelineEmpty', '今天还没有安排；真实学习时间仍会显示在时间轴上。');
-      rootNode.appendChild(empty);
-    }
-
-    const renderedPlanBlocks = [];
-    for (const block of scheduleBlocks) {
-      const start = clockMinute(block.start);
-      const end = block.end ? clockMinute(block.end) : Math.min(END_MINUTE, (start ?? START_MINUTE) + 45);
-      if (start == null || end == null) continue;
-      const geometry = intervalGeometry(start, end);
-      if (!geometry) continue;
-      const node = document.createElement('article');
-      const subject = subjectForSchedule(block);
-      node.className = `stewardPlanBlock${geometry.height < 4 ? ' short' : ''}`;
-      node.dataset.subject = subject;
-      node.style.top = `${geometry.top}%`;
-      node.style.height = `${geometry.height}%`;
-
-      const head = document.createElement('header');
-      head.append(
-        createText('strong', '', block.label),
-        createText('time', '', `${block.start}${block.end ? `–${block.end}` : ''}`)
-      );
-      node.appendChild(head);
-      if (block.detail) {
-        node.title = block.detail;
-        node.appendChild(createText('span', 'stewardPlanDetail', block.detail));
+  function renderRecords() {
+    const rows=recordRows(),short=$('[data-steward-reality]'),full=$('[data-steward-history-rows]');short.replaceChildren();full.replaceChildren();
+    if(rows==null){appendText(short,'p','stewardEmpty','记录暂不可读取，原数据未改动。');return;}
+    if(!rows.length)appendText(short,'p','stewardEmpty','今天还没有实际记录。');
+    for(const [i,r] of rows.entries()) {
+      const row=el('div','stewardRealityRow');row.append(el('time','',clock(r.at)),el('span','',r.text));
+      if(i<4)short.append(row.cloneNode(true));
+      if(r.event?.kind==='QUICK') {
+        row.append(button('修正',()=>editQuick(r.event),'stewardTextButton'));
+        row.append(button('删除',()=>{const changed=save(()=>reality.correctStewardQuickReality(storage,r.event.id,{deletedAt:Date.now()},{expectedRevision:r.event.revision}),'记录已删除，可撤销。');if(changed){undoQuick=changed;renderRecords();}},'stewardTextButton'));
       }
-      rootNode.appendChild(node);
-      renderedPlanBlocks.push({ node, start, end, subject });
+      full.append(row);
     }
-
-    const hasPlan = renderedPlanBlocks.length > 0;
-    for (const session of sessionsForDay(storage, today)) {
-      const geometry = sessionClockGeometry(session);
-      if (!geometry) continue;
-      const subject = SUBJECT_LABEL[session.subject] || session.subject;
-      const detail = String(session.context?.detailLabel || '').trim();
-      const started = localClock(session.startedAt).total;
-      const ended = localClock(session.endedAt).total;
-      const matchingPlan = renderedPlanBlocks
-        .filter((row) => row.subject === session.subject && Math.min(row.end, ended) > Math.max(row.start, started))
-        .sort((a, b) => (Math.min(b.end, ended) - Math.max(b.start, started)) - (Math.min(a.end, ended) - Math.max(a.start, started)))[0];
-
-      const node = document.createElement('div');
-      node.dataset.subject = session.subject;
-      node.title = `${formatClock(session.startedAt)}–${formatClock(session.endedAt)} ${subject}${detail ? ` · ${detail}` : ''}`;
-
-      if (matchingPlan) {
-        const overlapStart = Math.max(matchingPlan.start, started);
-        const overlapEnd = Math.min(matchingPlan.end, ended);
-        const duration = Math.max(1, matchingPlan.end - matchingPlan.start);
-        node.className = 'stewardActualBlock withPlan';
-        node.style.left = `${Math.max(0, ((overlapStart - matchingPlan.start) / duration) * 100)}%`;
-        node.style.width = `${Math.max(1.5, ((overlapEnd - overlapStart) / duration) * 100)}%`;
-        matchingPlan.node.appendChild(node);
-        continue;
-      }
-
-      node.className = `stewardActualBlock withoutPlan${geometry.height < 4 ? ' short' : ''}`;
-      node.style.top = `${geometry.top}%`;
-      node.style.height = `${geometry.height}%`;
-      node.append(
-        createText('strong', '', detail && detail !== session.subject ? `${subject} · ${detail}` : subject),
-        createText('span', '', `实际 ${formatClock(session.startedAt)}–${formatClock(session.endedAt)}`)
-      );
-      rootNode.appendChild(node);
-    }
-
-    if (studyDayAt(Date.now(), STUDY_TIMER_TIMEZONE) === today) {
-      const nowMinute = localClock(Date.now()).total;
-      if (nowMinute >= START_MINUTE && nowMinute <= END_MINUTE) {
-        const line = document.createElement('div');
-        line.className = 'stewardNowLine';
-        line.style.top = `${percentForMinute(nowMinute)}%`;
-        line.appendChild(createText('span', '', `现在 ${formatClock(Date.now())}`));
-        rootNode.appendChild(line);
-      }
-    }
-
-    requestAnimationFrame(() => {
-      const viewport = $('[data-steward-timeline-viewport]');
-      const nowLine = rootNode.querySelector('.stewardNowLine');
-      if (!(viewport instanceof HTMLElement) || !(nowLine instanceof HTMLElement)) return;
-      const leadPx = Math.round((90 / DISPLAY_MINUTES) * rootNode.scrollHeight);
-      viewport.scrollTop = Math.max(0, nowLine.offsetTop - leadPx);
-    });
+    if(undoQuick)full.prepend(button('撤销删除',()=>{if(save(()=>reality.correctStewardQuickReality(storage,undoQuick.id,{deletedAt:null},{expectedRevision:undoQuick.revision}),'已恢复记录。')){undoQuick=null;renderRecords();}}));
+    const weights=$('[data-steward-weights]');weights.replaceChildren();
+    const s=reality.readStewardReality(storage);
+    for(const e of s.events.filter(x=>x.kind==='QUICK'&&x.type==='WEIGHT'&&!x.deletedAt).slice(-7).reverse())appendText(weights,'p','',`${studyDayAt(e.observedAt)} · ${e.value} kg${e.note?' · '+e.note:''}`);
+    if(!weights.childElementCount)appendText(weights,'p','stewardEmpty','尚无可确认的测量记录。');
   }
-
-
-  function foodAmountLabel(food, amount) {
-    const value = Number(amount);
-    if (!Number.isFinite(value)) return '—';
-    const shown = Number.isInteger(value) ? String(value) : String(Number(value.toFixed(1)));
-    return (shown + ' ' + (food?.unit || '')).trim();
+  function editQuick(e) {
+    editingQuick=e;$('[data-steward-edit-note]').value=e.note;$('[data-steward-edit-value]').disabled=!['WATER','COFFEE','WEIGHT'].includes(e.type);$('[data-steward-edit-value]').value=typeof e.value==='number'?e.value:'';$('[data-steward-edit-dialog]').showModal();
   }
-
-  function nutritionTotals(projection, items) {
-    const foodMap = new Map((projection?.foods || []).map(food => [food.id, food]));
-    const totals = { kcal: 0, protein: 0, carb: 0, fat: 0 };
-    for (const item of items) {
-      const food = foodMap.get(item.food_id);
-      if (!food?.nutrition) return null;
-      const scale = food.nutrition.basis === 'PER_UNIT'
-        ? Number(item.amount)
-        : (Number(item.amount) * Number(food.grams_per_unit || 0)) / 100;
-      if (!Number.isFinite(scale)) return null;
-      totals.kcal += food.nutrition.kcal * scale;
-      totals.protein += food.nutrition.protein_g * scale;
-      totals.carb += food.nutrition.carb_g * scale;
-      totals.fat += food.nutrition.fat_g * scale;
+  function renderCapacity(data) {
+    const section=$('[data-steward-capacity-section]');
+    const cap=data.planState.status==='ready'&&data.plan?.capacity?.state!=='ORDINARY'?data.plan?.capacity:null;
+    const latest=(reality.stewardRealityEventsForDay(storage,today)||[]).at(-1);
+    const failed=latest&&['PARTIAL','NOT_RESTORED'].includes(latest.reentry?.status)&&Date.now()-latest.reentry.at<4*3600000;
+    section.hidden=!(cap||failed);if(section.hidden)return;
+    $('[data-steward-capacity-state]').textContent=cap?({REDUCED:'容量降低',RECOVER_FIRST:'先恢复',UNCERTAIN:'待确认'}[cap.state]||''):REENTRY[latest.reentry.status];
+    $('[data-steward-capacity-summary]').textContent=cap?.summary||'你记录了尚未充分恢复；是否调整，由接下来的真实表现决定。';
+    for(const name of ['load','action','recheck']){const value=cap?.[name]||'';$(`[data-steward-capacity-${name}-row]`).hidden=!value;$(`[data-steward-capacity-${name}]`).textContent=value;}
+    $('[data-steward-capacity-recovery]').textContent=latest?describe(latest):'';
+  }
+  function renderAgenda(data) {
+    const rows=schedule(data),now=Date.now(),past=rows.filter(x=>(x.end??x.start)<=now),future=rows.filter(x=>x.start>now),current=rows.find(x=>x.start<=now&&x.end>now);
+    const state=$('[data-steward-plan-state]');state.dataset.state=data.planState.status;
+    state.textContent=({ready:'今日安排',reference:'已采用的安排 · 判断依据有更新',missing:'暂无今日安排',stale:'今日安排待更新',invalid:'安排暂不可用',unavailable:'安排暂不可读取'}[data.planState.status]||'');
+    $('[data-steward-past-summary]').textContent=`已过去的安排 · ${past.length} 项`;
+    $('[data-steward-past-fold]').hidden=!past.length;
+    const pastNode=$('[data-steward-past-rows]');pastNode.replaceChildren();
+    let actualRows=[];try{actualRows=sessions(today);}catch{}
+    for(const b of past){const row=el('div','stewardPastRow');row.append(el('time','',clock(b.start)+(b.end?'–'+clock(b.end):'')),el('strong','',b.label));const linked=actualRows.filter(x=>Math.min(x.endedAt,b.end??b.start)>Math.max(x.startedAt,b.start));appendText(row,'span','stewardMuted',linked.length?'有实际记录':'实际未确认');pastNode.append(row);}
+    const timeline=$('[data-steward-timeline]');timeline.replaceChildren();
+    const c=activityCopy(data.activity),row=el('article','stewardCurrentRow'),card=el('div','stewardCurrentCard');card.dataset.actual=data.activity.kind;
+    if(current?.end){const duration=Math.max(1,Math.round((current.end-current.start)/60000));row.dataset.durationMinutes=String(duration);row.style.setProperty('--st-duration-height',agendaVisualHeight(current.start,current.end)+'px');}
+    row.append(el('time','stewardAgendaTime',current?clock(current.start)+'–'+clock(current.end):clock(now)),card);
+    const head=el('header','');head.append(el('span','stewardEyebrow',data.activity.status==='paused'?'已暂停':'现在'),el('time','',clock(now)));card.append(head);appendText(card,'h3','',c.label);
+    const meta=el('dl','stewardCurrentMeta');meta.append(el('dt','','计划'),el('dd','',current?.label||'此刻没有计划时段'),el('dt','','实际'),el('dd','',c.detail));card.append(meta);
+    const actions=el('div','stewardCurrentActions');
+    if(c.action&&data.activity.status!=='conflict')actions.append(button(c.action,()=>data.activity.kind==='TRAINING'?activateMode('training'):dock('return'),'stewardPrimary'));
+    if(['active','paused'].includes(data.activity.status))actions.append(button(data.activity.status==='paused'?'继续':'暂停',()=>dock('pause')));
+    actions.append(button('记录一下',()=>dock('record')));card.append(actions);timeline.append(row);
+    if(!rows.length)appendText(timeline,'p','stewardEmpty','没有安排也可以学习、休息和记录实际。');
+    for(const b of future){const r=el('article','stewardAgendaRow');if(b.end){const duration=Math.max(1,Math.round((b.end-b.start)/60000));r.dataset.durationMinutes=String(duration);r.style.setProperty('--st-duration-height',agendaVisualHeight(b.start,b.end)+'px');}r.append(el('time','stewardAgendaTime',clock(b.start)+(b.end?'–'+clock(b.end):'')));const body=el('div','stewardAgendaBody');appendText(body,'strong','',b.label);if(b.detail)appendText(body,'p','',b.detail);r.append(body);if(b.meal_id)r.append(button('看餐食',()=>{selectedMealId=b.meal_id;activateMode('nutrition');},'stewardTextButton'));if(b.training_session_id)r.append(button('看训练',()=>activateMode('training'),'stewardTextButton'));timeline.append(r);}
+    $('[data-steward-now-subject]').textContent=c.label;$('[data-steward-now-elapsed]').textContent=c.detail;$('[data-steward-now-plan]').textContent=current?.label||'此刻没有计划时段';$('[data-steward-next]').textContent=future[0]?clock(future[0].start)+' '+future[0].label:'没有后续安排';
+    $('[data-steward-study-total]').textContent=data.timer?minutes(data.timer.today.totalMs):'—';for(const s of Object.keys(SUBJECTS))$(`[data-steward-total="${s}"]`).textContent=data.timer?minutes(data.timer.today.bySubject[s]?.ms||0):'—';
+    const tasks=data.presentation.today_tasks||[],taskNode=$('[data-steward-tasks]');$('[data-steward-task-section]').hidden=!tasks.length;taskNode.replaceChildren();
+    // Reuse Home's existing UI-only checklist key. This is never reality/mastery evidence.
+    const checksKey=`kianos-exam-home-task-checks-v1:${today}`;
+    for(const t of tasks){
+      const row=el('label','stewardTaskRow'),input=document.createElement('input');input.type='checkbox';input.dataset.stewardTaskCheck=t.id;
+      try{const state=JSON.parse(storage.getItem(checksKey)||'{}');input.checked=Object.hasOwn(state,t.id)&&state[t.id]===true;}catch{input.disabled=true;}
+      input.onchange=()=>{try{const state=JSON.parse(storage.getItem(checksKey)||'{}');if(!state||typeof state!=='object'||Array.isArray(state))throw Error('CHECKS_INVALID');if(input.checked)Object.defineProperty(state,t.id,{value:true,enumerable:true,configurable:true,writable:true});else delete state[t.id];const bytes=JSON.stringify(state);storage.setItem(checksKey,bytes);if(storage.getItem(checksKey)!==bytes)throw Error('CHECKS_READBACK');feedback();}catch{input.checked=!input.checked;feedback('事项勾选尚未保存，请重试。',true);}};
+      row.append(input,el('span','',t.label));taskNode.append(row);
     }
-    return totals;
+    // An optional action, not a daily required checklist or an inferred Review score.
+    $('[data-steward-review]').hidden=!(recordRows()||[]).some(r=>r.event?.kind==='QUICK'||r.event?.kind==='TRAINING'||r.event?.reentry?.status==='NOT_RESTORED');
   }
-
-  function renderNutrition(presentation, chatPlanState) {
-    const unavailable = $('[data-steward-nutrition-unavailable]');
-    const workspace = $('[data-steward-nutrition-workspace]');
-    if (!unavailable || !workspace) return;
-    const projection = chatPlanState?.status === 'ready' ? presentation?.nutrition : null;
-    const available = Boolean(projection?.meals?.length && projection?.foods?.length);
-    unavailable.hidden = available;
-    workspace.hidden = !available;
-    if (!available) return;
-
-    const generatedAt = chatPlanState.plan?.generated_at || '';
-    const foodMap = new Map(projection.foods.map(food => [food.id, food]));
-    const actuals = stewardMealSelectionsForDay(storage, today) || [];
-    const currentActual = [...actuals].reverse().find(event => event.planGeneratedAt === generatedAt) || null;
-    const activeMealId = currentActual?.mealId || projection.active_meal_id || projection.meals[0].id;
-    const selectedMeal = projection.meals.find(meal => meal.id === activeMealId) || projection.meals[0];
-    const currentItems = currentActual?.mealId === selectedMeal.id
-      ? currentActual.items.map(item => ({ food_id: item.foodId, amount: item.amount, role: '' }))
-        .filter(item => foodMap.has(item.food_id))
-      : selectedMeal.items.map(item => ({ ...item }));
-    const uncertain = Boolean(currentActual?.mealId === selectedMeal.id && currentActual.uncertain);
-
-    const target = $('[data-steward-nutrition-target]');
-    if (target) target.textContent = projection.target_label || '';
-
-    const persist = (meal, items, nextUncertain = uncertain) => {
-      upsertStewardMealSelection(storage, {
-        observedAt: Date.now(),
-        mealId: meal.id,
-        label: meal.label,
-        ownerRef: projection.owner_ref,
-        planGeneratedAt: generatedAt,
-        uncertain: nextUncertain,
-        items: items.map(item => {
-          const food = foodMap.get(item.food_id);
-          return {
-            foodId: item.food_id,
-            label: food?.label || item.food_id,
-            amount: Number(item.amount) || 0,
-            unit: food?.unit || 'g'
-          };
-        })
-      });
-      window.dispatchEvent(new Event('kianos:steward-reality-change'));
+  function renderMealHistory() {
+    const node=$('[data-steward-meal-history]');node.replaceChildren();const rows=reality.stewardMealHistoryForDay(storage,today);
+    if(rows==null){appendText(node,'p','stewardEmpty','记录暂不可读取。');return;}
+    const superseded=new Set(rows.map(x=>x.supersedes).filter(Boolean));
+    for(const e of rows.filter(x=>x.status!=='SELECTED').slice().reverse()) {
+      const row=el('div','stewardHistoryEntry');appendText(row,'strong','',`${e.label} · ${e.status==='SKIPPED'?'未吃':'已吃'}${superseded.has(e.id)?'（已修订）':''}`);appendText(row,'p','',e.items.map(x=>x.label+' '+amountLabel(x,x.amount)).join(' · ')+(e.uncertain?' · 份量不确定':''));node.append(row);
+    }
+    if(!node.childElementCount)appendText(node,'p','stewardEmpty','尚未确认餐食实际。');
+  }
+  function renderNutrition(data) {
+    renderMealHistory();
+    const p=data.presentation.nutrition,readable=!reality.readStewardReality(storage).unavailable,available=readable&&!!p?.meals?.length&&!!p?.foods?.length;
+    $('[data-steward-nutrition-unavailable] h2').textContent=readable?'今天还没有餐食推荐':'餐食记录暂不可读取';
+    $('[data-steward-nutrition-unavailable]').hidden=available;$('[data-steward-nutrition-workspace]').hidden=!available;if(!available)return;
+    const planAt=data.plan.generated_at;
+    if(selectedPlan!==planAt){selectedPlan=planAt;selectedMealId=p.active_meal_id||p.meals[0].id;}
+    const meal=p.meals.find(x=>x.id===selectedMealId)||p.meals[0];selectedMealId=meal.id;
+    const map=new Map(p.foods.map(x=>[x.id,x]));let draft=reality.readStewardMealDraft(storage,{studyDay:today,mealId:meal.id});
+    const stale=!!draft&&draft.planGeneratedAt!==planAt;
+    let items=draft&&!stale?draft.items.map(x=>({food_id:x.foodId,amount:x.amount})):meal.items.map(x=>({...x})),uncertain=draft&&!stale?draft.uncertain:false;
+    const common=()=>({studyDay:today,observedAt:Date.now(),mealId:meal.id,label:meal.label,ownerRef:p.owner_ref,planGeneratedAt:planAt});
+    const serialized=next=>next.map(x=>{const f=map.get(x.food_id);return {foodId:f.id,label:f.label,amount:x.amount,unit:f.unit,nutrition:f.nutrition,gramsPerUnit:f.grams_per_unit,sourceRevision:f.source_revision||planAt};});
+    const persist=(next=items,nextUncertain=uncertain,rebuild=false)=>{
+      const result=save(()=>reality.saveStewardMealDraft(storage,{...common(),items:serialized(next),uncertain:nextUncertain},{expectedRevision:draft?.revision||0}),'',false);
+      if(result){draft=result;items=next;uncertain=nextUncertain;if(rebuild)renderNutrition(read());else renderNumbers();}return result;
     };
-
-    const mealList = $('[data-steward-meal-list]');
-    mealList.innerHTML = '';
-    for (const meal of projection.meals) {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.dataset.stewardMealPreset = meal.id;
-      if (meal.id === selectedMeal.id) button.classList.add('active');
-      button.append(createText('strong', '', meal.label));
-      if (meal.note) button.append(createText('span', '', meal.note));
-      button.addEventListener('click', () => persist(meal, meal.items.map(item => ({ ...item })), false));
-      mealList.appendChild(button);
+    $('[data-steward-meal-title]').textContent=meal.label+' · 选择和实际';$('[data-steward-nutrition-target]').textContent=p.target_label||'';
+    const tabs=$('[data-steward-meal-list]');tabs.replaceChildren();for(const m of p.meals){const b=button(m.label,()=>{selectedMealId=m.id;renderNutrition(read());},m.id===meal.id?'active':'');b.dataset.stewardMealPreset=m.id;tabs.append(b);}
+    $('[data-steward-meal-recommendation]').textContent=meal.items.map(x=>map.get(x.food_id)?.label+' '+amountLabel(map.get(x.food_id),x.amount)).join(' · ');$('[data-steward-meal-note]').textContent=meal.note||'';
+    const rows=$('[data-steward-meal-rows]');rows.replaceChildren();
+    items.forEach((item,index)=>{
+      const food=map.get(item.food_id);if(!food)return;
+      const row=el('div','stewardMealRow');row.dataset.stewardMealItem=food.id;const name=el('div','stewardFoodIdentity');appendText(name,'strong','',food.label);appendText(name,'small','',food.note||'推荐 '+amountLabel(food,food.recommended_amount));
+      const select=document.createElement('select');select.setAttribute('aria-label','替换 '+food.label);for(const f of p.foods){const o=el('option','',f.label);o.value=f.id;o.selected=f.id===food.id;select.append(o);}select.onchange=()=>{const f=map.get(select.value);persist(items.map((x,i)=>i===index?{food_id:f.id,amount:f.recommended_amount}:x),uncertain,true);};name.append(select);
+      const wrap=el('label','stewardGramInput');const input=document.createElement('input');input.type='number';input.min='0';input.max='10000';input.step='any';input.value=item.amount==null?'':String(item.amount);input.placeholder='未知';input.setAttribute('aria-label',food.label+'份量');input.dataset.stewardFoodInput=food.id;
+      input.onchange=()=>{const n=input.value.trim()===''?null:Number(input.value);if(n!=null&&(!Number.isFinite(n)||n<0||n>10000)){feedback('份量需要为非负数，留空表示未知。',true);return;}persist(items.map((x,i)=>i===index?{...x,amount:n}:x));};wrap.append(input,el('span','',food.unit));
+      const remove=button('×',()=>persist(items.filter((_,i)=>i!==index),uncertain,true));remove.setAttribute('aria-label','移除 '+food.label);row.append(name,wrap,remove);rows.append(row);
+    });
+    if(!items.length)appendText(rows,'p','stewardEmpty','选择还没有食物，可以从右侧添加。');
+    function renderNumbers() {
+      const sums={kcal:0,protein:0,carb:0,fat:0};let known=0,unknown=0;
+      for(const i of items){const f=map.get(i.food_id);if(i.amount==null||!f?.nutrition){unknown++;continue;}const n=f.nutrition,scale=n.basis==='PER_UNIT'?i.amount:i.amount*f.grams_per_unit/100;if(!Number.isFinite(scale)){unknown++;continue;}known++;for(const [key,field] of [['kcal','kcal'],['protein','protein_g'],['carb','carb_g'],['fat','fat_g']])sums[key]+=n[field]*scale;}
+      $('[data-steward-estimate-label]').textContent=unknown?'已知部分 · 估算':'这次选择 · 估算';for(const key of Object.keys(sums))$(`[data-steward-macro="${key}"]`).textContent=known?`${Math.round(sums[key])} ${key==='kcal'?'kcal':'g'}`:'—';
+      $('[data-steward-estimate-note]').textContent=unknown?'还有未知份量或营养数据；这些不是完整总量。':uncertain?'份量不确定，数字仅为粗略估算。':'按当前选择估算；确认后才成为已吃记录。';
+      const topupResult=$('[data-steward-topup-recommendation]');topupResult.replaceChildren();
+      $('[data-steward-topup-note]').textContent=unknown||uncertain?'信息不全，不判断确定缺口；仍可自己选择今日允许项。':meal.targets?'选择确定后，点“算补缺”给单一缺口的具体补量。':'当前计划没有结构化本餐目标，只显示允许补充项。';
+      const calc=$('[data-steward-topup-calc]');calc.disabled=!meal.targets;
+      $('[data-steward-meal-uncertain]').setAttribute('aria-pressed',String(uncertain));
+      const eaten=(reality.stewardMealActualsForDay(storage,today)||[]).find(x=>x.mealId===meal.id);
+      $('[data-steward-meal-state]').textContent=draft&&draft.planGeneratedAt!==planAt?'选择属于旧安排；请套用或编辑本次推荐后再确认。':eaten?'已有实际记录；这里的编辑不会覆盖它。':draft?'选择已保存，尚未确认已吃。':'当前为推荐，尚未确认已吃。';
+      $('[data-steward-meal-confirm]').disabled=!items.length||(!!draft&&draft.planGeneratedAt!==planAt);
     }
-
-    const editor = $('[data-steward-meal-editor]');
-    editor.classList.toggle('uncertain', uncertain);
-    const title = $('[data-steward-meal-title]');
-    if (title) title.textContent = selectedMeal.label;
-
-    const rows = $('[data-steward-meal-rows]');
-    rows.innerHTML = '';
-    for (const item of currentItems) {
-      const food = foodMap.get(item.food_id);
-      if (!food) continue;
-      const row = document.createElement('div');
-      row.className = 'stewardMealRow';
-      row.dataset.stewardMealItem = food.id;
-      const copy = document.createElement('div');
-      copy.append(createText('strong', '', food.label));
-      const recommendation = '推荐 ' + foodAmountLabel(food, food.recommended_amount)
-        + (food.note ? ' · ' + food.note : '');
-      copy.append(createText('small', '', recommendation));
-      const inputWrap = document.createElement('label');
-      inputWrap.className = 'stewardGramInput';
-      const input = document.createElement('input');
-      input.type = 'number';
-      input.min = '0';
-      input.step = food.unit === 'g' ? '5' : '.5';
-      input.value = String(Number(item.amount));
-      input.dataset.stewardFoodInput = food.id;
-      inputWrap.append(input, createText('span', '', food.unit));
-      input.addEventListener('change', () => {
-        const next = currentItems.map(current => current.food_id === food.id
-          ? { ...current, amount: Math.max(0, Number(input.value) || 0) }
-          : current);
-        persist(selectedMeal, next, uncertain);
-      });
-      row.append(copy, inputWrap);
-      rows.appendChild(row);
-    }
-
-    const totals = nutritionTotals(projection, currentItems);
-    const macroValues = totals ? {
-      kcal: Math.round(totals.kcal) + ' kcal',
-      protein: totals.protein.toFixed(1) + ' g',
-      carb: totals.carb.toFixed(1) + ' g',
-      fat: totals.fat.toFixed(1) + ' g'
-    } : { kcal: '—', protein: '—', carb: '—', fat: '—' };
-    for (const [key, value] of Object.entries(macroValues)) {
-      const node = $('[data-steward-macro="' + key + '"]');
-      if (node) node.textContent = value;
-    }
-
-    const renderFoodActions = (selector, entries) => {
-      const container = $(selector);
-      if (!container) return;
-      container.innerHTML = '';
-      for (const entry of entries || []) {
-        const food = foodMap.get(entry.food_id);
-        if (!food) continue;
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'stewardFoodAction';
-        const copy = document.createElement('span');
-        copy.append(createText('strong', '', entry.role || food.label));
-        copy.append(createText('small', '', food.label + ' · ' + foodAmountLabel(food, entry.amount)));
-        button.append(copy, createText('b', '', '+'));
-        button.addEventListener('click', () => {
-          const next = currentItems.map(item => ({ ...item }));
-          const existing = next.find(item => item.food_id === entry.food_id);
-          if (existing) existing.amount += entry.amount;
-          else next.push({ food_id: entry.food_id, amount: entry.amount, role: entry.role || '' });
-          persist(selectedMeal, next, uncertain);
-        });
-        container.appendChild(button);
+    const actions=(selector,entries)=>{const node=$(selector);node.replaceChildren();for(const e of entries||[]){const f=map.get(e.food_id);if(!f)continue;node.append(button('+ '+f.label+' '+amountLabel(f,e.amount),()=>{const next=items.map(x=>({...x})),found=next.find(x=>x.food_id===f.id);if(found)found.amount=found.amount==null?null:found.amount+e.amount;else next.push({food_id:f.id,amount:e.amount});persist(next,uncertain,true);}));}if(!node.childElementCount)appendText(node,'p','stewardEmpty','暂无额外推荐项。');};
+    actions('[data-steward-quick-add]',p.quick_add);actions('[data-steward-topup-list]',p.topup_pool);
+    $('[data-steward-topup-calc]').onclick=()=>{
+      const node=$('[data-steward-topup-recommendation]');node.replaceChildren();
+      const result=buildStewardTopupRecommendations(p,meal,items,{uncertain});
+      if(result.status==='UNKNOWN'){appendText(node,'p','stewardTopupMessage','还有未知份量或“份量不确定”，先不算精确补量。');return;}
+      if(result.status==='UNAVAILABLE'){appendText(node,'p','stewardTopupMessage','当前计划没有结构化本餐目标。');return;}
+      if(result.status==='NONE'){appendText(node,'p','stewardTopupMessage','当前选择已经覆盖本餐结构化目标，不需要额外补。');return;}
+      if(result.status==='MULTIPLE'){appendText(node,'p','stewardTopupMessage','当前同时有多项缺口，不用单一食物硬补；仍可从允许项里自己调整。');return;}
+      if(result.status==='NO_OPTION'){appendText(node,'p','stewardTopupMessage',`主要缺${NUTRITION_MACRO_LABEL[result.macro]}，但今天的允许补充池没有对应项。`);return;}
+      appendText(node,'p','stewardTopupMessage',`主要缺${NUTRITION_MACRO_LABEL[result.macro]}约 ${Math.round(result.deficit)} ${result.macro==='kcal'?'kcal':'g'}，可以这样补：`);
+      for(const suggestion of result.suggestions){
+        const grams=suggestion.grams!=null&&suggestion.unit!=='g'? `（约 ${Math.round(suggestion.grams)}g）`:'';
+        const label=`+ ${suggestion.label} ${Number(suggestion.amount.toFixed?.(2)??suggestion.amount)} ${suggestion.unit}${grams}${suggestion.capped?' · 先补到允许上限':''}`;
+        const b=button(label,()=>{const next=items.map(x=>({...x})),found=next.find(x=>x.food_id===suggestion.food_id);if(found)found.amount=found.amount==null?null:found.amount+suggestion.amount;else next.push({food_id:suggestion.food_id,amount:suggestion.amount});persist(next,uncertain,true);},'stewardTopupSuggestion');node.append(b);
       }
     };
-    renderFoodActions('[data-steward-topup-list]', projection.topup_pool);
-    renderFoodActions('[data-steward-quick-add]', projection.quick_add);
-
-    const halfButton = $('[data-steward-meal-half]');
-    if (halfButton) halfButton.onclick = () => persist(
-      selectedMeal,
-      currentItems.map(item => ({ ...item, amount: Number(item.amount) / 2 })),
-      uncertain
-    );
-
-    const uncertainButton = $('[data-steward-meal-uncertain]');
-    if (uncertainButton) {
-      uncertainButton.classList.toggle('active', uncertain);
-      uncertainButton.onclick = () => persist(selectedMeal, currentItems, !uncertain);
-    }
-
-    const resetButton = $('[data-steward-meal-reset]');
-    if (resetButton) resetButton.onclick = () => persist(
-      selectedMeal,
-      selectedMeal.items.map(item => ({ ...item })),
-      false
-    );
-  }
-
-  function renderTraining(presentation, chatPlanState) {
-    const unavailable = $('[data-steward-training-unavailable]');
-    const workspace = $('[data-steward-training-workspace]');
-    if (!unavailable || !workspace) return;
-    const projection = chatPlanState?.status === 'ready' ? presentation?.training : null;
-    const available = Boolean(projection?.exercises?.length);
-    unavailable.hidden = available;
-    workspace.hidden = !available;
-    if (!available) return;
-
-    const generatedAt = chatPlanState.plan?.generated_at || '';
-    const actuals = stewardTrainingActualsForDay(storage, today) || [];
-    const currentActual = [...actuals].reverse().find(event =>
-      event.planGeneratedAt === generatedAt && event.sessionId === projection.session_id
-    ) || null;
-    const actualMap = new Map((currentActual?.exercises || []).map(item => [item.exerciseId, item]));
-
-    const title = $('[data-steward-training-title]');
-    if (title) title.textContent = projection.title;
-    const duration = $('[data-steward-training-duration]');
-    if (duration) duration.textContent = projection.duration_label || '';
-
-    const persist = (exercises, effect = currentActual?.effect || null, note = currentActual?.note || '') => {
-      upsertStewardTrainingActual(storage, {
-        observedAt: Date.now(),
-        sessionId: projection.session_id,
-        label: projection.title,
-        ownerRef: projection.owner_ref,
-        planGeneratedAt: generatedAt,
-        effect,
-        note,
-        exercises
-      });
-      window.dispatchEvent(new Event('kianos:steward-reality-change'));
+    $('[data-steward-meal-half]').onclick=()=>persist(items.map(x=>({...x,amount:x.amount==null?null:x.amount/2})),uncertain,true);
+    $('[data-steward-meal-uncertain]').onclick=()=>persist(items,!uncertain);
+    $('[data-steward-meal-reset]').onclick=()=>persist(meal.items.map(x=>({...x})),false,true);
+    $('[data-steward-meal-confirm]').onclick=()=>{
+      if(!draft&&!persist())return;
+      save(()=>reality.confirmStewardMealDraft(storage,{studyDay:today,mealId:meal.id,expectedRevision:draft.revision}),'已保存这次已吃记录。');
     };
-
-    const list = $('[data-steward-exercise-list]');
-    list.innerHTML = '';
-    projection.exercises.forEach((base, index) => {
-      const actual = actualMap.get(base.id);
-      const variants = [base, ...(base.alternatives || [])];
-      const selectedId = actual?.variantId || base.id;
-      const selected = variants.find(item => item.id === selectedId) || base;
-
-      const card = document.createElement('article');
-      card.className = 'stewardExerciseCard' + (actual?.status === 'RECORDED' ? ' recorded' : '');
-      card.dataset.stewardExercise = base.id;
-
-      const head = document.createElement('div');
-      head.className = 'stewardExerciseHead';
-      const identity = document.createElement('div');
-      identity.className = 'stewardExerciseIdentity';
-      identity.append(createText('span', 'stewardExerciseRank', String(index + 1)));
-      const identityCopy = document.createElement('div');
-      identityCopy.append(createText('strong', '', selected.label));
-      identityCopy.append(createText('small', '', selected.note || selected.prescription || ''));
-      identity.appendChild(identityCopy);
-
-      const actions = document.createElement('div');
-      actions.className = 'stewardExerciseActions';
-      const replace = document.createElement('button');
-      replace.type = 'button';
-      replace.dataset.action = 'replace';
-      replace.textContent = '替换';
-      replace.disabled = variants.length <= 1;
-      replace.hidden = variants.length <= 1;
-      const record = document.createElement('button');
-      record.type = 'button';
-      record.dataset.action = 'record';
-      record.textContent = actual?.status === 'RECORDED' ? '已记录' : '记录';
-      actions.append(replace, record);
-      head.append(identity, actions);
-
-      const prescription = document.createElement('div');
-      prescription.className = 'stewardExercisePrescription';
-      prescription.append(
-        createText('span', '', '推荐'),
-        createText('strong', '', selected.prescription || '按今日处方')
-      );
-      if (selected.rpe != null) prescription.append(createText('span', '', 'RPE ' + selected.rpe));
-
-      const row = document.createElement('div');
-      row.className = 'stewardSetRow';
-      const fields = [
-        ['load', actual?.loadValue ?? selected.load_value, selected.load_unit || ''],
-        ['reps', actual?.repsValue ?? selected.reps_value, selected.reps_unit || 'reps'],
-        ['rpe', actual?.rpe ?? selected.rpe, 'RPE']
-      ];
-      for (const [name, value, unit] of fields) {
-        const wrap = document.createElement('label');
-        wrap.className = 'stewardSetInput';
-        const input = document.createElement('input');
-        input.type = 'number';
-        input.min = '0';
-        input.step = name === 'rpe' ? '.5' : '1';
-        input.value = value == null ? '' : String(value);
-        input.dataset.stewardTrainingInput = name;
-        wrap.append(input, createText('span', '', unit));
-        row.appendChild(wrap);
-      }
-
-      const currentExerciseRows = () => [...(currentActual?.exercises || [])].map(item => ({ ...item }));
-      const replaceExercise = (nextItem) => {
-        const rows = currentExerciseRows().filter(item => item.exerciseId !== base.id);
-        rows.push({
-          exerciseId: base.id,
-          variantId: nextItem.id === base.id ? '' : nextItem.id,
-          label: nextItem.label,
-          status: 'MODIFIED',
-          loadValue: nextItem.load_value,
-          loadUnit: nextItem.load_unit,
-          repsValue: nextItem.reps_value,
-          repsUnit: nextItem.reps_unit,
-          rpe: nextItem.rpe
-        });
-        persist(rows);
-      };
-
-      replace.addEventListener('click', () => {
-        const currentIndex = Math.max(0, variants.findIndex(item => item.id === selected.id));
-        replaceExercise(variants[(currentIndex + 1) % variants.length]);
-      });
-
-      record.addEventListener('click', () => {
-        const values = Object.fromEntries([...row.querySelectorAll('[data-steward-training-input]')]
-          .map(input => [input.dataset.stewardTrainingInput, input.value === '' ? null : Number(input.value)]));
-        const rows = currentExerciseRows().filter(item => item.exerciseId !== base.id);
-        rows.push({
-          exerciseId: base.id,
-          variantId: selected.id === base.id ? '' : selected.id,
-          label: selected.label,
-          status: 'RECORDED',
-          loadValue: values.load,
-          loadUnit: selected.load_unit,
-          repsValue: values.reps,
-          repsUnit: selected.reps_unit,
-          rpe: values.rpe
-        });
-        persist(rows);
-      });
-
-      card.append(head, prescription, row);
-      list.appendChild(card);
-    });
-
-    queryAll('[data-steward-training-effect]').forEach(button => {
-      const value = button.dataset.stewardTrainingEffect;
-      button.classList.toggle('active', currentActual?.effect === value);
-      button.onclick = () => persist(
-        [...(currentActual?.exercises || [])],
-        value,
-        $('[data-steward-training-note]')?.value || currentActual?.note || ''
-      );
-    });
-    const note = $('[data-steward-training-note]');
-    if (note) {
-      note.value = currentActual?.note || '';
-      note.onchange = () => persist(
-        [...(currentActual?.exercises || [])],
-        currentActual?.effect || null,
-        note.value
-      );
-    }
+    $('[data-steward-meal-skip]').onclick=()=>save(()=>reality.skipStewardMeal(storage,{...common()}),'已记录这餐未吃。');
+    renderNumbers();
   }
-
-  function renderToday() {
-    const { chatPlanState, presentation, timerModel } = read();
-    renderPlanState(chatPlanState);
-    renderTasks(presentation);
-    renderSubjectTotals(timerModel);
-    renderCapacity(chatPlanState);
-    renderReality(timerModel);
-    renderNow(presentation, timerModel);
-    renderTimeline(presentation);
-    renderNutrition(presentation, chatPlanState);
-    renderTraining(presentation, chatPlanState);
-  }
-
-  function renderWeek() {
-    const grid = $('[data-steward-week-grid]');
-    const label = $('[data-steward-week-label]');
-    if (!grid || !label) return;
-    grid.innerHTML = '';
-
-    const monday = mondayOf(weekCursor);
-    const end = dateAdd(monday, 6);
-    label.textContent = `${monday.slice(5).replace('-', ' / ')} — ${end.slice(5).replace('-', ' / ')}`;
-
-    const corner = document.createElement('div');
-    corner.className = 'stewardWeekCorner';
-    grid.appendChild(corner);
-
-    const dayLabels = '一二三四五六日';
-    for (let index = 0; index < 7; index += 1) {
-      const day = dateAdd(monday, index);
-      const head = document.createElement('div');
-      head.className = `stewardWeekDayHead${day === today ? ' today' : ''}`;
-      const daily = aggregateStudyTime(storage, { day, now: Date.now(), timeZone: STUDY_TIMER_TIMEZONE });
-      const dailyMinutes = Math.round((daily.totalMs || 0) / 60000);
-      head.title = day;
-      head.append(
-        createText('b', '', `${dayLabels[index]} ${Number(day.slice(8))}`),
-        createText('span', '', dailyMinutes > 0 ? formatMinutes(dailyMinutes) : '')
-      );
-      grid.appendChild(head);
+  function renderTraining(data) {
+    const history=$('[data-steward-training-history]');history.replaceChildren();const actuals=reality.stewardTrainingActualsForDay(storage,today)||[];for(const e of actuals)appendText(history,'p','',describe(e));if(!actuals.length)appendText(history,'p','stewardEmpty','暂无训练实际记录。');
+    const p=data.presentation.training,readable=!reality.readStewardReality(storage).unavailable,available=readable&&!!p&&(!!p.exercises?.length||p.mode==='REST');$('[data-steward-training-unavailable] h2').textContent=readable?'今天还没有训练安排':'训练记录暂不可读取';$('[data-steward-training-unavailable]').hidden=available;$('[data-steward-training-workspace]').hidden=!available;if(!available)return;
+    const planAt=data.plan.generated_at;let stored=reality.readStewardTrainingDraft(storage,{studyDay:today,sessionId:p.session_id});let draft=stored?.planGeneratedAt===planAt?stored:null;
+    const actual=actuals.find(x=>x.sessionId===p.session_id&&x.planGeneratedAt===planAt)||null;
+    const common=()=>({studyDay:today,sessionId:p.session_id,label:p.title||'训练',observedAt:Date.now(),ownerRef:p.owner_ref,planGeneratedAt:planAt});
+    const persistDraft=(exercise,rebuild=false)=>{
+      const result=save(()=>reality.saveStewardTrainingDraft(storage,{...common(),exercises:[...(draft?.exercises||[]).filter(x=>x.exerciseId!==exercise.exerciseId),exercise],note:draft?.note||''},{expectedRevision:stored?.revision||0}),'',false);
+      if(result){stored=result;draft=result;if(rebuild)renderTraining(read());}return result;
+    };
+    $('[data-steward-training-title]').textContent=p.title||'今天训练';$('[data-steward-training-duration]').textContent=[{NORMAL:'常规',CONCISE:'精简',RECOVERY:'恢复',REST:'休息'}[p.mode],p.duration_label].filter(Boolean).join(' · ');
+    const active=reality.latestActiveStewardActivity(storage);$('[data-steward-training-start]').hidden=!!active||p.mode==='REST';$('[data-steward-training-end]').hidden=!active||active.sessionId!==p.session_id;
+    $('[data-steward-training-session-state]').textContent=active?`${active.status==='RUNNING'?'进行中':'已暂停'} · ${minutes(reality.stewardActivityElapsedMs(active))}`:'尚未开始计时';
+    $('[data-steward-training-start]').onclick=()=>save(()=>{const state=reality.readStewardReality(storage);if(state.unavailable)throw Error(state.unavailable);window.KianOSStudyTimer.pause();return reality.beginStewardActivity(storage,{activityKind:'TRAINING',label:p.title||'训练',sessionId:p.session_id});},'已开始训练计时；学习保持暂停。');
+    $('[data-steward-training-end]').onclick=()=>save(()=>reality.transitionStewardActivity(storage,'ENDED'),'训练计时已结束；不会自动恢复学习或标记动作完成。');
+    const list=$('[data-steward-exercise-list]');list.replaceChildren();
+    for(const [i,base] of (p.exercises||[]).entries()) {
+      const edited=draft?.exercises.find(x=>x.exerciseId===base.id),recorded=actual?.exercises.find(x=>x.exerciseId===base.id),variants=[base,...(base.alternatives||[])];const selected=variants.find(x=>x.id===(edited?.variantId||recorded?.variantId||base.id))||base;
+      const card=el('article','stewardExerciseCard');card.dataset.stewardExercise=base.id;
+      const head=el('header','stewardExerciseHead'),name=el('div','stewardExerciseIdentity');name.append(el('span','stewardExerciseRank',String(i+1)));const copy=el('div','');copy.append(el('strong','',selected.label),el('p','',selected.note||''));name.append(copy);head.append(name);
+      const rx=el('div','stewardExercisePrescription');appendText(rx,'strong','','计划 '+(selected.prescription||'按本次安排'));for(const text of [selected.sets_value!=null?`${selected.sets_value} 组`:'',selected.rpe!=null?`RPE ${selected.rpe}`:'',selected.time_label,selected.rest_note,selected.stop_note].filter(Boolean))appendText(rx,'span','',text);head.append(rx);card.append(head);
+      const actions=el('div','stewardExerciseActions');const replace=button('替换',()=>{const n=variants[(variants.indexOf(selected)+1)%variants.length];persistDraft({exerciseId:base.id,variantId:n.id===base.id?'':n.id,label:n.label,loadValue:null,setsValue:null,repsValue:null,rpe:null},true);});replace.dataset.action='replace';replace.hidden=variants.length<2;actions.append(replace);
+      const toggle=button(openExercises.has(base.id)?'收起记录':'记录实际',()=>{openExercises.has(base.id)?openExercises.delete(base.id):openExercises.add(base.id);renderTraining(read());});toggle.dataset.action='record';toggle.setAttribute('aria-expanded',String(openExercises.has(base.id)));actions.append(toggle);card.append(actions);
+      const editor=el('div','stewardExerciseActual');editor.hidden=!openExercises.has(base.id);const fields=el('div','stewardSetRow');
+      const definitions=[['load','loadValue',selected.load_unit||'重量'],['sets','setsValue','组数'],['reps','repsValue',selected.reps_unit||'次数'],['rpe','rpe','RPE']];
+      for(const [key,prop,label] of definitions){const wrap=el('label','',label),input=document.createElement('input');input.type='number';input.min='0';input.step=key==='rpe'?'0.5':'any';if(key==='rpe')input.max='10';input.placeholder='未记录';input.dataset.stewardTrainingInput=key;input.setAttribute('aria-label',selected.label+' 实际'+label);const value=edited?edited[prop]:recorded?.[prop];input.value=value==null?'':String(value);wrap.append(input);fields.append(wrap);}
+      const measurements=()=>Object.fromEntries(definitions.map(([key,prop])=>{const value=fields.querySelector(`[data-steward-training-input="${key}"]`).value;return [prop,value.trim()===''?null:Number(value)];}));
+      const rowValue=()=>({exerciseId:base.id,variantId:selected.id===base.id?'':selected.id,label:selected.label,...measurements(),loadUnit:selected.load_unit||'',repsUnit:selected.reps_unit||''});
+      fields.onchange=()=>persistDraft(rowValue());
+      const writeActual=status=>save(()=>reality.upsertStewardTrainingActual(storage,{...common(),exercises:[...(actual?.exercises||[]).filter(x=>x.exerciseId!==base.id),{...rowValue(),status}],effect:actual?.effect||null,note:actual?.note||''},{expectedRevision:actual?.revision||0}),'已保存实际记录。');
+      const saveButton=button('保存实际',()=>writeActual(recorded?.status||'RECORDED'));saveButton.dataset.action='save-actual';editor.append(fields,saveButton);card.append(editor);
+      const states=el('div','stewardExerciseStatuses');for(const [status,label] of [['COMPLETED','完成'],['MODIFIED','有修改'],['SKIPPED','跳过']]){const b=button(label,()=>writeActual(status),recorded?.status===status?'active':'');b.dataset.stewardTrainingStatus=status;states.append(b);}card.append(states);list.append(card);
     }
-
-    const axis = document.createElement('div');
-    axis.className = 'stewardWeekAxis';
-    for (let hour = 6; hour <= 22; hour += 2) {
-      const tick = createText('span', '', `${String(hour).padStart(2, '0')}:00`);
-      tick.style.top = `${percentForMinute(hour * 60)}%`;
-      axis.appendChild(tick);
-    }
-    grid.appendChild(axis);
-
-    const currentPlanState = readExamChatPlan(storage, today);
-    const presentation = planPresentation(currentPlanState);
-
-    for (let index = 0; index < 7; index += 1) {
-      const day = dateAdd(monday, index);
-      const column = document.createElement('div');
-      column.className = `stewardWeekDay${day === today ? ' today' : ''}`;
-      const dayPlanBlocks = day === today ? (presentation?.scheduleBlocks || []) : [];
-      const hasPlanDay = dayPlanBlocks.length > 0;
-
-      if (day === today) {
-        for (const block of presentation?.scheduleBlocks || []) {
-          const start = clockMinute(block.start);
-          const endMinute = block.end ? clockMinute(block.end) : Math.min(END_MINUTE, (start ?? START_MINUTE) + 45);
-          if (start == null || endMinute == null) continue;
-          const geometry = intervalGeometry(start, endMinute);
-          if (!geometry) continue;
-          const node = document.createElement('div');
-          node.className = `stewardWeekPlan${geometry.height < 4 ? ' short' : ''}`;
-          node.dataset.subject = subjectForSchedule(block);
-          node.style.top = `${geometry.top}%`;
-          node.style.height = `${geometry.height}%`;
-          node.append(
-            createText('b', '', block.label),
-            createText('small', '', `${block.start}${block.end ? `–${block.end}` : ''}`)
-          );
-          column.appendChild(node);
-        }
-      }
-
-      for (const session of sessionsForDay(storage, day)) {
-        const geometry = sessionClockGeometry(session);
-        if (!geometry) continue;
-        const node = document.createElement('div');
-        node.className = `stewardWeekActual ${hasPlanDay ? 'withPlan' : 'withoutPlan'}${geometry.height < 4 ? ' short' : ''}`;
-        node.dataset.subject = session.subject;
-        node.style.top = `${geometry.top}%`;
-        node.style.height = `${geometry.height}%`;
-        node.title = `${SUBJECT_LABEL[session.subject] || session.subject} · ${formatClock(session.startedAt)}–${formatClock(session.endedAt)}`;
-        node.append(
-          createText('b', '', SUBJECT_LABEL[session.subject] || session.subject),
-          createText('small', '', `${formatClock(session.startedAt)}–${formatClock(session.endedAt)}`)
-        );
-        column.appendChild(node);
-      }
-
-      if (day === today) {
-        const nowMinute = localClock(Date.now()).total;
-        if (nowMinute >= START_MINUTE && nowMinute <= END_MINUTE) {
-          const line = document.createElement('div');
-          line.className = 'stewardWeekNowLine';
-          line.style.top = `${percentForMinute(nowMinute)}%`;
-          column.appendChild(line);
-        }
-      }
-
-      grid.appendChild(column);
-    }
+    if(p.mode==='REST'&&!p.exercises.length)appendText(list,'p','stewardEmpty','今天已安排休息，没有待完成的训练动作。');
+    const summary=$('[data-steward-training-summary]');summary.replaceChildren();for(const base of p.exercises||[]){const a=actual?.exercises.find(x=>x.exerciseId===base.id),row=el('div','stewardHistoryEntry');appendText(row,'strong','',a?.label||base.label);appendText(row,'p','',a?[STATUS[a.status],a.loadValue!=null?`${a.loadValue} ${a.loadUnit}`:'',a.setsValue!=null?`${a.setsValue} 组`:'',a.repsValue!=null?`${a.repsValue} ${a.repsUnit}`:'',a.rpe!=null?`RPE ${a.rpe}`:''].filter(Boolean).join(' · '):'待记录');summary.append(row);}
+    const note=$('[data-steward-training-note]');note.value=draft?.note||actual?.note||'';
+    note.onchange=()=>{const r=save(()=>reality.saveStewardTrainingDraft(storage,{...common(),exercises:draft?.exercises||[],note:note.value},{expectedRevision:stored?.revision||0}),'',false);if(r){draft=r;stored=r;}};
+    for(const b of all('[data-steward-training-effect]')){b.classList.toggle('active',actual?.effect===b.dataset.stewardTrainingEffect);b.onclick=()=>save(()=>reality.upsertStewardTrainingActual(storage,{...common(),exercises:actual?.exercises||[],effect:b.dataset.stewardTrainingEffect,note:note.value},{expectedRevision:actual?.revision||0}),'已记录训练后感受。');}
   }
-
-  function renderMonthDetail(day) {
-    const node = $('[data-steward-month-detail]');
-    if (!node) return;
-    const total = aggregateStudyTime(storage, { day, now: Date.now(), timeZone: STUDY_TIMER_TIMEZONE });
-    const parts = ['xizong', 'english', 'politics']
-      .map((subject) => {
-        const minutes = Math.round((total.bySubject?.[subject]?.ms || 0) / 60000);
-        return minutes > 0 ? `${SUBJECT_LABEL[subject]} ${formatMinutes(minutes)}` : null;
-      })
-      .filter(Boolean);
-    const planState = day === today ? readExamChatPlan(storage, today) : null;
-    const blocks = planPresentation(planState)?.scheduleBlocks || [];
-
-    node.innerHTML = '';
-    node.appendChild(createText('strong', '', day));
-    const summary = [
-      parts.length ? parts.join(' · ') : '暂无学习记录',
-      blocks.length ? `${blocks.length} 项今日安排` : null
-    ].filter(Boolean).join('　');
-    node.appendChild(document.createTextNode(`　${summary}`));
-  }
-
-  function renderMonth() {
-    const grid = $('[data-steward-month-grid]');
-    const label = $('[data-steward-month-label]');
-    if (!grid || !label) return;
-    grid.innerHTML = '';
-
-    const [year, month] = monthCursor.split('-').map(Number);
-    label.textContent = `${year} 年 ${month} 月`;
-
-    for (const value of '一二三四五六日') {
-      grid.appendChild(createText('div', 'stewardMonthHead', value));
+  function renderWeek(data) {
+    const date=new Date(weekCursor+'T12:00:00Z'),monday=addDay(weekCursor,-((date.getUTCDay()+6)%7));$('[data-steward-week-label]').textContent=`${monday} — ${addDay(monday,6)}`;
+    const grid=$('[data-steward-week-grid]');grid.replaceChildren();grid.append(el('div','stewardWeekCorner','时间'));
+    for(let i=0;i<7;i++)grid.append(el('div','stewardWeekDayHead',`${'一二三四五六日'[i]} ${addDay(monday,i).slice(5)}`));
+    const axis=el('div','stewardWeekAxis');for(let h=0;h<24;h+=2){const t=el('time','',String(h).padStart(2,'0')+':00');t.style.top=(h/24*100)+'%';axis.append(t);}grid.append(axis);
+    for(let i=0;i<7;i++) {
+      const day=addDay(monday,i),col=el('div','stewardWeekDay'),start=Date.parse(day+'T00:00:00+08:00');
+      const rows=[];if(day===data.plan?.study_day)rows.push(...schedule(data).map(x=>({start:x.start,end:x.end??x.start+15*60000,label:x.label,type:'plan'})));
+      for(const r of recordRows(day)||[])rows.push({start:r.at,end:r.event?.endedAt??r.at+15*60000,label:r.text,type:'actual'});
+      for(const r of rows){const n=el('div','stewardWeekBlock '+r.type,r.label);n.title=(r.type==='plan'?'计划 ':'实际 ')+clock(r.start)+' '+r.label;n.style.top=Math.max(0,(r.start-start)/864000)+'%';n.style.height=Math.min(100,Math.max(2,(r.end-r.start)/864000))+'%';col.append(n);}grid.append(col);
     }
-
-    const offset = (new Date(Date.UTC(year, month - 1, 1)).getUTCDay() + 6) % 7;
-    const count = new Date(Date.UTC(year, month, 0)).getUTCDate();
-    const cellCount = Math.ceil((offset + count) / 7) * 7;
-
-    for (let index = 0; index < cellCount; index += 1) {
-      const number = index - offset + 1;
-      const cell = document.createElement('button');
-      cell.type = 'button';
-      cell.className = 'stewardMonthCell';
-
-      if (number < 1 || number > count) {
-        cell.classList.add('outside');
-        cell.disabled = true;
-        grid.appendChild(cell);
-        continue;
-      }
-
-      const day = `${monthCursor}-${String(number).padStart(2, '0')}`;
-      if (day === today) cell.classList.add('today');
-      cell.appendChild(createText('b', '', String(number)));
-
-      const aggregate = aggregateStudyTime(storage, { day, now: Date.now(), timeZone: STUDY_TIMER_TIMEZONE });
-      const activeSubjects = ['xizong', 'english', 'politics'].filter(
-        (subject) => (aggregate.bySubject?.[subject]?.ms || 0) > 0
-      );
-
-      const planState = day === today ? readExamChatPlan(storage, today) : null;
-      const blocks = planPresentation(planState)?.scheduleBlocks || [];
-      if (blocks.length) cell.appendChild(createText('small', '', `${blocks.length} 项安排`));
-
-      if (activeSubjects.length) {
-        const marks = document.createElement('span');
-        marks.className = 'stewardMonthMarks';
-        for (const subject of activeSubjects) {
-          const mark = document.createElement('i');
-          mark.className = subject;
-          marks.appendChild(mark);
-        }
-        cell.appendChild(marks);
-      }
-
-      if (day === today) cell.classList.add('selected');
-      cell.addEventListener('click', () => {
-        $('.stewardMonthCell.selected').forEach((item) => item.classList.remove('selected'));
-        cell.classList.add('selected');
-        renderMonthDetail(day);
-      });
-      grid.appendChild(cell);
-    }
-
-    renderMonthDetail(today.startsWith(monthCursor) ? today : `${monthCursor}-01`);
+    const ref=$('[data-steward-week-reference]');ref.replaceChildren();for(const r of data.presentation.week_reference||[])appendText(ref,'p','',`${r.label}${r.detail?' · '+r.detail:''}`);
   }
-
-  function activateView(view) {
-    const headerCopy = {
-      today: ['今天怎么过', '时间安排、实际执行、饮食、训练和恢复。'],
-      week: ['这一周', '把七天放在同一根时间轴上看。'],
-      month: ['这个月', '用月历看方向、安排和真实发生过的学习。']
-    }[view] || ['Steward', ''];
-    const title = $('[data-steward-header-title]');
-    const description = $('[data-steward-header-description]');
-    if (title) title.textContent = headerCopy[0];
-    if (description) description.textContent = headerCopy[1];
-
-    root.querySelectorAll('[data-steward-view]').forEach((button) => {
-      button.classList.toggle('active', button.dataset.stewardView === view);
-    });
-    queryAll('[data-steward-view-panel]').forEach((panel) => {
-      panel.classList.toggle('active', panel.dataset.stewardViewPanel === view);
-    });
-
-    if (view === 'today') {
-      activateMode('schedule');
-      renderToday();
-    } else if (view === 'week') {
-      renderWeek();
-    } else if (view === 'month') {
-      renderMonth();
-    }
+  function dayDetail(day,data) {
+    const rows=recordRows(day)||[],planned=day===data.plan?.study_day?schedule(data):[];const node=$('[data-steward-month-detail]');node.replaceChildren();appendText(node,'h3','',day);
+    for(const b of planned)appendText(node,'p','',`计划 ${clock(b.start)} · ${b.label}`);for(const r of rows)appendText(node,'p','',`实际 ${clock(r.at)} · ${r.text}`);if(!rows.length&&!planned.length)appendText(node,'p','stewardEmpty','这一天没有可读取的安排或实际记录。');
   }
-
-  function activateMode(mode) {
-    queryAll('[data-steward-mode]').forEach((button) => {
-      button.classList.toggle('active', button.dataset.stewardMode === mode);
-    });
-    queryAll('[data-steward-mode-panel]').forEach((panel) => {
-      panel.classList.toggle('active', panel.dataset.stewardModePanel === mode);
-    });
+  function renderMonth(data) {
+    const [y,m]=monthCursor.split('-').map(Number),first=new Date(Date.UTC(y,m-1,1)),days=new Date(Date.UTC(y,m,0)).getUTCDate(),offset=(first.getUTCDay()+6)%7;
+    $('[data-steward-month-label]').textContent=`${y} 年 ${m} 月`;const grid=$('[data-steward-month-grid]');grid.replaceChildren();for(const d of '一二三四五六日')grid.append(el('div','stewardMonthHead',d));
+    for(let i=0;i<Math.ceil((offset+days)/7)*7;i++){const n=i-offset+1;if(n<1||n>days){grid.append(el('div','stewardMonthCell empty'));continue;}const day=monthCursor+'-'+String(n).padStart(2,'0'),b=button('',()=>dayDetail(day,read()),'stewardMonthCell'+(day===today?' today':''));b.append(el('strong','',String(n)));const count=(recordRows(day)||[]).length;appendText(b,'span','',count?`${count} 条实际记录`:day===data.plan?.study_day?'已有安排':'');grid.append(b);}
   }
-
-
-  queryAll('[data-steward-view]').forEach((button) => {
-    button.addEventListener('click', () => activateView(button.dataset.stewardView));
-  });
-  queryAll('[data-steward-mode]').forEach((button) => {
-    button.addEventListener('click', () => activateMode(button.dataset.stewardMode));
-  });
-
-  $('[data-steward-week-prev]')?.addEventListener('click', () => {
-    weekCursor = dateAdd(weekCursor, -7);
-    renderWeek();
-  });
-  $('[data-steward-week-next]')?.addEventListener('click', () => {
-    weekCursor = dateAdd(weekCursor, 7);
-    renderWeek();
-  });
-  $('[data-steward-week-now]')?.addEventListener('click', () => {
-    weekCursor = today;
-    renderWeek();
-  });
-
-  $('[data-steward-month-prev]')?.addEventListener('click', () => {
-    monthCursor = monthMove(monthCursor, -1);
-    renderMonth();
-  });
-  $('[data-steward-month-next]')?.addEventListener('click', () => {
-    monthCursor = monthMove(monthCursor, 1);
-    renderMonth();
-  });
-  $('[data-steward-month-now]')?.addEventListener('click', () => {
-    monthCursor = today.slice(0, 7);
-    renderMonth();
-  });
-
-  const refresh = () => {
-    if ($('[data-steward-view].active')?.dataset.stewardView === 'today') renderToday();
-    else if ($('[data-steward-view].active')?.dataset.stewardView === 'week') renderWeek();
-    else renderMonth();
-  };
-
-  window.addEventListener('kianos:study-timer-change', refresh);
-  window.addEventListener('kianos:steward-reality-change', refresh);
-  window.addEventListener('kianos:control-command-applied', refresh);
-  window.addEventListener('kianos:private-control-consumed', refresh);
-  window.addEventListener('storage', (event) => {
-    if (event.key == null || String(event.key).startsWith('kianos')) refresh();
-  });
-  window.addEventListener('focus', refresh);
-
-  const interval = window.setInterval(() => {
-    if (document.visibilityState === 'visible') refresh();
-  }, 30_000);
-
-  window.addEventListener('pagehide', () => window.clearInterval(interval), { once: true });
-
+  function render(editors=false) {
+    const data=read();if(view==='week'){renderWeek(data);return;}if(view==='month'){renderMonth(data);return;}
+    renderAgenda(data);renderCapacity(data);renderRecords();if(editors){renderNutrition(data);renderTraining(data);}
+  }
+  function activateMode(next) {mode=next;all('[data-steward-mode]').forEach(b=>b.classList.toggle('active',b.dataset.stewardMode===next));all('[data-steward-mode-panel]').forEach(n=>n.classList.toggle('active',n.dataset.stewardModePanel===next));render(true);scrollTop();}
+  function activateView(next) {view=next;all('[data-steward-view]').forEach(b=>b.classList.toggle('active',b.dataset.stewardView===next));all('[data-steward-view-panel]').forEach(n=>n.classList.toggle('active',n.dataset.stewardViewPanel===next));render(true);scrollTop();}
+  for(const b of all('[data-steward-mode]'))b.onclick=()=>activateMode(b.dataset.stewardMode);
+  for(const b of all('[data-steward-view]'))b.onclick=()=>activateView(b.dataset.stewardView);
+  for(const b of all('[data-steward-back-today]'))b.onclick=()=>activateMode('schedule');
+  for(const b of all('[data-steward-record]'))b.onclick=()=>dock('record');
+  $('[data-steward-time-review]').onclick=()=>dock('details');
+  for(const b of all('[data-steward-adjust],[data-steward-review]'))b.onclick=()=>{$('[data-steward-chat-title]').textContent=b.hasAttribute('data-steward-review')?'复盘今天':'调整今天';$('[data-steward-chat-dialog]').showModal();};
+  $('[data-steward-week-prev]').onclick=()=>{weekCursor=addDay(weekCursor,-7);render();};$('[data-steward-week-next]').onclick=()=>{weekCursor=addDay(weekCursor,7);render();};$('[data-steward-week-now]').onclick=()=>{weekCursor=today;render();};
+  const moveMonth=n=>{const d=new Date(monthCursor+'-01T12:00:00Z');d.setUTCMonth(d.getUTCMonth()+n);monthCursor=d.toISOString().slice(0,7);render();};$('[data-steward-month-prev]').onclick=()=>moveMonth(-1);$('[data-steward-month-next]').onclick=()=>moveMonth(1);$('[data-steward-month-now]').onclick=()=>{monthCursor=today.slice(0,7);render();};
+  $('[data-steward-weight-form]').onsubmit=e=>{e.preventDefault();if(save(()=>reality.recordStewardQuickReality(storage,{type:'WEIGHT',value:Number($('[data-steward-weight]').value),unit:'kg',note:$('[data-steward-weight-note]').value}),'已保存测量记录。'))$('[data-steward-weight-form]').reset();};
+  $('[data-steward-edit-cancel]').onclick=()=>$('[data-steward-edit-dialog]').close();
+  $('[data-steward-edit-form]').onsubmit=e=>{e.preventDefault();if(!editingQuick)return;const patch={note:$('[data-steward-edit-note]').value};if(!$('[data-steward-edit-value]').disabled)patch.value=$('[data-steward-edit-value]').value===''?null:Number($('[data-steward-edit-value]').value);if(save(()=>reality.correctStewardQuickReality(storage,editingQuick.id,patch,{expectedRevision:editingQuick.revision}),'已保存修正。'))$('[data-steward-edit-dialog]').close();};
+  const refresh=()=>{if(suppress||frame)return;frame=requestAnimationFrame(()=>{frame=null;try{render(!root.querySelector('input:focus,select:focus,textarea:focus'));}catch{feedback('部分记录暂不可读取，当前输入与原数据均保留。',true);}});};
+  for(const name of ['kianos:study-timer-change','kianos:steward-reality-change','kianos:control-command-applied','storage','focus'])window.addEventListener(name,refresh);
+  const tick=setInterval(()=>{if(document.visibilityState==='visible'&&!root.querySelector('input:focus,select:focus,textarea:focus'))render(false);},30000);
+  window.addEventListener('pagehide',()=>clearInterval(tick),{once:true});
   activateView('today');
 }

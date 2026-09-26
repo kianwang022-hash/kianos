@@ -77,7 +77,7 @@ The Website may:
 - display the already-decided allocation/next action;
 - execute subject Session Instructions;
 - capture learner evidence and return it to Chat;
-- fail closed when a Chat plan is missing/stale/invalid.
+- fail closed for executable strategy when a Chat plan is missing/stale/invalid. A previously adopted, schema-valid same-day plan may remain a labelled inspection/capture reference after ordinary execution changes its evidence basis; this never readmits the command, changes its basis, or preserves a fresh capacity judgment. Home/Steward/Dock read that same stored reference, not independent replacement plans.
 
 The Website must not:
 

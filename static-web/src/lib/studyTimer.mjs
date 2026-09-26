@@ -294,7 +294,9 @@ function allSessions(storage, now) {
       startedAt: state.segmentStartedAt, endedAt: now, source: 'active', excluded: false, edited: false
     });
   }
-  return sessions.filter((session) => !session.excluded && session.endedAt > session.startedAt);
+  return sessions.filter((session) => !session.excluded && session.startedAt < now)
+    .map((session) => ({ ...session, endedAt: Math.min(session.endedAt, now) }))
+    .filter((session) => session.endedAt > session.startedAt);
 }
 
 export function aggregateStudyTime(storage, { day = studyDayAt(Date.now()), now = Date.now(), timeZone = STUDY_TIMER_TIMEZONE } = {}) {

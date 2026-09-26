@@ -12,13 +12,25 @@ const base = import.meta.env.BASE_URL;
       <span class="studyTimerElapsed" data-study-timer-elapsed>00:00:00</span>
     </div>
     <button type="button" class="studyTimerPauseButton" data-study-timer-pause>暂停</button>
+    <button type="button" data-study-timer-record>记录</button>
     <a class="studyTimerTodayButton" data-study-timer-today href={`${base}steward/`}>今日</a>
     <button type="button" class="studyTimerExpandButton" data-study-timer-expand aria-expanded="false" aria-label="展开今日计时">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
     </button>
   </div>
 
+  <p class="studyTimerNext" data-study-timer-next hidden></p>
   <div class="studyTimerExpanded" data-study-timer-expanded hidden>
+    <nav class="studyTimerPanelTabs" aria-label="快捷面板"><button type="button" data-study-timer-panel="details">计时</button><button type="button" data-study-timer-panel="record">随手记</button><button type="button" data-study-timer-panel="rest">休息</button></nav>
+    <section class="studyTimerQuickRecord" data-study-timer-record-panel hidden aria-label="随手记">
+      <div class="studyTimerFlowHead"><strong>随手记</strong><button type="button" data-study-timer-record-close>收起</button></div>
+      <div class="studyTimerQuickGroup"><span>状态</span><div class="studyTimerChoiceRow"><button type="button" data-reality-kind="ENERGY" data-reality-value="很好">很好</button><button type="button" data-reality-kind="ENERGY" data-reality-value="正常">正常</button><button type="button" data-reality-kind="ENERGY" data-reality-value="累">累</button><button type="button" data-reality-kind="ENERGY" data-reality-value="困">困</button></div></div>
+      <div class="studyTimerQuickGroup"><span>专注</span><div class="studyTimerChoiceRow"><button type="button" data-reality-kind="FOCUS" data-reality-value="高">高</button><button type="button" data-reality-kind="FOCUS" data-reality-value="中">中</button><button type="button" data-reality-kind="FOCUS" data-reality-value="低">低</button></div></div>
+      <div class="studyTimerQuickGroup"><span>饮水</span><div class="studyTimerChoiceRow"><button type="button" data-reality-kind="WATER" data-reality-value="250">+250 ml</button><button type="button" data-reality-kind="WATER" data-reality-value="500">+500 ml</button></div></div>
+      <div class="studyTimerQuickGroup"><span>咖啡</span><div class="studyTimerChoiceRow"><button type="button" data-reality-kind="COFFEE" data-reality-value="0.5">+半杯</button><button type="button" data-reality-kind="COFFEE" data-reality-value="1">+1 杯</button></div></div>
+      <label class="studyTimerNoteLabel">其他<input type="text" maxlength="500" data-study-timer-record-note placeholder="一句话备注（可选）" /></label>
+      <div class="studyTimerFlowActions"><span role="status" data-study-timer-record-status></span><button type="button" data-study-timer-record-save>保存备注</button></div>
+    </section>
     <div class="studyTimerExpandedHead">
       <div>
         <span>Today</span>
@@ -29,7 +41,7 @@ const base = import.meta.env.BASE_URL;
 
     <section class="studyTimerRestFlow" data-study-timer-rest hidden aria-label="休息记录">
       <div class="studyTimerFlowHead">
-        <div><span>Pause</span><strong>先休息，再决定什么时候回来</strong></div>
+        <div><span>Pause</span><strong>休息</strong></div>
         <button type="button" data-study-timer-rest-dismiss aria-label="收起休息记录">收起</button>
       </div>
       <p data-study-timer-rest-status>计时已暂停。下面都可跳过，不会自动恢复学习。</p>
@@ -59,7 +71,7 @@ const base = import.meta.env.BASE_URL;
         <div><span>Re-entry</span><strong>回来后实际怎么样？</strong></div>
         <button type="button" data-study-timer-reentry-dismiss aria-label="跳过回来后记录">跳过</button>
       </div>
-      <p>这是可选的现实反馈，不是 readiness 分数，也不会自动改计划。</p>
+      <p>可选反馈，不影响继续学习。</p>
       <div class="studyTimerChoiceRow" aria-label="回来后的实际状态">
         <button type="button" data-study-timer-reentry-status="RESTORED">恢复明显</button>
         <button type="button" data-study-timer-reentry-status="PARTIAL">部分恢复</button>

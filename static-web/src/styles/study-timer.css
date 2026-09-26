@@ -4,7 +4,7 @@
   z-index: 160;
   right: 24px;
   bottom: 22px;
-  width: 356px;
+  width: 460px;
   max-width: calc(100vw - 28px);
   border: 1px solid rgba(48, 63, 56, .14);
   border-radius: 14px;
@@ -16,12 +16,12 @@
   user-select: none;
   pointer-events: none;
 }
-.studyTimerDock[data-expanded="true"] { width: 390px; pointer-events: auto; }
+.studyTimerDock[data-expanded="true"] { width: 460px; pointer-events: auto; }
 .studyTimerDock[data-dragging="true"] { cursor: grabbing; box-shadow: 0 22px 56px rgba(31, 47, 40, .19), 0 4px 12px rgba(31, 47, 40, .1); }
 
 .studyTimerCompact {
   display: grid;
-  grid-template-columns: 18px minmax(0, 1fr) auto auto auto;
+  grid-template-columns: 18px minmax(0, 1fr) auto auto auto auto;
   align-items: center;
   gap: 5px;
   min-height: 50px;
@@ -49,7 +49,7 @@
 .studyTimerDock[data-dragging="true"] .studyTimerDragGrip { cursor: grabbing; }
 .studyTimerStatus {
   display: grid;
-  grid-template-columns: 9px auto minmax(68px, 1fr);
+  grid-template-columns: 9px minmax(0,1fr) auto;
   align-items: center;
   min-width: 0;
   gap: 7px;
@@ -61,7 +61,7 @@
   text-overflow: ellipsis;
   font-size: 15px;
   font-weight: 760;
-  letter-spacing: -.01em;
+  letter-spacing: normal;
   white-space: nowrap;
 }
 .studyTimerDot {
@@ -88,6 +88,7 @@
   white-space: nowrap;
 }
 .studyTimerPauseButton,
+[data-study-timer-record],
 .studyTimerTodayButton,
 .studyTimerExpandButton,
 .studyTimerResetButton,
@@ -97,6 +98,7 @@
   pointer-events: auto;
 }
 .studyTimerPauseButton,
+[data-study-timer-record],
 .studyTimerTodayButton {
   min-height: 36px;
   padding: 0 9px;
@@ -141,6 +143,7 @@
 
 .studyTimerExpanded {
   padding: 0 14px 14px;
+  max-height: calc(100dvh - 110px); overflow-y:auto;
   border-top: 1px solid rgba(49, 65, 58, .1);
 }
 .studyTimerExpandedHead {
@@ -269,14 +272,14 @@
   gap: 12px;
 }
 .studyTimerFlowHead > div { display: grid; gap: 2px; }
-.studyTimerFlowHead span { color: #7a8580; font-size: 13px; font-weight: 780; letter-spacing: .07em; text-transform: uppercase; }
+.studyTimerFlowHead span { color: #7a8580; font-size: 15px; font-weight: 780; letter-spacing: .07em; text-transform: uppercase; }
 .studyTimerFlowHead strong { font-size: 15px; line-height: 1.35; }
 .studyTimerFlowHead > button,
 .studyTimerFlowActions button,
 .studyTimerChoiceRow button { border: 0; font: inherit; cursor: pointer; }
-.studyTimerFlowHead > button { padding: 2px 4px; background: transparent; color: #77817c; font-size: 13px; }
+.studyTimerFlowHead > button { padding: 2px 4px; background: transparent; color: #77817c; font-size: 15px; }
 .studyTimerRestFlow > p,
-.studyTimerReentry > p { margin: 0; color: #647069; font-size: 14px; line-height: 1.45; }
+.studyTimerReentry > p { margin: 0; color: #647069; font-size: 15px; line-height: 1.45; }
 .studyTimerChoiceRow { display: flex; flex-wrap: wrap; gap: 5px; }
 .studyTimerChoiceRow button {
   min-height: 31px;
@@ -284,7 +287,7 @@
   border-radius: 8px;
   background: #eef2f0;
   color: #52605a;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 680;
 }
 .studyTimerChoiceRow button[aria-pressed="true"] {
@@ -303,7 +306,7 @@
   background: #fff;
   color: #2f3b36;
   font: inherit;
-  font-size: 14px;
+  font-size: 15px;
 }
 .studyTimerFlowActions {
   display: flex;
@@ -312,25 +315,42 @@
   justify-content: space-between;
   gap: 10px;
 }
-.studyTimerFlowActions span { color: #5f6c66; font-size: 13px; }
+.studyTimerFlowActions span { color: #5f6c66; font-size: 15px; }
 .studyTimerFlowActions button {
   min-height: 32px;
   padding: 0 10px;
   border-radius: 8px;
   background: #2f6f59;
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 720;
 }
+
+
+/* Mutually exclusive short panels, within the existing shared Dock. */
+.studyTimerDock[hidden], .studyTimerDock [hidden] { display:none !important; }
+.studyTimerNext { grid-column:2/4; margin:0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; font-size:15px; line-height:1.35; color:#62746b; }
+.studyTimerPanelTabs { display:flex; gap:6px; padding:10px 0; }
+.studyTimerPanelTabs button { border:0; background:#edf4f0; padding:5px 8px; border-radius:7px; font:inherit; font-size:15px; cursor:pointer; }
+.studyTimerQuickRecord { display:grid; gap:10px; }
+.studyTimerQuickGroup { display:grid; grid-template-columns:40px minmax(0,1fr); align-items:center; gap:8px; }
+.studyTimerQuickGroup>span, .studyTimerNoteLabel { font-size:15px; color:#52665b; }
+.studyTimerNoteLabel { display:grid; grid-template-columns:40px minmax(0,1fr); gap:8px; align-items:center; }
+.studyTimerQuickRecord input { width:100%; min-width:0; box-sizing:border-box; padding:7px; border:1px solid #dce4df; border-radius:8px; font:inherit; font-size:15px; }
+.studyTimerDock:not([data-panel="details"]) :is(.studyTimerExpandedHead,.studyTimerTodayRows,.studyTimerPending,.studyTimerActions),
+.studyTimerDock:not([data-panel="rest"]) [data-study-timer-rest],
+.studyTimerDock:not([data-panel="reentry"]) [data-study-timer-reentry],
+.studyTimerDock:not([data-panel="record"]) [data-study-timer-record-panel] { display:none; }
+.studyTimerDock :is(button,input,a):focus-visible { outline:2px solid #176b50; outline-offset:2px; }
 
 @media (max-width: 620px) {
   .studyTimerDock { right: 10px; bottom: 10px; width: min(350px, calc(100vw - 20px)); }
   .studyTimerDock[data-expanded="true"] { width: min(390px, calc(100vw - 20px)); }
-  .studyTimerCompact { grid-template-columns: 16px minmax(0, 1fr) auto auto 32px; gap: 4px; padding-inline: 5px; }
+  .studyTimerCompact { grid-template-columns: 16px minmax(0, 1fr) auto auto auto 28px; gap: 4px; padding-inline: 5px; }
   .studyTimerDragGrip { width: 16px; }
-  .studyTimerStatus { grid-template-columns: 8px auto minmax(64px, 1fr); gap: 6px; }
+  .studyTimerStatus { grid-template-columns: 8px minmax(0,1fr); gap: 6px; }
   .studyTimerStatus strong { min-width: 38px; font-size: 15px; }
-  .studyTimerElapsed { font-size: 15px; }
+  .studyTimerElapsed { font-size: 15px; grid-column:2; justify-self:start; }
   .studyTimerPauseButton { padding-inline: 8px; font-size: 15px; }
   .studyTimerExpandButton { width: 32px; }
   .studyTimerActions { grid-template-columns: 1fr; }

@@ -1,472 +1,221 @@
+import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
-import { spawn } from 'node:child_process';
-import { chromium } from 'playwright';
+import {spawn} from 'node:child_process';
+import {chromium} from 'playwright';
+import {seedStewardFixture} from './steward-final-fixture.mjs';
+import './test-steward-final-state.mjs';
+import {listWritingSyntheticTasks} from '../src/lib/englishWritingSynthetic.mjs';
 
-const PORT = 4342;
-const BASE = `http://127.0.0.1:${PORT}`;
-const auditDir = path.resolve(process.cwd(), '../steward-ui-audit');
-fs.mkdirSync(auditDir, { recursive: true });
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-const check = (condition, code, detail = '') => {
-  if (!condition) throw new Error(`STEWARD_UI_FAIL:${code}${detail ? ':' + detail : ''}`);
+const PORT=Number(process.env.STEWARD_QA_PORT||4396),BASE=`http://127.0.0.1:${PORT}`;
+const OUT=path.resolve(process.env.STEWARD_QA_OUT || '../steward-ui-audit'),scratch=fs.mkdtempSync(path.join(os.tmpdir(),'steward-final-qa-'));
+fs.mkdirSync(OUT,{recursive:true});
+for(const name of fs.readdirSync(OUT)){if(name.endsWith('.png')||['report.json','server.log'].includes(name))fs.rmSync(path.join(OUT,name),{force:true});}
+const checks=[],errors=[],shots=[];
+const check=(ok,name,detail='')=>{checks.push({name,pass:!!ok,detail});assert.ok(ok,`${name}: ${detail}`);console.log('PASS',name);};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const isolatedEnv={...process.env,KIANOS_PRIVATE_DIR:path.join(scratch,'learner'),KIANOS_CONTROL_DIR:path.join(scratch,'control'),KIANOS_CONTROL_REPO_DIR:path.join(scratch,'control-repo'),KIANOS_PACKET_REPO_DIR:path.join(scratch,'packet-repo'),KIANOS_EXTERNAL_READING_DIR:path.join(scratch,'external'),KIANOS_ENGLISH_GENERATED_DIR:path.join(scratch,'generated'),KIANOS_CONTROL_ENABLED:'0',KIANOS_PACKET_RELAY_ENABLED:'0'};
+const server=spawn('npm',['run','dev','--','--host','127.0.0.1','--port',String(PORT)],{cwd:process.cwd(),env:isolatedEnv,detached:true,stdio:['ignore','pipe','pipe']});
+let log='',browser,page,failure=null;
+server.stdout.on('data',x=>log+=x);server.stderr.on('data',x=>log+=x);
+const DAY='2026-09-26',at=clock=>new Date(`${DAY}T${clock}:00+08:00`);
+const shot=async name=>{await page.screenshot({path:path.join(OUT,name+'.png'),fullPage:false});shots.push(name+'.png');};
+const events=()=>page.evaluate(async()=>{const m=await import('/src/lib/stewardReality.mjs');return m.readStewardReality(localStorage);});
+const settle=()=>page.waitForTimeout(160);
+const activity=async(subject,elapsed=0)=>{
+ await page.evaluate(({subject,elapsed})=>{const now=Date.now();localStorage.setItem('kianos-study-timer-state-v2',JSON.stringify({schema:'kianos.study-timer.v2',running:!!subject,manualPaused:false,subject,context:subject?{subject,route:'/english/',detailKey:'qa-current',detailLabel:subject==='english'?'Reading A':'循环系统'}:null,segmentStartedAt:subject?now-elapsed*60000:null,lastSeenAt:now,updatedAt:now,revision:1}));window.dispatchEvent(new Event('kianos:study-timer-change'));},{subject,elapsed});await settle();
 };
-
-async function waitForServer() {
-  for (let i = 0; i < 100; i += 1) {
-    try {
-      const response = await fetch(`${BASE}/steward/`);
-      if (response.ok) return;
-    } catch {}
-    await sleep(200);
-  }
-  throw new Error('STEWARD_UI_DEV_SERVER_NOT_READY');
-}
-
-async function stopServer(server) {
-  if (!server) return;
-  if (server.exitCode === null) {
-    if (process.platform !== 'win32' && server.pid) {
-      try { process.kill(-server.pid, 'SIGTERM'); } catch {}
-    } else {
-      try { server.kill('SIGTERM'); } catch {}
-    }
-    await Promise.race([new Promise((resolve) => server.once('exit', resolve)), sleep(1000)]);
-  }
-  if (server.exitCode === null) {
-    if (process.platform !== 'win32' && server.pid) {
-      try { process.kill(-server.pid, 'SIGKILL'); } catch {}
-    } else {
-      try { server.kill('SIGKILL'); } catch {}
-    }
-  }
-}
-
-const server = spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
-  cwd: process.cwd(),
-  stdio: ['ignore', 'pipe', 'pipe'],
-  detached: process.platform !== 'win32'
-});
-let serverLog = '';
-server.stdout.on('data', (chunk) => { serverLog += chunk.toString(); });
-server.stderr.on('data', (chunk) => { serverLog += chunk.toString(); });
-
+const switchMode=async mode=>{await page.locator(`[data-steward-mode="${mode}"]`).click();await settle();};
 try {
-  await waitForServer();
-  const browser = await chromium.launch({ headless: true });
-  try {
-    const context = await browser.newContext({ viewport: { width: 1512, height: 820 } });
-    await context.addInitScript(() => {
-      const now = Date.now();
-      const parts = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'Asia/Shanghai',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit'
-      }).formatToParts(new Date(now));
-      const year = parts.find((part) => part.type === 'year')?.value;
-      const month = parts.find((part) => part.type === 'month')?.value;
-      const day = parts.find((part) => part.type === 'day')?.value;
-      const studyDay = `${year}-${month}-${day}`;
-      const atShanghai = (hour, minute) => Date.parse(
-        `${studyDay}T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:00+08:00`
-      );
-      const todayXizongStart = atShanghai(9, 0);
-      const todayXizongEnd = atShanghai(10, 0);
-      const todayEnglishStart = atShanghai(10, 15);
-      const todayEnglishEnd = atShanghai(10, 45);
-      const state = {
-        schema: 'kianos.study-timer.v2',
-        running: false,
-        manualPaused: false,
-        subject: 'xizong',
-        context: { subject: 'xizong', route: 'test', detailKey: 'test', detailLabel: '呼吸系统' },
-        segmentStartedAt: null,
-        lastSeenAt: now,
-        revision: 1,
-        updatedAt: now
-      };
-      const ledger = {
-        schema: 'kianos.study-timer.v2',
-        sessions: [
-          {
-            id: 'steward-test-prev-xz',
-            subject: 'xizong',
-            context: { subject: 'xizong', route: 'test', detailKey: 'cardio', detailLabel: '循环系统' },
-            startedAt: todayXizongStart - 24 * 60 * 60 * 1000,
-            endedAt: todayXizongEnd - 24 * 60 * 60 * 1000,
-            source: 'timer',
-            excluded: false,
-            edited: false
-          },
-          {
-            id: 'steward-test-prev2-pol',
-            subject: 'politics',
-            context: { subject: 'politics', route: 'test', detailKey: 'mainline', detailLabel: '一轮主线' },
-            startedAt: todayEnglishStart - 48 * 60 * 60 * 1000,
-            endedAt: todayEnglishEnd - 48 * 60 * 60 * 1000,
-            source: 'timer',
-            excluded: false,
-            edited: false
-          },
-          {
-            id: 'steward-test-xz',
-            subject: 'xizong',
-            context: { subject: 'xizong', route: 'test', detailKey: 'respiratory', detailLabel: '呼吸系统' },
-            startedAt: todayXizongStart,
-            endedAt: todayXizongEnd,
-            source: 'timer',
-            excluded: false,
-            edited: false
-          },
-          {
-            id: 'steward-test-en',
-            subject: 'english',
-            context: { subject: 'english', route: 'test', detailKey: 'reading', detailLabel: 'Reading A' },
-            startedAt: todayEnglishStart,
-            endedAt: todayEnglishEnd,
-            source: 'timer',
-            excluded: false,
-            edited: false
-          }
-        ]
-      };
-      localStorage.setItem('kianos-study-timer-state-v2', JSON.stringify(state));
-      localStorage.setItem('kianos-study-timer-ledger-v2', JSON.stringify(ledger));
-      localStorage.setItem('kianos-steward-reality-v1', JSON.stringify({
-        schema: 'kianos.steward-reality.v1',
-        revision: 1,
-        events: [{
-          id: 'steward-test-break',
-          kind: 'BREAK',
-          startedAt: atShanghai(11, 0),
-          endedAt: atShanghai(11, 10),
-          plannedRestMinutes: 10,
-          methods: ['walk', 'water'],
-          customMethod: '',
-          note: '午前短休息',
-          preBreakContext: { subject: 'xizong', route: 'test', detailKey: 'respiratory', detailLabel: '呼吸系统' },
-          reentry: { status: 'PARTIAL', note: '清醒一些', at: atShanghai(11, 11) }
-        }]
-      }));
-    });
+ for(let i=0;i<100;i++){try{if((await fetch(BASE+'/steward/')).ok)break;}catch{}if(i===99)throw Error('QA_SERVER_NOT_READY');await sleep(200);}
+ browser=await chromium.launch({headless:true});
+ const context=await browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai',locale:'zh-CN'});
+ await context.addInitScript(()=>document.addEventListener('DOMContentLoaded',()=>{const s=document.createElement('style');s.textContent='astro-dev-toolbar{display:none!important}';document.head.append(s);}));
+ page=await context.newPage();page.setDefaultTimeout(8000);page.setDefaultNavigationTimeout(30000); // Bound Astro's first cold module-graph compilation separately from UI assertions.page.on('pageerror',e=>errors.push(String(e.stack||e)));
+ await page.clock.setFixedTime(at('14:52'));
+ await page.goto(BASE+'/steward/',{waitUntil:'domcontentloaded'});
+ await page.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active'&&!!window.KianOSStudyTimer);
+ await activity('english',37);await page.evaluate(seedStewardFixture,{studyDay:DAY});await settle();
+ check(errors.length===0,'actual_page_no_initial_errors',errors.join('\n'));
+ check(await page.locator('[data-kianos-global-rail]').isVisible(),'shared_l1_retained');
+ check(await page.locator('[data-kianos-global-rail]').evaluate(node=>getComputedStyle(node).backgroundColor)==='rgb(17, 29, 25)','steward_uses_shared_l1_color');
+ check(await page.locator('[data-steward-capacity-section]').isHidden(),'normal_strategy_hidden');
+ check(await page.locator('.stewardAgendaRow').count()===9,'all_future_events_retained');
+ const shortAgenda=page.locator('.stewardAgendaRow[data-duration-minutes="15"]').first(),longAgenda=page.locator('.stewardAgendaRow[data-duration-minutes="80"]').first();
+ const shortBox=await shortAgenda.boundingBox(),longBox=await longAgenda.boundingBox();
+ check(shortBox&&longBox&&longBox.height>=shortBox.height+20,'agenda_duration_is_visually_legible',JSON.stringify({short:shortBox?.height,long:longBox?.height}));
+ check(await page.locator('.stewardTimeline').evaluate(node=>getComputedStyle(node,'::before').width)==='2px','timeline_axis_is_visible');
+ check((await page.locator('.stewardCurrentCard').innerText()).includes('Reading A')&&(await page.locator('.stewardCurrentCard').innerText()).includes('西综下午主块'),'plan_actual_mismatch_preserved');
+ await page.locator('[data-steward-past-fold] summary').click();
+ check(await page.locator('.stewardPastRow').count()===10,'past_expands_complete_history');
+ await page.locator('[data-steward-past-fold] summary').click();
+ await page.mouse.move(800,500);await page.mouse.wheel(0,600);await settle();check(await page.evaluate(()=>scrollY>0||document.querySelector('.productCanvas').scrollTop>0),'whole_day_scrolls');await page.evaluate(()=>{scrollTo(0,0);document.querySelector('.productCanvas').scrollTo(0,0);});await shot('Today');
+ await activity(null);check((await page.locator('[data-steward-now-subject]').innerText()).includes('没有可确认'),'no_actual_not_invented');await shot('No-actual');
+ await activity('english',37);
+ await page.clock.setFixedTime(at('14:53'));await page.evaluate(seedStewardFixture,{studyDay:DAY,capacity:'REDUCED'});await settle();
+ check(await page.locator('[data-steward-capacity-section]').isVisible(),'interpreted_reduced_capacity_visible');await shot('Capacity-drop');
+ const originalPlan=await page.evaluate(()=>localStorage.getItem('kianos-exam-chat-plan-v1'));
+ await page.locator('[data-study-timer-pause]').click();
+ check(await page.evaluate(()=>window.KianOSStudyTimer.read().active.running===false),'pause_immediate');
+ await page.locator('[data-study-timer-rest]').waitFor({state:'visible'});
+ await page.locator('[data-study-timer-rest-minutes="10"]').click();
+ await page.locator('[data-study-timer-rest-method="walk"]').click();
+ await page.locator('[data-study-timer-rest-note]').fill('离开屏幕');
+ await page.locator('[data-study-timer-rest-save]').click();await shot('Pause');
+ const readStatus=await page.evaluate(async()=>{const m=await import('/src/lib/examChatPlan.mjs');return {strict:m.readExamChatPlan(localStorage,'2026-09-26').status,display:m.readExamChatPlanForDisplay(localStorage,'2026-09-26').status};});
+ check(readStatus.strict==='stale'&&readStatus.display==='reference','ordinary_pause_preserves_reference_not_fresh_strategy',JSON.stringify(readStatus));
+ await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active'&&!!window.KianOSStudyTimer);await settle();
+ check(await page.evaluate(()=>window.KianOSStudyTimer.read().active.running===false),'pause_survives_refresh');
+ check(await page.locator('.stewardAgendaRow').count()===9,'accepted_agenda_survives_ordinary_execution');
+ await page.goto(BASE+'/',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>!!window.KianOSStudyTimer);await settle();
+ check(await page.locator('.homeL3ScheduleBlock').count()===20,'home_and_steward_share_adopted_plan_after_pause');
+ await page.goto(BASE+'/steward/',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>!!window.KianOSStudyTimer);await settle();
+ const checksBefore=JSON.stringify((await events()).events);
+ await page.locator('[data-steward-task-check="life-sunscreen"]').check();
+ check(await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-exam-home-task-checks-v1:2026-09-26'))['life-sunscreen'])===true,'life_task_uses_existing_ui_state');
+ check(JSON.stringify((await events()).events)===checksBefore,'ui_check_not_actual_evidence');
 
-    const page = await context.newPage();
-    const pageErrors = [];
-    page.on('pageerror', (error) => pageErrors.push(String(error?.stack || error?.message || error)));
-    await page.goto(`${BASE}/steward/`, { waitUntil: 'domcontentloaded' });
-    await page.locator('[data-steward-workspace]').waitFor({ state: 'visible' });
-    await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active');
+ await page.locator('[data-study-timer-pause]').click();
+ check(await page.evaluate(()=>window.KianOSStudyTimer.read().active.running===true),'resume_before_optional_feedback');
+ await page.locator('[data-study-timer-reentry-status="PARTIAL"]').click();
+ await page.locator('[data-study-timer-reentry-note]').fill('比刚才清醒');
+ await page.locator('[data-study-timer-reentry-save]').click();await settle();
+ check((await events()).events.some(e=>e.kind==='BREAK'&&e.reentry?.status==='PARTIAL'),'reentry_saved');
+ await page.locator('[data-study-timer-record]').click();
+ await page.locator('[data-reality-kind="WATER"][data-reality-value="500"]').click();
+ await page.locator('[data-reality-kind="COFFEE"][data-reality-value="0.5"]').click();
+ await page.locator('[data-reality-kind="ENERGY"][data-reality-value="累"]').click();
+ await page.locator('[data-study-timer-record-note]').fill('<img src=x onerror="window.__xss=1"> 合成备注');
+ await page.locator('[data-study-timer-record-save]').click();await settle();
+ check((await events()).events.filter(e=>e.kind==='QUICK').length===4,'quick_values_and_note_persist');
+ check(await page.evaluate(()=>!window.__xss),'notes_render_as_text');
+ check(await page.evaluate(()=>localStorage.getItem('kianos-exam-chat-plan-v1'))===originalPlan,'reality_never_mutates_adopted_plan');await shot('Record');
+ await page.locator('[data-study-timer-record-close]').click();
+ await switchMode('nutrition');
+ const salmon=page.locator('[data-steward-food-input="salmon"]');
+ check(await salmon.inputValue()==='200','real_plan_producer_supplies_salmon');
+ check(await page.locator('[data-steward-macro]').count()===4,'four_macro_numbers');
+ check(await page.locator('[data-steward-quick-add] button').count()===6,'authorized_quick_pool');
+ await page.locator('[data-steward-topup-calc]').click();await settle();
+ const topupText=await page.locator('[data-steward-topup-recommendation]').innerText();
+ check(/碳水/.test(topupText)&&/黑麦片/.test(topupText)&&/20\s*g/.test(topupText),'single_gap_recommends_specific_rye_grams',topupText);
+ await shot('Nutrition');
+ await page.locator('[data-steward-meal-uncertain]').click();await settle();
+ await page.locator('[data-steward-meal-preset="b01"]').click();await page.locator('[data-steward-meal-preset="z02"]').click();
+ check(await page.locator('[data-steward-meal-uncertain]').getAttribute('aria-pressed')==='true','meal_switch_keeps_uncertainty');
+ await salmon.fill('');await salmon.dispatchEvent('change');await settle();
+ check(await salmon.inputValue()==='','blank_is_unknown_not_zero');
+ check((await page.locator('[data-steward-estimate-note]').innerText()).includes('未知'),'unknown_partial_estimate');await shot('Nutrition-unknown');
+ await salmon.fill('200');await salmon.dispatchEvent('change');await settle();
+ await page.locator('[data-steward-meal-confirm]').click();await settle();
+ const meals=()=>events().then(s=>s.events.filter(e=>e.kind==='MEAL'&&e.status==='CONFIRMED'));
+ const first=await meals();check(first.length===1,'explicit_consumption_only');
+ await page.locator('[data-steward-meal-confirm]').click();await settle();check((await meals()).length===1,'repeat_confirm_idempotent');
+ await salmon.fill('100');await salmon.dispatchEvent('change');await settle();check(JSON.stringify(await meals())===JSON.stringify(first),'editing_does_not_overwrite_actual');
+ await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>!!window.KianOSStudyTimer);await switchMode('nutrition');
+ check(await salmon.inputValue()==='100','meal_draft_refresh_persistent');
+ await shot('Nutrition-edited');
+ await switchMode('training');
+ await page.locator('[data-steward-exercise="KN01"] [data-action="replace"]').click();await settle();
+ check(!(await events()).events.some(e=>e.kind==='TRAINING'),'recommendation_substitution_not_actual');
+ const card=page.locator('[data-steward-exercise="KN01"]');await card.locator('[data-action="record"]').click();
+ check(await card.locator('[data-steward-training-input="load"]').inputValue()==='','prescription_not_prefilled_as_actual');
+ await card.locator('[data-steward-training-input="load"]').fill('20');await card.locator('[data-steward-training-input="load"]').dispatchEvent('change');await settle();
+ await card.locator('[data-steward-training-input="sets"]').fill('2');await card.locator('[data-steward-training-input="sets"]').dispatchEvent('change');await settle();
+ await card.locator('[data-steward-training-input="rpe"]').fill('7');await card.locator('[data-steward-training-input="rpe"]').dispatchEvent('change');await settle();
+ await card.locator('[data-action="save-actual"]').click();await settle();
+ check((await events()).events.filter(e=>e.kind==='TRAINING').at(-1).exercises[0].status==='RECORDED','save_measurements_not_completion');
+ await card.locator('[data-steward-training-status="MODIFIED"]').click();await settle();
+ check((await events()).events.filter(e=>e.kind==='TRAINING').at(-1).exercises[0].status==='MODIFIED','explicit_modified_state');
+ await page.locator('[data-steward-training-effect="APPROPRIATE"]').click();await settle();
+ check((await events()).events.filter(e=>e.kind==='TRAINING').at(-1).effect==='APPROPRIATE','effect_recorded_independently');await shot('Training');
+ await page.locator('[data-steward-training-start]').click();await settle();
+ check(await page.evaluate(()=>window.KianOSStudyTimer.read().active.running===false),'training_stops_study_timer');
+ await page.locator('[data-study-timer-record]').click();await page.locator('[data-reality-kind="WATER"][data-reality-value="250"]').click();
+ check((await events()).events.filter(e=>e.kind==='QUICK').at(-1).context?.activityKind==='TRAINING','quick_capture_binds_actual_training_not_paused_study');
+ await page.locator('[data-study-timer-record-close]').click();
 
-    const capacityDay = await page.evaluate(() => {
-      const parts = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'Asia/Shanghai',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit'
-      }).formatToParts(new Date());
-      return `${parts.find((part) => part.type === 'year')?.value}-${parts.find((part) => part.type === 'month')?.value}-${parts.find((part) => part.type === 'day')?.value}`;
-    });
-    await page.evaluate(async (studyDay) => {
-      const mod = await import('/src/lib/examChatPlan.mjs');
-      const basis = mod.buildExamChatPlanBasis(localStorage, studyDay);
-      mod.writeExamChatPlan(localStorage, {
-        schema: 'kianos.exam.chat-plan.v1',
-        study_day: studyDay,
-        generated_at: new Date().toISOString(),
-        learner_evidence_basis: basis,
-        subjects: {
-          xizong: { target_minutes: 240, role: '主推进', note: '', session_ref: null },
-          english: null,
-          politics: null
-        },
-        next_subject: 'xizong',
-        attention: null,
-        capacity: {
-          state: 'REDUCED',
-          summary: '上午高负荷后可用认知容量下降，但仍可继续推进。',
-          basis: '主观状态 + 学习表现 + 当前可用 Health 上下文',
-          load: '西综高负荷主块后出现恢复需求',
-          action: '先做一次足量低输入恢复，再回到当前主线',
-          recheck: '看下一学习块是否恢复持续注意和处理速度'
-        },
-        presentation: {
-          today_tasks: [
-            { id: 'life-sunscreen', subject: null, label: '防晒', note: '' },
-            { id: 'life-walk', subject: null, label: '饭后走 10 分钟', note: '' },
-            { id: 'life-skincare', subject: null, label: '晚间护肤', note: '' }
-          ],
-          week_reference: [],
-          schedule_blocks: [
-            { id: 'steward-xz-am', subject: 'xizong', start: '08:30', end: '11:30', label: '西综高认知主块', detail: '强窗口' },
-            { id: 'steward-en-mid', subject: 'english', start: '12:10', end: '13:20', label: 'English 连续性', detail: '中低负荷窗口' }
-          ],
-          nutrition: {
-            owner_ref: 'kianwang022-hash/kian-personal-os/health/personal-day/NUTRITION.md',
-            target_label: '目标 2200–2450 kcal · P 150–175g',
-            active_meal_id: 'z02',
-            foods: [
-              { id: 'yogurt', label: '高蛋白 Greek yogurt', unit: '盒', grams_per_unit: 300, recommended_amount: 1, note: '300g/盒', nutrition: { basis: 'PER_100G', kcal: 56.9, protein_g: 10, carb_g: 4, fat_g: 0 } },
-              { id: 'rye', label: '黑麦片', unit: 'g', recommended_amount: 50, nutrition: { basis: 'PER_100G', kcal: 344.9, protein_g: 13, carb_g: 63.2, fat_g: 1.6 } },
-              { id: 'blueberry', label: '蓝莓', unit: 'g', recommended_amount: 120, nutrition: { basis: 'PER_100G', kcal: 57, protein_g: .7, carb_g: 14.5, fat_g: .3 } },
-              { id: 'nuts', label: '混合坚果', unit: '小包', grams_per_unit: 12, recommended_amount: 1, note: '12g/小包', nutrition: { basis: 'PER_100G', kcal: 600, protein_g: 18, carb_g: 20, fat_g: 52 } },
-              { id: 'salmon', label: '三文鱼', unit: 'g', recommended_amount: 200, nutrition: { basis: 'PER_100G', kcal: 208, protein_g: 20, carb_g: 0, fat_g: 13 } },
-              { id: 'shrimp', label: '北极甜虾', unit: 'g', recommended_amount: 170, nutrition: { basis: 'PER_100G', kcal: 74, protein_g: 17.1, carb_g: 1, fat_g: 0 } }
-            ],
-            meals: [
-              { id: 'b01', label: 'B01 · 熟悉早餐', note: '酸奶 + 黑麦 + 蓝莓 + 少量坚果', items: [{ food_id: 'yogurt', amount: 1 }, { food_id: 'rye', amount: 50 }, { food_id: 'blueberry', amount: 120 }, { food_id: 'nuts', amount: 1 }] },
-              { id: 'z02', label: 'Z02 · 三文鱼午餐', note: '饱腹 / 训练支持', items: [{ food_id: 'salmon', amount: 200 }, { food_id: 'rye', amount: 50 }, { food_id: 'yogurt', amount: 1 }] },
-              { id: 'z03', label: 'Z03 · 甜虾午餐', note: '更轻的午餐候选', items: [{ food_id: 'shrimp', amount: 170 }, { food_id: 'rye', amount: 50 }, { food_id: 'yogurt', amount: 1 }] }
-            ],
-            topup_pool: [
-              { food_id: 'yogurt', amount: 1, role: '补蛋白' },
-              { food_id: 'rye', amount: 30, role: '补碳水' },
-              { food_id: 'nuts', amount: 1, role: '补脂肪' }
-            ],
-            quick_add: [
-              { food_id: 'yogurt', amount: 1 },
-              { food_id: 'rye', amount: 50 },
-              { food_id: 'blueberry', amount: 120 },
-              { food_id: 'nuts', amount: 1 },
-              { food_id: 'salmon', amount: 200 },
-              { food_id: 'shrimp', amount: 170 }
-            ]
-          },
-          training: {
-            owner_ref: 'kianwang022-hash/kian-personal-os/health/personal-day/TRAINING.md',
-            session_id: 'strength-reentry-a',
-            title: '全身力量',
-            duration_label: '3 个动作 · 约 25–30 分钟',
-            exercises: [
-              { id: 'KN01', label: 'Smith squat', note: '下肢主力 · 2 × 6–8 · RPE 6–7', prescription: '70 kg × 8', load_value: 70, load_unit: 'kg', reps_value: 8, reps_unit: 'reps', rpe: 6, alternatives: [{ id: 'KN02', label: 'Goblet squat', note: '低疲劳替换', prescription: '12 reps · RPE 6', reps_value: 12, reps_unit: 'reps', rpe: 6 }] },
-              { id: 'PR01', label: 'Smith flat bench press', note: '水平推 · 2 × 6–8 · RPE 6–7', prescription: '60 kg × 8', load_value: 60, load_unit: 'kg', reps_value: 8, reps_unit: 'reps', rpe: 6, alternatives: [{ id: 'PR02', label: 'DB flat bench press', note: '哑铃替换', prescription: '10 reps · RPE 6', reps_value: 10, reps_unit: 'reps', rpe: 6 }] },
-              { id: 'PU03', label: 'One-arm cable row', note: '水平拉 · 2 × 10–14 / side', prescription: '5 档 × 12', load_value: 5, load_unit: '档', reps_value: 12, reps_unit: 'reps', rpe: 7, alternatives: [{ id: 'PU05', label: 'One-arm DB row', note: '低设置摩擦替换', prescription: '12 reps / side', reps_value: 12, reps_unit: 'reps', rpe: 7 }] }
-            ]
-          }
-        }
-      }, studyDay);
-      window.dispatchEvent(new Event('kianos:control-command-applied'));
-    }, capacityDay);
+ await switchMode('schedule');check((await page.locator('[data-steward-now-elapsed]').innerText()).includes('已训练'),'training_not_called_study');
+ await switchMode('training');await page.locator('[data-steward-training-end]').click();await settle();
+ check(await page.evaluate(()=>window.KianOSStudyTimer.read().active.running===false),'end_training_does_not_resume_study');
+ await switchMode('schedule');await page.locator('[data-steward-adjust]').click();
+ check(await page.locator('[data-steward-chat-dialog]').isVisible(),'honest_chat_escalation');
+ check(await page.evaluate(()=>localStorage.getItem('kianos-exam-chat-plan-v1'))===originalPlan,'chat_entry_not_auto_replan');await page.locator('[data-steward-chat-dialog] button').click();
+ await page.locator('[data-steward-view="week"]').click();check(await page.locator('.stewardWeekDayHead').count()===7,'week_seven_real_days');await shot('Week');
+ await page.locator('[data-steward-view="month"]').click();check(await page.locator('button.stewardMonthCell').count()===30,'month_real_calendar');await shot('Month');
+ await page.locator('[data-steward-view="today"]').click();
+ for(const [width,height] of [[1512,760],[1366,768],[1100,800],[1024,768],[768,900],[390,844]]) {
+  await page.setViewportSize({width,height});await settle();
+  check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`no_page_overflow_${width}`);
+  await page.locator('[data-study-timer-record]').click();await settle();
+  const box=await page.locator('[data-study-timer-dock]').boundingBox();
+  check(box.x>=0&&box.y>=0&&box.x+box.width<=width+1&&box.y+box.height<=height+1,`dock_inside_${width}`,JSON.stringify(box));
+  await shot(`Viewport-${width}`);await page.locator('[data-study-timer-record-close]').click();
+ }
 
-    const stewardImplementationSource = [
-      fs.readFileSync(path.resolve(process.cwd(), 'src/pages/steward/index.astro'), 'utf8'),
-      fs.readFileSync(path.resolve(process.cwd(), 'src/lib/stewardWorkspaceClient.mjs'), 'utf8')
-    ].join('\n');
-    check(!/Z02|KN01|PR01|PU03|Smith squat|三文鱼午餐/.test(stewardImplementationSource), 'personal_semantics_must_arrive_via_plan_projection');
-
-    check(await page.locator('[data-kianos-global-rail]').isVisible(), 'l1_missing');
-    check((await page.locator('.kianosRailItem.active').textContent())?.trim() === 'Steward', 'l1_active');
-    check(await page.locator('[data-kianos-subject-bar]').count() === 0, 'invented_l2');
-    const approvedShell = await page.evaluate(() => {
-      const rail = document.querySelector('[data-kianos-global-rail]');
-      const frame = document.querySelector('.stewardTodayFrame');
-      const left = document.querySelector('.stewardTodayAside');
-      const right = document.querySelector('.stewardNowRail');
-      const label = document.querySelector('.kianosRailItem.active .kianosRailLabel');
-      const main = document.querySelector('.stewardTodayMain');
-      const frameStyle = frame ? getComputedStyle(frame) : null;
-      return {
-        railWidth: rail?.getBoundingClientRect().width || 0,
-        railBackground: rail ? getComputedStyle(rail).backgroundColor : '',
-        activeLabelVisible: label ? getComputedStyle(label).display !== 'none' : false,
-        frameWidth: frame?.getBoundingClientRect().width || 0,
-        leftWidth: left?.getBoundingClientRect().width || 0,
-        mainWidth: main?.getBoundingClientRect().width || 0,
-        rightWidth: right?.getBoundingClientRect().width || 0,
-        columnGap: frameStyle ? parseFloat(frameStyle.columnGap || '0') : 0,
-        frameBorder: frameStyle?.borderTopWidth || '',
-        leftRadius: left ? getComputedStyle(left).borderTopLeftRadius : '',
-        mainRadius: main ? getComputedStyle(main).borderTopLeftRadius : '',
-        rightRadius: right ? getComputedStyle(right).borderTopLeftRadius : ''
-      };
-    });
-    check(approvedShell.railWidth >= 186 && approvedShell.railWidth <= 190, 'approved_steward_text_rail_width', JSON.stringify(approvedShell));
-    check(approvedShell.activeLabelVisible, 'approved_steward_text_rail_visible');
-    check(!/17, 29, 25|17,29,25/.test(approvedShell.railBackground), 'approved_steward_light_rail', approvedShell.railBackground);
-    check(approvedShell.leftWidth >= 218 && approvedShell.leftWidth <= 222, 'approved_preview_today_left_card_width', JSON.stringify(approvedShell));
-    check(approvedShell.rightWidth >= 288 && approvedShell.rightWidth <= 292, 'approved_preview_today_right_card_width', JSON.stringify(approvedShell));
-    check(approvedShell.columnGap >= 13 && approvedShell.columnGap <= 15, 'approved_preview_today_card_gap', JSON.stringify(approvedShell));
-    check(approvedShell.frameBorder === '0px', 'approved_preview_today_no_outer_box', JSON.stringify(approvedShell));
-    check(parseFloat(approvedShell.leftRadius) >= 10 && parseFloat(approvedShell.mainRadius) >= 10 && parseFloat(approvedShell.rightRadius) >= 10, 'approved_preview_today_three_independent_cards', JSON.stringify(approvedShell));
-    const previewLeftRailFlow = await page.evaluate(() => {
-      const weight = document.querySelector('.stewardWeightSection')?.getBoundingClientRect();
-      const nav = document.querySelector('.stewardModeTabs')?.getBoundingClientRect();
-      return { gap: weight && nav ? nav.top - weight.bottom : 999 };
-    });
-    check(previewLeftRailFlow.gap >= 0 && previewLeftRailFlow.gap <= 24, 'approved_preview_mode_nav_follows_weight', JSON.stringify(previewLeftRailFlow));
-
-    const dock = page.locator('[data-study-timer-dock]');
-    await dock.waitFor({ state: 'visible' });
-    const dockSubject = String(await dock.locator('[data-study-timer-subject]').textContent() || '').trim();
-    check(dockSubject.includes('西综') && dockSubject.includes('呼吸系统'), 'dock_native_detail', dockSubject);
-    const todayHref = await dock.locator('[data-study-timer-today]').getAttribute('href');
-    check(Boolean(todayHref && todayHref.endsWith('/steward/')), 'dock_today_route', String(todayHref));
-    for (const selector of ['[data-study-timer-subject]', '[data-study-timer-pause]', '[data-study-timer-today]']) {
-      const size = Number.parseFloat(await dock.locator(selector).evaluate((node) => getComputedStyle(node).fontSize));
-      check(size >= 15, 'dock_text_below_floor', `${selector}:${size}`);
-    }
-
-    check(await page.locator('[data-steward-view="today"]').getAttribute('class') === 'active', 'today_default');
-    check(await page.locator('[data-steward-mode="schedule"]').getAttribute('class') === 'active', 'schedule_default');
-    check(await page.locator('.stewardActualBlock').count() >= 1, 'today_actual_blocks');
-    check(await page.locator('.stewardActualBlock.withPlan').count() >= 1, 'today_actual_plan_trace');
-    const actualTraceGeometry = await page.locator('.stewardActualBlock.withPlan').first().evaluate((node) => {
-      const rect = node.getBoundingClientRect();
-      const plan = node.closest('.stewardPlanBlock')?.getBoundingClientRect();
-      return { width: rect.width, height: rect.height, planWidth: plan?.width || 0 };
-    });
-    check(actualTraceGeometry.height <= 4, 'today_actual_trace_is_preview_style_track', JSON.stringify(actualTraceGeometry));
-    check(actualTraceGeometry.width > 0 && actualTraceGeometry.width < actualTraceGeometry.planWidth, 'today_actual_trace_stays_inside_plan', JSON.stringify(actualTraceGeometry));
-    check(await page.locator('.stewardPlanBlock').count() >= 2, 'today_plan_blocks_from_canonical_chat_plan');
-    const planText = (await page.locator('[data-steward-timeline]').innerText()).replace(/\s+/g, ' ');
-    check(planText.includes('西综高认知主块') && planText.includes('English 连续性'), 'today_plan_labels_visible', planText);
-    check(!planText.includes('今天还没有安排'), 'today_plan_must_not_fall_back_to_empty', planText);
-    const realityText = await page.locator('[data-steward-reality]').innerText();
-    check(realityText.includes('休息 10m'), 'today_break_reality_visible', realityText);
-    check(realityText.includes('部分恢复'), 'today_reentry_reality_visible', realityText);
-    check(!/readiness|恢复分|债务分|recovery score/i.test(realityText), 'today_recovery_has_no_invented_score', realityText);
-
-    const capacitySection = page.locator('[data-steward-capacity-section]');
-    check(await capacitySection.isVisible(), 'today_capacity_loop_visible');
-    check((await page.locator('[data-steward-capacity-state]').textContent())?.trim() === '降低', 'today_capacity_state');
-    check((await page.locator('[data-steward-capacity-summary]').textContent())?.includes('认知容量下降'), 'today_capacity_summary');
-    check((await page.locator('[data-steward-capacity-load]').textContent())?.includes('西综高负荷'), 'today_capacity_load');
-    check((await page.locator('[data-steward-capacity-action]').textContent())?.includes('低输入恢复'), 'today_capacity_action');
-    check((await page.locator('[data-steward-capacity-recheck]').textContent())?.includes('下一学习块'), 'today_capacity_recheck');
-    check((await page.locator('[data-steward-capacity-recovery]').textContent())?.includes('部分恢复'), 'today_capacity_recovery_result');
-    check(!/readiness|恢复分|债务分|recovery score/i.test(await capacitySection.innerText()), 'today_capacity_has_no_invented_score');
-
-    check(await page.locator('[data-steward-task-section]').isVisible(), 'today_items_region_visible');
-    check(await page.locator('[data-steward-tasks] .stewardTaskRow').count() === 3, 'today_items_rendered');
-
-    const visibleToday = await page.locator('[data-steward-view-panel].active').getAttribute('data-steward-view-panel');
-    check(visibleToday === 'today', 'today_only_view', String(visibleToday));
-
-    await page.locator('[data-steward-mode="nutrition"]').click();
-    check(await page.locator('[data-steward-nutrition-unavailable]').isHidden(), 'nutrition_projection_available');
-    check(await page.locator('[data-steward-nutrition-workspace]').isVisible(), 'nutrition_workspace_visible');
-    check(await page.locator('[data-steward-meal-preset]').count() === 3, 'nutrition_plan_meals_visible');
-    check((await page.locator('[data-steward-meal-title]').textContent())?.includes('三文鱼午餐'), 'nutrition_active_meal');
-    check(await page.locator('[data-steward-food-input="salmon"]').inputValue() === '200', 'nutrition_salmon_default_200');
-    const yogurtText = await page.locator('[data-steward-meal-item="yogurt"]').innerText();
-    check(yogurtText.includes('推荐 1 盒') && yogurtText.includes('300g/盒'), 'nutrition_packaged_food_by_serving', yogurtText);
-    check(await page.locator('[data-steward-macro]').count() === 4, 'nutrition_four_big_numbers');
-    for (const key of ['kcal', 'protein', 'carb', 'fat']) {
-      check((await page.locator('[data-steward-macro="' + key + '"]').textContent())?.trim() !== '—', 'nutrition_macro_available', key);
-    }
-    check(await page.locator('[data-steward-topup-list] .stewardFoodAction').count() === 3, 'nutrition_gap_fill_kept');
-    check(await page.locator('[data-steward-quick-add] .stewardFoodAction').count() === 6, 'nutrition_quick_add_right');
-    const nutritionGeometry = await page.evaluate(() => ({
-      editor: document.querySelector('[data-steward-meal-editor]')?.getBoundingClientRect().x || 0,
-      quick: document.querySelector('[data-steward-quick-add]')?.getBoundingClientRect().x || 0
-    }));
-    check(nutritionGeometry.quick > nutritionGeometry.editor, 'nutrition_quick_add_right_geometry', JSON.stringify(nutritionGeometry));
-    await page.locator('[data-steward-meal-half]').click();
-    check(await page.locator('[data-steward-food-input="salmon"]').inputValue() === '100', 'nutrition_half_action');
-    await page.locator('[data-steward-meal-uncertain]').click();
-    check((await page.locator('[data-steward-meal-uncertain]').getAttribute('class') || '').includes('active'), 'nutrition_uncertain_action');
-    check((await page.locator('[data-steward-meal-editor]').getAttribute('class') || '').includes('uncertain'), 'nutrition_uncertain_visual');
-    await page.locator('[data-steward-meal-reset]').click();
-    check(await page.locator('[data-steward-food-input="salmon"]').inputValue() === '200', 'nutrition_reset_action');
-    const mealReality = await page.evaluate(async (studyDay) => {
-      const mod = await import('/src/lib/stewardReality.mjs');
-      return mod.buildStewardRealityDailySummary(localStorage, { day: studyDay }).meals;
-    }, capacityDay);
-    check(mealReality?.[0]?.status === 'SELECTED', 'nutrition_selection_not_consumption');
-    check(mealReality?.[0]?.items?.find(item => item.food_id === 'salmon')?.amount === 200, 'nutrition_selection_readback');
-    await page.screenshot({ path: path.join(auditDir, 'nutrition-1512x820.png'), fullPage: false });
-
-    await page.locator('[data-steward-mode="training"]').click();
-    check(await page.locator('[data-steward-training-unavailable]').isHidden(), 'training_projection_available');
-    check(await page.locator('[data-steward-training-workspace]').isVisible(), 'training_workspace_visible');
-    check(await page.locator('[data-steward-exercise]').count() === 3, 'training_recommended_cards');
-    const trainingText = await page.locator('[data-steward-exercise-list]').innerText();
-    check(trainingText.includes('Smith squat') && trainingText.includes('Smith flat bench press') && trainingText.includes('One-arm cable row'), 'training_plan_labels', trainingText);
-    check(await page.locator('[data-steward-exercise] [data-action="replace"]').count() === 3, 'training_replace_actions');
-    check(await page.locator('[data-steward-exercise] [data-action="record"]').count() === 3, 'training_record_actions');
-    await page.screenshot({ path: path.join(auditDir, 'training-1512x820.png'), fullPage: false });
-    const firstExercise = page.locator('[data-steward-exercise="KN01"]');
-    await firstExercise.locator('[data-action="replace"]').click();
-    check((await page.locator('[data-steward-exercise="KN01"]').innerText()).includes('Goblet squat'), 'training_authorized_replace');
-    await page.locator('[data-steward-exercise="KN01"] [data-action="record"]').click();
-    check((await page.locator('[data-steward-exercise="KN01"]').getAttribute('class') || '').includes('recorded'), 'training_record_visual');
-    await page.locator('[data-steward-training-effect="SAME"]').click();
-    const trainingReality = await page.evaluate(async (studyDay) => {
-      const mod = await import('/src/lib/stewardReality.mjs');
-      return mod.buildStewardRealityDailySummary(localStorage, { day: studyDay }).training;
-    }, capacityDay);
-    check(trainingReality?.[0]?.effect === 'SAME', 'training_effect_readback');
-    check(trainingReality?.[0]?.exercises?.[0]?.exercise_id === 'KN01', 'training_record_base_identity');
-    check(trainingReality?.[0]?.exercises?.[0]?.variant_id === 'KN02', 'training_record_authorized_variant');
-
-    await page.locator('[data-steward-mode="schedule"]').click();
-    check(await page.locator('[data-steward-mode-panel="schedule"]').getAttribute('class') === 'stewardModePanel active', 'schedule_return_after_local_modes');
-
-    await page.locator('[data-steward-view="week"]').click();
-    check((await page.locator('[data-steward-header-title]').textContent())?.trim() === '这一周', 'week_header');
-    check(await page.locator('.stewardWeekDayHead').count() === 7, 'week_x7_heads', pageErrors.join(' | '));
-    check(await page.locator('.stewardWeekAxis span').count() >= 8, 'week_time_axis');
-    check(await page.locator('.stewardWeekActual').count() >= 3, 'week_actual_trace');
-    check(await page.locator('.stewardWeekDayHead span').filter({ hasText: /h|m/ }).count() >= 2, 'week_daily_totals');
-    check(await page.locator('[data-steward-view-panel].active').count() === 1, 'week_view_exclusive');
-    await page.screenshot({ path: path.join(auditDir, 'week-1512x820.png'), fullPage: false });
-
-    await page.locator('[data-steward-view="today"]').click();
-    check(await page.locator('[data-steward-mode="schedule"]').getAttribute('class') === 'active', 'today_resets_schedule');
-    check((await page.locator('[data-steward-header-title]').textContent())?.trim() === '今天怎么过', 'today_header');
-    await page.screenshot({ path: path.join(auditDir, 'today-1512x820.png'), fullPage: false });
-
-    await page.locator('[data-steward-view="month"]').click();
-    check((await page.locator('[data-steward-header-title]').textContent())?.trim() === '这个月', 'month_header');
-    check(await page.locator('.stewardMonthHead').count() === 7, 'month_seven_columns');
-    check(await page.locator('.stewardMonthCell.today').count() === 1, 'month_today');
-    check(await page.locator('.stewardMonthCell.selected').count() === 1, 'month_selected_today');
-    check(await page.locator('.stewardMonthMarks i').count() >= 1, 'month_actual_marks');
-    check(await page.locator('[data-steward-view-panel].active').count() === 1, 'month_view_exclusive');
-    await page.screenshot({ path: path.join(auditDir, 'month-1512x820.png'), fullPage: false });
-
-    const bodyText = await page.locator('body').innerText();
-    check(!/coverage|validator|confidence|UNKNOWN|证据覆盖|候选规律|\bowner\b|provisional|schema|payload|hash|旧 PR|cable setting|\breset\b/i.test(bodyText), 'backend_copy_leak');
-
-    const bodyOverflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
-    check(bodyOverflow <= 1, 'page_horizontal_overflow', String(bodyOverflow));
-
-    const readableSelectors = [
-      '.stewardViewTabs button',
-      '.stewardModeTabs button',
-      '.stewardMonthCell b',
-      '.stewardMonthDetail'
-    ];
-    for (const selector of readableSelectors) {
-      const size = Number.parseFloat(await page.locator(selector).first().evaluate((node) => getComputedStyle(node).fontSize));
-      check(size >= 15, 'visible_text_below_floor', `${selector}:${size}`);
-    }
-
-    await context.close();
-  } finally {
-    await browser.close().catch(() => {});
-  }
-
-  fs.writeFileSync(path.join(auditDir, 'report.json'), JSON.stringify({
-    status: 'PASS',
-    viewport: '1512x820',
-    l1: 'Steward',
-    l2: null,
-    views: ['today', 'week', 'month'],
-    week_model: 'shared-time-axis-x7',
-    month_model: 'calendar-grid',
-    full_site_build_dependency: false
-  }, null, 2));
-  console.log('STEWARD_UI_BROWSER_PASS');
-} catch (error) {
-  fs.writeFileSync(path.join(auditDir, 'report.json'), JSON.stringify({
-    status: 'FAIL',
-    error: error instanceof Error ? error.stack || error.message : String(error),
-    serverLog: serverLog.slice(-12000)
-  }, null, 2));
-  console.error(error instanceof Error ? error.stack || error.message : String(error));
-  process.exitCode = 1;
-} finally {
-  await stopServer(server);
+ // Real native authoring page: source task, native draft owner, viewport and return path.
+ await page.setViewportSize({width:1512,height:982});
+ const nativeTask=listWritingSyntheticTasks()[0];
+ const nativePath='/writing/'+encodeURIComponent(nativeTask.id)+'/';
+ await page.goto(BASE+nativePath,{waitUntil:'domcontentloaded'});
+ await page.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active'&&!!window.KianOSStudyTimer);
+ await page.locator('input[data-plan-mode][value="direct"]').check();
+ const nativeDraft='Synthetic return verification. This unfinished draft must survive a visit to Steward without submission.\n'.repeat(35);
+ await page.locator('[data-essay-draft]').fill(nativeDraft);
+ await page.locator('[data-essay-draft]').dispatchEvent('input');await settle();
+ await page.evaluate(()=>{const n=document.querySelector('[data-essay-draft]');n.scrollTop=200;const canvas=document.querySelector('.productCanvas');canvas.scrollTop=40;});
+ const beforeReturn=await page.evaluate(()=>({draft:document.querySelector('[data-essay-draft]').value,canvas:document.querySelector('.productCanvas').scrollTop,textarea:document.querySelector('[data-essay-draft]').scrollTop}));
+ await page.locator('[data-study-timer-today]').click();
+ await page.waitForURL('**/steward/');await page.waitForFunction(()=>!!window.KianOSStudyTimer);await settle();
+ check((await page.locator('[data-study-timer-today]').innerText())==='返回','today_becomes_native_return');
+ check((await page.locator('[data-study-timer-today]').getAttribute('href'))===nativePath,'return_exact_native_task_not_subject_home');
+ await page.locator('[data-study-timer-today]').click();
+ await page.waitForURL('**'+nativePath);await page.locator('[data-essay-draft]').waitFor({state:'visible'});await settle();
+ check(await page.locator('[data-essay-draft]').inputValue()===beforeReturn.draft,'native_unsubmitted_draft_retained');
+ check(await page.locator('input[data-plan-mode][value="direct"]').isChecked(),'native_authoring_mode_retained');
+ check(await page.locator('[data-essay-draft]').evaluate((n,wanted)=>Math.abs(n.scrollTop-wanted)<3,beforeReturn.textarea),'native_authoring_scroll_retained');
+ await shot('Native-return');
+ await page.goto(BASE+'/steward/',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>!!window.KianOSStudyTimer);await settle();
+ // Failed storage writes must keep the note available and acknowledge no success.
+ await page.locator('[data-study-timer-record]').click();
+ await page.locator('[data-study-timer-record-note]').fill('未保存的合成备注');
+ await page.evaluate(()=>{window.__qaSetItem=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k==='kianos-steward-reality-v1')throw new DOMException('quota','QuotaExceededError');return window.__qaSetItem.call(this,k,v);};});
+ await page.locator('[data-study-timer-record-save]').click();
+ check((await page.locator('[data-study-timer-record-status]').innerText()).includes('未保存'),'quota_failure_not_acknowledged');
+ check(await page.locator('[data-study-timer-record-note]').inputValue()==='未保存的合成备注','quota_failure_preserves_input');
+ await page.evaluate(()=>{Storage.prototype.setItem=window.__qaSetItem;});
+ await page.locator('[data-study-timer-record-save]').click();await settle();
+ check((await events()).events.filter(e=>e.kind==='QUICK'&&e.note==='未保存的合成备注').length===1,'retry_records_once');
+ await page.locator('[data-study-timer-record-close]').click();
+ const storedReality=await page.evaluate(()=>localStorage.getItem('kianos-steward-reality-v1'));
+ await page.evaluate(()=>{localStorage.setItem('kianos-steward-reality-v1','{broken');window.dispatchEvent(new Event('kianos:steward-reality-change'));});await settle();
+ check((await page.locator('[data-steward-now-subject]').innerText()).includes('English'),'bad_steward_store_does_not_hide_native_study');
+ await switchMode('nutrition');
+ check((await page.locator('[data-steward-nutrition-unavailable]').innerText()).includes('不可读取'),'invalid_meal_store_fails_closed');
+ check(await page.evaluate(()=>localStorage.getItem('kianos-steward-reality-v1'))==='{broken','corrupt_bytes_not_wiped');
+ await page.evaluate(raw=>{localStorage.setItem('kianos-steward-reality-v1',raw);window.dispatchEvent(new Event('kianos:steward-reality-change'));},storedReality);await settle();
+ // No plan is a legitimate empty state, not permission to manufacture guidance.
+ await page.evaluate(()=>{localStorage.removeItem('kianos-exam-chat-plan-v1');window.dispatchEvent(new Event('kianos:control-command-applied'));});await settle();
+ await switchMode('schedule');check((await page.locator('[data-steward-plan-state]').innerText()).includes('暂无'),'no_plan_honest_empty_state');
+ check((await page.locator('[data-steward-now-subject]').innerText()).includes('English'),'native_activity_survives_no_plan');
+ await switchMode('nutrition');check((await page.locator('[data-steward-meal-history]').innerText()).includes('已吃'),'consumed_history_survives_no_plan');
+ if(process.platform==='darwin'){
+  check(true,'real_mac_runner');
+  check(await page.evaluate(()=>document.fonts.check('16px "PingFang SC"')),'pingfang_available');
+ }
+ const typography=await page.locator('[data-steward-workspace]').evaluate(root=>[...root.querySelectorAll('h1,h2,h3,p,span,strong,b,time,dt,dd,button')].filter(n=>n.getClientRects().length&&n.textContent.trim()).map(n=>({size:parseFloat(getComputedStyle(n).fontSize),tracking:getComputedStyle(n).letterSpacing,text:n.textContent})));
+ check(!typography.some(x=>x.size<15),'visible_text_at_least_15px');
+ check(!typography.some(x=>/[\u3400-\u9fff]/.test(x.text)&&x.tracking.startsWith('-')),'cjk_tracking_not_condensed');
+ // Source-neutral architecture assertion: raw biomedical metrics do not become product panels.
+ const text=await page.locator('[data-steward-workspace]').innerText();check(!/HRV|Recovery Score|Readiness|Sleep score/.test(text),'no_raw_health_dashboard');
+ check(errors.length===0,'no_browser_exceptions',errors.join('\n'));
+} catch(e) {failure=String(e.stack||e);console.error(failure);if(page)await shot('Failure').catch(()=>{});}
+finally {
+ await browser?.close();try{process.kill(-server.pid,'SIGTERM');}catch{}
+ await sleep(300);
+ fs.writeFileSync(path.join(OUT,'report.json'),JSON.stringify({schema:'kianos.steward.final-browser.v1',synthetic:true,humanAcceptance:false,platform:process.platform,visualEvidence:process.platform==='darwin'?'MACOS_PINGFANG':'GEOMETRY_ONLY',checks,errors,shots,failure,finishedAt:new Date().toISOString()},null,2));
+ fs.writeFileSync(path.join(OUT,'server.log'),log);
+ fs.rmSync(scratch,{recursive:true,force:true});
 }
+if(failure)process.exitCode=1;

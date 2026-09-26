@@ -15,6 +15,8 @@ import {
   EXAM_CHAT_PLAN_SCHEMA,
   EXAM_CHAT_PLAN_KEY,
   readExamChatPlan,
+  readExamChatPlanForDisplay,
+  examScheduleInterval,
   validateExamChatPlan,
   validateExamChatPlanAgainstStorage,
   writeExamChatPlan
@@ -418,7 +420,9 @@ export function initExamHome(root) {
       const date = new Date(`${day()}T12:00:00`);
       dayNode.textContent = date.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric', weekday: 'short' });
     }
-    const rows = presentation?.scheduleBlocks || [];
+    const stored = readExamChatPlanForDisplay(localStorage, day());
+    const rows = presentation?.scheduleBlocks || stored.plan?.presentation?.schedule_blocks || [];
+    if(dayNode && stored.status === 'reference') dayNode.textContent += ' · 已采用的安排';
     target.replaceChildren();
     if (!rows.length) {
       const empty = document.createElement('p');
@@ -431,8 +435,9 @@ export function initExamHome(root) {
     for (const block of rows) {
       const node = document.createElement('div');
       node.className = 'homeL3ScheduleBlock';
-      const ended = block.end ? block.end <= now : block.start < now;
-      const current = block.end ? block.start <= now && now < block.end : false;
+      const interval = examScheduleInterval(block, day());
+      const ended = (interval.end ?? interval.start) <= Date.now();
+      const current = interval.end != null && interval.start <= Date.now() && Date.now() < interval.end;
       if (ended) node.dataset.past = 'true';
       if (current) node.dataset.current = 'true';
       const time = document.createElement('time');

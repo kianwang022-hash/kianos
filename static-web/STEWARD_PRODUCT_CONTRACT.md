@@ -1,7 +1,7 @@
 # Steward Product Contract
 
-Status: APPROVED PRODUCT REQUIREMENTS · BOUNDED REALITY DELIVERY IMPLEMENTED · HUMAN GATE OPEN
-Updated: 2026-09-25
+Status: APPROVED PRODUCT REQUIREMENTS · V3 INTEGRATION CANDIDATE · HUMAN GATE OPEN
+Updated: 2026-09-26
 Semantic owner: KianOS Steward product interaction, reality-capture behavior and product acceptance boundary. It does not own Personal recovery meaning, cross-subject Chat judgment, native Health facts or learner truth.
 Reasoning upstream: `kianwang022-hash/kian-personal-os/exam/roles/STEWARD.md`; planning upstream: `kianwang022-hash/kian-personal-os/exam/CONTROL.md`; information upstream: `kianwang022-hash/kian-personal-os/exam/roles/INTAKE.md`.
 Surface split: `static-web/PRODUCT_SURFACE_CONTRACT.md`; current implementation/delivery truth: `static-web/CURRENT.md`.
@@ -72,7 +72,7 @@ KianOS never owns the raw cross-source interpretation. A current Chat Plan may c
 | Recorded study time and time corrections | Existing StudyTimer / native time evidence; no second timer/ledger |
 | Current resolved allocation | Existing Chat Plan / Exam Control decision |
 | Current capacity projection used by the product | Existing Chat Plan / Chat judgment. It may summarize current capacity, load, action and recheck condition; it must not embed a raw Health database, readiness score or second Personal recovery model. |
-| Day/week placement, life actions and actual reality events | Steward plan/reality in the private runtime. Break/re-entry reality plus plan-referenced meal selection/portion evidence and training execution/effect evidence use the same bounded private reality owner. A meal selection remains `SELECTED` until a separate accepted consumption action exists; it must not be interpreted as “ate”. |
+| Day/week placement, life actions and actual reality events | Steward plan/reality in the private runtime. Break/re-entry reality plus plan-referenced meal selection/portion evidence and training execution/effect evidence use the same bounded private reality owner. Each meal keeps a separate editable selection. Only explicit confirmation creates an immutable consumed snapshot. Later edits stay drafts, repeated confirmation is idempotent, blank portions remain unknown, and corrections supersede rather than duplicate consumed history. |
 | Raw sleep, HRV, activity and synced workout observations | Health; joined transiently, not copied into subject evidence |
 | External event/invitation | Native Calendar; projection is not a second Calendar |
 | Mail thread/body/read/reply state | Native Gmail/Outlook; filtered attention under INTAKE |
@@ -107,13 +107,13 @@ Current capacity
 → what would trigger another judgment
 ```
 
-Do not turn this into a dashboard of raw Health metrics. The Capacity Projection is a current interpreted snapshot; Steward reality supplies actual rest/re-entry facts underneath it. If there is no current capacity judgment and no meaningful recovery event, the block may stay hidden.
+Do not turn this into a dashboard of raw Health metrics. The Capacity Projection is a current interpreted snapshot; Steward reality supplies actual rest/re-entry facts underneath it. Normal capacity keeps the strategy block hidden. Only a current interpreted abnormal judgment or meaningful partial/failed re-entry may surface its relevant context; the site never infers a new strategy from biometrics or a plan/actual difference.
 
 Week / Review may later expose repeated patterns only from real evidence, for example earlier drop, slower rebound, repeated rescue or downstream cost. They must not manufacture a longitudinal score from sparse days.
 
 ## 3. Today and timeline
 
-Today presents one plan plus its actual trace. The currently scheduled block and actually active activity are distinct. Show both when they disagree. Never reassign an event to the scheduled subject merely because its clock slot has arrived.
+Today uses the reviewed complete-day agenda: past is collapsed but expandable, the current point has a distinct Now card, and every future block remains scrollable. Time assists the events rather than imposing a large empty calendar grid. Today presents one plan plus its actual trace. The currently scheduled block and actually active activity are distinct. Show both when they disagree. Never reassign an event to the scheduled subject merely because its clock slot has arrived.
 
 Selecting a block shows its plan, actual segments, relevant notes/state and native evidence links. It exposes the appropriate action: enter/resume a supported learning task; open meal details; open the exact training prescription; or record a life activity. Past blocks are inspectable/correctable; selecting a historical block never starts its timer.
 
@@ -189,7 +189,7 @@ Meals: show the chosen plan/portions; explicit 'ate as planned' creates a report
 
 Nutrition: calculate against plan-supplied targets only. Preserve `UNKNOWN / UNDER / IN_RANGE / OVER / UNCERTAIN`, provisional food/dinner estimates, and missing-meal coverage. An overlapping estimate interval is not proven target attainment. A deterministic top-up may only use the plan-authorized `topup_pool` with its existing safety bounds; the site never chooses a new deficit/strategy. Preparation resources and family cooking remain first-class constraints through the Nutrition owner. No mandatory exact weighing or complete daily log.
 
-Training: display the exact selected strength/cardio/recovery/rest session, sets/reps/time, target RPE, rest guidance and stop note; record actual load/reps/time/RPE and completed/modified/skipped status, with optional effect notes. Do not auto-progress or treat a planned workout as done. If Health and local entry describe the same workout, reconcile source identity or flag uncertainty rather than count two sessions.
+Training: display the exact selected strength/cardio/recovery/rest session, sets/reps/time, target RPE, rest guidance and stop note; record actual load/reps/time/RPE and completed/modified/skipped status, with optional effect notes. Substitution changes the recommendation draft only. Saving measurements records partial actual, not completion; COMPLETED / MODIFIED / SKIPPED require explicit actions. Do not auto-progress or treat a planned workout as done. If Health and local entry describe the same workout, reconcile source identity or flag uncertainty rather than count two sessions.
 
 Morning weight: retain the existing cross-day observation model and source/measurement context. Render dated observations and a clearly named mean/delta, not an invented trend or automatic calorie change. Prefer an available authoritative synced observation over asking for duplicate entry. Water/coffee retain time and optional free text/amount; missing is unknown, not zero. A vague coffee description is not a measured caffeine dose.
 
@@ -332,6 +332,8 @@ Replanning preserves past factual execution. The still-future remainder of a sta
 
 The current KianOS validator owns allowed command kinds. `steward.day_plan`, `radar.snapshot` and any other proposed name are NOT current supported operations. Requirements do not register them. Extend the existing owner with validated payload/basis/receipt/checkpoint/migration and corresponding tests before using a new payload.
 
+Executable admission keeps the exact fresh learner-evidence basis. After adoption, ordinary study or a pause may change that basis: the existing stored same-day plan may remain a clearly identified, non-executable reference for schedule/meal/training inspection and explicit actual capture. It must not be reapplied, re-dated, silently refreshed, or treated as a fresh capacity judgment. Invalid bytes, a wrong day, and unreadable evidence remain fail-closed; no new plan is inferred.
+
 Semantically coupled plan projections must apply as one consistent accepted version; stage/validate before publish and preserve the last complete valid version on failure. Independent Radar refresh or Calendar/mail actions are not part of that local transaction. Report partial outcomes explicitly.
 
 Submission/readback proves a submitted payload, not a website update. The matching command ID AND hash plus APPLIED/IDEMPOTENT and the relevant applied version/effect are required. Retry lost responses by reconciliation, not blind resubmission or a fresh ID for the same action. A newer accepted plan must not be overwritten by a late old receipt. Byte-perfect delivery is not learner completion.
@@ -342,7 +344,7 @@ The bounded Steward reality consumer now exists for pause/rest/re-entry, plan-re
 
 Expose meaningful freshness/coverage from the underlying observations, not merely a newly generated packet timestamp. Separate saved locally / backed up / available to Chat / plan applied. A truncated snapshot names its scope and retrieval path; important ongoing context must not silently disappear behind a last-N limit.
 
-Current bounded implementation: the existing Chat Plan presentation may carry only bounded, source-referenced Nutrition and Training projections; the Steward UI renders those projections without copying Personal libraries into KianOS. The existing private Steward reality area now persists break/re-entry facts, meal selection/portion/uncertainty state, and training execution/effect evidence through the same checkpoint primitives and exposes their minimized summaries through the admitted private Daily Packet path. The reality schema upgrades in place from v1 break-only data to v2 while keeping the same storage/checkpoint owner; legacy v1 bytes remain readable and an older release encountering v2 fails closed rather than silently dropping new event classes. The target raw inspection window remains about 28 days where that broader bounded area is implemented. This is NOT authorization to copy raw Health, full mail bodies, transcripts, screenshots or unrelated browsing into Git. Rich raw notes do not become permanent Git history.
+Current bounded implementation: the existing Chat Plan presentation may carry only bounded, source-referenced Nutrition and Training projections; the Steward UI renders those projections without copying Personal libraries into KianOS. The existing private Steward reality area now persists break/re-entry facts, meal selection/portion/uncertainty state, and training execution/effect evidence through the same checkpoint primitives and exposes their minimized summaries through the admitted private Daily Packet path. The reality schema upgrades in place from v1/v2 to v3 while keeping the same storage/checkpoint owner; legacy v1/v2 bytes remain readable and an older release encountering v3 fails closed rather than silently dropping new event classes. The target raw inspection window remains about 28 days where that broader bounded area is implemented. This is NOT authorization to copy raw Health, full mail bodies, transcripts, screenshots or unrelated browsing into Git. Rich raw notes do not become permanent Git history.
 
 A rolling window is not proof of deletion: specify and test expiry across local state, snapshots and backups before claiming purge. Corrections/deletion must not be resurrected by an older backup. Keep only necessary identity/tombstone metadata, protect live sessions/unresolved obligations and never delete another native owner's evidence to satisfy Steward retention. Expired data makes the affected analysis unavailable; no invented historical precision. No deletion or retention job is enabled by this document change.
 

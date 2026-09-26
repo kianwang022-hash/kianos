@@ -46,7 +46,7 @@ assert.equal(detailed.note, '有点困，先离开屏幕');
 
 const ended = endLatestStewardBreak(storage, start + 12 * 60_000);
 assert.equal(ended.endedAt, start + 12 * 60_000);
-assert.equal(readStewardReality(storage).schema, 'kianos.steward-reality.v2');
+assert.equal(readStewardReality(storage).schema, 'kianos.steward-reality.v3');
 assert.equal(readStewardReality(storage).events.length, 1);
 
 const reentered = recordStewardBreakReentry(storage, event.id, {
