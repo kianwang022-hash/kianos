@@ -249,8 +249,11 @@ export const upsertStewardMealSelection=saveStewardMealDraft;
 export function confirmStewardMealDraft(storage,{studyDay,mealId,expectedRevision,confirmedAt=Date.now()}={}) {
   const s=writableReality(storage),d=readStewardMealDraft(storage,{studyDay,mealId});if(!d||!d.items.length)throw Error('STEWARD_MEAL_DRAFT_REQUIRED');
   revision(d,expectedRevision);
-  const id=`confirmed-${d.id}-${d.revision}`,existing=s.events.find(x=>x.id===id);if(existing)return existing;
   const old=stewardMealActualsForDay(storage,studyDay).find(x=>x.mealId===mealId);
+  // Retry only the currently effective confirmation. A confirmed -> skipped ->
+  // confirmed correction must not return a superseded historical event.
+  if(old?.status==='CONFIRMED'&&old.planGeneratedAt===d.planGeneratedAt&&old.revision===d.revision)return old;
+  const id=newId('confirmed');
   const next=cleanMeal({...copy(d),id,status:'CONFIRMED',recordedAt:confirmedAt,observedAt:confirmedAt,supersedes:old?.id});
   writeStewardReality(storage,{...s,events:[...s.events,next]});return next;
 }
