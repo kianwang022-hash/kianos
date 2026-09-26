@@ -111,6 +111,11 @@ for (const file of ['static-web/src/lib/privateControlCommand.mjs',
   assert.equal(requiresStaticRuntimeReload([file]), true, file);
 }
 assert.equal(requiresStaticRuntimeReload(['content/xizong/explanations/manifest.json', 'CURRENT.md']), false);
+assert.equal(
+  requiresStaticRuntimeReload(['static-web/scripts/test-current-offline-startup.mjs']),
+  false,
+  'TEST_ONLY_SCRIPT_MUST_NOT_RELOAD_LEARNER_RUNTIME'
+);
 
 assert.equal(classifyStaticBuild(['content/xizong/explanations/manifest.json']).lexical_projection_required, false);
 for (const file of ['content/lexical/words/by-ordinal/o0001.json',
