@@ -1,6 +1,6 @@
 # Steward Product Contract
 
-Status: APPROVED PRODUCT REQUIREMENTS · V3 INTEGRATION CANDIDATE · HUMAN GATE OPEN
+Status: APPROVED PRODUCT REQUIREMENTS · HUMAN GATE OPEN
 Updated: 2026-09-26
 Semantic owner: KianOS Steward product interaction, reality-capture behavior and product acceptance boundary. It does not own Personal recovery meaning, cross-subject Chat judgment, native Health facts or learner truth.
 Reasoning upstream: `kianwang022-hash/kian-personal-os/exam/roles/STEWARD.md`; planning upstream: `kianwang022-hash/kian-personal-os/exam/CONTROL.md`; information upstream: `kianwang022-hash/kian-personal-os/exam/roles/INTAKE.md`.
