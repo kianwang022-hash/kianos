@@ -912,8 +912,10 @@ function repairForecast(progress, { wrongUncertainRate = null } = {}) {
 
 function verificationForecast(progress, questionsComponent, repairComponent) {
   const currentUnresolved = Math.max(0, Number(progress?.practice_evidence?.latest?.unresolved_wrong_uncertain_questions || 0));
+  const pendingRepairVerification = Math.max(0, Number(progress?.repair_evidence?.pending_verification_question_backed_clusters || 0));
+  const currentVerificationDemand = Math.max(currentUnresolved, pendingRepairVerification);
   const futureWu = finite(repairComponent?.compression?.predicted_future_wrong_uncertain_questions);
-  const questions = futureWu === null ? null : currentUnresolved + futureWu;
+  const questions = futureWu === null ? null : currentVerificationDemand + futureWu;
   const speedRows = [
     ...(questionsComponent?.calibration?.system_rows || []).map((row) => ({ owner_kind: 'MEDICAL_SYSTEM', ...row })),
     ...(questionsComponent?.calibration?.non_system_domain_rows || [])
@@ -951,6 +953,7 @@ function verificationForecast(progress, questionsComponent, repairComponent) {
   const ownerDemandUnpriced = pricedRows.some((row) => Number(row.verification_questions || 0) > 0 && !row.band_minutes);
   const ownerReferenceBand = questions !== null
     && currentUnresolved === 0
+    && pendingRepairVerification === 0
     && !ownerDemandUnpriced
     && pricedRows.length > 0
     ? {
@@ -967,6 +970,7 @@ function verificationForecast(progress, questionsComponent, repairComponent) {
   const referenceBand = questions === 0 ? { p20: 0, p50: 0, p80: 0 } : ownerReferenceBand || legacyReference;
   const risks = [];
   if (questions === null) risks.push('VERIFICATION_VOLUME_UNPRICED');
+  if (pendingRepairVerification > 0) risks.push('REPAIR_DONE_AWAITING_FRESH_VERIFICATION');
   if (currentUnresolved > 0 && pressureRows.length > 0) risks.push('CURRENT_UNRESOLVED_OWNER_DISTRIBUTION_UNPRICED');
   if (ownerDemandUnpriced) risks.push('VERIFICATION_OWNER_SPEED_UNCALIBRATED');
   if (referenceBand && questions > 0) risks.push('FRESH_VERIFICATION_TIMING_NOT_OBSERVED');
@@ -976,12 +980,14 @@ function verificationForecast(progress, questionsComponent, repairComponent) {
     required_for_score_formation: true,
     status: questions === 0 ? 'NO_REMAINING_DEMAND' : referenceBand ? 'PROVISIONAL_REFERENCE' : 'UNPRICED_REQUIRED',
     estimated_verification_questions: questions === null ? null : round(questions),
+    current_unresolved_wrong_uncertain: currentUnresolved,
+    pending_completed_repairs_awaiting_verification: pendingRepairVerification,
     timing_basis: questions === 0 ? 'NO_REMAINING_DEMAND' : ownerReferenceBand ? 'OWNER_FIRST_PASS_TIMING_REFERENCE' : legacyReference ? 'POOLED_FIRST_PASS_REFERENCE_ONLY' : 'UNPRICED',
     owner_rows: pricedRows,
     band_minutes: referenceBand,
     risks,
     evidence_boundary:
-      'Repair completion is not fresh verification. Verification demand follows unresolved/future Wrong-Uncertain evidence. Owner-specific first-pass timing may provide a clearly provisional workload reference, but it is not claimed as observed fresh-verification duration; pooled timing may not erase owner heterogeneity.'
+      'Repair completion is not fresh verification. Verification demand cannot fall below completed question-backed Repairs still awaiting a later changed-context/different-question or delayed-recall verification. Same-item correction never clears that debt. Owner-specific first-pass timing may provide a clearly provisional workload reference, but it is not claimed as observed fresh-verification duration.'
   };
 }
 

@@ -185,6 +185,7 @@ memory.repairTasks=[{
   id:'repair:forecast-real-u:1',
   systemId:system.systemId,
   blockId:currentBlock.blockId,
+  kpId:currentBlock.kpRows[0].kpId,
   sourceQuestionIds:[official.questionId],
   createdAt:'2026-09-19T01:05:00Z',
   completedAt:'2026-09-19T01:20:00Z',
@@ -265,6 +266,10 @@ assert.equal(progress.practice_evidence.fresh_transfer.observed_probes,1);
 assert.equal(progress.practice_evidence.fresh_transfer.stable,1);
 assert.equal(progress.repair_evidence.total_repair_clusters,1);
 assert.equal(progress.repair_evidence.completed_repair_clusters,1);
+assert.equal(progress.repair_evidence.completed_question_backed_clusters,1);
+assert.equal(progress.repair_evidence.verified_question_backed_clusters,1);
+assert.equal(progress.repair_evidence.pending_verification_question_backed_clusters,0);
+assert.equal(progress.repair_evidence.verification_rows[0]?.method,'FRESH_CHANGED_CONTEXT_TRANSFER');
 assert.equal(progress.repair_evidence.unique_source_question_ids,1);
 assert.equal(progress.memory_evidence.schema,'kianos.xizong.memory-forecast-evidence.v1');
 assert.equal(progress.memory_evidence.precision.cards,0);
@@ -286,6 +291,49 @@ assert.equal(progress.workload_forecast.components.questions.band_minutes,null,
 assert.ok(progress.workload_forecast.components.knowledge.remaining.blocks>=158);
 assert.ok(progress.workload_forecast.components.knowledge.risks.includes('UNPROJECTED_CANONICAL_SCOPE_RETAINED'));
 assert.match(progress.evidence_boundary,/stale\/unbound Source identity cannot reduce remaining workload/i);
+
+const sameQuestionStable={
+  ...officialEvent,
+  attempt_id:'forecast-real-u-same-item-2',
+  attempt_index:2,
+  study_phase:'SECOND_PASS',
+  round_id:'forecast-real-u-round-2',
+  status:'stable',
+  submitted_at:'2026-09-19T01:30:00Z'
+};
+const pendingEntries={...entries};
+pendingEntries['kianos:xizong:system-question-sweep:'+system.systemId+':v1']=JSON.stringify({
+  attemptHistory:[officialEvent,sameQuestionStable]
+});
+const pendingProgress=buildXizongForecastProgress(new Storage(pendingEntries),packetIndex,{
+  questionScope,canonicalScope,day:'2026-09-21',now:Date.parse('2026-09-21T08:00:00Z')
+});
+assert.equal(pendingProgress.practice_evidence.latest.unresolved_wrong_uncertain_questions,0,
+  'same-item correction may clear latest question status but must not prove repaired capability');
+assert.equal(pendingProgress.repair_evidence.verified_question_backed_clusters,0);
+assert.equal(pendingProgress.repair_evidence.pending_verification_question_backed_clusters,1);
+assert.equal(pendingProgress.repair_evidence.verification_rows[0]?.status,'PENDING_VERIFICATION');
+assert.equal(pendingProgress.workload_forecast.components.verification.pending_completed_repairs_awaiting_verification,1);
+assert.ok(pendingProgress.workload_forecast.components.verification.risks.includes('REPAIR_DONE_AWAITING_FRESH_VERIFICATION'));
+assert.notEqual(pendingProgress.workload_forecast.components.verification.status,'NO_REMAINING_DEMAND');
+
+const delayedMemory=JSON.parse(JSON.stringify(memory));
+const delayedCardId='core:forecast-real-u:repair-verification';
+delayedMemory.cards[delayedCardId]={
+  id:delayedCardId,family:'CORE',blockId:currentBlock.blockId,systemId:system.systemId,
+  kpId:currentBlock.kpRows[0].kpId,title:'repair verification'
+};
+delayedMemory.evidence=[{
+  id:'memory:forecast-real-u:delayed',cardId:delayedCardId,family:'CORE',rating:'mastered',
+  origin:'CORE_MEMORY_RECALL',at:'2026-09-20T01:21:00Z'
+}];
+const delayedEntries={...pendingEntries,[XIZONG_MEMORY_STORAGE_KEY]:JSON.stringify(delayedMemory)};
+const delayedProgress=buildXizongForecastProgress(new Storage(delayedEntries),packetIndex,{
+  questionScope,canonicalScope,day:'2026-09-21',now:Date.parse('2026-09-21T08:00:00Z')
+});
+assert.equal(delayedProgress.repair_evidence.verified_question_backed_clusters,1);
+assert.equal(delayedProgress.repair_evidence.pending_verification_question_backed_clusters,0);
+assert.equal(delayedProgress.repair_evidence.verification_rows[0]?.method,'DELAYED_MEMORY_RECALL');
 
 const index=fs.readFileSync('src/pages/index.astro','utf8');
 const home=fs.readFileSync('src/components/ExamOrchestratorHome.astro','utf8');

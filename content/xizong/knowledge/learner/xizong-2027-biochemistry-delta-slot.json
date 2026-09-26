@@ -517,6 +517,33 @@
           "stored_aggregate_receipt": false
         }
       }
+    },
+    "repair_verification_closeout_2026_09_26": {
+      "status": "PASS_CLOSED",
+      "capability": "X7_REPAIR_VERIFICATION",
+      "rule": "Repair DONE records completion of the bounded repair action only. It cannot authorize stable/secure. Question-backed repair remains PENDING_VERIFICATION until later fresh changed-context/different-question evidence or delayed mastered Memory recall satisfies the verification gate; same-item correction is insufficient.",
+      "accepted_verification_evidence": [
+        "stable changed-context AI transfer with fresh_transfer_eligible=true, changed_dimensions present, and the repaired KP targeted",
+        "stable first attempt on a different official question whose Current reviewed relation targets the same Block/KP",
+        "mastered Memory recall on the repaired Block/KP delayed by at least the known-recheck window"
+      ],
+      "fail_closed": [
+        "same source question re-attempt does not verify the repaired capability even when answered stable",
+        "Repair completion creates no Memory/mastery evidence",
+        "completed question-backed repairs awaiting verification keep SECOND_PASS_FRESH_VERIFICATION demand nonzero/unpriced rather than allowing NO_REMAINING_DEMAND"
+      ],
+      "runtime_owners": [
+        "static-web/src/lib/xizongStudyPacket.mjs",
+        "static-web/src/lib/xizongForecastModel.mjs",
+        "static-web/src/lib/xizongMemoryModel.mjs",
+        "static-web/src/components/XizongMemoryWorkspace.astro"
+      ],
+      "validation": [
+        "static-web/scripts/test-xizong-forecast-real-u-adapter.mjs",
+        "static-web/scripts/test-xizong-b-runtime-journey.mjs",
+        "static-web/scripts/validate-xizong-memory-retention.mjs"
+      ],
+      "boundary": "Engineering proves evidence gating only. Real learner U remains private Human evidence and is not manufactured by repository closeout."
     }
   },
   "delta_review": {

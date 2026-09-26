@@ -20,6 +20,7 @@ import {
 } from './studyTimer.mjs';
 import {
   XIZONG_MEMORY_STORAGE_KEY,
+  XIZONG_KNOWN_RECHECK_DAYS,
   normalizeXizongMemoryState,
   memorySummary,
   memoryFamilySummary,
@@ -565,6 +566,89 @@ function summarizeXizongForecastPractice(storage, {
   };
 }
 
+function repairVerificationForTask(storage, memory, task) {
+  if (String(task?.status || '') !== 'DONE') {
+    return { status:'ACTIVE_REPAIR', method:null, evidence_id:null, verified_at:null };
+  }
+  const sourceQuestionIds = new Set(
+    (Array.isArray(task?.sourceQuestionIds) ? task.sourceQuestionIds : [])
+      .map(String).filter((id) => /^xizong-official-\d{4}-n\d{3}$/.test(id))
+  );
+  if (!sourceQuestionIds.size) {
+    return { status:'NOT_REQUIRED_NON_QUESTION_BACKED', method:null, evidence_id:null, verified_at:null };
+  }
+  const completedAtMs = Date.parse(String(task?.completedAt || ''));
+  const kpId = String(task?.kpId || '');
+  const blockId = String(task?.blockId || '');
+  if (!Number.isFinite(completedAtMs) || !kpId || !blockId) {
+    return { status:'PENDING_VERIFICATION', method:null, evidence_id:null, verified_at:null };
+  }
+
+  const sweepKeys = listStorageKeys(storage)
+    .filter((key) => /^kianos:xizong:(?:system|chat-set|retained|paper)-question-sweep:.*:v1$/.test(key));
+  for (const key of sweepKeys) {
+    const state = readJson(storage, key, null);
+    if (!record(state)) continue;
+    const revisions = record(state.questionSemanticRevisions) ? state.questionSemanticRevisions : {};
+    for (const event of Array.isArray(state.attemptHistory) ? state.attemptHistory : []) {
+      const at = Date.parse(String(event?.submitted_at || ''));
+      if (!Number.isFinite(at) || at <= completedAtMs || String(event?.status || '') !== 'stable') continue;
+      const questionId = String(event?.question_id || '');
+      if (String(event?.question_source || '') === 'AI_TRANSFER_PROBE') {
+        const targets = new Set((Array.isArray(event?.target_kp_ids) ? event.target_kp_ids : []).map(String));
+        const changed = Array.isArray(event?.changed_dimensions) && event.changed_dimensions.length > 0;
+        if (event?.fresh_transfer_eligible === true && changed && targets.has(kpId)) {
+          return {
+            status:'VERIFIED',
+            method:'FRESH_CHANGED_CONTEXT_TRANSFER',
+            evidence_id:String(event?.attempt_id || questionId),
+            verified_at:new Date(at).toISOString()
+          };
+        }
+        continue;
+      }
+      if (!/^xizong-official-\d{4}-n\d{3}$/.test(questionId)) continue;
+      if (sourceQuestionIds.has(questionId) || Number(event?.attempt_index || 0) !== 1) continue;
+      if (Object.keys(revisions).length && !isXizongQuestionAttemptCurrent(event, revisions)) continue;
+      const relation = event?.reviewed_relation || {};
+      const relationKps = new Set([
+        relation?.primary_canonical_kp_id,
+        relation?.primary_runtime_kp_id,
+        ...(Array.isArray(relation?.supporting_canonical_kp_ids) ? relation.supporting_canonical_kp_ids : []),
+        ...(Array.isArray(relation?.supporting_runtime_kp_ids) ? relation.supporting_runtime_kp_ids : [])
+      ].map(String).filter(Boolean));
+      if (String(relation?.block_id || '') === blockId && relationKps.has(kpId)) {
+        return {
+          status:'VERIFIED',
+          method:'FRESH_OFFICIAL_QUESTION',
+          evidence_id:String(event?.attempt_id || questionId),
+          verified_at:new Date(at).toISOString()
+        };
+      }
+    }
+  }
+
+  const matchingCardIds = new Set(
+    Object.values(memory?.cards || {})
+      .filter((card) => String(card?.kpId || '') === kpId && String(card?.blockId || '') === blockId)
+      .map((card) => String(card?.id || '')).filter(Boolean)
+  );
+  const delayedAt = completedAtMs + XIZONG_KNOWN_RECHECK_DAYS * 86400000;
+  for (const event of Array.isArray(memory?.evidence) ? memory.evidence : []) {
+    const at = Date.parse(String(event?.at || ''));
+    if (!matchingCardIds.has(String(event?.cardId || '')) || String(event?.rating || '') !== 'mastered') continue;
+    if (!Number.isFinite(at) || at < delayedAt) continue;
+    return {
+      status:'VERIFIED',
+      method:'DELAYED_MEMORY_RECALL',
+      evidence_id:String(event?.id || ''),
+      verified_at:new Date(at).toISOString()
+    };
+  }
+
+  return { status:'PENDING_VERIFICATION', method:null, evidence_id:null, verified_at:null };
+}
+
 function summarizeXizongForecastRepairs(storage, systemRows = []) {
   const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
   const allRepairs = Array.isArray(memory.repairTasks) ? memory.repairTasks : [];
@@ -586,6 +670,8 @@ function summarizeXizongForecastRepairs(storage, systemRows = []) {
         question_backed_clusters: 0,
         active_question_backed_clusters: 0,
         completed_question_backed_clusters: 0,
+        verified_question_backed_clusters: 0,
+        pending_verification_question_backed_clusters: 0,
         source_question_ids: new Set()
       });
     }
@@ -596,6 +682,9 @@ function summarizeXizongForecastRepairs(storage, systemRows = []) {
   let activeQuestionBackedClusters = 0;
   let completedClusters = 0;
   let completedQuestionBackedClusters = 0;
+  let verifiedQuestionBackedClusters = 0;
+  let pendingVerificationQuestionBackedClusters = 0;
+  const verificationRows = [];
   const calibrationSamples = [];
   for (const task of allRepairs) {
     const ids = Array.isArray(task?.sourceQuestionIds) ? task.sourceQuestionIds.map(String).filter(Boolean) : [];
@@ -615,6 +704,27 @@ function summarizeXizongForecastRepairs(storage, systemRows = []) {
     if (done) {
       completedQuestionBackedClusters += 1;
       bucket.completed_question_backed_clusters += 1;
+      const verification = repairVerificationForTask(storage, memory, task);
+      if (verification.status === 'VERIFIED') {
+        verifiedQuestionBackedClusters += 1;
+        bucket.verified_question_backed_clusters += 1;
+      } else {
+        pendingVerificationQuestionBackedClusters += 1;
+        bucket.pending_verification_question_backed_clusters += 1;
+      }
+      verificationRows.push({
+        repair_id:String(task?.id || ''),
+        canonical_id:canonicalId,
+        block_id:String(task?.blockId || ''),
+        kp_id:String(task?.kpId || ''),
+        diagnostic_axis:String(task?.diagnosticAxis || ''),
+        status:verification.status,
+        method:verification.method,
+        evidence_id:verification.evidence_id,
+        verified_at:verification.verified_at,
+        completed_at:String(task?.completedAt || '') || null,
+        source_question_ids:officialIds
+      });
     } else {
       activeQuestionBackedClusters += 1;
       bucket.active_question_backed_clusters += 1;
@@ -654,6 +764,8 @@ function summarizeXizongForecastRepairs(storage, systemRows = []) {
       question_backed_clusters: row.question_backed_clusters,
       active_question_backed_clusters: row.active_question_backed_clusters,
       completed_question_backed_clusters: row.completed_question_backed_clusters,
+      verified_question_backed_clusters: row.verified_question_backed_clusters,
+      pending_verification_question_backed_clusters: row.pending_verification_question_backed_clusters,
       unique_source_question_ids: row.source_question_ids.size,
       observed_question_to_cluster_ratio:
         row.question_backed_clusters > 0
@@ -669,14 +781,17 @@ function summarizeXizongForecastRepairs(storage, systemRows = []) {
     active_question_backed_clusters: activeQuestionBackedClusters,
     completed_repair_clusters: completedClusters,
     completed_question_backed_clusters: completedQuestionBackedClusters,
+    verified_question_backed_clusters: verifiedQuestionBackedClusters,
+    pending_verification_question_backed_clusters: pendingVerificationQuestionBackedClusters,
     question_backed_clusters: questionBackedClusters,
     unique_source_question_ids: sourceQuestionIds.size,
     observed_question_to_cluster_ratio:
       questionBackedClusters > 0 ? Number((sourceQuestionIds.size / questionBackedClusters).toFixed(3)) : null,
     by_system: bySystem,
+    verification_rows: verificationRows,
     calibration_samples: calibrationSamples,
     evidence_boundary:
-      'Repair lifecycle is subject-owned. Official-question compression ratios use official question ids only; AI probes and non-official sources cannot reduce predicted official W/U workload. Compression is exposed by System so an easy/familiar System cannot silently price later-System Repair. DONE still requires later fresh verification. Block-route timer observed across a Repair lifetime window is explicitly mixed timing and must not be treated as exclusive Repair duration. When Repair is entered through the existing Repair workspace/query context, the shared Study Timer records repair/<task_id> and that tagged duration is the only exclusive Repair-time calibration.'
+      'Repair lifecycle is subject-owned. DONE means the repair action finished; it never proves stability. Question-backed DONE clears only after a later changed-context transfer, a different first-seen official question bound to the same reviewed Block/KP, or mastered Memory recall delayed by at least the known-recheck window. Same-item correction is never fresh verification. Official-question compression ratios use official question ids only; AI probes and non-official sources cannot reduce predicted official W/U workload.'
   };
 }
 

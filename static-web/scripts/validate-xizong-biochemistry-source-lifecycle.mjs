@@ -94,6 +94,13 @@ assert.equal(slot.schema,'kianos.xizong.biochemistry_source_revision.v2');
 assert.equal(slot.status,'CLOSED_CURRENT_AFTER_TRANSITIVE_SOURCE_REVISION_REVALIDATION');
 assert.deepEqual(slot.current_owner_boundary.canonical_blocks,blocks);
 assert.equal(slot.current_state.source_present,true);
+assert.equal(slot.current_state.repair_verification_closeout_2026_09_26?.status,'PASS_CLOSED',
+  'Biochemistry X7 Repair Verification closeout missing');
+assert.match(String(slot.current_state.repair_verification_closeout_2026_09_26?.rule||''),/same-item correction is insufficient/i,
+  'Biochemistry Repair closeout must fail closed on same-item correction');
+assert.ok((slot.current_state.repair_verification_closeout_2026_09_26?.validation||[])
+  .includes('static-web/scripts/test-xizong-forecast-real-u-adapter.mjs'),
+  'Biochemistry Repair verification regression owner missing');
 assert.equal(slot.current_state.current_year_delta_known,true);
 assert.match(String(slot.current_state.action_now),/REBASE_CLOSED|REACCEPTED/);
 assert.deepEqual(slot.current_state.deep_review?.remaining,[]);
