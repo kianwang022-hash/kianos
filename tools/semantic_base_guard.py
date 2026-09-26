@@ -31,6 +31,13 @@ MARKER_TEMPLATE = "<!-- kianos-semantic-base:{sha} -->"
 
 ROOT_AUTHORITY_EXCLUDE = {"root_work_cursor"}
 SCOPES = ("english", "xizong", "politics", "lexical")
+VISUAL_AUTHORITY_SUFFIXES = (
+    "_PRODUCT_BRIEF.MD",
+    "_DESIGN.MD",
+    "_VISUAL_LANGUAGE.MD",
+    "_UI_REVIEW_PROTOCOL.MD",
+    "_REPRESENTATION_GATE.MD",
+)
 
 
 def run(*args: str, check: bool = True) -> str:
@@ -289,6 +296,7 @@ def classify(
         reasons.append("ROOT_AUTHORITY_CHANGED")
         relevant_paths.update(root_hits)
 
+    caps = infer_capabilities(pr_changes)
     scopes = infer_scopes(pr_changes)
     for scope in scopes:
         lane_cursor = registry.get("scope_work_cursors", {}).get(scope)
@@ -309,7 +317,25 @@ def classify(
             reasons.append(f"{scope.upper()}_AUTHORITY_CHANGED")
             relevant_paths.update(lane_contract_hits)
 
-    caps = infer_capabilities(pr_changes)
+        if "visual_surface" in caps:
+            product_owner = registry.get("product_owners", {}).get(f"{scope}_product_brief")
+            scope_token = scope.upper()
+            visual_authority_hits = {
+                p
+                for p in main_changes
+                if (
+                    p == product_owner
+                    or (
+                        p.startswith("static-web/")
+                        and scope_token in Path(p).name.upper()
+                        and any(Path(p).name.upper().endswith(suffix) for suffix in VISUAL_AUTHORITY_SUFFIXES)
+                    )
+                )
+            }
+            if visual_authority_hits:
+                reasons.append(f"{scope.upper()}_VISUAL_AUTHORITY_CHANGED")
+                relevant_paths.update(visual_authority_hits)
+
     groups = shared_owner_groups(registry)
 
     def hit(group: str, condition: bool):
@@ -446,6 +472,24 @@ def self_test(registry: dict) -> None:
             {"content/politics/projection/sample.json"},
             False,
             "shared visual rule changes must not invalidate non-visual semantic work",
+        ),
+        (
+            {"static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md"},
+            {"static-web/src/styles/xizong-block-workspace.css"},
+            True,
+            "same-scope accepted design must invalidate visual implementation work",
+        ),
+        (
+            {"static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md"},
+            {"content/xizong/projection/sample.json"},
+            False,
+            "visual design changes must not invalidate non-visual same-scope content work",
+        ),
+        (
+            {"static-web/ENGLISH_PRODUCT_BRIEF.md"},
+            {"static-web/src/pages/english/index.astro"},
+            True,
+            "subject product owner must invalidate subject visual work",
         ),
         (
             {"content/politics/CURRENT.md"},
