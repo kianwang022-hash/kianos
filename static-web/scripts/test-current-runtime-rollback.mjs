@@ -90,6 +90,7 @@ try {
     cwd: mirror,
     env: {
       ...process.env,
+      KIANOS_SYNC_RUNTIME_SHA: git(mirror, 'rev-parse', 'HEAD'),
       KIANOS_PORT: String(port),
       KIANOS_NPM_BIN: npm,
       KIANOS_BUILD_NICE: '0',
@@ -240,6 +241,7 @@ try {
     cwd: firstMirror,
     env: {
       ...process.env,
+      KIANOS_SYNC_RUNTIME_SHA: git(firstMirror, 'rev-parse', 'HEAD'),
       KIANOS_PORT: String(firstPort),
       KIANOS_NPM_BIN: npm,
       KIANOS_BUILD_NICE: '0',

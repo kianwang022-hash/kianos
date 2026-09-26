@@ -182,6 +182,7 @@ exec "${realGit}" "$@"
         ...process.env,
         PATH: `${fixtureBin}:${process.env.PATH || ''}`,
         KIANOS_GIT_BIN: gitWrapper,
+        KIANOS_SYNC_RUNTIME_SHA: git(mirror, 'rev-parse', 'HEAD'),
         KIANOS_TEST_GIT_PRUNE_FAIL_ONCE: pruneFailureMarker,
         KIANOS_TEST_GIT_RESET_FAIL_ONCE: resetFailureMarker,
         KIANOS_PORT: String(port),

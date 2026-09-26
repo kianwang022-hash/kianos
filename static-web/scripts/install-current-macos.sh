@@ -91,8 +91,9 @@ cat > "$PLIST" <<EOF
   <string>$LABEL</string>
   <key>ProgramArguments</key>
   <array>
-    <string>$NODE_BIN</string>
-    <string>$SCRIPT</string>
+    <string>/bin/bash</string>
+    <string>-lc</string>
+    <string>cd "$MIRROR_DIR"; export KIANOS_SYNC_RUNTIME_SHA="\$("$GIT_BIN" rev-parse HEAD)"; exec "$NODE_BIN" "$SCRIPT"</string>
   </array>
   <key>WorkingDirectory</key>
   <string>$MIRROR_DIR</string>

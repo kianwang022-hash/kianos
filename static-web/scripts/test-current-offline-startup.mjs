@@ -22,7 +22,7 @@ try {
   fs.writeFileSync(path.join(release, 'static-web/scripts/kianos-static-server.mjs'), `import http from 'node:http';import fs from 'node:fs';import path from 'node:path';const r=process.argv[process.argv.indexOf('--root')+1];http.createServer((q,s)=>s.end(fs.readFileSync(path.join(r,q.url.startsWith('/__kianos-release')?'__kianos-current.json':'index.html')))).listen(+process.argv[process.argv.indexOf('--port')+1],'127.0.0.1');`);
   fs.symlinkSync(release, path.join(root, '.kianos-current-releases/active'));
   const fakeGit = path.join(root, 'git'); fs.writeFileSync(fakeGit, '#!/bin/sh\n[ "$1" = rev-parse ] && { echo lkg; exit 0; }\nsleep 3; exit 1\n'); fs.chmodSync(fakeGit, 0o755);
-  child = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], { cwd: mirror, env: { ...process.env, KIANOS_PORT: String(port), KIANOS_GIT_BIN: fakeGit, KIANOS_GIT_TIMEOUT_MS: '1000', KIANOS_SYNC_INTERVAL_MS: '5000' }, stdio: ['ignore', 'pipe', 'pipe'] });
+  child = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], { cwd: mirror, env: { ...process.env, KIANOS_SYNC_RUNTIME_SHA: 'lkg', KIANOS_PORT: String(port), KIANOS_GIT_BIN: fakeGit, KIANOS_GIT_TIMEOUT_MS: '1000', KIANOS_SYNC_INTERVAL_MS: '5000' }, stdio: ['ignore', 'pipe', 'pipe'] });
   child.stdout.on('data', x => { logs += x; }); child.stderr.on('data', x => { logs += x; });
   const deadline = Date.now() + 3000;
   while (true) {

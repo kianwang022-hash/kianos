@@ -60,7 +60,7 @@ let lastKnownSha = '';
 let lastTargetSha = '';
 let lastSyncHealthy = true;
 let activeReleaseRoot = null;
-let syncRuntimeLoadedSha = '';
+let syncRuntimeLoadedSha = String(process.env.KIANOS_SYNC_RUNTIME_SHA || '').trim();
 let syncRuntimeCheckedTargetSha = '';
 let syncRuntimeCheckedChanged = false;
 
@@ -499,7 +499,6 @@ async function syncOnce({ initial = false } = {}) {
     releaseLock = await acquireDeliveryLock(releases.lock);
     const local = await git(['rev-parse', 'HEAD']);
     lastKnownSha = local;
-    if (!syncRuntimeLoadedSha) syncRuntimeLoadedSha = local;
     const priorControlStatus = readControlStatus();
     writeStatus('checking', local);
 
@@ -681,6 +680,11 @@ if (!fs.existsSync(markerPath) && process.env.KIANOS_ALLOW_UNSAFE_SYNC !== '1') 
   process.exit(2);
 }
 
+if (!oneShot && !syncRuntimeLoadedSha) {
+  warn('Missing KIANOS_SYNC_RUNTIME_SHA; start Current through the installed LaunchAgent or npm run current:serve.');
+  process.exit(2);
+}
+
 recoverStaticDirectories();
 if (fs.existsSync(releases.active)) activeReleaseRoot = fs.realpathSync(releases.active);
 process.on('SIGINT', () => void shutdown('SIGINT'));
@@ -688,7 +692,6 @@ process.on('SIGTERM', () => void shutdown('SIGTERM'));
 
 try {
   lastKnownSha = await git(['rev-parse', 'HEAD']);
-  syncRuntimeLoadedSha = lastKnownSha;
 } catch {}
 writeStatus('starting', lastKnownSha);
 if (!oneShot) try { startSite(); } catch (error) {
