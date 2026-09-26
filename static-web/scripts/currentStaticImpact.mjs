@@ -29,13 +29,23 @@ function normalizePath(value) {
   return String(value || '').trim().replace(/^\.\//, '');
 }
 
+function isTestOnlyStaticScript(file) {
+  return /^static-web\/scripts\/test-[^/]+\.mjs$/.test(file);
+}
+
 // The server retains imported modules in memory. Shared browser/server helpers
 // must move with the published site, even when no bridge entrypoint changed.
+// Test-only scripts never run in the learner runtime and must not force a
+// production reload merely because engineering proof changed.
 export function requiresStaticRuntimeReload(changedPaths = []) {
   return changedPaths.some((value) => {
     const file = normalizePath(value);
     return file.startsWith('static-web/src/lib/')
-      || (file.startsWith('static-web/scripts/') && file.endsWith('.mjs'));
+      || (
+        file.startsWith('static-web/scripts/')
+        && file.endsWith('.mjs')
+        && !isTestOnlyStaticScript(file)
+      );
   });
 }
 
