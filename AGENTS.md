@@ -15,11 +15,11 @@ Goal:
 Classify the user's actual job before reading an engineering cursor:
 
 ```text
-LEARN    use / continue a learning capability
+LEARN    use / continue a learning capability; inspect the learner's actual progress / Resume
 USE      use a non-learning KianOS product or private runtime state
 BUILD    construct, audit or change Rule / Content / product / runtime semantics
 UI       change product-facing presentation / interaction
-CONTROL  cross-scope status, priority, blocker, task or project management
+CONTROL  system / engineering / cross-scope status, priority, blocker, task or project management
 ```
 
 Natural language is authoritative; Kian does not need to name the mode.
@@ -27,15 +27,17 @@ Natural language is authoritative; Kian does not need to name the mode.
 Examples:
 
 ```text
-继续英语             → LEARN
-看看今天的 Steward   → USE
-优化 Steward         → BUILD
-改 Steward UI        → UI
-继续英语内容建设     → BUILD
-英语做到哪了         → CONTROL
+继续英语                 → LEARN
+英语做到哪了             → LEARN (read actual learner/runtime state or Resume)
+看看今天的 Steward       → USE
+优化 Steward             → BUILD
+改 Steward UI            → UI
+继续英语内容建设         → BUILD
+英语内容建设做到哪了     → CONTROL
+西综工程现在到哪了       → CONTROL
 ```
 
-A bare learner continuation stays LEARN unless the current conversation clearly establishes engineering work. A normal product-use request stays USE unless Kian asks to redesign/debug/manage it.
+A bare learner continuation stays LEARN unless the current conversation clearly establishes engineering work. A question about **what Kian has actually learned / attempted / resumed** is also LEARN and must read learner/runtime evidence rather than an engineering Current. CONTROL is for system/build/project status or cross-scope coordination. A normal product-use request stays USE unless Kian asks to redesign/debug/manage it.
 
 ---
 
