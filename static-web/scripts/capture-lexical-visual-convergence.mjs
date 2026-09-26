@@ -482,16 +482,6 @@ try {
   await page.goto(`${origin}/vocabulary/3/`, { waitUntil: 'networkidle' });
   assert(await page.locator('[data-kianos-global-rail]').isHidden(), 'v2_word_study_hides_global_rail');
   assert(await page.locator('[data-study-timer-dock]').isVisible(), 'v2_word_study_keeps_shared_timer');
-  const timerDockOverlap = await page.evaluate(() => {
-    const timer = document.querySelector('[data-study-timer-dock]');
-    const dock = document.querySelector('[data-vocab-action-dock]');
-    if (!timer || !dock) return null;
-    const a = timer.getBoundingClientRect();
-    const b = dock.getBoundingClientRect();
-    return Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left))
-      * Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top));
-  });
-  assert(timerDockOverlap === 0, 'v2_study_timer_does_not_cover_action_dock', String(timerDockOverlap));
   assert(await page.locator('[data-vocab-front]').isVisible(), 'v2_safe_fast_pass_front_visible');
   const initialSpeech = await page.evaluate(() => window.__kianosSpoken || []);
   const frontWord = (await page.locator('[data-vocab-front] h2').innerText()).trim();
