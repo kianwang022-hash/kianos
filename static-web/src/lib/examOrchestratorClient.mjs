@@ -158,7 +158,9 @@ export function initExamHome(root) {
     }
     const planLabel = chatPlanState.status === 'ready'
       ? ''
-      : chatPlanState.status === 'stale' ? ' · 安排依据已变化' : ' · 今日安排待同步';
+      : chatPlanState.status === 'reference'
+        ? ' · 已采用安排 · 依据已变化'
+        : chatPlanState.status === 'stale' ? ' · 安排依据已变化' : ' · 今日安排待同步';
     node.textContent = `可用 ${formatMinutes(readModel.capacity.dayMinutes)} · 已学 ${formatMinutes(readModel.capacity.actualMinutes)}${taskLabel}${planLabel}`;
   };
   const error = (message) => {
