@@ -201,6 +201,22 @@ function cascadeDebt(value) {
   };
 }
 
+assert.equal(
+  cascadeDebt('.a { color: red; } .a { color: blue; }').extraDefinitions,
+  1,
+  'same-scope duplicate selector must count as cascade debt',
+);
+assert.equal(
+  cascadeDebt('.a { color: red; } @media (max-width: 700px) { .a { color: blue; } }').extraDefinitions,
+  0,
+  'responsive refinement must not count as same-scope cascade debt',
+);
+assert.equal(
+  cascadeDebt('.a { color: red; } .a.active { color: blue; }').extraDefinitions,
+  0,
+  'state refinement must not count as same-scope cascade debt',
+);
+
 function gitShow(ref, relativePath) {
   try {
     return execFileSync('git', ['show', `${ref}:${relativePath}`], {
