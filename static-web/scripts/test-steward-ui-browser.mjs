@@ -289,6 +289,12 @@ try {
     check(approvedShell.columnGap >= 13 && approvedShell.columnGap <= 15, 'approved_preview_today_card_gap', JSON.stringify(approvedShell));
     check(approvedShell.frameBorder === '0px', 'approved_preview_today_no_outer_box', JSON.stringify(approvedShell));
     check(parseFloat(approvedShell.leftRadius) >= 10 && parseFloat(approvedShell.mainRadius) >= 10 && parseFloat(approvedShell.rightRadius) >= 10, 'approved_preview_today_three_independent_cards', JSON.stringify(approvedShell));
+    const previewLeftRailFlow = await page.evaluate(() => {
+      const weight = document.querySelector('.stewardWeightSection')?.getBoundingClientRect();
+      const nav = document.querySelector('.stewardModeTabs')?.getBoundingClientRect();
+      return { gap: weight && nav ? nav.top - weight.bottom : 999 };
+    });
+    check(previewLeftRailFlow.gap >= 0 && previewLeftRailFlow.gap <= 24, 'approved_preview_mode_nav_follows_weight', JSON.stringify(previewLeftRailFlow));
 
     const dock = page.locator('[data-study-timer-dock]');
     await dock.waitFor({ state: 'visible' });
