@@ -30,7 +30,7 @@ MARKER_RE = re.compile(r"<!--\s*kianos-semantic-base:([0-9a-f]{40})\s*-->", re.I
 MARKER_TEMPLATE = "<!-- kianos-semantic-base:{sha} -->"
 
 ROOT_AUTHORITY_EXCLUDE = {"root_work_cursor"}
-SCOPES = ("english", "xizong", "politics", "lexical")
+SCOPES = ("english", "xizong", "politics", "lexical", "skills")
 VISUAL_AUTHORITY_SUFFIXES = (
     "_PRODUCT_BRIEF.MD",
     "_DESIGN.MD",
@@ -194,6 +194,8 @@ def infer_scopes(paths: Iterable[str]) -> set[str]:
                 scopes.add("politics")
             if "lexical" in low or "vocab" in low:
                 scopes.add("lexical")
+            if "skills" in low or "skill" in low:
+                scopes.add("skills")
     return scopes
 
 
@@ -496,6 +498,12 @@ def self_test(registry: dict) -> None:
             {"content/politics/projection/sample.json"},
             True,
             "scope Current must invalidate same-scope work",
+        ),
+        (
+            {"content/skills/CURRENT.md"},
+            {"static-web/src/styles/skills.css"},
+            True,
+            "registered Skills Current must invalidate Skills surface work",
         ),
         (
             {"static-web/src/lib/studyTimer.mjs"},
