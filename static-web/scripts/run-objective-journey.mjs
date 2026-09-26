@@ -30,8 +30,8 @@ if (!source.includes(target)) {
 }
 
 let instrumented = source.replace(target, replacement);
-const serverTarget = "const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {\n  cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe']\n});";
-const serverReplacement = "const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {\n  cwd: process.cwd(),\n  stdio: ['ignore', 'pipe', 'pipe'],\n  detached: process.platform !== 'win32'\n});";
+const serverTarget = "const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4490'], {\n  cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe']\n});";
+const serverReplacement = "const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4490'], {\n  cwd: process.cwd(),\n  stdio: ['ignore', 'pipe', 'pipe'],\n  detached: process.platform !== 'win32'\n});";
 const cleanupTarget = "} finally {\n  server.kill('SIGTERM');\n}";
 const cleanupReplacement = `} finally {
   if (process.platform !== 'win32' && server.pid) {
