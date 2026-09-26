@@ -32,6 +32,18 @@ def git(*args: str) -> str:
     return result.stdout.strip()
 
 
+def normalize_remote_refs(raw: str) -> list[str]:
+    refs: set[str] = set()
+    for line in raw.splitlines():
+        ref = line.strip()
+        if not ref or ref == "origin/HEAD":
+            continue
+        if ref.startswith("origin/"):
+            ref = ref[len("origin/"):]
+        refs.add(ref)
+    return sorted(refs)
+
+
 def workflow_safety_errors(raw: str) -> list[str]:
     required = {
         "OPEN_PR_FAIL_CLOSED_GUARD_MISSING": "branch_has_open_pr",
@@ -98,10 +110,14 @@ def main() -> int:
         ).split()
         ahead_origin_main = int(ahead_s)
         behind_origin_main = int(behind_s)
+        remote_refs = normalize_remote_refs(
+            git("for-each-ref", "--format=%(refname:short)", "refs/remotes/origin")
+        )
     except Exception:
         head = branch = origin_main = ""
         dirty = -1
         ahead_origin_main = behind_origin_main = -1
+        remote_refs = []
         errors.append("GIT_SNAPSHOT_UNAVAILABLE")
 
     audit_errors = [
