@@ -170,14 +170,24 @@ try {
 }
 
 const status = siteOk ? await readCurrentStatus() : null;
+let mirrorStatus = null;
+try { mirrorStatus = JSON.parse(fs.readFileSync(path.join(mirrorDir, 'static-web', 'public', '__kianos-current.json'), 'utf8')); } catch {}
 if (!status) {
   record('FAIL', 'Current sync status', 'status endpoint unavailable');
 } else if (status.state !== 'synced') {
-  record('FAIL', 'Current sync status', `state=${status.state}`);
-} else if (localSha && status.sha !== localSha) {
-  record('FAIL', 'Current sync status', `status SHA ${String(status.sha).slice(0, 12)} != mirror ${localSha.slice(0, 12)}`);
+  record('FAIL', 'Current sync status', `served state=${status.state}`);
 } else {
-  record('PASS', 'Current sync status', `synced · ${String(status.sha || '').slice(0, 12)}`);
+  const servedSha = String(status.sha || '');
+  const controlSha = String(mirrorStatus?.control_sha || mirrorStatus?.sha || '');
+  if (mirrorStatus?.state && mirrorStatus.state !== 'synced') {
+    record('FAIL', 'Current sync status', `control state=${mirrorStatus.state}`);
+  } else if (localSha && controlSha && controlSha !== localSha) {
+    record('FAIL', 'Current sync status', `control SHA ${controlSha.slice(0, 12)} != mirror ${localSha.slice(0, 12)}`);
+  } else if (mirrorStatus?.sha && servedSha && String(mirrorStatus.sha) !== servedSha) {
+    record('FAIL', 'Current sync status', `served SHA ${servedSha.slice(0, 12)} != control release ${String(mirrorStatus.sha).slice(0, 12)}`);
+  } else {
+    record('PASS', 'Current sync status', `synced · release ${servedSha.slice(0, 12)} · control ${(controlSha || localSha).slice(0, 12)}`);
+  }
 }
 
 if (siteOk) {
