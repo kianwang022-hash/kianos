@@ -106,6 +106,115 @@ async function firstBlockJourney(page) {
     'refresh_preserves_source_contact_identity');
 }
 
+async function biochemistrySourceLaneJourney(page) {
+  await clearXizong(page);
+  const system = loadXizongSystem(SYSTEM_ID);
+  const lane = system.biochemistryLane;
+  check(lane?.schema === 'kianos.xizong.biochemistry_source_lane_runtime.v1',
+    'bio_lane_runtime_view_present');
+  check(Array.isArray(lane?.units) && lane.units.length === 22,
+    'bio_lane_has_22_teacher_order_units', String(lane?.units?.length || 0));
+
+  await page.goto(`${BASE}/xizong/${SYSTEM_ID}/?view=biochemistry`, { waitUntil:'domcontentloaded' });
+  const laneView = page.locator('[data-system-view="biochemistry"]');
+  await laneView.waitFor({ state:'visible' });
+  check(await page.locator('[data-system-view-button="biochemistry"]').count() === 1,
+    'bio_lane_tab_visible');
+  check((await laneView.textContent() || '').includes('沿老师顺序连续学一次'),
+    'bio_lane_explains_single_continuous_source');
+  check((await laneView.textContent() || '').includes('物质—能量网络')
+      && (await laneView.textContent() || '').includes('信息生命周期'),
+    'bio_lane_keeps_two_mother_models_visible');
+
+  const firstUnit = laneView.locator('[data-biochemistry-unit-panel="BIO27-S01"]');
+  check(await firstUnit.isVisible(), 'bio_lane_starts_at_s01');
+  check((await firstUnit.textContent() || '').includes('M2'),
+    's01_projects_into_m2');
+  check(await laneView.locator('[data-biochemistry-unit-target="BIO27-S02"]').isDisabled(),
+    'future_source_unit_locked_until_current_contact');
+
+  await laneView.locator('[data-biochemistry-unit-complete]').click();
+  await page.waitForTimeout(100);
+  const ledgerKey = `kianos:xizong:biochemistry-source-lane:${SYSTEM_ID}:v1`;
+  const firstLedger = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), ledgerKey);
+  check(firstLedger?.history?.some((row) =>
+    row?.source_unit_id === 'BIO27-S01' && row?.source_hash === lane.sourceHash
+  ), 's01_contact_persisted_once_in_shared_lane');
+
+  await page.goto(`${BASE}/xizong/${SYSTEM_ID}/m02/`, { waitUntil:'domcontentloaded' });
+  const root = page.locator('[data-xizong-v6-block]');
+  await root.waitFor({ state:'visible' });
+  check(await root.getAttribute('data-source-contact-mode') === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT',
+    'm2_consumes_global_biochemistry_source_mode');
+
+  const m2Key = 'kianos-xizong-astro-v2:xizong:M2';
+  await page.waitForFunction((key) => {
+    const row=JSON.parse(localStorage.getItem(key)||'null');
+    return Object.values(row?.learned||{}).filter(Boolean).length >= 7;
+  }, m2Key);
+  let m2 = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), m2Key);
+  check(Object.values(m2?.learned || {}).filter(Boolean).length === 7,
+    's01_forms_exact_m2_primary_kps', String(Object.values(m2?.learned || {}).filter(Boolean).length));
+  check(m2?.sourceContactDone !== true,
+    's01_does_not_false_close_m2_before_s04');
+  check((m2?.sourceContactEvidence || []).some((row) =>
+    row?.source_unit_id === 'BIO27-S01'
+      && row?.coverage_kind === 'GLOBAL_BIOCHEMISTRY_SOURCE_UNIT'
+      && row?.lane_source_hash === lane.sourceHash
+  ), 'm2_keeps_exact_s01_source_witness');
+
+  await root.locator('[data-stage-next="logic_group"]').click();
+  await page.waitForTimeout(80);
+  check(await visibleStage(root) === 'kp_recall',
+    'formed_m2_first_group_releases_recall_without_block_source_reentry');
+
+  await page.goto(`${BASE}/xizong/${SYSTEM_ID}/?view=biochemistry`, { waitUntil:'domcontentloaded' });
+  const laneAgain = page.locator('[data-system-view="biochemistry"]');
+  await laneAgain.waitFor({ state:'visible' });
+  for (const id of ['BIO27-S02','BIO27-S03','BIO27-S04']) {
+    check(await laneAgain.locator(`[data-biochemistry-unit-panel="${id}"]`).isVisible(),
+      'bio_lane_advances_to_'+id.toLowerCase());
+    await laneAgain.locator('[data-biochemistry-unit-complete]').click();
+    await page.waitForTimeout(80);
+  }
+
+  await page.goto(`${BASE}/xizong/${SYSTEM_ID}/m02/`, { waitUntil:'domcontentloaded' });
+  await page.waitForFunction((key) => JSON.parse(localStorage.getItem(key)||'null')?.sourceContactDone === true, m2Key);
+  m2 = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), m2Key);
+  check(Object.values(m2?.learned || {}).filter(Boolean).length === 15,
+    's04_closure_forms_all_m2_kps');
+  check(m2?.sourceContactDone === true,
+    's04_releases_m2_source_closure');
+
+  const seeded = {};
+  for (const ref of system.blocks.filter((row) => ['M1','M2','M3','M4'].includes(row.blockId))) {
+    const block = loadXizongBlock(SYSTEM_ID, ref.slug);
+    const kpIds = block.kpRecords.map((kp) => kp.kpId);
+    seeded[block.blockId] = {
+      schema:'kianos.xizong.block-state.v2',
+      stage:'block_recall',
+      groupIndex:Math.max(0,block.logicGroups.length-1),
+      kpIndex:Math.max(0,block.kpRecords.length-1),
+      sourceContactDone:true,
+      learned:Object.fromEntries(kpIds.map((id)=>[id,true])),
+      ratings:Object.fromEntries(kpIds.map((id)=>[id,'known'])),
+      blockRecallDone:true,
+      completed:true,
+      completedAt:'2026-09-26T00:00:00.000Z'
+    };
+  }
+  await page.evaluate((rows) => {
+    for (const [blockId,state] of Object.entries(rows)) {
+      localStorage.setItem(`kianos-xizong-astro-v2:xizong:${blockId}`,JSON.stringify(state));
+    }
+  }, seeded);
+  await page.goto(`${BASE}/xizong/${SYSTEM_ID}/?view=biochemistry`, { waitUntil:'domcontentloaded' });
+  const reconstruction = page.locator('[data-biochemistry-reconstruction]');
+  await reconstruction.waitFor({ state:'visible' });
+  check((await reconstruction.textContent() || '').includes('阶段重构'),
+    'm1_m4_completion_releases_non_gating_metabolic_reconstruction');
+}
+
 async function systemRecallToPracticeJourney(page) {
   const system = loadXizongSystem(SYSTEM_ID);
   check(system.canonicalId === 'B', 'b_system_is_projectable');
@@ -476,6 +585,7 @@ try {
 
   await clearXizong(page);
   await firstBlockJourney(page);
+  await biochemistrySourceLaneJourney(page);
   await systemRecallToPracticeJourney(page);
 
   report.finished_at = new Date().toISOString();
