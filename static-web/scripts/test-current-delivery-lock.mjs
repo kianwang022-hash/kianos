@@ -3,7 +3,12 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { acquireDeliveryLock, isProcessAlive } from './currentRelease.mjs';
+import {
+  acquireDeliveryLock,
+  DEFAULT_CURRENT_SUBPROCESS_TIMEOUT_MS,
+  isProcessAlive,
+  resolveCurrentSubprocessTimeoutMs
+} from './currentRelease.mjs';
 
 const root = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-delivery-lock-'));
 const lock = path.join(root, 'delivery.lock');
@@ -12,6 +17,11 @@ const ownerFiles = () => fs.existsSync(held()) ? fs.readdirSync(held()) : [];
 const ownerPath = () => path.join(held(), ownerFiles()[0]);
 
 try {
+  assert.equal(DEFAULT_CURRENT_SUBPROCESS_TIMEOUT_MS, 300_000);
+  assert.equal(resolveCurrentSubprocessTimeoutMs({}), 300_000);
+  assert.equal(resolveCurrentSubprocessTimeoutMs({ KIANOS_SUBPROCESS_TIMEOUT_MS: '45000' }), 45_000);
+  assert.equal(resolveCurrentSubprocessTimeoutMs({ KIANOS_SUBPROCESS_TIMEOUT_MS: 'invalid' }), 300_000);
+
   const release = await acquireDeliveryLock(lock, { timeoutMs: 50 });
   assert.equal(fs.lstatSync(lock).isDirectory(), true);
   assert.equal(ownerFiles().length, 1);
@@ -57,7 +67,7 @@ try {
   fs.utimesSync(legacy, new Date(0), new Date(0));
   await assert.rejects(acquireDeliveryLock(legacy, { timeoutMs: 80, staleMs: 1 }), /CURRENT_DELIVERY_LOCK_TIMEOUT/);
 
-  console.log('CURRENT_DELIVERY_LOCK PASS: atomic lease, successor-safe release, live-owner precedence, legacy recovery');
+  console.log('CURRENT_DELIVERY_LOCK PASS: timeout policy, atomic lease, successor-safe release, live-owner precedence, legacy recovery');
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }
