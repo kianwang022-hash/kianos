@@ -651,6 +651,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
     });
     save();
     render();
+    if (!state.revealed) requestAnimationFrame(() => speak(defaultPronunciation()));
   };
 
   document.querySelectorAll('[data-local-port="vocabulary"]').forEach(initializeVocabularyRoot);
