@@ -99,6 +99,15 @@ body#kianos-workspace.uiEnglish .translationHeader nav span {
 
 /* Accepted geometry: source remains visible while the learner writes/reviews on the right. */
 body#kianos-workspace.uiEnglish .translationColumns {
+  grid-template-columns: minmax(0, .96fr) minmax(520px, 1.04fr);
+  gap: 0;
+  min-height: 640px;
+  height: calc(100dvh - 126px);
+  overflow: hidden;
+  border: 1px solid #dce2e8;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(32,46,61,.045);
   grid-template-columns: minmax(0,.96fr) minmax(520px,1.04fr);
   gap: 0;
   height: calc(100dvh - 166px);
@@ -112,6 +121,9 @@ body#kianos-workspace.uiEnglish .translationColumns {
 
 body#kianos-workspace.uiEnglish .translationSource,
 body#kianos-workspace.uiEnglish .translationWork {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   min-width: 0;
   min-height: 0;
   border: 0;
@@ -121,6 +133,8 @@ body#kianos-workspace.uiEnglish .translationWork {
 }
 
 body#kianos-workspace.uiEnglish .translationSource {
+  padding: 28px 34px 54px;
+  background: #fbfcfd;
   position: static;
   padding: 28px 40px 56px !important;
   overflow-y: auto;
@@ -221,6 +235,9 @@ body#kianos-workspace.uiEnglish .translationProvenance code {
 
 /* Right side is one productive workspace, not a stack of dashboard cards. */
 body#kianos-workspace.uiEnglish .translationWork {
+  overflow-y: auto;
+  border-left: 1px solid #e1e6eb;
+  background: #fff;
   display: block;
   overflow-y: auto;
   border-left: 1px solid #dfe4e7;
@@ -576,4 +593,34 @@ body#kianos-workspace.uiEnglish .translationHistory > small {
   body#kianos-workspace.uiEnglish .translationDecisionGrid button:first-child {
     border-top: 0;
   }
+}
+
+/*  Translation accepted convergence folded into this route-local visual owner.
+*/
+body#kianos-workspace.uiEnglish :is(.translationSourceBody>p,.translationSegment>p) {
+  color: #27313b;
+  font-family: var(--english-reading-font);
+  font-size: 18px;
+  line-height: 1.76;
+}
+body#kianos-workspace.uiEnglish .translationStage {
+  border-color: #e4e8ec;
+  border-radius: 10px;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish .translationStage>header h2 { color: #263747; font-weight: 650; }
+body#kianos-workspace.uiEnglish .translationAnswerCard textarea,
+body#kianos-workspace.uiEnglish .translationReturnBox textarea {
+  border-color: #dce3e9;
+  border-radius: 8px;
+  background: #fff;
+  color: #27333e;
+  font-family: var(--english-reading-font);
+  font-size: 17px;
+  line-height: 1.7;
+}
+body#kianos-workspace.uiEnglish .translationAnswerCard textarea:focus,
+body#kianos-workspace.uiEnglish .translationReturnBox textarea:focus {
+  border-color: #7e9eba;
+  outline: 3px solid rgba(79,122,162,.10);
 }

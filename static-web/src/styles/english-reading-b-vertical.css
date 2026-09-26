@@ -75,7 +75,7 @@ body#kianos-workspace.uiEnglish .readingBHeader aside strong {
 }
 
 /* Current product intentionally keeps directions out of the primary task chrome. */
-body#kianos-workspace.uiEnglish .readingBDirections {
+body#kianos-workspace.uiEnglish .readingBDirections { display: none !important;
   display: none !important;
 }
 
@@ -103,6 +103,9 @@ body#kianos-workspace.uiEnglish :is(.readingBMaterial, .readingBOrderingCandidat
 
 /* Matching-family source material. */
 body#kianos-workspace.uiEnglish .readingBMaterial {
+  padding: 26px 34px 56px;
+  border: 0;
+  background: #fff;
   position: static;
   max-height: none;
   padding: 28px 42px 64px !important;
@@ -149,7 +152,7 @@ body#kianos-workspace.uiEnglish .readingBMaterial [data-objective-material-block
 }
 
 /* Right workbench: candidate pool + complete map as one continuous object. */
-body#kianos-workspace.uiEnglish .readingBMap {
+body#kianos-workspace.uiEnglish .readingBMap { border-left: 1px solid #e1e6eb; background: #fff;
   display: grid;
   grid-template-rows: minmax(0, .9fr) minmax(0, 1.1fr) auto auto;
   gap: 0;
@@ -158,7 +161,7 @@ body#kianos-workspace.uiEnglish .readingBMap {
   border-left: 1px solid #dfe4e7;
 }
 
-body#kianos-workspace.uiEnglish .readingBCandidates {
+body#kianos-workspace.uiEnglish .readingBCandidates { border-color: #e6eaee; background: #fbfcfd;
   min-height: 0;
   padding: 18px 18px 0;
   overflow: hidden;
@@ -176,7 +179,7 @@ body#kianos-workspace.uiEnglish .readingBCandidates > div {
   scrollbar-gutter: stable;
 }
 
-body#kianos-workspace.uiEnglish .readingBCandidates p {
+body#kianos-workspace.uiEnglish .readingBCandidates p { border-color: #e7ebef; background: #fff;
   display: grid;
   grid-template-columns: 28px minmax(0, 1fr) auto;
   gap: 10px;
@@ -526,3 +529,31 @@ body#kianos-workspace.uiEnglish .readingBResult span {
     grid-column: 2;
   }
 }
+
+/*  Reading B accepted convergence folded into this route-local visual owner.
+*/
+body#kianos-workspace.uiEnglish :is(.readingBLayout,.readingBOrderingLayout) {
+  gap: 0;
+  min-height: 620px;
+  height: calc(100dvh - 126px);
+  overflow: hidden;
+  border: 1px solid #dce2e8;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(32,46,61,.045);
+}
+body#kianos-workspace.uiEnglish :is(.readingBMaterial,.readingBCandidates,.readingBMap) {
+  border-radius: 0;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish .readingBMaterial>p,
+body#kianos-workspace.uiEnglish .readingBMaterial [data-objective-material-block] {
+  color: #222d37;
+  font-family: var(--english-reading-font);
+  font-size: 18px;
+  line-height: 1.78;
+}
+/*  Reading B browser-acceptance correction folded into route-local owner.
+*/
+body#kianos-workspace.uiEnglish .productBrandCopy strong { color:#263746; }
+body#kianos-workspace.uiEnglish .productBrandCopy small { color:#8b97a3; }
