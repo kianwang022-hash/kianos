@@ -1,14 +1,17 @@
-name: Final Cross-subject Regression
+name: Exam OS Maturity Gate
 
 on:
   pull_request:
     paths:
       - '.github/workflows/final-cross-subject-regression.yml'
+      - 'tools/authority_consistency_audit.py'
+      - 'static-web/astro.config.mjs'
+      - 'static-web/package.json'
       - 'static-web/src/layouts/**'
       - 'static-web/src/styles/**'
       - 'static-web/src/pages/**'
-      - 'static-web/scripts/test-ui-css-ownership.mjs'
       - 'static-web/src/components/ExamOrchestratorHome.astro'
+      - 'static-web/src/components/StudyTimerDock.astro'
       - 'static-web/src/lib/dailyLearningPacket.mjs'
       - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
       - 'static-web/src/lib/examChatPlan.mjs'
@@ -17,26 +20,50 @@ on:
       - 'static-web/src/lib/privateCheckpointRuntime.mjs'
       - 'static-web/src/lib/privateLearnerCheckpoint.mjs'
       - 'static-web/src/lib/privateSubjectCheckpoints.mjs'
+      - 'static-web/src/lib/privateControlCommand.mjs'
+      - 'static-web/src/lib/privateControlRuntime.mjs'
+      - 'static-web/src/lib/sharedControlCheckpoint.mjs'
+      - 'static-web/src/lib/stewardReality.mjs'
+      - 'static-web/src/lib/stewardWorkspaceClient.mjs'
+      - 'static-web/src/lib/studyTimer.mjs'
       - 'static-web/src/lib/politicsChatReturn.mjs'
       - 'static-web/src/lib/politicsPracticeState.mjs'
-      - 'static-web/src/lib/studyTimer.mjs'
       - 'static-web/src/lib/xizongPrivateCheckpoint.mjs'
       - 'static-web/src/lib/xizongStudyPacket.mjs'
-      - 'static-web/src/pages/index.astro'
-      - 'static-web/src/pages/politics/review.astro'
+      - 'static-web/scripts/exam-os-maturity-matrix.json'
+      - 'static-web/scripts/test-exam-os-maturity-matrix.mjs'
+      - 'static-web/scripts/test-final-cross-subject-regression.mjs'
+      - 'static-web/scripts/test-steward-final-state.mjs'
+      - 'static-web/scripts/test-steward-final-browser.mjs'
+      - 'static-web/scripts/test-private-learner-checkpoint.mjs'
+      - 'static-web/scripts/test-private-daily-learning-packet.mjs'
+      - 'static-web/scripts/test-private-daily-learning-packet-relay.mjs'
+      - 'static-web/scripts/test-private-daily-learning-packet-bridge.mjs'
+      - 'static-web/scripts/test-shared-control-three-subjects.mjs'
+      - 'static-web/scripts/test-l1-continuation.mjs'
+      - 'static-web/scripts/test-study-timer.mjs'
+      - 'static-web/scripts/test-current-build-recovery.mjs'
+      - 'static-web/scripts/test-current-runtime-rollback.mjs'
+      - 'static-web/scripts/test-current-delivery-lock.mjs'
+      - 'static-web/scripts/test-current-delivery-concurrency.mjs'
       - 'static-web/scripts/privateLearnerBridge.mjs'
       - 'static-web/scripts/privateLearnerStore.mjs'
-      - 'static-web/scripts/test-exam-plan-read-model.mjs'
-      - 'static-web/scripts/test-final-cross-subject-regression.mjs'
-      - 'static-web/package.json'
+      - 'static-web/scripts/privateDailyLearningPacketRelay.mjs'
+      - 'static-web/scripts/privateDailyLearningPacketRelayWorker.mjs'
+      - 'static-web/scripts/currentRelease.mjs'
+      - 'static-web/scripts/kianos-current-sync.mjs'
+      - 'static-web/scripts/kianos-static-server.mjs'
   push:
     paths:
       - '.github/workflows/final-cross-subject-regression.yml'
+      - 'tools/authority_consistency_audit.py'
+      - 'static-web/astro.config.mjs'
+      - 'static-web/package.json'
       - 'static-web/src/layouts/**'
       - 'static-web/src/styles/**'
       - 'static-web/src/pages/**'
-      - 'static-web/scripts/test-ui-css-ownership.mjs'
       - 'static-web/src/components/ExamOrchestratorHome.astro'
+      - 'static-web/src/components/StudyTimerDock.astro'
       - 'static-web/src/lib/dailyLearningPacket.mjs'
       - 'static-web/src/lib/dailyLearningPacketRuntime.mjs'
       - 'static-web/src/lib/examChatPlan.mjs'
@@ -45,30 +72,51 @@ on:
       - 'static-web/src/lib/privateCheckpointRuntime.mjs'
       - 'static-web/src/lib/privateLearnerCheckpoint.mjs'
       - 'static-web/src/lib/privateSubjectCheckpoints.mjs'
+      - 'static-web/src/lib/privateControlCommand.mjs'
+      - 'static-web/src/lib/privateControlRuntime.mjs'
+      - 'static-web/src/lib/sharedControlCheckpoint.mjs'
+      - 'static-web/src/lib/stewardReality.mjs'
+      - 'static-web/src/lib/stewardWorkspaceClient.mjs'
+      - 'static-web/src/lib/studyTimer.mjs'
       - 'static-web/src/lib/politicsChatReturn.mjs'
       - 'static-web/src/lib/politicsPracticeState.mjs'
-      - 'static-web/src/lib/studyTimer.mjs'
       - 'static-web/src/lib/xizongPrivateCheckpoint.mjs'
       - 'static-web/src/lib/xizongStudyPacket.mjs'
-      - 'static-web/src/pages/index.astro'
-      - 'static-web/src/pages/politics/review.astro'
+      - 'static-web/scripts/exam-os-maturity-matrix.json'
+      - 'static-web/scripts/test-exam-os-maturity-matrix.mjs'
+      - 'static-web/scripts/test-final-cross-subject-regression.mjs'
+      - 'static-web/scripts/test-steward-final-state.mjs'
+      - 'static-web/scripts/test-steward-final-browser.mjs'
+      - 'static-web/scripts/test-private-learner-checkpoint.mjs'
+      - 'static-web/scripts/test-private-daily-learning-packet.mjs'
+      - 'static-web/scripts/test-private-daily-learning-packet-relay.mjs'
+      - 'static-web/scripts/test-private-daily-learning-packet-bridge.mjs'
+      - 'static-web/scripts/test-shared-control-three-subjects.mjs'
+      - 'static-web/scripts/test-l1-continuation.mjs'
+      - 'static-web/scripts/test-study-timer.mjs'
+      - 'static-web/scripts/test-current-build-recovery.mjs'
+      - 'static-web/scripts/test-current-runtime-rollback.mjs'
+      - 'static-web/scripts/test-current-delivery-lock.mjs'
+      - 'static-web/scripts/test-current-delivery-concurrency.mjs'
       - 'static-web/scripts/privateLearnerBridge.mjs'
       - 'static-web/scripts/privateLearnerStore.mjs'
-      - 'static-web/scripts/test-exam-plan-read-model.mjs'
-      - 'static-web/scripts/test-final-cross-subject-regression.mjs'
-      - 'static-web/package.json'
+      - 'static-web/scripts/privateDailyLearningPacketRelay.mjs'
+      - 'static-web/scripts/privateDailyLearningPacketRelayWorker.mjs'
+      - 'static-web/scripts/currentRelease.mjs'
+      - 'static-web/scripts/kianos-current-sync.mjs'
+      - 'static-web/scripts/kianos-static-server.mjs'
 
 permissions:
   contents: read
 
 concurrency:
-  group: final-cross-subject-${{ github.ref }}
+  group: exam-os-maturity-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  final-cross-subject:
+  exam-os-maturity:
     runs-on: ubuntu-latest
-    timeout-minutes: 16
+    timeout-minutes: 24
     env:
       KIANOS_CSS_BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before }}
     steps:
@@ -89,13 +137,15 @@ jobs:
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
-      - name: Run final cross-subject learner regression
+      - name: Run Exam OS maturity matrix
         working-directory: static-web
-        run: npm run test:final-cross-subject
-      - name: Save final regression evidence
+        run: npm run test:exam-os-maturity
+      - name: Save maturity evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: final-cross-subject-${{ github.sha }}
-          path: final-cross-subject-evidence/
+          name: exam-os-maturity-${{ github.sha }}
+          path: |
+            final-cross-subject-evidence/
+            static-web/.qa/exam-os-maturity/
           retention-days: 14
