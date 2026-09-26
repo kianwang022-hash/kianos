@@ -7,9 +7,32 @@
     {
       "batch_id": "depth-01",
       "runtime_page": "static-web/src/pages/lexical-validation.astro",
-      "ordinals": [1917, 1931, 1259, 1264, 1282, 314, 1670],
-      "words": ["fifteen", "fine", "deduct", "default", "delicate", "assure", "ensure"],
-      "purpose": ["simple L0 baseline", "familiar-new sense", "construction", "high-value phrase", "hidden sense", "confusable/semantic contrast"],
+      "ordinals": [
+        1917,
+        1931,
+        1259,
+        1264,
+        1282,
+        314,
+        1670
+      ],
+      "words": [
+        "fifteen",
+        "fine",
+        "deduct",
+        "default",
+        "delicate",
+        "assure",
+        "ensure"
+      ],
+      "purpose": [
+        "simple L0 baseline",
+        "familiar-new sense",
+        "construction",
+        "high-value phrase",
+        "hidden sense",
+        "confusable/semantic contrast"
+      ],
       "findings": [
         "Study previously failed to project verified secondary_senses; fine = 处以罚款 was valid Current content but invisible.",
         "Study previously failed to project hydrated confusables because it read semantic_neighbors only.",
@@ -29,8 +52,30 @@
     {
       "batch_id": "depth-02",
       "runtime_page": "static-web/src/pages/lexical-validation-02.astro",
-      "ordinals": [40, 70, 761, 1655, 1920, 2652, 2931, 3752, 4763, 4941],
-      "words": ["account", "address", "charge", "engage", "figure", "issue", "maintain", "present", "subject", "term"],
+      "ordinals": [
+        40,
+        70,
+        761,
+        1655,
+        1920,
+        2652,
+        2931,
+        3752,
+        4763,
+        4941
+      ],
+      "words": [
+        "account",
+        "address",
+        "charge",
+        "engage",
+        "figure",
+        "issue",
+        "maintain",
+        "present",
+        "subject",
+        "term"
+      ],
       "purpose": "high-frequency familiar-word depth scan",
       "findings": [
         "Many Current owners are already semantically deep; old display/projection was the larger problem. Do not manufacture semantic delta merely to make every audited word change.",
@@ -45,29 +90,47 @@
         "Depth Study now suppresses construction rows explicitly presentation-merged into a fixed-pattern collocation.",
         "Stable target locators preserve original collocation/construction indexes after projection filtering."
       ],
-      "semantic_repair_queue": [
+      "semantic_repair_queue": [],
+      "semantic_repair_resolution": [
         {
           "word_id": "word:subject",
-          "target": "subject to sth / be subject to sth",
-          "reason": "high-value constraint/risk pattern should be actively retrievable rather than visible only as an example"
+          "status": "RESOLVED_CURRENT_OWNER",
+          "result": "Added active be subject to sth learner construction on the existing adjective sense; no duplicate semantic branch."
         },
         {
           "word_id": "word:term",
-          "target": "come to terms with sth",
-          "reason": "high-value idiomatic phrase should be actively retrievable rather than visible only as an example"
+          "status": "ALREADY_RESOLVED_BEFORE_THIS_AUDIT_CLEANUP",
+          "result": "Current term owner already contains L1 come to terms with sth construction."
         },
         {
           "word_id": "word:maintain",
-          "target": "maintain that + clause",
-          "reason": "high-value academic-reading proposition pattern should be actively retrievable rather than visible only as an example"
+          "status": "RESOLVED_CURRENT_OWNER",
+          "result": "Added active maintain that + clause proposition construction on the existing stance sense."
         }
-      ]
+      ],
+      "semantic_repair_status": "CLOSED_2026_09_26"
     },
     {
       "batch_id": "depth-03",
       "runtime_page": "static-web/src/pages/lexical-validation-03.astro",
-      "ordinals": [432, 555, 822, 1495, 2185, 3301, 5489],
-      "words": ["bear", "bound", "claim", "draft", "grant", "observe", "yield"],
+      "ordinals": [
+        432,
+        555,
+        822,
+        1495,
+        2185,
+        3301,
+        5489
+      ],
+      "words": [
+        "bear",
+        "bound",
+        "claim",
+        "draft",
+        "grant",
+        "observe",
+        "yield"
+      ],
       "purpose": "familiar-new-sense and hidden-exam-use risk scan",
       "findings": [
         "bound is already a strong DIRECT_PASS owner: be bound to do, bound for, beyond the bounds of, and be bounded by are fixed learner patterns.",
@@ -79,33 +142,63 @@
         "draft is genuinely rich but also demonstrates a possible Recall Map overload risk: draft/sketch, bank draft, air current, draft beer, draft as write, and military draft all remain active. No deletion is justified without learner-use evidence, but this is a validation target for whether semantic richness exceeds scan value."
       ],
       "classification": {
-        "DIRECT_PASS": ["bound", "grant", "yield"],
-        "PROJECTION_ONLY": ["draft"],
-        "SEMANTIC_REPAIR_OR_REVIEW": ["bear", "claim", "observe"]
+        "DIRECT_PASS": [
+          "bound",
+          "grant",
+          "yield"
+        ],
+        "PROJECTION_ONLY": [
+          "draft"
+        ],
+        "SEMANTIC_REPAIR_OR_REVIEW": [
+          "bear",
+          "claim",
+          "observe"
+        ]
       },
-      "semantic_repair_queue": [
+      "semantic_repair_queue": [],
+      "semantic_repair_resolution": [
         {
           "word_id": "word:claim",
-          "target": "claim that + clause",
-          "reason": "high-value academic proposition pattern is currently only a usage example"
+          "status": "RESOLVED_CURRENT_OWNER",
+          "result": "Added active claim that + clause proposition construction on the existing assertion sense."
         },
         {
           "word_id": "word:bear",
-          "target": "word feel / mental model",
-          "reason": "current mental model merely repeats translations and does not compress the relation among carrying, enduring, supporting, producing, and related uses"
+          "status": "ALREADY_RESOLVED_BEFORE_THIS_AUDIT_CLEANUP",
+          "result": "Current Word Feel already compresses endurance/support/production and keeps noun animal/finance branches separate."
         },
         {
           "word_id": "word:observe",
-          "target": "word feel / mental model",
-          "reason": "current mental model merely repeats observe/notice and does not help compress watch, notice, comply with, commemorate, and remark uses"
+          "status": "RESOLVED_CURRENT_OWNER",
+          "result": "Improved Word Feel to connect watch/notice, obey, commemorate and remark without adding duplicate senses."
         }
-      ]
+      ],
+      "semantic_repair_status": "CLOSED_2026_09_26"
     },
     {
       "batch_id": "depth-04",
       "runtime_page": "static-web/src/pages/lexical-validation-04.astro",
-      "ordinals": [2352, 2991, 3257, 3954, 3969, 3993, 4666, 4675],
-      "words": ["hold", "mean", "note", "reach", "reason", "record", "stand", "state"],
+      "ordinals": [
+        2352,
+        2991,
+        3257,
+        3954,
+        3969,
+        3993,
+        4666,
+        4675
+      ],
+      "words": [
+        "hold",
+        "mean",
+        "note",
+        "reach",
+        "reason",
+        "record",
+        "stand",
+        "state"
+      ],
       "purpose": "abstract academic meaning and proposition-pattern scan",
       "findings": [
         "mean is a DIRECT_PASS academic-use owner: mean to do, mean that, be mean to, and the noun mean are already explicit; its deep secondary wrapper duplicates an active adjective sense and must remain suppressed from hidden +1.",
@@ -118,22 +211,35 @@
         "reach contains reach an agreement only as a usage example even though it is a high-value academic collocation; reach for/within reach/out of reach are already fixed."
       ],
       "classification": {
-        "DIRECT_PASS": ["mean", "note", "reason", "stand", "state"],
-        "PROJECTION_ONLY": ["record"],
-        "SEMANTIC_REPAIR_OR_REVIEW": ["hold", "reach"]
+        "DIRECT_PASS": [
+          "mean",
+          "note",
+          "reason",
+          "stand",
+          "state"
+        ],
+        "PROJECTION_ONLY": [
+          "record"
+        ],
+        "SEMANTIC_REPAIR_OR_REVIEW": [
+          "hold",
+          "reach"
+        ]
       },
-      "semantic_repair_queue": [
+      "semantic_repair_queue": [],
+      "semantic_repair_resolution": [
         {
           "word_id": "word:hold",
-          "target": "hold that + clause",
-          "reason": "high-value academic stance/proposition pattern should be actively retrievable rather than inferred from the generic opinion sense"
+          "status": "RESOLVED_CURRENT_OWNER",
+          "result": "Added active hold that + clause formal stance construction on the existing opinion/belief sense."
         },
         {
           "word_id": "word:reach",
-          "target": "reach an agreement",
-          "reason": "high-value academic collocation is currently only a usage example"
+          "status": "RESOLVED_CURRENT_OWNER",
+          "result": "Promoted existing reach an agreement collocation to fixed_pattern; no duplicate construction."
         }
-      ]
+      ],
+      "semantic_repair_status": "CLOSED_2026_09_26"
     }
   ]
 }
