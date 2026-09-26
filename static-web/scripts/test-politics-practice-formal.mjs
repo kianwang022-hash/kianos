@@ -123,7 +123,7 @@ try {
     pass(`formal storage transaction failure/reload/idempotent retry: ${key}`);await context.close();
   }
   for(const variant of ['missing','stale','unbound','incomplete']){
-    const {p,context}=await pageFor('/politics/practice/?question=X1000-MARX-S-001');await start(p);await p.route('**/practice-review/*.json',route=>{if(variant==='missing')return route.fulfill({status:404,body:'unavailable'});const r=practiceReviewPayload(catalog,ready[0].id);if(variant==='stale')r.revision='stale';if(variant==='unbound')r.unitKey='wrong';if(variant==='incomplete')r.chatExplanation='';return route.fulfill({contentType:'application/json',body:JSON.stringify(r)});});
+    const {p,context}=await pageFor('/politics/practice/?question=X1000-MARX-S-001');await start(p);await p.route('**/practice-review/*.json',route=>{if(variant==='missing')return route.fulfill({status:404,body:'unavailable'});const r=practiceReviewPayload(catalog,ready[0].id);if(variant==='stale'){if(r.taskRevision)r.taskRevision='stale';else r.revision='stale';}if(variant==='unbound')r.unitKey='wrong';if(variant==='incomplete')r.chatExplanation='';return route.fulfill({contentType:'application/json',body:JSON.stringify(r)});});
     await p.click('[data-option="A"]');await p.click('[data-submit]');await p.locator('[data-practice-error]').waitFor({state:'visible'});await clean(p);assert.equal(await read(p,K.attempts),null);assert.equal((await read(p,K.session)).pending,null);pass(`formal review ${variant} rejects submission without advancing`);await context.close();
   }
   {
