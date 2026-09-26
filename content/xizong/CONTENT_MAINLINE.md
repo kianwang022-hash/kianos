@@ -46,7 +46,7 @@ Real learner U remains private evidence and is never manufactured by this progra
 
 No bounded Xizong content-revalidation task is currently open.
 
-Biochemistry and Surgery Source-revision work route to their exact lifecycle owners if a **new authoritative Source, a fresh dependency-staleness defect, or real-use evidence** reopens the smallest responsible chain. Real-use Human validation is learner acceptance, not an active content-construction campaign.
+Biochemistry and Surgery Source-revision work route to their exact lifecycle owners if a **new authoritative Source, a fresh dependency-staleness defect, or real-use evidence** reopens the smallest responsible chain. Real-U from normal learner use is passive calibration evidence, not an active content-construction task and not a project-closure gate.
 
 ## Durable lanes
 
