@@ -18,12 +18,16 @@ on:
       - 'content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md'
       - 'content/xizong/MATURITY_PACKAGE.md'
       - 'static-web/src/lib/xizongStudyPacket.mjs'
+      - 'static-web/src/lib/xizongForecastModel.mjs'
+      - 'static-web/src/lib/xizongMemoryModel.mjs'
       - 'static-web/src/lib/xizong.mjs'
       - 'static-web/src/lib/xizongSemanticAdapter.mjs'
       - 'static-web/src/components/XizongSystemWorkspace.astro'
       - 'static-web/src/components/XizongBlockV6.astro'
       - 'static-web/scripts/xizongDependencyFreshness.mjs'
       - 'static-web/scripts/test-xizong-source-revision-transitive.mjs'
+      - 'static-web/scripts/test-xizong-forecast-real-u-adapter.mjs'
+      - 'static-web/scripts/validate-xizong-memory-retention.mjs'
       - 'content/xizong/explanations/**'
       - 'content/xizong/question-relations/**'
       - 'static-web/scripts/validate-xizong-b-knowledge.mjs'
@@ -45,12 +49,16 @@ on:
       - 'content/xizong/source-snapshots/27/生物化学讲义_AI阅读版_27跟课_UnifiedSource_v1.md'
       - 'content/xizong/MATURITY_PACKAGE.md'
       - 'static-web/src/lib/xizongStudyPacket.mjs'
+      - 'static-web/src/lib/xizongForecastModel.mjs'
+      - 'static-web/src/lib/xizongMemoryModel.mjs'
       - 'static-web/src/lib/xizong.mjs'
       - 'static-web/src/lib/xizongSemanticAdapter.mjs'
       - 'static-web/src/components/XizongSystemWorkspace.astro'
       - 'static-web/src/components/XizongBlockV6.astro'
       - 'static-web/scripts/xizongDependencyFreshness.mjs'
       - 'static-web/scripts/test-xizong-source-revision-transitive.mjs'
+      - 'static-web/scripts/test-xizong-forecast-real-u-adapter.mjs'
+      - 'static-web/scripts/validate-xizong-memory-retention.mjs'
       - 'content/xizong/explanations/**'
       - 'content/xizong/question-relations/**'
       - 'static-web/scripts/validate-xizong-b-knowledge.mjs'
@@ -73,3 +81,5 @@ jobs:
         run: |
           node scripts/validate-xizong-biochemistry-source-lifecycle.mjs
           node scripts/test-xizong-source-revision-transitive.mjs
+          node scripts/test-xizong-forecast-real-u-adapter.mjs
+          node scripts/validate-xizong-memory-retention.mjs
