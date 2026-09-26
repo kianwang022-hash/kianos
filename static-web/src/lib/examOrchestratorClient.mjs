@@ -177,7 +177,7 @@ export function initExamHome(root) {
       readable = false;
       error('本机学习上下文暂时读不完整；原记录未被改动。恢复存储后刷新，三科入口仍可使用。');
     }
-    chatPlanState = readExamChatPlan(localStorage, day());
+    chatPlanState = readExamChatPlanForDisplay(localStorage, day());
   }
 
   function persistProfile(next) {
