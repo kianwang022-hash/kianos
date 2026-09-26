@@ -64,7 +64,7 @@ Positive evidence:
 - legacy `4173` Politics Learn-mode Chinese UI is an accepted reference for full-bodied PingFang-based Chinese character and stronger active-state weight;
 - legacy `4173` lexical English treatment is a positive reference for editorial serif character;
 - Apple-like predictability and Raycast-like restraint are useful quality references, not clone targets;
-- Steward: Kian superseded the old 1cd55e preview on 2026-09-26. The reviewed v3 candidate uses a complete-day agenda, an emphasized current card, quiet conditional context, and dedicated Nutrition/Training editors. Preserve that composition and the native shared L1/Dock. Candidate sample data is never personal truth; final integrated Human acceptance remains open.
+- Steward: Kian superseded the old 1cd55e preview on 2026-09-26. The integrated V3 surface uses a complete-day agenda, an emphasized current card, quiet conditional context, dedicated Nutrition/Training editors, and the native shared L1/Dock. Kian explicitly accepted that integrated visual/interaction composition on 2026-09-26; its Human Gate is closed. Preserve the accepted composition unless a concrete defect or explicit new requirement reopens the smallest affected visual/product owner. Candidate sample data is never personal truth.
 
 Negative direction:
 
