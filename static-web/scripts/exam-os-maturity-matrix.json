@@ -123,6 +123,14 @@
         "node",
         "scripts/test-current-delivery-concurrency.mjs"
       ]
+    },
+    "current_static_runtime": {
+      "tier": "delivery",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-current-static-runtime.mjs"
+      ]
     }
   },
   "scenarios": [
@@ -220,6 +228,37 @@
       "proof_ids": [
         "steward_state",
         "l1_continuation"
+      ]
+    },
+    {
+      "id": "all_green_wrong_next_action_guard",
+      "description": "A healthy-looking shell without a current accepted plan must not invent a Next Action; exact adopted plan identity controls the visible next step.",
+      "proof_ids": [
+        "final_cross_subject"
+      ]
+    },
+    {
+      "id": "degraded_but_still_useful",
+      "description": "No plan or a broken Steward store must not erase native study/activity/history or turn safe degradation into user paralysis.",
+      "proof_ids": [
+        "steward_browser",
+        "l1_continuation"
+      ]
+    },
+    {
+      "id": "warm_runtime_latency_budget",
+      "description": "Core prebuilt Current surfaces remain responsive under the existing warm runtime budget while slot fallback/atomic continuity stays intact.",
+      "proof_ids": [
+        "current_static_runtime"
+      ]
+    },
+    {
+      "id": "partial_failure_does_not_poison_healthy_work",
+      "description": "Broken subject/Steward/runtime evidence degrades locally while healthy native subject evidence and learning remain usable.",
+      "proof_ids": [
+        "l1_continuation",
+        "steward_browser",
+        "packet_bridge"
       ]
     }
   ]
