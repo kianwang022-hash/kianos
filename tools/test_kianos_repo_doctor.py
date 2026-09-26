@@ -1,9 +1,13 @@
 import unittest
 
-from tools.kianos_repo_doctor import workflow_safety_errors
+from tools.kianos_repo_doctor import normalize_remote_refs, workflow_safety_errors
 
 
 class RepoDoctorHelpersTest(unittest.TestCase):
+    def test_remote_ref_normalization(self):
+        raw = "origin/HEAD\norigin/main\norigin/work/foo\norigin/work/foo\n"
+        self.assertEqual(normalize_remote_refs(raw), ["main", "work/foo"])
+
     def test_workflow_guard_requires_open_pr_and_exact_head(self):
         good = """
 branch_has_open_pr
