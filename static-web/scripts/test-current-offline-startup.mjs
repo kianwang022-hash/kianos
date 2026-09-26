@@ -24,8 +24,18 @@ try {
   const fakeGit = path.join(root, 'git'); fs.writeFileSync(fakeGit, '#!/bin/sh\n[ "$1" = rev-parse ] && { echo lkg; exit 0; }\nsleep 3; exit 1\n'); fs.chmodSync(fakeGit, 0o755);
   child = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], { cwd: mirror, env: { ...process.env, KIANOS_PORT: String(port), KIANOS_GIT_BIN: fakeGit, KIANOS_GIT_TIMEOUT_MS: '1000', KIANOS_SYNC_INTERVAL_MS: '5000' }, stdio: ['ignore', 'pipe', 'pipe'] });
   child.stdout.on('data', x => { logs += x; }); child.stderr.on('data', x => { logs += x; });
-  const deadline = Date.now() + 800;
-  while (true) { try { assert.match(await (await fetch(`http://127.0.0.1:${port}`)).text(), /LKG_READY/); break; } catch (e) { if (Date.now() > deadline) throw e; await new Promise(r => setTimeout(r, 25)); } }
+  const deadline = Date.now() + 3000;
+  while (true) {
+    try {
+      assert.match(await (await fetch(`http://127.0.0.1:${port}`)).text(), /LKG_READY/);
+      assert.doesNotMatch(logs, /sync\/build check failed/, 'LKG must be served before offline discovery degrades');
+      break;
+    } catch (e) {
+      if (/sync\/build check failed/.test(logs)) throw new Error('OFFLINE_DISCOVERY_DEGRADED_BEFORE_LKG_READY', { cause: e });
+      if (Date.now() > deadline) throw e;
+      await new Promise(r => setTimeout(r, 25));
+    }
+  }
   await new Promise(r => setTimeout(r, 1300));
   assert.equal(child.exitCode, null); assert.match(logs, /sync\/build check failed/);
   assert.equal(JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json'))).state, 'degraded');
