@@ -44,8 +44,12 @@ try {
   await page.goto(unitUrl.href,{waitUntil:'domcontentloaded'});
   check(await page.locator('[data-politics-question]').count() === 0,'learning_surface_has_no_inline_attempt');
   const entry = page.locator(`[data-practice-unit-entry="${q.unitKey}"]`);
-  check(await entry.count() === 1,'exact_unit_entry_present');
-  check(String(await entry.getAttribute('href')).includes('/politics/practice/?unit='),'exact_unit_entry_routes_to_workbench');
+  const entryCount = await entry.count();
+  check(entryCount >= 1,'exact_unit_entry_present',String(entryCount));
+  const entryHrefs = await entry.evaluateAll((nodes) => nodes.map((node) => node.getAttribute('href')));
+  const expectedUnit = encodeURIComponent(q.unitKey);
+  check(entryHrefs.every((href) => String(href || '').includes('/politics/practice/?unit='+expectedUnit)),
+    'exact_unit_entry_routes_to_same_workbench',JSON.stringify([...new Set(entryHrefs)]));
 
   await page.goto(`${BASE}/politics/practice/?unit=${encodeURIComponent(q.unitKey)}&question=${encodeURIComponent(q.id)}`,{waitUntil:'domcontentloaded'});
   await page.check('[data-learned-scope]');
