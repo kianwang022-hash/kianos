@@ -48,6 +48,10 @@ const bAcceptance=text('content/xizong/knowledge/systems/b-digestive-metabolic-e
 const snapshot=text(snapshotPath);
 const surgerySlot=text('content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json');
 const surgeryMap=text('content/xizong/knowledge/learner/surgery-27-source-map.json');
+const xizongLib=text('static-web/src/lib/xizong.mjs');
+const semanticAdapter=text('static-web/src/lib/xizongSemanticAdapter.mjs');
+const systemWorkspace=text('static-web/src/components/XizongSystemWorkspace.astro');
+const blockWorkspace=text('static-web/src/components/XizongBlockV6.astro');
 
 assert.equal(slot.schema,'kianos.xizong.biochemistry_source_revision.v2');
 assert.equal(slot.status,'CLOSED_CURRENT_AFTER_TRANSITIVE_SOURCE_REVISION_REVALIDATION');
@@ -314,6 +318,17 @@ assert.match(beginnerGuide,/JIT Prelude/,'B Beginner Guide lost just-in-time Pre
 assert.match(beginnerGuide,/老师现在讲到哪里[\s\S]*canonical Block 现在形成到哪里/,'B Beginner Guide lost Source-order vs canonical-formation distinction');
 assert.match(beginnerGuide,/26 生化精编[\s\S]*reconstruction substrate/,'B Beginner Guide lost 26 refined explanatory-substrate boundary');
 assert.match(beginnerGuide,/不形成第二套要再读一遍的生化课/,'B Beginner Guide must keep one-current-Source learner rule');
+assert.match(xizongLib,/biochemistry_source_lane_runtime\.v1/,'B System runtime lost derived Biochemistry Source-lane view');
+assert.match(xizongLib,/sourceMap\.source_units/,'B System runtime no longer resolves the single Current Source map');
+assert.match(semanticAdapter,/blockSupport\?\.source_contact/,'Semantic adapter must honor scoped Block Source-contact override');
+assert.match(semanticAdapter,/CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT/,'Semantic adapter lost global Biochemistry Source-lane mode');
+assert.match(semanticAdapter,/GLOBAL_BIOCHEMISTRY_SOURCE_UNIT/,'Semantic adapter lost exact BIO27 unit segments');
+assert.match(blockWorkspace,/kianos:xizong:biochemistry-source-lane:/,'Biochemistry Block runtime lost shared Source-unit evidence ledger');
+assert.match(blockWorkspace,/GLOBAL_BIOCHEMISTRY_SOURCE_UNIT/,'Biochemistry Block runtime lost shared Source evidence propagation');
+assert.match(blockWorkspace,/回到 27 生化跟课/,'Biochemistry Block runtime must return to the continuous Source lane instead of duplicating Lecture');
+assert.match(systemWorkspace,/data-system-view-button="biochemistry"/,'B System workspace lost learner-visible 27 Biochemistry lane');
+assert.match(systemWorkspace,/kianos\.xizong\.biochemistry-source-lane-state\.v1/,'B System workspace lost current Source-unit ledger');
+assert.match(systemWorkspace,/data-biochemistry-reconstruction/,'B System workspace lost accepted partial-system reconstruction consumer');
 
 assert.match(xizongCurrent,/27 Biochemistry lifecycle owner:/);
 assert.match(xizongCurrent,/xizong-2027-biochemistry-delta-slot\.json/);
