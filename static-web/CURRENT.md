@@ -8,7 +8,7 @@ Root [CURRENT](../CURRENT.md) owns cross-program routing. Product semantics, vis
 
 No broad Website construction or UI campaign is active.
 
-A bounded Steward correction is active under `kianwang022-hash/kian-personal-os#47`, on `work/steward-v3-final-20260926`. The directly executed candidate restores Kian's reviewed agenda/Now composition and fixes accepted-plan inspection, native Dock/return and persisted reality semantics in the existing owners. The previously shipped VNext is not acceptance evidence for this candidate; final integrated Human acceptance remains open. No Codex/background execution is implied by this cursor.
+The bounded Steward V3 correction is closed. The reviewed agenda/Now composition, native Dock/return, persisted reality semantics, duration-legible timeline, shared L1 styling and deterministic plan-authorized Nutrition top-ups are merged on `main`, accepted by Kian, and released through managed Current. Reopen Steward only for a concrete product/runtime/visual defect or an explicit new accepted requirement.
 
 The shared shell, subject surfaces, managed Current delivery, private checkpoint/control paths, Daily Learning Packet relay, External Reading runtime and Steward workspace are implementation surfaces on `main`.
 

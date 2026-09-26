@@ -1,11 +1,11 @@
 # Steward Product Contract
 
-Status: APPROVED PRODUCT REQUIREMENTS · V3 INTEGRATION CANDIDATE · HUMAN GATE OPEN
+Status: APPROVED PRODUCT REQUIREMENTS · V3 INTEGRATED · HUMAN GATE PASS
 Updated: 2026-09-26
 Semantic owner: KianOS Steward product interaction, reality-capture behavior and product acceptance boundary. It does not own Personal recovery meaning, cross-subject Chat judgment, native Health facts or learner truth.
 Reasoning upstream: `kianwang022-hash/kian-personal-os/exam/roles/STEWARD.md`; planning upstream: `kianwang022-hash/kian-personal-os/exam/CONTROL.md`; information upstream: `kianwang022-hash/kian-personal-os/exam/roles/INTAKE.md`.
 Surface split: `static-web/PRODUCT_SURFACE_CONTRACT.md`; current implementation/delivery truth: `static-web/CURRENT.md`.
-The existing `kianwang022-hash/kian-personal-os/runtime/steward-console/` remains a historical interaction/reference implementation. The integrated KianOS Steward surface and bounded Recovery reality delivery are implemented on `main`, but product acceptance remains open until the real Human Gate/journeys pass. Implementation presence is not Human acceptance.
+The existing `kianwang022-hash/kian-personal-os/runtime/steward-console/` remains a historical interaction/reference implementation. The integrated KianOS Steward surface and bounded Recovery reality delivery are implemented on `main`. Kian explicitly accepted the integrated Steward V3 visual/interaction candidate on 2026-09-26 after the final agenda, L1, right-rail and Nutrition polish, and then instructed direct closure. That Human Gate is therefore closed; automated proof and implementation presence alone were never treated as acceptance.
 
 ## 0. Purpose and scope
 
