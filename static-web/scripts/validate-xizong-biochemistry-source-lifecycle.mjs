@@ -11,6 +11,15 @@ const gitBlobSha=(p)=>{
   const b=fs.readFileSync(path.join(root,p));
   return crypto.createHash('sha1').update(Buffer.from('blob '+b.length+'\0')).update(b).digest('hex');
 };
+const stableJson=(value)=>{
+  if(Array.isArray(value)) return '['+value.map(stableJson).join(',')+']';
+  if(value&&typeof value==='object'){
+    return '{'+Object.keys(value).sort().map((key)=>JSON.stringify(key)+':'+stableJson(value[key])).join(',')+'}';
+  }
+  return JSON.stringify(value);
+};
+const semanticSha256=(value)=>crypto.createHash('sha256').update(stableJson(value)).digest('hex');
+const textSha256=(value)=>crypto.createHash('sha256').update(String(value)).digest('hex');
 const rowByQuestion=(p,qid)=>{
   const rows=read(p);
   if(!Array.isArray(rows)) throw new Error('QX_SHARD_NOT_ARRAY:'+p);
@@ -52,6 +61,38 @@ const xizongLib=text('static-web/src/lib/xizong.mjs');
 const semanticAdapter=text('static-web/src/lib/xizongSemanticAdapter.mjs');
 const systemWorkspace=text('static-web/src/components/XizongSystemWorkspace.astro');
 const blockWorkspace=text('static-web/src/components/XizongBlockV6.astro');
+
+const learningExecutionSignature=semanticSha256({
+  source:{
+    visible_name:sourceMap.source?.visible_name||'',
+    sha256:sourceMap.source?.sha256||'',
+    pages:sourceMap.source?.pages||null
+  },
+  source_units:(sourceMap.source_units||[]).map((unit)=>({
+    id:unit.id,
+    label:unit.label,
+    pdf:unit.pdf,
+    canonical_content:unit.canonical_content
+  })),
+  closure_checkpoints:sourceMap.block_source_closure_checkpoints||{},
+  architecture_rule:sourceMap.architecture_rule||{}
+});
+const guideOrientationSignature=semanticSha256({
+  source_name:sourceMap.source?.visible_name||'',
+  teacher_order:(sourceMap.source_units||[]).map((unit)=>({id:unit.id,label:unit.label})),
+  mother_models:system.mental_model?.biochemistry_two_mother_maps||null,
+  first_pass_lane:{
+    status:learning.biochemistry_first_pass_lane?.status||'',
+    source_map_owner:learning.biochemistry_first_pass_lane?.source_map_owner||'',
+    source_mapping_ownership:learning.biochemistry_first_pass_lane?.source_mapping_ownership||'',
+    minimal_prelude:learning.biochemistry_first_pass_lane?.minimal_prelude||null,
+    mental_models:learning.biochemistry_first_pass_lane?.mental_models||null,
+    cross_system_integration:learning.biochemistry_first_pass_lane?.cross_system_integration||null,
+    completion_boundary:learning.biochemistry_first_pass_lane?.completion_boundary||''
+  },
+  guide_binding:guideBindings.bindings?.[system.system_id]||null
+});
+const dependencyFreshness=slot.current_state?.dependency_freshness;
 
 assert.equal(slot.schema,'kianos.xizong.biochemistry_source_revision.v2');
 assert.equal(slot.status,'CLOSED_CURRENT_AFTER_TRANSITIVE_SOURCE_REVISION_REVALIDATION');
@@ -289,6 +330,31 @@ assert.match(g5Dsb.reasoning_chain.join(' '),/非同源末端连接/,'2023N25 lo
 
 assert.equal(slot.current_state.downstream_revalidation?.status,'CURRENT_FULL_TRANSITIVE_REVALIDATED');
 assert.equal(slot.current_state.downstream_revalidation?.evidence?.regression,'static-web/scripts/test-xizong-source-revision-transitive.mjs');
+
+assert.equal(dependencyFreshness?.schema,'kianos.xizong.biochemistry_dependency_freshness.v1','dependency freshness receipt missing');
+assert.equal(dependencyFreshness?.model,'UPSTREAM_SIGNATURE_TO_CONSUMER_RECEIPT','dependency freshness model drift');
+assert.equal(dependencyFreshness?.source_revision_sha256,sourceMap.source.sha256,'dependency freshness Source identity drift');
+assert.equal(dependencyFreshness?.consumers?.learning_owner?.path,learningPath,'Learning consumer path drift');
+assert.equal(dependencyFreshness?.consumers?.learning_owner?.receipt_sha256,learningExecutionSignature,'STALE_CONSUMER:LEARNING_OWNER');
+assert.equal(dependencyFreshness?.consumers?.beginner_guide?.path,beginnerGuidePath,'Guide consumer path drift');
+assert.equal(dependencyFreshness?.consumers?.beginner_guide?.receipt_sha256,guideOrientationSignature,'STALE_CONSUMER:BEGINNER_GUIDE');
+assert.equal(dependencyFreshness?.consumers?.runtime_source_lane?.mode,'DERIVED_LIVE_FROM_CURRENT_OWNER','runtime Source lane must stay derived');
+assert.equal(dependencyFreshness?.consumers?.question_relations_and_explanations?.mode,'PER_ITEM_KNOWLEDGE_WITNESS','Q/X freshness must stay per-item witnessed');
+assert.equal(dependencyFreshness?.consumers?.learner_evidence?.mode,'RUNTIME_SOURCE_HASH_INVALIDATION','learner evidence freshness must stay runtime Source-hash-bound');
+
+const {loadXizongSystem}=await import('../src/lib/xizong.mjs');
+const {loadXizongSemanticSystem}=await import('../src/lib/xizongSemanticAdapter.mjs');
+const runtimeB=loadXizongSystem(system.system_id);
+assert.equal(runtimeB.biochemistryLane?.sourceMapPath,sourceMapPath,'runtime B lane lost Current Source-map owner');
+assert.equal(runtimeB.biochemistryLane?.sourceMapHash,textSha256(text(sourceMapPath)),'runtime B lane Source-map hash drift');
+assert.equal(runtimeB.biochemistryLane?.sourceHash,sourceMap.source.sha256,'runtime B lane Source identity drift');
+assert.equal(runtimeB.biochemistryLane?.units?.length,22,'runtime B lane unit count drift');
+const semanticB=loadXizongSemanticSystem(system.system_id);
+for(const block of semanticB.blocks.filter((row)=>blocks.includes(String(row.blockId||'')))){
+  assert.equal(block.sourceContact?.mode,'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT',block.blockId+' semantic Source mode drift');
+  assert.equal(block.sourceContact?.sourceMapOwner,sourceMapPath,block.blockId+' semantic Source-map owner drift');
+  assert.equal(block.sourceContact?.sourceLaneHash,sourceMap.source.sha256,block.blockId+' semantic Source identity drift');
+}
 
 assert.equal(learning.biochemistry_first_pass_lane?.status,'CURRENT_27_REACCEPTED');
 assert.equal(learning.biochemistry_first_pass_lane?.source_map_status,'CURRENT_27_SOURCE_ROUTING_REACCEPTED');

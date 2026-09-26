@@ -481,6 +481,37 @@
         "validation": "PASS — validate-xizong-biochemistry-source-lifecycle.mjs on main@4a8d85dda",
         "live_surface": "PENDING_DELIVERY_READBACK"
       }
+    },
+    "dependency_freshness": {
+      "schema": "kianos.xizong.biochemistry_dependency_freshness.v1",
+      "model": "UPSTREAM_SIGNATURE_TO_CONSUMER_RECEIPT",
+      "source_revision_sha256": "17d991896f0edea0b2e1274fdee76862998a1f3bd0c4bad03155bf9e4b27ce1c",
+      "rule": "Reopen only consumers whose declared upstream semantic signature changed. Preserve unchanged consumers; do not full-rebuild for symmetry.",
+      "consumers": {
+        "learning_owner": {
+          "path": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
+          "depends_on": "current Source identity + Source-unit order/routing + closure checkpoints + Source-map architecture semantics",
+          "receipt_sha256": "9d015135a10e7462f6cb5e6e8fc39551919b01914b1634ab5df671b990a8873b"
+        },
+        "beginner_guide": {
+          "path": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-guide.md",
+          "depends_on": "teacher Source order + two mother models + first-pass/JIT/cross-System handoff semantics + Current Guide binding",
+          "receipt_sha256": "7110c2ebf4ea7daf817a6cc6957c4368cb25a833f7671760e6abc94c21494d7b"
+        },
+        "runtime_source_lane": {
+          "mode": "DERIVED_LIVE_FROM_CURRENT_OWNER",
+          "owner": "content/xizong/knowledge/learner/biochemistry-27-source-map.json",
+          "stored_receipt": false
+        },
+        "question_relations_and_explanations": {
+          "mode": "PER_ITEM_KNOWLEDGE_WITNESS",
+          "stored_aggregate_receipt": false
+        },
+        "learner_evidence": {
+          "mode": "RUNTIME_SOURCE_HASH_INVALIDATION",
+          "stored_aggregate_receipt": false
+        }
+      }
     }
   },
   "delta_review": {
