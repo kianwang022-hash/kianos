@@ -24,7 +24,7 @@ const resumeIndex = systems.map((system) => ({
 }));
 const systemIdentity = (system) => {
   const spine = Array.isArray(system?.mentalModel?.spine) ? system.mentalModel.spine : [];
-  return spine.slice(0, 3).join(' · ') || system.mission || '';
+  return spine.slice(0, 1).join(' · ') || system.mission || '';
 };
 ---
 
