@@ -351,6 +351,24 @@ def audit_browser_test_port_isolation() -> None:
         ",".join(offenders),
     )
 
+    astro_config = REPO / "static-web" / "astro.config.mjs"
+    check(astro_config.is_file(), "ASTRO_CONFIG_MISSING")
+    if astro_config.is_file():
+        astro_value = text(astro_config)
+        for token in (
+            "KIANOS_ASTRO_ALLOW_LIVE_PRIVATE",
+            "KIANOS_ASTRO_RUNTIME_ROOT",
+            "KIANOS_PRIVATE_DIR",
+            "KIANOS_CONTROL_DIR",
+            "KIANOS_CONTROL_REPO_DIR",
+            "KIANOS_PACKET_REPO_DIR",
+            "KIANOS_EXTERNAL_READING_DIR",
+            "KIANOS_ENGLISH_GENERATED_DIR",
+            "KIANOS_CONTROL_ENABLED",
+            "KIANOS_PACKET_RELAY_ENABLED",
+        ):
+            check(token in astro_value, "ASTRO_PRIVATE_RUNTIME_ISOLATION_MISSING", token)
+
 
 def main() -> int:
     registry = load_registry()
