@@ -69,8 +69,12 @@ jobs:
   final-cross-subject:
     runs-on: ubuntu-latest
     timeout-minutes: 16
+    env:
+      KIANOS_CSS_BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
