@@ -455,7 +455,8 @@ export function initExamHome(root) {
   }
 
   function render() {
-    chatPlanState = readExamChatPlan(localStorage, day());
+    const strictChatPlanState = readExamChatPlan(localStorage, day());
+    chatPlanState = readExamChatPlanForDisplay(localStorage, day());
     const xizongNative = nativeLink(
       '[data-xizong-continue]',
       '[data-xizong-continue-title]',
@@ -468,7 +469,7 @@ export function initExamHome(root) {
       `${catalog.base}politics/`,
       '选择政治学习位置'
     );
-    const plan = chatPlanState.status === 'ready' ? chatPlanState.plan : null;
+    const plan = strictChatPlanState.status === 'ready' ? strictChatPlanState.plan : null;
     const native = {
       xizong: {
         subject: 'xizong',
