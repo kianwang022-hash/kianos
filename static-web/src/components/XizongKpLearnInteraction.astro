@@ -122,6 +122,52 @@
         if (ranges.weak.length) CSS.highlights.set('xizong-weak', new Highlight(...ranges.weak));
       };
 
+      const caretAtPoint = (x, y) => {
+        const position = document.caretPositionFromPoint?.(x, y);
+        if (position?.offsetNode) return { node: position.offsetNode, offset: position.offset };
+        const legacy = document.caretRangeFromPoint?.(x, y);
+        if (legacy?.startContainer) return { node: legacy.startContainer, offset: legacy.startOffset };
+        return null;
+      };
+
+      const markAtPoint = (frame, x, y) => {
+        if (!(frame instanceof HTMLElement)) return null;
+        const caret = caretAtPoint(x, y);
+        if (!caret) return null;
+        const kpId = frame.getAttribute('data-kp-id') || '';
+        const marks = currentMarks(kpId);
+        for (let index = 0; index < marks.length; index += 1) {
+          const mark = marks[index];
+          const container = mark.surface === 'PROMPT'
+            ? frame.querySelector('[data-kp-learn-prompt-copy]')
+            : frame.querySelector('[data-kp-learn-core]');
+          const range = rangeForQuote(container, String(mark.text || ''));
+          if (!range) continue;
+          try {
+            if (range.isPointInRange(caret.node, caret.offset)) return { kpId, index };
+          } catch {}
+        }
+        return null;
+      };
+
+      const removeMarkedTextAtClick = (event) => {
+        const frame = activeUnifiedCard();
+        const target = event.target instanceof Element
+          ? event.target.closest('[data-kp-learn-prompt-copy],[data-kp-learn-core]')
+          : null;
+        if (!(frame instanceof HTMLElement) || !target || !frame.contains(target)) return false;
+        const selection = window.getSelection();
+        if (selection && !selection.isCollapsed) return false;
+        const hit = markAtPoint(frame, event.clientX, event.clientY);
+        if (!hit) return false;
+        const { personal, row } = ensurePersonalKp(hit.kpId);
+        row.marks.splice(hit.index, 1);
+        writePersonal(personal);
+        hideMarkMenu();
+        applyHighlights();
+        return true;
+      };
+
       let selectionPending = null;
       let markMenu = document.querySelector('[data-xizong-mark-menu]');
       if (!(markMenu instanceof HTMLElement)) {
@@ -208,25 +254,14 @@
         if (!target?.closest('.xzKpUnifiedCard')) hideMarkMenu();
       });
 
-      const downloadPacket = () => {
-        let packet = null;
-        root.dispatchEvent(new CustomEvent('kianos:xizong-request-study-packet', {
-          detail: { accept: (value) => { packet = value; } }
-        }));
-        if (!packet) {
-          window.alert('完整学习包暂未就绪，未导出不完整数据。请重新打开当前学习页。');
-          return;
+      document.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        if (target?.closest('[data-xizong-mark-menu]')) return;
+        if (removeMarkedTextAtClick(event)) {
+          event.preventDefault();
+          event.stopPropagation();
         }
-        const blob = new Blob([JSON.stringify(packet, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const anchor = document.createElement('a');
-        anchor.href = url;
-        anchor.download = `xizong-${learner.identity?.blockLabel || 'block'}-study-packet.json`;
-        document.body.append(anchor);
-        anchor.click();
-        anchor.remove();
-        window.setTimeout(() => URL.revokeObjectURL(url), 500);
-      };
+      });
 
       const syncLogicMap = () => {
         root.querySelectorAll('.xzLogicGroupDetail').forEach((node) => node.remove());
@@ -355,13 +390,6 @@
             right.append(locators);
           }
           if (nav) right.append(nav);
-          const packet = document.createElement('button');
-          packet.type = 'button';
-          packet.className = 'xzKpPacketButton';
-          packet.textContent = '学习包';
-          packet.title = '下载当前 Block 学习包并上传给 Chat';
-          packet.addEventListener('click', downloadPacket);
-          right.append(packet);
           header.append(right);
         }
 
