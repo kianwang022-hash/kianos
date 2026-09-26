@@ -339,7 +339,11 @@ def audit_browser_test_port_isolation() -> None:
     )
     offenders: list[str] = []
     if scripts_root.is_dir():
-        for path in sorted(scripts_root.glob("test-*.mjs")):
+        candidates = sorted({
+            *scripts_root.glob("test-*.mjs"),
+            *scripts_root.glob("run-*.mjs"),
+        })
+        for path in candidates:
             value = text(path)
             if allow_marker in value:
                 continue
