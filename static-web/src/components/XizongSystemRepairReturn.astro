@@ -22,7 +22,7 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
     </div>
     <label>
       <span>粘贴 typed Chat Return（仅作为故障 fallback）</span>
-      <textarea rows="6" data-plan-text placeholder='{"schema":"kianos.xizong.system_wu_return.v1","return_id":"...","system_id":"...","decision":"REPAIR","plan":[{"question_id":"...","status":"wrong","attempt_id":"...","submitted_at":"...","round_id":"...","reason":"...","action":"...","priority":"high"}]}'></textarea>
+      <textarea rows="6" data-plan-text placeholder='{"schema":"kianos.xizong.system_wu_return.v1","return_id":"...","system_id":"...","decision":"REPAIR","plan":[{"question_id":"...","status":"wrong","attempt_id":"...","submitted_at":"...","round_id":"...","diagnostic_axis":"MECHANISM","reason":"...","action":"...","priority":"high"}]}'></textarea>
     </label>
     <div class="xrrApplyRow">
       <button type="button" data-apply-plan>导入 typed Return</button>
@@ -92,12 +92,12 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
         head.append(title, badge);
 
         const body = document.createElement('p');
-        body.textContent = [row?.action, row?.reason].filter(Boolean).join(' · ') || '按 Chat 计划做最小修补。';
+        body.textContent = [row?.diagnostic_axis ? `诊断轴：${row.diagnostic_axis}` : '', row?.action, row?.reason].filter(Boolean).join(' · ') || '按 Chat 计划做最小修补。';
         article.append(head, body);
 
         const meta = document.createElement('small');
         if (task) {
-          meta.textContent = `已加入 Memory · Repair，并保留 ${task.blockId} · ${task.kpId} 的审核回链。`;
+          meta.textContent = `已加入 Memory · Repair，并保留 ${task.blockId} · ${task.kpId}${task.diagnosticAxis ? ` · ${task.diagnosticAxis}` : ''} 的审核回链。`;
           const link = document.createElement('a');
           link.href = task.blockHref || '#';
           link.target = '_blank';
@@ -186,13 +186,14 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
           })(),
           correct_answer: question.correctAnswer,
           stem: question.stem,
-          explanation: question.explanation
+          explanation: question.explanation,
+          diagnostic_axes: Array.isArray(question.repairDiagnosticAxes) ? question.repairDiagnosticAxes : []
         })),
         return_contract: {
           schema: XIZONG_SYSTEM_WU_RETURN_SCHEMA,
           system_id: systemId,
           decision: 'NO_ACTION | REPAIR',
-          rule: 'Echo exact question_id/status/attempt_id/submitted_at/round_id from wrong_uncertain. Do not return Block/KP mapping; KianOS uses only current reviewed relations.'
+          rule: 'Echo exact question_id/status/attempt_id/submitted_at/round_id from wrong_uncertain. Do not return Block/KP mapping; KianOS uses only current reviewed relations. When diagnostic_axes is non-empty, choose exactly one diagnostic_axis from that list and keep the Repair on that smallest failed axis. When diagnostic_axes is empty, omit diagnostic_axis.'
         }
       };
       const text = JSON.stringify(packet, null, 2);

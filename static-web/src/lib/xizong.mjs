@@ -566,6 +566,8 @@ function loadBiochemistrySourceLane(record, learningSupport, blocks) {
     closureCheckpoints: sourceMap.block_source_closure_checkpoints || {},
     minimalPrelude: lane.minimal_prelude || null,
     mentalModels: lane.mental_models || null,
+    scopeBlockIds: Array.isArray(lane.scope_blocks) ? lane.scope_blocks.map(String) : [],
+    questionDiagnosticAxes: Array.isArray(lane.question_diagnostic_axes) ? lane.question_diagnostic_axes.map(String) : [],
     crossSystemIntegration: lane.cross_system_integration || null,
     reconstructions,
     learnerRule: 'One continuous 27 Source lane; canonical M/G owners receive formed knowledge without creating a second course.'

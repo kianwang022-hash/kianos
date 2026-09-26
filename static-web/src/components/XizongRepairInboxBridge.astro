@@ -51,20 +51,22 @@ const allowedKpIds = (block?.kpRecords || []).map((kp) => kp.kpId).filter(Boolea
         : [];
       const blockChat = Boolean(inbox?.sourceHandoffId || inbox?.sourceReturnId);
       const systemWu = !blockChat && sourceQuestionIds.length > 0;
+      const diagnosticAxis = String(plan?.diagnosticAxis || plan?.diagnostic_axis || '').toUpperCase();
       const origin = blockChat ? 'BLOCK_CHAT_RETURN'
         : systemWu ? 'SYSTEM_WU_CHAT_RETURN'
           : 'CHAT_OR_QUESTION_REPAIR';
       const id = blockChat
         ? `repair:block-chat:${blockId}:${kpId}`
         : systemWu
-          ? `repair:system-wu:${String(inbox?.sourceSystemId || systemId)}:${blockId}:${kpId}`
+          ? `repair:system-wu:${String(inbox?.sourceSystemId || systemId)}:${blockId}:${kpId}${diagnosticAxis ? ':' + diagnosticAxis.toLowerCase() : ''}`
           : `repair:block-inbox:${blockId}:${kpId}`;
       return {
         id,
         kpId,
         blockId,
         systemId: String(inbox?.sourceSystemId || systemId),
-        title: [blockLabel, kpId].filter(Boolean).join(' · '),
+        diagnosticAxis,
+        title: [blockLabel, kpId, diagnosticAxis].filter(Boolean).join(' · '),
         reason: String(plan?.reason || 'Chat identified a bounded repair target.'),
         action: String(plan?.action || 'Repair only this KP before returning to the interrupted path.'),
         priority: String(plan?.priority || 'normal'),

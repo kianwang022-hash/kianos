@@ -339,9 +339,18 @@ async function systemRecallToPracticeJourney(page) {
     q?.relation?.primaryKpId
       && q?.relation?.blockId
       && q?.relation?.knowledgePath
+      && Array.isArray(q?.repairDiagnosticAxes)
+      && q.repairDiagnosticAxes.length === 7
       && ['RESOLVED_KP','RESOLVED_BLOCK','BLOCK_ONLY'].includes(String(q?.relation?.targetStatus || ''))
   );
-  check(Boolean(reviewedTarget), 'b_reviewed_relation_question_exists');
+  check(Boolean(reviewedTarget), 'b_reviewed_biochemistry_relation_question_exists');
+  check(
+    JSON.stringify(reviewedTarget?.repairDiagnosticAxes || []) === JSON.stringify([
+      'IDENTITY','DIRECTION','COMPARTMENT_OR_TISSUE_LOCALIZATION','PHYSIOLOGIC_STATE',
+      'BOUNDARY_OR_CONFUSABLE','MECHANISM','PRECISION'
+    ]),
+    'b_biochemistry_question_consumes_current_diagnostic_axes'
+  );
 
   const stableTarget = payload.questions.find((q) =>
     q?.questionId !== reviewedTarget?.questionId && Number(q?.year) === Number(reviewedTarget?.year)
@@ -460,11 +469,31 @@ async function systemRecallToPracticeJourney(page) {
       attempt_id:String(wuEvent.attempt_id || ''),
       submitted_at:String(wuEvent.submitted_at || ''),
       round_id:String(wuEvent.round_id || ''),
+      diagnostic_axis:'MECHANISM',
       reason:'B Evidence acceptance',
       action:'repair reviewed owning KP only',
       priority:'high'
     }]
   };
+
+  // Biochemistry Repair must stay on one Current diagnostic axis.
+  const missingAxisPacket = JSON.parse(JSON.stringify(goodPacket));
+  missingAxisPacket.return_id = 'b-e-missing-axis';
+  delete missingAxisPacket.plan[0].diagnostic_axis;
+  await repair.locator('[data-plan-text]').fill(JSON.stringify(missingAxisPacket));
+  await repair.locator('[data-apply-plan]').click();
+  await page.waitForTimeout(80);
+  check((await repair.locator('[data-plan-status]').textContent() || '').includes('没有应用'),
+    'b_biochemistry_repair_missing_axis_fails_closed');
+
+  const invalidAxisPacket = JSON.parse(JSON.stringify(goodPacket));
+  invalidAxisPacket.return_id = 'b-e-invalid-axis';
+  invalidAxisPacket.plan[0].diagnostic_axis = 'CHAPTER_REVIEW';
+  await repair.locator('[data-plan-text]').fill(JSON.stringify(invalidAxisPacket));
+  await repair.locator('[data-apply-plan]').click();
+  await page.waitForTimeout(80);
+  check((await repair.locator('[data-plan-status]').textContent() || '').includes('没有应用'),
+    'b_biochemistry_repair_unknown_axis_fails_closed');
 
   // The same W/U observation with a stale attempt binding must fail closed.
   const stalePacket = JSON.parse(JSON.stringify(goodPacket));
@@ -499,6 +528,8 @@ async function systemRecallToPracticeJourney(page) {
       && (task?.sourceQuestionIds || []).includes(reviewedTarget.questionId)
   );
   check(Boolean(visibleRepair), 'b_reviewed_wu_enters_visible_memory_repair');
+  check(visibleRepair?.diagnosticAxis === 'MECHANISM',
+    'b_biochemistry_repair_keeps_smallest_diagnostic_axis', String(visibleRepair?.diagnosticAxis || ''));
   check(String(visibleRepair?.returnHref || '').includes(`/xizong/practice/${SYSTEM_ID}/`),
     'b_visible_repair_keeps_question_return');
   check(!(memoryAfterPlan?.repairTasks || []).some((task) =>

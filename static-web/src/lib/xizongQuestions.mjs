@@ -498,9 +498,24 @@ export function loadXizongSystemQuestionSweep(system) {
 
   const questionCache = new Map();
   const explanationCache = new Map();
-  const questions = ids.map((questionId) => attachQuestionSemanticRevision(
-    loadQuestionProjection(questionId, questionCache, explanationCache)
-  ));
+  const biochemistryScope = new Set(
+    Array.isArray(system?.biochemistryLane?.scopeBlockIds)
+      ? system.biochemistryLane.scopeBlockIds.map(String)
+      : []
+  );
+  const biochemistryAxes = Array.isArray(system?.biochemistryLane?.questionDiagnosticAxes)
+    ? system.biochemistryLane.questionDiagnosticAxes.map(String).filter(Boolean)
+    : [];
+  const questions = ids.map((questionId) => {
+    const question = attachQuestionSemanticRevision(
+      loadQuestionProjection(questionId, questionCache, explanationCache)
+    );
+    const blockId = String(question?.relation?.blockId || '');
+    return {
+      ...question,
+      repairDiagnosticAxes: biochemistryScope.has(blockId) ? [...biochemistryAxes] : []
+    };
+  });
 
   return {
     systemId: system.systemId,

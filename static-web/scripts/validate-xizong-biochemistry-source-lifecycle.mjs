@@ -350,6 +350,25 @@ assert.equal(runtimeB.biochemistryLane?.sourceMapPath,sourceMapPath,'runtime B l
 assert.equal(runtimeB.biochemistryLane?.sourceMapHash,textSha256(text(sourceMapPath)),'runtime B lane Source-map hash drift');
 assert.equal(runtimeB.biochemistryLane?.sourceHash,sourceMap.source.sha256,'runtime B lane Source identity drift');
 assert.equal(runtimeB.biochemistryLane?.units?.length,22,'runtime B lane unit count drift');
+const expectedDiagnosticAxes=[
+  'IDENTITY','DIRECTION','COMPARTMENT_OR_TISSUE_LOCALIZATION','PHYSIOLOGIC_STATE',
+  'BOUNDARY_OR_CONFUSABLE','MECHANISM','PRECISION'
+];
+assert.deepEqual(
+  learning.biochemistry_first_pass_lane?.question_diagnostic_axes,
+  expectedDiagnosticAxes,
+  'Biochemistry diagnostic-axis owner drift'
+);
+assert.deepEqual(
+  runtimeB.biochemistryLane?.questionDiagnosticAxes,
+  expectedDiagnosticAxes,
+  'runtime B lane must consume Current Biochemistry diagnostic axes'
+);
+assert.deepEqual(
+  runtimeB.biochemistryLane?.scopeBlockIds,
+  learning.biochemistry_first_pass_lane?.scope_blocks,
+  'runtime B lane diagnostic scope must derive Current Biochemistry Block scope'
+);
 assert.deepEqual(
   (runtimeB.biochemistryLane?.reconstructions||[]).map((row)=>row?.id),
   ['PSR-2_METABOLIC_NETWORK','PSR-6_INFORMATION_TUMOR'],

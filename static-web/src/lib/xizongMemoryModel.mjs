@@ -528,6 +528,7 @@ export function setRepairTasks(stateInput, tasks) {
       kpId: text(task?.kpId || (state.cards[cardId]?.kpId)),
       blockId: text(task?.blockId || state.cards[cardId]?.blockId),
       systemId: text(task?.systemId || state.cards[cardId]?.systemId),
+      diagnosticAxis: text(task?.diagnosticAxis || task?.diagnostic_axis).toUpperCase(),
       title: text(task?.title),
       reason: text(task?.reason),
       action: text(task?.action),

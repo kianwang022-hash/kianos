@@ -62,6 +62,7 @@ function normalizePlanRow(row, index) {
     round_id: roundId,
     reason: clean(row.reason || row.why, 1200),
     action: clean(row.action || row.task, 1600),
+    diagnostic_axis: clean(row.diagnostic_axis || row.diagnosticAxis, 80).toUpperCase(),
     priority
   };
 }
@@ -238,14 +239,22 @@ function planToTasks({
       unmapped.push(row.question_id);
       continue;
     }
-    const key = relation.blockId + '::' + relation.primaryKpId;
+    const allowedAxes = Array.isArray(question?.repairDiagnosticAxes)
+      ? question.repairDiagnosticAxes.map((axis) => String(axis || '').toUpperCase()).filter(Boolean)
+      : [];
+    const diagnosticAxis = String(row?.diagnostic_axis || '').toUpperCase();
+    if (allowedAxes.length && !diagnosticAxis) fail('DIAGNOSTIC_AXIS_REQUIRED', row.question_id);
+    if (allowedAxes.length && !allowedAxes.includes(diagnosticAxis)) fail('DIAGNOSTIC_AXIS_INVALID', row.question_id + ':' + diagnosticAxis);
+    if (!allowedAxes.length && diagnosticAxis) fail('DIAGNOSTIC_AXIS_UNAUTHORIZED', row.question_id + ':' + diagnosticAxis);
+    const key = relation.blockId + '::' + relation.primaryKpId + '::' + diagnosticAxis;
     const item = byBlockKp.get(key) || {
       blockId:String(relation.blockId),
       kpId:String(relation.primaryKpId),
       questionIds:[],
       reasons:[],
       actions:[],
-      priorities:[]
+      priorities:[],
+      diagnosticAxis
     };
     item.questionIds.push(row.question_id);
     if (row.reason) item.reasons.push(row.reason);
@@ -260,6 +269,7 @@ function planToTasks({
     const route=routes[item.blockId];
     const plan={
       kpId:item.kpId,
+      diagnosticAxis:item.diagnosticAxis || '',
       reason:[...new Set(item.reasons)].join('；') || `来自 ${item.questionIds.length} 道 W/U 题`,
       action:[...new Set(item.actions)].join('；') || '重新运行这一 KP 所属机制链，再回到题目主线。',
       priority,
@@ -271,11 +281,12 @@ function planToTasks({
       inboxKey:'kianos-xizong-repair-inbox-v1:xizong:'+item.blockId,
       plan,
       task:{
-        id:`repair:system-wu:${systemId}:${item.blockId}:${item.kpId}`,
+        id:`repair:system-wu:${systemId}:${item.blockId}:${item.kpId}${item.diagnosticAxis ? ':' + item.diagnosticAxis.toLowerCase() : ''}`,
         kpId:item.kpId,
         blockId:item.blockId,
         systemId,
-        title:[route?.label,item.kpId].filter(Boolean).join(' · '),
+        diagnosticAxis:item.diagnosticAxis || '',
+        title:[route?.label,item.kpId,item.diagnosticAxis].filter(Boolean).join(' · '),
         reason:plan.reason,
         action:plan.action,
         priority:plan.priority,
@@ -302,7 +313,8 @@ function receipt(entry, status, detail = {}, now = Date.now()) {
       created_at:task.createdAt,
       block_id:task.blockId,
       kp_id:task.kpId,
-      origin:task.origin
+      origin:task.origin,
+      diagnostic_axis:task.diagnosticAxis || ''
     })),
     unmapped_question_ids:[...(detail.unmapped || [])],
     detail:clean(detail.message, 1000),
