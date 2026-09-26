@@ -2,6 +2,15 @@
    Inherits KianOS L1 shared visual tokens. Owns only Steward-local geometry. */
 
 .stewardWorkspace {
+  /* Approved VNext geometry knobs. Keep layout changes here instead of appending override layers. */
+  --steward-today-left: 184px;
+  --steward-today-main-min: 600px;
+  --steward-today-right: 252px;
+  --steward-nutrition-left: 188px;
+  --steward-nutrition-right: 252px;
+  --steward-training-right: 252px;
+  --steward-meal-amount-width: 82px;
+
   display: flex;
   min-height: 0;
   flex: 1 1 auto;
@@ -15,7 +24,8 @@
   align-items: end;
   justify-content: space-between;
   gap: var(--study-space-5);
-  padding: 2px 2px 10px;
+  min-height: 62px;
+  padding: 0 2px 13px;
   border-bottom: 1px solid var(--study-line);
 }
 
@@ -34,7 +44,7 @@
 .stewardHeaderCopy h1 {
   margin: 0;
   color: var(--study-ink);
-  font-size: 27px;
+  font-size: 25px;
   font-weight: var(--study-weight-title);
   line-height: 1.15;
   letter-spacing: 0;
@@ -85,7 +95,7 @@
   display: none;
   min-height: 0;
   flex: 1 1 auto;
-  padding-top: 10px;
+  padding-top: 8px;
 }
 
 .stewardViewPanel.active {
@@ -97,7 +107,7 @@
   display: grid;
   min-height: 0;
   flex: 1 1 auto;
-  grid-template-columns: 184px minmax(620px, 1fr) 252px;
+  grid-template-columns: var(--steward-today-left) minmax(var(--steward-today-main-min), 1fr) var(--steward-today-right);
   overflow: hidden;
   border: 1px solid var(--study-line);
   border-radius: var(--study-radius-small);
@@ -121,8 +131,8 @@
 }
 
 .stewardAsideSection + .stewardAsideSection {
-  margin-top: 13px;
-  padding-top: 13px;
+  margin-top: 11px;
+  padding-top: 11px;
   border-top: 1px solid var(--study-line);
 }
 
@@ -155,11 +165,24 @@
 }
 
 .stewardTaskRow {
-  padding: 6px 0;
+  position: relative;
+  padding: 6px 0 6px 27px;
   color: var(--study-ink);
   font-size: 15px;
   font-weight: var(--study-weight-secondary);
   line-height: 1.38;
+}
+
+.stewardTaskRow::before {
+  position: absolute;
+  top: 7px;
+  left: 2px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #8f9994;
+  border-radius: 3px;
+  background: #fff;
+  content: "";
 }
 
 .stewardTaskRow + .stewardTaskRow,
@@ -1012,7 +1035,7 @@
   display: grid;
   min-height: 0;
   flex: 1 1 auto;
-  grid-template-columns: 190px minmax(330px, 1fr) 188px;
+  grid-template-columns: var(--steward-nutrition-left) minmax(0, 1fr) var(--steward-nutrition-right);
 }
 
 .stewardChoiceRail,
@@ -1369,121 +1392,60 @@
   padding: 0 9px;
 }
 
-@media (max-width: 1280px) {
-  .stewardNutritionGrid,
-  .stewardTrainingGrid {
-    grid-template-columns: 174px minmax(300px, 1fr) 174px;
-  }
-}
-
-@media (max-width: 1060px) {
-  .stewardNutritionGrid,
-  .stewardTrainingGrid {
-    grid-template-columns: 170px minmax(360px, 1fr);
-  }
-
-  .stewardMacroPanel,
-  .stewardTrainingSummary {
-    grid-column: 1 / -1;
-    border-top: 1px solid var(--study-line);
-    border-left: 0;
-  }
-}
-
-@media (max-width: 1280px) {
-  .stewardTodayFrame {
-    grid-template-columns: 168px minmax(520px, 1fr) 224px;
-  }
-
-  .stewardWeekGrid {
-    min-width: 1040px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .stewardHeader {
-    align-items: flex-start;
-  }
-
-  .stewardTodayFrame {
-    grid-template-columns: 1fr;
-    overflow: auto;
-  }
-
-  .stewardTodayAside,
-  .stewardNowRail {
-    border: 0;
-    border-bottom: 1px solid var(--study-line);
-  }
-
-  .stewardNowRail {
-    border-top: 1px solid var(--study-line);
-  }
-
-  .stewardTodayMain {
-    min-height: 640px;
-  }
-}
 
 /* Steward VNext formal closeout — approved visual direction, no planning authority here. */
 .stewardTimeline {
-  margin: 10px 16px 16px 72px;
-  border-left: 0;
+  margin: 10px 14px 14px 62px;
+  border-left: 1px solid var(--study-line);
   background: repeating-linear-gradient(
     to bottom,
     #fff 0,
-    #fff 20px,
-    #f6f8f7 20px,
-    #f6f8f7 21px,
-    #fff 21px,
-    #fff 41px,
-    #e8edea 41px,
-    #e8edea 42px
+    #fff 28px,
+    #f4f6f5 28px,
+    #f4f6f5 29px,
+    #fff 29px,
+    #fff 57px,
+    #e7ece9 57px,
+    #e7ece9 58px
   );
 }
-.stewardTimeline::before {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 1px;
-  background: #d7dfda;
-  content: "";
-}
+.stewardTimeline::before { display: none; }
 .stewardHour {
-  right: calc(100% + 14px);
-  width: 54px;
-  color: #748078;
+  right: calc(100% + 12px);
+  width: 47px;
+  color: var(--study-faint);
+  font-size: var(--study-type-meta);
 }
 .stewardPlanBlock {
-  left: 12px;
-  right: 10px;
-  border: 1px solid color-mix(in srgb, var(--block-accent, var(--study-green)) 18%, var(--study-line));
-  border-left: 0;
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--block-soft, var(--study-green-soft)) 82%, white);
-  padding: 8px 12px 9px 14px;
+  left: 10px;
+  right: 8px;
+  border: 0;
+  border-left: 3px solid var(--block-accent, var(--study-green));
+  border-radius: 6px;
+  background: var(--block-soft, var(--study-green-soft));
+  padding: 7px 10px;
 }
-.stewardPlanBlock::before {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 4px;
-  background: var(--block-accent, var(--study-green));
-  content: "";
-}
-.stewardPlanBlock strong { font-size: 16px; }
+.stewardPlanBlock::before { display: none; }
+.stewardPlanBlock strong,
+.stewardPlanBlock span { font-size: var(--study-type-meta); }
 .stewardActualBlock.withPlan {
-  right: 16px;
-  left: auto;
-  width: 9px;
+  right: auto;
+  left: 18px;
+  width: auto;
+  max-width: calc(100% - 44px);
   border: 0;
   border-radius: 4px;
-  background: var(--actual-color, var(--study-green));
+  background: rgba(255,255,255,.90);
   box-shadow: none;
-  padding: 0;
-  opacity: .72;
+  padding: 2px 5px;
+  opacity: 1;
 }
 .stewardActualBlock.withPlan strong,
-.stewardActualBlock.withPlan span { display: none; }
-.stewardNowLine { left: -5px; }
+.stewardActualBlock.withPlan span {
+  display: block;
+  font-size: var(--study-type-meta);
+}
+.stewardNowLine { left: -7px; }
 
 .stewardNutritionContext {
   display: flex;
@@ -1501,7 +1463,7 @@
   font-weight: var(--study-weight-secondary);
 }
 .stewardNutritionGrid {
-  grid-template-columns: 176px minmax(330px, 1fr) 244px;
+  grid-template-columns: var(--steward-nutrition-left) minmax(0, 1fr) var(--steward-nutrition-right);
 }
 .stewardMealEditor > header {
   align-items: flex-start;
@@ -1536,7 +1498,7 @@
 }
 .stewardMealRows { padding: 2px 13px 8px; }
 .stewardMealRow {
-  grid-template-columns: minmax(0, 1fr) 92px;
+  grid-template-columns: minmax(0, 1fr) var(--steward-meal-amount-width);
   min-height: 54px;
   gap: 10px;
 }
@@ -1627,7 +1589,7 @@
 }
 
 .stewardTrainingGrid {
-  grid-template-columns: minmax(0, 1fr) 240px;
+  grid-template-columns: minmax(0, 1fr) var(--steward-training-right);
 }
 .stewardTrainingEditor > header {
   align-items: baseline;
@@ -1736,621 +1698,41 @@
 }
 .stewardTrainingSummary { padding: 12px; }
 
-@media (max-width: 1280px) {
-  .stewardNutritionGrid { grid-template-columns: 164px minmax(300px, 1fr) 220px; }
-  .stewardTrainingGrid { grid-template-columns: minmax(0, 1fr) 215px; }
-}
-/* Steward Human-Gate visual lock.
-   The shipped Steward surface must preserve the approved VNext composition;
-   data may change, geometry does not silently fall back to the generic shell. */
-body#kianos-workspace.surfaceBody-steward {
-  --kianos-rail-width: 188px;
-  --kianos-rail-expanded: 188px;
-  --kianos-rail-compact: 188px;
-  --steward-canvas: #f5f6f7;
-  --steward-surface: #fff;
-  --steward-line: #dde2df;
-  --steward-ink: #1f2924;
-  --steward-muted: #64716b;
-  --steward-faint: #8a948f;
-  --steward-green: #176b4f;
-  --steward-green-soft: #eaf3ef;
-  background: var(--steward-canvas);
-}
+@media (max-width: 1060px) {
+  .stewardNutritionGrid,
+  .stewardTrainingGrid {
+    grid-template-columns: 170px minmax(360px, 1fr);
+  }
 
-body#kianos-workspace.surfaceBody-steward .kianosShellFrame {
-  grid-template-columns: 188px minmax(0, 1fr);
-  background: var(--steward-canvas);
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosGlobalRail {
-  width: 188px;
-  padding: 18px 12px;
-  border-right: 1px solid var(--steward-line);
-  background: #f8f9f9;
-  box-shadow: none;
-  color: var(--steward-ink);
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailToggle,
-body#kianos-workspace.surfaceBody-steward[data-kianos-rail="compact"] .kianosRailToggle,
-body#kianos-workspace.surfaceBody-steward .kianosRailItem,
-body#kianos-workspace.surfaceBody-steward[data-kianos-rail="compact"] .kianosRailItem {
-  grid-template-columns: 34px minmax(0, 1fr);
-  justify-content: stretch;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailToggle {
-  min-height: 36px;
-  padding: 0 9px 0;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailToggle:hover {
-  background: transparent;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailMark {
-  width: 34px;
-  height: 34px;
-  border: 0;
-  border-radius: 9px;
-  background: var(--steward-green);
-  color: #fff;
-  font-size: 16px;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailBrandCopy,
-body#kianos-workspace.surfaceBody-steward[data-kianos-rail="compact"] .kianosRailBrandCopy,
-body#kianos-workspace.surfaceBody-steward .kianosRailLabel,
-body#kianos-workspace.surfaceBody-steward[data-kianos-rail="compact"] .kianosRailLabel {
-  display: block;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailBrandCopy {
-  padding-left: 10px;
-}
-body#kianos-workspace.surfaceBody-steward .kianosRailBrandCopy strong {
-  color: var(--steward-ink);
-  font-size: 18px;
-  font-weight: 700;
-}
-body#kianos-workspace.surfaceBody-steward .kianosRailBrandCopy span {
-  display: none;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailNav {
-  gap: 3px;
-  margin-top: 17px;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailItem {
-  min-height: 43px;
-  padding: 0 11px;
-  border-radius: 8px;
-  color: #4f5b55;
-  font-size: 16px;
-  font-weight: 600;
-}
-body#kianos-workspace.surfaceBody-steward .kianosRailItem:hover {
-  background: #eef1ef;
-  color: var(--steward-ink);
-}
-body#kianos-workspace.surfaceBody-steward .kianosRailItem.active {
-  background: #e8efeb;
-  color: var(--steward-green);
-  font-weight: 700;
-}
-body#kianos-workspace.surfaceBody-steward .kianosRailIcon {
-  width: 18px;
-  height: 18px;
-  justify-self: center;
-  stroke-width: 1.7;
-}
-body#kianos-workspace.surfaceBody-steward .kianosCurrentDock {
-  display: none;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosShellMain {
-  background: var(--steward-canvas);
-}
-
-@media (min-width: 1101px) and (min-height: 680px) {
-  body#kianos-workspace.surfaceBody-steward.uiStageOne .kianosShellMain > .productCanvas {
-    width: 100%;
-    margin: 0;
-    padding: 9px 22px 18px;
-    overflow: hidden;
+  .stewardMacroPanel,
+  .stewardTrainingSummary {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--study-line);
+    border-left: 0;
   }
 }
 
-body#kianos-workspace.surfaceBody-steward .stewardWorkspace {
-  height: 100%;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardHeader {
-  min-height: 0;
-  padding: 0 2px 8px;
-  border-bottom: 1px solid var(--steward-line);
-}
-body#kianos-workspace.surfaceBody-steward .stewardHeaderCopy > span {
-  margin-bottom: 1px;
-  color: var(--steward-green);
-  font-size: 14px;
-  font-weight: 700;
-}
-body#kianos-workspace.surfaceBody-steward .stewardHeaderCopy h1 {
-  font-size: 25px;
-  font-weight: 700;
-}
-body#kianos-workspace.surfaceBody-steward .stewardHeaderCopy p {
-  margin-top: 1px;
-  color: var(--steward-muted);
-  font-size: 15px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardViewTabs {
-  gap: 2px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardViewTabs button {
-  min-height: 34px;
-  padding: 6px 11px;
-  border-radius: 7px;
-  font-size: 16px;
-  font-weight: 600;
-}
-body#kianos-workspace.surfaceBody-steward .stewardViewTabs button.active {
-  background: #e9efec;
-  color: var(--steward-green);
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardViewPanel {
-  padding-top: 9px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardTodayFrame {
-  grid-template-columns: 184px minmax(600px, 1fr) 252px;
-  border: 1px solid var(--steward-line);
-  border-radius: 10px;
-  background: #fff;
-}
-body#kianos-workspace.surfaceBody-steward .stewardTodayAside {
-  padding: 14px;
-  border-right-color: var(--steward-line);
-}
-body#kianos-workspace.surfaceBody-steward .stewardNowRail {
-  padding: 14px;
-  border-left-color: var(--steward-line);
-  gap: 0;
-}
-body#kianos-workspace.surfaceBody-steward .stewardAsideSection + .stewardAsideSection {
-  margin-top: 11px;
-  padding-top: 11px;
-  border-top-color: var(--steward-line);
-}
-body#kianos-workspace.surfaceBody-steward .stewardAsideHead {
-  margin-bottom: 6px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardAsideHead :is(h2,h3) {
-  font-size: 17px;
-  font-weight: 650;
-}
-body#kianos-workspace.surfaceBody-steward .stewardAsideHead span {
-  color: var(--steward-faint);
-  font-size: 15px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardTaskRow {
-  position: relative;
-  padding: 6px 0 6px 27px;
-  font-size: 15px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardTaskRow::before {
-  position: absolute;
-  top: 7px;
-  left: 2px;
-  width: 15px;
-  height: 15px;
-  border: 1px solid #8f9994;
-  border-radius: 3px;
-  background: #fff;
-  content: "";
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardModeTabs {
-  gap: 2px;
-  padding: 8px 12px 0;
-}
-body#kianos-workspace.surfaceBody-steward .stewardModeTabs button {
-  padding: 7px 11px;
-  border-radius: 7px;
-  font-size: 16px;
-  font-weight: 600;
-}
-body#kianos-workspace.surfaceBody-steward .stewardModeTabs button.active {
-  background: #edf2ef;
-  color: var(--steward-green);
-  font-weight: 650;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardModeHead {
-  padding: 9px 16px 10px;
-  border-bottom-color: var(--steward-line);
-}
-body#kianos-workspace.surfaceBody-steward .stewardModeHead h2 {
-  font-size: 19px;
-  font-weight: 680;
-}
-body#kianos-workspace.surfaceBody-steward .stewardModeHead p {
-  margin-top: 1px;
-  color: var(--steward-muted);
-  font-size: 15px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardTimeline {
-  min-height: 710px;
-  margin: 10px 14px 14px 62px;
-  border-left: 1px solid var(--steward-line);
-  background: repeating-linear-gradient(to bottom,#fff 0,#fff 28px,#f4f6f5 28px,#f4f6f5 29px,#fff 29px,#fff 57px,#e7ece9 57px,#e7ece9 58px);
-}
-body#kianos-workspace.surfaceBody-steward .stewardTimeline::before {
-  display: none;
-}
-body#kianos-workspace.surfaceBody-steward .stewardHour {
-  right: calc(100% + 12px);
-  width: 47px;
-  color: var(--steward-faint);
-  font-size: 13px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardPlanBlock {
-  left: 10px;
-  right: 8px;
-  border: 0;
-  border-left: 3px solid var(--block-accent, var(--steward-green));
-  border-radius: 6px;
-  background: var(--block-soft, var(--steward-green-soft));
-  padding: 7px 10px;
-  box-shadow: none;
-}
-body#kianos-workspace.surfaceBody-steward .stewardPlanBlock::before {
-  display: none;
-}
-body#kianos-workspace.surfaceBody-steward .stewardPlanBlock[data-subject="life"] {
-  --block-accent: #89958f;
-  --block-soft: #f2f4f3;
-}
-body#kianos-workspace.surfaceBody-steward .stewardPlanBlock strong {
-  font-size: 15px;
-  font-weight: 650;
-}
-body#kianos-workspace.surfaceBody-steward .stewardPlanBlock span {
-  font-size: 13px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardPlanBlock.short {
-  padding: 2px 8px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardPlanBlock.short strong {
-  font-size: 13px;
-  line-height: 1.05;
-}
-body#kianos-workspace.surfaceBody-steward .stewardActualBlock.withPlan {
-  right: auto;
-  left: 18px;
-  width: auto;
-  max-width: calc(100% - 44px);
-  border: 0;
-  border-radius: 4px;
-  background: rgba(255,255,255,.90);
-  box-shadow: none;
-  padding: 2px 5px;
-  opacity: 1;
-}
-body#kianos-workspace.surfaceBody-steward .stewardActualBlock.withPlan strong,
-body#kianos-workspace.surfaceBody-steward .stewardActualBlock.withPlan span {
-  display: block;
-  font-size: 13px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardNowLine {
-  left: -7px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardNowLine span {
-  font-size: 13px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardNowLabel {
-  color: var(--steward-muted);
-  font-size: 15px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardNowSubject {
-  font-size: 19px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardNowElapsed {
-  font-size: 26px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardNowMeta {
-  grid-template-columns: 56px minmax(0,1fr);
-  margin-top: 8px;
-  font-size: 15px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardSubjectTotal {
-  padding: 5px 0;
-  font-size: 15px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardRealityRow {
-  padding: 5px 0;
-  font-size: 14px;
-}
-
-/* Keep the approved Nutrition / Training panel geometry verbatim. */
-body#kianos-workspace.surfaceBody-steward .stewardSubToolbar {
-  padding: 9px 12px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardNutritionGrid {
-  grid-template-columns: 176px minmax(330px, 1fr) 244px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardTrainingGrid {
-  grid-template-columns: minmax(0, 1fr) 240px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardChoiceRail {
-  padding: 10px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardMealEditor > header {
-  align-items: flex-start;
-  padding: 11px 13px 8px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardMealRows {
-  padding: 2px 13px 8px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardMealRow {
-  min-height: 52px;
-  grid-template-columns: minmax(0, 1fr) 82px;
-  gap: 10px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardMacroPanel {
-  padding: 11px 12px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardTrainingEditor > header {
-  padding: 11px 13px 8px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardExerciseCards {
-  gap: 8px;
-  padding: 6px 13px 8px;
-}
-body#kianos-workspace.surfaceBody-steward .stewardTrainingSummary {
-  padding: 12px;
-}
-
-@media (max-width: 1250px) {
-  body#kianos-workspace.surfaceBody-steward {
-    --kianos-rail-width: 68px;
-    --kianos-rail-expanded: 68px;
-    --kianos-rail-compact: 68px;
+@media (max-width: 1000px) {
+  .stewardHeader {
+    align-items: flex-start;
   }
-  body#kianos-workspace.surfaceBody-steward .kianosShellFrame {
-    grid-template-columns: 68px minmax(0,1fr);
-  }
-  body#kianos-workspace.surfaceBody-steward .kianosGlobalRail {
-    width: 68px;
-    padding-inline: 6px;
-  }
-  body#kianos-workspace.surfaceBody-steward .kianosRailBrandCopy,
-  body#kianos-workspace.surfaceBody-steward .kianosRailLabel {
-    display: none;
-  }
-  body#kianos-workspace.surfaceBody-steward .kianosRailToggle,
-  body#kianos-workspace.surfaceBody-steward .kianosRailItem {
+
+  .stewardTodayFrame {
     grid-template-columns: 1fr;
-    justify-items: center;
-    padding-inline: 0;
+    overflow: auto;
   }
-}
 
-/* Steward Human-Gate visual repair: use the accepted VNext composition exactly on this surface.
-   Presentation-only: no plan, learner, nutrition, training or reality semantics change here. */
-body#kianos-workspace.surfaceBody-steward {
-  --kianos-rail-expanded: 188px;
-  --kianos-rail-compact: 188px;
-  --kianos-rail-width: 188px;
-  --kianos-rail-bg: #f8f9f9;
-  --kianos-rail-hover: #eef1ef;
-  --kianos-rail-active: #e8efeb;
-  --kianos-rail-line: #dde2df;
-  --kianos-rail-ink: #1f2924;
-  --kianos-rail-muted: #64716b;
-  --kianos-rail-accent: #176b4f;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosShellFrame {
-  grid-template-columns: 188px minmax(0, 1fr);
-  background: #f5f6f7;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosGlobalRail {
-  width: 188px;
-  padding: 18px 12px;
-  border-right: 1px solid #dde2df;
-  background: #f8f9f9;
-  box-shadow: none;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailToggle {
-  grid-template-columns: 34px minmax(0, 1fr);
-  min-height: 34px;
-  gap: 10px;
-  padding: 0 9px;
-  border-radius: 8px;
-  color: #1f2924;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailToggle:hover {
-  background: transparent;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailMark {
-  width: 34px;
-  height: 34px;
-  border: 0;
-  border-radius: 9px;
-  background: #176b4f;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 800;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailBrandCopy {
-  display: grid !important;
-  padding-left: 0;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailBrandCopy strong {
-  color: #1f2924;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailBrandCopy span {
-  display: none;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailNav {
-  gap: 3px;
-  margin-top: 18px;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailItem {
-  display: grid;
-  grid-template-columns: 22px minmax(0, 1fr);
-  min-height: 42px;
-  gap: 10px;
-  padding: 0 11px;
-  border-radius: 8px;
-  color: #4f5b55;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailItem:hover {
-  background: #eef1ef;
-  color: #1f2924;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailItem.active {
-  background: #e8efeb;
-  color: #176b4f;
-  font-weight: 700;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailIcon {
-  width: 18px;
-  height: 18px;
-  justify-self: center;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosRailLabel {
-  display: block !important;
-}
-
-body#kianos-workspace.surfaceBody-steward .kianosShellMain > .productCanvas {
-  width: calc(100% - 44px);
-  max-width: none;
-  margin: 0 auto;
-  padding: 18px 0;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardHeader {
-  min-height: 62px;
-  padding: 0 2px 13px;
-  margin-bottom: 0;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardHeaderCopy > span {
-  font-size: 14px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardHeaderCopy h1 {
-  font-size: 25px;
-  font-weight: 720;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardHeaderCopy p {
-  margin-top: 3px;
-  font-size: 15px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardViewPanel {
-  padding-top: 8px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardTodayFrame {
-  grid-template-columns: 184px minmax(600px, 1fr) 252px;
-  gap: 0;
-  border-radius: 10px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardTodayAside,
-body#kianos-workspace.surfaceBody-steward .stewardNowRail {
-  padding: 14px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardModeTabs {
-  padding: 8px 12px 0;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardModeHead {
-  padding: 9px 16px 10px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardTimeline {
-  min-height: 710px;
-  margin: 10px 14px 14px 62px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardPlanBlock {
-  left: 10px;
-  right: 8px;
-  border: 0;
-  border-left: 3px solid var(--block-accent, var(--study-green));
-  border-radius: 6px;
-  background: var(--block-soft, var(--study-green-soft));
-  padding: 7px 10px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardPlanBlock::before {
-  display: none;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardPlanBlock strong {
-  font-size: 15px;
-  font-weight: 650;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardPlanBlock span {
-  font-size: 13px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardNowLine {
-  left: -7px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardNowLine span {
-  font-size: 13px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardNutritionGrid {
-  grid-template-columns: 188px minmax(0, 1fr) 252px;
-}
-
-body#kianos-workspace.surfaceBody-steward .stewardTrainingGrid {
-  grid-template-columns: minmax(0, 1fr) 252px;
-}
-
-@media (max-width: 1250px) {
-  body#kianos-workspace.surfaceBody-steward {
-    --kianos-rail-expanded: 188px;
-    --kianos-rail-compact: 188px;
-    --kianos-rail-width: 188px;
+  .stewardTodayAside,
+  .stewardNowRail {
+    border: 0;
+    border-bottom: 1px solid var(--study-line);
   }
-  body#kianos-workspace.surfaceBody-steward .kianosShellFrame {
-    grid-template-columns: 188px minmax(0, 1fr);
+
+  .stewardNowRail {
+    border-top: 1px solid var(--study-line);
   }
-  body#kianos-workspace.surfaceBody-steward .kianosGlobalRail {
-    width: 188px;
+
+  .stewardTodayMain {
+    min-height: 640px;
   }
 }

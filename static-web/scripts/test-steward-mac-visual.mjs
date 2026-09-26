@@ -43,6 +43,8 @@ try {
   });
   const page = await context.newPage();
   await page.goto(`${BASE}/steward/`, { waitUntil: 'domcontentloaded' });
+  await page.locator('[data-steward-workspace]').waitFor({ state: 'visible' });
+  await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active');
 
   await page.evaluate(async () => {
     const parts = new Intl.DateTimeFormat('en-US', {
@@ -144,9 +146,9 @@ try {
         ]
       }
     }, studyDay);
+    window.dispatchEvent(new Event('kianos:control-command-applied'));
   });
 
-  await page.reload({ waitUntil: 'domcontentloaded' });
   await page.locator('[data-steward-workspace]').waitFor({ state: 'visible' });
   await page.evaluate(() => document.fonts.ready);
 

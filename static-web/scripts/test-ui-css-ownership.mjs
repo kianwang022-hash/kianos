@@ -128,4 +128,10 @@ for (const [name, forbidden] of [
   for (const file of forbidden) assert.ok(!imports.has(file), `${name}: subject style leaked into shared Base: ${file}`);
 }
 
+const stewardLocal = read(path.join(src, 'styles', 'steward-workspace.css'));
+const sharedShell = read(path.join(src, 'styles', 'shared-shell.css'));
+assert.ok(!/Human-Gate visual (?:lock|repair)/.test(stewardLocal), 'Steward local CSS contains post-hoc Human-Gate patch layers');
+assert.ok(!/\.kianos(?:Shell|GlobalRail|Rail)/.test(stewardLocal), 'Steward local CSS must not override shared L1 shell selectors');
+assert.ok(sharedShell.includes('surfaceBody-steward'), 'Steward shell theme must live in shared-shell.css');
+
 console.log('PASS UI CSS ownership closure');
