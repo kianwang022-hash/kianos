@@ -246,6 +246,10 @@ const payload = learnerObject || null;
       const activeGroup = () => groups[activeGroupIndex()] || groups[0] || null;
       const activeRecallCard = () => root.querySelector('[data-kp-recall-card]:not([hidden])');
       const activeRecallKpId = () => activeRecallCard()?.getAttribute('data-kp-id') || '';
+      const visibleCompanionKp = (stageName) => {
+        const frame = root.querySelector(`[data-learner-kp-companion="${stageName}"][data-kp-id]`);
+        return kpById.get(frame?.getAttribute('data-kp-id') || '') || null;
+      };
       const recallAnswerVisible = () => {
         const answer = activeRecallCard()?.querySelector('[data-kp-answer]');
         return Boolean(answer && !answer.hasAttribute('hidden'));
@@ -293,9 +297,9 @@ const payload = learnerObject || null;
           frame.append(prompt);
         }
         const locators = el('div', 'xv6KpLearnLocators');
-        if (kp?.source?.locator) locators.append(el('span', '', `Lecture · ${kp.source.locator}`));
-        if (kp?.outline?.locator) locators.append(el('span', '', `Outline · ${kp.outline.locator}`));
-        if (locators.childElementCount) frame.append(locators);
+        locators.append(el('span', '', `Lecture · ${kp?.source?.locator || '暂无精确定位'}`));
+        locators.append(el('span', '', `Outline · ${kp?.outline?.locator || '暂无精确定位'}`));
+        frame.append(locators);
 
         const core = el('div', 'markdown xv6KpLearnCore');
         core.dataset.learnerKpCore = text(kp?.identity?.kpId);
@@ -378,14 +382,14 @@ const payload = learnerObject || null;
           title = 'Block 辅助';
           slot = { extension: array(learner.slots?.blockOrientation) };
         } else if (stage === 'source_contact') {
-          const kp = sourceCompanionKp();
+          const kp = visibleCompanionKp('source_contact') || sourceCompanionKp();
           slotName = 'kp_learn_aux';
           representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
           slot = mergeSlots(learner.slots?.logicGroupPrelearn?.[kp?.identity?.logicGroupId] || {}, learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {});
         } else if (stage === 'kp_learn') {
-          const kp = groupCompanionKp();
-          const groupId = groupIds[activeGroupIndex()] || '';
+          const kp = visibleCompanionKp('kp_learn') || groupCompanionKp();
+          const groupId = kp?.identity?.logicGroupId || groupIds[activeGroupIndex()] || '';
           slotName = 'kp_learn_aux';
           representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';

@@ -151,6 +151,9 @@ check(learnerBridge.includes('resolvedSlotWeight'), 'auxiliary_width_uses_resolv
 check(learnerBridge.includes("['SOURCE_VISUAL', 'REVIEWED_VISUAL', 'STRUCTURED_TABLE']"), 'rich_aux_is_bounded_to_reviewed_visual_or_table_primitives');
 check(!learnerBridge.includes("if (array(slot?.visual).length || richExtension) return 'rich'"), 'raw_asset_existence_no_longer_controls_aux_width');
 check(learnerBridge.includes("'KP_RECALL_FRONT'") && learnerBridge.includes("slotName = 'kp_recall_aux'"), 'recall_front_routes_through_core_protected_context_stage');
+check(learnerBridge.includes("visibleCompanionKp('kp_learn')"), 'kp_learn_context_follows_visible_kp_object');
+check(learnerBridge.includes("const groupId = kp?.identity?.logicGroupId || groupIds[activeGroupIndex()] || '';"), 'kp_learn_context_uses_visible_kp_group_identity');
+check(learnerBridge.includes("Lecture · ${kp?.source?.locator || '暂无精确定位'}"), 'kp_learn_missing_source_locator_fails_closed_visibly');
 
 check(systemComponent.includes('composeXizongSystemFrameworkRepresentation'), 'system_framework_consumes_representation_gate');
 check(systemComponent.includes('data-system-framework-plan="purpose-first"'), 'system_workspace_marks_purpose_first_plan');
