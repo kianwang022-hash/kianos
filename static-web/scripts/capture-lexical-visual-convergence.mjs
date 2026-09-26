@@ -484,8 +484,9 @@ try {
   assert(await page.locator('[data-study-timer-dock]').isVisible(), 'v2_word_study_keeps_shared_timer');
   assert(await page.locator('[data-vocab-front]').isVisible(), 'v2_safe_fast_pass_front_visible');
   const initialSpeech = await page.evaluate(() => window.__kianosSpoken || []);
+  const frontWord = (await page.locator('[data-vocab-front] h2').innerText()).trim();
   assert(initialSpeech.length === 1, 'v2_word_front_autoplays_once', JSON.stringify(initialSpeech));
-  assert(initialSpeech[0]?.text === (document.querySelector('[data-vocab-front] h2')?.textContent || '').trim(), 'v2_word_front_autoplay_matches_word', JSON.stringify(initialSpeech));
+  assert(initialSpeech[0]?.text === frontWord, 'v2_word_front_autoplay_matches_word', JSON.stringify(initialSpeech));
   assert(await page.locator('[data-vocab-details]').isHidden(), 'v2_safe_fast_pass_depth_protected');
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="known"]').isVisible(), 'v2_safe_fast_pass_known_visible');
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="mastered"]').isVisible(), 'v2_safe_fast_pass_mastered_visible');
