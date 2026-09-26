@@ -102,6 +102,37 @@ async function selectTextAndMark(page, selector, kind, { domClick = false } = {}
   else await menuButton.click();
 }
 
+async function clickMarkedQuote(page, selector, quote) {
+  const point = await page.evaluate(({ selector, quote }) => {
+    const container = document.querySelector(selector);
+    if (!(container instanceof HTMLElement) || !quote) return null;
+    const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    let full = '';
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      const start = full.length;
+      full += node.textContent || '';
+      nodes.push({ node, start, end: full.length });
+    }
+    const at = full.indexOf(quote);
+    if (at < 0) return null;
+    const endAt = at + quote.length;
+    const startRow = nodes.find((row) => at >= row.start && at <= row.end);
+    const endRow = [...nodes].reverse().find((row) => endAt >= row.start && endAt <= row.end);
+    if (!startRow || !endRow) return null;
+    const range = document.createRange();
+    range.setStart(startRow.node, Math.max(0, at - startRow.start));
+    range.setEnd(endRow.node, Math.max(0, endAt - endRow.start));
+    const rect = range.getBoundingClientRect();
+    return rect.width > 0 && rect.height > 0
+      ? { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }
+      : null;
+  }, { selector, quote });
+  check(Boolean(point), 'marked_quote_click_point_resolved', selector);
+  await page.mouse.click(point.x, point.y);
+}
+
 const server = spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
@@ -204,11 +235,22 @@ try {
   const learnCard = root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]');
   await learnCard.waitFor({ state: 'visible' });
   check(await learnCard.locator('[data-learner-kp-core]').isVisible(), 'learn_core_visible_by_default');
+  const learnCoreScroll = await learnCard.locator('[data-learner-kp-core]').evaluate((node) => ({
+    overflowY: getComputedStyle(node).overflowY,
+    scrollHeight: node.scrollHeight,
+    clientHeight: node.clientHeight
+  }));
+  check(['auto', 'scroll'].includes(learnCoreScroll.overflowY), 'learn_core_owns_vertical_scroll', JSON.stringify(learnCoreScroll));
+  if (learnCoreScroll.scrollHeight > learnCoreScroll.clientHeight + 4) {
+    await learnCard.locator('[data-learner-kp-core]').evaluate((node) => { node.scrollTop = 80; });
+    const coreScrollTop = await learnCard.locator('[data-learner-kp-core]').evaluate((node) => node.scrollTop);
+    check(coreScrollTop > 0, 'learn_core_can_scroll_when_content_overflows', String(coreScrollTop));
+  }
   check(await learnCard.locator('.xzKpLearnHeaderRight').count() === 1, 'learn_header_right_compact_owner');
   const locatorText = (await learnCard.locator('.xzKpLearnLocatorMini').innerText()).replace(/\s+/g, ' ');
   check(locatorText.includes('Lecture'), 'lecture_locator_in_top_right', locatorText);
   check(locatorText.includes('Outline'), 'outline_locator_in_top_right', locatorText);
-  check(await learnCard.locator('.xzKpPacketButton').count() === 1, 'study_packet_entry_present');
+  check(await learnCard.locator('.xzKpPacketButton').count() === 0, 'study_packet_transport_hidden_from_normal_learning');
 
   const logicDetail = root.locator('.xzLogicGroupDetail');
   await logicDetail.waitFor({ state: 'visible' });
@@ -260,6 +302,17 @@ try {
     return Object.values(value?.kp || {}).flatMap((row) => Array.isArray(row?.marks) ? row.marks : []);
   }, personalKey);
   check(promptMarks.some((row) => row.kind === 'important' && row.surface === 'PROMPT'), 'prompt_mark_persisted');
+  const promptMark = promptMarks.find((row) => row.kind === 'important' && row.surface === 'PROMPT');
+  await clickMarkedQuote(page, '[data-study-stage]:not([hidden]) [data-kp-learn-prompt-copy]', promptMark?.text || '');
+  const promptMarksAfterClick = await page.evaluate((key) => {
+    const value = JSON.parse(localStorage.getItem(key) || '{}');
+    return Object.values(value?.kp || {}).flatMap((row) => Array.isArray(row?.marks) ? row.marks : []);
+  }, personalKey);
+  check(
+    !promptMarksAfterClick.some((row) => row.kind === 'important' && row.surface === 'PROMPT' && row.text === promptMark?.text),
+    'clicking_existing_highlight_removes_mark'
+  );
+  await selectTextAndMark(page, '[data-study-stage]:not([hidden]) [data-kp-learn-prompt-copy]', 'important');
 
   await page.evaluate(() => {
     if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
