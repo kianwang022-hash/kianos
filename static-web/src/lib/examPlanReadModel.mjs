@@ -136,7 +136,7 @@ export function buildChatControlledExamReadModel({
         text: `Chat 剩余安排 ${plannedRemainingMinutes} 分钟，超过今日可用剩余 ${capacityRemaining} 分钟；网页不会自动执行，返回 Chat 重排。`,
         action: '返回 Chat 重排'
       }
-    : plan?.attention?.text
+    : planFresh && plan?.attention?.text
       ? {
           type: 'chat_plan',
           text: plan.attention.text,
