@@ -5,6 +5,15 @@ import { randomUUID } from 'node:crypto';
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+export const DEFAULT_CURRENT_SUBPROCESS_TIMEOUT_MS = 300_000;
+
+export function resolveCurrentSubprocessTimeoutMs(env = process.env) {
+  const configured = Number(env.KIANOS_SUBPROCESS_TIMEOUT_MS);
+  return Number.isFinite(configured) && configured > 0
+    ? configured
+    : DEFAULT_CURRENT_SUBPROCESS_TIMEOUT_MS;
+}
+
 export function isProcessAlive(target, kill = process.kill) {
   if (!Number.isInteger(target) || target === 0) return false;
   try {
