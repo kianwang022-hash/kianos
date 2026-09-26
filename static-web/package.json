@@ -65,7 +65,8 @@
     "test:current-static-slots": "node scripts/test-current-static-slots.mjs && node scripts/test-current-release-cleanup.mjs",
     "build:lexical": "python3 ../tools/lexical_build_final_learner_objects.py",
     "test:content-fast-path": "python3 -m unittest discover -s ../tools -p test_lexical_incremental_projection.py && node scripts/test-current-static-impact.mjs && node scripts/test-current-build-recovery.mjs",
-    "build:astro": "node scripts/kianos-safe-astro-build.mjs"
+    "build:astro": "node scripts/kianos-safe-astro-build.mjs",
+    "test:exam-os-maturity": "node scripts/test-exam-os-maturity-matrix.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",
