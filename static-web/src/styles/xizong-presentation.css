@@ -10,12 +10,9 @@ body#kianos-workspace.surfaceBody-xizong button { border-radius:6px; }
 body#kianos-workspace.surfaceBody-xizong .portedStudyRuntime { width:100%;max-width:none;border:1px solid var(--study-line);border-radius:9px;background:#fff;box-shadow:none; }
 body#kianos-workspace.surfaceBody-xizong .portedStudyContextRow { min-height:45px;padding:8px 20px;font-size:14px; }
 body#kianos-workspace.surfaceBody-xizong .portedStudyShellActions button { padding:7px 12px;border-radius:5px;font-size:13px;font-weight:500; }
-body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity { padding:18px 23px;gap:20px; }
 body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity>div>span { font-size:12px;letter-spacing:.04em; }
-body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity h2 { font-size:29px;line-height:1.4;margin:6px 0 0; }
 body#kianos-workspace.surfaceBody-xizong .portedStudyIdentityMeta strong { font-size:14px;line-height:1.7;font-weight:550; }
 body#kianos-workspace.surfaceBody-xizong .portedStudyIdentityMeta small { font-size:12px;line-height:1.65; }
-body#kianos-workspace.surfaceBody-xizong .portedStudyTabs button { min-height:46px;font-size:16px;min-width:115px;font-weight:550; }
 body#kianos-workspace.surfaceBody-xizong .portedStudyLayout { grid-template-columns:226px minmax(0,1fr) 238px;min-height:calc(100dvh - 260px); }
 body#kianos-workspace.surfaceBody-xizong .portedStudyLayout.outline-collapsed { grid-template-columns:0 minmax(0,1fr) 238px; }
 body#kianos-workspace.surfaceBody-xizong .portedStudyLayout.chain-collapsed { grid-template-columns:226px minmax(0,1fr) 0; }
@@ -73,7 +70,6 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockSourceContact>footer { display
 body#kianos-workspace.surfaceBody-xizong .xv6BlockSourceContact>footer>span { font-size:15px;line-height:1.8;color:#839184; }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockSourceContact>footer>button { justify-self:start;max-width:100%;white-space:normal; }
 body#kianos-workspace.surfaceBody-xizong .portedKpCards { padding:0; }
-body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard { width:100%;max-width:none;margin:0;border:0;border-radius:0;box-shadow:none;background:#fff; }
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard>header { padding:27px 30px 24px; }
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard>header>span { font-size:13px;color:#809786; }
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard>header>h3 { margin:8px 0 20px;font-size:28px;font-weight:550; }
@@ -165,15 +161,15 @@ body#kianos-workspace.surfaceBody-xizong .xv6Block:has([data-study-panel="learn"
 }
 
 /* Reveal spends its viewport on Core, not repeated neutral-front chrome. */
-body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity { padding-block:12px; }
-body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity h2 { font-size:26px; }
-body#kianos-workspace.surfaceBody-xizong .portedStudyTabs button { min-height:40px; }
+body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity { padding:18px 23px;gap:20px; padding-block:12px; }
+body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity h2 {line-height:1.4;margin:6px 0 0; font-size:26px; }
+body#kianos-workspace.surfaceBody-xizong .portedStudyTabs button {font-size:16px;min-width:115px;font-weight:550; min-height:40px; }
 body#kianos-workspace.surfaceBody-xizong .portedStudyMainHead { padding-block:13px; }
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>header { padding:16px 28px 10px; }
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>header>h3 { display:none; }
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>header>p { margin:8px 0;font-size:17px;line-height:1.75; }
 body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard:has([data-kp-answer]:not([hidden]))>.portedRecallPrompt { display:none; }
-body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard { scroll-margin-top:72px; }
+body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard { width:100%;max-width:none;margin:0;border:0;border-radius:0;box-shadow:none;background:#fff; scroll-margin-top:72px; }
 body#kianos-workspace.surfaceBody-xizong .xv6PersonalDock .position { display:block; }
 
 

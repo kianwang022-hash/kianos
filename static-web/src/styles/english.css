@@ -69,15 +69,12 @@ body#kianos-workspace.uiEnglish :is(.clozeRuntimeHeader,.readingBHeader,.transla
 body#kianos-workspace.uiEnglish :is(.clozeRuntimeHeader,.readingBHeader,.translationHeader,.writingRuntimeHeader) nav :is(a,span) { font-size:14px; }
 /* Reading A: complete passage 56%, complete question set 44%; independent scroll. */
 body#kianos-workspace.uiEnglish .portedReadingColumns { grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:0;min-height:0;height:calc(100dvh - 224px);border:1px solid var(--study-line);border-radius:9px;background:white;overflow:hidden; }
-body#kianos-workspace.uiEnglish .portedReadingPassage { border:0;border-radius:0;background:white;padding:24px 34px; }
 body#kianos-workspace.uiEnglish .portedReadingPassage p { font-family:var(--study-font);font-size:18px;line-height:1.8;letter-spacing:0;color:#273544; }
 body#kianos-workspace.uiEnglish .portedReadingPassage header { margin-bottom:20px;padding-bottom:16px; }
 body#kianos-workspace.uiEnglish .portedReadingPassage header h2 { font-family:var(--study-font);font-size:26px;font-weight:650; }
 body#kianos-workspace.uiEnglish .portedReadingPassage header span { font-size:12px;font-weight:500; }
-body#kianos-workspace.uiEnglish .portedReadingQuestions { display:block;border:0;border-left:1px solid var(--study-line);border-radius:0;background:white; }
 body#kianos-workspace.uiEnglish .portedReadingQuestion { min-height:0;padding:23px 26px;border-bottom:1px solid #e0e6ec;scroll-margin-top:10px; }
 body#kianos-workspace.uiEnglish .portedReadingQuestion.is-current { background:#fafcfe;box-shadow:inset 3px 0 #5c82ad; }
-body#kianos-workspace.uiEnglish .portedReadingQuestion>p { font-family:var(--study-font);font-size:18px;line-height:1.65;font-weight:550;color:#2a3a4e; }
 body#kianos-workspace.uiEnglish .portedReadingQuestion>header>span { font-size:12px;color:#6987a5;font-weight:600; }
 body#kianos-workspace.uiEnglish .portedReadingOptions { gap:7px; }
 body#kianos-workspace.uiEnglish .portedReadingOptions button { padding:8px 10px;border-radius:6px;background:white;border-color:#e0e5eb; }
@@ -111,7 +108,6 @@ body#kianos-workspace.uiEnglish .clozeQuestion.is-current { box-shadow:inset 3px
 body#kianos-workspace.uiEnglish .clozeQuestion>p:first-child { margin:0 0 8px;font-size:13px;font-weight:600;color:#6f89a5; }
 body#kianos-workspace.uiEnglish .clozeOptions { grid-template-columns:repeat(4,minmax(0,1fr));gap:5px; }
 body#kianos-workspace.uiEnglish .clozeOptions button { grid-template-columns:14px minmax(0,1fr);gap:5px;padding:6px 4px;border:1px solid transparent;border-radius:4px;background:transparent; }
-body#kianos-workspace.uiEnglish .clozeOptions button span { font-size:16px;line-height:1.45;overflow-wrap:anywhere; }
 body#kianos-workspace.uiEnglish .clozeOptions button b { font-size:11px;font-weight:500;line-height:23px;color:#8b9cae; }
 body#kianos-workspace.uiEnglish .clozeOptions button.selected { border-color:#91abc6;background:#edf4fc; }
 body#kianos-workspace.uiEnglish .clozeNav { padding:9px 14px;border-bottom:1px solid var(--study-line);background:#fff; }
@@ -227,7 +223,7 @@ body#kianos-workspace.uiEnglish :is(.writingRuntimeBoundary,.translationContract
 }
 
 body#kianos-workspace.uiEnglish .translationSourceGaps { display:block; }
-body#kianos-workspace.uiEnglish .portedReadingQuestions { min-height:0;overflow-y:auto; }
-body#kianos-workspace.uiEnglish .portedReadingPassage { min-height:0;overflow-y:auto; }
-body#kianos-workspace.uiEnglish .clozeOptions button span { overflow-wrap:normal;word-break:normal; }
-body#kianos-workspace.uiEnglish .portedReadingQuestion>p { font-weight:600; }
+body#kianos-workspace.uiEnglish .portedReadingQuestions { display:block;border:0;border-left:1px solid var(--study-line);border-radius:0;background:white; min-height:0;overflow-y:auto; }
+body#kianos-workspace.uiEnglish .portedReadingPassage { border:0;border-radius:0;background:white;padding:24px 34px; min-height:0;overflow-y:auto; }
+body#kianos-workspace.uiEnglish .clozeOptions button span { font-size:16px;line-height:1.45; overflow-wrap:normal;word-break:normal; }
+body#kianos-workspace.uiEnglish .portedReadingQuestion>p { font-family:var(--study-font);font-size:18px;line-height:1.65;color:#2a3a4e; font-weight:600; }
