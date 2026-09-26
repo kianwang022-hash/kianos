@@ -4,6 +4,7 @@ import * as P from '../src/lib/examChatPlan.mjs';
 import * as T from '../src/lib/studyTimer.mjs';
 import {captureSharedControlCheckpoint,restoreSharedControlCheckpoint} from '../src/lib/sharedControlCheckpoint.mjs';
 import {buildDailyLearningPacket} from '../src/lib/dailyLearningPacket.mjs';
+import {buildStewardTopupRecommendations} from '../src/lib/stewardWorkspaceClient.mjs';
 class Storage {
  constructor(rows={}){this.map=new Map(Object.entries(rows));}
  get length(){return this.map.size;} key(i){return [...this.map.keys()][i]??null;}
@@ -48,4 +49,19 @@ test('corrupt plan has no presentation fallback',()=>{const x=new Storage({[P.EX
 test('shared checkpoint roundtrip retains v3 bytes exactly',()=>{const cp=captureSharedControlCheckpoint(s,{studyDay:day,now:start+86400000});const restored=new Storage();const result=restoreSharedControlCheckpoint(restored,cp);assert.deepEqual(result.warnings,[]);assert.equal(restored.getItem(R.STEWARD_REALITY_KEY),s.getItem(R.STEWARD_REALITY_KEY));});
 test('packet exposes real quick/draft/consumption distinctions',()=>{const p=buildDailyLearningPacket({storage:s,day,now:start+86400000});assert.ok(p.steward.quick.length>=2);assert.ok(p.steward.meal_drafts.length>=2);assert.equal(p.steward.meals.find(x=>x.meal_id==='lunch').status,'SKIPPED');assert.equal(p.steward.training[0].exercises[0].status,'RECORDED');assert.ok(!/readiness|recovery_score|debt_score/.test(JSON.stringify(p.steward)));});
 test('seven-day rolling synthetic episodes stay distinct',()=>{const x=new Storage();for(let i=0;i<7;i++){const d=new Date(start+i*86400000).toISOString().slice(0,10),at=start+i*86400000;for(let j=0;j<3;j++){R.saveStewardMealDraft(x,meal({studyDay:d,observedAt:at,mealId:'meal-'+j}));R.confirmStewardMealDraft(x,{studyDay:d,mealId:'meal-'+j,confirmedAt:at});}const b=R.beginStewardBreak(x,{startedAt:at});R.endLatestStewardBreak(x,at+600000);R.recordStewardBreakReentry(x,b.id,{status:i%2?'PARTIAL':'RESTORED',at:at+660000});R.recordStewardQuickReality(x,{type:'COFFEE',value:0.5,unit:'杯',observedAt:at});assert.equal(R.stewardMealActualsForDay(x,d).length,3);}assert.equal(R.readStewardReality(x).events.length,35);});
+test('single macro gap yields bounded gram recommendation',()=>{
+ const projection={foods:[
+  {id:'base',unit:'g',grams_per_unit:1,nutrition:{basis:'PER_100G',kcal:500,protein_g:50,carb_g:40,fat_g:20}},
+  {id:'rye',label:'黑麦片',unit:'g',grams_per_unit:1,nutrition:{basis:'PER_100G',kcal:344.9,protein_g:13,carb_g:63.2,fat_g:1.6}}
+ ],topup_pool:[{food_id:'rye',amount:40,macro:'carb_g'}]};
+ const meal={targets:{kcal:{min:500},protein_g:{min:50},carb_g:{min:55},fat_g:{min:20}}};
+ const result=buildStewardTopupRecommendations(projection,meal,[{food_id:'base',amount:100}]);
+ assert.equal(result.status,'SINGLE');assert.equal(result.macro,'carb_g');assert.equal(result.suggestions[0].amount,25);
+});
+test('unknown or multiple nutrition gaps never manufacture precise topup',()=>{
+ const projection={foods:[{id:'base',unit:'g',grams_per_unit:1,nutrition:{basis:'PER_100G',kcal:300,protein_g:20,carb_g:20,fat_g:5}}],topup_pool:[]};
+ const meal={targets:{protein_g:{min:50},carb_g:{min:60}}};
+ assert.equal(buildStewardTopupRecommendations(projection,meal,[{food_id:'base',amount:null}]).status,'UNKNOWN');
+ assert.equal(buildStewardTopupRecommendations(projection,meal,[{food_id:'base',amount:100}]).status,'MULTIPLE');
+});
 console.log(`PASS ${passed} Steward state/compatibility/adversarial scenario groups`);

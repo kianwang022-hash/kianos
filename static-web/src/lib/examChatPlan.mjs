@@ -132,6 +132,23 @@ const boundedNumber = (value, field, { min = 0, max = 100000, optional = false }
   return number;
 };
 
+const NUTRITION_TARGET_FIELDS = Object.freeze(['kcal', 'protein_g', 'carb_g', 'fat_g']);
+const normalizeNutritionTargets = (value, field) => {
+  if (value == null) return null;
+  if (!record(value)) throw new Error(`Invalid ${field}.`);
+  const result = {};
+  for (const key of NUTRITION_TARGET_FIELDS) {
+    if (value[key] == null) continue;
+    if (!record(value[key])) throw new Error(`Invalid ${field}.${key}.`);
+    const min = boundedNumber(value[key].min, `${field}.${key}.min`, { optional: true });
+    const max = boundedNumber(value[key].max, `${field}.${key}.max`, { optional: true });
+    if (min == null && max == null) continue;
+    if (min != null && max != null && max < min) throw new Error(`Invalid ${field}.${key}; max must be >= min.`);
+    result[key] = { min, max };
+  }
+  return Object.keys(result).length ? result : null;
+};
+
 function normalizeNutritionProjection(value) {
   if (value == null) return null;
   if (!record(value)) throw new Error('Chat Plan presentation.nutrition must be an object.');
@@ -186,10 +203,13 @@ function normalizeNutritionProjection(value) {
     if (!record(raw)) throw new Error(`Invalid ${field}[${index}].`);
     const foodId = presentationId(raw.food_id, `${field}[${index}].food_id`);
     if (!foodIds.has(foodId)) throw new Error(`Invalid ${field}[${index}].food_id; unknown food.`);
+    const macro = raw.macro == null || raw.macro === '' ? null : String(raw.macro).trim();
+    if (macro && !NUTRITION_TARGET_FIELDS.includes(macro)) throw new Error(`Invalid ${field}[${index}].macro.`);
     return {
       food_id: foodId,
       amount: boundedNumber(raw.amount, `${field}[${index}].amount`, { min: 0, max: 10000 }),
-      role: text(raw.role, 40)
+      role: text(raw.role, 40),
+      macro
     };
   });
 
@@ -202,6 +222,7 @@ function normalizeNutritionProjection(value) {
       id,
       label,
       note: text(raw.note, 180),
+      targets: normalizeNutritionTargets(raw.targets, `presentation.nutrition.meals[${index}].targets`),
       items: normalizeEntries(raw.items, `presentation.nutrition.meals[${index}].items`, 16)
     };
   });

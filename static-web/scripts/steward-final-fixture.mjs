@@ -43,17 +43,19 @@ export async function seedStewardFixture({studyDay, capacity='ORDINARY', fullDay
               { id: 'blueberry', label: '蓝莓', unit: 'g', recommended_amount: 120, nutrition: { basis: 'PER_100G', kcal: 57, protein_g: .7, carb_g: 14.5, fat_g: .3 } },
               { id: 'nuts', label: '混合坚果', unit: '小包', grams_per_unit: 12, recommended_amount: 1, note: '12g/小包', nutrition: { basis: 'PER_100G', kcal: 600, protein_g: 18, carb_g: 20, fat_g: 52 } },
               { id: 'salmon', label: '三文鱼', unit: 'g', recommended_amount: 200, nutrition: { basis: 'PER_100G', kcal: 208, protein_g: 20, carb_g: 0, fat_g: 13 } },
-              { id: 'shrimp', label: '北极甜虾', unit: 'g', recommended_amount: 170, nutrition: { basis: 'PER_100G', kcal: 74, protein_g: 17.1, carb_g: 1, fat_g: 0 } }
+              { id: 'shrimp', label: '北极甜虾', unit: 'g', recommended_amount: 170, nutrition: { basis: 'PER_100G', kcal: 74, protein_g: 17.1, carb_g: 1, fat_g: 0 } },
+              { id: 'whey', label: '蛋白粉', unit: 'g', recommended_amount: 30, nutrition: { basis: 'PER_100G', kcal: 390, protein_g: 80, carb_g: 8, fat_g: 6 } }
             ],
             meals: [
               { id: 'b01', label: 'B01 · 熟悉早餐', note: '酸奶 + 黑麦 + 蓝莓 + 少量坚果', items: [{ food_id: 'yogurt', amount: 1 }, { food_id: 'rye', amount: 50 }, { food_id: 'blueberry', amount: 120 }, { food_id: 'nuts', amount: 1 }] },
-              { id: 'z02', label: 'Z02 · 三文鱼午餐', note: '饱腹 / 训练支持', items: [{ food_id: 'salmon', amount: 200 }, { food_id: 'rye', amount: 50 }, { food_id: 'yogurt', amount: 1 }] },
+              { id: 'z02', label: 'Z02 · 三文鱼午餐', note: '饱腹 / 训练支持', targets: { protein_g: { min: 70, max: 95 }, carb_g: { min: 55, max: 85 }, fat_g: { min: 20, max: 35 }, kcal: { min: 600, max: 850 } }, items: [{ food_id: 'salmon', amount: 200 }, { food_id: 'rye', amount: 50 }, { food_id: 'yogurt', amount: 1 }] },
               { id: 'z03', label: 'Z03 · 甜虾午餐', note: '更轻的午餐候选', items: [{ food_id: 'shrimp', amount: 170 }, { food_id: 'rye', amount: 50 }, { food_id: 'yogurt', amount: 1 }] }
             ],
             topup_pool: [
-              { food_id: 'yogurt', amount: 1, role: '补蛋白' },
-              { food_id: 'rye', amount: 30, role: '补碳水' },
-              { food_id: 'nuts', amount: 1, role: '补脂肪' }
+              { food_id: 'whey', amount: 40, role: '补蛋白', macro: 'protein_g' },
+              { food_id: 'yogurt', amount: 1, role: '补蛋白', macro: 'protein_g' },
+              { food_id: 'rye', amount: 40, role: '补碳水', macro: 'carb_g' },
+              { food_id: 'nuts', amount: 2, role: '补脂肪', macro: 'fat_g' }
             ],
             quick_add: [
               { food_id: 'yogurt', amount: 1 },

@@ -39,8 +39,13 @@ try {
  await activity('english',37);await page.evaluate(seedStewardFixture,{studyDay:DAY});await settle();
  check(errors.length===0,'actual_page_no_initial_errors',errors.join('\n'));
  check(await page.locator('[data-kianos-global-rail]').isVisible(),'shared_l1_retained');
+ check(await page.locator('[data-kianos-global-rail]').evaluate(node=>getComputedStyle(node).backgroundColor)==='rgb(17, 29, 25)','steward_uses_shared_l1_color');
  check(await page.locator('[data-steward-capacity-section]').isHidden(),'normal_strategy_hidden');
  check(await page.locator('.stewardAgendaRow').count()===9,'all_future_events_retained');
+ const shortAgenda=page.locator('.stewardAgendaRow[data-duration-minutes="15"]').first(),longAgenda=page.locator('.stewardAgendaRow[data-duration-minutes="80"]').first();
+ const shortBox=await shortAgenda.boundingBox(),longBox=await longAgenda.boundingBox();
+ check(shortBox&&longBox&&longBox.height>=shortBox.height+20,'agenda_duration_is_visually_legible',JSON.stringify({short:shortBox?.height,long:longBox?.height}));
+ check(await page.locator('.stewardTimeline').evaluate(node=>getComputedStyle(node,'::before').width)==='2px','timeline_axis_is_visible');
  check((await page.locator('.stewardCurrentCard').innerText()).includes('Reading A')&&(await page.locator('.stewardCurrentCard').innerText()).includes('西综下午主块'),'plan_actual_mismatch_preserved');
  await page.locator('[data-steward-past-fold] summary').click();
  check(await page.locator('.stewardPastRow').count()===10,'past_expands_complete_history');
@@ -92,6 +97,10 @@ try {
  check(await salmon.inputValue()==='200','real_plan_producer_supplies_salmon');
  check(await page.locator('[data-steward-macro]').count()===4,'four_macro_numbers');
  check(await page.locator('[data-steward-quick-add] button').count()===6,'authorized_quick_pool');
+ await page.locator('[data-steward-topup-calc]').click();await settle();
+ const topupText=await page.locator('[data-steward-topup-recommendation]').innerText();
+ check(/碳水/.test(topupText)&&/黑麦片/.test(topupText)&&/20\s*g/.test(topupText),'single_gap_recommends_specific_rye_grams',topupText);
+ await shot('Nutrition');
  await page.locator('[data-steward-meal-uncertain]').click();await settle();
  await page.locator('[data-steward-meal-preset="b01"]').click();await page.locator('[data-steward-meal-preset="z02"]').click();
  check(await page.locator('[data-steward-meal-uncertain]').getAttribute('aria-pressed')==='true','meal_switch_keeps_uncertainty');
@@ -106,7 +115,7 @@ try {
  await salmon.fill('100');await salmon.dispatchEvent('change');await settle();check(JSON.stringify(await meals())===JSON.stringify(first),'editing_does_not_overwrite_actual');
  await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>!!window.KianOSStudyTimer);await switchMode('nutrition');
  check(await salmon.inputValue()==='100','meal_draft_refresh_persistent');
- await shot('Nutrition');
+ await shot('Nutrition-edited');
  await switchMode('training');
  await page.locator('[data-steward-exercise="KN01"] [data-action="replace"]').click();await settle();
  check(!(await events()).events.some(e=>e.kind==='TRAINING'),'recommendation_substitution_not_actual');

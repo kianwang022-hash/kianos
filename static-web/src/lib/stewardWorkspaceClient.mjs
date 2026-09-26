@@ -14,6 +14,57 @@ const appendText=(node,tag,cls,text)=>{const n=el(tag,cls,text);node.append(n);r
 const button=(text,action,cls='')=>{const b=el('button',cls,text);b.type='button';b.onclick=action;return b;};
 const amountLabel=(food,n)=>n==null?'份量未记录':`${Number(n.toFixed?.(2)??n)} ${food.unit||''}`;
 const eventTime=e=>e.observedAt??e.startedAt;
+const agendaVisualHeight=(start,end)=>{
+  const duration=end==null?20:Math.max(5,(Number(end)-Number(start))/60000);
+  return Math.round(Math.min(126,Math.max(50,38+Math.sqrt(duration)*6.2)));
+};
+const NUTRITION_MACROS=Object.freeze(['protein_g','carb_g','fat_g','kcal']);
+const NUTRITION_MACRO_LABEL=Object.freeze({protein_g:'蛋白质',carb_g:'碳水',fat_g:'脂肪',kcal:'能量'});
+const nutrientPerAmount=(food,macro)=>{
+  const nutrition=food?.nutrition;
+  if(!nutrition||!Number.isFinite(Number(nutrition[macro])))return null;
+  if(nutrition.basis==='PER_UNIT')return Number(nutrition[macro]);
+  const grams=Number(food.grams_per_unit);
+  if(nutrition.basis==='PER_100G'&&Number.isFinite(grams)&&grams>0)return Number(nutrition[macro])*grams/100;
+  return null;
+};
+export function buildStewardTopupRecommendations(projection,meal,items,{uncertain=false}={}){
+  if(!projection||!meal?.targets)return {status:'UNAVAILABLE',macro:null,deficit:null,suggestions:[]};
+  const foodMap=new Map((projection.foods||[]).map(food=>[food.id,food]));
+  const sums={kcal:0,protein_g:0,carb_g:0,fat_g:0};
+  let unknown=false;
+  for(const item of items||[]){
+    const food=foodMap.get(item.food_id);
+    if(item.amount==null||!food?.nutrition){unknown=true;continue;}
+    for(const macro of NUTRITION_MACROS){
+      const per=nutrientPerAmount(food,macro);
+      if(per==null){unknown=true;continue;}
+      sums[macro]+=per*Number(item.amount);
+    }
+  }
+  if(uncertain||unknown)return {status:'UNKNOWN',macro:null,deficit:null,suggestions:[]};
+  const deficits=NUTRITION_MACROS
+    .map(macro=>({macro,min:meal.targets?.[macro]?.min}))
+    .filter(row=>Number.isFinite(row.min)&&sums[row.macro]+0.01<row.min)
+    .map(row=>({...row,deficit:row.min-sums[row.macro]}));
+  if(deficits.length===0)return {status:'NONE',macro:null,deficit:0,suggestions:[]};
+  if(deficits.length!==1)return {status:'MULTIPLE',macro:null,deficit:null,suggestions:[]};
+  const {macro,deficit}=deficits[0];
+  const suggestions=[];
+  for(const entry of projection.topup_pool||[]){
+    if(entry.macro!==macro)continue;
+    const food=foodMap.get(entry.food_id),per=nutrientPerAmount(food,macro);
+    if(!food||!Number.isFinite(per)||per<=0||!Number.isFinite(entry.amount)||entry.amount<=0)continue;
+    const step=food.unit==='g'?5:.5;
+    const raw=deficit/per;
+    let amount=Math.ceil(raw/step)*step;
+    const capped=amount>entry.amount;
+    amount=Math.min(amount,entry.amount);
+    const grams=food.unit==='g'?amount:(Number.isFinite(food.grams_per_unit)?amount*food.grams_per_unit:null);
+    suggestions.push({food_id:food.id,label:food.label,macro,amount,unit:food.unit,grams,capped,deficit});
+  }
+  return {status:suggestions.length?'SINGLE':'NO_OPTION',macro,deficit,suggestions};
+}
 
 export function initStewardWorkspace(root) {
   if(!(root instanceof HTMLElement))return;
@@ -108,6 +159,7 @@ export function initStewardWorkspace(root) {
     for(const b of past){const row=el('div','stewardPastRow');row.append(el('time','',clock(b.start)+(b.end?'–'+clock(b.end):'')),el('strong','',b.label));const linked=actualRows.filter(x=>Math.min(x.endedAt,b.end??b.start)>Math.max(x.startedAt,b.start));appendText(row,'span','stewardMuted',linked.length?'有实际记录':'实际未确认');pastNode.append(row);}
     const timeline=$('[data-steward-timeline]');timeline.replaceChildren();
     const c=activityCopy(data.activity),row=el('article','stewardCurrentRow'),card=el('div','stewardCurrentCard');card.dataset.actual=data.activity.kind;
+    if(current?.end){const duration=Math.max(1,Math.round((current.end-current.start)/60000));row.dataset.durationMinutes=String(duration);row.style.setProperty('--st-duration-height',agendaVisualHeight(current.start,current.end)+'px');}
     row.append(el('time','stewardAgendaTime',current?clock(current.start)+'–'+clock(current.end):clock(now)),card);
     const head=el('header','');head.append(el('span','stewardEyebrow',data.activity.status==='paused'?'已暂停':'现在'),el('time','',clock(now)));card.append(head);appendText(card,'h3','',c.label);
     const meta=el('dl','stewardCurrentMeta');meta.append(el('dt','','计划'),el('dd','',current?.label||'此刻没有计划时段'),el('dt','','实际'),el('dd','',c.detail));card.append(meta);
@@ -116,7 +168,7 @@ export function initStewardWorkspace(root) {
     if(['active','paused'].includes(data.activity.status))actions.append(button(data.activity.status==='paused'?'继续':'暂停',()=>dock('pause')));
     actions.append(button('记录一下',()=>dock('record')));card.append(actions);timeline.append(row);
     if(!rows.length)appendText(timeline,'p','stewardEmpty','没有安排也可以学习、休息和记录实际。');
-    for(const b of future){const r=el('article','stewardAgendaRow');r.append(el('time','stewardAgendaTime',clock(b.start)+(b.end?'–'+clock(b.end):'')));const body=el('div','stewardAgendaBody');appendText(body,'strong','',b.label);if(b.detail)appendText(body,'p','',b.detail);r.append(body);if(b.meal_id)r.append(button('看餐食',()=>{selectedMealId=b.meal_id;activateMode('nutrition');},'stewardTextButton'));if(b.training_session_id)r.append(button('看训练',()=>activateMode('training'),'stewardTextButton'));timeline.append(r);}
+    for(const b of future){const r=el('article','stewardAgendaRow');if(b.end){const duration=Math.max(1,Math.round((b.end-b.start)/60000));r.dataset.durationMinutes=String(duration);r.style.setProperty('--st-duration-height',agendaVisualHeight(b.start,b.end)+'px');}r.append(el('time','stewardAgendaTime',clock(b.start)+(b.end?'–'+clock(b.end):'')));const body=el('div','stewardAgendaBody');appendText(body,'strong','',b.label);if(b.detail)appendText(body,'p','',b.detail);r.append(body);if(b.meal_id)r.append(button('看餐食',()=>{selectedMealId=b.meal_id;activateMode('nutrition');},'stewardTextButton'));if(b.training_session_id)r.append(button('看训练',()=>activateMode('training'),'stewardTextButton'));timeline.append(r);}
     $('[data-steward-now-subject]').textContent=c.label;$('[data-steward-now-elapsed]').textContent=c.detail;$('[data-steward-now-plan]').textContent=current?.label||'此刻没有计划时段';$('[data-steward-next]').textContent=future[0]?clock(future[0].start)+' '+future[0].label:'没有后续安排';
     $('[data-steward-study-total]').textContent=data.timer?minutes(data.timer.today.totalMs):'—';for(const s of Object.keys(SUBJECTS))$(`[data-steward-total="${s}"]`).textContent=data.timer?minutes(data.timer.today.bySubject[s]?.ms||0):'—';
     const tasks=data.presentation.today_tasks||[],taskNode=$('[data-steward-tasks]');$('[data-steward-task-section]').hidden=!tasks.length;taskNode.replaceChildren();
@@ -175,7 +227,9 @@ export function initStewardWorkspace(root) {
       for(const i of items){const f=map.get(i.food_id);if(i.amount==null||!f?.nutrition){unknown++;continue;}const n=f.nutrition,scale=n.basis==='PER_UNIT'?i.amount:i.amount*f.grams_per_unit/100;if(!Number.isFinite(scale)){unknown++;continue;}known++;for(const [key,field] of [['kcal','kcal'],['protein','protein_g'],['carb','carb_g'],['fat','fat_g']])sums[key]+=n[field]*scale;}
       $('[data-steward-estimate-label]').textContent=unknown?'已知部分 · 估算':'这次选择 · 估算';for(const key of Object.keys(sums))$(`[data-steward-macro="${key}"]`).textContent=known?`${Math.round(sums[key])} ${key==='kcal'?'kcal':'g'}`:'—';
       $('[data-steward-estimate-note]').textContent=unknown?'还有未知份量或营养数据；这些不是完整总量。':uncertain?'份量不确定，数字仅为粗略估算。':'按当前选择估算；确认后才成为已吃记录。';
-      $('[data-steward-topup-note]').textContent=unknown||uncertain?'信息不全，不判断确定缺口；仍可自己选择今日允许项。':'今天已允许的补缺选项，是否添加由你决定。';
+      const topupResult=$('[data-steward-topup-recommendation]');topupResult.replaceChildren();
+      $('[data-steward-topup-note]').textContent=unknown||uncertain?'信息不全，不判断确定缺口；仍可自己选择今日允许项。':meal.targets?'选择确定后，点“算补缺”给单一缺口的具体补量。':'当前计划没有结构化本餐目标，只显示允许补充项。';
+      const calc=$('[data-steward-topup-calc]');calc.disabled=!meal.targets;
       $('[data-steward-meal-uncertain]').setAttribute('aria-pressed',String(uncertain));
       const eaten=(reality.stewardMealActualsForDay(storage,today)||[]).find(x=>x.mealId===meal.id);
       $('[data-steward-meal-state]').textContent=draft&&draft.planGeneratedAt!==planAt?'选择属于旧安排；请套用或编辑本次推荐后再确认。':eaten?'已有实际记录；这里的编辑不会覆盖它。':draft?'选择已保存，尚未确认已吃。':'当前为推荐，尚未确认已吃。';
@@ -183,6 +237,21 @@ export function initStewardWorkspace(root) {
     }
     const actions=(selector,entries)=>{const node=$(selector);node.replaceChildren();for(const e of entries||[]){const f=map.get(e.food_id);if(!f)continue;node.append(button('+ '+f.label+' '+amountLabel(f,e.amount),()=>{const next=items.map(x=>({...x})),found=next.find(x=>x.food_id===f.id);if(found)found.amount=found.amount==null?null:found.amount+e.amount;else next.push({food_id:f.id,amount:e.amount});persist(next,uncertain,true);}));}if(!node.childElementCount)appendText(node,'p','stewardEmpty','暂无额外推荐项。');};
     actions('[data-steward-quick-add]',p.quick_add);actions('[data-steward-topup-list]',p.topup_pool);
+    $('[data-steward-topup-calc]').onclick=()=>{
+      const node=$('[data-steward-topup-recommendation]');node.replaceChildren();
+      const result=buildStewardTopupRecommendations(p,meal,items,{uncertain});
+      if(result.status==='UNKNOWN'){appendText(node,'p','stewardTopupMessage','还有未知份量或“份量不确定”，先不算精确补量。');return;}
+      if(result.status==='UNAVAILABLE'){appendText(node,'p','stewardTopupMessage','当前计划没有结构化本餐目标。');return;}
+      if(result.status==='NONE'){appendText(node,'p','stewardTopupMessage','当前选择已经覆盖本餐结构化目标，不需要额外补。');return;}
+      if(result.status==='MULTIPLE'){appendText(node,'p','stewardTopupMessage','当前同时有多项缺口，不用单一食物硬补；仍可从允许项里自己调整。');return;}
+      if(result.status==='NO_OPTION'){appendText(node,'p','stewardTopupMessage',`主要缺${NUTRITION_MACRO_LABEL[result.macro]}，但今天的允许补充池没有对应项。`);return;}
+      appendText(node,'p','stewardTopupMessage',`主要缺${NUTRITION_MACRO_LABEL[result.macro]}约 ${Math.round(result.deficit)} ${result.macro==='kcal'?'kcal':'g'}，可以这样补：`);
+      for(const suggestion of result.suggestions){
+        const grams=suggestion.grams!=null&&suggestion.unit!=='g'? `（约 ${Math.round(suggestion.grams)}g）`:'';
+        const label=`+ ${suggestion.label} ${Number(suggestion.amount.toFixed?.(2)??suggestion.amount)} ${suggestion.unit}${grams}${suggestion.capped?' · 先补到允许上限':''}`;
+        const b=button(label,()=>{const next=items.map(x=>({...x})),found=next.find(x=>x.food_id===suggestion.food_id);if(found)found.amount=found.amount==null?null:found.amount+suggestion.amount;else next.push({food_id:suggestion.food_id,amount:suggestion.amount});persist(next,uncertain,true);},'stewardTopupSuggestion');node.append(b);
+      }
+    };
     $('[data-steward-meal-half]').onclick=()=>persist(items.map(x=>({...x,amount:x.amount==null?null:x.amount/2})),uncertain,true);
     $('[data-steward-meal-uncertain]').onclick=()=>persist(items,!uncertain);
     $('[data-steward-meal-reset]').onclick=()=>persist(meal.items.map(x=>({...x})),false,true);

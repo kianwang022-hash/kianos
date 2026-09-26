@@ -41,12 +41,13 @@
 .stewardPastRow time { white-space:nowrap; }
 .stewardTimelineViewport { overflow:visible; max-height:none; }
 .stewardTimeline { position:relative; min-height:0; height:auto; padding:0; }
-.stewardTimeline::before { content:""; position:absolute; left:103px; top:24px; bottom:20px; width:1px; background:var(--st-line); }
+.stewardTimeline::before { content:""; position:absolute; left:103px; top:24px; bottom:20px; width:2px; background:#c9d8d0; }
 .stewardCurrentRow,.stewardAgendaRow { position:relative; display:grid; grid-template-columns:94px minmax(0,1fr) auto; gap:20px; }
-.stewardCurrentRow { grid-template-columns:94px minmax(0,1fr); padding:8px 0 20px; }
+.stewardCurrentRow { grid-template-columns:94px minmax(0,1fr); min-height:var(--st-duration-height,0); padding:8px 0 20px; isolation:isolate; }
 .stewardAgendaTime { color:var(--st-muted); font-variant-numeric:tabular-nums; font-size:15px; padding-top:10px; overflow-wrap:anywhere; }
-.stewardCurrentRow::before { content:""; position:absolute; left:99px; top:30px; width:9px; height:9px; border-radius:50%; background:#bc775f; }
-.stewardCurrentCard { min-width:0; position:relative; border:1px solid #cddfd5; border-left:4px solid var(--st-accent); background:var(--st-paper); border-radius:12px; padding:14px 17px; box-shadow:0 8px 20px rgba(24,49,39,.055); }
+.stewardCurrentRow::before { content:""; position:absolute; left:98px; top:30px; width:11px; height:11px; border-radius:50%; background:#bc775f; box-shadow:0 0 0 3px var(--st-paper); z-index:2; }
+.stewardCurrentRow::after { content:""; position:absolute; left:104px; right:0; top:35px; height:1px; background:#c88973; z-index:0; }
+.stewardCurrentCard { min-width:0; position:relative; z-index:1; border:1px solid #cddfd5; border-left:4px solid var(--st-accent); background:var(--st-paper); border-radius:12px; padding:14px 17px; box-shadow:0 9px 22px rgba(24,49,39,.065); }
 .stewardCurrentCard header { display:flex; justify-content:space-between; gap:16px; align-items:center; }
 .stewardCurrentCard header time { color:var(--st-muted); font-size:15px; }
 .stewardCurrentCard h3 { font-size:21px; margin:3px 0 10px; }
@@ -55,23 +56,39 @@
 .stewardWorkspace dd { margin:0; overflow-wrap:anywhere; }
 .stewardCurrentActions { display:flex; flex-wrap:wrap; gap:7px; margin-top:13px; }
 .stewardWorkspace button.stewardPrimary { background:var(--st-accent); border-color:var(--st-accent); color:#fff; }
-.stewardAgendaRow { align-items:center; border-top:1px solid var(--st-line); padding:12px 0; }
-.stewardAgendaRow::before { content:""; position:absolute; top:27px; left:100px; width:7px; height:7px; background:#c9d7cf; border-radius:50%; }
-.stewardAgendaRow .stewardAgendaTime { padding:0; }
+.stewardAgendaRow { align-items:start; min-height:var(--st-duration-height,50px); border-top:1px solid var(--st-line); padding:11px 0 10px; }
+.stewardAgendaRow::before { content:""; position:absolute; top:20px; left:99px; width:9px; height:9px; background:#b8cec3; border:2px solid var(--st-paper); border-radius:50%; }
+.stewardAgendaRow .stewardAgendaTime { padding-top:1px; }
 .stewardAgendaBody strong { font-weight:650; }
 .stewardAgendaBody p { font-size:15px; margin-top:2px; }
 .stewardWorkspace button.stewardTextButton { border:0; padding:2px 0; background:transparent; color:var(--st-accent); font-size:15px; }
 .stewardDayFooter { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:12px; border-top:1px solid var(--st-line); padding:12px 0; }
 .stewardDayFooter summary { padding:0; }
 .stewardSubjectTotals { display:flex; flex-wrap:wrap; gap:12px; padding:10px 0; }
-.stewardNowRail,.stewardNutritionRail,.stewardTrainingSummary { display:flex; flex-direction:column; gap:14px; min-width:0; }
+.stewardNowRail,.stewardNutritionRail,.stewardTrainingSummary { display:flex; flex-direction:column; gap:12px; min-width:0; }
 .stewardAsideSection { border-bottom:1px solid var(--st-line); padding:5px 2px 16px; min-width:0; }
+.stewardNowRail>.stewardAsideSection,
+.stewardNutritionRail>.stewardAsideSection,
+.stewardTrainingSummary>.stewardAsideSection {
+  border:1px solid var(--st-line);
+  border-radius:12px;
+  background:var(--st-paper);
+  padding:14px 15px;
+  box-shadow:0 2px 9px rgba(24,49,39,.035);
+}
 .stewardAsideSection>header { display:flex; justify-content:space-between; align-items:center; gap:10px; }
 .stewardAsideSection>h2 { margin:4px 0; }
 .stewardAsideSection>h3 { margin-bottom:10px; }
 .stewardAsideSection>p { margin:7px 0 0; font-size:15px; }
 .stewardNowMeta { margin-top:12px; }
 .stewardCapacitySection,.stewardTrainingBoundary { border-left:3px solid var(--st-accent); padding:3px 0 4px 12px; }
+.stewardNowRail>.stewardCapacitySection {
+  border:1px solid #d4e2db;
+  border-left:3px solid var(--st-accent);
+  border-radius:12px;
+  background:#f7faf8;
+  padding:13px 14px;
+}
 .stewardCapacitySection>header { display:flex; justify-content:space-between; color:var(--st-accent); margin-bottom:5px; }
 .stewardCapacityMeta { display:grid; gap:7px; margin-top:10px; }
 .stewardCapacityMeta>div { display:grid; grid-template-columns:48px 1fr; gap:8px; }
@@ -112,6 +129,11 @@
 .stewardMacroBigGrid strong { font-size:25px; font-weight:700; white-space:nowrap; }
 .stewardQuickAdd,.stewardTrainingEffect { display:flex; flex-wrap:wrap; gap:7px; margin-top:8px; }
 .stewardQuickAdd button { text-align:left; }
+.stewardTopupRecommendation { display:grid; gap:7px; margin-top:10px; }
+.stewardTopupMessage { font-size:15px; line-height:1.45; }
+.stewardWorkspace button.stewardTopupSuggestion { width:100%; text-align:left; background:#f7faf8; border-color:#d4e2db; }
+.stewardAllowedTopups { margin-top:10px; border-top:1px solid var(--st-line); }
+.stewardAllowedTopups summary { padding-bottom:2px; }
 .stewardHistorySection { margin-top:16px; padding:6px 0; border-top:1px solid var(--st-line); }
 .stewardHistoryEntry { padding:10px 0; border-bottom:1px solid var(--st-line); }
 .stewardHistoryEntry p { margin-top:3px; font-size:15px; overflow-wrap:anywhere; }
@@ -171,7 +193,7 @@
   .stewardCurrentRow,.stewardAgendaRow { grid-template-columns:66px minmax(0,1fr); gap:12px; }
   .stewardAgendaRow>button { grid-column:2; justify-self:start; }
   .stewardTimeline::before { left:72px; }
-  .stewardCurrentRow::before { left:68px; }.stewardAgendaRow::before { left:69px; }
+  .stewardCurrentRow::before { left:67px; }.stewardCurrentRow::after { left:73px; }.stewardAgendaRow::before { left:68px; }
   .stewardCurrentCard { padding:12px; }.stewardCurrentActions { gap:5px; }
   .stewardPastRow { grid-template-columns:90px 1fr; }.stewardPastRow>span { grid-column:2; }
   .stewardChoiceHeader,.stewardRecommendationBand { flex-wrap:wrap; }
