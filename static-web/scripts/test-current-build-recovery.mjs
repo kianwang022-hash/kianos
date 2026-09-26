@@ -44,6 +44,7 @@ const fs = require('fs'), path = require('path');
 const count = process.env.COUNTER;
 fs.appendFileSync(count, 'build\\n');
 if (process.env.BUILD_FAIL === '1') process.exit(1);
+if (process.env.BUILD_SLEEP_MS) Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,Number(process.env.BUILD_SLEEP_MS));
 const root = process.argv[process.argv.indexOf('--outDir') + 1];
 fs.mkdirSync(root, { recursive: true });
 fs.writeFileSync(path.join(root, 'index.html'), process.env.PAGE_TEXT || 'fixture');
@@ -103,6 +104,16 @@ fs.writeFileSync(path.join(root, 'index.html'), process.env.PAGE_TEXT || 'fixtur
   assert.equal(fs.existsSync(path.join(mirror, 'static-web/.current-build-failure.json')), false);
   assert.equal(run().status, 0);
   assert.equal(count(), 4, 'unchanged successful SHA must reuse');
+
+  const slowButHealthy = commit('content/lexical/words/by-ordinal/o0002.json', '{"changed":"slow"}');
+  git(upstream, 'push', 'origin', 'main');
+  result = run({
+    BUILD_SLEEP_MS: '120',
+    KIANOS_SUBPROCESS_TIMEOUT_MS: '25',
+    KIANOS_BUILD_TIMEOUT_MS: '1000'
+  });
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(built().sha, slowButHealthy, 'candidate build must use its dedicated timeout, not generic subprocess timeout');
   assert.equal(fs.existsSync(serverMarker), true, 'one-shot must probe candidate runtime readiness');
   const probePid = Number(fs.readFileSync(serverMarker, 'utf8'));
   assert.throws(() => process.kill(probePid, 0), /ESRCH/, 'one-shot readiness probe must not survive the sync');

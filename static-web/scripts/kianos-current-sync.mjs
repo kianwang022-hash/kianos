@@ -39,7 +39,13 @@ const gitBin = process.env.KIANOS_GIT_BIN || 'git';
 const oneShot = process.env.KIANOS_SYNC_ONCE === '1';
 const skipAstro = process.env.KIANOS_SKIP_ASTRO === '1';
 const releases = releasePaths(repoRoot);
-const subprocessTimeoutMs = Number(process.env.KIANOS_SUBPROCESS_TIMEOUT_MS || 120000);
+const timeoutMs = (name, fallback) => {
+  const value = Number(process.env[name] || fallback);
+  return Number.isFinite(value) && value > 0 ? value : fallback;
+};
+const subprocessTimeoutMs = timeoutMs('KIANOS_SUBPROCESS_TIMEOUT_MS', 120000);
+const installTimeoutMs = timeoutMs('KIANOS_INSTALL_TIMEOUT_MS', 180000);
+const buildTimeoutMs = timeoutMs('KIANOS_BUILD_TIMEOUT_MS', 300000);
 
 let site = null;
 let stopping = false;
@@ -116,8 +122,13 @@ function readActiveBuiltStatus() {
     : readBuiltStatus();
 }
 
-async function runChild(file, args, { cwd = webRoot, label = file, env = process.env } = {}) {
-  await runBounded(file, args, { cwd, env, label, timeoutMs: subprocessTimeoutMs });
+async function runChild(file, args, {
+  cwd = webRoot,
+  label = file,
+  env = process.env,
+  timeoutMs: childTimeoutMs = subprocessTimeoutMs
+} = {}) {
+  await runBounded(file, args, { cwd, env, label, timeoutMs: childTimeoutMs });
 }
 
 async function prepareRelease(sha, extra = {}) {
@@ -152,7 +163,8 @@ async function prepareRelease(sha, extra = {}) {
     if (fs.existsSync(path.join(candidateWebRoot, 'package.json'))) {
       await runChild(npmBin, ['install', '--no-audit', '--no-fund'], {
         cwd: candidateWebRoot,
-        label: 'candidate npm install'
+        label: 'candidate npm install',
+        timeoutMs: installTimeoutMs
       });
     }
     if (!skipAstro) {
@@ -162,7 +174,8 @@ async function prepareRelease(sha, extra = {}) {
       await runChild(args[0], args.slice(1), {
         cwd: candidateWebRoot,
         label: 'candidate Astro build',
-        env: { ...process.env, KIANOS_RELEASE_SHA: sha }
+        env: { ...process.env, KIANOS_RELEASE_SHA: sha },
+        timeoutMs: buildTimeoutMs
       });
       writeBuiltStatus(candidateStage, sha, extra);
       fs.renameSync(candidateStage, path.join(candidateWebRoot, 'dist'));
