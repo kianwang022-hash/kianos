@@ -469,7 +469,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
       const reconstructionCards = [...root.querySelectorAll('[data-biochemistry-reconstruction]')];
       const sourceHash = String(biochemistryLane.sourceHash);
       const units = biochemistryLane.units;
-      let selectedUnit = 0;
+      let selectedUnit = -1;
 
       const readLedger = () => {
         try {
