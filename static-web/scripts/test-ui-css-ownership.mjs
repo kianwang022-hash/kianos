@@ -134,6 +134,22 @@ for (const [name, forbidden] of [
 
 const stewardLocal = read(path.join(src, 'styles', 'steward-workspace.css'));
 const sharedShell = read(path.join(src, 'styles', 'shared-shell.css'));
+
+const politicsLearn = read(path.join(src, 'styles', 'politics-learn-workspace.css'));
+const politicsChapterRoute = read(path.join(src, 'pages', 'politics', '[subject]', '[chapter].astro'));
+assert.ok(
+  politicsLearn.includes('this file owns the Learn index and generic chapter workspace composition'),
+  'Politics Learn must retain its named presentation owner'
+);
+assert.ok(
+  !politicsChapterRoute.includes('<style is:global>'),
+  'Politics Chapter route must not own presentation CSS'
+);
+assert.ok(
+  !politicsChapterRoute.includes('PoliticsVisibleTypeFloor')
+  && !politicsChapterRoute.includes('PoliticsPurposeFirstPilotReadable'),
+  'Politics Chapter route must not reintroduce style-only presentation components'
+);
 assert.ok(!/Human-Gate visual (?:lock|repair)/.test(stewardLocal), 'Steward local CSS contains post-hoc Human-Gate patch layers');
 assert.ok(!/\.kianos(?:Shell|GlobalRail|Rail)/.test(stewardLocal), 'Steward local CSS must not override shared L1 shell selectors');
 assert.ok(sharedShell.includes('surfaceBody-steward'), 'Steward shell theme must live in shared-shell.css');
