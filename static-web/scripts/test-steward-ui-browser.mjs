@@ -11,6 +11,7 @@ import {listWritingSyntheticTasks} from '../src/lib/englishWritingSynthetic.mjs'
 const PORT=Number(process.env.STEWARD_QA_PORT||4396),BASE=`http://127.0.0.1:${PORT}`;
 const OUT=path.resolve(process.env.STEWARD_QA_OUT || '../steward-ui-audit'),scratch=fs.mkdtempSync(path.join(os.tmpdir(),'steward-final-qa-'));
 fs.mkdirSync(OUT,{recursive:true});
+for(const name of fs.readdirSync(OUT)){if(name.endsWith('.png')||['report.json','server.log'].includes(name))fs.rmSync(path.join(OUT,name),{force:true});}
 const checks=[],errors=[],shots=[];
 const check=(ok,name,detail='')=>{checks.push({name,pass:!!ok,detail});assert.ok(ok,`${name}: ${detail}`);console.log('PASS',name);};
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
