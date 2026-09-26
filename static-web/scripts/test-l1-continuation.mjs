@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import { pathToFileURL } from 'node:url';
 const root=process.argv[2];
 if (!root) throw new Error('Pass a source snapshot directory');
 const results=[];
@@ -20,7 +21,10 @@ class Storage {
 }
 const value=(s,k,f)=>{try{return JSON.parse(s.getItem(k)||'null')??f;}catch{return f;}};
 const emptyState=()=>({schema:'kianos.study-timer.v2',running:false,manualPaused:false,subject:null,context:null,segmentStartedAt:null,lastSeenAt:null,revision:0,updatedAt:null});
+// Keep the new actual-activity projection bound to the snapshot's real timer.
+const nativeTimer=await import(pathToFileURL(path.resolve(root,'static-web/src/lib/studyTimer.mjs')).href);
 const timer={
+ buildStudyTimerReadModel:nativeTimer.buildStudyTimerReadModel,
  STUDY_TIMER_STATE_KEY:K.state,STUDY_TIMER_LEDGER_KEY:K.ledger,STUDY_TIMER_SCHEMA:'kianos.study-timer.v2',
  STUDY_SUBJECTS:['xizong','politics','english'],STUDY_TIMER_TIMEZONE:'Asia/Shanghai',
  studyDayAt:(n,tz='Asia/Shanghai')=>new Intl.DateTimeFormat('en-CA',{timeZone:tz}).format(n),
