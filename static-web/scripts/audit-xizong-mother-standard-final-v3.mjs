@@ -360,8 +360,10 @@ check('future_source_readiness',()=>{
   const format=readJson('content/xizong/questions/exam-format.json');
   const format27=readJson('content/xizong/questions/exam-format-2027-slot.json');
   const late=readJson('content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json');
-  assert.equal(bio.status,'CLOSED_CURRENT_AFTER_ARCHITECTURE_CORRECTED_REACCEPTANCE');
+  assert.match(String(bio.status||''),/^CLOSED_CURRENT/,'Biochemistry lifecycle must be closed/current without pinning a historical closeout enum');
   assert.equal(bio.current_state.source_present,true);
+  assert.equal(bio.current_state.dependency_freshness?.schema,'kianos.xizong.dependency_freshness.v1');
+  assert.equal(bio.current_state.downstream_revalidation?.status,'CURRENT_FULL_TRANSITIVE_REVALIDATED');
   assert.equal(bio.current_state.current_year_delta_known,true);
   assert.deepEqual(bio.current_state.deep_review?.remaining,[]);
   assert.equal(bio.current_state.source_map?.status,'CURRENT_27_SOURCE_ROUTING_REACCEPTED');
