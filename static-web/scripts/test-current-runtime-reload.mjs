@@ -148,8 +148,36 @@ const fs = require('fs'), path = require('path');
 const root = process.argv[process.argv.indexOf('--outDir') + 1];
 fs.mkdirSync(root, {recursive:true}); fs.writeFileSync(path.join(root, 'index.html'), 'fixture');`);
   fs.chmodSync(npm, 0o755);
+  const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+  const fixtureBin = path.join(temp, 'bin');
+  const gitWrapper = path.join(fixtureBin, 'git');
+  const pruneFailureMarker = path.join(temp, 'fail-worktree-prune-once');
+  fs.mkdirSync(fixtureBin, { recursive: true });
+  fs.writeFileSync(gitWrapper, `#!/bin/sh
+if [ -n "$KIANOS_TEST_GIT_PRUNE_FAIL_ONCE" ] && [ -f "$KIANOS_TEST_GIT_PRUNE_FAIL_ONCE" ]; then
+  case " $* " in
+    *" worktree prune "*)
+      rm -f "$KIANOS_TEST_GIT_PRUNE_FAIL_ONCE"
+      echo "fixture injected worktree prune failure" >&2
+      exit 75
+      ;;
+  esac
+fi
+exec "${realGit}" "$@"
+`);
+  fs.chmodSync(gitWrapper, 0o755);
   processHandle = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], {
-    cwd: mirror, env: { ...process.env, KIANOS_PORT: String(port), KIANOS_SYNC_ONCE: '0', KIANOS_SYNC_INTERVAL_MS: '3000', KIANOS_NPM_BIN: npm, KIANOS_BUILD_NICE: '0' },
+    cwd: mirror, env: {
+      ...process.env,
+      PATH: `${fixtureBin}:${process.env.PATH || ''}`,
+      KIANOS_GIT_BIN: gitWrapper,
+      KIANOS_TEST_GIT_PRUNE_FAIL_ONCE: pruneFailureMarker,
+      KIANOS_PORT: String(port),
+      KIANOS_SYNC_ONCE: '0',
+      KIANOS_SYNC_INTERVAL_MS: '3000',
+      KIANOS_NPM_BIN: npm,
+      KIANOS_BUILD_NICE: '0'
+    },
     stdio: ['ignore', 'pipe', 'pipe']
   });
   processHandle.stdout.on('data', x => { logs += x; });
@@ -199,15 +227,17 @@ fs.mkdirSync(root, {recursive:true}); fs.writeFileSync(path.join(root, 'index.ht
   const repeatedControlSync = new RegExp(`main advanced ${controlOnly.slice(0, 8)} → ${controlOnly.slice(0, 8)}`, 'g');
   assert.equal((logs.match(repeatedControlSync) || []).length, 0, 'control-only promotion must not resync the same SHA every interval');
 
+  fs.writeFileSync(pruneFailureMarker, 'fail once\n');
   write('static-web/scripts/currentRelease.mjs', fs.readFileSync(path.join(scripts, 'currentRelease.mjs'), 'utf8') + '\n// fixture daemon-helper update\n');
   const helperUpdate = commit();
   git(upstream, 'push', 'origin', 'main');
   await waitFor(() => processHandle.exitCode !== null);
   assert.equal(processHandle.exitCode, 0, 'sync daemon helper update must request a clean supervisor restart');
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), helperUpdate);
+  assert.match(logs, /post-handoff release cleanup deferred; accepted release remains active/);
   assert.match(logs, /Current sync runtime changed; restarting the LaunchAgent-managed process after successful handoff/);
 
-  console.log('CURRENT_RUNTIME_RELOAD PASS: handoff pins runtime identity, control-only sync idles, and daemon helper updates restart the sync process');
+  console.log('CURRENT_RUNTIME_RELOAD PASS: handoff pins runtime identity, control-only sync idles, cleanup failure cannot suppress daemon restart');
 } finally {
   if (processHandle && processHandle.exitCode === null) {
     processHandle.kill('SIGTERM');

@@ -581,7 +581,13 @@ async function syncOnce({ initial = false } = {}) {
     lastKnownSha = fetched;
     await git(['checkout', '-B', 'main', fetched]);
     await git(['reset', '--hard', fetched]);
-    if (!skipAstro) await pruneReleases();
+    if (!skipAstro) {
+      try {
+        await pruneReleases();
+      } catch (error) {
+        warn(`post-handoff release cleanup deferred; accepted release remains active: ${error?.message || error}`);
+      }
+    }
 
     lastSyncHealthy = true;
     lastNetworkError = '';
