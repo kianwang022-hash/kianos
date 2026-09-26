@@ -17,6 +17,7 @@ import {
 import {
   acquireDeliveryLock,
   releasePaths,
+  resolveCurrentSubprocessTimeoutMs,
   runBounded,
   terminateProcessTree
 } from './currentRelease.mjs';
@@ -39,7 +40,7 @@ const gitBin = process.env.KIANOS_GIT_BIN || 'git';
 const oneShot = process.env.KIANOS_SYNC_ONCE === '1';
 const skipAstro = process.env.KIANOS_SKIP_ASTRO === '1';
 const releases = releasePaths(repoRoot);
-const subprocessTimeoutMs = Number(process.env.KIANOS_SUBPROCESS_TIMEOUT_MS || 120000);
+const subprocessTimeoutMs = resolveCurrentSubprocessTimeoutMs();
 
 let site = null;
 let stopping = false;
