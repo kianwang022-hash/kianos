@@ -3,6 +3,10 @@
 
 body#kianos-workspace.surfaceBody-home {
   font-family: var(--study-font-cjk);
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", sans-serif;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Header {
@@ -16,6 +20,12 @@ body#kianos-workspace.surfaceBody-home .homeL3Header {
   border-radius: var(--study-radius);
   background: var(--study-surface);
   box-shadow: var(--study-shadow);
+  margin-bottom: 14px;
+  padding: 8px 2px 17px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3HeaderCopy {
@@ -29,6 +39,8 @@ body#kianos-workspace.surfaceBody-home .homeL3Support .pageKicker {
   font-size: var(--study-type-meta);
   font-weight: var(--study-weight-shell);
   letter-spacing: .075em;
+  font-size: 16px;
+  letter-spacing: normal;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Header h1 {
@@ -38,6 +50,10 @@ body#kianos-workspace.surfaceBody-home .homeL3Header h1 {
   font-weight: var(--study-weight-title);
   line-height: 1.12;
   letter-spacing: -.04em;
+  margin-top: 5px;
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: normal;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Subtitle {
@@ -46,6 +62,9 @@ body#kianos-workspace.surfaceBody-home .homeL3Subtitle {
   font-size: var(--study-type-body);
   font-weight: var(--study-weight-body);
   line-height: 1.45;
+  margin-top: 6px;
+  font-size: 17px;
+  line-height: 1.5;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Gate {
@@ -56,12 +75,15 @@ body#kianos-workspace.surfaceBody-home .homeL3Gate {
   border-radius: var(--study-radius-medium);
   background: var(--study-surface-muted);
   text-align: right;
+  min-width: 238px;
+  padding: 10px 14px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Gate span {
   color: var(--study-muted);
   font-size: var(--study-type-meta);
   font-weight: var(--study-weight-shell);
+  font-size: 16px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Gate strong {
@@ -69,6 +91,7 @@ body#kianos-workspace.surfaceBody-home .homeL3Gate strong {
   font-size: 19px;
   font-weight: var(--study-weight-title);
   line-height: 1.35;
+  font-size: 19px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Grid {
@@ -76,6 +99,8 @@ body#kianos-workspace.surfaceBody-home .homeL3Grid {
   grid-template-columns: minmax(0, 1fr) 370px;
   gap: var(--study-space-3);
   min-height: 0;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  gap: 14px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Subjects,
@@ -86,6 +111,8 @@ body#kianos-workspace.surfaceBody-home .homeL3Support {
   border-radius: var(--study-radius);
   background: var(--study-surface);
   box-shadow: var(--study-shadow);
+  border-radius: 16px;
+  box-shadow: none;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3SectionHead {
@@ -95,6 +122,7 @@ body#kianos-workspace.surfaceBody-home .homeL3SectionHead {
   gap: var(--study-space-4);
   padding: 13px 20px;
   border-bottom: 1px solid var(--study-line);
+  padding: 16px 22px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3SectionHead h2 {
@@ -104,17 +132,22 @@ body#kianos-workspace.surfaceBody-home .homeL3SectionHead h2 {
   font-weight: var(--study-weight-title);
   line-height: 1.25;
   letter-spacing: -.025em;
+  font-size: 23px;
+  letter-spacing: normal;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3SectionHead span {
   color: var(--study-muted);
   font-size: 16px;
   font-weight: var(--study-weight-body);
+  font-size: 16px;
+  line-height: 1.45;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Subject {
   padding: 14px 20px 15px;
   border-bottom: 1px solid var(--study-line);
+  padding: 19px 22px 20px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Subject:last-child {
@@ -133,6 +166,7 @@ body#kianos-workspace.surfaceBody-home .homeL3SubjectIdentity {
   min-width: 0;
   align-items: center;
   gap: 11px;
+  gap: 0;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Ordinal {
@@ -163,6 +197,8 @@ body#kianos-workspace.surfaceBody-home .homeL3Subject h2 {
   font-weight: var(--study-weight-title);
   line-height: 1.25;
   letter-spacing: -.025em;
+  font-size: 24px;
+  letter-spacing: normal;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Availability {
@@ -190,10 +226,14 @@ body#kianos-workspace.surfaceBody-home .homeL3Meta {
   font-size: 17px;
   font-weight: var(--study-weight-body);
   line-height: 1.45;
+  margin-top: 5px;
+  font-size: 17px;
+  line-height: 1.5;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3ActionSurface {
   margin-top: 10px;
+  margin-top: 12px;
 }
 
 /* Xizong Home actions: show Continue + Memory, hide explanatory method chrome. */
@@ -360,6 +400,8 @@ body#kianos-workspace.surfaceBody-home .homeL3TaskLinks {
   flex-wrap: wrap;
   gap: 5px 16px;
   margin: 8px 0 0 41px;
+  margin-top: 10px;
+  gap: 6px 18px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3TaskLinks a {
@@ -367,6 +409,7 @@ body#kianos-workspace.surfaceBody-home .homeL3TaskLinks a {
   font-size: 16px;
   font-weight: var(--study-weight-shell);
   text-decoration: none;
+  font-size: 17px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3TaskLinks a:hover {
@@ -383,6 +426,9 @@ body#kianos-workspace.surfaceBody-home .homeL3Support .examToday {
   padding: 18px 20px;
   background: transparent;
   color: var(--study-ink);
+  padding: 20px;
+  border: 0;
+  box-shadow: none;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examTodayHead h2 {
@@ -390,12 +436,17 @@ body#kianos-workspace.surfaceBody-home .homeL3Support .examTodayHead h2 {
   font-size: 23px;
   font-weight: var(--study-weight-title);
   letter-spacing: -.025em;
+  margin: 0;
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: normal;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examQuiet {
   color: var(--study-green);
   font-size: 16px;
   font-weight: var(--study-weight-shell);
+  font-size: 16px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examCapacity {
@@ -404,18 +455,32 @@ body#kianos-workspace.surfaceBody-home .homeL3Support .examCapacity {
   font-size: 16px;
   font-weight: var(--study-weight-body);
   line-height: 1.48;
+  margin: 9px 0 12px;
+  font-size: 17px;
+  line-height: 1.5;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examTodayFoot {
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 8px 16px;
+  gap: 8px 14px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--study-line);
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketButton {
   margin-left: auto;
   color: var(--study-green-strong, var(--study-green));
   font-weight: var(--study-weight-title);
+  margin-left: auto;
+  padding: 8px 11px;
+  border-radius: 9px;
+  background: var(--study-green-soft);
+  margin: 0;
+  padding: 6px 0;
+  background: transparent;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketStatus {
@@ -425,20 +490,27 @@ body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketStatus {
   font-size: 16px;
   font-weight: var(--study-weight-body);
   line-height: 1.5;
+  min-height: 0;
+  margin: 10px 0 0;
+  font-size: 16px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation {
   grid-template-columns: 46px 1fr auto;
   padding: 10px 0;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  padding: 11px 0;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation strong {
   font-size: 17px;
   font-weight: var(--study-weight-title);
+  font-size: 18px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation span {
   color: var(--study-muted);
+  font-size: 16px;
   font-size: 16px;
 }
 
@@ -446,22 +518,28 @@ body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation b {
   color: var(--study-green);
   font-size: 20px;
   font-weight: var(--study-weight-title);
+  font-size: 19px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examNext {
   margin: 13px 0;
+  margin: 15px 0;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examNext > span {
   color: var(--study-muted);
   font-size: 15px;
   font-weight: var(--study-weight-shell);
+  font-size: 16px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examNext > a {
   color: var(--study-green);
   font-size: 18px;
   font-weight: var(--study-weight-title);
+  margin-top: 3px;
+  font-size: 19px;
+  line-height: 1.4;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examAttention p,
@@ -532,105 +610,10 @@ body#kianos-workspace.surfaceBody-home .homeL3SupportLinks nav a {
 
 /* Final learner-facing Home refinement.
    Keep the first screen editorial and task-led; internal runtime vocabulary stays out of sight. */
-body#kianos-workspace.surfaceBody-home {
-  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", sans-serif;
-  font-synthesis: none;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Header {
-  margin-bottom: 14px;
-  padding: 8px 2px 17px;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Header .pageKicker,
-body#kianos-workspace.surfaceBody-home .homeL3Support .pageKicker {
-  font-size: 16px;
-  letter-spacing: normal;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Header h1 {
-  margin-top: 5px;
-  font-size: 36px;
-  line-height: 1.15;
-  letter-spacing: normal;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Subtitle {
-  margin-top: 6px;
-  font-size: 17px;
-  line-height: 1.5;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Gate {
-  min-width: 238px;
-  padding: 10px 14px;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Gate span {
-  font-size: 16px;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Gate strong {
-  font-size: 19px;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Grid {
-  grid-template-columns: minmax(0, 1fr) 350px;
-  gap: 14px;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Subjects,
-body#kianos-workspace.surfaceBody-home .homeL3Support {
-  border-radius: 16px;
-  box-shadow: none;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3SectionHead {
-  padding: 16px 22px;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3SectionHead h2 {
-  font-size: 23px;
-  letter-spacing: normal;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3SectionHead span {
-  font-size: 16px;
-  line-height: 1.45;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Subject {
-  padding: 19px 22px 20px;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3SubjectIdentity {
-  gap: 0;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Subject h2 {
-  font-size: 24px;
-  letter-spacing: normal;
-}
 
 body#kianos-workspace.surfaceBody-home .homeL3Meta,
 body#kianos-workspace.surfaceBody-home .homeL3TaskLinks {
   margin-left: 0;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Meta {
-  margin-top: 5px;
-  font-size: 17px;
-  line-height: 1.5;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3ActionSurface {
-  margin-top: 12px;
 }
 
 /* Xizong: one clean resume row. Exact runtime stage stays underneath, not as Home chrome. */
@@ -762,34 +745,8 @@ body#kianos-workspace.surfaceBody-home .homeL3Subject .politicsContinueCard > b 
 }
 
 /* English stays lightweight when there is no exact Chat-selected Resume. */
-body#kianos-workspace.surfaceBody-home .homeL3TaskLinks {
-  margin-top: 10px;
-  gap: 6px 18px;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3TaskLinks a {
-  font-size: 17px;
-}
 
 /* Today: one quiet daily summary, not an operator console. */
-body#kianos-workspace.surfaceBody-home .homeL3Support .examToday {
-  padding: 20px;
-  border: 0;
-  box-shadow: none;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examTodayHead h2 {
-  margin: 0;
-  font-size: 27px;
-  line-height: 1.2;
-  letter-spacing: normal;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examCapacity {
-  margin: 9px 0 12px;
-  font-size: 17px;
-  line-height: 1.5;
-}
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examWorkStrategy {
   margin: 0 0 13px;
@@ -827,61 +784,6 @@ body#kianos-workspace.surfaceBody-home .homeL3Support .examWorkStrategy > p {
   font-size: 16px;
   font-weight: var(--study-weight-body);
   line-height: 1.45;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation {
-  grid-template-columns: 52px minmax(0, 1fr) auto;
-  padding: 11px 0;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation strong {
-  font-size: 18px;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation span {
-  font-size: 16px;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examSubjectAllocation b {
-  font-size: 19px;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examNext {
-  margin: 15px 0;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examNext > span {
-  font-size: 16px;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examNext > a {
-  margin-top: 3px;
-  font-size: 19px;
-  line-height: 1.4;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examTodayFoot {
-  gap: 8px 14px;
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid var(--study-line);
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examQuiet {
-  font-size: 16px;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketButton {
-  margin-left: auto;
-  padding: 8px 11px;
-  border-radius: 9px;
-  background: var(--study-green-soft);
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketStatus {
-  min-height: 0;
-  margin: 10px 0 0;
-  font-size: 16px;
 }
 
 body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketStatus:empty {
@@ -1173,12 +1075,6 @@ body#kianos-workspace.surfaceBody-home .homeL3ScheduleLink {
   font-size: 16px;
   font-weight: var(--study-weight-shell);
   white-space: nowrap;
-}
-
-body#kianos-workspace.surfaceBody-home .homeL3Support .examDailyPacketButton {
-  margin: 0;
-  padding: 6px 0;
-  background: transparent;
 }
 
 @media (max-width: 900px) {
