@@ -3,6 +3,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
+import { loadLexicalWordByOrdinal } from '../src/lib/lexical.mjs';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputRoot = path.resolve(webRoot, '../lexical-visual-review');
@@ -597,63 +598,61 @@ try {
   }
 
   // Final Learner Object pressure-test fixtures across distinct content shapes.
+  // Semantic counts/text come from the Current Final Learner Object rather than
+  // being duplicated here as a second content truth.
   const finalObjectFixtures = [
-    {
-      ordinal: 177,
-      word: 'ambulance',
-      assertPage: async () => {
-        assert(await page.locator('.lexicalCoreHeadline').count() === 0, 'final_ambulance_no_duplicate_word_feel');
-        assert(await page.locator('.lexicalSenseRow').count() === 1, 'final_ambulance_one_sense');
-        assert(await page.locator('.portedVocabEvidenceColumn').count() === 0, 'final_ambulance_no_empty_reference');
-      }
-    },
-    {
-      ordinal: 29,
-      word: 'access',
-      assertPage: async () => {
-        assert(await page.locator('.lexicalSenseRow:not(.lexicalSecondarySenseRow)').count() === 6, 'final_access_six_active_senses');
-        assert(await page.locator('.lexicalSecondarySenseRow').count() === 0, 'final_access_no_duplicate_secondary');
-        assert(await page.locator('.lexicalFamilySection').isVisible(), 'final_access_family_reference');
-      }
-    },
-    {
-      ordinal: 4209,
-      word: 'row',
-      assertPage: async () => {
-        assert(await page.locator('.lexicalSenseRow').count() === 3, 'final_row_three_senses');
-        assert(await page.locator('.portedVocabIdentityOverlay').count() === 0, 'final_row_no_repeated_pronunciation_overlays');
-        const text = await page.locator('[data-vocab-details]').innerText();
-        assert(text.includes('/roʊ/') && text.includes('/raʊ/'), 'final_row_word_feel_keeps_pronunciation_boundary');
-      }
-    },
-    {
-      ordinal: 4680,
-      word: 'stationary',
-      assertPage: async () => {
-        const text = await page.locator('[data-vocab-details]').innerText();
-        assert(text.includes('stationary ↔ stationery'), 'final_stationary_confusable_title');
-        assert(text.includes('stationary 表静止；stationery 指文具'), 'final_stationary_confusable_boundary');
-      }
-    },
-    {
-      ordinal: 761,
-      word: 'charge',
-      assertPage: async () => {
-        assert(await page.locator('.lexicalSenseRow').count() === 7, 'final_charge_seven_senses');
-        const text = await page.locator('[data-vocab-details]').innerText();
-        assert(text.includes('be in charge of sth') && text.includes('take charge of sth'), 'final_charge_keeps_extra_constructions');
-      }
-    }
+    { ordinal: 177, word: 'ambulance' },
+    { ordinal: 29, word: 'access' },
+    { ordinal: 4209, word: 'row' },
+    { ordinal: 4680, word: 'stationary' },
+    { ordinal: 761, word: 'charge' }
   ];
 
   for (const fixture of finalObjectFixtures) {
+    const current = loadLexicalWordByOrdinal(fixture.ordinal).record;
+    const primarySenseCount = Array.isArray(current.senses) ? current.senses.length : 0;
+    const secondarySenseCount = Array.isArray(current.secondary_senses) ? current.secondary_senses.length : 0;
+    const reference = current.reference && typeof current.reference === 'object' ? current.reference : {};
+    const familyCount = Array.isArray(reference.family) ? reference.family.length : 0;
+    const referenceExpected = Boolean(
+      reference.form
+      || familyCount
+      || (Array.isArray(reference.confusables) && reference.confusables.length)
+      || (Array.isArray(reference.relations) && reference.relations.length)
+    );
+
     await page.evaluate((word) => localStorage.removeItem(`kianos-vocabulary-astro-v2:word:${word}`), fixture.word);
     await page.goto(`${origin}/vocabulary/${fixture.ordinal}/`, { waitUntil: 'networkidle' });
     await page.locator('[data-vocab-front]').waitFor({ state: 'visible' });
     assert((await page.locator('[data-vocab-front] h2').innerText()).trim() === fixture.word, `final_fixture_${fixture.word}`);
     await page.keyboard.press('Space');
     await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
-    await fixture.assertPage();
+
+    assert(
+      await page.locator('.lexicalSenseRow:not(.lexicalSecondarySenseRow)').count() === primarySenseCount,
+      `final_${fixture.word}_primary_sense_projection_current`,
+      String(primarySenseCount)
+    );
+    assert(
+      await page.locator('.lexicalSecondarySenseRow').count() === secondarySenseCount,
+      `final_${fixture.word}_secondary_sense_projection_current`,
+      String(secondarySenseCount)
+    );
+
+    const familyVisible = await page.locator('.lexicalFamilySection').isVisible().catch(() => false);
+    assert(
+      familyVisible === (familyCount > 0),
+      `final_${fixture.word}_family_projection_current`,
+      String(familyCount)
+    );
+
+    const referenceVisible = await page.locator('.portedVocabEvidenceColumn').isVisible().catch(() => false);
+    assert(
+      referenceVisible === referenceExpected,
+      `final_${fixture.word}_reference_projection_current`,
+      JSON.stringify({ familyCount, hasForm: Boolean(reference.form) })
+    );
+
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     assert(overflow <= 2, `final_fixture_no_horizontal_overflow_${fixture.word}`, String(overflow));
     await page.screenshot({ path: path.join(outputRoot, `lexical-final-audit-${fixture.word}-1440x900.png`), fullPage: false });
