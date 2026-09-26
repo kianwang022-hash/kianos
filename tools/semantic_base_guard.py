@@ -30,7 +30,13 @@ MARKER_RE = re.compile(r"<!--\s*kianos-semantic-base:([0-9a-f]{40})\s*-->", re.I
 MARKER_TEMPLATE = "<!-- kianos-semantic-base:{sha} -->"
 
 ROOT_AUTHORITY_EXCLUDE = {"root_work_cursor"}
-SCOPES = ("english", "xizong", "politics", "lexical")
+VISUAL_AUTHORITY_SUFFIXES = (
+    "_PRODUCT_BRIEF.MD",
+    "_DESIGN.MD",
+    "_VISUAL_LANGUAGE.MD",
+    "_UI_REVIEW_PROTOCOL.MD",
+    "_REPRESENTATION_GATE.MD",
+)
 
 
 def run(*args: str, check: bool = True) -> str:
@@ -171,22 +177,28 @@ def commit_exists(sha: str) -> bool:
     ).returncode == 0
 
 
-def infer_scopes(paths: Iterable[str]) -> set[str]:
+def infer_scopes(paths: Iterable[str], registered_scopes: Iterable[str]) -> set[str]:
     scopes: set[str] = set()
+    registered = tuple(str(scope) for scope in registered_scopes)
     for path in paths:
         low = path.lower()
-        for scope in SCOPES:
+        for scope in registered:
             if low.startswith(f"content/{scope}/"):
                 scopes.add(scope)
+            if low.startswith("static-web/") and scope.lower() in low:
+                scopes.add(scope)
+
+        # Product route aliases whose filenames do not always include the
+        # canonical scope name.
         if low.startswith("static-web/"):
-            if "english" in low or "reading" in low or "translation" in low or "writing" in low or "external" in low:
+            if "english" in registered and any(token in low for token in ("reading", "translation", "writing", "cloze", "objective", "external")):
                 scopes.add("english")
-            if "xizong" in low:
-                scopes.add("xizong")
-            if "politic" in low:
+            if "politics" in registered and "politic" in low:
                 scopes.add("politics")
-            if "lexical" in low or "vocab" in low:
+            if "lexical" in registered and "vocab" in low:
                 scopes.add("lexical")
+            if "skills" in registered and "skill" in low:
+                scopes.add("skills")
     return scopes
 
 
@@ -196,6 +208,13 @@ def infer_capabilities(paths: Iterable[str]) -> set[str]:
         low = path.lower()
         if low.startswith("static-web/src/") or low.startswith("static-web/home"):
             caps.add("learner_surface")
+        if (
+            low.startswith("static-web/src/styles/")
+            or "/layouts/" in low
+            or "/pages/" in low
+            or "/components/" in low
+        ):
+            caps.add("visual_surface")
         if "home" in low or low == "static-web/src/pages/index.astro":
             caps.add("home")
         if "studytimer" in low or "study-timer" in low:
@@ -227,6 +246,12 @@ def shared_owner_groups(registry: dict) -> dict[str, set[str]]:
             shared.get("shell_markup_owner", ""),
             shared.get("navigation_owner", ""),
             shared.get("shell_style_owner", ""),
+        },
+        "visual_design": {
+            shared.get("kian_ui_preferences_owner", ""),
+            shared.get("ui_style_brief_owner", ""),
+            shared.get("presentation_contract_owner", ""),
+            shared.get("shared_visual_foundation_owner", ""),
         },
         "orchestrator": {
             shared.get("exam_orchestrator_runtime_owner", ""),
@@ -276,7 +301,8 @@ def classify(
         reasons.append("ROOT_AUTHORITY_CHANGED")
         relevant_paths.update(root_hits)
 
-    scopes = infer_scopes(pr_changes)
+    caps = infer_capabilities(pr_changes)
+    scopes = infer_scopes(pr_changes, registry.get("scope_work_cursors", {}).keys())
     for scope in scopes:
         lane_cursor = registry.get("scope_work_cursors", {}).get(scope)
         if lane_cursor and lane_cursor in main_changes:
@@ -296,7 +322,25 @@ def classify(
             reasons.append(f"{scope.upper()}_AUTHORITY_CHANGED")
             relevant_paths.update(lane_contract_hits)
 
-    caps = infer_capabilities(pr_changes)
+        if "visual_surface" in caps:
+            product_owner = registry.get("product_owners", {}).get(f"{scope}_product_brief")
+            scope_token = scope.upper()
+            visual_authority_hits = {
+                p
+                for p in main_changes
+                if (
+                    p == product_owner
+                    or (
+                        p.startswith("static-web/")
+                        and scope_token in Path(p).name.upper()
+                        and any(Path(p).name.upper().endswith(suffix) for suffix in VISUAL_AUTHORITY_SUFFIXES)
+                    )
+                )
+            }
+            if visual_authority_hits:
+                reasons.append(f"{scope.upper()}_VISUAL_AUTHORITY_CHANGED")
+                relevant_paths.update(visual_authority_hits)
+
     groups = shared_owner_groups(registry)
 
     def hit(group: str, condition: bool):
@@ -308,6 +352,7 @@ def classify(
             relevant_paths.update(found)
 
     hit("shared_shell", "learner_surface" in caps)
+    hit("visual_design", "visual_surface" in caps)
     hit("orchestrator", bool(caps & {"home", "study_timer", "orchestrator"}))
     hit("current_sync", "current_sync" in caps)
     hit("study_timer", bool(caps & {"home", "study_timer"}))
@@ -416,10 +461,52 @@ def self_test(registry: dict) -> None:
             "shared shell must invalidate learner surface",
         ),
         (
+            {"static-web/UI_STYLE_BRIEF.md"},
+            {"static-web/src/styles/steward-workspace.css"},
+            True,
+            "shared visual rule owner must invalidate visual surface work",
+        ),
+        (
+            {"static-web/PRESENTATION_CONTRACT.md"},
+            {"static-web/src/pages/english/index.astro"},
+            True,
+            "presentation contract must invalidate visual surface work",
+        ),
+        (
+            {"static-web/UI_STYLE_BRIEF.md"},
+            {"content/politics/projection/sample.json"},
+            False,
+            "shared visual rule changes must not invalidate non-visual semantic work",
+        ),
+        (
+            {"static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md"},
+            {"static-web/src/styles/xizong-block-workspace.css"},
+            True,
+            "same-scope accepted design must invalidate visual implementation work",
+        ),
+        (
+            {"static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md"},
+            {"content/xizong/projection/sample.json"},
+            False,
+            "visual design changes must not invalidate non-visual same-scope content work",
+        ),
+        (
+            {"static-web/ENGLISH_PRODUCT_BRIEF.md"},
+            {"static-web/src/pages/english/index.astro"},
+            True,
+            "subject product owner must invalidate subject visual work",
+        ),
+        (
             {"content/politics/CURRENT.md"},
             {"content/politics/projection/sample.json"},
             True,
             "scope Current must invalidate same-scope work",
+        ),
+        (
+            {"content/skills/CURRENT.md"},
+            {"static-web/src/styles/skills.css"},
+            True,
+            "registered Skills Current must invalidate Skills surface work",
         ),
         (
             {"static-web/src/lib/studyTimer.mjs"},
