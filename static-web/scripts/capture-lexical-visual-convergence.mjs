@@ -511,7 +511,8 @@ try {
         'ab-STRACT',
         '/əbˈstrækt/',
         'abstractly',
-        '同属 AWL 词族；词性与义项不同，不可视为同义替换'
+        'abstract (adjective) → abstractly (adverb): 表示以抽象、概念化方式，而不是针对具体实例',
+        'in an abstract or conceptual way rather than through a concrete instance'
       ],
       expectAbsent: [
         'Adjective/noun and verb remain one Word identity; POS selects the stress pattern.',
