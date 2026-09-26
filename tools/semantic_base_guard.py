@@ -30,7 +30,6 @@ MARKER_RE = re.compile(r"<!--\s*kianos-semantic-base:([0-9a-f]{40})\s*-->", re.I
 MARKER_TEMPLATE = "<!-- kianos-semantic-base:{sha} -->"
 
 ROOT_AUTHORITY_EXCLUDE = {"root_work_cursor"}
-SCOPES = ("english", "xizong", "politics", "lexical", "skills")
 VISUAL_AUTHORITY_SUFFIXES = (
     "_PRODUCT_BRIEF.MD",
     "_DESIGN.MD",
@@ -178,23 +177,27 @@ def commit_exists(sha: str) -> bool:
     ).returncode == 0
 
 
-def infer_scopes(paths: Iterable[str]) -> set[str]:
+def infer_scopes(paths: Iterable[str], registered_scopes: Iterable[str]) -> set[str]:
     scopes: set[str] = set()
+    registered = tuple(str(scope) for scope in registered_scopes)
     for path in paths:
         low = path.lower()
-        for scope in SCOPES:
+        for scope in registered:
             if low.startswith(f"content/{scope}/"):
                 scopes.add(scope)
+            if low.startswith("static-web/") and scope.lower() in low:
+                scopes.add(scope)
+
+        # Product route aliases whose filenames do not always include the
+        # canonical scope name.
         if low.startswith("static-web/"):
-            if "english" in low or "reading" in low or "translation" in low or "writing" in low or "external" in low:
+            if "english" in registered and any(token in low for token in ("reading", "translation", "writing", "cloze", "objective", "external")):
                 scopes.add("english")
-            if "xizong" in low:
-                scopes.add("xizong")
-            if "politic" in low:
+            if "politics" in registered and "politic" in low:
                 scopes.add("politics")
-            if "lexical" in low or "vocab" in low:
+            if "lexical" in registered and "vocab" in low:
                 scopes.add("lexical")
-            if "skills" in low or "skill" in low:
+            if "skills" in registered and "skill" in low:
                 scopes.add("skills")
     return scopes
 
@@ -299,7 +302,7 @@ def classify(
         relevant_paths.update(root_hits)
 
     caps = infer_capabilities(pr_changes)
-    scopes = infer_scopes(pr_changes)
+    scopes = infer_scopes(pr_changes, registry.get("scope_work_cursors", {}).keys())
     for scope in scopes:
         lane_cursor = registry.get("scope_work_cursors", {}).get(scope)
         if lane_cursor and lane_cursor in main_changes:
