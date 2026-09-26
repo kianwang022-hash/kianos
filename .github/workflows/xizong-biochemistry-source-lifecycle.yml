@@ -76,6 +76,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
       - name: Validate Current 27 Biochemistry Source lifecycle
         working-directory: static-web
         run: |
