@@ -846,7 +846,7 @@ window.__kianosLearnerWriterReady.then(() => {
     root.querySelectorAll('[data-stage-target],[data-stage-next]').forEach((button) => button.addEventListener('click', () => {
       switchTab('learn');
       const requested = button.getAttribute('data-stage-target') || button.getAttribute('data-stage-next') || 'block_learn';
-      if (!sourcePerGroup && requested === 'logic_group' && button.hasAttribute('data-stage-next') && !state.sourceContactDone) setStage('source_contact');
+      if (!biochemistrySource?.laneSourceHash && !sourcePerGroup && requested === 'logic_group' && button.hasAttribute('data-stage-next') && !state.sourceContactDone) setStage('source_contact');
       else setStage(requested);
     }));
 
@@ -867,7 +867,8 @@ window.__kianosLearnerWriterReady.then(() => {
       const group = currentGroup();
       if (group) state.kpIndex = firstIndexForGroup(group);
       save();
-      if (sourcePerGroup) setStage('kp_learn');
+      if (biochemistrySource?.laneSourceHash) setStage(currentGroupSourceCovered() ? 'kp_recall' : 'source_contact');
+      else if (sourcePerGroup) setStage('kp_learn');
       else if (state.sourceContactDone) setStage('kp_recall');
       else setStage('source_contact');
     });
