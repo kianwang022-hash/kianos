@@ -21,6 +21,11 @@ const exactContinueForInstruction = (value, instruction, fallbackSubject = null)
 
 const neutralAttention = (status, error = '') => {
   if (status === 'ready') return null;
+  if (status === 'reference') return {
+    type: 'chat_plan',
+    text: '今日已采用的安排继续保留；学习依据已变化，如需重排再让 Chat 更新。',
+    action: '查看依据'
+  };
   if (status === 'stale') return {
     type: 'chat_plan',
     text: '安排依据已变化，请让 Chat 更新安排。',
@@ -54,7 +59,9 @@ export function buildChatControlledExamReadModel({
   timeOverlay = null,
   readable = true
 } = {}) {
-  const plan = chatPlanState?.status === 'ready' ? chatPlanState.plan : null;
+  const planStatus = chatPlanState?.status || 'missing';
+  const planFresh = planStatus === 'ready';
+  const plan = (planFresh || planStatus === 'reference') ? chatPlanState.plan : null;
   const subjectIds = ['xizong', 'english', 'politics'];
   const plannedTargetMinutes = plan
     ? subjectIds.reduce((sum, subject) => {
@@ -110,8 +117,8 @@ export function buildChatControlledExamReadModel({
       reviewMinutes: 0,
       requiredMinutes: null,
       scoreGap: null,
-      confidence: capacityConflict ? 'capacity-conflict' : (plan ? 'chat-plan' : 'unknown'),
-      continue: capacityConflict
+      confidence: capacityConflict ? 'capacity-conflict' : (planFresh ? 'chat-plan' : plan ? 'chat-plan-reference' : 'unknown'),
+      continue: capacityConflict || !planFresh
         ? cloneContinue(nativeContinue?.[subject], subject)
         : exactContinueForInstruction(nativeContinue?.[subject], instruction, subject),
       sessionRef: instruction?.session_ref || null,
@@ -120,7 +127,7 @@ export function buildChatControlledExamReadModel({
   }
 
   const nextInstruction = plan?.next_subject ? plan?.subjects?.[plan.next_subject] || null : null;
-  const next = !capacityConflict && plan?.next_subject
+  const next = planFresh && !capacityConflict && plan?.next_subject
     ? exactContinueForInstruction(nativeContinue?.[plan.next_subject], nextInstruction, plan.next_subject)
     : null;
   const attention = capacityConflict
@@ -135,13 +142,13 @@ export function buildChatControlledExamReadModel({
           text: plan.attention.text,
           action: plan.attention.action || '查看依据'
         }
-      : neutralAttention(chatPlanState?.status || 'missing', chatPlanState?.error || '');
+      : neutralAttention(planStatus, chatPlanState?.error || '');
 
   return {
     schema: 'kianos.exam-plan.read-model.v1',
     control: {
       strategyOwner: 'CHAT',
-      planStatus: capacityConflict ? 'capacity_conflict' : (chatPlanState?.status || 'missing'),
+      planStatus: capacityConflict ? 'capacity_conflict' : planStatus,
       planSchema: plan?.schema || null,
       generatedAt: plan?.generated_at || null,
       capacityConflict
