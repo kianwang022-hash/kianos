@@ -249,7 +249,9 @@ try {
   check(await learnCard.locator('.xzKpLearnHeaderRight').count() === 1, 'learn_header_right_compact_owner');
   const locatorText = (await learnCard.locator('.xzKpLearnLocatorMini').innerText()).replace(/\s+/g, ' ');
   check(locatorText.includes('Lecture'), 'lecture_locator_in_top_right', locatorText);
+  check(locatorText.includes('P169'), 'lecture_locator_keeps_exact_page', locatorText);
   check(locatorText.includes('Outline'), 'outline_locator_in_top_right', locatorText);
+  check(locatorText.includes('U014'), 'outline_locator_keeps_exact_unit', locatorText);
   check(await learnCard.locator('.xzKpPacketButton').count() === 0, 'study_packet_transport_hidden_from_normal_learning');
 
   const logicDetail = root.locator('.xzLogicGroupDetail');
