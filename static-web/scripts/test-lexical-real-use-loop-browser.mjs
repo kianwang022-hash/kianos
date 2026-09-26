@@ -3,13 +3,13 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 
-const BASE='http://127.0.0.1:4321';
+const BASE='http://127.0.0.1:4486';
 const OUT=path.resolve(process.cwd(),'../lexical-real-use-loop-audit');
 fs.mkdirSync(OUT,{recursive:true});
 const checks=[];
 const check=(ok,name,detail='')=>{checks.push({name,ok:Boolean(ok),detail:String(detail||'')});if(!ok)throw new Error(`LEXICAL_REAL_USE_LOOP_FAIL:${name}:${detail}`)};
 const sleep=(ms)=>new Promise((resolve)=>setTimeout(resolve,ms));
-const server=spawn('npm',['run','preview','--','--host','127.0.0.1','--port','4321'],{cwd:process.cwd(),stdio:['ignore','pipe','pipe'],detached:process.platform!=='win32'});
+const server=spawn('npm',['run','preview','--','--host','127.0.0.1','--port','4486'],{cwd:process.cwd(),stdio:['ignore','pipe','pipe'],detached:process.platform!=='win32'});
 let serverLog='';
 server.stdout?.on('data',(c)=>{serverLog+=String(c)});
 server.stderr?.on('data',(c)=>{serverLog+=String(c)});
