@@ -363,42 +363,6 @@
   overscroll-behavior: contain;
 }
 
-.stewardTimeline {
-  position: relative;
-  min-height: 974px;
-  margin: 12px 14px 16px 64px;
-  border-left: 1px solid var(--study-line);
-  background: repeating-linear-gradient(
-    to bottom,
-    #fff 0,
-    #fff 41px,
-    #edf1ee 41px,
-    #edf1ee 42px
-  );
-}
-
-.stewardHour {
-  position: absolute;
-  right: calc(100% + 12px);
-  width: 48px;
-  transform: translateY(-7px);
-  color: var(--study-faint);
-  font-size: 15px;
-  font-weight: var(--study-weight-secondary);
-  text-align: right;
-}
-
-.stewardPlanBlock {
-  position: absolute;
-  left: 10px;
-  right: 18px;
-  overflow: hidden;
-  border-left: 3px solid var(--block-accent, var(--study-green));
-  border-radius: 6px;
-  background: var(--block-soft, var(--study-green-soft));
-  padding: 7px 10px;
-}
-
 .stewardPlanBlock[data-subject="english"] {
   --block-accent: #667fa0;
   --block-soft: #eef2f7;
@@ -476,11 +440,6 @@
   padding: 5px 8px;
 }
 
-.stewardActualBlock.withPlan {
-  right: 7px;
-  left: 58%;
-}
-
 .stewardActualBlock.withoutPlan {
   right: 8px;
   left: 10px;
@@ -531,15 +490,6 @@
 
 .stewardActualBlock.short span {
   display: none;
-}
-
-.stewardNowLine {
-  position: absolute;
-  right: 0;
-  left: -7px;
-  z-index: 4;
-  height: 1px;
-  background: #b77560;
 }
 
 .stewardNowLine::before {
@@ -1222,15 +1172,6 @@
   padding: 4px 15px 10px;
 }
 
-.stewardMealRow {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 116px;
-  align-items: center;
-  gap: 14px;
-  min-height: 58px;
-  border-bottom: 1px solid rgba(215,223,218,.76);
-}
-
 .stewardMealRow > div {
   min-width: 0;
 }
@@ -1240,15 +1181,6 @@
   color: var(--study-ink);
   font-size: 16px;
   font-weight: var(--study-weight-title);
-  line-height: 1.3;
-}
-
-.stewardMealRow small {
-  display: block;
-  margin-top: 2px;
-  color: var(--study-muted);
-  font-size: 15px;
-  font-weight: var(--study-weight-secondary);
   line-height: 1.3;
 }
 
@@ -1401,15 +1333,6 @@
   grid-template-columns: 44px repeat(2, minmax(0, 1fr));
 }
 
-.stewardTrainingEffect {
-  display: grid;
-  grid-template-columns: auto repeat(3, auto) minmax(120px, 1fr);
-  align-items: center;
-  gap: 5px;
-  padding: 9px 15px 11px;
-  border-top: 1px solid var(--study-line);
-}
-
 .stewardTrainingEffect > span {
   margin-right: 3px;
   color: var(--study-muted);
@@ -1444,6 +1367,8 @@
 
 /* Steward VNext formal closeout — approved visual direction, no planning authority here. */
 .stewardTimeline {
+  position: relative;
+  min-height: 974px;
   margin: 12px 14px 14px 70px;
   border-left: 1px solid var(--study-line);
   background: repeating-linear-gradient(
@@ -1456,12 +1381,18 @@
 }
 .stewardTimeline::before { display: none; }
 .stewardHour {
+  position: absolute;
+  transform: translateY(-7px);
+  font-weight: var(--study-weight-secondary);
+  text-align: right;
   right: calc(100% + 12px);
   width: 47px;
   color: var(--study-faint);
   font-size: var(--study-type-meta);
 }
 .stewardPlanBlock {
+  position: absolute;
+  overflow: hidden;
   left: 12px;
   right: 10px;
   border: 0;
@@ -1492,6 +1423,7 @@
   display: none;
 }
 .stewardActualBlock.withPlan {
+  left: 58%;
   top: auto;
   right: auto;
   bottom: 6px;
@@ -1507,7 +1439,12 @@
 .stewardActualBlock.withPlan span {
   display: none;
 }
-.stewardNowLine { left: -7px; }
+.stewardNowLine {
+  position: absolute;
+  right: 0;
+  z-index: 4;
+  height: 1px;
+  background: #b77560; left: -7px; }
 
 .stewardNutritionContext {
   display: flex;
@@ -1560,11 +1497,19 @@
 }
 .stewardMealRows { padding: 2px 13px 8px; }
 .stewardMealRow {
+  display: grid;
+  align-items: center;
+  border-bottom: 1px solid rgba(215,223,218,.76);
   grid-template-columns: minmax(0, 1fr) var(--steward-meal-amount-width);
   min-height: 54px;
   gap: 10px;
 }
-.stewardMealRow small { font-size: 15px; }
+.stewardMealRow small {
+  display: block;
+  margin-top: 2px;
+  color: var(--study-muted);
+  font-weight: var(--study-weight-secondary);
+  line-height: 1.3; font-size: 15px; }
 .stewardMacroPanel { padding: 11px 12px; }
 .stewardMacroPanel > header {
   padding-bottom: 7px;
@@ -1755,6 +1700,11 @@
   background: color-mix(in srgb, var(--study-green-soft) 30%, white);
 }
 .stewardTrainingEffect {
+  display: grid;
+  grid-template-columns: auto repeat(3, auto) minmax(120px, 1fr);
+  align-items: center;
+  gap: 5px;
+  border-top: 1px solid var(--study-line);
   margin: 0 13px 10px;
   padding: 9px 0 0;
 }
