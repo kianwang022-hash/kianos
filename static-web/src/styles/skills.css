@@ -116,14 +116,6 @@
 .skillLibraryOthers h2 { margin:2px 0 0;font-size:var(--study-type-section); }
 .skillLibraryOthers > header p { max-width:520px;margin:0;color:var(--study-muted); }
 .skillLibraryGrid { display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px; }
-.skillLibraryCard {
-  display:grid;
-  gap:14px;
-  padding:22px;
-  border:1px solid var(--study-line);
-  border-radius:var(--study-radius-medium);
-  background:var(--study-surface);
-}
 .skillLibraryCard header { display:grid;gap:5px; }
 .skillLibraryCard header span,
 .skillLibraryCardMeta span { color:var(--study-faint);font-size:var(--study-type-meta);font-weight:var(--study-weight-strong); }
@@ -250,8 +242,7 @@
 
 .skillPlannedRail { margin-top:20px; }
 .skillPlannedRail > div { display:flex;gap:8px;overflow-x:auto;margin-top:9px;padding-bottom:4px; }
-.skillPlannedRail article { min-width:210px;padding:13px 15px;border:1px solid var(--study-line);border-radius:var(--study-radius-small);background:var(--study-surface); }
-.skillPlannedRail article { display:grid;gap:4px; }
+.skillPlannedRail article { min-width:210px;padding:13px 15px;border:1px solid var(--study-line);border-radius:var(--study-radius-small);background:var(--study-surface); display:grid;gap:4px; }
 .skillPlannedRail small { color:var(--study-faint);font-size:10px; }
 .skillPlannedRail strong { font-size:14px; }
 
@@ -335,21 +326,17 @@
   box-shadow:0 16px 38px rgba(28,48,39,.045);
 }
 .skillReaderVerify { border-top:4px solid #b1774d; }
-.skillMarkdown { color:var(--study-ink);font-size:16.5px;line-height:1.58; }
 .skillMarkdown > :first-child { margin-top:0; }
 .skillMarkdown h1 { margin:0 0 18px;font-size:34px;line-height:1.16;letter-spacing:-.025em; }
 .skillMarkdown h2 { margin:32px 0 12px;padding-top:10px;border-top:1px solid var(--study-line);font-size:24px;line-height:1.25; }
 .skillMarkdown h3 { margin:20px 0 8px;font-size:19px;line-height:1.3; }
-.skillMarkdown p { margin:8px 0; }
 .skillMarkdown ul,.skillMarkdown ol { margin:8px 0;padding-left:1.35em; }
-.skillMarkdown li { margin:2px 0; }
 .skillMarkdown blockquote { margin:12px 0;padding:10px 14px;border-left:3px solid var(--study-green-2);background:var(--study-green-soft);border-radius:0 var(--study-radius-control) var(--study-radius-control) 0; }
 .skillMarkdown blockquote p { margin:0; }
 .skillMarkdown pre { overflow-x:auto;margin:12px 0;padding:13px 15px;border:1px solid var(--study-line);border-radius:var(--study-radius-small);background:#18231f;color:#edf4ef;font:14px/1.5 var(--study-mono); }
 .skillMarkdown code:not(pre code) { padding:2px 6px;border-radius:6px;background:var(--study-surface-muted);font-family:var(--study-mono);font-size:.9em; }
 .skillMarkdown a { color:var(--study-green);text-underline-offset:3px; }
 .skillMarkdown hr { margin:24px 0;border:0;border-top:1px solid var(--study-line); }
-.skillMarkdown table { width:100%;border-collapse:separate;border-spacing:0;margin:12px 0;font-size:14px;line-height:1.45; }
 .skillMarkdown th,.skillMarkdown td { padding:8px 9px;border-right:1px solid var(--study-line);border-bottom:1px solid var(--study-line);text-align:left;vertical-align:top; }
 .skillMarkdown tr > :first-child { border-left:1px solid var(--study-line); }
 .skillMarkdown thead tr:first-child > * { border-top:1px solid var(--study-line); }
@@ -388,9 +375,6 @@
 @media (max-width:780px) {
   .skillLibraryOthers > header { align-items:start;flex-direction:column; }
   .skillLibraryCapabilityPreview > div { grid-template-columns:1fr 1fr; }
-  .skillReaderLayout { grid-template-columns:1fr; }
-  .skillReaderNav { position:static;min-height:0; }
-  .skillReaderNav nav { grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); }
   .skillReader { padding:28px 22px; }
   .skillReaderFooter { grid-template-columns:1fr; }
   .skillReaderFooter nav { justify-content:space-between; }
@@ -470,7 +454,6 @@
   letter-spacing:.03em;
   text-transform:uppercase;
 }
-.skillStageTrack { display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px; }
 .skillStageTrack > a {
   display:grid;
   align-content:start;
@@ -572,7 +555,6 @@
 @media (max-width:780px) {
   .skillSectionHead { align-items:start;flex-direction:column; }
   .skillCrossCut > div { grid-template-columns:1fr; }
-  .skillUnitCard { padding:11px; }
 }
 
 
@@ -748,6 +730,12 @@
   line-height:1.5;
 }
 .skillLibraryCard {
+  display:grid;
+  gap:14px;
+  padding:22px;
+  border:1px solid var(--study-line);
+  border-radius:var(--study-radius-medium);
+  background:var(--study-surface);
   min-height:250px;
 }
 .skillLibraryCard.has-progress {
@@ -774,7 +762,7 @@
 }
 
 /* The mature generic Skill home has one learner-facing read asset per Unit. */
-.skillStageTrack {
+.skillStageTrack { display:grid;gap:7px;
   grid-template-columns:minmax(0,1fr);
 }
 .skillUnitCardGuide .skillStageTrack > a {
@@ -790,7 +778,7 @@
 .skillReaderFooter {
   max-width:920px;
 }
-.skillMarkdown {
+.skillMarkdown { color:var(--study-ink);
   font-size:17px;
   line-height:1.68;
 }
@@ -800,7 +788,7 @@
 .skillMarkdown li {
   margin:4px 0;
 }
-.skillMarkdown table {
+.skillMarkdown table { width:100%;border-collapse:separate;border-spacing:0;margin:12px 0;font-size:14px;line-height:1.45;
   display:block;
   max-width:100%;
   overflow-x:auto;
@@ -855,7 +843,7 @@
   .skillLibraryCard {
     min-height:0;
   }
-  .skillUnitCard {
+  .skillUnitCard { padding:11px;
     grid-template-columns:1fr;
   }
   .skillMarkdown {
@@ -867,7 +855,7 @@
 
 /* Mobile reader: keep the table of contents compact instead of forcing a long pre-scroll. */
 @media (max-width:780px) {
-  .skillReaderNav {
+  .skillReaderNav { position:static;
     display:block;
     min-height:0;
     padding:14px;
@@ -879,14 +867,6 @@
   .skillReaderNavTitle {
     gap:2px;
     padding-bottom:10px;
-  }
-  .skillReaderNav nav {
-    display:flex;
-    gap:7px;
-    overflow-x:auto;
-    margin-top:10px;
-    padding-bottom:4px;
-    scroll-snap-type:x proximity;
   }
   .skillReaderNavItem {
     flex:0 0 152px;
@@ -917,7 +897,13 @@
     min-width:0;
     max-width:100%;
   }
-  .skillReaderNav nav {
+  .skillReaderNav nav { grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    margin-top:10px;
+    padding-bottom:4px;
+    scroll-snap-type:x proximity;
     max-width:100%;
   }
 }
