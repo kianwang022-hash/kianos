@@ -44,6 +44,7 @@ try {
   await page.goto(unitUrl.href,{waitUntil:'domcontentloaded'});
   check(await page.locator('[data-politics-question]').count() === 0,'learning_surface_has_no_inline_attempt');
   const entry = page.locator(`[data-practice-unit-entry="${q.unitKey}"]`);
+  await entry.first().waitFor({state:'attached'});
   const entryCount = await entry.count();
   check(entryCount >= 1,'exact_unit_entry_present',String(entryCount));
   const entryHrefs = await entry.evaluateAll((nodes) => nodes.map((node) => node.getAttribute('href')));
