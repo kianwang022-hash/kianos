@@ -11,6 +11,7 @@ No broad Website construction or UI campaign is active.
 The shared shell, subject surfaces, managed Current delivery, private checkpoint/control paths, Daily Learning Packet relay, External Reading runtime and Steward workspace are implementation surfaces on `main`.
 
 For Steward:
+- product surface split / information architecture → `PRODUCT_SURFACE_CONTRACT.md`;
 - behavior / reality-capture semantics / product acceptance → `STEWARD_PRODUCT_CONTRACT.md`;
 - visual requirements → `KIAN_UI_PREFERENCES.md` + `UI_STYLE_BRIEF.md`;
 - page/client/styles → exact `src/` owners;
