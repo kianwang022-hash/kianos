@@ -8,7 +8,7 @@ Root [CURRENT](../CURRENT.md) owns cross-program routing. Product semantics, vis
 
 No broad Website construction or UI campaign is active.
 
-A bounded Steward correction is active under `kianwang022-hash/kian-personal-os#47`, on `work/steward-v3-final-20260926`. The directly executed candidate restores Kian's reviewed agenda/Now composition and fixes accepted-plan inspection, native Dock/return and persisted reality semantics in the existing owners. The previously shipped VNext is not acceptance evidence for this candidate; final integrated Human acceptance remains open. No Codex/background execution is implied by this cursor.
+Steward V3 integration has landed on `main`. There is no active Website construction/correction task in this cursor. Product/Human acceptance stays in `STEWARD_PRODUCT_CONTRACT.md` and real-use evidence rather than being mirrored here. No Codex/background execution is implied by this cursor.
 
 The shared shell, subject surfaces, managed Current delivery, private checkpoint/control paths, Daily Learning Packet relay, External Reading runtime and Steward workspace are implementation surfaces on `main`.
 
@@ -19,7 +19,7 @@ For Steward:
 - page/client/styles → exact `src/` owners;
 - live delivery identity → [Current doctor](scripts/kianos-current-doctor.mjs).
 
-Steward VNext is implemented on `main`; this cursor does not mirror its product details, Human-Gate status or historical rollout evidence. Reopen only for a concrete product/runtime/visual defect or an explicit new accepted requirement.
+The current integrated Steward surface is implemented on `main`; this cursor does not mirror its product details, Human-Gate status or historical rollout evidence. Reopen only for a concrete product/runtime/visual defect or an explicit new accepted requirement.
 
 Content production remains independent and routes through the exact English / Xizong / Politics / Lexical / Skills owners.
 
