@@ -41,6 +41,15 @@ const oneShot = process.env.KIANOS_SYNC_ONCE === '1';
 const skipAstro = process.env.KIANOS_SKIP_ASTRO === '1';
 const releases = releasePaths(repoRoot);
 const subprocessTimeoutMs = resolveCurrentSubprocessTimeoutMs();
+const syncRuntimePaths = [
+  'static-web/scripts/kianos-current-sync.mjs',
+  'static-web/scripts/currentRelease.mjs',
+  'static-web/scripts/currentStaticImpact.mjs',
+  'static-web/scripts/currentStaticSlots.mjs',
+  'static-web/package.json',
+  'static-web/package-lock.json',
+  'static-web/npm-shrinkwrap.json'
+];
 
 let site = null;
 let stopping = false;
@@ -51,6 +60,9 @@ let lastKnownSha = '';
 let lastTargetSha = '';
 let lastSyncHealthy = true;
 let activeReleaseRoot = null;
+let syncRuntimeLoadedSha = '';
+let syncRuntimeCheckedTargetSha = '';
+let syncRuntimeCheckedChanged = false;
 
 function readBuildFailure() {
   try { return JSON.parse(fs.readFileSync(failurePath, 'utf8')); } catch { return null; }
@@ -453,6 +465,32 @@ async function remoteMainSha() {
   return raw.split(/\s+/)[0] || '';
 }
 
+async function syncRuntimeChangedSinceLoad(targetSha) {
+  const target = String(targetSha || '').trim();
+  if (!syncRuntimeLoadedSha || !target || syncRuntimeLoadedSha === target) return false;
+  if (syncRuntimeCheckedTargetSha === target) return syncRuntimeCheckedChanged;
+  const changed = await git([
+    'diff',
+    '--name-only',
+    syncRuntimeLoadedSha,
+    target,
+    '--',
+    ...syncRuntimePaths
+  ]);
+  syncRuntimeCheckedTargetSha = target;
+  syncRuntimeCheckedChanged = Boolean(changed.trim());
+  return syncRuntimeCheckedChanged;
+}
+
+async function restartSyncRuntimeIfNeeded(targetSha) {
+  if (oneShot || !(await syncRuntimeChangedSinceLoad(targetSha))) return false;
+  log('Current sync runtime differs from loaded daemon; restarting the LaunchAgent-managed process after successful handoff');
+  stopping = true;
+  await stopSite();
+  process.exit(0);
+  return true;
+}
+
 async function syncOnce({ initial = false } = {}) {
   if (syncing || stopping) return false;
   syncing = true;
@@ -461,6 +499,7 @@ async function syncOnce({ initial = false } = {}) {
     releaseLock = await acquireDeliveryLock(releases.lock);
     const local = await git(['rev-parse', 'HEAD']);
     lastKnownSha = local;
+    if (!syncRuntimeLoadedSha) syncRuntimeLoadedSha = local;
     const priorControlStatus = readControlStatus();
     writeStatus('checking', local);
 
@@ -472,6 +511,7 @@ async function syncOnce({ initial = false } = {}) {
     if (local === remote && activeReleaseRoot && activeSha === remote) {
       lastSyncHealthy = true;
       writeStatus('synced', activeSha, { control_sha: local, release_root: activeReleaseRoot });
+      if (await restartSyncRuntimeIfNeeded(remote)) return false;
       if (initial) {
         log(`Current release already matches main ${local.slice(0, 8)}`);
       }
@@ -493,6 +533,7 @@ async function syncOnce({ initial = false } = {}) {
         static_build: 'reused',
         release_root: activeReleaseRoot
       });
+      if (await restartSyncRuntimeIfNeeded(remote)) return false;
       return false;
     }
 
@@ -508,15 +549,6 @@ async function syncOnce({ initial = false } = {}) {
     const changed = await git(['diff', '--name-only', impactBase, fetched]);
     const changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
     const buildDecision = classifyStaticBuild(changedPaths);
-    const syncRuntimeChanged = changedPaths.some((file) => [
-      'static-web/scripts/kianos-current-sync.mjs',
-      'static-web/scripts/currentRelease.mjs',
-      'static-web/scripts/currentStaticImpact.mjs',
-      'static-web/scripts/currentStaticSlots.mjs',
-      'static-web/package.json',
-      'static-web/package-lock.json',
-      'static-web/npm-shrinkwrap.json'
-    ].includes(file));
     const staticRuntimeChanged = requiresStaticRuntimeReload(changedPaths);
     const reuseActiveRelease = !skipAstro
       && Boolean(activeReleaseRoot)
@@ -541,6 +573,7 @@ async function syncOnce({ initial = false } = {}) {
         `synced ${changedPaths.length} control-only path(s) to ${fetched.slice(0, 8)}; `
         + `serving unchanged release ${activeSha.slice(0, 8)}`
       );
+      if (await restartSyncRuntimeIfNeeded(fetched)) return true;
       return true;
     }
 
@@ -604,13 +637,8 @@ async function syncOnce({ initial = false } = {}) {
       + `(${skipAstro ? 'skipped' : 'rebuilt'})`
     );
 
-    if (!oneShot && syncRuntimeChanged) {
-      log('Current sync runtime changed; restarting the LaunchAgent-managed process after successful handoff');
-      stopping = true;
-      await stopSite();
-      process.exit(0);
-    }
-    if (!oneShot && staticRuntimeChanged && site && !syncRuntimeChanged && !runtimeReloaded) {
+    if (await restartSyncRuntimeIfNeeded(fetched)) return true;
+    if (!oneShot && staticRuntimeChanged && site && !runtimeReloaded) {
       log('Current static runtime owner changed; performing one controlled server reload');
       await reloadSite();
     }
@@ -660,6 +688,7 @@ process.on('SIGTERM', () => void shutdown('SIGTERM'));
 
 try {
   lastKnownSha = await git(['rev-parse', 'HEAD']);
+  syncRuntimeLoadedSha = lastKnownSha;
 } catch {}
 writeStatus('starting', lastKnownSha);
 if (!oneShot) try { startSite(); } catch (error) {

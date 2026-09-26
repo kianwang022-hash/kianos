@@ -152,6 +152,7 @@ fs.mkdirSync(root, {recursive:true}); fs.writeFileSync(path.join(root, 'index.ht
   const fixtureBin = path.join(temp, 'bin');
   const gitWrapper = path.join(fixtureBin, 'git');
   const pruneFailureMarker = path.join(temp, 'fail-worktree-prune-once');
+  const resetFailureMarker = path.join(temp, 'fail-reset-once');
   fs.mkdirSync(fixtureBin, { recursive: true });
   fs.writeFileSync(gitWrapper, `#!/bin/sh
 if [ -n "$KIANOS_TEST_GIT_PRUNE_FAIL_ONCE" ] && [ -f "$KIANOS_TEST_GIT_PRUNE_FAIL_ONCE" ]; then
@@ -163,25 +164,39 @@ if [ -n "$KIANOS_TEST_GIT_PRUNE_FAIL_ONCE" ] && [ -f "$KIANOS_TEST_GIT_PRUNE_FAI
       ;;
   esac
 fi
+if [ -n "$KIANOS_TEST_GIT_RESET_FAIL_ONCE" ] && [ -f "$KIANOS_TEST_GIT_RESET_FAIL_ONCE" ]; then
+  case " $* " in
+    *" reset --hard "*)
+      rm -f "$KIANOS_TEST_GIT_RESET_FAIL_ONCE"
+      echo "fixture injected reset failure" >&2
+      exit 76
+      ;;
+  esac
+fi
 exec "${realGit}" "$@"
 `);
   fs.chmodSync(gitWrapper, 0o755);
-  processHandle = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], {
-    cwd: mirror, env: {
-      ...process.env,
-      PATH: `${fixtureBin}:${process.env.PATH || ''}`,
-      KIANOS_GIT_BIN: gitWrapper,
-      KIANOS_TEST_GIT_PRUNE_FAIL_ONCE: pruneFailureMarker,
-      KIANOS_PORT: String(port),
-      KIANOS_SYNC_ONCE: '0',
-      KIANOS_SYNC_INTERVAL_MS: '3000',
-      KIANOS_NPM_BIN: npm,
-      KIANOS_BUILD_NICE: '0'
-    },
-    stdio: ['ignore', 'pipe', 'pipe']
-  });
-  processHandle.stdout.on('data', x => { logs += x; });
-  processHandle.stderr.on('data', x => { logs += x; });
+  const startSyncProcess = () => {
+    const handle = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], {
+      cwd: mirror, env: {
+        ...process.env,
+        PATH: `${fixtureBin}:${process.env.PATH || ''}`,
+        KIANOS_GIT_BIN: gitWrapper,
+        KIANOS_TEST_GIT_PRUNE_FAIL_ONCE: pruneFailureMarker,
+        KIANOS_TEST_GIT_RESET_FAIL_ONCE: resetFailureMarker,
+        KIANOS_PORT: String(port),
+        KIANOS_SYNC_ONCE: '0',
+        KIANOS_SYNC_INTERVAL_MS: '3000',
+        KIANOS_NPM_BIN: npm,
+        KIANOS_BUILD_NICE: '0'
+      },
+      stdio: ['ignore', 'pipe', 'pipe']
+    });
+    handle.stdout.on('data', x => { logs += x; });
+    handle.stderr.on('data', x => { logs += x; });
+    return handle;
+  };
+  processHandle = startSyncProcess();
   const served = async () => { try { return await (await fetch(`http://127.0.0.1:${port}`, { signal: AbortSignal.timeout(1000) })).text(); } catch { return null; } };
   await waitFor(async () => await served() === 'v1');
   write('static-web/src/lib/fixture.mjs', 'export const version = "v2";');
@@ -235,9 +250,23 @@ exec "${realGit}" "$@"
   assert.equal(processHandle.exitCode, 0, 'sync daemon helper update must request a clean supervisor restart');
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), helperUpdate);
   assert.match(logs, /post-handoff release cleanup deferred; accepted release remains active/);
-  assert.match(logs, /Current sync runtime changed; restarting the LaunchAgent-managed process after successful handoff/);
+  assert.match(logs, /Current sync runtime differs from loaded daemon; restarting the LaunchAgent-managed process after successful handoff/);
 
-  console.log('CURRENT_RUNTIME_RELOAD PASS: handoff pins runtime identity, control-only sync idles, cleanup failure cannot suppress daemon restart');
+  const recoveryLogStart = logs.length;
+  processHandle = startSyncProcess();
+  await waitFor(async () => await served() === 'v2' && processHandle.exitCode === null);
+  fs.writeFileSync(resetFailureMarker, 'fail once\n');
+  write('static-web/scripts/currentRelease.mjs', fs.readFileSync(path.join(scripts, 'currentRelease.mjs'), 'utf8') + '\n// fixture daemon-helper recovery update\n');
+  const helperRecoveryUpdate = commit();
+  git(upstream, 'push', 'origin', 'main');
+  await waitFor(() => processHandle.exitCode !== null);
+  const recoveryLogs = logs.slice(recoveryLogStart);
+  assert.equal(processHandle.exitCode, 0, 'sync daemon must preserve restart intent across a transient mirror reset failure');
+  assert.equal(git(mirror, 'rev-parse', 'HEAD'), helperRecoveryUpdate);
+  assert.match(recoveryLogs, /fixture injected reset failure/);
+  assert.match(recoveryLogs, /Current sync runtime differs from loaded daemon; restarting the LaunchAgent-managed process after successful handoff/);
+
+  console.log('CURRENT_RUNTIME_RELOAD PASS: handoff pins runtime identity, control-only sync idles, cleanup/reset failures cannot suppress daemon restart');
 } finally {
   if (processHandle && processHandle.exitCode === null) {
     processHandle.kill('SIGTERM');
