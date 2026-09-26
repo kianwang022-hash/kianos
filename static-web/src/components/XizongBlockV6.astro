@@ -23,6 +23,22 @@ const continuousSource = allSourceLocators.length === 0
 const sourceContact = block?.sourceContact || {};
 const sourceContactMode = String(sourceContact.mode || 'NATURAL_SOURCE_UNIT');
 const sourcePerGroup = sourceContact.logicGroupIsAutomaticSourceChunk === true;
+const globalBiochemistrySource = sourceContactMode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT';
+const kpIdByOrdinal = new Map(kps.map((kp) => [Number(kp.ordinal), kp.kpId]));
+const biochemistrySegments = globalBiochemistrySource
+  ? (sourceContact.segments || []).map((segment) => ({
+      ...segment,
+      kpIds: (segment.kpOrdinals || []).map((ordinal) => kpIdByOrdinal.get(Number(ordinal))).filter(Boolean)
+    }))
+  : [];
+const biochemistryBlockSource = globalBiochemistrySource ? {
+  schema: 'kianos.xizong.biochemistry_block_source_binding.v1',
+  sourceMapOwner: sourceContact.sourceMapOwner || '',
+  laneSourceHash: sourceContact.sourceLaneHash || '',
+  sourceName: sourceContact.sourceName || '',
+  closureUnit: sourceContact.closureUnit || '',
+  segments: biochemistrySegments
+} : null;
 const attention = block?.attention || {};
 const carryNow = attention.carryNow || [];
 const supportOnDemand = attention.supportOnDemand || [];
@@ -141,30 +157,50 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           )}
           {!hasTimedVisuals && block.visualGateHtml && <details class="xv6VisualGate"><summary>需要时看原图</summary><div class="markdown" set:html={block.visualGateHtml}></div></details>}
           <footer class="portedStudyStageAction">
-            <span>{sourcePerGroup ? '先知道这块为什么存在，再按学习节进入原讲义。' : '先定位这块，再去原讲义保持连续学习；不要按学习节反复切 App。'}</span>
-            <button type="button" class="portedPrimaryAction" data-stage-next="logic_group">{sourcePerGroup ? '进入第一个学习节' : '去原讲义连续学习'}</button>
+            <span>{globalBiochemistrySource
+              ? '这个 Block 不单独重读讲义；正式 Source 接触来自 B 系统里的 27 生化连续跟课主线。'
+              : sourcePerGroup
+                ? '先知道这块为什么存在，再按学习节进入原讲义。'
+                : '先定位这块，再去原讲义保持连续学习；不要按学习节反复切 App。'}</span>
+            <button type="button" class="portedPrimaryAction" data-stage-next="logic_group">{globalBiochemistrySource ? '检查当前 Source 形成状态' : sourcePerGroup ? '进入第一个学习节' : '去原讲义连续学习'}</button>
           </footer>
         </section>
 
         {!sourcePerGroup && (
           <section class="portedKpWorkspace xv6BlockSourceContact" data-study-stage="source_contact" hidden>
             <header class="portedKpWorkspaceHeader">
-              <div><span>Lecture · MarginNote</span><strong>保持原讲义连续学习</strong></div>
+              <div>
+                <span>Lecture · MarginNote</span>
+                <strong>{globalBiochemistrySource ? '27 生化连续跟课主线' : '保持原讲义连续学习'}</strong>
+              </div>
               <em>Source Contact</em>
             </header>
             <div class="xv6LectureFirst xv6LectureHandoff">
               <div>
-                <strong>MarginNote 连续学习 + Mac KP Learn 同时进行</strong>
-                <p>原讲义保持连续推进；Mac 只切换当前 KP 的 Prompt / Core / 支持，不把 KP 变成新的 Source 边界。</p>
+                <strong>{globalBiochemistrySource ? 'Source 只学一次；这个 Block 只消费已经形成的内容' : 'MarginNote 连续学习 + Mac KP Learn 同时进行'}</strong>
+                <p>{globalBiochemistrySource
+                  ? '老师顺序可能同时形成多个 M/G Block。这里不会要求你为了当前 Block 重读讲义；完成到对应 27 Source unit 后，正式接触证据会自动同步回来。'
+                  : '原讲义保持连续推进；Mac 只切换当前 KP 的 Prompt / Core / 支持，不把 KP 变成新的 Source 边界。'}</p>
               </div>
-              <span data-block-source-contact>{continuousSource}</span>
+              <span data-block-source-contact>{globalBiochemistrySource ? sourceContact.sourceName : continuousSource}</span>
             </div>
             <div class="xv6SourceRules">
-              <p>原图、表格、例子与讲义配套题都留在 MarginNote 原位置；题目在讲义里完成并看全部选项 / 题旁拓展。</p>
+              <p>{globalBiochemistrySource
+                ? '先回 B 系统的「27 生化」按老师顺序推进；只有真实完成的 Source unit 才会释放这里对应的 KP / Logic Group Recall。'
+                : '原图、表格、例子与讲义配套题都留在 MarginNote 原位置；题目在讲义里完成并看全部选项 / 题旁拓展。'}</p>
+              {globalBiochemistrySource && (
+                <p data-biochemistry-block-source-status>
+                  当前 Block 所需 Source：{biochemistrySegments.map((segment) => segment.sourceUnitId).join(' → ')}
+                </p>
+              )}
             </div>
             <footer>
-              <span>到真实 Source boundary 再确认本段接触完成；KP Learn 本身持续伴读。</span>
-              <button type="button" class="portedPrimaryAction" data-source-contact-done>本段原讲义已完成</button>
+              <span>{globalBiochemistrySource
+                ? 'Source contact 由共享 27 生化主线记录；本页只负责 Recall / Reconstruction。'
+                : '到真实 Source boundary 再确认本段接触完成；KP Learn 本身持续伴读。'}</span>
+              {globalBiochemistrySource
+                ? <a class="portedPrimaryAction" href={`${base}xizong/${block.systemId}/?view=biochemistry`}>回到 27 生化跟课</a>
+                : <button type="button" class="portedPrimaryAction" data-source-contact-done>本段原讲义已完成</button>}
             </footer>
           </section>
         )}
@@ -290,6 +326,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
 <script define:vars={{
   sourcePerGroup,
   sourceContactMode,
+  biochemistrySourcePayload: biochemistryBlockSource,
   ttsxPayload: ttsxCheckpoints,
   groupPayload: groups.map((group) => ({ groupId: group.groupId, label: group.label, start: group.start, end: group.end, kpIds: group.kpIds, goal: group.goal || '', closure: group.closure || '', membershipMode: group.membershipMode || '' })),
   kpPayload: kps.map((kp) => ({ kpId: kp.kpId, displayId: kp.displayId, title: kp.title, groupId: kp.groupId, sourceLocator: kp.sourceLocator || '' }))
@@ -318,6 +355,10 @@ window.__kianosLearnerWriterReady.then(() => {
     const statusLabel = root.querySelector('[data-study-local-status]');
     const totalKp = kpData.length;
     const currentSourceHash = root.getAttribute('data-study-source-hash') || '';
+    const biochemistrySource = biochemistrySourcePayload || null;
+    const biochemistryLedgerKey = biochemistrySource?.laneSourceHash
+      ? `kianos:xizong:biochemistry-source-lane:${root.dataset.studySystemId || ''}:v1`
+      : '';
     let sourceRevisionMigrated = false;
     let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, blockRecallCompletedAt: null, completed: false, completedAt: null, sourceHash: currentSourceHash, sourceRevisionPending: false, sourceRevisionFromHash: null };
     const suspend = (message) => {
@@ -390,18 +431,68 @@ window.__kianosLearnerWriterReady.then(() => {
       catch { suspend('本次学习状态未能保存，本页已暂停。之前记录仍保留，请先备份或释放本机空间后重新打开。'); return false; }
     };
     if (sourceRevisionMigrated && !save()) return;
-    const recordSourceContact = (segmentId, ids, cumulative = false) => {
+    const recordSourceContact = (segmentId, ids, cumulative = false, extra = {}) => {
       const history = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
-      if (history.some((entry) => entry.segment_id === segmentId)) return;
+      if (history.some((entry) => entry.segment_id === segmentId && String(entry?.source_hash || '') === currentSourceHash)) return;
       state.sourceContactEvidence = [...history, {
         segment_id: segmentId,
         source_contact_mode: sourceContactMode,
         coverage_kind: cumulative ? 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION' : 'ACCEPTED_SOURCE_SEGMENT',
         kp_ids: [...ids],
         completed_at: new Date().toISOString(),
-        source_hash: currentSourceHash
+        source_hash: currentSourceHash,
+        ...extra
       }];
       state.sourceHash = currentSourceHash;
+    };
+    const readBiochemistryLane = () => {
+      if (!biochemistryLedgerKey || !biochemistrySource?.laneSourceHash) return null;
+      try {
+        const row = JSON.parse(localStorage.getItem(biochemistryLedgerKey) || 'null');
+        return row?.schema === 'kianos.xizong.biochemistry-source-lane-state.v1' ? row : null;
+      } catch { return null; }
+    };
+    const syncBiochemistrySource = () => {
+      if (!biochemistrySource?.laneSourceHash || !Array.isArray(biochemistrySource?.segments)) return false;
+      const lane = readBiochemistryLane();
+      const completed = new Set((lane?.history || [])
+        .filter((entry) => String(entry?.source_hash || '') === String(biochemistrySource.laneSourceHash))
+        .map((entry) => String(entry?.source_unit_id || ''))
+        .filter(Boolean));
+      let changed = false;
+      const learned = { ...(state.learned || {}) };
+      for (const segment of biochemistrySource.segments) {
+        if (!completed.has(String(segment?.sourceUnitId || ''))) continue;
+        const ids = Array.isArray(segment?.kpIds) ? segment.kpIds.map(String).filter(Boolean) : [];
+        ids.forEach((id) => {
+          if (learned[id] !== true) { learned[id] = true; changed = true; }
+        });
+        const before = (state.sourceContactEvidence || []).length;
+        recordSourceContact(String(segment?.segmentId || ''), ids, false, {
+          coverage_kind: 'GLOBAL_BIOCHEMISTRY_SOURCE_UNIT',
+          source_unit_id: String(segment?.sourceUnitId || ''),
+          lane_source_hash: String(biochemistrySource.laneSourceHash)
+        });
+        if ((state.sourceContactEvidence || []).length !== before) changed = true;
+      }
+      state.learned = learned;
+      const closureReached = completed.has(String(biochemistrySource.closureUnit || ''));
+      const allFormed = kpData.length > 0 && kpData.every((kp) => learned[kp.kpId] === true);
+      const nextDone = closureReached && allFormed;
+      if (state.sourceContactDone !== nextDone) { state.sourceContactDone = nextDone; changed = true; }
+      if (nextDone && state.sourceRevisionPending === true) {
+        state.sourceRevisionPending = false;
+        state.sourceRevisionReason = '';
+        changed = true;
+      }
+      const status = root.querySelector('[data-biochemistry-block-source-status]');
+      if (status) {
+        const doneUnits = biochemistrySource.segments
+          .filter((segment) => completed.has(String(segment?.sourceUnitId || '')))
+          .map((segment) => segment.sourceUnitId);
+        status.textContent = `当前 Block Source 已形成 ${doneUnits.length}/${biochemistrySource.segments.length} 段 · ${nextDone ? '可进入 Recall' : '继续 27 生化主线'}`;
+      }
+      return changed;
     };
     const learnedCount = () => kpData.filter((kp) => state.learned?.[kp.kpId] === true).length;
     const recallCount = () => kpData.filter((kp) => ['unknown', 'fuzzy', 'known', 'mastered'].includes(state.ratings?.[kp.kpId])).length;
@@ -409,6 +500,9 @@ window.__kianosLearnerWriterReady.then(() => {
       if (!currentSourceHash) return false;
       const evidence = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
       const currentEvidence = evidence.filter((entry) => String(entry?.source_hash || '') === currentSourceHash);
+      if (biochemistrySource?.laneSourceHash) {
+        return state.sourceContactDone === true && totalKp > 0 && kpData.every((kp) => state.learned?.[kp.kpId] === true);
+      }
       if (!sourcePerGroup) {
         return state.sourceContactDone === true && currentEvidence.some((entry) => entry.coverage_kind === 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION');
       }
@@ -422,6 +516,10 @@ window.__kianosLearnerWriterReady.then(() => {
       && recallCount() >= totalKp
       && Boolean(state.blockRecallDone);
     const currentGroup = () => groups[Math.max(0, Math.min(groups.length - 1, Number(state.groupIndex || 0)))] || groups[0];
+    const currentGroupSourceCovered = (group = currentGroup()) => {
+      const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
+      return ids.length > 0 && ids.every((id) => state.learned?.[id] === true);
+    };
     const ttsxRowsForGroup = (group = currentGroup()) => {
       if (!group) return [];
       const segmentId = `source:${group.groupId}`;
@@ -682,9 +780,13 @@ window.__kianosLearnerWriterReady.then(() => {
       const validStages = ['block_learn', 'source_contact', 'logic_group', 'kp_learn', 'ttsx_checkpoint', 'kp_recall', 'group_close', 'block_recall', 'block_complete'];
       if (!validStages.includes(state.stage)) state.stage = 'block_learn';
       if (state.stage === 'block_complete') state.stage = 'block_recall';
-      if (!sourcePerGroup && state.stage === 'kp_learn') state.stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
+      if (biochemistrySource?.laneSourceHash && state.stage === 'kp_learn') state.stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
+      else if (!sourcePerGroup && state.stage === 'kp_learn') state.stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
       if (sourcePerGroup && state.stage === 'source_contact') state.stage = 'kp_learn';
-      if (state.stage === 'logic_group') state.stage = sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
+      if (biochemistrySource?.laneSourceHash && state.stage === 'source_contact' && currentGroupSourceCovered()) state.stage = 'kp_recall';
+      if (state.stage === 'logic_group') state.stage = biochemistrySource?.laneSourceHash
+        ? (currentGroupSourceCovered() ? 'kp_recall' : 'source_contact')
+        : sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
       const group = currentGroup();
       if (state.stage === 'group_close') {
         const missing = (group?.kpIds || []).some((id) => !state.ratings?.[id]);
@@ -711,10 +813,14 @@ window.__kianosLearnerWriterReady.then(() => {
 
     const setStage = (requested) => {
       let stage = requested || 'block_learn';
-      if (!sourcePerGroup && stage === 'kp_learn') stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
-      if (!sourcePerGroup && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
+      if (biochemistrySource?.laneSourceHash && stage === 'kp_learn') stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
+      else if (!sourcePerGroup && stage === 'kp_learn') stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
+      if (biochemistrySource?.laneSourceHash && stage === 'kp_recall' && !currentGroupSourceCovered()) stage = 'source_contact';
+      else if (!sourcePerGroup && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
       if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';
-      if (stage === 'logic_group') stage = sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
+      if (stage === 'logic_group') stage = biochemistrySource?.laneSourceHash
+        ? (currentGroupSourceCovered() ? 'kp_recall' : 'source_contact')
+        : sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
       if (stage === 'kp_recall' && state.pendingTtsx?.key && pendingTtsxIsReviewed(state.pendingTtsx) && !ttsxDone(state.pendingTtsx.key)) stage = 'ttsx_checkpoint';
       if (stage === 'ttsx_checkpoint' && (!state.pendingTtsx?.key || !pendingTtsxIsReviewed(state.pendingTtsx) || ttsxDone(state.pendingTtsx.key))) {
         state.pendingTtsx = null;
@@ -800,7 +906,9 @@ window.__kianosLearnerWriterReady.then(() => {
       save();
       setStage('kp_recall');
     });
-    const stageForSelectedGroup = () => sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
+    const stageForSelectedGroup = () => biochemistrySource?.laneSourceHash
+      ? (currentGroupSourceCovered() ? 'kp_recall' : 'source_contact')
+      : sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
     groupRailButtons.forEach((button, index) => button.addEventListener('click', () => {
       state.groupIndex = index;
       const group = currentGroup();
@@ -947,6 +1055,16 @@ window.__kianosLearnerWriterReady.then(() => {
       }
     });
 
+    if (syncBiochemistrySource()) save();
+    if (biochemistryLedgerKey) {
+      window.addEventListener('storage', (event) => {
+        if (event.key !== biochemistryLedgerKey) return;
+        if (syncBiochemistrySource()) save();
+        normalizeLegacyStage();
+        setStage(state.stage || 'block_learn');
+        syncState();
+      });
+    }
     kpRecallCards.forEach((card) => { const value = state.ratings?.[card.getAttribute('data-kp-id') || '']; if (value) card.querySelector(`[data-rating="${value}"]`)?.classList.add('selected'); });
     if (state.blockRecallDone) { const button = root.querySelector('[data-block-recall-complete]'); if (button) { button.textContent = 'Block Recall 已完成'; button.classList.add('completed'); } }
     normalizeLegacyStage();
