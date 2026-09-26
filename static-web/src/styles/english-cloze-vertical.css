@@ -462,3 +462,39 @@ body#kianos-workspace.uiEnglish .surface-cloze .clozeResult span {
     grid-column: 1;
   }
 }
+
+/*  Cloze accepted convergence folded into this route-local visual owner.
+*/
+body#kianos-workspace.uiEnglish .clozeLayout {
+  grid-template-columns: minmax(0, 1.04fr) minmax(500px, .96fr);
+  gap: 0;
+  height: calc(100dvh - 126px);
+  min-height: 620px;
+  overflow: hidden;
+  border: 1px solid #dce2e8;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(32,46,61,.045);
+}
+body#kianos-workspace.uiEnglish .clozePassage,
+body#kianos-workspace.uiEnglish .clozeDecision {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+body#kianos-workspace.uiEnglish .clozePassage {
+  padding: 30px 40px 60px;
+  background: #fff;
+}
+body#kianos-workspace.uiEnglish .clozePassage header { background: #fff; }
+body#kianos-workspace.uiEnglish .clozePassage p {
+  color: #222d37;
+  font-family: var(--english-reading-font);
+  font-size: 18.5px;
+  line-height: 1.8;
+}
+body#kianos-workspace.uiEnglish .clozeDecision { border-left: 1px solid #e1e6eb; background: #fff; }
+body#kianos-workspace.uiEnglish .clozeDecisionTop { border-bottom-color: #e7ebef; background: rgba(255,255,255,.96); }
+body#kianos-workspace.uiEnglish .clozeQuestion { border-bottom-color: #edf0f3; }
+body#kianos-workspace.uiEnglish .clozeOptions button { border-radius: 7px; }
+body#kianos-workspace.uiEnglish .clozeOptions button:hover { background: #f8fafc; border-color: #d9e0e6; }
