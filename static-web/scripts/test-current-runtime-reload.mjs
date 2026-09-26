@@ -179,7 +179,35 @@ fs.mkdirSync(root, {recursive:true}); fs.writeFileSync(path.join(root, 'index.ht
   assert.equal(runtime.fallback_root, path.join(firstRelease, 'static-web', 'dist'));
   assert.equal((logs.match(/performing one controlled server reload/g) || []).length, 1);
   assert.equal(/rolling back/.test(logs), false);
-  console.log('CURRENT_RUNTIME_RELOAD PASS: accepted handoff pins runtime, static root, repo root, fallback, and release identity');
+
+  write('CURRENT.md', '# fixture control-only update\n');
+  const controlOnly = commit();
+  git(upstream, 'push', 'origin', 'main');
+  await waitFor(async () => {
+    try {
+      const control = JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json')));
+      const release = await (await fetch(`http://127.0.0.1:${port}/__kianos-release.json`)).json();
+      return git(mirror, 'rev-parse', 'HEAD') === controlOnly
+        && control.state === 'synced'
+        && control.control_sha === controlOnly
+        && control.sha === next
+        && control.static_build === 'reused'
+        && release.sha === next;
+    } catch { return false; }
+  });
+  await new Promise(resolve => setTimeout(resolve, 6500));
+  const repeatedControlSync = new RegExp(`main advanced ${controlOnly.slice(0, 8)} → ${controlOnly.slice(0, 8)}`, 'g');
+  assert.equal((logs.match(repeatedControlSync) || []).length, 0, 'control-only promotion must not resync the same SHA every interval');
+
+  write('static-web/scripts/currentRelease.mjs', fs.readFileSync(path.join(scripts, 'currentRelease.mjs'), 'utf8') + '\n// fixture daemon-helper update\n');
+  const helperUpdate = commit();
+  git(upstream, 'push', 'origin', 'main');
+  await waitFor(() => processHandle.exitCode !== null);
+  assert.equal(processHandle.exitCode, 0, 'sync daemon helper update must request a clean supervisor restart');
+  assert.equal(git(mirror, 'rev-parse', 'HEAD'), helperUpdate);
+  assert.match(logs, /Current sync runtime changed; restarting the LaunchAgent-managed process after successful handoff/);
+
+  console.log('CURRENT_RUNTIME_RELOAD PASS: handoff pins runtime identity, control-only sync idles, and daemon helper updates restart the sync process');
 } finally {
   if (processHandle && processHandle.exitCode === null) {
     processHandle.kill('SIGTERM');

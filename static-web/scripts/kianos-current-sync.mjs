@@ -461,6 +461,7 @@ async function syncOnce({ initial = false } = {}) {
     releaseLock = await acquireDeliveryLock(releases.lock);
     const local = await git(['rev-parse', 'HEAD']);
     lastKnownSha = local;
+    const priorControlStatus = readControlStatus();
     writeStatus('checking', local);
 
     const remote = await remoteMainSha();
@@ -477,7 +478,6 @@ async function syncOnce({ initial = false } = {}) {
       return false;
     }
 
-    const priorControlStatus = readControlStatus();
     if (
       local === remote
       && activeReleaseRoot
@@ -510,6 +510,7 @@ async function syncOnce({ initial = false } = {}) {
     const buildDecision = classifyStaticBuild(changedPaths);
     const syncRuntimeChanged = changedPaths.some((file) => [
       'static-web/scripts/kianos-current-sync.mjs',
+      'static-web/scripts/currentRelease.mjs',
       'static-web/scripts/currentStaticImpact.mjs',
       'static-web/scripts/currentStaticSlots.mjs',
       'static-web/package.json',
