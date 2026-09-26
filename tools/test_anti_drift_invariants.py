@@ -119,5 +119,19 @@ class DerivedProjectionFreshnessTests(unittest.TestCase):
             temp.cleanup()
 
 
+class StewardAcceptanceConsistencyTests(unittest.TestCase):
+    def test_closed_steward_human_gate_is_not_reopened_by_current_visual_owners(self):
+        repo = Path(__file__).resolve().parents[1]
+        product = (repo / "static-web/STEWARD_PRODUCT_CONTRACT.md").read_text(encoding="utf-8")
+        preferences = (repo / "static-web/KIAN_UI_PREFERENCES.md").read_text(encoding="utf-8")
+        surface = (repo / "static-web/PRODUCT_SURFACE_CONTRACT.md").read_text(encoding="utf-8")
+
+        self.assertIn("HUMAN GATE PASS", product)
+        self.assertIn("its Human Gate is closed", preferences)
+        self.assertNotIn("final integrated Human acceptance remains open", preferences)
+        self.assertNotIn("remain to be discussed with Kian", surface)
+        self.assertIn("must not reopen the information architecture, panel model or Human Gate by default", surface)
+
+
 if __name__ == "__main__":
     unittest.main()
