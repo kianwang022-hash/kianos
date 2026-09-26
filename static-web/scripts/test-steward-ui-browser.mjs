@@ -264,20 +264,31 @@ try {
       const left = document.querySelector('.stewardTodayAside');
       const right = document.querySelector('.stewardNowRail');
       const label = document.querySelector('.kianosRailItem.active .kianosRailLabel');
+      const main = document.querySelector('.stewardTodayMain');
+      const frameStyle = frame ? getComputedStyle(frame) : null;
       return {
         railWidth: rail?.getBoundingClientRect().width || 0,
         railBackground: rail ? getComputedStyle(rail).backgroundColor : '',
         activeLabelVisible: label ? getComputedStyle(label).display !== 'none' : false,
         frameWidth: frame?.getBoundingClientRect().width || 0,
         leftWidth: left?.getBoundingClientRect().width || 0,
-        rightWidth: right?.getBoundingClientRect().width || 0
+        mainWidth: main?.getBoundingClientRect().width || 0,
+        rightWidth: right?.getBoundingClientRect().width || 0,
+        columnGap: frameStyle ? parseFloat(frameStyle.columnGap || '0') : 0,
+        frameBorder: frameStyle?.borderTopWidth || '',
+        leftRadius: left ? getComputedStyle(left).borderTopLeftRadius : '',
+        mainRadius: main ? getComputedStyle(main).borderTopLeftRadius : '',
+        rightRadius: right ? getComputedStyle(right).borderTopLeftRadius : ''
       };
     });
     check(approvedShell.railWidth >= 186 && approvedShell.railWidth <= 190, 'approved_steward_text_rail_width', JSON.stringify(approvedShell));
     check(approvedShell.activeLabelVisible, 'approved_steward_text_rail_visible');
     check(!/17, 29, 25|17,29,25/.test(approvedShell.railBackground), 'approved_steward_light_rail', approvedShell.railBackground);
-    check(approvedShell.leftWidth >= 182 && approvedShell.leftWidth <= 186, 'approved_today_left_rail_width', JSON.stringify(approvedShell));
-    check(approvedShell.rightWidth >= 250 && approvedShell.rightWidth <= 254, 'approved_today_right_rail_width', JSON.stringify(approvedShell));
+    check(approvedShell.leftWidth >= 218 && approvedShell.leftWidth <= 222, 'approved_preview_today_left_card_width', JSON.stringify(approvedShell));
+    check(approvedShell.rightWidth >= 288 && approvedShell.rightWidth <= 292, 'approved_preview_today_right_card_width', JSON.stringify(approvedShell));
+    check(approvedShell.columnGap >= 13 && approvedShell.columnGap <= 15, 'approved_preview_today_card_gap', JSON.stringify(approvedShell));
+    check(approvedShell.frameBorder === '0px', 'approved_preview_today_no_outer_box', JSON.stringify(approvedShell));
+    check(parseFloat(approvedShell.leftRadius) >= 10 && parseFloat(approvedShell.mainRadius) >= 10 && parseFloat(approvedShell.rightRadius) >= 10, 'approved_preview_today_three_independent_cards', JSON.stringify(approvedShell));
 
     const dock = page.locator('[data-study-timer-dock]');
     await dock.waitFor({ state: 'visible' });
@@ -294,8 +305,13 @@ try {
     check(await page.locator('[data-steward-mode="schedule"]').getAttribute('class') === 'active', 'schedule_default');
     check(await page.locator('.stewardActualBlock').count() >= 1, 'today_actual_blocks');
     check(await page.locator('.stewardActualBlock.withPlan').count() >= 1, 'today_actual_plan_trace');
-    const actualTraceWidth = await page.locator('.stewardActualBlock.withPlan').first().evaluate((node) => node.getBoundingClientRect().width);
-    check(actualTraceWidth <= 160, 'today_actual_trace_stays_inside_plan', String(actualTraceWidth));
+    const actualTraceGeometry = await page.locator('.stewardActualBlock.withPlan').first().evaluate((node) => {
+      const rect = node.getBoundingClientRect();
+      const plan = node.closest('.stewardPlanBlock')?.getBoundingClientRect();
+      return { width: rect.width, height: rect.height, planWidth: plan?.width || 0 };
+    });
+    check(actualTraceGeometry.height <= 4, 'today_actual_trace_is_preview_style_track', JSON.stringify(actualTraceGeometry));
+    check(actualTraceGeometry.width > 0 && actualTraceGeometry.width < actualTraceGeometry.planWidth, 'today_actual_trace_stays_inside_plan', JSON.stringify(actualTraceGeometry));
     check(await page.locator('.stewardPlanBlock').count() >= 2, 'today_plan_blocks_from_canonical_chat_plan');
     const planText = (await page.locator('[data-steward-timeline]').innerText()).replace(/\s+/g, ' ');
     check(planText.includes('西综高认知主块') && planText.includes('English 连续性'), 'today_plan_labels_visible', planText);

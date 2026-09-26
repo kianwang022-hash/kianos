@@ -1,11 +1,15 @@
 /* Steward workspace.
-   Inherits KianOS L1 shared visual tokens. Owns only Steward-local geometry. */
+   Inherits KianOS L1 shared visual tokens. Owns only Steward-local geometry.
+   Human-approved composition reference:
+   1cd55e7132ec090a5b2f24afff39c352eb232477:static-web/ui-preview/steward-vnext.html
+   Port geometry/visual grammar only; preview sample data is never product truth. */
 
 .stewardWorkspace {
   /* Approved VNext geometry knobs. Keep layout changes here instead of appending override layers. */
-  --steward-today-left: 184px;
-  --steward-today-main-min: 600px;
-  --steward-today-right: 252px;
+  --steward-today-left: 220px;
+  --steward-today-main-min: 520px;
+  --steward-today-right: 290px;
+  --steward-today-gap: 14px;
   --steward-nutrition-left: 188px;
   --steward-nutrition-right: 252px;
   --steward-training-right: 252px;
@@ -108,7 +112,18 @@
   min-height: 0;
   flex: 1 1 auto;
   grid-template-columns: var(--steward-today-left) minmax(var(--steward-today-main-min), 1fr) var(--steward-today-right);
-  overflow: hidden;
+  gap: var(--steward-today-gap);
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.stewardTodayAside,
+.stewardNowRail,
+.stewardTodayMain {
+  min-width: 0;
+  min-height: 0;
   border: 1px solid var(--study-line);
   border-radius: var(--study-radius-small);
   background: var(--study-surface);
@@ -116,18 +131,20 @@
 
 .stewardTodayAside,
 .stewardNowRail {
-  min-width: 0;
-  padding: 14px 14px 12px;
+  padding: 12px;
   overflow: auto;
-  background: var(--study-surface);
 }
 
 .stewardTodayAside {
-  border-right: 1px solid var(--study-line);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .stewardNowRail {
-  border-left: 1px solid var(--study-line);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .stewardAsideSection + .stewardAsideSection {
@@ -200,6 +217,27 @@
   line-height: 1.45;
 }
 
+.stewardWeightValue {
+  color: var(--study-ink);
+  font-size: 26px;
+  font-weight: var(--study-weight-title);
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+
+.stewardWeightValue small {
+  color: var(--study-muted);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-secondary);
+}
+
+.stewardWeightMeta {
+  margin-top: 4px;
+  color: var(--study-muted);
+  font-size: var(--study-type-meta);
+  line-height: 1.45;
+}
+
 .stewardCapacitySummary,
 .stewardCapacityRecovery {
   margin: 0;
@@ -247,12 +285,23 @@
   min-width: 0;
   min-height: 0;
   flex-direction: column;
-  background: #fff;
+  overflow: hidden;
 }
 
 .stewardModeTabs {
-  flex: 0 0 auto;
-  padding: 8px 12px 0;
+  display: grid;
+  align-items: stretch;
+  gap: 2px;
+  margin-top: auto;
+  padding: 0;
+}
+
+.stewardModeTabs button {
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 34px;
+  padding: 7px 8px;
+  text-align: left;
 }
 
 .stewardModePanel {
@@ -272,7 +321,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 9px 16px 10px;
+  padding: 14px 16px;
   border-bottom: 1px solid var(--study-line);
 }
 
@@ -299,7 +348,7 @@
 }
 
 .stewardPlanState[data-state="ready"] {
-  color: var(--study-green);
+  display: none;
 }
 
 .stewardPlanState[data-state="stale"],
@@ -316,7 +365,7 @@
 
 .stewardTimeline {
   position: relative;
-  min-height: 710px;
+  min-height: 974px;
   margin: 12px 14px 16px 64px;
   border-left: 1px solid var(--study-line);
   background: repeating-linear-gradient(
@@ -1395,18 +1444,14 @@
 
 /* Steward VNext formal closeout — approved visual direction, no planning authority here. */
 .stewardTimeline {
-  margin: 10px 14px 14px 62px;
+  margin: 12px 14px 14px 70px;
   border-left: 1px solid var(--study-line);
   background: repeating-linear-gradient(
     to bottom,
     #fff 0,
-    #fff 28px,
-    #f4f6f5 28px,
-    #f4f6f5 29px,
-    #fff 29px,
-    #fff 57px,
-    #e7ece9 57px,
-    #e7ece9 58px
+    #fff 58px,
+    #eef1ef 58px,
+    #eef1ef 59px
   );
 }
 .stewardTimeline::before { display: none; }
@@ -1417,33 +1462,50 @@
   font-size: var(--study-type-meta);
 }
 .stewardPlanBlock {
-  left: 10px;
-  right: 8px;
+  left: 12px;
+  right: 10px;
   border: 0;
   border-left: 3px solid var(--block-accent, var(--study-green));
-  border-radius: 6px;
+  border-radius: 7px;
   background: var(--block-soft, var(--study-green-soft));
-  padding: 7px 10px;
+  padding: 8px 12px;
 }
 .stewardPlanBlock::before { display: none; }
+.stewardPlanBlock > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.stewardPlanBlock > header strong {
+  min-width: 0;
+}
+.stewardPlanBlock > header time {
+  flex: 0 0 auto;
+  color: var(--study-muted);
+  font-size: var(--study-type-meta);
+  font-weight: var(--study-weight-secondary);
+}
 .stewardPlanBlock strong,
 .stewardPlanBlock span { font-size: var(--study-type-meta); }
+.stewardPlanDetail {
+  display: none;
+}
 .stewardActualBlock.withPlan {
+  top: auto;
   right: auto;
-  left: 18px;
-  width: auto;
-  max-width: calc(100% - 44px);
+  bottom: 6px;
+  height: 3px;
   border: 0;
-  border-radius: 4px;
-  background: rgba(255,255,255,.90);
+  border-radius: 99px;
+  background: var(--actual-color, var(--study-green));
   box-shadow: none;
-  padding: 2px 5px;
-  opacity: 1;
+  padding: 0;
+  opacity: .9;
 }
 .stewardActualBlock.withPlan strong,
 .stewardActualBlock.withPlan span {
-  display: block;
-  font-size: var(--study-type-meta);
+  display: none;
 }
 .stewardNowLine { left: -7px; }
 

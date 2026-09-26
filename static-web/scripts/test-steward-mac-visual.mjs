@@ -137,7 +137,11 @@ try {
         recheck: '下一学习块的持续注意、处理速度和错误类型'
       },
       presentation: {
-        today_tasks: [],
+        today_tasks: [
+          { id: 'mac-sunscreen', subject: null, label: '防晒', note: '' },
+          { id: 'mac-walk', subject: null, label: '饭后走 10 分钟', note: '' },
+          { id: 'mac-skincare', subject: null, label: '晚间护肤', note: '' }
+        ],
         week_reference: [],
         schedule_blocks: [
           { id: 'xz-am', subject: 'xizong', start: '08:30', end: '11:30', label: '西综高认知主块', detail: '强窗口' },
@@ -183,20 +187,31 @@ try {
   await page.screenshot({ path: path.join(auditDir, 'steward-mac.png'), fullPage: false });
 
   const geometry = await page.evaluate(() => {
-    const frame = document.querySelector('.stewardTodayFrame')?.getBoundingClientRect();
-    const main = document.querySelector('.stewardTodayMain')?.getBoundingClientRect();
-    const rail = document.querySelector('.stewardNowRail')?.getBoundingClientRect();
+    const frameNode = document.querySelector('.stewardTodayFrame');
+    const leftNode = document.querySelector('.stewardTodayAside');
+    const mainNode = document.querySelector('.stewardTodayMain');
+    const railNode = document.querySelector('.stewardNowRail');
+    const frame = frameNode?.getBoundingClientRect();
+    const left = leftNode?.getBoundingClientRect();
+    const main = mainNode?.getBoundingClientRect();
+    const rail = railNode?.getBoundingClientRect();
     const strategy = document.querySelector('[data-steward-capacity-section]')?.getBoundingClientRect();
     return {
       frameWidth: frame?.width || 0,
+      leftWidth: left?.width || 0,
       mainWidth: main?.width || 0,
       railWidth: rail?.width || 0,
+      columnGap: frameNode ? parseFloat(getComputedStyle(frameNode).columnGap || '0') : 0,
+      frameBorder: frameNode ? getComputedStyle(frameNode).borderTopWidth : '',
       strategyHeight: strategy?.height || 0,
       overflow: document.documentElement.scrollWidth - window.innerWidth
     };
   });
-  check(geometry.mainWidth >= 620, 'steward_main_work_width_preserved', JSON.stringify(geometry));
-  check(geometry.railWidth <= 280, 'steward_strategy_rail_bounded', JSON.stringify(geometry));
+  check(geometry.leftWidth >= 218 && geometry.leftWidth <= 222, 'steward_approved_preview_left_card', JSON.stringify(geometry));
+  check(geometry.mainWidth >= 520, 'steward_main_work_width_preserved', JSON.stringify(geometry));
+  check(geometry.railWidth >= 288 && geometry.railWidth <= 292, 'steward_approved_preview_right_card', JSON.stringify(geometry));
+  check(geometry.columnGap >= 13 && geometry.columnGap <= 15, 'steward_approved_preview_card_gap', JSON.stringify(geometry));
+  check(geometry.frameBorder === '0px', 'steward_approved_preview_no_outer_box', JSON.stringify(geometry));
   check(geometry.strategyHeight > 0 && geometry.strategyHeight < 330, 'steward_strategy_context_compact', JSON.stringify(geometry));
   check(geometry.overflow <= 1, 'steward_no_horizontal_overflow', JSON.stringify(geometry));
 

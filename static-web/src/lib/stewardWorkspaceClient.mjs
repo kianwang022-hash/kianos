@@ -390,6 +390,7 @@ export function initStewardWorkspace(root) {
       rootNode.appendChild(empty);
     }
 
+    const renderedPlanBlocks = [];
     for (const block of scheduleBlocks) {
       const start = clockMinute(block.start);
       const end = block.end ? clockMinute(block.end) : Math.min(END_MINUTE, (start ?? START_MINUTE) + 45);
@@ -397,29 +398,56 @@ export function initStewardWorkspace(root) {
       const geometry = intervalGeometry(start, end);
       if (!geometry) continue;
       const node = document.createElement('article');
+      const subject = subjectForSchedule(block);
       node.className = `stewardPlanBlock${geometry.height < 4 ? ' short' : ''}`;
-      node.dataset.subject = subjectForSchedule(block);
+      node.dataset.subject = subject;
       node.style.top = `${geometry.top}%`;
       node.style.height = `${geometry.height}%`;
-      node.append(
+
+      const head = document.createElement('header');
+      head.append(
         createText('strong', '', block.label),
-        createText('span', '', `${block.start}${block.end ? `–${block.end}` : ''}${block.detail ? ` · ${block.detail}` : ''}`)
+        createText('time', '', `${block.start}${block.end ? `–${block.end}` : ''}`)
       );
+      node.appendChild(head);
+      if (block.detail) {
+        node.title = block.detail;
+        node.appendChild(createText('span', 'stewardPlanDetail', block.detail));
+      }
       rootNode.appendChild(node);
+      renderedPlanBlocks.push({ node, start, end, subject });
     }
 
-    const hasPlan = scheduleBlocks.length > 0;
+    const hasPlan = renderedPlanBlocks.length > 0;
     for (const session of sessionsForDay(storage, today)) {
       const geometry = sessionClockGeometry(session);
       if (!geometry) continue;
-      const node = document.createElement('div');
-      node.className = `stewardActualBlock${hasPlan ? ' withPlan' : ' withoutPlan'}${geometry.height < 4 ? ' short' : ''}`;
-      node.dataset.subject = session.subject;
-      node.style.top = `${geometry.top}%`;
-      node.style.height = `${geometry.height}%`;
       const subject = SUBJECT_LABEL[session.subject] || session.subject;
       const detail = String(session.context?.detailLabel || '').trim();
+      const started = localClock(session.startedAt).total;
+      const ended = localClock(session.endedAt).total;
+      const matchingPlan = renderedPlanBlocks
+        .filter((row) => row.subject === session.subject && Math.min(row.end, ended) > Math.max(row.start, started))
+        .sort((a, b) => (Math.min(b.end, ended) - Math.max(b.start, started)) - (Math.min(a.end, ended) - Math.max(a.start, started)))[0];
+
+      const node = document.createElement('div');
+      node.dataset.subject = session.subject;
       node.title = `${formatClock(session.startedAt)}–${formatClock(session.endedAt)} ${subject}${detail ? ` · ${detail}` : ''}`;
+
+      if (matchingPlan) {
+        const overlapStart = Math.max(matchingPlan.start, started);
+        const overlapEnd = Math.min(matchingPlan.end, ended);
+        const duration = Math.max(1, matchingPlan.end - matchingPlan.start);
+        node.className = 'stewardActualBlock withPlan';
+        node.style.left = `${Math.max(0, ((overlapStart - matchingPlan.start) / duration) * 100)}%`;
+        node.style.width = `${Math.max(1.5, ((overlapEnd - overlapStart) / duration) * 100)}%`;
+        matchingPlan.node.appendChild(node);
+        continue;
+      }
+
+      node.className = `stewardActualBlock withoutPlan${geometry.height < 4 ? ' short' : ''}`;
+      node.style.top = `${geometry.top}%`;
+      node.style.height = `${geometry.height}%`;
       node.append(
         createText('strong', '', detail && detail !== session.subject ? `${subject} · ${detail}` : subject),
         createText('span', '', `实际 ${formatClock(session.startedAt)}–${formatClock(session.endedAt)}`)
@@ -442,7 +470,8 @@ export function initStewardWorkspace(root) {
       const viewport = $('[data-steward-timeline-viewport]');
       const nowLine = rootNode.querySelector('.stewardNowLine');
       if (!(viewport instanceof HTMLElement) || !(nowLine instanceof HTMLElement)) return;
-      viewport.scrollTop = Math.max(0, nowLine.offsetTop - Math.round(viewport.clientHeight * .55));
+      const leadPx = Math.round((90 / DISPLAY_MINUTES) * rootNode.scrollHeight);
+      viewport.scrollTop = Math.max(0, nowLine.offsetTop - leadPx);
     });
   }
 

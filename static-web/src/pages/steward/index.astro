@@ -23,18 +23,28 @@ import Base from '../../layouts/Base.astro';
           <section class="stewardAsideSection" data-steward-task-section>
             <header class="stewardAsideHead">
               <h2>今日事项</h2>
-              <span>无固定节点</span>
+              <span>无固定时点</span>
             </header>
             <div class="stewardTaskList" data-steward-tasks></div>
           </section>
-        </aside>
 
-        <section class="stewardTodayMain">
+          <section class="stewardAsideSection stewardWeightSection" aria-label="晨重">
+            <header class="stewardAsideHead">
+              <h3>晨重</h3>
+              <span>跨日观察</span>
+            </header>
+            <div class="stewardWeightValue">— <small>kg</small></div>
+            <div class="stewardWeightMeta">未记录</div>
+          </section>
+
           <nav class="stewardModeTabs" aria-label="今日工作区">
             <button type="button" class="active" data-steward-mode="schedule">日程</button>
             <button type="button" data-steward-mode="nutrition">饮食与营养</button>
             <button type="button" data-steward-mode="training">训练</button>
           </nav>
+        </aside>
+
+        <section class="stewardTodayMain">
 
           <section class="stewardModePanel active" data-steward-mode-panel="schedule">
             <header class="stewardModeHead">
