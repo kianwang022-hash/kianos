@@ -4,7 +4,7 @@ import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { listReadingSets } from '../src/lib/englishReadingSourceTruth.mjs';
 
-const BASE = 'http://127.0.0.1:4321';
+const BASE = 'http://127.0.0.1:4492';
 const auditDir = path.resolve(process.cwd(), '../english-navigation-audit');
 fs.mkdirSync(auditDir, { recursive: true });
 
@@ -72,7 +72,7 @@ async function assertObjectiveL3(page, active) {
   check(Boolean(l2Box && l3Box && l3Box.y > l2Box.y + l2Box.height), 'l3_is_spatially_below_l2');
 }
 
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
+const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4492'], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
   detached: process.platform !== 'win32'
