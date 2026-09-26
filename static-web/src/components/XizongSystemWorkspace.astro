@@ -12,7 +12,7 @@ const hasGuide = guideSections.length > 0;
 const biochemistryLane = system?.biochemistryLane || null;
 const biochemistryUnits = Array.isArray(biochemistryLane?.units) ? biochemistryLane.units : [];
 const hasBiochemistryLane = biochemistryUnits.length > 0;
-const biochemistryReconstruction = biochemistryLane?.reconstruction || null;
+const biochemistryReconstructions = Array.isArray(biochemistryLane?.reconstructions) ? biochemistryLane.reconstructions : [];
 const hasVariableRoles = variableRows.some((row) => row.role);
 const spineLabels = framework.spine.items.map((item) => String(item || '').trim());
 const spineTotalChars = spineLabels.reduce((sum, item) => sum + [...item].length, 0);
@@ -168,8 +168,29 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
 
                   {unit.connections?.length > 0 && (
                     <section class="xzBioTargetSection connection">
-                      <span>系统连接</span>
+                      <span>Source 提示</span>
                       <p>{unit.connections.join(' · ')}</p>
+                    </section>
+                  )}
+
+                  {unit.connectionRoutes?.length > 0 && (
+                    <section class="xzBioTargetSection connection" data-biochemistry-reviewed-connections>
+                      <span>JIT / Connection</span>
+                      <div>
+                        {unit.connectionRoutes.map((route) => (
+                          <article
+                            data-biochemistry-connection-route={route.id}
+                            data-source-blocks={JSON.stringify(route.sourceBlocks)}
+                            data-local-targets={JSON.stringify(route.localTargetBlockIds)}
+                            data-external-targets={JSON.stringify(route.externalTargetRefs)}
+                            data-post-formation={route.postFormation}
+                          >
+                            <strong>{route.sourceBlocks.join(' + ')} ↔ {route.targets.join(' + ')}</strong>
+                            <p>{route.sharedModel}</p>
+                            <small data-biochemistry-connection-status>JIT Connection · 当前只建立接口，不切换课程。</small>
+                          </article>
+                        ))}
+                      </div>
                     </section>
                   )}
 
@@ -194,18 +215,23 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
                 <button type="button" data-biochemistry-unit-complete>本段原讲义已完成</button>
               </footer>
 
-              {biochemistryReconstruction && (
-                <section class="xzBiochemistryReconstruction" data-biochemistry-reconstruction hidden>
+              {biochemistryReconstructions.map((reconstruction) => (
+                <section
+                  class="xzBiochemistryReconstruction"
+                  data-biochemistry-reconstruction={reconstruction.id}
+                  hidden
+                >
                   <span>阶段重构 · 非门槛</span>
-                  <h3>把刚学过的通路重新拼回系统，而不是按 Block 名背一遍。</h3>
-                  <p data-biochemistry-reconstruction-prompt>{biochemistryReconstruction.prompt}</p>
+                  <h3>把刚学过的机制重新拼回系统，而不是按 Block 名背一遍。</h3>
+                  <p data-biochemistry-reconstruction-prompt>{reconstruction.prompt}</p>
+                  <small data-biochemistry-reconstruction-boundary></small>
                   <button type="button" data-biochemistry-reconstruction-reveal>核对这阶段应该连起来什么</button>
                   <div data-biochemistry-reconstruction-answer hidden>
                     <strong data-biochemistry-reconstruction-target></strong>
                     <p data-biochemistry-reconstruction-closure></p>
                   </div>
                 </section>
-              )}
+              ))}
             </main>
           </div>
         </section>
@@ -439,10 +465,8 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
       const completeButton = root.querySelector('[data-biochemistry-unit-complete]');
       const progress = root.querySelector('[data-biochemistry-progress]');
       const currentStatus = root.querySelector('[data-biochemistry-current-status]');
-      const reconstruction = root.querySelector('[data-biochemistry-reconstruction]');
-      const reconstructionTarget = root.querySelector('[data-biochemistry-reconstruction-target]');
-      const reconstructionClosure = root.querySelector('[data-biochemistry-reconstruction-closure]');
-      const reconstructionAnswer = root.querySelector('[data-biochemistry-reconstruction-answer]');
+      const connectionCards = [...root.querySelectorAll('[data-biochemistry-connection-route]')];
+      const reconstructionCards = [...root.querySelectorAll('[data-biochemistry-reconstruction]')];
       const sourceHash = String(biochemistryLane.sourceHash);
       const units = biochemistryLane.units;
       let selectedUnit = 0;
@@ -477,24 +501,77 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
         } catch { return false; }
       };
 
-      const syncReconstruction = () => {
-        if (!(reconstruction instanceof HTMLElement) || !biochemistryLane?.reconstruction) return;
-        const psr = biochemistryLane.reconstruction;
-        const rows = Array.isArray(psr.incremental_refreshes) ? psr.incremental_refreshes : [];
-        const fullReady = Array.isArray(psr.after_when_ready) && psr.after_when_ready.length
-          && psr.after_when_ready.every(blockIsCurrentComplete);
-        const eligible = rows.filter((row) =>
-          Array.isArray(row?.after_when_ready) && row.after_when_ready.length
-          && row.after_when_ready.every(blockIsCurrentComplete)
-        );
-        const active = fullReady
-          ? { target: psr.target || '', closure: psr.closure || '' }
-          : eligible.at(-1);
-        reconstruction.hidden = !active;
-        if (!active) return;
-        if (reconstructionTarget) reconstructionTarget.textContent = active.target || '';
-        if (reconstructionClosure) reconstructionClosure.textContent = active.closure || '';
-        if (reconstructionAnswer instanceof HTMLElement) reconstructionAnswer.hidden = true;
+      const parseJsonAttr = (node, name) => {
+        try { return JSON.parse(node.getAttribute(name) || '[]'); } catch { return []; }
+      };
+      const syncConnectionRoutes = () => {
+        connectionCards.forEach((card) => {
+          if (!(card instanceof HTMLElement)) return;
+          const sourceBlocks = parseJsonAttr(card, 'data-source-blocks').map(String);
+          const localTargets = parseJsonAttr(card, 'data-local-targets').map(String);
+          const externalTargets = parseJsonAttr(card, 'data-external-targets').map(String);
+          const sourceReady = sourceBlocks.length > 0 && sourceBlocks.every(blockIsCurrentComplete);
+          const completedTargets = localTargets.filter(blockIsCurrentComplete);
+          const pendingTargets = localTargets.filter((blockId) => !blockIsCurrentComplete(blockId));
+          const localReady = localTargets.length > 0 && pendingTargets.length === 0;
+          const reconstructionReady = sourceReady && localReady && externalTargets.length === 0
+            && String(card.getAttribute('data-post-formation') || '').startsWith('RECONSTRUCT');
+          const status = card.querySelector('[data-biochemistry-connection-status]');
+          card.classList.toggle('reconstruction-ready', reconstructionReady);
+          if (!status) return;
+          if (reconstructionReady) {
+            status.textContent = `跨系统重构已解锁 · ${sourceBlocks.join(' + ')} 与 ${localTargets.join(' + ')} 都已形成。`;
+          } else if (completedTargets.length > 0) {
+            const tail = [...pendingTargets, ...externalTargets];
+            status.textContent = `Recall ${completedTargets.join(' + ')}；${tail.length ? `Future Connection ${tail.join(' + ')} 尚未形成/未在本页证明` : '继续当前生化 Source'}。`;
+          } else if (sourceReady && (pendingTargets.length > 0 || externalTargets.length > 0)) {
+            const futureTargets = [...pendingTargets, ...externalTargets];
+            status.textContent = `Future Connection · ${futureTargets.join(' + ')} 尚未形成/未在本页证明；保留正式 owner 接口，不切换课程。`;
+          } else if (externalTargets.length > 0 && localTargets.length === 0) {
+            status.textContent = `Future Connection · ${externalTargets.join(' + ')} 的学习状态未在本页证明；只保留接口，不制造已学证据。`;
+          } else {
+            status.textContent = `JIT Connection · ${[...localTargets, ...externalTargets].join(' + ')} 先记住接口，不切换课程。`;
+          }
+        });
+      };
+
+      const syncReconstructions = () => {
+        const rows = Array.isArray(biochemistryLane?.reconstructions) ? biochemistryLane.reconstructions : [];
+        reconstructionCards.forEach((card) => {
+          if (!(card instanceof HTMLElement)) return;
+          const psrId = card.getAttribute('data-biochemistry-reconstruction') || '';
+          const psr = rows.find((row) => String(row?.id || '') === psrId);
+          if (!psr) { card.hidden = true; return; }
+          const refreshes = Array.isArray(psr.incremental_refreshes) ? psr.incremental_refreshes : [];
+          const externalRequired = Array.isArray(psr.external_required) ? psr.external_required.filter(Boolean) : [];
+          const fullReady = externalRequired.length === 0
+            && Array.isArray(psr.after_when_ready) && psr.after_when_ready.length
+            && psr.after_when_ready.every(blockIsCurrentComplete);
+          const eligible = refreshes.filter((row) =>
+            Array.isArray(row?.after_when_ready) && row.after_when_ready.length
+            && row.after_when_ready.every(blockIsCurrentComplete)
+          );
+          const active = fullReady
+            ? { target: psr.target || '', closure: psr.closure || '', full: true }
+            : eligible.at(-1);
+          card.hidden = !active;
+          if (!active) return;
+          const target = card.querySelector('[data-biochemistry-reconstruction-target]');
+          const closure = card.querySelector('[data-biochemistry-reconstruction-closure]');
+          const answer = card.querySelector('[data-biochemistry-reconstruction-answer]');
+          const boundary = card.querySelector('[data-biochemistry-reconstruction-boundary]');
+          if (target) target.textContent = active.target || '';
+          if (closure) closure.textContent = active.closure || '';
+          if (boundary) boundary.textContent = externalRequired.length
+            ? `当前只释放可证明的生化半层；完整重构还需要 ${externalRequired.join(' + ')}。`
+            : active.full ? '当前 Source / Block 条件已满足，可做完整阶段重构。' : '当前只释放已经形成的增量阶段。';
+          if (answer instanceof HTMLElement) answer.hidden = true;
+        });
+      };
+
+      const syncIntegration = () => {
+        syncConnectionRoutes();
+        syncReconstructions();
       };
 
       const renderBiochemistryLane = () => {
@@ -526,7 +603,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
             ? '27 生化连续 Source 已完整接触；后续进入对应 Block Recall / 系统重构。'
             : `当前 ${selected?.id || ''} · PDF P${String(selected?.pdf?.[0] || '').padStart(3, '0')}–P${String(selected?.pdf?.[1] || '').padStart(3, '0')}`;
         }
-        syncReconstruction();
+        syncIntegration();
       };
 
       unitButtons.forEach((button, index) => button.addEventListener('click', () => {
@@ -553,13 +630,17 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
         selectedUnit = Math.min(units.length - 1, selectedUnit + 1);
         renderBiochemistryLane();
       });
-      root.querySelector('[data-biochemistry-reconstruction-reveal]')?.addEventListener('click', () => {
-        if (reconstructionAnswer instanceof HTMLElement) reconstructionAnswer.hidden = false;
+      root.querySelectorAll('[data-biochemistry-reconstruction-reveal]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const card = button.closest('[data-biochemistry-reconstruction]');
+          const answer = card?.querySelector('[data-biochemistry-reconstruction-answer]');
+          if (answer instanceof HTMLElement) answer.hidden = false;
+        });
       });
       window.addEventListener('storage', (event) => {
         if (event.key === ledgerKey) renderBiochemistryLane();
       });
-      window.addEventListener('kianos:xizong-block-complete', syncReconstruction);
+      window.addEventListener('kianos:xizong-block-complete', syncIntegration);
       renderBiochemistryLane();
     }
 

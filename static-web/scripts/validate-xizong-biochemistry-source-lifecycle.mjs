@@ -350,6 +350,22 @@ assert.equal(runtimeB.biochemistryLane?.sourceMapPath,sourceMapPath,'runtime B l
 assert.equal(runtimeB.biochemistryLane?.sourceMapHash,textSha256(text(sourceMapPath)),'runtime B lane Source-map hash drift');
 assert.equal(runtimeB.biochemistryLane?.sourceHash,sourceMap.source.sha256,'runtime B lane Source identity drift');
 assert.equal(runtimeB.biochemistryLane?.units?.length,22,'runtime B lane unit count drift');
+assert.deepEqual(
+  (runtimeB.biochemistryLane?.reconstructions||[]).map((row)=>row?.id),
+  ['PSR-2_METABOLIC_NETWORK','PSR-6_INFORMATION_TUMOR'],
+  'runtime B lane must consume both Biochemistry-scoped reconstruction owners'
+);
+const m4Connection=(runtimeB.biochemistryLane?.units||[])
+  .flatMap((unit)=>unit?.connectionRoutes||[])
+  .find((route)=>route?.sourceBlocks?.includes('M4')&&route?.targets?.includes('D7')&&route?.targets?.includes('D8'));
+assert.ok(m4Connection,'runtime B lane lost reviewed M4→D7/D8 Connection route');
+assert.equal(m4Connection?.sharedModel,learning.biochemistry_first_pass_lane?.cross_system_integration?.reviewed_routes?.[0]?.shared_model,
+  'runtime B Connection must derive Current reviewed route meaning');
+const g5Connection=(runtimeB.biochemistryLane?.units||[])
+  .flatMap((unit)=>unit?.connectionRoutes||[])
+  .find((route)=>route?.sourceBlocks?.includes('G5')&&route?.targets?.includes('O9'));
+assert.ok(g5Connection&&g5Connection.externalTargetRefs?.includes('O9'),
+  'runtime B lane must preserve external-owner fail-closed Connection target');
 const semanticB=loadXizongSemanticSystem(system.system_id);
 for(const block of semanticB.blocks.filter((row)=>blocks.includes(String(row.blockId||'')))){
   assert.equal(block.sourceContact?.mode,'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT',block.blockId+' semantic Source mode drift');
