@@ -47,16 +47,8 @@ async function verifyResult(p,q){
   const unit=catalog.units.find(u=>u.key===q.unitKey);
   if(q.chengfengLocator?.status==='EXACT_SOURCE_NODE'){
     assert.equal(await p.locator('[data-chengfeng-locator]').isVisible(),true);
-    assert.match(await p.locator('[data-chengfeng-locator]').innerText(),new RegExp(q.chengfengLocator.display.replace(/[.*+?^$\{\}()|[\]\\]/g,'\\async function verifyResult(p,q){
-  assert.equal(await p.locator('[data-takeaway]').textContent(),q.refined.takeaway);
-  assert.equal(await p.locator('[data-chat-explanation]').textContent(),q.refined.chatExplanation);
-  assert.equal(await p.locator('[data-result-answer]').textContent(),q.answer);
-  const unit=catalog.units.find(u=>u.key===q.unitKey);
-  assert.deepEqual(await p.locator('[data-review-sources] details summary').allTextContents(),unit.source.map(s=>s.title||'对应原讲义'));
-  assert.deepEqual(await p.locator('[data-review-sources] details p').allTextContents(),unit.source.filter(s=>s.text).map(s=>s.text));
-  const review=await (await p.request.get(base+catalog.reviewBase+q.id+'.json')).json();
-  assert.deepEqual(review,practiceReviewPayload(catalog,q.id));
-}')));
+    const escaped=q.chengfengLocator.display.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    assert.match(await p.locator('[data-chengfeng-locator]').innerText(),new RegExp(escaped));
     assert.equal(await p.locator('[data-review-sources]').isVisible(),false);
   }else{
     assert.equal(await p.locator('[data-chengfeng-locator]').isVisible(),false);
