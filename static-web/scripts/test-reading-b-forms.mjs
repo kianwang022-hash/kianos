@@ -8,7 +8,7 @@ import {
   loadReadingBAnswersById
 } from '../src/lib/englishObjective.mjs';
 
-const BASE = 'http://127.0.0.1:4321';
+const BASE = 'http://127.0.0.1:4485';
 const auditDir = path.resolve(process.cwd(), '../objective-audit');
 fs.mkdirSync(auditDir, { recursive: true });
 const report = { schema: 'kianos.reading_b.forms_e2e.v1', startedAt: new Date().toISOString(), checks: [] };
@@ -150,7 +150,7 @@ const itemsByForm = new Map();
 for (const item of allItems) if (!itemsByForm.has(item.context.taskForm)) itemsByForm.set(item.context.taskForm, item);
 for (const form of ['gap_match', 'heading_match', 'ordering', 'comment_match']) check(Boolean(itemsByForm.get(form)), `source_has_${form}`);
 
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
+const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4485'], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
   detached: process.platform !== 'win32'

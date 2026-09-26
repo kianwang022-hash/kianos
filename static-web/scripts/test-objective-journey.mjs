@@ -17,7 +17,7 @@ import {
   loadReadingAnswersById
 } from '../src/lib/englishReading.mjs';
 
-const BASE = 'http://127.0.0.1:4321';
+const BASE = 'http://127.0.0.1:4490';
 const auditDir = path.resolve(process.cwd(), '../objective-audit');
 fs.mkdirSync(auditDir, { recursive: true });
 const report = { schema: 'kianos.objective.acceptance_e2e.v2', startedAt: new Date().toISOString(), browsers: {}, checks: [] };
@@ -402,7 +402,7 @@ async function readingAAndBSmoke(browserType, name) {
   report.browsers[name] = report.browsers[name] || 'smoke-pass';
 }
 
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
+const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4490'], {
   cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe']
 });
 let serverLog = '';

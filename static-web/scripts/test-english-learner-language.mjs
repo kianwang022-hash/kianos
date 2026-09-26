@@ -9,7 +9,7 @@ import { listWritingRuntimeTasks } from '../src/lib/englishWritingRuntimeSourceT
 import { listEnglishExamPapers } from '../src/lib/englishExamPaper.mjs';
 import { listLexicalWordSummaries } from '../src/lib/lexical.mjs';
 
-const BASE = 'http://127.0.0.1:4321';
+const BASE = 'http://127.0.0.1:4482';
 const auditDir = path.resolve(process.cwd(), '../english-language-audit');
 fs.mkdirSync(auditDir, { recursive: true });
 
@@ -97,7 +97,7 @@ const routes = [
   ['vocabulary-word', `/vocabulary/${encodeURIComponent(lexicalWord.ordinal)}/`]
 ];
 
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
+const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4482'], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
   detached: process.platform !== 'win32'

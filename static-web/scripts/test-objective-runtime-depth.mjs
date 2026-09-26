@@ -13,7 +13,7 @@ import {
   loadReadingBAnswersById
 } from '../src/lib/englishObjective.mjs';
 
-const BASE = 'http://127.0.0.1:4321';
+const BASE = 'http://127.0.0.1:4487';
 const auditDir = path.resolve(process.cwd(), '../objective-audit');
 fs.mkdirSync(auditDir, { recursive: true });
 const report = {
@@ -367,7 +367,7 @@ async function readingBRuntime(browser) {
   }
 }
 
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
+const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4487'], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
   detached: process.platform !== 'win32'

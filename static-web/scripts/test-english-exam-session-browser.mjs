@@ -4,7 +4,7 @@ import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { listEnglishExamPapers, loadEnglishExamPaper } from '../src/lib/englishExamPaper.mjs';
 
-const BASE = 'http://127.0.0.1:4321';
+const BASE = 'http://127.0.0.1:4481';
 const auditDir = path.resolve(process.cwd(), '../english-exam-audit');
 fs.mkdirSync(auditDir, { recursive: true });
 
@@ -165,7 +165,7 @@ async function fullNineStepJourney(browser, paper) {
   }
 }
 
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
+const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4481'], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
   detached: process.platform !== 'win32'

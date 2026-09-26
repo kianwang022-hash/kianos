@@ -327,6 +327,53 @@ def audit_external_reading_boundary(registry: dict) -> None:
     )
 
 
+
+def audit_browser_test_port_isolation() -> None:
+    """Browser acceptance tests must never default to the live KianOS port."""
+    scripts_root = REPO / "static-web" / "scripts"
+    allow_marker = "KIANOS_TEST_ALLOW_PRODUCTION_PORT_4321"
+    patterns = (
+        re.compile(r"(?:127\\.0\\.0\\.1|localhost):4321"),
+        re.compile(r"['\"]--port['\"]\\s*,\\s*['\"]4321['\"]"),
+        re.compile(r"\\bPORT\\s*=\\s*4321\\b"),
+    )
+    offenders: list[str] = []
+    if scripts_root.is_dir():
+        candidates = sorted({
+            *scripts_root.glob("test-*.mjs"),
+            *scripts_root.glob("run-*.mjs"),
+        })
+        for path in candidates:
+            value = text(path)
+            if allow_marker in value:
+                continue
+            if any(pattern.search(value) for pattern in patterns):
+                offenders.append(rel(path))
+    check(
+        not offenders,
+        "BROWSER_TEST_USES_PRODUCTION_PORT_4321",
+        ",".join(offenders),
+    )
+
+    astro_config = REPO / "static-web" / "astro.config.mjs"
+    check(astro_config.is_file(), "ASTRO_CONFIG_MISSING")
+    if astro_config.is_file():
+        astro_value = text(astro_config)
+        for token in (
+            "KIANOS_ASTRO_ALLOW_LIVE_PRIVATE",
+            "KIANOS_ASTRO_RUNTIME_ROOT",
+            "KIANOS_PRIVATE_DIR",
+            "KIANOS_CONTROL_DIR",
+            "KIANOS_CONTROL_REPO_DIR",
+            "KIANOS_PACKET_REPO_DIR",
+            "KIANOS_EXTERNAL_READING_DIR",
+            "KIANOS_ENGLISH_GENERATED_DIR",
+            "KIANOS_CONTROL_ENABLED",
+            "KIANOS_PACKET_RELAY_ENABLED",
+        ):
+            check(token in astro_value, "ASTRO_PRIVATE_RUNTIME_ISOLATION_MISSING", token)
+
+
 def main() -> int:
     registry = load_registry()
     if registry:
@@ -337,6 +384,7 @@ def main() -> int:
         audit_current_sync(registry)
         audit_home_boundary(registry)
         audit_external_reading_boundary(registry)
+        audit_browser_test_port_isolation()
 
     result = {
         "schema": "kianos.authority-consistency-audit.v1",

@@ -10,7 +10,7 @@ if (process.platform !== 'darwin') {
   throw new Error(`MAC_TYPOGRAPHY_GATE_REQUIRES_DARWIN:${process.platform}`);
 }
 
-const BASE = 'http://127.0.0.1:4321';
+const BASE = 'http://127.0.0.1:4484';
 const auditDir = path.resolve(process.cwd(), '../english-mac-typography-audit');
 fs.mkdirSync(auditDir, { recursive: true });
 
@@ -70,7 +70,7 @@ function pingFangFirst(stack) {
   return /^["']?PingFang SC["']?(?:,|$)/i.test(String(stack || '').trim());
 }
 
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
+const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4484'], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
 });

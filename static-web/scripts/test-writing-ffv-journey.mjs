@@ -5,7 +5,7 @@ import { chromium } from 'playwright';
 import { listWritingSyntheticTasks } from '../src/lib/englishWritingSynthetic.mjs';
 import { listTranslationSets, loadTranslationById } from '../src/lib/englishTranslationSourceTruth.mjs';
 
-const BASE = 'http://127.0.0.1:4321';
+const BASE = 'http://127.0.0.1:4489';
 const auditDir = path.resolve(process.cwd(), '../ffv-audit');
 fs.mkdirSync(auditDir, { recursive: true });
 const report = {
@@ -336,7 +336,7 @@ async function repairReturnJourney(browser, task) {
 const tasks = listWritingSyntheticTasks();
 check(tasks.length >= 2, 'two_learner_safe_synthetic_tasks_available');
 
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
+const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4489'], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
   detached: process.platform !== 'win32'
