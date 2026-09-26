@@ -98,7 +98,6 @@ body#kianos-workspace.uiWordStudy .portedVocabEvidenceList>article>p { color:#6f
   body#kianos-workspace.uiStageOne>.productCanvas>* { flex-shrink:0; }
   body#kianos-workspace.uiHub>.productBar { position:fixed;inset:0 auto 0 0;min-height:100dvh; }
   body#kianos-workspace.uiHub>.productCanvas { width:auto;margin:0 0 0 204px;padding:20px 24px 12px; }
-  body#kianos-workspace :is(.politicsUnitCognition,.politicsUnitCompanion,.politicsRail,.cognitiveStage,.contextualInspector,.portedStudyMain,.portedStudyOutline,.portedStudyChain,.xv6SystemMain,.xv6SystemRail,.xv6SystemContext,.portedVocabMeaningColumn,.portedVocabEvidenceColumn) { scrollbar-width:thin;scrollbar-color:#bdccc4 transparent; }
 
   /* Hubs: header + Continue + dominant browse surface. Not an all-task dashboard. */
   body#kianos-workspace.surfaceBody-politics.uiHub .politicsOverviewHeader { padding-bottom:15px; }
@@ -166,26 +165,9 @@ body#kianos-workspace.uiWordStudy .portedVocabEvidenceList>article>p { color:#6f
 
   /* Xizong: the active workspace fits; separate downstream tasks stay reachable
      in the outer canvas. No replacement of Memory/Review/Question runtime. */
-  body#kianos-workspace.surfaceBody-xizong :is(.xv6Block,.xv6SystemShell) { flex:0 0 auto;height:calc(100dvh - 82px);min-height:0;box-sizing:border-box; }
+  body#kianos-workspace.surfaceBody-xizong .xv6SystemShell { flex:0 0 auto;height:calc(100dvh - 82px);min-height:0;box-sizing:border-box;align-items:stretch; }
   body#kianos-workspace.surfaceBody-xizong .xv6Block { display:flex;flex-direction:column;overflow:hidden; }
-  body#kianos-workspace.surfaceBody-xizong .portedStudyHeader { flex-shrink:0; }
-  body#kianos-workspace.surfaceBody-xizong .portedStudyContextRow { min-height:36px;padding:5px 20px; }
-  body#kianos-workspace.surfaceBody-xizong .portedStudyIdentity { padding:10px 23px; }
-  body#kianos-workspace.surfaceBody-xizong .portedStudyLayout { flex:1;min-height:0;align-items:stretch; }
-  body#kianos-workspace.surfaceBody-xizong :is(.portedStudyOutline,.portedStudyChain) { min-height:0;overflow:auto; }
-  body#kianos-workspace.surfaceBody-xizong .portedStudyMain { min-height:0;overflow:auto; }
-  body#kianos-workspace.surfaceBody-xizong .portedStudyMain:has([data-study-stage="kp_recall"]:not([hidden])) { overflow:hidden; }
-  body#kianos-workspace.surfaceBody-xizong .portedStudyMain:has([data-study-stage="kp_recall"]:not([hidden]))>[data-study-panel="learn"] { height:100%;min-height:0; }
   body#kianos-workspace.surfaceBody-xizong [data-study-stage="kp_recall"] { height:100%;min-height:0;display:flex;flex-direction:column; }
-  body#kianos-workspace.surfaceBody-xizong .portedKpWorkspaceHeader { flex-shrink:0;padding:12px 23px; }
-  body#kianos-workspace.surfaceBody-xizong .portedKpCards { flex:1;min-height:0;overflow:hidden; }
-  body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard { height:100%;min-height:0;display:flex;flex-direction:column; }
-  body#kianos-workspace.surfaceBody-xizong .portedKpRecallCard>header { flex-shrink:0;max-height:40%;overflow:auto; }
-  body#kianos-workspace.surfaceBody-xizong .portedRecallAnswer { flex:1;min-height:0;overflow:auto; }
-  body#kianos-workspace.surfaceBody-xizong .portedRecallRating { flex-shrink:0;padding:12px 23px;background:#f5f9f5;border-top:1px solid var(--study-line); }
-  body#kianos-workspace.surfaceBody-xizong .portedRecallPrompt { flex:1;min-height:0;align-content:start; }
-  body#kianos-workspace.surfaceBody-xizong .portedStudyStageAction { position:sticky;bottom:-25px;background:#fff;padding:13px 0; }
-  body#kianos-workspace.surfaceBody-xizong .xv6SystemShell { align-items:stretch; }
   body#kianos-workspace.surfaceBody-xizong :is(.xv6SystemRail,.xv6SystemMain,.xv6SystemContext) { position:static;align-self:stretch;min-height:0;max-height:none;overflow:auto; }
 
   /* Lexical: a single Word stays a semantic sheet, not one-card-per-sense pages. */
