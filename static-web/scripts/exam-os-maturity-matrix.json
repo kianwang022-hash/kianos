@@ -1,0 +1,226 @@
+{
+  "schema": "kianos.exam-os-maturity-matrix.v1",
+  "purpose": "System-level acceptance matrix for the exam operating system. Synthetic/CI proof never upgrades learner U.",
+  "proofs": {
+    "authority_guard": {
+      "tier": "governance",
+      "timeout_ms": 120000,
+      "command": [
+        "python3",
+        "../tools/authority_consistency_audit.py"
+      ]
+    },
+    "steward_state": {
+      "tier": "state",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-steward-final-state.mjs"
+      ]
+    },
+    "private_checkpoint": {
+      "tier": "state",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-private-learner-checkpoint.mjs"
+      ]
+    },
+    "private_packet": {
+      "tier": "state",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-private-daily-learning-packet.mjs"
+      ]
+    },
+    "packet_relay": {
+      "tier": "state",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-private-daily-learning-packet-relay.mjs"
+      ]
+    },
+    "packet_bridge": {
+      "tier": "state",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-private-daily-learning-packet-bridge.mjs"
+      ]
+    },
+    "shared_three_subjects": {
+      "tier": "state",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-shared-control-three-subjects.mjs"
+      ]
+    },
+    "l1_continuation": {
+      "tier": "state",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "--experimental-vm-modules",
+        "scripts/test-l1-continuation.mjs",
+        ".."
+      ]
+    },
+    "study_timer": {
+      "tier": "state",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-study-timer.mjs"
+      ]
+    },
+    "final_cross_subject": {
+      "tier": "browser",
+      "timeout_ms": 300000,
+      "command": [
+        "node",
+        "scripts/test-final-cross-subject-regression.mjs"
+      ]
+    },
+    "steward_browser": {
+      "tier": "browser",
+      "timeout_ms": 240000,
+      "command": [
+        "node",
+        "scripts/test-steward-final-browser.mjs"
+      ]
+    },
+    "current_build_recovery": {
+      "tier": "delivery",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-current-build-recovery.mjs"
+      ]
+    },
+    "current_runtime_rollback": {
+      "tier": "delivery",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-current-runtime-rollback.mjs"
+      ]
+    },
+    "current_delivery_lock": {
+      "tier": "delivery",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-current-delivery-lock.mjs"
+      ]
+    },
+    "current_delivery_concurrency": {
+      "tier": "delivery",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-current-delivery-concurrency.mjs"
+      ]
+    }
+  },
+  "scenarios": [
+    {
+      "id": "healthy_whole_day_restart",
+      "description": "Home/plan -> three subjects -> checkpoint -> Current restart -> fresh browser restore.",
+      "proof_ids": [
+        "final_cross_subject",
+        "steward_browser"
+      ]
+    },
+    {
+      "id": "cross_subject_control_and_return",
+      "description": "One plan/control path preserves subject-native evidence and typed return identity.",
+      "proof_ids": [
+        "final_cross_subject",
+        "shared_three_subjects"
+      ]
+    },
+    {
+      "id": "partial_evidence_unknown_not_zero",
+      "description": "Broken/missing evidence degrades only dependent claims and never fabricates zero or a valid plan basis.",
+      "proof_ids": [
+        "l1_continuation",
+        "private_packet"
+      ]
+    },
+    {
+      "id": "checkpoint_conflict_fail_closed",
+      "description": "Local/durable divergence preserves raw state and blocks unsafe overwrite while clean recovery remains possible.",
+      "proof_ids": [
+        "private_checkpoint",
+        "l1_continuation"
+      ]
+    },
+    {
+      "id": "pause_reentry_no_auto_replan",
+      "description": "Pause/recovery/re-entry changes reality evidence without manufacturing readiness or automatic replanning.",
+      "proof_ids": [
+        "steward_state",
+        "study_timer"
+      ]
+    },
+    {
+      "id": "cross_day_plan_expires_resume_survives",
+      "description": "Old day plan cannot execute on a new day while native subject history/resume remains durable.",
+      "proof_ids": [
+        "l1_continuation",
+        "shared_three_subjects"
+      ]
+    },
+    {
+      "id": "packet_publish_and_relay",
+      "description": "Checkpoint -> packet -> relay/bridge keeps freshness, coverage and receipt boundaries explicit.",
+      "proof_ids": [
+        "private_packet",
+        "packet_relay",
+        "packet_bridge"
+      ]
+    },
+    {
+      "id": "delivery_failure_preserves_lkg",
+      "description": "Failed candidate/restart never replaces last-known-good and explicit retry can recover atomically.",
+      "proof_ids": [
+        "current_build_recovery",
+        "current_runtime_rollback"
+      ]
+    },
+    {
+      "id": "delivery_concurrency_single_owner",
+      "description": "Concurrent delivery attempts respect one lock owner and never steal or corrupt the active release.",
+      "proof_ids": [
+        "current_delivery_lock",
+        "current_delivery_concurrency"
+      ]
+    },
+    {
+      "id": "qa_never_uses_live_private_runtime",
+      "description": "Acceptance harness remains isolated from production port/private learner state by governance guard.",
+      "proof_ids": [
+        "authority_guard"
+      ]
+    },
+    {
+      "id": "review_actuals_do_not_become_mastery",
+      "description": "Plan, actual time, meals/training/recovery and review remain separate from mastery/debt claims.",
+      "proof_ids": [
+        "steward_state",
+        "steward_browser"
+      ]
+    },
+    {
+      "id": "stale_plan_reference_not_executable",
+      "description": "A changed evidence basis can preserve bounded display/reference while blocking stale execution/re-date.",
+      "proof_ids": [
+        "steward_state",
+        "l1_continuation"
+      ]
+    }
+  ]
+}
