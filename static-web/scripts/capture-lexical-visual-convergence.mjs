@@ -167,6 +167,11 @@ try {
   assert((await page.locator('[data-lexical-same-day-count]').innerText()).trim() === '0', 'v2_home_same_day_revisit_starts_empty');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-home-1440x900.png'), fullPage: false });
 
+  await page.goto(`${origin}/`, { waitUntil: 'networkidle' });
+  const homeVocabularyLink = page.locator('.homeL3TaskLinks a[href$="vocabulary/"]');
+  assert(await homeVocabularyLink.isVisible(), 'home_learning_jump_has_vocabulary');
+  assert((await homeVocabularyLink.innerText()).trim() === 'Vocabulary', 'home_learning_jump_vocabulary_label');
+
   // Same-day revisit is ephemeral card routing support, not Repair debt.
   await page.evaluate(() => {
     const rows = JSON.parse(document.querySelector('[data-lexical-catalog]')?.textContent || '[]');
@@ -458,10 +463,29 @@ try {
   assert(await page.locator('[data-lexical-learn-nav]').getAttribute('aria-disabled') === 'true', 'v2_daily_limit_blocks_direct_learn_nav');
   await page.evaluate(() => localStorage.clear());
 
+  await page.addInitScript(() => {
+    window.__kianosSpoken = [];
+    class MockUtterance {
+      constructor(text) { this.text = text; this.lang = ''; this.rate = 1; }
+    }
+    Object.defineProperty(window, 'SpeechSynthesisUtterance', { value: MockUtterance, configurable: true });
+    Object.defineProperty(window, 'speechSynthesis', {
+      value: {
+        cancel() {},
+        speak(utterance) {
+          window.__kianosSpoken.push({ text: utterance.text, lang: utterance.lang, rate: utterance.rate });
+        }
+      },
+      configurable: true
+    });
+  });
   await page.goto(`${origin}/vocabulary/3/`, { waitUntil: 'networkidle' });
   assert(await page.locator('[data-kianos-global-rail]').isHidden(), 'v2_word_study_hides_global_rail');
-  assert(await page.locator('[data-study-timer-dock]').isHidden(), 'v2_word_study_hides_shared_timer');
+  assert(await page.locator('[data-study-timer-dock]').isVisible(), 'v2_word_study_keeps_shared_timer');
   assert(await page.locator('[data-vocab-front]').isVisible(), 'v2_safe_fast_pass_front_visible');
+  const initialSpeech = await page.evaluate(() => window.__kianosSpoken || []);
+  assert(initialSpeech.length === 1, 'v2_word_front_autoplays_once', JSON.stringify(initialSpeech));
+  assert(initialSpeech[0]?.text === (document.querySelector('[data-vocab-front] h2')?.textContent || '').trim(), 'v2_word_front_autoplay_matches_word', JSON.stringify(initialSpeech));
   assert(await page.locator('[data-vocab-details]').isHidden(), 'v2_safe_fast_pass_depth_protected');
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="known"]').isVisible(), 'v2_safe_fast_pass_known_visible');
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="mastered"]').isVisible(), 'v2_safe_fast_pass_mastered_visible');
@@ -475,6 +499,19 @@ try {
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-recall-1440x900.png'), fullPage: false });
   await page.keyboard.press('Space');
   await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+  const richCanvasScroll = await page.locator('.kianosShellMain > .productCanvas').evaluate((node) => ({
+    overflowY: getComputedStyle(node).overflowY,
+    scrollHeight: node.scrollHeight,
+    clientHeight: node.clientHeight
+  }));
+  assert(['auto', 'scroll'].includes(richCanvasScroll.overflowY), 'v2_rich_word_uses_scrollable_canvas', JSON.stringify(richCanvasScroll));
+  if (richCanvasScroll.scrollHeight > richCanvasScroll.clientHeight + 4) {
+    await page.locator('.kianosShellMain > .productCanvas').evaluate((node) => { node.scrollTop = 120; });
+    const scrollTop = await page.locator('.kianosShellMain > .productCanvas').evaluate((node) => node.scrollTop);
+    assert(scrollTop > 0, 'v2_rich_word_can_scroll_down', String(scrollTop));
+  }
+  const speechAfterReveal = await page.evaluate(() => window.__kianosSpoken || []);
+  assert(speechAfterReveal.length === 1, 'v2_reveal_does_not_replay_pronunciation', JSON.stringify(speechAfterReveal));
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="unknown"]').isVisible(), 'v2_depth_dock_exposes_unknown');
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="fuzzy"]').isVisible(), 'v2_depth_dock_exposes_fuzzy');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-depth-1440x900.png'), fullPage: false });
