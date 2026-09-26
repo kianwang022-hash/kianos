@@ -4,7 +4,7 @@ import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { listTranslationSets } from '../src/lib/englishTranslation.mjs';
 
-const BASE = 'http://127.0.0.1:4321';
+const BASE = 'http://127.0.0.1:4488';
 const auditDir = path.resolve(process.cwd(), '../translation-browser-audit');
 fs.mkdirSync(auditDir, { recursive: true });
 
@@ -142,7 +142,7 @@ async function manualRepairJourney(page, id) {
 const sets = listTranslationSets();
 check(sets.length >= 2, 'translation_has_two_browser_fixtures');
 
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
+const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4488'], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
   detached: process.platform !== 'win32'
