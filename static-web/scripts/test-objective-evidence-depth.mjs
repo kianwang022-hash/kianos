@@ -15,7 +15,7 @@ import {
 import { loadReadingById as loadCurrentReadingById } from '../src/lib/englishReadingSourceTruth.mjs';
 import { loadReadingBById as loadCurrentReadingBById } from '../src/lib/englishObjectiveSourceTruth.mjs';
 
-const BASE = 'http://127.0.0.1:4321';
+const BASE = 'http://127.0.0.1:4483';
 const auditDir = path.resolve(process.cwd(), '../objective-audit');
 fs.mkdirSync(auditDir, { recursive: true });
 const report = {
@@ -437,7 +437,7 @@ async function readingBEvidence(browser) {
   }
 }
 
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
+const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4483'], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
   detached: process.platform !== 'win32'
