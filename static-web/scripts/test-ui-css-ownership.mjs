@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -6,6 +7,8 @@ const root = process.cwd();
 const src = path.join(root, 'src');
 const layouts = path.join(src, 'layouts');
 const pages = path.join(src, 'pages');
+const styles = path.join(src, 'styles');
+const repoRoot = path.resolve(root, '..');
 
 const read = (file) => fs.readFileSync(file, 'utf8');
 const styleImports = (file) => [...read(file).matchAll(/import '\.\.\/styles\/([^']+\.css)';/g)].map((m) => m[1]);
@@ -128,10 +131,137 @@ for (const [name, forbidden] of [
   for (const file of forbidden) assert.ok(!imports.has(file), `${name}: subject style leaked into shared Base: ${file}`);
 }
 
+
 const stewardLocal = read(path.join(src, 'styles', 'steward-workspace.css'));
 const sharedShell = read(path.join(src, 'styles', 'shared-shell.css'));
 assert.ok(!/Human-Gate visual (?:lock|repair)/.test(stewardLocal), 'Steward local CSS contains post-hoc Human-Gate patch layers');
 assert.ok(!/\.kianos(?:Shell|GlobalRail|Rail)/.test(stewardLocal), 'Steward local CSS must not override shared L1 shell selectors');
 assert.ok(sharedShell.includes('surfaceBody-steward'), 'Steward shell theme must live in shared-shell.css');
+
+function stripCssComments(value) {
+  return value.replace(/\/\*[\s\S]*?\*\//g, '');
+}
+
+function matchingBrace(value, openIndex) {
+  let depth = 0;
+  let quote = null;
+  for (let index = openIndex; index < value.length; index += 1) {
+    const char = value[index];
+    if (quote) {
+      if (char === '\\') {
+        index += 1;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === "'" || char === '"') {
+      quote = char;
+      continue;
+    }
+    if (char === '{') depth += 1;
+    if (char === '}') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return value.length - 1;
+}
+
+function scopedCssRules(value, start = 0, end = value.length, scopes = [], out = []) {
+  let position = start;
+  while (position < end) {
+    const open = value.indexOf('{', position);
+    if (open < 0 || open >= end) break;
+
+    let prelude = value.slice(position, open);
+    const lastStatement = prelude.lastIndexOf(';');
+    if (lastStatement >= 0) prelude = prelude.slice(lastStatement + 1);
+    prelude = prelude.trim().replace(/\s+/g, ' ');
+
+    const close = matchingBrace(value, open);
+    if (!prelude) {
+      position = close + 1;
+      continue;
+    }
+
+    if (/^@(media|supports|container|layer)\b/.test(prelude)) {
+      scopedCssRules(value, open + 1, close, [...scopes, prelude], out);
+    } else if (!prelude.startsWith('@')) {
+      out.push(`${scopes.join(' > ')}||${prelude}`);
+    }
+    position = close + 1;
+  }
+  return out;
+}
+
+function cascadeDebt(value) {
+  const counts = new Map();
+  for (const key of scopedCssRules(stripCssComments(value))) {
+    counts.set(key, (counts.get(key) || 0) + 1);
+  }
+  const duplicates = [...counts.entries()].filter(([, count]) => count > 1);
+  return {
+    duplicateKinds: duplicates.length,
+    extraDefinitions: duplicates.reduce((sum, [, count]) => sum + count - 1, 0),
+  };
+}
+
+assert.equal(
+  cascadeDebt('.a { color: red; } .a { color: blue; }').extraDefinitions,
+  1,
+  'same-scope duplicate selector must count as cascade debt',
+);
+assert.equal(
+  cascadeDebt('.a { color: red; } @media (max-width: 700px) { .a { color: blue; } }').extraDefinitions,
+  0,
+  'responsive refinement must not count as same-scope cascade debt',
+);
+assert.equal(
+  cascadeDebt('.a { color: red; } .a.active { color: blue; }').extraDefinitions,
+  0,
+  'state refinement must not count as same-scope cascade debt',
+);
+
+function gitShow(ref, relativePath) {
+  try {
+    return execFileSync('git', ['show', `${ref}:${relativePath}`], {
+      cwd: repoRoot,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+  } catch {
+    return null;
+  }
+}
+
+const cssBaseRef = String(process.env.KIANOS_CSS_BASE_REF || '').trim();
+if (cssBaseRef && !/^0+$/.test(cssBaseRef)) {
+  for (const file of walk(styles).filter((entry) => entry.endsWith('.css'))) {
+    const relative = path.relative(repoRoot, file).replaceAll(path.sep, '/');
+    const current = read(file);
+    const currentDebt = cascadeDebt(current);
+    const base = gitShow(cssBaseRef, relative);
+
+    if (base === null) {
+      assert.equal(
+        currentDebt.extraDefinitions,
+        0,
+        `${relative}: new stylesheet starts with ${currentDebt.extraDefinitions} same-scope duplicate definitions`,
+      );
+      continue;
+    }
+
+    if (base === current) continue;
+    const baseDebt = cascadeDebt(base);
+    assert.ok(
+      currentDebt.extraDefinitions <= baseDebt.extraDefinitions,
+      `${relative}: same-scope cascade debt grew ${baseDebt.extraDefinitions} → ${currentDebt.extraDefinitions}; consolidate the existing visual owner instead of appending an override layer`,
+    );
+    console.log(
+      `CSS cascade debt ${relative}: ${baseDebt.extraDefinitions} → ${currentDebt.extraDefinitions}`,
+    );
+  }
+}
 
 console.log('PASS UI CSS ownership closure');
