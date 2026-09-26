@@ -196,6 +196,13 @@ def infer_capabilities(paths: Iterable[str]) -> set[str]:
         low = path.lower()
         if low.startswith("static-web/src/") or low.startswith("static-web/home"):
             caps.add("learner_surface")
+        if (
+            low.startswith("static-web/src/styles/")
+            or "/layouts/" in low
+            or "/pages/" in low
+            or "/components/" in low
+        ):
+            caps.add("visual_surface")
         if "home" in low or low == "static-web/src/pages/index.astro":
             caps.add("home")
         if "studytimer" in low or "study-timer" in low:
@@ -227,6 +234,12 @@ def shared_owner_groups(registry: dict) -> dict[str, set[str]]:
             shared.get("shell_markup_owner", ""),
             shared.get("navigation_owner", ""),
             shared.get("shell_style_owner", ""),
+        },
+        "visual_design": {
+            shared.get("kian_ui_preferences_owner", ""),
+            shared.get("ui_style_brief_owner", ""),
+            shared.get("presentation_contract_owner", ""),
+            shared.get("shared_visual_foundation_owner", ""),
         },
         "orchestrator": {
             shared.get("exam_orchestrator_runtime_owner", ""),
@@ -308,6 +321,7 @@ def classify(
             relevant_paths.update(found)
 
     hit("shared_shell", "learner_surface" in caps)
+    hit("visual_design", "visual_surface" in caps)
     hit("orchestrator", bool(caps & {"home", "study_timer", "orchestrator"}))
     hit("current_sync", "current_sync" in caps)
     hit("study_timer", bool(caps & {"home", "study_timer"}))
@@ -414,6 +428,24 @@ def self_test(registry: dict) -> None:
             {"static-web/src/pages/english/index.astro"},
             True,
             "shared shell must invalidate learner surface",
+        ),
+        (
+            {"static-web/UI_STYLE_BRIEF.md"},
+            {"static-web/src/styles/steward-workspace.css"},
+            True,
+            "shared visual rule owner must invalidate visual surface work",
+        ),
+        (
+            {"static-web/PRESENTATION_CONTRACT.md"},
+            {"static-web/src/pages/english/index.astro"},
+            True,
+            "presentation contract must invalidate visual surface work",
+        ),
+        (
+            {"static-web/UI_STYLE_BRIEF.md"},
+            {"content/politics/projection/sample.json"},
+            False,
+            "shared visual rule changes must not invalidate non-visual semantic work",
         ),
         (
             {"content/politics/CURRENT.md"},
