@@ -8,7 +8,7 @@ import { listTranslationSets } from '../src/lib/englishTranslation.mjs';
 import { listWritingRuntimeTasks } from '../src/lib/englishWritingRuntimeSourceTruth.mjs';
 import { listLexicalWordSummaries } from '../src/lib/lexical.mjs';
 
-const BASE = 'http://127.0.0.1:4321';
+const BASE = 'http://127.0.0.1:4491';
 const auditDir = path.resolve(process.cwd(), '../english-family-audit');
 fs.mkdirSync(auditDir, { recursive: true });
 const report = { schema: 'kianos.english.family_coherence.v1', startedAt: new Date().toISOString(), checks: [] };
@@ -223,7 +223,7 @@ async function assertSourceLookup(page, route, selector, name) {
   check(new URL(page.url()).pathname.endsWith(route), `${name}_returns_exact_task`);
 }
 
-const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
+const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4491'], {
   cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe'], detached: process.platform !== 'win32'
 });
 let serverLog = '';
