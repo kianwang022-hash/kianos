@@ -370,3 +370,105 @@ body#kianos-workspace[data-kianos-rail="compact"] :is(.kianosRailBrandCopy, .kia
     padding-top: 4px;
   }
 }
+
+/* Steward surface shell theme.
+   The approved VNext uses the shared L1 shell with a light 188px desktop rail.
+   Keep shell knobs here; Steward page CSS owns only Steward-local workspace geometry. */
+@media (min-width: 1251px) {
+  body#kianos-workspace.surfaceBody-steward {
+    --kianos-rail-expanded: 188px;
+    --kianos-rail-compact: 188px;
+    --kianos-rail-width: 188px;
+    --kianos-rail-bg: #f8f9f9;
+    --kianos-rail-hover: #eef1ef;
+    --kianos-rail-active: #e8efeb;
+    --kianos-rail-line: #dde2df;
+    --kianos-rail-ink: #1f2924;
+    --kianos-rail-muted: #64716b;
+    --kianos-rail-accent: #176b4f;
+  }
+
+  body#kianos-workspace.surfaceBody-steward,
+  body#kianos-workspace.surfaceBody-steward .kianosShellFrame,
+  body#kianos-workspace.surfaceBody-steward .kianosShellMain {
+    background: #f5f6f7;
+  }
+
+  body#kianos-workspace.surfaceBody-steward .kianosGlobalRail {
+    width: 188px;
+    padding: 18px 12px;
+    box-shadow: none;
+  }
+
+  body#kianos-workspace.surfaceBody-steward .kianosRailToggle {
+    grid-template-columns: 34px minmax(0, 1fr);
+    min-height: 34px;
+    gap: 10px;
+    padding: 0 9px;
+    border-radius: 8px;
+  }
+
+  body#kianos-workspace.surfaceBody-steward .kianosRailToggle:hover {
+    background: transparent;
+  }
+
+  body#kianos-workspace.surfaceBody-steward .kianosRailMark {
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--kianos-rail-accent);
+    color: #fff;
+  }
+
+  body#kianos-workspace.surfaceBody-steward .kianosRailBrandCopy {
+    display: grid;
+    padding-left: 0;
+  }
+
+  body#kianos-workspace.surfaceBody-steward .kianosRailBrandCopy span {
+    display: none;
+  }
+
+  body#kianos-workspace.surfaceBody-steward .kianosRailNav {
+    gap: 3px;
+    margin-top: 18px;
+  }
+
+  body#kianos-workspace.surfaceBody-steward .kianosRailItem {
+    grid-template-columns: 22px minmax(0, 1fr);
+    min-height: 42px;
+    gap: 10px;
+    padding: 0 11px;
+    border-radius: 8px;
+    color: #4f5b55;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  body#kianos-workspace.surfaceBody-steward .kianosRailItem:hover {
+    color: #1f2924;
+  }
+
+  body#kianos-workspace.surfaceBody-steward .kianosRailIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  body#kianos-workspace.surfaceBody-steward .kianosRailLabel {
+    display: block;
+  }
+
+  body#kianos-workspace.surfaceBody-steward .kianosCurrentDock {
+    display: none;
+  }
+}
+
+@media (min-width: 1251px) and (min-height: 680px) {
+  body#kianos-workspace.surfaceBody-steward.uiStageOne .kianosShellMain > .productCanvas {
+    width: calc(100% - 44px);
+    max-width: none;
+    margin: 0 auto;
+    padding: 18px 0;
+  }
+}
