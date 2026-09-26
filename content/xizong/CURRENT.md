@@ -19,12 +19,17 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 - Acceptance/readiness questions route to `ACCEPTANCE.md` or the exact System Acceptance owner.
 - Real learner U remains private real-use truth and is never inferred from engineering proof.
 
+### Active engineering anchor
+
+- GitHub Issue #989 — `Xizong Block runtime / visual owner convergence`
+- The Issue owns only `Goal / Phase / Next / Blocker`; design/content/runtime truth remains with the exact owners routed below.
+- Keep this anchor until Kian explicitly closes or switches the project.
+
 ### Next
 
-real Xizong study
-→ or an explicit bounded BUILD/CONTROL request
-→ route to the exact owner above
-→ repair/construct only the affected scope
+for ordinary study → native learner path
+for the active bounded Block runtime/visual convergence → read Issue #989 first
+→ then read only the exact owner required by its current Next
 → stop after targeted proof
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority.
