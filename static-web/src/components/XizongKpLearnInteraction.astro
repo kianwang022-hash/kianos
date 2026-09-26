@@ -387,6 +387,15 @@
           right.className = 'xzKpLearnHeaderRight';
           if (locators) {
             locators.classList.add('xzKpLearnLocatorMini');
+            const sourceLocator = String(kp?.source?.locator || '').trim();
+            const outlineLocator = String(kp?.outline?.locator || '').trim();
+            const source = document.createElement('span');
+            source.dataset.kpSourceLocator = '';
+            source.textContent = `Lecture · ${sourceLocator || '暂无精确定位'}`;
+            const outline = document.createElement('span');
+            outline.dataset.kpOutlineLocator = '';
+            outline.textContent = `Outline · ${outlineLocator || '暂无精确定位'}`;
+            locators.replaceChildren(source, outline);
             right.append(locators);
           }
           if (nav) right.append(nav);
