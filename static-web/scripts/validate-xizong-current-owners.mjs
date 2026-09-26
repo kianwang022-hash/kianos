@@ -1,6 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  assertDependencyFreshness,
+  assertReviewedAgainst,
+  semanticSha256,
+  textSha256
+} from './xizongDependencyFreshness.mjs';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const repoRoot = path.resolve(webRoot, '..');
@@ -117,6 +123,90 @@ console.log([
 // routers/maps may reference or derive, but must not maintain a second live enum.
 const readRepoJson = (relative) => JSON.parse(fs.readFileSync(path.join(repoRoot, relative), 'utf8'));
 const readRepoText = (relative) => fs.readFileSync(path.join(repoRoot, relative), 'utf8');
+
+const systemDirByCanonical = new Map();
+for (const domain of Object.values(manifest?.macro_domain_taxonomy?.domains || {})) {
+  for (const ownerPath of domain?.system_owners || []) {
+    const dirName = String(ownerPath).match(/^systems\/([^/]+)\/?$/)?.[1];
+    if (!dirName) fail('SYSTEM_OWNER_PATH_INVALID:' + ownerPath);
+    const system = readRepoJson(`content/xizong/knowledge/systems/${dirName}/system.json`);
+    const canonicalId = String(system?.canonical_id || system?.identity?.canonical_id || '');
+    if (!canonicalId) fail('SYSTEM_CANONICAL_ID_MISSING:' + dirName);
+    if (systemDirByCanonical.has(canonicalId)) fail('SYSTEM_CANONICAL_ID_DUPLICATE:' + canonicalId);
+    systemDirByCanonical.set(canonicalId, dirName);
+  }
+}
+
+function surgeryBindingOwner(systemCanonicalId, blockId) {
+  const dirName = systemDirByCanonical.get(systemCanonicalId);
+  if (!dirName) fail('SURGERY_BINDING_SYSTEM_UNKNOWN:' + systemCanonicalId);
+  const candidates = owners.filter((owner) => owner.path.startsWith(dirName + '/'));
+  if (['A1', 'A2', 'A3'].includes(systemCanonicalId)) {
+    const ordinal = Number(String(blockId).match(/(\d+)$/)?.[1]);
+    const matches = candidates.filter((owner) => Number(String(owner.code).match(/(\d+)$/)?.[1]) === ordinal);
+    if (matches.length !== 1) fail(`SURGERY_BINDING_OWNER_AMBIGUOUS:${systemCanonicalId}:${blockId}:${matches.length}`);
+    return matches[0];
+  }
+  const direct = String(blockId).match(/^([A-Z]{1,3})(\d+)$/) || String(blockId).match(/-([a-z]{1,3})(\d+)$/i);
+  if (!direct) fail('SURGERY_BINDING_BLOCK_ID_INVALID:' + systemCanonicalId + ':' + blockId);
+  const normalizedCode = normalizeBlockCode(direct[1].toUpperCase() + direct[2]);
+  const identity = `${dirName}:${normalizedCode}`;
+  const match = candidates.find((owner) => owner.identity === identity);
+  if (!match) fail('SURGERY_BINDING_OWNER_MISSING:' + identity);
+  return match;
+}
+
+function surgeryKnowledgeBasis(sourceMap) {
+  const rows = [];
+  const reviewedAgainst = {};
+  for (const unit of sourceMap?.units || []) {
+    const bindings = unit?.architecture_v3?.bindings || [];
+    if (!bindings.length) fail('SURGERY_UNIT_BINDING_MISSING:' + unit?.id);
+    if (!unit?.semantic_delta_receipt) fail('SURGERY_UNIT_REVIEW_RECEIPT_MISSING:' + unit?.id);
+    for (const binding of bindings) {
+      const owner = surgeryBindingOwner(String(binding?.system || ''), String(binding?.block || ''));
+      const ownerPath = 'content/xizong/knowledge/systems/' + owner.path;
+      const revisionSha256 = textSha256(readRepoText(ownerPath));
+      const stableKey = String(binding.system) + ':' + String(binding.block);
+      const prior = reviewedAgainst[stableKey];
+      if (prior && (prior.owner_path !== ownerPath || prior.revision_sha256 !== revisionSha256)) {
+        fail('SURGERY_BINDING_OWNER_CONFLICT:' + stableKey);
+      }
+      reviewedAgainst[stableKey] = { owner_path: ownerPath, revision_sha256: revisionSha256 };
+      rows.push({
+        unit_id: unit.id,
+        unit_title: unit.title,
+        pdf_pages: unit.pdf_pages,
+        review: unit.review,
+        semantic_delta_receipt: unit.semantic_delta_receipt,
+        binding,
+        owner_path: ownerPath,
+        owner_revision_sha256: revisionSha256
+      });
+    }
+  }
+  return { rows, reviewedAgainst, signature: semanticSha256({ source_identity: sourceMap.source_identity, bindings: rows }) };
+}
+
+function surgeryLearningBasis(sourceMap, targets) {
+  if (!Array.isArray(targets) || !targets.length) fail('SURGERY_LEARNING_TARGETS_MISSING');
+  const reviewedAgainst = {};
+  const rows = targets.map((target) => {
+    const system = String(target?.system || '');
+    const block = String(target?.block || '');
+    const dirName = systemDirByCanonical.get(system);
+    if (!dirName) fail('SURGERY_LEARNING_SYSTEM_UNKNOWN:' + system);
+    const learningPath = `content/xizong/knowledge/learner/${dirName}-learning.json`;
+    const learning = readRepoJson(learningPath);
+    const value = learning?.blocks?.[block] ?? learning?.logic_groups?.[block];
+    if (!value) fail('SURGERY_LEARNING_TARGET_MISSING:' + system + ':' + block);
+    const stableKey = system + ':' + block;
+    reviewedAgainst[stableKey] = { path: learningPath, semantic_sha256: semanticSha256(value) };
+    return { system, block, path: learningPath, value };
+  });
+  return { rows, reviewedAgainst, signature: semanticSha256({ source_identity: sourceMap.source_identity, targets: rows }) };
+}
+
 const BIO_LIFECYCLE = 'content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json';
 const SURGERY_LIFECYCLE = 'content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json';
 const SURGERY_MAP = 'content/xizong/knowledge/learner/surgery-27-source-map.json';
@@ -152,8 +242,76 @@ if (surgeryMap.architecture_v3?.progress?.next !== 'NONE_CLOSED') fail('SURGERY_
 if ('acceptance_status' in (surgeryMap.architecture_v3?.downstream_revalidation || {})) fail('SURGERY_MAP_ACCEPTANCE_STATUS_MIRROR');
 if (surgeryMap.architecture_v3?.downstream_revalidation?.acceptance_owner !== SURGERY_LIFECYCLE) fail('SURGERY_MAP_ACCEPTANCE_OWNER');
 
+const surgeryFreshness = surgeryLifecycle.current_state?.dependency_freshness;
+const surgeryKnowledge = surgeryKnowledgeBasis(surgeryMap);
+if (surgeryKnowledge.rows.length !== 59) fail('SURGERY_BINDING_COUNT:' + surgeryKnowledge.rows.length + ':EXPECTED:59');
+const surgeryBoundBlocks = new Set(surgeryKnowledge.rows.map((row) => row.binding.system + ':' + row.binding.block));
+if (surgeryBoundBlocks.size !== 52) fail('SURGERY_BOUND_BLOCK_COUNT:' + surgeryBoundBlocks.size + ':EXPECTED:52');
+const surgeryLearning = surgeryLearningBasis(
+  surgeryMap,
+  surgeryFreshness?.consumers?.reviewed_learning_bindings?.targets
+);
+if (surgeryLearning.rows.length !== 7) fail('SURGERY_LEARNING_TARGET_COUNT:' + surgeryLearning.rows.length + ':EXPECTED:7');
+assertReviewedAgainst({
+  scope: 'SURGERY_KNOWLEDGE',
+  stored: surgeryFreshness?.consumers?.reviewed_knowledge_bindings?.reviewed_against,
+  current: surgeryKnowledge.reviewedAgainst
+});
+assertReviewedAgainst({
+  scope: 'SURGERY_LEARNING',
+  stored: surgeryFreshness?.consumers?.reviewed_learning_bindings?.reviewed_against,
+  current: surgeryLearning.reviewedAgainst
+});
+const surgeryDownstreamSignature = semanticSha256({
+  knowledge: surgeryKnowledge.signature,
+  learning: surgeryLearning.signature
+});
+assertDependencyFreshness({
+  scope: 'SURGERY_27',
+  receipt: surgeryFreshness,
+  sourceRevisionSha256: surgeryMap.source_identity?.sha256,
+  consumers: {
+    reviewed_knowledge_bindings: { mode: 'REVIEWED_DERIVATION', path: SURGERY_MAP, receiptSha256: surgeryKnowledge.signature },
+    reviewed_learning_bindings: { mode: 'REVIEWED_DERIVATION', receiptSha256: surgeryLearning.signature },
+    downstream_review: { mode: 'REVIEWED_DERIVATION', receiptSha256: surgeryDownstreamSignature },
+    source_visuals: { mode: 'DERIVED_PROJECTION' }
+  }
+});
+if (surgeryFreshness?.consumers?.downstream_review?.freshness !== 'TARGETED_Q_X_EVIDENCE_RECONCILIATION') fail('SURGERY_DOWNSTREAM_FRESHNESS_MODE');
+if (surgeryFreshness?.consumers?.source_visuals?.freshness !== 'RECOMPUTE_WITH_VALIDATE_XIZONG_SOURCE_VISUALS') fail('SURGERY_SOURCE_VISUAL_FRESHNESS_MODE');
+let staleSurgeryReceiptRejected = false;
+try {
+  const stale = structuredClone(surgeryFreshness);
+  stale.consumers.reviewed_knowledge_bindings.receipt_sha256 = 'stale';
+  assertDependencyFreshness({
+    scope: 'SURGERY_27_NEGATIVE', receipt: stale, sourceRevisionSha256: surgeryMap.source_identity?.sha256,
+    consumers: { reviewed_knowledge_bindings: { mode: 'REVIEWED_DERIVATION', path: SURGERY_MAP, receiptSha256: surgeryKnowledge.signature } }
+  });
+} catch (error) {
+  staleSurgeryReceiptRejected = String(error?.message || error).includes('STALE_CONSUMER:reviewed_knowledge_bindings');
+}
+if (!staleSurgeryReceiptRejected) fail('SURGERY_DEPENDENCY_FRESHNESS_NEGATIVE_TEST');
+let exactSurgeryWitnessRejected = false;
+try {
+  const staleWitness = structuredClone(surgeryFreshness?.consumers?.reviewed_knowledge_bindings?.reviewed_against || {});
+  staleWitness['B:D21'].revision_sha256 = 'stale';
+  assertReviewedAgainst({ scope: 'SURGERY_KNOWLEDGE', stored: staleWitness, current: surgeryKnowledge.reviewedAgainst });
+} catch (error) {
+  exactSurgeryWitnessRejected = String(error?.message || error).includes('STALE_REVIEW_WITNESS:SURGERY_KNOWLEDGE:B:D21');
+}
+if (!exactSurgeryWitnessRejected) fail('SURGERY_EXACT_WITNESS_NEGATIVE_TEST');
+
 if (!xizongCurrent.includes('27 Biochemistry lifecycle owner:') || !xizongCurrent.includes(BIO_LIFECYCLE)) fail('CURRENT_BIOCHEMISTRY_LIFECYCLE_ROUTE');
 if (!xizongCurrent.includes('27 Surgery lifecycle owner:') || !xizongCurrent.includes(SURGERY_LIFECYCLE)) fail('CURRENT_SURGERY_LIFECYCLE_ROUTE');
 if (/27 (?:Biochemistry|Surgery).*is CLOSED \/ CURRENT/.test(xizongCurrent)) fail('CURRENT_LIFECYCLE_ENUM_MIRROR');
-if (!contentMainline.includes(BIO_LIFECYCLE) || !contentMainline.includes(SURGERY_LIFECYCLE)) fail('MAINLINE_LIFECYCLE_ROUTE_MISSING');
+if (!contentMainline.includes('Biochemistry and Surgery Source-revision work route to their exact lifecycle owners')) fail('MAINLINE_LIFECYCLE_ROUTE_MISSING');
 if (/Status: \*\*CLOSED \/ CURRENT · S\/K\/L\/Content/.test(contentMainline)) fail('MAINLINE_LIFECYCLE_ENUM_MIRROR');
+
+console.log([
+  'Xizong Surgery dependency freshness PASS',
+  'SourceUnits=38',
+  'Bindings=59',
+  'BoundBlocks=52',
+  'ReviewedLearningTargets=7',
+  'ExactWitnessNegativeTest=FAIL_CLOSED'
+].join(' | '));

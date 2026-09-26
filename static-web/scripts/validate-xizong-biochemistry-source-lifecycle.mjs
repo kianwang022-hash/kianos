@@ -2,6 +2,11 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import {
+  assertDependencyFreshness,
+  semanticSha256,
+  textSha256
+} from './xizongDependencyFreshness.mjs';
 
 const root=path.resolve('..');
 const read=(p)=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
@@ -11,15 +16,6 @@ const gitBlobSha=(p)=>{
   const b=fs.readFileSync(path.join(root,p));
   return crypto.createHash('sha1').update(Buffer.from('blob '+b.length+'\0')).update(b).digest('hex');
 };
-const stableJson=(value)=>{
-  if(Array.isArray(value)) return '['+value.map(stableJson).join(',')+']';
-  if(value&&typeof value==='object'){
-    return '{'+Object.keys(value).sort().map((key)=>JSON.stringify(key)+':'+stableJson(value[key])).join(',')+'}';
-  }
-  return JSON.stringify(value);
-};
-const semanticSha256=(value)=>crypto.createHash('sha256').update(stableJson(value)).digest('hex');
-const textSha256=(value)=>crypto.createHash('sha256').update(String(value)).digest('hex');
 const rowByQuestion=(p,qid)=>{
   const rows=read(p);
   if(!Array.isArray(rows)) throw new Error('QX_SHARD_NOT_ARRAY:'+p);
@@ -331,16 +327,21 @@ assert.match(g5Dsb.reasoning_chain.join(' '),/非同源末端连接/,'2023N25 lo
 assert.equal(slot.current_state.downstream_revalidation?.status,'CURRENT_FULL_TRANSITIVE_REVALIDATED');
 assert.equal(slot.current_state.downstream_revalidation?.evidence?.regression,'static-web/scripts/test-xizong-source-revision-transitive.mjs');
 
-assert.equal(dependencyFreshness?.schema,'kianos.xizong.biochemistry_dependency_freshness.v1','dependency freshness receipt missing');
-assert.equal(dependencyFreshness?.model,'UPSTREAM_SIGNATURE_TO_CONSUMER_RECEIPT','dependency freshness model drift');
-assert.equal(dependencyFreshness?.source_revision_sha256,sourceMap.source.sha256,'dependency freshness Source identity drift');
-assert.equal(dependencyFreshness?.consumers?.learning_owner?.path,learningPath,'Learning consumer path drift');
-assert.equal(dependencyFreshness?.consumers?.learning_owner?.receipt_sha256,learningExecutionSignature,'STALE_CONSUMER:LEARNING_OWNER');
-assert.equal(dependencyFreshness?.consumers?.beginner_guide?.path,beginnerGuidePath,'Guide consumer path drift');
-assert.equal(dependencyFreshness?.consumers?.beginner_guide?.receipt_sha256,guideOrientationSignature,'STALE_CONSUMER:BEGINNER_GUIDE');
-assert.equal(dependencyFreshness?.consumers?.runtime_source_lane?.mode,'DERIVED_LIVE_FROM_CURRENT_OWNER','runtime Source lane must stay derived');
-assert.equal(dependencyFreshness?.consumers?.question_relations_and_explanations?.mode,'PER_ITEM_KNOWLEDGE_WITNESS','Q/X freshness must stay per-item witnessed');
-assert.equal(dependencyFreshness?.consumers?.learner_evidence?.mode,'RUNTIME_SOURCE_HASH_INVALIDATION','learner evidence freshness must stay runtime Source-hash-bound');
+assertDependencyFreshness({
+  scope:'BIOCHEMISTRY_27',
+  receipt:dependencyFreshness,
+  sourceRevisionSha256:sourceMap.source.sha256,
+  consumers:{
+    learning_owner:{path:learningPath,mode:'REVIEWED_DERIVATION',receiptSha256:learningExecutionSignature},
+    beginner_guide:{path:beginnerGuidePath,mode:'REVIEWED_DERIVATION',receiptSha256:guideOrientationSignature},
+    runtime_source_lane:{mode:'DERIVED_PROJECTION'},
+    question_relations_and_explanations:{mode:'REVIEWED_DERIVATION'},
+    learner_evidence:{mode:'BOUNDED_SNAPSHOT'}
+  }
+});
+assert.equal(dependencyFreshness?.consumers?.runtime_source_lane?.freshness,'LIVE_FROM_CURRENT_OWNER','runtime Source lane must stay live-derived');
+assert.equal(dependencyFreshness?.consumers?.question_relations_and_explanations?.freshness,'PER_ITEM_KNOWLEDGE_WITNESS','Q/X freshness must stay per-item witnessed');
+assert.equal(dependencyFreshness?.consumers?.learner_evidence?.freshness,'RUNTIME_SOURCE_HASH_INVALIDATION','learner evidence freshness must stay runtime Source-hash-bound');
 
 const {loadXizongSystem}=await import('../src/lib/xizong.mjs');
 const {loadXizongSemanticSystem}=await import('../src/lib/xizongSemanticAdapter.mjs');
