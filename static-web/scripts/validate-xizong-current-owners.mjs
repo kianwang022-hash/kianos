@@ -219,6 +219,16 @@ const contentMainline = readRepoText('content/xizong/CONTENT_MAINLINE.md');
 
 if (!/^CLOSED_CURRENT/.test(String(bioLifecycle.status || ''))) fail('BIOCHEMISTRY_LIFECYCLE_NOT_CLOSED_CURRENT');
 if (!/^CLOSED_CURRENT/.test(String(surgeryLifecycle.status || ''))) fail('SURGERY_LIFECYCLE_NOT_CLOSED_CURRENT');
+
+const bioClosedAction = String(bioLifecycle.current_state?.action_now || '');
+const surgeryClosedAction = String(surgeryLifecycle.current_state?.action_now || '');
+const surgeryResidualCloseout = String(surgeryLifecycle.current_state?.residual_rebase_2026_09_26?.closeout || '');
+if (!/not a project blocker/i.test(bioClosedAction)) fail('BIOCHEMISTRY_REAL_U_MISCLASSIFIED_AS_CLOSURE_GATE');
+if (!/not a project blocker/i.test(surgeryClosedAction)) fail('SURGERY_REAL_U_MISCLASSIFIED_AS_CLOSURE_GATE');
+if (!/passive calibration only/i.test(surgeryResidualCloseout)) fail('SURGERY_RESIDUAL_REAL_U_NOT_PASSIVE_CALIBRATION');
+if (/proceed only to real-use human validation/i.test(bioClosedAction + ' ' + surgeryClosedAction)) {
+  fail('XIZONG_CLOSED_LIFECYCLE_REQUIRES_DEDICATED_HUMAN_VALIDATION');
+}
 if (surgeryLifecycle.owner_boundary?.lifecycle_owner !== SURGERY_LIFECYCLE) fail('SURGERY_LIFECYCLE_OWNER_POINTER');
 if (surgeryLifecycle.current_state?.source_map_owner !== SURGERY_MAP) fail('SURGERY_SOURCE_MAP_POINTER');
 if (surgeryLifecycle.governance?.status !== 'CONTRACT_CURRENT') fail('SURGERY_GOVERNANCE_STATUS');
