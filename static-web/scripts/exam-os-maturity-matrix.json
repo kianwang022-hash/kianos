@@ -131,6 +131,46 @@
         "node",
         "scripts/test-current-static-runtime.mjs"
       ]
+    },
+    "exam_plan_read_model": {
+      "tier": "lifecycle",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-exam-plan-read-model.mjs"
+      ]
+    },
+    "exam_current_phases": {
+      "tier": "lifecycle",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-exam-current-phases.mjs"
+      ]
+    },
+    "xizong_forecast_model": {
+      "tier": "lifecycle",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-xizong-forecast-model.mjs"
+      ]
+    },
+    "xizong_future_format": {
+      "tier": "lifecycle",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/validate-xizong-2027-exam-format-slot.mjs"
+      ]
+    },
+    "politics_maturity_adversarial": {
+      "tier": "lifecycle",
+      "timeout_ms": 120000,
+      "command": [
+        "node",
+        "scripts/test-politics-maturity-adversarial.mjs"
+      ]
     }
   },
   "scenarios": [
@@ -259,6 +299,44 @@
         "l1_continuation",
         "steward_browser",
         "packet_bridge"
+      ]
+    },
+    {
+      "id": "capacity_loss_no_double_spend_or_fake_debt",
+      "description": "Midday capacity loss and already-spent time are reconciled as whole-day totals; elapsed work is never spent twice and completed overrun is not future debt.",
+      "proof_ids": [
+        "exam_plan_read_model"
+      ]
+    },
+    {
+      "id": "phase_gate_boundary_exact_not_calendar_auto_pass",
+      "description": "Exam phase/Gate boundaries change only at the defined dates and no calendar transition itself manufactures a passed Gate.",
+      "proof_ids": [
+        "exam_current_phases",
+        "exam_plan_read_model"
+      ]
+    },
+    {
+      "id": "forecast_capacity_sensitivity_without_strategy_takeover",
+      "description": "Xizong workload/repair pressure responds monotonically to capacity and W/U stress while missing samples remain unpriced rather than inventing precision.",
+      "proof_ids": [
+        "xizong_forecast_model"
+      ]
+    },
+    {
+      "id": "future_source_late_partial_v2_never_arrives_has_safe_fallback",
+      "description": "Future/current-year sources remain UNKNOWN/PARTIAL until authoritative arrival, define late/partial/v2/never-arrives fallback, and do not silently inherit historical truth.",
+      "proof_ids": [
+        "xizong_future_format",
+        "politics_maturity_adversarial"
+      ]
+    },
+    {
+      "id": "source_or_scope_uncertainty_does_not_manufacture_current_exactness",
+      "description": "Partial question/source scope and current-year format uncertainty preserve lower bounds/UNKNOWN and cannot create exact current Forecast or score calibration.",
+      "proof_ids": [
+        "xizong_forecast_model",
+        "xizong_future_format"
       ]
     }
   ]
