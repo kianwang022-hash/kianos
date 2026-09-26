@@ -64,7 +64,7 @@ Positive evidence:
 - legacy `4173` Politics Learn-mode Chinese UI is an accepted reference for full-bodied PingFang-based Chinese character and stronger active-state weight;
 - legacy `4173` lexical English treatment is a positive reference for editorial serif character;
 - Apple-like predictability and Raycast-like restraint are useful quality references, not clone targets;
-- early Steward HTML has useful visual direction for a light, refined, clearly layered native-Mac feel; its exact controls/layout/backend were never blanket-approved.
+- Steward VNext Human Gate: the interactive preview at `1cd55e7132ec090a5b2f24afff39c352eb232477:static-web/ui-preview/steward-vnext.html` was explicitly reviewed and approved for its Steward visual composition / interaction geometry. Production should preserve that composition rather than reinterpret it from screenshots or later implementations. Its sample data is not learner/personal truth, and preview-only backend behavior is not thereby approved.
 
 Negative direction:
 
