@@ -64,7 +64,7 @@ Positive evidence:
 - legacy `4173` Politics Learn-mode Chinese UI is an accepted reference for full-bodied PingFang-based Chinese character and stronger active-state weight;
 - legacy `4173` lexical English treatment is a positive reference for editorial serif character;
 - Apple-like predictability and Raycast-like restraint are useful quality references, not clone targets;
-- Steward VNext Human Gate: the interactive preview at `1cd55e7132ec090a5b2f24afff39c352eb232477:static-web/ui-preview/steward-vnext.html` was explicitly reviewed and approved for its Steward visual composition / interaction geometry. Production should preserve that composition rather than reinterpret it from screenshots or later implementations. Its sample data is not learner/personal truth, and preview-only backend behavior is not thereby approved.
+- Steward: Kian superseded the old 1cd55e preview on 2026-09-26. The reviewed v3 candidate uses a complete-day agenda, an emphasized current card, quiet conditional context, and dedicated Nutrition/Training editors. Preserve that composition and the native shared L1/Dock. Candidate sample data is never personal truth; final integrated Human acceptance remains open.
 
 Negative direction:
 

@@ -1,223 +1,84 @@
 ---
-import '../../styles/steward-workspace.css';
 import Base from '../../layouts/Base.astro';
+import '../../styles/steward-workspace.css';
 ---
 <Base title="Steward" active="steward" showLead={false}>
   <section class="stewardWorkspace" data-steward-workspace>
     <header class="stewardHeader">
-      <div class="stewardHeaderCopy">
-        <span>Steward</span>
-        <h1 data-steward-header-title>今天怎么过</h1>
-        <p data-steward-header-description>时间安排、实际执行、饮食、训练和恢复。</p>
-      </div>
+      <div><span class="stewardEyebrow">Steward</span><h1>今天怎么过</h1><p>时间安排、实际执行、饮食、训练和恢复。</p></div>
       <nav class="stewardViewTabs" aria-label="Steward 时间视图">
         <button type="button" class="active" data-steward-view="today">今日</button>
         <button type="button" data-steward-view="week">周</button>
         <button type="button" data-steward-view="month">月</button>
       </nav>
     </header>
-
+    <p class="stewardFeedback" data-steward-feedback role="status" hidden></p>
     <section class="stewardViewPanel active" data-steward-view-panel="today">
-      <div class="stewardTodayFrame">
-        <aside class="stewardTodayAside" aria-label="今日辅助信息">
-          <section class="stewardAsideSection" data-steward-task-section>
-            <header class="stewardAsideHead">
-              <h2>今日事项</h2>
-              <span>无固定时点</span>
-            </header>
-            <div class="stewardTaskList" data-steward-tasks></div>
+      <nav class="stewardModeTabs" aria-label="今日工作区">
+        <button type="button" class="active" data-steward-mode="schedule">日程</button>
+        <button type="button" data-steward-mode="nutrition">饮食与营养</button>
+        <button type="button" data-steward-mode="training">训练</button>
+      </nav>
+      <section class="stewardModePanel active" data-steward-mode-panel="schedule">
+        <div class="stewardTodayFrame">
+          <section class="stewardScheduleSurface">
+            <header class="stewardModeHead"><h2>今日</h2><span data-steward-plan-state></span></header>
+            <details class="stewardPastFold" data-steward-past-fold><summary data-steward-past-summary>已过去的安排</summary><div data-steward-past-rows></div></details>
+            <div class="stewardTimelineViewport" data-steward-timeline-viewport><div class="stewardTimeline" data-steward-timeline></div></div>
+            <footer class="stewardDayFooter"><span>实际学习 <strong data-steward-study-total>—</strong></span><details><summary>分科时间</summary><div class="stewardSubjectTotals"><span>西综 <strong data-steward-total="xizong">—</strong></span><span>English <strong data-steward-total="english">—</strong></span><span>政治 <strong data-steward-total="politics">—</strong></span></div><button type="button" data-steward-time-review>查看今日计时</button></details></footer>
           </section>
-
-          <section class="stewardAsideSection stewardWeightSection" aria-label="晨重">
-            <header class="stewardAsideHead">
-              <h3>晨重</h3>
-              <span>跨日观察</span>
-            </header>
-            <div class="stewardWeightValue">— <small>kg</small></div>
-            <div class="stewardWeightMeta">未记录</div>
-          </section>
-
-          <nav class="stewardModeTabs" aria-label="今日工作区">
-            <button type="button" class="active" data-steward-mode="schedule">日程</button>
-            <button type="button" data-steward-mode="nutrition">饮食与营养</button>
-            <button type="button" data-steward-mode="training">训练</button>
-          </nav>
-        </aside>
-
-        <section class="stewardTodayMain">
-
-          <section class="stewardModePanel active" data-steward-mode-panel="schedule">
-            <header class="stewardModeHead">
-              <div>
-                <h2>今日时间轴</h2>
-                <p>计划 · 实际 · 状态</p>
-              </div>
-              <span class="stewardPlanState" data-steward-plan-state>读取安排…</span>
-            </header>
-            <div class="stewardTimelineViewport" data-steward-timeline-viewport>
-              <div class="stewardTimeline" data-steward-timeline></div>
-            </div>
-          </section>
-
-          <section class="stewardModePanel" data-steward-mode-panel="nutrition">
-            <div class="stewardUnavailable" data-steward-nutrition-unavailable>
-              <h2>今天还没有营养安排</h2>
-              <p>Steward 只展示当前计划明确投影的餐食与营养信息；没有安排时不自行生成。</p>
-            </div>
-            <div class="stewardNutritionWorkspace" data-steward-nutrition-workspace hidden>
-              <div class="stewardSubToolbar">
-                <div class="stewardNutritionContext"><strong>今天</strong><span>按推荐份量开始，可随手改</span></div>
-                <div class="stewardSubStatus" data-steward-nutrition-target></div>
-              </div>
-              <div class="stewardNutritionGrid">
-                <aside class="stewardChoiceRail">
-                  <header><h3>常用组合</h3></header>
-                  <div data-steward-meal-list></div>
-                </aside>
-                <section class="stewardMealEditor" data-steward-meal-editor>
-                  <header>
-                    <div><span>当前餐</span><h2 data-steward-meal-title>—</h2></div>
-                    <div class="stewardMealActions">
-                      <button type="button" data-steward-meal-half>全部减半</button>
-                      <button type="button" data-steward-meal-uncertain>份量不确定</button>
-                      <button type="button" data-steward-meal-reset>恢复推荐</button>
-                    </div>
-                  </header>
-                  <div class="stewardMealRows" data-steward-meal-rows></div>
-                </section>
-                <aside class="stewardMacroPanel">
-                  <header><span>当前估算</span></header>
-                  <div class="stewardMacroBigGrid">
-                    <div><span>热量</span><strong data-steward-macro="kcal">—</strong></div>
-                    <div><span>蛋白质</span><strong data-steward-macro="protein">—</strong></div>
-                    <div><span>碳水</span><strong data-steward-macro="carb">—</strong></div>
-                    <div><span>脂肪</span><strong data-steward-macro="fat">—</strong></div>
-                  </div>
-                  <section class="stewardTopupSection">
-                    <header><strong>补缺</strong><span>只用今日允许项</span></header>
-                    <div data-steward-topup-list></div>
-                  </section>
-                  <section class="stewardQuickAddSection">
-                    <header><strong>快速添加</strong><span>单品</span></header>
-                    <div data-steward-quick-add></div>
-                  </section>
-                  <p>选择与克数只记录实际；不自动改变营养策略或明天的目标。</p>
-                </aside>
-              </div>
-            </div>
-          </section>
-
-          <section class="stewardModePanel" data-steward-mode-panel="training">
-            <div class="stewardUnavailable" data-steward-training-unavailable>
-              <h2>今天还没有训练安排</h2>
-              <p>训练动作与剂量由 Steward / Chat 决定；页面只执行、替换已授权动作并记录实际。</p>
-            </div>
-            <div class="stewardTrainingWorkspace" data-steward-training-workspace hidden>
-              <div class="stewardTrainingGrid">
-                <section class="stewardTrainingEditor">
-                  <header>
-                    <div><span>今日推荐</span><h2 data-steward-training-title>—</h2></div>
-                    <p data-steward-training-duration></p>
-                  </header>
-                  <div class="stewardExerciseCards" data-steward-exercise-list></div>
-                  <div class="stewardTrainingEffect">
-                    <span>训练后</span>
-                    <button type="button" data-steward-training-effect="BETTER">很好</button>
-                    <button type="button" data-steward-training-effect="SAME">正常</button>
-                    <button type="button" data-steward-training-effect="TIRED">累</button>
-                    <input type="text" data-steward-training-note placeholder="备注（可选）">
-                  </div>
-                </section>
-                <aside class="stewardTrainingSummary">
-                  <header><span>Apple Watch</span><strong>训练数据</strong></header>
-                  <dl>
-                    <div><dt>训练记录</dt><dd>—</dd></div>
-                    <div><dt>时长</dt><dd>—</dd></div>
-                    <div><dt>活动能量</dt><dd>— kcal</dd></div>
-                    <div><dt>平均心率</dt><dd>—</dd></div>
-                  </dl>
-                  <p>同步后用于训练记录与恢复判断；不会直接改变饮食额度或自动加量。</p>
-                </aside>
-              </div>
-            </div>
-          </section>
-        </section>
-
-        <aside class="stewardNowRail" aria-label="当前学习与最近记录">
-          <section class="stewardAsideSection">
-            <span class="stewardNowLabel">现在</span>
-            <strong class="stewardNowSubject" data-steward-now-subject>读取中…</strong>
-            <b class="stewardNowElapsed" data-steward-now-elapsed>—</b>
-            <dl class="stewardNowMeta">
-              <dt>计划</dt><dd data-steward-now-plan>—</dd>
-              <dt>下一项</dt><dd data-steward-next>—</dd>
-            </dl>
-          </section>
-          <section class="stewardAsideSection">
-            <header class="stewardAsideHead">
-              <h3>今日学习</h3>
-            </header>
-            <div class="stewardSubjectTotals">
-              <div class="stewardSubjectTotal"><span>西综</span><strong data-steward-total="xizong">0m</strong></div>
-              <div class="stewardSubjectTotal"><span>English</span><strong data-steward-total="english">0m</strong></div>
-              <div class="stewardSubjectTotal"><span>政治</span><strong data-steward-total="politics">0m</strong></div>
-            </div>
-          </section>
-          <section class="stewardAsideSection" data-steward-capacity-section hidden>
-            <header class="stewardAsideHead">
-              <h3>执行策略</h3>
-              <span data-steward-capacity-state></span>
-            </header>
-            <p class="stewardCapacitySummary" data-steward-capacity-summary></p>
-            <dl class="stewardCapacityMeta">
-              <div data-steward-capacity-load-row hidden><dt>负荷</dt><dd data-steward-capacity-load></dd></div>
-              <div data-steward-capacity-action-row hidden><dt>现在</dt><dd data-steward-capacity-action></dd></div>
-              <div data-steward-capacity-recheck-row hidden><dt>再判断</dt><dd data-steward-capacity-recheck></dd></div>
-            </dl>
-            <p class="stewardCapacityRecovery" data-steward-capacity-recovery hidden></p>
-          </section>
-          <section class="stewardAsideSection">
-            <header class="stewardAsideHead">
-              <h3>最近记录</h3>
-            </header>
-            <div class="stewardRealityList" data-steward-reality></div>
-          </section>
-        </aside>
-      </div>
+          <aside class="stewardNowRail" aria-label="当前活动与最近记录">
+            <section class="stewardAsideSection"><span class="stewardEyebrow">现在</span><h2 data-steward-now-subject>读取中…</h2><p data-steward-now-elapsed></p><dl class="stewardNowMeta"><dt>计划</dt><dd data-steward-now-plan>—</dd><dt>下一项</dt><dd data-steward-next>—</dd></dl></section>
+            <section class="stewardCapacitySection" data-steward-capacity-section hidden><header><span>执行策略</span><b data-steward-capacity-state></b></header><strong data-steward-capacity-summary></strong><dl class="stewardCapacityMeta"><div data-steward-capacity-load-row><dt>负荷</dt><dd data-steward-capacity-load></dd></div><div data-steward-capacity-action-row><dt>现在</dt><dd data-steward-capacity-action></dd></div><div data-steward-capacity-recheck-row><dt>再判断</dt><dd data-steward-capacity-recheck></dd></div></dl><p data-steward-capacity-recovery></p></section>
+            <section class="stewardAsideSection"><header><h3>最近记录</h3><button type="button" class="stewardTextButton" data-steward-record>随手记</button></header><div data-steward-reality></div><details data-steward-history><summary>展开今天的记录</summary><div data-steward-history-rows></div></details></section>
+            <section class="stewardAsideSection" data-steward-task-section hidden><h3>无固定时点</h3><div class="stewardTaskList" data-steward-tasks></div></section>
+            <details class="stewardWeightSection"><summary>晨重与测量记录</summary><form data-steward-weight-form><label>体重（kg）<input type="number" min="20" max="350" step="0.1" required data-steward-weight /></label><label>测量条件<input type="text" maxlength="200" placeholder="如：起床后、早餐前" data-steward-weight-note /></label><button type="submit">记录</button></form><div data-steward-weights></div></details>
+            <div class="stewardQuietActions"><button type="button" data-steward-adjust>调整今天</button><button type="button" data-steward-review>复盘今天</button></div>
+          </aside>
+        </div>
+      </section>
+      <section class="stewardModePanel" data-steward-mode-panel="nutrition">
+        <button type="button" class="stewardBackToday" data-steward-back-today>← 返回今日</button>
+        <div class="stewardUnavailable" data-steward-nutrition-unavailable><h2>今天还没有餐食推荐</h2><p>已有的实际记录仍然保留。可以随手记下吃了什么，或到 Chat 安排今天。</p><button type="button" data-steward-record>随手记</button></div>
+        <div class="stewardNutritionWorkspace" data-steward-nutrition-workspace hidden>
+          <div class="stewardNutritionGrid">
+            <section class="stewardMealEditor" data-steward-meal-editor>
+              <header class="stewardModeHead"><div><h2 data-steward-meal-title>餐食</h2><p>推荐、我的选择、已吃记录，分别保留。</p></div><span data-steward-nutrition-target></span></header>
+              <nav class="stewardMealTabs" aria-label="餐食" data-steward-meal-list></nav>
+              <section class="stewardRecommendationBand"><div><strong data-steward-meal-recommendation></strong><p data-steward-meal-note></p></div><button type="button" data-steward-meal-reset>套用推荐</button></section>
+              <header class="stewardChoiceHeader"><h3>我的选择</h3><div><button type="button" data-steward-meal-half>全部减半</button><button type="button" data-steward-meal-uncertain aria-pressed="false">份量不确定</button></div></header>
+              <div class="stewardMealRows" data-steward-meal-rows></div>
+              <footer class="stewardMealConfirm"><span data-steward-meal-state></span><div><button type="button" data-steward-meal-skip>这餐没吃</button><button class="stewardPrimary" type="button" data-steward-meal-confirm>确认已吃</button></div></footer>
+            </section>
+            <aside class="stewardNutritionRail">
+              <section class="stewardAsideSection"><span class="stewardEyebrow" data-steward-estimate-label>这次选择 · 估算</span><div class="stewardMacroBigGrid"><div><span>能量</span><strong data-steward-macro="kcal">—</strong></div><div><span>蛋白质</span><strong data-steward-macro="protein">—</strong></div><div><span>碳水</span><strong data-steward-macro="carb">—</strong></div><div><span>脂肪</span><strong data-steward-macro="fat">—</strong></div></div><p data-steward-estimate-note></p></section>
+              <section class="stewardAsideSection"><h3>快速添加</h3><div class="stewardQuickAdd" data-steward-quick-add></div></section>
+              <section class="stewardAsideSection"><h3>补缺备选</h3><p data-steward-topup-note>今天已允许的选项。</p><div class="stewardQuickAdd" data-steward-topup-list></div></section>
+            </aside>
+          </div>
+        </div>
+        <details class="stewardHistorySection" open><summary>今天已吃与未吃记录</summary><div data-steward-meal-history></div></details>
+      </section>
+      <section class="stewardModePanel" data-steward-mode-panel="training">
+        <button type="button" class="stewardBackToday" data-steward-back-today>← 返回今日</button>
+        <div class="stewardUnavailable" data-steward-training-unavailable><h2>今天还没有训练安排</h2><p>没有安排不等于应该训练。已有记录继续保留，具体动作和剂量由 Chat 安排。</p></div>
+        <div class="stewardTrainingWorkspace" data-steward-training-workspace hidden>
+          <div class="stewardTrainingGrid">
+            <section class="stewardTrainingEditor"><header class="stewardModeHead"><div><h2 data-steward-training-title>今天训练</h2><p>推荐与实际分开，完成状态由你确认。</p></div><span data-steward-training-duration></span></header><div class="stewardTrainingSessionActions"><button type="button" data-steward-training-start>开始训练</button><button type="button" data-steward-training-end hidden>结束本次计时</button><span data-steward-training-session-state></span></div><div class="stewardExerciseCards" data-steward-exercise-list></div></section>
+            <aside class="stewardTrainingSummary"><section class="stewardAsideSection"><span class="stewardEyebrow">训练后</span><h3>这次负荷实际怎么样？</h3><div class="stewardTrainingEffect"><button type="button" data-steward-training-effect="LIGHT">轻松</button><button type="button" data-steward-training-effect="APPROPRIATE">合适</button><button type="button" data-steward-training-effect="HEAVY">偏重</button><button type="button" data-steward-training-effect="SLOW_RECOVERY">恢复慢</button></div><label>备注<input type="text" maxlength="500" data-steward-training-note placeholder="可选" /></label><p>只记录感受，不自动加量。</p></section><section class="stewardAsideSection"><h3>实际记录</h3><div data-steward-training-summary></div></section><section class="stewardTrainingBoundary"><strong>完成训练 ≠ 恢复完成</strong><p>是否恢复到可用状态，留给返回学习后的真实表现。</p></section></aside>
+          </div>
+        </div>
+        <details class="stewardHistorySection"><summary>今天的训练历史</summary><div data-steward-training-history></div></details>
+      </section>
     </section>
-
-    <section class="stewardViewPanel" data-steward-view-panel="week">
-      <div class="stewardPeriodToolbar">
-        <button type="button" data-steward-week-prev aria-label="上一周">‹</button>
-        <strong data-steward-week-label></strong>
-        <button type="button" data-steward-week-next aria-label="下一周">›</button>
-        <button type="button" data-steward-week-now>本周</button>
-      </div>
-      <div class="stewardWeekShell">
-        <div class="stewardWeekGrid" data-steward-week-grid></div>
-      </div>
-    </section>
-
-    <section class="stewardViewPanel" data-steward-view-panel="month">
-      <div class="stewardPeriodToolbar">
-        <button type="button" data-steward-month-prev aria-label="上一月">‹</button>
-        <strong data-steward-month-label></strong>
-        <button type="button" data-steward-month-next aria-label="下一月">›</button>
-        <button type="button" data-steward-month-now>本月</button>
-      </div>
-      <div class="stewardMonthShell">
-        <div class="stewardMonthGrid" data-steward-month-grid></div>
-        <div class="stewardMonthDetail" data-steward-month-detail>选择一天查看安排。</div>
-      </div>
-    </section>
+    <section class="stewardViewPanel" data-steward-view-panel="week"><header class="stewardPeriodToolbar"><button type="button" data-steward-week-prev aria-label="上一周">‹</button><h2 data-steward-week-label></h2><button type="button" data-steward-week-next aria-label="下一周">›</button><button type="button" data-steward-week-now>本周</button></header><div class="stewardWeekShell"><div class="stewardWeekGrid" data-steward-week-grid></div></div><div data-steward-week-reference></div></section>
+    <section class="stewardViewPanel" data-steward-view-panel="month"><header class="stewardPeriodToolbar"><button type="button" data-steward-month-prev aria-label="上一月">‹</button><h2 data-steward-month-label></h2><button type="button" data-steward-month-next aria-label="下一月">›</button><button type="button" data-steward-month-now>本月</button></header><div class="stewardMonthGrid" data-steward-month-grid></div><div class="stewardMonthDetail" data-steward-month-detail>选择一天查看已有记录。</div></section>
+    <dialog class="stewardDialog" data-steward-chat-dialog aria-labelledby="steward-chat-title"><h2 id="steward-chat-title" data-steward-chat-title>调整今天</h2><p>在 Chat 中提出调整或复盘。已有实际记录可通过原有私有数据通路读取；这里不会自行改动安排。</p><p>新的方案只有明确采用后才会生效。</p><form method="dialog"><button type="submit">返回</button></form></dialog>
+    <dialog class="stewardDialog" data-steward-edit-dialog aria-labelledby="steward-edit-title"><h2 id="steward-edit-title">修正这条记录</h2><form data-steward-edit-form><label>备注<input data-steward-edit-note type="text" maxlength="500" /></label><label>数值（只用于饮水、咖啡或体重）<input data-steward-edit-value type="number" min="0" step="0.1" /></label><div><button type="button" data-steward-edit-cancel>取消</button><button type="submit">保存修正</button></div></form></dialog>
   </section>
 </Base>
-
 <script>
   import { initStewardWorkspace } from '../../lib/stewardWorkspaceClient.mjs';
   import { learnerWriterReady } from '../../lib/browserLearnerWriter.mjs';
-
-  void learnerWriterReady.then(() => {
-    initStewardWorkspace(document.querySelector('[data-steward-workspace]'));
-  });
+  void learnerWriterReady.then(() => initStewardWorkspace(document.querySelector('[data-steward-workspace]')));
 </script>

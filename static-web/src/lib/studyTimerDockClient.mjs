@@ -1,3 +1,5 @@
+import { readExamChatPlanForDisplay, examScheduleInterval } from './examChatPlan.mjs';
+import { studyDayAt } from './studyTimer.mjs';
 import {
   STEWARD_REALITY_KEY,
   beginStewardBreak,
@@ -5,7 +7,11 @@ import {
   latestOpenStewardBreak,
   readStewardReality,
   recordStewardBreakReentry,
-  updateStewardBreak
+  updateStewardBreak,
+  recordStewardQuickReality,
+  latestActiveStewardActivity,
+  transitionStewardActivity,
+  stewardActivityElapsedMs
 } from './stewardReality.mjs';
 
 const POSITION_KEY = 'kianos-study-timer-dock-position-v1';
@@ -75,11 +81,14 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
     english: $('[data-study-timer-total-english]')
   };
 
+  let activePanel = 'details';
+  root.dataset.panel = activePanel;
   let lastModel = null;
   let drag = null;
   let activeBreakId = null;
   let hydratedBreakId = null;
   let pendingReentryId = null;
+  let hydratedReentryId = null;
   let restPanelDismissed = false;
   let reentryDismissed = false;
 
@@ -93,7 +102,7 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
 
   const latestPendingReentry = (now = Date.now()) => [...readStewardReality(storage).events]
     .reverse()
-    .find(event => event.endedAt != null && !event.reentry && now - event.endedAt <= 4 * 60 * 60 * 1000) || null;
+    .find(event => event.kind === 'BREAK' && event.endedAt != null && !event.reentry && now >= event.endedAt && now - event.endedAt <= 4 * 60 * 60 * 1000) || null;
 
   const setRealityControlsDisabled = (disabled) => {
     $$('[data-study-timer-rest-minutes], [data-study-timer-rest-method], [data-study-timer-rest-custom], [data-study-timer-rest-note], [data-study-timer-rest-save], [data-study-timer-reentry-status], [data-study-timer-reentry-note], [data-study-timer-reentry-save]')
@@ -138,7 +147,7 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
       return;
     }
     setRealityControlsDisabled(false);
-    const open = [...reality.events].reverse().find(event => event.endedAt == null) || null;
+    const open = [...reality.events].reverse().find(event => event.kind === 'BREAK' && event.endedAt == null) || null;
     if (open) {
       activeBreakId = open.id;
       hydrateRestPanel(open);
@@ -166,6 +175,7 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
     pendingReentryId = pending?.id || null;
     if (reentryPanel) reentryPanel.hidden = !pending || reentryDismissed;
     if (pending && reentryPanel) {
+      if(hydratedReentryId !== pending.id){hydratedReentryId=pending.id;reentryNote.value='';$$('[data-study-timer-reentry-status]').forEach(b=>b.setAttribute('aria-pressed','false'));}
       if (reentrySaveStatus) reentrySaveStatus.textContent = '';
     }
   }
@@ -234,11 +244,27 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
       button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
+
+    const life = latestActiveStewardActivity(storage);
+    if(life) {
+      const conflict = Boolean(active.running);
+      subject.textContent = conflict ? '当前活动需核对' : life.label;
+      elapsed.textContent = life.status === 'PAUSED' ? '暂停中' : formatClock(stewardActivityElapsedMs(life));
+      pause.textContent = life.status === 'RUNNING' ? '暂停' : '继续'; pause.disabled = conflict;
+      root.dataset.running = String(life.status === 'RUNNING' && !conflict);
+    }
+    const projection=readExamChatPlanForDisplay(storage,studyDayAt(Date.now()));
+    const next=(projection.plan?.presentation?.schedule_blocks||[]).find(b=>examScheduleInterval(b,projection.plan.study_day).start>Date.now());
+    const nextNode=$('[data-study-timer-next]');
+    if(nextNode){nextNode.hidden=!next;nextNode.textContent=next?`下一项 ${next.start} ${next.label}`:'';}
     root.hidden = false;
     renderRecoveryPanels();
+
   }
 
-  function toggleExpanded(force) {
+  function toggleExpanded(force, panel = activePanel) {
+    activePanel = panel; root.dataset.panel = panel;
+    $('[data-study-timer-record-panel]').hidden = panel !== 'record';
     const next = typeof force === 'boolean' ? force : root.dataset.expanded !== 'true';
     root.dataset.expanded = next ? 'true' : 'false';
     expanded.hidden = !next;
@@ -250,12 +276,27 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
   pause.addEventListener('click', () => {
     const active = lastModel?.active;
     const now = Date.now();
+    const life=latestActiveStewardActivity(storage);
+    if(life){
+      try {
+        if(life.status==='RUNNING') {
+          transitionStewardActivity(storage,'PAUSED',now);
+          const e=beginStewardBreak(storage,{startedAt:now,preBreakContext:{route:life.returnHref,detailKey:life.sessionId,detailLabel:life.label,activityKind:life.activityKind,activityId:life.id}});
+          activeBreakId=e.id;hydratedBreakId=null;pendingReentryId=null;restPanelDismissed=false;hydrateRestPanel(e);toggleExpanded(true,'rest');
+        } else {
+          const e=endLatestStewardBreak(storage,now);pendingReentryId=e?.id||null;
+          transitionStewardActivity(storage,'RUNNING',now);restPanelDismissed=true;reentryDismissed=false;toggleExpanded(true,e?'reentry':'details');
+        }
+        emitRealityChange();render();
+      } catch { realityWriteError('没有保存成功，请保留当前记录后重试。'); }
+      return;
+    }
     if (active?.running) {
       const context = { subject: active.subject || '', ...(active.context || {}) };
       timer.pause(now);
       restPanelDismissed = false;
       reentryDismissed = false;
-      toggleExpanded(true);
+      toggleExpanded(true, 'rest');
       try {
         const event = beginStewardBreak(storage, { startedAt: now, preBreakContext: context });
         activeBreakId = event.id;
@@ -277,14 +318,45 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
       reentryDismissed = false;
       timer.resume(now);
       if (ended) {
-        toggleExpanded(true);
+        toggleExpanded(true, 'reentry');
         emitRealityChange({ kind: 'break-ended', break_id: ended.id });
       }
     }
     render();
   });
 
-  expand.addEventListener('click', () => toggleExpanded());
+
+  expand.addEventListener('click', () => toggleExpanded(undefined,
+    latestOpenStewardBreak(storage)?'rest':pendingReentryId?'reentry':'details'));
+  $$('[data-study-timer-panel]').forEach(b=>b.onclick=()=>toggleExpanded(true,b.dataset.studyTimerPanel));
+  $('[data-study-timer-record]').onclick=()=>toggleExpanded(true,'record');
+  $('[data-study-timer-record-close]').onclick=()=>toggleExpanded(false);
+  const nextElement=$('[data-study-timer-next]');if(nextElement)$('.studyTimerStatus').append(nextElement);
+  const quickStatus=$('[data-study-timer-record-status]');
+  const pendingQuick=new Map();
+  const captureQuick=(value)=>{
+    const active=timer.read().active;
+    const nonStudy=latestActiveStewardActivity(storage);
+    const actualContext=nonStudy?{activityKind:nonStudy.activityKind,activityId:nonStudy.id,route:nonStudy.returnHref,detailKey:nonStudy.sessionId,detailLabel:nonStudy.label}:active?.subject?{...active.context,subject:active.subject}:null;
+    const key=JSON.stringify(value);
+    if(!pendingQuick.has(key))pendingQuick.set(key,{...value,id:'quick-'+crypto.randomUUID(),observedAt:Date.now(),recordedAt:Date.now(),context:actualContext});
+    try {
+      const event=recordStewardQuickReality(storage,pendingQuick.get(key));
+      pendingQuick.delete(key);
+      quickStatus.textContent='已记录';emitRealityChange({kind:'quick',event_id:event.id});return true;
+    } catch {quickStatus.textContent='未保存，请重试；备注仍保留。';return false;}
+  };
+  const lastClick=new WeakMap();
+  $$('[data-reality-kind]').forEach(b=>b.onclick=()=>{
+    if(Date.now()-(lastClick.get(b)||0)<350)return;
+    const type=b.dataset.realityKind,raw=b.dataset.realityValue;
+    if(captureQuick({type,value:['WATER','COFFEE'].includes(type)?Number(raw):raw,unit:type==='WATER'?'ml':type==='COFFEE'?'杯':''}))lastClick.set(b,Date.now());
+  });
+  $('[data-study-timer-record-save]').onclick=()=>{
+    const note=$('[data-study-timer-record-note]');if(!note.value.trim()){quickStatus.textContent='还没有备注。';return;}
+    if(captureQuick({type:'NOTE',note:note.value}))note.value='';
+  };
+
 
   $$('[data-study-timer-switch]').forEach(button => {
     button.addEventListener('click', () => {
@@ -348,6 +420,7 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
   restDismiss?.addEventListener('click', () => {
     restPanelDismissed = true;
     if (restPanel) restPanel.hidden = true;
+    toggleExpanded(false);
   });
 
   $$('[data-study-timer-reentry-status]').forEach(button => {
@@ -384,6 +457,7 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
   reentryDismiss?.addEventListener('click', () => {
     reentryDismissed = true;
     if (reentryPanel) reentryPanel.hidden = true;
+    toggleExpanded(false);
   });
 
   reset.addEventListener('click', () => {
@@ -444,6 +518,43 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
   window.addEventListener('resize', onResize);
   window.addEventListener('storage', onStorage);
 
+
+  const RETURN_KEY='kianos-steward-return-view-v1';
+  const todayLink=$('[data-study-timer-today]');
+  const onSteward=/\/steward\/?$/.test(location.pathname);
+  const nativeReturn=()=>{const route=timer.read().active?.context?.route;
+    if(typeof route!=='string'||route.startsWith('manual:'))return null;
+    try{const u=new URL(route.startsWith('/')?route:'/'+route,location.origin);return u.origin===location.origin&&/^\/(?:xizong|politics|english|writing|translation|reading|reading-b|cloze|vocabulary)\//.test(u.pathname)?u.pathname+u.search+u.hash:null;}catch{return null;}
+  };
+  const safeAnchor=()=>{try{const a=JSON.parse(sessionStorage.getItem(RETURN_KEY)||'null');const u=a&&new URL(a.href,location.origin);return u?.origin===location.origin&&Date.now()-a.at<12*3600000&&!/\/steward\/?$/.test(u.pathname)?a:null;}catch{return null;}};
+  if(onSteward){
+    const anchor=safeAnchor(),fallback=nativeReturn();todayLink.textContent=anchor||fallback?'返回':'学习入口';todayLink.href=anchor?.href||fallback||'/';
+    todayLink.onclick=()=>{
+      const a=safeAnchor();if(a){try{sessionStorage.setItem(RETURN_KEY,JSON.stringify({...a,restore:true}));}catch{}}
+      const life=latestActiveStewardActivity(storage);
+      if(life){try{transitionStewardActivity(storage,'ENDED');emitRealityChange();}catch{}}
+    };
+  } else {
+    todayLink.onclick=()=>{
+      const scrolls=[...document.querySelectorAll('[id],textarea[data-essay-draft],textarea[data-translation-draft],main.productCanvas,.portedReadingPassage,.portedReadingQuestions,.clozePassage,.clozeQuestions,.translationSource,.translationWork,.writingPrompt,.writingWork,.politicsUnitCognition,.politicsUnitCompanion,.portedStudyMain,.portedStudyOutline')].filter(n=>n.scrollTop||n.scrollLeft).map(n=>({id:n.id||null,selector:n.id?null:n.matches('[data-essay-draft]')?'[data-essay-draft]':n.matches('[data-translation-draft]')?'[data-translation-draft]':n.matches('main.productCanvas')?'main.productCanvas':'.'+[...n.classList].filter(c=>/^(ported|cloze|translation|writing|politics)/.test(c)).join('.'),top:n.scrollTop,left:n.scrollLeft}));
+      try{sessionStorage.setItem(RETURN_KEY,JSON.stringify({href:location.pathname+location.search+location.hash,at:Date.now(),x:scrollX,y:scrollY,scrolls,restore:false}));}catch{}
+    };
+    const restoreReturn=()=>{const a=safeAnchor();if(!a?.restore||a.href!==location.pathname+location.search+location.hash)return;
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{window.scrollTo(a.x,a.y);for(const s of a.scrolls||[]){const n=s.id?document.getElementById(s.id):s.selector?document.querySelector(s.selector):null;if(n){n.scrollTop=s.top;n.scrollLeft=s.left;}}try{sessionStorage.setItem(RETURN_KEY,JSON.stringify({...a,restore:false}));}catch{}}));
+    };
+    window.addEventListener('pageshow',restoreReturn);restoreReturn();
+  }
+  const onStewardAction=e=>{
+    const action=e.detail?.action;
+    if(action==='pause')pause.click();
+    if(action==='record')toggleExpanded(true,'record');
+    if(action==='details')toggleExpanded(true,'details');
+    if(action==='return')todayLink.click();
+  };
+  window.addEventListener('kianos:steward-dock-action',onStewardAction);
+  window.addEventListener('kianos:steward-reality-change',render);
+  window.addEventListener('keydown',e=>{if(e.key==='Escape')toggleExpanded(false);});
+
   render();
   restorePosition();
   window.requestAnimationFrame(clampCurrentPosition);
@@ -457,6 +568,8 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
       window.removeEventListener('kianos:study-timer-change', onTimerChange);
       window.removeEventListener('resize', onResize);
       window.removeEventListener('storage', onStorage);
+      window.removeEventListener('kianos:steward-dock-action',onStewardAction);
+      window.removeEventListener('kianos:steward-reality-change',render);
     }
   };
 }

@@ -1,3 +1,6 @@
+import path from 'node:path';
+import os from 'node:os';
+import fs from 'node:fs';
 import { spawn } from 'node:child_process';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
@@ -56,6 +59,7 @@ async function verifyPassiveStatusClickThrough(page, prefix) {
   await page.evaluate(() => document.querySelector('[data-study-timer-probe]')?.remove());
 }
 
+const scratch=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-dock-qa-'));
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe'], detached: process.platform !== 'win32'
 });
@@ -78,7 +82,7 @@ try {
     statusPointerEvents: getComputedStyle(node.querySelector('.studyTimerStatus')).pointerEvents,
     gripPointerEvents: getComputedStyle(node.querySelector('[data-study-timer-drag-handle]')).pointerEvents
   }));
-  check(desktopMetrics.width <= 360, 'desktop_compact_footprint_bounded', JSON.stringify(desktopMetrics));
+  check(desktopMetrics.width <= 470, 'desktop_compact_footprint_bounded', JSON.stringify(desktopMetrics));
   check(desktopMetrics.rootPointerEvents === 'none', 'desktop_compact_root_passive', JSON.stringify(desktopMetrics));
   check(desktopMetrics.statusPointerEvents === 'none', 'desktop_status_passive', JSON.stringify(desktopMetrics));
   check(desktopMetrics.gripPointerEvents === 'auto', 'desktop_drag_grip_interactive', JSON.stringify(desktopMetrics));

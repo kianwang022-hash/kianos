@@ -235,6 +235,10 @@ function normalizeTrainingExercise(raw, field, allowAlternatives = true) {
     label,
     note: text(raw.note, 180),
     prescription: text(raw.prescription, 160),
+    sets_value: boundedNumber(raw.sets_value, `${field}.sets_value`, { min: 0, max: 100, optional: true }),
+    time_label: text(raw.time_label, 80),
+    rest_note: text(raw.rest_note, 220),
+    stop_note: text(raw.stop_note, 220),
     load_value: boundedNumber(raw.load_value, `${field}.load_value`, { min: 0, max: 100000, optional: true }),
     load_unit: text(raw.load_unit, 20),
     reps_value: boundedNumber(raw.reps_value, `${field}.reps_value`, { min: 0, max: 10000, optional: true }),
@@ -262,6 +266,7 @@ function normalizeTrainingProjection(value) {
     session_id: presentationId(value.session_id, 'presentation.training.session_id'),
     title: text(value.title, 140) || '今日训练',
     duration_label: text(value.duration_label, 80),
+    mode: value.mode == null ? null : (() => { const m=String(value.mode).toUpperCase(); if(!['NORMAL','CONCISE','RECOVERY','REST'].includes(m)) throw Error('TRAINING_MODE_INVALID'); return m; })(),
     exercises
   };
 }
@@ -311,12 +316,12 @@ function normalizeExamChatPlanPresentation(value) {
   );
 
   const scheduleBlocks = assertUniquePresentationIds(
-    presentationRows(value.schedule_blocks, 'presentation.schedule_blocks', 12).map((raw, index) => {
+    presentationRows(value.schedule_blocks, 'presentation.schedule_blocks', 40).map((raw, index) => {
     if (!record(raw)) throw new Error(`Invalid presentation.schedule_blocks[${index}].`);
     const start = presentationClock(raw.start, `presentation.schedule_blocks[${index}].start`);
     const end = presentationClock(raw.end, `presentation.schedule_blocks[${index}].end`, true);
-    if (end && end <= start) {
-      throw new Error(`Invalid presentation.schedule_blocks[${index}]; end must be after start.`);
+    if (end && end === start) {
+      throw new Error(`Invalid presentation.schedule_blocks[${index}]; end must differ from start; an earlier clock means next calendar day.`);
     }
     const label = text(raw.label, 100);
     if (!label) throw new Error(`presentation.schedule_blocks[${index}].label is required.`);
@@ -326,7 +331,9 @@ function normalizeExamChatPlanPresentation(value) {
       start,
       end,
       label,
-      detail: text(raw.detail, 140)
+      detail: text(raw.detail, 140),
+      meal_id: raw.meal_id ? presentationId(raw.meal_id, 'schedule.meal_id') : null,
+      training_session_id: raw.training_session_id ? presentationId(raw.training_session_id, 'schedule.training_session_id') : null
     };
   }),
     'presentation.schedule_blocks'
@@ -714,4 +721,26 @@ export function writeExamChatPlan(storage, value, expectedDay) {
 
   storage.setItem(EXAM_CHAT_PLAN_KEY, JSON.stringify(plan));
   return plan;
+}
+
+
+/** Display/capture reference only. Never use to admit or reapply a command.
+ * Ordinary execution changes the original evidence basis. That must invalidate
+ * new strategy claims, not erase the already adopted schedule/meal prescription.
+ */
+export function readExamChatPlanForDisplay(storage, expectedDay) {
+  const strict = readExamChatPlan(storage, expectedDay);
+  if (strict.status !== 'stale' || strict.error !== 'CHAT_PLAN_EVIDENCE_BASIS_STALE') return strict;
+  try {
+    const stored = validateExamChatPlan(JSON.parse(storage.getItem(EXAM_CHAT_PLAN_KEY)), expectedDay);
+    return { status: 'reference', plan: {...stored, capacity: null}, presentation: null,
+      error: strict.error, executable: false, guidanceFresh: false };
+  } catch { return strict; }
+}
+
+export function examScheduleInterval(block, day) {
+  const clock = value => { const [h,m]=value.split(':').map(Number);return h*60+m; };
+  const midnight=Date.parse(`${day}T00:00:00+08:00`);
+  const start=clock(block.start),end=block.end?clock(block.end):null;
+  return {start:midnight+start*60000,end:end==null?null:midnight+(end+(end<start?1440:0))*60000};
 }
