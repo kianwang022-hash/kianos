@@ -281,6 +281,60 @@ Hard requirements:
 
 This requirement does **not** mean pre-building every future feature. It means choosing boundaries so that foreseeable content evolution is usually an asset change rather than an architecture migration.
 
+## R11｜Low-friction changeability — Chat → GitHub → consumer must stay cheap
+
+KianOS exists partly to let Chat turn an accepted requirement into a durable product change **without making Kian manage repository mechanics or repeatedly reconstruct old design context**.
+
+For a known scope, an ordinary legitimate change should normally have this shape:
+
+```text
+Kian / Chat request
+→ recover current requirement + inherited design + exact owner
+→ change the smallest responsible Content / Visual / Engineering owner
+→ targeted proof
+→ one coherent accepted batch
+→ real consumer / Website
+```
+
+Hard requirements:
+
+- **Content:** ordinary content/knowledge/semantic change must update one canonical owner and flow through existing projection/consumer paths; no duplicate page copy.
+- **Visual:** ordinary UI change must resolve through shared Website requirements → exact Product/Domain design owner → exact Surface owner when present → one effective implementation owner for the changed property/state/breakpoint. CSS source order is not design authority.
+- **Engineering:** implementation must not invent new product/content meaning merely because one file is easy to edit.
+- **Delivery:** a coherent accepted batch should normally cause one durable publication/promotion. Rapid intermediate repository edits should be coalesced or remain on Candidate/branch rather than making Stable build obsolete intermediate SHAs one by one.
+- **Human effort:** Kian should not need to remember file paths, historical rationale, branch mechanics, duplicate settings or prior Chat wording to request a normal change.
+- **Recovery:** if a known-scope change requires broad repository archaeology, history reconstruction, many active CSS layers, duplicated semantic edits, or repeated expensive release cycles, the architecture is not yet sufficiently low-friction.
+
+Low friction does **not** mean skipping CREATE, Human Gate, safety checks or required acceptance. It means the system carries the already-decided context and mechanics so Kian's attention stays on the actual product/content decision.
+
+## R12｜Current-surface purity — main should privilege current usable assets
+
+The normal repository surface must make **current truth and current design easier to find than construction history**.
+
+Historical/provenance assets may remain on `main` only when an identified Current reproducibility, acceptance, migration-safety or provenance consumer still needs them.
+
+Default rule:
+
+```text
+current owner / current design / current runtime / current acceptance
+→ normal hot path
+
+closed pilot / migration / batch manifest / old audit pack / superseded implementation narrative
+→ Git history by default
+→ retained cold evidence only when a named Current consumer still needs it
+```
+
+Hard requirements:
+
+- history/legacy must not participate in normal owner resolution or Runtime behavior;
+- closed construction artifacts must not issue next actions;
+- an old implementation must not remain active merely because later CSS/code overrides it;
+- search/read paths for routine work should not be dominated by historical packs;
+- retained cold evidence must be clearly non-authoritative and referenced for a concrete reason;
+- when a retained historical dependency is no longer consumed, remove it from the Current tree rather than preserving it indefinitely for comfort.
+
+This requirement is about **current cognitive clarity**, not cosmetic folder cleanliness.
+
 ---
 
 # 4｜Project invariants
@@ -417,6 +471,44 @@ Take a representative accepted surface and change only its legitimate Current se
 The architecture should normally permit that change to reach the consumer through asset/projection updates plus validation, without requiring page-specific domain rewrites or a new runtime state machine.
 
 If routine semantic/content evolution repeatedly requires special-case UI code, duplicated semantic copies, or schema migrations unrelated to user/learner behavior, the architecture fails this test.
+
+## T8｜Low-friction Change Cost Test
+
+Take representative ordinary requests:
+
+```text
+“改这个 KP / word sense / Politics learner object”
+“这个板块 UI 右栏宽一点”
+“全站正文更厚一点”
+“修 Reading Submit”
+```
+
+For each request, the system should resolve to the smallest current requirement/design/implementation chain without requiring Kian to restate prior decisions.
+
+A normal change fails this test when it requires one or more of:
+
+- editing duplicate semantic copies;
+- repository-wide archaeology for a known scope;
+- guessing design from current CSS/component shape;
+- tracing several active override layers just to know one current geometry;
+- changing unrelated domains;
+- repeated Human Gates for unchanged design;
+- multiple Stable promotions for one coherent accepted batch;
+- manually restarting/pulling/rebuilding normal learner Current.
+
+## T9｜Current Surface Purity Test
+
+A Fresh Chat or maintainer looking at a known current scope should encounter current owners/designs/acceptance before closed construction history.
+
+The test fails when:
+
+- an old audit/pilot/migration file can be mistaken for current instruction;
+- a retired implementation still affects computed Runtime/Visual behavior;
+- a Current owner points to historical execution state merely to know what to do next;
+- unconsumed construction packs remain in the normal tree and materially pollute search/recovery;
+- Current behavior depends on a historical fallback not declared by an exact owner.
+
+Git history is a valid historical archive. Keeping every construction artifact in the Current tree is not a project requirement.
 
 ---
 

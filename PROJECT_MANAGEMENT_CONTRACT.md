@@ -235,15 +235,31 @@ The intended normal delivery path remains:
 
 ```text
 Chat edits the correct canonical owner
-→ accepted change lands on main
+→ coherent CREATE/BUILD write set is finished off Stable
+→ targeted proof / Human Gate when applicable
+→ one accepted batch lands on main
 → repository-wide Current mirror updates
-→ Astro consumes the exact Current
+→ Astro consumes the newest accepted Current
 → Kian sees the change without manual Git work
 ```
 
 The local Current mirror is a delivery projection, not a second Truth owner.
 
 Kian should not normally need to choose branches, pull manually, restart Astro, or edit a duplicate webpage copy.
+
+### Batch writes before expensive delivery
+
+For one coherent accepted change, prefer one durable write set / PR / promotion rather than a sequence of tiny `main` commits that each trigger the same expensive build.
+
+If the editing tool only exposes single-file commits, use a temporary branch/worktree (or equivalent Git tree/commit batching) and move `main` once after the coherent batch is proven.
+
+Candidate/UI iteration stays off Stable until Human Gate PASS.
+
+Current delivery may coalesce superseded intermediate SHAs and publish only the newest accepted target, provided exact final identity, fail-closed behavior, rollback and learner continuity remain correct.
+
+Hard rule:
+
+> **`main` is the durable accepted Current, not a per-keystroke scratch bus for expensive learner-site rebuilds.**
 
 ---
 

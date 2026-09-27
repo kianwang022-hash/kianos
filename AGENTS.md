@@ -22,6 +22,8 @@ BUILD    implement already accepted meaning in Engineering / Runtime / consumer 
 UI       implement product-facing presentation / interaction; material changes include Candidate Human Gate
 AUDIT    independently verify BUILD against accepted CREATE truth; default read-only / non-redesigning
 CONTROL  system / engineering / cross-scope status, priority, blocker, task or project management
+
+CBA is the shared shorthand for `CREATE → BUILD → AUDIT`. REAL USE follows CBA and may reopen the earliest responsible owner. Do not create a second workflow for the same lifecycle.
 ```
 
 Natural language is authoritative; Kian does not need to name the mode.
@@ -139,14 +141,21 @@ Do not ask Kian to restate context already recoverable from GitHub. Do not creat
 ## UI
 
 ```text
-static-web/KIAN_UI_PREFERENCES.md
-→ static-web/UI_STYLE_BRIEF.md when shared visual rules matter
-→ exact surface/product owner
-→ existing layout/component/styles
+static-web/README.md
+→ shared Website requirement owners when relevant
+   PRODUCT_SURFACE_CONTRACT.md
+   PRESENTATION_CONTRACT.md
+   UI_STYLE_BRIEF.md
+   KIAN_UI_PREFERENCES.md
+→ exact Product / Domain design owner
+→ exact Surface Blueprint / task design when one exists
+→ one effective current implementation owner
 → Website Candidate Runtime for iterative proof
 → applicable Human Gate
-→ one durable PR / affected validation / managed Current promotion
+→ one coherent durable PR / affected validation / managed Current promotion
 ```
+
+Do not infer intended design from CSS/component shape when the durable design chain exists. If parent/child design ownership is ambiguous or conflicting, stop at `OWNER_UNRESOLVED` and reopen CREATE instead of resolving the conflict through implementation/source order.
 
 `KIAN_UI_PREFERENCES.md` owns accepted **KianOS visual requirements + bounded preference evidence**, not Kian's general personal preference truth.
 

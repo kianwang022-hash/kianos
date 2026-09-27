@@ -34,6 +34,7 @@ Product semantics, Visual requirements, Content, Acceptance and learner/executio
 | Chat cannot see learner facts | [private Packet builder](scripts/privateDailyLearningPacket.mjs) | Packet relay → affected subject adapter |
 | Chat instruction did not apply | [control runtime](src/lib/privateControlRuntime.mjs) | control relay → exact command/native operation |
 | State did not recover / one subject corrupt | [checkpoint runtime](src/lib/privateCheckpointRuntime.mjs) | affected subject checkpoint adapter / browser write owner |
+| Cross-surface job / Home-Steward-Radar-Subject-Dock split is wrong | `PRODUCT_SURFACE_CONTRACT.md` | exact Product / Domain owner only after the shared functional boundary is resolved |
 | Steward behavior/product semantics are wrong | `STEWARD_PRODUCT_CONTRACT.md` | exact page/client/runtime owner |
 | Steward visual/layout is wrong | `KIAN_UI_PREFERENCES.md` + `UI_STYLE_BRIEF.md` | exact page/styles + representative proof |
 | Plan/orchestration policy seems wrong | [Exam Orchestrator](../EXAM_ORCHESTRATOR_CONTRACT.md) | actual subject Packet / exact subject owner |

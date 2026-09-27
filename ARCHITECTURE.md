@@ -47,6 +47,32 @@ These are **responsibilities/functions**, not separate databases and not mandato
 
 A responsibility may be implemented by one or several narrow canonical owners. The hard rule is that one fact/decision still has one canonical owner.
 
+### CBA requirement spine
+
+Personal `KERNEL.md` owns the shared lifecycle shorthand:
+
+```text
+CBA = CREATE → BUILD → AUDIT
+REAL USE follows and may reopen the earliest responsible owner.
+```
+
+Inside KianOS, every independently meaningful capability/product should have a recoverable **requirement spine**, even when several responsibilities share one file:
+
+```text
+user need / outcome
+→ Rule / Model
+→ Content / Knowledge when applicable
+→ Product / Domain design
+→ exact Surface design when applicable
+→ Engineering / real consumer
+→ native proof / independent Audit
+→ Real Use evidence
+```
+
+This is a traceability relationship, not a requirement to create one file per box.
+
+A known-scope Fresh Chat should be able to recover the relevant spine without reading implementation history. If a layer is not applicable, skip it explicitly; do not invent placeholder architecture.
+
 ---
 
 ## 1.1 RULE / MODEL｜why the system behaves this way
@@ -220,6 +246,21 @@ Visual may choose hierarchy, spacing, typography, layout, disclosure and interac
 
 It may not decide what the underlying meaning is, what a question tests, what the user should do, or what the learner should learn.
 
+### Visual inheritance / changeability
+
+Shared Visual defines common requirements. Each independently meaningful product/domain keeps its own accepted Product/Visual design, and exact Surface Blueprints refine only their local task.
+
+```text
+shared Website requirements
+→ Product / Domain design
+→ exact Surface design
+→ Engineering implementation
+```
+
+The design chain must be recoverable from durable owners rather than inferred from CSS/component shape.
+
+For one surface/state/breakpoint, one material geometry/property decision should have one effective current implementation owner. Responsive/state refinement is valid; historical override stacks are not a design system. If an ordinary UI change requires archaeology across several active CSS layers, the implementation has not yet met the change-cost requirement.
+
 ---
 
 ## 1.4 ENGINEERING｜make the approved system executable
@@ -333,6 +374,18 @@ Human Gate when relevant
 `CURRENT.md` is an **engineering Work Cursor / router**. It is not user/learner progress and not semantic Truth.
 
 A bare learner request such as `继续英语` does not automatically mean `continue the engineering CURRENT`.
+
+### Current surface purity
+
+Current reasoning should encounter current owners before construction history.
+
+- closed pilots, old audits, migration packs, batch manifests and superseded implementation narratives do not issue work;
+- retain detailed historical artifacts on `main` only when a named Current reproducibility/provenance/acceptance consumer still depends on them;
+- when that dependency disappears, Git history is the default archive;
+- retired implementation may not remain active underneath later overrides and still influence computed behavior;
+- normal Fresh-Chat/read/search paths should not require filtering through hundreds of closed construction artifacts.
+
+Control may route to retained cold evidence for a bounded question; cold evidence never becomes a second Current.
 
 ---
 
@@ -677,6 +730,24 @@ Reading interaction Rule
 
 No Learning redesign unless the defect proves the existing Rule itself is wrong.
 
+## 9.5 Coherent delivery batch
+
+Representative case:
+
+> Chat changes several files that together implement one already-accepted Content/Visual/Engineering delta.
+
+Expected path:
+
+```text
+branch / Candidate work
+→ finish the coherent write set
+→ targeted proof / Human Gate when applicable
+→ one durable merge/promotion
+→ Current delivers the newest accepted result
+```
+
+Do not use Stable `main` as a per-keystroke scratch surface when each intermediate SHA triggers expensive delivery work. Delivery may coalesce superseded intermediate SHAs; it must preserve correctness and exact final identity, not waste time publishing obsolete intermediates.
+
 ---
 
 # 10｜Rules inherit; they do not multiply
@@ -721,6 +792,8 @@ Ordinary legitimate Content evolution reaches its consumer through asset change 
 
 Global visual change resolves globally; subject/surface geometry resolves locally; accepted Surface Blueprints do not reopen accidentally.
 
+An ordinary local visual change must not require guessing from CSS source order or tracing several active override layers to discover the current geometry. One material decision should resolve to one effective implementation owner at the relevant state/breakpoint.
+
 ## A6｜Parallel Work Test
 
 Independent scopes can proceed concurrently without false parent/sibling serialization or broad rebase rituals.
@@ -738,7 +811,10 @@ Continued use should not recreate:
 - repeated rules across lanes;
 - UI copies of canonical content;
 - subject-local forks of shared visual/runtime infrastructure;
-- Fresh Chats that need repository-wide archaeology.
+- Fresh Chats that need repository-wide archaeology;
+- hundreds of closed construction/audit packs dominating normal search;
+- retired implementation remaining active underneath later overrides;
+- one coherent Chat change causing repeated obsolete Stable rebuilds/promotions.
 
 If these recur, architecture must be simplified at the earliest responsible owner.
 

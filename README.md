@@ -59,6 +59,8 @@ These are **logical zones, not separate truth systems**. Several durable root ow
 
 The shared lifecycle is owned upstream in Personal OS `KERNEL.md §2 / Requirement → Reality change loop`.
 
+**CBA** is the compact name used by Kian/Chat for `CREATE → BUILD → AUDIT`. REAL USE follows CBA and may feed evidence back to the earliest responsible owner.
+
 KianOS uses the same four jobs:
 
 ```text
