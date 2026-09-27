@@ -7,7 +7,7 @@ import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 
-import { canReuseDependencies } from './currentDependencies.mjs';
+import { canReuseDependencies, cloneDependencies, readDependencyProof } from './currentDependencies.mjs';
 import { terminateProcessTree } from './currentRelease.mjs';
 
 const execFileAsync = promisify(execFile);
@@ -69,27 +69,53 @@ function dependencySources(env = process.env) {
   return [...new Set(rows)];
 }
 
-export function ensureCandidateDependencies(env = process.env) {
-  const localAstro = astroExecutable(webRoot);
-  if (fs.existsSync(localAstro)) return { source: 'local', cleanup: () => {} };
+export function ensureCandidateDependencies(env = process.env, {
+  targetWebRoot = webRoot,
+  sources = null
+} = {}) {
+  const nodeModules = path.join(targetWebRoot, 'node_modules');
+  const localAstro = astroExecutable(targetWebRoot);
 
-  const nodeModules = path.join(webRoot, 'node_modules');
-  for (const source of dependencySources(env)) {
-    if (!fs.existsSync(source) || !canReuseDependencies(source, webRoot)) continue;
-    const sourceModules = path.join(source, 'node_modules');
-    fs.rmSync(nodeModules, { recursive: true, force: true });
-    fs.symlinkSync(sourceModules, nodeModules, 'dir');
-    if (!fs.existsSync(astroExecutable(webRoot))) {
+  if (fs.existsSync(localAstro)) {
+    let linked = false;
+    try { linked = fs.lstatSync(nodeModules).isSymbolicLink(); } catch {}
+
+    if (!linked) {
+      const proof = readDependencyProof(targetWebRoot);
+      if (!proof || canReuseDependencies(targetWebRoot, targetWebRoot)) {
+        return { source: 'local', mode: 'local', cleanup: () => {} };
+      }
+      fs.rmSync(nodeModules, { recursive: true, force: true });
+    } else {
+      const resolvedModules = fs.realpathSync(nodeModules);
+      const linkedSource = path.dirname(resolvedModules);
+      if (!canReuseDependencies(linkedSource, targetWebRoot)) {
+        throw new Error('KIANOS_CANDIDATE_EXTERNAL_NODE_MODULES_UNSAFE:' + linkedSource);
+      }
+      fs.rmSync(nodeModules, { force: true });
+      const reused = cloneDependencies(linkedSource, targetWebRoot);
+      return {
+        source: linkedSource,
+        mode: 'materialized',
+        duration_ms: reused.duration_ms,
+        cleanup: () => {}
+      };
+    }
+  }
+
+  const candidates = Array.isArray(sources) ? sources : dependencySources(env);
+  for (const source of candidates) {
+    if (!fs.existsSync(source) || !canReuseDependencies(source, targetWebRoot)) continue;
+    const reused = cloneDependencies(source, targetWebRoot);
+    if (!fs.existsSync(astroExecutable(targetWebRoot))) {
       fs.rmSync(nodeModules, { recursive: true, force: true });
       continue;
     }
     return {
       source,
-      cleanup: () => {
-        try {
-          if (fs.lstatSync(nodeModules).isSymbolicLink()) fs.rmSync(nodeModules, { force: true });
-        } catch {}
-      }
+      mode: 'materialized',
+      duration_ms: reused.duration_ms,
+      cleanup: () => {}
     };
   }
 
@@ -161,6 +187,10 @@ async function main() {
 
   try {
     dependencyLease = ensureCandidateDependencies();
+    if (dependencyLease?.mode === 'materialized') {
+      console.log('[KianOS Candidate] materialized compatible dependencies inside this worktree in '
+        + dependencyLease.duration_ms + 'ms');
+    }
     const head = await shortHead();
     const env = isolatedCandidateEnv(runtimeRoot, process.env, `candidate-${head}`);
     const astro = astroExecutable(webRoot);
