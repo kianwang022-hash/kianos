@@ -44,9 +44,9 @@ const base = import.meta.env.BASE_URL;
 
     <main class="xzMemoryStage">
       <section class="xzMemoryEmpty" data-memory-empty>
-        <span>Memory 还没有已释放内容</span>
-        <h2>先学，不制造假复习。</h2>
-        <p>Core / Precision 会在真实 Block Complete 后自动进入长期库；“进入库”不等于“今天必须复习”，只有真正值得回收的内容才会进入 Today。</p>
+        <span data-memory-empty-kicker>Memory 还没有已释放内容</span>
+        <h2 data-memory-empty-title>先学，不制造假复习。</h2>
+        <p data-memory-empty-body>Core / Precision 会在真实 Block Complete 后自动进入长期库；“进入库”不等于“今天必须复习”，只有真正值得回收的内容才会进入 Today。</p>
       </section>
 
       <article class="xzMemoryCard" data-memory-card hidden>
@@ -220,6 +220,26 @@ const base = import.meta.env.BASE_URL;
       setText('[data-memory-summary-repair]', summary.repair);
     };
 
+    const syncEmptyCopy = () => {
+      const summary = memorySummary(state);
+      const copy = view === 'TODAY'
+        ? ((summary.core || summary.precision || summary.marked || summary.repair)
+            ? ['Today 当前没有需要回收的内容', '长期库已经有内容，今天不用硬复习。', 'Core / Precision 等内容仍留在长期库里；只有真正值得现在回收的内容才会进入 Today。']
+            : ['Memory 还没有已释放内容', '先学，不制造假复习。', 'Core / Precision 会在真实 Block Complete 后自动进入长期库；只有真正值得回收的内容才会进入 Today。'])
+        : view === 'CORE'
+          ? ['Core 长期库当前为空', '完成 Block 后会自动进入。', 'Core 只收真实 Block Complete 后释放的 KP，不提前制造复习卡。']
+          : view === 'PRECISION'
+            ? ['Precision 当前为空', '现在没有需要精确恢复的项目。', '只有已有 owner 且满足释放条件的精确记忆项才会进入这里。']
+            : view === 'MARKED'
+              ? ['Marked 当前为空', '还没有你主动留下的片段。', '在 Prompt / Core 里选中文字并标记后，它才会出现在这里。']
+              : view === 'REPAIR'
+                ? ['Repair 当前为空', '现在没有专项修补任务。', 'Repair 只接有明确来源的修补任务，不从普通薄弱状态自动制造。']
+                : ['这次没有可用的 Memory 目标', '返回正常 Memory 即可。', 'Chat 只会选择已经存在的 Memory 项，不会凭空创建内容。'];
+      setText('[data-memory-empty-kicker]', copy[0]);
+      setText('[data-memory-empty-title]', copy[1]);
+      setText('[data-memory-empty-body]', copy[2]);
+    };
+
     const selectedItem = () => currentItems[Math.max(0, Math.min(currentItems.length - 1, index))] || null;
     const cardLabel = (item) => item.family === 'PRECISION' ? (item.title || item.cue || item.id) : `${item.displayId || item.kpId || ''}${item.title ? `｜${item.title}` : ''}`;
     const cardContext = (item) => [item.canonicalId, item.blockLabel, item.groupLabel].filter(Boolean).join(' · ');
@@ -355,6 +375,7 @@ const base = import.meta.env.BASE_URL;
         if (card) card.hidden = true;
         if (markedCard) markedCard.hidden = true;
         if (repairCard) repairCard.hidden = true;
+        syncEmptyCopy();
         if (empty) empty.hidden = false;
         return;
       }

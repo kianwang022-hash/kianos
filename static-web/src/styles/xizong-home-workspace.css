@@ -323,3 +323,28 @@ body#kianos-workspace.surfaceBody-xizong .xzHomeKnowledgeItem.is-current > span 
     border-top: 1px solid var(--xz-home-line);
   }
 }
+
+
+/* Knowledge Map must distinguish real navigation from future/unavailable domains. */
+body#kianos-workspace.surfaceBody-xizong .xzHomeKnowledgeLinks {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-top: 2px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzHomeKnowledgeLinks > a {
+  color: var(--xz-home-green);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+body#kianos-workspace.surfaceBody-xizong .xzHomeKnowledgeLinks > a:hover {
+  text-decoration: underline;
+}
+body#kianos-workspace.surfaceBody-xizong .xzHomeKnowledgeItem.is-unavailable {
+  background: #fafbfa;
+}
+body#kianos-workspace.surfaceBody-xizong .xzHomeKnowledgeItem.is-unavailable > :is(b,span,small) {
+  color: var(--xz-home-muted);
+}

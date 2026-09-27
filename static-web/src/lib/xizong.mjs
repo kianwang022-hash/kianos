@@ -276,13 +276,25 @@ function metadataValue(body, label) {
   const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const patterns = [
     new RegExp(`^>\\s*\\*\\*${escaped}\\*\\*[：:]?\\s*(.+)$`, 'm'),
-    new RegExp(`^>\\s*\\*\\*${escaped}[：:]\\*\\*\\s*(.+)$`, 'm')
+    new RegExp(`^>\\s*\\*\\*${escaped}[：:]\\*\\*\\s*(.+)$`, 'm'),
+    new RegExp(`^>\\s*\\*\\*${escaped}[：:]\\s*(.+?)\\*\\*\\s*$`, 'm')
   ];
   for (const pattern of patterns) {
     const match = body.match(pattern);
     if (match?.[1]) return match[1].trim();
   }
   return '';
+}
+
+function frontmatterValue(markdown, key) {
+  const source = String(markdown || '');
+  if (!source.startsWith('---\n')) return '';
+  const end = source.indexOf('\n---', 4);
+  if (end < 0) return '';
+  const prefix = `${String(key)}:`;
+  const line = source.slice(4, end).split('\n').find((row) => row.trimStart().startsWith(prefix));
+  if (!line) return '';
+  return String(line.slice(line.indexOf(':') + 1)).trim().replace(/^["']|["']$/g, '');
 }
 
 function stripKpMetadata(body) {
@@ -876,6 +888,8 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     firstPassFocus: String(blockSupport?.first_pass_focus || ''),
     stopLine: String(blockSupport?.stop_line || ''),
     recallSpine: String(blockSupport?.recall_spine || ''),
+    primarySource: frontmatterValue(markdown, 'primary_source') || frontmatterValue(markdown, 'primary_source_pdf'),
+    outlinePrimary: frontmatterValue(markdown, 'outline_primary'),
     learningSupportSourcePath: system.learningSupport?.path || '',
     learningSupportSourceHash: system.learningSupport?.sourceHash || '',
     logicGroups,

@@ -86,11 +86,19 @@ const systemIdentity = (system) => {
       </header>
       <div class="xzHomeKnowledgeGrid">
         {domains.map((domain) => (
-          <div class:list={['xzHomeKnowledgeItem', domain.projectable && 'is-current']} data-domain={domain.domainId}>
+          <div class:list={['xzHomeKnowledgeItem', domain.projectable ? 'is-current' : 'is-unavailable']} data-domain={domain.domainId}>
             <b>{domain.domainId}</b>
             <span>{domain.title}</span>
-            {domain.systems.length > 0 && (
-              <small>{domain.systems.map((system) => `${system.canonicalId} ${system.title}`).join(' · ')}</small>
+            {domain.systems.length > 0 ? (
+              <div class="xzHomeKnowledgeLinks" aria-label={`${domain.domainId} systems`}>
+                {domain.systems.map((system) => (
+                  <a href={`${base}xizong/${system.systemId}/`}>
+                    {system.canonicalId} · {system.title}
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <small>尚未接入学习界面</small>
             )}
           </div>
         ))}
