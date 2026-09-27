@@ -179,6 +179,8 @@ try {
   assert(await homeVocabularyLink.isVisible(), 'home_learning_jump_has_vocabulary');
   assert((await homeVocabularyLink.innerText()).trim() === 'Vocabulary', 'home_learning_jump_vocabulary_label');
 
+  await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+
   // Same-day revisit is ephemeral card routing support, not Repair debt.
   await page.evaluate((row) => {
     const now = new Date().toISOString();
