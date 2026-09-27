@@ -37,7 +37,8 @@ const CURRENT_SUPERVISOR_SCRIPTS = new Set([
   'static-web/scripts/kianos-current-sync.mjs',
   'static-web/scripts/currentRelease.mjs',
   'static-web/scripts/currentStaticImpact.mjs',
-  'static-web/scripts/currentStaticSlots.mjs'
+  'static-web/scripts/currentStaticSlots.mjs',
+  'static-web/scripts/currentDependencies.mjs'
 ]);
 
 function isContentWorkCursor(file) {
