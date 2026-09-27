@@ -1,0 +1,140 @@
+{
+  "schema": "kianos.xizong.system_pathways_support.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "circulation",
+  "canonical_id": "A1",
+  "system_owner": "content/xizong/knowledge/systems/a1-circulation/system.json",
+  "learning_support": "content/xizong/knowledge/learner/a1-circulation-learning.json",
+  "role": "MECHANISM_PROJECTION_AND_CROSS_BLOCK_REACTIVATION_ONLY",
+  "rule": "Only relationships that change learner attention, timing or reactivation belong here. This file does not own medical Core. Source cues are intentionally light; target cues explicitly reactivate previously seen relations. Connection hooks do not enter ordinary Memory. reserve_learning only means a relation is worth seeing early as light preparation; it is not ordinary Recall or Memory.",
+  "system_failure_views": {},
+  "connections": [
+    {
+      "id": "b01-c01-af-filling-to-b10",
+      "source": {
+        "block_id": "circulation-b01",
+        "kp_id": "circulation-b01-kp09",
+        "cue": "//串联：房颤与充盈 → B10"
+      },
+      "target": {
+        "block_id": "circulation-b10",
+        "logic_group_id": "circulation-b10-lg05",
+        "cue": "//串联：房颤与充盈 → B10"
+      },
+      "reserve_learning": false
+    },
+    {
+      "id": "b01-c02-ef-reserve-to-b11",
+      "source": {
+        "block_id": "circulation-b01",
+        "kp_id": "circulation-b01-kp12",
+        "cue": "//串联：EF/心泵储备 → B11"
+      },
+      "target": {
+        "block_id": "circulation-b11",
+        "logic_group_id": "circulation-b11-lg01",
+        "cue": "//串联：EF/心泵储备 → B11"
+      },
+      "reserve_learning": false
+    },
+    {
+      "id": "b01-c03-valves-to-b7",
+      "source": {
+        "block_id": "circulation-b01",
+        "kp_id": "circulation-b01-kp16",
+        "cue": "//串联：四瓣膜病 → B7"
+      },
+      "target": {
+        "block_id": "circulation-b07",
+        "logic_group_id": "circulation-b07-lg04",
+        "cue": "//串联：四瓣膜病 → B7"
+      },
+      "reserve_learning": false
+    },
+    {
+      "id": "b01-c05-warm-shock-to-b12",
+      "source": {
+        "block_id": "circulation-b01",
+        "kp_id": "circulation-b01-kp25",
+        "cue": "//串联：暖休克 → B12"
+      },
+      "target": {
+        "block_id": "circulation-b12",
+        "kp_id": "circulation-b12-kp14",
+        "cue": "//串联：暖休克 → B12"
+      },
+      "reserve_learning": false
+    },
+    {
+      "id": "b01-c06-coronary-supply-demand-to-b6",
+      "source": {
+        "block_id": "circulation-b01",
+        "kp_id": "circulation-b01-kp30",
+        "cue": "//串联：冠脉供需/心绞痛 → B6"
+      },
+      "target": {
+        "block_id": "circulation-b06",
+        "logic_group_id": "circulation-b06-lg01",
+        "cue": "//串联：冠脉供需/心绞痛 → B6"
+      },
+      "reserve_learning": false
+    },
+    {
+      "id": "b02-c01-carotid-to-b10",
+      "source": {
+        "block_id": "circulation-b02",
+        "kp_id": "circulation-b02-kp02",
+        "cue": "//串联：颈动脉窦反射 → B10"
+      },
+      "target": {
+        "block_id": "circulation-b10",
+        "kp_id": "circulation-b10-kp08",
+        "cue": "//串联：颈动脉窦反射 → B10"
+      },
+      "reserve_learning": false
+    },
+    {
+      "id": "b02-c03-ca-to-b3",
+      "source": {
+        "block_id": "circulation-b02",
+        "kp_id": "circulation-b02-kp07",
+        "cue": "//串联：儿茶酚胺与心肌电活动 → B3"
+      },
+      "target": {
+        "block_id": "circulation-b03",
+        "kp_id": "circulation-b03-kp19",
+        "cue": "//串联：儿茶酚胺与心肌电活动 → B3"
+      },
+      "reserve_learning": false
+    },
+    {
+      "id": "b02-c06-loss-to-b12",
+      "source": {
+        "block_id": "circulation-b02",
+        "kp_id": "circulation-b02-kp17",
+        "cue": "//串联：急性失血/低灌注 → B12"
+      },
+      "target": {
+        "block_id": "circulation-b12",
+        "kp_id": "circulation-b12-kp11",
+        "cue": "//串联：急性失血/低灌注 → B12"
+      },
+      "reserve_learning": false
+    },
+    {
+      "id": "b02-c05-remodel-to-b11",
+      "source": {
+        "block_id": "circulation-b02",
+        "kp_id": "circulation-b02-kp18",
+        "cue": "//串联：神经体液长期反噬 → B11"
+      },
+      "target": {
+        "block_id": "circulation-b11",
+        "kp_id": "circulation-b11-kp06",
+        "cue": "//串联：神经体液长期反噬 → B11"
+      },
+      "reserve_learning": false
+    }
+  ]
+}
