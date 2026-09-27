@@ -71,6 +71,7 @@ try {
     fs.writeFileSync(path.join(root, 'package.json'), JSON.stringify({
       name: 'candidate-dependency-fixture',
       private: true,
+      scripts: { dev: root === source ? 'astro dev --source' : 'astro dev --target' },
       dependencies: { astro: '^5.0.0', marked: '^15.0.0' }
     }));
   }
