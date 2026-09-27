@@ -254,6 +254,10 @@ def audit_current_sync(registry: dict) -> None:
         for path in scripts_root.rglob("*"):
             if not path.is_file() or path.suffix not in {".mjs", ".js", ".sh", ".py"}:
                 continue
+            # Test scripts may exercise git mutation signatures inside disposable
+            # fixtures. They are witnesses, not production Current mutation owners.
+            if path.name.startswith("test-"):
+                continue
             value = text(path)
             if any(signature in value for signature in mutation_signatures):
                 mutators.append(rel(path))
