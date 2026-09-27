@@ -1,8 +1,76 @@
 # KianOS
 
-KianOS is Chat's durable **knowledge + visual + runtime + reality-feedback** product extension for Kian. It exists where durable assets, high-quality presentation, stateful interaction or real-use evidence add value beyond ordinary Chat.
+Role: **static product/repository orientation**. Live engineering/status routing is owned by `CURRENT.md`; worker entry/routing is owned by `AGENTS.md`. This README is not a second Current, Acceptance ledger or semantic owner.
 
-The active model is intentionally small:
+KianOS is Chat's durable **knowledge + visual + runtime + reality-feedback** product extension for Kian.
+
+## Human-facing system map
+
+Think about KianOS in these zones:
+
+```text
+WHY / SYSTEM
+→ PROJECT_DEFINITION.md
+→ ARCHITECTURE.md
+→ SYSTEM_CONTRACT.md
+
+HOW WORK ENTERS / CONTINUES
+→ AGENTS.md
+→ CURRENT.md
+→ PROJECT_MANAGEMENT_CONTRACT.md when execution coordination matters
+
+AUTHORITY / CHANGE SAFETY
+→ AUTHORITY_INHERITANCE_CONTRACT.md
+→ AUTHORITY_OWNERSHIP.json
+→ SEMANTIC_BASE_VALIDITY.md
+→ BRANCH_LIFECYCLE.md
+
+BUILD QUALITY / ACCEPTANCE
+→ LEARNING_ASSET_STANDARD.md
+→ LEARNING_ACCEPTANCE.md
+→ GOVERNANCE_ACCEPTANCE.md only for top-level governance claims
+
+EXAM CROSS-SUBJECT RULES
+→ EXAM_ORCHESTRATOR_CONTRACT.md
+→ EXAM_ORCHESTRATOR_CURRENT.json
+→ EXAM_SUBJECT_MATURITY_STANDARD.md
+
+DOMAIN KNOWLEDGE / LEARNING
+→ content/
+   ├─ xizong/
+   ├─ english/
+   ├─ politics/
+   ├─ lexical/
+   └─ skills/
+
+PRODUCT / WEBSITE / RUNTIME
+→ static-web/
+
+MACHINE ENFORCEMENT
+→ tools/
+→ .github/
+```
+
+These are **logical zones, not separate truth systems**. Several durable root owners intentionally remain at repository root because many consumers depend on their stable paths. Do not move them merely for cosmetic folder symmetry.
+
+## Requirement → reality lifecycle
+
+The shared cross-system lifecycle is owned upstream in Personal OS `KERNEL.md §2 / Requirement → Reality change loop`. KianOS specializes it as:
+
+```text
+real need / outcome
+→ recover current KianOS owner + parent design basis
+→ Rule / Content / Visual / Engineering change only where needed
+→ Product / Runtime integration
+→ delivery to the real consumer
+→ native acceptance + end-to-end reality acceptance
+→ real-use evidence
+→ revise the earliest responsible owner when reality changes the accepted meaning
+```
+
+Local optimization is a delta against the current parent basis, not permission to redesign nearby layers.
+
+## Core product flow
 
 ```text
 Chat / accepted Rule
@@ -18,101 +86,72 @@ Chat / accepted Rule
 - private learner/execution state stays outside shared canonical Content.
 - raw PDFs, videos, transcripts and other unprocessed references normally remain in Drive / Library / Files / original sources until a real KianOS need justifies Knowledge reconstruction.
 - formal learning assets keep their full Source → Knowledge → Learning Logic → Content → Visual/Runtime quality chain.
-- `EXAM_ORCHESTRATOR_CONTRACT.md` owns the durable cross-subject exam orchestration Rule/Model: Phase/Gate/material-window facts, score/forecast boundaries and the policy constraints used by Chat. It does **not** own today's allocation/next-subject judgment, subject-local learning or learner truth.
+- `EXAM_ORCHESTRATOR_CONTRACT.md` owns durable cross-subject exam orchestration Rule/Model, not today's adaptive allocation or subject-local learner truth.
 - `kianwang022-hash/kianos-legacy` is recovery/reference only and is never a normal input.
 
 Chat is the open-ended cognition layer. KianOS Runtime may execute bounded approved logic and return reality evidence, but does not silently become a second strategy brain.
 
 ## Where to start
 
-KianOS does **not** maintain a second hand-written progress overview.
-
-For live project status and continuation:
+Do not infer live status from this README.
 
 ```text
-work / routing rules
+normal learner/product use
+→ exact product/domain runtime or Resume owner
+
+engineering / build / audit request
 → AGENTS.md
+→ CURRENT.md only when routing/status is needed
+→ exact owner
 
-whole-project current status
-→ CURRENT.md
+formal readiness claim
+→ exact ACCEPTANCE owner
 
-exact subject / module status
-→ the routed lane CURRENT.md
-
-formal accepted readiness
-→ the exact ACCEPTANCE.md owner
+design / optimization
+→ exact Rule/Product/Visual owner
+→ Change Continuity before material change
 ```
 
-If Kian wants a human-readable whole-system progress summary, Chat should read the current owners live and generate it on demand. Do not use historical Overview / Status / Migration documents as a substitute for Current.
-
-Historical PRs, migration ledgers, audits and retired design notes are evidence only unless a Current owner explicitly routes to them.
+Known-scope work should normally reach the responsible owner in a few precise reads. Historical PRs, migration ledgers, audits and retired design notes are evidence only unless a Current owner explicitly routes to them.
 
 ## Normal Mac learner use
 
 For normal study, use the dedicated disposable Current mirror rather than the development worktree.
 
-One-time install, or repair if the Current service is unhealthy:
-
 ```bash
 npm run current:install
-```
-
-Check that GitHub main, the local Current mirror, LaunchAgent, private learner-state bridge and localhost are ready. The doctor also reports External Reading private-source readiness as a separate warning/pass item:
-
-```bash
 npm run current:doctor
-```
-
-Open the learner site during normal use:
-
-```bash
 npm run current:open
 ```
 
-Create a manual copy of the latest complete learner checkpoint when you want an extra backup:
+Manual private-checkpoint backup / restore when needed:
 
 ```bash
 npm run current:backup
-```
-
-The backup is written to `~/Documents/KianOS Backups/` with private file permissions. Before the first real learner checkpoint exists, the command exits cleanly and reports that there is nothing to back up.
-
-Restore one explicit backup into the private recovery store only when needed:
-
-```bash
 npm run current:restore -- --from "$HOME/Documents/KianOS Backups/<backup-file>.json"
 ```
 
-Restore validates the backup before any write, preserves the current `latest.json` under a private `restore-safety/` copy first, then atomically installs the selected checkpoint. It intentionally does **not** clear current browser-local learner state: existing local evidence wins, and the private checkpoint is used when local state is empty (for example after a browser-profile loss or migration).
+The managed learner site is served on `http://127.0.0.1:4321/`. Private learner checkpoints live outside the disposable public Current mirror.
 
-After installation, the macOS LaunchAgent keeps the dedicated Current mirror synced to GitHub `main` and serves the learner site on `http://127.0.0.1:4321/`. Learner checkpoints live outside the disposable mirror in the private KianOS application-support directory.
-
-The development worktree remains separate and should not be used as the normal learner runtime.
-
-## Development run
+## Development
 
 From the repository root:
 
 ```bash
-npm run setup   # first run, or after dependency changes
+npm run setup
 npm run dev
-```
-
-Then open the local URL printed by Astro (normally `http://localhost:4321/`).
-
-Other root commands:
-
-```bash
 npm run build
 npm run preview
 ```
 
-You no longer need to `cd static-web` before running the learner runtime.
+Ordinary Website UI / Human-Gate iteration uses the Website Candidate lane documented in `static-web/CURRENT.md`; stable 4321 is not the scratch-preview surface.
 
 ## Deferred work
 
-Intentional postponements across **all KianOS lanes** use one lightweight parking lot: GitHub Issue #5, `KianOS Deferred Queue`.
+Intentional postponements across KianOS use GitHub Issue #5, `KianOS Deferred Queue`. Active work remains in the exact Current/work-cursor or canonical owner.
 
-GitHub Issue #5 itself owns both the rule and the queue. Active work stays in each lane's exact Current/work-cursor or canonical owner; retired continuation files are not normal Current state. Only explicitly postponed work with real future value goes into that shared Deferred Queue.
+## Principle
 
-This repository is rebuilt clean-room from explicitly admitted Current assets. Historical runtime, Site, release, compatibility, issue-driven control planes, and legacy governance are not inherited by default.
+**One need → one owner chain → one real consumer → claim-scoped evidence.**
+
+Keep root orientation stable, read narrowly, change the earliest responsible owner, verify the real effect, and stop.
