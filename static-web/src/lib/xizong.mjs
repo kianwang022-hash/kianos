@@ -11,6 +11,18 @@ const OWNER_MANIFEST = `${KNOWLEDGE_ROOT}/manifest.json`;
 const SYSTEMS_ROOT = `${KNOWLEDGE_ROOT}/systems`;
 const LEARNER_ROOT = `${KNOWLEDGE_ROOT}/learner`;
 const PROJECTION_MANIFEST = 'content/xizong/projection/manifest.json';
+const BUILD_CACHE_ENABLED = process.env.KIANOS_XIZONG_BUILD_CACHE === '1';
+
+// A candidate build sees one immutable Git worktree for its entire process.
+// Cache canonical owner reads/projections only within that process; a new
+// release/build gets a fresh module graph and therefore a fresh cache.
+let currentManifestCache = null;
+let projectionManifestCache = null;
+let systemDirectoryCache = null;
+const learningIdentityCache = new Map();
+const systemRecordCache = new Map();
+const normalizedSystemCache = new Map();
+const blockCache = new Map();
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -33,12 +45,14 @@ function pad2(value) {
 }
 
 function assertCurrentManifest() {
+  if (BUILD_CACHE_ENABLED && currentManifestCache) return currentManifestCache;
   if (!fs.existsSync(absolute(OWNER_MANIFEST))) throw new Error('CURRENT_XIZONG_OWNER_MANIFEST_MISSING');
   const manifest = readJson(OWNER_MANIFEST);
   if (manifest?.status !== 'CURRENT') throw new Error(`CURRENT_XIZONG_OWNER_MANIFEST_INVALID:${manifest?.status || 'unknown'}`);
   if (manifest?.owner_resolution?.system_level?.parallel_owner_forbidden !== true) {
     throw new Error('CURRENT_XIZONG_OWNER_RESOLUTION_INVALID');
   }
+  if (BUILD_CACHE_ENABLED) currentManifestCache = manifest;
   return manifest;
 }
 
@@ -51,6 +65,7 @@ function systemIdentity(system) {
 }
 
 function currentLearningIdentity(dirName) {
+  if (BUILD_CACHE_ENABLED && learningIdentityCache.has(dirName)) return learningIdentityCache.get(dirName);
   const learningPath = LEARNER_ROOT + '/' + dirName + '-learning.json';
   if (!fs.existsSync(absolute(learningPath))) throw new Error('CURRENT_XIZONG_LEARNING_OWNER_MISSING:' + dirName);
   const learning = readJson(learningPath);
@@ -61,12 +76,14 @@ function currentLearningIdentity(dirName) {
   const blockCount = Number(learning?.identity?.stable_block_count ?? Object.keys(blocks).length);
   const kpCount = Number(learning?.identity?.stable_kp_count);
   const logicGroupCount = Number(learning?.identity?.logic_group_count ?? Object.values(blocks).reduce((sum, block) => sum + Object.keys(block?.logic_groups || {}).length, 0));
-  return {
+  const result = {
     learningPath, learning,
     blockCount: Number.isFinite(blockCount) && blockCount > 0 ? blockCount : null,
     kpCount: Number.isFinite(kpCount) && kpCount > 0 ? kpCount : null,
     logicGroupCount: Number.isFinite(logicGroupCount) && logicGroupCount > 0 ? logicGroupCount : null
   };
+  if (BUILD_CACHE_ENABLED) learningIdentityCache.set(dirName, result);
+  return result;
 }
 function isChatApproved(system) {
   return String(system?.semantic_authority || '').startsWith('CHAT_APPROVED');
@@ -76,7 +93,10 @@ function systemProjectionMaterialized(identity) {
   if (!fs.existsSync(absolute(PROJECTION_MANIFEST))) {
     throw new Error('CURRENT_XIZONG_PROJECTION_MANIFEST_MISSING');
   }
-  const manifest = readJson(PROJECTION_MANIFEST);
+  const manifest = BUILD_CACHE_ENABLED && projectionManifestCache
+    ? projectionManifestCache
+    : readJson(PROJECTION_MANIFEST);
+  if (BUILD_CACHE_ENABLED) projectionManifestCache = manifest;
   if (!String(manifest?.status || '').startsWith('CURRENT_')) {
     throw new Error(`CURRENT_XIZONG_PROJECTION_MANIFEST_INVALID:${manifest?.status || 'unknown'}`);
   }
@@ -99,22 +119,32 @@ function directBlockRoute(system) {
 }
 
 function systemDirectoryCandidates() {
+  if (BUILD_CACHE_ENABLED && systemDirectoryCache) return systemDirectoryCache;
   const root = absolute(SYSTEMS_ROOT);
   if (!fs.existsSync(root)) throw new Error('CURRENT_XIZONG_SYSTEMS_ROOT_MISSING');
-  return fs.readdirSync(root, { withFileTypes: true })
+  const rows = fs.readdirSync(root, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name)
     .sort((a, b) => a.localeCompare(b));
+  if (BUILD_CACHE_ENABLED) systemDirectoryCache = rows;
+  return rows;
 }
 
 function systemRecordFromDir(dirName) {
+  if (BUILD_CACHE_ENABLED && systemRecordCache.has(dirName)) return systemRecordCache.get(dirName);
   const systemPath = `${SYSTEMS_ROOT}/${dirName}/system.json`;
-  if (!fs.existsSync(absolute(systemPath))) return null;
+  if (!fs.existsSync(absolute(systemPath))) {
+    if (BUILD_CACHE_ENABLED) systemRecordCache.set(dirName, null);
+    return null;
+  }
   const text = readText(systemPath);
   const system = JSON.parse(text);
   const identity = systemIdentity(system);
-  if (!identity.systemId || !identity.title || !isChatApproved(system)) return null;
-  return {
+  if (!identity.systemId || !identity.title || !isChatApproved(system)) {
+    if (BUILD_CACHE_ENABLED) systemRecordCache.set(dirName, null);
+    return null;
+  }
+  const record = {
     dirName,
     systemPath,
     system,
@@ -122,6 +152,8 @@ function systemRecordFromDir(dirName) {
     sourceHash: sha256(text),
     projectionAccepted: systemProjectionMaterialized(identity)
   };
+  if (BUILD_CACHE_ENABLED) systemRecordCache.set(dirName, record);
+  return record;
 }
 
 function blockOrdinalFromFile(filename) {
@@ -758,6 +790,14 @@ export function buildXizongForecastCanonicalScope(packetIndex = []) {
     boundary: 'Canonical workload scope comes from Current Knowledge/Learning owners. Website packet rows provide execution identity only; unprojected Systems remain explicit aggregate workload and never disappear from Forecast.'
   };
 }
+function normalizedSystem(record) {
+  const key = String(record?.identity?.systemId || '');
+  if (BUILD_CACHE_ENABLED && key && normalizedSystemCache.has(key)) return normalizedSystemCache.get(key);
+  const value = normalizeSystem(record);
+  if (BUILD_CACHE_ENABLED && key) normalizedSystemCache.set(key, value);
+  return value;
+}
+
 export function listProjectableXizongSystems() {
   assertCurrentManifest();
   return systemDirectoryCandidates()
@@ -765,11 +805,12 @@ export function listProjectableXizongSystems() {
     .filter(Boolean)
     .filter((record) => record.projectionAccepted)
     .filter((record) => directBlockRoute(record.system).length > 0)
-    .map(normalizeSystem);
+    .map(normalizedSystem);
 }
 
 export function loadXizongSystem(systemId) {
   assertCurrentManifest();
+  if (BUILD_CACHE_ENABLED && normalizedSystemCache.has(systemId)) return normalizedSystemCache.get(systemId);
   const record = systemDirectoryCandidates()
     .map(systemRecordFromDir)
     .filter(Boolean)
@@ -777,10 +818,12 @@ export function loadXizongSystem(systemId) {
   if (!record) throw new Error(`CURRENT_XIZONG_SYSTEM_NOT_FOUND:${systemId}`);
   if (!record.projectionAccepted) throw new Error(`CURRENT_XIZONG_PROJECTION_NOT_ACCEPTED:${systemId}`);
   if (!directBlockRoute(record.system).length) throw new Error(`CURRENT_XIZONG_SYSTEM_NOT_PROJECTABLE:${systemId}`);
-  return normalizeSystem(record);
+  return normalizedSystem(record);
 }
 
 export function loadXizongBlock(systemId, blockSlugOrId) {
+  const cacheKey = `${systemId}:${blockSlugOrId}`;
+  if (BUILD_CACHE_ENABLED && blockCache.has(cacheKey)) return blockCache.get(cacheKey);
   const system = loadXizongSystem(systemId);
   const blockMeta = system.blocks.find((block) => block.slug === blockSlugOrId || block.blockId === blockSlugOrId);
   if (!blockMeta) throw new Error(`CURRENT_XIZONG_BLOCK_NOT_FOUND:${systemId}:${blockSlugOrId}`);
@@ -819,7 +862,7 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
   const visualGate = sectionByTitle(markdown, (title) => /原图门禁/.test(title));
   if (!intro) throw new Error(`CURRENT_XIZONG_BLOCK_LEARN_MISSING:${blockMeta.blockId}`);
 
-  return {
+  const result = {
     ...blockMeta,
     objectId: `xizong:${blockMeta.blockId}`,
     systemId: system.systemId,
@@ -839,6 +882,13 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     kpRecords,
     sourceHash: sha256(markdown)
   };
+  if (BUILD_CACHE_ENABLED) {
+    blockCache.set(cacheKey, result);
+    // Also admit the alternate stable block-id/slug key for the same object.
+    blockCache.set(`${systemId}:${blockMeta.blockId}`, result);
+    blockCache.set(`${systemId}:${blockMeta.slug}`, result);
+  }
+  return result;
 }
 
 // Identity-only Current requirements; never ship medical Core to a stage guard.

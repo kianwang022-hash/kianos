@@ -7,6 +7,8 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
   : path.resolve(process.cwd(), '..');
 
 const LEARNER_ROOT = 'content/xizong/knowledge/learner';
+const BUILD_CACHE_ENABLED = process.env.KIANOS_XIZONG_BUILD_CACHE === '1';
+const pathwaysCache = new Map();
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -55,9 +57,14 @@ export function loadXizongPathways(system) {
   const canonicalId = String(system?.canonicalId || '').toLowerCase();
   const systemId = String(system?.systemId || '');
   if (!canonicalId || !systemId) return null;
+  const cacheKey = `${canonicalId}:${systemId}`;
+  if (BUILD_CACHE_ENABLED && pathwaysCache.has(cacheKey)) return pathwaysCache.get(cacheKey);
 
   const sourcePath = `${LEARNER_ROOT}/${canonicalId}-${systemId}-pathways.json`;
-  if (!fs.existsSync(absolute(sourcePath))) return null;
+  if (!fs.existsSync(absolute(sourcePath))) {
+    if (BUILD_CACHE_ENABLED) pathwaysCache.set(cacheKey, null);
+    return null;
+  }
 
   const raw = JSON.parse(fs.readFileSync(absolute(sourcePath), 'utf8'));
   if (raw?.status !== 'CURRENT' || !String(raw?.authority || '').startsWith('CHAT_APPROVED')) {
@@ -87,11 +94,13 @@ export function loadXizongPathways(system) {
     validateEndpoint(systemId, connection.id, 'target', connection.target, semanticCache);
   }
 
-  return {
+  const result = {
     sourcePath,
     systemFailureViews: raw.system_failure_views || {},
     connections
   };
+  if (BUILD_CACHE_ENABLED) pathwaysCache.set(cacheKey, result);
+  return result;
 }
 
 export function pathwaysForBlock(pathways, blockId) {
