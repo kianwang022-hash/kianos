@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL;
     normalizeLexicalSettings,
     registerLexicalIntroduction
   } from '../lib/lexicalSettings.mjs';
-  import { lexicalWordRuntimeHref } from '../lib/lexicalRuntimeRoute.mjs';
+  import { lexicalWordOrdinal, lexicalWordRuntimeHref } from '../lib/lexicalRuntimeRoute.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable } from '../lib/lexicalBrowserState.mjs';
   void learnerWriterReady.then(() => {
@@ -36,7 +36,6 @@ const base = import.meta.env.BASE_URL;
     const sourceHash=root.getAttribute('data-vocab-source-hash')||'';
     const requestedMode=new URLSearchParams(location.search).get('mode');
     const mode=['lookup','repair'].includes(String(requestedMode||''))?String(requestedMode):'study';
-    const nextHref=ordinal<total?lexicalWordRuntimeHref(base,ordinal+1,mode):base+'vocabulary/';
     root.dataset.vocabMode=mode;
     const readOnlyLookup=mode==='lookup';
     const storageKey=`kianos-vocabulary-astro-v2:${objectId}`;
@@ -69,6 +68,9 @@ const base = import.meta.env.BASE_URL;
     const readIntake=()=>normalizeLexicalIntake(readJson(LEXICAL_INTAKE_STORAGE_KEY,null));
     const saveIntake=(value)=>saveJson(LEXICAL_INTAKE_STORAGE_KEY,value);
     const homeHref=()=>{const url=new URL(base+'vocabulary/',location.origin);url.searchParams.set('limit','reached');return url.href};
+    const requestRuntimeNavigation=(targetOrdinal,history='push')=>{
+      window.dispatchEvent(new CustomEvent('kianos:vocabulary-navigate',{detail:{ordinal:targetOrdinal,mode,history}}));
+    };
     const newWordBlocked=()=>{
       if(mode!=='study'||introductionDayFor(readIntake(),objectId))return false;
       return introducedCountForDay(readIntake(),localLexicalDay())>=readSettings().daily_new_limit;
@@ -114,7 +116,12 @@ const base = import.meta.env.BASE_URL;
         }
       }
       updateUndoState();
-      if(last.return_href)location.href=last.return_href;
+      if(last.return_href){
+        let targetOrdinal=0;
+        try{targetOrdinal=lexicalWordOrdinal(new URL(last.return_href,location.origin));}catch{}
+        if(Number.isInteger(targetOrdinal)&&targetOrdinal>0)requestRuntimeNavigation(targetOrdinal,'push');
+        else location.href=last.return_href;
+      }
     };
 
     const submitRoute=(route)=>{
@@ -137,7 +144,8 @@ const base = import.meta.env.BASE_URL;
         location.href=homeHref();
         return;
       }
-      location.href=nextHref;
+      if(ordinal<total)requestRuntimeNavigation(ordinal+1,'push');
+      else location.href=base+'vocabulary/';
     };
 
     routeButtons.forEach((button)=>button.addEventListener('click',()=>{
@@ -151,7 +159,7 @@ const base = import.meta.env.BASE_URL;
     // the evidence bridge can observe the pre-toggle state and silently miss the admission.
     const recordToggle=(button)=>{const active=button.getAttribute('aria-pressed')==='true';append(targetEventFromButton(button,active?{}:{event_id:browserEventId('clear'),source:'manual_clear',outcome:'CLEAR'}))};
     root.addEventListener('click',(event)=>{const button=event.target instanceof HTMLElement?event.target.closest('[data-vocab-repair]'):null;if(button instanceof HTMLButtonElement)recordToggle(button)});
-    document.addEventListener('keydown',(event)=>{
+    const onRoutingKeydown=(event)=>{
       if(event.defaultPrevented||mode!=='study'||document.querySelector('[data-vocab-challenge-runtime][data-challenge-active="true"]'))return;
       const activeRoot=document.querySelector('[data-local-port="vocabulary"][data-vocab-keyboard-active="true"]')||document.querySelector('[data-local-port="vocabulary"]');
       if(activeRoot!==root)return;
@@ -166,7 +174,14 @@ const base = import.meta.env.BASE_URL;
       const routeByKey={ArrowLeft:'unknown',ArrowUp:'fuzzy',ArrowRight:'known',ArrowDown:'mastered'};
       const route=routeByKey[event.key];
       if(route){event.preventDefault();submitRoute(route);}
-    });
+    };
+    document.addEventListener('keydown',onRoutingKeydown);
+    const onDispose=(event)=>{
+      if(!(event instanceof CustomEvent)||event.detail?.root!==root)return;
+      document.removeEventListener('keydown',onRoutingKeydown);
+      window.removeEventListener('kianos:vocabulary-root-dispose',onDispose);
+    };
+    window.addEventListener('kianos:vocabulary-root-dispose',onDispose);
   };
   const initializeCurrent=()=>document.querySelectorAll('[data-local-port="vocabulary"]').forEach(initializeVocabularyEvidence);
   initializeCurrent();

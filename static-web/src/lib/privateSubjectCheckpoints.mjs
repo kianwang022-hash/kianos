@@ -39,6 +39,15 @@ const lexicalCheckpointKeyAllowed = (key) => {
   return value.startsWith('kianos-lexical-') || value.startsWith('kianos-vocabulary-');
 };
 
+const lexicalOpaqueStringKeyAllowed = (key) =>
+  String(key || '').startsWith('kianos-lexical-note-v1:');
+
+const validateLexicalStorageRaw = (key, raw) => {
+  if (lexicalOpaqueStringKeyAllowed(key)) return;
+  try { JSON.parse(raw); }
+  catch { throw new Error('PRIVATE_CHECKPOINT_LEXICAL_JSON_INVALID:' + key); }
+};
+
 const subjectStorageIsEmpty = (storage, allowed) =>
   !listStorageKeys(storage).some((key) => allowed(key));
 
@@ -63,8 +72,7 @@ const captureLexicalCheckpoint = (storage) => {
   for (const key of listStorageKeys(storage).filter(lexicalCheckpointKeyAllowed).sort()) {
     const raw = storage.getItem(key);
     if (typeof raw !== 'string') continue;
-    try { JSON.parse(raw); }
-    catch { throw new Error('PRIVATE_CHECKPOINT_LEXICAL_JSON_INVALID:' + key); }
+    validateLexicalStorageRaw(key, raw);
     entries[key] = raw;
   }
   return Object.keys(entries).length
@@ -83,12 +91,22 @@ const validateEnglishCheckpoint = (value) => {
   return Object.entries(value.entries);
 };
 const validateLexicalCheckpoint = (value) => {
-  const entries = validateEntriesPayload(value, {
-    schema: LEXICAL_PRIVATE_PAYLOAD_SCHEMA, allowed: lexicalCheckpointKeyAllowed, label: 'LEXICAL'
-  });
+  if (!value || typeof value !== 'object' || Array.isArray(value)
+      || value.schema !== LEXICAL_PRIVATE_PAYLOAD_SCHEMA || !value.entries || typeof value.entries !== 'object'
+      || Array.isArray(value.entries)) {
+    throw new Error('PRIVATE_CHECKPOINT_LEXICAL_SCHEMA_INVALID');
+  }
+  const entries = [];
+  for (const [key, raw] of Object.entries(value.entries)) {
+    if (!lexicalCheckpointKeyAllowed(key) || typeof raw !== 'string') {
+      throw new Error('PRIVATE_CHECKPOINT_LEXICAL_KEY_INVALID:' + key);
+    }
+    validateLexicalStorageRaw(key, raw);
+    entries.push([key, raw]);
+  }
   const ledger = value.entries[LEXICAL_LEDGER_STORAGE_KEY];
   if (ledger != null) assertLexicalLedgerReadable(JSON.parse(ledger));
-  return entries;
+  return entries.sort(([a], [b]) => a.localeCompare(b));
 };
 
 // Disposable transaction storage only; never a second persistent learner store.

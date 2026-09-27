@@ -31,13 +31,21 @@ if (fs.existsSync(path.join(webRoot, 'src/pages/vocabulary/[ordinal].astro'))) f
 const runtimePage = read('static-web/src/pages/vocabulary/word/index.astro');
 const fragmentPage = read('static-web/src/pages/vocabulary-data/[key].astro');
 const runtime = read('static-web/src/components/VocabularyWordRuntime.astro');
+const evidence = read('static-web/src/components/VocabularyEvidenceBridge.astro');
 const markup = read('static-web/src/components/VocabularyWordMarkup.astro');
 const home = read('static-web/src/components/VocabularyHome.astro');
+const timerClient = read('static-web/src/lib/studyTimerClient.mjs');
+const timer = read('static-web/src/lib/studyTimer.mjs');
 const server = read('static-web/scripts/kianos-static-server.mjs');
 
 if (!runtimePage.includes('data-vocab-runtime-host') || !runtimePage.includes('vocabulary-data/')) fail('runtime_loader_missing');
 if (!fragmentPage.includes('VocabularyWordMarkup') || !fragmentPage.includes('lexicalRuntimeManifest')) fail('fragment_projection_missing');
 if (!runtime.includes("kianos:vocabulary-root-ready")) fail('runtime_dynamic_init_missing');
+if (!runtimePage.includes("kianos:vocabulary-navigate") || !runtimePage.includes("history.pushState") || !runtimePage.includes("parsedShardCache") || !runtimePage.includes("transportTextCache")) fail('runtime_inplace_navigation_missing');
+if (!runtimePage.includes("x-kianos-release-sha") || !server.includes("x-kianos-release-sha")) fail('runtime_release_consistency_guard_missing');
+if (!runtimePage.includes("kianos:runtime-route-changed") || !timerClient.includes("kianos:runtime-route-changed") || !timer.includes("retargetStudyTimerContext")) fail('shared_runtime_route_signal_missing');
+if (!runtime.includes("kianos:vocabulary-root-dispose") || !evidence.includes("kianos:vocabulary-root-dispose")) fail('runtime_dynamic_disposal_missing');
+if (!evidence.includes("requestRuntimeNavigation(ordinal+1") || evidence.includes("location.href=nextHref")) fail('evidence_full_page_next_navigation_present');
 if (!markup.includes('data-has-reference={hasReferenceRail') || !markup.includes('portedVocabEvidenceColumn')) fail('content_earned_reference_missing');
 if (!home.includes('lexicalWordRuntimeHref')) fail('home_not_using_single_runtime');
 if (!server.includes('legacyVocabularyWord') || !server.includes("resolveStatic('/vocabulary/word/'")) fail('legacy_url_compat_missing');

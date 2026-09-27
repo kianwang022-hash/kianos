@@ -244,9 +244,18 @@ const { answer = null } = Astro.props;
 
     syncPronunciationPreference();
     window.addEventListener('kianos:lexical-settings-changed', syncPronunciationPreference);
-    window.addEventListener('storage', (event) => {
+    const onSettingsStorage = (event) => {
       if (event.key === LEXICAL_SETTINGS_STORAGE_KEY) syncPronunciationPreference();
-    });
+    };
+    window.addEventListener('storage', onSettingsStorage);
+    const onDispose = (event) => {
+      if (!(event instanceof CustomEvent) || event.detail?.root !== root) return;
+      document.removeEventListener('keydown', onKeydown);
+      window.removeEventListener('kianos:lexical-settings-changed', syncPronunciationPreference);
+      window.removeEventListener('storage', onSettingsStorage);
+      window.removeEventListener('kianos:vocabulary-root-dispose', onDispose);
+    };
+    window.addEventListener('kianos:vocabulary-root-dispose', onDispose);
     save();
     render();
     if (!state.revealed) requestAnimationFrame(() => speak(defaultPronunciation()));
