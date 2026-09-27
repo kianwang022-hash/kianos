@@ -18,6 +18,7 @@ import {
 import {
   acquireDeliveryLock,
   releasePaths,
+  resolveCurrentBuildTimeoutMs,
   resolveCurrentSubprocessTimeoutMs,
   runBounded,
   terminateProcessTree
@@ -47,6 +48,7 @@ const oneShot = process.env.KIANOS_SYNC_ONCE === '1';
 const skipAstro = process.env.KIANOS_SKIP_ASTRO === '1';
 const releases = releasePaths(repoRoot);
 const subprocessTimeoutMs = resolveCurrentSubprocessTimeoutMs();
+const buildTimeoutMs = resolveCurrentBuildTimeoutMs();
 const syncRuntimePaths = [
   'static-web/scripts/kianos-current-sync.mjs',
   'static-web/scripts/currentRelease.mjs',
@@ -136,8 +138,13 @@ function readActiveBuiltStatus() {
     : readBuiltStatus();
 }
 
-async function runChild(file, args, { cwd = webRoot, label = file, env = process.env } = {}) {
-  await runBounded(file, args, { cwd, env, label, timeoutMs: subprocessTimeoutMs });
+async function runChild(file, args, {
+  cwd = webRoot,
+  label = file,
+  env = process.env,
+  timeoutMs = subprocessTimeoutMs
+} = {}) {
+  await runBounded(file, args, { cwd, env, label, timeoutMs });
 }
 
 async function prepareRelease(sha, extra = {}) {
@@ -198,7 +205,8 @@ async function prepareRelease(sha, extra = {}) {
       await runChild(args[0], args.slice(1), {
         cwd: candidateWebRoot,
         label: 'candidate Astro build',
-        env: { ...process.env, KIANOS_RELEASE_SHA: sha }
+        env: { ...process.env, KIANOS_RELEASE_SHA: sha },
+        timeoutMs: buildTimeoutMs
       });
       writeBuiltStatus(candidateStage, sha, extra);
       fs.renameSync(candidateStage, path.join(candidateWebRoot, 'dist'));
