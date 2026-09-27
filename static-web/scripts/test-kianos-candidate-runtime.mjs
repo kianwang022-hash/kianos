@@ -23,16 +23,16 @@ const defaults = resolveCandidateConfig({});
 assert.equal(defaults.host, '127.0.0.1');
 assert.equal(defaults.port, 4322);
 assert.equal(defaults.base, 'http://127.0.0.1:4322/');
-assert.equal(defaults.openBrowser, true);
+assert.equal(defaults.openBrowser, false);
 
 const custom = resolveCandidateConfig({
   KIANOS_CANDIDATE_HOST: 'localhost',
   KIANOS_CANDIDATE_PORT: '4332',
-  KIANOS_CANDIDATE_OPEN: '0'
+  KIANOS_CANDIDATE_OPEN: '1'
 });
 assert.equal(custom.host, 'localhost');
 assert.equal(custom.port, 4332);
-assert.equal(custom.openBrowser, false);
+assert.equal(custom.openBrowser, true);
 
 assert.throws(
   () => resolveCandidateConfig({ KIANOS_CANDIDATE_PORT: '4321' }),
