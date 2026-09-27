@@ -99,20 +99,22 @@ LOCAL_CURRENT_SYNC.md
 
 Candidate `4322` is the ordinary UI/Human-Gate engineering lane. Managed Current `4321` is Stable learner/use runtime.
 
-## Change path
+## BUILD / UI implementation path
 
-For a material Website change:
+This section describes Website **BUILD**, not the full CREATE → BUILD → AUDIT → REAL USE lifecycle. If product/learning/visual meaning is still open, resolve it in CREATE first through the exact owner.
 
 ```text
-real user need / defect
-→ exact Rule / Product / Content / Visual basis
+accepted CREATE basis / concrete implementation defect
+→ exact Rule / Product / Content / Visual owner
 → actual consumer
 → smallest implementation delta
 → Candidate real-browser proof
-→ applicable native acceptance / Human Gate
+→ applicable native/local proof + Human Gate
 → durable merge + managed Current promotion
 → stable consumer readback
 ```
+
+After BUILD, a broader AUDIT—when warranted—independently verifies that the promoted Website faithfully realizes the accepted design under real consumer/state/failure paths. This README does not define that audit method.
 
 A Website claim is not accepted merely because a route, selector, screenshot or build exists. The applicable Acceptance owner decides what evidence is sufficient.
 
