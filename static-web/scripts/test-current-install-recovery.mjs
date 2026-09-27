@@ -20,7 +20,7 @@ try {
   git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'A'); const a = git(upstream, 'rev-parse', 'HEAD');
   git(root, 'clone', '--bare', upstream, remote); git(upstream, 'remote', 'add', 'origin', remote); git(root, 'clone', remote, mirror); fs.writeFileSync(path.join(mirror, '.git/kianos-current-mirror'), '');
   const npm = path.join(root, 'npm');
-  fs.writeFileSync(npm, `#!/bin/sh\nif [ "$1" = install ]; then [ "$INSTALL_FAIL" != 1 ]; exit $?; fi\nout=""; while [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"; echo built > "$out/index.html"\n`);
+  fs.writeFileSync(npm, `#!/bin/sh\nif [ "$1" = install ]; then [ "$INSTALL_FAIL" = 1 ] && exit 1; mkdir -p "$PWD/node_modules/.bin"; : > "$PWD/node_modules/.bin/astro"; exit 0; fi\nout=""; while [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"; echo built > "$out/index.html"\n`);
   fs.chmodSync(npm, 0o755);
   assert.equal(run({ KIANOS_NPM_BIN: npm }).status, 0);
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), a);
