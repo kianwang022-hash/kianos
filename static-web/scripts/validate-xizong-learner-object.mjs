@@ -94,6 +94,12 @@ for (const systemSummary of listProjectableXizongSystems()) {
       assert(deferredPrecision.every((row) => !row.answerHtml), 'circulation-b01:deferred-precision-answer-leak');
       const kp05 = learnerObject.kps.find((kp) => kp.identity.kpId === 'circulation-b01-kp05');
       assert((kp05?.precision || []).length === 0, 'circulation-b01-kp05:fake-precision-created');
+      const kp09 = learnerObject.kps.find((kp) => kp.identity.kpId === 'circulation-b01-kp09');
+      assert((kp09?.connection?.outgoing || []).some((row) => row.id === 'b01-c01-af-filling-to-b10'), 'circulation-b01-kp09:future-connection-missing');
+    }
+    if (productionBlock.blockId === 'circulation-b10') {
+      const lg05 = learnerObject.logicGroups.find((group) => group.identity.logicGroupId === 'circulation-b10-lg05');
+      assert((lg05?.connection?.incoming || []).some((row) => row.id === 'b01-c01-af-filling-to-b10'), 'circulation-b10-lg05:incoming-reactivation-missing');
     }
 
     totalKpVisual += report.kpVisualCount;
