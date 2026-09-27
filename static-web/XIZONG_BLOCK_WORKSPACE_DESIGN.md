@@ -57,7 +57,7 @@ Visual ownership rule:
 
 > Runtime may publish state such as `outline-collapsed` or `auxWeight`, but it must not write pixel widths or `grid-template-columns` inline. Logic Map / Stage / Context geometry belongs to the Block visual owner (`xizong-block-workspace.css`).
 
-## 3｜Current implementation audit disposition — ACCEPTED DIRECTION
+## 3｜Current implementation review disposition — ACCEPTED DIRECTION
 
 ### KEEP
 
