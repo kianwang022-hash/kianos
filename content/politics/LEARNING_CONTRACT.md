@@ -293,7 +293,19 @@ Default non-admission cases include:
 
 Precision is narrower still. A question may produce conceptual repair without producing any Precision candidate.
 
-Optional chapter-level `*.memory.json` sidecars may hold sparse, source-grounded candidates without making them first-round learner-facing content. Sidecars exist only where validation demonstrates a real need; do not materialize them across every chapter for schema completeness.
+**Structural active recall is a different retention form from Precision debt.** A source-bound Unit or Chapter learning owner may define a reconstruction target through its approved `closure_cue`, `review_prompt`, or `reconstruction_chain`. Once that Unit/Chapter has actually been learned, that target may enter later active Recall even when no Wrong/Uncertain event exists, because the learner must retain the approved relation model rather than merely recognize it once.
+
+For structural Recall:
+
+- the prompt must stay bound to the Current learning owner and its Natural Unit / Chapter source bindings;
+- the learner attempts the relation/causal/mechanism reconstruction **before** the answer is shown;
+- Wrong/Uncertain/Recall history changes review priority and repair depth, not whether an exam-relevant approved structure exists;
+- a stable response is evidence, not permanent mastery or permission to delete the target;
+- this does not authorize exact wording or new political claims beyond the source-grounded Current owner.
+
+This distinction is especially important for Marxism and History: their durable retention burden is often a relation/causal reconstruction, not a pile of isolated hats. A low Precision-candidate count must never be interpreted as a low long-term retention requirement.
+
+Optional chapter-level `*.memory.json` sidecars may hold sparse, source-grounded **Precision** candidates without making them first-round learner-facing content. Sidecars exist only where validation demonstrates a real need; do not materialize them across every chapter for schema completeness.
 
 ### 6.1.1 Cross-day Memory evidence profile
 

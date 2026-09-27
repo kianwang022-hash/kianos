@@ -12,7 +12,8 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 Issue #1026 — **Politics rapid-mastery learning-logic analysis**.
 
 - Phase / Next / Blocker live in Issue #1026 while it is open.
-- This anchor is ANALYSIS ONLY until Kian explicitly adopts a product/behavior change.
+- Kian has explicitly adopted the fast-learning optimization direction: reduce redundant learner operations and improve timing/representation **without reducing exam-relevant knowledge coverage or long-term retention**.
+- Current #1026 work is CREATE at the Knowledge/Learning layer **by Change Continuity on the existing Politics model**; do not create a second fast-learning mode/system/claim, and do not let BUILD/UI outrun the smallest accepted delta.
 - Exact Content / Learning / Interaction / Projection / Surface Mapping truth remains with native owners.
 - Issue #1015 remains closed history: it was the prematurely implemented probe attempt and must not be revived as current work.
 - Ordinary Politics learning still bypasses this engineering analysis anchor.
@@ -28,12 +29,17 @@ Issue #1026 — **Politics rapid-mastery learning-logic analysis**.
 
 ### Next
 
-real Politics study
-→ or an explicit Source/content/product/runtime defect or BUILD/CONTROL request
-→ route to the smallest exact owner
-→ stop after targeted proof
+While Issue #1026 remains open:
 
-Historical maturity campaigns, first-round audit receipts and candidate branches are not Current work.
+fast-learning / retention CREATE
+→ audit one subject's complete retention + learning model at K/L
+→ reconstruct content without deleting required knowledge
+→ pass Content Closure for that subject
+→ only then hand accepted meaning to Projection / Runtime
+
+Current first shard: Marxism. #1042 remains Draft presentation work and is not closure evidence for #1026.
+
+Ordinary Politics study still bypasses this engineering cursor. Historical maturity campaigns and old audit receipts are not Current work.
 
 ## Stable learning roles
 

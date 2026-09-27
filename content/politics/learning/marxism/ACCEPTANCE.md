@@ -11,7 +11,45 @@ It does not own political Source Truth, teaching content, Politics learning/inte
 
 ---
 
-## Whole-subject gate status
+## Reopened gate — #1026 fast-learning / durable-retention optimization
+
+This is **Change Continuity on the existing accepted Marxism model**, not a second acceptance track. The existing Source / first-round Workbench / Return / Evidence capabilities below remain accepted where their premises are unchanged; only the affected Knowledge/Learning dependency chain is reopened for this optimization.
+
+Parent outcome:
+
+> Preserve complete exam-relevant Marxism knowledge and durable retrieval while reducing redundant rereading, fragmented memorization, unnecessary switching and poorly timed cognitive load.
+
+Current gate state for the affected optimization path:
+
+```text
+S  PASS        existing Current Source boundary remains the factual basis
+K  BLOCKED     ← ACTIVE: complete retention/content reconstruction has not yet been proven
+L  UNTESTED    ← downstream-frozen for the new optimized path until K closes
+P  UNTESTED    ← downstream-frozen for the new optimized path
+R  UNTESTED    ← downstream-frozen for the new optimized path
+E  UNTESTED    ← downstream-frozen for the new optimized path
+U  UNTESTED
+```
+
+Known K blocker:
+
+- the current general Politics Memory catalog exposes only 4 Marxism Precision/Boundary candidates, while Current Marxism learning owners already contain 21 Unit `closure_cue` reconstruction targets, 9 Chapter `review_prompt` targets, 90 teaching beats, 59 major/key boundaries and 68 chapter-compression nodes;
+- therefore the low Memory-candidate count does not represent Marxism's real long-term retention requirement;
+- the optimized content/retention model must distinguish **structural active recall** from sparse exact/precision memory and must prove that first-round compression does not delete required knowledge.
+
+Acceptance required before K may close:
+
+1. every Current Marxism Unit/Chapter has an explicit disposition for what must remain reconstructable, what must be exact, and what is question-triggered repair only;
+2. Content Reconstruction reduces learner operations by organizing the existing owner content into better mother chains / mechanisms / boundaries rather than deleting exam-relevant material;
+3. Content Closure reverse-traces the optimized assets back to the Current learning/source owners and identifies any omitted material explicitly;
+4. the resulting retention targets are granular enough that one forgotten node does not force an entire otherwise-known group to be treated as unknown;
+5. no Projection/Runtime/UI implementation is used as evidence that K/L are settled.
+
+Only after this K claim passes may the optimized Learning path be accepted and handed to Projection/Runtime. Existing first-round P/R/E below remain valid for their **old accepted claim**, but they do not prove this new fast-learning claim.
+
+---
+
+## Existing accepted first-round claim
 
 Scope: all Current Marxism chapters / **22 Natural Units / 396 unique formal-first-ready Xiao questions**
 

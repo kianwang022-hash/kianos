@@ -7,11 +7,12 @@ This file does not own Marxism Source/Content/Learning semantics, Acceptance Tru
 
 ## Work Cursor
 
-**Active local engineering task:** none unless current Acceptance or the Politics parent reopens a concrete path.  
+**Active local task:** #1026 fast-learning / retention CREATE — Marxism K/L shard.  
+**Parent outcome:** preserve complete exam-relevant Marxism knowledge and long-term retrieval while reducing redundant rereading, fragmented memorization and switching cost.  
 **Acceptance Truth:** `content/politics/learning/marxism/ACCEPTANCE.md`.  
 **Learner / execution evidence:** private native Runtime only.
 
-The retired wrong-surface implementation and prior repair history remain Acceptance/Git evidence, not Current instructions.
+Current work is a **minimal Knowledge/Learning optimization of the existing Marxism path**, not a replacement model and not Runtime/UI rollout. Reuse the existing Marxism `core_problem / teaching_beats / major_boundaries / closure_cue / chapter_compression` owners; change only the smallest semantics needed to make the same knowledge faster to learn and more durable to retrieve. The retired wrong-surface implementation and prior repair history remain Acceptance/Git evidence, not Current instructions.
 
 ## Route by need
 
