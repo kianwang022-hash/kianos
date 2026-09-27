@@ -63,8 +63,8 @@ const expected = {
     'runtime.css',
     'visual-convergence.css',
     'shared-workspace-composition.css',
-    'lexical-presentation.css',
     'shared-shell.css',
+    'lexical-presentation.css',
     'study-timer.css'
   ]
 };
