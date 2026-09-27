@@ -34,15 +34,18 @@ A management rule is useful only when it lowers one or more of:
 
 Engineering sophistication is not an outcome by itself.
 
-KianOS should normally feel like:
+For an **already-decided BUILD task**, KianOS should normally feel like:
 
 ```text
-Kian says the desired effect
-→ worker finds the correct owner
-→ one bounded change
-→ targeted proof
-→ visible result
+accepted CREATE outcome / requested effect
+→ worker recovers the correct owner + design basis
+→ one bounded implementation change
+→ targeted local proof
+→ Human Gate when material UI is involved
+→ visible/promoted result
 ```
+
+This is an execution-management view, not the complete lifecycle. New systems, open product/content decisions and material redesigns enter CREATE first; final independent verification belongs to AUDIT.
 
 not:
 
@@ -57,15 +60,16 @@ request
 
 ---
 
-# 2｜Three normal change paths
+# 2｜Three normal BUILD paths
 
-Most ordinary work should enter one of three paths.
+These paths apply **after the relevant meaning/design is already accepted**. If the request still asks what the system/content/product should be, return to CREATE through the exact semantic/design owner before using these paths.
 
 ## Content
 
 ```text
-canonical Content / Learning owner
-→ targeted validation / projection update when required
+accepted Content / Learning delta
+→ exact canonical owner
+→ targeted native proof / projection update when required
 → main
 → Current mirror
 → existing learner surface consumes the new Current
@@ -76,10 +80,11 @@ Ordinary content change must not require hand-editing a second copy inside page 
 ## Visual
 
 ```text
-shared visual primitive when truly global
-OR subject/surface visual owner when local
-→ representative screenshot
-→ Human visual gate when taste is material
+accepted Visual / Surface Blueprint delta
+→ shared visual primitive when truly global
+   OR subject/surface visual owner when local
+→ Candidate / real-browser proof
+→ Human Gate when material
 → targeted regression
 → main
 ```
