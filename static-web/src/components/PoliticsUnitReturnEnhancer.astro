@@ -95,11 +95,18 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
       ? allUnits[currentIndex + 1]
       : document.getElementById('chapter-close');
     const nextUnitId = target?.matches?.('[data-politics-unit]') ? unitIdForSection(target) : '';
+    const targetHref = target?.id ? `${window.location.pathname}#${target.id}` : window.location.pathname;
     saveLastLocation({
       unitId: nextUnitId,
       action: nextUnitId ? 'ORIENT' : 'CHAPTER_CLOSE',
-      href: target?.id ? `${window.location.pathname}#${target.id}` : window.location.pathname
+      href: targetHref
     });
+    if (target?.id) {
+      const visibleHref = `${window.location.pathname}${window.location.search}#${target.id}`;
+      if (`${window.location.pathname}${window.location.search}${window.location.hash}` !== visibleHref) {
+        window.history.replaceState(window.history.state, '', visibleHref);
+      }
+    }
     target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 

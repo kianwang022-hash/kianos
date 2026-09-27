@@ -177,6 +177,12 @@ try {
   const xiContinueLocation = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-politics-last-location-v1') || 'null'));
   check(xiContinueLocation?.unit_id === xiUnit2Id, 'xi_no_question_continue_updates_resume_unit', String(xiContinueLocation?.unit_id || ''));
   check(['ORIENT', 'EXTERNAL_LEARN'].includes(String(xiContinueLocation?.action || '')), 'xi_no_question_continue_keeps_meaningful_resume_action', String(xiContinueLocation?.action || ''));
+  check(new URL(page.url()).hash === '#unit-2', 'xi_no_question_continue_updates_url_location', page.url());
+  await page.reload({ waitUntil: 'networkidle' });
+  await xiUnit2.waitFor({ state: 'visible' });
+  check(await page.locator('.politicsRail nav a[href="#unit-2"]').evaluate((node) => node.classList.contains('active')), 'xi_no_question_continue_survives_reload');
+  const xiReloadLocation = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-politics-last-location-v1') || 'null'));
+  check(xiReloadLocation?.unit_id === xiUnit2Id, 'xi_no_question_continue_resume_survives_reload', String(xiReloadLocation?.unit_id || ''));
 
   await activateStandardUnit(page, 2, 'xi_c02_k05');
   const xiFeatures = page.locator('#unit-3 [data-surface-group="xi-c02-k05-features"]');
