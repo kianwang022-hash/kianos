@@ -62,6 +62,14 @@ for (const subject of subjects) {
       if (unit.sourceRefCount > 0 && !unit.sourceNodes.length) {
         fail(`${unit.unitId} has Chengfeng refs but no resolved source text`);
       }
+      if (unit.sourceNodes.length && !unit.sourceNodes.some((node) => String(node?.locatorLabel || '').trim())) {
+        fail(`${unit.unitId} has resolved Chengfeng source but no readable locator label`);
+      }
+      for (const node of unit.sourceNodes) {
+        const label = String(node?.locatorLabel || '').trim();
+        if (label && label === String(node?.id || '').trim()) fail(`${unit.unitId} exposes machine source id as locator label: ${label}`);
+        if (label === '乘风原讲义定位') fail(`${unit.unitId} regressed to generic source locator label`);
+      }
       if (unit.unresolvedSourceRefs.length) {
         fail(`${unit.unitId} unresolved Chengfeng owners: ${unit.unresolvedSourceRefs.join(', ')}`);
       }
@@ -86,6 +94,7 @@ const chapterRuntimeUrl = new URL('../src/components/PoliticsChapterRuntime.astr
 const chapterRuntimeSource = fs.readFileSync(chapterRuntimeUrl, 'utf8');
 const forbiddenProjectionPatterns = [
   ['continuous Chengfeng text render', /node\.text/],
+  ['generic source locator fallback', /乘风原讲义定位/],
   ['legacy source-flow reader', /politicsSourceFlow/],
   ['legacy learner copy', /直接学正文/]
 ];
@@ -94,6 +103,9 @@ for (const [label, pattern] of forbiddenProjectionPatterns) {
 }
 if (!/去 iPad \/ MarginNote 学原讲义/.test(chapterRuntimeSource)) {
   fail('surface ownership regression: missing external-primary Chengfeng handoff');
+}
+if (!/node\.locatorLabel/.test(chapterRuntimeSource)) {
+  fail('surface ownership regression: source locator UI must consume the runtime-owned readable label');
 }
 if (/data-politics-question|data-politics-quiz/.test(chapterRuntimeSource)) {
   fail('surface ownership regression: learning page must not own a second Xiao1000 attempt surface');

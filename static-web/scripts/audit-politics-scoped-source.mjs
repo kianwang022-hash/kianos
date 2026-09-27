@@ -44,6 +44,8 @@ try {
   const k03Unit = chapter.units.find((unit) => (unit.representedNaturalUnitIds || []).includes('POL27-CF-MARX-C02-K03'));
   if (!k03Unit) fail('K03 represented unit missing from Marxism ch02');
   if (!k03Unit.sourceNodes?.length) fail('K03-bearing unit has no resolved scoped source nodes');
+  if (!k03Unit.sourceNodes.some((node) => String(node?.locatorLabel || '').trim())) fail('K03-bearing unit has no readable scoped source locator');
+  if (k03Unit.sourceNodes.some((node) => node?.locatorLabel && node.locatorLabel === node.id)) fail('scoped source locator leaked machine id');
 
   const chapterQuestionIds = new Set(chapter.units.flatMap((unit) => (unit.questions || []).map((question) => question.id)));
   const missingK03 = [...expectedK03].filter((id) => !chapterQuestionIds.has(id));

@@ -1,7 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { loadPoliticsSourceFidelityOverrides, splitPoliticsSourceRowsByFidelity } from './politicsSourceFidelity.mjs';
+import { loadPoliticsSourceFidelityOverrides, politicsSourceLocatorLabel, splitPoliticsSourceRowsByFidelity } from './politicsSourceFidelity.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -235,10 +235,12 @@ function sourceGroupView(ownerId) {
   const rawTitle = nodeTitle(exact, ownerId);
   const text = mergeSourceSpans(admitted, rawTitle) || nodeText(exact);
   const sameAsTitle = Boolean(text && compactSpace(text) === compactSpace(rawTitle));
+  const locatorLabel = politicsSourceLocatorLabel({ id: ownerId, title: rawTitle, text });
   const blockedStatuses = [...new Set(blocked.map((entry) => entry.fidelity?.effectiveStatus).filter(Boolean))];
   return {
     id: ownerId,
     title: sameAsTitle ? '' : rawTitle,
+    locatorLabel,
     text,
     resolved: Boolean(text),
     fidelityStatus: blocked.length ? (text ? 'PARTIAL_SAFE' : 'BLOCKED_FIDELITY') : 'ADMITTED',
