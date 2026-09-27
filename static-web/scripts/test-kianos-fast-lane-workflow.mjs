@@ -31,7 +31,10 @@ assert.throws(
 assert.equal(packageJson.scripts?.['candidate:serve'], 'node scripts/kianos-candidate-runtime.mjs');
 assert.match(agents, /npm run candidate:serve/);
 assert.match(agents, /127\.0\.0\.1:4322/);
-assert.match(agents, /127\.0\.0\.1:4321\/ Stable/);
+assert.ok(
+  agents.includes('http://127.0.0.1:' + STABLE_CURRENT_PORT + '/ Stable'),
+  'UI entry instructions must name Stable without hardcoding production port in test source'
+);
 assert.match(websiteCurrent, /UI iteration \/ Human Gate preview/);
 assert.match(websiteCurrent, /kianos-candidate-runtime\.mjs/);
 
