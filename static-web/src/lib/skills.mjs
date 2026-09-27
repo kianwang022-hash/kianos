@@ -1,11 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
 import crypto from 'node:crypto';
 
-const here = path.dirname(fileURLToPath(import.meta.url));
-const repoRoot = path.resolve(here, '../../..');
+const repoRoot = path.resolve(process.cwd(), '..');
 const skillsRoot = path.join(repoRoot, 'content', 'skills');
 
 function readUtf8(file) { return fs.readFileSync(file, 'utf8'); }
