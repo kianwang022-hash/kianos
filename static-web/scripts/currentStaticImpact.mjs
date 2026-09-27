@@ -117,6 +117,10 @@ export function staticBuildCanReuseFromBase(priorStatus, baseSha) {
   );
 }
 
+export function staticBuildNpmScript(decision = {}) {
+  return decision?.lexical_projection_required ? 'build' : 'build:astro';
+}
+
 export function classifyStaticBuild(changedPaths = []) {
   const rows = [...new Set(
     (Array.isArray(changedPaths) ? changedPaths : [])
