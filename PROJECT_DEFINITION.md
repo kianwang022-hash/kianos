@@ -4,6 +4,8 @@ Status: CURRENT — accepted top-level project definition
 
 This document is the highest-level product-definition owner for KianOS.
 
+Lifecycle ownership is separate: new systems, material optimizations and architecture changes follow Personal `KERNEL.md §2 / Requirement → Reality change loop` through **CREATE → BUILD → AUDIT → REAL USE**. This file defines *what KianOS must be*, not how a work item moves through those stages. KianOS worker entry/routing is owned by `AGENTS.md`.
+
 For **cross-system ownership/interface questions only**, KianOS inherits the frozen mother architecture from `kianwang022-hash/kian-personal-os/KERNEL.md §2`. KianOS does not duplicate that architecture here and normal KianOS work remains locally recoverable from this repository. This file stays authoritative for what KianOS itself is; any proposed change that would redefine Personal / StudyHub / KianOS responsibility returns to the cross-system owner rather than being absorbed as a local implementation detail.
 
 It answers one question:
