@@ -43,6 +43,9 @@ try {
   check(await page.locator('[data-politics-question]').count() === 0, 'learning_page_has_no_inline_xiao_attempt');
   const entry = page.locator(`[data-practice-unit-entry="${target.unitKey}"]`);
   await entry.waitFor({ state: 'attached' });
+  check(await entry.count() === 1, 'learning_page_has_single_exact_unit_entry', String(await entry.count()));
+  const unitWorkbenchEntryCount = await entry.evaluate((node) => node.closest('[data-politics-unit]')?.querySelectorAll('a[href*="/politics/practice/?unit="]').length || 0);
+  check(unitWorkbenchEntryCount === 1, 'learning_page_has_single_workbench_route_owner', String(unitWorkbenchEntryCount));
   const entryHref = await entry.getAttribute('href');
   check(String(entryHref).includes('/politics/practice/?unit='), 'learning_page_routes_exact_unit_to_workbench', String(entryHref));
   check(!String(entryHref).includes('learnedScope=confirmed'), 'generic_unit_entry_keeps_learned_scope_gate');

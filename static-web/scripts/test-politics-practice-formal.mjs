@@ -109,7 +109,8 @@ try {
     const q=qById.get('X1000-MARX-M-001'),unit=catalog.units.find(u=>u.key===q.unitKey);const {p,context}=await pageFor();await p.goto(base+unit.href);
     await p.locator('[data-workspace-unit-tab="1"]').click();
     await p.locator('[data-workspace-unit]:not([hidden]) [data-workspace-action="start-learn"]').click();
-    await p.locator(`[data-practice-unit-entry="${unit.key}"]`).click();await start(p);const firstQuestion=await current(p);await answer(p,firstQuestion.answer);
+    await p.locator('[data-workspace-unit]:not([hidden]) [data-workspace-action="learn-fastpath"]').click();
+    await start(p);const firstQuestion=await current(p);await answer(p,firstQuestion.answer);
     const session=await read(p,K.session);
     // Deliberately leave chapter memory on another unit before following Return.
     await p.evaluate(()=>localStorage.setItem('kianos-politics-workspace-v1:marxism:ch00',JSON.stringify({activeUnit:0,states:{}})));
