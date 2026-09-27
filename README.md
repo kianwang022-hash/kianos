@@ -46,7 +46,7 @@ DOMAIN KNOWLEDGE / LEARNING
    └─ skills/    → content/skills/README.md
 
 PRODUCT / WEBSITE / RUNTIME
-→ static-web/
+→ static-web/ → static-web/README.md
 
 MACHINE ENFORCEMENT
 → tools/
