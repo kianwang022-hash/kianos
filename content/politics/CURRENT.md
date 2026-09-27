@@ -9,12 +9,9 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ## Active engineering anchor
 
-Issue #1008 — **Politics learner-facing full live audit**.
+None.
 
-- Phase / Next / Blocker live in Issue #1008 while it is open.
-- Exact Source / Content / Learning / Interaction / Runtime / Shared-platform truth remains with the native owner; the Issue does not mirror those truths.
-- An explicit Politics engineering continuation binds to #1008 until Kian closes or switches it.
-- Ordinary Politics learning still bypasses this engineering anchor.
+Issue #1008 is closed history. Rebind only for a new concrete Politics defect, Source change, explicit product decision, or explicit fresh independent re-acceptance.
 
 ## Current routing
 
