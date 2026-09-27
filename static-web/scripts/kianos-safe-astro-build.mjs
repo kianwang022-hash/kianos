@@ -9,6 +9,16 @@ const webRoot = path.resolve(scriptDir, '..');
 const repoRoot = path.resolve(webRoot, '..');
 const markerPath = path.join(repoRoot, '.git', 'kianos-current-mirror');
 
+export const DEFAULT_CURRENT_ASTRO_BUILD_CONCURRENCY = 2;
+
+export function resolveAstroBuildConcurrency(env = process.env) {
+  const configured = Number(env.KIANOS_ASTRO_BUILD_CONCURRENCY);
+  if (Number.isInteger(configured) && configured >= 1) return configured;
+  return String(env.KIANOS_RELEASE_SHA || '').trim()
+    ? DEFAULT_CURRENT_ASTRO_BUILD_CONCURRENCY
+    : 1;
+}
+
 function outDirFromArgs(args) {
   for (let i = 0; i < args.length; i += 1) {
     const arg = String(args[i] || '');
