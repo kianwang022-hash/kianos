@@ -167,6 +167,11 @@ try {
   assert(localJobs.sort().join('|') === ['Overview','Learn','Repair','Research'].sort().join('|'), 'v2_home_four_local_jobs', localJobs.join('|'));
   assert(await page.locator('[data-lexical-daily-limit]').inputValue() === '50', 'v2_home_daily_new_limit_default_50');
   assert((await page.locator('[data-lexical-same-day-count]').innerText()).trim() === '0', 'v2_home_same_day_revisit_starts_empty');
+  const sameDayCatalogRow = await page.evaluate(() => {
+    const rows = JSON.parse(document.querySelector('[data-lexical-catalog]')?.textContent || '[]');
+    return rows[0] || null;
+  });
+  assert(Boolean(sameDayCatalogRow), 'v2_home_catalog_has_same_day_fixture');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-home-1440x900.png'), fullPage: false });
 
   await page.goto(`${origin}/`, { waitUntil: 'networkidle' });
@@ -175,17 +180,14 @@ try {
   assert((await homeVocabularyLink.innerText()).trim() === 'Vocabulary', 'home_learning_jump_vocabulary_label');
 
   // Same-day revisit is ephemeral card routing support, not Repair debt.
-  await page.evaluate(() => {
-    const rows = JSON.parse(document.querySelector('[data-lexical-catalog]')?.textContent || '[]');
-    const row = rows[0];
-    if (!row) throw new Error('NO_LEXICAL_CATALOG_ROW');
+  await page.evaluate((row) => {
     const now = new Date().toISOString();
     localStorage.setItem('kianos-lexical-card-routing-v1', JSON.stringify({
       schema:'kianos.lexical.card_routing.v1',
       history:[{ event_id:'visual-same-day-1', word_id:row.objectId, ordinal:row.ordinal, word:row.word, route:'UNKNOWN', observed_at:now }],
       latest_by_word:{ [row.objectId]:{ event_id:'visual-same-day-1', word_id:row.objectId, ordinal:row.ordinal, word:row.word, route:'UNKNOWN', observed_at:now } }
     }));
-  });
+  }, sameDayCatalogRow);
   await page.reload({ waitUntil: 'networkidle' });
   assert((await page.locator('[data-lexical-same-day-count]').innerText()).trim() === '1', 'v2_home_same_day_unknown_surfaces');
   const directLearnHref = await page.locator('[data-lexical-learn-nav]').getAttribute('href');
