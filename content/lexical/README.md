@@ -25,45 +25,18 @@ readiness
 → ACCEPTANCE.md
 ~~~
 
-## CBA spine
+## Authority routes
 
-Lexical is the canonical backend for English Vocabulary. Its CBA chain starts from a real Vocabulary learning/semantic need, not from an old ordinal/batch frontier.
+This README is a map, not a lexical lifecycle owner. Recover the exact authority needed for the current job:
 
-```text
-NEED / OUTCOME
-→ English Vocabulary learner need
-→ LEARNING_CONTRACT.md / CONTENT_ASSET_CONTRACT.md
-→ exact Word / Relation / Form owner
+- semantic / learning CREATE truth → `LEARNING_CONTRACT.md` / `CONTENT_ASSET_CONTRACT.md` → exact Word / Relation / Form Natural Owner;
+- learner-evidence semantics → `EVIDENCE_MEMORY_CONTRACT.md` only when that responsibility changes;
+- learner-facing Product / Visual intent → `static-web/LEXICAL_PRODUCT_BRIEF.md`;
+- BUILD / CONTROL routing → `CURRENT.md`; use `CONTENT_EXECUTION.md` only when materialization is actually involved;
+- AUDIT / readiness → `ACCEPTANCE.md`; specialized semantic-audit owners only when that audit claim is open;
+- REAL USE → private lexical learner/evidence state, never this README.
 
-CREATE
-→ decide the lexical semantic / learning delta in the Natural Owner
-→ EVIDENCE_MEMORY_CONTRACT.md when learner-evidence semantics change
-→ static-web/LEXICAL_PRODUCT_BRIEF.md when learner-facing product/visual behavior changes
-→ accepted semantic / learning / product intent
-
-BUILD
-→ CURRENT.md
-→ CONTENT_EXECUTION.md when materialization is needed
-→ derived Final Learner Object only when its inputs changed
-→ actual English Vocabulary Runtime / Website consumer
-→ local/native proof + Candidate Human Gate when material UI changes
-
-AUDIT
-→ ACCEPTANCE.md
-→ INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md only when a semantic audit claim is actually open
-→ independent product/runtime attack when the built learner loop changed
-→ historical A/B/C/BF packs are not normal audit startup context
-
-REAL USE
-→ private lexical learner/evidence state
-→ genuine Coverage / Repair / Challenge / Return evidence may reopen only the earliest responsible owner
-```
-
-Rules:
-- Natural Owners hold lexical truth; execution manifests and audit packs never become semantic authority.
-- derived learner objects are rebuildable consumers, not a second lexical database.
-- a bounded semantic defect opens the exact owner; it does not resurrect the old full-catalog campaign.
-- learner-facing Vocabulary remains an English product even though lexical backend ownership is independent.
+Derived learner objects are rebuildable consumers, not a second lexical database. Historical execution/audit packs are not fallback authority.
 
 ## Zones
 

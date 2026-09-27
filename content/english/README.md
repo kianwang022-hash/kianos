@@ -20,45 +20,17 @@ readiness
 → exact module Acceptance
 ~~~
 
-## CBA spine
+## Authority routes
 
-English is not “a folder of task files”; it is an exam-learning product family with task-native subproducts.
+This README is a map, not an English lifecycle owner. Recover the exact authority needed for the current job:
 
-```text
-NEED / OUTCOME
-→ English exam capability and score need
-→ LEARNING_CONTRACT.md
-→ exact task/module owner
+- learner-system / CREATE truth → `LEARNING_CONTRACT.md` → exact task/module Content or Learning owner;
+- learner-facing Product / Visual intent → `static-web/ENGLISH_PRODUCT_BRIEF.md` → exact task/surface design when one exists;
+- BUILD / CONTROL routing → `CURRENT.md` → exact module Current / Runtime / Website consumer;
+- AUDIT / readiness → `ACCEPTANCE.md` → exact module Acceptance when local;
+- REAL USE → native/private English Resume, attempts and learner evidence, never this README.
 
-CREATE
-→ exact Source / Content / task Learning owner
-→ static-web/ENGLISH_PRODUCT_BRIEF.md
-→ exact task/surface design when one exists
-→ accepted meaning / product behavior / visual intent
-
-BUILD
-→ CURRENT.md
-→ exact module CURRENT when applicable
-→ actual Projection / Runtime / Website consumer
-→ local/native proof
-→ Candidate Human Gate for material learner-facing UI
-
-AUDIT
-→ ACCEPTANCE.md
-→ exact module Acceptance
-→ independent reality attack only for the claim that actually needs it
-→ unchanged accepted Source / Knowledge / Learning evidence is reused
-
-REAL USE
-→ actual English learner/runtime Resume, attempts and private evidence
-→ genuine learner feedback may reopen only the earliest responsible owner
-```
-
-Rules:
-- CREATE decides what Reading / Cloze / Part B / Translation / Writing / Vocabulary should do; BUILD does not invent task meaning from current code.
-- A module may have its own Learning/Product details without creating a second English-wide architecture.
-- Vocabulary's learner-facing product lives under English; canonical lexical semantic truth remains under `content/lexical/`.
-- closed audit artifacts and old implementation history are not part of the normal CBA recovery path.
+Vocabulary is learner-facing under English while canonical lexical semantic truth remains under `content/lexical/`. Closed audit artifacts and implementation history are not fallback authority.
 
 ## Zones
 

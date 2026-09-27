@@ -28,47 +28,18 @@ whole-cycle maturity
 → MATURITY_PACKAGE.md
 ~~~
 
-## CBA spine
+## Authority routes
 
-Politics should be recoverable as one exam-learning chain rather than as separate Content / Projection / Website projects.
+This README is a map, not a Politics lifecycle owner. Recover the exact authority needed for the current job:
 
-```text
-NEED / OUTCOME
-→ score / capability requirement
-→ SCORE_ABILITY_MATRIX.md
-→ LEARNING_CONTRACT.md + exact subject/content owner
+- learner-system / CREATE truth → `SCORE_ABILITY_MATRIX.md` + `LEARNING_CONTRACT.md` + exact Source/Content owner;
+- interaction / semantic projection → `INTERACTION_CONTRACT.md` / `SURFACE_MAPPING_CONTRACT.md` only when that responsibility matters;
+- learner-facing Product / Visual intent → `static-web/POLITICS_PRODUCT_BRIEF.md` → exact subject grammar/surface design;
+- BUILD / CONTROL routing → `CURRENT.md` → exact projection / Runtime / Website consumer;
+- AUDIT / readiness → `ACCEPTANCE.md`; `MATURITY_PACKAGE.md` only when whole-subject maturity is the actual claim;
+- REAL USE → private Politics learner/runtime evidence, never this README.
 
-CREATE
-→ Source + CONTENT_SEMANTICS_CONTRACT.md + CONTENT_HIERARCHY_CONTRACT.md
-→ INTERACTION_CONTRACT.md / CAUSAL_REPAIR_POLICY.md where applicable
-→ SURFACE_MAPPING_CONTRACT.md
-→ static-web/POLITICS_PRODUCT_BRIEF.md
-→ exact subject grammar/surface design
-→ accepted learner meaning / product behavior / visual intent
-
-BUILD
-→ CURRENT.md
-→ exact projection owner
-→ actual Politics Runtime / Website consumer
-→ local/native proof
-→ Candidate Human Gate for material learner-facing UI
-
-AUDIT
-→ ACCEPTANCE.md
-→ MATURITY_PACKAGE.md only when whole-subject maturity is the claim
-→ independent reality attack against the built candidate
-→ do not redesign Politics inside Audit
-
-REAL USE
-→ private Politics learner/runtime evidence
-→ real Wrong / Uncertain / Resume / Return evidence may reopen the earliest responsible owner
-```
-
-Rules:
-- Source/Content, Learning, Surface Mapping and Product/Visual are different responsibilities but one CBA chain.
-- Projection may derive accepted meaning; it may not become a second Politics semantic owner.
-- `projection/history/` is the **History subject (史纲)** Current projection, not archival history.
-- closed maturity/audit campaigns remain provenance and do not issue new work.
+Projection may derive accepted meaning but never becomes a second Politics semantic owner. Closed maturity/audit campaigns remain provenance rather than current instructions.
 
 ## Zones
 
