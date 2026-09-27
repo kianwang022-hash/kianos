@@ -52,7 +52,7 @@ assert.doesNotMatch(client, /readiness|recoveryScore|recovery_score|debtScore/i,
 
 assert.match(css, /position:\s*fixed/, 'Timer dock must stay viewport-fixed.');
 assert.match(css, /right:\s*24px/, 'Desktop default must remain bottom-right.');
-assert.match(css, /bottom:\s*22px/, 'Desktop default must remain bottom-right.');
+assert.match(css, /bottom:\s*92px/, 'Desktop default must stay above persistent bottom action rows while remaining draggable.');
 assert.match(css, /width:\s*460px/, 'The reviewed global Dock includes Record, actual context and Today/Return at readable type; the browser gate enforces its bounded footprint.');
 assert.match(css, /\.studyTimerDock[\s\S]*pointer-events:\s*none/, 'Compact dock background/status must not lock learner content underneath.');
 assert.match(css, /\.studyTimerDock\[data-expanded="true"\][^{]*\{[^}]*pointer-events:\s*auto/, 'Expanded timer panel must remain an intentional interactive overlay.');
