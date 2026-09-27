@@ -261,12 +261,17 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             raise RuntimeError(f"FINAL_LEARNER_SECONDARY_DISPOSITION_INVALID:{word_id}:{branch_id}:{secondary_disposition}")
         if secondary_disposition == "EXPLORE_ONLY":
             continue
+        secondary_pos = str(branch.get("pos") or "").strip()
+        secondary_cn = str(branch.get("definition_cn") or branch.get("meaning_cn") or "").strip()
+        secondary_en = str(branch.get("definition_en") or branch.get("label_en") or "").strip()
+        if not secondary_pos or (not secondary_cn and not secondary_en):
+            raise RuntimeError(f"FINAL_LEARNER_SECONDARY_INCOMPLETE:{word_id}:{branch_id}")
         secondary.append({
             "id": branch_id or None,
             "source_locator": f"record.secondary_senses[{i}]",
-            "pos": str(branch.get("pos") or ""),
-            "definition_cn": str(branch.get("definition_cn") or branch.get("meaning_cn") or ""),
-            "definition_en": str(branch.get("definition_en") or branch.get("label_en") or ""),
+            "pos": secondary_pos,
+            "definition_cn": secondary_cn,
+            "definition_en": secondary_en,
             "pattern": str(branch.get("pattern") or branch.get("boundary") or ""),
             "repair": repair("secondary_sense", f"record.secondary_senses[{i}]", branch_id or None, str(branch.get("definition_cn") or branch.get("meaning_cn") or branch.get("definition_en") or branch.get("label_en") or word)),
         })

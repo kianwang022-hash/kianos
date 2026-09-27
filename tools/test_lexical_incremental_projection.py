@@ -168,6 +168,42 @@ class IncrementalProjectionTest(unittest.TestCase):
         self.assertEqual(result["senses"][0]["note"], "")
         self.assertEqual(result["senses"][1]["governing_pattern"], "")
 
+    def test_incomplete_secondary_fails_closed_and_complete_secondary_groups_pos(self):
+        owner = {
+            "ordinal": 2,
+            "word_id": "word:participant",
+            "word": "participant",
+            "record": {
+                "word": "participant",
+                "core_concept": {"core_meaning_cn": "参与者"},
+                "senses": [{
+                    "sense_id": "sense:participant:main",
+                    "pos": "noun",
+                    "definition_cn": "参与者",
+                    "definition_en": "a person who takes part",
+                }],
+                "secondary_senses": [{
+                    "fact_id": "usage:participant:attributive",
+                    "example": "participant observation",
+                }],
+                "constructions": [],
+            },
+            "relation_refs": [],
+        }
+        with self.assertRaisesRegex(RuntimeError, "FINAL_LEARNER_SECONDARY_INCOMPLETE"):
+            builder.compile_word(owner, {"words": {}})
+        branch = owner["record"]["secondary_senses"][0]
+        branch.update({
+            "pos": "noun",
+            "definition_cn": "（名词作定语）参与式的",
+            "definition_en": "used attributively, as in participant observation",
+            "pattern": "participant observation",
+        })
+        result = builder.compile_word(owner, {"words": {}})
+        self.assertEqual(result["recall_map"]["parts"], ["(1+1)N"])
+        self.assertEqual(result["secondary_senses"][0]["pos"], "noun")
+        self.assertEqual(result["secondary_senses"][0]["pattern"], "participant observation")
+
 
 if __name__ == "__main__":
     unittest.main()
