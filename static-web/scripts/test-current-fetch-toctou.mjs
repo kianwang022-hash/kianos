@@ -23,7 +23,7 @@ try {
   git(upstream, 'push', 'origin', b + ':refs/heads/staged-b');
   git(root, 'clone', remote, mirror); git(mirror, 'reset', '--hard', a); fs.writeFileSync(path.join(mirror, '.git/kianos-current-mirror'), '');
   const npm = path.join(root, 'npm');
-  fs.writeFileSync(npm, `#!/bin/sh\nif [ "$1" = install ]; then exit 0; fi\nout=""; while [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"; echo built > "$out/index.html"\n`);
+  fs.writeFileSync(npm, `#!/bin/sh\nif [ "$1" = install ]; then mkdir -p "$PWD/node_modules/.bin"; : > "$PWD/node_modules/.bin/astro"; exit 0; fi\nout=""; while [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"; echo built > "$out/index.html"\n`);
   fs.chmodSync(npm, 0o755);
   const wrapper = path.join(root, 'git');
   const mainRef = ['refs', 'heads', 'main'].join('/');
