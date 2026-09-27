@@ -37,10 +37,10 @@ EXAM CROSS-SUBJECT RULES
 
 DOMAIN KNOWLEDGE / LEARNING
 → content/
-   ├─ xizong/
-   ├─ english/
-   ├─ politics/
-   ├─ lexical/
+   ├─ xizong/   → content/xizong/README.md
+   ├─ english/  → content/english/README.md
+   ├─ politics/ → content/politics/README.md
+   ├─ lexical/  → content/lexical/README.md
    └─ skills/
 
 PRODUCT / WEBSITE / RUNTIME
