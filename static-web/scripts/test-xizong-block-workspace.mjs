@@ -528,6 +528,30 @@ try {
   const failClosedState = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || '{}'), studyKey);
   check(!failClosedState?.pendingTtsx, 'corrupt_unreviewed_ttsx_pending_state_is_discarded');
 
+  // A3 has an explicitly linked visual cue + SOURCE_VISUAL extension. The
+  // learner surface should render one rich visual, not cue text plus asset metadata.
+  await page.goto(`${BASE}/xizong/urinary/b01/`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 5000 }).catch(() => {});
+  const a3Root = page.locator('[data-xizong-v6-block]');
+  await a3Root.waitFor({ state: 'visible' });
+  const a3Start = a3Root.locator('[data-stage-next="logic_group"]:visible');
+  if (await a3Start.count()) await a3Start.click();
+  await page.waitForTimeout(120);
+  for (let index = 0; index < 3; index += 1) {
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(100);
+  }
+  const a3Aux = a3Root.locator('[data-xizong-aux-surface]');
+  const a3Assets = a3Aux.locator('[data-learner-asset]:visible');
+  check(await a3Assets.count() === 1, 'linked_source_visual_renders_once');
+  const a3AuxText = (await a3Aux.innerText()).replace(/\s+/g, ' ');
+  check(a3AuxText.includes('看原图') && a3AuxText.includes('P259'), 'linked_source_visual_keeps_learner_locator', a3AuxText);
+  check(!/SOURCE VISUAL|Reviewed physiology source crop|Blood-route vs urine-route/i.test(a3AuxText), 'linked_source_visual_hides_asset_metadata', a3AuxText);
+  check(
+    await a3Aux.locator('[data-learner-asset-id="urinary-b01-lg03-blood-vs-urine-route"]:visible').count() === 1,
+    'linked_source_visual_uses_rich_extension_once'
+  );
+
   report.finished_at = new Date().toISOString();
   report.status = 'PASS';
   report.route = ROUTE;

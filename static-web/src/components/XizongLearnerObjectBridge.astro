@@ -137,10 +137,18 @@ const payload = learnerObject || null;
         card.dataset.learnerAsset = 'extension';
         card.dataset.learnerAssetId = text(asset?.id);
         card.dataset.extensionType = text(asset?.assetType);
-        card.append(el('span', 'xv6LearnerAssetLabel', text(asset?.assetType).replaceAll('_', ' ')));
-        if (asset?.title) card.append(el('h4', '', asset.title));
-        if (asset?.task) card.append(el('p', '', asset.task));
-        if (asset?.assetType === 'STRUCTURED_TABLE') card.append(renderTable(asset));
+        const assetType = text(asset?.assetType).toUpperCase();
+        const learnerVisual = ['SOURCE_VISUAL', 'REVIEWED_VISUAL'].includes(assetType);
+        if (learnerVisual) {
+          const locator = text(asset?.provenance?.source_locator || asset?.provenance?.sourceLocator);
+          card.append(el('span', 'xv6LearnerAssetLabel', `看原图${locator ? ` · ${locator}` : ''}`));
+          if (asset?.task) card.append(el('p', '', asset.task));
+        } else {
+          card.append(el('span', 'xv6LearnerAssetLabel', assetType.replaceAll('_', ' ')));
+          if (asset?.title) card.append(el('h4', '', asset.title));
+          if (asset?.task) card.append(el('p', '', asset.task));
+        }
+        if (assetType === 'STRUCTURED_TABLE') card.append(renderTable(asset));
         else if (asset?.src) {
           const img = el('img', 'xv6LearnerExtensionImage');
           img.src = asset.src;
@@ -148,7 +156,7 @@ const payload = learnerObject || null;
           img.loading = 'lazy';
           card.append(img);
         }
-        if (asset?.caption) card.append(el('small', '', asset.caption));
+        if (!learnerVisual && asset?.caption) card.append(el('small', '', asset.caption));
         return card;
       };
 
@@ -175,6 +183,21 @@ const payload = learnerObject || null;
             : renderTextSupport(row, family);
         }
         return node ? decorateRepresentation(node, representation) : null;
+      };
+
+      const presentationSlot = (slot = {}) => {
+        const extensions = array(slot?.extension);
+        const realizedCueIds = new Set(
+          extensions
+            .filter((row) => ['SOURCE_VISUAL', 'REVIEWED_VISUAL'].includes(text(row?.assetType).toUpperCase()))
+            .map((row) => text(row?.cueId))
+            .filter(Boolean)
+        );
+        return {
+          ...slot,
+          visual: array(slot?.visual).filter((row) => !realizedCueIds.has(text(row?.id))),
+          extension: extensions
+        };
       };
 
       const renderSlot = (slot = {}, { stage = 'LEARN' } = {}) => {
@@ -436,11 +459,12 @@ const payload = learnerObject || null;
             recallAnswerVisible() ? postlearnForGroup(groupId) : {}
           );
         }
-        const rendered = renderSlot(slot, { stage: representationStage });
+        const displaySlot = presentationSlot(slot);
+        const rendered = renderSlot(displaySlot, { stage: representationStage });
         auxHost.dataset.learnerObjectSlot = slotName;
         auxHost.dataset.representationStage = representationStage;
         auxHost.replaceChildren(...rendered.childNodes);
-        const weight = resolvedSlotWeight(slot, representationStage);
+        const weight = resolvedSlotWeight(displaySlot, representationStage);
         root.dataset.auxWeight = weight;
         auxSurface.hidden = auxHost.childElementCount === 0;
         if (auxTitle) auxTitle.textContent = title;
