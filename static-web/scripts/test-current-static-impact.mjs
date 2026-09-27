@@ -15,6 +15,9 @@ const reusable = [
   'BRANCH_LIFECYCLE.md',
   'CURRENT.md',
   'static-web/CURRENT.md',
+  'content/xizong/CURRENT.md',
+  'content/xizong/knowledge/systems/a1-circulation/CURRENT.md',
+  'content/english/modules/writing/CURRENT.md',
   'static-web/STEWARD_PRODUCT_CONTRACT.md',
   'static-web/scripts/kianos-current-sync.mjs',
   'static-web/scripts/privateLearnerBridge.mjs'
@@ -111,6 +114,14 @@ for (const file of ['static-web/src/lib/privateControlCommand.mjs',
   assert.equal(requiresStaticRuntimeReload([file]), true, file);
 }
 assert.equal(requiresStaticRuntimeReload(['content/xizong/explanations/manifest.json', 'CURRENT.md']), false);
+for (const file of [
+  'static-web/scripts/kianos-current-sync.mjs',
+  'static-web/scripts/currentRelease.mjs',
+  'static-web/scripts/currentStaticImpact.mjs',
+  'static-web/scripts/currentStaticSlots.mjs'
+]) {
+  assert.equal(requiresStaticRuntimeReload([file]), false, 'CURRENT_SUPERVISOR_SCRIPT_MUST_NOT_RELOAD_LEARNER_RUNTIME:' + file);
+}
 assert.equal(
   requiresStaticRuntimeReload(['static-web/scripts/test-current-offline-startup.mjs']),
   false,

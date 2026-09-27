@@ -200,6 +200,7 @@ exec "${realGit}" "$@"
   processHandle = startSyncProcess();
   const served = async () => { try { return await (await fetch(`http://127.0.0.1:${port}`, { signal: AbortSignal.timeout(1000) })).text(); } catch { return null; } };
   await waitFor(async () => await served() === 'v1');
+  fs.writeFileSync(pruneFailureMarker, 'fail once\n');
   write('static-web/src/lib/fixture.mjs', 'export const version = "v2";');
   const next = commit();
   git(upstream, 'push', 'origin', 'main');
@@ -223,6 +224,7 @@ exec "${realGit}" "$@"
   assert.equal(runtime.fallback_root, path.join(firstRelease, 'static-web', 'dist'));
   assert.equal((logs.match(/performing one controlled server reload/g) || []).length, 1);
   assert.equal(/rolling back/.test(logs), false);
+  assert.match(logs, /post-handoff release cleanup deferred; accepted release remains active/);
 
   write('CURRENT.md', '# fixture control-only update\n');
   const controlOnly = commit();
@@ -243,14 +245,13 @@ exec "${realGit}" "$@"
   const repeatedControlSync = new RegExp(`main advanced ${controlOnly.slice(0, 8)} → ${controlOnly.slice(0, 8)}`, 'g');
   assert.equal((logs.match(repeatedControlSync) || []).length, 0, 'control-only promotion must not resync the same SHA every interval');
 
-  fs.writeFileSync(pruneFailureMarker, 'fail once\n');
   write('static-web/scripts/currentRelease.mjs', fs.readFileSync(path.join(scripts, 'currentRelease.mjs'), 'utf8') + '\n// fixture daemon-helper update\n');
   const helperUpdate = commit();
   git(upstream, 'push', 'origin', 'main');
   await waitFor(() => processHandle.exitCode !== null);
   assert.equal(processHandle.exitCode, 0, 'sync daemon helper update must request a clean supervisor restart');
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), helperUpdate);
-  assert.match(logs, /post-handoff release cleanup deferred; accepted release remains active/);
+  assert.match(logs, /control-only path\(s\).*serving unchanged release/);
   assert.match(logs, /Current sync runtime differs from loaded daemon; restarting the LaunchAgent-managed process after successful handoff/);
 
   const recoveryLogStart = logs.length;
