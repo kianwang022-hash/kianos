@@ -24,7 +24,18 @@ const hasReferenceRail = referenceModuleCount > 0;
 const referenceWeight = referenceModuleCount >= 3 ? 'rich' : referenceModuleCount === 1 ? 'light' : 'standard';
 
 const posCode = (value = '') => {
-  const pos = String(value).toLowerCase();
+  const pos = String(value || '').trim().toLowerCase();
+  const exact = {
+    article: 'ART',
+    determiner: 'DET',
+    pronoun: 'PRON',
+    conjunction: 'CONJ',
+    modal: 'MOD',
+    auxiliary: 'AUX',
+    particle: 'PART',
+    'relative pronoun/marker': 'REL'
+  };
+  if (exact[pos]) return exact[pos];
   if (pos.startsWith('verb') || pos === 'v') return 'V';
   if (pos.startsWith('adj') || pos === 'a') return 'A';
   if (pos.startsWith('noun') || pos === 'n') return 'N';
