@@ -128,13 +128,16 @@ async function biochemistrySourceLaneJourney(page) {
   await page.goto(`${BASE}/xizong/${SYSTEM_ID}/?view=biochemistry`, { waitUntil:'domcontentloaded' });
   const laneView = page.locator('[data-system-view="biochemistry"]');
   await laneView.waitFor({ state:'visible' });
-  check(await page.locator('[data-system-view-button="biochemistry"]').count() === 1,
-    'bio_lane_tab_visible');
-  check((await laneView.textContent() || '').includes('沿老师顺序连续学一次'),
-    'bio_lane_explains_single_continuous_source');
-  check((await laneView.textContent() || '').includes('物质—能量网络')
-      && (await laneView.textContent() || '').includes('信息生命周期'),
-    'bio_lane_keeps_two_mother_models_visible');
+  check(await page.locator('[data-system-view-button="biochemistry"]').count() === 0,
+    'bio_source_adapter_not_top_level_system_tab');
+  check((await laneView.textContent() || '').includes('继续 27 生化原讲义')
+      && (await laneView.textContent() || '').includes('不再另开一套 Block 课程'),
+    'bio_source_adapter_explains_single_continuous_source');
+  check(!(await laneView.locator('.xzBioTargetSection').first().isVisible())
+      && !(await laneView.locator('.xzBiochemistryReconstruction').first().isVisible()),
+    'bio_backend_mapping_and_reconstruction_stay_backstage');
+  check(!(await page.locator('.xzSystemRouteRail').isVisible()),
+    'bio_source_adapter_replaces_system_block_route_with_teacher_order');
 
   const firstUnit = laneView.locator('[data-biochemistry-unit-panel="BIO27-S01"]');
   check(await firstUnit.isVisible(), 'bio_lane_starts_at_s01');
@@ -186,9 +189,11 @@ async function biochemistrySourceLaneJourney(page) {
     check(await panel.isVisible(), 'bio_lane_advances_to_'+id.toLowerCase());
     if (id === 'BIO27-S03') {
       const m4Connection = panel.locator('[data-biochemistry-connection-route]').filter({ hasText:'M4 ↔ D7 + D8' });
-      check(await m4Connection.count() === 1, 's03_surfaces_reviewed_m4_d7_d8_connection');
+      check(await m4Connection.count() === 1, 's03_keeps_reviewed_m4_d7_d8_connection_runtime');
+      check(!(await m4Connection.isVisible()),
+        's03_connection_runtime_stays_backstage_in_source_adapter');
       check((await m4Connection.locator('[data-biochemistry-connection-status]').textContent() || '').includes('JIT Connection'),
-        'unformed_m4_connection_stays_jit_without_course_switch');
+        'unformed_m4_connection_semantics_preserved_backstage');
     }
     await laneAgain.locator('[data-biochemistry-unit-complete]').click();
     await page.waitForTimeout(80);
@@ -227,9 +232,8 @@ async function biochemistrySourceLaneJourney(page) {
   }, seeded);
   await page.goto(`${BASE}/xizong/${SYSTEM_ID}/?view=biochemistry`, { waitUntil:'domcontentloaded' });
   const metabolicReconstruction = page.locator('[data-biochemistry-reconstruction="PSR-2_METABOLIC_NETWORK"]');
-  await metabolicReconstruction.waitFor({ state:'visible' });
-  check((await metabolicReconstruction.textContent() || '').includes('阶段重构'),
-    'm1_m4_completion_releases_non_gating_metabolic_reconstruction');
+  check(await metabolicReconstruction.count() === 1 && !(await metabolicReconstruction.isVisible()),
+    'm1_m4_reconstruction_runtime_preserved_but_not_source_frontstage');
 
   const currentLane = page.locator('[data-system-view="biochemistry"]');
   await currentLane.locator('[data-biochemistry-unit-target="BIO27-S03"]').click();
@@ -262,12 +266,12 @@ async function biochemistrySourceLaneJourney(page) {
     window.dispatchEvent(new CustomEvent('kianos:xizong-block-complete',{ detail:{ block_id:'G5' } }));
   }, molecularStates);
   const informationReconstruction = page.locator('[data-biochemistry-reconstruction="PSR-6_INFORMATION_TUMOR"]');
-  await informationReconstruction.waitFor({ state:'visible' });
+  check(await informationReconstruction.count() === 1 && !(await informationReconstruction.isVisible()),
+    'information_reconstruction_runtime_stays_backstage');
   check((await informationReconstruction.locator('[data-biochemistry-reconstruction-boundary]').textContent() || '').includes('O9'),
     'information_reconstruction_keeps_external_tumor_owner_fail_closed');
-  await informationReconstruction.locator('[data-biochemistry-reconstruction-reveal]').click();
   check((await informationReconstruction.locator('[data-biochemistry-reconstruction-target]').textContent() || '').includes('molecular half'),
-    'g1_g5_release_molecular_half_without_false_full_tumor_gate');
+    'g1_g5_runtime_keeps_molecular_half_without_false_full_tumor_gate');
 }
 
 async function systemRecallToPracticeJourney(page) {

@@ -66,7 +66,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
     <nav class="xzSystemViewTabs" aria-label="System view">
       {hasGuide && <button type="button" data-system-view-button="guide" aria-pressed="true">GUIDE</button>}
       <button type="button" data-system-view-button="framework" aria-pressed={hasGuide ? 'false' : 'true'}>FRAMEWORK</button>
-      {hasBiochemistryLane && <button type="button" data-system-view-button="biochemistry" aria-pressed="false">{system.canonicalId === 'B' ? 'M/G 原讲义 · 27 生化' : '27 生化'}</button>}
+      {/* 27 Biochemistry is a contextual M/G Source adapter, not a third System course/tab. */}
     </nav>
   </header>
 
@@ -132,20 +132,17 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
         <section class="xzSystemBiochemistryView" data-system-view="biochemistry" hidden>
           <header class="xzBiochemistryLaneLead">
             <div>
-              <span>27 BIOCHEMISTRY · SOURCE LANE</span>
-              <h2>{system.canonicalId === 'B' ? '只服务 M/G 的第一遍原讲义 Source；D 类器官/临床 Block 不走这条 lane。' : '沿老师顺序连续学一次。'}</h2>
-              <p>{biochemistryLane.sourceName} · M/G 的 canonical Block 顺序不等于老师逐页顺序；Source 只读一条，形成到哪由当前 unit 映射回对应 M/G Block。</p>
+              <span>原讲义 · 老师顺序</span>
+              <h2>继续 27 生化原讲义；这里不再另开一套 Block 课程。</h2>
+              <p>{biochemistryLane.sourceName} · 按老师顺序连续读，完成一段后系统会自动同步回对应 M/G Block。</p>
             </div>
-            <div class="xzBiochemistryMotherMaps">
-              <span>{biochemistryLane?.mentalModels?.metabolism?.label || '物质—能量网络'}</span>
-              <span>{biochemistryLane?.mentalModels?.information?.label || '信息生命周期'}</span>
-            </div>
+            <a class="xzBiochemistryReturn" data-biochemistry-return href="./">返回 B</a>
           </header>
 
           <div class="xzBiochemistryLane">
-            <aside class="xzBiochemistryUnitRail" aria-label="27 生化 Source units">
+            <aside class="xzBiochemistryUnitRail" aria-label="27 生化原讲义老师顺序">
               <header>
-                <span>老师顺序</span>
+                <span>原讲义顺序</span>
                 <strong data-biochemistry-progress>0 / {biochemistryUnits.length}</strong>
               </header>
               <nav>
@@ -162,7 +159,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
               {biochemistryUnits.map((unit, index) => (
                 <article data-biochemistry-unit-panel={unit.id} hidden={index !== 0}>
                   <header>
-                    <span>{unit.id} · PDF P{String(unit.pdf?.[0] || '').padStart(3, '0')}–P{String(unit.pdf?.[1] || '').padStart(3, '0')}</span>
+                    <span>第 {index + 1} 段 · PDF P{String(unit.pdf?.[0] || '').padStart(3, '0')}–P{String(unit.pdf?.[1] || '').padStart(3, '0')}</span>
                     <h2>{unit.label}</h2>
                   </header>
 
@@ -225,15 +222,15 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
                   )}
 
                   {unit.closesBlocks?.length > 0 && (
-                    <p class="xzBioClosure">学完这一段后，{unit.closesBlocks.join(' / ')} 的 Current Source 接触闭合，可回 KianOS 做对应 Recall。</p>
+                    <p class="xzBioClosure">学完这一段后，可回 {unit.closesBlocks.join(' / ')} 继续 Recall。</p>
                   )}
                 </article>
               ))}
 
               <footer class="xzBiochemistryLaneAction">
                 <div>
-                  <span data-biochemistry-current-status>准备从当前未完成 Source unit 继续。</span>
-                  <small>这里只记录真实原讲义接触；不会把 Source unit 变成新的 Knowledge 层级。</small>
+                  <span data-biochemistry-current-status>准备从当前未完成段继续。</span>
+                  <small>这里只记录你学到哪里；完成这一段后继续下一段，回到 M/G Block 时会自动同步。</small>
                 </div>
                 <button type="button" data-biochemistry-unit-complete>本段原讲义已完成</button>
               </footer>
@@ -459,23 +456,40 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
     const setView = (name) => {
       const target = views.some((view) => view.getAttribute('data-system-view') === name) ? name : defaultView;
       views.forEach((view) => { view.hidden = view.getAttribute('data-system-view') !== target; });
+      root.classList.toggle('biochemistry-source-active', target === 'biochemistry');
       viewButtons.forEach((button) => {
         const active = button.getAttribute('data-system-view-button') === target;
         button.classList.toggle('active', active);
         button.setAttribute('aria-pressed', active ? 'true' : 'false');
       });
       if (target !== 'framework') closeContext();
-      try { localStorage.setItem(`kianos:xizong:system-view:${systemId}`, target); } catch {}
+      if (target !== 'biochemistry') {
+        try { localStorage.setItem(`kianos:xizong:system-view:${systemId}`, target); } catch {}
+      }
     };
 
     let initialView = defaultView;
     try {
+      const params = new URLSearchParams(window.location.search);
+      const requested = params.get('view') || '';
       const saved = localStorage.getItem(`kianos:xizong:system-view:${systemId}`);
-      if (saved) initialView = saved;
-      const requested = new URLSearchParams(window.location.search).get('view');
+      if (saved && saved !== 'biochemistry') initialView = saved;
       if (requested && views.some((view) => view.getAttribute('data-system-view') === requested)) initialView = requested;
     } catch {}
     setView(initialView);
+
+    const biochemistryReturn = root.querySelector('[data-biochemistry-return]');
+    if (biochemistryReturn instanceof HTMLAnchorElement) {
+      try {
+        const from = new URLSearchParams(window.location.search).get('from') || '';
+        const returnBlock = links.find((link) => String(link.getAttribute('href') || '').includes('/' + from + '/'));
+        if (from && returnBlock instanceof HTMLAnchorElement) {
+          biochemistryReturn.href = returnBlock.href;
+          const label = returnBlock.querySelector('b')?.textContent?.trim() || from.toUpperCase();
+          biochemistryReturn.textContent = '返回 ' + label;
+        }
+      } catch {}
+    }
 
     viewButtons.forEach((button) => button.addEventListener('click', () => {
       setView(button.getAttribute('data-system-view-button') || defaultView);
@@ -619,12 +633,12 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
         const allDone = completed.size >= units.length;
         if (completeButton instanceof HTMLButtonElement) {
           completeButton.disabled = allDone || selectedDone || selectedUnit !== nextIndex;
-          completeButton.textContent = allDone ? '27 生化 Source 已完整接触' : selectedDone ? '本段已完成' : '本段原讲义已完成';
+          completeButton.textContent = allDone ? '27 生化原讲义已完成' : selectedDone ? '本段已完成' : '本段原讲义已完成';
         }
         if (currentStatus) {
           currentStatus.textContent = allDone
-            ? '27 生化连续 Source 已完整接触；后续进入对应 Block Recall / 系统重构。'
-            : `当前 ${selected?.id || ''} · PDF P${String(selected?.pdf?.[0] || '').padStart(3, '0')}–P${String(selected?.pdf?.[1] || '').padStart(3, '0')}`;
+            ? '27 生化原讲义老师顺序已走完；回对应 M/G Block 继续 Recall。'
+            : `当前第 ${selectedUnit + 1} 段 · PDF P${String(selected?.pdf?.[0] || '').padStart(3, '0')}–P${String(selected?.pdf?.[1] || '').padStart(3, '0')}`;
         }
         syncIntegration();
       };
