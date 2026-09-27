@@ -9,12 +9,9 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ## Active engineering anchor
 
-Issue #1015 — **Politics rapid-mastery first-pass probe**.
+None.
 
-- Phase / Next / Blocker live in Issue #1015 while it is open.
-- Exact Content / Learning / Interaction / Practice / Evidence truth remains with the native owner.
-- This anchor owns only the bounded rapid-mastery implementation campaign.
-- Ordinary Politics learning still bypasses this engineering anchor.
+Issue #1015 is closed as not planned. The rapid-mastery idea remains analysis-only unless Kian explicitly adopts a product behavior change.
 
 ## Current routing
 
