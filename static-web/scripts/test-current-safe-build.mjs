@@ -3,7 +3,11 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { resolveSafeAstroBuildArgs } from './kianos-safe-astro-build.mjs';
+import {
+  DEFAULT_CURRENT_ASTRO_BUILD_CONCURRENCY,
+  resolveAstroBuildConcurrency,
+  resolveSafeAstroBuildArgs
+} from './kianos-safe-astro-build.mjs';
 
 const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-safe-build-'));
 const webRoot = path.join(scratch, 'static-web');
@@ -15,6 +19,18 @@ fs.symlinkSync(servedRoot, path.join(webRoot, 'dist-alias'), 'dir');
 fs.symlinkSync(path.join(servedRoot, 'future-explicit'), path.join(webRoot, 'dist-dangling'), 'dir');
 
 try {
+  assert.equal(DEFAULT_CURRENT_ASTRO_BUILD_CONCURRENCY, 2);
+  assert.equal(resolveAstroBuildConcurrency({}), 1, 'ordinary QA keeps Astro default serial rendering');
+  assert.equal(resolveAstroBuildConcurrency({ KIANOS_RELEASE_SHA: 'candidate-sha' }), 2, 'managed Current candidate renders two pages in parallel');
+  assert.equal(resolveAstroBuildConcurrency({
+    KIANOS_RELEASE_SHA: 'candidate-sha',
+    KIANOS_ASTRO_BUILD_CONCURRENCY: '4'
+  }), 4, 'explicit Current concurrency override wins');
+  assert.equal(resolveAstroBuildConcurrency({
+    KIANOS_RELEASE_SHA: 'candidate-sha',
+    KIANOS_ASTRO_BUILD_CONCURRENCY: 'invalid'
+  }), 2, 'invalid override falls back to conservative Current default');
+
   const ordinary = resolveSafeAstroBuildArgs([], { managedCurrent: false, currentWebRoot: webRoot });
   assert.deepEqual(ordinary.args, []);
   assert.equal(ordinary.redirected, false);
