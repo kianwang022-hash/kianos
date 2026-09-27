@@ -579,7 +579,9 @@ try {
     }
   ];
   for (const fixture of depthFixtures) {
-    await page.evaluate((word) => localStorage.removeItem(`kianos-vocabulary-astro-v2:word:${word}`), fixture.word);
+    // Each Human-Gate fixture is independent evidence; do not inherit learner/browser state
+    // from the preceding rich-word interaction.
+    await page.evaluate(() => localStorage.clear());
     await page.goto(`${origin}/vocabulary/${fixture.ordinal}/`, { waitUntil: 'networkidle' });
     await page.locator('[data-vocab-front]').waitFor({ state: 'visible' });
     assert((await page.locator('[data-vocab-front] h2').innerText()).trim() === fixture.word, `v2_depth_fixture_${fixture.word}`);
