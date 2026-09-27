@@ -337,10 +337,19 @@ try {
   await page.keyboard.press('Space');
   check(await learnCard.locator('[data-learner-kp-core]').isVisible(), 'space_restores_core');
 
+  const auxSurface = root.locator('[data-xizong-aux-surface]');
+  check(
+    await auxSurface.locator('[data-learner-asset-id="a2-r01-lg01-visual"]:visible').count() === 1,
+    'group_prelearn_visual_visible_at_group_entry'
+  );
   await page.keyboard.press('ArrowRight');
   await page.waitForTimeout(80);
   const movedKpId = await root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]').getAttribute('data-kp-id');
   check(Boolean(movedKpId && movedKpId !== originalKpId), 'arrow_right_switches_kp', `${originalKpId}->${movedKpId}`);
+  check(
+    await auxSurface.locator('[data-learner-asset-id="a2-r01-lg01-visual"]:visible').count() === 0,
+    'group_prelearn_visual_not_persistent_after_group_entry'
+  );
   await page.keyboard.press('ArrowLeft');
   await page.waitForTimeout(80);
   const returnedKpId = await root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]').getAttribute('data-kp-id');
@@ -395,8 +404,12 @@ try {
   const aux = root.locator('[data-xizong-aux-surface]');
   await aux.waitFor({ state: 'visible' });
   const auxBefore = await aux.locator('[data-learner-asset]:visible').count();
-  check(auxBefore > 0, 'recall_front_keeps_current_context', String(auxBefore));
-  check((await root.getAttribute('data-aux-weight')) !== 'none', 'recall_front_context_has_width', await root.getAttribute('data-aux-weight') || '');
+  check(auxBefore > 0, 'recall_front_keeps_current_kp_context', String(auxBefore));
+  check(
+    await aux.locator('[data-learner-asset-id="a2-r01-lg01-visual"]:visible').count() === 0,
+    'recall_front_does_not_reinject_group_prelearn_visual'
+  );
+  check((await root.getAttribute('data-aux-weight')) !== 'none', 'recall_front_current_kp_context_has_width', await root.getAttribute('data-aux-weight') || '');
   const highlightVisibleOnRecall = await page.evaluate(() => !('highlights' in CSS) || CSS.highlights.has('xizong-important'));
   check(highlightVisibleOnRecall, 'prompt_mark_reapplied_on_recall');
 

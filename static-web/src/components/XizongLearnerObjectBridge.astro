@@ -381,6 +381,15 @@ const payload = learnerObject || null;
         return merged;
       };
 
+      const groupPrelearnForKp = (kp) => {
+        const groupId = kp?.identity?.logicGroupId || '';
+        if (!groupId) return {};
+        const group = groups.find((row) => row?.identity?.logicGroupId === groupId);
+        const firstKpId = array(group?.kpIds)[0] || '';
+        if (firstKpId !== kp?.identity?.kpId) return {};
+        return learner.slots?.logicGroupPrelearn?.[groupId] || {};
+      };
+
       const renderAux = () => {
         if (!(auxSurface instanceof HTMLElement) || !(auxHost instanceof HTMLElement)) return;
         const stage = activeStage();
@@ -398,7 +407,7 @@ const payload = learnerObject || null;
           slotName = 'kp_learn_aux';
           representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
-          slot = mergeSlots(learner.slots?.logicGroupPrelearn?.[kp?.identity?.logicGroupId] || {}, learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {});
+          slot = mergeSlots(groupPrelearnForKp(kp), learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {});
         } else if (stage === 'kp_learn') {
           const kp = visibleCompanionKp('kp_learn') || groupCompanionKp();
           const groupId = kp?.identity?.logicGroupId || groupIds[activeGroupIndex()] || '';
@@ -406,7 +415,7 @@ const payload = learnerObject || null;
           representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
           slot = mergeSlots(
-            learner.slots?.logicGroupPrelearn?.[groupId] || {},
+            groupPrelearnForKp(kp),
             learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {}
           );
         } else if (stage === 'logic_group') {
@@ -423,7 +432,6 @@ const payload = learnerObject || null;
           representationStage = recallAnswerVisible() ? 'KP_RECALL_REVEAL' : 'KP_RECALL_FRONT';
           title = kp ? `${kp.identity.displayId} · 当前辅助` : '当前辅助';
           slot = mergeSlots(
-            learner.slots?.logicGroupPrelearn?.[groupId] || {},
             learner.slots?.kpRecallContext?.[kpId] || learner.slots?.kpLearnAux?.[kpId] || {},
             recallAnswerVisible() ? postlearnForGroup(groupId) : {}
           );
