@@ -8,7 +8,8 @@ import { fileURLToPath } from 'node:url';
 
 import {
   classifyStaticBuild,
-  requiresStaticRuntimeReload
+  requiresStaticRuntimeReload,
+  staticBuildNpmScript
 } from './currentStaticImpact.mjs';
 import {
   atomicReplaceSymlink,
@@ -171,7 +172,8 @@ async function prepareRelease(sha, extra = {}) {
     if (!skipAstro) {
       const candidateStage = path.join(candidateWebRoot, '.current-build-next');
       fs.rmSync(candidateStage, { recursive: true, force: true });
-      const args = [npmBin, 'run', 'build', '--', '--outDir', candidateStage];
+      const buildScript = staticBuildNpmScript(extra);
+      const args = [npmBin, 'run', buildScript, '--', '--outDir', candidateStage];
       await runChild(args[0], args.slice(1), {
         cwd: candidateWebRoot,
         label: 'candidate Astro build',
