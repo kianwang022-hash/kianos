@@ -152,6 +152,12 @@ async function cleanPassJourney(browser, task) {
     check(Boolean(record?.firstDraft), 'clean_first_draft_is_preserved');
     check(await page.locator('[data-writing-evidence-panel]').isHidden(), 'review_pending_has_no_transfer_attention');
     await assertNoVisibleEngineering(page, 'review_default_surface_has_no_engineering_language');
+    const directRevision = page.locator('.writingDirectReview textarea');
+    await directRevision.waitFor({ state: 'visible' });
+    check(
+      (await directRevision.inputValue()) === record.firstDraft,
+      'direct_review_hydrates_current_revision_from_first_draft'
+    );
 
     // Normal learner path: stable work exits directly without a JSON round-trip.
     await page.getByRole('button', { name: '这篇可以了', exact: true }).click();
