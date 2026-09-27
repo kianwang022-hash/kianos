@@ -95,7 +95,7 @@ Current Content
 → reconnect Runtime afterward
 ```
 
-## Required four-way Projection audit before recommending changes
+## Required four-way Projection review before recommending changes
 
 Every mature Xizong learner surface must first classify the existing implementation into:
 
