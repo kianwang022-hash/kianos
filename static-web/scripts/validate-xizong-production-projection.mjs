@@ -74,13 +74,13 @@ assert(bD17.kpRecords[5].outlineLocator.includes('病理 U007') && bD17.kpRecord
 
 const bM2 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'm02'));
 assert(bM2.kpRecords.length === 15 && bM2.kpRecords.every((kp) => kp.sourceLocator && kp.sourceLocatorAuthority === 'CURRENT_SOURCE_MAP'), 'b-m02:source-map-kp-locators-not-materialized');
-assert(bM2.kpRecords[0].sourceLocator.includes('BIO27-S01') && bM2.kpRecords[0].sourceLocator.includes('P003–P008'), 'b-m02-kp01:source-map-locator-wrong');
+assert(bM2.kpRecords[0].sourceLocator.includes('27生化跟课版合集【不带导图】.pdf') && bM2.kpRecords[0].sourceLocator.includes('P003–P008') && !/BIO27-S\d+/.test(bM2.kpRecords[0].sourceLocator), 'b-m02-kp01:learner-source-locator-wrong');
 
 const bG1 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'g01'));
 assert(bG1.kpRecords[0].sourceLocatorAuthority === 'CANONICAL_BLOCK' && bG1.kpRecords[0].sourceLocator.includes('P112'), 'b-g01-kp01:canonical-locator-must-outrank-derived-source-map');
 
 const bG5 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'g05'));
-assert(bG5.kpRecords[0].sourceLocatorAuthority === 'CURRENT_SOURCE_MAP' && /BIO27-S\d+/.test(bG5.kpRecords[0].sourceLocator), 'b-g05-kp01:missing-source-map-fallback');
+assert(bG5.kpRecords[0].sourceLocatorAuthority === 'CURRENT_SOURCE_MAP' && bG5.kpRecords[0].sourceLocator.includes('27生化跟课版合集【不带导图】.pdf') && /PDF P\d+/.test(bG5.kpRecords[0].sourceLocator) && !/BIO27-S\d+/.test(bG5.kpRecords[0].sourceLocator), 'b-g05-kp01:learner-source-map-fallback-wrong');
 
 // C/D/E/F have no physical rich Projection assets yet. They must still enter the
 // same production/runtime path through the minimal Current-derived baseline.

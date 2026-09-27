@@ -433,6 +433,9 @@ const payload = learnerObject || null;
       const renderCompanions = () => {
         if (sourceCompanionHost) {
           const sourceIds = sourceCompanionIds();
+          if (sourceStage instanceof HTMLElement) {
+            sourceStage.dataset.sourceCompanion = sourceIds.length ? 'kp' : 'source-only';
+          }
           sourceLearnIndex = Math.max(0, Math.min(Math.max(0, sourceIds.length - 1), sourceLearnIndex));
           renderCompanionCard(sourceCompanionHost, sourceCompanionKp(), sourceLearnIndex, sourceIds.length, 'source_contact');
         }

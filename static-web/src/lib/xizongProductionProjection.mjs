@@ -529,7 +529,7 @@ function derivedSourceLocatorByOrdinal(canonicalBlock, semanticBlock) {
       if (pages.length !== 2 || !pages.every(Number.isFinite)) fail('BIOCHEMISTRY_SOURCE_PAGES_INVALID', segment?.sourceUnitId || semanticBlock?.blockId || '');
       const page = (value) => `P${String(value).padStart(3, '0')}`;
       const pageRange = pages[0] === pages[1] ? page(pages[0]) : `${page(pages[0])}–${page(pages[1])}`;
-      const locator = `${sourceName} · ${segment.sourceUnitId} · PDF ${pageRange}`;
+      const locator = `${sourceName} · PDF ${pageRange}`;
       for (const ordinal of segment?.kpOrdinals || []) set(ordinal, locator, owner, segment?.sourceUnitId || semanticBlock?.blockId || '');
     }
   }

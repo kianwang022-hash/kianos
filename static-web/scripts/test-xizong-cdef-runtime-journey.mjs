@@ -133,6 +133,9 @@ async function snap() {
       ratings:Object.keys(state.ratings||{}).length,
       evidence:(state.sourceContactEvidence||[]).map((row)=>row?.segment_id||''),
       sourceDone:state.sourceContactDone===true,
+      visibleText:(visible?.innerText||'').trim(),
+      sourceDoneVisible:(()=>{const button=document.querySelector('[data-source-contact-done]');return Boolean(button&&button.offsetParent!==null)})(),
+      activeKpText:(document.querySelector('[data-study-active-kp]')?.innerText||'').trim(),
       released:Object.entries(state.integrationReleasedGroups||{}).filter(([,v])=>v===true).map(([id])=>id),
       buttons:[...document.querySelectorAll('[data-group-target]')].map((button,index)=>({
         index,disabled:Boolean(button.disabled),done:button.classList.contains('done')
@@ -170,6 +173,8 @@ async function sr1Journey() {
   let row = await beginBlock('/xizong/reproductive-breast/sr01/');
   check(row.stage === 'source_contact' && row.sourceTitle.includes('第 1 段'), 'sr1_starts_segment_1');
   check(row.scopeIds.length === 0, 'sr1_segment_1_has_no_fake_kp_scope');
+  check(row.visibleText.includes('这一段先建立必要背景') && row.sourceDoneVisible, 'sr1_segment_1_source_only_surface_visible');
+  check(row.activeKpText === '', 'sr1_segment_1_does_not_fake_active_kp');
   row = await sourceDone();
   check(row.stage === 'source_contact' && row.sourceTitle.includes('第 2 段'), 'sr1_segment_1_continues_segment_2');
   check(row.learned === 0 && row.ratings === 0, 'sr1_segment_1_does_not_mint_learning');
