@@ -303,8 +303,232 @@ export function resolveXizongBlockCognitiveProjection(canonicalBlock, semanticBl
   };
 }
 
+const SURGERY_SOURCE_MAP = 'content/xizong/knowledge/learner/surgery-27-source-map.json';
+
+function cleanMarkdownCell(value) {
+  return String(value || '').replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
+}
+
+function kpOrdinalsFromText(value) {
+  const out = [];
+  const source = String(value || '');
+  const pattern = /KP\s*0*(\d+)(?:\s*[–—-]\s*(?:KP\s*)?0*(\d+))?/gi;
+  for (const match of source.matchAll(pattern)) {
+    const start = Number(match[1]);
+    const end = match[2] ? Number(match[2]) : start;
+    if (!Number.isInteger(start) || !Number.isInteger(end) || start <= 0 || end < start) continue;
+    for (let value = start; value <= end; value += 1) out.push(value);
+  }
+  return [...new Set(out)];
+}
+
+function looksLikeOutlineIdentity(value) {
+  return /(?:\b(?:PHY|IM|SUR|PATH|SURG)[-\s]?U\d|(?:生理(?:学)?|病理(?:学)?|内科(?:学)?|外科(?:学)?|Physiology|Pathology|Internal(?:\s+Medicine)?|Surgery)\s*[- ]?U\d)/i.test(String(value || ''));
+}
+
+function normalizeOutlineHeading(value) {
+  const raw = cleanMarkdownCell(value)
+    .replace(/^\d+(?:\.\d+)*\s*/, '')
+    .replace(/^[｜|]\s*/, '');
+  return cleanMarkdownCell(raw.split(/[｜|]/)[0]);
+}
+
+function singleOutlinePrimary(value) {
+  const raw = cleanMarkdownCell(value);
+  if (!raw) return '';
+  const hits = [...raw.matchAll(/U\s*0*(\d+)/gi)];
+  if (hits.length !== 1 || /U\s*\d+\s*[–—-]\s*U?\s*\d+/i.test(raw)) return '';
+  return raw;
+}
+
+function outlinePrimaryUnitCounts(markdown, headings, lines) {
+  const units = [];
+  const ownerSections = headings.filter((row) => /^(?:Outline Primary|Outline Coverage)$/i.test(row.title.trim()));
+  for (const section of ownerSections) {
+    const endLine = headings.find((row) => row.index > section.index && row.level <= section.level)?.index ?? lines.length;
+    for (let index = section.index + 1; index < endLine; index += 1) {
+      const raw = cleanMarkdownCell(lines[index]).replace(/^[-*+]\s*/, '');
+      if (!looksLikeOutlineIdentity(raw)) continue;
+      const countMatch = raw.match(/=\s*(\d+)\b/) || raw.match(/\b(\d+)\s*\/\s*\1\b/);
+      if (!countMatch) continue;
+      const count = Number(countMatch[1]);
+      if (!Number.isInteger(count) || count <= 0) continue;
+      let identity = raw.includes('=') ? raw.split('=')[0] : raw.split(/[：:]/)[0];
+      identity = cleanMarkdownCell(identity.replace(/[;；,，]$/, ''));
+      if (!looksLikeOutlineIdentity(identity)) continue;
+      if (!units.some((row) => row.identity === identity && row.count === count)) units.push({ identity, count });
+    }
+  }
+  return units;
+}
+
+function reconcileOutlineRowsByCounts(units, rows, add) {
+  if (!units.length || !rows.length) return;
+  const unitTotal = units.reduce((sum, row) => sum + row.count, 0);
+  const rowTotal = rows.reduce((sum, row) => sum + row.count, 0);
+  if (unitTotal !== rowTotal) return;
+  let unitCum = 0;
+  const unitBoundaries = new Map();
+  units.forEach((row, index) => {
+    unitCum += row.count;
+    unitBoundaries.set(unitCum, index + 1);
+  });
+  let rowCum = 0;
+  const rowBoundaries = new Map();
+  rows.forEach((row, index) => {
+    rowCum += row.count;
+    rowBoundaries.set(rowCum, index + 1);
+  });
+  const common = [...unitBoundaries.keys()].filter((value) => rowBoundaries.has(value)).sort((a, b) => a - b);
+  let prevUnit = 0;
+  let prevRow = 0;
+  for (const boundary of common) {
+    const nextUnit = unitBoundaries.get(boundary);
+    const nextRow = rowBoundaries.get(boundary);
+    const identities = units.slice(prevUnit, nextUnit).map((row) => row.identity);
+    if (identities.length) {
+      const locator = identities.join(' + ');
+      rows.slice(prevRow, nextRow).forEach((row) => row.ordinals.forEach((ordinal) => add(ordinal, locator)));
+    }
+    prevUnit = nextUnit;
+    prevRow = nextRow;
+  }
+}
+
+function derivedOutlineLocatorByOrdinal(canonicalBlock) {
+  const out = new Map();
+  if (!canonicalBlock?.sourcePath || !exists(canonicalBlock.sourcePath)) return out;
+  const markdown = readText(canonicalBlock.sourcePath);
+  const { lines, headings } = markdownHeadings(markdown);
+  const coverageSections = headings.filter((row) => /Outline Coverage/i.test(row.title));
+  const fallback = singleOutlinePrimary(canonicalBlock.outlinePrimary);
+  const add = (ordinal, locator) => {
+    if (!Number.isInteger(ordinal) || ordinal <= 0 || !locator) return;
+    const current = out.get(ordinal) || [];
+    if (!current.includes(locator)) current.push(locator);
+    out.set(ordinal, current);
+  };
+  const pendingRows = [];
+  for (const coverage of coverageSections) {
+    const endLine = headings.find((row) => row.index > coverage.index && row.level <= coverage.level)?.index ?? lines.length;
+    let context = '';
+    for (let index = coverage.index; index < Math.min(lines.length, endLine); index += 1) {
+      const line = lines[index];
+      const heading = line.match(/^#{2,4}\s+(.+?)\s*$/);
+      if (heading) {
+        const candidate = normalizeOutlineHeading(heading[1]);
+        context = looksLikeOutlineIdentity(candidate) ? candidate : '';
+        continue;
+      }
+      if (!/^\|.*\|\s*$/.test(line) || /^\|\s*[-:]+/.test(line)) continue;
+      const cells = line.split('|').slice(1, -1).map(cleanMarkdownCell);
+      if (!cells.length || /^(?:Outline|Outline范围|Outline 范围|Outline身份|原题身份|当前Primary合计|D11 Primary合计|合计)$/i.test(cells[0])) continue;
+      const rowText = cells.join(' | ');
+      if (/explicit[_ ](?:deferred|recall)|owned_by/i.test(rowText)) continue;
+      const ordinals = kpOrdinalsFromText(rowText);
+      if (!ordinals.length) continue;
+      const rowIdentity = looksLikeOutlineIdentity(cells[0]) ? cells[0] : '';
+      const locator = rowIdentity || context || fallback;
+      if (locator) {
+        ordinals.forEach((ordinal) => add(ordinal, locator));
+        continue;
+      }
+      const count = Number(String(cells[1] || '').replace(/[^0-9]/g, ''));
+      if (Number.isInteger(count) && count > 0) pendingRows.push({ count, ordinals });
+    }
+  }
+  if (pendingRows.length) reconcileOutlineRowsByCounts(outlinePrimaryUnitCounts(markdown, headings, lines), pendingRows, add);
+  if (fallback) {
+    for (const kp of canonicalBlock.kpRecords || []) {
+      const ordinal = Number(kp.ordinal);
+      if (!out.has(ordinal)) out.set(ordinal, [fallback]);
+    }
+  }
+  return new Map([...out].map(([ordinal, locators]) => [ordinal, locators.join(' · ')]));
+}
+
+function kpRangeSpecOrdinals(spec, detail) {
+  const hits = [...String(spec || '').matchAll(/KP(\d+)/g)].map((match) => Number(match[1]));
+  if (!hits.length || hits.some((value) => !Number.isInteger(value) || value <= 0)) fail('SURGERY_SOURCE_KP_RANGE_INVALID', detail);
+  if (hits.length === 1) return [hits[0]];
+  const [start, end] = hits;
+  if (end < start) fail('SURGERY_SOURCE_KP_RANGE_REVERSED', detail);
+  return Array.from({ length: end - start + 1 }, (_, index) => start + index);
+}
+
+function canonicalLectureLocatorByOrdinal(canonicalBlock) {
+  const out = new Map();
+  if (!canonicalBlock?.sourcePath || !exists(canonicalBlock.sourcePath)) return out;
+  const markdown = readText(canonicalBlock.sourcePath);
+  for (const line of markdown.split('\n')) {
+    if (!/^\|.*\|\s*$/.test(line)) continue;
+    const cells = line.split('|').slice(1, -1).map(cleanMarkdownCell);
+    if (cells.length < 2) continue;
+    const locator = cells[0];
+    if (!/(?:\b(?:PHY|SUR|IM|PATH)\s*P\d|(?:生理|病理|内科|外科)(?:\s+Lecture)?\s*P\d)/i.test(locator)) continue;
+    const ordinals = kpOrdinalsFromText(cells.slice(1).join(' | '));
+    if (!ordinals.length) continue;
+    for (const ordinal of ordinals) {
+      const current = out.get(ordinal) || [];
+      if (!current.includes(locator)) current.push(locator);
+      out.set(ordinal, current);
+    }
+  }
+  return new Map([...out].map(([ordinal, locators]) => [ordinal, {
+    locator: locators.join(' · '),
+    owner: canonicalBlock.sourcePath
+  }]));
+}
+
+function derivedSourceLocatorByOrdinal(canonicalBlock, semanticBlock) {
+  const out = new Map();
+  const set = (ordinal, locator, owner, detail) => {
+    const key = Number(ordinal);
+    if (!Number.isInteger(key) || key <= 0) fail('SOURCE_KP_ORDINAL_INVALID', detail);
+    if (out.has(key)) fail('SOURCE_KP_LOCATOR_AMBIGUOUS', `${canonicalBlock.blockId}:KP${key}`);
+    out.set(key, { locator, owner });
+  };
+
+  if (semanticBlock?.sourceContact?.mode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT') {
+    const sourceName = String(semanticBlock?.sourceContact?.sourceName || '').trim();
+    const owner = String(semanticBlock?.sourceContact?.sourceMapOwner || '').trim();
+    if (!sourceName || !owner) fail('BIOCHEMISTRY_SOURCE_IDENTITY_MISSING', semanticBlock?.blockId || '');
+    for (const segment of semanticBlock?.sourceContact?.segments || []) {
+      const pages = Array.isArray(segment?.pdf) ? segment.pdf.map(Number) : [];
+      if (pages.length !== 2 || !pages.every(Number.isFinite)) fail('BIOCHEMISTRY_SOURCE_PAGES_INVALID', segment?.sourceUnitId || semanticBlock?.blockId || '');
+      const page = (value) => `P${String(value).padStart(3, '0')}`;
+      const pageRange = pages[0] === pages[1] ? page(pages[0]) : `${page(pages[0])}–${page(pages[1])}`;
+      const locator = `${sourceName} · ${segment.sourceUnitId} · PDF ${pageRange}`;
+      for (const ordinal of segment?.kpOrdinals || []) set(ordinal, locator, owner, segment?.sourceUnitId || semanticBlock?.blockId || '');
+    }
+  }
+
+  if (canonicalBlock.systemId === 'digestive-metabolic-endocrine-tumor' && exists(SURGERY_SOURCE_MAP)) {
+    const sourceMap = readJson(SURGERY_SOURCE_MAP);
+    const sourceName = String(sourceMap?.source_identity?.visible_name_or_source_id || '').trim();
+    if (!sourceName) fail('SURGERY_SOURCE_NAME_MISSING', canonicalBlock.blockId);
+    for (const unit of sourceMap?.units || []) {
+      const architecture = unit?.architecture_v3 || {};
+      if (architecture?.exact_binding_status !== 'REVIEWED_DIRECT_BINDING') continue;
+      for (const binding of architecture?.bindings || []) {
+        if (String(binding?.system || '') !== 'B' || String(binding?.block || '') !== canonicalBlock.blockId) continue;
+        const locator = `${sourceName} · ${String(unit?.id || '')} · PDF ${String(unit?.pdf_pages || '')}`;
+        for (const spec of binding?.kp_ranges || []) {
+          for (const ordinal of kpRangeSpecOrdinals(spec, `${unit?.id || ''}:${canonicalBlock.blockId}:${spec}`)) {
+            set(ordinal, locator, SURGERY_SOURCE_MAP, unit?.id || canonicalBlock.blockId);
+          }
+        }
+      }
+    }
+  }
+  return out;
+}
+
 export function buildXizongProductionBlock(canonicalBlock) {
   const { block: semanticBlock } = loadXizongSemanticBlock(canonicalBlock.systemId, canonicalBlock.blockId);
+  const sourceLocatorByOrdinal = derivedSourceLocatorByOrdinal(canonicalBlock, semanticBlock);
+  const lectureLocatorByOrdinal = canonicalLectureLocatorByOrdinal(canonicalBlock);
+  const outlineLocatorByOrdinal = derivedOutlineLocatorByOrdinal(canonicalBlock);
   const kpByOrdinal = new Map((canonicalBlock.kpRecords || []).map((kp) => [Number(kp.ordinal), { ...kp }]));
   const groupForOrdinal = new Map();
   const logicGroups = semanticBlock.logicGroups.map((group) => {
@@ -332,9 +556,37 @@ export function buildXizongProductionBlock(canonicalBlock) {
   });
 
   const kpRecords = (canonicalBlock.kpRecords || []).map((kp) => {
-    const group = groupForOrdinal.get(Number(kp.ordinal));
+    const ordinal = Number(kp.ordinal);
+    const group = groupForOrdinal.get(ordinal);
     if (!group) fail('SEMANTIC_KP_GROUP_MISSING', kp.kpId);
-    return { ...kp, groupId: group.groupId, groupLabel: group.label };
+    const canonicalSourceLocator = String(kp.sourceLocator || '').trim();
+    const canonicalOutlineLocator = String(kp.outlineLocator || '').trim();
+    const derivedSource = sourceLocatorByOrdinal.get(ordinal) || null;
+    const lectureLedgerSource = lectureLocatorByOrdinal.get(ordinal) || null;
+    const derivedOutlineLocator = outlineLocatorByOrdinal.get(ordinal) || '';
+    return {
+      ...kp,
+      sourceLocator: canonicalSourceLocator || derivedSource?.locator || lectureLedgerSource?.locator || '',
+      sourceLocatorAuthority: canonicalSourceLocator
+        ? 'CANONICAL_BLOCK'
+        : derivedSource
+          ? 'CURRENT_SOURCE_MAP'
+          : lectureLedgerSource
+            ? 'CANONICAL_LECTURE_LEDGER'
+            : 'UNRESOLVED',
+      sourceLocatorOwner: canonicalSourceLocator
+        ? canonicalBlock.sourcePath
+        : derivedSource?.owner || lectureLedgerSource?.owner || '',
+      outlineLocator: canonicalOutlineLocator || derivedOutlineLocator,
+      outlineLocatorAuthority: canonicalOutlineLocator
+        ? 'CANONICAL_KP'
+        : derivedOutlineLocator
+          ? 'CANONICAL_OUTLINE_LEDGER'
+          : 'UNRESOLVED',
+      outlineLocatorOwner: canonicalOutlineLocator || derivedOutlineLocator ? canonicalBlock.sourcePath : '',
+      groupId: group.groupId,
+      groupLabel: group.label
+    };
   });
 
   const cognitiveProjection = resolveXizongBlockCognitiveProjection(canonicalBlock, semanticBlock);

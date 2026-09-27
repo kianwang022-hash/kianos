@@ -56,6 +56,32 @@ const bAsset = loadCompiledXizongProjectionAsset('digestive-metabolic-endocrine-
 assert(Boolean(bAsset?.asset), 'b-d01:compiled-projection-asset-missing');
 assert(!JSON.stringify(bAsset.asset.views?.BLOCK_ORIENT || {}).includes('CANONICAL_GUIDE'), 'b-d01:second-lecture-regression');
 
+const bD1 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'd01'));
+assert(bD1.kpRecords.every((kp) => kp.sourceLocatorAuthority === 'UNRESOLVED'), 'b-d01:must-not-invent-kp-source-page');
+assert(bD1.kpRecords.every((kp) => kp.outlineLocatorAuthority === 'CANONICAL_OUTLINE_LEDGER' && kp.outlineLocator.includes('U018')), 'b-d01:outline-ledger-not-consumed');
+
+const bD2 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'd02'));
+assert(bD2.kpRecords.slice(0, 4).every((kp) => kp.outlineLocator.includes('U019')), 'b-d02:u019-outline-reconciliation-lost');
+assert(bD2.kpRecords.slice(4).every((kp) => kp.outlineLocator.includes('U020')), 'b-d02:u020-outline-reconciliation-lost');
+
+const bD5 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'd05'));
+assert(bD5.kpRecords[0].sourceLocatorAuthority === 'CANONICAL_LECTURE_LEDGER' && bD5.kpRecords[0].sourceLocator.includes('PHY P245'), 'b-d05-kp01:lecture-ledger-source-not-consumed');
+assert(bD5.kpRecords[14].sourceLocatorAuthority === 'CURRENT_SOURCE_MAP', 'b-d05-kp15:current-surgery-source-map-must-outrank-lecture-ledger');
+assert(bD5.kpRecords.every((kp) => kp.outlineLocatorAuthority === 'CANONICAL_OUTLINE_LEDGER'), 'b-d05:outline-ledger-not-consumed');
+
+const bD17 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'd17'));
+assert(bD17.kpRecords[5].outlineLocator.includes('病理 U007') && bD17.kpRecords[5].outlineLocator.includes('外科 U018'), 'b-d17-kp06:multi-outline-binding-lost');
+
+const bM2 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'm02'));
+assert(bM2.kpRecords.length === 15 && bM2.kpRecords.every((kp) => kp.sourceLocator && kp.sourceLocatorAuthority === 'CURRENT_SOURCE_MAP'), 'b-m02:source-map-kp-locators-not-materialized');
+assert(bM2.kpRecords[0].sourceLocator.includes('BIO27-S01') && bM2.kpRecords[0].sourceLocator.includes('P003–P008'), 'b-m02-kp01:source-map-locator-wrong');
+
+const bG1 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'g01'));
+assert(bG1.kpRecords[0].sourceLocatorAuthority === 'CANONICAL_BLOCK' && bG1.kpRecords[0].sourceLocator.includes('P112'), 'b-g01-kp01:canonical-locator-must-outrank-derived-source-map');
+
+const bG5 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'g05'));
+assert(bG5.kpRecords[0].sourceLocatorAuthority === 'CURRENT_SOURCE_MAP' && /BIO27-S\d+/.test(bG5.kpRecords[0].sourceLocator), 'b-g05-kp01:missing-source-map-fallback');
+
 // C remains semantically compatible but intentionally uncompiled until its own P work.
 const semanticCH1 = loadXizongSemanticBlock('hematology-immunity-infection', 'hematology-h01').block;
 const cLg = semanticCH1.logicGroups.find((row) => row.groupId === 'c-h01-lg06');
