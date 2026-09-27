@@ -189,6 +189,19 @@ for (const selector of politicsLearnSourceSelectors) {
     selector + ': Politics Learn owner lost a source-handoff selector'
   );
 }
+const politicsLearnUnitCompanionSelectors = [
+  '.politicsUnitHead',
+  '.politicsUnitCompanion',
+  '.politicsGuide',
+  '.politicsGuideBody',
+  '.politicsClosure'
+];
+for (const selector of politicsLearnUnitCompanionSelectors) {
+  assert.ok(
+    politicsLearn.includes(selector),
+    selector + ': Politics Learn owner lost a Unit/companion selector'
+  );
+}
 for (const legacyLayer of ['politics-presentation.css', 'shared-workspace-composition.css', 'politics-visual-tuning.css']) {
   const value = read(path.join(src, 'styles', legacyLayer));
   assert.ok(
@@ -210,6 +223,12 @@ for (const legacyLayer of ['politics-presentation.css', 'shared-workspace-compos
     );
   }
   for (const selector of politicsLearnSourceSelectors) {
+    assert.ok(
+      !value.includes(selector),
+      legacyLayer + ': ' + selector + ' escaped the Politics Learn presentation owner'
+    );
+  }
+  for (const selector of politicsLearnUnitCompanionSelectors) {
     assert.ok(
       !value.includes(selector),
       legacyLayer + ': ' + selector + ' escaped the Politics Learn presentation owner'
