@@ -83,6 +83,7 @@ body#kianos-workspace.uiEnglish .readingBDirections { display: none !important;
 body#kianos-workspace.uiEnglish :is(.readingBLayout, .readingBOrderingLayout) {
   grid-template-columns: minmax(0, 1.04fr) minmax(500px, .96fr);
   gap: 0;
+  align-items: stretch;
   height: calc(100dvh - 164px);
   min-height: 620px;
   overflow: hidden;
@@ -156,6 +157,9 @@ body#kianos-workspace.uiEnglish .readingBMap { border-left: 1px solid #e1e6eb; b
   display: grid;
   grid-template-rows: minmax(0, .9fr) minmax(0, 1.1fr) auto auto;
   gap: 0;
+  align-self: stretch;
+  height: 100%;
+  max-height: 100%;
   padding: 0 !important;
   overflow: hidden;
   border-left: 1px solid #dfe4e7;
