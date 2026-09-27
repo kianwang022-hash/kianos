@@ -24,7 +24,9 @@ try {
   fs.chmodSync(npm, 0o755);
   assert.equal(run({ KIANOS_NPM_BIN: npm }).status, 0);
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), a);
-  write('fixture.txt', 'B'); git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'B'); const b = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
+  write('fixture.txt', 'B');
+  write('static-web/package.json', '{"fixture_dependency_version":"B"}');
+  git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'B'); const b = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
   const failed = run({ KIANOS_NPM_BIN: npm, INSTALL_FAIL: '1' });
   assert.notEqual(failed.status, 0); assert.equal(git(mirror, 'rev-parse', 'HEAD'), a);
   assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(path.join(root, '.kianos-current-releases/releases', a)));
