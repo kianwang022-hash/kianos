@@ -9,13 +9,14 @@ A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / �
 
 ## Active engineering anchor
 
-No active broad English engineering anchor.
+Issue #1043 — **English rapid-learning CREATE — Reading attribution / feedback sufficiency** — is the active long-term CREATE control anchor.
 
-Issue #1014 — **English learner-facing full real-use audit** — is the completed durable audit receipt, not a current work cursor.
-
+- Current Phase: CREATE diagnosis / Kian decision gate; no learner-behavior semantic delta is approved yet.
+- Current Next: Kian decides whether to accept the minimal Reading evidence delta; accepted meaning then returns to the existing Learning / Reading owner(s) before BUILD/UI.
+- Current Blocker: behavior / feedback interaction changes await Kian approval; current real Kian Reading-A evidence is insufficient for learner-specific stability or dose-contraction claims.
+- Issue #1014 — **English learner-facing full real-use audit** — remains the completed durable audit receipt, not the current work cursor.
 - Exact Source / Content / Learning / Interaction / Visual / Runtime / Shared-platform truth remains with each native owner.
 - Ordinary English learning uses the native learner/runtime state.
-- Future engineering reopens only the smallest responsible owner for a concrete new defect, Source change, accepted product change or genuine learner-use evidence.
 
 ## Current state
 
