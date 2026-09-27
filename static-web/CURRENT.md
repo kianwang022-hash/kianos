@@ -48,6 +48,7 @@ Content production remains independent and routes through the exact English / Xi
 
 - Candidate `127.0.0.1:4322` is the transient isolated engineering lane for ordinary UI / Human-Gate iteration; stable `127.0.0.1:4321` is not a scratch preview.
 - Candidate state is never learner / execution truth. After Human Gate PASS, one durable PR enters the existing managed Current release lane.
+- Website-local heavy work uses the shared Heavy Lease owner in `scripts/websiteHeavyWork.mjs`: Astro build, lexical projection and opted-in heavy QA serialize instead of competing for the same Mac. The lease never kills unrelated processes; it only protects/cleans the exact owned process tree.
 - GitHub `main` is durable shared asset/Current truth; the Mac mirror and served release are delivery projections.
 - Static/content/runtime-impacting changes build and validate a candidate before atomic promotion; failed promotion preserves last-known-good service.
 - Proven control-only changes may advance `control_sha` without changing the served-release `sha`.
