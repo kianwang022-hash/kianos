@@ -428,15 +428,17 @@ Hard rules:
 
 - raw attempt history remains the private learner truth;
 - the packet may include only a bounded recent exact-attempt window per task plus fixed-size derived counts;
+- Reading A may additionally expose a bounded factual attribution slice containing passive lookup events and already-recorded reviewed Reading signals; this is evidence for Chat, not a Website diagnosis engine;
 - Reading A / Cloze / Part B / Translation / Writing / External Reading remain separate task families;
 - raw elapsed time is never compared across different task types as if seconds meant the same thing;
 - uncalibrated timing is UNKNOWN, not slow;
 - the default decision-facing timing summary uses only **unseen + unassisted** attempts; exposed / assisted work remains visible only in separate observational timing so familiarity/help cannot make clean speed look faster;
 - exposed or assisted work cannot be promoted to independent-transfer evidence merely because it was correct;
+- a Reading lookup event may preserve the exact token, bounded source context/locator, timestamp and focused question at that moment; it proves assistance occurred, not that the lookup caused a question outcome or that the failure was lexical;
 - `independent_transfer_candidate` means evidence eligibility only, never mastery;
 - Translation / Writing do not receive fake auto-scores;
 - External Reading remains growth evidence, not English-I score evidence;
-- the profile cannot create Review debt, choose the next task, or rank tasks by itself.
+- the profile and Reading-attribution evidence cannot create Review debt, choose the next task, rank tasks, or contract practice dose by themselves; Chat owns those decisions, and External Reading remains protected reading-growth input.
 - **Workflow completion is an execution fact, not performance success or mastery.** A reviewed Wrong, repaired Translation, or `TRANSFER_PENDING` Writing state may be workflow-complete while still carrying meaningful learner evidence.
 
 The purpose is operational compression:
