@@ -55,7 +55,7 @@ try {
   const learnedUnit = page.locator(`[data-workspace-unit][data-unit-id="${target.unitId}"]`);
   await learnedUnit.waitFor({ state: 'visible' });
   await learnedUnit.locator('[data-workspace-action="start-learn"]').click();
-  await learnedUnit.locator('[data-workspace-action="learn-done"]').click();
+  await learnedUnit.locator('[data-workspace-score-recall="optional"]').click();
   await learnedUnit.locator('[data-workspace-action="recall-pass"]').click();
   await page.waitForURL(/learnedScope=confirmed/);
   await page.locator('[data-learned-scope]').waitFor({ state: 'attached' });
