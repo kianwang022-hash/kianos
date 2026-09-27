@@ -179,6 +179,16 @@ for (const selector of politicsLearnCueSelectors) {
     selector + ': Politics Learn owner lost an Orientation/cue selector'
   );
 }
+const politicsLearnSourceSelectors = [
+  '.politicsSourceHandoff',
+  '.politicsSourceLocators'
+];
+for (const selector of politicsLearnSourceSelectors) {
+  assert.ok(
+    politicsLearn.includes(selector),
+    selector + ': Politics Learn owner lost a source-handoff selector'
+  );
+}
 for (const legacyLayer of ['politics-presentation.css', 'shared-workspace-composition.css', 'politics-visual-tuning.css']) {
   const value = read(path.join(src, 'styles', legacyLayer));
   assert.ok(
@@ -194,6 +204,12 @@ for (const legacyLayer of ['politics-presentation.css', 'shared-workspace-compos
     legacyLayer + ': Politics Main learner pane escaped the Learn presentation owner'
   );
   for (const selector of politicsLearnCueSelectors) {
+    assert.ok(
+      !value.includes(selector),
+      legacyLayer + ': ' + selector + ' escaped the Politics Learn presentation owner'
+    );
+  }
+  for (const selector of politicsLearnSourceSelectors) {
     assert.ok(
       !value.includes(selector),
       legacyLayer + ': ' + selector + ' escaped the Politics Learn presentation owner'
