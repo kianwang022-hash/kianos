@@ -109,6 +109,15 @@ try {
   check((await relationSet.locator('[data-surface-field="relation"]').count()) === 3, 'marx_relation_set_keeps_three_visible_relation_labels');
   check((await relationSet.locator('.sequenceTransition').count()) === 0, 'marx_relation_set_has_no_sequence_arrows');
 
+  const supportDisclosure = page.locator('[data-surface-group="s02-four-characteristics-meaning"]');
+  check((await supportDisclosure.count()) === 1, 'politics_support_disclosure_present');
+  check((await supportDisclosure.evaluate((node) => node.tagName)) === 'DETAILS', 'politics_support_renders_as_details');
+  check(!(await supportDisclosure.evaluate((node) => node.open)), 'politics_support_closed_by_default');
+  check(await supportDisclosure.locator('summary').isVisible(), 'politics_support_summary_visible');
+  check(!(await supportDisclosure.locator(':scope > .explicitParallel').isVisible()), 'politics_support_body_hidden_until_open');
+  await supportDisclosure.locator('summary').click();
+  check(await supportDisclosure.locator(':scope > .explicitParallel').isVisible(), 'politics_support_body_available_on_demand');
+
   check((await page.locator('.goldenGraph').count()) === 0, 'marx_legacy_topology_graph_absent');
   check((await page.locator('[data-workspace-unit][data-explicit-surface-mapping="v1"]').count()) === 2, 'marx_c00_two_units_explicitly_mapped');
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-marx-c00.png'), fullPage: false });
