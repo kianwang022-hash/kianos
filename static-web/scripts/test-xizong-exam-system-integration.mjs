@@ -33,7 +33,21 @@ const PORT=4341,DEBUG_PORT=9251,BASE=`http://127.0.0.1:${PORT}`;
 const NOW=Date.now(),DAY=studyDayAt(NOW);
 const sleep=(ms)=>new Promise(r=>setTimeout(r,ms));
 const privateDir=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-xz-m5-private-'));
-const report={schema:'kianos.xizong.exam-system-integration.v1',started_at:new Date().toISOString(),checks:[]};
+fs.mkdirSync(path.resolve('.qa'), { recursive: true });
+const repoHead=spawnSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).stdout?.trim()||'UNKNOWN';
+const report={
+  schema:'kianos.xizong.exam-system-integration.v1',
+  started_at:new Date().toISOString(),
+  basis:{
+    repo_head:repoHead,
+    runtime_mode:'WEBSITE_CANDIDATE',
+    base_url:BASE,
+    viewport:'1536x960',
+    browser:'Google Chrome headless via CDP',
+    test_state:'fresh Chrome profiles + Candidate isolated runtime + private checkpoint'
+  },
+  checks:[]
+};
 const check=(ok,name,detail='')=>{if(!ok)throw new Error(`XIZONG_M5_FAIL:${name}${detail?':'+detail:''}`);report.checks.push({name,pass:true,detail});};
 const js=(v)=>JSON.stringify(v);
 async function waitHttp(url,n=120){
@@ -214,7 +228,7 @@ async function homeReady(cdp){
 }
 async function writerReady(cdp){
   await cdp.send('Page.bringToFront');
-  await waitExpr(cdp,`document.documentElement.dataset.learnerWriter==='active'`,'writer-ready');
+  await waitExpr(cdp,`document.documentElement?.dataset?.learnerWriter==='active'`,'writer-ready');
 }
 const getJson=(cdp,key)=>cdp.eval(`(()=>{try{return JSON.parse(localStorage.getItem(${js(key)})||'null')}catch{return null}})()`);
 const setJson=(cdp,key,value)=>cdp.eval(`localStorage.setItem(${js(key)},${js(JSON.stringify(value))})`);
@@ -408,7 +422,8 @@ try{
     'packet_does_not_promote_transport_return_to_completion');
 
   report.finished_at=new Date().toISOString();report.status='PASS';
-  report.boundary='Real browser engineering proof; no learner mastery or U claim.';
+  report.boundary='READY_FOR_REAL_USER_TRIAL for the demonstrated M5 integration claim only; no learner mastery or U claim.';
+  fs.mkdirSync(path.resolve('.qa'),{recursive:true});
   fs.writeFileSync(path.resolve('.qa/xizong-exam-system-integration.json'),JSON.stringify(report,null,2));
   console.log(`XIZONG_M5_EXAM_SYSTEM_INTEGRATION_PASS | checks=${report.checks.length}`);
 } catch(error){
