@@ -9,12 +9,13 @@ A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / �
 
 ## Active engineering anchor
 
-Issue #1014 — **English learner-facing full real-use audit**.
+No active broad English engineering anchor.
 
-- Phase / Next / Blocker live in Issue #1014 while it is open.
-- Exact Source / Content / Learning / Interaction / Visual / Runtime / Shared-platform truth remains with each native owner; the Issue is only the durable work cursor.
-- An explicit English engineering / real-use audit continuation binds to #1014 until Kian closes or switches it.
-- Ordinary English learning still bypasses this engineering anchor and uses the native learner/runtime state.
+Issue #1014 — **English learner-facing full real-use audit** — is the completed durable audit receipt, not a current work cursor.
+
+- Exact Source / Content / Learning / Interaction / Visual / Runtime / Shared-platform truth remains with each native owner.
+- Ordinary English learning uses the native learner/runtime state.
+- Future engineering reopens only the smallest responsible owner for a concrete new defect, Source change, accepted product change or genuine learner-use evidence.
 
 ## Current state
 
