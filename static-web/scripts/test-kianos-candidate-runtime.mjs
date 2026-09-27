@@ -1,14 +1,18 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 
 import {
   DEFAULT_CANDIDATE_HOST,
   DEFAULT_CANDIDATE_PORT,
   STABLE_CURRENT_PORT,
+  ensureCandidateDependencies,
   isolatedCandidateEnv,
   resolveCandidateConfig
 } from './kianos-candidate-runtime.mjs';
+import { writeDependencyProof } from './currentDependencies.mjs';
 
 assert.equal(DEFAULT_CANDIDATE_HOST, '127.0.0.1');
 assert.equal(DEFAULT_CANDIDATE_PORT, 4322);
@@ -57,4 +61,45 @@ assert.equal(isolated.KIANOS_ENGLISH_GENERATED_DIR, path.join(root, 'english-gen
 assert.equal(isolated.KIANOS_CONTROL_ENABLED, '0');
 assert.equal(isolated.KIANOS_PACKET_RELAY_ENABLED, '0');
 
-console.log('KIANOS_CANDIDATE_RUNTIME PASS: fixed lane, stable-port guard and private isolation');
+const depRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-candidate-deps-'));
+try {
+  const source = path.join(depRoot, 'source');
+  const target = path.join(depRoot, 'target');
+  for (const root of [source, target]) {
+    fs.mkdirSync(root, { recursive: true });
+    fs.writeFileSync(path.join(root, 'package.json'), JSON.stringify({
+      name: 'candidate-dependency-fixture',
+      private: true,
+      dependencies: { astro: '^5.0.0', marked: '^15.0.0' }
+    }));
+  }
+  fs.mkdirSync(path.join(source, 'node_modules', '.bin'), { recursive: true });
+  fs.mkdirSync(path.join(source, 'node_modules', 'marked'), { recursive: true });
+  fs.writeFileSync(
+    path.join(source, 'node_modules', '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro'),
+    'fixture'
+  );
+  fs.writeFileSync(
+    path.join(source, 'node_modules', 'marked', 'package.json'),
+    JSON.stringify({ name: 'marked', version: '15.0.0' })
+  );
+  writeDependencyProof(source);
+
+  fs.symlinkSync(path.join(source, 'node_modules'), path.join(target, 'node_modules'), 'dir');
+  const migrated = ensureCandidateDependencies({}, { targetWebRoot: target, sources: [source] });
+  assert.equal(migrated.mode, 'materialized');
+  assert.equal(fs.lstatSync(path.join(target, 'node_modules')).isSymbolicLink(), false);
+  assert.equal(fs.existsSync(path.join(target, 'node_modules', 'marked', 'package.json')), true);
+  assert.equal(
+    fs.realpathSync(path.join(target, 'node_modules', 'marked')).startsWith(fs.realpathSync(target) + path.sep),
+    true,
+    'materialized dependency realpath must stay inside the active worktree'
+  );
+
+  const warm = ensureCandidateDependencies({}, { targetWebRoot: target, sources: [source] });
+  assert.equal(warm.mode, 'local');
+} finally {
+  fs.rmSync(depRoot, { recursive: true, force: true });
+}
+
+console.log('KIANOS_CANDIDATE_RUNTIME PASS: fixed lane, stable-port guard, private isolation and worktree-local dependencies');
