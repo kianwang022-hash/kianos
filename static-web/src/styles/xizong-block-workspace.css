@@ -2359,3 +2359,81 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerComp
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnActions {
   display: none !important;
 }
+
+
+/* B1 real-use refinement: keep Block/KP/source position in one compact row. */
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentity {
+  min-height: 42px;
+  display: grid;
+  grid-template-columns: max-content minmax(0,1fr);
+  align-items: center;
+  gap: 18px;
+  padding: 4px 14px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyBlockIdentity {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyBlockIdentity h2 {
+  font-size: 20px;
+  white-space: nowrap;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKp {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(170px,auto) minmax(0,1fr) auto;
+  align-items: center;
+  gap: 16px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 720;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpMeta {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  color: var(--xz-block-muted);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpMeta > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 600;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKp .xv6KpLearnNav {
+  flex: 0 0 auto;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .portedStudyIdentity,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .portedStudyIdentity {
+  grid-template-columns: max-content minmax(0,1fr);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .portedStudyIdentityMeta,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .portedStudyIdentityMeta {
+  display: none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .xv6KpLearnCompanionHeader,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .xv6KpLearnCompanionHeader {
+  display: none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyChain > header {
+  display: none;
+}
+
+
+/* Keep the compact KP position row contextual, not permanently visible. */
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKp,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentityMeta {
+  display: none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .portedStudyActiveKp,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .portedStudyActiveKp {
+  display: grid;
+}

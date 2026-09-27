@@ -454,7 +454,7 @@
           detail: { kpId }
         }));
 
-        const next = frame.querySelector(`[data-companion-next="${stage}"]`);
+        const next = root.querySelector(`[data-companion-next="${stage}"]`);
         if (next instanceof HTMLButtonElement && !next.disabled) {
           next.click();
           return true;
@@ -486,7 +486,7 @@
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
           event.preventDefault();
           const attr = event.key === 'ArrowLeft' ? 'data-companion-prev' : 'data-companion-next';
-          const button = frame.querySelector(`[${attr}="${stage}"]`);
+          const button = root.querySelector(`[${attr}="${stage}"]`);
           if (button instanceof HTMLButtonElement && !button.disabled) button.click();
           return;
         }

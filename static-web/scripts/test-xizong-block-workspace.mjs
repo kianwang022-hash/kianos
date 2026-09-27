@@ -246,12 +246,19 @@ try {
     const coreScrollTop = await learnCard.locator('[data-learner-kp-core]').evaluate((node) => node.scrollTop);
     check(coreScrollTop > 0, 'learn_core_can_scroll_when_content_overflows', String(coreScrollTop));
   }
-  check(await learnCard.locator('.xzKpLearnHeaderRight').count() === 1, 'learn_header_right_compact_owner');
-  const locatorText = (await learnCard.locator('.xzKpLearnLocatorMini').innerText()).replace(/\s+/g, ' ');
-  check(locatorText.includes('Lecture'), 'lecture_locator_in_top_right', locatorText);
-  check(locatorText.includes('P169'), 'lecture_locator_keeps_exact_page', locatorText);
-  check(locatorText.includes('Outline'), 'outline_locator_in_top_right', locatorText);
-  check(locatorText.includes('U014'), 'outline_locator_keeps_exact_unit', locatorText);
+  const activeKpHeader = root.locator('[data-study-active-kp]:visible');
+  check(await activeKpHeader.count() === 1, 'learn_position_owned_by_wide_block_header');
+  const locatorText = (await activeKpHeader.innerText()).replace(/\s+/g, ' ');
+  check(locatorText.includes('KP01'), 'wide_header_keeps_current_kp_identity', locatorText);
+  check(locatorText.includes('讲义 P169'), 'wide_header_keeps_exact_lecture_page', locatorText);
+  check(locatorText.includes('Outline U014'), 'wide_header_keeps_exact_outline_unit', locatorText);
+  const headerGeometry = await activeKpHeader.evaluate((node) => {
+    const rect = node.getBoundingClientRect();
+    return { height: rect.height, text: (node.textContent || '').trim().replace(/\s+/g, ' ') };
+  });
+  check(headerGeometry.height <= 42, 'wide_header_stays_single_row', JSON.stringify(headerGeometry));
+  check(await learnCard.locator('.xv6KpLearnCompanionHeader:visible').count() === 0, 'local_kp_header_duplicate_removed');
+  check(await root.locator('.portedStudyChain > header:visible').count() === 0, 'context_label_chrome_removed');
   check(await learnCard.locator('.xzKpPacketButton').count() === 0, 'study_packet_transport_hidden_from_normal_learning');
 
   const logicDetail = root.locator('.xzLogicGroupDetail');

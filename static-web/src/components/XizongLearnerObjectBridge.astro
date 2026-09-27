@@ -274,22 +274,38 @@ const payload = learnerObject || null;
         return kpById.get(kpId) || null;
       };
 
-      const renderCompanionCard = (host, kp, index, total, stageName) => {
-        host.replaceChildren();
-        if (!kp) return;
-        const frame = el('section', 'xv6KpLearnCompanion');
-        frame.dataset.learnerKpCompanion = stageName;
-        frame.dataset.kpId = text(kp?.identity?.kpId);
-        const top = el('header', 'xv6KpLearnCompanionHeader');
-        const identity = el('div');
-        identity.append(el('strong', '', `${kp?.identity?.displayId || ''} · ${kp?.identity?.title || ''}`));
+      const activeKpHeader = root.querySelector('[data-study-active-kp]');
+      const compactSourceLocator = (value) => text(value)
+        .replace(/^生理\s+Lecture\s+PDF\s*/i, '')
+        .replace(/^Lecture\s+PDF\s*/i, '')
+        .trim();
+      const compactOutlineLocator = (value) => text(value)
+        .replace(/^生理\s+/i, '')
+        .replace(/｜/g, ' · ')
+        .trim();
+      const renderActiveKpHeader = (kp, index, total, stageName) => {
+        if (!(activeKpHeader instanceof HTMLElement) || !kp) return;
+        const identity = el('strong', 'portedStudyActiveKpTitle', `${kp?.identity?.displayId || ''} · ${kp?.identity?.title || ''}`);
+        const meta = el('div', 'portedStudyActiveKpMeta');
+        const sourceLocator = compactSourceLocator(kp?.source?.locator);
+        const outlineLocator = compactOutlineLocator(kp?.outline?.locator);
+        if (sourceLocator) meta.append(el('span', '', `讲义 ${sourceLocator}`));
+        if (outlineLocator) meta.append(el('span', '', `Outline ${outlineLocator}`));
         const nav = el('div', 'xv6KpLearnNav');
         const prev = el('button', '', '‹'); prev.type = 'button'; prev.dataset.companionPrev = stageName; prev.disabled = index <= 0;
         const count = el('em', '', `${index + 1}/${Math.max(1, total)}`);
         const next = el('button', '', '›'); next.type = 'button'; next.dataset.companionNext = stageName; next.disabled = index >= total - 1;
         nav.append(prev, count, next);
-        top.append(identity, nav);
-        frame.append(top);
+        activeKpHeader.replaceChildren(identity, meta, nav);
+      };
+
+      const renderCompanionCard = (host, kp, index, total, stageName) => {
+        host.replaceChildren();
+        if (!kp) return;
+        renderActiveKpHeader(kp, index, total, stageName);
+        const frame = el('section', 'xv6KpLearnCompanion');
+        frame.dataset.learnerKpCompanion = stageName;
+        frame.dataset.kpId = text(kp?.identity?.kpId);
 
         if (kp?.prompt?.canonical) {
           const prompt = el('div', 'xv6KpLearnPrompt');
@@ -297,15 +313,6 @@ const payload = learnerObject || null;
           prompt.append(el('p', '', kp.prompt.canonical));
           frame.append(prompt);
         }
-        const sourceLocator = text(kp?.source?.locator);
-        const outlineLocator = text(kp?.outline?.locator);
-        if (sourceLocator || outlineLocator) {
-          const locators = el('div', 'xv6KpLearnLocators');
-          if (sourceLocator) locators.append(el('span', '', `Lecture · ${sourceLocator}`));
-          if (outlineLocator) locators.append(el('span', '', `Outline · ${outlineLocator}`));
-          frame.append(locators);
-        }
-
         const core = el('div', 'markdown xv6KpLearnCore');
         core.dataset.learnerKpCore = text(kp?.identity?.kpId);
         core.innerHTML = kp?.core?.html || '';
