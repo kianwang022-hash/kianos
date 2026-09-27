@@ -167,6 +167,11 @@ try {
   assert(localJobs.sort().join('|') === ['Overview','Learn','Repair','Research'].sort().join('|'), 'v2_home_four_local_jobs', localJobs.join('|'));
   assert(await page.locator('[data-lexical-daily-limit]').inputValue() === '50', 'v2_home_daily_new_limit_default_50');
   assert((await page.locator('[data-lexical-same-day-count]').innerText()).trim() === '0', 'v2_home_same_day_revisit_starts_empty');
+  const sameDayCatalogRow = await page.evaluate(() => {
+    const rows = JSON.parse(document.querySelector('[data-lexical-catalog]')?.textContent || '[]');
+    return rows[0] || null;
+  });
+  assert(Boolean(sameDayCatalogRow), 'v2_home_catalog_has_same_day_fixture');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-home-1440x900.png'), fullPage: false });
 
   await page.goto(`${origin}/`, { waitUntil: 'networkidle' });
@@ -174,18 +179,17 @@ try {
   assert(await homeVocabularyLink.isVisible(), 'home_learning_jump_has_vocabulary');
   assert((await homeVocabularyLink.innerText()).trim() === 'Vocabulary', 'home_learning_jump_vocabulary_label');
 
+  await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+
   // Same-day revisit is ephemeral card routing support, not Repair debt.
-  await page.evaluate(() => {
-    const rows = JSON.parse(document.querySelector('[data-lexical-catalog]')?.textContent || '[]');
-    const row = rows[0];
-    if (!row) throw new Error('NO_LEXICAL_CATALOG_ROW');
+  await page.evaluate((row) => {
     const now = new Date().toISOString();
     localStorage.setItem('kianos-lexical-card-routing-v1', JSON.stringify({
       schema:'kianos.lexical.card_routing.v1',
       history:[{ event_id:'visual-same-day-1', word_id:row.objectId, ordinal:row.ordinal, word:row.word, route:'UNKNOWN', observed_at:now }],
       latest_by_word:{ [row.objectId]:{ event_id:'visual-same-day-1', word_id:row.objectId, ordinal:row.ordinal, word:row.word, route:'UNKNOWN', observed_at:now } }
     }));
-  });
+  }, sameDayCatalogRow);
   await page.reload({ waitUntil: 'networkidle' });
   assert((await page.locator('[data-lexical-same-day-count]').innerText()).trim() === '1', 'v2_home_same_day_unknown_surfaces');
   const directLearnHref = await page.locator('[data-lexical-learn-nav]').getAttribute('href');
@@ -575,8 +579,10 @@ try {
     }
   ];
   for (const fixture of depthFixtures) {
-    await page.evaluate((word) => localStorage.removeItem(`kianos-vocabulary-astro-v2:word:${word}`), fixture.word);
-    await page.goto(`${origin}/vocabulary/${fixture.ordinal}/`, { waitUntil: 'networkidle' });
+    // Each Human-Gate fixture is independent evidence; do not inherit learner/browser state
+    // from the preceding rich-word interaction.
+    await page.evaluate(() => localStorage.clear());
+    await page.goto(wordUrl(fixture.ordinal), { waitUntil: 'networkidle' });
     await page.locator('[data-vocab-front]').waitFor({ state: 'visible' });
     assert((await page.locator('[data-vocab-front] h2').innerText()).trim() === fixture.word, `v2_depth_fixture_${fixture.word}`);
     await page.keyboard.press('Space');
@@ -641,11 +647,14 @@ try {
   // Semantic counts/text come from the Current Final Learner Object rather than
   // being duplicated here as a second content truth.
   const finalObjectFixtures = [
-    { ordinal: 177, word: 'ambulance' },
+    { ordinal: 15, word: 'absence' },
+    { ordinal: 16, word: 'absent' },
     { ordinal: 29, word: 'access' },
+    { ordinal: 177, word: 'ambulance' },
+    { ordinal: 761, word: 'charge' },
     { ordinal: 4209, word: 'row' },
-    { ordinal: 4680, word: 'stationary' },
-    { ordinal: 761, word: 'charge' }
+    { ordinal: 4323, word: 'seem' },
+    { ordinal: 4680, word: 'stationary' }
   ];
 
   for (const fixture of finalObjectFixtures) {
@@ -662,7 +671,7 @@ try {
     );
 
     await page.evaluate((word) => localStorage.removeItem(`kianos-vocabulary-astro-v2:word:${word}`), fixture.word);
-    await page.goto(`${origin}/vocabulary/${fixture.ordinal}/`, { waitUntil: 'networkidle' });
+    await page.goto(wordUrl(fixture.ordinal), { waitUntil: 'networkidle' });
     await page.locator('[data-vocab-front]').waitFor({ state: 'visible' });
     assert((await page.locator('[data-vocab-front] h2').innerText()).trim() === fixture.word, `final_fixture_${fixture.word}`);
     await page.keyboard.press('Space');
