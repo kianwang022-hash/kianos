@@ -8,23 +8,34 @@ It answers one question:
 
 This is not a UI checklist and not an engineering-completion checklist. A content file existing, a page rendering, a build passing, a source inventory being complete, or a simulated journey succeeding may all be useful evidence, but none of them alone proves a learning system is closed.
 
-The governing causal direction is:
+The learning lifecycle follows the shared CREATE → BUILD → AUDIT → REAL USE model.
 
 ```text
+CREATE
 Source Truth
-→ Knowledge Audit
-→ Learning-Path + Surface-Ownership Audit
-→ Learner Calibration
-→ Content Reconstruction / Optimization
-→ Content Closure Audit
-→ Learning UX / Projection Design
-→ Runtime Implementation
-→ Module E2E Acceptance
-→ Learner Acceptance
-→ Evidence-based Revision
+→ Knowledge reconstruction + native quality proof
+→ Learning-path / surface-ownership decision + native proof
+→ Content realization / optimization + native closure
+→ Learning UX / Projection design
+
+BUILD
+→ Runtime / Website implementation
+→ local implementation proof
+→ applicable real-browser Human Gate for material Visual/Product change
+
+AUDIT
+→ Module E2E / Reality acceptance
+→ verify canonical meaning reached the real consumer
+→ stateful / adversarial / degraded / sustained-use proof as applicable
+
+REAL USE
+→ genuine learner evidence / U
+→ evidence-based revision when reality changes the accepted meaning
 ```
 
-This is a **causal direction, not a repository-wide one-way waterfall**. Within one audited scope, Projection or Runtime may expose a real Knowledge/Learning defect and send that dependency chain back upstream. What must not happen is using downstream engineering progress to pretend an upstream learning question was settled.
+S / K / L / P / R / E remain precise native acceptance gates. Their local checks are not separate copies of the final Reality Audit. CREATE/BUILD proves each changed responsibility well enough to hand forward; AUDIT proves that the implemented chain faithfully works together in reality.
+
+This is a **causal direction, not a repository-wide one-way waterfall**. Projection/Runtime/Audit may expose a real upstream Knowledge/Learning defect and send only that dependency chain back to CREATE. What must not happen is using downstream engineering progress to pretend an upstream learning question was settled, or mechanically re-auditing unchanged accepted layers during final Reality Audit.
 
 Independent scopes may be audited and advanced concurrently at any justified hierarchy depth. A blocked gate in one Politics subject, Xizong System, English module, or other independent scope does not freeze unrelated siblings merely because they share a parent.
 
@@ -38,6 +49,19 @@ Module Acceptance
 ```
 
 Home is therefore a final integration/routing layer, not a place to compensate for unfinished domain learning models.
+
+---
+
+## Lifecycle boundary for this standard
+
+This standard spans native gate evidence across the lifecycle, but the word **Acceptance** does not mean Kian must repeatedly review every gate.
+
+- during **CREATE**, Source / Knowledge / Learning / Content owners perform the native proof needed to accept what is being created;
+- during **BUILD**, Engineering/Runtime proves the implementation and material visual/product changes pass their real Candidate Human Gate;
+- during **AUDIT**, the auditor reuses valid upstream evidence and attacks whether the built system actually realizes it end to end;
+- **U** remains genuine REAL USE evidence.
+
+Final Reality Audit is therefore **not** “run S/K/L/P/R/E again from zero.” It checks freshness of the evidence it depends on, reopens changed/stale premises only, and concentrates new work on consumer/integration/reality risks.
 
 ---
 
