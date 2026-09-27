@@ -10,6 +10,8 @@ No broad Website construction or UI campaign is active.
 
 The bounded Steward V3 correction is closed. The reviewed agenda/Now composition, native Dock/return, persisted reality semantics, duration-legible timeline, shared L1 styling and deterministic plan-authorized Nutrition top-ups are merged on `main`, accepted by Kian, and released through managed Current. Reopen Steward only for a concrete product/runtime/visual defect or an explicit new accepted requirement.
 
+The concrete 2026-09-27 day-start omission defect is closed on `main`: first-daily producers now have a canonical closure requirement upstream, and KianOS supports the machine-validated `presentation.day_start_closure` projection so planned breakfast/lunch/dinner/training cannot claim closed while missing their real Nutrition/Training object or schedule link. This was a bounded runtime/contract repair, not a Steward UI redesign.
+
 The shared shell, subject surfaces, managed Current delivery, private checkpoint/control paths, Daily Learning Packet relay, External Reading runtime and Steward workspace are implementation surfaces on `main`.
 
 For Steward:
