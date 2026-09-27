@@ -65,7 +65,7 @@ try {
     assert.equal(path.isAbsolute(fs.readlinkSync(clonedBin)), false, 'cloned .bin link must be worktree-local');
     assert.equal(
       fs.realpathSync(clonedBin),
-      path.join(legacyTarget, 'node_modules', 'astro', 'astro.js'),
+      fs.realpathSync(path.join(legacyTarget, 'node_modules', 'astro', 'astro.js')),
       'cloned .bin link must resolve inside the target dependency tree'
     );
     assert.equal(legacyClone.rebased_bin_links >= 1, true, 'legacy absolute bin link should be rebased');
