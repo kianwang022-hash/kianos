@@ -41,11 +41,11 @@ Each independently continued module keeps its own CURRENT / ACCEPTANCE where app
 - external/ — External Reading content/runtime boundary and its Current routing.
 - source/ — admitted English source assets.
 
-### Audit / evidence
+### Acceptance / evidence
 
-- audit/ — bounded audit evidence, not normal startup context.
 - ACCEPTANCE.md — English-wide acceptance claim.
 - CURRENT.md — engineering cursor + router.
+- Closed audit construction artifacts live in Git history unless a current Acceptance/diagnostic owner explicitly requires retained cold evidence on main.
 
 ### Lexical boundary
 

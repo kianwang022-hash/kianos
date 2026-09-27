@@ -50,16 +50,16 @@ readiness
 
 - CONTENT_EXECUTION.md — current materialization/execution mechanics.
 - tools/ — lexical tooling.
-- execution/ — execution artifacts/manifests; not normal Current authority unless explicitly routed.
+- execution/ — **retained cold provenance only when a Current owner still points to it**; closed unconsumed batch manifests/receipts belong in Git history, not the normal tree.
 
 ### Audit / acceptance evidence
 
 - ACCEPTANCE.md — lane Acceptance Truth.
-- acceptance/ — durable acceptance evidence.
+- acceptance/ — durable current acceptance evidence.
 - INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md — independent semantic audit method.
 - SEMANTIC_AUDIT_RISK_ROUTER_SPEC.md — semantic-audit risk routing.
-- audit/ — audit assets/history.
-- semantic-audit/ / semantic-reconciliation/ / semantic-review/ — bounded semantic audit/review evidence and work artifacts; not normal startup context.
+- audit/ — retained current/cold evidence only where an explicit consumer still needs it.
+- semantic-audit/ / semantic-reconciliation/ / semantic-review/ — retain only evidence still consumed by Current provenance/diagnostics; closed unreferenced packs belong in Git history and are not normal startup context.
 
 ## Placement rule
 

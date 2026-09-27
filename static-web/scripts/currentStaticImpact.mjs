@@ -45,6 +45,22 @@ function isContentWorkCursor(file) {
   return /^content\/.+\/CURRENT\.md$/.test(file);
 }
 
+function isContentOrientationDoc(file) {
+  return /^content\/[^/]+\/README\.md$/.test(file);
+}
+
+function isColdHistoricalEvidence(file) {
+  if (file.startsWith('content/english/audit/')) return true;
+  if (file.startsWith('content/lexical/semantic-audit/')) return true;
+  if (file.startsWith('content/lexical/semantic-reconciliation/')) return true;
+  if (file.startsWith('content/lexical/semantic-review/')) return true;
+  if (file.startsWith('content/lexical/execution/')) return true;
+  if (file.startsWith('content/lexical/audit/history/')) return true;
+  if (file.startsWith('content/politics/projection/history/')) return true;
+  if (file === 'content/politics/MATURITY_FRESH_INDEPENDENT_AUDIT.md') return true;
+  return /^content\/xizong\/knowledge\/learner\/[^/]*(?:PHASE|AUDIT|EXECUTION|CALIBRATION|REACCEPTANCE|CLOSURE)[^/]*\.md$/i.test(file);
+}
+
 // The server retains imported modules in memory. Shared browser/server helpers
 // must move with the published site, even when no bridge entrypoint changed.
 // Test-only scripts never run in the learner runtime and must not force a
@@ -96,6 +112,12 @@ export function staticBuildPathImpact(value) {
   }
   if (isContentWorkCursor(file)) {
     return { file, requires_build: false, requires_lexical_projection: false, reason: 'content-work-cursor-only' };
+  }
+  if (isContentOrientationDoc(file)) {
+    return { file, requires_build: false, requires_lexical_projection: false, reason: 'content-orientation-doc-only' };
+  }
+  if (isColdHistoricalEvidence(file)) {
+    return { file, requires_build: false, requires_lexical_projection: false, reason: 'cold-historical-evidence-only' };
   }
   if (NO_BUILD_ROOT_FILES.has(file)) {
     return { file, requires_build: false, requires_lexical_projection: false, reason: 'engineering-doc-or-control-only' };

@@ -62,7 +62,7 @@ whole-cycle maturity
 
 - ACCEPTANCE.md — lane-wide claim-scoped Acceptance.
 - MATURITY_PACKAGE.md — compact subject-maturity package.
-- MATURITY_FRESH_INDEPENDENT_AUDIT.md — final independent maturity evidence; not Current routing.
+- Closed fresh-independent maturity campaigns remain recoverable from Git history; they do not stay in the Current tree unless a current Acceptance owner explicitly consumes them.
 
 ### Runtime support / tooling
 
