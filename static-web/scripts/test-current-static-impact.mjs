@@ -119,7 +119,8 @@ for (const file of [
   'static-web/scripts/kianos-current-sync.mjs',
   'static-web/scripts/currentRelease.mjs',
   'static-web/scripts/currentStaticImpact.mjs',
-  'static-web/scripts/currentStaticSlots.mjs'
+  'static-web/scripts/currentStaticSlots.mjs',
+  'static-web/scripts/currentDependencies.mjs'
 ]) {
   assert.equal(requiresStaticRuntimeReload([file]), false, 'CURRENT_SUPERVISOR_SCRIPT_MUST_NOT_RELOAD_LEARNER_RUNTIME:' + file);
 }

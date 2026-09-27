@@ -45,12 +45,14 @@ This prevents a GitHub update from destroying local development changes and remo
 1. checks `origin/main` on a short interval;
 2. compares the remote SHA with the mirror HEAD;
 3. fetches and hard-resets the dedicated mirror when main advances;
-4. refreshes npm dependencies only when package inputs changed;
+4. reuses the previous accepted release's verified dependency tree when package inputs and the Node runtime identity match; otherwise runs `npm install` and records a fresh dependency proof;
 5. validates the Lexical input/output cache, recompiles changed Word owners and relation dependants only, then builds Astro into a staging slot and atomically promotes it; the old website stays available during the build;
 6. writes the exact local Current SHA to `static-web/public/__kianos-current.json` inside the disposable mirror;
 7. the shared Base polls that localhost-only status and records a pending browser refresh when the synced SHA changes;
 8. an active foreground learner page is never force-reloaded solely because main advanced; returning to the page after leaving it performs the pending refresh, while natural navigation already loads the newest Current;
 9. transient network failure keeps the last successfully synced site usable; a failed build preserves the served SHA and reports a separate target SHA/error. The same failed source is not rebuilt on every poll or process restart. A new source SHA resumes automatically.
+
+Candidate dependency reuse is release-local and fail-safe. The proof covers `package.json`, lock/shrinkwrap inputs, `.npmrc`, Node version/ABI, platform and architecture. A matching accepted release may be cloned with copy-on-write into the new candidate; a missing/mismatched proof or failed clone falls back to a normal `npm install`. Releases never share a mutable `node_modules` symlink.
 
 The macOS LaunchAgent runs with `ProcessType=Standard`: Current delivery remains a non-interactive background service, but its bounded npm/Astro build receives the normal light launchd resource limits instead of the stronger `Background` throttling. Foreground learner continuity is still protected by staging + atomic promotion + deferred browser refresh; the delivery service is not promoted to `Interactive` priority.
 

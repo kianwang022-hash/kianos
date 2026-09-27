@@ -22,6 +22,11 @@ import {
   runBounded,
   terminateProcessTree
 } from './currentRelease.mjs';
+import {
+  canReuseDependencies,
+  cloneDependencies,
+  writeDependencyProof
+} from './currentDependencies.mjs';
 
 const execFileAsync = promisify(execFile);
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -47,6 +52,7 @@ const syncRuntimePaths = [
   'static-web/scripts/currentRelease.mjs',
   'static-web/scripts/currentStaticImpact.mjs',
   'static-web/scripts/currentStaticSlots.mjs',
+  'static-web/scripts/currentDependencies.mjs',
   'static-web/package.json',
   'static-web/package-lock.json',
   'static-web/npm-shrinkwrap.json'
@@ -164,10 +170,25 @@ async function prepareRelease(sha, extra = {}) {
   const candidateWebRoot = path.join(releaseRoot, 'static-web');
   try {
     if (fs.existsSync(path.join(candidateWebRoot, 'package.json'))) {
-      await runChild(npmBin, ['install', '--no-audit', '--no-fund'], {
-        cwd: candidateWebRoot,
-        label: 'candidate npm install'
-      });
+      let dependenciesReady = false;
+      const activeWebRoot = activeReleaseRoot ? path.join(activeReleaseRoot, 'static-web') : null;
+      if (activeWebRoot && canReuseDependencies(activeWebRoot, candidateWebRoot)) {
+        try {
+          const reused = cloneDependencies(activeWebRoot, candidateWebRoot);
+          dependenciesReady = true;
+          log(`reused verified candidate dependencies in ${reused.duration_ms}ms`);
+        } catch (error) {
+          warn(`candidate dependency reuse failed; falling back to npm install: ${error?.message || error}`);
+        }
+      }
+      if (!dependenciesReady) {
+        await runChild(npmBin, ['install', '--no-audit', '--no-fund'], {
+          cwd: candidateWebRoot,
+          label: 'candidate npm install'
+        });
+        writeDependencyProof(candidateWebRoot);
+        log('installed and recorded candidate dependency proof');
+      }
     }
     if (!skipAstro) {
       const candidateStage = path.join(candidateWebRoot, '.current-build-next');
@@ -183,7 +204,12 @@ async function prepareRelease(sha, extra = {}) {
       fs.renameSync(candidateStage, path.join(candidateWebRoot, 'dist'));
     }
   } catch (error) {
-    writeJson(failurePath, { sha, stage: /npm install/.test(error.message) ? 'install' : 'build', error: error.message, failed_at: stamp() });
+    writeJson(failurePath, {
+      sha,
+      stage: /npm install|CURRENT_DEPENDENCY_/.test(error.message) ? 'install' : 'build',
+      error: error.message,
+      failed_at: stamp()
+    });
     try {
       await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
         label: 'cleanup failed candidate',

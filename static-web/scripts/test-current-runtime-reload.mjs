@@ -111,7 +111,7 @@ try {
     fs.mkdirSync(path.dirname(path.join(upstream, file)), { recursive: true });
     fs.writeFileSync(path.join(upstream, file), body);
   };
-  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) {
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs']) {
     write('static-web/scripts/' + name, fs.readFileSync(path.join(scripts, name)));
   }
   write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';
