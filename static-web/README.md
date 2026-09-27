@@ -43,16 +43,27 @@ English
 → ENGLISH_GUIDE_DESIGN.md when needed
 
 Politics
-→ POLITICS_PRODUCT_BRIEF.md
-→ POLITICS_*_DESIGN.md
-→ POLITICS_UI_REVIEW_PROTOCOL.md
+→ POLITICS_PRODUCT_BRIEF.md — accepted Politics product boundary
+→ POLITICS_UI_REVIEW_PROTOCOL.md — whole-loop / Surface-Mapping-safe UI change method
+→ POLITICS_MARXISM_DESIGN.md — Marxism cognitive grammar
+→ POLITICS_HISTORY_C01_DESIGN.md — accepted History grammar; C01 is calibration/reference, not active pilot
+→ POLITICS_MAO_DESIGN.md — Mao cognitive grammar
+→ POLITICS_XI_DESIGN.md — Xi cognitive grammar
+→ POLITICS_ETHICS_LAW_DESIGN.md — Ethics-Law cognitive grammar
 
 Xizong
-→ XIZONG_PRODUCT_BRIEF.md
-→ XIZONG_*_DESIGN.md
-→ XIZONG_REPRESENTATION_GATE.md
-→ XIZONG_UI_REVIEW_PROTOCOL.md
-→ XIZONG_VISUAL_* when the exact claim requires them
+→ XIZONG_PRODUCT_BRIEF.md — accepted Xizong product / Projection boundary
+→ XIZONG_UI_REVIEW_PROTOCOL.md — whole-flow-before-local-optimization method
+→ XIZONG_VISUAL_LANGUAGE.md — Xizong-only L2 visual specialization
+→ XIZONG_HOME_DESIGN.md — Xizong Home surface
+→ XIZONG_SYSTEM_FRAMEWORK_DESIGN.md — System Framework surface
+→ XIZONG_BLOCK_WORKSPACE_DESIGN.md — Block workspace surface
+→ XIZONG_SYSTEM_COMPLETION_DESIGN.md — System Recall / completion handoff surface
+→ XIZONG_PRACTICE_DESIGN.md — formal Practice Workbench
+→ XIZONG_MEMORY_PRODUCT.md — Memory product / runtime boundary
+→ XIZONG_REPRESENTATION_GATE.md — representation eligibility/safety gate
+→ XIZONG_VISUAL_PRECISION_CAPABILITY.md — exact bounded Visual/Precision capability
+→ XIZONG_VISUAL_REFERENCE.md — non-authoritative screenshot/reference evidence
 
 Lexical
 → LEXICAL_PRODUCT_BRIEF.md
