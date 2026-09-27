@@ -1,6 +1,5 @@
 ---
-import {englishSessionCatalog} from "../lib/englishSessionCatalog.mjs";
-const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u003c");
+const catalogPayload='[]';
 const base = import.meta.env.BASE_URL;
 ---
 <div data-english-resume-surface data-base={base}>
