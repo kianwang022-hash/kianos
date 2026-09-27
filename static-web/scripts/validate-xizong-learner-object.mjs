@@ -96,6 +96,17 @@ for (const systemSummary of listProjectableXizongSystems()) {
       assert((kp05?.precision || []).length === 0, 'circulation-b01-kp05:fake-precision-created');
       const kp09 = learnerObject.kps.find((kp) => kp.identity.kpId === 'circulation-b01-kp09');
       assert((kp09?.connection?.outgoing || []).some((row) => row.id === 'b01-c01-af-filling-to-b10'), 'circulation-b01-kp09:future-connection-missing');
+      const restoredVisualIds = new Set([
+        'a1-b01-kp22-bp-matrix-visual',
+        'a1-b01-kp24-venous-return-visual',
+        'a1-b01-kp25-microcirculation-visual',
+        'a1-b01-kp28-coronary-cycle-visual',
+        'a1-b01-kp32-coronary-nitrate-visual'
+      ]);
+      const restoredVisuals = learnerObject.kps.flatMap((kp) => kp.visual).filter((row) => restoredVisualIds.has(row.id));
+      assert(restoredVisuals.length === 5, `circulation-b01:restored-current-visual-count:${restoredVisuals.length}`);
+      assert(restoredVisuals.every((row) => row.answerBearing === true), 'circulation-b01:restored-visual-answer-guard-missing');
+      assert(restoredVisuals.every((row) => row.displayPolicy?.timing === 'POST_REVEAL'), 'circulation-b01:restored-visual-post-reveal-timing-missing');
     }
     if (productionBlock.blockId === 'circulation-b10') {
       const lg05 = learnerObject.logicGroups.find((group) => group.identity.logicGroupId === 'circulation-b10-lg05');
