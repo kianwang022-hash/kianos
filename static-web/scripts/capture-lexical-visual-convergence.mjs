@@ -151,9 +151,15 @@ try {
   const reports = [];
 
   // Architecture-v2 Human Gate evidence.
-  await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+  const initialVocabularyResponse = await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+  const initialVocabularyHtml = await initialVocabularyResponse?.text() || '';
+  assert(initialVocabularyHtml.includes('data-lexical-home-ready="false"'), 'v2_home_ssr_marks_state_pending');
+  assert(initialVocabularyHtml.includes('读取学习进度…'), 'v2_home_ssr_does_not_fake_resume');
+  assert(initialVocabularyHtml.includes('data-lexical-same-day-count>—</strong>'), 'v2_home_ssr_does_not_fake_same_day_zero');
+  assert(!initialVocabularyHtml.includes('data-lexical-overview-continue-meta>#1 /'), 'v2_home_ssr_does_not_fake_ordinal_one');
   await page.evaluate(() => localStorage.clear());
   await page.reload({ waitUntil: 'networkidle' });
+  assert(await page.locator('[data-lexical-home]').getAttribute('data-lexical-home-ready') === 'true', 'v2_home_state_becomes_ready');
   assert(await page.locator('[data-kianos-global-rail]').isVisible(), 'v2_home_keeps_global_rail');
   assert(await page.locator('[data-kianos-subject-bar="english"]').count() === 0, 'v2_vocabulary_suppresses_parent_english_l2');
   assert(await page.locator('.lexicalLocalNav').count() === 1, 'v2_vocabulary_has_one_local_top_nav');
