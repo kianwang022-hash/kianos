@@ -36,18 +36,13 @@ The learner-facing UI must reduce cognitive friction in large-text / high-densit
 
 ---
 
-## KianOS Global Home — accepted directional note relevant to Politics
+## Global Home boundary
 
-Kian accepted the current overall exam Home direction:
+Global Home information architecture is owned by `static-web/PRODUCT_SURFACE_CONTRACT.md`, not by Politics.
 
-```text
-KianOS Home
-→ one meaningful Continue
-→ three exam-subject entries: Xizong / English / Politics
-→ Lexical as secondary tool/supply lane
-```
+Politics contributes only its subject-native read-only entry/Resume projection and any genuinely actionable Politics attention supported by private learner evidence. Politics must not redefine global L1 navigation, whole-exam composition, cross-subject priority or Home progress semantics inside this Product Brief.
 
-Global Home should remain simple and should not expose Politics chapter directories, learning-architecture explanations, engineering status or fake progress dashboards. Deep Politics structure begins after entering Politics.
+Deep Politics structure begins after entering Politics.
 
 ---
 
