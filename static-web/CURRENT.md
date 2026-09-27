@@ -6,26 +6,24 @@ Root [CURRENT](../CURRENT.md) owns cross-program routing. Product semantics, vis
 
 ## Current state
 
-The full-site Website Fast Lane / Stable Release construction program under [Issue #1025](https://github.com/kianwang022-hash/kianos/issues/1025) is complete. Candidate `4322` is the default UI / Human-Gate iteration lane, and managed Current `4321` remains Stable. #1025 is the durable closure receipt, not an active Website cursor.
+No broad Website construction campaign is active. This file is only the Website implementation/delivery router.
 
-No broad Website construction campaign is active. This file remains only the Website implementation/delivery router.
+Normal lanes:
 
-The bounded Steward V3 correction is closed. The reviewed agenda/Now composition, native Dock/return, persisted reality semantics, duration-legible timeline, shared L1 styling and deterministic plan-authorized Nutrition top-ups are merged on `main`, accepted by Kian, and released through managed Current. Reopen Steward only for a concrete product/runtime/visual defect or an explicit new accepted requirement.
+~~~text
+ordinary UI / Human-Gate iteration
+→ Candidate 127.0.0.1:4322
+→ exact Product / Visual / surface owner
+→ accepted durable change
+→ managed Current promotion
 
-The concrete 2026-09-27 day-start omission defect is closed on `main`: first-daily producers now have a canonical closure requirement upstream, and KianOS supports the machine-validated `presentation.day_start_closure` projection so planned breakfast/lunch/dinner/training cannot claim closed while missing their real Nutrition/Training object or schedule link. This was a bounded runtime/contract repair, not a Steward UI redesign.
+normal learner/use runtime
+→ Stable 127.0.0.1:4321
+~~~
 
-The shared shell, subject surfaces, managed Current delivery, private checkpoint/control paths, Daily Learning Packet relay, External Reading runtime and Steward workspace are implementation surfaces on `main`.
+Completed rollout programs, historical Human Gates, bounded defect closures and old candidate branches do **not** issue Current work from this file. Their evidence remains in the exact Product/Acceptance owner, closed Issue/PR or Git history.
 
-For Steward:
-- product surface split / information architecture → `PRODUCT_SURFACE_CONTRACT.md`;
-- behavior / reality-capture semantics / product acceptance → `STEWARD_PRODUCT_CONTRACT.md`;
-- visual requirements → `KIAN_UI_PREFERENCES.md` + `UI_STYLE_BRIEF.md`;
-- page/client/styles → exact `src/` owners;
-- live delivery identity → [Current doctor](scripts/kianos-current-doctor.mjs).
-
-Steward VNext is implemented on `main`; this cursor does not mirror its product details, Human-Gate status or historical rollout evidence. Reopen only for a concrete product/runtime/visual defect or an explicit new accepted requirement.
-
-Content production remains independent and routes through the exact English / Xizong / Politics / Lexical / Skills owners.
+Product semantics, Visual requirements, Content, Acceptance and learner/execution truth remain in their exact owners. Content production remains independent and routes through the exact English / Xizong / Politics / Lexical / Skills owners.
 
 ## Route from symptom
 
