@@ -1,3 +1,6 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
 function headingRows(markdown) {
   return [...String(markdown).matchAll(/^(#{2,4})\s+(.+)$/gm)].map((match) => ({
     index: match.index || 0,
@@ -31,8 +34,24 @@ export function projectBlockLearn(markdown) {
   return learnerLabels(withoutDeprecatedLoop);
 }
 
-export function projectKpCore(markdown) {
-  return learnerLabels(markdown);
+function stripMissingRelativeImages(markdown, sourcePath = '') {
+  const source = String(sourcePath || '').trim();
+  if (!source) return String(markdown);
+  const repoRoot = process.env.KIANOS_REPO_ROOT
+    ? path.resolve(process.env.KIANOS_REPO_ROOT)
+    : path.resolve(process.cwd(), '..');
+  const sourceDir = path.dirname(path.resolve(repoRoot, source));
+  return String(markdown).replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (full, _alt, rawTarget) => {
+    const target = String(rawTarget || '').trim().replace(/^<|>$/g, '');
+    if (!target || /^(?:[a-z]+:|\/|#)/i.test(target)) return full;
+    const cleanTarget = target.split(/\s+["']/)[0];
+    const candidate = path.resolve(sourceDir, cleanTarget);
+    return fs.existsSync(candidate) ? full : '';
+  });
+}
+
+export function projectKpCore(markdown, { sourcePath = '' } = {}) {
+  return learnerLabels(stripMissingRelativeImages(markdown, sourcePath));
 }
 
 export function projectVisualGate(markdown) {

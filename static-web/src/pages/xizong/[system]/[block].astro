@@ -40,7 +40,7 @@ const resolved = resolveXizongLearnerProjection(canonicalBlock, {
     visualGateHtml: canonicalBlock.visualGateMarkdown ? marked.parse(projectVisualGate(canonicalBlock.visualGateMarkdown), { gfm: true }) : '',
     kpRecords: productionBlock.kpRecords.map((kp) => ({
       ...kp,
-      detailHtml: marked.parse(projectKpCore(kp.detailMarkdown), { gfm: true })
+      detailHtml: marked.parse(projectKpCore(kp.detailMarkdown, { sourcePath: canonicalBlock.sourcePath }), { gfm: true })
     }))
   })
 });

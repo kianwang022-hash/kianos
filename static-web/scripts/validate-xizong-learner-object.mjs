@@ -2,6 +2,7 @@ import { listProjectableXizongSystems, loadXizongBlock } from '../src/lib/xizong
 import { learningCuesForBlock } from '../src/lib/xizongLearningCues.mjs';
 import { resolveXizongLearnerProjection } from '../src/lib/xizongLearnerProjection.mjs';
 import { validateXizongLearnerObject } from '../src/lib/xizongLearnerObject.mjs';
+import { attachSourceVisualBundles } from '../src/lib/xizongSourceVisualAssets.mjs';
 
 function assert(condition, message) {
   if (!condition) throw new Error(`CURRENT_XIZONG_LEARNER_OBJECT_VALIDATION:${message}`);
@@ -24,7 +25,7 @@ let totalExtensions = 0;
 for (const systemSummary of listProjectableXizongSystems()) {
   for (const blockSummary of systemSummary.blocks || []) {
     const canonicalBlock = loadXizongBlock(systemSummary.systemId, blockSummary.blockId);
-    const resolved = resolveXizongLearnerProjection(canonicalBlock);
+    const resolved = resolveXizongLearnerProjection(canonicalBlock, { attachVisualBundles: attachSourceVisualBundles });
     const productionBlock = resolved.block;
     const learnerObject = resolved.learnerObject;
     const report = resolved.report;
@@ -79,6 +80,14 @@ for (const systemSummary of listProjectableXizongSystems()) {
 
     reports.push(report);
     totalKp += report.kpCount;
+    if (productionBlock.blockId === 'circulation-b01') {
+      const kp03 = learnerObject.kps.find((kp) => kp.identity.kpId === 'circulation-b01-kp03');
+      const tableVisual = kp03?.visual?.find((row) => row.id === 'a1-b01-kp03-cycle-table-visual');
+      assert(Boolean(tableVisual?.sourceVisualBundle?.assets?.length), 'circulation-b01-kp03:p113-source-visual-missing');
+      assert(tableVisual?.answerBearing === true, 'circulation-b01-kp03:p113-answer-bearing-guard-missing');
+      assert(tableVisual?.displayPolicy?.timing === 'POST_REVEAL', 'circulation-b01-kp03:p113-post-reveal-timing-missing');
+    }
+
     totalKpVisual += report.kpVisualCount;
     totalKpPrecision += report.kpPrecisionCount;
     totalExtensions += report.extensionCount;

@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadXizongBlock } from '../src/lib/xizong.mjs';
 import { loadXizongSemanticBlock } from '../src/lib/xizongSemanticAdapter.mjs';
+import { projectKpCore } from '../src/lib/xizongProjection.mjs';
 import {
   buildXizongProductionBlock,
   loadCompiledXizongProjectionAsset
@@ -24,6 +25,13 @@ assert(a1b1.cognitiveProjection.compiled === true, 'a1-b01:compiled-projection-n
 assert(a1b1.cognitiveProjection.stageObjects.some((row) => row.role === 'CHAIN'), 'a1-b01:rich-chain-not-renderable');
 assert(a1b1.cognitiveProjection.stageObjects.some((row) => row.geometry === 'FORMULA_STRIP'), 'a1-b01:formula-strip-not-renderable');
 assert(a1b1.cognitiveProjection.stageObjects.every((row) => row.html || row.items.length), 'a1-b01:empty-stage-object');
+const projectedA1B1Kps = canonicalA1B1.kpRecords.map((kp) => ({
+  kpId: kp.kpId,
+  markdown: projectKpCore(kp.detailMarkdown || '', { sourcePath: canonicalA1B1.sourcePath })
+}));
+assert(projectedA1B1Kps.every((row) => !row.markdown.includes('Block1_正常机械循环_v6_assets/')), 'a1-b01:missing-inline-media-still-rendered');
+const projectedKp03 = projectedA1B1Kps.find((row) => row.kpId === 'circulation-b01-kp03')?.markdown || '';
+assert(projectedKp03.includes('原讲义图') && projectedKp03.includes('原讲义表'), 'a1-b01-kp03:source-visual-guidance-lost');
 
 const canonicalA1B2 = loadXizongBlock('circulation', 'b02');
 const a1b2 = buildXizongProductionBlock(canonicalA1B2);
