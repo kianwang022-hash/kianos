@@ -41,10 +41,12 @@ const payload = learnerObject || null;
         card.dataset.learnerAsset = 'precision';
         card.dataset.learnerAssetId = text(row?.id);
         const exact = text(row?.answerHtml || row?.answer_html);
-        const deferred = row?.attentionRole === 'DEFERRED_MEMORY';
+        const attentionRole = text(row?.attentionRole).toUpperCase();
+        const deferred = attentionRole === 'DEFERRED_MEMORY';
+        const takeaway = attentionRole === 'CURRENT_TAKEAWAY';
         card.dataset.precisionResolution = exact ? 'EXACT' : 'CUE_ONLY';
-        if (row?.attentionRole) card.dataset.attentionRole = row.attentionRole;
-        card.append(el('span', 'xv6LearnerAssetLabel', deferred ? '可以后置' : exact ? '精确内容' : '精确记忆提示'));
+        if (attentionRole) card.dataset.attentionRole = attentionRole;
+        if (!deferred && !takeaway) card.append(el('span', 'xv6LearnerAssetLabel', exact ? '精确内容' : '精确记忆提示'));
         if (row?.cue || row?.task) card.append(el('p', '', row?.cue || row?.task));
         if (exact) {
           const answer = el('div', 'markdown xv6LearnerPrecisionExact');
@@ -58,8 +60,8 @@ const payload = learnerObject || null;
         const card = el('div', `xv6LearnerAsset connection ${row?.reserveLearning ? 'reserve' : row?.direction || ''}`);
         card.dataset.learnerAsset = 'connection';
         card.dataset.learnerAssetId = text(row?.id);
-        const label = row?.reserveLearning ? '先留个印象' : row?.direction === 'incoming' ? '你之前见过' : '后面会接';
-        card.append(el('span', 'xv6LearnerAssetLabel', label));
+        const label = row?.reserveLearning ? '先留个印象' : row?.direction === 'incoming' ? '串联回看' : '';
+        if (label) card.append(el('span', 'xv6LearnerAssetLabel', label));
         card.append(el('p', '', row?.cue));
         return card;
       };
@@ -200,18 +202,50 @@ const payload = learnerObject || null;
         };
       };
 
+      const ATTENTION_ORDER = ['CURRENT_TAKEAWAY', 'ON_DEMAND_SUPPORT', 'DEFERRED_MEMORY', 'FUTURE_CONNECTION'];
+      const ATTENTION_LABEL = {
+        CURRENT_TAKEAWAY: '本轮带走',
+        ON_DEMAND_SUPPORT: '按需辅助',
+        DEFERRED_MEMORY: '可以后置',
+        FUTURE_CONNECTION: '后面再学 / 串联'
+      };
+      const attentionRoleForAsset = (row, family) => {
+        const explicit = text(row?.attentionRole || row?.attention_role).toUpperCase();
+        if (ATTENTION_ORDER.includes(explicit)) return explicit;
+        if (family === 'connection') {
+          if (row?.direction === 'outgoing' && row?.reserveLearning !== true) return 'FUTURE_CONNECTION';
+          return 'ON_DEMAND_SUPPORT';
+        }
+        return 'ON_DEMAND_SUPPORT';
+      };
+
       const renderSlot = (slot = {}, { stage = 'LEARN' } = {}) => {
         const host = el('div', 'xv6LearnerObjectSurface');
+        const grouped = new Map(ATTENTION_ORDER.map((role) => [role, []]));
         for (const [family, rows] of [
-          ['connection', array(slot?.connection)],
           ['visual', array(slot?.visual)],
           ['precision', array(slot?.precision)],
-          ['extension', array(slot?.extension)]
+          ['extension', array(slot?.extension)],
+          ['connection', array(slot?.connection)]
         ]) {
           rows.forEach((row) => {
             const node = renderResolvedAsset(row, family, stage);
-            if (node) host.append(node);
+            if (!node) return;
+            const role = attentionRoleForAsset(row, family);
+            if (node instanceof HTMLElement) node.dataset.attentionRole = role;
+            grouped.get(role)?.push(node);
           });
+        }
+        for (const role of ATTENTION_ORDER) {
+          const nodes = grouped.get(role) || [];
+          if (!nodes.length) continue;
+          const section = el('section', 'xv6AttentionSection');
+          section.dataset.attentionSection = role;
+          section.append(el('span', 'xv6AttentionSectionLabel', ATTENTION_LABEL[role]));
+          const body = el('div', 'xv6AttentionSectionBody');
+          body.append(...nodes);
+          section.append(body);
+          host.append(section);
         }
         return host;
       };
@@ -310,10 +344,14 @@ const payload = learnerObject || null;
         if (!(activeKpHeader instanceof HTMLElement) || !kp) return;
         const identity = el('strong', 'portedStudyActiveKpTitle', `${kp?.identity?.displayId || ''} · ${kp?.identity?.title || ''}`);
         const meta = el('div', 'portedStudyActiveKpMeta');
-        const sourceLocator = compactSourceLocator(kp?.source?.locator || root.dataset.blockPrimarySource || '');
-        const outlineLocator = compactOutlineLocator(kp?.outline?.locator || root.dataset.blockOutlinePrimary || '');
+        const sourceLocator = compactSourceLocator(kp?.source?.locator || '');
+        const outlineLocator = compactOutlineLocator(kp?.outline?.locator || '');
+        const blockSource = compactSourceLocator(root.dataset.blockPrimarySource || '');
+        const blockOutline = compactOutlineLocator(root.dataset.blockOutlinePrimary || '');
         if (sourceLocator) meta.append(el('span', '', `讲义 ${sourceLocator}`));
+        else meta.append(el('span', '', blockSource ? `讲义范围 ${blockSource} · 当前 KP 暂无精确定位` : '讲义 · 当前 KP 暂无精确定位'));
         if (outlineLocator) meta.append(el('span', '', `Outline ${outlineLocator}`));
+        else if (blockOutline) meta.append(el('span', '', `Outline 范围 ${blockOutline} · 当前 KP 暂无精确定位`));
         const nav = el('div', 'xv6KpLearnNav');
         const prev = el('button', '', '‹'); prev.type = 'button'; prev.dataset.companionPrev = stageName; prev.disabled = index <= 0;
         const count = el('em', '', `${index + 1}/${Math.max(1, total)}`);

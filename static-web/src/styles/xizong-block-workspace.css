@@ -1030,10 +1030,10 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLay
   background: #fff;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="light"] .portedStudyLayout {
-  grid-template-columns: 240px minmax(0,1fr) 260px;
+  grid-template-columns: 240px minmax(0,1fr) 290px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="rich"] .portedStudyLayout {
-  grid-template-columns: 240px minmax(0,1fr) 350px;
+  grid-template-columns: 240px minmax(0,1fr) 380px;
 }
 
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell :is(.portedStudyOutline,.portedStudyMain,.portedStudyChain) {
@@ -1570,6 +1570,27 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerAuxS
   font-size: 15px;
   line-height: 1.55;
 }
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSection {
+  padding: 9px 0 5px;
+  border-top: 1px solid var(--xz-block-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSection:first-child {
+  border-top: 0;
+  padding-top: 2px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSectionLabel {
+  display: block;
+  padding: 2px 0 5px;
+  color: #70877a;
+  font-size: 15px;
+  font-weight: 750;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSectionBody > .xv6LearnerAsset {
+  padding-block: 8px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSectionBody > .xv6LearnerAsset:first-child {
+  border-top: 0;
+}
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerVisualGallery {
   grid-template-columns: 1fr;
   gap: 8px;
@@ -2092,10 +2113,10 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLay
   grid-template-columns: 0 minmax(0,1fr) 0;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="light"] .portedStudyLayout.outline-collapsed {
-  grid-template-columns: 0 minmax(0,1fr) 260px;
+  grid-template-columns: 0 minmax(0,1fr) 290px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="rich"] .portedStudyLayout.outline-collapsed {
-  grid-template-columns: 0 minmax(0,1fr) 350px;
+  grid-template-columns: 0 minmax(0,1fr) 380px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLayout.outline-collapsed .portedStudyOutline {
   overflow: hidden;

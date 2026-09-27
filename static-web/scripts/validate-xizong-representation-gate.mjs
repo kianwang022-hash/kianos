@@ -153,7 +153,15 @@ check(!learnerBridge.includes("if (array(slot?.visual).length || richExtension) 
 check(learnerBridge.includes("'KP_RECALL_FRONT'") && learnerBridge.includes("slotName = 'kp_recall_aux'"), 'recall_front_routes_through_core_protected_context_stage');
 check(learnerBridge.includes("visibleCompanionKp('kp_learn')"), 'kp_learn_context_follows_visible_kp_object');
 check(learnerBridge.includes("const groupId = kp?.identity?.logicGroupId || groupIds[activeGroupIndex()] || '';"), 'kp_learn_context_uses_visible_kp_group_identity');
-check(learnerBridge.includes("Lecture · ${kp?.source?.locator || '暂无精确定位'}"), 'kp_learn_missing_source_locator_fails_closed_visibly');
+check(learnerBridge.includes("const ATTENTION_ORDER = ['CURRENT_TAKEAWAY', 'ON_DEMAND_SUPPORT', 'DEFERRED_MEMORY', 'FUTURE_CONNECTION']"), 'auxiliary_attention_order_not_owned');
+check(learnerBridge.includes("section.dataset.attentionSection = role"), 'auxiliary_attention_sections_not_rendered');
+check(learnerBridge.includes("'后面再学 / 串联'"), 'future_connection_learner_language_missing');
+check(learnerBridge.includes("'可以后置'"), 'deferred_memory_learner_language_missing');
+check(learnerBridge.includes("attentionRoleForAsset"), 'attention_role_resolver_missing');
+check(learnerBridge.includes("family === 'connection'"), 'connection_attention_classification_missing');
+check(learnerBridge.includes("if (!deferred && !takeaway)"), 'deferred_precision_repeats_attention_label');
+check(learnerBridge.includes("if (label) card.append"), 'future_connection_repeats_attention_label');
+check(learnerBridge.includes("'讲义 · 当前 KP 暂无精确定位'") && learnerBridge.includes('讲义范围 ${blockSource} · 当前 KP 暂无精确定位'), 'kp_learn_missing_source_locator_fails_closed_visibly');
 
 check(systemComponent.includes('composeXizongSystemFrameworkRepresentation'), 'system_framework_consumes_representation_gate');
 check(systemComponent.includes('data-system-framework-plan="purpose-first"'), 'system_workspace_marks_purpose_first_plan');
