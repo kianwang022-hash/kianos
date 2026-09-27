@@ -78,12 +78,27 @@ async function claimsFor(page, task) {
   }, task);
 }
 
+async function parkSharedTimer(page) {
+  const dock = page.locator('[data-study-timer-dock]');
+  if ((await dock.count()) === 0 || await dock.isHidden()) return;
+  const grip = dock.locator('[data-study-timer-drag-handle]');
+  const gripBox = await grip.boundingBox();
+  if (!gripBox) return;
+  // Product decision: the shared Timer is movable; QA moves it clear rather
+  // than treating an accepted movable overlap as a learner-surface defect.
+  await page.mouse.move(gripBox.x + gripBox.width / 2, gripBox.y + gripBox.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(120, 120, { steps: 3 });
+  await page.mouse.up();
+}
+
 async function openImporter(page) {
   const toggle = page.locator('[data-transfer-toggle]');
   await toggle.waitFor({ state: 'visible' });
   const box = page.locator('[data-transfer-import]');
   if (await box.isHidden()) await toggle.click();
   await page.locator('[data-transfer-input]').waitFor({ state: 'visible' });
+  await parkSharedTimer(page);
 }
 
 async function importReturn(page, payload, { expectSuccess = true, expectHide = true } = {}) {
