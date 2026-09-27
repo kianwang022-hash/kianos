@@ -59,13 +59,13 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
 >
   <header class="xzSystemTopbar">
     <div class="xzSystemIdentity">
-      <span>{system.canonicalId} · SYSTEM</span>
+      <span>{system.canonicalId} · 系统</span>
       <h1>{system.title}</h1>
       <p data-representation-kind={framework.mission.representation.kind}>{framework.mission.text}</p>
     </div>
     <nav class="xzSystemViewTabs" aria-label="System view">
-      {hasGuide && <button type="button" data-system-view-button="guide" aria-pressed="true">GUIDE</button>}
-      <button type="button" data-system-view-button="framework" aria-pressed={hasGuide ? 'false' : 'true'}>FRAMEWORK</button>
+      {hasGuide && <button type="button" data-system-view-button="guide" aria-pressed="true">导学</button>}
+      <button type="button" data-system-view-button="framework" aria-pressed={hasGuide ? 'false' : 'true'}>框架</button>
       {/* 27 Biochemistry is a contextual M/G Source adapter, not a third System course/tab. */}
     </nav>
   </header>
@@ -73,7 +73,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
   <div class="xzSystemBody" data-system-body>
     <aside class="xzSystemRouteRail" aria-label="System Block route">
       <header>
-        <span>BLOCK ROUTE</span>
+        <span>学习路线</span>
         <strong>{system.canonicalId} · {system.title}</strong>
       </header>
       <nav aria-label="Block route">
@@ -105,7 +105,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
       {hasGuide && (
         <section class="xzSystemGuideView" data-system-view="guide">
           <div class="xzSystemGuideLead">
-            <span>BEGINNER GUIDE</span>
+            <span>系统导学</span>
             <strong>第一次进入这个 System 时，用它把整张地图真正看懂。</strong>
             <p>看懂整体以后可随时切回 Framework；进入 Block 后继续沿原讲义 + KP Learn 主线学习。</p>
           </div>

@@ -10,14 +10,14 @@ const regions = [
   { key: 'primary', label: '主框架', rows: plan.regions.primary },
   { key: 'support', label: '关键关系', rows: plan.regions.support }
 ].filter((region) => region.rows.length > 0);
-const hasFramework = projection?.compiled && (plan.objectCount > 0 || referenceObjects.length > 0);
+const hasFramework = projection?.available === true && (plan.objectCount > 0 || referenceObjects.length > 0);
 ---
 {hasFramework && (
   <details open class="xv6CognitiveProjection xv6FrameworkEntry" data-xizong-cognitive-projection data-projection-asset={projection.assetPath || ''}>
     <summary class="xv6FrameworkEntrySummary">
       <div>
-        <span>Block Framework</span>
-        <strong>当前 Block 框架</strong>
+        <span>当前框架</span>
+        <strong>这一块怎么组织</strong>
       </div>
       <small>可收起</small>
     </summary>

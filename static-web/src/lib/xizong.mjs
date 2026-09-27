@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { resolveXizongLearningBlockSupport, resolveXizongLearningOwner, resolveXizongSystemBlockRoute } from './xizongSemanticAdapter.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -113,9 +114,20 @@ function systemProjectionMaterialized(identity) {
   );
 }
 
+function currentProjectionEligible(dirName, identity) {
+  if (systemProjectionMaterialized(identity)) return true;
+  const currentPath = `${SYSTEMS_ROOT}/${dirName}/CURRENT.md`;
+  if (!fs.existsSync(absolute(currentPath))) return false;
+  const current = readText(currentPath);
+  return current.split('\n').some((line) =>
+    /Current local construction frontier/i.test(line)
+    && /Projection/i.test(line)
+    && /eligible/i.test(line)
+  );
+}
+
 function directBlockRoute(system) {
-  const route = Array.isArray(system?.block_route) ? system.block_route : [];
-  return route.filter((row) => row && !Array.isArray(row?.blocks) && row?.id);
+  return resolveXizongSystemBlockRoute(system);
 }
 
 function systemDirectoryCandidates() {
@@ -149,8 +161,10 @@ function systemRecordFromDir(dirName) {
     systemPath,
     system,
     identity,
+    route: directBlockRoute(system),
     sourceHash: sha256(text),
-    projectionAccepted: systemProjectionMaterialized(identity)
+    projectionAccepted: systemProjectionMaterialized(identity),
+    projectionEligible: currentProjectionEligible(dirName, identity)
   };
   if (BUILD_CACHE_ENABLED) systemRecordCache.set(dirName, record);
   return record;
@@ -222,8 +236,107 @@ function bBlockFiles(dirName, route) {
   });
 }
 
+function normalizeStableRouteBlockId(canonicalId, value) {
+  const text = String(value || '').trim();
+  if (!text) return null;
+  if (canonicalId === 'C') {
+    const match = text.match(/^hematology-h0*(\d+)$/i);
+    return match ? `hematology-h${pad2(Number(match[1]))}` : null;
+  }
+  if (canonicalId === 'D') {
+    const neuro = text.match(/^neuro-n0*(\d+)$/i);
+    const ortho = text.match(/^orthopedics-o0*(\d+)$/i);
+    return neuro ? `neuro-n${pad2(Number(neuro[1]))}` : ortho ? `orthopedics-o${pad2(Number(ortho[1]))}` : null;
+  }
+  if (canonicalId === 'E') {
+    const sr = text.match(/^SR0*(\d+)$/i);
+    const e = text.match(/^E0*(\d+)$/i);
+    return sr ? `SR${Number(sr[1])}` : e ? `E${Number(e[1])}` : null;
+  }
+  if (canonicalId === 'F') {
+    const f = text.match(/^(?:(?:final|remaining)-)?f0*(\d+)$/i);
+    return f ? `F${Number(f[1])}` : null;
+  }
+  return null;
+}
+
+function stableBlockSlug(canonicalId, blockId, ordinal) {
+  const text = String(blockId || '');
+  const patterns = [
+    [/^hematology-h0*(\d+)$/i, 'h'],
+    [/^neuro-n0*(\d+)$/i, 'n'],
+    [/^orthopedics-o0*(\d+)$/i, 'o'],
+    [/^SR0*(\d+)$/i, 'sr'],
+    [/^E0*(\d+)$/i, 'e'],
+    [/^F0*(\d+)$/i, 'f']
+  ];
+  for (const [pattern, prefix] of patterns) {
+    const match = text.match(pattern);
+    if (match) return `${prefix}${pad2(Number(match[1]))}`;
+  }
+  return `b${pad2(ordinal)}`;
+}
+
+function stableBlockLabel(canonicalId, blockId, ordinal) {
+  const text = String(blockId || '');
+  const patterns = [
+    [/^hematology-h0*(\d+)$/i, 'H'],
+    [/^neuro-n0*(\d+)$/i, 'N'],
+    [/^orthopedics-o0*(\d+)$/i, 'O'],
+    [/^SR0*(\d+)$/i, 'SR'],
+    [/^E0*(\d+)$/i, 'E'],
+    [/^F0*(\d+)$/i, 'F']
+  ];
+  for (const [pattern, prefix] of patterns) {
+    const match = text.match(pattern);
+    if (match) return `${prefix}${Number(match[1])}`;
+  }
+  return `B${ordinal}`;
+}
+
+function stableBlockFiles(record, route) {
+  const root = `${SYSTEMS_ROOT}/${record.dirName}`;
+  const rows = [];
+  const visit = (dir) => {
+    for (const entry of fs.readdirSync(absolute(dir), { withFileTypes: true })) {
+      const child = `${dir}/${entry.name}`;
+      if (entry.isDirectory()) {
+        visit(child);
+        continue;
+      }
+      if (!entry.isFile() || !/\.md$/i.test(entry.name) || /^(?:CURRENT|ACCEPTANCE)\.md$/i.test(entry.name)) continue;
+      const text = readText(child);
+      const explicit = frontmatterValue(text, 'block_id');
+      const stable = normalizeStableRouteBlockId(record.identity.canonicalId, explicit);
+      if (!stable) continue;
+      const markerCount = (text.match(/<!--\s*kianos:kp\s+id=["'][^"']+["']\s*-->/g) || []).length;
+      const kpCount = Number(frontmatterValue(text, 'kp_count') || markerCount || 0);
+      rows.push({
+        name: entry.name,
+        blockId: stable,
+        path: child,
+        title: frontmatterValue(text, 'title') || entry.name,
+        kpCount
+      });
+    }
+  };
+  visit(root);
+  const byId = new Map();
+  for (const row of rows) {
+    if (byId.has(row.blockId)) throw new Error(`CURRENT_XIZONG_BLOCK_DUPLICATE:${row.blockId}`);
+    byId.set(row.blockId, row);
+  }
+  return route.map((row, index) => {
+    const stable = normalizeStableRouteBlockId(record.identity.canonicalId, row.id) || String(row.id || '');
+    const file = byId.get(stable);
+    if (!file) throw new Error(`CURRENT_XIZONG_BLOCK_FILE_MISSING:${row.id}`);
+    return { ...file, ordinal: index + 1 };
+  });
+}
+
 function blockFilesForRecord(record, route) {
   if (record.identity.canonicalId === 'B') return bBlockFiles(record.dirName, route);
+  if (['C', 'D', 'E', 'F'].includes(record.identity.canonicalId)) return stableBlockFiles(record, route);
   return blockFiles(record.dirName);
 }
 
@@ -332,31 +445,37 @@ function parseKps(markdown, blockId) {
 
 function parseKpsFromStableMarkers(markdown, blockId) {
   const source = String(markdown);
-  const matches = [...source.matchAll(/^(#{2,4})\s+(KP(\d+))[｜|]\s*(.+)$/gm)];
-  const headings = headingRecords(source);
-  const markerRows = [...source.matchAll(/<!--\s*kianos:kp\s+id=["']([^"']+)["']\s*-->/g)]
-    .map((match) => ({ id: String(match[1] || ''), index: match.index || 0 }));
-  if (markerRows.length !== matches.length || new Set(markerRows.map((row) => row.id)).size !== markerRows.length) {
-    throw new Error(`CURRENT_XIZONG_B_KP_MARKER_COUNT_MISMATCH:${blockId}:${markerRows.length}/${matches.length}`);
+  const markerMatches = [...source.matchAll(/<!--\s*kianos:kp\s+id=["']([^"']+)["']\s*-->/g)];
+  const markerRows = markerMatches.map((match) => ({
+    id: String(match[1] || ''),
+    index: match.index || 0,
+    end: (match.index || 0) + match[0].length
+  }));
+  if (!markerRows.length || new Set(markerRows.map((row) => row.id)).size !== markerRows.length) {
+    throw new Error(`CURRENT_XIZONG_KP_MARKER_SET_INVALID:${blockId}:${markerRows.length}`);
   }
-  return matches.map((match, index) => {
-    const level = match[1].length;
-    const start = match.index || 0;
-    const afterHeading = start + match[0].length;
-    const nextKp = matches[index + 1]?.index ?? source.length;
-    const nextBoundary = headings.find((heading) => heading.index > start && heading.level <= level)?.index ?? source.length;
-    const end = Math.min(nextKp, nextBoundary);
-    const body = source.slice(afterHeading, end).trim();
-    const ordinal = Number(match[3]);
+
+  return markerRows.map((marker, index) => {
+    const nextMarker = markerRows[index + 1]?.index ?? source.length;
+    const segment = source.slice(marker.end, nextMarker);
+    const heading = segment.match(/^\s{0,4}(#{2,4})\s+(KP(\d+))[｜|]\s*(.+)$/m);
+    if (!heading) throw new Error(`CURRENT_XIZONG_KP_HEADING_MISSING_AFTER_MARKER:${blockId}:${marker.id}`);
+    const ordinal = Number(heading[3]);
     const suffix = `-kp${pad2(ordinal)}`;
-    const candidates = markerRows.filter((row) => row.index < start && row.id.toLowerCase().endsWith(suffix));
-    const marker = candidates.at(-1);
-    if (!marker) throw new Error(`CURRENT_XIZONG_B_KP_MARKER_MISSING:${blockId}:KP${pad2(ordinal)}`);
+    if (!marker.id.toLowerCase().endsWith(suffix)) {
+      throw new Error(`CURRENT_XIZONG_KP_MARKER_ORDINAL_MISMATCH:${blockId}:${marker.id}:KP${pad2(ordinal)}`);
+    }
+    const level = heading[1].length;
+    const headingIndex = heading.index || 0;
+    const afterHeading = headingIndex + heading[0].length;
+    const tail = segment.slice(afterHeading);
+    const boundaryMatch = tail.match(new RegExp(`^\\s{0,4}#{1,${level}}\\s+`, 'm'));
+    const body = tail.slice(0, boundaryMatch?.index ?? tail.length).trim();
     return {
       kpId: marker.id,
-      displayId: match[2],
+      displayId: heading[2],
       ordinal,
-      title: String(match[4] || '').trim(),
+      title: String(heading[4] || '').trim(),
       prompt: metadataValue(body, '主提示'),
       sourceLocator: metadataValue(body, '讲义定位 →') || metadataValue(body, '讲义定位'),
       outlineLocator: metadataValue(body, 'Outline →') || metadataValue(body, 'Outline'),
@@ -399,7 +518,7 @@ function normalizeLearningLogicGroups(blockId, kpRecords, blockSupport) {
     return {
       groupId,
       order: index + 1,
-      label: String(group.label || `Logic Group ${index + 1}`),
+      label: String(group.label || `学习节 ${index + 1}`),
       start: Math.min(...ordinals),
       end: Math.max(...ordinals),
       kpIds: ordinals.map((ordinal) => kpByOrdinal.get(ordinal).kpId),
@@ -451,7 +570,7 @@ function normalizeLogicGroups(system, blockId, kpRecords, blockSupport = null) {
     return {
       groupId: group?.id || `${blockId}-lg${pad2(index + 1)}`,
       order: index + 1,
-      label: String(group?.label || `Logic Group ${index + 1}`),
+      label: String(group?.label || `学习节 ${index + 1}`),
       start,
       end,
       kpIds,
@@ -485,24 +604,11 @@ function normalizeFailureModes(system) {
 }
 
 function loadLearningSupport(record) {
-  const pathName = `${LEARNER_ROOT}/${String(record.identity.canonicalId).toLowerCase()}-${record.identity.systemId}-learning.json`;
-  if (!fs.existsSync(absolute(pathName))) return null;
-  const text = readText(pathName);
-  const support = JSON.parse(text);
-  if (!String(support?.authority || '').startsWith('CHAT_APPROVED')) {
-    throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_INVALID:${record.identity.systemId}`);
-  }
-  if (support?.system_id !== record.identity.systemId || support?.canonical_id !== record.identity.canonicalId) {
-    throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_IDENTITY_MISMATCH:${record.identity.systemId}`);
-  }
-
-  const expectedBlocks = directBlockRoute(record.system).map((row) => row.id);
-  const actualBlocks = Object.keys(support?.blocks || {});
-  if (expectedBlocks.length !== actualBlocks.length || expectedBlocks.some((id) => !actualBlocks.includes(id))) {
-    throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_BLOCK_MISMATCH:${record.identity.systemId}`);
-  }
+  const resolved = resolveXizongLearningOwner(record);
+  const support = resolved.raw;
+  const expectedBlocks = record.route.map((row) => String(row.id));
   for (const blockId of expectedBlocks) {
-    const blockSupport = support?.blocks?.[blockId] || {};
+    const blockSupport = resolveXizongLearningBlockSupport(record, support, blockId);
     const expectedGroups = (record.system?.logic_index?.[blockId] || []).map((group) => group.id);
     const actualGroups = Object.keys(blockSupport.logic_groups || {});
     if (!actualGroups.length) throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_LOGIC_MISSING:${blockId}`);
@@ -517,7 +623,13 @@ function loadLearningSupport(record) {
       }
     }
   }
-  return { path: pathName, sourceHash: sha256(text), raw: support };
+  const ownerTexts = [resolved.sourcePath, ...resolved.shardPaths].map((ownerPath) => readText(ownerPath));
+  return {
+    path: resolved.sourcePath,
+    shardPaths: [...resolved.shardPaths],
+    sourceHash: sha256(ownerTexts.join('\n')),
+    raw: support
+  };
 }
 
 
@@ -620,29 +732,31 @@ function loadBiochemistrySourceLane(record, learningSupport, blocks) {
 
 function normalizeSystem(record) {
   const { system, identity, dirName, systemPath, sourceHash } = record;
-  const route = directBlockRoute(system);
+  const route = Array.isArray(record.route) && record.route.length ? record.route : directBlockRoute(system);
   const learningSupport = loadLearningSupport(record);
   const files = blockFilesForRecord(record, route);
   const fileByOrdinal = new Map(files.map((file) => [file.ordinal, file]));
   const fileByBlockId = new Map(files.filter((file) => file.blockId).map((file) => [file.blockId, file]));
+  const stableFileIdentity = ['B', 'C', 'D', 'E', 'F'].includes(identity.canonicalId);
   const blocks = route.map((row, index) => {
     const ordinal = blockOrdinalFromId(row.id) || index + 1;
-    const file = identity.canonicalId === 'B' ? fileByBlockId.get(String(row.id)) : fileByOrdinal.get(ordinal);
+    const routeBlockId = normalizeStableRouteBlockId(identity.canonicalId, row.id) || String(row.id);
+    const file = stableFileIdentity ? fileByBlockId.get(routeBlockId) : fileByOrdinal.get(ordinal);
     if (!file) throw new Error(`CURRENT_XIZONG_BLOCK_FILE_MISSING:${row.id}`);
     const match = String(row.id).match(/-(r|b)(\d+)$/i);
     const bMatch = identity.canonicalId === 'B' ? String(row.id).match(/^([DMG])(\d+)$/) : null;
     return {
-      blockId: row.id,
-      label: String(row.label || `B${ordinal}`),
-      title: String(row.title || file.name),
-      kpCount: Number(row.kp || 0),
+      blockId: routeBlockId,
+      label: String(row.label || stableBlockLabel(identity.canonicalId, routeBlockId, ordinal)),
+      title: String(row.title || file.title || file.name),
+      kpCount: Number(row.kp || file.kpCount || 0),
       outlineCount: Number(row.outline || 0),
       ordinal,
       slug: match
         ? `${match[1].toLowerCase()}${pad2(Number(match[2]))}`
         : bMatch
           ? `${bMatch[1].toLowerCase()}${pad2(Number(bMatch[2]))}`
-          : `b${pad2(ordinal)}`,
+          : stableBlockSlug(identity.canonicalId, routeBlockId, ordinal),
       sourcePath: file.path
     };
   });
@@ -713,6 +827,7 @@ export function listCurrentXizongSystemIdentities() {
       semanticAuthority: String(system?.semantic_authority || ''),
       lifecycleStatus: String(system?.status || ''),
       projectionAccepted: systemProjectionMaterialized(identity),
+      projectionEligible: currentProjectionEligible(dirName, identity),
       blockCount: Number.isFinite(canonicalBlockCount) && canonicalBlockCount > 0 ? canonicalBlockCount : null,
       kpCount: Number.isFinite(canonicalKpCount) && canonicalKpCount > 0 ? canonicalKpCount : null,
       logicGroupCount: Number.isFinite(canonicalLogicGroupCount) && canonicalLogicGroupCount > 0 ? canonicalLogicGroupCount : null,
@@ -815,7 +930,7 @@ export function listProjectableXizongSystems() {
   return systemDirectoryCandidates()
     .map(systemRecordFromDir)
     .filter(Boolean)
-    .filter((record) => record.projectionAccepted)
+    .filter((record) => record.projectionEligible)
     .filter((record) => directBlockRoute(record.system).length > 0)
     .map(normalizedSystem);
 }
@@ -828,7 +943,7 @@ export function loadXizongSystem(systemId) {
     .filter(Boolean)
     .find((candidate) => candidate.identity.systemId === systemId);
   if (!record) throw new Error(`CURRENT_XIZONG_SYSTEM_NOT_FOUND:${systemId}`);
-  if (!record.projectionAccepted) throw new Error(`CURRENT_XIZONG_PROJECTION_NOT_ACCEPTED:${systemId}`);
+  if (!record.projectionEligible) throw new Error(`CURRENT_XIZONG_PROJECTION_NOT_ELIGIBLE:${systemId}`);
   if (!directBlockRoute(record.system).length) throw new Error(`CURRENT_XIZONG_SYSTEM_NOT_PROJECTABLE:${systemId}`);
   return normalizedSystem(record);
 }
@@ -841,11 +956,18 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
   if (!blockMeta) throw new Error(`CURRENT_XIZONG_BLOCK_NOT_FOUND:${systemId}:${blockSlugOrId}`);
 
   const markdown = readText(blockMeta.sourcePath);
-  const blockSupport = system.learningSupport?.raw?.blocks?.[blockMeta.blockId] || null;
+  const blockSupport = system.learningSupport
+    ? resolveXizongLearningBlockSupport(
+      { identity: { systemId: system.systemId, canonicalId: system.canonicalId } },
+      system.learningSupport.raw,
+      blockMeta.blockId
+    )
+    : null;
   if (system.learningSupport && !blockSupport) {
     throw new Error(`CURRENT_XIZONG_BLOCK_LEARNING_SUPPORT_MISSING:${blockMeta.blockId}`);
   }
-  const kpRecords = system.canonicalId === 'B'
+  const hasStableKpMarkers = /<!--\s*kianos:kp\s+id=["'][^"']+["']\s*-->/.test(markdown);
+  const kpRecords = hasStableKpMarkers
     ? parseKpsFromStableMarkers(markdown, blockMeta.blockId)
     : parseKps(markdown, blockMeta.blockId);
   if (kpRecords.length !== blockMeta.kpCount) {
