@@ -6,7 +6,9 @@ Root [CURRENT](../CURRENT.md) owns cross-program routing. Product semantics, vis
 
 ## Current state
 
-No broad Website construction or UI campaign is active.
+A bounded full-site Website engineering program is active under [Issue #1025](https://github.com/kianwang022-hash/kianos/issues/1025): **KianOS Website Fast Lane / Stable Release architecture**.
+
+Issue #1025 owns Goal / Phase / Next / Blocker. This file remains only the Website implementation/delivery router; do not copy that Issue's task ledger here.
 
 The bounded Steward V3 correction is closed. The reviewed agenda/Now composition, native Dock/return, persisted reality semantics, duration-legible timeline, shared L1 styling and deterministic plan-authorized Nutrition top-ups are merged on `main`, accepted by Kian, and released through managed Current. Reopen Steward only for a concrete product/runtime/visual defect or an explicit new accepted requirement.
 

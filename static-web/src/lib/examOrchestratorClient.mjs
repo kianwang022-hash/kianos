@@ -69,15 +69,9 @@ export function initExamHome(root) {
   const catalog = JSON.parse($('[data-exam-catalog]').textContent);
   const politicsCatalog = JSON.parse($('[data-exam-daily-politics-catalog]')?.textContent || 'null');
   const politicsMemoryCatalog = JSON.parse($('[data-exam-politics-memory-catalog]')?.textContent || 'null');
-  const xizongPacketIndex = JSON.parse($('[data-exam-daily-xizong-index]')?.textContent || '[]');
-  const xizongForecastQuestionScope = JSON.parse($('[data-exam-xizong-forecast-question-scope]')?.textContent || 'null');
-  const xizongForecastCanonicalScope = JSON.parse($('[data-exam-xizong-forecast-canonical-scope]')?.textContent || 'null');
   $('[data-exam-catalog]').remove();
   $('[data-exam-daily-politics-catalog]')?.remove();
   $('[data-exam-politics-memory-catalog]')?.remove();
-  $('[data-exam-daily-xizong-index]')?.remove();
-  $('[data-exam-xizong-forecast-question-scope]')?.remove();
-  $('[data-exam-xizong-forecast-canonical-scope]')?.remove();
 
   let bytes = null;
   let profile = emptyExamProfile();
@@ -87,6 +81,32 @@ export function initExamHome(root) {
   let chatPlanState = { status: 'missing', plan: null, error: null };
   let readModel = null;
   let reminder = null;
+  let xizongProjectionPromise = null;
+
+  const loadXizongProjection = async () => {
+    if (!xizongProjectionPromise) {
+      const base = String(catalog?.base || '/');
+      xizongProjectionPromise = fetch(`${base}kianos-data/home-xizong.json`, {
+        headers: { Accept: 'application/json' }
+      }).then(async (response) => {
+        if (!response.ok) throw new Error('HOME_XIZONG_PROJECTION_HTTP_' + response.status);
+        const packet = await response.json();
+        if (
+          packet?.schema !== 'kianos.home.xizong_projection.v1'
+          || !Array.isArray(packet.xizongPacketIndex)
+          || !packet.xizongForecastQuestionScope
+          || !packet.xizongForecastCanonicalScope
+        ) {
+          throw new Error('HOME_XIZONG_PROJECTION_INVALID');
+        }
+        return packet;
+      }).catch((error) => {
+        xizongProjectionPromise = null;
+        throw error;
+      });
+    }
+    return await xizongProjectionPromise;
+  };
 
   const day = () => examDay();
   const taskChecksKey = () => `kianos-exam-home-task-checks-v1:${day()}`;
@@ -654,15 +674,16 @@ export function initExamHome(root) {
   $('[data-exam-copy-daily]')?.addEventListener('click', async () => {
     const status = $('[data-exam-daily-status]');
     try {
+      const xizongProjection = await loadXizongProjection();
       const result = buildHomeDailyLearningPacket({
         storage: localStorage,
         day: day(),
         now: Date.now(),
         plan: readModel,
         englishCatalog: JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent || '[]'),
-        xizongPacketIndex,
-        xizongForecastQuestionScope,
-        xizongForecastCanonicalScope,
+        xizongPacketIndex: xizongProjection.xizongPacketIndex,
+        xizongForecastQuestionScope: xizongProjection.xizongForecastQuestionScope,
+        xizongForecastCanonicalScope: xizongProjection.xizongForecastCanonicalScope,
         politicsCatalog,
         politicsMemoryCatalog,
         base: catalog.base || '/'
