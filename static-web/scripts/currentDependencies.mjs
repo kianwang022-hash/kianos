@@ -71,11 +71,52 @@ function sameIdentity(left, right) {
   );
 }
 
+function hasAstroPackage(nodeModules) {
+  return fs.existsSync(path.join(nodeModules, 'astro', 'package.json'));
+}
+
+function rebaseAbsoluteBinLinks(nodeModules) {
+  const binDir = path.join(nodeModules, '.bin');
+  let entries = [];
+  try { entries = fs.readdirSync(binDir); } catch { return 0; }
+
+  let rebased = 0;
+  const marker = `${path.sep}node_modules${path.sep}`;
+  for (const name of entries) {
+    const linkPath = path.join(binDir, name);
+    let stat = null;
+    try { stat = fs.lstatSync(linkPath); } catch { continue; }
+    if (!stat.isSymbolicLink()) continue;
+
+    const rawTarget = fs.readlinkSync(linkPath);
+    if (!path.isAbsolute(rawTarget)) continue;
+
+    const markerIndex = rawTarget.lastIndexOf(marker);
+    if (markerIndex < 0) {
+      throw new Error(`CURRENT_DEPENDENCY_BIN_LINK_OUTSIDE_TREE:${name}`);
+    }
+    const packageRelative = rawTarget.slice(markerIndex + marker.length);
+    const localTarget = path.join(nodeModules, packageRelative);
+    if (!fs.existsSync(localTarget)) {
+      throw new Error(`CURRENT_DEPENDENCY_BIN_TARGET_MISSING:${name}:${packageRelative}`);
+    }
+
+    const localRelative = path.relative(path.dirname(linkPath), localTarget);
+    fs.rmSync(linkPath, { force: true });
+    fs.symlinkSync(localRelative, linkPath);
+    rebased += 1;
+  }
+  return rebased;
+}
+
 export function canReuseDependencies(sourceWebRoot, targetWebRoot, runtime = {}) {
   if (!sourceWebRoot || !targetWebRoot) return false;
   const sourceNodeModules = path.join(sourceWebRoot, 'node_modules');
   if (!fs.existsSync(sourceNodeModules)) return false;
-  if (!fs.existsSync(path.join(sourceNodeModules, '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro'))) return false;
+  // The package tree is canonical; .bin shims are derived and can be repaired
+  // after copy. Older Current releases may contain absolute .bin symlinks that
+  // point at an already-GC'd ancestor release.
+  if (!hasAstroPackage(sourceNodeModules)) return false;
   const proof = readDependencyProof(sourceWebRoot);
   const targetIdentity = dependencyIdentity(targetWebRoot, runtime);
   return sameIdentity(proof, targetIdentity);
@@ -91,8 +132,10 @@ export function cloneDependencies(sourceWebRoot, targetWebRoot, { proofIdentity 
   fs.cpSync(sourceNodeModules, targetNodeModules, {
     recursive: true,
     dereference: false,
+    verbatimSymlinks: true,
     mode: fs.constants.COPYFILE_FICLONE
   });
+  const rebased_bin_links = rebaseAbsoluteBinLinks(targetNodeModules);
 
   if (!fs.existsSync(path.join(targetNodeModules, '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro'))) {
     fs.rmSync(targetNodeModules, { recursive: true, force: true });
@@ -103,5 +146,5 @@ export function cloneDependencies(sourceWebRoot, targetWebRoot, { proofIdentity 
     fs.rmSync(targetNodeModules, { recursive: true, force: true });
     throw new Error('CURRENT_DEPENDENCY_REUSE_PROOF_MISSING');
   }
-  return { duration_ms: Date.now() - startedAt };
+  return { duration_ms: Date.now() - startedAt, rebased_bin_links };
 }

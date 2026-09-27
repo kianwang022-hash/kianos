@@ -18,8 +18,11 @@ try {
   const target = path.join(root, 'target');
   const makeWeb = (dir, version = '1.0.0') => {
     fs.mkdirSync(path.join(dir, 'node_modules', '.bin'), { recursive: true });
+    fs.mkdirSync(path.join(dir, 'node_modules', 'astro'), { recursive: true });
     fs.writeFileSync(path.join(dir, 'package.json'), JSON.stringify({ name: 'fixture', version, dependencies: { astro: '5.18.2' } }));
     fs.writeFileSync(path.join(dir, 'package-lock.json'), JSON.stringify({ lockfileVersion: 3, packages: {} }));
+    fs.writeFileSync(path.join(dir, 'node_modules', 'astro', 'package.json'), JSON.stringify({ name: 'astro', version: '5.18.2' }));
+    fs.writeFileSync(path.join(dir, 'node_modules', 'astro', 'astro.js'), 'fixture-cli');
     fs.writeFileSync(path.join(dir, 'node_modules', '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro'), 'fixture');
     fs.writeFileSync(path.join(dir, 'node_modules', 'payload.txt'), 'dependency-tree');
   };
@@ -35,6 +38,38 @@ try {
   assert(cloned.duration_ms >= 0, 'clone duration must be reported');
   assert.equal(fs.readFileSync(path.join(target, 'node_modules', 'payload.txt'), 'utf8'), 'dependency-tree');
   assert.deepEqual(readDependencyProof(target), identity);
+
+  if (process.platform !== 'win32') {
+    // Reproduce a promoted Current release whose npm .bin link was converted
+    // into an absolute link to an ancestor release and that ancestor was GC'd.
+    const ancestor = path.join(root, 'ancestor-release');
+    const legacyTarget = path.join(root, 'legacy-target');
+    makeWeb(legacyTarget);
+    fs.mkdirSync(path.join(ancestor, 'node_modules', 'astro'), { recursive: true });
+    fs.writeFileSync(path.join(ancestor, 'node_modules', 'astro', 'astro.js'), 'ancestor-cli');
+    const sourceBin = path.join(source, 'node_modules', '.bin', 'astro');
+    fs.rmSync(sourceBin, { force: true });
+    fs.symlinkSync(path.join(ancestor, 'node_modules', 'astro', 'astro.js'), sourceBin);
+    fs.rmSync(ancestor, { recursive: true, force: true });
+
+    assert.equal(fs.existsSync(sourceBin), false, 'legacy absolute .bin link should be broken');
+    assert.equal(
+      canReuseDependencies(source, legacyTarget),
+      true,
+      'valid proof/package tree must remain reusable even when a derived .bin shim points at a GCd ancestor'
+    );
+
+    const legacyClone = cloneDependencies(source, legacyTarget);
+    const clonedBin = path.join(legacyTarget, 'node_modules', '.bin', 'astro');
+    assert.equal(fs.lstatSync(clonedBin).isSymbolicLink(), true);
+    assert.equal(path.isAbsolute(fs.readlinkSync(clonedBin)), false, 'cloned .bin link must be worktree-local');
+    assert.equal(
+      fs.realpathSync(clonedBin),
+      fs.realpathSync(path.join(legacyTarget, 'node_modules', 'astro', 'astro.js')),
+      'cloned .bin link must resolve inside the target dependency tree'
+    );
+    assert.equal(legacyClone.rebased_bin_links >= 1, true, 'legacy absolute bin link should be rebased');
+  }
 
   fs.writeFileSync(path.join(target, 'package.json'), JSON.stringify({ name: 'fixture', version: '2.0.0', dependencies: { astro: '5.18.2' } }));
   assert.equal(canReuseDependencies(source, target), false, 'package input change must reject reuse');
@@ -64,6 +99,9 @@ try {
     }));
   }
   fs.mkdirSync(path.join(installed, 'node_modules', '.bin'), { recursive: true });
+  fs.mkdirSync(path.join(installed, 'node_modules', 'astro'), { recursive: true });
+  fs.writeFileSync(path.join(installed, 'node_modules', 'astro', 'package.json'), JSON.stringify({ name: 'astro', version: '5.18.2' }));
+  fs.writeFileSync(path.join(installed, 'node_modules', 'astro', 'astro.js'), 'fixture-cli');
   fs.writeFileSync(
     path.join(installed, 'node_modules', '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro'),
     'fixture'
