@@ -26,6 +26,7 @@ import {
 import {
   canReuseDependencies,
   cloneDependencies,
+  dependencyIdentity,
   writeDependencyProof
 } from './currentDependencies.mjs';
 
@@ -189,11 +190,16 @@ async function prepareRelease(sha, extra = {}) {
         }
       }
       if (!dependenciesReady) {
+        // Proof must describe the canonical dependency inputs from the fresh
+        // worktree. npm install may create an untracked package-lock.json;
+        // fingerprinting after install would make the next fresh worktree
+        // differ forever and silently defeat dependency reuse.
+        const dependencyProof = dependencyIdentity(candidateWebRoot);
         await runChild(npmBin, ['install', '--no-audit', '--no-fund'], {
           cwd: candidateWebRoot,
           label: 'candidate npm install'
         });
-        writeDependencyProof(candidateWebRoot);
+        writeDependencyProof(candidateWebRoot, dependencyProof);
         log('installed and recorded candidate dependency proof');
       }
     }
