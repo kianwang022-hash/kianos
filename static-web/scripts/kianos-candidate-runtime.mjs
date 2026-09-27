@@ -32,7 +32,7 @@ export function resolveCandidateConfig(env = process.env) {
   return {
     host,
     port,
-    openBrowser: String(env.KIANOS_CANDIDATE_OPEN || '1') !== '0',
+    openBrowser: String(env.KIANOS_CANDIDATE_OPEN || '0') === '1',
     base: `http://${host}:${port}/`
   };
 }
