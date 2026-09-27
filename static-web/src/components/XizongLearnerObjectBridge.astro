@@ -41,8 +41,10 @@ const payload = learnerObject || null;
         card.dataset.learnerAsset = 'precision';
         card.dataset.learnerAssetId = text(row?.id);
         const exact = text(row?.answerHtml || row?.answer_html);
+        const deferred = row?.attentionRole === 'DEFERRED_MEMORY';
         card.dataset.precisionResolution = exact ? 'EXACT' : 'CUE_ONLY';
-        card.append(el('span', 'xv6LearnerAssetLabel', exact ? '精确内容' : '精确记忆提示'));
+        if (row?.attentionRole) card.dataset.attentionRole = row.attentionRole;
+        card.append(el('span', 'xv6LearnerAssetLabel', deferred ? '可以后置' : exact ? '精确内容' : '精确记忆提示'));
         if (row?.cue || row?.task) card.append(el('p', '', row?.cue || row?.task));
         if (exact) {
           const answer = el('div', 'markdown xv6LearnerPrecisionExact');

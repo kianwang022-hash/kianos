@@ -88,6 +88,12 @@ for (const systemSummary of listProjectableXizongSystems()) {
       assert(tableVisual?.displayPolicy?.timing === 'POST_REVEAL', 'circulation-b01-kp03:p113-post-reveal-timing-missing');
       const lg01Pre = learnerObject.slots?.logicGroupPrelearn?.['circulation-b01-lg01'] || {};
       assert(!(lg01Pre.visual || []).some((row) => row.id === 'a1-b01-kp03-cycle-table-visual'), 'circulation-b01-lg01:p113-kp-visual-leaked-to-group-prelearn');
+      const deferredPrecision = learnerObject.kps.flatMap((kp) => kp.precision);
+      assert(deferredPrecision.length === 13, `circulation-b01:deferred-precision-count:${deferredPrecision.length}`);
+      assert(deferredPrecision.every((row) => row.attentionRole === 'DEFERRED_MEMORY'), 'circulation-b01:deferred-precision-role-drift');
+      assert(deferredPrecision.every((row) => !row.answerHtml), 'circulation-b01:deferred-precision-answer-leak');
+      const kp05 = learnerObject.kps.find((kp) => kp.identity.kpId === 'circulation-b01-kp05');
+      assert((kp05?.precision || []).length === 0, 'circulation-b01-kp05:fake-precision-created');
     }
 
     totalKpVisual += report.kpVisualCount;

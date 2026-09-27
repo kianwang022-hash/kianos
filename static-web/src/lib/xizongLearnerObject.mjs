@@ -28,6 +28,7 @@ function normalizeCue(row, kind) {
     kind,
     answerBearing: row?.answer_bearing === true || row?.answerBearing === true,
     displayPolicy: row?.display_policy || row?.displayPolicy || null,
+    attentionRole: text(row?.attention_role || row?.attentionRole),
     anchor: row?.anchor ? { ...row.anchor } : {},
     cue: text(row?.cue || row?.task || row?.micro_task),
     task: text(row?.task || row?.micro_task),

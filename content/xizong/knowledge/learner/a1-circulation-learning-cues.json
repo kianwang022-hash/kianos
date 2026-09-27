@@ -16,7 +16,21 @@
     "visual_behavior": "At a high-value learning moment, show the source visual when a reviewed asset exists; otherwise keep only the source locator + micro-task. Missing inline imagery is legal and nonblocking.",
     "source_truth": "Exact medical meaning remains in canonical Block/KP content and the referenced original Lecture."
   },
-  "precision_index": [],
+  "precision_index": [
+    {"id":"b01-m01-cycle-time-extrema","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp03"},"cue":"心动周期时间最短/最长？","attention_role":"DEFERRED_MEMORY"},
+    {"id":"b01-m02-cycle-pressure-extrema","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp03"},"cue":"主动脉压与左室压的 min/max 分别落在哪个时相？","attention_role":"DEFERRED_MEMORY"},
+    {"id":"b01-m04-sv-normal","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp04"},"cue":"正常每搏输出量 SV？","attention_role":"DEFERRED_MEMORY"},
+    {"id":"b01-m05-co-normal","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp08"},"cue":"正常心输出量 CO？","attention_role":"DEFERRED_MEMORY"},
+    {"id":"b01-m06-hr-overfast-anchor","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp08"},"cue":"Study 中心率快到约多少时，CO 可因充盈受损而反降？","attention_role":"DEFERRED_MEMORY"},
+    {"id":"b01-m08-rv-work","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp11"},"cue":"正常右室做功约为左室多少？","attention_role":"DEFERRED_MEMORY"},
+    {"id":"b01-m09-ef-normal","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp12"},"cue":"正常 EF？","attention_role":"DEFERRED_MEMORY"},
+    {"id":"b01-m10-vein-capacitance","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp17"},"cue":"静脉容量血管约容纳全身多少血量？","attention_role":"DEFERRED_MEMORY"},
+    {"id":"b01-m12-pulse-pressure","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp20"},"cue":"正常脉压 PP？","attention_role":"DEFERRED_MEMORY"},
+    {"id":"b01-m14-cvp-normal-physiology","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp23"},"cue":"按本节生理 Study，CVP 正常值？","attention_role":"DEFERRED_MEMORY"},
+    {"id":"b01-m15-microcirculation-distribution","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp25"},"cue":"三条微循环通路的典型分布？","attention_role":"DEFERRED_MEMORY"},
+    {"id":"b01-m16-lymph-volume","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp26"},"cue":"正常淋巴生成量约多少？","attention_role":"DEFERRED_MEMORY"},
+    {"id":"b01-m17-coronary-mediators","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp29"},"cue":"Study 中冠脉局部代谢/舒张因子与总体收缩因子？","attention_role":"DEFERRED_MEMORY"}
+  ],
   "visual_bindings": [
     {"id":"a1-b01-lg01-visual","anchor":{"block_id":"circulation-b01","logic_group_id":"circulation-b01-lg01"},"source_locator":"生理 Lecture PDF P112","task":"沿压力-容积环走完一个心动周期：每一段只回答瓣膜状态、压力方向和容积是否变化。"},
     {"id":"a1-b01-kp03-cycle-table-visual","anchor":{"block_id":"circulation-b01","kp_id":"circulation-b01-kp03"},"source_locator":"生理 Lecture PDF P113","task":"适合最终闭卷默写。","answer_bearing":true,"display_policy":{"timing":"POST_REVEAL"}},
