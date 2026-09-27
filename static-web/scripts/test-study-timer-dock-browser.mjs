@@ -143,6 +143,26 @@ try {
   await page.screenshot({ path: new URL('study-timer-desktop.png', auditDir).pathname, fullPage: false });
   await desktop.close();
 
+  const lexical = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const lexicalPage = await lexical.newPage();
+  await lexicalPage.goto(`${BASE}/vocabulary/word/?o=16`, { waitUntil: 'networkidle' });
+  const lexicalTimer = lexicalPage.locator('[data-study-timer-dock]');
+  const lexicalActions = lexicalPage.locator('[data-vocab-action-dock]');
+  await lexicalTimer.waitFor({ state: 'visible' });
+  await lexicalActions.waitFor({ state: 'visible' });
+  const lexicalClearance = await lexicalPage.evaluate(() => {
+    const timer = document.querySelector('[data-study-timer-dock]')?.getBoundingClientRect();
+    const actions = document.querySelector('[data-vocab-action-dock]')?.getBoundingClientRect();
+    return timer && actions ? { timerBottom: timer.bottom, actionTop: actions.top } : null;
+  });
+  check(
+    Boolean(lexicalClearance && lexicalClearance.timerBottom <= lexicalClearance.actionTop - 8),
+    'shared_default_timer_clears_vocabulary_actions',
+    JSON.stringify(lexicalClearance)
+  );
+  await lexicalPage.screenshot({ path: new URL('study-timer-lexical-clearance.png', auditDir).pathname, fullPage: false });
+  await lexical.close();
+
   const mobile = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const mobilePage = await mobile.newPage();
   await mobilePage.goto(`${BASE}/politics/history/ch01/`, { waitUntil: 'networkidle' });
