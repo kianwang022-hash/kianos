@@ -93,16 +93,8 @@ window.__kianosLearnerWriterReady.then(() => {
         external.querySelectorAll('.externalFocus,.compactMap,[data-politics-explicit-surface-plan]').forEach((node) => node.remove());
         const actions = external.querySelector('.stageActions');
         actions?.before(externalPlan);
+        unit.querySelector('[data-inspector-state="EXTERNAL_LEARN"] ul')?.remove();
       }
-      const externalInspector = unit.querySelector('[data-inspector-state="EXTERNAL_LEARN"]');
-      if (externalInspector) {
-        externalInspector.replaceChildren();
-        const p = document.createElement('p');
-        p.className = 'explicitQuietCompanion';
-        p.textContent = '连续学习在 iPad / MarginNote；这里不复制第二份讲义。';
-        externalInspector.appendChild(p);
-      }
-
       const repairPanel = unit.querySelector('[data-inspector-state="REPAIR"]');
       const repairPlan = clonePlan(unitId, 'REPAIR');
       if (repairPanel && repairPlan) {
@@ -118,14 +110,6 @@ window.__kianosLearnerWriterReady.then(() => {
         const actions = close.querySelector('.stageActions');
         if (closePlan) actions?.before(closePlan);
         if (continuePlan) actions?.before(continuePlan);
-      }
-      const closeInspector = unit.querySelector('[data-inspector-state="CLOSE"]');
-      if (closeInspector) {
-        closeInspector.replaceChildren();
-        const p = document.createElement('p');
-        p.className = 'explicitQuietCompanion';
-        p.textContent = '收口内容已由当前 Surface Mapping 放回主舞台。';
-        closeInspector.appendChild(p);
       }
     });
   })();

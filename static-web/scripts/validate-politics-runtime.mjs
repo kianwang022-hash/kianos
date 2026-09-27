@@ -117,8 +117,18 @@ if (!/data-politics-no-verification/.test(chapterRuntimeSource)) {
   fail('interaction regression: no-question Unit must expose a semantic no-verification marker');
 }
 const cognitiveWorkspaceSource = fs.readFileSync(new URL('../src/components/PoliticsCognitiveWorkspace.astro', import.meta.url), 'utf8');
+const cognitiveWorkspaceExplicitSurfaceSource = fs.readFileSync(new URL('../src/components/PoliticsCognitiveWorkspaceExplicitSurface.astro', import.meta.url), 'utf8');
 if (/data-politics-question|data-politics-quiz/.test(cognitiveWorkspaceSource)) {
   fail('surface ownership regression: C00 must not own a second Xiao1000 attempt surface');
+}
+if (/Astro 此时只做认知伴随|不在 Astro 重读第二遍教材/.test(cognitiveWorkspaceSource)) {
+  fail('learner-copy regression: C00 must not explain implementation architecture to the learner');
+}
+if (/不复制第二份讲义|Surface Mapping 放回主舞台/.test(cognitiveWorkspaceExplicitSurfaceSource)) {
+  fail('learner-copy regression: explicit surface enhancer must not replace learner context with implementation copy');
+}
+if (!/乘风定位/.test(cognitiveWorkspaceSource) || !/最后留下什么/.test(cognitiveWorkspaceSource)) {
+  fail('interaction regression: C00 must retain useful EXTERNAL_LEARN and CLOSE context');
 }
 if (!/searchParams\.set\('learnedScope', 'confirmed'\)/.test(cognitiveWorkspaceSource)) {
   fail('interaction regression: learned C00 handoff must carry bounded learned-scope confirmation');
