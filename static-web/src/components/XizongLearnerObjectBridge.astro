@@ -282,7 +282,6 @@ const payload = learnerObject || null;
         frame.dataset.kpId = text(kp?.identity?.kpId);
         const top = el('header', 'xv6KpLearnCompanionHeader');
         const identity = el('div');
-        identity.append(el('span', '', 'KP Learn · Lecture companion'));
         identity.append(el('strong', '', `${kp?.identity?.displayId || ''} · ${kp?.identity?.title || ''}`));
         const nav = el('div', 'xv6KpLearnNav');
         const prev = el('button', '', '‹'); prev.type = 'button'; prev.dataset.companionPrev = stageName; prev.disabled = index <= 0;
@@ -298,10 +297,14 @@ const payload = learnerObject || null;
           prompt.append(el('p', '', kp.prompt.canonical));
           frame.append(prompt);
         }
-        const locators = el('div', 'xv6KpLearnLocators');
-        locators.append(el('span', '', `Lecture · ${kp?.source?.locator || '暂无精确定位'}`));
-        locators.append(el('span', '', `Outline · ${kp?.outline?.locator || '暂无精确定位'}`));
-        frame.append(locators);
+        const sourceLocator = text(kp?.source?.locator);
+        const outlineLocator = text(kp?.outline?.locator);
+        if (sourceLocator || outlineLocator) {
+          const locators = el('div', 'xv6KpLearnLocators');
+          if (sourceLocator) locators.append(el('span', '', `Lecture · ${sourceLocator}`));
+          if (outlineLocator) locators.append(el('span', '', `Outline · ${outlineLocator}`));
+          frame.append(locators);
+        }
 
         const core = el('div', 'markdown xv6KpLearnCore');
         core.dataset.learnerKpCore = text(kp?.identity?.kpId);

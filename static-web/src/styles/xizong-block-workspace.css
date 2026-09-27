@@ -950,11 +950,11 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyHea
   overflow: hidden;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyContextRow {
-  min-height: 30px;
+  min-height: 26px;
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 1px 12px;
+  padding: 0 10px;
   border-bottom: 1px solid var(--xz-block-line);
   color: var(--xz-block-muted);
 }
@@ -978,10 +978,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyShe
   color: var(--xz-block-muted);
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyShellActions > span {
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.2;
-  opacity: .72;
+  display: none;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentity {
   min-height: 44px;
@@ -1024,7 +1021,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLay
   flex: 1 1 auto;
   min-height: 0;
   display: grid;
-  grid-template-columns: 292px minmax(0,1fr) 0;
+  grid-template-columns: 240px minmax(0,1fr) 0;
   overflow: hidden;
   align-items: stretch;
   border: 1px solid var(--xz-block-line);
@@ -1033,10 +1030,10 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLay
   background: #fff;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="light"] .portedStudyLayout {
-  grid-template-columns: 292px minmax(0,1fr) 280px;
+  grid-template-columns: 240px minmax(0,1fr) 260px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="rich"] .portedStudyLayout {
-  grid-template-columns: 292px minmax(0,1fr) minmax(380px,36%);
+  grid-template-columns: 240px minmax(0,1fr) 320px;
 }
 
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell :is(.portedStudyOutline,.portedStudyMain,.portedStudyChain) {
@@ -2095,10 +2092,10 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLay
   grid-template-columns: 0 minmax(0,1fr) 0;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="light"] .portedStudyLayout.outline-collapsed {
-  grid-template-columns: 0 minmax(0,1fr) 280px;
+  grid-template-columns: 0 minmax(0,1fr) 260px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="rich"] .portedStudyLayout.outline-collapsed {
-  grid-template-columns: 0 minmax(0,1fr) minmax(380px,36%);
+  grid-template-columns: 0 minmax(0,1fr) 320px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLayout.outline-collapsed .portedStudyOutline {
   overflow: hidden;
@@ -2348,3 +2345,17 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxEmpty {
   }
 }
 
+
+
+/* Real-use attention correction: learning content outranks runtime chrome. */
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .portedStudyIdentityMeta,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .portedStudyIdentityMeta {
+  display: none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerCompanionStage > footer:has([data-source-contact-done]),
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerCompanionStage > footer:has([data-group-lecture-done]) {
+  display: none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnActions {
+  display: none !important;
+}

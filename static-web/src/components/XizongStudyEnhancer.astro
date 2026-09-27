@@ -33,10 +33,12 @@ const packetMeta = {
     <small data-dock-group>{kps[0]?.groupLabel || '学习节'}</small>
   </header>
 
-  <div class="xv6DockLocator">
-    <span>iPad / MarginNote · 原讲义定位</span>
-    <code data-source-locator>{kps[0]?.sourceLocator || '暂无精确定位'}</code>
-  </div>
+  {kps[0]?.sourceLocator && (
+    <div class="xv6DockLocator">
+      <span>iPad / MarginNote · 原讲义定位</span>
+      <code data-source-locator>{kps[0].sourceLocator}</code>
+    </div>
+  )}
 
 
   <label class="xv6DockComment">
@@ -103,6 +105,7 @@ const packetMeta = {
 
     const recallCards = [...root.querySelectorAll('[data-kp-recall-card]')];
     const locator = dock.querySelector('[data-source-locator]');
+    const locatorWrap = dock.querySelector('.xv6DockLocator');
     const position = dock.querySelector('[data-dock-position]');
     const group = dock.querySelector('[data-dock-group]');
     const comment = dock.querySelector('[data-kp-comment]');
@@ -261,7 +264,8 @@ const packetMeta = {
       if (row) {
         if (position) position.textContent = `${row.displayId} · ${row.title}`;
         if (group) group.textContent = row.groupLabel || '学习节';
-        if (locator) locator.textContent = row.sourceLocator || '暂无精确定位';
+        if (locator) locator.textContent = row.sourceLocator || '';
+        if (locatorWrap instanceof HTMLElement) locatorWrap.hidden = !row.sourceLocator;
         if (comment && document.activeElement !== comment && renderedKpId !== row.kpId) comment.value = local?.comment || '';
         renderedKpId = row.kpId;
       }

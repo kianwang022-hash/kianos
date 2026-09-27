@@ -389,14 +389,20 @@
             locators.classList.add('xzKpLearnLocatorMini');
             const sourceLocator = String(kp?.source?.locator || '').trim();
             const outlineLocator = String(kp?.outline?.locator || '').trim();
-            const source = document.createElement('span');
-            source.dataset.kpSourceLocator = '';
-            source.textContent = `Lecture · ${sourceLocator || '暂无精确定位'}`;
-            const outline = document.createElement('span');
-            outline.dataset.kpOutlineLocator = '';
-            outline.textContent = `Outline · ${outlineLocator || '暂无精确定位'}`;
-            locators.replaceChildren(source, outline);
-            right.append(locators);
+            locators.replaceChildren();
+            if (sourceLocator) {
+              const source = document.createElement('span');
+              source.dataset.kpSourceLocator = '';
+              source.textContent = `Lecture · ${sourceLocator}`;
+              locators.append(source);
+            }
+            if (outlineLocator) {
+              const outline = document.createElement('span');
+              outline.dataset.kpOutlineLocator = '';
+              outline.textContent = `Outline · ${outlineLocator}`;
+              locators.append(outline);
+            }
+            if (locators.childElementCount) right.append(locators);
           }
           if (nav) right.append(nav);
           header.append(right);
@@ -429,35 +435,7 @@
           core.dataset.kpLearnCore = '';
         }
 
-        let actions = frame.querySelector('.xzKpLearnActions');
-        if (!(actions instanceof HTMLElement)) {
-          actions = document.createElement('footer');
-          actions.className = 'xzKpLearnActions';
-          actions.innerHTML = `
-            <span>← → 切 KP　·　Space 隐藏 / 显示 Core　·　Enter 这个 KP 学好了</span>
-            <div>
-              <button type="button" data-kp-core-toggle>隐藏 Core</button>
-              <span data-kp-learn-state>学习中</span>
-            </div>
-          `;
-          frame.append(actions);
-        }
-        const study = readStudy();
-        const learned = Boolean(study.learned?.[kpId]);
-        const stateNode = actions.querySelector('[data-kp-learn-state]');
-        if (stateNode) stateNode.textContent = learned ? '已学好' : '学习中';
-
-        const toggle = actions.querySelector('[data-kp-core-toggle]');
-        if (toggle && !toggle.dataset.bound) {
-          toggle.dataset.bound = 'true';
-          toggle.addEventListener('click', () => {
-            const target = frame.querySelector('[data-learner-kp-core]');
-            if (!(target instanceof HTMLElement)) return;
-            target.hidden = !target.hidden;
-            toggle.textContent = target.hidden ? '显示 Core' : '隐藏 Core';
-            frame.classList.toggle('core-hidden', target.hidden);
-          });
-        }
+        frame.querySelector('.xzKpLearnActions')?.remove();
 
         syncLogicMap();
         applyHighlights();
@@ -514,7 +492,11 @@
         }
         if (event.code === 'Space') {
           event.preventDefault();
-          frame.querySelector('[data-kp-core-toggle]')?.click();
+          const core = frame.querySelector('[data-learner-kp-core]');
+          if (core instanceof HTMLElement) {
+            core.hidden = !core.hidden;
+            frame.classList.toggle('core-hidden', core.hidden);
+          }
           return;
         }
         if (event.key === 'Enter') {

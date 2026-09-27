@@ -273,7 +273,13 @@ try {
     };
   });
   check(!expandedGeometry.collapsed, 'logic_map_expanded_by_default', JSON.stringify(expandedGeometry));
-  check(expandedGeometry.left >= 280 && expandedGeometry.left <= 305, 'logic_map_mac_width', JSON.stringify(expandedGeometry));
+  check(expandedGeometry.left >= 230 && expandedGeometry.left <= 250, 'logic_map_stays_secondary_width', JSON.stringify(expandedGeometry));
+  if (expandedGeometry.aux > 0) {
+    check(expandedGeometry.main >= expandedGeometry.aux * 1.8, 'primary_stage_dominates_context_width', JSON.stringify(expandedGeometry));
+  }
+  check(await learnCard.locator('.xzKpLearnActions:visible').count() === 0, 'learn_runtime_status_strip_not_persistent');
+  check(await root.locator('[data-block-keyboard-hint]:visible').count() === 0, 'block_keyboard_hint_not_persistent');
+  check(!locatorText.includes('暂无精确定位'), 'locator_never_renders_missing_placeholder', locatorText);
 
   await toggle.click();
   await page.waitForFunction(() => document.querySelector('[data-study-layout]')?.classList.contains('outline-collapsed'));
