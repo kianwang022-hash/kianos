@@ -162,6 +162,23 @@ assert.ok(
   politicsLearn.includes('.politicsMain'),
   'Politics Learn owner must retain Main learner pane presentation'
 );
+const politicsLearnCueSelectors = [
+  '.politicsMicro',
+  '.politicsContext',
+  '.politicsLead',
+  '.politicsChain',
+  '.politicsAttention',
+  '.politicsBridge',
+  '.politicsAnswer',
+  '.politicsNextBridge',
+  '.politicsFinalChain'
+];
+for (const selector of politicsLearnCueSelectors) {
+  assert.ok(
+    politicsLearn.includes(selector),
+    selector + ': Politics Learn owner lost an Orientation/cue selector'
+  );
+}
 for (const legacyLayer of ['politics-presentation.css', 'shared-workspace-composition.css', 'politics-visual-tuning.css']) {
   const value = read(path.join(src, 'styles', legacyLayer));
   assert.ok(
@@ -176,6 +193,12 @@ for (const legacyLayer of ['politics-presentation.css', 'shared-workspace-compos
     !value.includes('.politicsMain'),
     legacyLayer + ': Politics Main learner pane escaped the Learn presentation owner'
   );
+  for (const selector of politicsLearnCueSelectors) {
+    assert.ok(
+      !value.includes(selector),
+      legacyLayer + ': ' + selector + ' escaped the Politics Learn presentation owner'
+    );
+  }
 }
 
 assert.ok(!/Human-Gate visual (?:lock|repair)/.test(stewardLocal), 'Steward local CSS contains post-hoc Human-Gate patch layers');
