@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import net from 'node:net';
 import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
@@ -105,14 +106,29 @@ async function shortHead() {
   }
 }
 
-async function waitForReady(base, child) {
+async function portAccepting(host, port) {
+  return await new Promise((resolve) => {
+    const socket = net.createConnection({ host, port });
+    const finish = (value) => {
+      socket.removeAllListeners();
+      socket.destroy();
+      resolve(value);
+    };
+    socket.setTimeout(250);
+    socket.once('connect', () => finish(true));
+    socket.once('timeout', () => finish(false));
+    socket.once('error', () => finish(false));
+  });
+}
+
+async function waitForReady(config, child) {
+  // Readiness must never render a KianOS surface. Business routes can load
+  // large canonical objects; polling them during startup creates overlapping
+  // aborted SSR work and defeats the Fast Lane before Kian opens a page.
   for (let i = 0; i < 240; i += 1) {
     if (child.exitCode != null) throw new Error('KIANOS_CANDIDATE_EXITED_BEFORE_READY');
-    try {
-      const response = await fetch(base, { cache: 'no-store', signal: AbortSignal.timeout(750) });
-      if (response.ok) return;
-    } catch {}
-    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (await portAccepting(config.host, config.port)) return;
+    await new Promise((resolve) => setTimeout(resolve, 100));
   }
   throw new Error('KIANOS_CANDIDATE_START_TIMEOUT');
 }
@@ -160,7 +176,7 @@ async function main() {
       child.once('exit', (code, signal) => resolve({ code: code ?? 1, signal }));
     });
 
-    await waitForReady(config.base, child);
+    await waitForReady(config, child);
     console.log(`[KianOS Candidate] READY ${config.base}`);
     console.log(`[KianOS Candidate] branch HEAD ${head}; isolated runtime ${runtimeRoot}`);
     console.log('[KianOS Candidate] stable Current remains http://127.0.0.1:4321/');
