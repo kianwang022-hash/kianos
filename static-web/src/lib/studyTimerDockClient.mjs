@@ -555,7 +555,10 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
     if (event.key === POSITION_KEY) {
       const saved = safeStoredPosition(storage);
       if (saved) placeAt(saved.x, saved.y, false);
-      else resetPosition();
+      else {
+        resetPosition();
+        window.requestAnimationFrame(placeDefaultClearOfFixedBottomControls);
+      }
     }
     if (event.key === STEWARD_REALITY_KEY) renderRecoveryPanels();
   };
