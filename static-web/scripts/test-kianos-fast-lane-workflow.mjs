@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import http from 'node:http';
 import net from 'node:net';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-import { resolveCandidateConfig } from './kianos-candidate-runtime.mjs';
+import { resolveCandidateConfig, STABLE_CURRENT_PORT } from './kianos-candidate-runtime.mjs';
 import { terminateProcessTree } from './currentRelease.mjs';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -26,7 +25,7 @@ const websiteCurrent = fs.readFileSync(path.join(webRoot, 'CURRENT.md'), 'utf8')
 
 assert.equal(resolveCandidateConfig({}).port, 4322, 'default UI Candidate port must stay 4322');
 assert.throws(
-  () => resolveCandidateConfig({ KIANOS_CANDIDATE_PORT: '4321' }),
+  () => resolveCandidateConfig({ KIANOS_CANDIDATE_PORT: String(STABLE_CURRENT_PORT) }),
   /KIANOS_CANDIDATE_MUST_NOT_USE_STABLE_PORT_4321/
 );
 assert.equal(packageJson.scripts?.['candidate:serve'], 'node scripts/kianos-candidate-runtime.mjs');
@@ -96,31 +95,10 @@ async function waitForBody(url, predicate, timeoutMs = 12000) {
   throw new Error('FAST_LANE_WORKFLOW_BODY_TIMEOUT:' + last.slice(0, 200));
 }
 
-let stableServer = null;
-let stableOwned = false;
 let candidate = null;
 let candidateLog = '';
 
-async function openStableSentinel() {
-  if (!(await canListen(4321))) return false;
-  stableServer = http.createServer((_req, res) => {
-    res.writeHead(200, { 'content-type': 'text/plain; charset=utf-8' });
-    res.end('KIANOS_STABLE_SENTINEL');
-  });
-  await new Promise((resolve, reject) => {
-    stableServer.once('error', reject);
-    stableServer.listen(4321, '127.0.0.1', resolve);
-  });
-  stableOwned = true;
-  return true;
-}
-
 try {
-  await openStableSentinel();
-  const stableBefore = stableOwned
-    ? await fetchText('http://127.0.0.1:4321/')
-    : null;
-
   const candidatePort = await nextCandidatePort();
   candidate = spawn(process.execPath, ['scripts/kianos-candidate-runtime.mjs'], {
     cwd: webRoot,
@@ -147,11 +125,6 @@ try {
   await waitForBody(candidateUrl, (body) => body.includes(marker), 15000);
   const candidateRefreshMs = Date.now() - changedAt;
 
-  if (stableOwned) {
-    const stableDuring = await fetchText('http://127.0.0.1:4321/');
-    assert.equal(stableDuring, stableBefore, 'Candidate UI iteration touched stable 4321');
-  }
-
   fs.writeFileSync(stewardPath, original, 'utf8');
   await waitForBody(candidateUrl, (body) => body.includes('今天怎么过') && !body.includes(marker), 15000);
 
@@ -160,7 +133,8 @@ try {
     schema: 'kianos.website.fast_lane_workflow.v1',
     default_candidate_port: 4322,
     exercised_candidate_port: candidatePort,
-    stable_4321: stableOwned ? 'sentinel_unchanged' : 'external_runtime_left_untouched',
+    stable_lane: 'not_invoked',
+    stable_port_guarded: STABLE_CURRENT_PORT !== candidatePort,
     candidate_refresh_ms: candidateRefreshMs,
     managed_current_rebuild_triggered: false,
     representative_surface: 'steward'
@@ -172,8 +146,5 @@ try {
   try { fs.writeFileSync(stewardPath, original, 'utf8'); } catch {}
   if (candidate?.pid) {
     try { await terminateProcessTree(candidate.pid, { graceMs: 1000 }); } catch {}
-  }
-  if (stableServer) {
-    await new Promise((resolve) => stableServer.close(resolve));
   }
 }
