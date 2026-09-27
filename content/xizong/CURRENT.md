@@ -21,15 +21,16 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Active engineering anchor
 
-- **Issue #995 — Xizong learner-facing full live audit**
-- Reopened by real-use Human Gate failure on B1.
-- Phase / Next / Blocker live only in Issue #995; exact truth remains in the smallest Source / Learning / Presentation / Runtime owner.
+- **None.**
+- Closed engineering history such as Issues #989 and #995 is evidence only, not continuation authority.
+- A future long-running Xizong engineering task must bind a fresh/open Issue before relying on phase state.
 
 ### Next
 
-for current engineering control → Issue #995 → smallest exact owner for the observed real-use defect
-for ordinary study after #995 re-closes → native learner path
-→ stop only after real-browser B1 Human Gate passes
+for ordinary study → native learner path
+for a bounded explicit engineering defect → route to the smallest exact owner above
+for a new long-running engineering task → bind an open Issue, then keep only Goal / Phase / Next / Blocker there
+→ stop after targeted proof
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority.
 
