@@ -52,6 +52,8 @@ This prevents a GitHub update from destroying local development changes and remo
 8. an active foreground learner page is never force-reloaded solely because main advanced; returning to the page after leaving it performs the pending refresh, while natural navigation already loads the newest Current;
 9. transient network failure keeps the last successfully synced site usable; a failed build preserves the served SHA and reports a separate target SHA/error. The same failed source is not rebuilt on every poll or process restart. A new source SHA resumes automatically.
 
+The macOS LaunchAgent runs with `ProcessType=Standard`: Current delivery remains a non-interactive background service, but its bounded npm/Astro build receives the normal light launchd resource limits instead of the stronger `Background` throttling. Foreground learner continuity is still protected by staging + atomic promotion + deferred browser refresh; the delivery service is not promoted to `Interactive` priority.
+
 Lexical cache state is disposable and ignored by Git (`static-web/.cache/lexical-projection`). Reuse requires clean source-tree identity and verified output hashes; dirty inputs, missing outputs or corrupt cache cause bounded repair/recompilation. No cache is a semantic owner. The builder resolves all affected references before overwriting any projection shards.
 
 For an explicit engineering retry after an environmental repair, run the supervisor once with `KIANOS_SYNC_ONCE=1 KIANOS_RETRY_FAILED_BUILD=1`. Do not use retries to suppress a content error.

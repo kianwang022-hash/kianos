@@ -23,10 +23,12 @@ for (const required of [
   'com.kianos.current-mirror',
   'learner-state',
   'chmod 700',
+  '<string>Standard</string>',
   'kianos-current-doctor.mjs'
 ]) {
   assert.ok(installer.includes(required), `installer missing: ${required}`);
 }
+assert.ok(!installer.includes('<string>Background</string>'), 'Current mirror must not run with Background ProcessType because bounded delivery builds must receive enough CPU/I/O to finish before the supervisor timeout.');
 
 for (const required of [
   'kianos-current-mirror',
