@@ -11,11 +11,13 @@ This file owns the accepted English subject/task Visual blueprint under Architec
 
 ### Navigation hierarchy
 
-English uses the shared three-level learner navigation contract:
+English inherits the shared KianOS L1 navigation owner; this file does **not** own or repeat the concrete global L1 membership.
+
+English owns only its local learner hierarchy:
 
 ```text
-L1  KianOS
-    Home | 西综 | 政治 | English
+shared L1 subject entry
+→ English
 
 L2  English
     Overview | Objective | Translation | Writing | Vocabulary
@@ -26,6 +28,8 @@ L3  Objective
 L3  Vocabulary
     Overview | Learn | Repair | Research
 ```
+
+Concrete global L1 membership / route identity remains with the shared navigation / Product Surface owners.
 
 Ownership rules:
 
