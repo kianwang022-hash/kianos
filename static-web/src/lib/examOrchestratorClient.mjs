@@ -86,7 +86,7 @@ export function initExamHome(root) {
   const loadXizongProjection = async () => {
     if (!xizongProjectionPromise) {
       const base = String(catalog?.base || '/');
-      xizongProjectionPromise = fetch(`${base}__kianos-data/home-xizong.json`, {
+      xizongProjectionPromise = fetch(`${base}kianos-data/home-xizong.json`, {
         headers: { Accept: 'application/json' }
       }).then(async (response) => {
         if (!response.ok) throw new Error('HOME_XIZONG_PROJECTION_HTTP_' + response.status);
