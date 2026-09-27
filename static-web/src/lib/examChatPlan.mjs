@@ -292,6 +292,68 @@ function normalizeTrainingProjection(value) {
   };
 }
 
+const DAY_START_MEAL_SLOTS = Object.freeze(['breakfast', 'lunch', 'dinner']);
+const DAY_START_MEAL_STATES = new Set(['PLANNED', 'ALREADY_DONE', 'NOT_APPLICABLE', 'UNKNOWN']);
+const DAY_START_TRAINING_STATES = new Set(['PLANNED', 'ALREADY_DONE', 'REST', 'NOT_APPLICABLE', 'UNKNOWN']);
+
+function normalizeDayStartClosure(value, { nutrition, training, scheduleBlocks }) {
+  if (value == null) return null;
+  if (!record(value)) throw new Error('DAY_START_CLOSURE_INVALID');
+
+  const rawMeals = value.meals;
+  if (!record(rawMeals)) throw new Error('DAY_START_CLOSURE_MEALS_INVALID');
+  const knownMealIds = new Set((nutrition?.meals || []).map((meal) => meal.id));
+  const scheduledMealIds = new Set((scheduleBlocks || []).map((block) => block.meal_id).filter(Boolean));
+  const plannedMealIds = [];
+  const meals = {};
+
+  for (const slot of DAY_START_MEAL_SLOTS) {
+    const raw = rawMeals[slot];
+    if (!record(raw)) throw new Error(`DAY_START_CLOSURE_MEAL_MISSING:${slot}`);
+    const status = String(raw.status || '').trim().toUpperCase();
+    if (!DAY_START_MEAL_STATES.has(status)) throw new Error(`DAY_START_CLOSURE_MEAL_STATUS_INVALID:${slot}`);
+    const mealId = raw.meal_id == null || raw.meal_id === ''
+      ? null
+      : presentationId(raw.meal_id, `presentation.day_start_closure.meals.${slot}.meal_id`);
+
+    if (status === 'PLANNED') {
+      if (!mealId) throw new Error(`DAY_START_CLOSURE_MEAL_LINK_REQUIRED:${slot}`);
+      if (!knownMealIds.has(mealId)) throw new Error(`DAY_START_CLOSURE_MEAL_UNKNOWN:${slot}`);
+      if (!scheduledMealIds.has(mealId)) throw new Error(`DAY_START_CLOSURE_MEAL_SCHEDULE_MISSING:${slot}`);
+      plannedMealIds.push(mealId);
+    } else if (mealId) {
+      throw new Error(`DAY_START_CLOSURE_MEAL_LINK_UNEXPECTED:${slot}`);
+    }
+    meals[slot] = { status, meal_id: mealId };
+  }
+
+  if (new Set(plannedMealIds).size !== plannedMealIds.length) {
+    throw new Error('DAY_START_CLOSURE_MEAL_ID_CONFLICT');
+  }
+
+  if (!record(value.training)) throw new Error('DAY_START_CLOSURE_TRAINING_INVALID');
+  const trainingStatus = String(value.training.status || '').trim().toUpperCase();
+  if (!DAY_START_TRAINING_STATES.has(trainingStatus)) throw new Error('DAY_START_CLOSURE_TRAINING_STATUS_INVALID');
+  const trainingSessionId = value.training.training_session_id == null || value.training.training_session_id === ''
+    ? null
+    : presentationId(value.training.training_session_id, 'presentation.day_start_closure.training.training_session_id');
+
+  if (trainingStatus === 'PLANNED') {
+    if (!trainingSessionId) throw new Error('DAY_START_CLOSURE_TRAINING_LINK_REQUIRED');
+    if (!training || training.session_id !== trainingSessionId) throw new Error('DAY_START_CLOSURE_TRAINING_UNKNOWN');
+    if (!(scheduleBlocks || []).some((block) => block.training_session_id === trainingSessionId)) {
+      throw new Error('DAY_START_CLOSURE_TRAINING_SCHEDULE_MISSING');
+    }
+  } else if (trainingSessionId) {
+    throw new Error('DAY_START_CLOSURE_TRAINING_LINK_UNEXPECTED');
+  }
+
+  return {
+    meals,
+    training: { status: trainingStatus, training_session_id: trainingSessionId }
+  };
+}
+
 function normalizeExamChatPlanPresentation(value) {
   if (value == null) return null;
   if (!record(value)) throw new Error('Chat Plan presentation must be an object.');
@@ -360,12 +422,21 @@ function normalizeExamChatPlanPresentation(value) {
     'presentation.schedule_blocks'
   ).sort((a, b) => a.start.localeCompare(b.start));
 
+  const nutrition = normalizeNutritionProjection(value.nutrition);
+  const training = normalizeTrainingProjection(value.training);
+  const dayStartClosure = normalizeDayStartClosure(value.day_start_closure, {
+    nutrition,
+    training,
+    scheduleBlocks
+  });
+
   return {
     today_tasks: todayTasks,
     week_reference: weekReference,
     schedule_blocks: scheduleBlocks,
-    nutrition: normalizeNutritionProjection(value.nutrition),
-    training: normalizeTrainingProjection(value.training)
+    nutrition,
+    training,
+    day_start_closure: dayStartClosure
   };
 }
 
