@@ -124,9 +124,6 @@ body#kianos-workspace.uiWordStudy .portedVocabEvidenceList>article>p { color:#6f
 
   /* Politics keeps orientation / selected Natural Unit / exact Return. */
   body#kianos-workspace.surfaceBody-politics .politicsStudy { flex:1;min-height:0;grid-template-rows:auto minmax(0,1fr);align-items:stretch; }
-  body#kianos-workspace.surfaceBody-politics .politicsMain { min-height:0;overflow:hidden; }
-  body#kianos-workspace.surfaceBody-politics .politicsMain>:is(.politicsUnit,.politicsOrientation,.politicsChapterClose) { height:100%;min-height:0;box-sizing:border-box; }
-  body#kianos-workspace.surfaceBody-politics .politicsMain>:is(.politicsOrientation,.politicsChapterClose) { overflow:auto; }
   body#kianos-workspace.surfaceBody-politics .politicsUnit { grid-template-columns:minmax(0,1fr) 270px;align-items:stretch; }
   body#kianos-workspace.surfaceBody-politics .politicsUnitCognition { min-height:0;overflow:auto;padding:20px 27px; }
   body#kianos-workspace.surfaceBody-politics .politicsUnitCompanion { position:static;min-height:0;max-height:none;overflow:auto;padding:20px; }

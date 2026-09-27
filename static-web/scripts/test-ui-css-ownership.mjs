@@ -158,6 +158,10 @@ assert.ok(
   politicsLearn.includes('.politicsRail'),
   'Politics Learn owner must retain Chapter Rail presentation'
 );
+assert.ok(
+  politicsLearn.includes('.politicsMain'),
+  'Politics Learn owner must retain Main learner pane presentation'
+);
 for (const legacyLayer of ['politics-presentation.css', 'shared-workspace-composition.css', 'politics-visual-tuning.css']) {
   const value = read(path.join(src, 'styles', legacyLayer));
   assert.ok(
@@ -167,6 +171,10 @@ for (const legacyLayer of ['politics-presentation.css', 'shared-workspace-compos
   assert.ok(
     !value.includes('.politicsRail'),
     legacyLayer + ': Politics Chapter Rail escaped the Learn presentation owner'
+  );
+  assert.ok(
+    !value.includes('.politicsMain'),
+    legacyLayer + ': Politics Main learner pane escaped the Learn presentation owner'
   );
 }
 

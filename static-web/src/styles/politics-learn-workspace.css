@@ -1202,3 +1202,27 @@ body#kianos-workspace.surfaceBody-politics .politicsRail{padding:12px;}
 @media (max-width:760px){
 body#kianos-workspace.surfaceBody-politics .politicsRail nav{margin-top:10px;}
 }
+
+/* Main learner pane cascade consolidated from former later layers; source order preserved. */
+
+/* from src/styles/politics-presentation.css · 2 rules */
+body#kianos-workspace.surfaceBody-politics .politicsMain { border-left:1px solid var(--study-line); }
+
+@media (max-width:1000px){
+body#kianos-workspace.surfaceBody-politics .politicsMain { border-left:0; }
+}
+
+/* from src/styles/shared-workspace-composition.css · 3 rules */
+@media (min-width:1101px) and (min-height:680px){
+body#kianos-workspace.surfaceBody-politics .politicsMain { min-height:0;overflow:hidden; }
+}
+
+@media (min-width:1101px) and (min-height:680px){
+body#kianos-workspace.surfaceBody-politics .politicsMain>:is(.politicsUnit,.politicsOrientation,.politicsChapterClose) { height:100%;min-height:0;box-sizing:border-box; }
+}
+
+@media (min-width:1101px) and (min-height:680px){
+body#kianos-workspace.surfaceBody-politics .politicsMain>:is(.politicsOrientation,.politicsChapterClose) { overflow:auto; }
+}
+
+/* from src/styles/politics-visual-tuning.css · 0 rules */
