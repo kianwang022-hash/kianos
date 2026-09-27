@@ -161,7 +161,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           {!hasTimedVisuals && block.visualGateHtml && <details class="xv6VisualGate"><summary>需要时看原图</summary><div class="markdown" set:html={block.visualGateHtml}></div></details>}
           <footer class="portedStudyStageAction">
             <span>{globalBiochemistrySource
-              ? '这个 Block 不单独重读讲义；正式 Source 接触来自 B 系统里的 27 生化连续跟课主线。'
+              ? '这个 M/G Block 不单独重读讲义；第一次接触沿 27 生化老师顺序连续推进。'
               : sourcePerGroup
                 ? '先知道这块为什么存在，再按学习节进入原讲义。'
                 : '先定位这块，再去原讲义保持连续学习；不要按学习节反复切 App。'}</span>
@@ -174,22 +174,22 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
             <header class="portedKpWorkspaceHeader">
               <div>
                 <span>Lecture · MarginNote</span>
-                <strong>{globalBiochemistrySource ? '27 生化连续跟课主线' : '保持原讲义连续学习'}</strong>
+                <strong>{globalBiochemistrySource ? '27 生化原讲义 · 老师顺序' : '保持原讲义连续学习'}</strong>
               </div>
               <em>Source Contact</em>
             </header>
             <div class="xv6LectureFirst xv6LectureHandoff">
               <div>
-                <strong>{globalBiochemistrySource ? 'Source 只学一次；这个 Block 只消费已经形成的内容' : 'MarginNote 连续学习 + Mac KP Learn 同时进行'}</strong>
+                <strong>{globalBiochemistrySource ? '原讲义按老师顺序只学一次；当前 Block 自动接收已形成内容' : 'MarginNote 连续学习 + Mac KP Learn 同时进行'}</strong>
                 <p>{globalBiochemistrySource
-                  ? '老师顺序可能同时形成多个 M/G Block。这里不会要求你为了当前 Block 重读讲义；完成到对应 27 Source unit 后，正式接触证据会自动同步回来。'
+                  ? '老师顺序可能同时形成多个 M/G Block。继续原讲义即可；学到对应段落后，这里的学习位置会自动同步。'
                   : '原讲义保持连续推进；Mac 只切换当前 KP 的 Prompt / Core / 支持，不把 KP 变成新的 Source 边界。'}</p>
               </div>
               <span data-block-source-contact>{globalBiochemistrySource ? sourceContact.sourceName : continuousSource}</span>
             </div>
             <div class="xv6SourceRules">
               <p>{globalBiochemistrySource
-                ? '先回 B 系统的「27 生化」按老师顺序推进；只有真实完成的 Source unit 才会释放这里对应的 KP / Logic Group Recall。'
+                ? '继续 27 生化原讲义老师顺序；只有真实学完对应段落，当前 KP / 学习节才进入 Recall。'
                 : '原图、表格、例子与讲义配套题都留在 MarginNote 原位置；题目在讲义里完成并看全部选项 / 题旁拓展。'}</p>
               {globalBiochemistrySource && (
                 <p data-biochemistry-block-source-status>
@@ -199,10 +199,10 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
             </div>
             <footer>
               <span>{globalBiochemistrySource
-                ? 'Source contact 由共享 27 生化主线记录；本页只负责 Recall / Reconstruction。'
+                ? '原讲义接触由老师顺序统一记录；本页继续负责当前 Block 的理解与 Recall。'
                 : '到真实 Source boundary 再确认本段接触完成；KP Learn 本身持续伴读。'}</span>
               {globalBiochemistrySource
-                ? <a class="portedPrimaryAction" href={`${base}xizong/${block.systemId}/?view=biochemistry`}>回到 27 生化跟课</a>
+                ? <a class="portedPrimaryAction" href={`${base}xizong/${block.systemId}/?view=biochemistry&from=${encodeURIComponent(block.slug || block.blockId || '')}`}>继续原讲义老师顺序</a>
                 : <button type="button" class="portedPrimaryAction" data-source-contact-done>本段原讲义已完成</button>}
             </footer>
           </section>
@@ -493,7 +493,7 @@ window.__kianosLearnerWriterReady.then(() => {
         const doneUnits = biochemistrySource.segments
           .filter((segment) => completed.has(String(segment?.sourceUnitId || '')))
           .map((segment) => segment.sourceUnitId);
-        status.textContent = `当前 Block Source 已形成 ${doneUnits.length}/${biochemistrySource.segments.length} 段 · ${nextDone ? '可进入 Recall' : '继续 27 生化主线'}`;
+        status.textContent = `当前 Block Source 已形成 ${doneUnits.length}/${biochemistrySource.segments.length} 段 · ${nextDone ? '可进入 Recall' : '继续原讲义老师顺序'}`;
       }
       return changed;
     };

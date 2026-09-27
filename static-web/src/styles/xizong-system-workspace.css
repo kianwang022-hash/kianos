@@ -121,8 +121,14 @@ body#kianos-workspace.surfaceBody-xizong .xzSystemBody {
 body#kianos-workspace.surfaceBody-xizong .xzSystemBody.context-open {
   grid-template-columns: 236px minmax(0, 1fr) 288px;
 }
+body#kianos-workspace.surfaceBody-xizong .xzSystemWorkspace.biochemistry-source-active .xzSystemBody {
+  grid-template-columns: minmax(0, 1fr);
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemWorkspace.biochemistry-source-active :is(.xzSystemRouteRail,.xzSystemViewTabs) {
+  display: none;
+}
 
-/* Block Route is persistent because it carries real System position. */
+/* Block Route is persistent in normal System learning; contextual M/G Source contact temporarily replaces it with teacher order. */
 body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail {
   min-width: 0;
   min-height: 0;
@@ -929,6 +935,11 @@ body#kianos-workspace.surfaceBody-xizong .xzSystemRecallEntry>a {
 
 /* B · 27 Biochemistry Source lane.
    Execution view only: one continuous teacher-order Source, no second textbook. */
+/* M/G teacher-order Source adapter: keep routing/state DOM, demote backend mapping/JIT/reconstruction from learner view. */
+body#kianos-workspace.surfaceBody-xizong .xzSystemBiochemistryView :is(.xzBioTargetSection,.xzBiochemistryReconstruction,.xzBiochemistryMotherMaps) {
+  display: none !important;
+}
+
 body#kianos-workspace.surfaceBody-xizong .xzSystemBiochemistryView {
   min-height: 0;
   display: grid;
@@ -960,6 +971,16 @@ body#kianos-workspace.surfaceBody-xizong .xzBiochemistryLaneLead p {
   margin: 0;
   color: var(--xz-system-muted);
   line-height: 1.6;
+}
+body#kianos-workspace.surfaceBody-xizong .xzBiochemistryReturn {
+  flex: none;
+  padding: 7px 10px;
+  border: 1px solid var(--xz-system-line-strong);
+  border-radius: 7px;
+  color: var(--xz-system-green);
+  font-size: 14px;
+  font-weight: 750;
+  text-decoration: none;
 }
 body#kianos-workspace.surfaceBody-xizong .xzBiochemistryMotherMaps {
   flex: none;
