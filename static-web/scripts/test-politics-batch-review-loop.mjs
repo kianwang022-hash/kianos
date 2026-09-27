@@ -95,10 +95,48 @@ try {
   await page.click('[data-next-question]');
   const unfinishedSession = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), K.session);
   check(unfinishedSession?.status === 'active' && unfinishedSession.index === 1, 'unfinished_session_advances_without_erasing_review_evidence');
+  const unfinishedQuestionId = unfinishedSession.ids[unfinishedSession.index];
+  const unfinishedQuestion = catalog.questions.find((q) => q.id === unfinishedQuestionId);
+  check(Boolean(unfinishedQuestion), 'unfinished_session_current_question_resolves', unfinishedQuestionId);
+  const exactContinue = (href) => {
+    const url = new URL(String(href || ''), BASE);
+    return url.pathname.endsWith('/politics/practice/')
+      && url.searchParams.get('session') === unfinishedSession.id
+      && url.searchParams.get('question') === unfinishedQuestionId;
+  };
 
-  // Home shows records/Review entry but does not auto-export Chat packets.
+  // Native Politics Home must project the unfinished Workbench session ahead of a merely recent learning route.
   await page.goto(`${BASE}/politics/`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(({ sessionId, questionId }) => {
+    const link = document.querySelector('[data-politics-continue]');
+    if (!(link instanceof HTMLAnchorElement)) return false;
+    const url = new URL(link.href);
+    return url.pathname.endsWith('/politics/practice/')
+      && url.searchParams.get('session') === sessionId
+      && url.searchParams.get('question') === questionId;
+  }, { sessionId: unfinishedSession.id, questionId: unfinishedQuestionId });
+  const politicsHomeContinueHref = await page.locator('[data-politics-continue]').getAttribute('href');
+  check(exactContinue(politicsHomeContinueHref), 'politics_home_continue_targets_exact_unfinished_question', String(politicsHomeContinueHref));
+  check(await page.locator('[data-politics-continue-meta]').innerText() === '继续上次题组，保留作答与备注',
+    'politics_home_continue_explains_unfinished_session_priority');
   check(await page.locator('[data-politics-copy-handoff]').count() === 0, 'home_has_no_direct_chat_export');
+
+  // Global Home reuses the same native Politics Continue truth; it must not fall back to the most recently browsed Unit.
+  await page.goto(`${BASE}/`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(({ sessionId, questionId }) => {
+    const link = document.querySelector('[data-home-subject="politics"] [data-politics-continue]');
+    if (!(link instanceof HTMLAnchorElement)) return false;
+    const url = new URL(link.href);
+    return url.pathname.endsWith('/politics/practice/')
+      && url.searchParams.get('session') === sessionId
+      && url.searchParams.get('question') === questionId;
+  }, { sessionId: unfinishedSession.id, questionId: unfinishedQuestionId });
+  const globalPoliticsContinueHref = await page.locator('[data-home-subject="politics"] [data-politics-continue]').getAttribute('href');
+  check(exactContinue(globalPoliticsContinueHref), 'global_home_politics_continue_matches_exact_unfinished_question', String(globalPoliticsContinueHref));
+  check(globalPoliticsContinueHref === politicsHomeContinueHref, 'politics_home_and_global_home_share_native_continue_truth', String(globalPoliticsContinueHref));
+
+  // Return to Politics Home for the remaining surface checks.
+  await page.goto(`${BASE}/politics/`, { waitUntil: 'domcontentloaded' });
   const currentDock = page.locator('.kianosCurrentDock');
   const currentDockCount = await currentDock.count();
   const currentDockDisplay = currentDockCount ? await currentDock.evaluate((n) => getComputedStyle(n).display) : 'absent';
