@@ -20,7 +20,7 @@ GOVERNANCE ACCEPTED             CURRENT
 
 This acceptance is claim-scoped. It accepts the **current pre-use governance architecture and failure semantics**. It does not manufacture learner Real-U, future Source behavior, future platform changes or indefinite long-run soak evidence.
 
-The new whole-system maturity/stress campaign in Personal Issue #53 may discover a concrete defect and reopen only the smallest dependent governance claim. The existence of that audit does not by itself invalidate this current baseline.
+Personal Issue #53 is closed historical whole-system acceptance evidence, not an active governance campaign or Current dependency. Future real use, Fresh-Chat checks or another bounded audit may reopen only the smallest governance claim when they expose a concrete defect; no closed whole-system Issue is a standing prerequisite for this acceptance.
 
 ## Current acceptance basis
 
