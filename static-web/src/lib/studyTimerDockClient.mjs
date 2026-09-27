@@ -17,7 +17,6 @@ import {
 const POSITION_KEY = 'kianos-study-timer-dock-position-v1';
 const SUBJECT_LABELS = { xizong: '西综', politics: '政治', english: 'English' };
 const EDGE = 10;
-const DEFAULT_CLEARANCE_GAP = 10;
 
 const two = value => String(Math.max(0, Math.floor(value))).padStart(2, '0');
 
@@ -47,11 +46,6 @@ function safeStoredPosition(storage) {
 
 function savePosition(storage, x, y) {
   try { storage.setItem(POSITION_KEY, JSON.stringify({ x: Math.round(x), y: Math.round(y) })); } catch {}
-}
-
-function rectsOverlap(a, b) {
-  return Math.min(a.right, b.right) > Math.max(a.left, b.left)
-    && Math.min(a.bottom, b.bottom) > Math.max(a.top, b.top);
 }
 
 export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
@@ -212,39 +206,7 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
 
   function restorePosition() {
     const saved = safeStoredPosition(storage);
-    if (!saved) return false;
-    placeAt(saved.x, saved.y, false);
-    return true;
-  }
-
-  function placeDefaultClearOfFixedBottomControls() {
-    if (safeStoredPosition(storage) || root.dataset.dragging === 'true') return false;
-
-    // Remove only a prior automatic bottom override; surface CSS remains the default owner.
-    if (root.dataset.autoClearance === 'true') {
-      root.style.removeProperty('bottom');
-      delete root.dataset.autoClearance;
-    }
-
-    const dockRect = root.getBoundingClientRect();
-    let requiredBottom = null;
-    for (const node of document.body.querySelectorAll('*')) {
-      if (!(node instanceof HTMLElement) || node === root || root.contains(node) || node.hidden) continue;
-      const style = getComputedStyle(node);
-      if (style.position !== 'fixed' || style.display === 'none' || style.visibility === 'hidden' || style.pointerEvents === 'none') continue;
-      const rect = node.getBoundingClientRect();
-      if (rect.width <= 0 || rect.height <= 0) continue;
-      if (rect.bottom < window.innerHeight - EDGE * 2) continue;
-      if (rect.height > Math.min(220, window.innerHeight * .35)) continue;
-      if (!rectsOverlap(dockRect, rect)) continue;
-      const nextBottom = window.innerHeight - rect.top + DEFAULT_CLEARANCE_GAP;
-      requiredBottom = requiredBottom == null ? nextBottom : Math.max(requiredBottom, nextBottom);
-    }
-
-    if (requiredBottom == null) return false;
-    root.style.bottom = `${Math.max(EDGE, Math.round(requiredBottom))}px`;
-    root.dataset.autoClearance = 'true';
-    return true;
+    if (saved) placeAt(saved.x, saved.y, false);
   }
 
   function resetPosition() {
@@ -308,10 +270,7 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
     expanded.hidden = !next;
     expand.setAttribute('aria-expanded', next ? 'true' : 'false');
     expand.setAttribute('aria-label', next ? '收起今日计时' : '展开今日计时');
-    window.requestAnimationFrame(() => {
-      clampCurrentPosition();
-      if (root.dataset.expanded !== 'true') placeDefaultClearOfFixedBottomControls();
-    });
+    window.requestAnimationFrame(clampCurrentPosition);
   }
 
   pause.addEventListener('click', () => {
@@ -503,7 +462,7 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
 
   reset.addEventListener('click', () => {
     resetPosition();
-    window.requestAnimationFrame(placeDefaultClearOfFixedBottomControls);
+    window.requestAnimationFrame(clampCurrentPosition);
   });
 
   handle.addEventListener('pointerdown', event => {
@@ -546,25 +505,17 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
     }
     render();
   };
-  const onResize = () => window.requestAnimationFrame(() => {
-    if (safeStoredPosition(storage)) clampCurrentPosition();
-    else placeDefaultClearOfFixedBottomControls();
-  });
-  const onRuntimeRouteChanged = () => window.requestAnimationFrame(placeDefaultClearOfFixedBottomControls);
+  const onResize = () => window.requestAnimationFrame(clampCurrentPosition);
   const onStorage = event => {
     if (event.key === POSITION_KEY) {
       const saved = safeStoredPosition(storage);
       if (saved) placeAt(saved.x, saved.y, false);
-      else {
-        resetPosition();
-        window.requestAnimationFrame(placeDefaultClearOfFixedBottomControls);
-      }
+      else resetPosition();
     }
     if (event.key === STEWARD_REALITY_KEY) renderRecoveryPanels();
   };
   window.addEventListener('kianos:study-timer-change', onTimerChange);
   window.addEventListener('resize', onResize);
-  window.addEventListener('kianos:runtime-route-changed', onRuntimeRouteChanged);
   window.addEventListener('storage', onStorage);
 
 
@@ -605,11 +556,8 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
   window.addEventListener('keydown',e=>{if(e.key==='Escape')toggleExpanded(false);});
 
   render();
-  const restoredPosition = restorePosition();
-  window.requestAnimationFrame(() => {
-    if (restoredPosition) clampCurrentPosition();
-    else placeDefaultClearOfFixedBottomControls();
-  });
+  restorePosition();
+  window.requestAnimationFrame(clampCurrentPosition);
   const tick = window.setInterval(render, 1000);
 
   return {
@@ -619,7 +567,6 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
       window.clearInterval(tick);
       window.removeEventListener('kianos:study-timer-change', onTimerChange);
       window.removeEventListener('resize', onResize);
-      window.removeEventListener('kianos:runtime-route-changed', onRuntimeRouteChanged);
       window.removeEventListener('storage', onStorage);
       window.removeEventListener('kianos:steward-dock-action',onStewardAction);
       window.removeEventListener('kianos:steward-reality-change',render);
