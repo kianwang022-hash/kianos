@@ -22,25 +22,26 @@ This standard is **KianOS-owned**. Its acceptance semantics inherit from `LEARNI
 
 Old claims such as “content complete / integration green / one Fresh audit PASS” are evidence only. They do not automatically establish final subject maturity.
 
-Each subject must map current evidence to the applicable **local maturity dimensions** already owned by this standard and `LEARNING_ACCEPTANCE.md`:
+This standard starts **after a usable subject system already has an accepted CREATE basis and real BUILD candidate**. It audits whether those outputs are sufficient for the exam goal; it does not design the subject from scratch.
 
 ```text
-need / score truth
-→ owner / boundary truth
-→ Source / material / method / evidence truth
-→ minimal subject-native design
-→ implementation
-→ deterministic proof
-→ semantic / builder attack
-→ adversarial stress
+accepted exam target / score requirement
++ current subject Rule / Content / Learning / Product owners
++ real BUILD candidate
++ existing native/local proof + any required Human Gate
+→ fresh evidence map
+→ attack score-channel / capability / material / Source / learning / runtime / integration coverage
+→ if accepted meaning/content is insufficient: return the exact gap to CREATE
+→ if implementation/consumer is defective: return the exact defect to BUILD
+→ after bounded repair, re-audit only changed premises + true dependents
 → independent current-candidate acceptance
-→ cross-layer integration
-→ degraded / recovery proof
-→ maintenance / repair-burden proof
+→ degraded / recovery / maintenance attack
 → compact subject maturity package
 → subject pre-use engineering stop
 → genuine Real-U calibration only
 ```
+
+The score/capability/material sections below are **audit questions against current owners**, not permission for the auditor to invent new content, redesign learning, or create a second plan.
 
 ### 0.1 Evidence-reuse rule
 
@@ -98,7 +99,7 @@ REMAINING_CONCRETE_DEFECTS = none | bounded exact list
 以下任何单项都不能独立封层：
 - CI 全绿；
 - Source inventory 完整；
-- 一次 learner-facing Human Gate；
+- BUILD 阶段已经完成的一次 learner-facing Human Gate；
 - 一次 synthetic day；
 - 一次 Fresh audit；
 - integration PASS；
