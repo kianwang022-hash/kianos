@@ -82,7 +82,7 @@ try {
   const npm = path.join(root, 'npm');
   fs.writeFileSync(
     npm,
-    '#!/bin/sh\n[ "$1" = install ] && exit 0\nout=""\nwhile [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"\necho x > "$out/index.html"\n'
+    '#!/bin/sh\nif [ "$1" = install ]; then mkdir -p "$PWD/node_modules/.bin"; : > "$PWD/node_modules/.bin/astro"; exit 0; fi\nout=""\nwhile [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"\necho x > "$out/index.html"\n'
   );
   fs.chmodSync(npm, 0o755);
 
