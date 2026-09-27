@@ -22,11 +22,28 @@ function removeNestedSection(markdown, predicate) {
 
 function learnerLabels(markdown) {
   return String(markdown)
+    .replace(/^\s*(?:\*\*)?(?:Routing|路由)(?:\*\*)?[：:].*$/gmi, '')
     .replace(/\bMI-G\b/g, '主干')
     .replace(/\bMI-D\b/g, '精确记忆')
-    .replace(/CURRENT_SHARED_FIELDS_AND_IDENTITY_SUPPORT/g, 'Current 学习支持')
+    .replace(/\bDetailed Expansion\b/g, '展开')
+    .replace(/当前\s*System Guide\b/gi, '当前学习主线')
+    .replace(/\bCurrent System Guide\b/g, '当前学习主线')
+    .replace(/\bSystem Guide\b/g, '学习主线')
+    .replace(/\bCurrent Study\b/g, '当前学习')
+    .replace(/\bMicro Primary\b/g, '本块直接学习')
+    .replace(/正确\s*Primary\b/g, '正确归属')
+    .replace(/上游\s*Primary\b/g, '上游归属')
+    .replace(/真实\s*owner\b/gi, '对应知识位置')
+    .replace(/\bowner\s+Recall\b/gi, '对应位置回忆')
+    .replace(/\bStudy\b/g, '学习')
+    .replace(/CURRENT_SHARED_FIELDS_AND_IDENTITY_SUPPORT/g, '学习支持')
     .replace(/FIRST_PASS_LECTURE_PROBE/g, '一轮讲义配套题')
+    .replace(/\n{3,}/g, '\n\n')
     .trim();
+}
+
+export function projectLearnerText(value) {
+  return learnerLabels(String(value || ''));
 }
 
 export function projectBlockLearn(markdown) {

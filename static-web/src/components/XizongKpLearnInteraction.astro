@@ -263,6 +263,15 @@
         }
       });
 
+      const learnerFacingGroupCopy = (value) => {
+        const text = String(value || '').trim();
+        if (!text) return '';
+        const cjkCount = (text.match(/[\u3400-\u9fff]/g) || []).length;
+        if (cjkCount < 4) return '';
+        if (/\b(?:OWNER|OWNERSHIP|PROJECTION|ROUTING|ADAPTER|LEDGER|MAPPING|SOURCE[_ -]UNIT|MI-[GD])\b/i.test(text)) return '';
+        return text;
+      };
+
       const syncLogicMap = () => {
         root.querySelectorAll('.xzLogicGroupDetail').forEach((node) => node.remove());
         if (stageName() === 'block_recall') return;
@@ -282,18 +291,20 @@
         detail.className = 'xzLogicGroupDetail';
         detail.dataset.logicGroupDetail = groupId;
 
-        if (group.goal) {
+        const learnerGoal = learnerFacingGroupCopy(group.goal);
+        if (learnerGoal) {
           const goal = document.createElement('p');
           goal.className = 'xzLogicGroupGoal';
           goal.innerHTML = `<b>这一节解决</b><span></span>`;
-          goal.querySelector('span').textContent = group.goal;
+          goal.querySelector('span').textContent = learnerGoal;
           detail.append(goal);
         }
-        if (group.closure) {
+        const learnerClosure = learnerFacingGroupCopy(group.closure);
+        if (learnerClosure) {
           const closure = document.createElement('p');
           closure.className = 'xzLogicGroupClosure';
           closure.innerHTML = `<b>学完能做到</b><span></span>`;
-          closure.querySelector('span').textContent = group.closure;
+          closure.querySelector('span').textContent = learnerClosure;
           detail.append(closure);
         }
 

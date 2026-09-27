@@ -268,18 +268,46 @@ export function loadCompiledXizongProjectionAsset(systemId, blockId) {
   return projectionAssetForBlock(systemId, blockId);
 }
 
+function derivedBaselineProjection(canonicalBlock, semanticBlock) {
+  const problem = String(
+    canonicalBlock?.centerQuestion
+    || semanticBlock?.attention?.currentProblem
+    || semanticBlock?.learning?.firstPassFocus
+    || canonicalBlock?.title
+    || ''
+  ).trim();
+  const stageObjects = problem
+    ? [{
+      objectId: `${canonicalBlock.blockId}-derived-problem`,
+      role: 'PROBLEM',
+      geometry: 'TEXT_STRUCTURE',
+      stageRole: 'PRIMARY_STAGE',
+      answerBearing: false,
+      placement: 'STAGE',
+      referenceOnly: false,
+      referenceMessage: '',
+      referenceSourcePath: '',
+      html: marked.parse(problem, { gfm: true }),
+      items: []
+    }]
+    : [];
+  return {
+    available: stageObjects.length > 0,
+    compiled: false,
+    materialized: false,
+    derived: true,
+    status: 'DERIVED_BASELINE_CURRENT',
+    assetPath: null,
+    projectionLevel: 'SHARED_SEMANTIC_BASELINE',
+    stageObjects,
+    locationObjects: [],
+    referenceObjects: []
+  };
+}
+
 export function resolveXizongBlockCognitiveProjection(canonicalBlock, semanticBlock) {
   const found = projectionAssetForBlock(canonicalBlock.systemId, canonicalBlock.blockId);
-  if (!found) {
-    return {
-      compiled: false,
-      status: 'ELIGIBLE_OR_CURRENT_BUT_UNCOMPILED',
-      assetPath: null,
-      stageObjects: [],
-      locationObjects: [],
-      referenceObjects: []
-    };
-  }
+  if (!found) return derivedBaselineProjection(canonicalBlock, semanticBlock);
 
   if (found.asset.system_id !== canonicalBlock.systemId || found.asset.canonical_scope?.id !== canonicalBlock.blockId) fail('ASSET_SCOPE_MISMATCH', canonicalBlock.blockId);
   const view = found.asset?.views?.BLOCK_ORIENT;
@@ -293,7 +321,10 @@ export function resolveXizongBlockCognitiveProjection(canonicalBlock, semanticBl
   });
 
   return {
+    available: true,
     compiled: true,
+    materialized: true,
+    derived: false,
     status: String(found.asset.status || ''),
     assetPath: found.assetPath,
     projectionLevel: String(found.asset.projection_level || ''),

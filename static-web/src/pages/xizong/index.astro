@@ -1,19 +1,25 @@
 ---
 import Base from '../../layouts/XizongBase.astro';
 import XizongHomeTools from '../../components/XizongHomeTools.astro';
-import { listXizongMacroDomainProjection } from '../../lib/xizongDomains.mjs';
+import { listXizongMacroDomainProjection, xizongLearnerSystemSummary, xizongLearnerSystemTitle } from '../../lib/xizongDomains.mjs';
+import { projectLearnerText } from '../../lib/xizongProjection.mjs';
 import '../../styles/xizong-home-workspace.css';
 
 const base = import.meta.env.BASE_URL;
 const domains = listXizongMacroDomainProjection();
-const systems = domains.flatMap((domain) => domain.systems);
+const systems = domains.flatMap((domain) => domain.systems.map((system) => ({
+  ...system,
+  learnerTitle: xizongLearnerSystemTitle(system.canonicalId, system.title),
+  learnerSummary: projectLearnerText(xizongLearnerSystemSummary(system)),
+  blocks: system.blocks.map((block) => ({ ...block, title: projectLearnerText(block.title) }))
+})));
 const firstSystem = systems[0];
 const firstHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${base}xizong/`;
-const firstLabel = firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '开始西综学习';
+const firstLabel = firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.learnerTitle}` : '开始西综学习';
 const resumeIndex = systems.map((system) => ({
   systemId: system.systemId,
   canonicalId: system.canonicalId,
-  title: system.title,
+  title: system.learnerTitle,
   blocks: system.blocks.map((block) => ({
     blockId: block.blockId,
     slug: block.slug,
@@ -22,10 +28,7 @@ const resumeIndex = systems.map((system) => ({
     kpCount: block.kpCount
   }))
 }));
-const systemIdentity = (system) => {
-  const spine = Array.isArray(system?.mentalModel?.spine) ? system.mentalModel.spine : [];
-  return spine.slice(0, 1).join(' · ') || system.mission || '';
-};
+const systemIdentity = (system) => system.learnerSummary || '';
 ---
 
 <Base title="西医综合" active="xizong" showLead={false}>
@@ -49,7 +52,7 @@ const systemIdentity = (system) => {
             data-xizong-system-entry={system.systemId}
           >
             <span class="xzHomeSystemCode">{system.canonicalId}</span>
-            <h2>{system.title}</h2>
+            <h2>{system.learnerTitle}</h2>
             <p>{systemIdentity(system)}</p>
             <b data-xizong-system-action>进入系统 →</b>
           </a>
@@ -93,7 +96,7 @@ const systemIdentity = (system) => {
               <div class="xzHomeKnowledgeLinks" aria-label={`${domain.domainId} systems`}>
                 {domain.systems.map((system) => (
                   <a href={`${base}xizong/${system.systemId}/`}>
-                    {system.canonicalId} · {system.title}
+                    {system.canonicalId} · {xizongLearnerSystemTitle(system.canonicalId, system.title)}
                   </a>
                 ))}
               </div>

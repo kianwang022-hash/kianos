@@ -17,9 +17,10 @@ import XizongLastLocation from '../../../components/XizongLastLocation.astro';
 import XizongRuntimeStageGuard from '../../../components/XizongRuntimeStageGuard.astro';
 import { listProjectableXizongSystems, loadXizongBlock } from '../../../lib/xizong.mjs';
 import { loadXizongQuestionCrosswalkForBlock } from '../../../lib/xizongQuestionCrosswalk.mjs';
-import { projectBlockLearn, projectKpCore, projectVisualGate } from '../../../lib/xizongProjection.mjs';
+import { projectBlockLearn, projectKpCore, projectLearnerText, projectVisualGate } from '../../../lib/xizongProjection.mjs';
 import { resolveXizongLearnerProjection } from '../../../lib/xizongLearnerProjection.mjs';
 import { attachSourceVisualBundles } from '../../../lib/xizongSourceVisualAssets.mjs';
+import { xizongLearnerSystemTitle } from '../../../lib/xizongDomains.mjs';
 import '../../../styles/xizong-block-workspace.css';
 
 export function getStaticPaths() {
@@ -36,25 +37,32 @@ const resolved = resolveXizongLearnerProjection(canonicalBlock, {
   attachVisualBundles: attachSourceVisualBundles,
   enrichBlock: (productionBlock) => ({
     ...productionBlock,
+    title: projectLearnerText(productionBlock.title),
     blockLearnHtml: marked.parse(projectBlockLearn(canonicalBlock.blockLearnMarkdown), { gfm: true }),
     visualGateHtml: canonicalBlock.visualGateMarkdown ? marked.parse(projectVisualGate(canonicalBlock.visualGateMarkdown), { gfm: true }) : '',
     kpRecords: productionBlock.kpRecords.map((kp) => ({
       ...kp,
+      title: projectLearnerText(kp.title),
+      prompt: projectLearnerText(kp.prompt),
       detailHtml: marked.parse(projectKpCore(kp.detailMarkdown, { sourcePath: canonicalBlock.sourcePath }), { gfm: true })
     }))
   })
 });
 const { system, learnerObject } = resolved;
+const learnerSystemTitle = xizongLearnerSystemTitle(system.canonicalId, system.title);
+const learnerSystem = { ...system, title: learnerSystemTitle };
+const learnerBlock = { ...canonicalBlock, title: projectLearnerText(canonicalBlock.title), systemTitle: learnerSystemTitle };
 const projection = {
   ...resolved.block,
+  systemTitle: learnerSystemTitle,
   pathways: resolved.pathways,
   learningCues: resolved.learningCues,
   learnerObject
 };
 const block = projection;
 ---
-<Base title={`${canonicalBlock.label} · ${canonicalBlock.title}`} kicker={`西医综合 · ${canonicalBlock.systemCanonicalId} · ${canonicalBlock.label}`} description={canonicalBlock.centerQuestion} sourcePath={canonicalBlock.sourcePath} sourceHash={canonicalBlock.sourceHash} objectId={canonicalBlock.objectId} active="xizong">
-  <XizongLastLocation system={system} block={canonicalBlock} />
+<Base title={`${canonicalBlock.label} · ${projectLearnerText(canonicalBlock.title)}`} kicker={`西医综合 · ${canonicalBlock.systemCanonicalId} · ${canonicalBlock.label}`} description={canonicalBlock.centerQuestion} sourcePath={canonicalBlock.sourcePath} sourceHash={canonicalBlock.sourceHash} objectId={canonicalBlock.objectId} active="xizong">
+  <XizongLastLocation system={learnerSystem} block={learnerBlock} />
   <XizongBlockV6 block={projection} />
   <XizongLearnerObjectBridge learnerObject={learnerObject} />
   <XizongKpLearnInteraction />

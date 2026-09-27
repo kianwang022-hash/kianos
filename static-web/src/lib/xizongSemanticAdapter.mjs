@@ -67,7 +67,7 @@ function flattenGroupedRoute(rows) {
   return route;
 }
 
-function systemBlockRoute(raw) {
+export function resolveXizongSystemBlockRoute(raw) {
   const direct = (Array.isArray(raw?.block_route) ? raw.block_route : [])
     .filter((row) => row && !Array.isArray(row?.blocks))
     .map(normalizeRouteRow)
@@ -97,7 +97,7 @@ function findSystemRecord(systemId) {
     if (identity.systemId !== systemId) continue;
     if (!identity.canonicalId || !identity.title) fail('SYSTEM_IDENTITY_INVALID', systemId);
     if (!isChatApproved(raw?.semantic_authority)) fail('SYSTEM_AUTHORITY_INVALID', systemId);
-    const route = systemBlockRoute(raw);
+    const route = resolveXizongSystemBlockRoute(raw);
     if (!route.length) fail('SYSTEM_BLOCK_ROUTE_MISSING', systemId);
     return { dirName, sourcePath, raw, identity, route };
   }
@@ -142,7 +142,47 @@ function hydrateShardedLearningOwner(basePath, owner) {
   return { owner: { ...owner, blocks }, shardPaths: acceptedShards };
 }
 
-function loadLearningOwner(record) {
+function strictLearningBlockKey(record, learning, blockId) {
+  const direct = String(blockId || '');
+  if (learning?.blocks?.[direct] || learning?.logic_groups?.[direct]) return direct;
+  if (record?.identity?.canonicalId === 'D') {
+    const neuro = direct.match(/^neuro-n0*(\d+)$/i);
+    const ortho = direct.match(/^orthopedics-o0*(\d+)$/i);
+    const alias = neuro ? `N${Number(neuro[1])}` : ortho ? `O${Number(ortho[1])}` : '';
+    if (alias && learning?.logic_groups?.[alias]) return alias;
+  }
+  fail('LEARNING_BLOCK_KEY_UNRESOLVED', `${record?.identity?.systemId || ''}:${direct}`);
+}
+
+export function resolveXizongLearningBlockSupport(record, learning, blockId) {
+  if (learning?.blocks?.[blockId]) return learning.blocks[blockId];
+  const key = strictLearningBlockKey(record, learning, blockId);
+  const rows = learning?.logic_groups?.[key];
+  if (!Array.isArray(rows) || !rows.length) fail('LOGIC_GROUPS_MISSING', blockId);
+  const logicGroups = {};
+  for (const row of rows) {
+    const groupId = String(row?.id || '').trim();
+    if (!groupId || logicGroups[groupId]) fail('LOGIC_GROUP_ID_INVALID', `${blockId}:${groupId}`);
+    logicGroups[groupId] = {
+      ...row,
+      kp_members: Array.isArray(row?.members) ? [...row.members] : row?.kp_members,
+      cognitive_job: row?.job || row?.cognitive_job
+    };
+  }
+  const sourceContact = learning?.source_contact_contract?.blocks?.[key] || null;
+  return {
+    label: key,
+    title: key,
+    logic_groups: logicGroups,
+    learner_order: rows.map((row) => String(row.id)),
+    source_contact: sourceContact ? { ...sourceContact } : {},
+    first_pass_focus: '',
+    stop_line: '',
+    recall_spine: ''
+  };
+}
+
+export function resolveXizongLearningOwner(record) {
   const baseName = `${record.identity.canonicalId.toLowerCase()}-${record.identity.systemId}-learning.json`;
   const sourcePath = `${LEARNER_ROOT}/${baseName}`;
   if (!exists(sourcePath)) fail('LEARNING_OWNER_MISSING', record.identity.systemId);
@@ -155,14 +195,23 @@ function loadLearningOwner(record) {
   }
 
   const hydrated = hydrateShardedLearningOwner(sourcePath, base);
-  const blocks = hydrated.owner?.blocks || {};
-  const routeIds = record.route.map((row) => row.id);
-  const blockIds = Object.keys(blocks);
-  if (routeIds.length !== blockIds.length || routeIds.some((id) => !blocks[id])) {
-    fail('LEARNING_OWNER_BLOCK_MISMATCH', `${record.identity.systemId}:${routeIds.length}/${blockIds.length}`);
+  const learning = hydrated.owner;
+  const routeIds = record.route.map((row) => String(row.id));
+  const legacyBlocks = learning?.blocks || {};
+  if (Object.keys(legacyBlocks).length) {
+    const blockIds = Object.keys(legacyBlocks);
+    if (routeIds.length !== blockIds.length || routeIds.some((id) => !legacyBlocks[id])) {
+      fail('LEARNING_OWNER_BLOCK_MISMATCH', `${record.identity.systemId}:${routeIds.length}/${blockIds.length}`);
+    }
+  } else {
+    const groupBlocks = learning?.logic_groups || {};
+    const mapped = routeIds.map((id) => strictLearningBlockKey(record, learning, id));
+    if (new Set(mapped).size !== mapped.length || mapped.length !== Object.keys(groupBlocks).length || mapped.some((id) => !groupBlocks[id])) {
+      fail('LEARNING_OWNER_BLOCK_MISMATCH', `${record.identity.systemId}:${mapped.length}/${Object.keys(groupBlocks).length}`);
+    }
   }
 
-  return { sourcePath, shardPaths: hydrated.shardPaths, raw: hydrated.owner };
+  return { sourcePath, shardPaths: hydrated.shardPaths, raw: learning };
 }
 
 function systemLogicGroupMap(record, blockId) {
@@ -184,6 +233,14 @@ function expandRange(range, detail) {
 }
 
 function normalizeMembership(group, systemGroup, detail) {
+  if (Array.isArray(group?.members)) {
+    const values = group.members.map(Number);
+    if (!values.length || values.some((value) => !Number.isInteger(value) || value < 1)) {
+      fail('LOGIC_EXPLICIT_MEMBERS_INVALID', detail);
+    }
+    if (new Set(values).size !== values.length) fail('LOGIC_GROUP_MEMBER_DUPLICATE', detail);
+    return { mode: 'EXPLICIT_ORDINAL_LIST', ordinals: values };
+  }
   if (Array.isArray(group?.kp_members)) {
     const values = group.kp_members.map(Number);
     if (!values.length || values.some((value) => !Number.isInteger(value) || value < 1)) {
@@ -234,13 +291,15 @@ function normalizeLogicGroups(record, blockId, blockSupport, kpCount) {
     return {
       groupId,
       order: index + 1,
-      label: String(learning?.label || systemGroup?.label || groupId),
+      label: String(learning?.label || systemGroup?.label || `学习节 ${index + 1}`),
       membershipMode: membership.mode,
       kpOrdinals: membership.ordinals,
       kpCount: membership.ordinals.length,
       jobs: Array.isArray(learning?.jobs)
         ? learning.jobs.map(String)
-        : (learning?.cognitive_job ? [String(learning.cognitive_job)] : []),
+        : (learning?.cognitive_job
+          ? [String(learning.cognitive_job)]
+          : (learning?.job ? [String(learning.job)] : [])),
       goal: String(learning.goal),
       closure: String(learning.closure),
       continuityRationale: String(learning?.continuity_rationale || ''),
@@ -261,6 +320,9 @@ function flattenText(value) {
 }
 
 function sourceContactMode(learning) {
+  if (learning?.source_contact_contract?.blocks && Object.keys(learning.source_contact_contract.blocks).length) {
+    return 'MIXED_BY_BLOCK_CONTRACT';
+  }
   const handoff = learning?.surface_handoff_contract || {};
   if (typeof handoff.source_contact_unit === 'string' && handoff.source_contact_unit.trim()) {
     return handoff.source_contact_unit.trim();
@@ -276,9 +338,118 @@ function sourceContactMode(learning) {
   return 'NATURAL_SOURCE_UNIT';
 }
 
-function normalizeSourceContact(learning, blockSupport, blockId, logicGroups) {
+function normalizeSourceContact(learning, blockSupport, blockId, logicGroups, blockContentRealization = null, contentOwnerPath = '') {
   const handoff = learning?.surface_handoff_contract || {};
   const scoped = blockSupport?.source_contact || {};
+
+  if (['WHOLE_BLOCK_SOURCE', 'NATURAL_SOURCE_UNITS', 'INTEGRATION_PRIMARY'].includes(String(scoped?.mode || ''))) {
+    const mode = String(scoped.mode);
+    const allLogicGroupIds = logicGroups.map((group) => group.groupId);
+    const allKpOrdinals = [...new Set(logicGroups.flatMap((group) => group.kpOrdinals))].sort((a, b) => a - b);
+    const contentBlock = blockContentRealization || null;
+    if (!contentBlock || String(contentBlock?.source_mode || '') !== mode) {
+      fail('CONTENT_SOURCE_MODE_BINDING_MISSING', `${blockId}:${mode}`);
+    }
+
+    let segments = [];
+    let integrationReleaseLogicGroupIds = [];
+
+    if (mode === 'WHOLE_BLOCK_SOURCE') {
+      const releaseRefs = Array.isArray(contentBlock?.release_lg_refs) && contentBlock.release_lg_refs.length
+        ? contentBlock.release_lg_refs.map(String)
+        : allLogicGroupIds;
+      const releaseSet = new Set(releaseRefs);
+      if (releaseSet.size !== allLogicGroupIds.length || allLogicGroupIds.some((id) => !releaseSet.has(id))) {
+        fail('CONTENT_WHOLE_BLOCK_RELEASE_MISMATCH', blockId);
+      }
+      segments = [{
+        segmentId: `source:${blockId}`,
+        kind: 'WHOLE_BLOCK_SOURCE_CONTACT',
+        label: blockId,
+        logicGroupIds: releaseRefs,
+        kpOrdinals: allKpOrdinals,
+        postUnitClosureLogicGroupIds: [],
+        postUnitClosureKpOrdinals: [],
+        reactivateLogicGroupIds: [],
+        contributesToLogicGroupIds: []
+      }];
+    } else if (mode === 'NATURAL_SOURCE_UNITS') {
+      const learningUnits = Array.isArray(scoped?.units) ? scoped.units : [];
+      const contentUnits = Array.isArray(contentBlock?.source_units) ? contentBlock.source_units : [];
+      if (!learningUnits.length || learningUnits.length !== contentUnits.length) {
+        fail('NATURAL_SOURCE_UNIT_COUNT_MISMATCH', `${blockId}:${learningUnits.length}/${contentUnits.length}`);
+      }
+      segments = contentUnits.map((unit, index) => {
+        const logicGroupIds = (unit?.lg_refs || []).map(String);
+        const postUnitClosureLogicGroupIds = (unit?.post_unit_closure_lg_refs || []).map(String);
+        const reactivateLogicGroupIds = (unit?.reactivate_lg_refs || []).map(String);
+        const contributesToLogicGroupIds = (unit?.contributes_to || []).map(String);
+        return {
+          segmentId: String(unit?.id || `source:${blockId}:unit${index + 1}`),
+          kind: 'NATURAL_SOURCE_UNIT',
+          label: String(unit?.label || learningUnits[index] || ''),
+          logicGroupIds,
+          kpOrdinals: kpOrdinalsForLogicGroupRefs(logicGroups, logicGroupIds, `${blockId}:unit${index + 1}:direct`),
+          postUnitClosureLogicGroupIds,
+          postUnitClosureKpOrdinals: kpOrdinalsForLogicGroupRefs(logicGroups, postUnitClosureLogicGroupIds, `${blockId}:unit${index + 1}:post`),
+          reactivateLogicGroupIds,
+          contributesToLogicGroupIds
+        };
+      });
+      const release = new Set(segments.flatMap((segment) => [...segment.logicGroupIds, ...segment.postUnitClosureLogicGroupIds]));
+      if (release.size !== allLogicGroupIds.length || allLogicGroupIds.some((id) => !release.has(id))) {
+        fail('NATURAL_SOURCE_RELEASE_COVERAGE_MISMATCH', blockId);
+      }
+    } else {
+      const returns = Array.isArray(contentBlock?.targeted_source_returns) ? contentBlock.targeted_source_returns : [];
+      const structuredReturns = returns.every((row) => row && typeof row === 'object' && !Array.isArray(row));
+      integrationReleaseLogicGroupIds = Array.isArray(contentBlock?.integration_release_lg_refs)
+        ? contentBlock.integration_release_lg_refs.map(String)
+        : (structuredReturns ? [] : [...allLogicGroupIds]);
+      kpOrdinalsForLogicGroupRefs(logicGroups, integrationReleaseLogicGroupIds, `${blockId}:integration`);
+
+      segments = returns.map((unit, index) => {
+        const row = structuredReturns ? unit : { label: String(unit || ''), lg_refs: [] };
+        const logicGroupIds = (row?.lg_refs || []).map(String);
+        return {
+          segmentId: String(row?.id || `source:${blockId}:target${index + 1}`),
+          kind: 'TARGETED_SOURCE_REVISIT',
+          label: String(row?.label || ''),
+          logicGroupIds,
+          kpOrdinals: kpOrdinalsForLogicGroupRefs(logicGroups, logicGroupIds, `${blockId}:target${index + 1}`),
+          postUnitClosureLogicGroupIds: [],
+          postUnitClosureKpOrdinals: [],
+          reactivateLogicGroupIds: [],
+          contributesToLogicGroupIds: [],
+          gating: logicGroupIds.length > 0
+        };
+      });
+
+      const release = new Set([...integrationReleaseLogicGroupIds, ...segments.flatMap((segment) => segment.logicGroupIds)]);
+      if (release.size !== allLogicGroupIds.length || allLogicGroupIds.some((id) => !release.has(id))) {
+        fail('INTEGRATION_SOURCE_RELEASE_COVERAGE_MISMATCH', blockId);
+      }
+    }
+
+    return {
+      mode,
+      externalPrimarySurface: 'ORIGINAL_LECTURE_MARGINNOTE',
+      segments,
+      integrationReleaseLogicGroupIds,
+      segmentResolution: 'EXPLICIT_FROM_ACCEPTED_CONTENT_REALIZATION',
+      logicGroupIsAutomaticSourceChunk: false,
+      logicGroupSourceReentryDefault: false,
+      returnPattern: mode === 'WHOLE_BLOCK_SOURCE'
+        ? 'ONE_RETURN_AFTER_WHOLE_BLOCK_SOURCE_CONTACT'
+        : mode === 'NATURAL_SOURCE_UNITS'
+          ? 'SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL'
+          : 'KIANOS_INTEGRATION_THEN_TARGETED_SOURCE_RETURN',
+      normalFirstPass: [],
+      extraSourceReturnAllowedFor: [],
+      lectureAttachedQuestionsOwner: 'ORIGINAL_LECTURE_MARGINNOTE',
+      contentRealizationOwner: contentOwnerPath || ''
+    };
+  }
 
   if (scoped.mode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT') {
     const sourceMapPath = String(scoped.source_map_owner || '').trim();
@@ -404,6 +575,34 @@ function loadLearningCues(record) {
 function loadSourceVisuals(record) {
   const sourcePath = `${LEARNER_ROOT}/${record.identity.canonicalId.toLowerCase()}-${record.identity.systemId}-source-visuals.json`;
   return optionalCurrentJson(sourcePath, record);
+}
+
+function loadAcceptedContentRealization(record) {
+  const sourcePath = `${LEARNER_ROOT}/${record.identity.canonicalId.toLowerCase()}-${record.identity.systemId}-content.json`;
+  if (!exists(sourcePath)) return null;
+  const raw = readJson(sourcePath);
+  if (raw?.status !== 'ACCEPTED' || raw?.authority !== 'FRESH_INDEPENDENT_CONTENT_ACCEPTANCE') {
+    fail('CONTENT_REALIZATION_AUTHORITY_INVALID', sourcePath);
+  }
+  if (raw?.system_id !== record.identity.systemId || raw?.canonical_id !== record.identity.canonicalId) {
+    fail('CONTENT_REALIZATION_IDENTITY_MISMATCH', sourcePath);
+  }
+  if (!raw?.block_realization || typeof raw.block_realization !== 'object' || Array.isArray(raw.block_realization)) {
+    fail('CONTENT_REALIZATION_BLOCKS_MISSING', sourcePath);
+  }
+  return { sourcePath, raw };
+}
+
+function kpOrdinalsForLogicGroupRefs(logicGroups, refs, detail) {
+  const byId = new Map(logicGroups.map((group) => [group.groupId, group]));
+  const out = [];
+  for (const ref of Array.isArray(refs) ? refs : []) {
+    const id = String(ref || '');
+    const group = byId.get(id);
+    if (!group) fail('CONTENT_SOURCE_LOGIC_GROUP_UNKNOWN', `${detail}:${id}`);
+    out.push(...group.kpOrdinals);
+  }
+  return [...new Set(out)].sort((a, b) => a - b);
 }
 
 function sourceVisualBundleMap(sourceVisualOwner) {
@@ -558,13 +757,22 @@ function kpCountForBlock(routeRow, blockSupport, logicGroupsSource) {
   fail('BLOCK_KP_COUNT_MISSING', routeRow?.id || 'unknown');
 }
 
-function buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVisualOwner) {
+function buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVisualOwner, contentOwner) {
   const blockId = routeRow.id;
-  const blockSupport = learningOwner.raw.blocks?.[blockId];
+  const blockSupport = resolveXizongLearningBlockSupport(record, learningOwner.raw, blockId);
   if (!blockSupport) fail('BLOCK_LEARNING_SUPPORT_MISSING', blockId);
+  const learningBlockKey = strictLearningBlockKey(record, learningOwner.raw, blockId);
+  const blockContentRealization = contentOwner?.raw?.block_realization?.[learningBlockKey] || null;
   const kpCount = kpCountForBlock(routeRow, blockSupport, blockSupport.logic_groups);
   const logicGroups = normalizeLogicGroups(record, blockId, blockSupport, kpCount);
-  const sourceContact = normalizeSourceContact(learningOwner.raw, blockSupport, blockId, logicGroups);
+  const sourceContact = normalizeSourceContact(
+    learningOwner.raw,
+    blockSupport,
+    blockId,
+    logicGroups,
+    blockContentRealization,
+    contentOwner?.sourcePath || ''
+  );
   const retrievalPoints = normalizeRetrieval(logicGroups, sourceContact);
   const cues = normalizeBlockCues(blockId, logicGroups, cueOwner, sourceVisualOwner);
   const extensionRefs = extensionRefsForBlock(blockId);
@@ -594,10 +802,11 @@ function buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVis
 export function loadXizongSemanticSystem(systemId) {
   if (BUILD_CACHE_ENABLED && semanticSystemCache.has(systemId)) return semanticSystemCache.get(systemId);
   const record = findSystemRecord(systemId);
-  const learningOwner = loadLearningOwner(record);
+  const learningOwner = resolveXizongLearningOwner(record);
   const cueOwner = loadLearningCues(record);
   const sourceVisualOwner = loadSourceVisuals(record);
-  const blocks = record.route.map((routeRow) => buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVisualOwner));
+  const contentOwner = loadAcceptedContentRealization(record);
+  const blocks = record.route.map((routeRow) => buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVisualOwner, contentOwner));
 
   const kpCount = blocks.reduce((sum, block) => sum + block.kpCount, 0);
   const logicGroupCount = blocks.reduce((sum, block) => sum + block.logicGroups.length, 0);
@@ -623,7 +832,8 @@ export function loadXizongSemanticSystem(systemId) {
       learning: learningOwner.sourcePath,
       learningShards: [...learningOwner.shardPaths],
       cues: cueOwner?.sourcePath || null,
-      sourceVisuals: sourceVisualOwner?.sourcePath || null
+      sourceVisuals: sourceVisualOwner?.sourcePath || null,
+      contentRealization: contentOwner?.sourcePath || null
     },
     sourceContactPolicy: {
       mode: sourceContactMode(learningOwner.raw),

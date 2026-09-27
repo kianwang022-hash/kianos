@@ -18,6 +18,22 @@ const DISPLAY = {
   F: { title: '其余临床整合' }
 };
 
+const cjkCount = (value) => (String(value || '').match(/[\u3400-\u9fff]/g) || []).length;
+
+export function xizongLearnerSystemTitle(canonicalId, fallback = '') {
+  const key = String(canonicalId || '').startsWith('A') ? 'A' : String(canonicalId || '');
+  if (key === 'A') return String(fallback || '');
+  return DISPLAY[key]?.title || String(fallback || '');
+}
+
+export function xizongLearnerSystemSummary(system) {
+  const spine = Array.isArray(system?.mentalModel?.spine) ? system.mentalModel.spine : [];
+  const candidates = [...spine, system?.mission].map((value) => String(value || '').trim()).filter(Boolean);
+  const taskNative = candidates.find((value) => cjkCount(value) >= 4);
+  if (taskNative) return taskNative;
+  return String(system?.blocks?.[0]?.title || '').trim();
+}
+
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
 }

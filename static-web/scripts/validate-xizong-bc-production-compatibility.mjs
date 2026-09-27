@@ -69,8 +69,9 @@ assert(manifest.validation?.eligibility_accounting?.compiled?.some((row) => row.
 assert(projectableIds.has('digestive-metabolic-endocrine-tumor'), 'B:p-accepted-product-route-not-projectable');
 
 // C compatibility: explicit/non-contiguous LG membership must survive the same
-// production presenter. Missing compiled Projection is a legal Current state and
-// must remain an empty Projection layer rather than being fabricated from A/B.
+// production presenter. C still has no physical materialized Projection asset, but
+// the shared semantic adapter must provide the minimal Current-derived baseline
+// Framework without fabricating A/B-specific geometry or enrichment.
 const { block: semanticCH1 } = loadXizongSemanticBlock('hematology-immunity-infection', 'hematology-h01');
 const cProduction = buildXizongProductionBlock(
   compatibilityCanonicalBlock('hematology-immunity-infection', semanticCH1)
@@ -87,12 +88,15 @@ assert(cProduction.sourceContact.logicGroupIsAutomaticSourceChunk === false, 'C:
 assert(cProduction.sourceContact.logicGroupSourceReentryDefault === false, 'C:H1:source-reentry-default-changed');
 assert(cProduction.sourceContact.segments.length === 0, `C:H1:invented-source-segments:${cProduction.sourceContact.segments.length}`);
 assert(cProduction.retrievalPoints.slice(1).every((point) => point.sourceContactBefore === null && point.reopenSourceByDefault === false), 'C:H1:later-lg-reopens-source');
-assert(cProduction.cognitiveProjection.compiled === false, 'C:H1:false-compiled-projection');
-assert(cProduction.cognitiveProjection.status === 'ELIGIBLE_OR_CURRENT_BUT_UNCOMPILED', `C:H1:uncompiled-status:${cProduction.cognitiveProjection.status}`);
-assert(cProduction.cognitiveProjection.stageObjects.length === 0 && cProduction.cognitiveProjection.locationObjects.length === 0 && cProduction.cognitiveProjection.referenceObjects.length === 0, 'C:H1:fabricated-projection-objects');
-assert(loadCompiledXizongProjectionAsset('hematology-immunity-infection', 'hematology-h01') === null, 'C:H1:false-projection-asset');
-assert(manifest.validation?.eligibility_accounting?.eligible_not_compiled?.some((row) => row.canonical_id === 'C' && row.status === 'ELIGIBLE_NOT_COMPILED'), 'C:manifest-uncompiled-boundary-lost');
-assert(!projectableIds.has('hematology-immunity-infection'), 'C:compatibility-illegally-promoted-product-route');
+assert(cProduction.cognitiveProjection.available === true, 'C:H1:derived-baseline-not-available');
+assert(cProduction.cognitiveProjection.compiled === false && cProduction.cognitiveProjection.derived === true, 'C:H1:materialization-boundary-lost');
+assert(cProduction.cognitiveProjection.status === 'DERIVED_BASELINE_CURRENT', `C:H1:derived-status:${cProduction.cognitiveProjection.status}`);
+assert(cProduction.cognitiveProjection.stageObjects.length === 1, 'C:H1:derived-problem-object-missing');
+assert(cProduction.cognitiveProjection.stageObjects[0]?.role === 'PROBLEM', 'C:H1:derived-object-must-remain-problem-only');
+assert(cProduction.cognitiveProjection.locationObjects.length === 0 && cProduction.cognitiveProjection.referenceObjects.length === 0, 'C:H1:derived-baseline-invented-extra-objects');
+assert(loadCompiledXizongProjectionAsset('hematology-immunity-infection', 'hematology-h01') === null, 'C:H1:false-materialized-projection-asset');
+assert(manifest.validation?.eligibility_accounting?.eligible_not_compiled?.some((row) => row.canonical_id === 'C' && row.status === 'ELIGIBLE_NOT_COMPILED' && row.runtime_projection_mode === 'DERIVED_BASELINE_CURRENT'), 'C:manifest-derived-boundary-lost');
+assert(projectableIds.has('hematology-immunity-infection'), 'C:current-owner-route-not-projectable');
 
 // Shared V6 shell must branch only on Current Source-contact semantics. This is
 // the runtime compatibility seam: B enters one Source handoff per accepted LG;
@@ -113,8 +117,8 @@ console.log([
   `B-projection=${bProduction.cognitiveProjection.compiled ? 'compiled' : 'missing'}`,
   `C-H1 explicit=${productionCLg.kpOrdinals.join(',')}`,
   `C-source=${cProduction.sourceContact.mode}`,
-  `C-projection=${cProduction.cognitiveProjection.compiled ? 'compiled' : 'legally-uncompiled'}`,
-  'ProductRoute=B_P_ACCEPTED/C_NOT_PROMOTED',
+  `C-projection=${cProduction.cognitiveProjection.derived ? 'derived-baseline' : 'unexpected'}`,
+  'ProductRoute=B_MATERIALIZED/C_CURRENT_DERIVED_BASELINE',
   'Runtime=shared_V6_v2_store',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));

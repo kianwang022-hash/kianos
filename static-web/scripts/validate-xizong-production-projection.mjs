@@ -82,13 +82,31 @@ assert(bG1.kpRecords[0].sourceLocatorAuthority === 'CANONICAL_BLOCK' && bG1.kpRe
 const bG5 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'g05'));
 assert(bG5.kpRecords[0].sourceLocatorAuthority === 'CURRENT_SOURCE_MAP' && /BIO27-S\d+/.test(bG5.kpRecords[0].sourceLocator), 'b-g05-kp01:missing-source-map-fallback');
 
-// C remains semantically compatible but intentionally uncompiled until its own P work.
+// C/D/E/F have no physical rich Projection assets yet. They must still enter the
+// same production/runtime path through the minimal Current-derived baseline.
 const semanticCH1 = loadXizongSemanticBlock('hematology-immunity-infection', 'hematology-h01').block;
 const cLg = semanticCH1.logicGroups.find((row) => row.groupId === 'c-h01-lg06');
 assert(cLg?.membershipMode === 'EXPLICIT_ORDINAL_LIST', `c-h01:membership-mode:${cLg?.membershipMode}`);
 assert(JSON.stringify(cLg?.kpOrdinals) === JSON.stringify([1, 12, 13]), `c-h01:noncontiguous:${cLg?.kpOrdinals}`);
 assert(semanticCH1.sourceContact.logicGroupIsAutomaticSourceChunk === false, 'c-h01:source-bounce-regression');
-assert(loadCompiledXizongProjectionAsset('hematology-immunity-infection', 'hematology-h01') === null, 'c-h01:false-compiled-projection');
+
+const derivedCases = [
+  ['C', 'hematology-immunity-infection', 'h01', 'hematology-h01'],
+  ['D', 'neuro-sensory-motor-orthopedics', 'n01', 'neuro-n01'],
+  ['E', 'reproductive-breast', 'sr01', 'SR1'],
+  ['F', 'remaining-clinical', 'f01', 'F1']
+].map(([canonicalId, systemId, slug, blockId]) => {
+  const production = buildXizongProductionBlock(loadXizongBlock(systemId, slug));
+  assert(production.blockId === blockId, `${canonicalId}:block-id:${production.blockId}`);
+  assert(production.cognitiveProjection.available === true, `${canonicalId}:baseline-not-available`);
+  assert(production.cognitiveProjection.compiled === false && production.cognitiveProjection.derived === true, `${canonicalId}:materialization-boundary-lost`);
+  assert(production.cognitiveProjection.status === 'DERIVED_BASELINE_CURRENT', `${canonicalId}:baseline-status:${production.cognitiveProjection.status}`);
+  assert(production.cognitiveProjection.stageObjects.length === 1, `${canonicalId}:baseline-problem-count:${production.cognitiveProjection.stageObjects.length}`);
+  assert(production.cognitiveProjection.stageObjects[0]?.role === 'PROBLEM', `${canonicalId}:baseline-role`);
+  assert(production.cognitiveProjection.locationObjects.length === 0 && production.cognitiveProjection.referenceObjects.length === 0, `${canonicalId}:baseline-invented-extra-objects`);
+  assert(loadCompiledXizongProjectionAsset(systemId, blockId) === null, `${canonicalId}:false-materialized-asset`);
+  return production;
+});
 
 const page = read('static-web/src/pages/xizong/[system]/[block].astro');
 const blockUi = read('static-web/src/components/XizongBlockV6.astro');
@@ -104,7 +122,9 @@ assert(blockUi.includes("data-study-stage=\"source_contact\""), 'renderer:no-nat
 assert(blockUi.includes("if (sourcePerGroup) setStage('kp_learn')"), 'renderer:whole-lg-source-path-lost');
 assert(blockUi.includes("else if (state.sourceContactDone) setStage('kp_recall')"), 'renderer:natural-source-return-not-direct-to-retrieval');
 assert(blockUi.includes('data-xizong-attention'), 'renderer:right-rail-not-attention-projection');
-assert(blockUi.includes('XizongCognitiveProjectionStage'), 'renderer:compiled-cognitive-projection-not-mounted');
+assert(blockUi.includes('XizongCognitiveProjectionStage'), 'renderer:cognitive-projection-stage-not-mounted');
+assert(blockUi.includes('!block?.cognitiveProjection?.available'), 'renderer:whole-block-fallback-not-gated-by-framework-availability');
+assert(stageUi.includes('projection?.available === true'), 'projection-stage:derived-baseline-not-admitted');
 assert(stageUi.includes('data-projection-role') && stageUi.includes('data-projection-geometry'), 'projection-stage:semantic-shape-missing');
 assert(!stageUi.includes('>CHAIN<') && !stageUi.includes('>MAP<') && !stageUi.includes('>EXACT<'), 'projection-stage:engineering-label-leak');
 assert(productionLib.includes("pointer.includes('/logic_index/')"), 'presenter:legacy-logic-index-not-reconciled');
@@ -119,6 +139,7 @@ console.log([
   `A2-R1 support=${a2r1.attention.supportOnDemand.length}`,
   `B-D1 source=${semanticBD1.sourceContact.mode}`,
   `C-H1 explicit=${cLg.kpOrdinals.join(',')}`,
+  `DerivedBaseline=${derivedCases.map((row) => row.systemCanonicalId).join('/')}`,
   'Runtime=V6 shared store only',
   'Composition=Production -> LearnerProjection -> V6',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
