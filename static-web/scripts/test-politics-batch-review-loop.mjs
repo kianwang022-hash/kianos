@@ -52,9 +52,11 @@ try {
   check(!(await page.locator('[data-learned-scope]').isChecked()), 'generic_unit_entry_does_not_auto_confirm_learning');
 
   await page.goto(unitUrl.href, { waitUntil: 'domcontentloaded' });
-  await page.locator('[data-workspace-action="start-learn"]').click();
-  await page.locator('[data-workspace-action="learn-done"]').click();
-  await page.locator('[data-workspace-action="recall-pass"]').click();
+  const learnedUnit = page.locator(`[data-workspace-unit][data-unit-id="${target.unitId}"]`);
+  await learnedUnit.waitFor({ state: 'visible' });
+  await learnedUnit.locator('[data-workspace-action="start-learn"]').click();
+  await learnedUnit.locator('[data-workspace-action="learn-done"]').click();
+  await learnedUnit.locator('[data-workspace-action="recall-pass"]').click();
   await page.waitForURL(/learnedScope=confirmed/);
   await page.locator('[data-learned-scope]').waitFor({ state: 'attached' });
   check(await page.locator('[data-learned-scope]').isChecked(), 'completed_recall_handoff_auto_confirms_exact_learned_scope');
