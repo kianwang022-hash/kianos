@@ -434,6 +434,7 @@ export function initPoliticsPractice(root) {
       if (!u) throw new Error('学习单元链接无效；没有替换成其他范围。');
       if (session && ['active', 'paused'].includes(session.status) && session.scope.unit !== u.key) throw new Error('另有未完成题组，请从原入口恢复；没有替换题组。');
       controls.subject.value = u.subject; chapterOptions(); controls.chapter.value = `${u.subject}/${u.chapter}`; unitOptions(); controls.unit.value = u.key;
+      if (!targetQuestion && params.get('learnedScope') === 'confirmed') $('[data-learned-scope]').checked = true;
     }
     render();
     if (params.get('review') === 'problems' && session?.status === 'completed') {

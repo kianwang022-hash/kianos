@@ -112,6 +112,15 @@ window.__kianosLearnerWriterReady.then(() => {
           closureBox.replaceChildren();
           if (closePlan) closureBox.append(closePlan);
           if (continuePlan) closureBox.append(continuePlan);
+          if (unit.querySelector('[data-politics-no-verification]')) {
+            const nextAction = document.createElement('button');
+            nextAction.type = 'button';
+            nextAction.className = 'politicsUnitReturnContinue';
+            nextAction.setAttribute('data-unit-return-continue', '');
+            nextAction.setAttribute('data-unit-return-static', '');
+            nextAction.textContent = '继续学习 →';
+            closureBox.append(nextAction);
+          }
         }
         unit.querySelector('.politicsNextBridge')?.remove();
 

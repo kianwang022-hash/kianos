@@ -112,7 +112,7 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
             ) : unit.questionRefCount > 0 ? (
               <div class="politicsBlocked"><strong>题目源当前没有可靠解析出来。</strong><p>不猜题干和答案；乘风原讲义学习不受影响。</p></div>
             ) : (
-              <p class="politicsPracticeEntryQuiet">本单元当前没有配套题，继续后续学习即可。</p>
+              <p class="politicsPracticeEntryQuiet" data-politics-no-verification>本单元当前没有配套题，继续后续学习即可。</p>
             )}
           </section>
 

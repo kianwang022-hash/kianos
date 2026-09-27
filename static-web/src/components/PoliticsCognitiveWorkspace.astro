@@ -402,8 +402,13 @@ window.__kianosLearnerWriterReady.then(() => {
       }
       if (action === 'recall-pass') {
         const href = unit.dataset.practiceHref || unit.querySelector('[data-workspace-practice-link]')?.getAttribute('href');
-        if (href) window.location.assign(href);
-        else syncUnitState(unit, 'VERIFY');
+        if (href) {
+          const url = new URL(href, window.location.href);
+          // This exact path follows an explicit EXTERNAL_LEARN → RECALL learner action.
+          // Carry only that bounded handoff fact; generic ?unit= entry still requires confirmation.
+          url.searchParams.set('learnedScope', 'confirmed');
+          window.location.assign(`${url.pathname}${url.search}${url.hash}`);
+        } else syncUnitState(unit, 'VERIFY');
       }
       if (action === 'verify-empty-close') syncUnitState(unit, 'CLOSE');
       if (action === 'next-unit') setActiveUnit(Number(unit.dataset.unitIndex || 0) + 1);

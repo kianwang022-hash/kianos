@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { listPoliticsSubjectsCurrent, loadPoliticsChapterCurrent } from '../src/lib/politicsCurrent.mjs';
+import { loadPoliticsCompiledPresentation } from '../src/lib/politicsCompiledPresentation.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT ? path.resolve(process.env.KIANOS_REPO_ROOT) : path.resolve(process.cwd(), '..');
 const component = fs.readFileSync(path.join(repoRoot, 'static-web/src/components/PoliticsChapterRuntime.astro'), 'utf8');
@@ -43,6 +44,19 @@ if (!component.includes('去 iPad / MarginNote 学原讲义')) fail('ETHICS_EXTE
 if (!component.includes('data-politics-external-source') || /node\.(?:text|body|content)\b/.test(component)) fail('ETHICS_DUPLICATE_LECTURE_GUARD_MISSING');
 if (!/<details\s+class="politicsGuide"(?:\s+open)?>/.test(component)) fail('ETHICS_GUIDE_NOT_PROGRESSIVE');
 if (!component.includes('<details class="politicsClosure">')) fail('ETHICS_CLOSURE_NOT_PROGRESSIVE');
+
+const ethicsC05 = loadPoliticsCompiledPresentation('ethics_law', 'ch05');
+const ethicsC05S01 = ethicsC05?.get('POL27-CF-ETHICS-C05-S01');
+const ethicsC05Source = JSON.parse(fs.readFileSync(path.join(repoRoot, 'content/politics/learning/ethics-law/ch05.json'), 'utf8'));
+const ethicsC05LearnerText = JSON.stringify({
+  units: ethicsC05Source.units,
+  activeStructures: ethicsC05Source.content_support?.active_structures,
+  deferredPrecision: ethicsC05Source.content_support?.deferred_precision,
+  primary: ethicsC05S01?.primary,
+  surfacePlan: ethicsC05S01?.surfacePlan
+});
+if (/\bshard\b|Source shard|\bbackend\b|Current source/i.test(ethicsC05LearnerText)) fail('ETHICS_LEARNER_ENGINEERING_JARGON_LEAK');
+if (!ethicsC05LearnerText.includes('当前乘风材料')) fail('ETHICS_SOURCE_LIMIT_NOT_LEARNER_FACING');
 
 const report = {
   status: failures.length ? 'FAIL' : 'PASS',
