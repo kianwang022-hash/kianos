@@ -105,6 +105,33 @@ async function validateForm(page, item, browserName) {
     check(firstLabel.includes('41'), `${prefix}_uses_exam_number_41`, firstLabel);
   }
 
+  const geometry = await page.evaluate(() => {
+    const layout = document.querySelector('.readingBLayout, .readingBOrderingLayout');
+    const map = document.querySelector('.readingBMap');
+    const firstTarget = document.querySelector('[data-objective-question]');
+    const lr = layout?.getBoundingClientRect();
+    const mr = map?.getBoundingClientRect();
+    const qr = firstTarget?.getBoundingClientRect();
+    return {
+      viewportHeight: window.innerHeight,
+      layoutHeight: lr?.height || 0,
+      mapHeight: mr?.height || 0,
+      firstTargetY: qr?.y || 0
+    };
+  });
+  check(
+    geometry.mapHeight <= geometry.layoutHeight + 2,
+    `${prefix}_map_constrained_to_workbench`,
+    JSON.stringify(geometry)
+  );
+  if (item.context.taskForm === 'gap_match') {
+    check(
+      geometry.firstTargetY > 0 && geometry.firstTargetY < geometry.viewportHeight,
+      `${prefix}_first_target_visible_in_initial_view`,
+      JSON.stringify(geometry)
+    );
+  }
+
   await answerMap(page, item, loadReadingBAnswersById(item.objectId));
   check((await page.locator('[data-objective-score]').textContent())?.trim() === `${item.questions.length} / ${item.questions.length}`, `${prefix}_clean_map_executable`);
   check(await page.locator('.objectiveHandoff').isHidden(), `${prefix}_clean_pass_no_forced_chat`);
