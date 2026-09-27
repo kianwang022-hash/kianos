@@ -7,7 +7,7 @@ import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 
-import { canReuseDependencies } from './currentDependencies.mjs';
+import { canReuseDependencies, cloneDependencies, dependencyIdentity, readDependencyProof } from './currentDependencies.mjs';
 import { terminateProcessTree } from './currentRelease.mjs';
 
 const execFileAsync = promisify(execFile);
@@ -69,30 +69,123 @@ function dependencySources(env = process.env) {
   return [...new Set(rows)];
 }
 
-export function ensureCandidateDependencies(env = process.env) {
-  const localAstro = astroExecutable(webRoot);
-  if (fs.existsSync(localAstro)) return { source: 'local', cleanup: () => {} };
+function sameOptionalFile(sourceRoot, targetRoot, relativePath) {
+  const source = path.join(sourceRoot, relativePath);
+  const target = path.join(targetRoot, relativePath);
+  const sourceExists = fs.existsSync(source);
+  const targetExists = fs.existsSync(target);
+  if (sourceExists !== targetExists) return false;
+  if (!sourceExists) return true;
+  return fs.readFileSync(source).equals(fs.readFileSync(target));
+}
 
-  const nodeModules = path.join(webRoot, 'node_modules');
-  for (const source of dependencySources(env)) {
-    if (!fs.existsSync(source) || !canReuseDependencies(source, webRoot)) continue;
-    const sourceModules = path.join(source, 'node_modules');
-    fs.rmSync(nodeModules, { recursive: true, force: true });
-    fs.symlinkSync(sourceModules, nodeModules, 'dir');
-    if (!fs.existsSync(astroExecutable(webRoot))) {
-      fs.rmSync(nodeModules, { recursive: true, force: true });
-      continue;
-    }
-    return {
-      source,
-      cleanup: () => {
-        try {
-          if (fs.lstatSync(nodeModules).isSymbolicLink()) fs.rmSync(nodeModules, { force: true });
-        } catch {}
-      }
-    };
+function stableJson(value) {
+  if (Array.isArray(value)) return '[' + value.map(stableJson).join(',') + ']';
+  if (value && typeof value === 'object') {
+    return '{' + Object.keys(value).sort().map((key) => JSON.stringify(key) + ':' + stableJson(value[key])).join(',') + '}';
+  }
+  return JSON.stringify(value);
+}
+
+function dependencyManifestSignature(webRoot) {
+  let manifest = null;
+  try { manifest = JSON.parse(fs.readFileSync(path.join(webRoot, 'package.json'), 'utf8')); } catch { return null; }
+  return stableJson({
+    dependencies: manifest?.dependencies || {},
+    devDependencies: manifest?.devDependencies || {},
+    optionalDependencies: manifest?.optionalDependencies || {},
+    peerDependencies: manifest?.peerDependencies || {},
+    peerDependenciesMeta: manifest?.peerDependenciesMeta || {},
+    overrides: manifest?.overrides || {},
+    bundledDependencies: manifest?.bundledDependencies || manifest?.bundleDependencies || []
+  });
+}
+
+export function canMaterializeLegacyCandidateDependencies(sourceWebRoot, targetWebRoot) {
+  if (!sourceWebRoot || !targetWebRoot) return false;
+  // A real target lockfile is canonical and must use strict proof matching.
+  // This fallback exists only for the repo's legacy shape where npm install
+  // generated an untracked source lockfile but a fresh worktree has none.
+  if (fs.existsSync(path.join(targetWebRoot, 'package-lock.json'))) return false;
+  if (!sameOptionalFile(sourceWebRoot, targetWebRoot, 'npm-shrinkwrap.json')) return false;
+  if (!sameOptionalFile(sourceWebRoot, targetWebRoot, '.npmrc')) return false;
+
+  const sourceSignature = dependencyManifestSignature(sourceWebRoot);
+  const targetSignature = dependencyManifestSignature(targetWebRoot);
+  if (!sourceSignature || sourceSignature !== targetSignature) return false;
+
+  const sourceModules = path.join(sourceWebRoot, 'node_modules');
+  if (!fs.existsSync(path.join(sourceModules, '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro'))) {
+    return false;
   }
 
+  let manifest = null;
+  try { manifest = JSON.parse(fs.readFileSync(path.join(targetWebRoot, 'package.json'), 'utf8')); } catch { return false; }
+  const declared = new Set([
+    ...Object.keys(manifest?.dependencies || {}),
+    ...Object.keys(manifest?.devDependencies || {}),
+    ...Object.keys(manifest?.optionalDependencies || {})
+  ]);
+  for (const name of declared) {
+    if (!fs.existsSync(path.join(sourceModules, name, 'package.json'))) return false;
+  }
+  return true;
+}
+
+export function ensureCandidateDependencies(env = process.env, {
+  targetWebRoot = webRoot,
+  sources = null
+} = {}) {
+  const nodeModules = path.join(targetWebRoot, 'node_modules');
+  const localAstro = astroExecutable(targetWebRoot);
+  let linkedSource = null;
+
+  if (fs.existsSync(localAstro)) {
+    let linked = false;
+    try { linked = fs.lstatSync(nodeModules).isSymbolicLink(); } catch {}
+    if (!linked) {
+      const proof = readDependencyProof(targetWebRoot);
+      if (!proof || canReuseDependencies(targetWebRoot, targetWebRoot)) {
+        return { source: 'local', mode: 'local', cleanup: () => {} };
+      }
+      fs.rmSync(nodeModules, { recursive: true, force: true });
+    } else {
+      linkedSource = path.dirname(fs.realpathSync(nodeModules));
+    }
+  }
+
+  const configured = Array.isArray(sources) ? sources : dependencySources(env);
+  const candidates = [...new Set([linkedSource, ...configured].filter(Boolean))];
+  for (const source of candidates) {
+    if (!fs.existsSync(source)) continue;
+
+    if (canReuseDependencies(source, targetWebRoot)) {
+      const reused = cloneDependencies(source, targetWebRoot);
+      return {
+        source,
+        mode: 'materialized',
+        verification: 'current-proof',
+        duration_ms: reused.duration_ms,
+        cleanup: () => {}
+      };
+    }
+
+    if (canMaterializeLegacyCandidateDependencies(source, targetWebRoot)) {
+      const targetProof = dependencyIdentity(targetWebRoot);
+      const reused = cloneDependencies(source, targetWebRoot, { proofIdentity: targetProof });
+      return {
+        source,
+        mode: 'materialized',
+        verification: 'legacy-manifest-compatible',
+        duration_ms: reused.duration_ms,
+        cleanup: () => {}
+      };
+    }
+  }
+
+  if (linkedSource) {
+    throw new Error('KIANOS_CANDIDATE_EXTERNAL_NODE_MODULES_UNSAFE:' + linkedSource);
+  }
   throw new Error(
     'KIANOS_CANDIDATE_DEPENDENCIES_MISSING: no compatible local/Current dependency tree; run npm install once in static-web'
   );
@@ -161,6 +254,10 @@ async function main() {
 
   try {
     dependencyLease = ensureCandidateDependencies();
+    if (dependencyLease?.mode === 'materialized') {
+      console.log('[KianOS Candidate] materialized compatible dependencies inside this worktree in '
+        + dependencyLease.duration_ms + 'ms via ' + dependencyLease.verification);
+    }
     const head = await shortHead();
     const env = isolatedCandidateEnv(runtimeRoot, process.env, `candidate-${head}`);
     const astro = astroExecutable(webRoot);

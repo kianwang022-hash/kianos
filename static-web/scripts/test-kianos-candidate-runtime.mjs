@@ -1,14 +1,19 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 
 import {
   DEFAULT_CANDIDATE_HOST,
   DEFAULT_CANDIDATE_PORT,
   STABLE_CURRENT_PORT,
+  canMaterializeLegacyCandidateDependencies,
+  ensureCandidateDependencies,
   isolatedCandidateEnv,
   resolveCandidateConfig
 } from './kianos-candidate-runtime.mjs';
+import { canReuseDependencies, writeDependencyProof } from './currentDependencies.mjs';
 
 assert.equal(DEFAULT_CANDIDATE_HOST, '127.0.0.1');
 assert.equal(DEFAULT_CANDIDATE_PORT, 4322);
@@ -57,4 +62,59 @@ assert.equal(isolated.KIANOS_ENGLISH_GENERATED_DIR, path.join(root, 'english-gen
 assert.equal(isolated.KIANOS_CONTROL_ENABLED, '0');
 assert.equal(isolated.KIANOS_PACKET_RELAY_ENABLED, '0');
 
-console.log('KIANOS_CANDIDATE_RUNTIME PASS: fixed lane, stable-port guard and private isolation');
+const depRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-candidate-deps-'));
+try {
+  const source = path.join(depRoot, 'source');
+  const target = path.join(depRoot, 'target');
+  for (const root of [source, target]) {
+    fs.mkdirSync(root, { recursive: true });
+    fs.writeFileSync(path.join(root, 'package.json'), JSON.stringify({
+      name: 'candidate-dependency-fixture',
+      private: true,
+      scripts: { dev: root === source ? 'astro dev --source' : 'astro dev --target' },
+      dependencies: { astro: '^5.0.0', marked: '^15.0.0' }
+    }));
+  }
+
+  fs.mkdirSync(path.join(source, 'node_modules', '.bin'), { recursive: true });
+  for (const name of ['astro', 'marked']) {
+    fs.mkdirSync(path.join(source, 'node_modules', name), { recursive: true });
+    fs.writeFileSync(path.join(source, 'node_modules', name, 'package.json'), JSON.stringify({ name, version: '15.0.0' }));
+  }
+  fs.writeFileSync(
+    path.join(source, 'node_modules', '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro'),
+    'fixture'
+  );
+
+  // Reproduce the live legacy proof: npm install generated a source lockfile
+  // and the proof was written after install, while a fresh target has no lock.
+  fs.writeFileSync(path.join(source, 'package-lock.json'), JSON.stringify({ lockfileVersion: 3, packages: {} }));
+  writeDependencyProof(source);
+  assert.equal(canReuseDependencies(source, target), false);
+  assert.equal(canMaterializeLegacyCandidateDependencies(source, target), true);
+
+  // Reproduce the old Fast Lane shape: node_modules is an external symlink.
+  fs.symlinkSync(path.join(source, 'node_modules'), path.join(target, 'node_modules'), 'dir');
+  const migrated = ensureCandidateDependencies({}, { targetWebRoot: target, sources: [source] });
+  assert.equal(migrated.mode, 'materialized');
+  assert.equal(migrated.verification, 'legacy-manifest-compatible');
+  assert.equal(fs.lstatSync(path.join(target, 'node_modules')).isSymbolicLink(), false);
+  assert.equal(fs.existsSync(path.join(target, 'node_modules', 'marked', 'package.json')), true);
+  assert.equal(
+    fs.realpathSync(path.join(target, 'node_modules', 'marked')).startsWith(fs.realpathSync(target) + path.sep),
+    true,
+    'materialized dependency realpath must stay inside the active worktree'
+  );
+  assert.equal(canReuseDependencies(target, target), true, 'materialized target receives its own valid proof');
+
+  const warm = ensureCandidateDependencies({}, { targetWebRoot: target, sources: [source] });
+  assert.equal(warm.mode, 'local');
+
+  // A real target lockfile disables the legacy fallback.
+  fs.writeFileSync(path.join(target, 'package-lock.json'), '{}');
+  assert.equal(canMaterializeLegacyCandidateDependencies(source, target), false);
+} finally {
+  fs.rmSync(depRoot, { recursive: true, force: true });
+}
+
+console.log('KIANOS_CANDIDATE_RUNTIME PASS: fixed lane, stable-port guard, private isolation and worktree-local dependencies');
