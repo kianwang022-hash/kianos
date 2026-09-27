@@ -72,6 +72,8 @@ jobs:
         run: node scripts/audit-xizong-reviewed-relation-freshness.mjs --out .qa/xizong-relation-freshness.json
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Validate build-process projection cache
+        run: node scripts/test-xizong-build-cache.mjs
       - name: Validate shared Current semantic adapter
         run: node scripts/validate-xizong-semantic-adapter.mjs
       - name: Validate compiled Projection assets

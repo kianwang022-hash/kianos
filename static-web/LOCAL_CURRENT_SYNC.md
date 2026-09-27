@@ -56,6 +56,8 @@ The macOS LaunchAgent runs with `ProcessType=Standard`: Current delivery remains
 
 Lexical cache state is disposable and ignored by Git (`static-web/.cache/lexical-projection`). Reuse requires clean source-tree identity and verified output hashes; dirty inputs, missing outputs or corrupt cache cause bounded repair/recompilation. No cache is a semantic owner. The builder resolves all affected references before overwriting any projection shards.
 
+Astro candidate builds may memoize immutable Xizong owner/projection reads **inside that one build process only**. `kianos-safe-astro-build.mjs` explicitly enables this build-local cache; ordinary Node validators and the dev server do not. A new build/release starts with a fresh module graph, so this optimization cannot carry stale owner data across releases or replace canonical Content truth.
+
 For an explicit engineering retry after an environmental repair, run the supervisor once with `KIANOS_SYNC_ONCE=1 KIANOS_RETRY_FAILED_BUILD=1`. Do not use retries to suppress a content error.
 
 Ordinary explanation and lexical owner updates have read-only content CI; full browser/system QA remains for runtime/schema changes and explicit integration checkpoints. Astro still performs one site build per accepted update; this change does not claim incremental page rendering.
