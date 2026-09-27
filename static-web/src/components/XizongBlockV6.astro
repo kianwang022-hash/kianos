@@ -115,6 +115,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
 <section
   class="portedStudyRuntime portedStudyRuntimeV2 xv6Block"
   data-xizong-v6-block
+  data-aux-weight="none"
   data-study-object={block.objectId}
   data-study-system-id={block.systemId || ''}
   data-study-block-id={block.blockId || ''}
@@ -1001,7 +1002,7 @@ window.__kianosLearnerWriterReady.then(() => {
       groupRailButtons.forEach((button, index) => {
         const candidate = groups[index];
         const ids = candidate?.kpIds || [];
-        const active = index === state.groupIndex;
+        const active = ['logic_group', 'kp_learn', 'kp_recall'].includes(state.stage) && index === state.groupIndex;
         const done = ids.length > 0 && ids.every((id) => Boolean(state.learned?.[id]) && Boolean(state.ratings?.[id]));
         const available = !naturalSourceRuntime && !integrationPrimaryRuntime ? true : groupAvailable(candidate?.groupId);
         button.classList.toggle('active', active);
