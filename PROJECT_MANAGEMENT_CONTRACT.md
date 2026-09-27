@@ -99,29 +99,30 @@ Do not encode content truth or visual policy inside runtime merely because imple
 
 ---
 
-# 3｜UI program: top-down only
+# 3｜UI work routing — Visual rules stay with Visual owners
 
-The current learner-facing UI program is layered:
+This contract does not own a parallel UI hierarchy or visual-acceptance standard.
+
+For material UI work, resolve the applicable owners in this order:
 
 ```text
-L1 Shared Visual Foundation
-→ L2 Shared Shell
-→ L3 Home / cross-product surfaces
-→ L4 Subject visual language
-→ L5 Surface families
-→ L6 page/state exceptions
+static-web/KIAN_UI_PREFERENCES.md
+→ static-web/UI_STYLE_BRIEF.md when shared visual rules matter
+→ static-web/PRESENTATION_CONTRACT.md
+→ exact Product / Surface Visual owner
+→ actual Website consumer
+→ Candidate / real-browser proof
+→ applicable Human Gate / Acceptance
 ```
 
-Rules:
+Project management owns only the execution discipline around that work:
 
-1. a lower layer inherits higher-layer visual decisions;
-2. local task geometry may differ when cognition requires it;
-3. local CSS must not silently redefine shared typography, global navigation or shared primitives;
-4. a higher-layer visual defect is fixed upstream, not patched repeatedly downstream;
-5. Functional/Structural PASS does not equal Visual/Human PASS;
-6. a layer is not visually closed until representative real surfaces are reviewed.
+- fix a shared visual defect at the highest responsible existing Visual owner rather than stacking local patches;
+- preserve accepted task-native geometry and upstream Content / Learning / Runtime semantics unless the owning semantic decision is explicitly reopened;
+- route implementation and proof through the smallest affected surface;
+- never treat Functional/Structural PASS as a substitute for the applicable Visual/Human acceptance.
 
-The UI program does not reopen accepted Content / Learning / Runtime semantics merely for visual convenience.
+Exact visual hierarchy, typography, composition, Blueprint and Human-Gate semantics remain owned by the Visual/Presentation files above.
 
 ---
 
@@ -174,13 +175,11 @@ Unrelated `main` movement is not a blocker. Reconcile only for real dependency, 
 
 ---
 
-# 6｜Context budget
+# 6｜Context budget — execution specialization only
 
-Context is a project resource.
+Repository-wide context discipline is owned by `AGENTS.md`, with the cross-system durable boundary in Personal OS `KERNEL.md`. This contract does not maintain a second context-recovery rule.
 
-Default known-scope entry is defined in `AGENTS.md` and should normally reach effective work after roughly 2–3 precise reads.
-
-For substantial cross-layer work, compress upstream reading into:
+For managed multi-PR / Codex / cross-lane execution, apply those upstream rules and keep only the execution-specific working set needed here:
 
 ```text
 Goal
@@ -191,9 +190,7 @@ Write-set
 Success / stop condition
 ```
 
-Then work from the compressed context.
-
-Avoid putting multiple PR histories, large CI logs, browser artifacts and unrelated owner debugging into one long-running Chat. Split by real owner/slice, not by arbitrary file count.
+PR history, CI logs and browser artifacts are evidence inputs, not durable context. Split work by real owner/dependency slice when one Chat would otherwise mix unrelated execution state.
 
 ---
 
