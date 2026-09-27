@@ -41,7 +41,7 @@ DOMAIN KNOWLEDGE / LEARNING
    ├─ english/  → content/english/README.md
    ├─ politics/ → content/politics/README.md
    ├─ lexical/  → content/lexical/README.md
-   └─ skills/
+   └─ skills/    → content/skills/README.md
 
 PRODUCT / WEBSITE / RUNTIME
 → static-web/
