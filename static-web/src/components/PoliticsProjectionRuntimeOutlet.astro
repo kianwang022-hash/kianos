@@ -3,6 +3,15 @@ import Value from './PoliticsProjectionValue.astro';
 import PoliticsExplicitSurfacePlan from './PoliticsExplicitSurfacePlan.astro';
 const { compiled = null } = Astro.props;
 const rows = compiled ? [...compiled.values()].filter((row) => row?.surfacePlan?.states?.ORIENT?.length || row?.purposeFirst || row?.purposeFirstPilot) : [];
+const compactXiCloseGroups = (row, groups = []) => {
+  if (!String(row?.unitId || '').includes('-XI-')) return groups;
+  return groups.map((group) => {
+    const items = Array.isArray(group?.items) ? group.items : [];
+    if (group?.zone !== 'CLOSURE' || group?.primitive !== 'PARALLEL_SET' || items.length <= 2) return group;
+    return { ...group, title: `${group.title || '精确定位'} · 本轮只带走 1 个`, items: items.slice(0, 1) };
+  });
+};
+
 const h2Groups = (row) => {
   const items = row?.hierarchy?.tiers?.H2_FIRST_ROUND_CARRY || [];
   return {
@@ -19,6 +28,7 @@ const h2Groups = (row) => {
       const states = row?.surfacePlan?.states || null;
       const explicit = Boolean(states?.ORIENT?.length);
       const h2 = h2Groups(row);
+      const closeGroups = compactXiCloseGroups(row, states?.CLOSE || []);
       const hasH2 = h2.takeaway.length || h2.boundary.length || h2.exact.length;
       return (
         <section data-projection-outlet-unit={row.unitId} data-explicit-runtime-owner={explicit ? 'v1' : undefined}>
@@ -27,8 +37,8 @@ const h2Groups = (row) => {
               {states.EXTERNAL_LEARN?.length > 0 && (
                 <template data-explicit-runtime-state="EXTERNAL_LEARN"><PoliticsExplicitSurfacePlan groups={states.EXTERNAL_LEARN} /></template>
               )}
-              {states.CLOSE?.length > 0 && (
-                <template data-explicit-runtime-state="CLOSE"><PoliticsExplicitSurfacePlan groups={states.CLOSE} /></template>
+              {closeGroups.length > 0 && (
+                <template data-explicit-runtime-state="CLOSE"><PoliticsExplicitSurfacePlan groups={closeGroups} /></template>
               )}
               {states.CONTINUE?.length > 0 && (
                 <template data-explicit-runtime-state="CONTINUE"><PoliticsExplicitSurfacePlan groups={states.CONTINUE} /></template>
