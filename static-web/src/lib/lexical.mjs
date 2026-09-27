@@ -126,6 +126,30 @@ export function inspectLexicalSources() {
   };
 }
 
+export function lexicalRuntimeManifest() {
+  const { finalManifest } = lexicalManifestSnapshot();
+  const objectCount = Number(finalManifest.object_count || 0);
+  const shardSize = 32;
+  if (!Number.isInteger(objectCount) || objectCount < 1) {
+    throw new Error('CURRENT_LEXICAL_RUNTIME_MANIFEST_INVALID');
+  }
+  const shards = [];
+  for (let start = 1; start <= objectCount; start += shardSize) {
+    const end = Math.min(objectCount, start + shardSize - 1);
+    shards.push({
+      start,
+      end,
+      key: `o${String(start).padStart(4, '0')}-${String(end).padStart(4, '0')}`
+    });
+  }
+  return {
+    schema: 'kianos.lexical.runtime_manifest.v1',
+    object_count: objectCount,
+    shard_size: shardSize,
+    shards
+  };
+}
+
 export function listLexicalOrdinals() {
   const { finalManifest } = lexicalManifestSnapshot();
   const count = Number(finalManifest.object_count || 0);

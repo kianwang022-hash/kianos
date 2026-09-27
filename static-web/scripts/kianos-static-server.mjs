@@ -224,6 +224,12 @@ function staticFallback(req, res) {
     return res.end('Current build unavailable');
   }
 
+  const legacyVocabularyWord = url.pathname.match(/^\/vocabulary\/(\d+)\/?$/);
+  if (legacyVocabularyWord) {
+    const wordRuntime = resolveStatic('/vocabulary/word/', activeRoot);
+    if (wordRuntime) return sendFile(req, res, url.pathname, wordRuntime);
+  }
+
   const resolved = resolveStatic(url.pathname, activeRoot);
   if (resolved) return sendFile(req, res, url.pathname, resolved);
 

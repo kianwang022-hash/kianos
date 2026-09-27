@@ -54,7 +54,7 @@ try{
   await page.locator('[data-lexical-tab="overview"]').click();
 
   // Fuzzy is today-only whole-card routing support, not Repair debt.
-  await goto(page,'/vocabulary/4/');
+  await goto(page,'/vocabulary/word/?o=4');
   await page.keyboard.press('Space');
   await page.locator('[data-vocab-route="fuzzy"]').click();
   await page.waitForURL(/\/vocabulary\/5\/?$/);
@@ -63,7 +63,7 @@ try{
   check((await page.locator('[data-lexical-repair-count]').first().innerText()).trim()==='0','fuzzy_creates_no_repair');
 
   // Exact local + creates one Repair target and makes the Chat state handoff available.
-  await goto(page,'/vocabulary/4/');
+  await goto(page,'/vocabulary/word/?o=4');
   if(!(await page.locator('[data-vocab-details]').isVisible()))await page.locator('[data-vocab-reveal]').click();
   const root=page.locator('[data-local-port="vocabulary"]');
   const plus=page.locator('[data-vocab-repair]').first();

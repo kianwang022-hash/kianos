@@ -14,7 +14,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       <a class="lexicalBackEnglish" href={base + 'english/'}>← English</a>
       <span class="lexicalLocalDivider" aria-hidden="true"></span>
       <button type="button" class="active" data-lexical-tab="overview">Overview</button>
-      <a class="lexicalLearnNav" data-lexical-learn-nav href={base + 'vocabulary/1/'}>Learn</a>
+      <a class="lexicalLearnNav" data-lexical-learn-nav href={base + 'vocabulary/word/?o=1'}>Learn</a>
       <button type="button" data-lexical-tab="repair">Repair</button>
       <button type="button" data-lexical-tab="research">Research</button>
       <span class="lexicalLocalDivider" aria-hidden="true"></span>
@@ -29,7 +29,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
         <h3>今天继续推进</h3>
         <p>新词上限只控制今天首次进入学习的词，不清空进度，也不会形成欠账。</p>
       </div>
-      <a class="lexicalOverviewContinue" data-lexical-overview-continue href={base + 'vocabulary/1/'}>
+      <a class="lexicalOverviewContinue" data-lexical-overview-continue href={base + 'vocabulary/word/?o=1'}>
         <small>继续学习</small>
         <strong data-lexical-overview-continue-word>开始 Vocabulary</strong>
         <span data-lexical-overview-continue-meta>#1 / {rows.length}</span>
@@ -227,6 +227,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
     registerLexicalIntroduction,
     sameDayLexicalRevisits
   } from '../lib/lexicalSettings.mjs';
+  import { lexicalWordRuntimeHref } from '../lib/lexicalRuntimeRoute.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
@@ -239,10 +240,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
     try { rows = JSON.parse(root.querySelector('[data-lexical-catalog]')?.textContent || '[]'); } catch {}
 
     const byObjectId = new Map(rows.map((row) => [row.objectId, row]));
-    const hrefFor = (ordinal, mode = 'study') => {
-      const href = base + 'vocabulary/' + ordinal + '/';
-      return mode === 'study' ? href : href + '?mode=' + encodeURIComponent(mode);
-    };
+    const hrefFor = (ordinal, mode = 'study') => lexicalWordRuntimeHref(base, ordinal, mode);
     const readJson = (key, fallback = {}) => {
       try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
     };

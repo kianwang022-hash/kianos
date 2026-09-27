@@ -1,0 +1,144 @@
+---
+import Base from '../../../layouts/LexicalBase.astro';
+import VocabularyIdentityLineageBridge from '../../../components/VocabularyIdentityLineageBridge.astro';
+import VocabularyWordRuntime from '../../../components/VocabularyWordRuntime.astro';
+import VocabularyEvidenceBridge from '../../../components/VocabularyEvidenceBridge.astro';
+import { lexicalRuntimeManifest } from '../../../lib/lexical.mjs';
+
+const base = import.meta.env.BASE_URL;
+const runtimeManifest = lexicalRuntimeManifest();
+const total = runtimeManifest.object_count;
+const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\u003c');
+---
+<Base
+  title="Vocabulary"
+  kicker="LexicalOS · Word Runtime"
+  description=""
+  sourcePath="content/lexical/learner/final/manifest.json"
+  objectId="lexical:vocabulary-word-runtime"
+  active="lexical"
+  showLead={false}
+>
+  <nav class="lexicalStudyNav" data-lexical-study-nav data-ordinal="">
+    <a href={base + 'vocabulary/'}>‹ 返回词汇</a>
+    <span data-vocab-runtime-position>Coverage</span>
+    <div>
+      <a data-vocab-runtime-prev aria-label="上一词">←</a>
+      <a class="next" data-vocab-runtime-next aria-label="下一词">→</a>
+    </div>
+  </nav>
+
+  <div data-vocab-runtime-host data-base={base} data-total={total} aria-busy="true">
+    <p class="lexicalEmpty">正在载入词汇…</p>
+  </div>
+  <script type="application/json" data-lexical-runtime-manifest set:html={runtimeManifestPayload}></script>
+
+  <VocabularyIdentityLineageBridge />
+  <VocabularyWordRuntime />
+  <VocabularyEvidenceBridge total={total} />
+</Base>
+
+<script>
+  import {
+    lexicalLegacyDisplayHref,
+    lexicalWordOrdinal,
+    lexicalWordRuntimeHref
+  } from '../../../lib/lexicalRuntimeRoute.mjs';
+
+  const host = document.querySelector('[data-vocab-runtime-host]');
+  const manifestNode = document.querySelector('[data-lexical-runtime-manifest]');
+  const nav = document.querySelector('[data-lexical-study-nav]');
+
+  const fail = (message) => {
+    if (host instanceof HTMLElement) {
+      host.replaceChildren();
+      const note = document.createElement('p');
+      note.className = 'lexicalEmpty';
+      note.textContent = message;
+      host.appendChild(note);
+    }
+    if (host instanceof HTMLElement) host.setAttribute('aria-busy', 'false');
+  };
+
+  const load = async () => {
+    if (!(host instanceof HTMLElement) || !(manifestNode instanceof HTMLScriptElement)) return;
+    const base = host.getAttribute('data-base') || '/';
+    let manifest;
+    try { manifest = JSON.parse(manifestNode.textContent || '{}'); }
+    catch { fail('词汇索引无法读取。'); return; }
+
+    const ordinal = lexicalWordOrdinal(window.location);
+    const total = Number(manifest?.object_count || host.getAttribute('data-total') || 0);
+    if (!Number.isInteger(ordinal) || ordinal < 1 || ordinal > total) {
+      location.replace(base + 'vocabulary/');
+      return;
+    }
+
+    const shard = (Array.isArray(manifest?.shards) ? manifest.shards : [])
+      .find((row) => Number(row?.start) <= ordinal && ordinal <= Number(row?.end));
+    if (!shard?.key) { fail('当前词汇数据不可用。'); return; }
+
+    try {
+      const response = await fetch(base + 'vocabulary-data/' + encodeURIComponent(shard.key) + '/', { cache: 'no-store' });
+      if (!response.ok) throw new Error('LEXICAL_RUNTIME_FRAGMENT_UNAVAILABLE');
+      const html = await response.text();
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const root = doc.querySelector('[data-vocab-ordinal="' + ordinal + '"]');
+      if (!(root instanceof HTMLElement)) throw new Error('LEXICAL_RUNTIME_WORD_MISSING');
+
+      const imported = document.importNode(root, true);
+      host.replaceWith(imported);
+
+      const params = new URLSearchParams(location.search);
+      const mode = ['lookup', 'repair'].includes(String(params.get('mode') || ''))
+        ? String(params.get('mode'))
+        : 'study';
+      const word = imported.getAttribute('data-vocab-word') || 'Vocabulary';
+
+      if (nav instanceof HTMLElement) {
+        nav.dataset.ordinal = String(ordinal);
+        nav.dataset.lexicalMode = mode;
+        const center = nav.querySelector('[data-vocab-runtime-position]');
+        if (center) center.textContent = mode === 'lookup'
+          ? 'Lookup'
+          : mode === 'repair'
+            ? 'Repair'
+            : 'Coverage · ' + ordinal + ' / ' + total;
+        const previous = nav.querySelector('[data-vocab-runtime-prev]');
+        const next = nav.querySelector('[data-vocab-runtime-next]');
+        if (previous instanceof HTMLAnchorElement) {
+          if (ordinal > 1) previous.href = lexicalWordRuntimeHref(base, ordinal - 1, mode);
+          else previous.removeAttribute('href');
+        }
+        if (next instanceof HTMLAnchorElement) {
+          next.href = ordinal < total
+            ? lexicalWordRuntimeHref(base, ordinal + 1, mode)
+            : base + 'vocabulary/';
+          next.textContent = ordinal < total ? '→' : '完成';
+        }
+      }
+
+      document.body.dataset.lexicalMode = mode;
+      document.title = word + ' · KianOS';
+      if (mode === 'study') {
+        try { localStorage.setItem('kianos-vocabulary-last-ordinal', String(ordinal)); } catch {}
+      }
+
+      if (/\/vocabulary\/word\/?$/i.test(location.pathname)) {
+        const display = new URL(lexicalLegacyDisplayHref(base, ordinal, mode), location.origin);
+        for (const [key, value] of params.entries()) {
+          if (key !== 'o' && key !== 'mode') display.searchParams.set(key, value);
+        }
+        history.replaceState(null, '', display.pathname + display.search + display.hash);
+      }
+
+      window.dispatchEvent(new CustomEvent('kianos:vocabulary-root-ready', {
+        detail: { ordinal, word, mode }
+      }));
+    } catch {
+      fail('当前词汇加载失败，请返回 Vocabulary 后重试。');
+    }
+  };
+
+  void load();
+</script>
