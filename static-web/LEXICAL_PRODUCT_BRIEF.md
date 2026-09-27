@@ -211,23 +211,13 @@ Do not create a separate Learn home that repeats Overview state, recent history 
 
 
 
-Inherit from Shared Visual / English family:
+### Shared Visual inheritance
 
-- page canvas / ordinary surfaces;
-- navigation / return controls;
-- ordinary buttons, inputs and overlays;
-- normal border / radius / elevation language;
-- normal Chinese UI typography;
-- shared spacing / density discipline.
+Vocabulary / Lexical inherits the shared KianOS / English visual system from `KIAN_UI_PREFERENCES.md`, `UI_STYLE_BRIEF.md`, `PRESENTATION_CONTRACT.md` and the English Product owner.
 
-Forbidden family forks include:
+This file does **not** own another page canvas, generic button/input/overlay family, shared CJK UI stack, border/radius/elevation system or general spacing/density rule.
 
-- cream / yellow paper-like page themes;
-- broad gray-green or pale-green surface washes;
-- Lexical-specific decorative gradients;
-- a separate button/control family;
-- a separate UI font stack;
-- coloring the page merely to create “Lexical identity”.
+Lexical may specialize only what the lexical task actually requires below: semantic accent, lexical typography roles, Sense/Construction/Reference grouping, rich-word geometry and job-specific disclosure. Those specializations may not turn Vocabulary into a separate themed application.
 
 ### Accent ownership
 
