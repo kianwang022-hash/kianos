@@ -21,8 +21,8 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Active engineering anchor
 
-- **Issue #1004 — Xizong real-use learner walkthrough**
-- Scope: simulate real learner use across Xizong surfaces; visual/interaction judgment outranks code-level PASS.
+- **Issue #1004 — Xizong learner-runtime convergence + exam-system integration**
+- Scope: converge the shared Xizong learner runtime and prove it inside the whole Exam Orchestrator / KianOS flow; real learner visual/interaction judgment outranks code-level PASS.
 - Phase / Next / Blocker live only in Issue #1004.
 
 ### Next
