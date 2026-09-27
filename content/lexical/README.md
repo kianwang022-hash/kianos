@@ -25,6 +25,46 @@ readiness
 → ACCEPTANCE.md
 ~~~
 
+## CBA spine
+
+Lexical is the canonical backend for English Vocabulary. Its CBA chain starts from a real Vocabulary learning/semantic need, not from an old ordinal/batch frontier.
+
+```text
+NEED / OUTCOME
+→ English Vocabulary learner need
+→ LEARNING_CONTRACT.md / CONTENT_ASSET_CONTRACT.md
+→ exact Word / Relation / Form owner
+
+CREATE
+→ decide the lexical semantic / learning delta in the Natural Owner
+→ EVIDENCE_MEMORY_CONTRACT.md when learner-evidence semantics change
+→ static-web/LEXICAL_PRODUCT_BRIEF.md when learner-facing product/visual behavior changes
+→ accepted semantic / learning / product intent
+
+BUILD
+→ CURRENT.md
+→ CONTENT_EXECUTION.md when materialization is needed
+→ derived Final Learner Object only when its inputs changed
+→ actual English Vocabulary Runtime / Website consumer
+→ local/native proof + Candidate Human Gate when material UI changes
+
+AUDIT
+→ ACCEPTANCE.md
+→ INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md only when a semantic audit claim is actually open
+→ independent product/runtime attack when the built learner loop changed
+→ historical A/B/C/BF packs are not normal audit startup context
+
+REAL USE
+→ private lexical learner/evidence state
+→ genuine Coverage / Repair / Challenge / Return evidence may reopen only the earliest responsible owner
+```
+
+Rules:
+- Natural Owners hold lexical truth; execution manifests and audit packs never become semantic authority.
+- derived learner objects are rebuildable consumers, not a second lexical database.
+- a bounded semantic defect opens the exact owner; it does not resurrect the old full-catalog campaign.
+- learner-facing Vocabulary remains an English product even though lexical backend ownership is independent.
+
 ## Zones
 
 ### Learning / content rules

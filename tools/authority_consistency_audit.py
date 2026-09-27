@@ -180,17 +180,60 @@ def audit_product_owners(registry: dict) -> None:
     expected = {
         "product_surface_contract": "static-web/PRODUCT_SURFACE_CONTRACT.md",
         "steward_product_contract": "static-web/STEWARD_PRODUCT_CONTRACT.md",
+        "english_product_brief": "static-web/ENGLISH_PRODUCT_BRIEF.md",
+        "xizong_product_brief": "static-web/XIZONG_PRODUCT_BRIEF.md",
+        "politics_product_brief": "static-web/POLITICS_PRODUCT_BRIEF.md",
+        "lexical_product_brief": "static-web/LEXICAL_PRODUCT_BRIEF.md",
     }
     for key, owner in expected.items():
         check(products.get(key) == owner, "PRODUCT_OWNER_REGISTRY_DRIFT", f"{key}={products.get(key)}")
         check((REPO / owner).is_file(), "PRODUCT_OWNER_MISSING", owner)
+
+    domain_cba_spines = {
+        "english": {
+            "readme": "content/english/README.md",
+            "current": "content/english/CURRENT.md",
+            "product": "static-web/ENGLISH_PRODUCT_BRIEF.md",
+            "acceptance": "content/english/ACCEPTANCE.md",
+        },
+        "politics": {
+            "readme": "content/politics/README.md",
+            "current": "content/politics/CURRENT.md",
+            "product": "static-web/POLITICS_PRODUCT_BRIEF.md",
+            "acceptance": "content/politics/ACCEPTANCE.md",
+        },
+        "lexical": {
+            "readme": "content/lexical/README.md",
+            "current": "content/lexical/CURRENT.md",
+            "product": "static-web/LEXICAL_PRODUCT_BRIEF.md",
+            "acceptance": "content/lexical/ACCEPTANCE.md",
+        },
+    }
+    for scope, spine in domain_cba_spines.items():
+        readme = REPO / spine["readme"]
+        check(readme.is_file(), "DOMAIN_CBA_README_MISSING", f"{scope}:{spine['readme']}")
+        if not readme.is_file():
+            continue
+        value = text(readme)
+        check("## CBA spine" in value, "DOMAIN_CBA_SPINE_MISSING", scope)
+        for role in ("current", "product", "acceptance"):
+            owner = spine[role]
+            check(
+                Path(owner).name in value and (REPO / owner).is_file(),
+                "DOMAIN_CBA_OWNER_ROUTE_MISSING",
+                f"{scope}:{role}:{owner}",
+            )
 
     website_current = REPO / "static-web" / "CURRENT.md"
     root_current = REPO / "CURRENT.md"
     check(website_current.is_file(), "WEBSITE_CURRENT_MISSING")
     if website_current.is_file():
         value = text(website_current)
-        for owner in expected.values():
+        website_route_expected = (
+            expected["product_surface_contract"],
+            expected["steward_product_contract"],
+        )
+        for owner in website_route_expected:
             check(
                 Path(owner).name in value and (REPO / owner).is_file(),
                 "WEBSITE_CURRENT_MISSING_PRODUCT_ROUTE", owner,
