@@ -8,6 +8,7 @@ import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 
 import { canReuseDependencies } from './currentDependencies.mjs';
+import { terminateProcessTree } from './currentRelease.mjs';
 
 const execFileAsync = promisify(execFile);
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -145,14 +146,18 @@ async function main() {
     try { fs.rmSync(runtimeRoot, { recursive: true, force: true }); } catch {}
   };
 
-  const stop = (signal = 'SIGTERM') => {
+  const stop = () => {
     if (stopping) return;
     stopping = true;
-    try { child?.kill(signal); } catch {}
+    if (child?.pid) {
+      void terminateProcessTree(child.pid, { graceMs: 1000 }).catch((error) => {
+        console.warn('[KianOS Candidate] process-tree cleanup failed:', error?.message || error);
+      });
+    }
   };
 
-  process.on('SIGINT', () => stop('SIGINT'));
-  process.on('SIGTERM', () => stop('SIGTERM'));
+  process.on('SIGINT', stop);
+  process.on('SIGTERM', stop);
 
   try {
     dependencyLease = ensureCandidateDependencies();
@@ -168,7 +173,8 @@ async function main() {
       cwd: webRoot,
       env,
       stdio: 'inherit',
-      shell: process.platform === 'win32'
+      shell: process.platform === 'win32',
+      detached: process.platform !== 'win32'
     });
 
     const exit = new Promise((resolve, reject) => {
@@ -192,6 +198,9 @@ async function main() {
     }
     process.exitCode = result.code;
   } finally {
+    if (child?.pid && child.exitCode == null) {
+      try { await terminateProcessTree(child.pid, { graceMs: 1000 }); } catch {}
+    }
     cleanup();
   }
 }
