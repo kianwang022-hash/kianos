@@ -17,8 +17,10 @@ Classify the user's actual job before reading an engineering cursor:
 ```text
 LEARN    use / continue a learning capability; inspect the learner's actual progress / Resume
 USE      use a non-learning KianOS product or private runtime state
-BUILD    construct, audit or change Rule / Content / product / runtime semantics
-UI       change product-facing presentation / interaction
+CREATE   decide/revise Rule / Content / Learning / Product / Visual meaning with Kian when a real design/content choice is open
+BUILD    implement already accepted meaning in Engineering / Runtime / consumer paths
+UI       implement product-facing presentation / interaction; material changes include Candidate Human Gate
+AUDIT    independently verify BUILD against accepted CREATE truth; default read-only / non-redesigning
 CONTROL  system / engineering / cross-scope status, priority, blocker, task or project management
 ```
 
@@ -30,9 +32,10 @@ Examples:
 继续英语                 → LEARN
 英语做到哪了             → LEARN (read actual learner/runtime state or Resume)
 看看今天的 Steward       → USE
-优化 Steward             → BUILD
+优化 Steward             → CREATE when product meaning is open; otherwise BUILD/UI against recovered accepted design
 改 Steward UI            → UI
-继续英语内容建设         → BUILD
+继续英语内容建设         → CREATE/BUILD according to whether content meaning is still being decided or already accepted
+审计西综落地             → AUDIT
 英语内容建设做到哪了     → CONTROL
 西综工程现在到哪了       → CONTROL
 ```
@@ -69,14 +72,33 @@ Do not route ordinary Steward/product use through engineering Current. If use ex
 
 Chat may execute BUILD/UI/CONTROL work directly when the task is bounded and the active context remains sufficient. Codex is an optional execution extension, not a mandatory handoff. Delegate when doing so reduces execution/context cost without losing semantic control.
 
+## CREATE
+
+Use CREATE when the work still requires a real decision about **what the system/content/product should be**, not merely how to implement an already accepted decision.
+
+```text
+real user need / parent outcome
+→ current Rule / Content / Learning / Product / Visual basis
+→ relevant evidence / constraints
+→ discuss and decide the smallest semantic/design delta with Kian when material
+→ persist the accepted decision once in the exact canonical owner
+→ hand the accepted meaning to BUILD/UI
+```
+
+CREATE may include authoring self-checks, semantic challenge and local content/design closure. Those are part of making the asset good; they are not the later independent Reality Audit.
+
+Do not require Kian to re-decide existing accepted meaning that can be recovered from current owners. If the request is an optimization of an existing scope, apply Change Continuity first.
+
 ## BUILD
 
 ```text
 target scope CURRENT
-→ applicable Rule / Model / domain design owner
+→ accepted Rule / Model / domain design owner
 → exact canonical object + affected consumer
-→ Acceptance owner only when the claim matters
-→ work
+→ smallest implementation delta
+→ native/local proof
+→ Human Gate in UI when applicable
+→ promotion / delivery
 ```
 
 For a material change, automatically apply
@@ -144,6 +166,35 @@ work branch / worktree
 Do not use stable 4321 as a scratch preview and do not pay PR / CI / full managed-Current build cost for every visual tweak. Candidate 4322 is a transient isolated engineering projection; its local state does not become learner / execution truth. Use stable 4321 only after the accepted batch enters the release lane, or when the exact defect being diagnosed is itself stable-delivery-specific.
 
 Material UI change still inherits BUILD change continuity. Accepted surface geometry is not reopened merely because CSS/component code is being refactored.
+
+## AUDIT
+
+AUDIT is separate from CREATE/BUILD.
+
+Default posture:
+
+```text
+accepted user outcome / CREATE truth
+→ exact Current candidate / release identity
+→ still-valid native acceptance evidence
+→ actual consumer / Projection / Runtime
+→ real browser / state / delivery behavior
+→ adversarial / degraded / sustained-use attack as applicable
+→ claim + coverage + UNTESTED boundary
+```
+
+Rules:
+
+- start by asking whether BUILD faithfully realized already accepted meaning; do not redesign merely because the auditor prefers another solution;
+- reuse still-valid Source / Knowledge / Learning / Content / Visual evidence rather than rebuilding every layer;
+- audit may inspect upstream owners to establish the ruler and trace consumption, but it does not become their semantic owner;
+- default audit execution is read-only with isolated test/private state;
+- when a concrete defect is found, record the earliest responsible owner / defect class first, then route a **separate smallest BUILD/UI repair**;
+- the fixer does not declare the broad AUDIT PASS merely because its targeted regression turns green;
+- after material repair, re-enter the affected claim fresh enough to attack the same defect class and plausible siblings;
+- real learner U remains REAL USE evidence, not something synthetic AUDIT may manufacture.
+
+Large audits shard by real product/domain boundary and integrate last. The reusable risk catalog may guide attacks, but it is not a mandatory checklist or second acceptance system.
 
 ## CONTROL
 
