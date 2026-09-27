@@ -189,7 +189,9 @@ def audit_product_owners(registry: dict) -> None:
         check(products.get(key) == owner, "PRODUCT_OWNER_REGISTRY_DRIFT", f"{key}={products.get(key)}")
         check((REPO / owner).is_file(), "PRODUCT_OWNER_MISSING", owner)
 
-    domain_cba_spines = {
+    # Domain READMEs are maps, not lifecycle owners. Protect the authority
+    # edges a Fresh Chat needs without freezing one prose template or heading.
+    domain_authority_routes = {
         "english": {
             "readme": "content/english/README.md",
             "current": "content/english/CURRENT.md",
@@ -209,18 +211,17 @@ def audit_product_owners(registry: dict) -> None:
             "acceptance": "content/lexical/ACCEPTANCE.md",
         },
     }
-    for scope, spine in domain_cba_spines.items():
-        readme = REPO / spine["readme"]
-        check(readme.is_file(), "DOMAIN_CBA_README_MISSING", f"{scope}:{spine['readme']}")
+    for scope, routes in domain_authority_routes.items():
+        readme = REPO / routes["readme"]
+        check(readme.is_file(), "DOMAIN_AUTHORITY_README_MISSING", f"{scope}:{routes['readme']}")
         if not readme.is_file():
             continue
         value = text(readme)
-        check("## CBA spine" in value, "DOMAIN_CBA_SPINE_MISSING", scope)
         for role in ("current", "product", "acceptance"):
-            owner = spine[role]
+            owner = routes[role]
             check(
                 Path(owner).name in value and (REPO / owner).is_file(),
-                "DOMAIN_CBA_OWNER_ROUTE_MISSING",
+                "DOMAIN_AUTHORITY_ROUTE_MISSING",
                 f"{scope}:{role}:{owner}",
             )
 
