@@ -99,23 +99,6 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
             </details>
           )}
 
-          <section class="politicsPracticeEntry" data-politics-practice-entry>
-            <header>
-              <div><p class="politicsMicro">肖1000 · 配套验证</p><h3>原讲义学完，再做本单元配套题</h3></div>
-              <span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span>
-            </header>
-            {unit.questions.length > 0 ? (
-              <>
-                <p>题面、精修解析、错因和备注都在同一个做题页完成。</p>
-                <a class="politicsPracticeEntryAction" href={workbenchHref(unit)}>做本单元配套题 →</a>
-              </>
-            ) : unit.questionRefCount > 0 ? (
-              <div class="politicsBlocked"><strong>题目源当前没有可靠解析出来。</strong><p>不猜题干和答案；乘风原讲义学习不受影响。</p></div>
-            ) : (
-              <p class="politicsPracticeEntryQuiet" data-politics-no-verification>本单元当前没有配套题，继续后续学习即可。</p>
-            )}
-          </section>
-
           </div>
           <aside class="politicsUnitCompanion">
           <section class="politicsSource" id={`source-${unit.unitId}`} data-politics-external-source>
@@ -125,7 +108,6 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
             </header>
             <div class="politicsSourceHandoff">
               <strong>{unit.title}</strong>
-              <p>按原讲义连续学习，可中途暂停并从原位置继续。简短闭合可选；学过相关内容后再进入配套题。</p>
               {unit.sourceNodes.length > 0 ? (
                 <details class="politicsSourceLocators">
                   <summary>原讲义定位 · {unit.sourceNodes.length} 处</summary>
@@ -152,6 +134,19 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
             </div>
           </details>
 
+          <section class="politicsPracticeEntry politicsPracticeEntryDeferred" data-politics-practice-entry>
+            <header>
+              <div><p class="politicsMicro">下一步 · 肖1000</p><h3>原讲义学完后做配套题</h3></div>
+              <span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '待解析' : '本段无题'}</span>
+            </header>
+            {unit.questions.length > 0 ? (
+              <a class="politicsPracticeEntryAction" href={workbenchHref(unit)}>进入肖1000 →</a>
+            ) : unit.questionRefCount > 0 ? (
+              <p class="politicsPracticeEntryQuiet">题目源暂未可靠解析；不影响原讲义学习。</p>
+            ) : (
+              <p class="politicsPracticeEntryQuiet" data-politics-no-verification>当前无配套题，继续后续学习即可。</p>
+            )}
+          </section>
 
           {nextBridge && <p class="politicsNextBridge">接下来：{nextBridge}</p>}
           </aside>
