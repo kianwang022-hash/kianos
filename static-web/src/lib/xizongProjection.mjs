@@ -31,6 +31,7 @@ function learnerLabels(markdown) {
     .replace(/\bSystem Guide\b/g, '学习主线')
     .replace(/\bCurrent Study\b/g, '当前学习')
     .replace(/\bMicro Primary\b/g, '本块直接学习')
+    .replace(/最低\s*Primary\b/g, '最低必学部分')
     .replace(/正确\s*Primary\b/g, '正确归属')
     .replace(/上游\s*Primary\b/g, '上游归属')
     .replace(/真实\s*owner\b/gi, '对应知识位置')

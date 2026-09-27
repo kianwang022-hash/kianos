@@ -323,7 +323,21 @@ const payload = learnerObject || null;
         // outgoing connections are not moved earlier merely because a KP is revealed.
         return { extension: slot.extension || [], precision: closed ? slot.precision || [] : [], connection: closed ? slot.connection || [] : [] };
       };
-      const sourceCompanionKp = () => allKps[Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex))] || allKps[0] || null;
+      const sourceCompanionIds = () => {
+        if (root.hasAttribute('data-source-companion-kp-ids')) {
+          try {
+            const ids = JSON.parse(root.dataset.sourceCompanionKpIds || '[]');
+            if (Array.isArray(ids)) return ids.map(String).filter((id) => kpById.has(id));
+          } catch {}
+          return [];
+        }
+        return allKps.map((kp) => String(kp?.identity?.kpId || '')).filter(Boolean);
+      };
+      const sourceCompanionKp = () => {
+        const ids = sourceCompanionIds();
+        const kpId = ids[Math.max(0, Math.min(ids.length - 1, sourceLearnIndex))] || ids[0] || '';
+        return kpById.get(kpId) || null;
+      };
       const groupCompanionIds = () => array(activeGroup()?.kpIds);
       const groupCompanionKp = () => {
         const ids = groupCompanionIds();
@@ -336,10 +350,15 @@ const payload = learnerObject || null;
         .replace(/^生理\s+Lecture\s+PDF\s*/i, '')
         .replace(/^Lecture\s+PDF\s*/i, '')
         .trim();
-      const compactOutlineLocator = (value) => text(value)
-        .replace(/^生理\s+/i, '')
-        .replace(/｜/g, ' · ')
-        .trim();
+      const compactOutlineLocator = (value) => {
+        const normalized = text(value)
+          .replace(/^生理\s+/i, '')
+          .replace(/｜/g, ' · ')
+          .trim();
+        if (!normalized || /^NONE\b/i.test(normalized)) return '';
+        if (/\bIntegration Block\b|\bLecture-derived Primary\b/i.test(normalized)) return '';
+        return normalized;
+      };
       const renderActiveKpHeader = (kp, index, total, stageName) => {
         if (!(activeKpHeader instanceof HTMLElement) || !kp) return;
         const identity = el('strong', 'portedStudyActiveKpTitle', `${kp?.identity?.displayId || ''} · ${kp?.identity?.title || ''}`);
@@ -362,7 +381,10 @@ const payload = learnerObject || null;
 
       const renderCompanionCard = (host, kp, index, total, stageName) => {
         host.replaceChildren();
-        if (!kp) return;
+        if (!kp) {
+          if (activeKpHeader instanceof HTMLElement && activeStage() === stageName) activeKpHeader.replaceChildren();
+          return;
+        }
         renderActiveKpHeader(kp, index, total, stageName);
         const frame = el('section', 'xv6KpLearnCompanion');
         frame.dataset.learnerKpCompanion = stageName;
@@ -410,8 +432,9 @@ const payload = learnerObject || null;
 
       const renderCompanions = () => {
         if (sourceCompanionHost) {
-          sourceLearnIndex = Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex));
-          renderCompanionCard(sourceCompanionHost, sourceCompanionKp(), sourceLearnIndex, allKps.length, 'source_contact');
+          const sourceIds = sourceCompanionIds();
+          sourceLearnIndex = Math.max(0, Math.min(Math.max(0, sourceIds.length - 1), sourceLearnIndex));
+          renderCompanionCard(sourceCompanionHost, sourceCompanionKp(), sourceLearnIndex, sourceIds.length, 'source_contact');
         }
         const group = activeGroup();
         const groupId = group?.identity?.logicGroupId || '';
@@ -520,8 +543,16 @@ const payload = learnerObject || null;
         if (!prev && !next) return;
         const stageName = (prev || next)?.getAttribute(prev ? 'data-companion-prev' : 'data-companion-next') || '';
         const delta = next ? 1 : -1;
-        if (stageName === 'source_contact') sourceLearnIndex = Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex + delta));
+        if (stageName === 'source_contact') {
+          const ids = sourceCompanionIds();
+          sourceLearnIndex = Math.max(0, Math.min(Math.max(0, ids.length - 1), sourceLearnIndex + delta));
+        }
         if (stageName === 'kp_learn') groupLearnIndex = Math.max(0, Math.min(groupCompanionIds().length - 1, groupLearnIndex + delta));
+        rerender();
+      });
+
+      root.addEventListener('kianos:xizong-source-scope-change', () => {
+        sourceLearnIndex = 0;
         rerender();
       });
 
