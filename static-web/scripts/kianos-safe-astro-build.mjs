@@ -4,6 +4,9 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
+import { acquireWebsiteHeavyLease } from './websiteHeavyWork.mjs';
+import { terminateProcessTree } from './currentRelease.mjs';
+
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const webRoot = path.resolve(scriptDir, '..');
 const repoRoot = path.resolve(webRoot, '..');
@@ -138,18 +141,48 @@ async function main() {
   if (plan.redirected) {
     console.log('[KianOS] managed Current mirror: redirecting local Astro build to ' + plan.outDir);
   }
+
+  const lease = await acquireWebsiteHeavyLease({
+    label: 'astro-build',
+    timeoutMs: Number(process.env.KIANOS_WEBSITE_BUILD_WAIT_MS || 600000)
+  });
   const astroBin = path.join(webRoot, 'node_modules', '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro');
-  const child = spawn(astroBin, ['build', ...plan.args], {
-    cwd: webRoot,
-    env: { ...process.env, KIANOS_XIZONG_BUILD_CACHE: '1' },
-    stdio: 'inherit',
-    shell: process.platform === 'win32'
-  });
-  const code = await new Promise((resolve, reject) => {
-    child.once('error', reject);
-    child.once('exit', (exitCode) => resolve(exitCode ?? 1));
-  });
-  process.exit(code);
+  let child = null;
+  let stopping = false;
+  const stop = () => {
+    if (stopping) return;
+    stopping = true;
+    if (child?.pid) void terminateProcessTree(child.pid, { graceMs: 1000 }).catch(() => {});
+  };
+  process.once('SIGINT', stop);
+  process.once('SIGTERM', stop);
+
+  try {
+    child = spawn(astroBin, ['build', ...plan.args], {
+      cwd: webRoot,
+      env: { ...process.env, KIANOS_XIZONG_BUILD_CACHE: '1' },
+      stdio: 'inherit',
+      shell: process.platform === 'win32',
+      detached: process.platform !== 'win32'
+    });
+    lease.updateOwner({
+      pid: child.pid,
+      command: 'astro build',
+      out_dir: plan.outDir || null
+    });
+    const code = await new Promise((resolve, reject) => {
+      child.once('error', reject);
+      child.once('exit', (exitCode) => resolve(exitCode ?? 1));
+    });
+    process.exitCode = code;
+  } finally {
+    process.removeListener('SIGINT', stop);
+    process.removeListener('SIGTERM', stop);
+    if (child?.pid && child.exitCode == null) {
+      try { await terminateProcessTree(child.pid, { graceMs: 1000 }); } catch {}
+    }
+    lease.release();
+  }
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
