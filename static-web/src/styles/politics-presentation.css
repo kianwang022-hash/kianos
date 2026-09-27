@@ -48,14 +48,7 @@ body#kianos-workspace.surfaceBody-politics .politicsOverviewFoot { margin:15px 0
 body#kianos-workspace.surfaceBody-politics .politicsStudy { grid-template-columns:206px minmax(0,1fr);gap:0;justify-content:stretch;width:100%;max-width:none;border:1px solid #d7e2d9;border-radius:9px;background:#fff;overflow:clip; }
 body#kianos-workspace.surfaceBody-politics :is(.politicsOrientation,.politicsChapterClose) { border:0;border-radius:0;box-shadow:none;padding:30px 34px;margin:0;min-height:520px; }
 body#kianos-workspace.surfaceBody-politics :is(.politicsOrientation,.politicsChapterClose) h2 { font-size:28px;line-height:1.5;margin:12px 0 22px;max-width:38em; }
-body#kianos-workspace.surfaceBody-politics .politicsUnitCognition { min-width:0;padding:28px 30px; }
-body#kianos-workspace.surfaceBody-politics .politicsQuestion { margin:0;padding:0 0 18px;border:0;border-bottom:1px solid #dce7de;border-radius:0;background:none; }
-body#kianos-workspace.surfaceBody-politics .politicsQuestion span { font-size:11px;color:#73917a;margin-bottom:8px; }
-body#kianos-workspace.surfaceBody-politics .politicsQuestion strong { display:block;font-size:21px;line-height:1.7;font-weight:600; }
 body#kianos-workspace.surfaceBody-politics .subject-ethics_law .politicsApplication { grid-column:1/-1;padding:18px;background:#faf7ed;border:1px solid #ece2c7; }
-body#kianos-workspace.surfaceBody-politics .politicsQ { padding:17px;border-radius:7px; }
-body#kianos-workspace.surfaceBody-politics .politicsQ h4 {line-height:1.75; }
-body#kianos-workspace.surfaceBody-politics .politicsQ .politicsOptions button { font-size:16px;padding:9px; }
 body#kianos-workspace.surfaceBody-politics .politicsBlocked { font-size:14px;line-height:1.8;border-radius:6px; }
 /* Current Marxism topology workspace keeps its existing state/map renderer. */
 body#kianos-workspace.surfaceBody-politics .politicsCognitiveWorkspace { max-width:none;width:100%;border:1px solid var(--study-line);border-radius:9px;overflow:clip;background:#fff; }
@@ -150,8 +143,6 @@ body#kianos-workspace.surfaceBody-politics .politicsReviewActions>button { min-w
 body#kianos-workspace.surfaceBody-politics .politicsError { font-size:16px;line-height:1.75; }
 @media(max-width:1220px){
  body#kianos-workspace.surfaceBody-politics .politicsStudy { grid-template-columns:180px minmax(0,1fr); }
- body#kianos-workspace.surfaceBody-politics .politicsUnit { grid-template-columns:minmax(0,1fr) 255px; }
- body#kianos-workspace.surfaceBody-politics .politicsUnitCognition { padding:23px; }
  body#kianos-workspace.surfaceBody-politics .politicsSubjectPanel { grid-template-columns:150px minmax(0,1fr);gap:22px; }
  body#kianos-workspace.surfaceBody-politics .politicsChapterRows { grid-template-columns:1fr; }
 }
@@ -171,9 +162,6 @@ body#kianos-workspace.surfaceBody-politics .politicsError { font-size:16px;line-
  body#kianos-workspace.surfaceBody-politics .politicsSubjectIdentity h2 { display:inline;margin-right:12px;font-size:23px; }
  body#kianos-workspace.surfaceBody-politics .politicsSubjectIdentity>span { display:none; }
  body#kianos-workspace.surfaceBody-politics .politicsSubjectIdentity p { margin-top:10px; }
- body#kianos-workspace.surfaceBody-politics .politicsUnit { grid-template-columns:1fr; }
- body#kianos-workspace.surfaceBody-politics .politicsUnitCognition { padding:23px 21px; }
- body#kianos-workspace.surfaceBody-politics .politicsQuestion strong { font-size:20px; }
  body#kianos-workspace.surfaceBody-politics :is(.politicsOrientation,.politicsChapterClose) { padding:23px; }
  body#kianos-workspace.surfaceBody-politics :is(.politicsOrientation,.politicsChapterClose) h2 { font-size:24px; }
  body#kianos-workspace.surfaceBody-politics .workspaceUnit { grid-template-columns:1fr; }
@@ -190,8 +178,7 @@ body#kianos-workspace.surfaceBody-politics .politicsError { font-size:16px;line-
 }
 
 /* Exact accepted Projection values, never arbitrary raw-field expansion. */
-body#kianos-workspace.surfaceBody-politics .politicsUnit,body#kianos-workspace.surfaceBody-politics #orientation,body#kianos-workspace.surfaceBody-politics #chapter-close { scroll-margin-top:134px; }
-body#kianos-workspace.surfaceBody-politics .politicsUnit {grid-template-columns:minmax(0,1fr) 300px;gap:0;padding:0;border:0; }
+body#kianos-workspace.surfaceBody-politics #orientation,body#kianos-workspace.surfaceBody-politics #chapter-close { scroll-margin-top:134px; }
 body#kianos-workspace.surfaceBody-politics .politicsCompiledGeometry { margin:18px 0 28px; }
 body#kianos-workspace.surfaceBody-politics .compiledObject { padding:18px 0;border-bottom:1px solid #e0e8e1;min-width:0; }
 body#kianos-workspace.surfaceBody-politics .compiledObject>h3,body#kianos-workspace.surfaceBody-politics :is(.compiledBoundaries,.compiledTakeaway,.compiledExact)>h3 { margin:0 0 12px;font-size:13px;letter-spacing:.045em;color:#658771;font-weight:600; }
@@ -220,15 +207,7 @@ body#kianos-workspace.surfaceBody-politics .subject-xi .role-identity_hierarchy 
 body#kianos-workspace.surfaceBody-politics .subject-xi .role-role_summary { border-bottom:0; }
 body#kianos-workspace.surfaceBody-politics .subject-mao .role-current_relation { padding:18px 21px;border-left:3px solid #8fad91;background:#f5f8f2; }
 body#kianos-workspace.surfaceBody-politics .subject-ethics_law .role-application_rule { padding:18px 21px;background:#faf7ee;border:1px solid #e9e2d1; }
-body#kianos-workspace.surfaceBody-politics .politicsUnitCognition>.politicsQuiz { margin-top:28px;padding-top:22px;border-top:1px solid var(--study-line); }
-body#kianos-workspace.surfaceBody-politics .politicsUnitCognition>.politicsQuiz>header { display:flex;justify-content:space-between;align-items:center;margin-bottom:18px; }
-body#kianos-workspace.surfaceBody-politics .politicsUnitCognition>.politicsQuiz h3 { font-size:20px;margin:5px 0; }
-body#kianos-workspace.surfaceBody-politics .politicsUnitCognition>.politicsQuiz>header>span { font-size:13px; }
-body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsQ { padding:22px;border-radius:6px; }
-body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsQ h4 { font-size:20px;line-height:1.75; }
-body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsOptions { display:grid;grid-template-columns:1fr 1fr;gap:10px; }
-body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsOptions button { font-size:17px;line-height:1.7;padding:12px; }
-@media(max-width:760px){body#kianos-workspace.surfaceBody-politics .subject-history .compiledPrimary,body#kianos-workspace.surfaceBody-politics .subject-marxism .role-teaching_relations>.projectionValueList,body#kianos-workspace.surfaceBody-politics .politicsUnitCognition .politicsOptions {grid-template-columns:1fr;} body#kianos-workspace.surfaceBody-politics .projectionKeyValue {grid-template-columns:95px minmax(0,1fr);} }
+@media(max-width:760px){body#kianos-workspace.surfaceBody-politics .subject-history .compiledPrimary,body#kianos-workspace.surfaceBody-politics .subject-marxism .role-teaching_relations>.projectionValueList {grid-template-columns:1fr;} body#kianos-workspace.surfaceBody-politics .projectionKeyValue {grid-template-columns:95px minmax(0,1fr);} }
 
 
 /* Politics workspace vertical density: controls stay readable, but no longer

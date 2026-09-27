@@ -202,6 +202,21 @@ for (const selector of politicsLearnUnitCompanionSelectors) {
     selector + ': Politics Learn owner lost a Unit/companion selector'
   );
 }
+const politicsLearnUnitMainSelectors = [
+  '.politicsUnit',
+  '.politicsUnitCognition',
+  '.politicsQuestion',
+  '.politicsQ'
+];
+const hasCssClassToken = (value, selector) => new RegExp(
+  '\.' + selector.replace(/^\./, '') + '(?![A-Za-z0-9_-])'
+).test(value);
+for (const selector of politicsLearnUnitMainSelectors) {
+  assert.ok(
+    hasCssClassToken(politicsLearn, selector),
+    selector + ': Politics Learn owner lost a Unit-main selector'
+  );
+}
 for (const legacyLayer of ['politics-presentation.css', 'shared-workspace-composition.css', 'politics-visual-tuning.css']) {
   const value = read(path.join(src, 'styles', legacyLayer));
   assert.ok(
@@ -231,6 +246,12 @@ for (const legacyLayer of ['politics-presentation.css', 'shared-workspace-compos
   for (const selector of politicsLearnUnitCompanionSelectors) {
     assert.ok(
       !value.includes(selector),
+      legacyLayer + ': ' + selector + ' escaped the Politics Learn presentation owner'
+    );
+  }
+  for (const selector of politicsLearnUnitMainSelectors) {
+    assert.ok(
+      !hasCssClassToken(value, selector),
       legacyLayer + ': ' + selector + ' escaped the Politics Learn presentation owner'
     );
   }
