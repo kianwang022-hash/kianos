@@ -41,6 +41,96 @@ Home is therefore a final integration/routing layer, not a place to compensate f
 
 ---
 
+# 0｜Acceptance evidence discipline — prove the reality chain, not the test count
+
+Acceptance is always **claim-scoped**. The strongest repository/browser/CI result supports only the exact reality path it actually proved; it may not be enlarged into a whole-module or whole-system verdict by wording.
+
+For learner-facing and system-integration claims, the acceptance chain is:
+
+```text
+realistic user entry / intent
+→ bounded Current-owner resolution
+→ canonical Rule / Content / Visual truth
+→ actual Projection / adapter / Runtime consumer
+→ rendered + interactive product reality
+→ persisted Evidence / Resume / Return where applicable
+→ real learner use only when U is claimed
+```
+
+A downstream PASS is invalid when an earlier link required by the claim is missing, stale, unowned or merely assumed.
+
+## 0.1 Hard evidence rules
+
+1. **No claim enlargement**
+   - route/build/selector/state/screenshot PASS proves only that named check;
+   - representative fixtures prove only the represented shapes unless an explicit exhaustive oracle covers the rest;
+   - anything materially outside demonstrated coverage remains `UNTESTED`, not implicitly healthy;
+   - do not use `perfect`, `fully proven`, or equivalent whole-system language unless the stated coverage actually supports that claim.
+
+2. **Canonical → consumer closure**
+   - every Current Rule / Content / Visual object that is entitled to affect the claimed learner/product path must be traceable to its real downstream consumer and observable effect;
+   - canonical truth that should be consumed but is silently absent is `MISSING_CONSUMPTION` and blocks the dependent claim;
+   - repository completeness is not product completeness.
+
+3. **Consumer → canonical reverse trace**
+   - every material learner-visible meaning, state decision, major interaction and product geometry must be traceable back to a Current owner or an explicitly non-semantic implementation detail;
+   - learner/product behavior with no legitimate Current authority is `UNOWNED_BEHAVIOR`;
+   - a consumer still using superseded/history truth is `STALE_CONSUMPTION`;
+   - UI/runtime convenience may not invent a second semantic model.
+
+4. **Reality over weak oracles**
+   - selector/count/flag existence, HTTP 200, build green, DOM presence and screenshot creation are supporting evidence only;
+   - when usability depends on it, acceptance must inspect the actual visible meaning, attention hierarchy, geometry, first actionable content, scroll ownership, clipping/overlap, timing, focus/keyboard behavior and state transition on the intended environment;
+   - a screenshot is evidence only after the claimed visual property was actually reviewed or mechanically measured by an oracle capable of proving it.
+
+5. **Stateful human simulation**
+   - realistic acceptance must cover the state/path shapes that can materially change the claim: clean start, partial progress, Wrong/meaningful Uncertain, interruption, reload, resume/return, completion, stale/conflicting/degraded input, retry/idempotency and multi-surface handoff as applicable;
+   - do not require a Cartesian product when pairwise/representative coverage plus adversarial long walks can prove the risk more efficiently;
+   - a scripted happy path cannot stand in for sustained use.
+
+6. **Audit-harness integrity first**
+   - before trusting a product audit, prove the exact candidate/release identity, intended browser/runtime mode, relevant viewport/font/OS conditions, test-state isolation and non-mutation of real learner/private state;
+   - QA infrastructure, fixtures and oracles are themselves fallible dependencies and may become stale;
+   - a test running against the wrong artifact/environment is no evidence.
+
+7. **Fresh adversarial recheck after material repair**
+   - a repair is not broadly accepted merely because the author’s targeted regression passes;
+   - after a material defect-class repair, re-enter from Current owners/requirements with a fresh attack, replay the original failure and probe plausible sibling paths of the same defect class;
+   - same-Chat/self-attack is useful discovery but must not be silently labeled strongest independent evidence.
+
+8. **Shard large audits; integrate last**
+   - whole-system acceptance must be decomposed into bounded audit shards with the parent outcome, exact owners, design reasons/must-preserve behavior, consumers and stop conditions kept in the working set;
+   - finish and record the bounded evidence for one shard before loading another unrelated domain;
+   - cross-module/Home/whole-day integration is tested after the child capabilities it depends on are independently trustworthy;
+   - repository breadth is not permission to overload context or replace understanding with grep/count coverage.
+
+9. **System-control claims start at the real entrypoint**
+   - when claiming Fresh-Chat, Continue, Home, Chat→GitHub or system-control reliability, begin from a realistic user request and verify bounded resolution into the correct Current/canonical owner before judging downstream behavior;
+   - broad repository archaeology, historical contamination, duplicated authority, or an answer that depends on hidden prior-chat context is a failure of that claim even if the final page/code is correct.
+
+## 0.2 Verdict discipline
+
+A meaningful PASS must state, explicitly or by a clearly named acceptance owner:
+
+```text
+claim
++ exact candidate / Current basis
++ coverage actually exercised
++ material environments/states included
++ known non-blocking debt
++ material UNTESTED boundaries
+```
+
+For pre-use work, the strongest automated/simulated conclusion remains:
+
+> **READY_FOR_REAL_USER_TRIAL for the demonstrated claim and coverage.**
+
+It does not manufacture `U PASS`.
+
+Real use may still expose a defect. When it does, treat the new evidence as a failure of the earliest responsible acceptance premise, strengthen the responsible consumer/oracle or owner path, and avoid answering repeated false-passes by merely stacking another broad rule or another unrelated test suite.
+
+---
+
 # 1｜Two acceptance layers
 
 ## 1.1 Module Acceptance
