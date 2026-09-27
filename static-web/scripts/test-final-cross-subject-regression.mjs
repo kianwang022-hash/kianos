@@ -553,6 +553,7 @@ try {
 
   await openManualDailyPacketRecovery(restoredPage);
   await restoredPage.locator('[data-exam-why-dialog] [data-exam-copy-daily]').click();
+  await restoredPage.waitForFunction(() => window.__kianosCopies.length >= 1, null, { timeout: 45000 });
   await restoredPage.waitForTimeout(100);
   const restoredCopy = await restoredPage.evaluate(() => window.__kianosCopies.at(-1));
   const restoredDaily = parseDailyCopy(restoredCopy);
