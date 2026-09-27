@@ -86,6 +86,8 @@ for (const systemSummary of listProjectableXizongSystems()) {
       assert(Boolean(tableVisual?.sourceVisualBundle?.assets?.length), 'circulation-b01-kp03:p113-source-visual-missing');
       assert(tableVisual?.answerBearing === true, 'circulation-b01-kp03:p113-answer-bearing-guard-missing');
       assert(tableVisual?.displayPolicy?.timing === 'POST_REVEAL', 'circulation-b01-kp03:p113-post-reveal-timing-missing');
+      const lg01Pre = learnerObject.slots?.logicGroupPrelearn?.['circulation-b01-lg01'] || {};
+      assert(!(lg01Pre.visual || []).some((row) => row.id === 'a1-b01-kp03-cycle-table-visual'), 'circulation-b01-lg01:p113-kp-visual-leaked-to-group-prelearn');
     }
 
     totalKpVisual += report.kpVisualCount;
