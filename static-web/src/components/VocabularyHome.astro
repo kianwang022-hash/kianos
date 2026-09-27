@@ -3,7 +3,7 @@ const { rows = [] } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 ---
-<section class="lexicalHome" data-lexical-home data-base={base}>
+<section class="lexicalHome" data-lexical-home data-base={base} data-lexical-home-ready="false" aria-busy="true">
   <header class="lexicalHomeHeader">
     <div class="lexicalHomeTitle">
       <span>LEXICAL / VOCABULARY</span>
@@ -14,7 +14,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       <a class="lexicalBackEnglish" href={base + 'english/'}>← English</a>
       <span class="lexicalLocalDivider" aria-hidden="true"></span>
       <button type="button" class="active" data-lexical-tab="overview">Overview</button>
-      <a class="lexicalLearnNav" data-lexical-learn-nav href={base + 'vocabulary/word/?o=1'}>Learn</a>
+      <a class="lexicalLearnNav" data-lexical-learn-nav href="#" aria-disabled="true">Learn</a>
       <button type="button" data-lexical-tab="repair">Repair</button>
       <button type="button" data-lexical-tab="research">Research</button>
       <span class="lexicalLocalDivider" aria-hidden="true"></span>
@@ -29,23 +29,24 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
         <h3>今天继续推进</h3>
         <p>新词上限只控制今天首次进入学习的词，不清空进度，也不会形成欠账。</p>
       </div>
-      <a class="lexicalOverviewContinue" data-lexical-overview-continue href={base + 'vocabulary/word/?o=1'}>
+      <a class="lexicalOverviewContinue" data-lexical-overview-continue href="#" aria-disabled="true">
         <small>继续学习</small>
-        <strong data-lexical-overview-continue-word>开始 Vocabulary</strong>
-        <span data-lexical-overview-continue-meta>#1 / {rows.length}</span>
+        <strong data-lexical-overview-continue-word>读取学习进度…</strong>
+        <span data-lexical-overview-continue-meta>— / {rows.length}</span>
       </a>
     </section>
 
     <section class="lexicalOverviewMetrics" aria-label="Vocabulary overview metrics">
       <article>
         <span>今日新词</span>
-        <strong><b data-lexical-today-new>0</b><small> / <i data-lexical-daily-limit-view>50</i></small></strong>
-        <p>首次进入 Learn 的新词 · 今日还可 <span data-lexical-new-remaining>50</span></p>
+        <strong><b data-lexical-today-new>—</b><small> / <i data-lexical-daily-limit-view>—</i></small></strong>
+        <p>首次进入 Learn 的新词 · 今日还可 <span data-lexical-new-remaining>—</span></p>
         <label>每日新词上限
-          <select data-lexical-daily-limit>
+          <select data-lexical-daily-limit disabled>
+            <option value="" selected>—</option>
             <option value="20">20 词</option>
             <option value="30">30 词</option>
-            <option value="50" selected>50 词</option>
+            <option value="50">50 词</option>
             <option value="80">80 词</option>
             <option value="100">100 词</option>
           </select>
@@ -53,19 +54,19 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       </article>
       <article>
         <span>同日待重学</span>
-        <strong data-lexical-same-day-count>0</strong>
-        <p data-lexical-same-day-note>今天最新判断仍是 Unknown / Fuzzy</p>
+        <strong data-lexical-same-day-count>—</strong>
+        <p data-lexical-same-day-note>正在读取学习状态…</p>
         <a href="#" data-lexical-same-day-start aria-disabled="true">去重学 →</a>
       </article>
       <article>
         <span>Repair</span>
-        <strong data-lexical-repair-count>0</strong>
-        <p><span data-lexical-repair-word-count>0</span> 个词有具体 Repair 项</p>
+        <strong data-lexical-repair-count>—</strong>
+        <p><span data-lexical-repair-word-count>—</span> 个词有具体 Repair 项</p>
         <button type="button" data-lexical-go-tab="repair">去 Repair →</button>
       </article>
       <article>
         <span>已进入学习</span>
-        <strong><b data-lexical-introduced-total>0</b><small> / {rows.length}</small></strong>
+        <strong><b data-lexical-introduced-total>—</b><small> / {rows.length}</small></strong>
         <p>这是已进入学习的词数，不代表掌握率。</p>
         <button type="button" data-lexical-go-tab="research">查词库 →</button>
       </article>
@@ -76,7 +77,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
         <header>
           <div><span>RECENT</span><strong>最近学习</strong></div>
         </header>
-        <div data-lexical-overview-recent><p class="lexicalEmpty">还没有本地学习记录。</p></div>
+        <div data-lexical-overview-recent><p class="lexicalEmpty">正在读取本地学习记录…</p></div>
       </section>
 
       <section class="lexicalOverviewResearch">
@@ -112,7 +113,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
         <p>只处理当前真正留下来的局部问题；没有日历欠账，也不要求逐个打开词卡。</p>
       </div>
       <div class="lexicalRepairCount">
-        <b data-lexical-repair-count>0</b>
+        <b data-lexical-repair-count>—</b>
         <span>Repair 对象</span>
       </div>
     </header>
@@ -341,7 +342,10 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       }
 
       const select = root.querySelector('[data-lexical-daily-limit]');
-      if (select instanceof HTMLSelectElement) select.value = String(settings.daily_new_limit);
+      if (select instanceof HTMLSelectElement) {
+        select.value = String(settings.daily_new_limit);
+        select.disabled = false;
+      }
 
       const currentAlreadyIntroduced = continueRow ? Boolean(introductionDayFor(intake, continueRow.objectId)) : false;
       const blocked = Boolean(continueRow && !currentAlreadyIntroduced && remaining <= 0);
@@ -623,6 +627,8 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 
     renderOverview();
     renderRecent();
+    root.dataset.lexicalHomeReady = 'true';
+    root.setAttribute('aria-busy', 'false');
     const requestUrl = new URL(location.href);
     const requestedTab = requestUrl.searchParams.get('tab')
       || (requestUrl.searchParams.has('lookup') ? 'research' : 'overview');
