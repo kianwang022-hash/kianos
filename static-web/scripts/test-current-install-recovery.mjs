@@ -14,7 +14,7 @@ const write = (file, body) => { fs.mkdirSync(path.dirname(path.join(upstream, fi
 const run = (env) => spawnSync(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], { cwd: mirror, env: { ...process.env, ...env, KIANOS_SYNC_ONCE: '1', KIANOS_BUILD_NICE: '0' }, encoding: 'utf8', timeout: 30000 });
 try {
   fs.mkdirSync(upstream); git(upstream, 'init', '-b', 'main'); git(upstream, 'config', 'user.email', 'fixture@example.invalid'); git(upstream, 'config', 'user.name', 'Fixture');
-  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) write(`static-web/scripts/${name}`, fs.readFileSync(path.join(scripts, name)));
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs']) write(`static-web/scripts/${name}`, fs.readFileSync(path.join(scripts, name)));
   write('static-web/package.json', '{}'); write('.gitignore', 'static-web/public/\nstatic-web/dist\nstatic-web/.current-*\n'); write('fixture.txt', 'A');
   write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const r=process.argv[process.argv.indexOf('--root')+1];http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({sha:fs.existsSync(path.join(r,'bad'))?'wrong':JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha}):'ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
   git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'A'); const a = git(upstream, 'rev-parse', 'HEAD');
