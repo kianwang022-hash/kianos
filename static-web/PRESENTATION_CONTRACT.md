@@ -36,6 +36,32 @@ These levels inherit downward.
 
 A local surface may specialize shared Visual when its task genuinely requires it. It may not fork global visual language merely because a new Chat or component author prefers another style.
 
+### Design inheritance must be explicit
+
+Current design must be recoverable from durable owners, not reconstructed from implementation archaeology.
+
+Every learner-facing product/domain owner must explicitly inherit the shared Website design basis:
+
+```text
+KIAN_UI_PREFERENCES
++ UI_STYLE_BRIEF
++ PRESENTATION_CONTRACT
++ PRODUCT_SURFACE_CONTRACT where the functional split applies
+→ Product / Domain design owner
+→ exact Surface Blueprint / task design when needed
+→ Engineering
+```
+
+Rules:
+- shared owners define common constraints; they do not erase subject/product-specific design;
+- each independently meaningful Product / Domain owns its own accepted composition, interaction and task-specific Visual decisions;
+- an exact Surface owner may refine its Product owner only inside that narrower scope;
+- a child owner must not silently contradict an inherited parent requirement;
+- when a real local need conflicts with a parent, reopen the decision explicitly in CREATE and record the accepted refinement in the responsible owner;
+- missing/ambiguous parentage is a design-ownership defect. Do not use CSS source order, implementation shape, Legacy, screenshots or old PRs to guess intended design.
+
+A fresh worker should normally answer “what should this surface look/behave like, and why?” from the shared map + exact Product/Surface owners without reading implementation history.
+
 ---
 
 ## 2｜Accepted Surface Blueprints are durable design assets
@@ -367,8 +393,37 @@ It does not replace the later independent Reality Audit, and it cannot be claime
 
 Change Shared Visual once upstream when the desired effect is site-wide.
 
-Change Subject Visual only for a real domain-wide need.
+Change Product / Domain Visual only for a real product/domain-wide need.
 
 Change an Accepted Surface Blueprint only when Kian explicitly reopens it or upstream Learning Logic changes.
 
 Do not redesign a surface to solve an implementation ownership problem.
+
+### One visual decision → one effective implementation owner
+
+Low-friction Visual work requires more than naming one stylesheet as an owner.
+
+For one surface/state/breakpoint, a material visual property or geometry decision should have one effective current implementation owner. CSS inheritance, responsive refinement and state selectors are allowed; **historical override stacks are not an ownership model**.
+
+Forbidden normal pattern:
+
+```text
+old rule
+→ later override
+→ tuning override
+→ page override
+→ final emergency override
+```
+
+Required maintenance pattern when that debt is encountered:
+
+```text
+recover accepted Product / Surface design
+→ inspect final computed behavior
+→ identify the one current implementation owner
+→ converge obsolete competing rules into that owner
+→ prove representative breakpoints/states preserve the accepted design
+→ delete/retire the superseded active-path overrides
+```
+
+Do not fix a visual request by appending a higher-priority selector merely because it is the fastest editable location. If changing one ordinary geometry/property requires CSS archaeology across several active layers, treat that as Visual implementation debt and reduce the debt as part of the bounded change.

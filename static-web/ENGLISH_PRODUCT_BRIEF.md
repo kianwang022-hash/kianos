@@ -1,7 +1,8 @@
 # English Visual / Surface Blueprint
 
 Status: **CURRENT — ACCEPTED ENGLISH VISUAL / SURFACE BLUEPRINT OWNER**  
-Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md`  
+Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/UI_STYLE_BRIEF.md` + `static-web/KIAN_UI_PREFERENCES.md`
+Surface split parent: `static-web/PRODUCT_SURFACE_CONTRACT.md`
 Control router: `content/english/CURRENT.md` + `static-web/CURRENT.md`  
 Scope: learner-visible English family composition, task geometry and presentation decisions only.  
 

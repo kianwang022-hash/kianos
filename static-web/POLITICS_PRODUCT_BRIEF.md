@@ -1,9 +1,9 @@
 # Politics Visual / Surface Blueprint
 
 Status: **CURRENT — ACCEPTED POLITICS VISUAL / SURFACE BLUEPRINT OWNER**  
-Parent cursor: `static-web/CURRENT.md`  
-Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
-Style owner: `static-web/UI_STYLE_BRIEF.md`
+Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/UI_STYLE_BRIEF.md` + `static-web/KIAN_UI_PREFERENCES.md`
+Surface split parent: `static-web/PRODUCT_SURFACE_CONTRACT.md`
+Parent cursor: `static-web/CURRENT.md`
 
 This file records accepted learner-visible Politics product decisions while Kian and Sol review the Politics family surface-by-surface. It does not change Politics learning/evidence semantics.
 

@@ -4,10 +4,9 @@ Status: **CURRENT — ACCEPTED XIZONG VISUAL / SURFACE BLUEPRINT OWNER**
 Parent UI cursor: `static-web/CURRENT.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Lane router: `content/xizong/CURRENT.md`  
-Shared projection grammar: `static-web/PRESENTATION_CONTRACT.md`  
+Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/UI_STYLE_BRIEF.md` + `static-web/KIAN_UI_PREFERENCES.md`
+Surface split parent: `static-web/PRODUCT_SURFACE_CONTRACT.md`
 **UI review safety protocol: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`**  
-Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
-Shared L1 style owner: `static-web/UI_STYLE_BRIEF.md`  
 **Xizong L2 visual owner: `static-web/XIZONG_VISUAL_LANGUAGE.md`**
 
 This file owns the accepted learner-visible Xizong product and Projection architecture boundary. It is durable product truth, not a construction-stage brief or active implementation cursor. It does **not** change medical Content, Learning Logic, Evidence semantics, learner progress, or the S/K/L/P/R/E/U status of any System.

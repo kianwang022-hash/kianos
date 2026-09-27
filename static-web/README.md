@@ -14,6 +14,60 @@ ENGINEERING / RUNTIME
 
 The Website consumes canonical Content from `../content/`; it does not become a second Content owner.
 
+## Human-facing design inheritance
+
+Kian should be able to recover the current Website design without remembering old Chats, CSS history or implementation details.
+
+```text
+SHARED WEBSITE REQUIREMENTS
+├─ PRODUCT_SURFACE_CONTRACT.md
+│  → what Home / Steward / Radar / Subject / Global Dock are for
+├─ PRESENTATION_CONTRACT.md
+│  → how Visual inheritance, Surface Blueprints and Human Gate work
+├─ UI_STYLE_BRIEF.md
+│  → shared visual language
+└─ KIAN_UI_PREFERENCES.md
+   → KianOS-wide accepted visual / interaction preferences
+            ↓ inherited by every product
+
+PRODUCT / DOMAIN DESIGN OWNER
+├─ Steward  → STEWARD_PRODUCT_CONTRACT.md
+├─ English  → ENGLISH_PRODUCT_BRIEF.md
+├─ Politics → POLITICS_PRODUCT_BRIEF.md
+├─ Xizong   → XIZONG_PRODUCT_BRIEF.md
+└─ Lexical  → LEXICAL_PRODUCT_BRIEF.md
+            ↓ refine only their own product
+
+SURFACE / TASK DESIGN OWNER
+→ exact accepted page/workspace design when the product has one
+            ↓
+
+ENGINEERING IMPLEMENTATION
+→ component / CSS / Runtime realizes the inherited design
+→ implementation order or CSS cascade never becomes design authority
+```
+
+Hard rules:
+- shared Website owners define common requirements, not one universal page layout;
+- every independently meaningful product/domain keeps its own current Product/Visual design owner;
+- a Surface owner may refine its product, but may not silently contradict its product parent or shared Website requirements;
+- if a lower design genuinely needs to conflict with a parent, reopen that parent/child design decision explicitly in CREATE rather than letting CSS/source order decide;
+- if the current design cannot be resolved from this map + exact owner chain, treat that as `OWNER_UNRESOLVED`, not permission to infer from Legacy, screenshots, old PRs or current CSS;
+- old implementation/history may explain provenance, but it does not issue current design instructions.
+
+For a normal Website request:
+
+```text
+“改这个页面 / 这个板块”
+→ shared Website requirements
+→ exact Product / Domain design owner
+→ exact Surface owner when one exists
+→ BUILD implementation
+→ Candidate Human Gate when material
+```
+
+This README is the map, not another design owner.
+
 ## Zone map
 
 ### Shared Product / Visual

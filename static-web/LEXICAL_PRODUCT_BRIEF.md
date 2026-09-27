@@ -1,8 +1,8 @@
 # Lexical Visual / Surface Blueprint
 
 Status: **CURRENT — ACCEPTED LEXICAL VISUAL / SURFACE BLUEPRINT OWNER**  
-Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md`  
-Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
+Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/UI_STYLE_BRIEF.md` + `static-web/KIAN_UI_PREFERENCES.md`
+Surface split parent: `static-web/PRODUCT_SURFACE_CONTRACT.md`
 Rule / Model owner: `content/lexical/LEARNING_CONTRACT.md`  
 Content-quality owner: `content/lexical/CONTENT_ASSET_CONTRACT.md`  
 Control router: `content/lexical/CURRENT.md`

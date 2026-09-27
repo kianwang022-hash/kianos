@@ -16,6 +16,21 @@ Semantic owner: KianOS product surface split / information architecture. This is
 
 One source fact may have linked projections on multiple surfaces; there is one actual owner and one completion semantics. Strategic task visibility on Home and time placement on Steward are complementary, not duplicate independently checkable task lists. Sensitive details stay out of Home and public assets.
 
+## 1A. Shared split does not replace product/domain design
+
+This contract answers which top-level surface owns which user job. It does not define one universal visual/product design for every subject.
+
+Every independently meaningful learner-facing product/domain keeps one current Product/Visual owner under the shared Website requirements. That owner defines its own task-native composition and interaction, and exact Surface Blueprints may refine it further.
+
+```text
+shared surface job / shared Visual requirements
+→ exact Product / Domain design owner
+→ exact Surface design when needed
+→ Engineering implementation
+```
+
+If a product owner and this shared functional split appear to conflict, do not resolve the conflict in CSS or page code. Reopen the design boundary explicitly in CREATE.
+
 ## 2. Home progress is subject-native
 
 Use current observed learner evidence, not content produced, files built, page views or elapsed time as completion. A percentage requires an identified meaningful denominator, current scope and corresponding evidence. Omit it when unsupported; missing is unknown, not zero.

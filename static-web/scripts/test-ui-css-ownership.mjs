@@ -132,6 +132,42 @@ for (const [name, forbidden] of [
 }
 
 
+const websiteMap = read(path.join(root, 'README.md'));
+const presentationContract = read(path.join(root, 'PRESENTATION_CONTRACT.md'));
+const productSurfaceContract = read(path.join(root, 'PRODUCT_SURFACE_CONTRACT.md'));
+const productDesignOwners = [
+  'STEWARD_PRODUCT_CONTRACT.md',
+  'ENGLISH_PRODUCT_BRIEF.md',
+  'POLITICS_PRODUCT_BRIEF.md',
+  'XIZONG_PRODUCT_BRIEF.md',
+  'LEXICAL_PRODUCT_BRIEF.md'
+];
+
+assert.ok(
+  presentationContract.includes('Design inheritance must be explicit'),
+  'Presentation Contract lost explicit design-inheritance boundary'
+);
+assert.ok(
+  productSurfaceContract.includes('Shared split does not replace product/domain design'),
+  'Product Surface Contract lost product/domain design boundary'
+);
+
+for (const name of productDesignOwners) {
+  const value = read(path.join(root, name));
+  assert.ok(
+    websiteMap.includes(name),
+    `${name}: product design owner is missing from static-web/README.md design map`
+  );
+  assert.ok(
+    value.includes('PRESENTATION_CONTRACT.md'),
+    `${name}: product design owner must inherit PRESENTATION_CONTRACT.md`
+  );
+  assert.ok(
+    value.includes('PRODUCT_SURFACE_CONTRACT.md'),
+    `${name}: product design owner must inherit PRODUCT_SURFACE_CONTRACT.md`
+  );
+}
+
 const stewardLocal = read(path.join(src, 'styles', 'steward-workspace.css'));
 const sharedShell = read(path.join(src, 'styles', 'shared-shell.css'));
 
