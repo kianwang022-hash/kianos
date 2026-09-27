@@ -331,6 +331,7 @@ Hard requirements:
 - an old implementation must not remain active merely because later CSS/code overrides it;
 - search/read paths for routine work should not be dominated by historical packs;
 - retained cold evidence must be clearly non-authoritative and referenced for a concrete reason;
+- **path/name keywords are never sufficient evidence for retirement**: a token such as `history`, `audit`, `old` or `legacy` may be part of a current domain identity. Pruning must prove the asset has no Current authority/consumer dependency rather than infer meaning from its filename;
 - when a retained historical dependency is no longer consumed, remove it from the Current tree rather than preserving it indefinitely for comfort.
 
 This requirement is about **current cognitive clarity**, not cosmetic folder cleanliness.

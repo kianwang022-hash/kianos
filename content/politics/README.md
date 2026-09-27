@@ -48,7 +48,7 @@ whole-cycle maturity
 ### Projection / learner composition
 
 - SURFACE_MAPPING_CONTRACT.md — explicit semantic mapping before UI.
-- projection/ — exact derived projection owners.
+- projection/ — exact derived projection owners. **`projection/history/` means the Politics History subject (史纲), not archival history; it is Current derived input when its chapter owners are Current.**
 - derived/ — mechanically/semantically derived assets; not independent truth.
 
 ### Later-stage / exam-cycle assets
