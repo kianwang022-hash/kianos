@@ -9,9 +9,12 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ## Active engineering anchor
 
-None.
+Issue #1015 — **Politics rapid-mastery first-pass probe**.
 
-Issue #1008 is closed history. Rebind only for a new concrete Politics defect, Source change, explicit product decision, or explicit fresh independent re-acceptance.
+- Phase / Next / Blocker live in Issue #1015 while it is open.
+- Exact Content / Learning / Interaction / Practice / Evidence truth remains with the native owner.
+- This anchor owns only the bounded rapid-mastery implementation campaign.
+- Ordinary Politics learning still bypasses this engineering anchor.
 
 ## Current routing
 
