@@ -143,6 +143,34 @@ try {
   await page.screenshot({ path: new URL('study-timer-desktop.png', auditDir).pathname, fullPage: false });
   await desktop.close();
 
+  const lexical = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const lexicalPage = await lexical.newPage();
+  await lexicalPage.goto(`${BASE}/vocabulary/word/?o=16`, { waitUntil: 'networkidle' });
+  const lexicalTimer = lexicalPage.locator('[data-study-timer-dock]');
+  const lexicalActions = lexicalPage.locator('[data-vocab-action-dock]');
+  await lexicalTimer.waitFor({ state: 'visible' });
+  await lexicalActions.waitFor({ state: 'visible' });
+  await lexicalPage.waitForTimeout(120);
+  const lexicalClearance = await lexicalPage.evaluate(() => {
+    const timer = document.querySelector('[data-study-timer-dock]');
+    const actions = document.querySelector('[data-vocab-action-dock]');
+    const tr = timer?.getBoundingClientRect();
+    const ar = actions?.getBoundingClientRect();
+    return {
+      timer: tr ? { top: tr.top, bottom: tr.bottom, left: tr.left, right: tr.right } : null,
+      actions: ar ? { top: ar.top, bottom: ar.bottom, left: ar.left, right: ar.right } : null,
+      stored: localStorage.getItem('kianos-study-timer-dock-position-v1')
+    };
+  });
+  check(
+    Boolean(lexicalClearance.timer && lexicalClearance.actions && lexicalClearance.timer.bottom <= lexicalClearance.actions.top - 8),
+    'shared_default_timer_clears_fixed_bottom_actions',
+    JSON.stringify(lexicalClearance)
+  );
+  check(lexicalClearance.stored === null, 'auto_clearance_does_not_persist_fake_drag_position', String(lexicalClearance.stored));
+  await lexicalPage.screenshot({ path: new URL('study-timer-lexical-clearance.png', auditDir).pathname, fullPage: false });
+  await lexical.close();
+
   const mobile = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const mobilePage = await mobile.newPage();
   await mobilePage.goto(`${BASE}/politics/history/ch01/`, { waitUntil: 'networkidle' });
