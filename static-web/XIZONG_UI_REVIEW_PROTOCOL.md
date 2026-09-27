@@ -45,7 +45,7 @@ Required approach:
 ```text
 understand whole learner loop
 → locate the local surface inside that loop
-→ audit existing Projection / Runtime responsibilities
+→ review existing Projection / Runtime responsibilities
 → optimize only what is truly local
 → re-check upstream + downstream invariants
 ```
@@ -232,7 +232,7 @@ The purpose is not broad archaeology. It is to understand the exact live loop th
 
 ---
 
-# 5｜Optimization-first audit
+# 5｜Optimization-first review
 
 After the whole journey is understood, classify each material local element before recommending change:
 
@@ -279,7 +279,7 @@ For each Xizong surface, discussion should follow:
 ```text
 A. whole-flow position — what role this surface plays in the complete learner journey
 B. existing closed behavior — what already works and must survive
-C. local Projection audit — KEEP / OPTIMIZE / RESTORE_FROM_CURRENT / DEMOTE
+C. local Projection review — KEEP / OPTIMIZE / RESTORE_FROM_CURRENT / DEMOTE
 D. Mac-wide recommendation — geometry, density, visibility, controls
 E. upstream/downstream safety check
 F. Kian acceptance
