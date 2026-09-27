@@ -21,6 +21,7 @@ const out=String(arg('out','')).trim();
 if(start<1||end<start||end>7946)throw new Error('INVALID_TRAVERSAL_RANGE');
 
 const forbidden=/Final Learner Object|event identity|lexical evidence|手动载入\s*\/\s*调试|Paste Challenge Packet|sha256:|Canonical projection|Search all Current Words|Current 词库|source_locator|target_locator|target_revision/i;
+const compactText=(value)=>String(value??'').replace(/\s+/g,' ').trim();
 
 const expected=new Map();
 for(let ordinal=start;ordinal<=end;ordinal+=1){
@@ -33,12 +34,29 @@ for(let ordinal=start;ordinal<=end;ordinal+=1){
     ||(reference.form&&typeof reference.form==='object')
     ||(Array.isArray(reference.family)&&reference.family.length)
   );
+  const senseRows=[
+    ...(Array.isArray(record.senses)?record.senses:[]),
+    ...(Array.isArray(record.secondary_senses)?record.secondary_senses:[])
+  ].map((sense)=>({
+    cn:compactText(sense?.definition_cn),
+    en:compactText(sense?.definition_en),
+    pattern:compactText(sense?.governing_pattern||sense?.pattern),
+    usage:(Array.isArray(sense?.usage)?sense.usage:[]).map((item)=>({
+      phrase:compactText(item?.phrase),
+      meaning:compactText(item?.meaning_cn)
+    }))
+  }));
+  const constructionRows=(Array.isArray(record.constructions)?record.constructions:[]).map((item)=>({
+    pattern:compactText(item?.pattern),
+    lines:(Array.isArray(item?.lines)?item.lines:[])
+      .map((line)=>compactText(line?.text))
+      .filter(Boolean)
+  }));
   expected.set(ordinal,{
     ordinal,
     word:String(record.word||''),
-    senseCount:(Array.isArray(record.senses)?record.senses.length:0)
-      +(Array.isArray(record.secondary_senses)?record.secondary_senses.length:0),
-    constructionCount:Array.isArray(record.constructions)?record.constructions.length:0,
+    senseRows,
+    constructionRows,
     hasReference
   });
 }
@@ -132,11 +150,26 @@ try{
       const canvas=document.querySelector('.kianosShellMain > .productCanvas');
       const rail=root?.querySelector('.portedVocabEvidenceColumn');
       const rect=root?.getBoundingClientRect();
+      const textValue=(value)=>String(value??'').replace(/\s+/g,' ').trim();
       const senseRows=[...(root?.querySelectorAll('.lexicalSenseRow')||[])].map((row)=>({
-        cn:String(row.querySelector('.lexicalSenseMeaning > p')?.textContent||'').trim(),
-        en:String(row.querySelector('.lexicalSenseMeaning > strong')?.textContent||'').trim()
+        cn:textValue(row.querySelector('.lexicalSenseMeaning > p')?.textContent||''),
+        en:textValue(row.querySelector('.lexicalSenseMeaning > strong')?.textContent||''),
+        pattern:textValue(
+          row.querySelector('header > small')?.textContent
+          ||row.querySelector('.lexicalSecondaryUsage code')?.textContent
+          ||''
+        ),
+        usage:[...(row.querySelectorAll('.lexicalSenseUsage li')||[])].map((item)=>({
+          phrase:textValue(item.querySelector('b')?.textContent||''),
+          meaning:textValue(item.querySelector('span')?.textContent||'')
+        }))
       }));
-      const constructionCount=root?.querySelectorAll('.lexicalPatternList article').length||0;
+      const constructionRows=[...(root?.querySelectorAll('.lexicalPatternList article')||[])].map((item)=>({
+        pattern:textValue(item.querySelector('b')?.textContent||''),
+        lines:[...(item.querySelectorAll('.lexicalPatternText span')||[])]
+          .map((line)=>textValue(line.textContent||''))
+          .filter(Boolean)
+      }));
       const text=String(root?.innerText||'');
       const rootOverflow=root?Math.max(0,root.scrollWidth-root.clientWidth):0;
       const canvasOverflow=canvas?Math.max(0,canvas.scrollWidth-canvas.clientWidth):0;
@@ -163,7 +196,7 @@ try{
         hasReference:String(body?.getAttribute('data-has-reference')||''),
         railCount:rail?1:0,
         senseRows,
-        constructionCount,
+        constructionRows,
         dockDisplay:dock?getComputedStyle(dock).display:'',
         engineeringText:text,
         rootOverflow,
@@ -180,14 +213,34 @@ try{
     if(observed.mode!=='lookup')checks.push(['LOOKUP_MODE',observed.mode,'lookup']);
     if(observed.revealed!=='true')checks.push(['LOOKUP_NOT_REVEALED',observed.revealed,'true']);
     if(observed.dockDisplay!=='none')checks.push(['LOOKUP_DOCK_VISIBLE',observed.dockDisplay,'none']);
-    if(observed.senseRows.length!==exp.senseCount)checks.push(['SENSE_COUNT',observed.senseRows.length,exp.senseCount]);
+    if(observed.senseRows.length!==exp.senseRows.length)checks.push(['SENSE_COUNT',observed.senseRows.length,exp.senseRows.length]);
     for(const [index,row] of observed.senseRows.entries()){
-      const cn=row.cn==='—'?'':row.cn;
-      const en=row.en==='—'?'':row.en;
-      if(!cn&&!en)checks.push(['EMPTY_LEARNER_SENSE',index,row]);
+      const expectedRow=exp.senseRows[index]||null;
+      const actual={
+        cn:row.cn==='—'?'':row.cn,
+        en:row.en==='—'?'':row.en,
+        pattern:row.pattern||'',
+        usage:row.usage||[]
+      };
+      if(!actual.cn&&!actual.en)checks.push(['EMPTY_LEARNER_SENSE',index,row]);
+      if(expectedRow&&(
+        actual.cn!==expectedRow.cn
+        ||actual.en!==expectedRow.en
+        ||actual.pattern!==expectedRow.pattern
+        ||JSON.stringify(actual.usage)!==JSON.stringify(expectedRow.usage)
+      )){
+        checks.push(['SENSE_CONTENT',index,actual,expectedRow]);
+      }
     }
-    if(observed.constructionCount!==exp.constructionCount){
-      checks.push(['CONSTRUCTION_COUNT',observed.constructionCount,exp.constructionCount]);
+    if(observed.constructionRows.length!==exp.constructionRows.length){
+      checks.push(['CONSTRUCTION_COUNT',observed.constructionRows.length,exp.constructionRows.length]);
+    }else{
+      for(const [index,row] of observed.constructionRows.entries()){
+        const expectedRow=exp.constructionRows[index];
+        if(row.pattern!==expectedRow.pattern||JSON.stringify(row.lines)!==JSON.stringify(expectedRow.lines)){
+          checks.push(['CONSTRUCTION_CONTENT',index,row,expectedRow]);
+        }
+      }
     }
     const domReference=observed.hasReference==='true'&&observed.railCount===1;
     const domNoReference=observed.hasReference==='false'&&observed.railCount===0;
