@@ -31,6 +31,7 @@ Content production remains independent and routes through the exact English / Xi
 
 | Need | Exact first owner | Read further only if needed |
 | --- | --- | --- |
+| UI iteration / Human Gate preview | [Candidate runtime](scripts/kianos-candidate-runtime.mjs) | exact Product / Visual / surface owner → managed Current only after Human Gate PASS |
 | Site did not update / will not open | [Current doctor](scripts/kianos-current-doctor.mjs) | [sync/build](scripts/kianos-current-sync.mjs) → [static server](scripts/kianos-static-server.mjs) |
 | Chat cannot see learner facts | [private Packet builder](scripts/privateDailyLearningPacket.mjs) | Packet relay → affected subject adapter |
 | Chat instruction did not apply | [control runtime](src/lib/privateControlRuntime.mjs) | control relay → exact command/native operation |
@@ -45,6 +46,8 @@ Content production remains independent and routes through the exact English / Xi
 
 ## Runtime boundaries
 
+- Candidate `127.0.0.1:4322` is the transient isolated engineering lane for ordinary UI / Human-Gate iteration; stable `127.0.0.1:4321` is not a scratch preview.
+- Candidate state is never learner / execution truth. After Human Gate PASS, one durable PR enters the existing managed Current release lane.
 - GitHub `main` is durable shared asset/Current truth; the Mac mirror and served release are delivery projections.
 - Static/content/runtime-impacting changes build and validate a candidate before atomic promotion; failed promotion preserves last-known-good service.
 - Proven control-only changes may advance `control_sha` without changing the served-release `sha`.
