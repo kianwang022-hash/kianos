@@ -1141,3 +1141,64 @@ body#kianos-workspace.surfaceBody-politics .politicsChapterLocation h1{font-size
 @media (max-width:760px){
 body#kianos-workspace.surfaceBody-politics .politicsChapterLocation{flex-wrap:wrap;padding:12px 16px;}
 }
+
+/* Chapter Rail cascade consolidated from former later layers; source order preserved. */
+
+/* from src/styles/politics-presentation.css · 11 rules */
+body#kianos-workspace.surfaceBody-politics .politicsRail>.politicsBack { display:none; }
+
+body#kianos-workspace.surfaceBody-politics .politicsRail>span { font-size:12px;font-weight:600;padding:0 12px; }
+
+body#kianos-workspace.surfaceBody-politics .politicsRail>strong { font-size:16px;font-weight:600;padding:0 12px; }
+
+body#kianos-workspace.surfaceBody-politics .politicsRail nav { gap:3px;margin-top:18px; }
+
+body#kianos-workspace.surfaceBody-politics .politicsRail nav a { padding:12px;font-size:15px;line-height:1.65;border-radius:5px;color:#596f5e; }
+
+body#kianos-workspace.surfaceBody-politics .politicsRail nav a.active { background:#e6f1e9;color:#286443;box-shadow:inset 3px 0 #57946b;font-weight:600; }
+
+@media (max-width:1000px){
+body#kianos-workspace.surfaceBody-politics .politicsRail>span,body#kianos-workspace.surfaceBody-politics .politicsRail>strong { display:none; }
+}
+
+@media (max-width:1000px){
+body#kianos-workspace.surfaceBody-politics .politicsRail nav { display:flex;overflow-x:auto;gap:5px;margin:0; }
+}
+
+@media (max-width:1000px){
+body#kianos-workspace.surfaceBody-politics .politicsRail nav a { flex:0 0 auto;max-width:240px;font-size:14px;padding:9px 12px; }
+}
+
+body#kianos-workspace.surfaceBody-politics .politicsRail { position:sticky;align-self:start;display:grid;gap:5px;padding:22px 12px;max-height:calc(100dvh - 95px);border:0;border-radius:0;background:#f7faf7; top:135px; }
+
+@media (max-width:1000px){
+body#kianos-workspace.surfaceBody-politics .politicsRail { position:static;max-height:none;padding:12px;border-bottom:1px solid var(--study-line);top:58px;}
+}
+
+/* from src/styles/shared-workspace-composition.css · 2 rules */
+@media (min-width:1101px) and (min-height:680px){
+body#kianos-workspace.surfaceBody-politics .politicsRail { position:static;align-self:stretch;min-height:0;max-height:none;overflow:auto;padding:15px 10px; }
+}
+
+@media (min-width:1101px) and (min-height:680px){
+body#kianos-workspace.surfaceBody-politics .politicsRail nav { margin-top:12px; }
+}
+
+/* from src/styles/politics-visual-tuning.css · 7 rules */
+body#kianos-workspace.surfaceBody-politics .politicsRail{display:flex;justify-content:flex-start;gap:6px;padding:18px 10px;}
+
+body#kianos-workspace.surfaceBody-politics .politicsRail>strong{font-size:17px;line-height:1.5;}
+
+body#kianos-workspace.surfaceBody-politics .politicsRail nav{display:flex;flex-direction:column;gap:4px;margin-top:18px;}
+
+body#kianos-workspace.surfaceBody-politics .politicsRail nav a{padding:11px 12px;font-size:16px;line-height:1.6;color:#53695c;}
+
+body#kianos-workspace.surfaceBody-politics .politicsRail nav a.active{color:#28563e;background:#e8f1ea;}
+
+@media (max-width:760px){
+body#kianos-workspace.surfaceBody-politics .politicsRail{padding:12px;}
+}
+
+@media (max-width:760px){
+body#kianos-workspace.surfaceBody-politics .politicsRail nav{margin-top:10px;}
+}
