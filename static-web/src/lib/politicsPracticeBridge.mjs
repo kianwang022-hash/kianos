@@ -8,12 +8,10 @@ export function installPoliticsPracticeBridge() {
   for (const config of configs) {
     const source = document.getElementById(config.source_anchor);
     if (!source || !config.expected_question_ids.length) continue;
-    const link = document.createElement('a');
+    const unit = source.closest('[data-politics-unit]');
+    const link = unit?.querySelector('[data-workspace-practice-link], .politicsPracticeEntryAction');
+    if (!(link instanceof HTMLAnchorElement)) continue;
     link.dataset.practiceUnitEntry = config.unit_key;
-    link.href = `${base}politics/practice/?unit=${encodeURIComponent(config.unit_key)}`;
-    link.textContent = '在工作台做本单元配套题 →';
-    link.style.cssText = 'display:block;margin-top:12px;font-size:16px;color:#246a55;font-weight:650';
-    source.append(link);
   }
   const params = new URLSearchParams(location.search);
   if (!params.has('practiceSession') && !params.has('practiceQuestion')) return;
