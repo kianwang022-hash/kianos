@@ -57,20 +57,31 @@ These are **logical zones, not separate truth systems**. Several durable root ow
 
 ## Requirement → reality lifecycle
 
-The shared cross-system lifecycle is owned upstream in Personal OS `KERNEL.md §2 / Requirement → Reality change loop`. KianOS specializes it as:
+The shared lifecycle is owned upstream in Personal OS `KERNEL.md §2 / Requirement → Reality change loop`.
+
+KianOS uses the same four jobs:
 
 ```text
-real need / outcome
-→ recover current KianOS owner + parent design basis
-→ Rule / Content / Visual / Engineering change only where needed
-→ Product / Runtime integration
-→ delivery to the real consumer
-→ native acceptance + end-to-end reality acceptance
-→ real-use evidence
-→ revise the earliest responsible owner when reality changes the accepted meaning
+CREATE
+→ Kian + Chat decide/revise the needed Rule / Content / Learning / Product / Visual meaning
+
+BUILD
+→ Engineering / Codex implements it
+→ native/local proof
+→ real Candidate Human Gate for material UI
+→ promotion / delivery
+
+AUDIT
+→ independently verify the implementation against accepted meaning
+→ simulate/stress the real consumer, state, browser, delivery and failure paths
+→ report exact coverage / UNTESTED; do not redesign by preference
+
+REAL USE
+→ Kian uses normally
+→ genuine evidence may reopen the earliest responsible owner
 ```
 
-Local optimization is a delta against the current parent basis, not permission to redesign nearby layers.
+For an existing optimization, recover only the relevant parent outcome, design rationale, must-preserve behavior, exact owner and real consumer before choosing the delta. Do not restart the whole system or ask Kian to repeat decisions already recorded in current owners.
 
 ## Core product flow
 
