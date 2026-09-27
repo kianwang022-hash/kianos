@@ -1,114 +1,83 @@
 # KianOS
 
-Role: **static product/repository orientation**. Live engineering/status routing is owned by `CURRENT.md`; worker entry/routing is owned by `AGENTS.md`. This README is not a second Current, Acceptance ledger or semantic owner.
+Role: **static product/repository orientation**. Live engineering/status routing is owned by `CURRENT.md`; worker entry/routing is owned by `AGENTS.md`. This README is a map, not a second rulebook, Current, Acceptance ledger or semantic owner.
 
 KianOS is Chat's durable **knowledge + visual + runtime + reality-feedback** product extension for Kian.
 
 ## Human-facing system map
 
-Think about KianOS in these zones:
-
 ```text
-WHY / SYSTEM
-→ PROJECT_DEFINITION.md
-→ ARCHITECTURE.md
-→ SYSTEM_CONTRACT.md
-
-HOW WORK ENTERS / CONTINUES
-→ AGENTS.md
-→ CURRENT.md
-→ PROJECT_MANAGEMENT_CONTRACT.md when execution coordination matters
-
-AUTHORITY / CHANGE SAFETY
-→ AUTHORITY_INHERITANCE_CONTRACT.md
-→ AUTHORITY_OWNERSHIP.json
-→ SEMANTIC_BASE_VALIDITY.md
-→ BRANCH_LIFECYCLE.md
-
-BUILD QUALITY / ACCEPTANCE
-→ LEARNING_ASSET_STANDARD.md
-→ LEARNING_ACCEPTANCE.md
-→ GOVERNANCE_ACCEPTANCE.md only for top-level governance claims
-
-EXAM SYSTEM
-→ cross-subject orchestration
-   → EXAM_ORCHESTRATOR_CONTRACT.md
-   → EXAM_ORCHESTRATOR_CURRENT.json — derived projection, not a Work Cursor
-→ specialized subject maturity attack
-   → EXAM_SUBJECT_MATURITY_STANDARD.md — inherits LEARNING_ACCEPTANCE; not routine acceptance
-
-DOMAIN KNOWLEDGE / LEARNING
-→ content/
-   ├─ xizong/   → content/xizong/README.md
-   ├─ english/  → content/english/README.md
-   ├─ politics/ → content/politics/README.md
-   ├─ lexical/  → content/lexical/README.md
-   └─ skills/    → content/skills/README.md
-
-PRODUCT / WEBSITE / RUNTIME
-→ static-web/ → static-web/README.md
-
-MACHINE ENFORCEMENT
-→ tools/
-→ .github/
+KianOS
+├─ 2027 Postgraduate Exam System
+│  ├─ durable exam design / orchestration
+│  │  → EXAM_ORCHESTRATOR_CONTRACT.md
+│  │  → EXAM_ORCHESTRATOR_CURRENT.json is a checked DERIVED_PROJECTION
+│  │
+│  ├─ learner systems
+│  │  ├─ Xizong   → content/xizong/README.md
+│  │  ├─ English  → content/english/README.md
+│  │  │  └─ Vocabulary is learner-facing under English;
+│  │  │     canonical lexical backend → content/lexical/README.md
+│  │  └─ Politics → content/politics/README.md
+│  │
+│  ├─ product surfaces
+│  │  → static-web/PRODUCT_SURFACE_CONTRACT.md
+│  │  → exact Product / Surface owners under static-web/
+│  │
+│  └─ shared execution / Runtime
+│     → SYSTEM_CONTRACT.md
+│     → exact runtime / Resume / Return / Evidence / Delivery owner
+│
+├─ Skills / promoted non-exam capabilities
+│  → content/skills/README.md
+│
+└─ future independently continuable capabilities
+   → establish the requirement / owner boundary before BUILD
 ```
 
-These are **logical zones, not separate truth systems**. Several durable root owners intentionally remain at repository root because many consumers depend on their stable paths. Do not move them merely for cosmetic folder symmetry.
+This is a **logical capability hierarchy**, not a folder-placement rule. Physical repository location does not change semantic ownership.
 
-## Requirement → reality lifecycle
+## Shared root owners
 
-The shared lifecycle is owned upstream in Personal OS `KERNEL.md §2 / Requirement → Reality change loop`.
+- KianOS purpose / success requirements → `PROJECT_DEFINITION.md`
+- permanent KianOS responsibilities and hierarchy → `ARCHITECTURE.md`
+- authority inheritance / Change Continuity / propagation / Current-history separation → `AUTHORITY_INHERITANCE_CONTRACT.md`
+- machine-readable shared-owner topology → `AUTHORITY_OWNERSHIP.json`
+- worker intent / entry routing → `AGENTS.md`
+- current engineering/status routing → `CURRENT.md`
+- execution coordination / batching / delivery discipline → `PROJECT_MANAGEMENT_CONTRACT.md`
+- shared Engineering / Runtime capabilities → `SYSTEM_CONTRACT.md`
+- formal learning-asset construction → `LEARNING_ASSET_STANDARD.md`
+- learning readiness / evidence → `LEARNING_ACCEPTANCE.md`
+- Website Product / Visual / Runtime map → `static-web/README.md`
+- machine enforcement → `tools/` + `.github/`
 
-**CBA** is the compact name used by Kian/Chat for `CREATE → BUILD → AUDIT`. REAL USE follows CBA and may feed evidence back to the earliest responsible owner.
+Several durable owners intentionally remain at repository root because many consumers depend on their stable paths. Do not move them merely for cosmetic folder symmetry.
 
-KianOS uses the same four jobs:
+## Lifecycle boundary
+
+The shared `CREATE → BUILD → AUDIT` lifecycle and REAL USE boundary are owned upstream in Personal OS `KERNEL.md §2`. KianOS does not redefine that lifecycle here.
+
+For a known scope:
 
 ```text
 CREATE
-→ Kian + Chat decide/revise the needed Rule / Content / Learning / Product / Visual meaning
+→ exact Rule / Content / Learning / Product / Visual owner
 
-BUILD
-→ Engineering / Codex implements it
-→ native/local proof
-→ real Candidate Human Gate for material UI
-→ promotion / delivery
+BUILD / UI
+→ AGENTS.md
+→ exact Current / accepted design basis / real consumer
 
 AUDIT
-→ independently verify the implementation against accepted meaning
-→ simulate/stress the real consumer, state, browser, delivery and failure paths
-→ report exact coverage / UNTESTED; do not redesign by preference
+→ exact accepted CREATE truth + applicable Acceptance owner
 
 REAL USE
-→ Kian uses normally
-→ genuine evidence may reopen the earliest responsible owner
+→ native/private execution or learner evidence
 ```
 
-For an existing optimization, recover only the relevant parent outcome, design rationale, must-preserve behavior, exact owner and real consumer before choosing the delta. Do not restart the whole system or ask Kian to repeat decisions already recorded in current owners.
-
-## Core product flow
-
-```text
-Chat / accepted Rule
-→ GitHub canonical Rule + Content + Visual
-→ Engineering / Runtime
-→ Product / Website
-→ private real-use evidence when applicable
-→ Chat
-```
-
-- `content/` owns durable Knowledge / learning Content that has earned canonical asset status.
-- `static-web/` owns shared/product Visual, website implementation and Runtime surfaces.
-- private learner/execution state stays outside shared canonical Content.
-- raw PDFs, videos, transcripts and other unprocessed references normally remain in Drive / Library / Files / original sources until a real KianOS need justifies Knowledge reconstruction.
-- formal learning assets keep their full Source → Knowledge → Learning Logic → Content → Visual/Runtime quality chain.
-- `EXAM_ORCHESTRATOR_CONTRACT.md` owns durable cross-subject exam orchestration Rule/Model, not today's adaptive allocation or subject-local learner truth.
-- `kianwang022-hash/kianos-legacy` is recovery/reference only and is never a normal input.
-
-Chat is the open-ended cognition layer. KianOS Runtime may execute bounded approved logic and return reality evidence, but does not silently become a second strategy brain.
+A Current cursor locates work; it does not replace design. Historical PRs, migration ledgers, audits and retired design notes are evidence only unless a Current owner explicitly routes to them.
 
 ## Where to start
-
-Do not infer live status from this README.
 
 ```text
 normal learner/product use
@@ -123,11 +92,11 @@ formal readiness claim
 → exact ACCEPTANCE owner
 
 design / optimization
-→ exact Rule/Product/Visual owner
-→ Change Continuity before material change
+→ exact Rule / Product / Visual owner
+→ Change Continuity through AUTHORITY_INHERITANCE_CONTRACT.md
 ```
 
-Known-scope work should normally reach the responsible owner in a few precise reads. Historical PRs, migration ledgers, audits and retired design notes are evidence only unless a Current owner explicitly routes to them.
+Known-scope work should normally reach the responsible owner in a few precise reads.
 
 ## Normal Mac learner use
 
@@ -164,6 +133,10 @@ Ordinary Website UI / Human-Gate iteration uses the Website Candidate lane docum
 ## Deferred work
 
 Intentional postponements across KianOS use GitHub Issue #5, `KianOS Deferred Queue`. Active work remains in the exact Current/work-cursor or canonical owner.
+
+## History boundary
+
+`kianwang022-hash/kianos-legacy` is recovery/reference only and is never a normal Current input. Git history preserves retired construction detail without making it current authority.
 
 ## Principle
 
