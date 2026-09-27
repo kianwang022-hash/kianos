@@ -164,6 +164,20 @@ try {
   check((await xiStrategy.locator('.sequenceTransition[data-transition-mode="ORDER_ONLY"]').count()) === 1, 'xi_strategy_transition_is_explicit_order_only');
   check((await xiStrategy.locator('.sequenceTransition[aria-label]').count()) === 0, 'xi_order_only_has_no_ui_authored_connector_text');
 
+  const xiNoQuestionClosure = page.locator('#unit-1 .politicsClosure');
+  await xiNoQuestionClosure.locator('summary').click();
+  const xiNoQuestionContinue = xiNoQuestionClosure.locator('[data-unit-return-static]');
+  await xiNoQuestionContinue.waitFor({ state: 'visible' });
+  check((await xiNoQuestionContinue.innerText()).trim() === '继续学习 →', 'xi_no_question_closure_exposes_next_action');
+  await xiNoQuestionContinue.click();
+  const xiUnit2 = page.locator('#unit-2[data-politics-unit]');
+  await xiUnit2.waitFor({ state: 'visible' });
+  check(await page.locator('.politicsRail nav a[href="#unit-2"]').evaluate((node) => node.classList.contains('active')), 'xi_no_question_continue_activates_next_unit');
+  const xiUnit2Id = await xiUnit2.getAttribute('data-unit-id');
+  const xiContinueLocation = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-politics-last-location-v1') || 'null'));
+  check(xiContinueLocation?.unit_id === xiUnit2Id, 'xi_no_question_continue_updates_resume_unit', String(xiContinueLocation?.unit_id || ''));
+  check(['ORIENT', 'EXTERNAL_LEARN'].includes(String(xiContinueLocation?.action || '')), 'xi_no_question_continue_keeps_meaningful_resume_action', String(xiContinueLocation?.action || ''));
+
   await activateStandardUnit(page, 2, 'xi_c02_k05');
   const xiFeatures = page.locator('#unit-3 [data-surface-group="xi-c02-k05-features"]');
   await xiFeatures.waitFor({ state: 'visible' });

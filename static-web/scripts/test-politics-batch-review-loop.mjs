@@ -45,6 +45,19 @@ try {
   await entry.waitFor({ state: 'attached' });
   const entryHref = await entry.getAttribute('href');
   check(String(entryHref).includes('/politics/practice/?unit='), 'learning_page_routes_exact_unit_to_workbench', String(entryHref));
+  check(!String(entryHref).includes('learnedScope=confirmed'), 'generic_unit_entry_keeps_learned_scope_gate');
+
+  await page.goto(new URL(String(entryHref), BASE).href, { waitUntil: 'domcontentloaded' });
+  await page.locator('[data-learned-scope]').waitFor({ state: 'attached' });
+  check(!(await page.locator('[data-learned-scope]').isChecked()), 'generic_unit_entry_does_not_auto_confirm_learning');
+
+  await page.goto(unitUrl.href, { waitUntil: 'domcontentloaded' });
+  await page.locator('[data-workspace-action="start-learn"]').click();
+  await page.locator('[data-workspace-action="learn-done"]').click();
+  await page.locator('[data-workspace-action="recall-pass"]').click();
+  await page.waitForURL(/learnedScope=confirmed/);
+  await page.locator('[data-learned-scope]').waitFor({ state: 'attached' });
+  check(await page.locator('[data-learned-scope]').isChecked(), 'completed_recall_handoff_auto_confirms_exact_learned_scope');
 
   // Formal Workbench is the only attempt/backside owner.
   await page.goto(`${BASE}/politics/practice/?unit=${encodeURIComponent(target.unitKey)}&question=${encodeURIComponent(target.id)}`, { waitUntil: 'domcontentloaded' });
@@ -74,6 +87,10 @@ try {
   check(snapshot.meta?.causes?.[target.id] === 'understanding', 'learner_cause_recorded');
   check(snapshot.meta?.notes?.[target.id] === '批量复盘时一起看这个犹豫点', 'learner_note_recorded');
 
+  await page.click('[data-next-question]');
+  const unfinishedSession = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), K.session);
+  check(unfinishedSession?.status === 'active' && unfinishedSession.index === 1, 'unfinished_session_advances_without_erasing_review_evidence');
+
   // Home shows records/Review entry but does not auto-export Chat packets.
   await page.goto(`${BASE}/politics/`, { waitUntil: 'domcontentloaded' });
   check(await page.locator('[data-politics-copy-handoff]').count() === 0, 'home_has_no_direct_chat_export');
@@ -85,7 +102,17 @@ try {
   // Review is the intentional batch Chat handoff owner.
   await page.goto(`${BASE}/politics/review/`, { waitUntil: 'domcontentloaded' });
   await page.locator('[data-politics-review][data-ready="true"]').waitFor({ state: 'visible' });
-  check(await page.locator(`[data-review-question="${target.id}"]`).count() === 1, 'review_collects_problem_question');
+  const reviewRow = page.locator(`[data-review-question="${target.id}"]`);
+  check(await reviewRow.count() === 1, 'review_collects_problem_question');
+  check(await reviewRow.locator('a').count() === 0, 'review_old_problem_does_not_expose_dead_exact_question_link_during_unfinished_session');
+  check(await page.locator('[data-review-action]').isHidden(), 'review_does_not_start_competing_review_session_while_workbench_is_unfinished');
+  const resumeHref = await page.locator('[data-review-resume-link]').getAttribute('href');
+  check(
+    String(resumeHref).includes(`session=${encodeURIComponent(unfinishedSession.id)}`)
+      && String(resumeHref).includes(`question=${encodeURIComponent(unfinishedSession.ids[unfinishedSession.index])}`),
+    'review_resume_targets_exact_current_unfinished_question',
+    String(resumeHref)
+  );
   await page.click('[data-review-copy]');
   const packetText = await page.evaluate(() => navigator.clipboard.readText());
   const packet = JSON.parse(packetText);

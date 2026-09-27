@@ -101,9 +101,28 @@ if (/data-politics-question|data-politics-quiz/.test(chapterRuntimeSource)) {
 if (!/politics\/practice\/\?unit=/.test(chapterRuntimeSource)) {
   fail('surface ownership regression: missing exact Unit handoff to formal Xiao1000 Workbench');
 }
+if (!/data-politics-no-verification/.test(chapterRuntimeSource)) {
+  fail('interaction regression: no-question Unit must expose a semantic no-verification marker');
+}
 const cognitiveWorkspaceSource = fs.readFileSync(new URL('../src/components/PoliticsCognitiveWorkspace.astro', import.meta.url), 'utf8');
 if (/data-politics-question|data-politics-quiz/.test(cognitiveWorkspaceSource)) {
   fail('surface ownership regression: C00 must not own a second Xiao1000 attempt surface');
+}
+if (!/searchParams\.set\('learnedScope', 'confirmed'\)/.test(cognitiveWorkspaceSource)) {
+  fail('interaction regression: learned C00 handoff must carry bounded learned-scope confirmation');
+}
+const practiceClientSource = fs.readFileSync(new URL('../src/lib/politicsPracticeClient.mjs', import.meta.url), 'utf8');
+if (!/params\.get\('learnedScope'\) === 'confirmed'/.test(practiceClientSource)) {
+  fail('interaction regression: Workbench must consume only the explicit learned-scope handoff');
+}
+const reviewClientSource = fs.readFileSync(new URL('../src/lib/politicsReviewClient.mjs', import.meta.url), 'utf8');
+if (!/activeSessionState/.test(reviewClientSource) || !/继续这道题 →/.test(reviewClientSource)) {
+  fail('interaction regression: Review must reconcile exact question actions with the unfinished Workbench session');
+}
+const projectionOutletSource = fs.readFileSync(new URL('../src/components/PoliticsProjectionRuntimeOutlet.astro', import.meta.url), 'utf8');
+const unitReturnSource = fs.readFileSync(new URL('../src/components/PoliticsUnitReturnEnhancer.astro', import.meta.url), 'utf8');
+if (!/data-unit-return-static/.test(projectionOutletSource) || !/continueFromUnit/.test(unitReturnSource)) {
+  fail('interaction regression: no-question Closure must reuse the existing Unit Continue owner');
 }
 const practiceWorkbenchSource = fs.readFileSync(new URL('../src/components/PoliticsPracticeWorkbench.astro', import.meta.url), 'utf8');
 if (!/data-question-card/.test(practiceWorkbenchSource) || !/data-takeaway/.test(practiceWorkbenchSource) || !/data-chat-explanation/.test(practiceWorkbenchSource)) {

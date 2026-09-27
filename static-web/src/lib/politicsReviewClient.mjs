@@ -12,6 +12,22 @@ export function initPoliticsReview(root) {
   const options = () => ({ day: today(), filter, subject: $('[data-review-subject]').value });
   const make = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
   const link = (href, cls, text) => { const a = make('a', cls, text); a.href = href; return a; };
+  const activeSessionState = (snapshot, resolvedResume = resolvePoliticsContinue(catalog, snapshot, base)) => {
+    const session = snapshot?.session;
+    if (!session || !['active', 'paused'].includes(session.status) || resolvedResume?.stale) return null;
+    const currentQuestionId = session.ids?.[session.index] || '';
+    if (!currentQuestionId) return null;
+    return {
+      session,
+      currentQuestionId,
+      questionHref: `${base}politics/practice/?session=${encodeURIComponent(session.id)}&question=${encodeURIComponent(currentQuestionId)}`
+    };
+  };
+  const reviewQuestionLink = (questionId, snapshot, label = '打开这道题 →') => {
+    const active = activeSessionState(snapshot);
+    if (active) return questionId === active.currentQuestionId ? link(active.questionHref, '', '继续这道题 →') : null;
+    return link(`${base}politics/practice/?question=${encodeURIComponent(questionId)}`, '', label);
+  };
   const actionLabels = {
     SOURCE_RETURN: '回原讲义',
     RETEST: '再测一次',
@@ -28,6 +44,7 @@ export function initPoliticsReview(root) {
       target.append(note);
       return;
     }
+    const snapshot = readPoliticsSnapshot(localStorage);
     for (const item of value.follow_ups || []) {
       const article = make('article', 'reviewReturnItem');
       article.append(make('strong', '', actionLabels[item.action] || item.action));
@@ -36,7 +53,8 @@ export function initPoliticsReview(root) {
       const actions = make('nav', 'reviewReturnActions');
       if (item.action === 'RETEST') {
         for (const questionId of item.question_ids || []) {
-          actions.append(link(`${base}politics/practice/?question=${encodeURIComponent(questionId)}`, '', '打开题目 →'));
+          const action = reviewQuestionLink(questionId, snapshot, '打开题目 →');
+          if (action) actions.append(action);
         }
       } else {
         for (const targetRow of item.return_targets || []) {
@@ -53,9 +71,10 @@ export function initPoliticsReview(root) {
     error.textContent = '本机记录没有完整读出，暂不显示任务数，也不覆盖原记录。请恢复存储后刷新。';
     $('[data-review-copy]').disabled = !!snapshot.errors.length;
     const resume = resolvePoliticsContinue(catalog, snapshot, base);
+    const activeSession = activeSessionState(snapshot, resume);
     $('[data-review-resume]').hidden = !resume || !!snapshot.errors.length;
     if (resume) { $('[data-review-resume-title]').textContent = resume.title; $('[data-review-resume-detail]').textContent = resume.detail; $('[data-review-resume-link]').href = resume.href; }
-    $('[data-review-action]').hidden = !review.problemIds.length || !!snapshot.errors.length;
+    $('[data-review-action]').hidden = !review.problemIds.length || !!snapshot.errors.length || !!activeSession;
     $('[data-review-count]').textContent = `${review.problemIds.length} 道题需要复习，已经按原学习单元归好。`;
     const scope = $('[data-review-subject]').value;
     // Current Review selection is recomputed natively at entry, not captured as a second queue ledger.
@@ -67,7 +86,7 @@ export function initPoliticsReview(root) {
       const article = make('section', 'reviewGroup'); article.dataset.reviewUnit = group.key;
       const header = make('header'); const heading = make('div'); heading.append(make('span', '', `${group.subject} · ${group.chapter}`), make('h2', '', group.title));
       const actions = make('nav'); actions.append(link(group.href, '', '回原学习单元 ↗'));
-      if (group.items.some(i => i.needsReview)) actions.append(link(`${base}politics/practice/?review=problems&unit=${encodeURIComponent(group.key)}${filter === 'today' ? `&reviewDay=${today()}` : ''}`, '', '复习本单元 →'));
+      if (!activeSession && group.items.some(i => i.needsReview)) actions.append(link(`${base}politics/practice/?review=problems&unit=${encodeURIComponent(group.key)}${filter === 'today' ? `&reviewDay=${today()}` : ''}`, '', '复习本单元 →'));
       header.append(heading, actions); article.append(header);
       for (const item of group.items) {
         const row = make('div', 'reviewQuestionRow'); row.dataset.reviewQuestion = item.id;
@@ -76,7 +95,10 @@ export function initPoliticsReview(root) {
         if (item.needsReview) signals.append(make('span', '', outcomes[item.outcome]));
         if (item.discussion) signals.append(make('span', '', '留给讨论'));
         detail.append(signals); if (item.note) detail.append(make('p', '', item.note)); if (item.cause) detail.append(make('small', '', `我的原因记录：${item.cause}`));
-        row.append(identity, detail, link(`${base}politics/practice/?question=${encodeURIComponent(item.id)}`, '', '打开这道题 →')); article.append(row);
+        row.append(identity, detail);
+        const questionAction = reviewQuestionLink(item.id, snapshot);
+        if (questionAction) row.append(questionAction);
+        article.append(row);
       }
       groups.append(article);
     }
