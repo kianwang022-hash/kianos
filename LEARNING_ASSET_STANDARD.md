@@ -1,6 +1,6 @@
 # KianOS Learning Asset Standard
 
-Status: **CURRENT**  
+Status: **CURRENT**
 Role: repository-wide standard for building formal learning assets
 
 This document answers:
@@ -339,9 +339,72 @@ The shared invariant is only:
 
 > **orient before forcing integration; form a coherent model before premature compression; deepen with domain-native evidence/tasks; compress only what has earned compression; let use reopen the smallest failed part.**
 
+## 4.2｜Learning optimization CREATE — simulate → find waste → preserve closure
+
+For a material optimization of an existing learner system, CREATE must do more than recover files or make one page lighter.
+
+Ask five questions:
+
+1. **What real learner outcome is being improved?**
+   Define the parent outcome in learner terms: faster total learning, better retention, better discrimination, lower interaction cost, stronger transfer, or another concrete result. A local UI metric is not the outcome unless the user need really is local.
+
+2. **What is the current end-to-end learner journey?**
+   Simulate the actual path from first contact through understanding / retrieval / question use / repair / memory / return as applicable. Follow what Kian does, not merely what components exist.
+
+3. **Where is total learner time / attention being wasted?**
+   Look for repeated explanation, premature detail, redundant interaction, avoidable re-entry, duplicated evidence collection, context switching, weak retrieval value, or work that another later step already performs better.
+
+4. **If something is removed, delayed, compressed or made passive, who still carries its cognitive job?**
+   Every load-bearing job must remain owned somewhere. Optimization fails when it merely moves burden from ORIENT to CLOSE, Website to Chat, current session to future review, or one subject surface to another hidden step.
+
+5. **What evidence makes the optimization admissible?**
+   Decide what evidence is needed to safely skip, reduce, defer or repair: learner behavior, error pattern, retrieval stability, task transfer, content structure, source coverage, or another owned signal. If the evidence does not exist, CREATE must either add the smallest useful evidence path or keep the conservative behavior.
+
+A useful information-value map for each learner step is:
+
+```text
+MUST NOW
+CONDITIONAL
+PASSIVE / BACKGROUND
+DEFER
+DELETE
+```
+
+This map is about the learner's current job, not file importance.
+
+### Burden-shift attack
+
+Before accepting an optimization, ask:
+
+> **Did total learner work actually go down, or did the proposal only move the burden somewhere less visible?**
+
+Attack at least these failure modes when relevant:
+
+- important knowledge disappeared rather than moved to the right timing;
+- one lighter surface created a heavier later Close / Review / Chat burden;
+- evidence became too weak for the system to know when to skip / repair;
+- Website or Runtime started inventing semantic judgment because upstream meaning was removed;
+- fewer interactions caused more re-explanation, re-entry or future uncertainty;
+- a local speedup increased total journey length.
+
+### CREATE output
+
+Do not create a separate optimization report by default.
+
+Persist the accepted delta once in the exact owner(s), with enough durable meaning for BUILD and later AUDIT to recover:
+
+```text
+parent outcome
+→ changed decision / timing / dose / representation / feedback / admission
+→ must-preserve learner jobs
+→ evidence basis / uncertainty
+→ observable BUILD effect
+→ claims that remain unproven
+```
+
+BUILD receives the accepted result; it does not repeat this reasoning unless implementation exposes a concrete upstream defect.
+
 ---
-
-
 
 # 5｜Stage 3 — Content Realization
 

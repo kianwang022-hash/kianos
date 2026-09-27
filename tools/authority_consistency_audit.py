@@ -215,7 +215,7 @@ def audit_product_owners(registry: dict) -> None:
         if not readme.is_file():
             continue
         value = text(readme)
-        check("## CBA spine" in value, "DOMAIN_CBA_SPINE_MISSING", scope)
+        check("## CBA pointers" in value, "DOMAIN_CBA_SPINE_MISSING", scope)
         for role in ("current", "product", "acceptance"):
             owner = spine[role]
             check(

@@ -89,6 +89,8 @@ real user need / parent outcome
 
 CREATE may include authoring self-checks, semantic challenge and local content/design closure. Those are part of making the asset good; they are not the later independent Reality Audit.
 
+For **learner-facing optimization**, use the single reusable method in `LEARNING_ASSET_STANDARD.md §4.2`: simulate the complete learner journey, find total waste, preserve every load-bearing cognitive job, require sufficient evidence for skipping/reducing work, and attack burden-shifting before accepting the delta. Do not copy that method into each domain README/Contract.
+
 Do not require Kian to re-decide existing accepted meaning that can be recovered from current owners. If the request is an optimization of an existing scope, apply Change Continuity first.
 
 ## BUILD
