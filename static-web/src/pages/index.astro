@@ -6,29 +6,12 @@ import Base from '../layouts/Base.astro';
 import XizongHomeTools from '../components/XizongHomeTools.astro';
 import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
 import EnglishResume from '../components/EnglishResume.astro';
-import { inspectReadingSources } from '../lib/current.mjs';
-import { inspectLexicalSources } from '../lib/lexical.mjs';
 import { listProjectableXizongSystems } from '../lib/xizong.mjs';
-import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
-import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';
-import { inspectWritingSyntheticTasks } from '../lib/englishWritingSynthetic.mjs';
-import { inspectTranslationSources } from '../lib/englishTranslation.mjs';
+import { listPoliticsSubjectsCurrent } from '../lib/politicsCurrent.mjs';
 
 const base = import.meta.env.BASE_URL;
 const xizongSystems = listProjectableXizongSystems();
-const lexicalState = inspectLexicalSources();
-const readingState = inspectReadingSources();
-const readingReady = readingState.status === 'ready';
-const translationState = inspectTranslationSources();
 const politicsSubjects = listPoliticsSubjectsCurrent();
-const politicsHealth = politicsCurrentHealth();
-const politicsChapters = politicsSubjects.reduce((sum, subject) => sum + subject.chapters.length, 0);
-const writingLearning = loadWritingLearningProjection();
-const writingRuntime = inspectWritingSyntheticTasks();
-const englishReady = readingReady
-  && translationState.status === 'ready'
-  && writingLearning.status === 'ready'
-  && writingRuntime.status === 'ready';
 const firstSystem = xizongSystems[0];
 const firstSubject = politicsSubjects[0];
 const firstChapter = firstSubject?.chapters?.[0];
