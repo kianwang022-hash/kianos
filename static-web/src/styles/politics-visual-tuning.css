@@ -50,7 +50,7 @@ body#kianos-workspace :is(.politicsStudy,.politicsWorkbench,.politicsSubjectWork
 
  body#kianos-workspace.surfaceBody-politics.uiHub .politicsChapterRows a>strong{font-size:17px;line-height:1.55;font-weight:550;}
 
- body#kianos-workspace.surfaceBody-politics .politicsRail{display:flex;flex-direction:column;justify-content:flex-start;gap:6px;padding:18px 10px;}
+ body#kianos-workspace.surfaceBody-politics .politicsRail{display:flex;justify-content:flex-start;gap:6px;padding:18px 10px;}
 
  body#kianos-workspace.surfaceBody-politics .politicsRail>strong{font-size:17px;line-height:1.5;}
 
@@ -58,7 +58,7 @@ body#kianos-workspace :is(.politicsStudy,.politicsWorkbench,.politicsSubjectWork
 
  body#kianos-workspace.surfaceBody-politics .politicsRail nav a{padding:11px 12px;font-size:16px;line-height:1.6;color:#53695c;}
 
- body#kianos-workspace.surfaceBody-politics .politicsRail nav a.active{color:#28563e;background:#e8f1ea;font-weight:600;}
+ body#kianos-workspace.surfaceBody-politics .politicsRail nav a.active{color:#28563e;background:#e8f1ea;}
 
  body#kianos-workspace.surfaceBody-politics .politicsChapterLocation{padding:11px 21px;gap:14px;}
 
@@ -70,11 +70,11 @@ body#kianos-workspace :is(.politicsStudy,.politicsWorkbench,.politicsSubjectWork
 
  body#kianos-workspace.surfaceBody-politics .politicsMicro{margin:0;font-size:11px;font-weight:600;letter-spacing:.035em;}
 
- body#kianos-workspace.surfaceBody-politics .politicsQuestion{display:block;padding:13px 17px;margin:0;border:0;border-left:3px solid #7ba58c;border-radius:0 6px 6px 0;background:#f1f6f1;}
+ body#kianos-workspace.surfaceBody-politics .politicsQuestion{display:block;padding:13px 17px;border-left:3px solid #7ba58c;border-radius:0 6px 6px 0;background:#f1f6f1;}
 
  body#kianos-workspace.surfaceBody-politics .politicsQuestion span{font-size:12px;margin-bottom:4px;color:#617b69;}
 
- body#kianos-workspace.surfaceBody-politics .politicsQuestion strong{font-size:20px;line-height:1.6;font-weight:600;color:#283e30;}
+ body#kianos-workspace.surfaceBody-politics .politicsQuestion strong{font-size:20px;line-height:1.6;color:#283e30;}
 
  body#kianos-workspace.surfaceBody-politics .politicsCompiledGeometry{margin:17px 0 20px;}
 
@@ -82,9 +82,7 @@ body#kianos-workspace :is(.politicsStudy,.politicsWorkbench,.politicsSubjectWork
 
  body#kianos-workspace.surfaceBody-politics .compiledObject>h3, body#kianos-workspace.surfaceBody-politics :is(.compiledBoundaries,.compiledTakeaway,.compiledExact)>h3{margin:0 0 8px;font-size:14px;letter-spacing:0;color:#557862;}
 
- body#kianos-workspace.surfaceBody-politics .projectionText{font-size:18px;line-height:1.75;margin:0 0 6px;color:#2e4236;}
-
- body#kianos-workspace.surfaceBody-politics .projectionValueRecord h4{font-size:18px;margin:0 0 10px;}
+ body#kianos-workspace.surfaceBody-politics .projectionText{line-height:1.75;margin:0 0 6px;color:#2e4236;}
 
  body#kianos-workspace.surfaceBody-politics .projectionValueList{gap:8px;}
 
@@ -114,7 +112,7 @@ body#kianos-workspace :is(.politicsStudy,.politicsWorkbench,.politicsSubjectWork
 
  body#kianos-workspace.surfaceBody-politics .politicsSourceHandoff>p{margin:9px 0 12px;font-size:16px;line-height:1.75;color:#5a705f;}
 
- body#kianos-workspace.surfaceBody-politics .politicsSourceLocators{margin-top:10px;padding-top:10px;}
+ body#kianos-workspace.surfaceBody-politics .politicsSourceLocators{margin-top:10px;}
 
  body#kianos-workspace.surfaceBody-politics .politicsSourceLocators summary{font-size:14px;}
 
@@ -185,13 +183,13 @@ body#kianos-workspace :is(.politicsStudy,.politicsWorkbench,.politicsSubjectWork
 
  body#kianos-workspace.surfaceBody-politics .politicsQuestionMeta{margin-bottom:22px;}
 
- body#kianos-workspace.surfaceBody-politics .politicsStem{font-size:22px;line-height:1.85;max-width:none;margin:0 0 26px;}
+ body#kianos-workspace.surfaceBody-politics .politicsStem{font-size:22px;max-width:none;margin:0 0 26px;}
 
  body#kianos-workspace.surfaceBody-politics .politicsQuestionCard .politicsOptions{gap:13px 17px;}
 
- body#kianos-workspace.surfaceBody-politics .politicsQuestionCard .politicsOptions button{padding:15px 19px;min-height:62px;font-size:18px;line-height:1.7;border-radius:8px;}
+ body#kianos-workspace.surfaceBody-politics .politicsQuestionCard .politicsOptions button{padding:15px 19px;min-height:62px;line-height:1.7;border-radius:8px;}
 
- body#kianos-workspace.surfaceBody-politics .politicsReview{margin:0;padding:0;gap:0;}
+ body#kianos-workspace.surfaceBody-politics .politicsReview{margin:0;gap:0;}
 
  body#kianos-workspace.surfaceBody-politics .practiceQuestionReference{padding:0;margin:0 0 11px;max-height:35vh;}
 
@@ -203,11 +201,11 @@ body#kianos-workspace :is(.politicsStudy,.politicsWorkbench,.politicsSubjectWork
 
  body#kianos-workspace.surfaceBody-politics .politicsResultSummaryPane{display:flex;flex-direction:column;justify-content:flex-start;gap:0;padding:20px 22px;}
 
- body#kianos-workspace.surfaceBody-politics .politicsResultHeadline{padding:10px 13px;font-size:20px;border-radius:5px;}
+ body#kianos-workspace.surfaceBody-politics .politicsResultHeadline{padding:10px 13px;border-radius:5px;}
 
- body#kianos-workspace.surfaceBody-politics .politicsResultTakeaway{margin:16px 0;padding:14px 16px;}
+ body#kianos-workspace.surfaceBody-politics .politicsResultTakeaway{padding:14px 16px;}
 
- body#kianos-workspace.surfaceBody-politics .politicsResultTakeaway p{font-size:18px;line-height:1.75;}
+ body#kianos-workspace.surfaceBody-politics .politicsResultTakeaway p{line-height:1.75;}
 
  body#kianos-workspace.surfaceBody-politics .politicsResultAnswers{gap:8px;padding:0 0 14px;}
 
@@ -223,7 +221,7 @@ body#kianos-workspace :is(.politicsStudy,.politicsWorkbench,.politicsSubjectWork
 
  body#kianos-workspace.surfaceBody-politics .politicsReviewActions{flex:0 0 auto;margin-top:auto;bottom:0;padding:12px 0;min-height:64px;background:#fff;}
 
- body#kianos-workspace.surfaceBody-politics .politicsAttemptNote textarea{font-size:16px;line-height:1.6;min-height:78px;}
+ body#kianos-workspace.surfaceBody-politics .politicsAttemptNote textarea{line-height:1.6;min-height:78px;}
 
  @media(min-width:1101px){body#kianos-workspace.surfaceBody-politics .politicsResultLayout{grid-template-columns:minmax(320px,.63fr) minmax(0,1.37fr);}
 }
