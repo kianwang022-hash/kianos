@@ -6,6 +6,7 @@ import { defineConfig } from 'astro/config';
 import { privateLearnerBridge } from './scripts/privateLearnerBridge.mjs';
 import { privateExternalReadingBridge } from './scripts/privateExternalReadingBridge.mjs';
 import { privateControlBridge } from './scripts/privateControlBridge.mjs';
+import { resolveAstroBuildConcurrency } from './scripts/kianos-safe-astro-build.mjs';
 
 // Astro dev/preview is an engineering surface, never the live learner runtime.
 // Default every private bridge to one process-local scratch root so browser QA
@@ -58,6 +59,9 @@ export default defineConfig({
   base: '/',
   output: 'static',
   trailingSlash: 'always',
+  build: {
+    concurrency: resolveAstroBuildConcurrency()
+  },
   vite: {
     plugins: [privateLearnerBridge(), privateExternalReadingBridge(), privateControlBridge()],
     define: {
