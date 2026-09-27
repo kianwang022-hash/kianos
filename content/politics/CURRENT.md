@@ -7,6 +7,15 @@ This file does not own Source, Knowledge, Learning semantics, Acceptance Truth, 
 
 Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and machine-registered in AUTHORITY_OWNERSHIP.json; Politics consumes those owners and does not become their durable owner.
 
+## Active engineering anchor
+
+Issue #1008 — **Politics learner-facing full live audit**.
+
+- Phase / Next / Blocker live in Issue #1008 while it is open.
+- Exact Source / Content / Learning / Interaction / Runtime / Shared-platform truth remains with the native owner; the Issue does not mirror those truths.
+- An explicit Politics engineering continuation binds to #1008 until Kian closes or switches it.
+- Ordinary Politics learning still bypasses this engineering anchor.
+
 ## Current routing
 
 - Ordinary Politics learning bypasses this engineering cursor.
