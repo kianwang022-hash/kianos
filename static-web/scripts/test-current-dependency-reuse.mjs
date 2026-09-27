@@ -49,6 +49,47 @@ try {
   fs.rmSync(path.join(source, 'node_modules', '.kianos-current-dependencies.json'));
   assert.equal(canReuseDependencies(source, target), false, 'missing proof must fail closed');
 
+  // Real Current shape: package-lock.json is not tracked in the repo, but
+  // npm install creates one as a local byproduct. The proof must preserve the
+  // fresh-worktree identity captured before install so the next fresh target
+  // can reuse the verified dependency tree.
+  const installed = path.join(root, 'installed-with-generated-lock');
+  const fresh = path.join(root, 'fresh-without-lock');
+  for (const dir of [installed, fresh]) {
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'package.json'), JSON.stringify({
+      name: 'fixture',
+      version: '1.0.0',
+      dependencies: { astro: '5.18.2' }
+    }));
+  }
+  fs.mkdirSync(path.join(installed, 'node_modules', '.bin'), { recursive: true });
+  fs.writeFileSync(
+    path.join(installed, 'node_modules', '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro'),
+    'fixture'
+  );
+  const preInstallIdentity = dependencyIdentity(installed);
+  fs.writeFileSync(
+    path.join(installed, 'package-lock.json'),
+    JSON.stringify({ lockfileVersion: 3, packages: {} })
+  );
+  writeDependencyProof(installed, preInstallIdentity);
+  assert.equal(
+    canReuseDependencies(installed, fresh),
+    true,
+    'generated untracked lockfile must not poison the next fresh-worktree reuse check'
+  );
+  fs.writeFileSync(path.join(fresh, 'package.json'), JSON.stringify({
+    name: 'fixture',
+    version: '2.0.0',
+    dependencies: { astro: '5.18.2' }
+  }));
+  assert.equal(
+    canReuseDependencies(installed, fresh),
+    false,
+    'canonical package.json change must still reject reuse'
+  );
+
   console.log('CURRENT_DEPENDENCY_REUSE PASS');
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
