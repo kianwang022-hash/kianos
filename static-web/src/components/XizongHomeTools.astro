@@ -35,6 +35,12 @@ const {
     activeRepairTasks
   } from '../lib/xizongMemoryModel.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  import {
+    XIZONG_SESSION_KEY,
+    activateXizongSessionNext,
+    validateXizongSessionInstruction
+  } from '../lib/xizongSessionInstruction.mjs';
+  import { studyDayAt } from '../lib/studyTimer.mjs';
   void learnerWriterReady.then(() => {
 
 
@@ -57,6 +63,44 @@ const {
 
     const setText = (node, value) => {
       if (node) node.textContent = String(value || '');
+    };
+
+    const activeSessionResume = () => {
+      try {
+        const raw = parse(localStorage.getItem(XIZONG_SESSION_KEY), null);
+        if (!raw) return null;
+        const instruction = validateXizongSessionInstruction(raw, studyDayAt(Date.now()));
+        let holdoutYears = [];
+        try {
+          const saved = parse(localStorage.getItem('kianos:xizong:full-paper-holdout-years:v1'), []);
+          holdoutYears = Array.isArray(saved) ? saved : [];
+        } catch {}
+        const result = activateXizongSessionNext(localStorage, instruction, {
+          holdoutYears,
+          now: Date.now()
+        });
+        const next = result?.next || null;
+        if (!next?.href || !next?.step) return null;
+        return {
+          href: next.href,
+          step: next.step,
+          sessionId: instruction.session_id
+        };
+      } catch {
+        return null;
+      }
+    };
+
+    const sessionStageView = (step) => {
+      const kind = String(step?.kind || '');
+      const rows = {
+        MEMORY_REVIEW: ['Memory 回收', step?.label || '回收当前记忆', '继续 Memory →'],
+        PRACTICE_SET: ['专项训练', step?.label || '完成当前训练', '去做题 →'],
+        SYSTEM_RECALL: ['系统回忆', step?.label || '完成系统回忆', '去回忆 →'],
+        REPAIR_TASK: ['专项修补', step?.label || '完成当前修补', '去修补 →'],
+        BLOCK_RETURN: ['返回学习', step?.label || '回到当前模块', '返回 →']
+      };
+      return rows[kind] || ['继续学习', step?.label || '当前西综任务', '继续 →'];
     };
 
     const learnerFacingResumeCopy = (value) => String(value || '')
@@ -127,7 +171,21 @@ const {
       });
     }
 
-    const attentionRoot = document.querySelector('[data-xizong-home-attention]');
+    const sessionResume = activeSessionResume();
+    if (sessionResume && link instanceof HTMLAnchorElement) {
+      const [stageLabel, positionLabel, actionLabel] = sessionStageView(sessionResume.step);
+      link.href = sessionResume.href;
+      link.dataset.xizongSessionRef = sessionResume.sessionId;
+      setText(title, sessionResume.step?.label || positionLabel);
+      setText(detail, '继续当前西综任务；这里只执行已经确定的步骤，不重新安排三科。');
+      setText(stage, stageLabel);
+      setText(position, positionLabel);
+      setText(action, actionLabel);
+    } else if (link instanceof HTMLAnchorElement) {
+      delete link.dataset.xizongSessionRef;
+    }
+
+        const attentionRoot = document.querySelector('[data-xizong-home-attention]');
     if (attentionRoot instanceof HTMLElement) {
       const rawMemory = parse(localStorage.getItem('kianos-xizong-memory-v1'), null);
       if (rawMemory) {

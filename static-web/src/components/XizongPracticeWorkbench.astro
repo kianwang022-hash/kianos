@@ -336,8 +336,14 @@ const payload = JSON.stringify({
     const hydrateQuestionIds = async (ids) => {
       const years = [...new Set(ids.map((id) => id.match(/official-(\d{4})-/)?.[1]).filter(Boolean))];
       const banks = await Promise.all(years.map(async (year) => {
-        const response = await fetch(`${data.base}xizong/practice/data/${year}.json`);
-        if (!response.ok) throw new Error(`YEAR_FETCH_FAILED:${year}`);
+        const primary = `${data.base}xizong/practice/data/${year}.json`;
+        let response = await fetch(primary);
+        // Stable Current serves the static JSON file without a trailing slash,
+        // while Astro dev/Candidate exposes the same trailingSlash='always'
+        // endpoint at .json/. Retry only the exact 404 shape; never substitute
+        // another year or silently skip question truth.
+        if (response.status === 404) response = await fetch(`${primary}/`);
+        if (!response.ok) throw new Error(`YEAR_FETCH_FAILED:${year}:${response.status}`);
         return response.json();
       }));
       const byId = new Map(banks.flatMap((bank) => bank?.questions || []).map((q) => [q.questionId, q]));
