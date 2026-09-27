@@ -79,15 +79,40 @@ function sameOptionalFile(sourceRoot, targetRoot, relativePath) {
   return fs.readFileSync(source).equals(fs.readFileSync(target));
 }
 
+function stableJson(value) {
+  if (Array.isArray(value)) return '[' + value.map(stableJson).join(',') + ']';
+  if (value && typeof value === 'object') {
+    return '{' + Object.keys(value).sort().map((key) => JSON.stringify(key) + ':' + stableJson(value[key])).join(',') + '}';
+  }
+  return JSON.stringify(value);
+}
+
+function dependencyManifestSignature(webRoot) {
+  let manifest = null;
+  try { manifest = JSON.parse(fs.readFileSync(path.join(webRoot, 'package.json'), 'utf8')); } catch { return null; }
+  return stableJson({
+    dependencies: manifest?.dependencies || {},
+    devDependencies: manifest?.devDependencies || {},
+    optionalDependencies: manifest?.optionalDependencies || {},
+    peerDependencies: manifest?.peerDependencies || {},
+    peerDependenciesMeta: manifest?.peerDependenciesMeta || {},
+    overrides: manifest?.overrides || {},
+    bundledDependencies: manifest?.bundledDependencies || manifest?.bundleDependencies || []
+  });
+}
+
 export function canMaterializeLegacyCandidateDependencies(sourceWebRoot, targetWebRoot) {
   if (!sourceWebRoot || !targetWebRoot) return false;
   // A real target lockfile is canonical and must use strict proof matching.
   // This fallback exists only for the repo's legacy shape where npm install
   // generated an untracked source lockfile but a fresh worktree has none.
   if (fs.existsSync(path.join(targetWebRoot, 'package-lock.json'))) return false;
-  for (const relativePath of ['package.json', 'npm-shrinkwrap.json', '.npmrc']) {
-    if (!sameOptionalFile(sourceWebRoot, targetWebRoot, relativePath)) return false;
-  }
+  if (!sameOptionalFile(sourceWebRoot, targetWebRoot, 'npm-shrinkwrap.json')) return false;
+  if (!sameOptionalFile(sourceWebRoot, targetWebRoot, '.npmrc')) return false;
+
+  const sourceSignature = dependencyManifestSignature(sourceWebRoot);
+  const targetSignature = dependencyManifestSignature(targetWebRoot);
+  if (!sourceSignature || sourceSignature !== targetSignature) return false;
 
   const sourceModules = path.join(sourceWebRoot, 'node_modules');
   if (!fs.existsSync(path.join(sourceModules, '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro'))) {
