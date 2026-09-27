@@ -337,9 +337,11 @@ compatible task ─┘
 
 ---
 
-## 11｜Visual acceptance
+## 11｜Visual build acceptance / Human Gate
 
-A learner-facing Visual change is not accepted because CSS compiles or a screenshot exists.
+A learner-facing Visual change is not accepted because the design was discussed, CSS compiles or a screenshot exists.
+
+The Surface Blueprint/design intent is decided upstream during CREATE. The **Human Gate belongs to BUILD**, after a real Candidate/browser implementation exists and before promotion/delivery.
 
 Check at minimum:
 
@@ -351,9 +353,13 @@ Check at minimum:
 6. no semantic relation is invented by layout;
 7. learner-facing chrome does not dominate the task;
 8. narrow fallback has no obvious overflow/layout failure;
-9. Kian reviews the real browser result when the visual change is material.
+9. Kian reviews the **implemented real browser result** when the visual change is material.
 
-Human Gate remains required for material learner-facing visual changes.
+Human Gate therefore answers:
+
+> **“Did BUILD realize the accepted design well enough to ship?”**
+
+It does not replace the later independent Reality Audit, and it cannot be claimed from a pre-implementation mockup/design discussion alone.
 
 ---
 
