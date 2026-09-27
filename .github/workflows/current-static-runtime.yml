@@ -15,6 +15,8 @@ on:
       - "static-web/scripts/kianos-static-server.mjs"
       - "static-web/scripts/currentStaticImpact.mjs"
       - "static-web/scripts/currentStaticSlots.mjs"
+      - "static-web/scripts/currentDependencies.mjs"
+      - "static-web/scripts/test-current-dependency-reuse.mjs"
       - "static-web/scripts/test-current-static-impact.mjs"
       - "static-web/scripts/test-current-build-recovery.mjs"
       - "static-web/scripts/test-current-static-slots.mjs"
@@ -50,6 +52,8 @@ on:
       - "static-web/scripts/kianos-static-server.mjs"
       - "static-web/scripts/currentStaticImpact.mjs"
       - "static-web/scripts/currentStaticSlots.mjs"
+      - "static-web/scripts/currentDependencies.mjs"
+      - "static-web/scripts/test-current-dependency-reuse.mjs"
       - "static-web/scripts/test-current-static-impact.mjs"
       - "static-web/scripts/test-current-build-recovery.mjs"
       - "static-web/scripts/test-current-static-slots.mjs"
@@ -91,6 +95,8 @@ jobs:
           node --check scripts/kianos-static-server.mjs
           node --check scripts/currentStaticImpact.mjs
           node --check scripts/currentStaticSlots.mjs
+          node --check scripts/currentDependencies.mjs
+          node --check scripts/test-current-dependency-reuse.mjs
           node --check scripts/test-current-static-impact.mjs
           node --check scripts/test-current-static-slots.mjs
           node --check scripts/privateLearnerBridge.mjs
@@ -112,6 +118,8 @@ jobs:
           node --check scripts/test-current-release-retention.mjs
       - name: Verify Current build-impact gate
         run: node scripts/test-current-static-impact.mjs
+      - name: Verify Current dependency reuse
+        run: node scripts/test-current-dependency-reuse.mjs
       - name: Prove failed build retention and bounded retry
         run: node scripts/test-current-build-recovery.mjs
       - name: Prove safe build and release cleanup helpers
