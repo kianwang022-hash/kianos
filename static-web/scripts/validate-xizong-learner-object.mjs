@@ -101,6 +101,21 @@ for (const systemSummary of listProjectableXizongSystems()) {
       const lg05 = learnerObject.logicGroups.find((group) => group.identity.logicGroupId === 'circulation-b10-lg05');
       assert((lg05?.connection?.incoming || []).some((row) => row.id === 'b01-c01-af-filling-to-b10'), 'circulation-b10-lg05:incoming-reactivation-missing');
     }
+    if (productionBlock.blockId === 'circulation-b02') {
+      const expected = new Set([
+        'a1-b02-kp04-four-reflex-visual',
+        'a1-b02-kp09-raas-visual',
+        'a1-b02-kp07-catecholamine-visual',
+        'a1-b02-kp14-endothelium-visual',
+        'a1-b02-kp06-vascular-nerve-visual',
+        'a1-b02-kp11-adh-aqp2-visual',
+        'a1-b02-kp12-anp-adh-aldosterone-visual'
+      ]);
+      const rows = learnerObject.kps.flatMap((kp) => kp.visual).filter((row) => expected.has(row.id));
+      assert(rows.length === 7, `circulation-b02:current-visual-gate-count:${rows.length}`);
+      assert(rows.every((row) => row.answerBearing === true), 'circulation-b02:answer-bearing-visual-guard-missing');
+      assert(rows.every((row) => row.displayPolicy?.timing === 'POST_REVEAL'), 'circulation-b02:visual-post-reveal-timing-missing');
+    }
 
     totalKpVisual += report.kpVisualCount;
     totalKpPrecision += report.kpPrecisionCount;
