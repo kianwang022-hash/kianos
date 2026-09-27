@@ -21,15 +21,15 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Active engineering anchor
 
-- GitHub Issue #989 — `Xizong Block runtime / visual owner convergence`
-- The Issue owns only `Goal / Phase / Next / Blocker`; design/content/runtime truth remains with the exact owners routed below.
-- Keep this anchor until Kian explicitly closes or switches the project.
+- **None.**
+- Closed engineering history such as Issue #989 is evidence only, not continuation authority.
+- A future long-running Xizong engineering task must bind a fresh/open Issue before relying on phase state.
 
 ### Next
 
 for ordinary study → native learner path
-for the active bounded Block runtime/visual convergence → read Issue #989 first
-→ then read only the exact owner required by its current Next
+for a bounded explicit engineering defect → route to the smallest exact owner above
+for a new long-running engineering task → bind an open Issue, then keep only Goal / Phase / Next / Blocker there
 → stop after targeted proof
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority.
