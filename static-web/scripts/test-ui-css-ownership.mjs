@@ -150,6 +150,18 @@ assert.ok(
   && !politicsChapterRoute.includes('PoliticsPurposeFirstPilotReadable'),
   'Politics Chapter route must not reintroduce style-only presentation components'
 );
+assert.ok(
+  politicsLearn.includes('.politicsChapterLocation'),
+  'Politics Learn owner must retain Chapter header presentation'
+);
+for (const legacyLayer of ['politics-presentation.css', 'shared-workspace-composition.css', 'politics-visual-tuning.css']) {
+  const value = read(path.join(src, 'styles', legacyLayer));
+  assert.ok(
+    !value.includes('.politicsChapterLocation'),
+    legacyLayer + ': Politics Chapter header escaped the Learn presentation owner'
+  );
+}
+
 assert.ok(!/Human-Gate visual (?:lock|repair)/.test(stewardLocal), 'Steward local CSS contains post-hoc Human-Gate patch layers');
 assert.ok(!/\.kianos(?:Shell|GlobalRail|Rail)/.test(stewardLocal), 'Steward local CSS must not override shared L1 shell selectors');
 assert.ok(sharedShell.includes('surfaceBody-steward'), 'Steward shell theme must live in shared-shell.css');
