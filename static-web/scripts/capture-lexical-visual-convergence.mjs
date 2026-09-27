@@ -647,11 +647,14 @@ try {
   // Semantic counts/text come from the Current Final Learner Object rather than
   // being duplicated here as a second content truth.
   const finalObjectFixtures = [
-    { ordinal: 177, word: 'ambulance' },
+    { ordinal: 15, word: 'absence' },
+    { ordinal: 16, word: 'absent' },
     { ordinal: 29, word: 'access' },
+    { ordinal: 177, word: 'ambulance' },
+    { ordinal: 761, word: 'charge' },
     { ordinal: 4209, word: 'row' },
-    { ordinal: 4680, word: 'stationary' },
-    { ordinal: 761, word: 'charge' }
+    { ordinal: 4323, word: 'seem' },
+    { ordinal: 4680, word: 'stationary' }
   ];
 
   for (const fixture of finalObjectFixtures) {
