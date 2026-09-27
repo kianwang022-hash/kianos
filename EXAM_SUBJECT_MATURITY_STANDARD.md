@@ -1,5 +1,10 @@
 # 单科最高成熟度验收标准
 
+Status: **CURRENT SPECIALIZED EXAM-SUBJECT MATURITY ATTACK PROFILE**
+Role: **考研单科的高强度 pre-use / maturity stress profile；继承 LEARNING_ACCEPTANCE，不是第二套日常 Acceptance，也不是 Work Cursor。**
+
+Routine module/readiness claims仍由 `LEARNING_ACCEPTANCE.md` + exact subject Acceptance owner负责。只有在明确做“单科最终成熟度 / 极限攻击 / pre-use engineering stop”时才进入本标准；普通内容修改、局部 UI 修复、日常学习和普通 re-acceptance 不需要预加载或重复整套 maturity ceremony。
+
 你的任务不是“把现有系统继续完善一点”，也不是为了通过 checklist 增加架构。
 
 目标只有一个：
