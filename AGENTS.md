@@ -121,10 +121,27 @@ static-web/KIAN_UI_PREFERENCES.md
 → static-web/UI_STYLE_BRIEF.md when shared visual rules matter
 → exact surface/product owner
 → existing layout/component/styles
-→ work
+→ Website Candidate Runtime for iterative proof
+→ applicable Human Gate
+→ one durable PR / affected validation / managed Current promotion
 ```
 
 `KIAN_UI_PREFERENCES.md` owns accepted **KianOS visual requirements + bounded preference evidence**, not Kian's general personal preference truth.
+
+For ordinary Website UI iteration, the default execution lane is the existing Candidate Runtime:
+
+```text
+work branch / worktree
+→ cd static-web && npm run candidate:serve
+→ http://127.0.0.1:4322/
+→ edit / inspect / Human Gate loop
+→ PASS
+→ durable PR
+→ managed Current promotion
+→ http://127.0.0.1:4321/ Stable
+```
+
+Do not use stable 4321 as a scratch preview and do not pay PR / CI / full managed-Current build cost for every visual tweak. Candidate 4322 is a transient isolated engineering projection; its local state does not become learner / execution truth. Use stable 4321 only after the accepted batch enters the release lane, or when the exact defect being diagnosed is itself stable-delivery-specific.
 
 Material UI change still inherits BUILD change continuity. Accepted surface geometry is not reopened merely because CSS/component code is being refactored.
 
