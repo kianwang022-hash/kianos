@@ -81,7 +81,7 @@ export function canReuseDependencies(sourceWebRoot, targetWebRoot, runtime = {})
   return sameIdentity(proof, targetIdentity);
 }
 
-export function cloneDependencies(sourceWebRoot, targetWebRoot) {
+export function cloneDependencies(sourceWebRoot, targetWebRoot, { proofIdentity = null } = {}) {
   const sourceNodeModules = path.join(sourceWebRoot, 'node_modules');
   const targetNodeModules = path.join(targetWebRoot, 'node_modules');
   if (!fs.existsSync(sourceNodeModules)) throw new Error('CURRENT_DEPENDENCY_SOURCE_MISSING');
@@ -98,6 +98,7 @@ export function cloneDependencies(sourceWebRoot, targetWebRoot) {
     fs.rmSync(targetNodeModules, { recursive: true, force: true });
     throw new Error('CURRENT_DEPENDENCY_REUSE_INVALID');
   }
+  if (proofIdentity) writeDependencyProof(targetWebRoot, proofIdentity);
   if (!readDependencyProof(targetWebRoot)) {
     fs.rmSync(targetNodeModules, { recursive: true, force: true });
     throw new Error('CURRENT_DEPENDENCY_REUSE_PROOF_MISSING');
