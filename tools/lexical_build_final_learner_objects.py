@@ -174,6 +174,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
     word = str(record.get("word") or owner.get("word") or "")
     word_decision = (decisions.get("words") or {}).get(word_id) or {}
     usage_note_decisions = word_decision.get("sense_usage_notes") or {}
+    governing_pattern_decisions = word_decision.get("sense_governing_patterns") or {}
     secondary_decisions = word_decision.get("secondary_senses") or {}
     overlay_decisions = word_decision.get("sense_identity_overlays") or {}
     family_decisions = word_decision.get("word_family") or {}
@@ -231,14 +232,20 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
                     overlay_text,
                 ),
             }
+        usage_note_disposition = (usage_note_decisions.get(sense_id) or {}).get("disposition")
+        if usage_note_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
+            raise RuntimeError(f"FINAL_LEARNER_USAGE_NOTE_DISPOSITION_INVALID:{word_id}:{sense_id}:{usage_note_disposition}")
+        governing_pattern_disposition = (governing_pattern_decisions.get(sense_id) or {}).get("disposition")
+        if governing_pattern_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
+            raise RuntimeError(f"FINAL_LEARNER_GOVERNING_PATTERN_DISPOSITION_INVALID:{word_id}:{sense_id}:{governing_pattern_disposition}")
         senses.append({
             "id": sense_id or None,
             "source_locator": f"record.senses[{i}]",
             "pos": str(sense.get("pos") or ""),
-            "governing_pattern": str(sense.get("governing_pattern") or ""),
+            "governing_pattern": "" if governing_pattern_disposition == "EXPLORE_ONLY" else str(sense.get("governing_pattern") or ""),
             "definition_cn": str(sense.get("definition_cn") or ""),
             "definition_en": str(sense.get("definition_en") or ""),
-            "note": "" if (usage_note_decisions.get(sense_id) or {}).get("disposition") == "EXPLORE_ONLY" else str(sense.get("usage_note") or ""),
+            "note": "" if usage_note_disposition == "EXPLORE_ONLY" else str(sense.get("usage_note") or ""),
             "identity_overlay": overlay_object,
             "usage": usage,
             "repair": repair("sense", f"record.senses[{i}]", sense_id or None, str(sense.get("definition_cn") or sense.get("definition_en") or word)),
@@ -324,7 +331,19 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         })
 
     def pos_label(value: Any) -> str:
-        pos = str(value or "").lower()
+        pos = str(value or "").strip().lower()
+        exact = {
+            "article": "ART",
+            "determiner": "DET",
+            "pronoun": "PRON",
+            "conjunction": "CONJ",
+            "modal": "MOD",
+            "auxiliary": "AUX",
+            "particle": "PART",
+            "relative pronoun/marker": "REL",
+        }
+        if pos in exact:
+            return exact[pos]
         if pos.startswith("verb") or pos == "v": return "V"
         if pos.startswith("adj") or pos == "a": return "A"
         if pos.startswith("noun") or pos == "n": return "N"
