@@ -10,7 +10,7 @@ Preference owner: `static-web/KIAN_UI_PREFERENCES.md`
 Shared L1 style owner: `static-web/UI_STYLE_BRIEF.md`  
 **Xizong L2 visual owner: `static-web/XIZONG_VISUAL_LANGUAGE.md`**
 
-This file records accepted learner-visible Xizong product and Projection architecture decisions before Codex implementation. It does **not** change medical Content, Learning Logic, Evidence semantics, learner progress, or the S/K/L/P/R/E/U status of any System.
+This file owns the accepted learner-visible Xizong product and Projection architecture boundary. It is durable product truth, not a construction-stage brief or active implementation cursor. It does **not** change medical Content, Learning Logic, Evidence semantics, learner progress, or the S/K/L/P/R/E/U status of any System.
 
 For any mature Xizong surface discussion, `XIZONG_UI_REVIEW_PROTOCOL.md` is a mandatory companion read before local UI recommendation. Product decisions live here; the protocol owns the whole-flow-before-local-optimization review method. Any learner-facing L3 visual proposal must additionally inherit `XIZONG_VISUAL_LANGUAGE.md`; local surface owners may vary geometry but may not silently create a separate Xizong aesthetic.
 
