@@ -28,6 +28,8 @@ await new Promise((resolve) => setTimeout(resolve, Number(wait)));
 append('end');
 `);
 
+const webRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+
 const run = (id, wait = 250) => spawn(process.execPath, [
   'scripts/kianos-heavy-run.mjs',
   '--label', 'synthetic-' + id,
@@ -35,10 +37,20 @@ const run = (id, wait = 250) => spawn(process.execPath, [
   '--',
   process.execPath, worker, id, log, String(wait)
 ], {
-  cwd: path.resolve(path.dirname(new URL(import.meta.url).pathname), '..'),
+  cwd: webRoot,
   env,
   stdio: ['ignore', 'pipe', 'pipe']
 });
+
+async function waitForHeld(label, timeoutMs = 3000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const status = inspectWebsiteHeavyLease(env);
+    if (status.state === 'held' && status.owner?.label === label) return status;
+    await new Promise((resolve) => setTimeout(resolve, 25));
+  }
+  throw new Error('WEBSITE_HEAVY_TEST_LEASE_NOT_HELD:' + label);
+}
 
 const exit = (child) => new Promise((resolve, reject) => {
   let stdout = '';
@@ -50,20 +62,20 @@ const exit = (child) => new Promise((resolve, reject) => {
 });
 
 let unrelated = null;
+let first = null;
+let second = null;
 try {
   unrelated = spawn(process.execPath, ['-e', 'setTimeout(()=>{},5000)'], {
     detached: process.platform !== 'win32',
     stdio: 'ignore'
   });
 
-  const first = run('A', 300);
-  await new Promise((resolve) => setTimeout(resolve, 60));
-  const held = inspectWebsiteHeavyLease(env);
+  first = run('A', 300);
+  const held = await waitForHeld('synthetic-A');
   assert.equal(held.state, 'held');
-  assert.equal(held.owner?.label, 'synthetic-A');
   assert.equal(held.owner?.live, true);
 
-  const second = run('B', 180);
+  second = run('B', 180);
   const [a, b] = await Promise.all([exit(first), exit(second)]);
   assert.equal(a.code, 0, a.stderr);
   assert.equal(b.code, 0, b.stderr);
@@ -92,6 +104,15 @@ try {
     lock_path: lock
   }, null, 2));
 } finally {
+  const owned = inspectWebsiteHeavyLease(env);
+  if (owned.owner?.pid && owned.owner?.live === true) {
+    try { await terminateProcessTree(Number(owned.owner.pid), { graceMs: 200 }); } catch {}
+  }
+  for (const child of [first, second]) {
+    if (child?.pid && child.exitCode == null) {
+      try { child.kill('SIGTERM'); } catch {}
+    }
+  }
   if (unrelated?.pid) {
     try { await terminateProcessTree(unrelated.pid, { graceMs: 200 }); } catch {}
   }
