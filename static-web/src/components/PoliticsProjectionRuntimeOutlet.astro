@@ -5,10 +5,13 @@ const { compiled = null } = Astro.props;
 const rows = compiled ? [...compiled.values()].filter((row) => row?.surfacePlan?.states?.ORIENT?.length || row?.purposeFirst || row?.purposeFirstPilot) : [];
 const compactXiCloseGroups = (row, groups = []) => {
   if (!String(row?.unitId || '').includes('-XI-')) return groups;
-  return groups.map((group) => {
+  return groups.flatMap((group) => {
     const items = Array.isArray(group?.items) ? group.items : [];
-    if (group?.zone !== 'CLOSURE' || group?.primitive !== 'PARALLEL_SET' || items.length <= 2) return group;
-    return { ...group, title: `${group.title || '精确定位'} · 本轮只带走 1 个`, items: items.slice(0, 1) };
+    if (group?.zone !== 'CLOSURE' || group?.primitive !== 'PARALLEL_SET' || items.length <= 2) return [group];
+    return [
+      { ...group, title: `${group.title || '精确定位'} · 本轮带走 1 个`, items: items.slice(0, 1) },
+      { ...group, id: `${group.id}-later-memory`, title: '后续精确记忆 · 本轮不用背', items: items.slice(1) }
+    ];
   });
 };
 
@@ -231,6 +234,18 @@ window.__kianosLearnerWriterReady.then(() => {
   .politicsStudy[data-politics-runtime] .carryGroup .projectionValueList,
   .politicsStudy[data-politics-runtime] .carryGroup .projectionValueRecord{
     display:grid;gap:7px;
+  }
+  .politicsStudy[data-politics-runtime] .politicsClosure [data-surface-group$="-later-memory"]{
+    margin-top:2px;padding-top:10px;border-top:1px solid #edf1ee;opacity:.68;
+  }
+  .politicsStudy[data-politics-runtime] .politicsClosure [data-surface-group$="-later-memory"]>header strong{
+    font-size:15px;color:#6b7c75;
+  }
+  .politicsStudy[data-politics-runtime] .politicsClosure [data-surface-group$="-later-memory"] .explicitParallel{
+    grid-template-columns:1fr;gap:5px;
+  }
+  .politicsStudy[data-politics-runtime] .politicsClosure [data-surface-group$="-later-memory"] .explicitParallel article{
+    padding:4px 0 4px 10px;border-left-width:2px;
   }
   .politicsStudy[data-politics-runtime] .politicsClosure .politicsNextBridge{
     margin:14px 0 0;padding-top:12px;border-top:1px solid #e5ece8;font-size:17px;line-height:1.62;
