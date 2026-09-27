@@ -273,11 +273,14 @@ async function n1Regression() {
   row = await sourceDone();
   check(row.stage === 'kp_recall' && row.sourceDone, 'n1_whole_block_reaches_recall');
 }
-const server = spawn('npm', ['run','dev','--','--host','127.0.0.1','--port',String(PORT)], {
+const server = spawn('npm', ['run','candidate:serve'], {
   cwd: process.cwd(),
   stdio: ['ignore','pipe','pipe'],
   detached: process.platform !== 'win32',
-  env: { ...process.env, KIANOS_PRIVATE_DIR: path.join(auditDir, 'xizong-cdef-private') }
+  env: {
+    ...process.env,
+    KIANOS_CANDIDATE_PORT: String(PORT)
+  }
 });
 const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-xizong-cdef-'));
 let chrome;
