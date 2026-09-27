@@ -123,6 +123,51 @@ class IncrementalProjectionTest(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError, "FINAL_LEARNER_RELATION_VIEW_MISSING"):
                     run()
 
+    def test_explicit_default_depth_decisions_and_compact_pos_labels(self):
+        owner = {
+            "ordinal": 1,
+            "word_id": "word:a",
+            "word": "a",
+            "record": {
+                "word": "a",
+                "core_concept": {"core_meaning_cn": "一个；每；一"},
+                "senses": [
+                    {
+                        "sense_id": "sense:a:article",
+                        "pos": "article",
+                        "definition_cn": "一个非特指对象",
+                        "definition_en": "one non-specific object",
+                        "usage_note": "a/an sound rule",
+                    },
+                    {
+                        "sense_id": "sense:a:rate",
+                        "pos": "determiner",
+                        "governing_pattern": "number/amount + a + unit",
+                        "definition_cn": "每；每一",
+                        "definition_en": "per unit",
+                    },
+                ],
+                "constructions": [],
+            },
+            "relation_refs": [],
+        }
+        decisions = {
+            "words": {
+                "word:a": {
+                    "sense_usage_notes": {
+                        "sense:a:article": {"disposition": "EXPLORE_ONLY"},
+                    },
+                    "sense_governing_patterns": {
+                        "sense:a:rate": {"disposition": "EXPLORE_ONLY"},
+                    },
+                }
+            }
+        }
+        result = builder.compile_word(owner, decisions)
+        self.assertEqual(result["recall_map"]["parts"], ["1ART", "1DET"])
+        self.assertEqual(result["senses"][0]["note"], "")
+        self.assertEqual(result["senses"][1]["governing_pattern"], "")
+
 
 if __name__ == "__main__":
     unittest.main()
