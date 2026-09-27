@@ -1017,6 +1017,14 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyTab
 }
 
 /* Mac-wide workspace: Logic Map | Stage | conditional Context. */
+/* Fail closed before the writer-gated learner bridge resolves: no useful Context is
+   known yet, so the first painted frame must return that width to Main. */
+body#kianos-workspace.surfaceBody-xizong .xv6Block[data-aux-weight="none"]:not(.xv6BlockWorkspaceShell) .portedStudyLayout {
+  grid-template-columns: 240px minmax(0,1fr) 0;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6Block[data-aux-weight="none"]:not(.xv6BlockWorkspaceShell) .portedStudyChain {
+  display: none;
+}
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLayout {
   flex: 1 1 auto;
   min-height: 0;
