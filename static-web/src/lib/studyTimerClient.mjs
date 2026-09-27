@@ -8,6 +8,7 @@ import {
   readStudyTimerState,
   resolveStudyTimerContext,
   resumeStudyTimer,
+  retargetStudyTimerContext,
   setStudyTimerContext,
   touchStudyTimer
 } from './studyTimer.mjs';
@@ -55,7 +56,15 @@ export function initStudyTimerRuntime({ base = import.meta.env.BASE_URL } = {}) 
   if (document.hasFocus()) applyRouteContext('initial-focus');
 
   const onFocus = () => applyRouteContext('focus');
+  const onRuntimeRouteChanged = () => {
+    if (!document.hasFocus() || latestActiveStewardActivity(storage)) return;
+    const context = currentContext(base);
+    if (!context) return;
+    const state = retargetStudyTimerContext(storage, context, Date.now(), { source: 'runtime-route' });
+    emit({ reason: 'runtime-route', state });
+  };
   window.addEventListener('focus', onFocus);
+  window.addEventListener('kianos:runtime-route-changed', onRuntimeRouteChanged);
   window.addEventListener('pageshow', () => {
     if (document.hasFocus()) applyRouteContext('pageshow');
   });
@@ -142,6 +151,7 @@ export function initStudyTimerRuntime({ base = import.meta.env.BASE_URL } = {}) 
     destroy: () => {
       window.clearInterval(heartbeat);
       window.removeEventListener('focus', onFocus);
+      window.removeEventListener('kianos:runtime-route-changed', onRuntimeRouteChanged);
     }
   };
 

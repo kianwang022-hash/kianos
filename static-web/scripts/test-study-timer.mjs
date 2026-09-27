@@ -11,6 +11,7 @@ import {
   readStudyTimerState,
   resolveStudyTimerContext,
   resumeStudyTimer,
+  retargetStudyTimerContext,
   setStudyTimerContext,
   studyDayAt
 } from '../src/lib/studyTimer.mjs';
@@ -65,6 +66,23 @@ assert.equal(state.subject, 'english');
 state = resumeStudyTimer(storage, e, t0 + 65 * 60_000);
 assert.equal(state.running, true);
 assert.equal(state.manualPaused, false);
+
+// Persistent in-page routes update exact route metadata without fragmenting one task timer.
+const runtimeStorage = new MemoryStorage();
+const v15 = resolveStudyTimerContext('/kianos/vocabulary/15/', base);
+const v16 = resolveStudyTimerContext('/kianos/vocabulary/16/', base);
+let runtimeState = setStudyTimerContext(runtimeStorage, v15, t0);
+const runtimeStartedAt = runtimeState.segmentStartedAt;
+runtimeState = retargetStudyTimerContext(runtimeStorage, v16, t0 + 60_000);
+assert.equal(runtimeState.context.route, 'vocabulary/16');
+assert.equal(runtimeState.context.detailKey, 'vocabulary');
+assert.equal(runtimeState.segmentStartedAt, runtimeStartedAt, 'In-task route metadata update must preserve one timer segment.');
+assert.equal(readStudyTimerLedger(runtimeStorage).sessions.length, 0, 'In-task runtime navigation must not close a timer segment.');
+
+const readingContext = resolveStudyTimerContext('/kianos/reading/2025-01/', base);
+runtimeState = retargetStudyTimerContext(runtimeStorage, readingContext, t0 + 2 * 60_000);
+assert.equal(runtimeState.context.detailKey, 'objective');
+assert.equal(readStudyTimerLedger(runtimeStorage).sessions.length, 1, 'Cross-task runtime navigation must preserve native timer segmentation.');
 
 // A single continuous session crossing China-study midnight is split by day at read time.
 const midnightStorage = new MemoryStorage();

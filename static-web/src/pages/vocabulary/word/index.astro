@@ -262,6 +262,9 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
       window.dispatchEvent(new CustomEvent('kianos:vocabulary-root-ready', {
         detail: { ordinal, word, mode }
       }));
+      window.dispatchEvent(new CustomEvent('kianos:runtime-route-changed', {
+        detail: { source: 'lexical', ordinal, mode, pathname: location.pathname }
+      }));
       prefetchAdjacent(shard);
     } catch (error) {
       console.error(error);
