@@ -7,6 +7,15 @@ This file does not own English Learning Logic, canonical Content, Acceptance Tru
 
 A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / 继续词汇` is LEARN unless the conversation explicitly establishes BUILD / UI / CONTROL work.
 
+## Active engineering anchor
+
+Issue #1014 — **English learner-facing full real-use audit**.
+
+- Phase / Next / Blocker live in Issue #1014 while it is open.
+- Exact Source / Content / Learning / Interaction / Visual / Runtime / Shared-platform truth remains with each native owner; the Issue is only the durable work cursor.
+- An explicit English engineering / real-use audit continuation binds to #1014 until Kian closes or switches it.
+- Ordinary English learning still bypasses this engineering anchor and uses the native learner/runtime state.
+
 ## Current state
 
 - English is in **normal-use / concrete-defect mode** for the currently admitted product boundaries.
