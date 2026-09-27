@@ -30,10 +30,12 @@ BUILD QUALITY / ACCEPTANCE
 → LEARNING_ACCEPTANCE.md
 → GOVERNANCE_ACCEPTANCE.md only for top-level governance claims
 
-EXAM CROSS-SUBJECT RULES
-→ EXAM_ORCHESTRATOR_CONTRACT.md
-→ EXAM_ORCHESTRATOR_CURRENT.json — derived Current projection, not a Work Cursor
-→ EXAM_SUBJECT_MATURITY_STANDARD.md
+EXAM SYSTEM
+→ cross-subject orchestration
+   → EXAM_ORCHESTRATOR_CONTRACT.md
+   → EXAM_ORCHESTRATOR_CURRENT.json — derived projection, not a Work Cursor
+→ specialized subject maturity attack
+   → EXAM_SUBJECT_MATURITY_STANDARD.md — inherits LEARNING_ACCEPTANCE; not routine acceptance
 
 DOMAIN KNOWLEDGE / LEARNING
 → content/
