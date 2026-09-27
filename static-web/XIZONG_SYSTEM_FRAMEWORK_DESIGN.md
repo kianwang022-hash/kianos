@@ -218,7 +218,7 @@ The route may visually express real Current dependency/relation information wher
 
 Selecting a Block changes learner focus. `Enter` / click may open the selected Block directly.
 
-## 8｜Current implementation audit disposition
+## 8｜Current implementation review disposition
 
 ### KEEP
 
