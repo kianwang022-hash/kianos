@@ -11,12 +11,12 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 Issue [#1087](https://github.com/kianwang022-hash/kianos/issues/1087) — **Politics fresh independent audit — whole learner product, attention and changeability**.
 
-- Phase: **FRESH / INDEPENDENT EXHAUSTIVE AUDIT — ACTIVE with inline repair on shared pinned Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4`**.
+- Phase: **FRESH / INDEPENDENT EXHAUSTIVE AUDIT — ACTIVE with learner-logic-first inline repair**.
 - Current Audit rule is `Audit highest standard / Repair fast lane`: reproduce → self-attack diagnosis → confirm accepted behavior/effective owner → read exact related design context → smallest inline repair when needed → targeted proof → replay original failure + sibling defect class + true dependents → continue exhaustive Audit.
 - **Learner-logic-first is mandatory:** before judging any Politics page/function, reconstruct Kian's intended learning action from the current Politics Learning/Interaction owner + exact subject cognitive shape + only the directly relevant Source/Content/Surface-Mapping owner, then traverse the real Home → Learn/orientation → Chengfeng original-surface handoff → Xiao1000 → Review/Memory/Resume/Return path in isolated browser state. Generic page-first/UI-checklist reasoning cannot grant PASS.
 - The earlier A3 root-label leak is repaired on `main` by `bda0400332816c883602d1770ccfd6cae1a8acde`; affected A0/A3 evidence remains unproven until final reconciliation on one exact release containing all accepted repairs.
 - #1098 is **not a blocker** after self-attack: the observed Dock overlap is real, but the accepted shared Dock is intentionally floating/draggable with remembered position and no reserved layout row; Kian explicitly accepted that movable-overlay behavior. #1098 is closed as a historical audit receipt / false-positive classification.
-- The shared Stable pin remains active for English #1085 and Xizong #1090. Politics must not release or repoint it while their audits still depend on it.
+- Real Stable is currently **synced / unpinned** at `65933d59abfe7037729f490a58f9cd7b11429b42` (HTTP header + rendered identity matched when checked). English #1085 and Xizong #1090 remain open; Politics does not repoint Stable on their behalf. New Politics inline repairs on `main` therefore remain repair candidates until a later exact served release contains them.
 - Unaffected Politics evidence on the immutable pinned release remains reusable when its owner/input did not change; repair invalidates only affected claims and real dependents.
 - Real learner U remains separate from engineering/audit evidence.
 
@@ -39,8 +39,8 @@ reconstruct the real Politics learner chain and five subject-specific cognitive 
 → confirmed implementation defect with accepted behavior: repair inline through Concrete Repair Fast Lane
 → targeted proof + original failure replay + same defect class + true dependents
 → continue remaining coverage without discarding unrelated valid evidence
-→ once all three shared audits stop, let Stable catch up to main containing all accepted Politics repairs
-→ pin one final exact Politics release
+→ after remaining inline repairs land, wait for / verify one exact served Politics release containing all accepted Politics repairs
+→ pin or otherwise hold that final exact release immutably for closure
 → reconcile A0 + every repair-affected claim + final coverage gap/integration ledger
 → PASS / FAIL / BLOCKED
 → U remains separate
