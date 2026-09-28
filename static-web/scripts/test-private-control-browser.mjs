@@ -33,6 +33,8 @@ const drill=validateEnglishGeneratedDrill({
   study_day:day,
   generated_at:'2026-09-20T00:10:00+08:00',
   origin:'CHAT_GENERATED_SYNTHETIC',
+  task:'reading_a',
+  evidence_role:'TEACHING_REPAIR',
   completion_requirement:'QUESTIONS_SUBMITTED',
   training_target:{kind:'reading_transfer',note:'Private relay browser proof.'},
   passage:{title:'Private relay drill',paragraphs:['Some findings support a limited conclusion, not a universal one.']},
@@ -60,7 +62,7 @@ const command={
       current_step:0,
       steps:[{
         step_id:'reading',
-        task:'external_reading',
+        task:'reading_a',
         object_id:drill.object_id,
         source_hash:drill.content_hash,
         label:'Private relay Reading',
@@ -183,7 +185,7 @@ try{
   await page.goto(base,{waitUntil:'domcontentloaded'});
   await page.locator('[data-exam-home][data-ready="true"]').waitFor();
 
-  const expected='/external-reading/?id='+encodeURIComponent(drill.object_id);
+  const expected='/reading-generated/?id='+encodeURIComponent(drill.object_id);
 
   // First prove that the browser actually consumed and applied the local command.
   await page.waitForFunction(({commandId,sessionId})=>{
@@ -213,18 +215,17 @@ try{
 
   // Prove the runtime catalog itself contains the generated object before
   // asking the Resume surface to project it.
-  const externalCatalog=await (await fetch(base+'/__kianos-private/external-reading/catalog?t='+Date.now(),{cache:'no-store'})).json();
-  const catalogRow=(externalCatalog.collections||[])
-    .flatMap(group=>group.passages||[])
-    .find(row=>row.object_id===drill.object_id);
+  const generatedCatalog=await (await fetch(base+'/__kianos-private/english-generated/catalog?t='+Date.now(),{cache:'no-store'})).json();
+  const catalogRow=(generatedCatalog.rows||[]).find(row=>row.object_id===drill.object_id);
   assert(catalogRow,'generated object must exist in the live External catalog');
   assert.equal(catalogRow.content_hash,drill.content_hash);
-  const passageResponse=await fetch(base+'/__kianos-private/external-reading/passage?id='+encodeURIComponent(drill.object_id),{cache:'no-store'});
-  const passageData=await passageResponse.json();
-  assert.equal(passageResponse.status,200,'generated passage endpoint must remain readable after control apply');
-  assert.equal(passageData.passage?.object_id,drill.object_id);
-  assert.equal(passageData.passage?.question_origin,'CHAT_GENERATED');
-  assert.equal(passageData.passage?.drill_origin,'CHAT_GENERATED_SYNTHETIC');
+  const materialResponse=await fetch(base+'/__kianos-private/english-generated/material?id='+encodeURIComponent(drill.object_id),{cache:'no-store'});
+  const materialData=await materialResponse.json();
+  assert.equal(materialResponse.status,200,'generated material endpoint must remain readable after control apply');
+  assert.equal(materialData.material?.object_id,drill.object_id);
+  assert.equal(materialData.material?.question_origin,'CHAT_GENERATED');
+  assert.equal(materialData.material?.generated_task,'reading_a');
+  assert.equal(materialData.material?.drill_origin,'CHAT_GENERATED_SYNTHETIC');
 
   // Then prove the subject Resume projected the same session.
   try{
@@ -278,9 +279,12 @@ try{
   assert.equal(receiptData.receipt?.command_id,command.command_id);
 
   await page.locator('[data-exam-next]').click();
-  await page.waitForURL(url=>url.pathname==='/external-reading/'&&url.searchParams.get('id')===drill.object_id);
-  await page.waitForFunction(() => document.querySelector('[data-external-kind]')?.textContent?.trim() === 'CHAT · SYNTHETIC', null, { timeout: 10000 });
-  assert.equal((await page.locator('[data-external-kind]').textContent())?.trim(),'CHAT · SYNTHETIC');
+  await page.waitForURL(url=>url.pathname==='/reading-generated/'&&url.searchParams.get('id')===drill.object_id);
+  await page.locator('[data-generated-reading-a]').waitFor({state:'visible'});
+  assert.equal((await page.locator('[data-generated-reading-title]').textContent())?.trim(),'Private relay drill');
+  const nativeAttempt=await page.evaluate(id=>JSON.parse(localStorage.getItem('kianos-reading-attempt-v1:'+id)||'null'),drill.object_id);
+  assert.equal(nativeAttempt?.binding?.task,'reading_a');
+  assert.equal(localStorage.getItem('kianos-english-external-reading-attempt-v1:'+drill.object_id),null);
 
   console.log('PASS private Chat command -> local relay -> browser control -> Total Home -> exact English Workspace');
   await context.close();

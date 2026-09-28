@@ -5,6 +5,7 @@ import path from 'node:path';
 import { defineConfig } from 'astro/config';
 import { privateLearnerBridge } from './scripts/privateLearnerBridge.mjs';
 import { privateExternalReadingBridge } from './scripts/privateExternalReadingBridge.mjs';
+import { privateEnglishGeneratedBridge } from './scripts/privateEnglishGeneratedBridge.mjs';
 import { privateControlBridge } from './scripts/privateControlBridge.mjs';
 
 const configuredBuildConcurrency = Number(process.env.KIANOS_ASTRO_BUILD_CONCURRENCY || 2);
@@ -67,7 +68,7 @@ export default defineConfig({
     concurrency: buildConcurrency
   },
   vite: {
-    plugins: [privateLearnerBridge(), privateExternalReadingBridge(), privateControlBridge()],
+    plugins: [privateLearnerBridge(), privateExternalReadingBridge(), privateEnglishGeneratedBridge(), privateControlBridge()],
     define: {
       __KIANOS_RELEASE_SHA__: JSON.stringify(process.env.KIANOS_RELEASE_SHA || '')
     }
