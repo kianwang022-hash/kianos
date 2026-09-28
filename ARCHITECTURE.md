@@ -13,6 +13,34 @@ Its job is not to describe every file, workflow or implementation detail. Its jo
 
 ---
 
+# 0｜Capability hierarchy — WHERE
+
+KianOS contains independently meaningful capabilities/systems. This hierarchy answers **where a scope belongs**; the responsibility model in §1 answers **what it owns**. Change lifecycle is a separate dimension owned upstream in Personal `KERNEL.md §2`.
+
+```text
+KianOS
+├─ 2027 Postgraduate Exam System
+│  ├─ durable Exam Rule / Model
+│  │  → EXAM_ORCHESTRATOR_CONTRACT.md
+│  ├─ learner systems
+│  │  ├─ Xizong
+│  │  ├─ English
+│  │  └─ Politics
+│  ├─ product surfaces
+│  │  → Home / Steward / Radar / Subject / Dock
+│  └─ shared execution
+│     → Resume / Return / Timer / checkpoint / Packet / Plan / Evidence / Delivery
+│
+├─ Skills / promoted non-exam capabilities
+└─ future independently continuable capabilities
+```
+
+Adaptive day-of exam judgment is part of the Exam System's operating loop but is **not a second KianOS durable strategy owner**. Current allocation / next-subject / replan judgment remains with Chat and the exact upstream Personal Exam control/role owner; KianOS owns only its durable Exam semantics, product translation, Runtime and evidence responsibilities.
+
+Repository location does not define this hierarchy. A child may refine its parent inside its own responsibility; it may not silently redefine the parent outcome.
+
+---
+
 # 1｜Product responsibility flow
 
 KianOS follows one durable product flow:
@@ -47,31 +75,24 @@ These are **responsibilities/functions**, not separate databases and not mandato
 
 A responsibility may be implemented by one or several narrow canonical owners. The hard rule is that one fact/decision still has one canonical owner.
 
-### CBA requirement spine
+### Recoverable requirement spine
 
-Personal `KERNEL.md` owns the shared lifecycle shorthand:
+The shared lifecycle semantics (`CREATE → BUILD → AUDIT`, with REAL USE after CBA) are owned upstream in Personal `KERNEL.md §2`; this Architecture does not redefine them.
 
-```text
-CBA = CREATE → BUILD → AUDIT
-REAL USE follows and may reopen the earliest responsible owner.
-```
-
-Inside KianOS, every independently meaningful capability/product should have a recoverable **requirement spine**, even when several responsibilities share one file:
+Architecture requires every independently meaningful capability/product to expose a recoverable trace, even when several responsibilities share one file:
 
 ```text
-user need / outcome
+user need / parent outcome
 → Rule / Model
 → Content / Knowledge when applicable
 → Product / Domain design
 → exact Surface design when applicable
 → Engineering / real consumer
-→ native proof / independent Audit
-→ Real Use evidence
+→ applicable Acceptance / evidence owner
+→ Real Use evidence owner
 ```
 
-This is a traceability relationship, not a requirement to create one file per box.
-
-A known-scope Fresh Chat should be able to recover the relevant spine without reading implementation history. If a layer is not applicable, skip it explicitly; do not invent placeholder architecture.
+This is a traceability relationship, not a lifecycle copy and not a requirement to create one file per box. A known-scope Fresh Chat should be able to recover it without reading implementation history. If a responsibility does not apply, skip it rather than inventing placeholder architecture.
 
 ---
 
