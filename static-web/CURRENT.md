@@ -29,6 +29,7 @@ Product semantics, Visual requirements, Content, Acceptance and learner/executio
 
 | Need | Exact first owner | Read further only if needed |
 | --- | --- | --- |
+| Chat → GitHub → webpage changes are slow or stall | [#1048](https://github.com/kianwang022-hash/kianos/issues/1048), current end-to-end acceptance | exact entry / Candidate / proof / delivery owner implicated by the measured delay |
 | UI iteration / Human Gate preview | [Candidate runtime](scripts/kianos-candidate-runtime.mjs) | exact Product / Visual / surface owner → managed Current only after Human Gate PASS |
 | Site did not update / will not open | [Current doctor](scripts/kianos-current-doctor.mjs) | [sync/build](scripts/kianos-current-sync.mjs) → [static server](scripts/kianos-static-server.mjs) |
 | Chat cannot see learner facts | [private Packet builder](scripts/privateDailyLearningPacket.mjs) | Packet relay → affected subject adapter |

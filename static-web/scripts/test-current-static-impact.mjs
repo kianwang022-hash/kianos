@@ -136,6 +136,36 @@ for (const file of [
 ]) {
   assert.equal(requiresStaticRuntimeReload([file]), false, 'NON_LEARNER_RUNTIME_SCRIPT_MUST_NOT_RELOAD_STABLE:' + file);
 }
+// Resource-management/maintenance fixes must use the control-only path instead
+// of preparing a full learner release. A real runtime or output delta in the
+// same batch must still take precedence over this exception.
+const maintenanceScripts = [
+  'static-web/scripts/kianos-heavy-run.mjs',
+  'static-web/scripts/kianos-heavy-status.mjs',
+  'static-web/scripts/websiteHeavyWork.mjs',
+  'static-web/scripts/codex-local-hygiene.mjs'
+];
+for (const file of maintenanceScripts) {
+  assert.equal(classifyStaticBuild([file]).required, false, file);
+  assert.equal(requiresStaticRuntimeReload([file]), false, file);
+}
+assert.equal(
+  requiresStaticRuntimeReload([...maintenanceScripts, 'static-web/scripts/privateEnglishGeneratedBridge.mjs']),
+  true,
+  'MIXED_PRIVATE_RUNTIME_CHANGE_MUST_RELOAD'
+);
+assert.equal(
+  classifyStaticBuild([...maintenanceScripts, 'static-web/src/pages/index.astro']).required,
+  true,
+  'MIXED_STATIC_OUTPUT_CHANGE_MUST_BUILD'
+);
+for (const file of [
+  'static-web/scripts/kianos-safe-astro-build.mjs',
+  'static-web/scripts/new-runtime-helper.mjs'
+]) {
+  assert.equal(requiresStaticRuntimeReload([file]), true, 'UNPROVEN_SCRIPT_MUST_REMAIN_CONSERVATIVE:' + file);
+}
+
 assert.equal(
   requiresStaticRuntimeReload(['static-web/scripts/test-current-offline-startup.mjs']),
   false,

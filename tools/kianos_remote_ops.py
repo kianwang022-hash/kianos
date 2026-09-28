@@ -13,7 +13,7 @@ import subprocess
 import sys
 import tempfile
 import time
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 
 SKIP_DIRS = {".git", "node_modules", "dist", ".astro", "__pycache__"}
@@ -187,13 +187,68 @@ def iter_text_files(scope: Path):
                 continue
 
 
+def packet_commit(repo: Path, args: argparse.Namespace) -> str | None:
+    if args.fetch and args.ref != "origin/main":
+        raise SystemExit("--fetch requires --ref origin/main")
+    if not args.ref:
+        return None
+    if args.grep or args.scope:
+        raise SystemExit("--ref requires exact --file/--range reads; grep/scope reads use the working tree")
+    if not args.file and not args.range:
+        raise SystemExit("--ref requires at least one --file or --range")
+    if args.fetch:
+        try:
+            fetched = subprocess.run(
+                ["git", "fetch", "--quiet", "--no-tags", "origin",
+                 "+refs/heads/main:refs/remotes/origin/main"],
+                cwd=repo, text=True, stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT, check=False, timeout=30,
+            )
+        except subprocess.TimeoutExpired:
+            raise SystemExit("main fetch timed out; no packet emitted")
+        if fetched.returncode:
+            raise SystemExit("main fetch failed; no packet emitted: " + fetched.stdout.strip())
+    commit = git(repo, "rev-parse", "--verify", "--end-of-options", f"{args.ref}^{{commit}}")
+    if not commit:
+        raise SystemExit(f"requested ref does not resolve to a commit: {args.ref}")
+    return commit
+
+
+def read_packet_text(repo: Path, value: str, commit: str | None) -> list[str] | None:
+    if commit is None:
+        return read_text(repo_path(repo, value))
+    # Read committed blobs directly: never follow checkout symlinks or fall back
+    # to dirty/stale files when the requested source does not contain a path.
+    path = PurePosixPath(value)
+    if path.is_absolute() or ".." in path.parts or "\x00" in value:
+        raise SystemExit(f"path escapes repo or is invalid: {value}")
+    relative = path.as_posix()
+    entry = git(repo, "ls-tree", "-z", commit, "--", relative)
+    if not entry:
+        return None
+    metadata, separator, name = entry.rstrip("\x00").partition("\t")
+    fields = metadata.split()
+    if not separator or name != relative or len(fields) != 3 or fields[0] not in {"100644", "100755"}:
+        raise SystemExit(f"requested ref path is not a regular file: {value}")
+    result = subprocess.run(
+        ["git", "cat-file", "blob", fields[2]], cwd=repo,
+        stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, check=False,
+    )
+    try:
+        return result.stdout.decode("utf-8").splitlines() if result.returncode == 0 else None
+    except UnicodeDecodeError:
+        return None
+
+
 def packet(args: argparse.Namespace) -> int:
     repo = resolve_repo(args.repo)
+    commit = packet_commit(repo, args)
     chunks: list[str] = []
+    if commit:
+        chunks.append(f"## SOURCE ref={args.ref} commit={commit} fetched_main={str(args.fetch).lower()}")
 
     for value in args.file:
-        path = repo_path(repo, value)
-        lines = read_text(path)
+        lines = read_packet_text(repo, value, commit)
         if lines is None:
             raise SystemExit(f"requested file is missing or not readable UTF-8 text: {value}")
         if len(lines) > args.max_file_lines:
@@ -211,8 +266,7 @@ def packet(args: argparse.Namespace) -> int:
             raise SystemExit(f"invalid --range {spec!r}; expected path:start:end")
         if start_i < 1 or end_i < start_i:
             raise SystemExit(f"invalid --range bounds: {spec!r}")
-        path = repo_path(repo, value)
-        lines = read_text(path)
+        lines = read_packet_text(repo, value, commit)
         if lines is None:
             raise SystemExit(f"requested range file is missing or not readable UTF-8 text: {value}")
         body = numbered_excerpt(lines, start_i, end_i)
@@ -456,6 +510,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     pack = sub.add_parser("packet", help="bundle exact reads and bounded grep evidence")
     pack.add_argument("--repo", default=".")
+    pack.add_argument("--ref", help="read exact files/ranges from one committed ref instead of the working tree")
+    pack.add_argument("--fetch", action="store_true", help="refresh only origin/main before --ref origin/main reads (30s timeout)")
     pack.add_argument("--file", action="append", default=[])
     pack.add_argument("--range", action="append", default=[])
     pack.add_argument("--scope", action="append", default=[])

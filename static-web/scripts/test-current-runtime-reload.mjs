@@ -56,6 +56,7 @@ async function proveProbeIsolation() {
   for (const [file, exportName] of [
     ['privateLearnerBridge.mjs', 'privateLearnerBridge'],
     ['privateExternalReadingBridge.mjs', 'privateExternalReadingBridge'],
+    ['privateEnglishGeneratedBridge.mjs', 'privateEnglishGeneratedBridge'],
     ['privateControlBridge.mjs', 'privateControlBridge']
   ]) {
     fs.writeFileSync(path.join(probeScripts, file), `import fs from 'node:fs';\nfs.appendFileSync(process.env.KIANOS_PROBE_BRIDGE_MARKER, 'import:${exportName}\\n');\nexport function ${exportName}(){return{configureServer(){fs.appendFileSync(process.env.KIANOS_PROBE_BRIDGE_MARKER, 'configure:${exportName}|private='+process.env.KIANOS_PRIVATE_DIR+'|control='+process.env.KIANOS_CONTROL_DIR+'\\n');}};}\n`);
@@ -91,6 +92,7 @@ async function proveProbeIsolation() {
     const rows = fs.readFileSync(marker, 'utf8');
     assert.match(rows, /import:privateLearnerBridge/);
     assert.match(rows, /configure:privateControlBridge/);
+    assert.match(rows, /configure:privateEnglishGeneratedBridge/);
     assert.match(rows, new RegExp(stateRoot.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')));
   } finally { await stopFixtureServer(probe); }
 

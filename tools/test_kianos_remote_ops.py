@@ -70,6 +70,80 @@ class RemoteOpsTests(unittest.TestCase):
         self.assertIn("## GREP notes.txt", result.stdout)
         self.assertIn("matching_lines=1", result.stdout)
 
+    def test_packet_ref_reads_committed_files_and_preserves_dirty_checkout(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=repo, text=True).strip()
+        (repo / "notes.txt").write_text("dirty checkout\n", encoding="utf-8")
+        before = subprocess.check_output(["git", "status", "--porcelain=v1"], cwd=repo)
+        result = self.call("packet", "--repo", str(repo), "--ref", "HEAD",
+                           "--file", "notes.txt", "--range", "notes.txt:2:3")
+        self.assertEqual(result.returncode, 0, result.stdout)
+        self.assertIn(f"## SOURCE ref=HEAD commit={commit} fetched_main=false", result.stdout)
+        self.assertIn("2: needle here", result.stdout)
+        self.assertNotIn("dirty checkout", result.stdout)
+        self.assertEqual(subprocess.check_output(["git", "status", "--porcelain=v1"], cwd=repo), before)
+        self.assertEqual((repo / "notes.txt").read_text(), "dirty checkout\n")
+
+    def test_packet_fetch_reads_remote_main_without_checkout(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        source_temp, source = self.make_repo()
+        self.addCleanup(source_temp.cleanup)
+        (source / "notes.txt").write_text("fresh remote owner\n", encoding="utf-8")
+        subprocess.run(["git", "commit", "-am", "owner update"], cwd=source, check=True, stdout=subprocess.DEVNULL)
+        remote_head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=source, text=True).strip()
+        subprocess.run(["git", "remote", "add", "origin", str(source)], cwd=repo, check=True)
+        old_head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=repo)
+        (repo / "notes.txt").write_text("local protected work\n", encoding="utf-8")
+        result = self.call("packet", "--repo", str(repo), "--fetch", "--ref", "origin/main", "--file", "notes.txt")
+        self.assertEqual(result.returncode, 0, result.stdout)
+        self.assertIn(f"commit={remote_head} fetched_main=true", result.stdout)
+        self.assertIn("fresh remote owner", result.stdout)
+        self.assertEqual(subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=repo), old_head)
+        self.assertEqual((repo / "notes.txt").read_text(), "local protected work\n")
+
+    def test_packet_ref_never_falls_back_to_checkout(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        (repo / "untracked.txt").write_text("must not leak\n", encoding="utf-8")
+        for ref, path in [("missing-ref", "notes.txt"), ("HEAD", "untracked.txt")]:
+            with self.subTest(ref=ref):
+                result = self.call("packet", "--repo", str(repo), "--ref", ref, "--file", path)
+                self.assertNotEqual(result.returncode, 0, result.stdout)
+                self.assertNotIn("must not leak", result.stdout)
+                self.assertNotIn("## SOURCE", result.stdout)
+
+    def test_packet_ref_rejects_escape_and_symlink(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        (repo / "linked.txt").symlink_to(repo.parent / "outside.txt")
+        subprocess.run(["git", "add", "linked.txt"], cwd=repo, check=True)
+        subprocess.run(["git", "commit", "-m", "symlink fixture"], cwd=repo, check=True, stdout=subprocess.DEVNULL)
+        for path in ["../outside.txt", "/etc/passwd", "linked.txt"]:
+            with self.subTest(path=path):
+                result = self.call("packet", "--repo", str(repo), "--ref", "HEAD", "--file", path)
+                self.assertNotEqual(result.returncode, 0, result.stdout)
+                self.assertNotIn("## SOURCE", result.stdout)
+
+    def test_packet_fetch_requires_main_and_does_not_use_cached_ref_on_failure(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        subprocess.run(["git", "update-ref", "refs/remotes/origin/main", "HEAD"], cwd=repo, check=True)
+        for extra in [[], ["--ref", "HEAD"], ["--ref", "origin/main"]]:
+            with self.subTest(extra=extra):
+                result = self.call("packet", "--repo", str(repo), "--fetch", *extra, "--file", "notes.txt")
+                self.assertNotEqual(result.returncode, 0, result.stdout)
+                self.assertNotIn("## SOURCE", result.stdout)
+                self.assertNotIn("needle here", result.stdout)
+
+    def test_packet_ref_rejects_working_tree_search(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        result = self.call("packet", "--repo", str(repo), "--ref", "HEAD", "--grep", "needle")
+        self.assertNotEqual(result.returncode, 0, result.stdout)
+        self.assertIn("exact --file/--range", result.stdout)
+
     def test_packet_fails_closed_for_missing_explicit_file(self):
         temp, repo = self.make_repo()
         self.addCleanup(temp.cleanup)
