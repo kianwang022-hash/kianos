@@ -294,18 +294,25 @@ Hard rules:
 
 ## 5｜Locked first-pass learner flow
 
-Normal first-pass flow is:
+Normal first-pass flow has two explicit phases:
 
 ```text
+BLOCK LEARN PHASE
 optional Guide when genuinely useful
 → System Framework
 → Block Framework
-→ continuous original-Lecture learning on iPad / MarginNote
-   while KianOS stays on the relevant KP Learn companion surface(s)
-→ lightweight TTSX checkpoint only at a real reviewed Source boundary when bound questions exist
-→ KP Recall after the owning material has actually been learned
-→ Logic Group closure
-→ Block Recall
+→ complete the current Block's accepted first-pass Source/Learn scope
+   - original-Lecture learning stays continuous on iPad / MarginNote
+   - KianOS stays on the relevant KP Learn companion surface(s)
+   - lightweight TTSX may checkpoint a real reviewed Source boundary
+   - after a checkpoint, return to the unfinished Learn mainline
+→ only when the Block's accepted Learn scope is complete:
+  enter RETRIEVAL PHASE
+
+RETRIEVAL PHASE
+→ KP Recall in the accepted Logic Group order
+→ each Logic Group closes automatically after its owned KP Recall evidence exists
+→ after the final Logic Group closes: Block Recall
 → Block Complete
 → release reusable Block Memory assets
 → after the whole System is actually learned: System Recall
@@ -313,6 +320,10 @@ optional Guide when genuinely useful
 → smallest-sufficient Repair / exact Return
 → rolling Memory / Precision / later-pass reuse
 ```
+
+Hard timing rule:
+
+> **Learn and Recall do not interleave by KP. Finish the current Block's accepted Learn/Source scope first; only then begin the Block's KP/LG Recall sequence.**
 
 ### Guide
 
@@ -334,7 +345,7 @@ It should expose the current Prompt/Core and useful locators/support without req
 
 ### KP Recall
 
-Core-protected active retrieval after the owning material has actually been learned.
+Core-protected active retrieval after the **current Block's accepted first-pass Learn scope is complete**. KP Recall belongs to the retrieval phase; it is not inserted between ordinary KP Learn actions inside an unfinished Block Learn phase.
 
 Terminology clarification:
 
