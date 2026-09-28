@@ -9,11 +9,12 @@ A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / �
 
 ## Active engineering anchor
 
-Issue #1043 — **English rapid-learning CREATE — Reading attribution / feedback sufficiency** — is the active long-term control anchor.
+Issue #1053 — **English whole-lane CREATE closure — true-exam throughput, parallel reading growth, targeted generation** — is the active long-term control anchor.
 
-- Current Phase: BUILD — Kian approved the minimal Reading attribution evidence delta; accepted meaning is now persisted in the English Learning Contract and Reading A owner.
-- Current Next: implement passive Reading lookup facts + bounded existing Reading attribution evidence → Chat, run affected native validation, then hand the built result to independent AUDIT / later REAL USE.
-- Current Blocker: no BUILD design blocker; learner-specific stability or dose contraction remains blocked on future real Kian Reading-A evidence and must not be manufactured by engineering.
+- Current Phase: CREATE — close the remaining whole-English semantic clarity gaps before any further BUILD.
+- Current Next: persist true-exam high-throughput review compression, parallel/elastic External Reading, and task-native targeted-generation semantics in the existing owners; reverse-check all task families; then stop CREATE.
+- Current Blocker: no external blocker; #1043 BUILD is intentionally paused until #1053 closes CREATE.
+- Issue #1043 remains the accepted Reading-attribution BUILD handoff, but is not the current cursor while #1053 is open.
 - Issue #1014 — **English learner-facing full real-use audit** — remains the completed durable audit receipt, not the current work cursor.
 - Exact Source / Content / Learning / Interaction / Visual / Runtime / Shared-platform truth remains with each native owner.
 - Ordinary English learning uses the native learner/runtime state.
@@ -87,7 +88,7 @@ Exact semantics live in the relevant Learning / Content / Runtime owner; this cu
 
 ## Next / reopen
 
-No broad English engineering task is active.
+While #1053 is open, whole-English CREATE closure is the only active English engineering task. Do not resume #1043 BUILD until #1053 closes.
 
 Reopen only the smallest owner for:
 
