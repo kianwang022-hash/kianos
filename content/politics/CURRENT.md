@@ -9,11 +9,14 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ## Active engineering anchor
 
-**None.**
+Issue [#1080](https://github.com/kianwang022-hash/kianos/issues/1080) — **Politics rapid-mastery closure — finish accepted low-friction first-round optimization**.
 
-- Politics is in normal learner-use / concrete-defect mode.
-- A future BUILD or Fresh independent AUDIT must be explicitly bound to a new current task before engineering execution resumes.
-- Ordinary Politics learning bypasses this engineering cursor.
+- Phase: **CREATE reconciliation → bounded BUILD → targeted proof**.
+- This is a closure task over the mature existing Politics product, not a new construction campaign.
+- BUILD is effect-scoped: prove a concrete current owner → consumer gap before implementing; already-satisfied effects are NO-OP.
+- Preserve Chengfeng original-source ownership, the single Xiao1000 Workbench, Wrong/Uncertain evidence semantics, exact Return/Resume, and current-year Source gates.
+- Do not create a second Politics course/runtime/scheduler or infer a family-by-family BUILD queue.
+- Ordinary Politics learning bypasses this engineering cursor unless the conversation explicitly enters #1080 engineering work.
 - Legacy task history is quarantined and is not part of normal continuation.
 
 ## Current routing
@@ -27,11 +30,18 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Next
 
-real Politics study
-→ or an explicit Source/content/product/runtime defect
-→ or an explicitly bound fresh independent AUDIT / BUILD task
-→ route to the smallest exact owner
-→ stop after targeted proof
+For active Politics engineering, follow Issue #1080 only.
+
+```text
+current accepted rapid-mastery direction
+→ compare against current Learning / Interaction / Product owners
+→ ABSORB already-satisfied effects
+→ BUILD only concrete missing owner → consumer effects
+→ targeted proof
+→ main + readback
+→ close #1080
+→ return Politics to normal learner-use / concrete-defect mode
+```
 
 ## Stable learning roles
 
