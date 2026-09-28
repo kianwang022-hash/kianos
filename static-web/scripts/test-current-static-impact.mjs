@@ -16,8 +16,22 @@ const reusable = [
   'BRANCH_LIFECYCLE.md',
   'CURRENT.md',
   'static-web/CURRENT.md',
+  'content/xizong/CURRENT.md',
+  'content/xizong/knowledge/systems/a1-circulation/CURRENT.md',
+  'content/english/modules/writing/CURRENT.md',
+  'content/english/README.md',
+  'content/english/audit/closed-baseline.example.json',
+  'content/lexical/semantic-audit/o0001-o0024.audit.md',
+  'content/lexical/semantic-reconciliation/o0025-o0224.md',
+  'content/lexical/semantic-review/o0875-o1124.md',
+  'content/lexical/execution/manifests/o0001-o0100.final-standard-reconciliation.json',
+  'content/lexical/audit/history/2026-09-final-catalog/example.md',
+  'content/politics/projection/history/ch01.projection.json',
+  'content/politics/MATURITY_FRESH_INDEPENDENT_AUDIT.md',
+  'content/xizong/knowledge/learner/D_PHASE7C_NEURAL_CONTENT_SUFFICIENCY_AUDIT.md',
   'static-web/STEWARD_PRODUCT_CONTRACT.md',
   'static-web/scripts/kianos-current-sync.mjs',
+  'static-web/scripts/kianos-candidate-runtime.mjs',
   'static-web/scripts/privateLearnerBridge.mjs'
 ];
 
@@ -112,6 +126,16 @@ for (const file of ['static-web/src/lib/privateControlCommand.mjs',
   assert.equal(requiresStaticRuntimeReload([file]), true, file);
 }
 assert.equal(requiresStaticRuntimeReload(['content/xizong/explanations/manifest.json', 'CURRENT.md']), false);
+for (const file of [
+  'static-web/scripts/kianos-current-sync.mjs',
+  'static-web/scripts/currentRelease.mjs',
+  'static-web/scripts/currentStaticImpact.mjs',
+  'static-web/scripts/currentStaticSlots.mjs',
+  'static-web/scripts/currentDependencies.mjs',
+  'static-web/scripts/kianos-candidate-runtime.mjs'
+]) {
+  assert.equal(requiresStaticRuntimeReload([file]), false, 'NON_LEARNER_RUNTIME_SCRIPT_MUST_NOT_RELOAD_STABLE:' + file);
+}
 assert.equal(
   requiresStaticRuntimeReload(['static-web/scripts/test-current-offline-startup.mjs']),
   false,

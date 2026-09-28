@@ -22,6 +22,12 @@ import {
   runBounded,
   terminateProcessTree
 } from './currentRelease.mjs';
+import {
+  canReuseDependencies,
+  cloneDependencies,
+  dependencyIdentity,
+  writeDependencyProof
+} from './currentDependencies.mjs';
 
 const execFileAsync = promisify(execFile);
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -42,11 +48,13 @@ const oneShot = process.env.KIANOS_SYNC_ONCE === '1';
 const skipAstro = process.env.KIANOS_SKIP_ASTRO === '1';
 const releases = releasePaths(repoRoot);
 const subprocessTimeoutMs = resolveCurrentSubprocessTimeoutMs();
+const buildTimeoutMs = subprocessTimeoutMs;
 const syncRuntimePaths = [
   'static-web/scripts/kianos-current-sync.mjs',
   'static-web/scripts/currentRelease.mjs',
   'static-web/scripts/currentStaticImpact.mjs',
   'static-web/scripts/currentStaticSlots.mjs',
+  'static-web/scripts/currentDependencies.mjs',
   'static-web/package.json',
   'static-web/package-lock.json',
   'static-web/npm-shrinkwrap.json'
@@ -130,11 +138,19 @@ function readActiveBuiltStatus() {
     : readBuiltStatus();
 }
 
-async function runChild(file, args, { cwd = webRoot, label = file, env = process.env } = {}) {
-  await runBounded(file, args, { cwd, env, label, timeoutMs: subprocessTimeoutMs });
+async function runChild(file, args, {
+  cwd = webRoot,
+  label = file,
+  env = process.env,
+  timeoutMs = subprocessTimeoutMs
+} = {}) {
+  await runBounded(file, args, { cwd, env, label, timeoutMs });
 }
 
 async function prepareRelease(sha, extra = {}) {
+  const prepareStartedAt = Date.now();
+  const timings = { dependencies: 0, astro_build: 0, total: 0 };
+  let dependencyMode = 'not-required';
   const failure = readBuildFailure();
   if (failure?.sha === sha && failure.stage === 'build' && !(oneShot && process.env.KIANOS_RETRY_FAILED_BUILD === '1')) {
     throw new Error(`CURRENT_BUILD_BLOCKED:${sha}:${failure.error}`);
@@ -146,7 +162,13 @@ async function prepareRelease(sha, extra = {}) {
     if (readBuiltStatus(existingDist)?.state === 'synced'
       && readBuiltStatus(existingDist)?.sha === sha
       && fs.existsSync(path.join(existingDist, 'index.html'))) {
-      return { webRoot: path.join(releaseRoot, 'static-web'), created: false };
+      timings.total = Date.now() - prepareStartedAt;
+      return {
+        webRoot: path.join(releaseRoot, 'static-web'),
+        created: false,
+        dependencyMode: 'existing-release',
+        timings
+      };
     }
     try {
       await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
@@ -164,26 +186,68 @@ async function prepareRelease(sha, extra = {}) {
   const candidateWebRoot = path.join(releaseRoot, 'static-web');
   try {
     if (fs.existsSync(path.join(candidateWebRoot, 'package.json'))) {
-      await runChild(npmBin, ['install', '--no-audit', '--no-fund'], {
-        cwd: candidateWebRoot,
-        label: 'candidate npm install'
-      });
+      let dependenciesReady = false;
+      const activeWebRoot = activeReleaseRoot ? path.join(activeReleaseRoot, 'static-web') : null;
+      if (activeWebRoot && canReuseDependencies(activeWebRoot, candidateWebRoot)) {
+        try {
+          const reused = cloneDependencies(activeWebRoot, candidateWebRoot);
+          dependenciesReady = true;
+          dependencyMode = 'reused';
+          timings.dependencies = reused.duration_ms;
+          log(`reused verified candidate dependencies in ${reused.duration_ms}ms`);
+        } catch (error) {
+          warn(`candidate dependency reuse failed; falling back to npm install: ${error?.message || error}`);
+        }
+      }
+      if (!dependenciesReady) {
+        // Proof must describe the canonical dependency inputs from the fresh
+        // worktree. npm install may create an untracked package-lock.json;
+        // fingerprinting after install would make the next fresh worktree
+        // differ forever and silently defeat dependency reuse.
+        const dependencyProof = dependencyIdentity(candidateWebRoot);
+        const installStartedAt = Date.now();
+        await runChild(npmBin, ['install', '--no-audit', '--no-fund'], {
+          cwd: candidateWebRoot,
+          label: 'candidate npm install'
+        });
+        timings.dependencies = Date.now() - installStartedAt;
+        dependencyMode = 'installed';
+        writeDependencyProof(candidateWebRoot, dependencyProof);
+        log('installed and recorded candidate dependency proof');
+      }
     }
     if (!skipAstro) {
       const candidateStage = path.join(candidateWebRoot, '.current-build-next');
       fs.rmSync(candidateStage, { recursive: true, force: true });
       const buildScript = staticBuildNpmScript(extra);
       const args = [npmBin, 'run', buildScript, '--', '--outDir', candidateStage];
+      const buildStartedAt = Date.now();
       await runChild(args[0], args.slice(1), {
         cwd: candidateWebRoot,
         label: 'candidate Astro build',
-        env: { ...process.env, KIANOS_RELEASE_SHA: sha }
+        env: { ...process.env, KIANOS_RELEASE_SHA: sha },
+        timeoutMs: buildTimeoutMs
       });
-      writeBuiltStatus(candidateStage, sha, extra);
+      timings.astro_build = Date.now() - buildStartedAt;
+      timings.total = Date.now() - prepareStartedAt;
+      writeBuiltStatus(candidateStage, sha, {
+        ...extra,
+        dependency_mode: dependencyMode,
+        timings_ms: {
+          dependencies: timings.dependencies,
+          astro_build: timings.astro_build,
+          prepare_release_total: timings.total
+        }
+      });
       fs.renameSync(candidateStage, path.join(candidateWebRoot, 'dist'));
     }
   } catch (error) {
-    writeJson(failurePath, { sha, stage: /npm install/.test(error.message) ? 'install' : 'build', error: error.message, failed_at: stamp() });
+    writeJson(failurePath, {
+      sha,
+      stage: /npm install|CURRENT_DEPENDENCY_/.test(error.message) ? 'install' : 'build',
+      error: error.message,
+      failed_at: stamp()
+    });
     try {
       await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
         label: 'cleanup failed candidate',
@@ -196,7 +260,8 @@ async function prepareRelease(sha, extra = {}) {
     throw new Error('CURRENT_RELEASE_BUILD_INVALID');
   }
   fs.rmSync(failurePath, { force: true });
-  return { webRoot: candidateWebRoot, created: true };
+  timings.total = Date.now() - prepareStartedAt;
+  return { webRoot: candidateWebRoot, created: true, dependencyMode, timings };
 }
 
 async function cleanupPreparedRelease(sha) {
@@ -467,6 +532,15 @@ async function remoteMainSha() {
   return raw.split(/\s+/)[0] || '';
 }
 
+async function fetchMainHead() {
+  const startedAt = Date.now();
+  await git(['fetch', 'origin', 'main', '--prune']);
+  return {
+    sha: await git(['rev-parse', 'FETCH_HEAD']),
+    duration_ms: Date.now() - startedAt
+  };
+}
+
 async function syncRuntimeChangedSinceLoad(targetSha) {
   const target = String(targetSha || '').trim();
   if (!syncRuntimeLoadedSha || !target || syncRuntimeLoadedSha === target) return false;
@@ -496,6 +570,8 @@ async function restartSyncRuntimeIfNeeded(targetSha) {
 async function syncOnce({ initial = false } = {}) {
   if (syncing || stopping) return false;
   syncing = true;
+  const syncStartedAt = Date.now();
+  let fetchDurationMs = 0;
   let releaseLock = null;
   try {
     releaseLock = await acquireDeliveryLock(releases.lock);
@@ -540,17 +616,36 @@ async function syncOnce({ initial = false } = {}) {
 
     writeStatus('updating', activeSha || local, { control_sha: local, target_sha: remote });
     log(`main advanced ${local.slice(0, 8)} → ${remote.slice(0, 8)}; syncing whole repository`);
-    await git(['fetch', 'origin', 'main', '--prune']);
-    const fetched = await git(['rev-parse', 'FETCH_HEAD']);
+    const initialFetch = await fetchMainHead();
+    let fetched = initialFetch.sha;
+    fetchDurationMs += initialFetch.duration_ms;
     lastTargetSha = fetched;
     // A previous update may have moved HEAD but failed to publish. Classify
     // from the actually served source, never from that failed checkout.
     const builtBase = readActiveBuiltStatus();
     const impactBase = builtBase?.state === 'synced' && builtBase?.sha ? builtBase.sha : local;
-    const changed = await git(['diff', '--name-only', impactBase, fetched]);
-    const changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
-    const buildDecision = classifyStaticBuild(changedPaths);
-    const staticRuntimeChanged = requiresStaticRuntimeReload(changedPaths);
+    let changed = await git(['diff', '--name-only', impactBase, fetched]);
+    let changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
+    let buildDecision = classifyStaticBuild(changedPaths);
+    let staticRuntimeChanged = requiresStaticRuntimeReload(changedPaths);
+
+    // A burst of accepted commits can land between ls-remote and the expensive
+    // build. Re-read main once before building so the daemon starts from the
+    // newest coherent target instead of knowingly constructing an obsolete one.
+    if (!skipAstro && (buildDecision.required || staticRuntimeChanged)) {
+      const preBuildFetch = await fetchMainHead();
+      fetchDurationMs += preBuildFetch.duration_ms;
+      if (preBuildFetch.sha && preBuildFetch.sha !== fetched) {
+        log(`coalescing superseded pre-build target ${fetched.slice(0, 8)} → ${preBuildFetch.sha.slice(0, 8)}`);
+        fetched = preBuildFetch.sha;
+        lastTargetSha = fetched;
+        changed = await git(['diff', '--name-only', impactBase, fetched]);
+        changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
+        buildDecision = classifyStaticBuild(changedPaths);
+        staticRuntimeChanged = requiresStaticRuntimeReload(changedPaths);
+      }
+    }
+
     const reuseActiveRelease = !skipAstro
       && Boolean(activeReleaseRoot)
       && !buildDecision.required
@@ -568,7 +663,11 @@ async function syncOnce({ initial = false } = {}) {
         changed_paths: changedPaths.length,
         static_build: 'reused',
         build_impact_paths: 0,
-        release_root: activeReleaseRoot
+        release_root: activeReleaseRoot,
+        timings_ms: {
+          remote_fetch: fetchDurationMs,
+          sync_total: Date.now() - syncStartedAt
+        }
       });
       log(
         `synced ${changedPaths.length} control-only path(s) to ${fetched.slice(0, 8)}; `
@@ -579,20 +678,64 @@ async function syncOnce({ initial = false } = {}) {
     }
 
     let runtimeReloaded = false;
+    let preparedRelease = null;
+    let probeDurationMs = 0;
+    let promotionDurationMs = 0;
     if (!skipAstro) {
-      const preparedRelease = await prepareRelease(fetched, {
+      preparedRelease = await prepareRelease(fetched, {
         changed_paths: changedPaths.length,
         build_impact_paths: buildDecision.build_paths.length,
         lexical_projection_required: buildDecision.lexical_projection_required,
         lexical_projection_paths: buildDecision.lexical_projection_paths.length
       });
+
+      // Never switch Stable to a SHA that was already superseded while its
+      // build was in flight. Keep the accepted active release, discard only
+      // the newly-created obsolete candidate, then retry the newest main.
+      const preActivationFetch = await fetchMainHead();
+      fetchDurationMs += preActivationFetch.duration_ms;
+      const supersedingRemote = preActivationFetch.sha;
+      if (supersedingRemote && supersedingRemote !== fetched) {
+        if (preparedRelease.created) await cleanupPreparedRelease(fetched);
+        lastTargetSha = supersedingRemote;
+        writeStatus(oneShot ? 'pending' : 'coalescing', activeSha, {
+          control_sha: local,
+          target_sha: supersedingRemote,
+          superseded_sha: fetched,
+          changed_paths: changedPaths.length,
+          static_build: 'discarded-superseded',
+          build_impact_paths: buildDecision.build_paths.length,
+          release_root: activeReleaseRoot,
+          timings_ms: {
+            remote_fetch: fetchDurationMs,
+            dependencies: preparedRelease.timings?.dependencies || 0,
+            astro_build: preparedRelease.timings?.astro_build || 0,
+            prepare_release_total: preparedRelease.timings?.total || 0,
+            sync_total: Date.now() - syncStartedAt
+          }
+        });
+        log(
+          `built target ${fetched.slice(0, 8)} was superseded by ${supersedingRemote.slice(0, 8)} before activation; `
+          + 'Stable remains unchanged'
+        );
+        if (oneShot) {
+          lastSyncHealthy = false;
+          return false;
+        }
+        setTimeout(() => void syncOnce(), 75);
+        return true;
+      }
+
       try {
+        const probeStartedAt = Date.now();
         await probeRelease(releases.release(fetched), fetched);
+        probeDurationMs = Date.now() - probeStartedAt;
       } catch (error) {
         warn(`new Current release probe failed before activation; keeping current release: ${error.message}`);
         if (preparedRelease.created) await cleanupPreparedRelease(fetched);
         throw error;
       }
+      const promotionStartedAt = Date.now();
       await activateRelease(fetched);
       if (!oneShot) {
         try {
@@ -611,6 +754,7 @@ async function syncOnce({ initial = false } = {}) {
           throw error;
         }
       }
+      promotionDurationMs = Date.now() - promotionStartedAt;
     }
     lastKnownSha = fetched;
     await git(['checkout', '-B', 'main', fetched]);
@@ -631,7 +775,16 @@ async function syncOnce({ initial = false } = {}) {
       changed_paths: changedPaths.length,
       static_build: skipAstro ? 'skipped' : 'rebuilt',
       build_impact_paths: buildDecision.build_paths.length,
-      ...(!skipAstro && activeReleaseRoot ? { release_root: activeReleaseRoot } : {})
+      ...(!skipAstro && activeReleaseRoot ? { release_root: activeReleaseRoot } : {}),
+      timings_ms: {
+        remote_fetch: fetchDurationMs,
+        dependencies: preparedRelease?.timings?.dependencies || 0,
+        astro_build: preparedRelease?.timings?.astro_build || 0,
+        prepare_release_total: preparedRelease?.timings?.total || 0,
+        release_probe: probeDurationMs,
+        promotion: promotionDurationMs,
+        sync_total: Date.now() - syncStartedAt
+      }
     });
     log(
       `synced ${changedPaths.length} changed path(s); static Current is ${fetched.slice(0, 8)} `
