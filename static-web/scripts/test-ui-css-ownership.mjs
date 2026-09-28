@@ -91,6 +91,18 @@ for (const token of [
   assert.ok(!workspaceComposition.includes(token), `shared-workspace-composition.css retained retired selector family: ${token}`);
 }
 
+for (const token of [
+  'uiStageOne>.productCanvas', 'uiHub>.productCanvas', 'uiWordStudy>.productCanvas'
+]) {
+  assert.ok(!workspaceComposition.includes(token), `shared-workspace-composition.css retained pre-shell direct-child selector: ${token}`);
+}
+
+for (const token of [
+  '.uiEnglish', '.english', '.cloze', '.translation', '.writing', '.portedReading', '.objectiveLearn'
+]) {
+  assert.ok(!workspaceComposition.includes(token), `shared-workspace-composition.css retained English-owned selector family: ${token}`);
+}
+
 const frame = read(path.join(layouts, 'BaseFrame.astro'));
 assert.ok(!/styles\/[^'"]+\.css/.test(frame), 'BaseFrame must remain presentation-style free');
 

@@ -1,31 +1,5 @@
 /* Final composition pass for the first visual family. Native visibility,
    navigation, target identity and evidence reducers remain authoritative. */
-body#kianos-workspace.uiEnglish .englishOverview { padding-block:19px 17px; }
-body#kianos-workspace.uiEnglish .englishWorkbenchHeading { padding-block:14px; }
-body#kianos-workspace.uiEnglish .englishCapabilityGroup {
-  grid-template-columns:210px minmax(0,1fr);padding-top:16px;padding-bottom:24px;
-}
-body#kianos-workspace.uiEnglish .englishCapabilityRoutes>a { padding-block:10px; }
-body#kianos-workspace.uiEnglish .englishCapabilityLead p { color:#65778b; }
-body#kianos-workspace.uiEnglish .englishCapabilityRoutes>a>div>small { color:#667b91; }
-body#kianos-workspace.uiEnglish .englishGuideWorkbench { padding:20px 24px; }
-body#kianos-workspace.uiEnglish .englishGuideLinks>a { padding-block:12px; }
-body#kianos-workspace.uiEnglish .englishLexicalCompanion { padding-block:19px; }
-body#kianos-workspace.uiEnglish .englishGuideWorkbench p,
-body#kianos-workspace.uiEnglish .englishLexicalCompanion p { color:#6a7d90; }
-/* An entire Cloze set is a ruled exam matrix. Number, A–D and context are
-   simultaneously visible; formal-answer/repair sections retain native gating. */
-@media(min-width:1051px) {
-  body#kianos-workspace.uiEnglish .clozeQuestion {
-    display:grid;grid-template-columns:52px minmax(0,1fr);gap:5px 8px;
-    padding:11px 17px;align-items:center;
-  }
-  body#kianos-workspace.uiEnglish .clozeQuestion>p:first-child { margin:0;font-size:12px; }
-  body#kianos-workspace.uiEnglish .clozeQuestion>.clozeOptions { margin:0; }
-  body#kianos-workspace.uiEnglish .clozeQuestion>[data-objective-formal],
-  body#kianos-workspace.uiEnglish .clozeQuestion>[data-objective-repair],
-  body#kianos-workspace.uiEnglish .clozeQuestion>.clozeFormal { grid-column:1/-1; }
-}
 body#kianos-workspace.uiWordStudy .portedVocabWordHeader { padding:15px 30px 17px; }
 body#kianos-workspace.uiWordStudy .portedVocabWordHeader h2 { font-size:43px;margin:5px 0 7px; }
 body#kianos-workspace.uiWordStudy .portedVocabWordHeader p { font-size:17px;color:#5c785f; }
@@ -53,12 +27,6 @@ body#kianos-workspace.uiWordStudy .portedVocabEvidenceList>article>p { color:#6f
 @media(min-width:1000px) and (max-height:790px) {
   body#kianos-workspace.uiHub.surfaceBody-home .productCanvas { padding-top:16px;padding-bottom:6px; }
 }
-@media(min-width:1000px) and (max-width:1300px) {
-  body#kianos-workspace.uiEnglish .englishCapabilityGroup { grid-template-columns:175px minmax(0,1fr); }
-}
-@media(max-width:1050px) {
-  body#kianos-workspace.uiEnglish .englishCapabilityGroup { grid-template-columns:1fr; }
-}
 @media(max-width:600px) {
   body#kianos-workspace.uiWordStudy .portedVocabWordHeader { padding:18px 20px; }
   body#kianos-workspace.uiWordStudy .portedVocabWordHeader h2 { font-size:40px; }
@@ -70,16 +38,9 @@ body#kianos-workspace.uiWordStudy .portedVocabEvidenceList>article>p { color:#6f
    path, no font-size compression, and no scheduler/evidence writes. */
 @media (min-width:1101px) and (min-height:680px) {
   body#kianos-workspace.uiStageOne { height:100dvh;min-height:0;display:flex;flex-direction:column;overflow:hidden; }
-  body#kianos-workspace.uiStageOne>.productCanvas { flex:1;min-height:0;display:flex;flex-direction:column;width:calc(100% - 32px);margin:0 auto;padding:12px 0;overflow:auto; }
-  body#kianos-workspace.uiStageOne>.productCanvas>* { flex-shrink:0; }
-  body#kianos-workspace.uiHub>.productCanvas { width:auto;margin:0 0 0 204px;padding:20px 24px 12px; }
 
   /* Hubs: header + Continue + dominant browse surface. Not an all-task dashboard. */
   body#kianos-workspace.surfaceBody-politics.uiHub .politicsHomeTools { margin-bottom:16px; }
-  body#kianos-workspace.uiEnglish.uiHub .englishHub { flex:1;min-height:0;display:flex;flex-direction:column; }
-  body#kianos-workspace.uiEnglish.uiHub .englishOverview { flex-shrink:0; }
-  body#kianos-workspace.uiEnglish.uiHub .englishCapabilityLayout { flex:1;min-height:0; }
-  body#kianos-workspace.uiEnglish.uiHub :is(.englishCapabilityMap,.englishContextRail) { min-height:0;overflow:auto; }
 
   /* Politics keeps orientation / selected Natural Unit / exact Return. */
   body#kianos-workspace.surfaceBody-politics .politicsStudy { flex:1;min-height:0;grid-template-rows:auto minmax(0,1fr);align-items:stretch; }
@@ -114,7 +75,6 @@ body#kianos-workspace.uiWordStudy .portedVocabEvidenceList>article>p { color:#6f
   body#kianos-workspace.surfaceBody-xizong [data-study-stage="kp_recall"] { height:100%;min-height:0;display:flex;flex-direction:column; }
 
   /* Lexical: a single Word stays a semantic sheet, not one-card-per-sense pages. */
-  body#kianos-workspace.uiWordStudy>.productCanvas { width:100%;margin:0;padding:0 16px 12px;overflow:hidden; }
   body#kianos-workspace.uiWordStudy .lexicalStudyNav { position:static;flex-shrink:0;margin:0 -16px;padding:7px 22px;min-height:50px; }
   body#kianos-workspace.uiWordStudy .portedVocabRuntime { flex:1;min-height:0;display:flex;flex-direction:column; }
   body#kianos-workspace.uiWordStudy .portedVocabPreviewBar { flex-shrink:0;min-height:34px;padding:3px 0; }
@@ -127,23 +87,5 @@ body#kianos-workspace.uiWordStudy .portedVocabEvidenceList>article>p { color:#6f
   body#kianos-workspace.uiWordStudy .portedVocabWordFront { flex:1;min-height:0;overflow:auto;padding:28px; }
   body#kianos-workspace.uiWordStudy .portedVocabFoot { flex-shrink:0;padding:8px 22px; }
 
-  /* English: keep Reading 1.12/.88 and other task-native ratios unchanged.
-     Flex measures remaining viewport after the real header/result state. */
-  body#kianos-workspace.uiEnglish :is(.portedReadingSession,.clozeRuntime,.translationRuntime,.writingRuntime) { flex:1;min-height:0;display:flex;flex-direction:column; }
-  body#kianos-workspace.uiEnglish :is(.portedReadingSession,.clozeRuntime,.translationRuntime,.writingRuntime)>* { flex-shrink:0; }
-  body#kianos-workspace.uiEnglish :is(.portedReadingColumns,.clozeLayout,.translationColumns,.writingRuntimeColumns) { flex:1;min-height:0;height:auto; }
-  body#kianos-workspace.uiEnglish .portedReadingSessionHeader { padding-block:10px; }
-  body#kianos-workspace.uiEnglish .portedReadingQuestionNav { margin:8px 0;padding-bottom:7px; }
-  body#kianos-workspace.uiEnglish :is(.portedReadingPassage,.portedReadingQuestions,.clozePassage,.clozeQuestions,.translationSource,.translationWork,.writingPrompt,.writingWork) { min-height:0;overflow:auto; }
-  body#kianos-workspace.uiEnglish .portedReadingHistory { flex-shrink:0;max-height:28vh;overflow:auto; }
-  body#kianos-workspace.uiEnglish :is(.translationActions,.writingActions) { position:sticky;bottom:-22px;z-index:2;background:#fff;padding:12px 0;border-top:1px solid var(--study-line); }
-  body#kianos-workspace.uiEnglish .clozeSubmitRow { flex-shrink:0; }
-  /* Guide navigation remains fixed while the complete guide scrolls. */
-  body#kianos-workspace.uiEnglish :is(.objectiveLearnShell,.translationLearnShell) { flex:1;min-height:0;align-items:stretch; }
-  body#kianos-workspace.uiEnglish :is(.objectiveLearnNav,.translationLearnNav) { position:static;min-height:0;max-height:none;overflow:auto; }
-  body#kianos-workspace.uiEnglish :is(.objectiveLearnMain,.translationLearnMain) { min-height:0;overflow:auto; }
-}
-@media (min-width:1101px) and (max-width:1300px) and (min-height:680px) {
-  body#kianos-workspace.uiHub>.productCanvas { margin-left:182px;padding-inline:20px; }
 }
 /* Narrow windows and high browser zoom retain natural document reflow. */
