@@ -586,7 +586,20 @@ export function englishAttemptInventory(storage, catalog = null) {
     for(const [task,prefix] of Object.entries(prefixes)){
       if(!key?.startsWith(prefix))continue;
       const value=readJson(storage,key);if(!value) {rows.push({task,object_id:key.slice(prefix.length),data_status:'unreadable'});continue;}
-      rows.push({task,data_status:value.binding?.attempt_id&&value.binding?.source_hash?'bound':'legacy_unverified',object_id:key.slice(prefix.length),source_hash:value.sourceHash||value.binding?.source_hash||null,attempt_id:value.attemptId||value.binding?.attempt_id||null,submitted:value.submitted===true,stage:value.stage||value.state||null,problem_count:problemCount(value),started_at:value.startedAt||value.createdAt||null,submitted_at:value.firstSubmittedAt||value.submittedAt||null,updated_at:value.updatedAt||value.saved_at||null,prior_exposure:value.binding?.prior_exposure||'unknown',assistance:value.binding?.assistance||'unknown',task_form:task==='reading_b'?(clean(value?.binding?.source_snapshot?.context?.taskForm||value?.binding?.source_snapshot?.context?.task_form,80)||null):null,complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),first_evidence:value.firstEvidenceMeta||null});
+      const externalSnapshot=task==='external_reading'&&value?.binding?.source_snapshot&&typeof value.binding.source_snapshot==='object'
+        ? value.binding.source_snapshot
+        : null;
+      const externalResults=task==='external_reading'&&value?.results&&typeof value.results==='object'&&!Array.isArray(value.results)
+        ? value.results
+        : null;
+      const externalEvidenceMode=task==='external_reading'
+        ? (value.submitted===true&&externalResults&&Object.keys(externalResults).length>0
+          ? 'QUESTION_OUTCOME'
+          : value.stage==='completed'&&value.submitted!==true
+            ? 'READING_ONLY_COMPLETION'
+            : 'UNKNOWN')
+        : null;
+      rows.push({task,data_status:value.binding?.attempt_id&&value.binding?.source_hash?'bound':'legacy_unverified',object_id:key.slice(prefix.length),source_hash:value.sourceHash||value.binding?.source_hash||null,attempt_id:value.attemptId||value.binding?.attempt_id||null,submitted:value.submitted===true,stage:value.stage||value.state||null,problem_count:problemCount(value),started_at:value.startedAt||value.createdAt||null,submitted_at:value.firstSubmittedAt||value.submittedAt||null,updated_at:value.updatedAt||value.saved_at||null,prior_exposure:value.binding?.prior_exposure||'unknown',assistance:value.binding?.assistance||'unknown',task_form:task==='reading_b'?(clean(value?.binding?.source_snapshot?.context?.taskForm||value?.binding?.source_snapshot?.context?.task_form,80)||null):null,external_evidence_mode:externalEvidenceMode,external_question_count:externalSnapshot&&Array.isArray(externalSnapshot.questions)?externalSnapshot.questions.length:null,external_question_origin:externalSnapshot?(clean(externalSnapshot.question_origin,80)||null):null,complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),first_evidence:value.firstEvidenceMeta||null});
     }
   }
   return rows.map(row=>{
@@ -660,6 +673,7 @@ function medianNumber(values) {
 function safeIndependentTransferCandidate(row) {
   const meta = row?.first_evidence;
   if (!meta || typeof meta !== 'object') return false;
+  if (row?.task === 'external_reading' && row?.external_evidence_mode !== 'QUESTION_OUTCOME') return false;
   return meta.independent_transfer_candidate === true
     && row?.prior_exposure === 'unseen'
     && row?.assistance === 'unassisted'
@@ -697,7 +711,8 @@ function timingProfile(rows) {
 function taskPerformanceProfile(allRows, recentRows, task) {
   const history = allRows.filter((row) => row.task === task);
   const recent = recentRows.filter((row) => row.task === task);
-  const objectiveLike = ['reading_a','cloze','reading_b','external_reading'].includes(task);
+  const objectiveLike = ['reading_a','cloze','reading_b'].includes(task);
+  const externalReading = task === 'external_reading';
   const productive = ['translation','writing'].includes(task);
 
   const summarize = (rows) => {
@@ -719,6 +734,15 @@ function taskPerformanceProfile(allRows, recentRows, task) {
 
     if (objectiveLike) {
       summary.problem_bearing_attempts = rows.filter((row) => Number(row.problem_count || 0) > 0).length;
+    }
+
+    if (externalReading) {
+      const questionRows = rows.filter((row) => row.external_evidence_mode === 'QUESTION_OUTCOME');
+      const readingOnlyRows = rows.filter((row) => row.external_evidence_mode === 'READING_ONLY_COMPLETION');
+      summary.question_outcome_attempts = questionRows.length;
+      summary.question_outcome_problem_bearing_attempts = questionRows.filter((row) => Number(row.problem_count || 0) > 0).length;
+      summary.reading_only_completions = readingOnlyRows.filter((row) => row.complete === true).length;
+      summary.unknown_evidence_mode_attempts = rows.length - questionRows.length - readingOnlyRows.length;
     }
 
     if (task === 'reading_b') {
@@ -751,7 +775,9 @@ function taskPerformanceProfile(allRows, recentRows, task) {
 
   return {
     role: ENGLISH_PROFILE_TASK_ROLE[task],
-    evidence_shape: objectiveLike ? 'QUESTION_OUTCOME' : 'PRODUCTIVE_REPAIR_STATE',
+    evidence_shape: externalReading
+      ? 'MIXED_READING_COMPLETION_AND_QUESTION_OUTCOME'
+      : objectiveLike ? 'QUESTION_OUTCOME' : 'PRODUCTIVE_REPAIR_STATE',
     history: summarize(history),
     recent: summarize(recent)
   };
@@ -796,6 +822,7 @@ export function buildEnglishPerformanceProfile(rows, {
       'TRANSLATION_AND_WRITING_HAVE_NO_AUTO_SCORE',
       'PROFILE_CREATES_NO_REVIEW_OR_TEST_DEBT',
       'WORKFLOW_COMPLETE_IS_NOT_PERFORMANCE_SUCCESS',
+      'EXTERNAL_READING_ONLY_COMPLETION_IS_NOT_COMPREHENSION_OUTCOME',
       'READING_B_AGGREGATE_DOES_NOT_PROVE_FORM_COVERAGE'
     ]
   };
@@ -1172,7 +1199,7 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now(), ca
     '- Missing evidence means unknown, not failed. Finished work must not be turned back into Resume debt.',
     '- Optional params.material_exposure={state:unseen|exposed|unknown,basis:learner_statement,observed_at:ISO,note:actual learner statement} may be supplied ONLY from real learner testimony before an attempt. Never infer unseen from missing storage or Content defaults.',
     '- If prior Chat discussion or learner testimony materially cues the assigned task, params.assistance_context={state:assisted|unknown,basis:chat_context|learner_statement,observed_at:ISO,note:brief factual reason} may downgrade the next first-evidence claim. Do not declare unassisted; that remains the default only when no contrary evidence exists.',
-    '- performance_profile is task-level bounded telemetry. For Part B, form_coverage must be read before any aggregate stability claim. long_horizon_recurrence projects durable Objective/Translation/Writing Repair/Transfer targets. If recent exact attempts are truncated, absence from the recent window is not proof that a mechanism never existed.',
+    '- performance_profile is task-level bounded telemetry. For External Reading, READING_ONLY_COMPLETION proves exposure/workflow only; only QUESTION_OUTCOME attempts carry comprehension-result evidence, and their source-native task identity still differs from Reading A. For Part B, form_coverage must be read before any aggregate stability claim. long_horizon_recurrence projects durable Objective/Translation/Writing Repair/Transfer targets. If recent exact attempts are truncated, absence from the recent window is not proof that a mechanism never existed.',
     '- reading_attribution is bounded factual Reading-A evidence only. A PRE_SUBMIT lookup proves assistance happened, not that the failure was lexical; a POST_SUBMIT_REVIEW lookup is review evidence and cannot retroactively contaminate first-attempt assistance. focused_question_id is context at lookup time, not causality. Reviewed LOCATE/JUDGE/EXECUTE/UNDERSTAND signals remain observations, not diagnosis or mastery.',
     '- If UNDERSTAND remains decision-relevant after reading_attribution is considered, ask the smallest useful clarification: first a binary confirmation only when a recent PRE_SUBMIT lookup is a plausible blocker; only if still needed, one coarse choice such as 词/短语 / 句子结构 / 指代或逻辑 / 整段 / 不确定. Do not ask when the answer would not change repair or allocation.',
     '- reading_attribution cannot by itself create review debt, select a next task, or contract Reading-A dose. Learner-specific stability/dose changes still require sufficient real evidence.',
