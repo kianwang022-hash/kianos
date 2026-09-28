@@ -3,7 +3,7 @@
 Status: **CURRENT**  
 Scope: execution and delivery, not Product/Learning/Visual meaning or Acceptance.
 
-Personal `KERNEL.md §2` owns the lifecycle. `AGENTS.md` routes intent. This file owns **one execution procedure**; Current and task Issues reference it rather than copy it. Preserve Kian's net-leverage requirement: setup, rework, verification, recovery and maintenance count as costs; shifting them to Kian is not an improvement.
+`ARCHITECTURE.md` owns the callable CBA development architecture. Personal `KERNEL.md §2` owns cross-system responsibility/transfer only. `AGENTS.md` routes intent. This file owns **execution**, both for ordinary bounded changes and for BUILD inside an active CBA run; Current and task Issues reference it rather than copy it. Preserve Kian's net-leverage requirement: setup, rework, verification, recovery and maintenance count as costs; shifting them to Kian is not an improvement.
 
 # 1｜Management success
 
@@ -16,6 +16,18 @@ Content changes edit the exact semantic owner and regenerate only required proje
 ## Concrete Repair Fast Lane — ACTIVE
 
 Marker: `KIANOS_CONCRETE_REPAIR_FAST_LANE_V1`
+
+### Semantic-impact tripwire before owner loading
+
+Do not load Product/Learning/Visual owners merely because a file is about to change.
+
+First ask whether the requested effect can plausibly change primary action, Attention/information hierarchy, visibility/disclosure, interaction order, state/evidence meaning, or a shared/cross-surface boundary.
+
+- clearly no → direct existing implementation/consumer + targeted proof;
+- yes / uncertain → one primary related design owner + actual consumer;
+- only proven cross-boundary dependency justifies reading another owner.
+
+This is a reasoning gate, not another persisted status or checklist.
 
 ```text
 concrete requested/reproduced effect
@@ -44,7 +56,7 @@ Source-of-text is not automatically the repair owner. Remove unjustified display
 
 # 3｜UI execution boundary
 
-Read the relevant Product/Surface/Visual design before modification; Xizong's existing modification preflight remains mandatory. Preserve the rationale as well as the current task. Work in the existing effective CSS/component owner, never an added emergency override layer.
+Run the semantic-impact tripwire first. Read Product/Surface/Visual design only when the requested UI change may alter meaning, attention, disclosure, interaction or shared boundaries; otherwise work directly in the existing effective CSS/component owner. Xizong's bounded preflight follows the same rule. Never add an emergency override layer.
 
 Use the existing Candidate and compatible dependencies for real visual/interaction proof. A real material design choice retains its Human Gate; a correctness fix does not ask Kian to re-decide accepted behavior. One local repair is not a whole-product Audit. Website commands/setup are in `static-web/README.md`, not copied here.
 
@@ -53,6 +65,8 @@ Use the existing Candidate and compatible dependencies for real visual/interacti
 `PROJECT_DEFINITION.md R11 / T8` and `ARCHITECTURE.md §9` own changeability. If a local correction expands into repeated owner searches, setup, full-site validation or competing implementations without new evidence, narrow/re-resolve it before more work. Do not introduce a numeric file-count veto or a new governance layer as a substitute for reasoning.
 
 # 5｜Scope and blocker handoff
+
+Ordinary work does not need a CBA stage transition. When CBA is explicitly active, its stage semantics come from `ARCHITECTURE.md`; this contract only executes the current work.
 
 Keep the same bound task during inline Audit repair. Confirm the defect, repair its exact owner, replay the failure and true dependents, then continue remaining coverage. Material semantic choices still return to Kian. Create a separate task only for genuinely independent work/delegation, not a stage label.
 
