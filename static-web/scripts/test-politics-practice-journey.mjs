@@ -210,7 +210,7 @@ try {
     assert.equal(await read(page, K.session), null); assert.equal(await page.locator('[data-question-card]').isVisible(), false);
     await page.evaluate(() => { window.__fail = null; }); await start(page);
     await page.route('**/practice-review/*.json', (route) => { const p = practiceReviewPayload(catalog, catalog.questions[0].id); p.source = []; return route.fulfill({ contentType: 'application/json', body: JSON.stringify(p) }); });
-    await answer(page, 'B'); assert.match(await page.locator('[data-review-sources]').innerText(), /没有已绑定/); await screenshot(page, 'correct-sparse-source');
+    await answer(page, 'B'); assert.match(await page.locator('[data-review-sources]').innerText(), /只有所属学习单元定位；没有猜测更细/); await screenshot(page, 'correct-sparse-source');
     await installFailure(page, K.session); await page.click('[data-next-question]'); assert.equal((await read(page, K.session)).index, 0); assert.equal(await page.locator('[data-submitted-result]').isVisible(), true);
     await page.evaluate(() => { window.__fail = null; }); await page.click('[data-next-question]'); assert.equal((await read(page, K.session)).index, 1);
     pass('failed session start/Next never advances; sparse source honest fallback'); await ctx.close();
