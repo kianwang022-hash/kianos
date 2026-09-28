@@ -128,6 +128,37 @@ A downstream PASS is invalid when an earlier link required by the claim is missi
    - cross-module/Home/whole-day integration is tested after the child capabilities it depends on are independently trustworthy;
    - repository breadth is not permission to overload context or replace understanding with grep/count coverage.
 
+
+### 0.1.1｜2027 exam acceptance escalation — subject → Exam System → three-system
+
+For the current 2027 postgraduate-exam product, Fresh acceptance escalates through three distinct layers:
+
+```text
+Level 1 — subject full-suite AUDIT
+Xizong / English / Politics
+        ↓ all required child claims independently trustworthy
+
+Level 2 — 2027 Exam System integration AUDIT
+Exam Orchestrator + Home/Today/Steward + cross-subject Resume/Return
++ whole-day execution + shared Runtime/private state/delivery boundaries
+        ↓ exam-system integration claim trustworthy
+
+Level 3 — mother cross-system AUDIT
+Personal ↔ StudyHub ↔ KianOS
+        ↓ cross-system control / ownership / handoff claim trustworthy
+```
+
+Hard rules:
+
+- **A child PASS only unlocks the parent audit; it never implies the parent PASS.**
+- **A parent audit reuses still-valid child evidence rather than mechanically re-running unchanged child internals from zero.**
+- The parent must add fresh evidence for every integration/interface claim introduced only at that parent layer.
+- Large populations may use deliberate representative objects, but a required task family, subject family, lifecycle stage, cross-surface boundary or audit dimension may not be sampled away.
+- A parent FAIL reopens the smallest responsible current owner/interface; it does not automatically invalidate unrelated accepted child evidence.
+- Level 2 is owned inside KianOS by the current Exam Orchestrator / Product / Runtime / Acceptance owner chain.
+- Level 3 is **not KianOS-owned**. Personal / StudyHub / KianOS responsibility and mother-architecture acceptance return to the upstream Personal cross-system owner; KianOS may provide evidence but may not self-grant a three-system PASS.
+- Chat and Website are execution/front-end surfaces in this hierarchy, not a fourth persistent truth system.
+
 9. **System-control claims start at the real entrypoint**
    - when claiming Fresh-Chat, Continue, Home, Chat→GitHub or system-control reliability, begin from a realistic user request and verify bounded resolution into the correct Current/canonical owner before judging downstream behavior;
    - broad repository archaeology, historical contamination, duplicated authority, or an answer that depends on hidden prior-chat context is a failure of that claim even if the final page/code is correct.
