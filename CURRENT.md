@@ -27,6 +27,12 @@ Rule/Content/Visual asset work and website engineering are separate responsibili
 
 Website implementation/delivery state lives in [Website Current](static-web/CURRENT.md). Product/surface semantics live in the exact KianOS product owner (for example `static-web/PRODUCT_SURFACE_CONTRACT.md` / `static-web/STEWARD_PRODUCT_CONTRACT.md`); visual rules and Acceptance remain with their exact owners. Personal Project prompts, natural archive and cross-chat interpretation remain upstream and are not mirrored here.
 
+## Legacy quarantine
+
+Normal routing is **current-only**. Closed Issues/PRs, retired branches, old comments, git history and historical PASS narratives are not part of the normal read/search surface.
+
+Only an explicit Kian request for `legacy / 历史 / 追溯 / 旧版本 / 找以前` unlocks the exact historical artifact needed for that request. Otherwise, if a Current route is insufficient, treat that as a current routing/owner defect instead of reconstructing state from history.
+
 ## Continuation and stop
 
 A content route must lead to its one live Current/work-cursor or canonical owner; retired continuation files, historical Issues, PR comments and chat summaries are not fallback progress stores. Do not copy child status, remaining counts or next cursors into this root file.
