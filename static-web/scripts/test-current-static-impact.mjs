@@ -5,6 +5,7 @@ import {
   classifyStaticBuild,
   requiresStaticRuntimeReload,
   staticBuildCanReuseFromBase,
+  staticBuildNpmScript,
   staticBuildPathImpact
 } from './currentStaticImpact.mjs';
 
@@ -115,6 +116,17 @@ assert.equal(
   requiresStaticRuntimeReload(['static-web/scripts/test-current-offline-startup.mjs']),
   false,
   'TEST_ONLY_SCRIPT_MUST_NOT_RELOAD_LEARNER_RUNTIME'
+);
+
+assert.equal(
+  staticBuildNpmScript(classifyStaticBuild(['static-web/src/pages/index.astro'])),
+  'build:astro',
+  'NON_LEXICAL_STATIC_CHANGE_SHOULD_SKIP_LEXICAL_PROJECTION'
+);
+assert.equal(
+  staticBuildNpmScript(classifyStaticBuild(['content/lexical/words/by-ordinal/o0001.json'])),
+  'build',
+  'LEXICAL_STATIC_CHANGE_MUST_RUN_LEXICAL_PROJECTION'
 );
 
 assert.equal(classifyStaticBuild(['content/xizong/explanations/manifest.json']).lexical_projection_required, false);

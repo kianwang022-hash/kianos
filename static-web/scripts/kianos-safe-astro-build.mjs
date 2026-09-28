@@ -141,7 +141,7 @@ async function main() {
   const astroBin = path.join(webRoot, 'node_modules', '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro');
   const child = spawn(astroBin, ['build', ...plan.args], {
     cwd: webRoot,
-    env: process.env,
+    env: { ...process.env, KIANOS_XIZONG_BUILD_CACHE: '1' },
     stdio: 'inherit',
     shell: process.platform === 'win32'
   });

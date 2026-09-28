@@ -12,6 +12,9 @@ const EXTENSION_SUFFIX = '-extensions.json';
 
 export const XIZONG_SEMANTIC_ADAPTER_SCHEMA = 'kianos.xizong.semantic_adapter.v1';
 
+const BUILD_CACHE_ENABLED = process.env.KIANOS_XIZONG_BUILD_CACHE === '1';
+const semanticSystemCache = new Map();
+
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
 }
@@ -589,6 +592,7 @@ function buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVis
 }
 
 export function loadXizongSemanticSystem(systemId) {
+  if (BUILD_CACHE_ENABLED && semanticSystemCache.has(systemId)) return semanticSystemCache.get(systemId);
   const record = findSystemRecord(systemId);
   const learningOwner = loadLearningOwner(record);
   const cueOwner = loadLearningCues(record);
@@ -604,7 +608,7 @@ export function loadXizongSemanticSystem(systemId) {
   if (expectedKp !== kpCount) fail('SYSTEM_KP_COUNT_MISMATCH', `${systemId}:${kpCount}/${expectedKp}`);
   if (expectedGroups !== logicGroupCount) fail('SYSTEM_LOGIC_GROUP_COUNT_MISMATCH', `${systemId}:${logicGroupCount}/${expectedGroups}`);
 
-  return {
+  const result = {
     schema: XIZONG_SEMANTIC_ADAPTER_SCHEMA,
     systemId: record.identity.systemId,
     canonicalId: record.identity.canonicalId,
@@ -628,6 +632,8 @@ export function loadXizongSemanticSystem(systemId) {
     ttsxPolicy: failClosedTtsx(),
     blocks
   };
+  if (BUILD_CACHE_ENABLED) semanticSystemCache.set(systemId, result);
+  return result;
 }
 
 export function loadXizongSemanticBlock(systemId, blockId) {
