@@ -6,27 +6,31 @@ Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
 This file records the accepted Mac-wide Block Workspace design only. It does not change Xizong medical Content, Learning Logic, Runtime, Evidence, Repair, Return, or existing S/K/L/P/R/E/U claims.
 
-## 1｜Baseline: optimize the accepted loop, do not redesign it
+## 1｜Baseline: express the accepted Block-level first-pass loop
 
-Preserve the existing mature learner chain:
+Preserve this learner chain:
 
 ```text
 Block orientation
-→ current Logic Group purpose / closure shown inside the persistent Logic Map
-→ iPad / MarginNote continuous original-Lecture study while Mac stays on KP Learn
+→ current Logic Group purpose / KP structure visible as navigation/context
+→ one continuous Block Learn
+   → iPad / MarginNote continuous original-Lecture study is primary
+   → Mac KP/LG support appears when useful but does not demand continuous dual-screen attention
 → at a real reviewed Source boundary, when a reviewed Lecture-attached TTSX binding exists: lightweight TTSX checkpoint
-→ current KP marked learned as the learner advances
-→ that Logic Group's KP Recall on the same KP card with Core hidden
-→ last KP rating automatically closes the Logic Group in the Logic Map
-→ next Logic Group
-→ final Logic Group closes directly into Block Recall
-→ Reveal Block model
+→ learner advances through the Block while KP / LG remain Learn structure rather than Recall gates
+→ finish the whole Block Learn unit
+→ Block Recall
+   → reconstruct the Block from center question / Logic Group skeleton
+   → drill down to LG / KP only for real weak points
+→ smallest-sufficient Repair when needed
 → complete Block Recall
 → lightweight same-surface confirmation of Block first-pass completion
 → After Learn when useful
 ```
 
-The shared Block UI is a Projection optimization of this accepted loop, not a new learner flow.
+There is no mandatory first-pass per-KP Recall/rating gate and no LG-completion ceremony that interrupts the continuous Block Learn unit. KP Recall remains available for targeted retrieval / Repair / Memory / later-stage use.
+
+The shared Block UI must express this accepted loop rather than preserve the historical per-KP Recall progression merely because Runtime can do it.
 
 ## 2｜Mac-wide workspace skeleton — ACCEPTED
 
@@ -66,10 +70,10 @@ Preserve semantically:
 - Logic Group navigation;
 - accepted System-specific continuous Source-contact model;
 - one return at the accepted Source boundary, not an automatic trip per LG;
-- same-card KP Recall with Core-only reveal gating;
-- KP Recall evidence semantics;
-- Logic Group closure;
-- Block Recall and completion gate;
+- same-card KP Recall capability with Core-only reveal gating when targeted retrieval is actually invoked;
+- KP Recall evidence semantics when such a real Recall occurs;
+- Logic Group map / local structure without a mandatory first-pass Recall closure gate;
+- Block Recall and completion gate as the normal first-pass retrieval closure;
 - learner-state guards;
 - existing Memory / Repair / Evidence / Return semantics;
 - timing semantics of Visual / Precision / Connection / Reserve where Current owns them.
@@ -114,7 +118,7 @@ A shared Block change must not silently lose A2's Current Visual / Precision / C
 
 > **把点击用在切换认知对象，不要用在获得本来就该看到的信息。**
 
-Legitimate clicks/state changes include switching Logic Group, entering external Lecture, returning for Recall, moving through KP Recall, Block Recall, or an actually useful After-Learn task. Logic Group closure itself is derived automatically from completed KP Recall evidence.
+Legitimate clicks/state changes include switching Logic Group/KP during Learn, entering external Lecture, entering post-Block Recall, drilling into a targeted KP Recall when reality earns it, or an actually useful After-Learn task. First-pass progression must not require KP ratings merely to close a Logic Group; Block Recall is the normal retrieval closure for the continuous Block Learn unit.
 
 Important first-round Block Guide structure should normally be visible on Mac without repeated accordion/detail opening. Protected answers and truly secondary/later reference remain progressively disclosed.
 
