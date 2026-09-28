@@ -42,8 +42,9 @@ const base=import.meta.env.BASE_URL;
 <p data-generated-cloze-error hidden></p>
 
 <script>
-  import {archiveEnglishAttempt,inspectEnglishAttempt,preserveEnglishFailure,saveEnglishAttempt,taskMetadata} from '../lib/englishLearnerEvidence.mjs';
-  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  import {preserveEnglishFailure} from '../lib/englishLearnerEvidence.mjs';
+  import {initClozeRuntime} from '../lib/clozeRuntime.mjs';
+  import {learnerWriterReady} from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(async()=>{
     const root=document.querySelector('[data-generated-cloze]');
     const errorNode=document.querySelector('[data-generated-cloze-error]');
@@ -62,7 +63,6 @@ const base=import.meta.env.BASE_URL;
       preserveEnglishFailure(root,error);
     };
     if(!objectId){showError(new Error('ENGLISH_GENERATED_CLOZE_ID_REQUIRED'));return;}
-
     try{
       const payload=await fetchJson(endpoint('material?id='+encodeURIComponent(objectId)));
       const material=payload.material;
@@ -76,29 +76,18 @@ const base=import.meta.env.BASE_URL;
       root.dataset.objectiveStorageKey=`kianos-cloze-attempt-v1:${objectId}`;
       root.dataset.englishSourceHash=material.content_hash||'';
       const snapshot={
-        evidence:{
-          source_kind:'generated',
-          evidence_role:material.evidence_role||null,
-          semantic_source_hash:material.content_hash||null,
-          transfer_independence:material.transfer_independence||null,
-          calibration_status:material.calibration_status||'NOT_SCORE_EQUIVALENT'
-        },
-        question_origin:'CHAT_GENERATED',
-        completion_requirement:material.completion_requirement||'QUESTIONS_SUBMITTED',
-        training_target:material.training_target||null,
-        material:paragraphs,
-        context:{generated:true,task:'cloze'},
+        evidence:{source_kind:'generated',evidence_role:material.evidence_role||null,semantic_source_hash:material.content_hash||null,
+          transfer_independence:material.transfer_independence||null,calibration_status:material.calibration_status||'NOT_SCORE_EQUIVALENT'},
+        question_origin:'CHAT_GENERATED',completion_requirement:material.completion_requirement||'QUESTIONS_SUBMITTED',
+        training_target:material.training_target||null,material:paragraphs,context:{generated:true,task:'cloze'},
         questions:questions.map(q=>({id:q.question_id,ordinal:q.ordinal,prompt:q.prompt,options:q.options}))
       };
-      const snapshotNode=root.querySelector('[data-english-task-snapshot]');
-      if(snapshotNode)snapshotNode.textContent=JSON.stringify(snapshot);
+      const snapshotNode=root.querySelector('[data-english-task-snapshot]');if(snapshotNode)snapshotNode.textContent=JSON.stringify(snapshot);
       root.querySelector('[data-objective-title]').textContent=material.title||objectId;
-
-      const materialHost=root.querySelector('[data-generated-cloze-material]');
-      materialHost.innerHTML='';
-      paragraphs.forEach(row=>{const p=document.createElement('p');p.dataset.objectiveMaterialBlock='';p.id=row.id;p.textContent=row.text;materialHost.appendChild(p);});
-      const questionHost=root.querySelector('[data-generated-cloze-questions]');
-      const dots=root.querySelector('[data-cloze-dots]');
+      root.querySelector('[data-objective-title]')?.setAttribute('title',material.training_target?.note||'');
+      const materialHost=root.querySelector('[data-generated-cloze-material]');materialHost.innerHTML='';
+      paragraphs.forEach(row=>{const el=document.createElement('p');el.dataset.objectiveMaterialBlock='';el.id=row.id;el.textContent=row.text;materialHost.appendChild(el);});
+      const questionHost=root.querySelector('[data-generated-cloze-questions]');const dots=root.querySelector('[data-cloze-dots]');
       questionHost.innerHTML='';dots.innerHTML='';
       questions.forEach((q,index)=>{
         const section=document.createElement('section');section.className='clozeQuestion';section.dataset.objectiveQuestion=q.question_id;section.dataset.objectiveIndex=String(index);
@@ -106,65 +95,30 @@ const base=import.meta.env.BASE_URL;
         section.querySelector('[data-objective-prompt]').textContent=q.prompt||`Blank ${index+1}`;
         const options=section.querySelector('.clozeOptions');
         for(const [label,text] of Object.entries(q.options||{})){
-          const button=document.createElement('button');button.type='button';button.dataset.clozeOption='';button.dataset.objectiveOption='';button.dataset.value=label;button.innerHTML='<b></b><span></span>';button.querySelector('b').textContent=label;button.querySelector('span').textContent=text;options.appendChild(button);
+          const button=document.createElement('button');button.type='button';button.dataset.clozeOption='';button.dataset.objectiveOption='';button.dataset.value=label;
+          button.innerHTML='<b></b><span></span>';button.querySelector('b').textContent=label;button.querySelector('span').textContent=text;options.appendChild(button);
         }
         questionHost.appendChild(section);
         const jump=document.createElement('button');jump.type='button';jump.dataset.clozeJump=String(index);jump.setAttribute('aria-label',`Blank ${index+1}`);jump.textContent=String(index+1);dots.appendChild(jump);
       });
-
-      const storageKey=`kianos-cloze-attempt-v1:${objectId}`;
-      const metadata=taskMetadata(root,'cloze',objectId);
-      const inspected=inspectEnglishAttempt(localStorage,storageKey,metadata,{root});
-      const blankState=()=>({schema:'kianos.english.cloze_attempt.v1',objectId,startedAt:new Date().toISOString(),submittedAt:null,submitted:false,answers:{},uncertain:[],trajectory:{},results:{}});
-      let state=inspected?.objectId===objectId?{...blankState(),...inspected,trajectory:inspected.trajectory||{}}:blankState();
-      const save=()=>saveEnglishAttempt(localStorage,storageKey,state,metadata,{root});
-      save();
       localStorage.setItem('kianos-cloze-last-location-v1',JSON.stringify({id:objectId,title:material.title||objectId,href:`${base}cloze-generated/?id=${encodeURIComponent(objectId)}`,updatedAt:new Date().toISOString()}));
 
-      const rows=[...root.querySelectorAll('[data-objective-question]')];
-      const jumps=[...root.querySelectorAll('[data-cloze-jump]')];
-      const uncertainButton=root.querySelector('[data-cloze-uncertain]');
-      const submit=root.querySelector('[data-objective-submit]');
-      let active=0;
-      let formalAnswers={};
-      const idOf=row=>row.getAttribute('data-objective-question')||'';
-      const render=()=>{
-        rows.forEach((row,index)=>{
-          row.hidden=false;row.classList.toggle('is-current',index===active);
-          const id=idOf(row),formal=String(formalAnswers[id]||'');
-          row.querySelectorAll('[data-cloze-option]').forEach(button=>{
-            const value=button.getAttribute('data-value')||'';
-            button.classList.toggle('selected',state.answers?.[id]===value);button.toggleAttribute('disabled',Boolean(state.submitted));button.classList.remove('result-correct','result-wrong');
-            if(state.submitted){button.classList.toggle('result-correct',formal===value);button.classList.toggle('result-wrong',state.answers?.[id]===value&&formal!==value);}
-          });
-          const formalLine=row.querySelector('[data-objective-formal]');if(formalLine instanceof HTMLElement){formalLine.hidden=!state.submitted;const strong=formalLine.querySelector('strong');if(strong)strong.textContent=formal||'—';}
-        });
-        jumps.forEach((jump,index)=>{const id=idOf(rows[index]);jump.classList.toggle('active',index===active);jump.classList.toggle('answered',Boolean(state.answers?.[id]));jump.classList.toggle('uncertain',(state.uncertain||[]).includes(id));jump.classList.toggle('wrong',state.submitted&&['wrong','unanswered'].includes(state.results?.[id]));});
-        const id=idOf(rows[active]);if(uncertainButton instanceof HTMLButtonElement){uncertainButton.classList.toggle('active',(state.uncertain||[]).includes(id));uncertainButton.disabled=Boolean(state.submitted);}
-        const label=root.querySelector('[data-cloze-active-label]');if(label)label.textContent=`Blank ${active+1}`;
-        const progress=root.querySelector('[data-cloze-progress]');if(progress)progress.textContent=`${active+1} / ${rows.length}`;
-        const count=Object.values(state.answers||{}).filter(Boolean).length;const countNode=root.querySelector('[data-cloze-answer-count]');if(countNode)countNode.textContent=`${count} / ${rows.length} answered`;
-        root.querySelector('[data-cloze-prev]')?.toggleAttribute('disabled',active<=0);root.querySelector('[data-cloze-next]')?.toggleAttribute('disabled',active>=rows.length-1);if(submit instanceof HTMLButtonElement)submit.hidden=Boolean(state.submitted);
-        const result=root.querySelector('[data-objective-result-summary]');if(result instanceof HTMLElement){result.hidden=!state.submitted;if(state.submitted){const score=Object.values(state.results||{}).filter(v=>v==='correct').length;const scoreNode=result.querySelector('[data-objective-score]');const note=result.querySelector('[data-objective-result-note]');if(scoreNode)scoreNode.textContent=`${score} / ${rows.length}`;if(note)note.textContent=score===rows.length&&!(state.uncertain||[]).length?'Generated clean pass · 仅保留本次证据。':'问题已记录；是否继续 Repair / transfer 由 Chat 根据真实证据决定。';}}
-      };
-      rows.forEach((row,index)=>{const focus=()=>{if(active!==index){active=index;render();}};row.addEventListener('pointerdown',focus);row.addEventListener('focusin',focus);row.querySelectorAll('[data-cloze-option]').forEach(button=>button.addEventListener('click',()=>{if(state.submitted)return;active=index;const id=idOf(row),answer=button.getAttribute('data-value')||'';state.answers[id]=answer;state.trajectory[id]||=[];if(state.trajectory[id].at(-1)?.answer!==answer)state.trajectory[id].push({answer,at:new Date().toISOString()});save();render();}));});
-      uncertainButton?.addEventListener('click',()=>{if(state.submitted)return;const id=idOf(rows[active]),set=new Set(state.uncertain||[]);set.has(id)?set.delete(id):set.add(id);state.uncertain=[...set];save();render();});
-      root.querySelector('[data-cloze-prev]')?.addEventListener('click',()=>{active=Math.max(0,active-1);render();rows[active]?.scrollIntoView({block:'nearest'});});
-      root.querySelector('[data-cloze-next]')?.addEventListener('click',()=>{active=Math.min(rows.length-1,active+1);render();rows[active]?.scrollIntoView({block:'nearest'});});
-      jumps.forEach((jump,index)=>jump.addEventListener('click',()=>{active=index;render();rows[active]?.scrollIntoView({block:'nearest'});}));
-      submit?.addEventListener('click',async()=>{
-        if(state.submitted)return;submit.disabled=true;
+      const prepareAnswers=async({root,rows})=>{
         try{
           const data=await fetchJson(endpoint('answers?id='+encodeURIComponent(objectId)));
-          if(data.answers?.content_hash!==material.content_hash||data.answers?.generated_task!=='cloze')throw new Error('ENGLISH_GENERATED_CLOZE_ANSWER_REVISION_MISMATCH');
-          formalAnswers=data.answers.answers||{};state.results={};
-          rows.forEach(row=>{const id=idOf(row),selected=String(state.answers?.[id]||''),formal=String(formalAnswers[id]||'');state.results[id]=!selected?'unanswered':selected===formal?'correct':'wrong';});
-          state.submitted=true;state.submittedAt=new Date().toISOString();save();root.dataset.objectiveAnswersReady='true';render();root.dispatchEvent(new CustomEvent('kianos:objective-submitted',{bubbles:true}));
-        }catch(error){showError(error);}finally{submit.disabled=state.submitted;}
-      });
-      root.querySelector('[data-objective-title]')?.setAttribute('title',material.training_target?.note||'');
-      root.hidden=false;render();if(state.submitted)root.dispatchEvent(new CustomEvent('kianos:objective-submitted',{bubbles:true}));
-      window.addEventListener('pagehide',()=>{}, {once:true});
+          const answerView=data.answers;
+          if(answerView?.content_hash!==material.content_hash||answerView?.generated_task!=='cloze')throw new Error('ENGLISH_GENERATED_CLOZE_ANSWER_REVISION_MISMATCH');
+          rows.forEach(row=>{const id=row.getAttribute('data-objective-question')||'';if(Object.prototype.hasOwnProperty.call(answerView.answers||{},id))row.setAttribute('data-answer',JSON.stringify(answerView.answers[id]));});
+          const ready=rows.every(row=>Boolean(row.getAttribute('data-answer')));
+          if(ready){root.dataset.objectiveAnswersReady='true';root.dispatchEvent(new CustomEvent('kianos:objective-answers-ready',{bubbles:true}));}
+          return ready;
+        }catch(error){showError(error);return false;}
+      };
+      const runtime=initClozeRuntime(root,{prepareAnswers});
+      if(runtime?.getState()?.submitted){
+        void prepareAnswers({root,rows:[...root.querySelectorAll('[data-objective-question]')]}).then(ok=>{if(ok)runtime.render();});
+      }
+      root.hidden=false;
     }catch(error){showError(error);}
   });
 </script>
