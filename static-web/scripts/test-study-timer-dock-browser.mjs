@@ -88,6 +88,21 @@ try {
   check(desktopMetrics.gripPointerEvents === 'auto', 'desktop_drag_grip_interactive', JSON.stringify(desktopMetrics));
   await verifyPassiveStatusClickThrough(page, 'desktop');
 
+  for (const [route, expectedLabel] of [
+    ['/politics/', '政治'],
+    ['/xizong/', '西综'],
+    ['/english/', 'English']
+  ]) {
+    await page.goto(`${BASE}${route}`, { waitUntil: 'networkidle' });
+    const rootDock = page.locator('[data-study-timer-dock]');
+    await rootDock.waitFor({ state: 'visible' });
+    const learnerLabel = (await rootDock.locator('[data-study-timer-subject]').innerText()).trim();
+    const routeKey = route.split('/').filter(Boolean)[0];
+    check(learnerLabel === expectedLabel, `${routeKey}_root_hides_internal_overview`, learnerLabel);
+  }
+  await page.goto(`${BASE}/politics/history/ch01/`, { waitUntil: 'networkidle' });
+  await dock.waitFor({ state: 'visible' });
+
   const expand = dock.locator('[data-study-timer-expand]');
   await expand.click();
   check((await dock.getAttribute('data-expanded')) === 'true', 'desktop_expand_control_still_interactive');

@@ -45,6 +45,7 @@ assert.match(client, /window\.innerWidth - rect\.width/, 'Dragged timer must be 
 assert.match(client, /window\.innerHeight - rect\.height/, 'Dragged timer must be clamped to the viewport vertically.');
 assert.match(client, /storage\.removeItem\(POSITION_KEY\)/, 'Reset must remove the persisted custom position.');
 assert.match(client, /setInterval\(render, 1000\)/, 'Visible elapsed time must refresh while running.');
+assert.match(client, /detail === 'overview' \? '' : detail/, 'Dock must suppress the internal root-route token from learner-facing status.');
 assert.match(client, /timer\.pause\(now\)[\s\S]{0,500}beginStewardBreak/, 'Pause must stop timing before optional rest capture.');
 assert.match(client, /endLatestStewardBreak[\s\S]{0,500}timer\.resume\(now\)/, 'Resume must end the break only by explicit learner action.');
 assert.match(client, /recordStewardBreakReentry/, 'Dock must write optional re-entry reality through the Steward owner.');
