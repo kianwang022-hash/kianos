@@ -21,18 +21,20 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Active engineering anchor
 
-- **Issue #1049 — Xizong bounded BUILD handoff**
-- Parent CREATE recovery #1047 is CLOSED and independently reconfirmed; it remains evidence, not the active cursor.
-- Current BUILD scope is only B1/B2 plus current-release B3 visual-fidelity proof.
-- Phase / Next / Blocker live only in Issue #1049 while this BUILD is active.
-- **Issue #1004 is historical BUILD / Human-Gate evidence only.** Its old Phase / Next / Blocker and candidate-bound PASS labels are not continuation authority.
+- **Issue #1065 — Xizong fresh independent AUDIT of #1049 exact Candidate**
+- Parent CREATE recovery #1047 is CLOSED and reconfirmed; bounded BUILD #1049 is CLOSED and is evidence only.
+- Exact AUDIT Candidate is `cba-xizong-1049@bc82500937f39e9d363c66ed40475f94bffc1759`.
+- This Candidate is intentionally distinct from current `main`; do not substitute `main`, Stable, an older #1004 candidate, or prior Chat conclusions during this AUDIT.
+- **Issue #1004 remains an open historical umbrella / prior BUILD-Human-Gate evidence source, not the active Phase / Next / Blocker owner.** Its old `main@4eee5777...` audit cursor is superseded for current continuation by #1065.
+- Current Phase / Next / Blocker live only in #1065 until that AUDIT freezes a verdict.
 
 ### Next
 
-for current engineering control → Issue #1049 → exact current BUILD consumer
+for current engineering control → Issue #1065 → audit exact Candidate `bc825009...`
 for ordinary study → native learner path
-after #1049 closes BUILD → fresh independent AUDIT on the exact post-BUILD candidate/release
-→ do not resume #1004 or #1047 as the active cursor
+if #1065 FAIL → route only the smallest reproduced defect to its earliest responsible BUILD/UI owner, then re-audit only the affected claim
+if #1065 PASS → deliver the accepted Candidate coherently to main/Stable, read back the real consumer, then stop engineering and return to genuine learner REAL USE
+→ do not resume #1004, #1049 or #1047 as the active cursor
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority.
 
