@@ -155,20 +155,11 @@ Candidate `4322` is the ordinary UI/Human-Gate engineering lane. Managed Current
 
 ## BUILD / UI implementation path
 
-This section describes Website **BUILD**, not the full CREATE → BUILD → AUDIT → REAL USE lifecycle. If product/learning/visual meaning is still open, resolve it in CREATE first through the exact owner.
+The normal route is the exact related design → effective implementation → affected real-browser/runtime proof → coherent delivery/readback. `PROJECT_MANAGEMENT_CONTRACT.md → Concrete Repair Fast Lane` owns the procedure; the applicable Acceptance owner owns final claims.
 
-```text
-accepted CREATE basis / concrete implementation defect
-→ exact Rule / Product / Content / Visual owner
-→ actual consumer
-→ smallest implementation delta
-→ Candidate real-browser proof
-→ applicable native/local proof + Human Gate
-→ durable merge + managed Current promotion
-→ stable consumer readback
-```
+Correctness repairs do not require a new CREATE, separate repair Issue/Chat, full-site build or reapproval of an accepted design. A material new Product/Visual choice still needs its real Candidate Human Gate. Keep the same Audit conversation while repairing confirmed defects; final whole-product PASS still requires exhaustive final-release reconciliation.
 
-After BUILD, a broader AUDIT—when warranted—independently verifies that the promoted Website faithfully realizes the accepted design under real consumer/state/failure paths. This README does not define that audit method.
+Use Candidate for the changed visible effect without mutating Stable or learner state. A GitHub merge is not proof of live delivery. Current status is read from `CURRENT.md` and the actual runtime, not inferred from this README.
 
 Browser checks use the declared Playwright development dependency. Reuse a compatible, proof-matched dependency tree through the existing Candidate setup; if none exists, run `npm install --no-package-lock --no-audit --no-fund` once in `static-web`. If Playwright reports a missing Chromium executable, run `npx playwright install chromium` once; later checks reuse its browser cache. Do not rebuild `node_modules` or substitute a system Chrome overlay for each bounded check. Run only the existing browser check needed for the affected behavior.
 

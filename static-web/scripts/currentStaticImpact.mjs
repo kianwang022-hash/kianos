@@ -6,6 +6,8 @@ const NO_BUILD_ROOT_FILES = new Set([
   'AUTHORITY_OWNERSHIP.json',
   'BRANCH_LIFECYCLE.md',
   'CURRENT.md',
+  // Acceptance policy governs proof; it is not imported by the learner build.
+  'LEARNING_ACCEPTANCE.md',
   'DEFERRED.md',
   'PROJECT_DEFINITION.md',
   'PROJECT_MANAGEMENT_CONTRACT.md',

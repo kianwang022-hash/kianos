@@ -14,6 +14,7 @@ const reusable = [
   '.github/workflows/branch-hygiene.yml',
   'tools/kianos_repo_doctor.py',
   'BRANCH_LIFECYCLE.md',
+  'LEARNING_ACCEPTANCE.md',
   'CURRENT.md',
   'static-web/CURRENT.md',
   'content/xizong/CURRENT.md',
@@ -117,6 +118,19 @@ assert.equal(
   false,
   'MISSING_BASE_SHA_MUST_REBUILD'
 );
+
+// Acceptance-policy edits must not spend a learner build/reload. This is an
+// exact allowlist, not a blanket exemption for Markdown or mixed changes.
+assert.equal(classifyStaticBuild(['LEARNING_ACCEPTANCE.md']).required, false);
+assert.equal(requiresStaticRuntimeReload(['LEARNING_ACCEPTANCE.md']), false);
+for (const input of ['static-web/src/styles/xizong-block-workspace.css',
+  'content/lexical/words/by-ordinal/o0001.json',
+  'content/xizong/knowledge/learner/a1-circulation-guide.md',
+  'unknown-root-input.md']) {
+  assert.equal(classifyStaticBuild(['LEARNING_ACCEPTANCE.md', input]).required, true, input);
+}
+assert.equal(classifyStaticBuild(['LEARNING_ACCEPTANCE.md',
+  'content/lexical/words/by-ordinal/o0001.json']).lexical_projection_required, true);
 
 console.log('STATIC_CURRENT_IMPACT PASS');
 

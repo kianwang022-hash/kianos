@@ -117,15 +117,11 @@ A downstream PASS is invalid when an earlier link required by the claim is missi
    - QA infrastructure, fixtures and oracles are themselves fallible dependencies and may become stale;
    - a test running against the wrong artifact/environment is no evidence.
 
-7. **AUDIT may repair inline; rigor comes from adversarial re-grounding, not Chat/task hopping**
-   - a whole-product AUDIT does **not** stop and spawn a separate repair conversation/Issue merely because it finds a concrete defect;
-   - before changing anything, the auditor must **self-attack the diagnosis**: try to falsify the reproduction, check release/state isolation, challenge the oracle/harness, confirm the accepted behavior really says this is a defect, and locate the current effective owner;
-   - once the defect is confirmed and the accepted behavior is already clear, the same Audit execution may enter the Concrete Repair Fast Lane, make the smallest repair, and return immediately to Audit;
-   - repair invalidates only the affected claim and true dependents. Unrelated already-proved rows remain valid unless their owner/input changed;
-   - after repair, replay the original failure, attack sibling paths of the same defect class, and re-run the real dependent state/visual/recovery paths before restoring those rows to PASS;
-   - a targeted repair regression alone is never the whole-product verdict;
-   - **final whole-product PASS must be reconciled on one final exact release containing every accepted repair**, with no required coverage row omitted/UNTESTED and no pre-repair affected evidence silently carried forward;
-   - no separate Chat, repair Issue, or auditor identity is required merely for procedural independence. Freshness means re-grounding from current owners + final exact release + isolated real consumer state, not changing conversational containers.
+7. **Inline repair with explicit evidence boundaries**
+   - Personal `KERNEL.md §2` permits same-execution audit/repair; use `PROJECT_MANAGEMENT_CONTRACT.md → Concrete Repair Fast Lane` for diagnosis self-attack and related-design preflight. No mandatory Chat/Issue hop.
+   - A repair invalidates its affected claims/true dependents until the original failure, same defect class and relevant state/visual/recovery paths pass on the repaired artifact. A local regression is not whole-product acceptance.
+   - Final PASS reconciles required exhaustive coverage on one final exact release containing all accepted repairs. Still-valid evidence may be reused only after its premises are checked; omitted/UNTESTED required rows and unresolved FAILs cannot inherit PASS from later smoke results.
+   - Same-author self-attack is not independent-third-party review. Evidence labels must disclose the actual independence and coverage, not infer them from a fresh Chat or a new test name.
 
 8. **Shard large audits; integrate last**
    - whole-system acceptance must be decomposed into bounded audit shards with the parent outcome, exact owners, design reasons/must-preserve behavior, consumers and stop conditions kept in the working set;

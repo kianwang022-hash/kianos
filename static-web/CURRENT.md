@@ -14,29 +14,9 @@ Current phase: **NORMAL CURRENT DELIVERY / CONCRETE-DEFECT MODE.**
 
 Fresh CBA AUDIT exact-release pinning is now a delivered Current capability. Closed Issue #1088 / PR #1091 proved real Stable pin → hold while main advances → release → normal catch-up, with wrong-SHA fail-closed behavior. Subject audits may use that capability when they need an immutable exact Stable release; this Website cursor does not become their audit owner.
 
-Normal lanes:
+Normal execution follows `../PROJECT_MANAGEMENT_CONTRACT.md → Concrete Repair Fast Lane`; this cursor does not duplicate the procedure. Known defects go to the exact effective consumer and related design. New material visual/product choices retain the real Candidate Human Gate. Audit may repair inline under `../LEARNING_ACCEPTANCE.md`.
 
-~~~text
-concrete UI/runtime defect with accepted behavior
-→ exact effective consumer/owner
-→ smallest direct fix
-→ targeted browser proof (Candidate only when useful)
-→ durable main change
-→ Current publishes asynchronously
-→ STOP
-
-material Product / Visual change
-→ exact Product / Visual owner
-→ Candidate 127.0.0.1:4322
-→ Human Gate
-→ accepted durable change
-→ managed Current promotion
-
-normal learner/use runtime
-→ Stable 127.0.0.1:4321
-~~~
-
-For the concrete-repair lane, **do not create a new Issue/Contract, run a whole-product audit, or wait for Stable promotion by default**. The full acceptance audit remains a separate final gate. This router follows `PROJECT_MANAGEMENT_CONTRACT.md → Concrete Repair Fast Lane`.
+Candidate `127.0.0.1:4322` is preview; Stable `127.0.0.1:4321` is delivered use. Neither a saved commit nor a Candidate proof establishes that Stable changed. Active shared audit leases are not repointed by this cursor.
 
 Completed rollout programs, historical Human Gates, bounded defect closures and old candidate branches do **not** issue Current work from this file. Their evidence remains in the exact Product/Acceptance owner, closed Issue/PR or Git history.
 
