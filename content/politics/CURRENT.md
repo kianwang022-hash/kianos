@@ -9,13 +9,14 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ## Active engineering anchor
 
-Issue [#1087](https://github.com/kianwang022-hash/kianos/issues/1087) — **Politics fresh independent audit — whole learner product, attention and changeability**.
+Issue [#1094](https://github.com/kianwang022-hash/kianos/issues/1094) — **Global Dock leaks internal detailKey as learner label — blocks Politics #1087 A3**.
 
-- Phase: **FRESH / INDEPENDENT FULL-SUITE AUDIT — ACTIVE on shared pinned Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4`**.
-- #1080 rapid-mastery closure has now delivered the accepted bounded effect on this main generation: all five subjects have an explicit whole-subject rapid-framework owner and Politics Learn consumes the resolved subject Surface Mapping through the existing renderer.
-- The delivered #1080 batch introduced no second Politics course/runtime/scheduler and no new CSS layer; Chengfeng, the single Xiao1000 Workbench, Wrong/Uncertain evidence semantics, exact Return/Resume and current-year Source gates remain protected.
-- #1087 is audit-only: Politics now shares immutable Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4` with English #1085 and Xizong #1090. Use an isolated browser/state context and keep the Politics coverage ledger/verdict independent. Do not release or repoint the shared pin when Politics alone finishes. It may not repair inside the audit.
-- Ordinary Politics learning bypasses this engineering cursor unless the conversation explicitly enters #1087 audit work.
+- Phase: **CONCRETE DEFECT — #1087 STOPPED WITH FAIL on exact Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4`**.
+- #1087 independently reproduced learner-visible backend/state leakage in the persistent Global Dock: Politics Home renders `政治 · overview` on both Mac and iPad-wide.
+- The earliest responsible owner is shared Website Global Dock / StudyTimer context-label consumption, not Politics Learning/Content/Surface Mapping. #1094 owns the repair route; do not create a Politics-local workaround.
+- #1080 rapid-mastery closure remains the accepted Politics product basis. The #1087 FAIL does not invalidate unrelated proved content/framework rows; it blocks the whole-product audit verdict until the shared Dock defect is repaired and freshly re-audited.
+- The shared Stable pin remains active for independent English #1085 and Xizong #1090. Politics stopping must not release or repoint it.
+- Ordinary Politics learning bypasses this engineering cursor unless the conversation explicitly enters the concrete defect/re-audit path.
 - Legacy task history is quarantined and is not part of normal continuation.
 
 ## Current routing
@@ -29,16 +30,15 @@ Issue [#1087](https://github.com/kianwang022-hash/kianos/issues/1087) — **Poli
 
 ### Next
 
-For active Politics engineering, follow Issue #1087 only.
+For active Politics engineering, follow Issue #1094 only.
 
 ```text
-shared pinned Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4`
-→ verify A0 immutable identity for Politics
-→ fresh independent exhaustive whole-product audit #1087 in parallel with #1085/#1090
-→ retain shared pin until all three subject audits stop
-→ PASS: return Politics to normal learner-use / concrete-defect mode
-   OR
-→ FAIL: route only the reproduced effect to the earliest responsible current owner
+shared Global Dock defect #1094
+→ repair the existing StudyTimer context/label consumer only
+→ prove learner-facing labels on the affected root-route class without forking subject logic
+→ deliver through normal Current
+→ after repair, re-enter a Fresh Politics exhaustive audit on a newly exact-pinned Stable release
+→ do not resume dependent #1087 claims on the failed release
 → STOP
 ```
 
