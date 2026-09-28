@@ -139,8 +139,8 @@ export function initPoliticsReview(root) {
         ? '这份返回已经导入过，没有重复创建任何跟进。'
         : '已核对并导入；只保留与这批真实题目绑定的跟进。';
       renderChatReturn(result.value);
-    } catch (error) {
-      if (status) status.textContent = '未导入：' + String(error?.message || error);
+    } catch {
+      if (status) status.textContent = '未导入：这份返回无法安全核对；原记录没有改动。请重新从当前复习页导出学习包后再试。';
     }
   });
   addEventListener('storage', render); addEventListener('focus', render); render();
