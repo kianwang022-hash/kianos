@@ -297,14 +297,19 @@ const payload = learnerObject || null;
           frame.append(prompt);
         }
         const locators = el('div', 'xv6KpLearnLocators');
-        // One renderer owns both locator values. A missing binding is not an
-        // invitation to guess a page from a neighbouring KP or a Visual cue.
-        const lecture = el('span', '', `讲义 · ${kp?.source?.locator || '当前知识点未标注页码'}`);
-        lecture.dataset.kpSourceLocator = '';
-        const outline = el('span', '', `考纲 · ${kp?.outline?.locator || '当前知识点未标注考纲定位'}`);
-        outline.dataset.kpOutlineLocator = '';
-        locators.append(lecture, outline);
-        frame.append(locators);
+        // One renderer owns both locator values. Missing optional Context
+        // collapses instead of manufacturing filler or guessing from neighbours.
+        if (kp?.source?.locator) {
+          const lecture = el('span', '', `讲义 · ${kp.source.locator}`);
+          lecture.dataset.kpSourceLocator = '';
+          locators.append(lecture);
+        }
+        if (kp?.outline?.locator) {
+          const outline = el('span', '', `考纲 · ${kp.outline.locator}`);
+          outline.dataset.kpOutlineLocator = '';
+          locators.append(outline);
+        }
+        if (locators.childElementCount) frame.append(locators);
 
         const core = el('div', 'markdown xv6KpLearnCore');
         core.dataset.learnerKpCore = text(kp?.identity?.kpId);

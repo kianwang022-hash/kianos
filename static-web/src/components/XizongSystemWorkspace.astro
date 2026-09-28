@@ -47,24 +47,24 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
 >
   <header class="xzSystemTopbar">
     <div class="xzSystemIdentity">
-      <span>{system.canonicalId} · SYSTEM</span>
+      <span>{system.canonicalId} · 系统</span>
       <h1>{system.title}</h1>
       <p data-representation-kind={framework.mission.representation.kind}>{framework.mission.text}</p>
     </div>
-    <nav class="xzSystemViewTabs" aria-label="System view">
-      {hasGuide && <button type="button" data-system-view-button="guide" aria-pressed="true">GUIDE</button>}
-      <button type="button" data-system-view-button="framework" aria-pressed={hasGuide ? 'false' : 'true'}>FRAMEWORK</button>
+    <nav class="xzSystemViewTabs" aria-label="系统视图">
+      {hasGuide && <button type="button" data-system-view-button="guide" aria-pressed="true">入门</button>}
+      <button type="button" data-system-view-button="framework" aria-pressed={hasGuide ? 'false' : 'true'}>系统框架</button>
       {hasBiochemistryLane && <button type="button" data-system-view-button="biochemistry" aria-pressed="false">27 生化</button>}
     </nav>
   </header>
 
   <div class="xzSystemBody" data-system-body>
-    <aside class="xzSystemRouteRail" aria-label="System Block route">
+    <aside class="xzSystemRouteRail" aria-label="系统学习路线">
       <header>
-        <span>BLOCK ROUTE</span>
+        <span>学习路线</span>
         <strong>{system.canonicalId} · {system.title}</strong>
       </header>
-      <nav aria-label="Block route">
+      <nav aria-label="Block 学习路线">
         {system.blocks.map((block, index) => (
           <a
             href={`${base}xizong/${system.systemId}/${block.slug}/`}
@@ -82,9 +82,9 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
       {hasGuide && (
         <section class="xzSystemGuideView" data-system-view="guide">
           <div class="xzSystemGuideLead">
-            <span>BEGINNER GUIDE</span>
-            <strong>第一次进入这个 System 时，用它把整张地图真正看懂。</strong>
-            <p>看懂整体以后可随时切回 Framework；进入 Block 后继续沿原讲义 + KP Learn 主线学习。</p>
+            <span>入门导览</span>
+            <strong>第一次进入这个系统时，先把整张地图看懂。</strong>
+            <p>看懂整体以后可随时切回系统框架；进入 Block 后继续沿原讲义 + KP 伴读主线学习。</p>
           </div>
           <div class="xzSystemGuideFlow">
             {guideSections.map((section) => (
@@ -240,7 +240,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
       <section class="xzSystemFrameworkView" data-system-view="framework" hidden={hasGuide}>
         <section class="xzSystemCanvas" data-system-section="mother">
           <header class="xzSystemSectionHeading">
-            <span>SYSTEM MODEL</span>
+            <span>系统运行模型</span>
             <h2>这个系统怎样运行？</h2>
           </header>
 
@@ -283,7 +283,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
           <section class="xzSystemLanguageAxes">
             <article class="xzSystemLanguage">
               <header class="xzSystemSectionHeading">
-                <span>SYSTEM LANGUAGE</span>
+                <span>核心变量与关系</span>
                 <h2>描述这个系统时，用哪些变量和关系？</h2>
               </header>
 
@@ -316,7 +316,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
             {axisRows.length > 0 && (
               <article class="xzSystemAxes" data-representation-kind={framework.judgmentAxes.representation.kind}>
                 <header class="xzSystemSectionHeading">
-                  <span>JUDGMENT AXES</span>
+                  <span>判断坐标</span>
                   <h2>遇到病例，先沿哪些轴定位？</h2>
                 </header>
                 <div class="xzSystemAxisList">
@@ -338,7 +338,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
         {framework.failures.length > 0 && (
           <section class="xzSystemFailureMap" data-system-section="failure">
             <header class="xzSystemSectionHeading">
-              <span>FAILURE MAP</span>
+              <span>故障地图</span>
               <h2>第一故障可能从哪里开始？</h2>
             </header>
             <div class="xzSystemFailureStrip">
@@ -364,10 +364,10 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
     <aside class="xzSystemContext" data-system-context hidden>
       <header>
         <div>
-          <span>FAILURE CONTEXT</span>
+          <span>当前故障线索</span>
           <strong data-failure-run-title>—</strong>
         </div>
-        <button type="button" data-close-system-context aria-label="关闭 Failure Context">×</button>
+        <button type="button" data-close-system-context aria-label="关闭当前故障线索">×</button>
       </header>
       <p data-failure-run-chain></p>
       <div data-failure-run-vars></div>

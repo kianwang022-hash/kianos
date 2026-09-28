@@ -43,9 +43,9 @@
 
     const syncToggle = () => {
       const hidden = layout.classList.contains('outline-collapsed');
-      toggle.textContent = hidden ? '展开 Logic Map' : '收起 Logic Map';
+      toggle.textContent = hidden ? '展开学习地图' : '收起学习地图';
       toggle.setAttribute('aria-expanded', hidden ? 'false' : 'true');
-      toggle.title = hidden ? '展开左侧 Logic Map' : '收起左侧 Logic Map';
+      toggle.title = hidden ? '展开左侧学习地图' : '收起左侧学习地图';
       if (logicMap instanceof HTMLElement) logicMap.setAttribute('aria-hidden', hidden ? 'true' : 'false');
     };
 

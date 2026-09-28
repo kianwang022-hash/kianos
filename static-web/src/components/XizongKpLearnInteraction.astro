@@ -262,7 +262,7 @@
 
           const state = document.createElement('em');
           state.textContent = study.ratings?.[id]
-            ? '已 Recall'
+            ? '已回忆'
             : study.learned?.[id]
               ? '已学'
               : id === cardKpId
@@ -372,7 +372,7 @@
           actions.innerHTML = `
             <button type="button" data-kp-chat-handoff title="复制当前学习内容给 Chat">给 Chat</button>
             <div>
-              <button type="button" data-kp-core-toggle>隐藏 Core</button>
+              <button type="button" data-kp-core-toggle>隐藏内容</button>
               <span data-kp-learn-state>学习中</span>
             </div>
           `;
@@ -401,7 +401,7 @@
             const target = frame.querySelector('[data-learner-kp-core]');
             if (!(target instanceof HTMLElement)) return;
             target.hidden = !target.hidden;
-            toggle.textContent = target.hidden ? '显示 Core' : '隐藏 Core';
+            toggle.textContent = target.hidden ? '显示内容' : '隐藏内容';
             frame.classList.toggle('core-hidden', target.hidden);
           });
         }
@@ -498,7 +498,7 @@
           if (header instanceof HTMLElement && !header.querySelector('.xzKpRecallMode')) {
             const mode = document.createElement('span');
             mode.className = 'xzKpRecallMode';
-            mode.textContent = 'KP RECALL';
+            mode.textContent = 'KP 回忆';
             header.prepend(mode);
           }
 

@@ -16,8 +16,8 @@ const hasFramework = projection?.compiled && (plan.objectCount > 0 || referenceO
   <details open class="xv6CognitiveProjection xv6FrameworkEntry" data-xizong-cognitive-projection data-projection-asset={projection.assetPath || ''}>
     <summary class="xv6FrameworkEntrySummary">
       <div>
-        <span>Block Framework</span>
-        <strong>当前 Block 框架</strong>
+        <span>本块框架</span>
+        <strong>当前框架</strong>
       </div>
       <small>可收起</small>
     </summary>
@@ -48,9 +48,8 @@ const hasFramework = projection?.compiled && (plan.objectCount > 0 || referenceO
         <div class="xv6ProjectionReferences">
           {referenceObjects.map((object) => (
             <details data-projection-reference={object.objectId}>
-              <summary>需要时看 Current Block 定位</summary>
-              <p>{object.referenceMessage || '完整 Current Core 保留为参考；当前主线不在网页重复阅读。'}</p>
-              {object.referenceSourcePath && <code>{object.referenceSourcePath}</code>}
+              <summary>需要时看当前 Block 定位</summary>
+              <p>{object.referenceMessage || '完整内容保留为参考；当前主线不在网页重复阅读。'}</p>
             </details>
           ))}
         </div>

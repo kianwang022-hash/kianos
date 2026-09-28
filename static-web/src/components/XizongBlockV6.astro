@@ -71,7 +71,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     checkpointId: String(row?.checkpointId || row?.checkpoint_id || `ttsx-${index + 1}`),
     logicGroupId: String(row?.logicGroupId || row?.logic_group_id || ''),
     sourceSegmentId: String(row?.sourceSegmentId || row?.source_segment_id || ''),
-    label: String(row?.label || row?.group_title || '当前 Source boundary'),
+    label: String(row?.label || row?.group_title || '当前原讲义边界'),
     lecturePageLabel: String(row?.lecturePageLabel || row?.lecture_page_label || ''),
     questionPageLabel: String(row?.questionPageLabel || row?.question_page_label || ''),
     questionRows
@@ -95,13 +95,13 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       <a href={`${base}xizong/${block.systemId}/`}>‹ {block.systemTitle}</a>
       <span>{block.label}</span>
       <div class="portedStudyShellActions" aria-label="Block controls">
-        <button type="button" class="xzBlockFrameworkPreviewButton" data-block-framework-preview-open>回看 Block 框架</button>
-        <span data-block-keyboard-hint>← → 切换 · Space 显示 / 隐藏 Core</span>
+        <button type="button" class="xzBlockFrameworkPreviewButton" data-block-framework-preview-open>回看本块框架</button>
+        <span data-block-keyboard-hint>← → 切换 · Space 显示 / 隐藏内容</span>
       </div>
     </div>
     <div class="portedStudyIdentity">
       <div>
-        <span data-study-context-label>西医综合 · {block.label} · Block Learn</span>
+        <span data-study-context-label>西医综合 · {block.label} · 建立框架</span>
         <h2>{block.title}</h2>
       </div>
       <div class="portedStudyIdentityMeta">
@@ -128,7 +128,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
 
   <div class="portedStudyLayout" data-study-layout>
     <aside class="portedStudyOutline" id="content-map">
-      <header><span data-study-rail-kicker>Logic Map</span><strong data-study-rail-title>学习节</strong></header>
+      <header><span data-study-rail-kicker>学习地图</span><strong data-study-rail-title>学习节</strong></header>
       <nav data-study-group-rail aria-label="Logic Group navigation">
         {groups.map((group, index) => <button type="button" data-group-target={index}>
           <b>{String(index + 1).padStart(2, '0')}</b>
@@ -211,7 +211,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           <h3 data-logic-title>{firstGroup?.label}</h3>
           <p class="xv6LogicGoal" data-logic-goal>{firstGroup?.goal || '先回答这一节共同在解决什么问题。'}</p>
           {firstGroup?.closure && <div class="xv6LogicTarget"><span>这一节闭合时，你应该能</span><p data-logic-closure>{firstGroup.closure}</p></div>}
-          <button type="button" class="portedPrimaryAction" data-enter-group>{sourcePerGroup ? '去讲义连续学习这一节' : '开始这一节 Recall'}</button>
+          <button type="button" class="portedPrimaryAction" data-enter-group>{sourcePerGroup ? '去讲义连续学习这一节' : '开始这一节回忆'}</button>
         </section>
 
         {sourcePerGroup && (
@@ -225,7 +225,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
               <span data-group-lecture-source>{firstGroupSource}</span>
             </div>
             <details class="xv6GroupKpMap">
-              <summary>回来后要 Recall 的 KP 路标</summary>
+              <summary>回来后要回忆的 KP 路标</summary>
               <p data-group-lecture-kps>{firstGroupKps.map((kp) => kp.displayId).join(' · ') || '本学习节对应 KP'}</p>
             </details>
             <footer><span>原图、表格、例子和讲义配套题仍留在 MarginNote；KP Learn 同步提供 Prompt、Core 和当前支持。</span><button type="button" class="portedPrimaryAction" data-group-lecture-done>这一节已完成</button></footer>
@@ -243,27 +243,27 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           </header>
           <div class="xv6TtsxBody">
             <div class="xv6TtsxBoundary">
-              <strong data-ttsx-boundary-label>当前 Source boundary</strong>
+              <strong data-ttsx-boundary-label>当前原讲义边界</strong>
               <span data-ttsx-page-label>回 MarginNote 原位置完成题目、答案、全部选项和题旁拓展。</span>
             </div>
             <div class="xv6TtsxQuestionList" data-ttsx-question-list></div>
             <p class="xv6TtsxEmpty" data-ttsx-empty hidden>当前 reviewed Binding 没有可展示的题目明细；不会从系统真题库猜题。</p>
           </div>
           <footer class="portedStudyStageAction">
-            <span>完成后直接进入当前学习节的 KP Recall。</span>
-            <button type="button" class="portedPrimaryAction" data-ttsx-done>已完成 → 进入 KP Recall</button>
+            <span>完成后直接进入当前学习节的 KP 回忆。</span>
+            <button type="button" class="portedPrimaryAction" data-ttsx-done>已完成 → 进入 KP 回忆</button>
           </footer>
         </section>
 
         <section class="portedKpWorkspace recall" data-study-stage="kp_recall" hidden>
           <header class="portedKpWorkspaceHeader">
-            <div><span>Recall · 当前学习节</span><strong data-kp-recall-title>{firstKp?.displayId}</strong></div>
+            <div><span>主动回忆 · 当前学习节</span><strong data-kp-recall-title>{firstKp?.displayId}</strong></div>
             <div><button type="button" data-recall-prev>‹</button><em data-recall-counter>本节 1/{firstGroup?.kpCount || 1}</em><button type="button" data-recall-next>›</button></div>
           </header>
           <div class="portedKpCards">
             {kps.map((kp, index) => <article class="portedKpRecallCard" data-kp-recall-card={index} data-kp-id={kp.kpId} hidden={index !== 0}>
               <header><span>{kp.groupLabel}</span><h3>{kp.displayId}</h3>{kp.prompt && <p>{kp.prompt}</p>}</header>
-              <div class="portedRecallPrompt"><strong>先主动恢复；Core 暂时隐藏。</strong><button type="button" data-kp-reveal>Reveal Core</button></div>
+              <div class="portedRecallPrompt"><strong>先自己回忆；答案暂时隐藏。</strong><button type="button" data-kp-reveal>核对答案</button></div>
               <div class="portedRecallAnswer" data-kp-answer hidden>
                 <h4>{kp.title}</h4>
                 <div class="markdown" set:html={kp.detailHtml}></div>
@@ -277,15 +277,15 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
         </section>
 
         <section class="portedBlockRecall" data-study-stage="block_recall" hidden>
-          <header><span>Recall · Block</span><h3>把这一块重新压回一条主链</h3><p>{block.centerQuestion}</p></header>
+          <header><span>整块回忆</span><h3>把这一块重新压回一条主链</h3><p>{block.centerQuestion}</p></header>
           <div class="xv6BlockRecallCore">
             <div class="xv6RecallPromptBox">
               <strong>先从中心问题把整个 Block 自己跑一遍。</strong>
-              <p>左侧 Logic Group 名称可以作为骨架，但 Recall Spine / Closure 在 Reveal 前保持隐藏。</p>
-              <button type="button" class="portedPrimaryAction" data-block-recall-reveal>Reveal Block Model</button>
+              <p>左侧学习节名称可以作为骨架，但整块主链和闭合答案在核对前保持隐藏。</p>
+              <button type="button" class="portedPrimaryAction" data-block-recall-reveal>核对整块模型</button>
             </div>
             <div data-block-recall-answer hidden>
-              {block.recallSpine && <section class="xv6RecallSpine"><strong>Recall Spine</strong><p>{block.recallSpine}</p></section>}
+              {block.recallSpine && <section class="xv6RecallSpine"><strong>整块主链</strong><p>{block.recallSpine}</p></section>}
               <section class="xv6GroupReview">
                 <strong>Logic Group Closure</strong>
                 <div>{groups.map((group) => <section><strong>{group.label}</strong><p>{group.closure || group.goal || ''}</p></section>)}</div>
@@ -294,33 +294,32 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           </div>
           <footer class="xzBlockRecallActions">
             <div>
-              <span>Block Recall 测的是能不能重新运行模型，不是再读一遍全部 KP。</span>
-              <strong data-block-complete-title>完成 Recall 后即可确认本 Block 第一轮完成。</strong>
+              <span>整块回忆测的是能不能重新运行模型，不是再读一遍全部 KP。</span>
+              <strong data-block-complete-title>完成整块回忆后即可确认本 Block 第一轮完成。</strong>
               <small data-block-complete-detail>状态只记录真实学习证据，不会把模糊项自动升级成掌握。</small>
             </div>
             <div>
-              <button type="button" data-block-recall-complete disabled>完成 Block Recall</button>
+              <button type="button" data-block-recall-complete disabled>完成整块回忆</button>
               <button type="button" class="portedPrimaryAction" data-block-complete disabled>确认 Block 第一轮完成</button>
-              <a href={`${base}xizong/${block.systemId}/`} data-block-return-system hidden>返回 System</a>
+              <a href={`${base}xizong/${block.systemId}/`} data-block-return-system hidden>返回系统</a>
             </div>
           </footer>
         </section>
       </section>
 
       <section class="portedStudyOutlinePanel" data-study-panel="outline" hidden>
-        <header><span>Outline</span><h3>Block 学习地图</h3><p>需要跳转或检查覆盖时再看；正常学习不靠这里推进。</p></header>
+        <header><span>学习地图</span><h3>Block 学习地图</h3><p>需要跳转或检查覆盖时再看；正常学习不靠这里推进。</p></header>
         <div class="portedOutlineSectionList">
           {groups.map((group, index) => <section><b>{String(index + 1).padStart(2, '0')}</b><div><strong>{group.label}</strong><p>{group.goal || ''}</p></div><button type="button" data-outline-open={index}>进入</button></section>)}
         </div>
       </section>
     </main>
 
-    <aside class="portedStudyChain xv6AttentionRail" aria-label="Current KP support" data-xizong-attention>
-      <header><span>CONTEXT</span><strong>当前辅助</strong></header>
+    <aside class="portedStudyChain xv6AttentionRail" aria-label="当前学习辅助" data-xizong-attention>
+      <header><span>按需辅助</span><strong>当前辅助</strong></header>
     </aside>
   </div>
 
-  <details class="portedSourceFoot"><summary>Source</summary><code>{block.sourcePath}</code><code>sha256:{String(block.sourceHash).slice(0, 16)}</code>{block.learningSupportSourcePath && <code>{block.learningSupportSourcePath}</code>}{block?.cognitiveProjection?.assetPath && <code>{block.cognitiveProjection.assetPath}</code>}</details>
 </section>
 
 <script define:vars={{
@@ -541,7 +540,7 @@ window.__kianosLearnerWriterReady.then(() => {
       if (ttsxDone(key)) return false;
       state.pendingTtsx = {
         key,
-        label: String(rows[0]?.label || label || '当前 Source boundary'),
+        label: String(rows[0]?.label || label || '当前原讲义边界'),
         lecturePageLabel: String(rows[0]?.lecturePageLabel || ''),
         questionPageLabel: String(rows[0]?.questionPageLabel || ''),
         checkpointIds: rows.map((row) => String(row?.checkpointId || '')).filter(Boolean),
@@ -575,7 +574,7 @@ window.__kianosLearnerWriterReady.then(() => {
       const index = item ? indexForKpId(item.kpId) : firstIndexForGroup(group);
       return index >= 0 ? index : 0;
     };
-    const stageLabel = { block_learn: 'Block Learn', source_contact: '原讲义连续学习', logic_group: '学习节', kp_learn: '原讲义连续学习', ttsx_checkpoint: '讲义配套题', kp_recall: '本节 KP Recall', block_recall: 'Block Recall' };
+    const stageLabel = { block_learn: '建立框架', source_contact: '原讲义连续学习', logic_group: '学习节', kp_learn: '原讲义连续学习', ttsx_checkpoint: '讲义配套题', kp_recall: '本节 KP 回忆', block_recall: '整块回忆' };
 
     const syncTtsxStage = () => {
       const pending = state.pendingTtsx;
@@ -586,7 +585,7 @@ window.__kianosLearnerWriterReady.then(() => {
       const list = root.querySelector('[data-ttsx-question-list]');
       const empty = root.querySelector('[data-ttsx-empty]');
       const rows = Array.isArray(pending?.questionRows) ? pending.questionRows : [];
-      if (label) label.textContent = pending?.label || '当前 Source boundary';
+      if (label) label.textContent = pending?.label || '当前原讲义边界';
       if (pageLabel) {
         const parts = [pending?.lecturePageLabel, pending?.questionPageLabel ? `题目 ${pending.questionPageLabel}` : ''].filter(Boolean);
         pageLabel.textContent = parts.length
@@ -709,7 +708,7 @@ window.__kianosLearnerWriterReady.then(() => {
 
     const syncState = () => {
       const shortcutHint = root.querySelector('[data-block-keyboard-hint]');
-      if (shortcutHint) shortcutHint.textContent = state.stage === 'kp_recall' ? 'Space 核对 Core · 1–4 记录回忆并继续 · ← → 切换' : '← → 切换伴读 · Source 单元学完后一次确认';
+      if (shortcutHint) shortcutHint.textContent = state.stage === 'kp_recall' ? 'Space 核对答案 · 1–4 记录回忆并继续 · ← → 切换' : '← → 切换伴读 · 原讲义段学完后一次确认';
       kpRailButtons.forEach((button, index) => {
         const kpId = kpData[index]?.kpId || '';
         const small = button.querySelector('[data-kp-state]');
@@ -732,8 +731,8 @@ window.__kianosLearnerWriterReady.then(() => {
       const group = currentGroup();
       if (statusLabel) {
         if (state.stage === 'source_contact') statusLabel.textContent = '原讲义连续学习 · 等待回来确认';
-        else if (state.stage === 'kp_recall') statusLabel.textContent = `本节 Recall · ${groupKps(group).filter((kp) => Boolean(state.ratings?.[kp.kpId])).length}/${groupKps(group).length}`;
-        else if (state.stage === 'block_recall') statusLabel.textContent = state.completed ? 'Block 第一轮已完成' : 'Block Recall';
+        else if (state.stage === 'kp_recall') statusLabel.textContent = `本节回忆 · ${groupKps(group).filter((kp) => Boolean(state.ratings?.[kp.kpId])).length}/${groupKps(group).length}`;
+        else if (state.stage === 'block_recall') statusLabel.textContent = state.completed ? '本块第一轮已完成' : '整块回忆';
         else statusLabel.textContent = `学习节 ${state.groupIndex + 1}/${groups.length} · ${group?.label || ''}`;
       }
       const completeButton = root.querySelector('[data-block-complete]');
@@ -742,7 +741,7 @@ window.__kianosLearnerWriterReady.then(() => {
       if (returnSystem instanceof HTMLElement) returnSystem.hidden = !state.completed;
       root.querySelector('[data-block-complete-title]')?.replaceChildren(document.createTextNode(state.completed ? '本 Block 第一轮已在本机记录完成' : canComplete() ? '本轮检查点已满足' : '还没有满足本轮检查点'));
       const contactText = sourcePerGroup ? `学习接触 ${learnedCount()}/${totalKp}` : `连续 Source ${state.sourceContactDone ? '已确认' : '未确认'}`;
-      root.querySelector('[data-block-complete-detail]')?.replaceChildren(document.createTextNode(`${contactText} · Recall ${recallCount()}/${totalKp} · Block Recall ${state.blockRecallDone ? '完成' : '未完成'}`));
+      root.querySelector('[data-block-complete-detail]')?.replaceChildren(document.createTextNode(`${contactText} · Recall ${recallCount()}/${totalKp} · 整块回忆 ${state.blockRecallDone ? '完成' : '未完成'}`));
       syncGroupStage();
     };
 
@@ -981,7 +980,7 @@ window.__kianosLearnerWriterReady.then(() => {
         state.blockRecallDone = true;
         state.blockRecallCompletedAt = new Date().toISOString();
       }
-      event.currentTarget.textContent = 'Block Recall 已完成';
+      event.currentTarget.textContent = '整块回忆已完成';
       event.currentTarget.classList.add('completed');
       save();
       syncState();
@@ -992,7 +991,7 @@ window.__kianosLearnerWriterReady.then(() => {
         state.completed = true;
         state.completedAt = new Date().toISOString();
       }
-      event.currentTarget.textContent = 'Block 第一轮已完成';
+      event.currentTarget.textContent = '本块第一轮已完成';
       const persisted = save();
       syncState();
       if (persisted) {
@@ -1067,7 +1066,7 @@ window.__kianosLearnerWriterReady.then(() => {
       });
     }
     kpRecallCards.forEach((card) => { const value = state.ratings?.[card.getAttribute('data-kp-id') || '']; if (value) card.querySelector(`[data-rating="${value}"]`)?.classList.add('selected'); });
-    if (state.blockRecallDone) { const button = root.querySelector('[data-block-recall-complete]'); if (button) { button.textContent = 'Block Recall 已完成'; button.classList.add('completed'); } }
+    if (state.blockRecallDone) { const button = root.querySelector('[data-block-recall-complete]'); if (button) { button.textContent = '整块回忆已完成'; button.classList.add('completed'); } }
     normalizeLegacyStage();
     setKpIndex(state.kpIndex || 0); setStage(state.stage || 'block_learn'); syncState();
    })();
