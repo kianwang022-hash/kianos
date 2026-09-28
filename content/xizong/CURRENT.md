@@ -9,7 +9,7 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ## Current routing
 
-- Ordinary Xizong learning bypasses this engineering cursor and uses the native learning/runtime path.
+- Ordinary Xizong use follows the native learner/runtime path for surfaces that behave correctly; do not infer blanket whole-system readiness from one healthy path.
 - Subject maturity / 270–275 questions route to `MATURITY_PACKAGE.md`; its current stage, calibration and acceptance claims are not mirrored here.
 - Content construction, Question→Knowledge work and content defects route through `CONTENT_MAINLINE.md` and then the smallest exact owner.
 - 27 Biochemistry lifecycle owner: `content/xizong/knowledge/learner/xizong-2027-biochemistry-delta-slot.json`.
@@ -19,24 +19,27 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 - Acceptance/readiness questions route to `ACCEPTANCE.md` or the exact System Acceptance owner.
 - Real learner U remains private real-use truth and is never inferred from engineering proof.
 
-### Active engineering anchor
+### Current engineering state
 
-**None.**
+**Whole-Xizong CBA closure is BLOCKED / UNBOUND.**
 
-- Fresh independent AUDIT #1065 is CLOSED / PASS.
-- The audited #1049 Candidate delta is delivered on current main as `f1274d755fad9502de68954384cf7d049f9e7c7b`.
-- #1047 / #1049 / #1065 are lifecycle evidence only and are not continuation cursors.
-- #1004 is retired umbrella history after this delivery closure; do not resume its old candidate or Phase/Next text.
-- Ordinary Xizong learning now returns to the native learner/runtime path.
+Current learner-visible evidence reports that a representative **B Block surface does not show the accepted Context / Attention rail**. That conflicts with the current Product / Visual owner and invalidates any blanket claim that whole-Xizong BUILD/AUDIT fidelity is closed.
+
+No active engineering Issue is currently bound. Before mutation resumes, bind one new current task from current owners only.
 
 ### Next
 
-for ordinary study → native learner path
-for a new concrete defect → smallest exact Content / Learning / Visual / Runtime / Source / Question owner
-for an explicit fresh independent re-acceptance request → open a new bounded audit against the then-current exact consumer
-→ do not reopen the completed #1047 → #1049 → #1065 chain by default
+for the current B learner-surface defect
+→ current Product / Visual owner
+→ current B learner-object / Projection owner
+→ current shared Block consumer
+→ real Stable/Candidate browser surface
+→ bind the smallest current BUILD task if a defect is reproduced
+→ after BUILD, run the current strengthened Fresh independent AUDIT against the real browser/user journey
 
-Historical campaigns, branch receipts and prior closure narratives are not continuation authority.
+for unaffected ordinary study → native learner path
+
+Legacy/history is quarantined unless Kian explicitly requests it.
 
 ## Route by need
 
@@ -68,9 +71,9 @@ Historical campaigns, branch receipts and prior closure narratives are not conti
 
 ## Fresh-Chat / re-acceptance
 
-A known engineering task should normally reach its exact owner in two or three precise reads. Do not read old migration branches, PR narratives, or unrelated Systems by default.
+A known engineering task should normally reach its exact owner in two or three precise current-owner reads. Closed Issues/PRs, old branches and historical audit narratives are outside the default read surface.
 
-When Kian explicitly requests fresh/independent re-acceptance, inspect the real Source / Knowledge / Learning / Runtime owner first. Prior PASS labels are evidence, not the answer key.
+When Kian explicitly requests fresh/independent re-acceptance, inspect current Source / Knowledge / Learning / Product / Visual / Runtime owners plus the exact current candidate/release and real browser/state. Fresh AUDIT does not unlock legacy.
 
 ## Stop / reopen
 
