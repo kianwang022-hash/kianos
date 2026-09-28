@@ -18,6 +18,7 @@ Issue [#1080](https://github.com/kianwang022-hash/kianos/issues/1080) — **Poli
 - Do not create a second Politics course/runtime/scheduler or infer a family-by-family BUILD queue.
 - Ordinary Politics learning bypasses this engineering cursor unless the conversation explicitly enters #1080 engineering work.
 - Legacy task history is quarantined and is not part of normal continuation.
+- **Queued Fresh independent audit:** Issue [#1087](https://github.com/kianwang022-hash/kianos/issues/1087), waiting for #1080 final main/Stable release. It must audit whole-product learner attention, backend-information leakage, real-browser usability, and one-owner/low-friction changeability; it does not authorize BUILD by itself.
 
 ## Current routing
 
@@ -40,7 +41,9 @@ current accepted rapid-mastery direction
 → targeted proof
 → main + readback
 → close #1080
-→ return Politics to normal learner-use / concrete-defect mode
+→ pin exact final main / Stable identity
+→ hand off to queued Fresh independent AUDIT #1087
+→ after audit verdict, return Politics to normal learner-use / concrete-defect mode
 ```
 
 ## Stable learning roles
