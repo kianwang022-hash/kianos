@@ -459,11 +459,16 @@ export function listPoliticsSubjectsCurrent() {
   return Object.entries(manifest.subjects || {}).map(([subject, row]) => {
     const files = chapterFiles(subject, row);
     const meta = SUBJECTS[subject] || { label: subject, shape: '', description: '' };
+    const subjectMapPath = String(row?.subject_map || '');
+    if (subjectMapPath && !exists(subjectMapPath)) throw new Error(`CURRENT_POLITICS_SUBJECT_MAP_MISSING:${subject}:${subjectMapPath}`);
+    const subjectMap = subjectMapPath ? readJson(subjectMapPath) : null;
     return {
       subject,
       ...meta,
       status: String(row?.status || ''),
       teachingShape: String(row?.teaching_shape || ''),
+      subjectMapPath,
+      subjectMap,
       chapters: files.map((sourcePath) => {
         const raw = readJson(sourcePath);
         return { code: chapterCode(sourcePath), title: chapterTitle(raw, chapterCode(sourcePath)), sourcePath };

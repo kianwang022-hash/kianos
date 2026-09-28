@@ -14,7 +14,8 @@ This file records accepted learner-visible Politics product decisions while Kian
 Preserve the Current first-round chain:
 
 ```text
-Orientation / current Natural Unit
+optional whole-subject rapid framework orientation
+→ Orientation / current Natural Unit
 → Chengfeng continuous study on iPad / MarginNote
 → optional close / checkpoint
 → single Xiao1000 Workbench
@@ -218,6 +219,8 @@ Current Politics Content / Learning Logic
 
 Product requirements that remain durable:
 
+- Politics Learn exposes one compact whole-subject framework from the exact Current subject-map Surface Mapping before the chapter list, so Kian can acquire/recover the skeleton quickly without creating a second course; the page consumes the resolved plan and never infers political relations from raw subject-map fields;
+- once that skeleton plus the relevant first Source pass is stable, the product should not encourage repeated framework/lecture rereading by default; later effort shifts toward retrieval, admitted Memory/Precision and Xiao1000 evidence, with only the smallest justified source repair reopening;
 - the five subjects keep distinct cognitive shapes rather than collapsing into one generic article/card template;
 - the renderer consumes explicit Surface Mapping and must not infer political relations from raw fields, Projection shape names or DOM structure;
 - high-text learning reduces friction through attention allocation, relation visibility, readable hierarchy and progressive disclosure rather than by deleting meaningful Content;
@@ -266,7 +269,7 @@ Do not derive active work from historical design-stage prose.
 - UI optimization safety → `POLITICS_UI_REVIEW_PROTOCOL.md`;
 - exact visual implementation → current Website consumer/styles.
 
-The current rapid-mastery work is analysis-only unless Kian explicitly adopts a product/behavior change. Analysis does not silently reopen this accepted first-round product model.
+The accepted #1080 rapid-mastery delta is deliberately narrow: expose the already-owned whole-subject framework through Politics Learn, complete the missing Marxism subject-map owner, and otherwise preserve the accepted first-round product. It does not authorize a second course/runtime, Workbench redesign, scheduler, or broad Politics rebuild.
 
 ## Compact rule
 

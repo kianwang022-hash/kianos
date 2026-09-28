@@ -9,16 +9,14 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ## Active engineering anchor
 
-Issue [#1080](https://github.com/kianwang022-hash/kianos/issues/1080) — **Politics rapid-mastery closure — finish accepted low-friction first-round optimization**.
+Issue [#1087](https://github.com/kianwang022-hash/kianos/issues/1087) — **Politics fresh independent audit — whole learner product, attention and changeability**.
 
-- Phase: **CREATE reconciliation → bounded BUILD → targeted proof**.
-- This is a closure task over the mature existing Politics product, not a new construction campaign.
-- BUILD is effect-scoped: prove a concrete current owner → consumer gap before implementing; already-satisfied effects are NO-OP.
-- Preserve Chengfeng original-source ownership, the single Xiao1000 Workbench, Wrong/Uncertain evidence semantics, exact Return/Resume, and current-year Source gates.
-- Do not create a second Politics course/runtime/scheduler or infer a family-by-family BUILD queue.
-- Ordinary Politics learning bypasses this engineering cursor unless the conversation explicitly enters #1080 engineering work.
+- Phase: **FRESH / INDEPENDENT AUDIT — pin the exact #1080 final main / Stable identity first**.
+- #1080 rapid-mastery closure has now delivered the accepted bounded effect on this main generation: all five subjects have an explicit whole-subject rapid-framework owner and Politics Learn consumes the resolved subject Surface Mapping through the existing renderer.
+- The delivered #1080 batch introduced no second Politics course/runtime/scheduler and no new CSS layer; Chengfeng, the single Xiao1000 Workbench, Wrong/Uncertain evidence semantics, exact Return/Resume and current-year Source gates remain protected.
+- #1087 is audit-only: it must inspect the exact resulting Stable learner product, attention allocation, backend-information leakage, real-browser usability and one-owner/low-friction changeability. It may not repair inside the audit.
+- Ordinary Politics learning bypasses this engineering cursor unless the conversation explicitly enters #1087 audit work.
 - Legacy task history is quarantined and is not part of normal continuation.
-- **Queued Fresh independent audit:** Issue [#1087](https://github.com/kianwang022-hash/kianos/issues/1087), waiting for #1080 final main/Stable release. It must audit whole-product learner attention, backend-information leakage, real-browser usability, and one-owner/low-friction changeability; it does not authorize BUILD by itself.
 
 ## Current routing
 
@@ -31,19 +29,15 @@ Issue [#1080](https://github.com/kianwang022-hash/kianos/issues/1080) — **Poli
 
 ### Next
 
-For active Politics engineering, follow Issue #1080 only.
+For active Politics engineering, follow Issue #1087 only.
 
 ```text
-current accepted rapid-mastery direction
-→ compare against current Learning / Interaction / Product owners
-→ ABSORB already-satisfied effects
-→ BUILD only concrete missing owner → consumer effects
-→ targeted proof
-→ main + readback
-→ close #1080
-→ pin exact final main / Stable identity
-→ hand off to queued Fresh independent AUDIT #1087
-→ after audit verdict, return Politics to normal learner-use / concrete-defect mode
+exact #1080 final main / Stable identity
+→ fresh independent whole-product audit #1087
+→ PASS: return Politics to normal learner-use / concrete-defect mode
+   OR
+→ FAIL: route only the reproduced effect to the earliest responsible current owner
+→ STOP
 ```
 
 ## Stable learning roles

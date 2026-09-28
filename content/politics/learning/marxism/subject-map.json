@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.politics.learning.marxism_subject_map.v1",
+  "status": "CURRENT",
+  "subject": "MARX",
+  "teaching_title": "马原整科｜从世界观方法论一路走到资本主义、社会主义与共产主义",
+  "teaching_shape": "RELATION_REASONING_AND_MECHANISM_CHAIN",
+  "core_question": "马克思主义怎样从对世界、认识和社会历史的一般解释，推进到对资本主义机制的分析，并进一步说明社会主义与共产主义的历史方向？",
+  "master_chain": [
+    {
+      "stage": "理论身份",
+      "chapters": [
+        0
+      ],
+      "problem": "马克思主义是什么、为什么产生、为什么还能继续发展？",
+      "answer": "先确定它的形成条件、完整理论体系、发展品格与现实价值。"
+    },
+    {
+      "stage": "哲学底座",
+      "chapters": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "problem": "世界是什么、怎样发展、人怎样认识它、社会历史怎样运动？",
+      "answer": "物质世界 → 辩证发展 → 实践认识 → 唯物史观，构成后续分析社会形态的方法底座。"
+    },
+    {
+      "stage": "资本主义机制",
+      "chapters": [
+        5,
+        6
+      ],
+      "problem": "资本主义怎样运行、怎样从自由竞争走向垄断，又为什么仍有基本矛盾？",
+      "answer": "商品价值 → 剩余价值与资本积累 → 垄断/全球化新形式，同时保留对本质矛盾的判断。"
+    },
+    {
+      "stage": "社会主义现实运动",
+      "chapters": [
+        7
+      ],
+      "problem": "社会主义怎样从空想变成科学，再进入现实历史？",
+      "answer": "从理论形成到现实实践，既守住基本原则，也反对脱离具体条件的教条化。"
+    },
+    {
+      "stage": "共产主义方向",
+      "chapters": [
+        8
+      ],
+      "problem": "怎样科学理解最终理想，而不是把它当成脱离现实的乌托邦？",
+      "answer": "方向有现实历史依据，但实现是长期复杂过程，远大理想必须与现实实践统一。"
+    }
+  ],
+  "boundaries": [
+    "马原不是定义卡片集合：先恢复关系和机制，再处理术语边界。",
+    "哲学四章是方法底座，不与资本主义、社会主义部分割裂。",
+    "资本主义的新形式不等于基本矛盾消失。",
+    "共产主义的历史必然性不等于自动、短期实现。"
+  ],
+  "whole_subject_recall": "马克思主义身份 → 物质世界 → 辩证发展 → 实践认识 → 唯物史观 → 资本主义本质/运行 → 垄断与发展趋势 → 社会主义现实运动 → 共产主义方向",
+  "learner_default": "先看整科链条，再进当前章节；正文连续学乘风。骨架已经形成后，不因‘这个章节存在’就重放整段讲义，优先用重建关系和肖1000验证，只有真实 Wrong / meaningful Uncertain 才回最小来源。",
+  "surface_mapping": {
+    "ORIENT": [
+      {
+        "id": "marx-subject-question",
+        "zone": "PRIMARY",
+        "primitive": "STATEMENT",
+        "title": "这一科先回答什么",
+        "source": {
+          "scope": "subject",
+          "field": "core_question"
+        }
+      },
+      {
+        "id": "marx-subject-framework",
+        "zone": "PRIMARY",
+        "primitive": "DIRECTED_SEQUENCE",
+        "title": "整科骨架 · 先看懂，不背",
+        "source": {
+          "scope": "subject",
+          "field": "master_chain"
+        },
+        "select_indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "item_ids": [
+          "marx-subject-framework-1",
+          "marx-subject-framework-2",
+          "marx-subject-framework-3",
+          "marx-subject-framework-4",
+          "marx-subject-framework-5"
+        ],
+        "item_fields": [
+          "stage",
+          "problem",
+          "answer"
+        ],
+        "transitions": [
+          {
+            "from": "marx-subject-framework-1",
+            "to": "marx-subject-framework-2"
+          },
+          {
+            "from": "marx-subject-framework-2",
+            "to": "marx-subject-framework-3"
+          },
+          {
+            "from": "marx-subject-framework-3",
+            "to": "marx-subject-framework-4"
+          },
+          {
+            "from": "marx-subject-framework-4",
+            "to": "marx-subject-framework-5"
+          }
+        ]
+      },
+      {
+        "id": "marx-subject-default",
+        "zone": "COMPANION",
+        "primitive": "STATEMENT",
+        "title": "第一轮怎么走",
+        "source": {
+          "scope": "subject",
+          "field": "learner_default"
+        }
+      }
+    ]
+  }
+}
