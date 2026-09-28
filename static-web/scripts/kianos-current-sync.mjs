@@ -17,6 +17,7 @@ import {
 } from './currentStaticSlots.mjs';
 import {
   acquireDeliveryLock,
+  readCurrentAuditPin,
   releasePaths,
   resolveCurrentBuildTimeoutMs,
   resolveCurrentSubprocessTimeoutMs,
@@ -586,6 +587,26 @@ async function syncOnce({ initial = false } = {}) {
     lastTargetSha = remote;
 
     const activeSha = readActiveBuiltStatus()?.sha || '';
+    const auditPin = readCurrentAuditPin(releases.auditPin);
+    if (auditPin) {
+      if (!activeReleaseRoot || !activeSha || activeSha !== auditPin.sha) {
+        throw new Error(`CURRENT_AUDIT_PIN_MISMATCH:${auditPin.sha}:${activeSha || 'missing'}`);
+      }
+      lastSyncHealthy = true;
+      lastNetworkError = '';
+      writeStatus('pinned', activeSha, {
+        control_sha: local,
+        target_sha: remote,
+        pinned_sha: auditPin.sha,
+        pinned_at: auditPin.pinned_at || null,
+        release_root: activeReleaseRoot
+      });
+      if (initial) {
+        log(`audit pin holds Stable at ${activeSha.slice(0, 8)}; remote main is ${remote.slice(0, 8)}`);
+      }
+      return false;
+    }
+
     if (local === remote && activeReleaseRoot && activeSha === remote) {
       lastSyncHealthy = true;
       writeStatus('synced', activeSha, { control_sha: local, release_root: activeReleaseRoot });
