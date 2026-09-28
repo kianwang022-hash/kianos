@@ -33,15 +33,18 @@ async function clean(page) {
 }
 async function pageFor(url = '/politics/practice/') {
   const ctx = await browser.newContext({ viewport: report.viewport });
+  // This harness owns Workbench state/recovery semantics. Hide the independently
+  // audited movable Global Dock so shared-overlay geometry cannot corrupt its oracle.
+  await ctx.addInitScript(() => {
+    document.addEventListener('DOMContentLoaded', () => {
+      const style = document.createElement('style');
+      style.textContent = '[data-study-timer-dock]{display:none!important}';
+      document.head.append(style);
+    }, { once: true });
+  });
   const page = await ctx.newPage(); page.on('dialog', (dialog) => dialog.accept());
   const errors = []; page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto(base + url);
-  await page.evaluate(() => {
-    localStorage.setItem('kianos-study-timer-dock-position-v1', JSON.stringify({ x: 80, y: 80 }));
-    const dock = document.querySelector('[data-study-timer-dock]');
-    if (dock instanceof HTMLElement) { dock.style.left = '80px'; dock.style.top = '80px'; dock.style.right = 'auto'; dock.style.bottom = 'auto'; }
-  });
-  await page.locator('[data-start-session]').waitFor();
+  await page.goto(base + url); await page.locator('[data-start-session]').waitFor();
   return { ctx, page, errors };
 }
 async function start(page, count = '5') {
