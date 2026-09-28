@@ -169,6 +169,14 @@ check(systemComponent.includes('data-representation-kind={framework.spine.repres
 check(systemComponent.includes('data-representation-kind={framework.dependencies.representation.kind}'), 'system_dependencies_use_resolved_safe_representation');
 check(systemComponent.includes('class="xzSystemWorkspace"'), 'system_workspace_uses_current_namespace');
 check(!systemComponent.includes('xv6System'), 'system_workspace_retired_legacy_namespace');
+check(!systemComponent.includes("system.canonicalId === 'B'"), 'system_workspace_has_no_system_name_product_fork');
+check(
+  !systemComponent.includes('JIT / Connection')
+  && !systemComponent.includes('JIT Connection')
+  && !systemComponent.includes('Future Connection'),
+  'system_workspace_hides_backend_connection_taxonomy'
+);
+check(systemComponent.includes('当前先建立这条联系，不切换学习主线。'), 'system_workspace_uses_learner_facing_connection_copy');
 check(!systemComponent.includes('Block 依赖图'), 'system_dependency_graph_label_retired');
 check(!systemComponent.includes('geometry-'), 'system_workspace_does_not_style_from_geometry_taxonomy');
 

@@ -192,8 +192,8 @@ async function biochemistrySourceLaneJourney(page) {
       check(await m4Connection.count() === 1, 's03_keeps_reviewed_m4_d7_d8_connection_runtime');
       check(!(await m4Connection.isVisible()),
         's03_connection_runtime_stays_backstage_in_source_adapter');
-      check((await m4Connection.locator('[data-biochemistry-connection-status]').textContent() || '').includes('JIT Connection'),
-        'unformed_m4_connection_semantics_preserved_backstage');
+      check((await m4Connection.locator('[data-biochemistry-connection-status]').textContent() || '').includes('当前先建立这条联系'),
+        'unformed_m4_connection_semantics_preserved_with_learner_facing_copy');
     }
     await laneAgain.locator('[data-biochemistry-unit-complete]').click();
     await page.waitForTimeout(80);

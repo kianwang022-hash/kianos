@@ -21,17 +21,18 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Active engineering anchor
 
-- **Issue #1047 — Xizong lifecycle recovery / CREATE completeness**
-- Scope: recover the current complete Xizong CREATE chain from current owners before any new BUILD or final independent AUDIT.
-- Phase / Next / Blocker live only in Issue #1047 while that recovery task is active.
+- **Issue #1049 — Xizong bounded BUILD handoff**
+- Parent CREATE recovery #1047 is CLOSED and independently reconfirmed; it remains evidence, not the active cursor.
+- Current BUILD scope is only B1/B2 plus current-release B3 visual-fidelity proof.
+- Phase / Next / Blocker live only in Issue #1049 while this BUILD is active.
 - **Issue #1004 is historical BUILD / Human-Gate evidence only.** Its old Phase / Next / Blocker and candidate-bound PASS labels are not continuation authority.
 
 ### Next
 
-for current engineering control → Issue #1047 → exact current CREATE owner
+for current engineering control → Issue #1049 → exact current BUILD consumer
 for ordinary study → native learner path
-after #1047 closes CREATE → bind any unresolved implementation delta to an explicit BUILD task before changing consumers
-→ do not resume #1004 as the active cursor
+after #1049 closes BUILD → fresh independent AUDIT on the exact post-BUILD candidate/release
+→ do not resume #1004 or #1047 as the active cursor
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority.
 

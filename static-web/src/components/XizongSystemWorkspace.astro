@@ -14,17 +14,9 @@ const biochemistryUnits = Array.isArray(biochemistryLane?.units) ? biochemistryL
 const hasBiochemistryLane = biochemistryUnits.length > 0;
 const biochemistryReconstructions = Array.isArray(biochemistryLane?.reconstructions) ? biochemistryLane.reconstructions : [];
 const indexedBlocks = system.blocks.map((block, index) => ({ block, index }));
-const routeSections = system.canonicalId === 'B'
-  ? [
-      { key: 'A', title: '输入 · 消化 · 吸收', range: 'D1–D4', rows: indexedBlocks.filter(({ block }) => /^D([1-4])$/.test(block.label)) },
-      { key: 'B', title: '能量 · 营养 · 胰岛', range: 'D5–D8', rows: indexedBlocks.filter(({ block }) => /^D([5-8])$/.test(block.label)) },
-      { key: 'C', title: '胃肠疾病 · 腹部空间', range: 'D9–D15', rows: indexedBlocks.filter(({ block }) => /^D(?:9|1[0-5])$/.test(block.label)) },
-      { key: 'D', title: '肝胆胰', range: 'D16–D20', rows: indexedBlocks.filter(({ block }) => /^D(?:1[6-9]|20)$/.test(block.label)) },
-      { key: 'E', title: '器官内分泌', range: 'D21–D23', rows: indexedBlocks.filter(({ block }) => /^D2[1-3]$/.test(block.label)) },
-      { key: 'F', title: '物质代谢 · 生化', range: 'M1–M10', rows: indexedBlocks.filter(({ block }) => /^M\d+$/.test(block.label)) },
-      { key: 'G', title: '信息流 · 肿瘤 Gate', range: 'G1–G5', rows: indexedBlocks.filter(({ block }) => /^G\d+$/.test(block.label)) }
-    ]
-  : [{ key: '', title: '', range: '', rows: indexedBlocks }];
+// One shared System Framework route. System-specific Source adapters may add context,
+// but they do not fork the learner-facing Block route geometry by canonical System name.
+const routeSections = [{ key: '', title: '', range: '', rows: indexedBlocks }];
 const hasVariableRoles = variableRows.some((row) => row.role);
 const spineLabels = framework.spine.items.map((item) => String(item || '').trim());
 const spineTotalChars = spineLabels.reduce((sum, item) => sum + [...item].length, 0);
@@ -195,7 +187,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
 
                   {unit.connectionRoutes?.length > 0 && (
                     <section class="xzBioTargetSection connection" data-biochemistry-reviewed-connections>
-                      <span>JIT / Connection</span>
+                      <span>相关联结</span>
                       <div>
                         {unit.connectionRoutes.map((route) => (
                           <article
@@ -207,7 +199,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
                           >
                             <strong>{route.sourceBlocks.join(' + ')} ↔ {route.targets.join(' + ')}</strong>
                             <p>{route.sharedModel}</p>
-                            <small data-biochemistry-connection-status>JIT Connection · 当前只建立接口，不切换课程。</small>
+                            <small data-biochemistry-connection-status>当前先建立这条联系，不切换学习主线。</small>
                           </article>
                         ))}
                       </div>
@@ -560,14 +552,14 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
             status.textContent = `跨系统重构已解锁 · ${sourceBlocks.join(' + ')} 与 ${localTargets.join(' + ')} 都已形成。`;
           } else if (completedTargets.length > 0) {
             const tail = [...pendingTargets, ...externalTargets];
-            status.textContent = `Recall ${completedTargets.join(' + ')}；${tail.length ? `Future Connection ${tail.join(' + ')} 尚未形成/未在本页证明` : '继续当前生化 Source'}。`;
+            status.textContent = `已可回到 ${completedTargets.join(' + ')} 做 Recall；${tail.length ? `与 ${tail.join(' + ')} 的后续联系尚未形成或未在本页证明` : '继续当前生化 Source'}。`;
           } else if (sourceReady && (pendingTargets.length > 0 || externalTargets.length > 0)) {
             const futureTargets = [...pendingTargets, ...externalTargets];
-            status.textContent = `Future Connection · ${futureTargets.join(' + ')} 尚未形成/未在本页证明；保留正式 owner 接口，不切换课程。`;
+            status.textContent = `后续联系 · ${futureTargets.join(' + ')} 尚未形成或未在本页证明；先保留这条联系，不切换学习主线。`;
           } else if (externalTargets.length > 0 && localTargets.length === 0) {
-            status.textContent = `Future Connection · ${externalTargets.join(' + ')} 的学习状态未在本页证明；只保留接口，不制造已学证据。`;
+            status.textContent = `后续联系 · ${externalTargets.join(' + ')} 的学习状态未在本页证明；这里只提示关系，不提前当作已学。`;
           } else {
-            status.textContent = `JIT Connection · ${[...localTargets, ...externalTargets].join(' + ')} 先记住接口，不切换课程。`;
+            status.textContent = `关联到 ${[...localTargets, ...externalTargets].join(' + ')} · 当前先记住这条联系，不切换学习主线。`;
           }
         });
       };
