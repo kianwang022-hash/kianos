@@ -15,9 +15,14 @@ function text(value) {
 function blockAttentionRows(block) {
   const rows = [];
   let index = 0;
+  const primaryStageCues = new Set([
+    text(block?.attention?.currentProblem).trim(),
+    text(block?.attention?.minimalModel).trim()
+  ].filter(Boolean));
   const push = (role, value, source) => {
     const cue = text(value?.text || value?.label || value?.cue || value).trim();
     if (!cue) return;
+    if (role === 'CURRENT_TAKEAWAY' && primaryStageCues.has(cue)) return;
     rows.push({
       id: `${text(block?.blockId)}:attention:${++index}`,
       kind: 'ATTENTION',
