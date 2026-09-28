@@ -105,15 +105,15 @@
   "mental_model": {
     "mother_model": "外界/身体状态被感受器换能并编码 → 神经纤维把信号传入 → 突触与受体筛选/整合 → 中枢网络维持觉醒与内部状态并形成感觉、行为和运动方案 → 下行控制与运动神经把命令送至神经肌肉接头 → 骨骼肌把电化学信号转成力 → 骨、关节、肌腱、韧带和筋膜把力变成稳定动作与承重 → 本体/痛觉/视觉/前庭反馈持续校正。与此同时，创伤、压迫、缺血、过载、感染、免疫炎症、发育异常或肿瘤可在任一神经/结构层制造新的故障；诊断必须先定位故障层、稳定性和危险结构，再进入具体病名。",
     "spine": [
-      "Sensor / Transduction：刺激性质、感受器、受体电位与感觉编码",
-      "Wire：轴突、髓鞘、神经根、周围神经与脊髓长束负责保真传导",
-      "Gate：突触、递质与受体决定兴奋/抑制、总和和调制",
-      "State / Controller：脑干—丘脑—皮层、基底节、小脑、觉醒/高级功能与下丘脑形成网络状态和行为/运动方案",
-      "Command：皮层/脑干下行系统与α/γ运动神经元组织反射、肌张力和随意运动",
-      "Actuator：NMJ、肌膜、三联管、Ca²⁺和横桥把命令转成可调节的肌力",
-      "Plant：骨、关节、软骨、肌腱、韧带、筋膜和椎间盘维持对位、稳定、传力与承重",
-      "Feedback：本体感觉、痛觉、视觉与前庭不断校正动作，并提示结构危险",
-      "Repair / Adaptation：炎症、血供、骨折愈合、重塑和功能锻炼决定损伤后能否恢复稳定与功能"
+      "感觉换能：刺激性质、感受器、受体电位与感觉编码",
+      "传导线路：轴突、髓鞘、神经根、周围神经与脊髓长束负责保真传导",
+      "突触闸门：突触、递质与受体决定兴奋/抑制、总和和调制",
+      "状态 / 控制器：脑干—丘脑—皮层、基底节、小脑、觉醒/高级功能与下丘脑形成网络状态和行为/运动方案",
+      "运动命令：皮层/脑干下行系统与α/γ运动神经元组织反射、肌张力和随意运动",
+      "执行器：NMJ、肌膜、三联管、Ca²⁺和横桥把命令转成可调节的肌力",
+      "承力结构：骨、关节、软骨、肌腱、韧带、筋膜和椎间盘维持对位、稳定、传力与承重",
+      "反馈：本体感觉、痛觉、视觉与前庭不断校正动作，并提示结构危险",
+      "修复 / 适应：炎症、血供、骨折愈合、重塑和功能锻炼决定损伤后能否恢复稳定与功能"
     ],
     "loops": [
       "感觉—定位环：刺激 → 换能/编码 → 传导 → 中枢投射 → 感觉/体征 → 由分布、反射与平面反推故障层",
@@ -203,7 +203,7 @@
     "bone/joint infection combines organ-specific anatomy with the shared pathogen–host–source-control model; C owns common infection language while D owns orthopedic site, dead bone/dead space and structural consequences",
     "RA immune/medical Primary remains in C; D owns only the source-supported orthopedic structural/functional coordinates and comparison with OA/AS",
     "bone-tumor reasoning proceeds from aggressiveness, age, bone/site, matrix/periosteal reaction and extent to pathology confirmation; tumor-general and myeloma clonal Primary remain with their owners",
-    "Block-level Source conflicts and legacy exam wording are evidence constraints, not invitations for model-common-sense correction"
+    "Block 内的原讲义冲突和旧题表述属于证据边界，不能用模型常识静默覆盖"
   ],
   "failure_modes": [
     ["FM1", "感觉换能/编码失败", "刺激存在但感受器换能、适应、频率/空间编码或器官特异机械过程失真"],

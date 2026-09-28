@@ -476,6 +476,27 @@ body#kianos-workspace.surfaceBody-xizong .xzSystemParallel p:first-child {
   padding-left: 0;
 }
 
+body#kianos-workspace.surfaceBody-xizong .xzSystemMentalDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px solid var(--xz-system-line);
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemMentalDetails p {
+  margin: 0;
+  padding: 8px 16px;
+  border-left: 1px solid var(--xz-system-line);
+  color: #31493f;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.62;
+}
+body#kianos-workspace.surfaceBody-xizong .xzSystemMentalDetails p:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+
 body#kianos-workspace.surfaceBody-xizong .xzSystemLanguageAxes {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);

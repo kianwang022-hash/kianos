@@ -132,6 +132,24 @@ check(systemPlan.judgmentAxes.representation.kind === 'STRUCTURED_TEXT', 'system
 check(systemPlan.dependencies.representation.kind === 'STRUCTURED_TEXT', 'system_dependency_dag_does_not_auto_graph');
 check(systemPlan.failures.some((row) => row.representation.kind === 'SIMPLE_CHAIN'), 'system_explicit_failure_chain_can_stay_simple_chain');
 
+const eSystemRaw = JSON.parse(fs.readFileSync(path.join(repoRoot, 'content/xizong/knowledge/systems/e-reproductive-breast/system.json'), 'utf8'));
+const eSystemPlan = composeXizongSystemFrameworkRepresentation({
+  mission: eSystemRaw.mission,
+  mentalModel: {
+    motherModel: eSystemRaw.mental_model?.mother_model,
+    spine: eSystemRaw.mental_model?.spine,
+    parallelControls: eSystemRaw.mental_model?.parallel_controls
+  },
+  raw: eSystemRaw,
+  coreVariables: eSystemRaw.core_variables,
+  coreRelations: eSystemRaw.core_relations,
+  failureModes: eSystemRaw.failure_modes,
+  judgmentAxes: eSystemRaw.judgment_axes,
+  dependencyDag: eSystemRaw.dependency_dag
+});
+check(eSystemPlan.mentalDetails.items.length === 3, 'derived_system_framework_keeps_nonstandard_current_model');
+check(eSystemPlan.variables.rows.every((row) => !/^[A-Z0-9_]+$/.test(row.label)), 'derived_system_framework_uses_learner_variable_labels');
+
 // Integration readback: final learner components must consume the gate rather than
 // rediscovering presentation from raw Projection geometry / asset presence.
 const frameworkComponent = fs.readFileSync(path.join(process.cwd(), 'src/components/XizongCognitiveProjectionStage.astro'), 'utf8');
@@ -179,6 +197,8 @@ check(
 check(systemComponent.includes('当前先建立这条联系，不切换学习主线。'), 'system_workspace_uses_learner_facing_connection_copy');
 check(!systemComponent.includes('Block 依赖图'), 'system_dependency_graph_label_retired');
 check(!systemComponent.includes('geometry-'), 'system_workspace_does_not_style_from_geometry_taxonomy');
+check(!/SYSTEM MODEL|SYSTEM LANGUAGE|JUDGMENT AXES|FAILURE MAP|FAILURE CONTEXT/.test(systemComponent), 'system_workspace_chrome_is_learner_facing');
+check(!systemComponent.includes('[item.id, item.label]'), 'system_workspace_does_not_render_backend_variable_ids');
 
 check(blockPage.includes('XizongBlockWorkspaceShell'), 'one_screen_workspace_shell_mounted_by_block_page');
 check(blockPage.includes('XizongBlockAuxLayoutSync'), 'dynamic_aux_layout_sync_mounted_by_block_page');
