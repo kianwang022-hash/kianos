@@ -8,6 +8,7 @@ import json
 import os
 import re
 import shutil
+import signal
 import subprocess
 import sys
 import tempfile
@@ -16,6 +17,61 @@ from pathlib import Path
 
 
 SKIP_DIRS = {".git", "node_modules", "dist", ".astro", "__pycache__"}
+
+
+def is_kianos_transient_command(command: str) -> bool:
+    command = str(command or "")
+    if "--user-data-dir=/tmp/kianos-" in command:
+        return True
+    if "kianos-candidate-runtime.mjs" in command:
+        return True
+    if ("astro dev" in command or ".bin/astro dev" in command) and (
+        "/tmp/kianos-" in command or "/private/tmp/kianos-" in command
+    ):
+        return True
+    return False
+
+
+def transient_processes() -> list[dict[str, object]]:
+    result = subprocess.run(
+        ["ps", "-axo", "pid=,ppid=,etime=,command="],
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+        check=False,
+    )
+    rows: list[dict[str, object]] = []
+    if result.returncode:
+        return rows
+    for raw in result.stdout.splitlines():
+        parts = raw.strip().split(None, 3)
+        if len(parts) != 4:
+            continue
+        pid_s, ppid_s, elapsed, command = parts
+        if not is_kianos_transient_command(command):
+            continue
+        try:
+            pid = int(pid_s)
+            ppid = int(ppid_s)
+        except ValueError:
+            continue
+        rows.append({
+            "pid": pid,
+            "ppid": ppid,
+            "elapsed": elapsed,
+            "command": command,
+        })
+    return rows
+
+
+def pid_alive(pid: int) -> bool:
+    try:
+        os.kill(pid, 0)
+        return True
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True
 
 
 def run(cmd, *, cwd: Path, check: bool = False) -> subprocess.CompletedProcess[str]:
@@ -98,6 +154,7 @@ def snapshot(repo: Path, status_limit: int = 60) -> dict[str, object]:
         "dirty": lines[:status_limit],
         "dirty_truncated": len(lines) > status_limit,
         "worktrees": parse_worktrees(git(repo, "worktree", "list", "--porcelain")),
+        "transient_processes": transient_processes(),
     }
 
 
@@ -260,6 +317,8 @@ def tail(path: Path, lines: int) -> list[str]:
 
 def verify(args: argparse.Namespace) -> int:
     repo = resolve_repo(args.repo)
+    transient_before = transient_processes()
+    transient_before_pids = {int(row["pid"]) for row in transient_before}
     log_dir = Path(args.log_dir).expanduser() if args.log_dir else Path(
         tempfile.mkdtemp(prefix="kianos-remote-verify-")
     )
@@ -295,14 +354,82 @@ def verify(args: argparse.Namespace) -> int:
         if result.returncode and not args.keep_going:
             break
 
+    transient_after = transient_processes()
+    new_transient = [
+        row for row in transient_after if int(row["pid"]) not in transient_before_pids
+    ]
+    resource_clean = not new_transient
+    if not resource_clean and not overall:
+        overall = 86
+
     report = {
-        "ok": overall == 0,
+        "ok": overall == 0 and resource_clean,
         "commands": results,
+        "resource_hygiene": {
+            "clean": resource_clean,
+            "before_count": len(transient_before),
+            "after_count": len(transient_after),
+            "new_transient_processes": new_transient,
+            "note": "new KianOS transient processes after verify mean the local verification did not cleanly close",
+        },
         "snapshot": snapshot(repo),
         "log_dir": str(log_dir),
     }
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return overall
+
+
+def hygiene(args: argparse.Namespace) -> int:
+    current = {int(row["pid"]): row for row in transient_processes()}
+    requested = list(dict.fromkeys(args.pid))
+    if not args.apply:
+        print(json.dumps({
+            "apply": False,
+            "transient_processes": list(current.values()),
+            "hint": "re-run with --apply --pid <exact_pid> only after resolving which processes are stale",
+        }, ensure_ascii=False, indent=2))
+        return 0
+
+    terminated: list[dict[str, object]] = []
+    skipped: list[dict[str, object]] = []
+    for pid in requested:
+        row = current.get(pid)
+        if not row:
+            skipped.append({"pid": pid, "reason": "not_currently_recognized_as_kianos_transient"})
+            continue
+        try:
+            os.kill(pid, signal.SIGTERM)
+            terminated.append(row)
+        except ProcessLookupError:
+            terminated.append({**row, "already_gone": True})
+        except PermissionError:
+            skipped.append({"pid": pid, "reason": "permission_denied"})
+
+    deadline = time.monotonic() + max(0.0, args.grace_seconds)
+    while time.monotonic() < deadline and any(pid_alive(int(row["pid"])) for row in terminated):
+        time.sleep(0.05)
+
+    forced: list[int] = []
+    for row in terminated:
+        pid = int(row["pid"])
+        if not pid_alive(pid):
+            continue
+        try:
+            os.kill(pid, signal.SIGKILL)
+            forced.append(pid)
+        except (ProcessLookupError, PermissionError):
+            pass
+
+    remaining = transient_processes()
+    print(json.dumps({
+        "apply": True,
+        "requested": requested,
+        "terminated": terminated,
+        "forced": forced,
+        "skipped": skipped,
+        "remaining_transient_processes": remaining,
+    }, ensure_ascii=False, indent=2))
+    return 0 if not skipped else 2
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -334,6 +461,11 @@ def build_parser() -> argparse.ArgumentParser:
     check.add_argument("--log-dir")
     check.add_argument("--keep-going", action="store_true")
 
+    clean = sub.add_parser("hygiene", help="list or explicitly terminate recognized KianOS transient local processes")
+    clean.add_argument("--pid", action="append", type=int, default=[])
+    clean.add_argument("--apply", action="store_true")
+    clean.add_argument("--grace-seconds", type=float, default=2.0)
+
     return parser
 
 
@@ -348,6 +480,8 @@ def main() -> int:
         return packet(args)
     if args.command == "verify":
         return verify(args)
+    if args.command == "hygiene":
+        return hygiene(args)
     parser.error("unknown command")
     return 2
 

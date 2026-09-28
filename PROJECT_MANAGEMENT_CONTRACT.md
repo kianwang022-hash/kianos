@@ -623,6 +623,8 @@ Do not turn one bounded phase into a long series of tiny Remote calls when the s
 - compose coherent content/mutation batches in Chat before writing instead of write-per-unit;
 - reuse existing materializers, validators, QA and build commands instead of creating another runner framework;
 - start a long local process once. Use a long blocking read or one later status read; do not busy-poll PID / `ps` / temp files every few seconds;
+- before starting another browser/build-heavy lane, consume the current transient-process snapshot. Reuse an exact healthy consumer when that proves the claim; do not cold-start a second Candidate merely for ritual independence;
+- a bounded local verification is not cleanly complete while a Chrome / Candidate / Astro process that it started remains alive. Prefer self-cleaning repository tests or `remote:verify`; when a deliberate persistent process is needed, give it an explicit task identity and perform teardown + process/port readback before the task receipt;
 - keep full logs on disk and return compact status/tails first. Read full logs only for a failure or a real diagnostic need;
 - after an interrupted Chat, inspect current Git/local state and recent Remote call history when available before repeating a mutating action.
 
@@ -632,9 +634,12 @@ Thin helpers exist only to reduce transport chatter:
 npm run remote:snapshot -- --repo <worktree>
 npm run remote:packet -- --repo <worktree> [--file PATH] [--range PATH:START:END] [--scope DIR --grep REGEX]
 npm run remote:verify -- --repo <worktree> --cmd '<existing validator/build command>' [--cmd '...']
+npm run remote:hygiene -- [--apply --pid <exact_pid> ...]
 ```
 
-These helpers may collect, execute and summarize. They must not decide medical meaning, learner state, product policy, acceptance, task priority, or whether a semantic relation is safe.
+`remote:snapshot` includes recognized KianOS transient Chrome / Candidate / Astro processes so a fresh Chat sees local resource occupancy before starting another heavy lane. `remote:verify` compares those processes before/after the bounded verification and fails closed when the verification leaves a new recognized transient process alive. `remote:hygiene` is explicit-only: without `--apply` it lists; with `--apply` it terminates only exact PIDs that are still recognized as KianOS transient processes. Resolve active ownership before applying it; never mass-kill by age alone.
+
+These helpers may collect, execute, summarize and close their own local execution resources. They must not decide medical meaning, learner state, product policy, acceptance, task priority, or whether a semantic relation is safe.
 
 Use a helper only when it is cheaper than the direct operation. One simple local command should remain one simple local command.
 

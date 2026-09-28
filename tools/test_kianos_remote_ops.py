@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import json
+import os
+import signal
 import subprocess
 import sys
 import tempfile
@@ -45,6 +47,8 @@ class RemoteOpsTests(unittest.TestCase):
         self.assertIn("cached_origin_main", payload)
         self.assertNotIn("origin_main", payload)
         self.assertIn("cached local origin/main", payload["remote_ref_note"])
+        self.assertIn("transient_processes", payload)
+        self.assertIsInstance(payload["transient_processes"], list)
 
     def test_packet_combines_file_range_and_grep(self):
         temp, repo = self.make_repo()
@@ -114,6 +118,51 @@ class RemoteOpsTests(unittest.TestCase):
         self.assertEqual(len(payload["commands"]), 2)
         self.assertEqual(payload["commands"][0]["tail"], ["hello"])
         self.assertTrue(Path(payload["commands"][0]["log"]).exists())
+
+
+    def test_verify_fails_closed_when_command_leaks_transient_process(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        marker = "/tmp/kianos-remote-ops-test-leak"
+        result = self.call(
+            "verify",
+            "--repo",
+            str(repo),
+            "--cmd",
+            f"{sys.executable} -c 'import time; time.sleep(60)' --user-data-dir={marker} >/dev/null 2>&1 &",
+        )
+        self.assertEqual(result.returncode, 86, result.stdout)
+        payload = json.loads(result.stdout)
+        self.assertFalse(payload["ok"])
+        leaks = payload["resource_hygiene"]["new_transient_processes"]
+        self.assertTrue(leaks, payload)
+        self.assertTrue(any(marker in row["command"] for row in leaks), leaks)
+        for row in leaks:
+            try:
+                os.kill(int(row["pid"]), signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+
+    def test_hygiene_requires_exact_recognized_pid(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        proc = subprocess.Popen(
+            [sys.executable, "-c", "import time; time.sleep(60)", "--user-data-dir=/tmp/kianos-remote-ops-hygiene"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        self.addCleanup(lambda: proc.poll() is None and proc.kill())
+        for _ in range(20):
+            listed = self.call("hygiene")
+            rows = json.loads(listed.stdout)["transient_processes"]
+            if any(int(row["pid"]) == proc.pid for row in rows):
+                break
+            import time as _time
+            _time.sleep(0.05)
+        applied = self.call("hygiene", "--apply", "--pid", str(proc.pid), "--grace-seconds", "0.2")
+        self.assertEqual(applied.returncode, 0, applied.stdout)
+        proc.wait(timeout=2)
+        self.assertIsNotNone(proc.returncode)
 
     def test_verify_stops_on_failure_by_default(self):
         temp, repo = self.make_repo()
