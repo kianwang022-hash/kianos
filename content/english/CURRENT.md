@@ -11,10 +11,10 @@ A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / �
 
 Issue [#1085](https://github.com/kianwang022-hash/kianos/issues/1085) — **English fresh independent exhaustive audit — whole learner product including Vocabulary / Lexical**.
 
-- Phase: **AUDIT PREP COMPLETE / WAITING FOR EXACT-STABLE PIN SLOT**.
+- Phase: **FRESH / INDEPENDENT EXHAUSTIVE AUDIT — ACTIVE on shared pinned Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4`**.
 - The learner-visible English optimization batch is closed on main: dense Home #1086 and External whole-object Chat review #1082 are merged.
 - #1085 has already frozen the current exhaustive inventory/coverage plan; this is preparation only, not PASS.
-- Shared exact-release pinning is delivered. Formal A starts when the current subject audit releases Stable, then English pins the then-current served Stable SHA containing the accepted English product.
+- Shared exact-release pinning is delivered. English now shares the immutable Stable release `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4` with Politics #1087 and Xizong #1090; each audit uses isolated browser/state evidence and keeps its own verdict.
 - No further broad English BUILD is authorized before A finds a concrete defect.
 
 Current implementation truth:
@@ -96,11 +96,8 @@ Exact semantics live in the relevant Learning / Content / Runtime owner; this cu
 There is no active broad English construction cursor.
 
 Issue #1085
-→ wait for the current exact-Stable audit pin owner to release
-→ let Current serve the latest accepted English product
-→ pin that exact served SHA to #1085
-→ verify A0 identity
-→ execute the staged exhaustive whole-English audit
+→ verify shared pinned Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4` A0 identity
+→ execute the staged exhaustive whole-English audit in parallel with #1087/#1090
 → repair only concrete reproduced defects through their exact owners
 → finish with one coverage-gap / integration verdict
 
