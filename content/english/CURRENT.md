@@ -9,9 +9,13 @@ A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / �
 
 ## Active engineering anchor
 
-**None.** English is in **normal-use / concrete-defect mode**.
+Issue [#1085](https://github.com/kianwang022-hash/kianos/issues/1085) — **English fresh independent exhaustive audit — whole learner product including Vocabulary / Lexical**.
 
-**Queued Fresh independent audit:** Issue [#1085](https://github.com/kianwang022-hash/kianos/issues/1085) — whole English learner product, including mandatory Vocabulary / Lexical integration. It is **WAITING FOR CURRENT ENGLISH OPTIMIZATION RELEASE** and must pin the exact final main/Stable identity before starting. It does not authorize new BUILD by itself.
+- Phase: **AUDIT PREP COMPLETE / WAITING FOR EXACT-STABLE PIN SLOT**.
+- The learner-visible English optimization batch is closed on main: dense Home #1086 and External whole-object Chat review #1082 are merged.
+- #1085 has already frozen the current exhaustive inventory/coverage plan; this is preparation only, not PASS.
+- Shared exact-release pinning is delivered. Formal A starts when the current subject audit releases Stable, then English pins the then-current served Stable SHA containing the accepted English product.
+- No further broad English BUILD is authorized before A finds a concrete defect.
 
 Current implementation truth:
 - English is already a mature learner product; there is no active broad construction campaign.
@@ -89,9 +93,18 @@ Exact semantics live in the relevant Learning / Content / Runtime owner; this cu
 
 ## Next / reopen
 
-There is no active broad English construction cursor. Return to normal learner use unless completing an already-open bounded learner-visible change.
+There is no active broad English construction cursor.
 
-After the current learner-visible optimization batch is merged or explicitly closed, Issue #1085 is the queued **Fresh independent whole-English audit**. Its scope includes Objective / Translation / Writing / External Reading / whole-paper/session behavior **and Vocabulary / Lexical as an integrated English learner capability**, including exact English ↔ Lexical handoff/return and later real-context transfer evidence.
+Issue #1085
+→ wait for the current exact-Stable audit pin owner to release
+→ let Current serve the latest accepted English product
+→ pin that exact served SHA to #1085
+→ verify A0 identity
+→ execute the staged exhaustive whole-English audit
+→ repair only concrete reproduced defects through their exact owners
+→ finish with one coverage-gap / integration verdict
+
+#1085 includes Objective / Translation / Writing / External Reading / whole-paper/session behavior **and Vocabulary / Lexical as an integrated English learner capability**, including exact English ↔ Lexical handoff/return and later real-context transfer evidence.
 
 Future BUILD is otherwise pulled only by:
 - genuine learner/use evidence;
