@@ -9,16 +9,14 @@ A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / �
 
 ## Active engineering anchor
 
-None. English is back in **normal-use / concrete-defect mode**.
+**None.** English is in **normal-use / concrete-defect mode**.
 
-- Issue [#1070](https://github.com/kianwang022-hash/kianos/issues/1070) completed the bounded runtime-convergence / stale-execution cleanup; it is closure evidence, not a continuation cursor.
-- English is already a mature learner product; the completed cleanup does not reopen a construction campaign.
-- Closed #1054 is superseded family-by-family BUILD history and must not be resumed.
-- Closed PR #1035 is stale execution evidence only; its still-real current-main answer-gate residue was absorbed during #1070 and the old branch must not be revived.
-- Reading attribution #1043 and CREATE closure #1053 are closed basis/evidence, not active continuation tasks.
-- Issue #1014 remains completed English real-use audit evidence, not the current work cursor.
+Current implementation truth:
+- English is already a mature learner product; there is no active broad construction campaign.
+- Reading A official/static and generated/private material share one native interaction runtime; generated material is a thin material/protected-answer adapter.
 - Exact Source / Content / Learning / Interaction / Visual / Runtime / Shared-platform truth remains with each native owner.
 - Ordinary English learning uses native learner/runtime state.
+- Legacy task history is quarantined and is not part of normal continuation.
 
 ## Current state
 
@@ -28,8 +26,6 @@ None. English is back in **normal-use / concrete-defect mode**.
 - Reading A official/static and generated/private material now share one native interaction runtime; generated material remains a thin material/protected-answer adapter.
 - Learner U remains private real-use truth; engineering acceptance never means Kian has studied or mastered the material.
 - External Reading remains a continuous English Content lane. Public GitHub owns source identity/schema/compiler/runtime contracts; copyrighted source bytes remain private.
-
-Historical integration PRs, Architecture+ rounds, old Human Gates, one-off CI narratives and closed migration programs are provenance in Git history / exact Acceptance owners, not Current continuation.
 
 ## Product placement
 
@@ -99,4 +95,4 @@ Future engineering is pulled only by:
 - an admitted new source/material boundary;
 - an explicit fresh independent re-acceptance request.
 
-Do not infer new work from completed #1070, closed #1054, stale PRs, old Gate language, archived branches or prior Chat summaries. Do not auto-continue into Part B / Translation / Writing / Lexical generated implementation.
+Do not auto-continue into Part B / Translation / Writing / Lexical generated implementation. Closed tasks/PRs and archived branches remain quarantined unless Kian explicitly requests legacy/history.
