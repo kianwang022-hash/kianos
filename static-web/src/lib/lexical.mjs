@@ -8,6 +8,8 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 const LEXICAL_MANIFEST = 'content/lexical/manifest.json';
 const ANSWER_ORDINAL = 209;
 
+const cacheMaterializedProjection = process.env.KIANOS_CANDIDATE_RUNTIME !== '1';
+
 let lexicalSnapshotCache = null;
 const finalShardCache = new Map();
 
@@ -24,7 +26,7 @@ function readJson(relativePath) {
 }
 
 function lexicalManifestSnapshot() {
-  if (lexicalSnapshotCache) return lexicalSnapshotCache;
+  if (cacheMaterializedProjection && lexicalSnapshotCache) return lexicalSnapshotCache;
 
   const manifest = readJson(LEXICAL_MANIFEST);
   if (manifest?.status !== 'CURRENT_NATURAL_OWNER' || manifest?.semantic_authority !== true) {
@@ -60,14 +62,15 @@ function lexicalManifestSnapshot() {
     throw new Error(`CURRENT_LEXICAL_FINAL_LEARNER_COUNT_MISMATCH:${wordCount}:${finalCount}`);
   }
 
-  lexicalSnapshotCache = {
+  const snapshot = {
     manifest,
     wordManifest,
     relationManifest,
     finalManifest,
     finalManifestPath
   };
-  return lexicalSnapshotCache;
+  if (cacheMaterializedProjection) lexicalSnapshotCache = snapshot;
+  return snapshot;
 }
 
 function finalShardDescriptor(finalManifest, ordinal) {
@@ -78,12 +81,13 @@ function finalShardDescriptor(finalManifest, ordinal) {
 }
 
 function readFinalShard(relativePath) {
-  if (!finalShardCache.has(relativePath)) {
-    const rows = readJson(relativePath);
-    if (!Array.isArray(rows)) throw new Error(`CURRENT_LEXICAL_FINAL_LEARNER_SHARD_INVALID:${relativePath}`);
-    finalShardCache.set(relativePath, rows);
+  if (cacheMaterializedProjection && finalShardCache.has(relativePath)) {
+    return finalShardCache.get(relativePath);
   }
-  return finalShardCache.get(relativePath);
+  const rows = readJson(relativePath);
+  if (!Array.isArray(rows)) throw new Error(`CURRENT_LEXICAL_FINAL_LEARNER_SHARD_INVALID:${relativePath}`);
+  if (cacheMaterializedProjection) finalShardCache.set(relativePath, rows);
+  return rows;
 }
 
 function finalLearnerObjectByOrdinal(ordinal) {
