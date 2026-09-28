@@ -1,5 +1,5 @@
 import {
-  listPoliticsSubjectsCurrent,
+  listPoliticsSubjectsCurrent as listPoliticsSubjectsFirstReady,
   listPoliticsChapterPathsCurrent,
   loadPoliticsChapterCurrent as loadPoliticsChapterFirstReady,
   politicsCurrentHealth as politicsFirstReadyHealth,
@@ -16,8 +16,19 @@ import {
 import { applyMaoProjection } from './politicsMaoProjection.mjs';
 import { applyXiProjection } from './politicsXiProjection.mjs';
 import { applyEthicsProjection } from './politicsEthicsProjection.mjs';
+import { resolvePoliticsSurfaceMapping } from './politicsSurfaceMapping.mjs';
 
-export { listPoliticsSubjectsCurrent, listPoliticsChapterPathsCurrent };
+export { listPoliticsChapterPathsCurrent };
+
+export function listPoliticsSubjectsCurrent() {
+  return listPoliticsSubjectsFirstReady().map((subject) => {
+    const { subjectMap, ...publicSubject } = subject;
+    const frameworkPlan = subjectMap?.surface_mapping
+      ? resolvePoliticsSurfaceMapping(subjectMap.surface_mapping, null, null, subjectMap)
+      : null;
+    return { ...publicSubject, frameworkPlan };
+  });
+}
 
 export function loadPoliticsChapterCurrent(subject, chapter) {
   const firstReady = loadPoliticsChapterFirstReady(subject, chapter);

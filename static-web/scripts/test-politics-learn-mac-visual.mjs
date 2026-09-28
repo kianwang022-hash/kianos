@@ -150,6 +150,14 @@ try {
   await page.evaluate(() => document.fonts.ready);
   check(await activePoliticsNav(page) === '学习', 'learn_index_l2_active');
   check(await page.locator('[data-politics-learn-subject]').count() === 5, 'learn_index_five_subjects');
+  check(await page.locator('[data-politics-subject-framework]').count() === 5, 'learn_index_five_subject_frameworks');
+  for (const subject of ['marxism', 'history', 'mao', 'xi', 'ethics_law']) {
+    await page.locator(`[data-politics-learn-subject="${subject}"]`).click();
+    const framework = page.locator(`[data-politics-subject-framework="${subject}"]`);
+    check(await framework.isVisible(), `learn_index_${subject}_framework_visible`);
+    check((await framework.innerText()).includes('整科骨架'), `learn_index_${subject}_framework_named`);
+  }
+  await page.locator('[data-politics-learn-subject="marxism"]').click();
   const learnMetrics = await page.evaluate(() => {
     const canvas = document.querySelector('.productCanvas');
     const index = document.querySelector('.politicsLearnIndex');

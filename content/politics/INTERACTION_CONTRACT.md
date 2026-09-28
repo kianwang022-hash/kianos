@@ -16,7 +16,7 @@ The shared presentation grammar decides how approved cognition is represented. T
 
 The shared first-round loop is:
 
-`Orientation → Chengfeng continuous learning on original iPad/MarginNote surface → optional useful closure/checkpoint → single Xiao1000 Workbench → prebuilt backside + record Evidence → continue; later learner-triggered batch Review → Chat → smallest justified follow-up, including no action`
+`optional rapid whole-subject framework orientation → Chapter / Natural Unit Orientation → Chengfeng continuous learning on original iPad/MarginNote surface → optional useful closure/checkpoint → single Xiao1000 Workbench → prebuilt backside + record Evidence → continue; later learner-triggered batch Review → Chat → smallest justified follow-up, including no action`
 
 Later phases may add Unit/Block compression, selective Memory, and Mock transfer.
 
@@ -37,6 +37,9 @@ Question counts, memory counts, scheduler labels, source metadata, engineering t
 ## 3. Progressive disclosure
 
 Default Astro display should be quiet and companion-like when another surface owns the active learning action.
+
+### Before / around the fast first subject pass
+Politics Learn may show one compact Current whole-subject framework from the subject-level Surface Mapping. Its job is to remove the cost of constructing the skeleton from scratch. It is not a memorization checklist, a duplicate lecture, or a mandatory step on every visit. Once the framework is reconstructable, later work should normally shift to retrieval / Memory when admitted / Xiao1000 verification rather than replaying the framework or the full Chengfeng lecture by default.
 
 ### Before a chapter / unit
 Show only:

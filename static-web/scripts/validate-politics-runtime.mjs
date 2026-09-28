@@ -6,6 +6,7 @@ import {
   politicsCurrentHealth,
   politicsRuntimeDiagnostics
 } from '../src/lib/politicsRuntime.mjs';
+import { listPoliticsSubjectsCurrent as listPoliticsSubjectsResolved } from '../src/lib/politicsCurrent.mjs';
 
 const EXPECTED = Object.freeze({
   marxism: 9,
@@ -28,6 +29,13 @@ if (health.status !== 'ready') {
 const subjects = listPoliticsSubjectsCurrent();
 if (subjects.length !== Object.keys(EXPECTED).length) {
   fail(`subject count ${subjects.length}/${Object.keys(EXPECTED).length}`);
+}
+
+const resolvedSubjects = listPoliticsSubjectsResolved();
+for (const subject of resolvedSubjects) {
+  const groups = subject.frameworkPlan?.states?.ORIENT || [];
+  if (groups.length < 2) fail(`rapid framework missing for ${subject.subject}`);
+  if (!groups.some((group) => group.title?.includes('整科骨架'))) fail(`rapid framework title missing for ${subject.subject}`);
 }
 
 let chapterCount = 0;
@@ -90,6 +98,14 @@ if (diagnostics.questionRows < 1000) fail(`question database unexpectedly small:
 // Surface Ownership regression guard.
 // Chengfeng source text remains resolved in Current for provenance/repair, but first-round
 // Politics projection must not turn Astro into a competing continuous lecture reader.
+const learnIndexSource = fs.readFileSync(new URL('../src/pages/politics/learn/index.astro', import.meta.url), 'utf8');
+if (!/PoliticsExplicitSurfacePlan/.test(learnIndexSource) || !/data-politics-subject-framework/.test(learnIndexSource)) {
+  fail('rapid framework regression: Politics Learn must consume the resolved subject Surface Mapping through the existing explicit renderer');
+}
+if (/subjectMap\?\.|subjectMap\./.test(learnIndexSource)) {
+  fail('rapid framework regression: Politics Learn must not infer from raw subject-map fields');
+}
+
 const chapterRuntimeUrl = new URL('../src/components/PoliticsChapterRuntime.astro', import.meta.url);
 const chapterRuntimeSource = fs.readFileSync(chapterRuntimeUrl, 'utf8');
 const forbiddenProjectionPatterns = [

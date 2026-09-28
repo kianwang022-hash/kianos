@@ -57,5 +57,82 @@
     "后期精确帽子和固定表述可以单独强化，但第一轮不应盖住主线理解。"
   ],
   "whole_subject_recall": "为什么要中国化时代化 → 毛泽东思想 → 新民主主义革命理论 → 社会主义改造理论 → 社会主义建设初步探索 → 中国特色社会主义理论体系形成发展 → 邓小平理论 → “三个代表”重要思想 → 科学发展观",
-  "learner_default": "先问现实问题，再进入乘风正文；学完只恢复‘问题—回答—定位—下一问题’，固定表述留到需要时精确化。"
+  "learner_default": "先问现实问题，再进入乘风正文；学完只恢复‘问题—回答—定位—下一问题’，固定表述留到需要时精确化。",
+  "surface_mapping": {
+    "ORIENT": [
+      {
+        "id": "mao-subject-question",
+        "zone": "PRIMARY",
+        "primitive": "STATEMENT",
+        "title": "这一科先回答什么",
+        "source": {
+          "scope": "subject",
+          "field": "core_question"
+        }
+      },
+      {
+        "id": "mao-subject-framework",
+        "zone": "PRIMARY",
+        "primitive": "DIRECTED_SEQUENCE",
+        "title": "整科骨架 · 先看懂，不背",
+        "source": {
+          "scope": "subject",
+          "field": "master_chain"
+        },
+        "select_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "item_ids": [
+          "mao-subject-framework-1",
+          "mao-subject-framework-2",
+          "mao-subject-framework-3",
+          "mao-subject-framework-4",
+          "mao-subject-framework-5",
+          "mao-subject-framework-6"
+        ],
+        "item_fields": [
+          "stage",
+          "problem",
+          "answer"
+        ],
+        "transitions": [
+          {
+            "from": "mao-subject-framework-1",
+            "to": "mao-subject-framework-2"
+          },
+          {
+            "from": "mao-subject-framework-2",
+            "to": "mao-subject-framework-3"
+          },
+          {
+            "from": "mao-subject-framework-3",
+            "to": "mao-subject-framework-4"
+          },
+          {
+            "from": "mao-subject-framework-4",
+            "to": "mao-subject-framework-5"
+          },
+          {
+            "from": "mao-subject-framework-5",
+            "to": "mao-subject-framework-6"
+          }
+        ]
+      },
+      {
+        "id": "mao-subject-default",
+        "zone": "COMPANION",
+        "primitive": "STATEMENT",
+        "title": "第一轮怎么走",
+        "source": {
+          "scope": "subject",
+          "field": "learner_default"
+        }
+      }
+    ]
+  }
 }
