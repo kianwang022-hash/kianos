@@ -21,30 +21,30 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Current engineering state
 
-**Issue #1088 — Current delivery BUILD: exact-release audit pin for Fresh CBA AUDIT**
+**Issue #1090 — Xizong fresh independent full-suite audit: whole learner product**
 
 Parent outcome:
-- Xizong BUILD delivery itself is complete;
-- Fresh independent AUDIT #1084 correctly returned **FAIL at A0 exact-release identity** because shared Stable auto-advanced to an unrelated English-only main release during the audit window;
-- no Xizong audited dependency drift was established by that failure;
-- whole-Xizong readiness remains unproven because A1+ were not audited after A0 failed.
+- Xizong CREATE and BUILD are not reopened by default;
+- exact-release pin capability is delivered and real Stable pin/hold/release/catch-up acceptance is complete;
+- whole-Xizong readiness remains unproven until #1090 returns a bounded Fresh independent verdict.
 
-Current blocker:
-- Fresh CBA AUDIT needs a bounded exact-release pin/lease on Stable so the audited SHA cannot move during the run;
-- shared delivery owner #1088 is fixing that capability; do not weaken A0 or substitute a different release;
-- queued re-audit owner: **Issue #1090 — Xizong fresh independent full-suite audit**, waiting for #1088 exact-release pin + final Stable identity.
+Current phase:
+- **AUDIT PREP — WAITING FOR FINAL PINNED STABLE IDENTITY**;
+- #1090 already owns the complete full-suite audit dimensions;
+- the next audit must start only after the then-current real Stable SHA is pinned and written into #1090;
+- legacy/history and prior builder/audit narratives remain quarantined.
 
 ### Next
 
-Issue #1088
-→ deliver + read back exact-release audit pin/hold/release/catch-up
-→ pin the exact current Stable release
-→ hand off to queued full-suite Fresh AUDIT #1090
-→ #1090 covers all required Xizong product families/stages/integration boundaries and all audit dimensions; object sampling may not become dimension sampling
-→ PASS / FAIL / BLOCKED verdict only
+this Current handoff lands
+→ wait for real Stable to consume the current control state
+→ pin that exact currently-served Stable SHA to #1090
+→ bind #1090 A0 to that exact pinned identity
+→ new Fresh independent Chat executes #1090
+→ PASS / FAIL / BLOCKED only
 → **no repair inside the AUDIT execution**
 
-#1084 is closed FAIL evidence and must not be treated as an unfinished audit cursor.
+Any reproduced defect routes to the earliest responsible current owner in a separate task. This BUILD/control chain must not self-certify #1090.
 
 for unaffected ordinary study → native learner path
 

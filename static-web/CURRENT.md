@@ -8,15 +8,13 @@ Root [CURRENT](../CURRENT.md) owns cross-program routing. Product semantics, vis
 
 No broad Website construction campaign is active. This file is only the Website implementation/delivery router.
 
-**Active bounded delivery anchor: Issue #1088 — exact-release audit pin for Fresh CBA AUDIT.**
+No Website BUILD is currently active.
 
-Current phase: **REAL CURRENT ACCEPTANCE — pin is live on Stable.**
-
-Current goal:
-- prove the real Stable origin holds its already-served exact SHA while a later GitHub main target exists;
-- then release the pin and prove normal Current catch-up resumes;
-- preserve normal automatic Current behavior outside that bounded lease;
-- no rollback, no learner-state mutation, no second release system.
+The bounded Fresh-AUDIT release pin is now a normal Current delivery capability:
+- it may hold only the exact release already served on Stable;
+- it never rolls Stable backward;
+- it expires or releases back into normal Current catch-up;
+- its use is owned by the active Fresh AUDIT task, not by this Website cursor.
 
 Normal lanes:
 
