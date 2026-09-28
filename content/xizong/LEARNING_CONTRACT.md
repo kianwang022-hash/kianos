@@ -336,6 +336,22 @@ It should expose the current Prompt/Core and useful locators/support without req
 
 Core-protected active retrieval after the owning material has actually been learned.
 
+Terminology clarification:
+
+> **“Finish Block Learn, then Recall” means the learner leaves the Learn phase and enters the retrieval phase: KP Recall is performed first, organized by Logic Group; completed Logic Groups then culminate in Block Recall. It does not mean skipping KP Recall and jumping directly from Learn to Block Recall.**
+
+For the accepted A1-style whole-Block first-learning path, this is naturally:
+
+```text
+continuous Block Learn / Source contact
+→ KP Recall grouped by Logic Group
+→ automatic Logic Group closure
+→ Block Recall
+→ Block Complete
+```
+
+Exact Source-contact granularity for other Systems remains owned by their current Learning/Source owner; UI hierarchy alone never invents an earlier Recall boundary.
+
 Learn and Recall remain the same KP learner object. Recall changes **Core visibility**, not the identity of the card or its surrounding workspace.
 
 Before Reveal, the canonical KP Core stays hidden. The KP title, active Prompt, Source / Outline locators and Current-owned Context such as Precision / Visual / Connection may remain visible when useful. Reveal opens the same canonical Core; it does not switch to a second answer card.
