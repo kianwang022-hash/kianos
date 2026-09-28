@@ -44,6 +44,7 @@ Use the existing Candidate/browser tooling only as needed for the effect. Do not
 ## 4｜Continuity and boundaries
 
 - Once a long task is bound, its Issue owns Goal / Phase / Next / Blocker until Kian switches/closes it. Re-read it after a fresh chat, compression, material stage change or ambiguity; not on every repeated small step.
+- The bound Issue is a **compact control anchor**, not a second Contract: keep Goal / Phase / Next / Blocker + only decision-changing current failures. Detailed Learning/Product/Visual/Audit rules stay in their canonical owners and must not be copied into the Issue body.
 - An unreadable anchor makes only its dependent progress UNKNOWN/BLOCKED. Do not reconstruct it from old PRs, README, snapshots or Chat memory; unrelated discussion remains possible.
 - Current locates; semantic owners define; code implements; real evidence proves. `AUTHORITY_OWNERSHIP.json` is topology, not another runtime/claim owner.
 - Independent scopes continue independently. A shared resource or overlapping write-set needs actual coordination, not a blanket all-subject halt.
