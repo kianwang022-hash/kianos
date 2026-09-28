@@ -8,7 +8,7 @@ export const ENGLISH_GENERATED_ORIGINS=Object.freeze([
   'CHAT_GENERATED_SYNTHETIC',
   'CHAT_GENERATED_ON_EXTERNAL_SOURCE'
 ]);
-export const ENGLISH_GENERATED_TASKS=Object.freeze(['external_reading','reading_a']);
+export const ENGLISH_GENERATED_TASKS=Object.freeze(['external_reading','reading_a','cloze']);
 export const ENGLISH_GENERATED_EVIDENCE_ROLES=Object.freeze(['TEACHING_REPAIR','TRANSFER']);
 
 const clean=(value,max=2000)=>String(value??'').trim().slice(0,max);
@@ -121,14 +121,15 @@ export function validateEnglishGeneratedDrill(value){
 
   const completionRequirement=clean(value.completion_requirement||value.completionRequirement,40)||'QUESTIONS_SUBMITTED';
   if(!['READ_ONLY_OK','QUESTIONS_SUBMITTED'].includes(completionRequirement))throw new Error('ENGLISH_GENERATED_DRILL_COMPLETION_INVALID');
-  if(task==='reading_a'&&completionRequirement!=='QUESTIONS_SUBMITTED')throw new Error('ENGLISH_GENERATED_READING_A_QUESTIONS_REQUIRED');
+  const generatedObjectiveTask=['reading_a','cloze'].includes(task);
+  if(generatedObjectiveTask&&completionRequirement!=='QUESTIONS_SUBMITTED')throw new Error('ENGLISH_GENERATED_OBJECTIVE_QUESTIONS_REQUIRED:'+task);
   const evidenceRole=clean(value.evidence_role||value.evidenceRole,40)||null;
-  if(task==='reading_a'&&!ENGLISH_GENERATED_EVIDENCE_ROLES.includes(evidenceRole))throw new Error('ENGLISH_GENERATED_READING_A_EVIDENCE_ROLE_REQUIRED');
+  if(generatedObjectiveTask&&!ENGLISH_GENERATED_EVIDENCE_ROLES.includes(evidenceRole))throw new Error('ENGLISH_GENERATED_OBJECTIVE_EVIDENCE_ROLE_REQUIRED:'+task);
   const transferIndependence=value.transfer_independence&&typeof value.transfer_independence==='object'&&!Array.isArray(value.transfer_independence)
     ? JSON.parse(JSON.stringify(value.transfer_independence)) : null;
-  if(task==='reading_a'&&evidenceRole==='TRANSFER'
+  if(generatedObjectiveTask&&evidenceRole==='TRANSFER'
     && !(transferIndependence?.status==='PASS'&&transferIndependence?.basis==='CHAT_SELF_ATTACK')){
-    throw new Error('ENGLISH_GENERATED_READING_A_TRANSFER_INDEPENDENCE_REQUIRED');
+    throw new Error('ENGLISH_GENERATED_OBJECTIVE_TRANSFER_INDEPENDENCE_REQUIRED:'+task);
   }
   const calibrationStatus=clean(value.calibration_status||value.calibrationStatus,80)||null;
 

@@ -1,0 +1,212 @@
+---
+const base=import.meta.env.BASE_URL;
+---
+<section class="clozeRuntime" data-objective-root data-objective-task="cloze" data-generated-cloze data-reading-base={base} data-objective-answers-ready="false" hidden>
+  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({})}></script>
+  <header class="clozeRuntimeHeader">
+    <div>
+      <span>Cloze · Chat-targeted</span>
+      <h2 data-objective-title>Chat-generated Cloze</h2>
+      <small data-objective-source-label>生成训练 · 不是真题校准</small>
+    </div>
+    <div class="clozeProgress"><strong data-cloze-progress>1 / 1</strong><span>整篇完成后统一提交</span></div>
+  </header>
+
+  <section class="clozeLayout">
+    <article class="clozePassage" data-objective-material>
+      <header><span>PASSAGE</span><strong>完整语境 · 先形成 slot demand</strong></header>
+      <div data-generated-cloze-material></div>
+    </article>
+    <aside class="clozeDecision">
+      <div class="clozeDecisionTop">
+        <div><span>QUESTION SHEET</span><strong data-cloze-active-label>Blank 1</strong></div>
+        <button type="button" data-cloze-uncertain>Uncertain</button>
+      </div>
+      <div class="clozeQuestions" data-generated-cloze-questions></div>
+      <div class="clozeNav" aria-hidden="true">
+        <button type="button" data-cloze-prev>← 上一空</button>
+        <div class="clozeDots" data-cloze-dots></div>
+        <button type="button" data-cloze-next>下一空 →</button>
+      </div>
+      <div class="clozeSubmitRow">
+        <span data-cloze-answer-count>0 / 0 answered</span>
+        <button type="button" class="clozeSubmit" data-objective-submit>提交整篇</button>
+      </div>
+      <div class="clozeResult" data-objective-result-summary hidden>
+        <strong data-objective-score></strong>
+        <span data-objective-result-note></span>
+      </div>
+    </aside>
+  </section>
+</section>
+<p data-generated-cloze-error hidden></p>
+
+<script>
+  import {archiveEnglishAttempt,inspectEnglishAttempt,preserveEnglishFailure,saveEnglishAttempt,taskMetadata} from '../lib/englishLearnerEvidence.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(async()=>{
+    const root=document.querySelector('[data-generated-cloze]');
+    const errorNode=document.querySelector('[data-generated-cloze-error]');
+    if(!(root instanceof HTMLElement))return;
+    const base=root.getAttribute('data-reading-base')||'/';
+    const objectId=new URLSearchParams(location.search).get('id')||'';
+    const endpoint=path=>`${base}__kianos-private/english-generated/${path}`;
+    const fetchJson=async url=>{
+      const response=await fetch(url,{cache:'no-store'});
+      const data=await response.json().catch(()=>({status:'error',error:'Generated material response is not JSON.'}));
+      if(!response.ok||data.status==='error')throw new Error(data.error||data.status||`HTTP ${response.status}`);
+      return data;
+    };
+    const showError=error=>{
+      if(errorNode instanceof HTMLElement){errorNode.hidden=false;errorNode.textContent=String(error?.message||error);}
+      preserveEnglishFailure(root,error);
+    };
+    if(!objectId){showError(new Error('ENGLISH_GENERATED_CLOZE_ID_REQUIRED'));return;}
+
+    try{
+      const payload=await fetchJson(endpoint('material?id='+encodeURIComponent(objectId)));
+      const material=payload.material;
+      if(material?.generated_task!=='cloze'||material?.question_origin!=='CHAT_GENERATED')throw new Error('ENGLISH_GENERATED_CLOZE_TASK_MISMATCH');
+      const questions=Array.isArray(material.questions)?material.questions:[];
+      if(!questions.length||questions.some(q=>q.response_kind!=='single_choice'||!q.question_id||Object.keys(q.options||{}).length<2))throw new Error('ENGLISH_GENERATED_CLOZE_QUESTIONS_INVALID');
+      const paragraphs=(material.passage_paragraphs||[]).map((text,index)=>({id:`${objectId}-p${index+1}`,text:String(text||'')}));
+      if(!paragraphs.length)throw new Error('ENGLISH_GENERATED_CLOZE_PASSAGE_REQUIRED');
+
+      root.dataset.objectiveObject=objectId;
+      root.dataset.objectiveStorageKey=`kianos-cloze-attempt-v1:${objectId}`;
+      root.dataset.englishSourceHash=material.content_hash||'';
+      const snapshot={
+        evidence:{
+          source_kind:'generated',
+          evidence_role:material.evidence_role||null,
+          semantic_source_hash:material.content_hash||null,
+          transfer_independence:material.transfer_independence||null,
+          calibration_status:material.calibration_status||'NOT_SCORE_EQUIVALENT'
+        },
+        question_origin:'CHAT_GENERATED',
+        completion_requirement:material.completion_requirement||'QUESTIONS_SUBMITTED',
+        training_target:material.training_target||null,
+        material:paragraphs,
+        context:{generated:true,task:'cloze'},
+        questions:questions.map(q=>({id:q.question_id,ordinal:q.ordinal,prompt:q.prompt,options:q.options}))
+      };
+      const snapshotNode=root.querySelector('[data-english-task-snapshot]');
+      if(snapshotNode)snapshotNode.textContent=JSON.stringify(snapshot);
+      root.querySelector('[data-objective-title]').textContent=material.title||objectId;
+
+      const materialHost=root.querySelector('[data-generated-cloze-material]');
+      materialHost.innerHTML='';
+      paragraphs.forEach(row=>{const p=document.createElement('p');p.dataset.objectiveMaterialBlock='';p.id=row.id;p.textContent=row.text;materialHost.appendChild(p);});
+      const questionHost=root.querySelector('[data-generated-cloze-questions]');
+      const dots=root.querySelector('[data-cloze-dots]');
+      questionHost.innerHTML='';dots.innerHTML='';
+      questions.forEach((q,index)=>{
+        const section=document.createElement('section');section.className='clozeQuestion';section.dataset.objectiveQuestion=q.question_id;section.dataset.objectiveIndex=String(index);
+        section.innerHTML='<p data-objective-prompt></p><div class="clozeOptions"></div><p class="clozeFormal" data-objective-formal hidden>Formal answer: <strong></strong></p>';
+        section.querySelector('[data-objective-prompt]').textContent=q.prompt||`Blank ${index+1}`;
+        const options=section.querySelector('.clozeOptions');
+        for(const [label,text] of Object.entries(q.options||{})){
+          const button=document.createElement('button');button.type='button';button.dataset.clozeOption='';button.dataset.objectiveOption='';button.dataset.value=label;button.innerHTML='<b></b><span></span>';button.querySelector('b').textContent=label;button.querySelector('span').textContent=text;options.appendChild(button);
+        }
+        questionHost.appendChild(section);
+        const jump=document.createElement('button');jump.type='button';jump.dataset.clozeJump=String(index);jump.setAttribute('aria-label',`Blank ${index+1}`);jump.textContent=String(index+1);dots.appendChild(jump);
+      });
+
+      const storageKey=`kianos-cloze-attempt-v1:${objectId}`;
+      const metadata=taskMetadata(root,'cloze',objectId);
+      const inspected=inspectEnglishAttempt(localStorage,storageKey,metadata,{root});
+      const blankState=()=>({schema:'kianos.english.cloze_attempt.v1',objectId,startedAt:new Date().toISOString(),submittedAt:null,submitted:false,answers:{},uncertain:[],trajectory:{},results:{}});
+      let state=inspected?.objectId===objectId?{...blankState(),...inspected,trajectory:inspected.trajectory||{}}:blankState();
+      const save=()=>saveEnglishAttempt(localStorage,storageKey,state,metadata,{root});
+      save();
+      localStorage.setItem('kianos-cloze-last-location-v1',JSON.stringify({id:objectId,title:material.title||objectId,href:`${base}cloze-generated/?id=${encodeURIComponent(objectId)}`,updatedAt:new Date().toISOString()}));
+
+      const rows=[...root.querySelectorAll('[data-objective-question]')];
+      const jumps=[...root.querySelectorAll('[data-cloze-jump]')];
+      const uncertainButton=root.querySelector('[data-cloze-uncertain]');
+      const submit=root.querySelector('[data-objective-submit]');
+      let active=0;
+      let formalAnswers={};
+      const idOf=row=>row.getAttribute('data-objective-question')||'';
+      const render=()=>{
+        rows.forEach((row,index)=>{
+          row.hidden=false;row.classList.toggle('is-current',index===active);
+          const id=idOf(row),formal=String(formalAnswers[id]||'');
+          row.querySelectorAll('[data-cloze-option]').forEach(button=>{
+            const value=button.getAttribute('data-value')||'';
+            button.classList.toggle('selected',state.answers?.[id]===value);button.toggleAttribute('disabled',Boolean(state.submitted));button.classList.remove('result-correct','result-wrong');
+            if(state.submitted){button.classList.toggle('result-correct',formal===value);button.classList.toggle('result-wrong',state.answers?.[id]===value&&formal!==value);}
+          });
+          const formalLine=row.querySelector('[data-objective-formal]');if(formalLine instanceof HTMLElement){formalLine.hidden=!state.submitted;const strong=formalLine.querySelector('strong');if(strong)strong.textContent=formal||'—';}
+        });
+        jumps.forEach((jump,index)=>{const id=idOf(rows[index]);jump.classList.toggle('active',index===active);jump.classList.toggle('answered',Boolean(state.answers?.[id]));jump.classList.toggle('uncertain',(state.uncertain||[]).includes(id));jump.classList.toggle('wrong',state.submitted&&['wrong','unanswered'].includes(state.results?.[id]));});
+        const id=idOf(rows[active]);if(uncertainButton instanceof HTMLButtonElement){uncertainButton.classList.toggle('active',(state.uncertain||[]).includes(id));uncertainButton.disabled=Boolean(state.submitted);}
+        const label=root.querySelector('[data-cloze-active-label]');if(label)label.textContent=`Blank ${active+1}`;
+        const progress=root.querySelector('[data-cloze-progress]');if(progress)progress.textContent=`${active+1} / ${rows.length}`;
+        const count=Object.values(state.answers||{}).filter(Boolean).length;const countNode=root.querySelector('[data-cloze-answer-count]');if(countNode)countNode.textContent=`${count} / ${rows.length} answered`;
+        root.querySelector('[data-cloze-prev]')?.toggleAttribute('disabled',active<=0);root.querySelector('[data-cloze-next]')?.toggleAttribute('disabled',active>=rows.length-1);if(submit instanceof HTMLButtonElement)submit.hidden=Boolean(state.submitted);
+        const result=root.querySelector('[data-objective-result-summary]');if(result instanceof HTMLElement){result.hidden=!state.submitted;if(state.submitted){const score=Object.values(state.results||{}).filter(v=>v==='correct').length;const scoreNode=result.querySelector('[data-objective-score]');const note=result.querySelector('[data-objective-result-note]');if(scoreNode)scoreNode.textContent=`${score} / ${rows.length}`;if(note)note.textContent=score===rows.length&&!(state.uncertain||[]).length?'Generated clean pass · 仅保留本次证据。':'问题已记录；是否继续 Repair / transfer 由 Chat 根据真实证据决定。';}}
+      };
+      rows.forEach((row,index)=>{const focus=()=>{if(active!==index){active=index;render();}};row.addEventListener('pointerdown',focus);row.addEventListener('focusin',focus);row.querySelectorAll('[data-cloze-option]').forEach(button=>button.addEventListener('click',()=>{if(state.submitted)return;active=index;const id=idOf(row),answer=button.getAttribute('data-value')||'';state.answers[id]=answer;state.trajectory[id]||=[];if(state.trajectory[id].at(-1)?.answer!==answer)state.trajectory[id].push({answer,at:new Date().toISOString()});save();render();}));});
+      uncertainButton?.addEventListener('click',()=>{if(state.submitted)return;const id=idOf(rows[active]),set=new Set(state.uncertain||[]);set.has(id)?set.delete(id):set.add(id);state.uncertain=[...set];save();render();});
+      root.querySelector('[data-cloze-prev]')?.addEventListener('click',()=>{active=Math.max(0,active-1);render();rows[active]?.scrollIntoView({block:'nearest'});});
+      root.querySelector('[data-cloze-next]')?.addEventListener('click',()=>{active=Math.min(rows.length-1,active+1);render();rows[active]?.scrollIntoView({block:'nearest'});});
+      jumps.forEach((jump,index)=>jump.addEventListener('click',()=>{active=index;render();rows[active]?.scrollIntoView({block:'nearest'});}));
+      submit?.addEventListener('click',async()=>{
+        if(state.submitted)return;submit.disabled=true;
+        try{
+          const data=await fetchJson(endpoint('answers?id='+encodeURIComponent(objectId)));
+          if(data.answers?.content_hash!==material.content_hash||data.answers?.generated_task!=='cloze')throw new Error('ENGLISH_GENERATED_CLOZE_ANSWER_REVISION_MISMATCH');
+          formalAnswers=data.answers.answers||{};state.results={};
+          rows.forEach(row=>{const id=idOf(row),selected=String(state.answers?.[id]||''),formal=String(formalAnswers[id]||'');state.results[id]=!selected?'unanswered':selected===formal?'correct':'wrong';});
+          state.submitted=true;state.submittedAt=new Date().toISOString();save();root.dataset.objectiveAnswersReady='true';render();root.dispatchEvent(new CustomEvent('kianos:objective-submitted',{bubbles:true}));
+        }catch(error){showError(error);}finally{submit.disabled=state.submitted;}
+      });
+      root.querySelector('[data-objective-title]')?.setAttribute('title',material.training_target?.note||'');
+      root.hidden=false;render();if(state.submitted)root.dispatchEvent(new CustomEvent('kianos:objective-submitted',{bubbles:true}));
+      window.addEventListener('pagehide',()=>{}, {once:true});
+    }catch(error){showError(error);}
+  });
+</script>
+
+<style>
+  .clozeRuntime{max-width:96rem;margin:0 auto;display:grid;gap:10px}
+  .clozeRuntimeHeader{display:flex;justify-content:space-between;gap:20px;align-items:end;padding:14px 18px;border:1px solid var(--study-line);border-radius:12px;background:#fff}
+  .clozeRuntimeHeader>div:first-child{display:grid;gap:3px}
+  .clozeRuntimeHeader span,.clozePassage header span,.clozeDecisionTop span{font-size:9px;font-weight:850;letter-spacing:.08em;color:var(--study-green)}
+  .clozeRuntimeHeader h2{margin:0;font-size:21px;line-height:1.2}
+  .clozeRuntimeHeader small{color:var(--study-faint)}
+  .clozeProgress{display:grid;text-align:right;gap:2px}.clozeProgress strong{font-size:14px}.clozeProgress span{color:var(--study-muted);font-size:10px}
+  .clozeLayout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(500px,.95fr);gap:10px;height:calc(100vh - 182px);min-height:560px;align-items:stretch}
+  .clozePassage,.clozeDecision{min-height:0;border:1px solid var(--study-line);border-radius:12px;background:#fff;box-shadow:var(--study-shadow)}
+  .clozePassage{padding:22px 26px;overflow:auto}
+  .clozePassage header{display:flex;justify-content:space-between;gap:12px;margin-bottom:16px;position:sticky;top:-22px;padding:12px 0 10px;background:#fff;z-index:2}
+  .clozePassage header strong{font-size:10px;color:var(--study-muted)}
+  .clozePassage p{margin:0 0 1em;font-size:15px;line-height:1.86}.clozeMaterialFallback{color:var(--study-muted)}
+  .clozeDecision{display:flex;flex-direction:column;overflow:auto;padding:0}
+  .clozeDecisionTop{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 14px;border-bottom:1px solid var(--study-line);background:rgba(255,255,255,.97);backdrop-filter:blur(8px)}
+  .clozeDecisionTop>div{display:flex;align-items:baseline;gap:9px}.clozeDecisionTop strong{font-size:10px;color:var(--study-muted);font-weight:750}
+  .clozeDecisionTop button{padding:5px 8px;border:1px solid var(--study-line);border-radius:7px;background:#fff;color:var(--study-muted);font:inherit;font-size:9.5px}
+  .clozeDecisionTop button.active{border-color:var(--study-green);background:var(--study-green-soft);color:var(--study-green)}
+  .clozeQuestions{display:grid}
+  .clozeQuestion{display:grid;grid-template-columns:68px minmax(0,1fr);gap:7px 10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--study-line);transition:background .12s ease}
+  .clozeQuestion.is-current{background:#fbfcfb}
+  .clozeQuestion>p:first-child{margin:0;font-size:11px;line-height:1.35;color:#536159;font-weight:800}
+  .clozeOptions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+  .clozeOptions button{display:grid;grid-template-columns:18px minmax(0,1fr);gap:5px;text-align:left;align-items:start;min-width:0;padding:7px 7px;border:1px solid transparent;border-radius:7px;background:transparent;color:inherit;font:inherit;cursor:pointer}
+  .clozeOptions button:hover{background:#f7faf8;border-color:var(--study-line)}
+  .clozeOptions button b{color:var(--study-green);font-size:10px;line-height:1.45}
+  .clozeOptions button span{min-width:0;font-size:11px;line-height:1.45;overflow-wrap:anywhere}
+  .clozeOptions button.selected{border-color:var(--study-green);background:var(--study-green-soft)}
+  .clozeOptions button.result-correct{outline:1px solid var(--study-green);outline-offset:-1px}
+  .clozeOptions button.result-wrong{border-style:dashed}
+  .clozeFormal{grid-column:2;margin:1px 0 0;color:var(--study-muted);font-size:9.5px}
+  .clozeNav{display:none}
+  .clozeSubmitRow{position:sticky;bottom:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding:11px 14px;border-top:1px solid var(--study-line);background:rgba(255,255,255,.97);backdrop-filter:blur(8px)}
+  .clozeSubmitRow span{color:var(--study-muted);font-size:10px}.clozeSubmit{padding:8px 13px;border:1px solid var(--study-green);border-radius:8px;background:var(--study-green);color:#fff;font:inherit;font-weight:850}
+  .clozeResult{margin:0 14px 12px;padding:10px 12px;border-radius:9px;background:var(--study-green-soft);display:grid;gap:3px}.clozeResult strong{font-size:17px}.clozeResult span{font-size:10px;color:var(--study-muted)}
+  @media(max-width:1100px){.clozeLayout{grid-template-columns:minmax(0,1fr) minmax(440px,.9fr)}}
+  @media(max-width:900px){.clozeLayout{grid-template-columns:1fr;height:auto;min-height:0}.clozePassage,.clozeDecision{max-height:none;overflow:visible}.clozePassage header,.clozeDecisionTop,.clozeSubmitRow{position:static}.clozeRuntimeHeader{align-items:start}.clozeProgress{display:none}.clozeQuestion{grid-template-columns:58px minmax(0,1fr)}}
+  @media(max-width:660px){.clozeRuntimeHeader{display:grid}.clozePassage{padding:18px}.clozeDecisionTop{padding:10px 12px}.clozeQuestion{grid-template-columns:1fr;padding:11px 12px}.clozeOptions{grid-template-columns:repeat(2,minmax(0,1fr))}.clozeFormal{grid-column:1}}
+</style>
+

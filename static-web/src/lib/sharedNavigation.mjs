@@ -14,7 +14,7 @@ export function globalNavigation(base = '/') {
 
 export const ENGLISH_FAMILY_PREFIXES = [
   'english', 'reading', 'reading-generated', 'reading-answer', 'reading-review', 'reading-b', 'reading-b-answer',
-  'cloze', 'cloze-answer', 'objective-learn', 'translation', 'translation-learn',
+  'cloze', 'cloze-generated', 'cloze-answer', 'objective-learn', 'translation', 'translation-learn',
   'translation-reference', 'writing', 'writing-learn', 'vocabulary', 'external-reading',
   'english-exam', 'english-exam-writing'
 ];
@@ -32,7 +32,7 @@ export function englishNavigation(base = '/') {
       href: `${base}reading/`,
       match: [
         'reading', 'reading-generated', 'reading-answer', 'reading-review',
-        'cloze', 'cloze-answer',
+        'cloze', 'cloze-generated', 'cloze-answer',
         'reading-b', 'reading-b-answer',
         'objective-learn'
       ]
@@ -87,6 +87,7 @@ export function isEnglishImmersiveTaskRuntime(localPath = '') {
     'reading-answer',
     'reading-review',
     'cloze',
+    'cloze-generated',
     'cloze-answer',
     'reading-b',
     'reading-b-answer',
