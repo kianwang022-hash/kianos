@@ -64,14 +64,16 @@ For an existing scope, apply `AUTHORITY_INHERITANCE_CONTRACT.md §3.1 Change con
 ### BUILD
 
 ```text
-exact scope / active Current when needed
+exact current effect / owner
 → accepted semantic/design owner
 → real consumer
-→ PROJECT_MANAGEMENT_CONTRACT.md for execution discipline
-→ bounded implementation + proof
+→ bounded implementation + affected proof
+→ stop
 ```
 
-Implementation may not invent missing Product/Learning semantics. Branch/PR/delivery/Codex/Remote/batching mechanics live in `PROJECT_MANAGEMENT_CONTRACT.md`, `BRANCH_LIFECYCLE.md` and `SEMANTIC_BASE_VALIDITY.md`.
+For a **concrete reproduced defect with already-accepted behavior**, use `PROJECT_MANAGEMENT_CONTRACT.md → Concrete Repair Fast Lane` by default. Do not create a new Issue, Contract, broad audit, worktree ceremony or full-site verification merely because the change touches learner UI/runtime.
+
+Implementation may not invent missing Product/Learning semantics. Branch/PR/delivery/Codex/Remote/batching mechanics live in `PROJECT_MANAGEMENT_CONTRACT.md`, `BRANCH_LIFECYCLE.md` and `SEMANTIC_BASE_VALIDITY.md` only when the bounded change actually needs them.
 
 A promoted request from Personal / StudyHub / Steward / Review should arrive through the existing owner chain or thin implementation pointer. The source owner keeps the semantic/personal/research truth; KianOS receives only the requested effect and the current target owner chain.
 
@@ -90,19 +92,32 @@ static-web/README.md
 
 Shared Visual/representation authority lives in the exact owners routed by `static-web/README.md`. CSS/component order never becomes design authority. Parent/child design conflict is `OWNER_UNRESOLVED` and returns to CREATE.
 
-Ordinary UI iteration uses the existing Candidate lane:
+UI has two paths.
+
+**Concrete correctness repair with accepted appearance/behavior:**
 
 ```text
-work branch / worktree
-→ cd static-web && npm run candidate:serve
-→ http://127.0.0.1:4322/
-→ inspect / Human Gate / revise
-→ accepted durable change
-→ managed Current promotion
-→ http://127.0.0.1:4321/ Stable
+existing implementation owner
+→ smallest direct fix
+→ affected browser proof (Candidate only when useful)
+→ durable main change
+→ managed Current publishes asynchronously
+→ stop
 ```
 
-Stable 4321 is not the scratch-preview surface.
+No separate Human Gate is required merely to fix a broken/hidden control, leaked backend label, overflow, stale selector, or other implementation defect whose intended behavior is already owned.
+
+**Material visual/product choice:**
+
+```text
+exact Product / Visual owner
+→ Candidate 127.0.0.1:4322
+→ Human Gate
+→ accepted durable change
+→ managed Current promotion
+```
+
+Stable 4321 is never the scratch-preview surface, but ordinary repair work also does not wait for Stable promotion before unrelated work can continue.
 
 ### AUDIT
 
