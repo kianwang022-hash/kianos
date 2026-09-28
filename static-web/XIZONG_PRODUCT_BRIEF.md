@@ -164,28 +164,35 @@ Its job is to materialize stable ViewModels for the already accepted cognition a
 
 Xizong web is not a second textbook and not a document browser.
 
-The approved first-pass model remains external-primary:
+The approved first-pass model remains external-primary and phase-separated:
 
 ```text
+LEARN
 System orientation
 → choose Block
 → Block orientation
-→ current Logic Group / Source-contact orientation
-→ iPad / MarginNote original Lecture: continuous study at the accepted Source-contact granularity
-   while Mac KP Learn remains a companion rather than a second Lecture
-→ at a real reviewed Source boundary:
-     if a reviewed Lecture-attached TTSX binding exists
-     → lightweight TTSX checkpoint
-     → questions stay in MarginNote; optional learner note may be left in KianOS
-     otherwise
-     → no checkpoint is invented
-→ return at the accepted retrieval point
-→ KP Recall for the current Logic Group
-→ Logic Group closure
-→ next Logic Group / accepted Source contact
-→ Block Recall
+→ complete the current Block's accepted Source/Learn scope
+   → iPad / MarginNote original Lecture: continuous study at the accepted Source-contact granularity
+   → Mac KP Learn remains a companion rather than a second Lecture
+   → at a real reviewed Source boundary:
+        if a reviewed Lecture-attached TTSX binding exists
+        → lightweight TTSX checkpoint
+        → questions stay in MarginNote; optional learner note may be left in KianOS
+        → return to unfinished Block Learn
+        otherwise
+        → no checkpoint is invented
+
+RECALL
+only after Block Learn is complete
+→ KP Recall in the accepted Logic Group order
+→ automatic Logic Group closure
+→ after final Logic Group closure: Block Recall
 → Block Complete
 ```
+
+Product timing rule:
+
+> **The learner does not alternate Learn → KP Recall → Learn by default. The Block's Learn scope completes before its KP/LG Recall sequence begins.**
 
 After the relevant System has actually been learned, later stages may expose:
 
