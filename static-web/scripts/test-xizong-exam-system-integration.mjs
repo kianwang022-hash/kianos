@@ -108,6 +108,43 @@ const href=(cdp,selector)=>cdp.eval(`document.querySelector(${js(selector)})?.ge
 const block=loadXizongBlock('circulation','b02');
 const production=buildXizongProductionBlock(block);
 const firstKp=production.kpRecords[0],secondKp=production.kpRecords[1]||firstKp;
+
+const homeIdentityBlock=loadXizongBlock('respiratory','r01');
+const homeIdentityProduction=buildXizongProductionBlock(homeIdentityBlock);
+const homeIdentityKp=homeIdentityProduction.kpRecords[0];
+if(!homeIdentityKp)throw new Error('M5_HOME_IDENTITY_FIXTURE_MISSING');
+const homeIdentityRepairCreatedAt=new Date(NOW-25*60*1000).toISOString();
+let homeIdentityMemory=releaseBlockMemory(createXizongMemoryState(),{
+  blockId:homeIdentityBlock.blockId,systemId:homeIdentityBlock.systemId,canonicalId:homeIdentityBlock.systemCanonicalId,
+  blockLabel:homeIdentityBlock.label,blockTitle:homeIdentityBlock.title,sourceHash:homeIdentityBlock.sourceHash,
+  coreCards:[{
+    id:`core:${homeIdentityKp.kpId}`,blockId:homeIdentityBlock.blockId,systemId:homeIdentityBlock.systemId,
+    canonicalId:homeIdentityBlock.systemCanonicalId,blockLabel:homeIdentityBlock.label,blockTitle:homeIdentityBlock.title,
+    kpId:homeIdentityKp.kpId,displayId:homeIdentityKp.displayId,title:homeIdentityKp.title,
+    promptCanonical:homeIdentityKp.prompt,coreHtml:'<p>Home identity fixture</p>',sourceLocator:homeIdentityKp.sourceLocator
+  }],precisionCards:[]
+},new Date(NOW-30*60*1000).toISOString());
+homeIdentityMemory=setRepairTasks(homeIdentityMemory,[{
+  id:'repair:m6-home-a2-r01',cardId:`core:${homeIdentityKp.kpId}`,kpId:homeIdentityKp.kpId,
+  blockId:homeIdentityBlock.blockId,systemId:homeIdentityBlock.systemId,title:'R1 · KP01 最小修补',
+  reason:'M6 Home session identity fixture',action:'只修当前 KP 后返回 R1。',priority:'high',
+  origin:'CHAT_REPAIR',sourceQuestionIds:[],blockHref:`/xizong/${homeIdentityBlock.systemId}/${homeIdentityBlock.slug}/`,
+  returnHref:`/xizong/${homeIdentityBlock.systemId}/${homeIdentityBlock.slug}/`,
+  createdAt:homeIdentityRepairCreatedAt,status:'ACTIVE'
+}]);
+const homeIdentitySession={
+  schema:'kianos.xizong.session-instruction.v1',session_id:'m6-home-a2-repair',study_day:DAY,
+  generated_at:new Date(NOW-24*60*1000).toISOString(),
+  steps:[
+    {step_id:'repair-task',kind:'REPAIR_TASK',label:'完成当前修补',
+      task_id:'repair:m6-home-a2-r01',created_at:homeIdentityRepairCreatedAt,
+      block_id:homeIdentityBlock.blockId,kp_id:homeIdentityKp.kpId},
+    {step_id:'block-return',kind:'BLOCK_RETURN',label:'回到 R1 原断点',
+      system_id:homeIdentityBlock.systemId,block_id:homeIdentityBlock.blockId,
+      block_slug:homeIdentityBlock.slug,source_hash:homeIdentityBlock.sourceHash}
+  ]
+};
+
 const sweep=loadXizongSystemQuestionSweep(loadXizongSystem('circulation'));
 const question=sweep.questions.find(row=>row.questionId==='xizong-official-2010-n007'
   && String(row?.relation?.blockId||'')===block.blockId);
@@ -241,6 +278,20 @@ try{
   await cdp.nav(BASE+'/');await writerReady(cdp);
   await cdp.eval('localStorage.clear();sessionStorage.clear()');
 
+  await setJson(cdp,XIZONG_MEMORY_STORAGE_KEY,homeIdentityMemory);
+  const homeIdentityInstall=await cdp.eval(`(async()=>{const m=await import('/src/lib/xizongSessionInstruction.mjs');return m.installAndActivateXizongSessionInstruction(localStorage,${js(homeIdentitySession)},{expectedDay:${js(DAY)},now:${NOW-23*60*1000},holdoutYears:[]});})()`);
+  check(homeIdentityInstall?.activated?.next?.step?.kind==='REPAIR_TASK','home_identity_session_installs_a2_repair');
+  await cdp.reload();await writerReady(cdp);await homeReady(cdp);
+  check((await text(cdp,'[data-xizong-continue-location]'))==='A2 · 呼吸系统',
+    'home_session_repair_uses_exact_A2_identity',await text(cdp,'[data-xizong-continue-location]'));
+  check(!(await text(cdp,'[data-xizong-continue-location]')).includes('A1'),
+    'home_session_repair_does_not_leak_default_A1_identity');
+  const homeIdentityHref=await href(cdp,'[data-xizong-continue]');
+  check(homeIdentityHref.includes('repair=repair%3Am6-home-a2-r01'),
+    'home_session_repair_preserves_exact_href',homeIdentityHref);
+
+  await cdp.eval('localStorage.clear();sessionStorage.clear()');
+
   await setJson(cdp,'kianos-xizong-last-location-v1',lastLocation);
   await setJson(cdp,stateKey,blockState);
   await setJson(cdp,XIZONG_MEMORY_STORAGE_KEY,memory);
@@ -344,6 +395,17 @@ try{
     'practice_native_evidence_advances_repair',resumeHref);
   await cdp.nav(BASE+resumeHref);await writerReady(cdp);
   await waitExpr(cdp,`document.querySelector('[data-memory-repair-card]')?.hidden===false`,'repair-card');
+  check(await cdp.eval(`document.querySelector('[data-repair-core]')?.hidden===false`),
+    'repair_reuses_existing_core_identity');
+  check((await text(cdp,'[data-repair-prompt]'))===firstKp.prompt,
+    'repair_shows_existing_core_prompt',await text(cdp,'[data-repair-prompt]'));
+  check(await cdp.eval(`document.querySelector('[data-repair-answer]')?.hidden===true`),
+    'repair_core_protected_before_reveal');
+  await click(cdp,'[data-repair-reveal]');
+  check((await text(cdp,'[data-repair-answer]')).includes('M5 fixture'),
+    'repair_reveals_same_core_content');
+  check(await cdp.eval(`(()=>{try{return JSON.parse(localStorage.getItem(${js(stateKey)})||'{}')?.kpIndex===${kpIndex}}catch{return false}})()`),
+    'repair_review_does_not_rewrite_block_resume');
   await click(cdp,'[data-repair-complete]');
   await sleep(80);
 

@@ -91,6 +91,39 @@ const {
       }
     };
 
+    const sessionIdentityView = (step) => {
+      const blockIds = [
+        step?.block_id,
+        ...(Array.isArray(step?.targets) ? step.targets.map((target) => target?.block_id) : [])
+      ].map((value) => String(value || '')).filter(Boolean);
+      const uniqueBlockId = [...new Set(blockIds)].length === 1 ? [...new Set(blockIds)][0] : '';
+      const explicitSystemId = String(step?.system_id || '');
+      let system = explicitSystemId
+        ? systems.find((row) => String(row?.systemId || '') === explicitSystemId) || null
+        : null;
+      let block = system && uniqueBlockId
+        ? (system.blocks || []).find((row) => String(row?.blockId || '') === uniqueBlockId) || null
+        : null;
+
+      if (!system && uniqueBlockId) {
+        for (const candidate of systems) {
+          const matched = (candidate?.blocks || []).find((row) => String(row?.blockId || '') === uniqueBlockId);
+          if (!matched) continue;
+          system = candidate;
+          block = matched;
+          break;
+        }
+      }
+
+      return {
+        system,
+        block,
+        locationLabel: system
+          ? [system?.canonicalId, system?.title].filter(Boolean).join(' · ')
+          : '西医综合'
+      };
+    };
+
     const sessionStageView = (step) => {
       const kind = String(step?.kind || '');
       const rows = {
@@ -174,8 +207,10 @@ const {
     const sessionResume = activeSessionResume();
     if (sessionResume && link instanceof HTMLAnchorElement) {
       const [stageLabel, positionLabel, actionLabel] = sessionStageView(sessionResume.step);
+      const identity = sessionIdentityView(sessionResume.step);
       link.href = sessionResume.href;
       link.dataset.xizongSessionRef = sessionResume.sessionId;
+      setText(location, identity.locationLabel);
       setText(title, sessionResume.step?.label || positionLabel);
       setText(detail, '继续当前西综任务；这里只执行已经确定的步骤，不重新安排三科。');
       setText(stage, stageLabel);
