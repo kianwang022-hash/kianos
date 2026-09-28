@@ -11,10 +11,10 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 Issue [#1087](https://github.com/kianwang022-hash/kianos/issues/1087) — **Politics fresh independent audit — whole learner product, attention and changeability**.
 
-- Phase: **FRESH / INDEPENDENT AUDIT — pin the exact #1080 final main / Stable identity first**.
+- Phase: **FRESH / INDEPENDENT FULL-SUITE AUDIT — ELIGIBLE TO RE-RUN after shared pin closure**.
 - #1080 rapid-mastery closure has now delivered the accepted bounded effect on this main generation: all five subjects have an explicit whole-subject rapid-framework owner and Politics Learn consumes the resolved subject Surface Mapping through the existing renderer.
 - The delivered #1080 batch introduced no second Politics course/runtime/scheduler and no new CSS layer; Chengfeng, the single Xiao1000 Workbench, Wrong/Uncertain evidence semantics, exact Return/Resume and current-year Source gates remain protected.
-- #1087 is audit-only: it must inspect the exact resulting Stable learner product, attention allocation, backend-information leakage, real-browser usability and one-owner/low-friction changeability. It may not repair inside the audit.
+- #1087 is audit-only: at audit start, pin the **then-current real Stable SHA that contains the accepted #1080 Politics product** and inspect that exact immutable release. Do not require rollback to the historical #1080 merge SHA merely because unrelated accepted commits landed later. It may not repair inside the audit.
 - Ordinary Politics learning bypasses this engineering cursor unless the conversation explicitly enters #1087 audit work.
 - Legacy task history is quarantined and is not part of normal continuation.
 
@@ -32,8 +32,11 @@ Issue [#1087](https://github.com/kianwang022-hash/kianos/issues/1087) — **Poli
 For active Politics engineering, follow Issue #1087 only.
 
 ```text
-exact #1080 final main / Stable identity
+then-current served Stable containing accepted #1080 effect
+→ pin that exact SHA to #1087
+→ verify A0 immutable identity
 → fresh independent whole-product audit #1087
+→ release pin
 → PASS: return Politics to normal learner-use / concrete-defect mode
    OR
 → FAIL: route only the reproduced effect to the earliest responsible current owner
