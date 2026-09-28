@@ -4,12 +4,14 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { loadLexicalWordByOrdinal } from '../src/lib/lexical.mjs';
+import { lexicalWordRuntimeHref } from '../src/lib/lexicalRuntimeRoute.mjs';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputRoot = path.resolve(webRoot, '../lexical-visual-review');
 const port = Number(process.env.KIANOS_UI_REVIEW_PORT || 4331);
 const origin = `http://127.0.0.1:${port}`;
 const astroBin = path.join(webRoot, 'node_modules', '.bin', 'astro');
+const wordUrl = (ordinal, mode = 'study') => `${origin}${lexicalWordRuntimeHref('/', ordinal, mode)}`;
 
 fs.mkdirSync(outputRoot, { recursive: true });
 const server = spawn(astroBin, ['preview', '--host', '127.0.0.1', '--port', String(port)], {
@@ -26,7 +28,7 @@ async function waitForServer() {
   let lastError = null;
   while (Date.now() < deadline) {
     try {
-      const response = await fetch(`${origin}/vocabulary/2/`, { redirect: 'manual' });
+      const response = await fetch(wordUrl(2), { redirect: 'manual' });
       if (response.ok) return;
     } catch (error) { lastError = error; }
     await new Promise((resolve) => setTimeout(resolve, 250));
@@ -39,7 +41,7 @@ function assert(condition, label, detail = '') {
 }
 
 async function reveal(page, ordinal) {
-  await page.goto(`${origin}/vocabulary/${ordinal}/`, { waitUntil: 'networkidle' });
+  await page.goto(wordUrl(ordinal), { waitUntil: 'networkidle' });
   const revealButton = page.locator('[data-vocab-reveal]');
   if (await revealButton.isVisible()) await revealButton.click();
   await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
@@ -149,9 +151,15 @@ try {
   const reports = [];
 
   // Architecture-v2 Human Gate evidence.
-  await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+  const initialVocabularyResponse = await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+  const initialVocabularyHtml = await initialVocabularyResponse?.text() || '';
+  assert(initialVocabularyHtml.includes('data-lexical-home-ready="false"'), 'v2_home_ssr_marks_state_pending');
+  assert(initialVocabularyHtml.includes('读取学习进度…'), 'v2_home_ssr_does_not_fake_resume');
+  assert(initialVocabularyHtml.includes('data-lexical-same-day-count>—</strong>'), 'v2_home_ssr_does_not_fake_same_day_zero');
+  assert(!initialVocabularyHtml.includes('data-lexical-overview-continue-meta>#1 /'), 'v2_home_ssr_does_not_fake_ordinal_one');
   await page.evaluate(() => localStorage.clear());
   await page.reload({ waitUntil: 'networkidle' });
+  assert(await page.locator('[data-lexical-home]').getAttribute('data-lexical-home-ready') === 'true', 'v2_home_state_becomes_ready');
   assert(await page.locator('[data-kianos-global-rail]').isVisible(), 'v2_home_keeps_global_rail');
   assert(await page.locator('[data-kianos-subject-bar="english"]').count() === 0, 'v2_vocabulary_suppresses_parent_english_l2');
   assert(await page.locator('.lexicalLocalNav').count() === 1, 'v2_vocabulary_has_one_local_top_nav');
@@ -165,20 +173,29 @@ try {
   assert(localJobs.sort().join('|') === ['Overview','Learn','Repair','Research'].sort().join('|'), 'v2_home_four_local_jobs', localJobs.join('|'));
   assert(await page.locator('[data-lexical-daily-limit]').inputValue() === '50', 'v2_home_daily_new_limit_default_50');
   assert((await page.locator('[data-lexical-same-day-count]').innerText()).trim() === '0', 'v2_home_same_day_revisit_starts_empty');
+  const sameDayCatalogRow = await page.evaluate(() => {
+    const rows = JSON.parse(document.querySelector('[data-lexical-catalog]')?.textContent || '[]');
+    return rows[0] || null;
+  });
+  assert(Boolean(sameDayCatalogRow), 'v2_home_catalog_has_same_day_fixture');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-home-1440x900.png'), fullPage: false });
 
+  await page.goto(`${origin}/`, { waitUntil: 'networkidle' });
+  const homeVocabularyLink = page.locator('.homeL3TaskLinks a[href$="vocabulary/"]');
+  assert(await homeVocabularyLink.isVisible(), 'home_learning_jump_has_vocabulary');
+  assert((await homeVocabularyLink.innerText()).trim() === 'Vocabulary', 'home_learning_jump_vocabulary_label');
+
+  await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
+
   // Same-day revisit is ephemeral card routing support, not Repair debt.
-  await page.evaluate(() => {
-    const rows = JSON.parse(document.querySelector('[data-lexical-catalog]')?.textContent || '[]');
-    const row = rows[0];
-    if (!row) throw new Error('NO_LEXICAL_CATALOG_ROW');
+  await page.evaluate((row) => {
     const now = new Date().toISOString();
     localStorage.setItem('kianos-lexical-card-routing-v1', JSON.stringify({
       schema:'kianos.lexical.card_routing.v1',
       history:[{ event_id:'visual-same-day-1', word_id:row.objectId, ordinal:row.ordinal, word:row.word, route:'UNKNOWN', observed_at:now }],
       latest_by_word:{ [row.objectId]:{ event_id:'visual-same-day-1', word_id:row.objectId, ordinal:row.ordinal, word:row.word, route:'UNKNOWN', observed_at:now } }
     }));
-  });
+  }, sameDayCatalogRow);
   await page.reload({ waitUntil: 'networkidle' });
   assert((await page.locator('[data-lexical-same-day-count]').innerText()).trim() === '1', 'v2_home_same_day_unknown_surfaces');
   const directLearnHref = await page.locator('[data-lexical-learn-nav]').getAttribute('href');
@@ -204,7 +221,7 @@ try {
   await page.evaluate(() => localStorage.clear());
 
   // Repair is a direct Chat-compiled Test session, not a list-management page.
-  await page.goto(`${origin}/vocabulary/4/`, { waitUntil: 'networkidle' });
+  await page.goto(wordUrl(4), { waitUntil: 'networkidle' });
   if (!(await page.locator('[data-vocab-details]').isVisible())) await page.locator('[data-vocab-reveal]').click();
   const repairRoot = page.locator('[data-local-port="vocabulary"]');
   const repairPlus = page.locator('[data-vocab-repair]').first();
@@ -357,7 +374,7 @@ try {
   assert((await page.locator('[data-lexical-backup-status]').innerText()).includes('已恢复'), 'v2_settings_backup_reports_restore');
   await page.locator('.lexicalSettingsClose').click();
 
-  await page.goto(`${origin}/vocabulary/1/`, { waitUntil: 'networkidle' });
+  await page.goto(wordUrl(1), { waitUntil: 'networkidle' });
   assert(await page.locator('[data-vocab-default-speak]').first().getAttribute('data-vocab-speak') === 'en-GB', 'v2_word_study_uses_default_pronunciation');
   assert((await page.locator('[data-vocab-default-speak]').first().innerText()).includes('英音'), 'v2_word_study_default_pronunciation_label');
   await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
@@ -449,7 +466,7 @@ try {
     localStorage.clear();
     localStorage.setItem('kianos-lexical-settings-v1', JSON.stringify({ schema:'kianos.lexical.settings.v1', daily_new_limit:1 }));
   });
-  await page.goto(`${origin}/vocabulary/3/`, { waitUntil: 'networkidle' });
+  await page.goto(wordUrl(3), { waitUntil: 'networkidle' });
   await page.locator('[data-vocab-action-dock] [data-vocab-route="known"]').click();
   await page.waitForURL('**/vocabulary/?limit=reached');
   assert((await page.locator('[data-lexical-today-new]').first().innerText()).trim() === '1', 'v2_daily_limit_records_first_new_word');
@@ -458,10 +475,30 @@ try {
   assert(await page.locator('[data-lexical-learn-nav]').getAttribute('aria-disabled') === 'true', 'v2_daily_limit_blocks_direct_learn_nav');
   await page.evaluate(() => localStorage.clear());
 
-  await page.goto(`${origin}/vocabulary/3/`, { waitUntil: 'networkidle' });
+  await page.addInitScript(() => {
+    window.__kianosSpoken = [];
+    class MockUtterance {
+      constructor(text) { this.text = text; this.lang = ''; this.rate = 1; }
+    }
+    Object.defineProperty(window, 'SpeechSynthesisUtterance', { value: MockUtterance, configurable: true });
+    Object.defineProperty(window, 'speechSynthesis', {
+      value: {
+        cancel() {},
+        speak(utterance) {
+          window.__kianosSpoken.push({ text: utterance.text, lang: utterance.lang, rate: utterance.rate });
+        }
+      },
+      configurable: true
+    });
+  });
+  await page.goto(wordUrl(3), { waitUntil: 'networkidle' });
   assert(await page.locator('[data-kianos-global-rail]').isHidden(), 'v2_word_study_hides_global_rail');
-  assert(await page.locator('[data-study-timer-dock]').isHidden(), 'v2_word_study_hides_shared_timer');
+  assert(await page.locator('[data-study-timer-dock]').isVisible(), 'v2_word_study_keeps_shared_timer');
   assert(await page.locator('[data-vocab-front]').isVisible(), 'v2_safe_fast_pass_front_visible');
+  const initialSpeech = await page.evaluate(() => window.__kianosSpoken || []);
+  const frontWord = (await page.locator('[data-vocab-front] h2').innerText()).trim();
+  assert(initialSpeech.length === 1, 'v2_word_front_autoplays_once', JSON.stringify(initialSpeech));
+  assert(initialSpeech[0]?.text === frontWord, 'v2_word_front_autoplay_matches_word', JSON.stringify(initialSpeech));
   assert(await page.locator('[data-vocab-details]').isHidden(), 'v2_safe_fast_pass_depth_protected');
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="known"]').isVisible(), 'v2_safe_fast_pass_known_visible');
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="mastered"]').isVisible(), 'v2_safe_fast_pass_mastered_visible');
@@ -469,12 +506,25 @@ try {
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="fuzzy"]').isHidden(), 'v2_safe_fast_pass_fuzzy_hidden_before_reveal');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-safe-fast-pass-1440x900.png'), fullPage: false });
 
-  await page.goto(`${origin}/vocabulary/5477/`, { waitUntil: 'networkidle' });
+  await page.goto(wordUrl(5477), { waitUntil: 'networkidle' });
   assert(await page.locator('[data-vocab-front][data-recall-density="rich"]').isVisible(), 'v2_rich_recall_front_visible');
   assert((await page.locator('[data-vocab-front] h2').innerText()).trim() === 'write', 'v2_rich_fixture_is_write');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-recall-1440x900.png'), fullPage: false });
   await page.keyboard.press('Space');
   await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+  const richCanvasScroll = await page.locator('.kianosShellMain > .productCanvas').evaluate((node) => ({
+    overflowY: getComputedStyle(node).overflowY,
+    scrollHeight: node.scrollHeight,
+    clientHeight: node.clientHeight
+  }));
+  assert(['auto', 'scroll'].includes(richCanvasScroll.overflowY), 'v2_rich_word_uses_scrollable_canvas', JSON.stringify(richCanvasScroll));
+  if (richCanvasScroll.scrollHeight > richCanvasScroll.clientHeight + 4) {
+    await page.locator('.kianosShellMain > .productCanvas').evaluate((node) => { node.scrollTop = 120; });
+    const scrollTop = await page.locator('.kianosShellMain > .productCanvas').evaluate((node) => node.scrollTop);
+    assert(scrollTop > 0, 'v2_rich_word_can_scroll_down', String(scrollTop));
+  }
+  const speechAfterReveal = await page.evaluate(() => window.__kianosSpoken || []);
+  assert(speechAfterReveal.length === 1, 'v2_reveal_does_not_replay_pronunciation', JSON.stringify(speechAfterReveal));
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="unknown"]').isVisible(), 'v2_depth_dock_exposes_unknown');
   assert(await page.locator('[data-vocab-action-dock] [data-vocab-route="fuzzy"]').isVisible(), 'v2_depth_dock_exposes_fuzzy');
   await page.screenshot({ path: path.join(outputRoot, 'lexical-v2-rich-depth-1440x900.png'), fullPage: false });
@@ -535,8 +585,10 @@ try {
     }
   ];
   for (const fixture of depthFixtures) {
-    await page.evaluate((word) => localStorage.removeItem(`kianos-vocabulary-astro-v2:word:${word}`), fixture.word);
-    await page.goto(`${origin}/vocabulary/${fixture.ordinal}/`, { waitUntil: 'networkidle' });
+    // Each Human-Gate fixture is independent evidence; do not inherit learner/browser state
+    // from the preceding rich-word interaction.
+    await page.evaluate(() => localStorage.clear());
+    await page.goto(wordUrl(fixture.ordinal), { waitUntil: 'networkidle' });
     await page.locator('[data-vocab-front]').waitFor({ state: 'visible' });
     assert((await page.locator('[data-vocab-front] h2').innerText()).trim() === fixture.word, `v2_depth_fixture_${fixture.word}`);
     await page.keyboard.press('Space');
@@ -601,11 +653,14 @@ try {
   // Semantic counts/text come from the Current Final Learner Object rather than
   // being duplicated here as a second content truth.
   const finalObjectFixtures = [
-    { ordinal: 177, word: 'ambulance' },
+    { ordinal: 15, word: 'absence' },
+    { ordinal: 16, word: 'absent' },
     { ordinal: 29, word: 'access' },
+    { ordinal: 177, word: 'ambulance' },
+    { ordinal: 761, word: 'charge' },
     { ordinal: 4209, word: 'row' },
-    { ordinal: 4680, word: 'stationary' },
-    { ordinal: 761, word: 'charge' }
+    { ordinal: 4323, word: 'seem' },
+    { ordinal: 4680, word: 'stationary' }
   ];
 
   for (const fixture of finalObjectFixtures) {
@@ -622,7 +677,7 @@ try {
     );
 
     await page.evaluate((word) => localStorage.removeItem(`kianos-vocabulary-astro-v2:word:${word}`), fixture.word);
-    await page.goto(`${origin}/vocabulary/${fixture.ordinal}/`, { waitUntil: 'networkidle' });
+    await page.goto(wordUrl(fixture.ordinal), { waitUntil: 'networkidle' });
     await page.locator('[data-vocab-front]').waitFor({ state: 'visible' });
     assert((await page.locator('[data-vocab-front] h2').innerText()).trim() === fixture.word, `final_fixture_${fixture.word}`);
     await page.keyboard.press('Space');
@@ -661,7 +716,7 @@ try {
   // Tighter Mac landscape evidence: same learning geometry, reduced secondary density.
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.evaluate(() => localStorage.removeItem('kianos-vocabulary-astro-v2:word:write'));
-  await page.goto(`${origin}/vocabulary/5477/`, { waitUntil: 'networkidle' });
+  await page.goto(wordUrl(5477), { waitUntil: 'networkidle' });
   assert(await page.locator('[data-vocab-front]').isVisible(), 'v2_mac_compact_recall_visible');
   const compactRecallOverflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert(compactRecallOverflow <= 2, 'v2_mac_compact_recall_no_horizontal_overflow', String(compactRecallOverflow));
@@ -679,7 +734,7 @@ try {
     localStorage.setItem('kianos-vocabulary-last-ordinal', '77');
     localStorage.removeItem('kianos-vocabulary-astro-v2:word:answer');
   });
-  await page.goto(`${origin}/vocabulary/209/?mode=lookup`, { waitUntil: 'networkidle' });
+  await page.goto(wordUrl(209, 'lookup'), { waitUntil: 'networkidle' });
   await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
   assert(await page.locator('[data-vocab-front]').isHidden(), 'v2_lookup_skips_recall');
   assert(await page.locator('[data-card-routing-controls]').count() === 0, 'v2_lookup_has_no_whole_card_routing');
@@ -700,7 +755,7 @@ try {
     ['ArrowDown', 'MASTERED']
   ];
   for (const [key, expected] of routeCases) {
-    await page.goto(`${origin}/vocabulary/5477/`, { waitUntil: 'networkidle' });
+    await page.goto(wordUrl(5477), { waitUntil: 'networkidle' });
     await page.evaluate((routingKey) => localStorage.removeItem(routingKey), routingKey);
     await page.keyboard.press('Space');
     await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
@@ -713,7 +768,7 @@ try {
     assert(route === expected, `v2_keyboard_${expected.toLowerCase()}`, route);
   }
 
-  await page.goto(`${origin}/vocabulary/5477/`, { waitUntil: 'networkidle' });
+  await page.goto(wordUrl(5477), { waitUntil: 'networkidle' });
   await page.evaluate((routingKey) => localStorage.removeItem(routingKey), routingKey);
   await page.keyboard.press('Space');
   await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
@@ -727,7 +782,7 @@ try {
   }, routingKey);
   assert(undoHistoryLength === 0, 'v2_backspace_undo', String(undoHistoryLength));
 
-  await page.goto(`${origin}/vocabulary/5477/`, { waitUntil: 'networkidle' });
+  await page.goto(wordUrl(5477), { waitUntil: 'networkidle' });
   await page.keyboard.press('Space');
   await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
   await page.keyboard.press('j');

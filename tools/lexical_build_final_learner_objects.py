@@ -174,6 +174,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
     word = str(record.get("word") or owner.get("word") or "")
     word_decision = (decisions.get("words") or {}).get(word_id) or {}
     usage_note_decisions = word_decision.get("sense_usage_notes") or {}
+    governing_pattern_decisions = word_decision.get("sense_governing_patterns") or {}
     secondary_decisions = word_decision.get("secondary_senses") or {}
     overlay_decisions = word_decision.get("sense_identity_overlays") or {}
     family_decisions = word_decision.get("word_family") or {}
@@ -231,14 +232,20 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
                     overlay_text,
                 ),
             }
+        usage_note_disposition = (usage_note_decisions.get(sense_id) or {}).get("disposition")
+        if usage_note_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
+            raise RuntimeError(f"FINAL_LEARNER_USAGE_NOTE_DISPOSITION_INVALID:{word_id}:{sense_id}:{usage_note_disposition}")
+        governing_pattern_disposition = (governing_pattern_decisions.get(sense_id) or {}).get("disposition")
+        if governing_pattern_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
+            raise RuntimeError(f"FINAL_LEARNER_GOVERNING_PATTERN_DISPOSITION_INVALID:{word_id}:{sense_id}:{governing_pattern_disposition}")
         senses.append({
             "id": sense_id or None,
             "source_locator": f"record.senses[{i}]",
             "pos": str(sense.get("pos") or ""),
-            "governing_pattern": str(sense.get("governing_pattern") or ""),
+            "governing_pattern": "" if governing_pattern_disposition == "EXPLORE_ONLY" else str(sense.get("governing_pattern") or ""),
             "definition_cn": str(sense.get("definition_cn") or ""),
             "definition_en": str(sense.get("definition_en") or ""),
-            "note": "" if (usage_note_decisions.get(sense_id) or {}).get("disposition") == "EXPLORE_ONLY" else str(sense.get("usage_note") or ""),
+            "note": "" if usage_note_disposition == "EXPLORE_ONLY" else str(sense.get("usage_note") or ""),
             "identity_overlay": overlay_object,
             "usage": usage,
             "repair": repair("sense", f"record.senses[{i}]", sense_id or None, str(sense.get("definition_cn") or sense.get("definition_en") or word)),
@@ -254,12 +261,17 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             raise RuntimeError(f"FINAL_LEARNER_SECONDARY_DISPOSITION_INVALID:{word_id}:{branch_id}:{secondary_disposition}")
         if secondary_disposition == "EXPLORE_ONLY":
             continue
+        secondary_pos = str(branch.get("pos") or "").strip()
+        secondary_cn = str(branch.get("definition_cn") or branch.get("meaning_cn") or "").strip()
+        secondary_en = str(branch.get("definition_en") or branch.get("label_en") or "").strip()
+        if not secondary_pos or (not secondary_cn and not secondary_en):
+            raise RuntimeError(f"FINAL_LEARNER_SECONDARY_INCOMPLETE:{word_id}:{branch_id}")
         secondary.append({
             "id": branch_id or None,
             "source_locator": f"record.secondary_senses[{i}]",
-            "pos": str(branch.get("pos") or ""),
-            "definition_cn": str(branch.get("definition_cn") or branch.get("meaning_cn") or ""),
-            "definition_en": str(branch.get("definition_en") or branch.get("label_en") or ""),
+            "pos": secondary_pos,
+            "definition_cn": secondary_cn,
+            "definition_en": secondary_en,
             "pattern": str(branch.get("pattern") or branch.get("boundary") or ""),
             "repair": repair("secondary_sense", f"record.secondary_senses[{i}]", branch_id or None, str(branch.get("definition_cn") or branch.get("meaning_cn") or branch.get("definition_en") or branch.get("label_en") or word)),
         })
@@ -324,7 +336,19 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         })
 
     def pos_label(value: Any) -> str:
-        pos = str(value or "").lower()
+        pos = str(value or "").strip().lower()
+        exact = {
+            "article": "ART",
+            "determiner": "DET",
+            "pronoun": "PRON",
+            "conjunction": "CONJ",
+            "modal": "MOD",
+            "auxiliary": "AUX",
+            "particle": "PART",
+            "relative pronoun/marker": "REL",
+        }
+        if pos in exact:
+            return exact[pos]
         if pos.startswith("verb") or pos == "v": return "V"
         if pos.startswith("adj") or pos == "a": return "A"
         if pos.startswith("noun") or pos == "n": return "N"
@@ -424,7 +448,241 @@ def clean_input_signature() -> str | None:
         return None
 
 
+
+def working_tree_changed_inputs() -> set[str]:
+    inputs = [
+        "content/lexical/words",
+        "content/lexical/relations",
+        "content/lexical/final-learner-object-decisions.json",
+        "tools/lexical_build_final_learner_objects.py",
+    ]
+    try:
+        changed = subprocess.check_output(
+            ["git", "diff", "--name-only", "HEAD", "--", *inputs],
+            cwd=ROOT, text=True
+        ).splitlines()
+        untracked = subprocess.check_output(
+            ["git", "ls-files", "--others", "--exclude-standard", "--", *inputs],
+            cwd=ROOT, text=True
+        ).splitlines()
+        return {row.strip() for row in [*changed, *untracked] if row.strip()}
+    except (OSError, subprocess.CalledProcessError):
+        return set()
+
+
+def direct_word_delta_paths(changed: set[str]) -> list[str]:
+    prefix = "content/lexical/words/by-ordinal/"
+    rows = sorted(changed)
+    if not rows:
+        return []
+    for relative in rows:
+        name = Path(relative).name
+        if not relative.startswith(prefix) or len(name) != 10 or not name.startswith("o") or not name.endswith(".json"):
+            return []
+        if not name[1:5].isdigit():
+            return []
+    return rows
+
+
+def current_head() -> str | None:
+    try:
+        return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip() or None
+    except (OSError, subprocess.CalledProcessError):
+        return None
+
+
+def changed_output_paths(output_root: Path) -> set[str] | None:
+    try:
+        relative = output_root.resolve().relative_to(ROOT.resolve()).as_posix()
+        changed = subprocess.check_output(
+            ["git", "diff", "--name-only", "HEAD", "--", relative],
+            cwd=ROOT, text=True
+        ).splitlines()
+        untracked = subprocess.check_output(
+            ["git", "ls-files", "--others", "--exclude-standard", "--", relative],
+            cwd=ROOT, text=True
+        ).splitlines()
+        return {row.strip() for row in [*changed, *untracked] if row.strip()}
+    except (OSError, ValueError, subprocess.CalledProcessError):
+        return None
+
+
+def sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def direct_projection_baseline(
+    output_root: Path,
+    cache_root: Path,
+    dirty_inputs: list[str],
+    expected_count: int,
+) -> dict[str, Any] | None:
+    if output_root.resolve() != OUT.resolve():
+        return None
+    manifest_path = output_root / "manifest.json"
+    try:
+        manifest = load(manifest_path)
+    except (OSError, ValueError):
+        return None
+    if (
+        manifest.get("schema") != "kianos.lexical.final_learner_manifest.v1"
+        or manifest.get("status") != "CURRENT_DERIVED_LEARNER_OBJECT"
+        or int(manifest.get("object_count") or 0) != expected_count
+        or not isinstance(manifest.get("shards"), list)
+    ):
+        return None
+
+    output_changes = changed_output_paths(output_root)
+    if output_changes is None:
+        return None
+    if not output_changes:
+        return {"manifest": manifest, "mode": "git-head"}
+
+    proof_path = cache_root / "direct-word-proof.json"
+    try:
+        proof = load(proof_path)
+    except (OSError, ValueError):
+        return None
+    head = current_head()
+    if (
+        not head
+        or proof.get("schema") != "kianos.lexical.direct_word_projection.v1"
+        or proof.get("head") != head
+        or proof.get("dirty_inputs") != sorted(dirty_inputs)
+        or proof.get("manifest_sha256") != sha256_file(manifest_path)
+    ):
+        return None
+
+    file_hashes = proof.get("output_files") or {}
+    if set(output_changes) != set(file_hashes):
+        return None
+    for relative, digest in file_hashes.items():
+        path = ROOT / relative
+        if not path.is_file() or sha256_file(path) != digest:
+            return None
+    return {"manifest": manifest, "mode": "local-proof"}
+
+
+def build_direct_word_delta(
+    output_root: Path,
+    cache_root: Path,
+    dirty_inputs: list[str],
+    expected_count: int,
+) -> dict[str, Any] | None:
+    baseline = direct_projection_baseline(output_root, cache_root, dirty_inputs, expected_count)
+    if baseline is None:
+        return None
+
+    manifest = clone(baseline["manifest"])
+    decisions = load(DECISIONS) if DECISIONS.exists() else {"words": {}}
+    shard_updates: dict[str, dict[str, Any]] = {}
+    compiled: list[tuple[str, dict[str, Any], dict[str, Any]]] = []
+
+    for relative in dirty_inputs:
+        owner_path = ROOT / relative
+        owner = load(owner_path)
+        ordinal = int(owner.get("ordinal") or 0)
+        word_id = str(owner.get("word_id") or "")
+        if ordinal < 1 or not word_id:
+            raise RuntimeError(f"FINAL_LEARNER_DIRECT_OWNER_INVALID:{relative}")
+        try:
+            old_owner = json.loads(subprocess.check_output(
+                ["git", "show", f"HEAD:{relative}"], cwd=ROOT
+            ))
+        except (OSError, subprocess.CalledProcessError, ValueError) as error:
+            raise RuntimeError(f"FINAL_LEARNER_DIRECT_OWNER_BASE_MISSING:{relative}") from error
+        if (old_owner.get("ordinal"), old_owner.get("word_id")) != (ordinal, word_id):
+            raise RuntimeError(f"FINAL_LEARNER_IDENTITY_CHANGED:{relative}")
+
+        descriptor = next((
+            row for row in manifest["shards"]
+            if int(row.get("start") or 0) <= ordinal <= int(row.get("end") or 0)
+        ), None)
+        if not descriptor or not descriptor.get("path"):
+            raise RuntimeError(f"FINAL_LEARNER_DIRECT_SHARD_MISSING:{ordinal}")
+        shard_relative = str(descriptor["path"])
+        if shard_relative not in shard_updates:
+            shard_path = ROOT / shard_relative
+            if not shard_path.is_file() or sha256_file(shard_path) != descriptor.get("sha256"):
+                raise RuntimeError(f"FINAL_LEARNER_DIRECT_SHARD_BASE_INVALID:{shard_relative}")
+            rows = load(shard_path)
+            if not isinstance(rows, list):
+                raise RuntimeError(f"FINAL_LEARNER_DIRECT_SHARD_INVALID:{shard_relative}")
+            shard_updates[shard_relative] = {
+                "descriptor": descriptor,
+                "rows": clone(rows),
+            }
+        compiled.append((relative, owner, compile_word(owner, decisions)))
+
+    for relative, owner, obj in compiled:
+        ordinal = int(owner["ordinal"])
+        descriptor = next(
+            row for row in manifest["shards"]
+            if int(row.get("start") or 0) <= ordinal <= int(row.get("end") or 0)
+        )
+        state = shard_updates[str(descriptor["path"])]
+        index = next((
+            i for i, row in enumerate(state["rows"])
+            if int((row or {}).get("ordinal") or 0) == ordinal
+        ), None)
+        if index is None:
+            raise RuntimeError(f"FINAL_LEARNER_DIRECT_OBJECT_MISSING:{ordinal}")
+        prior = state["rows"][index]
+        if str((prior or {}).get("word_id") or "") != str(owner["word_id"]):
+            raise RuntimeError(f"FINAL_LEARNER_DIRECT_OBJECT_IDENTITY:{ordinal}")
+        state["rows"][index] = obj
+
+    changed_shards = 0
+    output_files: dict[str, str] = {}
+    for shard_relative, state in shard_updates.items():
+        shard_path = ROOT / shard_relative
+        if dump(shard_path, state["rows"]):
+            changed_shards += 1
+        digest = sha256_file(shard_path)
+        state["descriptor"]["sha256"] = digest
+        output_files[shard_relative] = digest
+
+    manifest_path = output_root / "manifest.json"
+    manifest_changed = dump(manifest_path, manifest)
+    manifest_digest = sha256_file(manifest_path)
+    manifest_relative = manifest_path.resolve().relative_to(ROOT.resolve()).as_posix()
+    output_files[manifest_relative] = manifest_digest
+
+    head = current_head()
+    if head:
+        dump(cache_root / "direct-word-proof.json", {
+            "schema": "kianos.lexical.direct_word_projection.v1",
+            "head": head,
+            "dirty_inputs": sorted(dirty_inputs),
+            "manifest_sha256": manifest_digest,
+            "output_files": output_files,
+        })
+
+    first_rows = load(ROOT / manifest["shards"][0]["path"])
+    last_rows = load(ROOT / manifest["shards"][-1]["path"])
+    return {
+        "object_count": expected_count,
+        "shard_count": len(manifest["shards"]),
+        "changed_shards": changed_shards,
+        "removed_shards": 0,
+        "manifest_changed": manifest_changed,
+        "compiled_words": len(compiled),
+        "reused_words": expected_count - len(compiled),
+        "first": first_rows[0]["word"],
+        "last": last_rows[-1]["word"],
+        "incremental_mode": "direct-word-delta",
+        "baseline_mode": baseline["mode"],
+    }
+
+
 def build(output_root: Path, cache_root: Path, expected_count: int = 7946) -> dict[str, Any]:
+    changed_inputs = working_tree_changed_inputs()
+    direct_words = direct_word_delta_paths(changed_inputs)
+    if direct_words:
+        direct_result = build_direct_word_delta(output_root, cache_root, direct_words, expected_count)
+        if direct_result is not None:
+            return direct_result
+
     input_signature = clean_input_signature()
     proof_path = cache_root / "quick-proof.json"
     try:

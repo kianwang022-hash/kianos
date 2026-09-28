@@ -184,6 +184,25 @@ export function setStudyTimerContext(storage, context, now = Date.now(), { sourc
   return writeState(storage, next);
 }
 
+export function retargetStudyTimerContext(storage, context, now = Date.now(), { source = 'runtime-route' } = {}) {
+  const nextContext = normalizeContext(context);
+  if (!nextContext) return readStudyTimerState(storage);
+  const state = readStudyTimerState(storage);
+  const timestamp = finiteMs(now) ?? Date.now();
+  const sameTask = state.context?.subject === nextContext.subject
+    && (state.context?.detailKey || '') === (nextContext.detailKey || '');
+
+  if (!sameTask) return setStudyTimerContext(storage, nextContext, timestamp, { source });
+  return writeState(storage, {
+    ...state,
+    subject: nextContext.subject,
+    context: nextContext,
+    lastSeenAt: timestamp,
+    updatedAt: timestamp,
+    revision: state.revision + 1
+  });
+}
+
 export function resumeStudyTimer(storage, context = null, now = Date.now()) {
   const timestamp = finiteMs(now) ?? Date.now();
   const state = readStudyTimerState(storage);

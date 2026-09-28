@@ -37,6 +37,8 @@ try{
   browser=await chromium.launch({headless:true});
   const context=await browser.newContext({viewport:{width:1440,height:900},permissions:['clipboard-read','clipboard-write']});
   const page=await context.newPage();
+  let documentRequests=0;
+  page.on('request',(request)=>{ if(request.resourceType()==='document') documentRequests+=1; });
 
   await goto(page,'/vocabulary/');
   await page.evaluate(()=>localStorage.clear());
@@ -54,16 +56,27 @@ try{
   await page.locator('[data-lexical-tab="overview"]').click();
 
   // Fuzzy is today-only whole-card routing support, not Repair debt.
-  await goto(page,'/vocabulary/4/');
+  await goto(page,'/vocabulary/word/?o=4');
+  await page.evaluate(()=>{
+    const timer=document.querySelector('[data-study-timer-dock]');
+    const rail=document.querySelector('[data-kianos-global-rail]');
+    if(timer)timer.dataset.lexicalQaIdentity='timer-stable';
+    if(rail)rail.dataset.lexicalQaIdentity='rail-stable';
+  });
+  const routeDocumentBaseline=documentRequests;
   await page.keyboard.press('Space');
   await page.locator('[data-vocab-route="fuzzy"]').click();
   await page.waitForURL(/\/vocabulary\/5\/?$/);
+  await page.locator('[data-vocab-ordinal="5"]').waitFor({state:'attached'});
+  check(documentRequests===routeDocumentBaseline,'whole_card_route_stays_in_same_document',String(documentRequests-routeDocumentBaseline));
+  check(await page.evaluate(()=>document.querySelector('[data-study-timer-dock]')?.dataset.lexicalQaIdentity==='timer-stable'),'shared_timer_survives_word_swap');
+  check(await page.evaluate(()=>document.querySelector('[data-kianos-global-rail]')?.dataset.lexicalQaIdentity==='rail-stable'),'shared_shell_survives_word_swap');
   await goto(page,'/vocabulary/');
   check((await page.locator('[data-lexical-same-day-count]').innerText()).trim()==='1','fuzzy_enters_same_day_revisit');
   check((await page.locator('[data-lexical-repair-count]').first().innerText()).trim()==='0','fuzzy_creates_no_repair');
 
   // Exact local + creates one Repair target and makes the Chat state handoff available.
-  await goto(page,'/vocabulary/4/');
+  await goto(page,'/vocabulary/word/?o=4');
   if(!(await page.locator('[data-vocab-details]').isVisible()))await page.locator('[data-vocab-reveal]').click();
   const root=page.locator('[data-local-port="vocabulary"]');
   const plus=page.locator('[data-vocab-repair]').first();
@@ -138,6 +151,17 @@ try{
   const ledger=await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-lexical-evidence-ledger-v2')||'null'));
   check(ledger?.events?.some((e)=>e.challenge_id==='real-use-loop-1'&&e.outcome==='WRONG'),'challenge_wrong_written_to_evidence');
   check(ledger?.events?.some((e)=>e.challenge_id==='real-use-loop-1'&&e.source==='reconstruction'&&e.outcome==='CORRECT'),'reconstruction_written_to_evidence');
+
+  // Crossing a 32-word transport boundary remains an in-place Runtime transition.
+  await goto(page,'/vocabulary/word/?o=31');
+  const boundaryDocumentBaseline=documentRequests;
+  for(const targetOrdinal of [32,33]){
+    if(await page.locator('[data-vocab-front]').isVisible())await page.keyboard.press('Space');
+    await page.locator('[data-vocab-route="known"]').click();
+    await page.locator('[data-vocab-ordinal="'+targetOrdinal+'"]').waitFor({state:'attached'});
+  }
+  check(documentRequests===boundaryDocumentBaseline,'transport_boundary_stays_in_same_document',String(documentRequests-boundaryDocumentBaseline));
+  check(new URL(page.url()).pathname==='/vocabulary/33/','transport_boundary_keeps_legacy_numeric_url',page.url());
 
   await page.screenshot({path:path.join(OUT,'vocabulary-real-use-loop-final.png'),fullPage:false});
   fs.writeFileSync(path.join(OUT,'report.json'),JSON.stringify({status:'PASS',checks},null,2));

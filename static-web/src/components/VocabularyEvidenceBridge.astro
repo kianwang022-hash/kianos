@@ -1,10 +1,8 @@
 ---
-const { nextHref = '/vocabulary/' } = Astro.props;
+const { total = 0 } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
-<div data-vocab-evidence-bridge data-next-href={nextHref} hidden></div>
-<style is:global>
-  .lexicalRoutingControls{display:flex;flex-wrap:wrap;gap:.55rem;justify-content:center;margin-top:.9rem}.lexicalRoutingControls button{border:1px solid currentColor;background:transparent;color:inherit;border-radius:.75rem;padding:.62rem .82rem;font:inherit;cursor:pointer}.lexicalRoutingControls button[data-route="known"],.lexicalRoutingControls button[data-route="mastered"]{font-weight:700}.lexicalRoutingHint{display:block;margin-top:.45rem;text-align:center;font-size:.8rem;opacity:.62}
-</style>
+<div data-vocab-evidence-bridge data-base={base} data-total={total} hidden></div>
 <script>
   import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, legacyEventId } from '../lib/lexicalEvidence.mjs';
   import {
@@ -19,15 +17,19 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     normalizeLexicalSettings,
     registerLexicalIntroduction
   } from '../lib/lexicalSettings.mjs';
+  import { lexicalWordOrdinal, lexicalWordRuntimeHref } from '../lib/lexicalRuntimeRoute.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable } from '../lib/lexicalBrowserState.mjs';
   void learnerWriterReady.then(() => {
   if (!lexicalBrowserStateReadable()) return;
 
   const bridge=document.querySelector('[data-vocab-evidence-bridge]');
-  const root=document.querySelector('[data-local-port="vocabulary"]');
-  if(bridge instanceof HTMLElement&&root instanceof HTMLElement){
-    const nextHref=bridge.getAttribute('data-next-href')||'/vocabulary/';
+  if(!(bridge instanceof HTMLElement)) return;
+  const base=bridge.getAttribute('data-base')||'/';
+  const total=Number(bridge.getAttribute('data-total')||0);
+  const initializeVocabularyEvidence=(root)=>{
+    if(!(root instanceof HTMLElement)||root.dataset.vocabEvidenceInitialized==='true')return;
+    root.dataset.vocabEvidenceInitialized='true';
     const word=root.getAttribute('data-vocab-word')||'';
     const objectId=root.getAttribute('data-vocab-object')||word;
     const ordinal=Number(root.getAttribute('data-vocab-ordinal')||0);
@@ -65,7 +67,10 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     const readSettings=()=>normalizeLexicalSettings(readJson(LEXICAL_SETTINGS_STORAGE_KEY,{daily_new_limit:DEFAULT_DAILY_NEW_LIMIT}));
     const readIntake=()=>normalizeLexicalIntake(readJson(LEXICAL_INTAKE_STORAGE_KEY,null));
     const saveIntake=(value)=>saveJson(LEXICAL_INTAKE_STORAGE_KEY,value);
-    const homeHref=()=>{const url=new URL('../',location.href);url.searchParams.set('limit','reached');return url.href};
+    const homeHref=()=>{const url=new URL(base+'vocabulary/',location.origin);url.searchParams.set('limit','reached');return url.href};
+    const requestRuntimeNavigation=(targetOrdinal,history='push')=>{
+      window.dispatchEvent(new CustomEvent('kianos:vocabulary-navigate',{detail:{ordinal:targetOrdinal,mode,history}}));
+    };
     const newWordBlocked=()=>{
       if(mode!=='study'||introductionDayFor(readIntake(),objectId))return false;
       return introducedCountForDay(readIntake(),localLexicalDay())>=readSettings().daily_new_limit;
@@ -83,7 +88,7 @@ const { nextHref = '/vocabulary/' } = Astro.props;
         word,
         route:String(route||'').toUpperCase(),
         observed_at:now,
-        return_href:location.pathname
+        return_href:lexicalWordRuntimeHref(base,ordinal,mode)
       };
       routing.history=[...routing.history,event].slice(-300);
       routing.latest_by_word={...(routing.latest_by_word||{}),[objectId]:event};
@@ -111,7 +116,12 @@ const { nextHref = '/vocabulary/' } = Astro.props;
         }
       }
       updateUndoState();
-      if(last.return_href)location.href=last.return_href;
+      if(last.return_href){
+        let targetOrdinal=0;
+        try{targetOrdinal=lexicalWordOrdinal(new URL(last.return_href,location.origin));}catch{}
+        if(Number.isInteger(targetOrdinal)&&targetOrdinal>0)requestRuntimeNavigation(targetOrdinal,'push');
+        else location.href=last.return_href;
+      }
     };
 
     const submitRoute=(route)=>{
@@ -130,12 +140,12 @@ const { nextHref = '/vocabulary/' } = Astro.props;
       recordRouting(route);
       const reached=introducedNow&&introducedCountForDay(intake,localLexicalDay())>=readSettings().daily_new_limit;
       if(reached){
-        const nextOrdinal=String(nextHref||'').match(/\/vocabulary\/(\d+)\/?/i)?.[1]||'';
-        if(nextOrdinal)try{localStorage.setItem('kianos-vocabulary-last-ordinal',nextOrdinal)}catch{}
+        if(ordinal<total)try{localStorage.setItem('kianos-vocabulary-last-ordinal',String(ordinal+1))}catch{}
         location.href=homeHref();
         return;
       }
-      location.href=nextHref;
+      if(ordinal<total)requestRuntimeNavigation(ordinal+1,'push');
+      else location.href=base+'vocabulary/';
     };
 
     routeButtons.forEach((button)=>button.addEventListener('click',()=>{
@@ -149,7 +159,7 @@ const { nextHref = '/vocabulary/' } = Astro.props;
     // the evidence bridge can observe the pre-toggle state and silently miss the admission.
     const recordToggle=(button)=>{const active=button.getAttribute('aria-pressed')==='true';append(targetEventFromButton(button,active?{}:{event_id:browserEventId('clear'),source:'manual_clear',outcome:'CLEAR'}))};
     root.addEventListener('click',(event)=>{const button=event.target instanceof HTMLElement?event.target.closest('[data-vocab-repair]'):null;if(button instanceof HTMLButtonElement)recordToggle(button)});
-    document.addEventListener('keydown',(event)=>{
+    const onRoutingKeydown=(event)=>{
       if(event.defaultPrevented||mode!=='study'||document.querySelector('[data-vocab-challenge-runtime][data-challenge-active="true"]'))return;
       const activeRoot=document.querySelector('[data-local-port="vocabulary"][data-vocab-keyboard-active="true"]')||document.querySelector('[data-local-port="vocabulary"]');
       if(activeRoot!==root)return;
@@ -164,8 +174,18 @@ const { nextHref = '/vocabulary/' } = Astro.props;
       const routeByKey={ArrowLeft:'unknown',ArrowUp:'fuzzy',ArrowRight:'known',ArrowDown:'mastered'};
       const route=routeByKey[event.key];
       if(route){event.preventDefault();submitRoute(route);}
-    });
-  }
+    };
+    document.addEventListener('keydown',onRoutingKeydown);
+    const onDispose=(event)=>{
+      if(!(event instanceof CustomEvent)||event.detail?.root!==root)return;
+      document.removeEventListener('keydown',onRoutingKeydown);
+      window.removeEventListener('kianos:vocabulary-root-dispose',onDispose);
+    };
+    window.addEventListener('kianos:vocabulary-root-dispose',onDispose);
+  };
+  const initializeCurrent=()=>document.querySelectorAll('[data-local-port="vocabulary"]').forEach(initializeVocabularyEvidence);
+  initializeCurrent();
+  window.addEventListener('kianos:vocabulary-root-ready',initializeCurrent);
 
   });
 </script>

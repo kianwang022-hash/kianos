@@ -115,11 +115,17 @@ export function validateCurrentLexicalTarget(event, descriptor) {
 }
 
 export async function resolveCurrentLexicalTarget(event,{fetcher=globalThis.fetch,base='/',parseDocument=null}={}) {
- const response=await fetcher(`${base}vocabulary/${Number(event.ordinal)}/`,{headers:{Accept:'text/html'},cache:'no-store'});
+ const ordinal=Number(event.ordinal);
+ const manifestResponse=await fetcher(`${base}vocabulary-data/manifest.json`,{headers:{Accept:'application/json'},cache:'no-store'});
+ if(!manifestResponse.ok)throw new Error('LEXICAL_CURRENT_OWNER_UNAVAILABLE');
+ const manifest=await manifestResponse.json();
+ const shard=(Array.isArray(manifest?.shards)?manifest.shards:[]).find(row=>Number(row?.start)<=ordinal&&ordinal<=Number(row?.end));
+ if(!shard?.key)throw new Error('LEXICAL_CURRENT_OWNER_UNAVAILABLE');
+ const response=await fetcher(`${base}vocabulary-data/${encodeURIComponent(shard.key)}/`,{headers:{Accept:'text/html'},cache:'no-store'});
  if(!response.ok)throw new Error('LEXICAL_CURRENT_OWNER_UNAVAILABLE');
  const html=await response.text();
  const doc=parseDocument?parseDocument(html):new DOMParser().parseFromString(html,'text/html');
- const root=doc.querySelector('[data-local-port="vocabulary"]');
+ const root=doc.querySelector(`[data-vocab-ordinal="${ordinal}"]`);
  if(!root)throw new Error('LEXICAL_CURRENT_OWNER_MISSING');
  return validateCurrentLexicalTarget(event,{word_id:root.getAttribute('data-vocab-object'),ordinal:Number(root.getAttribute('data-vocab-ordinal')),source_hash:root.getAttribute('data-vocab-source-hash'),targets:[...root.querySelectorAll('[data-vocab-repair]')].map(n=>({target_kind:n.getAttribute('data-target-kind'),target_id:n.getAttribute('data-target-id')||null,target_locator:n.getAttribute('data-target-locator')||null,target_label:n.getAttribute('data-target-label')}))});
 }

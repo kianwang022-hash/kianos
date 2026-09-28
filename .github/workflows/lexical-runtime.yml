@@ -110,6 +110,10 @@ jobs:
         working-directory: static-web
         run: node scripts/test-lexical-identity-lineage.mjs
 
+      - name: Prove Candidate refreshes materialized lexical projection
+        working-directory: static-web
+        run: node scripts/test-lexical-candidate-projection-refresh.mjs
+
       - name: Install Astro dependencies
         working-directory: static-web
         run: npm install --no-audit --no-fund

@@ -94,7 +94,7 @@ const routes = [
   ['full-paper-index', '/english-exam/'],
   ['full-paper-overview', `/english-exam/${encodeURIComponent(paper.paperId)}/`],
   ['vocabulary-home', '/vocabulary/'],
-  ['vocabulary-word', `/vocabulary/${encodeURIComponent(lexicalWord.ordinal)}/`]
+  ['vocabulary-word', `/vocabulary/word/?o=${encodeURIComponent(lexicalWord.ordinal)}`]
 ];
 
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4482'], {

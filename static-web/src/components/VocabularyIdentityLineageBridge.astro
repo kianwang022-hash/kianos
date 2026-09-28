@@ -1,23 +1,30 @@
----
-const { lineage = [] } = Astro.props;
-const payload = JSON.stringify(Array.isArray(lineage) ? lineage : []).replace(/</g, '\\u003c');
----
-<div data-vocab-identity-lineage-bridge hidden>
-  <script type="application/json" data-vocab-identity-lineage set:html={payload}></script>
-</div>
+<div data-vocab-identity-lineage-bridge hidden></div>
 <script>
   import { reconcileEvidenceIdentity } from '../lib/lexicalEvidence.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable } from '../lib/lexicalBrowserState.mjs';
+
   void learnerWriterReady.then(() => {
     if (!lexicalBrowserStateReadable()) return;
-    const bridge = document.querySelector('[data-vocab-identity-lineage-bridge]');
-    if (!(bridge instanceof HTMLElement)) return;
-    let lineage = [];
-    try { lineage = JSON.parse(bridge.querySelector('[data-vocab-identity-lineage]')?.textContent || '[]'); } catch {}
-    if (!Array.isArray(lineage) || !lineage.length) return;
-    const params = new URLSearchParams(location.search);
-    if (params.get('mode') === 'lookup' || params.has('lookup') || params.get('from') === 'english') return;
-    writeBrowserLexicalLedger(reconcileEvidenceIdentity(readBrowserLexicalLedger(), lineage).ledger);
+
+    const initialize = (root) => {
+      if (!(root instanceof HTMLElement) || root.dataset.vocabIdentityInitialized === 'true') return;
+      root.dataset.vocabIdentityInitialized = 'true';
+      const params = new URLSearchParams(location.search);
+      if (params.get('mode') === 'lookup' || params.has('lookup') || params.get('from') === 'english') return;
+      let lineage = [];
+      try {
+        lineage = JSON.parse(root.querySelector('[data-vocab-identity-lineage]')?.textContent || '[]');
+      } catch {}
+      if (!Array.isArray(lineage) || !lineage.length) return;
+      writeBrowserLexicalLedger(reconcileEvidenceIdentity(readBrowserLexicalLedger(), lineage).ledger);
+    };
+
+    const initializeCurrent = () => {
+      document.querySelectorAll('[data-local-port="vocabulary"]').forEach(initialize);
+    };
+
+    initializeCurrent();
+    window.addEventListener('kianos:vocabulary-root-ready', initializeCurrent);
   });
 </script>
