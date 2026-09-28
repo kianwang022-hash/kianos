@@ -478,6 +478,7 @@ export function englishSessionStepHref(step, base = '/') {
   const normalizedBase = String(base || '/').endsWith('/') ? String(base || '/') : String(base || '/') + '/';
   if (step.task === 'external_reading') return normalizedBase + 'external-reading/?id=' + encodeURIComponent(step.object_id);
   if (step.task === 'reading_a' && String(step.object_id).startsWith('external-chat-')) return normalizedBase + 'reading-generated/?id=' + encodeURIComponent(step.object_id);
+  if (step.task === 'cloze' && String(step.object_id).startsWith('external-chat-')) return normalizedBase + 'cloze-generated/?id=' + encodeURIComponent(step.object_id);
   const prefix = ({
     reading_a: 'reading',
     cloze: 'cloze',

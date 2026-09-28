@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/EnglishBase.astro';
+import '../styles/english-cloze-vertical.css';
+import GeneratedClozeWorkspace from '../components/GeneratedClozeWorkspace.astro';
+import ObjectiveHandoff from '../components/ObjectiveHandoff.astro';
+import ObjectiveTransferClaims from '../components/ObjectiveTransferClaims.astro';
+---
+<Base title="Cloze 定向训练" kicker="English · Cloze" description="" sourcePath="private://english-generated" objectId="english:generated-cloze" active="cloze" showLead={false}>
+  <GeneratedClozeWorkspace />
+  <ObjectiveHandoff />
+  <ObjectiveTransferClaims task="cloze" />
+</Base>
