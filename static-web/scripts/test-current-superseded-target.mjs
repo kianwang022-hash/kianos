@@ -42,6 +42,26 @@ function runOnce(env = {}) {
   });
 }
 
+function startInFlight() {
+  const child = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], {
+    cwd: mirror,
+    env: {
+      ...process.env,
+      KIANOS_SYNC_ONCE: '1',
+      KIANOS_NPM_BIN: path.join(root, 'npm-fixture'),
+      KIANOS_RELEASES_DIR: releases,
+      KIANOS_BUILD_NICE: '0',
+      KIANOS_TEST_BUILD_SLEEP: '1'
+    },
+    stdio: ['ignore', 'pipe', 'pipe']
+  });
+  let log = '';
+  child.stdout.on('data', (chunk) => { log += chunk.toString(); });
+  child.stderr.on('data', (chunk) => { log += chunk.toString(); });
+
+  return { exit: once(child, 'exit'), output: () => log };
+}
+
 async function waitForBuild(sha, timeoutMs = 8000) {
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
@@ -117,21 +137,7 @@ echo built > "$out/index.html"
   git(upstream, 'push', 'origin', 'main');
   fs.writeFileSync(events, '');
 
-  const inFlight = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], {
-    cwd: mirror,
-    env: {
-      ...process.env,
-      KIANOS_SYNC_ONCE: '1',
-      KIANOS_NPM_BIN: npm,
-      KIANOS_RELEASES_DIR: releases,
-      KIANOS_BUILD_NICE: '0',
-      KIANOS_TEST_BUILD_SLEEP: '1'
-    },
-    stdio: ['ignore', 'pipe', 'pipe']
-  });
-  let inFlightLog = '';
-  inFlight.stdout.on('data', (chunk) => { inFlightLog += chunk.toString(); });
-  inFlight.stderr.on('data', (chunk) => { inFlightLog += chunk.toString(); });
+  const inFlight = startInFlight();
 
   await waitForBuild(b);
 
@@ -141,8 +147,8 @@ echo built > "$out/index.html"
   const c = git(upstream, 'rev-parse', 'HEAD');
   git(upstream, 'push', 'origin', 'main');
 
-  const [firstCode] = await once(inFlight, 'exit');
-  assert.equal(firstCode, 1, inFlightLog);
+  const [firstCode] = await inFlight.exit;
+  assert.equal(firstCode, 1, inFlight.output());
   assert.equal(
     fs.realpathSync(path.join(releases, 'active')),
     fs.realpathSync(path.join(releases, 'releases', a)),
@@ -165,7 +171,78 @@ echo built > "$out/index.html"
 
   const rows = fs.readFileSync(events, 'utf8').trim().split('\n').filter(Boolean);
   assert.deepEqual(rows, ['build ' + b, 'build ' + c]);
-  console.log('CURRENT_SUPERSEDED_TARGET PASS: obsolete built SHA is discarded before Stable activation; newest main promotes once');
+  // Later control-only commits must reuse the completed release, retaining its
+  // source SHA while advancing the mirror to the latest actually fetched main.
+  write('static-web/src/pages/fixture.astro', '<p>D</p>\n');
+  git(upstream, 'add', '.');
+  git(upstream, 'commit', '-m', 'D');
+  const d = git(upstream, 'rev-parse', 'HEAD');
+  git(upstream, 'push', 'origin', 'main');
+  fs.writeFileSync(events, '');
+  const controlAdvance = startInFlight();
+  await waitForBuild(d);
+  write('CURRENT.md', '# First control update\n');
+  git(upstream, 'add', '.');
+  git(upstream, 'commit', '-m', 'E control');
+  const e = git(upstream, 'rev-parse', 'HEAD');
+  git(upstream, 'push', 'origin', 'main');
+  write('CURRENT.md', '# Latest control update\n');
+  git(upstream, 'add', '.');
+  git(upstream, 'commit', '-m', 'F control');
+  const f = git(upstream, 'rev-parse', 'HEAD');
+  git(upstream, 'push', 'origin', 'main');
+
+  const [controlCode] = await controlAdvance.exit;
+  assert.equal(controlCode, 0, controlAdvance.output());
+  const readStatus = () => JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json'), 'utf8'));
+  const controlStatus = readStatus();
+  assert.equal(controlStatus.state, 'synced');
+  assert.equal(controlStatus.sha, d, 'release identity must remain its actual built source');
+  assert.equal(controlStatus.control_sha, f, 'control must advance to latest fetched main');
+  assert.equal(controlStatus.target_sha, f);
+  assert.equal(controlStatus.static_build, 'reused');
+  assert.equal(git(mirror, 'rev-parse', 'HEAD'), f);
+  assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(path.join(releases, 'releases', d)));
+  assert.equal(git(path.join(releases, 'active'), 'rev-parse', 'HEAD'), d);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(releases, 'active/static-web/dist/__kianos-current.json'))).sha, d);
+  assert.equal(fs.realpathSync(path.join(releases, 'previous')), fs.realpathSync(path.join(releases, 'releases', c)));
+  for (const sha of [e, f]) assert.equal(fs.existsSync(path.join(releases, 'releases', sha)), false);
+  assert.deepEqual(fs.readFileSync(events, 'utf8').trim().split('\n'), ['build ' + d]);
+
+  const idle = runOnce();
+  assert.equal(idle.status, 0, idle.stderr || idle.stdout);
+  assert.equal(readStatus().sha, d);
+  assert.equal(readStatus().control_sha, f);
+  assert.deepEqual(fs.readFileSync(events, 'utf8').trim().split('\n'), ['build ' + d], 'next sync must remain idle');
+
+  // Runtime scripts are not static inputs, but still invalidate the candidate.
+  // Unknown/runtime behavior must never be admitted as a control-only change.
+  write('static-web/src/pages/fixture.astro', '<p>G</p>\n');
+  git(upstream, 'add', '.');
+  git(upstream, 'commit', '-m', 'G');
+  const g = git(upstream, 'rev-parse', 'HEAD');
+  git(upstream, 'push', 'origin', 'main');
+  fs.writeFileSync(events, '');
+  const runtimeAdvance = startInFlight();
+  await waitForBuild(g);
+  write('static-web/scripts/fixture-runtime.mjs', 'export const runtimeVersion = 2;\n');
+  git(upstream, 'add', '.');
+  git(upstream, 'commit', '-m', 'H runtime');
+  const h = git(upstream, 'rev-parse', 'HEAD');
+  git(upstream, 'push', 'origin', 'main');
+  const [runtimeCode] = await runtimeAdvance.exit;
+  assert.equal(runtimeCode, 1, runtimeAdvance.output());
+  assert.equal(readStatus().static_build, 'discarded-superseded');
+  assert.equal(readStatus().target_sha, h);
+  assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(path.join(releases, 'releases', d)));
+  assert.equal(fs.existsSync(path.join(releases, 'releases', g)), false);
+  const runtimeFinal = runOnce();
+  assert.equal(runtimeFinal.status, 0, runtimeFinal.stderr || runtimeFinal.stdout);
+  assert.equal(git(mirror, 'rev-parse', 'HEAD'), h);
+  assert.equal(readStatus().sha, h);
+  assert.equal(fs.realpathSync(path.join(releases, 'previous')), fs.realpathSync(path.join(releases, 'releases', d)));
+  assert.deepEqual(fs.readFileSync(events, 'utf8').trim().split('\n'), ['build ' + g, 'build ' + h]);
+  console.log('CURRENT_SUPERSEDED_TARGET PASS: static/runtime changes discard; control-only advances retain one exact build and latest fetched control');
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

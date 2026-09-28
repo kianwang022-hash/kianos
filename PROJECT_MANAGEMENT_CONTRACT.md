@@ -642,6 +642,8 @@ Use `packet --fetch --ref origin/main` for fresh GitHub-main entry even when the
 
 `remote:snapshot` includes recognized KianOS transient Chrome / Candidate / Astro processes so a fresh Chat sees local resource occupancy before starting another heavy lane. `remote:verify` compares those processes before/after the bounded verification and fails closed when the verification leaves a new recognized transient process alive. `remote:hygiene` is explicit-only: without `--apply` it lists; with `--apply` it terminates only exact PIDs that are still recognized as KianOS transient processes. Resolve active ownership before applying it; never mass-kill by age alone.
 
+`remote:verify` gives each command a 300-second timeout; use `--timeout-seconds` for an explicitly longer or shorter existing check. On timeout or interruption it terminates its own command process group and returns a non-success receipt with the log path. It never treats a timeout as proof or kills another task's process group. Interactive browser work uses the existing [Website browser entry](static-web/README.md), with one named Playwright CLI session and explicit teardown.
+
 These helpers may collect, execute, summarize and close their own local execution resources. They must not decide medical meaning, learner state, product policy, acceptance, task priority, or whether a semantic relation is safe.
 
 Use a helper only when it is cheaper than the direct operation. One simple local command should remain one simple local command.

@@ -3,9 +3,11 @@
 import json
 import os
 import signal
+import shlex
 import subprocess
 import sys
 import tempfile
+import time
 import unittest
 from pathlib import Path
 
@@ -32,6 +34,7 @@ class RemoteOpsTests(unittest.TestCase):
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             check=False,
+            timeout=20,
         )
 
     def test_snapshot_reports_dirty_state(self):
@@ -192,7 +195,132 @@ class RemoteOpsTests(unittest.TestCase):
         self.assertEqual(len(payload["commands"]), 2)
         self.assertEqual(payload["commands"][0]["tail"], ["hello"])
         self.assertTrue(Path(payload["commands"][0]["log"]).exists())
+        self.assertEqual(payload["commands"][0]["timeout_seconds"], 300)
+        self.assertFalse(payload["commands"][0]["timed_out"])
+        self.assertIsNone(payload["commands"][0]["cleanup"])
 
+
+    def hanging_command(self, repo):
+        script = repo / "hanging.py"
+        child_code = ("import os, signal, time; from pathlib import Path; "
+                      "signal.signal(signal.SIGTERM, signal.SIG_IGN); "
+                      "Path('child-ready').write_text(str(os.getpid())); time.sleep(60)")
+        script.write_text(
+            "import json, os, subprocess, sys, time\n"
+            "from pathlib import Path\n"
+            f"child = subprocess.Popen([sys.executable, '-c', {child_code!r}])\n"
+            "while not Path('child-ready').exists(): time.sleep(0.01)\n"
+            "Path('pids.json').write_text(json.dumps([os.getpid(), child.pid]))\n"
+            "child.wait()\n",
+            encoding="utf-8",
+        )
+        return f"{shlex.quote(sys.executable)} {shlex.quote(str(script))}"
+
+    def assert_process_stopped(self, pid):
+        deadline = time.monotonic() + 3.0
+        while time.monotonic() < deadline:
+            state = subprocess.run(["ps", "-p", str(pid), "-o", "stat="],
+                                   text=True, stdout=subprocess.PIPE, check=False).stdout.strip()
+            if not state or state.startswith("Z"):
+                return
+            time.sleep(0.05)
+        self.fail(f"process {pid} is still running: {state}")
+
+    def test_verify_timeout_kills_own_group_and_preserves_unrelated_process(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        unrelated = subprocess.Popen([sys.executable, "-c", "import time; time.sleep(60)"],
+                                     start_new_session=True)
+        try:
+            result = self.call("verify", "--repo", str(repo), "--timeout-seconds", "1",
+                               "--keep-going", "--cmd", self.hanging_command(repo),
+                               "--cmd", "touch should-not-run")
+            self.assertEqual(result.returncode, 124, result.stdout)
+            payload = json.loads(result.stdout)
+            self.assertFalse(payload["ok"])
+            self.assertEqual(len(payload["commands"]), 1)
+            item = payload["commands"][0]
+            self.assertTrue(item["timed_out"])
+            self.assertEqual(item["timeout_seconds"], 1)
+            self.assertTrue(item["cleanup"]["term_sent"])
+            self.assertTrue(item["cleanup"]["kill_sent"])
+            self.assertFalse(item["cleanup"]["live_group_remaining"])
+            self.assertEqual(item["cleanup"]["errors"], [])
+            for pid in json.loads((repo / "pids.json").read_text()):
+                self.assert_process_stopped(pid)
+            self.assertIsNone(unrelated.poll())
+            self.assertFalse((repo / "should-not-run").exists())
+        finally:
+            unrelated.kill()
+            unrelated.wait(timeout=3)
+            if (repo / "pids.json").exists():
+                for pid in json.loads((repo / "pids.json").read_text()):
+                    try:
+                        os.kill(pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+
+    def test_verify_interrupt_cleans_own_group_and_reports_signal(self):
+        for sig in (signal.SIGINT, signal.SIGTERM):
+            with self.subTest(signal=sig):
+                temp, repo = self.make_repo()
+                self.addCleanup(temp.cleanup)
+                command = self.hanging_command(repo)
+                proc = subprocess.Popen(
+                    [sys.executable, str(SCRIPT), "verify", "--repo", str(repo),
+                     "--timeout-seconds", "15", "--keep-going", "--cmd", command,
+                     "--cmd", "touch should-not-run"],
+                    text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                    start_new_session=True,
+                )
+                try:
+                    deadline = time.monotonic() + 5
+                    while not (repo / "pids.json").exists() and proc.poll() is None and time.monotonic() < deadline:
+                        time.sleep(0.02)
+                    self.assertTrue((repo / "pids.json").exists())
+                    proc.send_signal(sig)
+                    output, _ = proc.communicate(timeout=10)
+                    self.assertEqual(proc.returncode, 128 + sig, output)
+                    payload = json.loads(output)
+                    self.assertFalse(payload["ok"])
+                    self.assertEqual(payload["interrupted_signal"], signal.Signals(sig).name)
+                    self.assertEqual(len(payload["commands"]), 1)
+                    item = payload["commands"][0]
+                    self.assertFalse(item["timed_out"])
+                    self.assertEqual(item["interrupted_signal"], signal.Signals(sig).name)
+                    self.assertTrue(item["cleanup"]["kill_sent"])
+                    self.assertFalse(item["cleanup"]["live_group_remaining"])
+                    self.assertEqual(item["cleanup"]["errors"], [])
+                    for pid in json.loads((repo / "pids.json").read_text()):
+                        self.assert_process_stopped(pid)
+                    self.assertFalse((repo / "should-not-run").exists())
+                finally:
+                    if proc.poll() is None:
+                        proc.kill()
+                        proc.wait(timeout=3)
+                    if (repo / "pids.json").exists():
+                        for pid in json.loads((repo / "pids.json").read_text()):
+                            try:
+                                os.kill(pid, signal.SIGKILL)
+                            except ProcessLookupError:
+                                pass
+
+    def test_verify_rejects_unbounded_timeout(self):
+        for value in ("0", "-1", "nan", "inf"):
+            with self.subTest(value=value):
+                result = self.call("verify", "--timeout-seconds", value, "--cmd", "true")
+                self.assertEqual(result.returncode, 2, result.stdout)
+                self.assertIn("positive finite", result.stdout)
+
+    def test_verify_keep_going_preserves_first_failure(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        result = self.call("verify", "--repo", str(repo), "--keep-going",
+                           "--cmd", "exit 7", "--cmd", "printf 'after\\n'", "--cmd", "exit 9")
+        self.assertEqual(result.returncode, 7, result.stdout)
+        payload = json.loads(result.stdout)
+        self.assertEqual([item["exit_code"] for item in payload["commands"]], [7, 0, 9])
+        self.assertEqual(payload["commands"][1]["tail"], ["after"])
 
     def test_verify_allows_short_async_teardown(self):
         temp, repo = self.make_repo()

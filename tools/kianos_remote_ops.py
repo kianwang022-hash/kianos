@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import re
 import shutil
@@ -369,7 +370,76 @@ def tail(path: Path, lines: int) -> list[str]:
     return values[-lines:]
 
 
+def process_group_alive(pgid: int) -> bool:
+    # A dead orphan can remain as a zombie briefly; killpg(..., 0) may even
+    # return EPERM for that group on macOS. Read live members without signaling.
+    result = subprocess.run(["ps", "-axo", "pgid=,stat="], text=True,
+                            stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                            check=True, timeout=2.0)
+    for line in result.stdout.splitlines():
+        fields = line.split()
+        if len(fields) == 2 and fields[0] == str(pgid) and not fields[1].startswith("Z"):
+            return True
+    return False
+
+
+def stop_verify_process_group(process: subprocess.Popen) -> dict[str, object]:
+    # start_new_session=True makes this PID the group ID. Only this exact group
+    # receives signals; pre-existing or detached sessions are never targeted.
+    cleanup: dict[str, object] = {"process_group": process.pid, "term_sent": False, "kill_sent": False}
+    errors: list[str] = []
+
+    def send(sig, field):
+        try:
+            os.killpg(process.pid, sig)
+            cleanup[field] = True
+        except ProcessLookupError:
+            pass
+        except OSError as exc:
+            errors.append(f"{signal.Signals(sig).name}: {exc}")
+
+    def wait_for_group(seconds):
+        deadline = time.monotonic() + seconds
+        while True:
+            process.poll()
+            try:
+                alive = process_group_alive(process.pid)
+            except (OSError, subprocess.SubprocessError) as exc:
+                errors.append(f"group readback: {exc}")
+                return True
+            if not alive or time.monotonic() >= deadline:
+                return alive
+            time.sleep(0.05)
+
+    send(signal.SIGTERM, "term_sent")
+    if wait_for_group(2.0):
+        send(signal.SIGKILL, "kill_sent")
+    cleanup["live_group_remaining"] = wait_for_group(1.0)
+    try:
+        process.wait(timeout=1.0)
+    except subprocess.TimeoutExpired:
+        errors.append("group leader did not exit after cleanup")
+    cleanup["leader_exit_code"] = process.returncode
+    cleanup["errors"] = errors
+    return cleanup
+
+
 def verify(args: argparse.Namespace) -> int:
+    interrupted: list[int] = []
+
+    def record_signal(signum, _frame):
+        if not interrupted:
+            interrupted.append(signum)
+
+    previous = {sig: signal.signal(sig, record_signal) for sig in (signal.SIGINT, signal.SIGTERM)}
+    try:
+        return verify_commands(args, interrupted)
+    finally:
+        for sig, handler in previous.items():
+            signal.signal(sig, handler)
+
+
+def verify_commands(args: argparse.Namespace, interrupted: list[int]) -> int:
     repo = resolve_repo(args.repo)
     transient_before = transient_processes()
     transient_before_pids = {int(row["pid"]) for row in transient_before}
@@ -382,30 +452,53 @@ def verify(args: argparse.Namespace) -> int:
     overall = 0
 
     for index, command in enumerate(args.cmd, start=1):
+        if interrupted:
+            break
         log_path = log_dir / f"{index:02d}.log"
         started = time.monotonic()
+        timed_out = False
+        cleanup = None
         with log_path.open("w", encoding="utf-8") as handle:
-            result = subprocess.run(
-                command,
-                cwd=repo,
-                shell=True,
-                executable=shell,
-                text=True,
-                stdout=handle,
-                stderr=subprocess.STDOUT,
-                check=False,
+            process = subprocess.Popen(
+                command, cwd=repo, shell=True, executable=shell,
+                text=True, stdout=handle, stderr=subprocess.STDOUT,
+                start_new_session=True,
             )
+            try:
+                while not interrupted:
+                    remaining = args.timeout_seconds - (time.monotonic() - started)
+                    if remaining <= 0:
+                        timed_out = True
+                        break
+                    try:
+                        process.wait(timeout=min(0.1, remaining))
+                        break
+                    except subprocess.TimeoutExpired:
+                        pass
+                if interrupted or timed_out:
+                    cleanup = stop_verify_process_group(process)
+            except BaseException:
+                stop_verify_process_group(process)
+                raise
+        exit_code = 128 + interrupted[0] if interrupted else 124 if timed_out else process.returncode
         item = {
             "command": command,
-            "exit_code": result.returncode,
+            "exit_code": exit_code,
             "duration_ms": round((time.monotonic() - started) * 1000),
+            "timeout_seconds": args.timeout_seconds,
+            "timed_out": timed_out,
+            "interrupted_signal": signal.Signals(interrupted[0]).name if interrupted else None,
+            "cleanup": cleanup,
             "log": str(log_path),
             "tail": tail(log_path, args.tail),
         }
         results.append(item)
-        if result.returncode and not overall:
-            overall = result.returncode
-        if result.returncode and not args.keep_going:
+        if interrupted or timed_out:
+            overall = exit_code
+            break
+        if exit_code and not overall:
+            overall = exit_code
+        if exit_code and not args.keep_going:
             break
 
     transient_after = transient_processes()
@@ -428,8 +521,11 @@ def verify(args: argparse.Namespace) -> int:
     if not resource_clean and not overall:
         overall = 86
 
+    if interrupted:
+        overall = 128 + interrupted[0]
     report = {
         "ok": overall == 0 and resource_clean,
+        "interrupted_signal": signal.Signals(interrupted[0]).name if interrupted else None,
         "commands": results,
         "resource_hygiene": {
             "clean": resource_clean,
@@ -498,6 +594,13 @@ def hygiene(args: argparse.Namespace) -> int:
     return 0 if not skipped else 2
 
 
+def positive_seconds(value: str) -> float:
+    seconds = float(value)
+    if not math.isfinite(seconds) or seconds <= 0:
+        raise argparse.ArgumentTypeError("timeout must be a positive finite number of seconds")
+    return seconds
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Bundle local KianOS reads/checks so Remote needs fewer round-trips."
@@ -528,6 +631,8 @@ def build_parser() -> argparse.ArgumentParser:
     check.add_argument("--tail", type=int, default=40)
     check.add_argument("--log-dir")
     check.add_argument("--keep-going", action="store_true")
+    check.add_argument("--timeout-seconds", type=positive_seconds, default=300.0,
+                       help="per-command timeout; timeout/interruption stops the batch and cleans its process group")
     check.add_argument("--resource-grace-seconds", type=float, default=2.0)
 
     clean = sub.add_parser("hygiene", help="list or explicitly terminate recognized KianOS transient local processes")
