@@ -96,29 +96,13 @@ Normal Biochemistry first learning is:
 current authoritative Biochemistry Source
 → continuous Source contact in teacher order
 → map Source segments to existing canonical Block / Logic Group / KP owners
-→ do not interrupt the Source lane with mandatory KP/LG Recall or rating gates
-→ when a canonical Block's last required current-Source segment has formed the model:
-   Block Recall
-   → drill down to LG/KP only where reconstruction exposes a real weak point
-   → smallest-sufficient Repair when needed
+→ local KP/LG retrieval only when the owning material has actually been formed
+→ Block closure only after its last required current-Source segment is complete
 → state-based cross-Block reconstruction
 → official questions
+→ smallest-sufficient repair
 → progressively thinner Memory
 ```
-
-Biochemistry therefore keeps a deliberate exception to the generic Xizong first-pass execution unit:
-
-```text
-ordinary Xizong
-→ one Block = one continuous Learn unit
-
-Biochemistry
-→ one teacher-order Source lane = continuous Learn unit
-→ one canonical Block may form across multiple non-contiguous Source units
-→ formal Recall waits until that Block is actually formed
-```
-
-This exception preserves Source continuity; it does **not** authorize a second learner-facing hierarchy or mandatory local Recall ceremony.
 
 Biochemistry is **not routinely interleaved** with digestive / endocrine / organ Blocks during first-pass Source formation.
 
@@ -458,20 +442,18 @@ These jobs are part of durable Content Realization. They are not a second Lectur
 
 ## 7.1 Local Recall
 
-KP / LG Recall remains available as a **targeted retrieval capability**, not a mandatory first-pass progression gate.
+Release KP / LG Recall only after:
 
-Use it only when:
-- Block Recall exposes a precise weak object;
-- Repair / Memory / later Practice benefits from a bounded drill-down;
-- or Kian explicitly chooses a local retrieval check.
+- the owning current-Source material has actually been encountered;
+- the minimum prerequisite language is available.
 
-Do not create a rating or closure ceremony merely because a Source segment has formed one local object.
+Do not wait for unrelated formal Block closure when the local cognitive object is already valid.
 
 ## 7.2 Block Recall
 
 Block Recall reconstructs the Block model, not all KP wording.
 
-For distributed Blocks, Block Recall waits until the last required Source unit has completed the model. That wait is intentional: partial Source formation does not trigger mandatory local Recall debt.
+For distributed Blocks, Block Recall waits until the last required Source unit has completed the model.
 
 ## 7.3 Cross-Block state reconstruction
 

@@ -60,16 +60,13 @@ The lane-level first-pass journey is:
 System orientation
 → choose Block
 → Block orientation
-→ one continuous Block Learn
-   → original Lecture / MarginNote remains the primary Source-learning surface
-   → Logic Group / KP preserve structure, location and current understanding targets
-   → KianOS support is on-demand rather than a continuously attended second screen
-→ reviewed TTSX only at a real owned Source boundary when one exists
-→ finish the Block Learn unit
+→ current Source-contact orientation under the System Learning owner
+→ original Lecture / MarginNote continuous study at that accepted granularity
+→ return at the accepted retrieval point
+→ KP Recall in the accepted Logic Group order
+→ automatic Logic Group closure
+→ next retrieval group; reopen Source only when the owning Source unit requires it
 → Block Recall
-   → reconstruct the Block model from the center problem / Logic Group skeleton
-   → drill down to LG / KP only when Recall exposes a real weak point
-→ smallest-sufficient Repair when needed
 → Block Complete
 → after the System has actually been learned: System Recall
 → official System question sweep
@@ -107,19 +104,19 @@ System
 → KP identity
 ```
 
-- Block is the main continuous first-learning execution/problem unit;
-- Logic Group protects local structure/orientation inside the Block; it is not a mandatory first-pass Recall gate;
-- KP is stable canonical identity / local Learn object, not automatically first-learning order or a required Recall ceremony;
+- Block is the main continuous first-learning problem unit;
+- Logic Group protects local continuity / closure;
+- KP is stable canonical identity, not automatically first-learning order;
 - do not regress to KP-by-KP app switching.
 
 ## 3.3 First-pass closure gates
 
 The first-pass policy includes, where applicable:
 
-- formal Lecture contact for the whole Block's owned learning scope;
-- one continuous Block Learn rather than mandatory per-KP Recall/rating gates;
-- Block Recall after the Block Learn unit is finished;
-- targeted LG / KP Recall only when a real weak point or later retrieval job earns that drill-down;
+- formal Lecture contact for owned KPs;
+- at least one active KP Recall;
+- Logic Group closure;
+- Block Recall;
 - pre-question System Recall;
 - System-wide official-question coverage sweep;
 - durable Wrong / Uncertain repair evidence;

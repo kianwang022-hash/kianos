@@ -54,7 +54,7 @@ If two inputs disagree, the resolver must fail closed or preserve the higher-aut
 | Logic Group | LG identity, short goal, closure, ordered KP membership | LG Visual, Connection, Precision, Extension | independent large page or Source-contact boundary by itself |
 | KP Learn | canonical Prompt + full Core + Source + Outline | current-owner Precision, Visual, Extension, Connection / boundary support | answer-protected Recall card, separate enhancer stack, replacement Lecture |
 | KP Recall | same KP identity/title + Prompt with Core hidden until Reveal | Source / Outline + Current-owned Precision / Visual / Extension / Connection may remain visible | duplicate answer card or hidden second learner object |
-| Logic Group structure / closure cue | one local model target plus useful post-learn exactness/forward connection | group Precision / Extension | mandatory first-pass Recall/rating gate or second review session |
+| LG Closure | one local closure target plus useful post-learn exactness/forward connection | group Precision / post-Reveal Extension | second review session |
 | Block Closure | Block Recall result + explicit Block Complete gate | release descriptor for Memory integration | automatic immediate review debt |
 
 The table is a consumption contract, not a pixel/layout contract.

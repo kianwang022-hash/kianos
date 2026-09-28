@@ -6,31 +6,27 @@ Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
 This file records the accepted Mac-wide Block Workspace design only. It does not change Xizong medical Content, Learning Logic, Runtime, Evidence, Repair, Return, or existing S/K/L/P/R/E/U claims.
 
-## 1｜Baseline: express the accepted Block-level first-pass loop
+## 1｜Baseline: optimize the accepted loop, do not redesign it
 
-Preserve this learner chain:
+Preserve the existing mature learner chain:
 
 ```text
 Block orientation
-→ current Logic Group purpose / KP structure visible as navigation/context
-→ one continuous Block Learn
-   → iPad / MarginNote continuous original-Lecture study is primary
-   → Mac KP/LG support appears when useful but does not demand continuous dual-screen attention
+→ current Logic Group purpose / closure shown inside the persistent Logic Map
+→ iPad / MarginNote continuous original-Lecture study while Mac stays on KP Learn
 → at a real reviewed Source boundary, when a reviewed Lecture-attached TTSX binding exists: lightweight TTSX checkpoint
-→ learner advances through the Block while KP / LG remain Learn structure rather than Recall gates
-→ finish the whole Block Learn unit
-→ Block Recall
-   → reconstruct the Block from center question / Logic Group skeleton
-   → drill down to LG / KP only for real weak points
-→ smallest-sufficient Repair when needed
+→ current KP marked learned as the learner advances
+→ that Logic Group's KP Recall on the same KP card with Core hidden
+→ last KP rating automatically closes the Logic Group in the Logic Map
+→ next Logic Group
+→ final Logic Group closes directly into Block Recall
+→ Reveal Block model
 → complete Block Recall
 → lightweight same-surface confirmation of Block first-pass completion
 → After Learn when useful
 ```
 
-There is no mandatory first-pass per-KP Recall/rating gate and no LG-completion ceremony that interrupts the continuous Block Learn unit. KP Recall remains available for targeted retrieval / Repair / Memory / later-stage use.
-
-The shared Block UI must express this accepted loop rather than preserve the historical per-KP Recall progression merely because Runtime can do it.
+The shared Block UI is a Projection optimization of this accepted loop, not a new learner flow.
 
 ## 2｜Mac-wide workspace skeleton — ACCEPTED
 
@@ -70,10 +66,10 @@ Preserve semantically:
 - Logic Group navigation;
 - accepted System-specific continuous Source-contact model;
 - one return at the accepted Source boundary, not an automatic trip per LG;
-- same-card KP Recall capability with Core-only reveal gating when targeted retrieval is actually invoked;
-- KP Recall evidence semantics when such a real Recall occurs;
-- Logic Group map / local structure without a mandatory first-pass Recall closure gate;
-- Block Recall and completion gate as the normal first-pass retrieval closure;
+- same-card KP Recall with Core-only reveal gating;
+- KP Recall evidence semantics;
+- Logic Group closure;
+- Block Recall and completion gate;
 - learner-state guards;
 - existing Memory / Repair / Evidence / Return semantics;
 - timing semantics of Visual / Precision / Connection / Reserve where Current owns them.
@@ -118,7 +114,7 @@ A shared Block change must not silently lose A2's Current Visual / Precision / C
 
 > **把点击用在切换认知对象，不要用在获得本来就该看到的信息。**
 
-Legitimate clicks/state changes include switching Logic Group/KP during Learn, entering external Lecture, entering post-Block Recall, drilling into a targeted KP Recall when reality earns it, or an actually useful After-Learn task. First-pass progression must not require KP ratings merely to close a Logic Group; Block Recall is the normal retrieval closure for the continuous Block Learn unit.
+Legitimate clicks/state changes include switching Logic Group, entering external Lecture, returning for Recall, moving through KP Recall, Block Recall, or an actually useful After-Learn task. Logic Group closure itself is derived automatically from completed KP Recall evidence.
 
 Important first-round Block Guide structure should normally be visible on Mac without repeated accordion/detail opening. Protected answers and truly secondary/later reference remain progressively disclosed.
 
@@ -155,14 +151,14 @@ Source-contact authority remains `LEARNING_CONTRACT.md` plus the exact System Le
 Before leaving, expose the exact owned Source locator / bounded instruction and the retrieval return map. Missing exact locators stay explicitly unavailable; do not infer ranges from KP order.
 
 - Whole-LG source mode: one group confirmation covers that accepted segment's exact KP IDs.
-- Block / canonical Source-unit mode: continuous Source contact may span multiple LG/KP structures. Returning preserves the accepted Learn position; it does not by itself start a mandatory retrieval sequence or reopen Source for every LG.
+- Block / canonical Source-unit mode: continuous Source contact may span multiple retrieval LGs. Returning starts the accepted retrieval order, without reopening Source for every LG.
 - Multiple natural sections may be studied across sittings. A Block-wide completion confirmation means all owned Source coverage is complete, not that any arbitrary partial section covers the whole Block.
 
 Formal Lecture contact is per-KP evidence, but may be derived from confirmed accepted Source coverage. The normal path must not require one click per KP or per retrieval LG. Optional per-KP companion navigation/marking never replaces the one-source-unit confirmation.
 
 A real reviewed Source boundary plus reviewed TTSX binding may insert one lightweight checkpoint. Answering, options, explanation and question-side expansion stay in original Lecture / MarginNote. Each bound question may have an optional short note; no default web answer entry, scoring or formal Question Attempt is created. Boundary decides WHEN, binding decides WHICH. Missing binding creates no checkpoint and no guessed question list.
 
-For whole-LG mode, a checkpoint may occur only when its reviewed binding explicitly owns that LG / Source segment. Never spread a Block-wide binding across every LG. After the checkpoint, return to the interrupted Learn mainline. Do not add a second “I am back” confirmation.
+For whole-LG mode, a checkpoint can interrupt the group's return only when its reviewed binding explicitly owns that LG / Source segment. Never spread a Block-wide binding across every LG. After the checkpoint, return to the interrupted retrieval mainline. Do not add a second “I am back” confirmation.
 
 ## 8｜Visual / Precision timing boundary — ACCEPTED AT RESPONSIBILITY LEVEL
 
@@ -174,11 +170,9 @@ Preserve Current timing semantics rather than filling spare Mac width:
 - Reserve / Connection Hook remains timing-sensitive and must not become ordinary first-pass Memory merely because it is visible;
 - absent cues remain absent.
 
-## 9｜KP Recall — ACCEPTED TARGETED CAPABILITY
+## 9｜KP Recall — ACCEPTED
 
-KP Recall remains a two-state learner interaction for one precise already-learned object. It is **not** the normal first-pass progression path and does not close Logic Groups merely by accumulating ratings.
-
-Invoke it only when Block Recall, Repair, Memory, Practice or an explicit learner choice has earned a bounded KP-level retrieval check:
+KP Recall remains a two-state learner interaction inside the owning Logic Group:
 
 ```text
 A. Recall Front
@@ -190,9 +184,8 @@ A. Recall Front
 B. Recall Reveal
    same KP card / same Context
    + complete canonical Core visible
-   → optional 1 / 2 / 3 / 4 evidence for this real Recall
-   → return to the owning Block/Repair/Memory/Practice context
-      or continue only within an explicitly selected targeted Recall set
+   → 1 / 2 / 3 / 4 evidence
+   → next unrecalled KP in the same Logic Group
 ```
 
 ### 9.1 Recall Front
@@ -238,13 +231,12 @@ A rating is a real Recall attempt and must remain append-preserved evidence. Mem
 Keep the interaction cheap:
 
 - Reveal first;
-- rating only after Reveal and only when this targeted Recall is a real evidence-producing action;
-- return to the exact owning context after the bounded retrieval job;
-- if an explicitly selected targeted Recall set contains several KPs, navigation may move through that set without changing first-pass Block progression;
-- no KP Recall/rating is required merely to advance through Learn, a Logic Group, or into Block Recall;
-- no per-KP `add to Memory`, `confirm answer read`, or other ceremony is inserted into the continuous first-pass Learn path.
+- rating only after Reveal;
+- after rating, move to the next unrecalled KP in the same Logic Group;
+- after all owned KP in the Logic Group have real Recall evidence, mark that Logic Group closed in the Logic Map and move directly to the next Logic Group;
+- no per-KP `add to Memory`, `confirm answer read`, or other ceremony in the first-pass mainline.
 
-Keyboard / shortcut behavior must fail closed under the same gating: no hidden shortcut may rate or reveal content before the legitimate targeted Recall state permits it.
+Keyboard / shortcut behavior must fail closed under the same gating: no hidden shortcut may rate or reveal content before the legitimate state permits it.
 
 ### 9.4 Information-density rule inside Recall
 
@@ -252,20 +244,20 @@ High-density Core stays complete after Reveal; density is organized spatially ra
 
 Do not turn a long accepted KP Core into a thin summary merely because it sits inside a Recall surface. The learner action is still `Recall → verify against canonical Core`, not `Recall → verify against an AI-generated abstract`.
 
-## 10｜Logic Group structure / closure cue — ABSORBED INTO LOGIC MAP
+## 10｜Logic Group Closure — ABSORBED INTO LOGIC MAP
 
-Logic Group has no standalone first-pass Closure page/stage and no rating-derived progression gate.
+Logic Group Closure has no standalone learner page/stage.
 
-During continuous Block Learn:
+After all owned KP in the Logic Group have real Recall evidence:
 
 ```text
-Logic Group goal / closure cue
-→ helps organize the local model and current position
-→ learner moves across LG / KP as the Block's accepted Learn route requires
-→ no “all KP rated” condition is needed to proceed
+last KP rating
+→ Logic Map marks current LG closed
+→ next LG opens directly
+→ after final LG closes, enter Block Recall
 ```
 
-The Current `goal / closure` text remains visible in the Logic Map as a structural/local reconstruction target. A later targeted KP Recall may add real evidence, but it does not retroactively define whether first-pass Learn was allowed to advance.
+The Current `goal / closure` text remains visible in the Logic Map as the local model target. Weak Recall evidence stays preserved for later Memory/repair, but there is no extra Closure button, rating, checklist or confirmation ceremony.
 
 Timing-appropriate group Precision / outgoing Connection / Reserve may still appear through the normal conditional Context owner when Current explicitly owns them; they do not justify a separate stage.
 
@@ -279,7 +271,7 @@ Hard rule:
 
 ### 11.1 Block Recall Front
 
-After the whole accepted Block Learn scope is complete, enter a neutral Block-level reconstruction state. Logic Group/KP coverage may structure that Learn scope, but prior KP Recall ratings are not an entry prerequisite.
+After all Logic Groups have closed, enter a neutral Block-level reconstruction state.
 
 Show:
 
@@ -352,17 +344,14 @@ Reveal Block model
 → return to System / continue
 ```
 
-Current completion semantics are:
+Current completion semantics remain:
 
 ```text
-accepted Block Learn scope complete
-(including the owned Source coverage / reviewed checkpoint obligations that actually apply)
-+ Block Recall complete
-+ any explicitly required smallest repair handled by its owning rule when applicable
+all owned KP formal Lecture contact
++ all owned KP Recall evidence
++ Block Recall
 = Block completion eligible
 ```
-
-Per-KP Recall evidence is **not** a universal completion prerequisite. Targeted KP Recall remains legitimate evidence when it actually occurs, but absence of ratings for otherwise learned KPs cannot block normal Block completion.
 
 The final completion action is visually lightweight but remains a distinct real state write. There is no standalone Block Complete page.
 
@@ -374,7 +363,7 @@ Hard product rule:
 
 > **Evidence may be recorded immediately; deferred processing UI does not need to become the next mandatory action immediately.**
 
-When a targeted KP Recall is legitimately invoked and produces weak evidence, that evidence may be admitted to Memory under the existing selective admission rule. Do not turn the existence of KP Recall capability into a first-pass rating queue or interrupt the mainline after every local weak signal with a Memory or repair ceremony.
+A weak KP Recall may therefore be admitted to Memory in learner state while the learner continues the current Logic Group / Block. Do not interrupt the mainline after every weak rating with a Memory or repair ceremony.
 
 The mature responsibilities remain distinct:
 
@@ -386,13 +375,12 @@ Chat Repair = explicit adaptive / specialist repair task, not the default queue 
 
 ### 12.1 First-pass timing
 
-During unfinished Block Learn or Block Recall:
+During unfinished `kp_recall`, unfinished Logic Groups and Block Recall:
 
-- do not manufacture KP Recall/rating work merely to populate Memory;
-- preserve any real targeted Recall evidence and legitimate Memory admission that already exists;
-- do not automatically open the full `Memory / 储备 / 回 Chat` workspace after a targeted rating;
+- preserve weak Recall evidence and any legitimate Memory admission in state;
+- do not automatically open the full `Memory / 储备 / 回 Chat` workspace after each rating;
 - at most use a quiet local indication such as `已留到 Memory` when helpful;
-- do not require the learner to resolve Memory before continuing the accepted Block mainline unless an exact repair owner explicitly requires the bounded repair first;
+- do not require the learner to resolve Memory before continuing the first-pass mainline;
 - immediate Chat remains available for a real current understanding failure, but that is an adaptive repair escape, not automatic After-Learn processing.
 
 The full After-Learn surface becomes first-class after Block completion or when the learner explicitly chooses to open it.
@@ -483,18 +471,18 @@ UI productization may change timing / prominence / spatial composition but does 
 
 ## 13｜Block Workspace implementation / Human Gate state
 
-The **current accepted** first-pass Block mainline is:
+The accepted first-pass Block mainline is now:
 
 ```text
-Block Guide / Framework
-→ continuous Block Learn
-   → Logic Group / KP structure remains available for orientation/navigation
-   → MarginNote / owned Source is primary where external-primary learning applies
-   → bound TTSX checkpoint only where Current owns a real reviewed boundary + binding
-   → no mandatory per-KP Recall/rating progression
-→ Block Recall Front
+Block Guide
+→ Logic Group orientation in Logic Map
+→ MarginNote handoff / KP Learn companion
+→ bound TTSX checkpoint only where Current owns a real reviewed boundary + binding
+→ KP Recall Front / Reveal on the same KP card
+→ last KP rating auto-closes the Logic Group in Logic Map
+→ next Logic Group
+→ final Logic Group closes directly into Block Recall Front
 → Reveal Block model
-→ targeted LG/KP retrieval / smallest repair only when reality earns it
 → complete Block Recall
 → same-surface lightweight confirmation of Block first-pass completion
 → selective After Learn when useful
@@ -503,6 +491,6 @@ Block Guide / Framework
 
 There is **no standalone Logic Group Closure page** and **no standalone Block Complete page**.
 
-Historical Human Gate evidence from 2026-09-18 remains valid only for the exact visual/interaction claims it demonstrated (Block Recall Front/Reveal and same-surface completion treatment). Its old per-KP progression premise is superseded by the current Learning/Product decision and is not continuation authority.
+Human Gate acceptance on 2026-09-18 covers the Block Recall Front, Block Recall Reveal, and post-Recall completion-confirmation state on the real Mac-wide Chromium surface. Targeted `Xizong Block Workspace` browser acceptance passed on the final candidate, and PR #422 merged this Block tail into `main`.
 
-Responsive fallback and future Projection compilation work may continue later, but they must preserve the current accepted geometry and may not reintroduce a mandatory per-KP/LG Recall ceremony.
+Responsive fallback and future Projection compilation work may continue later, but they must preserve this accepted interaction geometry and may not reintroduce the removed closure/completion ceremony.
