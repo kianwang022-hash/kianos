@@ -134,6 +134,8 @@ Do not reuse English-I Reading-A semantic labels merely because the screen has t
 - formal answers remain protected before Submit.
 - pure Reading is a legitimate completion path and must not manufacture a quiz or review debt.
 - Wrong / Uncertain remain evidence only.
+- when a question-bearing External object has a real Wrong / Uncertain / source-native unscored problem, one compact **whole-object Chat escalation** may appear in the result region; it carries the complete passage, source identity and current source-native question outcomes so Chat can diagnose shared Reading/Representation/Lexical causes without relabeling the task as Reading A;
+- all-correct stable work exits without that escalation, and Reading-only completion does not create a whole-object review obligation;
 - source-quality warnings may appear as a quiet optional Source note; engineering/source debt must not dominate the learner workspace.
 
 ### Content / private boundary
