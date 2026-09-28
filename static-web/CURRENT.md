@@ -10,9 +10,12 @@ No broad Website construction campaign is active. This file is only the Website 
 
 **Active bounded delivery anchor: Issue #1088 — exact-release audit pin for Fresh CBA AUDIT.**
 
+Current phase: **REAL CURRENT ACCEPTANCE — pin is live on Stable.**
+
 Current goal:
-- allow the real Stable origin to hold its already-served exact SHA during a Fresh independent audit;
-- preserve normal automatic Current catch-up outside that bounded lease;
+- prove the real Stable origin holds its already-served exact SHA while a later GitHub main target exists;
+- then release the pin and prove normal Current catch-up resumes;
+- preserve normal automatic Current behavior outside that bounded lease;
 - no rollback, no learner-state mutation, no second release system.
 
 Normal lanes:
