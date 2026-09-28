@@ -57,16 +57,20 @@ understand whole learner loop
 The lane-level first-pass journey is:
 
 ```text
+LEARN PHASE
 System orientation
 → choose Block
 → Block orientation
-→ current Source-contact orientation under the System Learning owner
-→ original Lecture / MarginNote continuous study at that accepted granularity
-→ return at the accepted retrieval point
+→ complete the current Block's accepted Source/Learn scope under the System Learning owner
+→ original Lecture / MarginNote stays continuous at that accepted granularity
+→ real TTSX checkpoints return to unfinished Learn
+→ only after Block Learn is complete:
+
+RECALL PHASE
 → KP Recall in the accepted Logic Group order
 → automatic Logic Group closure
-→ next retrieval group; reopen Source only when the owning Source unit requires it
-→ Block Recall
+→ next Logic Group Recall
+→ after final LG closes: Block Recall
 → Block Complete
 → after the System has actually been learned: System Recall
 → official System question sweep
