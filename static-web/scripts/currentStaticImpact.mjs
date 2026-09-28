@@ -41,6 +41,10 @@ const CURRENT_SUPERVISOR_SCRIPTS = new Set([
   'static-web/scripts/currentDependencies.mjs'
 ]);
 
+const NON_SERVING_STATIC_RUNTIME_SCRIPTS = new Set([
+  'static-web/scripts/kianos-candidate-runtime.mjs'
+]);
+
 function isContentWorkCursor(file) {
   return /^content\/.+\/CURRENT\.md$/.test(file);
 }
@@ -74,6 +78,7 @@ export function requiresStaticRuntimeReload(changedPaths = []) {
         && file.endsWith('.mjs')
         && !isTestOnlyStaticScript(file)
         && !CURRENT_SUPERVISOR_SCRIPTS.has(file)
+        && !NON_SERVING_STATIC_RUNTIME_SCRIPTS.has(file)
       );
   });
 }
