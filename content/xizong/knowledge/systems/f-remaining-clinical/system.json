@@ -95,7 +95,7 @@
     "visual_rule": "When a current exam fact is genuinely spatial/table-dependent, original Source remains the visual truth. System Knowledge may encode the reasoning role but may not fabricate a complete visual table from model prior.",
     "exact_gap_rule": "Bounded unresolved exact facts stay explicit and fail-closed. Their absence does not authorize deletion from scope or model backfill."
   },
-  "mission": "Handle two related but non-identical F contexts: (1) non-organ-specific acute disturbances with a harmful input/tissue injury that may need containment or removal, and (2) planned/ongoing medical interventions whose safety depends on urgency, physiologic reserve, intended function/space and support. Across both, identify immediate threat, preserve vital function, apply only context-appropriate causal/specific control, anticipate iatrogenic risk, and distinguish expected recovery from deviation—while delegating organ-specific physiology/pathology to their real owners.",
+  "mission": "处理两类彼此相关但不相同的问题：一类是存在有害输入或组织损伤的非器官特异性急性扰动，另一类是计划中或正在进行的医疗干预。两者都先识别最紧迫的生命威胁，维持关键生理功能；只有在情境允许时再做病因/特异控制，同时预判治疗本身带来的风险，并区分正常恢复与异常偏离。器官特异的生理和病理问题回到对应系统处理。",
   "mental_model": {
     "shape": "DUAL_CONTEXT_DISTURBANCE_AND_INTERVENTION_SAFETY_NETWORK_WITH_LOW_CONNECTIVITY_TAIL",
     "context_split": "F1–F4 are primarily acute-disturbance control; F5–F8 are primarily planned/ongoing intervention safety and recovery. They share coordinates, not one mandatory serial workflow.",
@@ -110,170 +110,183 @@
   "core_variables": [
     {
       "id": "URGENCY",
-      "meaning": "immediate life-saving, time-sensitive, or deferrable/optimizable action window"
+      "meaning": "当前属于立即救命、时间敏感，还是可以延期并先优化的干预窗口。",
+      "label": "紧迫性"
     },
     {
       "id": "DISTURBANCE_SOURCE",
-      "meaning": "actual harmful input/injury when present: toxic exposure, contamination, devitalized tissue or thermal injury; this is not a synonym for planned surgery/anesthesia."
+      "meaning": "真实存在的有害输入或损伤，例如中毒暴露、污染、失活组织或热损伤；它不等同于计划手术或麻醉。",
+      "label": "有害输入 / 损伤源"
     },
     {
       "id": "INTERVENTION_CONTEXT",
-      "meaning": "planned or ongoing surgery, anesthesia or procedure with an intended objective, urgency and expected physiologic effects; it can create risk but is not classified as a harmful source that must be terminated."
+      "meaning": "计划中或正在进行的手术、麻醉或操作；它有明确目标、紧迫性和预期生理影响，也可能制造新风险，但不是需要被“终止”的有害源。",
+      "label": "干预情境"
     },
     {
       "id": "EXPOSURE_OR_SOURCE_CONTROL",
-      "meaning": "for branches with an active harmful input/source, whether it is still entering/remaining and what action terminates or contains it; this variable is conditional, not universal across F5–F8."
+      "meaning": "当确有持续有害输入或病理性来源时，判断它是否仍在持续，以及用什么动作终止、去除或控制；F5–F8 并不都需要这一变量。",
+      "label": "暴露 / 源控制"
     },
     {
       "id": "VITAL_THREAT_LAYER",
-      "meaning": "airway, ventilation/oxygenation, circulation/perfusion, consciousness/seizure/neuromuscular function, barrier/tissue failure"
+      "meaning": "气道、通气/氧合、循环/灌注、意识/惊厥/神经肌肉功能，以及屏障/组织完整性等最先威胁生命的层面。",
+      "label": "致命威胁层"
     },
     {
       "id": "PHYSIOLOGIC_RESERVE",
-      "meaning": "cardiopulmonary, renal, hepatic, hematologic, nutritional and metabolic ability to tolerate disturbance/intervention"
+      "meaning": "心肺、肾、肝、血液、营养和代谢对当前扰动或干预的承受能力。",
+      "label": "生理储备"
     },
     {
       "id": "BARRIER_TISSUE_STATE",
-      "meaning": "contamination, devitalized tissue, burn depth/area, wound integrity and infection-source potential"
+      "meaning": "污染、失活组织、烧伤深度/面积、伤口完整性以及感染源风险。",
+      "label": "屏障 / 组织状态"
     },
     {
       "id": "CONTROL_MODE",
-      "meaning": "supportive care; decontamination/elimination/antidote or source control when a pathologic source exists; or intended surgery/procedure/anesthetic technique when the intervention itself is therapeutic/diagnostic. These modes are not interchangeable."
+      "meaning": "支持治疗；在存在病理性来源时进行去污、清除、解毒或源控制；或执行本身具有治疗/诊断目的的手术、操作、麻醉。三者不能混为一谈。",
+      "label": "控制方式"
     },
     {
       "id": "INTERVENTION_SPACE_DEPTH",
-      "meaning": "where a procedure/drug acts and how its spatial/depth reach predicts benefit and complication, especially anesthesia"
+      "meaning": "操作或药物作用在什么解剖/生理空间，以及作用范围和深度怎样决定获益与并发症，麻醉尤其如此。",
+      "label": "干预空间 / 深度"
     },
     {
       "id": "IATROGENIC_RISK",
-      "meaning": "new risk introduced by treatment, anesthesia, fluids, procedure, wound closure or prolonged support"
+      "meaning": "治疗、麻醉、补液、操作、伤口处理或长期支持本身新引入的风险。",
+      "label": "医源性风险"
     },
     {
       "id": "TIME_PHASE",
-      "meaning": "acute exposure, early injury/resuscitation, preoperative, intra/intervention, postoperative/recovery timing"
+      "meaning": "急性暴露、早期损伤/复苏、术前、术中/干预中、术后/恢复等时间阶段。",
+      "label": "时间阶段"
     },
     {
       "id": "RECOVERY_DEVIATION",
-      "meaning": "failure to follow expected recovery pattern, including fever, respiratory/circulatory deterioration, wound/drain abnormalities, urinary/GI recovery failure"
+      "meaning": "偏离预期恢复轨迹，例如发热、呼吸/循环恶化、伤口/引流异常、泌尿或胃肠功能恢复失败。",
+      "label": "恢复偏离"
     },
     {
       "id": "OWNER_BOUNDARY",
-      "meaning": "whether a fact is true F Primary vs Recall/Apply from another System vs explicit Source gap"
+      "meaning": "判断当前知识是 F 自己要建立的主体，还是从其他系统调用，或仍属于明确的原讲义缺口。",
+      "label": "知识归属边界"
     }
   ],
   "core_relations": [
-    "Immediate physiologic danger outranks etiologic certainty: stabilize airway/breathing/circulation/neurologic failure before perfect naming of the poison or complication.",
-    "The shared F compression is a coordinate network, not a mandatory serial workflow: F5–F8 may enter through urgency/reserve/intervention planning without any removable harmful source.",
-    "When an active harmful exposure/contamination/source exists, stopping it and supporting failed organs are distinct responsibilities; planned surgery/anesthesia is an intervention context, not a source to terminate.",
-    "Decontamination, elimination, antidote and support solve different parts of toxicologic failure and must not be collapsed.",
-    "Barrier/tissue injury severity requires separate axes such as extent, depth, contamination/devitalization and systemic effect; one number cannot replace the model.",
-    "Preoperative optimization is constrained by urgency: correct reversible risk without delaying a necessary time-sensitive operation indefinitely.",
-    "General anesthesia, analgesia, reflex suppression, muscle relaxation, airway/ventilation and hemodynamic support are distinct functions; immobility does not prove unconsciousness or analgesia.",
-    "For local/regional/neuraxial anesthesia, intervention space/depth predicts block extent and complications; geometry is part of the medical model, not decoration.",
-    "Postoperative interpretation depends on time + location + evidence; calendar thresholds are cues, not substitutes for clinical context.",
-    "F9 first splits ownership: already-owned liver/transplant/tumor truth is Recall/Apply, while only residual micro-topics become F Primary.",
-    "Cross-System physiology/pathology remains with its real owner; F owns the acute/intervention decision context in which that truth is applied."
+    "眼前的生理危险优先于病因命名：先稳定气道、呼吸、循环和神经功能，再追求对毒物或并发症的精确命名。",
+    "F 的共同模型是一张坐标网，不是一条人人都必须按顺序走的流程。F5–F8 可以从紧迫性、生理储备和干预计划直接进入，并不要求先找到一个可去除的有害源。",
+    "当确有持续暴露、污染或其他病理性来源时，“停止/控制来源”和“支持已经失败的器官功能”是两件不同的事；计划手术或麻醉属于干预情境，不是需要终止的病理来源。",
+    "去污、促进清除、解毒和器官支持解决的是不同层次的问题，不能互相替代。",
+    "屏障或组织损伤要同时看范围、深度、污染/组织活性以及全身效应，不能用单一数字替代整个模型。",
+    "术前优化受紧迫性约束：能纠正的风险应尽量纠正，但不能为了“把所有指标调到理想”而无限拖延必须及时进行的手术。",
+    "全身麻醉中的催眠、镇痛、反射抑制、肌松、气道/通气和循环支持是不同功能；患者不动，并不能证明已经无意识或无痛。",
+    "局部、区域和椎管内麻醉中，药物作用的空间与深度会直接影响阻滞范围和并发症，因此解剖几何本身就是判断模型的一部分。",
+    "术后判断必须结合时间、部位和证据；某个固定天数只能提示方向，不能脱离临床情境单独下结论。",
+    "F9 先分清知识归属：肝脏、移植、肿瘤等已经在其他系统建立的内容只调用；只有没有其他系统承接的微型主题才留在 F 主体。",
+    "跨系统的生理和病理知识回到对应系统；F 负责的是这些知识在急症或医疗干预决策中的使用情境。"
   ],
   "failure_modes": [
     {
       "id": "FM1",
-      "label": "diagnosis-first delay",
+      "label": "先猜诊断，后处理危险",
       "examples": [
-        "guess poison before stabilizing respiratory/circulatory failure",
-        "name complication before treating immediate danger"
+        "还没稳定呼吸/循环就先猜毒物",
+        "还没处理眼前危险就先给并发症命名"
       ]
     },
     {
       "id": "FM2",
-      "label": "control-layer collapse",
+      "label": "把不同控制层混成一层",
       "examples": [
-        "confuse decontamination with elimination",
-        "treat antidote as replacement for organ support"
+        "把去污和促进清除当成同一件事",
+        "把解毒剂当成器官支持的替代品"
       ]
     },
     {
       "id": "FM3",
-      "label": "conditional ongoing-source neglect",
+      "label": "忽略仍在持续的有害来源",
       "examples": [
-        "leave exposure/contamination/devitalized source active while treating downstream effects"
+        "只处理下游后果，却让暴露、污染或失活组织继续存在"
       ]
     },
     {
       "id": "FM4",
-      "label": "injury-axis collapse",
+      "label": "把组织损伤压成单一指标",
       "examples": [
-        "use burn area as depth",
-        "use one wound label to replace contamination/tissue viability/systemic effect"
+        "只用烧伤面积代表烧伤深度",
+        "用一个伤口标签替代污染、组织活性和全身效应"
       ]
     },
     {
       "id": "FM5",
-      "label": "urgency-reserve mismatch",
+      "label": "紧迫性与生理储备错配",
       "examples": [
-        "delay urgent surgery until every risk is ideal",
-        "ignore correctable reserve deficits in elective surgery"
+        "为了把所有风险都调到理想而拖延急诊/限期手术",
+        "择期手术前忽略可以纠正的生理储备不足"
       ]
     },
     {
       "id": "FM6",
-      "label": "anesthesia-component conflation",
+      "label": "混淆麻醉的不同功能",
       "examples": [
-        "equate muscle relaxation with unconsciousness or analgesia",
-        "equate sedation with protected airway/ventilation"
+        "把肌松等同于无意识或无痛",
+        "把镇静等同于气道和通气已经安全"
       ]
     },
     {
       "id": "FM7",
-      "label": "intervention-space error",
+      "label": "忽略干预空间与深度",
       "examples": [
-        "ignore block level/spread",
-        "fail to link neuraxial or plexus anatomy to hemodynamic/respiratory complications"
+        "不考虑阻滞平面和扩散范围",
+        "不把椎管内或神经丛解剖与血流动力学/呼吸并发症联系起来"
       ]
     },
     {
       "id": "FM8",
-      "label": "recovery-timeline error",
+      "label": "误判恢复时间线",
       "examples": [
-        "label every early fever infection",
-        "ignore timing/location/evidence when evaluating postoperative deviation"
+        "把所有早期发热都当感染",
+        "判断术后异常时忽略时间、部位和证据"
       ]
     },
     {
       "id": "FM9",
-      "label": "ownership-duplication",
+      "label": "跨系统重复讲授",
       "examples": [
-        "rebuild shock, infection, renal clearance, nutrition or tumor biology inside F",
-        "turn F9 editorial miscellany into one fake medical model"
+        "在 F 里重新建立休克、感染、肾清除、营养或肿瘤整套课程",
+        "把 F9 的编辑性杂项硬拼成一个假统一模型"
       ]
     },
     {
       "id": "FM10",
-      "label": "source-overreach",
+      "label": "超出原讲义边界",
       "examples": [
-        "fill F4 formula or F9 complication list from model prior",
-        "replace Current Study wording with modern specialty guidelines silently"
+        "用模型常识补齐 F4 公式或 F9 并发症清单",
+        "静默把当前原讲义措辞替换成外部现代专科指南"
       ]
     },
     {
       "id": "FM11",
-      "label": "precision-without-model",
+      "label": "只背精确项，不懂模型",
       "examples": [
-        "memorize thresholds/formulas without knowing what variable they control",
-        "use a numeric rule outside its Source-bound scenario"
+        "只背阈值/公式，却不知道它控制什么变量",
+        "把一个数值规则套到原讲义未支持的情境"
       ]
     }
   ],
   "judgment_axes": [
-    "Is this an acute disturbance with an active harmful source, or a planned/ongoing intervention context?",
-    "What can kill or irreversibly harm the patient first?",
-    "If a harmful source exists, what stops/contains it; separately, what support preserves failed physiology?",
-    "What causal/specific control or intended intervention is justified by Current Source?",
-    "How urgent is the intervention, and what reversible reserve deficits can be corrected without harmful delay?",
-    "Where does the intervention act anatomically/physiologically, and what complication follows from that space/depth?",
-    "What new risk is introduced by treatment itself?",
-    "Is the current course expected recovery or a time/location/evidence-defined deviation?",
-    "Which facts are F Primary versus Recall/Apply from another owner?",
-    "Is an exact Source fact verified, or must it remain fail-closed?"
+    "这是存在持续有害来源的急性扰动，还是计划中/进行中的医疗干预？",
+    "眼下什么最可能先造成死亡或不可逆损伤？",
+    "如果确有有害来源，什么动作能终止或控制它；同时，什么支持能维持已经失败的生理功能？",
+    "当前原讲义支持哪一种病因/特异控制或计划干预？",
+    "干预有多紧迫；哪些可逆的生理储备问题可以在不造成有害延误的前提下先纠正？",
+    "干预作用在什么解剖/生理空间；这个空间和深度会带来什么并发症？",
+    "治疗本身又引入了什么新的风险？",
+    "当前过程符合预期恢复，还是出现了由时间、部位和证据共同定义的异常偏离？",
+    "哪些内容属于 F 主体，哪些只是从其他系统调用？",
+    "这个精确事实已经被原讲义核实，还是应该继续明确留白？"
   ],
   "block_families": [
     {
