@@ -11,11 +11,10 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 **None.**
 
-- Issue #1026 is completed CREATE evidence for the in-place Politics optimization and retention/content closure. It is not a continuation cursor.
-- Issue #1015 remains closed history: it was the prematurely implemented probe attempt and must not be revived as current work.
-- Historical #1030 BUILD/Human-Gate evidence remains claim-scoped provenance, not an active task or independent AUDIT.
-- A future BUILD or fresh independent AUDIT must be explicitly bound to its own current task/Issue before engineering execution resumes.
+- Politics is in normal learner-use / concrete-defect mode.
+- A future BUILD or Fresh independent AUDIT must be explicitly bound to a new current task before engineering execution resumes.
 - Ordinary Politics learning bypasses this engineering cursor.
+- Legacy task history is quarantined and is not part of normal continuation.
 
 ## Current routing
 
@@ -32,10 +31,7 @@ real Politics study
 → or an explicit Source/content/product/runtime defect
 → or an explicitly bound fresh independent AUDIT / BUILD task
 → route to the smallest exact owner
-→ do not reopen #1026 merely from Memory counts, page density or old screenshots
 → stop after targeted proof
-
-Historical maturity campaigns, first-round audit receipts and candidate branches are not Current work.
 
 ## Stable learning roles
 
@@ -79,6 +75,6 @@ A blocker in one subject does not freeze independent siblings.
 
 ## Fresh-Chat / stop
 
-Fresh Chats should read this cursor and only the narrow result/owner needed for the learner or defect question. Old PRs, sealed candidate SHAs, screenshots, and historical audit branches are provenance, not continuation.
+Fresh Chats should read this cursor and only the narrow current owner needed for the learner or defect question. Closed PRs, old candidate SHAs and historical audit branches are quarantined unless Kian explicitly requests legacy/history.
 
 Stop after the bounded effect is proven. Reopen for real study evidence, a real annual Source, a concrete learner-visible/content/runtime defect, or an explicit fresh independent re-acceptance request.
