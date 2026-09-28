@@ -121,10 +121,13 @@ static-web/KIAN_UI_PREFERENCES.md
 → static-web/UI_STYLE_BRIEF.md when shared visual rules matter
 → exact surface/product owner
 → existing layout/component/styles
+→ Website Candidate Runtime for iterative proof
 → work
 ```
 
 `KIAN_UI_PREFERENCES.md` owns accepted **KianOS visual requirements + bounded preference evidence**, not Kian's general personal preference truth.
+
+For ordinary Website UI iteration, use the existing local checkout and Candidate Runtime: sync current main, run cd static-web && npm run candidate:serve, iterate on http://127.0.0.1:4322/, and only after the bounded result is accepted commit/push one coherent change. Candidate is http://127.0.0.1:4322/; http://127.0.0.1:4321/ Stable is not a scratch preview. Candidate state is not learner/execution truth.
 
 Material UI change still inherits BUILD change continuity. Accepted surface geometry is not reopened merely because CSS/component code is being refactored.
 

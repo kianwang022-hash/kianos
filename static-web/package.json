@@ -4,6 +4,9 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "candidate:serve": "node scripts/kianos-candidate-runtime.mjs",
+    "test:candidate-runtime": "node scripts/test-kianos-candidate-runtime.mjs",
+    "test:fast-lane-workflow": "node scripts/test-kianos-fast-lane-workflow.mjs",
     "build": "npm run build:lexical && node scripts/kianos-safe-astro-build.mjs",
     "preview": "astro preview",
     "current:serve": "KIANOS_SYNC_RUNTIME_SHA=\"$(git rev-parse HEAD)\" node scripts/kianos-current-sync.mjs",
