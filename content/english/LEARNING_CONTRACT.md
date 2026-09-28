@@ -515,6 +515,7 @@ Hard rules:
 - Reading A may additionally expose a bounded factual attribution slice containing passive lookup events and already-recorded reviewed Reading signals; this is evidence for Chat, not a Website diagnosis engine;
 - Reading A / Cloze / Part B / Translation / Writing / External Reading remain separate task families;
 - raw elapsed time is never compared across different task types as if seconds meant the same thing;
+- inside External Reading, raw elapsed time is **whole-task elapsed**, not reading speed: current evidence does not length-normalize passages or separate passage-reading time from source-native question-answering time, so it must not be converted into WPM or treated as a broad reading-speed claim;
 - uncalibrated timing is UNKNOWN, not slow;
 - the default decision-facing timing summary uses only **unseen + unassisted** attempts; exposed / assisted work remains visible only in separate observational timing so familiarity/help cannot make clean speed look faster;
 - exposed or assisted work cannot be promoted to independent-transfer evidence merely because it was correct;
