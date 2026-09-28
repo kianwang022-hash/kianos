@@ -55,11 +55,13 @@
     "test:shared-handoff": "node scripts/test-daily-learning-packet.mjs && node scripts/test-subject-daily-packets.mjs && node scripts/test-home-daily-learning-packet.mjs && node scripts/test-politics-chat-return.mjs && node scripts/test-xizong-chat-return.mjs && node scripts/test-private-learner-checkpoint.mjs",
     "test:final-cross-subject": "node scripts/test-ui-css-ownership.mjs && node scripts/test-final-cross-subject-regression.mjs",
     "current:doctor": "node scripts/kianos-current-doctor.mjs",
+    "current:audit": "node scripts/currentAuditPin.mjs",
     "current:open": "node scripts/kianos-current-open.mjs",
     "current:backup": "node scripts/kianos-current-backup.mjs",
     "current:restore": "node scripts/kianos-current-restore.mjs",
     "test:css-ownership": "node scripts/test-ui-css-ownership.mjs",
-    "test:current-static-runtime": "npm run test:candidate-runtime && npm run test:website-heavy-work && npm run test:fast-lane-workflow && npm run test:current-static-slots && node scripts/test-current-safe-build.mjs && node scripts/test-private-daily-learning-packet-worker.mjs && node scripts/test-current-static-runtime.mjs && node scripts/test-current-build-recovery.mjs && node scripts/test-current-sync-startup-boundary.mjs && node scripts/test-current-runtime-reload.mjs && node scripts/test-current-offline-startup.mjs && node scripts/test-current-install-recovery.mjs && node scripts/test-current-runtime-rollback.mjs && node scripts/test-current-delivery-lock.mjs && node scripts/test-current-delivery-concurrency.mjs && node scripts/test-current-fetch-toctou.mjs && node scripts/test-current-build-identity.mjs && node scripts/test-current-release-retention.mjs",
+    "test:current-static-runtime": "npm run test:candidate-runtime && npm run test:website-heavy-work && npm run test:fast-lane-workflow && npm run test:current-static-slots && node scripts/test-current-safe-build.mjs && node scripts/test-private-daily-learning-packet-worker.mjs && node scripts/test-current-static-runtime.mjs && node scripts/test-current-build-recovery.mjs && node scripts/test-current-sync-startup-boundary.mjs && node scripts/test-current-runtime-reload.mjs && node scripts/test-current-offline-startup.mjs && node scripts/test-current-install-recovery.mjs && node scripts/test-current-runtime-rollback.mjs && node scripts/test-current-delivery-lock.mjs && node scripts/test-current-delivery-concurrency.mjs && node scripts/test-current-fetch-toctou.mjs && node scripts/test-current-build-identity.mjs && node scripts/test-current-release-retention.mjs && node scripts/test-current-audit-pin.mjs",
+    "test:current-audit-pin": "node scripts/test-current-audit-pin.mjs",
     "static:serve": "node scripts/kianos-static-server.mjs",
     "test:external-source-hash-gate": "node scripts/test-external-reading-source-hash-gate.mjs",
     "codex:hygiene": "node scripts/codex-local-hygiene.mjs",
@@ -76,11 +78,7 @@
     "test:content-fast-path": "python3 -m unittest discover -s ../tools -p test_lexical_incremental_projection.py && node scripts/test-current-static-impact.mjs && node scripts/test-current-build-recovery.mjs",
     "build:astro": "node scripts/kianos-safe-astro-build.mjs",
     "test:exam-os-maturity": "node scripts/test-exam-os-maturity-matrix.mjs",
-    "validate:lexical-runtime": "node scripts/validate-lexical-single-runtime.mjs && node scripts/validate-lexical-style-ownership.mjs",
-    "current:audit-pin": "node scripts/kianos-current-audit-pin.mjs pin",
-    "current:audit-release": "node scripts/kianos-current-audit-pin.mjs release",
-    "current:audit-pin-status": "node scripts/kianos-current-audit-pin.mjs status",
-    "test:current-audit-pin": "node scripts/test-current-audit-pin.mjs"
+    "validate:lexical-runtime": "node scripts/validate-lexical-single-runtime.mjs && node scripts/validate-lexical-style-ownership.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",
