@@ -44,6 +44,18 @@ async function stopServer(server) {
 
 const lexicalWords = new Set(listLexicalWordSummaries().map((row) => String(row.word || '').toLowerCase()).filter(Boolean));
 
+const sourceText = (relative) => fs.readFileSync(path.resolve(process.cwd(), relative), 'utf8');
+const officialClozeSource = sourceText('src/components/ClozeWorkspace.astro');
+const generatedClozeSource = sourceText('src/components/GeneratedClozeWorkspace.astro');
+const officialClozeRouteSource = sourceText('src/pages/cloze/[id].astro');
+const generatedClozeRouteSource = sourceText('src/pages/cloze-generated.astro');
+check(!/<style(?:\s|>)/.test(officialClozeSource), 'cloze_official_has_no_duplicate_component_style');
+check(!/<style(?:\s|>)/.test(generatedClozeSource), 'cloze_generated_has_no_duplicate_component_style');
+check(officialClozeRouteSource.includes("english-cloze-vertical.css"), 'cloze_official_uses_single_route_visual_owner');
+check(generatedClozeRouteSource.includes("english-cloze-vertical.css"), 'cloze_generated_uses_single_route_visual_owner');
+check(officialClozeSource.includes("initClozeRuntime"), 'cloze_official_reuses_shared_runtime');
+check(generatedClozeSource.includes("initClozeRuntime"), 'cloze_generated_reuses_shared_runtime');
+
 async function selectKnownWord(page, selector) {
   const locator = page.locator(selector);
   const texts = await locator.allTextContents();
