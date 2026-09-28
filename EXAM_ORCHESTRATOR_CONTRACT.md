@@ -230,7 +230,7 @@ The phase / Gate / capacity / score-gap / recoverability rules in this contract 
 For capacity-aware exam planning:
 
 ```text
-durable Exam Work-optimization semantics in §4
+durable Exam capacity / cross-subject arbitration semantics in §4
 + current subject-native Demand / evidence
 + current Personal recovery/capacity conclusion when relevant
         ↓
@@ -275,26 +275,18 @@ It does **not** allocate time by exam-point weight alone.
 
 ---
 
-# 2｜Current learner baseline
+# 2｜Learner-state boundary
 
-For the current cycle, Xizong first-round learner progress must be treated as:
+This durable Exam parent does **not** own current learner progress, completion, familiarity, capability, or current-pass status. Those are time-sensitive facts from subject-native private learner/runtime evidence and current Chat / Personal judgment.
 
-```text
-current-pass learning not yet completed
-prior exposure / second-attempt background exists
-actual current capability = unknown until evidenced
-```
+Durable rules:
 
-Do not treat Kian as zero-background. Do not infer mastery from prior-year exposure either.
+- prior exposure or familiarity may inform how Chat interprets current evidence, but never proves mastery or completion;
+- current capability must be evidenced through subject-native use;
+- engineering readiness, accepted Content, or old-cycle exposure never becomes current learner truth;
+- when current learner reality materially changes cross-subject judgment, consume it through subject-native evidence / Demand and the current control path rather than editing this durable parent contract.
 
-Practical consequence:
-
-- first-pass pages may support **fast re-learning / fast pass** when real Recall / task evidence is strong;
-- familiar material may compress quickly;
-- weak / forgotten material expands;
-- no historical familiarity alone may mark a Block / KP mastered.
-
-English and Politics likewise derive learner state only from actual private evidence / current learner use, not engineering readiness.
+This parent may define evidence and arbitration semantics; it must not store a current learner baseline.
 
 ---
 
