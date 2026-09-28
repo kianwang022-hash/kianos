@@ -170,7 +170,19 @@ const payload = learnerObject || null;
         return details;
       };
 
+      const renderAttention = (row, stage) => {
+        const timing = text(row?.displayPolicy?.timing).toUpperCase();
+        if (timing === 'LEARN_ONLY' && !['KP_LEARN', 'LOGIC_GROUP_ORIENT'].includes(stage)) return null;
+        if (timing === 'BLOCK_ORIENT' && stage !== 'BLOCK_ORIENT') return null;
+        const card = el('div', 'xv6LearnerAsset attention');
+        card.dataset.learnerAsset = 'attention';
+        card.dataset.learnerAssetId = text(row?.id);
+        if (row?.cue) card.append(el('p', '', row.cue));
+        return card;
+      };
+
       const renderResolvedAsset = (row, family, stage) => {
+        if (family === 'attention') return renderAttention(row, stage);
         const representation = resolveXizongLearnerAssetRepresentation(row, { stage });
         if (!representation.visible) return null;
         let node = null;
@@ -223,6 +235,7 @@ const payload = learnerObject || null;
         const host = el('div', 'xv6LearnerObjectSurface');
         const grouped = new Map(ATTENTION_ORDER.map((role) => [role, []]));
         for (const [family, rows] of [
+          ['attention', array(slot?.attention)],
           ['visual', array(slot?.visual)],
           ['precision', array(slot?.precision)],
           ['extension', array(slot?.extension)],
@@ -259,7 +272,7 @@ const payload = learnerObject || null;
           });
         }
         if (representations.some((kind) => ['SOURCE_VISUAL', 'REVIEWED_VISUAL', 'STRUCTURED_TABLE'].includes(kind))) return 'rich';
-        if (representations.length) return 'light';
+        if (representations.length || array(slot?.attention).length) return 'light';
         return 'none';
       };
 
@@ -451,7 +464,7 @@ const payload = learnerObject || null;
       };
 
       const mergeSlots = (...slots) => {
-        const families = ['connection', 'visual', 'precision', 'extension'];
+        const families = ['attention', 'connection', 'visual', 'precision', 'extension'];
         const merged = {};
         for (const family of families) {
           const seen = new Set();
@@ -488,7 +501,10 @@ const payload = learnerObject || null;
           slotName = 'block_orientation';
           representationStage = 'BLOCK_ORIENT';
           title = 'Block 辅助';
-          slot = { extension: array(learner.slots?.blockOrientation) };
+          slot = {
+            attention: array(learner.slots?.blockAttention),
+            extension: array(learner.slots?.blockOrientation)
+          };
         } else if (stage === 'source_contact') {
           const kp = visibleCompanionKp('source_contact') || sourceCompanionKp();
           slotName = 'kp_learn_aux';
