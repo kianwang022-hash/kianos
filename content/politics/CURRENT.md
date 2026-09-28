@@ -13,6 +13,7 @@ Issue [#1087](https://github.com/kianwang022-hash/kianos/issues/1087) — **Poli
 
 - Phase: **FRESH / INDEPENDENT EXHAUSTIVE AUDIT — ACTIVE with inline repair on shared pinned Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4`**.
 - Current Audit rule is `Audit highest standard / Repair fast lane`: reproduce → self-attack diagnosis → confirm accepted behavior/effective owner → read exact related design context → smallest inline repair when needed → targeted proof → replay original failure + sibling defect class + true dependents → continue exhaustive Audit.
+- **Learner-logic-first is mandatory:** before judging any Politics page/function, reconstruct Kian's intended learning action from the current Politics Learning/Interaction owner + exact subject cognitive shape + only the directly relevant Source/Content/Surface-Mapping owner, then traverse the real Home → Learn/orientation → Chengfeng original-surface handoff → Xiao1000 → Review/Memory/Resume/Return path in isolated browser state. Generic page-first/UI-checklist reasoning cannot grant PASS.
 - The earlier A3 root-label leak is repaired on `main` by `bda0400332816c883602d1770ccfd6cae1a8acde`; affected A0/A3 evidence remains unproven until final reconciliation on one exact release containing all accepted repairs.
 - #1098 is **not a blocker** after self-attack: the observed Dock overlap is real, but the accepted shared Dock is intentionally floating/draggable with remembered position and no reserved layout row; Kian explicitly accepted that movable-overlay behavior. #1098 is closed as a historical audit receipt / false-positive classification.
 - The shared Stable pin remains active for English #1085 and Xizong #1090. Politics must not release or repoint it while their audits still depend on it.
@@ -31,7 +32,9 @@ Issue [#1087](https://github.com/kianwang022-hash/kianos/issues/1087) — **Poli
 ### Next
 
 ```text
-continue #1087 exhaustive Stage 3–8 coverage on the immutable pinned release
+reconstruct the real Politics learner chain and five subject-specific cognitive baselines from current owners
+→ audit Home / Learn / Chengfeng handoff / Xiao1000 / Review / Memory / Resume / Return by the intended learner action, not by generic page type
+→ traverse all admitted object populations exhaustively; use human-like browser review by distinct subject/geometry/state class on Mac + iPad-wide
 → for each apparent failure: self-attack harness / release / state / accepted-design / owner assumptions first
 → confirmed implementation defect with accepted behavior: repair inline through Concrete Repair Fast Lane
 → targeted proof + original failure replay + same defect class + true dependents
