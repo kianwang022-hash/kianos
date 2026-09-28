@@ -25,6 +25,9 @@ const shot=(p,name)=>p.screenshot({path:path.join(out,`${name}.png`)});
 const browser=await chromium.launch({headless:!process.env.PRACTICE_QA_HEADED});
 async function pageFor(url='/politics/practice/') {
   const context=await browser.newContext({viewport:report.viewport});
+  // Real Stable restores the durable private learner checkpoint into an empty
+  // browser. This audit must never read or mutate Kian's real learner state.
+  await context.route('**/__kianos-private/**', route => route.fulfill({ status: 404, contentType: 'application/json', body: '{}' }));
   await context.addInitScript(() => {
     document.addEventListener('DOMContentLoaded', () => {
       const style = document.createElement('style');
