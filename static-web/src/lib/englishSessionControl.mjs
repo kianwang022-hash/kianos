@@ -400,6 +400,12 @@ export function englishStepIsComplete(storage, step) {
   if (!value.binding || value.binding.source_hash !== step.source_hash) return false;
   if (['reading_a','cloze','reading_b'].includes(step.task)) {
     const results=inspectEnglishObjectiveResults(value);
+    const generatedQuestionTask=value?.binding?.source_snapshot?.question_origin==='CHAT_GENERATED'
+      && value?.binding?.source_snapshot?.completion_requirement==='QUESTIONS_SUBMITTED';
+    // Generated repair/transfer workflow completion is not mastery. Once the
+    // bounded generated task is submitted with a readable exact result set,
+    // preserve its evidence and let Chat decide whether another probe is useful.
+    if(generatedQuestionTask)return value.submitted===true&&results.valid;
     return value.submitted===true && results.valid
       && (results.problem_count===0 || value.reviewResolved===true);
   }
@@ -470,9 +476,8 @@ export function clearEnglishSessionInstruction(storage) {
 export function englishSessionStepHref(step, base = '/') {
   if (!step || !ENGLISH_SESSION_TASKS.includes(step.task) || !step.object_id) return null;
   const normalizedBase = String(base || '/').endsWith('/') ? String(base || '/') : String(base || '/') + '/';
-  if (step.task === 'external_reading') {
-    return normalizedBase + 'external-reading/?id=' + encodeURIComponent(step.object_id);
-  }
+  if (step.task === 'external_reading') return normalizedBase + 'external-reading/?id=' + encodeURIComponent(step.object_id);
+  if (step.task === 'reading_a' && String(step.object_id).startsWith('external-chat-')) return normalizedBase + 'reading-generated/?id=' + encodeURIComponent(step.object_id);
   const prefix = ({
     reading_a: 'reading',
     cloze: 'cloze',

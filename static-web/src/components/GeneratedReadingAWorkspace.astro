@@ -1,0 +1,162 @@
+---
+const base=import.meta.env.BASE_URL;
+---
+<section class="portedReadingSession portedReadingSessionV3" data-local-port="reading" data-generated-reading-a data-reading-base={base} hidden>
+  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({})}></script>
+  <header class="portedReadingSessionHeader">
+    <a href={`${base}english/`}>‹ English</a>
+    <div class="portedReadingHeaderCenter">
+      <span>Reading A · Targeted</span>
+      <b data-generated-reading-title>Chat-generated Reading A</b>
+      <small data-reading-progress>Loading…</small>
+      <small data-reading-timer>00:00</small>
+    </div>
+    <div class="portedReadingHeaderActions">
+      <button type="button" data-reading-prev aria-label="上一题">‹</button>
+      <button type="button" data-reading-next aria-label="下一题">›</button>
+      <button type="button" class="submit" data-reading-submit>Submit</button>
+      <button type="button" data-reading-reset>重置</button>
+    </div>
+  </header>
+  <nav class="portedReadingQuestionNav" aria-label="Question navigation" data-generated-reading-nav></nav>
+  <section class="portedReadingResultBar" data-reading-result hidden>
+    <div class="portedReadingResultMain"><span>Result</span><strong data-reading-score></strong><small>Chat-generated · not true-paper calibration</small></div>
+    <div class="portedReadingResultSummary"><b data-reading-summary></b><small>本次只形成对应 Reading-A 训练证据；不自动生成复习债或稳定性结论。</small></div>
+  </section>
+  <div class="portedReadingColumns">
+    <article class="portedReadingPassage" data-reading-passage>
+      <header><span>CHAT-GENERATED · READING A</span><h2 data-generated-reading-passage-title></h2></header>
+      <div data-generated-reading-paragraphs></div>
+    </article>
+    <aside class="portedReadingQuestions" aria-live="polite" data-generated-reading-questions></aside>
+  </div>
+</section>
+<p data-generated-reading-error hidden></p>
+
+<script>
+  import {archiveEnglishAttempt,inspectEnglishAttempt,preserveEnglishFailure,saveEnglishAttempt,taskMetadata} from '../lib/englishLearnerEvidence.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(async()=>{
+    const root=document.querySelector('[data-generated-reading-a]');
+    const errorNode=document.querySelector('[data-generated-reading-error]');
+    if(!(root instanceof HTMLElement))return;
+    const base=root.getAttribute('data-reading-base')||'/';
+    const id=new URLSearchParams(location.search).get('id')||'';
+    const endpoint=path=>`${base}__kianos-private/english-generated/${path}`;
+    const fetchJson=async url=>{
+      const response=await fetch(url,{cache:'no-store'});
+      const data=await response.json().catch(()=>({status:'error',error:'Generated material response is not JSON.'}));
+      if(!response.ok||data.status==='error')throw new Error(data.error||data.status||`HTTP ${response.status}`);
+      return data;
+    };
+    const showError=error=>{
+      if(errorNode instanceof HTMLElement){errorNode.hidden=false;errorNode.textContent=String(error?.message||error);}
+      preserveEnglishFailure(root,error);
+    };
+    if(!id){showError(new Error('ENGLISH_GENERATED_READING_ID_REQUIRED'));return;}
+
+    try{
+      const payload=await fetchJson(endpoint('material?id='+encodeURIComponent(id)));
+      const material=payload.material;
+      if(material?.generated_task!=='reading_a'||material?.question_origin!=='CHAT_GENERATED')throw new Error('ENGLISH_GENERATED_READING_TASK_MISMATCH');
+      const questions=Array.isArray(material.questions)?material.questions:[];
+      if(!questions.length||questions.some(q=>q.response_kind!=='single_choice'||!q.question_id))throw new Error('ENGLISH_GENERATED_READING_QUESTIONS_INVALID');
+      root.dataset.readingObject=id;
+      root.dataset.englishSourceHash=material.content_hash||'';
+      const snapshot={
+        evidence:{
+          source_kind:'generated',
+          evidence_role:material.evidence_role||null,
+          semantic_source_hash:material.content_hash||null,
+          transfer_independence:material.transfer_independence||null,
+          calibration_status:material.calibration_status||'NOT_SCORE_EQUIVALENT'
+        },
+        question_origin:'CHAT_GENERATED',
+        completion_requirement:material.completion_requirement||'QUESTIONS_SUBMITTED',
+        training_target:material.training_target||null,
+        paragraphs:(material.passage_paragraphs||[]).map((text,index)=>({id:`${id}-p${index+1}`,text:String(text||'')})),
+        questions:questions.map(q=>({id:q.question_id,ordinal:q.ordinal,prompt:q.prompt,options:q.options}))
+      };
+      const snapshotNode=root.querySelector('[data-english-task-snapshot]');
+      if(snapshotNode)snapshotNode.textContent=JSON.stringify(snapshot);
+      const title=material.title||id;
+      root.querySelector('[data-generated-reading-title]').textContent=title;
+      root.querySelector('[data-generated-reading-passage-title]').textContent=title;
+      const paragraphHost=root.querySelector('[data-generated-reading-paragraphs]');
+      paragraphHost.innerHTML='';
+      snapshot.paragraphs.forEach(row=>{const p=document.createElement('p');p.id=row.id;p.textContent=row.text;paragraphHost.appendChild(p);});
+
+      const storageKey=`kianos-reading-attempt-v1:${id}`;
+      const meta=taskMetadata(root,'reading_a',id);
+      const saved=inspectEnglishAttempt(localStorage,storageKey,meta,{root})||{};
+      let state={
+        version:3,currentIndex:0,startedAt:new Date().toISOString(),answers:{},uncertain:[],submitted:false,submittedAt:'',results:{},trajectory:{},causes:{},reviewUnlocked:true,
+        ...saved,
+        trajectory:saved.trajectory||{},causes:saved.causes||{},reviewUnlocked:saved.reviewUnlocked!==false
+      };
+      const save=()=>saveEnglishAttempt(localStorage,storageKey,state,meta,{root});
+      save();
+      localStorage.setItem('kianos-reading-last-location-v1',JSON.stringify({id,title,href:`${base}reading-generated/?id=${encodeURIComponent(id)}`,updatedAt:new Date().toISOString()}));
+
+      const nav=root.querySelector('[data-generated-reading-nav]');
+      const host=root.querySelector('[data-generated-reading-questions]');
+      const progress=root.querySelector('[data-reading-progress]');
+      const timer=root.querySelector('[data-reading-timer]');
+      const submit=root.querySelector('[data-reading-submit]');
+      const result=root.querySelector('[data-reading-result]');
+      const score=root.querySelector('[data-reading-score]');
+      const summary=root.querySelector('[data-reading-summary]');
+      const normalize=value=>Array.isArray(value)?value.map(String):value==null||value===''?[]:[String(value)];
+      const same=(a,b)=>{const x=normalize(a).sort(),y=normalize(b).sort();return x.length===y.length&&x.every((v,i)=>v===y[i]);};
+      let answers=null;
+      let tick=null;
+      const format=s=>`${String(Math.floor(s/60)).padStart(2,'0')}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+      const elapsed=()=>Math.max(0,Math.round(((state.submittedAt?Date.parse(state.submittedAt):Date.now())-Date.parse(state.startedAt||new Date().toISOString()))/1000));
+      const render=()=>{
+        nav.innerHTML='';host.innerHTML='';
+        questions.forEach((q,index)=>{
+          const button=document.createElement('button');button.type='button';button.dataset.target=q.question_id;button.textContent=`Q${q.ordinal||index+1}`;button.classList.toggle('active',index===state.currentIndex);button.addEventListener('click',()=>{state.currentIndex=index;save();render();});nav.appendChild(button);
+          const section=document.createElement('section');section.className=`portedReadingQuestion ${index===state.currentIndex?'is-current':''}`;section.dataset.question=q.question_id;section.dataset.index=String(index);section.hidden=index!==state.currentIndex;
+          section.innerHTML='<header><span></span><button type="button" class="portedUncertain" aria-pressed="false">Uncertain</button></header><p></p><div class="portedReadingOptions"></div><div class="portedReadingAnswerStrip" data-reading-answer-strip hidden><span>你的答案 <b data-reading-your-answer>—</b></span><span>正式答案 <b data-reading-formal-answer>—</b></span></div>';
+          section.querySelector('header span').textContent=`Question ${q.ordinal||index+1}`;section.querySelector(':scope > p').textContent=q.prompt;
+          const uncertain=section.querySelector('.portedUncertain');uncertain.setAttribute('aria-pressed',String(state.uncertain.includes(q.question_id)));uncertain.disabled=state.submitted;
+          uncertain.addEventListener('click',()=>{const set=new Set(state.uncertain);set.has(q.question_id)?set.delete(q.question_id):set.add(q.question_id);state.uncertain=[...set];save();render();});
+          const options=section.querySelector('.portedReadingOptions');
+          for(const [label,text] of Object.entries(q.options||{})){
+            const option=document.createElement('button');option.type='button';option.dataset.option=label;option.innerHTML='<b></b><span></span>';option.querySelector('b').textContent=label;option.querySelector('span').textContent=text;option.classList.toggle('selected',state.answers[q.question_id]===label);option.disabled=state.submitted;
+            option.addEventListener('click',()=>{const prior=state.answers[q.question_id]||'';state.answers[q.question_id]=label;state.trajectory[q.question_id]=[...(state.trajectory[q.question_id]||[]),{answer:label,at:new Date().toISOString(),changed_from:prior||null}].slice(-12);save();render();});options.appendChild(option);
+          }
+          if(state.submitted){
+            section.querySelector('[data-reading-answer-strip]').hidden=false;section.querySelector('[data-reading-your-answer]').textContent=state.answers[q.question_id]||'—';section.querySelector('[data-reading-formal-answer]').textContent=answers?.[q.question_id]||'—';
+            for(const option of section.querySelectorAll('[data-option]')){const label=option.dataset.option;option.classList.toggle('result-correct',label===answers?.[q.question_id]);option.classList.toggle('result-wrong',label===state.answers[q.question_id]&&label!==answers?.[q.question_id]);}
+          }
+          host.appendChild(section);
+        });
+        progress.textContent=`Q${state.currentIndex+1} / ${questions.length}`;
+        if(state.submitted){result.hidden=false;const correct=Object.values(state.results).filter(v=>v==='correct').length;score.textContent=`${correct} / ${questions.length}`;summary.textContent=correct===questions.length&&!state.uncertain.length?'完成；保留为本次 generated evidence。':'问题已记录；是否继续 Repair / transfer 由 Chat 根据真实证据决定。';}
+        else result.hidden=true;
+      };
+      root.querySelector('[data-reading-prev]').addEventListener('click',()=>{state.currentIndex=Math.max(0,state.currentIndex-1);save();render();});
+      root.querySelector('[data-reading-next]').addEventListener('click',()=>{state.currentIndex=Math.min(questions.length-1,state.currentIndex+1);save();render();});
+      submit.addEventListener('click',async()=>{
+        if(state.submitted)return;
+        submit.disabled=true;
+        try{
+          const data=await fetchJson(endpoint('answers?id='+encodeURIComponent(id)));
+          if(data.answers?.content_hash!==material.content_hash||data.answers?.generated_task!=='reading_a')throw new Error('ENGLISH_GENERATED_READING_ANSWER_REVISION_MISMATCH');
+          answers=data.answers.answers||{};state.results={};
+          for(const q of questions){const mine=state.answers[q.question_id]||'';state.results[q.question_id]=mine?(same(mine,answers[q.question_id])?'correct':'wrong'):'unanswered';}
+          state.submitted=true;state.submittedAt=new Date().toISOString();save();render();
+        }catch(error){showError(error);}finally{submit.disabled=state.submitted;}
+      });
+      root.querySelector('[data-reading-reset]').addEventListener('click',()=>{
+        if(!state.submitted)return;
+        archiveEnglishAttempt(localStorage,storageKey);
+        location.reload();
+      });
+      tick=setInterval(()=>{if(timer)timer.textContent=format(elapsed());},1000);
+      render();root.hidden=false;
+      window.addEventListener('pagehide',()=>{if(tick)clearInterval(tick);},{once:true});
+    }catch(error){showError(error);}
+  });
+</script>

@@ -53,6 +53,30 @@ try{
   assert.equal(answers.answers.q1,'B');
   assert.equal(answers.question_origin,'CHAT_GENERATED');
 
+
+  const readingA={
+    ...base,
+    task:'reading_a',
+    object_id:'external-chat-2026-09-20-reading-a-001',
+    evidence_role:'TEACHING_REPAIR',
+    training_target:{kind:'reading_a_judge_repair',note:'Focused Reading-A competing-option repair.'},
+    questions:[{...base.questions[0],question_id:'ra1'}]
+  };
+  assert.throws(()=>writeEnglishGeneratedDrill({...readingA,object_id:'external-chat-2026-09-20-reading-a-transfer-bad',evidence_role:'TRANSFER'},{privateDir:temp}),/TRANSFER_INDEPENDENCE_REQUIRED/);
+  const readingTransfer={...readingA,object_id:'external-chat-2026-09-20-reading-a-transfer-good',evidence_role:'TRANSFER',transfer_independence:{status:'PASS',basis:'CHAT_SELF_ATTACK'}};
+  assert.equal(writeEnglishGeneratedDrill(readingTransfer,{privateDir:temp}).status,'written');
+  const readingWrite=writeEnglishGeneratedDrill(readingA,{privateDir:temp});
+  assert.equal(readingWrite.status,'written');
+  const readingValue=readEnglishGeneratedDrill(readingA.object_id,{privateDir:temp});
+  assert.equal(readingValue.task,'reading_a');
+  assert.equal(readingValue.evidence_role,'TEACHING_REPAIR');
+  const readingRows=generatedDrillCatalogRows({privateDir:temp,studyDay:day});
+  assert.equal(readingRows.find(row=>row.object_id===readingA.object_id)?.task,'reading_a');
+  const readingView=materializeEnglishGeneratedDrill(readingValue);
+  assert.equal(readingView.generated_task,'reading_a');
+  assert.equal(readingView.evidence_role,'TEACHING_REPAIR');
+  assert.equal(readingView.questions[0].answer,undefined);
+
   assert.throws(()=>writeEnglishGeneratedDrill({...base,training_target:{...base.training_target,note:'different meaning'}},{privateDir:temp}),/ID_CONFLICT/);
   const preserved=readEnglishGeneratedDrill(base.object_id,{privateDir:temp});
   assert.equal(preserved.content_hash,read.content_hash,'conflict must preserve original object');
@@ -100,6 +124,20 @@ try{
   generatedAttempt.stage='submitted';
   generatedStorage.setItem(extKey,JSON.stringify(generatedAttempt));
   assert.equal(englishStepIsComplete(generatedStorage,step),true,'submitted generated drill should complete Session step');
+
+  const readingKey='kianos-reading-attempt-v1:'+readingValue.object_id;
+  const readingGeneratedAttempt={
+    binding:{task:'reading_a',object_id:readingValue.object_id,source_hash:readingValue.content_hash,source_snapshot:{
+      question_origin:'CHAT_GENERATED',completion_requirement:'QUESTIONS_SUBMITTED',questions:[{id:'ra1'}]
+    }},
+    submitted:true,
+    answers:{ra1:'A'},
+    results:{ra1:'wrong'},
+    uncertain:[],
+    reviewResolved:false
+  };
+  const readingStorage=new Storage({[readingKey]:JSON.stringify(readingGeneratedAttempt)});
+  assert.equal(englishStepIsComplete(readingStorage,{task:'reading_a',object_id:readingValue.object_id,source_hash:readingValue.content_hash}),true,'submitted generated Reading A is workflow-complete without manufacturing mastery');
 
   const normalId='tpo56-p1';
   const normalHash='normal-r1';

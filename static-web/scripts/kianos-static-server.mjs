@@ -292,15 +292,18 @@ const bridgeServer = { middlewares, httpServer: server };
 const [
   { privateLearnerBridge },
   { privateExternalReadingBridge },
+  { privateEnglishGeneratedBridge },
   { privateControlBridge }
 ] = await Promise.all([
   import('./privateLearnerBridge.mjs'),
   import('./privateExternalReadingBridge.mjs'),
+  import('./privateEnglishGeneratedBridge.mjs'),
   import('./privateControlBridge.mjs')
 ]);
 for (const bridge of [
   privateLearnerBridge(),
   privateExternalReadingBridge(),
+  privateEnglishGeneratedBridge(),
   privateControlBridge()
 ]) {
   bridge.configureServer?.(bridgeServer);
