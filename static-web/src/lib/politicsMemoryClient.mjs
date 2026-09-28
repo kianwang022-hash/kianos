@@ -60,7 +60,7 @@ export function initPoliticsMemoryWorkspace(root) {
     try {
       next = resolvePoliticsMemoryResume(localStorage, catalog, { expectedDay: localStudyDay() });
     } catch (error) {
-      if (status) status.textContent = '当前政治记忆记录无法安全读取：' + String(error?.message || error);
+      if (status) status.textContent = '当前政治记忆记录无法安全读取；原记录没有改动。回 Chat 重新生成今天的计划。';
       active = null;
       return;
     }
@@ -130,7 +130,7 @@ export function initPoliticsMemoryWorkspace(root) {
       if (status) status.textContent = '已记录：' + (responseLabels[value] || value);
       render();
     } catch (error) {
-      if (status) status.textContent = '没有记录：' + String(error?.message || error);
+      if (status) status.textContent = '没有记录成功；原记录没有改动。刷新后仍异常就回 Chat 重新生成今天的计划。';
     }
   };
 
