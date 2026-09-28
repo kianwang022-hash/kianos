@@ -149,6 +149,9 @@ async function runChild(file, args, {
 }
 
 async function prepareRelease(sha, extra = {}) {
+  const prepareStartedAt = Date.now();
+  const timings = { dependencies: 0, astro_build: 0, total: 0 };
+  let dependencyMode = 'not-required';
   const failure = readBuildFailure();
   if (failure?.sha === sha && failure.stage === 'build' && !(oneShot && process.env.KIANOS_RETRY_FAILED_BUILD === '1')) {
     throw new Error(`CURRENT_BUILD_BLOCKED:${sha}:${failure.error}`);
@@ -160,7 +163,13 @@ async function prepareRelease(sha, extra = {}) {
     if (readBuiltStatus(existingDist)?.state === 'synced'
       && readBuiltStatus(existingDist)?.sha === sha
       && fs.existsSync(path.join(existingDist, 'index.html'))) {
-      return { webRoot: path.join(releaseRoot, 'static-web'), created: false };
+      timings.total = Date.now() - prepareStartedAt;
+      return {
+        webRoot: path.join(releaseRoot, 'static-web'),
+        created: false,
+        dependencyMode: 'existing-release',
+        timings
+      };
     }
     try {
       await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
@@ -184,6 +193,8 @@ async function prepareRelease(sha, extra = {}) {
         try {
           const reused = cloneDependencies(activeWebRoot, candidateWebRoot);
           dependenciesReady = true;
+          dependencyMode = 'reused';
+          timings.dependencies = reused.duration_ms;
           log(`reused verified candidate dependencies in ${reused.duration_ms}ms`);
         } catch (error) {
           warn(`candidate dependency reuse failed; falling back to npm install: ${error?.message || error}`);
@@ -195,10 +206,13 @@ async function prepareRelease(sha, extra = {}) {
         // fingerprinting after install would make the next fresh worktree
         // differ forever and silently defeat dependency reuse.
         const dependencyProof = dependencyIdentity(candidateWebRoot);
+        const installStartedAt = Date.now();
         await runChild(npmBin, ['install', '--no-audit', '--no-fund'], {
           cwd: candidateWebRoot,
           label: 'candidate npm install'
         });
+        timings.dependencies = Date.now() - installStartedAt;
+        dependencyMode = 'installed';
         writeDependencyProof(candidateWebRoot, dependencyProof);
         log('installed and recorded candidate dependency proof');
       }
@@ -208,13 +222,24 @@ async function prepareRelease(sha, extra = {}) {
       fs.rmSync(candidateStage, { recursive: true, force: true });
       const buildScript = staticBuildNpmScript(extra);
       const args = [npmBin, 'run', buildScript, '--', '--outDir', candidateStage];
+      const buildStartedAt = Date.now();
       await runChild(args[0], args.slice(1), {
         cwd: candidateWebRoot,
         label: 'candidate Astro build',
         env: { ...process.env, KIANOS_RELEASE_SHA: sha },
         timeoutMs: buildTimeoutMs
       });
-      writeBuiltStatus(candidateStage, sha, extra);
+      timings.astro_build = Date.now() - buildStartedAt;
+      timings.total = Date.now() - prepareStartedAt;
+      writeBuiltStatus(candidateStage, sha, {
+        ...extra,
+        dependency_mode: dependencyMode,
+        timings_ms: {
+          dependencies: timings.dependencies,
+          astro_build: timings.astro_build,
+          prepare_release_total: timings.total
+        }
+      });
       fs.renameSync(candidateStage, path.join(candidateWebRoot, 'dist'));
     }
   } catch (error) {
@@ -236,7 +261,8 @@ async function prepareRelease(sha, extra = {}) {
     throw new Error('CURRENT_RELEASE_BUILD_INVALID');
   }
   fs.rmSync(failurePath, { force: true });
-  return { webRoot: candidateWebRoot, created: true };
+  timings.total = Date.now() - prepareStartedAt;
+  return { webRoot: candidateWebRoot, created: true, dependencyMode, timings };
 }
 
 async function cleanupPreparedRelease(sha) {
