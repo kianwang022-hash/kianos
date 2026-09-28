@@ -52,6 +52,6 @@ export function installPoliticsPracticeBridge() {
     if (source) requestAnimationFrame(() => source.scrollIntoView({ block: 'nearest' }));
   } catch (e) {
     link.hidden = true;
-    panel.querySelector('[data-practice-return-error]').textContent = e.message;
+    panel.querySelector('[data-practice-return-error]').textContent = String(e?.message || '').match(/[\u3400-\u9fff]/) ? String(e.message) : '返回位置无法安全读取；原题组没有改动，请回工作台核对。';
   }
 }
