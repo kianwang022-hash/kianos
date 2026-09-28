@@ -17,15 +17,26 @@ Fresh CBA AUDIT exact-release pinning is now a delivered Current capability. Clo
 Normal lanes:
 
 ~~~text
-ordinary UI / Human-Gate iteration
+concrete UI/runtime defect with accepted behavior
+→ exact effective consumer/owner
+→ smallest direct fix
+→ targeted browser proof (Candidate only when useful)
+→ durable main change
+→ Current publishes asynchronously
+→ STOP
+
+material Product / Visual change
+→ exact Product / Visual owner
 → Candidate 127.0.0.1:4322
-→ exact Product / Visual / surface owner
+→ Human Gate
 → accepted durable change
 → managed Current promotion
 
 normal learner/use runtime
 → Stable 127.0.0.1:4321
 ~~~
+
+For the concrete-repair lane, **do not create a new Issue/Contract, run a whole-product audit, or wait for Stable promotion by default**. The full acceptance audit remains a separate final gate. This router follows `PROJECT_MANAGEMENT_CONTRACT.md → Concrete Repair Fast Lane`.
 
 Completed rollout programs, historical Human Gates, bounded defect closures and old candidate branches do **not** issue Current work from this file. Their evidence remains in the exact Product/Acceptance owner, closed Issue/PR or Git history.
 
