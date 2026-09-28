@@ -75,24 +75,41 @@ async function firstBlockJourney(page) {
   const before = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
   check(Object.keys(before?.learned || {}).length === 0, 'source_handoff_does_not_prelearn_kps');
 
-  const firstGroupIds = learner.logicGroups[0].kpIds;
-  await root.locator('[data-group-lecture-done]').click();
-  await page.waitForTimeout(100);
-  await settleTtsx(root, page);
-  check(await visibleStage(root) === 'kp_recall', 'whole_lg_source_contact_releases_recall');
+  let after = null;
+  for (let groupIndex = 0; groupIndex < learner.logicGroups.length; groupIndex += 1) {
+    const group = learner.logicGroups[groupIndex];
+    const groupIds = group.kpIds;
+    check(await visibleStage(root) === 'kp_learn', `lg_${groupIndex + 1}_stays_in_block_learn_before_source_done`);
+    await root.locator('[data-group-lecture-done]').click();
+    await page.waitForTimeout(100);
+    await settleTtsx(root, page);
+    after = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
+    const learnedIds = Object.entries(after?.learned || {}).filter(([, value]) => value === true).map(([id]) => id);
+    check(groupIds.every((id) => learnedIds.includes(id)), `lg_${groupIndex + 1}_contact_marks_exact_group_kps`);
+    check((after?.sourceContactEvidence || []).some((row) =>
+      row?.segment_id === `source:${group.identity.logicGroupId}`
+        && row?.source_contact_mode === 'WHOLE_LOGIC_GROUP'
+    ), `lg_${groupIndex + 1}_source_contact_identity_preserved`);
+    check(Object.keys(after?.ratings || {}).length === 0,
+      `lg_${groupIndex + 1}_source_contact_does_not_manufacture_recall`);
+    if (groupIndex < learner.logicGroups.length - 1) {
+      check(await visibleStage(root) === 'kp_learn',
+        `lg_${groupIndex + 1}_returns_to_unfinished_block_learn`);
+      check(after?.sourceContactDone !== true,
+        `lg_${groupIndex + 1}_does_not_false_close_block_learn`);
+      check(learnedIds.length < learner.kps.length,
+        `lg_${groupIndex + 1}_does_not_mark_entire_block`, `${learnedIds.length}/${learner.kps.length}`);
+    }
+  }
 
-  const after = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
   const learnedIds = Object.entries(after?.learned || {}).filter(([, value]) => value === true).map(([id]) => id);
-  check(firstGroupIds.every((id) => learnedIds.includes(id)), 'first_lg_contact_marks_exact_group_kps');
-  check(learnedIds.length === firstGroupIds.length && learnedIds.length < learner.kps.length,
-    'whole_lg_contact_does_not_mark_entire_block', `${learnedIds.length}/${learner.kps.length}`);
-  check(Array.isArray(after?.sourceContactEvidence) && after.sourceContactEvidence.length === 1,
-    'source_contact_evidence_single_segment', String(after?.sourceContactEvidence?.length || 0));
-  check(after.sourceContactEvidence[0]?.segment_id === `source:${learner.logicGroups[0].identity.logicGroupId}`,
-    'source_contact_segment_bound_to_accepted_lg', String(after.sourceContactEvidence[0]?.segment_id || ''));
-  check(after.sourceContactEvidence[0]?.source_contact_mode === 'WHOLE_LOGIC_GROUP',
-    'source_contact_mode_preserved', String(after.sourceContactEvidence[0]?.source_contact_mode || ''));
+  check(learnedIds.length === learner.kps.length, 'all_b_source_chunks_complete_block_learn', `${learnedIds.length}/${learner.kps.length}`);
+  check(after?.sourceContactDone === true, 'all_b_source_chunks_release_retrieval_phase');
+  check((after?.sourceContactEvidence || []).length === learner.logicGroups.length,
+    'source_contact_evidence_covers_all_b_source_chunks', String(after?.sourceContactEvidence?.length || 0));
+  check(await visibleStage(root) === 'kp_recall', 'retrieval_begins_only_after_full_block_learn');
 
+  const firstGroupIds = learner.logicGroups[0].kpIds;
   const activeCard = root.locator('[data-kp-recall-card]:not([hidden])');
   const activeKp = await activeCard.getAttribute('data-kp-id');
   check(firstGroupIds.includes(activeKp), 'recall_stays_inside_contacted_lg', activeKp || '');
@@ -178,8 +195,8 @@ async function biochemistrySourceLaneJourney(page) {
 
   await root.locator('[data-stage-next="logic_group"]').click();
   await page.waitForTimeout(80);
-  check(await visibleStage(root) === 'kp_recall',
-    'formed_m2_first_group_releases_recall_without_block_source_reentry');
+  check(await visibleStage(root) === 'source_contact',
+    'partial_m2_source_keeps_retrieval_locked_until_block_source_complete');
 
   await page.goto(`${BASE}/xizong/${SYSTEM_ID}/?view=biochemistry`, { waitUntil:'domcontentloaded' });
   const laneAgain = page.locator('[data-system-view="biochemistry"]');
@@ -206,6 +223,12 @@ async function biochemistrySourceLaneJourney(page) {
     's04_closure_forms_all_m2_kps');
   check(m2?.sourceContactDone === true,
     's04_releases_m2_source_closure');
+
+  const m2Root = page.locator('[data-xizong-v6-block]');
+  await m2Root.locator('[data-stage-next="logic_group"]').click();
+  await page.waitForTimeout(80);
+  check(await visibleStage(m2Root) === 'kp_recall',
+    'm2_retrieval_releases_only_after_full_block_source_closure');
 
   const completedBlockState = (blockId) => {
     const ref = system.blocks.find((row) => row.blockId === blockId);

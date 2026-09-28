@@ -427,7 +427,7 @@ const payload = learnerObject || null;
         const footerText = groupLearnStage.querySelector(':scope > footer > span');
         if (footerText) footerText.textContent = '在原讲义连续完成这一学习节；中间可切 KP Learn 伴读，但不要求来回切 App。';
         const done = groupLearnStage.querySelector('[data-group-lecture-done]');
-        if (done) done.textContent = '这一节原讲义已完成，开始 Recall';
+        if (done) done.textContent = '这一节原讲义已完成';
       }
 
       const renderCompanions = () => {

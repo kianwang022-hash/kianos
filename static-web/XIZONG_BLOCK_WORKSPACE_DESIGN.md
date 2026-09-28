@@ -157,15 +157,15 @@ Source-contact authority remains `LEARNING_CONTRACT.md` plus the exact System Le
 
 Before leaving, expose the exact owned Source locator / bounded instruction and the retrieval return map. Missing exact locators stay explicitly unavailable; do not infer ranges from KP order.
 
-- Whole-LG source mode: one group confirmation covers that accepted segment's exact KP IDs.
-- Block / canonical Source-unit mode: continuous Source contact may span multiple retrieval LGs. Returning starts the accepted retrieval order, without reopening Source for every LG.
+- Whole-LG source mode: one group confirmation covers that accepted Source chunk's exact KP IDs, but it remains inside **Block Learn** and does not start KP Recall by itself.
+- Block / canonical Source-unit mode: continuous Source contact may span multiple retrieval LGs. Partial Source returns resume the unfinished Learn mainline; only after the Block's accepted Learn/Source scope is complete does the learner enter **Retrieval Phase**.
 - Multiple natural sections may be studied across sittings. A Block-wide completion confirmation means all owned Source coverage is complete, not that any arbitrary partial section covers the whole Block.
 
 Formal Lecture contact is per-KP evidence, but may be derived from confirmed accepted Source coverage. The normal path must not require one click per KP or per retrieval LG. Optional per-KP companion navigation/marking never replaces the one-source-unit confirmation.
 
 A real reviewed Source boundary plus reviewed TTSX binding may insert one lightweight checkpoint. Answering, options, explanation and question-side expansion stay in original Lecture / MarginNote. Each bound question may have an optional short note; no default web answer entry, scoring or formal Question Attempt is created. Boundary decides WHEN, binding decides WHICH. Missing binding creates no checkpoint and no guessed question list.
 
-For whole-LG mode, a checkpoint can interrupt the group's return only when its reviewed binding explicitly owns that LG / Source segment. Never spread a Block-wide binding across every LG. After the checkpoint, return to the interrupted retrieval mainline. Do not add a second “I am back” confirmation.
+For whole-LG mode, a checkpoint may appear only when its reviewed binding explicitly owns that LG / Source segment. Never spread a Block-wide binding across every LG. After the checkpoint, return to the unfinished **Block Learn** mainline; only a checkpoint at the final completed Learn boundary may continue into Retrieval Phase. Do not add a second “I am back” confirmation.
 
 ## 8｜Visual / Precision timing boundary — ACCEPTED AT RESPONSIBILITY LEVEL
 
