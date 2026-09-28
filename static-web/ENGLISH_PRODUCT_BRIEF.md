@@ -93,9 +93,11 @@ After submit, Wrong/Uncertain review expands in place while passage + full quest
 
 ## External Reading — Reading Growth content lane
 
-External Reading is an ongoing English Content lane, analogous to Vocabulary in longevity but not in cognition. It exists to add high-quality reading volume after English-I papers stop providing enough new stimulus.
+External Reading is an ongoing English Content lane, analogous to Vocabulary in longevity but not in cognition. It adds high-quality reading-growth input **alongside English-I true-exam work whenever that input has useful marginal value**; it does not wait for the true-exam corpus to be exhausted.
 
-Current source order:
+The learner mix is intentionally elastic: true-exam Reading may dominate when score/diagnostic value is high, while External Reading can run in parallel for lexical breadth, representation, discourse, speed and stamina. As repeated English-I work yields less new information, more reading-growth time may move here. The Website does not set that allocation itself.
+
+Current source priority (not learner sequence):
 
 ```text
 TPO 56–65
