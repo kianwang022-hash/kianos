@@ -159,7 +159,7 @@ Material learner-facing changes to this new surface require a real Mac Human Gat
 
 Keep the existing Cloze semantics/runtime:
 - complete passage remains visible;
-- all 20 blanks belong to one clean-attempt unit;
+- the complete source-native blank set belongs to one clean-attempt unit;
 - each blank supports Uncertain;
 - selections may be changed and trajectory stays recorded;
 - no correctness reveal before whole-passage submit;
@@ -177,10 +177,14 @@ Kian's required Mac-wide model is the natural **exam-paper typesetting**:
 ```text
 complete Cloze passage left
 |
-ALL 20 blank rows right, visible in natural order inside one scrollable question sheet
+ALL source-native blank rows right, visible in natural order inside one scrollable question sheet
 ```
 
 Each blank row keeps its four candidates horizontally arranged like the printed paper, not four stacked full-width cards.
+
+Source-fidelity rule:
+
+> **Cloze geometry owns “complete source-native set”, not a fixed item count.** A standard-form paper may have 20 blanks, while a historical/current source object with another canonical count must render exactly that owned set. Visual symmetry never authorizes inventing missing questions.
 
 Target shape:
 
@@ -203,9 +207,9 @@ Target shape:
 
 ### Exam-paper behavior
 
-- all 20 rows remain visible in the right question sheet; no blank is hidden merely because it is not active;
-- passage and 20-row question sheet scroll independently;
-- question number is the natural navigation; do not require a separate 01–20 navigator merely to reveal a hidden blank;
+- all source-native rows remain visible in the right question sheet; no blank is hidden merely because it is not active;
+- passage and the complete source-native question sheet scroll independently;
+- question number is the natural navigation; do not require a separate navigator merely to reveal a hidden blank;
 - clicking `____8____` in the passage scrolls/focuses row 08 on the right;
 - clicking/focusing row 08 may lightly locate/highlight `____8____` in the passage;
 - local `active blank` may still exist only for keyboard targeting / focus state, never for visibility gating;
@@ -228,7 +232,7 @@ Selected candidate uses a restrained exam-like treatment; it means only `my curr
 Whole-passage Submit remains one action. Before submit, no formal answers appear.
 
 After submit:
-- keep the same passage + full 20-row sheet;
+- keep the same passage + complete source-native question sheet;
 - stable correct rows stay quiet;
 - Wrong rows show `my answer` versus `formal answer` in place and may expose the smallest optional triage/actions beneath that row;
 - Uncertain-correct is lighter than Wrong and may offer only a cheap confirmation such as `现在明白了 / 仍然不确定`;
