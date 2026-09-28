@@ -107,6 +107,10 @@ for (const token of ['.surfaceBody-politics', '.politics', '.practiceSession', '
   assert.ok(!workspaceComposition.includes(token), `shared-workspace-composition.css retained Politics-owned selector family: ${token}`);
 }
 
+for (const token of ['.uiWordStudy', '.lexical', '.portedVocab', '[data-vocab-details]']) {
+  assert.ok(!workspaceComposition.includes(token), `shared-workspace-composition.css retained Lexical-owned selector family: ${token}`);
+}
+
 const frame = read(path.join(layouts, 'BaseFrame.astro'));
 assert.ok(!/styles\/[^'"]+\.css/.test(frame), 'BaseFrame must remain presentation-style free');
 

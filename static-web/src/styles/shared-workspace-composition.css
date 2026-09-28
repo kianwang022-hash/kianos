@@ -1,35 +1,7 @@
 /* Final composition pass for the first visual family. Native visibility,
    navigation, target identity and evidence reducers remain authoritative. */
-body#kianos-workspace.uiWordStudy .portedVocabWordHeader { padding:15px 30px 17px; }
-body#kianos-workspace.uiWordStudy .portedVocabWordHeader h2 { font-size:43px;margin:5px 0 7px; }
-body#kianos-workspace.uiWordStudy .portedVocabWordHeader p { font-size:17px;color:#5c785f; }
-body#kianos-workspace.uiWordStudy .lexicalSenseRow { padding-block:18px; }
-body#kianos-workspace.uiWordStudy .lexicalSenseMeaning>strong { font-size:18px; }
-body#kianos-workspace.uiWordStudy .lexicalSenseMeaning>p { color:#607b62; }
-body#kianos-workspace.uiWordStudy .lexicalSenseUsage li>span { color:#6c8068; }
-body#kianos-workspace.uiWordStudy .portedVocabEvidenceList>article>p { color:#6f8068; }
-@media(min-width:821px) {
-  /* A real grid column, rather than overlaid badges, keeps long definitions
-     and focus/Repair controls from colliding. The main semantic split stays 50/50. */
-  body#kianos-workspace.uiWordStudy .lexicalSenseRow {
-    grid-template-columns:28px minmax(0,1fr) minmax(0,1fr);column-gap:22px;
-  }
-  body#kianos-workspace.uiWordStudy .lexicalSenseRow>header {
-    position:static;grid-column:1;grid-row:1;display:flex;flex-direction:column;
-    align-items:flex-start;justify-content:flex-start;gap:10px;margin:0;padding:0;
-  }
-  body#kianos-workspace.uiWordStudy .lexicalSenseMeaning { grid-column:2;grid-row:1;padding:0; }
-  body#kianos-workspace.uiWordStudy .lexicalSenseRow:not(:has(.lexicalSenseUsage)) .lexicalSenseMeaning {
-    grid-column:2/-1;padding:0;
-  }
-  body#kianos-workspace.uiWordStudy .lexicalSenseUsage { grid-column:3;grid-row:1; }
-}
 @media(min-width:1000px) and (max-height:790px) {
   body#kianos-workspace.uiHub.surfaceBody-home .productCanvas { padding-top:16px;padding-bottom:6px; }
-}
-@media(max-width:600px) {
-  body#kianos-workspace.uiWordStudy .portedVocabWordHeader { padding:18px 20px; }
-  body#kianos-workspace.uiWordStudy .portedVocabWordHeader h2 { font-size:40px; }
 }
 
 /* Desktop is a stable workspace, not a scaled-down long document.
@@ -45,19 +17,6 @@ body#kianos-workspace.uiWordStudy .portedVocabEvidenceList>article>p { color:#6f
      in the outer canvas. No replacement of Memory/Review/Question runtime. */
   body#kianos-workspace.surfaceBody-xizong .xv6Block { display:flex;flex-direction:column;overflow:hidden; }
   body#kianos-workspace.surfaceBody-xizong [data-study-stage="kp_recall"] { height:100%;min-height:0;display:flex;flex-direction:column; }
-
-  /* Lexical: a single Word stays a semantic sheet, not one-card-per-sense pages. */
-  body#kianos-workspace.uiWordStudy .lexicalStudyNav { position:static;flex-shrink:0;margin:0 -16px;padding:7px 22px;min-height:50px; }
-  body#kianos-workspace.uiWordStudy .portedVocabRuntime { flex:1;min-height:0;display:flex;flex-direction:column; }
-  body#kianos-workspace.uiWordStudy .portedVocabPreviewBar { flex-shrink:0;min-height:34px;padding:3px 0; }
-  body#kianos-workspace.uiWordStudy .portedVocabStudySheet { flex:1;min-height:0;display:flex;flex-direction:column; }
-  body#kianos-workspace.uiWordStudy [data-vocab-details] { flex:1;min-height:0;display:flex;flex-direction:column; }
-  body#kianos-workspace.uiWordStudy .portedVocabWordHeader { flex-shrink:0;padding:13px 27px; }
-  body#kianos-workspace.uiWordStudy .portedVocabWordHeader h2 { margin:3px 0 5px; }
-  body#kianos-workspace.uiWordStudy .portedVocabBody { flex:1;min-height:0;align-items:stretch; }
-  body#kianos-workspace.uiWordStudy :is(.portedVocabMeaningColumn,.portedVocabEvidenceColumn) { min-height:0;overflow:auto; }
-  body#kianos-workspace.uiWordStudy .portedVocabWordFront { flex:1;min-height:0;overflow:auto;padding:28px; }
-  body#kianos-workspace.uiWordStudy .portedVocabFoot { flex-shrink:0;padding:8px 22px; }
 
 }
 /* Narrow windows and high browser zoom retain natural document reflow. */
