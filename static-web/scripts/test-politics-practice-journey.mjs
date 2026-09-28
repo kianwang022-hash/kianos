@@ -160,10 +160,11 @@ try {
   }
   {
     const { page, ctx } = await pageFor(); await start(page);
-    const second = await ctx.newPage(); await second.goto(base + '/politics/practice/');
-    await second.click('[data-option="A"]'); await page.click('[data-option="B"]');
-    assert.equal((await read(page, K.session)).draft.selected, 'A'); assert.match(await page.locator('[data-practice-error]').innerText(), /其他页面/);
-    pass('concurrent tab cannot overwrite newer draft'); await ctx.close();
+    const second = await ctx.newPage(); await second.goto(base + '/politics/practice/'); await second.bringToFront();
+    await second.locator('[data-question-card]').waitFor({ state: 'visible' }); await second.click('[data-option="A"]');
+    await page.locator('[data-learner-writer-notice]').waitFor({ state: 'visible' });
+    assert.equal((await read(second, K.session)).draft.selected, 'A');
+    pass('concurrent tab writer handoff preserves the newer draft'); await ctx.close();
   }
   {
     const { page, ctx } = await pageFor(); await page.selectOption('[data-filter-type]', 'multiple'); await start(page);
