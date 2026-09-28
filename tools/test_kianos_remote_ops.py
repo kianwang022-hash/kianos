@@ -120,6 +120,19 @@ class RemoteOpsTests(unittest.TestCase):
         self.assertTrue(Path(payload["commands"][0]["log"]).exists())
 
 
+    def test_verify_allows_short_async_teardown(self):
+        temp, repo = self.make_repo()
+        self.addCleanup(temp.cleanup)
+        marker = "/tmp/kianos-remote-ops-short-teardown"
+        result = self.call(
+            "verify", "--repo", str(repo),
+            "--cmd", f"{sys.executable} -c 'import time; time.sleep(0.15)' --user-data-dir={marker} >/dev/null 2>&1 &",
+            "--resource-grace-seconds", "1.0",
+        )
+        self.assertEqual(result.returncode, 0, result.stdout)
+        payload = json.loads(result.stdout)
+        self.assertTrue(payload["resource_hygiene"]["clean"], payload)
+
     def test_verify_fails_closed_when_command_leaks_transient_process(self):
         temp, repo = self.make_repo()
         self.addCleanup(temp.cleanup)
@@ -130,6 +143,7 @@ class RemoteOpsTests(unittest.TestCase):
             str(repo),
             "--cmd",
             f"{sys.executable} -c 'import time; time.sleep(60)' --user-data-dir={marker} >/dev/null 2>&1 &",
+            "--resource-grace-seconds", "0.2",
         )
         self.assertEqual(result.returncode, 86, result.stdout)
         payload = json.loads(result.stdout)

@@ -358,6 +358,18 @@ def verify(args: argparse.Namespace) -> int:
     new_transient = [
         row for row in transient_after if int(row["pid"]) not in transient_before_pids
     ]
+    # Browser/dev-server teardown is asynchronous: allow a short bounded grace
+    # before declaring a leak, then read back exact process truth again.
+    if new_transient:
+        deadline = time.monotonic() + max(0.0, args.resource_grace_seconds)
+        while time.monotonic() < deadline:
+            time.sleep(0.05)
+            transient_after = transient_processes()
+            new_transient = [
+                row for row in transient_after if int(row["pid"]) not in transient_before_pids
+            ]
+            if not new_transient:
+                break
     resource_clean = not new_transient
     if not resource_clean and not overall:
         overall = 86
@@ -460,6 +472,7 @@ def build_parser() -> argparse.ArgumentParser:
     check.add_argument("--tail", type=int, default=40)
     check.add_argument("--log-dir")
     check.add_argument("--keep-going", action="store_true")
+    check.add_argument("--resource-grace-seconds", type=float, default=2.0)
 
     clean = sub.add_parser("hygiene", help="list or explicitly terminate recognized KianOS transient local processes")
     clean.add_argument("--pid", action="append", type=int, default=[])
