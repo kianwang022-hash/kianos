@@ -161,6 +161,7 @@ Hard rules:
 - Level 2 is owned inside KianOS by the current Exam Orchestrator / Product / Runtime / Acceptance owner chain.
 - Level 3 is **not KianOS-owned**. Personal / StudyHub / KianOS responsibility and mother-architecture acceptance return to the upstream Personal cross-system owner; KianOS may provide evidence but may not self-grant a three-system PASS.
 - Chat and Website are execution/front-end surfaces in this hierarchy, not a fourth persistent truth system.
+- **Engineering closure after Level 3 PASS:** when Level 1 subject full-suite audits, Level 2 2027 Exam System integration audit, and Level 3 Personal ↔ StudyHub ↔ KianOS cross-system audit all PASS for their exact current scope, broad exam-system engineering stops. The default mode becomes REAL USE / concrete-defect mode: no speculative refactor, architecture polishing, broad UI rebuild or convenience-driven new subsystem. Reopen only for real learner defects, authoritative new Source/material, real platform/runtime breakage, or an explicit new product need.
 
 9. **System-control claims start at the real entrypoint**
    - when claiming Fresh-Chat, Continue, Home, Chat→GitHub or system-control reliability, begin from a realistic user request and verify bounded resolution into the correct Current/canonical owner before judging downstream behavior;
