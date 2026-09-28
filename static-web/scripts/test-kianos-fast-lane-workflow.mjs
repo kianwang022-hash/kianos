@@ -103,6 +103,7 @@ let candidateLog = '';
 
 try {
   const candidatePort = await nextCandidatePort();
+  const candidateStartedAt = Date.now();
   candidate = spawn(process.execPath, ['scripts/kianos-candidate-runtime.mjs'], {
     cwd: webRoot,
     env: {
@@ -117,6 +118,7 @@ try {
   candidate.stderr?.on('data', (chunk) => { candidateLog += chunk.toString(); });
 
   await waitForPort(candidatePort, candidate);
+  const candidateStartupMs = Date.now() - candidateStartedAt;
   const candidateUrl = 'http://127.0.0.1:' + candidatePort + '/steward/';
   const before = await fetchText(candidateUrl);
   assert.ok(before.includes('今天怎么过'), 'Candidate did not render representative Steward surface');
@@ -128,8 +130,10 @@ try {
   await waitForBody(candidateUrl, (body) => body.includes(marker), 15000);
   const candidateRefreshMs = Date.now() - changedAt;
 
+  const revertAt = Date.now();
   fs.writeFileSync(stewardPath, original, 'utf8');
   await waitForBody(candidateUrl, (body) => body.includes('今天怎么过') && !body.includes(marker), 15000);
+  const candidateRevertMs = Date.now() - revertAt;
 
   console.log(JSON.stringify({
     status: 'PASS',
@@ -138,7 +142,10 @@ try {
     exercised_candidate_port: candidatePort,
     stable_lane: 'not_invoked',
     stable_port_guarded: STABLE_CURRENT_PORT !== candidatePort,
+    candidate_startup_ms: candidateStartupMs,
     candidate_refresh_ms: candidateRefreshMs,
+    candidate_revert_ms: candidateRevertMs,
+    candidate_process_reused: true,
     managed_current_rebuild_triggered: false,
     representative_surface: 'steward'
   }, null, 2));
