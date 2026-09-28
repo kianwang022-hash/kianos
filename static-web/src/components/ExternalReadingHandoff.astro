@@ -1,0 +1,186 @@
+<span data-external-reading-handoff-root hidden></span>
+
+<script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+
+  void learnerWriterReady.then(() => {
+    const root = document.querySelector('[data-external-reading-runtime]');
+    if (!(root instanceof HTMLElement)) return;
+
+    const base = root.getAttribute('data-base') || '/';
+    const resultSummary = root.querySelector('.portedReadingResultSummary');
+    const objectId = new URLSearchParams(location.search).get('id') || '';
+    const attemptKey = objectId ? 'kianos-english-external-reading-attempt-v1:' + objectId : '';
+    let handoff = null;
+
+    const readJson = (key, fallback = null) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') ?? fallback; }
+      catch { return fallback; }
+    };
+
+    const problemIds = (attempt) => {
+      if (!attempt?.submitted || !attempt?.results || typeof attempt.results !== 'object') return [];
+      const uncertain = new Set((attempt.uncertain || []).map(String));
+      return Object.keys(attempt.results).filter((id) =>
+        ['wrong', 'unanswered', 'unscored'].includes(String(attempt.results[id] || ''))
+        || uncertain.has(String(id))
+      );
+    };
+
+    const ensureHandoff = () => {
+      if (handoff || !(resultSummary instanceof HTMLElement)) return handoff;
+      handoff = document.createElement('div');
+      handoff.className = 'portedReadingSessionHandoff';
+      handoff.hidden = true;
+      handoff.setAttribute('data-external-chat-review-wrap', '');
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = '深复盘 · 整篇给 Chat';
+      button.setAttribute('data-external-chat-review', '');
+
+      const status = document.createElement('small');
+      status.textContent = '只在当前问题需要整篇上下文时使用。';
+      status.setAttribute('data-external-chat-review-status', '');
+
+      handoff.append(button, status);
+      resultSummary.appendChild(handoff);
+      return handoff;
+    };
+
+    const displayAnswer = (value) => Array.isArray(value) ? value.join(', ') : (value ?? '—');
+
+    const elapsedSeconds = (attempt) => {
+      const evidenceElapsed = Number(attempt?.firstEvidenceMeta?.elapsed_seconds);
+      if (Number.isFinite(evidenceElapsed) && evidenceElapsed >= 0) return Math.round(evidenceElapsed);
+      const start = Date.parse(attempt?.startedAt || '');
+      const end = Date.parse(attempt?.submittedAt || '');
+      if (!Number.isFinite(start) || !Number.isFinite(end) || end < start) return null;
+      return Math.round((end - start) / 1000);
+    };
+
+    const loadPassage = async () => {
+      const response = await fetch(
+        base + '__kianos-private/external-reading/passage?id=' + encodeURIComponent(objectId),
+        { cache: 'no-store' }
+      );
+      const data = await response.json().catch(() => null);
+      if (!response.ok || !data?.passage) throw new Error('EXTERNAL_READING_REVIEW_SOURCE_UNAVAILABLE');
+      return data.passage;
+    };
+
+    const buildPacket = (attempt, passage) => {
+      const problems = new Set(problemIds(attempt));
+      const paragraphs = (passage.passage_paragraphs || [])
+        .map((row) => typeof row === 'string' ? row : String(row?.text || ''))
+        .filter(Boolean)
+        .join('\n\n');
+
+      const lines = [
+        'External Reading deep review packet v1',
+        'Mode: OPTIONAL_WHOLE_OBJECT_ESCALATION',
+        'Object: ' + objectId,
+        'Source family: ' + (passage.source_family || 'External'),
+        'Source format: ' + (passage.source_format || '—'),
+        'Collection: ' + (passage.collection || '—'),
+        'Test / passage: ' + (
+          [
+            passage.test ? 'Test ' + passage.test : '',
+            passage.passage_number ? 'Passage ' + passage.passage_number : ''
+          ].filter(Boolean).join(' · ') || '—'
+        ),
+        'Title: ' + (passage.title || objectId),
+        'Question origin: ' + (passage.question_origin || 'SOURCE_NATIVE'),
+        'Content hash: ' + (passage.content_hash || '—'),
+        'Prior exposure: ' + (attempt?.binding?.prior_exposure || 'unknown'),
+        'Assistance: ' + (attempt?.binding?.assistance || 'unknown'),
+        'Whole-task elapsed: ' + (
+          elapsedSeconds(attempt) == null
+            ? '—'
+            : String(elapsedSeconds(attempt)) + 's (not reading-speed/WPM evidence)'
+        ),
+        'Problems: ' + String(problems.size),
+        '',
+        'PASSAGE',
+        paragraphs || '—',
+        '',
+        'ALL-QUESTION OUTCOME MAP'
+      ];
+
+      for (const q of passage.questions || []) {
+        const id = String(q.question_id || '');
+        lines.push(
+          'Q' + String(q.ordinal || id)
+          + ' (' + id + ')'
+          + ' · ' + String(attempt?.results?.[id] || 'unscored')
+          + ' · my ' + displayAnswer(attempt?.answers?.[id])
+          + ' · formal ' + displayAnswer(attempt?.formalAnswers?.[id])
+          + ' · uncertain ' + ((attempt?.uncertain || []).map(String).includes(id) ? 'yes' : 'no')
+        );
+      }
+
+      const problemQuestions = (passage.questions || []).filter((q) => problems.has(String(q.question_id || '')));
+      if (problemQuestions.length) {
+        lines.push('', 'PROBLEM QUESTION CONTEXT');
+        for (const q of problemQuestions) {
+          lines.push('Q' + String(q.ordinal || q.question_id) + ': ' + String(q.prompt || q.source_text || '—'));
+          if (q.options && Object.keys(q.options).length) {
+            for (const [label, value] of Object.entries(q.options)) {
+              lines.push(String(label) + '. ' + String(value));
+            }
+          } else if (q.source_text) {
+            lines.push('Source-native structure: ' + String(q.source_text));
+          }
+        }
+      }
+
+      lines.push(
+        '',
+        'REVIEW INSTRUCTION',
+        "Preserve this object's source-native TOEFL / IELTS / External task semantics. Do not relabel it as Reading A merely because the screen uses a Reading workspace.",
+        'Diagnose the whole passage first. Separate broad language Representation / discourse / lexical-access problems from source-native question-task execution, merge shared causes across items, and stop at the smallest repair that can change future performance.',
+        'Wrong / Uncertain / unscored are evidence, not automatic debt. A lookup or assisted attempt is not by itself proof of lexical causality. Reading-only completion is not a comprehension outcome.',
+        'If current evidence cannot distinguish causes and the repair would materially differ, ask only the smallest decision-changing clarification.'
+      );
+
+      return lines.join('\n');
+    };
+
+    const sync = () => {
+      const node = ensureHandoff();
+      if (!(node instanceof HTMLElement) || !attemptKey) return;
+      const attempt = readJson(attemptKey, {});
+      node.hidden = !attempt?.submitted || problemIds(attempt).length === 0;
+    };
+
+    ensureHandoff()?.querySelector('[data-external-chat-review]')?.addEventListener('click', async () => {
+      const attempt = readJson(attemptKey, {});
+      if (!attempt?.submitted || problemIds(attempt).length === 0) return;
+      const status = handoff?.querySelector('[data-external-chat-review-status]');
+
+      try {
+        const passage = await loadPassage();
+        if (
+          attempt?.binding?.source_hash
+          && passage.content_hash
+          && attempt.binding.source_hash !== passage.content_hash
+        ) {
+          if (status) status.textContent = 'Source 已变化；刷新当前对象后再复盘。';
+          return;
+        }
+
+        const packet = buildPacket(attempt, passage);
+        await navigator.clipboard.writeText(packet);
+        if (status) status.textContent = '已复制整篇 External 复盘包；直接贴到 Chat。';
+      } catch {
+        if (status) status.textContent = '整篇复盘包暂不可用；当前学习记录未被修改。';
+      }
+    });
+
+    root.addEventListener('click', () => window.setTimeout(sync, 0));
+    window.addEventListener('storage', (event) => {
+      if (event.key === attemptKey) sync();
+    });
+    sync();
+  });
+</script>
