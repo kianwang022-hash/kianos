@@ -98,11 +98,26 @@ async function waitForBody(url, predicate, timeoutMs = 12000) {
   throw new Error('FAST_LANE_WORKFLOW_BODY_TIMEOUT:' + last.slice(0, 200));
 }
 
+async function waitForCandidateMetrics(readLog, timeoutMs = 3000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const log = readLog();
+    const line = log.split('\n').find((row) => row.includes('[KianOS Candidate] METRICS '));
+    if (line) {
+      const payload = line.slice(line.indexOf('[KianOS Candidate] METRICS ') + '[KianOS Candidate] METRICS '.length);
+      return JSON.parse(payload);
+    }
+    await sleep(50);
+  }
+  throw new Error('FAST_LANE_CANDIDATE_METRICS_TIMEOUT');
+}
+
 let candidate = null;
 let candidateLog = '';
 
 try {
   const candidatePort = await nextCandidatePort();
+  const candidateStartedAt = Date.now();
   candidate = spawn(process.execPath, ['scripts/kianos-candidate-runtime.mjs'], {
     cwd: webRoot,
     env: {
@@ -117,6 +132,8 @@ try {
   candidate.stderr?.on('data', (chunk) => { candidateLog += chunk.toString(); });
 
   await waitForPort(candidatePort, candidate);
+  const candidateStartupMs = Date.now() - candidateStartedAt;
+  const candidateMetrics = await waitForCandidateMetrics(() => candidateLog);
   const candidateUrl = 'http://127.0.0.1:' + candidatePort + '/steward/';
   const before = await fetchText(candidateUrl);
   assert.ok(before.includes('今天怎么过'), 'Candidate did not render representative Steward surface');
@@ -128,8 +145,10 @@ try {
   await waitForBody(candidateUrl, (body) => body.includes(marker), 15000);
   const candidateRefreshMs = Date.now() - changedAt;
 
+  const revertAt = Date.now();
   fs.writeFileSync(stewardPath, original, 'utf8');
   await waitForBody(candidateUrl, (body) => body.includes('今天怎么过') && !body.includes(marker), 15000);
+  const candidateRevertMs = Date.now() - revertAt;
 
   console.log(JSON.stringify({
     status: 'PASS',
@@ -138,7 +157,14 @@ try {
     exercised_candidate_port: candidatePort,
     stable_lane: 'not_invoked',
     stable_port_guarded: STABLE_CURRENT_PORT !== candidatePort,
+    candidate_startup_ms: candidateStartupMs,
+    candidate_runtime_startup_ms: candidateMetrics.startup_ms,
+    candidate_dependency_ms: candidateMetrics.dependency_ms,
+    candidate_dependency_mode: candidateMetrics.dependency_mode,
+    candidate_dependency_verification: candidateMetrics.dependency_verification,
     candidate_refresh_ms: candidateRefreshMs,
+    candidate_revert_ms: candidateRevertMs,
+    candidate_process_reused: true,
     managed_current_rebuild_triggered: false,
     representative_surface: 'steward'
   }, null, 2));

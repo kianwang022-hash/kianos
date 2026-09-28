@@ -228,9 +228,11 @@ async function waitForReady(config, child) {
 }
 
 async function main() {
+  const startupStartedAt = Date.now();
   const config = resolveCandidateConfig();
   const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-candidate-'));
   let dependencyLease = null;
+  let dependencyDurationMs = 0;
   let child = null;
   let stopping = false;
 
@@ -253,7 +255,9 @@ async function main() {
   process.on('SIGTERM', stop);
 
   try {
+    const dependencyStartedAt = Date.now();
     dependencyLease = ensureCandidateDependencies();
+    dependencyDurationMs = Date.now() - dependencyStartedAt;
     if (dependencyLease?.mode === 'materialized') {
       console.log('[KianOS Candidate] materialized compatible dependencies inside this worktree in '
         + dependencyLease.duration_ms + 'ms via ' + dependencyLease.verification);
@@ -283,6 +287,15 @@ async function main() {
     console.log(`[KianOS Candidate] READY ${config.base}`);
     console.log(`[KianOS Candidate] branch HEAD ${head}; isolated runtime ${runtimeRoot}`);
     console.log('[KianOS Candidate] stable Current remains http://127.0.0.1:4321/');
+    console.log('[KianOS Candidate] METRICS ' + JSON.stringify({
+      schema: 'kianos.candidate.startup.v1',
+      startup_ms: Date.now() - startupStartedAt,
+      dependency_ms: dependencyDurationMs,
+      dependency_mode: dependencyLease?.mode || 'unknown',
+      dependency_verification: dependencyLease?.verification || 'local',
+      head,
+      base: config.base
+    }));
 
     if (config.openBrowser && process.platform === 'darwin') {
       try { await execFileAsync('/usr/bin/open', [config.base]); }
