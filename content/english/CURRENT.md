@@ -9,10 +9,13 @@ A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / �
 
 ## Active engineering anchor
 
-Issue [#1054](https://github.com/kianwang022-hash/kianos/issues/1054) — **task-native personalized targeted generation** — owns the active English BUILD Phase / Next / Blocker. Read its current body before continuing; this router does not duplicate those changing fields.
+Issue [#1070](https://github.com/kianwang022-hash/kianos/issues/1070) — **English cleanup: converge to native runtimes and retire stale execution** — owns the only active English engineering Phase / Next / Blocker.
 
-- Reading attribution #1043 is closed; its accepted implementation and #1053 CREATE closure remain the basis, not active continuation tasks.
-- Issue #1014 remains the completed English real-use audit receipt, not the current work cursor.
+- English is already a mature learner product; #1070 is cleanup/convergence, not a new construction campaign.
+- Closed #1054 is superseded family-by-family BUILD history and must not be resumed.
+- Closed PR #1035 is stale execution evidence only; any still-real residue is re-verified on current main under #1070 rather than reviving the old branch.
+- Reading attribution #1043 and CREATE closure #1053 are closed basis/evidence, not active continuation tasks.
+- Issue #1014 remains completed English real-use audit evidence, not the current work cursor.
 - Exact Source / Content / Learning / Interaction / Visual / Runtime / Shared-platform truth remains with each native owner.
 - Ordinary English learning uses native learner/runtime state.
 
@@ -21,6 +24,7 @@ Issue [#1054](https://github.com/kianwang022-hash/kianos/issues/1054) — **task
 - English is in **normal-use / concrete-defect mode** for the currently admitted product boundaries.
 - Objective, Translation, Writing, English ↔ Lexical handoff, whole-paper session, External Reading and shared private-checkpoint paths have current implementation/acceptance owners.
 - There is no active broad English construction campaign and no release hold encoded in this cursor.
+- #1070 temporarily owns one bounded cleanup: remove remaining duplicate execution introduced during optimization, retire stale English work, then return to normal use.
 - Learner U remains private real-use truth; engineering acceptance never means Kian has studied or mastered the material.
 - External Reading remains a continuous English Content lane. Public GitHub owns source identity/schema/compiler/runtime contracts; copyrighted source bytes remain private.
 
@@ -80,22 +84,20 @@ A blocker in one child does not freeze siblings without a real shared dependency
 - Cross-task strategy belongs to Chat; Website executes validated explicit instructions.
 - Unknown exposure is not equivalent to unseen.
 - Current Source / semantic identity changes invalidate only the dependent evidence/plan path.
+- Generated/private material is an input to an existing task owner; it does not by itself authorize a parallel task runtime.
 
 Exact semantics live in the relevant Learning / Content / Runtime owner; this cursor does not restate them.
 
 ## Next / reopen
 
-Continue only the bounded next family selected by #1054 against its current accepted owners. A completed family does not close the remaining task families.
+For current English engineering control → Issue #1070 only.
 
-Do not reopen whole-English CREATE from old workflow prose, Memory counts, source volume or the existence of #1054. Reopen CREATE only when a real owner conflict or material learner/product choice appears.
+#1070 must stop after the bounded cleanup and current-main readback. It must **not** automatically continue into Part B / Translation / Writing / Lexical generated implementation.
 
-Keep task Phase / Next / Blocker in #1054 current when a family lands; do not make the next Chat reconstruct progress from comments or closed PRs.
-
-Reopen only the smallest owner for:
-
+After #1070 closes, return English to normal learner use. Future engineering is pulled only by:
 - genuine learner/use evidence;
 - a concrete Source / Content / Learning / Visual / Runtime defect;
 - an admitted new source/material boundary;
 - an explicit fresh independent re-acceptance request.
 
-Do not infer new work from historical PRs, old Gate language, archived branches or prior Chat summaries.
+Do not infer new work from closed #1054, stale PRs, old Gate language, archived branches or prior Chat summaries.
