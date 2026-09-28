@@ -146,16 +146,66 @@ assert.equal(profile.tasks.external_reading.role,'GROWTH_READING');
 assert.equal(profile.tasks.reading_a.evidence_shape,'QUESTION_OUTCOME');
 assert.equal(profile.tasks.cloze.evidence_shape,'QUESTION_OUTCOME');
 assert.equal(profile.tasks.reading_b.evidence_shape,'QUESTION_OUTCOME');
-assert.equal(profile.tasks.external_reading.evidence_shape,'QUESTION_OUTCOME');
+assert.equal(profile.tasks.external_reading.evidence_shape,'MIXED_READING_COMPLETION_AND_QUESTION_OUTCOME');
 assert.equal(profile.tasks.translation.evidence_shape,'PRODUCTIVE_REPAIR_STATE');
 assert.equal(profile.tasks.writing.evidence_shape,'PRODUCTIVE_REPAIR_STATE');
 assert.equal(profile.guardrails.includes('WORKFLOW_COMPLETE_IS_NOT_PERFORMANCE_SUCCESS'),true);
+assert.equal(profile.guardrails.includes('EXTERNAL_READING_ONLY_COMPLETION_IS_NOT_COMPREHENSION_OUTCOME'),true);
 assert.equal(Object.prototype.hasOwnProperty.call(profile.tasks.translation.history,'problem_bearing_attempts'),false,
   'Objective problem semantics leaked into Translation');
 assert.equal(Object.prototype.hasOwnProperty.call(profile.tasks.writing.history,'problem_bearing_attempts'),false,
   'Objective problem semantics leaked into Writing');
 assert.ok(profile.tasks.translation.history.repair_bearing_attempts>0,'Translation repair states missing');
 assert.ok(profile.tasks.writing.history.repair_bearing_attempts>0,'Writing repair states missing');
+
+const externalMixed=buildEnglishPerformanceProfile([
+  {
+    task:'external_reading',
+    object_id:'external-read-only',
+    prior_exposure:'unseen',
+    assistance:'unassisted',
+    complete:true,
+    external_evidence_mode:'READING_ONLY_COMPLETION',
+    problem_count:0,
+    submitted_at:'2026-09-20T00:30:00.000Z',
+    first_evidence:{
+      independent_transfer_candidate:true,
+      timing_status:'within_explicit_budget',
+      elapsed_seconds:600,
+      time_budget_seconds:900
+    }
+  },
+  {
+    task:'external_reading',
+    object_id:'external-with-questions',
+    prior_exposure:'unseen',
+    assistance:'unassisted',
+    complete:true,
+    external_evidence_mode:'QUESTION_OUTCOME',
+    problem_count:1,
+    submitted_at:'2026-09-20T00:40:00.000Z',
+    first_evidence:{
+      independent_transfer_candidate:true,
+      timing_status:'within_explicit_budget',
+      elapsed_seconds:700,
+      time_budget_seconds:900
+    }
+  }
+]);
+assert.equal(externalMixed.tasks.external_reading.history.question_outcome_attempts,1);
+assert.equal(externalMixed.tasks.external_reading.history.question_outcome_problem_bearing_attempts,1);
+assert.equal(externalMixed.tasks.external_reading.history.reading_only_completions,1);
+assert.equal(externalMixed.tasks.external_reading.history.unknown_evidence_mode_attempts,0);
+assert.equal(
+  externalMixed.tasks.external_reading.history.independent_transfer_candidates,
+  1,
+  'reading-only completion must not become independent comprehension/transfer evidence'
+);
+assert.equal(
+  Object.prototype.hasOwnProperty.call(externalMixed.tasks.external_reading.history,'problem_bearing_attempts'),
+  false,
+  'mixed External Reading must not expose an ambiguous all-attempt problem rate'
+);
 
 for(const [task] of TASKS){
   const row=profile.tasks[task];

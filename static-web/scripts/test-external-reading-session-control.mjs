@@ -76,6 +76,14 @@ storage.setItem('kianos-english-external-reading-attempt-v1:tpo56-p1',JSON.strin
 selected=resolveEnglishSessionStep(storage,written,catalog);
 assert.equal(selected,null,'completed External reading must not resurface as Resume debt');
 
+const completedPacket=buildEnglishEvidencePacket(storage,{day,now,catalog});
+const completedRow=completedPacket.inventory.find(row=>row.task==='external_reading'&&row.object_id==='tpo56-p1');
+assert.equal(completedRow?.external_evidence_mode,'READING_ONLY_COMPLETION','reading-only completion must stay distinct from question outcomes');
+assert.equal(completedPacket.performance_profile.tasks.external_reading.history.reading_only_completions,1);
+assert.equal(completedPacket.performance_profile.tasks.external_reading.history.question_outcome_attempts,0);
+assert.equal(completedPacket.performance_profile.tasks.external_reading.history.independent_transfer_candidates,0,'reading-only completion must not become independent comprehension evidence');
+assert.equal(Object.prototype.hasOwnProperty.call(completedPacket.performance_profile.tasks.external_reading.history,'problem_bearing_attempts'),false);
+
 console.log(JSON.stringify({
   status:'PASS',
   exact_external_id:'PASS',
