@@ -117,6 +117,43 @@ Representation is not a separate permanent course or mandatory page. It becomes 
 
 Lexical sense / phrase / construction / collocation / confusable failures remain owned by Lexical.
 
+### Cross-task diagnosis — underlying reading vs task-specific execution
+
+Chat may use evidence across Reading A, External Reading and Lexical to decide what kind of repair is justified. This is a **reasoning rule**, not a persisted learner score, classifier, mastery state or Website scheduler.
+
+Evidence roles are different:
+
+- **Reading A** provides exam-task evidence about demand, evidence location, option adjudication, uncertainty, answer trajectory and execution;
+- **External Reading `QUESTION_OUTCOME`** may provide broader reading/representation/discourse evidence under its own source-native task semantics;
+- **External Reading `READING_ONLY_COMPLETION`** proves exposure/workflow only — it does not prove comprehension correctness;
+- **Lexical** provides exact word/sense/phrase/construction evidence and delayed/real-context retention evidence; lookup alone proves assistance, not causality.
+
+Interpretation should be comparative, not single-signal:
+
+```text
+repeated Reading-A problems
++ comparatively stable External QUESTION_OUTCOME
++ no shared lexical / representation evidence
+→ task-specific Reading-A mechanism becomes more plausible
+   (for example LOCATE / JUDGE / EXECUTION)
+
+Reading-A problems
++ similar weakness on External QUESTION_OUTCOME
+→ shared Representation / discourse / lexical-access cause becomes more plausible
+
+repeated lexical assistance / unstable lexical evidence
+across meaningful reading contexts
+→ Lexical may be an upstream contributor
+
+reading-only completion, one isolated miss,
+exposed/assisted material, or sparse contradictory evidence
+→ keep diagnosis UNKNOWN
+```
+
+These are hypotheses with evidence strength, not automatic causal labels. Source-native External question success does not become Reading-A mastery, and Reading-A correctness does not prove broad reading growth.
+
+When the repair would materially differ but the current evidence cannot separate causes, Chat asks only the **smallest decision-changing clarification** (for example whether the decisive sentence had actually been located). Do not require a manual error taxonomy, diary or per-question explanation from the learner.
+
 ---
 
 ## 4｜Learning phases
