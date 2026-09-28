@@ -31,15 +31,16 @@ Parent outcome:
 
 Current blocker:
 - Fresh CBA AUDIT needs a bounded exact-release pin/lease on Stable so the audited SHA cannot move during the run;
-- shared delivery owner #1088 is fixing that capability; do not weaken A0 or substitute a different release.
+- shared delivery owner #1088 is fixing that capability; do not weaken A0 or substitute a different release;
+- queued re-audit owner: **Issue #1090 — Xizong fresh independent full-suite audit**, waiting for #1088 exact-release pin + final Stable identity.
 
 ### Next
 
 Issue #1088
 → deliver + read back exact-release audit pin/hold/release/catch-up
-→ pin the exact current Stable release for a new Fresh Xizong audit
-→ open/run a new Fresh independent Xizong AUDIT
-→ include whole-product learner journey **plus** attention allocation, backend-information hiding, one-owner/no-CSS-stack changeability, real-browser screenshot/region audit, all-green-but-real-fail and state-recovery attack
+→ pin the exact current Stable release
+→ hand off to queued full-suite Fresh AUDIT #1090
+→ #1090 covers all required Xizong product families/stages/integration boundaries and all audit dimensions; object sampling may not become dimension sampling
 → PASS / FAIL / BLOCKED verdict only
 → **no repair inside the AUDIT execution**
 
