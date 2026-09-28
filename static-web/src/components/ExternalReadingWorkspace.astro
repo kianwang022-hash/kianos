@@ -149,7 +149,12 @@ const base=import.meta.env.BASE_URL;
       if(!raw)return[];
       return raw.split(/\s*[,;/|]\s*/).map(normalizeText).filter(Boolean).sort();
     };
-    const sameAnswer=(actual,formal)=>{
+    const sameAnswer=(actual,formal,responseKind='')=>{
+      if(responseKind==='source_bound_ordered'){
+        const ordered=value=>normalizeText(value).split(/\s*[,;|]\s*/).map(normalizeText).filter(Boolean);
+        const left=ordered(actual),right=ordered(formal);
+        return left.length===right.length&&left.every((v,i)=>v===right[i]);
+      }
       const left=normalizeAnswer(actual),right=normalizeAnswer(formal);
       return left.length===right.length&&left.every((v,i)=>v===right[i]);
     };
@@ -252,6 +257,25 @@ const base=import.meta.env.BASE_URL;
             button.classList.toggle('selected',state.answers[q.question_id]===label);
             button.disabled=Boolean(state.submitted);
             button.addEventListener('click',()=>{if(state.submitted)return;state.answers[q.question_id]=label;save();renderQuestions();});
+            options.appendChild(button);
+          }
+          section.appendChild(options);
+        }else if(q.response_kind==='multi_choice'&&Object.keys(q.options||{}).length>=2){
+          const options=document.createElement('div');options.className='portedReadingOptions externalReadingMultiChoice';
+          const selected=new Set(Array.isArray(state.answers[q.question_id])?state.answers[q.question_id].map(String):[]);
+          for(const [label,text] of Object.entries(q.options)){
+            const button=document.createElement('button');button.type='button';button.dataset.option=label;
+            button.setAttribute('aria-pressed',String(selected.has(label)));
+            button.innerHTML='<b></b><span></span>';button.querySelector('b').textContent=label;button.querySelector('span').textContent=text;
+            button.classList.toggle('selected',selected.has(label));
+            button.disabled=Boolean(state.submitted);
+            button.addEventListener('click',()=>{
+              if(state.submitted)return;
+              const next=new Set(Array.isArray(state.answers[q.question_id])?state.answers[q.question_id].map(String):[]);
+              if(next.has(label))next.delete(label);else next.add(label);
+              state.answers[q.question_id]=[...next];
+              save();renderQuestions();
+            });
             options.appendChild(button);
           }
           section.appendChild(options);
@@ -447,7 +471,7 @@ const base=import.meta.env.BASE_URL;
         state.results={};
         for(const q of active.questions||[]){
           const answer=formal[q.question_id];
-          state.results[q.question_id]=answer==null?'unscored':(sameAnswer(state.answers[q.question_id],answer)?'correct':(state.answers[q.question_id]?'wrong':'unanswered'));
+          state.results[q.question_id]=answer==null?'unscored':(sameAnswer(state.answers[q.question_id],answer,q.response_kind)?'correct':(state.answers[q.question_id]?'wrong':'unanswered'));
         }
         state.submitted=true;state.submittedAt=new Date().toISOString();state.stage='submitted';save();renderState();
       }catch(error){setText(status,error instanceof Error?error.message:String(error));}

@@ -94,10 +94,10 @@ export function writeExternalReadingSyntheticSource(sourceRoot){
     schema:'kian.external.incremental-questions.v1',
     questions:[{
       ordinal:1,
-      prompt:'Which statement describes this fixture?',
-      options:{A:'It has a source-backed key',B:'It is questionless'},
-      response_kind:'single_choice',
-      source_text:'1. Which statement describes this fixture?'
+      prompt:'Which two statements describe this fixture?',
+      options:{A:'It has a source-backed key',B:'It is questionless',C:'It exercises multi-choice response geometry'},
+      response_kind:'multi_choice',
+      source_text:'1. Which two statements describe this fixture?'
     }]
   };
   const keyedQuestions=writeText(
@@ -106,7 +106,7 @@ export function writeExternalReadingSyntheticSource(sourceRoot){
   );
   const keyedAnswersPayload={
     schema:'kian.external.incremental-answers.v1',
-    answers:{'1':'A'}
+    answers:{'1':'A, C'}
   };
   const keyedAnswers=writeText(
     'INCREMENTAL/current-toefl-keyed/answers.json',
