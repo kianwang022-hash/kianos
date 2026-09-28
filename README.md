@@ -54,21 +54,22 @@ This is a **logical capability hierarchy**, not a folder-placement rule. Physica
 
 Several durable owners intentionally remain at repository root because many consumers depend on their stable paths. Do not move them merely for cosmetic folder symmetry.
 
-## Development / acceptance boundary
+## Lifecycle boundary
 
-`ARCHITECTURE.md` owns KianOS's **callable CBA** (`CREATE → BUILD → AUDIT`). CBA is entered only when Kian explicitly invokes it or an already-bound engineering task declares it active; it is not the default path for ordinary use or ordinary changes.
+The shared `CREATE → BUILD → AUDIT` lifecycle and REAL USE boundary are owned upstream in Personal OS `KERNEL.md §2`. KianOS does not redefine that lifecycle here.
+
+For a known scope:
 
 ```text
-ordinary use / ordinary bounded change
+CREATE
+→ exact Rule / Content / Learning / Product / Visual owner
+
+BUILD / UI
 → AGENTS.md
-→ semantic-impact tripwire
-→ actual consumer / smallest correct effect
+→ exact Current / accepted design basis / real consumer
 
-explicit CBA
-→ ARCHITECTURE.md → CREATE → BUILD → AUDIT
-
-explicit readiness / final audit
-→ applicable Acceptance owner directly
+AUDIT
+→ exact accepted CREATE truth + applicable Acceptance owner
 
 REAL USE
 → native/private execution or learner evidence

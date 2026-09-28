@@ -3,7 +3,7 @@
 Status: **CURRENT — accepted top-level architecture**  
 Version: **2.3 — responsibility model preserved; operating descriptions consolidated**
 
-`PROJECT_DEFINITION.md` owns why KianOS exists. This file owns durable responsibilities and their interfaces **and the callable CBA product-development architecture**. Personal `KERNEL.md §2` owns cross-system responsibility/transfer boundaries; `AGENTS.md` routes work; `PROJECT_MANAGEMENT_CONTRACT.md` owns execution; Acceptance owns evidence.
+`PROJECT_DEFINITION.md` owns why KianOS exists. This file owns durable responsibilities and their interfaces, not a startup checklist or execution manual. Personal `KERNEL.md §2` owns the shared lifecycle; `AGENTS.md` routes work; `PROJECT_MANAGEMENT_CONTRACT.md` owns execution; Acceptance owns evidence.
 
 # 0｜Capability hierarchy — WHERE
 
@@ -19,36 +19,6 @@ KianOS
 ```
 
 This hierarchy locates responsibilities; it does not create a work queue. Chat and upstream Personal Exam control own current adaptive allocation/replanning. KianOS owns durable exam semantics, product translation, execution and factual evidence, not a second strategy brain.
-
-# 0.5｜CBA — callable product-development architecture
-
-`CBA = CREATE → BUILD → AUDIT`.
-
-CBA is **not the ambient mode of KianOS**. It becomes active only when Kian explicitly invokes it (`调用 CBA` / `CBA`) or an already-bound engineering task explicitly declares itself CBA-driven.
-
-Ordinary learning/use, direct content edits, correctness repairs, copy/layout tweaks and Audit-found implementation fixes do not need a CBA stage label.
-
-When invoked:
-
-```text
-CREATE
-→ decide/revise the feature's actual meaning:
-   user outcome / learning or product behavior / material visual choice
-
-BUILD
-→ realize that accepted meaning in the existing product/runtime
-→ prove the changed effect
-
-AUDIT
-→ adversarially verify the finished capability under the applicable Acceptance owner
-
-REAL USE
-→ follows afterward and may supply new evidence
-```
-
-CBA is one development architecture, not three workers, three Chats or three mandatory Issues. The same conversation may traverse it. Stage boundaries protect meaning/evidence; they do not justify handoff ceremony.
-
-Outside an active CBA run, solve the requested task by the shortest correct path.
 
 # 1｜Product responsibility flow
 
@@ -141,8 +111,6 @@ Root → capability/lane → justified sub-lane → exact owners. Hierarchy defi
 
 One current fact, rule, semantic object, acceptance claim or learner record has one canonical owner. Others reference, derive, adapt, render or validate. Resolve conflicting owners rather than adding synchronization glue. Shared Timer/Home/private-state capabilities stay shared; local subjects cannot quietly recreate them.
 
-**Owner resolution is backstage.** It is load-bearing for persistence, long-running continuation, conflict resolution and cross-system/shared-boundary changes. It is not a prerequisite ritual before every ordinary edit. A worker may start from the concrete surface/consumer and consult the relevant semantic owner only when meaning is affected or uncertain.
-
 Exact topology and refinement: `AUTHORITY_OWNERSHIP.json` and `AUTHORITY_INHERITANCE_CONTRACT.md`. Physical hosting does not transfer authority.
 
 # 8｜CURRENT and Fresh Chat
@@ -160,26 +128,7 @@ Exact canonical owner → targeted proof / existing derived output when needed �
 One shared visual owner → inherited effect. No subject-by-subject duplication.
 
 ## 9.3 Subject/surface geometry change
-
-Before reading design documents, run a **semantic-impact tripwire** on the requested visual change:
-
-```text
-Could this change alter:
-- what action is primary?
-- Attention / information hierarchy?
-- visibility / disclosure of required or deferred information?
-- interaction order or reachable controls?
-- state/evidence meaning?
-- cross-surface ownership/handoff?
-```
-
-If **clearly no**, change the existing local implementation directly and prove the affected rendering.
-
-If **yes or genuinely uncertain**, read the single most relevant Product/Visual/Interaction owner plus the actual consumer before writing. Escalate to another owner only when that first read demonstrates a real dependency.
-
-Example: changing a right rail's width may be a pure geometry tweak, or it may starve the Primary Cognitive Stage and therefore change the accepted Attention allocation. The tripwire—not a mandatory owner tour—decides whether deeper design context is required.
-
-No global restyling or new override stack.
+Exact local surface owner → affected real-browser proof. No global restyling or new override stack.
 
 ## 9.4 Runtime defect
 Related interaction rule + existing runtime → smallest correction + true dependent proof. No Learning redesign unless the accepted rule is actually wrong.
@@ -208,6 +157,6 @@ Evaluate requested effect and observed change cost, not document count. Protocol
 
 # 12｜Compact operating model
 
-Chat interprets; durable owners preserve meaning when persistence/continuity/conflict makes that necessary; Engineering executes; Website presents/records; native Evidence returns to Chat. Current only routes. Ordinary changes stay bounded. **CBA is invoked, not ambient.** Explicit exhaustive Audit stays rigorous and can repair confirmed defects inline. Real-use evidence remains separate.
+Chat interprets; exact owners preserve meaning; Engineering executes; Website presents/records; native Evidence returns to Chat. Current only routes. Ordinary changes stay bounded; explicit exhaustive Audit stays rigorous and can repair confirmed defects inline under the shared lifecycle. Real-use evidence remains separate.
 
 Keep existing product behavior, semantic authority, data safety, accepted visual design and final acceptance. Remove redundant process rather than rebuilding the systems that already work. Broad engineering stops at the accepted final-closure condition in `LEARNING_ACCEPTANCE.md`; reopen only a real defect, source/platform change or explicit need.

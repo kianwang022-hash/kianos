@@ -1,68 +1,60 @@
 # KianOS Worker Instructions
 
-Role: **intent and task router only**. Cross-system boundaries: Personal `KERNEL.md §2`. Callable product-development architecture: `ARCHITECTURE.md → CBA`. Execution: `PROJECT_MANAGEMENT_CONTRACT.md`. Acceptance: native owner + `LEARNING_ACCEPTANCE.md`.
+Role: **intent and owner router only**. Shared lifecycle: Personal `KERNEL.md §2`. Execution: `PROJECT_MANAGEMENT_CONTRACT.md`. Product/learning acceptance: the exact domain Acceptance owner and `LEARNING_ACCEPTANCE.md`.
 
-## 1｜Start with the request, not a lifecycle label
+## 1｜Start with the actual request
 
-| Request | Default path |
+Ordinary self-contained discussion needs no repository. Use GitHub when the answer depends on current project truth, continuity or an actual change. Current explicit Kian instructions outrank stale summaries; read current canonical owners before writes.
+
+| Intent | Smallest entry |
 | --- | --- |
-| LEARN / USE | use the product/native learner state directly |
-| Ordinary change / bug / UI tweak | concrete effect → semantic-impact tripwire → actual consumer → smallest correct change |
-| Explicit `调用 CBA` / `CBA` | enter `ARCHITECTURE.md → CBA` |
-| Explicit AUDIT / bound Audit Issue | current accepted design + exact artifact + real consumer/state |
-| CONTROL / long project | bound Issue; otherwise `CURRENT.md` only to find the current task |
+| LEARN / USE | native learner/product state; exact learning/content owner only as needed |
+| CREATE | current user outcome + related design owner + evidence; settle only the unresolved meaning |
+| BUILD / UI | concrete requested effect → related accepted design → existing implementation/consumer |
+| AUDIT | bound Issue → current accepted design + applicable Acceptance → exact artifact + isolated real consumer |
+| CONTROL | already-bound Issue; otherwise `CURRENT.md` → current scope/Issue |
 
-**Do not classify every task into CREATE / BUILD / AUDIT.** Those stages are active only inside an explicitly invoked/bound CBA run. A bare subject continuation remains learning, not engineering.
+A bare subject continuation remains LEARN unless engineering work is explicit. Learner history is private runtime evidence, never an engineering Current/Issue.
 
-## 2｜Semantic-impact tripwire
+## 2｜Modification context
 
-Before an ordinary KianOS modification, ask whether the requested change could alter:
-
-- primary learner/user action;
-- Attention / information hierarchy;
-- visibility or progressive disclosure;
-- interaction order / reachable controls;
-- state or Evidence meaning;
-- cross-surface/shared ownership.
-
-If clearly **no**, work directly in the existing consumer/implementation and prove the affected effect.
-
-If **yes or uncertain**, read **one primary related Product/Learning/Visual/Interaction owner + the actual consumer**. Read another owner only when that first evidence proves a real dependency.
-
-This is how a request such as “右侧宽一点” can be recognized as either a simple CSS adjustment or a change that starves the Primary Cognitive Stage and therefore touches Attention semantics.
-
-For Xizong, use the existing bounded preflight in `content/xizong/CURRENT.md`; it follows the same one-owner-first rule.
-
-## 3｜Modification boundaries
-
-Keep the smallest useful working set:
+Before writing, keep:
 
 ```text
-requested effect
-→ related meaning only if impact requires it
-→ actual consumer
-→ must preserve
-→ proof / stop
+Parent outcome / why
+→ current task + exact owner + relevant design reasons
+→ must-preserve behavior + real consumer
+→ acceptance / stop
 ```
 
-Existing accepted rule + broken implementation = repair the implementation. Do not invent another rule, runtime, page-local semantic copy or CSS override layer.
+Read the **related** Learning/Product/Visual/Projection owners, not a mandatory tour of every document. A Current pointer is not a design specification. Use `AUTHORITY_INHERITANCE_CONTRACT.md §3.1 Change continuity` for material design changes; use the `static-web/README.md` map only when the responsible surface is not already resolved.
 
-Normal corrections use `PROJECT_MANAGEMENT_CONTRACT.md → Concrete Repair Fast Lane`. Material unresolved product/learning/visual choices go to Kian. A real design choice may require a Candidate Human Gate; a correctness fix does not require reapproving accepted design.
+For Xizong changes, follow the existing mandatory modification preflight in `content/xizong/CURRENT.md`; source-contact, Recall and Attention timing must not be guessed from CSS or current markup. The same related-design requirement applies to English, Politics and shared surfaces.
 
-During AUDIT, stay on the same task: self-attack the diagnosis, load only the newly relevant context, repair the smallest real defect, replay it and true dependents, then continue. Exhaustive Audit scope is not reduced by faster repair.
+If an accepted rule is not implemented, fix its consumer rather than creating another rule, page copy, runtime or CSS override layer. Read a shared owner only when the changed effect genuinely depends on it. Backend text is not automatically entitled to learner display; do not disguise governance text as learning content merely by replacing words.
 
-## 4｜Owner / Current / history
+## 3｜Do the work, not the ceremony
 
-Owner resolution is backstage: use it when persisting durable meaning, resuming long-running work, resolving conflicts or crossing shared/system boundaries. It is **not** a precondition for every ordinary task.
+Normal corrections follow `PROJECT_MANAGEMENT_CONTRACT.md → Concrete Repair Fast Lane`. User-explicit design changes follow the current design owner; only unresolved material product/visual choices need a Kian decision/Human Gate. Repository protections and data-safety constraints still apply.
 
-A bound Issue is a compact control anchor: Goal / Phase / Next / Blocker + decision-changing failures only. It is not a second Contract.
+During AUDIT, stay on the same task: challenge the diagnosis and oracle, confirm the related design, repair the smallest real defect, replay it and its true dependents, then continue. Do not spawn a repair Chat/Issue because checking became editing. Full coverage and final-release proof are not reduced by a faster repair path; same-author rechecking is not independent-third-party evidence.
 
-Current locates; semantic owners define; code implements; real evidence proves. Use current truth, not closed PRs/Issues or Chat memory. If a long-task anchor is unreadable, only its dependent progress becomes UNKNOWN/BLOCKED.
+Use the existing Candidate/browser tooling only as needed for the effect. Do not edit a pinned Stable or real learner data. Never claim main/Candidate work is already served. Batch coherent changes, reuse compatible setup, and leave all unrelated work alone.
 
-## 5｜Execution and stop
+## 4｜Continuity and boundaries
 
-Use GitHub when current repository truth or a real modification matters. Batch coherent changes; use Candidate/browser only as needed for the claim; do not mutate pinned Stable or real learner data.
+- Once a long task is bound, its Issue owns Goal / Phase / Next / Blocker until Kian switches/closes it. Re-read it after a fresh chat, compression, material stage change or ambiguity; not on every repeated small step.
+- The bound Issue is a **compact control anchor**, not a second Contract: keep Goal / Phase / Next / Blocker + only decision-changing current failures. Detailed Learning/Product/Visual/Audit rules stay in their canonical owners and must not be copied into the Issue body.
+- An unreadable anchor makes only its dependent progress UNKNOWN/BLOCKED. Do not reconstruct it from old PRs, README, snapshots or Chat memory; unrelated discussion remains possible.
+- Current locates; semantic owners define; code implements; real evidence proves. `AUTHORITY_OWNERSHIP.json` is topology, not another runtime/claim owner.
+- Independent scopes continue independently. A shared resource or overlapping write-set needs actual coordination, not a blanket all-subject halt.
+- In active engineering, `a / . / p / 继续` advances the bound task's highest-leverage next step. No active request means no background work.
+- Codex is an optional executor for genuinely mechanical/heavy work, not another semantic owner. Load dispatch details only if delegating.
 
-Codex is an optional executor for heavy/mechanical work, not another truth owner. No active request means no background work.
+## 5｜History, proof and stop
 
-Report the real result and remaining blocker. Stop when the requested effect is proven or a real unresolved semantic/authority decision is reached.
+Use current owners and current artifacts. Personal `KERNEL.md §2` owns Legacy quarantine: historical material is not a default startup path or current authority. A current routing defect is not permission to reconstruct the whole past.
+
+Report only the actual result, important evidence and remaining blocker. Update the existing owner/Issue only for material progress, and read back every durable write. Do not create duplicate Current/Contract/registry or manufacture learner U from engineering PASS.
+
+Stop at the requested effect or an explicit blocker. Preserve dirty/unmerged work; clean only resources this execution owns. Local browser/rendering proof is required when usability is the claim; a file count, successful build or screenshot file alone is not acceptance.

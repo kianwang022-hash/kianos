@@ -8,7 +8,7 @@ It answers one question:
 
 This is not a UI checklist and not an engineering-completion checklist. A content file existing, a page rendering, a build passing, a source inventory being complete, or a simulated journey succeeding may all be useful evidence, but none of them alone proves a learning system is closed.
 
-When KianOS CBA is **explicitly active**, learning/product development can be viewed through `CREATE → BUILD → AUDIT → REAL USE`. This Acceptance standard does not activate CBA and does not require ordinary learning, use or repair to pass through those stages. Outside CBA, its native S/K/L/P/R/E/U gates and explicit Audit/readiness rules remain directly callable.
+The learning lifecycle follows the shared CREATE → BUILD → AUDIT → REAL USE model.
 
 ```text
 CREATE
@@ -35,7 +35,7 @@ REAL USE
 
 S / K / L / P / R / E remain precise native acceptance gates. Their local checks are not separate copies of the final Reality Audit. CREATE/BUILD proves each changed responsibility well enough to hand forward; AUDIT proves that the implemented chain faithfully works together in reality.
 
-When CBA is active, this is a **causal direction, not a repository-wide one-way waterfall**. Projection/Runtime/Audit may expose a real upstream Knowledge/Learning defect and send only that dependency chain back to CREATE. What must not happen is using downstream engineering progress to pretend an upstream learning question was settled, or mechanically re-auditing unchanged accepted layers during final Reality Audit.
+This is a **causal direction, not a repository-wide one-way waterfall**. Projection/Runtime/Audit may expose a real upstream Knowledge/Learning defect and send only that dependency chain back to CREATE. What must not happen is using downstream engineering progress to pretend an upstream learning question was settled, or mechanically re-auditing unchanged accepted layers during final Reality Audit.
 
 Independent scopes may be audited and advanced concurrently at any justified hierarchy depth. A blocked gate in one Politics subject, Xizong System, English module, or other independent scope does not freeze unrelated siblings merely because they share a parent.
 
@@ -54,7 +54,7 @@ Home is therefore a final integration/routing layer, not a place to compensate f
 
 ## Lifecycle boundary for this standard
 
-This standard spans native gate evidence whether or not CBA is active. When CBA is active, the mappings below explain how its stages relate to Acceptance; they are not a startup requirement for ordinary tasks.
+This standard spans native gate evidence across the lifecycle, but the word **Acceptance** does not mean Kian must repeatedly review every gate.
 
 - during **CREATE**, Source / Knowledge / Learning / Content owners perform the native proof needed to accept what is being created;
 - during **BUILD**, Engineering/Runtime proves the implementation and material visual/product changes pass their real Candidate Human Gate;
