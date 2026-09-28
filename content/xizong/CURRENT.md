@@ -21,28 +21,32 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Current engineering state
 
-**Issue #1074 — Xizong CBA closure: restore shared Attention projection and real-browser fidelity**
+**Issue #1084 — Xizong Fresh independent AUDIT: real Stable learner journey and screenshot fidelity**
 
 Parent outcome:
-- current CREATE is already sufficiently specified for the reported defect class;
-- BUILD must faithfully project it through the current learner object/shared Block consumer;
-- final whole-Xizong readiness still requires a separate strengthened Fresh independent AUDIT after BUILD.
+- current accepted CREATE is frozen for this audit unless a reproduced upstream premise defect reopens it;
+- BUILD has delivered the current Stable release under audit;
+- whole-Xizong readiness is still unproven until this Fresh independent AUDIT returns a bounded verdict.
 
-Current blocker:
-- representative B learner surface does not faithfully show the accepted Context / Attention projection;
-- current real-page evidence also shows browser-visible layout/clipping risk that code inspection cannot certify away.
+Current audit identity:
+- phase: **AUDIT — FRESH / INDEPENDENT / NOT STARTED**;
+- exact Stable release: `00a5dc131b110ef222e6e077c1b43e604f3ca3a5`;
+- real consumer: Stable `127.0.0.1:4321`;
+- legacy/history and closed BUILD narratives remain quarantined.
 
 ### Next
 
-Issue #1074 BUILD
-→ current Product / Visual owner
-→ current B learner-object / Projection owner
-→ current shared Block consumer
-→ Candidate 4322 real browser
-→ smallest coherent repair
-→ screenshot/interaction proof + affected regression
-→ one durable delivery + Stable 4321 readback
-→ then separate Fresh independent AUDIT against the exact release
+Issue #1084
+→ start from current accepted CREATE owners + exact Stable release
+→ fresh independent real-browser learner journey
+→ systematic screenshot / region-level reality audit
+→ all-green-but-real-fail / wrong-premise / state-recovery attack
+→ PASS / FAIL / BLOCKED verdict only
+→ **no repair inside the AUDIT execution**
+
+A reproduced defect routes to the earliest responsible current owner in a separate task.
+
+Current BUILD execution chain must stop here and must not self-certify the Fresh independent verdict.
 
 for unaffected ordinary study → native learner path
 
