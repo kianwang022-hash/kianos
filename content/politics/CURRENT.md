@@ -9,13 +9,13 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ## Active engineering anchor
 
-Issue #1026 — **Politics rapid-mastery learning-logic analysis**.
+**None.**
 
-- Phase / Next / Blocker live in Issue #1026 while it is open.
-- This anchor is ANALYSIS ONLY until Kian explicitly adopts a product/behavior change.
-- Exact Content / Learning / Interaction / Projection / Surface Mapping truth remains with native owners.
+- Issue #1026 is completed CREATE evidence for the in-place Politics optimization and retention/content closure. It is not a continuation cursor.
 - Issue #1015 remains closed history: it was the prematurely implemented probe attempt and must not be revived as current work.
-- Ordinary Politics learning still bypasses this engineering analysis anchor.
+- Historical #1030 BUILD/Human-Gate evidence remains claim-scoped provenance, not an active task or independent AUDIT.
+- A future BUILD or fresh independent AUDIT must be explicitly bound to its own current task/Issue before engineering execution resumes.
+- Ordinary Politics learning bypasses this engineering cursor.
 
 ## Current routing
 
@@ -29,8 +29,10 @@ Issue #1026 — **Politics rapid-mastery learning-logic analysis**.
 ### Next
 
 real Politics study
-→ or an explicit Source/content/product/runtime defect or BUILD/CONTROL request
+→ or an explicit Source/content/product/runtime defect
+→ or an explicitly bound fresh independent AUDIT / BUILD task
 → route to the smallest exact owner
+→ do not reopen #1026 merely from Memory counts, page density or old screenshots
 → stop after targeted proof
 
 Historical maturity campaigns, first-round audit receipts and candidate branches are not Current work.
