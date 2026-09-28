@@ -126,9 +126,11 @@ function resolvePathNavigationActive(localPath, entries) {
 }
 
 export function subjectShell(localPath = '', base = '/') {
-  // Vocabulary is an English child workspace, but once entered it owns one local top bar.
-  // Keep English active in L1 and return through the explicit ← English control instead
-  // of stacking the parent English L2 above Vocabulary's own navigation.
+  // English Home is itself the dense workbench; do not repeat its destinations
+  // as a second full-width L2 bar above the same task rows.
+  if (localPath === 'english') return null;
+  // Vocabulary / External Reading are English child workspaces with their own
+  // local composition; keep English active in L1 without stacking parent L2.
   if (['vocabulary', 'external-reading'].includes(topSegment(localPath))) return null;
 
   if (isEnglishFamily(localPath)) {
