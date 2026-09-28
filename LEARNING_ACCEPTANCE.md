@@ -161,6 +161,8 @@ Hard rules:
 - Level 2 is owned inside KianOS by the current Exam Orchestrator / Product / Runtime / Acceptance owner chain.
 - Level 3 is **not KianOS-owned**. Personal / StudyHub / KianOS responsibility and mother-architecture acceptance return to the upstream Personal cross-system owner; KianOS may provide evidence but may not self-grant a three-system PASS.
 - Chat and Website are execution/front-end surfaces in this hierarchy, not a fourth persistent truth system.
+- **Parallel subject audits may share one immutable Stable release** when that exact release contains the accepted current product for every participating subject. Each subject still owns an independent coverage ledger, browser/profile or state-isolated execution context, evidence set and verdict. Sharing the release lease does not merge acceptance claims.
+- A shared subject-audit lease is released or repointed only after every participating subject audit has stopped, or the shared session is explicitly aborted. One subject finishing early must not invalidate sibling evidence by moving Stable.
 - **Engineering closure after Level 3 PASS:** when Level 1 subject full-suite audits, Level 2 2027 Exam System integration audit, and Level 3 Personal ↔ StudyHub ↔ KianOS cross-system audit all PASS for their exact current scope, broad exam-system engineering stops. The default mode becomes REAL USE / concrete-defect mode: no speculative refactor, architecture polishing, broad UI rebuild or convenience-driven new subsystem. Reopen only for real learner defects, authoritative new Source/material, real platform/runtime breakage, or an explicit new product need.
 
 9. **System-control claims start at the real entrypoint**
