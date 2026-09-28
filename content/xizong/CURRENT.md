@@ -21,20 +21,20 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Active engineering anchor
 
-- **Issue #1065 — Xizong fresh independent AUDIT of #1049 exact Candidate**
-- Parent CREATE recovery #1047 is CLOSED and reconfirmed; bounded BUILD #1049 is CLOSED and is evidence only.
-- Exact AUDIT Candidate is `cba-xizong-1049@bc82500937f39e9d363c66ed40475f94bffc1759`.
-- This Candidate is intentionally distinct from current `main`; do not substitute `main`, Stable, an older #1004 candidate, or prior Chat conclusions during this AUDIT.
-- **Issue #1004 remains an open historical umbrella / prior BUILD-Human-Gate evidence source, not the active Phase / Next / Blocker owner.** Its old `main@4eee5777...` audit cursor is superseded for current continuation by #1065.
-- Current Phase / Next / Blocker live only in #1065 until that AUDIT freezes a verdict.
+**None.**
+
+- Fresh independent AUDIT #1065 is CLOSED / PASS.
+- The audited #1049 Candidate delta is delivered on current main as `f1274d755fad9502de68954384cf7d049f9e7c7b`.
+- #1047 / #1049 / #1065 are lifecycle evidence only and are not continuation cursors.
+- #1004 is retired umbrella history after this delivery closure; do not resume its old candidate or Phase/Next text.
+- Ordinary Xizong learning now returns to the native learner/runtime path.
 
 ### Next
 
-for current engineering control → Issue #1065 → audit exact Candidate `bc825009...`
 for ordinary study → native learner path
-if #1065 FAIL → route only the smallest reproduced defect to its earliest responsible BUILD/UI owner, then re-audit only the affected claim
-if #1065 PASS → deliver the accepted Candidate coherently to main/Stable, read back the real consumer, then stop engineering and return to genuine learner REAL USE
-→ do not resume #1004, #1049 or #1047 as the active cursor
+for a new concrete defect → smallest exact Content / Learning / Visual / Runtime / Source / Question owner
+for an explicit fresh independent re-acceptance request → open a new bounded audit against the then-current exact consumer
+→ do not reopen the completed #1047 → #1049 → #1065 chain by default
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority.
 
