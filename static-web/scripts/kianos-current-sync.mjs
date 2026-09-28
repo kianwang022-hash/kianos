@@ -678,6 +678,7 @@ async function syncOnce({ initial = false } = {}) {
       return true;
     }
 
+    let controlTargetSha = fetched;
     let runtimeReloaded = false;
     let preparedRelease = null;
     let probeDurationMs = 0;
@@ -690,41 +691,54 @@ async function syncOnce({ initial = false } = {}) {
         lexical_projection_paths: buildDecision.lexical_projection_paths.length
       });
 
-      // Never switch Stable to a SHA that was already superseded while its
-      // build was in flight. Keep the accepted active release, discard only
-      // the newly-created obsolete candidate, then retry the newest main.
+      // Recheck fetched main before activation. A later control-only commit
+      // can reuse this exact built release; output/runtime changes still need
+      // a fresh release and must not promote the superseded candidate.
       const preActivationFetch = await fetchMainHead();
       fetchDurationMs += preActivationFetch.duration_ms;
       const supersedingRemote = preActivationFetch.sha;
       if (supersedingRemote && supersedingRemote !== fetched) {
-        if (preparedRelease.created) await cleanupPreparedRelease(fetched);
-        lastTargetSha = supersedingRemote;
-        writeStatus(oneShot ? 'pending' : 'coalescing', activeSha, {
-          control_sha: local,
-          target_sha: supersedingRemote,
-          superseded_sha: fetched,
-          changed_paths: changedPaths.length,
-          static_build: 'discarded-superseded',
-          build_impact_paths: buildDecision.build_paths.length,
-          release_root: activeReleaseRoot,
-          timings_ms: {
-            remote_fetch: fetchDurationMs,
-            dependencies: preparedRelease.timings?.dependencies || 0,
-            astro_build: preparedRelease.timings?.astro_build || 0,
-            prepare_release_total: preparedRelease.timings?.total || 0,
-            sync_total: Date.now() - syncStartedAt
+        const laterChanges = await git(['diff', '--no-renames', '--name-only', fetched, supersedingRemote]);
+        const laterPaths = laterChanges ? laterChanges.split('\n').filter(Boolean) : [];
+        const laterBuild = classifyStaticBuild(laterPaths);
+        if (!laterBuild.required && !requiresStaticRuntimeReload(laterPaths)) {
+          controlTargetSha = supersedingRemote;
+          lastTargetSha = supersedingRemote;
+          changedPaths = [...new Set([...changedPaths, ...laterPaths])];
+          log(
+            `keeping built release ${fetched.slice(0, 8)} for control-only main ${supersedingRemote.slice(0, 8)}; `
+            + 'no second build required'
+          );
+        } else {
+          if (preparedRelease.created) await cleanupPreparedRelease(fetched);
+          lastTargetSha = supersedingRemote;
+          writeStatus(oneShot ? 'pending' : 'coalescing', activeSha, {
+            control_sha: local,
+            target_sha: supersedingRemote,
+            superseded_sha: fetched,
+            changed_paths: changedPaths.length,
+            static_build: 'discarded-superseded',
+            build_impact_paths: buildDecision.build_paths.length,
+            release_root: activeReleaseRoot,
+            timings_ms: {
+              remote_fetch: fetchDurationMs,
+              dependencies: preparedRelease.timings?.dependencies || 0,
+              astro_build: preparedRelease.timings?.astro_build || 0,
+              prepare_release_total: preparedRelease.timings?.total || 0,
+              sync_total: Date.now() - syncStartedAt
+            }
+          });
+          log(
+            `built target ${fetched.slice(0, 8)} was superseded by ${supersedingRemote.slice(0, 8)} before activation; `
+            + 'Stable remains unchanged'
+          );
+          if (oneShot) {
+            lastSyncHealthy = false;
+            return false;
           }
-        });
-        log(
-          `built target ${fetched.slice(0, 8)} was superseded by ${supersedingRemote.slice(0, 8)} before activation; `
-          + 'Stable remains unchanged'
-        );
-        if (oneShot) {
-          lastSyncHealthy = false;
-          return false;
+          setTimeout(() => void syncOnce(), 75);
+          return true;
         }
-        setTimeout(() => void syncOnce(), 75);
-        return true;
       }
 
       try {
@@ -757,9 +771,9 @@ async function syncOnce({ initial = false } = {}) {
       }
       promotionDurationMs = Date.now() - promotionStartedAt;
     }
-    lastKnownSha = fetched;
-    await git(['checkout', '-B', 'main', fetched]);
-    await git(['reset', '--hard', fetched]);
+    lastKnownSha = controlTargetSha;
+    await git(['checkout', '-B', 'main', controlTargetSha]);
+    await git(['reset', '--hard', controlTargetSha]);
     if (!skipAstro) {
       try {
         await pruneReleases();
@@ -770,11 +784,12 @@ async function syncOnce({ initial = false } = {}) {
 
     lastSyncHealthy = true;
     lastNetworkError = '';
+    const staticBuildOutcome = skipAstro ? 'skipped' : controlTargetSha === fetched ? 'rebuilt' : 'reused';
     writeStatus('synced', skipAstro ? fetched : readActiveBuiltStatus()?.sha || fetched, {
-      control_sha: fetched,
-      target_sha: fetched,
+      control_sha: controlTargetSha,
+      target_sha: controlTargetSha,
       changed_paths: changedPaths.length,
-      static_build: skipAstro ? 'skipped' : 'rebuilt',
+      static_build: staticBuildOutcome,
       build_impact_paths: buildDecision.build_paths.length,
       ...(!skipAstro && activeReleaseRoot ? { release_root: activeReleaseRoot } : {}),
       timings_ms: {
@@ -788,11 +803,11 @@ async function syncOnce({ initial = false } = {}) {
       }
     });
     log(
-      `synced ${changedPaths.length} changed path(s); static Current is ${fetched.slice(0, 8)} `
-      + `(${skipAstro ? 'skipped' : 'rebuilt'})`
+      `synced ${changedPaths.length} changed path(s) to control ${controlTargetSha.slice(0, 8)}; `
+      + `static Current is ${fetched.slice(0, 8)} (${staticBuildOutcome})`
     );
 
-    if (await restartSyncRuntimeIfNeeded(fetched)) return true;
+    if (await restartSyncRuntimeIfNeeded(controlTargetSha)) return true;
     if (!oneShot && staticRuntimeChanged && site && !runtimeReloaded) {
       log('Current static runtime owner changed; performing one controlled server reload');
       await reloadSite();

@@ -172,6 +172,21 @@ After BUILD, a broader AUDIT—when warranted—independently verifies that the 
 
 Browser checks use the declared Playwright development dependency. Reuse a compatible, proof-matched dependency tree through the existing Candidate setup; if none exists, run `npm install --no-package-lock --no-audit --no-fund` once in `static-web`. If Playwright reports a missing Chromium executable, run `npx playwright install chromium` once; later checks reuse its browser cache. Do not rebuild `node_modules` or substitute a system Chrome overlay for each bounded check. Run only the existing browser check needed for the affected behavior.
 
+For interactive browser inspection, use the official Playwright CLI. The reusable local tool version is `@playwright/cli@0.1.21`; check `playwright-cli --version` and install once with `npm install --global @playwright/cli@0.1.21` only when unavailable. Existing repository regressions keep their declared Playwright dependency. The CLI uses the installed Chrome through its supported `--browser=chrome` option, without changing repository dependencies or browser-cache links.
+
+Use the exact Candidate URL and a unique session name for this run:
+
+```bash
+task_session="kianos-<task>-<unique-run>"
+candidate_url="http://127.0.0.1:4322/<affected-route>"
+PLAYWRIGHT_MCP_OUTPUT_DIR=output/playwright playwright-cli -s="$task_session" open "$candidate_url" --browser=chrome --idle-timeout=300000
+playwright-cli -s="$task_session" snapshot
+# Interact using references from the current snapshot; inspect the affected behavior.
+playwright-cli -s="$task_session" close
+```
+
+The default in-memory browser profile is isolated; do not attach a learner browser or load its storage for ordinary BUILD proof. A real visual Human Gate uses `--headed` when needed. Keep the same named session across interactions, refresh snapshots after navigation, and close it on success or failure. The idle timeout is a crash backstop, not successful teardown. Stop the Candidate only if this task started it, then verify that its process/port is gone. Never use global `close-all` / `kill-all` as task cleanup. Browser observations support only the requested claim; the worker still compares them with the accepted requirement and must-preserve behavior.
+
 A Website claim is not accepted merely because a route, selector, screenshot or build exists. The applicable Acceptance owner decides what evidence is sufficient.
 
 ## Content / consumer boundary
