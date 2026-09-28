@@ -27,7 +27,13 @@ async function pageFor(url='/politics/practice/') {
   const context=await browser.newContext({viewport:report.viewport}); const p=await context.newPage();
   const errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('dialog',d=>d.accept());
   p.on('requestfailed',r=>report.requestsFailed.push({url:r.url(),error:r.failure()?.errorText}));
-  await p.goto(base+url); await p.locator('[data-start-session]').waitFor();
+  await p.goto(base+url);
+  await p.evaluate(() => {
+    localStorage.setItem('kianos-study-timer-dock-position-v1', JSON.stringify({ x: 80, y: 80 }));
+    const dock = document.querySelector('[data-study-timer-dock]');
+    if (dock instanceof HTMLElement) { dock.style.left = '80px'; dock.style.top = '80px'; dock.style.right = 'auto'; dock.style.bottom = 'auto'; }
+  });
+  await p.locator('[data-start-session]').waitFor();
   return {p,context,errors};
 }
 async function start(p){await p.selectOption('[data-filter-count]','5');await p.check('[data-learned-scope]');await p.click('[data-start-session]');await p.locator('[data-question-card]').waitFor({state:'visible'});}
