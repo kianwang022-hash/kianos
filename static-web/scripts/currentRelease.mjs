@@ -43,8 +43,81 @@ export function releasePaths(repoRoot) {
     previous: path.join(root, 'previous'),
     candidate: path.join(root, 'candidate'),
     release: (sha) => path.join(root, 'releases', String(sha)),
-    lock: process.env.KIANOS_DELIVERY_LOCK || path.join(root, 'delivery.lock')
+    lock: process.env.KIANOS_DELIVERY_LOCK || path.join(root, 'delivery.lock'),
+    auditPin: process.env.KIANOS_AUDIT_PIN || path.join(root, 'audit-pin.json')
   };
+}
+
+export const CURRENT_AUDIT_PIN_SCHEMA = 'kianos.current.audit_pin.v1';
+export const DEFAULT_AUDIT_PIN_TTL_MINUTES = 120;
+export const MAX_AUDIT_PIN_TTL_MINUTES = 360;
+
+const CURRENT_SHA_RE = /^[0-9a-f]{40}$/;
+
+export function readCurrentAuditPin(pinPath, {
+  now = Date.now(),
+  removeExpired = true
+} = {}) {
+  if (!fs.existsSync(pinPath)) return null;
+  let pin;
+  try {
+    pin = JSON.parse(fs.readFileSync(pinPath, 'utf8'));
+  } catch {
+    throw new Error('CURRENT_AUDIT_PIN_INVALID:json');
+  }
+  if (pin?.schema !== CURRENT_AUDIT_PIN_SCHEMA || !CURRENT_SHA_RE.test(String(pin?.sha || ''))) {
+    throw new Error('CURRENT_AUDIT_PIN_INVALID:schema-or-sha');
+  }
+  const expiresAt = Date.parse(String(pin?.expires_at || ''));
+  if (!Number.isFinite(expiresAt)) throw new Error('CURRENT_AUDIT_PIN_INVALID:expires-at');
+  if (expiresAt <= now) {
+    if (removeExpired) {
+      try { fs.unlinkSync(pinPath); } catch {}
+    }
+    return null;
+  }
+  return {
+    schema: CURRENT_AUDIT_PIN_SCHEMA,
+    sha: String(pin.sha),
+    issue: String(pin.issue || ''),
+    created_at: String(pin.created_at || ''),
+    expires_at: String(pin.expires_at)
+  };
+}
+
+export function writeCurrentAuditPin(pinPath, {
+  sha,
+  issue = '',
+  ttlMinutes = DEFAULT_AUDIT_PIN_TTL_MINUTES,
+  now = Date.now()
+} = {}) {
+  if (!CURRENT_SHA_RE.test(String(sha || ''))) {
+    throw new Error(`CURRENT_AUDIT_PIN_SHA_INVALID:${String(sha || '')}`);
+  }
+  const ttl = Number(ttlMinutes);
+  if (!Number.isFinite(ttl) || ttl <= 0 || ttl > MAX_AUDIT_PIN_TTL_MINUTES) {
+    throw new Error(`CURRENT_AUDIT_PIN_TTL_INVALID:${String(ttlMinutes)}`);
+  }
+  const pin = {
+    schema: CURRENT_AUDIT_PIN_SCHEMA,
+    sha: String(sha),
+    issue: String(issue || ''),
+    created_at: new Date(now).toISOString(),
+    expires_at: new Date(now + ttl * 60_000).toISOString()
+  };
+  fs.mkdirSync(path.dirname(pinPath), { recursive: true });
+  const temp = `${pinPath}.tmp-${process.pid}`;
+  fs.writeFileSync(temp, `${JSON.stringify(pin)}\n`, 'utf8');
+  fs.renameSync(temp, pinPath);
+  return pin;
+}
+
+export function clearCurrentAuditPin(pinPath) {
+  const prior = readCurrentAuditPin(pinPath, { removeExpired: false });
+  try { fs.unlinkSync(pinPath); } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+  }
+  return prior;
 }
 
 export async function acquireDeliveryLock(lockPath, {

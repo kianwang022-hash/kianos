@@ -8,6 +8,13 @@ Root [CURRENT](../CURRENT.md) owns cross-program routing. Product semantics, vis
 
 No broad Website construction campaign is active. This file is only the Website implementation/delivery router.
 
+**Active bounded delivery anchor: Issue #1088 — exact-release audit pin for Fresh CBA AUDIT.**
+
+Current goal:
+- allow the real Stable origin to hold its already-served exact SHA during a Fresh independent audit;
+- preserve normal automatic Current catch-up outside that bounded lease;
+- no rollback, no learner-state mutation, no second release system.
+
 Normal lanes:
 
 ~~~text
