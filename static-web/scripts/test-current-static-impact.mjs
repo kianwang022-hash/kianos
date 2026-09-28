@@ -31,6 +31,7 @@ const reusable = [
   'content/xizong/knowledge/learner/D_PHASE7C_NEURAL_CONTENT_SUFFICIENCY_AUDIT.md',
   'static-web/STEWARD_PRODUCT_CONTRACT.md',
   'static-web/scripts/kianos-current-sync.mjs',
+  'static-web/scripts/kianos-candidate-runtime.mjs',
   'static-web/scripts/privateLearnerBridge.mjs'
 ];
 
@@ -130,9 +131,10 @@ for (const file of [
   'static-web/scripts/currentRelease.mjs',
   'static-web/scripts/currentStaticImpact.mjs',
   'static-web/scripts/currentStaticSlots.mjs',
-  'static-web/scripts/currentDependencies.mjs'
+  'static-web/scripts/currentDependencies.mjs',
+  'static-web/scripts/kianos-candidate-runtime.mjs'
 ]) {
-  assert.equal(requiresStaticRuntimeReload([file]), false, 'CURRENT_SUPERVISOR_SCRIPT_MUST_NOT_RELOAD_LEARNER_RUNTIME:' + file);
+  assert.equal(requiresStaticRuntimeReload([file]), false, 'NON_LEARNER_RUNTIME_SCRIPT_MUST_NOT_RELOAD_STABLE:' + file);
 }
 assert.equal(
   requiresStaticRuntimeReload(['static-web/scripts/test-current-offline-startup.mjs']),
