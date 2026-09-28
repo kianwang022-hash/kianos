@@ -6,6 +6,10 @@ const emptyMeta = () => ({ schema: 'kianos.politics.practice_meta.v1', favorites
 const seconds = (n) => `${Math.floor(Math.max(0, n) / 60)}:${String(Math.floor(Math.max(0, n)) % 60).padStart(2, '0')}`;
 const iso = () => new Date().toISOString();
 const sorted = (s) => [...s].sort().join('');
+const learnerErrorMessage = (value, fallback = '当前操作无法安全完成；原记录没有改动，请刷新后重试。') => {
+  const message = String(value?.message || value || '').trim();
+  return /[\u3400-\u9fff]/.test(message) ? message : fallback;
+};
 
 export function initPoliticsPractice(root) {
   if (!(root instanceof HTMLElement)) return;
@@ -32,7 +36,7 @@ export function initPoliticsPractice(root) {
     meta = read(PRACTICE_KEYS.meta, emptyMeta());
     session = read(PRACTICE_KEYS.session, null);
     sessionBytes = localStorage.getItem(PRACTICE_KEYS.session);
-  } catch (e) { error(e.message); $$('button').forEach((b) => { b.disabled = true; }); return; }
+  } catch (e) { error(learnerErrorMessage(e)); $('button').forEach((b) => { b.disabled = true; }); return; }
   // Don't leave even the public catalogue as an unnecessary accessibility node.
   $('[data-politics-practice-catalog]').remove();
   const qById = new Map(catalog.questions.map((q) => [q.id, q]));
@@ -61,7 +65,7 @@ export function initPoliticsPractice(root) {
     write(PRACTICE_KEYS.meta, next); meta = next;
   };
   const run = (fn) => async (event) => {
-    try { await fn(event); } catch (e) { error(e.message || '保存失败，当前操作未完成。'); }
+    try { await fn(event); } catch (e) { error(learnerErrorMessage(e, '保存失败，当前操作未完成。')); }
   };
   const on = (selector, event, fn) => $$(selector).forEach((node) => node.addEventListener(event, run(fn)));
   const eligible = () => {
@@ -295,7 +299,7 @@ export function initPoliticsPractice(root) {
       saveSession({ ...session, pending }); activeSince = 0;
       flushPending();
     } catch (e) {
-      error(e.message); hide('[data-retry-save]', !session.pending);
+      error(learnerErrorMessage(e)); hide('[data-retry-save]', !session.pending);
     } finally { busy = false; freezeInputs(!!session.pending || !!result()); }
   };
   const choose = async (label) => {
@@ -383,7 +387,7 @@ export function initPoliticsPractice(root) {
     try {
       if (busy || session.pending) throw new Error('本次作答尚未保存完整，请先重试保存。');
       persistNote(); saveDraft(); cancelAdvance();
-    } catch (e) { event.preventDefault(); error(e.message); }
+    } catch (e) { event.preventDefault(); error(learnerErrorMessage(e)); }
   });
   window.addEventListener('keydown', run(async (event) => {
     if (!active() || blocked || busy || event.metaKey || event.ctrlKey || event.altKey || event.isComposing || event.repeat) return;
@@ -441,5 +445,5 @@ export function initPoliticsPractice(root) {
       root.removeAttribute('data-completed'); hide('[data-session-complete]'); hide('[data-practice-setup]', false);
       $('[data-learned-scope]').checked = false;
     }
-  } catch (e) { blocked = true; root.dataset.blocked = 'true'; error(e.message); $$('button').forEach((b) => { b.disabled = true; }); }
+  } catch (e) { blocked = true; root.dataset.blocked = 'true'; error(learnerErrorMessage(e)); $('button').forEach((b) => { b.disabled = true; }); }
 }
