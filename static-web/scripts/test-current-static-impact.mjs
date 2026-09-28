@@ -139,6 +139,11 @@ assert.equal(
   false,
   'TEST_ONLY_SCRIPT_MUST_NOT_RELOAD_LEARNER_RUNTIME'
 );
+assert.equal(
+  requiresStaticRuntimeReload(['static-web/scripts/kianos-candidate-runtime.mjs']),
+  false,
+  'CANDIDATE_RUNTIME_MUST_NOT_RELOAD_STABLE_RUNTIME'
+);
 
 assert.equal(
   staticBuildNpmScript(classifyStaticBuild(['static-web/src/pages/index.astro'])),
