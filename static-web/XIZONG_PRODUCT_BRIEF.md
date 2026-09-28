@@ -170,22 +170,26 @@ The approved first-pass model remains external-primary:
 System orientation
 → choose Block
 → Block orientation
-→ current Logic Group / Source-contact orientation
-→ iPad / MarginNote original Lecture: continuous study at the accepted Source-contact granularity
-   while Mac KP Learn remains a companion rather than a second Lecture
+→ one continuous Block Learn
+   → iPad / MarginNote original Lecture is the primary continuous learning surface
+   → Logic Group / KP provide structure, location and current understanding targets
+   → Mac KianOS support is on-demand, not a second screen that must stay continuously active
 → at a real reviewed Source boundary:
      if a reviewed Lecture-attached TTSX binding exists
      → lightweight TTSX checkpoint
      → questions stay in MarginNote; optional learner note may be left in KianOS
      otherwise
      → no checkpoint is invented
-→ return at the accepted retrieval point
-→ KP Recall for the current Logic Group
-→ Logic Group closure
-→ next Logic Group / accepted Source contact
-→ Block Recall
+→ finish the Block Learn unit
+→ Block Recall from the whole Block model
+→ drill down to LG / KP only where Recall exposes a real weak point
+→ smallest-sufficient Repair when needed
 → Block Complete
 ```
+
+Product rule:
+
+> **The System → Block → Logic Group → KP hierarchy organizes learning and knowledge; it does not require a learner-facing Recall ceremony at every level. During first-pass Learn, Block is the continuous execution unit.**
 
 After the relevant System has actually been learned, later stages may expose:
 
