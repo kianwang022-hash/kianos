@@ -45,31 +45,34 @@ try {
     semantic_authority: true,
     relation_count: 0
   });
-  writeJson('content/lexical/learner/final/manifest.json', {
-    schema: 'kianos.lexical.final_learner_manifest.v1',
-    status: 'CURRENT_DERIVED_LEARNER_OBJECT',
-    semantic_authority: false,
-    object_count: 1,
-    shards: [{ start: 1, end: 1, path: shardPath, sha256: 'fixture' }]
-  });
-  writeJson(shardPath, [object('before')]);
+  const writeProjection = (summary, sha) => {
+    writeJson(shardPath, [object(summary)]);
+    writeJson('content/lexical/learner/final/manifest.json', {
+      schema: 'kianos.lexical.final_learner_manifest.v1',
+      status: 'CURRENT_DERIVED_LEARNER_OBJECT',
+      semantic_authority: false,
+      object_count: 1,
+      shards: [{ start: 1, end: 1, path: shardPath, sha256: sha }]
+    });
+  };
+  writeProjection('before', 'fixture-before');
 
   process.env.KIANOS_REPO_ROOT = root;
   process.env.KIANOS_CANDIDATE_RUNTIME = '1';
   const candidate = await import('../src/lib/lexical.mjs?candidate-projection-refresh=1');
   assert.equal(candidate.loadLexicalWordByOrdinal(1).record.word_feel.summary_cn, 'before');
-  writeJson(shardPath, [object('after')]);
+  writeProjection('after', 'fixture-after');
   assert.equal(
     candidate.loadLexicalWordByOrdinal(1).record.word_feel.summary_cn,
     'after',
     'Candidate must re-read a newly materialized lexical shard without Astro restart'
   );
 
-  writeJson(shardPath, [object('cached-before')]);
+  writeProjection('cached-before', 'fixture-cached-before');
   process.env.KIANOS_CANDIDATE_RUNTIME = '0';
   const cached = await import('../src/lib/lexical.mjs?stable-projection-cache=1');
   assert.equal(cached.loadLexicalWordByOrdinal(1).record.word_feel.summary_cn, 'cached-before');
-  writeJson(shardPath, [object('cached-after')]);
+  writeProjection('cached-after', 'fixture-cached-after');
   assert.equal(
     cached.loadLexicalWordByOrdinal(1).record.word_feel.summary_cn,
     'cached-before',
