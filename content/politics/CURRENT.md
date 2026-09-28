@@ -9,14 +9,14 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ## Active engineering anchor
 
-**No active Politics BUILD issue. Fresh re-audit is waiting on shared Stable delivery.**
+Issue [#1098](https://github.com/kianwang022-hash/kianos/issues/1098) — **Global Dock blocks Politics Workbench submit action at Mac/iPad-wide — A5**.
 
-- Phase: **REPAIR MERGED / REAL-STABLE DELIVERY BLOCKED BY SHARED AUDIT PIN**.
-- The shared Global Dock defect that stopped the Politics whole-product audit is repaired on `main` by `bda0400332816c883602d1770ccfd6cae1a8acde`.
-- The repair stays in the existing shared StudyTimer/Dock consumer: the internal root-route token `overview` is suppressed from learner-facing status without changing timer context identity/evidence semantics or adding subject-local logic.
-- Targeted local proof and PR CI passed, including the shared root-route labels for Politics / Xizong / English.
-- Real Stable is still intentionally pinned at `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4` for the parallel English/Xizong audit session, so the repair is **not yet delivered to the real learner Stable** and no fresh Politics re-audit may claim it yet.
-- The prior Politics audit FAIL does not invalidate unrelated proved content/framework rows; whole-product readiness remains withheld until a newly served exact release containing the repair receives a Fresh exhaustive re-audit.
+- Phase: **CONCRETE DEFECT — post-#1087 continuation found a second whole-product FAIL on exact Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4`**.
+- The earlier A3 Global Dock label leak is repaired on `main` by `bda0400332816c883602d1770ccfd6cae1a8acde`, but a user-requested continuation of the same pinned-release defect sweep reproduced a distinct A5 blocker: the compact Dock's interactive `今日` action overlaps and intercepts the Politics Workbench `确认答案` control at Mac 1440×900 and iPad-wide 1180×820.
+- #1098 owns the new repair route through the existing shared Global Dock / cross-surface geometry owner. Do not create a Politics-local workaround or second Dock owner.
+- Exact reproduced A5 geometry: at 1440×900 the submit center resolves to `a.studyTimerTodayButton`; at 1180×820 the same hit target intercepts the submit center. This is a functional input collision, not cosmetic overlap.
+- Real Stable remains intentionally pinned at `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4` for the parallel English/Xizong audit session. Politics must not release or repoint that shared pin.
+- The prior A3 FAIL and the new A5 FAIL do not invalidate unrelated proved content/framework rows; whole-product readiness remains withheld until #1098 is repaired/delivered and a newly served exact release receives a Fresh exhaustive re-audit.
 - Politics must not release or repoint the shared pin while the other parallel subject audits still depend on it.
 - Ordinary Politics learning bypasses this engineering cursor unless the conversation explicitly enters the re-audit path.
 - Legacy task history is quarantined and is not part of normal continuation.
@@ -33,13 +33,13 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 ### Next
 
 ```text
-shared Stable pin remains for the parallel English / Xizong audits
-→ Politics does not release or repoint it
-→ after the shared session releases the pin, normal Current catches up to accepted main containing bda040033...
-→ verify real Stable HTTP / rendered / Current identity on that newly served exact release
-→ pin that served release for a new Fresh Politics exhaustive audit
-→ rerun the whole admitted Politics suite; reuse only still-valid independent evidence
-→ PASS or route the next reproduced defect to its earliest current owner
+shared Global Dock defect #1098
+→ repair the existing shared Dock geometry / clearance owner only
+→ prove Politics Workbench 确认答案 remains pointer-reachable at Mac 1440×900 and iPad-wide 1180×820 while preserving Dock actions and existing shared clearance behavior
+→ deliver through normal Current without releasing/repointing the shared English/Xizong audit pin
+→ after the shared session releases the pin, verify a newly served exact Stable containing both the earlier A3 repair and #1098 repair
+→ pin that served release for a Fresh Politics exhaustive audit
+→ replay affected A0/A3/A5 interaction classes and continue only from independently valid evidence
 → STOP
 ```
 
