@@ -743,6 +743,7 @@ function taskPerformanceProfile(allRows, recentRows, task) {
       summary.question_outcome_problem_bearing_attempts = questionRows.filter((row) => Number(row.problem_count || 0) > 0).length;
       summary.reading_only_completions = readingOnlyRows.filter((row) => row.complete === true).length;
       summary.unknown_evidence_mode_attempts = rows.length - questionRows.length - readingOnlyRows.length;
+      summary.timing_interpretation = 'WHOLE_EXTERNAL_TASK_ELAPSED_NOT_READING_SPEED; NOT_LENGTH_NORMALIZED; QUESTION_OUTCOME_TIME_MAY_INCLUDE_ANSWERING';
     }
 
     if (task === 'reading_b') {
@@ -823,6 +824,7 @@ export function buildEnglishPerformanceProfile(rows, {
       'PROFILE_CREATES_NO_REVIEW_OR_TEST_DEBT',
       'WORKFLOW_COMPLETE_IS_NOT_PERFORMANCE_SUCCESS',
       'EXTERNAL_READING_ONLY_COMPLETION_IS_NOT_COMPREHENSION_OUTCOME',
+      'EXTERNAL_RAW_ELAPSED_IS_NOT_READING_SPEED_WITHOUT_LENGTH_AND_PHASE_NORMALIZATION',
       'READING_B_AGGREGATE_DOES_NOT_PROVE_FORM_COVERAGE'
     ]
   };
@@ -1199,7 +1201,7 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now(), ca
     '- Missing evidence means unknown, not failed. Finished work must not be turned back into Resume debt.',
     '- Optional params.material_exposure={state:unseen|exposed|unknown,basis:learner_statement,observed_at:ISO,note:actual learner statement} may be supplied ONLY from real learner testimony before an attempt. Never infer unseen from missing storage or Content defaults.',
     '- If prior Chat discussion or learner testimony materially cues the assigned task, params.assistance_context={state:assisted|unknown,basis:chat_context|learner_statement,observed_at:ISO,note:brief factual reason} may downgrade the next first-evidence claim. Do not declare unassisted; that remains the default only when no contrary evidence exists.',
-    '- performance_profile is task-level bounded telemetry. For External Reading, READING_ONLY_COMPLETION proves exposure/workflow only; only QUESTION_OUTCOME attempts carry comprehension-result evidence, and their source-native task identity still differs from Reading A. For Part B, form_coverage must be read before any aggregate stability claim. long_horizon_recurrence projects durable Objective/Translation/Writing Repair/Transfer targets. If recent exact attempts are truncated, absence from the recent window is not proof that a mechanism never existed.',
+    '- performance_profile is task-level bounded telemetry. For External Reading, READING_ONLY_COMPLETION proves exposure/workflow only; only QUESTION_OUTCOME attempts carry comprehension-result evidence, and their source-native task identity still differs from Reading A. External elapsed timing is whole-task elapsed only: it is not length-normalized and question-bearing attempts may include answer time, so do not call it reading speed/WPM. For Part B, form_coverage must be read before any aggregate stability claim. long_horizon_recurrence projects durable Objective/Translation/Writing Repair/Transfer targets. If recent exact attempts are truncated, absence from the recent window is not proof that a mechanism never existed.',
     '- reading_attribution is bounded factual Reading-A evidence only. A PRE_SUBMIT lookup proves assistance happened, not that the failure was lexical; a POST_SUBMIT_REVIEW lookup is review evidence and cannot retroactively contaminate first-attempt assistance. focused_question_id is context at lookup time, not causality. Reviewed LOCATE/JUDGE/EXECUTE/UNDERSTAND signals remain observations, not diagnosis or mastery.',
     '- If UNDERSTAND remains decision-relevant after reading_attribution is considered, ask the smallest useful clarification: first a binary confirmation only when a recent PRE_SUBMIT lookup is a plausible blocker; only if still needed, one coarse choice such as 词/短语 / 句子结构 / 指代或逻辑 / 整段 / 不确定. Do not ask when the answer would not change repair or allocation.',
     '- reading_attribution cannot by itself create review debt, select a next task, or contract Reading-A dose. Learner-specific stability/dose changes still require sufficient real evidence.',

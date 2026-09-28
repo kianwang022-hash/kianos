@@ -151,6 +151,11 @@ assert.equal(profile.tasks.translation.evidence_shape,'PRODUCTIVE_REPAIR_STATE')
 assert.equal(profile.tasks.writing.evidence_shape,'PRODUCTIVE_REPAIR_STATE');
 assert.equal(profile.guardrails.includes('WORKFLOW_COMPLETE_IS_NOT_PERFORMANCE_SUCCESS'),true);
 assert.equal(profile.guardrails.includes('EXTERNAL_READING_ONLY_COMPLETION_IS_NOT_COMPREHENSION_OUTCOME'),true);
+assert.equal(profile.guardrails.includes('EXTERNAL_RAW_ELAPSED_IS_NOT_READING_SPEED_WITHOUT_LENGTH_AND_PHASE_NORMALIZATION'),true);
+assert.equal(
+  profile.tasks.external_reading.history.timing_interpretation,
+  'WHOLE_EXTERNAL_TASK_ELAPSED_NOT_READING_SPEED; NOT_LENGTH_NORMALIZED; QUESTION_OUTCOME_TIME_MAY_INCLUDE_ANSWERING'
+);
 assert.equal(Object.prototype.hasOwnProperty.call(profile.tasks.translation.history,'problem_bearing_attempts'),false,
   'Objective problem semantics leaked into Translation');
 assert.equal(Object.prototype.hasOwnProperty.call(profile.tasks.writing.history,'problem_bearing_attempts'),false,
