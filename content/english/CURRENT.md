@@ -9,11 +9,12 @@ A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / �
 
 ## Active engineering anchor
 
-Issue [#1070](https://github.com/kianwang022-hash/kianos/issues/1070) — **English cleanup: converge to native runtimes and retire stale execution** — owns the only active English engineering Phase / Next / Blocker.
+None. English is back in **normal-use / concrete-defect mode**.
 
-- English is already a mature learner product; #1070 is cleanup/convergence, not a new construction campaign.
+- Issue [#1070](https://github.com/kianwang022-hash/kianos/issues/1070) completed the bounded runtime-convergence / stale-execution cleanup; it is closure evidence, not a continuation cursor.
+- English is already a mature learner product; the completed cleanup does not reopen a construction campaign.
 - Closed #1054 is superseded family-by-family BUILD history and must not be resumed.
-- Closed PR #1035 is stale execution evidence only; any still-real residue is re-verified on current main under #1070 rather than reviving the old branch.
+- Closed PR #1035 is stale execution evidence only; its still-real current-main answer-gate residue was absorbed during #1070 and the old branch must not be revived.
 - Reading attribution #1043 and CREATE closure #1053 are closed basis/evidence, not active continuation tasks.
 - Issue #1014 remains completed English real-use audit evidence, not the current work cursor.
 - Exact Source / Content / Learning / Interaction / Visual / Runtime / Shared-platform truth remains with each native owner.
@@ -24,7 +25,7 @@ Issue [#1070](https://github.com/kianwang022-hash/kianos/issues/1070) — **Engl
 - English is in **normal-use / concrete-defect mode** for the currently admitted product boundaries.
 - Objective, Translation, Writing, English ↔ Lexical handoff, whole-paper session, External Reading and shared private-checkpoint paths have current implementation/acceptance owners.
 - There is no active broad English construction campaign and no release hold encoded in this cursor.
-- #1070 temporarily owns one bounded cleanup: remove remaining duplicate execution introduced during optimization, retire stale English work, then return to normal use.
+- Reading A official/static and generated/private material now share one native interaction runtime; generated material remains a thin material/protected-answer adapter.
 - Learner U remains private real-use truth; engineering acceptance never means Kian has studied or mastered the material.
 - External Reading remains a continuous English Content lane. Public GitHub owns source identity/schema/compiler/runtime contracts; copyrighted source bytes remain private.
 
@@ -90,14 +91,12 @@ Exact semantics live in the relevant Learning / Content / Runtime owner; this cu
 
 ## Next / reopen
 
-For current English engineering control → Issue #1070 only.
+There is no active English engineering cursor. Return to normal learner use.
 
-#1070 must stop after the bounded cleanup and current-main readback. It must **not** automatically continue into Part B / Translation / Writing / Lexical generated implementation.
-
-After #1070 closes, return English to normal learner use. Future engineering is pulled only by:
+Future engineering is pulled only by:
 - genuine learner/use evidence;
 - a concrete Source / Content / Learning / Visual / Runtime defect;
 - an admitted new source/material boundary;
 - an explicit fresh independent re-acceptance request.
 
-Do not infer new work from closed #1054, stale PRs, old Gate language, archived branches or prior Chat summaries.
+Do not infer new work from completed #1070, closed #1054, stale PRs, old Gate language, archived branches or prior Chat summaries. Do not auto-continue into Part B / Translation / Writing / Lexical generated implementation.

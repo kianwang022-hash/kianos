@@ -129,8 +129,8 @@ assert.ok(href.includes('exam_step='));
 assert.ok(href.includes(encodeURIComponent(first.object_id)));
 
 const sourceChecks = {
-  reading: readWeb('src/components/ReadingWorkspace.astro'),
-  cloze: readWeb('src/components/ClozeWorkspace.astro'),
+  reading: readWeb('src/lib/readingRuntime.mjs'),
+  cloze: readWeb('src/lib/clozeRuntime.mjs'),
   readingB: readWeb('src/components/ReadingBWorkspace.astro'),
   translation: readWeb('src/components/TranslationWorkspace.astro'),
   writing: readWeb('src/components/WritingWorkspace.astro'),

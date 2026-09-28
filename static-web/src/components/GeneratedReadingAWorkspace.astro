@@ -34,7 +34,8 @@ const base=import.meta.env.BASE_URL;
 <p data-generated-reading-error hidden></p>
 
 <script>
-  import {archiveEnglishAttempt,inspectEnglishAttempt,preserveEnglishFailure,saveEnglishAttempt,taskMetadata} from '../lib/englishLearnerEvidence.mjs';
+  import {preserveEnglishFailure} from '../lib/englishLearnerEvidence.mjs';
+  import {initReadingRuntime} from '../lib/readingRuntime.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(async()=>{
     const root=document.querySelector('[data-generated-reading-a]');
@@ -86,77 +87,30 @@ const base=import.meta.env.BASE_URL;
       paragraphHost.innerHTML='';
       snapshot.paragraphs.forEach(row=>{const p=document.createElement('p');p.id=row.id;p.textContent=row.text;paragraphHost.appendChild(p);});
 
-      const storageKey=`kianos-reading-attempt-v1:${id}`;
-      const meta=taskMetadata(root,'reading_a',id);
-      const saved=inspectEnglishAttempt(localStorage,storageKey,meta,{root})||{};
-      let state={
-        version:3,currentIndex:0,startedAt:new Date().toISOString(),answers:{},uncertain:[],submitted:false,submittedAt:'',results:{},trajectory:{},causes:{},reviewUnlocked:true,
-        ...saved,
-        trajectory:saved.trajectory||{},causes:saved.causes||{},reviewUnlocked:saved.reviewUnlocked!==false
-      };
-      const save=()=>saveEnglishAttempt(localStorage,storageKey,state,meta,{root});
-      save();
-      localStorage.setItem('kianos-reading-last-location-v1',JSON.stringify({id,title,href:`${base}reading-generated/?id=${encodeURIComponent(id)}`,updatedAt:new Date().toISOString()}));
-
+      root.dataset.readingResumeHref=`${base}reading-generated/?id=${encodeURIComponent(id)}`;
+      root.dataset.readingResumeTitle=title;
       const nav=root.querySelector('[data-generated-reading-nav]');
       const host=root.querySelector('[data-generated-reading-questions]');
-      const progress=root.querySelector('[data-reading-progress]');
-      const timer=root.querySelector('[data-reading-timer]');
-      const submit=root.querySelector('[data-reading-submit]');
-      const result=root.querySelector('[data-reading-result]');
-      const score=root.querySelector('[data-reading-score]');
-      const summary=root.querySelector('[data-reading-summary]');
-      const normalize=value=>Array.isArray(value)?value.map(String):value==null||value===''?[]:[String(value)];
-      const same=(a,b)=>{const x=normalize(a).sort(),y=normalize(b).sort();return x.length===y.length&&x.every((v,i)=>v===y[i]);};
-      let answers=null;
-      let tick=null;
-      const format=s=>`${String(Math.floor(s/60)).padStart(2,'0')}:${String(Math.floor(s%60)).padStart(2,'0')}`;
-      const elapsed=()=>Math.max(0,Math.round(((state.submittedAt?Date.parse(state.submittedAt):Date.now())-Date.parse(state.startedAt||new Date().toISOString()))/1000));
-      const render=()=>{
-        nav.innerHTML='';host.innerHTML='';
-        questions.forEach((q,index)=>{
-          const button=document.createElement('button');button.type='button';button.dataset.target=q.question_id;button.textContent=`Q${q.ordinal||index+1}`;button.classList.toggle('active',index===state.currentIndex);button.addEventListener('click',()=>{state.currentIndex=index;save();render();});nav.appendChild(button);
-          const section=document.createElement('section');section.className=`portedReadingQuestion ${index===state.currentIndex?'is-current':''}`;section.dataset.question=q.question_id;section.dataset.index=String(index);section.hidden=index!==state.currentIndex;
-          section.innerHTML='<header><span></span><button type="button" class="portedUncertain" aria-pressed="false">Uncertain</button></header><p></p><div class="portedReadingOptions"></div><div class="portedReadingAnswerStrip" data-reading-answer-strip hidden><span>你的答案 <b data-reading-your-answer>—</b></span><span>正式答案 <b data-reading-formal-answer>—</b></span></div>';
-          section.querySelector('header span').textContent=`Question ${q.ordinal||index+1}`;section.querySelector(':scope > p').textContent=q.prompt;
-          const uncertain=section.querySelector('.portedUncertain');uncertain.setAttribute('aria-pressed',String(state.uncertain.includes(q.question_id)));uncertain.disabled=state.submitted;
-          uncertain.addEventListener('click',()=>{const set=new Set(state.uncertain);set.has(q.question_id)?set.delete(q.question_id):set.add(q.question_id);state.uncertain=[...set];save();render();});
-          const options=section.querySelector('.portedReadingOptions');
-          for(const [label,text] of Object.entries(q.options||{})){
-            const option=document.createElement('button');option.type='button';option.dataset.option=label;option.innerHTML='<b></b><span></span>';option.querySelector('b').textContent=label;option.querySelector('span').textContent=text;option.classList.toggle('selected',state.answers[q.question_id]===label);option.disabled=state.submitted;
-            option.addEventListener('click',()=>{const prior=state.answers[q.question_id]||'';state.answers[q.question_id]=label;state.trajectory[q.question_id]=[...(state.trajectory[q.question_id]||[]),{answer:label,at:new Date().toISOString(),changed_from:prior||null}].slice(-12);save();render();});options.appendChild(option);
-          }
-          if(state.submitted){
-            section.querySelector('[data-reading-answer-strip]').hidden=false;section.querySelector('[data-reading-your-answer]').textContent=state.answers[q.question_id]||'—';section.querySelector('[data-reading-formal-answer]').textContent=answers?.[q.question_id]||'—';
-            for(const option of section.querySelectorAll('[data-option]')){const label=option.dataset.option;option.classList.toggle('result-correct',label===answers?.[q.question_id]);option.classList.toggle('result-wrong',label===state.answers[q.question_id]&&label!==answers?.[q.question_id]);}
-          }
-          host.appendChild(section);
-        });
-        progress.textContent=`Q${state.currentIndex+1} / ${questions.length}`;
-        if(state.submitted){result.hidden=false;const correct=Object.values(state.results).filter(v=>v==='correct').length;score.textContent=`${correct} / ${questions.length}`;summary.textContent=correct===questions.length&&!state.uncertain.length?'完成；保留为本次 generated evidence。':'问题已记录；是否继续 Repair / transfer 由 Chat 根据真实证据决定。';}
-        else result.hidden=true;
-      };
-      root.querySelector('[data-reading-prev]').addEventListener('click',()=>{state.currentIndex=Math.max(0,state.currentIndex-1);save();render();});
-      root.querySelector('[data-reading-next]').addEventListener('click',()=>{state.currentIndex=Math.min(questions.length-1,state.currentIndex+1);save();render();});
-      submit.addEventListener('click',async()=>{
-        if(state.submitted)return;
-        submit.disabled=true;
-        try{
+      questions.forEach((q,index)=>{
+        const button=document.createElement('button');button.type='button';button.dataset.target=q.question_id;button.textContent=`Q${q.ordinal||index+1}`;nav.appendChild(button);
+        const section=document.createElement('section');section.className='portedReadingQuestion';section.dataset.question=q.question_id;section.dataset.index=String(index);
+        section.innerHTML='<header><span></span><button type="button" class="portedUncertain" aria-pressed="false">Uncertain</button></header><p></p><div class="portedReadingOptions"></div><div class="portedReadingAnswerStrip" data-reading-answer-strip hidden><span>你的答案 <b data-reading-your-answer>—</b></span><span>正式答案 <b data-reading-formal-answer>—</b></span></div>';
+        section.querySelector('header span').textContent=`Question ${q.ordinal||index+1}`;
+        section.querySelector(':scope > p').textContent=q.prompt;
+        const options=section.querySelector('.portedReadingOptions');
+        for(const [label,text] of Object.entries(q.options||{})){
+          const option=document.createElement('button');option.type='button';option.dataset.option=label;option.innerHTML='<b></b><span></span>';option.querySelector('b').textContent=label;option.querySelector('span').textContent=text;options.appendChild(option);
+        }
+        host.appendChild(section);
+      });
+      await initReadingRuntime(root,{
+        prepareAnswers:async()=>{
           const data=await fetchJson(endpoint('answers?id='+encodeURIComponent(id)));
           if(data.answers?.content_hash!==material.content_hash||data.answers?.generated_task!=='reading_a')throw new Error('ENGLISH_GENERATED_READING_ANSWER_REVISION_MISMATCH');
-          answers=data.answers.answers||{};state.results={};
-          for(const q of questions){const mine=state.answers[q.question_id]||'';state.results[q.question_id]=mine?(same(mine,answers[q.question_id])?'correct':'wrong'):'unanswered';}
-          state.submitted=true;state.submittedAt=new Date().toISOString();save();render();
-        }catch(error){showError(error);}finally{submit.disabled=state.submitted;}
+          return data.answers.answers;
+        }
       });
-      root.querySelector('[data-reading-reset]').addEventListener('click',()=>{
-        if(!state.submitted)return;
-        archiveEnglishAttempt(localStorage,storageKey);
-        location.reload();
-      });
-      tick=setInterval(()=>{if(timer)timer.textContent=format(elapsed());},1000);
-      render();root.hidden=false;
-      window.addEventListener('pagehide',()=>{if(tick)clearInterval(tick);},{once:true});
+      root.hidden=false;
     }catch(error){showError(error);}
   });
 </script>
