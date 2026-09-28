@@ -99,17 +99,21 @@ assert(manifest.validation?.eligibility_accounting?.eligible_not_compiled?.some(
 assert(projectableIds.has('hematology-immunity-infection'), 'C:current-owner-route-not-projectable');
 
 // Shared V6 shell branches only on accepted Source-contact semantics.
-// B keeps one Source handoff per accepted LG; C keeps its existing single
-// continuous Source gate; D/E/F may consume accepted Natural/Integration plans.
+// B may keep whole-LG Source chunks during Block Learn, but Source chunk boundaries
+// do not release KP Recall until the whole Block Learn/Source scope is complete.
+// C keeps its existing single continuous Source gate; D/E/F retain their exact plans.
 assert(blockUi.includes("const sourcePerGroup = sourceContact.logicGroupIsAutomaticSourceChunk === true;"), 'V6:source-contact-semantic-switch-missing');
 assert(blockUi.includes("const naturalSourceUnits = sourceContactMode === 'NATURAL_SOURCE_UNITS';"), 'V6:natural-source-runtime-switch-missing');
 assert(blockUi.includes("const integrationPrimary = sourceContactMode === 'INTEGRATION_PRIMARY';"), 'V6:integration-runtime-switch-missing');
-assert(blockUi.includes("if (sourcePerGroup) setStage('kp_learn');"), 'V6:B:whole-lg-source-entry-missing');
+assert(blockUi.includes("else if (sourcePerGroup) setStage(stageForSelectedGroup());"), 'V6:B:whole-lg-source-entry-missing');
+assert(blockUi.includes("if (sourcePerGroup) return currentSourceContactCovered() ? 'kp_recall' : 'kp_learn';"), 'V6:B:block-learn-gate-missing');
+assert(blockUi.includes("const blockLearnComplete = currentSourceContactCovered();"), 'V6:B:block-learn-completion-missing');
+assert(blockUi.includes("const resumeStage = retrievalComplete ? 'block_recall' : blockLearnComplete ? 'kp_recall' : 'kp_learn';"), 'V6:B:retrieval-release-boundary-missing');
 assert(blockUi.includes("else if (state.sourceContactDone) setStage('kp_recall');"), 'V6:C:direct-retrieval-return-missing');
 assert(blockUi.includes("!sourcePerGroup && !naturalSourceRuntime && !integrationPrimaryRuntime && requested === 'logic_group'"), 'V6:C:single-continuous-source-gate-lost');
 assert(blockUi.includes("const advanceM4State = () =>"), 'V6:CDEF:owner-driven-runtime-router-missing');
-assert(blockUi.includes("if (biochemistrySource?.laneSourceHash) setStage(currentGroupSourceCovered() ? 'kp_recall' : 'source_contact');"), 'V6:BIO:scoped-global-source-reuse-missing');
-assert(blockUi.includes("if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';"), 'V6:B:block-source-stage-redirects-to-whole-lg-contact');
+assert(blockUi.includes("if (biochemistrySource?.laneSourceHash) return state.sourceContactDone ? 'kp_recall' : 'source_contact';"), 'V6:BIO:block-source-closure-gate-missing');
+assert(blockUi.includes("if (sourcePerGroup && stage === 'source_contact') stage = stageForSelectedGroup();"), 'V6:B:block-source-stage-router-missing');
 assert(blockUi.includes("const storageKey = `kianos-xizong-astro-v2:${objectId}`;"), 'V6:shared-v2-store-missing');
 assert(!blockUi.includes('kianos-xizong-astro-v3'), 'V6:parallel-store-created');
 

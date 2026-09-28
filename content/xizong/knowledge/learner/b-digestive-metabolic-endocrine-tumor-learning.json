@@ -30,18 +30,19 @@
     "continuous_primary": "iPad / MarginNote original Lecture/source",
     "kianos": "System/Block orientation, attention boundary, selective cue, active retrieval, Logic Group closure, Block/System compression, W/U routing and later review",
     "chat": "adaptive explanation, linking and smallest-sufficient repair",
-    "hard_rule": "KianOS must not become a second continuous Lecture reader. Normal first-pass handoff is KianOS orientation → bounded whole-Logic-Group original Lecture contact in MarginNote → KianOS retrieval/closure."
+    "hard_rule": "KianOS must not become a second continuous Lecture reader. During BLOCK LEARN PHASE, bounded whole-Logic-Group Lecture contact may remain the accepted B Source chunk, but completing one chunk does not start Recall. Finish the current Block's accepted Learn/Source scope first; only then enter RETRIEVAL PHASE for KP Recall → Logic Group closure → Block Recall."
   },
   "surface_handoff_contract": {
     "primary_sequence": [
       "KianOS bounded System/Block/Logic-Group orientation and selective cue",
-      "one bounded whole-Logic-Group original Lecture contact in iPad / MarginNote",
-      "one normal return to KianOS after the relevant formal Lecture contact",
-      "active KP retrieval in accepted learner order",
+      "BLOCK LEARN PHASE: complete all accepted whole-Logic-Group original Lecture Source chunks for the current Block in iPad / MarginNote",
+      "between Source chunks, remain in Learn; KianOS may keep KP Learn companion/orientation without starting KP Recall",
+      "after the current Block Learn/Source scope is complete, enter RETRIEVAL PHASE",
+      "active KP Recall in accepted Logic Group order",
       "cognition-specific Logic Group closure",
       "Block Recall only after all Block Logic Groups close"
     ],
-    "normal_switching_rule": "Do not bounce KP-by-KP between KianOS and MarginNote during normal first learning. One whole-LG Lecture contact followed by one normal return is the default; extra source returns are only for learner-requested source checks, visuals or smallest-sufficient repair.",
+    "normal_switching_rule": "Do not bounce KP-by-KP between KianOS and MarginNote during normal first learning. Whole-LG remains B's bounded Source-contact chunk, but it is not a Recall boundary: continue the unfinished Block Learn mainline after each chunk, then do one KP/LG retrieval sequence only after the Block's accepted Learn/Source scope is complete. Extra source returns are only for learner-requested source checks, visuals or smallest-sufficient repair.",
     "lecture_owns": [
       "continuous explanation",
       "figures and tables",
@@ -68,8 +69,8 @@
       "cross-System reasoning when needed"
     ],
     "recall_timing": {
-      "kp": "AFTER_RELEVANT_FORMAL_LECTURE_CONTACT",
-      "logic_group": "AFTER_WHOLE_LG_LECTURE_CONTACT",
+      "kp": "ONLY_AFTER_CURRENT_BLOCK_LEARN_SOURCE_SCOPE_COMPLETE",
+      "logic_group": "DURING_RETRIEVAL_PHASE_AFTER_BLOCK_LEARN_COMPLETE",
       "block": "AFTER_ALL_BLOCK_LGS_CLOSE",
       "psr": "NATURAL_CHECKPOINT_ONLY_AND_SKIPPABLE",
       "system": "ONLY_AFTER_ALL_38_BLOCKS_ARE_ACTUALLY_LEARNED"
@@ -186,9 +187,10 @@
   "first_pass_chain": [
     "System orientation in KianOS",
     "enter current Block / Logic Group with focus and explicit stop-line",
-    "continuous whole-Logic-Group original Lecture contact in iPad / MarginNote",
-    "return once to KianOS after relevant formal Lecture contact",
-    "active KP retrieval in the accepted learner order",
+    "BLOCK LEARN PHASE: complete the Block's accepted whole-Logic-Group Source chunks in iPad / MarginNote while KianOS remains a companion",
+    "real reviewed TTSX checkpoints return to the unfinished Block Learn mainline",
+    "after Block Learn/Source scope is complete: enter RETRIEVAL PHASE",
+    "KP Recall in accepted learner order, organized by Logic Group",
     "cognition-specific Logic Group closure",
     "Block Recall after all Block groups close",
     "short non-gating Partial-System Reconstruction when a natural branch checkpoint closes",
