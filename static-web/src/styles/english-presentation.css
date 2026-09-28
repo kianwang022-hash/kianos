@@ -1,6 +1,5 @@
 /* English rules migrated from retired shared composition layer.
    Exact declarations and relative order are preserved; this file is the Subject Visual owner. */
-body#kianos-workspace.uiEnglish .englishOverview { padding-block:19px 17px; }
 body#kianos-workspace.uiEnglish .englishWorkbenchHeading { padding-block:14px; }
 body#kianos-workspace.uiEnglish .englishCapabilityGroup {
   grid-template-columns:210px minmax(0,1fr);padding-top:16px;padding-bottom:24px;
@@ -34,7 +33,7 @@ body#kianos-workspace.uiEnglish .englishLexicalCompanion p { color:#6a7d90; }
 }
 @media (min-width:1101px) and (min-height:680px) {
   body#kianos-workspace.uiEnglish.uiHub .englishHub { flex:1;min-height:0;display:flex;flex-direction:column; }
-  body#kianos-workspace.uiEnglish.uiHub .englishOverview { flex-shrink:0; }
+  body#kianos-workspace.uiEnglish.uiHub :is(.englishHomeContext,.englishResume) { flex-shrink:0; }
   body#kianos-workspace.uiEnglish.uiHub .englishCapabilityLayout { flex:1;min-height:0; }
   body#kianos-workspace.uiEnglish.uiHub :is(.englishCapabilityMap,.englishContextRail) { min-height:0;overflow:auto; }
   /* English: keep Reading 1.12/.88 and other task-native ratios unchanged.
@@ -91,11 +90,6 @@ body#kianos-workspace.uiEnglish .englishLexicalCompanion p { color:#6a7d90; }
 /* Home keeps the accepted map, but spends less of the first viewport on orientation chrome. */
 @media (min-width:1180px){
   body#kianos-workspace.uiEnglish.uiHub .englishCanvas{padding-top:14px}
-  body#kianos-workspace.uiEnglish .englishOverview{padding:14px 0 15px;gap:24px}
-  body#kianos-workspace.uiEnglish .englishOverview h1{margin:4px 0 4px;font-size:30px}
-  body#kianos-workspace.uiEnglish .englishOverview p{font-size:14px}
-  body#kianos-workspace.uiEnglish .englishOverview>aside{padding-left:22px}
-  body#kianos-workspace.uiEnglish .englishOverview>aside>strong{font-size:30px}
   body#kianos-workspace.uiEnglish .englishWorkbenchHeading{padding:14px 22px}
   body#kianos-workspace.uiEnglish .englishCapabilityGroup{grid-template-columns:172px minmax(0,1fr);gap:20px;padding:15px 22px 23px}
   body#kianos-workspace.uiEnglish .englishCapabilityLead h2{margin:5px 0;font-size:20px}
@@ -188,15 +182,8 @@ body#kianos-workspace.uiEnglish .englishCanvas {
   padding-bottom: 26px;
 }
 
-/* English hub: same information, less dashboard/card feeling. */
-body#kianos-workspace.uiEnglish .englishOverview { padding-top: 10px; padding-bottom: 16px; }
-body#kianos-workspace.uiEnglish .englishOverview h1 {
-  color: #1b2a39;
-  font-size: clamp(30px, 3vw, 39px);
-  font-weight: 680;
-  letter-spacing: -.035em;
-}
-body#kianos-workspace.uiEnglish .englishOverview p { color: #718092; font-size: 14px; line-height: 1.65; }
+/* English Home is a dense workbench: context + Resume + tasks, not a hero/dashboard. */
+body#kianos-workspace.uiEnglish .englishHomeContext { max-width:none; }
 body#kianos-workspace.uiEnglish .englishCapabilityLayout {
   border-color: #dde3e9;
   border-radius: 14px;
@@ -254,7 +241,8 @@ body#kianos-workspace.uiEnglish :is(.portedReadingHeaderActions,.translationHead
    English exam/editorial reading keeps its task-owned serif face above. */
 body#kianos-workspace.uiEnglish :is(
   .productNavItem,
-  .englishOverview p,
+  .englishHomeContext span,
+  .englishHomeContext small,
   .englishCapabilityLead p,
   .englishCapabilityRoutes>a>div>small,
   .englishResume>div>span,

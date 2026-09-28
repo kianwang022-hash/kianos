@@ -15,14 +15,21 @@ const statusLabel = (status) => status === 'ready' ? '可进入' : status === 'i
 ---
 <Base title="English" active="english" showLead={false} objectId="english:performance-home">
   <section class="englishHub" data-english-hub data-base={base}>
-    <header class="englishOverview">
-      <div><span>ENGLISH · PERFORMANCE</span><h1>读懂，写清，稳定完成。</h1><p>从完整任务开始；有具体问题，再回到最小修复。</p></div>
-      <aside><span>English I · Target</span><strong>85<span>+</span></strong><small>Objective 60 · Translation 10 · Writing 30</small></aside>
+    <header class="englishHomeContext" data-english-home-context>
+      <div>
+        <span>ENGLISH</span>
+        <strong data-english-home-phase>当前阶段</strong>
+        <small data-english-home-role>读取本轮角色…</small>
+      </div>
+      <div>
+        <span>下个关键节点</span>
+        <strong data-english-home-gate>按本轮时间线定位</strong>
+      </div>
     </header>
+    <EnglishResume />
     <div class="englishCapabilityLayout">
       <main class="englishCapabilityMap">
-        <EnglishResume />
-        <header class="englishWorkbenchHeading"><h2>选择本次任务</h2><span>完成任务 → 看结果 → 必要时修复</span></header>
+        <header class="englishWorkbenchHeading"><h2>本次英语</h2><span>完整任务 → 看结果 → 只修真正的问题</span></header>
         <section class="englishCapabilityGroup" data-capability="objective">
           <div class="englishCapabilityLead"><span>01 · OBJECTIVE</span><h2>阅读与判断</h2><p>整篇材料、完整题组；让证据决定选择。</p></div>
           <div class="englishCapabilityRoutes">
@@ -68,3 +75,21 @@ const statusLabel = (status) => status === 'ready' ? '可进入' : status === 'i
     </div>
   </section>
 </Base>
+
+<script>
+  import { examDay, resolveExamPhase, GATES } from '../lib/examOrchestrator.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+    const root = document.querySelector('[data-english-home-context]');
+    if (!(root instanceof HTMLElement)) return;
+    const day = examDay();
+    const phase = resolveExamPhase(day);
+    const phaseNode = root.querySelector('[data-english-home-phase]');
+    const roleNode = root.querySelector('[data-english-home-role]');
+    const gateNode = root.querySelector('[data-english-home-gate]');
+    if (phaseNode) phaseNode.textContent = phase?.outsideCycle ? phase.label : `${phase.id} · ${phase.label}`;
+    if (roleNode) roleNode.textContent = phase?.roles?.[1] ? `英语 · ${phase.roles[1]}` : '英语 · 自由学习';
+    const gate = GATES.find((row) => row.date >= day) || GATES.at(-1) || null;
+    if (gateNode) gateNode.textContent = gate ? `${gate.date.slice(5).replace('-', '.')} · ${gate.label}` : '本轮无后续 Gate';
+  });
+</script>
