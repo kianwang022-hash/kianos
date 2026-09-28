@@ -21,21 +21,28 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Current engineering state
 
-**Whole-Xizong CBA closure is BLOCKED / UNBOUND.**
+**Issue #1074 — Xizong CBA closure: restore shared Attention projection and real-browser fidelity**
 
-Current learner-visible evidence reports that a representative **B Block surface does not show the accepted Context / Attention rail**. That conflicts with the current Product / Visual owner and invalidates any blanket claim that whole-Xizong BUILD/AUDIT fidelity is closed.
+Parent outcome:
+- current CREATE is already sufficiently specified for the reported defect class;
+- BUILD must faithfully project it through the current learner object/shared Block consumer;
+- final whole-Xizong readiness still requires a separate strengthened Fresh independent AUDIT after BUILD.
 
-No active engineering Issue is currently bound. Before mutation resumes, bind one new current task from current owners only.
+Current blocker:
+- representative B learner surface does not faithfully show the accepted Context / Attention projection;
+- current real-page evidence also shows browser-visible layout/clipping risk that code inspection cannot certify away.
 
 ### Next
 
-for the current B learner-surface defect
+Issue #1074 BUILD
 → current Product / Visual owner
 → current B learner-object / Projection owner
 → current shared Block consumer
-→ real Stable/Candidate browser surface
-→ bind the smallest current BUILD task if a defect is reproduced
-→ after BUILD, run the current strengthened Fresh independent AUDIT against the real browser/user journey
+→ Candidate 4322 real browser
+→ smallest coherent repair
+→ screenshot/interaction proof + affected regression
+→ one durable delivery + Stable 4321 readback
+→ then separate Fresh independent AUDIT against the exact release
 
 for unaffected ordinary study → native learner path
 
