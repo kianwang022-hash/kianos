@@ -121,6 +121,7 @@ try {
     await p.locator('[data-workspace-unit-tab="1"]').click();
     await p.locator('[data-workspace-unit]:not([hidden]) [data-workspace-action="start-learn"]').click();
     await p.locator('[data-workspace-unit]:not([hidden]) [data-workspace-action="learn-fastpath"]').click();
+    await p.waitForURL(/\/politics\/practice\/\?unit=/);
     await start(p);const firstQuestion=await current(p);await answer(p,firstQuestion.answer);
     const session=await read(p,K.session);
     // Deliberately leave chapter memory on another unit before following Return.
