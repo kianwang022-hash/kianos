@@ -17,6 +17,9 @@
   pointer-events: none;
 }
 .studyTimerDock[data-expanded="true"] { width: 460px; pointer-events: auto; }
+@media (min-width: 621px) {
+  body#kianos-workspace.surfaceBody-politics:has(.politicsWorkbench [data-practice-session]:not([hidden])) .studyTimerDock { bottom: 24px; }
+}
 .studyTimerDock[data-dragging="true"] { cursor: grabbing; box-shadow: 0 22px 56px rgba(31, 47, 40, .19), 0 4px 12px rgba(31, 47, 40, .1); }
 
 .studyTimerCompact {
