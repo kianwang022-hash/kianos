@@ -21,15 +21,17 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Active engineering anchor
 
-- **Issue #1004 — Xizong learner-runtime convergence + exam-system integration**
-- Scope: converge the shared Xizong learner runtime and prove it inside the whole Exam Orchestrator / KianOS flow; real learner visual/interaction judgment outranks code-level PASS.
-- Phase / Next / Blocker live only in Issue #1004.
+- **Issue #1047 — Xizong lifecycle recovery / CREATE completeness**
+- Scope: recover the current complete Xizong CREATE chain from current owners before any new BUILD or final independent AUDIT.
+- Phase / Next / Blocker live only in Issue #1047 while that recovery task is active.
+- **Issue #1004 is historical BUILD / Human-Gate evidence only.** Its old Phase / Next / Blocker and candidate-bound PASS labels are not continuation authority.
 
 ### Next
 
-for current engineering control → Issue #1004 → exact smallest owner for any real-use defect
+for current engineering control → Issue #1047 → exact current CREATE owner
 for ordinary study → native learner path
-→ stop only after the real-use walkthrough has no unresolved BLOCKER
+after #1047 closes CREATE → bind any unresolved implementation delta to an explicit BUILD task before changing consumers
+→ do not resume #1004 as the active cursor
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority.
 
@@ -41,11 +43,12 @@ Historical campaigns, branch receipts and prior closure narratives are not conti
 | Cross-System content priority / dependency | CONTENT_MAINLINE.md → exact System owner |
 | One System / Block content defect | exact scoped CURRENT.md when present → canonical Source / Knowledge owner |
 | Learning / cognition | LEARNING_CONTRACT.md → exact learner/study owner |
+| Product / learner surface | static-web/XIZONG_PRODUCT_BRIEF.md → exact accepted surface owner |
+| Visual / presentation | static-web/PRESENTATION_CONTRACT.md → static-web/XIZONG_VISUAL_LANGUAGE.md → exact surface owner |
 | Official Question Truth | questions/ |
 | Learner-facing explanations | explanations/README.md → exact shard |
 | Reviewed Question → Knowledge | question-relations/README.md → exact reviewed/stale relation owner; manifest/freshness resolver for aggregate Current use |
 | Clinical humanities | humanities/current.json |
-| Visual / presentation | root static-web/PRESENTATION_CONTRACT.md → exact surface owner |
 | Runtime / engineering | root SYSTEM_CONTRACT.md → exact runtime/component owner |
 | Accepted integration result | ACCEPTANCE.md |
 
