@@ -55,7 +55,7 @@
   },
   "stage_contract": {
     "FIRST_PASS": {
-      "primary_goal": "建立完整知识模型，完成 Lecture 全量接触，并把当前核心推进到 UNDERSTOOD + RECALLABLE；当前 owner 下的重要 Precision 开始进入精确记忆；在真实自然小节闭合时完成已绑定的 Lecture-attached TTSX；用 System 全量题暴露知识缺口。",
+      "primary_goal": "建立完整知识模型，以一个 Block 为一次连续 Learn 单元完成 Lecture 全量接触；Block 学完后通过 Block Recall 主动恢复核心结构，并只在 Recall/题目暴露真实薄弱点时下钻到 LG/KP；当前 owner 下的重要 Precision 开始进入精确记忆；在真实自然小节闭合时完成已绑定的 Lecture-attached TTSX；用 System 全量题暴露知识缺口。",
       "target_mastery": [
         "UNDERSTOOD",
         "RECALLABLE"
@@ -68,15 +68,15 @@
         "把 Lecture-attached TTSX 搬成第二个网页题库"
       ],
       "required_gates": [
-        "每个 canonical KP 完成正式学习接触，并至少进行一次主动 Recall",
-        "每个 Logic Group 能回答这一组解决什么问题，并完成一次结构闭合",
+        "每个 canonical KP 完成正式学习接触；KP / Logic Group 在 Learn 中服务结构、定位和理解，不自动产生 Recall/rating gate",
+        "一个 Block 作为一次连续 Learn 单元完成；不为跨 session 设计中间 reconstruction ceremony",
         "到达真实 natural subsection closure 且存在 reviewed TTSX binding 时，在 Lecture / MarginNote 原位置完成对应配套题、全部选项与题旁拓展；KianOS 只做低摩擦 checkpoint / 可选留痕",
-        "每个 Block 完成一次 Block Recall，能把 KP 压回局部模型",
+        "每个 Block 学完后完成一次 Block Recall，能从中心问题 / Logic Group 骨架把整个局部模型主动恢复出来；只有真实薄弱点才下钻到 LG/KP Recall / Repair",
         "每个 System 在题目前先完成一次 System Recall",
         "System 全量题完成覆盖性 sweep；正确且理由清楚快速通过，Wrong / Uncertain 必须留下并回链修补",
         "题后完成一次短 System Recall，确认题目没有替代自己的模型"
       ],
-      "progression_rule": "严格要求主动恢复和缺口不丢，但单个 KP 第一次 Recall 不完美不得无限阻塞主线；弱点进入后续 Memory / Review。"
+      "progression_rule": "第一轮优先连续理解和整块模型形成：Block Learn 期间不以逐 KP Recall/rating 阻塞主线；Block Recall 负责主动恢复，真实薄弱点再下钻到 LG/KP Repair/Memory。"
     },
     "SECOND_PASS": {
       "primary_goal": "把知识模型转换为解题能力：Precision 稳定、鉴别边界、干扰项、条件变化、跨 Block/跨 System 调用与病例推理。",
