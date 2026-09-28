@@ -39,6 +39,7 @@ try{
   await waitReady();
   browser=await chromium.launch({headless:true});
   const context=await browser.newContext({viewport:{width:1512,height:982}});
+  await context.grantPermissions(['clipboard-read','clipboard-write'],{origin:base});
   const page=await context.newPage();
   const requests=[];
   page.on('request',request=>requests.push(request.url()));
@@ -61,6 +62,7 @@ try{
   assert.equal(await page.locator('[data-external-questions] [data-question]').count(),14);
   assert.equal(requests.some(url=>url.includes('/external-reading/answers')),false,'formal answers must not be requested before Submit');
   assert.equal(await page.locator('[data-external-result]').isVisible(),false);
+  assert.equal(await page.locator('[data-external-chat-review]:visible').count(),0,'deep-review handoff must stay hidden before Submit');
 
   const exposure=await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-english-material-exposure-v1')||'null'));
   assert(exposure?.materials?.['tpo56-p1']?.events?.some(event=>event.event==='opened'));
@@ -74,6 +76,18 @@ try{
   assert(requests.some(url=>url.includes('/external-reading/answers?id=tpo56-p1')));
   const formal=await page.locator('[data-external-questions] [data-question]').first().locator('.portedReadingAnswerStrip').textContent();
   assert.match(formal,/正式答案\s*A/);
+  assert.equal(await page.locator('[data-external-chat-review]:visible').count(),1,'problem-bearing External result must expose one whole-object Chat escalation');
+  await page.locator('[data-external-chat-review]').click();
+  await page.locator('[data-external-chat-review-status]').filter({hasText:'已复制整篇 External 复盘包'}).waitFor();
+  const reviewPacket=await page.evaluate(()=>navigator.clipboard.readText());
+  assert.match(reviewPacket,/External Reading deep review packet v1/);
+  assert.match(reviewPacket,/Source family: TOEFL_TPO/);
+  assert.match(reviewPacket,/PASSAGE/);
+  assert.match(reviewPacket,/ALL-QUESTION OUTCOME MAP/);
+  assert.match(reviewPacket,/PROBLEM QUESTION CONTEXT/);
+  assert.match(reviewPacket,/Do not relabel it as Reading A/);
+  assert.match(reviewPacket,/not reading-speed\/WPM evidence/);
+  await page.screenshot({path:path.join(out,'external-reading-review.png'),fullPage:true});
 
   const debtKeys=await page.evaluate(()=>Object.keys(localStorage).filter(key=>/transfer|repair/i.test(key)&&/external/i.test(key)));
   assert.deepEqual(debtKeys,[],'External submit must not manufacture repair/transfer debt');
@@ -89,6 +103,7 @@ try{
   assert.equal(await page.locator('[data-external-reading-only]').isVisible(),true);
   assert.equal(await page.locator('[data-external-question-mode]').isVisible(),false);
   await page.locator('[data-external-finish]').click();
+  assert.equal(await page.locator('[data-external-chat-review]:visible').count(),0,'Reading-only completion must not manufacture whole-object review');
   const readOnlyAttempt=await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-english-external-reading-attempt-v1:tpo57-p1')||'null'));
   assert.equal(readOnlyAttempt?.stage,'completed');
   assert.equal(readOnlyAttempt?.submitted,false);
@@ -123,6 +138,7 @@ try{
   assert.equal(requests.filter(url=>url.includes(keyedAnswerUrl)).length,beforeKeyed+1);
   const keyedFormal=await page.locator('[data-external-questions] [data-question]').first().locator('.portedReadingAnswerStrip').textContent();
   assert.match(keyedFormal,/正式答案\s*A/);
+  assert.equal(await page.locator('[data-external-chat-review]:visible').count(),0,'all-correct stable External result must exit without deep-review escalation');
 
   await page.screenshot({path:path.join(out,'external-reading-synthetic.png'),fullPage:true});
   console.log(JSON.stringify({
@@ -138,6 +154,9 @@ try{
     source_native_figure_render:'PASS',
     incremental_source_backed_answer_gate:'PASS',
     no_auto_debt:'PASS',
+    whole_object_chat_escalation:'PASS',
+    stable_and_reading_only_no_review_debt:'PASS',
+    review_screenshot:path.join(out,'external-reading-review.png'),
     screenshot:path.join(out,'external-reading-synthetic.png')
   },null,2));
 }finally{
