@@ -55,7 +55,7 @@
   },
   "stage_contract": {
     "FIRST_PASS": {
-      "primary_goal": "建立完整知识模型，完成 Lecture 全量接触，并把当前核心推进到 UNDERSTOOD + RECALLABLE；当前 owner 下的重要 Precision 开始进入精确记忆；在真实自然小节闭合时完成已绑定的 Lecture-attached TTSX；用 System 全量题暴露知识缺口。",
+      "primary_goal": "建立完整知识模型：先完成当前 Block 的 accepted Learn / Source scope，再进入主动检索阶段；在 Recall 阶段按 Logic Group 完成 KP Recall 与结构闭合，最后完成 Block Recall。当前 owner 下的重要 Precision 开始进入精确记忆；在真实自然小节闭合时完成已绑定的 Lecture-attached TTSX；用 System 全量题暴露知识缺口。",
       "target_mastery": [
         "UNDERSTOOD",
         "RECALLABLE"
@@ -68,15 +68,15 @@
         "把 Lecture-attached TTSX 搬成第二个网页题库"
       ],
       "required_gates": [
-        "每个 canonical KP 完成正式学习接触，并至少进行一次主动 Recall",
-        "每个 Logic Group 能回答这一组解决什么问题，并完成一次结构闭合",
-        "到达真实 natural subsection closure 且存在 reviewed TTSX binding 时，在 Lecture / MarginNote 原位置完成对应配套题、全部选项与题旁拓展；KianOS 只做低摩擦 checkpoint / 可选留痕",
-        "每个 Block 完成一次 Block Recall，能把 KP 压回局部模型",
+        "先完成当前 Block 的 accepted first-pass Learn / Source scope；Source-contact 可包含多个真实 natural subsection，但未完成 Block Learn 前不插入 KP Recall",
+        "进入 retrieval phase 后，每个 canonical KP 至少进行一次主动 Recall；按 accepted Logic Group 组织并完成结构闭合",
+        "到达真实 natural subsection closure 且存在 reviewed TTSX binding 时，在 Lecture / MarginNote 原位置完成对应配套题、全部选项与题旁拓展；KianOS 只做低摩擦 checkpoint / 可选留痕，完成后回到未完成的 Block Learn 主线",
+        "所有 owning Logic Group Recall 闭合后，每个 Block 完成一次 Block Recall，能把 KP 压回局部模型",
         "每个 System 在题目前先完成一次 System Recall",
         "System 全量题完成覆盖性 sweep；正确且理由清楚快速通过，Wrong / Uncertain 必须留下并回链修补",
         "题后完成一次短 System Recall，确认题目没有替代自己的模型"
       ],
-      "progression_rule": "严格要求主动恢复和缺口不丢，但单个 KP 第一次 Recall 不完美不得无限阻塞主线；弱点进入后续 Memory / Review。"
+      "progression_rule": "Block Learn 与 Recall 分阶段：未完成当前 Block 的 accepted Learn / Source scope 时不插入 KP Recall；Block Learn 完成后，按 accepted Logic Group 顺序完成 KP Recall → LG closure → Block Recall。单个 KP 第一次 Recall 不完美不得无限阻塞后续 Repair/Memory，但真实 Recall evidence 不可被跳过。"
     },
     "SECOND_PASS": {
       "primary_goal": "把知识模型转换为解题能力：Precision 稳定、鉴别边界、干扰项、条件变化、跨 Block/跨 System 调用与病例推理。",
