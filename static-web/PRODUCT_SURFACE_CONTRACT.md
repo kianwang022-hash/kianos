@@ -1,7 +1,7 @@
 # KianOS Product Surface Contract
 
 Status: APPROVED FUNCTIONAL SPLIT · IMPLEMENTATION STATE NOT OWNED HERE
-Updated: 2026-09-24
+Updated: 2026-09-28
 Semantic owner: KianOS product surface split / information architecture. This is not implementation status, Chat strategy, Personal truth or another runtime state owner.
 
 ## 1. User jobs and surface split
@@ -45,9 +45,16 @@ This file owns the **functional surface split only**. Current KianOS implementat
 
 The functional split above remains a design requirement. Existing working behavior should be preserved or changed only through the owning product/runtime contract rather than inferred from this Markdown file.
 
-Product behavior and execution acceptance: `static-web/STEWARD_PRODUCT_CONTRACT.md`.
-Daily source/trigger behavior: `kianwang022-hash/kian-personal-os/exam/roles/STEWARD.md`.
-Radar, Email, actionable-item lifecycle: `kianwang022-hash/kian-personal-os/exam/roles/INTAKE.md`.
+Owner routing stays scoped to the surface job:
+
+- Steward / integrated day-execution product behavior and Steward product acceptance → `static-web/STEWARD_PRODUCT_CONTRACT.md`.
+- Daily source/trigger behavior → `kianwang022-hash/kian-personal-os/exam/roles/STEWARD.md`.
+- Radar information/action semantics, Email filtering and actionable-item lifecycle → `kianwang022-hash/kian-personal-os/exam/roles/INTAKE.md`; KianOS only renders/executes the admitted projection through its exact product/runtime owner.
+- Subject-specific product behavior → the exact subject Product/Surface owner; this shared split does not replace it.
+- Current Website implementation/delivery truth for any surface → `static-web/CURRENT.md` → exact consumer/runtime owner.
+
+Home / Radar / Global Dock do not gain a hidden second semantic owner merely because they share integrated execution with Steward. If a material behavior cannot be resolved from this shared split plus the exact current owner chain, treat it as `OWNER_UNRESOLVED` rather than assigning it to Steward by default.
+
 Personal/health meaning remains in its upstream Personal/native owner. Native wire schema/validation and current delivery truth remain with exact KianOS owners.
 
 ## 4. Calendar, privacy and UI boundary
