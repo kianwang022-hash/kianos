@@ -11,10 +11,10 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 Issue [#1087](https://github.com/kianwang022-hash/kianos/issues/1087) — **Politics fresh independent audit — whole learner product, attention and changeability**.
 
-- Phase: **FRESH / INDEPENDENT FULL-SUITE AUDIT — ELIGIBLE TO RE-RUN after shared pin closure**.
+- Phase: **FRESH / INDEPENDENT FULL-SUITE AUDIT — ACTIVE on shared pinned Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4`**.
 - #1080 rapid-mastery closure has now delivered the accepted bounded effect on this main generation: all five subjects have an explicit whole-subject rapid-framework owner and Politics Learn consumes the resolved subject Surface Mapping through the existing renderer.
 - The delivered #1080 batch introduced no second Politics course/runtime/scheduler and no new CSS layer; Chengfeng, the single Xiao1000 Workbench, Wrong/Uncertain evidence semantics, exact Return/Resume and current-year Source gates remain protected.
-- #1087 is audit-only: at audit start, pin the **then-current real Stable SHA that contains the accepted #1080 Politics product** and inspect that exact immutable release. Do not require rollback to the historical #1080 merge SHA merely because unrelated accepted commits landed later. It may not repair inside the audit.
+- #1087 is audit-only: Politics now shares immutable Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4` with English #1085 and Xizong #1090. Use an isolated browser/state context and keep the Politics coverage ledger/verdict independent. Do not release or repoint the shared pin when Politics alone finishes. It may not repair inside the audit.
 - Ordinary Politics learning bypasses this engineering cursor unless the conversation explicitly enters #1087 audit work.
 - Legacy task history is quarantined and is not part of normal continuation.
 
@@ -32,11 +32,10 @@ Issue [#1087](https://github.com/kianwang022-hash/kianos/issues/1087) — **Poli
 For active Politics engineering, follow Issue #1087 only.
 
 ```text
-then-current served Stable containing accepted #1080 effect
-→ pin that exact SHA to #1087
-→ verify A0 immutable identity
-→ fresh independent whole-product audit #1087
-→ release pin
+shared pinned Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4`
+→ verify A0 immutable identity for Politics
+→ fresh independent exhaustive whole-product audit #1087 in parallel with #1085/#1090
+→ retain shared pin until all three subject audits stop
 → PASS: return Politics to normal learner-use / concrete-defect mode
    OR
 → FAIL: route only the reproduced effect to the earliest responsible current owner
