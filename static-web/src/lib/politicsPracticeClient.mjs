@@ -418,6 +418,9 @@ export function initPoliticsPractice(root) {
       const reviewDay = params.get('reviewDay');
       if (reviewDay && (!/^\d{4}-\d{2}-\d{2}$/.test(reviewDay) || reviewDay > new Date().toLocaleDateString('en-CA'))) throw new Error('回访日期无效；未扩大范围。');
       controls.mode.value = 'review';
+      // Review only contains questions with prior learner evidence; do not ask
+      // for a second "already learned" confirmation before a retest.
+      $('[data-learned-scope]').checked = true;
       const reviewSubject = params.get('reviewSubject');
       if (reviewSubject) {
         if (!catalog.subjects.some(s => s.id === reviewSubject)) throw new Error('回访科目不存在；未替换为其他范围。');
@@ -444,7 +447,7 @@ export function initPoliticsPractice(root) {
     render();
     if (params.get('review') === 'problems' && session?.status === 'completed') {
       root.removeAttribute('data-completed'); hide('[data-session-complete]'); hide('[data-practice-setup]', false);
-      $('[data-learned-scope]').checked = false;
+      $('[data-learned-scope]').checked = true;
     }
   } catch (e) { blocked = true; root.dataset.blocked = 'true'; error(learnerErrorMessage(e)); $('button').forEach((b) => { b.disabled = true; }); }
 }
