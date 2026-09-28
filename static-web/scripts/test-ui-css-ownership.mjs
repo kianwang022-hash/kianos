@@ -81,6 +81,16 @@ for (const token of ['uiStageOne', '.productCanvas', '.pageLead']) {
   assert.ok(convergence.includes(token), `visual-convergence.css lost live shared state selector: ${token}`);
 }
 
+const workspaceComposition = read(path.join(styles, 'shared-workspace-composition.css'));
+for (const token of [
+  '.command', '.productBar', '.clozeRepair', '.englishTaskTabs',
+  '.lexicalStudyNavBottom', '.portedVocabCoreSense',
+  '.politicsOverviewHeader', '.politicsSubject', '.politicsChapterRows', '.politicsHandoff',
+  '.xzOverview', '.xzSystemWorkbench', '.xizongHomeTools', '.xv6System'
+]) {
+  assert.ok(!workspaceComposition.includes(token), `shared-workspace-composition.css retained retired selector family: ${token}`);
+}
+
 const frame = read(path.join(layouts, 'BaseFrame.astro'));
 assert.ok(!/styles\/[^'"]+\.css/.test(frame), 'BaseFrame must remain presentation-style free');
 
