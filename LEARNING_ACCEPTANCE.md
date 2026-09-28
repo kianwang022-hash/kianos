@@ -117,10 +117,15 @@ A downstream PASS is invalid when an earlier link required by the claim is missi
    - QA infrastructure, fixtures and oracles are themselves fallible dependencies and may become stale;
    - a test running against the wrong artifact/environment is no evidence.
 
-7. **Fresh adversarial recheck after material repair**
-   - a repair is not broadly accepted merely because the author’s targeted regression passes;
-   - after a material defect-class repair, re-enter from Current owners/requirements with a fresh attack, replay the original failure and probe plausible sibling paths of the same defect class;
-   - same-Chat/self-attack is useful discovery but must not be silently labeled strongest independent evidence.
+7. **AUDIT may repair inline; rigor comes from adversarial re-grounding, not Chat/task hopping**
+   - a whole-product AUDIT does **not** stop and spawn a separate repair conversation/Issue merely because it finds a concrete defect;
+   - before changing anything, the auditor must **self-attack the diagnosis**: try to falsify the reproduction, check release/state isolation, challenge the oracle/harness, confirm the accepted behavior really says this is a defect, and locate the current effective owner;
+   - once the defect is confirmed and the accepted behavior is already clear, the same Audit execution may enter the Concrete Repair Fast Lane, make the smallest repair, and return immediately to Audit;
+   - repair invalidates only the affected claim and true dependents. Unrelated already-proved rows remain valid unless their owner/input changed;
+   - after repair, replay the original failure, attack sibling paths of the same defect class, and re-run the real dependent state/visual/recovery paths before restoring those rows to PASS;
+   - a targeted repair regression alone is never the whole-product verdict;
+   - **final whole-product PASS must be reconciled on one final exact release containing every accepted repair**, with no required coverage row omitted/UNTESTED and no pre-repair affected evidence silently carried forward;
+   - no separate Chat, repair Issue, or auditor identity is required merely for procedural independence. Freshness means re-grounding from current owners + final exact release + isolated real consumer state, not changing conversational containers.
 
 8. **Shard large audits; integrate last**
    - whole-system acceptance must be decomposed into bounded audit shards with the parent outcome, exact owners, design reasons/must-preserve behavior, consumers and stop conditions kept in the working set;
@@ -163,6 +168,7 @@ Hard rules:
 - Chat and Website are execution/front-end surfaces in this hierarchy, not a fourth persistent truth system.
 - **Parallel subject audits may share one immutable Stable release** when that exact release contains the accepted current product for every participating subject. Each subject still owns an independent coverage ledger, browser/profile or state-isolated execution context, evidence set and verdict. Sharing the release lease does not merge acceptance claims.
 - A shared subject-audit lease is released or repointed only after every participating subject audit has stopped, or the shared session is explicitly aborted. One subject finishing early must not invalidate sibling evidence by moving Stable.
+- During the final closure campaign, a subject Audit may repair confirmed defects inline on main/Candidate while the old Stable remains pinned for unaffected evidence. Once its repairs are merged, that subject's affected rows wait for the next exact served release containing the repairs; unrelated sibling audits may continue. Do not force a subject to abandon its Audit conversation or create a second repair workflow.
 - **Engineering closure after Level 3 PASS:** when Level 1 subject full-suite audits, Level 2 2027 Exam System integration audit, and Level 3 Personal ↔ StudyHub ↔ KianOS cross-system audit all PASS for their exact current scope, broad exam-system engineering stops. The default mode becomes REAL USE / concrete-defect mode: no speculative refactor, architecture polishing, broad UI rebuild or convenience-driven new subsystem. Reopen only for real learner defects, authoritative new Source/material, real platform/runtime breakage, or an explicit new product need.
 
 9. **System-control claims start at the real entrypoint**
