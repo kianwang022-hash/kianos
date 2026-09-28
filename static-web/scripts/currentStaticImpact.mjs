@@ -33,12 +33,13 @@ function isTestOnlyStaticScript(file) {
   return /^static-web\/scripts\/test-[^/]+\.mjs$/.test(file);
 }
 
-const CURRENT_SUPERVISOR_SCRIPTS = new Set([
+const NON_LEARNER_RUNTIME_SCRIPTS = new Set([
   'static-web/scripts/kianos-current-sync.mjs',
   'static-web/scripts/currentRelease.mjs',
   'static-web/scripts/currentStaticImpact.mjs',
   'static-web/scripts/currentStaticSlots.mjs',
-  'static-web/scripts/currentDependencies.mjs'
+  'static-web/scripts/currentDependencies.mjs',
+  'static-web/scripts/kianos-candidate-runtime.mjs'
 ]);
 
 function isContentWorkCursor(file) {
@@ -73,7 +74,7 @@ export function requiresStaticRuntimeReload(changedPaths = []) {
         file.startsWith('static-web/scripts/')
         && file.endsWith('.mjs')
         && !isTestOnlyStaticScript(file)
-        && !CURRENT_SUPERVISOR_SCRIPTS.has(file)
+        && !NON_LEARNER_RUNTIME_SCRIPTS.has(file)
       );
   });
 }
