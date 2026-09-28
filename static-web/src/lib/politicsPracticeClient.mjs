@@ -379,7 +379,8 @@ export function initPoliticsPractice(root) {
   on('[data-note]', 'blur', persistNote);
   on('[data-mode-value]', 'click', (event) => { if (active()) return; controls.mode.value = event.currentTarget.dataset.modeValue; startQuestionId = null; scopeSummary(); });
   for (const name of ['subject', 'chapter', 'unit', 'type', 'count']) on(`[data-filter-${name}]`, 'change', () => {
-    $('[data-learned-scope]').checked = false; if (name !== 'count') startQuestionId = null;
+    if (['subject', 'chapter', 'unit'].includes(name)) $('[data-learned-scope]').checked = false;
+    if (name !== 'count') startQuestionId = null;
     if (name === 'subject') chapterOptions(); else if (name === 'chapter') unitOptions(); else scopeSummary();
   });
   document.addEventListener('click', (event) => {
