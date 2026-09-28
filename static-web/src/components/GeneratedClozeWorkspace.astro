@@ -58,9 +58,15 @@ const base=import.meta.env.BASE_URL;
       if(!response.ok||data.status==='error')throw new Error(data.error||data.status||`HTTP ${response.status}`);
       return data;
     };
+    const learnerErrorMessage=error=>{
+      const code=String(error?.message||error||'');
+      if(code==='ENGLISH_GENERATED_CLOZE_ID_REQUIRED')return '没有指定 Cloze 训练材料。请从 English 或 Chat 的具体训练入口进入。';
+      return '这份 Chat 生成的 Cloze 训练当前无法打开。请返回 English 或 Chat 后重新进入。';
+    };
     const showError=error=>{
-      if(errorNode instanceof HTMLElement){errorNode.hidden=false;errorNode.textContent=String(error?.message||error);}
-      preserveEnglishFailure(root,error);
+      if(errorNode instanceof HTMLElement){errorNode.hidden=false;errorNode.textContent=learnerErrorMessage(error);}
+      if(root.dataset.objectiveObject&&root.dataset.englishSourceHash)preserveEnglishFailure(root,error);
+      else console.error(error);
     };
     if(!objectId){showError(new Error('ENGLISH_GENERATED_CLOZE_ID_REQUIRED'));return;}
     try{

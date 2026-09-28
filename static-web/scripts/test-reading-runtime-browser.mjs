@@ -159,6 +159,9 @@ try {
   await page.route('**/english-generated/answers?*', route => route.fulfill({json:{answers:{content_hash:'wrong-revision',generated_task:'reading_a',answers:{gq1:'B',gq2:'B'}}}}));
   await page.locator('[data-reading-submit]').click();
   await page.locator('[data-english-recovery-error]').waitFor();
+  const recoveryText = await page.locator('[data-english-recovery-error]').innerText();
+  assert.match(recoveryText, /学习记录已保留/);
+  assert.doesNotMatch(recoveryText, /(?:ENGLISH|KIANOS)_[A-Z0-9_]+/);
   assert.equal((await attempt()).submitted, false);
   assert.deepEqual((await attempt()).results, {});
   assert.deepEqual((await attempt()).answers, {gq1:'B'});

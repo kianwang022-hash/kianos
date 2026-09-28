@@ -130,12 +130,18 @@ export function taskMetadata(root,task,objectId){
  return {task,object_id:objectId,source_hash:root.getAttribute('data-english-source-hash')||null,semantic_source_hash:data?.evidence?.semantic_source_hash||root.getAttribute('data-english-source-hash')||null,snapshot:data};
 }
 
+const learnerSafeFailureDetail=(error)=>{
+ const raw=String(error?.message||error||'').trim();
+ return /^(?:ENGLISH|KIANOS)_[A-Z0-9_]+(?::.*)?$/.test(raw)?'':raw;
+};
+
 export function preserveEnglishFailure(root,error){
  if(typeof HTMLElement!=='undefined'&&root instanceof HTMLElement){
   root.dataset.englishReadonly='true';root.inert=true;
   let notice=root.previousElementSibling;
   if(!notice?.hasAttribute('data-english-recovery-error')){notice=document.createElement('p');notice.setAttribute('data-english-recovery-error','');notice.setAttribute('role','alert');root.before(notice);}
-  notice.textContent='学习记录已保留，当前暂不写入。请先导出或恢复记录，再继续。 '+String(error?.message||error);
+  const detail=learnerSafeFailureDetail(error);
+  notice.textContent='学习记录已保留，当前暂不写入。请先导出或恢复记录，再继续。'+(detail?' '+detail:'');
  }
  return error;
 }
