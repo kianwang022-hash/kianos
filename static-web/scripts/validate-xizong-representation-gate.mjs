@@ -150,6 +150,26 @@ const eSystemPlan = composeXizongSystemFrameworkRepresentation({
 check(eSystemPlan.mentalDetails.items.length === 3, 'derived_system_framework_keeps_nonstandard_current_model');
 check(eSystemPlan.variables.rows.every((row) => !/^[A-Z0-9_]+$/.test(row.label)), 'derived_system_framework_uses_learner_variable_labels');
 
+const fSystemRaw = JSON.parse(fs.readFileSync(path.join(repoRoot, 'content/xizong/knowledge/systems/f-remaining-clinical/system.json'), 'utf8'));
+const fSystemPlan = composeXizongSystemFrameworkRepresentation({
+  mission: fSystemRaw.mission,
+  mentalModel: {
+    motherModel: fSystemRaw.mental_model?.mother_model,
+    spine: fSystemRaw.mental_model?.spine,
+    parallelControls: fSystemRaw.mental_model?.parallel_controls
+  },
+  raw: fSystemRaw,
+  coreVariables: fSystemRaw.core_variables,
+  coreRelations: fSystemRaw.core_relations,
+  failureModes: fSystemRaw.failure_modes,
+  judgmentAxes: fSystemRaw.judgment_axes,
+  dependencyDag: fSystemRaw.dependency_dag
+});
+check(fSystemPlan.spine.items.length === 0, 'f_dual_context_has_no_fake_serial_spine');
+check(fSystemPlan.mentalDetails.items.some((row) => row.startsWith('急性扰动：')), 'f_framework_keeps_acute_branch');
+check(fSystemPlan.mentalDetails.items.some((row) => row.startsWith('计划干预：')), 'f_framework_keeps_intervention_branch');
+check(fSystemPlan.mentalDetails.representation.kind === 'STRUCTURED_TEXT', 'f_dual_context_uses_safe_structured_text');
+
 // Integration readback: final learner components must consume the gate rather than
 // rediscovering presentation from raw Projection geometry / asset presence.
 const frameworkComponent = fs.readFileSync(path.join(process.cwd(), 'src/components/XizongCognitiveProjectionStage.astro'), 'utf8');

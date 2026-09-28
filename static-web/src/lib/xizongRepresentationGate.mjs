@@ -252,12 +252,11 @@ export function composeXizongSystemFrameworkRepresentation(system) {
   const spineItems = array(system?.mentalModel?.spine).map(text).filter(Boolean);
   const parallelItems = array(system?.mentalModel?.parallelControls).map(text).filter(Boolean);
   const hasStandardMentalModel = Boolean(text(system?.mentalModel?.motherModel))
-    || spineItems.length > 0
-    || parallelItems.length > 0;
+    || spineItems.length > 0;
   const mentalDetails = hasStandardMentalModel
     ? []
     : Object.entries(system?.raw?.mental_model || {})
-      .filter(([key, value]) => key !== 'shape' && typeof value === 'string' && text(value))
+      .filter(([key, value]) => !['shape', 'parallel_controls'].includes(key) && typeof value === 'string' && text(value))
       .map(([, value]) => text(value));
   const variableRows = array(system?.coreVariables).map((item) => ({
     id: text(typeof item === 'string' ? '' : item?.id),

@@ -95,26 +95,17 @@
     "visual_rule": "When a current exam fact is genuinely spatial/table-dependent, original Source remains the visual truth. System Knowledge may encode the reasoning role but may not fabricate a complete visual table from model prior.",
     "exact_gap_rule": "Bounded unresolved exact facts stay explicit and fail-closed. Their absence does not authorize deletion from scope or model backfill."
   },
-  "mission": "当毒物、开放伤、热损伤、手术或麻醉把机体推离稳态时，先判断最危险的功能层，先维持生命，再阻断扰动来源，最后监测恢复是否偏离。",
+  "mission": "面对急性扰动或计划中／进行中的医疗干预，先按当前情境判断紧急度与生命威胁：急性扰动在维持生命的同时控制真正持续有害的来源；计划干预则评估生理储备与干预目标，在安全执行中监测医源性风险；两类情境都继续追踪恢复是否偏离。",
   "mental_model": {
     "shape": "DUAL_CONTEXT_DISTURBANCE_AND_INTERVENTION_SAFETY_NETWORK_WITH_LOW_CONNECTIVITY_TAIL",
-    "context_split": "F1–F4 主要处理急性扰动控制；F5–F8 主要处理计划中或进行中的干预安全与恢复。它们共享判断坐标，但不是一条所有情况都必须顺序经过的流程。",
-    "acute_disturbance_branch": "中毒暴露 / 污染 / 开放性损伤 / 热损伤 → 立即危险 → 生命支持 + 必要时终止/去除有害来源 → 有边界的特异控制 → 治疗带来的新风险 → 恢复或偏离",
-    "planned_intervention_branch": "紧迫性 + 生理储备 → 手术/麻醉的预期功能与作用空间 → 干预过程中的生命支持和监测 → 医源性风险 → 恢复或偏离",
-    "threat_layer": "气道、通气/氧合、循环/灌注、意识/神经肌肉功能、屏障/组织完整性以及器官储备",
-    "control_layer": "支持治疗与病因/特异控制是不同且依情境而定的责任。确有持续有害来源时要终止或控制；计划手术/麻醉则要优化并安全执行，而不是把它当成需要停止的“来源”。",
-    "intervention_risk_layer": "治疗本身会制造新的风险：麻醉深度/气道、阻滞平面、液体策略、伤口闭合、药物或操作并发症",
-    "recovery_layer": "预期恢复时间轴 vs 异常偏离 → 发现并发症或控制失败 → 升级处理",
-    "tail_rule": "F9 有意保持低连接度。先分清知识归属，再处理残余微型主题；不要把它们硬压成一个假的统一机制。",
-    "spine": [
-      "急性扰动 / 医疗干预",
-      "先判生命危险",
-      "阻断扰动来源",
-      "针对性处理",
-      "持续支持器官功能",
-      "监测恢复",
-      "识别偏离并升级"
-    ],
+    "context_split": "两类情境：F1–F4 主要处理急性扰动控制；F5–F8 主要处理计划中或进行中的干预安全与恢复。它们共享判断坐标，但不是一条所有情况都必须顺序经过的流程。",
+    "acute_disturbance_branch": "急性扰动：中毒暴露 / 污染 / 开放性损伤 / 热损伤 → 立即危险 → 生命支持 + 必要时终止/去除有害来源 → 有边界的特异控制 → 治疗带来的新风险 → 恢复或偏离",
+    "planned_intervention_branch": "计划干预：紧迫性 + 生理储备 → 手术/麻醉的预期功能与作用空间 → 干预过程中的生命支持和监测 → 医源性风险 → 恢复或偏离",
+    "threat_layer": "共同判断坐标：气道、通气/氧合、循环/灌注、意识/神经肌肉功能、屏障/组织完整性以及器官储备。",
+    "control_layer": "处理边界：支持治疗与病因/特异控制是不同且依情境而定的责任。确有持续有害来源时要终止或控制；计划手术/麻醉则要优化并安全执行，而不是把它当成需要停止的“来源”。",
+    "intervention_risk_layer": "干预风险：治疗本身会制造新的风险，包括麻醉深度/气道、阻滞平面、液体策略、伤口闭合、药物或操作并发症。",
+    "recovery_layer": "恢复判断：预期恢复时间轴 vs 异常偏离 → 发现并发症或控制失败 → 升级处理。",
+    "tail_rule": "F9：保持低连接度。先分清知识归属，再处理残余微型主题；不要把它们硬压成一个假的统一机制。",
     "parallel_controls": [
       "气道｜通气 / 氧合｜循环 / 灌注｜意识 / 惊厥｜污染 / 感染｜组织缺血 / 坏死｜器官储备"
     ]
