@@ -300,19 +300,26 @@ Normal first-pass flow is:
 optional Guide when genuinely useful
 → System Framework
 → Block Framework
-→ continuous original-Lecture learning on iPad / MarginNote
-   while KianOS stays on the relevant KP Learn companion surface(s)
+→ one continuous Block Learn
+   - iPad / MarginNote owns continuous original-Lecture study
+   - Logic Group / KP preserve structure, location and understanding
+   - KianOS companion support is on-demand rather than a second screen that must be continuously attended
 → lightweight TTSX checkpoint only at a real reviewed Source boundary when bound questions exist
-→ KP Recall after the owning material has actually been learned
-→ Logic Group closure
+→ finish the whole Block Learn unit
 → Block Recall
+   - reconstruct the Block model from the center problem / Logic Group skeleton
+   - drill down to LG / KP only where reconstruction exposes a real weak point
+→ smallest-sufficient Repair when needed
 → Block Complete
 → release reusable Block Memory assets
 → after the whole System is actually learned: System Recall
 → official System question sweep
-→ smallest-sufficient Repair / exact Return
-→ rolling Memory / Precision / later-pass reuse
+→ exact Return / rolling Memory / Precision / later-pass reuse
 ```
+
+First-pass hard rule:
+
+> **One Block is one continuous Learn unit. Logic Group / KP are structural and knowledge granularity during Learn; they do not automatically create Recall gates, ratings or session-boundary ceremonies. Formal first-pass Recall begins after the Block Learn unit is finished.**
 
 ### Guide
 
@@ -328,25 +335,27 @@ Framework exists to orient cognition, not to become a prose course.
 
 ### KP Learn
 
-Mac companion while Source learning continues on the original Lecture surface.
+KP remains a stable Knowledge identity and local Learn object inside the continuous Block Learn unit.
 
-It should expose the current Prompt/Core and useful locators/support without requiring Recall behavior during Learn.
+KianOS may expose the current Prompt/Core, useful locator, reviewed Visual/Precision/Connection or clarification support when that reduces real learning friction. It must not require Kian to keep a second screen continuously active while the original Lecture is the primary learning surface.
+
+Moving across KP / Logic Group during first-pass Learn does **not** itself authorize a Recall gate, rating ceremony or learner-state debt.
 
 ### KP Recall
 
-Core-protected active retrieval after the owning material has actually been learned.
+KP-level Recall remains a valid retrieval capability, but it is **not a mandatory first-pass progression gate**.
 
-Learn and Recall remain the same KP learner object. Recall changes **Core visibility**, not the identity of the card or its surrounding workspace.
+Use it when a later Block Recall, Repair, Memory, Practice result or explicit learner need benefits from drilling down to one precise object. When used, Learn and Recall remain the same KP learner object and Recall changes **Core visibility**, not object identity.
 
 Before Reveal, the canonical KP Core stays hidden. The KP title, active Prompt, Source / Outline locators and Current-owned Context such as Precision / Visual / Connection may remain visible when useful. Reveal opens the same canonical Core; it does not switch to a second answer card.
 
 This protection rule is specific to KP Recall. Block/System Recall may still use stricter neutral-front protection where their accepted reconstruction contract requires it.
 
-### Logic Group closure
+### Logic Group role during first-pass Learn
 
-A lightweight state inside the persistent Logic Map, not a standalone learner stage.
+Logic Group is a structural/local-model unit inside the Block. Its `goal / closure` text helps Kian understand what local problem the grouped KPs solve.
 
-When all KPs in the Logic Group have real Recall evidence, the map marks that group closed and the learner proceeds directly to the next Logic Group. The existing `goal / closure` text remains the local model target; no extra confirmation page, rating or click is required.
+First-pass Learn does not require all KP Recall ratings to “close” a Logic Group before continuing. LG status may reflect coverage/location, but formal retrieval closure is established through post-Block Recall and any targeted drill-down that reality actually earns. No extra LG confirmation page, rating or click is required.
 
 ---
 
