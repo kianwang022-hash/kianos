@@ -43,8 +43,48 @@ export function releasePaths(repoRoot) {
     previous: path.join(root, 'previous'),
     candidate: path.join(root, 'candidate'),
     release: (sha) => path.join(root, 'releases', String(sha)),
-    lock: process.env.KIANOS_DELIVERY_LOCK || path.join(root, 'delivery.lock')
+    lock: process.env.KIANOS_DELIVERY_LOCK || path.join(root, 'delivery.lock'),
+    auditPin: process.env.KIANOS_AUDIT_PIN_FILE || path.join(root, 'audit-pin.json')
   };
+}
+
+export const CURRENT_AUDIT_PIN_SCHEMA = 'kianos.current.audit-pin.v1';
+
+const validReleaseSha = (value) => /^[0-9a-f]{40}$/i.test(String(value || '').trim());
+
+export function readCurrentAuditPin(pinPath) {
+  if (!fs.existsSync(pinPath)) return null;
+  let value;
+  try { value = JSON.parse(fs.readFileSync(pinPath, 'utf8')); }
+  catch { throw new Error('CURRENT_AUDIT_PIN_INVALID'); }
+  const sha = String(value?.sha || '').trim();
+  if (value?.schema !== CURRENT_AUDIT_PIN_SCHEMA || !validReleaseSha(sha)) {
+    throw new Error('CURRENT_AUDIT_PIN_INVALID');
+  }
+  return {
+    schema: CURRENT_AUDIT_PIN_SCHEMA,
+    sha,
+    pinned_at: String(value?.pinned_at || '')
+  };
+}
+
+export function writeCurrentAuditPin(pinPath, sha, { now = new Date() } = {}) {
+  const normalized = String(sha || '').trim();
+  if (!validReleaseSha(normalized)) throw new Error('CURRENT_AUDIT_PIN_SHA_INVALID');
+  fs.mkdirSync(path.dirname(pinPath), { recursive: true });
+  const value = {
+    schema: CURRENT_AUDIT_PIN_SCHEMA,
+    sha: normalized,
+    pinned_at: (now instanceof Date ? now : new Date(now)).toISOString()
+  };
+  const temp = path.join(path.dirname(pinPath), `.audit-pin-${process.pid}-${randomUUID()}.tmp`);
+  fs.writeFileSync(temp, `${JSON.stringify(value)}\n`, { encoding: 'utf8', mode: 0o600 });
+  fs.renameSync(temp, pinPath);
+  return value;
+}
+
+export function clearCurrentAuditPin(pinPath) {
+  fs.rmSync(pinPath, { force: true });
 }
 
 export async function acquireDeliveryLock(lockPath, {
