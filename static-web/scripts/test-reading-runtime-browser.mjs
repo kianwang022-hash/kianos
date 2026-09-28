@@ -194,6 +194,14 @@ try {
   await officialPage.locator('[data-reading-session-review]').click();
   await officialPage.waitForURL('**?reviewSession=1');
   await officialPage.waitForFunction(() => document.querySelector('[data-reading-score]')?.textContent !== '已收卷');
+  const localRepair = officialPage.locator('[data-reading-repair]:visible').first();
+  await localRepair.waitFor();
+  assert.equal(await localRepair.evaluate(node => node.open), false, 'quick-cause/local coach must be collapsed by default');
+  assert.equal(await officialPage.locator('[data-reading-passage-copy-chat]:visible').count(), 1, 'whole-passage Chat escalation stays directly reachable');
+  assert.equal(await officialPage.locator('.objectiveTransferPanel:visible').count(), 0, 'machine-readable Chat return must stay off ordinary problem review');
+  assert.equal(await localRepair.locator('[data-cause]:visible').count(), 0, 'quick-cause choices must not sit on the default review path');
+  await localRepair.locator('summary').click();
+  assert((await localRepair.locator('[data-cause]:visible').count()) >= 4, 'optional local inspection remains available when explicitly opened');
   const officialRestored = await officialPage.evaluate(k => JSON.parse(localStorage.getItem(k)), officialKey);
   for (const field of ['answers','results','uncertain','trajectory','submittedAt']) assert.deepEqual(officialRestored[field], officialState[field]);
   assert.equal(officialRestored.binding.attempt_id, officialState.binding.attempt_id);
@@ -206,6 +214,8 @@ try {
   await officialPage.locator('[data-cloze-uncertain]').click();
   await officialPage.locator('[data-objective-submit]').click();
   await officialPage.locator('[data-objective-result-summary]:not([hidden])').waitFor();
+  assert.equal(await officialPage.locator('.objectiveHandoff:visible').count(), 1, 'Cloze keeps one optional whole-context Chat escalation');
+  assert.equal(await officialPage.locator('.objectiveTransferPanel:visible').count(), 0, 'Cloze machine-readable return stays hidden before explicit escalation');
   const clozeKey = `kianos-cloze-attempt-v1:${clozeId}`;
   const cloze = await officialPage.evaluate(k => JSON.parse(localStorage.getItem(k)), clozeKey);
   await officialPage.reload();

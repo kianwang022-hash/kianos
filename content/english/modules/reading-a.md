@@ -74,6 +74,18 @@ Do not open full explanation or force a second pass.
 
 Wrong / unanswered and meaningful uncertainty trigger **fast triage**, not automatic deep Chat review.
 
+Default learner-facing hierarchy after submit:
+
+```text
+problem answer / formal answer / decisive contrast
+→ obvious one-off miss now understood: continue
+→ still unclear, multiple problems may share one cause, or attribution matters: one whole-passage Chat handoff
+→ Chat reads passive evidence first
+→ only if the distinction would change repair/allocation and evidence is insufficient: ask one smallest clarification
+```
+
+The learner must not have to choose a quick-cause category before this path works. Quick-cause, evidence-span and local coach controls are secondary local inspection tools and should stay collapsed/quiet until explicitly opened.
+
 Triage should decide cheaply:
 
 - can the learner now identify the decisive evidence / option difference and explain the miss? → quick-resolved, move on;
@@ -185,6 +197,8 @@ Derive one compact behavior rule. Do not turn ordinary uncertainty into an execu
 ## Optional Chat bridge
 
 Chat owns deep semantic diagnosis, but Chat is not mandatory after every problem.
+
+Machine-readable Chat-return / transfer-claim import is a compatibility/evidence mechanism, not part of the default review surface. It must stay hidden during ordinary Wrong/Uncertain triage and may surface only after the learner explicitly escalates this passage to Chat or when this exact passage already has a saved return that needs inspection.
 
 When escalation is justified, one self-contained passage packet may include:
 
