@@ -449,5 +449,5 @@ export function initPoliticsPractice(root) {
       root.removeAttribute('data-completed'); hide('[data-session-complete]'); hide('[data-practice-setup]', false);
       $('[data-learned-scope]').checked = true;
     }
-  } catch (e) { blocked = true; root.dataset.blocked = 'true'; error(learnerErrorMessage(e)); $('button').forEach((b) => { b.disabled = true; }); }
+  } catch (e) { blocked = true; root.dataset.blocked = 'true'; error(learnerErrorMessage(e)); root.querySelectorAll('button').forEach((b) => { b.disabled = true; }); }
 }
