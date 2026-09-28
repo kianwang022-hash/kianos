@@ -252,7 +252,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
       <section class="xzSystemFrameworkView" data-system-view="framework" hidden={hasGuide}>
         <section class="xzSystemCanvas" data-system-section="mother">
           <header class="xzSystemSectionHeading">
-            <span>SYSTEM MODEL</span>
+            <span>系统模型</span>
             <h2>这个系统怎样运行？</h2>
           </header>
 
@@ -289,13 +289,19 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
               </div>
             </div>
           )}
+
+          {framework.mentalDetails.items.length > 0 && (
+            <div class="xzSystemMentalDetails" data-representation-kind={framework.mentalDetails.representation.kind}>
+              {framework.mentalDetails.items.map((item) => <p>{item}</p>)}
+            </div>
+          )}
         </section>
 
         {(variableRows.length > 0 || relationRows.length > 0 || axisRows.length > 0) && (
           <section class="xzSystemLanguageAxes">
             <article class="xzSystemLanguage">
               <header class="xzSystemSectionHeading">
-                <span>SYSTEM LANGUAGE</span>
+                <span>系统语言</span>
                 <h2>描述这个系统时，用哪些变量和关系？</h2>
               </header>
 
@@ -303,7 +309,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
                 <div class="xzSystemVariableTable" data-representation-kind={framework.variables.representation.kind}>
                   {variableRows.map((item) => (
                     <div class="xzSystemVariableRow">
-                      <strong>{[item.id, item.label].filter(Boolean).join(' · ')}</strong>
+                      <strong>{item.label}</strong>
                       <span>{item.role}</span>
                     </div>
                   ))}
@@ -328,7 +334,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
             {axisRows.length > 0 && (
               <article class="xzSystemAxes" data-representation-kind={framework.judgmentAxes.representation.kind}>
                 <header class="xzSystemSectionHeading">
-                  <span>JUDGMENT AXES</span>
+                  <span>判断坐标</span>
                   <h2>遇到病例，先沿哪些轴定位？</h2>
                 </header>
                 <div class="xzSystemAxisList">
@@ -350,7 +356,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
         {framework.failures.length > 0 && (
           <section class="xzSystemFailureMap" data-system-section="failure">
             <header class="xzSystemSectionHeading">
-              <span>FAILURE MAP</span>
+              <span>故障地图</span>
               <h2>第一故障可能从哪里开始？</h2>
             </header>
             <div class="xzSystemFailureStrip">
@@ -376,10 +382,10 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
     <aside class="xzSystemContext" data-system-context hidden>
       <header>
         <div>
-          <span>FAILURE CONTEXT</span>
+          <span>当前故障</span>
           <strong data-failure-run-title>—</strong>
         </div>
-        <button type="button" data-close-system-context aria-label="关闭 Failure Context">×</button>
+        <button type="button" data-close-system-context aria-label="关闭故障上下文">×</button>
       </header>
       <p data-failure-run-chain></p>
       <div data-failure-run-vars></div>
