@@ -59,8 +59,13 @@ window.__kianosLearnerWriterReady.then(() => {
       recallButton.addEventListener('click', () => setWorkspaceState(unit, 'RECALL'));
       button.addEventListener('click', () => {
         const href = unit.dataset.practiceHref || unit.querySelector('[data-workspace-practice-link]')?.getAttribute('href');
-        if (href) window.location.assign(href);
-        else setWorkspaceState(unit, 'VERIFY');
+        if (href) {
+          const url = new URL(href, window.location.href);
+          // This button is reachable only after the learner explicitly entered
+          // the Chengfeng source stage and chose to finish the Unit.
+          url.searchParams.set('learnedScope', 'confirmed');
+          window.location.assign(`${url.pathname}${url.search}${url.hash}`);
+        } else setWorkspaceState(unit, 'VERIFY');
       });
     });
 
