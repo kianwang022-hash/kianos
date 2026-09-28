@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL;
 </div>
 
 <script>
-  import {markEnglishAssistance} from "../lib/englishLearnerEvidence.mjs";
+  import {markEnglishAssistance, recordEnglishReadingLookup} from "../lib/englishLearnerEvidence.mjs";
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
@@ -57,7 +57,8 @@ const base = import.meta.env.BASE_URL;
       if (reading instanceof HTMLElement) return {
         task: 'Reading A',
         objectId: reading.getAttribute('data-reading-object') || '',
-        sourceRoot
+        sourceRoot,
+        taskRoot: reading
       };
       const cloze = sourceRoot.closest('[data-objective-root][data-objective-task="cloze"]');
       if (cloze instanceof HTMLElement) return {
@@ -113,6 +114,11 @@ const base = import.meta.env.BASE_URL;
       if (!route) { hideMenu(); return; }
       const rect = range.getBoundingClientRect();
       const localContext = range.startContainer.parentElement?.closest('p,blockquote,.translationSegment,[data-objective-material-block]');
+      const sourceBlocks = [...sourceRoot.querySelectorAll('p,blockquote,[data-objective-material-block]')];
+      const blockIndex = localContext instanceof Element ? sourceBlocks.indexOf(localContext) : -1;
+      const focusedQuestionId = route.task === 'Reading A' && route.taskRoot instanceof HTMLElement
+        ? route.taskRoot.querySelector('[data-question].is-current')?.getAttribute('data-question') || ''
+        : '';
       activeSelection = {
         text,
         word: exactToken(text) ? text : '',
@@ -121,6 +127,10 @@ const base = import.meta.env.BASE_URL;
         task: route.task,
         objectId: route.objectId,
         nearby: compact(localContext?.textContent || sourceRoot.textContent, 1200),
+        sourceLocator: localContext instanceof HTMLElement && localContext.id
+          ? `#${localContext.id}`
+          : blockIndex >= 0 ? `block:${blockIndex + 1}` : '',
+        focusedQuestionId,
         rect
       };
       const lexical = menu.querySelector('[data-selection-lexical]');
@@ -191,7 +201,16 @@ const base = import.meta.env.BASE_URL;
 
     menu.querySelector('[data-selection-lexical]')?.addEventListener('click', () => {
       if (!activeSelection?.word || new URLSearchParams(location.search).has('exam_session')) return;
-      markEnglishAssistance(localStorage,activeSelection.task,activeSelection.objectId);
+      if (activeSelection.task === 'Reading A') {
+        recordEnglishReadingLookup(localStorage,activeSelection.objectId,{
+          token: activeSelection.word,
+          source_context: activeSelection.nearby,
+          source_locator: activeSelection.sourceLocator,
+          focused_question_id: activeSelection.focusedQuestionId
+        });
+      } else {
+        markEnglishAssistance(localStorage,activeSelection.task,activeSelection.objectId);
+      }
       const context = {
         schema: 'kianos.english.lexical_return.v1',
         returnHref: currentHref(),
