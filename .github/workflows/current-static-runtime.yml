@@ -7,6 +7,8 @@ on:
       - "static-web/scripts/test-kianos-candidate-runtime.mjs"
       - "static-web/scripts/test-kianos-fast-lane-workflow.mjs"
       - "static-web/scripts/kianos-current-sync.mjs"
+      - "static-web/scripts/kianos-current-audit-pin.mjs"
+      - "static-web/scripts/test-current-audit-pin.mjs"
       - "static-web/scripts/currentRelease.mjs"
       - "static-web/scripts/kianos-safe-astro-build.mjs"
       - "static-web/scripts/install-current-macos.sh"
@@ -48,6 +50,8 @@ on:
       - "static-web/scripts/test-kianos-candidate-runtime.mjs"
       - "static-web/scripts/test-kianos-fast-lane-workflow.mjs"
       - "static-web/scripts/kianos-current-sync.mjs"
+      - "static-web/scripts/kianos-current-audit-pin.mjs"
+      - "static-web/scripts/test-current-audit-pin.mjs"
       - "static-web/scripts/currentRelease.mjs"
       - "static-web/scripts/kianos-safe-astro-build.mjs"
       - "static-web/scripts/install-current-macos.sh"
@@ -143,7 +147,7 @@ jobs:
           if has '^static-web/scripts/(currentStaticImpact|test-current-static-impact)\.mjs$'; then
             impact=true
           fi
-          if has '^static-web/scripts/(kianos-current-sync|currentRelease|currentStaticImpact|currentStaticSlots|currentDependencies|test-current-dependency-reuse|test-current-build-recovery|test-current-static-slots|test-current-runtime-reload|test-current-release-cleanup|test-current-offline-startup|test-current-install-recovery|test-current-runtime-rollback|test-current-delivery-lock|test-current-delivery-concurrency|test-current-fetch-toctou|test-current-release-retention|test-current-superseded-target)\.mjs$|^static-web/scripts/install-current-macos\.sh$|^static-web/package\.json$'; then
+          if has '^static-web/scripts/(kianos-current-sync|kianos-current-audit-pin|currentRelease|currentStaticImpact|currentStaticSlots|currentDependencies|test-current-audit-pin|test-current-dependency-reuse|test-current-build-recovery|test-current-static-slots|test-current-runtime-reload|test-current-release-cleanup|test-current-offline-startup|test-current-install-recovery|test-current-runtime-rollback|test-current-delivery-lock|test-current-delivery-concurrency|test-current-fetch-toctou|test-current-release-retention|test-current-superseded-target)\.mjs$|^static-web/scripts/install-current-macos\.sh$|^static-web/package\.json$'; then
             delivery=true
           fi
           if has '^static-web/scripts/(kianos-safe-astro-build|kianos-static-server|test-current-safe-build|test-current-static-runtime|test-current-build-identity)\.mjs$|^static-web/(astro\.config\.mjs|package\.json)$|^static-web/src/layouts/BaseFrame\.astro$'; then
@@ -222,6 +226,8 @@ jobs:
       - name: Syntax check delivery owners
         run: |
           node --check scripts/kianos-current-sync.mjs
+          node --check scripts/kianos-current-audit-pin.mjs
+          node --check scripts/test-current-audit-pin.mjs
           node --check scripts/currentRelease.mjs
           node --check scripts/currentStaticImpact.mjs
           node --check scripts/currentStaticSlots.mjs
