@@ -67,6 +67,27 @@ Ordinary explanation and lexical owner updates have read-only content CI; full b
 Default main check interval: **8 seconds**.  
 Default browser Current check interval: **3 seconds**.
 
+### Exact-release audit pin
+
+Fresh independent AUDIT may temporarily hold Stable on the exact release it is already serving while unrelated `main` work continues.
+
+```bash
+npm run current:audit-pin -- <currently-served-sha>
+# run the bounded audit
+npm run current:audit-release -- <same-sha>
+```
+
+The pin:
+- may only accept the **currently served** release; it never rolls Stable backward;
+- acquires the same delivery lock as sync/build/promotion, so an in-flight handoff cannot race the pin;
+- keeps polling remote `main` and exposes both `pinned_sha` and the newer `target_sha` in `/__kianos-current.json`;
+- blocks fetch/build/activation while held;
+- is local delivery state under the release root, never learner or semantic truth;
+- is removed explicitly; normal Current catch-up resumes on the next sync cycle;
+- fails closed if the recorded pin no longer matches the active served release.
+
+`npm run current:audit-pin-status` reads the current local pin/served identity. Kian does not need to manage the pin file or Current process manually; Engineering/AUDIT control owns these commands.
+
 The status file is local delivery state, not a canonical repository owner and not learner Evidence.
 
 ## macOS install
