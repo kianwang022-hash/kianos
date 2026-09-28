@@ -132,7 +132,11 @@ try {
     await p.evaluate(()=>localStorage.setItem('kianos-politics-workspace-v1:marxism:ch00',JSON.stringify({activeUnit:0,states:{}})));
     await p.click('[data-return-unit]');await p.reload();await p.locator('[data-practice-exact-return]').waitFor({state:'visible'});assert.equal(await p.locator('#source-'+firstQuestion.unitId).isVisible(),true);await shot(p,'source-second-unit-return');await p.click('[data-practice-exact-return]');await result(p);assert.equal((await read(p,K.session)).id,session.id);assert.equal((await current(p)).id,firstQuestion.id);
     await p.goto(base+unit.href.replace('#','?practiceSession=stale&practiceQuestion='+q.id+'#'));assert.equal(await p.locator('[data-practice-exact-return]').isVisible(),false);assert.match(await p.locator('[data-practice-return-error]').textContent(),/过期/);
-    pass('P-J8: real NU entry → submitted/source/refresh → exact original session/question; stale source return rejected');await context.close();
+    await p.evaluate((key)=>localStorage.setItem(key,'{'),K.session);
+    await p.goto(base+unit.href.replace('#','?practiceSession=corrupt&practiceQuestion='+q.id+'#'));
+    assert.equal(await p.locator('[data-practice-exact-return]').isVisible(),false);
+    assert.match(await p.locator('[data-practice-return-error]').textContent(),/无法安全读取|原题组/);
+    pass('P-J8: real NU entry → submitted/source/refresh → exact original session/question; stale/corrupt source return rejected safely');await context.close();
   }
   for(const key of [K.attempts,K.meta,K.evidence,K.session]){
     const {p,context}=await pageFor('/politics/practice/?question=X1000-MARX-S-001');await start(p);await p.click('[data-option="B"]');await failStorage(p,key,key===K.session);await p.click('[data-submit]');await p.locator('[data-retry-save]').waitFor({state:'visible'});await clean(p);assert.equal((await read(p,K.session)).index,0);
