@@ -76,7 +76,11 @@
     "test:content-fast-path": "python3 -m unittest discover -s ../tools -p test_lexical_incremental_projection.py && node scripts/test-current-static-impact.mjs && node scripts/test-current-build-recovery.mjs",
     "build:astro": "node scripts/kianos-safe-astro-build.mjs",
     "test:exam-os-maturity": "node scripts/test-exam-os-maturity-matrix.mjs",
-    "validate:lexical-runtime": "node scripts/validate-lexical-single-runtime.mjs && node scripts/validate-lexical-style-ownership.mjs"
+    "validate:lexical-runtime": "node scripts/validate-lexical-single-runtime.mjs && node scripts/validate-lexical-style-ownership.mjs",
+    "current:audit-pin": "node scripts/kianos-current-audit-pin.mjs pin",
+    "current:audit-release": "node scripts/kianos-current-audit-pin.mjs release",
+    "current:audit-pin-status": "node scripts/kianos-current-audit-pin.mjs status",
+    "test:current-audit-pin": "node scripts/test-current-audit-pin.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",
