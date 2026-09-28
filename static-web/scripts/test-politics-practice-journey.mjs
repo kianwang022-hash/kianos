@@ -35,7 +35,13 @@ async function pageFor(url = '/politics/practice/') {
   const ctx = await browser.newContext({ viewport: report.viewport });
   const page = await ctx.newPage(); page.on('dialog', (dialog) => dialog.accept());
   const errors = []; page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto(base + url); await page.locator('[data-start-session]').waitFor();
+  await page.goto(base + url);
+  await page.evaluate(() => {
+    localStorage.setItem('kianos-study-timer-dock-position-v1', JSON.stringify({ x: 80, y: 80 }));
+    const dock = document.querySelector('[data-study-timer-dock]');
+    if (dock instanceof HTMLElement) { dock.style.left = '80px'; dock.style.top = '80px'; dock.style.right = 'auto'; dock.style.bottom = 'auto'; }
+  });
+  await page.locator('[data-start-session]').waitFor();
   return { ctx, page, errors };
 }
 async function start(page, count = '5') {
