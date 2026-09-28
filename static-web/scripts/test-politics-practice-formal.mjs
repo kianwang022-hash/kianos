@@ -122,7 +122,11 @@ try {
     await p.locator('[data-workspace-unit]:not([hidden]) [data-workspace-action="start-learn"]').click();
     await p.locator('[data-workspace-unit]:not([hidden]) [data-workspace-action="learn-fastpath"]').click();
     await p.waitForURL(/\/politics\/practice\/\?unit=/);
-    await start(p);const firstQuestion=await current(p);await answer(p,firstQuestion.answer);
+    assert.equal(await p.locator('[data-learned-scope]').isChecked(), true);
+    await p.selectOption('[data-filter-count]','5');
+    await p.click('[data-start-session]');
+    await p.locator('[data-question-card]').waitFor({state:'visible'});
+    const firstQuestion=await current(p);await answer(p,firstQuestion.answer);
     const session=await read(p,K.session);
     // Deliberately leave chapter memory on another unit before following Return.
     await p.evaluate(()=>localStorage.setItem('kianos-politics-workspace-v1:marxism:ch00',JSON.stringify({activeUnit:0,states:{}})));
