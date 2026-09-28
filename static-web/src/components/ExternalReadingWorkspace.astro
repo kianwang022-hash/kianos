@@ -141,6 +141,18 @@ const base=import.meta.env.BASE_URL;
       if(!response.ok||data.status==='error')throw new Error(data.error||data.status||'External Reading unavailable');
       return data;
     };
+    const errorCode=error=>String(error?.message||error||'').trim();
+    const objectOpenMessage=error=>{
+      const code=errorCode(error);
+      if(code.startsWith('EXTERNAL_READING_OBJECT_NOT_FOUND:'))return '没有找到这篇 External 材料。请从材料库重新选择。';
+      return '这篇 External 材料当前无法打开。请从材料库重新选择或稍后重试。';
+    };
+    const submitErrorMessage=error=>{
+      const code=errorCode(error);
+      if(code==='EXTERNAL_READING_ANSWER_REVISION_MISMATCH')return '这篇材料已更新，本次作答已保留。请从材料库重新打开后再提交。';
+      return '正式答案当前无法读取，本次作答已保留。请稍后重试。';
+    };
+    const sourceUnavailableMessage=()=> 'External 材料当前不可读取。请稍后重试，或返回 English 继续其他任务。';
 
     const normalizeText=value=>String(value??'').trim().replace(/\s+/g,' ').toLowerCase();
     const normalizeAnswer=value=>{
@@ -474,7 +486,10 @@ const base=import.meta.env.BASE_URL;
           state.results[q.question_id]=answer==null?'unscored':(sameAnswer(state.answers[q.question_id],answer,q.response_kind)?'correct':(state.answers[q.question_id]?'wrong':'unanswered'));
         }
         state.submitted=true;state.submittedAt=new Date().toISOString();state.stage='submitted';save();renderState();
-      }catch(error){setText(status,error instanceof Error?error.message:String(error));}
+      }catch(error){
+        setText(status,submitErrorMessage(error));
+        console.error(error);
+      }
     });
 
     finish?.addEventListener('click',()=>{
@@ -492,10 +507,20 @@ const base=import.meta.env.BASE_URL;
       renderFamilyTabs();
       renderCatalog();
       const id=new URLSearchParams(location.search).get('id');
-      if(id)await openObject(id);
+      if(id){
+        try{
+          await openObject(id);
+        }catch(error){
+          setText(status,objectOpenMessage(error));
+          if(library instanceof HTMLElement)library.hidden=false;
+          if(workspace instanceof HTMLElement)workspace.hidden=true;
+          console.error(error);
+        }
+      }
     }catch(error){
-      setText(status,error instanceof Error?error.message:String(error));
-      if(collections instanceof HTMLElement)collections.innerHTML='<p class="externalReadingUnavailable">External 私有 Source 尚未编译或当前不可读取。网页不会回退旧资产，也不会凭空造材料。</p>';
+      setText(status,sourceUnavailableMessage());
+      if(collections instanceof HTMLElement)collections.innerHTML='<p class="externalReadingUnavailable">External 材料当前不可读取。请稍后重试，或返回 English 继续其他任务。</p>';
+      console.error(error);
     }
   }
 

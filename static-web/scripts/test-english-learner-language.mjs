@@ -19,6 +19,7 @@ const forbidden = [
   'Runtime boundary',
   'KIANOS_',
   'ENGLISH_',
+  'EXTERNAL_',
   'sha256:',
   'Private evidence ledger',
   'TRANSFER_PENDING',
@@ -160,6 +161,48 @@ try {
       check(await page.locator('[data-english-recovery-error]').count() === 0, name + '_does_not_fake_state_recovery');
     }
     await page.unroute('**/__kianos-private/english-generated/material?*');
+
+    // External degraded states must stay learner-facing even when backend codes drive fail-closed behavior.
+    const fakeCatalog={
+      status:'ok',
+      counts:{toefl:{collections:0,passages:0,questions:0},ielts:{books:0,passages:0,questions:0},incremental:{objects:0,questions:0}},
+      collections:[]
+    };
+    await page.route('**/__kianos-private/external-reading/catalog*',route=>route.fulfill({
+      status:200,
+      contentType:'application/json',
+      body:JSON.stringify(fakeCatalog)
+    }));
+    await page.route('**/__kianos-private/external-reading/passage?*',route=>route.fulfill({
+      status:404,
+      contentType:'application/json',
+      body:JSON.stringify({status:'error',error:'EXTERNAL_READING_OBJECT_NOT_FOUND:language-fixture'})
+    }));
+    await page.goto(BASE + '/external-reading/?id=language-fixture', { waitUntil: 'domcontentloaded' });
+    await page.locator('[data-external-status]').filter({hasText:'没有找到这篇 External 材料'}).waitFor();
+    {
+      const text=String(await page.locator('body').innerText()).replace(/\s+/g,' ').trim();
+      const hits=forbidden.filter(term=>text.includes(term));
+      check(hits.length===0,'external-missing-object_no_engineering_language',hits.join('|'));
+      check(await page.locator('.externalReadingUnavailable').count()===0,'external-missing-object_keeps_catalog');
+    }
+    await page.unroute('**/__kianos-private/external-reading/catalog*');
+    await page.unroute('**/__kianos-private/external-reading/passage?*');
+
+    await page.route('**/__kianos-private/external-reading/catalog*',route=>route.fulfill({
+      status:503,
+      contentType:'application/json',
+      body:JSON.stringify({status:'error',error:'EXTERNAL_PRIVATE_BUNDLE_STALE_SOURCE'})
+    }));
+    await page.goto(BASE + '/external-reading/', { waitUntil: 'domcontentloaded' });
+    await page.locator('[data-external-status]').filter({hasText:'External 材料当前不可读取'}).waitFor();
+    {
+      const text=String(await page.locator('body').innerText()).replace(/\s+/g,' ').trim();
+      const hits=forbidden.filter(term=>text.includes(term));
+      check(hits.length===0,'external-unavailable_no_engineering_language',hits.join('|'));
+      check((await page.locator('.externalReadingUnavailable').innerText()).includes('External 材料当前不可读取'),'external-unavailable_learner_message');
+    }
+    await page.unroute('**/__kianos-private/external-reading/catalog*');
 
     await context.close();
   } finally {
