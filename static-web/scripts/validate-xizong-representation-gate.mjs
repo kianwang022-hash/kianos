@@ -132,44 +132,6 @@ check(systemPlan.judgmentAxes.representation.kind === 'STRUCTURED_TEXT', 'system
 check(systemPlan.dependencies.representation.kind === 'STRUCTURED_TEXT', 'system_dependency_dag_does_not_auto_graph');
 check(systemPlan.failures.some((row) => row.representation.kind === 'SIMPLE_CHAIN'), 'system_explicit_failure_chain_can_stay_simple_chain');
 
-const eSystemRaw = JSON.parse(fs.readFileSync(path.join(repoRoot, 'content/xizong/knowledge/systems/e-reproductive-breast/system.json'), 'utf8'));
-const eSystemPlan = composeXizongSystemFrameworkRepresentation({
-  mission: eSystemRaw.mission,
-  mentalModel: {
-    motherModel: eSystemRaw.mental_model?.mother_model,
-    spine: eSystemRaw.mental_model?.spine,
-    parallelControls: eSystemRaw.mental_model?.parallel_controls
-  },
-  raw: eSystemRaw,
-  coreVariables: eSystemRaw.core_variables,
-  coreRelations: eSystemRaw.core_relations,
-  failureModes: eSystemRaw.failure_modes,
-  judgmentAxes: eSystemRaw.judgment_axes,
-  dependencyDag: eSystemRaw.dependency_dag
-});
-check(eSystemPlan.mentalDetails.items.length === 3, 'derived_system_framework_keeps_nonstandard_current_model');
-check(eSystemPlan.variables.rows.every((row) => !/^[A-Z0-9_]+$/.test(row.label)), 'derived_system_framework_uses_learner_variable_labels');
-
-const fSystemRaw = JSON.parse(fs.readFileSync(path.join(repoRoot, 'content/xizong/knowledge/systems/f-remaining-clinical/system.json'), 'utf8'));
-const fSystemPlan = composeXizongSystemFrameworkRepresentation({
-  mission: fSystemRaw.mission,
-  mentalModel: {
-    motherModel: fSystemRaw.mental_model?.mother_model,
-    spine: fSystemRaw.mental_model?.spine,
-    parallelControls: fSystemRaw.mental_model?.parallel_controls
-  },
-  raw: fSystemRaw,
-  coreVariables: fSystemRaw.core_variables,
-  coreRelations: fSystemRaw.core_relations,
-  failureModes: fSystemRaw.failure_modes,
-  judgmentAxes: fSystemRaw.judgment_axes,
-  dependencyDag: fSystemRaw.dependency_dag
-});
-check(fSystemPlan.spine.items.length === 0, 'f_dual_context_has_no_fake_serial_spine');
-check(fSystemPlan.mentalDetails.items.some((row) => row.startsWith('急性扰动：')), 'f_framework_keeps_acute_branch');
-check(fSystemPlan.mentalDetails.items.some((row) => row.startsWith('计划干预：')), 'f_framework_keeps_intervention_branch');
-check(fSystemPlan.mentalDetails.representation.kind === 'STRUCTURED_TEXT', 'f_dual_context_uses_safe_structured_text');
-
 // Integration readback: final learner components must consume the gate rather than
 // rediscovering presentation from raw Projection geometry / asset presence.
 const frameworkComponent = fs.readFileSync(path.join(process.cwd(), 'src/components/XizongCognitiveProjectionStage.astro'), 'utf8');
@@ -189,17 +151,6 @@ check(learnerBridge.includes('resolvedSlotWeight'), 'auxiliary_width_uses_resolv
 check(learnerBridge.includes("['SOURCE_VISUAL', 'REVIEWED_VISUAL', 'STRUCTURED_TABLE']"), 'rich_aux_is_bounded_to_reviewed_visual_or_table_primitives');
 check(!learnerBridge.includes("if (array(slot?.visual).length || richExtension) return 'rich'"), 'raw_asset_existence_no_longer_controls_aux_width');
 check(learnerBridge.includes("'KP_RECALL_FRONT'") && learnerBridge.includes("slotName = 'kp_recall_aux'"), 'recall_front_routes_through_core_protected_context_stage');
-check(learnerBridge.includes("visibleCompanionKp('kp_learn')"), 'kp_learn_context_follows_visible_kp_object');
-check(learnerBridge.includes("const groupId = kp?.identity?.logicGroupId || groupIds[activeGroupIndex()] || '';"), 'kp_learn_context_uses_visible_kp_group_identity');
-check(learnerBridge.includes("const ATTENTION_ORDER = ['CURRENT_TAKEAWAY', 'ON_DEMAND_SUPPORT', 'DEFERRED_MEMORY', 'FUTURE_CONNECTION']"), 'auxiliary_attention_order_not_owned');
-check(learnerBridge.includes("section.dataset.attentionSection = role"), 'auxiliary_attention_sections_not_rendered');
-check(learnerBridge.includes("'后面再学 / 串联'"), 'future_connection_learner_language_missing');
-check(learnerBridge.includes("'可以后置'"), 'deferred_memory_learner_language_missing');
-check(learnerBridge.includes("attentionRoleForAsset"), 'attention_role_resolver_missing');
-check(learnerBridge.includes("family === 'connection'"), 'connection_attention_classification_missing');
-check(learnerBridge.includes("if (!deferred && !takeaway)"), 'deferred_precision_repeats_attention_label');
-check(learnerBridge.includes("if (label) card.append"), 'future_connection_repeats_attention_label');
-check(learnerBridge.includes("'讲义 · 当前 KP 暂无精确定位'") && learnerBridge.includes('讲义范围 ${blockSource} · 当前 KP 暂无精确定位'), 'kp_learn_missing_source_locator_fails_closed_visibly');
 
 check(systemComponent.includes('composeXizongSystemFrameworkRepresentation'), 'system_framework_consumes_representation_gate');
 check(systemComponent.includes('data-system-framework-plan="purpose-first"'), 'system_workspace_marks_purpose_first_plan');
@@ -207,18 +158,8 @@ check(systemComponent.includes('data-representation-kind={framework.spine.repres
 check(systemComponent.includes('data-representation-kind={framework.dependencies.representation.kind}'), 'system_dependencies_use_resolved_safe_representation');
 check(systemComponent.includes('class="xzSystemWorkspace"'), 'system_workspace_uses_current_namespace');
 check(!systemComponent.includes('xv6System'), 'system_workspace_retired_legacy_namespace');
-check(!systemComponent.includes("system.canonicalId === 'B'"), 'system_workspace_has_no_system_name_product_fork');
-check(
-  !systemComponent.includes('JIT / Connection')
-  && !systemComponent.includes('JIT Connection')
-  && !systemComponent.includes('Future Connection'),
-  'system_workspace_hides_backend_connection_taxonomy'
-);
-check(systemComponent.includes('当前先建立这条联系，不切换学习主线。'), 'system_workspace_uses_learner_facing_connection_copy');
 check(!systemComponent.includes('Block 依赖图'), 'system_dependency_graph_label_retired');
 check(!systemComponent.includes('geometry-'), 'system_workspace_does_not_style_from_geometry_taxonomy');
-check(!/SYSTEM MODEL|SYSTEM LANGUAGE|JUDGMENT AXES|FAILURE MAP|FAILURE CONTEXT/.test(systemComponent), 'system_workspace_chrome_is_learner_facing');
-check(!systemComponent.includes('[item.id, item.label]'), 'system_workspace_does_not_render_backend_variable_ids');
 
 check(blockPage.includes('XizongBlockWorkspaceShell'), 'one_screen_workspace_shell_mounted_by_block_page');
 check(blockPage.includes('XizongBlockAuxLayoutSync'), 'dynamic_aux_layout_sync_mounted_by_block_page');

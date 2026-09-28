@@ -44,9 +44,9 @@ const base = import.meta.env.BASE_URL;
 
     <main class="xzMemoryStage">
       <section class="xzMemoryEmpty" data-memory-empty>
-        <span data-memory-empty-kicker>Memory 还没有已释放内容</span>
-        <h2 data-memory-empty-title>先学，不制造假复习。</h2>
-        <p data-memory-empty-body>Core / Precision 会在真实 Block Complete 后自动进入长期库；“进入库”不等于“今天必须复习”，只有真正值得回收的内容才会进入 Today。</p>
+        <span>Memory 还没有已释放内容</span>
+        <h2>先学，不制造假复习。</h2>
+        <p>Core / Precision 会在真实 Block Complete 后自动进入长期库；“进入库”不等于“今天必须复习”，只有真正值得回收的内容才会进入 Today。</p>
       </section>
 
       <article class="xzMemoryCard" data-memory-card hidden>
@@ -102,19 +102,9 @@ const base = import.meta.env.BASE_URL;
       <article class="xzMemoryRepairCard" data-memory-repair-card hidden>
         <header><span>Repair · 专项修补</span><h2 data-repair-title></h2><p data-repair-context></p></header>
         <dl><div><dt>为什么回来</dt><dd data-repair-reason></dd></div><div><dt>只修什么</dt><dd data-repair-action></dd></div></dl>
-        <section class="xzMemoryPrompt" data-repair-core hidden>
-          <header><span>当前 Core · 同一张卡</span></header>
-          <p data-repair-prompt></p>
-        </section>
-        <div class="xzMemoryRevealGate" data-repair-reveal-gate hidden>
-          <strong>先闭卷恢复这个 KP；需要核对时再看 Core。</strong>
-          <span>Space</span>
-          <button type="button" class="primary" data-repair-reveal>Reveal Core</button>
-        </div>
-        <section class="xzMemoryAnswer markdown" data-repair-answer hidden></section>
-        <small>Repair 直接复用已有 Core / Precision 身份；完成修补只关闭专项任务，不覆盖原证据，也不把修完自动写成 mastery。</small>
+        <small>Repair 是专项任务，不复制 Core / Precision，也不把修完自动写成 mastery。</small>
         <div class="xzMemoryCardActions xzMemoryRepairActions">
-          <a data-repair-block-link hidden>需要完整上下文时看 Block</a>
+          <a data-repair-block-link hidden>去对应 Block</a>
           <button type="button" data-repair-complete>完成修补</button>
           <a data-repair-return-link hidden>回原题</a>
         </div>
@@ -230,41 +220,11 @@ const base = import.meta.env.BASE_URL;
       setText('[data-memory-summary-repair]', summary.repair);
     };
 
-    const syncEmptyCopy = () => {
-      const summary = memorySummary(state);
-      const copy = view === 'TODAY'
-        ? ((summary.core || summary.precision || summary.marked || summary.repair)
-            ? ['Today 当前没有需要回收的内容', '长期库已经有内容，今天不用硬复习。', 'Core / Precision 等内容仍留在长期库里；只有真正值得现在回收的内容才会进入 Today。']
-            : ['Memory 还没有已释放内容', '先学，不制造假复习。', 'Core / Precision 会在真实 Block Complete 后自动进入长期库；只有真正值得回收的内容才会进入 Today。'])
-        : view === 'CORE'
-          ? ['Core 长期库当前为空', '完成 Block 后会自动进入。', 'Core 只收真实 Block Complete 后释放的 KP，不提前制造复习卡。']
-          : view === 'PRECISION'
-            ? ['Precision 当前为空', '现在没有需要精确恢复的项目。', '只有已有 owner 且满足释放条件的精确记忆项才会进入这里。']
-            : view === 'MARKED'
-              ? ['Marked 当前为空', '还没有你主动留下的片段。', '在 Prompt / Core 里选中文字并标记后，它才会出现在这里。']
-              : view === 'REPAIR'
-                ? ['Repair 当前为空', '现在没有专项修补任务。', 'Repair 只接有明确来源的修补任务，不从普通薄弱状态自动制造。']
-                : ['这次没有可用的 Memory 目标', '返回正常 Memory 即可。', 'Chat 只会选择已经存在的 Memory 项，不会凭空创建内容。'];
-      setText('[data-memory-empty-kicker]', copy[0]);
-      setText('[data-memory-empty-title]', copy[1]);
-      setText('[data-memory-empty-body]', copy[2]);
-    };
-
     const selectedItem = () => currentItems[Math.max(0, Math.min(currentItems.length - 1, index))] || null;
     const cardLabel = (item) => item.family === 'PRECISION' ? (item.title || item.cue || item.id) : `${item.displayId || item.kpId || ''}${item.title ? `｜${item.title}` : ''}`;
     const cardContext = (item) => [item.canonicalId, item.blockLabel, item.groupLabel].filter(Boolean).join(' · ');
     const repairPriorityLabel = (value) => ({ high:'高优先', medium:'中优先', low:'低优先', normal:'专项' }[String(value || '').toLowerCase()] || '专项');
     const repairOriginLabel = (value) => String(value || '') === 'SYSTEM_WU_CHAT_RETURN' ? '真题 W/U · Chat' : '专项修补';
-    const repairOwnerCard = (item) => {
-      if (!item) return null;
-      const direct = state.cards?.[item.cardId] || null;
-      if (direct?.family === 'CORE') return direct;
-      return Object.values(state.cards || {}).find((candidate) =>
-        candidate?.family === 'CORE'
-        && String(candidate?.kpId || '') === String(item?.kpId || '')
-        && (!item?.blockId || String(candidate?.blockId || '') === String(item.blockId))
-      ) || null;
-    };
 
     const effectiveAnswerHtml = (item) => {
       if (item.family === 'CORE') return item.coreHtml || '';
@@ -329,27 +289,11 @@ const base = import.meta.env.BASE_URL;
       if (markedCard) markedCard.hidden = true;
       if (repairCard) repairCard.hidden = false;
       if (empty) empty.hidden = true;
-      const owner = repairOwnerCard(item) || {};
+      const owner = state.cards[item.cardId] || {};
       setText('[data-repair-title]', item.title || cardLabel(owner) || item.kpId || '专项修补');
       setText('[data-repair-context]', [repairPriorityLabel(item.priority), repairOriginLabel(item.origin), cardContext(owner)].filter(Boolean).join(' · '));
       setText('[data-repair-reason]', item.reason || '已由学习证据 / Chat 指定为专项修补。');
       setText('[data-repair-action]', item.action || '按最小充分范围完成修补后返回主线。');
-
-      const core = q('[data-repair-core]');
-      const repairPrompt = q('[data-repair-prompt]');
-      const repairRevealGate = q('[data-repair-reveal-gate]');
-      const repairAnswer = q('[data-repair-answer]');
-      const hasCore = Boolean(owner?.id && owner?.family === 'CORE');
-      if (core) core.hidden = !hasCore;
-      if (repairRevealGate) repairRevealGate.hidden = !hasCore;
-      if (repairAnswer) {
-        repairAnswer.hidden = true;
-        repairAnswer.innerHTML = hasCore ? (owner.coreHtml || '') : '';
-      }
-      if (repairPrompt) repairPrompt.textContent = hasCore
-        ? (resolvedCorePrompt(state, owner) || '先主动恢复这一 KP 的核心结构。')
-        : '';
-
       const blockLink = q('[data-repair-block-link]');
       const returnLink = q('[data-repair-return-link]');
       if (blockLink instanceof HTMLAnchorElement) {
@@ -411,7 +355,6 @@ const base = import.meta.env.BASE_URL;
         if (card) card.hidden = true;
         if (markedCard) markedCard.hidden = true;
         if (repairCard) repairCard.hidden = true;
-        syncEmptyCopy();
         if (empty) empty.hidden = false;
         return;
       }
@@ -477,17 +420,6 @@ const base = import.meta.env.BASE_URL;
       if (ratings) ratings.hidden = false;
     };
     q('[data-memory-reveal]')?.addEventListener('click', reveal);
-    const revealRepair = () => {
-      if (view !== 'REPAIR') return;
-      const item = selectedItem();
-      const owner = repairOwnerCard(item);
-      if (!owner) return;
-      const repairRevealGate = q('[data-repair-reveal-gate]');
-      const repairAnswer = q('[data-repair-answer]');
-      if (repairAnswer) repairAnswer.hidden = false;
-      if (repairRevealGate) repairRevealGate.hidden = true;
-    };
-    q('[data-repair-reveal]')?.addEventListener('click', revealRepair);
     qa('[data-memory-rating]').forEach((button) => button.addEventListener('click', () => {
       const item = selectedItem();
       const rating = button.getAttribute('data-memory-rating') || '';
@@ -585,7 +517,7 @@ const base = import.meta.env.BASE_URL;
     window.addEventListener('keydown', (event) => {
       const target = event.target;
       if (target instanceof HTMLTextAreaElement || target instanceof HTMLInputElement) return;
-      if (event.code === 'Space') { event.preventDefault(); view === 'REPAIR' ? revealRepair() : reveal(); }
+      if (event.code === 'Space') { event.preventDefault(); reveal(); }
       if (event.key === 'ArrowLeft' && currentItems.length) { event.preventDefault(); index = Math.max(0, index - 1); renderCurrent(); }
       if (event.key === 'ArrowRight' && currentItems.length) { event.preventDefault(); index = Math.min(currentItems.length - 1, index + 1); renderCurrent(); }
     });

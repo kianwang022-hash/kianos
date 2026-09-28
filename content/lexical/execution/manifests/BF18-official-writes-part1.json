@@ -1,0 +1,1638 @@
+{
+  "schema": "kianos.lexical.bf18_write_fragment.v1",
+  "part": 1,
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o1851.json",
+      "mode": "patch_json",
+      "expected_sha256": "821da53187c5243e838140eeaad6fc2fe6489f81c9fa2f332615460e20134d7a",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v3",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:08c9baff5efe8a1d07a0",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "未达到标准或数量",
+                "pattern": "fall short of sth"
+              }
+            ],
+            "content_hash": "a4d524298b6221d22dbe9bf0ee46fe11174a225e11a647e8790be9efe8dfa6ec",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "落下；跌落；下降；进入某种状态",
+                  "label_en": "to fall, decrease, or pass into a state",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:fall:efd1e6db5e105f9c",
+                    "sense:fall:b52fd655548154b7",
+                    "sense:fall:cc98659f03ed58ab"
+                  ]
+                },
+                {
+                  "label_cn": "秋天；下降、减少或下跌",
+                  "label_en": "autumn; a decrease in amount, level, rate, or value",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:fall:bd8d82b92efb5e1d",
+                    "sense:fall:767b11d717cc59bf"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "落下；下降；秋天",
+              "core_meaning_en": "to drop down or decline; the season of autumn",
+              "mental_model_cn": "落下；下降；秋天",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:secondary_senses:fall:7e9cf8da7b49bad9",
+              "sense:sense:fall:767b11d717cc59bf"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5f59b1b5e2560b96e1c3",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fall:efd1e6db5e105f9c:collocation:0"
+                    ],
+                    "meaning_cn": "跌倒；倒塌",
+                    "phrase": "fall down"
+                  },
+                  {
+                    "collocation_id": "collocation:1268981920abee5e3301",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fall:efd1e6db5e105f9c:collocation:1"
+                    ],
+                    "meaning_cn": "从...落下",
+                    "phrase": "fall from + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:e5fa0689377d3ebcabb8",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fall:efd1e6db5e105f9c:collocation:2"
+                    ],
+                    "meaning_cn": "秋天树叶落下。",
+                    "phrase": "The leaves fall in autumn."
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "落下，跌落",
+                "definition_en": "to move downwards freely under the influence of gravity",
+                "governing_pattern": "vi.",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fall:efd1e6db5e105f9c",
+                "sense_label_en": "to move downwards freely under the influence of gravity",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b78926c9b4818787fac5",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fall:bd8d82b92efb5e1d:collocation:0"
+                    ],
+                    "meaning_cn": "在秋天",
+                    "phrase": "in the fall"
+                  },
+                  {
+                    "collocation_id": "collocation:8e29415c0a5c9b39458a",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fall:bd8d82b92efb5e1d:collocation:1"
+                    ],
+                    "meaning_cn": "秋季学期",
+                    "phrase": "fall semester"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "秋天",
+                "definition_en": "the season between summer and winter; autumn",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fall:bd8d82b92efb5e1d",
+                "sense_label_en": "the season between summer and winter; autumn",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "下降；减少；下跌",
+                "definition_en": "a decrease in amount, level, rate, or value",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fall:767b11d717cc59bf",
+                "sense_label_en": "a decrease in amount, level, rate, or value",
+                "sort_order": 2,
+                "source_evidence": [
+                  {
+                    "external_evidence": [
+                      {
+                        "role": "semantic_boundary_or_usage_verification",
+                        "source_locator": "https://dictionary.cambridge.org/dictionary/english/fall",
+                        "source_name": "Cambridge Dictionary",
+                        "source_type": "authoritative_learner_dictionary"
+                      }
+                    ],
+                    "semantic_auditor_approved": true,
+                    "source_candidate_evidence_ids": [
+                      "source-sense-candidate:fall:a5f79291a98e429f",
+                      "source-sense-candidate:fall:a8e4a495a230e80e"
+                    ],
+                    "source_operation_id": "operation:1eade812cb64807af0f9",
+                    "source_operation_sha256": "351529a002427443a0e8ecdf5af15189649f7b8a56ac46bbb269b967474dd84c",
+                    "verification_status": "auditor_verified"
+                  }
+                ]
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b217b8084d1e977bf811",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fall:b52fd655548154b7:collocation:0"
+                    ],
+                    "meaning_cn": "下降到（某数值）",
+                    "phrase": "fall to + number"
+                  },
+                  {
+                    "collocation_id": "collocation:83d8c152d2da8db6fcb1",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fall:b52fd655548154b7:collocation:1"
+                    ],
+                    "meaning_cn": "价格急剧下跌。",
+                    "phrase": "Prices fell sharply."
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "下降，降低",
+                "definition_en": "to decrease in amount, level, or value",
+                "governing_pattern": "vi. + to",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fall:b52fd655548154b7",
+                "sense_label_en": "to decrease in amount, level, or value",
+                "sort_order": 3,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:9bec13116928dcf7b0e5",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fall:cc98659f03ed58ab:collocation:0"
+                    ],
+                    "meaning_cn": "入睡",
+                    "phrase": "fall asleep"
+                  },
+                  {
+                    "collocation_id": "collocation:27fa3ee731cb13fb4e4b",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fall:cc98659f03ed58ab:collocation:1"
+                    ],
+                    "meaning_cn": "生病",
+                    "phrase": "fall ill"
+                  },
+                  {
+                    "collocation_id": "collocation:fc2471107e9652f2f85f",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fall:cc98659f03ed58ab:collocation:2"
+                    ],
+                    "meaning_cn": "爱上某人",
+                    "phrase": "fall in love with + sb"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "变成，进入某种状态",
+                "definition_en": "to pass into a particular state or condition",
+                "governing_pattern": "linking verb + adj/n",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fall:cc98659f03ed58ab",
+                "sense_label_en": "to pass into a particular state or condition",
+                "sort_order": 4,
+                "transitivity": "linking"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:11f9d67d8c561f4e2745",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fall:6d7b26f632ac542a:collocation:0"
+                    ],
+                    "meaning_cn": "人类的堕落",
+                    "phrase": "the Fall of man"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "堕落",
+                "definition_en": "a loss of innocence or moral goodness",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fall:6d7b26f632ac542a",
+                "sense_label_en": "a loss of innocence or moral goodness",
+                "sort_order": 5,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:9522d555a60b9eaeb9be",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fall:f31e62b4801c5c4e:collocation:0"
+                    ],
+                    "meaning_cn": "尼亚加拉瀑布",
+                    "phrase": "Niagara Falls"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "瀑布",
+                "definition_en": "a waterfall",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fall:f31e62b4801c5c4e",
+                "sense_label_en": "a waterfall",
+                "sort_order": 6,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "completed",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "fall",
+            "word_family": [],
+            "word_id": "word:fall",
+            "form_identity": {
+              "form_type": "irregular_inflection_identity",
+              "spelling": "fall",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "fall is irregular: fall → fell → fallen.",
+              "boundaries": [
+                {
+                  "surface": "fall",
+                  "condition": "base/present",
+                  "note": "base form"
+                },
+                {
+                  "surface": "fell",
+                  "condition": "past simple",
+                  "note": "irregular past"
+                },
+                {
+                  "surface": "fallen",
+                  "condition": "past participle",
+                  "note": "irregular participle"
+                }
+              ],
+              "variants": [],
+              "authority": "BF18 grouped p approved Form expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1872.json",
+      "mode": "patch_json",
+      "expected_sha256": "a89a14501e08fe8f08d1925180d3de17018f93b11ce82ad6ce9f879e519ce904",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:3da7288b8f3e0af4f3ae",
+                "level": "L2",
+                "meaning_cn": "紧紧抓住/选定；把注意力集中于…",
+                "pattern": "fasten on/upon sth"
+              }
+            ],
+            "content_hash": "e96ed7d5e2d4aa786d640d549df0b9aae5a7860b70aae356d69a3535a5a9f435",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "使固定或系紧",
+              "core_meaning_en": "to attach or become attached firmly",
+              "mental_model_cn": "使固定或系紧",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:construction:3da7288b8f3e0af4f3ae"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b3429f727b145f0445ed",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fasten:575ac8cdbec55077:collocation:0"
+                    ],
+                    "meaning_cn": "把…固定在…上",
+                    "phrase": "fasten ... to ..."
+                  },
+                  {
+                    "collocation_id": "collocation:df34def7942380bef022",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fasten:575ac8cdbec55077:collocation:1"
+                    ],
+                    "meaning_cn": "系好安全带",
+                    "phrase": "fasten one's seatbelt"
+                  },
+                  {
+                    "collocation_id": "collocation:2ba9a7225d718f12f041",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:fasten:30d285e864cd51a7:collocation:1"
+                    ],
+                    "meaning_cn": "把标签系到某物上",
+                    "phrase": "fasten a label to + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "系紧，固定",
+                "definition_en": "cause to be firmly attached",
+                "governing_pattern": "fasten + object / fasten to/with + sth / sth fastens",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:fasten:575ac8cdbec55077",
+                "sense_label_en": "cause to be firmly attached",
+                "sort_order": 0,
+                "transitivity": "I/T"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "fasten",
+            "word_family": [],
+            "word_id": "word:fasten"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1874.json",
+      "mode": "patch_json",
+      "expected_sha256": "b2f60925a04a08fe84d06dd5923d2a3cdef216c546ddbfa52abe48a96e9472cb",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "11556cc5a6addb0cbd4f526e78d26a6f589d49719c48e41502e24397045a7a55",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "致命的",
+              "core_meaning_en": "causing death or disaster",
+              "mental_model_cn": "致命的",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "致命的、导致灾难的",
+                "definition_en": "causing death or disaster",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:fatal:fad7651a4240bcd6",
+                "sense_label_en": "causing death or disaster",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "命运注定的",
+                "definition_en": "controlled or decreed by fate; predetermined",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:fatal:909005c3595657ce",
+                "sense_label_en": "controlled or decreed by fate; predetermined",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "fatal",
+            "word_family": [],
+            "word_id": "word:fatal"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1878.json",
+      "mode": "patch_json",
+      "expected_sha256": "d0c86e5879ce08b6c865e221686f3c9a125fca663d5bfb434e7ee0cd30c5a0a8",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:4e236e04aebe23c038dc",
+                "direction": "R+P",
+                "level": "L2",
+                "meaning_cn": "对某事负有责任或过错",
+                "pattern": "at fault / one's fault"
+              }
+            ],
+            "content_hash": "687dc4ee9cc8130c599dcad93bf22475f1979952024a9050eaa24927e5300d30",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "过错；责任",
+                  "label_en": "responsibility for a bad situation or event",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:fault:629a4c7886d75858"
+                  ]
+                },
+                {
+                  "label_cn": "故障；缺陷",
+                  "label_en": "a defect or imperfection in something",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:fault:b07d1cea8074503a"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "过错、责任；故障或缺陷",
+              "core_meaning_en": "responsibility/blame or a defect; geological fault remains reference-only",
+              "mental_model_cn": "过错、责任；故障或缺陷",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:semantic_contrast:fault:1839e89a429d6335",
+              "relation:deep:semantic_contrast:fault:1839e89a429d6335",
+              "semantic-reconciliation:o1825-o2024"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "过错；责任",
+                "definition_en": "responsibility for a bad situation or event",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fault:629a4c7886d75858",
+                "sense_label_en": "responsibility for a bad situation or event",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:3a0d443726bc26874a49",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:fault:b07d1cea8074503a:collocation:0"
+                    ],
+                    "meaning_cn": "系统中的故障",
+                    "phrase": "a fault in the system"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "故障，毛病，缺陷",
+                "definition_en": "a defect or imperfection in something",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:fault:b07d1cea8074503a",
+                "sense_label_en": "a defect or imperfection in something",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "completed",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "fault",
+            "word_family": [],
+            "word_id": "word:fault"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1880.json",
+      "mode": "patch_json",
+      "expected_sha256": "1d3b633b73f31aa2ebe0f1d5dd9b9c623351d044f041b010f3531d16e67ee3fe",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "db683b931ef5a30738c786a8bf3f0f0cbabae40bdfcb5856c728ae7c02aaa4f4",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "恩惠；赞同",
+                  "label_en": "a kind or helpful act; approval or support",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:favor:950ff8b6f0b9535b"
+                  ]
+                },
+                {
+                  "label_cn": "支持，赞成；偏爱",
+                  "label_en": "to support or prefer someone or something",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:favor:a306cee1f1025d5c"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "恩惠；支持",
+              "core_meaning_en": "kindness or approval; to support or prefer",
+              "mental_model_cn": "恩惠；支持",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:favor:51c09de604a3aaca",
+              "deep:deep:constructions:favor:51c09de604a3aaca",
+              "deep:deep:secondary_senses:favor:6977e5315809b588",
+              "semantic-reconciliation:o1825-o2024"
+            ],
+            "search_aliases": [
+              "favour"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:286dd2d9282d5277c5b2",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:favor:950ff8b6f0b9535b:collocation:0"
+                    ],
+                    "meaning_cn": "帮某人一个忙",
+                    "phrase": "do sb a favor"
+                  },
+                  {
+                    "collocation_id": "collocation:eb983a7aa4ab243327be",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:favor:950ff8b6f0b9535b:collocation:1"
+                    ],
+                    "meaning_cn": "支持，赞同",
+                    "phrase": "in favor of + sth/sb"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "恩惠；赞同",
+                "definition_en": "a kind or helpful act; approval or support",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:favor:950ff8b6f0b9535b",
+                "sense_label_en": "a kind or helpful act; approval or support",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:10ed5dca2cac462e87ed",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:favor:a306cee1f1025d5c:collocation:0"
+                    ],
+                    "meaning_cn": "支持某事",
+                    "phrase": "favor + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:3cb75aece718e977bb0b",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:favor:a306cee1f1025d5c:collocation:1"
+                    ],
+                    "meaning_cn": "支持该提议",
+                    "phrase": "favor the proposal"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "支持，赞成；偏爱",
+                "definition_en": "to support or prefer someone or something",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:favor:a306cee1f1025d5c",
+                "sense_label_en": "to support or prefer someone or something",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "completed",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 2,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "favor",
+            "word_family": [],
+            "word_id": "word:favor",
+            "form_identity": {
+              "form_type": "regional_spelling_identity",
+              "spelling": "favor",
+              "identity_rule": "same_lexeme_spelling_variant",
+              "boundary": "favor is the usual American English spelling; favour is the usual British English spelling.",
+              "boundaries": [
+                {
+                  "surface": "favor",
+                  "condition": "American English",
+                  "note": "American English spelling"
+                },
+                {
+                  "surface": "favour",
+                  "condition": "British English",
+                  "note": "British English spelling"
+                }
+              ],
+              "variants": [],
+              "authority": "BF18 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1881.json",
+      "mode": "patch_json",
+      "expected_sha256": "a59ec7f765c87bda5e4905da15068f5356dad05d579a607e32d72704a9d73e44",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "1e4bf9e7d448e3ee91385ffc6f7a3bdcd768a7f3a95c0dc38d1ae31e8ccd0710",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "赞许的；赞同的",
+                  "label_en": "showing approval or support",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:favorable:8968135f61515cf5"
+                  ]
+                },
+                {
+                  "label_cn": "有利的；有帮助的",
+                  "label_en": "advantageous or helpful",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:favorable:55dde777dee35daa"
+                  ]
+                },
+                {
+                  "label_cn": "适时的；时机有利的",
+                  "label_en": "occurring at a suitable or advantageous time; opportune",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:favorable:0c01ab498a8958d1"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "赞许的；有利的；时机合适的",
+              "core_meaning_en": "showing approval, advantageous, or opportune",
+              "mental_model_cn": "赞许的；有利的；时机合适的",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:favorable:fa07e5139d66ae47",
+              "relation:deep:word_family:favorable:fa07e5139d66ae47",
+              "semantic-reconciliation:o1825-o2024"
+            ],
+            "search_aliases": [
+              "favourable"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:8b2b6a549bd40499139d",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:favorable:8968135f61515cf5:collocation:0"
+                    ],
+                    "meaning_cn": "赞许的回应",
+                    "phrase": "favorable response"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "赞许的；赞同的",
+                "definition_en": "showing approval or support",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:favorable:8968135f61515cf5",
+                "sense_label_en": "showing approval or support",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "有利的；有帮助的",
+                "definition_en": "advantageous or helpful",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:favorable:55dde777dee35daa",
+                "sense_label_en": "advantageous or helpful",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "适时的；时机有利的",
+                "definition_en": "occurring at a suitable or advantageous time; opportune",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:favorable:0c01ab498a8958d1",
+                "sense_label_en": "occurring at a suitable or advantageous time; opportune",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "favorable",
+            "word_family": [
+              {
+                "boundary": "favorable = favor + able",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:favorable:favor",
+                    "evidence_status": "source_checked",
+                    "source_locator": "favorable|favor",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:favorable:fa07e5139d66ae47",
+                "family_sources": [
+                  "curated core-card derivative",
+                  "local morphology candidate"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:favorable:8968135f61515cf5",
+                "target_sense_id": "sense:favor:950ff8b6f0b9535b",
+                "target_word": "favor",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false
+              }
+            ],
+            "word_id": "word:favorable",
+            "form_identity": {
+              "form_type": "regional_spelling_identity",
+              "spelling": "favorable",
+              "identity_rule": "same_lexeme_spelling_variant",
+              "boundary": "favorable is the usual American English spelling; favourable is the usual British English spelling.",
+              "boundaries": [
+                {
+                  "surface": "favorable",
+                  "condition": "American English",
+                  "note": "American English spelling"
+                },
+                {
+                  "surface": "favourable",
+                  "condition": "British English",
+                  "note": "British English spelling"
+                }
+              ],
+              "variants": [],
+              "authority": "BF18 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1882.json",
+      "mode": "patch_json",
+      "expected_sha256": "73b1c709645b6e1f68f88346d3c267b3e3480ebf958375620161ff218bbcc81b",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "6bfbe04ac5b89b0f98426778d71fddd1a7fe883b47d5f35fa0e1cfa5ae17b8c9",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "最喜欢的；最受偏爱的",
+                  "label_en": "preferred or liked most",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:favorite:2c8e257bd7065487"
+                  ]
+                },
+                {
+                  "label_cn": "特别喜爱的人或事物",
+                  "label_en": "a person or thing regarded with special favor or liking",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:favorite:ad512f8c823a5877"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "最喜欢的；特别喜爱的人或事物",
+              "core_meaning_en": "preferred or liked most; a specially liked person or thing",
+              "mental_model_cn": "最喜欢的；特别喜爱的人或事物",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "semantic-reconciliation:o1825-o2024"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:2610c7a6a821170ce508",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:favorite:2c8e257bd7065487:collocation:0"
+                    ],
+                    "meaning_cn": "最喜欢的书",
+                    "phrase": "favorite book"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "最喜欢的；最受偏爱的",
+                "definition_en": "preferred or liked most",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:favorite:2c8e257bd7065487",
+                "sense_label_en": "preferred or liked most",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:ad9816e477035df0404d",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:favorite:ad512f8c823a5877:collocation:0"
+                    ],
+                    "meaning_cn": "粉丝中的最爱",
+                    "phrase": "a favorite among fans"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "特别喜爱的人或事物",
+                "definition_en": "something regarded with special favor or liking",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:favorite:ad512f8c823a5877",
+                "sense_label_en": "something regarded with special favor or liking",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "favorite",
+            "word_family": [],
+            "word_id": "word:favorite",
+            "search_aliases": [
+              "favourite"
+            ],
+            "form_identity": {
+              "form_type": "regional_spelling_identity",
+              "spelling": "favorite",
+              "identity_rule": "same_lexeme_spelling_variant",
+              "boundary": "favorite is the usual American English spelling; favourite is the usual British English spelling.",
+              "boundaries": [
+                {
+                  "surface": "favorite",
+                  "condition": "American English",
+                  "note": "American English spelling"
+                },
+                {
+                  "surface": "favourite",
+                  "condition": "British English",
+                  "note": "British English spelling"
+                }
+              ],
+              "variants": [],
+              "authority": "BF18 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1890.json",
+      "mode": "patch_json",
+      "expected_sha256": "ddceb0bf31d26c2680ff82d556e36b3595170f63c184839a6e38eb8a1d01c089",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "e268a36ce3a4eebd5aea011c8e15075559358b7271f822ae8db7bfbe309a53b3",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "显著的特征或方面；面部特征（眼、鼻、口、下巴等）；报纸或杂志上的特写或专题文章",
+                  "label_en": "a prominent attribute or aspect of something; the characteristic parts of a person's face: eyes and nose and mouth and chin; a special or prominent article in a newspaper or magazine",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:feature:1b593fba56e2535a",
+                    "sense:feature:14ffeb8a2cff550b",
+                    "sense:feature:c06d78ca20365701"
+                  ]
+                },
+                {
+                  "label_cn": "以…为特色；突出；起重要作用",
+                  "label_en": "include or highlight as a prominent part; play an important part",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:feature:9eca20924ee15717",
+                    "sense:feature:dd614d1db8c05860"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "显著的特点或突出的部分",
+              "core_meaning_en": "a distinctive attribute or prominent part",
+              "mental_model_cn": "显著的特点或突出的部分",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:secondary_senses:feature:d1fa69791ecd66b9"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a39b935b9abd57464954",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:feature:1b593fba56e2535a:collocation:0"
+                    ],
+                    "meaning_cn": "关键特征",
+                    "phrase": "a key feature"
+                  },
+                  {
+                    "collocation_id": "collocation:a250cdc3dc86b24db465",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:feature:1b593fba56e2535a:collocation:1"
+                    ],
+                    "meaning_cn": "显著特征",
+                    "phrase": "distinguishing feature"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "显著的特征或方面",
+                "definition_en": "a prominent attribute or aspect of something",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:feature:1b593fba56e2535a",
+                "sense_label_en": "a prominent attribute or aspect of something",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:fbc7d58cd11c8c2e424f",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:feature:14ffeb8a2cff550b:collocation:0"
+                    ],
+                    "meaning_cn": "面部特征",
+                    "phrase": "facial features"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "面部特征（眼、鼻、口、下巴等）",
+                "definition_en": "the characteristic parts of a person's face: eyes and nose and mouth and chin",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:feature:14ffeb8a2cff550b",
+                "sense_label_en": "the characteristic parts of a person's face: eyes and nose and mouth and",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:204bf3522d2bb07bfcb2",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:feature:c06d78ca20365701:collocation:0"
+                    ],
+                    "meaning_cn": "专题文章",
+                    "phrase": "a feature article"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "报纸或杂志上的特写或专题文章",
+                "definition_en": "a special or prominent article in a newspaper or magazine",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:feature:c06d78ca20365701",
+                "sense_label_en": "a special or prominent article in a newspaper or magazine",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:73b0f5d878d107eaff4c",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:feature:9eca20924ee15717:collocation:0"
+                    ],
+                    "meaning_cn": "以…为特色",
+                    "phrase": "feature + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:6bee27b859d89b5c13d1",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:feature:9eca20924ee15717:collocation:1"
+                    ],
+                    "meaning_cn": "这部电影由一位著名演员主演。",
+                    "phrase": "The film features a famous actor."
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "以…为特色；突出",
+                "definition_en": "include or highlight as a prominent part",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:feature:9eca20924ee15717",
+                "sense_label_en": "include or highlight as a prominent part",
+                "sort_order": 3,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:baab37fe4deff1324938",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:feature:dd614d1db8c05860:collocation:0"
+                    ],
+                    "meaning_cn": "在…中起重要作用",
+                    "phrase": "feature in + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:3ade9c7b42528442bb2b",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:feature:dd614d1db8c05860:collocation:1"
+                    ],
+                    "meaning_cn": "她在报告中占有重要地位。",
+                    "phrase": "She features prominently in the report."
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "起重要作用",
+                "definition_en": "play an important part",
+                "governing_pattern": "vi. + in",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:feature:dd614d1db8c05860",
+                "sense_label_en": "play an important part",
+                "sort_order": 4,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "completed",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "feature",
+            "word_family": [],
+            "word_id": "word:feature"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1892.json",
+      "mode": "patch_json",
+      "expected_sha256": "a479d6fa4b8a9216c198517936166b622853db923eff2d9f4a056924c2503451",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "be7e117ad171255d7032de377be9008a83b24f56fae7bff1d710eefad5c8ff05",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "与联邦制相关的",
+              "core_meaning_en": "relating to a system of government in which states unite under a central authority",
+              "mental_model_cn": "与联邦制相关的",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "联邦的；中央政府的",
+                "definition_en": "relating to the central government of a federation",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:federal:ad55e40b3d5756c0",
+                "sense_label_en": "relating to the central government of a federation",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "federal",
+            "word_family": [],
+            "word_id": "word:federal"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1896.json",
+      "mode": "patch_json",
+      "expected_sha256": "e65552502cc23b417efd34f2894e168839be9d75a35da98f2c3364fff0f4791f",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "ee6813bcb8ba20ca76d1b529e46f47f2f00ee521e87de2350876d211bb22ac04",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "喂；喂养",
+                  "label_en": "give food to a person or animal",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:feed:318b1c14ba0b534c"
+                  ]
+                },
+                {
+                  "label_cn": "（动物）以……为食",
+                  "label_en": "eat or live on a particular kind of food",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:feed:b193293ab8f15495"
+                  ]
+                },
+                {
+                  "label_cn": "供应；输入",
+                  "label_en": "supply something continuously",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:feed:666d1ed334275fdc"
+                  ]
+                },
+                {
+                  "label_cn": "流入；汇入",
+                  "label_en": "flow into",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:feed:2d342ec3a3c9589c"
+                  ]
+                },
+                {
+                  "label_cn": "饲料",
+                  "label_en": "food for domestic animals",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:feed:fa71a24cd5275132"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "喂养；以……为食；供应/流入；饲料",
+              "core_meaning_en": "feed/give food; feed on/eat; supply or flow into; animal food",
+              "mental_model_cn": "喂养；以……为食；供应/流入；饲料",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:feed:02cc16f8c590e91b",
+              "construction:deep:constructions:feed:9d34fd4d57c21755",
+              "deep:deep:constructions:feed:02cc16f8c590e91b",
+              "deep:deep:constructions:feed:9d34fd4d57c21755",
+              "semantic-reconciliation:o1825-o2024"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a72889190c239d60450c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:feed:318b1c14ba0b534c:collocation:0"
+                    ],
+                    "meaning_cn": "喂婴儿",
+                    "phrase": "feed the baby"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "喂；喂养",
+                "definition_en": "give food to (a person or animal)",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:feed:318b1c14ba0b534c",
+                "sense_label_en": "give food to (a person or animal)",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0f818000794735a3b07e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:feed:fa71a24cd5275132:collocation:0"
+                    ],
+                    "meaning_cn": "鸡饲料",
+                    "phrase": "chicken feed"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "饲料",
+                "definition_en": "food for domestic animals",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:feed:fa71a24cd5275132",
+                "sense_label_en": "food for domestic animals",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "流入；汇入",
+                "definition_en": "flow into",
+                "governing_pattern": "vi. + into + sth",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:feed:2d342ec3a3c9589c",
+                "sense_label_en": "flow into",
+                "sort_order": 2,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "不断供应；输入",
+                "definition_en": "supply something continuously",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:feed:666d1ed334275fdc",
+                "sense_label_en": "supply something continuously",
+                "sort_order": 3,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:567c9b37da49cb897b23",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:feed:318b1c14ba0b534c:collocation:1"
+                    ],
+                    "meaning_cn": "以……为食",
+                    "phrase": "feed on + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "（动物）以……为食；吃食",
+                "definition_en": "to eat or live on a particular kind of food, especially of animals",
+                "governing_pattern": "feed on sth",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:feed:b193293ab8f15495",
+                "sense_label_en": "to eat or live on a particular kind of food, especially of animals",
+                "sort_order": 4,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 2,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "feed",
+            "word_family": [],
+            "word_id": "word:feed",
+            "form_identity": {
+              "form_type": "irregular_inflection_identity",
+              "spelling": "feed",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "feed is irregular: feed → fed → fed.",
+              "boundaries": [
+                {
+                  "surface": "feed",
+                  "condition": "base/present",
+                  "note": "base form"
+                },
+                {
+                  "surface": "fed",
+                  "condition": "past simple",
+                  "note": "irregular past"
+                },
+                {
+                  "surface": "fed",
+                  "condition": "past participle",
+                  "note": "irregular participle"
+                }
+              ],
+              "variants": [],
+              "authority": "BF18 grouped p approved Form expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

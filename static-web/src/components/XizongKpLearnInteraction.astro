@@ -122,52 +122,6 @@
         if (ranges.weak.length) CSS.highlights.set('xizong-weak', new Highlight(...ranges.weak));
       };
 
-      const caretAtPoint = (x, y) => {
-        const position = document.caretPositionFromPoint?.(x, y);
-        if (position?.offsetNode) return { node: position.offsetNode, offset: position.offset };
-        const legacy = document.caretRangeFromPoint?.(x, y);
-        if (legacy?.startContainer) return { node: legacy.startContainer, offset: legacy.startOffset };
-        return null;
-      };
-
-      const markAtPoint = (frame, x, y) => {
-        if (!(frame instanceof HTMLElement)) return null;
-        const caret = caretAtPoint(x, y);
-        if (!caret) return null;
-        const kpId = frame.getAttribute('data-kp-id') || '';
-        const marks = currentMarks(kpId);
-        for (let index = 0; index < marks.length; index += 1) {
-          const mark = marks[index];
-          const container = mark.surface === 'PROMPT'
-            ? frame.querySelector('[data-kp-learn-prompt-copy]')
-            : frame.querySelector('[data-kp-learn-core]');
-          const range = rangeForQuote(container, String(mark.text || ''));
-          if (!range) continue;
-          try {
-            if (range.isPointInRange(caret.node, caret.offset)) return { kpId, index };
-          } catch {}
-        }
-        return null;
-      };
-
-      const removeMarkedTextAtClick = (event) => {
-        const frame = activeUnifiedCard();
-        const target = event.target instanceof Element
-          ? event.target.closest('[data-kp-learn-prompt-copy],[data-kp-learn-core]')
-          : null;
-        if (!(frame instanceof HTMLElement) || !target || !frame.contains(target)) return false;
-        const selection = window.getSelection();
-        if (selection && !selection.isCollapsed) return false;
-        const hit = markAtPoint(frame, event.clientX, event.clientY);
-        if (!hit) return false;
-        const { personal, row } = ensurePersonalKp(hit.kpId);
-        row.marks.splice(hit.index, 1);
-        writePersonal(personal);
-        hideMarkMenu();
-        applyHighlights();
-        return true;
-      };
-
       let selectionPending = null;
       let markMenu = document.querySelector('[data-xizong-mark-menu]');
       if (!(markMenu instanceof HTMLElement)) {
@@ -254,22 +208,24 @@
         if (!target?.closest('.xzKpUnifiedCard')) hideMarkMenu();
       });
 
-      document.addEventListener('click', (event) => {
-        const target = event.target instanceof Element ? event.target : null;
-        if (target?.closest('[data-xizong-mark-menu]')) return;
-        if (removeMarkedTextAtClick(event)) {
-          event.preventDefault();
-          event.stopPropagation();
+      const downloadPacket = () => {
+        let packet = null;
+        root.dispatchEvent(new CustomEvent('kianos:xizong-request-study-packet', {
+          detail: { accept: (value) => { packet = value; } }
+        }));
+        if (!packet) {
+          window.alert('完整学习包暂未就绪，未导出不完整数据。请重新打开当前学习页。');
+          return;
         }
-      });
-
-      const learnerFacingGroupCopy = (value) => {
-        const text = String(value || '').trim();
-        if (!text) return '';
-        const cjkCount = (text.match(/[\u3400-\u9fff]/g) || []).length;
-        if (cjkCount < 4) return '';
-        if (/\b(?:OWNER|OWNERSHIP|PROJECTION|ROUTING|ADAPTER|LEDGER|MAPPING|SOURCE[_ -]UNIT|MI-[GD])\b/i.test(text)) return '';
-        return text;
+        const blob = new Blob([JSON.stringify(packet, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement('a');
+        anchor.href = url;
+        anchor.download = `xizong-${learner.identity?.blockLabel || 'block'}-study-packet.json`;
+        document.body.append(anchor);
+        anchor.click();
+        anchor.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 500);
       };
 
       const syncLogicMap = () => {
@@ -291,20 +247,18 @@
         detail.className = 'xzLogicGroupDetail';
         detail.dataset.logicGroupDetail = groupId;
 
-        const learnerGoal = learnerFacingGroupCopy(group.goal);
-        if (learnerGoal) {
+        if (group.goal) {
           const goal = document.createElement('p');
           goal.className = 'xzLogicGroupGoal';
           goal.innerHTML = `<b>这一节解决</b><span></span>`;
-          goal.querySelector('span').textContent = learnerGoal;
+          goal.querySelector('span').textContent = group.goal;
           detail.append(goal);
         }
-        const learnerClosure = learnerFacingGroupCopy(group.closure);
-        if (learnerClosure) {
+        if (group.closure) {
           const closure = document.createElement('p');
           closure.className = 'xzLogicGroupClosure';
           closure.innerHTML = `<b>学完能做到</b><span></span>`;
-          closure.querySelector('span').textContent = learnerClosure;
+          closure.querySelector('span').textContent = group.closure;
           detail.append(closure);
         }
 
@@ -398,24 +352,16 @@
           right.className = 'xzKpLearnHeaderRight';
           if (locators) {
             locators.classList.add('xzKpLearnLocatorMini');
-            const sourceLocator = String(kp?.source?.locator || '').trim();
-            const outlineLocator = String(kp?.outline?.locator || '').trim();
-            locators.replaceChildren();
-            if (sourceLocator) {
-              const source = document.createElement('span');
-              source.dataset.kpSourceLocator = '';
-              source.textContent = `Lecture · ${sourceLocator}`;
-              locators.append(source);
-            }
-            if (outlineLocator) {
-              const outline = document.createElement('span');
-              outline.dataset.kpOutlineLocator = '';
-              outline.textContent = `Outline · ${outlineLocator}`;
-              locators.append(outline);
-            }
-            if (locators.childElementCount) right.append(locators);
+            right.append(locators);
           }
           if (nav) right.append(nav);
+          const packet = document.createElement('button');
+          packet.type = 'button';
+          packet.className = 'xzKpPacketButton';
+          packet.textContent = '学习包';
+          packet.title = '下载当前 Block 学习包并上传给 Chat';
+          packet.addEventListener('click', downloadPacket);
+          right.append(packet);
           header.append(right);
         }
 
@@ -446,7 +392,35 @@
           core.dataset.kpLearnCore = '';
         }
 
-        frame.querySelector('.xzKpLearnActions')?.remove();
+        let actions = frame.querySelector('.xzKpLearnActions');
+        if (!(actions instanceof HTMLElement)) {
+          actions = document.createElement('footer');
+          actions.className = 'xzKpLearnActions';
+          actions.innerHTML = `
+            <span>← → 切 KP　·　Space 隐藏 / 显示 Core　·　Enter 这个 KP 学好了</span>
+            <div>
+              <button type="button" data-kp-core-toggle>隐藏 Core</button>
+              <span data-kp-learn-state>学习中</span>
+            </div>
+          `;
+          frame.append(actions);
+        }
+        const study = readStudy();
+        const learned = Boolean(study.learned?.[kpId]);
+        const stateNode = actions.querySelector('[data-kp-learn-state]');
+        if (stateNode) stateNode.textContent = learned ? '已学好' : '学习中';
+
+        const toggle = actions.querySelector('[data-kp-core-toggle]');
+        if (toggle && !toggle.dataset.bound) {
+          toggle.dataset.bound = 'true';
+          toggle.addEventListener('click', () => {
+            const target = frame.querySelector('[data-learner-kp-core]');
+            if (!(target instanceof HTMLElement)) return;
+            target.hidden = !target.hidden;
+            toggle.textContent = target.hidden ? '显示 Core' : '隐藏 Core';
+            frame.classList.toggle('core-hidden', target.hidden);
+          });
+        }
 
         syncLogicMap();
         applyHighlights();
@@ -465,7 +439,7 @@
           detail: { kpId }
         }));
 
-        const next = root.querySelector(`[data-companion-next="${stage}"]`);
+        const next = frame.querySelector(`[data-companion-next="${stage}"]`);
         if (next instanceof HTMLButtonElement && !next.disabled) {
           next.click();
           return true;
@@ -497,17 +471,13 @@
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
           event.preventDefault();
           const attr = event.key === 'ArrowLeft' ? 'data-companion-prev' : 'data-companion-next';
-          const button = root.querySelector(`[${attr}="${stage}"]`);
+          const button = frame.querySelector(`[${attr}="${stage}"]`);
           if (button instanceof HTMLButtonElement && !button.disabled) button.click();
           return;
         }
         if (event.code === 'Space') {
           event.preventDefault();
-          const core = frame.querySelector('[data-learner-kp-core]');
-          if (core instanceof HTMLElement) {
-            core.hidden = !core.hidden;
-            frame.classList.toggle('core-hidden', core.hidden);
-          }
+          frame.querySelector('[data-kp-core-toggle]')?.click();
           return;
         }
         if (event.key === 'Enter') {

@@ -5,10 +5,8 @@ import os from 'node:os';
 import path from 'node:path';
 import {
   acquireDeliveryLock,
-  DEFAULT_CURRENT_BUILD_TIMEOUT_MS,
   DEFAULT_CURRENT_SUBPROCESS_TIMEOUT_MS,
   isProcessAlive,
-  resolveCurrentBuildTimeoutMs,
   resolveCurrentSubprocessTimeoutMs
 } from './currentRelease.mjs';
 
@@ -23,10 +21,6 @@ try {
   assert.equal(resolveCurrentSubprocessTimeoutMs({}), 300_000);
   assert.equal(resolveCurrentSubprocessTimeoutMs({ KIANOS_SUBPROCESS_TIMEOUT_MS: '45000' }), 45_000);
   assert.equal(resolveCurrentSubprocessTimeoutMs({ KIANOS_SUBPROCESS_TIMEOUT_MS: 'invalid' }), 300_000);
-  assert.equal(DEFAULT_CURRENT_BUILD_TIMEOUT_MS, 600_000);
-  assert.equal(resolveCurrentBuildTimeoutMs({}), 600_000);
-  assert.equal(resolveCurrentBuildTimeoutMs({ KIANOS_BUILD_TIMEOUT_MS: '420000' }), 420_000);
-  assert.equal(resolveCurrentBuildTimeoutMs({ KIANOS_BUILD_TIMEOUT_MS: 'invalid' }), 600_000);
 
   const release = await acquireDeliveryLock(lock, { timeoutMs: 50 });
   assert.equal(fs.lstatSync(lock).isDirectory(), true);

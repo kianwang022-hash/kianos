@@ -225,7 +225,6 @@ try {
 
     page.once('dialog', (dialog) => dialog.accept());
     await page.locator('[data-exam-seal]').click();
-    check((await page.locator('[data-exam-home-clock]').textContent())?.trim() === '00:00', 'sealed_clock_not_terminal_immediately');
     check(await page.locator('[data-exam-release]').isVisible(), 'release_button_missing_after_seal');
 
     check(await page.locator('[data-exam-result]').isHidden(), 'result_visible_before_release');

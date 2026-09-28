@@ -1,13 +1,12 @@
 ---
 import fs from 'node:fs';
-import path from 'node:path';
 import crypto from 'node:crypto';
 import { marked } from 'marked';
 import Base from '../layouts/EnglishBase.astro';
 
 const sourcePath = 'content/english/modules/translation/learning.md';
-const sourceFile = path.resolve(process.cwd(), '..', sourcePath);
-const markdown = fs.readFileSync(sourceFile, 'utf8');
+const sourceUrl = new URL(`../../../${sourcePath}`, import.meta.url);
+const markdown = fs.readFileSync(sourceUrl, 'utf8');
 const sourceHash = crypto.createHash('sha256').update(markdown).digest('hex');
 const base = import.meta.env.BASE_URL;
 

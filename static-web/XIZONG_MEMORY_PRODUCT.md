@@ -17,7 +17,7 @@ Today | Core | Precision | Marked | Repair
 
 It is not an `After Learn` panel appended below every Block.
 
-Memory is already integrated downstream of real Block Complete. `XizongBlockV6` owns completion persistence and emits the semantic completion event only after the Current Block state is saved; the Memory release bridge consumes that event and performs idempotent release. Memory does not own or redefine Block-completion semantics.
+Phase 1 deliberately builds the Memory model and `/xizong/memory/` workspace **without modifying `XizongBlockV6` Block Complete**. The Block-complete release bridge is a later integration step so this lane does not conflict with the Block workspace lane.
 
 ## 2｜Persistent learner state
 
@@ -81,11 +81,11 @@ Browse / Recall must display that distinction honestly. Missing isolated answer 
 
 ## 3｜Release is library availability, not Today debt
 
-Real Block Complete releases every canonical KP Core card plus every valid current-owner Precision card and learner Marked fragments for that Block through the existing downstream Memory release bridge.
+Block Complete eventually releases every canonical KP Core card plus every valid current-owner Precision card and learner Marked fragments for that Block.
 
 Release means the objects become available in `Core` / `Precision` / `Marked`. It does **not** mark all of them due today.
 
-The current Study policy does not prescribe a fixed 0-1-3-7 style interval table. Scheduling is therefore deliberately **signal-driven rolling priority**, not a fabricated SRS calendar.
+The current Study policy does not prescribe a fixed 0-1-3-7 style interval table. Therefore Phase-1 scheduling is deliberately **signal-driven rolling priority**, not a fabricated SRS calendar.
 
 Today is rebuilt from current learner evidence:
 
@@ -163,23 +163,17 @@ A mark never mutates canonical Core and never implies the whole KP is weak.
 
 ## 7｜Integration boundary
 
-Current integration is:
+Phase 1 may expose pure functions to create release descriptors and apply an idempotent Block release, but it must not alter the Block completion state machine.
+
+Final integration is:
 
 ```text
 real Block Complete
-→ XizongBlockV6 persists Current Block state
+→ persist Current Block state
 → emit explicit kianos:xizong-block-complete semantic event
-→ Memory release bridge reads the already-resolved Current learner object
-→ build release descriptor
-→ idempotent releaseBlockMemory(...)
+→ build descriptor from the already-resolved Current learner object
+→ releaseBlockMemory(...)
 → return to Block flow
 ```
 
-The bridge also performs an idempotent startup check for a Block that was already completed before the bridge mounted.
-
-Hard boundary:
-- Block Runtime owns whether completion actually happened;
-- Memory consumes only persisted completion and the resolved learner object;
-- Memory must not infer completion from a DOM click, DOM presence, canonical-content existence or repository readiness;
-- replay/reload must not duplicate card identity or manufacture new evidence;
-- changing Memory scheduling/review policy does not authorize changing Block Complete semantics.
+The bridge also performs one idempotent startup check for a Block completed before the bridge mounted. It must remain tiny and downstream of real Block Complete; it must not infer completion from a DOM click, DOM presence or the existence of canonical content.

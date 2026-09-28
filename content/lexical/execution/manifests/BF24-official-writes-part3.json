@@ -1,0 +1,339 @@
+{
+  "schema": "kianos.lexical.bf24_write_fragment.v1",
+  "part": 3,
+  "writes": [
+    {
+      "path": "content/lexical/relations/by-id/e4/e450f59247d03f17226d213f1a839ba113fcc5950f9dbccd8933ff05be5e790e.json",
+      "mode": "patch_json",
+      "expected_sha256": "e6296db4518d85d468a0e38e605ffa35a7aba5f64f65461a6c8c8291533dfc49",
+      "edits": [
+        {
+          "pointer": "/word_views",
+          "value": [
+            {
+              "source_word_id": "word:eminent",
+              "source_ordinal": 1624,
+              "field": "confusables",
+              "index": 0,
+              "payload": {
+                "boundary": "eminent 表杰出；imminent 表即将发生",
+                "codex_reviewed": true,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "C",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:ecdict-spelling:eminent:imminent",
+                    "evidence_status": "source_checked",
+                    "source_locator": "eminent|imminent",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/source_manifest.json",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:confusables:eminent:b2a9125e3a34889b",
+                "family_sources": [],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "confusables",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "codex_reviewed",
+                "shared_definition": null,
+                "source_sense_id": "sense:eminent:9de27487013d5f99",
+                "target_sense_id": "sense:imminent:a98248d5846a5db9",
+                "target_word": "imminent",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false
+              }
+            },
+            {
+              "source_word_id": "word:imminent",
+              "source_ordinal": 2460,
+              "field": "confusables",
+              "index": 0,
+              "payload": {
+                "boundary": "eminent 表杰出、著名且受尊敬；imminent 表即将发生、迫近",
+                "codex_reviewed": true,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "C",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:ecdict-spelling:eminent:imminent",
+                    "evidence_status": "source_checked",
+                    "source_locator": "eminent|imminent",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/source_manifest.json",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:confusables:eminent:b2a9125e3a34889b",
+                "family_sources": [],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "confusables",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "codex_reviewed",
+                "shared_definition": null,
+                "source_sense_id": "sense:imminent:a98248d5846a5db9",
+                "target_sense_id": "sense:eminent:9de27487013d5f99",
+                "target_word": "eminent",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false,
+                "reciprocal_entrypoint": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/relations/by-id/4a/4aa48360a42790431482d9d47c554ef0ea31eceb9c69e19e9615ecdd725f3273.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:incidence|incident:near_form",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:incidence",
+            "source_ordinal": 2487,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:incidence|incident:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "incident",
+              "source_sense_id": "sense:incidence:5eac9f86a97150e8",
+              "target_sense_id": "sense:incident:f0fba07ed4cc5692",
+              "boundary": "incidence means the rate or frequency at which something occurs; incident means a distinct event or occurrence.",
+              "boundaries": [
+                "incidence = 发生率/发生频率; incident = 一次具体事件.",
+                "near spelling; different learner decision"
+              ],
+              "learning_note": "incidence = 发生率/发生频率; incident = 一次具体事件.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:incident",
+            "source_ordinal": 2488,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:incidence|incident:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "incidence",
+              "source_sense_id": "sense:incident:f0fba07ed4cc5692",
+              "target_sense_id": "sense:incidence:5eac9f86a97150e8",
+              "boundary": "incident means a distinct event or occurrence; incidence means the rate or frequency at which something occurs.",
+              "boundaries": [
+                "incident = 一次具体事件; incidence = 发生率/发生频率.",
+                "near spelling; different learner decision"
+              ],
+              "learning_note": "incident = 一次具体事件; incidence = 发生率/发生频率.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF24 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/by-id/d5/d50cdca3618a191fbdc9198248ac1cb8b60b625b475989093c9035c753dba1bf.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:inhabit|inhibit:near_form",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:inhabit",
+            "source_ordinal": 2537,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:inhabit|inhibit:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "inhibit",
+              "source_sense_id": "sense:inhabit:10b834be50d75d71",
+              "target_sense_id": "sense:inhibit:5508b0ea609d5cab",
+              "boundary": "inhabit means to live or dwell in a place; inhibit means to restrain, block, prevent, or slow a function/action.",
+              "boundaries": [
+                "inhabit = 居住于/栖息于; inhibit = 抑制/阻碍.",
+                "near spelling; different learner decision"
+              ],
+              "learning_note": "inhabit = 居住于/栖息于; inhibit = 抑制/阻碍.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:inhibit",
+            "source_ordinal": 2542,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:inhabit|inhibit:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "inhabit",
+              "source_sense_id": "sense:inhibit:5508b0ea609d5cab",
+              "target_sense_id": "sense:inhabit:10b834be50d75d71",
+              "boundary": "inhibit means to restrain, block, prevent, or slow; inhabit means to live or dwell in a place.",
+              "boundaries": [
+                "inhibit = 抑制/阻碍; inhabit = 居住于/栖息于.",
+                "near spelling; different learner decision"
+              ],
+              "learning_note": "inhibit = 抑制/阻碍; inhabit = 居住于/栖息于.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF24 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/by-id/1d/1d38cb2f8f7c30413c5eea663aa4381a14725f15352660a231b366395d694a74.json",
+      "mode": "create_json",
+      "expected_absent": true,
+      "value": {
+        "schema": "kianos.lexical.relation_owner.v1",
+        "relation_id": "relation:confusable:inherent|inherit:near_form",
+        "canonical_record": null,
+        "fact_record": null,
+        "word_views": [
+          {
+            "source_word_id": "word:inherent",
+            "source_ordinal": 2540,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:inherent|inherit:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "inherit",
+              "source_sense_id": "sense:inherent:4237801bec93597c",
+              "target_sense_id": "sense:inherit:08671617e7285e27",
+              "boundary": "inherent means intrinsic or existing as an essential characteristic; inherit means to receive property, status, qualities, or characteristics from another source/predecessor.",
+              "boundaries": [
+                "inherent = 固有的/内在的; inherit = 继承.",
+                "near spelling; different learner decision"
+              ],
+              "learning_note": "inherent = 固有的/内在的; inherit = 继承.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          },
+          {
+            "source_word_id": "word:inherit",
+            "source_ordinal": 2541,
+            "field": "confusables",
+            "index": 0,
+            "payload": {
+              "relation_id": "relation:confusable:inherent|inherit:near_form",
+              "relation_type": "near_form_semantic_confusable",
+              "relation_scope": "lexeme",
+              "target_word": "inherent",
+              "source_sense_id": "sense:inherit:08671617e7285e27",
+              "target_sense_id": "sense:inherent:4237801bec93597c",
+              "boundary": "inherit means to receive property, status, qualities, or characteristics; inherent means intrinsic or naturally/essentially present.",
+              "boundaries": [
+                "inherit = 继承; inherent = 固有的/内在的.",
+                "near spelling; different learner decision"
+              ],
+              "learning_note": "inherit = 继承; inherent = 固有的/内在的.",
+              "priority": "A",
+              "publication_status": "human_gate_approved",
+              "verification_status": "source_checked",
+              "writing_safe": false,
+              "task_tags": [
+                "reading",
+                "cloze",
+                "writing"
+              ]
+            }
+          }
+        ],
+        "provenance": {
+          "materialized_from": "BF24 exact Human Gate 2026-09-22",
+          "semantic_delta": 1
+        }
+      }
+    },
+    {
+      "path": "content/lexical/relations/manifest.json",
+      "mode": "patch_json",
+      "expected_sha256": "86671552f4066d7972355d70f484c7518fcac9dd356439de77f743a5ac9a51f4",
+      "edits": [
+        {
+          "pointer": "/relation_count",
+          "value": 451
+        }
+      ]
+    }
+  ]
+}

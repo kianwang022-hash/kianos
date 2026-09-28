@@ -91,19 +91,6 @@ function safeRelative(pathname, activeRoot) {
   return relative;
 }
 
-const releaseShaCache = new Map();
-function releaseShaForRoot(activeRoot) {
-  if (!activeRoot) return '';
-  if (releaseShaCache.has(activeRoot)) return releaseShaCache.get(activeRoot);
-  let sha = '';
-  try {
-    const identity = JSON.parse(fs.readFileSync(path.join(activeRoot, '__kianos-current.json'), 'utf8'));
-    sha = typeof identity?.sha === 'string' ? identity.sha.trim() : '';
-  } catch {}
-  releaseShaCache.set(activeRoot, sha);
-  return sha;
-}
-
 function resolveStatic(pathname, activeRoot) {
   const relative = safeRelative(pathname, activeRoot);
   if (relative == null) return null;
@@ -119,7 +106,7 @@ function resolveStatic(pathname, activeRoot) {
   for (const file of candidates) {
     try {
       const stat = fs.statSync(file);
-      if (stat.isFile()) return { file, stat, root: activeRoot };
+      if (stat.isFile()) return { file, stat };
     } catch {}
   }
   return null;
@@ -134,9 +121,7 @@ function contentType(pathname, file) {
 function sendFile(req, res, pathname, resolved, { status = 200, cache = null } = {}) {
   const { file, stat } = resolved;
   const range = String(req.headers.range || '');
-  const servedReleaseSha = releaseShaForRoot(resolved.root);
   res.setHeader('content-type', contentType(pathname, file));
-  if (servedReleaseSha) res.setHeader('x-kianos-release-sha', servedReleaseSha);
   res.setHeader('x-content-type-options', 'nosniff');
   res.setHeader('accept-ranges', 'bytes');
   res.setHeader('cache-control', cache || (pathname.startsWith('/_astro/')
@@ -239,12 +224,6 @@ function staticFallback(req, res) {
     return res.end('Current build unavailable');
   }
 
-  const legacyVocabularyWord = url.pathname.match(/^\/vocabulary\/(\d+)\/?$/);
-  if (legacyVocabularyWord) {
-    const wordRuntime = resolveStatic('/vocabulary/word/', activeRoot);
-    if (wordRuntime) return sendFile(req, res, url.pathname, wordRuntime);
-  }
-
   const resolved = resolveStatic(url.pathname, activeRoot);
   if (resolved) return sendFile(req, res, url.pathname, resolved);
 
@@ -292,18 +271,15 @@ const bridgeServer = { middlewares, httpServer: server };
 const [
   { privateLearnerBridge },
   { privateExternalReadingBridge },
-  { privateEnglishGeneratedBridge },
   { privateControlBridge }
 ] = await Promise.all([
   import('./privateLearnerBridge.mjs'),
   import('./privateExternalReadingBridge.mjs'),
-  import('./privateEnglishGeneratedBridge.mjs'),
   import('./privateControlBridge.mjs')
 ]);
 for (const bridge of [
   privateLearnerBridge(),
   privateExternalReadingBridge(),
-  privateEnglishGeneratedBridge(),
   privateControlBridge()
 ]) {
   bridge.configureServer?.(bridgeServer);

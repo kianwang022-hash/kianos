@@ -87,7 +87,6 @@ Historical screenshots and named products are evidence only. They never restore 
 - Preserve interrupted context and a clear return path across approved surface/tool handoffs.
 - Text is the safe default representation; use diagrams/arrows only when they reduce real reconstruction cost without inventing meaning.
 - Rich backend state should disappear behind simple frontstage behavior; do not expose structure merely because it exists.
-- Frontstage language and information architecture must stay task-native. Backend routing / owner / Projection / adapter / unit / ledger / mapping / build/status vocabulary must not become learner-facing navigation, hierarchy or chrome unless that concept is itself part of the learning task. Internal complexity should collapse into natural actions such as “继续原讲义”, “回忆”, “查看原图”, “下一学习节” and “返回原位置”.
 
 ## 5｜Accepted exam-workspace geometry requirements
 

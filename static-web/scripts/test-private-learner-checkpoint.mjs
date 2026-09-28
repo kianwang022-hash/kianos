@@ -360,8 +360,6 @@ assert.equal(corruptXizong.getItem(xizongStudyKey), '{not-json', 'raw corrupt lo
 const englishExposureKey = 'kianos-english-material-exposure-v1';
 const externalAttemptKey = 'kianos-english-external-reading-attempt-v1:tpo56-p1';
 const lexicalLedgerKey = 'kianos-lexical-evidence-ledger-v2';
-const lexicalNoteKey = 'kianos-lexical-note-v1:word:absorb';
-const lexicalNote = 'checkpoint-note';
 const englishExposure = {
   schema: 'kianos.english.material-exposure.v1',
   materials: {
@@ -525,7 +523,6 @@ const combinedSource = new MemoryStorage({
   [englishExposureKey]: JSON.stringify(englishExposure),
   [externalAttemptKey]: JSON.stringify(externalAttempt),
   [lexicalLedgerKey]: JSON.stringify(lexicalLedger),
-  [lexicalNoteKey]: lexicalNote,
   [PRACTICE_KEYS.attempts]: JSON.stringify(politicsAttempts),
   [PRACTICE_KEYS.meta]: JSON.stringify(politicsMeta),
   [PRACTICE_KEYS.evidence]: JSON.stringify(politicsEvidence),
@@ -546,8 +543,6 @@ assert.equal(combinedSaved.payload.subjects.xizong.schema, 'kianos.xizong.privat
 assert.equal(combinedSaved.payload.subjects.english.schema, 'kianos.english.private-payload.v1');
 assert.equal(combinedSaved.payload.subjects.politics.schema, 'kianos.politics.private-payload.v1');
 assert.equal(combinedSaved.payload.subjects.lexical.schema, 'kianos.lexical.private-payload.v1');
-assert.equal(combinedSaved.payload.subjects.lexical.entries[lexicalNoteKey], lexicalNote,
-  'Lexical Note stays an opaque native string inside private checkpoint transport');
 assert.ok(combinedSaved.payload.subjects.politics.entries[PRACTICE_KEYS.attempts],
   'Politics attempts must be captured by the shared Politics checkpoint');
 assert.ok(combinedSaved.payload.subjects.english.entries[externalAttemptKey],
@@ -566,8 +561,6 @@ assert.equal(combinedRestored.subjects.lexical.status, 'restored');
 assert.equal(JSON.parse(combinedRestore.getItem(externalAttemptKey)).binding.object_id, 'tpo56-p1');
 assert.equal(JSON.parse(combinedRestore.getItem(englishExposureKey)).materials['tpo56-p1'].object_id, 'tpo56-p1');
 assert.equal(JSON.parse(combinedRestore.getItem(lexicalLedgerKey)).schema, 'kianos.lexical.evidence_ledger.v2');
-assert.equal(combinedRestore.getItem(lexicalNoteKey), lexicalNote,
-  'Lexical Note restores byte-for-byte without being reinterpreted as JSON');
 assert.equal(JSON.parse(combinedRestore.getItem(PRACTICE_KEYS.attempts)).units['marxism/c01/u01'].attempts.P1.outcome, 'UNCERTAIN');
 
 const englishConflict = new MemoryStorage({

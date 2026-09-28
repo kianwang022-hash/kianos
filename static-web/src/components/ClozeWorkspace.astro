@@ -74,11 +74,214 @@ function optionEntries(options) {
 </section>
 
 <script>
-  import { initClozeRuntime } from '../lib/clozeRuntime.mjs';
+  import {inspectEnglishAttempt, saveEnglishAttempt, archiveEnglishAttempt, taskMetadata, preserveEnglishFailure} from "../lib/englishLearnerEvidence.mjs";
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
-    document.querySelectorAll('[data-objective-root][data-objective-task="cloze"]').forEach((root) => {
-      if (root instanceof HTMLElement && !root.hasAttribute('data-generated-cloze')) initClozeRuntime(root);
+
+  document.querySelectorAll('[data-objective-root][data-objective-task="cloze"]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const baseStorageKey = root.getAttribute('data-objective-storage-key') || '';
+    const examSessionId = new URLSearchParams(location.search).get('exam_session') || '';
+    const objectId = root.getAttribute('data-objective-object') || '';
+    const storageKey = examSessionId
+      ? `kianos-english-exam-task-v1:${examSessionId}:cloze:${objectId}`
+      : baseStorageKey;
+    const rows = [...root.querySelectorAll('[data-objective-question]')];
+    const jumps = [...root.querySelectorAll('[data-cloze-jump]')];
+    const uncertainButton = root.querySelector('[data-cloze-uncertain]');
+    const submit = root.querySelector('[data-objective-submit]');
+    let active = 0;
+
+    const normalizeAnswer = (value) => Array.isArray(value)
+      ? value.map(String)
+      : value === null || value === undefined || value === '' ? [] : [String(value)];
+    const idOf = (row) => row.getAttribute('data-objective-question') || '';
+    const now = () => new Date().toISOString();
+    const blankState = () => ({
+      schema: 'kianos.english.cloze_attempt.v1',
+      objectId: root.getAttribute('data-objective-object') || '',
+      startedAt: now(),
+      submittedAt: null,
+      submitted: false,
+      answers: {},
+      uncertain: [],
+      trajectory: {},
+      results: {}
     });
+    const metadata=taskMetadata(root,"cloze",objectId);
+    const inspected=inspectEnglishAttempt(localStorage,storageKey,metadata,{sessionId:examSessionId,root});
+    const read = () => {
+      try {
+        const saved = inspected;
+        return saved?.objectId === root.getAttribute('data-objective-object') ? { ...blankState(), ...saved } : blankState();
+      } catch { return blankState(); }
+    };
+    let state = read();
+    const save = () => saveEnglishAttempt(localStorage,storageKey,state,metadata,{sessionId:examSessionId,root});
+    save();
+
+    const formalOf = (row) => {
+      try { return normalizeAnswer(JSON.parse(row.getAttribute('data-answer') || '""')); }
+      catch { return []; }
+    };
+
+    const render = () => {
+      rows.forEach((row, index) => {
+        // Every blank stays visible; active only determines focus / Uncertain targeting.
+        row.hidden = false;
+        row.classList.toggle('is-current', index === active);
+        const id = idOf(row);
+        row.querySelectorAll('[data-cloze-option]').forEach((button) => {
+          const value = button.getAttribute('data-value') || '';
+          button.classList.toggle('selected', state.answers?.[id] === value);
+          button.toggleAttribute('disabled', Boolean(state.submitted));
+          button.classList.remove('result-correct', 'result-wrong');
+          if (state.submitted) {
+            const formal = formalOf(row);
+            button.classList.toggle('result-correct', formal.includes(value));
+            button.classList.toggle('result-wrong', state.answers?.[id] === value && !formal.includes(value));
+          }
+        });
+        const formalLine = row.querySelector('[data-objective-formal]');
+        if (formalLine instanceof HTMLElement) {
+          formalLine.hidden = !state.submitted;
+          const strong = formalLine.querySelector('strong');
+          if (strong) strong.textContent = formalOf(row).join(', ') || '—';
+        }
+      });
+      jumps.forEach((jump, index) => {
+        const id = idOf(rows[index]);
+        jump.classList.toggle('active', index === active);
+        jump.classList.toggle('answered', Boolean(state.answers?.[id]));
+        jump.classList.toggle('uncertain', (state.uncertain || []).includes(id));
+        jump.classList.toggle('wrong', state.submitted && ['wrong', 'unanswered'].includes(state.results?.[id]));
+      });
+      const id = idOf(rows[active]);
+      if (uncertainButton instanceof HTMLButtonElement) {
+        uncertainButton.classList.toggle('active', (state.uncertain || []).includes(id));
+        uncertainButton.disabled = Boolean(state.submitted);
+      }
+      const label = root.querySelector('[data-cloze-active-label]');
+      const progress = root.querySelector('[data-cloze-progress]');
+      if (label) label.textContent = `Blank ${active + 1}`;
+      if (progress) progress.textContent = `${active + 1} / ${rows.length}`;
+      const count = Object.values(state.answers || {}).filter(Boolean).length;
+      const countNode = root.querySelector('[data-cloze-answer-count]');
+      if (countNode) countNode.textContent = `${count} / ${rows.length} answered`;
+      root.querySelector('[data-cloze-prev]')?.toggleAttribute('disabled', active <= 0);
+      root.querySelector('[data-cloze-next]')?.toggleAttribute('disabled', active >= rows.length - 1);
+      if (submit instanceof HTMLButtonElement) {
+        submit.hidden = Boolean(state.submitted);
+      }
+      const result = root.querySelector('[data-objective-result-summary]');
+      if (result instanceof HTMLElement) {
+        result.hidden = !state.submitted;
+        if (state.submitted) {
+          const score = Object.values(state.results || {}).filter((value) => value === 'correct').length;
+          const scoreNode = result.querySelector('[data-objective-score]');
+          const note = result.querySelector('[data-objective-result-note]');
+          if (scoreNode) scoreNode.textContent = `${score} / ${rows.length}`;
+          if (note) note.textContent = score === rows.length && !(state.uncertain || []).length
+            ? 'Clean pass · 不强制复盘。'
+            : '整篇进入 review；先看共同根因，再决定局部 repair。';
+        }
+      }
+    };
+
+    rows.forEach((row, index) => {
+      const focusRow = () => { if (active !== index) { active = index; render(); } };
+      row.addEventListener('pointerdown', focusRow);
+      row.addEventListener('focusin', focusRow);
+      row.querySelectorAll('[data-cloze-option]').forEach((button) => {
+        button.addEventListener('click', () => {
+          if (state.submitted) return;
+          active = rows.indexOf(row);
+          const id = idOf(row);
+          const answer = button.getAttribute('data-value') || '';
+          state.answers[id] = answer;
+          state.trajectory[id] ||= [];
+          const last = state.trajectory[id][state.trajectory[id].length - 1]?.answer;
+          if (last !== answer) state.trajectory[id].push({ answer, at: now() });
+          save();
+          render();
+        });
+      });
+    });
+
+    uncertainButton?.addEventListener('click', () => {
+      if (state.submitted) return;
+      const id = idOf(rows[active]);
+      const uncertain = new Set(state.uncertain || []);
+      uncertain.has(id) ? uncertain.delete(id) : uncertain.add(id);
+      state.uncertain = [...uncertain];
+      save();
+      render();
+    });
+    root.querySelector('[data-cloze-prev]')?.addEventListener('click', () => { active = Math.max(0, active - 1); render(); rows[active]?.scrollIntoView({ block: 'nearest' }); });
+    root.querySelector('[data-cloze-next]')?.addEventListener('click', () => { active = Math.min(rows.length - 1, active + 1); render(); rows[active]?.scrollIntoView({ block: 'nearest' }); });
+    jumps.forEach((jump, index) => jump.addEventListener('click', () => { active = index; render(); rows[active]?.scrollIntoView({ block: 'nearest' }); }));
+
+    submit?.addEventListener('click', () => {
+      if (state.submitted || root.getAttribute('data-objective-answers-ready') !== 'true') return;
+      const results = {};
+      rows.forEach((row) => {
+        const id = idOf(row);
+        const selected = String(state.answers?.[id] || '');
+        const formal = formalOf(row);
+        results[id] = !selected ? 'unanswered' : formal.includes(selected) ? 'correct' : 'wrong';
+      });
+      state.results = results;
+      state.submitted = true;
+      state.submittedAt = now();
+      save();
+      render();
+      root.dispatchEvent(new CustomEvent('kianos:objective-submitted', { bubbles: true }));
+    });
+
+    render();
+    if (state.submitted) root.dispatchEvent(new CustomEvent('kianos:objective-submitted', { bubbles: true }));
+  });
+
   });
 </script>
+
+<style>
+  .clozeRuntime{max-width:96rem;margin:0 auto;display:grid;gap:10px}
+  .clozeRuntimeHeader{display:flex;justify-content:space-between;gap:20px;align-items:end;padding:14px 18px;border:1px solid var(--study-line);border-radius:12px;background:#fff}
+  .clozeRuntimeHeader>div:first-child{display:grid;gap:3px}
+  .clozeRuntimeHeader span,.clozePassage header span,.clozeDecisionTop span{font-size:9px;font-weight:850;letter-spacing:.08em;color:var(--study-green)}
+  .clozeRuntimeHeader h2{margin:0;font-size:21px;line-height:1.2}
+  .clozeRuntimeHeader small{color:var(--study-faint)}
+  .clozeProgress{display:grid;text-align:right;gap:2px}.clozeProgress strong{font-size:14px}.clozeProgress span{color:var(--study-muted);font-size:10px}
+  .clozeLayout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(500px,.95fr);gap:10px;height:calc(100vh - 182px);min-height:560px;align-items:stretch}
+  .clozePassage,.clozeDecision{min-height:0;border:1px solid var(--study-line);border-radius:12px;background:#fff;box-shadow:var(--study-shadow)}
+  .clozePassage{padding:22px 26px;overflow:auto}
+  .clozePassage header{display:flex;justify-content:space-between;gap:12px;margin-bottom:16px;position:sticky;top:-22px;padding:12px 0 10px;background:#fff;z-index:2}
+  .clozePassage header strong{font-size:10px;color:var(--study-muted)}
+  .clozePassage p{margin:0 0 1em;font-size:15px;line-height:1.86}.clozeMaterialFallback{color:var(--study-muted)}
+  .clozeDecision{display:flex;flex-direction:column;overflow:auto;padding:0}
+  .clozeDecisionTop{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 14px;border-bottom:1px solid var(--study-line);background:rgba(255,255,255,.97);backdrop-filter:blur(8px)}
+  .clozeDecisionTop>div{display:flex;align-items:baseline;gap:9px}.clozeDecisionTop strong{font-size:10px;color:var(--study-muted);font-weight:750}
+  .clozeDecisionTop button{padding:5px 8px;border:1px solid var(--study-line);border-radius:7px;background:#fff;color:var(--study-muted);font:inherit;font-size:9.5px}
+  .clozeDecisionTop button.active{border-color:var(--study-green);background:var(--study-green-soft);color:var(--study-green)}
+  .clozeQuestions{display:grid}
+  .clozeQuestion{display:grid;grid-template-columns:68px minmax(0,1fr);gap:7px 10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--study-line);transition:background .12s ease}
+  .clozeQuestion.is-current{background:#fbfcfb}
+  .clozeQuestion>p:first-child{margin:0;font-size:11px;line-height:1.35;color:#536159;font-weight:800}
+  .clozeOptions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+  .clozeOptions button{display:grid;grid-template-columns:18px minmax(0,1fr);gap:5px;text-align:left;align-items:start;min-width:0;padding:7px 7px;border:1px solid transparent;border-radius:7px;background:transparent;color:inherit;font:inherit;cursor:pointer}
+  .clozeOptions button:hover{background:#f7faf8;border-color:var(--study-line)}
+  .clozeOptions button b{color:var(--study-green);font-size:10px;line-height:1.45}
+  .clozeOptions button span{min-width:0;font-size:11px;line-height:1.45;overflow-wrap:anywhere}
+  .clozeOptions button.selected{border-color:var(--study-green);background:var(--study-green-soft)}
+  .clozeOptions button.result-correct{outline:1px solid var(--study-green);outline-offset:-1px}
+  .clozeOptions button.result-wrong{border-style:dashed}
+  .clozeFormal{grid-column:2;margin:1px 0 0;color:var(--study-muted);font-size:9.5px}
+  .clozeNav{display:none}
+  .clozeSubmitRow{position:sticky;bottom:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding:11px 14px;border-top:1px solid var(--study-line);background:rgba(255,255,255,.97);backdrop-filter:blur(8px)}
+  .clozeSubmitRow span{color:var(--study-muted);font-size:10px}.clozeSubmit{padding:8px 13px;border:1px solid var(--study-green);border-radius:8px;background:var(--study-green);color:#fff;font:inherit;font-weight:850}
+  .clozeResult{margin:0 14px 12px;padding:10px 12px;border-radius:9px;background:var(--study-green-soft);display:grid;gap:3px}.clozeResult strong{font-size:17px}.clozeResult span{font-size:10px;color:var(--study-muted)}
+  @media(max-width:1100px){.clozeLayout{grid-template-columns:minmax(0,1fr) minmax(440px,.9fr)}}
+  @media(max-width:900px){.clozeLayout{grid-template-columns:1fr;height:auto;min-height:0}.clozePassage,.clozeDecision{max-height:none;overflow:visible}.clozePassage header,.clozeDecisionTop,.clozeSubmitRow{position:static}.clozeRuntimeHeader{align-items:start}.clozeProgress{display:none}.clozeQuestion{grid-template-columns:58px minmax(0,1fr)}}
+  @media(max-width:660px){.clozeRuntimeHeader{display:grid}.clozePassage{padding:18px}.clozeDecisionTop{padding:10px 12px}.clozeQuestion{grid-template-columns:1fr;padding:11px 12px}.clozeOptions{grid-template-columns:repeat(2,minmax(0,1fr))}.clozeFormal{grid-column:1}}
+</style>

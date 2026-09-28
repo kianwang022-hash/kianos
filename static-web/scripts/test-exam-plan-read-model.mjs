@@ -47,47 +47,6 @@ assert.equal(chatModel.presentation.scheduleBlocks[0].start, '09:00');
 assert.equal(chatModel.capacity.judgment.state, 'REDUCED');
 assert.match(chatModel.capacity.judgment.action, /恢复后/);
 
-const referenceModel = buildChatControlledExamReadModel({
-  day: '2026-09-17',
-  dayCapacity: 480,
-  chatPlanState: {
-    status: 'reference',
-    error: 'CHAT_PLAN_EVIDENCE_BASIS_STALE',
-    plan: {
-      schema: 'kianos.exam.chat-plan.v1',
-      study_day: '2026-09-17',
-      generated_at: '2026-09-17T01:00:00.000Z',
-      subjects: {
-        xizong: { target_minutes: 240, role: '主推进', note: '已采用', session_ref: 'old-xz-session' },
-        english: { target_minutes: 90, role: '保连续', note: '', session_ref: null },
-        politics: { target_minutes: 30, role: '稳推进', note: '', session_ref: null }
-      },
-      next_subject: 'xizong',
-      attention: { text: '旧依据下的策略提醒', action: '旧动作' },
-      capacity: null,
-      presentation: {
-        today_tasks: [{ id: 'adopted-xz', subject: 'xizong', label: '已采用西综任务', note: '' }],
-        week_reference: [],
-        schedule_blocks: [{ id: 'adopted-block', subject: 'xizong', start: '14:00', end: '16:00', label: '西综', detail: '已采用时间块' }]
-      }
-    }
-  },
-  nativeContinue: {
-    xizong: { href: '/kianos/xizong/', title: '西综' },
-    english: { href: '/kianos/english/', title: 'English' },
-    politics: { href: '/kianos/politics/', title: '政治' }
-  }
-});
-assert.equal(referenceModel.control.planStatus, 'reference');
-assert.equal(referenceModel.subjects.xizong.role, '主推进', 'adopted subject plan remains visible');
-assert.equal(referenceModel.subjects.xizong.targetMinutes, 240, 'adopted target remains visible');
-assert.equal(referenceModel.presentation.todayTasks[0].id, 'adopted-xz', 'adopted today task remains visible');
-assert.equal(referenceModel.presentation.scheduleBlocks[0].id, 'adopted-block', 'adopted schedule remains visible');
-assert.equal(referenceModel.next, null, 'stale basis cannot auto-select next work');
-assert.equal(referenceModel.subjects.xizong.continue.href, '/kianos/xizong/', 'stale basis falls back to native Continue');
-assert.match(referenceModel.attention.text, /已采用的安排继续保留/, 'stale basis shows neutral reference notice');
-assert.doesNotMatch(referenceModel.attention.text, /旧依据下的策略提醒/, 'stale strategy guidance is not reused');
-
 console.log('PASS exam plan read model');
 
 

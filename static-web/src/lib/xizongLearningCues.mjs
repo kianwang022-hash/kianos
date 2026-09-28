@@ -6,8 +6,6 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
   : path.resolve(process.cwd(), '..');
 
 const LEARNER_ROOT = 'content/xizong/knowledge/learner';
-const BUILD_CACHE_ENABLED = process.env.KIANOS_XIZONG_BUILD_CACHE === '1';
-const learningCuesCache = new Map();
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -17,14 +15,9 @@ export function loadXizongLearningCues(system) {
   const canonicalId = String(system?.canonicalId || '').toLowerCase();
   const systemId = String(system?.systemId || '');
   if (!canonicalId || !systemId) return null;
-  const cacheKey = `${canonicalId}:${systemId}`;
-  if (BUILD_CACHE_ENABLED && learningCuesCache.has(cacheKey)) return learningCuesCache.get(cacheKey);
 
   const sourcePath = `${LEARNER_ROOT}/${canonicalId}-${systemId}-learning-cues.json`;
-  if (!fs.existsSync(absolute(sourcePath))) {
-    if (BUILD_CACHE_ENABLED) learningCuesCache.set(cacheKey, null);
-    return null;
-  }
+  if (!fs.existsSync(absolute(sourcePath))) return null;
 
   const raw = JSON.parse(fs.readFileSync(absolute(sourcePath), 'utf8'));
   if (raw?.status !== 'CURRENT' || !String(raw?.authority || '').startsWith('CHAT_APPROVED')) {
@@ -49,14 +42,12 @@ export function loadXizongLearningCues(system) {
     }
   }
 
-  const result = {
+  return {
     sourcePath,
     rules: raw.rules || {},
     precisionIndex: Array.isArray(raw.precision_index) ? raw.precision_index : [],
     visualBindings: Array.isArray(raw.visual_bindings) ? raw.visual_bindings : []
   };
-  if (BUILD_CACHE_ENABLED) learningCuesCache.set(cacheKey, result);
-  return result;
 }
 
 export function learningCuesForBlock(cues, block) {

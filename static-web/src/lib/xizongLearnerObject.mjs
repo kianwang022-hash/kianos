@@ -12,39 +12,9 @@ function text(value) {
   return String(value || '');
 }
 
-function blockAttentionRows(block) {
-  const rows = [];
-  let index = 0;
-  const primaryStageCues = new Set([
-    text(block?.attention?.currentProblem).trim(),
-    text(block?.attention?.minimalModel).trim()
-  ].filter(Boolean));
-  const push = (role, value, source) => {
-    const cue = text(value?.text || value?.label || value?.cue || value).trim();
-    if (!cue) return;
-    if (role === 'CURRENT_TAKEAWAY' && primaryStageCues.has(cue)) return;
-    rows.push({
-      id: `${text(block?.blockId)}:attention:${++index}`,
-      kind: 'ATTENTION',
-      attentionRole: role,
-      cue,
-      displayPolicy: { timing: 'BLOCK_ORIENT' },
-      raw: { source }
-    });
-  };
-  for (const row of array(block?.attention?.carryNow)) push('CURRENT_TAKEAWAY', row, 'ATTENTION_CARRY_NOW');
-  for (const row of array(block?.attention?.canDefer)) push('DEFERRED_MEMORY', row, 'ATTENTION_CAN_DEFER');
-  for (const row of array(block?.attention?.laterConnections)) push('FUTURE_CONNECTION', row, 'ATTENTION_LATER_CONNECTION');
-  return rows;
-}
-
 function byAnchor(rows, field, value) {
   if (!value) return [];
   return array(rows).filter((row) => row?.anchor?.[field] === value);
-}
-
-function attentionByKp(block, kpId) {
-  return array(block?.semanticAttentionCues).filter((row) => row?.anchor?.kpId === kpId);
 }
 
 function extensionsByOwner(rows, field, value) {
@@ -58,7 +28,6 @@ function normalizeCue(row, kind) {
     kind,
     answerBearing: row?.answer_bearing === true || row?.answerBearing === true,
     displayPolicy: row?.display_policy || row?.displayPolicy || null,
-    attentionRole: text(row?.attention_role || row?.attentionRole),
     anchor: row?.anchor ? { ...row.anchor } : {},
     cue: text(row?.cue || row?.task || row?.micro_task),
     task: text(row?.task || row?.micro_task),
@@ -181,11 +150,9 @@ function buildKpObject(block, kp, learningCues, extensionAssets, pathways) {
   const visual = byAnchor(learningCues?.visuals, 'kp_id', kp.kpId).map((row) => normalizeCue(row, 'VISUAL'));
   const extension = extensionsByOwner(extensionAssets, 'kp_id', kp.kpId).map(normalizeExtension);
   const connection = connectionRowsForOwner(pathways, 'kp_id', kp.kpId);
-  const attention = attentionByKp(block, kp.kpId).map((row) => ({ ...row }));
   uniqueIds(precision, `${kp.kpId}:precision`);
   uniqueIds(visual, `${kp.kpId}:visual`);
   uniqueIds(extension, `${kp.kpId}:extension`);
-  uniqueIds(attention, `${kp.kpId}:attention`);
 
   const object = {
     schema: XIZONG_LEARNER_OBJECT_SCHEMA,
@@ -218,8 +185,7 @@ function buildKpObject(block, kp, learningCues, extensionAssets, pathways) {
     precision,
     visual,
     extension,
-    connection,
-    attention
+    connection
   };
   object.learnSteps = learnSteps(object);
   object.recall = recallProjection(object);
@@ -314,11 +280,9 @@ export function buildXizongLearnerObject({
     kps: kpObjects,
     slots: {
       blockOrientation: blockExtensions,
-      blockAttention: blockAttentionRows(block),
       logicGroupPrelearn: Object.fromEntries(groups.map((group) => [group.identity.logicGroupId, group.slots.prelearn])),
       logicGroupPostlearn: Object.fromEntries(groups.map((group) => [group.identity.logicGroupId, group.slots.postlearn])),
       kpLearnAux: Object.fromEntries(kpObjects.map((kp) => [kp.identity.kpId, {
-        attention: kp.attention,
         visual: kp.visual,
         precision: kp.precision,
         extension: kp.extension,

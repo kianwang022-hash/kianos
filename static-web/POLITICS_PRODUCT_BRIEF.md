@@ -1,9 +1,9 @@
 # Politics Visual / Surface Blueprint
 
 Status: **CURRENT — ACCEPTED POLITICS VISUAL / SURFACE BLUEPRINT OWNER**  
-Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/UI_STYLE_BRIEF.md` + `static-web/KIAN_UI_PREFERENCES.md`
-Surface split parent: `static-web/PRODUCT_SURFACE_CONTRACT.md`
-Parent cursor: `static-web/CURRENT.md`
+Parent cursor: `static-web/CURRENT.md`  
+Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
+Style owner: `static-web/UI_STYLE_BRIEF.md`
 
 This file records accepted learner-visible Politics product decisions while Kian and Sol review the Politics family surface-by-surface. It does not change Politics learning/evidence semantics.
 
@@ -14,8 +14,7 @@ This file records accepted learner-visible Politics product decisions while Kian
 Preserve the Current first-round chain:
 
 ```text
-optional whole-subject rapid framework orientation
-→ Orientation / current Natural Unit
+Orientation / current Natural Unit
 → Chengfeng continuous study on iPad / MarginNote
 → optional close / checkpoint
 → single Xiao1000 Workbench
@@ -37,13 +36,18 @@ The learner-facing UI must reduce cognitive friction in large-text / high-densit
 
 ---
 
-## Global Home boundary
+## KianOS Global Home — accepted directional note relevant to Politics
 
-Global Home information architecture is owned by `static-web/PRODUCT_SURFACE_CONTRACT.md`, not by Politics.
+Kian accepted the current overall exam Home direction:
 
-Politics contributes only its subject-native read-only entry/Resume projection and any genuinely actionable Politics attention supported by private learner evidence. Politics must not redefine global L1 navigation, whole-exam composition, cross-subject priority or Home progress semantics inside this Product Brief.
+```text
+KianOS Home
+→ one meaningful Continue
+→ three exam-subject entries: Xizong / English / Politics
+→ Lexical as secondary tool/supply lane
+```
 
-Deep Politics structure begins after entering Politics.
+Global Home should remain simple and should not expose Politics chapter directories, learning-architecture explanations, engineering status or fake progress dashboards. Deep Politics structure begins after entering Politics.
 
 ---
 
@@ -203,74 +207,242 @@ The acceptance test for this surface is therefore:
 
 ---
 
-## Politics Learn — accepted Current model
+## Core unresolved Politics UI problem
 
-The former Cognitive Projection design/pilot stage is **historical construction context, not Current work**. Current Politics first-round learner-facing integration has been implemented and accepted for its tested boundaries; current readiness details live in `content/politics/ACCEPTANCE.md`, and active engineering analysis lives only in `content/politics/CURRENT.md` / its bound Issue when one exists.
+The next design problem is not navigation. It is the main Politics learning workspace under **large text volume + multiple semantic layers**.
 
-The accepted learner-facing chain is:
+The product must deliberately reduce learning barriers through:
 
-~~~text
-Current Politics Content / Learning Logic
-→ explicit Surface Mapping
-→ resolved learner state payload
-→ Politics Learn / Workbench Runtime
-→ private Evidence / Review / Return
-~~~
+- text hierarchy;
+- attention allocation;
+- visible logic / relation structure;
+- readable typography and line length;
+- progressive disclosure of secondary detail;
+- preservation of subject-specific cognitive geometry;
+- clear handoff between Mac structure/verification and iPad continuous Chengfeng reading;
+- minimal context loss across Orientation → source study → Verify → Repair → Return.
 
-Product requirements that remain durable:
+This must be solved before mass-projecting the existing Marxism C00 reference workspace to other chapters/subjects.
 
-- Politics Learn exposes one compact whole-subject framework from the exact Current subject-map Surface Mapping before the chapter list, so Kian can acquire/recover the skeleton quickly without creating a second course; the page consumes the resolved plan and never infers political relations from raw subject-map fields;
-- once that skeleton plus the relevant first Source pass is stable, the product should not encourage repeated framework/lecture rereading by default; later effort shifts toward retrieval, admitted Memory/Precision and Xiao1000 evidence, with only the smallest justified source repair reopening;
-- the five subjects keep distinct cognitive shapes rather than collapsing into one generic article/card template;
-- the renderer consumes explicit Surface Mapping and must not infer political relations from raw fields, Projection shape names or DOM structure;
-- high-text learning reduces friction through attention allocation, relation visibility, readable hierarchy and progressive disclosure rather than by deleting meaningful Content;
-- Chengfeng remains the continuous first-round original-surface mainline where owned; KianOS remains orientation/selective cognition/verification/repair companion rather than a second full lecture reader;
-- Natural Unit identity, clean Xiao1000 attempt, Wrong/Uncertain evidence, Review, exact Return and Resume remain behaviorally preserved;
-- stable/correct work stays cheap and visually quiet;
-- learner-facing engineering/projection vocabulary stays backstage.
+Do not treat "large text" as merely a CSS typography problem. The question is **what the learner sees first, what stays visible, what is deferred, and how the logic of the content is visually encoded**.
 
-### Current representation boundary
+---
 
-Semantic composition belongs upstream in `content/politics/SURFACE_MAPPING_CONTRACT.md` and exact Projection owners.
+# Design Stage Goal｜Cognitive Projection Layer
 
-The Website owns only faithful product presentation of the resolved mapping:
+Status: **ACTIVE DESIGN TARGET — no mass implementation yet**
 
-~~~text
-owned learner payload / relation type / grouping
-→ responsive composition
-→ readable typography / spacing / geometry
-→ real-browser interaction
-~~~
+The current design stage is not to hand-layout every Politics chapter and not to redesign Politics Learning Logic. The goal is to freeze a **data-driven Cognitive Projection Layer** that can turn accepted Current Content into lower-friction learner-facing cognitive structures while preserving the existing Runtime / Evidence / Repair / Return chain.
 
-If mapped learner meaning is missing or wrong, reopen the exact Surface Mapping / Content owner. Do not patch new meaning into CSS/components.
+## Stage objective
 
-### Current UI optimization boundary
+```text
+Current Content
+→ subject-specific semantic projection
+→ stable Cognitive ViewModel
+→ reusable cognitive components
+→ shared Mac-wide workspace shell
+→ existing Runtime / Evidence / Repair / Return
+```
 
-For any local Politics UI optimization, use `POLITICS_UI_REVIEW_PROTOCOL.md`:
+The design is accepted only if the resulting system can render many chapters from Current data without page-by-page bespoke artwork and without flattening all Politics subjects into one generic template.
 
-~~~text
-whole learner loop
-→ exact Current mapped owner/state
-→ KEEP / OPTIMIZE / RESTORE_FROM_SURFACE_MAPPING / DEMOTE
-→ smallest product/visual delta
-→ real-browser proof
-→ applicable Acceptance / Human Gate
-~~~
+## Design-stage scope
 
-A local optimization may improve hierarchy, geometry, responsive layout, scroll behavior or attention weight. It may not silently change Learning Logic, Source ownership, relation semantics, Evidence meaning, Repair admission or Return identity.
+### A｜Freeze the shared Attention Architecture
 
-### Current work boundary
+Define the default visual priority model for high-text Politics learning:
 
-Do not derive active work from historical design-stage prose.
+```text
+L0  current learner problem / question
+L1  decisive relation / causal / hierarchy structure
+L2  explanation needed to understand that structure
+L3  takeaway / boundary / next bridge
+L4  exact wording / source / deeper detail / metadata
+```
 
-- engineering/work phase → `content/politics/CURRENT.md`;
-- learner-facing readiness → `content/politics/ACCEPTANCE.md`;
-- semantic display ownership → `content/politics/SURFACE_MAPPING_CONTRACT.md`;
-- UI optimization safety → `POLITICS_UI_REVIEW_PROTOCOL.md`;
-- exact visual implementation → current Website consumer/styles.
+This is a hierarchy rule, not a requirement that every page contain all five layers. Subject semantics determine which layers exist.
 
-The accepted #1080 rapid-mastery delta is deliberately narrow: expose the already-owned whole-subject framework through Politics Learn, complete the missing Marxism subject-map owner, and otherwise preserve the accepted first-round product. It does not authorize a second course/runtime, Workbench redesign, scheduler, or broad Politics rebuild.
+Default behavior:
 
-## Compact rule
+- L0–L1 dominate the first view;
+- L2 is readable but subordinate to the main structure;
+- L3 is contextual and may live in the Inspector;
+- L4 is progressively disclosed unless Current explicitly requires first-round exact recognition;
+- stable/correct work stays visually quiet;
+- Wrong / meaningful Uncertain may increase interface weight because new information becomes useful.
 
-> **Politics Product owns the accepted learner-visible product boundary. Current work state lives in CURRENT; semantic composition lives in Surface Mapping; UI renders it faithfully and does not revive historical design pilots.**
+### B｜Freeze the shared Workspace shell
+
+Define one reusable Mac-wide workspace shell that can host different cognitive geometries without forcing identical content templates.
+
+Expected structural regions:
+
+```text
+Location / Chapter / Natural Unit navigation
+→ Chapter-level orientation/map when useful
+→ Current Natural Unit cognitive stage
+→ Contextual Inspector
+→ existing stage actions / source handoff / verification / repair / return
+```
+
+The shell must avoid the current default of rendering every Unit in one continuously expanded Chapter document.
+
+Natural Units remain freely navigable; stateful focus is not permission to turn the page into a restrictive wizard.
+
+### C｜Freeze subject-specific Projection grammars
+
+At design stage, define the semantic fields and visual primitives for all five Politics subjects at the **grammar level**, without manually designing every chapter.
+
+Target grammars:
+
+```text
+Marxism
+relation / mechanism / boundary / reasoning chain
+
+History
+stage / chronology / cause / cause layers / turning point / evaluation / takeaway / next / causal chain
+
+Mao
+historical problem / theory response / sequence position / route-program-position boundary
+
+Xi
+hierarchy / role / identity / goal / principle / path / confusable fixed-formulation boundary
+
+Ethics-Law
+concept boundary / normative judgment / identity / situational application
+```
+
+Shared architecture may be reused; cognitive geometry must remain subject-specific.
+
+### D｜Define reusable cognitive component primitives
+
+Design the minimum component vocabulary needed by the projection grammars, for example:
+
+```text
+CausalChain
+ParallelCauses
+StageTimeline
+TurningPoint
+RelationMap
+MechanismChain
+ProblemAnswer
+TheoryPosition
+HierarchyTree
+RoleIdentity
+BoundaryCompare
+TakeawayList
+NextBridge
+ContextInspector
+```
+
+These are semantic/attention components, not decorative Card variants.
+
+Exact implementation names remain open until Codex handoff; design stage freezes their responsibilities and composition rules, not incidental code structure.
+
+### E｜Use History C01 as the first full pilot
+
+History C01 is the design calibration object because Current already owns enough distinct structure to test the architecture:
+
+- chapter stage story;
+- four Natural Units;
+- `cause`;
+- `cause_layers`;
+- `process`;
+- `turning_point`;
+- `evaluation`;
+- `what_to_hold`;
+- `next`;
+- chapter `timeline`;
+- chapter `causal_chain`.
+
+The design must preserve these Current relations rather than silently dropping them through the generic adapter.
+
+History C01 should be designed through the full learner-visible state chain:
+
+```text
+Chapter / Unit orientation
+→ External Learn handoff
+→ optional Recall / close
+→ Xiao1000 clean verification
+→ stable continuation
+→ Wrong / Uncertain repair
+→ exact return
+→ Unit / Chapter close
+```
+
+The design stage does **not** change the semantics of any of these states.
+
+### F｜Prove the design generalizes before implementation expansion
+
+Before declaring the History grammar frozen, sample at least one materially different later History chapter / Unit and verify that the same grammar can express it without bespoke page artwork or loss of Current semantics.
+
+The purpose is to reject a design that only looks good for History C01.
+
+### G｜Map implementation boundaries before Codex
+
+The design brief must identify:
+
+- which Current fields are read by each subject projection;
+- which existing generic adapter fields are preserved;
+- which currently dropped subject-specific fields need Projection support;
+- how ViewModel output connects to existing question / evidence / repair / return components;
+- which parts of the current Runtime remain untouched;
+- fallback behavior when a particular semantic structure is absent.
+
+Codex should receive a bounded implementation brief, not be asked to rediscover the product architecture.
+
+---
+
+## Design-stage non-goals
+
+Do **not** during this stage:
+
+- rewrite Politics Content to make UI implementation easier;
+- change Natural Unit ownership/order;
+- change Chengfeng / Suyi / Xiao1000 roles;
+- reinterpret first-ready question ownership;
+- alter Evidence / mastery semantics;
+- alter Wrong / Uncertain admission rules;
+- redesign Unit Return semantics;
+- mass-convert all Politics chapters before the pilot is accepted;
+- hand-design one-off artwork per chapter;
+- ask Codex to invent subject cognitive grammar from the data.
+
+---
+
+## Design-stage exit criteria
+
+The Politics Cognitive Projection design stage is complete only when all of the following are true:
+
+1. **Attention Architecture frozen** — default first-view / secondary / deferred hierarchy is explicit.
+2. **Shared Workspace shell frozen** — Mac-wide geometry, Natural Unit navigation and Inspector responsibilities are accepted.
+3. **History grammar frozen** — all high-value Current History fields used by learner cognition have an explicit Projection disposition.
+4. **History C01 full-state design accepted** — Orientation through Verify / Repair / Return / Close has learner-visible text-frame designs.
+5. **Generalization check passes** — at least one materially different History chapter can use the same grammar without one-off page design.
+6. **Five-subject grammar map exists** — Marxism / History / Mao / Xi / Ethics-Law each has a defined cognitive projection shape, even if only History is first implemented.
+7. **Component responsibility map frozen** — enough reusable cognitive primitives are defined to implement the pilot without decorative-card improvisation.
+8. **Semantic boundary documented** — Content / Logic / Runtime / Evidence owners remain unchanged; Projection changes are explicitly bounded.
+9. **Codex pilot brief ready** — implementation can begin with History C01 only, on one bounded Draft PR, without product rediscovery.
+
+After these conditions are met, the next stage is **implementation pilot**, not whole-Politics rollout.
+
+---
+
+## First implementation stage after design freeze
+
+The first Codex implementation should be intentionally narrow:
+
+```text
+History C01 only
+→ create Cognitive Projection foundation
+→ create History projection adapter / ViewModel
+→ create minimum reusable cognitive components
+→ connect to shared workspace shell
+→ preserve existing Xiao1000 / Evidence / Repair / Return behavior
+→ real Mac-wide screenshots
+→ Sol + Kian product review
+→ same-PR iteration
+```
+
+Only after real browser use and acceptance should the architecture expand to History C01–C10, then the other Politics subjects.

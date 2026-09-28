@@ -36,32 +36,6 @@ These levels inherit downward.
 
 A local surface may specialize shared Visual when its task genuinely requires it. It may not fork global visual language merely because a new Chat or component author prefers another style.
 
-### Design inheritance must be explicit
-
-Current design must be recoverable from durable owners, not reconstructed from implementation archaeology.
-
-Every learner-facing product/domain owner must explicitly inherit the shared Website design basis:
-
-```text
-KIAN_UI_PREFERENCES
-+ UI_STYLE_BRIEF
-+ PRESENTATION_CONTRACT
-+ PRODUCT_SURFACE_CONTRACT where the functional split applies
-→ Product / Domain design owner
-→ exact Surface Blueprint / task design when needed
-→ Engineering
-```
-
-Rules:
-- shared owners define common constraints; they do not erase subject/product-specific design;
-- each independently meaningful Product / Domain owns its own accepted composition, interaction and task-specific Visual decisions;
-- an exact Surface owner may refine its Product owner only inside that narrower scope;
-- a child owner must not silently contradict an inherited parent requirement;
-- when a real local need conflicts with a parent, reopen the decision explicitly in CREATE and record the accepted refinement in the responsible owner;
-- missing/ambiguous parentage is a design-ownership defect. Do not use CSS source order, implementation shape, Legacy, screenshots or old PRs to guess intended design.
-
-A fresh worker should normally answer “what should this surface look/behave like, and why?” from the shared map + exact Product/Surface owners without reading implementation history.
-
 ---
 
 ## 2｜Accepted Surface Blueprints are durable design assets
@@ -363,11 +337,9 @@ compatible task ─┘
 
 ---
 
-## 11｜Visual build acceptance / Human Gate
+## 11｜Visual acceptance
 
-A learner-facing Visual change is not accepted because the design was discussed, CSS compiles or a screenshot exists.
-
-The Surface Blueprint/design intent is decided upstream during CREATE. The **Human Gate belongs to BUILD**, after a real Candidate/browser implementation exists and before promotion/delivery.
+A learner-facing Visual change is not accepted because CSS compiles or a screenshot exists.
 
 Check at minimum:
 
@@ -379,13 +351,9 @@ Check at minimum:
 6. no semantic relation is invented by layout;
 7. learner-facing chrome does not dominate the task;
 8. narrow fallback has no obvious overflow/layout failure;
-9. Kian reviews the **implemented real browser result** when the visual change is material.
+9. Kian reviews the real browser result when the visual change is material.
 
-Human Gate therefore answers:
-
-> **“Did BUILD realize the accepted design well enough to ship?”**
-
-It does not replace the later independent Reality Audit, and it cannot be claimed from a pre-implementation mockup/design discussion alone.
+Human Gate remains required for material learner-facing visual changes.
 
 ---
 
@@ -393,37 +361,8 @@ It does not replace the later independent Reality Audit, and it cannot be claime
 
 Change Shared Visual once upstream when the desired effect is site-wide.
 
-Change Product / Domain Visual only for a real product/domain-wide need.
+Change Subject Visual only for a real domain-wide need.
 
 Change an Accepted Surface Blueprint only when Kian explicitly reopens it or upstream Learning Logic changes.
 
 Do not redesign a surface to solve an implementation ownership problem.
-
-### One visual decision → one effective implementation owner
-
-Low-friction Visual work requires more than naming one stylesheet as an owner.
-
-For one surface/state/breakpoint, a material visual property or geometry decision should have one effective current implementation owner. CSS inheritance, responsive refinement and state selectors are allowed; **historical override stacks are not an ownership model**.
-
-Forbidden normal pattern:
-
-```text
-old rule
-→ later override
-→ tuning override
-→ page override
-→ final emergency override
-```
-
-Required maintenance pattern when that debt is encountered:
-
-```text
-recover accepted Product / Surface design
-→ inspect final computed behavior
-→ identify the one current implementation owner
-→ converge obsolete competing rules into that owner
-→ prove representative breakpoints/states preserve the accepted design
-→ delete/retire the superseded active-path overrides
-```
-
-Do not fix a visual request by appending a higher-priority selector merely because it is the fastest editable location. If changing one ordinary geometry/property requires CSS archaeology across several active layers, treat that as Visual implementation debt and reduce the debt as part of the bounded change.

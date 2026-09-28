@@ -45,47 +45,16 @@ This prevents a GitHub update from destroying local development changes and remo
 1. checks `origin/main` on a short interval;
 2. compares the remote SHA with the mirror HEAD;
 3. fetches and hard-resets the dedicated mirror when main advances;
-4. reuses the previous accepted release's verified dependency tree when package inputs and the Node runtime identity match; otherwise runs `npm install` and records a fresh dependency proof;
+4. refreshes npm dependencies only when package inputs changed;
 5. validates the Lexical input/output cache, recompiles changed Word owners and relation dependants only, then builds Astro into a staging slot and atomically promotes it; the old website stays available during the build;
 6. writes the exact local Current SHA to `static-web/public/__kianos-current.json` inside the disposable mirror;
 7. the shared Base polls that localhost-only status and records a pending browser refresh when the synced SHA changes;
 8. an active foreground learner page is never force-reloaded solely because main advanced; returning to the page after leaving it performs the pending refresh, while natural navigation already loads the newest Current;
 9. transient network failure keeps the last successfully synced site usable; a failed build preserves the served SHA and reports a separate target SHA/error. The same failed source is not rebuilt on every poll or process restart. A new source SHA resumes automatically.
 
-Candidate dependency reuse is release-local and fail-safe. The proof covers `package.json`, lock/shrinkwrap inputs, `.npmrc`, Node version/ABI, platform and architecture. A matching accepted release may be cloned with copy-on-write into the new candidate; a missing/mismatched proof or failed clone falls back to a normal `npm install`. Releases never share a mutable `node_modules` symlink.
-
-The macOS LaunchAgent runs with `ProcessType=Standard`: Current delivery remains a non-interactive background service, but its bounded npm/Astro build receives the normal light launchd resource limits instead of the stronger `Background` throttling. Foreground learner continuity is still protected by staging + atomic promotion + deferred browser refresh; the delivery service is not promoted to `Interactive` priority.
-
 Lexical cache state is disposable and ignored by Git (`static-web/.cache/lexical-projection`). Reuse requires clean source-tree identity and verified output hashes; dirty inputs, missing outputs or corrupt cache cause bounded repair/recompilation. No cache is a semantic owner. The builder resolves all affected references before overwriting any projection shards.
 
-Astro candidate builds may memoize immutable Xizong owner/projection reads **inside that one build process only**. `kianos-safe-astro-build.mjs` explicitly enables this build-local cache; ordinary Node validators and the dev server do not. A new build/release starts with a fresh module graph, so this optimization cannot carry stale owner data across releases or replace canonical Content truth.
-
 For an explicit engineering retry after an environmental repair, run the supervisor once with `KIANOS_SYNC_ONCE=1 KIANOS_RETRY_FAILED_BUILD=1`. Do not use retries to suppress a content error.
-
-## Fresh-AUDIT exact-release pin
-
-A Fresh independent AUDIT may require the real Stable origin to remain on one exact release while unrelated accepted work continues to land on GitHub `main`.
-
-Use the bounded local audit pin instead of weakening exact-release identity or rolling Stable backward:
-
-```bash
-npm run current:audit -- pin --sha <currently-served-sha> --issue <audit-issue> [--minutes 120]
-# run the Fresh independent audit
-npm run current:audit -- release
-```
-
-Rules:
-
-- `pin` may only pin the SHA already being served on Stable; a different requested SHA is rejected and never triggers rollback;
-- pin/release operations reuse the existing Current delivery lock, so an audit lease cannot race an in-flight promotion;
-- while pinned, the supervisor keeps serving that SHA, reports `state=pinned`, and exposes the latest remote `target_sha` without fetching/promoting it;
-- the lease has an expiry and automatically stops blocking Current after expiry;
-- `release` removes the lease; the normal 8-second Current loop then catches up to the newest accepted `main`;
-- pin state is local delivery/runtime state under the Current release root; it is not learner evidence, canonical product truth, or a semantic owner;
-- if the served release no longer matches the active pin, Current fails closed with `CURRENT_AUDIT_PIN_RELEASE_MISMATCH`;
-- normal Current behavior is unchanged when no active pin exists.
-
-This mechanism exists only to make strict CBA A0 reproducible on the real Stable consumer. It is not a general release-management or rollback interface.
 
 Ordinary explanation and lexical owner updates have read-only content CI; full browser/system QA remains for runtime/schema changes and explicit integration checkpoints. Astro still performs one site build per accepted update; this change does not claim incremental page rendering.
 

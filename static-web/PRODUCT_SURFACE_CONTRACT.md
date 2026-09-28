@@ -1,7 +1,7 @@
 # KianOS Product Surface Contract
 
 Status: APPROVED FUNCTIONAL SPLIT · IMPLEMENTATION STATE NOT OWNED HERE
-Updated: 2026-09-28
+Updated: 2026-09-24
 Semantic owner: KianOS product surface split / information architecture. This is not implementation status, Chat strategy, Personal truth or another runtime state owner.
 
 ## 1. User jobs and surface split
@@ -15,21 +15,6 @@ Semantic owner: KianOS product surface split / information architecture. This is
 | Global Dock | What am I doing now; how can I record/stop/return quickly? | Actual activity/time, next planned item, pause/break/resume, optional quick capture, Today and native return | Miniature Steward/Radar/dashboard |
 
 One source fact may have linked projections on multiple surfaces; there is one actual owner and one completion semantics. Strategic task visibility on Home and time placement on Steward are complementary, not duplicate independently checkable task lists. Sensitive details stay out of Home and public assets.
-
-## 1A. Shared split does not replace product/domain design
-
-This contract answers which top-level surface owns which user job. It does not define one universal visual/product design for every subject.
-
-Every independently meaningful learner-facing product/domain keeps one current Product/Visual owner under the shared Website requirements. That owner defines its own task-native composition and interaction, and exact Surface Blueprints may refine it further.
-
-```text
-shared surface job / shared Visual requirements
-→ exact Product / Domain design owner
-→ exact Surface design when needed
-→ Engineering implementation
-```
-
-If a product owner and this shared functional split appear to conflict, do not resolve the conflict in CSS or page code. Reopen the design boundary explicitly in CREATE.
 
 ## 2. Home progress is subject-native
 
@@ -45,16 +30,9 @@ This file owns the **functional surface split only**. Current KianOS implementat
 
 The functional split above remains a design requirement. Existing working behavior should be preserved or changed only through the owning product/runtime contract rather than inferred from this Markdown file.
 
-Owner routing stays scoped to the surface job:
-
-- Steward / integrated day-execution product behavior and Steward product acceptance → `static-web/STEWARD_PRODUCT_CONTRACT.md`.
-- Daily source/trigger behavior → `kianwang022-hash/kian-personal-os/exam/roles/STEWARD.md`.
-- Radar information/action semantics, Email filtering and actionable-item lifecycle → `kianwang022-hash/kian-personal-os/exam/roles/INTAKE.md`; KianOS only renders/executes the admitted projection through its exact product/runtime owner.
-- Subject-specific product behavior → the exact subject Product/Surface owner; this shared split does not replace it.
-- Current Website implementation/delivery truth for any surface → `static-web/CURRENT.md` → exact consumer/runtime owner.
-
-Home / Radar / Global Dock do not gain a hidden second semantic owner merely because they share integrated execution with Steward. If a material behavior cannot be resolved from this shared split plus the exact current owner chain, treat it as `OWNER_UNRESOLVED` rather than assigning it to Steward by default.
-
+Product behavior and execution acceptance: `static-web/STEWARD_PRODUCT_CONTRACT.md`.
+Daily source/trigger behavior: `kianwang022-hash/kian-personal-os/exam/roles/STEWARD.md`.
+Radar, Email, actionable-item lifecycle: `kianwang022-hash/kian-personal-os/exam/roles/INTAKE.md`.
 Personal/health meaning remains in its upstream Personal/native owner. Native wire schema/validation and current delivery truth remain with exact KianOS owners.
 
 ## 4. Calendar, privacy and UI boundary

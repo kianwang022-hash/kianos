@@ -3,7 +3,6 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadXizongBlock } from '../src/lib/xizong.mjs';
 import { loadXizongSemanticBlock } from '../src/lib/xizongSemanticAdapter.mjs';
-import { projectKpCore } from '../src/lib/xizongProjection.mjs';
 import {
   buildXizongProductionBlock,
   loadCompiledXizongProjectionAsset
@@ -25,13 +24,6 @@ assert(a1b1.cognitiveProjection.compiled === true, 'a1-b01:compiled-projection-n
 assert(a1b1.cognitiveProjection.stageObjects.some((row) => row.role === 'CHAIN'), 'a1-b01:rich-chain-not-renderable');
 assert(a1b1.cognitiveProjection.stageObjects.some((row) => row.geometry === 'FORMULA_STRIP'), 'a1-b01:formula-strip-not-renderable');
 assert(a1b1.cognitiveProjection.stageObjects.every((row) => row.html || row.items.length), 'a1-b01:empty-stage-object');
-const projectedA1B1Kps = canonicalA1B1.kpRecords.map((kp) => ({
-  kpId: kp.kpId,
-  markdown: projectKpCore(kp.detailMarkdown || '', { sourcePath: canonicalA1B1.sourcePath })
-}));
-assert(projectedA1B1Kps.every((row) => !row.markdown.includes('Block1_正常机械循环_v6_assets/')), 'a1-b01:missing-inline-media-still-rendered');
-const projectedKp03 = projectedA1B1Kps.find((row) => row.kpId === 'circulation-b01-kp03')?.markdown || '';
-assert(projectedKp03.includes('原讲义图') && projectedKp03.includes('原讲义表'), 'a1-b01-kp03:source-visual-guidance-lost');
 
 const canonicalA1B2 = loadXizongBlock('circulation', 'b02');
 const a1b2 = buildXizongProductionBlock(canonicalA1B2);
@@ -56,60 +48,13 @@ const bAsset = loadCompiledXizongProjectionAsset('digestive-metabolic-endocrine-
 assert(Boolean(bAsset?.asset), 'b-d01:compiled-projection-asset-missing');
 assert(!JSON.stringify(bAsset.asset.views?.BLOCK_ORIENT || {}).includes('CANONICAL_GUIDE'), 'b-d01:second-lecture-regression');
 
-const bD1 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'd01'));
-assert(bD1.kpRecords.every((kp) => kp.sourceLocatorAuthority === 'UNRESOLVED'), 'b-d01:must-not-invent-kp-source-page');
-assert(bD1.semanticAttentionCues.some((row) => row.anchor?.kpId === 'digestive-d1-kp01' && row.semanticRole === 'CONFUSABLE' && row.attentionRole === 'CURRENT_TAKEAWAY'), 'b-d01-kp01:explicit-confusable-attention-not-compiled');
-assert(bD1.semanticAttentionCues.some((row) => row.anchor?.kpId === 'digestive-d1-kp04' && row.semanticRole === 'CONNECTION_NOTICE' && row.attentionRole === 'FUTURE_CONNECTION'), 'b-d01-kp04:explicit-connection-attention-not-compiled');
-assert(bD1.semanticAttentionCues.every((row) => row.sourcePath === bD1.sourcePath && row.answerBearing === true && row.displayPolicy?.timing === 'LEARN_ONLY'), 'b-d01:attention-provenance-or-timing-drift');
-assert(bD1.kpRecords.every((kp) => kp.outlineLocatorAuthority === 'CANONICAL_OUTLINE_LEDGER' && kp.outlineLocator.includes('U018')), 'b-d01:outline-ledger-not-consumed');
-
-const bD2 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'd02'));
-assert(bD2.kpRecords.slice(0, 4).every((kp) => kp.outlineLocator.includes('U019')), 'b-d02:u019-outline-reconciliation-lost');
-assert(bD2.kpRecords.slice(4).every((kp) => kp.outlineLocator.includes('U020')), 'b-d02:u020-outline-reconciliation-lost');
-
-const bD5 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'd05'));
-assert(bD5.kpRecords[0].sourceLocatorAuthority === 'CANONICAL_LECTURE_LEDGER' && bD5.kpRecords[0].sourceLocator.includes('PHY P245'), 'b-d05-kp01:lecture-ledger-source-not-consumed');
-assert(bD5.kpRecords[14].sourceLocatorAuthority === 'CURRENT_SOURCE_MAP', 'b-d05-kp15:current-surgery-source-map-must-outrank-lecture-ledger');
-assert(bD5.kpRecords.every((kp) => kp.outlineLocatorAuthority === 'CANONICAL_OUTLINE_LEDGER'), 'b-d05:outline-ledger-not-consumed');
-
-const bD17 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'd17'));
-assert(bD17.kpRecords[5].outlineLocator.includes('病理 U007') && bD17.kpRecords[5].outlineLocator.includes('外科 U018'), 'b-d17-kp06:multi-outline-binding-lost');
-
-const bM2 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'm02'));
-assert(bM2.kpRecords.length === 15 && bM2.kpRecords.every((kp) => kp.sourceLocator && kp.sourceLocatorAuthority === 'CURRENT_SOURCE_MAP'), 'b-m02:source-map-kp-locators-not-materialized');
-assert(bM2.kpRecords[0].sourceLocator.includes('27生化跟课版合集【不带导图】.pdf') && bM2.kpRecords[0].sourceLocator.includes('P003–P008') && !/BIO27-S\d+/.test(bM2.kpRecords[0].sourceLocator), 'b-m02-kp01:learner-source-locator-wrong');
-
-const bG1 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'g01'));
-assert(bG1.kpRecords[0].sourceLocatorAuthority === 'CANONICAL_BLOCK' && bG1.kpRecords[0].sourceLocator.includes('P112'), 'b-g01-kp01:canonical-locator-must-outrank-derived-source-map');
-
-const bG5 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'g05'));
-assert(bG5.kpRecords[0].sourceLocatorAuthority === 'CURRENT_SOURCE_MAP' && bG5.kpRecords[0].sourceLocator.includes('27生化跟课版合集【不带导图】.pdf') && /PDF P\d+/.test(bG5.kpRecords[0].sourceLocator) && !/BIO27-S\d+/.test(bG5.kpRecords[0].sourceLocator), 'b-g05-kp01:learner-source-map-fallback-wrong');
-
-// C/D/E/F have no physical rich Projection assets yet. They must still enter the
-// same production/runtime path through the minimal Current-derived baseline.
+// C remains semantically compatible but intentionally uncompiled until its own P work.
 const semanticCH1 = loadXizongSemanticBlock('hematology-immunity-infection', 'hematology-h01').block;
 const cLg = semanticCH1.logicGroups.find((row) => row.groupId === 'c-h01-lg06');
 assert(cLg?.membershipMode === 'EXPLICIT_ORDINAL_LIST', `c-h01:membership-mode:${cLg?.membershipMode}`);
 assert(JSON.stringify(cLg?.kpOrdinals) === JSON.stringify([1, 12, 13]), `c-h01:noncontiguous:${cLg?.kpOrdinals}`);
 assert(semanticCH1.sourceContact.logicGroupIsAutomaticSourceChunk === false, 'c-h01:source-bounce-regression');
-
-const derivedCases = [
-  ['C', 'hematology-immunity-infection', 'h01', 'hematology-h01'],
-  ['D', 'neuro-sensory-motor-orthopedics', 'n01', 'neuro-n01'],
-  ['E', 'reproductive-breast', 'sr01', 'SR1'],
-  ['F', 'remaining-clinical', 'f01', 'F1']
-].map(([canonicalId, systemId, slug, blockId]) => {
-  const production = buildXizongProductionBlock(loadXizongBlock(systemId, slug));
-  assert(production.blockId === blockId, `${canonicalId}:block-id:${production.blockId}`);
-  assert(production.cognitiveProjection.available === true, `${canonicalId}:baseline-not-available`);
-  assert(production.cognitiveProjection.compiled === false && production.cognitiveProjection.derived === true, `${canonicalId}:materialization-boundary-lost`);
-  assert(production.cognitiveProjection.status === 'DERIVED_BASELINE_CURRENT', `${canonicalId}:baseline-status:${production.cognitiveProjection.status}`);
-  assert(production.cognitiveProjection.stageObjects.length === 1, `${canonicalId}:baseline-problem-count:${production.cognitiveProjection.stageObjects.length}`);
-  assert(production.cognitiveProjection.stageObjects[0]?.role === 'PROBLEM', `${canonicalId}:baseline-role`);
-  assert(production.cognitiveProjection.locationObjects.length === 0 && production.cognitiveProjection.referenceObjects.length === 0, `${canonicalId}:baseline-invented-extra-objects`);
-  assert(loadCompiledXizongProjectionAsset(systemId, blockId) === null, `${canonicalId}:false-materialized-asset`);
-  return production;
-});
+assert(loadCompiledXizongProjectionAsset('hematology-immunity-infection', 'hematology-h01') === null, 'c-h01:false-compiled-projection');
 
 const page = read('static-web/src/pages/xizong/[system]/[block].astro');
 const blockUi = read('static-web/src/components/XizongBlockV6.astro');
@@ -122,12 +67,10 @@ assert(learnerProjectionLib.includes('buildXizongProductionBlock'), 'learner-pro
 assert(page.includes('<XizongBlockV6 block={projection} />'), 'page:not-using-existing-v6-family');
 assert(blockUi.includes('data-source-contact-mode'), 'renderer:source-contact-mode-not-declared');
 assert(blockUi.includes("data-study-stage=\"source_contact\""), 'renderer:no-natural-source-contact-stage');
-assert(blockUi.includes("if (sourcePerGroup) return currentSourceContactCovered() ? 'kp_recall' : 'kp_learn';"), 'renderer:whole-lg-source-path-lost');
+assert(blockUi.includes("if (sourcePerGroup) setStage('kp_learn')"), 'renderer:whole-lg-source-path-lost');
 assert(blockUi.includes("else if (state.sourceContactDone) setStage('kp_recall')"), 'renderer:natural-source-return-not-direct-to-retrieval');
 assert(blockUi.includes('data-xizong-attention'), 'renderer:right-rail-not-attention-projection');
-assert(blockUi.includes('XizongCognitiveProjectionStage'), 'renderer:cognitive-projection-stage-not-mounted');
-assert(blockUi.includes('!block?.cognitiveProjection?.available'), 'renderer:whole-block-fallback-not-gated-by-framework-availability');
-assert(stageUi.includes('projection?.available === true'), 'projection-stage:derived-baseline-not-admitted');
+assert(blockUi.includes('XizongCognitiveProjectionStage'), 'renderer:compiled-cognitive-projection-not-mounted');
 assert(stageUi.includes('data-projection-role') && stageUi.includes('data-projection-geometry'), 'projection-stage:semantic-shape-missing');
 assert(!stageUi.includes('>CHAIN<') && !stageUi.includes('>MAP<') && !stageUi.includes('>EXACT<'), 'projection-stage:engineering-label-leak');
 assert(productionLib.includes("pointer.includes('/logic_index/')"), 'presenter:legacy-logic-index-not-reconciled');
@@ -142,7 +85,6 @@ console.log([
   `A2-R1 support=${a2r1.attention.supportOnDemand.length}`,
   `B-D1 source=${semanticBD1.sourceContact.mode}`,
   `C-H1 explicit=${cLg.kpOrdinals.join(',')}`,
-  `DerivedBaseline=${derivedCases.map((row) => row.systemCanonicalId).join('/')}`,
   'Runtime=V6 shared store only',
   'Composition=Production -> LearnerProjection -> V6',
   'U=NOT_TESTED_BY_THIS_SCRIPT'

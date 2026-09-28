@@ -1,74 +1,53 @@
 # Exam Orchestrator Contract
 
 Status: **CURRENT**  
-Scope: **2027 postgraduate entrance exam system / durable parent design + cross-subject orchestration**  
+Scope: **2027 postgraduate entrance exam cycle / cross-subject scheduling**  
 Subjects: **Xizong 306 / English / Politics**
 
-This document is the single durable parent design owner for the KianOS **2027 postgraduate entrance exam system**. It owns the shared Exam Rule / Model needed to keep the three learner systems, global product surfaces and shared execution capabilities coherent without turning KianOS into an autonomous strategy brain.
+This document is the single canonical owner for KianOS **cross-subject exam orchestration**.
 
-System boundary:
+It owns the **shared factual planning context and Chat-planning priors**:
 
-```text
-2027 Exam System
-├─ durable Exam Rule / Model
-│  → this contract
-├─ adaptive current judgment
-│  → Chat + Personal exam/CONTROL / Steward / Review as applicable
-├─ learner systems
-│  → Xizong / English / Politics exact owners
-├─ product surfaces
-│  → PRODUCT_SURFACE_CONTRACT + exact Product / Surface owner
-└─ shared execution / Runtime
-   → SYSTEM_CONTRACT + exact runtime/evidence/delivery owner
-```
-
-This contract owns durable exam-system semantics and constraints including:
-
-- exam outcome targets and score-channel planning assumptions;
-- Phase / milestone / hard-Gate definitions;
-- capacity / study-time semantics and cross-subject comparison vocabulary;
+- exam outcome targets;
+- phase / milestone / hard-Gate definitions;
+- capacity / study-time fact semantics;
 - required-pace / observed-pace concepts available to Chat;
 - score-closure / re-estimation evidence requirements;
-- material-refresh / ingestion windows at the exam-system layer;
-- compact subject-demand interface boundaries;
-- the information budget of exam-planning meaning before exact Product/Surface placement;
-- boundaries between adaptive Chat judgment, subject-native learning, Product surfaces and shared Runtime.
+- material-refresh / ingestion timing at the orchestration layer;
+- the information budget of the learner-facing global planning surface.
 
 It does **not** own the current allocation decision, next-subject decision, review priority, or daily learning strategy. Those are adaptive Chat decisions.
 
-It also does **not** own:
+It does **not** own:
 
 - Xizong / English / Politics domain cognition or learning semantics;
 - subject-local Source Truth / Question Truth / content owners;
 - subject-local Repair / Review semantics;
-- a universal mastery/stability estimator;
 - private learner evidence as shared repository truth;
-- exact Home / Steward / Radar / Dock product geometry;
 - engineering Work Cursor state for subject construction.
 
 Hard boundary:
 
 ```text
-durable Exam facts / constraints
-+ subject-native Runtime / evidence / Demand
-+ current reality
+subject runtime / evidence
++ current exam facts / Gates / capacity
         ↓
        Chat
-current strategy / allocation / priority / next action
+strategy / allocation / priority / next action
         ↓
 typed private Chat Plan / Session Instruction
         ↓
-Website / subject Runtime execution
+Website execution + display
         ↓
 bounded learner evidence
         ↺ Chat
-```
 
-Website / Exam Runtime
+Website / Exam Orchestrator runtime
 ≠ strategy engine
 ≠ second subject learning system
 ≠ second Source Truth
 ≠ second mastery ledger
+```
 
 The governing repository distinction remains:
 
@@ -225,27 +204,25 @@ A same resolved day's coupled exam/execution projections must apply consistently
 
 ### Planning semantics for Chat
 
-The phase / Gate / capacity / score-gap / recoverability rules in this contract are durable **Exam planning semantics and priors**. They do not constitute today's decision.
+The phase/capacity/score-gap/recoverability rules below are **Current planning priors for Chat**, not an autonomous Website scheduler.
 
-For capacity-aware exam planning:
+For capacity-aware exam planning, inherit the current cross-subject Work-optimization decision from `kianwang022-hash/kian-personal-os/exam/CONTROL.md §4C` rather than inventing a KianOS-local recovery strategy. The downstream product translation is only:
 
 ```text
-durable Exam capacity / cross-subject arbitration semantics in §4
-+ current subject-native Demand / evidence
-+ current Personal recovery/capacity conclusion when relevant
-        ↓
-Chat / Personal exam-control judgment
-        ↓
-which current Work is protected / moved / reduced
-        ↓
-current-day Chat Plan + optional capacity projection
-        ↓
-Product surfaces execute / explain the accepted decision
+accepted capacity/load judgment
+→ which resolved Work is protected / moved / reduced
+→ current-day Chat Plan + optional capacity projection
+→ Home strategic explanation
+→ Steward time/reality execution
 ```
 
 A capacity label that does not change Work selection, placement, recovery action or recheck is normally not worth foregrounding.
 
-The machine path may expose phase/Gate projections, validate plan identity/freshness/capacity and render Current state. **It may not independently choose subject allocation, priority or next action.**
+Whenever later text says that the “Orchestrator” allocates, recalculates, ranks, protects a floor, or chooses a next action, interpret that as:
+
+> **Chat uses these priors plus current learner evidence to decide the plan; the Website validates, presents and records the accepted plan but does not execute that strategy autonomously.**
+
+The machine path may expose phase/Gate projections, validate plan identity/freshness/capacity and render Current state. It may not independently choose subject allocation, priority or next action.
 
 ---
 
@@ -275,18 +252,26 @@ It does **not** allocate time by exam-point weight alone.
 
 ---
 
-# 2｜Learner-state boundary
+# 2｜Current learner baseline
 
-This durable Exam parent does **not** own current learner progress, completion, familiarity, capability, or current-pass status. Those are time-sensitive facts from subject-native private learner/runtime evidence and current Chat / Personal judgment.
+For the current cycle, Xizong first-round learner progress must be treated as:
 
-Durable rules:
+```text
+current-pass learning not yet completed
+prior exposure / second-attempt background exists
+actual current capability = unknown until evidenced
+```
 
-- prior exposure or familiarity may inform how Chat interprets current evidence, but never proves mastery or completion;
-- current capability must be evidenced through subject-native use;
-- engineering readiness, accepted Content, or old-cycle exposure never becomes current learner truth;
-- when current learner reality materially changes cross-subject judgment, consume it through subject-native evidence / Demand and the current control path rather than editing this durable parent contract.
+Do not treat Kian as zero-background. Do not infer mastery from prior-year exposure either.
 
-This parent may define evidence and arbitration semantics; it must not store a current learner baseline.
+Practical consequence:
+
+- first-pass pages may support **fast re-learning / fast pass** when real Recall / task evidence is strong;
+- familiar material may compress quickly;
+- weak / forgotten material expands;
+- no historical familiarity alone may mark a Block / KP mastered.
+
+English and Politics likewise derive learner state only from actual private evidence / current learner use, not engineering readiness.
 
 ---
 
@@ -736,9 +721,7 @@ no broad new scope
 → execute the exam
 ```
 
-# 4｜Capacity planning semantics available to Chat
-
-This section defines durable cross-subject **meanings, constraints and priors**. It does not generate or persist today's allocation; Chat makes the current decision from these semantics plus current evidence/reality.
+# 4｜Capacity scheduling model
 
 ## 4.1 Cross-subject currency
 
@@ -750,13 +733,13 @@ Natural units stay local:
 - English: passage / set / Translation / Writing / Lexical workload;
 - Politics: Natural Unit / Xiao1000 / memory / mock / Repair.
 
-For cross-subject comparison, Chat may use:
+Cross-subject arbitration uses:
 
 ```text
 expected effective study time
 ```
 
-Each meaningful task type may expose:
+Each meaningful task type may carry:
 
 ```text
 natural quantity
@@ -764,37 +747,35 @@ estimated minutes
 actual minutes
 ```
 
-Seed estimates may be rough. Replace them with current subject-native observed evidence when it legitimately improves the decision; do not manufacture fake fixed constants.
+Seed estimates may be rough. Replace them with Kian's observed data using robust rolling estimates rather than fake fixed constants.
 
-## 4.2 Rolling horizon
+## 4.2 Rolling scheduling
 
-Current judgment should reason over a rolling multi-day / ~7-day horizon rather than strict daily debt accounting.
+Use a rolling multi-day / ~7-day capacity model rather than strict daily debt accounting.
 
-A short bad day does not create historical hour debt.
+A short bad day does not create a historical hour debt.
 
-A current Chat decision may consider:
+Daily schedule is recalculated from:
 
 - current Gate / days remaining;
 - real usable capacity;
-- protected subject floors / continuity constraints;
+- protected subject floors;
 - required pace vs observed pace;
-- high-value Review / Repair demand;
+- high-value review / Repair demand;
 - current material readiness;
 - performance evidence / score gap when available.
-
-This contract supplies the semantics and durable priors only. The resulting week/day path is a current Chat/Steward judgment, not a mutable schedule owned here.
 
 ## 4.3 Floors / targets / ceilings
 
 A subject may have:
 
 - **Floor** — minimum capacity needed to preserve continuity / phase viability;
-- **Target allocation** — a current planning target when Chat adopts one;
-- **Practical ceiling** — point after which an extra hour has lower marginal value than another available action.
+- **Target allocation** — normal current allocation;
+- **Practical ceiling** — point after which an extra hour has lower marginal value than another subject.
 
-These meanings are durable; their current values are phase/evidence-dependent and are not eternal quotas.
+Floors are phase-dependent, not eternal constants.
 
-Initial Phase-A seeds were:
+Initial Phase-A seeds:
 
 ```text
 English  ≈ 2h/day rolling protected floor
@@ -802,30 +783,29 @@ Politics ≈ 1.5h/day rolling protected floor
 Xizong   receives remaining main capacity
 ```
 
-They remain Phase-A planning priors only. Current Chat judgment may revise them when present evidence / phase economics justify it.
+These are starting priors only. Real pace may change them.
 
-## 4.4 Evidence-driven replanning
+## 4.4 Dynamic replanning
 
-When actual duration, throughput, score evidence, material readiness or capacity changes:
+When actual duration differs from plan:
 
 ```text
-new observation
-→ subject-native estimate / Demand may update
-→ Chat reassesses Gate risk / slack
-→ current or future guidance may change
+observe actual
+→ update throughput / workload estimate
+→ recompute Gate risk / phase slack
+→ reallocate future capacity
 ```
 
-No Website/Runtime component autonomously reallocates subjects from this rule.
+Do not automatically label the day a failure or create hour-debt.
 
-If a Gate appears infeasible, Chat should normally prefer the earliest useful lever:
+If a Gate becomes infeasible, the response order is:
 
-1. increase subject capacity where marginal value supports it;
+1. increase subject capacity where useful;
 2. reduce low-value work;
 3. compress Review / stable work;
 4. defer optional phase tasks;
 5. only then reconsider a hard stop-line.
 
-Do not automatically label a bad day as failure or convert elapsed time into debt.
 
 ## 4.5 Recovery / cognitive-capacity input
 
@@ -861,7 +841,7 @@ This is an interface boundary, not a requirement for a fixed schema. Missing Per
 KianOS owns only the **exam/product consequence** of that input:
 
 - preserve Gate / Demand / score / workload priority semantics;
-- make the accepted constraint executable when a Chat Plan carries it;
+- place or shorten high-load work when the accepted constraint justifies it;
 - keep lower-load work available where useful;
 - preserve user agency and UNKNOWN;
 - never turn favorable recovery into extra study obligation;
@@ -869,20 +849,20 @@ KianOS owns only the **exam/product consequence** of that input:
 
 Raw health samples and personal calibration remain outside shared KianOS Content. Real task-performance evidence remains KianOS learner/execution evidence and may return to Chat / Personal for interpretation.
 
----
 
-# 5｜Evidence → subject-native Demand → Chat judgment
+# 5｜Evidence → mastery/stability estimate → workload
 
-This contract does **not** own a universal mastery/stability estimator.
+The Orchestrator consumes evidence; it does not invent subject mastery truth.
 
-Shared causal boundary:
+Shared causal chain:
 
 ```text
 Subject Runtime
-→ subject-native Evidence
-→ subject-native interpretation / estimate when the subject owner defines one
-→ Remaining Workload / compact Demand
-→ Chat cross-subject judgment
+→ Evidence Events
+→ private Mastery / Stability Estimate
+→ Remaining Workload Estimate
+→ subject Demand
+→ cross-subject allocation
 ```
 
 One observation must never equal mastery.
@@ -897,49 +877,61 @@ Preserve:
 - same-item correction ≠ fresh verification;
 - fresh / delayed / changed-context performance is stronger evidence.
 
-A subject may use dimensions such as retrieval / application / precision / stability / confidence / freshness when its exact owner defines them. They are **not** a shared mandatory learner ontology or a second Exam-level mastery ledger.
+Possible hidden estimate dimensions:
 
-Private learner estimate state must not be committed into shared canonical Current. Missing subject-native interpretation remains UNKNOWN rather than being reconstructed here.
+```text
+retrieval
+application
+precision
+stability
+confidence
+freshness
+```
+
+These are estimator dimensions, not learner-facing mandatory labels.
+
+Private learner estimate state must not be committed into shared canonical Current.
 
 ---
 
 # 6｜Review / Repair capacity boundary
 
-Subject runtimes own what counts as a real Review / Repair candidate.
+Subject runtimes own what counts as a real review / Repair candidate.
 
-This contract owns only the durable **cross-subject capacity-arbitration semantics**. Chat owns the current arbitration and may decide how much of today's scarce capacity goes to subject-native Review / Repair.
+The Exam Orchestrator owns only **cross-subject capacity arbitration**.
 
 Rules:
 
 - stable correct work should remain cheap;
 - backend uncertainty alone must not manufacture learner debt;
 - multiple errors with one root cause should be compressible into one Repair cluster;
-- Review granularity should compress as stability improves;
+- Review granularity should compress as mastery improves;
 - Repair completion alone does not prove future stability;
 - verification should be embedded opportunistically in later normal work where possible.
 
-Global Review Budget means Review competes inside the same available capacity; it is not automatically added on top of subject allocation.
+Global Review Budget means Review competes inside the same daily capacity; it is not automatically added on top of the subject allocation.
 
 ---
 
 # 7｜Subject demand interface
 
-Each subject may expose a compact **derived Demand summary** for Chat to consume. Demand is an interface/read model over subject-owned truth; it is not another subject truth owner and does not choose cross-subject priority.
+Each subject may expose a compact hidden `Demand` summary to the Orchestrator.
 
-Conceptually it may answer:
+Conceptually it should answer:
 
-- next hard Gate / subject-local deadline when relevant;
+- next hard Gate;
 - days remaining;
 - critical remaining load;
 - Review / Repair pressure;
 - required pace;
 - observed pace;
-- estimate confidence / UNKNOWN boundary;
-- continuity Floor or other protected constraint;
-- practical marginal-value ceiling when supported;
-- current subject-native Continue target.
+- estimate confidence;
+- protected Floor;
+- normal Target allocation;
+- practical Ceiling;
+- current best next action / Continue target.
 
-The exact machine schema is implementation-owned and should remain minimal. Do not duplicate subject Truth into this layer merely to fill fields. The subject may identify its own best native Continue action; Chat decides whether that subject should be next across the whole exam.
+The exact machine schema is implementation-owned and should remain minimal. Do not duplicate subject Truth into this layer merely to fill fields.
 
 ---
 
@@ -1072,48 +1064,58 @@ Fixed upload / refresh checkpoints:
 
 Principle:
 
-> **Backend may be complex; learner-facing exam-planning information should contain only what changes understanding or action.**
+> **Backend may be complex; learner frontend must stay simple. Complexity is used to make decisions, not to display complexity.**
 
-This contract owns the **information budget of exam-planning meaning**, not exact Home / Steward / Radar / Dock placement or geometry. Surface placement and interaction inherit `static-web/PRODUCT_SURFACE_CONTRACT.md` plus the exact Product / Surface owner.
+## Level 1｜Default Home
 
-## Level 1｜Default planning projection
-
-May contain only high-value current exam-planning information such as:
+Show only what changes today's behavior:
 
 - next hard Gate + days remaining;
-- current Chat-resolved subject allocations/roles when present;
-- a compact subject risk/attention summary supported by current evidence;
-- native Continue;
+- today's subject allocations;
+- simple subject state such as `normal / needs acceleration / overloaded`;
+- Continue;
 - at most one actionable Attention item;
 - actionable material reminder only when relevant.
 
-Missing evidence remains UNKNOWN. The Product owner decides where/how this projection is shown.
+Example shape:
+
+```text
+10/21 First Formal Score Closure · 18 days
+
+Xizong   main push · 5h30
+English  maintain  · 2h
+Politics progress · 2h
+
+Continue → current highest-value action
+
+Attention → only if action really changes
+```
 
 ## Level 2｜Why / on-demand
 
-May explain:
+May show:
 
-- why one subject currently receives more / less capacity;
+- why one subject receives more / less capacity;
 - major Review / Repair pressure;
 - material-readiness issue;
-- plain-language Gate-risk / phase-slack reasoning.
+- plain-language Gate-risk / phase-slack explanation.
 
 ## Level 3｜Diagnostic / debug only
 
-May expose when genuinely needed:
+May show:
 
-- exact subject-native estimate details;
+- raw mastery/stability estimate dimensions;
 - detailed workload pools;
 - confidence / freshness internals;
 - evidence history;
 - timing distributions;
 - calculation traces.
 
-Normal learner use must not require Level 3.
+V1 must be fully usable without Level 3.
 
-Do not place on the default learner-facing projection:
+Do not place on the default learner surface:
 
-- raw mastery percentages without a legitimate subject owner;
+- raw mastery percentages;
 - engineering taxonomy;
 - audit / routing / canonical labels;
 - large review-debt counters;
@@ -1124,40 +1126,50 @@ Do not place on the default learner-facing projection:
 
 # 10｜Daily operating loop
 
-The durable Exam System participates in this loop; **Chat performs the adaptive judgment**:
+The Orchestrator should behave conceptually as:
 
 ```text
-durable Phase / Gate / Source-window semantics
-+ subject-native Demand / Resume / Evidence
-+ current reality / usable capacity
-        ↓
-Chat / current Exam control judgment
-        ↓
-resolved Chat Plan / native subject action
-        ↓
-Website / subject Runtime execution
-        ↓
-new learner/execution evidence
-        ↺ Chat
+Morning / entry
+→ resolve current Phase + next Gate
+→ read real clock-time capacity
+→ when current private wearable/Health evidence is available and useful, build Recovery Context under §4.5
+→ resolve usable cognitive-capacity / load-placement constraints without inventing missing Health data
+→ read compact subject Demand summaries
+→ protect Floors
+→ allocate elastic capacity
+→ surface Today / Continue / Attention
+
+Study
+→ subject runtimes execute their own cognition
+→ meaningful learner evidence accumulates privately
+
+Replan
+→ actual time / progress / evidence updates estimates
+→ future allocation recalculates
 ```
 
-At day-start or material replan, current private Health/Recovery context may be consumed only through the boundary in §4.5 when it can change the decision.
+The learner should mostly do two things:
 
-Current website ↔ Chat handoff remains:
+1. report / expose meaningful real-world capacity changes when needed;
+2. actually study.
+
+Current website ↔ Chat daily handoff is:
 
 ```text
 Home / private learner state
 → kianos.daily-learning-packet.v1
-+ optional current Recovery Context
-→ Chat judgment under the durable Exam semantics
++ optional current private Recovery Context from connected Health / wearable evidence
+→ Chat planning under this contract
 → kianos.exam.chat-plan.v1 for the same study_day
-→ Website validates / executes the bounded plan
-→ subject study / evidence
+→ Home validates/imports
+→ subject study
 ```
 
 The Daily Learning Packet is factual learner/runtime evidence, not an engineering-control request. A fresh Chat should not enter root engineering Current merely because the packet mentions KianOS. Subject-specific typed Returns remain separate from this cross-subject plan.
 
-Missing, stale or unsynced Health data must not block ordinary planning; only the dependent recovery claim degrades. The learner should not be required to maintain the scheduling model manually.
+Recovery Context is optional private planning evidence. Missing, stale or unsynced Health data must not block ordinary planning; Chat falls back to real capacity + subject evidence and states the recovery uncertainty only when it changes the decision. Raw wearable samples are not copied into shared GitHub or treated as learner mastery evidence.
+
+The learner should not be required to maintain the scheduling model manually.
 
 ---
 
@@ -1184,17 +1196,17 @@ After learner-facing V1 supports correct Today / Continue / Attention / Gate beh
 
 Implementation belongs downstream of this contract.
 
-The consumer / Runtime must:
+The consumer / runtime must:
 
 - read subject-local Current semantics without taking ownership of them;
 - keep private learner evidence private;
-- use current subject Runtime/evidence as inputs rather than duplicating them;
-- execute Chat-controlled allocation/next-action decisions without generating a replacement strategy;
-- preserve holdout boundaries and domain-specific natural units;
-- support evidence/basis refresh so Chat can replan when reality changes;
-- inherit exact Home / Steward / Radar / Dock responsibilities from `static-web/PRODUCT_SURFACE_CONTRACT.md` and exact Product / Surface owners;
-- inherit shared Runtime capabilities from `SYSTEM_CONTRACT.md`.
+- use current subject runtime/evidence as inputs rather than duplicating them;
+- preserve holdout boundaries;
+- preserve domain-specific natural units;
+- support rolling capacity replanning;
+- surface only the minimal frontend described above;
+- remain compatible with Global Home as a single-viewport Mac command center.
 
-If implementation appears to require changing a subject's learning semantics, evidence meaning, Source ownership, mastery definition, or the durable Exam parent design, stop and return the issue to the responsible CREATE owner rather than resolving it in Runtime.
+If implementation appears to require changing a subject's learning semantics, evidence meaning, Source ownership, or mastery definition, stop and return the issue to the responsible subject owner rather than modifying it inside the Orchestrator.
 
 Design provenance: Issue #211. Implementation follow-up: Issue #224.

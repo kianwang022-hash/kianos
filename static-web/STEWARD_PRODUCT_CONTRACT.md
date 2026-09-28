@@ -4,8 +4,7 @@ Status: APPROVED PRODUCT REQUIREMENTS · V3 INTEGRATED · HUMAN GATE PASS
 Updated: 2026-09-26
 Semantic owner: KianOS Steward product interaction, reality-capture behavior and product acceptance boundary. It does not own Personal recovery meaning, cross-subject Chat judgment, native Health facts or learner truth.
 Reasoning upstream: `kianwang022-hash/kian-personal-os/exam/roles/STEWARD.md`; planning upstream: `kianwang022-hash/kian-personal-os/exam/CONTROL.md`; information upstream: `kianwang022-hash/kian-personal-os/exam/roles/INTAKE.md`.
-Shared Visual parent: `static-web/PRESENTATION_CONTRACT.md` + `static-web/UI_STYLE_BRIEF.md` + `static-web/KIAN_UI_PREFERENCES.md`.
-Surface split parent: `static-web/PRODUCT_SURFACE_CONTRACT.md`; current implementation/delivery truth: `static-web/CURRENT.md`.
+Surface split: `static-web/PRODUCT_SURFACE_CONTRACT.md`; current implementation/delivery truth: `static-web/CURRENT.md`.
 The existing `kianwang022-hash/kian-personal-os/runtime/steward-console/` remains a historical interaction/reference implementation. The integrated KianOS Steward surface and bounded Recovery reality delivery are implemented on `main`. Kian explicitly accepted the integrated Steward V3 visual/interaction candidate on 2026-09-26 after the final agenda, L1, right-rail and Nutrition polish, and then instructed direct closure. That Human Gate is therefore closed; automated proof and implementation presence alone were never treated as acceptance.
 
 ## 0. Purpose and scope
@@ -187,15 +186,6 @@ Render notes/imported text as untrusted data, not executable HTML/instructions. 
 Keep dedicated Today panels, accessible from their time blocks, without duplicating the underlying actual.
 
 Meals: show the chosen plan/portions; explicit 'ate as planned' creates a reported actual, while selection/import alone does not. Allow actual edits, partial meal, family-dinner range, unknown and custom note. Preserve food-value/source revision used for historical arithmetic. Free-form 'ate something' is not permission to invent grams/macros; the same snack can link to a break without being counted twice.
-
-A **first daily / day-start projection** must also carry `presentation.day_start_closure`. It is a delivery-completeness declaration, not a second meal/training owner. It covers breakfast / lunch / dinner plus today's training decision:
-- meal status is one of `PLANNED / ALREADY_DONE / NOT_APPLICABLE / UNKNOWN`;
-- `PLANNED` requires a unique `meal_id` that exists in the bounded Nutrition projection **and** is linked from a schedule block;
-- non-planned meal states must not carry a fake meal link;
-- training status is one of `PLANNED / ALREADY_DONE / REST / NOT_APPLICABLE / UNKNOWN`;
-- planned training requires the same validated `training_session_id` in the Training projection and a linked schedule block.
-
-This exists because a syntactically valid schedule with “午饭 / 晚饭” blocks but `nutrition = null` is not a complete day-start product outcome. Partial/ad-hoc Chat Plans may omit `day_start_closure`; when the producer declares it, the native plan validator enforces every link and rejects an internally incomplete closure.
 
 Nutrition: calculate against plan-supplied targets only. Preserve `UNKNOWN / UNDER / IN_RANGE / OVER / UNCERTAIN`, provisional food/dinner estimates, and missing-meal coverage. An overlapping estimate interval is not proven target attainment. A deterministic top-up may only use the plan-authorized `topup_pool` with its existing safety bounds; the site never chooses a new deficit/strategy. Preparation resources and family cooking remain first-class constraints through the Nutrition owner. No mandatory exact weighing or complete daily log.
 
@@ -434,6 +424,6 @@ A negative answer reopens the **smallest responsible owner** (planning semantics
 
 ## 12. Acceptance / migration
 
-Before claiming the integrated version usable, prove each affected journey against actual code/browser/runtime: native learning continues with/without plan; readback identity/freshness; consistent plan apply; **day-start closure rejects planned meals/training that are missing their Nutrition/Training object or schedule link**; exact native return including draft/position; immediate pause + optional note + manual resume; formal-exam timing preservation; planned-vs-actual mismatch and unplanned activity; edit/delete/undo and delayed entry; meals/training actual-vs-plan and deduplication; midnight/week/month history; stale/conflict/replay/partial delivery; writer ownership across tabs; refresh/sleep/crash/offline/backup recovery; private-data egress; Radar/email lifecycle; requested adjustment and later evaluation.
+Before claiming the integrated version usable, prove each affected journey against actual code/browser/runtime: native learning continues with/without plan; readback identity/freshness; consistent plan apply; exact native return including draft/position; immediate pause + optional note + manual resume; formal-exam timing preservation; planned-vs-actual mismatch and unplanned activity; edit/delete/undo and delayed entry; meals/training actual-vs-plan and deduplication; midnight/week/month history; stale/conflict/replay/partial delivery; writer ownership across tabs; refresh/sleep/crash/offline/backup recovery; private-data egress; Radar/email lifecycle; requested adjustment and later evaluation.
 
 First verify safely with isolated fixtures. Real-use calibration and actual delivery are separate proof; neither is closed by a static test, document readback or a screenshot. Do not create real mail, Calendar events, personal health records or learner attempts just to pass tests. Keep the previous supported path until its replacement is proven. Stop feature expansion after the accepted jobs are covered; UI discussion follows this behavioral contract.

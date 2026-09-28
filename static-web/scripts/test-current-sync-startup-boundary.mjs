@@ -43,8 +43,7 @@ try {
     'kianos-current-sync.mjs',
     'currentRelease.mjs',
     'currentStaticImpact.mjs',
-    'currentStaticSlots.mjs',
-    'currentDependencies.mjs'
+    'currentStaticSlots.mjs'
   ]) {
     write('static-web/scripts/' + name, fs.readFileSync(path.join(scripts, name)));
   }

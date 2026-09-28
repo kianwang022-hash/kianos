@@ -78,8 +78,7 @@ async function timed(route) {
     status: response.status,
     ms: performance.now() - started,
     bytes: body.byteLength,
-    text: new TextDecoder().decode(body),
-    releaseSha: response.headers.get('x-kianos-release-sha') || ''
+    text: new TextDecoder().decode(body)
   };
 }
 
@@ -147,9 +146,6 @@ try {
   const alternateRoot = path.join(scratch, 'alternate');
   fs.mkdirSync(path.join(alternateRoot, '_astro'), { recursive: true });
   fs.writeFileSync(path.join(alternateRoot, 'index.html'), '<html>ATOMIC_SLOT_B</html>');
-  fs.writeFileSync(path.join(alternateRoot, '__kianos-current.json'), JSON.stringify({
-    state: 'synced', sha: 'slot-b-release-sha'
-  }) + '\n');
   fs.writeFileSync(path.join(alternateRoot, '_astro', 'new-probe.js'), 'slot-b');
 
   const continuity = [];
@@ -178,7 +174,6 @@ try {
   const switched = await timed('/');
   assert.equal(switched.status, 200, 'ATOMIC_SLOT_SWITCH_HTTP');
   assert.match(switched.text, /ATOMIC_SLOT_B/);
-  assert.equal(switched.releaseSha, 'slot-b-release-sha', 'STATIC_RESPONSE_RELEASE_SHA_MUST_FOLLOW_ACTIVE_SLOT');
 
   const oldAssetName = fs.readdirSync(path.join(distRoot, '_astro')).find((name) => {
     try { return fs.statSync(path.join(distRoot, '_astro', name)).isFile(); } catch { return false; }

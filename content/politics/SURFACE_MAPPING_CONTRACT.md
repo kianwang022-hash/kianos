@@ -184,8 +184,6 @@ A semantic zone is a learner-attention role, not a screen coordinate. Responsive
 
 ## 5 | Required shape
 
-Whole-subject rapid orientation may be owned by the existing `content/politics/learning/<subject>/subject-map.json` through `surface_mapping.ORIENT`. Those groups use `scope: subject`, resolve before the Politics Learn page, and remain a compact subject skeleton only; the renderer may not infer order/relation/role from raw subject-map field names. Subject-level ORIENT is outside the 151 PASS Natural-Unit accounting and does not create a second course or unit runtime.
-
 Each PASS Projection unit must resolve an explicit `surface_mapping`.
 
 Example:

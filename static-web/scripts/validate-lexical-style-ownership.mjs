@@ -5,8 +5,7 @@ import { fileURLToPath } from 'node:url';
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const src = path.join(webRoot, 'src');
 const basePath = path.join(src, 'layouts', 'LexicalBase.astro');
-const pagePath = path.join(src, 'pages', 'vocabulary', 'word', 'index.astro');
-const markupPath = path.join(src, 'components', 'VocabularyWordMarkup.astro');
+const pagePath = path.join(src, 'pages', 'vocabulary', '[ordinal].astro');
 const clozePagePath = path.join(src, 'pages', 'cloze', '[id].astro');
 const ownerPath = path.join(src, 'styles', 'lexical-presentation.css');
 const runtimePath = path.join(src, 'components', 'VocabularyWordRuntime.astro');
@@ -18,7 +17,6 @@ const page = read(pagePath);
 const clozePage = read(clozePagePath);
 const owner = read(ownerPath);
 const runtime = read(runtimePath);
-const markup = read(markupPath);
 const fail = (message) => errors.push(message);
 
 if (!base.includes("import '../styles/lexical-presentation.css';")) fail('LexicalBase must import lexical-presentation.css');
@@ -29,15 +27,11 @@ if (fs.existsSync(path.join(src, 'styles', 'responsive-guards.css'))) fail('reti
 if (fs.existsSync(path.join(src, 'styles', 'lexical-card-polish.css'))) fail('retired lexical-card-polish.css still exists');
 
 const foundationIndex = base.indexOf("import '../styles/shared-visual-foundation.css';");
-const shellIndex = base.indexOf("import '../styles/shared-shell.css';");
+const compositionIndex = base.indexOf("import '../styles/shared-workspace-composition.css';");
 const lexicalIndex = base.indexOf("import '../styles/lexical-presentation.css';");
-if (
-  foundationIndex < 0
-  || shellIndex < foundationIndex
-  || lexicalIndex < shellIndex
-) fail('Lexical final owner must load after shared visual/composition/shell baselines');
+if (foundationIndex < 0 || compositionIndex < foundationIndex || lexicalIndex < compositionIndex) fail('Lexical final owner must load after current shared visual/composition baseline');
 
-if (/<style(?:\s|>)/i.test(page)) fail('vocabulary/word/index.astro must not own visual CSS');
+if (/<style(?:\s|>)/i.test(page)) fail('vocabulary/[ordinal].astro must not own visual CSS');
 if (!owner.includes('--lexical-serif:var(--study-serif)')) fail('Lexical must consume the shared editorial serif role');
 // Accepted L2 family: Sense is one bounded learning object, Word-owned patterns stay in
 // the primary flow, and genuine Reference objects are independent right-side cards.
@@ -50,15 +44,14 @@ if (!/\.portedVocabBody\{[^}]*grid-template-columns:minmax\(0,69fr\) minmax\(330
 if (!/\.portedVocabStudySheet\{[^}]*border:1px solid/s.test(owner)) fail('Word study sheet boundary missing');
 if (!owner.includes('English-family neutral shell + restrained lexical semantic accent')) fail('accepted L2/L3 marker missing');
 
-if (!markup.includes('class="lexicalCoreHeadline"')) fail('Word Feel / Core must live in the Depth header');
-if (markup.includes('class="lexicalCoreRow"')) fail('duplicate body Core card must stay removed');
-if (!markup.includes('class="lexicalWordPatterns"')) fail('word-owned Construction projection missing from main lexical flow');
-if (markup.includes('lexicalConstructionSection')) fail('Construction must not render in the cross-sense reference rail');
-if (!markup.includes('data-has-reference=')) fail('reference rail must be content-earned');
-if (!runtime.includes("window.addEventListener('kianos:vocabulary-root-ready'")) fail('single-runtime dynamic initialization missing');
+if (!runtime.includes('class="lexicalCoreHeadline"')) fail('Word Feel / Core must live in the Depth header');
+if (runtime.includes('class="lexicalCoreRow"')) fail('duplicate body Core card must stay removed');
+if (!runtime.includes('class="lexicalWordPatterns"')) fail('word-owned Construction projection missing from main lexical flow');
+if (runtime.includes('lexicalConstructionSection')) fail('Construction must not render in the cross-sense reference rail');
+if (!runtime.includes('data-has-reference=')) fail('reference rail must be content-earned');
 
-const patternIndex = markup.indexOf('class="lexicalWordPatterns"');
-const railIndex = markup.indexOf('class="portedVocabEvidenceColumn"');
+const patternIndex = runtime.indexOf('class="lexicalWordPatterns"');
+const railIndex = runtime.indexOf('class="portedVocabEvidenceColumn"');
 if (patternIndex < 0 || railIndex < 0 || patternIndex > railIndex) fail('word-owned patterns must precede the cross-sense reference rail');
 
 const forbidden = [

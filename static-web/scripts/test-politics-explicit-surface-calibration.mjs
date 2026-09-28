@@ -88,12 +88,6 @@ pass(roles?.primitive === 'PARALLEL_SET', 'xi_role_field_does_not_become_hierarc
 pass(roles?.items?.map((item) => item.role).join('|') === '形成背景|理论创新路径|方法工具|历史地位', 'xi_role_members_exact');
 pass(!(xiC00.surfacePlan.states.ORIENT || []).some((entry) => entry.primitive === 'HIERARCHY'), 'xi_orient_has_no_invented_hierarchy');
 
-const xiCh06 = chapter('xi', 'ch06');
-const xiHighQuality = unit(xiCh06, 'POL27-CF-XI-C06-S03');
-pass(!group(xiHighQuality, 'ORIENT', 'xi-c06-s03-exact'), 'xi_precision_not_preexposed_in_orient');
-pass(group(xiHighQuality, 'CLOSE', 'xi-c06-s03-exact-close')?.items?.length === 5, 'xi_precision_available_at_optional_close');
-
-
 const ethics = chapter('ethics_law', 'ch00');
 const ethicsC00 = unit(ethics, 'POL27-CF-ETHICS-C00');
 const threeRelations = group(ethicsC00, 'ORIENT', 'ethics-c00-three-relations');

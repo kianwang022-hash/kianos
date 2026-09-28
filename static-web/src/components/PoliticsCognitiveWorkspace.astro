@@ -159,12 +159,15 @@ const workbenchHref = (unit) => `${base}politics/practice/?unit=${encodeURICompo
 
             <div class="stageActions">
               <button type="button" class="primaryAction" data-workspace-action="start-learn">去 iPad / MarginNote 学乘风 →</button>
+              {maps.length > 0 && <span>先带着结构进入原讲义，不在 Astro 重读第二遍教材。</span>}
             </div>
           </section>
 
           <section class="stageScene" data-stage="EXTERNAL_LEARN" hidden>
             <p class="stageEyebrow">乘风 · 主学习面在 iPad</p>
             <h2>{unit.title}</h2>
+            <p class="externalLead">Astro 此时只做认知伴随：保留位置、结构和要找的关系，不复制乘风连续正文。</p>
+
             <div class="externalFocus">
               <div>
                 <span>原讲义定位</span>
@@ -399,13 +402,8 @@ window.__kianosLearnerWriterReady.then(() => {
       }
       if (action === 'recall-pass') {
         const href = unit.dataset.practiceHref || unit.querySelector('[data-workspace-practice-link]')?.getAttribute('href');
-        if (href) {
-          const url = new URL(href, window.location.href);
-          // This exact path follows an explicit EXTERNAL_LEARN → RECALL learner action.
-          // Carry only that bounded handoff fact; generic ?unit= entry still requires confirmation.
-          url.searchParams.set('learnedScope', 'confirmed');
-          window.location.assign(`${url.pathname}${url.search}${url.hash}`);
-        } else syncUnitState(unit, 'VERIFY');
+        if (href) window.location.assign(href);
+        else syncUnitState(unit, 'VERIFY');
       }
       if (action === 'verify-empty-close') syncUnitState(unit, 'CLOSE');
       if (action === 'next-unit') setActiveUnit(Number(unit.dataset.unitIndex || 0) + 1);

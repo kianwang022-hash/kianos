@@ -1,0 +1,1384 @@
+{
+  "schema": "kianos.lexical.bf16_write_fragment.v1",
+  "part": 3,
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o1711.json",
+      "mode": "patch_json",
+      "expected_sha256": "8f5d6fbb6193fe19c11fafd8b0b6e64c1ff6fccad5e8c9871e144680417243d6",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "ab8931dd448c52bb5075206ef06306680419c56f113a38c0a2866a3cba15199c",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "护送，护卫",
+                  "label_en": "to accompany someone or something to protect or guide them",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:escort:6b780f6cd9ab568f"
+                  ]
+                },
+                {
+                  "label_cn": "护送者，护卫者",
+                  "label_en": "a person or group that accompanies someone for protection",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:escort:cbc6f6344b2e5b94"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "护送，护卫",
+              "core_meaning_en": "accompany or be accompanied for protection",
+              "mental_model_cn": "护送，护卫",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "semantic-reconciliation:o1625-o1824"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:bd812af098c4bc3ddf00",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:escort:6b780f6cd9ab568f:collocation:0"
+                    ],
+                    "meaning_cn": "护送某人到某地",
+                    "phrase": "escort sb to + place"
+                  },
+                  {
+                    "collocation_id": "collocation:4dfd0cdd3a0f5647a96a",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:escort:6b780f6cd9ab568f:collocation:1"
+                    ],
+                    "meaning_cn": "护送某人去机场",
+                    "phrase": "escort sb to the airport"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "护送，护卫",
+                "definition_en": "to accompany someone or something to protect or guide them",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:escort:6b780f6cd9ab568f",
+                "sense_label_en": "to accompany someone or something to protect or guide them",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b525fe37c4a29c30c186",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:escort:cbc6f6344b2e5b94:collocation:0"
+                    ],
+                    "meaning_cn": "警察护送",
+                    "phrase": "police escort"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "护送者，护卫者",
+                "definition_en": "a person or group that accompanies someone for protection",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:escort:cbc6f6344b2e5b94",
+                "sense_label_en": "a person or group that accompanies someone for protection",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "escort",
+            "word_family": [],
+            "word_id": "word:escort",
+            "form_identity": {
+              "form_type": "same_spelling_pos_conditioned_pronunciation",
+              "spelling": "escort",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "escort noun has initial stress; escort verb has final stress.",
+              "boundaries": [
+                {
+                  "surface": "escort",
+                  "condition": "noun",
+                  "note": "initial stress"
+                },
+                {
+                  "surface": "escort",
+                  "condition": "verb",
+                  "note": "final stress"
+                }
+              ],
+              "variants": [],
+              "authority": "BF16 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1716.json",
+      "mode": "patch_json",
+      "expected_sha256": "4cef853b989de430087c01bea212fec2e853370ad15cd03871ba1fa4ef7e9d85",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v3",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:5ccabb3bde44bc102b9a",
+                "direction": "R+P",
+                "level": "L1",
+                "meaning_cn": "证实、确定……为真",
+                "pattern": "establish that + clause",
+                "source_sense_id": "sense:establish:b1bfb7fbad6e5a5b",
+                "definition_en": "to show, determine, or prove that something is true or accepted"
+              }
+            ],
+            "content_hash": "4cc86bd15bfa582c10a1a6d7de542d8f03b16d492c4341a33532f6b93c7e1b9f",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "建立/设立；确立、证实或使得到认可",
+              "core_meaning_en": "to establish or found something; to establish a fact as true or accepted",
+              "mental_model_cn": "建立/设立；确立、证实或使得到认可",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:construction:5ccabb3bde44bc102b9a",
+              "deep:deep:secondary_senses:establish:fb355c50ab840cb2",
+              "semantic-reconciliation:o1625-o1824"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:156020cd2b2fc160d5fe",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:establish:bd2d03d4656e56f2:collocation:0"
+                    ],
+                    "meaning_cn": "建立公司",
+                    "phrase": "establish a company"
+                  },
+                  {
+                    "collocation_id": "collocation:64955bfa2df3a9e19a7c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:establish:bd2d03d4656e56f2:collocation:1"
+                    ],
+                    "meaning_cn": "建立关系",
+                    "phrase": "establish a relationship"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "建立；设立",
+                "definition_en": "to set up or found something",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:establish:bd2d03d4656e56f2",
+                "sense_label_en": "to set up or found something",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:27c5ffc95c085d985a85",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:establish:b1bfb7fbad6e5a5b:collocation:0"
+                    ],
+                    "meaning_cn": "确立事实",
+                    "phrase": "establish a fact"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "确立；使被接受",
+                "definition_en": "to make something accepted or recognized",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:establish:b1bfb7fbad6e5a5b",
+                "sense_label_en": "to make something accepted or recognized",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "使立足于；把…建立在",
+                "definition_en": "to base something on something else",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:establish:216bdaecaec6565d",
+                "sense_label_en": "to base something on something else",
+                "sort_order": 2,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "completed",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "establish",
+            "word_family": [],
+            "word_id": "word:establish"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1719.json",
+      "mode": "patch_json",
+      "expected_sha256": "60b509958c8b0c76c12c70f077bf992c356cab51b58453faac47feddd464cfb9",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "751a3bb8f613aaad23c2f5aa73da8711cc78df28e7dc627a6438faaae70c2567",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "审美的，美学的",
+                  "label_en": "concerned with beauty or the appreciation of beauty",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:esthetic:6cdfcab5e0375df7"
+                  ]
+                },
+                {
+                  "label_cn": "美学理论，审美观",
+                  "label_en": "a philosophical theory or set of ideas about what is beautiful",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:esthetic:0baa9a047cce5791"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "与美或审美相关的",
+              "core_meaning_en": "relating to beauty or the appreciation of beauty",
+              "mental_model_cn": "与美或审美相关的",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:3f2d0be042c99dbea622",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:esthetic:6cdfcab5e0375df7:collocation:0"
+                    ],
+                    "meaning_cn": "审美价值",
+                    "phrase": "esthetic value"
+                  },
+                  {
+                    "collocation_id": "collocation:8214a5fdf920809c61f6",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:esthetic:6cdfcab5e0375df7:collocation:1"
+                    ],
+                    "meaning_cn": "审美感",
+                    "phrase": "esthetic sense"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "审美的，美学的",
+                "definition_en": "concerned with beauty or the appreciation of beauty",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:esthetic:6cdfcab5e0375df7",
+                "sense_label_en": "concerned with beauty or the appreciation of beauty",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a6e7369c35cc4648f71b",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:esthetic:0baa9a047cce5791:collocation:0"
+                    ],
+                    "meaning_cn": "该运动的审美观",
+                    "phrase": "the esthetic of the movement"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "美学理论，审美观",
+                "definition_en": "a philosophical theory or set of ideas about what is beautiful",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:esthetic:0baa9a047cce5791",
+                "sense_label_en": "a philosophical theory or set of ideas about what is beautiful",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "esthetic",
+            "word_family": [],
+            "word_id": "word:esthetic",
+            "form_identity": {
+              "form_type": "spelling_variant_identity",
+              "spelling": "esthetic",
+              "identity_rule": "same_lexeme_spelling_variant",
+              "boundary": "esthetic is a spelling variant of aesthetic; aesthetic is the dominant contemporary form.",
+              "boundaries": [
+                {
+                  "surface": "aesthetic",
+                  "condition": "dominant contemporary spelling",
+                  "note": "preferred general form"
+                },
+                {
+                  "surface": "esthetic",
+                  "condition": "variant spelling",
+                  "note": "same lexeme"
+                }
+              ],
+              "variants": [],
+              "authority": "BF16 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1720.json",
+      "mode": "patch_json",
+      "expected_sha256": "848496a238c2e17f1f3956f2e2b7db370d7cea393c3ddad48fa0a80aa1ea486d",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "0daa2d721afdffb208b6a847e7abf8d3d0d3db656a7d91246b69d6aecaa24938",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "估计；估计值",
+                  "label_en": "an approximate calculation or judgment",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:estimate:f0af306e52cd5e15"
+                  ]
+                },
+                {
+                  "label_cn": "估计；估算",
+                  "label_en": "to calculate or judge approximately",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:estimate:cf1a14f74d6a5ed0"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "估计；估算；估计值",
+              "core_meaning_en": "an approximate calculation/judgment; to estimate approximately",
+              "mental_model_cn": "估计；估算；估计值",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:estimate:4e811dfa9022a2c2",
+              "deep:deep:constructions:estimate:4e811dfa9022a2c2",
+              "semantic-reconciliation:o1625-o1824"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "估计；估算；估计值",
+                "definition_en": "an approximate calculation or judgment of an amount, value, number, or cost",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:estimate:f0af306e52cd5e15",
+                "sense_label_en": "an approximate calculation or judgment of an amount, value, number, or cost",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "估计；估算",
+                "definition_en": "to calculate or judge an amount, value, number, or cost approximately",
+                "governing_pattern": "vt. + object / that-clause",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:estimate:cf1a14f74d6a5ed0",
+                "sense_label_en": "to calculate or judge an amount, value, number, or cost approximately",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "estimate",
+            "word_family": [],
+            "word_id": "word:estimate",
+            "form_identity": {
+              "form_type": "same_spelling_pos_conditioned_pronunciation",
+              "spelling": "estimate",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "estimate noun ends with reduced /-mət/; estimate verb ends /-meɪt/. The main contrast is the final syllable, not a stress shift.",
+              "boundaries": [
+                {
+                  "surface": "estimate",
+                  "condition": "noun",
+                  "note": "final /-mət/"
+                },
+                {
+                  "surface": "estimate",
+                  "condition": "verb",
+                  "note": "final /-meɪt/"
+                }
+              ],
+              "variants": [],
+              "authority": "BF16 existing-truth Form migration 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1723.json",
+      "mode": "patch_json",
+      "expected_sha256": "ffb255ca53cab0232aa5d46da80b8cdefead785a73dc3d0927d0147bc231db21",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "1ee0ceba64e7557bcadd9ee4a557698262f730520f7278bee171021c52c82641",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "种族的",
+              "core_meaning_en": "relating to a group sharing cultural or racial traits",
+              "mental_model_cn": "种族的",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:ethnic:762ef631b6f4651a",
+              "relation:deep:word_family:ethnic:762ef631b6f4651a"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "民族的；族群的",
+                "definition_en": "relating to a particular ethnic group",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:ethnic:388358b45c3a604d",
+                "sense_label_en": "relating to a particular ethnic group",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "ethnic",
+            "word_family": [
+              {
+                "boundary": "ethnic (adj.) → ethnicity (n.): 民族/族群相关的 → 民族或族群身份/归属；派生关系，不是同义替换。",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": "ethnic is the adjective; ethnicity is the noun for ethnic identity or group membership.",
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:ethnic:ethnicity",
+                    "evidence_status": "source_checked",
+                    "source_locator": "ethnic|ethnicity",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:ethnic:762ef631b6f4651a",
+                "family_sources": [
+                  "AWL family"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:ethnic:50357ae40bc75a9b",
+                "target_sense_id": null,
+                "target_word": "ethnicity",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              }
+            ],
+            "word_id": "word:ethnic"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1726.json",
+      "mode": "patch_json",
+      "expected_sha256": "3a5a31d9bcecd0e9988304247206835c70c9bb4dd4a343182ff6254432a65b53",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "7123077d9aaf4db6e361423adcec81613f812e789b6b75f7dc0c9e7b75788393",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "评估，评价",
+              "core_meaning_en": "to judge the value or worth of something",
+              "mental_model_cn": "评估，评价",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:evaluate:8421c4223b55ae0c",
+              "relation:deep:word_family:evaluate:8421c4223b55ae0c"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e343c9b19c113dbc0ec7",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:evaluate:ba0ad9e613795593:collocation:0"
+                    ],
+                    "meaning_cn": "评估某事物的有效性",
+                    "phrase": "evaluate the effectiveness of + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:f9a505aad6c6ba39c3e2",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:evaluate:ba0ad9e613795593:collocation:1"
+                    ],
+                    "meaning_cn": "评估结果",
+                    "phrase": "evaluate the results"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "评估，评价",
+                "definition_en": "to form an opinion of the amount, value, or quality of something after thinking about it carefully",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:evaluate:ba0ad9e613795593",
+                "sense_label_en": "to form an opinion of the amount, value, or quality of something after t",
+                "sort_order": 0,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "evaluate",
+            "word_family": [
+              {
+                "boundary": "evaluate (v.) → evaluative (adj.): 评估、评价 → 用于评价/带有评价性质的；派生关系，不是同义替换。",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": "evaluate is the verb; evaluative is the adjective meaning involving or expressing evaluation.",
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:evaluate:evaluative",
+                    "evidence_status": "source_checked",
+                    "source_locator": "evaluate|evaluative",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:evaluate:8421c4223b55ae0c",
+                "family_sources": [
+                  "AWL family"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:evaluate:ba0ad9e613795593",
+                "target_sense_id": null,
+                "target_word": "evaluative",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              }
+            ],
+            "word_id": "word:evaluate"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1729.json",
+      "mode": "patch_json",
+      "expected_sha256": "bfbc0f5cc6b9cb1586bc83bc8fb47efd50c12c0e3cb7967535f6067352c436a4",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "e1b74ebf16d847061a8c781167689b072c5b91646f45b33c35e22b9ebdaba450",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "甚至；更加；甚至更",
+                  "label_en": "used to emphasize something surprising or a greater comparative degree",
+                  "pos": "adverb",
+                  "sense_ids": [
+                    "sense:even:6a9ffdc81a55577a",
+                    "sense:even:cec2f94f2fae5036"
+                  ]
+                },
+                {
+                  "label_cn": "平坦的；相等/均衡/公平的；偶数的；均匀/平稳的",
+                  "label_en": "flat; equal/balanced/fair; divisible by two; steady or regular",
+                  "pos": "adjective",
+                  "sense_ids": [
+                    "sense:even:aaecbb1d8d145f87",
+                    "sense:even:b1cb8a558c555cb7",
+                    "sense:even:0915c6db34da53fa",
+                    "sense:even:c805d837b8cb5c9b"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "甚至、更加；平坦、均衡、偶数或平稳",
+              "core_meaning_en": "even as emphasis/comparison; flat, equal, divisible by two, or steady",
+              "mental_model_cn": "高频先分副词 even（甚至/更加）与形容词 even（平坦、均衡、偶数、平稳）；低频动词/名词留在扩展。",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:ec868ba18103bbe54ef5",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:6a9ffdc81a55577a:collocation:0"
+                    ],
+                    "meaning_cn": "即使",
+                    "phrase": "even if"
+                  },
+                  {
+                    "collocation_id": "collocation:6347e095dd4bfac9cac4",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:6a9ffdc81a55577a:collocation:1"
+                    ],
+                    "meaning_cn": "虽然，尽管",
+                    "phrase": "even though"
+                  },
+                  {
+                    "collocation_id": "collocation:22746287855082749766",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:6a9ffdc81a55577a:collocation:2"
+                    ],
+                    "meaning_cn": "即便如此",
+                    "phrase": "even so"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "甚至，即使",
+                "definition_en": "used to emphasize something surprising or extreme",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adverb",
+                "sense_id": "sense:even:6a9ffdc81a55577a",
+                "sense_label_en": "used to emphasize something surprising or extreme",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:419005ad51a89cbdc0bb",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:cec2f94f2fae5036:auditor_suggested_collocation:0"
+                    ],
+                    "meaning_cn": "",
+                    "phrase": "even more"
+                  },
+                  {
+                    "collocation_id": "collocation:cf3522c12b0cb4b2a7bd",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:cec2f94f2fae5036:auditor_suggested_collocation:1"
+                    ],
+                    "meaning_cn": "",
+                    "phrase": "even better"
+                  },
+                  {
+                    "collocation_id": "collocation:021428edfd1ac9d13e8c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:cec2f94f2fae5036:auditor_suggested_collocation:2"
+                    ],
+                    "meaning_cn": "",
+                    "phrase": "even less"
+                  }
+                ],
+                "confidence": "high",
+                "definition_cn": "更加；甚至更",
+                "definition_en": "used before a comparative to emphasize a greater degree or extent",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adverb",
+                "sense_id": "sense:even:cec2f94f2fae5036",
+                "sense_label_en": "used before a comparative to emphasize a greater degree or extent",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a58792806c73caa727e3",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:aaecbb1d8d145f87:collocation:0"
+                    ],
+                    "meaning_cn": "平坦的表面",
+                    "phrase": "even surface"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "平坦的，平的",
+                "definition_en": "flat, level, or smooth",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:even:aaecbb1d8d145f87",
+                "sense_label_en": "flat, level, or smooth",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:94158db02dd8a0cd7fbe",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:b1cb8a558c555cb7:collocation:0"
+                    ],
+                    "meaning_cn": "平局",
+                    "phrase": "even score"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "相等的；均衡的；公平的",
+                "definition_en": "equal, balanced, or fair between people, sides, amounts, or conditions",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:even:b1cb8a558c555cb7",
+                "sense_label_en": "equal, balanced, or fair between people, sides, amounts, or conditions",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:24e6ce8f2dac6533c3b3",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:0915c6db34da53fa:collocation:0"
+                    ],
+                    "meaning_cn": "偶数",
+                    "phrase": "even number"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "偶数的",
+                "definition_en": "divisible by two",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:even:0915c6db34da53fa",
+                "sense_label_en": "divisible by two",
+                "sort_order": 4,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:71b658ff7aaf63c1cfe8",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:c805d837b8cb5c9b:auditor_suggested_collocation:0"
+                    ],
+                    "meaning_cn": "",
+                    "phrase": "an even rate"
+                  },
+                  {
+                    "collocation_id": "collocation:7c954f5fad058f077669",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:c805d837b8cb5c9b:auditor_suggested_collocation:1"
+                    ],
+                    "meaning_cn": "",
+                    "phrase": "even breathing"
+                  },
+                  {
+                    "collocation_id": "collocation:38caee3365ccab383949",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:c805d837b8cb5c9b:auditor_suggested_collocation:2"
+                    ],
+                    "meaning_cn": "",
+                    "phrase": "an even pace"
+                  }
+                ],
+                "confidence": "high",
+                "definition_cn": "均匀的；平稳的；规律的",
+                "definition_en": "continuous, regular, and not changing suddenly",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:even:c805d837b8cb5c9b",
+                "sense_label_en": "continuous, regular, and not changing suddenly",
+                "sort_order": 5,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "使平坦；使相等",
+                "definition_en": "to make something flat or equal",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:even:97f381555b7d5696",
+                "sense_label_en": "to make something flat or equal",
+                "sort_order": 6,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a1bd55c5d7811e08da2e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:even:c4c46fa9ebf25f3d:collocation:0"
+                    ],
+                    "meaning_cn": "奇数和偶数",
+                    "phrase": "odd and even"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "偶数",
+                "definition_en": "a number that is divisible by two",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:even:c4c46fa9ebf25f3d",
+                "sense_label_en": "a number that is divisible by two",
+                "sort_order": 7,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "even",
+            "word_family": [],
+            "word_id": "word:even"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1744.json",
+      "mode": "patch_json",
+      "expected_sha256": "cf18d7db8ebcae15e6855eff57ebb7730990dc57b80cefddbc5d61aaa5dc7ad7",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v2",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "c2bd2e655bc6abb88b5cbf217ae74620619c4aacab84c230410494e0fa3d0aae",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "逐渐发展的过程",
+              "core_meaning_en": "process of gradual development",
+              "mental_model_cn": "逐渐发展的过程",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:confusables:evolution:e2bf4e3a8d240d58",
+              "deep:deep:word_family:evolution:7d34ce286ff9213e",
+              "deep:deep:word_family:evolution:b53508990c16b777",
+              "deep:deep:word_family:evolution:c1773e99fa2363fc",
+              "relation:deep:word_family:evolution:7d34ce286ff9213e",
+              "relation:deep:word_family:evolution:b53508990c16b777",
+              "relation:deep:word_family:evolution:c1773e99fa2363fc"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d4e6f9eabaabe847747b",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:evolution:2da95d9fec125e10:collocation:0"
+                    ],
+                    "meaning_cn": "进化论",
+                    "phrase": "theory of + evolution"
+                  },
+                  {
+                    "collocation_id": "collocation:aa5e17e22efab193521c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:evolution:2da95d9fec125e10:collocation:1"
+                    ],
+                    "meaning_cn": "物种的进化",
+                    "phrase": "the evolution of species"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "进化，演化",
+                "definition_en": "the process by which species develop over time",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:evolution:2da95d9fec125e10",
+                "sense_label_en": "the process by which species develop over time",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:2b4d72ecbfeae990a9da",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:evolution:09bff67fb1c258f8:collocation:0"
+                    ],
+                    "meaning_cn": "某事物的发展/演变",
+                    "phrase": "evolution of + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:6df6bed0ec3c4b2c7c2e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:evolution:09bff67fb1c258f8:collocation:1"
+                    ],
+                    "meaning_cn": "社会演变",
+                    "phrase": "social evolution"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "发展，演变",
+                "definition_en": "a gradual process of change and development",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:evolution:09bff67fb1c258f8",
+                "sense_label_en": "a gradual process of change and development",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "completed",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 4,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "evolution",
+            "word_family": [
+              {
+                "boundary": "evolve (v.) ↔ evolution (n.): 逐渐发展/演化 ↔ 进化或演变的过程；词性不同，不可机械互换。",
+                "codex_reviewed": true,
+                "definition_cn": null,
+                "definition_en": "evolve is the verb; evolution is the noun for the process of gradual development or biological change.",
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:evolution:evolve",
+                    "evidence_status": "source_checked",
+                    "source_locator": "evolution|evolve",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:evolution:c1773e99fa2363fc",
+                "family_sources": [
+                  "curated core-card derivative"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "codex_reviewed",
+                "shared_definition": null,
+                "source_sense_id": "sense:evolution:2da95d9fec125e10",
+                "target_sense_id": "sense:evolve:6b6aad2973df5009",
+                "target_word": "evolve",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false
+              },
+              {
+                "boundary": "evolution (n.) → evolutionary (adj.): 进化/演变 → 与进化或渐进发展有关的；派生关系。",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": "evolutionary is the adjective meaning relating to evolution or gradual development.",
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:evolution:evolutionary",
+                    "evidence_status": "source_checked",
+                    "source_locator": "evolution|evolutionary",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:evolution:b53508990c16b777",
+                "family_sources": [
+                  "AWL family"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:evolution:2da95d9fec125e10",
+                "target_sense_id": null,
+                "target_word": "evolutionary",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false
+              }
+            ],
+            "word_id": "word:evolution"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o5529.json",
+      "mode": "patch_json",
+      "expected_sha256": "587e05b8a4ab8cb07c796cdd3f2e01639e6e6081f06b205f10539d7c07e98f5f",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "3f21ed2e7b57fa11d356421e2c1e259a2bf7d1f3c5cef7c33b5590a9693b860d",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "登记；注册；入学",
+              "core_meaning_en": "to officially register or be registered as a member, student, or participant",
+              "mental_model_cn": "",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "sense:sense:enroll:fe581c3e3bd053cf"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "auditor_approved",
+                "definition_cn": "登记；注册；入学",
+                "definition_en": "to officially register or be registered as a member, student, or participant",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:enroll:fe581c3e3bd053cf",
+                "sense_label_en": "to officially register or be registered as a member, student, or participant",
+                "sort_order": 0,
+                "source_evidence": [
+                  "source-fact:ecdict:e26871589207e05decf6",
+                  "source-fact:wiktionary-wiktextract:147e45b0beb1f941ffc8",
+                  "source-fact:wiktionary-wiktextract:1c7b165e13a599b177f8",
+                  "source-fact:wiktionary-wiktextract:3b8c2e39e897eae41608",
+                  "source-fact:wiktionary-wiktextract:6b3b475cacd28b379e0d",
+                  "source-fact:wiktionary-wiktextract:7f100453c6261e3223e5",
+                  "source-fact:wiktionary-wiktextract:bf96a510302d863dd02d",
+                  "source-fact:wiktionary-wiktextract:eeba3cd234e13fcb6e4c",
+                  "source-fact:wiktionary-wiktextract:fabd75b30bc74dd5b27b"
+                ],
+                "transitivity": null
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {},
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "enroll",
+            "word_family": [],
+            "word_id": "word:enroll",
+            "form_identity": {
+              "form_type": "regional_spelling_identity",
+              "spelling": "enroll",
+              "identity_rule": "paired_frozen_word_spelling_variant",
+              "boundary": "enroll is the usual American spelling; enrol is the common British spelling. Both frozen Word owners remain distinct catalogue identities.",
+              "boundaries": [
+                {
+                  "surface": "enroll",
+                  "condition": "American English",
+                  "note": "usual AmE spelling"
+                },
+                {
+                  "surface": "enrol",
+                  "condition": "British English",
+                  "note": "common BrE spelling"
+                }
+              ],
+              "variants": [],
+              "authority": "BF16 existing-truth Form migration 2026-09-22"
+            }
+          }
+        },
+        {
+          "pointer": "/relation_refs",
+          "value": []
+        }
+      ]
+    }
+  ]
+}

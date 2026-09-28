@@ -2,7 +2,6 @@ import { listProjectableXizongSystems, loadXizongBlock } from '../src/lib/xizong
 import { learningCuesForBlock } from '../src/lib/xizongLearningCues.mjs';
 import { resolveXizongLearnerProjection } from '../src/lib/xizongLearnerProjection.mjs';
 import { validateXizongLearnerObject } from '../src/lib/xizongLearnerObject.mjs';
-import { attachSourceVisualBundles } from '../src/lib/xizongSourceVisualAssets.mjs';
 
 function assert(condition, message) {
   if (!condition) throw new Error(`CURRENT_XIZONG_LEARNER_OBJECT_VALIDATION:${message}`);
@@ -25,7 +24,7 @@ let totalExtensions = 0;
 for (const systemSummary of listProjectableXizongSystems()) {
   for (const blockSummary of systemSummary.blocks || []) {
     const canonicalBlock = loadXizongBlock(systemSummary.systemId, blockSummary.blockId);
-    const resolved = resolveXizongLearnerProjection(canonicalBlock, { attachVisualBundles: attachSourceVisualBundles });
+    const resolved = resolveXizongLearnerProjection(canonicalBlock);
     const productionBlock = resolved.block;
     const learnerObject = resolved.learnerObject;
     const report = resolved.report;
@@ -50,8 +49,6 @@ for (const systemSummary of listProjectableXizongSystems()) {
       assert(sameIds(learnSlot.precision, kp.precision), `${kpId}:learn-precision-drift`);
       assert(sameIds(learnSlot.extension, kp.extension), `${kpId}:learn-extension-drift`);
       assert(sameIds(learnSlot.connection, connections), `${kpId}:learn-connection-drift`);
-      assert(sameIds(learnSlot.attention, kp.attention), `${kpId}:learn-attention-drift`);
-      assert(!(recallContext.attention || []).length, `${kpId}:answer-bearing-attention-leaked-to-recall-front`);
       assert(sameIds(recallContext.visual, kp.visual), `${kpId}:recall-context-visual-drift`);
       assert(sameIds(recallContext.precision, kp.precision), `${kpId}:recall-context-precision-drift`);
       assert(sameIds(recallContext.extension, kp.extension), `${kpId}:recall-context-extension-drift`);
@@ -82,61 +79,6 @@ for (const systemSummary of listProjectableXizongSystems()) {
 
     reports.push(report);
     totalKp += report.kpCount;
-    if (productionBlock.blockId === 'D1') {
-      const kp01 = learnerObject.kps.find((kp) => kp.identity.kpId === 'digestive-d1-kp01');
-      const kp04 = learnerObject.kps.find((kp) => kp.identity.kpId === 'digestive-d1-kp04');
-      assert((kp01?.attention || []).some((row) => row.semanticRole === 'CONFUSABLE' && row.attentionRole === 'CURRENT_TAKEAWAY'), 'b-d01-kp01:confusable-attention-missing');
-      assert((kp04?.attention || []).some((row) => row.semanticRole === 'CONNECTION_NOTICE' && row.attentionRole === 'FUTURE_CONNECTION'), 'b-d01-kp04:connection-attention-missing');
-      assert(!(learnerObject.slots?.kpRecallContext?.['digestive-d1-kp01']?.attention || []).length, 'b-d01-kp01:attention-leaked-to-recall');
-    }
-    if (productionBlock.blockId === 'circulation-b01') {
-      const kp03 = learnerObject.kps.find((kp) => kp.identity.kpId === 'circulation-b01-kp03');
-      const tableVisual = kp03?.visual?.find((row) => row.id === 'a1-b01-kp03-cycle-table-visual');
-      assert(Boolean(tableVisual?.sourceVisualBundle?.assets?.length), 'circulation-b01-kp03:p113-source-visual-missing');
-      assert(tableVisual?.answerBearing === true, 'circulation-b01-kp03:p113-answer-bearing-guard-missing');
-      assert(tableVisual?.displayPolicy?.timing === 'POST_REVEAL', 'circulation-b01-kp03:p113-post-reveal-timing-missing');
-      const lg01Pre = learnerObject.slots?.logicGroupPrelearn?.['circulation-b01-lg01'] || {};
-      assert(!(lg01Pre.visual || []).some((row) => row.id === 'a1-b01-kp03-cycle-table-visual'), 'circulation-b01-lg01:p113-kp-visual-leaked-to-group-prelearn');
-      const deferredPrecision = learnerObject.kps.flatMap((kp) => kp.precision);
-      assert(deferredPrecision.length === 13, `circulation-b01:deferred-precision-count:${deferredPrecision.length}`);
-      assert(deferredPrecision.every((row) => row.attentionRole === 'DEFERRED_MEMORY'), 'circulation-b01:deferred-precision-role-drift');
-      assert(deferredPrecision.every((row) => !row.answerHtml), 'circulation-b01:deferred-precision-answer-leak');
-      const kp05 = learnerObject.kps.find((kp) => kp.identity.kpId === 'circulation-b01-kp05');
-      assert((kp05?.precision || []).length === 0, 'circulation-b01-kp05:fake-precision-created');
-      const kp09 = learnerObject.kps.find((kp) => kp.identity.kpId === 'circulation-b01-kp09');
-      assert((kp09?.connection?.outgoing || []).some((row) => row.id === 'b01-c01-af-filling-to-b10'), 'circulation-b01-kp09:future-connection-missing');
-      const restoredVisualIds = new Set([
-        'a1-b01-kp22-bp-matrix-visual',
-        'a1-b01-kp24-venous-return-visual',
-        'a1-b01-kp25-microcirculation-visual',
-        'a1-b01-kp28-coronary-cycle-visual',
-        'a1-b01-kp32-coronary-nitrate-visual'
-      ]);
-      const restoredVisuals = learnerObject.kps.flatMap((kp) => kp.visual).filter((row) => restoredVisualIds.has(row.id));
-      assert(restoredVisuals.length === 5, `circulation-b01:restored-current-visual-count:${restoredVisuals.length}`);
-      assert(restoredVisuals.every((row) => row.answerBearing === true), 'circulation-b01:restored-visual-answer-guard-missing');
-      assert(restoredVisuals.every((row) => row.displayPolicy?.timing === 'POST_REVEAL'), 'circulation-b01:restored-visual-post-reveal-timing-missing');
-    }
-    if (productionBlock.blockId === 'circulation-b10') {
-      const lg05 = learnerObject.logicGroups.find((group) => group.identity.logicGroupId === 'circulation-b10-lg05');
-      assert((lg05?.connection?.incoming || []).some((row) => row.id === 'b01-c01-af-filling-to-b10'), 'circulation-b10-lg05:incoming-reactivation-missing');
-    }
-    if (productionBlock.blockId === 'circulation-b02') {
-      const expected = new Set([
-        'a1-b02-kp04-four-reflex-visual',
-        'a1-b02-kp09-raas-visual',
-        'a1-b02-kp07-catecholamine-visual',
-        'a1-b02-kp14-endothelium-visual',
-        'a1-b02-kp06-vascular-nerve-visual',
-        'a1-b02-kp11-adh-aqp2-visual',
-        'a1-b02-kp12-anp-adh-aldosterone-visual'
-      ]);
-      const rows = learnerObject.kps.flatMap((kp) => kp.visual).filter((row) => expected.has(row.id));
-      assert(rows.length === 7, `circulation-b02:current-visual-gate-count:${rows.length}`);
-      assert(rows.every((row) => row.answerBearing === true), 'circulation-b02:answer-bearing-visual-guard-missing');
-      assert(rows.every((row) => row.displayPolicy?.timing === 'POST_REVEAL'), 'circulation-b02:visual-post-reveal-timing-missing');
-    }
-
     totalKpVisual += report.kpVisualCount;
     totalKpPrecision += report.kpPrecisionCount;
     totalExtensions += report.extensionCount;

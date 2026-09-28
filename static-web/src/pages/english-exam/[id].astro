@@ -275,7 +275,6 @@ const serverTaskLabel = (step) => ({
         sealFailed = false;
         root.dataset.sealError = 'false';
         render();
-        if (clock) clock.textContent = '00:00';
         setStatus(automatic ? '180 分钟到，整卷已自动交卷。' : '已交卷。现在可以查看客观题结果。');
         return true;
       } catch {

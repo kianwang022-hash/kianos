@@ -7,16 +7,13 @@
 .portedReadingAnswerStrip span{color:#667a73;font-size:10px}
 .portedReadingAnswerStrip b{margin-left:4px;color:#244c41;font-size:11px}
 
-.portedReadingRepair{margin-top:9px;border:1px solid #dfe7e3;border-radius:10px;background:#fbfdfc}
+.portedReadingRepair{display:grid;gap:10px;margin-top:9px;padding:12px;border:1px solid #d7e2dd;border-radius:11px;background:#fbfdfc}
 .portedReadingRepair[hidden]{display:none!important}
-.portedReadingRepair>summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px;padding:8px 10px;cursor:pointer;list-style:none;color:#6d8179}
-.portedReadingRepair>summary::-webkit-details-marker{display:none}
-.portedReadingRepair>summary::before{content:'+';font-size:13px;font-weight:800;color:#6f8b80}
-.portedReadingRepair[open]>summary::before{content:'−'}
-.portedReadingRepair>summary span{color:#52746a;font-size:9px;font-weight:850;letter-spacing:.04em}
-.portedReadingRepair>summary strong{min-width:0;color:#53665f;font-size:10px;line-height:1.35;font-weight:700}
-.portedReadingRepair>summary small{color:#8b9793;font-size:9px;white-space:nowrap}
-.portedReadingRepairBody{display:grid;gap:10px;padding:10px;border-top:1px solid #e7ece9}
+.portedReadingRepair>header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin:0}
+.portedReadingRepair>header>div{display:grid;gap:2px}
+.portedReadingRepair>header span{color:#397565;font-size:9px;font-weight:900;letter-spacing:.06em}
+.portedReadingRepair>header strong{color:#2b413a;font-size:12px;line-height:1.35}
+.portedReadingRepair>header small{color:#87938f;font-size:9px;white-space:nowrap}
 
 .portedReadingCauseRow{display:flex;gap:5px;flex-wrap:wrap}
 .portedReadingCauseRow button{min-height:29px;padding:5px 9px;border:1px solid #d8e1dd;border-radius:999px;background:#fff;color:#5e746c;font-size:9px;font-weight:800}
@@ -39,6 +36,6 @@
 @media(max-width:760px){
   .portedReadingResultBar{grid-template-columns:1fr;gap:7px}
   .portedReadingResultSummary{justify-content:flex-start}
-  .portedReadingRepair>summary{grid-template-columns:auto minmax(0,1fr)}
-  .portedReadingRepair>summary small{grid-column:2;white-space:normal}
+  .portedReadingRepair>header{flex-direction:column}
+  .portedReadingRepair>header small{white-space:normal}
 }

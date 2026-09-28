@@ -1,88 +1,309 @@
 # KianOS Project Management Contract
 
 Status: **CURRENT**  
-Scope: execution and delivery, not Product/Learning/Visual meaning or Acceptance.
+Scope: cross-lane execution management and delivery discipline
 
-Personal `KERNEL.md §2` owns the lifecycle. `AGENTS.md` routes intent. This file owns **one execution procedure**; Current and task Issues reference it rather than copy it. Preserve Kian's net-leverage requirement: setup, rework, verification, recovery and maintenance count as costs; shifting them to Kian is not an improvement.
+This contract exists to make the accepted KianOS architecture **easy to operate**.
+
+It does not own project purpose, domain learning semantics, Artifact Truth, Acceptance Truth, Learner Truth, or lane Work Cursors.
+
+Management objective:
+
+> **Keep backend rigor; make normal use, modification and continuation simple.**
+
+User-facing rule:
+
+- Kian gives goals, feedback, constraints and real product choices.
+- Engineer handles routing, owner resolution, project state, branch/PR/CI mechanics, cleanup, recovery and proof.
+- Do not ask Kian to choose repository mechanics when the system can resolve them safely.
+- If a real decision is needed, surface only that decision and its consequences.
+- If Kian repeatedly has to remember backend state, treat that as a design defect to simplify.
+- Upstream Personal requirement: `kianwang022-hash/kian-personal-os/LONG_TERM.md` owns Kian's adopted net-leverage rule. For KianOS tooling/automation/governance, include setup, verification, rework, failure recovery and maintenance in the cost; do not count moving that burden onto Kian as an improvement.
+
+---
 
 # 1｜Management success
 
-Kian gives the requested effect and meaningful choices. Engineer resolves the owner, implements, verifies, saves and cleans its own resources. The measure is a correct real effect with low total friction, not rules added, tests counted or worktrees created.
+A management rule is useful only when it lowers one or more of:
 
-# 2｜Three normal BUILD paths
+- continuation cost;
+- change cost;
+- coordination cost;
+- learner friction;
+- regression risk.
 
-Content changes edit the exact semantic owner and regenerate only required projections; Visual changes edit the existing global or local visual owner; behavior changes edit the existing runtime. All use the following procedure. A CREATE coverage list is not a BUILD queue: first establish the actual missing effect. No missing effect means no rebuild.
+Engineering sophistication is not an outcome by itself.
 
-## Concrete Repair Fast Lane — ACTIVE
-
-Marker: `KIANOS_CONCRETE_REPAIR_FAST_LANE_V1`
+KianOS should normally feel like:
 
 ```text
-concrete requested/reproduced effect
-→ related accepted design + effective owner + real consumer
-→ shortest correct coherent change
-→ affected functional/browser proof
-→ one permitted durable delivery + readback
-→ stop, or continue the same active audit
+Kian says the desired effect
+→ worker finds the correct owner
+→ one bounded change
+→ targeted proof
+→ visible result
 ```
 
-### Mandatory pre-repair self-attack
+not:
 
-Before writing during Audit: reproduce the effect; challenge artifact identity, state isolation and the test oracle; check the **related** design and legal exceptions; identify the responsible owner, must-preserve behavior and real dependents. This is bounded diagnosis, not a repository tour. A valid reference-only unit or accepted draggable overlay must not be "fixed" to satisfy a stale test.
+```text
+request
+→ repository archaeology
+→ multiple competing owners
+→ broad coordination
+→ repeated CI / rebase rituals
+→ result eventually appears
+```
 
-### Fast-lane eligibility
+---
 
-Intended behavior is already accepted and the correction preserves it. Examples: hidden required action, bad wiring, leaked internal error, incorrect state return, or geometry that violates the accepted surface. The same authorized Chat may fix a shared owner; temporary writer does not become semantic owner.
+# 2｜Three normal change paths
 
-Not default prerequisites: a new Issue/Contract, separate repair Chat, fresh CREATE, reapproval of the existing design, compulsory worktree, whole-product retest, full Astro build or waiting for unrelated work. Use a branch/PR/isolation when policy, concurrent writes or risk actually needs it. **Fast does not bypass branch protection, permissions, private-state isolation, exact identity or a required material Human Gate.**
+Most ordinary work should enter one of three paths.
 
-### Escalation only when actually necessary
+## Content
 
-New meaning or unresolved material product/visual choice → current semantic owner/Kian. Unclear or conflicting ownership → block only that mutation until resolved. Multiple dependent files are not automatically multiple authorities. Shared-runtime changes require proof of their actual dependents, not every subject by default.
+```text
+canonical Content / Learning owner
+→ targeted validation / projection update when required
+→ main
+→ Current mirror
+→ existing learner surface consumes the new Current
+```
 
-Source-of-text is not automatically the repair owner. Remove unjustified display at the existing boundary; do not rename internal codes into fabricated learning instructions or hide needed medical/support information just to satisfy a word scan. If canonical learner content itself is wrong, correct that exact owner. Fix a demonstrated defect class, not unrelated nearby polish.
+Ordinary content change must not require hand-editing a second copy inside page code.
 
-# 3｜UI execution boundary
+## Visual
 
-Read the relevant Product/Surface/Visual design before modification; Xizong's existing modification preflight remains mandatory. Preserve the rationale as well as the current task. Work in the existing effective CSS/component owner, never an added emergency override layer.
+```text
+shared visual primitive when truly global
+OR subject/surface visual owner when local
+→ representative screenshot
+→ Human visual gate when taste is material
+→ targeted regression
+→ main
+```
 
-Use the existing Candidate and compatible dependencies for real visual/interaction proof. A real material design choice retains its Human Gate; a correctness fix does not ask Kian to re-decide accepted behavior. One local repair is not a whole-product Audit. Website commands/setup are in `static-web/README.md`, not copied here.
+Do not solve visual change by editing every subject independently.
 
-# 4｜Change-cost execution check
+## Runtime / behavior
 
-`PROJECT_DEFINITION.md R11 / T8` and `ARCHITECTURE.md §9` own changeability. If a local correction expands into repeated owner searches, setup, full-site validation or competing implementations without new evidence, narrow/re-resolve it before more work. Do not introduce a numeric file-count veto or a new governance layer as a substitute for reasoning.
+```text
+exact behavior owner
+→ preserve semantic contract
+→ focused functional evidence
+→ main
+```
+
+Do not encode content truth or visual policy inside runtime merely because implementation access is convenient.
+
+---
+
+# 3｜UI program: top-down only
+
+The current learner-facing UI program is layered:
+
+```text
+L1 Shared Visual Foundation
+→ L2 Shared Shell
+→ L3 Home / cross-product surfaces
+→ L4 Subject visual language
+→ L5 Surface families
+→ L6 page/state exceptions
+```
+
+Rules:
+
+1. a lower layer inherits higher-layer visual decisions;
+2. local task geometry may differ when cognition requires it;
+3. local CSS must not silently redefine shared typography, global navigation or shared primitives;
+4. a higher-layer visual defect is fixed upstream, not patched repeatedly downstream;
+5. Functional/Structural PASS does not equal Visual/Human PASS;
+6. a layer is not visually closed until representative real surfaces are reviewed.
+
+The UI program does not reopen accepted Content / Learning / Runtime semantics merely for visual convenience.
+
+---
+
+# 4｜Change Cost Test
+
+Every architecture/ownership cleanup must eventually make a real change cheaper.
+
+Representative acceptance questions:
+
+```text
+“全站正文更厚一点”
+→ should resolve to one shared visual owner
+
+“改一个 KP / word sense / Politics learner payload”
+→ should resolve to one canonical semantic owner
+
+“Politics Natural Unit 右栏更窄”
+→ should resolve to one Politics surface owner
+
+“某一个 390px 页面溢出”
+→ should resolve to the narrowest responsive/page owner
+```
+
+If an ordinary change still requires tracing many CSS files, editing duplicated content, or coordinating unrelated lanes, ownership is not finished even when CI is green.
+
+Hard rule:
+
+> **Architecture quality is measured partly by the cost of the next legitimate change.**
+
+---
 
 # 5｜Scope and blocker handoff
 
-Keep the same bound task during inline Audit repair. Confirm the defect, repair its exact owner, replay the failure and true dependents, then continue remaining coverage. Material semantic choices still return to Kian. Create a separate task only for genuinely independent work/delegation, not a stage label.
+One Chat/worker owns one bounded acceptance question at a time.
 
-Unrelated main movement is not a reason to restart. Reconcile overlapping files or changed premises; preserve unrelated accepted evidence. An unresolved FAIL remains explicit until repaired/rechecked or demonstrably disproved—another smoke test cannot silently erase it.
+When a scope discovers a blocker owned elsewhere:
 
-# 6｜Context budget — execution specialization only
+```text
+current scope
+→ record exact blocker + required effect
+→ stop local expansion
+→ narrow owning scope fixes it
+→ return only closure result / changed contract
+→ original scope revalidates the affected slice
+```
 
-`Parent outcome → task/owner → acceptance/stop`, with related design rationale, must-preserve and write-set. Reuse this still-current context during contiguous work. Refresh the anchor after compression/ambiguity/material transitions; do not refetch it for every command. Detailed transport logs remain artifacts, not the working set.
+Do not make the blocked Chat follow another owner's debug process, CI logs, screenshots and branch history.
+
+Unrelated `main` movement is not a blocker. Reconcile only for real dependency, shared-authority change or write-set overlap.
+
+---
+
+# 6｜Context budget
+
+Context is a project resource.
+
+Default known-scope entry is defined in `AGENTS.md` and should normally reach effective work after roughly 2–3 precise reads.
+
+For substantial cross-layer work, compress upstream reading into:
+
+```text
+Goal
+Owner / authority chain
+Must preserve
+Affected / not affected
+Write-set
+Success / stop condition
+```
+
+Then work from the compressed context.
+
+Avoid putting multiple PR histories, large CI logs, browser artifacts and unrelated owner debugging into one long-running Chat. Split by real owner/slice, not by arbitrary file count.
+
+---
 
 # 7｜Control Tower
 
-A read model only: show current result, next meaningful action, blocker and owner when needed. Issue owns task progress; Current only routes. Do not mirror the same detailed status through root/domain/website files or infer learner progress from engineering.
+The Control Tower is a **read model**, not another project database.
+
+For each relevant scope, report only:
+
+```text
+Stage
+Next
+Blocker
+Owner
+Human Gate (when relevant)
+```
+
+Detailed PR/SHA/CI information stays backend unless it changes the decision or Kian asks for it.
+
+Whole-system status must distinguish:
+
+```text
+engineering readiness
+learner progress
+cross-subject scheduling/readiness
+```
+
+Never infer learner progress from engineering PASS.
+
+---
 
 # 8｜Delivery path
 
-Finish the coherent write-set → targeted proof/applicable Human Gate → land once on the permitted main path → managed Current consumes it. Batch Git tree/commit or a work branch rather than many main commits. Candidate is preview, Stable is delivered use; never modify a shared audit pin or another task's state unilaterally.
+Accepted repository changes land on GitHub `main`.
 
-Report these separately when relevant: **repository saved / Candidate effect verified / Stable delivery verified**. Asynchronous managed delivery does not justify a premature "website fixed" claim or a claim that Chat keeps working after its reply. Independent work need not wait; a user request specifically for a live fix is not complete until the live effect is read back.
+The intended normal delivery path remains:
+
+```text
+Chat edits the correct canonical owner
+→ accepted change lands on main
+→ repository-wide Current mirror updates
+→ Astro consumes the exact Current
+→ Kian sees the change without manual Git work
+```
+
+The local Current mirror is a delivery projection, not a second Truth owner.
+
+Kian should not normally need to choose branches, pull manually, restart Astro, or edit a duplicate webpage copy.
+
+---
 
 # 9｜Completion means requested effect
 
-A commit, test, screenshot or refactor proves only its named result. A UI claim needs reviewed rendered/interactive effect; delivery needs served readback; architecture simplification needs resolved routing/contradictions, not a claim that future speed is already measured. Full-product PASS stays with the existing Acceptance owner and final exact-release reconciliation.
+These are evidence, not automatic completion:
+
+- file created;
+- code refactored;
+- PR merged;
+- CI green;
+- browser test green;
+- visual owner consolidated.
+
+Completion language must match the requested effect.
+
+Examples:
+
+- visual task → representative surface is genuinely visually acceptable;
+- sync task → main change reaches the real learner site automatically;
+- content task → canonical change is consumed without page-specific duplicate editing;
+- ownership task → next legitimate modification is materially cheaper.
+
+Stop once the bounded effect is good enough. Do not enter endless polish or architecture perfection.
+
+---
 
 # 10｜Governance growth is default-denied
 
-Reuse/delete/consolidate in the existing owner before adding a Contract/router/registry/validator/status layer. Fix execution when an existing rule was not consumed. Do not convert every finding into backlog.
+Do not answer ordinary friction with another Contract, router, registry, Current class, validator, status layer or abstraction.
+
+Before adding durable governance, prove:
+
+1. a recurring real responsibility is not representable by an existing owner;
+2. reuse/simplification would create ambiguity or duplicate Truth;
+3. the new object lowers long-term continuation or change cost.
+
+Otherwise, simplify the narrow existing owner.
+
+---
 
 # 11｜Engineering stop condition
 
-KianOS exists for use, not permanent construction. Respect the final closure condition in `LEARNING_ACCEPTANCE.md`. No speculative refactor, UI rebuild or framework polishing after closure; reopen only a concrete defect, authoritative source/platform change or explicit new need. No active Chat/authorized task means no ongoing maintenance.
+KianOS is a learning product, not a permanent software-construction project.
+
+Large-scale engineering should close when the system is:
+
+- learning-correct enough for real use;
+- visually acceptable for daily use;
+- stable enough for normal work;
+- cheap to change through clear owners.
+
+After that, default behavior is:
+
+```text
+real learner use
+→ observe real friction
+→ reopen only the smallest responsible owner
+```
+
+Do not continue broad construction merely because further architectural neatness is possible.
+
 
 ---
 
@@ -170,7 +391,7 @@ High-value inspection targets include duplicate authority, manual synchronizatio
 Standing delegation:
 - correctness, drift, dead/stale machinery, owner cleanup and bounded maintainability repairs that preserve accepted product semantics may be fixed autonomously;
 - implementation detail, refactoring, tests, CI/build mechanics, branch/PR handling, migrations and other engineering choices that do not change accepted semantics normally stay backstage;
-- a new capability already implied by an accepted requirement may be designed/implemented only when a **concrete missing consumer effect** is established in the existing owner chain; semantic coverage lists, examples or family matrices do not by themselves authorize implementation work;
+- a new capability already implied by an accepted requirement may be designed/implemented when the owner and effect are clear;
 - stop for Kian mainly when the work materially chooses **interaction behavior, user workflow, visual/product feel, values/trade-offs, or unresolved domain semantics**. Those decisions require a Human/semantic gate before becoming accepted product truth.
 
 Kian should review the product and the meaningful choice—not the implementation diary.
@@ -407,8 +628,6 @@ Do not turn one bounded phase into a long series of tiny Remote calls when the s
 - compose coherent content/mutation batches in Chat before writing instead of write-per-unit;
 - reuse existing materializers, validators, QA and build commands instead of creating another runner framework;
 - start a long local process once. Use a long blocking read or one later status read; do not busy-poll PID / `ps` / temp files every few seconds;
-- before starting another browser/build-heavy lane, consume the current transient-process snapshot. Reuse an exact healthy consumer when that proves the claim; do not cold-start a second Candidate merely for ritual independence;
-- a bounded local verification is not cleanly complete while a Chrome / Candidate / Astro process that it started remains alive. Prefer self-cleaning repository tests or `remote:verify`; when a deliberate persistent process is needed, give it an explicit task identity and perform teardown + process/port readback before the task receipt;
 - keep full logs on disk and return compact status/tails first. Read full logs only for a failure or a real diagnostic need;
 - after an interrupted Chat, inspect current Git/local state and recent Remote call history when available before repeating a mutating action.
 
@@ -416,19 +635,11 @@ Thin helpers exist only to reduce transport chatter:
 
 ```bash
 npm run remote:snapshot -- --repo <worktree>
-npm run remote:packet -- --repo <checkout> --fetch --ref origin/main --file CURRENT.md --file <exact-owner>
 npm run remote:packet -- --repo <worktree> [--file PATH] [--range PATH:START:END] [--scope DIR --grep REGEX]
 npm run remote:verify -- --repo <worktree> --cmd '<existing validator/build command>' [--cmd '...']
-npm run remote:hygiene -- [--apply --pid <exact_pid> ...]
 ```
 
-Use `packet --fetch --ref origin/main` for fresh GitHub-main entry even when the local checkout is old or dirty. All requested files are read from one resolved commit, printed in the packet header; no checkout is changed. When Current names an active branch, fetch/read that exact ref instead. Omit `--ref` to inspect or verify in-progress working-tree changes. A missing ref/file fails rather than falling back to stale local truth.
-
-`remote:snapshot` includes recognized KianOS transient Chrome / Candidate / Astro processes so a fresh Chat sees local resource occupancy before starting another heavy lane. `remote:verify` compares those processes before/after the bounded verification and fails closed when the verification leaves a new recognized transient process alive. `remote:hygiene` is explicit-only: without `--apply` it lists; with `--apply` it terminates only exact PIDs that are still recognized as KianOS transient processes. Resolve active ownership before applying it; never mass-kill by age alone.
-
-`remote:verify` gives each command a 300-second timeout; use `--timeout-seconds` for an explicitly longer or shorter existing check. On timeout or interruption it terminates its own command process group and returns a non-success receipt with the log path. It never treats a timeout as proof or kills another task's process group. Interactive browser work uses the existing [Website browser entry](static-web/README.md), with one named Playwright CLI session and explicit teardown.
-
-These helpers may collect, execute, summarize and close their own local execution resources. They must not decide medical meaning, learner state, product policy, acceptance, task priority, or whether a semantic relation is safe.
+These helpers may collect, execute and summarize. They must not decide medical meaning, learner state, product policy, acceptance, task priority, or whether a semantic relation is safe.
 
 Use a helper only when it is cheaper than the direct operation. One simple local command should remain one simple local command.
 
@@ -436,10 +647,56 @@ Use a helper only when it is cheaper than the direct operation. One simple local
 
 Marker: `KIANOS_ANTI_STALL_BATCH_EXECUTION_V1`
 
-For local/bulk execution: one bounded snapshot → compose the coherent changes → batch apply → one decisive verify/readback. Use the existing helpers only when cheaper than direct work. Start a long process once; do not busy-poll PID/logs every few seconds. Preserve full logs on disk and report compact findings.
+Long-running BUILD / CONTROL work must optimize for **few high-information repository operations**, not a diary of tiny reads/writes.
 
-A failed tool call is not product evidence. Inspect the exact error, choose one bounded correction or mark the action blocked; repeated blind retries and quoting experiments are not progress. Preserve dirty/unmerged work and clean only explicitly owned resources.
+Default execution shape:
+
+```text
+current-first narrow read
+→ compact batch extraction
+→ one staging/write bundle
+→ one derived rebuild / expensive CI trigger when possible
+→ one bounded readback
+→ final result
+```
+
+Hard rules:
+
+1. **Batch remote reads.** Prefer one compact owner/matrix/manifest extraction over dozens of serial per-file round trips. If many owners must be inspected, return only the fields needed for the decision; do not dump full large JSON objects into Chat unless the full object is itself the task.
+2. **Batch writes.** When a task changes many bounded files under one already-decided scope, stage the semantic decisions first and land them in as few commits/triggers as practical. Do not trigger an expensive derived build after each tiny edit.
+3. **Do not use Chat context as a log sink.** Large machine outputs, full catalog rows, long diffs and repeated workflow payloads should stay in GitHub/artifacts. Surface only compact counts, findings, changed owners and exact blockers.
+4. **No high-frequency CI polling.** After triggering a workflow, do not repeatedly request the same status while nothing has changed. Inspect the run once, then re-read only for a meaningful state transition, a specific failing job, or the final merge decision. Never create a tight status-poll loop.
+5. **Separate semantic work from mechanical transport.** Once the semantic/product decision is fixed, prefer the repository's existing mechanical executor/materializer for repetitive JSON transport/rebuilds. Chat should not manually walk every derived file unless the executor is defective.
+6. **One expensive derived rebuild per coherent batch by default.** Rebuild again only after a real reconciliation mutation, not after documentation/receipt-only commits.
+7. **Compact verification.** Verify the smallest decisive surface: changed owners + shared dependencies + derived manifest/count + targeted gates. Do not re-read unchanged frozen inputs merely because the Chat is long.
+8. **Long Chat is not permission to restart.** If context becomes heavy, re-ground from current GitHub truth and continue from the exact durable cursor. Do not repeat completed A/C review, accepted Human Gates, or previously closed batches just to reconstruct context.
+9. **If a tool call is too large, reduce payload—not correctness.** Split by meaningful batch boundary or extract only needed fields; do not fall back to one-file-at-a-time chatter.
+10. **User updates stay outcome-level.** Report real findings, phase transitions and blockers. Do not narrate every low-level fetch, commit, workflow status or retry.
+
+Exception: a safety-critical or identity-sensitive mutation may require smaller fail-closed steps. Even then, minimize repeated remote calls and keep durable receipts in GitHub.
+
+
+---
 
 ## Hot-path verification budget
 
-Run tests for changed owners and real dependents. Reuse compatible dependencies and an exact healthy consumer. Do not perform a full-site build/full learner materialization/full-repository audit per micro-edit, or duplicate local/CI proof without a new premise. Systematic coverage is paid at its actual whole-product Audit checkpoint. Keep unknown static inputs conservative; known control-only documents should not trigger learner builds.
+Routine content production must optimize for bounded correctness, not repository-wide reassurance.
+
+For canonical content changes:
+
+```text
+exact owner read
+→ bounded mutation
+→ changed-owner / dependency QA
+→ durable commit
+→ continue production
+```
+
+Hard rules:
+
+- GitHub is the default repository truth and write surface; do not route ordinary GitHub reads/writes through Remote Desktop Commander.
+- Remote is reserved for local-only capability: worktrees, localhost, builds, processes, binary/local files, or a bounded local executor.
+- A routine semantic window must not run full-repository audits, full learner-object materialization, full Astro builds, or browser acceptance unless the exact current owner declares that window a checkpoint or a renderer/runtime defect requires it.
+- Long validators run once at their declared checkpoint. Do not duplicate the same proof in Chat, Remote, PR CI, and post-merge CI.
+- Website delivery follows merged `main` asynchronously through Current. Content production does not wait for Current/Astro completion before beginning the next independent semantic window.
+- If a cheap targeted validator and a historical full validator disagree about whether the full validator belongs on the hot path, the current domain owner decides; historical workflow existence is not authority.

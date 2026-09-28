@@ -23,14 +23,7 @@ const fail = (code, detail = '') => { throw new Error(`${code}${detail ? `:${det
 const client = readWeb('src/lib/examOrchestratorClient.mjs');
 const orchestrator = readWeb('src/lib/examOrchestrator.mjs');
 const home = readWeb('src/components/ExamOrchestratorHome.astro');
-const ownership = JSON.parse(readRepo('AUTHORITY_OWNERSHIP.json'));
-const examPolicyOwner = ownership?.durable_authorities?.exam_orchestrator_policy;
-if (examPolicyOwner !== 'EXAM_ORCHESTRATOR_CONTRACT.md') {
-  fail('EXAM_ORCHESTRATOR_OWNER_REGISTRY_DRIFT', String(examPolicyOwner || 'missing'));
-}
-if (!fs.existsSync(path.join(repoRoot, examPolicyOwner))) {
-  fail('EXAM_ORCHESTRATOR_OWNER_MISSING', examPolicyOwner);
-}
+const contract = readRepo('EXAM_ORCHESTRATOR_CONTRACT.md');
 
 for (const forbidden of ['buildExamPlan(', 'readExamDemand(', "from './examDemand.mjs'"]) {
   if (client.includes(forbidden)) fail('PRODUCTION_WEB_STRATEGY_ENGINE_REMAINS', forbidden);
@@ -38,10 +31,14 @@ for (const forbidden of ['buildExamPlan(', 'readExamDemand(', "from './examDeman
 for (const required of ['readExamChatPlan', 'buildChatControlledExamReadModel', "root.dataset.strategyOwner = 'chat'"]) {
   if (!client.includes(required)) fail('CHAT_CONTROL_PRODUCTION_BINDING_MISSING', required);
 }
-// Chat ownership is a runtime/owner invariant, not a Markdown-prose template.
+// Chat ownership is a runtime/contract invariant, not mandatory learner-facing copy.
 if (home.includes('保存并重排') || home.includes('自动重排三科')) fail('HOME_LOCAL_REPLAN_COPY_REGRESSION');
+if (!contract.includes('## 0｜Current control boundary — Chat owns orchestration')) fail('CHAT_AUTHORITY_CONTRACT_MISSING');
 if (orchestrator.includes('buildExamPlan')) fail('AUTONOMOUS_PLANNER_IMPLEMENTATION_REINTRODUCED');
 if (fs.existsSync(path.join(webRoot, 'src/lib/examDemand.mjs'))) fail('AUTONOMOUS_DEMAND_READER_REINTRODUCED');
+if (!contract.includes('It may not independently choose subject allocation, priority or next action.')) {
+  fail('CHAT_ONLY_STRATEGY_CONTRACT_MISSING');
+}
 
 let futurePlanRejected = false;
 try {

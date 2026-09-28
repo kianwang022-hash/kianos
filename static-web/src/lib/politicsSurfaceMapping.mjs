@@ -13,12 +13,11 @@ function walk(root, field) {
   return value;
 }
 
-export function resolvePoliticsSurfaceRef(ref, chapter, unit, subject = null) {
-  if (!ref || !['unit', 'chapter', 'subject'].includes(ref.scope) || typeof ref.field !== 'string') {
+export function resolvePoliticsSurfaceRef(ref, chapter, unit) {
+  if (!ref || !['unit', 'chapter'].includes(ref.scope) || typeof ref.field !== 'string') {
     throw new Error('POLITICS_SURFACE_INVALID_REF');
   }
-  const root = ref.scope === 'subject' ? subject : ref.scope === 'chapter' ? chapter : unit;
-  let value = walk(root, ref.field);
+  let value = walk(ref.scope === 'chapter' ? chapter : unit, ref.field);
 
   if (ref.match) {
     if (!Array.isArray(value)) throw new Error(`POLITICS_SURFACE_MATCH_EXPECTS_ARRAY:${ref.field}`);
@@ -162,18 +161,18 @@ function normalize(value, group, prefix = group.id) {
   return values.filter(present).map((item, index) => projectFields(item, group.item_fields, values.length === 1 ? prefix : `${prefix}-${index + 1}`));
 }
 
-function resolveGroup(group, chapter, unit, subject) {
+function resolveGroup(group, chapter, unit) {
   if (!group?.id || !group?.zone || !group?.primitive) throw new Error('POLITICS_SURFACE_GROUP_IDENTITY_MISSING');
 
   let items = [];
   if (group.source) {
-    const value = resolvePoliticsSurfaceRef(group.source, chapter, unit, subject);
+    const value = resolvePoliticsSurfaceRef(group.source, chapter, unit);
     if (!present(value)) throw new Error(`POLITICS_SURFACE_SOURCE_EMPTY:${group.id}`);
     items = normalize(value, group);
   } else if (Array.isArray(group.sources) && group.sources.length > 0) {
     for (const source of group.sources) {
       if (!source?.id || !source?.ref) throw new Error(`POLITICS_SURFACE_NAMED_SOURCE_INVALID:${group.id}`);
-      const value = resolvePoliticsSurfaceRef(source.ref, chapter, unit, subject);
+      const value = resolvePoliticsSurfaceRef(source.ref, chapter, unit);
       if (!present(value)) throw new Error(`POLITICS_SURFACE_NAMED_SOURCE_EMPTY:${group.id}:${source.id}`);
       const local = normalize(value, { ...group, id: source.id, source: undefined, sources: undefined, levels: undefined, select_node_ids: undefined, select_step_ids: undefined, select_edge_pairs: undefined, select_indices: undefined, select_item_indices: undefined, select_group_indices: undefined, item_ids: undefined }, source.id);
       items.push(...local);
@@ -209,12 +208,12 @@ function resolveGroup(group, chapter, unit, subject) {
   };
 }
 
-export function resolvePoliticsSurfaceMapping(mapping, chapter, unit, subject = null) {
+export function resolvePoliticsSurfaceMapping(mapping, chapter, unit) {
   if (!mapping || typeof mapping !== 'object' || Array.isArray(mapping)) return null;
   const states = {};
   for (const [state, groups] of Object.entries(mapping)) {
     if (!Array.isArray(groups)) throw new Error(`POLITICS_SURFACE_STATE_NOT_ARRAY:${state}`);
-    states[state] = groups.map((group) => resolveGroup(group, chapter, unit, subject));
+    states[state] = groups.map((group) => resolveGroup(group, chapter, unit));
   }
   return {
     schema: 'kianos.politics.surface_plan.resolved.v1',

@@ -30,11 +30,129 @@
 }
 
 /* Block workspace: preserve free navigation, make rails readable and content calm. */
+.surface-xizong .portedStudyRuntime {
+  border-radius: var(--xz-panel-radius);
+  box-shadow: none;
+}
+.surface-xizong .portedStudyContextRow {
+  min-height: 40px;
+  padding-inline: 18px;
+  font-size: 12.5px;
+}
+.surface-xizong .portedStudyShellActions button { padding: 5px 9px; font-size: 11px; }
+.surface-xizong .portedStudyIdentity { padding: 14px 19px 13px; }
+.surface-xizong .portedStudyIdentity span { font-size: 10.5px; }
+.surface-xizong .portedStudyIdentity h2 { font-size: 29px; letter-spacing: -.025em; }
+.surface-xizong .portedStudyIdentityMeta strong { font-size: 12px; }
+.surface-xizong .portedStudyIdentityMeta small { font-size: 10px; }
+.surface-xizong .portedStudyTabs button,
+.surface-xizong .portedStudyTabs span { min-height: 44px; font-size: 13px; }
+
+.surface-xizong .portedStudyLayout {
+  grid-template-columns: var(--xz-rail) minmax(0,1fr) 286px;
+  min-height: 690px;
+}
+.surface-xizong .portedStudyLayout.outline-collapsed { grid-template-columns: 0 minmax(0,1fr) 286px; }
+.surface-xizong .portedStudyLayout.chain-collapsed { grid-template-columns: var(--xz-rail) minmax(0,1fr) 0; }
+.surface-xizong .portedStudyOutline header,
+.surface-xizong .portedStudyChain header { padding: 15px 14px 11px; }
+.surface-xizong .portedStudyOutline header span,
+.surface-xizong .portedStudyChain header span { font-size: 10px; }
+.surface-xizong .portedStudyOutline header strong,
+.surface-xizong .portedStudyChain header strong { font-size: 14px; }
+.surface-xizong .portedStudyOutline nav button,
+.surface-xizong .portedStudyKpRail button {
+  grid-template-columns: 40px minmax(0,1fr);
+  min-height: 51px;
+  padding: 8px 10px;
+}
+.surface-xizong .portedStudyOutline nav button b,
+.surface-xizong .portedStudyKpRail button b { font-size: 11px; }
+.surface-xizong .portedStudyOutline nav button span,
+.surface-xizong .portedStudyKpRail button span { font-size: 12px; }
+.surface-xizong .portedStudyOutline nav button small,
+.surface-xizong .portedStudyKpRail button small { font-size: 9.5px; }
+.surface-xizong .portedStudyOutline footer,
+.surface-xizong .portedStudyChain footer { font-size: 10px; }
+.surface-xizong .portedStudyChain li button { grid-template-columns: 26px 1fr; padding: 10px 15px; }
+.surface-xizong .portedStudyChain li b { font-size: 12.5px; }
+.surface-xizong .portedStudyChain li small { font-size: 10.5px; }
+
+.surface-xizong .portedStudyLead { padding: 13px 22px; }
+.surface-xizong .portedStudyLead span { font-size: 10.5px; }
+.surface-xizong .portedStudyLead strong { max-width: 72ch; font-size: 13px; line-height: 1.5; }
+.surface-xizong .portedStudyArticle {
+  max-width: var(--xz-reading);
+  padding: 30px 34px 52px;
+}
+.surface-xizong .portedStudyArticle h1 { font-size: 30px; }
+.surface-xizong .portedStudyArticle h2 { font-size: 23px; }
+.surface-xizong .portedStudyArticle h3 { font-size: 18px; }
+.surface-xizong .portedStudyArticle p,
+.surface-xizong .portedStudyArticle li,
+.surface-xizong .portedKpCanonical p,
+.surface-xizong .portedKpCanonical li,
+.surface-xizong .portedRecallAnswer p,
+.surface-xizong .portedRecallAnswer li { font-size: 16.5px; line-height: 1.74; }
+.surface-xizong .portedStudyArticle th,
+.surface-xizong .portedStudyArticle td,
+.surface-xizong .portedKpCanonical th,
+.surface-xizong .portedKpCanonical td,
+.surface-xizong .portedRecallAnswer th,
+.surface-xizong .portedRecallAnswer td { padding: 9px 11px; font-size: 14px; }
+
+.surface-xizong .portedKpWorkspace { min-height: 660px; background: var(--xz-soft); }
+.surface-xizong .portedKpWorkspaceHeader { padding: 12px 17px; }
+.surface-xizong .portedKpWorkspaceHeader span { font-size: 10px; }
+.surface-xizong .portedKpWorkspaceHeader strong { font-size: 14px; }
+.surface-xizong .portedKpWorkspaceHeader em { font-size: 11.5px; }
+.surface-xizong .portedKpCards { padding: 14px; }
+.surface-xizong .portedKpCard,
+.surface-xizong .portedKpRecallCard {
+  max-width: var(--xz-reading);
+  border-radius: 10px;
+  box-shadow: none;
+}
+.surface-xizong .portedKpCard > header,
+.surface-xizong .portedKpRecallCard > header { padding: 19px 22px 15px; }
+.surface-xizong .portedKpCard h3,
+.surface-xizong .portedKpRecallCard h3 { font-size: 26px; line-height: 1.25; }
+.surface-xizong .portedKpCard header p,
+.surface-xizong .portedKpRecallCard header p { font-size: 14.5px; line-height: 1.58; }
+.surface-xizong .portedKpCanonical,
+.surface-xizong .portedRecallAnswer { padding: 20px 23px; }
+.surface-xizong .portedRecallPrompt { padding: 21px 23px; font-size: 14px; }
+.surface-xizong .portedKpCard > footer,
+.surface-xizong .portedRecallRating { padding: 12px 16px; font-size: 12px; }
+.surface-xizong .portedKpCard > footer button,
+.surface-xizong .portedRecallRating button,
+.surface-xizong .portedBlockRecall button { min-height: 36px; padding: 7px 11px; font-size: 11.5px; }
+.surface-xizong .portedBlockRecall { max-width: var(--xz-reading); padding: 27px 32px 44px; }
+.surface-xizong .portedBlockRecall header h3 { font-size: 24px; }
+.surface-xizong .portedBlockRecall header p,
+.surface-xizong .xv6RecallPromptBox p,
+.surface-xizong .xv6RecallSpine p,
+.surface-xizong .xv6GroupReview p { font-size: 15px; line-height: 1.68; }
+.surface-xizong .portedBlockComplete { max-width: 760px; padding: 26px 28px; border-radius: 10px; }
 
 /* Lecture-first cues should read like orientation, not tiny metadata. */
+.surface-xizong .xv6BlockFocus strong,
+.surface-xizong .xv6BlockSpine strong { font-size: 14px; line-height: 1.62; }
+.surface-xizong .xv6LaterCue { font-size: 12.5px; }
+.surface-xizong .xv6LectureFirst { padding: 9px 11px; }
+.surface-xizong .xv6LectureFirst strong { font-size: 13px; }
+.surface-xizong .xv6LectureFirst span { font-size: 11.5px; }
 .surface-xizong .xv6KpCore { border-radius: 8px; }
+.surface-xizong .xv6LogicStage { max-width: var(--xz-reading); border-radius: 10px; }
+.surface-xizong .xv6LogicStage > span { font-size: 10.5px; }
+.surface-xizong .xv6LogicStage h3 { font-size: 23px; }
+.surface-xizong .xv6LogicGoal,
+.surface-xizong .xv6GroupClosure { font-size: 15px; line-height: 1.68; }
+.surface-xizong .xv6LogicTarget span { font-size: 10.5px; }
+.surface-xizong .xv6LogicTarget p { font-size: 14px; }
 
 /* After-Learn: selective memory and repair remain contextual, but readable. */
+.surface-xizong .portedStudyExtension { margin-top: 9px; border-radius: var(--xz-panel-radius); box-shadow: none; }
 .surface-xizong .portedExtensionHeader { padding: 15px 17px; }
 .surface-xizong .portedExtensionHeader h3 { font-size: 21px; }
 .surface-xizong .portedExtensionHeader p { max-width: 78ch; font-size: 12.5px; line-height: 1.55; }
@@ -68,9 +186,17 @@
 /* Mac/desktop gets framed context. Smaller surfaces retain existing compact behavior. */
 @media (max-width: 1240px) {
   .surfaceBody-xizong { --xz-rail: 228px; --xz-context: 270px; --xz-reading: 820px; }
+  .surface-xizong .portedStudyLayout { grid-template-columns: 218px minmax(0,1fr) 252px; }
+  .surface-xizong .portedStudyLayout.outline-collapsed { grid-template-columns: 0 minmax(0,1fr) 252px; }
+  .surface-xizong .portedStudyLayout.chain-collapsed { grid-template-columns: 218px minmax(0,1fr) 0; }
 }
 
 @media (max-width: 1040px) {
+  .surface-xizong .portedStudyLayout { grid-template-columns: 210px minmax(0,1fr); }
+  .surface-xizong .portedStudyChain { display: none; }
+  .surface-xizong .portedStudyLayout.outline-collapsed,
+  .surface-xizong .portedStudyLayout.chain-collapsed,
+  .surface-xizong .portedStudyLayout.outline-collapsed.chain-collapsed { grid-template-columns: 0 minmax(0,1fr); }
   .surface-xizong .portedPrecisionShell,
   .surface-xizong .portedReviewWorkspace { grid-template-columns: 230px minmax(0,1fr); }
 }
@@ -78,4 +204,12 @@
 @media (max-width: 760px) {
   .surfaceBody-xizong .productBar { min-height: 58px; }
   .surface-xizong { width: min(100% - 16px,1720px); }
+  .surface-xizong .portedStudyLayout,
+  .surface-xizong .portedPrecisionShell,
+  .surface-xizong .portedReviewWorkspace { grid-template-columns: 1fr; }
+  .surface-xizong .portedStudyOutline { border-right: 0; border-bottom: 1px solid var(--study-line); }
+  .surface-xizong .portedStudyChain { display: none; }
+  .surface-xizong .portedStudyArticle { padding-inline: 20px; }
+  .surface-xizong .portedKpCards { padding: 9px; }
+  .surface-xizong .portedRecallRating > div { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }

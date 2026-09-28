@@ -1,8 +1,7 @@
 # English Visual / Surface Blueprint
 
 Status: **CURRENT — ACCEPTED ENGLISH VISUAL / SURFACE BLUEPRINT OWNER**  
-Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/UI_STYLE_BRIEF.md` + `static-web/KIAN_UI_PREFERENCES.md`
-Surface split parent: `static-web/PRODUCT_SURFACE_CONTRACT.md`
+Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md`  
 Control router: `content/english/CURRENT.md` + `static-web/CURRENT.md`  
 Scope: learner-visible English family composition, task geometry and presentation decisions only.  
 
@@ -12,13 +11,11 @@ This file owns the accepted English subject/task Visual blueprint under Architec
 
 ### Navigation hierarchy
 
-English inherits the shared KianOS L1 navigation owner; this file does **not** own or repeat the concrete global L1 membership.
-
-English owns only its local learner hierarchy:
+English uses the shared three-level learner navigation contract:
 
 ```text
-shared L1 subject entry
-→ English
+L1  KianOS
+    Home | 西综 | 政治 | English
 
 L2  English
     Overview | Objective | Translation | Writing | Vocabulary
@@ -29,8 +26,6 @@ L3  Objective
 L3  Vocabulary
     Overview | Learn | Repair | Research
 ```
-
-Concrete global L1 membership / route identity remains with the shared navigation / Product Surface owners.
 
 Ownership rules:
 
@@ -87,24 +82,15 @@ Passage selection menu:
 
 No Reading-local dictionary and no learner-state mutation from lookup.
 
-After submit, Wrong/Uncertain review remains in place while passage + full question set remain available, but the hierarchy is deliberately low-friction:
-
-- answer/result contrast is visible first;
-- if the miss is now obvious, the learner may leave immediately without classifying it;
-- one whole-passage Chat escalation remains available for ambiguous, repeated or potentially shared-cause problems;
-- per-question quick-cause / evidence-span / repair-coach controls are secondary **local inspection** and stay collapsed until explicitly opened;
-- the learner must never have to choose `没读懂 / 没定位准 / 选项没辨清 / 看错改错` merely to unlock review or Chat diagnosis.
-- machine-readable Objective Chat-return / transfer-claim import stays off the normal result surface; it may appear only after explicit whole-passage Chat escalation or for an already-saved return on this exact attempt/object.
+After submit, Wrong/Uncertain review expands in place while passage + full question set remain available.
 
 ---
 
 ## External Reading — Reading Growth content lane
 
-External Reading is an ongoing English Content lane, analogous to Vocabulary in longevity but not in cognition. It adds high-quality reading-growth input **alongside English-I true-exam work whenever that input has useful marginal value**; it does not wait for the true-exam corpus to be exhausted.
+External Reading is an ongoing English Content lane, analogous to Vocabulary in longevity but not in cognition. It exists to add high-quality reading volume after English-I papers stop providing enough new stimulus.
 
-The learner mix is intentionally elastic: true-exam Reading may dominate when score/diagnostic value is high, while External Reading can run in parallel for lexical breadth, representation, discourse, speed and stamina. As repeated English-I work yields less new information, more reading-growth time may move here. The Website does not set that allocation itself.
-
-Current source priority (not learner sequence):
+Current source order:
 
 ```text
 TPO 56–65
@@ -134,8 +120,6 @@ Do not reuse English-I Reading-A semantic labels merely because the screen has t
 - formal answers remain protected before Submit.
 - pure Reading is a legitimate completion path and must not manufacture a quiz or review debt.
 - Wrong / Uncertain remain evidence only.
-- when a question-bearing External object has a real Wrong / Uncertain / source-native unscored problem, one compact **whole-object Chat escalation** may appear in the result region; it carries the complete passage, source identity and current source-native question outcomes so Chat can diagnose shared Reading/Representation/Lexical causes without relabeling the task as Reading A;
-- all-correct stable work exits without that escalation, and Reading-only completion does not create a whole-object review obligation;
 - source-quality warnings may appear as a quiet optional Source note; engineering/source debt must not dominate the learner workspace.
 
 ### Content / private boundary
@@ -168,7 +152,7 @@ Material learner-facing changes to this new surface require a real Mac Human Gat
 
 Keep the existing Cloze semantics/runtime:
 - complete passage remains visible;
-- the complete source-native blank set belongs to one clean-attempt unit;
+- all 20 blanks belong to one clean-attempt unit;
 - each blank supports Uncertain;
 - selections may be changed and trajectory stays recorded;
 - no correctness reveal before whole-passage submit;
@@ -186,14 +170,10 @@ Kian's required Mac-wide model is the natural **exam-paper typesetting**:
 ```text
 complete Cloze passage left
 |
-ALL source-native blank rows right, visible in natural order inside one scrollable question sheet
+ALL 20 blank rows right, visible in natural order inside one scrollable question sheet
 ```
 
 Each blank row keeps its four candidates horizontally arranged like the printed paper, not four stacked full-width cards.
-
-Source-fidelity rule:
-
-> **Cloze geometry owns “complete source-native set”, not a fixed item count.** A standard-form paper may have 20 blanks, while a historical/current source object with another canonical count must render exactly that owned set. Visual symmetry never authorizes inventing missing questions.
 
 Target shape:
 
@@ -216,9 +196,9 @@ Target shape:
 
 ### Exam-paper behavior
 
-- all source-native rows remain visible in the right question sheet; no blank is hidden merely because it is not active;
-- passage and the complete source-native question sheet scroll independently;
-- question number is the natural navigation; do not require a separate navigator merely to reveal a hidden blank;
+- all 20 rows remain visible in the right question sheet; no blank is hidden merely because it is not active;
+- passage and 20-row question sheet scroll independently;
+- question number is the natural navigation; do not require a separate 01–20 navigator merely to reveal a hidden blank;
 - clicking `____8____` in the passage scrolls/focuses row 08 on the right;
 - clicking/focusing row 08 may lightly locate/highlight `____8____` in the passage;
 - local `active blank` may still exist only for keyboard targeting / focus state, never for visibility gating;
@@ -241,7 +221,7 @@ Selected candidate uses a restrained exam-like treatment; it means only `my curr
 Whole-passage Submit remains one action. Before submit, no formal answers appear.
 
 After submit:
-- keep the same passage + complete source-native question sheet;
+- keep the same passage + full 20-row sheet;
 - stable correct rows stay quiet;
 - Wrong rows show `my answer` versus `formal answer` in place and may expose the smallest optional triage/actions beneath that row;
 - Uncertain-correct is lighter than Wrong and may offer only a cheap confirmation such as `现在明白了 / 仍然不确定`;

@@ -35,7 +35,7 @@ import { readXizongSystemWuPendingState } from './xizongSystemWuReturn.mjs';
 import { resolvePoliticsMemoryResume } from './politicsMemoryRuntime.mjs';
 
 const names = { xizong: '西综', english: '英语', politics: '政治' };
-const PRODUCT_FAMILIES = ['xizong', 'english', 'english-exam', 'reading', 'cloze', 'cloze-generated', 'reading-b', 'external-reading', 'translation', 'writing', 'politics', 'vocabulary'];
+const PRODUCT_FAMILIES = ['xizong', 'english', 'english-exam', 'reading', 'cloze', 'reading-b', 'external-reading', 'translation', 'writing', 'politics', 'vocabulary'];
 
 function safeProductHref(href, base = '/') {
   if (typeof href !== 'string' || !href.startsWith(base) || href.startsWith('//')) return null;
@@ -69,9 +69,15 @@ export function initExamHome(root) {
   const catalog = JSON.parse($('[data-exam-catalog]').textContent);
   const politicsCatalog = JSON.parse($('[data-exam-daily-politics-catalog]')?.textContent || 'null');
   const politicsMemoryCatalog = JSON.parse($('[data-exam-politics-memory-catalog]')?.textContent || 'null');
+  const xizongPacketIndex = JSON.parse($('[data-exam-daily-xizong-index]')?.textContent || '[]');
+  const xizongForecastQuestionScope = JSON.parse($('[data-exam-xizong-forecast-question-scope]')?.textContent || 'null');
+  const xizongForecastCanonicalScope = JSON.parse($('[data-exam-xizong-forecast-canonical-scope]')?.textContent || 'null');
   $('[data-exam-catalog]').remove();
   $('[data-exam-daily-politics-catalog]')?.remove();
   $('[data-exam-politics-memory-catalog]')?.remove();
+  $('[data-exam-daily-xizong-index]')?.remove();
+  $('[data-exam-xizong-forecast-question-scope]')?.remove();
+  $('[data-exam-xizong-forecast-canonical-scope]')?.remove();
 
   let bytes = null;
   let profile = emptyExamProfile();
@@ -81,32 +87,6 @@ export function initExamHome(root) {
   let chatPlanState = { status: 'missing', plan: null, error: null };
   let readModel = null;
   let reminder = null;
-  let xizongProjectionPromise = null;
-
-  const loadXizongProjection = async () => {
-    if (!xizongProjectionPromise) {
-      const base = String(catalog?.base || '/');
-      xizongProjectionPromise = fetch(`${base}kianos-data/home-xizong.json`, {
-        headers: { Accept: 'application/json' }
-      }).then(async (response) => {
-        if (!response.ok) throw new Error('HOME_XIZONG_PROJECTION_HTTP_' + response.status);
-        const packet = await response.json();
-        if (
-          packet?.schema !== 'kianos.home.xizong_projection.v1'
-          || !Array.isArray(packet.xizongPacketIndex)
-          || !packet.xizongForecastQuestionScope
-          || !packet.xizongForecastCanonicalScope
-        ) {
-          throw new Error('HOME_XIZONG_PROJECTION_INVALID');
-        }
-        return packet;
-      }).catch((error) => {
-        xizongProjectionPromise = null;
-        throw error;
-      });
-    }
-    return await xizongProjectionPromise;
-  };
 
   const day = () => examDay();
   const taskChecksKey = () => `kianos-exam-home-task-checks-v1:${day()}`;
@@ -178,9 +158,7 @@ export function initExamHome(root) {
     }
     const planLabel = chatPlanState.status === 'ready'
       ? ''
-      : chatPlanState.status === 'reference'
-        ? ' · 已采用安排 · 依据已变化'
-        : chatPlanState.status === 'stale' ? ' · 安排依据已变化' : ' · 今日安排待同步';
+      : chatPlanState.status === 'stale' ? ' · 安排依据已变化' : ' · 今日安排待同步';
     node.textContent = `可用 ${formatMinutes(readModel.capacity.dayMinutes)} · 已学 ${formatMinutes(readModel.capacity.actualMinutes)}${taskLabel}${planLabel}`;
   };
   const error = (message) => {
@@ -199,7 +177,7 @@ export function initExamHome(root) {
       readable = false;
       error('本机学习上下文暂时读不完整；原记录未被改动。恢复存储后刷新，三科入口仍可使用。');
     }
-    chatPlanState = readExamChatPlanForDisplay(localStorage, day());
+    chatPlanState = readExamChatPlan(localStorage, day());
   }
 
   function persistProfile(next) {
@@ -477,8 +455,7 @@ export function initExamHome(root) {
   }
 
   function render() {
-    const strictChatPlanState = readExamChatPlan(localStorage, day());
-    chatPlanState = readExamChatPlanForDisplay(localStorage, day());
+    chatPlanState = readExamChatPlan(localStorage, day());
     const xizongNative = nativeLink(
       '[data-xizong-continue]',
       '[data-xizong-continue-title]',
@@ -491,7 +468,7 @@ export function initExamHome(root) {
       `${catalog.base}politics/`,
       '选择政治学习位置'
     );
-    const plan = strictChatPlanState.status === 'ready' ? strictChatPlanState.plan : null;
+    const plan = chatPlanState.status === 'ready' ? chatPlanState.plan : null;
     const native = {
       xizong: {
         subject: 'xizong',
@@ -674,16 +651,15 @@ export function initExamHome(root) {
   $('[data-exam-copy-daily]')?.addEventListener('click', async () => {
     const status = $('[data-exam-daily-status]');
     try {
-      const xizongProjection = await loadXizongProjection();
       const result = buildHomeDailyLearningPacket({
         storage: localStorage,
         day: day(),
         now: Date.now(),
         plan: readModel,
         englishCatalog: JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent || '[]'),
-        xizongPacketIndex: xizongProjection.xizongPacketIndex,
-        xizongForecastQuestionScope: xizongProjection.xizongForecastQuestionScope,
-        xizongForecastCanonicalScope: xizongProjection.xizongForecastCanonicalScope,
+        xizongPacketIndex,
+        xizongForecastQuestionScope,
+        xizongForecastCanonicalScope,
         politicsCatalog,
         politicsMemoryCatalog,
         base: catalog.base || '/'

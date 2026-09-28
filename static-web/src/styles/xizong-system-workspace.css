@@ -121,14 +121,8 @@ body#kianos-workspace.surfaceBody-xizong .xzSystemBody {
 body#kianos-workspace.surfaceBody-xizong .xzSystemBody.context-open {
   grid-template-columns: 236px minmax(0, 1fr) 288px;
 }
-body#kianos-workspace.surfaceBody-xizong .xzSystemWorkspace.biochemistry-source-active .xzSystemBody {
-  grid-template-columns: minmax(0, 1fr);
-}
-body#kianos-workspace.surfaceBody-xizong .xzSystemWorkspace.biochemistry-source-active :is(.xzSystemRouteRail,.xzSystemViewTabs) {
-  display: none;
-}
 
-/* Block Route is persistent in normal System learning; contextual M/G Source contact temporarily replaces it with teacher order. */
+/* Block Route is persistent because it carries real System position. */
 body#kianos-workspace.surfaceBody-xizong .xzSystemRouteRail {
   min-width: 0;
   min-height: 0;
@@ -472,27 +466,6 @@ body#kianos-workspace.surfaceBody-xizong .xzSystemParallel p {
   line-height: 1.55;
 }
 body#kianos-workspace.surfaceBody-xizong .xzSystemParallel p:first-child {
-  border-left: 0;
-  padding-left: 0;
-}
-
-body#kianos-workspace.surfaceBody-xizong .xzSystemMentalDetails {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 13px;
-  padding-top: 13px;
-  border-top: 1px solid var(--xz-system-line);
-}
-body#kianos-workspace.surfaceBody-xizong .xzSystemMentalDetails p {
-  margin: 0;
-  padding: 8px 16px;
-  border-left: 1px solid var(--xz-system-line);
-  color: #31493f;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.62;
-}
-body#kianos-workspace.surfaceBody-xizong .xzSystemMentalDetails p:first-child {
   border-left: 0;
   padding-left: 0;
 }
@@ -956,11 +929,6 @@ body#kianos-workspace.surfaceBody-xizong .xzSystemRecallEntry>a {
 
 /* B · 27 Biochemistry Source lane.
    Execution view only: one continuous teacher-order Source, no second textbook. */
-/* M/G teacher-order Source adapter: keep routing/state DOM, demote backend mapping/JIT/reconstruction from learner view. */
-body#kianos-workspace.surfaceBody-xizong .xzSystemBiochemistryView :is(.xzBioTargetSection,.xzBiochemistryReconstruction,.xzBiochemistryMotherMaps) {
-  display: none !important;
-}
-
 body#kianos-workspace.surfaceBody-xizong .xzSystemBiochemistryView {
   min-height: 0;
   display: grid;
@@ -992,16 +960,6 @@ body#kianos-workspace.surfaceBody-xizong .xzBiochemistryLaneLead p {
   margin: 0;
   color: var(--xz-system-muted);
   line-height: 1.6;
-}
-body#kianos-workspace.surfaceBody-xizong .xzBiochemistryReturn {
-  flex: none;
-  padding: 7px 10px;
-  border: 1px solid var(--xz-system-line-strong);
-  border-radius: 7px;
-  color: var(--xz-system-green);
-  font-size: 14px;
-  font-weight: 750;
-  text-decoration: none;
 }
 body#kianos-workspace.surfaceBody-xizong .xzBiochemistryMotherMaps {
   flex: none;
@@ -1179,41 +1137,4 @@ body#kianos-workspace.surfaceBody-xizong .xzBiochemistryReconstruction [data-bio
   body#kianos-workspace.surfaceBody-xizong .xzBiochemistryUnitRail nav { grid-template-columns: repeat(2,minmax(0,1fr)); }
   body#kianos-workspace.surfaceBody-xizong .xzBioTargetSection { grid-template-columns: 1fr; }
   body#kianos-workspace.surfaceBody-xizong .xzBiochemistryLaneAction { align-items: stretch; flex-direction: column; }
-}
-
-
-/* Real-use B routing: expose the seven existing learner regions instead of one 38-block wall. */
-body#kianos-workspace.surfaceBody-xizong .xzSystemRouteGroupLabel {
-  display: grid;
-  grid-template-columns: 28px minmax(0,1fr) auto;
-  gap: 8px;
-  align-items: baseline;
-  padding: 10px 12px 7px;
-  border-top: 1px solid var(--xz-system-line);
-  background: #f1f5f2;
-  color: var(--xz-system-muted);
-}
-body#kianos-workspace.surfaceBody-xizong .xzSystemRouteGroupLabel:first-child {
-  border-top: 0;
-}
-body#kianos-workspace.surfaceBody-xizong .xzSystemRouteGroupLabel > b {
-  color: var(--xz-system-green);
-  font-size: 15px;
-  font-weight: 850;
-}
-body#kianos-workspace.surfaceBody-xizong .xzSystemRouteGroupLabel > span {
-  min-width: 0;
-  font-size: 15px;
-  font-weight: 720;
-  line-height: 1.3;
-}
-body#kianos-workspace.surfaceBody-xizong .xzSystemRouteGroupLabel > small {
-  font-size: 13px;
-  font-weight: 650;
-  white-space: nowrap;
-}
-@media (max-width: 760px) {
-  body#kianos-workspace.surfaceBody-xizong .xzSystemRouteGroupLabel {
-    grid-column: 1 / -1;
-  }
 }

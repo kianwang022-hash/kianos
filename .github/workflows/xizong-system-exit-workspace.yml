@@ -76,34 +76,6 @@ jobs:
     steps:
       - name: Checkout Current candidate
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-      - name: Scope Xizong content proof
-        id: scope
-        working-directory: .
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          # Shared config/navigation edits keep build + consumer proof. Re-audit
-          # canonical Xizong content only when a content/semantic owner changed.
-          # Manual runs and unavailable comparison evidence retain the full gate.
-          content=true
-          changed="$RUNNER_TEMP/xizong-proof-changed.txt"
-          if [[ "$EVENT_NAME" != workflow_dispatch && -n "$BASE_SHA" && -n "$HEAD_SHA" ]] &&
-             git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null &&
-             git cat-file -e "$HEAD_SHA^{commit}" 2>/dev/null &&
-             git diff --no-renames --name-only "$BASE_SHA" "$HEAD_SHA" > "$changed"; then
-            if grep -Eq '^static-web/src/lib/sharedNavigation\.mjs$' "$changed" &&
-               ! grep -Eiq '(^|/)[^/]*xizong[^/]*(/|$)|^LEARNING_ACCEPTANCE\.md$|^static-web/(package(-lock)?\.json|src/layouts/|src/styles/(global|runtime)\.css|src/lib/current\.mjs)' "$changed"; then
-              content=false
-            fi
-          fi
-          printf 'content=%s\n' "$content" >> "$GITHUB_OUTPUT"
-          printf 'Xizong content proof: %s; shared build/browser proof retained\n' "$content"
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -113,16 +85,12 @@ jobs:
       - name: Validate System Exit single visual owner
         run: node scripts/validate-xizong-system-exit-style-ownership.mjs
       - name: Validate Question attempt semantics
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/validate-xizong-question-attempts.mjs
       - name: Validate retained Practice aggregation
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/validate-xizong-retained-practice.mjs
       - name: Validate whole-paper scoring / Hidden semantics
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/validate-xizong-paper-practice.mjs
       - name: Validate reviewed Question Crosswalk contract
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/validate-xizong-question-crosswalk.mjs
       - name: Build Astro
         run: npm run build

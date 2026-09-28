@@ -5,13 +5,7 @@ import path from 'node:path';
 import { defineConfig } from 'astro/config';
 import { privateLearnerBridge } from './scripts/privateLearnerBridge.mjs';
 import { privateExternalReadingBridge } from './scripts/privateExternalReadingBridge.mjs';
-import { privateEnglishGeneratedBridge } from './scripts/privateEnglishGeneratedBridge.mjs';
 import { privateControlBridge } from './scripts/privateControlBridge.mjs';
-
-const configuredBuildConcurrency = Number(process.env.KIANOS_ASTRO_BUILD_CONCURRENCY || 2);
-const buildConcurrency = Number.isFinite(configuredBuildConcurrency) && configuredBuildConcurrency >= 1
-  ? Math.floor(configuredBuildConcurrency)
-  : 2;
 
 // Astro dev/preview is an engineering surface, never the live learner runtime.
 // Default every private bridge to one process-local scratch root so browser QA
@@ -64,11 +58,8 @@ export default defineConfig({
   base: '/',
   output: 'static',
   trailingSlash: 'always',
-  build: {
-    concurrency: buildConcurrency
-  },
   vite: {
-    plugins: [privateLearnerBridge(), privateExternalReadingBridge(), privateEnglishGeneratedBridge(), privateControlBridge()],
+    plugins: [privateLearnerBridge(), privateExternalReadingBridge(), privateControlBridge()],
     define: {
       __KIANOS_RELEASE_SHA__: JSON.stringify(process.env.KIANOS_RELEASE_SHA || '')
     }

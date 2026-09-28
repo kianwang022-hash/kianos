@@ -2,7 +2,6 @@
 
 <script>
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
-  import { buildEnglishReadingAttributionSlice } from '../lib/englishLearnerEvidence.mjs';
   void learnerWriterReady.then(() => {
 
   const TRANSFER_STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
@@ -114,7 +113,6 @@
       const problems = new Set(problemIds(attempt));
       const pendingClaims = activeClaims();
       const reopenCandidates = recentClosedClaims();
-      const attribution = buildEnglishReadingAttributionSlice(localStorage,{objectIds:[readingKey],lookupLimit:12,signalLimit:12});
       const score = Object.values(attempt.results || {}).filter((value) => value === 'correct').length;
       const wrongOrdinals = questions.filter((question) => ['wrong', 'unanswered'].includes(attempt.results?.[qid(question)])).map((question) => `Q${ordinal(question)}`);
       const uncertainOrdinals = questions.filter((question) => uncertain.has(qid(question))).map((question) => `Q${ordinal(question)}`);
@@ -149,9 +147,6 @@
         expanded.forEach((question) => lines.push(...questionBlock(question)));
       }
 
-      lines.push('', 'BOUNDED READING ATTRIBUTION · factual only');
-      lines.push(JSON.stringify(attribution, null, 2));
-
       lines.push('', 'ACTIVE TRANSFER CLAIMS · opportunistic only');
       if (!pendingClaims.length) lines.push('none');
       else pendingClaims.forEach((claim) => lines.push(`${claim.claimId} · ${claim.statement}`));
@@ -165,7 +160,6 @@
         'REVIEW INSTRUCTION',
         'This escalation was requested because the local result was not cheap to resolve. Diagnose the whole passage first, but stop as soon as the smallest failure sufficient to explain the score-relevant miss is clear. Do not create one review object per wrong question.',
         'Route true lexical failures to LexicalOS; keep Reading representation failures with Reading; keep task-specific option adjudication failures with Reading A. If the learner can already explain a one-off miss after seeing the decisive evidence / contrast, do not manufacture a durable claim.',
-        'BOUNDED READING ATTRIBUTION is factual only: PRE_SUBMIT lookup proves assistance, not lexical causality; POST_SUBMIT_REVIEW lookup cannot retroactively explain the first attempt. Focused question is context only. If UNDERSTAND still matters after passive evidence, ask only the smallest clarification that could change repair/allocation.',
         'ACTIVE TRANSFER CLAIMS are opportunistic only: update one only if this passage genuinely tested the same procedure. Their existence is not a reason to lengthen the review.',
         '',
         'REPAIR / RETURN PROTOCOL',
@@ -211,7 +205,6 @@
             reopenCandidateIds: packet.reopenCandidateIds,
             createdAt: new Date().toISOString()
           }));
-          readingRoot.dispatchEvent(new CustomEvent('kianos:objective-handoff-created', { bubbles: true }));
           if (status) status.textContent = '已复制给 Chat；能解释得分问题时立即停，不追求流程完整。';
         } catch {
           if (status) status.textContent = '已复制给 Chat，但本机未能保存这次回访信息；这次只做复盘，不更新长期记录。';

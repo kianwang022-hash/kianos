@@ -1,58 +1,83 @@
 # Xizong Visual Reference
 
-Status: **CURRENT VISUAL REFERENCE / NON-AUTHORITATIVE**
-Scope: bounded historical/current visual evidence for Xizong learner-facing work
-Authority: static-web/PRESENTATION_CONTRACT.md + static-web/UI_STYLE_BRIEF.md + static-web/XIZONG_VISUAL_LANGUAGE.md + exact Xizong Surface Blueprint.
+Status: **CURRENT VISUAL REFERENCE / NON-SEMANTIC**  
+Scope: Xizong learner-facing UI convergence  
+Authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/XIZONG_PRODUCT_BRIEF.md` + `static-web/XIZONG_VISUAL_LANGUAGE.md`. This file is non-semantic reference evidence only.
 
-This file is **reference evidence only**. It owns no visual rule, product geometry, semantic meaning, Runtime behavior or Acceptance verdict.
+## 1｜Reference direction
 
-## What this reference is for
+The accepted direction is the current KianOS visual family after the recent convergence work, informed by the earlier KianOS desktop releases that Kian explicitly used as style references.
 
-Use retained Xizong screenshots / prior accepted surfaces only to calibrate qualities that are difficult to recover from numeric CSS alone, such as:
+Do **not** redesign Xizong into a generic SaaS dashboard, a mobile-first card feed, a decorative glass/gradient product, or a sparse minimalist document site.
 
-- whether dense medical material still feels calm rather than crowded;
-- whether the main medical object visually dominates navigation/context;
-- whether optional Context feels supportive rather than like a second textbook;
-- whether desktop width is being used for useful simultaneous relationships;
-- whether the resulting surface feels like the same mature KianOS/Xizong product family.
+Target feeling:
 
-The operative rules themselves live upstream in:
-- shared visual direction → KIAN_UI_PREFERENCES.md + UI_STYLE_BRIEF.md;
-- representation / Blueprint / Human Gate → PRESENTATION_CONTRACT.md;
-- Xizong-specific visual specialization → XIZONG_VISUAL_LANGUAGE.md;
-- exact surface geometry → the applicable Xizong Product / Design owner.
+> **Dense Calm · desktop-native · restrained · readable · information-rich without looking busy.**
 
-## Positive reference characteristics
+## 2｜Visual language
 
-Historical/current accepted examples may support evidence for:
+- deep forest green is the structural / identity color;
+- main learning surfaces remain white or very light neutral / pale green-gray;
+- borders are thin, quiet and semantic; avoid heavy shadows;
+- corner radius is restrained and consistent; do not make every object a floating card;
+- green is used for active state, navigation, important learner actions and semantic emphasis, not decorative saturation;
+- typography carries hierarchy before borders/backgrounds do;
+- learner text is comfortably large; never recover density by shrinking text into tiny UI labels;
+- secondary labels may be small, but important medical / learning content must remain immediately readable;
+- controls are compact, clear and low-chrome.
 
-~~~text
-medical object visually primary
-+ restrained software chrome
-+ useful Mac-wide density
-+ stable readable hierarchy
-+ bounded/earned Context
-+ task-native local scrolling
-~~~
+## 3｜Density and spacing
 
-These are calibration observations, not independently writable rules.
+Kian prefers **recent high-density Mac layouts**, not the older sparse home-page spacing.
 
-## Negative reference use
+- use horizontal room aggressively when simultaneous information is useful;
+- normal Learn / Recall / Memory work should stay within one stable viewport where practical;
+- if content exceeds the viewport, scroll the relevant local pane (Core, Logic Map, Visual/auxiliary panel, Memory list) rather than turning the whole product into a long vertical page;
+- whitespace should separate logical regions, not create large empty deserts;
+- avoid stacked full-width cards when columns / aligned rows / shared surfaces communicate the same structure more efficiently;
+- preserve comfortable breathing room inside dense regions so density does not become crowding.
 
-Do not use historical screenshots to restore:
-- retired routes or components;
-- historical state machines;
-- old learning semantics;
-- obsolete sidebar/navigation architecture;
-- stale Content or Source;
-- superseded CSS values merely because an old screenshot looked familiar.
+## 4｜Xizong Block workspace implication
 
-If a historical visual conflicts with Current Rule / Content / Learning / Product truth, Current truth wins.
+Normal Mac-wide Block learning should visually read as one coherent workspace:
 
-## Surface examples
+```text
+narrow Logic Map | dominant KP Learn / Recall | dynamic Visual / Precision support
+```
 
-For Block, Memory, Practice, System and other mature surfaces, use the exact current Surface Blueprint as the design authority. This reference may help judge whether the implementation preserved the accepted family character, but it may not override the Blueprint.
+- the left rail is only as wide as readable labels require;
+- the central learning region is visually dominant;
+- the right auxiliary area expands when a real Visual / table / Precision object earns space and shrinks/disappears when it does not;
+- Source / Outline locators stay compact near the current KP identity;
+- no large persistent workflow dashboard competes with the learner object;
+- Block Framework remains easily reachable but does not occupy permanent main-stage space during KP work;
+- Crosswalk / Memory / Repair must not stack underneath the Block workspace as an endless page.
 
-## Compact rule
+## 5｜Memory workspace implication
 
-> **截图负责校准“看起来像不像已经接受的西综”，不负责决定“西综应该是什么”。**
+Memory is a separate Xizong workspace, not an `After Learn` section appended below every Block.
+
+Preferred top-level views:
+
+```text
+Today | Core | Precision | Marked | Repair
+```
+
+Use the same visual family and one-screen preference as the Block workspace: compact navigation, dominant current review object, local scrolling, no dashboard sprawl.
+
+## 6｜Reference-vs-authority rule
+
+Historical screenshots are **visual inspiration only**. They may contribute proven spacing, density, hierarchy, color restraint and desktop feel; they do not restore historical routes, state machines, learning semantics, sidebar architecture or obsolete components.
+
+If an old visual conflicts with Current Learning / Projection / Runtime semantics, Current semantics win and the old visual is adapted rather than copied.
+
+For future UI work, the required interpretation is:
+
+```text
+Current Learning / Product semantics
+→ Presentation Contract
+→ this current visual preference reference
+→ implementation
+```
+
+Do not infer new learning rules from screenshots, and do not ignore this visual reference merely because a new component library makes another style easier to build.

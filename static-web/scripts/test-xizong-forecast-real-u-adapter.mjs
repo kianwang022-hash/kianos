@@ -337,21 +337,13 @@ assert.equal(delayedProgress.repair_evidence.verification_rows[0]?.method,'DELAY
 
 const index=fs.readFileSync('src/pages/index.astro','utf8');
 const home=fs.readFileSync('src/components/ExamOrchestratorHome.astro','utf8');
-const projection=fs.readFileSync('src/lib/homeXizongProjection.mjs','utf8');
-const endpoint=fs.readFileSync('src/pages/kianos-data/home-xizong.json.js','utf8');
 const client=fs.readFileSync('src/lib/examOrchestratorClient.mjs','utf8');
 const daily=fs.readFileSync('src/lib/dailyLearningPacketRuntime.mjs','utf8');
-
-assert.ok(!index.includes('buildXizongForecastQuestionScope(listCurrentXizongSystemIdentities())'));
-assert.ok(!index.includes('buildXizongForecastCanonicalScope(xizongPacketIndex)'));
-assert.ok(projection.includes('buildXizongForecastQuestionScope'));
-assert.ok(projection.includes('listCurrentXizongSystemIdentities()'));
-assert.ok(projection.includes('buildXizongForecastCanonicalScope(xizongPacketIndex)'));
-assert.ok(projection.includes('routeKey:'));
-assert.ok(endpoint.includes('buildHomeXizongProjection'));
-assert.ok(!home.includes('data-exam-xizong-forecast-question-scope'));
-assert.ok(!home.includes('data-exam-xizong-forecast-canonical-scope'));
-assert.ok(client.includes('kianos-data/home-xizong.json'));
+assert.ok(index.includes('buildXizongForecastQuestionScope(listCurrentXizongSystemIdentities())'));
+assert.ok(index.includes('buildXizongForecastCanonicalScope(xizongPacketIndex)'));
+assert.ok(index.includes('routeKey:'));
+assert.ok(home.includes('data-exam-xizong-forecast-question-scope'));
+assert.ok(home.includes('data-exam-xizong-forecast-canonical-scope'));
 assert.ok(client.includes('xizongForecastQuestionScope'));
 assert.ok(client.includes('xizongForecastCanonicalScope'));
 assert.ok(daily.includes('questionScope: xizongForecastQuestionScope'));

@@ -4,20 +4,7 @@ import XizongCognitiveProjectionStage from './XizongCognitiveProjectionStage.ast
 const { block } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const kps = block?.kpRecords || [];
-const learnerFacingGroupCopy = (value) => {
-  const text = String(value || '').trim();
-  if (!text) return '';
-  const cjkCount = (text.match(/[\u3400-\u9fff]/g) || []).length;
-  if (cjkCount < 4) return '';
-  if (/\b(?:OWNER|OWNERSHIP|PROJECTION|ROUTING|ADAPTER|LEDGER|MAPPING|SOURCE[_ -]UNIT|MI-[GD])\b/i.test(text)) return '';
-  return text;
-};
-const groups = (block?.logicGroups || []).map((group, index) => ({
-  ...group,
-  label: String(group?.label || `学习节 ${index + 1}`),
-  goal: learnerFacingGroupCopy(group?.goal),
-  closure: learnerFacingGroupCopy(group?.closure)
-}));
+const groups = block?.logicGroups || [];
 const firstKp = kps[0];
 const firstGroup = groups[0];
 const firstGroupKps = firstGroup ? kps.filter((kp) => (firstGroup.kpIds || []).includes(kp.kpId)) : [];
@@ -37,28 +24,7 @@ const sourceContact = block?.sourceContact || {};
 const sourceContactMode = String(sourceContact.mode || 'NATURAL_SOURCE_UNIT');
 const sourcePerGroup = sourceContact.logicGroupIsAutomaticSourceChunk === true;
 const globalBiochemistrySource = sourceContactMode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT';
-const naturalSourceUnits = sourceContactMode === 'NATURAL_SOURCE_UNITS';
-const integrationPrimary = sourceContactMode === 'INTEGRATION_PRIMARY';
 const kpIdByOrdinal = new Map(kps.map((kp) => [Number(kp.ordinal), kp.kpId]));
-const sourceRuntimeSegments = (sourceContact.segments || []).map((segment, index) => ({
-  segmentId: String(segment?.segmentId || `source-segment-${index + 1}`),
-  kind: String(segment?.kind || ''),
-  order: index,
-  kpIds: (segment?.kpOrdinals || []).map((ordinal) => kpIdByOrdinal.get(Number(ordinal))).filter(Boolean),
-  logicGroupIds: (segment?.logicGroupIds || []).map(String),
-  postUnitClosureKpIds: (segment?.postUnitClosureKpOrdinals || []).map((ordinal) => kpIdByOrdinal.get(Number(ordinal))).filter(Boolean),
-  postUnitClosureLogicGroupIds: (segment?.postUnitClosureLogicGroupIds || []).map(String),
-  reactivateLogicGroupIds: (segment?.reactivateLogicGroupIds || []).map(String),
-  contributesToLogicGroupIds: (segment?.contributesToLogicGroupIds || []).map(String),
-  gating: segment?.gating !== false
-}));
-const sourceRuntimePlan = {
-  mode: sourceContactMode,
-  segments: sourceRuntimeSegments,
-  integrationReleaseLogicGroupIds: (sourceContact.integrationReleaseLogicGroupIds || []).map(String)
-};
-const hasKianosPrimaryGroups = integrationPrimary || sourceRuntimeSegments.some((segment) => segment.postUnitClosureLogicGroupIds.length > 0);
-const needsKpLearnStage = sourcePerGroup || hasKianosPrimaryGroups;
 const biochemistrySegments = globalBiochemistrySource
   ? (sourceContact.segments || []).map((segment) => ({
       ...segment,
@@ -115,14 +81,11 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
 <section
   class="portedStudyRuntime portedStudyRuntimeV2 xv6Block"
   data-xizong-v6-block
-  data-aux-weight="none"
   data-study-object={block.objectId}
   data-study-system-id={block.systemId || ''}
   data-study-block-id={block.blockId || ''}
   data-study-block-slug={block.slug || ''}
   data-study-source-hash={block.sourceHash || ''}
-  data-block-primary-source={block.primarySource || ''}
-  data-block-outline-primary={block.outlinePrimary || ''}
   data-block-label={block.label}
   data-source-contact-mode={sourceContactMode}
   data-semantic-adapter={block.semanticAdapterSchema || ''}
@@ -137,11 +100,10 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       </div>
     </div>
     <div class="portedStudyIdentity">
-      <div class="portedStudyBlockIdentity">
+      <div>
         <span data-study-context-label>西医综合 · {block.label} · Block Learn</span>
         <h2>{block.title}</h2>
       </div>
-      <div class="portedStudyActiveKp" data-study-active-kp aria-live="polite"></div>
       <div class="portedStudyIdentityMeta">
         <strong data-study-local-status>{sourcePerGroup ? `学习节 1/${groups.length}` : '准备进入原讲义'}</strong>
         <small>← / → 推进 · 状态只留在本机</small>
@@ -170,7 +132,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       <nav data-study-group-rail aria-label="Logic Group navigation">
         {groups.map((group, index) => <button type="button" data-group-target={index}>
           <b>{String(index + 1).padStart(2, '0')}</b>
-          {!/^学习节\s+\d+$/i.test(group.label) && <span>{group.label}</span>}
+          <span>{group.label}</span>
         </button>)}
       </nav>
       <nav class="portedStudyKpRail" data-study-kp-rail aria-label="KP navigation" hidden>
@@ -190,29 +152,17 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           </div>
           {attention.minimalModel && <div class="xv6MinimalModel"><span>先带着这个最小模型</span><p>{attention.minimalModel}</p></div>}
           <XizongCognitiveProjectionStage projection={block.cognitiveProjection} />
-          {!block?.cognitiveProjection?.available && block.blockLearnHtml && (
+          {!block?.cognitiveProjection?.compiled && block.blockLearnHtml && (
             <article class="portedStudyArticle markdown xv6BlockOrientation" set:html={block.blockLearnHtml}></article>
           )}
           {!hasTimedVisuals && block.visualGateHtml && <details class="xv6VisualGate"><summary>需要时看原图</summary><div class="markdown" set:html={block.visualGateHtml}></div></details>}
           <footer class="portedStudyStageAction">
             <span>{globalBiochemistrySource
-              ? '这个 M/G Block 不单独重读讲义；第一次接触沿 27 生化老师顺序连续推进。'
-              : integrationPrimary
-                ? '这块以当前学习区的理解与重建为主；只有明确需要时才回原讲义。'
-                : naturalSourceUnits
-                  ? '先定位这块，再按真实原讲义段连续学习；每一段回来处理对应学习节。'
-                  : sourcePerGroup
-                    ? '先知道这块为什么存在，再按学习节进入原讲义。'
-                    : '先定位这块，再去原讲义保持连续学习；不要按学习节反复切 App。'}</span>
-            <button type="button" class="portedPrimaryAction" data-stage-next="logic_group">{globalBiochemistrySource
-              ? '检查当前形成状态'
-              : integrationPrimary
-                ? '开始第一学习节'
-                : naturalSourceUnits
-                  ? '去原讲义第 1 段'
-                  : sourcePerGroup
-                    ? '进入第一个学习节'
-                    : '去原讲义连续学习'}</button>
+              ? '这个 Block 不单独重读讲义；正式 Source 接触来自 B 系统里的 27 生化连续跟课主线。'
+              : sourcePerGroup
+                ? '先知道这块为什么存在，再按学习节进入原讲义。'
+                : '先定位这块，再去原讲义保持连续学习；不要按学习节反复切 App。'}</span>
+            <button type="button" class="portedPrimaryAction" data-stage-next="logic_group">{globalBiochemistrySource ? '检查当前 Source 形成状态' : sourcePerGroup ? '进入第一个学习节' : '去原讲义连续学习'}</button>
           </footer>
         </section>
 
@@ -220,34 +170,24 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           <section class="portedKpWorkspace xv6BlockSourceContact" data-study-stage="source_contact" hidden>
             <header class="portedKpWorkspaceHeader">
               <div>
-                <span data-source-stage-kicker>原讲义 · MarginNote</span>
-                <strong data-source-stage-title>{globalBiochemistrySource ? '27 生化原讲义 · 老师顺序' : naturalSourceUnits ? '原讲义第 1 段' : integrationPrimary ? '回原讲义补这一段' : '保持原讲义连续学习'}</strong>
+                <span>Lecture · MarginNote</span>
+                <strong>{globalBiochemistrySource ? '27 生化连续跟课主线' : '保持原讲义连续学习'}</strong>
               </div>
-              <em data-source-segment-counter>{naturalSourceUnits ? `1 / ${Math.max(1, sourceRuntimeSegments.length)}` : '原讲义'}</em>
+              <em>Source Contact</em>
             </header>
             <div class="xv6LectureFirst xv6LectureHandoff">
               <div>
-                <strong data-source-stage-lead>{globalBiochemistrySource
-                  ? '原讲义按老师顺序只学一次；当前 Block 自动接收已形成内容'
-                  : naturalSourceUnits
-                    ? '这一段连续读完，再回来处理对应学习节'
-                    : integrationPrimary
-                      ? '只补当前学习节真正需要的原讲义内容'
-                      : 'MarginNote 连续学习 + Mac KP Learn 同时进行'}</strong>
-                <p data-source-stage-copy>{globalBiochemistrySource
-                  ? '老师顺序可能同时形成多个 M/G Block。继续原讲义即可；学到对应段落后，这里的学习位置会自动同步。'
-                  : naturalSourceUnits
-                    ? '不要按学习节来回切 App；以真实原讲义段为边界。'
-                    : integrationPrimary
-                      ? '完成后直接回当前学习节，不重开一套课程。'
-                      : '原讲义保持连续推进；Mac 只切换当前 KP 的 Prompt / Core / 支持，不把 KP 变成新的 Source 边界。'}</p>
+                <strong>{globalBiochemistrySource ? 'Source 只学一次；这个 Block 只消费已经形成的内容' : 'MarginNote 连续学习 + Mac KP Learn 同时进行'}</strong>
+                <p>{globalBiochemistrySource
+                  ? '老师顺序可能同时形成多个 M/G Block。这里不会要求你为了当前 Block 重读讲义；完成到对应 27 Source unit 后，正式接触证据会自动同步回来。'
+                  : '原讲义保持连续推进；Mac 只切换当前 KP 的 Prompt / Core / 支持，不把 KP 变成新的 Source 边界。'}</p>
               </div>
               <span data-block-source-contact>{globalBiochemistrySource ? sourceContact.sourceName : continuousSource}</span>
             </div>
             <div class="xv6SourceRules">
-              <p data-source-stage-rules>{globalBiochemistrySource
-                ? '继续 27 生化原讲义老师顺序；只有真实学完对应段落，当前 KP / 学习节才进入 Recall。'
-                : '原图、表格、例子与讲义配套题留在原位置；这一段完成后再回当前学习区。'}</p>
+              <p>{globalBiochemistrySource
+                ? '先回 B 系统的「27 生化」按老师顺序推进；只有真实完成的 Source unit 才会释放这里对应的 KP / Logic Group Recall。'
+                : '原图、表格、例子与讲义配套题都留在 MarginNote 原位置；题目在讲义里完成并看全部选项 / 题旁拓展。'}</p>
               {globalBiochemistrySource && (
                 <p data-biochemistry-block-source-status>
                   当前 Block 所需 Source：{biochemistrySegments.map((segment) => segment.sourceUnitId).join(' → ')}
@@ -255,16 +195,12 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
               )}
             </div>
             <footer>
-              <span data-source-stage-footer>{globalBiochemistrySource
-                ? '原讲义接触由老师顺序统一记录；本页继续负责当前 Block 的理解与 Recall。'
-                : naturalSourceUnits
-                  ? '完成这一段后，只释放它真正覆盖的学习节。'
-                  : integrationPrimary
-                    ? '完成这一段后，回到当前学习节继续。'
-                    : '到真实原讲义边界再确认本段接触完成。'}</span>
+              <span>{globalBiochemistrySource
+                ? 'Source contact 由共享 27 生化主线记录；本页只负责 Recall / Reconstruction。'
+                : '到真实 Source boundary 再确认本段接触完成；KP Learn 本身持续伴读。'}</span>
               {globalBiochemistrySource
-                ? <a class="portedPrimaryAction" href={`${base}xizong/${block.systemId}/?view=biochemistry&from=${encodeURIComponent(block.slug || block.blockId || '')}`}>继续原讲义老师顺序</a>
-                : <button type="button" class="portedPrimaryAction" data-source-contact-done>{naturalSourceUnits || integrationPrimary ? '这一段原讲义已完成' : '本段原讲义已完成'}</button>}
+                ? <a class="portedPrimaryAction" href={`${base}xizong/${block.systemId}/?view=biochemistry`}>回到 27 生化跟课</a>
+                : <button type="button" class="portedPrimaryAction" data-source-contact-done>本段原讲义已完成</button>}
             </footer>
           </section>
         )}
@@ -278,24 +214,21 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           <button type="button" class="portedPrimaryAction" data-enter-group>{sourcePerGroup ? '去讲义连续学习这一节' : '开始这一节 Recall'}</button>
         </section>
 
-        {needsKpLearnStage && (
+        {sourcePerGroup && (
           <section class="portedKpWorkspace xv6GroupLecture" data-study-stage="kp_learn" hidden>
             <header class="portedKpWorkspaceHeader">
-              <div><span>{sourcePerGroup ? '原讲义 · MarginNote' : '当前学习节'}</span><strong data-group-lecture-title>{firstGroup?.label}</strong></div>
+              <div><span>Lecture · MarginNote</span><strong data-group-lecture-title>{firstGroup?.label}</strong></div>
               <em data-group-lecture-counter>学习节 1/{groups.length}</em>
             </header>
             <div class="xv6LectureFirst xv6LectureHandoff">
-              <div>
-                <strong>{sourcePerGroup ? 'MarginNote 连续学习 + Mac KP Learn 同时进行' : '在这里把当前学习节真正看懂'}</strong>
-                <p>{sourcePerGroup ? '原讲义不停；左右键只切 Mac 当前 KP 伴读对象，Enter 记录这个 KP 已学好。' : '左右键切当前学习节里的 KP；确认看懂后 Enter，全部完成再进入 Recall。'}</p>
-              </div>
-              <span data-group-lecture-source>{sourcePerGroup ? firstGroupSource : '当前学习区'}</span>
+              <div><strong>MarginNote 连续学习 + Mac KP Learn 同时进行</strong><p>原讲义不停；左右键只切 Mac 当前 KP 伴读对象，Enter 记录这个 KP 已学好。</p></div>
+              <span data-group-lecture-source>{firstGroupSource}</span>
             </div>
             <details class="xv6GroupKpMap">
-              <summary>{sourcePerGroup ? '本节 KP 路标 · Block Learn 后 Recall' : '这一节的 KP'}</summary>
+              <summary>回来后要 Recall 的 KP 路标</summary>
               <p data-group-lecture-kps>{firstGroupKps.map((kp) => kp.displayId).join(' · ') || '本学习节对应 KP'}</p>
             </details>
-            <footer><span>{sourcePerGroup ? '原图、表格、例子和讲义配套题仍留在 MarginNote；KP Learn 同步提供 Prompt、Core 和当前支持。' : '这一节在当前学习区完成第一遍理解；需要原图或精确措辞时再回原讲义。'}</span><button type="button" class="portedPrimaryAction" data-group-lecture-done>{sourcePerGroup ? '这一节原讲义已完成' : '这一节已学完，开始 Recall'}</button></footer>
+            <footer><span>原图、表格、例子和讲义配套题仍留在 MarginNote；KP Learn 同步提供 Prompt、Core 和当前支持。</span><button type="button" class="portedPrimaryAction" data-group-lecture-done>这一节已完成</button></footer>
           </section>
         )}
 
@@ -393,7 +326,6 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
 <script define:vars={{
   sourcePerGroup,
   sourceContactMode,
-  sourceRuntimePayload: sourceRuntimePlan,
   biochemistrySourcePayload: biochemistryBlockSource,
   ttsxPayload: ttsxCheckpoints,
   groupPayload: groups.map((group) => ({ groupId: group.groupId, label: group.label, start: group.start, end: group.end, kpIds: group.kpIds, goal: group.goal || '', closure: group.closure || '', membershipMode: group.membershipMode || '' })),
@@ -423,17 +355,12 @@ window.__kianosLearnerWriterReady.then(() => {
     const statusLabel = root.querySelector('[data-study-local-status]');
     const totalKp = kpData.length;
     const currentSourceHash = root.getAttribute('data-study-source-hash') || '';
-    const sourceRuntime = sourceRuntimePayload || { mode: sourceContactMode, segments: [], integrationReleaseLogicGroupIds: [] };
-    const sourceSegments = Array.isArray(sourceRuntime?.segments) ? sourceRuntime.segments : [];
-    const naturalSourceRuntime = sourceContactMode === 'NATURAL_SOURCE_UNITS';
-    const integrationPrimaryRuntime = sourceContactMode === 'INTEGRATION_PRIMARY';
-    const groupIndexById = new Map(groups.map((group, index) => [String(group?.groupId || ''), index]));
     const biochemistrySource = biochemistrySourcePayload || null;
     const biochemistryLedgerKey = biochemistrySource?.laneSourceHash
       ? `kianos:xizong:biochemistry-source-lane:${root.dataset.studySystemId || ''}:v1`
       : '';
     let sourceRevisionMigrated = false;
-    let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, sourceSegmentIndex: 0, integrationReleasedGroups: {}, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, blockRecallCompletedAt: null, completed: false, completedAt: null, sourceHash: currentSourceHash, sourceRevisionPending: false, sourceRevisionFromHash: null };
+    let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, ttsxEvidence: {}, ttsxAnnotations: {}, pendingTtsx: null, blockRecallDone: false, blockRecallCompletedAt: null, completed: false, completedAt: null, sourceHash: currentSourceHash, sourceRevisionPending: false, sourceRevisionFromHash: null };
     const suspend = (message) => {
       root.dataset.xizongStateBlocked = 'true';
       root.inert = true;
@@ -452,8 +379,6 @@ window.__kianosLearnerWriterReady.then(() => {
         const object = (v) => v && typeof v === 'object' && !Array.isArray(v);
         if (!object(saved) || (saved.schema && saved.schema !== 'kianos.xizong.block-state.v2')) throw new Error('Unsupported state');
         if (saved.learned != null && (!object(saved.learned) || Object.values(saved.learned).some((v) => typeof v !== 'boolean'))) throw new Error('Invalid contact evidence');
-        if (saved.integrationReleasedGroups != null && (!object(saved.integrationReleasedGroups) || Object.values(saved.integrationReleasedGroups).some((v) => typeof v !== 'boolean'))) throw new Error('Invalid integration release state');
-        if (saved.sourceSegmentIndex != null && (!Number.isInteger(saved.sourceSegmentIndex) || saved.sourceSegmentIndex < 0)) throw new Error('Invalid Source position');
         if (saved.ratings != null && (!object(saved.ratings) || Object.values(saved.ratings).some((v) => !['unknown','fuzzy','known','mastered'].includes(v)))) throw new Error('Invalid Recall evidence');
         if (['completed', 'blockRecallDone', 'sourceContactDone'].some((key) => saved[key] != null && typeof saved[key] !== 'boolean')) throw new Error('Invalid completion evidence');
         state = { ...state, ...saved };
@@ -461,7 +386,6 @@ window.__kianosLearnerWriterReady.then(() => {
           || state.blockRecallDone === true
           || state.sourceContactDone === true
           || Object.values(state.learned || {}).some(Boolean)
-          || Object.values(state.integrationReleasedGroups || {}).some(Boolean)
           || Object.keys(state.ratings || {}).length > 0
           || (Array.isArray(state.sourceContactEvidence) && state.sourceContactEvidence.length > 0)
           || Object.keys(state.ttsxEvidence || {}).length > 0;
@@ -478,8 +402,6 @@ window.__kianosLearnerWriterReady.then(() => {
             sourceRevisionDetectedAt: new Date().toISOString(),
             sourceContactDone: false,
             sourceContactEvidence: [],
-            sourceSegmentIndex: 0,
-            integrationReleasedGroups: {},
             ttsxEvidence: {},
             ttsxAnnotations: {},
             pendingTtsx: null,
@@ -523,134 +445,6 @@ window.__kianosLearnerWriterReady.then(() => {
       }];
       state.sourceHash = currentSourceHash;
     };
-    const currentSourceEvidence = () => (Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [])
-      .filter((entry) => String(entry?.source_hash || '') === currentSourceHash);
-    const sourceSegmentDone = (segment) => Boolean(
-      segment?.segmentId
-      && currentSourceEvidence().some((entry) => String(entry?.segment_id || '') === String(segment.segmentId))
-    );
-    const groupById = (groupId) => groups.find((group) => String(group?.groupId || '') === String(groupId || '')) || null;
-    const groupClosed = (groupId) => {
-      const group = groupById(groupId);
-      const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
-      return ids.length > 0 && ids.every((id) => Boolean(state.ratings?.[id]));
-    };
-    const groupLearned = (groupId) => {
-      const group = groupById(groupId);
-      const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
-      return ids.length > 0 && ids.every((id) => state.learned?.[id] === true);
-    };
-    const integrationInitialGroups = () => new Set(
-      Array.isArray(sourceRuntime?.integrationReleaseLogicGroupIds)
-        ? sourceRuntime.integrationReleaseLogicGroupIds.map(String)
-        : []
-    );
-    const completedSourceReleasedGroups = () => {
-      const released = new Set();
-      sourceSegments.forEach((segment) => {
-        if (!sourceSegmentDone(segment)) return;
-        (segment.logicGroupIds || []).forEach((groupId) => released.add(String(groupId)));
-      });
-      return released;
-    };
-    const postClosureReleasedGroups = () => new Set(
-      Object.entries(state.integrationReleasedGroups || {})
-        .filter(([, released]) => released === true)
-        .map(([groupId]) => String(groupId))
-    );
-    const groupAvailable = (groupId) => {
-      const id = String(groupId || '');
-      if (!id) return false;
-      if (!naturalSourceRuntime && !integrationPrimaryRuntime) return true;
-      if (integrationInitialGroups().has(id)) return true;
-      if (completedSourceReleasedGroups().has(id)) return true;
-      if (postClosureReleasedGroups().has(id)) return true;
-      return false;
-    };
-    const groupNeedsKianosLearn = (groupId) => {
-      const id = String(groupId || '');
-      if (!id) return false;
-      if (integrationInitialGroups().has(id)) return true;
-      return postClosureReleasedGroups().has(id);
-    };
-    const sourceSegmentForGroup = (groupId) => sourceSegments.find((segment) =>
-      (segment.logicGroupIds || []).map(String).includes(String(groupId || ''))
-    ) || null;
-    const requiredSourceSegments = () => sourceSegments.filter((segment) =>
-      naturalSourceRuntime || (integrationPrimaryRuntime && segment.gating !== false)
-    );
-    const currentSourceSegment = () => {
-      const required = requiredSourceSegments();
-      if (!required.length) return null;
-      const index = Math.max(0, Math.min(required.length - 1, Number(state.sourceSegmentIndex || 0)));
-      return required[index] || required[0] || null;
-    };
-    const sourceSegmentPosition = (segment) => {
-      const required = requiredSourceSegments();
-      const index = required.findIndex((row) => String(row.segmentId) === String(segment?.segmentId || ''));
-      return { index: index >= 0 ? index : 0, total: required.length };
-    };
-    const allRequiredSourceSegmentsDone = () => requiredSourceSegments().every(sourceSegmentDone);
-    const updateSourceContactDone = () => {
-      if (!naturalSourceRuntime && !integrationPrimaryRuntime) return;
-      state.sourceContactDone = allRequiredSourceSegmentsDone();
-      if (state.sourceContactDone) {
-        state.sourceRevisionPending = false;
-        state.sourceRevisionReason = '';
-      }
-    };
-    const releasePostClosureGroups = () => {
-      if (!naturalSourceRuntime) return false;
-      let changed = false;
-      const released = { ...(state.integrationReleasedGroups || {}) };
-      for (const segment of sourceSegments) {
-        if (!sourceSegmentDone(segment)) continue;
-        const direct = (segment.logicGroupIds || []).map(String);
-        if (direct.length && !direct.every(groupClosed)) continue;
-        for (const groupId of segment.postUnitClosureLogicGroupIds || []) {
-          const id = String(groupId);
-          if (released[id] !== true) {
-            released[id] = true;
-            changed = true;
-          }
-        }
-      }
-      if (changed) state.integrationReleasedGroups = released;
-      return changed;
-    };
-    const nextAvailableIncompleteGroupId = () => {
-      const row = groups.find((group) => groupAvailable(group?.groupId) && !groupClosed(group?.groupId));
-      return String(row?.groupId || '');
-    };
-    const firstPendingSourceSegment = () => requiredSourceSegments().find((segment) => !sourceSegmentDone(segment)) || null;
-    const setSourceSegment = (segment) => {
-      if (!segment) return false;
-      const required = requiredSourceSegments();
-      const index = required.findIndex((row) => String(row.segmentId) === String(segment.segmentId));
-      state.sourceSegmentIndex = index >= 0 ? index : 0;
-      return true;
-    };
-    const firstIndexForGroupId = (groupId) => {
-      const index = groupIndexById.get(String(groupId || ''));
-      return Number.isInteger(index) ? index : -1;
-    };
-    const syncSourceLearnedFromEvidence = () => {
-      if (!naturalSourceRuntime && !integrationPrimaryRuntime) return false;
-      const learned = { ...(state.learned || {}) };
-      let changed = false;
-      sourceSegments.forEach((segment) => {
-        if (!sourceSegmentDone(segment)) return;
-        (segment.kpIds || []).forEach((kpId) => {
-          if (learned[kpId] !== true) {
-            learned[kpId] = true;
-            changed = true;
-          }
-        });
-      });
-      if (changed) state.learned = learned;
-      return changed;
-    };
-
     const readBiochemistryLane = () => {
       if (!biochemistryLedgerKey || !biochemistrySource?.laneSourceHash) return null;
       try {
@@ -696,7 +490,7 @@ window.__kianosLearnerWriterReady.then(() => {
         const doneUnits = biochemistrySource.segments
           .filter((segment) => completed.has(String(segment?.sourceUnitId || '')))
           .map((segment) => segment.sourceUnitId);
-        status.textContent = `当前 Block Source 已形成 ${doneUnits.length}/${biochemistrySource.segments.length} 段 · ${nextDone ? '可进入 Recall' : '继续原讲义老师顺序'}`;
+        status.textContent = `当前 Block Source 已形成 ${doneUnits.length}/${biochemistrySource.segments.length} 段 · ${nextDone ? '可进入 Recall' : '继续 27 生化主线'}`;
       }
       return changed;
     };
@@ -708,9 +502,6 @@ window.__kianosLearnerWriterReady.then(() => {
       const currentEvidence = evidence.filter((entry) => String(entry?.source_hash || '') === currentSourceHash);
       if (biochemistrySource?.laneSourceHash) {
         return state.sourceContactDone === true && totalKp > 0 && kpData.every((kp) => state.learned?.[kp.kpId] === true);
-      }
-      if (naturalSourceRuntime || integrationPrimaryRuntime) {
-        return allRequiredSourceSegmentsDone();
       }
       if (!sourcePerGroup) {
         return state.sourceContactDone === true && currentEvidence.some((entry) => entry.coverage_kind === 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION');
@@ -734,11 +525,6 @@ window.__kianosLearnerWriterReady.then(() => {
       const segmentId = `source:${group.groupId}`;
       return ttsxData.filter((row) => row?.logicGroupId === group.groupId || row?.sourceSegmentId === segmentId);
     };
-    const ttsxRowsForSourceSegment = (segment) => {
-      const segmentId = String(segment?.segmentId || '');
-      if (!segmentId) return [];
-      return ttsxData.filter((row) => String(row?.sourceSegmentId || '') === segmentId);
-    };
     const ttsxKeyFor = (rows, fallback) => {
       const ids = rows.map((row) => String(row?.checkpointId || '')).filter(Boolean);
       return ids.length ? ids.join('|') : fallback;
@@ -749,18 +535,17 @@ window.__kianosLearnerWriterReady.then(() => {
       return ids.length > 0 && ids.every((id) => reviewedTtsxIds.has(id));
     };
     const ttsxDone = (key) => Boolean(key && state.ttsxEvidence?.[key]?.completedAt);
-    const queueTtsx = (rows, fallbackKey, label, resumeStage = 'kp_recall') => {
+    const queueTtsx = (rows, fallbackKey, label) => {
       if (!Array.isArray(rows) || rows.length === 0) return false;
       const key = ttsxKeyFor(rows, fallbackKey);
       if (ttsxDone(key)) return false;
       state.pendingTtsx = {
         key,
-        label: String(rows[0]?.label || label || '当前原讲义边界'),
+        label: String(rows[0]?.label || label || '当前 Source boundary'),
         lecturePageLabel: String(rows[0]?.lecturePageLabel || ''),
         questionPageLabel: String(rows[0]?.questionPageLabel || ''),
         checkpointIds: rows.map((row) => String(row?.checkpointId || '')).filter(Boolean),
-        questionRows: rows.flatMap((row) => Array.isArray(row?.questionRows) ? row.questionRows : []),
-        resumeStage: String(resumeStage || 'kp_recall')
+        questionRows: rows.flatMap((row) => Array.isArray(row?.questionRows) ? row.questionRows : [])
       };
       return true;
     };
@@ -784,76 +569,6 @@ window.__kianosLearnerWriterReady.then(() => {
       if (!locators.length) return 'MarginNote · 原讲义对应连续小节';
       if (locators.length === 1) return `MarginNote · ${locators[0]}`;
       return `MarginNote · 相关定位：${locators.join('；')}`;
-    };
-    const sourceSummaryForKpIds = (ids = []) => {
-      const wanted = new Set((Array.isArray(ids) ? ids : []).map(String));
-      const locators = [...new Set(
-        kpData
-          .filter((kp) => wanted.has(String(kp.kpId)))
-          .map((kp) => String(kp.sourceLocator || '').trim())
-          .filter(Boolean)
-      )];
-      if (!locators.length) return 'MarginNote · 按当前原讲义自然段连续学习';
-      if (locators.length === 1) return `MarginNote · ${locators[0]}`;
-      return `MarginNote · 相关定位：${locators.join('；')}`;
-    };
-    const setSourceCompanionScope = (ids = []) => {
-      const kpIds = [...new Set((Array.isArray(ids) ? ids : []).map(String).filter(Boolean))];
-      root.dataset.sourceCompanionKpIds = JSON.stringify(kpIds);
-      root.dispatchEvent(new CustomEvent('kianos:xizong-source-scope-change', {
-        detail: { kpIds }
-      }));
-    };
-    const syncSourceStage = () => {
-      if (!naturalSourceRuntime && !integrationPrimaryRuntime) {
-        setSourceCompanionScope(kpData.map((kp) => kp.kpId));
-        return;
-      }
-      const segment = currentSourceSegment();
-      if (!segment) {
-        setSourceCompanionScope([]);
-        return;
-      }
-      const position = sourceSegmentPosition(segment);
-      const title = root.querySelector('[data-source-stage-title]');
-      const counter = root.querySelector('[data-source-segment-counter]');
-      const lead = root.querySelector('[data-source-stage-lead]');
-      const copy = root.querySelector('[data-source-stage-copy]');
-      const rules = root.querySelector('[data-source-stage-rules]');
-      const footer = root.querySelector('[data-source-stage-footer]');
-      const source = root.querySelector('[data-block-source-contact]');
-      const button = root.querySelector('[data-source-contact-done]');
-      const directGroups = (segment.logicGroupIds || []).map(String);
-      const postGroups = (segment.postUnitClosureLogicGroupIds || []).map(String);
-      const contributes = (segment.contributesToLogicGroupIds || []).map(String);
-      const reactivate = (segment.reactivateLogicGroupIds || []).map(String);
-
-      if (title) title.textContent = naturalSourceRuntime
-        ? `原讲义第 ${position.index + 1} 段`
-        : '回原讲义补这一段';
-      if (counter) counter.textContent = naturalSourceRuntime
-        ? `${position.index + 1} / ${Math.max(1, position.total)}`
-        : (position.total > 1 ? `补看 ${position.index + 1}/${position.total}` : '按需补看');
-      if (lead) lead.textContent = naturalSourceRuntime
-        ? '这一段连续读完，再回来处理对应学习节'
-        : '只补当前学习真正需要的原讲义内容';
-      if (copy) copy.textContent = contributes.length && directGroups.length === 0
-        ? '这一段先建立必要背景，不提前算任何学习节完成；读完后继续下一段。'
-        : naturalSourceRuntime
-          ? '不要按学习节来回切 App；以真实原讲义段为边界。'
-          : '补完后直接回当前学习节，不重开一套课程。';
-      if (rules) {
-        const extra = [];
-        if (postGroups.length) extra.push('这一段的直接学习节闭合后，还会解锁一个整合学习节。');
-        if (reactivate.length) extra.push('这段会顺手回看前面已经学过的内容，但不会重复计算学习进度。');
-        rules.textContent = ['原图、表格、例子与讲义配套题留在原位置。', ...extra].join(' ');
-      }
-      if (footer) footer.textContent = contributes.length && directGroups.length === 0
-        ? '完成这一段后继续下一段原讲义，不提前进入 Recall。'
-        : '完成这一段后，只开放它真正覆盖的学习节。';
-      if (source) source.textContent = sourceSummaryForKpIds(segment.kpIds || []);
-      if (button) button.textContent = '这一段原讲义已完成';
-      setSourceCompanionScope(segment.kpIds || []);
     };
     const firstUnrecalledIndexForGroup = (group = currentGroup()) => {
       const item = groupKps(group).find((kp) => !state.ratings?.[kp.kpId]);
@@ -980,50 +695,21 @@ window.__kianosLearnerWriterReady.then(() => {
       root.querySelector('[data-logic-closure]')?.replaceChildren(document.createTextNode(group?.closure || '学完后能自己恢复这一节的核心关系。'));
       root.querySelector('[data-group-lecture-title]')?.replaceChildren(document.createTextNode(group?.label || '当前学习节'));
       root.querySelector('[data-group-lecture-counter]')?.replaceChildren(document.createTextNode(`学习节 ${state.groupIndex + 1}/${groups.length}`));
-      root.querySelector('[data-group-lecture-source]')?.replaceChildren(document.createTextNode(
-        groupNeedsKianosLearn(group?.groupId) ? '当前学习区' : sourceSummaryForGroup(group)
-      ));
+      root.querySelector('[data-group-lecture-source]')?.replaceChildren(document.createTextNode(sourceSummaryForGroup(group)));
       root.querySelector('[data-group-lecture-kps]')?.replaceChildren(document.createTextNode(groupItems.map((kp) => kp.displayId).join(' · ') || '本学习节对应 KP'));
       root.querySelector('[data-chain-group]')?.replaceChildren(document.createTextNode(`${state.groupIndex + 1}/${groups.length}`));
-      const enter = root.querySelector('[data-enter-group]');
-      if (enter instanceof HTMLButtonElement && (naturalSourceRuntime || integrationPrimaryRuntime)) {
-        const targetStage = stageForSelectedGroup();
-        enter.textContent = targetStage === 'kp_learn'
-          ? '开始这一节学习'
-          : targetStage === 'kp_recall'
-            ? '开始这一节 Recall'
-            : '先去原讲义';
-        enter.disabled = !groupAvailable(group?.groupId);
-      }
-      const finishLearn = root.querySelector('[data-group-lecture-done]');
-      if (finishLearn instanceof HTMLButtonElement && !sourcePerGroup && (naturalSourceRuntime || integrationPrimaryRuntime)) {
-        finishLearn.disabled = !groupLearned(group?.groupId);
-      }
       groupRailButtons.forEach((button, index) => {
-        const candidate = groups[index];
-        const ids = candidate?.kpIds || [];
-        const active = ['logic_group', 'kp_learn', 'kp_recall'].includes(state.stage) && index === state.groupIndex;
+        const ids = groups[index]?.kpIds || [];
+        const active = index === state.groupIndex;
         const done = ids.length > 0 && ids.every((id) => Boolean(state.learned?.[id]) && Boolean(state.ratings?.[id]));
-        const available = !naturalSourceRuntime && !integrationPrimaryRuntime ? true : groupAvailable(candidate?.groupId);
         button.classList.toggle('active', active);
         button.classList.toggle('done', done);
-        button.classList.toggle('locked', !available);
-        if (button instanceof HTMLButtonElement) button.disabled = !available;
       });
     };
 
     const syncState = () => {
-      syncSourceStage();
       const shortcutHint = root.querySelector('[data-block-keyboard-hint]');
-      if (shortcutHint) shortcutHint.textContent = state.stage === 'kp_recall'
-        ? 'Space 核对 Core · 1–4 记录回忆并继续 · ← → 切换'
-        : state.stage === 'kp_learn'
-          ? '← → 切换当前学习节 · Enter 确认这个 KP 已学好'
-          : naturalSourceRuntime
-            ? '← → 只看当前原讲义段对应内容 · 段末一次确认'
-            : integrationPrimaryRuntime
-              ? '需要时回原讲义；当前学习区负责理解与 Recall'
-              : '← → 切换伴读 · 原讲义边界完成后一次确认';
+      if (shortcutHint) shortcutHint.textContent = state.stage === 'kp_recall' ? 'Space 核对 Core · 1–4 记录回忆并继续 · ← → 切换' : '← → 切换伴读 · Source 单元学完后一次确认';
       kpRailButtons.forEach((button, index) => {
         const kpId = kpData[index]?.kpId || '';
         const small = button.querySelector('[data-kp-state]');
@@ -1055,13 +741,7 @@ window.__kianosLearnerWriterReady.then(() => {
       const returnSystem = root.querySelector('[data-block-return-system]');
       if (returnSystem instanceof HTMLElement) returnSystem.hidden = !state.completed;
       root.querySelector('[data-block-complete-title]')?.replaceChildren(document.createTextNode(state.completed ? '本 Block 第一轮已在本机记录完成' : canComplete() ? '本轮检查点已满足' : '还没有满足本轮检查点'));
-      const contactText = naturalSourceRuntime
-        ? `原讲义 ${requiredSourceSegments().filter(sourceSegmentDone).length}/${requiredSourceSegments().length} 段`
-        : integrationPrimaryRuntime
-          ? (requiredSourceSegments().length ? `按需原讲义 ${requiredSourceSegments().filter(sourceSegmentDone).length}/${requiredSourceSegments().length} 段` : '当前学习区为主')
-          : sourcePerGroup
-            ? `学习接触 ${learnedCount()}/${totalKp}`
-            : `连续原讲义 ${state.sourceContactDone ? '已确认' : '未确认'}`;
+      const contactText = sourcePerGroup ? `学习接触 ${learnedCount()}/${totalKp}` : `连续 Source ${state.sourceContactDone ? '已确认' : '未确认'}`;
       root.querySelector('[data-block-complete-detail]')?.replaceChildren(document.createTextNode(`${contactText} · Recall ${recallCount()}/${totalKp} · Block Recall ${state.blockRecallDone ? '完成' : '未完成'}`));
       syncGroupStage();
     };
@@ -1096,113 +776,23 @@ window.__kianosLearnerWriterReady.then(() => {
       save(); syncState();
     };
 
-    const selectGroupById = (groupId) => {
-      const index = firstIndexForGroupId(groupId);
-      if (index < 0) return false;
-      state.groupIndex = index;
-      state.kpIndex = firstIndexForGroup(groups[index]);
-      return true;
-    };
-
-    const stageForSelectedGroup = () => {
-      const group = currentGroup();
-      const groupId = String(group?.groupId || '');
-      if (biochemistrySource?.laneSourceHash) return state.sourceContactDone ? 'kp_recall' : 'source_contact';
-      if (sourcePerGroup) return currentSourceContactCovered() ? 'kp_recall' : 'kp_learn';
-      if (naturalSourceRuntime || integrationPrimaryRuntime) {
-        if (!groupAvailable(groupId)) {
-          const segment = naturalSourceRuntime
-            ? firstPendingSourceSegment()
-            : (sourceSegmentForGroup(groupId) || firstPendingSourceSegment());
-          if (segment) setSourceSegment(segment);
-          return 'source_contact';
-        }
-        if (groupNeedsKianosLearn(groupId)) return groupLearned(groupId) ? 'kp_recall' : 'kp_learn';
-        if (groupLearned(groupId)) return 'kp_recall';
-        const segment = sourceSegmentForGroup(groupId);
-        if (segment && !sourceSegmentDone(segment)) {
-          setSourceSegment(segment);
-          return 'source_contact';
-        }
-        return 'kp_learn';
-      }
-      return state.sourceContactDone ? 'kp_recall' : 'source_contact';
-    };
-
-    const advanceM4State = () => {
-      syncSourceLearnedFromEvidence();
-      releasePostClosureGroups();
-      updateSourceContactDone();
-      // NATURAL_SOURCE_UNITS are still one Block Learn phase. A completed
-      // Source unit may release several LGs, but it must not start retrieval
-      // while another accepted Source unit for this Block is still pending.
-      if (naturalSourceRuntime && !state.sourceContactDone) {
-        const pendingSegment = firstPendingSourceSegment();
-        if (pendingSegment) {
-          setSourceSegment(pendingSegment);
-          return 'source_contact';
-        }
-      }
-      const nextGroupId = nextAvailableIncompleteGroupId();
-      if (nextGroupId && selectGroupById(nextGroupId)) return stageForSelectedGroup();
-      const pendingSegment = firstPendingSourceSegment();
-      if (pendingSegment) {
-        setSourceSegment(pendingSegment);
-        return 'source_contact';
-      }
-      return 'block_recall';
-    };
-
     const normalizeLegacyStage = () => {
       const validStages = ['block_learn', 'source_contact', 'logic_group', 'kp_learn', 'ttsx_checkpoint', 'kp_recall', 'group_close', 'block_recall', 'block_complete'];
       if (!validStages.includes(state.stage)) state.stage = 'block_learn';
       if (state.stage === 'block_complete') state.stage = 'block_recall';
-
-      if (naturalSourceRuntime || integrationPrimaryRuntime) {
-        syncSourceLearnedFromEvidence();
-        releasePostClosureGroups();
-        updateSourceContactDone();
-      }
-      if (sourcePerGroup) state.sourceContactDone = currentSourceContactCovered();
-
-      if (biochemistrySource?.laneSourceHash && state.stage === 'kp_learn') state.stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
-      else if (!sourcePerGroup && !naturalSourceRuntime && !integrationPrimaryRuntime && state.stage === 'kp_learn') state.stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
-
-      if (sourcePerGroup && state.stage === 'source_contact') state.stage = currentSourceContactCovered() ? 'kp_recall' : 'kp_learn';
-      if (sourcePerGroup && state.stage === 'kp_learn' && currentSourceContactCovered()) {
-        const nextGroupId = nextAvailableIncompleteGroupId();
-        state.stage = nextGroupId && selectGroupById(nextGroupId) ? 'kp_recall' : 'block_recall';
-      }
-      if (sourcePerGroup && state.stage === 'kp_recall' && !currentSourceContactCovered()) {
-        const pendingGroupIndex = groups.findIndex((candidate) => !currentGroupSourceCovered(candidate));
-        if (pendingGroupIndex >= 0) {
-          state.groupIndex = pendingGroupIndex;
-          state.kpIndex = firstIndexForGroup(groups[pendingGroupIndex]);
-        }
-        state.stage = 'kp_learn';
-      }
-      if (biochemistrySource?.laneSourceHash && state.stage === 'source_contact' && state.sourceContactDone) state.stage = 'kp_recall';
-      if (biochemistrySource?.laneSourceHash && state.stage === 'kp_recall' && !state.sourceContactDone) state.stage = 'source_contact';
-
-      if ((naturalSourceRuntime || integrationPrimaryRuntime) && state.stage === 'source_contact') {
-        const segment = currentSourceSegment();
-        if (!segment || sourceSegmentDone(segment)) state.stage = advanceM4State();
-      }
-
-      if (state.stage === 'logic_group') state.stage = naturalSourceRuntime || integrationPrimaryRuntime
-        ? stageForSelectedGroup()
-        : (biochemistrySource?.laneSourceHash || sourcePerGroup)
-          ? stageForSelectedGroup()
-          : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
-
-      let group = currentGroup();
+      if (biochemistrySource?.laneSourceHash && state.stage === 'kp_learn') state.stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
+      else if (!sourcePerGroup && state.stage === 'kp_learn') state.stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
+      if (sourcePerGroup && state.stage === 'source_contact') state.stage = 'kp_learn';
+      if (biochemistrySource?.laneSourceHash && state.stage === 'source_contact' && currentGroupSourceCovered()) state.stage = 'kp_recall';
+      if (state.stage === 'logic_group') state.stage = biochemistrySource?.laneSourceHash
+        ? (currentGroupSourceCovered() ? 'kp_recall' : 'source_contact')
+        : sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
+      const group = currentGroup();
       if (state.stage === 'group_close') {
         const missing = (group?.kpIds || []).some((id) => !state.ratings?.[id]);
         if (missing) {
           state.kpIndex = firstUnrecalledIndexForGroup(group);
           state.stage = 'kp_recall';
-        } else if (naturalSourceRuntime || integrationPrimaryRuntime) {
-          state.stage = advanceM4State();
         } else if (state.groupIndex < groups.length - 1) {
           state.groupIndex += 1;
           state.kpIndex = firstIndexForGroup(currentGroup());
@@ -1211,58 +801,30 @@ window.__kianosLearnerWriterReady.then(() => {
           state.stage = 'block_recall';
         }
       }
-
       if (state.pendingTtsx && !pendingTtsxIsReviewed(state.pendingTtsx)) state.pendingTtsx = null;
       if (state.stage === 'ttsx_checkpoint' && (!state.pendingTtsx?.key || ttsxDone(state.pendingTtsx.key))) {
-        const resumeStage = String(state.pendingTtsx?.resumeStage || 'kp_recall');
         state.pendingTtsx = null;
-        state.stage = resumeStage;
+        state.stage = 'kp_recall';
       }
       if (state.stage === 'kp_recall' && state.pendingTtsx?.key && pendingTtsxIsReviewed(state.pendingTtsx) && !ttsxDone(state.pendingTtsx.key)) state.stage = 'ttsx_checkpoint';
-
-      group = currentGroup();
-      if ((naturalSourceRuntime || integrationPrimaryRuntime) && ['kp_learn', 'kp_recall'].includes(state.stage)) {
-        const expected = stageForSelectedGroup();
-        if (state.stage === 'kp_recall' && expected !== 'kp_recall') state.stage = expected;
-        if (state.stage === 'kp_learn' && groupLearned(group?.groupId)) state.stage = 'kp_recall';
-      }
       if (state.stage === 'kp_recall') state.kpIndex = firstUnrecalledIndexForGroup(group);
       if (state.completed && !canComplete()) state.completed = false;
     };
 
     const setStage = (requested) => {
       let stage = requested || 'block_learn';
-
-      if (naturalSourceRuntime || integrationPrimaryRuntime) {
-        syncSourceLearnedFromEvidence();
-        releasePostClosureGroups();
-        updateSourceContactDone();
-
-        if (stage === 'logic_group') {
-          stage = stageForSelectedGroup();
-        } else if (stage === 'source_contact') {
-          const segment = currentSourceSegment();
-          if (!segment || sourceSegmentDone(segment)) stage = advanceM4State();
-        } else if (stage === 'kp_learn' || stage === 'kp_recall') {
-          const expected = stageForSelectedGroup();
-          if (stage === 'kp_recall' && expected !== 'kp_recall') stage = expected;
-          if (stage === 'kp_learn' && groupLearned(currentGroup()?.groupId)) stage = 'kp_recall';
-        }
-      } else {
-        if (biochemistrySource?.laneSourceHash && stage === 'kp_learn') stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
-        else if (!sourcePerGroup && stage === 'kp_learn') stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
-        if (biochemistrySource?.laneSourceHash && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
-        else if (!sourcePerGroup && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
-        if (sourcePerGroup && stage === 'source_contact') stage = stageForSelectedGroup();
-        if (sourcePerGroup && stage === 'kp_recall' && !currentSourceContactCovered()) stage = 'kp_learn';
-        if (stage === 'logic_group') stage = stageForSelectedGroup();
-      }
-
+      if (biochemistrySource?.laneSourceHash && stage === 'kp_learn') stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
+      else if (!sourcePerGroup && stage === 'kp_learn') stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
+      if (biochemistrySource?.laneSourceHash && stage === 'kp_recall' && !currentGroupSourceCovered()) stage = 'source_contact';
+      else if (!sourcePerGroup && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
+      if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';
+      if (stage === 'logic_group') stage = biochemistrySource?.laneSourceHash
+        ? (currentGroupSourceCovered() ? 'kp_recall' : 'source_contact')
+        : sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
       if (stage === 'kp_recall' && state.pendingTtsx?.key && pendingTtsxIsReviewed(state.pendingTtsx) && !ttsxDone(state.pendingTtsx.key)) stage = 'ttsx_checkpoint';
       if (stage === 'ttsx_checkpoint' && (!state.pendingTtsx?.key || !pendingTtsxIsReviewed(state.pendingTtsx) || ttsxDone(state.pendingTtsx.key))) {
-        const resumeStage = String(state.pendingTtsx?.resumeStage || 'kp_recall');
         state.pendingTtsx = null;
-        stage = resumeStage;
+        stage = 'kp_recall';
       }
       state.stage = stage;
       stages.forEach((panel) => { panel.hidden = panel.getAttribute('data-study-stage') !== state.stage; });
@@ -1284,38 +846,11 @@ window.__kianosLearnerWriterReady.then(() => {
     root.querySelectorAll('[data-stage-target],[data-stage-next]').forEach((button) => button.addEventListener('click', () => {
       switchTab('learn');
       const requested = button.getAttribute('data-stage-target') || button.getAttribute('data-stage-next') || 'block_learn';
-      if (!biochemistrySource?.laneSourceHash && !sourcePerGroup && !naturalSourceRuntime && !integrationPrimaryRuntime && requested === 'logic_group' && button.hasAttribute('data-stage-next') && !state.sourceContactDone) setStage('source_contact');
+      if (!biochemistrySource?.laneSourceHash && !sourcePerGroup && requested === 'logic_group' && button.hasAttribute('data-stage-next') && !state.sourceContactDone) setStage('source_contact');
       else setStage(requested);
     }));
 
     root.querySelector('[data-source-contact-done]')?.addEventListener('click', () => {
-      if (naturalSourceRuntime || integrationPrimaryRuntime) {
-        const segment = currentSourceSegment();
-        if (!segment || sourceSegmentDone(segment)) return;
-        const position = sourceSegmentPosition(segment);
-        recordSourceContact(String(segment.segmentId || ''), segment.kpIds || [], false, {
-          coverage_kind: naturalSourceRuntime ? 'NATURAL_SOURCE_UNIT' : 'TARGETED_SOURCE_RETURN',
-          source_segment_index: position.index,
-          logic_group_ids: [...(segment.logicGroupIds || [])],
-          post_unit_closure_logic_group_ids: [...(segment.postUnitClosureLogicGroupIds || [])],
-          reactivate_logic_group_ids: [...(segment.reactivateLogicGroupIds || [])],
-          contributes_to_logic_group_ids: [...(segment.contributesToLogicGroupIds || [])]
-        });
-        syncSourceLearnedFromEvidence();
-        updateSourceContactDone();
-        const nextStage = advanceM4State();
-        const rows = ttsxRowsForSourceSegment(segment);
-        const queued = queueTtsx(
-          rows,
-          `source-segment:${segment.segmentId || position.index + 1}`,
-          naturalSourceRuntime ? `原讲义第 ${position.index + 1} 段` : '当前按需原讲义',
-          nextStage
-        );
-        save();
-        setStage(queued ? 'ttsx_checkpoint' : nextStage);
-        return;
-      }
-
       recordSourceContact(`block-cumulative:${objectId}`, kpData.map((kp) => kp.kpId), true);
       state.sourceContactDone = true;
       state.sourceRevisionPending = false;
@@ -1323,64 +858,36 @@ window.__kianosLearnerWriterReady.then(() => {
       state.learned = Object.fromEntries(kpData.map((kp) => [kp.kpId, true]));
       state.groupIndex = 0;
       state.kpIndex = firstIndexForGroup(groups[0]);
-      const queued = queueTtsx(ttsxData, 'block-source-boundary', '本段原讲义边界');
+      const queued = queueTtsx(ttsxData, 'block-source-boundary', '本段原讲义 Source boundary');
       save();
       setStage(queued ? 'ttsx_checkpoint' : 'kp_recall');
     });
 
     root.querySelector('[data-enter-group]')?.addEventListener('click', () => {
       const group = currentGroup();
-      if (!group) return;
-      if ((naturalSourceRuntime || integrationPrimaryRuntime) && !groupAvailable(group.groupId)) return;
-      state.kpIndex = firstIndexForGroup(group);
+      if (group) state.kpIndex = firstIndexForGroup(group);
       save();
-      if (naturalSourceRuntime || integrationPrimaryRuntime) setStage(stageForSelectedGroup());
-      else if (biochemistrySource?.laneSourceHash) setStage(stageForSelectedGroup());
-      else if (sourcePerGroup) setStage(stageForSelectedGroup());
+      if (biochemistrySource?.laneSourceHash) setStage(currentGroupSourceCovered() ? 'kp_recall' : 'source_contact');
+      else if (sourcePerGroup) setStage('kp_learn');
       else if (state.sourceContactDone) setStage('kp_recall');
       else setStage('source_contact');
     });
     root.querySelector('[data-group-lecture-done]')?.addEventListener('click', () => {
       const group = currentGroup();
       const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
-
-      if ((naturalSourceRuntime || integrationPrimaryRuntime) && !sourcePerGroup) {
-        if (!groupNeedsKianosLearn(group?.groupId) || !groupLearned(group?.groupId)) return;
-        state.kpIndex = firstUnrecalledIndexForGroup(group);
-        save();
-        setStage('kp_recall');
-        return;
-      }
-
       const learned = { ...(state.learned || {}) };
       recordSourceContact(`source:${group.groupId}`, ids);
       ids.forEach((id) => { learned[id] = true; });
       state.learned = learned;
-      const blockLearnComplete = currentSourceContactCovered();
-      state.sourceContactDone = blockLearnComplete;
-      if (blockLearnComplete) {
+      if (currentSourceContactCovered()) {
         state.sourceRevisionPending = false;
         state.sourceRevisionReason = '';
-        const nextGroupId = nextAvailableIncompleteGroupId();
-        if (nextGroupId) selectGroupById(nextGroupId);
-      } else {
-        const nextGroupIndex = groups.findIndex((candidate) => !currentGroupSourceCovered(candidate));
-        if (nextGroupIndex >= 0) {
-          state.groupIndex = nextGroupIndex;
-          state.kpIndex = firstIndexForGroup(groups[nextGroupIndex]);
-        }
       }
-      const retrievalComplete = blockLearnComplete && recallCount() >= totalKp;
-      const resumeStage = retrievalComplete ? 'block_recall' : blockLearnComplete ? 'kp_recall' : 'kp_learn';
+      state.kpIndex = firstUnrecalledIndexForGroup(group);
       const rows = ttsxRowsForGroup(group);
-      const queued = queueTtsx(
-        rows,
-        `logic-group:${group?.groupId || state.groupIndex}`,
-        `${group?.label || '当前学习节'} · 配套题`,
-        resumeStage
-      );
+      const queued = queueTtsx(rows, `logic-group:${group?.groupId || state.groupIndex}`, `${group?.label || '当前学习节'} · 配套题`);
       save();
-      setStage(queued ? 'ttsx_checkpoint' : resumeStage);
+      setStage(queued ? 'ttsx_checkpoint' : 'kp_recall');
     });
     root.querySelector('[data-ttsx-done]')?.addEventListener('click', () => {
       const pending = state.pendingTtsx;
@@ -1396,14 +903,14 @@ window.__kianosLearnerWriterReady.then(() => {
           checkpointIds: Array.isArray(pending.checkpointIds) ? [...pending.checkpointIds] : []
         }
       };
-      const resumeStage = String(pending.resumeStage || 'kp_recall');
       state.pendingTtsx = null;
       save();
-      setStage(resumeStage);
+      setStage('kp_recall');
     });
+    const stageForSelectedGroup = () => biochemistrySource?.laneSourceHash
+      ? (currentGroupSourceCovered() ? 'kp_recall' : 'source_contact')
+      : sourcePerGroup ? 'kp_learn' : (state.sourceContactDone ? 'kp_recall' : 'source_contact');
     groupRailButtons.forEach((button, index) => button.addEventListener('click', () => {
-      const candidate = groups[index];
-      if ((naturalSourceRuntime || integrationPrimaryRuntime) && !groupAvailable(candidate?.groupId)) return;
       state.groupIndex = index;
       const group = currentGroup();
       if (group) state.kpIndex = firstIndexForGroup(group);
@@ -1412,10 +919,7 @@ window.__kianosLearnerWriterReady.then(() => {
       setStage(stageForSelectedGroup());
     }));
     root.querySelectorAll('[data-outline-open]').forEach((button) => button.addEventListener('click', () => {
-      const index = Number(button.getAttribute('data-outline-open') || 0);
-      const candidate = groups[index];
-      if ((naturalSourceRuntime || integrationPrimaryRuntime) && !groupAvailable(candidate?.groupId)) return;
-      state.groupIndex = index;
+      state.groupIndex = Number(button.getAttribute('data-outline-open') || 0);
       const group = currentGroup();
       if (group) state.kpIndex = firstIndexForGroup(group);
       save();
@@ -1458,12 +962,6 @@ window.__kianosLearnerWriterReady.then(() => {
         if (firstMissingId) {
           const nextIndex = indexForKpId(firstMissingId);
           if (nextIndex >= 0) window.setTimeout(() => setKpIndex(nextIndex), 120);
-        } else if (naturalSourceRuntime || integrationPrimaryRuntime) {
-          window.setTimeout(() => {
-            const nextStage = advanceM4State();
-            save();
-            setStage(nextStage);
-          }, 120);
         } else if (state.groupIndex < groups.length - 1) {
           window.setTimeout(() => {
             state.groupIndex += 1;

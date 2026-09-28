@@ -102,37 +102,6 @@ async function selectTextAndMark(page, selector, kind, { domClick = false } = {}
   else await menuButton.click();
 }
 
-async function clickMarkedQuote(page, selector, quote) {
-  const point = await page.evaluate(({ selector, quote }) => {
-    const container = document.querySelector(selector);
-    if (!(container instanceof HTMLElement) || !quote) return null;
-    const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
-    const nodes = [];
-    let full = '';
-    while (walker.nextNode()) {
-      const node = walker.currentNode;
-      const start = full.length;
-      full += node.textContent || '';
-      nodes.push({ node, start, end: full.length });
-    }
-    const at = full.indexOf(quote);
-    if (at < 0) return null;
-    const endAt = at + quote.length;
-    const startRow = nodes.find((row) => at >= row.start && at <= row.end);
-    const endRow = [...nodes].reverse().find((row) => endAt >= row.start && endAt <= row.end);
-    if (!startRow || !endRow) return null;
-    const range = document.createRange();
-    range.setStart(startRow.node, Math.max(0, at - startRow.start));
-    range.setEnd(endRow.node, Math.max(0, endAt - endRow.start));
-    const rect = range.getBoundingClientRect();
-    return rect.width > 0 && rect.height > 0
-      ? { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }
-      : null;
-  }, { selector, quote });
-  check(Boolean(point), 'marked_quote_click_point_resolved', selector);
-  await page.mouse.click(point.x, point.y);
-}
-
 const server = spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
@@ -235,31 +204,11 @@ try {
   const learnCard = root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]');
   await learnCard.waitFor({ state: 'visible' });
   check(await learnCard.locator('[data-learner-kp-core]').isVisible(), 'learn_core_visible_by_default');
-  const learnCoreScroll = await learnCard.locator('[data-learner-kp-core]').evaluate((node) => ({
-    overflowY: getComputedStyle(node).overflowY,
-    scrollHeight: node.scrollHeight,
-    clientHeight: node.clientHeight
-  }));
-  check(['auto', 'scroll'].includes(learnCoreScroll.overflowY), 'learn_core_owns_vertical_scroll', JSON.stringify(learnCoreScroll));
-  if (learnCoreScroll.scrollHeight > learnCoreScroll.clientHeight + 4) {
-    await learnCard.locator('[data-learner-kp-core]').evaluate((node) => { node.scrollTop = 80; });
-    const coreScrollTop = await learnCard.locator('[data-learner-kp-core]').evaluate((node) => node.scrollTop);
-    check(coreScrollTop > 0, 'learn_core_can_scroll_when_content_overflows', String(coreScrollTop));
-  }
-  const activeKpHeader = root.locator('[data-study-active-kp]:visible');
-  check(await activeKpHeader.count() === 1, 'learn_position_owned_by_wide_block_header');
-  const locatorText = (await activeKpHeader.innerText()).replace(/\s+/g, ' ');
-  check(locatorText.includes('KP01'), 'wide_header_keeps_current_kp_identity', locatorText);
-  check(locatorText.includes('讲义 P169'), 'wide_header_keeps_exact_lecture_page', locatorText);
-  check(locatorText.includes('Outline U014'), 'wide_header_keeps_exact_outline_unit', locatorText);
-  const headerGeometry = await activeKpHeader.evaluate((node) => {
-    const rect = node.getBoundingClientRect();
-    return { height: rect.height, text: (node.textContent || '').trim().replace(/\s+/g, ' ') };
-  });
-  check(headerGeometry.height <= 42, 'wide_header_stays_single_row', JSON.stringify(headerGeometry));
-  check(await learnCard.locator('.xv6KpLearnCompanionHeader:visible').count() === 0, 'local_kp_header_duplicate_removed');
-  check(await root.locator('.portedStudyChain > header:visible').count() === 0, 'context_label_chrome_removed');
-  check(await learnCard.locator('.xzKpPacketButton').count() === 0, 'study_packet_transport_hidden_from_normal_learning');
+  check(await learnCard.locator('.xzKpLearnHeaderRight').count() === 1, 'learn_header_right_compact_owner');
+  const locatorText = (await learnCard.locator('.xzKpLearnLocatorMini').innerText()).replace(/\s+/g, ' ');
+  check(locatorText.includes('Lecture'), 'lecture_locator_in_top_right', locatorText);
+  check(locatorText.includes('Outline'), 'outline_locator_in_top_right', locatorText);
+  check(await learnCard.locator('.xzKpPacketButton').count() === 1, 'study_packet_entry_present');
 
   const logicDetail = root.locator('.xzLogicGroupDetail');
   await logicDetail.waitFor({ state: 'visible' });
@@ -280,13 +229,7 @@ try {
     };
   });
   check(!expandedGeometry.collapsed, 'logic_map_expanded_by_default', JSON.stringify(expandedGeometry));
-  check(expandedGeometry.left >= 230 && expandedGeometry.left <= 250, 'logic_map_stays_secondary_width', JSON.stringify(expandedGeometry));
-  if (expandedGeometry.aux > 0) {
-    check(expandedGeometry.main >= expandedGeometry.aux * 1.8, 'primary_stage_dominates_context_width', JSON.stringify(expandedGeometry));
-  }
-  check(await learnCard.locator('.xzKpLearnActions:visible').count() === 0, 'learn_runtime_status_strip_not_persistent');
-  check(await root.locator('[data-block-keyboard-hint]:visible').count() === 0, 'block_keyboard_hint_not_persistent');
-  check(!locatorText.includes('暂无精确定位'), 'locator_never_renders_missing_placeholder', locatorText);
+  check(expandedGeometry.left >= 280 && expandedGeometry.left <= 305, 'logic_map_mac_width', JSON.stringify(expandedGeometry));
 
   await toggle.click();
   await page.waitForFunction(() => document.querySelector('[data-study-layout]')?.classList.contains('outline-collapsed'));
@@ -317,17 +260,6 @@ try {
     return Object.values(value?.kp || {}).flatMap((row) => Array.isArray(row?.marks) ? row.marks : []);
   }, personalKey);
   check(promptMarks.some((row) => row.kind === 'important' && row.surface === 'PROMPT'), 'prompt_mark_persisted');
-  const promptMark = promptMarks.find((row) => row.kind === 'important' && row.surface === 'PROMPT');
-  await clickMarkedQuote(page, '[data-study-stage]:not([hidden]) [data-kp-learn-prompt-copy]', promptMark?.text || '');
-  const promptMarksAfterClick = await page.evaluate((key) => {
-    const value = JSON.parse(localStorage.getItem(key) || '{}');
-    return Object.values(value?.kp || {}).flatMap((row) => Array.isArray(row?.marks) ? row.marks : []);
-  }, personalKey);
-  check(
-    !promptMarksAfterClick.some((row) => row.kind === 'important' && row.surface === 'PROMPT' && row.text === promptMark?.text),
-    'clicking_existing_highlight_removes_mark'
-  );
-  await selectTextAndMark(page, '[data-study-stage]:not([hidden]) [data-kp-learn-prompt-copy]', 'important');
 
   await page.evaluate(() => {
     if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
@@ -337,19 +269,10 @@ try {
   await page.keyboard.press('Space');
   check(await learnCard.locator('[data-learner-kp-core]').isVisible(), 'space_restores_core');
 
-  const auxSurface = root.locator('[data-xizong-aux-surface]');
-  check(
-    await auxSurface.locator('[data-learner-asset-id="a2-r01-lg01-visual"]:visible').count() === 1,
-    'group_prelearn_visual_visible_at_group_entry'
-  );
   await page.keyboard.press('ArrowRight');
   await page.waitForTimeout(80);
   const movedKpId = await root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]').getAttribute('data-kp-id');
   check(Boolean(movedKpId && movedKpId !== originalKpId), 'arrow_right_switches_kp', `${originalKpId}->${movedKpId}`);
-  check(
-    await auxSurface.locator('[data-learner-asset-id="a2-r01-lg01-visual"]:visible').count() === 0,
-    'group_prelearn_visual_not_persistent_after_group_entry'
-  );
   await page.keyboard.press('ArrowLeft');
   await page.waitForTimeout(80);
   const returnedKpId = await root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]').getAttribute('data-kp-id');
@@ -404,12 +327,8 @@ try {
   const aux = root.locator('[data-xizong-aux-surface]');
   await aux.waitFor({ state: 'visible' });
   const auxBefore = await aux.locator('[data-learner-asset]:visible').count();
-  check(auxBefore > 0, 'recall_front_keeps_current_kp_context', String(auxBefore));
-  check(
-    await aux.locator('[data-learner-asset-id="a2-r01-lg01-visual"]:visible').count() === 0,
-    'recall_front_does_not_reinject_group_prelearn_visual'
-  );
-  check((await root.getAttribute('data-aux-weight')) !== 'none', 'recall_front_current_kp_context_has_width', await root.getAttribute('data-aux-weight') || '');
+  check(auxBefore > 0, 'recall_front_keeps_current_context', String(auxBefore));
+  check((await root.getAttribute('data-aux-weight')) !== 'none', 'recall_front_context_has_width', await root.getAttribute('data-aux-weight') || '');
   const highlightVisibleOnRecall = await page.evaluate(() => !('highlights' in CSS) || CSS.highlights.has('xizong-important'));
   check(highlightVisibleOnRecall, 'prompt_mark_reapplied_on_recall');
 
@@ -527,30 +446,6 @@ try {
   check((await visibleStage(failClosedRoot)) !== 'ttsx_checkpoint', 'corrupt_unreviewed_ttsx_state_cannot_release_checkpoint');
   const failClosedState = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || '{}'), studyKey);
   check(!failClosedState?.pendingTtsx, 'corrupt_unreviewed_ttsx_pending_state_is_discarded');
-
-  // A3 has an explicitly linked visual cue + SOURCE_VISUAL extension. The
-  // learner surface should render one rich visual, not cue text plus asset metadata.
-  await page.goto(`${BASE}/xizong/urinary/b01/`, { waitUntil: 'domcontentloaded' });
-  await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 5000 }).catch(() => {});
-  const a3Root = page.locator('[data-xizong-v6-block]');
-  await a3Root.waitFor({ state: 'visible' });
-  const a3Start = a3Root.locator('[data-stage-next="logic_group"]:visible');
-  if (await a3Start.count()) await a3Start.click();
-  await page.waitForTimeout(120);
-  for (let index = 0; index < 3; index += 1) {
-    await page.keyboard.press('Enter');
-    await page.waitForTimeout(100);
-  }
-  const a3Aux = a3Root.locator('[data-xizong-aux-surface]');
-  const a3Assets = a3Aux.locator('[data-learner-asset]:visible');
-  check(await a3Assets.count() === 1, 'linked_source_visual_renders_once');
-  const a3AuxText = (await a3Aux.innerText()).replace(/\s+/g, ' ');
-  check(a3AuxText.includes('看原图') && a3AuxText.includes('P259'), 'linked_source_visual_keeps_learner_locator', a3AuxText);
-  check(!/SOURCE VISUAL|Reviewed physiology source crop|Blood-route vs urine-route/i.test(a3AuxText), 'linked_source_visual_hides_asset_metadata', a3AuxText);
-  check(
-    await a3Aux.locator('[data-learner-asset-id="urinary-b01-lg03-blood-vs-urine-route"]:visible').count() === 1,
-    'linked_source_visual_uses_rich_extension_once'
-  );
 
   report.finished_at = new Date().toISOString();
   report.status = 'PASS';

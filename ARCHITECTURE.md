@@ -1,162 +1,783 @@
 # KianOS Architecture
 
 Status: **CURRENT — accepted top-level architecture**  
-Version: **2.3 — responsibility model preserved; operating descriptions consolidated**
+Version: **2.2**
 
-`PROJECT_DEFINITION.md` owns why KianOS exists. This file owns durable responsibilities and their interfaces, not a startup checklist or execution manual. Personal `KERNEL.md §2` owns the shared lifecycle; `AGENTS.md` routes work; `PROJECT_MANAGEMENT_CONTRACT.md` owns execution; Acceptance owns evidence.
+This document defines the smallest durable architecture needed for KianOS to remain understandable, restartable, editable and useful over long-term real use.
 
-# 0｜Capability hierarchy — WHERE
+Its job is not to describe every file, workflow or implementation detail. Its job is to answer:
 
-```text
-KianOS
-├─ 2027 Postgraduate Exam System
-│  ├─ Exam Rule / Model → EXAM_ORCHESTRATOR_CONTRACT.md
-│  ├─ Xizong / English / Politics
-│  ├─ Home / Steward / Radar / Subject / Dock surfaces
-│  └─ shared Resume / Return / Timer / checkpoint / Packet / Plan / Evidence / Delivery
-├─ Skills / promoted non-exam capabilities
-└─ future independently meaningful capabilities, only when actually accepted
-```
+> **What are the permanent responsibilities in KianOS, who owns them, and how do they fit together without creating duplicate truth?**
 
-This hierarchy locates responsibilities; it does not create a work queue. Chat and upstream Personal Exam control own current adaptive allocation/replanning. KianOS owns durable exam semantics, product translation, execution and factual evidence, not a second strategy brain.
+`PROJECT_DEFINITION.md` remains the higher owner for why KianOS exists and what success means.
+
+---
 
 # 1｜Product responsibility flow
 
-```text
-Rule / Model
-→ Content + Visual + Engineering
-→ Product / Website
-→ bounded private Evidence → Chat
+KianOS follows one durable product flow:
 
-Control / Current routes from the side; it creates no Truth.
+```text
+                         RULE / MODEL
+              why / semantics / learning when needed /
+                    interaction / boundaries
+                              │
+             ┌────────────────┼────────────────┐
+             ↓                ↓                ↓
+         CONTENT           VISUAL         ENGINEERING
+       durable meaning     how it appears   how it runs
+       / knowledge              │                │
+             └──────────────────┴────────────────┘
+                              ↓
+                     PRODUCT / WEBSITE
+                       execution surface
+                              │
+                              ↓
+                           EVIDENCE
+                 bounded real-use records / feedback
+                              │
+                              └────────→ Chat
+
+CONTROL / CURRENT
+= side routing / management mechanism
+= reads owners and current state; creates no Truth
 ```
 
-These are responsibilities, **not services, mandatory file types or six databases**. Several responsibilities may share a file; one fact/decision still has one canonical owner.
+These are **responsibilities/functions**, not separate databases and not mandatory file types. Product / Website is the execution surface; Evidence is the bounded return from real use; Control / Current routes and manages from the side rather than becoming another product/semantic layer.
 
-A meaningful capability must expose a recoverable trace from user outcome through its relevant Rule/Content/Product/Surface/implementation to Acceptance and real-use evidence. Skip inapplicable responsibilities instead of inventing placeholders. Traceability does not require rereading the entire chain for each small edit.
+A responsibility may be implemented by one or several narrow canonical owners. The hard rule is that one fact/decision still has one canonical owner.
+
+---
 
 ## 1.1 RULE / MODEL｜why the system behaves this way
 
-Owns purpose, knowledge-quality standards, learning logic where relevant, interaction meaning and boundaries. English targets capability on new exam material; Politics targets reliable score gain per study time; Xizong targets mechanism-centered retrievable medical knowledge; Lexical targets correct transferable lexical access. Exact requirements stay in their native owners.
+Rule / Model is the upstream logic that gives a KianOS capability its purpose, semantic boundaries and approved behavior. Learning Logic is one important subtype when the capability is something Kian must actually learn.
 
-Content cannot decide layout; Visual cannot invent meaning; Engineering cannot invent domain/learning logic; Control cannot manufacture truth. Personal-derived requirements remain references to Personal: KianOS owns the product translation, not a duplicate personal conclusion. Runtime evidence does not automatically become preference or strategy.
+It includes five kinds of rule:
+
+### Purpose
+Why this domain/product/capability exists and what outcome it optimizes.
+
+Examples:
+
+- English optimizes future exam performance on new material, not framework completion;
+- Politics optimizes reliable score gain per learner time;
+- Xizong builds a mechanism-centered, retrievable, progressively compressed medical model;
+- Lexical builds fast, correct, transferable lexical access.
+
+### Knowledge-quality rule
+What counts as a **good AI-reconstructed knowledge asset** rather than copied source material.
+
+The AI role is not to display the lecture/book again. It must transform reliable Source into learner-worthy Knowledge according to domain-specific rules.
+
+Examples may include:
+
+- mechanism / causal relations / boundaries / precision in Xizong;
+- semantic relations / historical logic / confusable boundaries in Politics;
+- transferable task models / decision rules in English;
+- Core / senses / familiar-new branches / constructions / phraseology / confusables in Lexical.
+
+### Learning logic
+When the goal is capability formation, how the approved knowledge should actually be learned, recalled, applied, repaired and compressed.
+
+A non-learning KianOS surface does not need to invent a Learning Logic merely to fit this architecture; it still needs an explicit Rule / Model for the behavior it provides.
+
+### Interaction logic
+What user actions mean and which transitions are legitimate. For learning products, these semantics remain learner-specific.
+
+Examples: whole-passage Reading attempt, conditional repair, Recall→Reveal, Writing revision, question Submit, low-friction stable exit.
+
+### Boundaries
+What downstream layers are forbidden from inventing.
+
+Hard boundary:
+
+```text
+Content does not decide page layout.
+Visual does not invent semantic meaning.
+Engineering does not invent domain / Learning Logic.
+Website / product surfaces do not become a second content owner.
+Control does not manufacture Truth.
+```
+
+Root rules live in root authority. Domain/product-specific rules live in the exact Rule / Model, Learning or Content owners that genuinely own those differences.
+
+### Personal-derived requirements are inputs, not copied KianOS truth
+
+When an accepted Personal owner supplies a user requirement, preference, constraint or personal model that should change KianOS behavior:
+
+```text
+Personal canonical owner
+→ upstream requirement
+→ KianOS exact Rule / Model owner
+→ Content / Visual / Engineering implementation as needed
+```
+
+KianOS owns the **translation into product/domain behavior**, not a second copy of the personal conclusion. If the upstream Personal conclusion changes, the KianOS rule is re-evaluated against that owner; it does not independently reinterpret Kian's personal state.
+
+Likewise, private KianOS execution evidence remains evidence until Chat / Personal interprets and, when justified, accepts a durable personal conclusion.
+
+---
 
 ## 1.2 CONTENT｜durable knowledge / semantic assets
 
-Reliable Source → reviewed Knowledge reconstruction → learner-worthy canonical content, including questions, explanations, relations and justified reference assets. Raw PDFs, lecture order or copied passages are not automatically accepted Knowledge. Non-learning products may own semantic/configuration assets without inventing learning stages.
+Content is durable meaning that should remain useful independently of the current UI. For formal learning, it is the long-lived learner asset in GitHub and normally follows:
 
-Content must remain coherent if this website disappears. Normal changes go from the exact canonical owner through any required existing projection to the renderer—never a hand-maintained copy in page code. Raw/reference assets may remain in their native library until actual need justifies promotion.
+```text
+SOURCE
+reliable original material / question / provenance
+        ↓
+KNOWLEDGE
+AI-reviewed reconstruction of what is actually worth learning
+        ↓
+LEARNING CONTENT
+canonical assets used by learner paths
+
++ questions
++ explanations
++ reviewed relations
++ examples
++ reference / enrichment where justified
+```
+
+### Source is not a separate top-level layer
+
+Source is the factual/provenance foundation inside Content.
+
+Source answers:
+
+> **What reliable raw material are we allowed to learn from?**
+
+Knowledge answers:
+
+> **Has AI actually transformed that material into a coherent, accurate, learner-worthy knowledge model?**
+
+A copied lecture, copied PDF, teacher chapter order, raw question taxonomy, rendered source text, video or transcript is not automatically good Knowledge.
+
+Raw/reference material may remain in Drive, Library, Files or its original source until a real KianOS need justifies reconstruction into durable Content. Non-learning KianOS products may also own durable semantic/configuration assets, but transient runtime/user state does not become Content merely because it can be serialized.
+
+### Website-disappearance rule
+
+Canonical Content must remain coherent and valuable if the current Astro website disappears tomorrow.
+
+The website is a consumer of Content, never its semantic owner.
+
+### Normal content change path
+
+```text
+Kian + Chat
+→ read exact canonical owner
+→ discuss / improve content
+→ edit one GitHub owner
+→ main
+→ Current mirror sync
+→ existing renderer shows the new Current
+```
+
+Routine content change should not require editing a duplicate page copy.
+
+---
 
 ## 1.3 VISUAL｜stable presentation of accepted meaning
 
-Shared Visual owns common typography, spacing, palette and controls. Product/domain Visual owns genuine local differences. Accepted Surface Blueprints own task geometry: whole-passage Reading, Cloze answer sheet, Translation source/output, Writing prompt/essay, Politics Natural Units, Xizong workspaces and Lexical jobs.
+Visual owns how already-approved meaning appears to Kian on a product surface.
 
-Accepted design survives refactors and fresh Chats. Reopen it only for Kian's explicit change or a changed upstream task that the geometry no longer expresses. A correction preserving accepted design does not require Kian to approve the same design again.
+Visual has three scopes:
 
-For each surface/state/breakpoint, one material geometry/property has **one effective implementation owner**. Responsive/state selectors and inheritance are legitimate; sequential emergency/final overrides are not. Remove superseded competing rules at their owner instead of adding another layer. A same-runtime UI is shared product grammar, not a requirement that all cognitive objects look identical.
+```text
+Shared Visual
+→ site-wide typography / weight / palette / spacing / radius / elevation / shared controls
+
+Domain / Product Visual
+→ English / Politics / Xizong / Steward or another product-specific visual language where it genuinely differs
+
+Accepted Surface Blueprint
+→ stable task geometry already accepted by Kian
+```
+
+Examples of Accepted Surface Blueprints:
+
+- Reading: passage left / complete question set right;
+- Cloze: full passage / full 20-row answer sheet;
+- Translation: source left / learner translation right;
+- Writing: prompt/material left / dominant essay workspace right;
+- Politics: accepted Natural Unit workspace geometry;
+- Xizong: accepted System / Block / Recall / Memory / Question workspaces;
+- Lexical: accepted word / Depth / Challenge geometry inside English learner navigation.
+
+### Accepted design is an asset
+
+Once a surface has passed the applicable Kian Human Gate, later CSS refactors, Shell changes, owner cleanup, or new Chats do **not** reopen its layout by default.
+
+A surface is redesigned only when:
+
+1. Kian explicitly asks to redesign it; or
+2. upstream Rule / Interaction / Learning Logic changes enough that the accepted geometry no longer expresses the real task.
+
+### Visual does not own semantics
+
+Visual may choose hierarchy, spacing, typography, layout, disclosure and interaction affordance.
+
+It may not decide what the underlying meaning is, what a question tests, what the user should do, or what the learner should learn.
+
+---
 
 ## 1.4 ENGINEERING｜make the approved system executable
 
-Loaders, adapters, renderers, runtime/state, answer gates, navigation, persistence, keyboard behavior, Timer, delivery and tests implement accepted meaning. Runtime is an Engineering responsibility, not a new semantic layer.
+Engineering implements Rule + Content + Visual.
 
-Share task behavior when cognition, evidence meaning and interaction semantics actually match. Compatible data sources should not create duplicate runtimes; similar-looking but different cognitive tasks must not be flattened into one. A coverage matrix alone never authorizes rebuilding an existing capability.
+Typical Engineering owners include:
 
-The shared Base remains thin. Subject styles/bridges mount at their actual family/task owner; global shell is not a dumping ground. `SYSTEM_CONTRACT.md` owns shared capabilities, inputs, private data and cross-surface invariants.
+- loaders / adapters;
+- shared or domain renderers;
+- Runtime/state;
+- Reading / Question / Recall / Translation / Writing / Lexical workspaces;
+- answer gating;
+- learner interaction persistence;
+- Timer;
+- navigation;
+- keyboard behavior;
+- GitHub → local Current sync;
+- Astro implementation;
+- browser/runtime validation and CI.
+
+### Runtime is part of Engineering
+
+Runtime does not form another top-level architecture.
+
+Rule decides what a user action means. Runtime makes it executable. Learning-specific Runtime remains subordinate to the applicable Learning Logic.
+
+Example:
+
+```text
+RULE
+Reading is a whole-passage clean attempt before formal review.
+
+ENGINEERING
+store answers + Uncertain
+→ protect answer key
+→ Submit
+→ score
+→ expose bounded review only afterward
+```
+
+If Runtime behaves differently from the approved Rule, Runtime is wrong; the system does not reinterpret the Learning Logic merely to preserve implementation convenience.
+
+### Reuse same task behavior
+
+When two content sources use the same learner task semantics, prefer one renderer/runtime.
+
+Example:
+
+```text
+Reading A exam objects ─┐
+External Reading objects ├→ shared Reading Workspace
+other compatible reading ┘
+```
+
+Different data sources do not justify duplicate UI or duplicate Runtime.
+
+---
 
 ## 1.5 PRODUCT / WEBSITE｜execution surface
 
-Website consumes approved Rule/Content/Visual/Engineering. It may own local implementation state, not competing semantic truth. External-primary actions remain on their accepted surface: loading a lecture does not authorize replacing MarginNote or duplicating its course.
+Product / Website is where approved Rule / Content / Visual / Engineering behavior becomes usable.
+
+It consumes upstream owners; it does not become a second semantic owner. A page/component may own its implementation and local runtime behavior, but not a competing copy of the meaning it renders.
+
+The product surface may disappear or be replaced without invalidating the canonical Rule / Content / accepted design behind it.
+
+---
 
 ## 1.6 EVIDENCE｜bounded return from real use
 
-Native/private runtime owns actual records. Distinguish OBSERVED, REPORTED, DERIVED and INFERRED. Attempts, time and successful commands do not automatically prove learning, productivity, preference or strategy. Open-ended interpretation returns to Chat / Personal.
+KianOS may preserve private execution / learner records and bounded derived evidence produced by actual use.
+
+Evidence must preserve what kind of claim it supports. In particular:
+
+```text
+OBSERVED  = runtime/device observation
+REPORTED  = Kian/user report
+DERIVED   = deterministic calculation from accepted inputs
+INFERRED  = interpretation/model judgment
+```
+
+Execution records do not automatically prove productivity, learning, preference, recovery or strategy. Open-ended interpretation returns to Chat / Personal when it becomes personal meaning or a new strategy.
+
+---
 
 ## 1.7 CONTROL / CURRENT｜routing mechanism, not a product layer
 
-Current locates the active owner/task; a bound Issue carries its Goal/Phase/Next/Blocker. Neither stores learner progress, duplicate semantic rules or a second acceptance ledger. Status comes from the current owner, not a remembered branch or historic PASS.
+Control is a read/control mechanism, not a new Truth database and not a peer product responsibility.
 
-Retired code must not keep controlling live behavior under newer overrides. Cold evidence stays outside normal startup/search; keep historical files only for a named current reproducibility/provenance need, otherwise Git history is the archive.
+It reads the narrow current owners needed to answer:
+
+- what Rule is active;
+- what Content is mature / missing;
+- what Visual is accepted / pending;
+- what Engineering capability exists / is blocked;
+- what Acceptance evidence exists;
+- what private execution / learner evidence is legitimately available;
+- what should happen next.
+
+Control normally reports in a compact form:
+
+```text
+Stage
+Next
+Blocker
+Owner
+Human Gate when relevant
+```
+
+`CURRENT.md` is an **engineering Work Cursor / router**. It is not user/learner progress and not semantic Truth.
+
+A bare learner request such as `继续英语` does not automatically mean `continue the engineering CURRENT`.
+
+---
 
 # 2｜Three cross-cutting truth guards
 
-- **Source Truth:** no invented facts, official answers, provenance or semantic mappings.
-- **Private execution / learner evidence:** real records remain native/private; repository state cannot manufacture activity or personal interpretation.
-- **Acceptance Truth:** a claim must match the artifact, environment, coverage and evidence actually proved.
+These product responsibilities are constrained by three truth guards.
 
-These are guards, not new product layers. An implemented or rendered object is not automatically ready or genuinely used.
+These guards are **not additional product layers**.
+
+## 2.1 Source Truth
+
+Reliable factual/source boundaries must remain explicit.
+
+Do not silently invent missing source facts, official answers, provenance, mappings, or quoted teaching content.
+
+## 2.2 Private execution / learner evidence
+
+Private Runtime owns the records/evidence it actually captures; it does not automatically own the interpretation of reality.
+
+For learning, directly supported records may answer what Kian studied, attempted, answered, repaired, deferred or demonstrated on the observed path. Claims such as retention, forgetting, effective study, recovery or stable capability require the applicable evidence/derivation and must remain distinguishable from raw observations.
+
+For non-learning products the same rule applies to actions, state transitions, time and observed outcomes: preserve whether the input is OBSERVED / REPORTED / DERIVED / INFERRED when that distinction can change a decision.
+
+Engineering readiness, page existence, accepted Content, CI success or a Work Cursor must never manufacture real-use, learner progress or personal interpretation.
+
+## 2.3 Acceptance Truth
+
+Acceptance answers:
+
+> **What quality/readiness claim has actually been demonstrated?**
+
+`LEARNING_ACCEPTANCE.md` owns the S/K/L/P/R/E/U standard.
+
+A file existing, page rendering, build passing, Runtime working or screenshot looking good may support Acceptance, but does not replace the applicable evidence standard.
+
+---
 
 # 3｜S / K / L / P / R / E / U is learning acceptance, not architecture
 
-Source reliability; Knowledge quality; Learning logic; Projection fidelity; Runtime behavior; Evidence integrity; genuine User validation. These are native learning quality questions, not seven services or seven mandatory fresh audits for each repair.
+For formal learning assets, the acceptance gates map naturally onto the product-responsibility model:
 
-`LEARNING_ASSET_STANDARD.md` owns construction. `LEARNING_ACCEPTANCE.md` owns readiness evidence. Non-learning products use their native claims, not fabricated learning gates.
+```text
+S  Source      → is Source reliable?
+K  Knowledge   → did Source become high-quality learner-worthy Knowledge?
+L  Learning    → is the Rule / Learning Logic correct?
+P  Projection  → does the learner-facing presentation serve that Learning Logic?
+R  Runtime     → can Engineering execute the intended behavior?
+E  Evidence    → are meaningful learner observations preserved/interpreted correctly?
+U  User        → did Kian actually use the path successfully?
+```
+
+These are **learning quality gates**, not seven top-level KianOS product layers. Non-learning product surfaces use claim-specific Rule / Visual / Runtime / real-use evidence rather than being forced through fake Learning gates.
+
+Construction order and acceptance remain separate responsibilities:
+
+```text
+LEARNING_ASSET_STANDARD.md
+= how a learning asset is built
+
+LEARNING_ACCEPTANCE.md
+= what evidence permits us to call it ready
+```
+
+---
 
 # 4｜Projection is optional derivation, not a mandatory architecture layer
 
-Use canonical content → renderer directly when sufficient. Use the existing projection when Learn/Recall/Repair/Review need different disclosure of the same meaning. Projection may reference/derive/adapt but must not invent relations or become a second semantic copy; missing meaning fails closed.
+Projection / presentation transformation may be useful when the same canonical meaning must appear differently by learner or product state.
 
-An explicit authored projection decision stays in its registered owner. Rebuild derived output, not hand-synchronize replicas. For backstage leakage, distinguish legitimate learning support from internal governance first: deleting required content or blindly translating internal codes does not repair disclosure.
+Example:
+
+```text
+same canonical knowledge
+├─ Learn: full explanation
+├─ Recall: answer-bearing parts hidden
+├─ Repair: failed relation foregrounded
+└─ Review: compressed representation
+```
+
+In those cases:
+
+```text
+Canonical Content
+→ derived presentation / projection
+→ renderer
+```
+
+But ordinary Content does not need a ceremonial Projection hop when the existing renderer can consume it directly:
+
+```text
+Canonical Content
+→ renderer
+```
+
+Hard rules:
+
+- Projection is derived, not independently edited semantic Truth;
+- Projection must not invent missing relations/content;
+- Projection must not become a second canonical knowledge copy;
+- a renderer may fail closed when semantics are insufficient rather than guess.
+
+---
 
 # 5｜Backend ownership tree ≠ product navigation tree
 
-The learning subtree is Home → Xizong / Politics / English / Skills. English includes Objective (Reading A, Cloze, Part B), Translation, Writing, Vocabulary/Lexical and External Reading. Lexical keeps its canonical backend without becoming a fourth exam subject. External remains English; Skills is an independent L1 library with a generic reader.
+KianOS distinguishes **backend ownership** from **product navigation**.
 
-This is not the complete navigation authority. Steward and other non-learning surfaces retain their exact Product owners; actual L1 membership comes from the registered shared navigation implementation, not duplicate lists. Backend independence never automatically entitles a top-level tab.
+A scope may deserve an independent backend lane because it has substantial canonical assets, independent maintenance, bounded continuation or parallel work.
+
+That does not require it to appear as a learner-facing top-level product.
+
+## 5.1 Current learning product subtree
+
+The accepted learning product subtree is:
+
+```text
+Home
+├─ 西综
+├─ 政治
+├─ English
+│  ├─ Reading A
+│  ├─ Cloze
+│  ├─ Part B
+│  ├─ Translation
+│  ├─ Writing
+│  ├─ Vocabulary / Lexical
+│  └─ External Reading
+└─ Skills
+```
+
+Lexical may retain independent backend canonical ownership and engineering continuation where that lowers ambiguity and protects lexical Truth.
+
+But learner-facing Vocabulary / Lexical is an **English child function**, not a fourth subject beside English.
+
+Likewise, External Reading is an English child surface and another data source for the shared Reading task family, not another top-level product.
+
+Skills is a learner-facing L1 library backed by its own canonical Skill content plus one generic reader; it is not an English child and does not create a second learning-content owner in the website.
+
+This is **not** the complete KianOS product-navigation authority. Non-learning product surfaces such as Steward may coexist in the shared shell under their own current Visual/Product owners. The learning subtree must not be used to erase or redefine those surfaces. Concrete shipped L1 membership is consumed through the registered shared navigation implementation rather than copied into multiple contracts.
+
+Hard distinction:
+
+```text
+backend lane / canonical ownership
+≠
+learner navigation level
+```
+
+---
 
 # 6｜Ownership hierarchy and concurrency
 
-Root → capability/lane → justified sub-lane → exact owners. Hierarchy defines inheritance, not execution order, learner order or navigation. No true dependency means independent work can continue. Shared resources and overlapping write-sets need bounded coordination; a parent/sibling relationship alone never serializes subjects.
+KianOS remains federated and restartable.
+
+Backend ownership may use:
+
+```text
+Root
+→ Lane
+→ independently continuable Sub-lane when justified
+→ Canonical Owners
+→ product / learner execution
+```
+
+Hierarchy answers:
+
+> **Who owns this responsibility and which rules does it inherit?**
+
+Hierarchy does **not** determine work order.
+
+Scheduling follows real dependency:
+
+```text
+no real dependency → proceed independently
+real dependency    → freeze only the affected downstream chain
+```
+
+A parent/child or sibling relationship alone does not create serialization.
+
+Examples:
+
+- independent Xizong Systems may be constructed concurrently;
+- Politics subjects may progress concurrently;
+- lexical content batches may progress independently when their real write sets do not conflict;
+- learner order may still be sequential even when artifact construction is parallel.
+
+Hard distinction:
+
+```text
+ownership hierarchy
+≠ construction dependency
+≠ user / learner order
+≠ product navigation
+```
+
+---
 
 # 7｜One owner per responsibility
 
-One current fact, rule, semantic object, acceptance claim or learner record has one canonical owner. Others reference, derive, adapt, render or validate. Resolve conflicting owners rather than adding synchronization glue. Shared Timer/Home/private-state capabilities stay shared; local subjects cannot quietly recreate them.
+One current fact, rule, semantic object, acceptance claim or learner-state fact has one canonical owner for its responsibility.
 
-Exact topology and refinement: `AUTHORITY_OWNERSHIP.json` and `AUTHORITY_INHERITANCE_CONTRACT.md`. Physical hosting does not transfer authority.
+Other layers may:
+
+- reference;
+- derive;
+- adapt;
+- render;
+- validate;
+
+They may not maintain a competing mutable copy.
+
+Examples:
+
+- medical Knowledge stays in canonical Xizong content, not Astro markup;
+- lexical truth stays in lexical Natural Owners, not Reading pages;
+- shared typography stays in the shared visual owner, not repeated subject CSS;
+- learner progress stays in private learner state, not repository CURRENT;
+- Home consumes subject projections/read models; it does not recreate subject cognition.
+
+If two owners appear to maintain the same fact, resolve ownership upstream instead of adding synchronization glue.
+
+---
 
 # 8｜CURRENT and Fresh Chat
 
-Known-scope work starts from the bound task/exact owner, not root architecture by ritual. Use Current only to find a missing route. Recover parent outcome, related design reasons, must-preserve behavior and acceptance/stop; 2–3 precise reads is a routing target, not permission to omit necessary context.
+`CURRENT.md` is a small engineering router / Work Cursor.
 
-If the active anchor cannot be read, dependent phase/Next/Blocker remains UNKNOWN/BLOCKED; unrelated reasoning can continue. Do not reconstruct it from old PRs or Chat memory. Ordinary conversation and learner use bypass engineering control.
+It answers only:
+
+```text
+scope
+current active engineering stage
+real blocker
+next engineering action
+exact owners needed to continue
+```
+
+It is not:
+
+- project history;
+- Acceptance evidence ledger;
+- learner progress;
+- semantic content;
+- a second Contract.
+
+## Fresh Chat target
+
+Once intent and scope are known, normal work should reach effective action after roughly **2–3 precise reads**, 4 only when a real cross-authority boundary exists.
+
+Normal read patterns:
+
+```text
+LEARN / USE
+→ actual private runtime / learner state when needed
+→ exact domain/product Rule only when needed
+→ use / learn
+
+BUILD
+→ target CURRENT
+→ exact Rule / Content owner
+→ work
+
+UI
+→ shared/local Visual owner
+→ accepted Surface Blueprint
+→ exact implementation owner
+→ work
+
+CONTROL
+→ root/lane Current + only required owners
+→ report
+```
+
+Broad repository archaeology is a routing defect, not a normal continuation method.
+
+Historical repositories, old Issues, retired branches and prior Chats are evidence for bounded recovery/history tasks only; they are not normal Current semantic fallback.
+
+---
 
 # 9｜Content evolvability and change-cost tests
 
+KianOS succeeds only if the next legitimate change is cheap.
+
 ## 9.1 Content change
-Exact canonical owner → targeted proof / existing derived output when needed → existing renderer. No page-local copy.
+
+Representative test:
+
+> `改这个 KP / word sense / Politics teaching object。`
+
+Expected path:
+
+```text
+canonical owner
+→ targeted validation / derived presentation only if required
+→ existing renderer
+```
+
+No duplicate page edit.
 
 ## 9.2 Global visual change
-One shared visual owner → inherited effect. No subject-by-subject duplication.
+
+Representative test:
+
+> `全站正文更厚一点。`
+
+Expected path:
+
+```text
+one shared visual owner
+→ inherited by learner surfaces
+```
+
+Not subject-by-subject CSS repair.
 
 ## 9.3 Subject/surface geometry change
-Exact local surface owner → affected real-browser proof. No global restyling or new override stack.
+
+Representative test:
+
+> `Politics Natural Unit 右栏更窄。`
+
+Expected path:
+
+```text
+Politics surface visual owner
+```
+
+Not a global visual rewrite.
 
 ## 9.4 Runtime defect
-Related interaction rule + existing runtime → smallest correction + true dependent proof. No Learning redesign unless the accepted rule is actually wrong.
 
-## 9.5 Coherent delivery batch
-Finish one coherent write-set, validate its changed responsibility, and land once through the permitted repository path. Candidate/HMR serves iteration; managed Current serves accepted delivery. Do not use main as a keystroke bus, repeatedly build unrelated subjects or claim a merge is already live.
+Representative test:
+
+> `Reading Submit 坏了。`
+
+Expected path:
+
+```text
+Reading interaction Rule
++ exact Reading Runtime owner
+→ focused repair
+```
+
+No Learning redesign unless the defect proves the existing Rule itself is wrong.
+
+---
 
 # 10｜Rules inherit; they do not multiply
 
-Procedures stay in their responsible owner. Routers link rather than copy. A new Contract/registry/Current/validator/abstraction requires a real responsibility that cannot be represented by reuse/simplification; complexity itself is not justification.
+Repository-wide invariants live once at the highest valid owner.
 
-Already-owned rules failing in execution are consumption defects, not a reason to add another rule. Detailed runtime/Codex/CI instructions stay off unrelated work's hot path.
+Domain/sub-lane contracts add only genuine local differences.
+
+Do not create a new Contract, registry, router, Current type, status layer or abstraction merely because an implementation feels complicated.
+
+Before adding durable architecture, prove:
+
+1. a recurring real responsibility has no valid existing owner;
+2. simplification/reuse cannot represent it without ambiguity or duplicate Truth;
+3. the new object lowers long-term continuation or change cost.
+
+Otherwise simplify the narrow existing owner.
+
+---
 
 # 11｜Architecture acceptance tests
 
-- **A1 Fresh Chat:** reach the current owner without historic reconstruction.
-- **A2 Owner uniqueness:** every material fact/decision has one resolvable owner.
-- **A3 Truth separation:** semantic, acceptance, private evidence and engineering progress remain distinct.
-- **A4 Content absorption:** ordinary asset changes reach the consumer without duplicate page edits.
-- **A5 Visual change cost:** global changes stay global, local changes stay local, with one effective geometry owner.
-- **A6 Parallel work:** true independent scopes proceed; no blanket sibling freeze/rebase ritual.
-- **A7 Learning closure:** engineering proofs do not substitute for native learning acceptance or U.
-- **A8 Entropy:** no giant Current/history files, duplicate rules/runtime/state, legacy active overrides, full-repo startup archaeology or obsolete intermediate rebuilds.
+This Architecture remains valid only while it passes these observable tests.
 
-Evaluate requested effect and observed change cost, not document count. Protocol simplification alone does not prove future edits are fast. `#1048` owns real request-to-consumer execution-friction evidence; it is not a new umbrella project.
+## A1｜Fresh Chat Test
+
+Known intent + known scope → effective work in roughly 2–3 precise reads without prior-chat reconstruction.
+
+## A2｜Owner Uniqueness Test
+
+For any important current fact or rule, `Who owns this?` has one clear answer.
+
+## A3｜Truth Separation Test
+
+Artifact/Content truth, Acceptance, private execution/learner evidence and engineering Work Cursor remain separately resolvable; observed/reported/derived/inferred claims do not silently collapse.
+
+## A4｜Content Change Absorption Test
+
+Ordinary legitimate Content evolution reaches its consumer through asset change + existing renderer/runtime without page-specific semantic rewrite.
+
+## A5｜Visual Change Cost Test
+
+Global visual change resolves globally; subject/surface geometry resolves locally; accepted Surface Blueprints do not reopen accidentally.
+
+## A6｜Parallel Work Test
+
+Independent scopes can proceed concurrently without false parent/sibling serialization or broad rebase rituals.
+
+## A7｜Learning Closure Test
+
+Engineering completion cannot substitute for S/K/L/P/R/E/U evidence or real learner U.
+
+## A8｜Three-month Entropy Test
+
+Continued use should not recreate:
+
+- giant Current/history files;
+- duplicate semantic owners;
+- repeated rules across lanes;
+- UI copies of canonical content;
+- subject-local forks of shared visual/runtime infrastructure;
+- Fresh Chats that need repository-wide archaeology.
+
+If these recur, architecture must be simplified at the earliest responsible owner.
+
+---
 
 # 12｜Compact operating model
 
-Chat interprets; exact owners preserve meaning; Engineering executes; Website presents/records; native Evidence returns to Chat. Current only routes. Ordinary changes stay bounded; explicit exhaustive Audit stays rigorous and can repair confirmed defects inline under the shared lifecycle. Real-use evidence remains separate.
+For ordinary KianOS work, keep this mental model:
 
-Keep existing product behavior, semantic authority, data safety, accepted visual design and final acceptance. Remove redundant process rather than rebuilding the systems that already work. Broad engineering stops at the accepted final-closure condition in `LEARNING_ACCEPTANCE.md`; reopen only a real defect, source/platform change or explicit need.
+```text
+RULE / MODEL    why / semantics / learning when needed / interaction
+CONTENT         durable knowledge / meaning
+VISUAL          how it appears
+ENGINEERING     how it runs
+PRODUCT         where approved behavior is used
+EVIDENCE        bounded records / feedback from real use
+
+CONTROL/CURRENT routes from the side; it creates no Truth.
+```
+
+Constrained by:
+
+```text
+Source Truth
+Private execution / learner evidence
+Acceptance
+```
+
+Normal product flow:
+
+```text
+Rule / Model
+↓
+Content + Visual + Engineering
+↓
+Product / Website
+↓
+bounded real-use evidence
+→ Chat
+```
+
+The website is a product execution surface. Learning experiences remain a major, rigorously gated use case; non-learning surfaces inherit only the responsibilities they actually need. **The durable asset is the Rule / Model + Content + accepted Visual/Engineering model behind the surface, not the page itself.**

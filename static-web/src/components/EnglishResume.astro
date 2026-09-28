@@ -35,22 +35,15 @@ const base = import.meta.env.BASE_URL;
     const loadExternalCatalog = () => {
       if (catalogPromise) return catalogPromise;
       catalogPromise = (async () => {
-        const [native, external, generated] = await Promise.allSettled([
+        const [native, external] = await Promise.allSettled([
           fetch('/__kianos-private/control/english-session-catalog', {cache:'no-store'}).then(async response => response.ok ? (await response.json()).rows : null),
-          fetch('/__kianos-private/external-reading/catalog', {cache:'no-store'}).then(async response => response.ok ? await response.json() : null),
-          fetch('/__kianos-private/english-generated/catalog', {cache:'no-store'}).then(async response => response.ok ? await response.json() : null)
+          fetch('/__kianos-private/external-reading/catalog', {cache:'no-store'}).then(async response => response.ok ? (await response.json()).collections : null)
         ]);
         const nativeRows = native.status === 'fulfilled' && Array.isArray(native.value) ? native.value : null;
-        const externalRows = external.status === 'fulfilled' && external.value && typeof external.value === 'object'
-          ? (external.value.collections || []).flatMap(group => group.passages || []).map(row => ({task:'external_reading',object_id:row.object_id,source_hash:row.content_hash,label:row.title||row.object_id,study_day:row.study_day||null,origin:row.origin||null})) : [];
-        const generatedRows = generated.status === 'fulfilled' && generated.value && typeof generated.value === 'object'
-          ? (generated.value.rows||[]).filter(row=>row.task!=='external_reading') : [];
-        if (nativeRows) catalog = [...nativeRows, ...externalRows, ...generatedRows];
-        else if (externalRows.length || generatedRows.length) catalog = [
-          ...catalog.filter(row => row.task !== 'external_reading' && !String(row.object_id || '').startsWith('external-chat-')),
-          ...externalRows,
-          ...generatedRows
-        ];
+        const externalRows = external.status === 'fulfilled' && Array.isArray(external.value)
+          ? external.value.flatMap(group => group.passages || []).map(row => ({task:'external_reading',object_id:row.object_id,source_hash:row.content_hash,label:row.title||row.object_id,study_day:row.study_day||null,origin:row.origin||null})) : [];
+        if (nativeRows) catalog = [...nativeRows, ...externalRows];
+        else if (externalRows.length) catalog = [...catalog.filter(row => row.task !== 'external_reading'), ...externalRows];
         const node=document.querySelector('[data-english-resume-catalog]');
         if(node)node.textContent=JSON.stringify(catalog);
         return catalog;

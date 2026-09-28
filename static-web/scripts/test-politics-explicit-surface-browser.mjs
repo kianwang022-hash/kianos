@@ -109,15 +109,6 @@ try {
   check((await relationSet.locator('[data-surface-field="relation"]').count()) === 3, 'marx_relation_set_keeps_three_visible_relation_labels');
   check((await relationSet.locator('.sequenceTransition').count()) === 0, 'marx_relation_set_has_no_sequence_arrows');
 
-  const supportDisclosure = page.locator('[data-surface-group="s02-four-characteristics-meaning"]');
-  check((await supportDisclosure.count()) === 1, 'politics_support_disclosure_present');
-  check((await supportDisclosure.evaluate((node) => node.tagName)) === 'DETAILS', 'politics_support_renders_as_details');
-  check(!(await supportDisclosure.evaluate((node) => node.open)), 'politics_support_closed_by_default');
-  check(await supportDisclosure.locator('summary').isVisible(), 'politics_support_summary_visible');
-  check(!(await supportDisclosure.locator(':scope > .explicitParallel').isVisible()), 'politics_support_body_hidden_until_open');
-  await supportDisclosure.locator('summary').click();
-  check(await supportDisclosure.locator(':scope > .explicitParallel').isVisible(), 'politics_support_body_available_on_demand');
-
   check((await page.locator('.goldenGraph').count()) === 0, 'marx_legacy_topology_graph_absent');
   check((await page.locator('[data-workspace-unit][data-explicit-surface-mapping="v1"]').count()) === 2, 'marx_c00_two_units_explicitly_mapped');
   await page.screenshot({ path: path.join(auditDir, 'explicit-surface-marx-c00.png'), fullPage: false });
@@ -172,26 +163,6 @@ try {
   check((await xiStrategy.locator('.sequenceTransition').count()) === 1, 'xi_strategy_has_exact_one_transition');
   check((await xiStrategy.locator('.sequenceTransition[data-transition-mode="ORDER_ONLY"]').count()) === 1, 'xi_strategy_transition_is_explicit_order_only');
   check((await xiStrategy.locator('.sequenceTransition[aria-label]').count()) === 0, 'xi_order_only_has_no_ui_authored_connector_text');
-
-  const xiNoQuestionClosure = page.locator('#unit-1 .politicsClosure');
-  await xiNoQuestionClosure.locator('summary').click();
-  const xiNoQuestionContinue = xiNoQuestionClosure.locator('[data-unit-return-static]');
-  await xiNoQuestionContinue.waitFor({ state: 'visible' });
-  check((await xiNoQuestionContinue.innerText()).trim() === '继续学习 →', 'xi_no_question_closure_exposes_next_action');
-  await xiNoQuestionContinue.click();
-  const xiUnit2 = page.locator('#unit-2[data-politics-unit]');
-  await xiUnit2.waitFor({ state: 'visible' });
-  check(await page.locator('.politicsRail nav a[href="#unit-2"]').evaluate((node) => node.classList.contains('active')), 'xi_no_question_continue_activates_next_unit');
-  const xiUnit2Id = await xiUnit2.getAttribute('data-unit-id');
-  const xiContinueLocation = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-politics-last-location-v1') || 'null'));
-  check(xiContinueLocation?.unit_id === xiUnit2Id, 'xi_no_question_continue_updates_resume_unit', String(xiContinueLocation?.unit_id || ''));
-  check(['ORIENT', 'EXTERNAL_LEARN'].includes(String(xiContinueLocation?.action || '')), 'xi_no_question_continue_keeps_meaningful_resume_action', String(xiContinueLocation?.action || ''));
-  check(new URL(page.url()).hash === '#unit-2', 'xi_no_question_continue_updates_url_location', page.url());
-  await page.reload({ waitUntil: 'networkidle' });
-  await xiUnit2.waitFor({ state: 'visible' });
-  check(await page.locator('.politicsRail nav a[href="#unit-2"]').evaluate((node) => node.classList.contains('active')), 'xi_no_question_continue_survives_reload');
-  const xiReloadLocation = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos-politics-last-location-v1') || 'null'));
-  check(xiReloadLocation?.unit_id === xiUnit2Id, 'xi_no_question_continue_resume_survives_reload', String(xiReloadLocation?.unit_id || ''));
 
   await activateStandardUnit(page, 2, 'xi_c02_k05');
   const xiFeatures = page.locator('#unit-3 [data-surface-group="xi-c02-k05-features"]');

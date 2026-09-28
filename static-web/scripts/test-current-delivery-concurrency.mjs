@@ -21,7 +21,7 @@ try {
   git(upstream, 'init', '-b', 'main');
   git(upstream, 'config', 'user.email', 'fixture@example.invalid');
   git(upstream, 'config', 'user.name', 'Fixture');
-  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs']) {
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) {
     write(`static-web/scripts/${name}`, fs.readFileSync(path.join(scripts, name)));
   }
   write('static-web/package.json', '{}');
@@ -35,7 +35,7 @@ try {
   fs.writeFileSync(path.join(mirror, '.git/kianos-current-mirror'), '');
 
   const npm = path.join(root, 'npm-fixture');
-  fs.writeFileSync(npm, `#!/bin/sh\nif [ "$1" = install ]; then echo install >> "${events}"; sleep 1; mkdir -p "$PWD/node_modules/.bin"; : > "$PWD/node_modules/.bin/astro"; exit 0; fi\necho build >> "${events}"\nout=""; while [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"; echo built > "$out/index.html"\n`);
+  fs.writeFileSync(npm, `#!/bin/sh\nif [ "$1" = install ]; then echo install >> "${events}"; sleep 1; exit 0; fi\necho build >> "${events}"\nout=""; while [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"; echo built > "$out/index.html"\n`);
   fs.chmodSync(npm, 0o755);
   const start = () => spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], {
     cwd: mirror,

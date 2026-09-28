@@ -56,7 +56,6 @@ const surgeryMap=text('content/xizong/knowledge/learner/surgery-27-source-map.js
 const xizongLib=text('static-web/src/lib/xizong.mjs');
 const semanticAdapter=text('static-web/src/lib/xizongSemanticAdapter.mjs');
 const systemWorkspace=text('static-web/src/components/XizongSystemWorkspace.astro');
-const systemWorkspaceCss=text('static-web/src/styles/xizong-system-workspace.css');
 const blockWorkspace=text('static-web/src/components/XizongBlockV6.astro');
 
 const learningExecutionSignature=semanticSha256({
@@ -435,13 +434,10 @@ assert.match(semanticAdapter,/CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT/,'S
 assert.match(semanticAdapter,/GLOBAL_BIOCHEMISTRY_SOURCE_UNIT/,'Semantic adapter lost exact BIO27 unit segments');
 assert.match(blockWorkspace,/kianos:xizong:biochemistry-source-lane:/,'Biochemistry Block runtime lost shared Source-unit evidence ledger');
 assert.match(blockWorkspace,/GLOBAL_BIOCHEMISTRY_SOURCE_UNIT/,'Biochemistry Block runtime lost shared Source evidence propagation');
-assert.match(blockWorkspace,/继续原讲义老师顺序/,'Biochemistry Block runtime must hand off to the continuous teacher-order Source instead of duplicating Lecture');
-assert.doesNotMatch(systemWorkspace,/data-system-view-button="biochemistry"/,'B System workspace must not expose Biochemistry as a peer System course/tab');
-assert.match(systemWorkspace,/data-system-view="biochemistry"/,'B System workspace lost contextual Biochemistry Source adapter');
-assert.match(systemWorkspace,/target !== 'biochemistry'/,'Contextual Biochemistry Source adapter must not become the persisted System default');
+assert.match(blockWorkspace,/回到 27 生化跟课/,'Biochemistry Block runtime must return to the continuous Source lane instead of duplicating Lecture');
+assert.match(systemWorkspace,/data-system-view-button="biochemistry"/,'B System workspace lost learner-visible 27 Biochemistry lane');
 assert.match(systemWorkspace,/kianos\.xizong\.biochemistry-source-lane-state\.v1/,'B System workspace lost current Source-unit ledger');
-assert.match(systemWorkspace,/data-biochemistry-reconstruction/,'B System runtime lost accepted partial-system reconstruction consumer data');
-assert.match(systemWorkspaceCss,/xzBioTargetSection,.xzBiochemistryReconstruction,.xzBiochemistryMotherMaps/,'Biochemistry backend mapping and reconstruction must stay off the learner-facing Source adapter');
+assert.match(systemWorkspace,/data-biochemistry-reconstruction/,'B System workspace lost accepted partial-system reconstruction consumer');
 
 assert.match(xizongCurrent,/27 Biochemistry lifecycle owner:/);
 assert.match(xizongCurrent,/xizong-2027-biochemistry-delta-slot\.json/);

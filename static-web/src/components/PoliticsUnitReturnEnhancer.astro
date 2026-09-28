@@ -87,29 +87,6 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
     return last.subject === identity.subject && last.chapter === identity.chapter ? last : null;
   };
 
-  const continueFromUnit = (unitSection) => {
-    if (!(unitSection instanceof HTMLElement)) return;
-    const allUnits = [...document.querySelectorAll('[data-politics-unit]')];
-    const currentIndex = allUnits.indexOf(unitSection);
-    const target = currentIndex >= 0 && currentIndex < allUnits.length - 1
-      ? allUnits[currentIndex + 1]
-      : document.getElementById('chapter-close');
-    const nextUnitId = target?.matches?.('[data-politics-unit]') ? unitIdForSection(target) : '';
-    const targetHref = target?.id ? `${window.location.pathname}#${target.id}` : window.location.pathname;
-    saveLastLocation({
-      unitId: nextUnitId,
-      action: nextUnitId ? 'ORIENT' : 'CHAPTER_CLOSE',
-      href: targetHref
-    });
-    if (target?.id) {
-      const visibleHref = `${window.location.pathname}${window.location.search}#${target.id}`;
-      if (`${window.location.pathname}${window.location.search}${window.location.hash}` !== visibleHref) {
-        window.history.replaceState(window.history.state, '', visibleHref);
-      }
-    }
-    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
   const make = (tag, className, text = '') => {
     const node = document.createElement(tag);
     if (className) node.className = className;
@@ -210,7 +187,20 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
     const continueButton = make('button', 'politicsUnitReturnContinue', '继续学习 →');
     continueButton.type = 'button';
     continueButton.setAttribute('data-unit-return-continue', '');
-    continueButton.addEventListener('click', () => continueFromUnit(unitSection));
+    continueButton.addEventListener('click', () => {
+      const allUnits = [...document.querySelectorAll('[data-politics-unit]')];
+      const currentIndex = allUnits.indexOf(unitSection);
+      const target = currentIndex >= 0 && currentIndex < allUnits.length - 1
+        ? allUnits[currentIndex + 1]
+        : document.getElementById('chapter-close');
+      const nextUnitId = target?.matches?.('[data-politics-unit]') ? unitIdForSection(target) : '';
+      saveLastLocation({
+        unitId: nextUnitId,
+        action: nextUnitId ? 'ORIENT' : 'CHAPTER_CLOSE',
+        href: target?.id ? `${window.location.pathname}#${target.id}` : window.location.pathname
+      });
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 
     section.append(micro, title, summary, nodeList, guard, continueButton);
     quiz.insertAdjacentElement('afterend', section);
@@ -507,13 +497,6 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
       }
     }));
   };
-
-  runtime?.addEventListener('click', (event) => {
-    const target = event.target instanceof Element ? event.target : null;
-    const button = target?.closest('[data-unit-return-static]');
-    if (!button || !runtime.contains(button)) return;
-    continueFromUnit(button.closest('[data-politics-unit]'));
-  });
 
   for (const config of configRows) {
     ensureReturnUi(config);

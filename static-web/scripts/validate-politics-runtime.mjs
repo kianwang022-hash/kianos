@@ -6,7 +6,6 @@ import {
   politicsCurrentHealth,
   politicsRuntimeDiagnostics
 } from '../src/lib/politicsRuntime.mjs';
-import { listPoliticsSubjectsCurrent as listPoliticsSubjectsResolved } from '../src/lib/politicsCurrent.mjs';
 
 const EXPECTED = Object.freeze({
   marxism: 9,
@@ -29,13 +28,6 @@ if (health.status !== 'ready') {
 const subjects = listPoliticsSubjectsCurrent();
 if (subjects.length !== Object.keys(EXPECTED).length) {
   fail(`subject count ${subjects.length}/${Object.keys(EXPECTED).length}`);
-}
-
-const resolvedSubjects = listPoliticsSubjectsResolved();
-for (const subject of resolvedSubjects) {
-  const groups = subject.frameworkPlan?.states?.ORIENT || [];
-  if (groups.length < 2) fail(`rapid framework missing for ${subject.subject}`);
-  if (!groups.some((group) => group.title?.includes('整科骨架'))) fail(`rapid framework title missing for ${subject.subject}`);
 }
 
 let chapterCount = 0;
@@ -70,14 +62,6 @@ for (const subject of subjects) {
       if (unit.sourceRefCount > 0 && !unit.sourceNodes.length) {
         fail(`${unit.unitId} has Chengfeng refs but no resolved source text`);
       }
-      if (unit.sourceNodes.length && !unit.sourceNodes.some((node) => String(node?.locatorLabel || '').trim())) {
-        fail(`${unit.unitId} has resolved Chengfeng source but no readable locator label`);
-      }
-      for (const node of unit.sourceNodes) {
-        const label = String(node?.locatorLabel || '').trim();
-        if (label && label === String(node?.id || '').trim()) fail(`${unit.unitId} exposes machine source id as locator label: ${label}`);
-        if (label === '乘风原讲义定位') fail(`${unit.unitId} regressed to generic source locator label`);
-      }
       if (unit.unresolvedSourceRefs.length) {
         fail(`${unit.unitId} unresolved Chengfeng owners: ${unit.unresolvedSourceRefs.join(', ')}`);
       }
@@ -98,19 +82,10 @@ if (diagnostics.questionRows < 1000) fail(`question database unexpectedly small:
 // Surface Ownership regression guard.
 // Chengfeng source text remains resolved in Current for provenance/repair, but first-round
 // Politics projection must not turn Astro into a competing continuous lecture reader.
-const learnIndexSource = fs.readFileSync(new URL('../src/pages/politics/learn/index.astro', import.meta.url), 'utf8');
-if (!/PoliticsExplicitSurfacePlan/.test(learnIndexSource) || !/data-politics-subject-framework/.test(learnIndexSource)) {
-  fail('rapid framework regression: Politics Learn must consume the resolved subject Surface Mapping through the existing explicit renderer');
-}
-if (/subjectMap\?\.|subjectMap\./.test(learnIndexSource)) {
-  fail('rapid framework regression: Politics Learn must not infer from raw subject-map fields');
-}
-
 const chapterRuntimeUrl = new URL('../src/components/PoliticsChapterRuntime.astro', import.meta.url);
 const chapterRuntimeSource = fs.readFileSync(chapterRuntimeUrl, 'utf8');
 const forbiddenProjectionPatterns = [
   ['continuous Chengfeng text render', /node\.text/],
-  ['generic source locator fallback', /乘风原讲义定位/],
   ['legacy source-flow reader', /politicsSourceFlow/],
   ['legacy learner copy', /直接学正文/]
 ];
@@ -120,47 +95,15 @@ for (const [label, pattern] of forbiddenProjectionPatterns) {
 if (!/去 iPad \/ MarginNote 学原讲义/.test(chapterRuntimeSource)) {
   fail('surface ownership regression: missing external-primary Chengfeng handoff');
 }
-if (!/node\.locatorLabel/.test(chapterRuntimeSource)) {
-  fail('surface ownership regression: source locator UI must consume the runtime-owned readable label');
-}
 if (/data-politics-question|data-politics-quiz/.test(chapterRuntimeSource)) {
   fail('surface ownership regression: learning page must not own a second Xiao1000 attempt surface');
 }
 if (!/politics\/practice\/\?unit=/.test(chapterRuntimeSource)) {
   fail('surface ownership regression: missing exact Unit handoff to formal Xiao1000 Workbench');
 }
-if (!/data-politics-no-verification/.test(chapterRuntimeSource)) {
-  fail('interaction regression: no-question Unit must expose a semantic no-verification marker');
-}
 const cognitiveWorkspaceSource = fs.readFileSync(new URL('../src/components/PoliticsCognitiveWorkspace.astro', import.meta.url), 'utf8');
-const cognitiveWorkspaceExplicitSurfaceSource = fs.readFileSync(new URL('../src/components/PoliticsCognitiveWorkspaceExplicitSurface.astro', import.meta.url), 'utf8');
 if (/data-politics-question|data-politics-quiz/.test(cognitiveWorkspaceSource)) {
   fail('surface ownership regression: C00 must not own a second Xiao1000 attempt surface');
-}
-if (/Astro 此时只做认知伴随|不在 Astro 重读第二遍教材/.test(cognitiveWorkspaceSource)) {
-  fail('learner-copy regression: C00 must not explain implementation architecture to the learner');
-}
-if (/不复制第二份讲义|Surface Mapping 放回主舞台/.test(cognitiveWorkspaceExplicitSurfaceSource)) {
-  fail('learner-copy regression: explicit surface enhancer must not replace learner context with implementation copy');
-}
-if (!/乘风定位/.test(cognitiveWorkspaceSource) || !/最后留下什么/.test(cognitiveWorkspaceSource)) {
-  fail('interaction regression: C00 must retain useful EXTERNAL_LEARN and CLOSE context');
-}
-if (!/searchParams\.set\('learnedScope', 'confirmed'\)/.test(cognitiveWorkspaceSource)) {
-  fail('interaction regression: learned C00 handoff must carry bounded learned-scope confirmation');
-}
-const practiceClientSource = fs.readFileSync(new URL('../src/lib/politicsPracticeClient.mjs', import.meta.url), 'utf8');
-if (!/params\.get\('learnedScope'\) === 'confirmed'/.test(practiceClientSource)) {
-  fail('interaction regression: Workbench must consume only the explicit learned-scope handoff');
-}
-const reviewClientSource = fs.readFileSync(new URL('../src/lib/politicsReviewClient.mjs', import.meta.url), 'utf8');
-if (!/activeSessionState/.test(reviewClientSource) || !/继续这道题 →/.test(reviewClientSource)) {
-  fail('interaction regression: Review must reconcile exact question actions with the unfinished Workbench session');
-}
-const projectionOutletSource = fs.readFileSync(new URL('../src/components/PoliticsProjectionRuntimeOutlet.astro', import.meta.url), 'utf8');
-const unitReturnSource = fs.readFileSync(new URL('../src/components/PoliticsUnitReturnEnhancer.astro', import.meta.url), 'utf8');
-if (!/data-unit-return-static/.test(projectionOutletSource) || !/continueFromUnit/.test(unitReturnSource)) {
-  fail('interaction regression: no-question Closure must reuse the existing Unit Continue owner');
 }
 const practiceWorkbenchSource = fs.readFileSync(new URL('../src/components/PoliticsPracticeWorkbench.astro', import.meta.url), 'utf8');
 if (!/data-question-card/.test(practiceWorkbenchSource) || !/data-takeaway/.test(practiceWorkbenchSource) || !/data-chat-explanation/.test(practiceWorkbenchSource)) {

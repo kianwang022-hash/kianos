@@ -28,50 +28,6 @@ const check = (condition, name, detail = '') => {
   report.checks.push({ name, pass: true, detail });
 };
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const boxesOverlap = (a, b) => Boolean(
-  a && b
-  && a.x < b.x + b.width
-  && a.x + a.width > b.x
-  && a.y < b.y + b.height
-  && a.y + a.height > b.y
-);
-
-async function clearMovableStudyTimer(page, targetSelector, name) {
-  const target = page.locator(targetSelector);
-  await target.scrollIntoViewIfNeeded();
-
-  const dock = page.locator('[data-study-timer-dock]');
-  if (!(await dock.isVisible().catch(() => false))) return;
-
-  const [targetBox, dockBox] = await Promise.all([target.boundingBox(), dock.boundingBox()]);
-  if (!boxesOverlap(targetBox, dockBox)) return;
-
-  const grip = dock.locator('[data-study-timer-drag-handle]');
-  const gripBox = await grip.boundingBox();
-  check(Boolean(gripBox), `${name}_timer_drag_handle_available`);
-
-  const viewport = page.viewportSize() || { width: 1440, height: 900 };
-  const start = { x: gripBox.x + gripBox.width / 2, y: gripBox.y + gripBox.height / 2 };
-  const destination = {
-    x: Math.min(Math.max(280, gripBox.width / 2 + 24), viewport.width - 240),
-    y: Math.min(96, viewport.height - 96)
-  };
-
-  await page.mouse.move(start.x, start.y);
-  await page.mouse.down();
-  await page.mouse.move(destination.x, destination.y, { steps: 4 });
-  await page.mouse.up();
-  await sleep(80);
-
-  const [afterTarget, afterDock] = await Promise.all([target.boundingBox(), dock.boundingBox()]);
-  check(
-    !boxesOverlap(afterTarget, afterDock),
-    `${name}_timer_moved_clear_of_control`,
-    JSON.stringify({ target: afterTarget, dock: afterDock })
-  );
-}
-
 const qid = (q, index) => String(q?.id || q?.question_id || `q${index + 1}`);
 const firstAnswer = (value) => Array.isArray(value) ? String(value[0] ?? '') : String(value ?? '');
 const optionLabels = (options) => Array.isArray(options)
@@ -180,7 +136,6 @@ async function answerReadingA(page, reading, answers, { wrongIndices = [], uncer
     await page.locator('[data-question]').nth(index).locator(`[data-option="${selected}"]`).click();
     if (uncertain.has(index)) await page.locator('[data-question]').nth(index).locator('.portedUncertain').click();
   }
-  await clearMovableStudyTimer(page, '[data-reading-submit]', 'runtime_reading_a_submit');
   await page.locator('[data-reading-submit]').click();
   await page.locator('[data-reading-result]').waitFor({ state: 'visible' });
 }
@@ -201,7 +156,6 @@ async function answerReadingB(page, item, answers, { swapFirstPair = false } = {
     if (!selected) throw new Error(`READING_B_RUNTIME_ANSWER_NOT_SELECTABLE:${qid(item.questions[index], index)}`);
     await page.locator('[data-reading-b-select]').nth(index).selectOption(selected);
   }
-  await clearMovableStudyTimer(page, '[data-objective-submit]', 'runtime_reading_b_submit');
   await page.locator('[data-objective-submit]').click();
   await page.locator('[data-objective-result-summary]').waitFor({ state: 'visible' });
 }

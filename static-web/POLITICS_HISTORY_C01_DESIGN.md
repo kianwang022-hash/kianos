@@ -1,11 +1,11 @@
-# Politics History — Cognitive Projection Grammar · C01 Reference
+# Politics History C01 — Cognitive Projection Pilot
 
 Status: **CURRENT — ACCEPTED HISTORY COGNITIVE PROJECTION GRAMMAR**  
 Parent: `static-web/POLITICS_PRODUCT_BRIEF.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Current content owner: `content/politics/learning/history/ch01.json`
 
-This file owns the accepted learner-visible History Cognitive Projection grammar, with C01 retained as the primary calibration/reference surface and cross-chapter generalization evidence. It is not an active pilot or rollout cursor. It does not change Politics Learning Logic, Current Content, Natural Unit ownership/order, Xiao1000 ownership, Evidence, Repair, or Return semantics.
+This file owns the learner-visible design decisions for the History C01 Cognitive Projection pilot and the accepted History grammar inferred from cross-chapter generalization. It does not change Politics Learning Logic, Current Content, Natural Unit ownership/order, Xiao1000 ownership, Evidence, Repair, or Return semantics.
 
 ---
 

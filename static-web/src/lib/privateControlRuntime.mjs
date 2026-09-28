@@ -89,46 +89,40 @@ class ShadowStorage{
 const readJson=(storage,key)=>{try{return JSON.parse(storage.getItem(key)||'null');}catch{return null;}};
 
 async function loadEnglishCatalog(){
-  // Use the server-owned native catalog as the clean base. Resume may project
-  // private external/generated rows into its DOM catalog, so reading that first
-  // can duplicate the same live owner when Control also reads the live bridges.
   let staticRows=[];
   try{
-    const response=await fetch(ENDPOINT+'/english-session-catalog',{cache:'no-store'});
-    if(response.ok){
-      const data=await response.json();
-      staticRows=Array.isArray(data?.rows)?data.rows:[];
-    }
+    const node=document.querySelector('[data-english-resume-catalog]');
+    const parsed=JSON.parse(node?.textContent||'[]');
+    staticRows=Array.isArray(parsed)?parsed:[];
   }catch{}
   if(!staticRows.length){
     try{
-      const node=document.querySelector('[data-english-resume-catalog]');
-      const parsed=JSON.parse(node?.textContent||'[]');
-      staticRows=Array.isArray(parsed)
-        ? parsed.filter(row=>!String(row?.object_id||'').startsWith('external-chat-'))
-        : [];
+      const response=await fetch(ENDPOINT+'/english-session-catalog',{cache:'no-store'});
+      if(response.ok){
+        const data=await response.json();
+        staticRows=Array.isArray(data?.rows)?data.rows:[];
+      }
     }catch{}
   }
-  let externalRows=[],generatedRows=[];
+  let externalRows=[];
   try{
     const response=await fetch('/__kianos-private/external-reading/catalog',{cache:'no-store'});
     if(response.ok){
       const data=await response.json();
-      externalRows=(data.collections||[]).flatMap(group=>group.passages||[]).map(row=>({task:'external_reading',object_id:row.object_id,source_hash:row.content_hash,label:row.title||row.object_id,study_day:row.study_day||null,origin:row.origin||null}));
+      externalRows=(data.collections||[]).flatMap(group=>group.passages||[]).map(row=>({
+        task:'external_reading',
+        object_id:row.object_id,
+        source_hash:row.content_hash,
+        label:row.title||row.object_id,
+        study_day:row.study_day||null,
+        origin:row.origin||null
+      }));
     }
-  }catch{}
-  try{
-    const response=await fetch('/__kianos-private/english-generated/catalog',{cache:'no-store'});
-    if(response.ok){const data=await response.json();generatedRows=(data.rows||[]).filter(row=>row.task!=='external_reading');}
   }catch{}
   // English Resume may already project external rows into the DOM catalog.
   // Replace that cached projection with this live owner read; duplicate or
   // conflicting source identities must still fail native validation.
-  const rows=[
-    ...staticRows.filter(row=>row.task!=='external_reading'&&!String(row.object_id||'').startsWith('external-chat-')),
-    ...externalRows,
-    ...generatedRows
-  ];
+  const rows=[...staticRows.filter(row=>row.task!=='external_reading'),...externalRows];
   if(!rows.length)throw new Error('KIANOS_CONTROL_ENGLISH_CATALOG_UNAVAILABLE');
   return rows;
 }

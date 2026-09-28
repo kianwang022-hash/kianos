@@ -14,19 +14,17 @@ const write = (file, body) => { fs.mkdirSync(path.dirname(path.join(upstream, fi
 const run = (env) => spawnSync(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], { cwd: mirror, env: { ...process.env, ...env, KIANOS_SYNC_ONCE: '1', KIANOS_BUILD_NICE: '0' }, encoding: 'utf8', timeout: 30000 });
 try {
   fs.mkdirSync(upstream); git(upstream, 'init', '-b', 'main'); git(upstream, 'config', 'user.email', 'fixture@example.invalid'); git(upstream, 'config', 'user.name', 'Fixture');
-  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs']) write(`static-web/scripts/${name}`, fs.readFileSync(path.join(scripts, name)));
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) write(`static-web/scripts/${name}`, fs.readFileSync(path.join(scripts, name)));
   write('static-web/package.json', '{}'); write('.gitignore', 'static-web/public/\nstatic-web/dist\nstatic-web/.current-*\n'); write('fixture.txt', 'A');
   write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const r=process.argv[process.argv.indexOf('--root')+1];http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({sha:fs.existsSync(path.join(r,'bad'))?'wrong':JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha}):'ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
   git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'A'); const a = git(upstream, 'rev-parse', 'HEAD');
   git(root, 'clone', '--bare', upstream, remote); git(upstream, 'remote', 'add', 'origin', remote); git(root, 'clone', remote, mirror); fs.writeFileSync(path.join(mirror, '.git/kianos-current-mirror'), '');
   const npm = path.join(root, 'npm');
-  fs.writeFileSync(npm, `#!/bin/sh\nif [ "$1" = install ]; then [ "$INSTALL_FAIL" = 1 ] && exit 1; mkdir -p "$PWD/node_modules/.bin"; : > "$PWD/node_modules/.bin/astro"; exit 0; fi\nout=""; while [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"; echo built > "$out/index.html"\n`);
+  fs.writeFileSync(npm, `#!/bin/sh\nif [ "$1" = install ]; then [ "$INSTALL_FAIL" != 1 ]; exit $?; fi\nout=""; while [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"; echo built > "$out/index.html"\n`);
   fs.chmodSync(npm, 0o755);
   assert.equal(run({ KIANOS_NPM_BIN: npm }).status, 0);
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), a);
-  write('fixture.txt', 'B');
-  write('static-web/package.json', '{"fixture_dependency_version":"B"}');
-  git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'B'); const b = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
+  write('fixture.txt', 'B'); git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'B'); const b = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
   const failed = run({ KIANOS_NPM_BIN: npm, INSTALL_FAIL: '1' });
   assert.notEqual(failed.status, 0); assert.equal(git(mirror, 'rev-parse', 'HEAD'), a);
   assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(path.join(root, '.kianos-current-releases/releases', a)));

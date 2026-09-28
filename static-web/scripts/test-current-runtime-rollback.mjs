@@ -44,7 +44,7 @@ try {
     fs.writeFileSync(path.join(upstream, file), body);
   };
 
-  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs']) {
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) {
     write(`static-web/scripts/${name}`, fs.readFileSync(path.join(scripts, name)));
   }
   write('static-web/package.json', '{}');
@@ -82,7 +82,7 @@ try {
   const npm = path.join(root, 'npm');
   fs.writeFileSync(
     npm,
-    '#!/bin/sh\nif [ "$1" = install ]; then mkdir -p "$PWD/node_modules/.bin"; : > "$PWD/node_modules/.bin/astro"; exit 0; fi\nout=""\nwhile [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"\necho x > "$out/index.html"\n'
+    '#!/bin/sh\n[ "$1" = install ] && exit 0\nout=""\nwhile [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"\necho x > "$out/index.html"\n'
   );
   fs.chmodSync(npm, 0o755);
 
@@ -202,7 +202,7 @@ try {
     fs.mkdirSync(path.dirname(path.join(firstUpstream, file)), { recursive: true });
     fs.writeFileSync(path.join(firstUpstream, file), body);
   };
-  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs']) {
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) {
     writeFirst(`static-web/scripts/${name}`, fs.readFileSync(path.join(scripts, name)));
   }
   writeFirst('static-web/package.json', '{}');

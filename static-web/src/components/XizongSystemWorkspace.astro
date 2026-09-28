@@ -13,10 +13,6 @@ const biochemistryLane = system?.biochemistryLane || null;
 const biochemistryUnits = Array.isArray(biochemistryLane?.units) ? biochemistryLane.units : [];
 const hasBiochemistryLane = biochemistryUnits.length > 0;
 const biochemistryReconstructions = Array.isArray(biochemistryLane?.reconstructions) ? biochemistryLane.reconstructions : [];
-const indexedBlocks = system.blocks.map((block, index) => ({ block, index }));
-// One shared System Framework route. System-specific Source adapters may add context,
-// but they do not fork the learner-facing Block route geometry by canonical System name.
-const routeSections = [{ key: '', title: '', range: '', rows: indexedBlocks }];
 const hasVariableRoles = variableRows.some((row) => row.role);
 const spineLabels = framework.spine.items.map((item) => String(item || '').trim());
 const spineTotalChars = spineLabels.reduce((sum, item) => sum + [...item].length, 0);
@@ -51,44 +47,33 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
 >
   <header class="xzSystemTopbar">
     <div class="xzSystemIdentity">
-      <span>{system.canonicalId} · 系统</span>
+      <span>{system.canonicalId} · SYSTEM</span>
       <h1>{system.title}</h1>
       <p data-representation-kind={framework.mission.representation.kind}>{framework.mission.text}</p>
     </div>
     <nav class="xzSystemViewTabs" aria-label="System view">
-      {hasGuide && <button type="button" data-system-view-button="guide" aria-pressed="true">导学</button>}
-      <button type="button" data-system-view-button="framework" aria-pressed={hasGuide ? 'false' : 'true'}>框架</button>
-      {/* 27 Biochemistry is a contextual M/G Source adapter, not a third System course/tab. */}
+      {hasGuide && <button type="button" data-system-view-button="guide" aria-pressed="true">GUIDE</button>}
+      <button type="button" data-system-view-button="framework" aria-pressed={hasGuide ? 'false' : 'true'}>FRAMEWORK</button>
+      {hasBiochemistryLane && <button type="button" data-system-view-button="biochemistry" aria-pressed="false">27 生化</button>}
     </nav>
   </header>
 
   <div class="xzSystemBody" data-system-body>
     <aside class="xzSystemRouteRail" aria-label="System Block route">
       <header>
-        <span>学习路线</span>
+        <span>BLOCK ROUTE</span>
         <strong>{system.canonicalId} · {system.title}</strong>
       </header>
       <nav aria-label="Block route">
-        {routeSections.map((section) => (
-          <>
-            {section.title && (
-              <div class="xzSystemRouteGroupLabel">
-                <b>{section.key}</b>
-                <span>{section.title}</span>
-                <small>{section.range}</small>
-              </div>
-            )}
-            {section.rows.map(({ block, index }) => (
-              <a
-                href={`${base}xizong/${system.systemId}/${block.slug}/`}
-                data-system-block={index}
-                class={index === 0 ? 'selected' : ''}
-              >
-                <b>{block.label}</b>
-                <span>{block.title}</span>
-              </a>
-            ))}
-          </>
+        {system.blocks.map((block, index) => (
+          <a
+            href={`${base}xizong/${system.systemId}/${block.slug}/`}
+            data-system-block={index}
+            class={index === 0 ? 'selected' : ''}
+          >
+            <b>{block.label}</b>
+            <span>{block.title}</span>
+          </a>
         ))}
       </nav>
     </aside>
@@ -97,7 +82,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
       {hasGuide && (
         <section class="xzSystemGuideView" data-system-view="guide">
           <div class="xzSystemGuideLead">
-            <span>系统导学</span>
+            <span>BEGINNER GUIDE</span>
             <strong>第一次进入这个 System 时，用它把整张地图真正看懂。</strong>
             <p>看懂整体以后可随时切回 Framework；进入 Block 后继续沿原讲义 + KP Learn 主线学习。</p>
           </div>
@@ -124,17 +109,20 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
         <section class="xzSystemBiochemistryView" data-system-view="biochemistry" hidden>
           <header class="xzBiochemistryLaneLead">
             <div>
-              <span>原讲义 · 老师顺序</span>
-              <h2>继续 27 生化原讲义；这里不再另开一套 Block 课程。</h2>
-              <p>{biochemistryLane.sourceName} · 按老师顺序连续读，完成一段后系统会自动同步回对应 M/G Block。</p>
+              <span>27 BIOCHEMISTRY · SOURCE LANE</span>
+              <h2>沿老师顺序连续学一次，知识回到整个 B 系统。</h2>
+              <p>{biochemistryLane.sourceName} · Source 只读一条；26 精编的有效解释已经吸收到 Framework / KP，不再要求第二遍课程。</p>
             </div>
-            <a class="xzBiochemistryReturn" data-biochemistry-return href="./">返回 B</a>
+            <div class="xzBiochemistryMotherMaps">
+              <span>{biochemistryLane?.mentalModels?.metabolism?.label || '物质—能量网络'}</span>
+              <span>{biochemistryLane?.mentalModels?.information?.label || '信息生命周期'}</span>
+            </div>
           </header>
 
           <div class="xzBiochemistryLane">
-            <aside class="xzBiochemistryUnitRail" aria-label="27 生化原讲义老师顺序">
+            <aside class="xzBiochemistryUnitRail" aria-label="27 生化 Source units">
               <header>
-                <span>原讲义顺序</span>
+                <span>老师顺序</span>
                 <strong data-biochemistry-progress>0 / {biochemistryUnits.length}</strong>
               </header>
               <nav>
@@ -151,7 +139,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
               {biochemistryUnits.map((unit, index) => (
                 <article data-biochemistry-unit-panel={unit.id} hidden={index !== 0}>
                   <header>
-                    <span>第 {index + 1} 段 · PDF P{String(unit.pdf?.[0] || '').padStart(3, '0')}–P{String(unit.pdf?.[1] || '').padStart(3, '0')}</span>
+                    <span>{unit.id} · PDF P{String(unit.pdf?.[0] || '').padStart(3, '0')}–P{String(unit.pdf?.[1] || '').padStart(3, '0')}</span>
                     <h2>{unit.label}</h2>
                   </header>
 
@@ -187,7 +175,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
 
                   {unit.connectionRoutes?.length > 0 && (
                     <section class="xzBioTargetSection connection" data-biochemistry-reviewed-connections>
-                      <span>相关联结</span>
+                      <span>JIT / Connection</span>
                       <div>
                         {unit.connectionRoutes.map((route) => (
                           <article
@@ -199,7 +187,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
                           >
                             <strong>{route.sourceBlocks.join(' + ')} ↔ {route.targets.join(' + ')}</strong>
                             <p>{route.sharedModel}</p>
-                            <small data-biochemistry-connection-status>当前先建立这条联系，不切换学习主线。</small>
+                            <small data-biochemistry-connection-status>JIT Connection · 当前只建立接口，不切换课程。</small>
                           </article>
                         ))}
                       </div>
@@ -214,15 +202,15 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
                   )}
 
                   {unit.closesBlocks?.length > 0 && (
-                    <p class="xzBioClosure">学完这一段后，可回 {unit.closesBlocks.join(' / ')} 继续 Recall。</p>
+                    <p class="xzBioClosure">学完这一段后，{unit.closesBlocks.join(' / ')} 的 Current Source 接触闭合，可回 KianOS 做对应 Recall。</p>
                   )}
                 </article>
               ))}
 
               <footer class="xzBiochemistryLaneAction">
                 <div>
-                  <span data-biochemistry-current-status>准备从当前未完成段继续。</span>
-                  <small>这里只记录你学到哪里；完成这一段后继续下一段，回到 M/G Block 时会自动同步。</small>
+                  <span data-biochemistry-current-status>准备从当前未完成 Source unit 继续。</span>
+                  <small>这里只记录真实原讲义接触；不会把 Source unit 变成新的 Knowledge 层级。</small>
                 </div>
                 <button type="button" data-biochemistry-unit-complete>本段原讲义已完成</button>
               </footer>
@@ -252,7 +240,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
       <section class="xzSystemFrameworkView" data-system-view="framework" hidden={hasGuide}>
         <section class="xzSystemCanvas" data-system-section="mother">
           <header class="xzSystemSectionHeading">
-            <span>系统模型</span>
+            <span>SYSTEM MODEL</span>
             <h2>这个系统怎样运行？</h2>
           </header>
 
@@ -289,19 +277,13 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
               </div>
             </div>
           )}
-
-          {framework.mentalDetails.items.length > 0 && (
-            <div class="xzSystemMentalDetails" data-representation-kind={framework.mentalDetails.representation.kind}>
-              {framework.mentalDetails.items.map((item) => <p>{item}</p>)}
-            </div>
-          )}
         </section>
 
         {(variableRows.length > 0 || relationRows.length > 0 || axisRows.length > 0) && (
           <section class="xzSystemLanguageAxes">
             <article class="xzSystemLanguage">
               <header class="xzSystemSectionHeading">
-                <span>系统语言</span>
+                <span>SYSTEM LANGUAGE</span>
                 <h2>描述这个系统时，用哪些变量和关系？</h2>
               </header>
 
@@ -309,7 +291,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
                 <div class="xzSystemVariableTable" data-representation-kind={framework.variables.representation.kind}>
                   {variableRows.map((item) => (
                     <div class="xzSystemVariableRow">
-                      <strong>{item.label}</strong>
+                      <strong>{[item.id, item.label].filter(Boolean).join(' · ')}</strong>
                       <span>{item.role}</span>
                     </div>
                   ))}
@@ -334,7 +316,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
             {axisRows.length > 0 && (
               <article class="xzSystemAxes" data-representation-kind={framework.judgmentAxes.representation.kind}>
                 <header class="xzSystemSectionHeading">
-                  <span>判断坐标</span>
+                  <span>JUDGMENT AXES</span>
                   <h2>遇到病例，先沿哪些轴定位？</h2>
                 </header>
                 <div class="xzSystemAxisList">
@@ -356,7 +338,7 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
         {framework.failures.length > 0 && (
           <section class="xzSystemFailureMap" data-system-section="failure">
             <header class="xzSystemSectionHeading">
-              <span>故障地图</span>
+              <span>FAILURE MAP</span>
               <h2>第一故障可能从哪里开始？</h2>
             </header>
             <div class="xzSystemFailureStrip">
@@ -382,10 +364,10 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
     <aside class="xzSystemContext" data-system-context hidden>
       <header>
         <div>
-          <span>当前故障</span>
+          <span>FAILURE CONTEXT</span>
           <strong data-failure-run-title>—</strong>
         </div>
-        <button type="button" data-close-system-context aria-label="关闭故障上下文">×</button>
+        <button type="button" data-close-system-context aria-label="关闭 Failure Context">×</button>
       </header>
       <p data-failure-run-chain></p>
       <div data-failure-run-vars></div>
@@ -454,40 +436,23 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
     const setView = (name) => {
       const target = views.some((view) => view.getAttribute('data-system-view') === name) ? name : defaultView;
       views.forEach((view) => { view.hidden = view.getAttribute('data-system-view') !== target; });
-      root.classList.toggle('biochemistry-source-active', target === 'biochemistry');
       viewButtons.forEach((button) => {
         const active = button.getAttribute('data-system-view-button') === target;
         button.classList.toggle('active', active);
         button.setAttribute('aria-pressed', active ? 'true' : 'false');
       });
       if (target !== 'framework') closeContext();
-      if (target !== 'biochemistry') {
-        try { localStorage.setItem(`kianos:xizong:system-view:${systemId}`, target); } catch {}
-      }
+      try { localStorage.setItem(`kianos:xizong:system-view:${systemId}`, target); } catch {}
     };
 
     let initialView = defaultView;
     try {
-      const params = new URLSearchParams(window.location.search);
-      const requested = params.get('view') || '';
       const saved = localStorage.getItem(`kianos:xizong:system-view:${systemId}`);
-      if (saved && saved !== 'biochemistry') initialView = saved;
+      if (saved) initialView = saved;
+      const requested = new URLSearchParams(window.location.search).get('view');
       if (requested && views.some((view) => view.getAttribute('data-system-view') === requested)) initialView = requested;
     } catch {}
     setView(initialView);
-
-    const biochemistryReturn = root.querySelector('[data-biochemistry-return]');
-    if (biochemistryReturn instanceof HTMLAnchorElement) {
-      try {
-        const from = new URLSearchParams(window.location.search).get('from') || '';
-        const returnBlock = links.find((link) => String(link.getAttribute('href') || '').includes('/' + from + '/'));
-        if (from && returnBlock instanceof HTMLAnchorElement) {
-          biochemistryReturn.href = returnBlock.href;
-          const label = returnBlock.querySelector('b')?.textContent?.trim() || from.toUpperCase();
-          biochemistryReturn.textContent = '返回 ' + label;
-        }
-      } catch {}
-    }
 
     viewButtons.forEach((button) => button.addEventListener('click', () => {
       setView(button.getAttribute('data-system-view-button') || defaultView);
@@ -558,14 +523,14 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
             status.textContent = `跨系统重构已解锁 · ${sourceBlocks.join(' + ')} 与 ${localTargets.join(' + ')} 都已形成。`;
           } else if (completedTargets.length > 0) {
             const tail = [...pendingTargets, ...externalTargets];
-            status.textContent = `已可回到 ${completedTargets.join(' + ')} 做 Recall；${tail.length ? `与 ${tail.join(' + ')} 的后续联系尚未形成或未在本页证明` : '继续当前生化 Source'}。`;
+            status.textContent = `Recall ${completedTargets.join(' + ')}；${tail.length ? `Future Connection ${tail.join(' + ')} 尚未形成/未在本页证明` : '继续当前生化 Source'}。`;
           } else if (sourceReady && (pendingTargets.length > 0 || externalTargets.length > 0)) {
             const futureTargets = [...pendingTargets, ...externalTargets];
-            status.textContent = `后续联系 · ${futureTargets.join(' + ')} 尚未形成或未在本页证明；先保留这条联系，不切换学习主线。`;
+            status.textContent = `Future Connection · ${futureTargets.join(' + ')} 尚未形成/未在本页证明；保留正式 owner 接口，不切换课程。`;
           } else if (externalTargets.length > 0 && localTargets.length === 0) {
-            status.textContent = `后续联系 · ${externalTargets.join(' + ')} 的学习状态未在本页证明；这里只提示关系，不提前当作已学。`;
+            status.textContent = `Future Connection · ${externalTargets.join(' + ')} 的学习状态未在本页证明；只保留接口，不制造已学证据。`;
           } else {
-            status.textContent = `关联到 ${[...localTargets, ...externalTargets].join(' + ')} · 当前先记住这条联系，不切换学习主线。`;
+            status.textContent = `JIT Connection · ${[...localTargets, ...externalTargets].join(' + ')} 先记住接口，不切换课程。`;
           }
         });
       };
@@ -631,12 +596,12 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
         const allDone = completed.size >= units.length;
         if (completeButton instanceof HTMLButtonElement) {
           completeButton.disabled = allDone || selectedDone || selectedUnit !== nextIndex;
-          completeButton.textContent = allDone ? '27 生化原讲义已完成' : selectedDone ? '本段已完成' : '本段原讲义已完成';
+          completeButton.textContent = allDone ? '27 生化 Source 已完整接触' : selectedDone ? '本段已完成' : '本段原讲义已完成';
         }
         if (currentStatus) {
           currentStatus.textContent = allDone
-            ? '27 生化原讲义老师顺序已走完；回对应 M/G Block 继续 Recall。'
-            : `当前第 ${selectedUnit + 1} 段 · PDF P${String(selected?.pdf?.[0] || '').padStart(3, '0')}–P${String(selected?.pdf?.[1] || '').padStart(3, '0')}`;
+            ? '27 生化连续 Source 已完整接触；后续进入对应 Block Recall / 系统重构。'
+            : `当前 ${selected?.id || ''} · PDF P${String(selected?.pdf?.[0] || '').padStart(3, '0')}–P${String(selected?.pdf?.[1] || '').padStart(3, '0')}`;
         }
         syncIntegration();
       };

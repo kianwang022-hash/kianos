@@ -88,21 +88,6 @@ try {
   check(desktopMetrics.gripPointerEvents === 'auto', 'desktop_drag_grip_interactive', JSON.stringify(desktopMetrics));
   await verifyPassiveStatusClickThrough(page, 'desktop');
 
-  for (const [route, expectedLabel] of [
-    ['/politics/', '政治'],
-    ['/xizong/', '西综'],
-    ['/english/', 'English']
-  ]) {
-    await page.goto(`${BASE}${route}`, { waitUntil: 'networkidle' });
-    const rootDock = page.locator('[data-study-timer-dock]');
-    await rootDock.waitFor({ state: 'visible' });
-    const learnerLabel = (await rootDock.locator('[data-study-timer-subject]').innerText()).trim();
-    const routeKey = route.split('/').filter(Boolean)[0];
-    check(learnerLabel === expectedLabel, `${routeKey}_root_hides_internal_overview`, learnerLabel);
-  }
-  await page.goto(`${BASE}/politics/history/ch01/`, { waitUntil: 'networkidle' });
-  await dock.waitFor({ state: 'visible' });
-
   const expand = dock.locator('[data-study-timer-expand]');
   await expand.click();
   check((await dock.getAttribute('data-expanded')) === 'true', 'desktop_expand_control_still_interactive');
@@ -157,26 +142,6 @@ try {
 
   await page.screenshot({ path: new URL('study-timer-desktop.png', auditDir).pathname, fullPage: false });
   await desktop.close();
-
-  const lexical = await browser.newContext({ viewport: { width: 1440, height: 900 } });
-  const lexicalPage = await lexical.newPage();
-  await lexicalPage.goto(`${BASE}/vocabulary/word/?o=16`, { waitUntil: 'networkidle' });
-  const lexicalTimer = lexicalPage.locator('[data-study-timer-dock]');
-  const lexicalActions = lexicalPage.locator('[data-vocab-action-dock]');
-  await lexicalTimer.waitFor({ state: 'visible' });
-  await lexicalActions.waitFor({ state: 'visible' });
-  const lexicalClearance = await lexicalPage.evaluate(() => {
-    const timer = document.querySelector('[data-study-timer-dock]')?.getBoundingClientRect();
-    const actions = document.querySelector('[data-vocab-action-dock]')?.getBoundingClientRect();
-    return timer && actions ? { timerBottom: timer.bottom, actionTop: actions.top } : null;
-  });
-  check(
-    Boolean(lexicalClearance && lexicalClearance.timerBottom <= lexicalClearance.actionTop - 8),
-    'shared_default_timer_clears_vocabulary_actions',
-    JSON.stringify(lexicalClearance)
-  );
-  await lexicalPage.screenshot({ path: new URL('study-timer-lexical-clearance.png', auditDir).pathname, fullPage: false });
-  await lexical.close();
 
   const mobile = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const mobilePage = await mobile.newPage();

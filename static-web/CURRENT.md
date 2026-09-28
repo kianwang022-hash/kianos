@@ -6,33 +6,31 @@ Root [CURRENT](../CURRENT.md) owns cross-program routing. Product semantics, vis
 
 ## Current state
 
-No broad Website construction campaign is active. This file is only the Website implementation/delivery router.
+No broad Website construction or UI campaign is active.
 
-**Active bounded delivery anchor: None.**
+The bounded Steward V3 correction is closed. The reviewed agenda/Now composition, native Dock/return, persisted reality semantics, duration-legible timeline, shared L1 styling and deterministic plan-authorized Nutrition top-ups are merged on `main`, accepted by Kian, and released through managed Current. Reopen Steward only for a concrete product/runtime/visual defect or an explicit new accepted requirement.
 
-Current phase: **NORMAL CURRENT DELIVERY / CONCRETE-DEFECT MODE.**
+The shared shell, subject surfaces, managed Current delivery, private checkpoint/control paths, Daily Learning Packet relay, External Reading runtime and Steward workspace are implementation surfaces on `main`.
 
-Fresh CBA AUDIT exact-release pinning is now a delivered Current capability. Closed Issue #1088 / PR #1091 proved real Stable pin → hold while main advances → release → normal catch-up, with wrong-SHA fail-closed behavior. Subject audits may use that capability when they need an immutable exact Stable release; this Website cursor does not become their audit owner.
+For Steward:
+- product surface split / information architecture → `PRODUCT_SURFACE_CONTRACT.md`;
+- behavior / reality-capture semantics / product acceptance → `STEWARD_PRODUCT_CONTRACT.md`;
+- visual requirements → `KIAN_UI_PREFERENCES.md` + `UI_STYLE_BRIEF.md`;
+- page/client/styles → exact `src/` owners;
+- live delivery identity → [Current doctor](scripts/kianos-current-doctor.mjs).
 
-Normal execution follows `../PROJECT_MANAGEMENT_CONTRACT.md → Concrete Repair Fast Lane`; this cursor does not duplicate the procedure. Known defects go to the exact effective consumer and related design. New material visual/product choices retain the real Candidate Human Gate. Audit may repair inline under `../LEARNING_ACCEPTANCE.md`.
+Steward VNext is implemented on `main`; this cursor does not mirror its product details, Human-Gate status or historical rollout evidence. Reopen only for a concrete product/runtime/visual defect or an explicit new accepted requirement.
 
-Candidate `127.0.0.1:4322` is preview; Stable `127.0.0.1:4321` is delivered use. Neither a saved commit nor a Candidate proof establishes that Stable changed. Active shared audit leases are not repointed by this cursor.
-
-Completed rollout programs, historical Human Gates, bounded defect closures and old candidate branches do **not** issue Current work from this file. Their evidence remains in the exact Product/Acceptance owner, closed Issue/PR or Git history.
-
-Product semantics, Visual requirements, Content, Acceptance and learner/execution truth remain in their exact owners. Content production remains independent and routes through the exact English / Xizong / Politics / Lexical / Skills owners.
+Content production remains independent and routes through the exact English / Xizong / Politics / Lexical / Skills owners.
 
 ## Route from symptom
 
 | Need | Exact first owner | Read further only if needed |
 | --- | --- | --- |
-| Chat → GitHub → webpage changes are slow or stall | [#1048](https://github.com/kianwang022-hash/kianos/issues/1048), current end-to-end acceptance | exact entry / Candidate / proof / delivery owner implicated by the measured delay |
-| UI iteration / Human Gate preview | [Candidate runtime](scripts/kianos-candidate-runtime.mjs) | exact Product / Visual / surface owner → managed Current only after Human Gate PASS |
 | Site did not update / will not open | [Current doctor](scripts/kianos-current-doctor.mjs) | [sync/build](scripts/kianos-current-sync.mjs) → [static server](scripts/kianos-static-server.mjs) |
 | Chat cannot see learner facts | [private Packet builder](scripts/privateDailyLearningPacket.mjs) | Packet relay → affected subject adapter |
 | Chat instruction did not apply | [control runtime](src/lib/privateControlRuntime.mjs) | control relay → exact command/native operation |
 | State did not recover / one subject corrupt | [checkpoint runtime](src/lib/privateCheckpointRuntime.mjs) | affected subject checkpoint adapter / browser write owner |
-| Cross-surface job / Home-Steward-Radar-Subject-Dock split is wrong | `PRODUCT_SURFACE_CONTRACT.md` | exact Product / Domain owner only after the shared functional boundary is resolved |
 | Steward behavior/product semantics are wrong | `STEWARD_PRODUCT_CONTRACT.md` | exact page/client/runtime owner |
 | Steward visual/layout is wrong | `KIAN_UI_PREFERENCES.md` + `UI_STYLE_BRIEF.md` | exact page/styles + representative proof |
 | Plan/orchestration policy seems wrong | [Exam Orchestrator](../EXAM_ORCHESTRATOR_CONTRACT.md) | actual subject Packet / exact subject owner |
@@ -43,9 +41,6 @@ Product semantics, Visual requirements, Content, Acceptance and learner/executio
 
 ## Runtime boundaries
 
-- Candidate `127.0.0.1:4322` is the transient isolated engineering lane for ordinary UI / Human-Gate iteration; stable `127.0.0.1:4321` is not a scratch preview.
-- Candidate state is never learner / execution truth. After Human Gate PASS, one durable PR enters the existing managed Current release lane.
-- Website-local heavy work uses the shared Heavy Lease owner in `scripts/websiteHeavyWork.mjs`: Astro build, lexical projection and opted-in heavy QA serialize instead of competing for the same Mac. The lease never kills unrelated processes; it only protects/cleans the exact owned process tree.
 - GitHub `main` is durable shared asset/Current truth; the Mac mirror and served release are delivery projections.
 - Static/content/runtime-impacting changes build and validate a candidate before atomic promotion; failed promotion preserves last-known-good service.
 - Proven control-only changes may advance `control_sha` without changing the served-release `sha`.

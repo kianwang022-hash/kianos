@@ -8,10 +8,7 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 const LEXICAL_MANIFEST = 'content/lexical/manifest.json';
 const ANSWER_ORDINAL = 209;
 
-const candidateRuntime = process.env.KIANOS_CANDIDATE_RUNTIME === '1';
-
 let lexicalSnapshotCache = null;
-let candidateFinalManifestToken = '';
 const finalShardCache = new Map();
 
 function absolute(relativePath) {
@@ -26,22 +23,7 @@ function readJson(relativePath) {
   return JSON.parse(readText(relativePath));
 }
 
-function fileToken(relativePath) {
-  const stat = fs.statSync(absolute(relativePath));
-  return [stat.dev, stat.ino, stat.size, stat.mtimeMs].join(':');
-}
-
-function refreshCandidateProjectionCache() {
-  if (!candidateRuntime || !lexicalSnapshotCache?.finalManifestPath) return;
-  const nextToken = fileToken(lexicalSnapshotCache.finalManifestPath);
-  if (nextToken === candidateFinalManifestToken) return;
-  lexicalSnapshotCache = null;
-  finalShardCache.clear();
-  candidateFinalManifestToken = '';
-}
-
 function lexicalManifestSnapshot() {
-  refreshCandidateProjectionCache();
   if (lexicalSnapshotCache) return lexicalSnapshotCache;
 
   const manifest = readJson(LEXICAL_MANIFEST);
@@ -78,16 +60,14 @@ function lexicalManifestSnapshot() {
     throw new Error(`CURRENT_LEXICAL_FINAL_LEARNER_COUNT_MISMATCH:${wordCount}:${finalCount}`);
   }
 
-  const snapshot = {
+  lexicalSnapshotCache = {
     manifest,
     wordManifest,
     relationManifest,
     finalManifest,
     finalManifestPath
   };
-  lexicalSnapshotCache = snapshot;
-  if (candidateRuntime) candidateFinalManifestToken = fileToken(finalManifestPath);
-  return snapshot;
+  return lexicalSnapshotCache;
 }
 
 function finalShardDescriptor(finalManifest, ordinal) {
@@ -98,11 +78,12 @@ function finalShardDescriptor(finalManifest, ordinal) {
 }
 
 function readFinalShard(relativePath) {
-  if (finalShardCache.has(relativePath)) return finalShardCache.get(relativePath);
-  const rows = readJson(relativePath);
-  if (!Array.isArray(rows)) throw new Error(`CURRENT_LEXICAL_FINAL_LEARNER_SHARD_INVALID:${relativePath}`);
-  finalShardCache.set(relativePath, rows);
-  return rows;
+  if (!finalShardCache.has(relativePath)) {
+    const rows = readJson(relativePath);
+    if (!Array.isArray(rows)) throw new Error(`CURRENT_LEXICAL_FINAL_LEARNER_SHARD_INVALID:${relativePath}`);
+    finalShardCache.set(relativePath, rows);
+  }
+  return finalShardCache.get(relativePath);
 }
 
 function finalLearnerObjectByOrdinal(ordinal) {
@@ -142,30 +123,6 @@ export function inspectLexicalSources() {
     websiteConsumesFinalLearnerObject: true,
     finalLearnerObjectStatus: finalManifest.status,
     canonicalWordCount: wordManifest.word_count
-  };
-}
-
-export function lexicalRuntimeManifest() {
-  const { finalManifest } = lexicalManifestSnapshot();
-  const objectCount = Number(finalManifest.object_count || 0);
-  const shardSize = 32;
-  if (!Number.isInteger(objectCount) || objectCount < 1) {
-    throw new Error('CURRENT_LEXICAL_RUNTIME_MANIFEST_INVALID');
-  }
-  const shards = [];
-  for (let start = 1; start <= objectCount; start += shardSize) {
-    const end = Math.min(objectCount, start + shardSize - 1);
-    shards.push({
-      start,
-      end,
-      key: `o${String(start).padStart(4, '0')}-${String(end).padStart(4, '0')}`
-    });
-  }
-  return {
-    schema: 'kianos.lexical.runtime_manifest.v1',
-    object_count: objectCount,
-    shard_size: shardSize,
-    shards
   };
 }
 

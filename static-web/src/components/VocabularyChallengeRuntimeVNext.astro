@@ -439,7 +439,6 @@ const base = import.meta.env.BASE_URL;
 <script>
 import {LEXICAL_LEDGER_STORAGE_KEY,appendEvidenceEvent,exportReturnEvents,legacyEventId,repairStateForEvent,serializeLexicalReturnPacketForChat} from '../lib/lexicalEvidence.mjs';
 import {parseLexicalChallengePacketText} from '../lib/lexicalChatState.mjs';
-import { lexicalWordRuntimeHref } from '../lib/lexicalRuntimeRoute.mjs';
 import { validateLexicalChallengePacket, lexicalChallengeSignature, readLexicalChallengeSession, installLexicalChallengePacket, dismissLexicalChallengeSession } from '../lib/lexicalChallenge.mjs';
   import { learnerWriterReady, commitLearnerStorageChanges } from '../lib/browserLearnerWriter.mjs';
   import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable, showLexicalStateError } from '../lib/lexicalBrowserState.mjs';
@@ -548,7 +547,7 @@ if(root instanceof HTMLElement){
     const demand=demandLabel(item.demand||item.evidence_quality?.demand||'');
     if(currentDemand)currentDemand.textContent=demand;
     if(currentDemandWrap instanceof HTMLElement)currentDemandWrap.hidden=!demand;
-    if(openWord instanceof HTMLAnchorElement)openWord.href=lexicalWordRuntimeHref(base,Number(item.ordinal),'repair');
+    if(openWord instanceof HTMLAnchorElement)openWord.href=base+'vocabulary/'+Number(item.ordinal)+'/';
     root.querySelector('[data-challenge-stem]').textContent=q.stem;
     feedback.hidden=true;
     feedback.textContent='';

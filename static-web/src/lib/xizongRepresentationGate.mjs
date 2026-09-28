@@ -251,17 +251,10 @@ export function composeXizongFrameworkRepresentation(objects, { stage = 'BLOCK_O
 export function composeXizongSystemFrameworkRepresentation(system) {
   const spineItems = array(system?.mentalModel?.spine).map(text).filter(Boolean);
   const parallelItems = array(system?.mentalModel?.parallelControls).map(text).filter(Boolean);
-  const hasStandardMentalModel = Boolean(text(system?.mentalModel?.motherModel))
-    || spineItems.length > 0;
-  const mentalDetails = hasStandardMentalModel
-    ? []
-    : Object.entries(system?.raw?.mental_model || {})
-      .filter(([key, value]) => !['shape', 'parallel_controls'].includes(key) && typeof value === 'string' && text(value))
-      .map(([, value]) => text(value));
   const variableRows = array(system?.coreVariables).map((item) => ({
     id: text(typeof item === 'string' ? '' : item?.id),
-    label: text(typeof item === 'string' ? item : item?.label || item?.meaning || item?.id),
-    role: text(typeof item === 'string' ? '' : item?.role || (item?.label ? item?.meaning : ''))
+    label: text(typeof item === 'string' ? item : item?.label || item?.id),
+    role: text(typeof item === 'string' ? '' : item?.role)
   })).filter((item) => item.label);
   const formulaRows = array(system?.coreRelations).map((item) => text(typeof item === 'string' ? item : item?.formula || item?.relation || item?.label)).filter(Boolean);
   const judgmentRows = array(system?.judgmentAxes).map(text).filter(Boolean);
@@ -302,10 +295,6 @@ export function composeXizongSystemFrameworkRepresentation(system) {
     parallelControls: {
       items: parallelItems,
       representation: representation('STRUCTURED_TEXT', 'CURRENT_PARALLEL_CONTROLS')
-    },
-    mentalDetails: {
-      items: mentalDetails,
-      representation: representation('STRUCTURED_TEXT', 'CURRENT_MENTAL_MODEL_DETAILS')
     },
     variables: {
       rows: variableRows,

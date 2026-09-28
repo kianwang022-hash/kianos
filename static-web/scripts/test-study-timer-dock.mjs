@@ -45,7 +45,6 @@ assert.match(client, /window\.innerWidth - rect\.width/, 'Dragged timer must be 
 assert.match(client, /window\.innerHeight - rect\.height/, 'Dragged timer must be clamped to the viewport vertically.');
 assert.match(client, /storage\.removeItem\(POSITION_KEY\)/, 'Reset must remove the persisted custom position.');
 assert.match(client, /setInterval\(render, 1000\)/, 'Visible elapsed time must refresh while running.');
-assert.match(client, /detail && detail !== detailKey \? detail : ''/, 'Dock must keep fallback route/detail keys backstage while allowing an explicit learner label.');
 assert.match(client, /timer\.pause\(now\)[\s\S]{0,500}beginStewardBreak/, 'Pause must stop timing before optional rest capture.');
 assert.match(client, /endLatestStewardBreak[\s\S]{0,500}timer\.resume\(now\)/, 'Resume must end the break only by explicit learner action.');
 assert.match(client, /recordStewardBreakReentry/, 'Dock must write optional re-entry reality through the Steward owner.');
@@ -53,7 +52,7 @@ assert.doesNotMatch(client, /readiness|recoveryScore|recovery_score|debtScore/i,
 
 assert.match(css, /position:\s*fixed/, 'Timer dock must stay viewport-fixed.');
 assert.match(css, /right:\s*24px/, 'Desktop default must remain bottom-right.');
-assert.match(css, /bottom:\s*92px/, 'Desktop default must stay above persistent bottom action rows while remaining draggable.');
+assert.match(css, /bottom:\s*22px/, 'Desktop default must remain bottom-right.');
 assert.match(css, /width:\s*460px/, 'The reviewed global Dock includes Record, actual context and Today/Return at readable type; the browser gate enforces its bounded footprint.');
 assert.match(css, /\.studyTimerDock[\s\S]*pointer-events:\s*none/, 'Compact dock background/status must not lock learner content underneath.');
 assert.match(css, /\.studyTimerDock\[data-expanded="true"\][^{]*\{[^}]*pointer-events:\s*auto/, 'Expanded timer panel must remain an intentional interactive overlay.');

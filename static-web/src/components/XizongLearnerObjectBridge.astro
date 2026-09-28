@@ -41,12 +41,8 @@ const payload = learnerObject || null;
         card.dataset.learnerAsset = 'precision';
         card.dataset.learnerAssetId = text(row?.id);
         const exact = text(row?.answerHtml || row?.answer_html);
-        const attentionRole = text(row?.attentionRole).toUpperCase();
-        const deferred = attentionRole === 'DEFERRED_MEMORY';
-        const takeaway = attentionRole === 'CURRENT_TAKEAWAY';
         card.dataset.precisionResolution = exact ? 'EXACT' : 'CUE_ONLY';
-        if (attentionRole) card.dataset.attentionRole = attentionRole;
-        if (!deferred && !takeaway) card.append(el('span', 'xv6LearnerAssetLabel', exact ? '精确内容' : '精确记忆提示'));
+        card.append(el('span', 'xv6LearnerAssetLabel', exact ? '精确内容' : '精确记忆提示'));
         if (row?.cue || row?.task) card.append(el('p', '', row?.cue || row?.task));
         if (exact) {
           const answer = el('div', 'markdown xv6LearnerPrecisionExact');
@@ -60,8 +56,8 @@ const payload = learnerObject || null;
         const card = el('div', `xv6LearnerAsset connection ${row?.reserveLearning ? 'reserve' : row?.direction || ''}`);
         card.dataset.learnerAsset = 'connection';
         card.dataset.learnerAssetId = text(row?.id);
-        const label = row?.reserveLearning ? '先留个印象' : row?.direction === 'incoming' ? '串联回看' : '';
-        if (label) card.append(el('span', 'xv6LearnerAssetLabel', label));
+        const label = row?.reserveLearning ? '先留个印象' : row?.direction === 'incoming' ? '你之前见过' : '后面会接';
+        card.append(el('span', 'xv6LearnerAssetLabel', label));
         card.append(el('p', '', row?.cue));
         return card;
       };
@@ -139,18 +135,10 @@ const payload = learnerObject || null;
         card.dataset.learnerAsset = 'extension';
         card.dataset.learnerAssetId = text(asset?.id);
         card.dataset.extensionType = text(asset?.assetType);
-        const assetType = text(asset?.assetType).toUpperCase();
-        const learnerVisual = ['SOURCE_VISUAL', 'REVIEWED_VISUAL'].includes(assetType);
-        if (learnerVisual) {
-          const locator = text(asset?.provenance?.source_locator || asset?.provenance?.sourceLocator);
-          card.append(el('span', 'xv6LearnerAssetLabel', `看原图${locator ? ` · ${locator}` : ''}`));
-          if (asset?.task) card.append(el('p', '', asset.task));
-        } else {
-          card.append(el('span', 'xv6LearnerAssetLabel', assetType.replaceAll('_', ' ')));
-          if (asset?.title) card.append(el('h4', '', asset.title));
-          if (asset?.task) card.append(el('p', '', asset.task));
-        }
-        if (assetType === 'STRUCTURED_TABLE') card.append(renderTable(asset));
+        card.append(el('span', 'xv6LearnerAssetLabel', text(asset?.assetType).replaceAll('_', ' ')));
+        if (asset?.title) card.append(el('h4', '', asset.title));
+        if (asset?.task) card.append(el('p', '', asset.task));
+        if (asset?.assetType === 'STRUCTURED_TABLE') card.append(renderTable(asset));
         else if (asset?.src) {
           const img = el('img', 'xv6LearnerExtensionImage');
           img.src = asset.src;
@@ -158,7 +146,7 @@ const payload = learnerObject || null;
           img.loading = 'lazy';
           card.append(img);
         }
-        if (!learnerVisual && asset?.caption) card.append(el('small', '', asset.caption));
+        if (asset?.caption) card.append(el('small', '', asset.caption));
         return card;
       };
 
@@ -170,19 +158,7 @@ const payload = learnerObject || null;
         return details;
       };
 
-      const renderAttention = (row, stage) => {
-        const timing = text(row?.displayPolicy?.timing).toUpperCase();
-        if (timing === 'LEARN_ONLY' && !['KP_LEARN', 'LOGIC_GROUP_ORIENT'].includes(stage)) return null;
-        if (timing === 'BLOCK_ORIENT' && stage !== 'BLOCK_ORIENT') return null;
-        const card = el('div', 'xv6LearnerAsset attention');
-        card.dataset.learnerAsset = 'attention';
-        card.dataset.learnerAssetId = text(row?.id);
-        if (row?.cue) card.append(el('p', '', row.cue));
-        return card;
-      };
-
       const renderResolvedAsset = (row, family, stage) => {
-        if (family === 'attention') return renderAttention(row, stage);
         const representation = resolveXizongLearnerAssetRepresentation(row, { stage });
         if (!representation.visible) return null;
         let node = null;
@@ -199,66 +175,18 @@ const payload = learnerObject || null;
         return node ? decorateRepresentation(node, representation) : null;
       };
 
-      const presentationSlot = (slot = {}) => {
-        const extensions = array(slot?.extension);
-        const realizedCueIds = new Set(
-          extensions
-            .filter((row) => ['SOURCE_VISUAL', 'REVIEWED_VISUAL'].includes(text(row?.assetType).toUpperCase()))
-            .map((row) => text(row?.cueId))
-            .filter(Boolean)
-        );
-        return {
-          ...slot,
-          visual: array(slot?.visual).filter((row) => !realizedCueIds.has(text(row?.id))),
-          extension: extensions
-        };
-      };
-
-      const ATTENTION_ORDER = ['CURRENT_TAKEAWAY', 'ON_DEMAND_SUPPORT', 'DEFERRED_MEMORY', 'FUTURE_CONNECTION'];
-      const ATTENTION_LABEL = {
-        CURRENT_TAKEAWAY: '本轮带走',
-        ON_DEMAND_SUPPORT: '按需辅助',
-        DEFERRED_MEMORY: '可以后置',
-        FUTURE_CONNECTION: '后面再学 / 串联'
-      };
-      const attentionRoleForAsset = (row, family) => {
-        const explicit = text(row?.attentionRole || row?.attention_role).toUpperCase();
-        if (ATTENTION_ORDER.includes(explicit)) return explicit;
-        if (family === 'connection') {
-          if (row?.direction === 'outgoing' && row?.reserveLearning !== true) return 'FUTURE_CONNECTION';
-          return 'ON_DEMAND_SUPPORT';
-        }
-        return 'ON_DEMAND_SUPPORT';
-      };
-
       const renderSlot = (slot = {}, { stage = 'LEARN' } = {}) => {
         const host = el('div', 'xv6LearnerObjectSurface');
-        const grouped = new Map(ATTENTION_ORDER.map((role) => [role, []]));
         for (const [family, rows] of [
-          ['attention', array(slot?.attention)],
+          ['connection', array(slot?.connection)],
           ['visual', array(slot?.visual)],
           ['precision', array(slot?.precision)],
-          ['extension', array(slot?.extension)],
-          ['connection', array(slot?.connection)]
+          ['extension', array(slot?.extension)]
         ]) {
           rows.forEach((row) => {
             const node = renderResolvedAsset(row, family, stage);
-            if (!node) return;
-            const role = attentionRoleForAsset(row, family);
-            if (node instanceof HTMLElement) node.dataset.attentionRole = role;
-            grouped.get(role)?.push(node);
+            if (node) host.append(node);
           });
-        }
-        for (const role of ATTENTION_ORDER) {
-          const nodes = grouped.get(role) || [];
-          if (!nodes.length) continue;
-          const section = el('section', 'xv6AttentionSection');
-          section.dataset.attentionSection = role;
-          section.append(el('span', 'xv6AttentionSectionLabel', ATTENTION_LABEL[role]));
-          const body = el('div', 'xv6AttentionSectionBody');
-          body.append(...nodes);
-          section.append(body);
-          host.append(section);
         }
         return host;
       };
@@ -272,7 +200,7 @@ const payload = learnerObject || null;
           });
         }
         if (representations.some((kind) => ['SOURCE_VISUAL', 'REVIEWED_VISUAL', 'STRUCTURED_TABLE'].includes(kind))) return 'rich';
-        if (representations.length || array(slot?.attention).length) return 'light';
+        if (representations.length) return 'light';
         return 'none';
       };
 
@@ -318,10 +246,6 @@ const payload = learnerObject || null;
       const activeGroup = () => groups[activeGroupIndex()] || groups[0] || null;
       const activeRecallCard = () => root.querySelector('[data-kp-recall-card]:not([hidden])');
       const activeRecallKpId = () => activeRecallCard()?.getAttribute('data-kp-id') || '';
-      const visibleCompanionKp = (stageName) => {
-        const frame = root.querySelector(`[data-learner-kp-companion="${stageName}"][data-kp-id]`);
-        return kpById.get(frame?.getAttribute('data-kp-id') || '') || null;
-      };
       const recallAnswerVisible = () => {
         const answer = activeRecallCard()?.querySelector('[data-kp-answer]');
         return Boolean(answer && !answer.hasAttribute('hidden'));
@@ -336,21 +260,7 @@ const payload = learnerObject || null;
         // outgoing connections are not moved earlier merely because a KP is revealed.
         return { extension: slot.extension || [], precision: closed ? slot.precision || [] : [], connection: closed ? slot.connection || [] : [] };
       };
-      const sourceCompanionIds = () => {
-        if (root.hasAttribute('data-source-companion-kp-ids')) {
-          try {
-            const ids = JSON.parse(root.dataset.sourceCompanionKpIds || '[]');
-            if (Array.isArray(ids)) return ids.map(String).filter((id) => kpById.has(id));
-          } catch {}
-          return [];
-        }
-        return allKps.map((kp) => String(kp?.identity?.kpId || '')).filter(Boolean);
-      };
-      const sourceCompanionKp = () => {
-        const ids = sourceCompanionIds();
-        const kpId = ids[Math.max(0, Math.min(ids.length - 1, sourceLearnIndex))] || ids[0] || '';
-        return kpById.get(kpId) || null;
-      };
+      const sourceCompanionKp = () => allKps[Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex))] || allKps[0] || null;
       const groupCompanionIds = () => array(activeGroup()?.kpIds);
       const groupCompanionKp = () => {
         const ids = groupCompanionIds();
@@ -358,50 +268,23 @@ const payload = learnerObject || null;
         return kpById.get(kpId) || null;
       };
 
-      const activeKpHeader = root.querySelector('[data-study-active-kp]');
-      const compactSourceLocator = (value) => text(value)
-        .replace(/^生理\s+Lecture\s+PDF\s*/i, '')
-        .replace(/^Lecture\s+PDF\s*/i, '')
-        .trim();
-      const compactOutlineLocator = (value) => {
-        const normalized = text(value)
-          .replace(/^生理\s+/i, '')
-          .replace(/｜/g, ' · ')
-          .trim();
-        if (!normalized || /^NONE\b/i.test(normalized)) return '';
-        if (/\bIntegration Block\b|\bLecture-derived Primary\b/i.test(normalized)) return '';
-        return normalized;
-      };
-      const renderActiveKpHeader = (kp, index, total, stageName) => {
-        if (!(activeKpHeader instanceof HTMLElement) || !kp) return;
-        const identity = el('strong', 'portedStudyActiveKpTitle', `${kp?.identity?.displayId || ''} · ${kp?.identity?.title || ''}`);
-        const meta = el('div', 'portedStudyActiveKpMeta');
-        const sourceLocator = compactSourceLocator(kp?.source?.locator || '');
-        const outlineLocator = compactOutlineLocator(kp?.outline?.locator || '');
-        const blockSource = compactSourceLocator(root.dataset.blockPrimarySource || '');
-        const blockOutline = compactOutlineLocator(root.dataset.blockOutlinePrimary || '');
-        if (sourceLocator) meta.append(el('span', '', `讲义 ${sourceLocator}`));
-        else meta.append(el('span', '', blockSource ? `讲义范围 ${blockSource} · 当前 KP 暂无精确定位` : '讲义 · 当前 KP 暂无精确定位'));
-        if (outlineLocator) meta.append(el('span', '', `Outline ${outlineLocator}`));
-        else if (blockOutline) meta.append(el('span', '', `Outline 范围 ${blockOutline} · 当前 KP 暂无精确定位`));
+      const renderCompanionCard = (host, kp, index, total, stageName) => {
+        host.replaceChildren();
+        if (!kp) return;
+        const frame = el('section', 'xv6KpLearnCompanion');
+        frame.dataset.learnerKpCompanion = stageName;
+        frame.dataset.kpId = text(kp?.identity?.kpId);
+        const top = el('header', 'xv6KpLearnCompanionHeader');
+        const identity = el('div');
+        identity.append(el('span', '', 'KP Learn · Lecture companion'));
+        identity.append(el('strong', '', `${kp?.identity?.displayId || ''} · ${kp?.identity?.title || ''}`));
         const nav = el('div', 'xv6KpLearnNav');
         const prev = el('button', '', '‹'); prev.type = 'button'; prev.dataset.companionPrev = stageName; prev.disabled = index <= 0;
         const count = el('em', '', `${index + 1}/${Math.max(1, total)}`);
         const next = el('button', '', '›'); next.type = 'button'; next.dataset.companionNext = stageName; next.disabled = index >= total - 1;
         nav.append(prev, count, next);
-        activeKpHeader.replaceChildren(identity, meta, nav);
-      };
-
-      const renderCompanionCard = (host, kp, index, total, stageName) => {
-        host.replaceChildren();
-        if (!kp) {
-          if (activeKpHeader instanceof HTMLElement && activeStage() === stageName) activeKpHeader.replaceChildren();
-          return;
-        }
-        renderActiveKpHeader(kp, index, total, stageName);
-        const frame = el('section', 'xv6KpLearnCompanion');
-        frame.dataset.learnerKpCompanion = stageName;
-        frame.dataset.kpId = text(kp?.identity?.kpId);
+        top.append(identity, nav);
+        frame.append(top);
 
         if (kp?.prompt?.canonical) {
           const prompt = el('div', 'xv6KpLearnPrompt');
@@ -409,6 +292,11 @@ const payload = learnerObject || null;
           prompt.append(el('p', '', kp.prompt.canonical));
           frame.append(prompt);
         }
+        const locators = el('div', 'xv6KpLearnLocators');
+        if (kp?.source?.locator) locators.append(el('span', '', `Lecture · ${kp.source.locator}`));
+        if (kp?.outline?.locator) locators.append(el('span', '', `Outline · ${kp.outline.locator}`));
+        if (locators.childElementCount) frame.append(locators);
+
         const core = el('div', 'markdown xv6KpLearnCore');
         core.dataset.learnerKpCore = text(kp?.identity?.kpId);
         core.innerHTML = kp?.core?.html || '';
@@ -440,17 +328,13 @@ const payload = learnerObject || null;
         const footerText = groupLearnStage.querySelector(':scope > footer > span');
         if (footerText) footerText.textContent = '在原讲义连续完成这一学习节；中间可切 KP Learn 伴读，但不要求来回切 App。';
         const done = groupLearnStage.querySelector('[data-group-lecture-done]');
-        if (done) done.textContent = '这一节原讲义已完成';
+        if (done) done.textContent = '这一节原讲义已完成，开始 Recall';
       }
 
       const renderCompanions = () => {
         if (sourceCompanionHost) {
-          const sourceIds = sourceCompanionIds();
-          if (sourceStage instanceof HTMLElement) {
-            sourceStage.dataset.sourceCompanion = sourceIds.length ? 'kp' : 'source-only';
-          }
-          sourceLearnIndex = Math.max(0, Math.min(Math.max(0, sourceIds.length - 1), sourceLearnIndex));
-          renderCompanionCard(sourceCompanionHost, sourceCompanionKp(), sourceLearnIndex, sourceIds.length, 'source_contact');
+          sourceLearnIndex = Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex));
+          renderCompanionCard(sourceCompanionHost, sourceCompanionKp(), sourceLearnIndex, allKps.length, 'source_contact');
         }
         const group = activeGroup();
         const groupId = group?.identity?.logicGroupId || '';
@@ -464,7 +348,7 @@ const payload = learnerObject || null;
       };
 
       const mergeSlots = (...slots) => {
-        const families = ['attention', 'connection', 'visual', 'precision', 'extension'];
+        const families = ['connection', 'visual', 'precision', 'extension'];
         const merged = {};
         for (const family of families) {
           const seen = new Set();
@@ -481,15 +365,6 @@ const payload = learnerObject || null;
         return merged;
       };
 
-      const groupPrelearnForKp = (kp) => {
-        const groupId = kp?.identity?.logicGroupId || '';
-        if (!groupId) return {};
-        const group = groups.find((row) => row?.identity?.logicGroupId === groupId);
-        const firstKpId = array(group?.kpIds)[0] || '';
-        if (firstKpId !== kp?.identity?.kpId) return {};
-        return learner.slots?.logicGroupPrelearn?.[groupId] || {};
-      };
-
       const renderAux = () => {
         if (!(auxSurface instanceof HTMLElement) || !(auxHost instanceof HTMLElement)) return;
         const stage = activeStage();
@@ -501,24 +376,21 @@ const payload = learnerObject || null;
           slotName = 'block_orientation';
           representationStage = 'BLOCK_ORIENT';
           title = 'Block 辅助';
-          slot = {
-            attention: array(learner.slots?.blockAttention),
-            extension: array(learner.slots?.blockOrientation)
-          };
+          slot = { extension: array(learner.slots?.blockOrientation) };
         } else if (stage === 'source_contact') {
-          const kp = visibleCompanionKp('source_contact') || sourceCompanionKp();
+          const kp = sourceCompanionKp();
           slotName = 'kp_learn_aux';
           representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
-          slot = mergeSlots(groupPrelearnForKp(kp), learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {});
+          slot = mergeSlots(learner.slots?.logicGroupPrelearn?.[kp?.identity?.logicGroupId] || {}, learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {});
         } else if (stage === 'kp_learn') {
-          const kp = visibleCompanionKp('kp_learn') || groupCompanionKp();
-          const groupId = kp?.identity?.logicGroupId || groupIds[activeGroupIndex()] || '';
+          const kp = groupCompanionKp();
+          const groupId = groupIds[activeGroupIndex()] || '';
           slotName = 'kp_learn_aux';
           representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
           slot = mergeSlots(
-            groupPrelearnForKp(kp),
+            learner.slots?.logicGroupPrelearn?.[groupId] || {},
             learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {}
           );
         } else if (stage === 'logic_group') {
@@ -535,16 +407,16 @@ const payload = learnerObject || null;
           representationStage = recallAnswerVisible() ? 'KP_RECALL_REVEAL' : 'KP_RECALL_FRONT';
           title = kp ? `${kp.identity.displayId} · 当前辅助` : '当前辅助';
           slot = mergeSlots(
+            learner.slots?.logicGroupPrelearn?.[groupId] || {},
             learner.slots?.kpRecallContext?.[kpId] || learner.slots?.kpLearnAux?.[kpId] || {},
             recallAnswerVisible() ? postlearnForGroup(groupId) : {}
           );
         }
-        const displaySlot = presentationSlot(slot);
-        const rendered = renderSlot(displaySlot, { stage: representationStage });
+        const rendered = renderSlot(slot, { stage: representationStage });
         auxHost.dataset.learnerObjectSlot = slotName;
         auxHost.dataset.representationStage = representationStage;
         auxHost.replaceChildren(...rendered.childNodes);
-        const weight = resolvedSlotWeight(displaySlot, representationStage);
+        const weight = resolvedSlotWeight(slot, representationStage);
         root.dataset.auxWeight = weight;
         auxSurface.hidden = auxHost.childElementCount === 0;
         if (auxTitle) auxTitle.textContent = title;
@@ -562,16 +434,8 @@ const payload = learnerObject || null;
         if (!prev && !next) return;
         const stageName = (prev || next)?.getAttribute(prev ? 'data-companion-prev' : 'data-companion-next') || '';
         const delta = next ? 1 : -1;
-        if (stageName === 'source_contact') {
-          const ids = sourceCompanionIds();
-          sourceLearnIndex = Math.max(0, Math.min(Math.max(0, ids.length - 1), sourceLearnIndex + delta));
-        }
+        if (stageName === 'source_contact') sourceLearnIndex = Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex + delta));
         if (stageName === 'kp_learn') groupLearnIndex = Math.max(0, Math.min(groupCompanionIds().length - 1, groupLearnIndex + delta));
-        rerender();
-      });
-
-      root.addEventListener('kianos:xizong-source-scope-change', () => {
-        sourceLearnIndex = 0;
         rerender();
       });
 
@@ -587,3 +451,20 @@ const payload = learnerObject || null;
 
   });
 </script>
+
+<style is:global>
+  .xv6LearnerObjectSurface{display:grid;gap:.55rem;margin:0}.xv6LearnerObjectSurface:empty{display:none}
+  .xv6LearnerAsset{display:grid;grid-template-columns:112px minmax(0,1fr);gap:.55rem;align-items:start;padding:.48rem 0;border-top:1px solid var(--line,#d9dde5)}
+  .xv6LearnerAsset:first-child{border-top:0}.xv6LearnerAssetLabel{font-size:.72rem;font-weight:800;opacity:.68}.xv6LearnerAsset p{margin:0;font-size:.86rem;line-height:1.55}
+  .xv6LearnerAsset.support{grid-template-columns:104px minmax(0,1fr);padding:.55rem 0;border-top:1px solid var(--line,#d9dde5);background:transparent}
+  .xv6LearnerAsset.precision{grid-template-columns:104px minmax(0,1fr);padding:.58rem 0;border-top:1px solid var(--line,#d9dde5);background:transparent}
+  .xv6LearnerAsset.connection{grid-template-columns:104px minmax(0,1fr);padding:.5rem 0;border-top:1px solid var(--line,#d9dde5);background:transparent}
+  .xv6LearnerAsset.visual,.xv6LearnerAsset.extension.representation-source_visual,.xv6LearnerAsset.extension.representation-reviewed_visual,.xv6LearnerAsset.extension.representation-structured_table{padding:.65rem .72rem;border:1px solid var(--line,#d9dde5);border-radius:10px;background:var(--soft,#f5f6f8)}
+  .xv6LearnerAsset.visual,.xv6LearnerAsset.extension{grid-template-columns:1fr}.xv6LearnerAsset.extension h4{margin:0;font-size:.96rem}.xv6LearnerAsset.extension small{opacity:.65;line-height:1.45}
+  .xv6LearnerVisualGallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.xv6LearnerVisualGallery figure{margin:0;border:1px solid var(--line,#d9dde5);border-radius:9px;overflow:hidden;background:#fff}.xv6LearnerVisualGallery figure.primary{grid-column:1/-1}.xv6LearnerVisualGallery img{display:block;width:100%;height:auto;max-height:380px;object-fit:contain}.xv6LearnerVisualGallery figure.primary img{max-height:520px}.xv6LearnerVisualGallery figcaption{padding:.4rem .5rem;border-top:1px solid var(--line,#d9dde5);font-size:.72rem;font-weight:700;opacity:.7}
+  .xv6LearnerExtensionImage{display:block;max-width:100%;height:auto;border-radius:8px}.xv6LearnerTableWrap{overflow:auto}.xv6LearnerTable{width:100%;min-width:32rem;border-collapse:collapse;font-size:.84rem}.xv6LearnerTable th,.xv6LearnerTable td{padding:.45rem .55rem;border:1px solid var(--line,#d9dde5);text-align:left;vertical-align:top}.xv6LearnerTable tr.emphasis td{font-weight:700}.xv6LearnerReference summary{cursor:pointer;font-weight:700}
+  .xv6LearnerAuxSurface{display:flex;flex:1 1 auto;min-height:0;flex-direction:column;overflow:hidden;border-bottom:1px solid var(--study-line,var(--line,#d9dde5));background:#fff}.xv6LearnerAuxSurface[hidden]{display:none}.xv6LearnerAuxSurface>header{flex:0 0 auto;padding:9px 11px;border-bottom:1px solid var(--study-line,var(--line,#d9dde5));background:var(--soft,#f5f6f8)}.xv6LearnerAuxSurface>header span{display:block;font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;opacity:.6}.xv6LearnerAuxSurface>header strong{display:block;margin-top:2px;font-size:13px}.xv6LearnerAuxBody{flex:1 1 auto;min-height:0;overflow:auto;padding:9px 10px;overscroll-behavior:contain}.xv6LearnerAuxHost{min-height:0}
+  .xv6KpLearnCompanionHost{min-height:0}.xv6KpLearnCompanion{display:flex;min-height:0;flex-direction:column;gap:10px}.xv6KpLearnCompanionHeader{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:9px;border-bottom:1px solid var(--line,#d9dde5)}.xv6KpLearnCompanionHeader>div:first-child{display:grid;gap:2px}.xv6KpLearnCompanionHeader span{font-size:.7rem;font-weight:800;letter-spacing:.04em;color:var(--study-green,#286c57)}.xv6KpLearnCompanionHeader strong{font-size:1rem}.xv6KpLearnNav{display:flex!important;align-items:center;gap:7px}.xv6KpLearnNav button{min-width:32px;height:32px;border:1px solid var(--line,#d9dde5);border-radius:8px;background:#fff}.xv6KpLearnNav em{font-size:.76rem;font-style:normal;opacity:.6}.xv6KpLearnPrompt{padding:10px 12px;border-left:3px solid var(--study-green,#286c57);background:var(--soft,#f5f6f8)}.xv6KpLearnPrompt span{font-size:.68rem;font-weight:800;opacity:.6}.xv6KpLearnPrompt p{margin:4px 0 0;font-size:.96rem;line-height:1.65;font-weight:650}.xv6KpLearnLocators{display:flex;flex-wrap:wrap;gap:6px}.xv6KpLearnLocators span{padding:4px 7px;border-radius:7px;background:var(--soft,#f5f6f8);font-size:.72rem;opacity:.72}.xv6KpLearnCore{min-height:0;overflow:auto;padding-right:8px;overscroll-behavior:contain}.xv6KpLearnCore>:first-child{margin-top:0}.xv6KpLearnCore>:last-child{margin-bottom:0}.xv6KpLearnCompanionNote{padding-top:8px;border-top:1px dashed var(--line,#d9dde5);font-size:.72rem;line-height:1.55;opacity:.62}
+  .xv6LearnerObjectActive .xv6LearnerCompanionStage>.xv6LectureFirst,.xv6LearnerObjectActive [data-study-stage="source_contact"].xv6LearnerCompanionStage>.xv6SourceRules,.xv6LearnerObjectActive [data-study-stage="kp_learn"].xv6LearnerCompanionStage>.xv6GroupKpMap{display:none}
+  @media(max-width:1100px){.xv6LearnerAsset{grid-template-columns:1fr;gap:.2rem}.xv6LearnerVisualGallery{grid-template-columns:1fr}.xv6LearnerVisualGallery figure.primary{grid-column:auto}.xv6LearnerVisualGallery img,.xv6LearnerVisualGallery figure.primary img{max-height:none}.xv6LearnerAuxSurface{display:none!important}.xv6KpLearnCore{overflow:visible}}
+</style>

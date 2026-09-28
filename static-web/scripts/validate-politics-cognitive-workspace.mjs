@@ -67,10 +67,8 @@ for (const fastPath of [
   '20 秒闭卷收口（可选）',
   "setWorkspaceState(unit, 'RECALL')"
 ]) requireText(bridge, fastPath, 'score-first workspace bridge');
-requireText(component, "url.searchParams.set('learnedScope', 'confirmed')", 'recall-to-Workbench learned handoff');
-requireText(component, "window.location.assign(\`\${url.pathname}\${url.search}\${url.hash}\`)", 'recall-to-Workbench bounded navigation');
-requireText(explicitBehavior, "url.searchParams.set('learnedScope', 'confirmed')", 'direct-to-Workbench learned handoff');
-requireText(explicitBehavior, "window.location.assign(\`\${url.pathname}\${url.search}\${url.hash}\`)", 'direct-to-Workbench bounded navigation');
+requireText(component, "window.location.assign(href)", 'recall-to-Workbench fast path');
+requireText(explicitBehavior, "window.location.assign(href)", 'direct-to-Workbench fast path');
 
 // Shell behavior remains stable; representation choice is now purpose-first.
 for (const shellRule of [

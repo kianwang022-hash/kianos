@@ -126,8 +126,8 @@ const { task = '' } = Astro.props;
       panel.innerHTML = `
         <div class="objectiveTransferHead">
           <div>
-            <span>兼容回写 · 可选</span>
-            <strong data-transfer-title>Chat 返回状态</strong>
+            <span>可选深复盘</span>
+            <strong data-transfer-title>Chat 复盘结果</strong>
           </div>
           <button type="button" data-transfer-toggle>应用 Chat 返回</button>
         </div>
@@ -150,14 +150,11 @@ const { task = '' } = Astro.props;
       const attempt = readAttempt();
       const pending = activeClaimsFor(task);
       const savedReturn = readJson(reviewKey, null);
-      const handoff = readHandoff();
       const problems = problemCount(attempt);
 
-      // Internal transfer state is not a default review step. A problem alone
-      // does not justify surfacing Chat-return import or pending backend claims.
-      // Show this compatibility surface only after explicit Chat escalation for
-      // this exact object, or when this object already has a saved return.
-      node.hidden = !attempt?.submitted || problems === 0 || (!handoff && !savedReturn);
+      // Pending backend claims do not create a learner-facing task on a clean attempt.
+      // This panel exists only inside an already-justified problem/deep-review path.
+      node.hidden = !attempt?.submitted || problems === 0;
       if (node.hidden) return;
 
       const title = node.querySelector('[data-transfer-title]');
@@ -405,7 +402,6 @@ const { task = '' } = Astro.props;
     });
     node.querySelector('[data-transfer-apply]')?.addEventListener('click', applyReturn);
 
-    root.addEventListener('kianos:objective-handoff-created', render);
     if (readingMode) {
       root.addEventListener('click', () => window.setTimeout(render, 0));
     } else {

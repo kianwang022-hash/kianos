@@ -49,20 +49,19 @@ const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u00
       if (externalCatalogLoaded) return catalog;
       externalCatalogLoaded = true;
       try {
-        const [externalResponse,generatedResponse] = await Promise.all([
-          fetch('/__kianos-private/external-reading/catalog', { cache: 'no-store' }),
-          fetch('/__kianos-private/english-generated/catalog', { cache: 'no-store' })
-        ]);
-        const rows=[];
-        if(externalResponse.ok){
-          const data=await externalResponse.json();
-          rows.push(...(data.collections||[]).flatMap(group=>group.passages||[]).map(row=>({task:'external_reading',object_id:row.object_id,source_hash:row.content_hash,label:row.title||row.object_id,study_day:row.study_day||null,origin:row.origin||null})));
+        const response = await fetch('/__kianos-private/external-reading/catalog', { cache: 'no-store' });
+        if (response.ok) {
+          const data = await response.json();
+          const rows = (data.collections || []).flatMap(group => group.passages || []).map(row => ({
+            task: 'external_reading',
+            object_id: row.object_id,
+            source_hash: row.content_hash,
+            label: row.title || row.object_id,
+            study_day: row.study_day || null,
+            origin: row.origin || null
+          }));
+          catalog = [...catalog, ...rows];
         }
-        if(generatedResponse.ok){
-          const data=await generatedResponse.json();
-          rows.push(...(data.rows||[]).filter(row=>row.task!=='external_reading'));
-        }
-        catalog=[...catalog,...rows];
       } catch {}
       return catalog;
     };

@@ -76,19 +76,6 @@ const base = import.meta.env.BASE_URL;
       return true;
     };
 
-    const fetchAnswerPayload = async () => {
-      const options = { headers: { Accept: 'application/json' } };
-      let response = await fetch(answerUrl, options);
-      // Published static delivery owns the canonical no-slash JSON path.
-      // Astro dev with trailingSlash=always exposes endpoint routes with a
-      // trailing slash; retry only a 404 so Stable behavior stays unchanged.
-      if (response.status === 404 && !answerUrl.endsWith('/')) {
-        response = await fetch(answerUrl + '/', options);
-      }
-      if (!response.ok) throw new Error(`answer ${response.status}`);
-      return response.json();
-    };
-
     const loadAnswers = async () => {
       const activeExam=readEnglishExamSession(localStorage);
       if(root.dataset.englishReadonly==='true' || (activeExam&&activeExam.status!=='RELEASED'&&activeExam.steps.some(s=>s.object_id===readingKey)))return false;
@@ -100,7 +87,11 @@ const base = import.meta.env.BASE_URL;
         submit.textContent = 'Submitting…';
       }
 
-      loading = fetchAnswerPayload()
+      loading = fetch(answerUrl, { headers: { Accept: 'application/json' } })
+        .then((response) => {
+          if (!response.ok) throw new Error(`answer ${response.status}`);
+          return response.json();
+        })
         .then(applyAnswers)
         .catch(() => false)
         .finally(() => {

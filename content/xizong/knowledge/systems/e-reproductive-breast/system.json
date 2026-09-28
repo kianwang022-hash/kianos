@@ -174,167 +174,157 @@
     ],
     "rule": "Build only what current physiology/pathology/surgery Source and reviewed external-owner interfaces support. Missing or version-sensitive clinical detail stays explicit rather than being repaired from model prior."
   },
-  "mission": "把随时间变化的生殖内分泌控制与组织状态放在同一张图里，再用细胞/组织谱系、位置、屏障完整性、播散、证据和治疗目标解释器官特异的生殖与乳腺疾病；不在这里扩写成一套完整的妇产科或生殖临床课程。",
+  "mission": "Coordinate time-dependent reproductive endocrine control and tissue state, then explain organ-specific reproductive/breast disease through cell/tissue lineage, location, barrier integrity, spread, evidence and treatment objective without inventing a complete obstetrics/gynecology or reproductive-clinical curriculum.",
   "mental_model": {
     "shape": "TWO_COUPLED_TRUNKS_WITH_LOCAL_BRANCHES",
-    "control_time_trunk": "控制信号 → 性腺细胞/配子输出 → 周期性靶组织状态 → 妊娠接力 → 泌乳产生/射出",
-    "tissue_identity_trunk": "正常解剖区室/细胞谱系 → 位置、类型、生长或流动状态改变 → 分开判断屏障/间质突破与局部、区域、远处播散 → 证据、分期、受体 → 治疗目标",
-    "coupling_rule": "激素和生命阶段会改变组织状态与风险，但不会抹掉器官/谱系特异的疾病身份；不要把所有病理变化都硬塞进一条内分泌因果链。"
+    "control_time_trunk": "controller signal → gonadal cell/gamete output → cyclic target state → pregnancy relay → lactation production/ejection",
+    "tissue_identity_trunk": "normal compartment/lineage → location/type/growth/flow-state change → separately assess barrier or stromal breach and local/regional/distant dissemination → evidence/stage/receptor → treatment objective",
+    "coupling_rule": "Hormones and life stage alter tissue state and risk, but do not erase organ/lineage-specific disease identity. Do not force every pathology onto one endocrine causal chain."
   },
   "core_variables": [
     {
       "id": "CONTROL_LAYER",
-      "meaning": "下丘脑 / 垂体 / 性腺或乳腺效应层",
-      "label": "控制层"
+      "meaning": "hypothalamus / pituitary / gonadal-or-breast effector level"
     },
     {
       "id": "TIME_PHASE",
-      "meaning": "青春期、卵泡期/黄体期、妊娠接力、产后/泌乳以及生命阶段带来的激素来源变化",
-      "label": "时间阶段"
+      "meaning": "puberty, follicular/luteal cycle, pregnancy relay, postpartum/lactation and life-stage source shifts"
     },
     {
       "id": "CELL_LINEAGE",
-      "meaning": "生殖细胞、支持细胞、间质、上皮、滋养层、乳腺导管-小叶-肌上皮等身份",
-      "label": "细胞 / 组织谱系"
+      "meaning": "germ/support/stromal/epithelial/trophoblastic/breast duct-lobule-myoepithelial identity"
     },
     {
       "id": "HORMONE_STATE",
-      "meaning": "FSH/LH、性激素、抑制素、hCG、PRL、OT 以及相关受体/反馈状态",
-      "label": "激素状态"
+      "meaning": "FSH/LH, sex steroids, inhibin, hCG, PRL, OT and relevant receptor/feedback state"
     },
     {
       "id": "LOCATION_COMPARTMENT",
-      "meaning": "正常或异位位置，以及导管、小叶、宫颈、内膜、肌层、卵巢、睾丸或液体区室",
-      "label": "位置 / 区室"
+      "meaning": "normal vs ectopic location, duct/lobule/cervix/endometrium/myometrium/ovary/testis or fluid compartment"
     },
     {
       "id": "BARRIER_INVASION",
-      "meaning": "表面、基底膜、间质、肌层、血管等结构边界是否完整或被突破；与转移能力分开判断",
-      "label": "屏障 / 浸润"
+      "meaning": "surface/basement membrane/stroma/myometrium/vessel or other structural boundary intact vs breached; assessed separately from metastatic competence"
     },
     {
       "id": "TRANSPORT_DRAINAGE",
-      "meaning": "配子通行、鞘状突闭合、乳汁引流与源控制是否通畅",
-      "label": "运输 / 引流"
+      "meaning": "gamete passage, processus vaginalis closure, milk drainage and source-control patency"
     },
     {
       "id": "EVIDENCE_LAYER",
-      "meaning": "形态、影像、病理、标志物/受体和分期证据各自回答什么问题",
-      "label": "证据层"
+      "meaning": "morphology, imaging, pathology, marker/receptor and staging evidence roles"
     },
     {
       "id": "SPREAD_EXTENT",
-      "meaning": "局部、区域淋巴或远处/血行播散范围，以当前原讲义支持为限",
-      "label": "播散范围"
+      "meaning": "local, regional lymphatic or distant/hematogenous extent where Current Source supports it"
     },
     {
       "id": "TREATMENT_OBJECTIVE",
-      "meaning": "恢复生理或引流、源控制、局部控制、区域控制或系统性克隆控制",
-      "label": "治疗目标"
+      "meaning": "restore physiology/drainage, source control, local control, regional control or systemic clone control"
     }
   ],
   "core_relations": [
-    "控制信号与靶细胞身份共同决定生殖输出；激素名称不是一张平铺清单。",
-    "周期和妊娠题必须显式保留时间顺序：撤退、募集、优势、排卵、黄体状态、hCG 接力、胎盘接管。",
-    "正常组织身份是判断病理的参照系：位置改变、细胞类型改变、增生、异型和浸润是不同操作。",
-    "屏障或间质是否被突破，比许多表面标签更能改变疾病身份；只有当前原讲义明确支持时才进入完整临床分期。",
-    "屏障/间质突破与转移能力是两个独立变量：局部浸润不等于已经发生区域或远处播散；E6 侵蚀性葡萄胎是明确反例。",
-    "肿瘤分类先看器官/组织谱系，再看形态、标志物/受体和证据；不能压成一张通用肿瘤表。",
-    "乳汁产生、乳汁射出、乳汁引流是三个不同变量；淤积叠加感染时，问题转为源控制。",
-    "乳腺癌要把病理身份（E12）、临床范围/证据/受体身份（E13）和治疗目标（E14）前后连接，而不是彼此重复。",
-    "跨系统知识回到相应系统调用：内分泌/肿瘤语言、感染/HPV、泌尿/前列腺等在 E 中只作为接口，不再复制成第二套主体。"
+    "Control signal plus target-cell identity determines reproductive output; hormone names are not a flat list.",
+    "Cycle and pregnancy questions require explicit time order: withdrawal/recruitment/dominance/ovulation/luteal state/hCG relay/placental takeover.",
+    "Normal tissue identity is the reference frame for pathology: location change, cell-type change, hyperplasia, atypia and invasion are different operations.",
+    "Barrier or stromal breach changes disease identity more decisively than many surface labels; full clinical staging is owned only where Current Source supports it.",
+    "Barrier/stromal breach and metastatic competence are separate variables: local invasion does not itself imply regional or distant spread; E6 invasive mole is the explicit Current counterexample.",
+    "Tumor classification begins with organ/tissue lineage, then morphology/marker/receptor/evidence; it must not be collapsed into one generic tumor table.",
+    "Milk production, milk ejection and milk drainage are three distinct variables; stasis plus infection changes the problem to source control.",
+    "Breast cancer progresses across pathology identity (E12), clinical extent/evidence/receptor identity (E13) and treatment objective (E14); those owners should connect without duplicating one another.",
+    "Cross-System knowledge is recalled through the true owner: endocrine/tumor language, infection/HPV, urinary/prostate and other shared concepts are interfaces, not duplicate E Primary."
   ],
   "failure_modes": [
     {
       "id": "FM1",
-      "label": "控制/反馈层混淆",
+      "label": "control/feedback layer confusion",
       "examples": [
-        "把 FSH/LH 当成终末性激素",
-        "把 PRL 产乳与 OT 射乳混为一谈"
+        "treat FSH/LH as terminal sex hormones",
+        "mix PRL production with OT ejection"
       ]
     },
     {
       "id": "FM2",
-      "label": "时间顺序塌缩",
+      "label": "time-order collapse",
       "examples": [
-        "混淆卵泡期、黄体期和妊娠期的激素来源",
-        "忽略 hCG → 黄体 → 胎盘的接力"
+        "mix follicular/luteal/pregnancy source",
+        "ignore hCG→corpus-luteum→placenta relay"
       ]
     },
     {
       "id": "FM3",
-      "label": "细胞谱系混淆",
+      "label": "cell-lineage confusion",
       "examples": [
-        "混淆 Sertoli、Leydig 与生殖细胞角色",
-        "混淆卵巢上皮、生殖细胞和性索间质谱系"
+        "mix Sertoli/Leydig/germ-cell roles",
+        "mix ovarian epithelial/germ-cell/sex-cord lineages"
       ]
     },
     {
       "id": "FM4",
-      "label": "位置、类型与组织缺失混淆",
+      "label": "location-vs-type-vs-loss confusion",
       "examples": [
-        "把宫颈柱状上皮外移、化生与真正上皮缺损混为一谈",
-        "把子宫内膜异位症/腺肌病与肿瘤性生长混为一谈"
+        "cervical ectopy vs metaplasia vs true epithelial defect",
+        "endometriosis/adenomyosis vs neoplastic growth"
       ]
     },
     {
       "id": "FM5",
-      "label": "增生与浸润混淆",
+      "label": "proliferation-vs-invasion confusion",
       "examples": [
-        "把增生/异型与癌混为一谈",
-        "把原位与浸润性宫颈/乳腺病变混为一谈"
+        "hyperplasia/atypia vs carcinoma",
+        "in-situ vs invasive cervical/breast disease"
       ]
     },
     {
       "id": "FM6",
-      "label": "滋养层结构混淆",
+      "label": "trophoblastic-structure confusion",
       "examples": [
-        "忽略绒毛有无这一关键结构",
-        "混淆葡萄胎、侵蚀性葡萄胎、绒癌和 PSTT"
+        "villus present/absent",
+        "mole vs invasive mole vs choriocarcinoma vs PSTT"
       ]
     },
     {
       "id": "FM7",
-      "label": "运输/引流/源控制失败",
+      "label": "transport/drainage/source-control failure",
       "examples": [
-        "忽略鞘状突相关液体通路",
-        "忽略乳汁淤积 → 乳腺炎 → 脓肿的引流/源控制链"
+        "processus-vaginalis fluid state",
+        "milk stasis→mastitis→abscess"
       ]
     },
     {
       "id": "FM8",
-      "label": "证据作用混淆",
+      "label": "evidence-role collapse",
       "examples": [
-        "用单一影像或标志物直接定诊断",
-        "把病理身份、TNM 范围和受体亚型混成一层"
+        "use one image/marker as diagnosis",
+        "confuse pathology identity with TNM or receptor subtype"
       ]
     },
     {
       "id": "FM9",
-      "label": "越过版本边界",
+      "label": "version-boundary overreach",
       "examples": [
-        "静默用外部现代指南替换当前学习分期/治疗口径",
-        "补写当前原讲义没有支持的完整妇科临床路径"
+        "replace Study staging/treatment with external modern guideline",
+        "invent unsupported gynecology clinical pathways"
       ]
     },
     {
       "id": "FM10",
-      "label": "跨系统重复讲授",
+      "label": "owner duplication",
       "examples": [
-        "把前列腺内容重新建在 E 下面",
-        "重复建立 HPV/感染或肿瘤共性知识"
+        "rebuild prostate under E",
+        "duplicate generic HPV/infection or tumor-general truth"
       ]
     }
   ],
   "judgment_axes": [
-    "当前问题归属：这是 E 主体、跨系统调用，还是明确的原讲义缺口？",
-    "控制层：问题在上游控制、垂体接力、性腺/乳腺效应层，还是靶组织？",
-    "时间：当前处于哪个周期、生命阶段、妊娠或泌乳阶段？",
-    "谱系：哪一种正常细胞/组织谱系正在发生改变？",
-    "变化类型：是位置改变、化生、增生、异型、浸润、梗阻/淤积，还是感染？",
-    "边界：哪一层结构屏障或区室仍完整，哪一层已经被突破？",
-    "证据：哪项观察用于确认身份，哪项用于判断范围，哪项决定受体/治疗相关性？",
-    "治疗目标：当前是恢复生理/引流、源控制、局部/区域控制，还是系统性控制？"
+    "source/owner: is this E Primary, Recall interface or explicit Source Gap?",
+    "control layer: controller, pituitary relay, gonadal/breast effector or target tissue?",
+    "time: which cycle/life/pregnancy/lactation phase?",
+    "lineage: which normal cell/tissue lineage is changing?",
+    "operation: location change, metaplasia, hyperplasia, atypia, invasion, obstruction/stasis or infection?",
+    "boundary: which structural barrier/compartment is intact or breached?",
+    "evidence: which observation establishes identity vs extent vs receptor/treatment relevance?",
+    "treatment objective: physiology/drainage/source control/local/regional/systemic control?"
   ],
   "block_families": [
     {

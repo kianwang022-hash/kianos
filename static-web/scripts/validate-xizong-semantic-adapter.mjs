@@ -8,10 +8,7 @@ const systemIds = [
   'respiratory',
   'urinary',
   'digestive-metabolic-endocrine-tumor',
-  'hematology-immunity-infection',
-  'neuro-sensory-motor-orthopedics',
-  'reproductive-breast',
-  'remaining-clinical'
+  'hematology-immunity-infection'
 ];
 
 const systems = new Map();
@@ -81,31 +78,6 @@ assert(ch1.sourceContact.logicGroupSourceReentryDefault === false, 'c-h01:source
 assert(ch1.sourceContact.segments.length === 0, `c-h01:invented-source-segments:${ch1.sourceContact.segments.length}`);
 assert(ch1.retrievalPoints.slice(1).every((row) => row.sourceContactBefore === null && row.reopenSourceByDefault === false), 'c-h01:lg-retrieval-reopens-source');
 
-// D/E/F: accepted Current Learning schema + accepted Content realization are
-// normalized without forcing them into the legacy per-Block Learning shape.
-const d = systems.get('neuro-sensory-motor-orthopedics');
-assert(d.identity.blockCount === 27 && d.identity.kpCount === 356 && d.identity.logicGroupCount === 128, 'd:identity');
-const { block: dn4 } = loadXizongSemanticBlock('neuro-sensory-motor-orthopedics', 'neuro-n04');
-assert(dn4.sourceContact.mode === 'NATURAL_SOURCE_UNITS', `d-n4:source-mode:${dn4.sourceContact.mode}`);
-assert(dn4.sourceContact.segments.length === 2, `d-n4:segments:${dn4.sourceContact.segments.length}`);
-assert(JSON.stringify(dn4.sourceContact.segments[0].logicGroupIds) === JSON.stringify(['N4-LG01','N4-LG02','N4-LG03']), 'd-n4:su1-lg-release');
-assert(JSON.stringify(dn4.sourceContact.segments[1].logicGroupIds) === JSON.stringify(['N4-LG04','N4-LG05','N4-LG06']), 'd-n4:su2-lg-release');
-
-const e = systems.get('reproductive-breast');
-assert(e.identity.blockCount === 20 && e.identity.kpCount === 212 && e.identity.logicGroupCount === 67, 'e:identity');
-const { block: esr1 } = loadXizongSemanticBlock('reproductive-breast', 'SR1');
-assert(esr1.sourceContact.mode === 'NATURAL_SOURCE_UNITS', `e-sr1:source-mode:${esr1.sourceContact.mode}`);
-assert(esr1.sourceContact.segments[0].logicGroupIds.length === 0, 'e-sr1:su1-must-not-close-lg01');
-assert(JSON.stringify(esr1.sourceContact.segments[0].contributesToLogicGroupIds) === JSON.stringify(['SR1-LG01']), 'e-sr1:su1-contribution');
-assert(JSON.stringify(esr1.sourceContact.segments[1].logicGroupIds) === JSON.stringify(['SR1-LG01','SR1-LG02','SR1-LG03']), 'e-sr1:su2-release');
-
-const f = systems.get('remaining-clinical');
-assert(f.identity.blockCount === 9 && f.identity.kpCount === 121 && f.identity.logicGroupCount === 40, 'f:identity');
-const { block: ff9 } = loadXizongSemanticBlock('remaining-clinical', 'F9');
-assert(ff9.sourceContact.mode === 'INTEGRATION_PRIMARY', `f-f9:source-mode:${ff9.sourceContact.mode}`);
-assert(JSON.stringify(ff9.sourceContact.integrationReleaseLogicGroupIds) === JSON.stringify(['F9-LG01']), 'f-f9:integration-release');
-assert(JSON.stringify(ff9.sourceContact.segments.map((row) => row.logicGroupIds)) === JSON.stringify([['F9-LG02'],['F9-LG03','F9-LG04']]), 'f-f9:targeted-source-release');
-
 // The adapter must not manufacture learner progress, official-question mapping,
 // or a duplicate question-taking surface.
 for (const system of systems.values()) {
@@ -117,4 +89,4 @@ for (const system of systems.values()) {
   }
 }
 
-console.log(`Xizong semantic adapter PASS: ${[...systems.values()].reduce((sum, system) => sum + system.blocks.length, 0)} blocks across A1/A2/A3/B/C/D/E/F`);
+console.log(`Xizong semantic adapter PASS: ${[...systems.values()].reduce((sum, system) => sum + system.blocks.length, 0)} blocks across A1/A2/A3/B/C`);

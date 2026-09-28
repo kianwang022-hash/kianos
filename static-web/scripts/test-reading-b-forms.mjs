@@ -105,35 +105,6 @@ async function validateForm(page, item, browserName) {
     check(firstLabel.includes('41'), `${prefix}_uses_exam_number_41`, firstLabel);
   }
 
-  if (item.context.taskForm === 'gap_match') {
-    const geometry = await page.evaluate(() => {
-      const layout = document.querySelector('.readingBLayout');
-      const map = document.querySelector('.readingBMap');
-      const firstTarget = document.querySelector('[data-reading-b-target-label]');
-      const rect = (node) => {
-        const r = node?.getBoundingClientRect();
-        return r ? { top: r.top, bottom: r.bottom, height: r.height } : null;
-      };
-      return {
-        viewportHeight: window.innerHeight,
-        layout: rect(layout),
-        map: rect(map),
-        firstTarget: rect(firstTarget)
-      };
-    });
-    check(Boolean(geometry.layout && geometry.map && geometry.firstTarget), `${prefix}_geometry_nodes_present`);
-    check(
-      Math.abs(geometry.map.height - geometry.layout.height) <= 3,
-      `${prefix}_right_workbench_stretches_to_layout`,
-      JSON.stringify(geometry)
-    );
-    check(
-      geometry.firstTarget.top < geometry.viewportHeight - 24 && geometry.firstTarget.bottom > 0,
-      `${prefix}_first_target_visible_without_page_scroll`,
-      JSON.stringify(geometry)
-    );
-  }
-
   await answerMap(page, item, loadReadingBAnswersById(item.objectId));
   check((await page.locator('[data-objective-score]').textContent())?.trim() === `${item.questions.length} / ${item.questions.length}`, `${prefix}_clean_map_executable`);
   check(await page.locator('.objectiveHandoff').isHidden(), `${prefix}_clean_pass_no_forced_chat`);
@@ -142,10 +113,7 @@ async function validateForm(page, item, browserName) {
 async function runBrowser(browserType, name, itemsByForm, { handoff = false } = {}) {
   const browser = await browserType.launch({ headless: true });
   try {
-    const context = await browser.newContext({
-      viewport: { width: 1440, height: 900 },
-      permissions: handoff ? ['clipboard-read', 'clipboard-write'] : []
-    });
+    const context = await browser.newContext({ permissions: handoff ? ['clipboard-read', 'clipboard-write'] : [] });
     const page = await context.newPage();
     for (const form of ['gap_match', 'heading_match', 'ordering', 'comment_match']) {
       await validateForm(page, itemsByForm.get(form), name);

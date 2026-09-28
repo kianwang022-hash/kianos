@@ -90,7 +90,7 @@ try {
 
     await page.goto(`${BASE}/english/`, { waitUntil: 'domcontentloaded' });
     check(await page.locator('[data-kianos-global-rail]').isVisible(), 'l1_global_rail_visible');
-    check(await page.locator('[data-kianos-subject-bar="english"]').count() === 0, 'english_home_suppresses_duplicate_l2');
+    await assertEnglishL2(page, 'Overview');
     check(await page.locator('.englishObjectiveLocalNav').count() === 0, 'home_has_no_fake_l3');
     await page.screenshot({ path: path.join(auditDir, 'english-navigation-home-1440x900.png'), fullPage: false });
 

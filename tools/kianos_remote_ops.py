@@ -5,74 +5,17 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
 import os
 import re
 import shutil
-import signal
 import subprocess
 import sys
 import tempfile
 import time
-from pathlib import Path, PurePosixPath
+from pathlib import Path
 
 
 SKIP_DIRS = {".git", "node_modules", "dist", ".astro", "__pycache__"}
-
-
-def is_kianos_transient_command(command: str) -> bool:
-    command = str(command or "")
-    if "--user-data-dir=/tmp/kianos-" in command:
-        return True
-    if "kianos-candidate-runtime.mjs" in command:
-        return True
-    if ("astro dev" in command or ".bin/astro dev" in command) and (
-        "/tmp/kianos-" in command or "/private/tmp/kianos-" in command
-    ):
-        return True
-    return False
-
-
-def transient_processes() -> list[dict[str, object]]:
-    result = subprocess.run(
-        ["ps", "-axo", "pid=,ppid=,etime=,command="],
-        text=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.DEVNULL,
-        check=False,
-    )
-    rows: list[dict[str, object]] = []
-    if result.returncode:
-        return rows
-    for raw in result.stdout.splitlines():
-        parts = raw.strip().split(None, 3)
-        if len(parts) != 4:
-            continue
-        pid_s, ppid_s, elapsed, command = parts
-        if not is_kianos_transient_command(command):
-            continue
-        try:
-            pid = int(pid_s)
-            ppid = int(ppid_s)
-        except ValueError:
-            continue
-        rows.append({
-            "pid": pid,
-            "ppid": ppid,
-            "elapsed": elapsed,
-            "command": command,
-        })
-    return rows
-
-
-def pid_alive(pid: int) -> bool:
-    try:
-        os.kill(pid, 0)
-        return True
-    except ProcessLookupError:
-        return False
-    except PermissionError:
-        return True
 
 
 def run(cmd, *, cwd: Path, check: bool = False) -> subprocess.CompletedProcess[str]:
@@ -155,7 +98,6 @@ def snapshot(repo: Path, status_limit: int = 60) -> dict[str, object]:
         "dirty": lines[:status_limit],
         "dirty_truncated": len(lines) > status_limit,
         "worktrees": parse_worktrees(git(repo, "worktree", "list", "--porcelain")),
-        "transient_processes": transient_processes(),
     }
 
 
@@ -188,68 +130,13 @@ def iter_text_files(scope: Path):
                 continue
 
 
-def packet_commit(repo: Path, args: argparse.Namespace) -> str | None:
-    if args.fetch and args.ref != "origin/main":
-        raise SystemExit("--fetch requires --ref origin/main")
-    if not args.ref:
-        return None
-    if args.grep or args.scope:
-        raise SystemExit("--ref requires exact --file/--range reads; grep/scope reads use the working tree")
-    if not args.file and not args.range:
-        raise SystemExit("--ref requires at least one --file or --range")
-    if args.fetch:
-        try:
-            fetched = subprocess.run(
-                ["git", "fetch", "--quiet", "--no-tags", "origin",
-                 "+refs/heads/main:refs/remotes/origin/main"],
-                cwd=repo, text=True, stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT, check=False, timeout=30,
-            )
-        except subprocess.TimeoutExpired:
-            raise SystemExit("main fetch timed out; no packet emitted")
-        if fetched.returncode:
-            raise SystemExit("main fetch failed; no packet emitted: " + fetched.stdout.strip())
-    commit = git(repo, "rev-parse", "--verify", "--end-of-options", f"{args.ref}^{{commit}}")
-    if not commit:
-        raise SystemExit(f"requested ref does not resolve to a commit: {args.ref}")
-    return commit
-
-
-def read_packet_text(repo: Path, value: str, commit: str | None) -> list[str] | None:
-    if commit is None:
-        return read_text(repo_path(repo, value))
-    # Read committed blobs directly: never follow checkout symlinks or fall back
-    # to dirty/stale files when the requested source does not contain a path.
-    path = PurePosixPath(value)
-    if path.is_absolute() or ".." in path.parts or "\x00" in value:
-        raise SystemExit(f"path escapes repo or is invalid: {value}")
-    relative = path.as_posix()
-    entry = git(repo, "ls-tree", "-z", commit, "--", relative)
-    if not entry:
-        return None
-    metadata, separator, name = entry.rstrip("\x00").partition("\t")
-    fields = metadata.split()
-    if not separator or name != relative or len(fields) != 3 or fields[0] not in {"100644", "100755"}:
-        raise SystemExit(f"requested ref path is not a regular file: {value}")
-    result = subprocess.run(
-        ["git", "cat-file", "blob", fields[2]], cwd=repo,
-        stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, check=False,
-    )
-    try:
-        return result.stdout.decode("utf-8").splitlines() if result.returncode == 0 else None
-    except UnicodeDecodeError:
-        return None
-
-
 def packet(args: argparse.Namespace) -> int:
     repo = resolve_repo(args.repo)
-    commit = packet_commit(repo, args)
     chunks: list[str] = []
-    if commit:
-        chunks.append(f"## SOURCE ref={args.ref} commit={commit} fetched_main={str(args.fetch).lower()}")
 
     for value in args.file:
-        lines = read_packet_text(repo, value, commit)
+        path = repo_path(repo, value)
+        lines = read_text(path)
         if lines is None:
             raise SystemExit(f"requested file is missing or not readable UTF-8 text: {value}")
         if len(lines) > args.max_file_lines:
@@ -267,7 +154,8 @@ def packet(args: argparse.Namespace) -> int:
             raise SystemExit(f"invalid --range {spec!r}; expected path:start:end")
         if start_i < 1 or end_i < start_i:
             raise SystemExit(f"invalid --range bounds: {spec!r}")
-        lines = read_packet_text(repo, value, commit)
+        path = repo_path(repo, value)
+        lines = read_text(path)
         if lines is None:
             raise SystemExit(f"requested range file is missing or not readable UTF-8 text: {value}")
         body = numbered_excerpt(lines, start_i, end_i)
@@ -370,79 +258,8 @@ def tail(path: Path, lines: int) -> list[str]:
     return values[-lines:]
 
 
-def process_group_alive(pgid: int) -> bool:
-    # A dead orphan can remain as a zombie briefly; killpg(..., 0) may even
-    # return EPERM for that group on macOS. Read live members without signaling.
-    result = subprocess.run(["ps", "-axo", "pgid=,stat="], text=True,
-                            stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                            check=True, timeout=2.0)
-    for line in result.stdout.splitlines():
-        fields = line.split()
-        if len(fields) == 2 and fields[0] == str(pgid) and not fields[1].startswith("Z"):
-            return True
-    return False
-
-
-def stop_verify_process_group(process: subprocess.Popen) -> dict[str, object]:
-    # start_new_session=True makes this PID the group ID. Only this exact group
-    # receives signals; pre-existing or detached sessions are never targeted.
-    cleanup: dict[str, object] = {"process_group": process.pid, "term_sent": False, "kill_sent": False}
-    errors: list[str] = []
-
-    def send(sig, field):
-        try:
-            os.killpg(process.pid, sig)
-            cleanup[field] = True
-        except ProcessLookupError:
-            pass
-        except OSError as exc:
-            errors.append(f"{signal.Signals(sig).name}: {exc}")
-
-    def wait_for_group(seconds):
-        deadline = time.monotonic() + seconds
-        while True:
-            process.poll()
-            try:
-                alive = process_group_alive(process.pid)
-            except (OSError, subprocess.SubprocessError) as exc:
-                errors.append(f"group readback: {exc}")
-                return True
-            if not alive or time.monotonic() >= deadline:
-                return alive
-            time.sleep(0.05)
-
-    send(signal.SIGTERM, "term_sent")
-    if wait_for_group(2.0):
-        send(signal.SIGKILL, "kill_sent")
-    cleanup["live_group_remaining"] = wait_for_group(1.0)
-    try:
-        process.wait(timeout=1.0)
-    except subprocess.TimeoutExpired:
-        errors.append("group leader did not exit after cleanup")
-    cleanup["leader_exit_code"] = process.returncode
-    cleanup["errors"] = errors
-    return cleanup
-
-
 def verify(args: argparse.Namespace) -> int:
-    interrupted: list[int] = []
-
-    def record_signal(signum, _frame):
-        if not interrupted:
-            interrupted.append(signum)
-
-    previous = {sig: signal.signal(sig, record_signal) for sig in (signal.SIGINT, signal.SIGTERM)}
-    try:
-        return verify_commands(args, interrupted)
-    finally:
-        for sig, handler in previous.items():
-            signal.signal(sig, handler)
-
-
-def verify_commands(args: argparse.Namespace, interrupted: list[int]) -> int:
     repo = resolve_repo(args.repo)
-    transient_before = transient_processes()
-    transient_before_pids = {int(row["pid"]) for row in transient_before}
     log_dir = Path(args.log_dir).expanduser() if args.log_dir else Path(
         tempfile.mkdtemp(prefix="kianos-remote-verify-")
     )
@@ -452,153 +269,40 @@ def verify_commands(args: argparse.Namespace, interrupted: list[int]) -> int:
     overall = 0
 
     for index, command in enumerate(args.cmd, start=1):
-        if interrupted:
-            break
         log_path = log_dir / f"{index:02d}.log"
         started = time.monotonic()
-        timed_out = False
-        cleanup = None
         with log_path.open("w", encoding="utf-8") as handle:
-            process = subprocess.Popen(
-                command, cwd=repo, shell=True, executable=shell,
-                text=True, stdout=handle, stderr=subprocess.STDOUT,
-                start_new_session=True,
+            result = subprocess.run(
+                command,
+                cwd=repo,
+                shell=True,
+                executable=shell,
+                text=True,
+                stdout=handle,
+                stderr=subprocess.STDOUT,
+                check=False,
             )
-            try:
-                while not interrupted:
-                    remaining = args.timeout_seconds - (time.monotonic() - started)
-                    if remaining <= 0:
-                        timed_out = True
-                        break
-                    try:
-                        process.wait(timeout=min(0.1, remaining))
-                        break
-                    except subprocess.TimeoutExpired:
-                        pass
-                if interrupted or timed_out:
-                    cleanup = stop_verify_process_group(process)
-            except BaseException:
-                stop_verify_process_group(process)
-                raise
-        exit_code = 128 + interrupted[0] if interrupted else 124 if timed_out else process.returncode
         item = {
             "command": command,
-            "exit_code": exit_code,
+            "exit_code": result.returncode,
             "duration_ms": round((time.monotonic() - started) * 1000),
-            "timeout_seconds": args.timeout_seconds,
-            "timed_out": timed_out,
-            "interrupted_signal": signal.Signals(interrupted[0]).name if interrupted else None,
-            "cleanup": cleanup,
             "log": str(log_path),
             "tail": tail(log_path, args.tail),
         }
         results.append(item)
-        if interrupted or timed_out:
-            overall = exit_code
-            break
-        if exit_code and not overall:
-            overall = exit_code
-        if exit_code and not args.keep_going:
+        if result.returncode and not overall:
+            overall = result.returncode
+        if result.returncode and not args.keep_going:
             break
 
-    transient_after = transient_processes()
-    new_transient = [
-        row for row in transient_after if int(row["pid"]) not in transient_before_pids
-    ]
-    # Browser/dev-server teardown is asynchronous: allow a short bounded grace
-    # before declaring a leak, then read back exact process truth again.
-    if new_transient:
-        deadline = time.monotonic() + max(0.0, args.resource_grace_seconds)
-        while time.monotonic() < deadline:
-            time.sleep(0.05)
-            transient_after = transient_processes()
-            new_transient = [
-                row for row in transient_after if int(row["pid"]) not in transient_before_pids
-            ]
-            if not new_transient:
-                break
-    resource_clean = not new_transient
-    if not resource_clean and not overall:
-        overall = 86
-
-    if interrupted:
-        overall = 128 + interrupted[0]
     report = {
-        "ok": overall == 0 and resource_clean,
-        "interrupted_signal": signal.Signals(interrupted[0]).name if interrupted else None,
+        "ok": overall == 0,
         "commands": results,
-        "resource_hygiene": {
-            "clean": resource_clean,
-            "before_count": len(transient_before),
-            "after_count": len(transient_after),
-            "new_transient_processes": new_transient,
-            "note": "new KianOS transient processes after verify mean the local verification did not cleanly close",
-        },
         "snapshot": snapshot(repo),
         "log_dir": str(log_dir),
     }
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return overall
-
-
-def hygiene(args: argparse.Namespace) -> int:
-    current = {int(row["pid"]): row for row in transient_processes()}
-    requested = list(dict.fromkeys(args.pid))
-    if not args.apply:
-        print(json.dumps({
-            "apply": False,
-            "transient_processes": list(current.values()),
-            "hint": "re-run with --apply --pid <exact_pid> only after resolving which processes are stale",
-        }, ensure_ascii=False, indent=2))
-        return 0
-
-    terminated: list[dict[str, object]] = []
-    skipped: list[dict[str, object]] = []
-    for pid in requested:
-        row = current.get(pid)
-        if not row:
-            skipped.append({"pid": pid, "reason": "not_currently_recognized_as_kianos_transient"})
-            continue
-        try:
-            os.kill(pid, signal.SIGTERM)
-            terminated.append(row)
-        except ProcessLookupError:
-            terminated.append({**row, "already_gone": True})
-        except PermissionError:
-            skipped.append({"pid": pid, "reason": "permission_denied"})
-
-    deadline = time.monotonic() + max(0.0, args.grace_seconds)
-    while time.monotonic() < deadline and any(pid_alive(int(row["pid"])) for row in terminated):
-        time.sleep(0.05)
-
-    forced: list[int] = []
-    for row in terminated:
-        pid = int(row["pid"])
-        if not pid_alive(pid):
-            continue
-        try:
-            os.kill(pid, signal.SIGKILL)
-            forced.append(pid)
-        except (ProcessLookupError, PermissionError):
-            pass
-
-    remaining = transient_processes()
-    print(json.dumps({
-        "apply": True,
-        "requested": requested,
-        "terminated": terminated,
-        "forced": forced,
-        "skipped": skipped,
-        "remaining_transient_processes": remaining,
-    }, ensure_ascii=False, indent=2))
-    return 0 if not skipped else 2
-
-
-def positive_seconds(value: str) -> float:
-    seconds = float(value)
-    if not math.isfinite(seconds) or seconds <= 0:
-        raise argparse.ArgumentTypeError("timeout must be a positive finite number of seconds")
-    return seconds
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -613,8 +317,6 @@ def build_parser() -> argparse.ArgumentParser:
 
     pack = sub.add_parser("packet", help="bundle exact reads and bounded grep evidence")
     pack.add_argument("--repo", default=".")
-    pack.add_argument("--ref", help="read exact files/ranges from one committed ref instead of the working tree")
-    pack.add_argument("--fetch", action="store_true", help="refresh only origin/main before --ref origin/main reads (30s timeout)")
     pack.add_argument("--file", action="append", default=[])
     pack.add_argument("--range", action="append", default=[])
     pack.add_argument("--scope", action="append", default=[])
@@ -631,14 +333,6 @@ def build_parser() -> argparse.ArgumentParser:
     check.add_argument("--tail", type=int, default=40)
     check.add_argument("--log-dir")
     check.add_argument("--keep-going", action="store_true")
-    check.add_argument("--timeout-seconds", type=positive_seconds, default=300.0,
-                       help="per-command timeout; timeout/interruption stops the batch and cleans its process group")
-    check.add_argument("--resource-grace-seconds", type=float, default=2.0)
-
-    clean = sub.add_parser("hygiene", help="list or explicitly terminate recognized KianOS transient local processes")
-    clean.add_argument("--pid", action="append", type=int, default=[])
-    clean.add_argument("--apply", action="store_true")
-    clean.add_argument("--grace-seconds", type=float, default=2.0)
 
     return parser
 
@@ -654,8 +348,6 @@ def main() -> int:
         return packet(args)
     if args.command == "verify":
         return verify(args)
-    if args.command == "hygiene":
-        return hygiene(args)
     parser.error("unknown command")
     return 2
 

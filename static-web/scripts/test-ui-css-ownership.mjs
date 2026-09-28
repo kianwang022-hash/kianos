@@ -19,6 +19,7 @@ const expected = {
     'shared-visual-foundation.css',
     'runtime.css',
     'visual-convergence.css',
+    'shared-workspace-composition.css',
     'shared-shell.css',
     'study-timer.css'
   ],
@@ -28,6 +29,7 @@ const expected = {
     'runtime.css',
     'english.css',
     'visual-convergence.css',
+    'shared-workspace-composition.css',
     'english-presentation.css',
     'shared-shell.css',
     'study-timer.css'
@@ -38,6 +40,7 @@ const expected = {
     'runtime.css',
     'visual-convergence.css',
     'politics-presentation.css',
+    'shared-workspace-composition.css',
     'politics-visual-tuning.css',
     'shared-shell.css',
     'study-timer.css'
@@ -49,6 +52,7 @@ const expected = {
     'xizong-dense-calm.css',
     'visual-convergence.css',
     'xizong-presentation.css',
+    'shared-workspace-composition.css',
     'xizong-visual-tuning.css',
     'shared-shell.css',
     'study-timer.css'
@@ -58,8 +62,9 @@ const expected = {
     'shared-visual-foundation.css',
     'runtime.css',
     'visual-convergence.css',
-    'shared-shell.css',
+    'shared-workspace-composition.css',
     'lexical-presentation.css',
+    'shared-shell.css',
     'study-timer.css'
   ]
 };
@@ -68,22 +73,13 @@ for (const [file, imports] of Object.entries(expected)) {
   assert.deepEqual(styleImports(path.join(layouts, file)), imports, `${file}: style ownership/order drift`);
 }
 
-const convergence = read(path.join(styles, 'visual-convergence.css'));
-for (const token of ['.command', '.productBar', '.productBrand', '.productNav', '.sourceDock', '.sourcePopover']) {
-  assert.ok(!convergence.includes(token), `visual-convergence.css retained dead pre-shell selector family: ${token}`);
-}
-for (const token of ['uiStageOne', '.productCanvas', '.pageLead']) {
-  assert.ok(convergence.includes(token), `visual-convergence.css lost live shared state selector: ${token}`);
-}
-
 const frame = read(path.join(layouts, 'BaseFrame.astro'));
 assert.ok(!/styles\/[^'"]+\.css/.test(frame), 'BaseFrame must remain presentation-style free');
 
 const retired = [
   'stage-one-composition.css',
   'viewport-workspaces.css',
-  'site-visual-tuning.css',
-  'shared-workspace-composition.css'
+  'site-visual-tuning.css'
 ];
 for (const file of retired) {
   assert.ok(!fs.existsSync(path.join(src, 'styles', file)), `retired style still exists: ${file}`);
@@ -136,176 +132,8 @@ for (const [name, forbidden] of [
 }
 
 
-const websiteMap = read(path.join(root, 'README.md'));
-const presentationContract = read(path.join(root, 'PRESENTATION_CONTRACT.md'));
-const productSurfaceContract = read(path.join(root, 'PRODUCT_SURFACE_CONTRACT.md'));
-const productDesignOwners = [
-  'STEWARD_PRODUCT_CONTRACT.md',
-  'ENGLISH_PRODUCT_BRIEF.md',
-  'POLITICS_PRODUCT_BRIEF.md',
-  'XIZONG_PRODUCT_BRIEF.md',
-  'LEXICAL_PRODUCT_BRIEF.md'
-];
-
-assert.ok(
-  presentationContract.includes('Design inheritance must be explicit'),
-  'Presentation Contract lost explicit design-inheritance boundary'
-);
-assert.ok(
-  productSurfaceContract.includes('Shared split does not replace product/domain design'),
-  'Product Surface Contract lost product/domain design boundary'
-);
-
-for (const name of productDesignOwners) {
-  const value = read(path.join(root, name));
-  assert.ok(
-    websiteMap.includes(name),
-    `${name}: product design owner is missing from static-web/README.md design map`
-  );
-  assert.ok(
-    value.includes('PRESENTATION_CONTRACT.md'),
-    `${name}: product design owner must inherit PRESENTATION_CONTRACT.md`
-  );
-  assert.ok(
-    value.includes('PRODUCT_SURFACE_CONTRACT.md'),
-    `${name}: product design owner must inherit PRODUCT_SURFACE_CONTRACT.md`
-  );
-}
-
 const stewardLocal = read(path.join(src, 'styles', 'steward-workspace.css'));
 const sharedShell = read(path.join(src, 'styles', 'shared-shell.css'));
-
-const politicsLearn = read(path.join(src, 'styles', 'politics-learn-workspace.css'));
-const politicsChapterRoute = read(path.join(src, 'pages', 'politics', '[subject]', '[chapter].astro'));
-assert.ok(
-  politicsLearn.includes('this file owns the Learn index and generic chapter workspace composition'),
-  'Politics Learn must retain its named presentation owner'
-);
-assert.ok(
-  !politicsChapterRoute.includes('<style is:global>'),
-  'Politics Chapter route must not own presentation CSS'
-);
-assert.ok(
-  !politicsChapterRoute.includes('PoliticsVisibleTypeFloor')
-  && !politicsChapterRoute.includes('PoliticsPurposeFirstPilotReadable'),
-  'Politics Chapter route must not reintroduce style-only presentation components'
-);
-assert.ok(
-  politicsLearn.includes('.politicsChapterLocation'),
-  'Politics Learn owner must retain Chapter header presentation'
-);
-assert.ok(
-  politicsLearn.includes('.politicsRail'),
-  'Politics Learn owner must retain Chapter Rail presentation'
-);
-assert.ok(
-  politicsLearn.includes('.politicsMain'),
-  'Politics Learn owner must retain Main learner pane presentation'
-);
-const politicsLearnCueSelectors = [
-  '.politicsMicro',
-  '.politicsContext',
-  '.politicsLead',
-  '.politicsChain',
-  '.politicsAttention',
-  '.politicsBridge',
-  '.politicsAnswer',
-  '.politicsNextBridge',
-  '.politicsFinalChain'
-];
-for (const selector of politicsLearnCueSelectors) {
-  assert.ok(
-    politicsLearn.includes(selector),
-    selector + ': Politics Learn owner lost an Orientation/cue selector'
-  );
-}
-const politicsLearnSourceSelectors = [
-  '.politicsSourceHandoff',
-  '.politicsSourceLocators'
-];
-for (const selector of politicsLearnSourceSelectors) {
-  assert.ok(
-    politicsLearn.includes(selector),
-    selector + ': Politics Learn owner lost a source-handoff selector'
-  );
-}
-const politicsLearnUnitCompanionSelectors = [
-  '.politicsUnitHead',
-  '.politicsUnitCompanion',
-  '.politicsGuide',
-  '.politicsGuideBody',
-  '.politicsClosure'
-];
-for (const selector of politicsLearnUnitCompanionSelectors) {
-  assert.ok(
-    politicsLearn.includes(selector),
-    selector + ': Politics Learn owner lost a Unit/companion selector'
-  );
-}
-const politicsLearnUnitMainSelectors = [
-  '.politicsUnit',
-  '.politicsUnitCognition',
-  '.politicsQuestion',
-  '.politicsQ'
-];
-const hasCssClassToken = (value, selector) => new RegExp(
-  '\.' + selector.replace(/^\./, '') + '(?![A-Za-z0-9_-])'
-).test(value);
-for (const selector of politicsLearnUnitMainSelectors) {
-  assert.ok(
-    hasCssClassToken(politicsLearn, selector),
-    selector + ': Politics Learn owner lost a Unit-main selector'
-  );
-}
-const politicsProjectionSelectorPattern = /\.(?:politicsCompiledGeometry|compiled[A-Za-z0-9_-]*|projection[A-Za-z0-9_-]*)(?![A-Za-z0-9_-])/;
-assert.ok(
-  politicsProjectionSelectorPattern.test(politicsLearn),
-  'Politics Learn owner lost compiled Projection presentation'
-);
-for (const legacyLayer of ['politics-presentation.css', 'politics-visual-tuning.css']) {
-  const value = read(path.join(src, 'styles', legacyLayer));
-  assert.ok(
-    !value.includes('.politicsChapterLocation'),
-    legacyLayer + ': Politics Chapter header escaped the Learn presentation owner'
-  );
-  assert.ok(
-    !value.includes('.politicsRail'),
-    legacyLayer + ': Politics Chapter Rail escaped the Learn presentation owner'
-  );
-  assert.ok(
-    !value.includes('.politicsMain'),
-    legacyLayer + ': Politics Main learner pane escaped the Learn presentation owner'
-  );
-  for (const selector of politicsLearnCueSelectors) {
-    assert.ok(
-      !value.includes(selector),
-      legacyLayer + ': ' + selector + ' escaped the Politics Learn presentation owner'
-    );
-  }
-  for (const selector of politicsLearnSourceSelectors) {
-    assert.ok(
-      !value.includes(selector),
-      legacyLayer + ': ' + selector + ' escaped the Politics Learn presentation owner'
-    );
-  }
-  for (const selector of politicsLearnUnitCompanionSelectors) {
-    assert.ok(
-      !value.includes(selector),
-      legacyLayer + ': ' + selector + ' escaped the Politics Learn presentation owner'
-    );
-  }
-  for (const selector of politicsLearnUnitMainSelectors) {
-    assert.ok(
-      !hasCssClassToken(value, selector),
-      legacyLayer + ': ' + selector + ' escaped the Politics Learn presentation owner'
-    );
-  }
-  assert.ok(
-    !politicsProjectionSelectorPattern.test(value),
-    legacyLayer + ': compiled Projection selectors escaped the Politics Learn presentation owner'
-  );
-}
-
 assert.ok(!/Human-Gate visual (?:lock|repair)/.test(stewardLocal), 'Steward local CSS contains post-hoc Human-Gate patch layers');
 assert.ok(!/\.kianos(?:Shell|GlobalRail|Rail)/.test(stewardLocal), 'Steward local CSS must not override shared L1 shell selectors');
 assert.ok(sharedShell.includes('surfaceBody-steward'), 'Steward shell theme must live in shared-shell.css');

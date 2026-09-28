@@ -123,7 +123,7 @@ The learner path may cross Chat, Astro, and the original iPad/MarginNote lecture
 
 The active first-round chain is:
 
-`optional rapid whole-subject framework orientation → Chat/Astro Chapter / Natural Unit Orientation → Chengfeng Natural Unit continuous learning on original iPad/MarginNote lecture surface → natural checkpoint/closure when it adds retrieval value → Xiao1000 verification in the single KianOS Workbench → prebuilt refined backside Content + learner Evidence/cause/note → continue → learner-triggered batch Review packet → Chat diagnosis only when the learner chooses to review → later Memory/analysis-output/Mock`
+`Chat/Astro Orientation → Chengfeng Natural Unit continuous learning on original iPad/MarginNote lecture surface → natural checkpoint/closure when it adds retrieval value → Xiao1000 verification in the single KianOS Workbench → prebuilt refined backside Content + learner Evidence/cause/note → continue → learner-triggered batch Review packet → Chat diagnosis only when the learner chooses to review → later Memory/analysis-output/Mock`
 
 This supersedes learner-facing flows that treat Suyi, Chengfeng, and Xiao1000 as parallel courses, and it also supersedes any implementation that turns Astro into a substitute continuous Chengfeng lecture reader.
 
@@ -142,7 +142,6 @@ Politics first-round learning uses explicit surface ownership rather than inferr
 
 | Learner action | Primary surface | Companion / boundary |
 | --- | --- | --- |
-| Whole-subject rapid framework orientation | Politics Learn and/or Chat | One compact Current subject skeleton before/around the fast first pass; skippable once the skeleton is already reconstructable; never a second course |
 | Chapter / Unit Orientation | Chat and/or Astro | Short map / WHY NOW only; not a second lecture |
 | Chengfeng continuous first study | **iPad / MarginNote original lecture surface** | Astro may hold position/checkpoint/bridge/locator, but must not substitute a continuous lecture reader |
 | Natural Unit position / checkpoint / closure cue | Astro | May tell the learner where they are and what to do next without duplicating the lecture |
@@ -174,11 +173,10 @@ It must not duplicate the Chengfeng source into a second AI textbook or a second
 
 ### Default teaching asset types
 
-1. **Subject Orientation** — one compact whole-subject skeleton used to reduce the cost of constructing the first framework. It is orientation/compression, not a second lecture; once the learner can reconstruct the skeleton, repeated rereading is not the default.
-2. **Chapter Orientation** — where this chapter sits, what question it solves, and how its major parts connect.
-3. **NU Teaching Bridge** — a short `FROM_PREVIOUS → WHY_NOW → CORE_PROBLEM → NEXT` transition before/inside the owning Natural Unit.
-4. **Compression** — reconstructs a completed Unit/Block/Chapter into a small number of durable relations and should reduce later rereading/reconstruction cost.
-5. **Repair Guidance** — sends a wrong/uncertain answer back to the smallest sufficient owning source location.
+1. **Chapter Orientation** — where this chapter sits, what question it solves, and how its major parts connect.
+2. **NU Teaching Bridge** — a short `FROM_PREVIOUS → WHY_NOW → CORE_PROBLEM → NEXT` transition before/inside the owning Natural Unit.
+3. **Compression** — reconstructs a completed Unit/Block/Chapter into a small number of durable relations and should reduce later rereading/reconstruction cost.
+4. **Repair Guidance** — sends a wrong/uncertain answer back to the smallest sufficient owning source location.
 
 Only create an asset when it improves learning or removes future work. Do not materialize empty module structures for completeness.
 
@@ -254,37 +252,6 @@ A question may test more than one knowledge node. Repair therefore distinguishes
 When batch Review/Chat determines that repair is actually warranted, repair the **current-unit failure** first. Cross-unit hits are retained as evidence/context, not used to inflate the current Unit.
 
 ## 6. Review / Memory / Analysis Output / Mock
-
-### 6.0 Required knowledge coverage is not the Memory catalog
-
-Politics has two different long-term retention responsibilities and they must not be collapsed into one number:
-
-```text
-structural / relational knowledge
-→ remains reconstructable through Natural-Unit / Chapter / subject compression
-→ may be recalled again when phase/evidence/Chat selection makes that useful
-
-exact / formulation-heavy knowledge
-→ may become a source-grounded Precision / Memory candidate
-→ becomes durable review debt only after the existing admission gate is satisfied
-```
-
-Hard rules:
-
-- required mechanisms, relation chains, role hierarchies and decisive discrimination boundaries must keep a durable reconstruction owner even when they are **not** Memory candidates;
-- absence from the Memory catalog never means that knowledge is deleted, optional, or exempt from later retrieval;
-- a first-round closure cue is a low-friction compression/reconstruction action, not proof of durable retention and not automatic Memory admission;
-- Wrong / Uncertain may justify repair or exact retention, but it is not the only path by which required structural knowledge survives after first learning;
-- source-grounded Precision/Memory exists for things worth exact future retrieval; broad conceptual relations that are better reconstructed should not be duplicated into Memory merely to make coverage counts look complete;
-- hiding/collapsing/demoting an item on an early learner surface changes timing/prominence only. Content Closure must still prove that every required exam-relevant relation/boundary has a later reconstruction, exact-retention, or other explicitly owned retrieval path;
-- therefore **Memory candidate count is not a knowledge-coverage metric**.
-
-For optimization work, Content Closure must answer both questions separately:
-
-1. **Structural closure:** can the learner later reconstruct every required mother model / relation / decisive boundary without rereading the whole Source?
-2. **Exact closure:** which source-grounded items genuinely need future exact retrieval, and which admission rule makes them review debt?
-
-The Website may execute a small selected review set. It does not need to show the whole retention model at once, and it must not manufacture extra Memory debt merely to prove completeness.
 
 Review is evidence-driven and may use elapsed time, but no fixed Politics cadence is frozen as learner-facing truth.
 

@@ -32,7 +32,7 @@ const navActive = resolveGlobalActive(localPath, active);
 const navItems = globalNavigation(base);
 const subjectNav = subjectShell(localPath, base);
 const isHub = ['', 'english', 'vocabulary', 'politics', 'xizong'].includes(localPath);
-const isWordStudy = /^vocabulary\/\d+$/.test(localPath) || localPath === 'vocabulary/word';
+const isWordStudy = /^vocabulary\/\d+$/.test(localPath);
 const isVocabularyRoute = localPath === 'vocabulary' || localPath.startsWith('vocabulary/');
 const stageOne = englishFamily || ['lexical', 'politics', 'xizong', 'steward'].includes(active) || localPath === '';
 const currentStatusUrl = `${base}__kianos-current.json`;
@@ -55,6 +55,7 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
     <title>{title} · KianOS</title>
     <style is:global>
       [hidden] { display: none !important; }
+      body.surfaceBody-xizong .sourceDock,
       body.surfaceBody-xizong .portedSourceFoot { display: none !important; }
       body.uiEnglishFamily .kianosCurrentDock { display: none !important; }
     </style>

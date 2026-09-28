@@ -5,7 +5,6 @@ import {
   classifyStaticBuild,
   requiresStaticRuntimeReload,
   staticBuildCanReuseFromBase,
-  staticBuildNpmScript,
   staticBuildPathImpact
 } from './currentStaticImpact.mjs';
 
@@ -14,25 +13,10 @@ const reusable = [
   '.github/workflows/branch-hygiene.yml',
   'tools/kianos_repo_doctor.py',
   'BRANCH_LIFECYCLE.md',
-  'LEARNING_ACCEPTANCE.md',
   'CURRENT.md',
   'static-web/CURRENT.md',
-  'content/xizong/CURRENT.md',
-  'content/xizong/knowledge/systems/a1-circulation/CURRENT.md',
-  'content/english/modules/writing/CURRENT.md',
-  'content/english/README.md',
-  'content/english/audit/closed-baseline.example.json',
-  'content/lexical/semantic-audit/o0001-o0024.audit.md',
-  'content/lexical/semantic-reconciliation/o0025-o0224.md',
-  'content/lexical/semantic-review/o0875-o1124.md',
-  'content/lexical/execution/manifests/o0001-o0100.final-standard-reconciliation.json',
-  'content/lexical/audit/history/2026-09-final-catalog/example.md',
-  'content/politics/projection/history/ch01.projection.json',
-  'content/politics/MATURITY_FRESH_INDEPENDENT_AUDIT.md',
-  'content/xizong/knowledge/learner/D_PHASE7C_NEURAL_CONTENT_SUFFICIENCY_AUDIT.md',
   'static-web/STEWARD_PRODUCT_CONTRACT.md',
   'static-web/scripts/kianos-current-sync.mjs',
-  'static-web/scripts/kianos-candidate-runtime.mjs',
   'static-web/scripts/privateLearnerBridge.mjs'
 ];
 
@@ -119,19 +103,6 @@ assert.equal(
   'MISSING_BASE_SHA_MUST_REBUILD'
 );
 
-// Acceptance-policy edits must not spend a learner build/reload. This is an
-// exact allowlist, not a blanket exemption for Markdown or mixed changes.
-assert.equal(classifyStaticBuild(['LEARNING_ACCEPTANCE.md']).required, false);
-assert.equal(requiresStaticRuntimeReload(['LEARNING_ACCEPTANCE.md']), false);
-for (const input of ['static-web/src/styles/xizong-block-workspace.css',
-  'content/lexical/words/by-ordinal/o0001.json',
-  'content/xizong/knowledge/learner/a1-circulation-guide.md',
-  'unknown-root-input.md']) {
-  assert.equal(classifyStaticBuild(['LEARNING_ACCEPTANCE.md', input]).required, true, input);
-}
-assert.equal(classifyStaticBuild(['LEARNING_ACCEPTANCE.md',
-  'content/lexical/words/by-ordinal/o0001.json']).lexical_projection_required, true);
-
 console.log('STATIC_CURRENT_IMPACT PASS');
 
 for (const file of ['static-web/src/lib/privateControlCommand.mjs',
@@ -140,61 +111,10 @@ for (const file of ['static-web/src/lib/privateControlCommand.mjs',
   assert.equal(requiresStaticRuntimeReload([file]), true, file);
 }
 assert.equal(requiresStaticRuntimeReload(['content/xizong/explanations/manifest.json', 'CURRENT.md']), false);
-for (const file of [
-  'static-web/scripts/kianos-current-sync.mjs',
-  'static-web/scripts/currentRelease.mjs',
-  'static-web/scripts/currentStaticImpact.mjs',
-  'static-web/scripts/currentStaticSlots.mjs',
-  'static-web/scripts/currentDependencies.mjs',
-  'static-web/scripts/kianos-candidate-runtime.mjs'
-]) {
-  assert.equal(requiresStaticRuntimeReload([file]), false, 'NON_LEARNER_RUNTIME_SCRIPT_MUST_NOT_RELOAD_STABLE:' + file);
-}
-// Resource-management/maintenance fixes must use the control-only path instead
-// of preparing a full learner release. A real runtime or output delta in the
-// same batch must still take precedence over this exception.
-const maintenanceScripts = [
-  'static-web/scripts/kianos-heavy-run.mjs',
-  'static-web/scripts/kianos-heavy-status.mjs',
-  'static-web/scripts/websiteHeavyWork.mjs',
-  'static-web/scripts/codex-local-hygiene.mjs'
-];
-for (const file of maintenanceScripts) {
-  assert.equal(classifyStaticBuild([file]).required, false, file);
-  assert.equal(requiresStaticRuntimeReload([file]), false, file);
-}
-assert.equal(
-  requiresStaticRuntimeReload([...maintenanceScripts, 'static-web/scripts/privateEnglishGeneratedBridge.mjs']),
-  true,
-  'MIXED_PRIVATE_RUNTIME_CHANGE_MUST_RELOAD'
-);
-assert.equal(
-  classifyStaticBuild([...maintenanceScripts, 'static-web/src/pages/index.astro']).required,
-  true,
-  'MIXED_STATIC_OUTPUT_CHANGE_MUST_BUILD'
-);
-for (const file of [
-  'static-web/scripts/kianos-safe-astro-build.mjs',
-  'static-web/scripts/new-runtime-helper.mjs'
-]) {
-  assert.equal(requiresStaticRuntimeReload([file]), true, 'UNPROVEN_SCRIPT_MUST_REMAIN_CONSERVATIVE:' + file);
-}
-
 assert.equal(
   requiresStaticRuntimeReload(['static-web/scripts/test-current-offline-startup.mjs']),
   false,
   'TEST_ONLY_SCRIPT_MUST_NOT_RELOAD_LEARNER_RUNTIME'
-);
-
-assert.equal(
-  staticBuildNpmScript(classifyStaticBuild(['static-web/src/pages/index.astro'])),
-  'build:astro',
-  'NON_LEXICAL_STATIC_CHANGE_SHOULD_SKIP_LEXICAL_PROJECTION'
-);
-assert.equal(
-  staticBuildNpmScript(classifyStaticBuild(['content/lexical/words/by-ordinal/o0001.json'])),
-  'build',
-  'LEXICAL_STATIC_CHANGE_MUST_RUN_LEXICAL_PROJECTION'
 );
 
 assert.equal(classifyStaticBuild(['content/xizong/explanations/manifest.json']).lexical_projection_required, false);

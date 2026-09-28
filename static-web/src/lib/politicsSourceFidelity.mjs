@@ -15,17 +15,6 @@ function normalize(value) {
   return String(value || '').trim();
 }
 
-export function politicsSourceLocatorLabel({ id = '', title = '', text = '' } = {}) {
-  const nodeId = normalize(id);
-  const explicitTitle = normalize(title);
-  if (explicitTitle && explicitTitle !== nodeId) return explicitTitle;
-
-  const firstLine = String(text || '').split(/\r?\n/).map(normalize).find(Boolean) || '';
-  if (/^考点\s*\d+/i.test(firstLine) && firstLine.length <= 60) return firstLine;
-  if (/^\d+[.、]\s*/.test(firstLine) && firstLine.length <= 32) return firstLine;
-  return '';
-}
-
 export function loadPoliticsSourceFidelityOverrides() {
   if (!fs.existsSync(absolute(OVERRIDES))) {
     throw new Error('POLITICS_SOURCE_FIDELITY_OVERRIDES_MISSING');

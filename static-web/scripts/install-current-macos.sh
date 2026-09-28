@@ -115,7 +115,7 @@ cat > "$PLIST" <<EOF
   <key>KeepAlive</key>
   <true/>
   <key>ProcessType</key>
-  <string>Standard</string>
+  <string>Background</string>
   <key>ThrottleInterval</key>
   <integer>3</integer>
   <key>StandardOutPath</key>

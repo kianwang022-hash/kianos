@@ -6,10 +6,6 @@ const emptyMeta = () => ({ schema: 'kianos.politics.practice_meta.v1', favorites
 const seconds = (n) => `${Math.floor(Math.max(0, n) / 60)}:${String(Math.floor(Math.max(0, n)) % 60).padStart(2, '0')}`;
 const iso = () => new Date().toISOString();
 const sorted = (s) => [...s].sort().join('');
-const learnerErrorMessage = (value, fallback = '当前操作无法安全完成；原记录没有改动，请刷新后重试。') => {
-  const message = String(value?.message || value || '').trim();
-  return /[\u3400-\u9fff]/.test(message) ? message : fallback;
-};
 
 export function initPoliticsPractice(root) {
   if (!(root instanceof HTMLElement)) return;
@@ -36,7 +32,7 @@ export function initPoliticsPractice(root) {
     meta = read(PRACTICE_KEYS.meta, emptyMeta());
     session = read(PRACTICE_KEYS.session, null);
     sessionBytes = localStorage.getItem(PRACTICE_KEYS.session);
-  } catch (e) { error(learnerErrorMessage(e)); $('button').forEach((b) => { b.disabled = true; }); return; }
+  } catch (e) { error(e.message); $$('button').forEach((b) => { b.disabled = true; }); return; }
   // Don't leave even the public catalogue as an unnecessary accessibility node.
   $('[data-politics-practice-catalog]').remove();
   const qById = new Map(catalog.questions.map((q) => [q.id, q]));
@@ -65,7 +61,7 @@ export function initPoliticsPractice(root) {
     write(PRACTICE_KEYS.meta, next); meta = next;
   };
   const run = (fn) => async (event) => {
-    try { await fn(event); } catch (e) { error(learnerErrorMessage(e, '保存失败，当前操作未完成。')); }
+    try { await fn(event); } catch (e) { error(e.message || '保存失败，当前操作未完成。'); }
   };
   const on = (selector, event, fn) => $$(selector).forEach((node) => node.addEventListener(event, run(fn)));
   const eligible = () => {
@@ -299,7 +295,7 @@ export function initPoliticsPractice(root) {
       saveSession({ ...session, pending }); activeSince = 0;
       flushPending();
     } catch (e) {
-      error(learnerErrorMessage(e)); hide('[data-retry-save]', !session.pending);
+      error(e.message); hide('[data-retry-save]', !session.pending);
     } finally { busy = false; freezeInputs(!!session.pending || !!result()); }
   };
   const choose = async (label) => {
@@ -379,8 +375,7 @@ export function initPoliticsPractice(root) {
   on('[data-note]', 'blur', persistNote);
   on('[data-mode-value]', 'click', (event) => { if (active()) return; controls.mode.value = event.currentTarget.dataset.modeValue; startQuestionId = null; scopeSummary(); });
   for (const name of ['subject', 'chapter', 'unit', 'type', 'count']) on(`[data-filter-${name}]`, 'change', () => {
-    if (['subject', 'chapter', 'unit'].includes(name)) $('[data-learned-scope]').checked = false;
-    if (name !== 'count') startQuestionId = null;
+    $('[data-learned-scope]').checked = false; if (name !== 'count') startQuestionId = null;
     if (name === 'subject') chapterOptions(); else if (name === 'chapter') unitOptions(); else scopeSummary();
   });
   document.addEventListener('click', (event) => {
@@ -388,7 +383,7 @@ export function initPoliticsPractice(root) {
     try {
       if (busy || session.pending) throw new Error('本次作答尚未保存完整，请先重试保存。');
       persistNote(); saveDraft(); cancelAdvance();
-    } catch (e) { event.preventDefault(); error(learnerErrorMessage(e)); }
+    } catch (e) { event.preventDefault(); error(e.message); }
   });
   window.addEventListener('keydown', run(async (event) => {
     if (!active() || blocked || busy || event.metaKey || event.ctrlKey || event.altKey || event.isComposing || event.repeat) return;
@@ -418,9 +413,6 @@ export function initPoliticsPractice(root) {
       const reviewDay = params.get('reviewDay');
       if (reviewDay && (!/^\d{4}-\d{2}-\d{2}$/.test(reviewDay) || reviewDay > new Date().toLocaleDateString('en-CA'))) throw new Error('回访日期无效；未扩大范围。');
       controls.mode.value = 'review';
-      // Review only contains questions with prior learner evidence; do not ask
-      // for a second "already learned" confirmation before a retest.
-      $('[data-learned-scope]').checked = true;
       const reviewSubject = params.get('reviewSubject');
       if (reviewSubject) {
         if (!catalog.subjects.some(s => s.id === reviewSubject)) throw new Error('回访科目不存在；未替换为其他范围。');
@@ -442,12 +434,11 @@ export function initPoliticsPractice(root) {
       if (!u) throw new Error('学习单元链接无效；没有替换成其他范围。');
       if (session && ['active', 'paused'].includes(session.status) && session.scope.unit !== u.key) throw new Error('另有未完成题组，请从原入口恢复；没有替换题组。');
       controls.subject.value = u.subject; chapterOptions(); controls.chapter.value = `${u.subject}/${u.chapter}`; unitOptions(); controls.unit.value = u.key;
-      if (!targetQuestion && params.get('learnedScope') === 'confirmed') $('[data-learned-scope]').checked = true;
     }
     render();
     if (params.get('review') === 'problems' && session?.status === 'completed') {
       root.removeAttribute('data-completed'); hide('[data-session-complete]'); hide('[data-practice-setup]', false);
-      $('[data-learned-scope]').checked = true;
+      $('[data-learned-scope]').checked = false;
     }
-  } catch (e) { blocked = true; root.dataset.blocked = 'true'; error(learnerErrorMessage(e)); root.querySelectorAll('button').forEach((b) => { b.disabled = true; }); }
+  } catch (e) { blocked = true; root.dataset.blocked = 'true'; error(e.message); $$('button').forEach((b) => { b.disabled = true; }); }
 }

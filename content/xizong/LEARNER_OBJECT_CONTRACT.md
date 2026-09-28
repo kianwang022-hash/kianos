@@ -96,12 +96,6 @@ extension[]
 connection[]
   reviewed relations explicitly anchored to this KP when such relations exist
 
-attention[]
-  Projection-resolved explicit learner-facing boundary / confusable / future-connection cues anchored to this KP
-  - must come from Current owner semantics or exact fail-closed Projection extraction
-  - renderer must not rediscover them from Markdown / DOM text
-  - answer-bearing attention remains hidden on protected Recall Front unless an explicit Current timing policy allows it
-
 learn_steps[]
   phase = core | detail | precision | extension | connection | visual
   available = whether the Current object actually has that phase
@@ -114,8 +108,6 @@ recall
 ```
 
 The resolver must not manufacture an unavailable phase merely to make all KPs visually symmetrical.
-
-`attention[]` is support metadata, not a new learning phase. It exists only to carry already-owned Attention semantics into the shared rail.
 
 ### Core normalization
 
@@ -142,8 +134,6 @@ Each Logic Group object contains:
 - `connection.incoming[]` and `connection.outgoing[]` derived only from reviewed Pathway authority.
 
 A renderer should therefore ask the learner object for the active owner rather than recomputing ownership from current DOM text or `MutationObserver`-visible counters.
-
-Explicit Content markers such as accepted `易混` / `边界` / `//串联` cues may be compiled into `attention[]` only in the Projection/resolution layer with exact fail-closed rules. The browser renderer never scans canonical Markdown to create them.
 
 ---
 

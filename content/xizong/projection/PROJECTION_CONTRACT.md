@@ -1,6 +1,6 @@
 # Xizong Cognitive Projection Contract
 
-Status: **A1/A2/A3/B MATERIALIZED ASSETS · C/D/E/F CURRENT-DERIVED BASELINE · CURRENT ELIGIBILITY RECONCILED · P/R/U ACCEPTANCE REMAINS SEPARATE**
+Status: **A1/A2/A3/B COMPILED ASSETS · CURRENT ELIGIBILITY RECONCILED · C ELIGIBLE NOT COMPILED · RUNTIME ADOPTION NOT CLAIMED**  
 Parent product: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Current semantic adapter: `static-web/src/lib/xizongSemanticAdapter.mjs`  
@@ -28,9 +28,9 @@ Hard rule:
 
 It may describe semantic role, useful cognitive geometry and state visibility. It may not author a new mechanism, comparison, boundary, Source-contact segment, source locator, Question→Knowledge relation, treatment rule or learner evidence.
 
-## 2｜Current materialized scope vs derived baseline eligibility
+## 2｜Current compiled scope vs eligibility
 
-Materialized rich Projection, Current eligibility and shared derived baseline are different claims.
+Compiled Projection and Current eligibility are different claims.
 
 Current materialized Projection assets cover:
 
@@ -43,38 +43,24 @@ B  Digestive / Metabolic / Endocrine   1 SystemProjection + 38 BlockProjection
 Compiled total                         4 SystemProjection + 76 BlockProjection = 80 assets
 ```
 
-Current accepted owners make **C / D / E / F eligible for Projection**. They intentionally remain without physical rich Projection assets until a scoped materialization/review is justified. That absence no longer blocks the learner runtime.
+Current accepted Knowledge + Learning makes **C Hematology / Immunity / Infection eligible for Projection**, but C remains deliberately **not compiled** in the manifest until an explicit C Projection compile is built and validated. Eligibility is not a P PASS and is not permission to invent a placeholder asset.
 
-Instead, the shared semantic adapter deterministically provides a **derived baseline**:
-
-```text
-Current Block owner
-+ accepted Learning owner
-→ current problem / first-pass focus
-+ existing Logic Group topology
-→ minimal learner-facing Framework
-```
-
-The derived baseline may not invent a new mechanism, graph, comparison, Source split, enrichment, locator or learner order. It is a fail-closed runtime representation, not a placeholder rich asset and not a P PASS.
-
-Current accounting is therefore:
+Current eligible accounting therefore is:
 
 ```text
-A1 / A2 / A3 / B   eligible + materialized rich assets    76 Blocks
-C / D / E / F      eligible + shared derived baseline     83 Blocks
--------------------------------------------------------------------
-Current eligible / runtime-projectable Systems              8
-Current eligible / runtime-projectable Blocks              159
-Physical materialized BlockProjection assets                76
+A1 / A2 / A3 / B   eligible + compiled        76 Blocks
+C                   eligible + not compiled    27 Blocks
+--------------------------------------------------------
+Current eligible Systems                       5
+Current eligible Blocks                       103
 ```
 
-The shared semantic adapter owns cross-System normalization before Projection / renderer consumption:
+C materially differs from the older contiguous-range assumption:
 
-- C may use explicit/non-contiguous KP membership;
-- D/E/F may use top-level `logic_groups` plus `source_contact_contract` instead of legacy per-Block Learning objects;
-- WHOLE_BLOCK_SOURCE / NATURAL_SOURCE_UNITS / INTEGRATION_PRIMARY remain distinct;
-- Natural Source units do not gain KP membership merely because the renderer would prefer it;
-- stable canonical Block/KP identities come from Current owners and are not reconstructed from page titles.
+- accepted Logic Group membership may be explicit and non-contiguous (`kp_members`);
+- Logic Group remains a retrieval / local-closure unit;
+- C Source contact is Block / accepted canonical Source-unit oriented and must not be collapsed into LG-by-LG Source trips;
+- the shared semantic adapter owns this Current normalization before Projection / renderer consumption.
 
 The older A systems retain seven heterogeneous calibration Blocks with richer explicitly compiled geometry:
 
@@ -88,7 +74,7 @@ The older A systems retain seven heterogeneous calibration Blocks with richer ex
 
 B additionally has calibrated representative assets while keeping its orientation bounded; its whole canonical Block Markdown is not promoted into a second Lecture surface.
 
-Materialized Projection preserves references to complete canonical owners rather than authoring shortened medical truth. The shared derived baseline consumes the same Current owners without manufacturing physical Projection files. Neither materialized asset existence nor baseline availability proves learner-facing quality; renderer compliance, real-browser proof and Human Gate remain downstream.
+Baseline Projection preserves references to complete canonical owners rather than authoring shortened medical truth. Asset existence does not prove that the production renderer already presents the semantic hierarchy well; renderer compliance and browser acceptance remain downstream.
 
 ## 3｜Granularity and identity
 
@@ -404,18 +390,16 @@ Compiled asset validation covers:
 node static-web/scripts/validate-xizong-projection-current.mjs
 ```
 
-This gate consumes the shared Current semantic adapter and checks what the materialized-asset validator cannot legitimately claim:
+This gate consumes the shared Current semantic adapter and checks what the compiled asset validator cannot legitimately claim:
 
-- A1/A2/A3/B remain physically materialized;
-- C/D/E/F are eligible from exact Current owners and use `DERIVED_BASELINE_CURRENT` without pretending rich assets exist;
-- all 8 Systems / 159 Blocks remain runtime-projectable;
-- C explicit/non-contiguous LG membership survives exactly;
-- D/E/F accepted Learning schemas normalize without rewriting them into the legacy `blocks{}` shape;
-- B whole-LG, C Block/canonical-unit, and D/E/F whole/natural/integration Source-contact semantics remain distinct;
-- Natural Source units do not acquire invented KP membership;
-- C/D/E/F do not silently appear in physical materialized manifest slots before reviewed assets exist.
+- A1/A2/A3/B remain compiled;
+- C is eligible but intentionally uncompiled;
+- C's explicit/non-contiguous LG membership survives exactly;
+- B whole-LG Source contact survives;
+- C Block/canonical-unit Source contact is not collapsed into LG-by-LG bouncing;
+- C does not silently appear in compiled manifest slots before real assets exist.
 
-Both gates are required in Current Xizong QA. A green materialized-asset validator cannot make stale eligibility metadata true, and a green Current semantic adapter cannot make absent rich assets materialized.
+Both gates are required in Current Xizong QA. A green compiled-asset validator cannot make stale eligibility metadata true, and a green Current semantic adapter cannot make absent Projection assets compiled.
 
 Executed evidence belongs to the actual CI run/report. Test implementation and self-review remain `SELF` evidence, not an independent P acceptance.
 
@@ -437,4 +421,4 @@ The Current reconciliation preserves that asset schema family while adding a hig
 
 > **Compiled asset topology and Current accepted learning topology are checked separately and must agree where they overlap.**
 
-No canonical medical text, stable medical identity, learner order, Source-contact decision or question evidence is rewritten. C/D/E/F eligibility is reconciled from exact Current owners; their shared derived baseline does not manufacture rich Projection files. Future richer materialization remains an explicit scoped optimization step. Producers and consumers must preserve this boundary; using physical asset existence as a learner-runtime gate is not compatible adoption.
+No canonical medical text, stable medical identity, learner order, Source-contact decision or question evidence is rewritten. C's eligibility is now recorded without manufacturing C Projection files; C compilation remains an explicit future construction step. Producers and future consumers must honor these declared boundaries; ignoring them is not compatible adoption.

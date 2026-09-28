@@ -347,7 +347,7 @@ try{
   const keyed=externalReadingPassage('toefl-current-synthetic-keyed',state);
   assert.equal(keyed.questions.length,1);
   assert.equal(keyed.answer_key_status,'SOURCE_BACKED');
-  assert.equal(externalReadingAnswers('toefl-current-synthetic-keyed',state).answers['toefl-current-synthetic-keyed-q1'],'A, C');
+  assert.equal(externalReadingAnswers('toefl-current-synthetic-keyed',state).answers['toefl-current-synthetic-keyed-q1'],'A');
 
   const legacyOnly=ensureExternalReadingPrivateBundle({
     sourceRoot,

@@ -4,12 +4,13 @@ Status: **CURRENT — ACCEPTED XIZONG VISUAL / SURFACE BLUEPRINT OWNER**
 Parent UI cursor: `static-web/CURRENT.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Lane router: `content/xizong/CURRENT.md`  
-Parent Visual authority: `static-web/PRESENTATION_CONTRACT.md` + `static-web/UI_STYLE_BRIEF.md` + `static-web/KIAN_UI_PREFERENCES.md`
-Surface split parent: `static-web/PRODUCT_SURFACE_CONTRACT.md`
+Shared projection grammar: `static-web/PRESENTATION_CONTRACT.md`  
 **UI review safety protocol: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`**  
+Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
+Shared L1 style owner: `static-web/UI_STYLE_BRIEF.md`  
 **Xizong L2 visual owner: `static-web/XIZONG_VISUAL_LANGUAGE.md`**
 
-This file owns the accepted learner-visible Xizong product and Projection architecture boundary. It is durable product truth, not a construction-stage brief or active implementation cursor. It does **not** change medical Content, Learning Logic, Evidence semantics, learner progress, or the S/K/L/P/R/E/U status of any System.
+This file records accepted learner-visible Xizong product and Projection architecture decisions before Codex implementation. It does **not** change medical Content, Learning Logic, Evidence semantics, learner progress, or the S/K/L/P/R/E/U status of any System.
 
 For any mature Xizong surface discussion, `XIZONG_UI_REVIEW_PROTOCOL.md` is a mandatory companion read before local UI recommendation. Product decisions live here; the protocol owns the whole-flow-before-local-optimization review method. Any learner-facing L3 visual proposal must additionally inherit `XIZONG_VISUAL_LANGUAGE.md`; local surface owners may vary geometry but may not silently create a separate Xizong aesthetic.
 
@@ -94,7 +95,7 @@ Current Content
 → reconnect Runtime afterward
 ```
 
-## Required four-way Projection review before recommending changes
+## Required four-way Projection audit before recommending changes
 
 Every mature Xizong learner surface must first classify the existing implementation into:
 
@@ -164,35 +165,28 @@ Its job is to materialize stable ViewModels for the already accepted cognition a
 
 Xizong web is not a second textbook and not a document browser.
 
-The approved first-pass model remains external-primary and phase-separated:
+The approved first-pass model remains external-primary:
 
 ```text
-LEARN
 System orientation
 → choose Block
 → Block orientation
-→ complete the current Block's accepted Source/Learn scope
-   → iPad / MarginNote original Lecture: continuous study at the accepted Source-contact granularity
-   → Mac KP Learn remains a companion rather than a second Lecture
-   → at a real reviewed Source boundary:
-        if a reviewed Lecture-attached TTSX binding exists
-        → lightweight TTSX checkpoint
-        → questions stay in MarginNote; optional learner note may be left in KianOS
-        → return to unfinished Block Learn
-        otherwise
-        → no checkpoint is invented
-
-RECALL
-only after Block Learn is complete
-→ KP Recall in the accepted Logic Group order
-→ automatic Logic Group closure
-→ after final Logic Group closure: Block Recall
+→ current Logic Group / Source-contact orientation
+→ iPad / MarginNote original Lecture: continuous study at the accepted Source-contact granularity
+   while Mac KP Learn remains a companion rather than a second Lecture
+→ at a real reviewed Source boundary:
+     if a reviewed Lecture-attached TTSX binding exists
+     → lightweight TTSX checkpoint
+     → questions stay in MarginNote; optional learner note may be left in KianOS
+     otherwise
+     → no checkpoint is invented
+→ return at the accepted retrieval point
+→ KP Recall for the current Logic Group
+→ Logic Group closure
+→ next Logic Group / accepted Source contact
+→ Block Recall
 → Block Complete
 ```
-
-Product timing rule:
-
-> **The learner does not alternate Learn → KP Recall → Learn by default. The Block's Learn scope completes before its KP/LG Recall sequence begins.**
 
 After the relevant System has actually been learned, later stages may expose:
 

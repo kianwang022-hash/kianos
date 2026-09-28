@@ -1,0 +1,2142 @@
+{
+  "schema": "kianos.lexical.bf14_write_fragment.v1",
+  "part": 2,
+  "writes": [
+    {
+      "path": "content/lexical/words/by-ordinal/o1506.json",
+      "mode": "patch_json",
+      "expected_sha256": "aebf629c6e790cc84bbef48ed2d86ca61361fab6a619d876bbdd29de44235a26",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "369f13f12e0d6d129eeccbb4df3747bb809e1fc2ad2752ec2622016a1349105a",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "恐惧；忧惧",
+                  "label_en": "fear or anxious anticipation of something bad",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:dread:84d787ab24a052b1"
+                  ]
+                },
+                {
+                  "label_cn": "害怕；担心",
+                  "label_en": "to fear or be anxious about something",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:dread:9517ae414894386d"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "对坏事恐惧或担忧",
+              "core_meaning_en": "fear or anticipation of something bad",
+              "mental_model_cn": "对坏事恐惧或担忧",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "恐惧、忧惧",
+                "definition_en": "great fear or apprehension",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dread:84d787ab24a052b1",
+                "sense_label_en": "great fear or apprehension",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "害怕、担心",
+                "definition_en": "to fear or anticipate with great anxiety",
+                "governing_pattern": "dread doing sth",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dread:9517ae414894386d",
+                "sense_label_en": "to fear or anticipate with great anxiety",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "dread",
+            "word_family": [],
+            "word_id": "word:dread"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1507.json",
+      "mode": "patch_json",
+      "expected_sha256": "6e0773e2baa6d72fcedc8a3aa5beb94df105dd5ae3b099f51c891b372a49c344",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "9429bad9a1b215521ddc34a3fb4560c87c7de3adcb6d2a4dfccaee8c9e2085b1",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "梦；幻想；空想；出神；恍惚；梦寐以求的人或事物",
+                  "label_en": "a series of mental images and emotions occurring during sleep; imaginative thoughts indulged in while awake; a state of mind characterized by abstraction and release from reality; someone or something wonderful",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:dream:1436bb4d47e3545a",
+                    "sense:dream:4ee0659a44fa587d",
+                    "sense:dream:4039040b01ce55df",
+                    "sense:dream:1e25d788231b5684"
+                  ]
+                },
+                {
+                  "label_cn": "做梦；梦想；想象",
+                  "label_en": "to experience dreams during sleep; to imagine or hope for something",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:dream:a9e8a9ce53d555c9",
+                    "sense:dream:37808b21861b5b3a"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "梦或梦想",
+              "core_meaning_en": "mental images during sleep or a cherished aspiration",
+              "mental_model_cn": "梦或梦想",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [
+              {
+                "fact_id": "usage:dream:aspiration-noun",
+                "module": "secondary_senses",
+                "pos": "noun",
+                "level": "L1",
+                "definition_cn": "梦想；愿望；很想实现的目标",
+                "definition_en": "a hope, ambition, or condition that you want very much to achieve",
+                "pattern": "a dream of + sth / pursue or fulfil a dream",
+                "boundary": "aspiration dream = desired future goal, not a sleep dream or mere fantasy",
+                "publication_status": "publishable",
+                "verification_status": "verified",
+                "source_sense_id": null
+              }
+            ],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:cb75d6df409acf3bb583",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dream:1436bb4d47e3545a:collocation:0"
+                    ],
+                    "meaning_cn": "做梦",
+                    "phrase": "have a dream"
+                  },
+                  {
+                    "collocation_id": "collocation:c42bb702bdfcb77308dd",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dream:1436bb4d47e3545a:collocation:1"
+                    ],
+                    "meaning_cn": "噩梦",
+                    "phrase": "bad dream"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "梦",
+                "definition_en": "a series of mental images and emotions occurring during sleep",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dream:1436bb4d47e3545a",
+                "sense_label_en": "a series of mental images and emotions occurring during sleep",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:584024136ffa85a2e316",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dream:4ee0659a44fa587d:collocation:0"
+                    ],
+                    "meaning_cn": "白日梦",
+                    "phrase": "daydream"
+                  },
+                  {
+                    "collocation_id": "collocation:98f942e150d00af97189",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dream:4ee0659a44fa587d:collocation:1"
+                    ],
+                    "meaning_cn": "生活在幻想中",
+                    "phrase": "live in a dream"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "幻想；空想",
+                "definition_en": "imaginative thoughts indulged in while awake",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dream:4ee0659a44fa587d",
+                "sense_label_en": "imaginative thoughts indulged in while awake",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:172625036b56ac4100fe",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dream:a9e8a9ce53d555c9:collocation:0"
+                    ],
+                    "meaning_cn": "梦见",
+                    "phrase": "dream of + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:48ea7e39e9fdb3cf4787",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:dream:a9e8a9ce53d555c9:collocation:1"
+                    ],
+                    "meaning_cn": "梦见",
+                    "phrase": "dream about + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "做梦",
+                "definition_en": "to experience dreams during sleep",
+                "governing_pattern": "vi. + of/about",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dream:a9e8a9ce53d555c9",
+                "sense_label_en": "to experience dreams during sleep",
+                "sort_order": 4,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "梦想；想象",
+                "definition_en": "to imagine or hope for something",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:dream:37808b21861b5b3a",
+                "sense_label_en": "to imagine or hope for something",
+                "sort_order": 5,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:ce33ecd08392cbb11891",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dream:4039040b01ce55df:collocation:0"
+                    ],
+                    "meaning_cn": "出神地",
+                    "phrase": "in a dream"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "出神；恍惚",
+                "definition_en": "a state of mind characterized by abstraction and release from reality",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dream:4039040b01ce55df",
+                "sense_label_en": "a state of mind characterized by abstraction and release from reality",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:29274abd454335db49e7",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dream:1e25d788231b5684:collocation:0"
+                    ],
+                    "meaning_cn": "梦想中的房子",
+                    "phrase": "dream house"
+                  },
+                  {
+                    "collocation_id": "collocation:f88f2d243fba4b6452aa",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:dream:1e25d788231b5684:collocation:1"
+                    ],
+                    "meaning_cn": "梦想成真",
+                    "phrase": "dream come true"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "梦寐以求的人或事物",
+                "definition_en": "someone or something wonderful",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:dream:1e25d788231b5684",
+                "sense_label_en": "someone or something wonderful",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "dream",
+            "word_family": [],
+            "word_id": "word:dream",
+            "form_identity": {
+              "form_type": "variant_inflection_identity",
+              "spelling": "dream",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "dream has two accepted past and past-participle forms: dreamed and dreamt.",
+              "boundaries": [
+                {
+                  "surface": "dreamed",
+                  "condition": "past simple / past participle",
+                  "note": "accepted form"
+                },
+                {
+                  "surface": "dreamt",
+                  "condition": "past simple / past participle",
+                  "note": "accepted variant form"
+                }
+              ],
+              "variants": [],
+              "authority": "BF14 Kian-p approved Form/knowledge expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1509.json",
+      "mode": "patch_json",
+      "expected_sha256": "80325bff5d10e5fabef4ce90db535297da001e39cb450e7aa23649fb2bfe303a",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "7a6e7cf1efd9324904696e71495dd23d6ba7ca6e971b7443a2096349caa7d2eb",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "漂流；漂移；缓慢移动",
+                  "label_en": "to be carried along or move slowly without firm direction",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:drift:37703025fbaa5c34"
+                  ]
+                },
+                {
+                  "label_cn": "逐渐偏移；缓慢变化",
+                  "label_en": "a gradual movement or change away from an earlier position or course",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:drift:8ac0ffbf6fbb5024"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "漂移；逐渐偏移或变化",
+              "core_meaning_en": "to drift; a gradual shift or change",
+              "mental_model_cn": "漂流；漂移；堆积",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5698c82f46fcb776e80e",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drift:37703025fbaa5c34:collocation:0"
+                    ],
+                    "meaning_cn": "顺流漂动；随波逐流",
+                    "phrase": "drift along"
+                  },
+                  {
+                    "collocation_id": "collocation:27211810df2a19a7155d",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drift:37703025fbaa5c34:collocation:1"
+                    ],
+                    "meaning_cn": "逐渐趋向于……",
+                    "phrase": "drift toward + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "漂流；漂泊",
+                "definition_en": "to be carried along by wind or water; to move slowly without purpose",
+                "governing_pattern": "vi. + along / + toward",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drift:37703025fbaa5c34",
+                "sense_label_en": "to be carried along by wind or water; to move slowly without purpose",
+                "sort_order": 0,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:cde4bc8f1c8cb15cc6c2",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drift:8ac0ffbf6fbb5024:collocation:handoff-o1375-o1624"
+                    ],
+                    "meaning_cn": "观点或政策逐渐偏移",
+                    "phrase": "a drift in opinion/policy"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "逐渐偏离的移动或变化",
+                "definition_en": "a gradual movement or change away from a course or position",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drift:8ac0ffbf6fbb5024",
+                "sense_label_en": "a gradual movement or change away from a course or position",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:86a52468fd2a3ecd4822",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drift:02d489f6851058c6:collocation:0"
+                    ],
+                    "meaning_cn": "雪堆",
+                    "phrase": "snow drift"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "（风吹成的）堆积物",
+                "definition_en": "a pile of snow or sand made by the wind",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drift:02d489f6851058c6",
+                "sense_label_en": "a pile of snow or sand made by the wind",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "drift",
+            "word_family": [],
+            "word_id": "word:drift"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1510.json",
+      "mode": "patch_json",
+      "expected_sha256": "105e351c83c5b5a99adc5758dd96e32cee3a53e164204d28ea12fd6799eb3973",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "cb893080c405681705ce32600e012dd3d97c1c443bb35beaaf2feb90b7d8cd31",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "钻孔；钻头；钻机",
+                  "label_en": "to make a hole with a drill; a drill or drill bit",
+                  "pos": "mixed",
+                  "sense_ids": [
+                    "sense:drill:227dd2bc6e755cc2",
+                    "sense:drill:13e11e9d1379537b"
+                  ]
+                },
+                {
+                  "label_cn": "训练；操练",
+                  "label_en": "training by repeated practice; to train by repetition",
+                  "pos": "mixed",
+                  "sense_ids": [
+                    "sense:drill:2712382b21295755",
+                    "sense:drill:17c6e2bb5f025e77"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "钻孔或反复训练",
+              "core_meaning_en": "to make holes or train repeatedly",
+              "mental_model_cn": "钻孔或反复训练",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:semantic_contrast:drill:1ae0e914a7f760a8",
+              "relation:deep:semantic_contrast:drill:1ae0e914a7f760a8"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:2b48d74e2896a0322926",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drill:227dd2bc6e755cc2:collocation:0"
+                    ],
+                    "meaning_cn": "钻孔",
+                    "phrase": "drill a hole"
+                  },
+                  {
+                    "collocation_id": "collocation:2aeef95ec3b0dda7b356",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drill:227dd2bc6e755cc2:collocation:1"
+                    ],
+                    "meaning_cn": "钻入某物",
+                    "phrase": "drill into + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "钻孔",
+                "definition_en": "to make a hole with a drill",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drill:227dd2bc6e755cc2",
+                "sense_label_en": "to make a hole with a drill",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:cc575460c7587ac39eac",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drill:13e11e9d1379537b:collocation:handoff-o1375-o1624"
+                    ],
+                    "meaning_cn": "钻机/钻头",
+                    "phrase": "a drill/drill bit"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "钻头、钻机或工具",
+                "definition_en": "a tool or machine for making holes",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drill:13e11e9d1379537b",
+                "sense_label_en": "a tool or machine for making holes",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:9857da510252c28c767e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drill:2712382b21295755:collocation:0"
+                    ],
+                    "meaning_cn": "消防演习",
+                    "phrase": "fire drill"
+                  },
+                  {
+                    "collocation_id": "collocation:0a028efe59f569bfcccf",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drill:2712382b21295755:collocation:1"
+                    ],
+                    "meaning_cn": "操练军士",
+                    "phrase": "drill sergeant"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "训练，操练",
+                "definition_en": "training, especially military training",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drill:2712382b21295755",
+                "sense_label_en": "training, especially military training",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:a74dcf8f716aae59e7f9",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drill:17c6e2bb5f025e77:collocation:0"
+                    ],
+                    "meaning_cn": "在某方面训练某人",
+                    "phrase": "drill sb in + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:2f525bf01ec8cc6d5d6b",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drill:17c6e2bb5f025e77:collocation:1"
+                    ],
+                    "meaning_cn": "操练部队",
+                    "phrase": "drill the troops"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "训练，操练",
+                "definition_en": "to train someone by repetition",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drill:17c6e2bb5f025e77",
+                "sense_label_en": "to train someone by repetition",
+                "sort_order": 3,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "条播机",
+                "definition_en": "a machine for sowing seeds in rows",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drill:8117f2f480b956a8",
+                "sense_label_en": "a machine for sowing seeds in rows",
+                "sort_order": 4,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 3,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "completed",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "drill",
+            "word_family": [],
+            "word_id": "word:drill"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1511.json",
+      "mode": "patch_json",
+      "expected_sha256": "919354bbf08a27a3f81bcbfe8928bfdcf6a377ffab3739e948a68b023490d739",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "b5caa903d2f233ce34f9a144e308847c45dd8f374ee8130dad7893b99e4bc86b",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "喝，饮；喝酒",
+                  "label_en": "to take a liquid into the mouth and swallow it; to drink alcohol, especially habitually or to excess",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:drink:459810cdddeb53a8",
+                    "sense:drink:fe1f59e105235fa6"
+                  ]
+                },
+                {
+                  "label_cn": "饮料；酒；大片水域",
+                  "label_en": "a liquid that is intended for drinking; a beverage; an alcoholic beverage; a large body of water (as a lake or sea)",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:drink:1bf2f285663d59f9",
+                    "sense:drink:e1615e436e035921"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "饮料、饮酒或喝的行为",
+              "core_meaning_en": "a liquid for drinking or the act of drinking",
+              "mental_model_cn": "饮料、饮酒或喝的行为",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:semantic_contrast:drink:0331dc279eac6850",
+              "relation:deep:semantic_contrast:drink:0331dc279eac6850"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b05b546eed05a76cc477",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drink:459810cdddeb53a8:collocation:0"
+                    ],
+                    "meaning_cn": "喝水",
+                    "phrase": "drink water"
+                  },
+                  {
+                    "collocation_id": "collocation:c27dae78c10e3de47a4e",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drink:459810cdddeb53a8:collocation:1"
+                    ],
+                    "meaning_cn": "喝某物",
+                    "phrase": "drink + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "喝，饮",
+                "definition_en": "to take a liquid into the mouth and swallow it",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drink:459810cdddeb53a8",
+                "sense_label_en": "to take a liquid into the mouth and swallow it",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:cc209f769a1fb18f85db",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drink:fe1f59e105235fa6:collocation:0"
+                    ],
+                    "meaning_cn": "酗酒",
+                    "phrase": "drink heavily"
+                  },
+                  {
+                    "collocation_id": "collocation:bf3141ca3a81ba6f41a2",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drink:fe1f59e105235fa6:collocation:1"
+                    ],
+                    "meaning_cn": "为...干杯",
+                    "phrase": "drink to + sth/sb"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "喝酒",
+                "definition_en": "to drink alcohol, especially habitually or to excess",
+                "governing_pattern": "vi.",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drink:fe1f59e105235fa6",
+                "sense_label_en": "to drink alcohol, especially habitually or to excess",
+                "sort_order": 1,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:d855ad4caf4642b03921",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drink:1bf2f285663d59f9:collocation:0"
+                    ],
+                    "meaning_cn": "软饮料",
+                    "phrase": "soft drink"
+                  },
+                  {
+                    "collocation_id": "collocation:44bd8cfd56295b4f0f74",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drink:1bf2f285663d59f9:collocation:1"
+                    ],
+                    "meaning_cn": "一杯水",
+                    "phrase": "a drink of water"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "饮料",
+                "definition_en": "a liquid that is intended for drinking; a beverage",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drink:1bf2f285663d59f9",
+                "sense_label_en": "a liquid that is intended for drinking; a beverage",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:9f9aae0e7324d21e8df4",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drink:e1615e436e035921:collocation:0"
+                    ],
+                    "meaning_cn": "喝一杯",
+                    "phrase": "have a drink"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "酒",
+                "definition_en": "an alcoholic beverage",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drink:e1615e436e035921",
+                "sense_label_en": "an alcoholic beverage",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "completed",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "drink",
+            "word_family": [],
+            "word_id": "word:drink",
+            "form_identity": {
+              "form_type": "irregular_inflection_identity",
+              "spelling": "drink",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "drink is irregular: drink → drank → drunk.",
+              "boundaries": [
+                {
+                  "surface": "drink",
+                  "condition": "base/present",
+                  "note": "base form"
+                },
+                {
+                  "surface": "drank",
+                  "condition": "past simple",
+                  "note": "irregular past"
+                },
+                {
+                  "surface": "drunk",
+                  "condition": "past participle",
+                  "note": "irregular participle; drunk also has a separately lexicalized adjective owner"
+                }
+              ],
+              "variants": [],
+              "authority": "BF14 Kian-p approved Form/knowledge expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1513.json",
+      "mode": "patch_json",
+      "expected_sha256": "df671c1090ba62a80327a9a8bd07d3064f94eca36aac3606bfca77b5bb2dac39",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v3",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "347f1980a6a5bb296e3e9e5046812797d7a070048a10d8ab1dde4c15a16a032b",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "驾驶（车辆）；驱使；迫使；猛击；猛冲",
+                  "label_en": "to operate and control a vehicle; to force someone or something to move or act; to hit or strike forcefully",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:drive:29efbf8d122956e0",
+                    "sense:drive:be73fa4c6e9155fa",
+                    "sense:drive:3aaa8889be8e531b"
+                  ]
+                },
+                {
+                  "label_cn": "干劲；驱动力；驱动器；传动装置",
+                  "label_en": "a strong motivation or ambition; a mechanism that transmits power in a machine",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:drive:cacc997223095239",
+                    "sense:drive:c97327b45c2d5348"
+                  ]
+                },
+                {
+                  "label_cn": "驾车旅行；车程",
+                  "label_en": "a journey made by car",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:drive:9d81aa51756e57dc"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "驾驶；驱动",
+              "core_meaning_en": "to operate a vehicle; to force movement; a motivating force",
+              "mental_model_cn": "驾驶；驱动",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:deep:constructions:drive:076d3ac69affd0c4",
+              "deep:deep:constructions:drive:076d3ac69affd0c4",
+              "deep:deep:secondary_senses:drive:6d6fe48e59381e86",
+              "deep:deep:semantic_contrast:drive:4da34d78b4171027",
+              "deep:deep:word_family:drive:5baa0e11b875faf0",
+              "relation:deep:semantic_contrast:drive:4da34d78b4171027",
+              "relation:deep:word_family:drive:5baa0e11b875faf0",
+              "sense:sense:drive:5a8b21e0d9615120",
+              "sense:sense:drive:9d81aa51756e57dc"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:4b9ea0ad19d27894f848",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drive:29efbf8d122956e0:collocation:0"
+                    ],
+                    "meaning_cn": "开车",
+                    "phrase": "drive a car"
+                  },
+                  {
+                    "collocation_id": "collocation:373f81264e6fbf709c55",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drive:29efbf8d122956e0:collocation:1"
+                    ],
+                    "meaning_cn": "开车送某人去某地",
+                    "phrase": "drive sb to + place"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "驾驶（车辆）",
+                "definition_en": "to operate and control a vehicle",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drive:29efbf8d122956e0",
+                "sense_label_en": "to operate and control a vehicle",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:9eaa942c58134e0418ef",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drive:be73fa4c6e9155fa:collocation:0"
+                    ],
+                    "meaning_cn": "驱使某人做某事",
+                    "phrase": "drive sb to do sth"
+                  },
+                  {
+                    "collocation_id": "collocation:94800f668375387b987b",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drive:be73fa4c6e9155fa:collocation:1"
+                    ],
+                    "meaning_cn": "使某人发疯",
+                    "phrase": "drive sb crazy"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "驱使；迫使",
+                "definition_en": "to force someone or something to move or act",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drive:be73fa4c6e9155fa",
+                "sense_label_en": "to force someone or something to move or act",
+                "sort_order": 1,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "驾车旅行；车程",
+                "definition_en": "a journey in a vehicle",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drive:9d81aa51756e57dc",
+                "sense_label_en": "a journey in a vehicle",
+                "sort_order": 2,
+                "source_evidence": [
+                  {
+                    "external_evidence": [
+                      {
+                        "role": "semantic_boundary_or_usage_verification",
+                        "source_locator": "https://dictionary.cambridge.org/dictionary/english/drive",
+                        "source_name": "Cambridge Dictionary",
+                        "source_type": "authoritative_learner_dictionary"
+                      }
+                    ],
+                    "semantic_auditor_approved": true,
+                    "source_candidate_evidence_ids": [
+                      "source-sense-candidate:drive:cdf610d55953904e"
+                    ],
+                    "source_operation_id": "operation:9e51843c1216e480d022",
+                    "source_operation_sha256": "fb6f7cc4101f4ac55d41c0ac7e33340e4ddc19914a0dd505f73188866f801f0e",
+                    "verification_status": "auditor_verified"
+                  }
+                ]
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:b21d7b994c02ff335f9c",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drive:cacc997223095239:collocation:0"
+                    ],
+                    "meaning_cn": "有成功的动力",
+                    "phrase": "have the drive to succeed"
+                  },
+                  {
+                    "collocation_id": "collocation:723de389820d69be3a71",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drive:cacc997223095239:collocation:1"
+                    ],
+                    "meaning_cn": "对……的追求",
+                    "phrase": "drive for + sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "干劲；驱动力",
+                "definition_en": "a strong motivation or ambition",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drive:cacc997223095239",
+                "sense_label_en": "a strong motivation or ambition",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:89e38368c8bffdf5e5bb",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drive:c97327b45c2d5348:collocation:0"
+                    ],
+                    "meaning_cn": "硬盘驱动器",
+                    "phrase": "hard drive"
+                  },
+                  {
+                    "collocation_id": "collocation:f380f1b47e44a0936ffc",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drive:c97327b45c2d5348:collocation:1"
+                    ],
+                    "meaning_cn": "磁盘驱动器",
+                    "phrase": "disk drive"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "驱动器；传动装置",
+                "definition_en": "a mechanism that transmits power in a machine",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drive:c97327b45c2d5348",
+                "sense_label_en": "a mechanism that transmits power in a machine",
+                "sort_order": 4,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:798da974d199d6c9677d",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drive:8c56f0ef5c5ee0b6:collocation:handoff-o1375-o1624"
+                    ],
+                    "meaning_cn": "推动增长、变化、需求或创新",
+                    "phrase": "drive growth/change/demand/innovation"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "推动或导致增长、变化、需求或创新",
+                "definition_en": "to propel or cause a process such as growth, change, demand, or innovation",
+                "governing_pattern": "drive growth/change/demand/innovation",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drive:8c56f0ef5c5ee0b6",
+                "sense_label_en": "to propel or cause a process such as growth, change, demand, or innovation",
+                "sort_order": 5,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "运动；活动；推动行动",
+                "definition_en": "an organized effort or campaign to achieve something",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drive:5a8b21e0d9615120",
+                "sense_label_en": "an organized effort or campaign to achieve something",
+                "sort_order": 6,
+                "source_evidence": [
+                  {
+                    "external_evidence": [
+                      {
+                        "role": "semantic_boundary_or_usage_verification",
+                        "source_locator": "https://dictionary.cambridge.org/dictionary/english/drive",
+                        "source_name": "Cambridge Dictionary",
+                        "source_type": "authoritative_learner_dictionary"
+                      }
+                    ],
+                    "semantic_auditor_approved": true,
+                    "source_candidate_evidence_ids": [],
+                    "source_operation_id": "operation:2c0de55040d38ad5ccff",
+                    "source_operation_sha256": "25c5bee33d364fe21688456a55e28287da091843e5b4e69e29ca0786648deaf7",
+                    "verification_status": "auditor_verified"
+                  }
+                ]
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "猛击；猛冲",
+                "definition_en": "to hit or strike forcefully",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drive:3aaa8889be8e531b",
+                "sense_label_en": "to hit or strike forcefully",
+                "sort_order": 7,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "completed",
+                "secondary_senses": "completed",
+                "semantic_contrast": "completed",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 4,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "drive",
+            "word_family": [
+              {
+                "boundary": "driver 是 drive 的施动者",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R+P",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:drive:driver",
+                    "evidence_status": "source_checked",
+                    "source_locator": "drive|driver",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:drive:5baa0e11b875faf0",
+                "family_sources": [
+                  "curated core-card derivative",
+                  "local morphology candidate"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:drive:29efbf8d122956e0",
+                "target_sense_id": "sense:driver:5d4d4cc40c8251d0",
+                "target_word": "driver",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": true
+              }
+            ],
+            "word_id": "word:drive",
+            "form_identity": {
+              "form_type": "irregular_inflection_identity",
+              "spelling": "drive",
+              "identity_rule": "same_word_owner_no_semantic_split",
+              "boundary": "drive is irregular: drive → drove → driven.",
+              "boundaries": [
+                {
+                  "surface": "drive",
+                  "condition": "base/present",
+                  "note": "base form"
+                },
+                {
+                  "surface": "drove",
+                  "condition": "past simple",
+                  "note": "irregular past"
+                },
+                {
+                  "surface": "driven",
+                  "condition": "past participle",
+                  "note": "irregular participle"
+                }
+              ],
+              "variants": [],
+              "authority": "BF14 Kian-p approved Form/knowledge expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1514.json",
+      "mode": "patch_json",
+      "expected_sha256": "6f861c2d3cd63ab35cb598eb8e5763c5e0290e3ecd16e203dd4483c014ca55c5",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v3",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "9f8e807f01d603d9ea32a33497f08bdb607ee9e3bdce2b40a3d51d8684564347",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "驾驶员；司机",
+                  "label_en": "a person who drives a vehicle",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:driver:5d4d4cc40c8251d0"
+                  ]
+                },
+                {
+                  "label_cn": "驱动因素；推动力；主要原因",
+                  "label_en": "a main factor, force, or cause that drives change or activity",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:driver:1bb87482e5fb50e2"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "驾驶员；驱动因素、主要原因",
+              "core_meaning_en": "a driver; a main driving factor or cause",
+              "mental_model_cn": "驾驶员；驱动器",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": true,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:word_family:driver:d613654b8fb27447",
+              "relation:deep:word_family:driver:d613654b8fb27447",
+              "sense:sense:driver:1bb87482e5fb50e2"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:8dedab7263ddcb8a48b4",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:driver:5d4d4cc40c8251d0:collocation:0"
+                    ],
+                    "meaning_cn": "公交车司机",
+                    "phrase": "bus driver"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "驾驶员；司机",
+                "definition_en": "a person who operates a vehicle",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:driver:5d4d4cc40c8251d0",
+                "sense_label_en": "a person who operates a vehicle",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "驱动因素；推动力；主要原因",
+                "definition_en": "a factor or force that causes something to happen, change, or increase",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:driver:1bb87482e5fb50e2",
+                "sense_label_en": "a factor or force that causes something to happen, change, or increase",
+                "sort_order": 1,
+                "source_evidence": [
+                  {
+                    "external_evidence": [
+                      {
+                        "role": "semantic_boundary_or_usage_verification",
+                        "source_locator": "https://dictionary.cambridge.org/dictionary/english/driver",
+                        "source_name": "Cambridge Dictionary",
+                        "source_type": "authoritative_learner_dictionary"
+                      }
+                    ],
+                    "semantic_auditor_approved": true,
+                    "source_candidate_evidence_ids": [],
+                    "source_operation_id": "operation:6074ba2858e8630afc84",
+                    "source_operation_sha256": "63a4e804a493cf175dd15aed62dd0819ca8816022686a60443d990802c8e1132",
+                    "verification_status": "auditor_verified"
+                  }
+                ]
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:858ac857765a797a2750",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:driver:b23f7ed124aa59ae:collocation:0"
+                    ],
+                    "meaning_cn": "设备驱动程序",
+                    "phrase": "device driver"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "驱动程序",
+                "definition_en": "a computer program that controls a device",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:driver:b23f7ed124aa59ae",
+                "sense_label_en": "a computer program that controls a device",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:f3a9838c21462504f4db",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:driver:bc5631b195625e85:collocation:0"
+                    ],
+                    "meaning_cn": "用一号木杆击球",
+                    "phrase": "hit with a driver"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "高尔夫球杆（一号木杆）",
+                "definition_en": "a golf club used for long shots",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:driver:bc5631b195625e85",
+                "sense_label_en": "a golf club used for long shots",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "completed"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "driver",
+            "word_family": [
+              {
+                "boundary": "driver是drive的名词形式",
+                "codex_reviewed": false,
+                "definition_cn": null,
+                "definition_en": null,
+                "dimensions": {},
+                "direction": "R",
+                "evidence": [
+                  {
+                    "evidence_id": "evidence:family:driver:drive",
+                    "evidence_status": "source_checked",
+                    "source_locator": "driver|drive",
+                    "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+                    "source_type": "learner_dictionary"
+                  }
+                ],
+                "fact_id": "deep:word_family:driver:d613654b8fb27447",
+                "family_sources": [
+                  "curated core-card derivative",
+                  "local morphology candidate"
+                ],
+                "label_en": null,
+                "level": null,
+                "meaning_cn": null,
+                "module": "word_family",
+                "pattern": null,
+                "pos": null,
+                "priority": "A",
+                "publication_status": "publishable",
+                "shared_definition": null,
+                "source_sense_id": "sense:driver:5d4d4cc40c8251d0",
+                "target_sense_id": "sense:drive:29efbf8d122956e0",
+                "target_word": "drive",
+                "task_tags": [
+                  "reading"
+                ],
+                "verification_status": "verified",
+                "writing_safe": false
+              }
+            ],
+            "word_id": "word:driver"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1515.json",
+      "mode": "patch_json",
+      "expected_sha256": "65200a9731b2ffe223a4164b54dd1ac6205a262e7b01b33c2356f3d6965cde58",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v1",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "00a0e9e3b93e1f9d2f0bfe098494019b12b06da70a507b022445172a90865c98",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "雄蜂；无人机；嗡嗡声",
+                  "label_en": "a male bee that does no work; an aircraft without a pilot, controlled remotely; a continuous low humming sound",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:drone:4a8457ceac485de1",
+                    "sense:drone:109ece93a62657bf",
+                    "sense:drone:d33615effb4a5249"
+                  ]
+                },
+                {
+                  "label_cn": "发出嗡嗡声；低沉单调地说",
+                  "label_en": "to make a continuous low sound; to speak in a monotonous way",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:drone:6c3270219af65484",
+                    "sense:drone:266394b95efa5203"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "雄蜂；无人机；嗡嗡声；发出嗡嗡声",
+              "core_meaning_en": "a male bee; a remote-controlled aircraft; a continuous low sound; to make such a sound",
+              "mental_model_cn": "雄蜂；无人机；嗡嗡声；发出嗡嗡声",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:7fef608ec2f081c84274",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drone:109ece93a62657bf:collocation:0"
+                    ],
+                    "meaning_cn": "军用无人机",
+                    "phrase": "military drone"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "无人机",
+                "definition_en": "an aircraft without a pilot, controlled remotely",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drone:109ece93a62657bf",
+                "sense_label_en": "an aircraft without a pilot, controlled remotely",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "雄蜂",
+                "definition_en": "a male bee that does no work",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drone:4a8457ceac485de1",
+                "sense_label_en": "a male bee that does no work",
+                "sort_order": 1,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:ce7c551d8494d5faa22e",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drone:d33615effb4a5249:collocation:0"
+                    ],
+                    "meaning_cn": "引擎的嗡嗡声",
+                    "phrase": "the drone of an engine"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "嗡嗡声",
+                "definition_en": "a continuous low humming sound",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drone:d33615effb4a5249",
+                "sense_label_en": "a continuous low humming sound",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:2a779e42b9fe8e27a890",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drone:6c3270219af65484:collocation:0"
+                    ],
+                    "meaning_cn": "唠叨不停",
+                    "phrase": "drone on"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "发出嗡嗡声",
+                "definition_en": "to make a continuous low sound",
+                "governing_pattern": "vi. + on",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drone:6c3270219af65484",
+                "sense_label_en": "to make a continuous low sound",
+                "sort_order": 3,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:c687b1d634a354e17f48",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drone:266394b95efa5203:collocation:0"
+                    ],
+                    "meaning_cn": "单调地谈论某事",
+                    "phrase": "drone on about sth"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "低沉单调地说",
+                "definition_en": "to speak in a monotonous way",
+                "governing_pattern": "vi. + on",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drone:266394b95efa5203",
+                "sense_label_en": "to speak in a monotonous way",
+                "sort_order": 4,
+                "transitivity": "vi"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "drone",
+            "word_family": [],
+            "word_id": "word:drone"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1516.json",
+      "mode": "patch_json",
+      "expected_sha256": "646e13579f4aaf0d895b854024bb5720b00eabe2a61eede77f9f5ff977485be7",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "ff6e7eab031f06e8b241fd3c6285c03c10b266a036258088a3087b69f4595550",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "使落下；放下；落下；下降",
+                  "label_en": "to let something fall; to fall or decrease suddenly",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:drop:febc46c0c89657b1",
+                    "sense:drop:55368f684b715a6c"
+                  ]
+                },
+                {
+                  "label_cn": "滴；微量；下降；投递点（秘密）",
+                  "label_en": "a small amount of liquid; a sudden decrease; a secret place for leaving or collecting something",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:drop:c38fa086ebd8509f",
+                    "sense:drop:77afb0e5cae25875",
+                    "sense:drop:b19b032ddd2c557b"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "落下；滴；下降",
+              "core_meaning_en": "to fall or let fall; a small amount or decrease",
+              "mental_model_cn": "落下；滴；下降",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "deep:deep:semantic_contrast:drop:f0f788743aab7a20",
+              "relation:deep:semantic_contrast:drop:f0f788743aab7a20",
+              "semantic-reconciliation:o1425-o1624"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:5df34855bc60580859df",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drop:febc46c0c89657b1:collocation:0"
+                    ],
+                    "meaning_cn": "使某物落下",
+                    "phrase": "drop + sth"
+                  },
+                  {
+                    "collocation_id": "collocation:cb16c593b147ff69e265",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drop:febc46c0c89657b1:collocation:1"
+                    ],
+                    "meaning_cn": "把玻璃杯掉了",
+                    "phrase": "drop the glass"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "使落下；放下",
+                "definition_en": "to let something fall",
+                "governing_pattern": "vt. + object",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drop:febc46c0c89657b1",
+                "sense_label_en": "to let something fall",
+                "sort_order": 0,
+                "transitivity": "vt"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:02f6d57fbd2eb284e9d3",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drop:55368f684b715a6c:collocation:handoff-o1375-o1624"
+                    ],
+                    "meaning_cn": "价格、水平或温度下降",
+                    "phrase": "prices/levels/temperature drop"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "下降；减少（价格、水平、温度等）",
+                "definition_en": "to fall or decrease in price, level, amount, or temperature",
+                "governing_pattern": "vi.",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drop:55368f684b715a6c",
+                "sense_label_en": "to fall or decrease in price, level, amount, or temperature",
+                "sort_order": 1,
+                "transitivity": "vi"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:e1a05aa4a6fd814ffcae",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drop:c38fa086ebd8509f:collocation:0"
+                    ],
+                    "meaning_cn": "一滴水",
+                    "phrase": "a drop of water"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "滴；微量",
+                "definition_en": "a small amount of liquid",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drop:c38fa086ebd8509f",
+                "sense_label_en": "a small amount of liquid",
+                "sort_order": 2,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:9b278fe7fde9cf63c7d8",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drop:77afb0e5cae25875:collocation:0"
+                    ],
+                    "meaning_cn": "价格下降",
+                    "phrase": "a drop in prices"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "下降",
+                "definition_en": "a sudden decrease",
+                "governing_pattern": "",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drop:77afb0e5cae25875",
+                "sense_label_en": "a sudden decrease",
+                "sort_order": 3,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:fbf15e4f1f71cfd4fe27",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drop:b19b032ddd2c557b:collocation:0"
+                    ],
+                    "meaning_cn": "秘密投递点",
+                    "phrase": "a drop point"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "投递点（秘密）",
+                "definition_en": "a secret place for leaving or collecting something",
+                "governing_pattern": "",
+                "level": "L3",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drop:b19b032ddd2c557b",
+                "sense_label_en": "a secret place for leaving or collecting something",
+                "sort_order": 4,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 1,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "completed",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 1,
+              "runtime_model_calls": false
+            },
+            "word": "drop",
+            "word_family": [],
+            "word_id": "word:drop"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1520.json",
+      "mode": "patch_json",
+      "expected_sha256": "218a2ed24773c467c685b98f027ad8ab956a94e1487b69c8e89626ef24380e51",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [
+              {
+                "construction_id": "construction:878dc547dc051d3fead4",
+                "direction": "R",
+                "level": "L2",
+                "meaning_cn": "争取；招徕；鼓动获得…",
+                "pattern": "drum up support/business/interest"
+              }
+            ],
+            "content_hash": "b7f36c0b823c657a9f45cf113d1b2e936ad6a85b3ff380581761e3fc80e1a51d",
+            "core_concept": {
+              "core_clusters": [
+                {
+                  "label_cn": "鼓；鼓声",
+                  "label_en": "a drum; the sound of a drum",
+                  "pos": "noun",
+                  "sense_ids": [
+                    "sense:drum:7978f4d5afc05559"
+                  ]
+                },
+                {
+                  "label_cn": "打鼓；敲出节奏",
+                  "label_en": "to play a drum or make a drumming sound",
+                  "pos": "verb",
+                  "sense_ids": [
+                    "sense:drum:62b670dbfca253a9"
+                  ]
+                }
+              ],
+              "core_meaning_cn": "打击乐器或其声音",
+              "core_meaning_en": "percussion instrument or its sound",
+              "mental_model_cn": "打击乐器或其声音",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "construction:construction:878dc547dc051d3fead4"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:132db94395283801d145",
+                    "exam_value": "fixed_pattern",
+                    "legacy_source_object_ids": [
+                      "sense:drum:7978f4d5afc05559:collocation:handoff-o1375-o1624"
+                    ],
+                    "meaning_cn": "击鼓/打鼓",
+                    "phrase": "beat/play the drum"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "鼓；鼓声",
+                "definition_en": "a percussion instrument or its sound",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "noun",
+                "sense_id": "sense:drum:7978f4d5afc05559",
+                "sense_label_en": "a percussion instrument or its sound",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              },
+              {
+                "collocations": [
+                  {
+                    "collocation_id": "collocation:0507a793f3c82f4933f5",
+                    "exam_value": "usage_example",
+                    "legacy_source_object_ids": [
+                      "sense:drum:62b670dbfca253a9:collocation:0"
+                    ],
+                    "meaning_cn": "敲出节奏",
+                    "phrase": "drum a rhythm"
+                  }
+                ],
+                "confidence": "medium",
+                "definition_cn": "打鼓奏出",
+                "definition_en": "play (a tune) on a drum",
+                "governing_pattern": "vt. + object",
+                "level": "L2",
+                "needs_human_review": 0,
+                "pos": "verb",
+                "sense_id": "sense:drum:62b670dbfca253a9",
+                "sense_label_en": "play (a tune) on a drum",
+                "sort_order": 1,
+                "transitivity": "vt"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 2,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 0,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "drum",
+            "word_family": [],
+            "word_id": "word:drum"
+          }
+        }
+      ]
+    },
+    {
+      "path": "content/lexical/words/by-ordinal/o1521.json",
+      "mode": "patch_json",
+      "expected_sha256": "77d528e52e827ded8f4a0e9e110852f8a7e32b983242473649fbc36d5854aa32",
+      "edits": [
+        {
+          "pointer": "/record",
+          "value": {
+            "card_version": "v4",
+            "confusables": [],
+            "constructions": [],
+            "content_hash": "05c506d455384d4d15877921f9df30be4b4c549a8666b529c34e3464b20d1382",
+            "core_concept": {
+              "core_clusters": [],
+              "core_meaning_cn": "醉的",
+              "core_meaning_en": "intoxicated with alcohol",
+              "mental_model_cn": "醉的",
+              "mental_model_en": ""
+            },
+            "exam_paraphrases": [],
+            "needs_delta_review": false,
+            "processing_status": "completed",
+            "record_type": "word_card_bundle",
+            "review_signature": [
+              "relation:rel:v3-family:drunk:drink"
+            ],
+            "secondary_senses": [],
+            "semantic_neighbors": [],
+            "senses": [
+              {
+                "collocations": [],
+                "confidence": "medium",
+                "definition_cn": "醉的、醉酒的",
+                "definition_en": "intoxicated by alcohol",
+                "governing_pattern": "",
+                "level": "L1",
+                "needs_human_review": 0,
+                "pos": "adjective",
+                "sense_id": "sense:drunk:f4a08b85dddec78c",
+                "sense_label_en": "intoxicated by alcohol",
+                "sort_order": 0,
+                "transitivity": "nonverb"
+              }
+            ],
+            "verification_summary": {
+              "candidate_fact_count": 0,
+              "deep_modules": {
+                "confusables": "no_valid_content",
+                "constructions": "no_valid_content",
+                "secondary_senses": "no_valid_content",
+                "semantic_contrast": "no_valid_content",
+                "word_family": "no_valid_content"
+              },
+              "default_review_target": "word",
+              "object_queue_mode": "optional_specialist",
+              "published_fact_count": 1,
+              "rejected_fact_count": 0,
+              "runtime_model_calls": false
+            },
+            "word": "drunk",
+            "word_family": [],
+            "word_id": "word:drunk",
+            "form_identity": {
+              "form_type": "lexicalized_participle_surface_identity",
+              "spelling": "drunk",
+              "identity_rule": "shared_surface_inflection_and_lexicalized_adjective",
+              "boundary": "drunk is the irregular past participle of drink and also a separately lexicalized adjective meaning intoxicated.",
+              "boundaries": [
+                {
+                  "surface": "drunk",
+                  "condition": "past participle of drink",
+                  "note": "participial surface of drink"
+                },
+                {
+                  "surface": "drunk",
+                  "condition": "adjective lexeme",
+                  "note": "intoxicated with alcohol"
+                }
+              ],
+              "variants": [],
+              "authority": "BF14 Kian-p approved Form/knowledge expansion 2026-09-22"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -20,7 +20,7 @@ try {
   git(upstream, 'config', 'user.name', 'Fixture');
   git(upstream, 'config', 'user.email', 'fixture@example.invalid');
   fs.mkdirSync(path.join(upstream, 'static-web/scripts'), { recursive: true });
-  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs']) {
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs']) {
     fs.copyFileSync(path.join(scripts, name), path.join(upstream, 'static-web/scripts', name));
   }
   fs.writeFileSync(path.join(upstream, 'static-web/scripts/kianos-static-server.mjs'), `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),root=args[args.indexOf('--root')+1];fs.writeFileSync(process.env.SERVER_MARKER,String(process.pid));http.createServer((req,res)=>{if(req.url.startsWith('/__kianos-release.json'))return res.end(fs.readFileSync(path.join(root,'__kianos-current.json')));res.end('fixture');}).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);

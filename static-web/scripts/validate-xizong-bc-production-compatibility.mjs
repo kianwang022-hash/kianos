@@ -69,9 +69,8 @@ assert(manifest.validation?.eligibility_accounting?.compiled?.some((row) => row.
 assert(projectableIds.has('digestive-metabolic-endocrine-tumor'), 'B:p-accepted-product-route-not-projectable');
 
 // C compatibility: explicit/non-contiguous LG membership must survive the same
-// production presenter. C still has no physical materialized Projection asset, but
-// the shared semantic adapter must provide the minimal Current-derived baseline
-// Framework without fabricating A/B-specific geometry or enrichment.
+// production presenter. Missing compiled Projection is a legal Current state and
+// must remain an empty Projection layer rather than being fabricated from A/B.
 const { block: semanticCH1 } = loadXizongSemanticBlock('hematology-immunity-infection', 'hematology-h01');
 const cProduction = buildXizongProductionBlock(
   compatibilityCanonicalBlock('hematology-immunity-infection', semanticCH1)
@@ -88,32 +87,22 @@ assert(cProduction.sourceContact.logicGroupIsAutomaticSourceChunk === false, 'C:
 assert(cProduction.sourceContact.logicGroupSourceReentryDefault === false, 'C:H1:source-reentry-default-changed');
 assert(cProduction.sourceContact.segments.length === 0, `C:H1:invented-source-segments:${cProduction.sourceContact.segments.length}`);
 assert(cProduction.retrievalPoints.slice(1).every((point) => point.sourceContactBefore === null && point.reopenSourceByDefault === false), 'C:H1:later-lg-reopens-source');
-assert(cProduction.cognitiveProjection.available === true, 'C:H1:derived-baseline-not-available');
-assert(cProduction.cognitiveProjection.compiled === false && cProduction.cognitiveProjection.derived === true, 'C:H1:materialization-boundary-lost');
-assert(cProduction.cognitiveProjection.status === 'DERIVED_BASELINE_CURRENT', `C:H1:derived-status:${cProduction.cognitiveProjection.status}`);
-assert(cProduction.cognitiveProjection.stageObjects.length === 1, 'C:H1:derived-problem-object-missing');
-assert(cProduction.cognitiveProjection.stageObjects[0]?.role === 'PROBLEM', 'C:H1:derived-object-must-remain-problem-only');
-assert(cProduction.cognitiveProjection.locationObjects.length === 0 && cProduction.cognitiveProjection.referenceObjects.length === 0, 'C:H1:derived-baseline-invented-extra-objects');
-assert(loadCompiledXizongProjectionAsset('hematology-immunity-infection', 'hematology-h01') === null, 'C:H1:false-materialized-projection-asset');
-assert(manifest.validation?.eligibility_accounting?.eligible_not_compiled?.some((row) => row.canonical_id === 'C' && row.status === 'ELIGIBLE_NOT_COMPILED' && row.runtime_projection_mode === 'DERIVED_BASELINE_CURRENT'), 'C:manifest-derived-boundary-lost');
-assert(projectableIds.has('hematology-immunity-infection'), 'C:current-owner-route-not-projectable');
+assert(cProduction.cognitiveProjection.compiled === false, 'C:H1:false-compiled-projection');
+assert(cProduction.cognitiveProjection.status === 'ELIGIBLE_OR_CURRENT_BUT_UNCOMPILED', `C:H1:uncompiled-status:${cProduction.cognitiveProjection.status}`);
+assert(cProduction.cognitiveProjection.stageObjects.length === 0 && cProduction.cognitiveProjection.locationObjects.length === 0 && cProduction.cognitiveProjection.referenceObjects.length === 0, 'C:H1:fabricated-projection-objects');
+assert(loadCompiledXizongProjectionAsset('hematology-immunity-infection', 'hematology-h01') === null, 'C:H1:false-projection-asset');
+assert(manifest.validation?.eligibility_accounting?.eligible_not_compiled?.some((row) => row.canonical_id === 'C' && row.status === 'ELIGIBLE_NOT_COMPILED'), 'C:manifest-uncompiled-boundary-lost');
+assert(!projectableIds.has('hematology-immunity-infection'), 'C:compatibility-illegally-promoted-product-route');
 
-// Shared V6 shell branches only on accepted Source-contact semantics.
-// B may keep whole-LG Source chunks during Block Learn, but Source chunk boundaries
-// do not release KP Recall until the whole Block Learn/Source scope is complete.
-// C keeps its existing single continuous Source gate; D/E/F retain their exact plans.
+// Shared V6 shell must branch only on Current Source-contact semantics. This is
+// the runtime compatibility seam: B enters one Source handoff per accepted LG;
+// C enters one continuous Source contact and then returns directly to LG recall.
 assert(blockUi.includes("const sourcePerGroup = sourceContact.logicGroupIsAutomaticSourceChunk === true;"), 'V6:source-contact-semantic-switch-missing');
-assert(blockUi.includes("const naturalSourceUnits = sourceContactMode === 'NATURAL_SOURCE_UNITS';"), 'V6:natural-source-runtime-switch-missing');
-assert(blockUi.includes("const integrationPrimary = sourceContactMode === 'INTEGRATION_PRIMARY';"), 'V6:integration-runtime-switch-missing');
-assert(blockUi.includes("else if (sourcePerGroup) setStage(stageForSelectedGroup());"), 'V6:B:whole-lg-source-entry-missing');
-assert(blockUi.includes("if (sourcePerGroup) return currentSourceContactCovered() ? 'kp_recall' : 'kp_learn';"), 'V6:B:block-learn-gate-missing');
-assert(blockUi.includes("const blockLearnComplete = currentSourceContactCovered();"), 'V6:B:block-learn-completion-missing');
-assert(blockUi.includes("const resumeStage = retrievalComplete ? 'block_recall' : blockLearnComplete ? 'kp_recall' : 'kp_learn';"), 'V6:B:retrieval-release-boundary-missing');
+assert(blockUi.includes("if (sourcePerGroup) setStage('kp_learn');"), 'V6:B:whole-lg-source-entry-missing');
 assert(blockUi.includes("else if (state.sourceContactDone) setStage('kp_recall');"), 'V6:C:direct-retrieval-return-missing');
-assert(blockUi.includes("!sourcePerGroup && !naturalSourceRuntime && !integrationPrimaryRuntime && requested === 'logic_group'"), 'V6:C:single-continuous-source-gate-lost');
-assert(blockUi.includes("const advanceM4State = () =>"), 'V6:CDEF:owner-driven-runtime-router-missing');
-assert(blockUi.includes("if (biochemistrySource?.laneSourceHash) return state.sourceContactDone ? 'kp_recall' : 'source_contact';"), 'V6:BIO:block-source-closure-gate-missing');
-assert(blockUi.includes("if (sourcePerGroup && stage === 'source_contact') stage = stageForSelectedGroup();"), 'V6:B:block-source-stage-router-missing');
+assert(blockUi.includes("if (!biochemistrySource?.laneSourceHash && !sourcePerGroup && requested === 'logic_group' && button.hasAttribute('data-stage-next') && !state.sourceContactDone) setStage('source_contact');"), 'V6:C:single-continuous-source-gate-missing');
+assert(blockUi.includes("if (biochemistrySource?.laneSourceHash) setStage(currentGroupSourceCovered() ? 'kp_recall' : 'source_contact');"), 'V6:BIO:scoped-global-source-reuse-missing');
+assert(blockUi.includes("if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';"), 'V6:B:block-source-stage-redirects-to-whole-lg-contact');
 assert(blockUi.includes("const storageKey = `kianos-xizong-astro-v2:${objectId}`;"), 'V6:shared-v2-store-missing');
 assert(!blockUi.includes('kianos-xizong-astro-v3'), 'V6:parallel-store-created');
 
@@ -124,8 +113,8 @@ console.log([
   `B-projection=${bProduction.cognitiveProjection.compiled ? 'compiled' : 'missing'}`,
   `C-H1 explicit=${productionCLg.kpOrdinals.join(',')}`,
   `C-source=${cProduction.sourceContact.mode}`,
-  `C-projection=${cProduction.cognitiveProjection.derived ? 'derived-baseline' : 'unexpected'}`,
-  'ProductRoute=B_MATERIALIZED/C_CURRENT_DERIVED_BASELINE',
+  `C-projection=${cProduction.cognitiveProjection.compiled ? 'compiled' : 'legally-uncompiled'}`,
+  'ProductRoute=B_P_ACCEPTED/C_NOT_PROMOTED',
   'Runtime=shared_V6_v2_store',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));

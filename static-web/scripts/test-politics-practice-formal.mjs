@@ -24,18 +24,7 @@ const result=p=>p.locator('[data-submitted-result]').waitFor({state:'visible'});
 const shot=(p,name)=>p.screenshot({path:path.join(out,`${name}.png`)});
 const browser=await chromium.launch({headless:!process.env.PRACTICE_QA_HEADED});
 async function pageFor(url='/politics/practice/') {
-  const context=await browser.newContext({viewport:report.viewport});
-  // Real Stable restores the durable private learner checkpoint into an empty
-  // browser. This audit must never read or mutate Kian's real learner state.
-  await context.route('**/__kianos-private/**', route => route.fulfill({ status: 404, contentType: 'application/json', body: '{}' }));
-  await context.addInitScript(() => {
-    document.addEventListener('DOMContentLoaded', () => {
-      const style = document.createElement('style');
-      style.textContent = '[data-study-timer-dock]{display:none!important}';
-      document.head.append(style);
-    }, { once: true });
-  });
-  const p=await context.newPage();
+  const context=await browser.newContext({viewport:report.viewport}); const p=await context.newPage();
   const errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('dialog',d=>d.accept());
   p.on('requestfailed',r=>report.requestsFailed.push({url:r.url(),error:r.failure()?.errorText}));
   await p.goto(base+url); await p.locator('[data-start-session]').waitFor();
@@ -120,23 +109,13 @@ try {
     const q=qById.get('X1000-MARX-M-001'),unit=catalog.units.find(u=>u.key===q.unitKey);const {p,context}=await pageFor();await p.goto(base+unit.href);
     await p.locator('[data-workspace-unit-tab="1"]').click();
     await p.locator('[data-workspace-unit]:not([hidden]) [data-workspace-action="start-learn"]').click();
-    await p.locator('[data-workspace-unit]:not([hidden]) [data-workspace-action="learn-fastpath"]').click();
-    await p.waitForURL(/\/politics\/practice\/\?unit=/);
-    assert.equal(await p.locator('[data-learned-scope]').isChecked(), true);
-    await p.selectOption('[data-filter-count]','5');
-    await p.click('[data-start-session]');
-    await p.locator('[data-question-card]').waitFor({state:'visible'});
-    const firstQuestion=await current(p);await answer(p,firstQuestion.answer);
+    await p.locator(`[data-practice-unit-entry="${unit.key}"]`).click();await start(p);const firstQuestion=await current(p);await answer(p,firstQuestion.answer);
     const session=await read(p,K.session);
     // Deliberately leave chapter memory on another unit before following Return.
     await p.evaluate(()=>localStorage.setItem('kianos-politics-workspace-v1:marxism:ch00',JSON.stringify({activeUnit:0,states:{}})));
     await p.click('[data-return-unit]');await p.reload();await p.locator('[data-practice-exact-return]').waitFor({state:'visible'});assert.equal(await p.locator('#source-'+firstQuestion.unitId).isVisible(),true);await shot(p,'source-second-unit-return');await p.click('[data-practice-exact-return]');await result(p);assert.equal((await read(p,K.session)).id,session.id);assert.equal((await current(p)).id,firstQuestion.id);
     await p.goto(base+unit.href.replace('#','?practiceSession=stale&practiceQuestion='+q.id+'#'));assert.equal(await p.locator('[data-practice-exact-return]').isVisible(),false);assert.match(await p.locator('[data-practice-return-error]').textContent(),/过期/);
-    await p.evaluate((key)=>localStorage.setItem(key,'{'),K.session);
-    await p.goto(base+unit.href.replace('#','?practiceSession=corrupt&practiceQuestion='+q.id+'#'));
-    assert.equal(await p.locator('[data-practice-exact-return]').isVisible(),false);
-    assert.match(await p.locator('[data-practice-return-error]').textContent(),/无法安全读取|原题组/);
-    pass('P-J8: real NU entry → submitted/source/refresh → exact original session/question; stale/corrupt source return rejected safely');await context.close();
+    pass('P-J8: real NU entry → submitted/source/refresh → exact original session/question; stale source return rejected');await context.close();
   }
   for(const key of [K.attempts,K.meta,K.evidence,K.session]){
     const {p,context}=await pageFor('/politics/practice/?question=X1000-MARX-S-001');await start(p);await p.click('[data-option="B"]');await failStorage(p,key,key===K.session);await p.click('[data-submit]');await p.locator('[data-retry-save]').waitFor({state:'visible'});await clean(p);assert.equal((await read(p,K.session)).index,0);

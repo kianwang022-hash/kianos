@@ -1,0 +1,47 @@
+{
+  "schema": "kianos.lexical.forward_package_receipt.v3",
+  "status": "VERIFIED_READY_FOR_MAIN",
+  "scope": [
+    3625,
+    3874
+  ],
+  "production_review": "content/lexical/semantic-review/o3625-o3874.md",
+  "audit_inputs": [
+    "content/lexical/semantic-audit/o3625-o3824.audit.md",
+    "content/lexical/semantic-audit/o3825-o4024.audit.md"
+  ],
+  "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md",
+  "semantic_source_union_count": 91,
+  "exact_word_write_union_count": 99,
+  "out_of_range_dependency_ordinals": [
+    3880,
+    7278,
+    7289
+  ],
+  "relation_delta_path_count": 9,
+  "new_semantic_branch_count": 17,
+  "reactivated_stable_count": 23,
+  "demoted_stable_count": 3,
+  "relation_manifest_count": 383,
+  "shard_receipts": [
+    "content/lexical/execution/receipts/o3625-o3674.json",
+    "content/lexical/execution/receipts/o3675-o3724.json",
+    "content/lexical/execution/receipts/o3725-o3774.json",
+    "content/lexical/execution/receipts/o3775-o3824.json",
+    "content/lexical/execution/receipts/o3825-o3874.json"
+  ],
+  "checks": {
+    "current_semantic_drift_gate": "PASS",
+    "five_shard_receipts": "PASS",
+    "250_owner_readback": "PASS",
+    "exact_91_source_union": "PASS",
+    "exact_remote_dependency_union": "PASS",
+    "natural_owner_registry_audit": "PASS",
+    "transport_guards": "PASS",
+    "shard_tests": "PASS",
+    "all_lexical_json": "PASS",
+    "astro_build": "PASS"
+  },
+  "workflow_run_id": 35032146818,
+  "next_catalog": "o3875+ NOT_ACTIVATED_UNTIL_THIS_PACKAGE_MERGES"
+}

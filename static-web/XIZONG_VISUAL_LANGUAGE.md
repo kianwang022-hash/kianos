@@ -1,30 +1,29 @@
 # Xizong Visual Language — L2 subject visual owner
 
-Status: **ACCEPTED L2 BASELINE — 2026-09-18**
-Scope: learner-facing Xizong subject family only
-Parent L1 owners: static-web/KIAN_UI_PREFERENCES.md + static-web/UI_STYLE_BRIEF.md
-Presentation parent: static-web/PRESENTATION_CONTRACT.md
-Product owner: static-web/XIZONG_PRODUCT_BRIEF.md
+Status: **ACCEPTED L2 BASELINE — 2026-09-18**  
+Scope: learner-facing Xizong subject family only  
+Parent L1 owners: `static-web/KIAN_UI_PREFERENCES.md` + `static-web/UI_STYLE_BRIEF.md`  
+Product owner: `static-web/XIZONG_PRODUCT_BRIEF.md`
 
-This file owns only the **Xizong-specific visual specialization** that remains after inheriting the shared KianOS Visual system.
+This file defines the **subject-level visual language** for Xizong.
 
 It does not own:
 - medical Content;
 - Learning Logic;
 - Runtime / Evidence semantics;
 - per-Surface L3 geometry;
-- global KianOS shell, typography tokens, shared size floors, generic card policy or shared visual acceptance.
+- global KianOS shell / shared visual tokens.
 
 Hierarchy:
 
-~~~text
-L1 Shared Visual / Preferences / Presentation
+```text
+L1 Shared Visual / Preferences
 → L2 Xizong Visual Language
 → L3 exact Surface Blueprint
    Home / System / Block / Recall / Practice / Memory
-~~~
+```
 
-A learner-facing Xizong L3 surface inherits L1 automatically and adds only the subject-specific rules below.
+A learner-facing Xizong L3 surface must satisfy L1 and this L2 before its local Human Gate can pass.
 
 ---
 
@@ -39,35 +38,153 @@ It is not primarily:
 - a generic flashcard/study app;
 - a question-bank app.
 
-Xizong-specific emphasis:
+Desired character:
 
-~~~text
+```text
 medical content is visually primary
-+ mechanism / localization / discrimination structure is explicit when owned
-+ software chrome stays subordinate
-+ dense medical objects may remain dense
-+ Mac width may expose useful simultaneous relations
-~~~
++ structure is explicit
++ information may be dense
++ software chrome stays quiet
++ typography is broad / stable / readable
++ Mac width is used intentionally
+```
 
-The exact shared typography, readability floor, card/border/shadow policy, general density rule and Mac-wide visual direction are inherited from UI_STYLE_BRIEF.md; do not restate or fork them here.
-
-Visual structure may clarify an already-owned medical relation. It may never invent causality, hierarchy, localization or grouping merely because a diagram/layout is convenient.
+Compared with other lanes, Xizong may be structurally stronger because its native cognitive work often involves mechanism, localization, causal chains, discrimination and application. That does not authorize decorative diagrams or invented relations.
 
 ---
 
-## 2｜Xizong spatial grammar
+## 2｜Typography — Xizong-specific direction
+
+### 2.1 Rendered character
+
+Chinese learner text must feel:
+
+```text
+broad
+stable
+full-bodied
+calm
+not narrow
+not lanky
+not squeezed
+not excessively heavy
+```
+
+The rendered screenshot outranks nominal CSS font-weight/family values.
+
+Preferred robust Mac-first stack:
+
+```css
+"PingFang SC",
+-apple-system,
+BlinkMacSystemFont,
+"Hiragino Sans GB",
+"Microsoft YaHei",
+"Noto Sans CJK SC",
+"Noto Sans SC",
+sans-serif
+```
+
+For Chinese learner-facing UI on Mac, `PingFang SC` is explicit and first. This inherits the accepted L1 owner rather than leaving Chinese glyph selection to a generic system-ui family.
+
+A fallback is unacceptable if the real Chinese glyph body becomes visibly condensed/narrow.
+
+### 2.2 Working scale
+
+Primary Mac-wide target ranges:
+
+```text
+secondary UI / quiet labels      15–16px / 500–550
+normal learner body              17–18px / ~500
+Core / explanation / options     17–18px / 500–550
+question stem / Recall prompt    20–22px / 550–600
+local section title              20–24px / 600–650
+major page / object title        28–36px / ~650
+```
+
+These are optical targets, not rigid tokens for every component.
+
+Hard rules:
+- 15px is an absolute floor, not the body target;
+- do not use negative letter-spacing on normal Chinese learner-facing text/headings;
+- do not use pervasive 700/800 weight to manufacture hierarchy;
+- secondary text must not become small + pale + thin simultaneously;
+- prefer readable Regular/Medium text over “UI-bold everywhere”;
+- metadata that is not worth reading should usually be hidden/demoted instead of miniaturized.
+
+Legacy is positive evidence for broad comfortable typography and reading rhythm only. It is not semantic/runtime authority and should not be cloned wholesale.
+
+---
+
+## 3｜Composition before components
+
+Xizong should organize content in this order:
+
+```text
+typography
+→ alignment
+→ indentation / hierarchy
+→ column geometry
+→ spacing
+→ thin dividers
+→ subtle background zones
+→ cards only for real bounded objects
+```
+
+Hard anti-pattern:
+
+```text
+ordinary knowledge field
+→ make a rounded card
+→ repeat 6–10 times
+```
+
+Knowledge content should usually read as one continuous cognitive/editorial surface.
+
+Prefer:
+
+```text
+机制主链
+────────────────
+content
+
+Failure
+────────────────
+content
+
+鉴别 / 边界
+────────────────
+content
+```
+
+over repeated peer cards.
+
+Rounded containers remain appropriate for:
+- answer options;
+- inputs;
+- explicit controls;
+- temporary tools;
+- popovers / overlays;
+- truly bounded interactive objects.
+
+Large decorative shadows and floating white-card stacks are not the default Xizong language.
+
+---
+
+## 4｜Shared spatial grammar
 
 Complex Xizong workspaces use **roles**, not mandatory fixed columns:
 
-~~~text
+```text
 Structure | Main | Conditional Context
-~~~
+```
 
 ### Structure
 Owns:
-- current System / Block / Logic Group / KP position;
-- local map/navigation;
-- orientation needed to preserve the medical model.
+- location;
+- map;
+- local navigation;
+- current cognitive position.
 
 It must not become a second body-text column.
 
@@ -79,151 +196,239 @@ Owns:
 It is always the dominant region.
 
 ### Conditional Context
-Owns only support that is useful **now**, for example:
-- Current reviewed Visual / table;
+Owns only context that is useful **now**, for example:
+- Current Visual;
 - Precision;
-- exact Source / Outline locator;
-- reviewed Connection;
-- bounded explanation / repair-return context.
+- explanation/review;
+- exact source/context;
+- reviewed repair return.
 
 Hard rule:
 
 > **If Context has no useful current object, Main gets the width back.**
 
-Do not preserve empty rails for symmetry. The role grammar may become one, two or three regions depending on the exact task and state.
+Do not preserve empty rails merely for layout symmetry.
+
+The same role grammar may produce two columns, three columns, or one dominant paper depending on the task.
 
 ---
 
-## 3｜State-specific visual behavior
+## 5｜State-specific visual density
 
-The current learning state should be visually legible without turning state into engineering chrome.
+The learner should be able to feel the current learning state even before reading the page title.
 
 ### Learn
 
-~~~text
+```text
 richest state
-→ current medical model dominates
-→ Structure preserves orientation
-→ Conditional Context appears only when earned
-→ natural/local scrolling is valid
-~~~
+structure stays visible
+complete Current content remains available
+Context appears when useful
+scrolling is normal
+```
 
-Do not force dense Learn content into one viewport by deleting or shrinking meaningful medical content.
+Do not force Learn into one viewport by shrinking or deleting meaningful content.
 
 ### Recall
 
-~~~text
+```text
 quieter state
-→ orientation skeleton remains
-→ reconstruction prompt dominates
-→ canonical answer-bearing Core stays protected
-→ Reveal restores the Current model appropriate to the recall scope
-~~~
+orientation skeleton remains
+prompt / reconstruction becomes dominant
+answer-bearing content stays protected
+Reveal restores a compressed Current model
+```
 
-Recall should feel like reconstruction, not like Learn with different buttons.
+Recall should visibly feel like “I am reconstructing”, not Learn with different buttons.
 
 ### Practice
 
-~~~text
+```text
 tool-like
-→ high throughput
-→ stable question/review geometry
-→ low interaction tax
-→ local scrolling when needed
-~~~
+high throughput
+stable geometry
+low interaction tax
+prefer one-screen Mac workbench
+local scrolling
+```
 
-Question position, answer interaction and submitted review should not jump unnecessarily.
+Question position, answer interaction and review should not jump around unnecessarily.
 
 ### Memory
 
-~~~text
-selective recovery
-→ weak/current object
+```text
+thin selective recovery
+weak-object positioning
 → Recall
 → Reveal
-→ rating / bounded next action
-~~~
+→ rating
+```
 
-Memory is not a second course, dashboard or duplicate Content browser.
+Memory must not become a second course or dashboard.
 
 ---
 
-## 4｜Viewport / scroll specialization
+## 6｜One-screen rule
 
-"One screen" is a **task-specific preference**, not a global Xizong aesthetic.
+“One screen” is a task rule, not an all-Xizong aesthetic.
 
-Prefer a protected/stable viewport when it supports the cognitive action without thinning content, especially:
-- Practice workbench;
-- current KP Recall front;
-- Block/System Recall front;
-- current Memory recall object.
+### Prefer one-screen / protected viewport
 
-Natural long-form or local pane scrolling is valid for:
-- System / Block framework material;
+- Practice primary workbench;
+- current KP Recall object when feasible without thinning Core;
+- System Recall Front;
+- Block Recall Front;
+- Memory current Recall.
+
+### Natural long-form / local scroll is valid
+
+- System Framework;
+- Block Framework / Guide;
 - dense KP Core after Reveal;
-- rich reviewed Visual / tables;
-- deep explanation/review;
-- other intrinsically dense Current objects.
+- System Recall Reveal when Current cognition is large;
+- deep explanation / review;
+- other intrinsically dense accepted Current objects.
 
 Hard rule:
 
 > **Never reduce semantic density or shrink learner text merely to preserve a one-screen composition.**
 
-Exact scroll ownership for a mature surface belongs in its L3 Surface Blueprint / product design owner and must be verified in the real browser.
+---
+
+## 7｜Color and tone
+
+Xizong defaults to a neutral, slightly cool working surface.
+
+Primary hierarchy:
+
+```text
+near-black / deep gray   = medical/content body
+stable mid-gray          = secondary context
+white / very light neutral gray = surfaces / zones
+green                    = current / active / structural accent / primary action
+warm red                 = Wrong / genuine failure
+warm amber               = learner Marked or another explicit learner-owned state when needed
+```
+
+Hard rules:
+- no large cream/yellow cast as the default Xizong canvas;
+- no whole-page pale-green wash;
+- green is not used simultaneously for every border, heading, background, badge and button;
+- decorative color must not compete with medical content;
+- state meaning never relies on color alone.
+
+The subject should feel cleaner/cooler than the earlier warm/yellow-tinted prototypes.
 
 ---
 
-## 5｜Attention / auxiliary specialization
+## 8｜Borders, radius and elevation
 
-Xizong often has useful optional medical support, but support must never become a second mainline.
+Subject direction:
 
-Priority:
+```text
+continuous knowledge body   usually no rounded container
+major bounded workspace     ~8–12px radius allowed
+answer/input/control         ~6–9px
+popover / true floating UI  ~10–12px + restrained shadow
+ordinary grouping           alignment + divider first
+```
 
-~~~text
-current learner action / Core
-> orientation needed for that action
-> earned Visual / Precision / Connection / locator context
-> low-priority provenance or metadata
-~~~
+Do not use high radius as a default “modern” treatment.
 
-Rules:
-- a rich Visual may earn substantial Context area when it materially reduces reconstruction cost;
-- Precision is exactness support, not a generic badge or new mastery stage;
-- Connection is a relation notice, not automatic debt;
-- Source / Outline locator stays compact and task-serving;
-- absent enrichment remains absent; do not manufacture symmetry across Systems/KPs;
-- engineering/runtime status must not compete with medical content.
-
-Timing/eligibility of these objects remains owned by Current Learning / Representation / asset owners, not by this visual file.
+Shadows are mainly for true elevation, not ordinary knowledge sections.
 
 ---
 
-## 6｜Tone specialization
+## 9｜Controls and chrome
 
-Xizong inherits the shared KianOS palette and contrast rules.
+The task should be more noticeable than the software.
 
-Subject-specific direction is only:
-- keep the medical workspace neutral and calm rather than warm/decorative;
-- use structural accent sparingly so mechanisms and Current state remain legible;
-- Wrong / failure and learner-owned marks may be distinct, but medical meaning must not rely on color alone.
+### Primary
+One clear solid action is allowed when a stage genuinely needs a primary action.
 
-Exact shared palette, typography, contrast and control styling remain upstream in UI_STYLE_BRIEF.md.
+### Secondary
+Prefer white / neutral background with thin boundary.
+
+### Quiet controls
+Navigation, Fast, Mark, local toggles and utility actions should usually stay visually quiet.
+
+Avoid:
+- a toolbar made entirely of colorful pills;
+- permanent keyboard-help banners;
+- repeated badges for every state/data point;
+- engineering/provenance chrome in learner focal regions.
+
+Use text hierarchy and placement before adding button weight.
 
 ---
 
-## 7｜L3 ownership / acceptance
+## 10｜Family coherence without template cloning
 
-This L2 file does not define exact Home/System/Block/Memory/Practice geometry.
+All Xizong surfaces should share:
 
-Exact surfaces are owned by their Product / Design files, for example:
-- XIZONG_HOME_DESIGN.md;
-- XIZONG_BLOCK_WORKSPACE_DESIGN.md;
-- XIZONG_PRACTICE_DESIGN.md;
-- XIZONG_MEMORY_PRODUCT.md;
-- System/Recall design owners where applicable.
+- typography character;
+- black/gray hierarchy;
+- green usage semantics;
+- divider language;
+- control quality;
+- Structure/Main/Conditional Context logic;
+- readable density;
+- restrained card/elevation policy.
 
-A local implementation prototype is not Visual Truth until the applicable real-browser/Human Gate passes under PRESENTATION_CONTRACT.md and the current Acceptance owner.
+They must **not** share one generic geometry.
 
-## Compact rule
+Native roles remain different:
 
-> **共享 Visual 决定 KianOS 的共同字体、密度、卡片与视觉质量；Xizong L2 只决定医疗认知空间怎样保持主次、结构、Context 和学习状态差异。**
+```text
+Home      = workbench / routing
+System    = cognitive map / framework
+Block     = learning workspace
+Recall    = reconstruction space
+Practice  = high-throughput training tool
+Memory    = selective recovery
+```
+
+“Looks like one product” comes from language, not copy-pasting one three-column component.
+
+---
+
+## 11｜L3 constraint
+
+Before implementing or accepting an Xizong L3 surface:
+
+```text
+read L1
+→ read this L2
+→ read the exact Product / Learning / Runtime owner
+→ define focal learner action
+→ define Structure / Main / Context roles
+→ decide whether one-screen applies
+→ design local geometry
+→ real Mac screenshot
+→ Human Gate
+```
+
+An L3 surface may depart from a numeric size/column suggestion when its task genuinely requires it, but it must still satisfy the L2 principles or explicitly reopen this owner.
+
+A local implementation prototype is not Visual Truth until its L3 Human Gate passes.
+
+---
+
+## 12｜Current L3 acceptance state
+
+At the time this L2 is accepted:
+
+- Home has prior Human-Gate evidence;
+- System Framework has prior discussed/accepted product direction;
+- Block Workspace / Block Recall and the restored per-question TTSX checkpoint have accepted real-macOS Human-Gate evidence;
+- System Recall has accepted functional/runtime + L3 visual evidence as a dedicated learner surface, separate from System Framework;
+- Practice front/back L3 has accepted visual/runtime evidence for main: Front = Question + Progress; Back = quick learner feedback + Knowledge Review; shared L1 PingFang-first CJK typography remains authoritative;
+- Memory retains its accepted learning/evidence role; future material visual changes must also follow this L2.
+
+Do not infer that a green build/browser test alone means a future material Recall/Practice visual change is accepted; the current accepted baselines above were closed by real macOS Human Gate.
+
+---
+
+## 13｜Compact rule
+
+> **西综 = 医学认知工作台：字要宽稳，内容要主导，结构要清楚，卡片要克制；Learn 丰富、Recall 安静、Practice 紧凑、Memory 精简；L3 可以各有几何，但不能各有审美。**

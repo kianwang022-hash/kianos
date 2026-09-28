@@ -13,7 +13,7 @@ Learner-facing Vocabulary / Lexical belongs under **English**. This file owns on
 - An admitted new Source or explicit new lexical scope opens only the smallest responsible owner/program.
 - Final Learner Objects remain derived learner assets; learner truth remains private and is never manufactured by content/runtime readiness.
 
-Legacy production history is quarantined and does not participate in Current routing unless Kian explicitly requests legacy/history.
+Historical A/B/C campaigns, BF branches, batch boards, checkpoint narratives and per-window delivery procedures are provenance only, not continuation authority.
 
 ## Owner map
 
@@ -54,4 +54,4 @@ Reopen only the smallest Current owner for:
 - explicit new lexical scope;
 - real learner evidence that exposes a concrete product/content defect.
 
-Do not infer work from quarantined legacy artifacts or prior Chat memory.
+Do not infer work from old ordinal cursors, continuation tombstones, A/B/C branches, BF history, migration scripts or prior Chat memory.

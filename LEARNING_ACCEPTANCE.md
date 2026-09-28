@@ -8,34 +8,23 @@ It answers one question:
 
 This is not a UI checklist and not an engineering-completion checklist. A content file existing, a page rendering, a build passing, a source inventory being complete, or a simulated journey succeeding may all be useful evidence, but none of them alone proves a learning system is closed.
 
-The learning lifecycle follows the shared CREATE → BUILD → AUDIT → REAL USE model.
+The governing causal direction is:
 
 ```text
-CREATE
 Source Truth
-→ Knowledge reconstruction + native quality proof
-→ Learning-path / surface-ownership decision + native proof
-→ Content realization / optimization + native closure
-→ Learning UX / Projection design
-
-BUILD
-→ Runtime / Website implementation
-→ local implementation proof
-→ applicable real-browser Human Gate for material Visual/Product change
-
-AUDIT
-→ Module E2E / Reality acceptance
-→ verify canonical meaning reached the real consumer
-→ stateful / adversarial / degraded / sustained-use proof as applicable
-
-REAL USE
-→ genuine learner evidence / U
-→ evidence-based revision when reality changes the accepted meaning
+→ Knowledge Audit
+→ Learning-Path + Surface-Ownership Audit
+→ Learner Calibration
+→ Content Reconstruction / Optimization
+→ Content Closure Audit
+→ Learning UX / Projection Design
+→ Runtime Implementation
+→ Module E2E Acceptance
+→ Learner Acceptance
+→ Evidence-based Revision
 ```
 
-S / K / L / P / R / E remain precise native acceptance gates. Their local checks are not separate copies of the final Reality Audit. CREATE/BUILD proves each changed responsibility well enough to hand forward; AUDIT proves that the implemented chain faithfully works together in reality.
-
-This is a **causal direction, not a repository-wide one-way waterfall**. Projection/Runtime/Audit may expose a real upstream Knowledge/Learning defect and send only that dependency chain back to CREATE. What must not happen is using downstream engineering progress to pretend an upstream learning question was settled, or mechanically re-auditing unchanged accepted layers during final Reality Audit.
+This is a **causal direction, not a repository-wide one-way waterfall**. Within one audited scope, Projection or Runtime may expose a real Knowledge/Learning defect and send that dependency chain back upstream. What must not happen is using downstream engineering progress to pretend an upstream learning question was settled.
 
 Independent scopes may be audited and advanced concurrently at any justified hierarchy depth. A blocked gate in one Politics subject, Xizong System, English module, or other independent scope does not freeze unrelated siblings merely because they share a parent.
 
@@ -49,148 +38,6 @@ Module Acceptance
 ```
 
 Home is therefore a final integration/routing layer, not a place to compensate for unfinished domain learning models.
-
----
-
-## Lifecycle boundary for this standard
-
-This standard spans native gate evidence across the lifecycle, but the word **Acceptance** does not mean Kian must repeatedly review every gate.
-
-- during **CREATE**, Source / Knowledge / Learning / Content owners perform the native proof needed to accept what is being created;
-- during **BUILD**, Engineering/Runtime proves the implementation and material visual/product changes pass their real Candidate Human Gate;
-- during **AUDIT**, the auditor reuses valid upstream evidence and attacks whether the built system actually realizes it end to end;
-- **U** remains genuine REAL USE evidence.
-
-Final Reality Audit is therefore **not** “run S/K/L/P/R/E again from zero.” It checks freshness of the evidence it depends on, reopens changed/stale premises only, and concentrates new work on consumer/integration/reality risks.
-
----
-
-# 0｜Acceptance evidence discipline — prove the reality chain, not the test count
-
-Acceptance is always **claim-scoped**. The strongest repository/browser/CI result supports only the exact reality path it actually proved; it may not be enlarged into a whole-module or whole-system verdict by wording.
-
-For learner-facing and system-integration claims, the acceptance chain is:
-
-```text
-realistic user entry / intent
-→ bounded Current-owner resolution
-→ canonical Rule / Content / Visual truth
-→ actual Projection / adapter / Runtime consumer
-→ rendered + interactive product reality
-→ persisted Evidence / Resume / Return where applicable
-→ real learner use only when U is claimed
-```
-
-A downstream PASS is invalid when an earlier link required by the claim is missing, stale, unowned or merely assumed.
-
-## 0.1 Hard evidence rules
-
-1. **No claim enlargement**
-   - route/build/selector/state/screenshot PASS proves only that named check;
-   - representative fixtures prove only the represented shapes unless an explicit exhaustive oracle covers the rest;
-   - anything materially outside demonstrated coverage remains `UNTESTED`, not implicitly healthy;
-   - do not use `perfect`, `fully proven`, or equivalent whole-system language unless the stated coverage actually supports that claim.
-
-2. **Canonical → consumer closure**
-   - every Current Rule / Content / Visual object that is entitled to affect the claimed learner/product path must be traceable to its real downstream consumer and observable effect;
-   - canonical truth that should be consumed but is silently absent is `MISSING_CONSUMPTION` and blocks the dependent claim;
-   - repository completeness is not product completeness.
-
-3. **Consumer → canonical reverse trace**
-   - every material learner-visible meaning, state decision, major interaction and product geometry must be traceable back to a Current owner or an explicitly non-semantic implementation detail;
-   - learner/product behavior with no legitimate Current authority is `UNOWNED_BEHAVIOR`;
-   - a consumer still using superseded/history truth is `STALE_CONSUMPTION`;
-   - UI/runtime convenience may not invent a second semantic model.
-
-4. **Reality over weak oracles**
-   - selector/count/flag existence, HTTP 200, build green, DOM presence and screenshot creation are supporting evidence only;
-   - when usability depends on it, acceptance must inspect the actual visible meaning, attention hierarchy, geometry, first actionable content, scroll ownership, clipping/overlap, timing, focus/keyboard behavior and state transition on the intended environment;
-   - a screenshot is evidence only after the claimed visual property was actually reviewed or mechanically measured by an oracle capable of proving it.
-
-5. **Stateful human simulation**
-   - realistic acceptance must cover the state/path shapes that can materially change the claim: clean start, partial progress, Wrong/meaningful Uncertain, interruption, reload, resume/return, completion, stale/conflicting/degraded input, retry/idempotency and multi-surface handoff as applicable;
-   - do not require a Cartesian product when pairwise/representative coverage plus adversarial long walks can prove the risk more efficiently;
-   - a scripted happy path cannot stand in for sustained use.
-
-6. **Audit-harness integrity first**
-   - before trusting a product audit, prove the exact candidate/release identity, intended browser/runtime mode, relevant viewport/font/OS conditions, test-state isolation and non-mutation of real learner/private state;
-   - QA infrastructure, fixtures and oracles are themselves fallible dependencies and may become stale;
-   - a test running against the wrong artifact/environment is no evidence.
-
-7. **Inline repair with explicit evidence boundaries**
-   - Personal `KERNEL.md §2` permits same-execution audit/repair; use `PROJECT_MANAGEMENT_CONTRACT.md → Concrete Repair Fast Lane` for diagnosis self-attack and related-design preflight. No mandatory Chat/Issue hop.
-   - A repair invalidates its affected claims/true dependents until the original failure, same defect class and relevant state/visual/recovery paths pass on the repaired artifact. A local regression is not whole-product acceptance.
-   - Final PASS reconciles required exhaustive coverage on one final exact release containing all accepted repairs. Still-valid evidence may be reused only after its premises are checked; omitted/UNTESTED required rows and unresolved FAILs cannot inherit PASS from later smoke results.
-   - Same-author self-attack is not independent-third-party review. Evidence labels must disclose the actual independence and coverage, not infer them from a fresh Chat or a new test name.
-
-8. **Shard large audits; integrate last**
-   - whole-system acceptance must be decomposed into bounded audit shards with the parent outcome, exact owners, design reasons/must-preserve behavior, consumers and stop conditions kept in the working set;
-   - finish and record the bounded evidence for one shard before loading another unrelated domain;
-   - cross-module/Home/whole-day integration is tested after the child capabilities it depends on are independently trustworthy;
-   - repository breadth is not permission to overload context or replace understanding with grep/count coverage.
-
-
-### 0.1.1｜2027 exam acceptance escalation — subject → Exam System → three-system
-
-For the current 2027 postgraduate-exam product, Fresh acceptance escalates through three distinct layers:
-
-```text
-Level 1 — subject full-suite AUDIT
-Xizong / English / Politics
-        ↓ all required child claims independently trustworthy
-
-Level 2 — 2027 Exam System integration AUDIT
-Exam Orchestrator + Home/Today/Steward + cross-subject Resume/Return
-+ whole-day execution + shared Runtime/private state/delivery boundaries
-        ↓ exam-system integration claim trustworthy
-
-Level 3 — mother cross-system AUDIT
-Personal ↔ StudyHub ↔ KianOS
-        ↓ cross-system control / ownership / handoff claim trustworthy
-```
-
-Hard rules:
-
-- **A child PASS only unlocks the parent audit; it never implies the parent PASS.**
-- **A parent audit reuses still-valid child evidence rather than mechanically re-running unchanged child internals from zero.**
-- The parent must add fresh evidence for every integration/interface claim introduced only at that parent layer.
-- **Fresh AUDIT is exhaustive over the admitted learner product. Representative-only sampling is not sufficient for a whole-product PASS.**
-- Every learner-facing route/surface, admitted interaction mode, major state transition, recovery path and cross-surface boundary in the audited scope must be exercised.
-- Where thousands of content objects share one runtime (for example a large vocabulary catalog), every admitted object must still receive exhaustive machine traversal/integrity/renderability coverage; human-like visual/use simulation may be organized by distinct surface geometry/state class, but no content family or runtime branch may be omitted merely because it appears repetitive.
-- A large audit may be split into staged shards for execution/context control, but the parent PASS is withheld until every shard is complete and the final integration pass confirms there are no coverage gaps.
-- A parent FAIL reopens the smallest responsible current owner/interface; it does not automatically invalidate unrelated accepted child evidence.
-- Level 2 is owned inside KianOS by the current Exam Orchestrator / Product / Runtime / Acceptance owner chain.
-- Level 3 is **not KianOS-owned**. Personal / StudyHub / KianOS responsibility and mother-architecture acceptance return to the upstream Personal cross-system owner; KianOS may provide evidence but may not self-grant a three-system PASS.
-- Chat and Website are execution/front-end surfaces in this hierarchy, not a fourth persistent truth system.
-- **Parallel subject audits may share one immutable Stable release** when that exact release contains the accepted current product for every participating subject. Each subject still owns an independent coverage ledger, browser/profile or state-isolated execution context, evidence set and verdict. Sharing the release lease does not merge acceptance claims.
-- A shared subject-audit lease is released or repointed only after every participating subject audit has stopped, or the shared session is explicitly aborted. One subject finishing early must not invalidate sibling evidence by moving Stable.
-- During the final closure campaign, a subject Audit may repair confirmed defects inline on main/Candidate while the old Stable remains pinned for unaffected evidence. Once its repairs are merged, that subject's affected rows wait for the next exact served release containing the repairs; unrelated sibling audits may continue. Do not force a subject to abandon its Audit conversation or create a second repair workflow.
-- **Engineering closure after Level 3 PASS:** when Level 1 subject full-suite audits, Level 2 2027 Exam System integration audit, and Level 3 Personal ↔ StudyHub ↔ KianOS cross-system audit all PASS for their exact current scope, broad exam-system engineering stops. The default mode becomes REAL USE / concrete-defect mode: no speculative refactor, architecture polishing, broad UI rebuild or convenience-driven new subsystem. Reopen only for real learner defects, authoritative new Source/material, real platform/runtime breakage, or an explicit new product need.
-
-9. **System-control claims start at the real entrypoint**
-   - when claiming Fresh-Chat, Continue, Home, Chat→GitHub or system-control reliability, begin from a realistic user request and verify bounded resolution into the correct Current/canonical owner before judging downstream behavior;
-   - broad repository archaeology, historical contamination, duplicated authority, or an answer that depends on hidden prior-chat context is a failure of that claim even if the final page/code is correct.
-
-## 0.2 Verdict discipline
-
-A meaningful PASS must state, explicitly or by a clearly named acceptance owner:
-
-```text
-claim
-+ exact candidate / Current basis
-+ coverage actually exercised
-+ material environments/states included
-+ known non-blocking debt
-+ material UNTESTED boundaries
-```
-
-For pre-use work, the strongest automated/simulated conclusion remains:
-
-> **READY_FOR_REAL_USER_TRIAL for the demonstrated claim and coverage.**
-
-It does not manufacture `U PASS`.
-
-Real use may still expose a defect. When it does, treat the new evidence as a failure of the earliest responsible acceptance premise, strengthen the responsible consumer/oracle or owner path, and avoid answering repeated false-passes by merely stacking another broad rule or another unrelated test suite.
 
 ---
 

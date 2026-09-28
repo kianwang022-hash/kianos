@@ -61,68 +61,32 @@ jobs:
       - name: Checkout Current
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
-          fetch-depth: 2
-      - name: Scope Xizong content proof
-        id: scope
-        working-directory: .
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          # Shared config/navigation edits keep build + consumer proof. Re-audit
-          # canonical Xizong content only when a content/semantic owner changed.
-          # Manual runs and unavailable comparison evidence retain the full gate.
-          content=true
-          changed="$RUNNER_TEMP/xizong-proof-changed.txt"
-          if [[ "$EVENT_NAME" != workflow_dispatch && -n "$BASE_SHA" && -n "$HEAD_SHA" ]] &&
-             git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null &&
-             git cat-file -e "$HEAD_SHA^{commit}" 2>/dev/null &&
-             git diff --no-renames --name-only "$BASE_SHA" "$HEAD_SHA" > "$changed"; then
-            if grep -Eq '^static-web/(astro\.config\.mjs|src/lib/sharedNavigation\.mjs)$' "$changed" &&
-               ! grep -Eiq '(^|/)[^/]*xizong[^/]*(/|$)|^LEARNING_ACCEPTANCE\.md$|^static-web/(package(-lock)?\.json|src/layouts/|src/styles/(global|runtime)\.css|src/lib/current\.mjs)' "$changed"; then
-              content=false
-            fi
-          fi
-          printf 'content=%s\n' "$content" >> "$GITHUB_OUTPUT"
-          printf 'Xizong content proof: %s; shared build/browser proof retained\n' "$content"
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
       - name: Validate relation manifest synchronization
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/sync-xizong-question-relations-manifest.mjs --check
       - name: Audit reviewed Question→Knowledge freshness
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/audit-xizong-reviewed-relation-freshness.mjs --out .qa/xizong-relation-freshness.json
       - name: Install dependencies
         run: npm install --no-audit --no-fund
-      - name: Validate build-process projection cache
-        run: node scripts/test-xizong-build-cache.mjs
       - name: Validate shared Current semantic adapter
         run: node scripts/validate-xizong-semantic-adapter.mjs
       - name: Validate compiled Projection assets
-        if: steps.scope.outputs.content == 'true'
         run: python3 ../content/xizong/projection/tools/validate_projection.py --self-test --json .qa/xizong-projection-current.json
       - name: Validate Projection Current reconciliation
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/validate-xizong-projection-current.mjs
       - name: Upload Projection Current validation
-        if: steps.scope.outputs.content == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: xizong-projection-current
           path: static-web/.qa/xizong-projection-current.json
           if-no-files-found: error
       - name: Validate one Current owner per Block identity
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/validate-xizong-current-owners.mjs
       - name: Validate live Learning-owner lifecycle
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/validate-xizong-learning-owner-lifecycle.mjs
       - name: Validate multi-pass Question Attempt model
         run: node scripts/validate-xizong-question-attempts.mjs
@@ -131,16 +95,12 @@ jobs:
       - name: Validate official score-attribution evidence
         run: node scripts/validate-xizong-score-attribution.mjs
       - name: Validate reviewed Question Crosswalk
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/validate-xizong-question-crosswalk.mjs
       - name: Validate Crosswalk review queue pipeline
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/validate-xizong-crosswalk-review-pipeline.mjs
       - name: Build next Crosswalk review queue
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/build-xizong-crosswalk-review-queue.mjs --limit 50 --out .qa/xizong-crosswalk-review-queue.json
       - name: Upload next Crosswalk review queue
-        if: steps.scope.outputs.content == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: xizong-crosswalk-review-queue
@@ -155,32 +115,24 @@ jobs:
       - name: Validate A1 fresh Evidence contracts
         run: node scripts/validate-xizong-a1-evidence.mjs
       - name: Validate A3 owner and inventory
-        if: steps.scope.outputs.content == 'true'
         run: A3_SOURCE_PHASE=owner node scripts/validate-xizong-a3-source.mjs
       - name: Validate A3 Current Question Truth resolution
-        if: steps.scope.outputs.content == 'true'
         run: A3_SOURCE_PHASE=truth node scripts/validate-xizong-a3-source.mjs
       - name: Validate A3 boundary and provenance
-        if: steps.scope.outputs.content == 'true'
         run: A3_SOURCE_PHASE=boundary node scripts/validate-xizong-a3-source.mjs
       - name: Inspect B Current Core substrate
-        if: steps.scope.outputs.content == 'true'
         run: B_CORE_REPORT_PATH=.qa/xizong-b-core-inventory.json node scripts/inspect-xizong-b-core.mjs
       - name: Upload B Current Core inventory
-        if: steps.scope.outputs.content == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: xizong-b-core-inventory
           path: static-web/.qa/xizong-b-core-inventory.json
           if-no-files-found: error
       - name: Validate B Knowledge contracts
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/validate-xizong-b-knowledge.mjs
       - name: Inspect B Learning structure
-        if: steps.scope.outputs.content == 'true'
         run: B_LEARNING_REPORT_PATH=.qa/xizong-b-learning-structure.json node scripts/inspect-xizong-b-learning.mjs
       - name: Upload B Learning structure
-        if: steps.scope.outputs.content == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: xizong-b-learning-structure
@@ -195,7 +147,6 @@ jobs:
       - name: Validate A3 evidence contracts
         run: node scripts/validate-xizong-a3-evidence.mjs
       - name: Validate Source Visual content packs
-        if: steps.scope.outputs.content == 'true'
         run: node scripts/validate-xizong-source-visuals.mjs
       - name: Build Astro
         run: npm run build:astro

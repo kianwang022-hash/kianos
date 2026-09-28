@@ -103,8 +103,6 @@ word:abstract
 
 The canonical materializer `tools/lexical_build_final_learner_objects.py` may execute that exact ID-bound override. It may not inspect note text to decide that it "looks like Form".
 
-Sense-local fields may also carry explicit, stable-ID-bound default-Depth dispositions when another surviving learner object already owns the same learner job. Current field-level decisions include `sense_usage_notes` and `sense_governing_patterns`. A governing pattern may be `EXPLORE_ONLY` only when the same reusable skeleton remains directly available in a surviving learner object, normally a Word-owned Construction. A broader selector or argument pattern must stay in the Sense when the surviving Construction is narrower.
-
 For structured `form_identity.variants`, the default Depth mapping is fixed rather than heuristic:
 
 ```text

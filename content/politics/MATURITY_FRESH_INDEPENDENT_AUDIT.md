@@ -1,9 +1,6 @@
 # Politics Final Fresh Independent / Anti-Anchored Audit v6
 
-Role: **sealed historical acceptance evidence only — NOT Current routing / NOT active work**
 Status: **PASS — SYSTEM_LOGIC_ACCEPTED for the sealed candidate only**
-
-Current Politics routing lives in `content/politics/CURRENT.md`; reusable current maturity conclusions live in `MATURITY_PACKAGE.md` / `ACCEPTANCE.md`. This file preserves the exact independent audit evidence and must not issue new work by itself.
 
 ## 0. Immutable launcher
 

@@ -1,21 +1,3 @@
-/* Shared-composition Practice/Result rules migrated to the exact Politics Practice visual owner. */
-@media (min-width:1101px) and (min-height:680px) {
-  /* Xiao: clean attempt and result keep different geometry; actions stay in view. */
-  body#kianos-workspace.surfaceBody-politics .politicsWorkbench { flex:1;min-height:0;display:flex;flex-direction:column; }
-  body#kianos-workspace.surfaceBody-politics .politicsWorkbench>:not(.practiceSession) { flex-shrink:0; }
-  body#kianos-workspace.surfaceBody-politics .politicsFilters { max-height:55vh;overflow:auto; }
-  body#kianos-workspace.surfaceBody-politics .practiceSession { flex:1;min-height:0;display:flex;flex-direction:column; }
-  body#kianos-workspace.surfaceBody-politics .politicsSessionBar { flex-shrink:0; }
-  body#kianos-workspace.surfaceBody-politics .politicsQuestionCard { flex:1;min-height:0;overflow:auto;padding:22px 30px; }
-  body#kianos-workspace.surfaceBody-politics .politicsSubmitRow { position:sticky;bottom:-22px;padding:16px 0;background:#fff;z-index:2; }
-  body#kianos-workspace.surfaceBody-politics .politicsReview { flex:1;min-height:0;display:flex;flex-direction:column; }
-  body#kianos-workspace.surfaceBody-politics .practiceQuestionReference { flex-shrink:0;max-height:35vh;overflow:auto; }
-  body#kianos-workspace.surfaceBody-politics .politicsResultLayout { flex:1;min-height:0;align-items:stretch; }
-  body#kianos-workspace.surfaceBody-politics :is(.politicsResultSummaryPane,.politicsKnowledgeReview) { min-height:0;overflow:auto; }
-  body#kianos-workspace.surfaceBody-politics .politicsReviewActions { position:sticky;z-index:2; }
-
-}
-
 /* Politics Practice polish only.
    Historical Workbench information architecture and interaction order are intentionally preserved. */
 body#kianos-workspace.surfaceBody-politics .politicsWorkbench{

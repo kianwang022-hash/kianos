@@ -33,15 +33,6 @@ async function clean(page) {
 }
 async function pageFor(url = '/politics/practice/') {
   const ctx = await browser.newContext({ viewport: report.viewport });
-  // This harness owns Workbench state/recovery semantics. Hide the independently
-  // audited movable Global Dock so shared-overlay geometry cannot corrupt its oracle.
-  await ctx.addInitScript(() => {
-    document.addEventListener('DOMContentLoaded', () => {
-      const style = document.createElement('style');
-      style.textContent = '[data-study-timer-dock]{display:none!important}';
-      document.head.append(style);
-    }, { once: true });
-  });
   const page = await ctx.newPage(); page.on('dialog', (dialog) => dialog.accept());
   const errors = []; page.on('pageerror', (e) => errors.push(e.message));
   await page.goto(base + url); await page.locator('[data-start-session]').waitFor();
@@ -144,7 +135,7 @@ try {
       if (kind === 'missing') return route.fulfill({ status: 404, body: '{}' });
       const p = practiceReviewPayload(catalog, catalog.questions[0].id);
       if (kind === 'unbound') p.id = catalog.questions[1].id;
-      if (kind === 'stale') p.taskRevision = 'outdated';
+      if (kind === 'stale') p.revision = 'outdated';
       if (kind === 'incomplete') p.chatExplanation = '';
       await route.fulfill({ contentType: 'application/json', body: JSON.stringify(p) });
     });
@@ -163,14 +154,10 @@ try {
   }
   {
     const { page, ctx } = await pageFor(); await start(page);
-    // Headless Chromium reports every tab as focused; emulate a real background
-    // first tab so the native single-writer handoff contract can be exercised.
-    await page.evaluate(() => { document.hasFocus = () => false; });
-    const second = await ctx.newPage(); await second.goto(base + '/politics/practice/'); await second.bringToFront();
-    await second.locator('[data-question-card]').waitFor({ state: 'visible' }); await second.click('[data-option="A"]');
-    await page.locator('[data-learner-writer-notice]').waitFor({ state: 'visible' });
-    assert.equal((await read(second, K.session)).draft.selected, 'A');
-    pass('concurrent tab writer handoff preserves the newer draft'); await ctx.close();
+    const second = await ctx.newPage(); await second.goto(base + '/politics/practice/');
+    await second.click('[data-option="A"]'); await page.click('[data-option="B"]');
+    assert.equal((await read(page, K.session)).draft.selected, 'A'); assert.match(await page.locator('[data-practice-error]').innerText(), /其他页面/);
+    pass('concurrent tab cannot overwrite newer draft'); await ctx.close();
   }
   {
     const { page, ctx } = await pageFor(); await page.selectOption('[data-filter-type]', 'multiple'); await start(page);
@@ -210,7 +197,7 @@ try {
     assert.equal(await read(page, K.session), null); assert.equal(await page.locator('[data-question-card]').isVisible(), false);
     await page.evaluate(() => { window.__fail = null; }); await start(page);
     await page.route('**/practice-review/*.json', (route) => { const p = practiceReviewPayload(catalog, catalog.questions[0].id); p.source = []; return route.fulfill({ contentType: 'application/json', body: JSON.stringify(p) }); });
-    await answer(page, 'B'); assert.match(await page.locator('[data-review-sources]').innerText(), /只有所属学习单元定位；没有猜测更细/); await screenshot(page, 'correct-sparse-source');
+    await answer(page, 'B'); assert.match(await page.locator('[data-review-sources]').innerText(), /没有已绑定/); await screenshot(page, 'correct-sparse-source');
     await installFailure(page, K.session); await page.click('[data-next-question]'); assert.equal((await read(page, K.session)).index, 0); assert.equal(await page.locator('[data-submitted-result]').isVisible(), true);
     await page.evaluate(() => { window.__fail = null; }); await page.click('[data-next-question]'); assert.equal((await read(page, K.session)).index, 1);
     pass('failed session start/Next never advances; sparse source honest fallback'); await ctx.close();
