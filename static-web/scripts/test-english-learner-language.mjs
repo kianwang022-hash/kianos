@@ -18,6 +18,7 @@ const forbidden = [
   'Current provenance',
   'Runtime boundary',
   'KIANOS_',
+  'ENGLISH_',
   'sha256:',
   'Private evidence ledger',
   'TRANSFER_PENDING',
@@ -126,6 +127,39 @@ try {
       const engineeringCode = visibleCode.filter((value) => /(?:sha256:|content\/english\/|kianos\.|source\/question_bank|CURRENT_READY)/i.test(String(value || '')));
       check(engineeringCode.length === 0, name + '_no_visible_engineering_code', engineeringCode.join('|'));
     }
+
+    const generatedErrorCases = [
+      ['generated-reading-missing-id', '/reading-generated/', '[data-generated-reading-error]', '没有指定 Reading A 训练材料'],
+      ['generated-cloze-missing-id', '/cloze-generated/', '[data-generated-cloze-error]', '没有指定 Cloze 训练材料']
+    ];
+    for (const [name, route, selector, expected] of generatedErrorCases) {
+      await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
+      await page.locator(selector).waitFor({ state: 'visible' });
+      const text = String(await page.locator('body').innerText()).replace(/\s+/g, ' ').trim();
+      const hits = forbidden.filter((term) => text.includes(term));
+      check(hits.length === 0, name + '_no_engineering_language', hits.join('|'));
+      check((await page.locator(selector).innerText()).includes(expected), name + '_learner_message');
+      check(await page.locator('[data-english-recovery-error]').count() === 0, name + '_does_not_fake_state_recovery');
+    }
+
+    await page.route('**/__kianos-private/english-generated/material?*', route => route.fulfill({
+      status: 400,
+      contentType: 'application/json',
+      body: JSON.stringify({ status: 'error', error: 'ENGLISH_GENERATED_DRILL_ID_INVALID' })
+    }));
+    for (const [name, route, selector, expected] of [
+      ['generated-reading-invalid-id', '/reading-generated/?id=invalid-fixture', '[data-generated-reading-error]', 'Reading A 训练当前无法打开'],
+      ['generated-cloze-invalid-id', '/cloze-generated/?id=invalid-fixture', '[data-generated-cloze-error]', 'Cloze 训练当前无法打开']
+    ]) {
+      await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
+      await page.locator(selector).waitFor({ state: 'visible' });
+      const text = String(await page.locator('body').innerText()).replace(/\s+/g, ' ').trim();
+      const hits = forbidden.filter((term) => text.includes(term));
+      check(hits.length === 0, name + '_no_engineering_language', hits.join('|'));
+      check((await page.locator(selector).innerText()).includes(expected), name + '_learner_message');
+      check(await page.locator('[data-english-recovery-error]').count() === 0, name + '_does_not_fake_state_recovery');
+    }
+    await page.unroute('**/__kianos-private/english-generated/material?*');
 
     await context.close();
   } finally {
