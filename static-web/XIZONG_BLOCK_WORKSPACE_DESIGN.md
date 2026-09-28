@@ -8,23 +8,30 @@ This file records the accepted Mac-wide Block Workspace design only. It does not
 
 ## 1｜Baseline: optimize the accepted loop, do not redesign it
 
-Preserve the existing mature learner chain:
+Preserve the existing mature learner chain, with the Learn/Recall boundary explicit:
 
 ```text
+LEARN PHASE
 Block orientation
-→ current Logic Group purpose / closure shown inside the persistent Logic Map
+→ Logic Group / KP structure stays visible as orientation
 → iPad / MarginNote continuous original-Lecture study while Mac stays on KP Learn
 → at a real reviewed Source boundary, when a reviewed Lecture-attached TTSX binding exists: lightweight TTSX checkpoint
-→ current KP marked learned as the learner advances
-→ that Logic Group's KP Recall on the same KP card with Core hidden
-→ last KP rating automatically closes the Logic Group in the Logic Map
-→ next Logic Group
+→ return to the unfinished Block Learn mainline
+→ current KP / Source coverage is marked learned as the learner advances
+→ finish the whole accepted Block Learn scope
+
+RECALL PHASE
+→ KP Recall on the same KP card with Core hidden, in accepted Logic Group order
+→ last KP rating automatically closes that Logic Group in the Logic Map
+→ next Logic Group Recall
 → final Logic Group closes directly into Block Recall
 → Reveal Block model
 → complete Block Recall
 → lightweight same-surface confirmation of Block first-pass completion
 → After Learn when useful
 ```
+
+There is no default Learn → KP Recall → Learn oscillation inside an unfinished Block.
 
 The shared Block UI is a Projection optimization of this accepted loop, not a new learner flow.
 
