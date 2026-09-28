@@ -92,11 +92,10 @@ Use existing browser-local last-location state plus exact local Block state wher
 It may translate real state into learner language such as:
 
 ```text
-KP LEARN
-KP RECALL
-LOGIC GROUP
-LG CLOSURE
+BLOCK LEARN
+KP / LOGIC GROUP POSITION
 BLOCK RECALL
+TARGETED KP RECALL
 BLOCK COMPLETE
 SYSTEM GUIDE
 ```
