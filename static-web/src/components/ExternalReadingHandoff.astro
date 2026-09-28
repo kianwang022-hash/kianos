@@ -177,6 +177,10 @@
       }
     });
 
+    const resultBar = root.querySelector('[data-external-result]');
+    if (resultBar instanceof HTMLElement) {
+      new MutationObserver(sync).observe(resultBar, { attributes: true, attributeFilter: ['hidden'] });
+    }
     root.addEventListener('click', () => window.setTimeout(sync, 0));
     window.addEventListener('storage', (event) => {
       if (event.key === attemptKey) sync();
