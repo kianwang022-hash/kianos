@@ -19,7 +19,6 @@ const expected = {
     'shared-visual-foundation.css',
     'runtime.css',
     'visual-convergence.css',
-    'shared-workspace-composition.css',
     'shared-shell.css',
     'study-timer.css'
   ],
@@ -29,7 +28,6 @@ const expected = {
     'runtime.css',
     'english.css',
     'visual-convergence.css',
-    'shared-workspace-composition.css',
     'english-presentation.css',
     'shared-shell.css',
     'study-timer.css'
@@ -40,7 +38,6 @@ const expected = {
     'runtime.css',
     'visual-convergence.css',
     'politics-presentation.css',
-    'shared-workspace-composition.css',
     'politics-visual-tuning.css',
     'shared-shell.css',
     'study-timer.css'
@@ -52,7 +49,6 @@ const expected = {
     'xizong-dense-calm.css',
     'visual-convergence.css',
     'xizong-presentation.css',
-    'shared-workspace-composition.css',
     'xizong-visual-tuning.css',
     'shared-shell.css',
     'study-timer.css'
@@ -62,7 +58,6 @@ const expected = {
     'shared-visual-foundation.css',
     'runtime.css',
     'visual-convergence.css',
-    'shared-workspace-composition.css',
     'shared-shell.css',
     'lexical-presentation.css',
     'study-timer.css'
@@ -81,48 +76,14 @@ for (const token of ['uiStageOne', '.productCanvas', '.pageLead']) {
   assert.ok(convergence.includes(token), `visual-convergence.css lost live shared state selector: ${token}`);
 }
 
-const workspaceComposition = read(path.join(styles, 'shared-workspace-composition.css'));
-for (const token of [
-  '.command', '.productBar', '.clozeRepair', '.englishTaskTabs',
-  '.lexicalStudyNavBottom', '.portedVocabCoreSense',
-  '.politicsOverviewHeader', '.politicsSubject', '.politicsChapterRows', '.politicsHandoff',
-  '.xzOverview', '.xzSystemWorkbench', '.xizongHomeTools', '.xv6System'
-]) {
-  assert.ok(!workspaceComposition.includes(token), `shared-workspace-composition.css retained retired selector family: ${token}`);
-}
-
-for (const token of [
-  'uiStageOne>.productCanvas', 'uiHub>.productCanvas', 'uiWordStudy>.productCanvas'
-]) {
-  assert.ok(!workspaceComposition.includes(token), `shared-workspace-composition.css retained pre-shell direct-child selector: ${token}`);
-}
-
-for (const token of [
-  '.uiEnglish', '.english', '.cloze', '.translation', '.writing', '.portedReading', '.objectiveLearn'
-]) {
-  assert.ok(!workspaceComposition.includes(token), `shared-workspace-composition.css retained English-owned selector family: ${token}`);
-}
-
-for (const token of ['.surfaceBody-politics', '.politics', '.practiceSession', '.workspaceUnit', '.cognitiveStage']) {
-  assert.ok(!workspaceComposition.includes(token), `shared-workspace-composition.css retained Politics-owned selector family: ${token}`);
-}
-
-for (const token of ['.uiWordStudy', '.lexical', '.portedVocab', '[data-vocab-details]']) {
-  assert.ok(!workspaceComposition.includes(token), `shared-workspace-composition.css retained Lexical-owned selector family: ${token}`);
-}
-
-assert.ok(
-  !workspaceComposition.includes('.surfaceBody-home'),
-  'shared-workspace-composition.css retained Home-owned selector family'
-);
-
 const frame = read(path.join(layouts, 'BaseFrame.astro'));
 assert.ok(!/styles\/[^'"]+\.css/.test(frame), 'BaseFrame must remain presentation-style free');
 
 const retired = [
   'stage-one-composition.css',
   'viewport-workspaces.css',
-  'site-visual-tuning.css'
+  'site-visual-tuning.css',
+  'shared-workspace-composition.css'
 ];
 for (const file of retired) {
   assert.ok(!fs.existsSync(path.join(src, 'styles', file)), `retired style still exists: ${file}`);
@@ -301,7 +262,7 @@ assert.ok(
   politicsProjectionSelectorPattern.test(politicsLearn),
   'Politics Learn owner lost compiled Projection presentation'
 );
-for (const legacyLayer of ['politics-presentation.css', 'shared-workspace-composition.css', 'politics-visual-tuning.css']) {
+for (const legacyLayer of ['politics-presentation.css', 'politics-visual-tuning.css']) {
   const value = read(path.join(src, 'styles', legacyLayer));
   assert.ok(
     !value.includes('.politicsChapterLocation'),

@@ -29,13 +29,11 @@ if (fs.existsSync(path.join(src, 'styles', 'responsive-guards.css'))) fail('reti
 if (fs.existsSync(path.join(src, 'styles', 'lexical-card-polish.css'))) fail('retired lexical-card-polish.css still exists');
 
 const foundationIndex = base.indexOf("import '../styles/shared-visual-foundation.css';");
-const compositionIndex = base.indexOf("import '../styles/shared-workspace-composition.css';");
 const shellIndex = base.indexOf("import '../styles/shared-shell.css';");
 const lexicalIndex = base.indexOf("import '../styles/lexical-presentation.css';");
 if (
   foundationIndex < 0
-  || compositionIndex < foundationIndex
-  || shellIndex < compositionIndex
+  || shellIndex < foundationIndex
   || lexicalIndex < shellIndex
 ) fail('Lexical final owner must load after shared visual/composition/shell baselines');
 

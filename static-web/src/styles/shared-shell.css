@@ -1,3 +1,8 @@
+/* Shared primary-surface viewport state lives with the registered shared Shell owner. */
+@media (min-width:1101px) and (min-height:680px) {
+  body#kianos-workspace.uiStageOne { height:100dvh;min-height:0;display:flex;flex-direction:column;overflow:hidden; }
+}
+
 /* KianOS shared desktop shell.
    Global left rail = first-level subjects. Subject top strip = within-subject navigation.
    Subject cognition and task geometry remain lane-owned. */
