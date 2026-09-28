@@ -685,6 +685,36 @@ Exception: a safety-critical or identity-sensitive mutation may require smaller 
 
 ---
 
+## Small-defect repair boundedness — ACTIVE
+
+Marker: `KIANOS_SMALL_DEFECT_REPAIR_BOUNDEDNESS_V1`
+
+A reproduced learner-visible defect is **not permission to re-traverse the architecture**.
+
+Default repair shape:
+
+```text
+reproduced visible effect
+→ exact current effective owner
+→ smallest mutation that removes that effect
+→ targeted proof on the affected surface/state
+→ stop
+```
+
+Hard stop conditions:
+
+1. **Do not equate source-of-text with repair owner.** If backend/canonical truth is merely leaking through presentation, repair the existing learner projection/presentation boundary first. Do not edit canonical medical/learning truth just to change learner wording.
+2. **No scope expansion without evidence.** A local defect may move upstream only when the current effective owner cannot satisfy the accepted behavior without violating an existing contract.
+3. **Stop on repair explosion.** If a small defect begins to require broad repository search, many unrelated files, a new schema/contract, a second runtime, a CSS override layer, or a full-site build merely to make progress, stop the BUILD and reclassify the routing/owner as unresolved before doing more work.
+4. **Repair by defect class, not symptom count.** One shared projection/display bug may justify one shared fix; it does not justify editing every content file containing the symptom.
+5. **No speculative cleanup during a defect repair.** Nearby wording, architecture, style, or maintenance opportunities remain untouched unless they are actual dependents of the reproduced effect.
+6. **Verification stays proportional.** Use the smallest decisive validator/browser path for the changed owner plus real dependents. Whole-product/full-site validation belongs to its declared checkpoint, not to every small repair.
+7. **When the minimal path is unclear, stopping is better than digging.** Return the exact reproduced effect and unresolved owner boundary; do not keep expanding repository archaeology to manufacture certainty.
+
+A small repair that violates these stop conditions is itself an execution defect even if the final code would eventually work.
+
+---
+
 ## Hot-path verification budget
 
 Routine content production must optimize for bounded correctness, not repository-wide reassurance.
