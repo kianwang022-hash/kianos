@@ -3,11 +3,13 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import net from 'node:net';
 
 import {
   DEFAULT_CANDIDATE_HOST,
   DEFAULT_CANDIDATE_PORT,
   STABLE_CURRENT_PORT,
+  assertCandidatePortAvailable,
   canMaterializeLegacyCandidateDependencies,
   ensureCandidateDependencies,
   isolatedCandidateEnv,
@@ -41,6 +43,24 @@ assert.throws(
 assert.throws(
   () => resolveCandidateConfig({ KIANOS_CANDIDATE_PORT: 'not-a-port' }),
   /KIANOS_CANDIDATE_PORT_INVALID/
+);
+
+const occupiedServer = net.createServer();
+const occupiedPort = await new Promise((resolve, reject) => {
+  occupiedServer.once('error', reject);
+  occupiedServer.listen(0, '127.0.0.1', () => resolve(occupiedServer.address().port));
+});
+try {
+  await assert.rejects(
+    assertCandidatePortAvailable({ host: '127.0.0.1', port: occupiedPort }),
+    /KIANOS_CANDIDATE_PORT_IN_USE:127\.0\.0\.1:/
+  );
+} finally {
+  await new Promise((resolve) => occupiedServer.close(resolve));
+}
+await assert.doesNotReject(
+  assertCandidatePortAvailable({ host: '127.0.0.1', port: occupiedPort }),
+  'released Candidate port should become available again'
 );
 
 const root = path.resolve('/tmp/kianos-candidate-test');
@@ -117,4 +137,4 @@ try {
   fs.rmSync(depRoot, { recursive: true, force: true });
 }
 
-console.log('KIANOS_CANDIDATE_RUNTIME PASS: fixed lane, stable-port guard, private isolation and worktree-local dependencies');
+console.log('KIANOS_CANDIDATE_RUNTIME PASS: fixed lane, occupied-port guard, stable-port guard, private isolation and worktree-local dependencies');
