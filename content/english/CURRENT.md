@@ -11,6 +11,8 @@ A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / �
 
 **None.** English is in **normal-use / concrete-defect mode**.
 
+**Queued Fresh independent audit:** Issue [#1085](https://github.com/kianwang022-hash/kianos/issues/1085) — whole English learner product, including mandatory Vocabulary / Lexical integration. It is **WAITING FOR CURRENT ENGLISH OPTIMIZATION RELEASE** and must pin the exact final main/Stable identity before starting. It does not authorize new BUILD by itself.
+
 Current implementation truth:
 - English is already a mature learner product; there is no active broad construction campaign.
 - Reading A official/static and generated/private material share one native interaction runtime; generated material is a thin material/protected-answer adapter.
@@ -87,9 +89,11 @@ Exact semantics live in the relevant Learning / Content / Runtime owner; this cu
 
 ## Next / reopen
 
-There is no active English engineering cursor. Return to normal learner use.
+There is no active broad English construction cursor. Return to normal learner use unless completing an already-open bounded learner-visible change.
 
-Future engineering is pulled only by:
+After the current learner-visible optimization batch is merged or explicitly closed, Issue #1085 is the queued **Fresh independent whole-English audit**. Its scope includes Objective / Translation / Writing / External Reading / whole-paper/session behavior **and Vocabulary / Lexical as an integrated English learner capability**, including exact English ↔ Lexical handoff/return and later real-context transfer evidence.
+
+Future BUILD is otherwise pulled only by:
 - genuine learner/use evidence;
 - a concrete Source / Content / Learning / Visual / Runtime defect;
 - an admitted new source/material boundary;
