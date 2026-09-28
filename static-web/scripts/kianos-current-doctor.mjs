@@ -5,6 +5,8 @@ import path from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 
+import { readCurrentAuditPin, releasePaths } from './currentRelease.mjs';
+
 const execFileAsync = promisify(execFile);
 const home = os.homedir();
 const mirrorDir = process.env.KIANOS_CURRENT_DIR || path.join(home, 'KianOS-current');
@@ -51,6 +53,7 @@ async function readCurrentStatus() {
       if (response.ok) {
         last = await response.json();
         if (last?.state === 'synced') return last;
+        if (last?.state === 'pinned') return last;
         if (last?.state === 'degraded') return last;
       }
     } catch {}
@@ -135,6 +138,16 @@ if (!fs.existsSync(privateDir)) {
   else record('FAIL', 'Private learner-state permissions', `${privateDir} · expected 700, got ${mode.toString(8)}`);
 }
 
+let mirrorStatus = null;
+try { mirrorStatus = JSON.parse(fs.readFileSync(path.join(mirrorDir, 'static-web', 'public', '__kianos-current.json'), 'utf8')); } catch {}
+
+let currentAuditPin = null;
+try {
+  currentAuditPin = readCurrentAuditPin(releasePaths(mirrorDir).auditPin);
+} catch (error) {
+  record('FAIL', 'Current audit pin', error?.message || String(error));
+}
+
 let localSha = '';
 let remoteSha = '';
 if (gitBin && fs.existsSync(marker)) {
@@ -149,11 +162,21 @@ if (gitBin && fs.existsSync(marker)) {
     const raw = await command(gitBin, ['ls-remote', 'origin', mainRemoteRef], { cwd: mirrorDir });
     remoteSha = raw.split(/\s+/)[0] || '';
     if (!remoteSha) throw new Error('origin/main returned no SHA');
-    if (localSha !== remoteSha) {
+    const auditPinned = Boolean(currentAuditPin?.sha);
+    if (localSha !== remoteSha && !auditPinned) {
       localSha = await waitForMirrorSha(gitBin, remoteSha);
     }
-    if (localSha === remoteSha) record('PASS', 'GitHub main sync', remoteSha.slice(0, 12));
-    else record('FAIL', 'GitHub main sync', `local ${localSha.slice(0, 12)} != main ${remoteSha.slice(0, 12)}`);
+    if (localSha === remoteSha) {
+      record('PASS', 'GitHub main sync', remoteSha.slice(0, 12));
+    } else if (auditPinned) {
+      record(
+        'PASS',
+        'GitHub main sync',
+        `audit pinned · mirror ${localSha.slice(0, 12)} · latest main ${remoteSha.slice(0, 12)}`
+      );
+    } else {
+      record('FAIL', 'GitHub main sync', `local ${localSha.slice(0, 12)} != main ${remoteSha.slice(0, 12)}`);
+    }
   } catch (error) {
     record('WARN', 'GitHub main reachability', error?.message || String(error));
   }
@@ -169,11 +192,26 @@ try {
   record('FAIL', 'Learner site', `not reachable at ${base}`);
 }
 
-const status = siteOk ? await readCurrentStatus() : null;
-let mirrorStatus = null;
 try { mirrorStatus = JSON.parse(fs.readFileSync(path.join(mirrorDir, 'static-web', 'public', '__kianos-current.json'), 'utf8')); } catch {}
+
+const status = siteOk ? await readCurrentStatus() : null;
 if (!status) {
   record('FAIL', 'Current sync status', 'status endpoint unavailable');
+} else if (status.state === 'pinned') {
+  const servedSha = String(status.sha || '');
+  const pinSha = String(status.audit_pin_sha || mirrorStatus?.audit_pin_sha || '');
+  const targetSha = String(status.target_sha || mirrorStatus?.target_sha || '');
+  if (!pinSha || servedSha !== pinSha) {
+    record('FAIL', 'Current sync status', `audit pin mismatch · served ${servedSha.slice(0, 12)} · pin ${pinSha.slice(0, 12)}`);
+  } else if (mirrorStatus?.state && mirrorStatus.state !== 'pinned') {
+    record('FAIL', 'Current sync status', `control state=${mirrorStatus.state}`);
+  } else {
+    record(
+      'PASS',
+      'Current sync status',
+      `audit pinned · release ${servedSha.slice(0, 12)} · target ${targetSha.slice(0, 12)} · expires ${status.audit_pin_expires_at || mirrorStatus?.audit_pin_expires_at || 'unknown'}`
+    );
+  }
 } else if (status.state !== 'synced') {
   record('FAIL', 'Current sync status', `served state=${status.state}`);
 } else {

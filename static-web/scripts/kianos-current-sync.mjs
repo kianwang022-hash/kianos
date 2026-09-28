@@ -17,6 +17,7 @@ import {
 } from './currentStaticSlots.mjs';
 import {
   acquireDeliveryLock,
+  readCurrentAuditPin,
   releasePaths,
   resolveCurrentBuildTimeoutMs,
   resolveCurrentSubprocessTimeoutMs,
@@ -73,6 +74,7 @@ let activeReleaseRoot = null;
 let syncRuntimeLoadedSha = String(process.env.KIANOS_SYNC_RUNTIME_SHA || '').trim();
 let syncRuntimeCheckedTargetSha = '';
 let syncRuntimeCheckedChanged = false;
+let lastAuditPinLogKey = '';
 
 function readBuildFailure() {
   try { return JSON.parse(fs.readFileSync(failurePath, 'utf8')); } catch { return null; }
@@ -579,13 +581,40 @@ async function syncOnce({ initial = false } = {}) {
     const local = await git(['rev-parse', 'HEAD']);
     lastKnownSha = local;
     const priorControlStatus = readControlStatus();
-    writeStatus('checking', local);
 
     const remote = await remoteMainSha();
     if (!remote) throw new Error('origin/main did not return a SHA');
     lastTargetSha = remote;
 
     const activeSha = readActiveBuiltStatus()?.sha || '';
+    const auditPin = readCurrentAuditPin(releases.auditPin);
+    if (auditPin) {
+      if (!activeSha || activeSha !== auditPin.sha) {
+        throw new Error(`CURRENT_AUDIT_PIN_RELEASE_MISMATCH:${auditPin.sha}:${activeSha || 'none'}`);
+      }
+      lastSyncHealthy = true;
+      lastNetworkError = '';
+      writeStatus('pinned', activeSha, {
+        control_sha: local,
+        target_sha: remote,
+        audit_pin_sha: auditPin.sha,
+        audit_pin_issue: auditPin.issue,
+        audit_pin_expires_at: auditPin.expires_at,
+        release_root: activeReleaseRoot
+      });
+      const pinLogKey = `${activeSha}:${remote}:${auditPin.expires_at}`;
+      if (initial || pinLogKey !== lastAuditPinLogKey) {
+        log(
+          `audit pin holding Stable ${activeSha.slice(0, 8)}; `
+          + `latest main is ${remote.slice(0, 8)}; expires ${auditPin.expires_at}`
+        );
+        lastAuditPinLogKey = pinLogKey;
+      }
+      return false;
+    }
+    lastAuditPinLogKey = '';
+    writeStatus('checking', local);
+
     if (local === remote && activeReleaseRoot && activeSha === remote) {
       lastSyncHealthy = true;
       writeStatus('synced', activeSha, { control_sha: local, release_root: activeReleaseRoot });

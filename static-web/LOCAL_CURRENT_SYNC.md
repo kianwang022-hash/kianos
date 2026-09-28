@@ -62,6 +62,31 @@ Astro candidate builds may memoize immutable Xizong owner/projection reads **ins
 
 For an explicit engineering retry after an environmental repair, run the supervisor once with `KIANOS_SYNC_ONCE=1 KIANOS_RETRY_FAILED_BUILD=1`. Do not use retries to suppress a content error.
 
+## Fresh-AUDIT exact-release pin
+
+A Fresh independent AUDIT may require the real Stable origin to remain on one exact release while unrelated accepted work continues to land on GitHub `main`.
+
+Use the bounded local audit pin instead of weakening exact-release identity or rolling Stable backward:
+
+```bash
+npm run current:audit -- pin --sha <currently-served-sha> --issue <audit-issue> [--minutes 120]
+# run the Fresh independent audit
+npm run current:audit -- release
+```
+
+Rules:
+
+- `pin` may only pin the SHA already being served on Stable; a different requested SHA is rejected and never triggers rollback;
+- pin/release operations reuse the existing Current delivery lock, so an audit lease cannot race an in-flight promotion;
+- while pinned, the supervisor keeps serving that SHA, reports `state=pinned`, and exposes the latest remote `target_sha` without fetching/promoting it;
+- the lease has an expiry and automatically stops blocking Current after expiry;
+- `release` removes the lease; the normal 8-second Current loop then catches up to the newest accepted `main`;
+- pin state is local delivery/runtime state under the Current release root; it is not learner evidence, canonical product truth, or a semantic owner;
+- if the served release no longer matches the active pin, Current fails closed with `CURRENT_AUDIT_PIN_RELEASE_MISMATCH`;
+- normal Current behavior is unchanged when no active pin exists.
+
+This mechanism exists only to make strict CBA A0 reproducible on the real Stable consumer. It is not a general release-management or rollback interface.
+
 Ordinary explanation and lexical owner updates have read-only content CI; full browser/system QA remains for runtime/schema changes and explicit integration checkpoints. Astro still performs one site build per accepted update; this change does not claim incremental page rendering.
 
 Default main check interval: **8 seconds**.  
