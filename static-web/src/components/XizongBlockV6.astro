@@ -1133,6 +1133,16 @@ window.__kianosLearnerWriterReady.then(() => {
       syncSourceLearnedFromEvidence();
       releasePostClosureGroups();
       updateSourceContactDone();
+      // NATURAL_SOURCE_UNITS are still one Block Learn phase. A completed
+      // Source unit may release several LGs, but it must not start retrieval
+      // while another accepted Source unit for this Block is still pending.
+      if (naturalSourceRuntime && !state.sourceContactDone) {
+        const pendingSegment = firstPendingSourceSegment();
+        if (pendingSegment) {
+          setSourceSegment(pendingSegment);
+          return 'source_contact';
+        }
+      }
       const nextGroupId = nextAvailableIncompleteGroupId();
       if (nextGroupId && selectGroupById(nextGroupId)) return stageForSelectedGroup();
       const pendingSegment = firstPendingSourceSegment();

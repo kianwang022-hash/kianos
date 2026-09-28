@@ -189,12 +189,21 @@ async function n4Journey() {
   let row = await beginBlock('/xizong/neuro-sensory-motor-orthopedics/n04/');
   check(row.stage === 'source_contact' && row.scopeIds.length === 10, 'n4_segment_1_scope');
   row = await sourceDone();
-  check(row.stage === 'kp_recall' && row.groupIndex === 0, 'n4_segment_1_releases_lg01');
-  await completeRecallGroup(); await completeRecallGroup(); row = await completeRecallGroup();
-  check(row.stage === 'source_contact' && row.sourceSegmentIndex === 1, 'n4_lg01_03_routes_segment_2');
+  check(row.stage === 'source_contact' && row.sourceSegmentIndex === 1, 'n4_segment_1_continues_block_learn_segment_2');
+  check(row.ratings === 0, 'n4_segment_1_does_not_start_retrieval');
   check(row.scopeIds.length === 6, 'n4_segment_2_scope');
   row = await sourceDone();
-  check(row.stage === 'kp_recall' && row.groupIndex === 3 && row.learned === 16, 'n4_segment_2_releases_lg04');
+  check(row.stage === 'kp_recall' && row.groupIndex === 0 && row.learned === 16, 'n4_all_source_units_then_retrieval');
+}
+async function sr3Journey() {
+  await clearXizong();
+  let row = await beginBlock('/xizong/reproductive-breast/sr03/');
+  check(row.stage === 'source_contact' && row.sourceTitle.includes('第 1 段'), 'sr3_starts_segment_1');
+  row = await sourceDone();
+  check(row.stage === 'source_contact' && row.sourceSegmentIndex === 1, 'sr3_segment_1_continues_segment_2');
+  check(row.ratings === 0 && !row.sourceDone, 'sr3_segment_1_does_not_start_retrieval');
+  row = await sourceDone();
+  check(row.stage === 'kp_recall' && row.groupIndex === 0 && row.sourceDone, 'sr3_all_source_units_then_retrieval');
 }
 async function n11Journey() {
   await clearXizong();
@@ -226,14 +235,17 @@ async function f9Journey() {
 }
 async function o5Journey() {
   await clearXizong();
-  await beginBlock('/xizong/neuro-sensory-motor-orthopedics/o05/');
-  await sourceDone(); await completeRecallGroup(); await completeRecallGroup();
-  check((await snap()).sourceSegmentIndex === 1, 'o5_routes_source_2');
-  await sourceDone(); await completeRecallGroup();
-  check((await snap()).sourceSegmentIndex === 2, 'o5_routes_source_3');
-  let row = await sourceDone();
-  check(row.stage === 'kp_recall' && row.groupIndex === 3 && row.learned === 13, 'o5_source_3_releases_lg04_only');
+  let row = await beginBlock('/xizong/neuro-sensory-motor-orthopedics/o05/');
+  row = await sourceDone();
+  check(row.stage === 'source_contact' && row.sourceSegmentIndex === 1, 'o5_segment_1_continues_segment_2');
+  row = await sourceDone();
+  check(row.stage === 'source_contact' && row.sourceSegmentIndex === 2, 'o5_segment_2_continues_segment_3');
+  row = await sourceDone();
+  check(row.stage === 'kp_recall' && row.groupIndex === 0 && row.learned === 13, 'o5_all_source_units_then_retrieval');
   check(row.buttons[4]?.disabled === true, 'o5_lg05_locked_before_lg04_closure');
+  await completeRecallGroup();
+  await completeRecallGroup();
+  await completeRecallGroup();
   row = await completeRecallGroup();
   check(row.stage === 'kp_learn' && row.groupIndex === 4, 'o5_lg04_closure_releases_lg05_learn');
   check(row.released.includes('O5-LG05') && row.learned === 13, 'o5_release_does_not_mint_learning');
@@ -245,24 +257,27 @@ async function o5Journey() {
 }
 async function o4Journey() {
   await clearXizong();
-  await beginBlock('/xizong/neuro-sensory-motor-orthopedics/o04/');
-  await sourceDone(); await completeRecallGroup(); await completeRecallGroup();
-  let row = await completeRecallGroup();
-  check(row.stage === 'source_contact' && row.sourceSegmentIndex === 1, 'o4_lg01_03_routes_source_2');
+  let row = await beginBlock('/xizong/neuro-sensory-motor-orthopedics/o04/');
+  row = await sourceDone();
+  check(row.stage === 'source_contact' && row.sourceSegmentIndex === 1, 'o4_segment_1_continues_segment_2');
   const ratingsBefore = row.ratings;
   row = await sourceDone();
-  check(row.stage === 'kp_recall' && row.groupIndex === 3, 'o4_reactivate_does_not_route_back_lg01');
-  check(row.ratings === ratingsBefore && row.released.length === 0, 'o4_reactivate_does_not_rewrite_progress');
-  check(row.learned === 18, 'o4_source_2_forms_direct_kps_only');
+  check(row.stage === 'kp_recall' && row.groupIndex === 0, 'o4_all_source_units_then_retrieval');
+  check(row.ratings === ratingsBefore && row.released.length === 0, 'o4_source_completion_does_not_rewrite_progress');
+  check(row.learned === 18, 'o4_all_source_units_form_direct_kps_only');
 }
 async function f1Journey() {
   await clearXizong();
   let row = await beginBlock('/xizong/remaining-clinical/f01/');
   check(row.stage === 'source_contact' && row.sourceTitle.includes('第 1 段'), 'f1_starts_segment_1');
   row = await sourceDone();
-  check(row.stage === 'kp_recall' && row.groupIndex === 0, 'f1_segment_1_releases_lg01');
-  await completeRecallGroup(); row = await completeRecallGroup();
-  check(row.stage === 'source_contact' && row.sourceSegmentIndex === 1, 'f1_lg01_02_routes_segment_2');
+  check(row.stage === 'source_contact' && row.sourceSegmentIndex === 1, 'f1_segment_1_continues_segment_2');
+  check(row.ratings === 0, 'f1_segment_1_does_not_start_retrieval');
+  row = await sourceDone();
+  check(row.stage === 'source_contact' && row.sourceSegmentIndex === 2, 'f1_segment_2_continues_segment_3');
+  check(row.ratings === 0, 'f1_segment_2_does_not_start_retrieval');
+  row = await sourceDone();
+  check(row.stage === 'kp_recall' && row.groupIndex === 0 && row.sourceDone, 'f1_all_source_units_then_retrieval');
 }
 async function cH1Regression() {
   await clearXizong();
@@ -309,6 +324,7 @@ try {
   await n4Journey();
   await n11Journey();
   await sr1Journey();
+  await sr3Journey();
   await f1Journey();
   await f9Journey();
   await o5Journey();

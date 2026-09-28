@@ -442,7 +442,7 @@ function normalizeSourceContact(learning, blockSupport, blockId, logicGroups, bl
       returnPattern: mode === 'WHOLE_BLOCK_SOURCE'
         ? 'ONE_RETURN_AFTER_WHOLE_BLOCK_SOURCE_CONTACT'
         : mode === 'NATURAL_SOURCE_UNITS'
-          ? 'SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL'
+          ? 'COMPLETE_BLOCK_SOURCE_UNITS_THEN_LG_RETRIEVAL'
           : 'KIANOS_INTEGRATION_THEN_TARGETED_SOURCE_RETURN',
       normalFirstPass: [],
       extraSourceReturnAllowedFor: [],
