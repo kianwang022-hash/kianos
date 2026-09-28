@@ -533,6 +533,15 @@ async function remoteMainSha() {
   return raw.split(/\s+/)[0] || '';
 }
 
+async function fetchMainHead() {
+  const startedAt = Date.now();
+  await git(['fetch', 'origin', 'main', '--prune']);
+  return {
+    sha: await git(['rev-parse', 'FETCH_HEAD']),
+    duration_ms: Date.now() - startedAt
+  };
+}
+
 async function syncRuntimeChangedSinceLoad(targetSha) {
   const target = String(targetSha || '').trim();
   if (!syncRuntimeLoadedSha || !target || syncRuntimeLoadedSha === target) return false;
@@ -608,9 +617,9 @@ async function syncOnce({ initial = false } = {}) {
 
     writeStatus('updating', activeSha || local, { control_sha: local, target_sha: remote });
     log(`main advanced ${local.slice(0, 8)} → ${remote.slice(0, 8)}; syncing whole repository`);
-    const fetchStartedAt = Date.now();
-    await git(['fetch', 'origin', 'main', '--prune']);
-    let fetched = await git(['rev-parse', 'FETCH_HEAD']);
+    const initialFetch = await fetchMainHead();
+    let fetched = initialFetch.sha;
+    fetchDurationMs += initialFetch.duration_ms;
     lastTargetSha = fetched;
     // A previous update may have moved HEAD but failed to publish. Classify
     // from the actually served source, never from that failed checkout.
@@ -625,11 +634,11 @@ async function syncOnce({ initial = false } = {}) {
     // build. Re-read main once before building so the daemon starts from the
     // newest coherent target instead of knowingly constructing an obsolete one.
     if (!skipAstro && (buildDecision.required || staticRuntimeChanged)) {
-      const newestRemote = await remoteMainSha();
-      if (newestRemote && newestRemote !== fetched) {
-        log(`coalescing superseded pre-build target ${fetched.slice(0, 8)} → ${newestRemote.slice(0, 8)}`);
-        await git(['fetch', 'origin', 'main', '--prune']);
-        fetched = await git(['rev-parse', 'FETCH_HEAD']);
+      const preBuildFetch = await fetchMainHead();
+      fetchDurationMs += preBuildFetch.duration_ms;
+      if (preBuildFetch.sha && preBuildFetch.sha !== fetched) {
+        log(`coalescing superseded pre-build target ${fetched.slice(0, 8)} → ${preBuildFetch.sha.slice(0, 8)}`);
+        fetched = preBuildFetch.sha;
         lastTargetSha = fetched;
         changed = await git(['diff', '--name-only', impactBase, fetched]);
         changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
@@ -637,7 +646,6 @@ async function syncOnce({ initial = false } = {}) {
         staticRuntimeChanged = requiresStaticRuntimeReload(changedPaths);
       }
     }
-    fetchDurationMs = Date.now() - fetchStartedAt;
 
     const reuseActiveRelease = !skipAstro
       && Boolean(activeReleaseRoot)
@@ -685,7 +693,9 @@ async function syncOnce({ initial = false } = {}) {
       // Never switch Stable to a SHA that was already superseded while its
       // build was in flight. Keep the accepted active release, discard only
       // the newly-created obsolete candidate, then retry the newest main.
-      const supersedingRemote = await remoteMainSha();
+      const preActivationFetch = await fetchMainHead();
+      fetchDurationMs += preActivationFetch.duration_ms;
+      const supersedingRemote = preActivationFetch.sha;
       if (supersedingRemote && supersedingRemote !== fetched) {
         if (preparedRelease.created) await cleanupPreparedRelease(fetched);
         lastTargetSha = supersedingRemote;
