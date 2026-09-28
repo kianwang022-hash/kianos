@@ -225,7 +225,8 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
     root.dataset.running = running ? 'true' : 'false';
     root.dataset.hasPending = pendingItems.length ? 'true' : 'false';
     const detail = String(active.context?.detailLabel || '').trim();
-    const learnerDetail = detail === 'overview' ? '' : detail;
+    const detailKey = String(active.context?.detailKey || '').trim();
+    const learnerDetail = detail && detail !== detailKey ? detail : '';
     subject.textContent = activeSubject
       ? [SUBJECT_LABELS[activeSubject] || activeSubject, learnerDetail && learnerDetail !== activeSubject ? learnerDetail : null].filter(Boolean).join(' · ')
       : '未开始';
