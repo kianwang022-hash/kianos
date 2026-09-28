@@ -562,6 +562,8 @@ async function restartSyncRuntimeIfNeeded(targetSha) {
 async function syncOnce({ initial = false } = {}) {
   if (syncing || stopping) return false;
   syncing = true;
+  const syncStartedAt = Date.now();
+  let fetchDurationMs = 0;
   let releaseLock = null;
   try {
     releaseLock = await acquireDeliveryLock(releases.lock);
@@ -606,17 +608,37 @@ async function syncOnce({ initial = false } = {}) {
 
     writeStatus('updating', activeSha || local, { control_sha: local, target_sha: remote });
     log(`main advanced ${local.slice(0, 8)} → ${remote.slice(0, 8)}; syncing whole repository`);
+    const fetchStartedAt = Date.now();
     await git(['fetch', 'origin', 'main', '--prune']);
-    const fetched = await git(['rev-parse', 'FETCH_HEAD']);
+    let fetched = await git(['rev-parse', 'FETCH_HEAD']);
     lastTargetSha = fetched;
     // A previous update may have moved HEAD but failed to publish. Classify
     // from the actually served source, never from that failed checkout.
     const builtBase = readActiveBuiltStatus();
     const impactBase = builtBase?.state === 'synced' && builtBase?.sha ? builtBase.sha : local;
-    const changed = await git(['diff', '--name-only', impactBase, fetched]);
-    const changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
-    const buildDecision = classifyStaticBuild(changedPaths);
-    const staticRuntimeChanged = requiresStaticRuntimeReload(changedPaths);
+    let changed = await git(['diff', '--name-only', impactBase, fetched]);
+    let changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
+    let buildDecision = classifyStaticBuild(changedPaths);
+    let staticRuntimeChanged = requiresStaticRuntimeReload(changedPaths);
+
+    // A burst of accepted commits can land between ls-remote and the expensive
+    // build. Re-read main once before building so the daemon starts from the
+    // newest coherent target instead of knowingly constructing an obsolete one.
+    if (!skipAstro && (buildDecision.required || staticRuntimeChanged)) {
+      const newestRemote = await remoteMainSha();
+      if (newestRemote && newestRemote !== fetched) {
+        log(`coalescing superseded pre-build target ${fetched.slice(0, 8)} → ${newestRemote.slice(0, 8)}`);
+        await git(['fetch', 'origin', 'main', '--prune']);
+        fetched = await git(['rev-parse', 'FETCH_HEAD']);
+        lastTargetSha = fetched;
+        changed = await git(['diff', '--name-only', impactBase, fetched]);
+        changedPaths = changed ? changed.split('\n').filter(Boolean) : [];
+        buildDecision = classifyStaticBuild(changedPaths);
+        staticRuntimeChanged = requiresStaticRuntimeReload(changedPaths);
+      }
+    }
+    fetchDurationMs = Date.now() - fetchStartedAt;
+
     const reuseActiveRelease = !skipAstro
       && Boolean(activeReleaseRoot)
       && !buildDecision.required
@@ -634,7 +656,11 @@ async function syncOnce({ initial = false } = {}) {
         changed_paths: changedPaths.length,
         static_build: 'reused',
         build_impact_paths: 0,
-        release_root: activeReleaseRoot
+        release_root: activeReleaseRoot,
+        timings_ms: {
+          remote_fetch: fetchDurationMs,
+          sync_total: Date.now() - syncStartedAt
+        }
       });
       log(
         `synced ${changedPaths.length} control-only path(s) to ${fetched.slice(0, 8)}; `
@@ -645,20 +671,62 @@ async function syncOnce({ initial = false } = {}) {
     }
 
     let runtimeReloaded = false;
+    let preparedRelease = null;
+    let probeDurationMs = 0;
+    let promotionDurationMs = 0;
     if (!skipAstro) {
-      const preparedRelease = await prepareRelease(fetched, {
+      preparedRelease = await prepareRelease(fetched, {
         changed_paths: changedPaths.length,
         build_impact_paths: buildDecision.build_paths.length,
         lexical_projection_required: buildDecision.lexical_projection_required,
         lexical_projection_paths: buildDecision.lexical_projection_paths.length
       });
+
+      // Never switch Stable to a SHA that was already superseded while its
+      // build was in flight. Keep the accepted active release, discard only
+      // the newly-created obsolete candidate, then retry the newest main.
+      const supersedingRemote = await remoteMainSha();
+      if (supersedingRemote && supersedingRemote !== fetched) {
+        if (preparedRelease.created) await cleanupPreparedRelease(fetched);
+        lastTargetSha = supersedingRemote;
+        writeStatus(oneShot ? 'pending' : 'coalescing', activeSha, {
+          control_sha: local,
+          target_sha: supersedingRemote,
+          superseded_sha: fetched,
+          changed_paths: changedPaths.length,
+          static_build: 'discarded-superseded',
+          build_impact_paths: buildDecision.build_paths.length,
+          release_root: activeReleaseRoot,
+          timings_ms: {
+            remote_fetch: fetchDurationMs,
+            dependencies: preparedRelease.timings?.dependencies || 0,
+            astro_build: preparedRelease.timings?.astro_build || 0,
+            prepare_release_total: preparedRelease.timings?.total || 0,
+            sync_total: Date.now() - syncStartedAt
+          }
+        });
+        log(
+          `built target ${fetched.slice(0, 8)} was superseded by ${supersedingRemote.slice(0, 8)} before activation; `
+          + 'Stable remains unchanged'
+        );
+        if (oneShot) {
+          lastSyncHealthy = false;
+          return false;
+        }
+        setTimeout(() => void syncOnce(), 75);
+        return true;
+      }
+
       try {
+        const probeStartedAt = Date.now();
         await probeRelease(releases.release(fetched), fetched);
+        probeDurationMs = Date.now() - probeStartedAt;
       } catch (error) {
         warn(`new Current release probe failed before activation; keeping current release: ${error.message}`);
         if (preparedRelease.created) await cleanupPreparedRelease(fetched);
         throw error;
       }
+      const promotionStartedAt = Date.now();
       await activateRelease(fetched);
       if (!oneShot) {
         try {
@@ -677,6 +745,7 @@ async function syncOnce({ initial = false } = {}) {
           throw error;
         }
       }
+      promotionDurationMs = Date.now() - promotionStartedAt;
     }
     lastKnownSha = fetched;
     await git(['checkout', '-B', 'main', fetched]);
@@ -697,7 +766,16 @@ async function syncOnce({ initial = false } = {}) {
       changed_paths: changedPaths.length,
       static_build: skipAstro ? 'skipped' : 'rebuilt',
       build_impact_paths: buildDecision.build_paths.length,
-      ...(!skipAstro && activeReleaseRoot ? { release_root: activeReleaseRoot } : {})
+      ...(!skipAstro && activeReleaseRoot ? { release_root: activeReleaseRoot } : {}),
+      timings_ms: {
+        remote_fetch: fetchDurationMs,
+        dependencies: preparedRelease?.timings?.dependencies || 0,
+        astro_build: preparedRelease?.timings?.astro_build || 0,
+        prepare_release_total: preparedRelease?.timings?.total || 0,
+        release_probe: probeDurationMs,
+        promotion: promotionDurationMs,
+        sync_total: Date.now() - syncStartedAt
+      }
     });
     log(
       `synced ${changedPaths.length} changed path(s); static Current is ${fetched.slice(0, 8)} `
