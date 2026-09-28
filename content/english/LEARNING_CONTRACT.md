@@ -287,7 +287,7 @@ Examples of legitimate elastic work include:
 - raising Translation fidelity/naturalness after the secure band is already reached;
 - raising Writing development and language control after basic score security exists;
 - reducing whole-paper fatigue and time-allocation variance;
-- using External Reading when ordinary English-I material no longer supplies enough reading-growth stimulus.
+- using External Reading whenever it supplies high-value reading growth that ordinary English-I work does not efficiently supply, including in parallel with true-exam throughput.
 
 There is no permanent English stop point. The operational stop rule is: **do not spend the next hour on English when another available action has clearly higher expected marginal value.**
 
@@ -303,6 +303,33 @@ Whole-paper work is not merely a seventh peer module. It validates whether task-
 - whether stable single-task performance collapses in the 180-minute system.
 
 As preparation matures, whole-paper evidence should absorb part of maintenance that would otherwise require separate task probes. A task that is stable both locally and repeatedly inside whole papers should normally receive less isolated maintenance, not duplicate practice.
+
+### True-exam throughput and review compression
+
+True-exam material is a high-value English-I training bank, especially for a repeat learner who can move through familiar task geometry quickly.
+
+The intended high-throughput loop is:
+
+```text
+Kian performs the complete clean task
+→ Runtime preserves cheap factual evidence where available
+→ Chat/system compresses review
+→ only the smallest independent repair(s) that could change future performance return to Kian
+→ leave the item and continue
+```
+
+Hard rules:
+
+- do not require Kian to manually build an error notebook, classify every wrong item, copy decisive evidence, or read every explanation merely to prove review happened;
+- a complete true-exam task may close with zero durable repair when the miss is cheaply understood and no reusable weakness is supported;
+- several wrong questions/blanks/placements that share one upstream cause should normally become one repair, not one ritual per wrong item;
+- one task may expose multiple genuinely independent high-value failures; compression must not force false singularity merely to reduce review count;
+- already-exposed true-exam material remains valuable for mechanics, repair, source familiarity and throughput, but its correctness cannot be promoted to unseen/fresh transfer evidence;
+- unseen true-exam material is scarce clean evidence, not sacred inventory. Kian/Chat may deliberately spend it on training when its current learning value exceeds its future diagnostic value; once exposed, that evidence role is honestly downgraded and never silently reset;
+- a repeat learner may consume the true-exam corpus rapidly while using synthetic/fresh/External material for lower-memory-residue transfer checks;
+- review latency should stay much smaller than task time unless a real reusable failure earns deeper work.
+
+The goal is not to minimize reflection. It is to make **learner attention track information value**: Kian does the English; Chat/system does the compression and bookkeeping.
 
 ### Material readiness: baseline first, targeted generation second
 
@@ -326,6 +353,26 @@ STRESS / EDGE
 Once an object has been exposed through teaching, explanation or repair, it cannot later serve as independent transfer evidence for that same mechanism. Once a calibration object has been deeply reviewed, it may still be reused for learning, but its future evidence role is downgraded. Material identity does not reset because the learner sees it in another page/session.
 
 When real practice exposes a specific failure, generate **targeted** material for that mechanism rather than expanding generic volume. A targeted generated task should identify the demand it attacks and the evidence that would count as transfer.
+
+**Repair generation and transfer generation are different jobs.** The smallest useful repair object may be much smaller than the independent object needed to claim transfer or stability.
+
+| Task family | Targeted repair / gap-filling shape | Stronger fresh transfer shape |
+| --- | --- | --- |
+| Reading A | minimum sufficient passage/span + real competing option contrast, or a focused Representation / Locate / Judge probe | fresh complete passage + question set for task-level transfer; a local probe supports only the mechanism it actually tests |
+| Cloze | minimum useful context + slot demand + genuinely competitive candidates + decisive lexical/syntactic/discourse constraint | fresh complete Cloze passage/set when claiming task-level transfer |
+| Part B | local, coupled or structure-level slice that preserves the real candidate competition and discourse dependency | fresh complete source-native Part-B form/set when claiming task-level transfer |
+| Translation | affected sentence/segment or relation under the same whole-source context, with learner Reconstruction | fresh segment may test one mechanism; task-level stability requires independent complete-section evidence |
+| Writing | smallest affected scope on the learner's own draft, or a focused synthetic micro-drill when that isolates the defect | fresh prompt + complete first draft for task-level transfer |
+| Lexical | exact sense / phrase / construction / confusable / productive object in a demand-matched generated Challenge | later clean use in fresh English context is stronger transfer evidence than repeated generated Challenge |
+
+Additional hard rules:
+
+- personalized generation is **gap-filling**, not a hidden homework queue;
+- do not generate another task merely because a target exists in backend state;
+- the generated object must preserve the native cognition of its task family rather than becoming generic multiple choice;
+- same-item or same-pattern repair may prove correction; it cannot by itself prove broad task stability;
+- stop generating when another probe is unlikely to change repair, confidence or allocation;
+- generation must not consume protected true-exam / TPO / IELTS / held-out material by stealth.
 
 Generated material must pass, at minimum:
 
@@ -537,9 +584,23 @@ Rules:
 
 Unseen true-exam material remains limited diagnostic capital. Use synthetic / exposed material for teaching and software validation when sufficient, and consume protected true-exam material for real performance, calibration, or high-value transfer — not to close a database state.
 
-**External Reading has a different primary job:** add high-quality reading volume after ordinary English-I papers stop providing enough growth stimulus.
+**External Reading has a different primary job:** add high-quality reading-growth input that complements English-I true-exam work.
 
-Current preferred source order:
+It is a **parallel / elastic growth lane, not a later prerequisite stage**:
+
+```text
+true-exam Reading A
+→ exam demand / evidence / option adjudication / execution
+
+in parallel when valuable
+
+External Reading
+→ lexical breadth / proposition representation / discourse tracking / reading speed / long-passage stamina
+```
+
+Kian does not need to exhaust the true-exam corpus before External Reading starts. Early on, true-exam work may dominate because it has direct score and diagnostic value; External Reading may already run beside it when it adds useful low-memory-residue input. As Reading-A mechanics become stable or repeated true-exam work yields little new information, the mix may shift toward more External Reading. The current mix is a Chat allocation decision under the English and Exam owners, never a Website quota.
+
+Current preferred **source priority** (not learner sequence):
 
 1. legacy TOEFL / TPO academic reading, especially the existing TPO 56–65 pool;
 2. IELTS Academic reading, especially the existing IELTS 17–19 pool;
