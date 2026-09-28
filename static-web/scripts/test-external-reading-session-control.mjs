@@ -84,6 +84,37 @@ assert.equal(completedPacket.performance_profile.tasks.external_reading.history.
 assert.equal(completedPacket.performance_profile.tasks.external_reading.history.independent_transfer_candidates,0,'reading-only completion must not become independent comprehension evidence');
 assert.equal(Object.prototype.hasOwnProperty.call(completedPacket.performance_profile.tasks.external_reading.history,'problem_bearing_attempts'),false);
 
+storage.setItem('kianos-english-external-reading-attempt-v1:tpo56-p1',JSON.stringify({
+  binding:{
+    task:'external_reading',
+    object_id:'tpo56-p1',
+    source_hash:'external-content-hash-v1',
+    attempt_id:'attempt-unscored-1',
+    revision:1,
+    prior_exposure:'unseen',
+    assistance:'unassisted',
+    source_snapshot:{questions:[{question_id:'q1'}]}
+  },
+  stage:'submitted',
+  submitted:true,
+  submittedAt:'2026-09-19T01:10:00.000Z',
+  results:{q1:'unscored'},
+  uncertain:[],
+  firstEvidenceMeta:{
+    independent_transfer_candidate:true,
+    timing_status:'within_explicit_budget',
+    elapsed_seconds:600,
+    time_budget_seconds:900
+  }
+}));
+const unscoredPacket=buildEnglishEvidencePacket(storage,{day,now,catalog});
+const unscoredRow=unscoredPacket.inventory.find(row=>row.task==='external_reading'&&row.object_id==='tpo56-p1');
+assert.equal(unscoredRow?.external_evidence_mode,'QUESTION_RESPONSE_UNSCORED');
+assert.equal(unscoredRow?.external_unscored_result_count,1);
+assert.equal(unscoredPacket.performance_profile.tasks.external_reading.history.question_outcome_attempts,0);
+assert.equal(unscoredPacket.performance_profile.tasks.external_reading.history.question_response_unscored_attempts,1);
+assert.equal(unscoredPacket.performance_profile.tasks.external_reading.history.independent_transfer_candidates,0,'unscored response must not become independent comprehension evidence');
+
 console.log(JSON.stringify({
   status:'PASS',
   exact_external_id:'PASS',
