@@ -1,6 +1,6 @@
 import {assertEnglishLexicalLedgerReadable} from './englishLexicalReturn.mjs';
 import { readLexicalChatState } from './lexicalChatState.mjs';
-import {advanceEnglishSourceRevision,atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY,inspectEnglishObjectiveResults} from './englishLearnerEvidence.mjs';
+import {advanceEnglishSourceRevision,atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY,inspectEnglishObjectiveResults,buildEnglishReadingAttributionSlice} from './englishLearnerEvidence.mjs';
 import {
   ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION,
   inspectEnglishExamSession,
@@ -1107,6 +1107,11 @@ export function buildEnglishEvidencePacket(storage, { day, now = Date.now(), cat
     inventory: packetInventory.inventory,
     inventory_meta: packetInventory.inventory_meta,
     performance_profile: {...buildEnglishPerformanceProfile(rawInventory.filter(row=>row.source_current!==false)),source_revision_checked:currentCatalog!==null,source_stale_attempt_count:rawInventory.filter(row=>row.source_current===false).length},
+    reading_attribution: buildEnglishReadingAttributionSlice(storage,{
+      objectIds: packetInventory.inventory
+        .filter(row=>row.task==='reading_a'&&row.source_current!==false)
+        .map(row=>row.object_id)
+    }),
     long_horizon_recurrence: buildEnglishLongHorizonRecurrenceDigest(storage,{recentExactTruncated:packetInventory.inventory_meta.truncated}),
     lexical: { ...lexicalRetentionTransferEvidence(storage), chat_state: readLexicalChatState(storage, { now }) },
     forecast_progress: englishForecastProgress(storage, day, catalog),
@@ -1162,6 +1167,9 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now(), ca
     '- Optional params.material_exposure={state:unseen|exposed|unknown,basis:learner_statement,observed_at:ISO,note:actual learner statement} may be supplied ONLY from real learner testimony before an attempt. Never infer unseen from missing storage or Content defaults.',
     '- If prior Chat discussion or learner testimony materially cues the assigned task, params.assistance_context={state:assisted|unknown,basis:chat_context|learner_statement,observed_at:ISO,note:brief factual reason} may downgrade the next first-evidence claim. Do not declare unassisted; that remains the default only when no contrary evidence exists.',
     '- performance_profile is task-level bounded telemetry. For Part B, form_coverage must be read before any aggregate stability claim. long_horizon_recurrence projects durable Objective/Translation/Writing Repair/Transfer targets. If recent exact attempts are truncated, absence from the recent window is not proof that a mechanism never existed.',
+    '- reading_attribution is bounded factual Reading-A evidence only. A PRE_SUBMIT lookup proves assistance happened, not that the failure was lexical; a POST_SUBMIT_REVIEW lookup is review evidence and cannot retroactively contaminate first-attempt assistance. focused_question_id is context at lookup time, not causality. Reviewed LOCATE/JUDGE/EXECUTE/UNDERSTAND signals remain observations, not diagnosis or mastery.',
+    '- If UNDERSTAND remains decision-relevant after reading_attribution is considered, ask the smallest useful clarification: first a binary confirmation only when a recent PRE_SUBMIT lookup is a plausible blocker; only if still needed, one coarse choice such as 词/短语 / 句子结构 / 指代或逻辑 / 整段 / 不确定. Do not ask when the answer would not change repair or allocation.',
+    '- reading_attribution cannot by itself create review debt, select a next task, or contract Reading-A dose. Learner-specific stability/dose changes still require sufficient real evidence.',
     '- lexical projects bounded delayed-retention and clean real-English-context evidence from the existing private Lexical ledger. It is not mastery or a schedule. If lexical status is missing/invalid/unreadable, lexical retention stays UNKNOWN rather than zero.',
     '- If any long_horizon_recurrence family reports invalid/unreadable, treat that recurrence history as UNKNOWN and request targeted recovery/deeper review if the decision depends on it; never interpret it as zero historical problems.',
     '',

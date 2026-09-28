@@ -120,6 +120,8 @@
         questionTask: classification.questionTask,
         quickCause: cause,
         status: 'WATCH',
+        attemptId: attempt.binding?.attempt_id || '',
+        sourceHash: attempt.binding?.source_hash || '',
         sourceSubmittedAt: attempt.submittedAt || '',
         reviewedAt: reviewed.at || new Date().toISOString(),
         transferEvidence,
