@@ -720,6 +720,21 @@ For an ordinary bounded repair that does not change accepted Product/Learning/Vi
 
 The managed Current release pipeline may still perform its normal durable build after merge. That release cost is asynchronous delivery cost, **not part of the interactive repair loop**.
 
+### Mandatory pre-repair self-attack
+
+When a defect is found during AUDIT, do this **before the first write**:
+
+```text
+1. Reproduce the exact visible/state effect again.
+2. Try to falsify it as an audit-harness/oracle/stale-release/state-isolation error.
+3. Re-read the accepted owner that makes the behavior a defect rather than a preference.
+4. Identify the current effective consumer/owner that can remove the effect with the smallest delta.
+5. Name the must-preserve behavior and true dependents.
+6. If the repair would change product/learning/visual meaning, STOP the fast lane and return that decision to CREATE/Kian.
+```
+
+This self-attack is intentionally short and evidence-driven. It prevents false repair without turning a concrete bug into repository archaeology.
+
 ### Fast-lane eligibility
 
 Use this path when all are true:
@@ -753,7 +768,7 @@ Leave the fast lane only if:
 - **Do not turn a repair into a framework project.** If a small repair begins to require broad repo search, many unrelated files, a new schema/contract, a second runtime, CSS override layering or whole-site validation, stop and re-resolve the effective owner.
 - **Fix the defect class once.** A shared consumer bug gets one shared fix; do not edit every content object containing the symptom.
 - **No speculative cleanup.** Nearby refactors/polish are out of scope.
-- **Targeted proof is enough for BUILD.** Final exhaustive subject/system AUDIT remains independent and can reuse the repair's bounded evidence, but it is not rerun as part of each repair.
+- **Targeted proof is enough to complete the repair step.** When the repair happened inside an active exhaustive AUDIT, immediately return to that same Audit, replay the original failure + sibling defect-class paths + true dependents, then continue the remaining coverage. No separate repair/audit conversation is required.
 - **Independent work continues.** A pinned Stable audit never blocks Candidate/main repair work for another subject; only the final Fresh acceptance evidence waits for the appropriate served release.
 
 A repair is complete when the requested effect is correct in the real affected consumer/Candidate proof and the durable change is on the accepted repository path. Stable catch-up and later Fresh A are separate delivery/acceptance concerns.
