@@ -30,8 +30,8 @@ Parent outcome:
 - whole-Xizong readiness remains unproven until #1090 runs the full suite.
 
 Current phase:
-- **FRESH / INDEPENDENT FULL-SUITE AUDIT — ELIGIBLE TO START**;
-- at audit start, pin the **then-current real Stable SHA that contains the accepted Xizong product**;
+- **FRESH / INDEPENDENT FULL-SUITE AUDIT — ACTIVE on shared pinned Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4`**;
+- Xizong shares immutable Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4` with English #1085 and Politics #1087;
 - do not require Stable to roll back to historical #1081/#1084 SHAs;
 - once pinned, A0 proves the exact immutable audit object and the remaining dimensions run against that same release.
 
@@ -39,11 +39,10 @@ Current phase:
 
 Issue #1090
 → read current accepted Xizong owners
-→ pin the then-current served Stable SHA to #1090
-→ verify A0 identity across Current status / HTTP / rendered document
-→ run the full-suite learner/product audit
+→ verify shared pinned Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4` A0 identity across Current status / HTTP / rendered document
+→ run the exhaustive full-suite learner/product audit in parallel with #1085/#1087
 → PASS / FAIL / BLOCKED verdict only
-→ release the audit pin
+→ retain the shared audit pin until all three subject audits stop
 → **no repair inside the AUDIT execution**
 
 for unaffected ordinary study → native learner path
