@@ -11,6 +11,7 @@ const questions = Array.from({ length: 8 }, (_, i) => {
   const long = i === 4;
   return {
     id, sourceId: `synthetic_source_${i + 1}`, number: i + 1, subject: 'fixture', subjectLabel: '合成科目', chapter: 'ch01', chapterTitle: '工作台浏览器样本', unitKey: u.key, unitId: u.id, unitTitle: u.title, unitHref: u.href,
+    taskRevision: `synthetic-task-${i + 1}-v1`,
     type: multiple ? 'multiple' : 'single',
     stem: long ? '长内容压力样本：在一个多步骤的材料核对过程中，需要同时保留记录、修订和原始位置。\n' + '这一段是合成题面，使用同一通用表示检查长中文材料的行长、换行与滚动。'.repeat(12) : `合成题 ${i + 1}：按题面选择对应的记录方式。${multiple ? '本题可选择多个选项。' : '本题只选择一个选项。'}`,
     options: ['A', 'B', 'C', 'D'].map((label, j) => ({ label, text: long ? `${label}：` + '在保留原始记录的前提下检查当前材料，沿明确的来源路径继续操作。'.repeat(3 + j) : ['保留最初记录', '沿确切位置继续', '取消所有来源', '建立另一份原题'][j] })),
