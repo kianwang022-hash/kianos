@@ -8,9 +8,10 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 const LEXICAL_MANIFEST = 'content/lexical/manifest.json';
 const ANSWER_ORDINAL = 209;
 
-const cacheMaterializedProjection = process.env.KIANOS_CANDIDATE_RUNTIME !== '1';
+const candidateRuntime = process.env.KIANOS_CANDIDATE_RUNTIME === '1';
 
 let lexicalSnapshotCache = null;
+let candidateFinalManifestToken = '';
 const finalShardCache = new Map();
 
 function absolute(relativePath) {
@@ -25,8 +26,23 @@ function readJson(relativePath) {
   return JSON.parse(readText(relativePath));
 }
 
+function fileToken(relativePath) {
+  const stat = fs.statSync(absolute(relativePath));
+  return [stat.dev, stat.ino, stat.size, stat.mtimeMs].join(':');
+}
+
+function refreshCandidateProjectionCache() {
+  if (!candidateRuntime || !lexicalSnapshotCache?.finalManifestPath) return;
+  const nextToken = fileToken(lexicalSnapshotCache.finalManifestPath);
+  if (nextToken === candidateFinalManifestToken) return;
+  lexicalSnapshotCache = null;
+  finalShardCache.clear();
+  candidateFinalManifestToken = '';
+}
+
 function lexicalManifestSnapshot() {
-  if (cacheMaterializedProjection && lexicalSnapshotCache) return lexicalSnapshotCache;
+  refreshCandidateProjectionCache();
+  if (lexicalSnapshotCache) return lexicalSnapshotCache;
 
   const manifest = readJson(LEXICAL_MANIFEST);
   if (manifest?.status !== 'CURRENT_NATURAL_OWNER' || manifest?.semantic_authority !== true) {
@@ -69,7 +85,8 @@ function lexicalManifestSnapshot() {
     finalManifest,
     finalManifestPath
   };
-  if (cacheMaterializedProjection) lexicalSnapshotCache = snapshot;
+  lexicalSnapshotCache = snapshot;
+  if (candidateRuntime) candidateFinalManifestToken = fileToken(finalManifestPath);
   return snapshot;
 }
 
@@ -81,12 +98,10 @@ function finalShardDescriptor(finalManifest, ordinal) {
 }
 
 function readFinalShard(relativePath) {
-  if (cacheMaterializedProjection && finalShardCache.has(relativePath)) {
-    return finalShardCache.get(relativePath);
-  }
+  if (finalShardCache.has(relativePath)) return finalShardCache.get(relativePath);
   const rows = readJson(relativePath);
   if (!Array.isArray(rows)) throw new Error(`CURRENT_LEXICAL_FINAL_LEARNER_SHARD_INVALID:${relativePath}`);
-  if (cacheMaterializedProjection) finalShardCache.set(relativePath, rows);
+  finalShardCache.set(relativePath, rows);
   return rows;
 }
 
