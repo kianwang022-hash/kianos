@@ -111,6 +111,11 @@ for (const token of ['.uiWordStudy', '.lexical', '.portedVocab', '[data-vocab-de
   assert.ok(!workspaceComposition.includes(token), `shared-workspace-composition.css retained Lexical-owned selector family: ${token}`);
 }
 
+assert.ok(
+  !workspaceComposition.includes('.surfaceBody-home'),
+  'shared-workspace-composition.css retained Home-owned selector family'
+);
+
 const frame = read(path.join(layouts, 'BaseFrame.astro'));
 assert.ok(!/styles\/[^'"]+\.css/.test(frame), 'BaseFrame must remain presentation-style free');
 

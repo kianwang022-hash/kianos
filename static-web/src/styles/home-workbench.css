@@ -1165,3 +1165,8 @@ body#kianos-workspace.surfaceBody-home .homeL3ScheduleLink {
     margin-top: 10px;
   }
 }
+
+/* Compact short-desktop outer canvas belongs to Home, not the shared workspace layer. */
+@media (min-width:1000px) and (max-height:790px) {
+  body#kianos-workspace.uiHub.surfaceBody-home .productCanvas { padding-top:16px;padding-bottom:6px; }
+}
