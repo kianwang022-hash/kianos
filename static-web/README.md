@@ -170,6 +170,8 @@ accepted CREATE basis / concrete implementation defect
 
 After BUILD, a broader AUDIT—when warranted—independently verifies that the promoted Website faithfully realizes the accepted design under real consumer/state/failure paths. This README does not define that audit method.
 
+Browser checks use the declared Playwright development dependency. Reuse a compatible, proof-matched dependency tree through the existing Candidate setup; if none exists, run `npm install --no-package-lock --no-audit --no-fund` once in `static-web`. If Playwright reports a missing Chromium executable, run `npx playwright install chromium` once; later checks reuse its browser cache. Do not rebuild `node_modules` or substitute a system Chrome overlay for each bounded check. Run only the existing browser check needed for the affected behavior.
+
 A Website claim is not accepted merely because a route, selector, screenshot or build exists. The applicable Acceptance owner decides what evidence is sufficient.
 
 ## Content / consumer boundary

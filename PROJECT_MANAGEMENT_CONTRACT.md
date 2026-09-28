@@ -632,10 +632,13 @@ Thin helpers exist only to reduce transport chatter:
 
 ```bash
 npm run remote:snapshot -- --repo <worktree>
+npm run remote:packet -- --repo <checkout> --fetch --ref origin/main --file CURRENT.md --file <exact-owner>
 npm run remote:packet -- --repo <worktree> [--file PATH] [--range PATH:START:END] [--scope DIR --grep REGEX]
 npm run remote:verify -- --repo <worktree> --cmd '<existing validator/build command>' [--cmd '...']
 npm run remote:hygiene -- [--apply --pid <exact_pid> ...]
 ```
+
+Use `packet --fetch --ref origin/main` for fresh GitHub-main entry even when the local checkout is old or dirty. All requested files are read from one resolved commit, printed in the packet header; no checkout is changed. When Current names an active branch, fetch/read that exact ref instead. Omit `--ref` to inspect or verify in-progress working-tree changes. A missing ref/file fails rather than falling back to stale local truth.
 
 `remote:snapshot` includes recognized KianOS transient Chrome / Candidate / Astro processes so a fresh Chat sees local resource occupancy before starting another heavy lane. `remote:verify` compares those processes before/after the bounded verification and fails closed when the verification leaves a new recognized transient process alive. `remote:hygiene` is explicit-only: without `--apply` it lists; with `--apply` it terminates only exact PIDs that are still recognized as KianOS transient processes. Resolve active ownership before applying it; never mass-kill by age alone.
 

@@ -39,7 +39,13 @@ const NON_LEARNER_RUNTIME_SCRIPTS = new Set([
   'static-web/scripts/currentStaticImpact.mjs',
   'static-web/scripts/currentStaticSlots.mjs',
   'static-web/scripts/currentDependencies.mjs',
-  'static-web/scripts/kianos-candidate-runtime.mjs'
+  'static-web/scripts/kianos-candidate-runtime.mjs',
+  // CLI resource admission/status and maintenance never serve learner output.
+  // Keep build runners and unknown scripts conservative unless proven here.
+  'static-web/scripts/kianos-heavy-run.mjs',
+  'static-web/scripts/kianos-heavy-status.mjs',
+  'static-web/scripts/websiteHeavyWork.mjs',
+  'static-web/scripts/codex-local-hygiene.mjs'
 ]);
 
 function isContentWorkCursor(file) {

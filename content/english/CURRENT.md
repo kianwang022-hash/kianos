@@ -9,16 +9,12 @@ A bare `继续英语 / 继续 Reading / 继续 Translation / 继续 Writing / �
 
 ## Active engineering anchor
 
-Issue #1043 — **English rapid-learning Reading attribution / feedback sufficiency** — is the active long-term control anchor.
+Issue [#1054](https://github.com/kianwang022-hash/kianos/issues/1054) — **task-native personalized targeted generation** — owns the active English BUILD Phase / Next / Blocker. Read its current body before continuing; this router does not duplicate those changing fields.
 
-- Current Phase: BUILD — parent whole-English CREATE #1053 is closed.
-- Current Next: implement only the accepted bounded Reading attribution evidence delta against the clarified English owner, then hand the result to independent AUDIT / later REAL USE.
-- Current Blocker: no BUILD design blocker; learner-specific stability or Reading-A dose contraction still requires future real Kian evidence.
-- Issue #1053 is completed whole-English CREATE evidence and is not a continuation cursor.
-- Issue #1054 — **task-native personalized targeted generation** — is a queued BUILD handoff only; it is NOT STARTED and must not be absorbed into #1043 by convenience.
-- Issue #1014 — **English learner-facing full real-use audit** — remains the completed durable audit receipt, not the current work cursor.
+- Reading attribution #1043 is closed; its accepted implementation and #1053 CREATE closure remain the basis, not active continuation tasks.
+- Issue #1014 remains the completed English real-use audit receipt, not the current work cursor.
 - Exact Source / Content / Learning / Interaction / Visual / Runtime / Shared-platform truth remains with each native owner.
-- Ordinary English learning uses the native learner/runtime state.
+- Ordinary English learning uses native learner/runtime state.
 
 ## Current state
 
@@ -89,11 +85,11 @@ Exact semantics live in the relevant Learning / Content / Runtime owner; this cu
 
 ## Next / reopen
 
-The active engineering task is the bounded #1043 Reading-attribution BUILD.
+Continue only the bounded next family selected by #1054 against its current accepted owners. A completed family does not close the remaining task families.
 
 Do not reopen whole-English CREATE from old workflow prose, Memory counts, source volume or the existence of #1054. Reopen CREATE only when a real owner conflict or material learner/product choice appears.
 
-#1054 remains queued until explicitly selected.
+Keep task Phase / Next / Blocker in #1054 current when a family lands; do not make the next Chat reconstruct progress from comments or closed PRs.
 
 Reopen only the smallest owner for:
 
