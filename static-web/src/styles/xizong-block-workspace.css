@@ -2422,33 +2422,40 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyBlo
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKp {
   min-width: 0;
   display: grid;
-  grid-template-columns: minmax(170px,auto) minmax(0,1fr) auto;
-  align-items: center;
-  gap: 16px;
+  grid-template-columns: minmax(0,1fr) auto;
+  grid-template-rows: auto auto;
+  align-items: start;
+  gap: 4px 16px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpTitle {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
   font-size: 16px;
+  line-height: 1.35;
   font-weight: 720;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpMeta {
   min-width: 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
-  gap: 14px;
+  justify-content: flex-start;
+  gap: 3px 14px;
   color: var(--xz-block-muted);
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpMeta > span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
   font-size: 15px;
+  line-height: 1.35;
   font-weight: 600;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKp .xv6KpLearnNav {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
   flex: 0 0 auto;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .portedStudyIdentity,

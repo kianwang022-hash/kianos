@@ -58,6 +58,9 @@ assert(!JSON.stringify(bAsset.asset.views?.BLOCK_ORIENT || {}).includes('CANONIC
 
 const bD1 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'd01'));
 assert(bD1.kpRecords.every((kp) => kp.sourceLocatorAuthority === 'UNRESOLVED'), 'b-d01:must-not-invent-kp-source-page');
+assert(bD1.semanticAttentionCues.some((row) => row.anchor?.kpId === 'digestive-d1-kp01' && row.semanticRole === 'CONFUSABLE' && row.attentionRole === 'CURRENT_TAKEAWAY'), 'b-d01-kp01:explicit-confusable-attention-not-compiled');
+assert(bD1.semanticAttentionCues.some((row) => row.anchor?.kpId === 'digestive-d1-kp04' && row.semanticRole === 'CONNECTION_NOTICE' && row.attentionRole === 'FUTURE_CONNECTION'), 'b-d01-kp04:explicit-connection-attention-not-compiled');
+assert(bD1.semanticAttentionCues.every((row) => row.sourcePath === bD1.sourcePath && row.answerBearing === true && row.displayPolicy?.timing === 'LEARN_ONLY'), 'b-d01:attention-provenance-or-timing-drift');
 assert(bD1.kpRecords.every((kp) => kp.outlineLocatorAuthority === 'CANONICAL_OUTLINE_LEDGER' && kp.outlineLocator.includes('U018')), 'b-d01:outline-ledger-not-consumed');
 
 const bD2 = buildXizongProductionBlock(loadXizongBlock('digestive-metabolic-endocrine-tumor', 'd02'));
@@ -119,7 +122,7 @@ assert(learnerProjectionLib.includes('buildXizongProductionBlock'), 'learner-pro
 assert(page.includes('<XizongBlockV6 block={projection} />'), 'page:not-using-existing-v6-family');
 assert(blockUi.includes('data-source-contact-mode'), 'renderer:source-contact-mode-not-declared');
 assert(blockUi.includes("data-study-stage=\"source_contact\""), 'renderer:no-natural-source-contact-stage');
-assert(blockUi.includes("if (sourcePerGroup) setStage('kp_learn')"), 'renderer:whole-lg-source-path-lost');
+assert(blockUi.includes("if (sourcePerGroup) return currentSourceContactCovered() ? 'kp_recall' : 'kp_learn';"), 'renderer:whole-lg-source-path-lost');
 assert(blockUi.includes("else if (state.sourceContactDone) setStage('kp_recall')"), 'renderer:natural-source-return-not-direct-to-retrieval');
 assert(blockUi.includes('data-xizong-attention'), 'renderer:right-rail-not-attention-projection');
 assert(blockUi.includes('XizongCognitiveProjectionStage'), 'renderer:cognitive-projection-stage-not-mounted');

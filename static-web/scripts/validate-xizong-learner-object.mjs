@@ -50,6 +50,8 @@ for (const systemSummary of listProjectableXizongSystems()) {
       assert(sameIds(learnSlot.precision, kp.precision), `${kpId}:learn-precision-drift`);
       assert(sameIds(learnSlot.extension, kp.extension), `${kpId}:learn-extension-drift`);
       assert(sameIds(learnSlot.connection, connections), `${kpId}:learn-connection-drift`);
+      assert(sameIds(learnSlot.attention, kp.attention), `${kpId}:learn-attention-drift`);
+      assert(!(recallContext.attention || []).length, `${kpId}:answer-bearing-attention-leaked-to-recall-front`);
       assert(sameIds(recallContext.visual, kp.visual), `${kpId}:recall-context-visual-drift`);
       assert(sameIds(recallContext.precision, kp.precision), `${kpId}:recall-context-precision-drift`);
       assert(sameIds(recallContext.extension, kp.extension), `${kpId}:recall-context-extension-drift`);
@@ -80,6 +82,13 @@ for (const systemSummary of listProjectableXizongSystems()) {
 
     reports.push(report);
     totalKp += report.kpCount;
+    if (productionBlock.blockId === 'D1') {
+      const kp01 = learnerObject.kps.find((kp) => kp.identity.kpId === 'digestive-d1-kp01');
+      const kp04 = learnerObject.kps.find((kp) => kp.identity.kpId === 'digestive-d1-kp04');
+      assert((kp01?.attention || []).some((row) => row.semanticRole === 'CONFUSABLE' && row.attentionRole === 'CURRENT_TAKEAWAY'), 'b-d01-kp01:confusable-attention-missing');
+      assert((kp04?.attention || []).some((row) => row.semanticRole === 'CONNECTION_NOTICE' && row.attentionRole === 'FUTURE_CONNECTION'), 'b-d01-kp04:connection-attention-missing');
+      assert(!(learnerObject.slots?.kpRecallContext?.['digestive-d1-kp01']?.attention || []).length, 'b-d01-kp01:attention-leaked-to-recall');
+    }
     if (productionBlock.blockId === 'circulation-b01') {
       const kp03 = learnerObject.kps.find((kp) => kp.identity.kpId === 'circulation-b01-kp03');
       const tableVisual = kp03?.visual?.find((row) => row.id === 'a1-b01-kp03-cycle-table-visual');
