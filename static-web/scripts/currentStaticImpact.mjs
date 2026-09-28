@@ -35,6 +35,7 @@ function isTestOnlyStaticScript(file) {
 
 const NON_LEARNER_RUNTIME_SCRIPTS = new Set([
   'static-web/scripts/kianos-current-sync.mjs',
+  'static-web/scripts/kianos-current-audit-pin.mjs',
   'static-web/scripts/currentRelease.mjs',
   'static-web/scripts/currentStaticImpact.mjs',
   'static-web/scripts/currentStaticSlots.mjs',
