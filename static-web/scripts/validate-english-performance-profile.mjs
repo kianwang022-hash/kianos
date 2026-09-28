@@ -151,6 +151,7 @@ assert.equal(profile.tasks.translation.evidence_shape,'PRODUCTIVE_REPAIR_STATE')
 assert.equal(profile.tasks.writing.evidence_shape,'PRODUCTIVE_REPAIR_STATE');
 assert.equal(profile.guardrails.includes('WORKFLOW_COMPLETE_IS_NOT_PERFORMANCE_SUCCESS'),true);
 assert.equal(profile.guardrails.includes('EXTERNAL_READING_ONLY_COMPLETION_IS_NOT_COMPREHENSION_OUTCOME'),true);
+assert.equal(profile.guardrails.includes('EXTERNAL_UNSCORED_RESPONSE_IS_NOT_CLEAN_COMPREHENSION_OUTCOME'),true);
 assert.equal(profile.guardrails.includes('EXTERNAL_RAW_ELAPSED_IS_NOT_READING_SPEED_WITHOUT_LENGTH_AND_PHASE_NORMALIZATION'),true);
 assert.equal(
   profile.tasks.external_reading.history.timing_interpretation,
@@ -187,6 +188,8 @@ const externalMixed=buildEnglishPerformanceProfile([
     assistance:'unassisted',
     complete:true,
     external_evidence_mode:'QUESTION_OUTCOME',
+    external_scored_result_count:2,
+    external_unscored_result_count:0,
     problem_count:1,
     submitted_at:'2026-09-20T00:40:00.000Z',
     first_evidence:{
@@ -195,16 +198,55 @@ const externalMixed=buildEnglishPerformanceProfile([
       elapsed_seconds:700,
       time_budget_seconds:900
     }
+  },
+  {
+    task:'external_reading',
+    object_id:'external-partial',
+    prior_exposure:'unseen',
+    assistance:'unassisted',
+    complete:true,
+    external_evidence_mode:'QUESTION_RESPONSE_PARTIAL',
+    external_scored_result_count:1,
+    external_unscored_result_count:1,
+    problem_count:0,
+    submitted_at:'2026-09-20T00:50:00.000Z',
+    first_evidence:{
+      independent_transfer_candidate:true,
+      timing_status:'within_explicit_budget',
+      elapsed_seconds:720,
+      time_budget_seconds:900
+    }
+  },
+  {
+    task:'external_reading',
+    object_id:'external-unscored',
+    prior_exposure:'unseen',
+    assistance:'unassisted',
+    complete:true,
+    external_evidence_mode:'QUESTION_RESPONSE_UNSCORED',
+    external_scored_result_count:0,
+    external_unscored_result_count:2,
+    problem_count:0,
+    submitted_at:'2026-09-20T01:00:00.000Z',
+    first_evidence:{
+      independent_transfer_candidate:true,
+      timing_status:'within_explicit_budget',
+      elapsed_seconds:740,
+      time_budget_seconds:900
+    }
   }
 ]);
 assert.equal(externalMixed.tasks.external_reading.history.question_outcome_attempts,1);
 assert.equal(externalMixed.tasks.external_reading.history.question_outcome_problem_bearing_attempts,1);
+assert.equal(externalMixed.tasks.external_reading.history.question_response_partial_attempts,1);
+assert.equal(externalMixed.tasks.external_reading.history.question_response_unscored_attempts,1);
+assert.equal(externalMixed.tasks.external_reading.history.unscored_question_items,3);
 assert.equal(externalMixed.tasks.external_reading.history.reading_only_completions,1);
 assert.equal(externalMixed.tasks.external_reading.history.unknown_evidence_mode_attempts,0);
 assert.equal(
   externalMixed.tasks.external_reading.history.independent_transfer_candidates,
   1,
-  'reading-only completion must not become independent comprehension/transfer evidence'
+  'reading-only / partial / unscored External work must not become independent comprehension/transfer evidence'
 );
 assert.equal(
   Object.prototype.hasOwnProperty.call(externalMixed.tasks.external_reading.history,'problem_bearing_attempts'),
