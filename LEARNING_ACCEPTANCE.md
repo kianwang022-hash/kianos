@@ -153,7 +153,10 @@ Hard rules:
 - **A child PASS only unlocks the parent audit; it never implies the parent PASS.**
 - **A parent audit reuses still-valid child evidence rather than mechanically re-running unchanged child internals from zero.**
 - The parent must add fresh evidence for every integration/interface claim introduced only at that parent layer.
-- Large populations may use deliberate representative objects, but a required task family, subject family, lifecycle stage, cross-surface boundary or audit dimension may not be sampled away.
+- **Fresh AUDIT is exhaustive over the admitted learner product. Representative-only sampling is not sufficient for a whole-product PASS.**
+- Every learner-facing route/surface, admitted interaction mode, major state transition, recovery path and cross-surface boundary in the audited scope must be exercised.
+- Where thousands of content objects share one runtime (for example a large vocabulary catalog), every admitted object must still receive exhaustive machine traversal/integrity/renderability coverage; human-like visual/use simulation may be organized by distinct surface geometry/state class, but no content family or runtime branch may be omitted merely because it appears repetitive.
+- A large audit may be split into staged shards for execution/context control, but the parent PASS is withheld until every shard is complete and the final integration pass confirms there are no coverage gaps.
 - A parent FAIL reopens the smallest responsible current owner/interface; it does not automatically invalidate unrelated accepted child evidence.
 - Level 2 is owned inside KianOS by the current Exam Orchestrator / Product / Runtime / Acceptance owner chain.
 - Level 3 is **not KianOS-owned**. Personal / StudyHub / KianOS responsibility and mother-architecture acceptance return to the upstream Personal cross-system owner; KianOS may provide evidence but may not self-grant a three-system PASS.
