@@ -56,6 +56,35 @@ try{
   assert.match(counts,/NEW 3 source\(s\) · 2 questions/);
   assert.equal(await page.locator('[data-external-family]').count(),4);
 
+  // A missing object must not masquerade as a broken private corpus or leak backend codes.
+  await page.goto(base+'/external-reading/?id=definitely-missing',{waitUntil:'domcontentloaded'});
+  await page.locator('[data-external-status]').filter({hasText:'没有找到这篇 External 材料'}).waitFor();
+  const missingBody=String(await page.locator('body').innerText()).replace(/\s+/g,' ').trim();
+  assert.doesNotMatch(missingBody,/EXTERNAL_READING_[A-Z0-9_]+/);
+  assert.equal(await page.locator('.externalReadingUnavailable').count(),0,'healthy catalog must remain available after one missing object');
+  assert((await page.locator('.externalReadingPassageRows a').count())>0,'healthy catalog remains rendered');
+  assert.equal(await page.locator('[data-external-workspace]').isVisible(),false,'missing object does not expose a fake workspace');
+
+  // A genuinely unavailable catalog gets a learner-facing source message, never an internal code.
+  const unavailableContext=await browser.newContext({viewport:{width:1512,height:982}});
+  const unavailablePage=await unavailableContext.newPage();
+  let unavailableCatalogIntercepted=false;
+  await unavailablePage.route('**/__kianos-private/external-reading/catalog*',route=>{
+    unavailableCatalogIntercepted=true;
+    return route.fulfill({
+      status:503,
+      contentType:'application/json',
+      body:JSON.stringify({status:'error',error:'EXTERNAL_PRIVATE_BUNDLE_STALE_SOURCE'})
+    });
+  });
+  await unavailablePage.goto(base+'/external-reading/',{waitUntil:'domcontentloaded'});
+  await unavailablePage.locator('[data-external-status]').filter({hasText:'External 材料当前不可读取'}).waitFor();
+  assert.equal(unavailableCatalogIntercepted,true,'catalog failure fixture must intercept the real endpoint');
+  const unavailableBody=String(await unavailablePage.locator('body').innerText()).replace(/\s+/g,' ').trim();
+  assert.doesNotMatch(unavailableBody,/(?:EXTERNAL|KIANOS)_[A-Z0-9_]+/);
+  assert.match(await unavailablePage.locator('.externalReadingUnavailable').innerText(),/External 材料当前不可读取/);
+  await unavailableContext.close();
+
   await page.goto(base+'/external-reading/?id=tpo56-p1',{waitUntil:'domcontentloaded'});
   await page.locator('[data-external-workspace]').waitFor({state:'visible'});
   await page.locator('[data-external-title]').filter({hasText:'Synthetic TPO 56 P1'}).waitFor({state:'visible'});
@@ -71,6 +100,24 @@ try{
   assert.equal(attemptBefore?.binding?.task,'external_reading');
 
   await page.locator('[data-external-questions] [data-question]').first().locator('[data-option="A"]').click();
+
+  // Answer/revision failure keeps the learner's work and stays human-facing.
+  const answerFailurePattern='**/__kianos-private/external-reading/answers?id=tpo56-p1';
+  await page.route(answerFailurePattern,route=>route.fulfill({
+    status:409,
+    contentType:'application/json',
+    body:JSON.stringify({status:'error',error:'EXTERNAL_READING_ANSWER_REVISION_MISMATCH'})
+  }));
+  await page.locator('[data-external-submit]').click();
+  await page.locator('[data-external-status]').filter({hasText:'这篇材料已更新，本次作答已保留'}).waitFor();
+  const submitFailureBody=String(await page.locator('body').innerText()).replace(/\s+/g,' ').trim();
+  assert.doesNotMatch(submitFailureBody,/EXTERNAL_READING_[A-Z0-9_]+/);
+  assert.equal(await page.locator('[data-external-result]').isVisible(),false);
+  const failedSubmitAttempt=await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-english-external-reading-attempt-v1:tpo56-p1')||'null'));
+  assert.equal(failedSubmitAttempt?.submitted,false);
+  assert.equal(failedSubmitAttempt?.answers?.['tpo56-p1-q1'],'A');
+  await page.unroute(answerFailurePattern);
+
   await page.locator('[data-external-submit]').click();
   await page.locator('[data-external-result]').waitFor();
   assert(requests.some(url=>url.includes('/external-reading/answers?id=tpo56-p1')));
@@ -151,6 +198,10 @@ try{
     status:'PASS',
     catalog:'69 objects',
     pre_submit_answer_gate:'PASS',
+    missing_object_learner_projection:'PASS',
+    unavailable_catalog_learner_projection:'PASS',
+    answer_failure_preserves_attempt:'PASS',
+    no_external_backend_code_leak:'PASS',
     full_question_set_visible:'PASS',
     shared_exposure:'PASS',
     refresh_recovery:'PASS',
