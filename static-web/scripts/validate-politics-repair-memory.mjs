@@ -9,10 +9,16 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 
 const learningRoot = path.join(repoRoot, 'content/politics/learning');
 const sourceRegistryPath = path.join(repoRoot, 'content/politics/source/source_node_registry.v2.jsonl');
+const memoryClientPath = path.join(repoRoot, 'static-web/src/lib/politicsMemoryClient.mjs');
 
 function fail(message) {
   console.error(`POLITICS_REPAIR_MEMORY_QA_FAIL: ${message}`);
   process.exitCode = 1;
+}
+
+const memoryClient = fs.readFileSync(memoryClientPath, 'utf8');
+if (/status\.textContent\s*=.*(?:error\?\.message|String\(error)/.test(memoryClient)) {
+  fail('Politics Memory learner status must not expose raw runtime error codes.');
 }
 
 function jsonFiles(suffix) {
