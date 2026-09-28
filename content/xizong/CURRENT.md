@@ -21,32 +21,29 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 
 ### Current engineering state
 
-**Issue #1084 — Xizong Fresh independent AUDIT: real Stable learner journey and screenshot fidelity**
+**Issue #1088 — Current delivery BUILD: exact-release audit pin for Fresh CBA AUDIT**
 
 Parent outcome:
-- current accepted CREATE is frozen for this audit unless a reproduced upstream premise defect reopens it;
-- BUILD has delivered the current Stable release under audit;
-- whole-Xizong readiness is still unproven until this Fresh independent AUDIT returns a bounded verdict.
+- Xizong BUILD delivery itself is complete;
+- Fresh independent AUDIT #1084 correctly returned **FAIL at A0 exact-release identity** because shared Stable auto-advanced to an unrelated English-only main release during the audit window;
+- no Xizong audited dependency drift was established by that failure;
+- whole-Xizong readiness remains unproven because A1+ were not audited after A0 failed.
 
-Current audit identity:
-- phase: **AUDIT — FRESH / INDEPENDENT / NOT STARTED**;
-- exact Stable release: `00a5dc131b110ef222e6e077c1b43e604f3ca3a5`;
-- real consumer: Stable `127.0.0.1:4321`;
-- legacy/history and closed BUILD narratives remain quarantined.
+Current blocker:
+- Fresh CBA AUDIT needs a bounded exact-release pin/lease on Stable so the audited SHA cannot move during the run;
+- shared delivery owner #1088 is fixing that capability; do not weaken A0 or substitute a different release.
 
 ### Next
 
-Issue #1084
-→ start from current accepted CREATE owners + exact Stable release
-→ fresh independent real-browser learner journey
-→ systematic screenshot / region-level reality audit
-→ all-green-but-real-fail / wrong-premise / state-recovery attack
+Issue #1088
+→ deliver + read back exact-release audit pin/hold/release/catch-up
+→ pin the exact current Stable release for a new Fresh Xizong audit
+→ open/run a new Fresh independent Xizong AUDIT
+→ include whole-product learner journey **plus** attention allocation, backend-information hiding, one-owner/no-CSS-stack changeability, real-browser screenshot/region audit, all-green-but-real-fail and state-recovery attack
 → PASS / FAIL / BLOCKED verdict only
 → **no repair inside the AUDIT execution**
 
-A reproduced defect routes to the earliest responsible current owner in a separate task.
-
-Current BUILD execution chain must stop here and must not self-certify the Fresh independent verdict.
+#1084 is closed FAIL evidence and must not be treated as an unfinished audit cursor.
 
 for unaffected ordinary study → native learner path
 
