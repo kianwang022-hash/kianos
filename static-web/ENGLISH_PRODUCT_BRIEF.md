@@ -87,7 +87,14 @@ Passage selection menu:
 
 No Reading-local dictionary and no learner-state mutation from lookup.
 
-After submit, Wrong/Uncertain review expands in place while passage + full question set remain available.
+After submit, Wrong/Uncertain review remains in place while passage + full question set remain available, but the hierarchy is deliberately low-friction:
+
+- answer/result contrast is visible first;
+- if the miss is now obvious, the learner may leave immediately without classifying it;
+- one whole-passage Chat escalation remains available for ambiguous, repeated or potentially shared-cause problems;
+- per-question quick-cause / evidence-span / repair-coach controls are secondary **local inspection** and stay collapsed until explicitly opened;
+- the learner must never have to choose `没读懂 / 没定位准 / 选项没辨清 / 看错改错` merely to unlock review or Chat diagnosis.
+- machine-readable Objective Chat-return / transfer-claim import stays off the normal result surface; it may appear only after explicit whole-passage Chat escalation or for an already-saved return on this exact attempt/object.
 
 ---
 

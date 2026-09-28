@@ -213,6 +213,7 @@
             reopenCandidateIds: packet.reopenCandidateIds,
             createdAt: new Date().toISOString()
           }));
+          root.dispatchEvent(new CustomEvent('kianos:objective-handoff-created', { bubbles: true }));
           if (status) status.textContent = '已复制给 Chat；能解释得分问题时就停，不追求流程完整。';
         } catch {
           if (status) status.textContent = '已复制给 Chat，但本机未能保存这次回访信息；这次只做复盘，不更新长期记录。';

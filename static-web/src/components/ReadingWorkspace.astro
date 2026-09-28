@@ -100,25 +100,25 @@ const questionId = (question, index) => String(question.id || question.question_
               <span>正式答案 <b data-reading-formal-answer>—</b></span>
             </div>
 
-            <section class="portedReadingRepair" data-reading-repair hidden>
-              <header>
-                <div>
-                  <span>只处理这道</span>
-                  <strong data-reading-repair-title></strong>
+            <details class="portedReadingRepair" data-reading-repair hidden>
+              <summary>
+                <span>本地细查 · 可选</span>
+                <strong data-reading-repair-title></strong>
+                <small>需要时再展开</small>
+              </summary>
+              <div class="portedReadingRepairBody">
+                <div class="portedReadingCauseRow" aria-label="Quick cause">
+                  <button type="button" data-cause="没读懂">没读懂</button>
+                  <button type="button" data-cause="没定位准">没定位准</button>
+                  <button type="button" data-cause="选项没辨清">选项没辨清</button>
+                  <button type="button" data-cause="看错/改错">看错 / 改错</button>
                 </div>
-                <small>错因可选，一点即可</small>
-              </header>
-              <div class="portedReadingCauseRow" aria-label="Quick cause">
-                <button type="button" data-cause="没读懂">没读懂</button>
-                <button type="button" data-cause="没定位准">没定位准</button>
-                <button type="button" data-cause="选项没辨清">选项没辨清</button>
-                <button type="button" data-cause="看错/改错">看错 / 改错</button>
+                <div class="portedReadingRepairActions">
+                  <button type="button" data-reading-copy-chat>复制给 Chat</button>
+                  <small data-reading-copy-status>局部工具；整篇归因优先使用上方 Chat 复盘。</small>
+                </div>
               </div>
-              <div class="portedReadingRepairActions">
-                <button type="button" data-reading-copy-chat>复制给 Chat</button>
-                <small data-reading-copy-status>需要深挖时再用，不必每题都分析。</small>
-              </div>
-            </section>
+            </details>
           </section>
         );
       })}
