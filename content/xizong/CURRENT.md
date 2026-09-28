@@ -39,15 +39,48 @@ Current phase:
 
 Issue #1090
 → read current accepted Xizong owners
-→ verify shared pinned Stable `2bc3cc8d951ffaba80763d3667f4971ceeacb4d4` A0 identity across Current status / HTTP / rendered document
-→ run the exhaustive full-suite learner/product audit in parallel with #1085/#1087
-→ PASS / FAIL / BLOCKED verdict only
-→ retain the shared audit pin until all three subject audits stop
-→ **no repair inside the AUDIT execution**
+→ verify exact audited release identity
+→ run the exhaustive full-suite learner/product audit
+→ when a defect appears: self-attack diagnosis → mandatory Xizong modification preflight → inline Concrete Repair Fast Lane → affected Fresh recheck
+→ continue remaining exhaustive coverage
+→ final gap/integration pass on one final exact release containing accepted repairs
+→ PASS / FAIL / BLOCKED
 
 for unaffected ordinary study → native learner path
 
 Legacy/history is quarantined unless Kian explicitly requests it.
+
+## Xizong modification preflight — MANDATORY
+
+Before **any Xizong code/content/UI modification**, first recover the relevant accepted design context. The purpose is to prevent a local symptom fix from violating an already-owned learning/product rule.
+
+Always keep this compressed working set:
+
+```text
+Parent learner outcome
+→ current defect/task + exact owner
+→ relevant accepted Learning/Product/UI/Projection rules
+→ real current consumer
+→ must-preserve behavior
+→ acceptance / stop
+```
+
+Read **only the relevant owners, but do not skip them**:
+
+- learning/cognition change or a defect that may alter learning order → `content/xizong/LEARNING_CONTRACT.md` + exact System/Block learner owner + `study-policy.json` when Attention/Context/Recall timing is implicated;
+- Block workspace / learner-flow interaction → `static-web/XIZONG_PRODUCT_BRIEF.md` + `static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md` + exact current component/runtime owner;
+- visual/layout/attention → root `static-web/PRESENTATION_CONTRACT.md` + `static-web/XIZONG_VISUAL_LANGUAGE.md` + exact surface owner;
+- Projection / learner-visible derivation → `content/xizong/projection/PROJECTION_CONTRACT.md` + exact projection asset/consumer;
+- Source/Lecture/Precision/Visual meaning → exact Source / Knowledge / learner owner before changing the consumer;
+- shared Timer / Home / Chat / private state / delivery → the corresponding shared upstream owner; Xizong must not create a local substitute.
+
+Hard rule:
+
+> **Existing accepted rule but missing/broken implementation = repair the implementation. Do not invent a new Xizong rule, CSS layer, parallel runtime, or learner workflow to hide the defect.**
+
+For a concrete defect found during #1090, this preflight happens **inside the same Audit conversation** after the diagnosis self-attack and before the first write. Once the relevant context is recovered, use the fastest bounded repair path and return immediately to the Audit.
+
+---
 
 ## Route by need
 
