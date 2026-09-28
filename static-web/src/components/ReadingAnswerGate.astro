@@ -5,133 +5,52 @@ const base = import.meta.env.BASE_URL;
 
 <script>
   import {readEnglishExamSession} from '../lib/englishExamSession.mjs';
-  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
-  void learnerWriterReady.then(() => {
-
-  const root = document.querySelector('[data-local-port="reading"]');
-  const gate = document.querySelector('[data-reading-answer-gate]');
-
-  if (root && gate) {
-    const readingKey = root.getAttribute('data-reading-object') || 'reading';
-    const basePath = gate.getAttribute('data-reading-base') || '/';
-    const answerUrl = `${basePath}reading-answer/${encodeURIComponent(readingKey)}.json`;
-    const examSessionId = new URLSearchParams(location.search).get('exam_session') || '';
-    const attemptKey = examSessionId
-      ? `kianos-english-exam-task-v1:${examSessionId}:reading_a:${readingKey}`
-      : `kianos-reading-attempt-v1:${readingKey}`;
-    const examMode = Boolean(examSessionId);
-    const submit = root.querySelector('[data-reading-submit]');
-    const questions = [...root.querySelectorAll('[data-question]')];
-    let ready = root.getAttribute('data-reading-answers-ready') === 'true';
-    let loading = null;
-
-    const readJson = (key, fallback) => {
-      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
-      catch { return fallback; }
-    };
-    const normalizeAnswer = (value) => Array.isArray(value)
-      ? value.map(String)
-      : value === null || value === undefined || value === '' ? [] : [String(value)];
-
-    const decorateSubmittedReview = () => {
-      const attempt = readJson(attemptKey, {});
-      if (!attempt.submitted || attempt.reviewUnlocked === false) return;
-      const uncertain = new Set(attempt.uncertain || []);
-
-      questions.forEach((question) => {
-        const id = question.getAttribute('data-question') || '';
-        let correct = [];
-        try { correct = normalizeAnswer(JSON.parse(question.getAttribute('data-answer') || '""')); }
-        catch {}
-        const selected = String(attempt.answers?.[id] || '');
-        const problem = ['wrong', 'unanswered'].includes(attempt.results?.[id]) || uncertain.has(id);
-        const formal = question.querySelector('[data-reading-formal-answer]');
-        if (formal) formal.textContent = correct.join(', ') || '—';
-        if (!problem) return;
-
-        question.querySelectorAll('[data-option]').forEach((option) => {
-          const label = option.getAttribute('data-option') || '';
-          option.classList.toggle('result-correct', correct.includes(label));
-          option.classList.toggle('result-wrong', Boolean(selected && label === selected && !correct.includes(label)));
+  import {learnerWriterReady} from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(()=>{
+    const gate=document.querySelector('[data-reading-answer-gate]');
+    if(!(gate instanceof HTMLElement))return;
+    const setup=(root)=>{
+      if(!(root instanceof HTMLElement)||root.dataset.readingAnswerGateInitialized==='true')return;
+      if(root.hasAttribute('data-generated-reading-a')&&root.dataset.readingMaterialReady!=='true')return;
+      root.dataset.readingAnswerGateInitialized='true';
+      const readingKey=root.getAttribute('data-reading-object')||'reading';
+      const basePath=gate.getAttribute('data-reading-base')||'/';
+      const generated=root.hasAttribute('data-generated-reading-a');
+      const sourceHash=root.getAttribute('data-english-source-hash')||'';
+      const answerUrl=generated
+        ? `${basePath}__kianos-private/english-generated/answers?id=${encodeURIComponent(readingKey)}`
+        : `${basePath}reading-answer/${encodeURIComponent(readingKey)}.json`;
+      const examSessionId=new URLSearchParams(location.search).get('exam_session')||'';
+      const attemptKey=examSessionId?`kianos-english-exam-task-v1:${examSessionId}:reading_a:${readingKey}`:`kianos-reading-attempt-v1:${readingKey}`;
+      const examMode=Boolean(examSessionId);const submit=root.querySelector('[data-reading-submit]');const questions=[...root.querySelectorAll('[data-question]')];
+      let ready=root.getAttribute('data-reading-answers-ready')==='true';let loading=null;
+      const readJson=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||'null')||fallback;}catch{return fallback;}};
+      const normalizeAnswer=value=>Array.isArray(value)?value.map(String):value===null||value===undefined||value===''?[]:[String(value)];
+      const decorateSubmittedReview=()=>{
+        const attempt=readJson(attemptKey,{});if(!attempt.submitted||attempt.reviewUnlocked===false)return;const uncertain=new Set(attempt.uncertain||[]);
+        questions.forEach(question=>{const id=question.getAttribute('data-question')||'';let correct=[];try{correct=normalizeAnswer(JSON.parse(question.getAttribute('data-answer')||'""'));}catch{}
+          const selected=String(attempt.answers?.[id]||'');const problem=['wrong','unanswered'].includes(attempt.results?.[id])||uncertain.has(id);const formal=question.querySelector('[data-reading-formal-answer]');if(formal)formal.textContent=correct.join(', ')||'—';if(!problem)return;
+          question.querySelectorAll('[data-option]').forEach(option=>{const label=option.getAttribute('data-option')||'';option.classList.toggle('result-correct',correct.includes(label));option.classList.toggle('result-wrong',Boolean(selected&&label===selected&&!correct.includes(label)));});
         });
-      });
+      };
+      const applyAnswers=raw=>{
+        const payload=generated?raw?.answers:raw;
+        const objectId=payload?.objectId||payload?.object_id||'';
+        if(!payload||objectId!==readingKey||typeof payload.answers!=='object')return false;
+        if(generated&&(payload.generated_task!=='reading_a'||payload.content_hash!==sourceHash))return false;
+        questions.forEach(question=>{const id=question.getAttribute('data-question')||'';if(id&&Object.prototype.hasOwnProperty.call(payload.answers,id))question.setAttribute('data-answer',JSON.stringify(payload.answers[id]??''));});
+        ready=questions.every(question=>{try{return normalizeAnswer(JSON.parse(question.getAttribute('data-answer')||'""')).length>0;}catch{return false;}});
+        if(!ready)return false;root.setAttribute('data-reading-answers-ready','true');decorateSubmittedReview();return true;
+      };
+      const loadAnswers=async()=>{
+        const activeExam=readEnglishExamSession(localStorage);if(root.dataset.englishReadonly==='true'||(activeExam&&activeExam.status!=='RELEASED'&&activeExam.steps.some(s=>s.object_id===readingKey)))return false;
+        if(ready)return true;if(loading)return loading;const originalText=submit?.textContent||'Submit';if(submit){submit.disabled=true;submit.textContent='Submitting…';}
+        loading=fetch(answerUrl,{headers:{Accept:'application/json'},cache:generated?'no-store':'default'}).then(response=>{if(!response.ok)throw new Error(`answer ${response.status}`);return response.json();}).then(applyAnswers).catch(()=>false).finally(()=>{loading=null;if(submit){submit.disabled=false;submit.textContent=originalText;}});return loading;
+      };
+      document.addEventListener('click',async event=>{const target=event.target instanceof Element?event.target:null;const button=target?.closest('[data-reading-submit]');if(!button||!root.contains(button)||ready||examMode)return;event.preventDefault();event.stopImmediatePropagation();const ok=await loadAnswers();if(ok)button.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true}));else if(submit){submit.disabled=false;submit.textContent='重试提交';submit.title='答案加载失败，本次作答尚未提交。';}},true);
+      const savedAttempt=readJson(attemptKey,{});if(!examMode&&savedAttempt.submitted){void loadAnswers().then(ok=>{if(!ok)return;decorateSubmittedReview();submit?.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true}));root.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true}));});}
     };
-
-    const applyAnswers = (payload) => {
-      if (!payload || payload.objectId !== readingKey || typeof payload.answers !== 'object') return false;
-      questions.forEach((question) => {
-        const id = question.getAttribute('data-question') || '';
-        if (!id || !Object.prototype.hasOwnProperty.call(payload.answers, id)) return;
-        question.setAttribute('data-answer', JSON.stringify(payload.answers[id] ?? ''));
-      });
-
-      ready = questions.every((question) => {
-        try { return normalizeAnswer(JSON.parse(question.getAttribute('data-answer') || '""')).length > 0; }
-        catch { return false; }
-      });
-      if (!ready) return false;
-
-      root.setAttribute('data-reading-answers-ready', 'true');
-      decorateSubmittedReview();
-      return true;
-    };
-
-    const loadAnswers = async () => {
-      const activeExam=readEnglishExamSession(localStorage);
-      if(root.dataset.englishReadonly==='true' || (activeExam&&activeExam.status!=='RELEASED'&&activeExam.steps.some(s=>s.object_id===readingKey)))return false;
-      if (ready) return true;
-      if (loading) return loading;
-      const originalText = submit?.textContent || 'Submit';
-      if (submit) {
-        submit.disabled = true;
-        submit.textContent = 'Submitting…';
-      }
-
-      loading = fetch(answerUrl, { headers: { Accept: 'application/json' } })
-        .then((response) => {
-          if (!response.ok) throw new Error(`answer ${response.status}`);
-          return response.json();
-        })
-        .then(applyAnswers)
-        .catch(() => false)
-        .finally(() => {
-          loading = null;
-          if (submit) {
-            submit.disabled = false;
-            submit.textContent = originalText;
-          }
-        });
-      return loading;
-    };
-
-    document.addEventListener('click', async (event) => {
-      const target = event.target instanceof Element ? event.target : null;
-      const button = target?.closest('[data-reading-submit]');
-      if (!button || !root.contains(button) || ready || examMode) return;
-
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      const ok = await loadAnswers();
-      if (ok) {
-        button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-      } else if (submit) {
-        submit.disabled = false;
-        submit.textContent = '重试提交';
-        submit.title = '答案加载失败，本次作答尚未提交。';
-      }
-    }, true);
-
-    const savedAttempt = readJson(attemptKey, {});
-    if (!examMode && savedAttempt.submitted) {
-      void loadAnswers().then((ok) => {
-        if (!ok) return;
-        decorateSubmittedReview();
-        // Re-run post-submit listeners after reload now that formal answers exist in the DOM.
-        submit?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-        root.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-      });
-    }
-  }
-
+    const root=document.querySelector('[data-local-port="reading"]');
+    if(root instanceof HTMLElement){setup(root);if(root.hasAttribute('data-generated-reading-a'))root.addEventListener('kianos:reading-material-ready',()=>setup(root),{once:true});}
   });
 </script>

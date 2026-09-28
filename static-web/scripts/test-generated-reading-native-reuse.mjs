@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const native=fs.readFileSync(new URL('../src/components/ReadingWorkspace.astro',import.meta.url),'utf8');
+const generated=fs.readFileSync(new URL('../src/components/GeneratedReadingAWorkspace.astro',import.meta.url),'utf8');
+const runtime=fs.readFileSync(new URL('../src/lib/readingRuntime.mjs',import.meta.url),'utf8');
+const gate=fs.readFileSync(new URL('../src/components/ReadingAnswerGate.astro',import.meta.url),'utf8');
+assert.match(native,/initReadingRuntime/,'native Reading A must consume shared runtime');
+assert.match(generated,/initReadingRuntime/,'generated Reading A must consume shared runtime');
+assert.doesNotMatch(generated,/saveEnglishAttempt|inspectEnglishAttempt|archiveEnglishAttempt|taskMetadata/,'generated adapter must not own attempt/evidence controller');
+assert.doesNotMatch(generated,/currentIndex\s*=|state\.results\s*=|state\.submitted\s*=/,'generated adapter must not own interaction/scoring state');
+assert.doesNotMatch(generated,/\.hidden\s*=\s*index\s*!==/,'generated adapter must not hide non-current questions');
+assert.match(runtime,/Whole-set presentation/,'shared native runtime must keep the full question set visible');
+assert.match(gate,/english-generated\/answers/,'native answer gate must own protected generated answer loading');
+console.log('PASS generated Reading A reuses native interaction/evidence/answer runtime');
