@@ -20,7 +20,7 @@ Block orientation
 → current KP / Source coverage is marked learned as the learner advances
 → finish the whole accepted Block Learn scope
 
-RECALL PHASE
+RETRIEVAL PHASE
 → KP Recall on the same KP card with Core hidden, in accepted Logic Group order
 → last KP rating automatically closes that Logic Group in the Logic Map
 → next Logic Group Recall

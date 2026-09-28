@@ -296,6 +296,12 @@ Hard rules:
 
 Normal first-pass flow has two explicit phases:
 
+Terminology is fixed here to avoid overloading `Recall`:
+
+- `BLOCK LEARN PHASE` = the first-pass learning phase;
+- `RETRIEVAL PHASE` = the umbrella phase containing `KP Recall → Logic Group closure → Block Recall`;
+- do **not** call the umbrella stage `Recall Phase`; `KP Recall` and `Block Recall` remain the exact Recall actions.
+
 ```text
 BLOCK LEARN PHASE
 optional Guide when genuinely useful
@@ -349,7 +355,7 @@ Core-protected active retrieval after the **current Block's accepted first-pass 
 
 Terminology clarification:
 
-> **“Finish Block Learn, then Recall” means the learner leaves the Learn phase and enters the retrieval phase: KP Recall is performed first, organized by Logic Group; completed Logic Groups then culminate in Block Recall. It does not mean skipping KP Recall and jumping directly from Learn to Block Recall.**
+> **“Finish Block Learn, then enter Retrieval Phase” means the learner leaves the Learn phase and starts with KP Recall, organized by Logic Group; completed Logic Groups then culminate in Block Recall. It does not mean skipping KP Recall and jumping directly from Learn to Block Recall.**
 
 For the accepted A1-style whole-Block first-learning path, this is naturally:
 

@@ -66,7 +66,7 @@ System orientation
 → real TTSX checkpoints return to unfinished Learn
 → only after Block Learn is complete:
 
-RECALL PHASE
+RETRIEVAL PHASE
 → KP Recall in the accepted Logic Group order
 → automatic Logic Group closure
 → next Logic Group Recall
