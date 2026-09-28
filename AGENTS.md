@@ -1,331 +1,165 @@
 # KianOS Worker Instructions
 
-This file owns only **how a Chat / Agent / worker enters KianOS and finds the right owner**.
+Role: **worker intent / entry router only**.
 
-It does not own project requirements, architecture, domain semantics, Acceptance Truth, learner progress, branch policy, or detailed execution machinery.
+This file answers one question:
 
-Goal:
+> **Given Kian's current request, which KianOS owner should the worker enter first?**
 
-> **Kian says what he wants; the worker resolves the smallest correct scope, reads only the owners that can change the answer, does the bounded work, proves the real effect, and stops.**
+It does not own KianOS requirements, architecture, domain semantics, Learning/Product/Visual design, Acceptance Truth, learner state, branch policy, or detailed execution machinery.
 
----
+## 1｜Resolve intent before repository state
 
-# 1｜Intent first
-
-Classify the user's actual job before reading an engineering cursor:
+Natural language is authoritative; Kian does not need to name a mode.
 
 ```text
-LEARN    use / continue a learning capability; inspect the learner's actual progress / Resume
+LEARN    use / continue a learning capability; inspect actual learner Resume/evidence
 USE      use a non-learning KianOS product or private runtime state
-CREATE   decide/revise Rule / Content / Learning / Product / Visual meaning with Kian when a real design/content choice is open
-BUILD    implement already accepted meaning in Engineering / Runtime / consumer paths
-UI       implement product-facing presentation / interaction; material changes include Candidate Human Gate
-AUDIT    independently verify BUILD against accepted CREATE truth; default read-only / non-redesigning
-CONTROL  system / engineering / cross-scope status, priority, blocker, task or project management
-
-CBA is the shared shorthand for `CREATE → BUILD → AUDIT`. REAL USE follows CBA and may reopen the earliest responsible owner. Do not create a second workflow for the same lifecycle.
+CREATE   decide/revise Rule / Content / Learning / Product / Visual meaning
+BUILD    implement already accepted meaning in Engineering / Runtime / consumers
+UI       implement accepted learner/product presentation or interaction
+AUDIT    independently verify BUILD against accepted CREATE truth
+CONTROL  inspect/manage engineering/project state, priority, blocker or execution
 ```
 
-Natural language is authoritative; Kian does not need to name the mode.
+The shared lifecycle semantics are owned upstream in Personal `KERNEL.md §2`; this router does not redefine CBA.
 
-Examples:
+A bare learner continuation stays LEARN unless the active conversation clearly establishes engineering work. A question about what Kian actually learned/attempted/resumed also stays LEARN. Normal product use stays USE unless Kian asks to redesign/debug/manage it.
 
-```text
-继续英语                 → LEARN
-英语做到哪了             → LEARN (read actual learner/runtime state or Resume)
-看看今天的 Steward       → USE
-优化 Steward             → CREATE when product meaning is open; otherwise BUILD/UI against recovered accepted design
-改 Steward UI            → UI
-继续英语内容建设         → CREATE/BUILD according to whether content meaning is still being decided or already accepted
-审计西综落地             → AUDIT
-英语内容建设做到哪了     → CONTROL
-西综工程现在到哪了       → CONTROL
-```
+## 2｜Small read paths
 
-A bare learner continuation stays LEARN unless the current conversation clearly establishes engineering work. A question about **what Kian has actually learned / attempted / resumed** is also LEARN and must read learner/runtime evidence rather than an engineering Current. CONTROL is for system/build/project status or cross-scope coordination. A normal product-use request stays USE unless Kian asks to redesign/debug/manage it.
-
----
-
-# 2｜Small read paths
-
-## LEARN
+### LEARN
 
 ```text
-known domain/task
-→ actual learner/runtime state or Resume owner
-→ domain Learning owner only when needed
+known subject / task
+→ native learner/runtime state or Resume owner
+→ exact domain Learning/Content owner only when needed
 → learn
 ```
 
-Do not enter root engineering `CURRENT.md` merely because it exists.
+Do not enter root engineering `CURRENT.md` merely because it exists. Engineering readiness is not learner state. Daily Learning Packet / private runtime evidence remains learner/planning input, not an engineering cursor.
 
-A Daily Learning Packet / `KIANOS_DAILY_LEARNING_HANDOFF_V1` is learner evidence/planning input, not an engineering cursor. Use the current subject evidence and Exam/Chat planning boundary; preserve UNKNOWN and use the existing private control path only when execution is authorized.
-
-## USE
+### USE
 
 ```text
-known product/surface
-→ actual private runtime state or exact product owner
-→ Rule / Model only when interpretation is needed
+known product / surface
+→ exact product/runtime state
+→ Rule / Model owner only when interpretation is needed
 → use
 ```
 
-Do not route ordinary Steward/product use through engineering Current. If use exposes a defect, route only the defect to BUILD/UI. Raw reality stays with its native Runtime/source; open-ended personal interpretation returns to Chat / Personal.
+If ordinary use exposes a defect, route only that defect to BUILD/UI. Raw/native reality stays with its source owner; open-ended personal interpretation returns to Chat / Personal.
 
-Chat may execute BUILD/UI/CONTROL work directly when the task is bounded and the active context remains sufficient. Codex is an optional execution extension, not a mandatory handoff. Delegate when doing so reduces execution/context cost without losing semantic control.
-
-## CREATE
-
-Use CREATE when the work still requires a real decision about **what the system/content/product should be**, not merely how to implement an already accepted decision.
+### CREATE
 
 ```text
-real user need / parent outcome
-→ current Rule / Content / Learning / Product / Visual basis
+real need / parent outcome
+→ exact current Rule / Content / Learning / Product / Visual owner
 → relevant evidence / constraints
-→ discuss and decide the smallest semantic/design delta with Kian when material
-→ persist the accepted decision once in the exact canonical owner
-→ hand the accepted meaning to BUILD/UI
+→ accepted smallest semantic/design delta
 ```
 
-CREATE may include authoring self-checks, semantic challenge and local content/design closure. Those are part of making the asset good; they are not the later independent Reality Audit.
+For an existing scope, apply `AUTHORITY_INHERITANCE_CONTRACT.md §3.1 Change continuity` before changing meaning. Use `LEARNING_ASSET_STANDARD.md` only when formal learning-asset construction is actually the job. Do not create a second CREATE manual here.
 
-Do not require Kian to re-decide existing accepted meaning that can be recovered from current owners. If the request is an optimization of an existing scope, apply Change Continuity first.
-
-## BUILD
+### BUILD
 
 ```text
-target scope CURRENT
-→ accepted Rule / Model / domain design owner
-→ exact canonical object + affected consumer
-→ smallest implementation delta
-→ native/local proof
-→ Human Gate in UI when applicable
-→ promotion / delivery
+exact scope / active Current when needed
+→ accepted semantic/design owner
+→ real consumer
+→ PROJECT_MANAGEMENT_CONTRACT.md for execution discipline
+→ bounded implementation + proof
 ```
 
-For a material change, automatically apply
-[Change continuity](AUTHORITY_INHERITANCE_CONTRACT.md#31-change-continuity):
+Implementation may not invent missing Product/Learning semantics. Branch/PR/delivery/Codex/Remote/batching mechanics live in `PROJECT_MANAGEMENT_CONTRACT.md`, `BRANCH_LIFECYCLE.md` and `SEMANTIC_BASE_VALIDITY.md`.
 
-```text
-user outcome
-→ parent Rule / Model
-→ exact domain/design owner
-→ affected Content / Visual / Engineering (including Runtime) responsibility
-→ actual consumer
-→ smallest justified delta
-→ verify affected behavior
-```
+A promoted request from Personal / StudyHub / Steward / Review should arrive through the existing owner chain or thin implementation pointer. The source owner keeps the semantic/personal/research truth; KianOS receives only the requested effect and the current target owner chain.
 
-Read the **relevant design chain**, not the whole repository. A Current cursor or easy-to-edit implementation is never the full design by itself.
-
-If an upstream owner changes during the task, apply
-[Change propagation](AUTHORITY_INHERITANCE_CONTRACT.md#32-change-propagation-and-dependency-freshness)
-only to real dependents; do not restart unrelated accepted work.
-
-### Entering from another Chat Project
-
-A promoted request from Personal / Study / StudyHub / Steward / Review should arrive as a **thin implementation pointer**, not a copied conversation.
-
-```text
-implementation pointer
-→ source decision owner + relevant revision
-→ current target KianOS owner
-→ relevant design chain
-→ smallest justified implementation
-```
-
-Re-read the source owner when its revision matters. If it materially changed, reconcile before mutation. The pointer is routing only; the originating owner keeps the semantic/personal/research truth.
-
-Do not ask Kian to restate context already recoverable from GitHub. Do not create a new handoff document when an existing Current/Mainline can carry the pointer.
-
-## UI
+### UI
 
 ```text
 static-web/README.md
-→ shared Website requirement owners when relevant
-   PRODUCT_SURFACE_CONTRACT.md
-   PRESENTATION_CONTRACT.md
-   UI_STYLE_BRIEF.md
-   KIAN_UI_PREFERENCES.md
-→ exact Product / Domain design owner
-→ exact Surface Blueprint / task design when one exists
-→ one effective current implementation owner
-→ Website Candidate Runtime for iterative proof
+→ shared Website requirements when relevant
+→ exact Product / Domain owner
+→ exact Surface Blueprint when one exists
+→ current implementation owner
+→ Website Candidate
 → applicable Human Gate
-→ one coherent durable PR / affected validation / managed Current promotion
+→ accepted promotion / delivery
 ```
 
-Do not infer intended design from CSS/component shape when the durable design chain exists. If parent/child design ownership is ambiguous or conflicting, stop at `OWNER_UNRESOLVED` and reopen CREATE instead of resolving the conflict through implementation/source order.
+Shared Visual/representation authority lives in the exact owners routed by `static-web/README.md`. CSS/component order never becomes design authority. Parent/child design conflict is `OWNER_UNRESOLVED` and returns to CREATE.
 
-`KIAN_UI_PREFERENCES.md` owns accepted **KianOS visual requirements + bounded preference evidence**, not Kian's general personal preference truth.
-
-For ordinary Website UI iteration, the default execution lane is the existing Candidate Runtime:
+Ordinary UI iteration uses the existing Candidate lane:
 
 ```text
 work branch / worktree
 → cd static-web && npm run candidate:serve
 → http://127.0.0.1:4322/
-→ edit / inspect / Human Gate loop
-→ PASS
-→ durable PR
+→ inspect / Human Gate / revise
+→ accepted durable change
 → managed Current promotion
 → http://127.0.0.1:4321/ Stable
 ```
 
-Do not use stable 4321 as a scratch preview and do not pay PR / CI / full managed-Current build cost for every visual tweak. Candidate 4322 is a transient isolated engineering projection; its local state does not become learner / execution truth. Use stable 4321 only after the accepted batch enters the release lane, or when the exact defect being diagnosed is itself stable-delivery-specific.
+Stable 4321 is not the scratch-preview surface.
 
-Material UI change still inherits BUILD change continuity. Accepted surface geometry is not reopened merely because CSS/component code is being refactored.
-
-## AUDIT
-
-AUDIT is separate from CREATE/BUILD.
-
-Default posture:
+### AUDIT
 
 ```text
-accepted user outcome / CREATE truth
-→ exact Current candidate / release identity
-→ still-valid native acceptance evidence
-→ actual consumer / Projection / Runtime
-→ real browser / state / delivery behavior
-→ adversarial / degraded / sustained-use attack as applicable
-→ claim + coverage + UNTESTED boundary
+accepted CREATE truth / parent outcome
+→ exact candidate / release identity
+→ applicable Acceptance owner
+→ real consumer / Runtime / browser / state
+→ claim-scoped independent verdict
 ```
 
-Rules:
+AUDIT does not redesign by preference. Reuse still-valid upstream evidence. A concrete defect returns to the earliest responsible BUILD/UI owner; the repair author does not automatically grant the broad Audit PASS. Real learner U remains REAL USE evidence.
 
-- start by asking whether BUILD faithfully realized already accepted meaning; do not redesign merely because the auditor prefers another solution;
-- reuse still-valid Source / Knowledge / Learning / Content / Visual evidence rather than rebuilding every layer;
-- audit may inspect upstream owners to establish the ruler and trace consumption, but it does not become their semantic owner;
-- default audit execution is read-only with isolated test/private state;
-- when a concrete defect is found, record the earliest responsible owner / defect class first, then route a **separate smallest BUILD/UI repair**;
-- the fixer does not declare the broad AUDIT PASS merely because its targeted regression turns green;
-- after material repair, re-enter the affected claim fresh enough to attack the same defect class and plausible siblings;
-- real learner U remains REAL USE evidence, not something synthetic AUDIT may manufacture.
-
-Large audits shard by real product/domain boundary and integrate last. The reusable risk catalog may guide attacks, but it is not a mandatory checklist or second acceptance system.
-
-## CONTROL
+### CONTROL
 
 ```text
-root CURRENT
-→ exact program/domain Current
-→ PROJECT_MANAGEMENT_CONTRACT.md when coordination/execution policy matters
+CURRENT.md
+→ exact program/domain Current or active Issue
+→ PROJECT_MANAGEMENT_CONTRACT.md when coordination/execution mechanics matter
 → exact task owner
 ```
 
-For a Codex session started with natural language such as `推进 GitHub 当前工程任务`:
+Current locates work; it does not replace design. If an active Issue owns Phase/Next/Blocker, read it rather than reconstructing project state from old PRs or Chat memory.
 
-```text
-current repo main@HEAD
-→ AGENTS.md
-→ current/open Codex execution Issue selected by Current/project state
-→ exact canonical owner(s)
-→ bounded implementation
-→ PR / proof / blocker back to GitHub
-```
+For delegated Codex execution, re-read current main + this router + the exact active Issue/owner before writes. Detailed dispatch, batching, worktree/PR, Remote and reporting policy stays in `PROJECT_MANAGEMENT_CONTRACT.md`.
 
-Do not ask Kian to paste the Issue body, previous Chat discussion, PR diff or execution receipt when GitHub can provide it. Manual pickup is the quota-aware default; automatic watcher dispatch is opt-in via the execution marker defined in `PROJECT_MANAGEMENT_CONTRACT.md`.
+## 3｜Permanent routing boundaries
 
-Detailed task dispatch, GitHub Issue/Codex execution, Remote usage, batching, cursor atomicity, context budget and reporting discipline live in
-[PROJECT_MANAGEMENT_CONTRACT.md](PROJECT_MANAGEMENT_CONTRACT.md), not here.
-
-Branch retirement lives in [BRANCH_LIFECYCLE.md](BRANCH_LIFECYCLE.md).
-Concurrent-main validity lives in [SEMANTIC_BASE_VALIDITY.md](SEMANTIC_BASE_VALIDITY.md).
-
----
-
-# 3｜Permanent operating boundaries
-
-Keep these truth classes distinct:
-
-```text
-Artifact Truth
-Acceptance Truth
-Learner / Execution Truth
-Work Cursor
-Derived Read Model
-Presentation
-```
-
-One fact has one canonical owner. Other layers reference, derive, adapt or refine it.
-
-For ownership/inheritance, derived freshness, Current-vs-History and closure consistency, use
-[AUTHORITY_INHERITANCE_CONTRACT.md](AUTHORITY_INHERITANCE_CONTRACT.md).
-
-Hard defaults:
-
-- current canonical authority outranks stale Chat/history;
-- independent scopes proceed independently;
-- one blocker freezes only its real dependency chain;
-- ordinary work changes only the owner that owns the requested effect plus the smallest required acceptance/cursor update;
-- GitHub is repository truth; Remote is local execution transport only;
-- do not create another Contract/registry/router/ledger when an existing owner or smaller repair is enough;
-- history/retired assets are not normal fallback;
+- current canonical owner outranks stale Chat/history;
+- one fact/decision has one canonical owner;
+- independent scopes proceed independently unless a real dependency links them;
 - missing evidence degrades only the dependent claim;
-- implementation/build success never manufactures learner or personal truth.
+- History/Legacy/closed PRs are not fallback Current authority;
+- learner/runtime evidence never becomes engineering progress by implication;
+- implementation cannot strengthen the epistemic claim of its input;
+- owner conflict / missing parentage → `OWNER_UNRESOLVED`, not a downstream guess;
+- do not create a new Contract / registry / Current / ledger when an existing owner can carry the meaning.
 
----
+Machine owner topology is `AUTHORITY_OWNERSHIP.json`; inheritance/freshness/history rules are `AUTHORITY_INHERITANCE_CONTRACT.md`.
 
-# 4｜Context discipline
+## 4｜Context and stop
 
-Context is a working set, not a log sink.
-
-Known-scope work should normally reach the responsible owner in roughly **2–3 precise reads**. More reads are justified only by real evidence/authority boundaries, not by repository size.
-
-For substantial cross-layer work, compress the basis to:
-
-```text
-Goal
-Owner / authority chain
-Must preserve
-Affected / not affected
-Write-set
-Success / stop condition
-```
-
-Then carry that compressed basis instead of upstream documents, CI logs, branch history or unrelated sibling state.
-
-A long Chat is not permission to restart. Re-ground from current owners and the durable cursor.
-
----
-
-# 5｜Verification and stop
-
-Use the smallest proof that can establish the requested effect:
+For material BUILD / UI / CONTROL work, keep the smallest useful working set:
 
 ```text
-exact owner read
-→ bounded mutation
-→ affected-owner / real-dependency verification
-→ durable readback
-→ stop
+parent outcome / why
+→ current task + exact owner
+→ must-preserve behavior / real consumer
+→ acceptance / stop condition
 ```
 
-Do not run a full-repository audit/build/browser gate for a routine local change unless its current owner or actual defect requires it.
+A Current/Next pointer locates work but is not the design. If the needed design cannot be recovered from the owner chain, repair the routing/ownership defect rather than inventing a summary.
 
-For learner-facing visual changes, use representative real-surface proof and the applicable Human Gate. For semantic/domain changes, engineering green is not semantic acceptance.
+Known-scope work should normally reach the responsible owner in a few precise reads. Broad repository archaeology, implementation diaries and historical PASS narratives stay off the hot path unless the claim genuinely depends on them.
 
-Normal reporting is outcome-level:
+Stop when the requested effect is proved or the exact blocker/owner boundary is clear. No active request implies no background continuation.
 
-```text
-现在在哪
-完成了什么
-真实 blocker（没有就说没有）
-下一步
-是否需要 Kian 做什么
-```
+## Compact rule
 
-# 6｜Compact rule
-
-```text
-understand intent
-→ resolve narrow scope
-→ read minimum Current owners
-→ preserve upstream semantics
-→ do smallest correct work
-→ prove requested real effect
-→ stop
-```
-
-KianOS succeeds when fresh Chats restart quickly and normal changes stay cheap—not when every worker loads the repository's governance history.
+**Resolve intent → enter the exact owner → follow that owner's method → verify the real consumer/effect → stop.**
