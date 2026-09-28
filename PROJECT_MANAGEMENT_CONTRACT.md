@@ -685,35 +685,81 @@ Exception: a safety-critical or identity-sensitive mutation may require smaller 
 
 ---
 
-## Small-defect repair boundedness — ACTIVE
+## Concrete Repair Fast Lane — ACTIVE
 
-Marker: `KIANOS_SMALL_DEFECT_REPAIR_BOUNDEDNESS_V1`
+Marker: `KIANOS_CONCRETE_REPAIR_FAST_LANE_V1`
 
-A reproduced learner-visible defect is **not permission to re-traverse the architecture**.
+A reproduced defect with accepted product meaning uses the **repair hot path**, not the full CBA/Audit machinery.
 
-Default repair shape:
+### Default path
 
 ```text
-reproduced visible effect
-→ exact current effective owner
-→ smallest mutation that removes that effect
+reproduce visible/runtime effect
+→ identify current effective consumer/owner
+→ smallest direct mutation
 → targeted proof on the affected surface/state
+→ commit/merge once
+→ managed Current publishes asynchronously
 → stop
 ```
 
-Hard stop conditions:
+### What is deliberately NOT required
 
-1. **Do not equate source-of-text with repair owner.** If backend/canonical truth is merely leaking through presentation, repair the existing learner projection/presentation boundary first. Do not edit canonical medical/learning truth just to change learner wording.
-2. **No scope expansion without evidence.** A local defect may move upstream only when the current effective owner cannot satisfy the accepted behavior without violating an existing contract.
-3. **Stop on repair explosion.** If a small defect begins to require broad repository search, many unrelated files, a new schema/contract, a second runtime, a CSS override layer, or a full-site build merely to make progress, stop the BUILD and reclassify the routing/owner as unresolved before doing more work.
-4. **Repair by defect class, not symptom count.** One shared projection/display bug may justify one shared fix; it does not justify editing every content file containing the symptom.
-5. **No speculative cleanup during a defect repair.** Nearby wording, architecture, style, or maintenance opportunities remain untouched unless they are actual dependents of the reproduced effect.
-6. **Verification stays proportional.** Use the smallest decisive validator/browser path for the changed owner plus real dependents. Whole-product/full-site validation belongs to its declared checkpoint, not to every small repair.
-7. **When the minimal path is unclear, stopping is better than digging.** Return the exact reproduced effect and unresolved owner boundary; do not keep expanding repository archaeology to manufacture certainty.
+For an ordinary bounded repair that does not change accepted Product/Learning/Visual meaning:
 
-A small repair that violates these stop conditions is itself an execution defect even if the final code would eventually work.
+- **no new Issue** merely to carry the repair;
+- **no new Contract / Current / registry / acceptance document**;
+- **no fresh CREATE**;
+- **no separate Human Gate** for correctness fixes that preserve accepted visual/product behavior;
+- **no full-suite / whole-product AUDIT** inside the repair;
+- **no full-site build as a Chat-side prerequisite** when targeted proof can establish the effect;
+- **no waiting for Stable promotion before the next independent engineering action**;
+- **no worktree/branch ceremony solely for process formality** when the bounded change can be safely committed through the existing repository path;
+- **no re-reading unrelated domain owners**;
+- **no historical archaeology**.
+
+The managed Current release pipeline may still perform its normal durable build after merge. That release cost is asynchronous delivery cost, **not part of the interactive repair loop**.
+
+### Fast-lane eligibility
+
+Use this path when all are true:
+
+1. the defect/effect is concretely reproduced or unambiguous from the current consumer;
+2. accepted behavior already exists in a current Product/Learning/Visual/Runtime owner;
+3. the change does not introduce a new product behavior, workflow, visual preference or semantic rule;
+4. one current effective owner/consumer can implement the correction without inventing new authority.
+
+Typical examples:
+- hidden/click-blocked control;
+- wrong learner-facing copy or leaked internal code;
+- obvious layout/overflow/stacking defect;
+- stale selector or broken state handoff;
+- missing wiring to an already-owned action;
+- duplicated chrome that violates an already-accepted surface rule.
+
+### Escalation only when actually necessary
+
+Leave the fast lane only if:
+- accepted behavior itself must change → CREATE;
+- material visual/product preference must be chosen → UI Human Gate;
+- more than one real authority owner must change → bounded architecture/dependency check;
+- the current effective owner cannot fix the reproduced effect without violating another accepted owner → OWNER_UNRESOLVED / BLOCKED;
+- shared-runtime mutation has real dependents → targeted dependent proof for those dependents only.
+
+### Hard anti-friction rules
+
+- **Source-of-text is not automatically repair owner.** Presentation leakage is repaired at the existing learner projection/presentation boundary unless evidence proves the canonical source itself is wrong.
+- **Do not spawn repair Issues by default.** Existing Audit Issues may record the defect and later re-audit result; repair execution itself stays lightweight.
+- **Do not turn a repair into a framework project.** If a small repair begins to require broad repo search, many unrelated files, a new schema/contract, a second runtime, CSS override layering or whole-site validation, stop and re-resolve the effective owner.
+- **Fix the defect class once.** A shared consumer bug gets one shared fix; do not edit every content object containing the symptom.
+- **No speculative cleanup.** Nearby refactors/polish are out of scope.
+- **Targeted proof is enough for BUILD.** Final exhaustive subject/system AUDIT remains independent and can reuse the repair's bounded evidence, but it is not rerun as part of each repair.
+- **Independent work continues.** A pinned Stable audit never blocks Candidate/main repair work for another subject; only the final Fresh acceptance evidence waits for the appropriate served release.
+
+A repair is complete when the requested effect is correct in the real affected consumer/Candidate proof and the durable change is on the accepted repository path. Stable catch-up and later Fresh A are separate delivery/acceptance concerns.
 
 ---
+
 
 ## Hot-path verification budget
 
