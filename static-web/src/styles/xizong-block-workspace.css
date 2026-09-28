@@ -987,26 +987,74 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyShe
   display: none;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentity {
-  min-height: 44px;
+  min-height: 42px;
   display: grid;
-  grid-template-columns: minmax(0,1fr) auto;
-  gap: 16px;
+  grid-template-columns: max-content minmax(0,1fr);
   align-items: center;
-  padding: 5px 14px;
+  gap: 18px;
+  padding: 4px 14px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyBlockIdentity {
+  display: flex;
+  align-items: center;
+  min-width: 0;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentity > div > span {
   display: none;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentity h2 {
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyBlockIdentity h2 {
   margin: 0;
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 740;
   line-height: 1.2;
   letter-spacing: 0;
+  white-space: nowrap;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentityMeta {
-  max-width: 360px;
-  text-align: right;
+  display: none;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKp {
+  min-width: 0;
+  display: none;
+  grid-template-columns: minmax(0,1fr) auto;
+  grid-template-rows: auto auto;
+  align-items: start;
+  gap: 4px 16px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpTitle {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 720;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpMeta {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3px 14px;
+  color: var(--xz-block-muted);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpMeta > span {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKp .xv6KpLearnNav {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  flex: 0 0 auto;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .portedStudyActiveKp,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .portedStudyActiveKp {
+  display: grid;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentityMeta strong {
   display: block;
@@ -1320,6 +1368,10 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6KpLearnComp
   padding: 15px 22px 13px;
   border-bottom: 1px solid var(--xz-block-line);
 }
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .xv6KpLearnCompanionHeader,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .xv6KpLearnCompanionHeader {
+  display: none;
+}
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6KpLearnCompanionHeader > div:first-child {
   min-width: 0;
   display: grid;
@@ -1493,7 +1545,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6KpLearnComp
 
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnActions {
   flex: 0 0 auto;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
@@ -1540,7 +1592,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyChain > header {
   flex: 0 0 auto;
-  display: grid;
+  display: none;
   gap: 3px;
   padding: 11px 12px 9px;
   border-bottom: 1px solid var(--xz-block-line);
@@ -1905,6 +1957,12 @@ body#kianos-workspace.surfaceBody-xizong .xzBlockFrameworkDialog > footer {
   }
   body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell {
     height: 100%;
+  }
+}
+
+@media (max-width:1100px) {
+  body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLayout {
+    grid-template-columns: 260px minmax(0,1fr) 0;
   }
 }
 
@@ -2371,7 +2429,6 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxEmpty {
   line-height:1.6;
 }
 @media(max-width:1100px){
-  body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLayout { grid-template-columns:260px minmax(0,1fr) 0; }
   body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxQuestionRow {
     grid-template-columns:92px minmax(0,1fr) 88px;
   }
@@ -2383,100 +2440,4 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6TtsxEmpty {
     grid-column:2;
     text-align:left;
   }
-}
-
-
-
-/* Real-use attention correction: learning content outranks runtime chrome. */
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .portedStudyIdentityMeta,
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .portedStudyIdentityMeta {
-  display: none;
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnActions {
-  display: none !important;
-}
-
-
-/* B1 real-use refinement: keep Block/KP/source position in one compact row. */
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentity {
-  min-height: 42px;
-  display: grid;
-  grid-template-columns: max-content minmax(0,1fr);
-  align-items: center;
-  gap: 18px;
-  padding: 4px 14px;
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyBlockIdentity {
-  display: flex;
-  align-items: center;
-  min-width: 0;
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyBlockIdentity h2 {
-  font-size: 20px;
-  white-space: nowrap;
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKp {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: minmax(0,1fr) auto;
-  grid-template-rows: auto auto;
-  align-items: start;
-  gap: 4px 16px;
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpTitle {
-  min-width: 0;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  font-size: 16px;
-  line-height: 1.35;
-  font-weight: 720;
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpMeta {
-  min-width: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 3px 14px;
-  color: var(--xz-block-muted);
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpMeta > span {
-  min-width: 0;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  font-size: 15px;
-  line-height: 1.35;
-  font-weight: 600;
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKp .xv6KpLearnNav {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  align-self: center;
-  flex: 0 0 auto;
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .portedStudyIdentity,
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .portedStudyIdentity {
-  grid-template-columns: max-content minmax(0,1fr);
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .portedStudyIdentityMeta,
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .portedStudyIdentityMeta {
-  display: none;
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .xv6KpLearnCompanionHeader,
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .xv6KpLearnCompanionHeader {
-  display: none;
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyChain > header {
-  display: none;
-}
-
-
-/* Keep the compact KP position row contextual, not permanently visible. */
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKp,
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentityMeta {
-  display: none;
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .portedStudyActiveKp,
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .portedStudyActiveKp {
-  display: grid;
 }
