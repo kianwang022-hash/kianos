@@ -143,6 +143,21 @@ For delegated Codex execution, re-read current main + this router + the exact ac
 
 Machine owner topology is `AUTHORITY_OWNERSHIP.json`; inheritance/freshness/history rules are `AUTHORITY_INHERITANCE_CONTRACT.md`.
 
+### Legacy quarantine
+
+KianOS inherits Personal `KERNEL.md §2` **Legacy quarantine / default history blindness**.
+
+Unless Kian explicitly asks for `legacy / 历史 / 追溯 / 旧版本 / 找以前`, normal KianOS work must **not read or search**:
+- closed Issues / closed PRs or their comments;
+- old branches / superseded candidates;
+- git history / old commit narratives to reconstruct current meaning;
+- historical PASS / Human-Gate / audit receipts as startup context.
+
+Use current `main@HEAD`, this router, the exact current owner, and only a live active Issue when one is explicitly bound. If current state cannot be recovered that way, report/repair a routing-owner defect; do not fall back to history.
+
+Fresh AUDIT is not a legacy unlock. It starts from current accepted CREATE truth + exact candidate/release + real consumer/runtime/browser/state.
+
+
 ## 4｜Context and stop
 
 For material BUILD / UI / CONTROL work, keep the smallest useful working set:
