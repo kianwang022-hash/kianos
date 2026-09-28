@@ -215,6 +215,13 @@ async function portAccepting(host, port) {
   });
 }
 
+export async function assertCandidatePortAvailable(config) {
+  if (await portAccepting(config.host, config.port)) {
+    throw new Error(`KIANOS_CANDIDATE_PORT_IN_USE:${config.host}:${config.port}`);
+  }
+  return true;
+}
+
 async function waitForReady(config, child) {
   // Readiness must never render a KianOS surface. Business routes can load
   // large canonical objects; polling them during startup creates overlapping
@@ -230,6 +237,7 @@ async function waitForReady(config, child) {
 async function main() {
   const startupStartedAt = Date.now();
   const config = resolveCandidateConfig();
+  await assertCandidatePortAvailable(config);
   const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-candidate-'));
   let dependencyLease = null;
   let dependencyDurationMs = 0;
@@ -265,11 +273,13 @@ async function main() {
     const head = await shortHead();
     const env = isolatedCandidateEnv(runtimeRoot, process.env, `candidate-${head}`);
     const astro = astroExecutable(webRoot);
+    // Astro dev auto-increments an occupied port. Re-check immediately before
+    // spawn so Candidate never drifts away from the exact Human-Gate endpoint.
+    await assertCandidatePortAvailable(config);
     child = spawn(astro, [
       'dev',
       '--host', config.host,
-      '--port', String(config.port),
-      '--strictPort'
+      '--port', String(config.port)
     ], {
       cwd: webRoot,
       env,
