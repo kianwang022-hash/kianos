@@ -104,58 +104,35 @@ Do not encode content truth or visual policy inside runtime merely because imple
 
 ---
 
-# 3｜UI work routing — Visual rules stay with Visual owners
+# 3｜UI execution boundary
 
-This contract does not own a parallel UI hierarchy or visual-acceptance standard.
+Product/Visual authority does not live here. Resolve the accepted UI/design chain through `static-web/README.md` and its exact Product / Surface / Presentation owners before implementation.
 
-For material UI work, resolve the applicable owners in this order:
+Project Management owns only the execution around that accepted meaning:
 
 ```text
-static-web/KIAN_UI_PREFERENCES.md
-→ static-web/UI_STYLE_BRIEF.md when shared visual rules matter
-→ static-web/PRESENTATION_CONTRACT.md
-→ exact Product / Surface Visual owner
-→ actual Website consumer
-→ Candidate / real-browser proof
-→ applicable Human Gate / Acceptance
+accepted UI / Surface delta
+→ bounded write-set
+→ Website Candidate / real-browser proof
+→ applicable Human Gate from the owning Visual/Product contract
+→ targeted regression
+→ coherent promotion / delivery
 ```
 
-Project management owns only the execution discipline around that work:
-
-- fix a shared visual defect at the highest responsible existing Visual owner rather than stacking local patches;
-- preserve accepted task-native geometry and upstream Content / Learning / Runtime semantics unless the owning semantic decision is explicitly reopened;
-- route implementation and proof through the smallest affected surface;
-- never treat Functional/Structural PASS as a substitute for the applicable Visual/Human acceptance.
-
-Exact visual hierarchy, typography, composition, Blueprint and Human-Gate semantics remain owned by the Visual/Presentation files above.
+Do not use Project Management to redefine typography, composition, Blueprint, task geometry or Human-Gate semantics. If the design owner is ambiguous/conflicting, return to CREATE / `OWNER_UNRESOLVED` rather than resolving it through CSS/source order.
 
 ---
 
-# 4｜Change Cost Test
+# 4｜Change-cost execution check
 
-Every architecture/ownership cleanup must eventually make a real change cheaper.
+Low-friction changeability is a KianOS product requirement owned by `PROJECT_DEFINITION.md R11 / T8` and the applicable Architecture/owner chain. This contract does not own a second architecture-quality test.
 
-Representative acceptance questions:
+Execution must make that requirement observable:
 
-```text
-“全站正文更厚一点”
-→ should resolve to one shared visual owner
-
-“改一个 KP / word sense / Politics learner payload”
-→ should resolve to one canonical semantic owner
-
-“Politics Natural Unit 右栏更窄”
-→ should resolve to one Politics surface owner
-
-“某一个 390px 页面溢出”
-→ should resolve to the narrowest responsive/page owner
-```
-
-If an ordinary change still requires tracing many CSS files, editing duplicated content, or coordinating unrelated lanes, ownership is not finished even when CI is green.
-
-Hard rule:
-
-> **Architecture quality is measured partly by the cost of the next legitimate change.**
+- one ordinary semantic change should reach one canonical owner and its real consumer without hand-maintained copies;
+- one ordinary Visual change should resolve to the responsible existing Visual/Surface implementation owner rather than another override layer;
+- coherent changes should batch expensive build/CI/delivery work instead of paying that cost per micro-edit;
+- if execution repeatedly requires unrelated owner coordination, duplicate edits or CSS archaeology, report the ownership/change-cost defect to the responsible architecture/design owner rather than normalizing the overhead here.
 
 ---
 
