@@ -64,6 +64,8 @@ request
 
 These paths apply **after the relevant meaning/design is already accepted**. If the request still asks what the system/content/product should be, return to CREATE through the exact semantic/design owner before using these paths.
 
+**BUILD authorization is effect-scoped, not coverage-scoped.** A CREATE owner may enumerate task families, states, examples or edge cases to make the semantic boundary complete; that enumeration does **not** create an implementation queue. Before BUILD starts for any child/family, identify the concrete missing effect in the current owner → consumer path. If the existing consumer already satisfies the accepted requirement, that child is a no-op and BUILD stops there. Prefer adapting/reusing the existing owner; a parallel runtime/surface or replacement product requires explicit CREATE authorization rather than being inferred from semantic coverage.
+
 ## Content
 
 ```text
@@ -386,7 +388,7 @@ High-value inspection targets include duplicate authority, manual synchronizatio
 Standing delegation:
 - correctness, drift, dead/stale machinery, owner cleanup and bounded maintainability repairs that preserve accepted product semantics may be fixed autonomously;
 - implementation detail, refactoring, tests, CI/build mechanics, branch/PR handling, migrations and other engineering choices that do not change accepted semantics normally stay backstage;
-- a new capability already implied by an accepted requirement may be designed/implemented when the owner and effect are clear;
+- a new capability already implied by an accepted requirement may be designed/implemented only when a **concrete missing consumer effect** is established in the existing owner chain; semantic coverage lists, examples or family matrices do not by themselves authorize implementation work;
 - stop for Kian mainly when the work materially chooses **interaction behavior, user workflow, visual/product feel, values/trade-offs, or unresolved domain semantics**. Those decisions require a Human/semantic gate before becoming accepted product truth.
 
 Kian should review the product and the meaningful choice—not the implementation diary.
