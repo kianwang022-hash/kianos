@@ -132,12 +132,18 @@ try{
   await page.locator('[data-external-kind]').filter({hasText:'TOEFL · CURRENT'}).waitFor({state:'visible'});
   assert.equal(await page.locator('[data-external-questions] [data-question]').count(),1);
   assert.equal(requests.filter(url=>url.includes(keyedAnswerUrl)).length,beforeKeyed,'incremental source-backed answers must stay gated before Submit');
-  await page.locator('[data-external-questions] [data-question]').first().locator('[data-option="A"]').click();
+  const keyedRow=page.locator('[data-external-questions] [data-question]').first();
+  assert.equal(await keyedRow.locator('[data-option][aria-pressed]').count(),3,'incremental multi-choice renders toggle controls');
+  await keyedRow.locator('[data-option="A"]').click();
+  await keyedRow.locator('[data-option="C"]').click();
+  assert.equal(await keyedRow.locator('[data-option="A"]').getAttribute('aria-pressed'),'true');
+  assert.equal(await keyedRow.locator('[data-option="C"]').getAttribute('aria-pressed'),'true');
   await page.locator('[data-external-submit]').click();
   await page.locator('[data-external-result]').waitFor({state:'visible'});
   assert.equal(requests.filter(url=>url.includes(keyedAnswerUrl)).length,beforeKeyed+1);
   const keyedFormal=await page.locator('[data-external-questions] [data-question]').first().locator('.portedReadingAnswerStrip').textContent();
-  assert.match(keyedFormal,/正式答案\s*A/);
+  assert.match(keyedFormal,/正式答案\s*A, C/);
+  assert.match(keyedFormal,/结果\s*✓/);
   assert.equal(await page.locator('[data-external-chat-review]:visible').count(),0,'all-correct stable External result must exit without deep-review escalation');
 
   await page.screenshot({path:path.join(out,'external-reading-synthetic.png'),fullPage:true});
