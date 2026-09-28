@@ -160,6 +160,9 @@ try {
   }
   {
     const { page, ctx } = await pageFor(); await start(page);
+    // Headless Chromium reports every tab as focused; emulate a real background
+    // first tab so the native single-writer handoff contract can be exercised.
+    await page.evaluate(() => { document.hasFocus = () => false; });
     const second = await ctx.newPage(); await second.goto(base + '/politics/practice/'); await second.bringToFront();
     await second.locator('[data-question-card]').waitFor({ state: 'visible' }); await second.click('[data-option="A"]');
     await page.locator('[data-learner-writer-notice]').waitFor({ state: 'visible' });
