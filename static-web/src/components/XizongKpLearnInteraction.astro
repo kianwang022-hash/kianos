@@ -208,26 +208,6 @@
         if (!target?.closest('.xzKpUnifiedCard')) hideMarkMenu();
       });
 
-      const downloadPacket = () => {
-        let packet = null;
-        root.dispatchEvent(new CustomEvent('kianos:xizong-request-study-packet', {
-          detail: { accept: (value) => { packet = value; } }
-        }));
-        if (!packet) {
-          window.alert('完整学习包暂未就绪，未导出不完整数据。请重新打开当前学习页。');
-          return;
-        }
-        const blob = new Blob([JSON.stringify(packet, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const anchor = document.createElement('a');
-        anchor.href = url;
-        anchor.download = `xizong-${learner.identity?.blockLabel || 'block'}-study-packet.json`;
-        document.body.append(anchor);
-        anchor.click();
-        anchor.remove();
-        window.setTimeout(() => URL.revokeObjectURL(url), 500);
-      };
-
       const syncLogicMap = () => {
         root.querySelectorAll('.xzLogicGroupDetail').forEach((node) => node.remove());
         if (stageName() === 'block_recall') return;
@@ -355,13 +335,6 @@
             right.append(locators);
           }
           if (nav) right.append(nav);
-          const packet = document.createElement('button');
-          packet.type = 'button';
-          packet.className = 'xzKpPacketButton';
-          packet.textContent = '学习包';
-          packet.title = '下载当前 Block 学习包并上传给 Chat';
-          packet.addEventListener('click', downloadPacket);
-          right.append(packet);
           header.append(right);
         }
 
@@ -397,7 +370,7 @@
           actions = document.createElement('footer');
           actions.className = 'xzKpLearnActions';
           actions.innerHTML = `
-            <span>← → 切 KP　·　Space 隐藏 / 显示 Core　·　Enter 这个 KP 学好了</span>
+            <button type="button" data-kp-chat-handoff title="复制当前学习内容给 Chat">给 Chat</button>
             <div>
               <button type="button" data-kp-core-toggle>隐藏 Core</button>
               <span data-kp-learn-state>学习中</span>
@@ -409,6 +382,17 @@
         const learned = Boolean(study.learned?.[kpId]);
         const stateNode = actions.querySelector('[data-kp-learn-state]');
         if (stateNode) stateNode.textContent = learned ? '已学好' : '学习中';
+
+        const chat = actions.querySelector('[data-kp-chat-handoff]');
+        if (chat && !chat.dataset.bound) {
+          chat.dataset.bound = 'true';
+          // Delegate to the existing packet/Return owner; do not build another export.
+          chat.addEventListener('click', () => {
+            const dock = [...document.querySelectorAll('[data-xizong-study-dock]')]
+              .find((node) => node.getAttribute('data-study-object') === objectId);
+            dock?.querySelector('[data-copy-study-packet]')?.click();
+          });
+        }
 
         const toggle = actions.querySelector('[data-kp-core-toggle]');
         if (toggle && !toggle.dataset.bound) {

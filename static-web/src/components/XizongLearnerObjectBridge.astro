@@ -246,6 +246,10 @@ const payload = learnerObject || null;
       const activeGroup = () => groups[activeGroupIndex()] || groups[0] || null;
       const activeRecallCard = () => root.querySelector('[data-kp-recall-card]:not([hidden])');
       const activeRecallKpId = () => activeRecallCard()?.getAttribute('data-kp-id') || '';
+      const visibleCompanionKp = (stageName) => {
+        const frame = root.querySelector(`[data-study-stage="${stageName}"]:not([hidden]) [data-learner-kp-companion="${stageName}"][data-kp-id]`);
+        return kpById.get(frame?.getAttribute('data-kp-id') || '') || null;
+      };
       const recallAnswerVisible = () => {
         const answer = activeRecallCard()?.querySelector('[data-kp-answer]');
         return Boolean(answer && !answer.hasAttribute('hidden'));
@@ -276,7 +280,7 @@ const payload = learnerObject || null;
         frame.dataset.kpId = text(kp?.identity?.kpId);
         const top = el('header', 'xv6KpLearnCompanionHeader');
         const identity = el('div');
-        identity.append(el('span', '', 'KP Learn · Lecture companion'));
+        identity.append(el('span', '', '当前知识点'));
         identity.append(el('strong', '', `${kp?.identity?.displayId || ''} · ${kp?.identity?.title || ''}`));
         const nav = el('div', 'xv6KpLearnNav');
         const prev = el('button', '', '‹'); prev.type = 'button'; prev.dataset.companionPrev = stageName; prev.disabled = index <= 0;
@@ -293,9 +297,14 @@ const payload = learnerObject || null;
           frame.append(prompt);
         }
         const locators = el('div', 'xv6KpLearnLocators');
-        if (kp?.source?.locator) locators.append(el('span', '', `Lecture · ${kp.source.locator}`));
-        if (kp?.outline?.locator) locators.append(el('span', '', `Outline · ${kp.outline.locator}`));
-        if (locators.childElementCount) frame.append(locators);
+        // One renderer owns both locator values. A missing binding is not an
+        // invitation to guess a page from a neighbouring KP or a Visual cue.
+        const lecture = el('span', '', `讲义 · ${kp?.source?.locator || '当前知识点未标注页码'}`);
+        lecture.dataset.kpSourceLocator = '';
+        const outline = el('span', '', `考纲 · ${kp?.outline?.locator || '当前知识点未标注考纲定位'}`);
+        outline.dataset.kpOutlineLocator = '';
+        locators.append(lecture, outline);
+        frame.append(locators);
 
         const core = el('div', 'markdown xv6KpLearnCore');
         core.dataset.learnerKpCore = text(kp?.identity?.kpId);
@@ -318,7 +327,7 @@ const payload = learnerObject || null;
         const footerText = sourceStage.querySelector(':scope > footer > span');
         if (footerText) footerText.textContent = '保持原讲义连续学习；KP Learn 只是 Mac 侧伴读，不要求逐 KP 完成仪式。';
         const done = sourceStage.querySelector('[data-source-contact-done]');
-        if (done) done.textContent = '本 Block 对应原讲义已学完，开始 Recall';
+        if (done) done.textContent = '本块讲义已学完，开始回忆';
       }
       if (groupLearnStage) {
         groupLearnStage.classList.add('xv6LearnerCompanionStage');
@@ -328,7 +337,7 @@ const payload = learnerObject || null;
         const footerText = groupLearnStage.querySelector(':scope > footer > span');
         if (footerText) footerText.textContent = '在原讲义连续完成这一学习节；中间可切 KP Learn 伴读，但不要求来回切 App。';
         const done = groupLearnStage.querySelector('[data-group-lecture-done]');
-        if (done) done.textContent = '这一节原讲义已完成，开始 Recall';
+        if (done) done.textContent = '本节讲义已学完，开始回忆';
       }
 
       const renderCompanions = () => {
@@ -378,14 +387,14 @@ const payload = learnerObject || null;
           title = 'Block 辅助';
           slot = { extension: array(learner.slots?.blockOrientation) };
         } else if (stage === 'source_contact') {
-          const kp = sourceCompanionKp();
+          const kp = visibleCompanionKp('source_contact') || sourceCompanionKp();
           slotName = 'kp_learn_aux';
           representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
           slot = mergeSlots(learner.slots?.logicGroupPrelearn?.[kp?.identity?.logicGroupId] || {}, learner.slots?.kpLearnAux?.[kp?.identity?.kpId] || {});
         } else if (stage === 'kp_learn') {
-          const kp = groupCompanionKp();
-          const groupId = groupIds[activeGroupIndex()] || '';
+          const kp = visibleCompanionKp('kp_learn') || groupCompanionKp();
+          const groupId = kp?.identity?.logicGroupId || groupIds[activeGroupIndex()] || '';
           slotName = 'kp_learn_aux';
           representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';

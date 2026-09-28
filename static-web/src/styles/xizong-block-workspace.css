@@ -227,6 +227,14 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyMai
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyMain > [data-study-panel="learn"] {
   min-height: 100%;
 }
+/* Only the visible companion constrains height; orientation remains scrollable. */
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyMain:has([data-study-stage]:not([hidden]) > .xv6KpLearnCompanionHost) {
+  overflow: hidden;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyMain:has([data-study-stage]:not([hidden]) > .xv6KpLearnCompanionHost) > [data-study-panel="learn"] {
+  height: 100%;
+  min-height: 0;
+}
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyMain [data-study-stage="block_learn"] {
   padding: 21px 25px 26px;
 }
@@ -338,8 +346,20 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LogicTarget
 }
 
 /* KP Learn is the main companion work surface. */
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerCompanionStage > footer {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 10px 18px;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerCompanionStage > footer > span {
+  display: none;
+}
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedKpWorkspace.xv6LearnerCompanionStage {
-  min-height: 100%;
+  height: 100%;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -351,7 +371,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedKpWorksp
   display: none;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6KpLearnCompanionHost {
-  flex: 1 1 auto;
+  flex: 1 1 0%;
   min-height: 0;
   padding: 0;
   overflow: hidden;
@@ -366,11 +386,11 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6KpLearnComp
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6KpLearnCompanionHeader {
   flex: 0 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
   align-items: start;
-  justify-content: space-between;
-  gap: 22px;
-  padding: 15px 22px 13px;
+  gap: 7px 14px;
+  padding: 10px 18px;
   border-bottom: 1px solid var(--xz-block-line);
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6KpLearnCompanionHeader > div:first-child {
@@ -379,6 +399,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6KpLearnComp
   gap: 3px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6KpLearnCompanionHeader > div:first-child > span {
+  display: none;
   color: var(--xz-block-green);
   font-size: 15px;
   font-weight: 800;
@@ -389,21 +410,24 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6KpLearnComp
   line-height: 1.35;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnHeaderRight {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 7px 12px;
-  align-items: center;
-  justify-items: end;
-  max-width: 440px;
+  display: contents;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnHeaderRight > .xv6KpLearnNav {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnLocatorMini {
   grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
   gap: 4px 14px;
-  justify-content: flex-end;
+  min-width: 0;
+  justify-content: flex-start;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnLocatorMini span {
+  min-width: 0;
+  overflow-wrap: anywhere;
   padding: 0;
   border-radius: 0;
   background: transparent;
@@ -442,7 +466,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6KpLearnProm
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 4px 12px;
-  padding: 13px 22px 14px;
+  padding: 8px 18px;
   border-bottom: 1px solid var(--xz-block-line);
   background: #f8faf8;
 }
@@ -505,7 +529,9 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpPromptEdit
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6KpLearnCore {
   flex: 1 1 auto;
   min-height: 0;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: auto;
+  touch-action: pan-y;
   padding: 18px 24px 24px;
   overscroll-behavior: contain;
   scrollbar-width: thin;
@@ -546,7 +572,7 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnActio
   flex: 0 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 18px;
   min-height: 46px;
   padding: 7px 18px;
@@ -1152,10 +1178,6 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell [data-study-sta
   display: none !important;
 }
 
-/* Keep one accepted Source-unit confirmation reachable; per-KP Enter is optional. */
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell [data-study-stage="kp_learn"].xv6LearnerCompanionStage > footer {
-  display: flex;
-}
 
 /* Collapsed Logic Map returns width to the KP card. */
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLayout.outline-collapsed {

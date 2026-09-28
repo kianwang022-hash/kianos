@@ -4,7 +4,14 @@ import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 
 const PORT = 4335;
-const BASE = `http://127.0.0.1:${PORT}`;
+const EXTERNAL_BASE = process.env.KIANOS_XIZONG_TEST_BASE_URL || '';
+const BASE = EXTERNAL_BASE || `http://127.0.0.1:${PORT}`;
+if (EXTERNAL_BASE) {
+  const target = new URL(EXTERNAL_BASE);
+  if (!['127.0.0.1', 'localhost'].includes(target.hostname) || target.port === '4321') {
+    throw new Error('XIZONG_BLOCK_WORKSPACE_REQUIRES_ISOLATED_CANDIDATE_NOT_STABLE');
+  }
+}
 const ROUTE = '/xizong/respiratory/r01/';
 const auditDir = path.resolve(process.cwd(), '.qa');
 fs.mkdirSync(auditDir, { recursive: true });
@@ -102,7 +109,7 @@ async function selectTextAndMark(page, selector, kind, { domClick = false } = {}
   else await menuButton.click();
 }
 
-const server = spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
+const server = EXTERNAL_BASE ? null : spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
   detached: process.platform !== 'win32'
@@ -114,8 +121,11 @@ try {
   browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: { width: 1512, height: 982 }, acceptDownloads: true });
   const page = await context.newPage();
+  page.setDefaultTimeout(8000);
+  page.setDefaultNavigationTimeout(12000);
 
   await page.goto(`${BASE}${ROUTE}`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.classList.contains('xv6BlockWorkspaceShell'));
   await page.evaluate(() => {
     for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
     sessionStorage.clear();
@@ -205,10 +215,55 @@ try {
   await learnCard.waitFor({ state: 'visible' });
   check(await learnCard.locator('[data-learner-kp-core]').isVisible(), 'learn_core_visible_by_default');
   check(await learnCard.locator('.xzKpLearnHeaderRight').count() === 1, 'learn_header_right_compact_owner');
+  const learnCardId = await learnCard.getAttribute('data-kp-id');
   const locatorText = (await learnCard.locator('.xzKpLearnLocatorMini').innerText()).replace(/\s+/g, ' ');
-  check(locatorText.includes('Lecture'), 'lecture_locator_in_top_right', locatorText);
-  check(locatorText.includes('Outline'), 'outline_locator_in_top_right', locatorText);
-  check(await learnCard.locator('.xzKpPacketButton').count() === 1, 'study_packet_entry_present');
+  check(locatorText.includes('讲义'), 'lecture_locator_in_top_right', locatorText);
+  check(locatorText.includes('考纲'), 'outline_locator_in_top_right', locatorText);
+  check(await learnCard.locator('.xzKpPacketButton').count() === 0, 'packet_transport_not_in_learning_header');
+  check(await learnCard.locator('[data-kp-chat-handoff]').isVisible(), 'chat_handoff_remains_reachable');
+  check(await page.locator('[data-xizong-study-dock] [data-copy-study-packet]').count() === 1, 'chat_reuses_existing_packet_return_owner');
+  const expectedKp = payload.kps.find((kp) => kp.identity.kpId === learnCardId);
+  const lectureText = await learnCard.locator('[data-kp-source-locator]').innerText();
+  check(lectureText === `讲义 · ${expectedKp?.source?.locator || '当前知识点未标注页码'}`, 'locator_matches_current_kp_owner');
+  const scrollState = async () => learnCard.evaluate((card) => {
+    const core = card.querySelector('[data-learner-kp-core]');
+    const main = card.closest('.portedStudyMain');
+    return {coreTop:core.scrollTop, coreHeight:core.clientHeight, contentHeight:core.scrollHeight, mainTop:main.scrollTop, headerY:card.querySelector('header').getBoundingClientRect().y};
+  });
+  const scrollBefore = await scrollState();
+  check(scrollBefore.contentHeight > scrollBefore.coreHeight + 20, 'long_core_is_bounded_not_whole_page_scroll');
+  await learnCard.locator('[data-learner-kp-core]').hover();
+  await page.mouse.wheel(0,400);
+  await page.waitForTimeout(150);
+  const scrollAfter = await scrollState();
+  check(scrollAfter.coreTop > scrollBefore.coreTop && scrollAfter.mainTop === scrollBefore.mainTop && scrollAfter.headerY === scrollBefore.headerY, 'wheel_reads_core_without_losing_identity_or_locator');
+  await learnCard.locator('[data-learner-kp-core]').evaluate((node) => { node.scrollTop = 0; });
+  await page.setViewportSize({width:1180,height:820});
+  // The shared shell animates its rail collapse on resize. Measure the settled view.
+  await page.waitForTimeout(350);
+  const ipad = await learnCard.evaluate((card) => {
+    const core=card.querySelector('[data-learner-kp-core]');
+    const done=document.querySelector('[data-source-contact-done]');
+    const r=done.getBoundingClientRect();
+    const at=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
+    return {coreHeight:core.clientHeight,buttonBottom:r.bottom,buttonHit:at===done||done.contains(at),overflow:document.documentElement.scrollWidth>innerWidth+2};
+  });
+  check(ipad.coreHeight>=200, 'ipad_core_not_squeezed_by_persistent_chrome', JSON.stringify(ipad));
+  check(ipad.buttonBottom<=820 && ipad.buttonHit && !ipad.overflow, 'ipad_source_confirmation_reachable_without_scroll_or_overlap', JSON.stringify(ipad));
+  await page.screenshot({path:path.join(auditDir,'xizong-block-ipad-reading.png'),fullPage:false});
+  await page.setViewportSize({width:1512,height:982});
+  await page.waitForTimeout(350);
+
+  // Exercise the real shared export handler without altering the OS clipboard.
+  await page.evaluate(() => {
+    window.__qaCopiedPacket='';
+    navigator.clipboard.writeText=async (text) => {window.__qaCopiedPacket=text;};
+  });
+  await learnCard.locator('[data-kp-chat-handoff]').click();
+  await page.waitForFunction(() => Boolean(window.__qaCopiedPacket));
+  const exported=await page.evaluate(()=>window.__qaCopiedPacket);
+  check(exported.includes(learnCardId) && exported.includes('return'), 'chat_handoff_carries_current_kp_and_return_contract');
+
 
   const logicDetail = root.locator('.xzLogicGroupDetail');
   await logicDetail.waitFor({ state: 'visible' });
@@ -466,19 +521,21 @@ try {
   process.exitCode = 1;
 } finally {
   await browser?.close().catch(() => {});
-  if (process.platform !== 'win32' && server.pid) {
-    try { process.kill(-server.pid, 'SIGTERM'); } catch {}
-  } else {
-    try { server.kill('SIGTERM'); } catch {}
-  }
-  server.stdout?.destroy();
-  server.stderr?.destroy();
-  await Promise.race([new Promise((resolve) => server.once('exit', resolve)), sleep(1000)]);
-  if (server.exitCode === null) {
+  if (server) {
     if (process.platform !== 'win32' && server.pid) {
-      try { process.kill(-server.pid, 'SIGKILL'); } catch {}
+      try { process.kill(-server.pid, 'SIGTERM'); } catch {}
     } else {
-      try { server.kill('SIGKILL'); } catch {}
+      try { server.kill('SIGTERM'); } catch {}
+    }
+    server.stdout?.destroy();
+    server.stderr?.destroy();
+    await Promise.race([new Promise((resolve) => server.once('exit', resolve)), sleep(1000)]);
+    if (server.exitCode === null) {
+      if (process.platform !== 'win32' && server.pid) {
+        try { process.kill(-server.pid, 'SIGKILL'); } catch {}
+      } else {
+        try { server.kill('SIGKILL'); } catch {}
+      }
     }
   }
 }
