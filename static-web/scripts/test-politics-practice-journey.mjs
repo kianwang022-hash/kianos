@@ -141,7 +141,7 @@ try {
       if (kind === 'missing') return route.fulfill({ status: 404, body: '{}' });
       const p = practiceReviewPayload(catalog, catalog.questions[0].id);
       if (kind === 'unbound') p.id = catalog.questions[1].id;
-      if (kind === 'stale') p.revision = 'outdated';
+      if (kind === 'stale') p.taskRevision = 'outdated';
       if (kind === 'incomplete') p.chatExplanation = '';
       await route.fulfill({ contentType: 'application/json', body: JSON.stringify(p) });
     });
