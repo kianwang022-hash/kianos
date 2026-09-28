@@ -123,13 +123,23 @@ Stable 4321 is never the scratch-preview surface, but ordinary repair work also 
 
 ```text
 accepted CREATE truth / parent outcome
-→ exact candidate / release identity
+→ exact release identity
 → applicable Acceptance owner
 → real consumer / Runtime / browser / state
-→ claim-scoped independent verdict
+→ exhaustive/adversarial execution
+→ defect?
+   → self-attack diagnosis
+   → read exact related design/owner context
+   → Concrete Repair Fast Lane in the same Audit
+   → replay failure + defect-class/dependent recheck
+   → continue exhaustive Audit
+→ final gap/integration pass on one final exact release
+→ PASS / FAIL / BLOCKED
 ```
 
-AUDIT does not redesign by preference. Reuse still-valid upstream evidence. A concrete defect returns to the earliest responsible BUILD/UI owner; the repair author does not automatically grant the broad Audit PASS. Real learner U remains REAL USE evidence.
+AUDIT is the highest acceptance bar, but it does **not** require hopping between Chats/Issues for each repair. A confirmed correctness defect with already-owned behavior may be repaired inline after the auditor attacks its own diagnosis first. The repaired claim becomes unproven until the original failure and true dependents pass again on the repaired exact release. Unaffected evidence remains valid when its owner/input did not change.
+
+AUDIT still may not redesign Product/Learning/Visual meaning by preference. A real semantic/design decision returns to CREATE/Kian. Real learner U remains REAL USE evidence.
 
 ### CONTROL
 
