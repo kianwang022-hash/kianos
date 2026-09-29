@@ -8,6 +8,24 @@ import { privateExternalReadingBridge } from './scripts/privateExternalReadingBr
 import { privateEnglishGeneratedBridge } from './scripts/privateEnglishGeneratedBridge.mjs';
 import { privateControlBridge } from './scripts/privateControlBridge.mjs';
 
+function canonicalContentDevReload() {
+  const canonicalContentRoot = path.resolve(process.cwd(), '..', 'content');
+  return {
+    name: 'kianos-canonical-content-dev-reload',
+    apply: 'serve',
+    configureServer(server) {
+      server.watcher.add(canonicalContentRoot);
+    },
+    handleHotUpdate(ctx) {
+      const changed = path.resolve(ctx.file);
+      if (changed !== canonicalContentRoot && !changed.startsWith(canonicalContentRoot + path.sep)) return;
+      ctx.server.moduleGraph.invalidateAll();
+      ctx.server.ws.send({ type: 'full-reload', path: '*' });
+      return [];
+    }
+  };
+}
+
 // Astro dev/preview is an engineering surface, never the live learner runtime.
 // Default every private bridge to one process-local scratch root so browser QA
 // cannot restore from or write to Kian's real learner/control state. The formal
@@ -60,7 +78,7 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   vite: {
-    plugins: [privateLearnerBridge(), privateExternalReadingBridge(), privateEnglishGeneratedBridge(), privateControlBridge()],
+    plugins: [canonicalContentDevReload(), privateLearnerBridge(), privateExternalReadingBridge(), privateEnglishGeneratedBridge(), privateControlBridge()],
     define: {
       __KIANOS_RELEASE_SHA__: JSON.stringify(process.env.KIANOS_RELEASE_SHA || '')
     }

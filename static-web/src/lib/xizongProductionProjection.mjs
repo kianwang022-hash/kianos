@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { marked } from 'marked';
 import { loadXizongSemanticBlock, XIZONG_SEMANTIC_ADAPTER_SCHEMA } from './xizongSemanticAdapter.mjs';
 
@@ -11,6 +12,28 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 const PROJECTION_MANIFEST = 'content/xizong/projection/manifest.json';
 const PROJECTION_ROOT = 'content/xizong/projection';
 const SHARED_FIELDS = 'content/xizong/knowledge/learner/shared-fields.json';
+const candidateRuntime = process.env.KIANOS_CANDIDATE_RUNTIME === '1';
+const candidateHeadBlobCache = new Map();
+
+function candidateHeadBlob(relativePath) {
+  if (!candidateRuntime) return null;
+  if (candidateHeadBlobCache.has(relativePath)) return candidateHeadBlobCache.get(relativePath);
+  let sha = null;
+  try {
+    const value = execFileSync('git', ['rev-parse', 'HEAD:' + relativePath], {
+      cwd: repoRoot,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore']
+    }).trim();
+    if (/^[a-f0-9]{40}$/.test(value)) sha = value;
+  } catch {}
+  candidateHeadBlobCache.set(relativePath, sha);
+  return sha;
+}
+
+function candidateDirtySourceAllowed(relativePath, expected) {
+  return candidateRuntime && candidateHeadBlob(relativePath) === expected;
+}
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -408,7 +431,8 @@ function resolveBinding(asset, binding, canonicalBlock, semanticBlock) {
   if (binding.kind === 'DERIVED_FRAGMENT' || source.kind === 'EXTERNAL_SOURCE_CONTRACT' || source.freshness === 'STRICT_BLOB') {
     const expected = source.blob_sha || source.baseline_blob_sha;
     const actual = crypto.createHash('sha1').update(`blob ${sourceBytes.length}\0`).update(sourceBytes).digest('hex');
-    if (!/^[a-f0-9]{40}$/.test(String(expected || '')) || expected !== actual) fail('STRICT_SOURCE_STALE', source.path);
+    if (!/^[a-f0-9]{40}$/.test(String(expected || ''))) fail('STRICT_SOURCE_STALE', source.path);
+    if (expected !== actual && !candidateDirtySourceAllowed(source.path, expected)) fail('STRICT_SOURCE_STALE', source.path);
   }
 
 
