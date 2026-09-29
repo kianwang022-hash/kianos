@@ -14,15 +14,26 @@ const webRoot = path.resolve(scriptDir, '..');
 const repoRoot = path.resolve(webRoot, '..');
 const stewardPath = path.join(webRoot, 'src/pages/steward/index.astro');
 const xizongContentPath = path.join(repoRoot, 'content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md');
+const politicsContentPath = path.join(repoRoot, 'content/politics/learning/marxism/ch00.json');
+const englishContentPath = path.join(repoRoot, 'content/english/modules/translation/learning.md');
 const marker = 'FAST-LANE-WORKFLOW-PROBE';
 const contentMarker = 'FAST-LANE-CANONICAL-CONTENT-PROBE';
+const politicsMarker = 'FAST-LANE-POLITICS-CONTENT-PROBE';
+const englishMarker = 'FAST-LANE-ENGLISH-CONTENT-PROBE';
 const original = fs.readFileSync(stewardPath, 'utf8');
 const xizongOriginal = fs.readFileSync(xizongContentPath, 'utf8');
+const politicsOriginal = fs.readFileSync(politicsContentPath, 'utf8');
+const englishOriginal = fs.readFileSync(englishContentPath, 'utf8');
 const sourceNeedle = '<h1>今天怎么过</h1>';
 const xizongSourceNeedle = '> **中心问题**：';
+const politicsProblemText = '马克思主义为什么会在特定历史条件下产生，又为什么不能把它理解成一次写完、以后不再变化的理论？';
+const politicsSourceNeedle = '          "text": "' + politicsProblemText + '",\n          "source_evidence": [';
+const englishSourceNeedle = 'Translation 不是：';
 
 assert.ok(original.includes(sourceNeedle), 'representative Steward UI owner changed unexpectedly');
 assert.ok(xizongOriginal.includes(xizongSourceNeedle), 'representative Xizong canonical Content owner changed unexpectedly');
+assert.equal(politicsOriginal.split(politicsSourceNeedle).length - 1, 1, 'representative Politics projected Content owner changed unexpectedly');
+assert.ok(englishOriginal.includes(englishSourceNeedle), 'representative English canonical Content owner changed unexpectedly');
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(webRoot, 'package.json'), 'utf8'));
 const agents = fs.readFileSync(path.join(repoRoot, 'AGENTS.md'), 'utf8');
@@ -177,6 +188,41 @@ try {
   fs.writeFileSync(xizongContentPath, xizongOriginal, 'utf8');
   await waitForBody(xizongUrl, (body) => !body.includes(contentMarker), 15000);
 
+  const politicsUrl = 'http://127.0.0.1:' + candidatePort + '/politics/marxism/ch00/';
+  const politicsBefore = await fetchText(politicsUrl);
+  assert.equal(politicsBefore.includes(politicsMarker), false, 'Candidate started with stale Politics marker');
+  const politicsChanged = politicsOriginal.replace(
+    politicsSourceNeedle,
+    '          "text": "' + politicsProblemText + ' ' + politicsMarker + '",\n          "source_evidence": ['
+  );
+  const politicsChangedAt = Date.now();
+  fs.writeFileSync(politicsContentPath, politicsChanged, 'utf8');
+  const stablePoliticsProbe = spawnSync(process.execPath, ['--input-type=module', '-e', `
+    const { loadPoliticsCompiledPresentation } = await import('./src/lib/politicsCompiledPresentation.mjs');
+    loadPoliticsCompiledPresentation('marxism', 'ch00');
+  `], {
+    cwd: webRoot,
+    env: { ...process.env, KIANOS_CANDIDATE_RUNTIME: '0' },
+    encoding: 'utf8'
+  });
+  assert.notEqual(stablePoliticsProbe.status, 0, 'Stable-mode Politics projection must reject dirty canonical source revision');
+  assert.match(stablePoliticsProbe.stderr + stablePoliticsProbe.stdout, /POLITICS_PROJECTION_SOURCE_REVISION_MISMATCH/);
+  await waitForBody(politicsUrl, (body) => body.includes(politicsMarker), 15000);
+  const politicsContentRefreshMs = Date.now() - politicsChangedAt;
+  fs.writeFileSync(politicsContentPath, politicsOriginal, 'utf8');
+  await waitForBody(politicsUrl, (body) => !body.includes(politicsMarker), 15000);
+
+  const englishUrl = 'http://127.0.0.1:' + candidatePort + '/translation-learn/';
+  const englishBefore = await fetchText(englishUrl);
+  assert.equal(englishBefore.includes(englishMarker), false, 'Candidate started with stale English marker');
+  const englishChanged = englishOriginal.replace(englishSourceNeedle, 'Translation 不是 · ' + englishMarker + '：');
+  const englishChangedAt = Date.now();
+  fs.writeFileSync(englishContentPath, englishChanged, 'utf8');
+  await waitForBody(englishUrl, (body) => body.includes(englishMarker), 15000);
+  const englishContentRefreshMs = Date.now() - englishChangedAt;
+  fs.writeFileSync(englishContentPath, englishOriginal, 'utf8');
+  await waitForBody(englishUrl, (body) => !body.includes(englishMarker), 15000);
+
   console.log(JSON.stringify({
     status: 'PASS',
     schema: 'kianos.website.fast_lane_workflow.v1',
@@ -186,9 +232,12 @@ try {
     stable_port_guarded: STABLE_CURRENT_PORT !== candidatePort,
     candidate_refresh_ms: candidateRefreshMs,
     canonical_content_refresh_ms: canonicalContentRefreshMs,
+    politics_content_refresh_ms: politicsContentRefreshMs,
+    english_content_refresh_ms: englishContentRefreshMs,
+    stable_projection_guards_preserved: true,
     managed_current_rebuild_triggered: false,
     representative_surface: 'steward',
-    representative_canonical_content: 'xizong/circulation/b01'
+    representative_canonical_content: ['xizong/circulation/b01', 'politics/marxism/ch00', 'english/translation-learning']
   }, null, 2));
 } catch (error) {
   if (candidateLog) console.error(candidateLog.slice(-5000));
@@ -196,6 +245,8 @@ try {
 } finally {
   try { fs.writeFileSync(stewardPath, original, 'utf8'); } catch {}
   try { fs.writeFileSync(xizongContentPath, xizongOriginal, 'utf8'); } catch {}
+  try { fs.writeFileSync(politicsContentPath, politicsOriginal, 'utf8'); } catch {}
+  try { fs.writeFileSync(englishContentPath, englishOriginal, 'utf8'); } catch {}
   if (candidate?.pid) {
     try { await terminateProcessTree(candidate.pid, { graceMs: 1000 }); } catch {}
   }

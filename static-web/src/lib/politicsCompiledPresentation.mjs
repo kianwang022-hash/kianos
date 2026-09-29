@@ -9,6 +9,7 @@ import { resolvePoliticsSurfaceMapping } from './politicsSurfaceMapping.mjs';
 // exact Current values; it never compiles new knowledge or changes unit identity.
 const root = process.env.KIANOS_REPO_ROOT ? path.resolve(process.env.KIANOS_REPO_ROOT) : path.resolve(process.cwd(), '..');
 const projectionRoot = 'content/politics/projection';
+const CANDIDATE_RUNTIME = process.env.KIANOS_CANDIDATE_RUNTIME === '1';
 const read = p => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
 const manifest = read(`${projectionRoot}/manifest.json`);
 const cache = new Map();
@@ -49,7 +50,7 @@ export function loadPoliticsCompiledPresentation(subject, code) {
   if (sourcePath !== `content/politics/learning/${directory}/${code}.json`) throw new Error('POLITICS_PROJECTION_SOURCE_PATH_MISMATCH');
   const bytes = fs.readFileSync(path.join(root, sourcePath));
   const sha = createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
-  if (sha !== projection.source.blob_sha) throw new Error(`POLITICS_PROJECTION_SOURCE_REVISION_MISMATCH:${file}`);
+  if (sha !== projection.source.blob_sha && !CANDIDATE_RUNTIME) throw new Error(`POLITICS_PROJECTION_SOURCE_REVISION_MISMATCH:${file}`);
   const source = JSON.parse(bytes.toString('utf8'));
   const rawUnits = source.units || source.unit_projections || (source.unit ? [source.unit] : []);
   const rawById = new Map(rawUnits.map(unit => [unit.natural_unit_id, unit]));
