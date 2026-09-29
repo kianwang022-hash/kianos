@@ -135,6 +135,33 @@ export function privateCheckpointGroupFingerprints(checkpoint) {
   return Object.fromEntries(CHECKPOINT_GROUP_IDS.map((id) => [id, fingerprint(stableJson(materials[id]))]));
 }
 
+function durableEntriesForGroup(checkpoint, groupId) {
+  const subjects = checkpoint?.payload?.subjects || {};
+  if (groupId === CHECKPOINT_SHARED_GROUP_ID) {
+    const projection = sharedProjection(checkpoint?.payload?.shared, checkpoint?.study_day);
+    if (projection.warnings.length) throw new Error('PRIVATE_CHECKPOINT_REBASE_SHARED_INVALID');
+    return [...projection.staged.map];
+  }
+  if (groupId === 'xizong') return subjectCheckpointEntries(subjects.xizong);
+  if (groupId === 'english+lexical') {
+    return [
+      ...subjectCheckpointEntries(subjects.english),
+      ...subjectCheckpointEntries(subjects.lexical)
+    ];
+  }
+  if (groupId === 'politics') return subjectCheckpointEntries(subjects.politics);
+  throw new Error('PRIVATE_CHECKPOINT_REBASE_GROUP_INVALID:' + groupId);
+}
+
+function localBaseConflictGroups(checkpoint) {
+  const warnings = Array.isArray(checkpoint?.payload?.shared?.capture_warnings)
+    ? checkpoint.payload.shared.capture_warnings : [];
+  return new Set(warnings.map((warning) => {
+    if (typeof warning !== 'string' || !warning.includes('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT')) return null;
+    return warningGroupId(warning);
+  }).filter(Boolean));
+}
+
 class SharedStorage {
   constructor(storage = null) {
     this.map = new Map([...SHARED_STORAGE_KEYS, CONTROL_LOCAL_RECEIPT_KEY]
@@ -211,6 +238,40 @@ function rememberLineage(storage, checkpoint, successfulGroupIds, warnings) {
   } catch {
     warnings.push('checkpoint:shared:PRIVATE_CHECKPOINT_LINEAGE_UNAVAILABLE');
   }
+}
+
+export async function rebasePrivateCheckpointLineageToCurrent(storage, {
+  expectedCheckpointId,
+  groupIds = null,
+  readCheckpoint = readPrivateLearnerCheckpoint
+} = {}) {
+  if (!storage?.getItem || !storage?.setItem) throw new Error('PRIVATE_CHECKPOINT_STORAGE_UNAVAILABLE');
+  const expected = String(expectedCheckpointId || '').trim();
+  if (!expected) throw new Error('PRIVATE_CHECKPOINT_REBASE_ID_REQUIRED');
+  const remote = await readCheckpoint();
+  if (remote?.status !== 'ready' || remote?.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) {
+    throw new Error('PRIVATE_CHECKPOINT_REBASE_SOURCE_UNAVAILABLE');
+  }
+  const checkpoint = remote.checkpoint;
+  if (checkpoint.checkpoint_id !== expected) throw new Error('PRIVATE_CHECKPOINT_REBASE_SOURCE_CHANGED');
+  const conflictGroups = localBaseConflictGroups(checkpoint);
+  const requested = Array.isArray(groupIds) && groupIds.length ? [...new Set(groupIds)] : [...conflictGroups];
+  if (!requested.length) throw new Error('PRIVATE_CHECKPOINT_REBASE_NOT_NEEDED');
+  const fingerprints = privateCheckpointGroupFingerprints(checkpoint);
+  const next = readLineageMap(storage);
+  for (const groupId of requested) {
+    if (!CHECKPOINT_GROUP_IDS.includes(groupId)) throw new Error('PRIVATE_CHECKPOINT_REBASE_GROUP_INVALID:' + groupId);
+    if (!conflictGroups.has(groupId)) throw new Error('PRIVATE_CHECKPOINT_REBASE_GROUP_NOT_CONFLICTED:' + groupId);
+    for (const [key] of durableEntriesForGroup(checkpoint, groupId)) {
+      if (storage.getItem(key) == null) throw new Error('PRIVATE_CHECKPOINT_REBASE_MISSING_LOCAL:' + groupId + ':' + key);
+    }
+    next[groupId] = 'fp:' + fingerprints[groupId];
+  }
+  storage.setItem(PRIVATE_CHECKPOINT_LINEAGE_KEY, JSON.stringify({
+    schema: PRIVATE_CHECKPOINT_LINEAGE_SCHEMA,
+    groups: next
+  }));
+  return { status: 'rebased', checkpoint_id: checkpoint.checkpoint_id, groups: requested };
 }
 // These keys contain navigation/liveness metadata, not new learner evidence.
 // Only a locally newer observation of the SAME paused state/position can prove

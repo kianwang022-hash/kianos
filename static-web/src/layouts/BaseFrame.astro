@@ -190,7 +190,9 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
   import { initStudyTimerDock } from '../lib/studyTimerDockClient.mjs';
   import {
     initPrivateCheckpointAutosave,
-    restoreSharedControlFromPrivate
+    rebasePrivateCheckpointLineageToCurrent,
+    restoreSharedControlFromPrivate,
+    saveSharedControlToPrivate
   } from '../lib/privateCheckpointRuntime.mjs';
   import { initPrivateControlRuntime } from '../lib/privateControlRuntime.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
@@ -204,6 +206,26 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
     } catch {}
 
     if (document.documentElement.dataset.learnerWriter !== 'active') return;
+
+    const recoveryUrl = new URL(window.location.href);
+    const rebaseCheckpointId = recoveryUrl.searchParams.get('checkpoint-lineage-rebase');
+    if (rebaseCheckpointId) {
+      try {
+        await rebasePrivateCheckpointLineageToCurrent(localStorage, {
+          expectedCheckpointId: rebaseCheckpointId
+        });
+        const saved = await saveSharedControlToPrivate(localStorage);
+        if (saved.status !== 'saved') throw new Error('PRIVATE_CHECKPOINT_REBASE_SAVE_INCOMPLETE');
+        document.documentElement.dataset.checkpointLineageRebase = 'saved';
+      } catch (error) {
+        document.documentElement.dataset.checkpointLineageRebase = 'error';
+        console.error('[KianOS checkpoint lineage recovery]', error);
+      } finally {
+        recoveryUrl.searchParams.delete('checkpoint-lineage-rebase');
+        history.replaceState(history.state, '', recoveryUrl.pathname + recoveryUrl.search + recoveryUrl.hash);
+      }
+    }
+
     if (restored?.status === 'restored') {
       window.location.reload();
       return;

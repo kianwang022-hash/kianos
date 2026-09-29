@@ -21,6 +21,7 @@ import {
 import {
   initPrivateCheckpointAutosave,
   PRIVATE_CHECKPOINT_LINEAGE_KEY,
+  rebasePrivateCheckpointLineageToCurrent,
   restoreSharedControlFromPrivate,
   saveSharedControlToPrivate,
   sharedControlStorageIsEmpty
@@ -527,6 +528,51 @@ assert.equal(continuityCheckpoint.payload.subjects.lexical.schema, 'kianos.lexic
 assert.ok(
   JSON.parse(continuityCheckpoint.payload.subjects.english.entries[englishExposureKey]).materials['local-only'],
   'recovered group must carry legitimate local progress after the real blocker is repaired'
+);
+
+const legacyRebaseCheckpoint = structuredClone(continuityCheckpoint);
+legacyRebaseCheckpoint.checkpoint_id = 'checkpoint-legacy-rebase-current';
+legacyRebaseCheckpoint.payload.shared.capture_warnings = [
+  'checkpoint:shared:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT',
+  'checkpoint:english+lexical:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT'
+];
+const legacyRebaseStorage = new MemoryStorage(Object.fromEntries(continuityStorage.map));
+legacyRebaseStorage.setItem(PRIVATE_CHECKPOINT_LINEAGE_KEY, JSON.stringify({
+  schema: 'kianos.private-checkpoint-lineage.v2',
+  groups: {
+    shared: 'checkpoint-old-shared',
+    'english+lexical': 'checkpoint-old-english'
+  }
+}));
+const learnerBeforeRebase = legacyRebaseStorage.getItem(englishExposureKey);
+const explicitRebase = await rebasePrivateCheckpointLineageToCurrent(legacyRebaseStorage, {
+  expectedCheckpointId: legacyRebaseCheckpoint.checkpoint_id,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint: legacyRebaseCheckpoint })
+});
+assert.equal(explicitRebase.status, 'rebased');
+assert.deepEqual(explicitRebase.groups.sort(), ['english+lexical', 'shared']);
+const rebasedLineage = JSON.parse(legacyRebaseStorage.getItem(PRIVATE_CHECKPOINT_LINEAGE_KEY));
+assert.equal(rebasedLineage.schema, 'kianos.private-checkpoint-lineage.v3');
+assert.match(rebasedLineage.groups.shared, /^fp:fnv1a64:/);
+assert.match(rebasedLineage.groups['english+lexical'], /^fp:fnv1a64:/);
+assert.equal(legacyRebaseStorage.getItem(englishExposureKey), learnerBeforeRebase,
+  'lineage rebase changes transport authority only, never learner bytes');
+await assert.rejects(
+  () => rebasePrivateCheckpointLineageToCurrent(legacyRebaseStorage, {
+    expectedCheckpointId: 'checkpoint-wrong-id',
+    readCheckpoint: async () => ({ status: 'ready', checkpoint: legacyRebaseCheckpoint })
+  }),
+  /PRIVATE_CHECKPOINT_REBASE_SOURCE_CHANGED/
+);
+const missingLocalRebase = new MemoryStorage(Object.fromEntries(legacyRebaseStorage.map));
+missingLocalRebase.removeItem(englishExposureKey);
+await assert.rejects(
+  () => rebasePrivateCheckpointLineageToCurrent(missingLocalRebase, {
+    expectedCheckpointId: legacyRebaseCheckpoint.checkpoint_id,
+    groupIds: ['english+lexical'],
+    readCheckpoint: async () => ({ status: 'ready', checkpoint: legacyRebaseCheckpoint })
+  }),
+  /PRIVATE_CHECKPOINT_REBASE_MISSING_LOCAL/
 );
 
 const combinedSource = new MemoryStorage({
