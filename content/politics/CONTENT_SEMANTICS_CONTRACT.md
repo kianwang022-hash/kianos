@@ -1,6 +1,6 @@
 # Politics Content Semantics Contract
 
-Status: CURRENT CANDIDATE — Content Phase
+Status: **CURRENT — Content Semantics**
 
 This file owns the machine-readable **content realization** that sits between Politics Learning Logic and Astro Projection/UI.
 
