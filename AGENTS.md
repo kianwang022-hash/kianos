@@ -17,7 +17,8 @@ Classify the user's actual job before reading an engineering cursor:
 ```text
 LEARN    use / continue a learning capability; inspect the learner's actual progress / Resume
 USE      use a non-learning KianOS product or private runtime state
-BUILD    construct, audit or change Rule / Content / product / runtime semantics
+BUILD    construct or change Rule / Content / product / runtime semantics
+AUDIT    adversarially verify an accepted claim/capability against its real consumer; may repair confirmed defects without silently changing accepted meaning
 UI       change product-facing presentation / interaction
 CONTROL  system / engineering / cross-scope status, priority, blocker, task or project management
 ```
@@ -102,6 +103,27 @@ For learner-facing Website BUILD as well as UI work, do not use GitHub main / St
 If an upstream owner changes during the task, apply
 [Change propagation](AUTHORITY_INHERITANCE_CONTRACT.md#32-change-propagation-and-dependency-freshness)
 only to real dependents; do not restart unrelated accepted work.
+
+## AUDIT
+
+```text
+accepted claim / meaning
+→ applicable Acceptance owner or exact claim boundary
+→ actual artifact + real consumer/state
+→ adversarial attack
+→ challenge the diagnosis / test / oracle / history before calling a product defect
+→ confirmed defect: smallest responsible repair + affected replay
+→ stop when the audited claim is established, falsified or genuinely blocked
+```
+
+AUDIT is verification, not a second CREATE pass.
+
+- Freeze the meaning being audited unless evidence proves that meaning itself is wrong or unresolved.
+- A confirmed implementation/correctness defect may be repaired inline in the same task when the accepted meaning is unchanged.
+- If the repair requires changing product/learning/visual meaning, leave AUDIT and reopen the responsible product decision; do not silently move the acceptance standard.
+- Independence is a property only when the applicable Acceptance owner explicitly requires a fresh/independent reviewer. Ordinary AUDIT does not require another Chat, Issue or worker.
+- Synthetic/build/browser evidence proves only its named claim. Real learner/user validation remains separate.
+- Do not widen a bounded audit into repository archaeology merely because historical audit assets exist.
 
 ### Entering from another Chat Project
 
