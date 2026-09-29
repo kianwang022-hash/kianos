@@ -108,6 +108,16 @@ for (const boundary of learnerRouteBoundaries) {
   );
 }
 
+const englishHomeSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/pages/english.astro'), 'utf8');
+assert(
+  englishHomeSource.includes('TOEFL Current · IELTS Academic · CET-6 · curated Legacy TPO'),
+  'english_home_external_priority_projects_current_exam_band'
+);
+assert(
+  !/TPO 优先|TPO 56–65 · IELTS Academic 17–19/.test(englishHomeSource),
+  'english_home_external_priority_rejects_stale_legacy_copy'
+);
+
 const truth = inspectEnglishSourceTruth();
 assert(truth.status === 'ready', 'global_source_truth_ready', JSON.stringify(truth));
 
