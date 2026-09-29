@@ -29,8 +29,11 @@ BUILD
 → prove the changed effect in the real consumer
 
 AUDIT
-→ attack the finished capability against its accepted meaning and applicable Acceptance owner
-→ distinguish a real defect from a test/oracle/history problem
+→ adversarially verify the finished capability against its already accepted meaning
+→ attack the real consumer and the failure / degraded / recovery paths that matter to the claim
+→ distinguish a real product defect from a test / oracle / stale-history problem
+→ repair a confirmed implementation defect inline when the accepted meaning is unchanged
+→ if the accepted meaning itself must change, leave AUDIT and reopen the responsible CREATE decision instead of silently moving the standard
 
 REAL USE
 → follows afterward and may provide new evidence that reopens only the earliest responsible owner
@@ -49,8 +52,12 @@ The same conversation may move between these views when useful. Outside a useful
 
 CBA is most valuable when it prevents three common confusions:
 - BUILD silently inventing product meaning that was never decided;
-- AUDIT redesigning the product instead of testing accepted meaning;
-- implementation/build success being mistaken for learner or real-use success.
+- AUDIT redesigning the product or moving the acceptance standard while pretending to verify it;
+- implementation/build or synthetic-test success being mistaken for learner or real-use success.
+
+Compact AUDIT rule:
+
+> **Verify adversarially; do not redesign silently. Fix confirmed defects inline when meaning is stable. Reopen CREATE only when the meaning itself is wrong or unresolved.**
 
 ---
 
