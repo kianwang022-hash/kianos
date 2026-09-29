@@ -5,7 +5,7 @@ import net from 'node:net';
 import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
-import { planClientArtifactBuild, clientProofDigest, CLIENT_PROOF_FILE } from './currentClientArtifacts.mjs';
+import { planClientArtifactBuild, clientProofDigest, clientBuildContextHash, CLIENT_PROOF_FILE } from './currentClientArtifacts.mjs';
 
 import {
   classifyStaticBuild,
@@ -227,6 +227,10 @@ async function prepareRelease(sha, extra = {}) {
       const buildScript = staticBuildNpmScript(extra);
       const args = [npmBin, 'run', buildScript, '--', '--outDir', candidateStage];
       const buildStartedAt = Date.now();
+      // Fingerprint the same invocation boundary for both lanes. npm adds
+      // transport-only environment defaults before launching the full build.
+      const buildEnv = { ...process.env, KIANOS_RELEASE_SHA: sha,
+        KIANOS_BUILD_CONTEXT_HASH: clientBuildContextHash(process.env, path.dirname(candidateWebRoot)) };
       let clientArtifactDelivery = null;
       const baseWebRoot = activeReleaseRoot ? path.join(activeReleaseRoot, 'static-web') : null;
       const clientPlan = planClientArtifactBuild({ baseWebRoot, webRoot: candidateWebRoot, targetSha: sha });
@@ -235,7 +239,7 @@ async function prepareRelease(sha, extra = {}) {
           await runChild(process.execPath, ['scripts/currentClientArtifacts.mjs',
             '--base-web-root', baseWebRoot, '--target-sha', sha, '--out-dir', candidateStage], {
             cwd: candidateWebRoot, label: 'candidate client artifact build',
-            env: { ...process.env, KIANOS_RELEASE_SHA: sha },
+            env: buildEnv,
             timeoutMs: Math.min(buildTimeoutMs, 90000)
           });
           const proof = JSON.parse(fs.readFileSync(path.join(candidateWebRoot, CLIENT_PROOF_FILE), 'utf8'));
@@ -251,7 +255,7 @@ async function prepareRelease(sha, extra = {}) {
       if (!clientArtifactDelivery) await runChild(args[0], args.slice(1), {
         cwd: candidateWebRoot,
         label: 'candidate Astro build',
-        env: { ...process.env, KIANOS_RELEASE_SHA: sha },
+        env: buildEnv,
         timeoutMs: buildTimeoutMs
       });
       timings.client_artifacts = clientArtifactDelivery;

@@ -142,7 +142,7 @@ async function main() {
   const astroBin = path.join(webRoot, 'node_modules', '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro');
   const child = spawn(astroBin, ['build', ...plan.args], {
     cwd: webRoot,
-    env: { ...process.env, KIANOS_XIZONG_BUILD_CACHE: '1', KIANOS_BUILD_CONTEXT_HASH: clientBuildContextHash(process.env, path.resolve(webRoot, '..')) },
+    env: { ...process.env, KIANOS_XIZONG_BUILD_CACHE: '1', KIANOS_BUILD_CONTEXT_HASH: process.env.KIANOS_BUILD_CONTEXT_HASH || clientBuildContextHash(process.env, path.resolve(webRoot, '..')) },
     stdio: 'inherit',
     shell: process.platform === 'win32'
   });
