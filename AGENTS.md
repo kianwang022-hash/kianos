@@ -39,6 +39,8 @@ Examples:
 
 A bare learner continuation stays LEARN unless the current conversation clearly establishes engineering work. A question about **what Kian has actually learned / attempted / resumed** is also LEARN and must read learner/runtime evidence rather than an engineering Current. CONTROL is for system/build/project status or cross-scope coordination. A normal product-use request stays USE unless Kian asks to redesign/debug/manage it.
 
+**CBA is optional vocabulary, not a routing gate.** If Kian explicitly says `CBA` or the current discussion is already using that lens, read `ARCHITECTURE.md §0.5`. Do not force ordinary work through CREATE / BUILD / AUDIT labels, and do not let CBA override the shortest correct owner/consumer path.
+
 ---
 
 # 2｜Small read paths
