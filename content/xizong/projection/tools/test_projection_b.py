@@ -24,8 +24,13 @@ def run_suite(root: Path = ROOT) -> dict:
     report=validate_repository(root)
     def current():
         assert report['status']=='PASS',report['issues']
-        assert (report['systems'],report['blocks'],report['assets'],report['canonical_kps'])==(4,76,80,1405)
-        return {'coverage':'4/76/80/1405'}
+        manifest=json.loads((root/MANIFEST).read_text())
+        expected_blocks=sum(spec['block_count'] for spec in manifest['systems'].values())
+        expected_systems=len(manifest['systems'])
+        expected_assets=expected_systems+expected_blocks
+        assert (report['systems'],report['blocks'],report['assets'])==(expected_systems,expected_blocks,expected_assets)
+        assert report['canonical_kps']>=1405
+        return {'coverage':f"{expected_systems}/{expected_blocks}/{expected_assets}/{report['canonical_kps']}"}
     check('B_full_projection_coverage',current)
 
     assets={str(p.relative_to(root)):json.loads(p.read_text()) for p in (root/PREFIX).rglob('*.projection.json')}

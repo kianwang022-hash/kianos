@@ -381,8 +381,9 @@ def selftests(m):
 
     x = copy.deepcopy(m)
     elig = x["validation"]["eligibility_accounting"]
-    elig["eligible_not_compiled"][0]["owner_root"] = elig["compiled"][0]["owner_root"]
-    expect("duplicate_owner_across_compiled_and_eligible_uncompiled", x, "ELIGIBILITY")
+    if len(elig["compiled"]) >= 2:
+        elig["compiled"][1]["owner_root"] = elig["compiled"][0]["owner_root"]
+        expect("duplicate_owner_across_compiled_systems", x, "ELIGIBILITY")
 
     x = copy.deepcopy(m)
     x["validation"]["coverage"]["current_eligible_blocks"] += 1

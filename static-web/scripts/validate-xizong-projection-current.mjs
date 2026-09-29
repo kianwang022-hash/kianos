@@ -13,7 +13,7 @@ const assert = (condition, message) => { if (!condition) fail(message); };
 
 assert(manifest.schema === 'kianos.xizong.cognitive_projection.manifest.v1', `schema:${manifest.schema}`);
 assert(manifest.runtime_authority === false, 'runtime-authority-must-remain-false');
-assert(manifest.status === 'CURRENT_RECONCILED_A1_A2_A3_B_COMPILED_C_ELIGIBLE_NOT_COMPILED', `status:${manifest.status}`);
+assert(manifest.status === 'CURRENT_RECONCILED_A1_A2_A3_B_C_COMPILED', `status:${manifest.status}`);
 
 const validation = manifest.validation || {};
 assert(validation.current_semantic_adapter === 'static-web/src/lib/xizongSemanticAdapter.mjs', 'semantic-adapter-owner');
@@ -23,14 +23,14 @@ assert(validation.scope === 'ASSET_BINDINGS_AND_DECLARATIVE_VISIBILITY_ONLY', `v
 const accounting = validation.eligibility_accounting || {};
 const compiled = Array.isArray(accounting.compiled) ? accounting.compiled : [];
 const compiledIds = compiled.map((row) => row?.canonical_id);
-assert(JSON.stringify(compiledIds) === JSON.stringify(['A1', 'A2', 'A3', 'B']), `compiled:${compiledIds.join(',')}`);
+assert(JSON.stringify(compiledIds) === JSON.stringify(['A1', 'A2', 'A3', 'B', 'C']), `compiled:${compiledIds.join(',')}`);
+const cCompiled = compiled.find((row) => row?.canonical_id === 'C');
+assert(cCompiled?.system_id === 'hematology-immunity-infection', 'c-system-id');
+assert(cCompiled?.status === 'ELIGIBLE_COMPILED', `c-status:${cCompiled?.status}`);
+assert(cCompiled?.block_count === 27, `c-block-count:${cCompiled?.block_count}`);
 
 const eligibleNotCompiled = Array.isArray(accounting.eligible_not_compiled) ? accounting.eligible_not_compiled : [];
-assert(eligibleNotCompiled.length === 1, `eligible-not-compiled-count:${eligibleNotCompiled.length}`);
-assert(eligibleNotCompiled[0]?.canonical_id === 'C', `eligible-not-compiled:${eligibleNotCompiled[0]?.canonical_id}`);
-assert(eligibleNotCompiled[0]?.system_id === 'hematology-immunity-infection', 'c-system-id');
-assert(eligibleNotCompiled[0]?.status === 'ELIGIBLE_NOT_COMPILED', `c-status:${eligibleNotCompiled[0]?.status}`);
-assert(eligibleNotCompiled[0]?.block_count === 27, `c-block-count:${eligibleNotCompiled[0]?.block_count}`);
+assert(eligibleNotCompiled.length === 0, `eligible-not-compiled-count:${eligibleNotCompiled.length}`);
 
 const notEligible = Array.isArray(accounting.not_eligible) ? accounting.not_eligible : [];
 assert(!notEligible.some((row) => row?.canonical_id === 'C'), 'c-still-marked-not-eligible');
@@ -39,10 +39,10 @@ for (const canonicalId of ['D', 'E', 'F']) {
 }
 
 const coverage = validation.coverage || {};
-assert(coverage.systems === 4, `compiled-systems:${coverage.systems}`);
-assert(coverage.blocks === 76, `compiled-blocks:${coverage.blocks}`);
-assert(coverage.total_projection_assets === 80, `compiled-assets:${coverage.total_projection_assets}`);
-assert(coverage.eligible_not_compiled_blocks === 27, `eligible-not-compiled-blocks:${coverage.eligible_not_compiled_blocks}`);
+assert(coverage.systems === 5, `compiled-systems:${coverage.systems}`);
+assert(coverage.blocks === 103, `compiled-blocks:${coverage.blocks}`);
+assert(coverage.total_projection_assets === 108, `compiled-assets:${coverage.total_projection_assets}`);
+assert(coverage.eligible_not_compiled_blocks === 0, `eligible-not-compiled-blocks:${coverage.eligible_not_compiled_blocks}`);
 assert(coverage.current_eligible_systems === 5, `current-eligible-systems:${coverage.current_eligible_systems}`);
 assert(coverage.current_eligible_blocks === 103, `current-eligible-blocks:${coverage.current_eligible_blocks}`);
 
@@ -61,7 +61,7 @@ assert(ch1.sourceContact.logicGroupIsAutomaticSourceChunk === false, 'c-lg-sourc
 assert(ch1.sourceContact.segments.length === 0, `c-invented-source-segments:${ch1.sourceContact.segments.length}`);
 
 const manifestSystems = manifest.systems || {};
-assert(Object.keys(manifestSystems).length === 4, `compiled-manifest-systems:${Object.keys(manifestSystems).length}`);
-assert(!manifestSystems['hematology-immunity-infection'], 'c-must-not-be-falsely-compiled');
+assert(Object.keys(manifestSystems).length === 5, `compiled-manifest-systems:${Object.keys(manifestSystems).length}`);
+assert(manifestSystems['hematology-immunity-infection']?.block_count === 27, 'c-compiled-manifest-entry');
 
-console.log('Xizong Projection Current reconciliation PASS: A1/A2/A3/B compiled; C eligible but intentionally uncompiled; B/C learning topology preserved.');
+console.log('Xizong Projection Current reconciliation PASS: A1/A2/A3/B/C compiled; C explicit membership and Block/canonical Source-unit topology preserved.');

@@ -126,9 +126,24 @@ class Validator(legacy.Validator):
         return legacy.Validator.safe_object(self,asset,obj,view_name,view)
 
     def check_views(self,asset,sources,resolved):
-        if asset.get('system_id')==B_SID and 'block_id' not in asset and asset.get('views',{}).get('SYSTEM_RECALL_FRONT',{}).get('object_ids')==[]:
+        # Systems without an owned neutral-front string intentionally project no
+        # medical payload on SYSTEM_RECALL_FRONT. The shared renderer supplies
+        # the generic attempt instruction. Preserve the full legacy view checks
+        # by inserting a validator-only safe neutral sentinel.
+        if 'block_id' not in asset and asset.get('views',{}).get('SYSTEM_RECALL_FRONT',{}).get('object_ids')==[]:
             tmp=copy.deepcopy(asset)
-            tmp['objects'].append({'object_id':'__generic_system_recall_prompt__','role':'RECALL','geometry':'TEXT_STRUCTURE','binding':{'kind':'FIELD_REF','source_id':'system','selector':{'type':'JSON_POINTER','value':'/system_recall/neutral_front'},'value_type':'string'},'answer_bearing':False})
+            tmp['objects'].append({
+                'object_id':'__generic_system_recall_prompt__',
+                'role':'RECALL',
+                'geometry':'TEXT_STRUCTURE',
+                'binding':{
+                    'kind':'FIELD_REF',
+                    'source_id':'system',
+                    'selector':{'type':'JSON_POINTER','value':'/system_recall/neutral_front'},
+                    'value_type':'string'
+                },
+                'answer_bearing':False
+            })
             tmp['views']['SYSTEM_RECALL_FRONT']['object_ids']=['__generic_system_recall_prompt__']
             return legacy.Validator.check_views(self,tmp,sources,resolved)
         return legacy.Validator.check_views(self,asset,sources,resolved)

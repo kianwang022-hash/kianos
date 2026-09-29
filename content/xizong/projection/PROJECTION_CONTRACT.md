@@ -1,6 +1,6 @@
 # Xizong Cognitive Projection Contract
 
-Status: **A1/A2/A3/B COMPILED ASSETS · CURRENT ELIGIBILITY RECONCILED · C ELIGIBLE NOT COMPILED · RUNTIME ADOPTION NOT CLAIMED**  
+Status: **A1/A2/A3/B/C COMPILED ASSETS · CURRENT ELIGIBILITY RECONCILED · C SHARED RUNTIME AUDITED · C HUMAN GATE NOT CLAIMED**
 Parent product: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Current semantic adapter: `static-web/src/lib/xizongSemanticAdapter.mjs`  
@@ -39,17 +39,18 @@ A1 Circulation                         1 SystemProjection + 12 BlockProjection
 A2 Respiratory                         1 SystemProjection + 12 BlockProjection
 A3 Urinary                             1 SystemProjection + 14 BlockProjection
 B  Digestive / Metabolic / Endocrine   1 SystemProjection + 38 BlockProjection
+C  Hematology / Immunity / Infection   1 SystemProjection + 27 BlockProjection
 
-Compiled total                         4 SystemProjection + 76 BlockProjection = 80 assets
+Compiled total                         5 SystemProjection + 103 BlockProjection = 108 assets
 ```
 
-Current accepted Knowledge + Learning makes **C Hematology / Immunity / Infection eligible for Projection**, but C remains deliberately **not compiled** in the manifest until an explicit C Projection compile is built and validated. Eligibility is not a P PASS and is not permission to invent a placeholder asset.
+Current accepted Knowledge + Learning for **C Hematology / Immunity / Infection** has now been compiled into explicit Projection assets. C compilation preserves the accepted sharded Learning owner, explicit/non-contiguous `kp_members`, and Block/canonical-Source-unit contact. Compilation is an asset claim only; runtime/browser adoption remains a downstream audit gate.
 
 Current eligible accounting therefore is:
 
 ```text
 A1 / A2 / A3 / B   eligible + compiled        76 Blocks
-C                   eligible + not compiled    27 Blocks
+C                   eligible + compiled        27 Blocks
 --------------------------------------------------------
 Current eligible Systems                       5
 Current eligible Blocks                       103
@@ -368,7 +369,7 @@ There are now two complementary gates.
 python3 content/xizong/projection/tools/validate_projection.py --self-test --json <report-path>
 ```
 
-It validates the **materialized A1/A2/A3/B asset set** and its exact bindings / view safety. It does not pretend that C has already been compiled.
+It validates the **materialized A1/A2/A3/B/C asset set** and its exact bindings / view safety. C assets are real compiled candidates, while runtime/browser adoption remains separately auditable.
 
 The companion mutation suites run adversarial cases through the real validator using in-memory overlays rather than altering canonical source files.
 
@@ -392,12 +393,12 @@ node static-web/scripts/validate-xizong-projection-current.mjs
 
 This gate consumes the shared Current semantic adapter and checks what the compiled asset validator cannot legitimately claim:
 
-- A1/A2/A3/B remain compiled;
-- C is eligible but intentionally uncompiled;
+- A1/A2/A3/B/C remain compiled;
+- C explicit-membership and Block/canonical-Source-unit semantics remain intact;
 - C's explicit/non-contiguous LG membership survives exactly;
 - B whole-LG Source contact survives;
 - C Block/canonical-unit Source contact is not collapsed into LG-by-LG bouncing;
-- C does not silently appear in compiled manifest slots before real assets exist.
+- C appears in compiled manifest slots only because real System/Block Projection assets now exist and validate against Current owners.
 
 Both gates are required in Current Xizong QA. A green compiled-asset validator cannot make stale eligibility metadata true, and a green Current semantic adapter cannot make absent Projection assets compiled.
 

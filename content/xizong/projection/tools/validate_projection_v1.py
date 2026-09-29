@@ -312,18 +312,48 @@ class Validator:
             require(spec.get('canonical_id') == cid, 'OWNER', f'canonical ID mismatch {sid}')
             require(str(s.get('semantic_authority', '')).startswith('CHAT_APPROVED'), 'OWNER', f'unapproved System authority {sid}')
             self.systems[sid] = {'path': source, 'value': s, 'canonical_id': cid}
-            route = shape(s.get('block_route'), list, f'{sid}.block_route')
-            require(all(isinstance(x, dict) and 'blocks' not in x for x in route), 'OWNER', 'nested route requires explicit adapter, not flattening')
+            learning_sources = [x for x in a.get('sources', []) if x.get('kind') == 'LEARNING_SUPPORT']
+            learning_base = None
+            learning_blocks = {}
+            if learning_sources:
+                learning_path = learning_sources[0]['path']
+                learning_base = self.repo.json(learning_path)
+                if isinstance(learning_base.get('blocks'), dict):
+                    learning_blocks.update(learning_base['blocks'])
+                shard_root = str(PurePosixPath(learning_path).with_suffix(''))
+                for shard_path in self.repo.glob(shard_root, '*.json'):
+                    shard = self.repo.json(shard_path)
+                    if shard.get('system_id') != sid or not isinstance(shard.get('blocks'), dict):
+                        continue
+                    for block_id, block_value in shard['blocks'].items():
+                        require(block_id not in learning_blocks, 'OWNER', f'duplicate sharded Learning Block {block_id}')
+                        learning_blocks[block_id] = block_value
+
+            direct_route = s.get('block_route')
+            if isinstance(direct_route, list) and direct_route:
+                require(all(isinstance(x, dict) and 'blocks' not in x for x in direct_route), 'OWNER', 'nested block_route requires explicit adapter')
+                route = direct_route
+            else:
+                families = shape(s.get('block_families'), list, f'{sid}.block_families')
+                route_ids = []
+                for family in families:
+                    require(isinstance(family, dict) and isinstance(family.get('blocks'), list), 'OWNER', f'{sid}: invalid block family')
+                    route_ids.extend(family['blocks'])
+                unique(route_ids, f'{sid}.family-route')
+                route = [{'id': bid, 'kp': int((learning_blocks.get(bid) or {}).get('kp_count') or 0)} for bid in route_ids]
+
             unique([x.get('id') for x in route], f'{sid}.route')
             directory = str(PurePosixPath(source).parent / 'blocks')
             paths = self.repo.glob(directory, '*.md')
             for row in route:
                 bid = row['id']
-                ordinal = re.search(r'-(?:r|b)(\d+)$', bid)
+                ordinal = re.search(r'-(r|b|h)(\d+)$', bid, re.I)
                 require(ordinal, 'OWNER', f'unsupported stable Block identity {bid}')
-                n = int(ordinal[1])
-                # Exact same Current ordinal join as static-web/src/lib/xizong.mjs.
-                matches = [p for p in paths if (m := re.search(r'(?:^|_)Block(\d+)_', PurePosixPath(p).name, re.I)) and int(m[1]) == n]
+                prefix, n = ordinal[1].lower(), int(ordinal[2])
+                if prefix == 'h':
+                    matches = [p for p in paths if (m := re.search(r'(?:^|_)H0?(\d+)_', PurePosixPath(p).name, re.I)) and int(m[1]) == n]
+                else:
+                    matches = [p for p in paths if (m := re.search(r'(?:^|_)Block(\d+)_', PurePosixPath(p).name, re.I)) and int(m[1]) == n]
                 require(len(matches) == 1, 'OWNER', f'{bid}: canonical file missing/ambiguous')
                 path = matches[0]
                 text = self.repo.text(path)
@@ -331,22 +361,66 @@ class Validator:
                 fm = re.search(r'^block_id:\s*(\S+)\s*$', front, re.M)
                 require(not fm or fm[1] == bid, 'OWNER', f'frontmatter Block ID mismatch {path}')
                 kps = []
+                kp_ids = []
                 for _, level, title in headings(text):
                     m = re.match(r'^KP(\d+)[｜|]\s*(.+)$', title) if 2 <= level <= 4 else None
                     if m:
                         kps.append(int(m[1]))
-                require(type(row.get('kp')) is int and row['kp'] > 0 and len(kps) == row['kp'] and set(kps) == set(range(1, row['kp']+1)), 'OWNER', f'{bid}: KP identity/count/gap mismatch')
-                groups = shape(s.get('logic_index', {}).get(bid), list, f'{bid}.logic_index')
+                expected_kp = int(row.get('kp') or (learning_blocks.get(bid) or {}).get('kp_count') or 0)
+                marker_ids = re.findall(r'<!--\s*kianos:kp\s+id=["\']([^"\']+)["\']\s*-->', text)
+                if marker_ids:
+                    marker_ordinals = []
+                    for marker in marker_ids:
+                        m = re.fullmatch(re.escape(bid) + r'-kp0*(\d+)', marker)
+                        require(m is not None, 'OWNER', f'{bid}: stable KP marker belongs to another identity: {marker}')
+                        marker_ordinals.append(int(m[1]))
+                    require(len(marker_ids) == len(set(marker_ids)), 'OWNER', f'{bid}: duplicate stable KP marker')
+                    if not kps:
+                        kps = marker_ordinals
+                        kp_ids = marker_ids
+                    else:
+                        require(Counter(marker_ordinals) == Counter(kps), 'OWNER', f'{bid}: KP headings/markers disagree')
+                        kp_ids = [f'{bid}-kp{x:02}' for x in kps]
+                else:
+                    kp_ids = [f'{bid}-kp{x:02}' for x in kps]
+                require(expected_kp > 0 and len(kps) == expected_kp and set(kps) == set(range(1, expected_kp+1)), 'OWNER', f'{bid}: KP identity/count/gap mismatch')
+
+                system_groups = s.get('logic_index', {}).get(bid) if isinstance(s.get('logic_index'), dict) else None
+                if isinstance(system_groups, list) and system_groups:
+                    groups = system_groups
+                else:
+                    support = learning_blocks.get(bid) or {}
+                    raw_groups = shape(support.get('logic_groups'), dict, f'{bid}.logic_groups')
+                    order = support.get('learner_order') if isinstance(support.get('learner_order'), list) else list(raw_groups)
+                    require(set(order) == set(raw_groups) and len(order) == len(raw_groups), 'OWNER', f'{bid}: learner order mismatch')
+                    groups = []
+                    for gid in order:
+                        g = raw_groups[gid]
+                        row_group = {'id': gid, 'label': g.get('label')}
+                        if isinstance(g.get('kp_members'), list):
+                            row_group['kp_members'] = list(g['kp_members'])
+                        elif isinstance(g.get('kp'), list):
+                            row_group['kp'] = list(g['kp'])
+                        elif isinstance(g.get('kp_range'), list):
+                            row_group['kp'] = list(g['kp_range'])
+                        groups.append(row_group)
+
                 unique([g.get('id') for g in groups], bid + '.groups')
                 coverage = []
                 for g in groups:
                     require(nonempty(g.get('label')), 'OWNER', f'{bid}: missing group label')
-                    ran = g.get('kp')
-                    require(isinstance(ran, list) and len(ran) == 2 and all(type(x) is int for x in ran) and 1 <= ran[0] <= ran[1] <= row['kp'], 'OWNER', f'{bid}: bad Logic Group range')
-                    coverage.extend(range(ran[0], ran[1]+1))
+                    if isinstance(g.get('kp_members'), list):
+                        members = g['kp_members']
+                        require(members and all(type(x) is int and 1 <= x <= expected_kp for x in members), 'OWNER', f'{bid}: bad explicit Logic Group members')
+                        require(len(members) == len(set(members)), 'OWNER', f'{bid}: duplicate explicit Logic Group member')
+                        coverage.extend(members)
+                    else:
+                        ran = g.get('kp')
+                        require(isinstance(ran, list) and len(ran) == 2 and all(type(x) is int for x in ran) and 1 <= ran[0] <= ran[1] <= expected_kp, 'OWNER', f'{bid}: bad Logic Group range')
+                        coverage.extend(range(ran[0], ran[1]+1))
                 require(Counter(coverage) == Counter(kps), 'OWNER', f'{bid}: Logic Group overlap/gap')
                 require(bid not in self.blocks, 'OWNER', f'duplicate canonical Block {bid}')
-                self.blocks[bid] = {'system_id': sid, 'path': path, 'text': text, 'row': row, 'groups': groups, 'kp_ids': [f'{bid}-kp{x:02}' for x in kps]}
+                self.blocks[bid] = {'system_id': sid, 'path': path, 'text': text, 'row': {**row, 'kp': expected_kp}, 'groups': groups, 'kp_ids': kp_ids}
 
     def owner_ref(self, asset: dict, binding: dict) -> Any:
         typ = binding.get('owner_type')
@@ -534,8 +608,10 @@ class Validator:
             require(view.get('provenance_policy') in {None, 'HIDDEN'}, 'VISIBILITY', 'front provenance must stay hidden')
             if name == 'KP_RECALL_FRONT':
                 require(view.get('kp_content_policy') == 'ID_AND_NEUTRAL_PROMPT_ONLY', 'VISIBILITY', 'explicit neutral KP policy required')
-            if name in {'BLOCK_RECALL_FRONT', 'SYSTEM_RECALL_FRONT'}:
-                require(view.get('object_ids'), 'VISIBILITY', 'Recall front must retain its prompt')
+            if name == 'BLOCK_RECALL_FRONT':
+                require(view.get('object_ids') or view.get('show_logic_group_map'), 'VISIBILITY', 'Block Recall front must retain a neutral prompt or limited Logic Group map')
+            if name == 'SYSTEM_RECALL_FRONT':
+                require(view.get('object_ids'), 'VISIBILITY', 'System Recall front must retain its prompt')
             require(not view.get('source_locator_policy') and not view.get('external_contract_policy'), 'VISIBILITY', 'front cannot expose source answer context')
             require(not view.get('show_logic_group_map') or (name == 'BLOCK_RECALL_FRONT' and view.get('logic_map_policy') == 'LABELS_AND_IDS_ONLY'), 'VISIBILITY', 'front route requires limited labels policy')
             for oid in view.get('object_ids', []) + view.get('block_object_ids', []):
