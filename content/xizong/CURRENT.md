@@ -84,17 +84,24 @@ Current gate:
   - live Fast Lane smoke: B01–B14 all writer=active, shared shell, header=83px, no visible Chat transport, no horizontal overflow, no engineering/provenance copy; first learning enters the accepted shared Source/KP surface with no duplicate KP identity.
   - A3 B5 full real-writer loop PASS: external Source contract stays nonvisual, 20/20 Recall closes 6 LGs, Block Recall and explicit Complete persist correctly.
   - heterogeneous optional Context remains fail-closed: some A3 KP show Source only, some Visual/Attention, and empty optional slots collapse without placeholders.
-- Next integration is now **B only**. B validates the same accepted product across WHOLE_LOGIC_GROUP and global Biochemistry Source Lane modes. Do not expand C/D/E/F until the compiled A1/A2/A3/B reuse pass is closed.
+- **B reuse pass closed on the accepted shared product without a B-local product fork.**
+  - Knowledge validation PASS: 38 Blocks / 600 KP.
+  - 27 Biochemistry Source lifecycle PASS: 22 Source units / 15 canonical Blocks / 191 stable KP, exact source coverage and downstream freshness preserved.
+  - B Runtime/Evidence journey PASS with 93 checks across D LG-Source semantics, M/G global Biochemistry Source Lane, System Recall/Practice and Repair/Return.
+  - live Fast Lane smoke: all 38 Blocks render the accepted shared shell with header=83px, no visible Chat transport, no horizontal overflow and no engineering/provenance copy.
+  - 23 D Blocks correctly use `WHOLE_LOGIC_GROUP`; first learning enters `kp_learn` with group-level Source completion.
+  - 15 M/G Blocks correctly use `CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT`; first learning enters shared `source_contact` without inventing per-Block Source completion.
+- **Compiled shared-product reuse is now closed for A1/A2/A3/B.** One learner product has been proven across 76 compiled Blocks and heterogeneous Source modes; no System-local page/CSS fork is accepted.
 - Human Gate feedback on a later System may reopen only the smallest responsible shared Visual/Product/Runtime owner or that System's semantic Projection; it must not create System-local CSS/product forks.
 
 ### Next
 
-explicit sibling reuse pass
-→ B Digestive / Metabolic / Endocrine
-→ preserve one shared learner product
-→ validate D WHOLE_LOGIC_GROUP mode separately from M/G global Biochemistry Source Lane
-→ repair only Source-mode semantics / Projection / shared consumer wiring if real evidence falsifies the current implementation
-→ stop before C/D/E/F until B closes
+uncompiled-System integration
+→ inspect C/D/E/F readiness against Current Learning / Projection contracts
+→ start with the smallest System already eligible for Projection
+→ compile semantic Projection into the accepted shared learner product
+→ do not redesign the page or duplicate Runtime
+→ preserve UNKNOWN / missing owner data rather than filling placeholders
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority. The active WIP pointer above is only a recoverable engineering cursor; it does not override Current owners.
 
