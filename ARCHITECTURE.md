@@ -13,6 +13,47 @@ Its job is not to describe every file, workflow or implementation detail. Its jo
 
 ---
 
+# 0.5｜CBA — optional product-development lens
+
+`CBA = CREATE → BUILD → AUDIT`.
+
+CBA is a compact way to reason about a meaningful product change:
+
+```text
+CREATE
+→ decide what the capability should actually mean:
+   user outcome / learning or product behavior / important design choice
+
+BUILD
+→ realize that accepted meaning in the existing Content / Visual / Engineering / Runtime owners
+→ prove the changed effect in the real consumer
+
+AUDIT
+→ attack the finished capability against its accepted meaning and applicable Acceptance owner
+→ distinguish a real defect from a test/oracle/history problem
+
+REAL USE
+→ follows afterward and may provide new evidence that reopens only the earliest responsible owner
+```
+
+CBA is **a thinking and coordination concept, not a constraint**.
+
+It does not:
+- require every task to be labelled CREATE / BUILD / AUDIT;
+- require three Chats, three Issues or three handoffs;
+- block a direct bug fix, content edit or UI adjustment;
+- replace native domain gates, Current routing, Acceptance or real learner evidence;
+- grant extra write authority or create a new owner.
+
+The same conversation may move between these views when useful. Outside a useful CBA discussion, take the shortest correct path to the requested effect.
+
+CBA is most valuable when it prevents three common confusions:
+- BUILD silently inventing product meaning that was never decided;
+- AUDIT redesigning the product instead of testing accepted meaning;
+- implementation/build success being mistaken for learner or real-use success.
+
+---
+
 # 1｜Product responsibility flow
 
 KianOS follows one durable product flow:
