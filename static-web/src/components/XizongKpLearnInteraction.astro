@@ -372,15 +372,22 @@
         if (stateNode) stateNode.textContent = learned ? '已学好' : '学习中';
 
         const toggle = actions.querySelector('[data-kp-core-toggle]');
-        if (toggle && !toggle.dataset.bound) {
-          toggle.dataset.bound = 'true';
-          toggle.addEventListener('click', () => {
-            const target = frame.querySelector('[data-learner-kp-core]');
-            if (!(target instanceof HTMLElement)) return;
-            target.hidden = !target.hidden;
-            toggle.textContent = target.hidden ? '显示内容' : '隐藏内容';
-            frame.classList.toggle('core-hidden', target.hidden);
-          });
+        if (toggle instanceof HTMLButtonElement) {
+          const currentTarget = frame.querySelector('[data-learner-kp-core]');
+          toggle.textContent = currentTarget instanceof HTMLElement && currentTarget.hidden ? '显示内容' : '隐藏内容';
+          frame.classList.toggle('core-hidden', Boolean(currentTarget instanceof HTMLElement && currentTarget.hidden));
+
+          if (!toggle.dataset.bound) {
+            toggle.dataset.bound = 'true';
+            toggle.addEventListener('click', () => {
+              const currentFrame = activeLearnFrame();
+              const target = currentFrame?.querySelector('[data-learner-kp-core]');
+              if (!(currentFrame instanceof HTMLElement) || !(target instanceof HTMLElement)) return;
+              target.hidden = !target.hidden;
+              toggle.textContent = target.hidden ? '显示内容' : '隐藏内容';
+              currentFrame.classList.toggle('core-hidden', target.hidden);
+            });
+          }
         }
 
         syncLogicMap();

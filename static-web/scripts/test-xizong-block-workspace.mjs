@@ -332,8 +332,13 @@ try {
 
   await page.keyboard.press('ArrowRight');
   await page.waitForTimeout(80);
-  const movedKpId = await root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]').getAttribute('data-kp-id');
+  const movedCard = root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]');
+  const movedKpId = await movedCard.getAttribute('data-kp-id');
   check(Boolean(movedKpId && movedKpId !== originalKpId), 'arrow_right_switches_kp', `${originalKpId}->${movedKpId}`);
+  await page.keyboard.press('Space');
+  check(await movedCard.locator('[data-learner-kp-core]').isHidden(), 'space_hides_core_after_kp_switch');
+  await page.keyboard.press('Space');
+  check(await movedCard.locator('[data-learner-kp-core]').isVisible(), 'space_restores_core_after_kp_switch');
   await page.keyboard.press('ArrowLeft');
   await page.waitForTimeout(80);
   const returnedKpId = await root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]').getAttribute('data-kp-id');

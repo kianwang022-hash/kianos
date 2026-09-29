@@ -92,6 +92,7 @@ Current gate:
   - 23 D Blocks correctly use `WHOLE_LOGIC_GROUP`; first learning enters `kp_learn` with group-level Source completion.
   - 15 M/G Blocks correctly use `CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT`; first learning enters shared `source_contact` without inventing per-Block Source completion.
 - **Compiled shared-product reuse is now closed for A1/A2/A3/B.** One learner product has been proven across 76 compiled Blocks and heterogeneous Source modes; no System-local page/CSS fork is accepted.
+- Human Gate regression closed after reuse: the learner-facing Space Core toggle now resolves the **current active KP frame at click time** instead of capturing the first rendered KP. Verified on KP01→KP03 for B-D `kp_learn`, B-M global Source Lane `source_contact`, and A1 `source_contact`; the shared browser regression now explicitly checks Space after a KP switch.
 - Human Gate feedback on a later System may reopen only the smallest responsible shared Visual/Product/Runtime owner or that System's semantic Projection; it must not create System-local CSS/product forks.
 
 ### Next
