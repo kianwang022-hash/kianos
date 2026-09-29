@@ -387,6 +387,10 @@ try {
   // 3. One-click Daily Learning Packet must carry all three subject-owned evidence payloads.
   await openManualDailyPacketRecovery(page);
   await page.locator('[data-exam-why-dialog] [data-exam-copy-daily]').click();
+  // Home now lazy-loads the heavy Xizong derived projection so first paint stays
+  // fast. In dev/browser proof the first projection build is asynchronous;
+  // wait for the real clipboard effect instead of assuming a 100ms sync path.
+  await page.waitForFunction(() => window.__kianosCopies.length === 1, null, { timeout: 45000 });
   await page.waitForTimeout(100);
   const copies = await page.evaluate(() => window.__kianosCopies.slice());
   check(copies.length === 1, 'Home copies exactly one Daily Learning Packet');
@@ -549,6 +553,7 @@ try {
 
   await openManualDailyPacketRecovery(restoredPage);
   await restoredPage.locator('[data-exam-why-dialog] [data-exam-copy-daily]').click();
+  await restoredPage.waitForFunction(() => window.__kianosCopies.length >= 1, null, { timeout: 45000 });
   await restoredPage.waitForTimeout(100);
   const restoredCopy = await restoredPage.evaluate(() => window.__kianosCopies.at(-1));
   const restoredDaily = parseDailyCopy(restoredCopy);
