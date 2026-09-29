@@ -1,6 +1,6 @@
 # Politics Forecast Model
 
-Status: **ACTIVE SUBJECT FORECAST OWNER**
+Status: **CURRENT SUBJECT FORECAST OWNER**
 
 Role: estimate Politics workload, uncertainty and Gate risk for Chat. It does **not** choose today's task and does not replace the cross-subject Orchestrator.
 
