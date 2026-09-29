@@ -230,9 +230,9 @@ Do not treat "large text" as merely a CSS typography problem. The question is **
 
 # Design Stage Goal｜Cognitive Projection Layer
 
-Status: **ACTIVE DESIGN TARGET — no mass implementation yet**
+Status: **CLOSED / ACCEPTED — current first-round cognitive projection is implemented; no active mass-rollout task**
 
-The current design stage is not to hand-layout every Politics chapter and not to redesign Politics Learning Logic. The goal is to freeze a **data-driven Cognitive Projection Layer** that can turn accepted Current Content into lower-friction learner-facing cognitive structures while preserving the existing Runtime / Evidence / Repair / Return chain.
+This section preserves the accepted design basis that froze the **data-driven Cognitive Projection Layer** used by Current Politics surfaces. It is not a current implementation queue. Current acceptance lives in `content/politics/ACCEPTANCE.md`, with exact subject/product owners carrying the accepted learner-visible behavior.
 
 ## Stage objective
 
