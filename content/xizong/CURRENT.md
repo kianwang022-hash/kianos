@@ -78,17 +78,23 @@ Current gate:
   - A2 functional first journey PASS with 38 checks.
   - live Fast Lane smoke: R01–R12 all writer=active, shared shell, header=83px, no visible Chat transport, no horizontal overflow; first learning enters the accepted shared Source/KP surface with no duplicate KP identity.
   - two old A2 audit assumptions were corrected to the accepted A1 product: rich Context remains bounded instead of taking 35–50% width, and KP Source/Outline identity lives in the center header rather than inside the Core card.
-- Next integration order is now **A3 → B**. A3 validates ordinary shared reuse again with different medical geometry; B then validates the same product with its special Source modes. Do not expand C/D/E/F until this compiled A1/A2/A3/B reuse pass is closed.
+- **A3 reuse pass closed on the accepted shared product without an A3-local product fork.**
+  - Runtime acceptance PASS: 14 Blocks / 257 KP / 75 LG / 244 Questions.
+  - Evidence acceptance PASS; Source owner / Current Question Truth / boundary-provenance / Source-scope acceptance PASS.
+  - live Fast Lane smoke: B01–B14 all writer=active, shared shell, header=83px, no visible Chat transport, no horizontal overflow, no engineering/provenance copy; first learning enters the accepted shared Source/KP surface with no duplicate KP identity.
+  - A3 B5 full real-writer loop PASS: external Source contract stays nonvisual, 20/20 Recall closes 6 LGs, Block Recall and explicit Complete persist correctly.
+  - heterogeneous optional Context remains fail-closed: some A3 KP show Source only, some Visual/Attention, and empty optional slots collapse without placeholders.
+- Next integration is now **B only**. B validates the same accepted product across WHOLE_LOGIC_GROUP and global Biochemistry Source Lane modes. Do not expand C/D/E/F until the compiled A1/A2/A3/B reuse pass is closed.
 - Human Gate feedback on a later System may reopen only the smallest responsible shared Visual/Product/Runtime owner or that System's semantic Projection; it must not create System-local CSS/product forks.
 
 ### Next
 
 explicit sibling reuse pass
-→ A3 Urinary
-→ keep the accepted shared Block/KP product unchanged unless real consumer evidence falsifies it
-→ repair only A3 semantic Projection / timing / missing consumer wiring when that is the responsible owner
-→ then B with its WHOLE_LOGIC_GROUP + continuous Biochemistry Source Lane modes
-→ stop before C/D/E/F until the compiled A1/A2/A3/B shared-product pass is closed
+→ B Digestive / Metabolic / Endocrine
+→ preserve one shared learner product
+→ validate D WHOLE_LOGIC_GROUP mode separately from M/G global Biochemistry Source Lane
+→ repair only Source-mode semantics / Projection / shared consumer wiring if real evidence falsifies the current implementation
+→ stop before C/D/E/F until B closes
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority. The active WIP pointer above is only a recoverable engineering cursor; it does not override Current owners.
 
