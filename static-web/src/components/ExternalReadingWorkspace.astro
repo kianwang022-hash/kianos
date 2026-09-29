@@ -199,6 +199,12 @@ const base=import.meta.env.BASE_URL;
         const policy=catalog.visibility_policy?.[group.source_family];
         const allowed=Array.isArray(policy?.default_visible_collections)?policy.default_visible_collections:null;
         return !allowed||allowed.includes(group.collection);
+      }).sort((a,b)=>{
+        if(a.source_family!==b.source_family)return 0;
+        const preferred=catalog.visibility_policy?.[a.source_family]?.default_visible_collections;
+        if(!Array.isArray(preferred))return 0;
+        const ai=preferred.indexOf(a.collection),bi=preferred.indexOf(b.collection);
+        return (ai<0?999:ai)-(bi<0?999:bi);
       });
     };
     const renderFamilyTabs=()=>{
@@ -514,11 +520,9 @@ const base=import.meta.env.BASE_URL;
 
     try{
       catalog=await fetchJson(endpoint('catalog'));
-      const t=catalog.counts?.toefl||{},i=catalog.counts?.ielts||{},inc=catalog.counts?.incremental||{};
-      const visibleTpo=visibleCollections().filter(group=>group.source_family==='TOEFL_TPO');
-      const visibleTpoPassages=visibleTpo.flatMap(group=>group.passages||[]);
-      const incrementalText=(inc.objects||0)>0?('    |    NEW '+(inc.objects||0)+' source(s) · '+(inc.questions||0)+' questions'):'';
-      setText(counts,'Legacy TPO '+visibleTpo.length+'/10 · '+visibleTpoPassages.length+' passages    |    IELTS legacy '+(i.passages||0)+' passages'+incrementalText);
+      const visible=visibleCollections();
+      const familyCount=family=>visible.filter(group=>group.source_family===family).flatMap(group=>group.passages||[]).length;
+      setText(counts,'TOEFL Current '+familyCount('TOEFL_CURRENT')+'    |    IELTS '+familyCount('IELTS_ACADEMIC')+'    |    CET-6 '+familyCount('CET6')+'    |    Legacy TPO '+familyCount('TOEFL_TPO'));
       setText(status,'External Content ready · 私有 Source / 公共 identity');
       renderFamilyTabs();
       renderCatalog();

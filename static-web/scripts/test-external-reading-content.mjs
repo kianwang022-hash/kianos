@@ -308,6 +308,7 @@ try{
   const catalog=externalReadingCatalog(state);
   assert.equal(catalog.status,'ready');
   assert.deepEqual(catalog.visibility_policy?.TOEFL_TPO?.default_visible_collections,['TPO57','TPO58']);
+  assert.deepEqual(catalog.visibility_policy?.IELTS_ACADEMIC?.default_visible_collections,['IELTS Official Academic Sample','Cambridge IELTS 17']);
   const rows=catalog.collections.flatMap(group=>group.passages);
   assert.equal(rows.length,69);
   assert(rows.some(row=>row.object_id==='tpo56-p1'));
