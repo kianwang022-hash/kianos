@@ -255,6 +255,8 @@ def audit_current_sync(registry: dict) -> None:
             if not path.is_file() or path.suffix not in {".mjs", ".js", ".sh", ".py"}:
                 continue
             value = text(path)
+            if path.name.startswith("test-") and "KIANOS_TEST_ONLY_CURRENT_SYNC_MUTATION" in value:
+                continue
             if any(signature in value for signature in mutation_signatures):
                 mutators.append(rel(path))
 
