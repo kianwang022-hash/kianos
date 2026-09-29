@@ -26,10 +26,16 @@ assert(JSON.stringify(compiledIds) === JSON.stringify(['A1', 'A2', 'A3', 'B', 'C
 
 const cCompiled = compiled.find((row) => row?.canonical_id === 'C');
 const dCompiled = compiled.find((row) => row?.canonical_id === 'D');
+const eCompiled = compiled.find((row) => row?.canonical_id === 'E');
+const fCompiled = compiled.find((row) => row?.canonical_id === 'F');
 assert(cCompiled?.status === 'ELIGIBLE_COMPILED_P_ACCEPTED', `c-status:${cCompiled?.status}`);
 assert(dCompiled?.system_id === 'neuro-sensory-motor-orthopedics', 'd-system-id');
 assert(dCompiled?.status === 'ELIGIBLE_COMPILED_P_ACCEPTED', `d-status:${dCompiled?.status}`);
 assert(dCompiled?.block_count === 27, `d-block-count:${dCompiled?.block_count}`);
+assert(eCompiled?.status === 'ELIGIBLE_COMPILED', `e-status:${eCompiled?.status}`);
+assert(eCompiled?.block_count === 20, `e-block-count:${eCompiled?.block_count}`);
+assert(fCompiled?.status === 'ELIGIBLE_COMPILED', `f-status:${fCompiled?.status}`);
+assert(fCompiled?.block_count === 9, `f-block-count:${fCompiled?.block_count}`);
 
 const eligibleNotCompiled = Array.isArray(accounting.eligible_not_compiled) ? accounting.eligible_not_compiled : [];
 assert(eligibleNotCompiled.length === 0, `eligible-not-compiled:${eligibleNotCompiled.length}`);
