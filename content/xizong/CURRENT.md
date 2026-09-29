@@ -70,17 +70,24 @@ Current gate:
 - **A1 Human Gate accepted by Kian on 2026-09-29** as the shared Block/KP learner-product reference.
 - The accepted reusable rule is one shared learner product / renderer; later Systems feed their own Content / Learning / Visual / Projection and do not fork a separate page.
 - A1 remains the visual/interaction calibration reference, not a medical/content template and not a claim that every System has identical geometry or Source mode.
-- Next integration order: **A2 → A3 → B**. A2/A3 validate ordinary shared reuse first; B validates the same product with its special continuous Source Lane. Do not expand C/D/E/F until this compiled A1/A2/A3/B reuse pass is closed.
+- **A2 reuse pass closed on the accepted shared product without an A2-local product fork.**
+  - Runtime acceptance PASS: 12 Blocks / 236 KP / 62 LG / 359 Questions.
+  - Evidence + W/U Repair/Return acceptance PASS.
+  - KP Precision post-reveal PASS.
+  - Progressive Source Visual PASS; R3 Source Visual PASS; Extension Tables PASS.
+  - A2 functional first journey PASS with 38 checks.
+  - live Fast Lane smoke: R01–R12 all writer=active, shared shell, header=83px, no visible Chat transport, no horizontal overflow; first learning enters the accepted shared Source/KP surface with no duplicate KP identity.
+  - two old A2 audit assumptions were corrected to the accepted A1 product: rich Context remains bounded instead of taking 35–50% width, and KP Source/Outline identity lives in the center header rather than inside the Core card.
+- Next integration order is now **A3 → B**. A3 validates ordinary shared reuse again with different medical geometry; B then validates the same product with its special Source modes. Do not expand C/D/E/F until this compiled A1/A2/A3/B reuse pass is closed.
 - Human Gate feedback on a later System may reopen only the smallest responsible shared Visual/Product/Runtime owner or that System's semantic Projection; it must not create System-local CSS/product forks.
 
 ### Next
 
 explicit sibling reuse pass
-→ A2 Respiratory first
+→ A3 Urinary
 → keep the accepted shared Block/KP product unchanged unless real consumer evidence falsifies it
-→ repair only A2 semantic Projection / timing / missing consumer wiring when that is the responsible owner
-→ then A3
-→ then B with its continuous Source Lane
+→ repair only A3 semantic Projection / timing / missing consumer wiring when that is the responsible owner
+→ then B with its WHOLE_LOGIC_GROUP + continuous Biochemistry Source Lane modes
 → stop before C/D/E/F until the compiled A1/A2/A3/B shared-product pass is closed
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority. The active WIP pointer above is only a recoverable engineering cursor; it does not override Current owners.

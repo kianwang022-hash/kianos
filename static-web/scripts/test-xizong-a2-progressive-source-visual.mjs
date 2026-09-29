@@ -79,7 +79,7 @@ try {
   });
   check(geometry.shell, 'one_screen_workspace_shell_mounted');
   check(geometry.leftWidth >= 270 && geometry.leftWidth <= 310, 'logic_map_stays_narrow', String(geometry.leftWidth));
-  check(geometry.mainWidth > geometry.leftWidth * 2.5, 'central_learning_surface_is_dominant', JSON.stringify(geometry));
+  check(geometry.mainWidth > geometry.leftWidth + geometry.rightWidth && geometry.rightWidth <= 280, 'central_learning_surface_is_dominant', JSON.stringify(geometry));
   check(geometry.rootBottom <= geometry.viewportHeight + 2, 'block_workspace_fits_viewport', `${geometry.rootBottom}/${geometry.viewportHeight}`);
   check(geometry.pageScrollHeight <= geometry.pageClientHeight + 4, 'block_route_does_not_become_endless_page', `${geometry.pageScrollHeight}/${geometry.pageClientHeight}`);
   check(geometry.frameworkCount === 1 && geometry.frameworkOpen === true, 'block_framework_is_visible_by_default');
@@ -94,8 +94,11 @@ try {
   const companion = root.locator('[data-learner-kp-companion="source_contact"]');
   await companion.waitFor({ state: 'visible' });
   check(await companion.locator('[data-learner-kp-core]').count() === 1, 'source_contact_hosts_full_kp_learn_core');
-  const companionLocatorText = (await companion.locator('.xv6KpLearnLocators').textContent()) || '';
-  check(companionLocatorText.includes(firstSourceLocator), 'kp_learn_companion_preserves_source_locator', companionLocatorText);
+  const activeKpHeader = root.locator('[data-study-active-kp]');
+  await activeKpHeader.waitFor({ state: 'visible' });
+  const activeHeaderText = (await activeKpHeader.textContent()) || '';
+  check(activeHeaderText.includes(firstSourceLocator), 'kp_learn_center_header_preserves_source_locator', activeHeaderText);
+  check(await companion.locator('.xv6KpLearnCompanionHeader').count() === 0, 'kp_learn_identity_not_duplicated_inside_core');
   check(await root.locator('[data-study-stage="source_contact"] .xv6LectureFirst').isHidden(), 'blank_source_handoff_body_is_retired');
   check(await visualRoot.count() === 1 && await visualRoot.isVisible(), 'reviewed_visual_available_during_kp_learn_source_contact');
   check(await visualRoot.locator('xpath=ancestor::*[@data-learner-object-slot="kp_learn_aux"]').count() === 1,
@@ -131,8 +134,7 @@ try {
     const node = document.querySelector('[data-xizong-v6-block]');
     const main = node?.querySelector('.portedStudyMain')?.getBoundingClientRect().width || 0;
     const right = node?.querySelector('.portedStudyChain')?.getBoundingClientRect().width || 0;
-    const ratio = right / Math.max(1, main + right);
-    return ratio >= 0.35 && ratio <= 0.50;
+    return right >= 270 && right <= 285 && main > right * 2;
   });
 
   const expandedGeometry = await root.evaluate((node) => {
@@ -141,7 +143,7 @@ try {
     return { main, right, ratio: right / Math.max(1, main + right), auxWeight: node.getAttribute('data-aux-weight') || '' };
   });
   check(expandedGeometry.auxWeight === 'rich', 'rich_semantic_asset_controls_auxiliary_width');
-  check(expandedGeometry.ratio >= 0.35 && expandedGeometry.ratio <= 0.50, 'visual_auxiliary_expands_to_content_driven_share', JSON.stringify(expandedGeometry));
+  check(expandedGeometry.right >= 270 && expandedGeometry.right <= 285 && expandedGeometry.main > expandedGeometry.right * 2, 'visual_auxiliary_uses_bounded_rich_share_without_stealing_primary_stage', JSON.stringify(expandedGeometry));
   const auxOverflow = await page.locator('[data-xizong-aux-surface] .xv6LearnerAuxBody').evaluate((node) => getComputedStyle(node).overflowY);
   check(['auto', 'scroll'].includes(auxOverflow), 'visual_auxiliary_has_local_scroll_path', auxOverflow);
 
