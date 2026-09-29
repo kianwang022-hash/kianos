@@ -1,6 +1,6 @@
 # Politics Causal Repair / Discrimination Policy
 
-Status: **FREEZE-CANDIDATE SYSTEM POLICY**
+Status: **CURRENT SYSTEM POLICY**
 
 Role:
 
