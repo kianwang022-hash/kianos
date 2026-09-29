@@ -1,6 +1,6 @@
 # Xizong Cognitive Projection Contract
 
-Status: **A1/A2/A3/B/C/D/E/F COMPILED ASSETS · CURRENT ELIGIBILITY RECONCILED · C/D TESTED P/R/E ACCEPTED · E/F COMPILED CANDIDATES P/R/E UNTESTED**
+Status: **A1/A2/A3/B/C/D/E/F COMPILED ASSETS · CURRENT ELIGIBILITY RECONCILED · C/D/E/F TESTED P/R/E ACCEPTED ON SHARED PRODUCT**
 Parent product: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Current semantic adapter: `static-web/src/lib/xizongSemanticAdapter.mjs`  
@@ -49,7 +49,7 @@ Compiled total                         8 SystemProjection + 159 BlockProjection 
 
 C is compiled and tested on the shared product with its accepted sharded Learning owner, explicit/non-contiguous `kp_members`, and Block/canonical-Source-unit contact. D is also compiled and tested on the same product; its accepted top-level `logic_groups + system_route + Content block_realization` shape is normalized without rewriting Learning and preserves `WHOLE_BLOCK_SOURCE`, `NATURAL_SOURCE_UNITS`, `INTEGRATION_PRIMARY`, plus hard-readiness edges.
 
-E and F use the same accepted top-level owner shape and now have materialized Projection candidates. Their existence proves compilation/owner resolution only; E/F P/Runtime/Evidence acceptance is still untested until targeted shared-product audit closes it.
+E and F use the same accepted top-level owner shape and now have materialized Projection assets plus executed shared-product P/R/E acceptance. E/F keep their distinct Source-unit, Visual-gap and integration boundaries without a System-local product fork.
 
 Current eligible accounting therefore is:
 
@@ -382,7 +382,7 @@ There are now two complementary gates.
 python3 content/xizong/projection/tools/validate_projection.py --self-test --json <report-path>
 ```
 
-It validates the **materialized A1/A2/A3/B/C/D/E/F asset set** and its exact bindings / view safety. C/D have separate executed shared-runtime acceptance evidence; E/F remain compiled candidates until their targeted runtime audit is accepted.
+It validates the **materialized A1/A2/A3/B/C/D/E/F asset set** and its exact bindings / view safety. C/D/E/F each have executed shared-runtime acceptance evidence; Human Gate and learner U remain separate claims.
 
 The companion mutation suites run adversarial cases through the real validator using in-memory overlays rather than altering canonical source files.
 
@@ -437,4 +437,4 @@ The Current reconciliation preserves that asset schema family while adding a hig
 
 > **Compiled asset topology and Current accepted learning topology are checked separately and must agree where they overlap.**
 
-No canonical medical text, stable medical identity, learner order, Source-contact decision or question evidence is rewritten. C/D are compiled and tested on the shared product; E/F are compiled candidates on that same path. None has a System-local product fork. Producers and future consumers must honor these declared boundaries; ignoring them is not compatible adoption.
+No canonical medical text, stable medical identity, learner order, Source-contact decision or question evidence is rewritten. C/D/E/F are compiled and tested on the same shared product. None has a System-local product fork. Producers and future consumers must honor these declared boundaries; ignoring them is not compatible adoption.

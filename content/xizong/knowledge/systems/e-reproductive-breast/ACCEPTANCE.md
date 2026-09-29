@@ -17,10 +17,16 @@ This file owns E-scoped readiness truth only. It does not own medical Core, lear
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; one bounded System repair separated local invasion from metastatic competence / spread |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent anti-anchored audit; E10 visual closure repaired at the smallest L owner, then re-audited |
 | Content Realization / Optimization | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent Phase 4D closure; E8/E10 missed generic fixed-flow wrappers repaired at the smallest Content/wrapper owner; 67/67 release and Content closure re-audited |
-| P — Projection | **UNTESTED / COMPILED_CANDIDATE** | materialized candidate exists on the shared pipeline; targeted P/Runtime audit has not yet been accepted |
-| R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
-| E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
+| P — Projection | **PASS** | 1 SystemProjection + 20 BlockProjection compiled from accepted System/Learning/Content owners on the shared product; whole-block / natural-Source-unit semantics and E-specific release order preserved |
+| R — Runtime | **PASS** | clean static Candidate + combined E/F browser journey passed E whole-block, contributes-only SR1, E12 non-default release order, E10 visual fail-closed, shared writer/chrome and cross-System state isolation |
+| E — Evidence | **PASS** | Source-unit evidence, visual Front/Reveal protection, E10 visual-gap closure gate and block-completion fail-closed behavior passed without E-local Runtime/state store |
 | U — Learner Use | **NO_CLAIM** | real Kian use only |
+
+Current downstream conclusion:
+
+> **E tested P/R/E shared-product integration is accepted. No E-local page, CSS, Runtime or learner-state store exists. Human Gate and learner U are not claimed.**
+
+Executed engineering evidence includes the clean 1006-page static Candidate, combined E/F browser journey, shared D/C sibling replay, shared Block Workspace regression, learner-object/source-visual/representation validators and Projection reconciliation. E10 remains intentionally fail-closed where original visual evidence is genuinely missing; that is accepted Source/Learning truth, not a Runtime defect.
 
 ---
 

@@ -19,7 +19,7 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 - Acceptance/readiness questions route to `ACCEPTANCE.md` or the exact System Acceptance owner.
 - Real learner U remains private real-use truth and is never inferred from engineering proof.
 
-## Active engineering continuation — shared learner product / D closed; E/F compiled candidates
+## Active engineering continuation — shared learner product / A1–F integration closed
 
 This is a temporary engineering cursor, not medical/Learning authority and not learner progress.
 
@@ -31,17 +31,17 @@ preserve one accepted shared learner product
 → A2 / A3 / B reuse stays closed
 → C tested P/R/E shared-product integration stays closed
 → D tested P/R/E shared-product integration is now closed on the same product
-→ E / F Projection assets are compiled candidates on the same shared pipeline; P/R/E acceptance is not yet claimed
-→ next engineering work is targeted E/F shared-runtime audit, not another website/template build
+→ E / F tested P/R/E shared-product integration is now closed on the same product
+→ next engineering work is the whole-subject realistic-use audit, not another System template build
 ```
 
-Do **not** create System-local pages/CSS/Runtime. D/E/F now consume the same shared ingest / Projection / V6 path; compiled candidate existence must not be mistaken for P/R/E acceptance.
+Do **not** create System-local pages/CSS/Runtime. D/E/F consume the same shared ingest / Projection / V6 path; all tested P/R/E integration truth remains with the exact System Acceptance owners.
 
 Accepted meaning remains owned by the existing Xizong Rule / Learning / Product / Visual owners. Website work must consume those owners; AUDIT may repair confirmed implementation defects but must not silently redesign accepted learning meaning.
 
 Current implementation state:
 - D/E/F accepted top-level Learning + Content owner shapes are normalized by the shared semantic adapter; no System-local ingest fork exists.
-- D/E/F Projection assets are materialized; D has passed targeted static-Candidate Runtime/Evidence audit, while E/F remain compiled candidates pending their own targeted audit.
+- D/E/F Projection assets are materialized and all three have passed targeted static-Candidate Runtime/Evidence audits on the same shared learner product.
 - Candidate proof should use a clean static build/server; dev/HMR process health is not acceptance evidence.
 - CSS rule remains: edit the effective shared owner; do not stack corrective CSS or fork per-System presentation.
 
@@ -111,8 +111,12 @@ Current gate:
   - D targeted static-Candidate browser journey PASS with 48 checks: N1 whole-block, N4 two natural Source units with no LG bounce, N11 integration-primary with no fabricated Lecture, O3 hard-readiness + visual Front/Reveal timing, writer/header/no-overflow/no-Chat.
   - hard readiness is enforced from accepted owner truth: N1+N5+N8 → N11; N11 → O3/O4/O5.
   - C sibling journey PASS with 34 checks and shared Block Workspace PASS after the D shared-runtime changes.
-- **E/F are compiled candidates on the same shared product, not accepted P/R/E yet.**
+- **E/F tested P/R/E shared-product integration is now closed without E/F-local product forks.**
   - E: 20 Blocks / 212 KP / 67 LG; F: 9 Blocks / 121 KP / 40 LG.
+  - final combined E/F static-Candidate journey PASS: **164 checks** in one browser/session, including cross-System state isolation.
+  - E: whole-block, contributes-only SR1, E12 non-default Source/LG release order, E10 visual-gap fail-closed.
+  - F: whole-block, F1/F4 natural Source units, F8 visual-gap closure, F9 integration-direct + targeted Source returns.
+  - D sibling journey PASS 48; C sibling journey PASS 34; shared Block Workspace PASS after the E/F shared-runtime repair.
   - no E/F-local page, CSS, Runtime or learner-state store was created.
 - Current compiled Projection coverage: **8 Systems / 159 Blocks / 167 assets / 2517 KP identities**.
 - clean static build PASS: **1006 pages**.
@@ -121,12 +125,12 @@ Current gate:
 
 ### Next
 
-shared-product continuation
-→ D tested P/R/E integration is closed; Human Gate / learner U remain unclaimed
-→ E and F already have compiled Projection candidates; do not recompile/rebuild a separate product
-→ run the smallest targeted static-Candidate audit for E, then F, focusing on their accepted Source-unit / Visual / integration differences
-→ if a real defect appears, repair the smallest shared owner or exact System semantic mapping
-→ otherwise update that System Acceptance truth and continue
+whole-subject realistic-use audit
+→ A1 remains the accepted Human-Gate visual/interaction reference; A2/A3/B/C/D/E/F tested integration is closed on the same product
+→ simulate a realistic Kian learner state across the whole Xizong route: resume, weak Recall, Memory/Repair/Return, Source revision, visual gaps, prerequisite edges and cross-System state isolation
+→ use a clean static Candidate and real active-writer conditions; do not treat dev/HMR health as learner-product evidence
+→ if a defect appears, repair the smallest shared owner or exact System semantic mapping
+→ Human Gate for later Systems and real learner U remain separate; do not infer either from engineering proof
 → do not redesign the page, duplicate Runtime, infer Source segments, or fill missing owner data with placeholders
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority. The Current implementation-state summary above is routing context only; exact scoped owners remain authoritative.

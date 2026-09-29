@@ -32,9 +32,9 @@ assert(cCompiled?.status === 'ELIGIBLE_COMPILED_P_ACCEPTED', `c-status:${cCompil
 assert(dCompiled?.system_id === 'neuro-sensory-motor-orthopedics', 'd-system-id');
 assert(dCompiled?.status === 'ELIGIBLE_COMPILED_P_ACCEPTED', `d-status:${dCompiled?.status}`);
 assert(dCompiled?.block_count === 27, `d-block-count:${dCompiled?.block_count}`);
-assert(eCompiled?.status === 'ELIGIBLE_COMPILED', `e-status:${eCompiled?.status}`);
+assert(eCompiled?.status === 'ELIGIBLE_COMPILED_P_ACCEPTED', `e-status:${eCompiled?.status}`);
 assert(eCompiled?.block_count === 20, `e-block-count:${eCompiled?.block_count}`);
-assert(fCompiled?.status === 'ELIGIBLE_COMPILED', `f-status:${fCompiled?.status}`);
+assert(fCompiled?.status === 'ELIGIBLE_COMPILED_P_ACCEPTED', `f-status:${fCompiled?.status}`);
 assert(fCompiled?.block_count === 9, `f-block-count:${fCompiled?.block_count}`);
 
 const eligibleNotCompiled = Array.isArray(accounting.eligible_not_compiled) ? accounting.eligible_not_compiled : [];
@@ -82,4 +82,4 @@ assert(manifestSystems['neuro-sensory-motor-orthopedics']?.block_count === 27, '
 assert(manifestSystems['reproductive-breast']?.block_count === 20, 'e-compiled-manifest-entry');
 assert(manifestSystems['remaining-clinical']?.block_count === 9, 'f-compiled-manifest-entry');
 
-console.log('Xizong Projection Current reconciliation PASS: A1/A2/A3/B/C/D/E/F compiled; shared D/E/F owner normalization active.');
+console.log('Xizong Projection Current reconciliation PASS: A1/A2/A3/B/C/D/E/F compiled; C/D/E/F tested P/R/E accepted on shared product; shared D/E/F owner normalization active.');

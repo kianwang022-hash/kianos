@@ -17,10 +17,16 @@ This file owns F-scoped readiness truth only. It does not own medical Core, lear
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; bounded repair split acute disturbance-control from planned/ongoing intervention-safety while preserving identity/source/owner boundaries |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent L audit; 9 Blocks / 121 KP → 40 LG; 3 whole + 5 natural + 1 integration; 0 hard edges; 2 non-gating PSRs |
 | Content Realization / Optimization | **PASS_AFTER_BOUNDED_REPAIR / CLOSED** | fresh Phase 5D whole-F audit; 10 residual Recall-front surfaces repaired across 8 LGs; identity/release/wrapper/visual/Page-disappearance/no-duplicate/boundary attacks PASS |
-| P — Projection | **UNTESTED / COMPILED_CANDIDATE** | materialized candidate exists on the shared pipeline; targeted P/Runtime audit has not yet been accepted |
-| R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
-| E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
+| P — Projection | **PASS** | 1 SystemProjection + 9 BlockProjection compiled from accepted System/Learning/Content owners on the shared product; whole-block / natural-Source-unit / integration-primary boundaries preserved |
+| R — Runtime | **PASS** | clean static Candidate + combined E/F browser journey passed F whole-block, F1/F4 natural units, F8 visual-gap closure, F9 direct-integration + targeted Source returns, shared writer/chrome and cross-System isolation |
+| E — Evidence | **PASS** | Source debt/conflict metadata, targeted-return evidence, real-vs-missing Visual protection, visual-gap closure gate and old-state fail-closed reconciliation passed without F-local Runtime/state store |
 | U — Learner Use | **NO_CLAIM** | real Kian use only |
+
+Current downstream conclusion:
+
+> **F tested P/R/E shared-product integration is accepted. No F-local page, CSS, Runtime or learner-state store exists. Human Gate and learner U are not claimed.**
+
+Executed engineering evidence includes the clean 1006-page static Candidate and the final combined E/F journey (**164 checks PASS**). F9 correctly releases LG01 by integration, then requires F9-SU1 for LG02 and F9-SU2 for LG03/LG04; F8's three visual-gap LGs cannot be promoted to Block Recall from prose-only ratings; reviewed Visual assets appear only when actually owned. D/C sibling journeys and the shared Block Workspace also remained green.
 
 ---
 

@@ -7,7 +7,7 @@ This file does not own medical Core, Learning semantics, Acceptance Truth, sourc
 
 ## Work Cursor
 
-**Current local construction frontier:** Projection assets are compiled candidates on the shared pipeline; targeted Runtime/Evidence audit is next if F is explicitly entered.
+**Current local construction frontier:** tested P/R/E shared-product integration is closed; Human Gate / learner U remain unclaimed.
 **Acceptance Truth:** `content/xizong/knowledge/systems/f-remaining-clinical/ACCEPTANCE.md`.
 **Blocker:** none at the accepted upstream boundary.
 
@@ -23,4 +23,4 @@ Current identity, Source gaps, Knowledge/Learning/Content closure and question-s
 
 ## Stop / reopen
 
-Compiled candidate existence is not P/R/E acceptance. Reopen for targeted shared-runtime audit, a true upstream revision or a concrete defect; do not create F-local UI/Runtime.
+Do not reopen F for routine template work. Reopen only for a real F/shared-product defect, an authoritative upstream revision, or an explicit Human Gate / learner-use task.

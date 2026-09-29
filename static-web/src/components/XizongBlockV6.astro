@@ -506,16 +506,26 @@ window.__kianosLearnerWriterReady.then(() => {
     if (sourceRevisionMigrated && !save()) return;
     const recordSourceContact = (segmentId, ids, cumulative = false, extra = {}) => {
       const history = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
-      if (history.some((entry) => entry.segment_id === segmentId && String(entry?.source_hash || '') === currentSourceHash)) return;
-      state.sourceContactEvidence = [...history, {
+      const existingIndex = history.findIndex((entry) => entry.segment_id === segmentId && String(entry?.source_hash || '') === currentSourceHash);
+      const existing = existingIndex >= 0 ? history[existingIndex] : null;
+      const visualReviewed = [...new Set([
+        ...(Array.isArray(existing?.visual_reviewed_lg_ids) ? existing.visual_reviewed_lg_ids : []),
+        ...(Array.isArray(extra?.visual_reviewed_lg_ids) ? extra.visual_reviewed_lg_ids : [])
+      ].map(String).filter(Boolean))];
+      const next = {
+        ...(existing || {}),
         segment_id: segmentId,
         source_contact_mode: sourceContactMode,
-        coverage_kind: cumulative ? 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION' : 'ACCEPTED_SOURCE_SEGMENT',
-        kp_ids: [...ids],
+        coverage_kind: extra?.coverage_kind || existing?.coverage_kind || (cumulative ? 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION' : 'ACCEPTED_SOURCE_SEGMENT'),
+        kp_ids: [...new Set([...(Array.isArray(existing?.kp_ids) ? existing.kp_ids : []), ...ids].map(String).filter(Boolean))],
         completed_at: new Date().toISOString(),
         source_hash: currentSourceHash,
-        ...extra
-      }];
+        ...extra,
+        visual_reviewed_lg_ids: visualReviewed
+      };
+      state.sourceContactEvidence = existingIndex >= 0
+        ? history.map((entry, index) => index === existingIndex ? next : entry)
+        : [...history, next];
       state.sourceHash = currentSourceHash;
     };
     const groupIndexById = (groupId) => groups.findIndex((group) => group.groupId === groupId);
@@ -709,7 +719,25 @@ window.__kianosLearnerWriterReady.then(() => {
       const covered = new Set(currentEvidence.flatMap((entry) => Array.isArray(entry?.kp_ids) ? entry.kp_ids.map(String) : []));
       return totalKp > 0 && kpData.every((kp) => covered.has(String(kp.kpId)));
     };
-    const groupHasBlockingVisualGap = (group) => group?.visualRequired === true && /GAP/i.test(String(group?.visualSourceState || ''));
+    const groupVisualGapReviewableFromOriginalSource = (group) => group?.visualRequired === true
+      && /GAP.*NOT_MOUNTED/i.test(String(group?.visualSourceState || ''));
+    const groupVisualReviewEvidenceSatisfied = (group) => {
+      const groupId = String(group?.groupId || '');
+      if (!groupId || !currentSourceHash) return false;
+      return (state.sourceContactEvidence || []).some((entry) =>
+        String(entry?.source_hash || '') === currentSourceHash
+        && (Array.isArray(entry?.visual_reviewed_lg_ids) ? entry.visual_reviewed_lg_ids : []).map(String).includes(groupId)
+      );
+    };
+    const reviewableVisualGroupIds = (candidateIds = []) => [...new Set((Array.isArray(candidateIds) ? candidateIds : [])
+      .map(String)
+      .filter((groupId) => {
+        const index = groupIndexById(groupId);
+        return index >= 0 && groupVisualGapReviewableFromOriginalSource(groups[index]);
+      }))];
+    const groupHasBlockingVisualGap = (group) => group?.visualRequired === true
+      && /GAP/i.test(String(group?.visualSourceState || ''))
+      && !groupVisualReviewEvidenceSatisfied(group);
     const groupClosureSatisfied = (group) => {
       const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
       return ids.length > 0
@@ -1234,7 +1262,8 @@ window.__kianosLearnerWriterReady.then(() => {
           coverage_kind: integrationTargetedSourceReturns ? 'INTEGRATION_TARGETED_SOURCE_RETURN' : 'NATURAL_SOURCE_UNIT',
           source_unit_id: String(segment.sourceUnitId || ''),
           source_debt: Array.isArray(segment.sourceDebt) ? [...segment.sourceDebt] : [],
-          visual_debt: Array.isArray(segment.visualDebt) ? [...segment.visualDebt] : []
+          visual_debt: Array.isArray(segment.visualDebt) ? [...segment.visualDebt] : [],
+          visual_reviewed_lg_ids: reviewableVisualGroupIds(segment.visualDebt)
         });
         const learned = { ...(state.learned || {}) };
         ids.forEach((id) => { learned[id] = true; });
@@ -1278,7 +1307,8 @@ window.__kianosLearnerWriterReady.then(() => {
       recordSourceContact(`block-cumulative:${objectId}`, kpData.map((kp) => kp.kpId), true, {
         source_debt: Array.isArray(blockSourceDebtPayload) ? [...blockSourceDebtPayload] : [],
         source_conflict: Array.isArray(blockSourceConflictPayload) ? [...blockSourceConflictPayload] : [],
-        visual_debt: Array.isArray(blockVisualDebtPayload) ? [...blockVisualDebtPayload] : []
+        visual_debt: Array.isArray(blockVisualDebtPayload) ? [...blockVisualDebtPayload] : [],
+        visual_reviewed_lg_ids: reviewableVisualGroupIds(blockVisualDebtPayload)
       });
       state.sourceContactDone = true;
       state.sourceRevisionPending = false;
@@ -1312,7 +1342,9 @@ window.__kianosLearnerWriterReady.then(() => {
       const group = currentGroup();
       const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
       const learned = { ...(state.learned || {}) };
-      recordSourceContact(`source:${group.groupId}`, ids);
+      recordSourceContact(`source:${group.groupId}`, ids, false, {
+        visual_reviewed_lg_ids: groupVisualGapReviewableFromOriginalSource(group) ? [String(group.groupId || '')] : []
+      });
       ids.forEach((id) => { learned[id] = true; });
       state.learned = learned;
       if (currentSourceContactCovered()) {

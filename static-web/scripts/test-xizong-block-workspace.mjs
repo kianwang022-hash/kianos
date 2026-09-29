@@ -124,13 +124,24 @@ try {
   page.setDefaultTimeout(8000);
   page.setDefaultNavigationTimeout(12000);
 
-  await page.goto(`${BASE}${ROUTE}`, { waitUntil: 'domcontentloaded' });
-  await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.classList.contains('xv6BlockWorkspaceShell'));
-  await page.evaluate(() => {
-    for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
-    sessionStorage.clear();
-  });
-  await page.reload({ waitUntil: 'domcontentloaded' });
+  const targetUrl = `${BASE}${ROUTE}`;
+  await page.goto(targetUrl, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() =>
+    document.hasFocus()
+    && document.visibilityState === 'visible'
+    && document.documentElement.dataset.learnerWriter === 'active'
+    && document.querySelector('[data-xizong-v6-block]')?.classList.contains('xv6BlockWorkspaceShell')
+  );
+  await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      await page.goto(targetUrl, { waitUntil: 'domcontentloaded' });
+      break;
+    } catch (error) {
+      if (attempt === 2 || !/ERR_ABORTED|interrupted by another navigation|frame was detached|navigation/i.test(String(error?.message || error))) throw error;
+      await page.waitForTimeout(120);
+    }
+  }
 
   const root = page.locator('[data-xizong-v6-block]');
   await root.waitFor({ state: 'visible' });

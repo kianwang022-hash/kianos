@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 
 const BASE = process.env.KIANOS_XIZONG_TEST_BASE_URL || 'http://127.0.0.1:4335';
+const SCOPE = process.env.KIANOS_XIZONG_EF_SCOPE || 'both';
 const checks = [];
 const check = (condition, name, detail = '') => {
   if (!condition) throw new Error(`XIZONG_EF_RUNTIME_FAIL:${name}${detail ? ':' + detail : ''}`);
@@ -22,12 +23,34 @@ async function waitWriter() {
 
 async function reset(system, slug) {
   const url = `${BASE}/xizong/${system}/${slug}/`;
-  await page.goto(url, { waitUntil: 'domcontentloaded' });
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      await page.goto(url, { waitUntil: 'domcontentloaded' });
+      await waitWriter();
+      break;
+    } catch (error) {
+      if (attempt === 2 || !/navigation|Execution context was destroyed/i.test(String(error?.message || error))) throw error;
+      await page.waitForTimeout(160);
+    }
+  }
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+    page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); window.location.reload(); })
+  ]);
   await waitWriter();
-  await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
-  await page.goto(url, { waitUntil: 'domcontentloaded' });
-  await waitWriter();
-  await page.waitForTimeout(120);
+  await page.waitForFunction(() => {
+    const marker = document.querySelector('[data-xizong-block-evidence-guard]');
+    if (!(marker instanceof HTMLElement)) return false;
+    const objectId = marker.dataset.objectId || '';
+    const version = marker.dataset.evidenceVersion || '';
+    if (!objectId || !version) return false;
+    try {
+      const meta = JSON.parse(localStorage.getItem(`kianos-xizong-evidence-meta-v1:${objectId}`) || 'null');
+      return meta?.version === version;
+    } catch { return false; }
+  });
+  await page.waitForTimeout(220);
+  check(true, `reset_storage_${system}_${slug}`);
 }
 
 const stage = () => page.evaluate(() =>
@@ -43,14 +66,61 @@ async function click(selector) {
 }
 const enter = () => click('[data-stage-next="logic_group"]:visible');
 async function rateCurrent() {
-  const card = page.locator('[data-kp-recall-card]:visible').first();
-  const reveal = card.locator('[data-kp-reveal]:visible');
-  if (await reveal.count()) await reveal.evaluate((node) => node.click());
-  await card.locator('[data-rating="known"]:visible').evaluate((node) => node.click());
-  await page.waitForTimeout(160);
+  const result = await page.evaluate(() => {
+    const card = [...document.querySelectorAll('[data-kp-recall-card]')]
+      .find((node) => node instanceof HTMLElement && !node.hidden && node.getClientRects().length > 0);
+    if (!(card instanceof HTMLElement)) return { ok: false, reason: 'NO_VISIBLE_RECALL_CARD' };
+    const reveal = card.querySelector('[data-kp-reveal]');
+    if (reveal instanceof HTMLButtonElement && !reveal.hidden) reveal.click();
+    const rating = card.querySelector('[data-rating="known"]');
+    if (!(rating instanceof HTMLButtonElement)) return { ok: false, reason: 'NO_KNOWN_RATING', kpId: card.dataset.kpId || '' };
+    rating.click();
+    return { ok: true, kpId: card.dataset.kpId || '' };
+  });
+  check(result.ok === true, `rate_current_${result.kpId || 'unknown'}`, result.reason || '');
+  await page.waitForTimeout(140);
+}
+
+async function groupKpIds(groupIndex) {
+  return page.evaluate((index) => {
+    const payload = JSON.parse(document.querySelector('[data-xizong-learner-object-payload]')?.textContent || '{}');
+    return payload.logicGroups?.[index]?.kpIds || [];
+  }, groupIndex);
+}
+
+async function rateGroupFully(groupIndex, label, maxSteps = 80) {
+  const ids = await groupKpIds(groupIndex);
+  check(ids.length > 0, `${label}_kp_ids`);
+  for (let step = 0; step < maxSteps; step += 1) {
+    const before = await study();
+    const pending = ids.filter((id) => !before.ratings?.[id]);
+    if (!pending.length) return;
+    const currentStage = await stage();
+    if (currentStage !== 'kp_recall' || Number(before.groupIndex) !== groupIndex) {
+      throw new Error(`XIZONG_EF_RUNTIME_FAIL:${label}:left-before-rated:${currentStage}/${before.groupIndex}`);
+    }
+    const beforeRatings = JSON.stringify(before.ratings || {});
+    await rateCurrent();
+    const after = await study();
+    if (JSON.stringify(after.ratings || {}) === beforeRatings) {
+      throw new Error(`XIZONG_EF_RUNTIME_FAIL:${label}:recall-stalled-step-${step}`);
+    }
+  }
+  throw new Error(`XIZONG_EF_RUNTIME_FAIL:${label}:recall-loop-limit`);
+}
+
+async function rateGroupUntilExit(groupIndex, label, maxSteps = 80) {
+  await rateGroupFully(groupIndex, label, maxSteps);
+  for (let step = 0; step < 12; step += 1) {
+    const current = await study();
+    if (await stage() !== 'kp_recall' || Number(current.groupIndex) !== groupIndex) return;
+    await page.waitForTimeout(80);
+  }
+  throw new Error(`XIZONG_EF_RUNTIME_FAIL:${label}:expected-exit-after-full-recall`);
 }
 
 async function eWholeAndSr1() {
+  console.log('EF_STEP E whole+SR1');
   await reset('reproductive-breast', 'sr02');
   check(await page.locator('[data-xizong-v6-block]').getAttribute('data-source-contact-mode') === 'WHOLE_BLOCK_SOURCE', 'e_sr2_mode');
   await enter();
@@ -79,19 +149,18 @@ async function eWholeAndSr1() {
 }
 
 async function e12AndE10() {
+  console.log('EF_STEP E12+E10');
   await reset('reproductive-breast', 'e12');
+  console.log('EF_STEP E12 reset');
   await enter();
   check((await page.locator('[data-natural-source-status]').textContent()).includes('E12-SU1'), 'e12_su1');
   await click('[data-source-contact-done]:visible');
+  console.log('EF_STEP E12 SU1 done');
   let state = await study();
   check(await stage() === 'kp_recall' && Number(state.groupIndex) === 2, 'e12_lg03_first');
   check(Object.values(state.learned || {}).filter(Boolean).length === 10, 'e12_su1_10');
   for (const groupIndex of [2, 3]) {
-    while (true) {
-      state = await study();
-      if (await stage() !== 'kp_recall' || Number(state.groupIndex) !== groupIndex) break;
-      await rateCurrent();
-    }
+    await rateGroupUntilExit(groupIndex, `e12_group_${groupIndex}`);
     state = await study();
     if (groupIndex === 2) check(await stage() === 'kp_recall' && Number(state.groupIndex) === 3, 'e12_no_bounce_lg03');
     else {
@@ -100,6 +169,7 @@ async function e12AndE10() {
     }
   }
   await click('[data-source-contact-done]:visible');
+  console.log('EF_STEP E12 SU2 done');
   state = await study();
   check(await stage() === 'kp_recall' && Number(state.groupIndex) === 0, 'e12_returns_lg01');
   check(Object.values(state.learned || {}).filter(Boolean).length === 19, 'e12_all19');
@@ -110,24 +180,20 @@ async function e12AndE10() {
   check(await page.locator('[data-learner-asset="visual"]:visible').count() === 1, 'e12_visual_reveal');
   check(await page.locator('[data-learner-asset="visual"]:visible').getAttribute('data-learner-asset-id') === 'e-e12-lg01-visual', 'e12_visual_identity');
 
+  console.log('EF_STEP E12 done');
   await reset('reproductive-breast', 'e10');
+  console.log('EF_STEP E10 reset');
   await enter();
   check((await page.locator('[data-natural-source-status]').textContent()).includes('E10-SU1'), 'e10_su1');
   await click('[data-source-contact-done]:visible');
-  while (true) {
-    state = await study();
-    if (await stage() !== 'kp_recall' || Number(state.groupIndex) !== 0) break;
-    await rateCurrent();
-  }
+  console.log('EF_STEP E10 SU1 done');
+  await rateGroupUntilExit(0, 'e10_group_0');
   check(await stage() === 'source_contact', 'e10_boundary_su2');
   await click('[data-source-contact-done]:visible');
+  console.log('EF_STEP E10 SU2 done');
   state = await study();
   check(await stage() === 'kp_recall' && Number(state.groupIndex) === 1, 'e10_lg02');
-  while (true) {
-    state = await study();
-    if (await stage() !== 'kp_recall' || Number(state.groupIndex) !== 1) break;
-    await rateCurrent();
-  }
+  await rateGroupUntilExit(1, 'e10_group_1');
   state = await study();
   check(await stage() === 'kp_recall' && Number(state.groupIndex) === 2, 'e10_lg03');
   check(await page.locator('[data-learner-asset="visual"]:visible').count() === 0, 'e10_visual_hidden_front');
@@ -136,15 +202,8 @@ async function e12AndE10() {
   await page.waitForTimeout(120);
   check(await page.locator('[data-learner-asset="visual"]:visible').count() === 1, 'e10_visual_support_after_reveal');
   check(await page.locator('[data-learner-asset="visual"]:visible img').count() === 0, 'e10_no_fake_visual_placeholder');
-  await e10Card.locator('[data-rating="known"]:visible').evaluate((node) => node.click());
-  await page.waitForTimeout(160);
-  while (true) {
-    state = await study();
-    if (await stage() !== 'kp_recall' || Number(state.groupIndex) !== 2) break;
-    const active = page.locator('[data-kp-recall-card]:visible').first();
-    if (await active.getAttribute('data-rating-committed') === 'true') break;
-    await rateCurrent();
-  }
+  await rateGroupFully(2, 'e10_visual_gap');
+  await page.waitForTimeout(180);
   state = await study();
   check(await stage() === 'kp_recall' && Number(state.groupIndex) === 2, 'e10_visual_gap_blocks_block_recall');
   check((await page.locator('[data-study-local-status]').textContent()).includes('原图门禁未闭合'), 'e10_visual_gap_status');
@@ -152,6 +211,7 @@ async function e12AndE10() {
 }
 
 async function fWholeAndNatural() {
+  console.log('EF_STEP F whole+natural');
   await reset('remaining-clinical', 'f03');
   check(await page.locator('[data-xizong-v6-block]').getAttribute('data-source-contact-mode') === 'WHOLE_BLOCK_SOURCE', 'f3_mode');
   await enter();
@@ -172,11 +232,7 @@ async function fWholeAndNatural() {
   check(await stage() === 'kp_recall' && Number(state.groupIndex) === 0, 'f1_lg01');
   check(Object.values(state.learned || {}).filter(Boolean).length === 6, 'f1_su1_6');
   check(state.sourceContactDone === false, 'f1_not_done');
-  while (true) {
-    state = await study();
-    if (await stage() !== 'kp_recall' || Number(state.groupIndex) !== 0) break;
-    await rateCurrent();
-  }
+  await rateGroupUntilExit(0, 'group_0');
   state = await study();
   check(await stage() === 'kp_recall' && Number(state.groupIndex) === 1, 'f1_no_bounce_lg02');
   check(await page.locator('[data-learner-asset="visual"]:visible').count() === 0, 'f1_visual_hidden_front');
@@ -188,26 +244,19 @@ async function fWholeAndNatural() {
   check(await page.locator('[data-learner-asset="visual"]:visible img').count() === 1, 'f1_real_visual_asset');
   await card.locator('[data-rating="known"]:visible').evaluate((node) => node.click());
   await page.waitForTimeout(200);
-  while (true) {
-    state = await study();
-    if (await stage() !== 'kp_recall' || Number(state.groupIndex) !== 1) break;
-    await rateCurrent();
-  }
+  await rateGroupUntilExit(1, 'group_1');
   check(await stage() === 'source_contact', 'f1_true_boundary_after_lg02');
   check((await page.locator('[data-natural-source-status]').textContent()).includes('F1-SU2'), 'f1_su2');
 }
 
 async function f4AndF9() {
+  console.log('EF_STEP F4+F9');
   await reset('remaining-clinical', 'f04');
   await enter();
   check((await page.locator('[data-natural-source-status]').textContent()).includes('F4-SU1'), 'f4_su1');
   await click('[data-source-contact-done]:visible');
   let state = await study();
-  while (true) {
-    state = await study();
-    if (await stage() !== 'kp_recall' || Number(state.groupIndex) !== 0) break;
-    await rateCurrent();
-  }
+  await rateGroupUntilExit(0, 'group_0');
   state = await study();
   check(await stage() === 'kp_recall' && Number(state.groupIndex) === 1, 'f4_lg02');
   check(await page.locator('[data-learner-asset="visual"]:visible').count() === 0, 'f4_visual_hidden_front');
@@ -218,6 +267,28 @@ async function f4AndF9() {
   check(await page.locator('[data-learner-asset="visual"]:visible img').count() === 0, 'f4_no_fake_image');
   check((await page.locator('[data-learner-asset="visual"]:visible').textContent()).includes('PDF P247–P249'), 'f4_locator_preserved');
 
+  console.log('EF_STEP F8 visual-gap closure');
+  await reset('remaining-clinical', 'f08');
+  await enter();
+  check((await page.locator('[data-natural-source-status]').textContent()).includes('F8-SU1'), 'f8_su1');
+  await click('[data-source-contact-done]:visible');
+  for (const groupIndex of [0, 1, 2]) await rateGroupUntilExit(groupIndex, `f8_su1_group_${groupIndex}`);
+  check(await stage() === 'source_contact', 'f8_su2_boundary');
+  check((await page.locator('[data-natural-source-status]').textContent()).includes('F8-SU2'), 'f8_su2');
+  await click('[data-source-contact-done]:visible');
+  for (const groupIndex of [3, 4]) await rateGroupUntilExit(groupIndex, `f8_su2_group_${groupIndex}`);
+  state = await study();
+  check(await stage() === 'kp_recall' && Number(state.groupIndex) === 0, 'f8_visual_gap_returns_first_blocked_lg');
+  check(Object.values(state.ratings || {}).filter(Boolean).length === 17, 'f8_all17_recalled');
+  check((await page.locator('[data-study-local-status]').textContent()).includes('原图门禁未闭合'), 'f8_visual_gap_status');
+  check(await page.locator('[data-study-stage="block_recall"]:visible').count() === 0, 'f8_block_recall_not_released');
+  check(await page.locator('[data-learner-asset="visual"]:visible').count() === 0, 'f8_visual_hidden_front');
+  const f8Card = page.locator('[data-kp-recall-card]:visible').first();
+  await f8Card.locator('[data-kp-reveal]:visible').evaluate((node) => node.click());
+  await page.waitForTimeout(120);
+  check(await page.locator('[data-learner-asset="visual"]:visible').count() === 1, 'f8_visual_locator_after_reveal');
+  check(await page.locator('[data-learner-asset="visual"]:visible img').count() === 0, 'f8_no_fake_visual_asset');
+
   await reset('remaining-clinical', 'f09');
   check(await page.locator('[data-xizong-v6-block]').getAttribute('data-source-contact-mode') === 'INTEGRATION_PRIMARY', 'f9_mode');
   check(await page.locator('[data-study-stage="source_contact"]').count() === 1, 'f9_targeted_source_surface_exists');
@@ -227,11 +298,7 @@ async function f4AndF9() {
   check(Object.values(state.learned || {}).filter(Boolean).length === 5, 'f9_only_lg01_direct_ready');
   check(state.sourceContactDone === false, 'f9_not_source_complete_after_direct_release');
   check((state.sourceContactEvidence || []).some((row) => row.coverage_kind === 'INTEGRATION_PRIMARY_DIRECT_RELEASE'), 'f9_direct_integration_evidence');
-  while (true) {
-    state = await study();
-    if (await stage() !== 'kp_recall' || Number(state.groupIndex) !== 0) break;
-    await rateCurrent();
-  }
+  await rateGroupUntilExit(0, 'group_0');
   check(await stage() === 'source_contact', 'f9_su1_required_after_lg01');
   check((await page.locator('[data-natural-source-status]').textContent()).includes('F9-SU1'), 'f9_su1_identity');
   check((await page.locator('[data-natural-source-status]').textContent()).includes('complete laparoscopy complication list'), 'f9_su1_source_debt_visible');
@@ -239,11 +306,7 @@ async function f4AndF9() {
   state = await study();
   check(await stage() === 'kp_recall' && Number(state.groupIndex) === 1, 'f9_lg02_after_su1');
   check(Object.values(state.learned || {}).filter(Boolean).length === 6, 'f9_su1_releases_only_lg02');
-  while (true) {
-    state = await study();
-    if (await stage() !== 'kp_recall' || Number(state.groupIndex) !== 1) break;
-    await rateCurrent();
-  }
+  await rateGroupUntilExit(1, 'group_1');
   check(await stage() === 'source_contact', 'f9_su2_required_after_lg02');
   check((await page.locator('[data-natural-source-status]').textContent()).includes('F9-SU2'), 'f9_su2_identity');
   await click('[data-source-contact-done]:visible');
@@ -255,10 +318,14 @@ async function f4AndF9() {
 }
 
 try {
-  await eWholeAndSr1();
-  await e12AndE10();
-  await fWholeAndNatural();
-  await f4AndF9();
+  if (SCOPE === 'both' || SCOPE === 'E') {
+    await eWholeAndSr1();
+    await e12AndE10();
+  }
+  if (SCOPE === 'both' || SCOPE === 'F') {
+    await fWholeAndNatural();
+    await f4AndF9();
+  }
   const chrome = await page.evaluate(() => ({
     writer: document.documentElement.dataset.learnerWriter,
     header: document.querySelector('.portedStudyHeader')?.getBoundingClientRect().height || 0,
