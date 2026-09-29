@@ -65,10 +65,11 @@ Most ordinary work should enter one of three paths.
 
 ```text
 canonical Content / Learning owner
-→ targeted validation / projection update when required
-→ main
-→ Current mirror
-→ existing learner surface consumes the new Current
+→ targeted projection/update when required
+→ existing Website Candidate when the real consumer is Website
+→ targeted validation / Human Gate only when applicable
+→ one coherent main change
+→ Current mirror / Stable
 ```
 
 Ordinary content change must not require hand-editing a second copy inside page code.
@@ -91,8 +92,9 @@ Do not solve visual change by editing every subject independently.
 ```text
 exact behavior owner
 → preserve semantic contract
+→ existing Website Candidate when the affected consumer is Website
 → focused functional evidence
-→ main
+→ one coherent main change
 ```
 
 Do not encode content truth or visual policy inside runtime merely because implementation access is convenient.

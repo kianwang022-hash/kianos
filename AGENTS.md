@@ -75,8 +75,9 @@ Chat may execute BUILD/UI/CONTROL work directly when the task is bounded and the
 target scope CURRENT
 → applicable Rule / Model / domain design owner
 → exact canonical object + affected consumer
+→ if the affected consumer is Website, use the existing local checkout + Candidate for iterative real-consumer proof
 → Acceptance owner only when the claim matters
-→ work
+→ one coherent durable change
 ```
 
 For a material change, automatically apply
@@ -93,6 +94,8 @@ user outcome
 ```
 
 Read the **relevant design chain**, not the whole repository. A Current cursor or easy-to-edit implementation is never the full design by itself.
+
+For learner-facing Website BUILD as well as UI work, do not use GitHub main / Stable 4321 as the micro-iteration surface. Reuse the current local checkout and Candidate 4322 when available; make the bounded canonical/consumer change locally, inspect the real affected surface, then commit/push the accepted coherent result. If local Candidate capability is unavailable, do not claim Fast-Lane proof.
 
 If an upstream owner changes during the task, apply
 [Change propagation](AUTHORITY_INHERITANCE_CONTRACT.md#32-change-propagation-and-dependency-freshness)

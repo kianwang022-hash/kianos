@@ -31,11 +31,14 @@ assert.throws(
 assert.equal(packageJson.scripts?.['candidate:serve'], 'node scripts/kianos-candidate-runtime.mjs');
 assert.match(agents, /npm run candidate:serve/);
 assert.match(agents, /127\.0\.0\.1:4322/);
+assert.match(agents, /learner-facing Website BUILD as well as UI work/);
+assert.match(agents, /existing local checkout \+ Candidate for iterative real-consumer proof/);
 assert.ok(
   agents.includes('http://127.0.0.1:' + STABLE_CURRENT_PORT + '/ Stable'),
-  'UI entry instructions must name Stable without hardcoding production port in test source'
+  'Website Fast Lane entry must name Stable without hardcoding production port in test source'
 );
-assert.match(websiteCurrent, /UI iteration \/ Human Gate preview/);
+assert.match(websiteCurrent, /Website iteration \/ real-consumer preview/);
+assert.match(websiteCurrent, /exact Content \/ Product \/ Visual \/ Runtime owner/);
 assert.match(websiteCurrent, /kianos-candidate-runtime\.mjs/);
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
