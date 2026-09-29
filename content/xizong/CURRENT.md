@@ -37,28 +37,37 @@ Accepted meaning remains owned by the existing Xizong Rule / Learning / Product 
 
 Current recoverable WIP:
 - branch: `repair/xizong-a1-selfaudit`
-- snapshot: `4f08989e07d87e5e0279bcd69c9b9bf67c7a7d28`
-- purpose: bounded A1 shared-workspace Projection / learner-object / presentation repair plus self-adversarial audit.
+- snapshot: `b98c285b4a89bc550aeecd268f10ef0d4459d58a`
+- purpose: complete A1 shared learner product plus self-adversarial pre-Human-Gate audit.
 - Fast Lane: use the existing Candidate runtime on `127.0.0.1:4322` for Human Gate; do not use Stable 4321 as the edit loop.
 - CSS rule: edit the effective shared owner; do not stack corrective CSS or fork per-System presentation.
 
 Confirmed in the current A1 audit:
 - real learner-state proof counts only when `document.hasFocus() === true`, `visibilityState === "visible"`, and `data-learner-writer="active"`; the isolated browser audit satisfied this writer contract.
+- System Guide / Framework, shared Block Workspace, System Recall / Practice, Memory, Repair / Return and learner chrome were all exercised through their current owners.
 - B1 Source/KP Learn uses the shared workspace: current KP identity + Source/Outline locator + navigation are in the center header, not duplicated inside the Core.
 - Source/KP Learn bottom controls are one action row; learner-facing per-KP Chat transport is removed.
-- Human Gate regression repaired: Space again toggles the visible KP Core through the active stage footer; verified under an active learner writer in both directions.
+- Space toggles the visible KP Core through the active stage footer in both directions under an active learner writer.
 - Attention is conditional and visually typed as 本轮带走 / 按需辅助 / 可以后置 / 后面再学, with the center remaining visually primary.
 - B1 real loop reached 32/32 KP Recall, automatically closed all 7 LGs, gated Block Recall Front → Reveal → Block complete correctly, and a deliberate weak Recall released into Memory.
 - stateful Resume under an active learner writer returned exactly to LG02 / KP06 / 本节 3/5, i.e. the first unrecalled KP in the same LG.
-- all 12 A1 Blocks render the same shared learner-object Workspace after HMR stabilization; no A1-local page/runtime fork is intended.
+- all 12 A1 Blocks render the same shared learner-object Workspace; current 4322 smoke confirmed writer=active, header=83px, no visible Chat transport and no horizontal overflow for B1–B12.
+- B1 current-KP header shows KP identity + exact owned Source/Outline locators; the Core card has no duplicate identity header. The Source footer is one row; Space hide/show and Recall Front Core/rating protection passed on the live Candidate.
 - stale B1 Markdown references to ten nonexistent generated PNG assets were removed; A1 canonical Blocks now contain zero unresolved relative Markdown images. Reviewed Source Visuals remain owned by the Current source-visual bundle.
-- Projection validation PASS after the B1 source change.
-- current static build PASS.
-- A1 browser evidence journey PASS: 64 checks across 376 A1 questions, including reviewed Wrong/Uncertain → visible Memory Repair → exact Block/question Return and durable Repair completion. This is engineering evidence, not Real-U.
+- Projection validation PASS; A1 Projection validator PASS; shared learner-object validator PASS.
+- shared Block Workspace browser PASS after correcting stale test oracles to the accepted center-header design.
+- System Workspace PASS; System Recall/Practice workspace PASS with 137 checks.
+- Memory browser PASS with 54 checks; Memory auto-release validation PASS.
+- Paper Practice validation PASS; targeted Practice validation PASS.
+- A1 golden browser journey PASS with 58 checks on the current continuous-Source → Recall → Block completion semantics.
+- A1 browser evidence journey PASS with 64 checks across 376 A1 questions, including reviewed Wrong/Uncertain → visible Memory Repair → exact Block/question Return and durable Repair completion.
+- learner chrome PASS across 8 routes; typed Chat Return PASS for exact identity/version, Resume, idempotency and conflict fail-closed.
+- final static build PASS: 911 pages.
 - known optional Source/Outline/Visual/Precision coverage remains heterogeneous and fail-closed; missing optional owner data is not guessed or filled with placeholders.
+- several audit failures during this pass were proven to be stale/invalid harness oracles (old Recall copy, old internal KP header, networkidle in a polling page) and were repaired in the audit owner rather than forcing the product back to historical UI.
 
 Current gate:
-- internal BUILD/AUDIT red points for this A1 reference candidate are closed.
+- A1 internal BUILD/AUDIT preflight is closed for the current candidate.
 - next step is Kian Human Gate on the real Fast Lane surface at `127.0.0.1:4322`.
 - Human Gate may still reopen the smallest responsible Visual/Product/Runtime owner; do not expand C/D/E/F before A1 is accepted.
 
