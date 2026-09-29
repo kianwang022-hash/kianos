@@ -13,11 +13,22 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const webRoot = path.resolve(scriptDir, '..');
 const repoRoot = path.resolve(webRoot, '..');
 const stewardPath = path.join(webRoot, 'src/pages/steward/index.astro');
+const xizongContentPath = path.join(repoRoot, 'content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md');
+const politicsContentPath = path.join(repoRoot, 'content/politics/learning/marxism/ch00.json');
+const englishContentPath = path.join(repoRoot, 'content/english/modules/translation/learning.md');
 const marker = 'FAST-LANE-WORKFLOW-PROBE';
+const xizongMarker = 'FAST-LANE-XIZONG-CONTENT-PROBE';
+const politicsMarker = 'FAST-LANE-POLITICS-CONTENT-PROBE';
+const englishMarker = 'FAST-LANE-ENGLISH-CONTENT-PROBE';
 const original = fs.readFileSync(stewardPath, 'utf8');
+const xizongOriginal = fs.readFileSync(xizongContentPath, 'utf8');
+const politicsOriginal = fs.readFileSync(politicsContentPath, 'utf8');
+const englishOriginal = fs.readFileSync(englishContentPath, 'utf8');
 const sourceNeedle = '<h1>今天怎么过</h1>';
+const xizongSourceNeedle = '> **中心问题**：';
 
 assert.ok(original.includes(sourceNeedle), 'representative Steward UI owner changed unexpectedly');
+assert.ok(xizongOriginal.includes(xizongSourceNeedle), 'representative Xizong canonical Content owner changed unexpectedly');
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(webRoot, 'package.json'), 'utf8'));
 const agents = fs.readFileSync(path.join(repoRoot, 'AGENTS.md'), 'utf8');
@@ -134,6 +145,34 @@ try {
   fs.writeFileSync(stewardPath, original, 'utf8');
   await waitForBody(candidateUrl, (body) => body.includes('今天怎么过') && !body.includes(marker), 15000);
 
+  const xizongUrl = 'http://127.0.0.1:' + candidatePort + '/xizong/circulation/b01/';
+  const xizongBefore = await fetchText(xizongUrl);
+  assert.equal(xizongBefore.includes(xizongMarker), false, 'Candidate started with stale Xizong marker');
+  const xizongChangedAt = Date.now();
+  fs.writeFileSync(xizongContentPath, xizongOriginal.replace(xizongSourceNeedle, xizongSourceNeedle + xizongMarker + ' '), 'utf8');
+  await waitForBody(xizongUrl, (body) => body.includes(xizongMarker), 15000);
+  const xizongContentRefreshMs = Date.now() - xizongChangedAt;
+  fs.writeFileSync(xizongContentPath, xizongOriginal, 'utf8');
+  await waitForBody(xizongUrl, (body) => !body.includes(xizongMarker), 15000);
+
+  const politicsUrl = 'http://127.0.0.1:' + candidatePort + '/politics/marxism/ch00/';
+  const politicsObject = JSON.parse(politicsOriginal);
+  politicsObject.unit_projections[0].learning_semantics.problem.text += ' ' + politicsMarker;
+  const politicsChangedAt = Date.now();
+  fs.writeFileSync(politicsContentPath, JSON.stringify(politicsObject, null, 2) + '\n', 'utf8');
+  await waitForBody(politicsUrl, (body) => body.includes(politicsMarker), 15000);
+  const politicsContentRefreshMs = Date.now() - politicsChangedAt;
+  fs.writeFileSync(politicsContentPath, politicsOriginal, 'utf8');
+  await waitForBody(politicsUrl, (body) => !body.includes(politicsMarker), 15000);
+
+  const englishUrl = 'http://127.0.0.1:' + candidatePort + '/translation-learn/';
+  const englishChangedAt = Date.now();
+  fs.writeFileSync(englishContentPath, englishMarker + '\n\n' + englishOriginal, 'utf8');
+  await waitForBody(englishUrl, (body) => body.includes(englishMarker), 15000);
+  const englishContentRefreshMs = Date.now() - englishChangedAt;
+  fs.writeFileSync(englishContentPath, englishOriginal, 'utf8');
+  await waitForBody(englishUrl, (body) => !body.includes(englishMarker), 15000);
+
   console.log(JSON.stringify({
     status: 'PASS',
     schema: 'kianos.website.fast_lane_workflow.v1',
@@ -142,14 +181,21 @@ try {
     stable_lane: 'not_invoked',
     stable_port_guarded: STABLE_CURRENT_PORT !== candidatePort,
     candidate_refresh_ms: candidateRefreshMs,
+    xizong_content_refresh_ms: xizongContentRefreshMs,
+    politics_content_refresh_ms: politicsContentRefreshMs,
+    english_content_refresh_ms: englishContentRefreshMs,
     managed_current_rebuild_triggered: false,
-    representative_surface: 'steward'
+    representative_surface: 'steward',
+    representative_canonical_content: ['xizong/circulation/b01', 'politics/marxism/ch00', 'english/translation-learning']
   }, null, 2));
 } catch (error) {
   if (candidateLog) console.error(candidateLog.slice(-5000));
   throw error;
 } finally {
   try { fs.writeFileSync(stewardPath, original, 'utf8'); } catch {}
+  try { fs.writeFileSync(xizongContentPath, xizongOriginal, 'utf8'); } catch {}
+  try { fs.writeFileSync(politicsContentPath, politicsOriginal, 'utf8'); } catch {}
+  try { fs.writeFileSync(englishContentPath, englishOriginal, 'utf8'); } catch {}
   if (candidate?.pid) {
     try { await terminateProcessTree(candidate.pid, { graceMs: 1000 }); } catch {}
   }

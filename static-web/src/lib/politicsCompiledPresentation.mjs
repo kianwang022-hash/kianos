@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { resolvePoliticsUnitRepresentation } from './politicsRepresentationGate.mjs';
 import { buildPoliticsContentHierarchy, validatePoliticsContentHierarchy } from './politicsContentHierarchy.mjs';
 import { resolvePoliticsSurfaceMapping } from './politicsSurfaceMapping.mjs';
@@ -9,9 +10,31 @@ import { resolvePoliticsSurfaceMapping } from './politicsSurfaceMapping.mjs';
 // exact Current values; it never compiles new knowledge or changes unit identity.
 const root = process.env.KIANOS_REPO_ROOT ? path.resolve(process.env.KIANOS_REPO_ROOT) : path.resolve(process.cwd(), '..');
 const projectionRoot = 'content/politics/projection';
+const candidateRuntime = process.env.KIANOS_CANDIDATE_RUNTIME === '1';
 const read = p => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
 const manifest = read(`${projectionRoot}/manifest.json`);
 const cache = new Map();
+const candidateHeadBlobCache = new Map();
+
+function candidateHeadBlob(relativePath) {
+  if (!candidateRuntime) return null;
+  if (candidateHeadBlobCache.has(relativePath)) return candidateHeadBlobCache.get(relativePath);
+  let sha = null;
+  try {
+    const value = execFileSync('git', ['rev-parse', 'HEAD:' + relativePath], {
+      cwd: root,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore']
+    }).trim();
+    if (/^[a-f0-9]{40}$/.test(value)) sha = value;
+  } catch {}
+  candidateHeadBlobCache.set(relativePath, sha);
+  return sha;
+}
+
+function candidateDirtySourceAllowed(relativePath, expected) {
+  return candidateRuntime && candidateHeadBlob(relativePath) === expected;
+}
 const present = value => value != null && value !== '' && (!Array.isArray(value) || value.length > 0);
 const flattenPresent = values => values.flatMap(value => Array.isArray(value) ? value : [value]).filter(present);
 
@@ -49,7 +72,7 @@ export function loadPoliticsCompiledPresentation(subject, code) {
   if (sourcePath !== `content/politics/learning/${directory}/${code}.json`) throw new Error('POLITICS_PROJECTION_SOURCE_PATH_MISMATCH');
   const bytes = fs.readFileSync(path.join(root, sourcePath));
   const sha = createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
-  if (sha !== projection.source.blob_sha) throw new Error(`POLITICS_PROJECTION_SOURCE_REVISION_MISMATCH:${file}`);
+  if (sha !== projection.source.blob_sha && !candidateDirtySourceAllowed(sourcePath, projection.source.blob_sha)) throw new Error(`POLITICS_PROJECTION_SOURCE_REVISION_MISMATCH:${file}`);
   const source = JSON.parse(bytes.toString('utf8'));
   const rawUnits = source.units || source.unit_projections || (source.unit ? [source.unit] : []);
   const rawById = new Map(rawUnits.map(unit => [unit.natural_unit_id, unit]));
