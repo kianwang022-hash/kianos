@@ -7,6 +7,8 @@ import { execFileSync, spawn } from 'node:child_process';
 import { once } from 'node:events';
 import { fileURLToPath } from 'node:url';
 
+// KIANOS_TEST_ONLY_CURRENT_SYNC_MUTATION
+// This fixture mutates only temporary repositories under os.tmpdir(); it is not a production Current-sync owner.
 const scripts = path.dirname(fileURLToPath(import.meta.url));
 const root = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-sync-startup-boundary-'));
 const upstream = path.join(root, 'upstream');
