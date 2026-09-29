@@ -1,4 +1,4 @@
-import { listReadingBSets, loadReadingBAnswersById } from '../../lib/englishObjective.mjs';
+import { listReadingBSets, loadReadingBAnswersById } from '../../lib/englishObjectiveSourceTruth.mjs';
 
 export const prerender = true;
 

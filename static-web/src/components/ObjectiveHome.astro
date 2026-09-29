@@ -14,7 +14,9 @@ const {
 const base = import.meta.env.BASE_URL;
 const payload = JSON.stringify(sets).replace(/</g, '\\u003c');
 const first = sets[0];
-const itemTitle = (item) => item?.year ? `${item.year} · ${learnerLabel}` : learnerLabel;
+const syntheticCount = sets.filter(item => item.sourceKind === 'synthetic').length;
+const officialCount = sets.length - syntheticCount;
+const itemTitle = (item) => item?.sourceKind === 'synthetic' ? item.title : item?.year ? `${item.year} · ${learnerLabel}` : learnerLabel;
 ---
 <section class="objectiveHome" data-objective-home data-base={base} data-route={route} data-last-key={lastLocationKey} data-learner-label={learnerLabel}>
   <section class="objectiveHomeHero">
@@ -24,8 +26,8 @@ const itemTitle = (item) => item?.year ? `${item.year} · ${learnerLabel}` : lea
       <p>{description}</p>
     </div>
     <aside>
-      <strong>{sets.length} {unitLabel}真题</strong>
-      <span>按年份选择 · 每次完成一整套</span>
+      <strong>{officialCount} {unitLabel}真题{syntheticCount > 0 ? ` + ${syntheticCount} ${unitLabel}合成练习` : ''}</strong>
+      <span>{syntheticCount ? '按年份或练习类型选择 · 每次完成一整套' : '按年份选择 · 每次完成一整套'}</span>
     </aside>
   </section>
 
@@ -46,8 +48,8 @@ const itemTitle = (item) => item?.year ? `${item.year} · ${learnerLabel}` : lea
 
     <section class="objectiveBrowse">
       <header>
-        <div><span>选择真题</span><strong>按年份浏览</strong></div>
-        <input type="search" data-objective-search placeholder="搜索年份" />
+        <div><span>{syntheticCount ? '选择练习' : '选择真题'}</span><strong>{syntheticCount ? '真题与合成练习' : '按年份浏览'}</strong></div>
+        <input type="search" data-objective-search placeholder={syntheticCount ? '搜索年份或合成练习' : '搜索年份'} />
       </header>
       <div data-objective-results></div>
     </section>
@@ -69,7 +71,7 @@ const itemTitle = (item) => item?.year ? `${item.year} · ${learnerLabel}` : lea
     let sets = [];
     try { sets = JSON.parse(node.querySelector('[data-objective-catalog]')?.textContent || '[]'); } catch {}
     const hrefFor = (id) => `${base}${route}/${encodeURIComponent(id)}/`;
-    const learnerTitle = (item) => item?.year ? `${item.year} · ${learnerLabel}` : learnerLabel;
+    const learnerTitle = (item) => item?.sourceKind === 'synthetic' ? item.title : item?.year ? `${item.year} · ${learnerLabel}` : learnerLabel;
 
     let last = null;
     try { last = lastKey ? JSON.parse(localStorage.getItem(lastKey) || 'null') : null; } catch {}
@@ -99,7 +101,7 @@ const itemTitle = (item) => item?.year ? `${item.year} · ${learnerLabel}` : lea
         const title = document.createElement('strong');
         title.textContent = learnerTitle(item);
         const meta = document.createElement('span');
-        meta.textContent = '英语一真题';
+        meta.textContent = item.sourceKind === 'synthetic' ? '合成练习 · 不作真题估分' : '英语一真题';
         copy.append(title, meta);
         const enter = document.createElement('small');
         enter.textContent = '进入 →';

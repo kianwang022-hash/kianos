@@ -15,7 +15,7 @@
     "qa:study-timer": "npm run test:study-timer && npm run build",
     "validate:english-source-truth": "node scripts/validate-english-source-truth-projection.mjs",
     "validate:reading": "npm run validate:english-source-truth && node scripts/validate-reading-runtime.mjs",
-    "validate:objective": "npm run validate:english-source-truth && node scripts/audit-reading-b-source.mjs && node scripts/validate-objective-runtime.mjs && node scripts/validate-objective-learning.mjs && node scripts/validate-reading-b-projection.mjs",
+    "validate:objective": "npm run validate:english-source-truth && node scripts/audit-reading-b-source.mjs && node scripts/validate-objective-runtime.mjs && node scripts/validate-objective-learning.mjs && node scripts/validate-reading-b-projection.mjs && node scripts/test-reading-b-synthetic-admission.mjs --unit-only",
     "validate:translation-source": "npm run validate:english-source-truth && node scripts/validate-translation-source.mjs",
     "validate:translation": "npm run validate:translation-source && node scripts/validate-translation-runtime-gate.mjs && node scripts/validate-translation-evidence-guard.mjs",
     "validate:writing-source": "npm run validate:english-source-truth && node scripts/validate-writing-source.mjs",
@@ -71,7 +71,8 @@
     "build:astro": "node scripts/kianos-safe-astro-build.mjs",
     "test:exam-os-maturity": "node scripts/test-exam-os-maturity-matrix.mjs",
     "validate:lexical-runtime": "node scripts/validate-lexical-single-runtime.mjs && node scripts/validate-lexical-style-ownership.mjs",
-    "test:client-artifacts": "node scripts/test-current-client-artifacts.mjs && node scripts/test-current-client-delivery.mjs"
+    "test:client-artifacts": "node scripts/test-current-client-artifacts.mjs && node scripts/test-current-client-delivery.mjs",
+    "test:reading-b-synthetic": "node scripts/test-reading-b-synthetic-admission.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",

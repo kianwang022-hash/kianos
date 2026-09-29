@@ -204,7 +204,8 @@ for (const id of samples(listClozeSets())) {
   assertNoAnswerLeak(item.questions, 'cloze', id);
 }
 
-for (const id of samples(listReadingBSets())) {
+// Official Source overlays are not the authority for the separately registered synthetic bank.
+for (const id of samples(listReadingBSets().filter(row => row.sourceKind !== 'synthetic'))) {
   const item = loadReadingBById(id);
   const unit = sourceTruthFor(id);
   assertIdentity(item, 'reading_b');
@@ -215,6 +216,16 @@ for (const id of samples(listReadingBSets())) {
   if (unit.shared_option_pool && Object.keys(unit.shared_option_pool).length) {
     assert(item.candidates?.length === Object.keys(unit.shared_option_pool).length, 'reading_b_shared_pool_cardinality', id);
   }
+}
+
+const syntheticOwner = JSON.parse(fs.readFileSync(path.join(repoRoot, 'content/english/manifest.json'), 'utf8')).practice_assets?.objective?.prompt_bank;
+for (const row of listReadingBSets().filter(row => row.sourceKind === 'synthetic')) {
+  const item = loadReadingBById(row.id);
+  assert(item.sourcePaths.sourceTruth === syntheticOwner, 'reading_b_synthetic_uses_registered_owner', row.id);
+  assert(item.sourceTruthStatus === 'SYNTHETIC_BASELINE' && item.sourceKind === 'synthetic', 'reading_b_synthetic_not_official_source', row.id);
+  assert(item.context.calibration_status === 'NOT_SCORE_EQUIVALENT', 'reading_b_synthetic_not_exam_score', row.id);
+  assert(Boolean(item.sourceHashes.renderedObject && item.sourceHashes.semanticSource), 'reading_b_synthetic_versioned', row.id);
+  assertNoAnswerLeak(item.questions, 'reading_b_synthetic', row.id);
 }
 
 {

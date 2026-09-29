@@ -6,6 +6,8 @@ const directions = String(item.context?.directions || '').trim();
 const taskForm = String(item.context?.taskForm || 'generic_matching');
 const formLabel = String(item.context?.formLabel || 'Matching');
 const candidateUsePolicy = String(item.context?.candidateUsePolicy || 'source_unspecified');
+const targetRange = item.questions.map((q,i) => String(q.ordinal || i + 41));
+const targetRangeLabel = `${targetRange[0]}–${targetRange.at(-1)}`;
 const itemLabel = String(item.context?.itemLabel || 'Item');
 const orderingSkeleton = Array.isArray(item.context?.orderingSkeleton) ? item.context.orderingSkeleton.map(String) : [];
 const fixedGivens = Array.isArray(item.context?.fixedGivens) ? item.context.fixedGivens.map(String) : [];
@@ -39,7 +41,7 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
   data-reading-b-item-label={itemLabel}
   data-reading-b-fixed-givens={JSON.stringify(fixedGivens)}
 >
-  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({evidence:{source_kind:item.sourceKind||'official',evidence_role:item.context?.evidence_role||null,semantic_source_hash:item.sourceHashes?.semanticSource||item.sourceHashes?.renderedObject||null},material:item.material,context:item.context,candidates:item.candidates,questions:item.questions.map(({id,ordinal,prompt,options})=>({id,ordinal,prompt,options}))}).replace(/</g, "\\u003c")}></script>
+  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({question_origin:item.questionOrigin||'SOURCE_NATIVE',evidence:{source_kind:item.sourceKind||'official',evidence_role:item.context?.evidence_role||null,calibration_status:item.context?.calibration_status||null,semantic_source_hash:item.sourceHashes?.semanticSource||item.sourceHashes?.renderedObject||null},material:item.material,context:item.context,candidates:item.candidates,questions:item.questions.map(({id,ordinal,prompt,options})=>({id,ordinal,prompt,options}))}).replace(/</g, "\\u003c")}></script>
   <header class="readingBHeader">
     <div>
       <span>Reading B · {formLabel}</span>
@@ -71,7 +73,7 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
 
       <aside class="readingBMap readingBOrderingMap">
         <section class="readingBPositions">
-          <header><span>ORDER MAP</span><strong>原题固定位置 + 41–45</strong></header>
+          <header><span>ORDER MAP</span><strong>原题固定位置 + {targetRangeLabel}</strong></header>
           <div class="readingBOrderSkeleton" data-reading-b-ordering-skeleton>
             {orderingSkeleton.map((token, slotIndex) => {
               const mapped = questionByOrdinal.get(String(token));
@@ -132,7 +134,7 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
         )}
 
         <section class="readingBPositions">
-          <header><span>COMPLETE MAP</span><strong>{taskForm === 'gap_match' ? '41–45 缺口' : taskForm === 'heading_match' ? '41–45 段落' : taskForm === 'comment_match' ? '41–45 评论者' : '所有目标'}</strong></header>
+          <header><span>COMPLETE MAP</span><strong>{taskForm === 'gap_match' ? `${targetRangeLabel} 缺口` : taskForm === 'heading_match' ? `${targetRangeLabel} 段落` : taskForm === 'comment_match' ? `${targetRangeLabel} 评论者` : '所有目标'}</strong></header>
           <div class="readingBPositionList">
             {item.questions.map((question, index) => {
               const { id, targetLabel, options } = questionInfo(question, index);
