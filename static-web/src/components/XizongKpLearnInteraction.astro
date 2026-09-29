@@ -324,20 +324,6 @@
         if (!kp) return;
 
         frame.classList.add('xzKpLearnStage');
-        const header = frame.querySelector('.xv6KpLearnCompanionHeader');
-        const nav = frame.querySelector('.xv6KpLearnNav');
-        const locators = frame.querySelector('.xv6KpLearnLocators');
-        if (header && !header.querySelector('.xzKpLearnHeaderRight')) {
-          const right = document.createElement('div');
-          right.className = 'xzKpLearnHeaderRight';
-          if (locators) {
-            locators.classList.add('xzKpLearnLocatorMini');
-            right.append(locators);
-          }
-          if (nav) right.append(nav);
-          header.append(right);
-        }
-
         const prompt = frame.querySelector('.xv6KpLearnPrompt');
         if (prompt instanceof HTMLElement) {
           prompt.dataset.kpLearnPrompt = '';
@@ -365,34 +351,25 @@
           core.dataset.kpLearnCore = '';
         }
 
-        let actions = frame.querySelector('.xzKpLearnActions');
+        const stage = frame.closest('[data-study-stage]');
+        const stageFooter = stage instanceof HTMLElement ? stage.querySelector(':scope > footer') : null;
+        let actions = stageFooter instanceof HTMLElement
+          ? stageFooter.querySelector('.xzKpLearnActions')
+          : frame.querySelector('.xzKpLearnActions');
         if (!(actions instanceof HTMLElement)) {
-          actions = document.createElement('footer');
+          actions = document.createElement('div');
           actions.className = 'xzKpLearnActions';
           actions.innerHTML = `
-            <button type="button" data-kp-chat-handoff title="复制当前学习内容给 Chat">给 Chat</button>
-            <div>
-              <button type="button" data-kp-core-toggle>隐藏内容</button>
-              <span data-kp-learn-state>学习中</span>
-            </div>
+            <button type="button" data-kp-core-toggle>隐藏内容</button>
+            <span data-kp-learn-state>学习中</span>
           `;
-          frame.append(actions);
+          if (stageFooter instanceof HTMLElement) stageFooter.prepend(actions);
+          else frame.append(actions);
         }
         const study = readStudy();
         const learned = Boolean(study.learned?.[kpId]);
         const stateNode = actions.querySelector('[data-kp-learn-state]');
         if (stateNode) stateNode.textContent = learned ? '已学好' : '学习中';
-
-        const chat = actions.querySelector('[data-kp-chat-handoff]');
-        if (chat && !chat.dataset.bound) {
-          chat.dataset.bound = 'true';
-          // Delegate to the existing packet/Return owner; do not build another export.
-          chat.addEventListener('click', () => {
-            const dock = [...document.querySelectorAll('[data-xizong-study-dock]')]
-              .find((node) => node.getAttribute('data-study-object') === objectId);
-            dock?.querySelector('[data-copy-study-packet]')?.click();
-          });
-        }
 
         const toggle = actions.querySelector('[data-kp-core-toggle]');
         if (toggle && !toggle.dataset.bound) {
@@ -423,7 +400,7 @@
           detail: { kpId }
         }));
 
-        const next = frame.querySelector(`[data-companion-next="${stage}"]`);
+        const next = root.querySelector(`[data-companion-next="${stage}"]`);
         if (next instanceof HTMLButtonElement && !next.disabled) {
           next.click();
           return true;
@@ -455,7 +432,7 @@
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
           event.preventDefault();
           const attr = event.key === 'ArrowLeft' ? 'data-companion-prev' : 'data-companion-next';
-          const button = frame.querySelector(`[${attr}="${stage}"]`);
+          const button = root.querySelector(`[${attr}="${stage}"]`);
           if (button instanceof HTMLButtonElement && !button.disabled) button.click();
           return;
         }

@@ -41,8 +41,12 @@ const payload = learnerObject || null;
         card.dataset.learnerAsset = 'precision';
         card.dataset.learnerAssetId = text(row?.id);
         const exact = text(row?.answerHtml || row?.answer_html);
+        const attentionRole = text(row?.attentionRole).toUpperCase();
+        const deferred = attentionRole === 'DEFERRED_MEMORY';
+        const takeaway = attentionRole === 'CURRENT_TAKEAWAY';
         card.dataset.precisionResolution = exact ? 'EXACT' : 'CUE_ONLY';
-        card.append(el('span', 'xv6LearnerAssetLabel', exact ? '精确内容' : '精确记忆提示'));
+        if (attentionRole) card.dataset.attentionRole = attentionRole;
+        if (!deferred && !takeaway) card.append(el('span', 'xv6LearnerAssetLabel', exact ? '精确内容' : '精确记忆提示'));
         if (row?.cue || row?.task) card.append(el('p', '', row?.cue || row?.task));
         if (exact) {
           const answer = el('div', 'markdown xv6LearnerPrecisionExact');
@@ -158,7 +162,19 @@ const payload = learnerObject || null;
         return details;
       };
 
+      const renderAttention = (row, stage) => {
+        const timing = text(row?.displayPolicy?.timing).toUpperCase();
+        if (timing === 'LEARN_ONLY' && !['KP_LEARN', 'LOGIC_GROUP_ORIENT'].includes(stage)) return null;
+        if (timing === 'BLOCK_ORIENT' && stage !== 'BLOCK_ORIENT') return null;
+        const card = el('div', 'xv6LearnerAsset attention');
+        card.dataset.learnerAsset = 'attention';
+        card.dataset.learnerAssetId = text(row?.id);
+        if (row?.cue) card.append(el('p', '', row.cue));
+        return card;
+      };
+
       const renderResolvedAsset = (row, family, stage) => {
+        if (family === 'attention') return renderAttention(row, stage);
         const representation = resolveXizongLearnerAssetRepresentation(row, { stage });
         if (!representation.visible) return null;
         let node = null;
@@ -175,18 +191,51 @@ const payload = learnerObject || null;
         return node ? decorateRepresentation(node, representation) : null;
       };
 
+      const ATTENTION_ORDER = ['CURRENT_TAKEAWAY', 'ON_DEMAND_SUPPORT', 'DEFERRED_MEMORY', 'FUTURE_CONNECTION'];
+      const ATTENTION_LABEL = {
+        CURRENT_TAKEAWAY: '本轮带走',
+        ON_DEMAND_SUPPORT: '按需辅助',
+        DEFERRED_MEMORY: '可以后置',
+        FUTURE_CONNECTION: '后面再学 / 串联'
+      };
+      const attentionRoleForAsset = (row, family) => {
+        const explicit = text(row?.attentionRole || row?.attention_role).toUpperCase();
+        if (ATTENTION_ORDER.includes(explicit)) return explicit;
+        if (family === 'connection') {
+          if (row?.direction === 'outgoing' && row?.reserveLearning !== true) return 'FUTURE_CONNECTION';
+          return 'ON_DEMAND_SUPPORT';
+        }
+        return 'ON_DEMAND_SUPPORT';
+      };
+
       const renderSlot = (slot = {}, { stage = 'LEARN' } = {}) => {
         const host = el('div', 'xv6LearnerObjectSurface');
+        const grouped = new Map(ATTENTION_ORDER.map((role) => [role, []]));
         for (const [family, rows] of [
-          ['connection', array(slot?.connection)],
+          ['attention', array(slot?.attention)],
           ['visual', array(slot?.visual)],
           ['precision', array(slot?.precision)],
-          ['extension', array(slot?.extension)]
+          ['extension', array(slot?.extension)],
+          ['connection', array(slot?.connection)]
         ]) {
           rows.forEach((row) => {
             const node = renderResolvedAsset(row, family, stage);
-            if (node) host.append(node);
+            if (!node) return;
+            const role = attentionRoleForAsset(row, family);
+            if (node instanceof HTMLElement) node.dataset.attentionRole = role;
+            grouped.get(role)?.push(node);
           });
+        }
+        for (const role of ATTENTION_ORDER) {
+          const nodes = grouped.get(role) || [];
+          if (!nodes.length) continue;
+          const section = el('section', 'xv6AttentionSection');
+          section.dataset.attentionSection = role;
+          section.append(el('span', 'xv6AttentionSectionLabel', ATTENTION_LABEL[role]));
+          const body = el('div', 'xv6AttentionSectionBody');
+          body.append(...nodes);
+          section.append(body);
+          host.append(section);
         }
         return host;
       };
@@ -200,7 +249,7 @@ const payload = learnerObject || null;
           });
         }
         if (representations.some((kind) => ['SOURCE_VISUAL', 'REVIEWED_VISUAL', 'STRUCTURED_TABLE'].includes(kind))) return 'rich';
-        if (representations.length) return 'light';
+        if (representations.length || array(slot?.attention).length) return 'light';
         return 'none';
       };
 
@@ -272,23 +321,28 @@ const payload = learnerObject || null;
         return kpById.get(kpId) || null;
       };
 
-      const renderCompanionCard = (host, kp, index, total, stageName) => {
-        host.replaceChildren();
-        if (!kp) return;
-        const frame = el('section', 'xv6KpLearnCompanion');
-        frame.dataset.learnerKpCompanion = stageName;
-        frame.dataset.kpId = text(kp?.identity?.kpId);
-        const top = el('header', 'xv6KpLearnCompanionHeader');
-        const identity = el('div');
-        identity.append(el('span', '', '当前知识点'));
-        identity.append(el('strong', '', `${kp?.identity?.displayId || ''} · ${kp?.identity?.title || ''}`));
+      const activeKpHeader = root.querySelector('[data-study-active-kp]');
+      const renderActiveKpHeader = (kp, index, total, stageName) => {
+        if (!(activeKpHeader instanceof HTMLElement) || !kp) return;
+        const identity = el('strong', 'portedStudyActiveKpTitle', `${kp?.identity?.displayId || ''} · ${kp?.identity?.title || ''}`);
+        const meta = el('div', 'portedStudyActiveKpMeta');
+        if (kp?.source?.locator) meta.append(el('span', '', `讲义 · ${kp.source.locator}`));
+        if (kp?.outline?.locator) meta.append(el('span', '', `考纲 · ${kp.outline.locator}`));
         const nav = el('div', 'xv6KpLearnNav');
         const prev = el('button', '', '‹'); prev.type = 'button'; prev.dataset.companionPrev = stageName; prev.disabled = index <= 0;
         const count = el('em', '', `${index + 1}/${Math.max(1, total)}`);
         const next = el('button', '', '›'); next.type = 'button'; next.dataset.companionNext = stageName; next.disabled = index >= total - 1;
         nav.append(prev, count, next);
-        top.append(identity, nav);
-        frame.append(top);
+        activeKpHeader.replaceChildren(identity, meta, nav);
+      };
+
+      const renderCompanionCard = (host, kp, index, total, stageName) => {
+        host.replaceChildren();
+        if (!kp) return;
+        renderActiveKpHeader(kp, index, total, stageName);
+        const frame = el('section', 'xv6KpLearnCompanion');
+        frame.dataset.learnerKpCompanion = stageName;
+        frame.dataset.kpId = text(kp?.identity?.kpId);
 
         if (kp?.prompt?.canonical) {
           const prompt = el('div', 'xv6KpLearnPrompt');
@@ -296,21 +350,6 @@ const payload = learnerObject || null;
           prompt.append(el('p', '', kp.prompt.canonical));
           frame.append(prompt);
         }
-        const locators = el('div', 'xv6KpLearnLocators');
-        // One renderer owns both locator values. Missing optional Context
-        // collapses instead of manufacturing filler or guessing from neighbours.
-        if (kp?.source?.locator) {
-          const lecture = el('span', '', `讲义 · ${kp.source.locator}`);
-          lecture.dataset.kpSourceLocator = '';
-          locators.append(lecture);
-        }
-        if (kp?.outline?.locator) {
-          const outline = el('span', '', `考纲 · ${kp.outline.locator}`);
-          outline.dataset.kpOutlineLocator = '';
-          locators.append(outline);
-        }
-        if (locators.childElementCount) frame.append(locators);
-
         const core = el('div', 'markdown xv6KpLearnCore');
         core.dataset.learnerKpCore = text(kp?.identity?.kpId);
         core.innerHTML = kp?.core?.html || '';
@@ -362,7 +401,7 @@ const payload = learnerObject || null;
       };
 
       const mergeSlots = (...slots) => {
-        const families = ['connection', 'visual', 'precision', 'extension'];
+        const families = ['attention', 'connection', 'visual', 'precision', 'extension'];
         const merged = {};
         for (const family of families) {
           const seen = new Set();
@@ -390,7 +429,10 @@ const payload = learnerObject || null;
           slotName = 'block_orientation';
           representationStage = 'BLOCK_ORIENT';
           title = 'Block 辅助';
-          slot = { extension: array(learner.slots?.blockOrientation) };
+          slot = {
+            attention: array(learner.slots?.blockAttention),
+            extension: array(learner.slots?.blockOrientation)
+          };
         } else if (stage === 'source_contact') {
           const kp = visibleCompanionKp('source_contact') || sourceCompanionKp();
           slotName = 'kp_learn_aux';

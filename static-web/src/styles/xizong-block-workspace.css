@@ -894,7 +894,7 @@ body#kianos-workspace.surfaceBody-xizong .portedRecallPrompt { flex:1;min-height
 }
 
 @media (min-width:1101px) and (min-height:680px){
-body#kianos-workspace.surfaceBody-xizong .portedStudyStageAction { position:sticky;bottom:-25px;background:#fff;padding:13px 0; }
+body#kianos-workspace.surfaceBody-xizong .portedStudyStageAction { position:sticky;bottom:0;background:#fff;padding:13px 0; }
 }
 
 
@@ -984,26 +984,77 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyShe
   opacity: .72;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentity {
-  min-height: 44px;
+  min-height: 64px;
   display: grid;
-  grid-template-columns: minmax(0,1fr) auto;
-  gap: 16px;
+  grid-template-columns: max-content minmax(0,1fr) auto;
+  gap: 18px;
   align-items: center;
   padding: 5px 14px;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentity > div > span {
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyBlockIdentity {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyBlockIdentity > span {
   display: none;
 }
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentity h2 {
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyBlockIdentity h2 {
   margin: 0;
   font-size: 23px;
   font-weight: 740;
   line-height: 1.2;
   letter-spacing: 0;
+  white-space: nowrap;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKp {
+  min-width: 0;
+  display: none;
+  grid-template-columns: minmax(0,1fr) auto;
+  grid-template-rows: auto auto;
+  gap: 3px 14px;
+  align-items: center;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .portedStudyActiveKp,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .portedStudyActiveKp {
+  display: grid;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpTitle {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 17px;
+  font-weight: 720;
+  line-height: 1.35;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpMeta {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  color: var(--xz-block-muted);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKpMeta > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 620;
+  line-height: 1.35;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyActiveKp > .xv6KpLearnNav {
+  grid-column: 2;
+  grid-row: 1 / span 2;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentityMeta {
-  max-width: 360px;
+  max-width: 280px;
   text-align: right;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="source_contact"] .portedStudyIdentityMeta,
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-workspace-stage="kp_learn"] .portedStudyIdentityMeta {
+  display: none;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyIdentityMeta strong {
   display: block;
@@ -1033,10 +1084,10 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLay
   background: #fff;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="light"] .portedStudyLayout {
-  grid-template-columns: 292px minmax(0,1fr) 280px;
+  grid-template-columns: 292px minmax(0,1fr) 248px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="rich"] .portedStudyLayout {
-  grid-template-columns: 292px minmax(0,1fr) minmax(380px,36%);
+  grid-template-columns: 292px minmax(0,1fr) 280px;
 }
 
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell :is(.portedStudyOutline,.portedStudyMain,.portedStudyChain) {
@@ -1265,11 +1316,14 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LogicTarget
 /* KP Learn is the main companion work surface. */
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerCompanionStage > footer {
   flex: 0 0 auto;
+  min-height: 54px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-  padding: 10px 18px;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 8px 18px;
+  border-top: 1px solid var(--xz-block-line);
+  background: #fafbfa;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerCompanionStage > footer > span {
   display: none;
@@ -1489,22 +1543,16 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnActio
   flex: 0 0 auto;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 18px;
-  min-height: 46px;
-  padding: 7px 18px;
-  border-top: 1px solid var(--xz-block-line);
-  background: #fafbfa;
+  gap: 10px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnActions > span {
-  color: var(--xz-block-muted);
+  color: var(--xz-block-green);
   font-size: 15px;
-  font-weight: 600;
-}
-body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnActions > div {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  font-weight: 750;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xzKpLearnActions button {
   padding: 5px 9px;
@@ -1564,34 +1612,95 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerAuxB
   overflow: auto;
   padding: 8px 11px 14px;
 }
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSection {
+  --xz-attention-accent: #82918a;
+  --xz-attention-bg: #f6f8f7;
+  --xz-attention-chip: #e9eeeb;
+  --xz-attention-ink: #58655f;
+  margin: 0 0 8px;
+  padding: 8px 9px 9px 10px;
+  border: 1px solid #e4e9e6;
+  border-left: 3px solid var(--xz-attention-accent);
+  border-radius: 8px;
+  background: var(--xz-attention-bg);
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSection[data-attention-section="CURRENT_TAKEAWAY"] {
+  --xz-attention-accent: #54836f;
+  --xz-attention-bg: #f3f8f5;
+  --xz-attention-chip: #e1eee7;
+  --xz-attention-ink: #356650;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSection[data-attention-section="ON_DEMAND_SUPPORT"] {
+  --xz-attention-accent: #7893a1;
+  --xz-attention-bg: #f4f7f9;
+  --xz-attention-chip: #e6eef2;
+  --xz-attention-ink: #4c6876;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSection[data-attention-section="DEFERRED_MEMORY"] {
+  --xz-attention-accent: #b3924f;
+  --xz-attention-bg: #faf7ef;
+  --xz-attention-chip: #f1e8d4;
+  --xz-attention-ink: #80662f;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSection[data-attention-section="FUTURE_CONNECTION"] {
+  --xz-attention-accent: #8d82a0;
+  --xz-attention-bg: #f7f5f9;
+  --xz-attention-chip: #ece8f1;
+  --xz-attention-ink: #6b607c;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSectionLabel {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 4px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--xz-attention-chip);
+  color: var(--xz-attention-ink);
+  font-size: 12px;
+  font-weight: 760;
+  line-height: 1.35;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSectionBody {
+  display: grid;
+  gap: 0;
+}
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerAuxSurface .xv6LearnerAsset {
   grid-template-columns: 1fr;
-  gap: 4px;
-  padding: 9px 0;
-  border-top: 1px solid var(--xz-block-line);
+  gap: 3px;
+  padding: 7px 0;
+  border-top: 1px solid rgba(126,143,134,.18);
+  background: transparent;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerAuxSurface .xv6LearnerAsset:first-child {
   border-top: 0;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerAuxSurface .xv6LearnerAssetLabel {
-  color: var(--xz-block-green);
-  font-size: 15px;
-  font-weight: 800;
+  color: var(--xz-attention-ink);
+  font-size: 13px;
+  font-weight: 720;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerAuxSurface .xv6LearnerAsset p {
-  margin: 2px 0 0;
-  font-size: 15px;
-  line-height: 1.55;
+  margin: 1px 0 0;
+  color: #52615a;
+  font-size: 14px;
+  line-height: 1.5;
+}
+body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6AttentionSection .xv6LearnerAsset.visual {
+  padding: 6px 0 0;
+  border-inline: 0;
+  border-bottom: 0;
+  border-radius: 0;
+  background: transparent;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerVisualGallery {
   grid-template-columns: 1fr;
-  gap: 8px;
+  gap: 6px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerVisualGallery figure.primary {
   grid-column: auto;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6LearnerVisualGallery img {
-  max-height: 420px;
+  max-height: 220px;
 }
 
 /* Old personal dock remains data-compatible but no longer occupies learner-facing chrome. */
@@ -2101,10 +2210,10 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLay
   grid-template-columns: 0 minmax(0,1fr) 0;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="light"] .portedStudyLayout.outline-collapsed {
-  grid-template-columns: 0 minmax(0,1fr) 280px;
+  grid-template-columns: 0 minmax(0,1fr) 248px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell[data-aux-weight="rich"] .portedStudyLayout.outline-collapsed {
-  grid-template-columns: 0 minmax(0,1fr) minmax(380px,36%);
+  grid-template-columns: 0 minmax(0,1fr) 280px;
 }
 body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .portedStudyLayout.outline-collapsed .portedStudyOutline {
   overflow: hidden;

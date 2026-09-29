@@ -10,6 +10,7 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 
 const PROJECTION_MANIFEST = 'content/xizong/projection/manifest.json';
 const PROJECTION_ROOT = 'content/xizong/projection';
+const SHARED_FIELDS = 'content/xizong/knowledge/learner/shared-fields.json';
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -158,6 +159,220 @@ function resolveDerivedFragment(sourceText, selector) {
   if (selector.type === 'MARKER_ID') return selectMarker(sourceText, String(selector.value || ''));
   if (selector.type === 'STRUCTURE_AFTER_ANCHOR') return selectStructureAfterAnchor(sourceText, selector);
   fail('DERIVED_SELECTOR_UNSUPPORTED', String(selector.type || ''));
+}
+
+function cleanExplicitAttentionText(value) {
+  return String(value || '')
+    .replace(/\*\*/g, '')
+    .replace(/__/g, '')
+    .replace(/`+/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function appendExplicitAttention(rows, seen, {
+  kp,
+  blockId,
+  role,
+  semanticRole,
+  cue,
+  sourcePath,
+  marker
+}) {
+  const text = cleanExplicitAttentionText(cue);
+  if (!text) return;
+  const key = `${role}|${semanticRole}|${text}`;
+  if (seen.has(key)) return;
+  seen.add(key);
+  rows.push({
+    id: `${kp.kpId}:attention:${rows.length + 1}`,
+    kind: 'ATTENTION',
+    semanticRole,
+    attentionRole: role,
+    answerBearing: true,
+    displayPolicy: { timing: 'LEARN_ONLY' },
+    anchor: {
+      blockId: String(blockId || ''),
+      logicGroupId: String(kp.groupId || ''),
+      kpId: String(kp.kpId || '')
+    },
+    cue: text,
+    sourcePath: String(sourcePath || ''),
+    marker
+  });
+}
+
+function reviewedGateAttentionForBlock(canonicalBlock, kpRecords) {
+  if (!exists(SHARED_FIELDS)) return [];
+  const shared = readJson(SHARED_FIELDS);
+  if (!String(shared?.authority || '').startsWith('CHAT_APPROVED')) return [];
+  if (String(shared?.source_bindings?.[canonicalBlock?.blockId] || '') !== String(canonicalBlock?.sourcePath || '')) return [];
+
+  const rows = [];
+  for (const kp of kpRecords) {
+    const legacyId = `${canonicalBlock.blockId}-kp${String(Number(kp?.ordinal || 0)).padStart(3, '0')}`;
+    const field = shared?.kp_fields?.[legacyId] || shared?.kp_fields?.[kp?.kpId] || null;
+    const gates = Array.isArray(field?.retention_metadata?.gate_knowledge)
+      ? field.retention_metadata.gate_knowledge
+      : [];
+    const coreText = cleanExplicitAttentionText(kp?.detailMarkdown || '');
+    const seen = new Set();
+    for (const gate of gates) {
+      const anchors = [
+        ...(gate?.anchor ? [gate.anchor] : []),
+        ...(Array.isArray(gate?.anchors) ? gate.anchors : [])
+      ].map(cleanExplicitAttentionText).filter(Boolean);
+      if (!anchors.length || !anchors.every((value) => coreText.includes(value))) continue;
+      appendExplicitAttention(rows, seen, {
+        kp,
+        blockId: canonicalBlock.blockId,
+        role: 'CURRENT_TAKEAWAY',
+        semanticRole: 'GATING_MEMORY',
+        cue: anchors.join('；'),
+        sourcePath: canonicalBlock.sourcePath,
+        marker: 'SHARED_GATE_KNOWLEDGE'
+      });
+    }
+  }
+  return rows;
+}
+
+export function compileXizongExplicitAttentionCues(canonicalBlock, kpRecords = canonicalBlock?.kpRecords || []) {
+  const rows = [];
+  for (const kp of kpRecords) {
+    const seen = new Set();
+    const lines = String(kp?.detailMarkdown || '').split('\n');
+    let fence = null;
+
+    for (const rawLine of lines) {
+      const fenceMatch = rawLine.match(/^\s{0,3}(`{3,}|~{3,})/);
+      if (fenceMatch) {
+        const token = fenceMatch[1];
+        if (!fence) fence = token;
+        else if (token[0] === fence[0] && token.length >= fence.length) fence = null;
+        continue;
+      }
+      if (fence) continue;
+
+      for (const [marker, semanticRole, pattern] of [
+        ['易混', 'CONFUSABLE', /（易混[：:]\s*([^）]+)）/g],
+        ['边界', 'BOUNDARY', /（边界[：:]\s*([^）]+)）/g]
+      ]) {
+        for (const match of rawLine.matchAll(pattern)) {
+          appendExplicitAttention(rows, seen, {
+            kp,
+            blockId: canonicalBlock?.blockId,
+            role: 'CURRENT_TAKEAWAY',
+            semanticRole,
+            cue: match[1],
+            sourcePath: canonicalBlock?.sourcePath,
+            marker
+          });
+        }
+      }
+
+      const normalized = rawLine
+        .trim()
+        .replace(/^#{1,6}\s*/, '')
+        .replace(/^\d+\s*[｜|]\s*/, '')
+        .trim();
+
+      const connection = normalized.match(/^\/\/串联[：:]\s*(.+)$/);
+      if (connection?.[1]) {
+        appendExplicitAttention(rows, seen, {
+          kp,
+          blockId: canonicalBlock?.blockId,
+          role: 'FUTURE_CONNECTION',
+          semanticRole: 'CONNECTION_NOTICE',
+          cue: connection[1],
+          sourcePath: canonicalBlock?.sourcePath,
+          marker: '//串联'
+        });
+      }
+
+      const importantBoundary = normalized.match(/^重要边界[：:]\s*(.+)$/);
+      if (importantBoundary?.[1]) {
+        appendExplicitAttention(rows, seen, {
+          kp,
+          blockId: canonicalBlock?.blockId,
+          role: 'CURRENT_TAKEAWAY',
+          semanticRole: 'BOUNDARY',
+          cue: importantBoundary[1],
+          sourcePath: canonicalBlock?.sourcePath,
+          marker: '重要边界'
+        });
+      }
+    }
+  }
+  for (const row of reviewedGateAttentionForBlock(canonicalBlock, kpRecords)) {
+    rows.push({ ...row, id: `reviewed:${row.id}` });
+  }
+  return rows;
+}
+
+function normalizePreentryHeading(title) {
+  return cleanExplicitAttentionText(title)
+    .replace(/^\d+(?:\.\d+)*\s*/, '')
+    .replace(/^\/\/\s*/, '')
+    .trim();
+}
+
+function explicitPreentrySection(markdown, token, ownerPath) {
+  const { lines, headings } = markdownHeadings(markdown);
+  const matches = headings.filter((row) => {
+    const title = normalizePreentryHeading(row.title);
+    return title === token || title.startsWith(`${token}｜`) || title.startsWith(`${token}|`);
+  });
+  // Optional support fails closed locally: an ambiguous heading does not block
+  // the Block or license the renderer to guess which section is authoritative.
+  if (matches.length !== 1) return null;
+  const start = matches[0];
+  const end = headings.find((row) => row.index > start.index && row.level <= start.level)?.index ?? lines.length;
+  const bodyLines = lines.slice(start.index + 1, end);
+  const explicitItems = bodyLines
+    .map((line) => line.match(/^\s*(?:[-*+]\s+|\d+[.)、]\s*)(.+?)\s*$/)?.[1] || '')
+    .map(cleanExplicitAttentionText)
+    .filter(Boolean);
+  const paragraph = cleanExplicitAttentionText(
+    bodyLines
+      .filter((line) => !/^\s*<!--/.test(line))
+      .filter((line) => !/^\s*#{1,6}\s+/.test(line))
+      .join(' ')
+  );
+  return {
+    present: true,
+    ownerPath,
+    anchor: start.title,
+    items: explicitItems.length ? explicitItems : (paragraph ? [paragraph] : []),
+    markdown: lines.slice(start.index, end).join('\n').trim()
+  };
+}
+
+export function compileXizongBlockPreentry(canonicalBlock) {
+  const ownerPath = String(canonicalBlock?.sourcePath || '');
+  if (!ownerPath || !exists(ownerPath)) {
+    return {
+      framework: { present: false, ownerPath: ownerPath || null, anchor: null, items: [], markdown: '' },
+      memoryRouting: { present: false, ownerPath: ownerPath || null, anchor: null, miG: [], miD: [], miGAnchor: null, miDAnchor: null }
+    };
+  }
+  const markdown = readText(ownerPath);
+  const framework = explicitPreentrySection(markdown, '总 Framework', ownerPath);
+  const memoryRouting = explicitPreentrySection(markdown, 'Memory Routing', ownerPath);
+  const miG = explicitPreentrySection(markdown, 'MI-G', ownerPath);
+  const miD = explicitPreentrySection(markdown, 'MI-D', ownerPath);
+  return {
+    framework: framework || { present: false, ownerPath, anchor: null, items: [], markdown: '' },
+    memoryRouting: {
+      present: Boolean(memoryRouting || miG || miD),
+      ownerPath,
+      anchor: memoryRouting?.anchor || null,
+      miG: miG?.items || [],
+      miD: miD?.items || [],
+      miGAnchor: miG?.anchor || null,
+      miDAnchor: miD?.anchor || null
+    }
+  };
 }
 
 function semanticLogicMap(semanticBlock) {
@@ -337,6 +552,8 @@ export function buildXizongProductionBlock(canonicalBlock) {
     return { ...kp, groupId: group.groupId, groupLabel: group.label };
   });
 
+  const semanticAttentionCues = compileXizongExplicitAttentionCues(canonicalBlock, kpRecords);
+  const blockPreentry = compileXizongBlockPreentry(canonicalBlock);
   const cognitiveProjection = resolveXizongBlockCognitiveProjection(canonicalBlock, semanticBlock);
   return {
     ...canonicalBlock,
@@ -350,6 +567,8 @@ export function buildXizongProductionBlock(canonicalBlock) {
     semanticVisualGates: semanticBlock.visualGates,
     semanticPrecisionCues: semanticBlock.precisionCues,
     semanticExtensionRefs: semanticBlock.extensionRefs,
+    semanticAttentionCues,
+    blockPreentry,
     cognitiveProjection
   };
 }

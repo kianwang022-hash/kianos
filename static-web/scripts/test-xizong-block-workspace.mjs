@@ -220,8 +220,8 @@ try {
   check(locatorText.includes('讲义'), 'lecture_locator_in_top_right', locatorText);
   check(locatorText.includes('考纲'), 'outline_locator_in_top_right', locatorText);
   check(await learnCard.locator('.xzKpPacketButton').count() === 0, 'packet_transport_not_in_learning_header');
-  check(await learnCard.locator('[data-kp-chat-handoff]').isVisible(), 'chat_handoff_remains_reachable');
-  check(await page.locator('[data-xizong-study-dock] [data-copy-study-packet]').count() === 1, 'chat_reuses_existing_packet_return_owner');
+  check(await learnCard.locator('[data-kp-chat-handoff]').count() === 0, 'no_manual_chat_handoff_in_first_pass_mainline');
+  check(await page.locator('[data-xizong-study-dock] [data-copy-study-packet]').count() === 1, 'typed_packet_return_owner_stays_available_backstage');
   const expectedKp = payload.kps.find((kp) => kp.identity.kpId === learnCardId);
   const lectureText = await learnCard.locator('[data-kp-source-locator]').innerText();
   check(lectureText === `讲义 · ${expectedKp?.source?.locator || '当前知识点未标注页码'}`, 'locator_matches_current_kp_owner');
@@ -254,15 +254,16 @@ try {
   await page.setViewportSize({width:1512,height:982});
   await page.waitForTimeout(350);
 
-  // Exercise the real shared export handler without altering the OS clipboard.
+  // The typed packet/Return owner remains available to the loop without a
+  // learner-facing per-KP Chat ceremony.
   await page.evaluate(() => {
     window.__qaCopiedPacket='';
     navigator.clipboard.writeText=async (text) => {window.__qaCopiedPacket=text;};
   });
-  await learnCard.locator('[data-kp-chat-handoff]').click();
+  await page.locator('[data-xizong-study-dock] [data-copy-study-packet]').evaluate((node) => node.click());
   await page.waitForFunction(() => Boolean(window.__qaCopiedPacket));
   const exported=await page.evaluate(()=>window.__qaCopiedPacket);
-  check(exported.includes(learnCardId) && exported.includes('return'), 'chat_handoff_carries_current_kp_and_return_contract');
+  check(exported.includes(learnCardId) && exported.includes('return'), 'backstage_packet_owner_carries_current_kp_and_return_contract');
 
 
   const logicDetail = root.locator('.xzLogicGroupDetail');

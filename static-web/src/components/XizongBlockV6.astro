@@ -100,10 +100,11 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       </div>
     </div>
     <div class="portedStudyIdentity">
-      <div>
+      <div class="portedStudyBlockIdentity">
         <span data-study-context-label>西医综合 · {block.label} · 建立框架</span>
         <h2>{block.title}</h2>
       </div>
+      <div class="portedStudyActiveKp" data-study-active-kp aria-live="polite"></div>
       <div class="portedStudyIdentityMeta">
         <strong data-study-local-status>{sourcePerGroup ? `学习节 1/${groups.length}` : '准备进入原讲义'}</strong>
         <small>← / → 推进 · 状态只留在本机</small>
@@ -287,7 +288,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
             <div data-block-recall-answer hidden>
               {block.recallSpine && <section class="xv6RecallSpine"><strong>整块主链</strong><p>{block.recallSpine}</p></section>}
               <section class="xv6GroupReview">
-                <strong>Logic Group Closure</strong>
+                <strong>学习节闭合目标</strong>
                 <div>{groups.map((group) => <section><strong>{group.label}</strong><p>{group.closure || group.goal || ''}</p></section>)}</div>
               </section>
             </div>
@@ -315,9 +316,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       </section>
     </main>
 
-    <aside class="portedStudyChain xv6AttentionRail" aria-label="当前学习辅助" data-xizong-attention>
-      <header><span>按需辅助</span><strong>当前辅助</strong></header>
-    </aside>
+    <aside class="portedStudyChain xv6AttentionRail" aria-label="当前学习辅助" data-xizong-attention></aside>
   </div>
 
 </section>

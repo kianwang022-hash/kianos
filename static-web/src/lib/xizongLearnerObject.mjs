@@ -12,9 +12,52 @@ function text(value) {
   return String(value || '');
 }
 
+function blockAttentionRows(block) {
+  const rows = [];
+  const seen = new Set();
+  let index = 0;
+  const push = (role, value, source) => {
+    const cue = text(value?.text || value?.label || value?.cue || value).trim();
+    if (!cue) return;
+    const key = `${role}|${cue}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    rows.push({
+      id: `${text(block?.blockId)}:attention:${++index}`,
+      kind: 'ATTENTION',
+      attentionRole: role,
+      cue,
+      displayPolicy: { timing: 'BLOCK_ORIENT' },
+      raw: { source }
+    });
+  };
+
+  // Canonical Block-owned MI-G / MI-D become first-pass attention only when
+  // the exact headings were explicitly resolved from the current Block owner.
+  for (const item of array(block?.blockPreentry?.memoryRouting?.miG)) {
+    push('CURRENT_TAKEAWAY', item, 'BLOCK_PREENTRY_MI_G');
+  }
+  for (const item of array(block?.blockPreentry?.memoryRouting?.miD)) {
+    push('DEFERRED_MEMORY', item, 'BLOCK_PREENTRY_MI_D');
+  }
+
+  // The Current stop line is the explicit "not now / later owner" boundary.
+  if (block?.attention?.stopLine) {
+    push('FUTURE_CONNECTION', block.attention.stopLine, 'ATTENTION_STOP_LINE');
+  }
+  for (const row of array(block?.attention?.laterConnections)) {
+    push('FUTURE_CONNECTION', row, 'ATTENTION_LATER_CONNECTION');
+  }
+  return rows;
+}
+
 function byAnchor(rows, field, value) {
   if (!value) return [];
   return array(rows).filter((row) => row?.anchor?.[field] === value);
+}
+
+function attentionByKp(block, kpId) {
+  return array(block?.semanticAttentionCues).filter((row) => row?.anchor?.kpId === kpId);
 }
 
 function extensionsByOwner(rows, field, value) {
@@ -28,6 +71,7 @@ function normalizeCue(row, kind) {
     kind,
     answerBearing: row?.answer_bearing === true || row?.answerBearing === true,
     displayPolicy: row?.display_policy || row?.displayPolicy || null,
+    attentionRole: text(row?.attention_role || row?.attentionRole),
     anchor: row?.anchor ? { ...row.anchor } : {},
     cue: text(row?.cue || row?.task || row?.micro_task),
     task: text(row?.task || row?.micro_task),
@@ -150,9 +194,11 @@ function buildKpObject(block, kp, learningCues, extensionAssets, pathways) {
   const visual = byAnchor(learningCues?.visuals, 'kp_id', kp.kpId).map((row) => normalizeCue(row, 'VISUAL'));
   const extension = extensionsByOwner(extensionAssets, 'kp_id', kp.kpId).map(normalizeExtension);
   const connection = connectionRowsForOwner(pathways, 'kp_id', kp.kpId);
+  const attention = attentionByKp(block, kp.kpId).map((row) => ({ ...row }));
   uniqueIds(precision, `${kp.kpId}:precision`);
   uniqueIds(visual, `${kp.kpId}:visual`);
   uniqueIds(extension, `${kp.kpId}:extension`);
+  uniqueIds(attention, `${kp.kpId}:attention`);
 
   const object = {
     schema: XIZONG_LEARNER_OBJECT_SCHEMA,
@@ -185,7 +231,8 @@ function buildKpObject(block, kp, learningCues, extensionAssets, pathways) {
     precision,
     visual,
     extension,
-    connection
+    connection,
+    attention
   };
   object.learnSteps = learnSteps(object);
   object.recall = recallProjection(object);
@@ -275,14 +322,17 @@ export function buildXizongLearnerObject({
       cognitiveProjection: block?.cognitiveProjection || null
     },
     sourceContact: block?.sourceContact || null,
+    blockPreentry: block?.blockPreentry || null,
     blockExtension: blockExtensions,
     logicGroups: groups,
     kps: kpObjects,
     slots: {
       blockOrientation: blockExtensions,
+      blockAttention: blockAttentionRows(block),
       logicGroupPrelearn: Object.fromEntries(groups.map((group) => [group.identity.logicGroupId, group.slots.prelearn])),
       logicGroupPostlearn: Object.fromEntries(groups.map((group) => [group.identity.logicGroupId, group.slots.postlearn])),
       kpLearnAux: Object.fromEntries(kpObjects.map((kp) => [kp.identity.kpId, {
+        attention: kp.attention,
         visual: kp.visual,
         precision: kp.precision,
         extension: kp.extension,
