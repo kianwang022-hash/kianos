@@ -22,6 +22,7 @@ const server=spawn('npm',['run','dev','--','--host','127.0.0.1','--port',String(
   cwd:process.cwd(),
   env:{
     ...process.env,
+    KIANOS_PACKET_RELAY_ENABLED:'0',
     KIANOS_PRIVATE_DIR:path.join(temp,'learner-state'),
     KIANOS_CONTROL_DIR:path.join(temp,'control'),
     KIANOS_CONTROL_ENABLED:'0',
@@ -40,6 +41,9 @@ const studyDay=new Intl.DateTimeFormat('en-CA',{
   timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'
 }).format(new Date());
 const now=Date.now();
+let priorNextHref=null;
+const nativeReady=page=>page.waitForFunction(()=>window.KianOSStudyTimer && document.documentElement.dataset.learnerWriter==='active');
+const saveCheckpoint=page=>page.evaluate(async()=>{const m=await import('/src/lib/privateCheckpointRuntime.mjs');const r=await m.saveSharedControlToPrivate(localStorage);if(r.status!=='saved')throw new Error('TEST_NATIVE_CHECKPOINT_NOT_SAVED:'+JSON.stringify(r));});
 try{
   await ready();
   browser=await chromium.launch({headless:true});
@@ -70,6 +74,7 @@ try{
       }));
     },{cardId});
     await page.goto(BASE+'/',{waitUntil:'domcontentloaded'});
+    await nativeReady(page);
     await page.locator('[data-exam-home][data-ready="true"]').waitFor();
     check((await page.locator('[data-exam-next]').getAttribute('aria-disabled'))==='true','xizong_home_starts_without_fake_next');
 
@@ -104,7 +109,9 @@ try{
     await page.waitForFunction(()=>document.querySelector('[data-exam-next]')?.getAttribute('href')?.includes('/xizong/memory/?session='));
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(href?.includes('/xizong/memory/?session=live-xizong-session'),'xizong_live_command_updates_home_directly',href||'');
+    priorNextHref=href;
     await page.screenshot({path:path.join(out,'01-live-xizong.png'),fullPage:true});
+    await saveCheckpoint(page);
     await ctx.close();
   }
 
@@ -113,6 +120,7 @@ try{
     const ctx=await browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
     const page=await ctx.newPage();
     await page.goto(BASE+'/reading/',{waitUntil:'domcontentloaded'});
+    await nativeReady(page);
     const row=await page.evaluate(async ()=>{
       const response=await fetch('/__kianos-private/control/english-session-catalog',{cache:'no-store'});
       const data=await response.json();
@@ -148,6 +156,7 @@ try{
     },{command,studyDay,now});
     const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-english-session-instruction-v1')||'null'));
     check(stored?.session_id===sessionId,'english_session_applies_off_home',stored?.session_id||'');
+    await saveCheckpoint(page);
     await ctx.close();
   }
 
@@ -156,8 +165,9 @@ try{
     const ctx=await browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
     const page=await ctx.newPage();
     await page.goto(BASE+'/',{waitUntil:'domcontentloaded'});
+    await nativeReady(page);
     await page.locator('[data-exam-home][data-ready="true"]').waitFor();
-    check((await page.locator('[data-exam-next]').getAttribute('aria-disabled'))==='true','english_home_starts_without_fake_next');
+    check((await page.locator('[data-exam-next]').getAttribute('href'))===priorNextHref,'english_restart_preserves_existing_cross_subject_decision');
     const row=await page.evaluate(()=>{
       const rows=JSON.parse(document.querySelector('[data-english-resume-catalog]')?.textContent||'[]');
       return rows.find(x=>x.task==='reading_a')||rows[0]||null;
@@ -207,7 +217,9 @@ try{
     });
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(Boolean(href&&!/^\/english\/?$/.test(href)),'english_live_command_updates_home_directly',href||'');
+    priorNextHref=href;
     await page.screenshot({path:path.join(out,'02-live-english.png'),fullPage:true});
+    await saveCheckpoint(page);
     await ctx.close();
   }
 
@@ -219,8 +231,9 @@ try{
     const ctx=await browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
     const page=await ctx.newPage();
     await page.goto(BASE+'/',{waitUntil:'domcontentloaded'});
+    await nativeReady(page);
     await page.locator('[data-exam-home][data-ready="true"]').waitFor();
-    check((await page.locator('[data-exam-next]').getAttribute('aria-disabled'))==='true','politics_home_starts_without_fake_next');
+    check((await page.locator('[data-exam-next]').getAttribute('href'))===priorNextHref,'politics_restart_preserves_existing_cross_subject_decision');
 
     const generatedAt=new Date(now-10000).toISOString();
     const planId='live-politics-memory-plan';
@@ -253,6 +266,7 @@ try{
     const href=await page.locator('[data-exam-next]').getAttribute('href');
     check(href==='/politics/memory/','politics_live_command_updates_home_directly',href||'');
     await page.screenshot({path:path.join(out,'03-live-politics.png'),fullPage:true});
+    await saveCheckpoint(page);
     await ctx.close();
   }
 

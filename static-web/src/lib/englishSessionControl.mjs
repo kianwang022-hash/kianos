@@ -216,8 +216,14 @@ export function validateEnglishSessionInstruction(value, expectedDay = null) {
     throw new Error('ENGLISH_SESSION_CURRENT_STEP_INVALID:' + currentStep);
   }
 
+  const clearedAt = value.cleared_at == null ? null : Date.parse(value.cleared_at);
+  if (clearedAt != null && (!Number.isFinite(clearedAt) || clearedAt < Date.parse(generatedAt))) {
+    throw new Error('ENGLISH_SESSION_CLEARED_AT_INVALID');
+  }
+
   return {
     schema: ENGLISH_SESSION_SCHEMA,
+    ...(clearedAt == null ? {} : { cleared_at: new Date(clearedAt).toISOString() }),
     session_id: sessionId,
     study_day: studyDay,
     generated_at: new Date(generatedAt).toISOString(),
@@ -271,6 +277,11 @@ export function readEnglishSessionInstruction(storage, expectedDay = null, {cata
   if (raw == null) return { status: 'missing', instruction: null, error: null };
   try {
     const parsed = JSON.parse(raw);
+    if (parsed?.cleared_at != null) {
+      const cleared = validateEnglishSessionInstruction(parsed);
+      return { status: 'cleared', instruction: null, error: null, executable: false,
+        cleared_session_id: cleared.session_id, cleared_at: cleared.cleared_at };
+    }
     if (expectedDay && parsed?.study_day && parsed.study_day !== expectedDay) {
       return {
         status: 'stale',
@@ -299,6 +310,13 @@ export function readEnglishSessionInstruction(storage, expectedDay = null, {cata
 export function englishSessionInstructionEffectMatches(storage, input, expectedDay = null) {
   try {
     const expected = validateEnglishSessionInstruction(input, expectedDay);
+    const stored = validateEnglishSessionInstruction(JSON.parse(storage.getItem(ENGLISH_SESSION_KEY)), expectedDay);
+    if (stored.cleared_at) {
+      // The original delivery was consumed and then explicitly cleared. Retrying
+      // it must acknowledge that local outcome, not undo the learner's action.
+      const body = ({cleared_at, ...value}) => JSON.stringify({...value, current_step:0});
+      return body(stored) === body(expected);
+    }
     const current = readEnglishSessionInstruction(storage, expectedDay);
     if (!current.instruction || !['ready','stale_source'].includes(current.status)) return false;
     return current.instruction.session_id === expected.session_id
@@ -311,6 +329,7 @@ export function englishSessionInstructionEffectMatches(storage, input, expectedD
 export function writeEnglishSessionInstruction(storage, input, expectedDay = null, { catalog, now = Date.now() } = {}) {
   if (!storage?.setItem) throw new Error('ENGLISH_SESSION_STORAGE_UNAVAILABLE');
   const instruction = parseEnglishSessionInstruction(input, expectedDay);
+  if (instruction.cleared_at) throw new Error('ENGLISH_SESSION_CLEAR_REQUIRES_NATIVE_ACTION');
   if (!Array.isArray(catalog)) throw new Error('ENGLISH_SESSION_CURRENT_CATALOG_REQUIRED');
   const drift=englishSessionSourceDrift(instruction,catalog,expectedDay);
   if(drift)throw new Error(drift.error);
@@ -329,11 +348,11 @@ export function writeEnglishSessionInstruction(storage, input, expectedDay = nul
     catch { throw new Error('ENGLISH_SESSION_EXISTING_DATA_UNREADABLE_EXPORT_BEFORE_REPLACE'); }
     if (prior.session_id === instruction.session_id) {
       // Progress is local execution of the same instruction; replay must not rewind it.
-      const body = value => JSON.stringify({...value, current_step:0});
+      const body = ({cleared_at, ...value}) => JSON.stringify({...value, current_step:0});
       if (body(prior) !== body(instruction)) throw new Error('ENGLISH_SESSION_REPLAY_CONFLICT');
       return prior;
     }
-    if (Date.parse(instruction.generated_at) <= Date.parse(prior.generated_at)) throw new Error('ENGLISH_SESSION_OLDER_INSTRUCTION');
+    if (Date.parse(instruction.generated_at) <= Date.parse(prior.cleared_at || prior.generated_at)) throw new Error('ENGLISH_SESSION_OLDER_INSTRUCTION');
   }
   const declarations=instruction.steps.filter(s=>s.params.material_exposure);
   const changes=[[ENGLISH_SESSION_KEY,instruction]];
@@ -468,9 +487,19 @@ export function advanceEnglishSessionSourceRevision(storage, day, {catalog,expec
   return {...result,instruction:next.instruction,step:next.step};
 }
 
-export function clearEnglishSessionInstruction(storage) {
-  if (!storage?.removeItem) return;
-  storage.removeItem(ENGLISH_SESSION_KEY);
+export function clearEnglishSessionInstruction(storage, {now = Date.now()} = {}) {
+  if (!storage?.getItem || !storage?.setItem) return;
+  const raw = storage.getItem(ENGLISH_SESSION_KEY);
+  if (raw == null) return;
+  const prior = validateEnglishSessionInstruction(JSON.parse(raw));
+  if (prior.cleared_at) return prior;
+  if (!Number.isFinite(Number(now))) throw new Error('ENGLISH_SESSION_CLEAR_TIME_INVALID');
+  // Keep intentional absence in this same native record. A missing key means
+  // "recover from checkpoint"; deleting it would resurrect the old arrangement.
+  // This is cancellation, never task completion or a new learner ledger.
+  const next = {...prior, cleared_at:new Date(Math.max(Number(now), Date.parse(prior.generated_at))).toISOString()};
+  atomicEnglishWrites(storage, [[ENGLISH_SESSION_KEY, next]]);
+  return next;
 }
 
 export function englishSessionStepHref(step, base = '/') {

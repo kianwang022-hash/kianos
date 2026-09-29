@@ -215,9 +215,12 @@ function receiptNativeEffectPresent(storage,command){
   return true;
 }
 
-export async function applyPrivateControlCommand(storage,input,{day=null,now=Date.now()}={}){
-  const parsedNow=Number(now);
-  const effectiveNow=Number.isFinite(parsedNow)?parsedNow:Date.now();
+export async function applyPrivateControlCommand(storage,input,{day=null,now=null}={}){
+  // Numeric `now` remains a fixed test clock; production and function clocks
+  // must be sampled again after asynchronous catalog reads, before any write.
+  const clock=typeof now==='function'?now:now==null?()=>Date.now():()=>Number(now);
+  const parsedNow=Number(clock());
+  let effectiveNow=Number.isFinite(parsedNow)?parsedNow:Date.now();
   const effectiveDay=day??studyDayAt(effectiveNow);
   const command=validateBrowserControlCommand(input,effectiveDay);
   if(Date.parse(command.generated_at)>effectiveNow+60_000)throw new Error('KIANOS_CONTROL_FUTURE_COMMAND');
@@ -240,7 +243,13 @@ export async function applyPrivateControlCommand(storage,input,{day=null,now=Dat
   // Finish asynchronous input reads before staging. Re-check expiry and a
   // competing completion afterwards, then perform the transaction synchronously.
   const englishCatalog=englishOp?await loadEnglishCatalog():null;
-  validateBrowserControlCommand(command,effectiveDay);
+  const commitNow=Number(clock());
+  if(!Number.isFinite(commitNow))throw new Error('KIANOS_CONTROL_CLOCK_INVALID');
+  const commitDay=studyDayAt(commitNow);
+  if(commitDay!==effectiveDay)throw new Error('KIANOS_CONTROL_STALE_DAY:'+effectiveDay+':'+commitDay);
+  effectiveNow=commitNow;
+  validateBrowserControlCommand(command,commitDay);
+  if(Date.parse(command.generated_at)>effectiveNow+60_000)throw new Error('KIANOS_CONTROL_FUTURE_COMMAND');
   const completedWhileLoading=appliedReceipt(storage,command);
   if(completedWhileLoading && receiptNativeEffectPresent(storage,command)){
     const receiptSaved=await saveReceipt(completedWhileLoading);

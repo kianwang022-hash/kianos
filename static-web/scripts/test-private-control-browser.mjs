@@ -8,6 +8,7 @@ import {
   ENGLISH_GENERATED_DRILL_SCHEMA,
   validateEnglishGeneratedDrill
 } from './privateEnglishGeneratedDrillStore.mjs';
+import { publishPrivateControlCommand } from './privateControlStore.mjs';
 import { buildExamChatPlanBasis } from '../src/lib/examChatPlan.mjs';
 
 class MemoryStorage{
@@ -126,6 +127,7 @@ const server=spawn('npm',['run','dev','--','--host','127.0.0.1','--port',String(
   cwd:process.cwd(),
   env:{
     ...process.env,
+    KIANOS_PACKET_RELAY_ENABLED:'0',
     KIANOS_CONTROL_SOURCE_FILE:commandFile,
     KIANOS_CONTROL_DIR:controlDir,
     KIANOS_ENGLISH_GENERATED_DIR:generatedDir,
@@ -161,22 +163,21 @@ async function controlReady(){
   throw new Error('CONTROL_BROWSER_LOCAL_INBOX_NOT_READY:'+JSON.stringify(last)+':'+log.slice(-1600));
 }
 
-let browser;
+let browser,focusProcess;
 try{
   await ready();
   browser=await chromium.launch({headless:true});
   const serverControl=await controlReady();
   assert.equal(serverControl.command.command_id,command.command_id);
   const context=await browser.newContext({viewport:{width:1512,height:982},locale:'zh-CN',timezoneId:'Asia/Shanghai'});
-  await context.addInitScript(({fixtureNow})=>{
+  await context.addInitScript(({offset})=>{
     const NativeDate=Date;
-    const offset=fixtureNow-NativeDate.now();
     class FixtureDate extends NativeDate{
       constructor(...args){super(...(args.length?args:[NativeDate.now()+offset]));}
       static now(){return NativeDate.now()+offset;}
     }
     window.Date=FixtureDate;
-  },{fixtureNow:Date.parse('2026-09-20T03:00:00+08:00')});
+  },{offset:Date.parse('2026-09-20T03:00:00+08:00')-Date.now()});
   const page=await context.newPage();
   const pageErrors=[];
   page.on('pageerror',error=>pageErrors.push(error.message));
@@ -282,13 +283,109 @@ try{
   await page.waitForFunction(() => document.querySelector('[data-external-kind]')?.textContent?.trim() === 'CHAT · SYNTHETIC', null, { timeout: 10000 });
   assert.equal((await page.locator('[data-external-kind]').textContent())?.trim(),'CHAT · SYNTHETIC');
 
-  console.log('PASS private Chat command -> local relay -> browser control -> Total Home -> exact English Workspace');
-  await context.close();
+  const nativeReady=async page=>{
+    await page.bringToFront();
+    try{await page.waitForFunction(()=>window.KianOSStudyTimer && document.documentElement.dataset.learnerWriter==='active');}
+    catch(e){throw new Error('NATIVE_BOOT:'+JSON.stringify(await page.evaluate(()=>({url:location.href,focus:document.hasFocus(),dataset:{...document.documentElement.dataset},keys:Object.keys(localStorage),text:document.body.innerText.slice(0,2200)})))+'\n'+log.slice(-1500),{cause:e});}
+  };
+  const saveCheckpoint=page=>page.evaluate(async()=>{
+    const m=await import('/src/lib/privateCheckpointRuntime.mjs');
+    // The native change event may already have an autosave in flight. Reconcile
+    // its completion rather than treating safe CAS rejection as product failure.
+    for(let i=0;i<3;i++){
+      try {
+        const r=await m.saveSharedControlToPrivate(localStorage);
+        if(r.status!=='saved')throw new Error('CONTROL_RECOVERY_CHECKPOINT:'+JSON.stringify(r));
+        return;
+      } catch(e) {
+        if(!/PRIVATE_CHECKPOINT_(STALE_WRITE|CONFLICT)/.test(e.message)||i===2)throw e;
+        await new Promise(resolve=>setTimeout(resolve,100));
+      }
+    }
+  });
+  const learnerRecords=page=>page.evaluate(()=>Object.fromEntries(Object.keys(localStorage)
+    .filter(k=>/attempt|material-exposure/.test(k)).map(k=>[k,localStorage.getItem(k)])));
+  await nativeReady(page);
+  const protectedRecords=await learnerRecords(page);
+  assert.ok(Object.keys(protectedRecords).length,'native task creates attributable exposure/attempt state');
+  await page.goto(base+'/english/',{waitUntil:'domcontentloaded'});await nativeReady(page);
+  // The learner visit legitimately stales the earlier cross-subject plan basis.
+  // Test cancellation against an admitted session-only command, as used by the
+  // ordinary English producer, instead of demanding that stale plans reapply.
+  const sessionOnly={...command,command_id:command.command_id+'-session-only',
+    generated_at:'2026-09-20T02:59:00+08:00',operations:command.operations.filter(op=>op.kind==='english.session')};
+  fs.writeFileSync(commandFile,JSON.stringify(sessionOnly));
+  publishPrivateControlCommand(sessionOnly,{privateDir:controlDir,generatedDir});
+  await page.waitForFunction(id=>JSON.parse(localStorage.getItem('kianos-control-receipt-v1')||'null')?.command_id===id,sessionOnly.command_id);
+  await page.locator('[data-english-session-control] > summary').click();
+  await page.locator('[data-english-clear-session]').click();
+  await page.waitForFunction(()=>JSON.parse(localStorage.getItem('kianos-english-session-instruction-v1')||'null')?.cleared_at);
+  await saveCheckpoint(page);
+  // Lose only the isolated server receipt. The unchanged command remains in
+  // the native inbox, forcing an actual browser poll/retry after explicit clear.
+  fs.rmSync(path.join(controlDir,'receipt.json'),{force:true});
+  let retried=false;
+  for(let i=0;i<60;i++){
+    await sleep(100);
+    try{const r=JSON.parse(fs.readFileSync(path.join(controlDir,'receipt.json'),'utf8'));if(r.command_id===sessionOnly.command_id&&r.status==='APPLIED'){retried=true;break;}}catch{}
+  }
+  assert.ok(retried,'native runtime must acknowledge the lost receipt after clear: '+JSON.stringify(await (await fetch(base+'/__kianos-private/control/current')).json()));
+  assert.equal(await page.evaluate(async()=>{
+    const m=await import('/src/lib/englishSessionControl.mjs');return m.readEnglishSessionInstruction(localStorage,'2026-09-20').status;
+  }),'cleared');
+  assert.equal(await page.locator('[data-english-resume]').isVisible(),false,'cleared command must not return as Resume');
+  assert.deepEqual(await learnerRecords(page),protectedRecords,'clear/retry preserves actual attempt and exposure');
+  await saveCheckpoint(page);await context.close();
+
+  // Use an isolated real Chrome default context for focus ownership. Normal
+  // Playwright contexts force focus emulation true on every tab, which cannot
+  // demonstrate native foreground/background Web Lock handoff.
+  await browser.close();
+  const focusProfile=path.join(temp,'focus-profile');
+  const chrome=process.env.KIANOS_TEST_CHROME || chromium.executablePath();
+  focusProcess=spawn(chrome,[...(process.env.KIANOS_TEST_HEADED==='1'?[]:['--headless=new']),'--remote-debugging-port=0','--user-data-dir='+focusProfile,
+    '--no-first-run','--no-default-browser-check','--disable-background-networking',
+    '--disable-sync','--disable-extensions','--enable-automation','about:blank'],
+    {stdio:'ignore',detached:process.platform!=='win32'});
+  let focusPort=null;
+  for(let i=0;i<100;i++){
+    try{focusPort=Number(fs.readFileSync(path.join(focusProfile,'DevToolsActivePort'),'utf8').split('\n')[0]);if(focusPort)break;}catch{}
+    await sleep(100);
+  }
+  assert.ok(focusPort,'isolated native-focus browser starts');
+  browser=await chromium.connectOverCDP('http://127.0.0.1:'+focusPort,{noDefaults:true});
+  const recovered=browser.contexts()[0];
+  await recovered.addInitScript(({offset})=>{
+    const NativeDate=Date;
+    class FixtureDate extends NativeDate{constructor(...a){super(...(a.length?a:[NativeDate.now()+offset]));}static now(){return NativeDate.now()+offset;}}
+    window.Date=FixtureDate;
+  },{offset:Date.parse('2026-09-20T03:05:00+08:00')-Date.now()});
+  const restored=await recovered.newPage();await restored.goto(base+'/english/',{waitUntil:'domcontentloaded'});await nativeReady(restored);
+  assert.equal(await restored.evaluate(async()=>{const m=await import('/src/lib/englishSessionControl.mjs');return m.readEnglishSessionInstruction(localStorage,'2026-09-20').status;}),'cleared');
+  assert.deepEqual(await learnerRecords(restored),protectedRecords);
+  // Handoff the real Web Lock. The retired tab may not write back old state.
+  const newer=await recovered.newPage();await newer.goto(base+'/english/',{waitUntil:'domcontentloaded'});await newer.bringToFront();
+  await sleep(1000);
+  console.log('MULTIPAGE_FOCUS_WITNESS',JSON.stringify(await Promise.all([restored,newer].map(p=>p.evaluate(async()=>({focused:document.hasFocus(),visibility:document.visibilityState,writer:document.documentElement.dataset.learnerWriter,locks:await navigator.locks.query()}))))));
+  await nativeReady(newer);
+  await restored.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='retired');
+  const refusal=await restored.evaluate(()=>{try{localStorage.setItem('kianos-english-session-instruction-v1','{}');return null;}catch(e){return e.message;}});
+  assert.match(refusal,/KIANOS_LEARNER_WRITER_RELOAD_REQUIRED/);
+  await restored.bringToFront();await nativeReady(restored);
+  assert.equal(await restored.evaluate(async()=>{const m=await import('/src/lib/englishSessionControl.mjs');return m.readEnglishSessionInstruction(localStorage,'2026-09-20').status;}),'cleared');
+  assert.deepEqual(await learnerRecords(restored),protectedRecords);
+  await saveCheckpoint(restored);
+  console.log('PASS native browser: delivery -> exact task -> clear -> lost receipt retry -> checkpoint -> fresh storage -> Web Lock handoff -> old-tab rejection; raw attempt/exposure preserved');
 }finally{
   try{await browser?.close();}catch{}
-  try{
-    if(process.platform==='win32')server.kill();
-    else process.kill(-server.pid,'SIGTERM');
-  }catch{try{server.kill('SIGTERM');}catch{}}
-  fs.rmSync(temp,{recursive:true,force:true});
+  const stopOwned=async child=>{
+    if(!child || child.exitCode!=null)return;
+    const exited=new Promise(resolve=>child.once('exit',resolve));
+    try{if(process.platform==='win32')child.kill('SIGTERM');else process.kill(-child.pid,'SIGTERM');}catch{}
+    await Promise.race([exited,sleep(4000)]);
+    if(child.exitCode==null){try{if(process.platform==='win32')child.kill('SIGKILL');else process.kill(-child.pid,'SIGKILL');}catch{}await Promise.race([exited,sleep(1000)]);}
+  };
+  await stopOwned(focusProcess);
+  await stopOwned(server);
+  fs.rmSync(temp,{recursive:true,force:true,maxRetries:4,retryDelay:100});
 }

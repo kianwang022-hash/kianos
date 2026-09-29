@@ -173,7 +173,7 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
   if(!binding){
    const ledger=readEnglishExposure(storage);
    const instruction=readEnglishJson(storage,'kianos-english-session-instruction-v1');
-   const step=instruction?.study_day===new Date(now).toLocaleDateString('en-CA')?instruction.steps?.find(s=>s.task===meta.task&&s.object_id===meta.object_id&&s.source_hash===meta.source_hash):null;
+   const step=!instruction?.cleared_at&&instruction?.study_day===new Date(now).toLocaleDateString('en-CA')?instruction.steps?.find(s=>s.task===meta.task&&s.object_id===meta.object_id&&s.source_hash===meta.source_hash):null;
    const budget=Number(step?.params?.time_budget_seconds)||null;
    const evidenceMeta=meta.snapshot?.evidence&&typeof meta.snapshot.evidence==='object'?meta.snapshot.evidence:{};
    const assistanceContext=step?.params?.assistance_context&&typeof step.params.assistance_context==='object'?clone(step.params.assistance_context):null;

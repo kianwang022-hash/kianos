@@ -384,6 +384,10 @@ if (!controlStorage.getItem(EXAM_CHAT_PLAN_KEY)
   fail('CONTROL_REPLAY_MUST_RESTORE_MISSING_NATIVE_EFFECT');
 }
 
+// Real-native cancellation/recovery and commit-time day checks share this gate.
+await import('./test-control-recovery-composition.mjs');
+if(process.exitCode) fail('CONTROL_RECOVERY_COMPOSITION_FAILED');
+
 console.log(JSON.stringify({
   status: 'PASS',
   strategy_owner: model.control.strategyOwner,
