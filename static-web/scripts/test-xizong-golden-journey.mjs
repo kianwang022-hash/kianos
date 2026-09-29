@@ -14,6 +14,11 @@ const report = {
 };
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const waitForLearnerWriter = async (page) => {
+  await page.waitForFunction(() => document.hasFocus()
+    && document.visibilityState === 'visible'
+    && document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 10000 });
+};
 const check = (condition, name, detail = '') => {
   if (!condition) throw new Error(`XIZONG_GOLDEN_JOURNEY_FAIL:${name}${detail ? `:${detail}` : ''}`);
   report.checks.push({ name, pass: true, detail });
@@ -44,12 +49,14 @@ try {
   const blockUrl = `${BASE}/xizong/circulation/b02/`;
   const studyKey = 'kianos-xizong-astro-v2:xizong:circulation-b02';
 
-  await page.goto(blockUrl, { waitUntil: 'networkidle' });
+  await page.goto(blockUrl, { waitUntil: 'domcontentloaded' });
+  await waitForLearnerWriter(page);
   await page.evaluate(() => {
     for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
     sessionStorage.clear();
   });
-  await page.reload({ waitUntil: 'networkidle' });
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await waitForLearnerWriter(page);
 
   const root = page.locator('[data-xizong-v6-block]');
   const visibleStage = async () => page.locator('[data-study-stage]:visible').first().getAttribute('data-study-stage');
@@ -136,7 +143,8 @@ try {
   check(await completeButton.isDisabled(), 'completed_block_cannot_be_double_completed');
   check(state?.ratings?.[fuzzyKpId] === 'fuzzy', 'completion_does_not_upgrade_fuzzy_to_mastered', fuzzyKpId);
 
-  await page.reload({ waitUntil: 'networkidle' });
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await waitForLearnerWriter(page);
   state = await readState();
   check(await visibleStage() === 'block_recall', 'completed_block_reopens_at_recall_context');
   check(state?.sourceContactDone === true, 'source_contact_survives_reload');

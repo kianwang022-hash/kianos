@@ -25,7 +25,7 @@ assert(!block.includes('data-kp-learned'), 'A1_P_KP_BY_KP_LEARN_FLOW_REGRESSION'
 assert(block.includes('data-enter-group') && block.includes('data-group-lecture-done') && block.includes('data-source-contact-done'), 'A1_P_CHAIN_SEMANTICS_MISSING');
 
 // P2 — formal Core reveal remains behind the Recall front.
-assert(block.includes('Core 暂时隐藏'), 'A1_P_NEUTRAL_RECALL_FRONT_MISSING');
+assert(block.includes('答案暂时隐藏') && block.includes('data-kp-answer hidden'), 'A1_P_NEUTRAL_RECALL_FRONT_MISSING');
 assert(block.includes('data-kp-answer hidden'), 'A1_P_RECALL_ANSWER_NOT_HIDDEN');
 assert(block.includes('data-kp-reveal'), 'A1_P_RECALL_REVEAL_MISSING');
 
