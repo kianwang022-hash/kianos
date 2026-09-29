@@ -158,6 +158,7 @@ body#kianos-workspace.uiEnglish .surface-cloze .clozeMaterialFallback {
 body#kianos-workspace.uiEnglish .surface-cloze .clozeDecision {
   display: grid !important;
   grid-template-rows: auto minmax(0, 1fr) auto auto;
+  container-type: inline-size;
   overflow: hidden;
   border-left: 1px solid #dfe4e7;
 }
@@ -221,7 +222,7 @@ body#kianos-workspace.uiEnglish .surface-cloze .clozeDecisionTop button.active {
 }
 
 body#kianos-workspace.uiEnglish .surface-cloze .clozeQuestions {
-  display: grid;
+  display: block;
   min-height: 0;
   overflow-y: auto;
   scrollbar-gutter: stable;
@@ -310,8 +311,23 @@ body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button span {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.42;
+  white-space: normal;
   overflow-wrap: normal;
   word-break: normal;
+}
+
+@container (max-width: 759px) {
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button:nth-child(odd) {
+    border-left: 0;
+  }
+
+  body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button:nth-child(n + 3) {
+    border-top: 1px solid #eef1f3;
+  }
 }
 
 body#kianos-workspace.uiEnglish .surface-cloze .clozeOptions button.selected {
