@@ -83,11 +83,11 @@ Hard boundary:
 - generated success != precise real-exam score evidence;
 - same prompt after reveal = Repair only, never fresh Transfer.
 
-### Analysis material gap A — Material Segmentation — CLOSED FOR SYSTEM CANDIDATE
+### Analysis material gap A — Material Segmentation — CLOSED FOR CURRENT SYSTEM LOGIC
 
 The Politics-specific maturity standard requires material segmentation as a distinct capability.
 
-Dedicated segmentation coverage has been added across multiple Politics domains and is machine-validated at the system-candidate level. The bank keeps decisive material cues separate from full theory answers and preserves anti-leakage. Learner stability remains Real-U evidence, not a material-system claim.
+Dedicated segmentation coverage has been added across multiple Politics domains and is machine-validated for the accepted Current system logic. The bank keeps decisive material cues separate from full theory answers and preserves anti-leakage. Learner stability remains Real-U evidence, not a material-system claim.
 
 ### Analysis material gap B — Mao-specific output coverage — CLOSED AT PRE-CURRENT-YEAR STRUCTURAL BOUNDARY
 
@@ -269,13 +269,14 @@ Do not consume old/exposed training assets as if they were fresh current-year sc
 
 ## 10. Material priority
 
-### Builder material/system gates
-The following are complete on the current freeze candidate:
+### Accepted material/system gates
+The following are complete for Current system logic:
 1. machine validation of the 104-task structural bank;
 2. Forecast decision-flip/metamorphic attacks;
-3. full-lifecycle + Fresh Chat / No-Website builder proof.
+3. full-lifecycle + Fresh Chat / No-Website builder proof;
+4. Fresh Independent / Anti-Anchored maturity audit, as summarized by `MATURITY_PACKAGE.md`.
 
-The remaining **freeze** gate is not a material gap: shared mother-standard §23 requires a Fresh Independent / Anti-Anchored Audit of the exact candidate revision.
+No maturity freeze gate remains open. The remaining gates are intentionally future-facing evidence/source gates rather than unfinished builder work.
 
 Legitimate later evidence/source gates:
 - current-year source content as it actually arrives;
