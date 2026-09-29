@@ -1,6 +1,6 @@
 # Politics Explicit Surface Mapping Contract
 
-Status: **CURRENT CANDIDATE — Projection / learner-surface ownership**
+Status: **CURRENT — Projection / learner-surface ownership**
 
 Role: own the explicit mapping from accepted Politics Content + Content Hierarchy into learner-facing semantic slots before Astro rendering.
 
