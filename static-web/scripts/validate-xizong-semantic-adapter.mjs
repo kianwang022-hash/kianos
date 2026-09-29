@@ -97,6 +97,104 @@ assert(dn4.sourceContact.mode === 'NATURAL_SOURCE_UNITS' && dn4.sourceContact.se
 assert(dn4.retrievalPoints.slice(0, 3).every((row) => row.sourceContactBefore === 'source:N4-SU1'), 'd-n4:source-unit-release');
 const { block: dn11 } = loadXizongSemanticBlock('neuro-sensory-motor-orthopedics', 'neuro-n11');
 assert(dn11.sourceContact.mode === 'INTEGRATION_PRIMARY' && dn11.sourceContact.requiresPrimarySourceContact === false, 'd-n11:integration-primary');
+assert(dn11.sourceContact.integrationTargetedSourceReturns === false && dn11.sourceContact.segments.length === 0, 'd-n11:no-fabricated-targeted-source-units');
+const { block: do4 } = loadXizongSemanticBlock('neuro-sensory-motor-orthopedics', 'orthopedics-o04');
+const do4su2 = do4.sourceContact.segments.find((row) => row.sourceUnitId === 'O4-SU2');
+assert(do4su2?.reactivateLogicGroupIds.includes('O4-LG01'), 'd-o4:reactivation-metadata-lost');
+assert(do4.retrievalPoints.find((row) => row.logicGroupId === 'O4-LG01')?.sourceContactBefore === 'source:O4-SU1', 'd-o4:reactivation-illegally-remapped-release');
+const { block: do11 } = loadXizongSemanticBlock('neuro-sensory-motor-orthopedics', 'orthopedics-o11');
+assert(do11.sourceContact.segments.find((row) => row.sourceUnitId === 'O11-SU2')?.reactivationNote.includes('N11'), 'd-o11:reactivation-note-lost');
+const { block: do5 } = loadXizongSemanticBlock('neuro-sensory-motor-orthopedics', 'orthopedics-o05');
+const do5su3 = do5.sourceContact.segments.find((row) => row.sourceUnitId === 'O5-SU3');
+assert(do5su3?.postUnitClosureLogicGroupIds.includes('O5-LG05'), 'd-o5:post-unit-closure-metadata-lost');
+assert(do5.retrievalPoints.find((row) => row.logicGroupId === 'O5-LG05')?.sourceContactBefore === 'source:O5-SU3', 'd-o5:post-unit-closure-release-lost');
+
+// E visual fail-closed truth must survive normalization. A prose-capable Core does not
+// certify E10-LG03 while its accepted original visual remains missing.
+const { block: e10 } = loadXizongSemanticBlock('reproductive-breast', 'E10');
+const e10Lg03 = e10.logicGroups.find((row) => row.groupId === 'E10-LG03');
+assert(e10Lg03?.visualRequired === true, 'e10-lg03:visual-required-lost');
+assert(e10Lg03?.visualSourceState === 'VISUAL_SOURCE_GAP', `e10-lg03:visual-state:${e10Lg03?.visualSourceState}`);
+assert(e10.sourceContact.segments.find((row) => row.sourceUnitId === 'E10-SU2')?.visualDebt.includes('E10-LG03'), 'e10-su2:visual-debt-lost');
+const { block: esr2 } = loadXizongSemanticBlock('reproductive-breast', 'SR2');
+assert(esr2.sourceContact.mode === 'WHOLE_BLOCK_SOURCE', 'e-sr2:whole-block-source');
+assert(esr2.sourceContact.releaseLogicGroupIds.length === esr2.logicGroups.length, 'e-sr2:whole-block-release-coverage-lost');
+
+// F8 carries three genuinely spatial visual-gated LGs. Missing original imagery stays
+// explicit instead of becoming a synthetic visual or prose-only closure.
+const { block: f8 } = loadXizongSemanticBlock('remaining-clinical', 'F8');
+for (const groupId of ['F8-LG01', 'F8-LG04', 'F8-LG05']) {
+  const group = f8.logicGroups.find((row) => row.groupId === groupId);
+  assert(group?.visualRequired === true, `f8:${groupId}:visual-required-lost`);
+  assert(/VISUAL_SOURCE_GAP/.test(group?.visualSourceState || ''), `f8:${groupId}:visual-gap-lost:${group?.visualSourceState}`);
+}
+
+// Every E/F visual-required LG must have an explicit learner cue. A real visual gap
+// may expose a Source locator / bounded task, but may not silently gain a fabricated image asset.
+for (const system of [e, f]) {
+  for (const block of system.blocks) {
+    for (const group of block.logicGroups.filter((row) => row.visualRequired === true)) {
+      const cues = block.visualGates.filter((row) => row.anchor?.logicGroupId === group.groupId);
+      assert(cues.length > 0, `${block.blockId}:${group.groupId}:visual-required-without-cue`);
+      if (/GAP/i.test(group.visualSourceState || '')) {
+        assert(cues.every((row) => (row.sourceAssets || []).length === 0), `${block.blockId}:${group.groupId}:visual-gap-fabricated-image`);
+        assert(cues.some((row) => Boolean(row.sourceLocator || row.task)), `${block.blockId}:${group.groupId}:visual-gap-without-locator-or-task`);
+      }
+    }
+  }
+}
+
+// F9 is not whole-Block integration release. Only LG01 is direct KianOS integration;
+// LG02 and LG03/LG04 require the two accepted targeted Source returns.
+const { block: f9 } = loadXizongSemanticBlock('remaining-clinical', 'F9');
+assert(f9.sourceContact.mode === 'INTEGRATION_PRIMARY', `f9:mode:${f9.sourceContact.mode}`);
+assert(f9.sourceContact.integrationTargetedSourceReturns === true, 'f9:targeted-source-return-flag');
+assert(f9.sourceContact.externalRecall.length === 3, `f9:external-recall:${f9.sourceContact.externalRecall.length}`);
+assert(JSON.stringify(f9.sourceContact.integrationReleaseLogicGroupIds) === JSON.stringify(['F9-LG01']), `f9:direct-release:${f9.sourceContact.integrationReleaseLogicGroupIds}`);
+assert(JSON.stringify(f9.sourceContact.segments.map((row) => row.sourceUnitId)) === JSON.stringify(['F9-SU1', 'F9-SU2']), `f9:segments:${f9.sourceContact.segments.map((row) => row.sourceUnitId)}`);
+assert(f9.retrievalPoints.find((row) => row.logicGroupId === 'F9-LG01')?.sourceContactBefore === null, 'f9-lg01:unexpected-source-return');
+assert(f9.retrievalPoints.find((row) => row.logicGroupId === 'F9-LG02')?.sourceContactBefore === 'source:F9-SU1', 'f9-lg02:targeted-source-return-lost');
+assert(f9.retrievalPoints.find((row) => row.logicGroupId === 'F9-LG03')?.sourceContactBefore === 'source:F9-SU2', 'f9-lg03:targeted-source-return-lost');
+assert(f9.retrievalPoints.find((row) => row.logicGroupId === 'F9-LG04')?.sourceContactBefore === 'source:F9-SU2', 'f9-lg04:targeted-source-return-lost');
+assert(f9.sourceContact.segments[0]?.sourceDebt.includes('complete laparoscopy complication list'), 'f9-su1:source-debt-lost');
+const { block: f3 } = loadXizongSemanticBlock('remaining-clinical', 'F3');
+assert(f3.sourceContact.releaseLogicGroupIds.length === f3.logicGroups.length, 'f3:whole-block-release-coverage-lost');
+assert(f3.sourceContact.blockSourceDebt.includes('delayed-primary / secondary-closure taxonomy detail'), 'f3:block-source-debt-lost');
+assert(f3.sourceContact.blockVisualDebt.includes('F3-LG02'), 'f3:block-visual-debt-lost');
+const { block: f5 } = loadXizongSemanticBlock('remaining-clinical', 'F5');
+assert(f5.sourceContact.blockSourceConflict.some((row) => row.includes('140/90') && row.includes('160/100')), 'f5:source-conflict-lost');
+const { block: f6 } = loadXizongSemanticBlock('remaining-clinical', 'F6');
+assert(f6.sourceContact.blockVerifiedSource.some((row) => row.includes('1–4 d') && row.includes('2–7 d')), 'f6:verified-source-lost');
+
+// Every accepted D/E/F LG must have exactly one release path. contributes/reactivation
+// metadata may support a source unit but must never become a second release edge.
+for (const system of [d, e, f]) {
+  for (const block of system.blocks) {
+    const groupIds = block.logicGroups.map((row) => row.groupId);
+    if (block.sourceContact.mode === 'NATURAL_SOURCE_UNITS') {
+      const releaseIds = block.sourceContact.segments.flatMap((segment) => [
+        ...(segment.logicGroupIds || []),
+        ...(segment.postUnitClosureLogicGroupIds || [])
+      ]);
+      for (const groupId of groupIds) {
+        assert(releaseIds.filter((id) => id === groupId).length === 1, `${block.blockId}:${groupId}:natural-release-count`);
+      }
+    }
+    if (block.sourceContact.mode === 'WHOLE_BLOCK_SOURCE' && block.sourceContact.releaseLogicGroupIds.length) {
+      assert(block.sourceContact.releaseLogicGroupIds.length === groupIds.length, `${block.blockId}:whole-release-count`);
+      assert(groupIds.every((groupId) => block.sourceContact.releaseLogicGroupIds.includes(groupId)), `${block.blockId}:whole-release-coverage`);
+    }
+    if (block.sourceContact.mode === 'INTEGRATION_PRIMARY' && block.sourceContact.integrationTargetedSourceReturns) {
+      const releaseIds = [
+        ...block.sourceContact.integrationReleaseLogicGroupIds,
+        ...block.sourceContact.segments.flatMap((segment) => segment.logicGroupIds || [])
+      ];
+      for (const groupId of groupIds) {
+        assert(releaseIds.filter((id) => id === groupId).length === 1, `${block.blockId}:${groupId}:integration-release-count`);
+      }
+    }
+  }
+}
 
 // The adapter must not manufacture learner progress, official-question mapping,
 // or a duplicate question-taking surface.

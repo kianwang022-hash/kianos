@@ -270,6 +270,8 @@ function normalizeLogicGroups(record, blockId, blockSupport, kpCount) {
         : (learning?.cognitive_job ? [String(learning.cognitive_job)] : []),
       goal: String(learning.goal),
       closure: String(learning.closure),
+      visualRequired: learning?.visual_required === true || systemGroup?.visual_required === true,
+      visualSourceState: String(learning?.visual_source_state || systemGroup?.visual_source_state || ''),
       continuityRationale: String(learning?.continuity_rationale || ''),
       receiptAnchor: String(learning?.receipt_anchor || '')
     };
@@ -309,18 +311,33 @@ function normalizeSourceContact(learning, blockSupport, blockId, logicGroups) {
 
   if (['WHOLE_BLOCK_SOURCE', 'NATURAL_SOURCE_UNITS', 'INTEGRATION_PRIMARY'].includes(scoped.mode)) {
     const mode = scoped.mode;
-    const segments = mode === 'NATURAL_SOURCE_UNITS'
-      ? (scoped.source_units || []).map((unit) => ({
-          segmentId: `source:${String(unit.sourceUnitId || '')}`,
-          kind: 'NATURAL_SOURCE_UNIT',
-          sourceUnitId: String(unit.sourceUnitId || ''),
-          label: String(unit.label || ''),
-          logicGroupIds: Array.isArray(unit.logicGroupIds) ? [...unit.logicGroupIds] : [],
-          kpOrdinals: Array.isArray(unit.kpOrdinals) ? [...unit.kpOrdinals] : [],
-          contributesToLogicGroupIds: Array.isArray(unit.contributesToLogicGroupIds) ? [...unit.contributesToLogicGroupIds] : [],
-          reactivateLogicGroupIds: Array.isArray(unit.reactivateLogicGroupIds) ? [...unit.reactivateLogicGroupIds] : [],
-          postUnitClosureLogicGroupIds: Array.isArray(unit.postUnitClosureLogicGroupIds) ? [...unit.postUnitClosureLogicGroupIds] : []
-        }))
+    const segmentUnits = mode === 'NATURAL_SOURCE_UNITS'
+      ? (scoped.source_units || [])
+      : (mode === 'INTEGRATION_PRIMARY' ? (scoped.targeted_source_units || []) : []);
+    const segments = segmentUnits.map((unit) => ({
+      segmentId: `source:${String(unit.sourceUnitId || '')}`,
+      kind: mode === 'INTEGRATION_PRIMARY' ? 'INTEGRATION_TARGETED_SOURCE_RETURN' : 'NATURAL_SOURCE_UNIT',
+      sourceUnitId: String(unit.sourceUnitId || ''),
+      label: String(unit.label || ''),
+      logicGroupIds: Array.isArray(unit.logicGroupIds) ? [...unit.logicGroupIds] : [],
+      kpOrdinals: Array.isArray(unit.kpOrdinals) ? [...unit.kpOrdinals] : [],
+      contributesToLogicGroupIds: Array.isArray(unit.contributesToLogicGroupIds) ? [...unit.contributesToLogicGroupIds] : [],
+      reactivateLogicGroupIds: Array.isArray(unit.reactivateLogicGroupIds) ? [...unit.reactivateLogicGroupIds] : [],
+      reactivationNote: String(unit.reactivationNote || ''),
+      postUnitClosureLogicGroupIds: Array.isArray(unit.postUnitClosureLogicGroupIds) ? [...unit.postUnitClosureLogicGroupIds] : [],
+      sourceDebt: Array.isArray(unit.sourceDebt) ? [...unit.sourceDebt] : [],
+      sourceVerified: Array.isArray(unit.sourceVerified) ? [...unit.sourceVerified] : [],
+      verifiedSource: Array.isArray(unit.verifiedSource) ? [...unit.verifiedSource] : [],
+      visualDebt: Array.isArray(unit.visualDebt) ? [...unit.visualDebt] : [],
+      visualState: String(unit.visualState || ''),
+      visualSourceRequired: Array.isArray(unit.visualSourceRequired) ? [...unit.visualSourceRequired] : []
+    }));
+    const releaseLogicGroupIds = Array.isArray(scoped.release_lg_refs) ? [...scoped.release_lg_refs] : [];
+    const integrationReleaseLogicGroupIds = Array.isArray(scoped.integration_release_lg_refs)
+      ? [...scoped.integration_release_lg_refs]
+      : [];
+    const targetedSourceGuidance = Array.isArray(scoped.targeted_source_guidance)
+      ? [...scoped.targeted_source_guidance]
       : [];
 
     return {
@@ -329,18 +346,31 @@ function normalizeSourceContact(learning, blockSupport, blockId, logicGroups) {
       segments,
       segmentResolution: mode === 'NATURAL_SOURCE_UNITS'
         ? 'EXPLICIT_FROM_ACCEPTED_CONTENT_REALIZATION'
-        : (mode === 'WHOLE_BLOCK_SOURCE' ? 'EXPLICIT_WHOLE_BLOCK_SOURCE' : 'INTEGRATION_PRIMARY_NO_NEW_CONTINUOUS_SOURCE'),
+        : (mode === 'WHOLE_BLOCK_SOURCE'
+          ? 'EXPLICIT_WHOLE_BLOCK_SOURCE'
+          : (segments.length
+            ? 'INTEGRATION_PRIMARY_WITH_EXPLICIT_TARGETED_SOURCE_RETURNS'
+            : 'INTEGRATION_PRIMARY_NO_NEW_CONTINUOUS_SOURCE')),
       logicGroupIsAutomaticSourceChunk: false,
       logicGroupSourceReentryDefault: false,
       requiresPrimarySourceContact: mode !== 'INTEGRATION_PRIMARY',
       integrationPrimary: mode === 'INTEGRATION_PRIMARY',
+      integrationTargetedSourceReturns: mode === 'INTEGRATION_PRIMARY' && segments.length > 0,
+      releaseLogicGroupIds,
+      integrationReleaseLogicGroupIds,
       returnPattern: mode === 'NATURAL_SOURCE_UNITS'
         ? 'SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL'
         : (mode === 'WHOLE_BLOCK_SOURCE'
           ? 'ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL'
           : 'KIANOS_INTEGRATION_RETRIEVAL_WITH_TARGETED_SOURCE_RETURN'),
       normalFirstPass: Array.isArray(learning?.first_pass_chain) ? [...learning.first_pass_chain] : [],
-      extraSourceReturnAllowedFor: Array.isArray(scoped.targeted_source_returns) ? [...scoped.targeted_source_returns] : [],
+      extraSourceReturnAllowedFor: targetedSourceGuidance,
+      targetedSourceGuidance,
+      externalRecall: Array.isArray(scoped.external_recall) ? [...scoped.external_recall] : [],
+      blockSourceDebt: Array.isArray(scoped.block_source_debt) ? [...scoped.block_source_debt] : [],
+      blockSourceConflict: Array.isArray(scoped.block_source_conflict) ? [...scoped.block_source_conflict] : [],
+      blockVerifiedSource: Array.isArray(scoped.block_verified_source) ? [...scoped.block_verified_source] : [],
+      blockVisualDebt: Array.isArray(scoped.block_visual_debt) ? [...scoped.block_visual_debt] : [],
       lectureAttachedQuestionsOwner: 'ORIGINAL_LECTURE_MARGINNOTE',
       contentPattern: String(scoped.content_pattern || ''),
       ownerBlockKey: String(scoped.owner_block_key || ''),
@@ -444,7 +474,7 @@ function normalizeSourceContact(learning, blockSupport, blockId, logicGroups) {
 
 function normalizeRetrieval(logicGroups, sourceContact) {
   const segmentByGroup = new Map();
-  if (sourceContact.mode === 'NATURAL_SOURCE_UNITS') {
+  if (sourceContact.mode === 'NATURAL_SOURCE_UNITS' || (sourceContact.mode === 'INTEGRATION_PRIMARY' && sourceContact.integrationTargetedSourceReturns)) {
     for (const segment of sourceContact.segments || []) {
       for (const groupId of segment.logicGroupIds || []) {
         if (segmentByGroup.has(groupId)) fail('SOURCE_GROUP_MULTI_SEGMENT', `${groupId}:${segmentByGroup.get(groupId)}:${segment.segmentId}`);
@@ -464,7 +494,7 @@ function normalizeRetrieval(logicGroups, sourceContact) {
       : (sourceContact.mode === 'NATURAL_SOURCE_UNITS'
         ? (segmentByGroup.get(group.groupId) || null)
         : (sourceContact.mode === 'INTEGRATION_PRIMARY'
-          ? null
+          ? (segmentByGroup.get(group.groupId) || null)
           : (index === 0 ? 'ACCEPTED_CONTINUOUS_SOURCE_CONTACT' : null))),
     reopenSourceByDefault: sourceContact.mode === 'WHOLE_LOGIC_GROUP'
       ? true

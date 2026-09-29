@@ -565,6 +565,8 @@ export function buildXizongProductionBlock(canonicalBlock) {
       kpOrdinals: [...group.kpOrdinals],
       goal: group.goal,
       closure: group.closure,
+      visualRequired: group.visualRequired === true,
+      visualSourceState: String(group.visualSourceState || ''),
       continuityRationale: group.continuityRationale,
       jobs: [...group.jobs]
     };

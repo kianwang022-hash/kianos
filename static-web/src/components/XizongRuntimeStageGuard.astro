@@ -11,17 +11,20 @@ const blockPrerequisites = prerequisiteIds.map((id) => {
   const row = (system?.blocks || []).find((candidate) => candidate.blockId === id);
   return { blockId: id, label: String(row?.label || id), title: String(row?.title || '') };
 });
+const blockingVisualGroups = (block?.logicGroups || [])
+  .filter((group) => group?.visualRequired === true && /GAP/i.test(String(group?.visualSourceState || '')))
+  .map((group) => ({ groupId: String(group.groupId || ''), label: String(group.label || group.groupId || '') }));
 const requirements = block ? [] : loadXizongSystemCompletionRequirements(system);
 ---
 <span data-xizong-runtime-stage-guard hidden></span>
 
-<script type="application/json" data-xizong-completion-input set:html={JSON.stringify({ blockId, blockIds, blockPrerequisites, requirements }).replace(/</g, String.fromCharCode(92) + 'u003c')}></script>
+<script type="application/json" data-xizong-completion-input set:html={JSON.stringify({ blockId, blockIds, blockPrerequisites, blockingVisualGroups, requirements }).replace(/</g, String.fromCharCode(92) + 'u003c')}></script>
 <script>
   import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
-  const { blockId, blockIds, blockPrerequisites = [], requirements } = JSON.parse(document.querySelector('[data-xizong-completion-input]')?.textContent || '{}');
+  const { blockId, blockIds, blockPrerequisites = [], blockingVisualGroups = [], requirements } = JSON.parse(document.querySelector('[data-xizong-completion-input]')?.textContent || '{}');
   const readBlockState = (id) => {
     if (!id) return {};
     try {
@@ -87,6 +90,11 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
           return;
         }
 
+        if (requested === 'block_recall' && blockingVisualGroups.length) {
+          stop(event);
+          setBlockStatus(root, `原图门禁未闭合：${blockingVisualGroups.map((row) => row.label || row.groupId).join(' / ')}；全部 LG 真正闭合前不能进入 Block Recall。`);
+          return;
+        }
         if (requested === 'block_recall' && (!counts.total || counts.learned < counts.total || counts.recalled < counts.total)) {
           stop(event);
           setBlockStatus(root, `Block Recall 需先闭合全部学习节（学习接触 ${counts.learned}/${counts.total} · Recall ${counts.recalled}/${counts.total}）`);
@@ -94,6 +102,11 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
         }
 
         if (requested === 'block_complete') {
+          if (blockingVisualGroups.length) {
+            stop(event);
+            setBlockStatus(root, `原图门禁未闭合：${blockingVisualGroups.map((row) => row.label || row.groupId).join(' / ')}；可以继续 Recall，但不能记为 Block 完成。`);
+            return;
+          }
           const ready = counts.total > 0 && counts.learned >= counts.total && counts.recalled >= counts.total && (state?.blockRecallDone === true);
           if (!ready) {
             stop(event);
@@ -125,8 +138,18 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
       }
 
       const blockReveal = target.closest('[data-block-recall-reveal]');
+      if (blockReveal && blockingVisualGroups.length) {
+        stop(event);
+        setBlockStatus(root, `原图门禁未闭合：${blockingVisualGroups.map((row) => row.label || row.groupId).join(' / ')}；不能核对整块模型。`);
+        return;
+      }
       if (blockReveal && (!counts.total || counts.learned < counts.total || counts.recalled < counts.total)) { stop(event); return; }
       const blockRecallDone = target.closest('[data-block-recall-complete]');
+      if (blockRecallDone && blockingVisualGroups.length) {
+        stop(event);
+        setBlockStatus(root, `原图门禁未闭合：${blockingVisualGroups.map((row) => row.label || row.groupId).join(' / ')}；不能记录 Block Recall 完成。`);
+        return;
+      }
       if (blockRecallDone && root.querySelector('[data-block-recall-answer]')?.hidden !== false) { stop(event); return; }
       if (blockRecallDone && (!counts.total || counts.learned < counts.total || counts.recalled < counts.total)) {
         stop(event);
@@ -136,6 +159,11 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
 
       const blockComplete = target.closest('[data-block-complete]');
       if (blockComplete) {
+        if (blockingVisualGroups.length) {
+          stop(event);
+          setBlockStatus(root, `原图门禁未闭合：${blockingVisualGroups.map((row) => row.label || row.groupId).join(' / ')}；可以继续 Recall，但不能记为 Block 完成。`);
+          return;
+        }
         const ready = counts.total > 0 && counts.learned >= counts.total && counts.recalled >= counts.total && (state?.blockRecallDone === true);
         if (!ready) {
           stop(event);

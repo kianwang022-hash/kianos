@@ -37,6 +37,7 @@ function synthesizeLogicGroups(rawGroups, routeId, acceptedKey) {
       kp_members: members,
       cognitive_job: String(row?.job || row?.cognitive_job || ''),
       visual_required: row?.visual_required === true,
+      visual_source_state: String(row?.visual_source_state || ''),
       goal: String(row?.goal || ''),
       closure: String(row?.closure || '')
     };
@@ -54,6 +55,49 @@ function synthesizeLogicGroups(rawGroups, routeId, acceptedKey) {
   return { logic_groups, learner_order, kp_count };
 }
 
+function arrayText(value) {
+  if (!Array.isArray(value)) return [];
+  return value.map((item) => String(item || '').trim()).filter(Boolean);
+}
+
+function normalizeRealizationUnit(unit, index, groupMap, routeId, prefix = 'SOURCE_UNIT') {
+  const sourceUnitId = String(unit?.id || '').trim();
+  if (!sourceUnitId) fail(`${prefix}_ID_MISSING`, `${routeId}:${index}`);
+  const logicGroupIds = arrayText(unit?.lg_refs);
+  const contributesToLogicGroupIds = arrayText(unit?.contributes_to);
+  const reactivateLogicGroupIds = arrayText(unit?.reactivate_lg_refs);
+  const postUnitClosureLogicGroupIds = arrayText(unit?.post_unit_closure_lg_refs);
+  const allRefs = [...new Set([
+    ...logicGroupIds,
+    ...contributesToLogicGroupIds,
+    ...reactivateLogicGroupIds,
+    ...postUnitClosureLogicGroupIds
+  ])];
+  for (const groupId of allRefs) {
+    if (!groupMap[groupId]) fail(`${prefix}_LOGIC_GROUP_UNKNOWN`, `${routeId}:${sourceUnitId}:${groupId}`);
+  }
+  const coverageGroups = [...new Set([...logicGroupIds, ...postUnitClosureLogicGroupIds])];
+  const kpOrdinals = [...new Set(coverageGroups.flatMap((groupId) => groupMap[groupId]?.kp_members || []))]
+    .sort((a, b) => a - b);
+  return {
+    sourceUnitId,
+    label: String(unit?.label || sourceUnitId),
+    logicGroupIds,
+    contributesToLogicGroupIds,
+    kpOrdinals,
+    reactivateLogicGroupIds,
+    reactivationNote: String(unit?.reactivation || ''),
+    postUnitClosureLogicGroupIds,
+    sourceDebt: arrayText(unit?.source_debt),
+    sourceVerified: arrayText(unit?.source_verified),
+    verifiedSource: arrayText(unit?.verified_source),
+    visualDebt: arrayText(unit?.visual_debt),
+    visualState: String(unit?.visual_state || ''),
+    visualSourceRequired: arrayText(unit?.visual_source_required),
+    raw: unit
+  };
+}
+
 function sourceContactFromRealization(realization, logicGroups, routeId, acceptedKey) {
   if (!realization || typeof realization !== 'object') fail('CONTENT_REALIZATION_MISSING', `${routeId}:${acceptedKey}`);
   const mode = String(realization.source_mode || '').trim();
@@ -61,51 +105,58 @@ function sourceContactFromRealization(realization, logicGroups, routeId, accepte
     fail('SOURCE_MODE_INVALID', `${routeId}:${mode || 'missing'}`);
   }
   const groupMap = logicGroups.logic_groups;
-  const sourceUnits = (Array.isArray(realization.source_units) ? realization.source_units : []).map((unit, index) => {
-    const sourceUnitId = String(unit?.id || '').trim();
-    if (!sourceUnitId) fail('SOURCE_UNIT_ID_MISSING', `${routeId}:${index}`);
-    const logicGroupIds = Array.isArray(unit?.lg_refs) ? unit.lg_refs.map(String) : [];
-    const contributesToLogicGroupIds = Array.isArray(unit?.contributes_to) ? unit.contributes_to.map(String) : [];
-    const reactivateLogicGroupIds = Array.isArray(unit?.reactivate_lg_refs) ? unit.reactivate_lg_refs.map(String) : [];
-    const postUnitClosureLogicGroupIds = Array.isArray(unit?.post_unit_closure_lg_refs) ? unit.post_unit_closure_lg_refs.map(String) : [];
-    const allRefs = [...new Set([
-      ...logicGroupIds,
-      ...contributesToLogicGroupIds,
-      ...reactivateLogicGroupIds,
-      ...postUnitClosureLogicGroupIds
-    ])];
-    for (const groupId of allRefs) {
-      if (!groupMap[groupId]) fail('SOURCE_UNIT_LOGIC_GROUP_UNKNOWN', `${routeId}:${sourceUnitId}:${groupId}`);
+  const sourceUnits = (Array.isArray(realization.source_units) ? realization.source_units : [])
+    .map((unit, index) => normalizeRealizationUnit(unit, index, groupMap, routeId, 'SOURCE_UNIT'));
+  const targetedRows = Array.isArray(realization.targeted_source_returns) ? realization.targeted_source_returns : [];
+  const targetedSourceUnits = targetedRows
+    .filter((row) => row && typeof row === 'object' && !Array.isArray(row))
+    .map((unit, index) => normalizeRealizationUnit(unit, index, groupMap, routeId, 'TARGETED_SOURCE'));
+  const targetedSourceGuidance = targetedRows
+    .filter((row) => !(row && typeof row === 'object' && !Array.isArray(row)))
+    .map((row) => String(row || '').trim())
+    .filter(Boolean);
+  const sourceUnitIds = sourceUnits.map((unit) => unit.sourceUnitId);
+  const targetedSourceUnitIds = targetedSourceUnits.map((unit) => unit.sourceUnitId);
+  if (new Set(sourceUnitIds).size !== sourceUnitIds.length) fail('SOURCE_UNIT_ID_DUPLICATE', routeId);
+  if (new Set(targetedSourceUnitIds).size !== targetedSourceUnitIds.length) fail('TARGETED_SOURCE_ID_DUPLICATE', routeId);
+  const releaseLogicGroupIds = arrayText(realization.release_lg_refs);
+  const integrationReleaseLogicGroupIds = arrayText(realization.integration_release_lg_refs);
+  if (new Set(releaseLogicGroupIds).size !== releaseLogicGroupIds.length) fail('RELEASE_LOGIC_GROUP_DUPLICATE', routeId);
+  if (new Set(integrationReleaseLogicGroupIds).size !== integrationReleaseLogicGroupIds.length) fail('INTEGRATION_RELEASE_LOGIC_GROUP_DUPLICATE', routeId);
+  for (const groupId of [...releaseLogicGroupIds, ...integrationReleaseLogicGroupIds]) {
+    if (!groupMap[groupId]) fail('RELEASE_LOGIC_GROUP_UNKNOWN', `${routeId}:${groupId}`);
+  }
+  if (mode === 'WHOLE_BLOCK_SOURCE' && releaseLogicGroupIds.length) {
+    const expected = Object.keys(groupMap);
+    if (releaseLogicGroupIds.length !== expected.length || expected.some((groupId) => !releaseLogicGroupIds.includes(groupId))) {
+      fail('WHOLE_BLOCK_RELEASE_COVERAGE_INVALID', `${routeId}:${releaseLogicGroupIds.length}/${expected.length}`);
     }
-    const coverageGroups = [...new Set([...logicGroupIds, ...postUnitClosureLogicGroupIds])];
-    const kpOrdinals = [...new Set(coverageGroups.flatMap((groupId) => groupMap[groupId]?.kp_members || []))]
-      .sort((a, b) => a - b);
-    return {
-      sourceUnitId,
-      label: String(unit?.label || sourceUnitId),
-      logicGroupIds,
-      contributesToLogicGroupIds,
-      kpOrdinals,
-      reactivateLogicGroupIds,
-      postUnitClosureLogicGroupIds,
-      sourceDebt: String(unit?.source_debt || ''),
-      sourceVerified: unit?.source_verified === true,
-      verifiedSource: String(unit?.verified_source || ''),
-      visualDebt: String(unit?.visual_debt || ''),
-      visualState: String(unit?.visual_state || ''),
-      visualSourceRequired: unit?.visual_source_required === true,
-      raw: unit
-    };
-  });
+  }
+
   if (mode === 'NATURAL_SOURCE_UNITS' && !sourceUnits.length) fail('SOURCE_UNITS_MISSING', routeId);
   if (mode !== 'NATURAL_SOURCE_UNITS' && sourceUnits.length) fail('SOURCE_UNITS_UNEXPECTED', `${routeId}:${mode}`);
+  if (mode !== 'INTEGRATION_PRIMARY' && (targetedSourceUnits.length || integrationReleaseLogicGroupIds.length)) {
+    fail('INTEGRATION_METADATA_UNEXPECTED', routeId);
+  }
+  if (mode === 'INTEGRATION_PRIMARY' && targetedSourceUnits.some((unit) => !unit.logicGroupIds.length)) {
+    fail('TARGETED_SOURCE_LOGIC_GROUP_MISSING', routeId);
+  }
+
   return {
     mode,
     content_pattern: String(realization.content_pattern || ''),
     source_units: sourceUnits,
-    hard_readiness: Array.isArray(realization.hard_readiness) ? realization.hard_readiness.map(String) : [],
-    required_prior_owners: Array.isArray(realization.required_prior_owners) ? realization.required_prior_owners.map(String) : [],
-    targeted_source_returns: Array.isArray(realization.targeted_source_returns) ? realization.targeted_source_returns.map(String) : [],
+    hard_readiness: arrayText(realization.hard_readiness),
+    required_prior_owners: arrayText(realization.required_prior_owners),
+    release_lg_refs: releaseLogicGroupIds,
+    integration_release_lg_refs: integrationReleaseLogicGroupIds,
+    targeted_source_units: targetedSourceUnits,
+    targeted_source_guidance: targetedSourceGuidance,
+    external_recall: arrayText(realization.external_recall),
+    block_source_debt: arrayText(realization.source_debt),
+    block_source_conflict: arrayText(realization.source_conflict),
+    block_verified_source: arrayText(realization.verified_source),
+    block_visual_debt: arrayText(realization.visual_debt),
     boundary: String(realization.boundary || ''),
     rule: String(realization.rule || ''),
     owner_block_key: acceptedKey
@@ -157,6 +208,10 @@ export function normalizeAcceptedLearningOwner({ learning, routeIds, content = n
   }
   if (used.size !== Object.keys(logicGroups).length) {
     fail('UNROUTED_LOGIC_GROUP_BLOCK', `${used.size}/${Object.keys(logicGroups).length}`);
+  }
+  const contentKeys = Object.keys(content.block_realization);
+  if (used.size !== contentKeys.length || contentKeys.some((key) => !used.has(key))) {
+    fail('UNROUTED_CONTENT_REALIZATION_BLOCK', `${used.size}/${contentKeys.length}`);
   }
 
   return {

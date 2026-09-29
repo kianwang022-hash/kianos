@@ -113,9 +113,11 @@ assert(blockUi.includes("if (sourcePerGroup) setStage('kp_learn');"), 'V6:B:whol
 assert(blockUi.includes("else if (state.sourceContactDone) setStage('kp_recall');"), 'V6:C:direct-retrieval-return-missing');
 assert(blockUi.includes("else if (!biochemistrySource?.laneSourceHash && !sourcePerGroup && !state.sourceContactDone) setStage('source_contact');"), 'V6:C:single-continuous-source-gate-missing');
 assert(blockUi.includes("const naturalSourceUnits = sourceContactMode === 'NATURAL_SOURCE_UNITS';"), 'V6:D:Natural-Source-unit-switch-missing');
-assert(blockUi.includes("coverage_kind: 'NATURAL_SOURCE_UNIT'"), 'V6:D:natural-source-evidence-missing');
+assert(blockUi.includes("const segmentedSourceUnits = naturalSourceUnits || integrationTargetedSourceReturns;"), 'V6:segmented-source-runtime-switch-missing');
+assert(blockUi.includes("integrationTargetedSourceReturns ? 'INTEGRATION_TARGETED_SOURCE_RETURN' : 'NATURAL_SOURCE_UNIT'"), 'V6:natural-or-targeted-source-evidence-missing');
 assert(blockUi.includes("const integrationPrimary = sourceContactMode === 'INTEGRATION_PRIMARY';"), 'V6:D:integration-primary-switch-missing');
 assert(blockUi.includes("INTEGRATION_PRIMARY_NO_NEW_CONTINUOUS_SOURCE"), 'V6:D:integration-primary-evidence-missing');
+assert(blockUi.includes("INTEGRATION_PRIMARY_DIRECT_RELEASE"), 'V6:F9:integration-direct-release-evidence-missing');
 assert(blockUi.includes("if (biochemistrySource?.laneSourceHash) setStage(currentGroupSourceCovered() ? 'kp_recall' : 'source_contact');"), 'V6:BIO:scoped-global-source-reuse-missing');
 assert(blockUi.includes("if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';"), 'V6:B:block-source-stage-redirects-to-whole-lg-contact');
 assert(blockUi.includes("const storageKey = `kianos-xizong-astro-v2:${objectId}`;"), 'V6:shared-v2-store-missing');

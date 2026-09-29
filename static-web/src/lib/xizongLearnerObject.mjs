@@ -259,6 +259,8 @@ function buildGroupObject(block, group, kpObjects, learningCues, extensionAssets
     },
     goal: text(group?.goal),
     closure: text(group?.closure),
+    visualRequired: group?.visualRequired === true,
+    visualSourceState: text(group?.visualSourceState),
     kpIds,
     precision,
     visual,

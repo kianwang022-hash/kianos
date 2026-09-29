@@ -69,12 +69,22 @@ for (const systemSummary of listProjectableXizongSystems()) {
 
     for (const group of learnerObject.logicGroups) {
       const groupId = group.identity.logicGroupId;
+      const productionGroup = (productionBlock.logicGroups || []).find((row) => row.groupId === groupId) || null;
       const pre = learnerObject.slots?.logicGroupPrelearn?.[groupId] || {};
       const post = learnerObject.slots?.logicGroupPostlearn?.[groupId] || {};
       assert(sameIds(pre.visual, group.visual), `${groupId}:prelearn-visual-drift`);
       assert(sameIds(pre.connection, group.connection?.incoming), `${groupId}:prelearn-connection-drift`);
       assert(sameIds(post.precision, group.precision), `${groupId}:postlearn-precision-drift`);
       assert(sameIds(post.connection, group.connection?.outgoing), `${groupId}:postlearn-connection-drift`);
+      assert(group.visualRequired === (productionGroup?.visualRequired === true), `${groupId}:visual-required-drift`);
+      assert(group.visualSourceState === String(productionGroup?.visualSourceState || ''), `${groupId}:visual-source-state-drift`);
+      if (['E', 'F'].includes(systemSummary.canonicalId) && productionGroup?.visualRequired === true) {
+        assert((pre.visual || []).length > 0, `${groupId}:visual-required-missing-prelearn-cue`);
+        if (/GAP/i.test(String(productionGroup?.visualSourceState || ''))) {
+          assert((pre.visual || []).every((row) => !(row?.sourceVisualBundle?.assets || []).length), `${groupId}:visual-gap-fabricated-prelearn-image`);
+          assert((pre.visual || []).some((row) => Boolean(row?.sourceLocator || row?.task)), `${groupId}:visual-gap-prelearn-without-locator-or-task`);
+        }
+      }
     }
 
     reports.push(report);

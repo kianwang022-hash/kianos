@@ -279,7 +279,10 @@ const payload = learnerObject || null;
       const kpById = new Map(allKps.map((kp) => [kp?.identity?.kpId, kp]));
       const groups = array(learner.logicGroups);
       const sourceContactMode = text(learner?.sourceContact?.mode || root.dataset.sourceContactMode);
-      const naturalSourceSegments = sourceContactMode === 'NATURAL_SOURCE_UNITS' ? array(learner?.sourceContact?.segments) : [];
+      const sourceContactSegments = ['NATURAL_SOURCE_UNITS', 'INTEGRATION_PRIMARY'].includes(sourceContactMode)
+        ? array(learner?.sourceContact?.segments)
+        : [];
+      const targetedIntegrationSource = sourceContactMode === 'INTEGRATION_PRIMARY' && sourceContactSegments.length > 0;
       const groupIds = groups.map((group) => group?.identity?.logicGroupId);
       let sourceLearnIndex = 0;
       let groupLearnIndex = 0;
@@ -309,17 +312,19 @@ const payload = learnerObject || null;
         const slot = learner.slots?.logicGroupPostlearn?.[groupId] || {};
         let study = {};
         try { study = JSON.parse(localStorage.getItem(`kianos-xizong-astro-v2:${root.getAttribute('data-study-object')}`) || '{}'); } catch {}
-        const ids = groups.find((group) => group?.identity?.logicGroupId === groupId)?.kpIds || [];
-        const closed = ids.length > 0 && ids.every((id) => study.learned?.[id] === true && study.ratings?.[id]);
+        const group = groups.find((row) => row?.identity?.logicGroupId === groupId) || null;
+        const ids = group?.kpIds || [];
+        const visualBlocked = group?.visualRequired === true && /GAP/i.test(text(group?.visualSourceState));
+        const closed = ids.length > 0 && !visualBlocked && ids.every((id) => study.learned?.[id] === true && study.ratings?.[id]);
         // POST_REVEAL extensions have explicit reveal timing; group precision and
         // outgoing connections are not moved earlier merely because a KP is revealed.
         return { extension: slot.extension || [], precision: closed ? slot.precision || [] : [], connection: closed ? slot.connection || [] : [] };
       };
       const sourceCompanionKps = () => {
-        if (!naturalSourceSegments.length) return allKps;
+        if (!sourceContactSegments.length) return allKps;
         const segmentId = text(root.dataset.sourceSegmentId);
-        const segment = naturalSourceSegments.find((row) => text(row?.sourceUnitId || row?.segmentId) === segmentId)
-          || naturalSourceSegments[0];
+        const segment = sourceContactSegments.find((row) => text(row?.sourceUnitId || row?.segmentId) === segmentId)
+          || sourceContactSegments[0];
         const directIds = array(segment?.kpOrdinals)
           .map(Number)
           .filter((value) => Number.isInteger(value) && value >= 1 && value <= allKps.length)
@@ -389,11 +394,15 @@ const payload = learnerObject || null;
         const header = sourceStage.querySelector(':scope > header');
         if (header) header.insertAdjacentElement('afterend', sourceCompanionHost); else sourceStage.prepend(sourceCompanionHost);
         const footerText = sourceStage.querySelector(':scope > footer > span');
-        if (footerText) footerText.textContent = naturalSourceSegments.length
-          ? '保持当前自然 Source unit 连续学习；Mac 伴读只显示这个 Source unit 已形成的 KP 范围。'
+        if (footerText) footerText.textContent = sourceContactSegments.length
+          ? (targetedIntegrationSource
+            ? '只完成当前需要定点核对的原讲义；Mac 伴读只显示这次核对真正释放的 KP 范围。'
+            : '保持当前自然 Source unit 连续学习；Mac 伴读只显示这个 Source unit 已形成的 KP 范围。')
           : '保持原讲义连续学习；KP Learn 只是 Mac 侧伴读，不要求逐 KP 完成仪式。';
         const done = sourceStage.querySelector('[data-source-contact-done]');
-        if (done) done.textContent = naturalSourceSegments.length ? '这个 Source unit 已完成' : '本块讲义已学完，开始回忆';
+        if (done) done.textContent = sourceContactSegments.length
+          ? (targetedIntegrationSource ? '这次定点回原讲义已完成' : '这个 Source unit 已完成')
+          : '本块讲义已学完，开始回忆';
       }
       if (groupLearnStage) {
         groupLearnStage.classList.add('xv6LearnerCompanionStage');
@@ -519,7 +528,7 @@ const payload = learnerObject || null;
       });
 
       const stages = [...root.querySelectorAll('[data-study-stage]')];
-      if (naturalSourceSegments.length) {
+      if (sourceContactSegments.length) {
         new MutationObserver(() => { sourceLearnIndex = 0; rerender(); })
           .observe(root, { attributes: true, attributeFilter: ['data-source-segment-id'] });
       }
