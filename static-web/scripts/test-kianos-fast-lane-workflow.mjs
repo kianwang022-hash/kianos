@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import net from 'node:net';
 import path from 'node:path';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 import { resolveCandidateConfig, STABLE_CURRENT_PORT } from './kianos-candidate-runtime.mjs';
@@ -13,11 +13,16 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const webRoot = path.resolve(scriptDir, '..');
 const repoRoot = path.resolve(webRoot, '..');
 const stewardPath = path.join(webRoot, 'src/pages/steward/index.astro');
+const xizongContentPath = path.join(repoRoot, 'content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md');
 const marker = 'FAST-LANE-WORKFLOW-PROBE';
+const contentMarker = 'FAST-LANE-CANONICAL-CONTENT-PROBE';
 const original = fs.readFileSync(stewardPath, 'utf8');
+const xizongOriginal = fs.readFileSync(xizongContentPath, 'utf8');
 const sourceNeedle = '<h1>今天怎么过</h1>';
+const xizongSourceNeedle = '> **中心问题**：';
 
 assert.ok(original.includes(sourceNeedle), 'representative Steward UI owner changed unexpectedly');
+assert.ok(xizongOriginal.includes(xizongSourceNeedle), 'representative Xizong canonical Content owner changed unexpectedly');
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(webRoot, 'package.json'), 'utf8'));
 const agents = fs.readFileSync(path.join(repoRoot, 'AGENTS.md'), 'utf8');
@@ -82,6 +87,20 @@ async function waitForPort(port, child, timeoutMs = 12000) {
   throw new Error('FAST_LANE_CANDIDATE_START_TIMEOUT');
 }
 
+async function waitForCandidateReady(port, child, getLog, timeoutMs = 15000) {
+  const deadline = Date.now() + timeoutMs;
+  const marker = `[KianOS Candidate] READY http://127.0.0.1:${port}/`;
+  while (Date.now() < deadline) {
+    const log = getLog();
+    if (log.includes(marker)) return;
+    if (child.exitCode != null) {
+      throw new Error('FAST_LANE_CANDIDATE_EXITED_BEFORE_READY:' + log.slice(-1200));
+    }
+    await sleep(50);
+  }
+  throw new Error('FAST_LANE_CANDIDATE_READY_TIMEOUT:' + getLog().slice(-1200));
+}
+
 async function fetchText(url, timeout = 30000) {
   const response = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(timeout) });
   assert.equal(response.ok, true, 'request failed: ' + url + ' -> ' + response.status);
@@ -120,6 +139,7 @@ try {
   candidate.stderr?.on('data', (chunk) => { candidateLog += chunk.toString(); });
 
   await waitForPort(candidatePort, candidate);
+  await waitForCandidateReady(candidatePort, candidate, () => candidateLog);
   const candidateUrl = 'http://127.0.0.1:' + candidatePort + '/steward/';
   const before = await fetchText(candidateUrl);
   assert.ok(before.includes('今天怎么过'), 'Candidate did not render representative Steward surface');
@@ -134,6 +154,29 @@ try {
   fs.writeFileSync(stewardPath, original, 'utf8');
   await waitForBody(candidateUrl, (body) => body.includes('今天怎么过') && !body.includes(marker), 15000);
 
+  const xizongUrl = 'http://127.0.0.1:' + candidatePort + '/xizong/circulation/b01/';
+  const xizongBefore = await fetchText(xizongUrl);
+  assert.equal(xizongBefore.includes(contentMarker), false, 'Candidate started with stale canonical Content marker');
+  const xizongChanged = xizongOriginal.replace(xizongSourceNeedle, xizongSourceNeedle + contentMarker + ' ');
+  const xizongChangedAt = Date.now();
+  fs.writeFileSync(xizongContentPath, xizongChanged, 'utf8');
+  const stableProjectionProbe = spawnSync(process.execPath, ['--input-type=module', '-e', `
+    const { loadXizongBlock } = await import('./src/lib/xizong.mjs');
+    const { buildXizongProductionBlock } = await import('./src/lib/xizongProductionProjection.mjs');
+    buildXizongProductionBlock(loadXizongBlock('circulation', 'b01'));
+  `], {
+    cwd: webRoot,
+    env: { ...process.env, KIANOS_CANDIDATE_RUNTIME: '0', KIANOS_XIZONG_BUILD_CACHE: '0' },
+    encoding: 'utf8'
+  });
+  assert.notEqual(stableProjectionProbe.status, 0, 'Stable-mode projection must reject dirty canonical source revision');
+  assert.match(stableProjectionProbe.stderr + stableProjectionProbe.stdout, /CURRENT_XIZONG_PRODUCTION_PROJECTION_STRICT_SOURCE_STALE/);
+  await waitForBody(xizongUrl, (body) => body.includes(contentMarker), 15000);
+  const canonicalContentRefreshMs = Date.now() - xizongChangedAt;
+
+  fs.writeFileSync(xizongContentPath, xizongOriginal, 'utf8');
+  await waitForBody(xizongUrl, (body) => !body.includes(contentMarker), 15000);
+
   console.log(JSON.stringify({
     status: 'PASS',
     schema: 'kianos.website.fast_lane_workflow.v1',
@@ -142,14 +185,17 @@ try {
     stable_lane: 'not_invoked',
     stable_port_guarded: STABLE_CURRENT_PORT !== candidatePort,
     candidate_refresh_ms: candidateRefreshMs,
+    canonical_content_refresh_ms: canonicalContentRefreshMs,
     managed_current_rebuild_triggered: false,
-    representative_surface: 'steward'
+    representative_surface: 'steward',
+    representative_canonical_content: 'xizong/circulation/b01'
   }, null, 2));
 } catch (error) {
   if (candidateLog) console.error(candidateLog.slice(-5000));
   throw error;
 } finally {
   try { fs.writeFileSync(stewardPath, original, 'utf8'); } catch {}
+  try { fs.writeFileSync(xizongContentPath, xizongOriginal, 'utf8'); } catch {}
   if (candidate?.pid) {
     try { await terminateProcessTree(candidate.pid, { graceMs: 1000 }); } catch {}
   }

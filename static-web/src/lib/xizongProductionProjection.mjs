@@ -7,6 +7,20 @@ import { loadXizongSemanticBlock, XIZONG_SEMANTIC_ADAPTER_SCHEMA } from './xizon
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
   : path.resolve(process.cwd(), '..');
+const CANDIDATE_RUNTIME = process.env.KIANOS_CANDIDATE_RUNTIME === '1';
+const CANDIDATE_DIRTY_CANONICAL_SOURCE_KINDS = new Set([
+  'MEDICAL_CORE',
+  'SYSTEM_CORE',
+  'LEARNING_SUPPORT',
+  'PATHWAYS',
+  'SELECTIVE_CUES'
+]);
+
+function candidateMayProjectDirtyCanonicalSource(source) {
+  return CANDIDATE_RUNTIME
+    && String(source?.path || '').startsWith('content/xizong/')
+    && CANDIDATE_DIRTY_CANONICAL_SOURCE_KINDS.has(String(source?.kind || ''));
+}
 
 const PROJECTION_MANIFEST = 'content/xizong/projection/manifest.json';
 const PROJECTION_ROOT = 'content/xizong/projection';
@@ -408,7 +422,8 @@ function resolveBinding(asset, binding, canonicalBlock, semanticBlock) {
   if (binding.kind === 'DERIVED_FRAGMENT' || source.kind === 'EXTERNAL_SOURCE_CONTRACT' || source.freshness === 'STRICT_BLOB') {
     const expected = source.blob_sha || source.baseline_blob_sha;
     const actual = crypto.createHash('sha1').update(`blob ${sourceBytes.length}\0`).update(sourceBytes).digest('hex');
-    if (!/^[a-f0-9]{40}$/.test(String(expected || '')) || expected !== actual) fail('STRICT_SOURCE_STALE', source.path);
+    if (!/^[a-f0-9]{40}$/.test(String(expected || ''))) fail('STRICT_SOURCE_STALE', source.path);
+    if (expected !== actual && !candidateMayProjectDirtyCanonicalSource(source)) fail('STRICT_SOURCE_STALE', source.path);
   }
 
 
