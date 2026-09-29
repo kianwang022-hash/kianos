@@ -3,6 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 
 import { defineConfig } from 'astro/config';
+import { currentClientArtifactsIntegration } from './scripts/currentClientArtifacts.mjs';
 import { privateLearnerBridge } from './scripts/privateLearnerBridge.mjs';
 import { privateExternalReadingBridge } from './scripts/privateExternalReadingBridge.mjs';
 import { privateEnglishGeneratedBridge } from './scripts/privateEnglishGeneratedBridge.mjs';
@@ -76,6 +77,7 @@ if (process.env.KIANOS_ASTRO_ALLOW_LIVE_PRIVATE !== '1') {
 export default defineConfig({
   base: '/',
   output: 'static',
+  integrations: [currentClientArtifactsIntegration()],
   trailingSlash: 'always',
   vite: {
     plugins: [canonicalContentDevReload(), privateLearnerBridge(), privateExternalReadingBridge(), privateEnglishGeneratedBridge(), privateControlBridge()],

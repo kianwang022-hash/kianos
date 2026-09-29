@@ -13,7 +13,7 @@ const port = await new Promise(resolve => { const s = net.createServer().listen(
 let child, logs = '';
 try {
   fs.mkdirSync(path.join(mirror, '.git'), { recursive: true }); fs.writeFileSync(path.join(mirror, '.git/kianos-current-mirror'), '');
-  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs']) {
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs', 'currentClientArtifacts.mjs']) {
     const target = path.join(mirror, 'static-web/scripts', name); fs.mkdirSync(path.dirname(target), { recursive: true }); fs.copyFileSync(path.join(scripts, name), target);
   }
   const release = path.join(root, '.kianos-current-releases/releases/lkg'), dist = path.join(release, 'static-web/dist');

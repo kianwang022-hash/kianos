@@ -56,6 +56,7 @@ async function proveProbeIsolation() {
   for (const [file, exportName] of [
     ['privateLearnerBridge.mjs', 'privateLearnerBridge'],
     ['privateExternalReadingBridge.mjs', 'privateExternalReadingBridge'],
+    ['privateEnglishGeneratedBridge.mjs', 'privateEnglishGeneratedBridge'],
     ['privateControlBridge.mjs', 'privateControlBridge']
   ]) {
     fs.writeFileSync(path.join(probeScripts, file), `import fs from 'node:fs';\nfs.appendFileSync(process.env.KIANOS_PROBE_BRIDGE_MARKER, 'import:${exportName}\\n');\nexport function ${exportName}(){return{configureServer(){fs.appendFileSync(process.env.KIANOS_PROBE_BRIDGE_MARKER, 'configure:${exportName}|private='+process.env.KIANOS_PRIVATE_DIR+'|control='+process.env.KIANOS_CONTROL_DIR+'\\n');}};}\n`);
@@ -83,8 +84,12 @@ async function proveProbeIsolation() {
   });
 
   const probe = launchProbe();
+  let probeLog = '';
+  probe.stdout?.on('data', b => { probeLog += b; });
+  probe.stderr?.on('data', b => { probeLog += b; });
   try {
     await waitFor(async () => {
+      if (probe.exitCode !== null) throw new Error('release probe exited: ' + probeLog);
       try { return (await (await fetch(`http://127.0.0.1:${port}/__kianos-release.json`)).json()).sha === 'probe-sha'; }
       catch { return false; }
     });
@@ -111,7 +116,7 @@ try {
     fs.mkdirSync(path.dirname(path.join(upstream, file)), { recursive: true });
     fs.writeFileSync(path.join(upstream, file), body);
   };
-  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs']) {
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs', 'currentClientArtifacts.mjs']) {
     write('static-web/scripts/' + name, fs.readFileSync(path.join(scripts, name)));
   }
   write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';

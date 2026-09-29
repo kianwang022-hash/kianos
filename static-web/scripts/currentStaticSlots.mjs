@@ -129,7 +129,7 @@ export function promoteStagedBuild({
 
   try {
     if (oldActive) atomicReplaceSymlink(oldActive, previousPath);
-    else if (lstatMaybe(previousPath)?.isSymbolicLink()) fs.rmSync(previousPath, { force: true });
+    else if (lstatMaybe(previousPath)?.isSymbolicLink()) fs.unlinkSync(previousPath);
 
     atomicReplaceSymlink(target, distPath);
   } catch (error) {

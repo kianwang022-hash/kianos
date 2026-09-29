@@ -5,6 +5,7 @@ import net from 'node:net';
 import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
+import { planClientArtifactBuild, clientProofDigest, CLIENT_PROOF_FILE } from './currentClientArtifacts.mjs';
 
 import {
   classifyStaticBuild,
@@ -55,6 +56,7 @@ const syncRuntimePaths = [
   'static-web/scripts/currentStaticImpact.mjs',
   'static-web/scripts/currentStaticSlots.mjs',
   'static-web/scripts/currentDependencies.mjs',
+  'static-web/scripts/currentClientArtifacts.mjs',
   'static-web/package.json',
   'static-web/package-lock.json',
   'static-web/npm-shrinkwrap.json'
@@ -144,7 +146,10 @@ async function runChild(file, args, {
   env = process.env,
   timeoutMs = subprocessTimeoutMs
 } = {}) {
-  await runBounded(file, args, { cwd, env, label, timeoutMs });
+  // npm/Astro shebangs must use the supervisor's Node, not another Node found
+  // earlier in a login shell PATH; otherwise every compiler receipt goes stale.
+  const childEnv = { ...env, PATH: [path.dirname(process.execPath), env.PATH].filter(Boolean).join(path.delimiter) };
+  await runBounded(file, args, { cwd, env: childEnv, label, timeoutMs });
 }
 
 async function prepareRelease(sha, extra = {}) {
@@ -222,17 +227,42 @@ async function prepareRelease(sha, extra = {}) {
       const buildScript = staticBuildNpmScript(extra);
       const args = [npmBin, 'run', buildScript, '--', '--outDir', candidateStage];
       const buildStartedAt = Date.now();
-      await runChild(args[0], args.slice(1), {
+      let clientArtifactDelivery = null;
+      const baseWebRoot = activeReleaseRoot ? path.join(activeReleaseRoot, 'static-web') : null;
+      const clientPlan = planClientArtifactBuild({ baseWebRoot, webRoot: candidateWebRoot, targetSha: sha });
+      if (clientPlan.eligible) {
+        try {
+          await runChild(process.execPath, ['scripts/currentClientArtifacts.mjs',
+            '--base-web-root', baseWebRoot, '--target-sha', sha, '--out-dir', candidateStage], {
+            cwd: candidateWebRoot, label: 'candidate client artifact build',
+            env: { ...process.env, KIANOS_RELEASE_SHA: sha },
+            timeoutMs: Math.min(buildTimeoutMs, 90000)
+          });
+          const proof = JSON.parse(fs.readFileSync(path.join(candidateWebRoot, CLIENT_PROOF_FILE), 'utf8'));
+          if (proof.sourceSha !== sha || proof.delivery?.kind !== 'client-artifacts') throw new Error('CURRENT_CLIENT_DELIVERY_RECEIPT_INVALID');
+          clientArtifactDelivery = proof.delivery;
+          log(`client-only release assembled; ${proof.delivery.reusedHtml} HTML artifacts reused, no prerender`);
+        } catch (error) {
+          warn(`client artifact proof failed; falling back to complete build: ${error.message}`);
+          fs.rmSync(candidateStage, { recursive: true, force: true });
+          fs.rmSync(path.join(candidateWebRoot, CLIENT_PROOF_FILE), { force: true });
+        }
+      } else log(`complete build required: ${clientPlan.reason}`);
+      if (!clientArtifactDelivery) await runChild(args[0], args.slice(1), {
         cwd: candidateWebRoot,
         label: 'candidate Astro build',
         env: { ...process.env, KIANOS_RELEASE_SHA: sha },
         timeoutMs: buildTimeoutMs
       });
+      timings.client_artifacts = clientArtifactDelivery;
+
       timings.astro_build = Date.now() - buildStartedAt;
       timings.total = Date.now() - prepareStartedAt;
       writeBuiltStatus(candidateStage, sha, {
         ...extra,
         dependency_mode: dependencyMode,
+        client_proof_sha256: clientProofDigest(candidateWebRoot),
+        ...(clientArtifactDelivery ? { static_build: 'client-artifacts', artifact_base_sha: clientArtifactDelivery.baseSha, artifact_delivery: clientArtifactDelivery } : {}),
         timings_ms: {
           dependencies: timings.dependencies,
           astro_build: timings.astro_build,
@@ -515,7 +545,9 @@ async function rollbackRelease() {
   if (fs.existsSync(releases.previous)) {
     atomicReplaceSymlink(fs.realpathSync(releases.previous), releases.active);
   } else if (fs.existsSync(releases.active)) {
-    fs.rmSync(releases.active, { force: true });
+    // Remove only the serving pointer, never the release directory it targets.
+    if (!fs.lstatSync(releases.active).isSymbolicLink()) throw new Error('CURRENT_ACTIVE_POINTER_NOT_SYMLINK');
+    fs.unlinkSync(releases.active);
   }
   activeReleaseRoot = fs.existsSync(releases.active) ? fs.realpathSync(releases.active) : null;
   if (activeReleaseRoot) {
@@ -783,12 +815,13 @@ async function syncOnce({ initial = false } = {}) {
 
     lastSyncHealthy = true;
     lastNetworkError = '';
-    const staticBuildOutcome = skipAstro ? 'skipped' : controlTargetSha === fetched ? 'rebuilt' : 'reused';
+    const staticBuildOutcome = skipAstro ? 'skipped' : preparedRelease?.timings?.client_artifacts ? 'client-artifacts' : controlTargetSha === fetched ? 'rebuilt' : 'reused';
     writeStatus('synced', skipAstro ? fetched : readActiveBuiltStatus()?.sha || fetched, {
       control_sha: controlTargetSha,
       target_sha: controlTargetSha,
       changed_paths: changedPaths.length,
       static_build: staticBuildOutcome,
+      ...(preparedRelease?.timings?.client_artifacts ? { artifact_base_sha: preparedRelease.timings.client_artifacts.baseSha, artifact_delivery: preparedRelease.timings.client_artifacts } : {}),
       build_impact_paths: buildDecision.build_paths.length,
       ...(!skipAstro && activeReleaseRoot ? { release_root: activeReleaseRoot } : {}),
       timings_ms: {

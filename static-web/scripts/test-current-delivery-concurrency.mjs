@@ -21,7 +21,7 @@ try {
   git(upstream, 'init', '-b', 'main');
   git(upstream, 'config', 'user.email', 'fixture@example.invalid');
   git(upstream, 'config', 'user.name', 'Fixture');
-  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs']) {
+  for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs', 'currentClientArtifacts.mjs']) {
     write(`static-web/scripts/${name}`, fs.readFileSync(path.join(scripts, name)));
   }
   write('static-web/package.json', '{}');

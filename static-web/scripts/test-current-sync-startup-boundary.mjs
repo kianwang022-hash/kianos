@@ -46,7 +46,7 @@ try {
     'currentRelease.mjs',
     'currentStaticImpact.mjs',
     'currentStaticSlots.mjs',
-    'currentDependencies.mjs'
+    'currentDependencies.mjs', 'currentClientArtifacts.mjs'
   ]) {
     write('static-web/scripts/' + name, fs.readFileSync(path.join(scripts, name)));
   }
