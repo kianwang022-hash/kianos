@@ -91,7 +91,7 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
                   </div>
                   <select data-reading-b-select aria-label={targetLabel}>
                     <option value="">— choose paragraph —</option>
-                    {options.map((option) => <option data-objective-option value={option.label}>{option.label}. {option.text}</option>)}
+                    {options.map((option) => <option data-objective-option value={option.label}>{taskForm === 'gap_match' ? option.label : `${option.label}. ${option.text}`}</option>)}
                   </select>
                   <p class="readingBFormal" data-objective-formal hidden>Formal answer: <strong></strong></p>
                 </section>
@@ -144,7 +144,7 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
                   </div>
                   <select data-reading-b-select aria-label={targetLabel}>
                     <option value="">— choose —</option>
-                    {options.map((option) => <option data-objective-option value={option.label}>{option.label}. {option.text}</option>)}
+                    {options.map((option) => <option data-objective-option value={option.label}>{taskForm === 'gap_match' ? option.label : `${option.label}. ${option.text}`}</option>)}
                   </select>
                   <p class="readingBFormal" data-objective-formal hidden>Formal answer: <strong></strong></p>
                 </section>

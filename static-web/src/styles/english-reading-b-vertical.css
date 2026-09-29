@@ -340,6 +340,76 @@ body#kianos-workspace.uiEnglish .readingBFormal {
   line-height: 1.45;
 }
 
+/* Gap match: candidate text lives above; the five decisions stay in one compact row. */
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBMap {
+  grid-template-rows: minmax(0, 1fr) auto auto auto;
+}
+
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBPositions {
+  flex: 0 0 auto;
+  padding: 7px 10px 0;
+}
+
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBPositions > header {
+  display: none;
+}
+
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBPositionList {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+  overflow: visible;
+  scrollbar-gutter: auto;
+}
+
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBPosition {
+  gap: 4px;
+  padding: 6px 7px;
+  border: 1px solid #e1e6ea;
+  border-radius: 6px;
+  background: #fff;
+}
+
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBPosition:last-child {
+  border-bottom: 1px solid #e1e6ea;
+}
+
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBPositionHead {
+  gap: 3px;
+}
+
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBPositionHead strong {
+  font-size: 13px;
+}
+
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBPositionHead button {
+  width: 22px;
+  min-height: 20px;
+  padding: 0;
+  font-size: 0;
+}
+
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBPositionHead button::after {
+  content: "△";
+  font-size: 12px;
+  line-height: 1;
+}
+
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBPosition select {
+  min-height: 32px;
+  padding: 4px 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBFormal {
+  font-size: 12px;
+}
+
+body#kianos-workspace.uiEnglish [data-reading-b-task-form="gap_match"] .readingBConstraint {
+  display: none;
+}
+
 /* Ordering: candidate paragraphs are a reading list; fixed slots are quiet locks. */
 body#kianos-workspace.uiEnglish .readingBOrderingCandidates {
   position: static;
