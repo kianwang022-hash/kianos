@@ -80,6 +80,7 @@ try {
     await page.reload(); await result(page); assert.equal(await page.inputValue('[data-note]'), '独立合成备注：保留原题。');
     assert.deepEqual(await read(page, K.attempts), first); assert.equal((await read(page, K.evidence)).length, 1);
     await page.click('[data-return-unit]'); await page.locator('[data-practice-exact-return]').waitFor({ state: 'visible' });
+    assert.equal(await page.locator('[data-practice-unit-entry]').count(), 0);
     await screenshot(page, 'exact-source-return'); await page.click('[data-practice-exact-return]'); await result(page);
     assert.equal((await read(page, K.session)).ids[0], session.ids[0]); assert.equal(await page.inputValue('[data-note]'), '独立合成备注：保留原题。');
     await page.click('[data-next-question]'); await page.reload(); await clean(page); assert.equal(await page.locator('[data-question-type]').innerText(), '多选');

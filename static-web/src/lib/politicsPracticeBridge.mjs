@@ -5,16 +5,8 @@ export function installPoliticsPracticeBridge() {
   if (!node) return;
   const { configs, base } = JSON.parse(node.textContent);
   node.remove();
-  for (const config of configs) {
-    const source = document.getElementById(config.source_anchor);
-    if (!source || !config.expected_question_ids.length) continue;
-    const link = document.createElement('a');
-    link.dataset.practiceUnitEntry = config.unit_key;
-    link.href = `${base}politics/practice/?unit=${encodeURIComponent(config.unit_key)}`;
-    link.textContent = '在工作台做本单元配套题 →';
-    link.style.cssText = 'display:block;margin-top:12px;font-size:16px;color:#246a55;font-weight:650';
-    source.append(link);
-  }
+  // The learning workspace owns the forward Xiao1000 action.
+  // This bridge only preserves the exact reverse return from Workbench to its owning source/unit.
   const params = new URLSearchParams(location.search);
   if (!params.has('practiceSession') && !params.has('practiceQuestion')) return;
   const panel = document.querySelector('[data-practice-return]');
