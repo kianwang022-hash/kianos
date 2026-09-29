@@ -141,7 +141,35 @@ try{
   assert.equal(readEnglishGeneratedDrill(drill.object_id,{privateDir:relayGenerated}).content_hash,drill.content_hash);
   assert.equal(readPrivateControlReceipt(relayControl),null);
 
-  console.log('PASS private control relay: typed command, server materialization, browser projection, idempotency, git transport');
+  // A stale remote snapshot is a safe no-op, not relay degradation.
+  // Preserve the newer local command and report the remote command as ignored.
+  const newerCommand={
+    ...command,
+    command_id:'control-20260920-unit-002',
+    generated_at:'2026-09-20T00:13:00+08:00'
+  };
+  const newer=publishPrivateControlCommand(newerCommand,{
+    privateDir:relayControl,
+    generatedDir:relayGenerated
+  });
+  assert.equal(newer.status,'published');
+  const staleRemote=await syncPrivateControlRelayOnce({
+    env:{
+      ...process.env,
+      KIANOS_CONTROL_REPO_URL:remote,
+      KIANOS_CONTROL_REPO_DIR:mirror,
+      KIANOS_CONTROL_DIR:relayControl,
+      KIANOS_ENGLISH_GENERATED_DIR:relayGenerated
+    },
+    home:temp
+  });
+  assert.equal(staleRemote.state,'ready',JSON.stringify(staleRemote));
+  assert.equal(staleRemote.command_status,'stale_ignored');
+  assert.equal(staleRemote.command_id,newerCommand.command_id);
+  assert.equal(staleRemote.ignored_command_id,command.command_id);
+  assert.equal(readPrivateControlCurrent(relayControl).command_id,newerCommand.command_id);
+
+  console.log('PASS private control relay: typed command, server materialization, browser projection, idempotency, git transport, stale-remote no-op');
 }finally{
   fs.rmSync(temp,{recursive:true,force:true});
 }
