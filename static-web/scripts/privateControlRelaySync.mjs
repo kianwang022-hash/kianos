@@ -5,6 +5,7 @@ import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {
   publishPrivateControlCommand,
+  readPrivateControlCurrent,
   resolvePrivateControlDir,
   writePrivateControlStatus
 } from './privateControlStore.mjs';
@@ -109,10 +110,24 @@ export async function syncPrivateControlRelayOnce({
       study_day:result.command.study_day
     },config.privateDir);
   }catch(error){
+    const message=error instanceof Error?error.message:String(error);
+    if(message.startsWith('KIANOS_CONTROL_OLDER_COMMAND:')){
+      let current=null;
+      try{current=readPrivateControlCurrent(config.privateDir);}catch{}
+      return writePrivateControlStatus({
+        state:'ready',
+        source:config.sourceFile?'fixture':'private_repo',
+        command_status:'stale_ignored',
+        command_id:current?.command_id||null,
+        command_hash:current?.command_hash||null,
+        study_day:current?.study_day||null,
+        ignored_command_id:message.slice('KIANOS_CONTROL_OLDER_COMMAND:'.length)||null
+      },config.privateDir);
+    }
     return writePrivateControlStatus({
       state:'degraded',
       source:config.sourceFile?'fixture':'private_repo',
-      error:error instanceof Error?error.message:String(error)
+      error:message
     },config.privateDir);
   }
 }
