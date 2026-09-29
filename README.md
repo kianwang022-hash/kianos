@@ -45,7 +45,21 @@ formal accepted readiness
 
 If Kian wants a human-readable whole-system progress summary, Chat should read the current owners live and generate it on demand. Do not use historical Overview / Status / Migration documents as a substitute for Current.
 
-Historical PRs, migration ledgers, audits and retired design notes are evidence only unless a Current owner explicitly routes to them.
+### Exam system at a glance — routing only
+
+This map is navigation, **not a second progress owner**:
+
+| Scope | Enter here | Meaning / readiness | Learner-facing product |
+| --- | --- | --- | --- |
+| Cross-subject exam control | `EXAM_ORCHESTRATOR_CONTRACT.md` + derived `EXAM_ORCHESTRATOR_CURRENT.json` | phase / Gate / material-window facts; Chat owns adaptive daily allocation | shared Home / typed Chat plan consumers |
+| Xizong | `content/xizong/CURRENT.md` | `LEARNING_CONTRACT.md` → `MATURITY_PACKAGE.md` / `ACCEPTANCE.md` → exact System owner | `static-web/XIZONG_PRODUCT_BRIEF.md` + exact accepted surface owner |
+| English | `content/english/CURRENT.md` | `LEARNING_CONTRACT.md` → `ACCEPTANCE.md` → exact module owner | `static-web/ENGLISH_PRODUCT_BRIEF.md` + exact accepted task surface |
+| Politics | `content/politics/CURRENT.md` | `LEARNING_CONTRACT.md` / `INTERACTION_CONTRACT.md` → `MATURITY_PACKAGE.md` / `ACCEPTANCE.md` → exact subject owner | `static-web/POLITICS_PRODUCT_BRIEF.md` + exact accepted subject/workbench owner |
+| Vocabulary / Lexical | English learner capability; canonical backend enters at `content/lexical/CURRENT.md` | exact Lexical canonical owner / acceptance when needed | `static-web/LEXICAL_PRODUCT_BRIEF.md` |
+
+Private learner state, actual progress, Wrong/Uncertain, Resume and score evidence are not reconstructed from these repository documents. They remain with the native/private runtime evidence path.
+
+Historical PRs, migration ledgers, audits, `*_PHASE*.md` receipts and retired design notes are evidence only unless a Current or exact Acceptance owner explicitly routes to them.
 
 ## Normal Mac learner use
 
