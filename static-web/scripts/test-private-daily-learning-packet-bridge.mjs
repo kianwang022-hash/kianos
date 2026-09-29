@@ -66,6 +66,50 @@ try{
   assert.equal(res.statusCode,200,'Git packet relay failure must not fail learner checkpoint save');
   assert.equal(JSON.parse(body).status,'saved');
   assert.equal(readPrivateLearnerCheckpoint(dir).checkpoint_id,'packet-bridge-proof-1');
+
+  const blockedAutomation={
+    ...checkpoint,
+    checkpoint_id:'packet-bridge-automation-blocked',
+    generated_at:'2026-09-20T01:01:00.000Z'
+  };
+  const blockedReq=Readable.from([Buffer.from(JSON.stringify(blockedAutomation))]);
+  blockedReq.url='/__kianos-private/checkpoint';
+  blockedReq.method='PUT';
+  blockedReq.headers={
+    'if-match':JSON.stringify('packet-bridge-proof-1'),
+    'host':'127.0.0.1:4321',
+    'x-kianos-browser-automation':'1'
+  };
+  blockedReq.socket={remoteAddress:'127.0.0.1'};
+  let blockedBody='';
+  const blockedRes={statusCode:0,setHeader(){},end(value=''){blockedBody=String(value);}};
+  await middleware(blockedReq,blockedRes,()=>assert.fail('stable automation write must not fall through'));
+  assert.equal(blockedRes.statusCode,403);
+  assert.match(JSON.parse(blockedBody).error,/STABLE_AUTOMATION_WRITE_FORBIDDEN/);
+  assert.equal(readPrivateLearnerCheckpoint(dir).checkpoint_id,'packet-bridge-proof-1',
+    'Stable browser automation must not mutate production-style checkpoint state');
+
+  const isolatedAutomation={
+    ...checkpoint,
+    checkpoint_id:'packet-bridge-automation-isolated',
+    generated_at:'2026-09-20T01:02:00.000Z'
+  };
+  const isolatedReq=Readable.from([Buffer.from(JSON.stringify(isolatedAutomation))]);
+  isolatedReq.url='/__kianos-private/checkpoint';
+  isolatedReq.method='PUT';
+  isolatedReq.headers={
+    'if-match':JSON.stringify('packet-bridge-proof-1'),
+    'host':'127.0.0.1:4323',
+    'x-kianos-browser-automation':'1'
+  };
+  isolatedReq.socket={remoteAddress:'127.0.0.1'};
+  let isolatedBody='';
+  const isolatedRes={statusCode:0,setHeader(){},end(value=''){isolatedBody=String(value);}};
+  await middleware(isolatedReq,isolatedRes,()=>assert.fail('isolated automation write must not fall through'));
+  assert.equal(isolatedRes.statusCode,200,isolatedBody);
+  assert.equal(readPrivateLearnerCheckpoint(dir).checkpoint_id,'packet-bridge-automation-isolated',
+    'isolated Audit/Candidate automation remains writable');
+
   await new Promise(resolve=>setTimeout(resolve,25));
   assert.ok(syncCalls>=2,'server start + successful checkpoint PUT should each schedule packet sync');
   assert.equal(lastSyncPrivateDir,dir,'packet sync must read the exact checkpoint directory owned by the bridge');

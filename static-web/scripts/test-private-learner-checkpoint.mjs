@@ -121,9 +121,11 @@ try {
 
 let remoteSaved = null;
 const remotePacketSyncHeaders = [];
+const remoteAutomationHeaders = [];
 const fakeFetch = async (_url, options = {}) => {
   if (options.method === 'PUT') {
     remotePacketSyncHeaders.push(options.headers?.['x-kianos-packet-sync'] || null);
+    remoteAutomationHeaders.push(options.headers?.['x-kianos-browser-automation'] || null);
     remoteSaved = JSON.parse(options.body);
     return new Response(JSON.stringify({ status: 'saved', checkpoint_id: remoteSaved.checkpoint_id }), { status: 200 });
   }
@@ -146,6 +148,20 @@ const urgentCheckpoint = {
 };
 await writeRemoteCheckpoint(urgentCheckpoint, { fetchImpl: fakeFetch, packetSync: 'immediate' });
 assert.equal(remotePacketSyncHeaders.at(-1), 'immediate', 'critical checkpoint writes must request immediate Packet refresh');
+
+const automationCheckpoint = {
+  ...checkpoint,
+  checkpoint_id: 'checkpoint-browser-automation',
+  generated_at: new Date(now + 2).toISOString()
+};
+await writeRemoteCheckpoint(automationCheckpoint, { fetchImpl: fakeFetch, browserAutomation: true });
+assert.equal(remoteAutomationHeaders.at(-1), '1', 'webdriver automation must identify its checkpoint write to the Stable guard');
+await writeRemoteCheckpoint({
+  ...checkpoint,
+  checkpoint_id: 'checkpoint-human-browser',
+  generated_at: new Date(now + 3).toISOString()
+}, { fetchImpl: fakeFetch, browserAutomation: false });
+assert.equal(remoteAutomationHeaders.at(-1), null, 'normal human browser writes must not be marked as automation');
 const invalidTimeoutRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch, timeoutMs: 0 });
 assert.equal(invalidTimeoutRead.status, 'ready');
 const originalSetTimeout = globalThis.setTimeout;

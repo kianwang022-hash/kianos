@@ -50,7 +50,8 @@ export async function writePrivateLearnerCheckpoint(checkpoint, {
   fetchImpl = globalThis.fetch,
   endpoint = PRIVATE_CHECKPOINT_ENDPOINT,
   expectedCheckpoint = undefined,
-  packetSync = 'routine'
+  packetSync = 'routine',
+  browserAutomation = globalThis.navigator?.webdriver === true
 } = {}) {
   if (typeof fetchImpl !== 'function') throw new Error('PRIVATE_CHECKPOINT_FETCH_UNAVAILABLE');
   const response = await fetchImpl(endpoint, {
@@ -58,6 +59,7 @@ export async function writePrivateLearnerCheckpoint(checkpoint, {
     headers: {
       'content-type': 'application/json',
       'x-kianos-packet-sync': packetSync === 'immediate' ? 'immediate' : 'routine',
+      ...(browserAutomation ? { 'x-kianos-browser-automation': '1' } : {}),
       ...(expectedCheckpoint !== undefined ? { 'if-match': JSON.stringify(expectedCheckpoint?.checkpoint_id || null) } : {})
     },
     body: JSON.stringify(checkpoint)

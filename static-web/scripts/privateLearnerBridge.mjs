@@ -30,6 +30,13 @@ const isLoopback = (address) => {
   return value === '127.0.0.1' || value === '::1' || value === '::ffff:127.0.0.1';
 };
 
+const stableAutomationWriteForbidden = (req) => {
+  const host = String(req.headers?.host || '').toLowerCase();
+  const stableHost = /^(?:127\.0\.0\.1|localhost|\[::1\]):4321$/.test(host);
+  const automated = String(req.headers?.['x-kianos-browser-automation'] || '') === '1';
+  return stableHost && automated;
+};
+
 const json = (res, status, value) => {
   res.statusCode = status;
   res.setHeader('content-type', 'application/json; charset=utf-8');
@@ -257,6 +264,12 @@ export function privateLearnerBridge({
           }
 
           if (req.method === 'PUT') {
+            if (stableAutomationWriteForbidden(req)) {
+              return json(res, 403, {
+                status: 'forbidden',
+                error: 'PRIVATE_CHECKPOINT_STABLE_AUTOMATION_WRITE_FORBIDDEN'
+              });
+            }
             const input = await readBody(req);
             if (typeof req.headers['if-match'] !== 'string') {
               return json(res, 428, { status: 'error', error: 'PRIVATE_CHECKPOINT_PRECONDITION_REQUIRED' });
