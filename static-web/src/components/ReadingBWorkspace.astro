@@ -310,7 +310,7 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
           if (scoreNode) scoreNode.textContent = `${score} / ${rows.length}`;
           if (note) note.textContent = score === rows.length && !(state.uncertain || []).length
             ? 'Clean pass · 不制造复盘债务。'
-            : '整组进入 review；先看整体结构 / 匹配关系，再决定 local、coupled 或 structure repair。';
+            : '整组进入复盘；先看整体结构和匹配关系，再判断是单个位置、相互牵连，还是整组结构需要调整。';
         }
       }
     };

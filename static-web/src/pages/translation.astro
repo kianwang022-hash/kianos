@@ -113,7 +113,7 @@ const payload = JSON.stringify(sets).replace(/</g, '\u003c');
       if (title) title.textContent = last.title || last.id;
       if (meta) {
         const stage = stageText(taskState?.stage);
-        meta.textContent = `${last.paperId || 'Translation'} · 第 ${last.position || '?'} / ${last.total || sets.length} 套 · ${coverageText(current)}${stage ? ` · ${stage}` : ''}`;
+        meta.textContent = `第 ${last.position || '?'} / ${last.total || sets.length} 套 · ${coverageText(current)}${stage ? ` · ${stage}` : ''}`;
       }
     }
 
@@ -131,7 +131,7 @@ const payload = JSON.stringify(sets).replace(/</g, '\u003c');
         link.href = hrefFor(item.id);
         const copy = document.createElement('div');
         const title = document.createElement('strong'); title.textContent = item.title || item.id;
-        const meta = document.createElement('span'); meta.textContent = `${item.paperId || 'English I'} · ${coverageText(item)}`;
+        const meta = document.createElement('span'); meta.textContent = coverageText(item);
         copy.append(title, meta);
         const pos = document.createElement('small'); pos.textContent = `${item.position} / ${item.total}`;
         link.append(copy, pos);
