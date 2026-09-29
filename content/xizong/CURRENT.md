@@ -37,7 +37,7 @@ Accepted meaning remains owned by the existing Xizong Rule / Learning / Product 
 
 Current recoverable WIP:
 - branch: `repair/xizong-a1-selfaudit`
-- snapshot: `7e39dd0535883787f8f3eb5be24c3fae731bb6f1`
+- snapshot: `4f08989e07d87e5e0279bcd69c9b9bf67c7a7d28`
 - purpose: bounded A1 shared-workspace Projection / learner-object / presentation repair plus self-adversarial audit.
 - Fast Lane: use the existing Candidate runtime on `127.0.0.1:4322` for Human Gate; do not use Stable 4321 as the edit loop.
 - CSS rule: edit the effective shared owner; do not stack corrective CSS or fork per-System presentation.
@@ -46,6 +46,7 @@ Confirmed in the current A1 audit:
 - real learner-state proof counts only when `document.hasFocus() === true`, `visibilityState === "visible"`, and `data-learner-writer="active"`; the isolated browser audit satisfied this writer contract.
 - B1 Source/KP Learn uses the shared workspace: current KP identity + Source/Outline locator + navigation are in the center header, not duplicated inside the Core.
 - Source/KP Learn bottom controls are one action row; learner-facing per-KP Chat transport is removed.
+- Human Gate regression repaired: Space again toggles the visible KP Core through the active stage footer; verified under an active learner writer in both directions.
 - Attention is conditional and visually typed as 本轮带走 / 按需辅助 / 可以后置 / 后面再学, with the center remaining visually primary.
 - B1 real loop reached 32/32 KP Recall, automatically closed all 7 LGs, gated Block Recall Front → Reveal → Block complete correctly, and a deliberate weak Recall released into Memory.
 - stateful Resume under an active learner writer returned exactly to LG02 / KP06 / 本节 3/5, i.e. the first unrecalled KP in the same LG.
