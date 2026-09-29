@@ -28,7 +28,8 @@ import {
   sameCheckpointRaw,
   SUBJECT_CHECKPOINT_GROUPS,
   subjectCheckpointEntries,
-  subjectCheckpointConflicts
+  subjectCheckpointConflicts,
+  subjectCheckpointGroupStorageKeys
 } from './privateSubjectCheckpoints.mjs';
 
 import { CONTROL_LOCAL_RECEIPT_KEY } from './privateControlCommand.mjs';
@@ -238,6 +239,78 @@ function rememberLineage(storage, checkpoint, successfulGroupIds, warnings) {
   } catch {
     warnings.push('checkpoint:shared:PRIVATE_CHECKPOINT_LINEAGE_UNAVAILABLE');
   }
+}
+
+function localStorageKeysForCheckpointGroup(storage, groupId) {
+  if (groupId === CHECKPOINT_SHARED_GROUP_ID) {
+    return [...SHARED_STORAGE_KEYS, CONTROL_LOCAL_RECEIPT_KEY]
+      .filter((key) => storage.getItem(key) != null);
+  }
+  return subjectCheckpointGroupStorageKeys(storage, groupId);
+}
+
+export async function restorePrivateCheckpointGroupsFromDurable(storage, {
+  expectedCheckpointId,
+  groupIds = null,
+  readCheckpoint = readPrivateLearnerCheckpoint
+} = {}) {
+  if (!storage?.getItem || !storage?.setItem || !storage?.removeItem) {
+    throw new Error('PRIVATE_CHECKPOINT_STORAGE_UNAVAILABLE');
+  }
+  const expected = String(expectedCheckpointId || '').trim();
+  if (!expected) throw new Error('PRIVATE_CHECKPOINT_DURABLE_RESTORE_ID_REQUIRED');
+  const remote = await readCheckpoint();
+  if (remote?.status !== 'ready' || remote?.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) {
+    throw new Error('PRIVATE_CHECKPOINT_DURABLE_RESTORE_SOURCE_UNAVAILABLE');
+  }
+  const checkpoint = remote.checkpoint;
+  if (checkpoint.checkpoint_id !== expected) {
+    throw new Error('PRIVATE_CHECKPOINT_DURABLE_RESTORE_SOURCE_CHANGED');
+  }
+  const conflictGroups = localBaseConflictGroups(checkpoint);
+  const requested = Array.isArray(groupIds) && groupIds.length
+    ? [...new Set(groupIds)]
+    : [...conflictGroups];
+  if (!requested.length) throw new Error('PRIVATE_CHECKPOINT_DURABLE_RESTORE_NOT_NEEDED');
+
+  const fingerprints = privateCheckpointGroupFingerprints(checkpoint);
+  const nextLineage = readLineageMap(storage);
+  const changes = [];
+
+  for (const groupId of requested) {
+    if (!CHECKPOINT_GROUP_IDS.includes(groupId)) {
+      throw new Error('PRIVATE_CHECKPOINT_DURABLE_RESTORE_GROUP_INVALID:' + groupId);
+    }
+    if (!conflictGroups.has(groupId)) {
+      throw new Error('PRIVATE_CHECKPOINT_DURABLE_RESTORE_GROUP_NOT_CONFLICTED:' + groupId);
+    }
+    const durable = new Map(durableEntriesForGroup(checkpoint, groupId));
+    const keys = new Set([
+      ...localStorageKeysForCheckpointGroup(storage, groupId),
+      ...durable.keys()
+    ]);
+    for (const key of keys) {
+      const raw = durable.has(key) ? durable.get(key) : null;
+      if (storage.getItem(key) !== raw) changes.push([key, raw]);
+    }
+    nextLineage[groupId] = 'fp:' + fingerprints[groupId];
+  }
+
+  const lineageRaw = JSON.stringify({
+    schema: PRIVATE_CHECKPOINT_LINEAGE_SCHEMA,
+    groups: nextLineage
+  });
+  if (storage.getItem(PRIVATE_CHECKPOINT_LINEAGE_KEY) !== lineageRaw) {
+    changes.push([PRIVATE_CHECKPOINT_LINEAGE_KEY, lineageRaw]);
+  }
+
+  commitLearnerStorageChanges(storage, changes);
+  return {
+    status: 'restored',
+    checkpoint_id: checkpoint.checkpoint_id,
+    groups: requested,
+    changed_keys: changes.map(([key]) => key)
+  };
 }
 
 export async function rebasePrivateCheckpointLineageToCurrent(storage, {

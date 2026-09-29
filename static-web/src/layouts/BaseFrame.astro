@@ -191,6 +191,7 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
   import {
     initPrivateCheckpointAutosave,
     rebasePrivateCheckpointLineageToCurrent,
+    restorePrivateCheckpointGroupsFromDurable,
     restoreSharedControlFromPrivate,
     saveSharedControlToPrivate
   } from '../lib/privateCheckpointRuntime.mjs';
@@ -208,8 +209,34 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
     if (document.documentElement.dataset.learnerWriter !== 'active') return;
 
     const recoveryUrl = new URL(window.location.href);
+    const durableRestoreCheckpointId = recoveryUrl.searchParams.get('checkpoint-durable-restore');
     const rebaseCheckpointId = recoveryUrl.searchParams.get('checkpoint-lineage-rebase');
-    if (rebaseCheckpointId) {
+    let durableRestoreApplied = false;
+
+    if (durableRestoreCheckpointId && rebaseCheckpointId) {
+      document.documentElement.dataset.checkpointDurableRestore = 'error';
+      document.documentElement.dataset.checkpointLineageRebase = 'error';
+      console.error('[KianOS checkpoint recovery]', new Error('PRIVATE_CHECKPOINT_RECOVERY_DIRECTION_AMBIGUOUS'));
+      recoveryUrl.searchParams.delete('checkpoint-durable-restore');
+      recoveryUrl.searchParams.delete('checkpoint-lineage-rebase');
+      history.replaceState(history.state, '', recoveryUrl.pathname + recoveryUrl.search + recoveryUrl.hash);
+    } else if (durableRestoreCheckpointId) {
+      try {
+        await restorePrivateCheckpointGroupsFromDurable(localStorage, {
+          expectedCheckpointId: durableRestoreCheckpointId
+        });
+        const saved = await saveSharedControlToPrivate(localStorage);
+        if (saved.status !== 'saved') throw new Error('PRIVATE_CHECKPOINT_DURABLE_RESTORE_SAVE_INCOMPLETE');
+        document.documentElement.dataset.checkpointDurableRestore = 'saved';
+        durableRestoreApplied = true;
+      } catch (error) {
+        document.documentElement.dataset.checkpointDurableRestore = 'error';
+        console.error('[KianOS checkpoint durable recovery]', error);
+      } finally {
+        recoveryUrl.searchParams.delete('checkpoint-durable-restore');
+        history.replaceState(history.state, '', recoveryUrl.pathname + recoveryUrl.search + recoveryUrl.hash);
+      }
+    } else if (rebaseCheckpointId) {
       try {
         await rebasePrivateCheckpointLineageToCurrent(localStorage, {
           expectedCheckpointId: rebaseCheckpointId
@@ -224,6 +251,11 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
         recoveryUrl.searchParams.delete('checkpoint-lineage-rebase');
         history.replaceState(history.state, '', recoveryUrl.pathname + recoveryUrl.search + recoveryUrl.hash);
       }
+    }
+
+    if (durableRestoreApplied) {
+      window.location.reload();
+      return;
     }
 
     if (restored?.status === 'restored') {

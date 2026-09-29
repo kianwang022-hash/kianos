@@ -22,6 +22,7 @@ import {
   initPrivateCheckpointAutosave,
   PRIVATE_CHECKPOINT_LINEAGE_KEY,
   rebasePrivateCheckpointLineageToCurrent,
+  restorePrivateCheckpointGroupsFromDurable,
   restoreSharedControlFromPrivate,
   saveSharedControlToPrivate,
   sharedControlStorageIsEmpty
@@ -599,6 +600,58 @@ await assert.rejects(
     readCheckpoint: async () => ({ status: 'ready', checkpoint: legacyRebaseCheckpoint })
   }),
   /PRIVATE_CHECKPOINT_REBASE_MISSING_LOCAL/
+);
+
+const durableWinsCheckpoint = structuredClone(continuityCheckpoint);
+durableWinsCheckpoint.checkpoint_id = 'checkpoint-durable-wins-current';
+durableWinsCheckpoint.payload.shared.capture_warnings = [
+  'checkpoint:shared:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT',
+  'checkpoint:xizong:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT',
+  'checkpoint:english+lexical:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT'
+];
+const durableWinsStorage = new MemoryStorage(Object.fromEntries(continuityStorage.map));
+const extraXizongKey = 'kianos-xizong-astro-v2:xizong:audit-residue';
+durableWinsStorage.setItem(extraXizongKey, JSON.stringify({ stage: 'source_contact', audit: true }));
+durableWinsStorage.setItem(englishExposureKey, JSON.stringify({
+  schema: 'kianos.english.material-exposure.v1',
+  materials: { 'audit-residue': { object_id: 'audit-residue', events: [] } }
+}));
+appendTimerSession(durableWinsStorage, 'audit-residue', now + 300000);
+const politicsBeforeDurableRestore = durableWinsStorage.getItem(PRACTICE_KEYS.attempts);
+const durableRestored = await restorePrivateCheckpointGroupsFromDurable(durableWinsStorage, {
+  expectedCheckpointId: durableWinsCheckpoint.checkpoint_id,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint: durableWinsCheckpoint })
+});
+assert.equal(durableRestored.status, 'restored');
+assert.deepEqual(durableRestored.groups.sort(), ['english+lexical', 'shared', 'xizong']);
+assert.equal(durableWinsStorage.getItem(extraXizongKey), null);
+assert.equal(
+  durableWinsStorage.getItem(englishExposureKey),
+  durableWinsCheckpoint.payload.subjects.english.entries[englishExposureKey]
+);
+assert.deepEqual(
+  JSON.parse(durableWinsStorage.getItem(STUDY_TIMER_LEDGER_KEY)),
+  durableWinsCheckpoint.payload.shared.study_timer_ledger
+);
+assert.equal(durableWinsStorage.getItem(PRACTICE_KEYS.attempts), politicsBeforeDurableRestore);
+const durableWinsLineage = JSON.parse(durableWinsStorage.getItem(PRIVATE_CHECKPOINT_LINEAGE_KEY));
+for (const groupId of ['shared', 'xizong', 'english+lexical']) {
+  assert.match(durableWinsLineage.groups[groupId], /^fp:fnv1a64:/);
+}
+let durableWinsCurrent = durableWinsCheckpoint;
+const durableWinsSaved = await saveSharedControlToPrivate(durableWinsStorage, {
+  now,
+  readCheckpoint: async () => ({ status: 'ready', checkpoint: durableWinsCurrent }),
+  writeCheckpoint: async (value) => { durableWinsCurrent = value; return { status: 'saved' }; }
+});
+assert.equal(durableWinsSaved.status, 'saved');
+assert.deepEqual(durableWinsCurrent.payload.shared.capture_warnings, []);
+await assert.rejects(
+  () => restorePrivateCheckpointGroupsFromDurable(durableWinsStorage, {
+    expectedCheckpointId: 'checkpoint-wrong-id',
+    readCheckpoint: async () => ({ status: 'ready', checkpoint: durableWinsCheckpoint })
+  }),
+  /PRIVATE_CHECKPOINT_DURABLE_RESTORE_SOURCE_CHANGED/
 );
 
 const combinedSource = new MemoryStorage({

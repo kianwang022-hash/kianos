@@ -131,6 +131,7 @@ const applyChanges = (storage, changes) => changes.forEach(([key, raw]) =>
 
 const ADAPTERS = Object.freeze({
   xizong: Object.freeze({
+    allowed: isXizongDurableStorageKey,
     capture: captureXizongPrivateCheckpoint,
     validate: validateXizongPrivateCheckpoint,
     isEmpty: xizongDurableStorageIsEmpty,
@@ -140,6 +141,7 @@ const ADAPTERS = Object.freeze({
     }
   }),
   english: Object.freeze({
+    allowed: englishCheckpointKeyAllowed,
     capture: captureEnglishCheckpoint,
     validate: validateEnglishCheckpoint,
     isEmpty: (storage) => subjectStorageIsEmpty(storage, englishCheckpointKeyAllowed),
@@ -151,6 +153,7 @@ const ADAPTERS = Object.freeze({
     }
   }),
   politics: Object.freeze({
+    allowed: politicsCheckpointKeyAllowed,
     capture(storage) {
       const value = exportPoliticsCheckpoint(storage);
       return Object.keys(value.entries || {}).length ? value : null;
@@ -171,6 +174,7 @@ const ADAPTERS = Object.freeze({
     }
   }),
   lexical: Object.freeze({
+    allowed: lexicalCheckpointKeyAllowed,
     capture: captureLexicalCheckpoint,
     validate: validateLexicalCheckpoint,
     isEmpty: (storage) => subjectStorageIsEmpty(storage, lexicalCheckpointKeyAllowed),
@@ -195,6 +199,14 @@ export const SUBJECT_CHECKPOINT_GROUPS = Object.freeze([
   Object.freeze({ id: 'politics', subjects: Object.freeze(['politics']) })
 ]);
 const RESTORE_GROUPS = SUBJECT_CHECKPOINT_GROUPS.map(({ id, subjects }) => ({ id, subjects: [...subjects] }));
+
+export function subjectCheckpointGroupStorageKeys(storage, groupId) {
+  const group = RESTORE_GROUPS.find(({ id }) => id === groupId);
+  if (!group) throw new Error('PRIVATE_CHECKPOINT_RECOVERY_GROUP_INVALID:' + groupId);
+  return listStorageKeys(storage)
+    .filter((key) => group.subjects.some((subject) => ADAPTERS[subject].allowed(key)))
+    .sort();
+}
 
 export const sameCheckpointRaw = (a, b) => {
   if (a === b) return true;
