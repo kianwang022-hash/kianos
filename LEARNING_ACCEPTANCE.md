@@ -26,6 +26,20 @@ Source Truth
 
 This is a **causal direction, not a repository-wide one-way waterfall**. Within one audited scope, Projection or Runtime may expose a real Knowledge/Learning defect and send that dependency chain back upstream. What must not happen is using downstream engineering progress to pretend an upstream learning question was settled.
 
+### Relation to CBA AUDIT
+
+The optional CBA `AUDIT` lens describes **how to verify adversarially**. It does not create another learning-acceptance ladder and does not replace the native `S / K / L / P / R / E / U` gates below.
+
+For a learning audit:
+- name the exact gate/claim being tested;
+- hold its accepted meaning stable while testing the real consumer/evidence path;
+- first distinguish product defect from test/oracle/stale-history error;
+- repair a confirmed defect inline when the accepted meaning is unchanged, then replay only the affected claim and true dependents;
+- if the accepted learning/product meaning itself must change, reopen the earliest responsible upstream owner/gate rather than rewriting the standard inside AUDIT;
+- never promote synthetic, build or simulated evidence into `U｜User Validation`.
+
+A fresh/independent auditor is required only where the exact Acceptance owner says independence is part of the evidence standard.
+
 Independent scopes may be audited and advanced concurrently at any justified hierarchy depth. A blocked gate in one Politics subject, Xizong System, English module, or other independent scope does not freeze unrelated siblings merely because they share a parent.
 
 After core modules are individually ready, KianOS enters a separate final layer:
