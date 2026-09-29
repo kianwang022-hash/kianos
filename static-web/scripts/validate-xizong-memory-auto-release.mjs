@@ -7,6 +7,7 @@ import {
 } from '../src/lib/xizongMemoryModel.mjs';
 import {
   inspectXizongBlockCompletion,
+  inspectXizongSystemCompletion,
   releaseCompletedBlockToMemory,
   xizongStudyStorageKey
 } from '../src/lib/xizongMemoryAutoRelease.mjs';
@@ -87,6 +88,36 @@ assert(inspectXizongBlockCompletion(learner, {
   ...validStudy,
   ratings: { 'respiratory-r01-kp01': 'fuzzy' }
 }).reason === 'KP_RECALL_INCOMPLETE', 'requires-all-kp-ratings');
+
+// Visual-required closure is evidence-bearing, not prose-bearing. A missing visual
+// stays blocked; an original-Source visual that is merely not mounted in KianOS may
+// close only after explicit Source-contact evidence records that LG as visually reviewed.
+const externalVisualLearner = structuredClone(learner);
+externalVisualLearner.sourceHash = 'fixture-visual-source-v1';
+externalVisualLearner.logicGroups[0].visualRequired = true;
+externalVisualLearner.logicGroups[0].visualSourceState = 'VISUAL_SOURCE_GAP_ORIGINAL_PAGE_NOT_MOUNTED';
+assert(inspectXizongBlockCompletion(externalVisualLearner, validStudy).reason === 'VISUAL_EVIDENCE_INCOMPLETE', 'external-visual-review-required');
+const externalVisualStudy = {
+  ...validStudy,
+  sourceContactEvidence: [{
+    segment_id: 'block-cumulative:xizong:respiratory-r01',
+    source_hash: 'fixture-visual-source-v1',
+    visual_reviewed_lg_ids: ['respiratory-r01-lg01']
+  }]
+};
+assert(inspectXizongBlockCompletion(externalVisualLearner, externalVisualStudy).complete === true, 'external-visual-review-not-accepted');
+const unresolvedVisualLearner = structuredClone(externalVisualLearner);
+unresolvedVisualLearner.logicGroups[0].visualSourceState = 'VISUAL_SOURCE_GAP';
+assert(inspectXizongBlockCompletion(unresolvedVisualLearner, externalVisualStudy).reason === 'VISUAL_EVIDENCE_INCOMPLETE', 'true-visual-gap-illegally-closed');
+
+const systemStorageRows = new Map([
+  ['kianos-xizong-astro-v2:xizong:respiratory-r01', JSON.stringify(externalVisualStudy)]
+]);
+const systemStorage = { getItem: (key) => systemStorageRows.get(key) ?? null };
+const systemRequirement = { ...externalVisualLearner, evidenceVersion: '' };
+assert(inspectXizongSystemCompletion([systemRequirement], systemStorage).complete === true, 'system-release-lost-visual-evidence');
+systemStorageRows.set('kianos-xizong-astro-v2:xizong:respiratory-r01', JSON.stringify(validStudy));
+assert(inspectXizongSystemCompletion([systemRequirement], systemStorage).complete === false, 'system-release-bypassed-visual-evidence');
 
 let memory = createXizongMemoryState();
 let result = releaseCompletedBlockToMemory(memory, learner, { ...validStudy, completed: false });

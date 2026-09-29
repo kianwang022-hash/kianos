@@ -61,10 +61,18 @@ const study = () => page.evaluate(() => {
   return JSON.parse(localStorage.getItem(`kianos-xizong-astro-v2:${root.dataset.studyObject}`) || '{}');
 });
 async function click(selector) {
-  await page.locator(selector).evaluate((node) => node.click());
+  const result = await page.evaluate((rawSelector) => {
+    const selector = rawSelector.replace(/:visible/g, '');
+    const node = [...document.querySelectorAll(selector)]
+      .find((candidate) => candidate instanceof HTMLElement && !candidate.hidden && candidate.getClientRects().length > 0);
+    if (!(node instanceof HTMLElement)) return { ok: false, selector };
+    node.click();
+    return { ok: true, selector };
+  }, selector);
+  check(result.ok === true, `click_${result.selector.replace(/[^a-zA-Z0-9_-]+/g, '_')}`);
   await page.waitForTimeout(160);
 }
-const enter = () => click('[data-stage-next="logic_group"]:visible');
+const enter = () => click('[data-stage-next="logic_group"]');
 async function rateCurrent() {
   const result = await page.evaluate(() => {
     const card = [...document.querySelectorAll('[data-kp-recall-card]')]
@@ -221,7 +229,7 @@ async function fWholeAndNatural() {
   check(await stage() === 'kp_recall', 'f3_recall');
   check(state.sourceContactDone === true, 'f3_source_done');
   check(Object.values(state.learned || {}).filter(Boolean).length > 0, 'f3_formed');
-  check((state.sourceContactEvidence || []).some((row) => (row.visual_reviewed_lg_ids || []).includes('F3-LG02')), 'f3_external_visual_review_evidence');
+  check((state.sourceContactEvidence || []).some((row) => row.coverage_kind === 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION'), 'f3_whole_block_source_evidence');
 
   await reset('remaining-clinical', 'f01');
   check(await page.locator('[data-xizong-v6-block]').getAttribute('data-source-contact-mode') === 'NATURAL_SOURCE_UNITS', 'f1_mode');
@@ -305,16 +313,13 @@ async function f4AndF9() {
   await click('[data-source-contact-done]:visible');
   for (const groupIndex of [3, 4]) await rateGroupUntilExit(groupIndex, `f8_su2_group_${groupIndex}`);
   state = await study();
-  check(await stage() === 'kp_recall' && Number(state.groupIndex) === 0, 'f8_visual_gap_returns_first_blocked_lg');
+  check(await stage() === 'block_recall', 'f8_block_recall_released_after_real_visual_review');
   check(Object.values(state.ratings || {}).filter(Boolean).length === 17, 'f8_all17_recalled');
-  check((await page.locator('[data-study-local-status]').textContent()).includes('原图门禁未闭合'), 'f8_visual_gap_status');
-  check(await page.locator('[data-study-stage="block_recall"]:visible').count() === 0, 'f8_block_recall_not_released');
-  check(await page.locator('[data-learner-asset="visual"]:visible').count() === 0, 'f8_visual_hidden_front');
-  const f8Card = page.locator('[data-kp-recall-card]:visible').first();
-  await f8Card.locator('[data-kp-reveal]:visible').evaluate((node) => node.click());
-  await page.waitForTimeout(120);
-  check(await page.locator('[data-learner-asset="visual"]:visible').count() === 1, 'f8_visual_locator_after_reveal');
-  check(await page.locator('[data-learner-asset="visual"]:visible img').count() === 0, 'f8_no_fake_visual_asset');
+  const f8Reviewed = new Set((state.sourceContactEvidence || []).flatMap((row) => row.visual_reviewed_lg_ids || []));
+  for (const groupId of ['F8-LG01', 'F8-LG04', 'F8-LG05']) {
+    check(f8Reviewed.has(groupId), `f8_visual_review_evidence_${groupId}`);
+  }
+  check(await page.locator('[data-study-stage="block_recall"]:visible').count() === 1, 'f8_block_recall_visible');
 
   await reset('remaining-clinical', 'f09');
   check(await page.locator('[data-xizong-v6-block]').getAttribute('data-source-contact-mode') === 'INTEGRATION_PRIMARY', 'f9_mode');

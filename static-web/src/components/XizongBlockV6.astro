@@ -531,9 +531,19 @@ window.__kianosLearnerWriterReady.then(() => {
     const groupIndexById = (groupId) => groups.findIndex((group) => group.groupId === groupId);
     const naturalSegmentDone = (segment) => {
       if (!segment?.segmentId || !currentSourceHash) return false;
-      return (state.sourceContactEvidence || []).some((entry) =>
-        entry.segment_id === segment.segmentId && String(entry?.source_hash || '') === currentSourceHash
+      const entry = (state.sourceContactEvidence || []).find((row) =>
+        row.segment_id === segment.segmentId && String(row?.source_hash || '') === currentSourceHash
       );
+      if (!entry) return false;
+      const reviewed = new Set((Array.isArray(entry?.visual_reviewed_lg_ids) ? entry.visual_reviewed_lg_ids : []).map(String));
+      const requiredVisualReviews = (Array.isArray(segment?.visualDebt) ? segment.visualDebt : [])
+        .map(String)
+        .filter((groupId) => {
+          const index = groupIndexById(groupId);
+          const group = index >= 0 ? groups[index] : null;
+          return group?.visualRequired === true && /GAP.*NOT_MOUNTED/i.test(String(group?.visualSourceState || ''));
+        });
+      return requiredVisualReviews.every((groupId) => reviewed.has(groupId));
     };
     const naturalReleaseGroupIds = (segment) => [...new Set([
       ...(Array.isArray(segment?.logicGroupIds) ? segment.logicGroupIds : []),
