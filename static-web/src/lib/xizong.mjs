@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { normalizeAcceptedLearningOwner, normalizeBlockToken } from './xizongAcceptedLearningOwner.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -278,9 +279,63 @@ function bBlockFiles(dirName, route) {
   });
 }
 
+function frontmatterScalar(text, key) {
+  const source = String(text || '');
+  if (!source.startsWith('---\n')) return '';
+  const end = source.indexOf('\n---', 4);
+  if (end < 0) return '';
+  const front = source.slice(4, end);
+  const escaped = String(key).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = front.match(new RegExp(`^${escaped}:\\s*(.+?)\\s*$`, 'm'));
+  return String(match?.[1] || '').trim().replace(/^['"]|['"]$/g, '');
+}
+
+function recursiveCanonicalBlockFiles(record, route) {
+  const root = `${SYSTEMS_ROOT}/${record.dirName}`;
+  const candidates = [];
+  const visit = (relativeDir) => {
+    for (const entry of fs.readdirSync(absolute(relativeDir), { withFileTypes: true })) {
+      const child = `${relativeDir}/${entry.name}`;
+      if (entry.isDirectory()) visit(child);
+      else if (entry.isFile() && /\.md$/i.test(entry.name)) {
+        const text = readText(child);
+        const declaredBlockId = frontmatterScalar(text, 'block_id');
+        if (!declaredBlockId) continue;
+        candidates.push({
+          name: entry.name,
+          path: child,
+          declaredBlockId,
+          title: frontmatterScalar(text, 'title'),
+          kpCount: Number(frontmatterScalar(text, 'kp_count') || 0) || 0
+        });
+      }
+    }
+  };
+  visit(root);
+
+  return route.map((row, index) => {
+    const routeId = String(row.id || '');
+    let matches = candidates.filter((file) => file.declaredBlockId === routeId);
+    if (!matches.length) {
+      const token = normalizeBlockToken(routeId);
+      matches = candidates.filter((file) => normalizeBlockToken(file.declaredBlockId) === token);
+    }
+    if (matches.length !== 1) {
+      throw new Error(`CURRENT_XIZONG_BLOCK_FILE_RESOLUTION_INVALID:${record.identity.systemId}:${routeId}:${matches.length}`);
+    }
+    return { ...matches[0], ordinal: index + 1 };
+  });
+}
+
 function blockFilesForRecord(record, route) {
   if (record.identity.canonicalId === 'B') return bBlockFiles(record.dirName, route);
-  return blockFiles(record.dirName);
+  try {
+    const rows = blockFiles(record.dirName);
+    if (rows.length === route.length) return rows;
+  } catch (error) {
+    if (!String(error?.message || '').startsWith('CURRENT_XIZONG_BLOCKS_MISSING:')) throw error;
+  }
+  return recursiveCanonicalBlockFiles(record, route);
 }
 
 function extractCenterQuestion(markdown) {
@@ -540,7 +595,29 @@ function loadLearningSupport(record) {
     throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_IDENTITY_MISMATCH:${record.identity.systemId}`);
   }
   const hydrated = hydrateLearningOwner(pathName, supportBase);
-  const support = hydrated.raw;
+  const routeIds = directBlockRoute(record.system, hydrated.raw?.blocks || {}).map((row) => row.id);
+  let contentPath = null;
+  let contentText = '';
+  let contentOwner = null;
+  if (!(hydrated.raw?.blocks && Object.keys(hydrated.raw.blocks).length)) {
+    const candidate = pathName.replace(/-learning\.json$/i, '-content.json');
+    if (fs.existsSync(absolute(candidate))) {
+      contentText = readText(candidate);
+      contentOwner = JSON.parse(contentText);
+      if (contentOwner?.status !== 'ACCEPTED'
+        || contentOwner?.system_id !== record.identity.systemId
+        || contentOwner?.canonical_id !== record.identity.canonicalId) {
+        throw new Error(`CURRENT_XIZONG_CONTENT_OWNER_INVALID:${record.identity.systemId}`);
+      }
+      contentPath = candidate;
+    }
+  }
+  const normalized = normalizeAcceptedLearningOwner({
+    learning: hydrated.raw,
+    routeIds,
+    content: contentOwner
+  });
+  const support = normalized.owner;
 
   const expectedBlocks = directBlockRoute(record.system, support.blocks).map((row) => row.id);
   const actualBlocks = Object.keys(support?.blocks || {});
@@ -563,7 +640,16 @@ function loadLearningSupport(record) {
       }
     }
   }
-  return { path: pathName, sourceHash: hydrated.sourceHash || sha256(text), raw: support };
+  return {
+    path: pathName,
+    contentPath,
+    schemaFamily: normalized.schemaFamily,
+    blockKeyMap: normalized.blockKeyMap,
+    sourceHash: contentText
+      ? sha256([hydrated.sourceHash || sha256(text), contentText].join('\n'))
+      : (hydrated.sourceHash || sha256(text)),
+    raw: support
+  };
 }
 
 
@@ -675,21 +761,18 @@ function normalizeSystem(record) {
     const ordinal = blockOrdinalFromId(row.id) || index + 1;
     const file = identity.canonicalId === 'B' ? fileByBlockId.get(String(row.id)) : fileByOrdinal.get(ordinal);
     if (!file) throw new Error(`CURRENT_XIZONG_BLOCK_FILE_MISSING:${row.id}`);
-    const match = String(row.id).match(/-(r|b|h)(\d+)$/i);
-    const bMatch = identity.canonicalId === 'B' ? String(row.id).match(/^([DMG])(\d+)$/) : null;
     const blockSupport = learningSupport?.raw?.blocks?.[row.id] || {};
+    const tokenMatch = normalizeBlockToken(row.id).match(/^([A-Z]{1,4})(\d+)$/);
     return {
       blockId: row.id,
-      label: String(row.label || blockSupport.title || `B${ordinal}`),
-      title: String(row.title || blockSupport.title || file.name),
-      kpCount: Number(row.kp || blockSupport.kp_count || 0),
+      label: String(row.label || blockSupport.label || blockSupport.owner_block_key || `B${ordinal}`),
+      title: String(row.title || blockSupport.title || file.title || file.name),
+      kpCount: Number(row.kp || blockSupport.kp_count || file.kpCount || 0),
       outlineCount: Number(row.outline || 0),
       ordinal,
-      slug: match
-        ? `${match[1].toLowerCase()}${pad2(Number(match[2]))}`
-        : bMatch
-          ? `${bMatch[1].toLowerCase()}${pad2(Number(bMatch[2]))}`
-          : `b${pad2(ordinal)}`,
+      slug: tokenMatch
+        ? `${tokenMatch[1].toLowerCase()}${pad2(Number(tokenMatch[2]))}`
+        : `b${pad2(ordinal)}`,
       sourcePath: file.path
     };
   });
@@ -892,7 +975,7 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
   if (system.learningSupport && !blockSupport) {
     throw new Error(`CURRENT_XIZONG_BLOCK_LEARNING_SUPPORT_MISSING:${blockMeta.blockId}`);
   }
-  const kpRecords = ['B', 'C'].includes(system.canonicalId)
+  const kpRecords = markdown.includes('kianos:kp')
     ? parseKpsFromStableMarkers(markdown, blockMeta.blockId)
     : parseKps(markdown, blockMeta.blockId);
   if (kpRecords.length !== blockMeta.kpCount) {
@@ -939,7 +1022,9 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     learningSupportSourceHash: system.learningSupport?.sourceHash || '',
     logicGroups,
     kpRecords,
-    sourceHash: sha256(markdown)
+    sourceHash: system.learningSupport?.schemaFamily === 'TOP_LEVEL_LOGIC_GROUPS_WITH_CONTENT_REALIZATION'
+      ? sha256(`${markdown}\n${JSON.stringify(blockSupport)}`)
+      : sha256(markdown)
   };
   if (BUILD_CACHE_ENABLED) {
     blockCache.set(cacheKey, result);

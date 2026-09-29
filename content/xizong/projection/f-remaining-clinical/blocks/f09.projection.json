@@ -1,0 +1,115 @@
+{
+  "schema": "kianos.xizong.cognitive_projection.block.v1",
+  "status": "COMPILED_DERIVED_CURRENT",
+  "projection_level": "F_ACCEPTED_OWNER_BASELINE",
+  "system_id": "remaining-clinical",
+  "block_id": "F9",
+  "sources": [
+    {
+      "id": "system",
+      "kind": "SYSTEM_CORE",
+      "path": "content/xizong/knowledge/systems/f-remaining-clinical/system.json",
+      "baseline_blob_sha": "b47e4fa36a7d6fe9de1412b9814a3b9b5de91b38",
+      "freshness": "RESOLVE_BINDING"
+    },
+    {
+      "id": "learning",
+      "kind": "LEARNING_SUPPORT",
+      "path": "content/xizong/knowledge/learner/f-remaining-clinical-learning.json",
+      "baseline_blob_sha": "4ea0be4d7866a03d06bd4892cc7aeae0885a814b",
+      "freshness": "RESOLVE_BINDING"
+    }
+  ],
+  "canonical_scope": {
+    "kind": "OWNER_REF",
+    "owner_type": "BLOCK",
+    "id": "F9"
+  },
+  "kp_set": {
+    "kind": "OWNER_REF",
+    "owner_type": "KP_SET",
+    "block_id": "F9"
+  },
+  "learning_support": {},
+  "objects": [
+    {
+      "object_id": "f-f09-problem",
+      "role": "PROBLEM",
+      "geometry": "TEXT_STRUCTURE",
+      "binding": {
+        "kind": "OWNER_REF",
+        "owner_type": "BLOCK",
+        "id": "F9",
+        "role": "CENTER_QUESTION"
+      },
+      "answer_bearing": false
+    },
+    {
+      "object_id": "f-f09-logic-map",
+      "role": "MAP",
+      "geometry": "NETWORK",
+      "binding": {
+        "kind": "OWNER_REF",
+        "owner_type": "LOGIC_GROUP_SET",
+        "block_id": "F9"
+      },
+      "answer_bearing": false
+    }
+  ],
+  "enrichment_bindings": [],
+  "views": {
+    "BLOCK_ORIENT": {
+      "object_ids": [
+        "f-f09-problem",
+        "f-f09-logic-map"
+      ]
+    },
+    "LOGIC_GROUP_ORIENT": {
+      "object_ids": [
+        "f-f09-problem",
+        "f-f09-logic-map"
+      ]
+    },
+    "EXTERNAL_HANDOFF": {
+      "object_ids": [
+        "f-f09-logic-map"
+      ],
+      "source_locator_policy": "RESOLVE_CURRENT_STUDY_REFS_IF_PRESENT_NO_GUESS"
+    },
+    "KP_RECALL_FRONT": {
+      "protection": "NEUTRAL_FRONT",
+      "object_ids": [],
+      "context_policy": "LG_IDS_AND_STATE_ONLY",
+      "kp_content_policy": "ID_AND_NEUTRAL_PROMPT_ONLY"
+    },
+    "KP_RECALL_REVEAL": {
+      "kp_content_policy": "CANONICAL_CORE_FULL",
+      "context_policy": "OWNED_ONLY"
+    },
+    "GROUP_CLOSURE": {
+      "object_ids": [
+        "f-f09-logic-map"
+      ],
+      "context_policy": "TIMING_AWARE_OWNED_ONLY"
+    },
+    "BLOCK_RECALL_FRONT": {
+      "protection": "NEUTRAL_FRONT",
+      "object_ids": [
+        "f-f09-problem",
+        "f-f09-logic-map"
+      ],
+      "show_logic_group_map": true,
+      "logic_map_policy": "LABELS_AND_IDS_ONLY"
+    },
+    "BLOCK_RECALL_REVEAL": {
+      "object_ids": [
+        "f-f09-problem",
+        "f-f09-logic-map"
+      ]
+    }
+  },
+  "calibration_notes": [
+    "F Block Projection preserves accepted explicit Logic-Group membership through OWNER_REF.",
+    "Source-contact timing remains owned by accepted Learning + Content realization and is consumed by the shared runtime."
+  ]
+}

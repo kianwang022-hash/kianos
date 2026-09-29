@@ -1,0 +1,252 @@
+{
+  "schema": "kianos.xizong.cognitive_projection.system.v1",
+  "status": "COMPILED_DERIVED_CURRENT",
+  "system_id": "neuro-sensory-motor-orthopedics",
+  "canonical_id": "D",
+  "sources": [
+    {
+      "id": "system",
+      "kind": "SYSTEM_CORE",
+      "path": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/system.json",
+      "baseline_blob_sha": "7018fd407a21f22767452517f67cab0f755ce3c4",
+      "freshness": "RESOLVE_BINDING"
+    },
+    {
+      "id": "learning",
+      "kind": "LEARNING_SUPPORT",
+      "path": "content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json",
+      "baseline_blob_sha": "094cbdcab994524f37b1b8222f93cb675d0428b5",
+      "freshness": "RESOLVE_BINDING"
+    }
+  ],
+  "objects": [
+    {
+      "object_id": "d-mission",
+      "role": "PROBLEM",
+      "geometry": "TEXT_STRUCTURE",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/mission"
+        },
+        "value_type": "string"
+      },
+      "answer_bearing": false
+    },
+    {
+      "object_id": "d-mother-model",
+      "role": "MAP",
+      "geometry": "NETWORK",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/mental_model/mother_model"
+        },
+        "value_type": "string"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "d-spine",
+      "role": "MAP",
+      "geometry": "SEQUENCE",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/mental_model/spine"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "d-loops",
+      "role": "MAP",
+      "geometry": "LOOP",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/mental_model/loops"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "d-variables",
+      "role": "MAP",
+      "geometry": "AXES",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/core_variables"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "d-relations",
+      "role": "MAP",
+      "geometry": "NETWORK",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/core_relations"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "d-failures",
+      "role": "MAP",
+      "geometry": "NETWORK",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/failure_modes"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "d-judgment-axes",
+      "role": "COMPARE",
+      "geometry": "AXES",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/judgment_axes"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "d-block-families",
+      "role": "MAP",
+      "geometry": "NETWORK",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/block_families"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "d-default-route",
+      "role": "MAP",
+      "geometry": "SEQUENCE",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "learning",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/system_route/default_route"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "d-psr",
+      "role": "CLOSURE",
+      "geometry": "NETWORK",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "learning",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/partial_system_reconstructions"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "d-final-reconstruction",
+      "role": "RECALL",
+      "geometry": "TREE",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "learning",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/compression/final_system_reconstruction"
+        },
+        "value_type": "object"
+      },
+      "answer_bearing": true
+    }
+  ],
+  "views": {
+    "SYSTEM_GUIDE": {
+      "object_ids": [
+        "d-mission",
+        "d-mother-model",
+        "d-spine",
+        "d-loops",
+        "d-variables",
+        "d-relations",
+        "d-failures",
+        "d-judgment-axes",
+        "d-block-families",
+        "d-default-route",
+        "d-psr"
+      ]
+    },
+    "SYSTEM_RECALL_FRONT": {
+      "protection": "NEUTRAL_FRONT",
+      "object_ids": [],
+      "provenance_policy": "HIDDEN"
+    },
+    "SYSTEM_RECALL_REVEAL": {
+      "object_ids": [
+        "d-mission",
+        "d-mother-model",
+        "d-spine",
+        "d-loops",
+        "d-variables",
+        "d-relations",
+        "d-failures",
+        "d-judgment-axes",
+        "d-block-families",
+        "d-default-route",
+        "d-psr",
+        "d-final-reconstruction"
+      ]
+    },
+    "PARTIAL_SYSTEM_RECONSTRUCTION": {
+      "object_ids": [
+        "d-psr"
+      ],
+      "context_policy": "OWNED_ONLY"
+    }
+  },
+  "calibration_notes": [
+    "D consumes accepted System/Learning owners through the shared semantic adapter.",
+    "System Recall Front carries no medical answer payload; the shared renderer supplies the neutral attempt instruction."
+  ]
+}

@@ -17,7 +17,7 @@ This file owns E-scoped readiness truth only. It does not own medical Core, lear
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; one bounded System repair separated local invasion from metastatic competence / spread |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent anti-anchored audit; E10 visual closure repaired at the smallest L owner, then re-audited |
 | Content Realization / Optimization | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent Phase 4D closure; E8/E10 missed generic fixed-flow wrappers repaired at the smallest Content/wrapper owner; 67/67 release and Content closure re-audited |
-| P — Projection | **UNTESTED / NEXT ELIGIBLE** | Content accepted; Projection may now be entered separately |
+| P — Projection | **UNTESTED / COMPILED_CANDIDATE** | materialized candidate exists on the shared pipeline; targeted P/Runtime audit has not yet been accepted |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | U — Learner Use | **NO_CLAIM** | real Kian use only |

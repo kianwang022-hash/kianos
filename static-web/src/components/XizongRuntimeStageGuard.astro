@@ -3,17 +3,25 @@ import { loadXizongSystemCompletionRequirements } from '../lib/xizong.mjs';
 const { system, block = null } = Astro.props;
 const blockId = block?.blockId || '';
 const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean);
+const prerequisiteIds = [...new Set([
+  ...(block?.sourceContact?.hardReadinessBlockIds || []),
+  ...(block?.sourceContact?.requiredPriorBlockIds || [])
+].map(String).filter(Boolean))];
+const blockPrerequisites = prerequisiteIds.map((id) => {
+  const row = (system?.blocks || []).find((candidate) => candidate.blockId === id);
+  return { blockId: id, label: String(row?.label || id), title: String(row?.title || '') };
+});
 const requirements = block ? [] : loadXizongSystemCompletionRequirements(system);
 ---
 <span data-xizong-runtime-stage-guard hidden></span>
 
-<script type="application/json" data-xizong-completion-input set:html={JSON.stringify({ blockId, blockIds, requirements }).replace(/</g, String.fromCharCode(92) + 'u003c')}></script>
+<script type="application/json" data-xizong-completion-input set:html={JSON.stringify({ blockId, blockIds, blockPrerequisites, requirements }).replace(/</g, String.fromCharCode(92) + 'u003c')}></script>
 <script>
   import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
-  const { blockId, blockIds, requirements } = JSON.parse(document.querySelector('[data-xizong-completion-input]')?.textContent || '{}');
+  const { blockId, blockIds, blockPrerequisites = [], requirements } = JSON.parse(document.querySelector('[data-xizong-completion-input]')?.textContent || '{}');
   const readBlockState = (id) => {
     if (!id) return {};
     try {
@@ -44,6 +52,11 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
     };
   };
 
+  const missingPrerequisites = () => (Array.isArray(blockPrerequisites) ? blockPrerequisites : []).filter((row) => {
+    const state = readBlockState(row?.blockId || '');
+    return state?.completed !== true || state?.sourceRevisionPending === true;
+  });
+
   // Free navigation among orientation/current-learning surfaces is preserved.
   // Later-stage evidence and answer reveal fail closed until the prerequisite
   // formal learning contact actually exists in browser-local learner state.
@@ -56,6 +69,13 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
 
       const state = readBlockState(blockId);
       const counts = blockCounts(root, state);
+      const missing = missingPrerequisites();
+      const advancing = Boolean(target.closest('[data-stage-target],[data-stage-next],[data-source-contact-done],[data-enter-group],[data-group-lecture-done],[data-kp-reveal],[data-rating],[data-block-recall-reveal],[data-block-recall-complete],[data-block-complete]'));
+      if (missing.length && advancing) {
+        stop(event);
+        setBlockStatus(root, `先完成前置 Block：${missing.map((row) => row.label || row.blockId).join(' / ')}；当前仍可看本块框架。`);
+        return;
+      }
 
       const stageTarget = target.closest('[data-stage-target]');
       if (stageTarget) {

@@ -91,27 +91,47 @@ assert(Boolean(loadCompiledXizongProjectionAsset('hematology-immunity-infection'
 assert(manifest.validation?.eligibility_accounting?.compiled?.some((row) => row.canonical_id === 'C' && row.status === 'ELIGIBLE_COMPILED_P_ACCEPTED'), 'C:manifest-p-acceptance-boundary-lost');
 assert(projectableIds.has('hematology-immunity-infection'), 'C:p-accepted-product-route-not-projectable');
 
+// D uses the same presenter with the accepted top-level Learning/Content owner shape.
+const { block: semanticDN4 } = loadXizongSemanticBlock('neuro-sensory-motor-orthopedics', 'neuro-n04');
+const dN4Production = buildXizongProductionBlock(
+  compatibilityCanonicalBlock('neuro-sensory-motor-orthopedics', semanticDN4)
+);
+assert(dN4Production.sourceContact.mode === 'NATURAL_SOURCE_UNITS', `D:N4:source:${dN4Production.sourceContact.mode}`);
+assert(dN4Production.sourceContact.segments.length === 2, `D:N4:source-units:${dN4Production.sourceContact.segments.length}`);
+assert(dN4Production.sourceContact.segments[0].logicGroupIds.length === 3, 'D:N4:first-source-unit-release');
+assert(dN4Production.cognitiveProjection.compiled === true, 'D:N4:compiled-projection-not-consumed');
+assert(projectableIds.has('neuro-sensory-motor-orthopedics'), 'D:compiled-product-route-not-projectable');
+const { block: semanticDN11 } = loadXizongSemanticBlock('neuro-sensory-motor-orthopedics', 'neuro-n11');
+assert(semanticDN11.sourceContact.mode === 'INTEGRATION_PRIMARY', `D:N11:source:${semanticDN11.sourceContact.mode}`);
+assert(semanticDN11.sourceContact.requiresPrimarySourceContact === false, 'D:N11:new-source-illegally-required');
+
 // Shared V6 shell must branch only on Current Source-contact semantics. This is
 // the runtime compatibility seam: B enters one Source handoff per accepted LG;
 // C enters one continuous Source contact and then returns directly to LG recall.
 assert(blockUi.includes("const sourcePerGroup = sourceContact.logicGroupIsAutomaticSourceChunk === true;"), 'V6:source-contact-semantic-switch-missing');
 assert(blockUi.includes("if (sourcePerGroup) setStage('kp_learn');"), 'V6:B:whole-lg-source-entry-missing');
 assert(blockUi.includes("else if (state.sourceContactDone) setStage('kp_recall');"), 'V6:C:direct-retrieval-return-missing');
-assert(blockUi.includes("if (!biochemistrySource?.laneSourceHash && !sourcePerGroup && requested === 'logic_group' && button.hasAttribute('data-stage-next') && !state.sourceContactDone) setStage('source_contact');"), 'V6:C:single-continuous-source-gate-missing');
+assert(blockUi.includes("else if (!biochemistrySource?.laneSourceHash && !sourcePerGroup && !state.sourceContactDone) setStage('source_contact');"), 'V6:C:single-continuous-source-gate-missing');
+assert(blockUi.includes("const naturalSourceUnits = sourceContactMode === 'NATURAL_SOURCE_UNITS';"), 'V6:D:Natural-Source-unit-switch-missing');
+assert(blockUi.includes("coverage_kind: 'NATURAL_SOURCE_UNIT'"), 'V6:D:natural-source-evidence-missing');
+assert(blockUi.includes("const integrationPrimary = sourceContactMode === 'INTEGRATION_PRIMARY';"), 'V6:D:integration-primary-switch-missing');
+assert(blockUi.includes("INTEGRATION_PRIMARY_NO_NEW_CONTINUOUS_SOURCE"), 'V6:D:integration-primary-evidence-missing');
 assert(blockUi.includes("if (biochemistrySource?.laneSourceHash) setStage(currentGroupSourceCovered() ? 'kp_recall' : 'source_contact');"), 'V6:BIO:scoped-global-source-reuse-missing');
 assert(blockUi.includes("if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';"), 'V6:B:block-source-stage-redirects-to-whole-lg-contact');
 assert(blockUi.includes("const storageKey = `kianos-xizong-astro-v2:${objectId}`;"), 'V6:shared-v2-store-missing');
 assert(!blockUi.includes('kianos-xizong-astro-v3'), 'V6:parallel-store-created');
 
 console.log([
-  'Xizong B+C production compatibility PASS',
+  'Xizong B+C+D production compatibility PASS',
   `B-D1 groups=${bProduction.logicGroups.length}`,
   `B-source=${bProduction.sourceContact.mode}`,
   `B-projection=${bProduction.cognitiveProjection.compiled ? 'compiled' : 'missing'}`,
   `C-H1 explicit=${productionCLg.kpOrdinals.join(',')}`,
   `C-source=${cProduction.sourceContact.mode}`,
   `C-projection=${cProduction.cognitiveProjection.compiled ? 'compiled' : 'missing'}`,
-  'ProductRoute=B_AND_C_P_ACCEPTED',
+  `D-N4-source=${dN4Production.sourceContact.mode}`,
+  `D-N11-source=${semanticDN11.sourceContact.mode}`,
+  'ProductRoute=B_C_D_ACCEPTED',
   'Runtime=shared_V6_v2_store',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));

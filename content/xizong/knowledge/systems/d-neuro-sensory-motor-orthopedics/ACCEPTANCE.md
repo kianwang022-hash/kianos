@@ -17,15 +17,21 @@ This file owns D-scoped readiness truth only. It does not own medical Core, lear
 | K — Knowledge | **PASS** | `system.json` + 27 canonical Block Core; 27 Blocks / 356 stable KPs |
 | L — Learning Logic | **PASS_AFTER_REPAIR** | Phase 6C fresh defect → Phase 6D bounded repair → Phase 6E fresh independent PASS |
 | Content Realization / Optimization | **PASS** | Phase 7A role model; Phase 7B wrappers; Phase 7C neural; Phase 7D orthopedic; **Phase 7E fresh independent whole-D closure PASS** |
-| P — Projection | **UNTESTED** | Content is accepted; Projection readiness is unresolved here. Whether Projection work is active/eligible is owned by D `CURRENT.md`. |
-| R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
-| E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
+| P — Projection | **PASS** | 1 SystemProjection + 27 BlockProjection compiled from accepted System/Learning/Content owners; explicit ordinal membership and all three Source-contact classes preserved |
+| R — Runtime | **PASS** | same shared V6 learner product; static Candidate targeted D journey passed whole-block, natural Source-unit, integration-primary and hard-readiness paths |
+| E — Evidence | **PASS** | Source-contact evidence, Recall/closure state, visual reveal protection and prerequisite gating passed on the shared evidence/runtime owners |
 | U — Learner Use | **NO_CLAIM** | real Kian use only |
+
+Current downstream conclusion:
+
+> **D tested P/R/E shared-product integration is accepted. No D-local page, CSS, Runtime or learner-state store exists. Human Gate and learner U are not claimed.**
+
+Executed engineering evidence includes the clean static Candidate, 27/27 D routes, the D targeted browser journey, shared sibling replay and Projection/compatibility gates. It does not imply that Kian has learned D.
 
 
 ## 27 Surgery orthopedic Source revision — bounded reacceptance
 
-Status: **S/K/L/Content PRESERVED AFTER BOUNDED REVALIDATION · P STILL UNTESTED**
+Status: **S/K/L/Content PRESERVED AFTER BOUNDED REVALIDATION · DOWNSTREAM P/R/E ACCEPTED LATER**
 
 The 27 Surgery refined Source rebase did not change D System topology.
 
@@ -35,7 +41,7 @@ The 27 Surgery refined Source rebase did not change D System topology.
 - Mature Block-owned Framework / KP Core / Boundary / Precision / Visual / Connection / Memory roles were re-read across the orthopedic branch.
 - Source unit / Source-contact segment remains execution only and does not become a hierarchy layer.
 - Canonical KP order was not changed to express learner order.
-- P remains **UNTESTED**; this Acceptance owner does not schedule Projection work. D `CURRENT.md` owns whether Projection is merely eligible or explicitly active. No Surgery task result promotes D Runtime/Evidence/User gates.
+- At this bounded Surgery Source-revision checkpoint, P was still **UNTESTED**. The later downstream P/R/E acceptance recorded above is separate engineering evidence and does not retroactively turn the Surgery task into Runtime/Evidence/User proof.
 - The directly affected O3 Question→Knowledge / explanation path was revalidated without changing its canonical target.
 
 Therefore the existing D S1/K/L/Content PASS claims remain current after this bounded Source revision.

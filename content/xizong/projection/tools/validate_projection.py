@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Xizong Projection validator v1.2: frozen v1.1 + bounded B owner adapter."""
+"""Xizong Projection validator v1.3: frozen v1.1 + accepted owner-shape adapters."""
 from __future__ import annotations
 import argparse, copy, json, re, sys
 from collections import Counter
@@ -7,7 +7,7 @@ from pathlib import Path, PurePosixPath
 import validate_projection_v1 as legacy
 from validate_projection_v1 import *
 
-VERSION='1.2.0'
+VERSION='1.3.0'
 B_SID='digestive-metabolic-endocrine-tumor'
 legacy.VERSION=VERSION
 
@@ -41,14 +41,41 @@ def b_kp_ordinals(text: str, bid: str, expected: int) -> tuple[list[int], list[s
     require(Counter(ordinals)==Counter(range(1,expected+1)),'OWNER',f'B {bid}: stable KP marker ordinal gap/duplicate')
     return ordinals,markers
 
+def stable_token(raw: str | None) -> str:
+    value=str(raw or '').strip()
+    if not value: return ''
+    m=re.fullmatch(r'([A-Za-z]{1,4})0*(\d+)',value)
+    if not m: m=re.search(r'(?:^|[-_])([A-Za-z]{1,4})0*(\d+)$',value)
+    return f'{m[1].upper()}{int(m[2])}' if m else value.upper()
+
+def frontmatter_scalar(text: str, key: str) -> str:
+    if not text.startswith('---\n'): return ''
+    end=text.find('\n---',4)
+    if end<0: return ''
+    front=text[4:end]
+    m=re.search(rf'^{re.escape(key)}:\s*(.+?)\s*$',front,re.M)
+    return (m[1].strip().strip('\"\'') if m else '')
+
+def top_level_learning_shape(value: dict) -> bool:
+    return (not isinstance(value.get('blocks'),dict)
+            and isinstance(value.get('logic_groups'),dict)
+            and isinstance(value.get('system_route',{}).get('default_route'),list))
+
 class Validator(legacy.Validator):
     def build_owners(self, manifest: dict) -> None:
         systems=shape(manifest.get('systems'),dict,'systems')
         bspec=systems.get(B_SID)
+        adapted={}
+        for sid,spec in systems.items():
+            if sid==B_SID: continue
+            learning_path=spec.get('learning_source')
+            if nonempty(learning_path) and top_level_learning_shape(self.repo.json(learning_path)):
+                adapted[sid]=spec
+        self.top_level_systems=set(adapted)
         filtered=copy.deepcopy(manifest)
-        filtered['systems']={k:v for k,v in systems.items() if k!=B_SID}
+        filtered['systems']={k:v for k,v in systems.items() if k!=B_SID and k not in adapted}
         legacy.Validator.build_owners(self,filtered)
-        if bspec is None: return
+        require(bspec is not None,'OWNER','B Projection adapter remains required in Current compiled set')
 
         sp=PREFIX+bspec['system_projection']; asset=self.repo.json(sp)
         ss=[s for s in asset.get('sources',[]) if s.get('kind')=='SYSTEM_CORE']
@@ -109,6 +136,84 @@ class Validator(legacy.Validator):
             require(Counter(coverage)==Counter(kps),'OWNER',f'{bid}: LG overlap/gap against stable KP identities')
             self.blocks[bid]={'system_id':B_SID,'path':path,'text':text,'row':row,'groups':groups,'kp_ids':markers,'learner_order':order}
 
+        for sid,spec in adapted.items():
+            self.build_top_level_owner(sid,spec)
+
+    def build_top_level_owner(self,sid: str,spec: dict) -> None:
+        sp=PREFIX+spec['system_projection']; asset=self.repo.json(sp)
+        ss=[s for s in asset.get('sources',[]) if s.get('kind')=='SYSTEM_CORE']
+        require(len(ss)==1,'OWNER',f'{sid}: exactly one canonical System source required')
+        source=ss[0]['path']; self.repo.path(source,KNOWLEDGE+'systems/')
+        system=self.repo.json(source); cid=system.get('canonical_id') or system.get('identity',{}).get('canonical_id')
+        require((system.get('system_id') or system.get('identity',{}).get('system_id'))==sid,'OWNER',f'{sid}: System identity mismatch')
+        require(cid==spec.get('canonical_id'),'OWNER',f'{sid}: canonical ID mismatch')
+        require(str(system.get('semantic_authority','')).startswith('CHAT_APPROVED'),'OWNER',f'{sid}: System authority not accepted')
+        self.systems[sid]={'path':source,'value':system,'canonical_id':cid}
+
+        learning_path=spec.get('learning_source'); require(nonempty(learning_path),'OWNER',f'{sid}: learning_source required')
+        learning=self.repo.json(learning_path); require(top_level_learning_shape(learning),'OWNER',f'{sid}: unsupported Learning shape')
+        require(learning.get('system_id')==sid and learning.get('canonical_id')==cid,'OWNER',f'{sid}: Learning identity mismatch')
+        content_path=spec.get('content_source') or re.sub(r'-learning\.json$','-content.json',learning_path)
+        content=self.repo.json(content_path)
+        require(content.get('status')=='ACCEPTED' and content.get('system_id')==sid and content.get('canonical_id')==cid,'OWNER',f'{sid}: accepted Content owner required')
+
+        route_ids=[]
+        for family in shape(system.get('block_families'),list,f'{sid}.block_families'):
+            require(isinstance(family,dict) and isinstance(family.get('blocks'),list),'OWNER',f'{sid}: invalid block family')
+            route_ids.extend(map(str,family['blocks']))
+        unique(route_ids,f'{sid}.family-route')
+        default_route=list(map(str,shape(learning.get('system_route',{}).get('default_route'),list,f'{sid}.default_route')))
+        require(len(route_ids)==len(default_route),'OWNER',f'{sid}: System/Learning route count mismatch')
+        logic_root=shape(learning.get('logic_groups'),dict,f'{sid}.logic_groups')
+        realization_root=shape(content.get('block_realization'),dict,f'{sid}.block_realization')
+
+        root=PurePosixPath(source).parent; candidates=[]
+        for p in self.repo.path(str(root)).rglob('*.md'):
+            rel=p.relative_to(self.repo.root).as_posix(); text=self.repo.text(rel); declared=frontmatter_scalar(text,'block_id')
+            if declared: candidates.append((rel,text,declared))
+
+        total_kp=0
+        for index,bid in enumerate(route_ids):
+            default_key=default_route[index]
+            if bid in logic_root: accepted_key=bid
+            elif stable_token(bid)==stable_token(default_key): accepted_key=default_key
+            else:
+                matches=[k for k in logic_root if stable_token(k)==stable_token(bid)]
+                require(len(matches)==1,'OWNER',f'{sid}:{bid}: Learning Block key unresolved')
+                accepted_key=matches[0]
+            require(accepted_key in realization_root,'OWNER',f'{sid}:{bid}: Content realization missing')
+
+            matches=[row for row in candidates if row[2]==bid]
+            if not matches: matches=[row for row in candidates if stable_token(row[2])==stable_token(bid)]
+            require(len(matches)==1,'OWNER',f'{sid}:{bid}: canonical file missing/ambiguous')
+            path,text,_=matches[0]
+
+            raw_groups=shape(logic_root.get(accepted_key),list,f'{sid}.{accepted_key}.logic_groups')
+            require(raw_groups,'OWNER',f'{sid}:{accepted_key}: empty Logic Groups')
+            groups=[]; coverage=[]
+            for pos,g in enumerate(raw_groups):
+                require(isinstance(g,dict),'OWNER',f'{sid}:{accepted_key}: invalid Logic Group row')
+                gid=str(g.get('id') or ''); members=g.get('members')
+                require(nonempty(gid) and isinstance(members,list) and members and all(type(x) is int and x>0 for x in members),'OWNER',f'{sid}:{accepted_key}: invalid Logic Group membership')
+                require(len(members)==len(set(members)) and nonempty(str(g.get('goal') or '')) and nonempty(str(g.get('closure') or '')),'OWNER',f'{sid}:{gid}: incomplete Logic Group')
+                coverage.extend(members); groups.append({'id':gid,'label':str(g.get('label') or gid),'kp_members':members})
+            expected_kp=max(coverage)
+            require(Counter(coverage)==Counter(range(1,expected_kp+1)),'OWNER',f'{sid}:{bid}: Logic Group overlap/gap')
+            fm_kp=frontmatter_scalar(text,'kp_count')
+            require(not fm_kp or int(fm_kp)==expected_kp,'OWNER',f'{sid}:{bid}: frontmatter KP count mismatch')
+            markers=re.findall(r'<!--\s*kianos:kp\s+id=["\']([^"\']+)["\']\s*-->',text)
+            require(len(markers)==expected_kp and len(set(markers))==expected_kp,'OWNER',f'{sid}:{bid}: stable KP marker count/uniqueness mismatch')
+            marker_ordinals=[]
+            for marker in markers:
+                m=re.search(r'(?:^|-)kp0*(\d+)$',marker,re.I); require(m is not None,'OWNER',f'{sid}:{bid}: invalid KP marker {marker}')
+                marker_ordinals.append(int(m[1]))
+            require(Counter(marker_ordinals)==Counter(range(1,expected_kp+1)),'OWNER',f'{sid}:{bid}: stable KP marker ordinal gap/duplicate')
+            unique([g['id'] for g in groups],f'{sid}:{bid}.groups')
+            self.blocks[bid]={'system_id':sid,'path':path,'text':text,'row':{'id':bid,'kp':expected_kp},'groups':groups,'kp_ids':markers,'learner_order':[g['id'] for g in groups],'learning_key':accepted_key}
+            total_kp+=expected_kp
+        require(len(route_ids)==int(system.get('identity',{}).get('block_count') or len(route_ids)),'OWNER',f'{sid}: Block count mismatch')
+        require(total_kp==int(system.get('identity',{}).get('canonical_kp_count') or total_kp),'OWNER',f'{sid}: KP total mismatch')
+
     def owner_ref(self,asset,binding):
         if binding.get('owner_type')=='LOGIC_GROUP_SET':
             bid=binding.get('block_id') or binding.get('id')
@@ -119,7 +224,7 @@ class Validator(legacy.Validator):
 
     def safe_object(self,asset,obj,view_name,view):
         b=obj.get('binding',{})
-        if (asset.get('system_id')==B_SID and view_name=='BLOCK_RECALL_FRONT' and obj.get('answer_bearing') is False
+        if (view_name=='BLOCK_RECALL_FRONT' and obj.get('answer_bearing') is False
             and obj.get('role')=='MAP' and b.get('kind')=='OWNER_REF' and b.get('owner_type')=='LOGIC_GROUP_SET'
             and view.get('logic_map_policy')=='LABELS_AND_IDS_ONLY'):
             return True

@@ -34,14 +34,23 @@ async function waitWriter(page) {
   );
 }
 async function reset(page, route) {
-  await page.goto(`${BASE}/xizong/hematology-immunity-infection/${route}/`, { waitUntil: 'domcontentloaded' });
+  const url = `${BASE}/xizong/hematology-immunity-infection/${route}/`;
+  let cleared = false;
+  for (let attempt = 0; attempt < 3 && !cleared; attempt += 1) {
+    await page.goto(url, { waitUntil: 'domcontentloaded' });
+    await waitWriter(page);
+    try {
+      await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
+      cleared = true;
+    } catch (error) {
+      if (!/Execution context was destroyed|navigation/i.test(String(error?.message || error))) throw error;
+    }
+  }
+  check(cleared, `reset_storage_${route}`);
+  await page.goto(url, { waitUntil: 'domcontentloaded' });
   await waitWriter(page);
-  await page.evaluate(() => {
-    for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
-    sessionStorage.clear();
-  });
-  await page.reload({ waitUntil: 'domcontentloaded' });
-  await waitWriter(page);
+  await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.classList.contains('xv6BlockWorkspaceShell'));
+  await page.waitForTimeout(180);
 }
 async function enterSource(page) {
   await page.locator('[data-stage-next="logic_group"]:visible').evaluate((node) => node.click());

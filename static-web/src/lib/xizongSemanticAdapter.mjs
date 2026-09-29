@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { normalizeAcceptedLearningOwner } from './xizongAcceptedLearningOwner.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -155,14 +156,40 @@ function loadLearningOwner(record) {
   }
 
   const hydrated = hydrateShardedLearningOwner(sourcePath, base);
-  const blocks = hydrated.owner?.blocks || {};
   const routeIds = record.route.map((row) => row.id);
+  let contentSourcePath = null;
+  let contentOwner = null;
+  if (!(hydrated.owner?.blocks && Object.keys(hydrated.owner.blocks).length)) {
+    const candidate = sourcePath.replace(/-learning\.json$/i, '-content.json');
+    if (exists(candidate)) {
+      contentOwner = readJson(candidate);
+      if (contentOwner?.status !== 'ACCEPTED'
+        || contentOwner?.system_id !== record.identity.systemId
+        || contentOwner?.canonical_id !== record.identity.canonicalId) {
+        fail('CONTENT_OWNER_INVALID', record.identity.systemId);
+      }
+      contentSourcePath = candidate;
+    }
+  }
+  const normalized = normalizeAcceptedLearningOwner({
+    learning: hydrated.owner,
+    routeIds,
+    content: contentOwner
+  });
+  const blocks = normalized.owner?.blocks || {};
   const blockIds = Object.keys(blocks);
   if (routeIds.length !== blockIds.length || routeIds.some((id) => !blocks[id])) {
     fail('LEARNING_OWNER_BLOCK_MISMATCH', `${record.identity.systemId}:${routeIds.length}/${blockIds.length}`);
   }
 
-  return { sourcePath, shardPaths: hydrated.shardPaths, raw: hydrated.owner };
+  return {
+    sourcePath,
+    contentSourcePath,
+    shardPaths: hydrated.shardPaths,
+    schemaFamily: normalized.schemaFamily,
+    blockKeyMap: normalized.blockKeyMap,
+    raw: normalized.owner
+  };
 }
 
 function systemLogicGroupMap(record, blockId) {
@@ -184,8 +211,8 @@ function expandRange(range, detail) {
 }
 
 function normalizeMembership(group, systemGroup, detail) {
-  if (Array.isArray(group?.kp_members)) {
-    const values = group.kp_members.map(Number);
+  if (Array.isArray(group?.kp_members) || Array.isArray(group?.members)) {
+    const values = (Array.isArray(group?.kp_members) ? group.kp_members : group.members).map(Number);
     if (!values.length || values.some((value) => !Number.isInteger(value) || value < 1)) {
       fail('LOGIC_EXPLICIT_MEMBERS_INVALID', detail);
     }
@@ -280,6 +307,50 @@ function normalizeSourceContact(learning, blockSupport, blockId, logicGroups) {
   const handoff = learning?.surface_handoff_contract || {};
   const scoped = blockSupport?.source_contact || {};
 
+  if (['WHOLE_BLOCK_SOURCE', 'NATURAL_SOURCE_UNITS', 'INTEGRATION_PRIMARY'].includes(scoped.mode)) {
+    const mode = scoped.mode;
+    const segments = mode === 'NATURAL_SOURCE_UNITS'
+      ? (scoped.source_units || []).map((unit) => ({
+          segmentId: `source:${String(unit.sourceUnitId || '')}`,
+          kind: 'NATURAL_SOURCE_UNIT',
+          sourceUnitId: String(unit.sourceUnitId || ''),
+          label: String(unit.label || ''),
+          logicGroupIds: Array.isArray(unit.logicGroupIds) ? [...unit.logicGroupIds] : [],
+          kpOrdinals: Array.isArray(unit.kpOrdinals) ? [...unit.kpOrdinals] : [],
+          contributesToLogicGroupIds: Array.isArray(unit.contributesToLogicGroupIds) ? [...unit.contributesToLogicGroupIds] : [],
+          reactivateLogicGroupIds: Array.isArray(unit.reactivateLogicGroupIds) ? [...unit.reactivateLogicGroupIds] : [],
+          postUnitClosureLogicGroupIds: Array.isArray(unit.postUnitClosureLogicGroupIds) ? [...unit.postUnitClosureLogicGroupIds] : []
+        }))
+      : [];
+
+    return {
+      mode,
+      externalPrimarySurface: 'ORIGINAL_LECTURE_MARGINNOTE',
+      segments,
+      segmentResolution: mode === 'NATURAL_SOURCE_UNITS'
+        ? 'EXPLICIT_FROM_ACCEPTED_CONTENT_REALIZATION'
+        : (mode === 'WHOLE_BLOCK_SOURCE' ? 'EXPLICIT_WHOLE_BLOCK_SOURCE' : 'INTEGRATION_PRIMARY_NO_NEW_CONTINUOUS_SOURCE'),
+      logicGroupIsAutomaticSourceChunk: false,
+      logicGroupSourceReentryDefault: false,
+      requiresPrimarySourceContact: mode !== 'INTEGRATION_PRIMARY',
+      integrationPrimary: mode === 'INTEGRATION_PRIMARY',
+      returnPattern: mode === 'NATURAL_SOURCE_UNITS'
+        ? 'SOURCE_UNIT_THEN_RELEVANT_LG_RETRIEVAL'
+        : (mode === 'WHOLE_BLOCK_SOURCE'
+          ? 'ONE_CONTINUOUS_SOURCE_THEN_ALL_BLOCK_LG_RETRIEVAL'
+          : 'KIANOS_INTEGRATION_RETRIEVAL_WITH_TARGETED_SOURCE_RETURN'),
+      normalFirstPass: Array.isArray(learning?.first_pass_chain) ? [...learning.first_pass_chain] : [],
+      extraSourceReturnAllowedFor: Array.isArray(scoped.targeted_source_returns) ? [...scoped.targeted_source_returns] : [],
+      lectureAttachedQuestionsOwner: 'ORIGINAL_LECTURE_MARGINNOTE',
+      contentPattern: String(scoped.content_pattern || ''),
+      ownerBlockKey: String(scoped.owner_block_key || ''),
+      hardReadiness: Array.isArray(scoped.hard_readiness) ? [...scoped.hard_readiness] : [],
+      requiredPriorOwners: Array.isArray(scoped.required_prior_owners) ? [...scoped.required_prior_owners] : [],
+      boundary: String(scoped.boundary || ''),
+      rule: String(scoped.rule || '')
+    };
+  }
+
   if (scoped.mode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT') {
     const sourceMapPath = String(scoped.source_map_owner || '').trim();
     if (!sourceMapPath || !exists(sourceMapPath)) fail('BIOCHEMISTRY_SOURCE_MAP_MISSING', blockId);
@@ -372,13 +443,29 @@ function normalizeSourceContact(learning, blockSupport, blockId, logicGroups) {
 }
 
 function normalizeRetrieval(logicGroups, sourceContact) {
+  const segmentByGroup = new Map();
+  if (sourceContact.mode === 'NATURAL_SOURCE_UNITS') {
+    for (const segment of sourceContact.segments || []) {
+      for (const groupId of segment.logicGroupIds || []) {
+        if (segmentByGroup.has(groupId)) fail('SOURCE_GROUP_MULTI_SEGMENT', `${groupId}:${segmentByGroup.get(groupId)}:${segment.segmentId}`);
+        segmentByGroup.set(groupId, segment.segmentId);
+      }
+      for (const groupId of segment.postUnitClosureLogicGroupIds || []) {
+        if (!segmentByGroup.has(groupId)) segmentByGroup.set(groupId, segment.segmentId);
+      }
+    }
+  }
   return logicGroups.map((group, index) => ({
     retrievalPointId: `retrieval:${group.groupId}`,
     logicGroupId: group.groupId,
     order: index + 1,
     sourceContactBefore: sourceContact.mode === 'WHOLE_LOGIC_GROUP'
       ? `source:${group.groupId}`
-      : (index === 0 ? 'ACCEPTED_CONTINUOUS_SOURCE_CONTACT' : null),
+      : (sourceContact.mode === 'NATURAL_SOURCE_UNITS'
+        ? (segmentByGroup.get(group.groupId) || null)
+        : (sourceContact.mode === 'INTEGRATION_PRIMARY'
+          ? null
+          : (index === 0 ? 'ACCEPTED_CONTINUOUS_SOURCE_CONTACT' : null))),
     reopenSourceByDefault: sourceContact.mode === 'WHOLE_LOGIC_GROUP'
       ? true
       : Boolean(sourceContact.logicGroupSourceReentryDefault),
@@ -565,6 +652,14 @@ function buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVis
   const kpCount = kpCountForBlock(routeRow, blockSupport, blockSupport.logic_groups);
   const logicGroups = normalizeLogicGroups(record, blockId, blockSupport, kpCount);
   const sourceContact = normalizeSourceContact(learningOwner.raw, blockSupport, blockId, logicGroups);
+  if (learningOwner.schemaFamily === 'TOP_LEVEL_LOGIC_GROUPS_WITH_CONTENT_REALIZATION') {
+    const acceptedToStable = new Map(Object.entries(learningOwner.blockKeyMap || {}).map(([stableId, acceptedKey]) => [String(acceptedKey), String(stableId)]));
+    sourceContact.hardReadinessBlockIds = (sourceContact.hardReadiness || []).map((ref) => acceptedToStable.get(String(ref)) || String(ref));
+    sourceContact.requiredPriorBlockIds = (sourceContact.requiredPriorOwners || []).map((ref) => acceptedToStable.get(String(ref)) || String(ref));
+  } else {
+    sourceContact.hardReadinessBlockIds = [];
+    sourceContact.requiredPriorBlockIds = [];
+  }
   const retrievalPoints = normalizeRetrieval(logicGroups, sourceContact);
   const cues = normalizeBlockCues(blockId, logicGroups, cueOwner, sourceVisualOwner);
   const extensionRefs = extensionRefsForBlock(blockId);
@@ -621,12 +716,17 @@ export function loadXizongSemanticSystem(systemId) {
     ownerPaths: {
       knowledge: record.sourcePath,
       learning: learningOwner.sourcePath,
+      content: learningOwner.contentSourcePath,
       learningShards: [...learningOwner.shardPaths],
       cues: cueOwner?.sourcePath || null,
       sourceVisuals: sourceVisualOwner?.sourcePath || null
     },
     sourceContactPolicy: {
-      mode: sourceContactMode(learningOwner.raw),
+      mode: learningOwner.schemaFamily === 'TOP_LEVEL_LOGIC_GROUPS_WITH_CONTENT_REALIZATION'
+        ? (new Set(blocks.map((block) => block.sourceContact.mode)).size === 1
+          ? blocks[0]?.sourceContact?.mode
+          : 'MIXED_BY_BLOCK')
+        : sourceContactMode(learningOwner.raw),
       surfaceOwner: 'ORIGINAL_LECTURE_MARGINNOTE'
     },
     ttsxPolicy: failClosedTtsx(),

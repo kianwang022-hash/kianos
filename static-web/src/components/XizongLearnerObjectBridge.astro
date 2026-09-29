@@ -278,6 +278,8 @@ const payload = learnerObject || null;
       const allKps = array(learner.kps);
       const kpById = new Map(allKps.map((kp) => [kp?.identity?.kpId, kp]));
       const groups = array(learner.logicGroups);
+      const sourceContactMode = text(learner?.sourceContact?.mode || root.dataset.sourceContactMode);
+      const naturalSourceSegments = sourceContactMode === 'NATURAL_SOURCE_UNITS' ? array(learner?.sourceContact?.segments) : [];
       const groupIds = groups.map((group) => group?.identity?.logicGroupId);
       let sourceLearnIndex = 0;
       let groupLearnIndex = 0;
@@ -313,7 +315,25 @@ const payload = learnerObject || null;
         // outgoing connections are not moved earlier merely because a KP is revealed.
         return { extension: slot.extension || [], precision: closed ? slot.precision || [] : [], connection: closed ? slot.connection || [] : [] };
       };
-      const sourceCompanionKp = () => allKps[Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex))] || allKps[0] || null;
+      const sourceCompanionKps = () => {
+        if (!naturalSourceSegments.length) return allKps;
+        const segmentId = text(root.dataset.sourceSegmentId);
+        const segment = naturalSourceSegments.find((row) => text(row?.sourceUnitId || row?.segmentId) === segmentId)
+          || naturalSourceSegments[0];
+        const directIds = array(segment?.kpOrdinals)
+          .map(Number)
+          .filter((value) => Number.isInteger(value) && value >= 1 && value <= allKps.length)
+          .map((ordinal) => allKps[ordinal - 1]?.identity?.kpId)
+          .filter(Boolean);
+        const contributionIds = array(segment?.contributesToLogicGroupIds)
+          .flatMap((groupId) => array(groups.find((group) => group?.identity?.logicGroupId === groupId)?.kpIds));
+        const allowed = new Set([...directIds, ...contributionIds]);
+        return allowed.size ? allKps.filter((kp) => allowed.has(kp?.identity?.kpId)) : [];
+      };
+      const sourceCompanionKp = () => {
+        const rows = sourceCompanionKps();
+        return rows[Math.max(0, Math.min(rows.length - 1, sourceLearnIndex))] || rows[0] || null;
+      };
       const groupCompanionIds = () => array(activeGroup()?.kpIds);
       const groupCompanionKp = () => {
         const ids = groupCompanionIds();
@@ -369,9 +389,11 @@ const payload = learnerObject || null;
         const header = sourceStage.querySelector(':scope > header');
         if (header) header.insertAdjacentElement('afterend', sourceCompanionHost); else sourceStage.prepend(sourceCompanionHost);
         const footerText = sourceStage.querySelector(':scope > footer > span');
-        if (footerText) footerText.textContent = '保持原讲义连续学习；KP Learn 只是 Mac 侧伴读，不要求逐 KP 完成仪式。';
+        if (footerText) footerText.textContent = naturalSourceSegments.length
+          ? '保持当前自然 Source unit 连续学习；Mac 伴读只显示这个 Source unit 已形成的 KP 范围。'
+          : '保持原讲义连续学习；KP Learn 只是 Mac 侧伴读，不要求逐 KP 完成仪式。';
         const done = sourceStage.querySelector('[data-source-contact-done]');
-        if (done) done.textContent = '本块讲义已学完，开始回忆';
+        if (done) done.textContent = naturalSourceSegments.length ? '这个 Source unit 已完成' : '本块讲义已学完，开始回忆';
       }
       if (groupLearnStage) {
         groupLearnStage.classList.add('xv6LearnerCompanionStage');
@@ -386,8 +408,9 @@ const payload = learnerObject || null;
 
       const renderCompanions = () => {
         if (sourceCompanionHost) {
-          sourceLearnIndex = Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex));
-          renderCompanionCard(sourceCompanionHost, sourceCompanionKp(), sourceLearnIndex, allKps.length, 'source_contact');
+          const rows = sourceCompanionKps();
+          sourceLearnIndex = Math.max(0, Math.min(rows.length - 1, sourceLearnIndex));
+          renderCompanionCard(sourceCompanionHost, sourceCompanionKp(), sourceLearnIndex, rows.length, 'source_contact');
         }
         const group = activeGroup();
         const groupId = group?.identity?.logicGroupId || '';
@@ -490,12 +513,16 @@ const payload = learnerObject || null;
         if (!prev && !next) return;
         const stageName = (prev || next)?.getAttribute(prev ? 'data-companion-prev' : 'data-companion-next') || '';
         const delta = next ? 1 : -1;
-        if (stageName === 'source_contact') sourceLearnIndex = Math.max(0, Math.min(allKps.length - 1, sourceLearnIndex + delta));
+        if (stageName === 'source_contact') sourceLearnIndex = Math.max(0, Math.min(sourceCompanionKps().length - 1, sourceLearnIndex + delta));
         if (stageName === 'kp_learn') groupLearnIndex = Math.max(0, Math.min(groupCompanionIds().length - 1, groupLearnIndex + delta));
         rerender();
       });
 
       const stages = [...root.querySelectorAll('[data-study-stage]')];
+      if (naturalSourceSegments.length) {
+        new MutationObserver(() => { sourceLearnIndex = 0; rerender(); })
+          .observe(root, { attributes: true, attributeFilter: ['data-source-segment-id'] });
+      }
       const stageObserver = new MutationObserver(renderAux);
       stages.forEach((stage) => stageObserver.observe(stage, { attributes: true, attributeFilter: ['hidden'] }));
       const counter = root.querySelector('[data-logic-counter]');

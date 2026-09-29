@@ -664,8 +664,12 @@ class Validator:
             require(obj.get('binding', {}).get('kind') != 'EXTERNAL_CONTRACT_REF', 'PROVENANCE', 'external admission may not be a learner object')
             resolved[obj['object_id']] = self.resolve(asset, obj.get('binding'), sources)
         support = shape(asset.get('learning_support', {}), dict, 'learning_support')
+        top_level_learning = asset.get('system_id') in getattr(self, 'top_level_systems', set())
         if not is_system:
-            require(set(support) == {'first_pass_focus','stop_line','recall_spine','logic_groups'}, 'SCHEMA', 'incomplete/unknown learning support')
+            if top_level_learning:
+                require(not support, 'SCHEMA', 'top-level accepted Learning uses semantic OWNER_REF projection, not synthetic /blocks support')
+            else:
+                require(set(support) == {'first_pass_focus','stop_line','recall_spine','logic_groups'}, 'SCHEMA', 'incomplete/unknown learning support')
         for key, binding in support.items():
             require(binding.get('kind') == 'FIELD_REF' and binding.get('selector') == {'type':'JSON_POINTER','value':f'/blocks/{bid}/{key}'} and sources.get(binding.get('source_id'), {}).get('kind') == 'LEARNING_SUPPORT', 'OWNER', 'learning support must select its own canonical Block')
             value = self.resolve(asset, binding, sources)

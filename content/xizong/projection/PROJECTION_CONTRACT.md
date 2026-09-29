@@ -1,6 +1,6 @@
 # Xizong Cognitive Projection Contract
 
-Status: **A1/A2/A3/B/C COMPILED ASSETS · CURRENT ELIGIBILITY RECONCILED · C TESTED P/R/E ACCEPTED · C HUMAN GATE NOT CLAIMED**
+Status: **A1/A2/A3/B/C/D/E/F COMPILED ASSETS · CURRENT ELIGIBILITY RECONCILED · C/D TESTED P/R/E ACCEPTED · E/F COMPILED CANDIDATES P/R/E UNTESTED**
 Parent product: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Current semantic adapter: `static-web/src/lib/xizongSemanticAdapter.mjs`  
@@ -40,20 +40,24 @@ A2 Respiratory                         1 SystemProjection + 12 BlockProjection
 A3 Urinary                             1 SystemProjection + 14 BlockProjection
 B  Digestive / Metabolic / Endocrine   1 SystemProjection + 38 BlockProjection
 C  Hematology / Immunity / Infection   1 SystemProjection + 27 BlockProjection
+D  Neuro / Sensory / Motor / Ortho      1 SystemProjection + 27 BlockProjection
+E  Reproductive / Breast                1 SystemProjection + 20 BlockProjection
+F  Remaining Clinical                   1 SystemProjection +  9 BlockProjection
 
-Compiled total                         5 SystemProjection + 103 BlockProjection = 108 assets
+Compiled total                         8 SystemProjection + 159 BlockProjection = 167 assets
 ```
 
-Current accepted Knowledge + Learning for **C Hematology / Immunity / Infection** has now been compiled into explicit Projection assets. C compilation preserves the accepted sharded Learning owner, explicit/non-contiguous `kp_members`, and Block/canonical-Source-unit contact. The same assets are now consumed by the shared production presenter and have passed targeted C runtime/browser audit; Human Gate remains separate and unclaimed.
+C is compiled and tested on the shared product with its accepted sharded Learning owner, explicit/non-contiguous `kp_members`, and Block/canonical-Source-unit contact. D is also compiled and tested on the same product; its accepted top-level `logic_groups + system_route + Content block_realization` shape is normalized without rewriting Learning and preserves `WHOLE_BLOCK_SOURCE`, `NATURAL_SOURCE_UNITS`, `INTEGRATION_PRIMARY`, plus hard-readiness edges.
+
+E and F use the same accepted top-level owner shape and now have materialized Projection candidates. Their existence proves compilation/owner resolution only; E/F P/Runtime/Evidence acceptance is still untested until targeted shared-product audit closes it.
 
 Current eligible accounting therefore is:
 
 ```text
-A1 / A2 / A3 / B   eligible + compiled        76 Blocks
-C                   eligible + compiled        27 Blocks
---------------------------------------------------------
-Current eligible Systems                       5
-Current eligible Blocks                       103
+A1 / A2 / A3 / B / C / D / E / F   eligible + compiled   159 Blocks
+--------------------------------------------------------------------
+Current eligible Systems                                    8
+Current eligible Blocks                                    159
 ```
 
 C materially differs from the older contiguous-range assumption:
@@ -62,6 +66,15 @@ C materially differs from the older contiguous-range assumption:
 - Logic Group remains a retrieval / local-closure unit;
 - C Source contact is Block / accepted canonical Source-unit oriented and must not be collapsed into LG-by-LG Source trips;
 - the shared semantic adapter owns this Current normalization before Projection / renderer consumption.
+
+D/E/F add a second accepted Learning-owner shape rather than a second product:
+
+- block route comes from accepted System `block_families` plus Learning `system_route.default_route`;
+- Logic Groups are top-level per-Block arrays with explicit ordinal `members`;
+- accepted Content `block_realization` owns whole-block / natural-Source-unit / integration-primary contact;
+- natural Source units may release multiple LGs and must not be collapsed to LG-by-LG Source bouncing;
+- integration-primary does not manufacture a new continuous Lecture pass;
+- D hard readiness (`N1+N5+N8 → N11`, `N11 → O3/O4/O5`) is enforced from the accepted owner rather than inferred from default route.
 
 The older A systems retain seven heterogeneous calibration Blocks with richer explicitly compiled geometry:
 
@@ -369,7 +382,7 @@ There are now two complementary gates.
 python3 content/xizong/projection/tools/validate_projection.py --self-test --json <report-path>
 ```
 
-It validates the **materialized A1/A2/A3/B/C asset set** and its exact bindings / view safety. C assets are compiled and consumed by the shared runtime; browser behavior remains a separate executed-evidence gate.
+It validates the **materialized A1/A2/A3/B/C/D/E/F asset set** and its exact bindings / view safety. C/D have separate executed shared-runtime acceptance evidence; E/F remain compiled candidates until their targeted runtime audit is accepted.
 
 The companion mutation suites run adversarial cases through the real validator using in-memory overlays rather than altering canonical source files.
 
@@ -393,12 +406,14 @@ node static-web/scripts/validate-xizong-projection-current.mjs
 
 This gate consumes the shared Current semantic adapter and checks what the compiled asset validator cannot legitimately claim:
 
-- A1/A2/A3/B/C remain compiled;
-- C explicit-membership and Block/canonical-Source-unit semantics remain intact;
-- C's explicit/non-contiguous LG membership survives exactly;
+- A1/A2/A3/B/C/D/E/F remain compiled;
+- C explicit/non-contiguous membership and Block/canonical-Source-unit semantics remain intact;
+- D/E/F top-level accepted Learning + Content realization normalize into the same shared semantic shape without a System-local fork;
 - B whole-LG Source contact survives;
-- C Block/canonical-unit Source contact is not collapsed into LG-by-LG bouncing;
-- C appears in compiled manifest slots only because real System/Block Projection assets now exist and validate against Current owners.
+- D natural Source units remain accepted Source boundaries rather than LG boundaries;
+- D integration-primary blocks do not gain a fabricated continuous Lecture pass;
+- D hard-readiness identities resolve to stable Block IDs;
+- compiled manifest slots exist only when real System/Block Projection assets validate against Current owners.
 
 Both gates are required in Current Xizong QA. A green compiled-asset validator cannot make stale eligibility metadata true, and a green Current semantic adapter cannot make absent Projection assets compiled.
 
@@ -414,7 +429,7 @@ Current official Question Runtime already owns append-preserved, phase-aware att
 
 This Projection reconciliation changes no learner state, question evidence, Block completion, or S/K/L/P/R/E/U acceptance by itself.
 
-## 15｜Validation metadata revision 1.2 Current reconciliation
+## 15｜Validation metadata revision 1.3 Current reconciliation
 
 The existing v1.1 bounded migration added `FIELD_REF.value_type`, explicit object `answer_bearing`, restricted front `logic_map_policy`, explicit KP neutral policy and the corrected A3 B5 external-contract root pointer.
 
@@ -422,4 +437,4 @@ The Current reconciliation preserves that asset schema family while adding a hig
 
 > **Compiled asset topology and Current accepted learning topology are checked separately and must agree where they overlap.**
 
-No canonical medical text, stable medical identity, learner order, Source-contact decision or question evidence is rewritten. C is now compiled from those owners and consumed by the shared product without a C-local fork. Producers and future consumers must honor these declared boundaries; ignoring them is not compatible adoption.
+No canonical medical text, stable medical identity, learner order, Source-contact decision or question evidence is rewritten. C/D are compiled and tested on the shared product; E/F are compiled candidates on that same path. None has a System-local product fork. Producers and future consumers must honor these declared boundaries; ignoring them is not compatible adoption.

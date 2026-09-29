@@ -1,0 +1,201 @@
+{
+  "schema": "kianos.xizong.cognitive_projection.system.v1",
+  "status": "COMPILED_DERIVED_CURRENT",
+  "system_id": "reproductive-breast",
+  "canonical_id": "E",
+  "sources": [
+    {
+      "id": "system",
+      "kind": "SYSTEM_CORE",
+      "path": "content/xizong/knowledge/systems/e-reproductive-breast/system.json",
+      "baseline_blob_sha": "82c805f86a0f89a89f19defd75b9ada2bc98412d",
+      "freshness": "RESOLVE_BINDING"
+    },
+    {
+      "id": "learning",
+      "kind": "LEARNING_SUPPORT",
+      "path": "content/xizong/knowledge/learner/e-reproductive-breast-learning.json",
+      "baseline_blob_sha": "306b47bec7371dadd20936763a2bf7924782f2c6",
+      "freshness": "RESOLVE_BINDING"
+    }
+  ],
+  "objects": [
+    {
+      "object_id": "e-mission",
+      "role": "PROBLEM",
+      "geometry": "TEXT_STRUCTURE",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/mission"
+        },
+        "value_type": "string"
+      },
+      "answer_bearing": false
+    },
+    {
+      "object_id": "e-variables",
+      "role": "MAP",
+      "geometry": "AXES",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/core_variables"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "e-relations",
+      "role": "MAP",
+      "geometry": "NETWORK",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/core_relations"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "e-failures",
+      "role": "MAP",
+      "geometry": "NETWORK",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/failure_modes"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "e-judgment-axes",
+      "role": "COMPARE",
+      "geometry": "AXES",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/judgment_axes"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "e-block-families",
+      "role": "MAP",
+      "geometry": "NETWORK",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "system",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/block_families"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "e-default-route",
+      "role": "MAP",
+      "geometry": "SEQUENCE",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "learning",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/system_route/default_route"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "e-psr",
+      "role": "CLOSURE",
+      "geometry": "NETWORK",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "learning",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/partial_system_reconstructions"
+        },
+        "value_type": "array"
+      },
+      "answer_bearing": true
+    },
+    {
+      "object_id": "e-final-reconstruction",
+      "role": "RECALL",
+      "geometry": "TREE",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "learning",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/compression/final_system_reconstruction"
+        },
+        "value_type": "object"
+      },
+      "answer_bearing": true
+    }
+  ],
+  "views": {
+    "SYSTEM_GUIDE": {
+      "object_ids": [
+        "e-mission",
+        "e-variables",
+        "e-relations",
+        "e-failures",
+        "e-judgment-axes",
+        "e-block-families",
+        "e-default-route",
+        "e-psr"
+      ]
+    },
+    "SYSTEM_RECALL_FRONT": {
+      "protection": "NEUTRAL_FRONT",
+      "object_ids": [],
+      "provenance_policy": "HIDDEN"
+    },
+    "SYSTEM_RECALL_REVEAL": {
+      "object_ids": [
+        "e-mission",
+        "e-variables",
+        "e-relations",
+        "e-failures",
+        "e-judgment-axes",
+        "e-block-families",
+        "e-default-route",
+        "e-psr",
+        "e-final-reconstruction"
+      ]
+    },
+    "PARTIAL_SYSTEM_RECONSTRUCTION": {
+      "object_ids": [
+        "e-psr"
+      ],
+      "context_policy": "OWNED_ONLY"
+    }
+  },
+  "calibration_notes": [
+    "E consumes accepted System/Learning owners through the shared semantic adapter.",
+    "System Recall Front carries no medical answer payload; the shared renderer supplies the neutral attempt instruction."
+  ]
+}

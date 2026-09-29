@@ -8,7 +8,10 @@ const systemIds = [
   'respiratory',
   'urinary',
   'digestive-metabolic-endocrine-tumor',
-  'hematology-immunity-infection'
+  'hematology-immunity-infection',
+  'neuro-sensory-motor-orthopedics',
+  'reproductive-breast',
+  'remaining-clinical'
 ];
 
 const systems = new Map();
@@ -78,6 +81,23 @@ assert(ch1.sourceContact.logicGroupSourceReentryDefault === false, 'c-h01:source
 assert(ch1.sourceContact.segments.length === 0, `c-h01:invented-source-segments:${ch1.sourceContact.segments.length}`);
 assert(ch1.retrievalPoints.slice(1).every((row) => row.sourceContactBefore === null && row.reopenSourceByDefault === false), 'c-h01:lg-retrieval-reopens-source');
 
+// D/E/F share one accepted top-level Logic-Group + Content-realization owner shape.
+const d = systems.get('neuro-sensory-motor-orthopedics');
+const e = systems.get('reproductive-breast');
+const f = systems.get('remaining-clinical');
+assert(d.identity.blockCount === 27 && d.identity.kpCount === 356 && d.identity.logicGroupCount === 128, 'd:identity');
+assert(e.identity.blockCount === 20 && e.identity.kpCount === 212 && e.identity.logicGroupCount === 67, 'e:identity');
+assert(f.identity.blockCount === 9 && f.identity.kpCount === 121 && f.identity.logicGroupCount === 40, 'f:identity');
+for (const system of [d, e, f]) {
+  assert(system.ownerPaths.content, `${system.canonicalId}:content-owner-not-consumed`);
+  assert(system.sourceContactPolicy.mode === 'MIXED_BY_BLOCK', `${system.canonicalId}:source-policy:${system.sourceContactPolicy.mode}`);
+}
+const { block: dn4 } = loadXizongSemanticBlock('neuro-sensory-motor-orthopedics', 'neuro-n04');
+assert(dn4.sourceContact.mode === 'NATURAL_SOURCE_UNITS' && dn4.sourceContact.segments.length === 2, 'd-n4:natural-source-units');
+assert(dn4.retrievalPoints.slice(0, 3).every((row) => row.sourceContactBefore === 'source:N4-SU1'), 'd-n4:source-unit-release');
+const { block: dn11 } = loadXizongSemanticBlock('neuro-sensory-motor-orthopedics', 'neuro-n11');
+assert(dn11.sourceContact.mode === 'INTEGRATION_PRIMARY' && dn11.sourceContact.requiresPrimarySourceContact === false, 'd-n11:integration-primary');
+
 // The adapter must not manufacture learner progress, official-question mapping,
 // or a duplicate question-taking surface.
 for (const system of systems.values()) {
@@ -89,4 +109,4 @@ for (const system of systems.values()) {
   }
 }
 
-console.log(`Xizong semantic adapter PASS: ${[...systems.values()].reduce((sum, system) => sum + system.blocks.length, 0)} blocks across A1/A2/A3/B/C`);
+console.log(`Xizong semantic adapter PASS: ${[...systems.values()].reduce((sum, system) => sum + system.blocks.length, 0)} blocks across A1/A2/A3/B/C/D/E/F`);

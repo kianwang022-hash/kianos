@@ -19,7 +19,7 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 - Acceptance/readiness questions route to `ACCEPTANCE.md` or the exact System Acceptance owner.
 - Real learner U remains private real-use truth and is never inferred from engineering proof.
 
-## Active engineering continuation — shared learner product / C integration
+## Active engineering continuation — shared learner product / D closed; E/F compiled candidates
 
 This is a temporary engineering cursor, not medical/Learning authority and not learner progress.
 
@@ -29,21 +29,21 @@ Current goal:
 preserve one accepted shared learner product
 → A1 Human Gate remains the visual/interaction reference
 → A2 / A3 / B reuse stays closed
-→ C is compiled and its tested P/R/E shared-product integration is accepted on the same product
-→ C Human Gate remains unclaimed; reopen only for a real C/shared-product defect
-→ advance only when the next System has accepted Current Learning authority
+→ C tested P/R/E shared-product integration stays closed
+→ D tested P/R/E shared-product integration is now closed on the same product
+→ E / F Projection assets are compiled candidates on the same shared pipeline; P/R/E acceptance is not yet claimed
+→ next engineering work is targeted E/F shared-runtime audit, not another website/template build
 ```
 
-Do **not** create System-local pages/CSS/Runtime. D/E/F remain outside Projection compilation until their exact Current Learning eligibility is accepted.
+Do **not** create System-local pages/CSS/Runtime. D/E/F now consume the same shared ingest / Projection / V6 path; compiled candidate existence must not be mistaken for P/R/E acceptance.
 
 Accepted meaning remains owned by the existing Xizong Rule / Learning / Product / Visual owners. Website work must consume those owners; AUDIT may repair confirmed implementation defects but must not silently redesign accepted learning meaning.
 
-Current recoverable WIP:
-- branch: `build/xizong-c-projection`
-- snapshot: `893dfaa0df51e140782463a3ea8d58ae908c29f4`
-- purpose: materialize C Projection and prove C on the accepted shared learner product without changing C Learning semantics.
-- Fast Lane: `127.0.0.1:4322` currently serves the C Candidate; do not use Stable 4321 as the edit loop.
-- CSS rule: edit the effective shared owner; do not stack corrective CSS or fork per-System presentation.
+Current implementation state:
+- D/E/F accepted top-level Learning + Content owner shapes are normalized by the shared semantic adapter; no System-local ingest fork exists.
+- D/E/F Projection assets are materialized; D has passed targeted static-Candidate Runtime/Evidence audit, while E/F remain compiled candidates pending their own targeted audit.
+- Candidate proof should use a clean static build/server; dev/HMR process health is not acceptance evidence.
+- CSS rule remains: edit the effective shared owner; do not stack corrective CSS or fork per-System presentation.
 
 Accepted shared-product baseline (A1 Human Gate + downstream reuse evidence):
 - real learner-state proof counts only when `document.hasFocus() === true`, `visibilityState === "visible"`, and `data-learner-writer="active"`; the isolated browser audit satisfied this writer contract.
@@ -95,7 +95,7 @@ Current gate:
   - 23 D Blocks correctly use `WHOLE_LOGIC_GROUP`; first learning enters `kp_learn` with group-level Source completion.
   - 15 M/G Blocks correctly use `CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT`; first learning enters shared `source_contact` without inventing per-Block Source completion.
 - **Compiled shared-product reuse is now closed for A1/A2/A3/B, and C has joined the same product without a C-local page/CSS fork.**
-  - C Projection materialized: 1 SystemProjection + 27 BlockProjection; total compiled coverage is now 5 Systems / 103 Blocks / 108 Projection assets / 1828 KP identities.
+  - At C closure, C Projection added 1 SystemProjection + 27 BlockProjection; that historical checkpoint was 5 Systems / 103 Blocks / 108 Projection assets / 1828 KP identities.
   - C production loader now consumes the accepted sharded Learning owner, `block_families` H01–H27 route, stable `kianos:kp` identities and explicit/non-contiguous `kp_members`.
   - live Fast Lane smoke: H01–H27 all writer=active, shared shell, header=83px, no visible Chat transport, no horizontal overflow or engineering/provenance copy.
   - H1 non-contiguous learner order PASS: after one continuous Source contact, Recall runs KP02→03→04→05→06→07→08→09→10→11→01→12→13 and never reopens Source between LGs.
@@ -104,20 +104,32 @@ Current gate:
   - C targeted real-browser journey PASS with 31 checks; shared Block Workspace PASS; shared System Workspace PASS; System Recall/Practice workspace PASS with 137 checks.
   - static build PASS: 941 pages.
   - C tested P/R/E shared-product integration is accepted in the exact C Acceptance owner; C Human Gate and learner U are not claimed.
+
+- **D tested P/R/E shared-product integration is now closed without a D-local product fork.**
+  - shared owner normalization consumes D `system_route + logic_groups + block_realization` directly; 27 Blocks / 356 KP / 128 LG resolve without duplicating accepted Learning.
+  - Source modes preserved exactly: 12 whole-block, 13 natural Source-unit, 2 integration-primary.
+  - D targeted static-Candidate browser journey PASS with 48 checks: N1 whole-block, N4 two natural Source units with no LG bounce, N11 integration-primary with no fabricated Lecture, O3 hard-readiness + visual Front/Reveal timing, writer/header/no-overflow/no-Chat.
+  - hard readiness is enforced from accepted owner truth: N1+N5+N8 → N11; N11 → O3/O4/O5.
+  - C sibling journey PASS with 34 checks and shared Block Workspace PASS after the D shared-runtime changes.
+- **E/F are compiled candidates on the same shared product, not accepted P/R/E yet.**
+  - E: 20 Blocks / 212 KP / 67 LG; F: 9 Blocks / 121 KP / 40 LG.
+  - no E/F-local page, CSS, Runtime or learner-state store was created.
+- Current compiled Projection coverage: **8 Systems / 159 Blocks / 167 assets / 2517 KP identities**.
+- clean static build PASS: **1006 pages**.
 - Human Gate regression closed after reuse: the learner-facing Space Core toggle now resolves the **current active KP frame at click time** instead of capturing the first rendered KP. Verified on KP01→KP03 for B-D `kp_learn`, B-M global Source Lane `source_contact`, and A1 `source_contact`; the shared browser regression now explicitly checks Space after a KP switch.
 - Human Gate feedback on a later System may reopen only the smallest responsible shared Visual/Product/Runtime owner or that System's semantic Projection; it must not create System-local CSS/product forks.
 
 ### Next
 
-remaining-System readiness
-→ C tested P/R/E shared-product integration is closed; Human Gate remains unclaimed; do not reopen it without a real defect
-→ D / E / F remain outside Projection compilation until their exact Current Learning eligibility is accepted
-→ read the exact System + Learning owner for the next eligible System
-→ land/accept Learning semantics first when that is the missing authority
-→ only then compile Projection into the same shared learner product
+shared-product continuation
+→ D tested P/R/E integration is closed; Human Gate / learner U remain unclaimed
+→ E and F already have compiled Projection candidates; do not recompile/rebuild a separate product
+→ run the smallest targeted static-Candidate audit for E, then F, focusing on their accepted Source-unit / Visual / integration differences
+→ if a real defect appears, repair the smallest shared owner or exact System semantic mapping
+→ otherwise update that System Acceptance truth and continue
 → do not redesign the page, duplicate Runtime, infer Source segments, or fill missing owner data with placeholders
 
-Historical campaigns, branch receipts and prior closure narratives are not continuation authority. The active WIP pointer above is only a recoverable engineering cursor; it does not override Current owners.
+Historical campaigns, branch receipts and prior closure narratives are not continuation authority. The Current implementation-state summary above is routing context only; exact scoped owners remain authoritative.
 
 ## Route by need
 

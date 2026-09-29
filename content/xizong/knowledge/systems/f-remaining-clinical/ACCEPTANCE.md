@@ -17,7 +17,7 @@ This file owns F-scoped readiness truth only. It does not own medical Core, lear
 | K — Knowledge | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent K audit; bounded repair split acute disturbance-control from planned/ongoing intervention-safety while preserving identity/source/owner boundaries |
 | L — Learning Logic | **PASS_AFTER_BOUNDED_REPAIR** | fresh independent L audit; 9 Blocks / 121 KP → 40 LG; 3 whole + 5 natural + 1 integration; 0 hard edges; 2 non-gating PSRs |
 | Content Realization / Optimization | **PASS_AFTER_BOUNDED_REPAIR / CLOSED** | fresh Phase 5D whole-F audit; 10 residual Recall-front surfaces repaired across 8 LGs; identity/release/wrapper/visual/Page-disappearance/no-duplicate/boundary attacks PASS |
-| P — Projection | **UNTESTED / ELIGIBLE** | Content accepted; scoped Projection may start separately |
+| P — Projection | **UNTESTED / COMPILED_CANDIDATE** | materialized candidate exists on the shared pipeline; targeted P/Runtime audit has not yet been accepted |
 | R — Runtime | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | E — Evidence | **UNTESTED / DOWNSTREAM-FROZEN** | downstream |
 | U — Learner Use | **NO_CLAIM** | real Kian use only |
