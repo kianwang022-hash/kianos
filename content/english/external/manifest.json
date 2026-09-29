@@ -62,33 +62,67 @@
     "stale_source_policy": "FAIL_CLOSED_BEFORE_COMPILE",
     "incremental_source": {
       "manifest_path": "INCREMENTAL/manifest.json",
-      "expected_manifest_sha256": null,
-      "status": "NO_ACTIVE_INCREMENTAL_BYTES",
+      "expected_manifest_sha256": "eefd2d920e2e6ed5d0891a57db31fa26f69fdc3279780176a078802aa9df7c02",
+      "status": "ACTIVE_EXAM_BAND_BATCH_10",
       "activation_rule": "PUBLIC_MANIFEST_HASH_REGISTRATION_REQUIRED",
       "object_hash_rule": "INCREMENTAL_MANIFEST_BINDS_SOURCE_QUESTIONS_ANSWERS_SHA256"
+    },
+    "legacy_visibility": {
+      "TOEFL_TPO": {
+        "default_visible_collections": [
+          "TPO57",
+          "TPO58"
+        ],
+        "archived_collections": [
+          "TPO56",
+          "TPO59",
+          "TPO60",
+          "TPO61",
+          "TPO62",
+          "TPO63",
+          "TPO64",
+          "TPO65"
+        ],
+        "direct_object_access": true,
+        "policy": "KEEP_HISTORY_HIDE_FROM_DEFAULT_LIBRARY"
+      }
     }
   },
   "source_priority": [
     {
       "rank": 1,
-      "id": "tpo-56-65",
-      "family": "TOEFL_TPO",
-      "role": "READING_GROWTH",
-      "note": "Historical academic Reading Growth pool. Preserve TOEFL/TPO identity, but do not treat TPO56–65 as the 2026 current-format TOEFL task authority."
+      "id": "toefl-current-official",
+      "family": "TOEFL_CURRENT",
+      "role": "READING_GROWTH_AND_CURRENT_FORMAT_AUTHORITY",
+      "note": "Prefer clean official current-format ETS Reading material for routine growth and TOEFL-native practice."
     },
     {
       "rank": 2,
-      "id": "ielts-17-19",
+      "id": "ielts-academic-official",
       "family": "IELTS_ACADEMIC",
       "role": "READING_GROWTH",
-      "note": "Active authentic IELTS Academic Reading Growth pool. Preserve IELTS-native task identity; newer official Cambridge Academic sources are acquired incrementally without replacing these identities."
+      "note": "Prefer clean official IELTS Academic material for longer academic reading, structure and stamina."
     },
     {
       "rank": 3,
-      "id": "future-reading",
+      "id": "cet6-official",
+      "family": "CET6",
+      "role": "READING_GROWTH_SPEED_BRIDGE",
+      "note": "Use CET-6 authentic/sample reading for speed, broad academic vocabulary, information matching and close reading."
+    },
+    {
+      "rank": 4,
+      "id": "legacy-tpo-curated",
+      "family": "TOEFL_TPO",
+      "role": "HISTORICAL_SUPPLEMENT",
+      "note": "Keep only the relatively clean TPO57-58 collections visible by default; other legacy TPO objects remain archived/direct-access."
+    },
+    {
+      "rank": 5,
+      "id": "future-longform",
       "family": "FUTURE_INCREMENTAL",
       "role": "READING_GROWTH",
-      "note": "Add only when it expands useful reading range. Questionless material remains questionless."
+      "note": "Add a small curated supplement only when it stays near the exam-band lexical load and expands useful topic/style range."
     }
   ],
   "cognition_boundary": {

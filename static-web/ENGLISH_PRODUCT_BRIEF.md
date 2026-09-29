@@ -107,10 +107,14 @@ The learner mix is intentionally elastic: true-exam Reading may dominate when sc
 Current source priority (not learner sequence):
 
 ```text
-TPO 56–65
-→ IELTS Academic 17–19
-→ later high-value additions only when they expand useful reading range
+official current-format TOEFL
+→ official IELTS Academic
+→ CET-6 authentic / official-sample Reading
+→ curated legacy TPO (default-visible: TPO57–58)
+→ small exam-band long-form supplement only when it adds useful range
 ```
+
+The routine target difficulty is the shared **考研 / CET-6 / TOEFL / IELTS Academic** reading band. Specialist-journal vocabulary is stretch material, not the default External pool.
 
 ### Visual / interaction model
 

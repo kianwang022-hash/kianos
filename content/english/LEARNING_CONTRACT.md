@@ -640,9 +640,13 @@ Kian does not need to exhaust the true-exam corpus before External Reading start
 
 Current preferred **source priority** (not learner sequence):
 
-1. legacy TOEFL / TPO academic reading, especially the existing TPO 56–65 pool;
-2. IELTS Academic reading, especially the existing IELTS 17–19 pool;
-3. selected periodical reading only when it adds a useful topic/style range that the two exam-grade pools do not provide.
+1. clean official current-format TOEFL Reading;
+2. clean official IELTS Academic Reading;
+3. CET-6 authentic / official-sample Reading as a speed, broad-vocabulary and information-matching bridge;
+4. a small curated legacy TPO subset for historical/source-native variety;
+5. selected non-exam long-form only when it stays near the exam-band lexical load and adds useful topic/style range.
+
+The target reading band is therefore **考研英语 + CET-6 + TOEFL + IELTS Academic**, not specialist-journal difficulty. English-I true-exam Reading remains protected diagnostic/performance capital rather than bulk External volume.
 
 External Reading may share the Reading workspace geometry and low-friction evidence plumbing, but **source identity does not grant Reading-A cognition**.
 
@@ -759,4 +763,4 @@ These clarify existing Learning Logic; they do not add a prerequisite course.
 - **First evidence:** bind task identity, consumed Content revision, attempt identity, first output and any later repair. A Content update must not silently reinterpret an old attempt. Same-item reconstruction remains repair evidence.
 - **Lexical:** exact target and exact demand both matter. Recognition must not close a Production claim. Lookup alone does not mutate Lexical learning state. A formal multi-target return validates fully before any task/lexical mutation; replay cannot manufacture a second event.
 - **Chat:** the website may follow the already-explicit Chat task order, never rank other tasks. Potentially eligible evidence is not automatically semantically relevant to a pending target. Same task kind does not select a target for the learner.
-- **External:** External Reading is a Reading-growth source adapter, not a second English-I Reading-A course. TPO 56–65 is the preferred academic-growth pool and IELTS 17–19 the secondary pool; periodicals are optional breadth. Adapters reuse the Reading workspace only where interaction semantics fit, preserve source-native question identity, use the same private exposure ledger, and never treat Content metadata as learner testimony. Unsupported question forms fail closed; questionless reading stays questionless.
+- **External:** External Reading is a Reading-growth source adapter, not a second English-I Reading-A course. Clean official TOEFL / IELTS Academic lead the growth pool; CET-6 supplies a useful speed / broad-vocabulary / matching bridge; only a curated legacy TPO subset remains default-visible, and non-exam long-form stays optional breadth near the same difficulty band. Adapters reuse the Reading workspace only where interaction semantics fit, preserve source-native question identity, use the same private exposure ledger, and never treat Content metadata as learner testimony. Unsupported question forms fail closed; questionless reading stays questionless.

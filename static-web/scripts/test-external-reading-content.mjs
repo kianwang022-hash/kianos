@@ -307,6 +307,7 @@ try{
 
   const catalog=externalReadingCatalog(state);
   assert.equal(catalog.status,'ready');
+  assert.deepEqual(catalog.visibility_policy?.TOEFL_TPO?.default_visible_collections,['TPO57','TPO58']);
   const rows=catalog.collections.flatMap(group=>group.passages);
   assert.equal(rows.length,69);
   assert(rows.some(row=>row.object_id==='tpo56-p1'));
@@ -390,7 +391,9 @@ try{
   const stale=ensureExternalReadingPrivateBundle({sourceRoot,privateDir:path.join(temp,'stale-gate')});
   assert.equal(stale.status,'stale_source');
   assert.equal(stale.bundle,null);
-  assert.equal(stale.mismatches.length,14);
+  const expectedPinnedSourceMismatches=Object.keys(publicManifest.source_runtime?.expected_active_source_sha256||{}).length
+    +(publicManifest.source_runtime?.incremental_source?.expected_manifest_sha256?1:0);
+  assert.equal(stale.mismatches.length,expectedPinnedSourceMismatches);
   assert(stale.mismatches.every(row=>row.relative&&row.expected_sha256&&row.actual_sha256));
 
   console.log(JSON.stringify({

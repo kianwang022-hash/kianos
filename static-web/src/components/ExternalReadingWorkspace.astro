@@ -7,7 +7,7 @@ const base=import.meta.env.BASE_URL;
       <a href={`${base}english/`}>‹ English</a>
       <span>EXTERNAL READING · GROWTH</span>
       <h1>额外阅读</h1>
-      <p>历史 TPO / IELTS、新增官方来源与高质量长文共用同一 Reading Growth 工作区；保留各自 Source 身份，不把任何题型方法改写成考研 Reading A。</p>
+      <p>TOEFL Current、IELTS Academic、CET-6 与少量历史 TPO 共用同一 Reading Growth 工作区；保留各自 Source 身份，不把任何题型方法改写成考研 Reading A。</p>
     </div>
     <small data-external-status>读取私有 External Content…</small>
   </header>
@@ -121,7 +121,7 @@ const base=import.meta.env.BASE_URL;
     const sourceNoteText=root.querySelector('[data-external-source-note-text]');
 
     let catalog=null;
-    let family='TOEFL_TPO';
+    let family='TOEFL_CURRENT';
     let active=null;
     let state=null;
     let meta=null;
@@ -186,15 +186,24 @@ const base=import.meta.env.BASE_URL;
     };
 
     const familyLabel=value=>({
-      TOEFL_TPO:'TPO 56–65',
+      TOEFL_TPO:'Legacy TPO',
       IELTS_ACADEMIC:'IELTS Academic',
       TOEFL_CURRENT:'TOEFL Current',
+      CET6:'CET-6',
       FUTURE_INCREMENTAL:'Long-form'
     }[String(value||'')]||String(value||'External').replaceAll('_',' '));
 
+    const visibleCollections=()=>{
+      if(!catalog)return[];
+      return (catalog.collections||[]).filter(group=>{
+        const policy=catalog.visibility_policy?.[group.source_family];
+        const allowed=Array.isArray(policy?.default_visible_collections)?policy.default_visible_collections:null;
+        return !allowed||allowed.includes(group.collection);
+      });
+    };
     const renderFamilyTabs=()=>{
       if(!(sourceTabs instanceof HTMLElement)||!catalog)return;
-      const families=[...new Set((catalog.collections||[]).map(group=>group.source_family).filter(Boolean))];
+      const families=[...new Set(visibleCollections().map(group=>group.source_family).filter(Boolean))];
       if(!families.includes(family))family=families[0]||'TOEFL_TPO';
       sourceTabs.innerHTML='';
       for(const value of families){
@@ -214,7 +223,7 @@ const base=import.meta.env.BASE_URL;
     const renderCatalog=()=>{
       if(!(collections instanceof HTMLElement)||!catalog)return;
       collections.innerHTML='';
-      const groups=(catalog.collections||[]).filter(group=>group.source_family===family);
+      const groups=visibleCollections().filter(group=>group.source_family===family);
       for(const group of groups){
         const details=document.createElement('details');
         details.open=collections.children.length===0;
@@ -403,6 +412,7 @@ const base=import.meta.env.BASE_URL;
       const nativeKind=active.source_family==='TOEFL_TPO'?'TPO · LEGACY TOEFL'
         :active.source_family==='IELTS_ACADEMIC'?'IELTS · ACADEMIC'
         :active.source_family==='TOEFL_CURRENT'?'TOEFL · CURRENT'
+        :active.source_family==='CET6'?'CET-6 · READING'
         :active.source_family==='FUTURE_INCREMENTAL'?'EXTERNAL · LONG-FORM'
         :familyLabel(active.source_family);
       setText(kind,generated?(active.drill_origin==='CHAT_GENERATED_ON_EXTERNAL_SOURCE'?'SOURCE + CHAT DRILL':'CHAT · SYNTHETIC'):nativeKind);
@@ -501,8 +511,10 @@ const base=import.meta.env.BASE_URL;
     try{
       catalog=await fetchJson(endpoint('catalog'));
       const t=catalog.counts?.toefl||{},i=catalog.counts?.ielts||{},inc=catalog.counts?.incremental||{};
+      const visibleTpo=visibleCollections().filter(group=>group.source_family==='TOEFL_TPO');
+      const visibleTpoPassages=visibleTpo.flatMap(group=>group.passages||[]);
       const incrementalText=(inc.objects||0)>0?('    |    NEW '+(inc.objects||0)+' source(s) · '+(inc.questions||0)+' questions'):'';
-      setText(counts,'TPO '+(t.collections||0)+'/10 · '+(t.passages||0)+' passages · '+(t.questions||0)+' questions    |    IELTS '+(i.books||0)+'/3 · '+(i.passages||0)+' passages · '+(i.questions||0)+' questions'+incrementalText);
+      setText(counts,'Legacy TPO '+visibleTpo.length+'/10 · '+visibleTpoPassages.length+' passages    |    IELTS legacy '+(i.passages||0)+' passages'+incrementalText);
       setText(status,'External Content ready · 私有 Source / 公共 identity');
       renderFamilyTabs();
       renderCatalog();

@@ -61,6 +61,7 @@ export function englishExternalCombinedCatalog({
       },
       source_quality:sourceCatalog.source_quality||null,
       cognition_boundary:sourceCatalog.cognition_boundary||null,
+      visibility_policy:sourceCatalog.visibility_policy||null,
       collections
     };
   }

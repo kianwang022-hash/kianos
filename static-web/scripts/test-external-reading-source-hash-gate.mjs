@@ -25,9 +25,13 @@ try{
     fs.writeFileSync(file,`stale fixture for ${relative}\n`,'utf8');
   }
 
+  const incrementalRelative='INCREMENTAL/manifest.json';
+  fs.mkdirSync(path.dirname(path.join(root,incrementalRelative)),{recursive:true});
+  fs.writeFileSync(path.join(root,incrementalRelative),'stale incremental fixture\n','utf8');
+
   const stale=ensureExternalReadingPrivateBundle({sourceRoot:root,privateDir});
   assert.equal(stale.status,'stale_source');
-  assert.equal(stale.mismatches.length,expected.length);
+  assert.equal(stale.mismatches.length,expected.length+1);
   assert.equal(stale.bundle,null);
   assert.ok(stale.mismatches.every(row=>row.relative&&row.expected_sha256&&row.actual_sha256));
 

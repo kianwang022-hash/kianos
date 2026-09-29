@@ -100,9 +100,11 @@ function sourceSnapshot(sourceRoot,{allowUnregisteredIncremental=false}={}){
         const actualSha=sha256(fs.readFileSync(file));
         latest=Math.max(latest,stat.mtimeMs);
         files.push({relative,mtime_ms:stat.mtimeMs,size:stat.size,sha256:actualSha});
-        if(config.expected_manifest_sha256&&config.expected_manifest_sha256!==actualSha){
+        const manifestHashMismatch=Boolean(config.expected_manifest_sha256&&config.expected_manifest_sha256!==actualSha);
+        if(manifestHashMismatch){
           mismatches.push({relative,expected_sha256:config.expected_manifest_sha256,actual_sha256:actualSha});
-        }else{
+        }
+        if(!manifestHashMismatch||allowUnregisteredIncremental){
           const payload=JSON.parse(fs.readFileSync(file,'utf8'));
           if(payload?.schema!=='kian.external.incremental-manifest.v1'||!Array.isArray(payload?.objects)){
             throw new Error('EXTERNAL_INCREMENTAL_MANIFEST_INVALID');
@@ -243,7 +245,7 @@ export function externalReadingCatalog(state=ensureExternalReadingPrivateBundle(
   if(state.status!=='ready')return{status:state.status,error:state.error||null,missing:state.missing||[],mismatches:state.mismatches||[],source_root:state.source_root,collections:[],counts:null};
   const passages=state.bundle.passages;
   const collections=[];
-  const preferred=['TOEFL_TPO','IELTS_ACADEMIC','TOEFL_CURRENT','FUTURE_INCREMENTAL'];
+  const preferred=['TOEFL_CURRENT','IELTS_ACADEMIC','CET6','TOEFL_TPO','FUTURE_INCREMENTAL'];
   const discovered=[...new Set(passages.map(p=>String(p.source_family||'FUTURE_INCREMENTAL')))];
   const families=[...preferred.filter(f=>discovered.includes(f)),...discovered.filter(f=>!preferred.includes(f))];
   for(const family of families){
@@ -273,6 +275,7 @@ export function externalReadingCatalog(state=ensureExternalReadingPrivateBundle(
     counts:state.bundle.counts,
     source_quality:state.bundle.source_quality,
     cognition_boundary:state.bundle.cognition_boundary,
+    visibility_policy:readPublicManifest()?.source_runtime?.legacy_visibility||null,
     source_hash_gate:state.source_hash_gate||'matched',
     collections
   };
