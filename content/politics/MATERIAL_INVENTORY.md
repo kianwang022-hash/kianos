@@ -1,6 +1,6 @@
 # Politics Full Material Inventory
 
-Status: **ACTIVE INVENTORY — learner-role and freshness aware**
+Status: **CURRENT INVENTORY — learner-role and freshness aware**
 
 Target:
 - Protect 70
