@@ -304,7 +304,11 @@ const base=import.meta.env.BASE_URL;
           const sourceBlock=document.createElement('details');sourceBlock.className='externalSourceQuestion';
           sourceBlock.innerHTML='<summary>原题结构</summary><pre></pre>';
           sourceBlock.querySelector('pre').textContent=q.source_text||q.prompt||'';
-          const input=document.createElement('textarea');input.rows=3;input.className='externalReadingFreeText';input.placeholder='按原题要求作答';
+          const shortResponse=Number(q.response_limit||0)>0&&Number(q.response_limit)<=80;
+          const input=shortResponse?document.createElement('input'):document.createElement('textarea');
+          if(input instanceof HTMLTextAreaElement)input.rows=3;
+          if(input instanceof HTMLInputElement){input.type='text';input.maxLength=Number(q.response_limit||80);input.autocomplete='off';}
+          input.className='externalReadingFreeText'+(shortResponse?' is-compact':'');input.placeholder=shortResponse?'填入原题答案':'按原题要求作答';
           input.value=String(state.answers[q.question_id]||'');input.disabled=Boolean(state.submitted);
           input.addEventListener('input',()=>{state.answers[q.question_id]=input.value;save();});
           section.append(sourceBlock,input);
