@@ -19,30 +19,32 @@ Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and 
 - Acceptance/readiness questions route to `ACCEPTANCE.md` or the exact System Acceptance owner.
 - Real learner U remains private real-use truth and is never inferred from engineering proof.
 
-## Active engineering continuation — A1 shared learner product
+## Active engineering continuation — shared learner product / C integration
 
 This is a temporary engineering cursor, not medical/Learning authority and not learner progress.
 
 Current goal:
 
 ```text
-finish one complete A1 learner product
-→ self-adversarially audit the real learner loop
-→ only then reuse the same shared template/runtime for other Systems
+preserve one accepted shared learner product
+→ A1 Human Gate remains the visual/interaction reference
+→ A2 / A3 / B reuse stays closed
+→ C is compiled and shared-runtime audited on the same product
+→ advance only when the next System has accepted Current Learning authority
 ```
 
-Do **not** expand C/D/E/F yet. B remains a later Source-lane special case, not a second product.
+Do **not** create System-local pages/CSS/Runtime. D/E/F remain outside Projection compilation until their exact Current Learning eligibility is accepted.
 
 Accepted meaning remains owned by the existing Xizong Rule / Learning / Product / Visual owners. Website work must consume those owners; AUDIT may repair confirmed implementation defects but must not silently redesign accepted learning meaning.
 
 Current recoverable WIP:
-- branch: `repair/xizong-a1-selfaudit`
-- snapshot: `6cb1c613946d5ce64d84c9ec3b7ebed54dace068`
-- purpose: complete A1 shared learner product plus self-adversarial pre-Human-Gate audit.
-- Fast Lane: use the existing Candidate runtime on `127.0.0.1:4322` for Human Gate; do not use Stable 4321 as the edit loop.
+- branch: `build/xizong-c-projection`
+- snapshot: `893dfaa0df51e140782463a3ea8d58ae908c29f4`
+- purpose: materialize C Projection and prove C on the accepted shared learner product without changing C Learning semantics.
+- Fast Lane: `127.0.0.1:4322` currently serves the C Candidate; do not use Stable 4321 as the edit loop.
 - CSS rule: edit the effective shared owner; do not stack corrective CSS or fork per-System presentation.
 
-Confirmed in the current A1 audit:
+Accepted shared-product baseline (A1 Human Gate + downstream reuse evidence):
 - real learner-state proof counts only when `document.hasFocus() === true`, `visibilityState === "visible"`, and `data-learner-writer="active"`; the isolated browser audit satisfied this writer contract.
 - System Guide / Framework, shared Block Workspace, System Recall / Practice, Memory, Repair / Return and learner chrome were all exercised through their current owners.
 - B1 Source/KP Learn uses the shared workspace: current KP identity + Source/Outline locator + navigation are in the center header, not duplicated inside the Core.
@@ -91,18 +93,28 @@ Current gate:
   - live Fast Lane smoke: all 38 Blocks render the accepted shared shell with header=83px, no visible Chat transport, no horizontal overflow and no engineering/provenance copy.
   - 23 D Blocks correctly use `WHOLE_LOGIC_GROUP`; first learning enters `kp_learn` with group-level Source completion.
   - 15 M/G Blocks correctly use `CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT`; first learning enters shared `source_contact` without inventing per-Block Source completion.
-- **Compiled shared-product reuse is now closed for A1/A2/A3/B.** One learner product has been proven across 76 compiled Blocks and heterogeneous Source modes; no System-local page/CSS fork is accepted.
+- **Compiled shared-product reuse is now closed for A1/A2/A3/B, and C has joined the same product without a C-local page/CSS fork.**
+  - C Projection materialized: 1 SystemProjection + 27 BlockProjection; total compiled coverage is now 5 Systems / 103 Blocks / 108 Projection assets / 1828 KP identities.
+  - C production loader now consumes the accepted sharded Learning owner, `block_families` H01–H27 route, stable `kianos:kp` identities and explicit/non-contiguous `kp_members`.
+  - live Fast Lane smoke: H01–H27 all writer=active, shared shell, header=83px, no visible Chat transport, no horizontal overflow or engineering/provenance copy.
+  - H1 non-contiguous learner order PASS: after one continuous Source contact, Recall runs KP02→03→04→05→06→07→08→09→10→11→01→12→13 and never reopens Source between LGs.
+  - H11 reviewed Visual timing PASS: owned visual is visible during Learn, hidden on protected Recall Front, and returns only after Reveal.
+  - H24 fail-closed Source continuity PASS: one Block/canonical-Source-unit confirmation covers all 17 KP; no LG-derived Source segments are invented.
+  - C targeted real-browser journey PASS with 31 checks; shared Block Workspace PASS; shared System Workspace PASS; System Recall/Practice workspace PASS with 137 checks.
+  - static build PASS: 941 pages.
+  - C Human Gate is not claimed; this is engineering/shared-runtime evidence only.
 - Human Gate regression closed after reuse: the learner-facing Space Core toggle now resolves the **current active KP frame at click time** instead of capturing the first rendered KP. Verified on KP01→KP03 for B-D `kp_learn`, B-M global Source Lane `source_contact`, and A1 `source_contact`; the shared browser regression now explicitly checks Space after a KP switch.
 - Human Gate feedback on a later System may reopen only the smallest responsible shared Visual/Product/Runtime owner or that System's semantic Projection; it must not create System-local CSS/product forks.
 
 ### Next
 
-uncompiled-System integration
-→ inspect C/D/E/F readiness against Current Learning / Projection contracts
-→ start with the smallest System already eligible for Projection
-→ compile semantic Projection into the accepted shared learner product
-→ do not redesign the page or duplicate Runtime
-→ preserve UNKNOWN / missing owner data rather than filling placeholders
+remaining-System readiness
+→ C is compiled and shared-runtime audited; do not reopen it without a real defect
+→ D / E / F remain outside Projection compilation until their exact Current Learning eligibility is accepted
+→ read the exact System + Learning owner for the next eligible System
+→ land/accept Learning semantics first when that is the missing authority
+→ only then compile Projection into the same shared learner product
+→ do not redesign the page, duplicate Runtime, infer Source segments, or fill missing owner data with placeholders
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority. The active WIP pointer above is only a recoverable engineering cursor; it does not override Current owners.
 
