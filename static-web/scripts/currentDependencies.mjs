@@ -12,6 +12,37 @@ const PACKAGE_INPUTS = [
   '.npmrc'
 ];
 
+function stableJson(value) {
+  if (Array.isArray(value)) return '[' + value.map(stableJson).join(',') + ']';
+  if (value && typeof value === 'object') {
+    return '{' + Object.keys(value).sort().map((key) => JSON.stringify(key) + ':' + stableJson(value[key])).join(',') + '}';
+  }
+  return JSON.stringify(value);
+}
+
+function packageDependencyDigest(hash, root) {
+  const relativePath = 'package.json';
+  const file = path.join(root, relativePath);
+  hash.update(relativePath);
+  hash.update('\0');
+  if (!fs.existsSync(file)) {
+    hash.update('<missing>');
+    hash.update('\0');
+    return;
+  }
+  const manifest = JSON.parse(fs.readFileSync(file, 'utf8'));
+  hash.update(stableJson({
+    dependencies: manifest?.dependencies || {},
+    devDependencies: manifest?.devDependencies || {},
+    optionalDependencies: manifest?.optionalDependencies || {},
+    peerDependencies: manifest?.peerDependencies || {},
+    peerDependenciesMeta: manifest?.peerDependenciesMeta || {},
+    overrides: manifest?.overrides || {},
+    bundledDependencies: manifest?.bundledDependencies || manifest?.bundleDependencies || []
+  }));
+  hash.update('\0');
+}
+
 function fileDigest(hash, root, relativePath) {
   const file = path.join(root, relativePath);
   hash.update(relativePath);
@@ -27,7 +58,8 @@ function fileDigest(hash, root, relativePath) {
 
 export function dependencyIdentity(webRoot, runtime = {}) {
   const hash = crypto.createHash('sha256');
-  for (const relativePath of PACKAGE_INPUTS) fileDigest(hash, webRoot, relativePath);
+  packageDependencyDigest(hash, webRoot);
+  for (const relativePath of PACKAGE_INPUTS.filter((value) => value !== 'package.json')) fileDigest(hash, webRoot, relativePath);
   return {
     schema: CURRENT_DEPENDENCY_SCHEMA,
     fingerprint: hash.digest('hex'),

@@ -34,6 +34,24 @@ try {
   writeDependencyProof(source, identity);
   assert.equal(canReuseDependencies(source, target), true, 'matching package/runtime identity should reuse');
 
+  const targetManifest = JSON.parse(fs.readFileSync(path.join(target, 'package.json'), 'utf8'));
+  targetManifest.scripts = { dev: 'astro dev', candidate: 'node candidate.js' };
+  targetManifest.version = '9.9.9';
+  fs.writeFileSync(path.join(target, 'package.json'), JSON.stringify(targetManifest));
+  assert.equal(
+    canReuseDependencies(source, target),
+    true,
+    'script/metadata-only package.json drift must not invalidate the verified dependency tree'
+  );
+  targetManifest.dependencies.astro = '5.19.0';
+  fs.writeFileSync(path.join(target, 'package.json'), JSON.stringify(targetManifest));
+  assert.equal(
+    canReuseDependencies(source, target),
+    false,
+    'dependency declaration change must invalidate reuse'
+  );
+  makeWeb(target);
+
   const cloned = cloneDependencies(source, target);
   assert(cloned.duration_ms >= 0, 'clone duration must be reported');
   assert.equal(fs.readFileSync(path.join(target, 'node_modules', 'payload.txt'), 'utf8'), 'dependency-tree');
@@ -71,8 +89,8 @@ try {
     assert.equal(legacyClone.rebased_bin_links >= 1, true, 'legacy absolute bin link should be rebased');
   }
 
-  fs.writeFileSync(path.join(target, 'package.json'), JSON.stringify({ name: 'fixture', version: '2.0.0', dependencies: { astro: '5.18.2' } }));
-  assert.equal(canReuseDependencies(source, target), false, 'package input change must reject reuse');
+  fs.writeFileSync(path.join(target, 'package.json'), JSON.stringify({ name: 'fixture', version: '2.0.0', dependencies: { astro: '5.19.0' } }));
+  assert.equal(canReuseDependencies(source, target), false, 'dependency declaration change must reject reuse');
 
   makeWeb(target);
   assert.equal(
@@ -120,12 +138,12 @@ try {
   fs.writeFileSync(path.join(fresh, 'package.json'), JSON.stringify({
     name: 'fixture',
     version: '2.0.0',
-    dependencies: { astro: '5.18.2' }
+    dependencies: { astro: '5.19.0' }
   }));
   assert.equal(
     canReuseDependencies(installed, fresh),
     false,
-    'canonical package.json change must still reject reuse'
+    'canonical dependency declaration change must still reject reuse'
   );
 
   console.log('CURRENT_DEPENDENCY_REUSE PASS');
