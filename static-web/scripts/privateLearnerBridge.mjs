@@ -18,6 +18,12 @@ const workerPath = path.join(scriptDir, 'privateDailyLearningPacketRelayWorker.m
 const ROUTE = '/__kianos-private/checkpoint';
 const STATUS_ROUTE = ROUTE + '/status';
 const MAX_BYTES = 24 * 1024 * 1024;
+export const PRIVATE_PACKET_REFRESH_INTERVAL_MS = 5 * 60 * 1000;
+export const PRIVATE_PACKET_REFRESH_DEBOUNCE_MS = 10 * 1000;
+
+const packetSyncMode = (value) => String(value || '').toLowerCase() === 'immediate'
+  ? 'immediate'
+  : 'routine';
 
 const isLoopback = (address) => {
   const value = String(address || '').toLowerCase();
@@ -71,55 +77,165 @@ async function readBody(req) {
   return JSON.parse(raw);
 }
 
-export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), packetSync = runPrivateDailyLearningPacketRelayWorker } = {}) {
+export function privateLearnerBridge({
+  privateDir = resolvePrivateLearnerDir(),
+  packetSync = runPrivateDailyLearningPacketRelayWorker,
+  packetRefreshIntervalMs = PRIVATE_PACKET_REFRESH_INTERVAL_MS,
+  packetRefreshDebounceMs = PRIVATE_PACKET_REFRESH_DEBOUNCE_MS,
+  now = () => Date.now()
+} = {}) {
+  const refreshIntervalMs = Math.max(1, Number(packetRefreshIntervalMs) || PRIVATE_PACKET_REFRESH_INTERVAL_MS);
+  const refreshDebounceMs = Math.max(0, Number(packetRefreshDebounceMs) || 0);
+
   return {
     name: 'kianos-private-learner-bridge',
     apply: 'serve',
     configureServer(server) {
       let packetSyncBusy = false;
       let packetSyncQueued = false;
-      let packetRelay = { state: 'checking', checked_at: null };
-      const syncPacket = () => {
+      let packetSyncQueuedImmediate = false;
+      let packetSyncTimer = null;
+      let packetLastSuccessAt = 0;
+      let packetRelay = {
+        state: 'checking',
+        refreshing: false,
+        refresh_scheduled_at: null,
+        checked_at: null,
+        last_success_at: null
+      };
+
+      const timestamp = () => new Date(now()).toISOString();
+
+      const runPacketSync = () => {
+        if (packetSyncTimer) {
+          clearTimeout(packetSyncTimer);
+          packetSyncTimer = null;
+        }
         if (packetSyncBusy) {
           packetSyncQueued = true;
           return;
         }
         packetSyncBusy = true;
-        packetRelay = { ...packetRelay, state: 'checking' };
+        const hadLastGood = packetRelay.state === 'ready' || packetLastSuccessAt > 0;
+        packetRelay = hadLastGood
+          ? {
+              ...packetRelay,
+              state: 'ready',
+              refreshing: true,
+              refresh_started_at: timestamp(),
+              refresh_scheduled_at: null,
+              refresh_error: null
+            }
+          : {
+              ...packetRelay,
+              state: 'checking',
+              refreshing: true,
+              refresh_started_at: timestamp(),
+              refresh_scheduled_at: null,
+              refresh_error: null
+            };
+
         void packetSync({ privateDir })
           .then((result) => {
+            const finishedAt = now();
+            const state = result?.state || 'unknown';
+            if (state === 'ready') packetLastSuccessAt = finishedAt;
             packetRelay = {
-              state: result?.state || 'unknown',
+              state,
               status: result?.status || null,
               study_day: result?.study_day || null,
               learner_evidence_ready: result?.learner_evidence_ready === true,
               coverage: result?.coverage || null,
               generated_at: result?.generated_at || null,
               reason: result?.reason || null,
-              checked_at: new Date().toISOString(),
+              refreshing: false,
+              refresh_started_at: null,
+              refresh_scheduled_at: null,
+              refresh_error: null,
+              checked_at: new Date(finishedAt).toISOString(),
+              last_success_at: state === 'ready'
+                ? new Date(finishedAt).toISOString()
+                : packetRelay.last_success_at || null,
               error: null
             };
           })
           .catch((error) => {
-            packetRelay = {
-              state: 'degraded',
-              status: null,
-              study_day: null,
-              reason: null,
-              checked_at: new Date().toISOString(),
-              error: error instanceof Error ? error.message : String(error)
-            };
+            const message = error instanceof Error ? error.message : String(error);
+            if (packetRelay.state === 'ready' || packetLastSuccessAt > 0) {
+              packetRelay = {
+                ...packetRelay,
+                state: 'ready',
+                refreshing: false,
+                refresh_started_at: null,
+                refresh_scheduled_at: null,
+                refresh_error: message,
+                checked_at: timestamp(),
+                error: null
+              };
+            } else {
+              packetRelay = {
+                state: 'degraded',
+                status: null,
+                study_day: null,
+                learner_evidence_ready: false,
+                coverage: null,
+                generated_at: null,
+                reason: null,
+                refreshing: false,
+                refresh_started_at: null,
+                refresh_scheduled_at: null,
+                refresh_error: message,
+                checked_at: timestamp(),
+                last_success_at: null,
+                error: message
+              };
+            }
           })
           .finally(() => {
             packetSyncBusy = false;
             if (packetSyncQueued) {
+              const mode = packetSyncQueuedImmediate ? 'immediate' : 'routine';
               packetSyncQueued = false;
-              syncPacket();
+              packetSyncQueuedImmediate = false;
+              schedulePacketSync(mode);
             }
           });
       };
 
-      syncPacket();
+      const schedulePacketSync = (mode = 'routine') => {
+        const normalizedMode = packetSyncMode(mode);
+        if (packetSyncBusy) {
+          packetSyncQueued = true;
+          if (normalizedMode === 'immediate') packetSyncQueuedImmediate = true;
+          return;
+        }
+
+        if (normalizedMode === 'immediate' || packetLastSuccessAt <= 0) {
+          if (packetSyncTimer) {
+            clearTimeout(packetSyncTimer);
+            packetSyncTimer = null;
+          }
+          runPacketSync();
+          return;
+        }
+
+        if (packetSyncTimer) return;
+        const current = now();
+        const dueAt = Math.max(
+          current + refreshDebounceMs,
+          packetLastSuccessAt + refreshIntervalMs
+        );
+        packetRelay = {
+          ...packetRelay,
+          refresh_scheduled_at: new Date(dueAt).toISOString()
+        };
+        packetSyncTimer = setTimeout(() => {
+          packetSyncTimer = null;
+          runPacketSync();
+        }, Math.max(0, dueAt - current));
+      };
+
+      schedulePacketSync('immediate');
 
       server.middlewares.use(async (req, res, next) => {
         const pathname = new URL(req.url || '/', 'http://127.0.0.1').pathname;
@@ -150,7 +266,8 @@ export function privateLearnerBridge({ privateDir = resolvePrivateLearnerDir(), 
               throw new Error('PRIVATE_CHECKPOINT_PRECONDITION_INVALID');
             }
             const checkpoint = writePrivateLearnerCheckpoint(input, privateDir, { expectedCheckpointId });
-            syncPacket();
+            const syncMode = packetSyncMode(req.headers['x-kianos-packet-sync']);
+            schedulePacketSync(syncMode);
             return json(res, 200, {
               status: 'saved',
               schema: PRIVATE_CHECKPOINT_SCHEMA,

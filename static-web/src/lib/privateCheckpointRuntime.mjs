@@ -363,7 +363,10 @@ export async function restoreSharedControlFromPrivate(storage, {
 }
 
 export async function saveSharedControlToPrivate(storage, {
-  now = Date.now(), readCheckpoint = readPrivateLearnerCheckpoint, writeCheckpoint = writePrivateLearnerCheckpoint
+  now = Date.now(),
+  readCheckpoint = readPrivateLearnerCheckpoint,
+  writeCheckpoint = writePrivateLearnerCheckpoint,
+  packetSync = 'routine'
 } = {}) {
   const studyDay = studyDayAt(now), existing = await readCheckpoint();
   assertLearnerStorageWritable(storage);
@@ -397,7 +400,7 @@ export async function saveSharedControlToPrivate(storage, {
   });
   shared = { ...shared, capture_warnings: warnings };
   const checkpoint = buildPrivateLearnerCheckpoint({ studyDay, now, shared, subjects });
-  await writeCheckpoint(checkpoint, { expectedCheckpoint: previous });
+  await writeCheckpoint(checkpoint, { expectedCheckpoint: previous, packetSync });
   const blockedGroups = new Set(warnings.map(warningGroupId).filter(Boolean));
   const successfulGroups = CHECKPOINT_GROUP_IDS.filter((groupId) => !blockedGroups.has(groupId));
   rememberLineage(storage, checkpoint, successfulGroups, warnings);
@@ -418,13 +421,20 @@ export function initPrivateCheckpointAutosave(storage, {
   let interval = null;
   let stopped = false;
   let inFlight = null;
+  let pendingImmediate = false;
 
-  const checkpoint = async () => {
+  const checkpoint = async ({ packetSync = 'routine' } = {}) => {
     if (stopped) return;
+    if (packetSync === 'immediate') pendingImmediate = true;
     if (inFlight) return inFlight;
+    const requestedSync = pendingImmediate ? 'immediate' : 'routine';
+    pendingImmediate = false;
     inFlight = (async () => {
       try {
-        const result = await saveSharedControlToPrivate(storage, { now: now() });
+        const result = await saveSharedControlToPrivate(storage, {
+          now: now(),
+          packetSync: requestedSync
+        });
         if (result.status !== 'saved') throw new Error('部分记录尚未安全合并，原记录已保留。');
         globalThis.dispatchEvent?.(new CustomEvent('kianos:private-checkpoint-saved'));
       } catch (error) {
@@ -433,46 +443,54 @@ export function initPrivateCheckpointAutosave(storage, {
         }));
       } finally {
         inFlight = null;
+        if (pendingImmediate && !stopped) {
+          pendingImmediate = false;
+          queueMicrotask(() => void checkpoint({ packetSync: 'immediate' }));
+        }
       }
     })();
     return inFlight;
   };
 
+  const flushNow = (packetSync = 'routine') => {
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+    void checkpoint({ packetSync });
+  };
   const schedule = () => {
     if (stopped) return;
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
       timer = null;
-      void checkpoint();
+      void checkpoint({ packetSync: 'routine' });
     }, debounceMs);
   };
+  const flushImmediate = () => flushNow('immediate');
 
   const storageHandler = (event) => {
     if (SHARED_STORAGE_KEYS.includes(event?.key)) schedule();
   };
-  const flushNow = () => {
-    if (timer) {
-      clearTimeout(timer);
-      timer = null;
-    }
-    void checkpoint();
-  };
   const visibilityHandler = () => {
     if (globalThis.document?.visibilityState !== 'hidden') return;
-    flushNow();
+    flushNow('routine');
   };
-  const blurHandler = () => flushNow();
+  const blurHandler = () => flushNow('routine');
 
   globalThis.addEventListener?.('kianos:study-timer-change', schedule);
   globalThis.addEventListener?.('kianos:exam-plan-read-model', schedule);
-  globalThis.addEventListener?.('kianos:english-exam-updated', schedule);
+  globalThis.addEventListener?.('kianos:english-exam-updated', flushImmediate);
+  globalThis.addEventListener?.('kianos:private-control-consumed', flushImmediate);
+  globalThis.addEventListener?.('kianos:subject-continue-updated', flushImmediate);
+  globalThis.addEventListener?.('kianos:xizong-block-complete', flushImmediate);
   globalThis.addEventListener?.('kianos:steward-reality-change', schedule);
   globalThis.addEventListener?.('storage', storageHandler);
   globalThis.addEventListener?.('focus', schedule);
   globalThis.addEventListener?.('blur', blurHandler);
   globalThis.document?.addEventListener?.('visibilitychange', visibilityHandler);
 
-  interval = setInterval(() => void checkpoint(), intervalMs);
+  interval = setInterval(() => void checkpoint({ packetSync: 'routine' }), intervalMs);
   schedule();
 
   return {
@@ -484,7 +502,10 @@ export function initPrivateCheckpointAutosave(storage, {
       if (interval) clearInterval(interval);
       globalThis.removeEventListener?.('kianos:study-timer-change', schedule);
       globalThis.removeEventListener?.('kianos:exam-plan-read-model', schedule);
-      globalThis.removeEventListener?.('kianos:english-exam-updated', schedule);
+      globalThis.removeEventListener?.('kianos:english-exam-updated', flushImmediate);
+      globalThis.removeEventListener?.('kianos:private-control-consumed', flushImmediate);
+      globalThis.removeEventListener?.('kianos:subject-continue-updated', flushImmediate);
+      globalThis.removeEventListener?.('kianos:xizong-block-complete', flushImmediate);
       globalThis.removeEventListener?.('kianos:steward-reality-change', schedule);
       globalThis.removeEventListener?.('storage', storageHandler);
       globalThis.removeEventListener?.('focus', schedule);

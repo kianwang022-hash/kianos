@@ -120,8 +120,10 @@ try {
 }
 
 let remoteSaved = null;
+const remotePacketSyncHeaders = [];
 const fakeFetch = async (_url, options = {}) => {
   if (options.method === 'PUT') {
+    remotePacketSyncHeaders.push(options.headers?.['x-kianos-packet-sync'] || null);
     remoteSaved = JSON.parse(options.body);
     return new Response(JSON.stringify({ status: 'saved', checkpoint_id: remoteSaved.checkpoint_id }), { status: 200 });
   }
@@ -133,9 +135,17 @@ assert.equal(missingRemoteRead.status, 'missing');
 assert.equal(missingRemoteRead.checkpoint, null);
 
 await writeRemoteCheckpoint(checkpoint, { fetchImpl: fakeFetch });
+assert.equal(remotePacketSyncHeaders.at(-1), 'routine', 'ordinary checkpoint writes must request throttled Packet refresh');
 const remoteRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch });
 assert.equal(remoteRead.status, 'ready');
 assert.equal(remoteRead.checkpoint.payload.shared.chat_plan.next_subject, 'xizong');
+const urgentCheckpoint = {
+  ...checkpoint,
+  checkpoint_id: 'checkpoint-immediate-packet-sync',
+  generated_at: new Date(now + 1).toISOString()
+};
+await writeRemoteCheckpoint(urgentCheckpoint, { fetchImpl: fakeFetch, packetSync: 'immediate' });
+assert.equal(remotePacketSyncHeaders.at(-1), 'immediate', 'critical checkpoint writes must request immediate Packet refresh');
 const invalidTimeoutRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch, timeoutMs: 0 });
 assert.equal(invalidTimeoutRead.status, 'ready');
 const originalSetTimeout = globalThis.setTimeout;

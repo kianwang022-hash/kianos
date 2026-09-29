@@ -49,13 +49,15 @@ export function buildPrivateLearnerCheckpoint({
 export async function writePrivateLearnerCheckpoint(checkpoint, {
   fetchImpl = globalThis.fetch,
   endpoint = PRIVATE_CHECKPOINT_ENDPOINT,
-  expectedCheckpoint = undefined
+  expectedCheckpoint = undefined,
+  packetSync = 'routine'
 } = {}) {
   if (typeof fetchImpl !== 'function') throw new Error('PRIVATE_CHECKPOINT_FETCH_UNAVAILABLE');
   const response = await fetchImpl(endpoint, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json',
+      'x-kianos-packet-sync': packetSync === 'immediate' ? 'immediate' : 'routine',
       ...(expectedCheckpoint !== undefined ? { 'if-match': JSON.stringify(expectedCheckpoint?.checkpoint_id || null) } : {})
     },
     body: JSON.stringify(checkpoint)

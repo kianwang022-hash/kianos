@@ -37,12 +37,15 @@ Object.defineProperty(globalThis,'document',{
 });
 
 let puts=0;
+const packetSyncHeaders=[];
 globalThis.fetch=async(_url,init={})=>{
   const method=String(init.method||'GET').toUpperCase();
   if(method==='GET')return new Response(JSON.stringify({status:'missing',checkpoint:null}),{status:404});
   if(method==='PUT'){
     puts+=1;
-    return new Response(JSON.stringify({status:'saved',checkpoint_id:'blur-proof'}),{status:200});
+    packetSyncHeaders.push(init.headers?.['x-kianos-packet-sync']||null);
+    const body=JSON.parse(init.body||'{}');
+    return new Response(JSON.stringify({status:'saved',checkpoint_id:body.checkpoint_id}),{status:200});
   }
   throw new Error('unexpected method '+method);
 };
@@ -58,10 +61,21 @@ try{
   for(const handler of [...(listeners.get('blur')||[])])handler();
   await new Promise(resolve=>setTimeout(resolve,30));
   assert.equal(puts,1,'leaving KianOS must flush one private checkpoint');
+  assert.equal(packetSyncHeaders.at(-1),'routine','blur durability flush must not force an immediate Git Packet push');
+
+  assert.equal(listeners.get('kianos:english-exam-updated')?.size,1,'critical English result event must have an immediate Packet flush listener');
+  for(const handler of [...(listeners.get('kianos:english-exam-updated')||[])])handler();
+  await new Promise(resolve=>setTimeout(resolve,30));
+  assert.equal(puts,2,'critical result event must flush a fresh checkpoint');
+  assert.equal(packetSyncHeaders.at(-1),'immediate','critical result event must request immediate Packet refresh');
+
+  assert.equal(listeners.get('kianos:private-control-consumed')?.size,1,'applied control receipt must have an immediate Packet flush listener');
 
   autosave.stop();
   assert.equal(listeners.get('blur')?.size||0,0,'stop must remove blur listener');
-  console.log('PASS private checkpoint blur flush: switching to Chat triggers durable local save');
+  assert.equal(listeners.get('kianos:english-exam-updated')?.size||0,0,'stop must remove immediate result listener');
+  assert.equal(listeners.get('kianos:private-control-consumed')?.size||0,0,'stop must remove immediate control listener');
+  console.log('PASS private checkpoint cadence: blur is local/routine; critical result/control events request immediate Packet refresh');
 }finally{
   globalThis.fetch=originalFetch;
   if(originalAdd===undefined)delete globalThis.addEventListener; else globalThis.addEventListener=originalAdd;
