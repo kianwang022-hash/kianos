@@ -438,7 +438,7 @@
         }
         if (event.code === 'Space') {
           event.preventDefault();
-          frame.querySelector('[data-kp-core-toggle]')?.click();
+          root.querySelector(`[data-study-stage="${stage}"] [data-kp-core-toggle]`)?.click();
           return;
         }
         if (event.key === 'Enter') {
