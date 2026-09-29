@@ -26,7 +26,7 @@ Current downstream conclusion:
 
 > **F tested P/R/E shared-product integration is accepted. No F-local page, CSS, Runtime or learner-state store exists. Human Gate and learner U are not claimed.**
 
-Executed engineering evidence includes the clean 1006-page static Candidate and the final combined E/F journey (**164 checks PASS**). F9 correctly releases LG01 by integration, then requires F9-SU1 for LG02 and F9-SU2 for LG03/LG04; F8's three visual-gap LGs cannot be promoted to Block Recall from prose-only ratings; reviewed Visual assets appear only when actually owned. D/C sibling journeys and the shared Block Workspace also remained green.
+Executed engineering evidence includes the clean 1006-page static Candidate and the final combined E/F journey (**211 checks PASS**). F9 correctly releases LG01 by integration, then requires F9-SU1 for LG02 and F9-SU2 for LG03/LG04; F8's three visual-gap LGs cannot be promoted to Block Recall from prose-only ratings, while legacy completed states reopen the exact original-Source visual review before Block Recall; reviewed Visual assets appear only when actually owned. D/C sibling journeys and the shared Block Workspace also remained green.
 
 ---
 

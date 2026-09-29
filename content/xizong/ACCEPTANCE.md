@@ -11,12 +11,12 @@ The retired final learner-acceptance execution brief is preserved in Git history
 
 ## Current verdict
 
-The tested mature Xizong integration paths are accepted on Current `main`.
+The tested mature Xizong integration paths are accepted by the Current Acceptance owner. Release placement is a separate delivery concern and does not create or erase these bounded engineering claims.
 
 | Claim | Current acceptance |
 | --- | --- |
 | Shared Learning / multi-surface model | **PASS** for the accepted contract/consumer boundary |
-| Mature A1/A2/A3 learning/runtime/evidence path | **PASS** for the tested first-pass, Practice, whole-paper, Resume and evidence mechanics |
+| A1–F shared learner-product integration | **PASS** for the tested Source/Recall flows, Resume, System Recall/Practice, Memory/Repair/Return, prerequisite and revision/visual fail-closed mechanics |
 | Shared Practice / W-U / Marked / phase behavior | **PASS** for the tested canonical identity/order and fail-closed boundaries |
 | Subject packet / Daily envelope | **PASS** for the tested bounded evidence projection; packet is not a learner database |
 | Private learner durability | **CLOSED for the accepted Xizong shared-checkpoint boundary**; public GitHub is not learner history |
@@ -25,8 +25,11 @@ The tested mature Xizong integration paths are accepted on Current `main`.
 | Mac readability / Human Gate | **CLOSED for the accepted representative geometry boundary** |
 | B1 KP03 original inline media | **SCOPED UPSTREAM SOURCE LIMITATION** — two original PNG bytes remain unavailable; no generated/similar substitute is accepted as the original |
 | B/C compatibility/projectability | **BOUNDED EVIDENCE ONLY**; does not promote local learner readiness |
-| D/E/F and other System readiness | **OWNED LOCALLY** by each exact Current/Acceptance owner |
+| Whole-subject CBA / realistic-use engineering audit | **PASS** — 124 CBA checks + 110 realistic-use checks across 8 Systems / 159 Blocks on an isolated private learner store |
+| D/E/F System-local readiness | **OWNED LOCALLY** by each exact Current/Acceptance owner; this lane-wide PASS does not replace those local claims |
 | Learner U | **UNTESTED / CLAIM-LOCAL** until Kian actually studies/uses the path |
+
+The whole-subject evidence is direct lane-wide engineering evidence rather than a sum of sibling PASS labels: the CBA journey covered 8-System shared-product identity, E↔F Resume isolation, D prerequisite legality, F8 legacy visual-state migration and C Source-revision rollback; the realistic-use journey additionally exercised System Recall/Practice for A1–F plus Memory/Repair/Return. Both ran against a clean static Candidate with an isolated private learner store, so they do not constitute learner U.
 
 The two missing B1 original figures limit only those exact media claims. They do not reopen the accepted mature integration path or authorize a substitute source.
 

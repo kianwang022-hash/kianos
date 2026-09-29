@@ -32,7 +32,8 @@ preserve one accepted shared learner product
 → C tested P/R/E shared-product integration stays closed
 → D tested P/R/E shared-product integration is now closed on the same product
 → E / F tested P/R/E shared-product integration is now closed on the same product
-→ next engineering work is the whole-subject realistic-use audit, not another System template build
+→ whole-subject CBA + realistic-use engineering audit is closed on the same shared product
+→ no broad engineering campaign remains; normal mode is real study plus bounded exact-owner maintenance
 ```
 
 Do **not** create System-local pages/CSS/Runtime. D/E/F consume the same shared ingest / Projection / V6 path; all tested P/R/E integration truth remains with the exact System Acceptance owners.
@@ -42,6 +43,11 @@ Accepted meaning remains owned by the existing Xizong Rule / Learning / Product 
 Current implementation state:
 - D/E/F accepted top-level Learning + Content owner shapes are normalized by the shared semantic adapter; no System-local ingest fork exists.
 - D/E/F Projection assets are materialized and all three have passed targeted static-Candidate Runtime/Evidence audits on the same shared learner product.
+- whole-subject CBA PASS: **124 checks / 8 Systems**, including E↔F Resume isolation, D prerequisite legality, F8 legacy visual-evidence migration and C Source-revision rollback.
+- whole-subject realistic-use PASS: **110 checks / 8 Systems / 159 Blocks**, including shared shell/state isolation, Resume, legacy-state migration, System Recall/Practice for A1–F and Memory/Repair/Return.
+- final combined E/F targeted journey PASS: **211 checks**, including F external-visual review and F8 visual-gap closure.
+- final post-rebase static build PASS: **1006 pages**; compiler client/server boundary receipt recorded by the Current Delivery integration.
+- final lane-wide browser evidence used isolated `KIANOS_PRIVATE_DIR` / control stores and active-writer conditions; it is synthetic engineering evidence, not learner U.
 - Candidate proof should use a clean static build/server; dev/HMR process health is not acceptance evidence.
 - CSS rule remains: edit the effective shared owner; do not stack corrective CSS or fork per-System presentation.
 
@@ -113,7 +119,7 @@ Current gate:
   - C sibling journey PASS with 34 checks and shared Block Workspace PASS after the D shared-runtime changes.
 - **E/F tested P/R/E shared-product integration is now closed without E/F-local product forks.**
   - E: 20 Blocks / 212 KP / 67 LG; F: 9 Blocks / 121 KP / 40 LG.
-  - final combined E/F static-Candidate journey PASS: **164 checks** in one browser/session, including cross-System state isolation.
+  - final combined E/F static-Candidate journey PASS: **211 checks** in one browser/session, including cross-System state isolation, external visual review and F8 visual-gap closure.
   - E: whole-block, contributes-only SR1, E12 non-default Source/LG release order, E10 visual-gap fail-closed.
   - F: whole-block, F1/F4 natural Source units, F8 visual-gap closure, F9 integration-direct + targeted Source returns.
   - D sibling journey PASS 48; C sibling journey PASS 34; shared Block Workspace PASS after the E/F shared-runtime repair.
@@ -125,13 +131,13 @@ Current gate:
 
 ### Next
 
-whole-subject realistic-use audit
-→ A1 remains the accepted Human-Gate visual/interaction reference; A2/A3/B/C/D/E/F tested integration is closed on the same product
-→ simulate a realistic Kian learner state across the whole Xizong route: resume, weak Recall, Memory/Repair/Return, Source revision, visual gaps, prerequisite edges and cross-System state isolation
-→ use a clean static Candidate and real active-writer conditions; do not treat dev/HMR health as learner-product evidence
-→ if a defect appears, repair the smallest shared owner or exact System semantic mapping
-→ Human Gate for later Systems and real learner U remain separate; do not infer either from engineering proof
-→ do not redesign the page, duplicate Runtime, infer Source segments, or fill missing owner data with placeholders
+normal real study + bounded exact-owner maintenance
+→ A1 remains the accepted Human-Gate visual/interaction reference; A2/A3/B/C/D/E/F tested integration and the whole-subject engineering audit are closed on the same product
+→ real Kian use is the only source of learner U; synthetic audit state must never be promoted to learner progress
+→ later-System Human Gate feedback is optional real-use calibration and may reopen only the smallest responsible shared Visual/Product/Runtime owner or exact System semantic mapping
+→ a new authoritative Source, concrete learner-visible defect or changed accepted meaning may reopen the narrow owner that actually changed
+→ Delivery/publishing is a separate concern; client-only proof may reuse artifacts, while content/Runtime changes correctly fall back to full build
+→ do not restart a broad System-template or lane-wide audit campaign without new evidence
 
 Historical campaigns, branch receipts and prior closure narratives are not continuation authority. The Current implementation-state summary above is routing context only; exact scoped owners remain authoritative.
 
