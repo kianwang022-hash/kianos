@@ -1,6 +1,6 @@
 # Politics Score / Ability / Material / Method / Evidence Matrix
 
-Status: **ACTIVE — revalidated against Politics MATURITY_REQUIREMENTS**
+Status: **CURRENT — revalidated score / ability planning model**
 
 Purpose: operationalize **Protect 70 / Push 75** without creating a second Politics knowledge system.
 
