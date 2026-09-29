@@ -134,7 +134,15 @@ try {
 
   const root = page.locator('[data-xizong-v6-block]');
   await root.waitFor({ state: 'visible' });
-  await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.classList.contains('xv6BlockWorkspaceShell'));
+  await page.waitForFunction(() =>
+    document.hasFocus()
+    && document.visibilityState === 'visible'
+    && document.documentElement.dataset.learnerWriter === 'active'
+    && document.querySelector('[data-xizong-v6-block]')?.classList.contains('xv6BlockWorkspaceShell')
+  );
+  // Candidate dev can HMR-reload the same URL on first compilation. Require the
+  // active writer/shell to remain settled before geometry/state assertions.
+  await page.waitForTimeout(220);
 
   const payload = JSON.parse((await page.locator('[data-xizong-learner-object-payload]').textContent()) || '{}');
   check(payload?.schema === 'kianos.xizong.learner_object.v1', 'learner_object_schema');

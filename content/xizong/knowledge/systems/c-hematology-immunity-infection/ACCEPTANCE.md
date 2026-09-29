@@ -15,9 +15,9 @@ This file owns C-scoped gate truth only. It does not own medical Core, lane lear
 | S — exact official System-question membership | **PASS_AFTER_BOUNDED_REPAIR** | Current owner = 290 exact qids; historical executable-resolver 326 repaired by excluding 38 non-C owner questions, then bounded D/F cross-System owner transfers |
 | K — Knowledge | **PASS** | C Knowledge accepted in merged PR #250 (`386fda93b2dd4fb75ab30eda3c7da8790cb6cf10`); current owner is `system.json` + 27 Block Cores |
 | L — Learning Logic | **PASS_AFTER_REPAIR** | Independent fresh audit: `C_PHASE6_FRESH_L_INDEPENDENT_ACCEPTANCE.md`; canonical owner `c-hematology-immunity-infection-learning.json` |
-| P — Projection | **NOT_STARTED / ELIGIBLE** | L is accepted; no C Projection work or acceptance is claimed by this task |
-| R — Runtime | **UNTESTED_FOR_THIS_STAGE** | no new C Runtime acceptance in this task |
-| E — Evidence | **UNTESTED_FOR_THIS_STAGE** | no new C Evidence acceptance in this task |
+| P — Projection | **PASS** | 1 SystemProjection + 27 BlockProjection materialized from Current owners; explicit/non-contiguous membership preserved |
+| R — Runtime | **PASS** | same shared V6 learner product; targeted C real-browser journey + shared workspace regressions passed |
+| E — Evidence | **PASS** | tested Source-contact evidence, Recall/closure persistence and shared Evidence/Repair surfaces preserve Current C semantics |
 | U — Learner Use | **NO_CLAIM** | no real-use/mastery/progress inference from repository state |
 
 Counts owned by accepted K/L artifacts:
@@ -25,6 +25,12 @@ Counts owned by accepted K/L artifacts:
 - **27 Blocks**
 - **423 stable KPs**
 - **133 Logic Groups**
+
+Current downstream conclusion:
+
+> **C is accepted on the existing shared learner product for the tested P/R/E scope. No C-local page, CSS or Runtime fork exists. Human Gate and learner U are not claimed.**
+
+Engineering evidence is bounded to the current compiled assets and tested shared-runtime paths; it does not imply that Kian has learned C.
 
 ---
 
@@ -169,11 +175,13 @@ Canonical KP existence alone creates no permanent review debt.
 
 ---
 
-## Projection boundary
+## Projection / shared-runtime boundary
 
-P is **eligible but not started**.
+P is **accepted for the current compiled C scope**.
 
-The legacy generic Xizong contiguous `[start,end]` loader is downstream debt. Future P must support accepted explicit membership, including non-contiguous groups. It may not split/reorder/rewrite L to preserve old loader assumptions.
+The shared semantic adapter and production presenter now consume the accepted sharded Learning owner, explicit/non-contiguous membership and Block/canonical-Source-unit Source contact without rewriting C Learning. H1 non-contiguous Recall order, H11 reviewed Visual timing and H24 fail-closed Source continuity were exercised on the shared learner product.
+
+No C-local page, CSS, Runtime or learner-state store was introduced. Human Gate remains unclaimed; learner U remains real-use truth only.
 
 ---
 

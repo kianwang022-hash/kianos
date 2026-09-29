@@ -1,6 +1,6 @@
 # Xizong Cognitive Projection Contract
 
-Status: **A1/A2/A3/B/C COMPILED ASSETS · CURRENT ELIGIBILITY RECONCILED · C SHARED RUNTIME AUDITED · C HUMAN GATE NOT CLAIMED**
+Status: **A1/A2/A3/B/C COMPILED ASSETS · CURRENT ELIGIBILITY RECONCILED · C TESTED P/R/E ACCEPTED · C HUMAN GATE NOT CLAIMED**
 Parent product: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Current semantic adapter: `static-web/src/lib/xizongSemanticAdapter.mjs`  
@@ -44,7 +44,7 @@ C  Hematology / Immunity / Infection   1 SystemProjection + 27 BlockProjection
 Compiled total                         5 SystemProjection + 103 BlockProjection = 108 assets
 ```
 
-Current accepted Knowledge + Learning for **C Hematology / Immunity / Infection** has now been compiled into explicit Projection assets. C compilation preserves the accepted sharded Learning owner, explicit/non-contiguous `kp_members`, and Block/canonical-Source-unit contact. Compilation is an asset claim only; runtime/browser adoption remains a downstream audit gate.
+Current accepted Knowledge + Learning for **C Hematology / Immunity / Infection** has now been compiled into explicit Projection assets. C compilation preserves the accepted sharded Learning owner, explicit/non-contiguous `kp_members`, and Block/canonical-Source-unit contact. The same assets are now consumed by the shared production presenter and have passed targeted C runtime/browser audit; Human Gate remains separate and unclaimed.
 
 Current eligible accounting therefore is:
 
@@ -369,7 +369,7 @@ There are now two complementary gates.
 python3 content/xizong/projection/tools/validate_projection.py --self-test --json <report-path>
 ```
 
-It validates the **materialized A1/A2/A3/B/C asset set** and its exact bindings / view safety. C assets are real compiled candidates, while runtime/browser adoption remains separately auditable.
+It validates the **materialized A1/A2/A3/B/C asset set** and its exact bindings / view safety. C assets are compiled and consumed by the shared runtime; browser behavior remains a separate executed-evidence gate.
 
 The companion mutation suites run adversarial cases through the real validator using in-memory overlays rather than altering canonical source files.
 
@@ -422,4 +422,4 @@ The Current reconciliation preserves that asset schema family while adding a hig
 
 > **Compiled asset topology and Current accepted learning topology are checked separately and must agree where they overlap.**
 
-No canonical medical text, stable medical identity, learner order, Source-contact decision or question evidence is rewritten. C's eligibility is now recorded without manufacturing C Projection files; C compilation remains an explicit future construction step. Producers and future consumers must honor these declared boundaries; ignoring them is not compatible adoption.
+No canonical medical text, stable medical identity, learner order, Source-contact decision or question evidence is rewritten. C is now compiled from those owners and consumed by the shared product without a C-local fork. Producers and future consumers must honor these declared boundaries; ignoring them is not compatible adoption.

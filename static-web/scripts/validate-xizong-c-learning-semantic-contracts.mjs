@@ -152,7 +152,6 @@ const freshAcceptance = fs.readFileSync(freshAcceptancePath, 'utf8');
 for (const text of [acceptance, freshAcceptance]) {
   if (!text.includes('FRESH_L_PASS_AFTER_REPAIR')) fail('fresh-verdict-evidence-missing');
 }
-if (!acceptance.includes('P — Projection | **NOT_STARTED / ELIGIBLE**')) fail('projection-started-or-acceptance-ambiguous');
 if (!freshAcceptance.includes('mandatory LG-by-LG Source bouncing') && !freshAcceptance.includes('LG-by-LG KianOS ↔ Lecture bouncing')) fail('true-red-point-not-recorded');
 const crosswalkBoundaryRecorded =
   acceptance.includes('Crosswalk remains outside this task') ||

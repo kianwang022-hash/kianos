@@ -29,7 +29,8 @@ Current goal:
 preserve one accepted shared learner product
 → A1 Human Gate remains the visual/interaction reference
 → A2 / A3 / B reuse stays closed
-→ C is compiled and shared-runtime audited on the same product
+→ C is compiled and its tested P/R/E shared-product integration is accepted on the same product
+→ C Human Gate remains unclaimed; reopen only for a real C/shared-product defect
 → advance only when the next System has accepted Current Learning authority
 ```
 
@@ -102,14 +103,14 @@ Current gate:
   - H24 fail-closed Source continuity PASS: one Block/canonical-Source-unit confirmation covers all 17 KP; no LG-derived Source segments are invented.
   - C targeted real-browser journey PASS with 31 checks; shared Block Workspace PASS; shared System Workspace PASS; System Recall/Practice workspace PASS with 137 checks.
   - static build PASS: 941 pages.
-  - C Human Gate is not claimed; this is engineering/shared-runtime evidence only.
+  - C tested P/R/E shared-product integration is accepted in the exact C Acceptance owner; C Human Gate and learner U are not claimed.
 - Human Gate regression closed after reuse: the learner-facing Space Core toggle now resolves the **current active KP frame at click time** instead of capturing the first rendered KP. Verified on KP01→KP03 for B-D `kp_learn`, B-M global Source Lane `source_contact`, and A1 `source_contact`; the shared browser regression now explicitly checks Space after a KP switch.
 - Human Gate feedback on a later System may reopen only the smallest responsible shared Visual/Product/Runtime owner or that System's semantic Projection; it must not create System-local CSS/product forks.
 
 ### Next
 
 remaining-System readiness
-→ C is compiled and shared-runtime audited; do not reopen it without a real defect
+→ C tested P/R/E shared-product integration is closed; Human Gate remains unclaimed; do not reopen it without a real defect
 → D / E / F remain outside Projection compilation until their exact Current Learning eligibility is accepted
 → read the exact System + Learning owner for the next eligible System
 → land/accept Learning semantics first when that is the missing authority

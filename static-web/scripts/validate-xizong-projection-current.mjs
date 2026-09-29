@@ -26,7 +26,7 @@ const compiledIds = compiled.map((row) => row?.canonical_id);
 assert(JSON.stringify(compiledIds) === JSON.stringify(['A1', 'A2', 'A3', 'B', 'C']), `compiled:${compiledIds.join(',')}`);
 const cCompiled = compiled.find((row) => row?.canonical_id === 'C');
 assert(cCompiled?.system_id === 'hematology-immunity-infection', 'c-system-id');
-assert(cCompiled?.status === 'ELIGIBLE_COMPILED', `c-status:${cCompiled?.status}`);
+assert(cCompiled?.status === 'ELIGIBLE_COMPILED_P_ACCEPTED', `c-status:${cCompiled?.status}`);
 assert(cCompiled?.block_count === 27, `c-block-count:${cCompiled?.block_count}`);
 
 const eligibleNotCompiled = Array.isArray(accounting.eligible_not_compiled) ? accounting.eligible_not_compiled : [];

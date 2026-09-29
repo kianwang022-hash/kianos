@@ -48,13 +48,17 @@ const bAsset = loadCompiledXizongProjectionAsset('digestive-metabolic-endocrine-
 assert(Boolean(bAsset?.asset), 'b-d01:compiled-projection-asset-missing');
 assert(!JSON.stringify(bAsset.asset.views?.BLOCK_ORIENT || {}).includes('CANONICAL_GUIDE'), 'b-d01:second-lecture-regression');
 
-// C remains semantically compatible but intentionally uncompiled until its own P work.
+// C consumes the same production presenter while preserving explicit/non-contiguous LG membership
+// and Block/canonical-Source-unit contact.
+const canonicalCH1 = loadXizongBlock('hematology-immunity-infection', 'h01');
+const cProduction = buildXizongProductionBlock(canonicalCH1);
 const semanticCH1 = loadXizongSemanticBlock('hematology-immunity-infection', 'hematology-h01').block;
 const cLg = semanticCH1.logicGroups.find((row) => row.groupId === 'c-h01-lg06');
 assert(cLg?.membershipMode === 'EXPLICIT_ORDINAL_LIST', `c-h01:membership-mode:${cLg?.membershipMode}`);
 assert(JSON.stringify(cLg?.kpOrdinals) === JSON.stringify([1, 12, 13]), `c-h01:noncontiguous:${cLg?.kpOrdinals}`);
 assert(semanticCH1.sourceContact.logicGroupIsAutomaticSourceChunk === false, 'c-h01:source-bounce-regression');
-assert(loadCompiledXizongProjectionAsset('hematology-immunity-infection', 'hematology-h01') === null, 'c-h01:false-compiled-projection');
+assert(cProduction.cognitiveProjection.compiled === true, 'c-h01:compiled-projection-not-consumed');
+assert(Boolean(loadCompiledXizongProjectionAsset('hematology-immunity-infection', 'hematology-h01')?.asset), 'c-h01:compiled-projection-asset-missing');
 
 const page = read('static-web/src/pages/xizong/[system]/[block].astro');
 const blockUi = read('static-web/src/components/XizongBlockV6.astro');

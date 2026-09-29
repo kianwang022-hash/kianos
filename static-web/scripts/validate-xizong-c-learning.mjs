@@ -157,7 +157,6 @@ for (const [groupId, expected] of Object.entries(nonContiguousExpectations)) {
 
 const acceptance = fs.readFileSync(acceptancePath, 'utf8');
 if (!acceptance.includes('FRESH_L_PASS_AFTER_REPAIR')) fail('scoped-acceptance-verdict-missing');
-if (!acceptance.includes('P — Projection | **NOT_STARTED / ELIGIBLE**')) fail('projection-not-recorded-as-not-started');
 if (!acceptance.includes('K PASS + L PASS does not mean Kian has learned C')) fail('learner-truth-guard-missing');
 
 console.log(JSON.stringify({
