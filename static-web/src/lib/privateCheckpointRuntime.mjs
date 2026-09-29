@@ -67,12 +67,74 @@ function sharedForCurrentDay(shared, currentDay) {
 // Transport concurrency token only: no learner facts, cache, or second ledger.
 export const PRIVATE_CHECKPOINT_BASE_KEY = 'kianos-private-checkpoint-base-v1';
 export const PRIVATE_CHECKPOINT_LINEAGE_KEY = 'kianos-private-checkpoint-lineage-v2';
-const PRIVATE_CHECKPOINT_LINEAGE_SCHEMA = 'kianos.private-checkpoint-lineage.v2';
+const PRIVATE_CHECKPOINT_LINEAGE_SCHEMA_V2 = 'kianos.private-checkpoint-lineage.v2';
+const PRIVATE_CHECKPOINT_LINEAGE_SCHEMA = 'kianos.private-checkpoint-lineage.v3';
 const CHECKPOINT_SHARED_GROUP_ID = 'shared';
 const CHECKPOINT_GROUP_IDS = Object.freeze([
   CHECKPOINT_SHARED_GROUP_ID,
   ...SUBJECT_CHECKPOINT_GROUPS.map(({ id }) => id)
 ]);
+
+const stableJson = (value) => Array.isArray(value) ? '[' + value.map(stableJson).join(',') + ']'
+  : value && typeof value === 'object'
+    ? '{' + Object.keys(value).sort().map((key) => JSON.stringify(key) + ':' + stableJson(value[key])).join(',') + '}'
+    : JSON.stringify(value);
+
+const canonicalRaw = (raw) => {
+  if (typeof raw !== 'string') return raw;
+  try { return stableJson(JSON.parse(raw)); }
+  catch { return raw; }
+};
+
+const fingerprint = (value) => {
+  const source = String(value ?? '');
+  let high = 0xcbf29ce4;
+  let low = 0x84222325;
+  for (let index = 0; index < source.length; index += 1) {
+    low = (low ^ source.charCodeAt(index)) >>> 0;
+    const product = low * 0x1b3;
+    const carry = (product / 0x100000000) >>> 0;
+    high = (high * 0x1b3 + carry + (low << 8)) >>> 0;
+    low = product >>> 0;
+  }
+  return `fnv1a64:${high.toString(16).padStart(8, '0')}${low.toString(16).padStart(8, '0')}:${source.length}`;
+};
+
+const materialSubjectPayload = (value) => value == null ? null : {
+  schema: value.schema || null,
+  entries: subjectCheckpointEntries(value)
+    .map(([key, raw]) => [key, canonicalRaw(raw)])
+    .sort(([a], [b]) => a.localeCompare(b))
+};
+
+const materialSharedPayload = (value) => {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  return {
+    schema: value.schema || null,
+    study_day: value.study_day || null,
+    exam_profile: value.exam_profile ?? null,
+    chat_plan: value.chat_plan ?? null,
+    control_receipt_raw: canonicalRaw(value.control_receipt_raw ?? null),
+    steward_reality_raw: canonicalRaw(value.steward_reality_raw ?? null),
+    study_timer_state: value.study_timer_state ?? null,
+    study_timer_ledger: value.study_timer_ledger ?? null
+  };
+};
+
+export function privateCheckpointGroupFingerprints(checkpoint) {
+  const subjects = checkpoint?.payload?.subjects || {};
+  const materials = {
+    shared: materialSharedPayload(checkpoint?.payload?.shared),
+    xizong: materialSubjectPayload(subjects.xizong),
+    'english+lexical': {
+      english: materialSubjectPayload(subjects.english),
+      lexical: materialSubjectPayload(subjects.lexical)
+    },
+    politics: materialSubjectPayload(subjects.politics)
+  };
+  return Object.fromEntries(CHECKPOINT_GROUP_IDS.map((id) => [id, fingerprint(stableJson(materials[id]))]));
+}
+
 class SharedStorage {
   constructor(storage = null) {
     this.map = new Map([...SHARED_STORAGE_KEYS, CONTROL_LOCAL_RECEIPT_KEY]
@@ -101,24 +163,33 @@ function readLineageMap(storage) {
   if (typeof raw !== 'string' || !raw.trim()) return {};
   try {
     const parsed = JSON.parse(raw);
-    if (!parsed || parsed.schema !== PRIVATE_CHECKPOINT_LINEAGE_SCHEMA || !parsed.groups || typeof parsed.groups !== 'object' || Array.isArray(parsed.groups)) {
-      return {};
+    if (!parsed || !parsed.groups || typeof parsed.groups !== 'object' || Array.isArray(parsed.groups)) return {};
+    if (parsed.schema === PRIVATE_CHECKPOINT_LINEAGE_SCHEMA) {
+      return Object.fromEntries(Object.entries(parsed.groups).filter(([key, value]) =>
+        CHECKPOINT_GROUP_IDS.includes(key) && typeof value === 'string' && value.trim()
+      ));
     }
-    return Object.fromEntries(Object.entries(parsed.groups).filter(([key, value]) =>
-      CHECKPOINT_GROUP_IDS.includes(key) && typeof value === 'string' && value.trim()
-    ));
+    if (parsed.schema === PRIVATE_CHECKPOINT_LINEAGE_SCHEMA_V2) {
+      return Object.fromEntries(Object.entries(parsed.groups).filter(([key, value]) =>
+        CHECKPOINT_GROUP_IDS.includes(key) && typeof value === 'string' && value.trim()
+      ).map(([key, value]) => [key, 'checkpoint:' + value]));
+    }
+    return {};
   } catch {
     return {};
   }
 }
-function allowLocalChangesByGroup(storage, checkpointId) {
-  if (!checkpointId) return Object.fromEntries(CHECKPOINT_GROUP_IDS.map((id) => [id, true]));
+function allowLocalChangesByGroup(storage, checkpoint) {
+  if (!checkpoint?.checkpoint_id) return Object.fromEntries(CHECKPOINT_GROUP_IDS.map((id) => [id, true]));
   const lineage = readLineageMap(storage);
   const legacyBase = storage.getItem(PRIVATE_CHECKPOINT_BASE_KEY);
-  return Object.fromEntries(CHECKPOINT_GROUP_IDS.map((id) => [
-    id,
-    legacyBase === checkpointId || lineage[id] === checkpointId
-  ]));
+  const fingerprints = privateCheckpointGroupFingerprints(checkpoint);
+  return Object.fromEntries(CHECKPOINT_GROUP_IDS.map((id) => {
+    const token = lineage[id] || '';
+    const fingerprintMatches = token === 'fp:' + fingerprints[id];
+    const checkpointMatches = token === 'checkpoint:' + checkpoint.checkpoint_id;
+    return [id, legacyBase === checkpoint.checkpoint_id || fingerprintMatches || checkpointMatches];
+  }));
 }
 function warningGroupId(warning) {
   if (typeof warning !== 'string' || !warning.startsWith('checkpoint:')) return null;
@@ -128,10 +199,11 @@ function warningGroupId(warning) {
   const id = prefix.slice(0, sep);
   return CHECKPOINT_GROUP_IDS.includes(id) ? id : null;
 }
-function rememberLineage(storage, checkpointId, successfulGroupIds, warnings) {
+function rememberLineage(storage, checkpoint, successfulGroupIds, warnings) {
   try {
     const next = readLineageMap(storage);
-    for (const groupId of successfulGroupIds) next[groupId] = checkpointId;
+    const fingerprints = privateCheckpointGroupFingerprints(checkpoint);
+    for (const groupId of successfulGroupIds) next[groupId] = 'fp:' + fingerprints[groupId];
     storage.setItem(PRIVATE_CHECKPOINT_LINEAGE_KEY, JSON.stringify({
       schema: PRIVATE_CHECKPOINT_LINEAGE_SCHEMA,
       groups: next
@@ -238,7 +310,7 @@ export async function saveSharedControlToPrivate(storage, {
   if (existing.status === 'ready' && existing.checkpoint?.schema !== PRIVATE_CHECKPOINT_SCHEMA) throw new Error('PRIVATE_CHECKPOINT_EXISTING_SCHEMA_INVALID');
   const previous = existing.checkpoint || null, existingSubjects = previous?.payload?.subjects || {};
   const warnings = [];
-  const groupAuthorizations = allowLocalChangesByGroup(storage, previous?.checkpoint_id || null);
+  const groupAuthorizations = allowLocalChangesByGroup(storage, previous);
   // A fresh disk read is not proof this browser descends from that checkpoint.
   // Only a previously recovered/saved token permits changed local keys to win.
   let shared;
@@ -267,7 +339,7 @@ export async function saveSharedControlToPrivate(storage, {
   await writeCheckpoint(checkpoint, { expectedCheckpoint: previous });
   const blockedGroups = new Set(warnings.map(warningGroupId).filter(Boolean));
   const successfulGroups = CHECKPOINT_GROUP_IDS.filter((groupId) => !blockedGroups.has(groupId));
-  rememberLineage(storage, checkpoint.checkpoint_id, successfulGroups, warnings);
+  rememberLineage(storage, checkpoint, successfulGroups, warnings);
   // Shadow-only recovery protects the durable checkpoint, but cannot prove that
   // this browser inherited those records. Never authorize its later overwrite.
   if (!warnings.length && localContainsCheckpoint(storage, checkpoint, studyDay)) rememberBase(storage, checkpoint.checkpoint_id, warnings);

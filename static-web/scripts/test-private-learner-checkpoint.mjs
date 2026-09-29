@@ -20,6 +20,7 @@ import {
 } from '../src/lib/sharedControlCheckpoint.mjs';
 import {
   initPrivateCheckpointAutosave,
+  PRIVATE_CHECKPOINT_LINEAGE_KEY,
   restoreSharedControlFromPrivate,
   saveSharedControlToPrivate,
   sharedControlStorageIsEmpty
@@ -460,6 +461,10 @@ const continuityInitial = await saveSharedControlToPrivate(continuityStorage, {
 });
 assert.equal(continuityInitial.status, 'saved');
 assert.equal(continuityCheckpoint.payload.shared.study_timer_ledger.sessions.length, 1);
+const initialLineage = JSON.parse(continuityStorage.getItem(PRIVATE_CHECKPOINT_LINEAGE_KEY));
+assert.equal(initialLineage.schema, 'kianos.private-checkpoint-lineage.v3');
+assert.match(initialLineage.groups['english+lexical'], /^fp:fnv1a64:/);
+const englishLineageBeforeFailure = initialLineage.groups['english+lexical'];
 
 continuityStorage.setItem(lexicalLedgerKey, '{corrupt-json');
 appendTimerSession(continuityStorage, 's2', now + 60000);
@@ -493,16 +498,22 @@ const continuityPartialThree = await saveSharedControlToPrivate(continuityStorag
   writeCheckpoint: writeContinuityCheckpoint
 });
 assert.equal(continuityPartialThree.status, 'partial');
-assert.ok(continuityPartialThree.warnings.some((row) => row.includes('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT')));
+assert.ok(continuityPartialThree.warnings.every((row) => !row.includes('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT')));
+assert.ok(continuityPartialThree.warnings.some((row) => row.includes('PRIVATE_CHECKPOINT_LEXICAL_JSON_INVALID')));
 assert.equal(continuityCheckpoint.payload.shared.study_timer_ledger.sessions.length, 4);
 assert.equal(
   JSON.parse(continuityCheckpoint.payload.subjects.english.entries[englishExposureKey]).materials['local-only'],
   undefined,
-  'failed english+lexical group must not gain overwrite authority from sibling saves'
+  'failed english+lexical group must not write a partial sibling payload'
+);
+const lineageDuringFailure = JSON.parse(continuityStorage.getItem(PRIVATE_CHECKPOINT_LINEAGE_KEY));
+assert.equal(
+  lineageDuringFailure.groups['english+lexical'],
+  englishLineageBeforeFailure,
+  'blocked group keeps the fingerprint of its last accepted durable payload'
 );
 
-continuityStorage.setItem(englishExposureKey, JSON.stringify(englishExposure));
-continuityStorage.removeItem(lexicalLedgerKey);
+continuityStorage.setItem(lexicalLedgerKey, JSON.stringify(lexicalLedger));
 appendTimerSession(continuityStorage, 's5', now + 240000);
 const continuityRecovered = await saveSharedControlToPrivate(continuityStorage, {
   now,
@@ -513,6 +524,10 @@ assert.equal(continuityRecovered.status, 'saved');
 assert.ok(continuityRecovered.warnings.every((row) => !row.includes('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT')));
 assert.equal(continuityCheckpoint.payload.shared.study_timer_ledger.sessions.length, 5);
 assert.equal(continuityCheckpoint.payload.subjects.lexical.schema, 'kianos.lexical.private-payload.v1');
+assert.ok(
+  JSON.parse(continuityCheckpoint.payload.subjects.english.entries[englishExposureKey]).materials['local-only'],
+  'recovered group must carry legitimate local progress after the real blocker is repaired'
+);
 
 const combinedSource = new MemoryStorage({
   [EXAM_PROFILE_KEY]: JSON.stringify(profile),
