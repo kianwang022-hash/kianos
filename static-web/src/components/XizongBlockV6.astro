@@ -856,7 +856,14 @@ window.__kianosLearnerWriterReady.then(() => {
       const remainingGroupIndex = firstUnrecalledNaturalGroupIndex();
       if (remainingGroupIndex >= 0) return { stage: 'kp_recall', groupIndex: remainingGroupIndex, sourceSegmentIndex: naturalSegmentIndexForGroup(groups[remainingGroupIndex]) };
       const visualBlockedIndex = firstBlockingVisualGroupIndex();
-      if (visualBlockedIndex >= 0) return { stage: 'kp_recall', groupIndex: visualBlockedIndex, sourceSegmentIndex: naturalSegmentIndexForGroup(groups[visualBlockedIndex]) };
+      if (visualBlockedIndex >= 0) {
+        const blockedGroup = groups[visualBlockedIndex];
+        return {
+          stage: groupVisualGapReviewableFromOriginalSource(blockedGroup) ? 'source_contact' : 'kp_recall',
+          groupIndex: visualBlockedIndex,
+          sourceSegmentIndex: naturalSegmentIndexForGroup(blockedGroup)
+        };
+      }
       return { stage: 'block_recall' };
     };
     const applyNaturalStep = (step) => {
@@ -1092,9 +1099,12 @@ window.__kianosLearnerWriterReady.then(() => {
         state.completed = false;
         state.completedAt = null;
         if (state.stage === 'block_recall') {
+          const blockedGroup = groups[visualBlockedIndex];
           state.groupIndex = visualBlockedIndex;
-          state.kpIndex = firstIndexForGroup(groups[visualBlockedIndex]);
-          state.stage = 'kp_recall';
+          state.kpIndex = firstIndexForGroup(blockedGroup);
+          const segmentIndex = naturalSegmentIndexForGroup(blockedGroup);
+          if (segmentIndex >= 0) state.sourceSegmentIndex = segmentIndex;
+          state.stage = groupVisualGapReviewableFromOriginalSource(blockedGroup) ? 'source_contact' : 'kp_recall';
         }
       }
       if (biochemistrySource?.laneSourceHash && state.stage === 'kp_learn') state.stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
@@ -1460,11 +1470,16 @@ window.__kianosLearnerWriterReady.then(() => {
           window.setTimeout(() => {
             const visualBlockedIndex = firstBlockingVisualGroupIndex();
             if (visualBlockedIndex >= 0) {
+              const blockedGroup = groups[visualBlockedIndex];
               state.groupIndex = visualBlockedIndex;
-              state.kpIndex = firstIndexForGroup(groups[visualBlockedIndex]);
+              state.kpIndex = firstIndexForGroup(blockedGroup);
+              const segmentIndex = naturalSegmentIndexForGroup(blockedGroup);
+              if (segmentIndex >= 0) state.sourceSegmentIndex = segmentIndex;
               save();
-              setStage('kp_recall');
-              if (statusLabel) statusLabel.textContent = `原图门禁未闭合 · ${groups[visualBlockedIndex]?.label || '当前学习节'}`;
+              setStage(groupVisualGapReviewableFromOriginalSource(blockedGroup) ? 'source_contact' : 'kp_recall');
+              if (statusLabel) statusLabel.textContent = groupVisualGapReviewableFromOriginalSource(blockedGroup)
+                ? `回原讲义核对原图 · ${blockedGroup?.label || '当前学习节'}`
+                : `原图门禁未闭合 · ${blockedGroup?.label || '当前学习节'}`;
             } else setStage('block_recall');
           }, 120);
         }

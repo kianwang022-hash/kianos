@@ -62,6 +62,31 @@ export function inspectXizongBlockCompletion(learnerObject, studyStateInput) {
   if (missingRatings.length) {
     return { complete: false, reason: 'KP_RECALL_INCOMPLETE', blockId, kpIds: ids, missingKpIds: missingRatings };
   }
+  const visualGroups = array(learnerObject?.logicGroups).filter((group) =>
+    group?.visualRequired === true && /GAP/i.test(text(group?.visualSourceState))
+  );
+  if (visualGroups.length) {
+    const sourceHash = text(learnerObject?.sourceHash);
+    const evidence = array(study?.sourceContactEvidence);
+    const unresolved = visualGroups.filter((group) => {
+      const groupId = text(group?.identity?.logicGroupId || group?.groupId);
+      if (!groupId) return true;
+      if (!/GAP.*NOT_MOUNTED/i.test(text(group?.visualSourceState))) return true;
+      return !evidence.some((entry) =>
+        text(entry?.source_hash) === sourceHash
+        && array(entry?.visual_reviewed_lg_ids).map(text).includes(groupId)
+      );
+    });
+    if (unresolved.length) {
+      return {
+        complete: false,
+        reason: 'VISUAL_EVIDENCE_INCOMPLETE',
+        blockId,
+        kpIds: ids,
+        missingVisualGroupIds: unresolved.map((group) => text(group?.identity?.logicGroupId || group?.groupId)).filter(Boolean)
+      };
+    }
+  }
   return { complete: true, reason: 'COMPLETE', blockId, kpIds: ids };
 }
 

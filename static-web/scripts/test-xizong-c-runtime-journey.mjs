@@ -33,11 +33,22 @@ async function waitWriter(page) {
     null, { timeout: 10000 }
   );
 }
+async function gotoStable(page, url) {
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      await page.goto(url, { waitUntil: 'domcontentloaded' });
+      return;
+    } catch (error) {
+      if (attempt === 2 || !/ERR_ABORTED|interrupted by another navigation|frame was detached|navigation/i.test(String(error?.message || error))) throw error;
+      await page.waitForTimeout(120);
+    }
+  }
+}
 async function reset(page, route) {
   const url = `${BASE}/xizong/hematology-immunity-infection/${route}/`;
   let cleared = false;
   for (let attempt = 0; attempt < 3 && !cleared; attempt += 1) {
-    await page.goto(url, { waitUntil: 'domcontentloaded' });
+    await gotoStable(page, url);
     await waitWriter(page);
     try {
       await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
@@ -47,7 +58,7 @@ async function reset(page, route) {
     }
   }
   check(cleared, `reset_storage_${route}`);
-  await page.goto(url, { waitUntil: 'domcontentloaded' });
+  await gotoStable(page, url);
   await waitWriter(page);
   await page.waitForFunction(() => document.querySelector('[data-xizong-v6-block]')?.classList.contains('xv6BlockWorkspaceShell'));
   await page.waitForTimeout(180);

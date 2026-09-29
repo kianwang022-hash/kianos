@@ -314,7 +314,12 @@ const payload = learnerObject || null;
         try { study = JSON.parse(localStorage.getItem(`kianos-xizong-astro-v2:${root.getAttribute('data-study-object')}`) || '{}'); } catch {}
         const group = groups.find((row) => row?.identity?.logicGroupId === groupId) || null;
         const ids = group?.kpIds || [];
-        const visualBlocked = group?.visualRequired === true && /GAP/i.test(text(group?.visualSourceState));
+        const sourceHash = root.getAttribute('data-study-source-hash') || '';
+        const visualReviewed = (study.sourceContactEvidence || []).some((entry) =>
+          String(entry?.source_hash || '') === sourceHash
+          && (Array.isArray(entry?.visual_reviewed_lg_ids) ? entry.visual_reviewed_lg_ids : []).map(String).includes(String(groupId || ''))
+        );
+        const visualBlocked = group?.visualRequired === true && /GAP/i.test(text(group?.visualSourceState)) && !visualReviewed;
         const closed = ids.length > 0 && !visualBlocked && ids.every((id) => study.learned?.[id] === true && study.ratings?.[id]);
         // POST_REVEAL extensions have explicit reveal timing; group precision and
         // outgoing connections are not moved earlier merely because a KP is revealed.

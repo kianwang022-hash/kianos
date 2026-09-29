@@ -1041,7 +1041,13 @@ export function loadXizongSystemCompletionRequirements(system) {
     const block = loadXizongBlock(system.systemId, ref.slug);
     return {
       schema: 'kianos.xizong.learner_object.v1', objectType: 'BLOCK',
+      sourceHash: block.sourceHash,
       identity: { blockId: block.blockId },
+      logicGroups: (block.logicGroups || []).map((group) => ({
+        identity: { logicGroupId: group.groupId },
+        visualRequired: group.visualRequired === true,
+        visualSourceState: String(group.visualSourceState || '')
+      })),
       kps: block.kpRecords.map((kp) => ({ identity: { kpId: kp.kpId } })),
       evidenceVersion: [block.sourceHash, block.systemSourceHash, block.learningSupportSourceHash].join(':')
     };

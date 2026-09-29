@@ -309,6 +309,7 @@ export function buildXizongLearnerObject({
   return {
     schema: XIZONG_LEARNER_OBJECT_SCHEMA,
     objectType: 'BLOCK',
+    sourceHash: text(block?.sourceHash),
     identity: {
       systemId: text(block?.systemId),
       canonicalId: text(block?.systemCanonicalId || block?.canonicalId),

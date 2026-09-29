@@ -221,6 +221,7 @@ async function fWholeAndNatural() {
   check(await stage() === 'kp_recall', 'f3_recall');
   check(state.sourceContactDone === true, 'f3_source_done');
   check(Object.values(state.learned || {}).filter(Boolean).length > 0, 'f3_formed');
+  check((state.sourceContactEvidence || []).some((row) => (row.visual_reviewed_lg_ids || []).includes('F3-LG02')), 'f3_external_visual_review_evidence');
 
   await reset('remaining-clinical', 'f01');
   check(await page.locator('[data-xizong-v6-block]').getAttribute('data-source-contact-mode') === 'NATURAL_SOURCE_UNITS', 'f1_mode');
@@ -247,6 +248,32 @@ async function fWholeAndNatural() {
   await rateGroupUntilExit(1, 'group_1');
   check(await stage() === 'source_contact', 'f1_true_boundary_after_lg02');
   check((await page.locator('[data-natural-source-status]').textContent()).includes('F1-SU2'), 'f1_su2');
+}
+
+async function fVisualExternalReview() {
+  console.log('EF_STEP F external visual review');
+  await reset('remaining-clinical', 'f07');
+  check(await page.locator('[data-xizong-v6-block]').getAttribute('data-source-contact-mode') === 'WHOLE_BLOCK_SOURCE', 'f7_mode');
+  await enter();
+  check(await page.locator('[data-learner-asset="visual"]:visible').count() >= 1, 'f7_visual_task_visible_in_source');
+  await click('[data-source-contact-done]:visible');
+  let state = await study();
+  check((state.sourceContactEvidence || []).some((row) => (row.visual_reviewed_lg_ids || []).includes('F7-LG01')), 'f7_visual_review_evidence');
+  await rateGroupUntilExit(0, 'f7_group_0');
+  state = await study();
+  check(await stage() === 'kp_recall' && Number(state.groupIndex) === 1, 'f7_visual_gate_released_after_source_review');
+
+  await reset('remaining-clinical', 'f08');
+  check(await page.locator('[data-xizong-v6-block]').getAttribute('data-source-contact-mode') === 'NATURAL_SOURCE_UNITS', 'f8_mode');
+  await enter();
+  check((await page.locator('[data-natural-source-status]').textContent()).includes('F8-SU1'), 'f8_su1');
+  check(await page.locator('[data-learner-asset="visual"]:visible').count() >= 1, 'f8_visual_task_visible_in_source');
+  await click('[data-source-contact-done]:visible');
+  state = await study();
+  check((state.sourceContactEvidence || []).some((row) => (row.visual_reviewed_lg_ids || []).includes('F8-LG01')), 'f8_su1_visual_review_evidence');
+  await rateGroupUntilExit(0, 'f8_group_0');
+  state = await study();
+  check(await stage() === 'kp_recall' && Number(state.groupIndex) === 1, 'f8_visual_gate_released_after_source_review');
 }
 
 async function f4AndF9() {
@@ -324,6 +351,7 @@ try {
   }
   if (SCOPE === 'both' || SCOPE === 'F') {
     await fWholeAndNatural();
+    await fVisualExternalReview();
     await f4AndF9();
   }
   const chrome = await page.evaluate(() => ({
