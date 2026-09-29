@@ -41,22 +41,23 @@ export function englishExternalCombinedCatalog({
   studyDay=null
 }={}){
   const generated=generatedDrillCatalogRows({privateDir:generatedDir,studyDay});
+  const generatedExternal=generated.filter(row=>row.task==='external_reading');
   let sourceCatalog;
   try{sourceCatalog=externalReadingCatalog(sourceState);}
   catch(error){sourceCatalog={status:'invalid',error:error instanceof Error?error.message:String(error),collections:[],counts:null};}
   const sourceReady=sourceCatalog.status==='ready';
   const collections=[
     ...(sourceReady?(sourceCatalog.collections||[]):[]),
-    ...(generated.length?[generatedCollection(generated)]:[])
+    ...(generatedExternal.length?[generatedCollection(generatedExternal)]:[])
   ];
-  if(sourceReady||generated.length){
+  if(sourceReady||generatedExternal.length){
     return{
       status:'ready',
       source_status:sourceCatalog.status,
       source_error:sourceCatalog.error||null,
       counts:{
         ...(sourceCatalog.counts||{}),
-        generated:{objects:generated.length}
+        generated:{objects:generatedExternal.length}
       },
       source_quality:sourceCatalog.source_quality||null,
       cognition_boundary:sourceCatalog.cognition_boundary||null,

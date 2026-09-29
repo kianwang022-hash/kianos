@@ -96,6 +96,33 @@ def parse_ielts_answers(raw: str, start: int, end: int) -> dict[str, str]:
     return result
 
 
+SOURCE_BOUND_RESPONSE_RE = re.compile(
+    r"(?i)\b(?:match|matching|drag|correct location|where they belong|classif(?:y|ication)|categor(?:y|ies)|table)\b"
+)
+
+def _answer_labels(value: str) -> list[str]:
+    raw = str(value or "").strip().upper()
+    if not raw:
+        return []
+    parts = [item.strip() for item in re.split(r"\s*[,;/|]\s*", raw) if item.strip()]
+    return parts if parts and all(re.fullmatch(r"[A-H]", item) for item in parts) else []
+
+def _reconcile_toefl_response_geometry(records: list[dict], answers: dict[str, str]) -> list[dict]:
+    for row in records:
+        ordinal = int(row["ordinal"])
+        labels = _answer_labels(answers.get(str(ordinal), ""))
+        option_labels = {str(label).upper() for label in (row.get("options") or {})}
+        source_text = f'{row.get("prompt") or ""}\n{row.get("source_text") or ""}'
+        if SOURCE_BOUND_RESPONSE_RE.search(source_text):
+            row["response_kind"] = "source_bound_ordered"
+        elif len(labels) > 1 and labels and all(label in option_labels for label in labels):
+            row["response_kind"] = "multi_choice"
+        elif len(labels) == 1 and labels[0] in option_labels:
+            row["response_kind"] = "single_choice"
+        else:
+            row["response_kind"] = "source_bound_response"
+    return records
+
 def question_records(prefix: str, start: int, end: int, raw: str, source_family: str) -> list[dict]:
     records = normalize_external_questions(raw, list(range(start, end + 1)), source_family)
     for row in records:
@@ -132,7 +159,10 @@ def compile_toefl(root: Path) -> list[dict]:
             passage_text, question_text, warnings = split_article_and_questions(content, 1, "TOEFL_TPO")
             passage_id = f"tpo{number}-p{passage_number}"
             normalized = normalize_external_passage(passage_text, title=title, source_family="TOEFL_TPO")
-            questions = question_records(passage_id, 1, expected, question_text, "TOEFL_TPO")
+            questions = _reconcile_toefl_response_geometry(
+                question_records(passage_id, 1, expected, question_text, "TOEFL_TPO"),
+                answers,
+            )
             collection = f"TPO{number}"
             output.append({
                 "passage_id": passage_id,

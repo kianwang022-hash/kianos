@@ -48,9 +48,13 @@ Useful private evidence is intentionally small:
 - attempt timing;
 - answer changes when available;
 - final correctness;
-- optional coarse learner note after submission.
+- optional coarse learner note after submission;
+- when a real Reading lexical lookup occurs, a bounded passive event may preserve attempt identity, exact token, bounded source context/locator, timestamp, and the question that merely had focus at that moment;
+- already-recorded local review evidence such as LOCATE alignment, JUDGE subtype and supported EXECUTION answer-switch evidence may be exported to Chat in a bounded factual slice.
 
 A quick-cause mark such as `没读懂 / 没定位准 / 选项没辨清 / 看错或改错` may preserve the learner's momentary feeling. It is not semantic truth and must never be mandatory.
+
+`没读懂` remains deliberately coarse. The Website must not auto-subclassify it into lexical / syntax / reference / logic / discourse from scores, lookups or cursor focus. A focused question at lookup time is context, not causality.
 
 Question-level evidence is allowed because evidence granularity can be smaller than attempt / diagnostic context.
 
@@ -69,6 +73,18 @@ Do not open full explanation or force a second pass.
 ### Problem signals
 
 Wrong / unanswered and meaningful uncertainty trigger **fast triage**, not automatic deep Chat review.
+
+Default learner-facing hierarchy after submit:
+
+```text
+problem answer / formal answer / decisive contrast
+→ obvious one-off miss now understood: continue
+→ still unclear, multiple problems may share one cause, or attribution matters: one whole-passage Chat handoff
+→ Chat reads passive evidence first
+→ only if the distinction would change repair/allocation and evidence is insufficient: ask one smallest clarification
+```
+
+The learner must not have to choose a quick-cause category before this path works. Quick-cause, evidence-span and local coach controls are secondary local inspection tools and should stay collapsed/quiet until explicitly opened.
 
 Triage should decide cheaply:
 
@@ -182,6 +198,8 @@ Derive one compact behavior rule. Do not turn ordinary uncertainty into an execu
 
 Chat owns deep semantic diagnosis, but Chat is not mandatory after every problem.
 
+Machine-readable Chat-return / transfer-claim import is a compatibility/evidence mechanism, not part of the default review surface. It must stay hidden during ordinary Wrong/Uncertain triage and may surface only after the learner explicitly escalates this passage to Chat or when this exact passage already has a saved return that needs inspection.
+
 When escalation is justified, one self-contained passage packet may include:
 
 1. identity;
@@ -189,13 +207,20 @@ When escalation is justified, one self-contained passage packet may include:
 3. passage once;
 4. compact all-question outcome map;
 5. expanded prompt/options for meaningful problem questions;
-6. uncertainty / answer trajectory / optional note when useful.
+6. uncertainty / answer trajectory / optional note when useful;
+7. bounded passive lookup facts and already-recorded Reading review signals when they materially help attribution.
 
 Stable correct questions stay compact.
 
 Expected Chat behavior:
 
 `whole context → meaningful problems → merge shared/dependent causes → choose smallest repair set → route LexicalOS / Representation / Reading-A-specific failures → optional backend transfer state`
+
+Lookup facts are evidence only. A lookup alone must not become `lexical failure`, and question focus at lookup time must not become `this question caused the lookup`.
+
+If `没读懂` remains important to the repair/allocation decision after passive evidence is read, Chat may ask the smallest useful clarification: first a binary confirmation when a recent lookup is a plausible blocker; only if still necessary, one coarse choice such as `词/短语 / 句子结构 / 指代或逻辑 / 整段 / 不确定`. Do not ask when the answer would not change repair or practice allocation.
+
+This evidence never authorizes automatic Reading-A dose contraction. Chat may contract low-information Reading-A mechanics only from sufficient real evidence, while External Reading / high-value reading input remains a separate growth lane.
 
 The learner should not need to retell every question.
 

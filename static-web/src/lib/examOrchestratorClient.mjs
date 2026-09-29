@@ -35,7 +35,7 @@ import { readXizongSystemWuPendingState } from './xizongSystemWuReturn.mjs';
 import { resolvePoliticsMemoryResume } from './politicsMemoryRuntime.mjs';
 
 const names = { xizong: '西综', english: '英语', politics: '政治' };
-const PRODUCT_FAMILIES = ['xizong', 'english', 'english-exam', 'reading', 'cloze', 'reading-b', 'external-reading', 'translation', 'writing', 'politics', 'vocabulary'];
+const PRODUCT_FAMILIES = ['xizong', 'english', 'english-exam', 'reading', 'cloze', 'cloze-generated', 'reading-b', 'external-reading', 'translation', 'writing', 'politics', 'vocabulary'];
 
 function safeProductHref(href, base = '/') {
   if (typeof href !== 'string' || !href.startsWith(base) || href.startsWith('//')) return null;

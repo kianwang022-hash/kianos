@@ -5,6 +5,7 @@ import path from 'node:path';
 import { defineConfig } from 'astro/config';
 import { privateLearnerBridge } from './scripts/privateLearnerBridge.mjs';
 import { privateExternalReadingBridge } from './scripts/privateExternalReadingBridge.mjs';
+import { privateEnglishGeneratedBridge } from './scripts/privateEnglishGeneratedBridge.mjs';
 import { privateControlBridge } from './scripts/privateControlBridge.mjs';
 
 // Astro dev/preview is an engineering surface, never the live learner runtime.
@@ -59,7 +60,7 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   vite: {
-    plugins: [privateLearnerBridge(), privateExternalReadingBridge(), privateControlBridge()],
+    plugins: [privateLearnerBridge(), privateExternalReadingBridge(), privateEnglishGeneratedBridge(), privateControlBridge()],
     define: {
       __KIANOS_RELEASE_SHA__: JSON.stringify(process.env.KIANOS_RELEASE_SHA || '')
     }

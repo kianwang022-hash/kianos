@@ -229,7 +229,7 @@ def _parse_question_block(block: str) -> tuple[str, dict[str, str], str, bool]:
     active_option = ""
     used_lines: list[str] = []
     boundary_uncertain = False
-    option_re = re.compile(r"^(?:0\s*)?[\[(]?\s*([A-D])\s*[\]).]\s*(.*)$", re.I)
+    option_re = re.compile(r"^(?:0\s*)?[\[(]?\s*([A-H])\s*[\]).]\s*(.*)$", re.I)
     for line in lines:
         match = option_re.match(line)
         if match:
@@ -240,9 +240,6 @@ def _parse_question_block(block: str) -> tuple[str, dict[str, str], str, bool]:
             options.setdefault(active_option, []).append(match.group(2).strip())
             used_lines.append(line)
         elif active_option:
-            if active_option == "D" and all(label in options for label in ("A", "B", "C", "D")):
-                boundary_uncertain = True
-                break
             options[active_option].append(line)
             used_lines.append(line)
         else:

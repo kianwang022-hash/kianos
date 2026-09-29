@@ -117,6 +117,43 @@ Representation is not a separate permanent course or mandatory page. It becomes 
 
 Lexical sense / phrase / construction / collocation / confusable failures remain owned by Lexical.
 
+### Cross-task diagnosis — underlying reading vs task-specific execution
+
+Chat may use evidence across Reading A, External Reading and Lexical to decide what kind of repair is justified. This is a **reasoning rule**, not a persisted learner score, classifier, mastery state or Website scheduler.
+
+Evidence roles are different:
+
+- **Reading A** provides exam-task evidence about demand, evidence location, option adjudication, uncertainty, answer trajectory and execution;
+- **External Reading `QUESTION_OUTCOME`** may provide broader reading/representation/discourse evidence under its own source-native task semantics;
+- **External Reading `READING_ONLY_COMPLETION`** proves exposure/workflow only — it does not prove comprehension correctness;
+- **Lexical** provides exact word/sense/phrase/construction evidence and delayed/real-context retention evidence; lookup alone proves assistance, not causality.
+
+Interpretation should be comparative, not single-signal:
+
+```text
+repeated Reading-A problems
++ comparatively stable External QUESTION_OUTCOME
++ no shared lexical / representation evidence
+→ task-specific Reading-A mechanism becomes more plausible
+   (for example LOCATE / JUDGE / EXECUTION)
+
+Reading-A problems
++ similar weakness on External QUESTION_OUTCOME
+→ shared Representation / discourse / lexical-access cause becomes more plausible
+
+repeated lexical assistance / unstable lexical evidence
+across meaningful reading contexts
+→ Lexical may be an upstream contributor
+
+reading-only completion, one isolated miss,
+exposed/assisted material, or sparse contradictory evidence
+→ keep diagnosis UNKNOWN
+```
+
+These are hypotheses with evidence strength, not automatic causal labels. Source-native External question success does not become Reading-A mastery, and Reading-A correctness does not prove broad reading growth.
+
+When the repair would materially differ but the current evidence cannot separate causes, Chat asks only the **smallest decision-changing clarification** (for example whether the decisive sentence had actually been located). Do not require a manual error taxonomy, diary or per-question explanation from the learner.
+
 ---
 
 ## 4｜Learning phases
@@ -287,7 +324,7 @@ Examples of legitimate elastic work include:
 - raising Translation fidelity/naturalness after the secure band is already reached;
 - raising Writing development and language control after basic score security exists;
 - reducing whole-paper fatigue and time-allocation variance;
-- using External Reading when ordinary English-I material no longer supplies enough reading-growth stimulus.
+- using External Reading whenever it supplies high-value reading growth that ordinary English-I work does not efficiently supply, including in parallel with true-exam throughput.
 
 There is no permanent English stop point. The operational stop rule is: **do not spend the next hour on English when another available action has clearly higher expected marginal value.**
 
@@ -303,6 +340,33 @@ Whole-paper work is not merely a seventh peer module. It validates whether task-
 - whether stable single-task performance collapses in the 180-minute system.
 
 As preparation matures, whole-paper evidence should absorb part of maintenance that would otherwise require separate task probes. A task that is stable both locally and repeatedly inside whole papers should normally receive less isolated maintenance, not duplicate practice.
+
+### True-exam throughput and review compression
+
+True-exam material is a high-value English-I training bank, especially for a repeat learner who can move through familiar task geometry quickly.
+
+The intended high-throughput loop is:
+
+```text
+Kian performs the complete clean task
+→ Runtime preserves cheap factual evidence where available
+→ Chat/system compresses review
+→ only the smallest independent repair(s) that could change future performance return to Kian
+→ leave the item and continue
+```
+
+Hard rules:
+
+- do not require Kian to manually build an error notebook, classify every wrong item, copy decisive evidence, or read every explanation merely to prove review happened;
+- a complete true-exam task may close with zero durable repair when the miss is cheaply understood and no reusable weakness is supported;
+- several wrong questions/blanks/placements that share one upstream cause should normally become one repair, not one ritual per wrong item;
+- one task may expose multiple genuinely independent high-value failures; compression must not force false singularity merely to reduce review count;
+- already-exposed true-exam material remains valuable for mechanics, repair, source familiarity and throughput, but its correctness cannot be promoted to unseen/fresh transfer evidence;
+- unseen true-exam material is scarce clean evidence, not sacred inventory. Kian/Chat may deliberately spend it on training when its current learning value exceeds its future diagnostic value; once exposed, that evidence role is honestly downgraded and never silently reset;
+- a repeat learner may consume the true-exam corpus rapidly while using synthetic/fresh/External material for lower-memory-residue transfer checks;
+- review latency should stay much smaller than task time unless a real reusable failure earns deeper work.
+
+The goal is not to minimize reflection. It is to make **learner attention track information value**: Kian does the English; Chat/system does the compression and bookkeeping.
 
 ### Material readiness: baseline first, targeted generation second
 
@@ -326,6 +390,26 @@ STRESS / EDGE
 Once an object has been exposed through teaching, explanation or repair, it cannot later serve as independent transfer evidence for that same mechanism. Once a calibration object has been deeply reviewed, it may still be reused for learning, but its future evidence role is downgraded. Material identity does not reset because the learner sees it in another page/session.
 
 When real practice exposes a specific failure, generate **targeted** material for that mechanism rather than expanding generic volume. A targeted generated task should identify the demand it attacks and the evidence that would count as transfer.
+
+**Repair generation and transfer generation are different jobs.** The smallest useful repair object may be much smaller than the independent object needed to claim transfer or stability.
+
+| Task family | Targeted repair / gap-filling shape | Stronger fresh transfer shape |
+| --- | --- | --- |
+| Reading A | minimum sufficient passage/span + real competing option contrast, or a focused Representation / Locate / Judge probe | fresh complete passage + question set for task-level transfer; a local probe supports only the mechanism it actually tests |
+| Cloze | minimum useful context + slot demand + genuinely competitive candidates + decisive lexical/syntactic/discourse constraint | fresh complete Cloze passage/set when claiming task-level transfer |
+| Part B | local, coupled or structure-level slice that preserves the real candidate competition and discourse dependency | fresh complete source-native Part-B form/set when claiming task-level transfer |
+| Translation | affected sentence/segment or relation under the same whole-source context, with learner Reconstruction | fresh segment may test one mechanism; task-level stability requires independent complete-section evidence |
+| Writing | smallest affected scope on the learner's own draft, or a focused synthetic micro-drill when that isolates the defect | fresh prompt + complete first draft for task-level transfer |
+| Lexical | exact sense / phrase / construction / confusable / productive object in a demand-matched generated Challenge | later clean use in fresh English context is stronger transfer evidence than repeated generated Challenge |
+
+Additional hard rules:
+
+- personalized generation is **gap-filling**, not a hidden homework queue;
+- do not generate another task merely because a target exists in backend state;
+- the generated object must preserve the native cognition of its task family rather than becoming generic multiple choice;
+- same-item or same-pattern repair may prove correction; it cannot by itself prove broad task stability;
+- stop generating when another probe is unlikely to change repair, confidence or allocation;
+- generation must not consume protected true-exam / TPO / IELTS / held-out material by stealth.
 
 Generated material must pass, at minimum:
 
@@ -428,15 +512,18 @@ Hard rules:
 
 - raw attempt history remains the private learner truth;
 - the packet may include only a bounded recent exact-attempt window per task plus fixed-size derived counts;
+- Reading A may additionally expose a bounded factual attribution slice containing passive lookup events and already-recorded reviewed Reading signals; this is evidence for Chat, not a Website diagnosis engine;
 - Reading A / Cloze / Part B / Translation / Writing / External Reading remain separate task families;
 - raw elapsed time is never compared across different task types as if seconds meant the same thing;
+- inside External Reading, raw elapsed time is **whole-task elapsed**, not reading speed: current evidence does not length-normalize passages or separate passage-reading time from source-native question-answering time, so it must not be converted into WPM or treated as a broad reading-speed claim;
 - uncalibrated timing is UNKNOWN, not slow;
 - the default decision-facing timing summary uses only **unseen + unassisted** attempts; exposed / assisted work remains visible only in separate observational timing so familiarity/help cannot make clean speed look faster;
 - exposed or assisted work cannot be promoted to independent-transfer evidence merely because it was correct;
+- a Reading lookup event may preserve the exact token, bounded source context/locator, timestamp and focused question at that moment; it proves assistance occurred, not that the lookup caused a question outcome or that the failure was lexical;
 - `independent_transfer_candidate` means evidence eligibility only, never mastery;
 - Translation / Writing do not receive fake auto-scores;
 - External Reading remains growth evidence, not English-I score evidence;
-- the profile cannot create Review debt, choose the next task, or rank tasks by itself.
+- the profile and Reading-attribution evidence cannot create Review debt, choose the next task, rank tasks, or contract practice dose by themselves; Chat owns those decisions, and External Reading remains protected reading-growth input.
 - **Workflow completion is an execution fact, not performance success or mastery.** A reviewed Wrong, repaired Translation, or `TRANSFER_PENDING` Writing state may be workflow-complete while still carrying meaningful learner evidence.
 
 The purpose is operational compression:
@@ -535,9 +622,23 @@ Rules:
 
 Unseen true-exam material remains limited diagnostic capital. Use synthetic / exposed material for teaching and software validation when sufficient, and consume protected true-exam material for real performance, calibration, or high-value transfer — not to close a database state.
 
-**External Reading has a different primary job:** add high-quality reading volume after ordinary English-I papers stop providing enough growth stimulus.
+**External Reading has a different primary job:** add high-quality reading-growth input that complements English-I true-exam work.
 
-Current preferred source order:
+It is a **parallel / elastic growth lane, not a later prerequisite stage**:
+
+```text
+true-exam Reading A
+→ exam demand / evidence / option adjudication / execution
+
+in parallel when valuable
+
+External Reading
+→ lexical breadth / proposition representation / discourse tracking / reading speed / long-passage stamina
+```
+
+Kian does not need to exhaust the true-exam corpus before External Reading starts. Early on, true-exam work may dominate because it has direct score and diagnostic value; External Reading may already run beside it when it adds useful low-memory-residue input. As Reading-A mechanics become stable or repeated true-exam work yields little new information, the mix may shift toward more External Reading. The current mix is a Chat allocation decision under the English and Exam owners, never a Website quota.
+
+Current preferred **source priority** (not learner sequence):
 
 1. legacy TOEFL / TPO academic reading, especially the existing TPO 56–65 pool;
 2. IELTS Academic reading, especially the existing IELTS 17–19 pool;

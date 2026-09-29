@@ -228,8 +228,19 @@
     const revision = document.createElement('textarea');
     revision.rows = 16;
     revision.placeholder = '在这里修改整篇；如果只需局部修，也可以只写受影响部分。';
+    const revisionTextFromState = (state = {}) => {
+      if (Object.prototype.hasOwnProperty.call(state, 'manualRevisionDraft')) {
+        return String(state.manualRevisionDraft || '');
+      }
+      return String(state?.manualRevisions?.at?.(-1)?.text || state?.firstDraft || '');
+    };
+    const syncRevisionFromState = () => {
+      const state = readJson(storageKey, {});
+      revision.value = revisionTextFromState(state);
+      updateRevisionMeta();
+    };
     const saved = readJson(storageKey, {});
-    revision.value = saved?.manualRevisionDraft || saved?.manualRevisions?.at?.(-1)?.text || saved?.firstDraft || '';
+    revision.value = revisionTextFromState(saved);
     revision.addEventListener('input', () => {
       const state = readJson(storageKey, {});
       state.manualRevisionDraft = revision.value;
@@ -243,11 +254,15 @@
     const updated = node('span', '', '未保存修订');
     meta.append(count, updated);
     revisionField.insertBefore(meta, revision);
-    const updateRevisionMeta = () => {
+    function updateRevisionMeta() {
       const words = String(revision.value || '').trim().split(/\s+/).filter(Boolean).length;
       count.textContent = `${words} words`;
-    };
+    }
     updateRevisionMeta();
+    const reviewObserver = new MutationObserver(() => {
+      if (!review.hidden) syncRevisionFromState();
+    });
+    reviewObserver.observe(review, { attributes: true, attributeFilter: ['hidden'] });
 
     const actions = node('div', 'productiveDirectActions');
     const chat = node('button', 'primary', '复制作文给 Chat');

@@ -1,0 +1,130 @@
+---
+const base=import.meta.env.BASE_URL;
+---
+<section class="clozeRuntime" data-objective-root data-objective-task="cloze" data-generated-cloze data-reading-base={base} data-objective-answers-ready="false" hidden>
+  <script type="application/json" data-english-task-snapshot set:html={JSON.stringify({})}></script>
+  <header class="clozeRuntimeHeader">
+    <div>
+      <span>Cloze · Chat-targeted</span>
+      <h2 data-objective-title>Chat-generated Cloze</h2>
+      <small data-objective-source-label>生成训练 · 不是真题校准</small>
+    </div>
+    <div class="clozeProgress"><strong data-cloze-progress>1 / 1</strong><span>整篇完成后统一提交</span></div>
+  </header>
+
+  <section class="clozeLayout">
+    <article class="clozePassage" data-objective-material>
+      <header><span>PASSAGE</span><strong>完整语境 · 先形成 slot demand</strong></header>
+      <div data-generated-cloze-material></div>
+    </article>
+    <aside class="clozeDecision">
+      <div class="clozeDecisionTop">
+        <div><span>QUESTION SHEET</span><strong data-cloze-active-label>Blank 1</strong></div>
+        <button type="button" data-cloze-uncertain>Uncertain</button>
+      </div>
+      <div class="clozeQuestions" data-generated-cloze-questions></div>
+      <div class="clozeNav" aria-hidden="true">
+        <button type="button" data-cloze-prev>← 上一空</button>
+        <div class="clozeDots" data-cloze-dots></div>
+        <button type="button" data-cloze-next>下一空 →</button>
+      </div>
+      <div class="clozeSubmitRow">
+        <span data-cloze-answer-count>0 / 0 answered</span>
+        <button type="button" class="clozeSubmit" data-objective-submit>提交整篇</button>
+      </div>
+      <div class="clozeResult" data-objective-result-summary hidden>
+        <strong data-objective-score></strong>
+        <span data-objective-result-note></span>
+      </div>
+    </aside>
+  </section>
+</section>
+<p data-generated-cloze-error hidden></p>
+
+<script>
+  import {preserveEnglishFailure} from '../lib/englishLearnerEvidence.mjs';
+  import {initClozeRuntime} from '../lib/clozeRuntime.mjs';
+  import {learnerWriterReady} from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(async()=>{
+    const root=document.querySelector('[data-generated-cloze]');
+    const errorNode=document.querySelector('[data-generated-cloze-error]');
+    if(!(root instanceof HTMLElement))return;
+    const base=root.getAttribute('data-reading-base')||'/';
+    const objectId=new URLSearchParams(location.search).get('id')||'';
+    const endpoint=path=>`${base}__kianos-private/english-generated/${path}`;
+    const fetchJson=async url=>{
+      const response=await fetch(url,{cache:'no-store'});
+      const data=await response.json().catch(()=>({status:'error',error:'Generated material response is not JSON.'}));
+      if(!response.ok||data.status==='error')throw new Error(data.error||data.status||`HTTP ${response.status}`);
+      return data;
+    };
+    const learnerErrorMessage=error=>{
+      const code=String(error?.message||error||'');
+      if(code==='ENGLISH_GENERATED_CLOZE_ID_REQUIRED')return '没有指定 Cloze 训练材料。请从 English 或 Chat 的具体训练入口进入。';
+      return '这份 Chat 生成的 Cloze 训练当前无法打开。请返回 English 或 Chat 后重新进入。';
+    };
+    const showError=error=>{
+      if(errorNode instanceof HTMLElement){errorNode.hidden=false;errorNode.textContent=learnerErrorMessage(error);}
+      if(root.dataset.objectiveObject&&root.dataset.englishSourceHash)preserveEnglishFailure(root,error);
+      else console.error(error);
+    };
+    if(!objectId){showError(new Error('ENGLISH_GENERATED_CLOZE_ID_REQUIRED'));return;}
+    try{
+      const payload=await fetchJson(endpoint('material?id='+encodeURIComponent(objectId)));
+      const material=payload.material;
+      if(material?.generated_task!=='cloze'||material?.question_origin!=='CHAT_GENERATED')throw new Error('ENGLISH_GENERATED_CLOZE_TASK_MISMATCH');
+      const questions=Array.isArray(material.questions)?material.questions:[];
+      if(!questions.length||questions.some(q=>q.response_kind!=='single_choice'||!q.question_id||Object.keys(q.options||{}).length<2))throw new Error('ENGLISH_GENERATED_CLOZE_QUESTIONS_INVALID');
+      const paragraphs=(material.passage_paragraphs||[]).map((text,index)=>({id:`${objectId}-p${index+1}`,text:String(text||'')}));
+      if(!paragraphs.length)throw new Error('ENGLISH_GENERATED_CLOZE_PASSAGE_REQUIRED');
+
+      root.dataset.objectiveObject=objectId;
+      root.dataset.objectiveStorageKey=`kianos-cloze-attempt-v1:${objectId}`;
+      root.dataset.englishSourceHash=material.content_hash||'';
+      const snapshot={
+        evidence:{source_kind:'generated',evidence_role:material.evidence_role||null,semantic_source_hash:material.content_hash||null,
+          transfer_independence:material.transfer_independence||null,calibration_status:material.calibration_status||'NOT_SCORE_EQUIVALENT'},
+        question_origin:'CHAT_GENERATED',completion_requirement:material.completion_requirement||'QUESTIONS_SUBMITTED',
+        training_target:material.training_target||null,material:paragraphs,context:{generated:true,task:'cloze'},
+        questions:questions.map(q=>({id:q.question_id,ordinal:q.ordinal,prompt:q.prompt,options:q.options}))
+      };
+      const snapshotNode=root.querySelector('[data-english-task-snapshot]');if(snapshotNode)snapshotNode.textContent=JSON.stringify(snapshot);
+      root.querySelector('[data-objective-title]').textContent=material.title||objectId;
+      root.querySelector('[data-objective-title]')?.setAttribute('title',material.training_target?.note||'');
+      const materialHost=root.querySelector('[data-generated-cloze-material]');materialHost.innerHTML='';
+      paragraphs.forEach(row=>{const el=document.createElement('p');el.dataset.objectiveMaterialBlock='';el.id=row.id;el.textContent=row.text;materialHost.appendChild(el);});
+      const questionHost=root.querySelector('[data-generated-cloze-questions]');const dots=root.querySelector('[data-cloze-dots]');
+      questionHost.innerHTML='';dots.innerHTML='';
+      questions.forEach((q,index)=>{
+        const section=document.createElement('section');section.className='clozeQuestion';section.dataset.objectiveQuestion=q.question_id;section.dataset.objectiveIndex=String(index);
+        section.innerHTML='<p data-objective-prompt></p><div class="clozeOptions"></div><p class="clozeFormal" data-objective-formal hidden>Formal answer: <strong></strong></p>';
+        section.querySelector('[data-objective-prompt]').textContent=q.prompt||`Blank ${index+1}`;
+        const options=section.querySelector('.clozeOptions');
+        for(const [label,text] of Object.entries(q.options||{})){
+          const button=document.createElement('button');button.type='button';button.dataset.clozeOption='';button.dataset.objectiveOption='';button.dataset.value=label;
+          button.innerHTML='<b></b><span></span>';button.querySelector('b').textContent=label;button.querySelector('span').textContent=text;options.appendChild(button);
+        }
+        questionHost.appendChild(section);
+        const jump=document.createElement('button');jump.type='button';jump.dataset.clozeJump=String(index);jump.setAttribute('aria-label',`Blank ${index+1}`);jump.textContent=String(index+1);dots.appendChild(jump);
+      });
+      localStorage.setItem('kianos-cloze-last-location-v1',JSON.stringify({id:objectId,title:material.title||objectId,href:`${base}cloze-generated/?id=${encodeURIComponent(objectId)}`,updatedAt:new Date().toISOString()}));
+
+      const prepareAnswers=async({root,rows})=>{
+        try{
+          const data=await fetchJson(endpoint('answers?id='+encodeURIComponent(objectId)));
+          const answerView=data.answers;
+          if(answerView?.content_hash!==material.content_hash||answerView?.generated_task!=='cloze')throw new Error('ENGLISH_GENERATED_CLOZE_ANSWER_REVISION_MISMATCH');
+          rows.forEach(row=>{const id=row.getAttribute('data-objective-question')||'';if(Object.prototype.hasOwnProperty.call(answerView.answers||{},id))row.setAttribute('data-answer',JSON.stringify(answerView.answers[id]));});
+          const ready=rows.every(row=>Boolean(row.getAttribute('data-answer')));
+          if(ready){root.dataset.objectiveAnswersReady='true';root.dispatchEvent(new CustomEvent('kianos:objective-answers-ready',{bubbles:true}));}
+          return ready;
+        }catch(error){showError(error);return false;}
+      };
+      const runtime=initClozeRuntime(root,{prepareAnswers});
+      if(runtime?.getState()?.submitted){
+        void prepareAnswers({root,rows:[...root.querySelectorAll('[data-objective-question]')]}).then(ok=>{if(ok)runtime.render();});
+      }
+      root.hidden=false;
+    }catch(error){showError(error);}
+  });
+</script>

@@ -83,6 +83,7 @@ body#kianos-workspace.uiEnglish .readingBDirections { display: none !important;
 body#kianos-workspace.uiEnglish :is(.readingBLayout, .readingBOrderingLayout) {
   grid-template-columns: minmax(0, 1.04fr) minmax(500px, .96fr);
   gap: 0;
+  align-items: stretch;
   height: calc(100dvh - 164px);
   min-height: 620px;
   overflow: hidden;

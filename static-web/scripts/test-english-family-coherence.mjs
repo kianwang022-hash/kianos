@@ -7,6 +7,7 @@ import { listClozeSets, listReadingBSets, loadReadingBById } from '../src/lib/en
 import { listTranslationSets } from '../src/lib/englishTranslation.mjs';
 import { listWritingRuntimeTasks } from '../src/lib/englishWritingRuntimeSourceTruth.mjs';
 import { listLexicalWordSummaries } from '../src/lib/lexical.mjs';
+import { englishSessionCatalog } from '../src/lib/englishSessionCatalog.mjs';
 
 const BASE = 'http://127.0.0.1:4491';
 const auditDir = path.resolve(process.cwd(), '../english-family-audit');
@@ -42,6 +43,18 @@ async function stopServer(server) {
 }
 
 const lexicalWords = new Set(listLexicalWordSummaries().map((row) => String(row.word || '').toLowerCase()).filter(Boolean));
+
+const sourceText = (relative) => fs.readFileSync(path.resolve(process.cwd(), relative), 'utf8');
+const officialClozeSource = sourceText('src/components/ClozeWorkspace.astro');
+const generatedClozeSource = sourceText('src/components/GeneratedClozeWorkspace.astro');
+const officialClozeRouteSource = sourceText('src/pages/cloze/[id].astro');
+const generatedClozeRouteSource = sourceText('src/pages/cloze-generated.astro');
+check(!/<style(?:\s|>)/.test(officialClozeSource), 'cloze_official_has_no_duplicate_component_style');
+check(!/<style(?:\s|>)/.test(generatedClozeSource), 'cloze_generated_has_no_duplicate_component_style');
+check(officialClozeRouteSource.includes("english-cloze-vertical.css"), 'cloze_official_uses_single_route_visual_owner');
+check(generatedClozeRouteSource.includes("english-cloze-vertical.css"), 'cloze_generated_uses_single_route_visual_owner');
+check(officialClozeSource.includes("initClozeRuntime"), 'cloze_official_reuses_shared_runtime');
+check(generatedClozeSource.includes("initClozeRuntime"), 'cloze_generated_reuses_shared_runtime');
 
 async function selectKnownWord(page, selector) {
   const locator = page.locator(selector);
@@ -102,16 +115,59 @@ async function assertExactLexicalResult(page, word, name) {
 }
 
 async function assertHome(page) {
-  await page.goto(`${BASE}/english/`, { waitUntil: 'domcontentloaded' });
   await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(`${BASE}/english/`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => {
+    const phase = document.querySelector('[data-english-home-phase]')?.textContent || '';
+    const gate = document.querySelector('[data-english-home-gate]')?.textContent || '';
+    return phase && phase !== '当前阶段' && gate && gate !== '按本轮时间线定位';
+  });
+
+  check(await page.locator('.kianosSubjectBar').count() === 0, 'english_home_no_duplicate_subject_bar');
+  check(await page.locator('.englishOverview').count() === 0, 'english_home_no_marketing_hero');
+  check(await page.locator('[data-english-home-context]').isVisible(), 'english_home_phase_gate_context_visible');
+  check((await page.locator('[data-english-home-phase]').innerText()).length > 2, 'english_home_phase_resolved');
+  check((await page.locator('[data-english-home-gate]').innerText()).includes('·'), 'english_home_gate_resolved');
+
   const layout = await page.locator('.englishCapabilityLayout').boundingBox();
   const map = await page.locator('.englishCapabilityMap').boundingBox();
   const rail = await page.locator('.englishContextRail').boundingBox();
   check(Boolean(layout && map && rail), 'english_home_primary_geometry_exists');
   check(layout.width > 1100, 'english_home_uses_mac_width', String(layout.width));
-  check(layout.y < 300, 'english_home_workbench_enters_first_viewport', String(layout.y));
+  check(layout.y < 240, 'english_home_workbench_enters_first_viewport', String(layout.y));
   check(map.width > rail.width * 2, 'english_home_tasks_dominate_guides_rail', `${map.width}/${rail.width}`);
   check(await page.locator('.englishGuideLinks a').count() === 3, 'english_home_keeps_three_optional_guides');
+
+  const resumeRow = englishSessionCatalog().find((row) => row.task === 'reading_a');
+  check(Boolean(resumeRow), 'english_home_resume_fixture_available');
+  const day = await page.evaluate(() => new Date().toLocaleDateString('en-CA'));
+  await page.evaluate(({day,row}) => {
+    localStorage.setItem('kianos-english-session-instruction-v1', JSON.stringify({
+      schema:'kianos.english.session-instruction.v1',
+      session_id:'english-home-workbench-proof',
+      study_day:day,
+      generated_at:new Date().toISOString(),
+      current_step:0,
+      steps:[{
+        step_id:'reading-proof',
+        task:'reading_a',
+        object_id:row.object_id,
+        source_hash:row.source_hash,
+        label:'Reading A · Resume proof',
+        note:'Exact unfinished object'
+      }],
+      return_policy:{on_finish:'english_home'}
+    }));
+  }, {day,row:resumeRow});
+  await page.reload({ waitUntil:'domcontentloaded' });
+  await page.locator('[data-english-resume]').waitFor({ state:'visible' });
+  check((await page.locator('[data-english-resume-title]').innerText()).includes('Resume proof'), 'english_home_exact_resume_visible');
+  const resumeBeforeTasks = await page.evaluate(() => {
+    const resume = document.querySelector('[data-english-resume-surface]');
+    const tasks = document.querySelector('.englishCapabilityLayout');
+    return Boolean(resume && tasks && (resume.compareDocumentPosition(tasks) & Node.DOCUMENT_POSITION_FOLLOWING));
+  });
+  check(resumeBeforeTasks, 'english_home_resume_precedes_task_map');
   await page.screenshot({ path: path.join(auditDir, 'english-home-1440x900.png'), fullPage: false });
 }
 

@@ -8,6 +8,8 @@ export const ENGLISH_GENERATED_ORIGINS=Object.freeze([
   'CHAT_GENERATED_SYNTHETIC',
   'CHAT_GENERATED_ON_EXTERNAL_SOURCE'
 ]);
+export const ENGLISH_GENERATED_TASKS=Object.freeze(['external_reading','reading_a','cloze']);
+export const ENGLISH_GENERATED_EVIDENCE_ROLES=Object.freeze(['TEACHING_REPAIR','TRANSFER']);
 
 const clean=(value,max=2000)=>String(value??'').trim().slice(0,max);
 const validDay=day=>typeof day==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(day)&&!Number.isNaN(Date.parse(day+'T00:00:00Z'));
@@ -21,7 +23,7 @@ export function resolveEnglishGeneratedDir({env=process.env,home=os.homedir()}={
 }
 
 function canonicalPayload(value){
-  return {
+  const payload={
     schema:value.schema,
     object_id:value.object_id,
     study_day:value.study_day,
@@ -33,6 +35,13 @@ function canonicalPayload(value){
     passage:value.passage||null,
     questions:value.questions
   };
+  // Preserve legacy external-reading hashes. Task identity becomes part of the
+  // content hash only when the generated object opts into a native task lane.
+  if(value.task&&value.task!=='external_reading')payload.task=value.task;
+  if(value.evidence_role)payload.evidence_role=value.evidence_role;
+  if(value.transfer_independence)payload.transfer_independence=value.transfer_independence;
+  if(value.calibration_status)payload.calibration_status=value.calibration_status;
+  return payload;
 }
 
 export function generatedDrillContentHash(value){
@@ -76,6 +85,8 @@ export function validateEnglishGeneratedDrill(value){
   if(!generatedAt||Number.isNaN(Date.parse(generatedAt)))throw new Error('ENGLISH_GENERATED_DRILL_TIME_INVALID');
   const origin=clean(value.origin,80);
   if(!ENGLISH_GENERATED_ORIGINS.includes(origin))throw new Error('ENGLISH_GENERATED_DRILL_ORIGIN_INVALID');
+  const task=clean(value.task,40)||'external_reading';
+  if(!ENGLISH_GENERATED_TASKS.includes(task))throw new Error('ENGLISH_GENERATED_DRILL_TASK_UNSUPPORTED:'+task);
   const target=value.training_target;
   if(!target||typeof target!=='object'||Array.isArray(target))throw new Error('ENGLISH_GENERATED_DRILL_TARGET_REQUIRED');
   const trainingTarget={
@@ -110,9 +121,21 @@ export function validateEnglishGeneratedDrill(value){
 
   const completionRequirement=clean(value.completion_requirement||value.completionRequirement,40)||'QUESTIONS_SUBMITTED';
   if(!['READ_ONLY_OK','QUESTIONS_SUBMITTED'].includes(completionRequirement))throw new Error('ENGLISH_GENERATED_DRILL_COMPLETION_INVALID');
+  const generatedObjectiveTask=['reading_a','cloze'].includes(task);
+  if(generatedObjectiveTask&&completionRequirement!=='QUESTIONS_SUBMITTED')throw new Error('ENGLISH_GENERATED_OBJECTIVE_QUESTIONS_REQUIRED:'+task);
+  const evidenceRole=clean(value.evidence_role||value.evidenceRole,40)||null;
+  if(generatedObjectiveTask&&!ENGLISH_GENERATED_EVIDENCE_ROLES.includes(evidenceRole))throw new Error('ENGLISH_GENERATED_OBJECTIVE_EVIDENCE_ROLE_REQUIRED:'+task);
+  const transferIndependence=value.transfer_independence&&typeof value.transfer_independence==='object'&&!Array.isArray(value.transfer_independence)
+    ? JSON.parse(JSON.stringify(value.transfer_independence)) : null;
+  if(generatedObjectiveTask&&evidenceRole==='TRANSFER'
+    && !(transferIndependence?.status==='PASS'&&transferIndependence?.basis==='CHAT_SELF_ATTACK')){
+    throw new Error('ENGLISH_GENERATED_OBJECTIVE_TRANSFER_INDEPENDENCE_REQUIRED:'+task);
+  }
+  const calibrationStatus=clean(value.calibration_status||value.calibrationStatus,80)||null;
 
   const result={
     schema:ENGLISH_GENERATED_DRILL_SCHEMA,
+    task,
     object_id:objectId,
     study_day:studyDay,
     generated_at:new Date(generatedAt).toISOString(),
@@ -121,7 +144,10 @@ export function validateEnglishGeneratedDrill(value){
     training_target:trainingTarget,
     source_ref:sourceRef,
     passage,
-    questions
+    questions,
+    evidence_role:evidenceRole,
+    transfer_independence:transferIndependence,
+    calibration_status:calibrationStatus
   };
   return {...result,content_hash:generatedDrillContentHash(result)};
 }
@@ -171,7 +197,7 @@ export function listEnglishGeneratedDrills({privateDir=resolveEnglishGeneratedDi
 
 export function generatedDrillCatalogRows(options={}){
   return listEnglishGeneratedDrills(options).map(drill=>({
-    task:'external_reading',
+    task:drill.task||'external_reading',
     object_id:drill.object_id,
     source_hash:drill.content_hash,
     content_hash:drill.content_hash,
@@ -223,10 +249,14 @@ export function materializeEnglishGeneratedDrill(drill,{loadExternalSource}={}){
     questions:value.questions.map(({answer,rationale,...q})=>q),
     answer_key_status:'CHAT_GENERATED',
     question_origin:'CHAT_GENERATED',
+    generated_task:value.task||'external_reading',
     drill_origin:value.origin,
     completion_requirement:value.completion_requirement,
     source_object_id:sourceObjectId,
     training_target:value.training_target,
+    evidence_role:value.evidence_role||null,
+    transfer_independence:value.transfer_independence||null,
+    calibration_status:value.calibration_status||'NOT_SCORE_EQUIVALENT',
     warnings:[],
     source_hash:value.source_ref?.content_hash||null,
     content_hash:value.content_hash
@@ -241,6 +271,7 @@ export function englishGeneratedDrillAnswers(drill){
     content_hash:value.content_hash,
     answer_key_status:'CHAT_GENERATED',
     question_origin:'CHAT_GENERATED',
+    generated_task:value.task||'external_reading',
     answers:Object.fromEntries(value.questions.map(q=>[q.question_id,q.answer])),
     rationales:Object.fromEntries(value.questions.filter(q=>q.rationale).map(q=>[q.question_id,q.rationale]))
   };

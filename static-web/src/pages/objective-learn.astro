@@ -1,13 +1,14 @@
 ---
 import fs from 'node:fs';
+import path from 'node:path';
 import crypto from 'node:crypto';
 import { marked } from 'marked';
 import Base from '../layouts/EnglishBase.astro';
 import '../styles/english-objective-guide.css';
 
 const sourcePath = 'content/english/modules/objective-learning.md';
-const sourceUrl = new URL(`../../../${sourcePath}`, import.meta.url);
-const markdown = fs.readFileSync(sourceUrl, 'utf8');
+const sourceFile = path.resolve(process.cwd(), '..', sourcePath);
+const markdown = fs.readFileSync(sourceFile, 'utf8');
 const sourceHash = crypto.createHash('sha256').update(markdown).digest('hex');
 const html = await marked.parse(markdown, { gfm: true, breaks: false });
 const base = import.meta.env.BASE_URL;

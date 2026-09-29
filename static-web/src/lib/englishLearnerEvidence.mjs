@@ -3,7 +3,10 @@ import { commitLearnerStorageChanges } from './browserLearnerWriter.mjs';
 import {assertEnglishExamTaskAccess,inspectEnglishExamSession,validateEnglishExamSession,englishExamScoreIsSuccessor} from './englishExamSession.mjs';
 export const ENGLISH_MATERIAL_EXPOSURE_KEY='kianos-english-material-exposure-v1';
 export const ENGLISH_EXPOSURE_SCHEMA='kianos.english.material-exposure.v1';
+export const ENGLISH_READING_REVIEW_SIGNAL_KEY='kianos-reading-watch-signals-v1';
+export const ENGLISH_READING_LOOKUP_EVENT_LIMIT=24;
 const clone=value=>value==null?value:JSON.parse(JSON.stringify(value));
+const boundedText=(value,max=1200)=>String(value??'').replace(/\s+/g,' ').trim().slice(0,max);
 
 export function readEnglishJson(storage,key,fallback=null){
  const raw=storage.getItem(key);if(raw==null)return clone(fallback);
@@ -127,12 +130,18 @@ export function taskMetadata(root,task,objectId){
  return {task,object_id:objectId,source_hash:root.getAttribute('data-english-source-hash')||null,semantic_source_hash:data?.evidence?.semantic_source_hash||root.getAttribute('data-english-source-hash')||null,snapshot:data};
 }
 
+const learnerSafeFailureDetail=(error)=>{
+ const raw=String(error?.message||error||'').trim();
+ return /^(?:ENGLISH|KIANOS)_[A-Z0-9_]+(?::.*)?$/.test(raw)?'':raw;
+};
+
 export function preserveEnglishFailure(root,error){
  if(typeof HTMLElement!=='undefined'&&root instanceof HTMLElement){
   root.dataset.englishReadonly='true';root.inert=true;
   let notice=root.previousElementSibling;
   if(!notice?.hasAttribute('data-english-recovery-error')){notice=document.createElement('p');notice.setAttribute('data-english-recovery-error','');notice.setAttribute('role','alert');root.before(notice);}
-  notice.textContent='学习记录已保留，当前暂不写入。请先导出或恢复记录，再继续。 '+String(error?.message||error);
+  const detail=learnerSafeFailureDetail(error);
+  notice.textContent='学习记录已保留，当前暂不写入。请先导出或恢复记录，再继续。'+(detail?' '+detail:'');
  }
  return error;
 }
@@ -182,6 +191,16 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
   }
   if(previous?.submitted===true && JSON.stringify(previous.answers)!==JSON.stringify(value.answers))throw new Error('ENGLISH_FIRST_ANSWERS_IMMUTABLE');
   if(previous?.binding?.assistance==='assisted')binding={...binding,assistance:'assisted'};
+  if(binding?.task==='reading_a'&&Array.isArray(previous?.lookupEvents)){
+    const incoming=Array.isArray(value.lookupEvents)?value.lookupEvents:[];
+    const byId=new Map();
+    for(const row of [...previous.lookupEvents,...incoming]){
+      if(!row||typeof row!=='object')continue;
+      const id=boundedText(row.event_id,320)||JSON.stringify(row);
+      byId.set(id,row);
+    }
+    value.lookupEvents=[...byId.values()].slice(-ENGLISH_READING_LOOKUP_EVENT_LIMIT);
+  }
   if(previous?.binding&&!previous.firstEvidenceMeta&&((!previous.submitted&&value.submitted)||(!previous.firstSubmittedAt&&value.firstSubmittedAt))){
    const history=inspectEnglishExposureHistory(storage,meta,{excludeAttemptId:binding.attempt_id});
    if(history.exposed)binding={...binding,prior_exposure:'exposed'};
@@ -247,6 +266,116 @@ export function markEnglishAssistance(storage,task,objectId,now=Date.now()){
  // Fact about this attempt only. Lookup never changes Lexical Coverage/Repair/mastery.
  state.binding.assistance='assisted';
  atomicEnglishWrites(storage,[[key,state],[ENGLISH_MATERIAL_EXPOSURE_KEY,exposureUpdate(storage,state.binding,'assisted',now)]]);
+}
+
+export function recordEnglishReadingLookup(storage,objectId,event={},now=Date.now()){
+ const id=boundedText(objectId,240);
+ const token=boundedText(event.token,120);
+ if(!id||!token)return null;
+ const key=ATTEMPT_PREFIXES.reading_a+id;
+ const state=readEnglishJson(storage,key);
+ if(!state?.binding||state.binding.task!=='reading_a'||state.binding.object_id!==id)return null;
+ const at=new Date(now).toISOString();
+ const preSubmit=state.submitted!==true&&!state.firstEvidenceMeta;
+ const lookup={
+   event_id:`${state.binding.attempt_id}:lookup:${at}:${(state.lookupEvents||[]).length+1}`,
+   token,
+   source_context:boundedText(event.source_context||event.sourceContext,600)||null,
+   source_locator:boundedText(event.source_locator||event.sourceLocator,180)||null,
+   focused_question_id:boundedText(event.focused_question_id||event.focusedQuestionId,180)||null,
+   focused_question_semantics:'CONTEXT_ONLY_NOT_CAUSALITY',
+   attempt_phase:preSubmit?'PRE_SUBMIT':'POST_SUBMIT_REVIEW',
+   at
+ };
+ const prior=Array.isArray(state.lookupEvents)?state.lookupEvents.filter(row=>row&&typeof row==='object'):[];
+ state.lookupEvents=[...prior,lookup].slice(-ENGLISH_READING_LOOKUP_EVENT_LIMIT);
+ if(preSubmit){
+   state.binding.assistance='assisted';
+   atomicEnglishWrites(storage,[[key,state],[ENGLISH_MATERIAL_EXPOSURE_KEY,exposureUpdate(storage,state.binding,'assisted',now)]]);
+ }else{
+   // Review-time lookup is real attribution evidence but cannot retroactively contaminate first-attempt assistance.
+   atomicEnglishWrites(storage,[[key,state]]);
+ }
+ return clone(lookup);
+}
+
+export function buildEnglishReadingAttributionSlice(storage,{objectIds=[],lookupLimit=24,signalLimit=24}={}){
+ const ids=[...new Set((Array.isArray(objectIds)?objectIds:[]).map(value=>boundedText(value,240)).filter(Boolean))];
+ const attempts=new Map();
+ const lookups=[];
+ for(const objectId of ids){
+   let attempt=null;try{attempt=readEnglishJson(storage,ATTEMPT_PREFIXES.reading_a+objectId);}catch{}
+   if(!attempt?.binding||attempt.binding.task!=='reading_a'||attempt.binding.object_id!==objectId)continue;
+   attempts.set(objectId,attempt);
+   for(const raw of Array.isArray(attempt.lookupEvents)?attempt.lookupEvents:[]){
+     if(!raw||typeof raw!=='object')continue;
+     const token=boundedText(raw.token,120);if(!token)continue;
+     lookups.push({
+       object_id:objectId,
+       attempt_id:boundedText(attempt.binding.attempt_id,240)||null,
+       source_hash:boundedText(attempt.binding.source_hash,128)||null,
+       token,
+       source_context:boundedText(raw.source_context,600)||null,
+       source_locator:boundedText(raw.source_locator,180)||null,
+       focused_question_id:boundedText(raw.focused_question_id,180)||null,
+       focused_question_semantics:'CONTEXT_ONLY_NOT_CAUSALITY',
+       attempt_phase:['PRE_SUBMIT','POST_SUBMIT_REVIEW'].includes(String(raw.attempt_phase||''))?String(raw.attempt_phase):'UNKNOWN',
+       observed_at:boundedText(raw.at,80)||null
+     });
+   }
+ }
+ lookups.sort((a,b)=>Date.parse(b.observed_at||'')-Date.parse(a.observed_at||''));
+
+ let signalStatus='missing',rawSignals=[];
+ const raw=storage?.getItem?.(ENGLISH_READING_REVIEW_SIGNAL_KEY);
+ if(raw!=null){
+   try{
+     const value=JSON.parse(raw);
+     if(!value||typeof value!=='object'||Array.isArray(value)||!Array.isArray(value.signals))signalStatus='invalid';
+     else {signalStatus='ready';rawSignals=value.signals;}
+   }catch{signalStatus='unreadable';}
+ }
+ let droppedUnbound=0;
+ const signals=[];
+ for(const rawSignal of rawSignals){
+   const objectId=boundedText(rawSignal?.passageId,240);
+   if(!attempts.has(objectId))continue;
+   const attempt=attempts.get(objectId),binding=attempt.binding;
+   const exact=Boolean(rawSignal?.attemptId&&rawSignal?.sourceHash
+     && rawSignal.attemptId===binding.attempt_id&&rawSignal.sourceHash===binding.source_hash);
+   const legacyTimestamp=Boolean(!rawSignal?.attemptId&&!rawSignal?.sourceHash
+     && rawSignal?.sourceSubmittedAt&&rawSignal.sourceSubmittedAt===attempt.submittedAt);
+   if(!exact&&!legacyTimestamp){droppedUnbound+=1;continue;}
+   signals.push({
+     object_id:objectId,
+     attempt_id:boundedText(binding.attempt_id,240)||null,
+     source_hash:boundedText(binding.source_hash,128)||null,
+     question_id:boundedText(rawSignal?.questionId,180)||null,
+     family:boundedText(rawSignal?.family,40)||null,
+     subtype_codes:Array.isArray(rawSignal?.subtypeCodes)?rawSignal.subtypeCodes.map(value=>boundedText(value,80)).filter(Boolean).slice(0,4):[],
+     question_task:boundedText(rawSignal?.questionTask,240)||null,
+     quick_cause:boundedText(rawSignal?.quickCause,120)||null,
+     reviewed_at:boundedText(rawSignal?.reviewedAt,80)||null,
+     data_status:exact?'bound':'legacy_timestamp_bound'
+   });
+ }
+ signals.sort((a,b)=>Date.parse(b.reviewed_at||'')-Date.parse(a.reviewed_at||''));
+
+ return {
+   schema:'kianos.english.reading-attribution.v1',
+   semantics:'FACTUAL_BOUNDED_ATTRIBUTION_EVIDENCE; NOT_DIAGNOSIS; NOT_MASTERY; NOT_DOSE_CONTROL',
+   lookup_events:lookups.slice(0,Math.max(1,Math.min(48,Number(lookupLimit)||24))),
+   reviewed_signals:signals.slice(0,Math.max(1,Math.min(48,Number(signalLimit)||24))),
+   review_signal_status:signalStatus,
+   dropped_unbound_review_signals:droppedUnbound,
+   guardrails:[
+     'LOOKUP_PROVES_ASSISTANCE_NOT_LEXICAL_CAUSALITY',
+     'FOCUSED_QUESTION_IS_CONTEXT_NOT_CAUSALITY',
+     'POST_SUBMIT_LOOKUP_DOES_NOT_RECLASSIFY_FIRST_ATTEMPT_ASSISTANCE',
+     'QUICK_CAUSE_IS_LEARNER_FEELING_NOT_SEMANTIC_TRUTH',
+     'ATTRIBUTION_SLICE_CANNOT_CREATE_REVIEW_DEBT_OR_CONTRACT_PRACTICE'
+   ]
+ };
 }
 
 const ENGLISH_KEYS=/^kianos-(?:reading-(?:attempt|session|continuous|last-location)|cloze-(?:attempt|last-location)|reading-b-(?:attempt|last-location)|translation-(?:attempt|transfer|last-location)|writing-(?:runtime|evidence|last-location)|english-(?:exam|session|objective|material|attempt|external-reading))/;
