@@ -1,6 +1,6 @@
 # Politics Content Hierarchy Contract
 
-Status: **CURRENT CANDIDATE — Content Layer**
+Status: **CURRENT — Content Layer**
 
 Role: define **learner attention hierarchy** for accepted Politics content before Projection/UI presentation.
 
