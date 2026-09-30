@@ -1,6 +1,7 @@
 import { assertLearnerStorageWritable, commitLearnerStorageChanges } from './browserLearnerWriter.mjs';
 import {
-  EXAM_CHAT_PLAN_KEY
+  EXAM_CHAT_PLAN_KEY,
+  validateExamChatPlan
 } from './examChatPlan.mjs';
 import {
   EXAM_PROFILE_KEY
@@ -14,7 +15,8 @@ import {
 import {
   SHARED_CONTROL_CHECKPOINT_SCHEMA,
   captureSharedControlCheckpoint,
-  restoreSharedControlCheckpoint
+  restoreSharedControlCheckpoint,
+  sharedControlCheckpointStorageEntries
 } from './sharedControlCheckpoint.mjs';
 import {
   STUDY_TIMER_LEDGER_KEY,
@@ -58,11 +60,12 @@ function sharedForCurrentDay(shared, currentDay) {
   if (!shared || shared.schema !== SHARED_CONTROL_CHECKPOINT_SCHEMA) {
     throw new Error('PRIVATE_CHECKPOINT_SHARED_CONTROL_INVALID');
   }
-  return {
-    ...shared,
-    study_day: currentDay,
-    chat_plan: shared.study_day === currentDay ? shared.chat_plan : null
-  };
+  let chatPlan = shared.chat_plan;
+  if (shared.study_day !== currentDay && chatPlan != null) {
+    try { validateExamChatPlan(chatPlan); chatPlan = null; }
+    catch { /* Retain unsupported evidence; its own restore will warn. */ }
+  }
+  return { ...shared, study_day: currentDay, chat_plan: chatPlan };
 }
 
 // Transport concurrency token only: no learner facts, cache, or second ledger.
@@ -368,6 +371,7 @@ function sameRecoveredValue(key, localRaw, durableRaw) {
   } catch { return false; }
 }
 function localContainsCheckpoint(storage, checkpoint, day, { includeReceipt = true } = {}) {
+  if (checkpoint.payload?.shared?.capture_warnings?.length) return false;
   const entries = Object.values(checkpoint.payload?.subjects || {}).flatMap(subjectCheckpointEntries);
   const projection = sharedProjection(checkpoint.payload?.shared, day);
   if (projection.warnings.length) return false;
@@ -395,6 +399,7 @@ export async function restoreSharedControlFromPrivate(storage, {
   const prepared = preparePrivateSubjectCheckpointRestore(storage, checkpoint.payload?.subjects || {}, { onlyIfEmpty: true });
   const warnings = Object.entries(prepared.results).filter(([, row]) => row.status === 'blocked' || row.blocked?.length)
     .map(([subject, row]) => 'checkpoint:' + subject + ':' + (row.reason || 'native recovery ambiguous'));
+  if (Array.isArray(checkpoint.payload?.shared?.capture_warnings)) warnings.push(...checkpoint.payload.shared.capture_warnings);
   const sharedChanges = [];
   let deferredReceipt = null;
   let concurrent = Object.values(checkpoint.payload?.subjects || {}).some(value => subjectCheckpointConflicts(storage, value));
@@ -454,11 +459,33 @@ export async function saveSharedControlToPrivate(storage, {
   try {
     const staged = new SharedStorage(storage);
     if (previous) {
-      const prior = sharedProjection(previous.payload.shared, studyDay);
-      if (!groupAuthorizations[CHECKPOINT_SHARED_GROUP_ID] && sharedConflict(storage, prior.staged)) throw new Error('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT');
-      for (const [key, raw] of prior.staged.map) if (staged.getItem(key) == null) staged.setItem(key, raw);
+      const prior = sharedForCurrentDay(previous.payload.shared, studyDay);
+      // Include invalid fields in the same existing group conflict guard. A
+      // partial validated projection is not authorization to replace them.
+      const entries = sharedControlCheckpointStorageEntries(prior);
+      if (!groupAuthorizations[CHECKPOINT_SHARED_GROUP_ID] && entries.some(([key, raw]) =>
+        raw != null && storage.getItem(key) != null && !sameCheckpointRaw(storage.getItem(key), raw)
+      )) throw new Error('PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT');
+      for (const [key, raw] of entries) if (raw != null && staged.getItem(key) == null) staged.setItem(key, raw);
     }
     shared = captureSharedControlCheckpoint(staged, { studyDay, now });
+    warnings.push(...shared.capture_warnings.map(warning => 'checkpoint:shared:' + warning));
+    // Keep original unsupported checkpoint values exactly when there is no
+    // local replacement; capture must not turn their representation into truth.
+    if (previous) {
+      const prior = sharedForCurrentDay(previous.payload.shared, studyDay);
+      for (const [key, , field] of sharedControlCheckpointStorageEntries(prior)) {
+        if (storage.getItem(key) != null) continue;
+        if (prior[field] != null) shared[field] = prior[field];
+        else if ([STUDY_TIMER_STATE_KEY, STUDY_TIMER_LEDGER_KEY].includes(key)) {
+          // An absent native timer reads as empty, but an incomplete durable
+          // source is not proof of an empty timer. Preserve that uncertainty.
+          shared[field] = prior[field];
+          warnings.push('checkpoint:shared:SHARED_CHECKPOINT_' +
+            (key === STUDY_TIMER_STATE_KEY ? 'TIMER_STATE' : 'TIMER_LEDGER') + '_INVALID');
+        }
+      }
+    }
   } catch (error) {
     warnings.push('checkpoint:shared:' + String(error.message || error));
     shared = previous?.payload?.shared || { schema: SHARED_CONTROL_CHECKPOINT_SCHEMA, study_day: studyDay, unavailable: true };

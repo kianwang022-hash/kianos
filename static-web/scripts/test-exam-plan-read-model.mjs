@@ -158,3 +158,24 @@ for (const state of ['missing', 'stale', 'invalid', 'unavailable']) {
   assert.equal(result.next, null, 'no automatic fallback for rejected evidence/plan');
 }
 console.log('PASS exam plan remaining-capacity regression');
+
+// The shared presentation model consumes only an admitted same-day reference.
+// It retains intent, not stale capacity, exact session binding or execution.
+{
+  const referencePlan={schema:'kianos.exam.chat-plan.v1',study_day:'2026-09-30',generated_at:'2026-09-30T00:00:00Z',subjects:{xizong:{target_minutes:90,role:'主线',session_ref:'old-session'},english:null,politics:null},next_subject:'xizong',capacity:{state:'REDUCED',summary:'old'},attention:{text:'old strategy'},presentation:{today_tasks:[{id:'t',label:'西综'}],week_reference:[{id:'w',label:'本周'}],schedule_blocks:[{id:'s',start:'08:00',end:'10:00',label:'主块'}]}};
+  const state={status:'reference',plan:referencePlan,error:'CHAT_PLAN_EVIDENCE_BASIS_STALE',executable:false,guidanceFresh:false};
+  const ref=buildChatControlledExamReadModel({day:'2026-09-30',chatPlanState:state,dayCapacity:0,nativeContinue:{xizong:{href:'/xizong/',title:'原生入口'}}});
+  assert.equal(ref.presentation.todayTasks.length,1);
+  assert.equal(ref.presentation.weekReference.length,1);
+  assert.equal(ref.subjects.xizong.role,'主线');
+  assert.equal(ref.control.planStatus,'reference');
+  assert.equal(ref.control.executable,false);
+  assert.equal(ref.control.capacityConflict,false);
+  assert.equal(ref.capacity.judgment,null);
+  assert.equal(ref.next,null);
+  assert.equal(ref.attention,null);
+  assert.equal(ref.subjects.xizong.sessionRef,null);
+  const invalid=buildChatControlledExamReadModel({day:'2026-09-30',chatPlanState:{...state,status:'invalid'}});
+  assert.equal(invalid.presentation,null);
+  console.log('PASS reference retains intentions without re-admitting strategy or session binding');
+}

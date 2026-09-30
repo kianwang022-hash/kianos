@@ -1,60 +1,75 @@
+import { EXAM_PROFILE_KEY, validateExamProfile } from './examOrchestrator.mjs';
 import {
-  EXAM_PROFILE_KEY,
-  validateExamProfile
-} from './examOrchestrator.mjs';
-import {
-  EXAM_CHAT_PLAN_KEY,
-  assertExamChatPlanTimeReadable,
-  validateExamChatPlan
+  EXAM_CHAT_PLAN_KEY, assertExamChatPlanTimeReadable, validateExamChatPlan
 } from './examChatPlan.mjs';
 import {
-  STUDY_TIMER_STATE_KEY,
-  STUDY_TIMER_LEDGER_KEY,
-  STUDY_TIMER_SCHEMA,
-  readStudyTimerState,
-  readStudyTimerLedger
+  STUDY_TIMER_STATE_KEY, STUDY_TIMER_LEDGER_KEY,
+  readStudyTimerState, readStudyTimerLedger
 } from './studyTimer.mjs';
-
+import { commitLearnerStorageChanges } from './browserLearnerWriter.mjs';
 import { CONTROL_LOCAL_RECEIPT_KEY, validateControlReceipt } from './privateControlCommand.mjs';
 import { STEWARD_REALITY_KEY, validateStewardReality } from './stewardReality.mjs';
 
 export const SHARED_CONTROL_CHECKPOINT_SCHEMA = 'kianos.shared-control-checkpoint.v1';
 
-const parse = (storage, key) => {
-  const raw = storage?.getItem?.(key);
-  if (raw == null) return null;
-  return JSON.parse(raw);
+const timerValidator = key => value => {
+  if (value == null) throw new Error('SHARED_CHECKPOINT_TIMER_MISSING');
+  assertExamChatPlanTimeReadable({ getItem: candidate => candidate === key ? JSON.stringify(value) : null });
+  return value;
 };
+const fields = [
+  ['exam_profile', EXAM_PROFILE_KEY, validateExamProfile],
+  ['chat_plan', EXAM_CHAT_PLAN_KEY, validateExamChatPlan],
+  ['study_timer_state', STUDY_TIMER_STATE_KEY, timerValidator(STUDY_TIMER_STATE_KEY), readStudyTimerState],
+  ['study_timer_ledger', STUDY_TIMER_LEDGER_KEY, timerValidator(STUDY_TIMER_LEDGER_KEY), readStudyTimerLedger],
+  ['steward_reality_raw', STEWARD_REALITY_KEY, validateStewardReality],
+  ['control_receipt_raw', CONTROL_LOCAL_RECEIPT_KEY, validateControlReceipt]
+];
+const isRaw = field => field.endsWith('_raw');
+const fieldWarning = field => 'SHARED_CHECKPOINT_' + ({
+  exam_profile: 'PROFILE', chat_plan: 'CHAT_PLAN', study_timer_state: 'TIMER_STATE',
+  study_timer_ledger: 'TIMER_LEDGER', steward_reality_raw: 'STEWARD_REALITY', control_receipt_raw: 'RECEIPT'
+}[field]) + '_INVALID';
 
-export function captureSharedControlCheckpoint(storage, {
-  studyDay,
-  now = Date.now()
-} = {}) {
+// Transport entries only, including unsupported bytes. Never apply these to
+// native storage without validation. Strings in object fields are opaque failed
+// captures, not a new executable schema or a repaired native record.
+export function sharedControlCheckpointStorageEntries(checkpoint) {
+  return fields.map(([field, key]) => {
+    const value = checkpoint?.[field];
+    return [key, value == null ? null : typeof value === 'string' ? value : JSON.stringify(value), field];
+  });
+}
+
+export function captureSharedControlCheckpoint(storage, { studyDay, now = Date.now() } = {}) {
   if (!storage?.getItem) throw new Error('SHARED_CHECKPOINT_STORAGE_UNAVAILABLE');
-  const profileRaw = parse(storage, EXAM_PROFILE_KEY);
-  const profile = profileRaw == null ? null : validateExamProfile(profileRaw, studyDay);
-
-  const chatRaw = parse(storage, EXAM_CHAT_PLAN_KEY);
-  const chatPlan = chatRaw == null || (studyDay && chatRaw?.study_day !== studyDay)
-    ? null
-    : validateExamChatPlan(chatRaw, studyDay);
-
-  // Keep the original bytes for recovery; validation is not allowed to make
-  // corrupt transport metadata prevent healthy learner evidence backup.
-  const receiptRaw = storage.getItem(CONTROL_LOCAL_RECEIPT_KEY);
-  assertExamChatPlanTimeReadable(storage);
-
-  return {
+  const checkpoint = {
     schema: SHARED_CONTROL_CHECKPOINT_SCHEMA,
     study_day: studyDay,
-    captured_at: new Date(now).toISOString(),
-    exam_profile: profile,
-    chat_plan: chatPlan,
-    control_receipt_raw: receiptRaw,
-    steward_reality_raw: storage.getItem(STEWARD_REALITY_KEY),
-    study_timer_state: readStudyTimerState(storage),
-    study_timer_ledger: readStudyTimerLedger(storage)
+    captured_at: new Date(now).toISOString()
   };
+  const warnings = [];
+  for (const [field, key, validate, readEmpty] of fields) {
+    // A denied read is not missing evidence and must still fail the capture.
+    const raw = storage.getItem(key);
+    if (raw == null) {
+      checkpoint[field] = readEmpty ? readEmpty(storage) : null;
+      continue;
+    }
+    try {
+      const value = JSON.parse(raw);
+      // Validate even yesterday's plan before deciding it is inapplicable.
+      const validated = validate(value, field === 'chat_plan' ? null : studyDay);
+      checkpoint[field] = isRaw(field) ? raw
+        : field === 'chat_plan' && studyDay && value.study_day !== studyDay ? null
+          : readEmpty ? readEmpty(storage) : validated;
+    } catch {
+      checkpoint[field] = raw;
+      warnings.push(fieldWarning(field));
+    }
+  }
+  checkpoint.capture_warnings = warnings;
+  return checkpoint;
 }
 
 export function restoreSharedControlCheckpoint(storage, checkpoint, {
@@ -65,66 +80,44 @@ export function restoreSharedControlCheckpoint(storage, checkpoint, {
   if (!checkpoint || checkpoint.schema !== SHARED_CONTROL_CHECKPOINT_SCHEMA) {
     throw new Error('SHARED_CHECKPOINT_SCHEMA_INVALID');
   }
-
-  const profile = checkpoint.exam_profile == null ? null : validateExamProfile(checkpoint.exam_profile, expectedDay);
-  const chatPlan = checkpoint.chat_plan == null ? null : validateExamChatPlan(checkpoint.chat_plan, expectedDay);
-  const timerState = checkpoint.study_timer_state;
-  const timerLedger = checkpoint.study_timer_ledger;
-  if (!timerState || timerState.schema !== STUDY_TIMER_SCHEMA) throw new Error('SHARED_CHECKPOINT_TIMER_STATE_INVALID');
-  if (!timerLedger || timerLedger.schema !== STUDY_TIMER_SCHEMA || !Array.isArray(timerLedger.sessions)) {
-    throw new Error('SHARED_CHECKPOINT_TIMER_LEDGER_INVALID');
-  }
-
-  const writes = [
-    [EXAM_PROFILE_KEY, profile],
-    [EXAM_CHAT_PLAN_KEY, chatPlan],
-    [STUDY_TIMER_STATE_KEY, timerState],
-    [STUDY_TIMER_LEDGER_KEY, timerLedger]
-  ];
   const warnings = [];
-  if (checkpoint.steward_reality_raw != null) {
+  const writes = [];
+  let receipt = null;
+  for (const [field, key, validate, requiredTimer] of fields) {
+    const value = checkpoint[field];
+    if (value == null && !requiredTimer) continue;
+    let raw;
     try {
-      if (typeof checkpoint.steward_reality_raw !== 'string') throw new Error('STEWARD_REALITY_RAW_INVALID');
-      validateStewardReality(JSON.parse(checkpoint.steward_reality_raw));
-      writes.push([STEWARD_REALITY_KEY, checkpoint.steward_reality_raw]);
+      // Opaque failed captures in object fields remain unsupported for restore.
+      if (!isRaw(field) && typeof value === 'string') throw new Error('OPAQUE_NATIVE_BYTES');
+      if (isRaw(field) && typeof value !== 'string') throw new Error('RAW_INVALID');
+      const validated = validate(isRaw(field) ? JSON.parse(value) : value, expectedDay);
+      raw = isRaw(field) ? value : JSON.stringify(validated);
     } catch {
-      warnings.push('SHARED_CHECKPOINT_STEWARD_REALITY_INVALID');
+      warnings.push(fieldWarning(field));
+      continue;
     }
+    if (field === 'control_receipt_raw') receipt = raw;
+    else if (storage.getItem(key) == null) writes.push([key, raw]);
   }
-  // A shared-only restore cannot prove a subject operation survived. The full
-  // recovery coordinator opts in only in its disposable projection, then admits
-  // the receipt after the matching native checkpoint is actually present.
-  // Raw receipt bytes always remain in the durable checkpoint.
-  if (checkpoint.control_receipt_raw != null && storage.getItem(CONTROL_LOCAL_RECEIPT_KEY) == null) {
-    try {
-      if (typeof checkpoint.control_receipt_raw !== 'string') throw new Error('RECEIPT_RAW_INVALID');
-      validateControlReceipt(JSON.parse(checkpoint.control_receipt_raw));
-      if (restoreReceipt) writes.push([CONTROL_LOCAL_RECEIPT_KEY, checkpoint.control_receipt_raw]);
-    } catch {
-      warnings.push('SHARED_CHECKPOINT_RECEIPT_INVALID');
-    }
+  // Validate existing destination evidence as well; skipping a nonempty local
+  // field must not make its corrupt bytes support a success receipt.
+  const pending = new Map(writes);
+  const overlay = { getItem: key => pending.has(key) ? pending.get(key) : storage.getItem(key) };
+  warnings.push(...captureSharedControlCheckpoint(overlay, { studyDay: expectedDay }).capture_warnings);
+  // A shared-only restore cannot prove native subject recovery. The coordinator
+  // opts in only in its disposable projection; partial shared evidence never
+  // admits a receipt, even there. Durable receipt bytes remain untouched.
+  if (restoreReceipt && receipt != null && storage.getItem(CONTROL_LOCAL_RECEIPT_KEY) == null) {
+    if (Array.isArray(checkpoint.capture_warnings)) warnings.push(...checkpoint.capture_warnings);
+    if (!warnings.length) writes.push([CONTROL_LOCAL_RECEIPT_KEY, receipt]);
+    else warnings.push('SHARED_CHECKPOINT_RECEIPT_WITHHELD_PARTIAL');
   }
-  const before = new Map(writes.map(([key]) => [key, storage.getItem(key)]));
-
-  try {
-    for (const [key, value] of writes) {
-      if (value == null) storage.removeItem?.(key);
-      else storage.setItem(key, [CONTROL_LOCAL_RECEIPT_KEY, STEWARD_REALITY_KEY].includes(key) ? value : JSON.stringify(value));
-    }
-  } catch (error) {
-    for (const [key, raw] of before.entries()) {
-      try {
-        if (raw == null) storage.removeItem?.(key);
-        else storage.setItem(key, raw);
-      } catch {}
-    }
-    throw error;
-  }
-
+  commitLearnerStorageChanges(storage, writes);
   return {
     schema: SHARED_CONTROL_CHECKPOINT_SCHEMA,
     restored: true,
     study_day: expectedDay,
-    warnings
+    warnings: [...new Set(warnings)]
   };
 }

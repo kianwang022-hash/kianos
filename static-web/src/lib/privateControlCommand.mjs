@@ -125,7 +125,7 @@ export function browserControlCommand(command,{commandHash}={}){
   };
 }
 
-export function validateBrowserControlCommand(value,expectedDay=null){
+export function validateBrowserControlCommand(value,expectedDay=null,{now=Date.now()}={}){
   if(!value||typeof value!=='object'||Array.isArray(value))fail('BROWSER_OBJECT_REQUIRED');
   if(value.schema!==CONTROL_BROWSER_SCHEMA)fail('BROWSER_SCHEMA_INVALID');
   const commandId=clean(value.command_id,180);
@@ -137,7 +137,8 @@ export function validateBrowserControlCommand(value,expectedDay=null){
   if(!generatedAt||Number.isNaN(Date.parse(generatedAt)))fail('GENERATED_AT_INVALID');
   const expiresAt=value.expires_at?clean(value.expires_at,80):null;
   if(expiresAt&&Number.isNaN(Date.parse(expiresAt)))fail('EXPIRES_AT_INVALID');
-  if(expiresAt&&Date.now()>Date.parse(expiresAt))fail('EXPIRED',commandId);
+  if(!Number.isFinite(Number(now)))fail('CLOCK_INVALID');
+  if(expiresAt&&Number(now)>Date.parse(expiresAt))fail('EXPIRED',commandId);
   const operations=Array.isArray(value.operations)
     ? value.operations.map((op,i)=>normalizeOperation(op,i,{browserOnly:true}))
     : [];
@@ -191,11 +192,33 @@ export function validateBrowserControlCommand(value,expectedDay=null){
   };
 }
 
+// Minimal replay witnesses live inside the existing private source snapshot /
+// local receipt, not a second command queue. Legacy state seeds only its known
+// current identity; unavailable earlier history is never claimed as recovered.
+export function controlIdentityWitnesses(value, current = null, incoming = null) {
+  if (value != null && (typeof value !== 'object' || Array.isArray(value))) fail('IDENTITY_WITNESS_INVALID');
+  const witnesses = Object.create(null);
+  for (const [id, digest] of Object.entries(value || {})) {
+    if (!id || id.length > 180 || typeof digest !== 'string' || !digest || digest.length > 128) fail('IDENTITY_WITNESS_INVALID');
+    witnesses[id] = digest;
+  }
+  for (const command of [current, incoming]) {
+    if (!command?.command_id || !command.command_hash) continue;
+    const id = command.command_id, digest = command.command_hash;
+    if (Object.hasOwn(witnesses, id) && witnesses[id] !== digest) fail('COMMAND_ID_CONFLICT', id);
+    witnesses[id] = digest;
+  }
+  // Fail closed on storage growth; never evict an identity and reopen replay.
+  if (Object.keys(witnesses).length > 50000) fail('IDENTITY_WITNESS_LIMIT');
+  return witnesses;
+}
+
 export function validateControlReceipt(value){
   if(!value||typeof value!=='object'||Array.isArray(value))fail('RECEIPT_OBJECT_REQUIRED');
   if(value.schema!==CONTROL_RECEIPT_SCHEMA)fail('RECEIPT_SCHEMA_INVALID');
   const commandId=clean(value.command_id,180);
   if(!commandId)fail('RECEIPT_ID_REQUIRED');
+  if(value.issued_command_hashes!=null)controlIdentityWitnesses(value.issued_command_hashes,value);
   const status=clean(value.status,40).toUpperCase();
   if(!['APPLIED','IDEMPOTENT','REJECTED','ERROR'].includes(status))fail('RECEIPT_STATUS_INVALID',status);
   const observedAt=clean(value.observed_at,80);

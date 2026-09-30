@@ -701,13 +701,22 @@ export function readExamChatPlan(storage, expectedDay) {
 export function examChatPlanEffectMatches(storage, input, expectedDay = null) {
   try {
     const state = readExamChatPlan(storage, expectedDay);
-    if (state.status !== 'ready' || !state.plan) return false;
+    // A receipt proves the adoption of these bytes, not that their original
+    // evidence basis remains executable after ordinary learning. Accept only
+    // the existing same-day reference case; invalid/unreadable state still fails.
+    const reference = state.status === 'stale'
+      && state.error === 'CHAT_PLAN_EVIDENCE_BASIS_STALE';
+    if (state.status !== 'ready' && !reference) return false;
+    const adopted = reference
+      ? validateExamChatPlan(JSON.parse(storage.getItem(EXAM_CHAT_PLAN_KEY)), expectedDay)
+      : state.plan;
+    if (!adopted) return false;
     const expected = validateExamChatPlan(input, expectedDay);
     const withoutBasis = (value) => {
       const { learner_evidence_basis, ...rest } = value || {};
       return rest;
     };
-    return JSON.stringify(withoutBasis(state.plan)) === JSON.stringify(withoutBasis(expected));
+    return JSON.stringify(withoutBasis(adopted)) === JSON.stringify(withoutBasis(expected));
   } catch {
     return false;
   }

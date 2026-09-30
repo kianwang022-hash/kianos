@@ -4,7 +4,7 @@ import { restoreSharedControlCheckpoint } from '../src/lib/sharedControlCheckpoi
 import { restorePrivateSubjectCheckpoints, subjectCheckpointEntries, sameCheckpointRaw } from '../src/lib/privateSubjectCheckpoints.mjs';
 import { buildHomeDailyLearningPacket } from '../src/lib/dailyLearningPacketRuntime.mjs';
 import { buildExamStudyTimeOverlay } from '../src/lib/examStudyTime.mjs';
-import { readExamChatPlan } from '../src/lib/examChatPlan.mjs';
+import { readExamChatPlanForDisplay } from '../src/lib/examChatPlan.mjs';
 import {
   EXAM_PROFILE_KEY,
   GATES,
@@ -119,7 +119,7 @@ function dayCapacity(profile, day) {
 function buildPlanReadModel(storage, day, now) {
   const profile = readProfile(storage, day);
   const timeOverlay = buildExamStudyTimeOverlay(storage, profile, day, now);
-  const chatPlanState = readExamChatPlan(storage, day);
+  const chatPlanState = readExamChatPlanForDisplay(storage, day);
   const phase = resolveExamPhase(day);
   const nextGate = GATES.find((gate) => gate.date >= day) || null;
   const gate = nextGate ? {

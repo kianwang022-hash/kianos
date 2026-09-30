@@ -7,7 +7,8 @@ import {
   CONTROL_BROWSER_SCHEMA,
   browserControlCommand,
   validateControlCommand,
-  validateControlReceipt
+  validateControlReceipt,
+  controlIdentityWitnesses
 } from '../src/lib/privateControlCommand.mjs';
 import {
   resolveEnglishGeneratedDir,
@@ -83,8 +84,12 @@ export function publishPrivateControlCommand(input,{
   const commandHash=hash(command);
   const p=pathsFor(privateDir);
   const existingSource=readJson(p.source);
+  const existingCommand=existingSource?validateControlCommand(existingSource):null;
+  const issued=controlIdentityWitnesses(existingSource?.issued_command_hashes,
+    existingCommand?{command_id:existingCommand.command_id,command_hash:hash(existingCommand)}:null,
+    {command_id:command.command_id,command_hash:commandHash});
   if(existingSource){
-    const existing=validateControlCommand(existingSource);
+    const existing=existingCommand;
     if(existing.command_id===command.command_id){
       const existingHash=hash(existing);
       if(existingHash!==commandHash)throw new Error('KIANOS_CONTROL_COMMAND_ID_CONFLICT:'+command.command_id);
@@ -113,7 +118,7 @@ export function publishPrivateControlCommand(input,{
   }
 
   const browser=browserControlCommand(command,{commandHash});
-  atomicWrite(p.source,command);
+  atomicWrite(p.source,{...command,issued_command_hashes:issued});
   atomicWrite(p.current,browser);
 
   const receipt=readPrivateControlReceipt(privateDir);

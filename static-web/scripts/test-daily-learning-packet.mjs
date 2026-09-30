@@ -155,6 +155,14 @@ assert.match(chatText, /"total_minutes": 90/);
 assert.match(chatText, /missing evidence means unknown/i);
 assert.match(chatText, /"command_id": "control-20260917-proof-001"/);
 assert.match(chatText, /transport receipt only/i);
+assert.match(chatText, /subject-local start\/continue stays with that subject role/);
+assert.match(chatText, /does not by itself request a cross-subject plan/);
+assert.match(chatText, /existing authorized private control relay/);
+assert.match(chatText, /Only when supported delivery is unavailable or the learner explicitly requests manual import/);
+assert.doesNotMatch(chatText, /If the learner asks to start, continue, or arrange today, return one valid/);
+assert.doesNotMatch(chatText, /Copy a fresh Daily Learning Packet and re-plan/);
+assert.match(chatText, /control\.planStatus=reference is adopted intention/);
+
 
 const withXizong = attachDailySubjectPacket(packet, 'xizong', { schema: 'xizong.daily.v1', completed_blocks: ['B03'] });
 assert.equal(withXizong.subjects.xizong.evidence.completed_blocks[0], 'B03');

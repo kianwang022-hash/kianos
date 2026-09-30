@@ -4,7 +4,8 @@ import {
   CONTROL_LOCAL_RECEIPT_KEY,
   CONTROL_RECEIPT_SCHEMA,
   validateControlReceipt,
-  validateBrowserControlCommand
+  validateBrowserControlCommand,
+  controlIdentityWitnesses
 } from './privateControlCommand.mjs';
 import {
   ENGLISH_SESSION_KEY,
@@ -159,8 +160,15 @@ function appliedReceipt(storage,command){
   const raw=storage.getItem(CONTROL_LOCAL_RECEIPT_KEY);
   if(raw==null)return null;
   let receipt;
-  try{receipt=validateControlReceipt(JSON.parse(raw));}
-  catch{throw new Error('KIANOS_CONTROL_LOCAL_RECEIPT_INVALID');}
+  try{
+    const record=JSON.parse(raw);
+    receipt=validateControlReceipt(record);
+    controlIdentityWitnesses(record.issued_command_hashes,receipt,command);
+  }
+  catch(error){
+    if(String(error.message).includes('COMMAND_ID_CONFLICT'))throw error;
+    throw new Error('KIANOS_CONTROL_LOCAL_RECEIPT_INVALID');
+  }
   if(receipt.command_id!==command.command_id){
     if(Date.parse(command.generated_at)<=Date.parse(receipt.command_generated_at || receipt.observed_at)){
       throw new Error('KIANOS_CONTROL_OLDER_COMMAND');
@@ -215,6 +223,24 @@ function receiptNativeEffectPresent(storage,command){
   return true;
 }
 
+// Reconcile a proved historical application without re-admitting the command.
+// Expiry/day/basis changes prohibit new execution, not acknowledgement of a
+// completed transaction whose immutable identity and native effect still match.
+function existingAppliedCommand(storage, input) {
+  const raw = storage.getItem(CONTROL_LOCAL_RECEIPT_KEY);
+  if (raw == null) return null;
+  const receipt = validateControlReceipt(JSON.parse(raw));
+  if (!['APPLIED', 'IDEMPOTENT'].includes(receipt.status)
+    || receipt.command_id !== input?.command_id
+    || receipt.command_hash !== input?.command_hash) return null;
+  const command = validateBrowserControlCommand(input, input.study_day, {
+    now: Date.parse(receipt.observed_at)
+  });
+  if (receipt.command_generated_at && receipt.command_generated_at !== command.generated_at) return null;
+  if (!receiptNativeEffectPresent(storage, command)) return null;
+  return { command, receipt };
+}
+
 export async function applyPrivateControlCommand(storage,input,{day=null,now=null}={}){
   // Numeric `now` remains a fixed test clock; production and function clocks
   // must be sampled again after asynchronous catalog reads, before any write.
@@ -222,7 +248,12 @@ export async function applyPrivateControlCommand(storage,input,{day=null,now=nul
   const parsedNow=Number(clock());
   let effectiveNow=Number.isFinite(parsedNow)?parsedNow:Date.now();
   const effectiveDay=day??studyDayAt(effectiveNow);
-  const command=validateBrowserControlCommand(input,effectiveDay);
+  const completed=existingAppliedCommand(storage,input);
+  if(completed){
+    const receiptSaved=await saveReceipt(completed.receipt);
+    return{status:'idempotent',command:completed.command,receipt_saved:receiptSaved};
+  }
+  const command=validateBrowserControlCommand(input,effectiveDay,{now:effectiveNow});
   if(Date.parse(command.generated_at)>effectiveNow+60_000)throw new Error('KIANOS_CONTROL_FUTURE_COMMAND');
 
   const localReceipt=appliedReceipt(storage,command);
@@ -248,7 +279,7 @@ export async function applyPrivateControlCommand(storage,input,{day=null,now=nul
   const commitDay=studyDayAt(commitNow);
   if(commitDay!==effectiveDay)throw new Error('KIANOS_CONTROL_STALE_DAY:'+effectiveDay+':'+commitDay);
   effectiveNow=commitNow;
-  validateBrowserControlCommand(command,commitDay);
+  validateBrowserControlCommand(command,commitDay,{now:effectiveNow});
   if(Date.parse(command.generated_at)>effectiveNow+60_000)throw new Error('KIANOS_CONTROL_FUTURE_COMMAND');
   const completedWhileLoading=appliedReceipt(storage,command);
   if(completedWhileLoading && receiptNativeEffectPresent(storage,command)){
@@ -312,7 +343,9 @@ export async function applyPrivateControlCommand(storage,input,{day=null,now=nul
   };
   // The durable local apply receipt is part of the same write-set as the
   // native operations. A failed receipt write rolls back those operations.
-  shadow.setItem(CONTROL_LOCAL_RECEIPT_KEY,JSON.stringify(receipt));
+  const priorReceipt=readJson(shadow,CONTROL_LOCAL_RECEIPT_KEY);
+  const issued=controlIdentityWitnesses(priorReceipt?.issued_command_hashes,priorReceipt,receipt);
+  shadow.setItem(CONTROL_LOCAL_RECEIPT_KEY,JSON.stringify({...receipt,issued_command_hashes:issued}));
   const keys=shadow.changedKeys();
   commitShadow(storage,shadow,keys);
   const receiptSaved=await saveReceipt(receipt);
@@ -364,8 +397,18 @@ export function initPrivateControlRuntime(storage=window.localStorage,{
         && (!data.command.command_hash||localReceipt.command_hash===data.command.command_hash)
         && ['APPLIED','IDEMPOTENT'].includes(String(localReceipt.status||'').toUpperCase());
       const localAppliedEffectPresent=localApplied&&receiptNativeEffectPresent(storage,data.command);
+      if(localAppliedEffectPresent){
+        // Never overwrite durable apply proof with a later retry rejection.
+        // Re-publish a missing/failed acknowledgement, without touching state.
+        const completed=existingAppliedCommand(storage,data.command);
+        if(completed){
+          if(!sameServerReceipt || !['APPLIED','IDEMPOTENT'].includes(String(data.receipt?.status||'').toUpperCase())){
+            await saveReceipt(completed.receipt);
+          }
+          return;
+        }
+      }
       if(sameServerReceipt&&String(data.receipt.status||'').toUpperCase()==='REJECTED'){
-        if(localAppliedEffectPresent)return;
         const retryKey=`${data.command.command_id}:${data.command.command_hash||''}`;
         if(rejectedRetryKey===retryKey&&Date.now()<rejectedRetryNotBefore)return;
         rejectedRetryKey=retryKey;

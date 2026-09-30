@@ -202,6 +202,10 @@ Internal Steward time placement is not a Calendar write and is not restricted to
 
 A same resolved day's coupled exam/execution projections must apply consistently, with immutable command ID/hash, latest-base reconciliation and verified applied effect. Radar and native mail/Calendar actions are independently acknowledged, never fabricated as part of a universal transaction. Runtime reality is private and semantically separate from subject evidence; public content/builds must never contain personal payloads. UI geometry remains pending Kian discussion.
 
+Private control keeps minimal `issued_command_hashes` witnesses inside its existing native source snapshot and local apply receipt. These map already-observed command IDs to hashes, not payload history, a task database or another queue. A later current command does not authorize reusing an observed ID for different bytes. Legacy snapshots seed only their known current identity; unseen pre-migration history and snapshots that lost witnesses cannot be claimed as globally reconstructed. Malformed/over-limit witnesses fail closed rather than silently evicting replay protection. Raw witnesses stay in private native checkpoints; ordinary Packet/receipt projections omit the map.
+
+An immutable successful receipt and matching retained native effect may be acknowledged again after its command has expired or its original learning basis changed. This is historical application reconciliation only: it performs no native write, no re-date, no basis refresh and no new strategy admission. Missing, conflicting or corrupt effects must not be manufactured from a receipt.
+
 ### Planning semantics for Chat
 
 The phase/capacity/score-gap/recoverability rules below are **Current planning priors for Chat**, not an autonomous Website scheduler.

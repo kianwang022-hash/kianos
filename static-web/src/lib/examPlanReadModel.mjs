@@ -20,7 +20,7 @@ const exactContinueForInstruction = (value, instruction, fallbackSubject = null)
 };
 
 const neutralAttention = (status, error = '') => {
-  if (status === 'ready') return null;
+  if (status === 'ready' || status === 'reference') return null;
   if (status === 'stale') return {
     type: 'chat_plan',
     text: '安排依据已变化，请让 Chat 更新安排。',
@@ -54,7 +54,13 @@ export function buildChatControlledExamReadModel({
   timeOverlay = null,
   readable = true
 } = {}) {
-  const plan = chatPlanState?.status === 'ready' ? chatPlanState.plan : null;
+  const executablePlan = chatPlanState?.status === 'ready' ? chatPlanState.plan : null;
+  const reference = chatPlanState?.status === 'reference'
+    && chatPlanState.executable === false
+    && chatPlanState.error === 'CHAT_PLAN_EVIDENCE_BASIS_STALE';
+  // Retained intentions are display only. They never restore a fresh priority,
+  // native session binding, capacity judgment or permission to reapply a command.
+  const plan = executablePlan || (reference ? chatPlanState.plan : null);
   const subjectIds = ['xizong', 'english', 'politics'];
   const plannedTargetMinutes = plan
     ? subjectIds.reduce((sum, subject) => {
@@ -84,7 +90,7 @@ export function buildChatControlledExamReadModel({
       }, 0)
     : null;
   const capacityConflict = Boolean(
-    plan
+    executablePlan
     && Number.isFinite(capacityRemaining)
     && plannedRemainingMinutes > capacityRemaining
   );
@@ -110,17 +116,17 @@ export function buildChatControlledExamReadModel({
       reviewMinutes: 0,
       requiredMinutes: null,
       scoreGap: null,
-      confidence: capacityConflict ? 'capacity-conflict' : (plan ? 'chat-plan' : 'unknown'),
+      confidence: capacityConflict ? 'capacity-conflict' : (reference ? 'adopted-reference' : (plan ? 'chat-plan' : 'unknown')),
       continue: capacityConflict
         ? cloneContinue(nativeContinue?.[subject], subject)
-        : exactContinueForInstruction(nativeContinue?.[subject], instruction, subject),
-      sessionRef: instruction?.session_ref || null,
+        : exactContinueForInstruction(nativeContinue?.[subject], reference ? null : instruction, subject),
+      sessionRef: reference ? null : (instruction?.session_ref || null),
       note: instruction?.note || ''
     };
   }
 
   const nextInstruction = plan?.next_subject ? plan?.subjects?.[plan.next_subject] || null : null;
-  const next = !capacityConflict && plan?.next_subject
+  const next = !capacityConflict && executablePlan?.next_subject
     ? exactContinueForInstruction(nativeContinue?.[plan.next_subject], nextInstruction, plan.next_subject)
     : null;
   const attention = capacityConflict
@@ -129,7 +135,7 @@ export function buildChatControlledExamReadModel({
         text: `Chat 剩余安排 ${plannedRemainingMinutes} 分钟，超过今日可用剩余 ${capacityRemaining} 分钟；网页不会自动执行，返回 Chat 重排。`,
         action: '返回 Chat 重排'
       }
-    : plan?.attention?.text
+    : executablePlan?.attention?.text
       ? {
           type: 'chat_plan',
           text: plan.attention.text,
@@ -144,7 +150,9 @@ export function buildChatControlledExamReadModel({
       planStatus: capacityConflict ? 'capacity_conflict' : (chatPlanState?.status || 'missing'),
       planSchema: plan?.schema || null,
       generatedAt: plan?.generated_at || null,
-      capacityConflict
+      capacityConflict,
+      executable: Boolean(executablePlan) && !capacityConflict,
+      guidanceFresh: Boolean(executablePlan) && !capacityConflict
     },
     day,
     readable: Boolean(readable),
@@ -159,7 +167,7 @@ export function buildChatControlledExamReadModel({
       overplannedMinutes: capacityConflict
         ? Math.max(0, plannedRemainingMinutes - capacityRemaining)
         : 0,
-      judgment: plan?.capacity ? { ...plan.capacity } : null
+      judgment: executablePlan?.capacity ? { ...executablePlan.capacity } : null
     },
     subjects,
     next,

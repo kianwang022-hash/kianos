@@ -167,9 +167,9 @@ export function initExamHome(root) {
     const taskRows = readModel.presentation?.todayTasks || [];
     const taskLabel = taskRows.length ? ` · 还剩 ${remainingTaskCount(readModel.presentation)} 项` : '';
     if (readModel.capacity.dayMinutes === null) {
-      node.textContent = taskRows.length
-        ? `可用时间待记录${taskLabel}`
-        : '记录今天可用时间后，这里会显示今天的安排。';
+      node.textContent = ['ready', 'reference'].includes(chatPlanState.status)
+        ? `${chatPlanState.status === 'reference' ? '已采用的今日安排' : '今日安排已就绪'} · 已学 ${formatMinutes(readModel.capacity.actualMinutes)}${taskLabel}`
+        : '尚无今日安排；三科仍可从原生入口进入。';
       return;
     }
     if (readModel.phase?.outsideCycle) {
@@ -178,7 +178,8 @@ export function initExamHome(root) {
     }
     const planLabel = chatPlanState.status === 'ready'
       ? ''
-      : chatPlanState.status === 'stale' ? ' · 安排依据已变化' : ' · 今日安排待同步';
+      : chatPlanState.status === 'reference' ? ' · 已采用的安排'
+        : chatPlanState.status === 'stale' ? ' · 安排依据已变化' : ' · 今日安排待同步';
     node.textContent = `可用 ${formatMinutes(readModel.capacity.dayMinutes)} · 已学 ${formatMinutes(readModel.capacity.actualMinutes)}${taskLabel}${planLabel}`;
   };
   const error = (message) => {
@@ -475,7 +476,7 @@ export function initExamHome(root) {
   }
 
   function render() {
-    chatPlanState = readExamChatPlan(localStorage, day());
+    chatPlanState = readExamChatPlanForDisplay(localStorage, day());
     const xizongNative = nativeLink(
       '[data-xizong-continue]',
       '[data-xizong-continue-title]',
@@ -568,7 +569,11 @@ export function initExamHome(root) {
     } else {
       link.removeAttribute('href');
       link.setAttribute('aria-disabled', 'true');
-      link.textContent = '等待今日安排';
+      if (chatPlanState.status === 'reference') {
+        link.href = `${catalog.base}steward/`;
+        link.removeAttribute('aria-disabled');
+        link.textContent = '查看已采用的今日安排 →';
+      } else link.textContent = '等待今日安排';
     }
     $('[data-exam-next-label]').textContent = '下一步';
 
