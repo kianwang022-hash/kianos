@@ -23,6 +23,9 @@ const value=(s,k,f)=>{try{return JSON.parse(s.getItem(k)||'null')??f;}catch{retu
 const emptyState=()=>({schema:'kianos.study-timer.v2',running:false,manualPaused:false,subject:null,context:null,segmentStartedAt:null,lastSeenAt:null,revision:0,updatedAt:null});
 // Keep the new actual-activity projection bound to the snapshot's real timer.
 const nativeTimer=await import(pathToFileURL(path.resolve(root,'static-web/src/lib/studyTimer.mjs')).href);
+// Recovery key ownership must come from the snapshot's native adapter, not a
+// second prefix policy in this intentionally bounded coordinator fixture.
+const nativeSubjectCheckpoints=await import(pathToFileURL(path.resolve(root,'static-web/src/lib/privateSubjectCheckpoints.mjs')).href);
 const timer={
  buildStudyTimerReadModel:nativeTimer.buildStudyTimerReadModel,
  STUDY_TIMER_STATE_KEY:K.state,STUDY_TIMER_LEDGER_KEY:K.ledger,STUDY_TIMER_SCHEMA:'kianos.study-timer.v2',
@@ -67,6 +70,7 @@ const adapters={
   {id:'politics',subjects:['politics']}
  ],
  sameCheckpointRaw,subjectCheckpointEntries,
+ subjectCheckpointGroupStorageKeys:nativeSubjectCheckpoints.subjectCheckpointGroupStorageKeys,
  subjectCheckpointConflicts:(s,v)=>subjectCheckpointEntries(v).some(([k,raw])=>s.getItem(k)!=null&&!sameCheckpointRaw(s.getItem(k),raw)),
  restorePrivateSubjectCheckpoints:(s,sub)=>{
    const restored={};
@@ -282,9 +286,27 @@ await test('missing storage enumeration cannot mint an empty valid basis',()=>{
 await test('inconsistent storage enumeration cannot mint a valid basis',()=>{
  const s=new Storage({[K.lexical]:'{}'});s.key=()=>null;assert.throws(()=>basis.buildExamChatPlanBasis(s,D));
 });
-await test('corrupt timer cannot be normalized into a saved zero-time checkpoint',()=>{
- const s=new Storage({[K.ledger]:'{bad'});
- assert.throws(()=>shared.captureSharedControlCheckpoint(s,{studyDay:D,now:NOW}));
+await test('corrupt timer stays opaque; healthy fields recover without zero-time or receipt proof',()=>{
+ const s=new Storage({[K.ledger]:'{bad',[K.receipt]:JSON.stringify(applied),
+  [K.profile]:JSON.stringify({...profile.emptyExamProfile(),defaultDailyMinutes:97})});
+ const c=shared.captureSharedControlCheckpoint(s,{studyDay:D,now:NOW});
+ assert.equal(c.study_timer_ledger,'{bad');
+ assert(c.capture_warnings.includes('SHARED_CHECKPOINT_TIMER_LEDGER_INVALID'));
+ assert.equal(s.getItem(K.ledger),'{bad');
+ const restored=new Storage();
+ const result=shared.restoreSharedControlCheckpoint(restored,c,{expectedDay:D,restoreReceipt:true});
+ assert.equal(restored.getItem(K.ledger),null);
+ assert.equal(restored.getItem(K.receipt),null);
+ assert.equal(JSON.parse(restored.getItem(K.profile)).defaultDailyMinutes,97);
+ assert(result.warnings.includes('SHARED_CHECKPOINT_TIMER_LEDGER_INVALID'));
+ assert(result.warnings.includes('SHARED_CHECKPOINT_RECEIPT_WITHHELD_PARTIAL'));
+});
+await test('recovery fixture uses native group ownership and rejects unknown groups',()=>{
+ const key='kianos-xizong-personal-v1:xizong:a1-circulation-b1';
+ const s=new Storage({[key]:'{}',[K.lexical]:'{}','unrelated-key':'{}'});
+ assert.deepEqual(adapters.subjectCheckpointGroupStorageKeys(s,'xizong'),[key]);
+ assert.deepEqual(adapters.subjectCheckpointGroupStorageKeys(s,'english+lexical'),[K.lexical]);
+ assert.throws(()=>adapters.subjectCheckpointGroupStorageKeys(s,'invented'),/RECOVERY_GROUP_INVALID/);
 });
 
 const summary={boundary:'Complete shared modules; native subject, time/profile and transport dependencies explicitly doubled. Not full native/browser/Mac/remote acceptance.',

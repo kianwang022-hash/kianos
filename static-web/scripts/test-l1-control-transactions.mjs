@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import {commitLearnerStorageChanges} from '../src/lib/browserLearnerWriter.mjs';
+import {controlIdentityWitnesses} from '../src/lib/privateControlCommand.mjs';
 
 const source=fs.readFileSync(new URL('../src/lib/privateControlRuntime.mjs',import.meta.url),'utf8');
 const receiptKey='kianos-control-receipt-v1';
@@ -32,7 +33,7 @@ async function runtime({fetchImpl,writeSession,validatePlan,writePlan,planEffect
   const modules={
     './lexicalChallenge.mjs':{stageLexicalChallengePacket:()=>({changes:[]}),lexicalChallengePacketMatches:()=>true},
     './browserLearnerWriter.mjs':{assertLearnerStorageWritable:()=>{},commitLearnerStorageChanges},
-    './privateControlCommand.mjs':{CONTROL_LOCAL_RECEIPT_KEY:receiptKey,CONTROL_RECEIPT_SCHEMA:'kianos.control-receipt.v1',validateBrowserControlCommand:validateCommand||((value,expectedDay=null)=>{if(expectedDay&&value?.study_day!==expectedDay)throw new Error('KIANOS_CONTROL_STALE_DAY:'+String(value?.study_day||''));return clone(value);}),validateControlReceipt:value=>{if(value?.schema!=='kianos.control-receipt.v1')throw new Error('INVALID_RECEIPT');return clone(value);}},
+    './privateControlCommand.mjs':{controlIdentityWitnesses,CONTROL_LOCAL_RECEIPT_KEY:receiptKey,CONTROL_RECEIPT_SCHEMA:'kianos.control-receipt.v1',validateBrowserControlCommand:validateCommand||((value,expectedDay=null)=>{if(expectedDay&&value?.study_day!==expectedDay)throw new Error('KIANOS_CONTROL_STALE_DAY:'+String(value?.study_day||''));return clone(value);}),validateControlReceipt:value=>{if(value?.schema!=='kianos.control-receipt.v1')throw new Error('INVALID_RECEIPT');return clone(value);}},
     './englishSessionControl.mjs':{ENGLISH_SESSION_KEY:sessionKey,writeEnglishSessionInstruction:(storage,value)=>{calls++;if(writeSession)writeSession(storage,value);else storage.setItem(sessionKey,JSON.stringify(value));},englishSessionInstructionEffectMatches:()=>true},
     './englishExamSession.mjs':{englishExamProductiveScoreMatches:()=>false,inspectEnglishExamSession:noop,applyEnglishExamProductiveScoreReturn:noop,writeEnglishExamSession:noop},
     './examChatPlan.mjs':{EXAM_CHAT_PLAN_KEY:'kianos-exam-chat-plan-v1',validateExamChatPlanAgainstStorage:validatePlan||noop,writeExamChatPlan:(storage,value)=>{planWrites++;if(writePlan)writePlan(storage,value);else storage.setItem('kianos-exam-chat-plan-v1',JSON.stringify(value));return value;},buildExamChatPlanBasis:()=>({}),examChatPlanEffectMatches:planEffectMatches||(()=>true)},
@@ -174,7 +175,7 @@ for(const failure of ['network','http500','wrong-echo']){
   const rt=await runtime();await rt.apply(storage,command,options);
   assert.ok(storage.reads<20,`Unrelated raw reads: ${storage.reads}`);count++;
 }
-{
+for(const rejectNative of [false,true]){
   const day=shanghaiDay(Date.now());
   const pollCommand={
     schema:'kianos.control-browser-command.v1',
@@ -185,8 +186,9 @@ for(const failure of ['network','http500','wrong-echo']){
     expires_at:null,
     operations:[{kind:'english.session',payload:{schema:'kianos.english.session-instruction.v1',session_id:'stale-rejected-recovery-session-1',study_day:day}}]
   };
-  let receiptPuts=0;
-  const rt=await runtime({fetchImpl:async(url,opts)=>{
+  let receiptPuts=0,validations=0,firstPutResolve;
+  const firstPut=new Promise(resolve=>{firstPutResolve=resolve;});
+  const rt=await runtime({validateCommand:rejectNative?()=>{validations++;throw new Error('KIANOS_CONTROL_STALE_DAY:'+day);}:undefined,fetchImpl:async(url,opts)=>{
     if(url.includes('/current?'))return{
       ok:true,
       json:async()=>({
@@ -195,17 +197,28 @@ for(const failure of ['network','http500','wrong-echo']){
         receipt:{schema:'kianos.control-receipt.v1',command_id:pollCommand.command_id,command_hash:pollCommand.command_hash,status:'REJECTED',observed_at:new Date().toISOString(),error:'KIANOS_CONTROL_STALE_DAY:'+day}
       })
     };
-    if(url.endsWith('/receipt')){receiptPuts++;return receiptResponse(opts.body);}
+    if(url.endsWith('/receipt')){receiptPuts++;firstPutResolve();return receiptResponse(opts.body);}
     return{ok:true,json:async()=>({collections:[]})};
   }});
-  const controller=rt.init(new Storage(),{pollMs:3000});
-  await new Promise(resolve=>setTimeout(resolve,20));
-  assert.ok(receiptPuts>=1,'stale rejected server receipt must not permanently suppress local apply');
-  const afterFirst=receiptPuts;
-  await controller.poll();
-  assert.equal(receiptPuts,afterFirst,'rejected retry policy must remain locally bounded');
-  controller.stop();
-  count++;
+  const storage=new Storage();
+  const controller=rt.init(storage,{pollMs:3000});
+  let timeout;
+  try{
+    await Promise.race([firstPut,new Promise((_,reject)=>{timeout=setTimeout(()=>reject(new Error('INITIAL_POLL_TIMEOUT')),2000);})]);
+    await new Promise(resolve=>setImmediate(resolve));
+    const afterFirst=receiptPuts;
+    await controller.poll();
+    if(rejectNative){
+      assert.equal(receiptPuts,afterFirst,'rejected native retry remains locally bounded');
+      assert.equal(validations,1);assert.equal(rt.calls(),0);
+      assert.equal(storage.getItem(receiptKey),null);
+    }else{
+      assert.equal(receiptPuts,afterFirst+1,'stale server rejection receives durable apply acknowledgement again');
+      assert.equal(rt.calls(),1,'acknowledgement retry never repeats the native operation');
+      assert.equal(JSON.parse(storage.getItem(receiptKey)).status,'APPLIED');
+    }
+    count++;
+  }finally{clearTimeout(timeout);controller.stop();}
 }
 console.log(JSON.stringify({status:'PASS',checks:count,proof:'shared orchestration with native adapter and network doubles; production browser proof remains separate'}));
 
