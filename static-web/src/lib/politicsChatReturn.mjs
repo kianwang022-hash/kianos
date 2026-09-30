@@ -288,10 +288,10 @@ export function inspectPoliticsReviewedReturns(storage, catalog, { day, now = Da
       if (snapshot.errors.length) throw new Error('POLITICS_REVIEWED_RETURN_NATIVE_UNREADABLE');
       if (!day || value.study_day > day) throw new Error('POLITICS_REVIEWED_RETURN_FUTURE_DAY');
       if (Date.parse(value.generated_at) > now || Date.parse(value.applied_at) > now) throw new Error('POLITICS_REVIEWED_RETURN_FUTURE_TIME');
-      if (value.catalog_revision !== catalog?.revision) {
-        row.basis_status = 'STALE'; throw new Error('POLITICS_REVIEWED_RETURN_CATALOG_CHANGED');
-      }
-      const current = politicsReviewPacket(catalog, snapshot, {
+      // Keep the transaction's original catalog namespace while rechecking
+      // actual contexts. A different unrelated Unit must not imply that these
+      // questions or their Sources changed. Source freshness is checked below.
+      const current = politicsReviewPacket({...catalog,revision:value.catalog_revision}, snapshot, {
         day:value.study_day, ...normalizeScope(value.scope)
       });
       const revalidated = validatePoliticsChatReturn(value, current);
@@ -299,15 +299,31 @@ export function inspectPoliticsReviewedReturns(storage, catalog, { day, now = Da
         row.basis_status = 'STALE'; throw new Error('POLITICS_REVIEWED_RETURN_CONTEXT_CHANGED');
       }
       const questions = new Map((catalog?.questions || []).map(q => [q.id,q]));
+      const units = new Map((catalog?.units || []).map(unit => [unit.key,unit]));
+      const validIds = ids => Array.isArray(ids) && ids.length > 0
+        && ids.every(id => typeof id === 'string' && id.trim() === id && id.length > 0)
+        && new Set(ids).size === ids.length;
       if (!current.first_attempts?.length) throw new Error('POLITICS_REVIEWED_RETURN_SOURCE_WITNESS_UNKNOWN');
       for (const first of current.first_attempts || []) {
         const owner = questions.get(first.question_id), observed = first.attempt?.source_context;
+        const unit = units.get(owner?.unitKey);
+        const currentOwnerIds = unit?.sourceOwnerIds ?? unit?.source?.map(source => source.id);
         if (!owner?.taskRevision || !owner?.sourceId || !observed?.task_revision || !observed?.source_id
-          || !Array.isArray(observed.source_owner_ids) || !observed.source_owner_ids.length) {
+          || !validIds(observed.source_owner_ids) || !validIds(currentOwnerIds)
+          || typeof observed.content_revision !== 'string' || !observed.content_revision.trim()) {
           throw new Error('POLITICS_REVIEWED_RETURN_SOURCE_WITNESS_UNKNOWN');
         }
-        if (owner.taskRevision !== observed.task_revision || owner.sourceId !== observed.source_id) {
+        if (owner.taskRevision !== observed.task_revision || owner.sourceId !== observed.source_id
+          || owner.unitKey !== observed.unit_key
+          || JSON.stringify([...currentOwnerIds].sort()) !== JSON.stringify([...observed.source_owner_ids].sort())) {
           row.basis_status = 'STALE'; throw new Error('POLITICS_REVIEWED_RETURN_SOURCE_CHANGED');
+        }
+        // Existing producers captured the whole catalog revision, not a
+        // per-Source semantic baseline. Same IDs cannot prove old Source text
+        // unchanged after revision drift. Keep the dated meaning without
+        // manufacturing current Source qualification or whole-subject debt.
+        if (observed.content_revision !== catalog?.revision) {
+          throw new Error('POLITICS_REVIEWED_RETURN_SOURCE_CONTENT_UNCLASSIFIED');
         }
       }
       row.basis_status = 'CURRENT_NATIVE_BINDING';
