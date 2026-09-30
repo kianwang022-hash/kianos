@@ -23,7 +23,9 @@
 
 原权威： [学习合同](../../content/xizong/LEARNING_CONTRACT.md)、[学习策略](../../content/xizong/knowledge/learner/study-policy.json)、[内容组合](../../content/xizong/LEARNER_OBJECT_CONTRACT.md)、[页面职责](../../static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md)、[权威继承](../../AUTHORITY_INHERITANCE_CONTRACT.md)。
 
-当前仅继续规则冲突核对，区分合法特化、旧说法残留、真正未决；不自动恢复全量正文或产品修改。
+本轮关键规则核对完成（10:38 UTC）：Memory旧Phase-1 no-interval描述、Learning §13入口歧义、KP对象与POST_REVEAL、Core重构与正式support adoption四项中，未发现需用户重新选择的实质冲突。Memory依当前study-policy选择性retention；真实LEARN依AGENTS先读native evidence/Resume；非答案Context可保留但explicit answer-bearing仍受保护；Core重构与formal adoption严格分工。
+
+原规则文档仍有两处可消歧的文字：static-web/XIZONG_MEMORY_PRODUCT.md §3的旧Phase-1描述；content/xizong/LEARNING_CONTRACT.md §13的intent条件。本轮只记录，没有修改这些原文件。全量正文和产品实现继续暂停；不得因顶层原则确认而自动恢复。
 
 ## 恢复入口
 
