@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { inspectXizongContent, formatXizongInspection, assertContentIdentity } from './inspect-xizong-content.mjs';
+import { inspectXizongContent, formatXizongInspection, assertContentIdentity, assertInspectionSupportCoverage } from './inspect-xizong-content.mjs';
 
 const repo = process.env.KIANOS_REPO_ROOT || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const status = () => execFileSync('git',['-C',repo,'status','--porcelain'],{encoding:'utf8'});
@@ -60,5 +60,46 @@ const run=spawnSync(process.execPath,[cli,'circulation','b01','circulation-b01-k
 check(run.status===0 && JSON.parse(run.stdout).requestedKpId==='circulation-b01-kp24','CLI works outside repository cwd and /tmp symlink');
 const invalid=spawnSync(process.execPath,[cli,'--unknown'],{encoding:'utf8'});
 check(invalid.status===2,'unknown CLI options fail explicitly');
+// Group/Block supports must be visible in the human inspection, not only
+// buried in learnerObject JSON or accidentally counted as KP-owned records.
+const respiratory=await inspectXizongContent({systemId:'respiratory',blockRef:'r01'});
+check(Array.isArray(respiratory.logicGroupTrace),'group support trace exists');
+const lg4=respiratory.logicGroupTrace.find(g=>g.identity.logicGroupId==='respiratory-r01-lg04');
+check(lg4.supports.some(s=>s.id==='a2-r01-obstruction-to-r03'&&s.family==='connection'),'R1 reviewed LG relation is inspectable');
+check(lg4.supports.find(s=>s.id==='a2-r01-obstruction-to-r03').ownerPath.endsWith('a2-respiratory-pathways.json'),'group relation cites its pathway owner');
+check(lg4.supports.some(s=>s.family==='extension'&&s.ownerPath.endsWith('a2-respiratory-extensions.json')),'group extension cites its manifest');
+check(respiratory.summary.outgoingKpCount===0&&respiratory.summary.outgoingGroupCount===2,'group edges not counted as KP edges');
+const lg1=respiratory.logicGroupTrace.find(g=>g.identity.logicGroupId==='respiratory-r01-lg01');
+check(lg1.supports.some(s=>s.family==='medicalvisual'&&s.sourceAssetBindings.length>0),'group MedicalVisual source bindings retained');
+const groupReport=formatXizongInspection(respiratory);
+check(groupReport.includes('a2-r01-obstruction-to-r03')&&groupReport.includes('respiratory-r01-lg04-ventilation-pattern-comparison'),'human Block view exposes existing LG relation/extension');
+check(JSON.stringify(lg4.slots)===JSON.stringify(respiratory.learnerObject.logicGroups[3].slots),'native group timing slots copied unchanged');
+const r3=await inspectXizongContent({systemId:'respiratory',blockRef:'r03'});
+check(r3.logicGroupTrace.some(g=>g.supports.some(s=>s.id==='a2-r01-obstruction-to-r03'&&s.native.direction==='incoming')),'same relation resolves at group target');
+const targetBlock=await inspectXizongContent({systemId:'circulation',blockRef:'b06'});
+check(targetBlock.blockTrace.supports.some(s=>s.family==='connection'&&s.id==='b01-c06-coronary-supply-demand-to-b6'),'Block-level incoming relation is not invisible to inspect');
+check(targetBlock.blockTrace.supports.filter(s=>s.family==='connection').every(s=>s.ownerPath.endsWith('shared-fields.json')),'Block incoming owner is shared relation owner');
+check(targetBlock.summary.incomingKpCount===0&&targetBlock.summary.incomingBlockCount>0,'Block edges are distinct from KP edges');
+check(formatXizongInspection(targetBlock).includes('b01-c06-coronary-supply-demand-to-b6'),'human view shows Block incoming');
+const exactResp=await inspectXizongContent({systemId:'respiratory',blockRef:'r01',kpId:'respiratory-r01-kp15'});
+check(formatXizongInspection(exactResp).includes('a2-r01-obstruction-to-r03'),'exact KP inspection keeps its parent-group context');
+check(!respiratory.trace.some(k=>k.supports.some(s=>s.id==='a2-r01-obstruction-to-r03')),'no reparenting LG relation onto a KP');
+check(respiratory.proof.servedWebsite==='NOT_OBSERVED'&&respiratory.proof.sourceQualityAndCompleteness==='NOT_AUDITED','scope completeness is not a Website/medical quality claim');
+
+for (const mutate of [
+  r=>{r.logicGroupTrace[3].supports.pop();},
+  r=>{r.logicGroupTrace.pop();},
+  r=>{r.logicGroupTrace[3].kpIds=['respiratory-r01-kp01'];},
+  r=>{r.logicGroupTrace[3].supports[0].family='precision';},
+  r=>{r.logicGroupTrace[3].slots={};},
+  r=>{r.trace[0].supports.push(structuredClone(r.logicGroupTrace[3].supports[0]));}
+]) {
+  const bad=structuredClone(respiratory);mutate(bad);
+  assert.throws(()=>assertInspectionSupportCoverage(bad));checks++;
+}
+check(b1.blockTrace.supports.find(s=>s.native.raw?.source==='ATTENTION_STOP_LINE')?.ownerPath===b1.basis.owners.learning,'explicit stop line cites declared Learning owner, not medical Markdown');
+const missingBlock=structuredClone(targetBlock);missingBlock.blockTrace.supports.pop();
+assert.throws(()=>assertInspectionSupportCoverage(missingBlock));checks++;
+
 check(status()===before,'inspection did not mutate repository');
-console.log(`PASS ${checks} Xizong content-inspection checks; native B1 + B/D1, 7 deliberate corruption cases, no browser/learner-state writes.`);
+console.log(`PASS ${checks} Xizong content-inspection checks; native B1/B6 + B/D1 + A2/R1/R3; 7 Content and 7 scope-corruption cases, no browser/learner-state writes.`);

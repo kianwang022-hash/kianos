@@ -43,6 +43,37 @@ export function assertContentIdentity(canonical, learner, rawContent) {
   }
 }
 
+// Inventory native attachments at their actual owner level. A group relation
+// must not be copied onto every child KP, nor vanish from the human read view.
+function nativeSupports(object, block = false) {
+  const families = block
+    ? [['attention', object.slots.blockAttention], ['extension', object.blockExtension], ['connection', object.slots.blockConnections]]
+    : [['attention', object.attention], ['medicalvisual', object.visual], ['precision', object.precision],
+      ['extension', object.extension], ['connection', [...(object.connection?.incoming || []), ...(object.connection?.outgoing || [])]]];
+  return families.flatMap(([family, rows]) => (rows || []).map(native => ({ family, native })));
+}
+
+export function assertInspectionSupportCoverage(report) {
+  const object = report.learnerObject;
+  const same = (entry, native, block = false) => {
+    assert.ok(entry, 'missing inspection owner scope');
+    assert.deepEqual(entry.identity, native.identity, 'inspection owner identity drift');
+    assert.deepEqual(entry.supports.map(row => ({family: row.family, native: row.native})),
+      nativeSupports(native, block), 'inspection support omission / reparenting / payload drift');
+  };
+  same(report.blockTrace, object, true);
+  assert.deepEqual(report.logicGroupTrace.map(g => g.identity.logicGroupId),
+    object.logicGroups.map(g => g.identity.logicGroupId), 'inspection group scope drift');
+  report.logicGroupTrace.forEach((entry, i) => {
+    same(entry, object.logicGroups[i]);
+    assert.deepEqual(entry.kpIds, object.logicGroups[i].kpIds, 'inspection group membership drift');
+    assert.deepEqual(entry.slots, object.logicGroups[i].slots, 'inspection group slot drift');
+  });
+  const kps = report.requestedKpId ? object.kps.filter(k => k.identity.kpId === report.requestedKpId) : object.kps;
+  assert.deepEqual(report.trace.map(k => k.identity.kpId), kps.map(k => k.identity.kpId), 'inspection KP scope drift');
+  report.trace.forEach((entry, i) => same(entry, kps[i]));
+}
+
 export async function inspectXizongContent({ systemId, blockRef, kpId = null }) {
   if (!systemId || !blockRef) fail('SYSTEM_AND_BLOCK_REQUIRED');
   process.env.KIANOS_REPO_ROOT = repoRoot; // Pin all native loaders to this same repository in this CLI process.
@@ -70,26 +101,41 @@ export async function inspectXizongContent({ systemId, blockRef, kpId = null }) 
   const rawContent = fs.readFileSync(path.join(repoRoot, canonical.sourcePath), 'utf8');
   assertContentIdentity(canonical, learner, rawContent);
   const extRefs = semanticBlock?.extensionRefs || [];
+  // Locate an explicit stop_line in only the declared owner inputs. This is
+  // provenance lookup, not another Learning/alias resolver. Ambiguity stays null.
+  const stopLineOwners = new Set();
+  const blockKeys = [...new Set([semanticBlock.blockId, semanticBlock.sourceContact?.ownerBlockKey].filter(Boolean))];
+  for (const file of [owners.learning, ...(owners.learningShards || []), owners.content].filter(Boolean)) {
+    const data = JSON.parse(fs.readFileSync(path.join(repoRoot, file), 'utf8'));
+    if (blockKeys.some(key => typeof data.blocks?.[key]?.stop_line === 'string'
+        && data.blocks[key].stop_line === semanticBlock.learning?.stopLine)) stopLineOwners.add(file);
+  }
   const supportOwner = (row, family) => {
     if (family === 'medicalvisual' || family === 'precision') return resolved.learningCues.sourcePath || null;
-    if (family === 'extension') return extRefs.find(ref => ref.slotId === row.id)?.manifestPath || null;
+    if (family === 'extension') return row.raw?.manifestPath || extRefs.find(ref => ref.slotId === row.id)?.manifestPath || null;
+    if (family === 'attention' && String(row.raw?.source || '').startsWith('BLOCK_PREENTRY_')) return canonical.sourcePath;
+    if (family === 'attention' && row.raw?.source === 'ATTENTION_STOP_LINE' && stopLineOwners.size === 1) return [...stopLineOwners][0];
+    // An implicit Learning/shard derivation is retained as UNRESOLVED rather
+    // than guessed as the Block Markdown. Native provenance stays in `native`.
     return row.sourcePath || row.raw?.sourcePath || (family === 'connection' ? pathwayOwner : null);
   };
+  const traceSupports = (object, block = false) => nativeSupports(object, block).map(({family, native: row}) => ({
+    family, id: row.id, ownerPath: supportOwner(row, family),
+    ownerResolution: supportOwner(row, family) ? 'REFERENCED' : 'UNRESOLVED',
+    native: row,
+    sourceAssetBindings: family === 'medicalvisual'
+      ? semanticBlock.visualGates.find(gate => gate.cueId === row.id)?.sourceAssets || [] : []
+  }));
+  const logicGroupTrace = learner.logicGroups.map(group => ({
+    identity: group.identity, goal: group.goal, closure: group.closure,
+    kpIds: group.kpIds, supports: traceSupports(group), slots: group.slots
+  }));
+  const blockTrace = { identity: learner.identity, supports: traceSupports(learner, true),
+    framework: learner.framework, blockPreentry: learner.blockPreentry, sourceContact: learner.sourceContact };
   const trace = learner.kps.map(kp => {
     const source = canonical.kpRecords.find(row => row.kpId === kp.identity.kpId);
     if (!source) fail('CANONICAL_KP_MISSING', kp.identity.kpId);
-    const supports = [];
-    for (const [family, rows] of [
-      ['attention', kp.attention], ['medicalvisual', kp.visual], ['precision', kp.precision],
-      ['extension', kp.extension], ['connection', [...kp.connection.incoming, ...kp.connection.outgoing]]
-    ]) for (const row of rows) supports.push({
-      family, id: row.id, ownerPath: supportOwner(row, family),
-      ownerResolution: supportOwner(row, family) ? 'REFERENCED' : 'UNRESOLVED',
-      // Keep the native object unchanged, including answerBearing/displayPolicy.
-      native: row,
-      sourceAssetBindings: family === 'medicalvisual'
-        ? semanticBlock.visualGates.find(gate => gate.cueId === row.id)?.sourceAssets || [] : []
-    });
+    const supports = traceSupports(kp);
     return {
       identity: kp.identity,
       contentOwner: { path: canonical.sourcePath, kpId: source.kpId },
@@ -106,12 +152,12 @@ export async function inspectXizongContent({ systemId, blockRef, kpId = null }) 
   });
   const paths = new Set([
     canonical.sourcePath, ...Object.values(owners).flat(),
-    ...trace.flatMap(kp => kp.supports.map(row => row.ownerPath)),
+    ...[...trace, ...logicGroupTrace, blockTrace].flatMap(entry => entry.supports.map(row => row.ownerPath)),
     ...extRefs.map(row => row.manifestPath)
   ].filter(value => typeof value === 'string' && value));
   const witnesses = [...paths].sort().map(ownerWitness);
   if (git('rev-parse', 'HEAD') !== head) fail('HEAD_CHANGED_DURING_READ');
-  return {
+  const report = {
     authority: 'READ_ONLY_DERIVED_INSPECTION_NOT_CONTENT_OWNER',
     basis: { head, sourceHash: canonical.sourceHash, owners, witnesses },
     terminology: { MedicalVisual: 'Medical content/support; existing native visual fields are retained unchanged.',
@@ -120,6 +166,7 @@ export async function inspectXizongContent({ systemId, blockRef, kpId = null }) 
       sourceQualityAndCompleteness: 'NOT_AUDITED', servedWebsite: 'NOT_OBSERVED',
       actualBrowserKp: 'UNKNOWN', personalPromptOverride: 'NOT_READ', effectiveDisplayedPrompt: 'UNKNOWN',
       timing: 'NATIVE_DECLARATIONS_ONLY_NOT_BROWSER_PROOF',
+      supportTrace: 'NATIVE_BLOCK_GROUP_KP_ATTACHMENTS_CHECKED_NOT_SOURCE_COMPLETENESS',
       medicalVisualUrls: 'ASTRO_URL_ATTACHMENT_NOT_RUN; source asset bindings are references only',
       scope: 'One native resolution; not an atomic live-browser/source snapshot or learner evidence.' },
     summary: { identity: learner.identity, kpCount: learner.kps.length, logicGroupCount: learner.logicGroups.length,
@@ -128,8 +175,16 @@ export async function inspectXizongContent({ systemId, blockRef, kpId = null }) 
       precisionKpCount: learner.kps.reduce((n,k) => n+k.precision.length,0),
       attentionKpCount: learner.kps.reduce((n,k) => n+k.attention.length,0),
       outgoingKpCount: learner.kps.reduce((n,k) => n+k.connection.outgoing.length,0),
-      incomingKpCount: learner.kps.reduce((n,k) => n+k.connection.incoming.length,0) },
-    requestedKpId: kpId,
+      incomingKpCount: learner.kps.reduce((n,k) => n+k.connection.incoming.length,0),
+      precisionGroupCount: learner.logicGroups.reduce((n,g) => n+g.precision.length,0),
+      outgoingGroupCount: learner.logicGroups.reduce((n,g) => n+g.connection.outgoing.length,0),
+      incomingGroupCount: learner.logicGroups.reduce((n,g) => n+g.connection.incoming.length,0),
+      incomingBlockCount: learner.slots.blockConnections.length,
+      extensionBlockCount: learner.blockExtension.length,
+      extensionGroupCount: learner.logicGroups.reduce((n,g) => n+g.extension.length,0),
+      extensionKpCount: learner.kps.reduce((n,k) => n+k.extension.length,0),
+      countMeaning: 'Owner attachments by level; NOT a sum of distinct medical facts or relations.' },
+    requestedKpId: kpId, blockTrace, logicGroupTrace,
     contentDiagnostics: trace.filter(row => row.contentDiagnostics.length).map(row => ({ kpId: row.identity.kpId, ownerPath: canonical.sourcePath, diagnostics: row.contentDiagnostics })),
     // Full native data stays available: Block Framework/MI/Source/group support
     // must not disappear merely because the concise human view has KP rows.
@@ -138,6 +193,8 @@ export async function inspectXizongContent({ systemId, blockRef, kpId = null }) 
     selectedKp: selected,
     validation: resolved.report
   };
+  assertInspectionSupportCoverage(report);
+  return report;
 }
 
 export function formatXizongInspection(report) {
@@ -149,9 +206,21 @@ export function formatXizongInspection(report) {
     `Source contact: ${report.semanticBlock.sourceContact.mode}`,
     '', '## Canonical owner paths', JSON.stringify(report.basis.owners, null, 2),
     '', '## Block/LG map'];
-  for (const group of report.learnerObject.logicGroups) lines.push(
-    `${group.identity.logicGroupId} · ${group.identity.label}`, `  ${group.kpIds.join(' → ')}`,
-    `  Goal: ${group.goal}`, `  Closure: ${group.closure}`);
+  const describeSupports = supports => {
+    if (!supports.length) return ['  Support: none resolved at this owner level'];
+    return supports.flatMap(row => [
+      `  ${row.family}:${row.id} ${row.native.direction || ''} → ${row.ownerPath || 'OWNER_UNRESOLVED'}`,
+      `    ${row.native.cue || row.native.task || row.native.title || ''}`,
+      `    Timing: ${row.native.displayPolicy?.timing || 'native slot; no explicit override'}; answerBearing=${row.native.answerBearing === true}`
+    ]);
+  };
+  lines.push('Counts are owner attachments; KP zero does not mean Block/group absence.');
+  for (const group of report.logicGroupTrace) {
+    lines.push(`${group.identity.logicGroupId} · ${group.identity.label}`,
+      `  ${group.kpIds.join(' → ')}`, `  Goal: ${group.goal}`, `  Closure: ${group.closure}`);
+    if (!report.requestedKpId || group.kpIds.includes(report.requestedKpId)) lines.push(...describeSupports(group.supports));
+  }
+  lines.push('', '## Block-owned support', ...describeSupports(report.blockTrace.supports));
   lines.push('', '## KP content');
   for (const item of report.trace) {
     lines.push('', `### ${item.identity.kpId} · ${item.identity.title}`,
