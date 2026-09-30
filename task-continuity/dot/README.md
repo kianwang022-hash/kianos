@@ -10,6 +10,21 @@
 3. 现有全部设定以GitHub原负责文件为依据。不得把理解遗漏当成没有设定，也不得用新规则替代已有设计。
 4. “文件存在、代码提交、测试通过”分别只是证据；完成必须对应实际学习与内容修改效果。
 
+## 已确认的顶层原则（2026-09-30 10:34 UTC）
+
+用户已确认以下六条理解；这是对现有原负责文件的接续摘要，不建立第二套产品合同：
+
+1. 可靠Source转成高质量、可理解、可回忆、可应用的Knowledge；网页承接学习，Chat修改正确负责文件，页面效果可验证，已有学习不丢
+2. Source管来源；Knowledge/Content管知识与教学内容；Learning管学习方式；Visual管展示；Runtime管交互、记录、流转；下游不得猜知识或另造规则
+3. 正式层级只有System→Block→LG→KP；同一知识只有一个负责位置。系统真实Source/学习差异保留，共享网页与执行机制
+4. 建模→原讲义→主动回忆→整合→做题→最小Repair→原位Return→后续验证。连续原讲义学习仍由iPad/MarginNote承担，网页负责伴学、回忆、题目、记录
+5. 已正式采用的资产完整消费，同时遵守时机；Prompt负责提取，Core保持完整，支持不按标签数量强行对称
+6. Content revision与Learner history分开；非语义修改不重置，医学语义变化局部复验，历史、个人记录与Resume保留；旧章节措辞不能推翻现行规则
+
+原权威： [学习合同](../../content/xizong/LEARNING_CONTRACT.md)、[学习策略](../../content/xizong/knowledge/learner/study-policy.json)、[内容组合](../../content/xizong/LEARNER_OBJECT_CONTRACT.md)、[页面职责](../../static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md)、[权威继承](../../AUTHORITY_INHERITANCE_CONTRACT.md)。
+
+当前仅继续规则冲突核对，区分合法特化、旧说法残留、真正未决；不自动恢复全量正文或产品修改。
+
 ## 恢复入口
 
 - 先读当前 main 的 AGENTS.md，再读 content/xizong/CURRENT.md 与 [西综主任务 #1113](https://github.com/kianwang022-hash/kianos/issues/1113)
