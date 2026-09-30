@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { normalizeAcceptedLearningOwner, normalizeAcceptedLogicGroups, expandAcceptedOrdinalRange as expandRange } from './xizongAcceptedLearningOwner.mjs';
+import { normalizeAcceptedLearningOwner, normalizeAcceptedLogicGroups, expandAcceptedOrdinalRange as expandRange, normalizeAcceptedBlockRoute as systemBlockRoute, hydrateAcceptedLearningOwner } from './xizongAcceptedLearningOwner.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -48,39 +48,6 @@ function systemIdentity(raw) {
   };
 }
 
-function normalizeRouteRow(value) {
-  if (typeof value === 'string' && value.trim()) return { id: value.trim() };
-  if (value && typeof value === 'object' && !Array.isArray(value) && value.id) {
-    return { ...value, id: String(value.id) };
-  }
-  return null;
-}
-
-function flattenGroupedRoute(rows) {
-  const route = [];
-  for (const row of Array.isArray(rows) ? rows : []) {
-    if (!Array.isArray(row?.blocks)) continue;
-    for (const block of row.blocks) {
-      const normalized = normalizeRouteRow(block);
-      if (normalized) route.push(normalized);
-    }
-  }
-  return route;
-}
-
-function systemBlockRoute(raw) {
-  const direct = (Array.isArray(raw?.block_route) ? raw.block_route : [])
-    .filter((row) => row && !Array.isArray(row?.blocks))
-    .map(normalizeRouteRow)
-    .filter(Boolean);
-  const grouped = flattenGroupedRoute(raw?.block_route);
-  const familyFallback = flattenGroupedRoute(raw?.block_families);
-  const route = direct.length ? direct : (grouped.length ? grouped : familyFallback);
-  const ids = route.map((row) => row.id);
-  if (new Set(ids).size !== ids.length) fail('SYSTEM_BLOCK_ROUTE_DUPLICATE', ids.join(','));
-  return route;
-}
-
 function systemDirectories() {
   if (!exists(SYSTEMS_ROOT)) fail('SYSTEMS_ROOT_MISSING');
   return fs.readdirSync(absolute(SYSTEMS_ROOT), { withFileTypes: true })
@@ -105,44 +72,6 @@ function findSystemRecord(systemId) {
   fail('SYSTEM_NOT_FOUND', systemId);
 }
 
-function walkJsonFiles(relativeDir) {
-  if (!exists(relativeDir)) return [];
-  const out = [];
-  const visit = (dir) => {
-    for (const entry of fs.readdirSync(absolute(dir), { withFileTypes: true })) {
-      const child = `${dir}/${entry.name}`;
-      if (entry.isDirectory()) visit(child);
-      else if (entry.isFile() && /\.json$/i.test(entry.name)) out.push(child);
-    }
-  };
-  visit(relativeDir);
-  return out.sort((a, b) => a.localeCompare(b));
-}
-
-function hydrateShardedLearningOwner(basePath, owner) {
-  if (owner?.blocks && Object.keys(owner.blocks).length) return { owner, shardPaths: [] };
-
-  const shardRoot = basePath.replace(/\.json$/i, '');
-  const shardPaths = walkJsonFiles(shardRoot);
-  if (!shardPaths.length) return { owner, shardPaths: [] };
-
-  const blocks = {};
-  const acceptedShards = [];
-  for (const shardPath of shardPaths) {
-    const shard = readJson(shardPath);
-    if (shard?.system_id !== owner.system_id || shard?.canonical_id !== owner.canonical_id || !shard?.blocks) continue;
-    if (!isChatApproved(shard?.authority)) fail('LEARNING_SHARD_AUTHORITY_INVALID', shardPath);
-    for (const [blockId, block] of Object.entries(shard.blocks)) {
-      if (blocks[blockId]) fail('LEARNING_SHARD_BLOCK_DUPLICATE', blockId);
-      blocks[blockId] = block;
-    }
-    acceptedShards.push(shardPath);
-  }
-
-  if (!Object.keys(blocks).length) return { owner, shardPaths: [] };
-  return { owner: { ...owner, blocks }, shardPaths: acceptedShards };
-}
-
 function loadLearningOwner(record) {
   const baseName = `${record.identity.canonicalId.toLowerCase()}-${record.identity.systemId}-learning.json`;
   const sourcePath = `${LEARNER_ROOT}/${baseName}`;
@@ -155,7 +84,7 @@ function loadLearningOwner(record) {
     fail('LEARNING_OWNER_IDENTITY_MISMATCH', record.identity.systemId);
   }
 
-  const hydrated = hydrateShardedLearningOwner(sourcePath, base);
+  const hydrated = hydrateAcceptedLearningOwner({ repoRoot, learningPath: sourcePath, learning: base });
   const routeIds = record.route.map((row) => row.id);
   let contentSourcePath = null;
   let contentOwner = null;

@@ -1,3 +1,5 @@
+import { assertXizongKpMetadata } from './test-xizong-kp-metadata.mjs';
+import { assertXizongOwnerLoading } from './test-xizong-owner-loading.mjs';
 import assertStrict from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { normalizeAcceptedLogicGroups } from '../src/lib/xizongAcceptedLearningOwner.mjs';
@@ -296,3 +298,9 @@ for (const system of systems.values()) {
 }
 
 console.log(`Xizong semantic adapter PASS: ${[...systems.values()].reduce((sum, system) => sum + system.blocks.length, 0)} blocks across A1/A2/A3/B/C/D/E/F`);
+
+// The same Current validation also attacks routing/shard reader divergence.
+await assertXizongOwnerLoading();
+
+// Compare raw authored fields, not just two consumers of the same parser.
+await assertXizongKpMetadata();

@@ -1,3 +1,7 @@
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
+
 function fail(code, detail = '') {
   throw new Error(`CURRENT_XIZONG_ACCEPTED_LEARNING_${code}${detail ? `:${detail}` : ''}`);
 }
@@ -323,4 +327,89 @@ export function normalizeAcceptedLogicGroups({ system, blockId, blockSupport, kp
     if (!seen.has(ordinal)) fail('LOGIC_MEMBER_MISSING', `${blockId}:kp${ordinal}`);
   }
   return groups;
+}
+
+
+// Structural route only. Presentation defaults stay in the existing loader;
+// conceptual family order never overrides an explicit block_route.
+export function normalizeAcceptedBlockRoute(system) {
+  const normalizeRow = (row) => {
+    const id = typeof row === 'string' ? row.trim()
+      : row && typeof row === 'object' && !Array.isArray(row) && typeof row.id === 'string'
+        ? row.id.trim() : '';
+    if (!id) fail('ROUTE_ROW_INVALID');
+    return typeof row === 'string' ? { id } : { ...row, id };
+  };
+  if (system?.block_route != null && !Array.isArray(system.block_route)) fail('ROUTE_CONTAINER_INVALID');
+  const route = Array.isArray(system?.block_route) ? system.block_route : [];
+  if (!route.length && system?.block_families != null && !Array.isArray(system.block_families)) fail('ROUTE_CONTAINER_INVALID');
+  const families = Array.isArray(system?.block_families) ? system.block_families : [];
+  let rows = [];
+  if (route.length) {
+    const grouped = route.filter(row => Array.isArray(row?.blocks));
+    if (grouped.length && grouped.length !== route.length) fail('ROUTE_MIXED_SHAPES');
+    rows = grouped.length ? grouped.flatMap(row => {
+      if (!row.blocks.length) fail('ROUTE_GROUP_EMPTY');
+      return row.blocks.map(normalizeRow);
+    }) : route.map(normalizeRow);
+  } else {
+    rows = families.flatMap(family => {
+      if (!Array.isArray(family?.blocks) || !family.blocks.length) fail('ROUTE_GROUP_EMPTY');
+      return family.blocks.map(normalizeRow);
+    });
+  }
+  const ids = rows.map(row => row.id);
+  if (new Set(ids).size !== ids.length) fail('ROUTE_DUPLICATE', ids.join(','));
+  return rows;
+}
+
+// The manifest and its listed shards are one existing Learning owner. Directory
+// contents are not semantic authority: never rediscover undeclared/historical JSON.
+export function hydrateAcceptedLearningOwner({ repoRoot, learningPath, learning }) {
+  if (!learning || learning.status !== 'CURRENT'
+      || !String(learning.authority || '').startsWith('CHAT_APPROVED')) {
+    fail('OWNER_INVALID', learningPath);
+  }
+  const blockMap = value => value && typeof value === 'object' && !Array.isArray(value);
+  if (learning.blocks != null && !blockMap(learning.blocks)) fail('BLOCKS_INVALID', learningPath);
+  const storage = learning.storage;
+  const declared = storage?.mode === 'SHARDED_BLOCK_LEARNING_OWNER' || storage?.shards != null;
+  if (!declared) return { owner: learning, shardPaths: [], sourceHash: null };
+  if (storage.mode !== 'SHARDED_BLOCK_LEARNING_OWNER') fail('STORAGE_MODE_INVALID', learningPath);
+  if (!Array.isArray(storage.shards) || !storage.shards.length) fail('SHARDS_MISSING', learningPath);
+
+  const ownerDir = path.posix.dirname(learningPath);
+  const shardPaths = storage.shards.map(relative => {
+    if (typeof relative !== 'string' || !relative.trim() || relative !== relative.trim()
+        || path.posix.isAbsolute(relative) || /[\\:]/.test(relative)
+        || relative.split('/').some(part => !part || part === '..' || part === '.')
+        || !/\.json$/i.test(relative)) fail('SHARD_PATH_INVALID', String(relative));
+    return path.posix.join(ownerDir, relative);
+  }).sort((a, b) => a.localeCompare(b));
+  if (new Set(shardPaths).size !== shardPaths.length) fail('SHARD_PATH_DUPLICATE', learningPath);
+
+  const blocks = { ...(learning.blocks || {}) };
+  const shardTexts = [];
+  for (const shardPath of shardPaths) {
+    const file = path.resolve(repoRoot, shardPath);
+    if (!fs.existsSync(file)) fail('SHARD_MISSING', shardPath);
+    const text = fs.readFileSync(file, 'utf8');
+    const shard = JSON.parse(text);
+    if (shard?.system_id !== learning.system_id || shard?.canonical_id !== learning.canonical_id) {
+      fail('SHARD_IDENTITY_MISMATCH', shardPath);
+    }
+    if (!String(shard?.authority || '').startsWith('CHAT_APPROVED')) fail('SHARD_AUTHORITY_INVALID', shardPath);
+    if (!blockMap(shard?.blocks) || !Object.keys(shard.blocks).length) fail('SHARD_BLOCKS_INVALID', shardPath);
+    for (const [blockId, block] of Object.entries(shard.blocks)) {
+      if (Object.prototype.hasOwnProperty.call(blocks, blockId)) fail('SHARD_BLOCK_DUPLICATE', blockId);
+      if (!blockMap(block)) fail('SHARD_BLOCKS_INVALID', `${shardPath}:${blockId}`);
+      blocks[blockId] = block;
+    }
+    shardTexts.push(text);
+  }
+  // Preserve the existing fingerprint for the currently accepted flat shards.
+  // Moving to one reader must not invalidate real learner evidence.
+  const sourceHash = crypto.createHash('sha256')
+    .update([JSON.stringify(learning), ...shardTexts].join('\n')).digest('hex');
+  return { owner: { ...learning, blocks }, shardPaths, sourceHash };
 }

@@ -1,7 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { normalizeAcceptedLearningOwner, normalizeBlockToken, normalizeAcceptedLogicGroups } from './xizongAcceptedLearningOwner.mjs';
+import { normalizeAcceptedLearningOwner, normalizeBlockToken, normalizeAcceptedLogicGroups, normalizeAcceptedBlockRoute, hydrateAcceptedLearningOwner } from './xizongAcceptedLearningOwner.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -66,36 +66,8 @@ function systemIdentity(system) {
 }
 
 function hydrateLearningOwner(learningPath, learning) {
-  const blocks = learning?.blocks && typeof learning.blocks === 'object' && !Array.isArray(learning.blocks)
-    ? { ...learning.blocks }
-    : {};
-  const shardRoot = learningPath.replace(/\.json$/i, '');
-  const shardTexts = [];
-
-  if (fs.existsSync(absolute(shardRoot))) {
-    const shardNames = fs.readdirSync(absolute(shardRoot))
-      .filter((name) => /\.json$/i.test(name))
-      .sort((a, b) => a.localeCompare(b));
-    for (const name of shardNames) {
-      const shardPath = `${shardRoot}/${name}`;
-      const text = readText(shardPath);
-      const shard = JSON.parse(text);
-      if (shard?.system_id !== learning?.system_id || shard?.canonical_id !== learning?.canonical_id || !shard?.blocks) continue;
-      if (!String(shard?.authority || '').startsWith('CHAT_APPROVED')) {
-        throw new Error(`CURRENT_XIZONG_LEARNING_SHARD_INVALID:${shardPath}`);
-      }
-      for (const [blockId, block] of Object.entries(shard.blocks)) {
-        if (blocks[blockId]) throw new Error(`CURRENT_XIZONG_LEARNING_SHARD_DUPLICATE:${blockId}`);
-        blocks[blockId] = block;
-      }
-      shardTexts.push(text);
-    }
-  }
-
-  return {
-    raw: { ...learning, blocks },
-    sourceHash: shardTexts.length ? sha256([JSON.stringify(learning), ...shardTexts].join('\n')) : null
-  };
+  const hydrated = hydrateAcceptedLearningOwner({ repoRoot, learningPath, learning });
+  return { raw: { ...hydrated.owner, blocks: hydrated.owner.blocks || {} }, sourceHash: hydrated.sourceHash };
 }
 
 function currentLearningIdentity(dirName) {
@@ -152,25 +124,12 @@ function systemProjectionMaterialized(identity) {
 }
 
 function directBlockRoute(system, learningBlocks = {}) {
-  const route = Array.isArray(system?.block_route) ? system.block_route : [];
-  const direct = route.filter((row) => row && !Array.isArray(row?.blocks) && row?.id);
-  if (direct.length) return direct;
-
-  const families = Array.isArray(system?.block_families) ? system.block_families : [];
-  const ids = families.flatMap((family) => Array.isArray(family?.blocks) ? family.blocks.map(String) : []);
-  if (!ids.length) return [];
-  if (new Set(ids).size !== ids.length) throw new Error('CURRENT_XIZONG_BLOCK_FAMILY_ROUTE_DUPLICATE');
-
-  return ids.map((id) => {
-    const support = learningBlocks?.[id] || {};
-    const suffix = String(id).match(/-([a-z]+)0*(\d+)$/i);
-    const stableLabel = suffix ? `${suffix[1].toUpperCase()}${Number(suffix[2])}` : id;
-    return {
-      id,
-      label: stableLabel,
-      title: String(support?.title || id),
-      kp: Number(support?.kp_count || 0)
-    };
+  // Display defaults only; structural identity/order has one shared interpreter.
+  return normalizeAcceptedBlockRoute(system).map((row) => {
+    const support = learningBlocks[row.id] || {};
+    const suffix = row.id.match(/-([a-z]+)0*(\d+)$/i);
+    const stableLabel = suffix ? `${suffix[1].toUpperCase()}${Number(suffix[2])}` : row.id;
+    return { label: stableLabel, title: String(support.title || row.id), kp: Number(support.kp_count || 0), ...row };
   });
 }
 
@@ -383,17 +342,51 @@ function blockOpeningOrientation(markdown) {
   return { title: 'Block orientation', markdown: opening };
 }
 
-function metadataValue(body, label) {
+function readMetadataDeclaration(body, label) {
   const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const patterns = [
-    new RegExp(`^\\s{0,4}>\\s*\\*\\*${escaped}\\*\\*[：:]?\\s*(.+)$`, 'm'),
-    new RegExp(`^\\s{0,4}>\\s*\\*\\*${escaped}[：:]\\*\\*\\s*(.+)$`, 'm')
+    new RegExp(`^\\s{0,4}>\\s*\\*\\*${escaped}\\*\\*[：:]?\\s*(.+)$`),
+    new RegExp(`^\\s{0,4}>\\s*\\*\\*${escaped}[：:]\\*\\*\\s*(.+)$`),
+    new RegExp(`^\\s{0,4}>\\s*\\*\\*${escaped}[：:]\\s*(.+?)\\*\\*\\s*$`)
   ];
-  for (const pattern of patterns) {
-    const match = body.match(pattern);
-    if (match?.[1]) return match[1].trim();
+  const declarations = [];
+  for (const [lineIndex, line] of String(body).split(/\r?\n/).entries()) {
+    for (const [formatPriority, pattern] of patterns.entries()) {
+      const match = line.match(pattern);
+      if (match?.[1]?.trim()) {
+        declarations.push({ value: match[1].trim(), formatPriority, lineIndex });
+        break;
+      }
+    }
   }
-  return '';
+  declarations.sort((a, b) => a.formatPriority - b.formatPriority || a.lineIndex - b.lineIndex);
+  const values = [...new Set(declarations.map(row => row.value))];
+  const conflict = values.length > 1;
+  // Preserve already-effective legacy fields. Newly readable but ambiguous
+  // whole-line declarations cannot silently choose a replacement. Surface the
+  // exact conflicting owner text to inspection; resolving it is Content review.
+  const selected = declarations[0];
+  const value = conflict && selected?.formatPriority === 2 ? '' : selected?.value || '';
+  return { value, ...(conflict ? { diagnostic: {
+    code: 'MULTIPLE_AUTHORED_METADATA_VALUES', label, values,
+    effectiveValue: value, resolution: 'CONTENT_REVIEW_REQUIRED'
+  } } : {}) };
+}
+
+function readKpMetadata(body) {
+  const prompt = readMetadataDeclaration(body, '主提示');
+  const sourceArrow = readMetadataDeclaration(body, '讲义定位 →');
+  const source = readMetadataDeclaration(body, '讲义定位');
+  const outlineArrow = readMetadataDeclaration(body, 'Outline →');
+  const outline = readMetadataDeclaration(body, 'Outline');
+  const contentDiagnostics = [prompt, sourceArrow, source, outlineArrow, outline]
+    .flatMap(row => row.diagnostic ? [row.diagnostic] : []);
+  return {
+    prompt: prompt.value,
+    sourceLocator: sourceArrow.value || source.value,
+    outlineLocator: outlineArrow.value || outline.value,
+    ...(contentDiagnostics.length ? { contentDiagnostics } : {})
+  };
 }
 
 function stripKpMetadata(body) {
@@ -421,9 +414,7 @@ function parseKps(markdown, blockId) {
       displayId: match[2],
       ordinal,
       title: String(match[4] || '').trim(),
-      prompt: metadataValue(body, '主提示'),
-      sourceLocator: metadataValue(body, '讲义定位 →') || metadataValue(body, '讲义定位'),
-      outlineLocator: metadataValue(body, 'Outline →') || metadataValue(body, 'Outline'),
+      ...readKpMetadata(body),
       detailMarkdown: stripKpMetadata(body)
     };
   });
@@ -456,9 +447,7 @@ function parseKpsFromStableMarkers(markdown, blockId) {
       displayId: match[2],
       ordinal,
       title: String(match[4] || '').trim(),
-      prompt: metadataValue(body, '主提示'),
-      sourceLocator: metadataValue(body, '讲义定位 →') || metadataValue(body, '讲义定位'),
-      outlineLocator: metadataValue(body, 'Outline →') || metadataValue(body, 'Outline'),
+      ...readKpMetadata(body),
       detailMarkdown: stripKpMetadata(body)
     };
   });

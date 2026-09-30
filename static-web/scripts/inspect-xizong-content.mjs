@@ -96,6 +96,7 @@ export async function inspectXizongContent({ systemId, blockRef, kpId = null }) 
       prompt: { text: source.prompt, sha256: sha256(source.prompt), field: '主提示', rawOwnerContainsText: Boolean(source.prompt) && rawContent.includes(source.prompt) },
       core: { sha256: sha256(source.detailMarkdown), field: 'canonical KP body (native detailMarkdown)' },
       source: kp.source, outline: kp.outline, supports,
+      contentDiagnostics: source.contentDiagnostics || [],
       slots: {
         kpLearnAux: learner.slots.kpLearnAux[kp.identity.kpId],
         kpRecallContext: learner.slots.kpRecallContext[kp.identity.kpId],
@@ -129,6 +130,7 @@ export async function inspectXizongContent({ systemId, blockRef, kpId = null }) 
       outgoingKpCount: learner.kps.reduce((n,k) => n+k.connection.outgoing.length,0),
       incomingKpCount: learner.kps.reduce((n,k) => n+k.connection.incoming.length,0) },
     requestedKpId: kpId,
+    contentDiagnostics: trace.filter(row => row.contentDiagnostics.length).map(row => ({ kpId: row.identity.kpId, ownerPath: canonical.sourcePath, diagnostics: row.contentDiagnostics })),
     // Full native data stays available: Block Framework/MI/Source/group support
     // must not disappear merely because the concise human view has KP rows.
     canonicalBlock: canonical, semanticBlock, learnerObject: learner,
@@ -156,6 +158,10 @@ export function formatXizongInspection(report) {
       `Prompt: ${item.prompt.text}`, `Source: ${item.source.locator || 'UNAVAILABLE'}`,
       `Outline: ${item.outline.locator || 'UNAVAILABLE'}`,
       `Support: ${item.supports.map(row => `${row.family}:${row.id}`).join(', ') || 'none resolved'}`);
+    for (const diagnostic of item.contentDiagnostics || []) {
+      lines.push(`CONTENT REVIEW REQUIRED: ${diagnostic.label} has multiple authored values; effective text is not a resolved Content decision.`,
+        ...diagnostic.values.map((value, index) => `  Authored ${index + 1}: ${value}`));
+    }
     if (report.requestedKpId) {
       lines.push('', '### Full canonical Core', report.selectedKp.core.markdown,
         '', '### Native support / owner / timing declarations', JSON.stringify(item.supports,null,2));
