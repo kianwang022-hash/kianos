@@ -1,5 +1,5 @@
 # 西综理解记录：全流程与首批正文
-更新：2026-09-30 10:27 UTC。状态：进行中，只读理解；不是产品验收或新的学习规则。
+更新：2026-09-30 10:30 UTC。状态：进行中，只读理解；不是产品验收或新的学习规则。
 
 ## 一、恢复时先记住什么
 - 当前任务先读懂现有西综，再讨论最小责任位置的落地；不能用新架构替代已有知识与学习设计
@@ -14,7 +14,8 @@
 已全文阅读：
 - A1循环：12 Block、312 KP，含Framework、Prompt/Core、Memory Routing、Source/Outline、出口及附录
 - A2呼吸：12 Block、236 KP，含同类全部正文
-- A3泌尿B1/B2；其余泌尿正文和B/C/D/E/F正在分批理解，完整覆盖稍后补入
+- A3泌尿：14 Block、257 KP全部正文已读；其中B3–B14为12份、11,410逻辑行、228 KP，包含KP以外的独立章节
+- B/C/D/E/F继续分批理解，后续覆盖按实际完成补入
 - A宏域LOGIC/CONTENT/LEARN，知识manifest/README，Guide/preentry合同及Source manifest
 - 全流程合同、学习策略、Memory/Practice/Repair/Return/成熟度的规则与职责已梳理；大型支持目录不是已逐条医学核验
 
@@ -63,7 +64,17 @@ Source并非绝不允许纠错：R9-SC01已显式裁决PDE5第二信使；R10-SC
 - A3利尿剂对照表是POST_REVEAL；肾单位空间图可在LEARNING_MOMENT展开
 - “已存在却没默认展开”不自动等于漏投影，须按accepted timing逐对象核对
 
-## 六、标签要按职责看
+## 六、A3泌尿理解
+B1/B2建立地图与滤过；B3小管分段机制；B4浓缩和激素肾端；B5容量、电解质和酸碱整合；B6尿证据与功能。B7功能衰竭、B8感染、B9双坐标、B10/B11肾炎/肾病、B12–B14尿路与外科是不同认知任务，不应强行统一为一种短卡片。
+
+已定位但未直接修复：
+- B8独立§13承载肾乳头坏死、局部脓肿、尿源性脓毒症及感染+梗阻接口，不在KP01–17内部。后续消费对账不能只数KP；当前是否被合适位置消费尚待证明
+- B14仍保留“B5 acid-base blocker / NOT_RUN_B5_STILL_BLOCKED”，而B5明确已有窄范围外部Source准入和诊断算法补齐。该旧句不能直接当当前A3 blocker
+- 页码存在PDF物理页、书页、source-local标识多个坐标，须由当前Source map消歧
+- B9–B11使用整体粗体主提示和快速核对；后者仍是回答内容，不应因为标题不同丢失或提前泄露
+- B5准入只覆盖既定代偿/混合诊断与AG/delta，不自动扩展治疗、ICU或新课程
+
+## 七、标签要按职责看
 当前看见至少六类不同轴：
 - 身份：System/Block/LG/KP、稳定ID及精确别名
 - 知识职责：Prompt/Core/Framework/Boundary/Connection/Precision/MedicalVisual
@@ -74,7 +85,7 @@ Source并非绝不允许纠错：R9-SC01已显式裁决PDE5第二信使；R10-SC
 
 这些轴可以共存，但消费者不能凭同名词猜含义。尤其detailMarkdown仍是完整Core，MI-G/MI-D不是个人队列，MedicalVisual不是界面Visual，旧PASS不是当前网页证据。
 
-## 七、下一步与停止边界
+## 八、下一步与停止边界
 继续全系统正文和当前支持资产阅读，补齐责任地图；随后对“同一个对象应有哪些资产、何时出现、状态写到哪”核对代码。最终向用户提交可复用的整体理解及具体冲突，不靠重写医学内容获得表面整齐。
 
 在完成理解前，不执行Prompt批量改写、重构、合并、部署或学习状态操作。阶段与实际执行进度仍由[#1113](https://github.com/kianwang022-hash/kianos/issues/1113)拥有。
