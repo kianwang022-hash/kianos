@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { loadXizongBlock, loadXizongSystem } from '../src/lib/xizong.mjs';
 import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
@@ -32,11 +33,21 @@ function weakMemory(kpIds, recallRatings, memory = {}) {
   return weak.length ? weak : rows.filter((row) => row.sourceRating && row.memoryState !== 'STABLE');
 }
 
-function canCloseBlock({ totalKp, learned, ratings, blockRecallDone }) {
-  return totalKp > 0
-    && Object.values(learned).filter(Boolean).length >= totalKp
-    && Object.keys(ratings).length >= totalKp
-    && Boolean(blockRecallDone);
+// Evaluate the actual runtime gate with bounded synthetic inputs, rather than
+// requiring an obsolete adjacency of three conditions or testing a second gate.
+const closeExpression = read('static-web/src/components/XizongBlockV6.astro')
+  .match(/const canComplete = \(\) => ([\s\S]*?);/)?.[1];
+assert(Boolean(closeExpression), 'block-core-close-gate-missing');
+const closeScript = new vm.Script(`Boolean(${closeExpression})`);
+function canCloseBlock({ totalKp, learned, ratings, blockRecallDone,
+  sourceCovered = true, sourceRevisionPending = false, groupClosures = [true] }) {
+  return closeScript.runInNewContext({
+    totalKp, state: { blockRecallDone, sourceRevisionPending },
+    currentSourceContactCovered: () => sourceCovered,
+    learnedCount: () => Object.values(learned).filter(Boolean).length,
+    recallCount: () => Object.keys(ratings).length,
+    groups: groupClosures, groupClosureSatisfied: group => group === true
+  }, { timeout: 100 });
 }
 
 function scopedChatPlan(rawPlan, kpIds) {
@@ -230,7 +241,19 @@ lacks(systemUi, /xv6System/, 'retired-system-workspace-namespace-returned');
 
 has(blockUi, 'data-kp-answer hidden', 'recall-answer-not-hidden');
 has(blockUi, 'data-kp-reveal', 'recall-reveal-missing');
-matches(blockUi, /learnedCount\(\)\s*>=\s*totalKp\s*&&\s*recallCount\(\)\s*>=\s*totalKp\s*&&\s*Boolean\(state\.blockRecallDone\)/, 'block-core-close-gate');
+// Every gate term must independently block completion; added safety conditions
+// must not make a correct product fail a stale source-text regex.
+for (let mask = 0; mask < 128; mask += 1) {
+  const flags = Array.from({ length: 7 }, (_, bit) => Boolean(mask & (1 << bit)));
+  const actual = canCloseBlock({
+    totalKp: flags[0] ? 2 : 0,
+    learned: flags[1] ? { a: true, b: true } : {},
+    ratings: flags[2] ? { a: 'known', b: 'known' } : {},
+    blockRecallDone: flags[3], sourceCovered: flags[4],
+    sourceRevisionPending: !flags[5], groupClosures: [true, flags[6]]
+  });
+  assert(actual === flags.every(Boolean), `block-core-close-gate:${mask}`);
+}
 has(blockUi, 'const raw = localStorage.getItem(storageKey);', 'block-persistence-raw-read-missing');
 has(blockUi, 'const saved = JSON.parse(raw);', 'block-persistence-json-parse-missing');
 has(blockUi, "saved.schema !== 'kianos.xizong.block-state.v2'", 'block-persistence-schema-guard-missing');

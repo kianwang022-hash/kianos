@@ -1,3 +1,7 @@
+import assertStrict from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import { normalizeAcceptedLogicGroups } from '../src/lib/xizongAcceptedLearningOwner.mjs';
+import { loadXizongBlock } from '../src/lib/xizong.mjs';
 import { loadXizongSemanticBlock, loadXizongSemanticSystem, XIZONG_SEMANTIC_ADAPTER_SCHEMA } from '../src/lib/xizongSemanticAdapter.mjs';
 
 const fail = (message) => { throw new Error(`XIZONG_SEMANTIC_ADAPTER_FAIL:${message}`); };
@@ -195,6 +199,90 @@ for (const system of [d, e, f]) {
     }
   }
 }
+
+// The human/Chat content loader and the semantic consumer must resolve the
+// same accepted group identity, label and ordered membership for every Block.
+// This is an independent consumer comparison, not an extra content registry.
+for (const system of systems.values()) {
+  for (const semantic of system.blocks) {
+    const canonical = loadXizongBlock(system.systemId, semantic.blockId);
+    const byId = new Map(canonical.kpRecords.map(kp => [kp.kpId, kp]));
+    const actual = canonical.logicGroups.map(group => ({
+      id: group.groupId, label: group.label,
+      members: group.kpIds.map(id => byId.get(id)?.ordinal)
+    }));
+    const expected = semantic.logicGroups.map(group => ({
+      id: group.groupId, label: group.label, members: group.kpOrdinals
+    }));
+    assert(JSON.stringify(actual) === JSON.stringify(expected), `${semantic.blockId}:canonical-semantic-group-drift`);
+  }
+}
+
+// Same-meaning field aliases and heterogeneous membership use one pure owner.
+const fixture = {
+  system: { logic_index: { 'test-b01': [{ id: 'g1', kp: [1, 2] }, { id: 'g2', kp: [3, 4] }] } },
+  blockId: 'test-b01', kpCount: 4,
+  blockSupport: { logic_groups: {
+    g1: { goal: 'first job', closure: 'first close' },
+    g2: { goal: 'second job', closure: 'second close' }
+  } }
+};
+const resolveFixture = input => normalizeAcceptedLogicGroups(input);
+assertStrict.deepEqual(resolveFixture(fixture).map(g=>g.kpOrdinals), [[1,2],[3,4]]);
+const reordered = structuredClone(fixture);
+reordered.blockSupport.learner_order=['g2','g1'];
+reordered.blockSupport.logic_groups.g1.kp_members=[1,3];
+reordered.blockSupport.logic_groups.g2.members=[4,2];
+assertStrict.deepEqual(resolveFixture(reordered).map(g=>g.kpOrdinals), [[4,2],[1,3]]);
+const equivalent=structuredClone(reordered);
+equivalent.blockSupport.logic_groups.g1.members=['1','3'];
+assertStrict.deepEqual(resolveFixture(equivalent),resolveFixture(reordered));
+const ranged=structuredClone(fixture);
+ranged.blockSupport.logic_groups.g1.kp_range=[1,2];
+assertStrict.equal(resolveFixture(ranged)[0].membershipMode,'LEARNING_RANGE');
+for (const [name, mutate] of [
+  ['alias conflict', f=>{f.blockSupport.logic_groups.g1.kp_members=[1,2];f.blockSupport.logic_groups.g1.members=[2,1];}],
+  ['range alias conflict', f=>{f.blockSupport.logic_groups.g1.kp=[1,2];f.blockSupport.logic_groups.g1.kp_range=[1,3];}],
+  ['duplicate member', f=>{f.blockSupport.logic_groups.g1.members=[1,1];}],
+  ['member out of range', f=>{f.blockSupport.logic_groups.g1.members=[1,5];}],
+  ['group overlap', f=>{f.blockSupport.logic_groups.g2.members=[2,3,4];}],
+  ['coverage gap', f=>{f.blockSupport.logic_groups.g1.members=[1];}],
+  ['unknown group order', f=>{f.blockSupport.learner_order=['g1','missing'];}],
+  ['duplicate group order', f=>{f.blockSupport.learner_order=['g1','g1'];}],
+  ['missing closure', f=>{f.blockSupport.logic_groups.g1.closure='';}],
+  ['invalid range', f=>{f.blockSupport.logic_groups.g1.kp=[2,1];}],
+  ['duplicate system ID', f=>{f.system.logic_index['test-b01'][1].id='g1';}],
+  ['invalid count', f=>{f.kpCount=0;}]
+]) {
+  const bad=structuredClone(fixture);mutate(bad);
+  assertStrict.throws(()=>resolveFixture(bad),/CURRENT_XIZONG_ACCEPTED_LEARNING_/,name);
+}
+
+// Exercise the actual independent loaders with a valid future Learning edit.
+// Only this child process sees the changed bytes; never edit real source/state.
+const editResult=JSON.parse(execFileSync(process.execPath,['--input-type=module','-e',`
+  import fs from 'node:fs';
+  const original=fs.readFileSync.bind(fs);
+  fs.readFileSync=(file,...args)=>{
+    const raw=original(file,...args);
+    if (!String(file).endsWith('/a1-circulation-learning.json')) return raw;
+    const data=JSON.parse(raw),b=data.blocks['circulation-b01'];
+    b.learner_order=Object.keys(b.logic_groups).reverse();
+    b.logic_groups['circulation-b01-lg01'].kp_members=[3,1,2];
+    const text=JSON.stringify(data);
+    return typeof raw==='string'?text:Buffer.from(text);
+  };
+  const {loadXizongBlock}=await import(${JSON.stringify(new URL('../src/lib/xizong.mjs',import.meta.url).href)});
+  const {loadXizongSemanticBlock}=await import(${JSON.stringify(new URL('../src/lib/xizongSemanticAdapter.mjs',import.meta.url).href)});
+  const c=loadXizongBlock('circulation','b01'),s=loadXizongSemanticBlock('circulation','circulation-b01').block;
+  const raw=c.logicGroups.map(g=>({id:g.groupId,members:g.kpIds.map(id=>c.kpRecords.find(k=>k.kpId===id).ordinal)}));
+  const semantic=s.logicGroups.map(g=>({id:g.groupId,members:g.kpOrdinals}));
+  console.log(JSON.stringify({raw,semantic,canonicalOrder:c.kpRecords.map(k=>k.ordinal)}));
+`],{encoding:'utf8',env:{...process.env,KIANOS_XIZONG_BUILD_CACHE:'0'}}));
+assertStrict.deepEqual(editResult.raw,editResult.semantic,'valid accepted edit cannot diverge by read path');
+assertStrict.equal(editResult.raw[0].id,'circulation-b01-lg07');
+assertStrict.deepEqual(editResult.raw.at(-1).members,[3,1,2]);
+assertStrict.deepEqual(editResult.canonicalOrder,Array.from({length:32},(_,i)=>i+1),'learner order never rewrites stable identity');
 
 // The adapter must not manufacture learner progress, official-question mapping,
 // or a duplicate question-taking surface.

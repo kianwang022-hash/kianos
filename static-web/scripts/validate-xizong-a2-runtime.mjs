@@ -1,3 +1,4 @@
+import { assertXizongFinalGroupTransition } from './xizongRuntimeGateTest.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -140,7 +141,7 @@ has(blockUi, 'localStorage.setItem(storageKey, JSON.stringify(state))', 'block-s
 has(blockUi, "suspend('本次学习状态未能保存", 'block-state-write-fail-closed');
 has(blockUi, 'state.sourceContactDone = true;', 'source-contact-completion-write');
 has(blockUi, "setStage(queued ? 'ttsx_checkpoint' : 'kp_recall')", 'kp-recall-transition');
-has(blockUi, "window.setTimeout(() => setStage('block_recall'), 120)", 'block-recall-transition');
+assertXizongFinalGroupTransition(blockUi);
 has(blockUi, 'state.completed = true;', 'block-complete-write');
 has(blockUi, 'data-source-contact-mode={sourceContactMode}', 'source-contact-mode-missing');
 has(blockUi, 'data-group-lecture-done', 'logic-group-lecture-return');

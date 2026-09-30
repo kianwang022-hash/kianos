@@ -220,3 +220,107 @@ export function normalizeAcceptedLearningOwner({ learning, routeIds, content = n
     blockKeyMap
   };
 }
+
+// Shared interpretation of the already accepted Learning/System group inputs.
+// Stable ordinal identity is separate from learner order. Both the Content
+// loader and SemanticAdapter call this exact function; it is not a new IR.
+function systemLogicGroupMap(system, blockId) {
+  const rows = Array.isArray(system?.logic_index?.[blockId]) ? system.logic_index[blockId] : [];
+  const ids = rows.map(row => String(row?.id || '').trim());
+  if (ids.some(id => !id) || new Set(ids).size !== ids.length) fail('SYSTEM_LOGIC_ID_INVALID', blockId);
+  return new Map(rows.map((row, index) => [ids[index], row]));
+}
+
+export function expandAcceptedOrdinalRange(range, detail) {
+  if (!Array.isArray(range) || range.length !== 2) fail('LOGIC_RANGE_INVALID', detail);
+  const start = Number(range[0]);
+  const end = Number(range[1]);
+  if (!Number.isInteger(start) || !Number.isInteger(end) || start < 1 || end < start) {
+    fail('LOGIC_RANGE_INVALID', detail);
+  }
+  return Array.from({ length: end - start + 1 }, (_, index) => start + index);
+}
+
+function normalizeMembership(group, systemGroup, detail) {
+  // Same-role historical aliases may agree, never silently contradict each other.
+  // An explicit member list may coexist with a bounding range; it stays primary
+  // so non-contiguous membership is not flattened into a continuous Source unit.
+  for (const [left, right] of [['kp_members', 'members'], ['kp', 'kp_range']]) {
+    if (Array.isArray(group?.[left]) && Array.isArray(group?.[right])
+      && JSON.stringify(group[left].map(Number)) !== JSON.stringify(group[right].map(Number))) {
+      fail('LOGIC_MEMBERSHIP_ALIAS_CONFLICT', `${detail}:${left}/${right}`);
+    }
+  }
+  if (Array.isArray(group?.kp_members) || Array.isArray(group?.members)) {
+    const values = (Array.isArray(group?.kp_members) ? group.kp_members : group.members).map(Number);
+    if (!values.length || values.some((value) => !Number.isInteger(value) || value < 1)) {
+      fail('LOGIC_EXPLICIT_MEMBERS_INVALID', detail);
+    }
+    if (new Set(values).size !== values.length) fail('LOGIC_GROUP_MEMBER_DUPLICATE', detail);
+    return { mode: 'EXPLICIT_ORDINAL_LIST', ordinals: values };
+  }
+  if (Array.isArray(group?.kp)) {
+    return { mode: 'LEARNING_RANGE', ordinals: expandAcceptedOrdinalRange(group.kp, detail) };
+  }
+  if (Array.isArray(group?.kp_range)) {
+    return { mode: 'LEARNING_RANGE', ordinals: expandAcceptedOrdinalRange(group.kp_range, detail) };
+  }
+  if (Array.isArray(systemGroup?.kp)) {
+    return { mode: 'SYSTEM_RANGE', ordinals: expandAcceptedOrdinalRange(systemGroup.kp, detail) };
+  }
+  fail('LOGIC_MEMBERSHIP_MISSING', detail);
+}
+
+export function normalizeAcceptedLogicGroups({ system, blockId, blockSupport, kpCount }) {
+  if (!Number.isInteger(kpCount) || kpCount < 1) fail('KP_COUNT_INVALID', blockId);
+  const learningGroups = blockSupport?.logic_groups || {};
+  const systemGroups = systemLogicGroupMap(system, blockId);
+  const learningIds = Object.keys(learningGroups);
+  if (!learningIds.length) fail('LOGIC_GROUPS_MISSING', blockId);
+
+  let order = Array.isArray(blockSupport?.learner_order) ? blockSupport.learner_order.map(String) : [];
+  if (!order.length && systemGroups.size) order = [...systemGroups.keys()];
+  if (!order.length) order = learningIds;
+
+  if (order.length !== learningIds.length || order.some((id) => !learningGroups[id]) || new Set(order).size !== order.length) {
+    fail('LOGIC_LEARNER_ORDER_MISMATCH', blockId);
+  }
+
+  const seen = new Map();
+  const groups = order.map((groupId, index) => {
+    const learning = learningGroups[groupId] || {};
+    const systemGroup = systemGroups.get(groupId) || null;
+    const membership = normalizeMembership(learning, systemGroup, `${blockId}:${groupId}`);
+    for (const ordinal of membership.ordinals) {
+      if (ordinal > kpCount) fail('LOGIC_MEMBER_OUT_OF_RANGE', `${blockId}:${groupId}:${ordinal}/${kpCount}`);
+      if (seen.has(ordinal)) fail('LOGIC_MEMBER_OVERLAP', `${blockId}:kp${ordinal}:${seen.get(ordinal)}:${groupId}`);
+      seen.set(ordinal, groupId);
+    }
+    if (!String(learning?.goal || '').trim() || !String(learning?.closure || '').trim()) {
+      fail('LOGIC_LEARNING_INCOMPLETE', `${blockId}:${groupId}`);
+    }
+    return {
+      groupId,
+      order: index + 1,
+      label: String(learning?.label || systemGroup?.label || groupId),
+      membershipMode: membership.mode,
+      kpOrdinals: membership.ordinals,
+      kpCount: membership.ordinals.length,
+      jobs: Array.isArray(learning?.jobs)
+        ? learning.jobs.map(String)
+        : (learning?.cognitive_job ? [String(learning.cognitive_job)] : []),
+      goal: String(learning.goal),
+      closure: String(learning.closure),
+      visualRequired: learning?.visual_required === true || systemGroup?.visual_required === true,
+      visualSourceState: String(learning?.visual_source_state || systemGroup?.visual_source_state || ''),
+      continuityRationale: String(learning?.continuity_rationale || ''),
+      receiptAnchor: String(learning?.receipt_anchor || '')
+    };
+  });
+
+  if (seen.size !== kpCount) fail('LOGIC_COVERAGE_COUNT_MISMATCH', `${blockId}:${seen.size}/${kpCount}`);
+  for (let ordinal = 1; ordinal <= kpCount; ordinal += 1) {
+    if (!seen.has(ordinal)) fail('LOGIC_MEMBER_MISSING', `${blockId}:kp${ordinal}`);
+  }
+  return groups;
+}

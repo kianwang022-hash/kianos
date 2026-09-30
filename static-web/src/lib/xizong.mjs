@@ -1,7 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { normalizeAcceptedLearningOwner, normalizeBlockToken } from './xizongAcceptedLearningOwner.mjs';
+import { normalizeAcceptedLearningOwner, normalizeBlockToken, normalizeAcceptedLogicGroups } from './xizongAcceptedLearningOwner.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -464,116 +464,24 @@ function parseKpsFromStableMarkers(markdown, blockId) {
   });
 }
 
-function normalizeLearningLogicGroups(blockId, kpRecords, blockSupport) {
-  const groupMap = blockSupport?.logic_groups || {};
-  const ids = Object.keys(groupMap);
-  if (!ids.length) throw new Error(`CURRENT_XIZONG_LEARNING_LOGIC_MISSING:${blockId}`);
-  const order = Array.isArray(blockSupport?.learner_order) && blockSupport.learner_order.length
-    ? blockSupport.learner_order.map(String)
-    : ids;
-  if (order.length !== ids.length || new Set(order).size !== order.length || order.some((id) => !groupMap[id])) {
-    throw new Error(`CURRENT_XIZONG_LEARNER_ORDER_INVALID:${blockId}`);
-  }
-  const kpByOrdinal = new Map(kpRecords.map((record) => [record.ordinal, record]));
-  const seen = new Set();
-  const normalized = order.map((groupId, index) => {
-    const group = groupMap[groupId] || {};
-    let ordinals = [];
-    if (Array.isArray(group.kp_members)) {
-      ordinals = group.kp_members.map(Number);
-    } else if (Array.isArray(group.kp) && group.kp.length === 2) {
-      const start = Number(group.kp[0]);
-      const end = Number(group.kp[1]);
-      if (Number.isInteger(start) && Number.isInteger(end) && start >= 1 && end >= start) {
-        ordinals = Array.from({ length: end - start + 1 }, (_, offset) => start + offset);
-      }
-    }
-    if (!ordinals.length || ordinals.some((ordinal) => !Number.isInteger(ordinal) || !kpByOrdinal.has(ordinal))) {
-      throw new Error(`CURRENT_XIZONG_LOGIC_RANGE_INVALID:${blockId}:${groupId}`);
-    }
-    for (const ordinal of ordinals) {
-      if (seen.has(ordinal)) throw new Error(`CURRENT_XIZONG_LOGIC_OVERLAP:${blockId}:KP${pad2(ordinal)}`);
-      seen.add(ordinal);
-    }
-    return {
-      groupId,
-      order: index + 1,
-      label: String(group.label || `Logic Group ${index + 1}`),
-      start: Math.min(...ordinals),
-      end: Math.max(...ordinals),
-      kpIds: ordinals.map((ordinal) => kpByOrdinal.get(ordinal).kpId),
-      kpCount: ordinals.length,
-      membershipMode: Array.isArray(group.kp_members) ? 'EXPLICIT_ORDINAL_LIST' : 'LEARNING_RANGE'
-    };
-  });
-  const expected = kpRecords.map((record) => record.ordinal).sort((a, b) => a - b);
-  const actual = [...seen].sort((a, b) => a - b);
-  if (actual.length !== expected.length || actual.some((value, index) => value !== expected[index])) {
-    throw new Error(`CURRENT_XIZONG_LOGIC_FLATTEN_MISMATCH:${blockId}`);
-  }
-  const groupByOrdinal = new Map();
-  for (const group of normalized) {
-    for (const kpId of group.kpIds) {
-      const record = kpRecords.find((row) => row.kpId === kpId);
-      if (record) groupByOrdinal.set(record.ordinal, group);
-    }
-  }
-  for (const record of kpRecords) {
-    const group = groupByOrdinal.get(record.ordinal);
-    if (!group) throw new Error(`CURRENT_XIZONG_KP_UNASSIGNED:${record.kpId}`);
-    record.groupId = group.groupId;
-    record.groupLabel = group.label;
-  }
-  return normalized;
-}
-
 function normalizeLogicGroups(system, blockId, kpRecords, blockSupport = null) {
-  const groups = system?.logic_index?.[blockId];
-  if ((!Array.isArray(groups) || !groups.length) && blockSupport?.logic_groups) {
-    return normalizeLearningLogicGroups(blockId, kpRecords, blockSupport);
-  }
-  if (!Array.isArray(groups) || !groups.length) throw new Error(`CURRENT_XIZONG_LOGIC_INDEX_MISSING:${blockId}`);
-
-  const ordinals = [];
-  const normalized = groups.map((group, index) => {
-    const range = Array.isArray(group?.kp) ? group.kp : [];
-    const start = Number(range[0]);
-    const end = Number(range[1]);
-    if (!Number.isInteger(start) || !Number.isInteger(end) || start < 1 || end < start) {
-      throw new Error(`CURRENT_XIZONG_LOGIC_RANGE_INVALID:${blockId}:${group?.id || index}`);
-    }
-    const kpIds = [];
-    for (let ordinal = start; ordinal <= end; ordinal += 1) {
-      ordinals.push(ordinal);
-      kpIds.push(`${blockId}-kp${pad2(ordinal)}`);
-    }
+  const accepted = normalizeAcceptedLogicGroups({ system, blockId, blockSupport, kpCount: kpRecords.length });
+  const byOrdinal = new Map(kpRecords.map(kp => [kp.ordinal, kp]));
+  return accepted.map(group => {
+    const kpIds = group.kpOrdinals.map(ordinal => {
+      const kp = byOrdinal.get(ordinal);
+      if (!kp) throw new Error(`CURRENT_XIZONG_KP_UNASSIGNED:${blockId}:${ordinal}`);
+      kp.groupId = group.groupId;
+      kp.groupLabel = group.label;
+      return kp.kpId;
+    });
     return {
-      groupId: group?.id || `${blockId}-lg${pad2(index + 1)}`,
-      order: index + 1,
-      label: String(group?.label || `Logic Group ${index + 1}`),
-      start,
-      end,
-      kpIds,
-      kpCount: end - start + 1
+      ...group,
+      start: Math.min(...group.kpOrdinals),
+      end: Math.max(...group.kpOrdinals),
+      kpIds
     };
   });
-
-  const expected = kpRecords.map((record) => record.ordinal);
-  if (ordinals.length !== expected.length || ordinals.some((value, index) => value !== expected[index])) {
-    throw new Error(`CURRENT_XIZONG_LOGIC_FLATTEN_MISMATCH:${blockId}`);
-  }
-
-  const groupByOrdinal = new Map();
-  for (const group of normalized) {
-    for (let ordinal = group.start; ordinal <= group.end; ordinal += 1) groupByOrdinal.set(ordinal, group);
-  }
-  for (const record of kpRecords) {
-    const group = groupByOrdinal.get(record.ordinal);
-    if (!group) throw new Error(`CURRENT_XIZONG_KP_UNASSIGNED:${record.kpId}`);
-    record.groupId = group.groupId;
-    record.groupLabel = group.label;
-  }
-  return normalized;
 }
 
 function normalizeFailureModes(system) {
@@ -989,16 +897,7 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     if (!kpOrdinalSet.has(ordinal)) throw new Error(`CURRENT_XIZONG_KP_IDENTITY_SET_MISMATCH:${blockMeta.blockId}:missing-${ordinal}`);
   }
 
-  let logicGroups = normalizeLogicGroups(system.raw, blockMeta.blockId, kpRecords, blockSupport);
-  if (blockSupport) {
-    logicGroups = logicGroups.map((group) => {
-      const learning = blockSupport.logic_groups?.[group.groupId];
-      if (!learning?.goal || !learning?.closure) {
-        throw new Error(`CURRENT_XIZONG_LOGIC_LEARNING_SUPPORT_INCOMPLETE:${group.groupId}`);
-      }
-      return { ...group, goal: String(learning.goal), closure: String(learning.closure) };
-    });
-  }
+  const logicGroups = normalizeLogicGroups(system.raw, blockMeta.blockId, kpRecords, blockSupport);
 
   const intro = blockOpeningOrientation(markdown);
   const visualGate = sectionByTitle(markdown, (title) => /原图门禁/.test(title));
