@@ -1199,11 +1199,6 @@ window.__kianosLearnerWriterReady.then(async () => {
           ensureIntegrationPrimaryReady();
         } else if (!biochemistrySource?.laneSourceHash && !naturalSourceUnits && !integrationPrimary && !sourcePerGroup && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
 
-        if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';
-        if (integrationPrimary && !integrationTargetedSourceReturns && stage === 'source_contact') {
-          ensureIntegrationPrimaryReady();
-          stage = 'kp_recall';
-        }
         if (stage === 'logic_group') {
           if (biochemistrySource?.laneSourceHash) stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
           else if (sourcePerGroup) stage = 'kp_learn';
@@ -1217,6 +1212,13 @@ window.__kianosLearnerWriterReady.then(async () => {
             stage = 'kp_recall';
           } else stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
         }
+      }
+      // Mode normalization is independent of historical/current eligibility:
+      // source_contact has no rendered panel in whole-LG/direct integration.
+      if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';
+      if (integrationPrimary && !integrationTargetedSourceReturns && stage === 'source_contact') {
+        if (!historicalXizongSourceContinuation(state)) ensureIntegrationPrimaryReady();
+        stage = 'kp_recall';
       }
       if (stage === 'kp_recall' && state.pendingTtsx?.key && pendingTtsxIsReviewed(state.pendingTtsx) && !ttsxDone(state.pendingTtsx.key)) stage = 'ttsx_checkpoint';
       if (stage === 'ttsx_checkpoint' && (!state.pendingTtsx?.key || !pendingTtsxIsReviewed(state.pendingTtsx) || ttsxDone(state.pendingTtsx.key))) {

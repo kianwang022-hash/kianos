@@ -170,13 +170,13 @@ assert.ok(!currentV6.includes('state.sourceContactDone = !sourcePerGroup'),'visi
 // Execute the actual first-mount routing prefix through its real persistence
 // boundary. Completion alone does not prove that Resume survives mounting.
 const routing=currentV6.slice(currentV6.indexOf('    const setStage ='),currentV6.indexOf('      stages.forEach',currentV6.indexOf('    const setStage =')))+'    };';
-function route(saved,requested='kp_recall') {
+function route(saved,requested='kp_recall',mode={}) {
  const state=reconcileXizongRevision(structuredClone(saved),learner.revisionWitness),writes=[];
  vm.runInNewContext(routing+';setStage(requested);',{
   state,requested,root:{dataset:{}},historicalXizongSourceContinuation,
   biochemistrySource:null,segmentedSourceUnits:false,integrationPrimary:false,
   naturalSourceUnits:false,sourcePerGroup:false,pendingTtsxIsReviewed:()=>false,
-  save:()=>{writes.push(state.stage);return true;}
+  save:()=>{writes.push(state.stage);return true;},...mode
  });
  return {state,writes};
 }
@@ -189,6 +189,9 @@ for(const requested of ['kp_recall','kp_learn','logic_group']) {
 }
 assert.equal(route({...study,sourceContactDone:false,sourceContactEvidence:[]}).state.stage,'source_contact','known current missing Source still routes to Source');
 assert.equal(route({...legacy,completed:false}).state.stage,'source_contact','unfinished legacy cannot bypass Source');
+assert.equal(route(legacy,'source_contact',{sourcePerGroup:true}).state.stage,'kp_learn','whole-LG explicit Source return normalizes to its rendered panel');
+assert.equal(route(legacy,'source_contact',{integrationPrimary:true,integrationTargetedSourceReturns:false}).state.stage,'kp_recall','direct integration has no Source panel and must not synthesize contact');
+
 
 
 console.log(JSON.stringify({ok:true,synthetic_only:true,source_modes:results,regenerated_return_readonly:true,unvisited_prerequisite_blocked:true,legacy_unknown_preserved:true}));
