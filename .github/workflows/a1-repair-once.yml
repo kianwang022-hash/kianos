@@ -1,0 +1,222 @@
+name: A1 bounded repair executor
+on:
+  push:
+    branches: [repair/a1-hook-roundtrip-20260930]
+permissions:
+  contents: write
+jobs:
+  repair:
+    if: github.event.head_commit.message == 'Run bounded A1 repair in isolated branch (#1111)'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: repair/a1-hook-roundtrip-20260930
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply only reviewed A1 repair delta
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess, json
+          assert subprocess.check_output(['git','rev-parse','HEAD^'],text=True).strip() == 'd4797f940c8e46e749d3275df8c086172e4a8f46'
+          def edit(file,old,new):
+              p=Path(file); s=p.read_text(); assert s.count(old)==1,(file,old[:90],s.count(old));p.write_text(s.replace(old,new))
+          p='static-web/src/lib/xizongPathways.mjs'
+          edit(p,"import { loadXizongSystem } from './xizong.mjs';", "import { listProjectableXizongSystems, loadXizongBlock, loadXizongSystem } from './xizong.mjs';")
+          edit(p,'const pathwaysCache = new Map();','const pathwaysCache = new Map();\nlet reviewedRetentionCache = null;')
+          edit(p,'// A deferred seed belongs only to its source KP; no reverse learning obligation\n// or new pathway owner is inferred for its downstream Block.','// Both ends derive from the same reviewed relation; target reactivation\n// does not create a new learning obligation or infer a finer target.')
+          edit(p,'  const targets = new Map((system.blocks || []).map((row) => [row.blockId, row]));','  const targets = new Map((system.blocks || []).map((row) => [row.blockId, row]));\n  const sourceBlock = targets.get(block.blockId);')
+          edit(p,'    const field = owner?.kp_fields?.[legacyId] || owner?.kp_fields?.[kp.kpId];', '''    const legacy = owner?.kp_fields?.[legacyId];
+              const current = owner?.kp_fields?.[kp.kpId];
+              if (legacyId !== kp.kpId && legacy && current
+                && JSON.stringify(legacy.retention_metadata?.connections || []) !== JSON.stringify(current.retention_metadata?.connections || [])) {
+                throw new Error(`CURRENT_XIZONG_RETENTION_SOURCE_ALIAS_CONFLICT:${kp.kpId}`);
+              }
+              const field = legacy || current;''')
+          edit(p,'      const targetBlock = targets.get(connection.downstream_owner_id);', '''      if (Boolean(connection.downstream_owner_id) === Boolean(connection.downstream_system_id)) {
+                  throw new Error(`CURRENT_XIZONG_RETENTION_TARGET_AMBIGUOUS:${kp.kpId}:${connection.connection_id || ''}`);
+                }
+                const targetBlock = targets.get(connection.downstream_owner_id);''')
+          edit(p,'        block_id: targetBlock.blockId, label:', '        system_id: system.systemId, block_id: targetBlock.blockId, label:')
+          edit(p,"      if (connection.kind !== 'DEFERRED_SEED' || !connection.connection_id || !connection.front || !target) {", "      if (connection.kind !== 'DEFERRED_SEED' || !connection.connection_id || !connection.front || !target\n        || !sourceBlock?.slug || (targetBlock && !targetBlock.slug)) {")
+          edit(p,'        id: connection.connection_id,','        id: connection.connection_id,\n        reviewedRetention: true,')
+          edit(p,"        source: { block_id: block.blockId, kp_id: kp.kpId, cue: connection.front.replace(/^\\/\\/串联[：:]\\s*/, '') },\n        target,", """        source: {
+                    system_id: system.systemId, block_id: block.blockId, kp_id: kp.kpId,
+                    label: `${block.label || block.blockId} · ${kp.displayId || kp.kpId}`,
+                    href: `/xizong/${system.systemId}/${sourceBlock.slug}/`,
+                    cue: connection.front.replace(/^\\/\\/串联[：:]\\s*/, '')
+                  },
+                  target: { ...target, cue: connection.front.replace(/^\\/\\/串联[：:]\\s*/, '') },""")
+          with Path(p).open('a') as f:f.write('''
+          
+          // Read-only build join over the existing relation owner, not another registry.
+          export function loadReviewedRetentionConnections(shared = null) {
+            if (!shared && BUILD_CACHE_ENABLED && reviewedRetentionCache) return reviewedRetentionCache;
+            const ownerPath = absolute(`${LEARNER_ROOT}/shared-fields.json`);
+            if (!shared && !fs.existsSync(ownerPath)) return [];
+            const owner = shared || JSON.parse(fs.readFileSync(ownerPath, 'utf8'));
+            if (!String(owner?.authority || '').startsWith('CHAT_APPROVED')) return [];
+            const fields = Object.entries(owner?.kp_fields || {}).filter(([, f]) =>
+              Array.isArray(f?.retention_metadata?.connections) && f.retention_metadata.connections.length);
+            if (!fields.length) return [];
+            const rows = [], matched = new Set(), seen = new Set();
+            for (const record of listProjectableXizongSystems()) {
+              const system = loadXizongSystem(record.systemId);
+              for (const summary of system.blocks || []) {
+                const candidates = fields.filter(([id]) => id.startsWith(`${summary.blockId}-kp`));
+                if (!candidates.length) continue;
+                const block = loadXizongBlock(system.systemId, summary.blockId);
+                const ids = new Set((block.kpRecords || []).flatMap(kp => [kp.kpId,
+                  `${block.blockId}-kp${String(kp.ordinal).padStart(3, '0')}`]));
+                for (const [id] of candidates) {
+                  if (!ids.has(id)) throw new Error(`CURRENT_XIZONG_RETENTION_SOURCE_UNRESOLVED:${id}`);
+                  matched.add(id);
+                }
+                for (const row of reviewedRetentionConnectionsForBlock(system, block, owner)) {
+                  if (seen.has(row.id)) throw new Error(`CURRENT_XIZONG_RETENTION_CONNECTION_DUPLICATE:${row.id}`);
+                  seen.add(row.id); rows.push(row);
+                }
+              }
+            }
+            for (const [id] of fields) if (!matched.has(id)) throw new Error(`CURRENT_XIZONG_RETENTION_SOURCE_UNRESOLVED:${id}`);
+            if (!shared && BUILD_CACHE_ENABLED) reviewedRetentionCache = rows;
+            return rows;
+          }
+          
+          export function retentionConnectionsForSystem(connections, systemId) {
+            return (connections || []).filter(row => row?.target?.system_id === systemId
+              && !row.target.block_id && !row.target.logic_group_id && !row.target.kp_id);
+          }
+          ''')
+          p='static-web/src/lib/xizongLearnerProjection.mjs'
+          edit(p,'pathwaysForBlock, reviewedRetentionConnectionsForBlock','pathwaysForBlock, loadReviewedRetentionConnections')
+          edit(p,'  const pathways = pathwaysForBlock(loadXizongPathways(system), block.blockId);\n  pathways.outgoing.push(...reviewedRetentionConnectionsForBlock(system, block));', '''  const currentPathways = loadXizongPathways(system);
+            const pathways = pathwaysForBlock({
+              connections: [...(currentPathways?.connections || []), ...loadReviewedRetentionConnections()]
+            }, block.blockId);''')
+          p='static-web/src/lib/xizongLearnerObject.mjs'
+          edit(p,"    attentionRole: text(row?.attentionRole || row?.attention_role),\n    seed: text(row?.seed),", "    attentionRole: direction === 'incoming' && row?.reviewedRetention\n      ? 'ON_DEMAND_SUPPORT' : text(row?.attentionRole || row?.attention_role),\n    seed: direction === 'incoming' && row?.reviewedRetention && row?.seed\n      ? `${text(other?.label)} 中的接口：${text(row.seed)}` : text(row?.seed),")
+          edit(p,'  const blockExtensions = array(extensionAssets)', '''  const blockConnections = array(pathways?.incoming)
+              .filter(row => row?.target?.block_id === block.blockId
+                && !row.target.logic_group_id && !row.target.kp_id)
+              .map(row => normalizeConnection(row, 'incoming'));
+            uniqueIds(blockConnections, `${block.blockId}:connection`);
+            const blockExtensions = array(extensionAssets)''')
+          edit(p,'      blockAttention: blockAttentionRows(block),','      blockAttention: blockAttentionRows(block),\n      blockConnections,')
+          p='static-web/src/components/XizongLearnerObjectBridge.astro'
+          edit(p,"row?.direction === 'incoming' ? '你之前见过' : '后面会接';", "row?.direction === 'incoming' ? (row?.raw?.reviewedRetention ? '本章串联回收' : '你之前见过') : '后面会接';")
+          edit(p,'        const rendered = renderSlot(slot, { stage: representationStage });', '''        // Keep Block-owned reactivation at Block scope, including direct Resume.
+                  // The existing representation gate still protects Recall Front.
+                  if (['block_learn', 'source_contact', 'kp_learn', 'logic_group', 'kp_recall'].includes(stage)) {
+                    slot = mergeSlots({ connection: array(learner.slots?.blockConnections) }, slot);
+                  }
+                  const rendered = renderSlot(slot, { stage: representationStage });''')
+          p='static-web/src/pages/xizong/[system]/index.astro'
+          edit(p,"import { loadXizongPathways } from '../../../lib/xizongPathways.mjs';", "import { loadXizongPathways, loadReviewedRetentionConnections, retentionConnectionsForSystem } from '../../../lib/xizongPathways.mjs';")
+          edit(p,'const pathways = loadXizongPathways(system);','const pathways = loadXizongPathways(system);\nconst incomingConnections = retentionConnectionsForSystem(loadReviewedRetentionConnections(), system.systemId);')
+          edit(p,'<XizongSystemWorkspace system={system} pathways={pathways} guide={guide} />','<XizongSystemWorkspace system={system} pathways={pathways} guide={guide} incomingConnections={incomingConnections} />')
+          p='static-web/src/components/XizongSystemWorkspace.astro'
+          edit(p,'const { system, pathways, guide = null } = Astro.props;', 'const { system, pathways, guide = null, incomingConnections = [] } = Astro.props;')
+          edit(p,'    <main class="xzSystemStage">', '''    <main class="xzSystemStage">
+                {incomingConnections.length > 0 && (
+                  <section class="xzSystemGuideSection role-connection" data-retention-system-reentry>
+                    <header><h2>本系统串联回收</h2></header>
+                    <div class="xzSystemGuideMarkdown markdown">
+                      {incomingConnections.map(connection => (
+                        <div data-retention-connection-id={connection.id}>
+                          <p><strong>{connection.source.cue}</strong></p>
+                          {connection.seed && <p>{connection.source.label} 中的接口：{connection.seed}</p>}
+                          <a href={`${base}${connection.source.href.replace(/^\\//, '')}`}>回看 {connection.source.label}</a>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                )}''')
+          p='content/xizong/knowledge/learner/shared-fields.json'
+          assert subprocess.check_output(['git','hash-object',p],text=True).strip()=='1d2dcb48c480e90c9e555b27d7670e793ed21990'
+          owner=json.loads(Path(p).read_text()); assert not owner['kp_fields']['circulation-b01-kp024']['retention_metadata'].get('connections')
+          specs=[
+            ('b01-c07-venous-hf-to-b11','回心与心衰：右心淤血、容量和卧位 → B11','右心射血受限与肝颈静脉回流征、输液过多过快、夜间平卧与端坐呼吸在原讲义同页串联。这里只识别回心与淤血关系，完整心衰模型归 B11。','circulation-b11'),
+            ('b01-c08-ischemic-relaxation-to-b11','缺血与主动舒张障碍 → B11','原讲义把心肌缺血、能量不足、Ca²⁺回降受影响与主动舒张障碍连起来；当前只留这条机制接口，完整舒张功能与心衰判断归 B11，不能把所有心衰等同于这一条链。','circulation-b11'),
+            ('b01-c09-myocardial-pericardial-filling-to-b8','心肌变硬与心包限制充盈 → B8','心肌纤维化或肥厚造成顺应性下降，与心包积液、缩窄从外部限制充盈，是两类不同入口。B1 只用来理解回心方向；完整心肌与心包模型归 B8。','circulation-b08'),
+            ('b01-c10-volume-posture-to-b12','失血、体位与低灌注 → B12','原讲义在回心因素中连接失血和休克体位；这里只保留有效容量、重力与回心的机械接口，完整休克和复苏归 B12，不把一个体位方向当成通用处置规则。','circulation-b12'),
+            ('b01-c11-venous-nitrate-to-b6','硝酸酯扩静脉与前负荷 → KP32 / B6','静脉扩张 → 回心及前负荷下降。B1 的 KP32 会从供需两端回用这一关系；完整冠心病药物位置与适用边界归 B6。','circulation-b06')
+          ]
+          rows=[dict(connection_id=i,kind='DEFERRED_SEED',display='SUBTLE_INLINE',front='//串联：'+front,seed=seed,downstream_owner_id=t,source_pdf_pages=[128],reviewed_at='2026-09-30',review_basis='27精编生理合集【带导图】 PDF P128 / 生理学讲义_AI阅读版；当前 B1 与正式 target Block') for i,front,seed,t in specs]
+          old='    "circulation-b01-kp024": {\n      "retention_metadata": {\n'
+          insert='        "connections": '+json.dumps(rows,ensure_ascii=False,indent=2).replace('\n','\n        ')+',\n'
+          edit(p,old,old+insert)
+          oldseed='这里只建立‘感染中毒性休克时动静脉短路大量开放，可出现皮肤温暖’接口；完整休克 failure model 归 B12。'
+          newseed='这里只保留微循环分配与有效交换接口；不能把动静脉短路当成暖休克皮肤温暖的唯一机制。完整阻力、分布与灌注模型归 B12。'
+          edit(p,oldseed,newseed)
+          after=json.loads(Path(p).read_text()); before=json.loads(subprocess.check_output(['git','show','HEAD:'+p],text=True))
+          del after['kp_fields']['circulation-b01-kp024']['retention_metadata']['connections']
+          after['kp_fields']['circulation-b01-kp025']['retention_metadata']['connections'][0]['seed']=oldseed
+          assert after==before,'unrelated shared content changed'
+          edit('static-web/scripts/test-xizong-a1-content-consumption.mjs','inventory.reduce((n,b)=>n+b.connections,0),12','inventory.reduce((n,b)=>n+b.connections,0),17')
+          assert not subprocess.check_output(['git','diff','--name-only','--','static-web/src/styles','content/xizong/knowledge/systems'],text=True).strip(),'UI styles or canonical Core changed'
+          PY
+      - name: Install native test dependencies
+        working-directory: static-web
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Validate current owner and learner composition
+        working-directory: static-web
+        run: |
+          node scripts/validate-xizong-learner-object.mjs
+          node scripts/validate-xizong-representation-gate.mjs
+          node scripts/validate-xizong-production-projection.mjs
+          node scripts/test-xizong-a1-content-consumption.mjs
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import fs from 'node:fs';
+          import {loadXizongSystem,loadXizongBlock} from './src/lib/xizong.mjs';
+          import {loadReviewedRetentionConnections,retentionConnectionsForSystem,pathwaysForBlock} from './src/lib/xizongPathways.mjs';
+          import {resolveXizongLearnerProjection} from './src/lib/xizongLearnerProjection.mjs';
+          import {resolveXizongLearnerAssetRepresentation as gate} from './src/lib/xizongRepresentationGate.mjs';
+          const all=loadReviewedRetentionConnections();assert.equal(all.length,17);
+          const report=[];
+          for(const r of all){
+            const source=resolveXizongLearnerProjection(loadXizongBlock(r.source.system_id,r.source.block_id)).learnerObject;
+            assert.ok(source.kps.find(k=>k.identity.kpId===r.source.kp_id).connection.outgoing.some(k=>k.id===r.id));
+            if(r.target.block_id){
+              const target=resolveXizongLearnerProjection(loadXizongBlock(r.target.system_id,r.target.block_id)).learnerObject;
+              const rows=target.slots.blockConnections.filter(k=>k.id===r.id);assert.equal(rows.length,1);
+              assert.equal(rows[0].other.href,r.source.href);assert.equal(rows[0].attentionRole,'ON_DEMAND_SUPPORT');
+              assert.ok(target.kps.every(k=>!k.connection.incoming.some(c=>c.id===r.id)));
+              assert.equal(gate(rows[0],{stage:'KP_RECALL_FRONT'}).visible,false);
+              assert.equal(gate(rows[0],{stage:'KP_RECALL_REVEAL'}).visible,true);
+            }else{
+              assert.equal(retentionConnectionsForSystem(all,r.target.system_id).filter(x=>x.id===r.id).length,1);
+              for(const b of loadXizongSystem(r.target.system_id).blocks)assert.ok(!pathwaysForBlock({connections:all},b.blockId).incoming.some(x=>x.id===r.id));
+            }
+            report.push({id:r.id,source:r.source.kp_id,target:r.target.block_id||r.target.system_id,roundtrip:true});
+          }
+          fs.mkdirSync('.qa',{recursive:true});fs.writeFileSync('.qa/a1-roundtrip-native.json',JSON.stringify({status:'PASS',report},null,2));
+          console.log('PASS all 17 native relation roundtrips and target scopes');
+          JS
+      - name: Execute shared browser regression
+        working-directory: static-web
+        run: node scripts/test-xizong-block-workspace.mjs
+      - name: Save tested product changes to this branch only
+        run: |
+          git config user.name 'KianOS bounded repair'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add static-web/src/lib/xizongPathways.mjs static-web/src/lib/xizongLearnerProjection.mjs static-web/src/lib/xizongLearnerObject.mjs static-web/src/components/XizongLearnerObjectBridge.astro static-web/src/components/XizongSystemWorkspace.astro 'static-web/src/pages/xizong/[system]/index.astro' content/xizong/knowledge/learner/shared-fields.json static-web/scripts/test-xizong-a1-content-consumption.mjs
+          git commit -m 'fix(xizong): restore retention roundtrip and P128 notices (#1111)'
+          git push origin HEAD:refs/heads/repair/a1-hook-roundtrip-20260930
+          git rev-parse HEAD
+      - name: Upload bounded proof
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a1-retention-roundtrip
+          path: static-web/.qa/
+          include-hidden-files: true
+          retention-days: 7
