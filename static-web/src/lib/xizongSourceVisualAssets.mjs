@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
@@ -46,6 +47,11 @@ function normalizeAsset(asset, cueId) {
     throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_ASSET_MISSING:${cueId}:${assetPath}`);
   }
 
+  const derivedAssetSha256 = createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+  if (derivedAssetSha256 !== String(asset?.derived_asset_sha256 || '').toLowerCase()) {
+    throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_ASSET_HASH_MISMATCH:${cueId}:${assetPath}`);
+  }
+
   const sourceObjectId = String(asset?.source_object_id || '');
   if (!sourceObjectId) {
     throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_OBJECT_MISSING:${cueId}:${assetPath}`);
@@ -61,7 +67,7 @@ function normalizeAsset(asset, cueId) {
     width: Number(asset?.width || 0) || null,
     height: Number(asset?.height || 0) || null,
     sourceCropSha256: String(asset?.source_crop_sha256 || ''),
-    derivedAssetSha256: String(asset?.derived_asset_sha256 || '')
+    derivedAssetSha256
   });
 }
 

@@ -1,3 +1,4 @@
+import { compatibleRevisionWitnesses } from './xizongContentRevision.mjs';
 export const XIZONG_PRIVATE_CHECKPOINT_SCHEMA = 'kianos.xizong.private-checkpoint.v1';
 
 const MAX_ENTRIES = 5000;
@@ -191,7 +192,10 @@ export function prepareXizongPrivateCheckpointRestore(storage, input) {
     if (!reason && metaKey && local.has(metaKey)) {
       const current = String(parse(local, metaKey)?.version || '');
       const previous = String(parse(incoming, metaKey)?.version || '');
-      if (current && previous && current !== previous) reason = 'NATIVE_REVISION_CHANGED';
+      const beforeWitness = parse(incoming, metaKey)?.revisionWitness;
+      const currentWitness = parse(local, metaKey)?.revisionWitness;
+      const compatible = compatibleRevisionWitnesses(beforeWitness, currentWitness);
+      if ((beforeWitness && currentWitness && !compatible) || (current && previous && current !== previous && !compatible)) reason = 'NATIVE_REVISION_CHANGED';
       else if (current && !previous) reason = 'NATIVE_RETIREMENT_AMBIGUOUS';
     }
     if (reason) {

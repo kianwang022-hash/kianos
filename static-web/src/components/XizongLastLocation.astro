@@ -1,5 +1,6 @@
 ---
-import { loadXizongSystemCompletionRequirements } from '../lib/xizong.mjs';
+import { buildXizongSystemRecallWitness } from '../lib/xizongRevisionWitness.mjs';
+import { loadXizongSystemCompletionRequirements } from '../lib/xizongLearnerProjection.mjs';
 const {
   system = null,
   block = null,
@@ -30,6 +31,7 @@ const requiredBlocks = (requiredBlockIds?.length || requiredSystemRecall) ? load
   data-resume-position={resumePosition}
   data-resume-action={resumeAction}
   data-required-system-recall={requiredSystemRecall}
+  data-system-revision-witness={system ? JSON.stringify(buildXizongSystemRecallWitness(system)) : null}
   hidden
 ></span>
 <script type="application/json" data-xizong-last-location-required-blocks set:html={JSON.stringify(requiredBlocks)}></script>
@@ -49,7 +51,7 @@ const requiredBlocks = (requiredBlockIds?.length || requiredSystemRecall) ? load
 
     const requiredSystemRecall = node.getAttribute('data-required-system-recall') || '';
     const blocksReady = !requiredBlocks.length || inspectXizongSystemCompletion(requiredBlocks, localStorage).complete;
-    const recallReady = !requiredSystemRecall || hasXizongSystemRecall(localStorage, requiredSystemRecall);
+    const recallReady = !requiredSystemRecall || hasXizongSystemRecall(localStorage, requiredSystemRecall, JSON.parse(node.getAttribute('data-system-revision-witness') || 'null'));
 
     const value = {
       systemId: node.getAttribute('data-system-id') || '',

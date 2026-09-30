@@ -7,6 +7,7 @@ const payload = learnerObject || null;
 )}
 
 <script>
+  import { sourceContactCompatible } from '../lib/xizongContentRevision.mjs';
   import { resolveXizongLearnerAssetRepresentation } from '../lib/xizongRepresentationGate.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
@@ -324,7 +325,7 @@ const payload = learnerObject || null;
         const ids = group?.kpIds || [];
         const sourceHash = root.getAttribute('data-study-source-hash') || '';
         const visualReviewed = (study.sourceContactEvidence || []).some((entry) =>
-          String(entry?.source_hash || '') === sourceHash
+          sourceContactCompatible(study, entry, sourceHash)
           && (Array.isArray(entry?.visual_reviewed_lg_ids) ? entry.visual_reviewed_lg_ids : []).map(String).includes(String(groupId || ''))
         );
         const visualBlocked = group?.visualRequired === true && /GAP/i.test(text(group?.visualSourceState)) && !visualReviewed;

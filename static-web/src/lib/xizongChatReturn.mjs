@@ -1,3 +1,4 @@
+import { compatibleRevisionWitnesses } from './xizongContentRevision.mjs';
 import {
   XIZONG_MEMORY_SCHEMA,
   XIZONG_MEMORY_STORAGE_KEY,
@@ -145,6 +146,7 @@ export function buildXizongChatHandoff(packet, {
       source_hash: identity.sourceHash,
       evidence_version: xizongStudyPacketEvidenceVersion(packet)
     },
+    revision_witness: clone(packet.current?.revision_witness || null),
     resume: packetResume(packet),
     return_href: clean(returnHref, 500),
     allowed_kp_ids: identity.kpIds,
@@ -174,6 +176,7 @@ export function validateXizongChatHandoff(value) {
       source_hash: clean(origin.source_hash, 160),
       evidence_version: clean(origin.evidence_version, 80)
     },
+    revision_witness: clone(value.revision_witness || null),
     resume: {
       current_stage: clean(value.resume?.current_stage, 80),
       group_index: Math.max(0, Number(value.resume?.group_index || 0)),
@@ -308,12 +311,20 @@ export function validateXizongChatReturn(value, handoff, currentPacket) {
   }
   if (!sameResume(raw.resume, h.resume)) fail('RESUME_MISMATCH');
 
-  const currentVersion = xizongStudyPacketEvidenceVersion(currentPacket);
   const currentIdentity = validateStudyPacketIdentity(currentPacket);
-  if (currentIdentity.objectId !== h.origin.object_id || currentIdentity.sourceHash !== h.origin.source_hash) {
-    fail('CURRENT_OBJECT_CHANGED');
+  if (currentIdentity.objectId !== h.origin.object_id) fail('CURRENT_OBJECT_CHANGED');
+  if (currentPacket.current?.revision_witness && !h.revision_witness) fail('CURRENT_OBJECT_CHANGED');
+  const artifactChanged = currentIdentity.sourceHash !== h.origin.source_hash;
+  const witnessChanged = h.revision_witness && !compatibleRevisionWitnesses(h.revision_witness, currentPacket.current?.revision_witness);
+  if (witnessChanged || (artifactChanged && !compatibleRevisionWitnesses(h.revision_witness, currentPacket.current?.revision_witness))) fail('CURRENT_OBJECT_CHANGED');
+  const comparable = clone(currentPacket);
+  if (artifactChanged) {
+    comparable.current.source_hash = h.origin.source_hash;
+    // A locator correction is presentation, but all actual Resume indices/IDs
+    // and learner evidence retain the preexisting strict transaction check.
+    comparable.learning_state.resume.source_locator = h.resume.source_locator;
   }
-  if (currentVersion !== h.origin.evidence_version) fail('STALE_EVIDENCE');
+  if (xizongStudyPacketEvidenceVersion(comparable) !== h.origin.evidence_version) fail('STALE_EVIDENCE');
 
   const decision = clean(raw.decision, 20).toUpperCase();
   if (!['NO_ACTION','REPAIR'].includes(decision)) fail('DECISION_INVALID');

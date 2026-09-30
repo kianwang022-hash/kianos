@@ -1,3 +1,5 @@
+import { stripRevisionKpMetadata } from './xizongKpMetadata.mjs';
+import { revisionStable } from './xizongContentRevision.mjs';
 export const XIZONG_MEMORY_SCHEMA = 'kianos.xizong.memory.v1';
 export const XIZONG_MEMORY_STORAGE_KEY = 'kianos-xizong-memory-v1';
 export const MEMORY_FAMILIES = Object.freeze(['CORE', 'PRECISION']);
@@ -103,6 +105,24 @@ function validateDescriptor(descriptor) {
   return { blockId, coreCards, precisionCards };
 }
 
+function memoryRevision(previous, card, stamp) {
+  if (!previous) return { contentChangedAt:null, revisionReview:null };
+  const bound = previous.semanticRevision && card.semanticRevision;
+  // Explicit card answer is still checked for old callers without witnesses.
+  const answer = c => JSON.stringify(revisionStable({ core:c.coreMarkdown ? stripRevisionKpMetadata(c.coreMarkdown) : c.coreHtml, answer:c.answerHtml, cue:c.cue, context:c.ownerContextHtml }));
+  const changed = bound ? previous.semanticRevision !== card.semanticRevision : answer(previous) !== answer(card);
+  const unclassified = !bound && (Boolean(card.semanticRevision) || previous.sourceHash !== card.sourceHash);
+  const unknown = unclassified || previous.revisionReview === 'UNCLASSIFIED_REVISION';
+  return {
+    contentChangedAt: changed ? stamp : previous.contentChangedAt || null,
+    revisionReview: unknown ? 'UNCLASSIFIED_REVISION' : changed ? 'LOCAL_SEMANTIC_CHANGE' : previous.revisionReview || null,
+    // The artifact baseline may advance; UNKNOWN remains until an actual
+    // current retrieval. Observing content never certifies prior evidence.
+    semanticRevision: card.semanticRevision || '',
+    contentHistory: changed || unclassified ? [...(previous.contentHistory || []), { sourceHash:previous.sourceHash, semanticRevision:previous.semanticRevision || '', coreMarkdown:previous.coreMarkdown, coreHtml:previous.coreHtml, answerHtml:previous.answerHtml, at:stamp }] : previous.contentHistory || []
+  };
+}
+
 export function releaseBlockMemory(stateInput, descriptor, releasedAt = null) {
   const state = normalizeXizongMemoryState(stateInput);
   const { blockId, coreCards, precisionCards } = validateDescriptor(descriptor);
@@ -119,7 +139,7 @@ export function releaseBlockMemory(stateInput, descriptor, releasedAt = null) {
       ...(previous || {}),
       ...card,
       releasedAt: previous?.releasedAt || stamp,
-      contentChangedAt: previous?.sourceHash && previous.sourceHash !== card.sourceHash ? stamp : previous?.contentChangedAt || null
+      ...memoryRevision(previous, card, stamp)
     };
     coreIds.push(card.id);
   }
@@ -130,7 +150,7 @@ export function releaseBlockMemory(stateInput, descriptor, releasedAt = null) {
       ...(previous || {}),
       ...card,
       releasedAt: previous?.releasedAt || stamp,
-      contentChangedAt: previous?.sourceHash && previous.sourceHash !== card.sourceHash ? stamp : previous?.contentChangedAt || null
+      ...memoryRevision(previous, card, stamp)
     };
     precisionIds.push(card.id);
   }
@@ -145,6 +165,7 @@ export function releaseBlockMemory(stateInput, descriptor, releasedAt = null) {
       blockLabel: text(descriptor?.blockLabel),
       blockTitle: text(descriptor?.blockTitle),
       sourceHash,
+      revisionWitness: descriptor.revisionWitness || null,
       releasedAt: previousRelease?.releasedAt || stamp,
       refreshedAt: stamp,
       coreCardIds: coreIds,
@@ -252,6 +273,8 @@ export function appendMemoryEvidence(stateInput, event, at = null) {
       family: state.cards[cardId].family,
       rating,
       origin: text(event?.origin || 'MEMORY_RECALL'),
+      semanticRevision: state.cards[cardId].semanticRevision || '',
+      sourceHash: state.cards[cardId].sourceHash || '',
       at: stamp
     }
   ];
@@ -268,7 +291,8 @@ export function appendMemoryEvidence(stateInput, event, at = null) {
   }
   current.updatedAt = stamp;
   attention[cardId] = current;
-  return { ...state, evidence, attention };
+  const cards = { ...state.cards, [cardId]: { ...state.cards[cardId], revisionReview: null, revisionRevalidatedAt: stamp, stabilityBaselineAt: state.cards[cardId].revisionReview === 'UNCLASSIFIED_REVISION' ? stamp : state.cards[cardId].stabilityBaselineAt || null } };
+  return { ...state, cards, evidence, attention };
 }
 
 const EVIDENCE_SCORE = Object.freeze({ unknown: 4, fuzzy: 2.2, known: -1.1, mastered: -3 });
@@ -368,7 +392,9 @@ function retentionStateFromContext(state, cardId, context) {
     stabilityStage: 0,
     nextIntervalDays: null,
     latestRating,
-    latestEvidenceAt: latest?.at || null
+    latestEvidenceAt: latest?.at || null,
+    revisionReview: card.revisionReview || null,
+    currentClaim: card.revisionReview === 'UNCLASSIFIED_REVISION' ? 'UNKNOWN' : card.revisionReview === 'LOCAL_SEMANTIC_CHANGE' ? 'REVALIDATION_REQUIRED' : 'SUPPORTED'
   };
 
   if (!events.length) {
@@ -389,6 +415,10 @@ function retentionStateFromContext(state, cardId, context) {
 
   if (reviewRequested) {
     return { ...base, state: 'DUE_REQUESTED', due: true, dueReason: text(attention.reason || 'REVIEW_REQUESTED') };
+  }
+
+  if (card.revisionReview === 'UNCLASSIFIED_REVISION') {
+    return { ...base, state: 'EVIDENCE_UNRESOLVED', due: false, dueReason: 'UNCLASSIFIED_REVISION' };
   }
 
   if (latestAt === null) {
@@ -419,7 +449,7 @@ function retentionStateFromContext(state, cardId, context) {
 
   const stableClock = qualifiedStableClock(
     events,
-    Number.isFinite(contentChangedAt) ? contentChangedAt : null
+    Math.max(Number.isFinite(contentChangedAt) ? contentChangedAt : 0, Date.parse(card.stabilityBaselineAt || '') || 0) || null
   );
   if (stableClock.stage < 1 || stableClock.anchorAt === null) {
     return { ...base, state: 'EVIDENCE_UNRESOLVED', due: false, dueReason: 'STABILITY_CLOCK_UNPROVEN' };

@@ -1,4 +1,5 @@
 ---
+import { buildXizongSystemRecallWitness } from '../lib/xizongRevisionWitness.mjs';
 const { system, practiceHref } = Astro.props;
 
 const recall = system?.systemRecall || {};
@@ -16,7 +17,7 @@ const failureLabel = (mode) => Array.isArray(mode)
   ? [mode[1], mode[2]].filter(Boolean).join('：')
   : [mode?.label, mode?.chain].filter(Boolean).join('：');
 ---
-<section class="xse xseRecallOnly" id="system-exit" data-xizong-system-exit={system.systemId}>
+<section class="xse xseRecallOnly" id="system-exit" data-xizong-system-exit={system.systemId} data-system-revision-witness={JSON.stringify(buildXizongSystemRecallWitness(system))}>
   <section class="xseCompletionWorkbench">
     <section class="xseRecallWorkspace" data-recall-workspace>
       <div class="xseRecallStage">
@@ -109,6 +110,7 @@ const failureLabel = (mode) => Array.isArray(mode)
 </section>
 
 <script>
+  import { compatibleRevisionWitnesses } from '../lib/xizongContentRevision.mjs';
   import {
     XIZONG_SESSION_KEY,
     XIZONG_SESSION_RUNTIME_KEY,
@@ -178,7 +180,8 @@ const failureLabel = (mode) => Array.isArray(mode)
     const complete = root.querySelector('[data-complete-recall]');
 
     const render = () => {
-      const completed = Boolean(recallState.completedAt);
+      const currentWitness = JSON.parse(root.getAttribute('data-system-revision-witness') || 'null');
+      const completed = Boolean(recallState.completedAt) && (!recallState.revisionWitness || compatibleRevisionWitnesses(recallState.revisionWitness, currentWitness));
       if (workspace instanceof HTMLElement) workspace.hidden = completed;
       if (handoff instanceof HTMLElement) handoff.hidden = !completed;
       if (status) status.textContent = completed ? '本次 System Recall 已完成' : '还没完成本次 System Recall';
@@ -214,8 +217,9 @@ const failureLabel = (mode) => Array.isArray(mode)
       const nextState = {
         ...recallState,
         completedAt,
+        revisionWitness: JSON.parse(root.getAttribute('data-system-revision-witness') || 'null'),
         afterRoundId: afterRoundId || null,
-        history: [...(Array.isArray(recallState.history) ? recallState.history : []), recallEvent].slice(-200)
+        history: [...(Array.isArray(recallState.history) ? recallState.history : []), recallEvent]
       };
       if (!writeJson(recallKey, nextState)) {
         window.alert('本机保存失败：System Recall 没有记录完成。');

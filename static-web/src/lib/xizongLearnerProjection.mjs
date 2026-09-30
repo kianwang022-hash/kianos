@@ -1,4 +1,6 @@
-import { loadXizongSystem } from './xizong.mjs';
+import { buildXizongRevisionWitness } from './xizongRevisionWitness.mjs';
+import { attachSourceVisualBundles as attachCanonicalVisualBundles } from './xizongSourceVisualAssets.mjs';
+import { loadXizongSystem, loadXizongBlock } from './xizong.mjs';
 import { buildXizongProductionBlock } from './xizongProductionProjection.mjs';
 import { loadXizongLearningCues, learningCuesForBlock } from './xizongLearningCues.mjs';
 import { loadXizongPathways, pathwaysForBlock, loadReviewedRetentionConnections } from './xizongPathways.mjs';
@@ -22,7 +24,7 @@ function fail(code, detail = '') {
  */
 export function resolveXizongLearnerProjection(canonicalBlock, {
   enrichBlock = null,
-  attachVisualBundles = null
+  attachVisualBundles = attachCanonicalVisualBundles
 } = {}) {
   if (!canonicalBlock?.systemId || !canonicalBlock?.blockId) fail('CANONICAL_BLOCK_REQUIRED');
 
@@ -54,6 +56,7 @@ export function resolveXizongLearnerProjection(canonicalBlock, {
     extensionAssets,
     pathways
   });
+  learnerObject.revisionWitness = buildXizongRevisionWitness(learnerObject);
   const report = validateXizongLearnerObject(learnerObject);
 
   return {
@@ -65,4 +68,24 @@ export function resolveXizongLearnerProjection(canonicalBlock, {
     learnerObject,
     report
   };
+}
+
+// Identity-only Current requirements; never ship medical Core to a stage guard.
+export function loadXizongSystemCompletionRequirements(system) {
+  return (system?.blocks || []).map((ref) => {
+    const block = loadXizongBlock(system.systemId, ref.slug);
+    return {
+      schema: 'kianos.xizong.learner_object.v1', objectType: 'BLOCK',
+      sourceHash: block.sourceHash,
+      revisionWitness: resolveXizongLearnerProjection(block).learnerObject.revisionWitness,
+      identity: { blockId: block.blockId },
+      logicGroups: (block.logicGroups || []).map((group) => ({
+        identity: { logicGroupId: group.groupId },
+        visualRequired: group.visualRequired === true,
+        visualSourceState: String(group.visualSourceState || '')
+      })),
+      kps: block.kpRecords.map((kp) => ({ identity: { kpId: kp.kpId } })),
+      evidenceVersion: [block.sourceHash, block.systemSourceHash, block.learningSupportSourceHash].join(':')
+    };
+  });
 }
