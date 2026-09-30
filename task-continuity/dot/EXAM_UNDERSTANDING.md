@@ -85,3 +85,33 @@ Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e57
 - XizongUI必须读完整受影响学习链后再局部优化，使用KEEP/OPTIMIZE/RESTORE_FROM_CURRENT/DEMOTE；不因更漂亮而重建流程。
 
 待核的文档一致性观察（不是已证实产品故障）：Orchestrator §9示例仍写10/21，而正式HardGate与derived Current为10/20；XizongProductBrief仍有“schema/renderer等open”的描述，需对照更窄Current Projection/Acceptance/实际消费者，不能直接把旧文字当现行阻塞。全科System Acceptance中也存在历史阶段UNTESTED段落，必须与明确当前gate分开读取。
+
+## 第三批：西综规则到消费者（2026-09-30 15:21 UTC）
+
+| 原文件 | blob | 状态 |
+|---|---|---|
+| [XIZONG_BLOCK_WORKSPACE_DESIGN.md](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md) | 9bb788ced4cff027bc2193e90918717fcb65cb37 | READ |
+| [XizongMemoryReleaseBridge.astro](https://github.com/kianwang022-hash/kianos/blob/66371b71b68c5941de33f23d2ae421050cf2d0c2/static-web/src/components/XizongMemoryReleaseBridge.astro) | 4f3f5d80e13258c4a05e50c6e8e13412862099b9 | READ |
+| [xizongMemoryAutoRelease.mjs](https://github.com/kianwang022-hash/kianos/blob/66371b71b68c5941de33f23d2ae421050cf2d0c2/static-web/src/lib/xizongMemoryAutoRelease.mjs) | c773ac429a2245de9ceb943c304e31777a81c6dc | READ |
+| [study-policy.json](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/content/xizong/knowledge/learner/study-policy.json) | 5f90fdaa24083e79e9d912bbfbeb5cb21b972656 | READ |
+| [BIOCHEMISTRY_CONTRACT.md](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md) | 1753312867b18352dbdb6c045ea49ad0028b60b4 | READ |
+| [SURGERY_CONTRACT.md](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/content/xizong/knowledge/learner/SURGERY_CONTRACT.md) | c706a6be39c330b1a16d5bc2d76a5b359648af00 | READ |
+| [README.md](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/content/xizong/knowledge/README.md) | df2e8b5af34a95a49d2a25f3426d3673821b2ebd | READ |
+| [manifest.json](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/content/xizong/knowledge/manifest.json) | 03a35b2010516f5d1dc29b44f5a5d6fd95a414c4 | READ |
+| [xizongLearnerProjection.mjs](https://github.com/kianwang022-hash/kianos/blob/66371b71b68c5941de33f23d2ae421050cf2d0c2/static-web/src/lib/xizongLearnerProjection.mjs) | 353cecfe00418a7d078961dc4a9ad62c48efb76b | READ |
+| [xizongSemanticAdapter.mjs](https://github.com/kianwang022-hash/kianos/blob/66371b71b68c5941de33f23d2ae421050cf2d0c2/static-web/src/lib/xizongSemanticAdapter.mjs) | 790bb40391b631cb4aecb8bd49839f294d37807b | READ |
+| [xizongProductionProjection.mjs](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/static-web/src/lib/xizongProductionProjection.mjs) | 7f41bb60caf5fd450eaf76a184362860b39ee655 | READ |
+| [inspect-xizong-content.mjs](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/static-web/scripts/inspect-xizong-content.mjs) | 47d51ef91c3e428a7ae5bb9c3106ccacc6fc4077 | READ |
+| [test-xizong-a1-content-consumption.mjs](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/static-web/scripts/test-xizong-a1-content-consumption.mjs) | 4b944b539792295585712f375de736e9d5fedfde | READ |
+| [validate-xizong-a2-runtime.mjs](https://github.com/kianwang022-hash/kianos/blob/66371b71b68c5941de33f23d2ae421050cf2d0c2/static-web/scripts/validate-xizong-a2-runtime.mjs) | 964c6ae1e03c1d3b781b3cbcf59510ca440c2187 | READ |
+
+局部阅读、不计全文READ：XizongKpLearnInteraction的私人标记写入；PrivateControl browser native-focus启动段；生化/外科lifecycle的当前status/action与相关依赖节。两条Source rebase当前均CLOSED，仅具体缺陷重新打开责任范围，不把合同里的历史重处理要求当成新一轮全量任务。
+
+新增责任追踪：
+- canonical Block → buildXizongProductionBlock（accepted Learning结构、Source方式、显式Attention、Block preentry、compiled对象）→ resolveXizongLearnerProjection（cues/pathways/extensions/MedicalVisual统一汇入）→ learner object与revision witness。当前仅代码追踪，尚非全科真实网页证明。
+- inspect-xizong-content复用上述原生路径；其assertions核对parsed canonical到learner对象与原生附件，明确不证明raw Source完整性、医学质量、浏览器实际位置/个人覆盖或显示时机。因此159个Block检查视图通过不能单独关闭全科验收。
+- expanded Attention author-label语法在production parser明确仅针对circulation启用；其他System保留旧输出，必须逐scope核原有合法标签与认知位置，不能机械全局开关或强行补造Boundary。
+- Memory原生标记→release桥接的已知静态缺口已回原任务[#1113](https://github.com/kianwang022-hash/kianos/issues/1113#issuecomment-5914111443)，不是因reading记录而新建第二产品任务。
+- 2517编号KP之外仍有O9 overlay（22KP）、A宏域整合与Block非KP资产；全量理解/消费覆盖必须包含适用对象，不以编号KP总数定义全部知识资产。
+
+目录清点仍在进行：精确候选tree可枚举static-web/src的415文件、scripts的329文件、Xizong learner目录128文件、systems目录183文件；这些仅INVENTORIED，不等于已读，更不等于全考研系统文件分母。现有注册表和manifest继续拥有真实结构，本记录不成为新的语义registry。
