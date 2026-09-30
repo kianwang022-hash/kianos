@@ -1,5 +1,5 @@
 # 西综理解记录：全流程与首批正文
-更新：2026-09-30 16:39 UTC。状态：用户已重新明确授权持续理解全部考研系统设定并推进全西综；本文件保留早期正文阅读证据，后续架构/文件覆盖在[考研理解记录](EXAM_UNDERSTANDING.md)继续。不是产品验收或新的学习规则。
+更新：2026-09-30 18:35 UTC。状态：用户已重新明确授权持续理解全部考研系统设定并推进全西综；本文件保留早期正文阅读证据，后续架构/文件覆盖在[考研理解记录](EXAM_UNDERSTANDING.md)继续。不是产品验收或新的学习规则。
 
 ## 一、恢复时先记住什么
 - 当前任务先读懂现有西综，再讨论最小责任位置的落地；不能用新架构替代已有知识与学习设计
@@ -15,7 +15,7 @@
 - A1循环：12 Block、312 KP，含Framework、Prompt/Core、Memory Routing、Source/Outline、出口及附录
 - A2呼吸：12 Block、236 KP，含同类全部正文
 - A3泌尿：14 Block、257 KP全部正文已读；其中B3–B14为12份、11,410逻辑行、228 KP，包含KP以外的独立章节
-- 2026-09-30 16:37证据回收：B已有25份历史全文READ（D1–D11、M1–M10、G1–G4）；D已有18份（N1–N11、O1–O7）。C/E与F9未由现有台账证明全文完成；其余继续按实际覆盖补入
+- 2026-09-30 16:37证据回收：B已有25份历史全文READ（D1–D11、M1–M10、G1–G4）；D已有18份（N1–N11、O1–O7）。该历史检查点时C/E与F9未证全文；C27已在下方第九节按固定237e576补齐，E/F与其余继续按实际覆盖补入
 - A宏域LOGIC/CONTENT/LEARN，知识manifest/README，Guide/preentry合同及Source manifest
 - 全流程合同、学习策略、Memory/Practice/Repair/Return/成熟度的规则与职责已梳理；大型支持目录不是已逐条医学核验
 
@@ -94,3 +94,53 @@ B1/B2建立地图与滤过；B3小管分段机制；B4浓缩和激素肾端；B5
 - 后续内容质量审查按既有规则与exact Source，保留有效资产，有依据才优化，改前有可恢复备份。
 - 实施进度、候选、真实阻塞与验收由[#1113](https://github.com/kianwang022-hash/kianos/issues/1113)拥有；考研闭环由#1111，完整理解/三仓审查由Personal#61。本文不再复制易过期的产品状态。
 - 未获得完整验证或权限的依赖链保持明确未验证/阻塞；独立已授权工作继续。无merge/Stable部署或真实学习重置的自动授权。
+
+
+## 九、C27全文理解完成（2026-09-30 18:35 UTC）
+
+固定候选237e576dc7169e21444785e9dae2dc15359e3f1c，C27份canonical全文实际阅读：423稳定KP、21,047行；5 Learning shards全对象及manifest已读，133 LG已核。父级复核27份缓存的Git blob和SHA256全部匹配ledger，无未补截断。这里新增C27 READ，与前81份历史阅读不重复，故跨版本可追溯正文READ并集为108个不同Block；旧81基线限制仍在，不宣称108份都已按最新head医学/网页验证。
+
+| Block | exact blob | 行数 | KP |
+|---|---|---:|---:|
+| [H1](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H1_造血CBC_Ret与骨髓诊断语言_学习阅读版_v1_最终执行版.md) | 3eefe13ce99f6e4bffa07c5bd7269a00d7b8f30e | 953 | 13 |
+| [H2](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H2_血型交叉配血与成分输血_学习阅读版_v1_最终执行版.md) | 20cd25a844df6608107a92f87b124d4fca81d2c7 | 1039 | 15 |
+| [H3](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H3_贫血总坐标缺铁与巨幼_学习阅读版_v1_最终执行版.md) | b6cbe71447ee7765935257b87e9a1edb16dfb326 | 1189 | 18 |
+| [H4](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H4_再生障碍性贫血_学习阅读版_v1_最终执行版.md) | 450d4d4e421e9264d7e9aca14cab4a1440a81613 | 878 | 14 |
+| [H5](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H5_溶血性贫血_学习阅读版_v1_最终执行版.md) | c4ccd477331d5ba995d2f6f2a127737cc0cfe455 | 1080 | 16 |
+| [H6](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H6_出血性疾病_学习阅读版_v1_最终执行版.md) | 967f82f66fa920c98c7b2b9ca7b19a085fd125f3 | 1116 | 18 |
+| [H7](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H7_克隆性造血与MDS_学习阅读版_v1_最终执行版.md) | bd25738fae343da62a42cdbcf27c1d43effcc9a1 | 778 | 13 |
+| [H8](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H8_多发性骨髓瘤MM_学习阅读版_v1_最终执行版.md) | 77be1471a694cb52aaf4bf500d1d7fdf50d6e842 | 880 | 16 |
+| [H9](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H9_急性白血病_学习阅读版_v1_最终执行版.md) | 373afa9ea42bdf484e0094ebd8ba070d2b4494e5 | 1150 | 29 |
+| [H10](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H10_慢性髓系白血病CML_学习阅读版_v1_最终执行版.md) | 476be28570152b5c8cc0a75c3a9f79611b34c3a1 | 564 | 10 |
+| [H11](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H11_淋巴瘤_学习阅读版_v1_最终执行版.md) | b68bd57724ee427dcb974464af408cae45abdba0 | 1137 | 32 |
+| [H12](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H12_免疫共同语言超敏反应与自身耐受_学习阅读版_v1_最终执行版.md) | d1c572a1e7e4dc3559ed8c72b08da34325e03c07 | 778 | 12 |
+| [H13](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H13_免疫缺陷与HIV_AIDS_学习阅读版_v1_最终执行版.md) | a992bd50a09810ee6937b4d86e7103feb6324d20 | 763 | 13 |
+| [H14](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H14_移植排斥与GVHD_学习阅读版_v1_最终执行版.md) | 347a86217db391ef1be36a7d14fdb38ad3e27124 | 710 | 12 |
+| [H15](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H15_风湿诊断语言与治疗角色_学习阅读版_v1_最终执行版.md) | ddd5114b0de94ec0035458ce8de09b326ba7d475 | 711 | 15 |
+| [H16](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H16_SLE与抗磷脂综合征APS_学习阅读版_v1_最终执行版.md) | c3959eb5637c6181387e7a570e7de696e17f420a | 759 | 21 |
+| [H17](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H17_类风湿关节炎RA_学习阅读版_v1_最终执行版.md) | 3cc44d030e35ed5a2df3cfb513d9bead4dbb2540 | 697 | 20 |
+| [H18](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H18_原发性干燥综合征_学习阅读版_v1_最终执行版.md) | f1847870f9bbb897ce03f7e3359125182a120841 | 514 | 12 |
+| [H19](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H19_系统性血管炎与贝赫切特病_学习阅读版_v1_最终执行版.md) | 6ca9c78ded121b2f4a6dd315288d5367008f6014 | 657 | 18 |
+| [H20](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H20_感染共同语言_学习阅读版_v1_最终执行版.md) | 47a7565570cc0c1ddbbb8cea7960079750213997 | 602 | 13 |
+| [H21](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H21_结核跨器官整合_学习阅读版_v1_最终执行版.md) | 89c006225a7dd21a94ffd85399b8eccb6b439480 | 559 | 13 |
+| [H22](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H22_流脑与乙脑_学习阅读版_v1_最终执行版.md) | 1166ae83e65e575035fafd3e51506143cc55c975 | 427 | 10 |
+| [H23](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H23_伤寒菌痢与感染性肠溃疡_学习阅读版_v1_最终执行版.md) | d5499e299f75eb988f959ee70603480625409a90 | 633 | 17 |
+| [H24](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H24_血吸虫病与性传播疾病_学习阅读版_v1_最终执行版.md) | 392217894cfa26e0d12b76a1a73353e7f5b266bd | 609 | 17 |
+| [H25](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H25_局部感染与源控制_学习阅读版_v1_最终执行版.md) | 54b82a7ba63f4bbf109672fc019a1557502803c8 | 741 | 16 |
+| [H26](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H26_脓毒症_学习阅读版_v1_最终执行版.md) | 100e0f1f5c8638f7b8965602bf00cd8715282461 | 523 | 9 |
+| [H27](https://github.com/kianwang022-hash/kianos/blob/237e576dc7169e21444785e9dae2dc15359e3f1c/content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H27_破伤风与气性坏疽_学习阅读版_v1_最终执行版.md) | e9151a5e5873c4e3ae6e82cf583d28da298fce13 | 600 | 11 |
+
+核心理解：
+- C从血细胞生命史/五层诊断→贫血/止血→克隆与肿瘤证据→最低免疫语言→风湿器官组合→感染空间/源控/毒素模型，器官处置与完整药理不从接口扩成新课程。
+- 6个非连续LG保持原成员：H1 [1,12,13]；H9 [10,11,12,13,19]；H14 [1,2,3,12]；H16 [2,3,4,5,8,9]；H19 [8,9,10,11,17]及[16,18]。不可退成min/max区间或重排canonical身份。
+- H21是13KP、Outline Primary=0的合法整合Block，31 Recall不自动变学习债务。H24有两个自然Source Unit，不是每LG重新进Lecture。
+- H15–19有4空格marker/heading和快速核对包装；快速核对仍是答案。Framework、诊断表、MI-G/MI-D、原图门禁和出口在KP外仍需按职责消费；出现‘边界’不等于formal adopted Boundary。
+- H11有6个明确已恢复Visual束；这不证明C其他Block的旧VG描述都已解决，也不证明图片实际位置/timing。requires与benefits_from不可混为hard gate。
+
+有界待核（未判医学错误/当前网页故障）：
+1. Current病理Source manifest为27不带导图/195页，H12–14/H16–17原图仍命名带导图/P103–110，须原Source/Visual身份消歧，不直接删或rebase
+2. H2当前SUR27-U30/PDF233–235，旧flow/routing/complete仍P189–190；H9/H10内科frontmatter与正文差1页；H27 Primary/body和source_pdf_end不同范围，须区分PDF/书页/题旁坐标
+3. C Acceptance已P/R/E PASS却残留Next eligible P；Learning projection_boundary/外科U30/U34亦旧not compiled字样。更窄current gate优先，不据历史尾语重开工程
+4. H12与H16/H17的Outline账目数字不同；外科U34 coarse映射列H25–27而H20也Primary U34/P252。先trace实际consumer与账目owner，不能凭数组叫漏投影
+
+Source-map只读精确U30/U34与身份节（PARTIAL），原PDF/图片未逐页复验；未执行测试/网页/医学质量验收。完整结构阅读证据已保存，后续只将有消费者证据的具体缺陷回原#1113，不另立第二套owner。
