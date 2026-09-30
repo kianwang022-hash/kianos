@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { marked } from 'marked';
 import { projectKpCore } from '../src/lib/xizongProjection.mjs';
-import { loadXizongBlock } from '../src/lib/xizong.mjs';
+import { loadXizongBlock, listProjectableXizongSystems } from '../src/lib/xizong.mjs';
 import { resolveXizongLearnerProjection } from '../src/lib/xizongLearnerProjection.mjs';
 
 const marker = '<!-- kianos:kp id="next-kp" -->';
@@ -20,10 +20,15 @@ for (const fence of ['```', '~~~~']) {
 assert.ok(projectKpCore('正文内 '+marker).includes(marker), 'only standalone identity declarations removed');
 assert.ok(projectKpCore('医学正文\n\n    **Routing**：CORE\n    列表正文').includes('    列表正文'), 'ordinary indentation retained');
 for (const prose of ['    **Routing**：CORE｜晨僵阈值以相邻正文为准',
-  '    **Routing**：UNKNOWN_CLASS', '**Routing**：CORE｜CONNECTION',
+  '    **Routing**：UNKNOWN_CLASS', '**Routing**：CORE｜医学解释保留',
   '医学 Routing 边界：保留完整解释。', '    晨僵阈值与评分边界必须保留。']) {
   assert.equal(projectKpCore('正文\n\n'+prose), '正文\n\n'+prose, 'mixed/unknown/non-owner-format Routing and medical code survive');
 }
+for (const row of ['**Routing**：CORE｜CONNECTION', '**Routing**: MI-G / MI-D。',
+  '**Routing**：SPECIAL + RECOGNITION.', '**Routing**：SOURCE_VISUAL_VERIFIED｜BOUNDARY']) {
+  assert.ok(!projectKpCore('正文\n\n'+row).includes('Routing'), 'reviewed taxonomy grammar excluded');
+}
+assert.ok(projectKpCore('正文\n\n        **Routing**：CORE').includes('        **Routing**'), 'nested code indentation retained');
 assert.equal(projectKpCore('    ---\n医学正文'), '---\n医学正文', 'unrelated divider retained');
 assert.equal(projectKpCore(projectKpCore(raw)), projectKpCore(raw), 'presentation idempotent');
 
@@ -43,3 +48,24 @@ for (const slug of ['h15', 'h16', 'h17', 'h18', 'h19']) {
   }
 }
 console.log(JSON.stringify({pass:true,canonicalKps:checked,rawCorePromptIdentityAndWitnessUnchanged:true}));
+
+let allKps = 0, taxonomyRows = 0, affectedBlocks = 0;
+for (const system of listProjectableXizongSystems()) {
+  for (const ref of system.blocks) {
+    const block = loadXizongBlock(system.systemId, ref.slug);
+    let changed = false;
+    for (const kp of block.kpRecords) {
+      const rows = kp.detailMarkdown.split('\n').filter(row => /^(?: {4})?\*\*Routing\*\*[：:]/.test(row));
+      const html = marked.parse(projectKpCore(kp.detailMarkdown));
+      if (rows.length) {
+        assert.ok(!html.includes('<strong>Routing</strong>'), `${block.id}/${kp.id}: reviewed current taxonomy absent in actual renderer HTML`);
+        taxonomyRows += rows.length; changed = true;
+      }
+      allKps++;
+    }
+    if (changed) affectedBlocks++;
+  }
+}
+assert.equal(allKps, 2517, 'formal current numbered scope; overlay is separate');
+assert.equal(taxonomyRows, 1133, 'all currently reviewed standalone metadata rows, not arbitrary Routing prose');
+console.log(JSON.stringify({pass:true,allKps,taxonomyRows,affectedBlocks}));

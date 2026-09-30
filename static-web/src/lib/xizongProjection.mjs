@@ -36,13 +36,19 @@ export function projectKpCore(markdown) {
   // heading. Four-space owner indentation turns that comment (and Routing)
   // into a visible code block. Change presentation only: keep the raw Core
   // and its revision witness, medical Routing explanations, and authored code
-  // examples. The reviewed four-space, standalone taxonomy is presentation
+  // examples. The reviewed standalone taxonomy is presentation
   // metadata; mixed prose and unknown labels must remain intact.
   let fence = null;
   const input = String(markdown).split(/\r?\n/);
   const identityRow = line => /^\s*<!--\s*kianos:kp\s+id=["'][^"']+["']\s*-->\s*$/.test(line);
   const routingLabels = new Set(['CORE', 'CONNECTION', 'CONFUSABLE', 'RECOGNITION',
-    'BOUNDARY', 'MI-G', 'MI-D', 'VISUAL_ONLY', 'SOURCE_CONFLICT', 'SOURCE_READING_BOUNDARY']);
+    'BOUNDARY', 'MI-G', 'MI-D', 'VISUAL_ONLY', 'SOURCE_CONFLICT', 'SOURCE_READING_BOUNDARY',
+    'SPECIAL', 'DISCRIMINATION', 'MECHANISM', 'DECISION', 'RECALL', 'INTEGRATION',
+    'CLINICAL_ENTRY', 'EMERGENCY', 'PROCEDURE', 'THERAPY', 'PATHOLOGY', 'SURGERY',
+    'SOURCE_BOUND', 'DEFERRED_MODEL', 'DISCRIMINATION_TREE', 'EVIDENCE', 'DANGER_GATE',
+    'FRAMEWORK_RECONSTRUCTION', 'FRAMEWORK', 'TREATMENT_BOUNDARY', 'RECALL_APPLY',
+    'DECISION_GATE', 'TREATMENT_LOGIC', 'SAFETY_GATE', 'SOURCE_GAP', 'TIMELINE',
+    'TIME_AXIS', 'SOURCE_VISUAL_VERIFIED', 'SPATIAL', 'OWNERSHIP', 'MICRO_PRIMARY']);
   const lines = input.flatMap((line, index) => {
     const boundary = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
     if (boundary) {
@@ -55,8 +61,9 @@ export function projectKpCore(markdown) {
     // A separator immediately introducing the next identity belongs to that
     // next section. Do not touch other dividers or indented medical examples.
     if (/^ {4}---\s*$/.test(line) && identityRow(input.slice(index + 1).find(row => row.trim()) || '')) return [];
-    const routing = line.match(/^ {4}\*\*Routing\*\*[：:]\s*(.*?)\s*$/);
-    if (routing && routing[1].split(/[｜|]/).every(label => routingLabels.has(label.trim()))) return [];
+    const routing = line.match(/^(?: {4})?\*\*Routing\*\*[：:]\s*(.*?)\s*$/);
+    if (routing && routing[1].replace(/[。. ]+$/, '').split(/[｜|+/]/)
+      .every(label => routingLabels.has(label.trim()))) return [];
     return [line];
   });
   return learnerLabels(lines.join('\n'));
