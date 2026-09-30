@@ -1538,6 +1538,17 @@ window.__kianosLearnerWriterReady.then(() => {
       root.querySelector(kind === 'outline' ? '[data-toggle-outline]' : '[data-toggle-chain]')?.addEventListener('click', () => setCollapsed(kind, !layout?.classList.contains(`${kind}-collapsed`)));
     });
 
+    root.addEventListener('kianos:xizong-kp-focused', (event) => {
+      const kpId = event instanceof CustomEvent ? String(event.detail?.kpId || '') : '';
+      if (!kpId || root.dataset.xizongStateBlocked === 'true' || root.inert) return;
+      const index = indexForKpId(kpId);
+      if (index < 0) return;
+      state.kpIndex = index;
+      state.groupIndex = groupIndexForKp(index);
+      save();
+      syncState();
+    });
+
     root.addEventListener('kianos:xizong-kp-learned', (event) => {
       const kpId = event instanceof CustomEvent ? String(event.detail?.kpId || '') : '';
       if (!kpId) return;

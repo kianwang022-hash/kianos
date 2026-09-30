@@ -335,6 +335,7 @@ try {
   await selectTextAndMark(page, '[data-study-stage]:not([hidden]) [data-kp-learn-prompt-copy]', 'important');
   const objectId = await root.getAttribute('data-study-object');
   const personalKey = `kianos-xizong-personal-v1:${objectId}`;
+  const studyKey = `kianos-xizong-astro-v2:${objectId}`;
   const promptMarks = await page.evaluate((key) => {
     const value = JSON.parse(localStorage.getItem(key) || '{}');
     return Object.values(value?.kp || {}).flatMap((row) => Array.isArray(row?.marks) ? row.marks : []);
@@ -369,6 +370,20 @@ try {
   const movedCard = root.locator('[data-study-stage]:visible .xv6KpLearnCompanion[data-kp-id]');
   const movedKpId = await movedCard.getAttribute('data-kp-id');
   check(Boolean(movedKpId && movedKpId !== originalKpId), 'arrow_right_switches_kp', `${originalKpId}->${movedKpId}`);
+  const movedNativePosition = await page.evaluate(({ key, kpId }) => {
+    const state = JSON.parse(localStorage.getItem(key) || '{}');
+    const payload = JSON.parse(document.querySelector('[data-xizong-learner-object-payload]')?.textContent || '{}');
+    const index = (payload.kps || []).findIndex((kp) => kp?.identity?.kpId === kpId);
+    return {
+      index,
+      storedIndex: state.kpIndex,
+      mapCurrent: document.querySelector('[data-study-group-rail] .xzLogicGroupKp.current')?.textContent?.trim() || ''
+    };
+  }, { key: studyKey, kpId: movedKpId });
+  check(movedNativePosition.index >= 0 && movedNativePosition.storedIndex === movedNativePosition.index,
+    'kp_learn_switch_updates_native_kp_index', JSON.stringify(movedNativePosition));
+  check(movedNativePosition.mapCurrent.includes(payload.kps[movedNativePosition.index]?.identity?.displayId || ''),
+    'kp_learn_switch_updates_left_logic_map', JSON.stringify(movedNativePosition));
   await page.keyboard.press('Space');
   check(await movedCard.locator('[data-learner-kp-core]').isHidden(), 'space_hides_core_after_kp_switch');
   await page.keyboard.press('Space');
@@ -389,7 +404,6 @@ try {
   check(stage === 'kp_recall', 'enter_learning_advances_to_recall_after_real_kps', `stage=${stage};presses=${presses}`);
   check(await root.locator('[data-study-stage="ttsx_checkpoint"]').isHidden(), 'unbound_ttsx_fails_closed_without_fake_release');
 
-  const studyKey = `kianos-xizong-astro-v2:${objectId}`;
   const studyState = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || '{}'), studyKey);
   check(Object.values(studyState?.learned || {}).filter(Boolean).length >= 1, 'enter_records_learned_state');
   check(Object.keys(studyState?.ttsxEvidence || {}).length === 0, 'unbound_ttsx_creates_no_fake_evidence');

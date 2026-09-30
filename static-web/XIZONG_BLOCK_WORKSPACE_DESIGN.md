@@ -140,6 +140,7 @@ Rules:
 - KP rows use real Current titles rather than bare 01/02/03 numbering;
 - no inferred arrows / topology are drawn from KP order;
 - the map is collapsible; collapsing it returns the width to the primary KP work surface;
+- while the primary surface is on a concrete KP, the left map follows that exact KP, keeps it visible, and uses the same native `kpIndex` that Resume/return restores; visiting Today/Steward and returning must not reset the companion to the first KP;
 - entering another Logic Group changes the active KP / learning object directly rather than forcing a separate orientation ceremony;
 - group-level Visual / Connection / Precision remain conditional Context when Current owns them;
 - no permanent empty Context rail when no contextual object exists.

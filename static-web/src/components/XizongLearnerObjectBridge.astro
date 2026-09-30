@@ -284,6 +284,25 @@ const payload = learnerObject || null;
         : [];
       const targetedIntegrationSource = sourceContactMode === 'INTEGRATION_PRIMARY' && sourceContactSegments.length > 0;
       const groupIds = groups.map((group) => group?.identity?.logicGroupId);
+      const studyObjectId = root.getAttribute('data-study-object') || 'xizong:unknown';
+      const studyKey = `kianos-xizong-astro-v2:${studyObjectId}`;
+      const persistedKpId = () => {
+        try {
+          const study = JSON.parse(localStorage.getItem(studyKey) || '{}');
+          const index = Number(study?.kpIndex);
+          return Number.isInteger(index) && index >= 0 && index < allKps.length
+            ? text(allKps[index]?.identity?.kpId)
+            : '';
+        } catch { return ''; }
+      };
+      const focusNativeKp = (kp, stageName) => {
+        const kpId = text(kp?.identity?.kpId);
+        if (!kpId) return;
+        root.dispatchEvent(new CustomEvent('kianos:xizong-kp-focused', {
+          bubbles: true,
+          detail: { kpId, stage: stageName }
+        }));
+      };
       let sourceLearnIndex = 0;
       let groupLearnIndex = 0;
       let lastGroupId = '';
@@ -421,18 +440,24 @@ const payload = learnerObject || null;
       }
 
       const renderCompanions = () => {
+        const persistedId = persistedKpId();
         if (sourceCompanionHost) {
           const rows = sourceCompanionKps();
+          const persistedIndex = rows.findIndex((kp) => text(kp?.identity?.kpId) === persistedId);
+          if (persistedIndex >= 0) sourceLearnIndex = persistedIndex;
           sourceLearnIndex = Math.max(0, Math.min(rows.length - 1, sourceLearnIndex));
           renderCompanionCard(sourceCompanionHost, sourceCompanionKp(), sourceLearnIndex, rows.length, 'source_contact');
         }
         const group = activeGroup();
         const groupId = group?.identity?.logicGroupId || '';
+        const ids = groupCompanionIds();
+        const persistedGroupIndex = ids.indexOf(persistedId);
         if (groupId !== lastGroupId) {
           lastGroupId = groupId;
-          groupLearnIndex = 0;
+          groupLearnIndex = persistedGroupIndex >= 0 ? persistedGroupIndex : 0;
+        } else if (persistedGroupIndex >= 0) {
+          groupLearnIndex = persistedGroupIndex;
         }
-        const ids = groupCompanionIds();
         groupLearnIndex = Math.max(0, Math.min(ids.length - 1, groupLearnIndex));
         if (groupCompanionHost) renderCompanionCard(groupCompanionHost, groupCompanionKp(), groupLearnIndex, ids.length, 'kp_learn');
       };
@@ -527,8 +552,14 @@ const payload = learnerObject || null;
         if (!prev && !next) return;
         const stageName = (prev || next)?.getAttribute(prev ? 'data-companion-prev' : 'data-companion-next') || '';
         const delta = next ? 1 : -1;
-        if (stageName === 'source_contact') sourceLearnIndex = Math.max(0, Math.min(sourceCompanionKps().length - 1, sourceLearnIndex + delta));
-        if (stageName === 'kp_learn') groupLearnIndex = Math.max(0, Math.min(groupCompanionIds().length - 1, groupLearnIndex + delta));
+        if (stageName === 'source_contact') {
+          sourceLearnIndex = Math.max(0, Math.min(sourceCompanionKps().length - 1, sourceLearnIndex + delta));
+          focusNativeKp(sourceCompanionKp(), stageName);
+        }
+        if (stageName === 'kp_learn') {
+          groupLearnIndex = Math.max(0, Math.min(groupCompanionIds().length - 1, groupLearnIndex + delta));
+          focusNativeKp(groupCompanionKp(), stageName);
+        }
         rerender();
       });
 

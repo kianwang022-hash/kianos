@@ -290,6 +290,16 @@
         });
         detail.append(kpList);
         button.insertAdjacentElement('afterend', detail);
+        const currentRow = detail.querySelector('.xzLogicGroupKp.current');
+        const rail = button.closest('[data-study-group-rail]');
+        if (currentRow instanceof HTMLElement && rail instanceof HTMLElement) {
+          requestAnimationFrame(() => {
+            const railRect = rail.getBoundingClientRect();
+            const rowRect = currentRow.getBoundingClientRect();
+            if (rowRect.top < railRect.top) rail.scrollTop -= railRect.top - rowRect.top + 8;
+            else if (rowRect.bottom > railRect.bottom) rail.scrollTop += rowRect.bottom - railRect.bottom + 8;
+          });
+        }
       };
 
       const renderPromptEditor = (frame, kpId, promptNode, canonicalPrompt) => {
