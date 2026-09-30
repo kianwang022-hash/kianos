@@ -311,8 +311,18 @@ try {
 }
 if (!exactSurgeryWitnessRejected) fail('SURGERY_EXACT_WITNESS_NEGATIVE_TEST');
 
-if (!xizongCurrent.includes('27 Biochemistry lifecycle owner:') || !xizongCurrent.includes(BIO_LIFECYCLE)) fail('CURRENT_BIOCHEMISTRY_LIFECYCLE_ROUTE');
-if (!xizongCurrent.includes('27 Surgery lifecycle owner:') || !xizongCurrent.includes(SURGERY_LIFECYCLE)) fail('CURRENT_SURGERY_LIFECYCLE_ROUTE');
+// Current is a router, not a frozen sentence. Accept root-relative or
+// Current-relative links while retaining the exact topic→owner relationship.
+const lifecycleRouteMatches = (current, topic, target) => {
+  const relative = target.replace(/^content\/xizong\//, '');
+  const escaped = relative.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`27 ${topic}[^;；\\n]*\\b(?:content/xizong/)?${escaped}\\b`).test(current);
+};
+for (const [topic, target] of [['Biochemistry', BIO_LIFECYCLE], ['Surgery', SURGERY_LIFECYCLE]]) {
+  if (!lifecycleRouteMatches(xizongCurrent, topic, target)) fail(`CURRENT_${topic.toUpperCase()}_LIFECYCLE_ROUTE`);
+  const wrong = xizongCurrent.replaceAll(path.posix.basename(target), 'wrong-owner.json');
+  if (lifecycleRouteMatches(wrong, topic, target)) fail(`CURRENT_${topic.toUpperCase()}_LIFECYCLE_ROUTE_NEGATIVE`);
+}
 if (/27 (?:Biochemistry|Surgery).*is CLOSED \/ CURRENT/.test(xizongCurrent)) fail('CURRENT_LIFECYCLE_ENUM_MIRROR');
 if (!contentMainline.includes('Biochemistry and Surgery Source-revision work route to their exact lifecycle owners')) fail('MAINLINE_LIFECYCLE_ROUTE_MISSING');
 if (/Status: \*\*CLOSED \/ CURRENT · S\/K\/L\/Content/.test(contentMainline)) fail('MAINLINE_LIFECYCLE_ENUM_MIRROR');

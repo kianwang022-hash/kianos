@@ -439,8 +439,10 @@ assert.match(systemWorkspace,/data-system-view-button="biochemistry"/,'B System 
 assert.match(systemWorkspace,/kianos\.xizong\.biochemistry-source-lane-state\.v1/,'B System workspace lost current Source-unit ledger');
 assert.match(systemWorkspace,/data-biochemistry-reconstruction/,'B System workspace lost accepted partial-system reconstruction consumer');
 
-assert.match(xizongCurrent,/27 Biochemistry lifecycle owner:/);
-assert.match(xizongCurrent,/xizong-2027-biochemistry-delta-slot\.json/);
+// Verify the actual owner address, not a historical prose spelling.
+const currentBioRoute=/27 Biochemistry[^;；\n]*\b(?:content\/xizong\/)?knowledge\/learner\/xizong-2027-biochemistry-delta-slot\.json\b/;
+assert.match(xizongCurrent,currentBioRoute);
+assert.doesNotMatch(xizongCurrent.replaceAll('xizong-2027-biochemistry-delta-slot.json','wrong-owner.json'),currentBioRoute,'wrong owner must still fail');
 assert.match(contentMainline,/No bounded Xizong content-revalidation task is currently open\./,'Mainline must remain a program router after closed Biochemistry work');
 assert.match(contentMainline,/Biochemistry and Surgery Source-revision work route to their exact lifecycle owners/,'Mainline lost exact-owner reopen routing');
 assert.doesNotMatch(contentMainline,/# 0｜27 Biochemistry architecture-corrected rebase|Lifecycle is owned only by the exact task owner below/,'Mainline must not restore retired Biochemistry campaign prose');

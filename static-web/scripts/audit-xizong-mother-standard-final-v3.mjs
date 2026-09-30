@@ -44,7 +44,11 @@ function check(id,fn){
 check('fresh_chat_owner_recovery',()=>{
   const current=readText('content/xizong/CURRENT.md');
   const pkg=readText('content/xizong/MATURITY_PACKAGE.md');
-  assert.match(current,/\| Subject maturity \/ 270-275 control \| MATURITY_PACKAGE\.md \|/);
+  const maturityRoute=text=>text.split(/\r?\n/)
+    .map(line=>line.split('|').map(cell=>cell.trim().replace(/`/g,'')))
+    .find(cells=>/^Subject maturity \/ 270[-–]275 control$/.test(cells[1]||''))?.[2];
+  assert.equal(maturityRoute(current),'MATURITY_PACKAGE.md','Current must resolve the actual maturity owner');
+  assert.notEqual(maturityRoute(current.replaceAll('MATURITY_PACKAGE.md','WRONG_OWNER.md')),'MATURITY_PACKAGE.md','misrouting cannot pass');
   assert.match(pkg,/Protect floor: \*\*270\+\*\*/);
   assert.match(pkg,/Working target: \*\*275\+\*\*/);
   assert.match(pkg,/Stage B — First-pass Capability \| \*\*CURRENT \/ REAL-U REQUIRED\*\*/);
