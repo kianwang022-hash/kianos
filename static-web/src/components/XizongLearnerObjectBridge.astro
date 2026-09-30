@@ -60,7 +60,7 @@ const payload = learnerObject || null;
         const card = el('div', `xv6LearnerAsset connection ${row?.reserveLearning ? 'reserve' : row?.direction || ''}`);
         card.dataset.learnerAsset = 'connection';
         card.dataset.learnerAssetId = text(row?.id);
-        const label = row?.reserveLearning ? '先留个印象' : row?.direction === 'incoming' ? '你之前见过' : '后面会接';
+        const label = row?.reserveLearning ? '先留个印象' : row?.direction === 'incoming' ? (row?.raw?.reviewedRetention ? '本章串联回收' : '你之前见过') : '后面会接';
         card.append(el('span', 'xv6LearnerAssetLabel', label));
         card.append(el('p', '', row?.cue));
         if (row?.seed) card.append(el('p', '', row.seed));
@@ -535,6 +535,11 @@ const payload = learnerObject || null;
             learner.slots?.kpRecallContext?.[kpId] || learner.slots?.kpLearnAux?.[kpId] || {},
             recallAnswerVisible() ? postlearnForGroup(groupId) : {}
           );
+        }
+        // Keep Block-owned reactivation at Block scope, including direct Resume.
+        // The existing representation gate still protects Recall Front.
+        if (['block_learn', 'source_contact', 'kp_learn', 'logic_group', 'kp_recall'].includes(stage)) {
+          slot = mergeSlots({ connection: array(learner.slots?.blockConnections) }, slot);
         }
         const rendered = renderSlot(slot, { stage: representationStage });
         auxHost.dataset.learnerObjectSlot = slotName;

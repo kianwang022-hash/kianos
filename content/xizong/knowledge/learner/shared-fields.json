@@ -1152,6 +1152,73 @@
     },
     "circulation-b01-kp024": {
       "retention_metadata": {
+        "connections": [
+          {
+            "connection_id": "b01-c07-venous-hf-to-b11",
+            "kind": "DEFERRED_SEED",
+            "display": "SUBTLE_INLINE",
+            "front": "//串联：回心与心衰：右心淤血、容量和卧位 → B11",
+            "seed": "右心射血受限与肝颈静脉回流征、输液过多过快、夜间平卧与端坐呼吸在原讲义同页串联。这里只识别回心与淤血关系，完整心衰模型归 B11。",
+            "downstream_owner_id": "circulation-b11",
+            "source_pdf_pages": [
+              128
+            ],
+            "reviewed_at": "2026-09-30",
+            "review_basis": "27精编生理合集【带导图】 PDF P128 / 生理学讲义_AI阅读版；当前 B1 与正式 target Block"
+          },
+          {
+            "connection_id": "b01-c08-ischemic-relaxation-to-b11",
+            "kind": "DEFERRED_SEED",
+            "display": "SUBTLE_INLINE",
+            "front": "//串联：缺血与主动舒张障碍 → B11",
+            "seed": "原讲义把心肌缺血、能量不足、Ca²⁺回降受影响与主动舒张障碍连起来；当前只留这条机制接口，完整舒张功能与心衰判断归 B11，不能把所有心衰等同于这一条链。",
+            "downstream_owner_id": "circulation-b11",
+            "source_pdf_pages": [
+              128
+            ],
+            "reviewed_at": "2026-09-30",
+            "review_basis": "27精编生理合集【带导图】 PDF P128 / 生理学讲义_AI阅读版；当前 B1 与正式 target Block"
+          },
+          {
+            "connection_id": "b01-c09-myocardial-pericardial-filling-to-b8",
+            "kind": "DEFERRED_SEED",
+            "display": "SUBTLE_INLINE",
+            "front": "//串联：心肌变硬与心包限制充盈 → B8",
+            "seed": "心肌纤维化或肥厚造成顺应性下降，与心包积液、缩窄从外部限制充盈，是两类不同入口。B1 只用来理解回心方向；完整心肌与心包模型归 B8。",
+            "downstream_owner_id": "circulation-b08",
+            "source_pdf_pages": [
+              128
+            ],
+            "reviewed_at": "2026-09-30",
+            "review_basis": "27精编生理合集【带导图】 PDF P128 / 生理学讲义_AI阅读版；当前 B1 与正式 target Block"
+          },
+          {
+            "connection_id": "b01-c10-volume-posture-to-b12",
+            "kind": "DEFERRED_SEED",
+            "display": "SUBTLE_INLINE",
+            "front": "//串联：失血、体位与低灌注 → B12",
+            "seed": "原讲义在回心因素中连接失血和休克体位；这里只保留有效容量、重力与回心的机械接口，完整休克和复苏归 B12，不把一个体位方向当成通用处置规则。",
+            "downstream_owner_id": "circulation-b12",
+            "source_pdf_pages": [
+              128
+            ],
+            "reviewed_at": "2026-09-30",
+            "review_basis": "27精编生理合集【带导图】 PDF P128 / 生理学讲义_AI阅读版；当前 B1 与正式 target Block"
+          },
+          {
+            "connection_id": "b01-c11-venous-nitrate-to-b6",
+            "kind": "DEFERRED_SEED",
+            "display": "SUBTLE_INLINE",
+            "front": "//串联：硝酸酯扩静脉与前负荷 → KP32 / B6",
+            "seed": "静脉扩张 → 回心及前负荷下降。B1 的 KP32 会从供需两端回用这一关系；完整冠心病药物位置与适用边界归 B6。",
+            "downstream_owner_id": "circulation-b06",
+            "source_pdf_pages": [
+              128
+            ],
+            "reviewed_at": "2026-09-30",
+            "review_basis": "27精编生理合集【带导图】 PDF P128 / 生理学讲义_AI阅读版；当前 B1 与正式 target Block"
+          }
+        ],
         "gate_knowledge": [
           {
             "gate_id": "b01-g11-venous-gradient",
@@ -1224,7 +1291,7 @@
             "kind": "DEFERRED_SEED",
             "display": "SUBTLE_INLINE",
             "front": "//串联：暖休克 → B12",
-            "seed": "这里只建立‘感染中毒性休克时动静脉短路大量开放，可出现皮肤温暖’接口；完整休克 failure model 归 B12。",
+            "seed": "这里只保留微循环分配与有效交换接口；不能把动静脉短路当成暖休克皮肤温暖的唯一机制。完整阻力、分布与灌注模型归 B12。",
             "downstream_owner_id": "circulation-b12"
           }
         ]
