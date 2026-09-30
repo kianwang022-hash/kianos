@@ -312,5 +312,53 @@
     "ai_probe_rule": "AI_TRANSFER_PROBE is TRANSFER_ONLY and contributes zero official score-attribution weight.",
     "prediction_boundary": "Observed point weight is not predicted score gain/loss and must not be presented as a guaranteed point value for a KP.",
     "formal_score_truth": "Sealed whole-paper scoring remains authoritative for actual paper score evidence."
+  },
+  "content_revision_policy": {
+    "role": "EVIDENCE_PRESERVING_SELECTIVE_REVALIDATION",
+    "principle": "Canonical Content revision must never erase, archive-away as unusable, or restart already-observed learning by default. Historical learner evidence remains valid as historical evidence. A revision may require revalidation only for the smallest actually affected semantic unit.",
+    "defaults": {
+      "preserve_resume": true,
+      "preserve_historical_evidence": true,
+      "preserve_personal_prompt_and_notes": true,
+      "preserve_unaffected_learned_and_ratings": true,
+      "no_whole_block_restart_for_local_change": true
+    },
+    "classes": {
+      "RETRIEVAL_OR_PRESENTATION_ONLY": {
+        "examples": [
+          "Prompt wording / retrieval scaffold",
+          "KP title wording",
+          "formatting",
+          "Source / Outline locator correction that does not change learned medical meaning"
+        ],
+        "behavior": "Keep current Resume, learned/contact/Recall evidence and completion state. Do not require relearning or fresh Recall merely because the file/source hash changed."
+      },
+      "LOCAL_SEMANTIC_CHANGE": {
+        "examples": [
+          "medical Core answer changes",
+          "a required Boundary / Confusable meaning changes",
+          "a Precision fact changes",
+          "an adopted Connection changes the reasoning required for a KP"
+        ],
+        "behavior": "Preserve all prior evidence and current Resume. Mark only the impacted KP, and its Logic Group only when the changed meaning affects group closure, for bounded fresh revalidation. Do not invalidate unrelated KP or restart the Block."
+      },
+      "TOPOLOGY_CHANGE": {
+        "examples": [
+          "KP or Logic Group split/merge",
+          "stable learning order or ownership changes"
+        ],
+        "behavior": "Migrate existing progress by stable identities wherever possible. Unmatched or semantically changed units require bounded revalidation. Resume at the nearest valid current position; never infer that the whole Block was unlearned."
+      },
+      "UNCLASSIFIED_REVISION": {
+        "behavior": "Fail closed only for promotion of mastery on changed meaning. Preserve current position and all historical evidence; surface a bounded revision-review requirement instead of clearing progress or reopening the whole Block."
+      }
+    },
+    "evidence_boundary": "Old evidence may not prove mastery of newly changed semantics, but it must remain attached to what was actually observed. Revalidation strengthens or updates the affected current claim; it does not rewrite or delete history.",
+    "hard_gates": [
+      "A revision must never manufacture learned / Recall / completed evidence.",
+      "A revision must never delete lawful personal Prompt, note, mark or unrelated learner state.",
+      "Unchanged KP/LG evidence must not be invalidated by a neighboring Content edit.",
+      "Whole-Block restart is allowed only if an explicit future owner proves that every stable unit in the Block became semantically invalid; it is not a default revision behavior."
+    ]
   }
 }
