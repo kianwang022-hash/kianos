@@ -1,5 +1,5 @@
 # 西综理解记录：全流程与首批正文
-更新：2026-09-30 19:03 UTC。状态：用户已重新明确授权持续理解全部考研系统设定并推进全西综；本文件保留早期正文阅读证据，后续架构/文件覆盖在[考研理解记录](EXAM_UNDERSTANDING.md)继续。不是产品验收或新的学习规则。
+更新：2026-09-30 19:24 UTC。状态：用户已重新明确授权持续理解全部考研系统设定并推进全西综；本文件保留早期正文阅读证据，后续架构/文件覆盖在[考研理解记录](EXAM_UNDERSTANDING.md)继续。不是产品验收或新的学习规则。
 
 ## 一、恢复时先记住什么
 - 当前任务先读懂现有西综，再讨论最小责任位置的落地；不能用新架构替代已有知识与学习设计
@@ -182,3 +182,58 @@ Source-map只读精确U30/U34与身份节（PARTIAL），原PDF/图片未逐页�
 - E9/E11部分refined原页已验证，与System旧GAP总语句范围不同；E13/E14特定LG支持不扩大成全Block视觉恢复。病理名称/页坐标差异、旧S2或P/R/E construction尾语须按exact owner消歧，未trace不当新产品故障。
 
 原Source PDF、裁图/显示timing、消费者、测试和真实U本批均未复验。大地图恢复、全文阅读与模式边界已交现有全159页面验收使用，不重开实现者或医学重写。
+
+
+## 十一、剩余B13/D9/F9全文阅读补齐（2026-09-30 19:24 UTC）
+
+固定4a818ba50e994c6c681e1597677e157043b46036，本轮31新增全文READ，20,823行、478稳定KP：B13为10,547行/254KP，D9为3,836行/103KP，F9为6,440行/121KP。父级全文读结构报告并核31缓存Git blob/SHA256、完整范围/补截断证据一致。另旧B25+D18的43份当前blob与历史receipt SHA256均相同，只做metadata核对不伪称本轮重读。
+
+至此跨版本canonical Block全文READ并集为159：A1 12/A2 12/A3 14/B38/C27/D27/E20/F9。证据强度不混淆：26份父级早期清单较弱，55份旧worker详细ledger、78份本轮新增详细ledger；A1完整候选内容与旧READ存在已复审的delta，不能仅靠159这个数说所有最新医学论断重验。O9肿瘤retained overlay另计，不含159；骨科O9属于159内，不能因同名排除。
+
+| System/Block | exact blob | 行数 | KP |
+|---|---|---:|---:|
+| [B/D12](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D12_肠结核结核性腹膜炎IBD与IBS_学习阅读版_v1_最终执行版.md) | 342701061341084dfa7426c16eaae6f12fefa8ae | 882 | 23 |
+| [B/D13](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D13_腹膜感染与腹部损伤_学习阅读版_v1_最终执行版.md) | 6f0aa4373d610bd7aed2ab36e6b0286a011d26fb | 652 | 16 |
+| [B/D14](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D14_肠梗阻阑尾炎与腹外疝_学习阅读版_v1_最终执行版.md) | 7ec37d6663b28822f1832f1290f32c8929b927a1 | 871 | 28 |
+| [B/D15](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D15_大肠直肠与肛管_学习阅读版_v1_最终执行版.md) | 09e0f8e3671a67265b048843dbc913337c2ba753 | 697 | 19 |
+| [B/D16](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D16_病毒性肝炎_学习阅读版_v1_最终执行版.md) | 3d51d4825fca5ff90bb8d6dc6b929f7c9be57522 | 647 | 12 |
+| [B/D17](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D17_肝硬化门脉高压与肝性脑病_学习阅读版_v1_最终执行版.md) | 60013d90a1fccb9dbe94749da73ebd8d6e036f7d | 1095 | 24 |
+| [B/D18](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D18_原发性肝细胞癌HCC_学习阅读版_v1_最终执行版.md) | 572dbadf88f0254b3e921b682baab3c69ce45034 | 734 | 15 |
+| [B/D19](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D19_胆汁黄疸胆石胆道感染与肝脓肿_学习阅读版_v1_最终执行版.md) | 57d9ac3c812d99121f4d960df98e29046d130115 | 1055 | 26 |
+| [B/D20](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D20_急性胰腺炎与胰腺肿瘤_学习阅读版_v1_最终执行版.md) | 2878283ca441fb22b2d54e26c8ba02e8d43fa273 | 913 | 22 |
+| [B/D21](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/内分泌_D21_甲状腺轴及甲状腺内外科_学习阅读版_v1_最终执行版.md) | 6c2f9d8ca940eb3a4aa10660a3d1fa9bbfa553ee | 1006 | 29 |
+| [B/D22](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/内分泌_D22_肾上腺皮质与髓质_学习阅读版_v1_最终执行版.md) | d110e97a09331c34c47b2ad226287ea4b8b04a38 | 598 | 15 |
+| [B/D23](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/内分泌_D23_钙调节甲状旁腺与生长激素_学习阅读版_v1_最终执行版.md) | fb446620accfb6d6e7a73ce6851fe7b1f5c1cf97 | 741 | 12 |
+| [B/G5](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md) | 500b6de32727ff353bd9bd1712d5deb9bc102b2c | 656 | 13 |
+| [D/O8](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O8_手外伤与再植_学习阅读版_v1_最终执行版.md) | 8a0ea95da1652acb8b6f84085e90a5eb5d6368e2 | 221 | 7 |
+| [D/O9](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O9_膝韧带与半月板损伤_学习阅读版_v1_最终执行版.md) | b8034608762b00716facd1768d0115b2148d1bdd | 211 | 7 |
+| [D/O10](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O10_股骨头无菌性坏死_学习阅读版_v1_最终执行版.md) | 514994c2b525cd8b165661000d7e69e4a0ad8988 | 248 | 8 |
+| [D/O11](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O11_慢性损伤与神经卡压_学习阅读版_v1_最终执行版.md) | 48ad1997921fe1b3ef09d4964eff4cb02ffc99ba | 542 | 13 |
+| [D/O12](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O12_运动系统畸形_学习阅读版_v1_最终执行版.md) | a2821fe539678d0572cbe1b56f11e2418d8bd6bc | 471 | 10 |
+| [D/O13](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O13_化脓性骨与关节感染_学习阅读版_v1_最终执行版.md) | 8e6bfacf2c64263e8e9d1735c824b59803f7518e | 519 | 13 |
+| [D/O14](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O14_骨与关节结核_学习阅读版_v1_最终执行版.md) | d36da20aa0cf0660cfe03239f380649015849d65 | 492 | 13 |
+| [D/O15](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O15_OA_AS_RA骨科坐标_学习阅读版_v1_最终执行版.md) | 48732f797524788a971b7a89b88318bd2a0b0254 | 456 | 12 |
+| [D/O16](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O16_骨肿瘤_学习阅读版_v1_最终执行版.md) | 0ceb4ccdbeed8a7845336c706fa397de08a3479d | 676 | 20 |
+| [F/F1](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md) | 3e2fadeb01cb83c5ec23c9c40c6e57cb810c72c0 | 839 | 15 |
+| [F/F2](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md) | f7765469fe1c9dd478ef6017edc2554ff6afa710 | 864 | 13 |
+| [F/F3](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md) | 0e5c5cb830c844ea6f3ccfb8685a148dae0461c3 | 649 | 11 |
+| [F/F4](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md) | b6faa7e61cdac5a43cb4b239d4e7b0444ff94f26 | 714 | 14 |
+| [F/F5](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md) | 0781b4127066e98768ed4207f2d8a63c8072bfce | 634 | 12 |
+| [F/F6](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md) | 545b18ced641419e2a3e58c90612f9bd6a8de49e | 689 | 14 |
+| [F/F7](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md) | d49458a4e86d82f7043752f60f1a064f602596b4 | 639 | 12 |
+| [F/F8](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md) | a1bc351d06564a7c65e7c83a6190ee661c16a51b | 797 | 17 |
+| [F/F9](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md) | 0eccc40ba259f66d891271eea3203b50fd9cf162 | 615 | 13 |
+
+新增理解与约束：
+- B临床D支路现行whole-LG Source，D/F whole-Block/natural/integration各模式保留；旧整块wrapper不覆盖最新Learning。
+- G5 stable KP1–13不重排：canonical LG顺序[1–5]→[12–13]→[6–11]；GlobalSource S15先formation LG01+03，S17仅support LG02，S22才formation/closure。
+- D/O13-LG01=[1,13]、O15末比较LG=[1,11,12]，F9-LG01=[1,2,4,5,6]均非连续。O16 Source先LG01+07再02–06再08；O11仅LG05按需reactivate N11，不是whole Block硬门禁。
+- F9 ownership-first integration，大量KP是Recall但稳定身份/有效Core仍保留；仅微创residual/体表鉴别等MicroPrimary，不能强成一条机制或全Source重新通读。
+- D12–15/22–23快速核对、D16–20中文展开、D21两者并存、骨科Detailed Expansion/Routing、F新语义Prompt与旧count Prompt并存，均须回exact authoring/consumer，不机械统一或丢答案。
+
+有界残留候选、未作医学/网页故障裁决：
+- F4 Current正文/KP08/Learning LG03已闭合原公式Gap，当前source-visual manifest有f-f4-lg03-visual/P248及reviewed bundle；后部Visual/coverage/Production、System与Source unit仍旧gap词。现行图identity已核，未打开pixels，不把旧尾语当当前缺图
+- F8-SG01、F6字号等已有Source-rebind闭合，与后部旧coverage/Exit并存；D13/O14现行精编原页已重绑而旧crop退出、local bundle未物化属于不同职责
+- D23正文外科6–7 verified而frontmatter仍visual-gap；G5当前退休旧DSB分类冲突而KP13仍旧P183冲突语言。需清晰归属与版本消歧，不能无Source医学复验直接改结论
+
+全文理解覆盖不等于整个考研所有文件/脚本已读，也不等于Source PDF/图片逐页复验、全159视觉通过或真实U。当前原生网页/投影/显示时机/反馈验证继续由#1113拥有；具体内容质量优化后续按exact Source、有备份、最小修复执行。
