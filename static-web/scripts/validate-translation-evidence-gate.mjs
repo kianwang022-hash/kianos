@@ -8,7 +8,8 @@ import {
   parseTranslationReturn,
   applyTranslationReturn,
   saveReconstruction,
-  pendingTransferTargets
+  pendingTransferTargets,
+  buildTranslationHandoff
 } from '../src/lib/translationRuntimeModel.mjs';
 
 const issues = [];
@@ -65,7 +66,9 @@ check(contract.includes('first meaningful failure'), 'evidence contract must tar
 check(contract.includes('可由它解释的 downstream effects 不独立制造复习债务'), 'cascade effects must not manufacture separate debt');
 check(contract.includes('同一句重译正确只证明 repair 生效，不证明 mastery'), 'same-item reconstruction must not be treated as mastery');
 check(contract.includes('Lexical sense / phrase / construction / collocation / contrast / confusable 继续回到 LexicalOS canonical owner'), 'LexicalOS ownership boundary must be explicit');
-check(workspace.includes('FIRST TRANSLATION · IMMUTABLE'), 'immutable first translation must remain the diagnostic baseline');
+const baselineHandoff=buildTranslationHandoff({state:{firstSubmittedAt:'synthetic',binding:{source_hash:'v1'}},objectId:'synthetic',paperId:'synthetic',title:'Synthetic',metadata:{snapshot:{}},sourceSegmentsText:()=> 'source',firstAttemptsText:()=> 'IMMUTABLE_FIRST_OUTPUT',pendingText:()=> 'none',referenceText:()=> 'REFERENCE_MUST_STAY_HIDDEN'});
+check(workspace.includes('buildTranslationHandoff({state') && baselineHandoff.includes('FIRST TRANSLATION · IMMUTABLE\nIMMUTABLE_FIRST_OUTPUT'), 'immutable first translation must remain the diagnostic baseline through the canonical builder');
+check(!baselineHandoff.includes('REFERENCE_MUST_STAY_HIDDEN'), 'unopened Reference must never contaminate that baseline');
 check(guard.includes("stage === 'attempt' ? 'none' : ''"), 'pending target detail must stay hidden until first attempt is frozen');
 check(guard.includes('dataset.reopenReview'), 'later contradictory evidence must have a route back from PASS into Review');
 

@@ -425,8 +425,11 @@ export function englishStepIsComplete(storage, step) {
     // bounded generated task is submitted with a readable exact result set,
     // preserve its evidence and let Chat decide whether another probe is useful.
     if(generatedQuestionTask)return value.submitted===true&&results.valid;
+    // A retained complete native result set permits leaving the task. Wrong or
+    // uncertain answers remain evidence for optional review, not mandatory Chat
+    // debt. Empty submissions and Returns alone cannot complete native work.
     return value.submitted===true && results.valid
-      && (results.problem_count===0 || value.reviewResolved===true);
+      && Object.values(value.answers).some(answer=>String(answer||'').trim());
   }
   if (step.task === 'external_reading') {
     const requirement = value?.binding?.source_snapshot?.completion_requirement || 'READ_ONLY_OK';
@@ -639,7 +642,8 @@ export function englishAttemptInventory(storage, catalog = null) {
             ? 'READING_ONLY_COMPLETION'
             : 'UNKNOWN')
         : null;
-      rows.push({task,data_status:value.binding?.attempt_id&&value.binding?.source_hash?'bound':'legacy_unverified',object_id:key.slice(prefix.length),source_hash:value.sourceHash||value.binding?.source_hash||null,attempt_id:value.attemptId||value.binding?.attempt_id||null,submitted:value.submitted===true,stage:value.stage||value.state||null,problem_count:problemCount(value),started_at:value.startedAt||value.createdAt||null,submitted_at:value.firstSubmittedAt||value.submittedAt||null,updated_at:value.updatedAt||value.saved_at||null,prior_exposure:value.binding?.prior_exposure||'unknown',assistance:value.binding?.assistance||'unknown',task_form:task==='reading_b'?(clean(value?.binding?.source_snapshot?.context?.taskForm||value?.binding?.source_snapshot?.context?.task_form,80)||null):null,external_evidence_mode:externalEvidenceMode,external_scored_result_count:externalScoredResultCount,external_unscored_result_count:externalUnscoredResultCount,external_question_count:externalSnapshot&&Array.isArray(externalSnapshot.questions)?externalSnapshot.questions.length:null,external_question_origin:externalSnapshot?(clean(externalSnapshot.question_origin,80)||null):null,complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),first_evidence:value.firstEvidenceMeta||null});
+      const firstObservation=value.firstEvidenceMeta||value.binding;
+      rows.push({task,data_status:value.binding?.attempt_id&&value.binding?.source_hash?'bound':'legacy_unverified',object_id:key.slice(prefix.length),source_hash:value.sourceHash||value.binding?.source_hash||null,attempt_id:value.attemptId||value.binding?.attempt_id||null,submitted:value.submitted===true,stage:value.stage||value.state||null,problem_count:problemCount(value),started_at:value.startedAt||value.createdAt||null,submitted_at:value.firstSubmittedAt||value.submittedAt||null,updated_at:value.updatedAt||value.saved_at||null,prior_exposure:firstObservation?.prior_exposure||'unknown',assistance:firstObservation?.assistance||'unknown',current_assistance:value.binding?.assistance||'unknown',task_form:task==='reading_b'?(clean(value?.binding?.source_snapshot?.context?.taskForm||value?.binding?.source_snapshot?.context?.task_form,80)||null):null,external_evidence_mode:externalEvidenceMode,external_scored_result_count:externalScoredResultCount,external_unscored_result_count:externalUnscoredResultCount,external_question_count:externalSnapshot&&Array.isArray(externalSnapshot.questions)?externalSnapshot.questions.length:null,external_question_origin:externalSnapshot?(clean(externalSnapshot.question_origin,80)||null):null,complete:englishStepIsComplete(storage,{task,object_id:key.slice(prefix.length),source_hash:value.binding?.source_hash}),first_evidence:value.firstEvidenceMeta||null});
     }
   }
   return rows.map(row=>{
