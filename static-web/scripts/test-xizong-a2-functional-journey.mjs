@@ -52,7 +52,11 @@ async function blockResumeAndEvidenceJourney(page) {
   await root.locator('[data-stage-next="logic_group"]').click();
   await root.locator('[data-study-stage="source_contact"]').waitFor({ state: 'visible' });
   let state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.stage === 'source_contact' && state?.sourceContactDone === false, 'block_orientation_enters_continuous_source_contact');
+  check(state?.stage === 'source_contact' && state?.sourceContactDone !== true,
+    'block_orientation_enters_continuous_source_contact');
+  check((state?.sourceContactEvidence || []).length === 0
+    && Object.values(state?.learned || {}).every((value) => value !== true),
+    'orientation_cannot_manufacture_source_coverage');
   check(Object.keys(state?.ratings || {}).length === 0, 'source_contact_does_not_manufacture_recall_evidence');
 
   const savedGroup = state.groupIndex;
