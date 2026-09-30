@@ -109,7 +109,13 @@ export function restoreSharedControlCheckpoint(storage, checkpoint, {
   // opts in only in its disposable projection; partial shared evidence never
   // admits a receipt, even there. Durable receipt bytes remain untouched.
   if (restoreReceipt && receipt != null && storage.getItem(CONTROL_LOCAL_RECEIPT_KEY) == null) {
-    if (Array.isArray(checkpoint.capture_warnings)) warnings.push(...checkpoint.capture_warnings);
+    if (Array.isArray(checkpoint.capture_warnings)) {
+      // A recorded local-base conflict describes a rejected writer, not corrupt
+      // durable bytes. The explicit recovery owner must be able to resolve it.
+      // All integrity/partial-source warnings still withhold acknowledgement.
+      warnings.push(...checkpoint.capture_warnings.filter(warning =>
+        warning !== 'checkpoint:shared:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT'));
+    }
     if (!warnings.length) writes.push([CONTROL_LOCAL_RECEIPT_KEY, receipt]);
     else warnings.push('SHARED_CHECKPOINT_RECEIPT_WITHHELD_PARTIAL');
   }

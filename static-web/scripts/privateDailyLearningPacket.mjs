@@ -210,16 +210,24 @@ export function buildDailyLearningPacketFromPrivateCheckpoint(input, {
       error: 'SHARED_CHECKPOINT_STEWARD_REALITY_INVALID'
     };
   }
-  if (failedSubjects.includes('shared')) {
+  const failedSharedField = name => restoreWarnings.some(warning =>
+    String(warning).includes('SHARED_CHECKPOINT_' + name + '_INVALID'));
+  const timingUnavailable = failedSharedField('TIMER_STATE') || failedSharedField('TIMER_LEDGER');
+  const sharedBasisUnavailable = timingUnavailable || failedSharedField('PROFILE');
+  // Older checkpoints may have no capture_warnings. Field-level restore failure
+  // is still unknown evidence, not an absent store that can be read as zero.
+  if (failedSubjects.includes('shared') || timingUnavailable) {
     packet.total_minutes = null;
     packet.timer = { running: null, active_subject: null, error: 'SHARED_CHECKPOINT_UNAVAILABLE' };
     for (const row of Object.values(packet.subjects)) row.time = null;
   }
   for (const subject of failedSubjects) {
-    if (packet.subjects[subject]) packet.subjects[subject].evidence = null;
-    packet.coverage[subject] = 'unavailable';
+    if (packet.subjects[subject]) {
+      packet.subjects[subject].evidence = null;
+      packet.coverage[subject] = 'unavailable';
+    }
   }
-  if (restoreWarnings.some(warning => warning.startsWith('checkpoint:'))) {
+  if (sharedBasisUnavailable || restoreWarnings.some(warning => warning.startsWith('checkpoint:'))) {
     // A failed subject reconstruction is UNKNOWN, not an empty evidence basis.
     packet.learner_evidence_basis = null;
     packet.schedule = null;
