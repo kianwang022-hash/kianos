@@ -125,27 +125,31 @@ has(stageGuard, "target.closest('[data-block-recall-complete]')", 'premature-blo
 has(stageGuard, "target.closest('[data-start-recall]')", 'system-recall-start-guard');
 has(stageGuard, "target.closest('[data-reveal-recall]')", 'system-recall-reveal-guard');
 has(stageGuard, "target.closest('[data-complete-recall]')", 'system-recall-completion-guard');
-has(stageGuard, "import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';", 'system-completion-owner-import-missing');
+assert(/import \{[^}]*\binspectXizongSystemCompletion\b[^}]*\} from ['"]\.\.\/lib\/xizongMemoryAutoRelease\.mjs['"]/.test(stageGuard), 'system-completion-owner-import-missing');
 has(stageGuard, 'const completedBlocks = () => inspectXizongSystemCompletion(requirements, localStorage);', 'system-completion-owner-not-used');
 has(stageGuard, 'const ready = check.complete;', 'system-recall-readiness-missing');
 has(stageGuard, 'if (!ready)', 'whole-system-prerequisite-guard');
 
 has(blockEvidenceGuard, "block?.learningSupportSourceHash || ''", 'block-learning-support-not-versioned');
-has(blockEvidenceGuard, 'localStorage.removeItem(repairInboxKey);', 'stale-block-repair-inbox-not-invalidated');
+assert(!blockEvidenceGuard.includes('localStorage.removeItem('), 'artifact-guard-must-preserve-block-history');
+has(blockEvidenceGuard, 'block.learnerObject?.revisionWitness', 'block-semantic-witness-missing');
 has(systemEvidenceGuard, 'const blockEvidenceRows = (system?.blocks || []).map((block) => {', 'system-block-content-not-versioned');
 has(systemEvidenceGuard, "system?.learningSupport?.sourceHash || ''", 'system-learning-support-not-versioned');
 has(systemEvidenceGuard, 'blockEvidenceHash.toString(16)', 'system-block-version-not-in-evidence-version');
-has(systemEvidenceGuard, 'localStorage.removeItem(recallKey);', 'stale-system-recall-not-invalidated');
-has(systemEvidenceGuard, 'results: {},', 'stale-system-current-results-not-cleared');
-has(systemEvidenceGuard, 'current_revision_valid: false', 'stale-system-history-not-retained-as-invalid');
-has(systemEvidenceGuard, 'stale_block_repair_inboxes', 'stale-system-repair-inbox-not-archived');
+assert(!systemEvidenceGuard.includes('localStorage.removeItem('), 'artifact-guard-must-preserve-system-history');
+has(systemEvidenceGuard, 'buildXizongSystemRecallWitness(system)', 'system-semantic-witness-missing');
+has(systemEvidenceGuard, 'prior.some((row) => row.event_id === event.event_id)', 'system-evidence-event-replay-guard');
+has(systemEvidenceGuard, 'ledger.events = [...prior,', 'system-evidence-history-preservation');
+// The shared executable owner proves preserved history plus selective current
+// invalidation against frozen before guards; whole-Block deletion is not policy.
+await import('./test-xizong-source-revision-transitive.mjs');
 
 has(recallPage, 'data-xizong-system-recall-lock hidden', 'system-recall-lock-missing');
 has(recallPage, '<XizongRuntimeStageGuard system={system} />', 'system-recall-guard-not-mounted');
 has(practicePage, '<XizongSystemEvidenceGuard system={system} sweep={sweep} />', 'practice-evidence-guard-not-mounted');
 has(practiceUi, "if (data?.scopeKind === 'SYSTEM')", 'system-practice-release-gate-missing');
 has(practiceUi, "import { inspectXizongSystemCompletion, hasXizongSystemRecall } from '../lib/xizongMemoryAutoRelease.mjs';", 'system-practice-completion-owner-import-missing');
-has(practiceUi, "!inspectXizongSystemCompletion(data.completionRequirements, localStorage).complete || !hasXizongSystemRecall(localStorage, initialSystemId)", 'system-practice-does-not-fail-closed-before-recall');
+has(practiceUi, "!inspectXizongSystemCompletion(data.completionRequirements, localStorage).complete || !hasXizongSystemRecall(localStorage, initialSystemId, data.systemRevisionWitness)", 'system-practice-does-not-fail-closed-before-recall');
 has(practiceUi, "let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);", 'holdout-not-empty-by-default');
 has(practiceUi, "if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }", 'question-sweep-prerequisite-gate');
 has(practiceUi, 'data-question-uncertain', 'uncertain-control-missing');
@@ -165,7 +169,7 @@ has(systemWuReturn, 'XIZONG_MEMORY_STORAGE_KEY', 'visible-memory-repair-delivery
 has(systemWuReturn, "origin:'SYSTEM_WU_CHAT_RETURN'", 'visible-memory-repair-origin-missing');
 has(memoryModel, 'export function completeRepairTask', 'visible-repair-completion-owner-missing');
 has(memoryWorkspace, 'data-repair-complete', 'visible-repair-completion-control-missing');
-has(systemEvidenceGuard, 'stale_visible_memory_repairs', 'stale-visible-repair-not-versioned');
+has(systemWuReturn, 'assertCurrentWuBinding(row, currentWu.get(row.question_id) || null)', 'repair-return-current-wu-binding-missing');
 has(studyPacketLib, "schema: 'kianos.xizong.study_packet.v3'", 'live-study-packet-missing');
 has(lastLocation, "localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify(value))", 'resume-location-not-persisted');
 has(lastLocation, 'requiredSystemRecall', 'practice-resume-release-guard-missing');
@@ -179,6 +183,6 @@ console.log([
   `LogicGroups=${totalGroups}`,
   `Questions=${sweep.questionCount}`,
   `BlockEvidence=${currentBlockEvidenceHash}`,
-  'Journeys=lecture-handoff,KP-recall-guard,block-close,system-recall-gate,system-sweep-gate,stale-evidence-invalidation,W/U-repair-inbox-return,resume',
+  'Journeys=lecture-handoff,KP-recall-guard,block-close,system-recall-gate,system-sweep-gate,selective-current-claims+preserved-history,W/U-repair-inbox-return,resume',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));

@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {studyDayAt} from '../src/lib/studyTimer.mjs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
@@ -140,7 +141,7 @@ async function assertHome(page) {
 
   const resumeRow = englishSessionCatalog().find((row) => row.task === 'reading_a');
   check(Boolean(resumeRow), 'english_home_resume_fixture_available');
-  const day = await page.evaluate(() => new Date().toLocaleDateString('en-CA'));
+  const day = studyDayAt(await page.evaluate(() => Date.now()));
   await page.evaluate(({day,row}) => {
     localStorage.setItem('kianos-english-session-instruction-v1', JSON.stringify({
       schema:'kianos.english.session-instruction.v1',

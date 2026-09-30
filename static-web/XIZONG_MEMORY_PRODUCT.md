@@ -1,7 +1,7 @@
 # Xizong Memory Workspace
 
 Status: **CURRENT PRODUCT / RUNTIME CONTRACT**  
-Learning authority: `content/xizong/LEARNING_CONTRACT.md` §12.5–12.7  
+Learning authority: `content/xizong/LEARNING_CONTRACT.md` §8\
 Execution policy: `content/xizong/knowledge/learner/study-policy.json`  
 Visual reference: `static-web/XIZONG_VISUAL_REFERENCE.md`
 
@@ -85,17 +85,18 @@ Block Complete eventually releases every canonical KP Core card plus every valid
 
 Release means the objects become available in `Core` / `Precision` / `Marked`. It does **not** mark all of them due today.
 
-The current Study policy does not prescribe a fixed 0-1-3-7 style interval table. Therefore Phase-1 scheduling is deliberately **signal-driven rolling priority**, not a fabricated SRS calendar.
+Today combines **signal-driven rolling priority** with the selective delayed rechecks defined by `content/xizong/knowledge/learner/study-policy.json` → `memory_admission.retention_clock`. That execution-policy owner defines the current cadence and anti-inflation rules; time passage alone never creates review debt for untouched released cards.
 
 Today is rebuilt from current learner evidence:
 
 - explicit weak / unstable evidence raises priority;
 - explicit learner review requests raise priority;
+- policy-qualified delayed rechecks contribute due attention for selectively admitted cards;
 - active Repair stays in Repair and may also contribute attention to the owning card;
 - stable evidence lowers priority but does not delete the card from its permanent library;
 - merely being released does not create an immediate due item.
 
-Future interval calibration may add a time-based policy only through a reviewed execution-policy change; it must not be smuggled in as UI convenience.
+Changes to interval calibration require a reviewed execution-policy change; they must not be smuggled in as UI convenience.
 
 ## 4｜Weak is a view over evidence
 

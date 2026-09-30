@@ -24,5 +24,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install declared runtime dependencies
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
       - name: Run Source revision transitive invalidation proof
-        run: node static-web/scripts/test-xizong-source-revision-transitive.mjs
+        working-directory: static-web
+        run: node scripts/test-xizong-source-revision-transitive.mjs

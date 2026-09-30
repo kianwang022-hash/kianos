@@ -96,7 +96,7 @@ const externalVisualLearner = structuredClone(learner);
 externalVisualLearner.sourceHash = 'fixture-visual-source-v1';
 externalVisualLearner.logicGroups[0].visualRequired = true;
 externalVisualLearner.logicGroups[0].visualSourceState = 'VISUAL_SOURCE_GAP_ORIGINAL_PAGE_NOT_MOUNTED';
-assert(inspectXizongBlockCompletion(externalVisualLearner, validStudy).reason === 'VISUAL_EVIDENCE_INCOMPLETE', 'external-visual-review-required');
+assert(inspectXizongBlockCompletion(externalVisualLearner, { ...validStudy, sourceHash:externalVisualLearner.sourceHash }).reason === 'VISUAL_EVIDENCE_INCOMPLETE', 'external-visual-review-required');
 const externalVisualStudy = {
   ...validStudy,
   sourceContactEvidence: [{
@@ -198,6 +198,9 @@ try {
   releaseCompletedBlockToMemory(createXizongMemoryState(), { ...learner, schema: 'wrong.schema' }, validStudy);
 } catch { invalidFailed = true; }
 assert(invalidFailed, 'invalid-learner-object-must-fail-closed');
+
+await import('./test-xizong-memory-personal-bridge.mjs');
+await import('./test-xizong-completion-replay.mjs');
 
 console.log(JSON.stringify({
   ok: true,

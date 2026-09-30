@@ -8,7 +8,7 @@ import {
   loadXizongBlock
 } from './xizong.mjs';
 import { buildXizongForecastQuestionScope } from './xizongQuestions.mjs';
-import { buildXizongProductionBlock } from './xizongProductionProjection.mjs';
+import { resolveXizongLearnerProjection } from './xizongLearnerProjection.mjs';
 
 export const HOME_XIZONG_PROJECTION_SCHEMA = 'kianos.home.xizong_projection.v1';
 
@@ -19,7 +19,8 @@ export function buildHomeXizongProjection() {
   );
   const xizongPacketIndex = systems.flatMap((system) => system.blocks.map((blockRef) => {
     const canonical = loadXizongBlock(system.systemId, blockRef.slug);
-    const production = buildXizongProductionBlock(canonical);
+    const resolved = resolveXizongLearnerProjection(canonical);
+    const production = resolved.block;
     return {
       systemId: system.systemId,
       slug: blockRef.slug,
@@ -35,6 +36,7 @@ export function buildHomeXizongProjection() {
         blockTitle: canonical.title,
         sourcePath: canonical.sourcePath,
         sourceHash: canonical.sourceHash,
+        revisionWitness: resolved.learnerObject.revisionWitness,
         sourceContactMode: String(production?.sourceContact?.mode || ''),
         sourcePerGroup: production?.sourceContact?.logicGroupIsAutomaticSourceChunk === true,
         reserveItems: []

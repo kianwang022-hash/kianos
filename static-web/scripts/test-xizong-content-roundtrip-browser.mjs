@@ -4,6 +4,8 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
+import { resolveXizongLearnerProjection } from '../src/lib/xizongLearnerProjection.mjs';
+import { compatibleRevisionWitnesses } from '../src/lib/xizongContentRevision.mjs';
 import { loadXizongBlock } from '../src/lib/xizong.mjs';
 import { buildDailyLearningPacket, attachDailySubjectPacket } from '../src/lib/dailyLearningPacket.mjs';
 import { captureXizongPrivateCheckpoint, restoreXizongPrivateCheckpoint } from '../src/lib/xizongPrivateCheckpoint.mjs';
@@ -14,12 +16,13 @@ import { captureXizongPrivateCheckpoint, restoreXizongPrivateCheckpoint } from '
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const base=process.env.KIANOS_XIZONG_TEST_BASE_URL;
 assert.equal(process.env.KIANOS_CONTENT_TEST_ALLOW_MUTATION,'1','explicit isolated content-test permission required');
-assert.ok(fs.lstatSync(path.join(root,'.git')).isFile(),'separate worktree required');
+assert.ok(fs.existsSync(path.join(root,'.git')),'separate detached checkout required');
 assert.equal(execFileSync('git',['-C',root,'rev-parse','--abbrev-ref','HEAD'],{encoding:'utf8'}).trim(),'HEAD','detached worktree required');
 const url=new URL(base);
 assert.ok(['localhost','127.0.0.1'].includes(url.hostname)&&url.port==='4322','native isolated Candidate 4322 only');
 assert.notEqual(process.env.KIANOS_XIZONG_BUILD_CACHE,'1','mutable content test cannot reuse immutable-build caches');
 const block=loadXizongBlock('circulation','b01');
+const nativeNodeWitness=resolveXizongLearnerProjection(block).learnerObject.revisionWitness;
 const kpId='circulation-b01-kp24';
 const kp=block.kpRecords.find(k=>k.kpId===kpId);
 const file=path.join(root,block.sourcePath);
@@ -28,7 +31,7 @@ const original=fs.readFileSync(file,'utf8');
 assert.equal(original.split(kp.prompt).length,2,'one exact canonical Prompt target');
 const replacement='工程验收样例｜Content 唯一来源｜非真实学习材料';
 const personal='工程验收：个人主提示覆盖';
-const changed=original.replace(kp.prompt,replacement);
+let changed=original.replace(kp.prompt,replacement);
 const studyKey='kianos-xizong-astro-v2:'+block.objectId;
 const historyKey='kianos-xizong-memory-review-v2:'+block.objectId;
 const report={evidence:'ISOLATED_SYNTHETIC_CONTENT_AND_BROWSER_NOT_LEARNER_U',checks:[],errors:[]};
@@ -41,6 +44,7 @@ class Storage {
   setItem(k,v){this.map.set(k,String(v));}
   removeItem(k){this.map.delete(k);}
 }
+fs.mkdirSync('.qa',{recursive:true});
 let browser,edited=false;
 try {
   browser=await chromium.launch({headless:true,...(process.env.KIANOS_TEST_CHROME?{executablePath:process.env.KIANOS_TEST_CHROME}:{})});
@@ -51,12 +55,15 @@ try {
   const ready=()=>page.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active'&&Boolean(document.querySelector('[data-xizong-v6-block]')?.getXizongStudyPosition));
   const frame=()=>page.locator('[data-study-stage="source_contact"]:not([hidden]) [data-learner-kp-companion="source_contact"]');
   const prompt=()=>frame().locator('.xv6KpLearnPrompt p');
-  const packet=()=>page.evaluate(()=>{
+  const packet=async()=>{
+    await page.waitForFunction(()=>{let value=null;document.querySelector('[data-xizong-v6-block]')?.dispatchEvent(new CustomEvent('kianos:xizong-request-study-packet',{detail:{accept:p=>value=p}}));return Boolean(value);});
+    return page.evaluate(()=>{
     let value=null;
     document.querySelector('[data-xizong-v6-block]').dispatchEvent(new CustomEvent('kianos:xizong-request-study-packet',{detail:{accept:p=>value=p}}));
     if(!value)throw Error('native subject Packet was not returned');
     return value;
-  });
+    });
+  };
   await page.goto(route,{waitUntil:'domcontentloaded'});await ready();
   await page.locator('[data-stage-next="logic_group"]').click();
   await frame().waitFor({state:'visible'});
@@ -84,26 +91,16 @@ try {
   await page.reload({waitUntil:'domcontentloaded'});await ready();
   const payload=JSON.parse(await page.locator('[data-xizong-learner-object-payload]').textContent());
   check(payload.kps.find(k=>k.identity.kpId===kpId).prompt.canonical===replacement,'Content edit reaches native Website payload');
-  // The existing evidence guard treats any block Content hash change as a
-  // new version: old state is archived, not reused as current mastery. This
-  // is an observed product policy, not permission to silently relax it here.
-  await page.waitForFunction(()=>document.querySelector('[data-xizong-v6-block]')?.getXizongStudyPosition()?.stage==='block_learn');
+  check(compatibleRevisionWitnesses(payload.revisionWitness,nativeNodeWitness),'rendered Block witness equals current Node System/Home witness');
   const revision=await packet();
-  const archived=await page.evaluate(({objectId})=>{
-    const keys=Object.keys(localStorage).filter(k=>k.startsWith('kianos-xizong-stale-evidence-v1:'+objectId+':')).sort();
-    const key=keys.at(-1);return key?{key,raw:localStorage.getItem(key),value:JSON.parse(localStorage.getItem(key))}:null;
-  },{objectId:block.objectId});
-  check(Boolean(archived),'prior Content evidence archived before restart');
-  check(archived.value.study.kpIndex===23&&archived.value.study.ratings[kpId]==='known','archive preserves prior KP and rating');
-  check(JSON.stringify(archived.value.extension.evidenceHistory)===JSON.stringify(before.block_evidence_history),'historical Recall retained verbatim in archive');
-  check(revision.current.source_hash!==before.current.source_hash&&!revision.learning_state.block_complete,'new Content has new version without inherited completion');
-  check(!revision.learning_state.recall_ratings[kpId],'archived Recall is not relabeled current evidence');
-  report.policyObservation='ANY_BLOCK_CONTENT_HASH_CHANGE_ARCHIVES_ACTIVE_EVIDENCE_AND_RESTARTS_BLOCK';
-  report.nonDisruptivePromptOnlyEdit='NOT_SATISFIED_BY_EXISTING_POLICY; semantic decision needed, not silently changed';
-  await page.locator('[data-stage-next="logic_group"]').click();
-  await frame().waitFor({state:'visible'});
-  for(let i=0;i<23;i++)await page.locator('[data-xizong-v6-block] [data-companion-next="source_contact"]').click();
-  check(await frame().getAttribute('data-kp-id')===kpId,'explicit reentry uses native KP24');
+  const activeAfter=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),studyKey);
+  check(revision.learning_state.resume.kp_id===kpId,'Prompt revision preserves native KP24 Resume');
+  check(activeAfter.ratings[kpId]==='known'&&activeAfter.learned[kpId]===true,'Prompt revision preserves active evidence');
+  check(JSON.stringify(revision.block_evidence_history)===JSON.stringify(before.block_evidence_history),'history stays active and verbatim');
+  check(revision.current.source_hash!==before.current.source_hash&&!revision.current.source_revision_blocked,'Prompt changes artifact version without invalidating current claim');
+  const archives=await page.evaluate(()=>Object.keys(localStorage).filter(k=>k.startsWith('kianos-xizong-stale-evidence-v1:')));
+  check(archives.length===0,'nonsemantic edit creates no retirement archive');
+  report.policyObservation='EVIDENCE_PRESERVING_SELECTIVE_REVALIDATION';
   check(await prompt().innerText()===personal,'Content update preserves personal override');
   const after=await packet();
   const item=after.kp_evidence.find(k=>k.kp_id===kpId);
@@ -121,7 +118,82 @@ try {
   const checkpoint=captureXizongPrivateCheckpoint(storage);
   const restored=new Storage();restoreXizongPrivateCheckpoint(restored,checkpoint);
   check(restored.getItem(studyKey)===storage.getItem(studyKey),'private checkpoint roundtrip preserves native study state');
-  check(restored.getItem(archived.key)===archived.raw,'private checkpoint preserves historical evidence archive');
+  check(restored.getItem(historyKey)===storage.getItem(historyKey),'private checkpoint preserves active history');
+  await page.screenshot({path:'.qa/xizong-revision-prompt.png',fullPage:false});
+  // A second, explicit synthetic fixture checks a local Core change. It is
+  // not medical authoring and is restored with the original bytes in finally.
+  const firstKp=block.kpRecords[0];
+  await page.evaluate(({studyKey,ids})=>{
+    const s=JSON.parse(localStorage.getItem(studyKey));
+    s.learned=Object.fromEntries(ids.map(id=>[id,true]));
+    s.ratings=Object.fromEntries(ids.map(id=>[id,'known']));
+    s.sourceContactDone=true;s.completed=true;s.blockRecallDone=true;
+    s.completedAt='2026-09-25T00:00:00Z';s.blockRecallCompletedAt=s.completedAt;
+    localStorage.setItem(studyKey,JSON.stringify(s));
+    for(const kind of ['system-recall','system-repair-return','system-evidence']) localStorage.setItem(`kianos:xizong:${kind}:circulation:v1`,JSON.stringify({completedAt:s.completedAt,history:[{origin:'SYNTHETIC_ONLY',value:kind}]}));
+    localStorage.setItem('kianos:xizong:system-question-sweep:circulation:v1',JSON.stringify({results:{synthetic:{status:'wrong'}},attemptHistory:[{question_id:'synthetic',current_revision_valid:true,origin:'SYNTHETIC_ONLY'}]}));
+  },{studyKey,ids:block.kpRecords.map(k=>k.kpId)});
+  await page.reload({waitUntil:'domcontentloaded'});await ready();
+  const completedBefore=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),studyKey);
+  const memoryBefore=await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-xizong-memory-v1')));
+  check(Boolean(memoryBefore?.cards?.['core:'+firstKp.kpId]),'existing bridge releases synthetic completed Block once');
+  await page.goto(base+'/xizong/circulation/recall/',{waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active');
+  const systemBefore=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/^kianos:xizong:(system-recall|system-repair-return|system-evidence|system-question-sweep):circulation:v1$/.test(key))));
+  const coreText=firstKp.detailMarkdown;
+  assert.ok(changed.includes(coreText),'exact Core fixture target');
+  changed=changed.replace(coreText,coreText+'\n\n工程验收 synthetic-only：本段答案发生局部变化。');
+  fs.writeFileSync(file,changed);
+  await page.reload({waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active');
+  const systemAfter=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/^kianos:xizong:(system-recall|system-repair-return|system-evidence|system-question-sweep):circulation:v1$/.test(key))));
+  check(JSON.stringify(systemAfter)===JSON.stringify(systemBefore),'System visit preserves Recall/Repair/ledger/attempts after local Content change');
+  await page.goto(base+'/xizong/practice/circulation/',{waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active');
+  const practiceAfter=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>/^kianos:xizong:(system-recall|system-repair-return|system-evidence|system-question-sweep):circulation:v1$/.test(key))));
+  check(JSON.stringify(practiceAfter)===JSON.stringify(systemBefore),'Practice entry does not invalidate unrelated official attempts or repair');
+  await page.goto(route,{waitUntil:'domcontentloaded'});await ready();
+  const medicalPacket=await packet();
+  check(medicalPacket.learning_state.resume.kp_id===kpId,'local semantic revision preserves ongoing Resume');
+  check(medicalPacket.current.revision_review.impacted_kp_ids.length===1&&medicalPacket.current.revision_review.impacted_kp_ids[0]===firstKp.kpId,'real browser marks only the changed KP');
+  const medicalState=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),studyKey);
+  check(JSON.stringify(medicalState.ratings)===JSON.stringify(completedBefore.ratings)&&medicalState.completed===true,'local semantic revision keeps raw ratings and completion history');
+  const memoryAfter=await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-xizong-memory-v1')));
+  check(Boolean(memoryAfter.cards['core:'+firstKp.kpId].contentChangedAt)&&!memoryAfter.cards['core:'+kpId].contentChangedAt,'real Memory bridge limits content-changed debt to changed KP');
+  check(JSON.stringify(memoryAfter.evidence)===JSON.stringify(memoryBefore.evidence),'Memory refresh does not manufacture retrieval evidence');
+  await page.screenshot({path:'.qa/xizong-revision-local-semantic.png',fullPage:false});
+  await page.locator('[data-group-target="0"]').click();
+  const recallCard=page.locator('[data-kp-recall-card="0"]');
+  await recallCard.waitFor({state:'visible'});
+  await recallCard.locator('[data-kp-reveal]').click();
+  await recallCard.locator('[data-rating="known"]').click();
+  await page.waitForFunction(({key,id})=>!JSON.parse(localStorage.getItem(key)).contentRevision.pendingKp[id],{key:studyKey,id:firstKp.kpId});
+  const revalidated=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),studyKey);
+  check(revalidated.contentRevision.priorRatings.at(-1).kpId===firstKp.kpId&&revalidated.contentRevision.priorRatings.at(-1).rating==='known','native Reveal/rating preserves prior evidence and clears exactly the changed KP');
+  // Native UI action for a changed LG closure, using a synthetic prior witness.
+  await page.waitForFunction(key=>JSON.parse(localStorage.getItem(key)).groupIndex===1,studyKey);
+  const groupId=payload.logicGroups[0].identity.logicGroupId;
+  await page.evaluate(({key,groupId})=>{const s=JSON.parse(localStorage.getItem(key));s.contentRevision.witness.groups[groupId]='synthetic-prior-closure';s.stage='block_recall';s.groupIndex=0;s.kpIndex=0;localStorage.setItem(key,JSON.stringify(s));},{key:studyKey,groupId});
+  await page.reload({waitUntil:'domcontentloaded'});await ready();
+  const closureResume=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),studyKey);
+  check(closureResume.stage==='block_recall','changed LG resumes the existing Recall surface');
+  await page.locator('[data-block-recall-reveal]').click();
+  check(await page.locator('[data-revision-group]:visible').count()===1,'existing Block Recall reveals only changed LG closure');
+  await page.locator('[data-block-recall-complete]').click();
+  const groupReviewed=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),studyKey);
+  check(!groupReviewed.contentRevision.pendingGroup[groupId]&&groupReviewed.blockRecallCompletedAt===completedBefore.blockRecallCompletedAt,'LG revalidation preserves historical Block Recall time');
+  // A reordered prior snapshot must restore the identity, not its old index.
+  await page.evaluate(({key,kpId})=>{const s=JSON.parse(localStorage.getItem(key));const w=s.contentRevision.witness;w.kpOrder=[kpId,...w.kpOrder.filter(id=>id!==kpId)];s.resumeKpId=kpId;s.kpIndex=0;s.stage='source_contact';localStorage.setItem(key,JSON.stringify(s));},{key:studyKey,kpId});
+  await page.reload({waitUntil:'domcontentloaded'});await ready();
+  check((await packet()).learning_state.resume.kp_id===kpId&&await frame().getAttribute('data-kp-id')===kpId,'browser topology migration restores stable KP24 identity');
+  const beforeLegacy=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),studyKey);
+  await page.evaluate(key=>{const s=JSON.parse(localStorage.getItem(key));delete s.contentRevision;delete s.resumeKpId;delete s.resumeGroupId;localStorage.setItem(key,JSON.stringify(s));},studyKey);
+  await page.reload({waitUntil:'domcontentloaded'});await ready();
+  const legacyPacket=await packet();const legacyAfter=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),studyKey);
+  check(legacyPacket.current.revision_review.current_claim==='UNKNOWN'&&legacyPacket.learning_state.resume.kp_id===kpId,'legacy without semantic baseline keeps Resume and exposes UNKNOWN');
+  check(legacyAfter.stage===beforeLegacy.stage&&JSON.stringify(legacyAfter.ratings)===JSON.stringify(beforeLegacy.ratings)&&legacyAfter.completedAt===beforeLegacy.completedAt,'legacy browser migration does not reopen whole Block or erase completion history');
+  report.medicalFixtureChangedKp=firstKp.kpId;
+  report.transientContentPath=block.sourcePath;
   assert.deepEqual(report.errors,[]);
   check(true,'browser pageerror zero');
   report.status='PASS';

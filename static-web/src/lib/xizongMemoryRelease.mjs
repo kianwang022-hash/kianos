@@ -92,6 +92,7 @@ function learnerCoreCard(learnerObject, kp) {
     promptCanonical: text(kp?.prompt?.canonical),
     coreHtml: learnerCoreHtml(kp),
     coreMarkdown: text(kp?.core?.markdown),
+    semanticRevision: learnerObject.revisionWitness?.kps?.[kpId] || '',
     sourceLocator: text(kp?.source?.locator),
     outlineLocator: text(kp?.outline?.locator)
   };
@@ -156,7 +157,8 @@ export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjec
     canonicalId: text(identity.canonicalId),
     blockLabel: text(identity.blockLabel),
     blockTitle: text(identity.title),
-    sourceHash: text(options?.sourceHash || learnerObject?.sourceHash)
+    sourceHash: text(options?.sourceHash || learnerObject?.sourceHash),
+    revisionWitness: learnerObject.revisionWitness || null
   };
   const { kps, groups } = learnerMaps(learnerObject);
   if (!kps.size) fail('CORE_KP_MISSING', blockId);
@@ -188,6 +190,9 @@ export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjec
     for (const cue of array(group?.precision)) precisionCards.push(learnerPrecisionCard(meta, cue, owner));
   }
 
+  for (const card of precisionCards) {
+    card.semanticRevision = card.kpId ? learnerObject.revisionWitness?.kps?.[card.kpId] || '' : learnerObject.revisionWitness?.groups?.[card.logicGroupId] || '';
+  }
   return finalizeDescriptor(meta, coreCards, precisionCards, options);
 }
 

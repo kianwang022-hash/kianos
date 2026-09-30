@@ -4,6 +4,8 @@ const { referenceUrl = '' } = Astro.props;
 <span data-translation-reference-loader data-reference-url={referenceUrl} hidden></span>
 
 <script>
+  import {buildTranslationHandoff} from '../lib/translationRuntimeModel.mjs';
+  import {readEnglishJson} from '../lib/englishLearnerEvidence.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
@@ -109,54 +111,12 @@ const { referenceUrl = '' } = Astro.props;
       ).join('\n');
     };
 
-    const buildHandoffWithReference = () => [
-      'KIANOS_TRANSLATION_HANDOFF_V2',
-      `task: ${objectId}`,
-      `paper: ${paperId}`,
-      `title: ${title}`,
-      '',
-      'SOURCE SEGMENTS',
-      sourceSegmentsText(),
-      '',
-      'FIRST TRANSLATION · IMMUTABLE',
-      firstAttemptsText(),
-      '',
-      'PENDING TRANSFER TARGETS',
-      pendingText(),
-      '',
-      'REFERENCE STATE',
-      referenceText(),
-      '',
-      'REVIEW CONTRACT',
-      '先看完整 task/set，再定位最早一个足以解释结果的 first meaningful failure；可由它解释的 cascade 不另建债务。稳定且可信则 PASS。若需修复，只给 smallest sufficient repair，并让我自己 reconstruct。',
-      '若这套对已有 Pending target 提供了真正相关的新证据，才给 transfer_updates；irrelevant 不得算支持或反驳；close=true 只能来自语义上足够的 fresh independent evidence，不能因为同题改对或凑次数。',
-      '',
-      'RETURN EXACTLY WITH THIS MARKER + JSON',
-      returnSchema,
-      JSON.stringify({
-        schema: returnSchema,
-        task: objectId,
-        decision: 'PASS | REPAIR_NEEDED',
-        primary_failure: {
-          layer: 'Lexical | English Representation | Relation / Information Preservation | Chinese Reconstruction | Execution / Self-check',
-          skill: 'optional stable skill address',
-          affected_segments: ['exact segment id'],
-          minimal_repair: 'smallest cue / explanation needed to re-execute',
-          reconstruction_prompt: 'what I should now do myself'
-        },
-        transfer_target: {
-          admit: false,
-          target_id: 'stable reusable target id if admitted',
-          label: 'short learner-facing label',
-          layer: 'failure layer',
-          skill: 'optional skill address',
-          underlying_demand: 'what later fresh material must actually test'
-        },
-        transfer_updates: [
-          { target_id: 'existing pending target id', relation: 'support | contradict | irrelevant', note: 'why', close: false }
-        ]
-      }, null, 2)
-    ].join('\n');
+    const buildHandoffWithReference = () => {
+      const state=readEnglishJson(localStorage,attemptStorageKey,{});
+      return buildTranslationHandoff({state,objectId,paperId,title,
+        metadata:{snapshot:state.binding?.source_snapshot},sourceSegmentsText,firstAttemptsText,
+        pendingText,referenceText,referenceTextOverride:referenceText()});
+    };
 
     const copyText = async (text) => {
       try { await navigator.clipboard.writeText(text); return true; }

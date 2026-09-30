@@ -335,8 +335,8 @@ try {
   const sweepAfterRepairDone = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(sweepKey)})||'null')`);
   check(sweepAfterRepairDone?.results?.[reviewedQuestion.questionId]?.status === 'wrong', 'repair_completion_does_not_rewrite_question_attempt');
 
-  // System question/relation version changes must invalidate visible question-derived Repair
-  // while preserving unrelated systems and archiving the stale tasks.
+  // Artifact metadata drift must not delete native repair history. Actual
+  // question semantics remain protected by the transitive native proof.
   const systemEvidenceMetaKey = 'kianos:xizong:system-evidence-meta:circulation:v1';
   await cdp.navigate(`${BASE}/xizong/practice/circulation/`);
   const currentSystemEvidenceVersion = await cdp.evaluate(`document.querySelector('[data-xizong-system-evidence-guard]')?.getAttribute('data-evidence-version') || ''`);
@@ -352,16 +352,16 @@ try {
   await cdp.reload();
   await sleep(1200);
   const memoryAfterSystemVersionChange = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(XIZONG_MEMORY_STORAGE_KEY)})||'null')`);
-  check(!(memoryAfterSystemVersionChange?.repairTasks||[]).some((task)=>task?.id==='stale-circulation-repair'), 'stale_visible_system_repair_invalidated');
+  check((memoryAfterSystemVersionChange?.repairTasks||[]).some((task)=>task?.id==='stale-circulation-repair'), 'artifact_metadata_drift_preserves_system_repair');
   check((memoryAfterSystemVersionChange?.repairTasks||[]).some((task)=>task?.id==='keep-respiratory-repair'), 'unrelated_system_repair_preserved');
   const staleSystemArchive = await cdp.evaluate(`(()=>{
     const keys=Object.keys(localStorage).filter((key)=>key.startsWith('kianos-xizong-stale-system-evidence:circulation:')).sort();
     const key=keys[keys.length-1];
     return key?JSON.parse(localStorage.getItem(key)||'null'):null;
   })()`);
-  check((staleSystemArchive?.stale_visible_memory_repairs||[]).some((task)=>task?.id==='stale-circulation-repair'), 'stale_visible_system_repair_archived');
+  check(staleSystemArchive===null, 'artifact_metadata_drift_creates_no_system_archive');
 
-  // ----- Block content-version mutation: archive stale evidence, preserve notes only. -----
+  // ----- Unknown legacy revision: retain history and expose UNKNOWN current claim. -----
   const staleMeta = system.blocks.find((row) => row.blockId === 'circulation-b03');
   const staleBlock = loadXizongBlock('circulation', staleMeta.slug);
   const staleObjectId = 'xizong:circulation-b03';
@@ -384,11 +384,12 @@ try {
   const staleExt = await cdp.evaluate(`(()=>{try{return JSON.parse(localStorage.getItem(${js(staleExtKey)})||'null')}catch{return null}})()`);
   const stalePersonal = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(stalePersonalKey)})||'null')`);
   const staleArchiveKeys = await cdp.evaluate(`Object.keys(localStorage).filter((key)=>key.startsWith(${js(`kianos-xizong-stale-evidence-v1:${staleObjectId}:`)}))`);
-  check(!staleStudy?.completed, 'stale_block_completion_invalidated');
-  check(!(staleExt?.evidenceHistory || []).some((row) => row?.rating === 'mastered'), 'stale_block_evidence_not_reused_as_current');
-  check(await cdp.evaluate(`localStorage.getItem(${js(staleInboxKey)})`) === null, 'stale_block_repair_inbox_invalidated');
-  check(stalePersonal?.lectureRead === false && stalePersonal?.kp?.[noteKp]?.comment === 'keep this note', 'stale_block_reset_preserves_note_but_not_lecture_completion');
-  check(staleArchiveKeys.length > 0, 'stale_block_evidence_archived');
+  check(staleStudy?.completed===true&&staleStudy?.ratings?.[noteKp]==='mastered', 'legacy_revision_preserves_historical_completion_and_rating');
+  check(staleStudy?.contentRevision?.pendingKp?.[noteKp]==='UNCLASSIFIED_REVISION', 'legacy_revision_cannot_promote_missing_semantic_baseline');
+  check((staleExt?.evidenceHistory || []).some(row=>row?.rating==='mastered'), 'legacy_revision_preserves_raw_recall_history');
+  check(stalePersonal?.lectureRead===true&&stalePersonal?.kp?.[noteKp]?.comment==='keep this note', 'legacy_revision_preserves_source_observation_and_note');
+  check(staleArchiveKeys.length===0, 'legacy_revision_does_not_archive_active_block');
+
 
   // Malformed legacy evidence bridge data must be preserved and fail closed.
   const malformedMeta = system.blocks.find((row) => row.blockId === 'circulation-b05');

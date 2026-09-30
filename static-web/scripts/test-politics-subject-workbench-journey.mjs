@@ -43,13 +43,15 @@ try {
   const unitUrl = new URL(q.unitHref, BASE);
   await page.goto(unitUrl.href,{waitUntil:'domcontentloaded'});
   check(await page.locator('[data-politics-question]').count() === 0,'learning_surface_has_no_inline_attempt');
-  const entry = page.locator(`[data-practice-unit-entry="${q.unitKey}"]`);
+  const owner = page.locator(`[data-politics-unit][data-unit-id="${q.unitId}"]`);
+  check(await owner.count() === 1,'learning_surface_has_exact_unit_owner',q.unitId);
+  const entry = owner.locator('[data-workspace-practice-link], a.politicsPracticeEntryAction');
   await entry.first().waitFor({state:'attached'});
   const entryCount = await entry.count();
   check(entryCount >= 1,'exact_unit_entry_present',String(entryCount));
   const entryHrefs = await entry.evaluateAll((nodes) => nodes.map((node) => node.getAttribute('href')));
-  const expectedUnit = encodeURIComponent(q.unitKey);
-  check(entryHrefs.every((href) => String(href || '').includes('/politics/practice/?unit='+expectedUnit)),
+  check(entryHrefs.every((href) => {const url=new URL(href,BASE);return url.origin===BASE
+    && url.pathname==='/politics/practice/' && url.searchParams.get('unit')===q.unitKey;}),
     'exact_unit_entry_routes_to_same_workbench',JSON.stringify([...new Set(entryHrefs)]));
 
   await page.goto(`${BASE}/politics/practice/?unit=${encodeURIComponent(q.unitKey)}&question=${encodeURIComponent(q.id)}`,{waitUntil:'domcontentloaded'});

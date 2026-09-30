@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import * as L from '../src/lib/englishLearnerEvidence.mjs';
 import * as S from '../src/lib/englishSessionControl.mjs';
+import './test-english-loop-recovery.mjs';
 
 const day = '2026-09-22';
 const clone = value => JSON.parse(JSON.stringify(value));
@@ -45,7 +46,7 @@ for (const task of ['reading_a', 'cloze', 'reading_b']) test(`${task}: malformed
     assert.equal(storage.getItem(key), before);
   }
   storage.setItem(key, JSON.stringify(healthy));
-  assert.equal(S.englishStepIsComplete(storage, step), false);
+  assert.equal(S.englishStepIsComplete(storage, step), true, 'complete native work may exit with wrong answers and no forced Chat');
   healthy.reviewResolved = true;
   storage.setItem(key, JSON.stringify(healthy));
   assert.equal(S.englishStepIsComplete(storage, step), true);
@@ -58,6 +59,8 @@ for (const task of ['reading_a', 'cloze', 'reading_b']) test(`${task}: malformed
   storage.setItem(key, JSON.stringify(healthy));
   assert.equal(L.inspectEnglishObjectiveResults(healthy).valid, true);
   assert.equal(S.englishStepIsComplete(storage, step), false);
+  storage.setItem(key, JSON.stringify({ binding: healthy.binding, chatReturn: { decision:'PASS' }, reviewResolved:true }));
+  assert.equal(S.englishStepIsComplete(storage, step), false, 'Return alone never replaces actual native work');
 });
 
 test('Resume retains an incomplete objective instead of jumping to the next step', () => {

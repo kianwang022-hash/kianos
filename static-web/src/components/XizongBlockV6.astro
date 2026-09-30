@@ -1,4 +1,5 @@
 ---
+import revisionRuntimeUrl from '../lib/xizongContentRevision.mjs?url';
 import XizongCognitiveProjectionStage from './XizongCognitiveProjectionStage.astro';
 
 const { block } = Astro.props;
@@ -352,7 +353,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
               {block.recallSpine && <section class="xv6RecallSpine"><strong>整块主链</strong><p>{block.recallSpine}</p></section>}
               <section class="xv6GroupReview">
                 <strong>学习节闭合目标</strong>
-                <div>{groups.map((group) => <section><strong>{group.label}</strong><p>{group.closure || group.goal || ''}</p></section>)}</div>
+                <div>{groups.map((group) => <section data-revision-group={group.groupId}><strong>{group.label}</strong><p>{group.closure || group.goal || ''}</p></section>)}</div>
               </section>
             </div>
           </div>
@@ -385,7 +386,10 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
 </section>
 
 <script define:vars={{
+  revisionRuntimeUrl,
+  revisionWitness: block.learnerObject?.revisionWitness,
   sourcePerGroup,
+  sourceContactPayload: sourceContact,
   sourceContactMode,
   naturalSourceUnits,
   integrationPrimary,
@@ -399,9 +403,10 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
   biochemistrySourcePayload: biochemistryBlockSource,
   ttsxPayload: ttsxCheckpoints,
   groupPayload: groups.map((group) => ({ groupId: group.groupId, label: group.label, start: group.start, end: group.end, kpIds: group.kpIds, goal: group.goal || '', closure: group.closure || '', membershipMode: group.membershipMode || '', visualRequired: group.visualRequired === true, visualSourceState: group.visualSourceState || '' })),
-  kpPayload: kps.map((kp) => ({ kpId: kp.kpId, displayId: kp.displayId, title: kp.title, groupId: kp.groupId, sourceLocator: kp.sourceLocator || '' }))
+  kpPayload: kps.map((kp) => ({ kpId: kp.kpId, ordinal: kp.ordinal, displayId: kp.displayId, title: kp.title, groupId: kp.groupId, sourceLocator: kp.sourceLocator || '' }))
 }}>
-window.__kianosLearnerWriterReady.then(() => {
+window.__kianosLearnerWriterReady.then(async () => {
+  const { reconcileXizongRevision, revisionRequiresAction, revisionStatus, needsFreshKpRecall, currentGroupClaim, sourceContactCompatible, revalidateXizongUnit, xizongSourceContactCovered, historicalXizongSourceContinuation } = await import(revisionRuntimeUrl);
 
   const root = document.querySelector('[data-xizong-v6-block]');
   if (root) {
@@ -453,60 +458,36 @@ window.__kianosLearnerWriterReady.then(() => {
         if (saved.ratings != null && (!object(saved.ratings) || Object.values(saved.ratings).some((v) => !['unknown','fuzzy','known','mastered'].includes(v)))) throw new Error('Invalid Recall evidence');
         if (['completed', 'blockRecallDone', 'sourceContactDone'].some((key) => saved[key] != null && typeof saved[key] !== 'boolean')) throw new Error('Invalid completion evidence');
         if (saved.sourceSegmentIndex != null && (!Number.isInteger(saved.sourceSegmentIndex) || saved.sourceSegmentIndex < 0)) throw new Error('Invalid Source segment index');
-        state = { ...state, ...saved };
-        const hasProgress = state.completed === true
-          || state.blockRecallDone === true
-          || state.sourceContactDone === true
-          || Object.values(state.learned || {}).some(Boolean)
-          || Object.keys(state.ratings || {}).length > 0
-          || (Array.isArray(state.sourceContactEvidence) && state.sourceContactEvidence.length > 0)
-          || Object.keys(state.ttsxEvidence || {}).length > 0;
-        const sourceContacts = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
-        const latestBoundContact = [...sourceContacts].reverse().find((entry) => String(entry?.source_hash || '').trim());
-        const evidenceSourceHash = String(state.sourceHash || latestBoundContact?.source_hash || '').trim();
-        if (hasProgress && currentSourceHash && state.sourceRevisionPending !== true && evidenceSourceHash !== currentSourceHash) {
-          state = {
-            ...state,
-            sourceHash: currentSourceHash,
-            sourceRevisionPending: true,
-            sourceRevisionReason: evidenceSourceHash ? 'SOURCE_REVISION_CHANGED' : 'SOURCE_IDENTITY_UNBOUND',
-            sourceRevisionFromHash: evidenceSourceHash || null,
-            sourceRevisionDetectedAt: new Date().toISOString(),
-            sourceContactDone: false,
-            sourceSegmentIndex: 0,
-            sourceContactEvidence: [],
-            ttsxEvidence: {},
-            ttsxAnnotations: {},
-            pendingTtsx: null,
-            blockRecallDone: false,
-            blockRecallCompletedAt: null,
-            completed: false,
-            completedAt: null
-          };
-          sourceRevisionMigrated = true;
-          root.dataset.xizongSourceRevision = 'SOURCE_REVISION_REVALIDATION';
-        } else if (!hasProgress && currentSourceHash) {
-          state.sourceHash = currentSourceHash;
-        }
+        state = { ...state, ...reconcileXizongRevision(saved, revisionWitness) };
+        sourceRevisionMigrated = true;
       }
     } catch {
       suspend('本机学习记录无法安全读取，原数据已保留，本页暂停写入。请先备份记录再恢复；不要直接清除浏览器数据。');
       return;
     }
-    if (typeof state.sourceContactDone !== 'boolean') {
-      const legacyLearned = kpData.filter((kp) => state.learned?.[kp.kpId] === true).length;
-      state.sourceContactDone = !sourcePerGroup && totalKp > 0 && legacyLearned >= totalKp;
-    }
+    // Missing legacy Source flags remain missing: learned counts cannot invent
+    // a contact confirmation or turn UNKNOWN history into a Current claim.
 
+    // Bind a fresh empty state before Source adapters form their first evidence.
+    if (!state.contentRevision) state = reconcileXizongRevision(state, revisionWitness);
+    let lastPersistedState = JSON.stringify(state);
     const save = () => {
       if (root.dataset.xizongStateBlocked === 'true') return false;
-      try { localStorage.setItem(storageKey, JSON.stringify(state)); return true; }
-      catch { suspend('本次学习状态未能保存，本页已暂停。之前记录仍保留，请先备份或释放本机空间后重新打开。'); return false; }
+      try {
+        if (!state.contentRevision) state = reconcileXizongRevision(state, revisionWitness);
+        state.resumeKpId = kpData[state.kpIndex || 0]?.kpId || null;
+        state.resumeGroupId = groups[state.groupIndex || 0]?.groupId || null;
+        state.resumeSourceSegmentId = revisionWitness?.segmentOrder?.[state.sourceSegmentIndex || 0] || null;
+        const serialized = JSON.stringify(state);
+        localStorage.setItem(storageKey, serialized);
+        lastPersistedState = serialized; return true;
+      }
+      catch { state = JSON.parse(lastPersistedState); suspend('本次学习状态未能保存，本页已暂停。之前记录仍保留，请先备份或释放本机空间后重新打开。'); return false; }
     };
     if (sourceRevisionMigrated && !save()) return;
     const recordSourceContact = (segmentId, ids, cumulative = false, extra = {}) => {
       const history = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
-      const existingIndex = history.findIndex((entry) => entry.segment_id === segmentId && String(entry?.source_hash || '') === currentSourceHash);
+      const existingIndex = history.findLastIndex((entry) => entry.segment_id === segmentId && sourceContactCompatible(state, entry, currentSourceHash));
       const existing = existingIndex >= 0 ? history[existingIndex] : null;
       const visualReviewed = [...new Set([
         ...(Array.isArray(existing?.visual_reviewed_lg_ids) ? existing.visual_reviewed_lg_ids : []),
@@ -520,19 +501,18 @@ window.__kianosLearnerWriterReady.then(() => {
         kp_ids: [...new Set([...(Array.isArray(existing?.kp_ids) ? existing.kp_ids : []), ...ids].map(String).filter(Boolean))],
         completed_at: new Date().toISOString(),
         source_hash: currentSourceHash,
+        contact_witness: revisionWitness.contact,
         ...extra,
         visual_reviewed_lg_ids: visualReviewed
       };
-      state.sourceContactEvidence = existingIndex >= 0
-        ? history.map((entry, index) => index === existingIndex ? next : entry)
-        : [...history, next];
-      state.sourceHash = currentSourceHash;
+      state.sourceContactEvidence = [...history, next];
+      if (!state.sourceHash) state.sourceHash = currentSourceHash;
     };
     const groupIndexById = (groupId) => groups.findIndex((group) => group.groupId === groupId);
     const naturalSegmentDone = (segment) => {
       if (!segment?.segmentId || !currentSourceHash) return false;
       const entry = (state.sourceContactEvidence || []).find((row) =>
-        row.segment_id === segment.segmentId && String(row?.source_hash || '') === currentSourceHash
+        row.segment_id === segment.segmentId && sourceContactCompatible(state, row, currentSourceHash)
       );
       if (!entry) return false;
       const reviewed = new Set((Array.isArray(entry?.visual_reviewed_lg_ids) ? entry.visual_reviewed_lg_ids : []).map(String));
@@ -593,7 +573,10 @@ window.__kianosLearnerWriterReady.then(() => {
         .map(String)
         .filter(Boolean);
       const segmentId = `integration-primary:${objectId}`;
-      if (directIds.length) {
+      const changedDirectContract = state.contentRevision?.contactPending
+        && state.contentRevision.contactReason !== 'UNCLASSIFIED_REVISION'
+        && !(state.sourceContactEvidence || []).some(entry => entry.segment_id === segmentId && sourceContactCompatible(state, entry, currentSourceHash));
+      if (directIds.length && (!directIds.every(id => state.learned?.[id] === true) || changedDirectContract)) {
         recordSourceContact(segmentId, directIds, true, {
           coverage_kind: integrationTargetedSourceReturns
             ? 'INTEGRATION_PRIMARY_DIRECT_RELEASE'
@@ -606,7 +589,7 @@ window.__kianosLearnerWriterReady.then(() => {
       const allSegmentsDone = !integrationTargetedSourceReturns
         || (sourceSegments.length > 0 && sourceSegments.every((segment) => naturalSegmentDone(segment)));
       const allFormed = totalKp > 0 && kpData.every((kp) => state.learned?.[kp.kpId] === true);
-      state.sourceContactDone = allSegmentsDone && allFormed;
+      state.sourceContactDone = state.sourceContactDone === true || (allSegmentsDone && allFormed);
       if (state.sourceContactDone) {
         state.sourceRevisionPending = false;
         state.sourceRevisionReason = '';
@@ -614,36 +597,16 @@ window.__kianosLearnerWriterReady.then(() => {
     };
     const reconcileIntegrationTargetedState = () => {
       if (!integrationTargetedSourceReturns) return;
-      const directGroupIds = new Set(integrationReleaseLogicGroupIds.map(String));
       const validSegmentIds = new Set(sourceSegments.map((segment) => String(segment?.segmentId || '')).filter(Boolean));
       const evidence = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
-      state.sourceContactEvidence = evidence.filter((entry) => {
-        const segmentId = String(entry?.segment_id || '');
-        const kind = String(entry?.coverage_kind || '');
-        if (kind === 'INTEGRATION_PRIMARY_NO_NEW_CONTINUOUS_SOURCE') return false;
-        if (segmentId === `integration-primary:${objectId}` && kind !== 'INTEGRATION_PRIMARY_DIRECT_RELEASE') return false;
-        return true;
-      });
-      const covered = new Set(groups
-        .filter((group) => directGroupIds.has(String(group?.groupId || '')))
-        .flatMap((group) => Array.isArray(group?.kpIds) ? group.kpIds : [])
-        .map(String));
-      for (const entry of state.sourceContactEvidence) {
-        if (String(entry?.source_hash || '') !== currentSourceHash) continue;
+      const covered = new Set();
+      for (const entry of evidence) {
+        if (!sourceContactCompatible(state, entry, currentSourceHash)) continue;
         if (!validSegmentIds.has(String(entry?.segment_id || ''))) continue;
         for (const kpId of Array.isArray(entry?.kp_ids) ? entry.kp_ids : []) covered.add(String(kpId));
       }
-      state.learned = Object.fromEntries(kpData.map((kp) => [kp.kpId, covered.has(kp.kpId)]));
-      state.ratings = Object.fromEntries(Object.entries(state.ratings || {}).filter(([kpId]) => covered.has(kpId)));
+      state.learned = { ...state.learned, ...Object.fromEntries([...covered].map(id => [id, true])) };
       ensureIntegrationPrimaryReady();
-      const allSegmentsDone = sourceSegments.length > 0 && sourceSegments.every((segment) => naturalSegmentDone(segment));
-      const allFormed = totalKp > 0 && kpData.every((kp) => state.learned?.[kp.kpId] === true);
-      if (!(allSegmentsDone && allFormed)) {
-        state.blockRecallDone = false;
-        state.blockRecallCompletedAt = null;
-        state.completed = false;
-        state.completedAt = null;
-      }
     };
     const readBiochemistryLane = () => {
       if (!biochemistryLedgerKey || !biochemistrySource?.laneSourceHash) return null;
@@ -667,6 +630,7 @@ window.__kianosLearnerWriterReady.then(() => {
         ids.forEach((id) => {
           if (learned[id] !== true) { learned[id] = true; changed = true; }
         });
+        if ((state.sourceContactEvidence || []).some(entry => entry.segment_id === String(segment?.segmentId || '') && entry.lane_source_hash === String(biochemistrySource.laneSourceHash) && sourceContactCompatible(state, entry, currentSourceHash))) continue;
         const before = (state.sourceContactEvidence || []).length;
         recordSourceContact(String(segment?.segmentId || ''), ids, false, {
           coverage_kind: 'GLOBAL_BIOCHEMISTRY_SOURCE_UNIT',
@@ -678,7 +642,12 @@ window.__kianosLearnerWriterReady.then(() => {
       state.learned = learned;
       const closureReached = completed.has(String(biochemistrySource.closureUnit || ''));
       const allFormed = kpData.length > 0 && kpData.every((kp) => learned[kp.kpId] === true);
-      const nextDone = closureReached && allFormed;
+      const currentLaneCovered = closureReached && allFormed && biochemistrySource.segments.every(segment => completed.has(String(segment.sourceUnitId || '')));
+      if (currentLaneCovered && state.contentRevision?.contactPending) {
+        revalidateXizongUnit(state, 'CONTACT', objectId);
+        changed = true;
+      }
+      const nextDone = state.sourceContactDone === true || (closureReached && allFormed);
       if (state.sourceContactDone !== nextDone) { state.sourceContactDone = nextDone; changed = true; }
       if (nextDone && state.sourceRevisionPending === true) {
         state.sourceRevisionPending = false;
@@ -696,46 +665,16 @@ window.__kianosLearnerWriterReady.then(() => {
     };
     const learnedCount = () => kpData.filter((kp) => state.learned?.[kp.kpId] === true).length;
     const recallCount = () => kpData.filter((kp) => ['unknown', 'fuzzy', 'known', 'mastered'].includes(state.ratings?.[kp.kpId])).length;
-    const currentSourceContactCovered = () => {
-      if (!currentSourceHash) return false;
-      const evidence = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
-      const currentEvidence = evidence.filter((entry) => String(entry?.source_hash || '') === currentSourceHash);
-      if (biochemistrySource?.laneSourceHash) {
-        return state.sourceContactDone === true && totalKp > 0 && kpData.every((kp) => state.learned?.[kp.kpId] === true);
-      }
-      if (integrationPrimary) {
-        const directKind = integrationTargetedSourceReturns
-          ? 'INTEGRATION_PRIMARY_DIRECT_RELEASE'
-          : 'INTEGRATION_PRIMARY_NO_NEW_CONTINUOUS_SOURCE';
-        const directEvidence = currentEvidence.some((entry) => entry.coverage_kind === directKind);
-        const targetedDone = !integrationTargetedSourceReturns
-          || (sourceSegments.length > 0 && sourceSegments.every((segment) => naturalSegmentDone(segment)));
-        return state.sourceContactDone === true
-          && directEvidence
-          && targetedDone
-          && totalKp > 0
-          && kpData.every((kp) => state.learned?.[kp.kpId] === true);
-      }
-      if (naturalSourceUnits) {
-        return state.sourceContactDone === true
-          && sourceSegments.length > 0
-          && sourceSegments.every((segment) => naturalSegmentDone(segment))
-          && totalKp > 0
-          && kpData.every((kp) => state.learned?.[kp.kpId] === true);
-      }
-      if (!sourcePerGroup) {
-        return state.sourceContactDone === true && currentEvidence.some((entry) => entry.coverage_kind === 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION');
-      }
-      const covered = new Set(currentEvidence.flatMap((entry) => Array.isArray(entry?.kp_ids) ? entry.kp_ids.map(String) : []));
-      return totalKp > 0 && kpData.every((kp) => covered.has(String(kp.kpId)));
-    };
+    const currentSourceContactCovered = () => xizongSourceContactCovered(state, {
+      sourceHash: currentSourceHash, sourceContact: sourceContactPayload, kps: kpData, logicGroups: groups
+    });
     const groupVisualGapReviewableFromOriginalSource = (group) => group?.visualRequired === true
       && /GAP.*NOT_MOUNTED/i.test(String(group?.visualSourceState || ''));
     const groupVisualReviewEvidenceSatisfied = (group) => {
       const groupId = String(group?.groupId || '');
       if (!groupId || !currentSourceHash) return false;
       return (state.sourceContactEvidence || []).some((entry) =>
-        String(entry?.source_hash || '') === currentSourceHash
+        sourceContactCompatible(state, entry, currentSourceHash)
         && (Array.isArray(entry?.visual_reviewed_lg_ids) ? entry.visual_reviewed_lg_ids : []).map(String).includes(groupId)
       );
     };
@@ -751,15 +690,20 @@ window.__kianosLearnerWriterReady.then(() => {
     const groupClosureSatisfied = (group) => {
       const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
       return ids.length > 0
-        && ids.every((id) => state.learned?.[id] === true && Boolean(state.ratings?.[id]))
+        && ids.every((id) => state.learned?.[id] === true && Boolean(state.ratings?.[id]) && !needsFreshKpRecall(state, id))
+        && (currentGroupClaim(state, group.groupId) || state.contentRevision?.pendingGroup?.[group.groupId] === 'UNCLASSIFIED_REVISION')
         && !groupHasBlockingVisualGap(group);
     };
     const unresolvedVisualGroups = () => groups.filter((group) => groupHasBlockingVisualGap(group));
     const firstBlockingVisualGroupIndex = () => groups.findIndex((group) => groupHasBlockingVisualGap(group));
-    const blockRecallReady = () => groups.length > 0 && groups.every((group) => groupClosureSatisfied(group));
+    // Existing Recall surface also verifies changed LG closure tasks. Pending
+    // group claims must not deadlock the action that can verify those claims.
+    const blockRecallReady = () => groups.length > 0 && groups.every((group) =>
+      (group.kpIds || []).every(id => state.learned?.[id] === true && Boolean(state.ratings?.[id]) && !needsFreshKpRecall(state, id))
+      && !groupHasBlockingVisualGap(group));
     const canComplete = () => totalKp > 0
-      && state.sourceRevisionPending !== true
-      && currentSourceContactCovered()
+      && !revisionRequiresAction(state)
+      && (currentSourceContactCovered() || historicalXizongSourceContinuation(state))
       && learnedCount() >= totalKp
       && recallCount() >= totalKp
       && groups.every((group) => groupClosureSatisfied(group))
@@ -820,11 +764,11 @@ window.__kianosLearnerWriterReady.then(() => {
       return `MarginNote · 相关定位：${locators.join('；')}`;
     };
     const firstUnrecalledIndexForGroup = (group = currentGroup()) => {
-      const item = groupKps(group).find((kp) => !state.ratings?.[kp.kpId]);
+      const item = groupKps(group).find((kp) => (!state.ratings?.[kp.kpId] || needsFreshKpRecall(state, kp.kpId)));
       const index = item ? indexForKpId(item.kpId) : firstIndexForGroup(group);
       return index >= 0 ? index : 0;
     };
-    const groupHasUnrecalled = (group) => (group?.kpIds || []).some((id) => !state.ratings?.[id]);
+    const groupHasUnrecalled = (group) => (group?.kpIds || []).some((id) => (!state.ratings?.[id] || needsFreshKpRecall(state, id)));
     const naturalSegmentIndexForGroup = (group = currentGroup()) => {
       if (!segmentedSourceUnits || !group) return -1;
       const candidates = sourceSegments
@@ -1040,6 +984,7 @@ window.__kianosLearnerWriterReady.then(() => {
     };
 
     const syncState = () => {
+      if (root.dataset.xizongStateBlocked === 'true') return;
       const shortcutHint = root.querySelector('[data-block-keyboard-hint]');
       if (shortcutHint) shortcutHint.textContent = state.stage === 'kp_recall' ? 'Space 核对答案 · 1–4 记录回忆并继续 · ← → 切换' : '← → 切换伴读 · 原讲义段学完后一次确认';
       kpRailButtons.forEach((button, index) => {
@@ -1051,11 +996,22 @@ window.__kianosLearnerWriterReady.then(() => {
         button.classList.toggle('active', index === state.kpIndex);
         button.classList.toggle('done', learned && Boolean(rating));
       });
+      const revision = revisionStatus(state, currentSourceHash);
+      root.dataset.xizongSourceRevision = revision.status;
+      const closureOnly = state.blockRecallDone && revision.impacted_group_ids.length > 0 && !revision.block_review_required;
+      root.querySelectorAll('[data-revision-group]').forEach(node => { node.hidden = closureOnly && !revision.impacted_group_ids.includes(node.getAttribute('data-revision-group')); });
+      const spine = root.querySelector('.xv6RecallSpine');
+      if (spine) spine.hidden = closureOnly;
+      const recallPrompt = root.querySelector('.xv6RecallPromptBox > strong');
+      if (recallPrompt) recallPrompt.textContent = closureOnly ? '只恢复有变化的学习节闭合目标，再核对。' : '先从中心问题把整个 Block 自己跑一遍。';
+      const detail = root.querySelector('[data-block-complete-detail]');
+      if (detail && !revision.blocked) detail.textContent = '状态只记录真实学习证据，不会把模糊项自动升级成掌握。';
+      if (detail && revision.blocked) detail.textContent = revision.status === 'UNCLASSIFIED_REVISION' ? '原位置和历史记录保留；旧记录缺少语义基线，当前结论待核对。' : `原记录保留；${revision.impacted_kp_ids.length} 个知识点、${revision.impacted_group_ids.length} 个学习节需局部核对。`;
       const completedGroups = groups.filter((group) => groupClosureSatisfied(group)).length;
       const visualGaps = unresolvedVisualGroups();
       root.querySelector('[data-chain-source]')?.replaceChildren(document.createTextNode(
         state.sourceRevisionPending
-          ? 'Source 已更新 · 需重新确认'
+          ? '原记录保留 · 内容变化待核对'
           : (currentSourceContactCovered() ? '已确认' : '未确认')
       ));
       root.querySelector('[data-chain-kp-learn]')?.replaceChildren(document.createTextNode(
@@ -1065,7 +1021,7 @@ window.__kianosLearnerWriterReady.then(() => {
       ));
       root.querySelector('[data-chain-kp-recall]')?.replaceChildren(document.createTextNode(`${recallCount()}/${totalKp}`));
       root.querySelector('[data-chain-block-recall]')?.replaceChildren(document.createTextNode(state.blockRecallDone ? '已完成' : '未完成'));
-      root.querySelector('[data-chain-complete]')?.replaceChildren(document.createTextNode(state.completed ? '已完成' : '未完成'));
+      root.querySelector('[data-chain-complete]')?.replaceChildren(document.createTextNode(state.completed ? (revisionStatus(state, currentSourceHash).blocked ? '已完成 · 局部待核对' : '已完成') : '未完成'));
       const group = currentGroup();
       if (statusLabel) {
         if (state.stage === 'source_contact') statusLabel.textContent = '原讲义连续学习 · 等待回来确认';
@@ -1103,8 +1059,10 @@ window.__kianosLearnerWriterReady.then(() => {
     };
 
     const setKpIndex = (index) => {
+      if (root.dataset.xizongStateBlocked === 'true') return;
       state.kpIndex = Math.max(0, Math.min(totalKp - 1, Number(index) || 0));
       state.groupIndex = groupIndexForKp(state.kpIndex);
+      if (!save()) return;
       kpRecallCards.forEach((card, itemIndex) => {
         card.hidden = itemIndex !== state.kpIndex;
         if (itemIndex === state.kpIndex && state.stage === 'kp_recall') resetRecallCard(card);
@@ -1123,14 +1081,12 @@ window.__kianosLearnerWriterReady.then(() => {
 
     const normalizeLegacyStage = () => {
       const validStages = ['block_learn', 'source_contact', 'logic_group', 'kp_learn', 'ttsx_checkpoint', 'kp_recall', 'group_close', 'block_recall', 'block_complete'];
+      if (sourceRevisionMigrated && validStages.includes(state.stage) && state.stage !== 'block_complete') return;
       if (!validStages.includes(state.stage)) state.stage = 'block_learn';
       if (state.stage === 'block_complete') state.stage = 'block_recall';
       const visualBlockedIndex = firstBlockingVisualGroupIndex();
       if (visualBlockedIndex >= 0) {
-        state.blockRecallDone = false;
-        state.blockRecallCompletedAt = null;
-        state.completed = false;
-        state.completedAt = null;
+        // Keep historical completion; visual readiness gates current actions.
         if (state.stage === 'block_recall') {
           const blockedGroup = groups[visualBlockedIndex];
           state.groupIndex = visualBlockedIndex;
@@ -1188,7 +1144,7 @@ window.__kianosLearnerWriterReady.then(() => {
       }
       const group = currentGroup();
       if (state.stage === 'group_close') {
-        const missing = (group?.kpIds || []).some((id) => !state.ratings?.[id]);
+        const missing = (group?.kpIds || []).some((id) => (!state.ratings?.[id] || needsFreshKpRecall(state, id)));
         if (missing) {
           state.kpIndex = firstUnrecalledIndexForGroup(group);
           state.stage = 'kp_recall';
@@ -1209,51 +1165,62 @@ window.__kianosLearnerWriterReady.then(() => {
       }
       if (state.stage === 'kp_recall' && state.pendingTtsx?.key && pendingTtsxIsReviewed(state.pendingTtsx) && !ttsxDone(state.pendingTtsx.key)) state.stage = 'ttsx_checkpoint';
       if (state.stage === 'kp_recall') state.kpIndex = firstUnrecalledIndexForGroup(currentGroup());
-      if (state.completed && !canComplete()) state.completed = false;
+      // Completion is historical evidence; canComplete gates a new current claim.
     };
 
     const setStage = (requested) => {
+      if (root.dataset.xizongStateBlocked === 'true') return;
       let stage = requested || 'block_learn';
-      if (biochemistrySource?.laneSourceHash && stage === 'kp_learn') stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
-      else if (segmentedSourceUnits && stage === 'kp_learn') {
-        if (integrationPrimary) ensureIntegrationPrimaryReady();
-        const segmentIndex = naturalSegmentIndexForGroup(currentGroup());
-        if (segmentIndex >= 0) state.sourceSegmentIndex = segmentIndex;
-        stage = segmentGroupSourceCovered(currentGroup()) ? 'kp_recall' : 'source_contact';
-      } else if (integrationPrimary && stage === 'kp_learn') {
-        ensureIntegrationPrimaryReady();
-        stage = 'kp_recall';
-      } else if (!sourcePerGroup && stage === 'kp_learn') stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
-
-      if (biochemistrySource?.laneSourceHash && stage === 'kp_recall' && !currentGroupSourceCovered()) stage = 'source_contact';
-      else if (segmentedSourceUnits && stage === 'kp_recall') {
-        if (integrationPrimary) ensureIntegrationPrimaryReady();
-        if (!segmentGroupSourceCovered(currentGroup())) {
-          const segmentIndex = naturalSegmentIndexForGroup(currentGroup());
-          if (segmentIndex >= 0) state.sourceSegmentIndex = segmentIndex;
-          stage = 'source_contact';
-        }
-      } else if (integrationPrimary && stage === 'kp_recall') {
-        ensureIntegrationPrimaryReady();
-      } else if (!naturalSourceUnits && !integrationPrimary && !sourcePerGroup && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
-
-      if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';
-      if (integrationPrimary && !integrationTargetedSourceReturns && stage === 'source_contact') {
-        ensureIntegrationPrimaryReady();
-        stage = 'kp_recall';
-      }
-      if (stage === 'logic_group') {
-        if (biochemistrySource?.laneSourceHash) stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
-        else if (sourcePerGroup) stage = 'kp_learn';
-        else if (segmentedSourceUnits) {
+      // Historical UNKNOWN completion permits continuation without inventing
+      // Source evidence or rewriting the learner's saved Recall position.
+      if (historicalXizongSourceContinuation(state)) {
+        // Whole-LG kp_learn is an actual explicit Source-view panel. Keep
+        // that saved intention; only adapt legacy routes without that panel.
+        if (stage === 'logic_group' || (stage === 'kp_learn' && !sourcePerGroup)) stage = 'kp_recall';
+      } else {
+        if (biochemistrySource?.laneSourceHash && stage === 'kp_learn') stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
+        else if (segmentedSourceUnits && stage === 'kp_learn') {
           if (integrationPrimary) ensureIntegrationPrimaryReady();
           const segmentIndex = naturalSegmentIndexForGroup(currentGroup());
           if (segmentIndex >= 0) state.sourceSegmentIndex = segmentIndex;
           stage = segmentGroupSourceCovered(currentGroup()) ? 'kp_recall' : 'source_contact';
-        } else if (integrationPrimary) {
+        } else if (integrationPrimary && stage === 'kp_learn') {
           ensureIntegrationPrimaryReady();
           stage = 'kp_recall';
-        } else stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
+        } else if (!sourcePerGroup && stage === 'kp_learn') stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
+
+        if (biochemistrySource?.laneSourceHash && stage === 'kp_recall' && !currentGroupSourceCovered()) stage = 'source_contact';
+        else if (segmentedSourceUnits && stage === 'kp_recall') {
+          if (integrationPrimary) ensureIntegrationPrimaryReady();
+          if (!segmentGroupSourceCovered(currentGroup())) {
+            const segmentIndex = naturalSegmentIndexForGroup(currentGroup());
+            if (segmentIndex >= 0) state.sourceSegmentIndex = segmentIndex;
+            stage = 'source_contact';
+          }
+        } else if (integrationPrimary && stage === 'kp_recall') {
+          ensureIntegrationPrimaryReady();
+        } else if (!biochemistrySource?.laneSourceHash && !naturalSourceUnits && !integrationPrimary && !sourcePerGroup && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
+
+        if (stage === 'logic_group') {
+          if (biochemistrySource?.laneSourceHash) stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
+          else if (sourcePerGroup) stage = 'kp_learn';
+          else if (segmentedSourceUnits) {
+            if (integrationPrimary) ensureIntegrationPrimaryReady();
+            const segmentIndex = naturalSegmentIndexForGroup(currentGroup());
+            if (segmentIndex >= 0) state.sourceSegmentIndex = segmentIndex;
+            stage = segmentGroupSourceCovered(currentGroup()) ? 'kp_recall' : 'source_contact';
+          } else if (integrationPrimary) {
+            ensureIntegrationPrimaryReady();
+            stage = 'kp_recall';
+          } else stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
+        }
+      }
+      // Mode normalization is independent of historical/current eligibility:
+      // source_contact has no rendered panel in whole-LG/direct integration.
+      if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';
+      if (integrationPrimary && !integrationTargetedSourceReturns && stage === 'source_contact') {
+        if (!historicalXizongSourceContinuation(state)) ensureIntegrationPrimaryReady();
+        stage = 'kp_recall';
       }
       if (stage === 'kp_recall' && state.pendingTtsx?.key && pendingTtsxIsReviewed(state.pendingTtsx) && !ttsxDone(state.pendingTtsx.key)) stage = 'ttsx_checkpoint';
       if (stage === 'ttsx_checkpoint' && (!state.pendingTtsx?.key || !pendingTtsxIsReviewed(state.pendingTtsx) || ttsxDone(state.pendingTtsx.key))) {
@@ -1261,6 +1228,7 @@ window.__kianosLearnerWriterReady.then(() => {
         stage = 'kp_recall';
       }
       state.stage = stage;
+      if (!save()) return;
       stages.forEach((panel) => { panel.hidden = panel.getAttribute('data-study-stage') !== state.stage; });
       if (state.stage === 'kp_recall') setKpIndex(state.kpIndex);
       if (state.stage === 'source_contact') syncNaturalSourceStage();
@@ -1282,7 +1250,8 @@ window.__kianosLearnerWriterReady.then(() => {
       switchTab('learn');
       const requested = button.getAttribute('data-stage-target') || button.getAttribute('data-stage-next') || 'block_learn';
       if (requested === 'logic_group' && button.hasAttribute('data-stage-next')) {
-        if (integrationPrimary) {
+        if (historicalXizongSourceContinuation(state)) setStage('kp_recall');
+        else if (integrationPrimary) {
           ensureIntegrationPrimaryReady();
           state.groupIndex = 0;
           state.kpIndex = firstUnrecalledIndexForGroup(groups[0]);
@@ -1314,6 +1283,7 @@ window.__kianosLearnerWriterReady.then(() => {
         const allSegmentsDone = sourceSegments.length > 0 && sourceSegments.every((row) => naturalSegmentDone(row));
         const allKpFormed = totalKp > 0 && kpData.every((kp) => learned[kp.kpId] === true);
         state.sourceContactDone = allSegmentsDone && allKpFormed;
+        if (state.sourceContactDone && currentSourceContactCovered()) revalidateXizongUnit(state, 'CONTACT', objectId);
         if (state.sourceContactDone) {
           state.sourceRevisionPending = false;
           state.sourceRevisionReason = '';
@@ -1354,9 +1324,10 @@ window.__kianosLearnerWriterReady.then(() => {
         visual_reviewed_lg_ids: reviewableVisualGroupIds(blockVisualDebtPayload)
       });
       state.sourceContactDone = true;
+      revalidateXizongUnit(state, 'CONTACT', objectId);
       state.sourceRevisionPending = false;
       state.sourceRevisionReason = '';
-      state.learned = Object.fromEntries(kpData.map((kp) => [kp.kpId, true]));
+      state.learned = { ...state.learned, ...Object.fromEntries(kpData.map((kp) => [kp.kpId, true])) };
       state.groupIndex = 0;
       state.kpIndex = firstIndexForGroup(groups[0]);
       const queued = queueTtsx(ttsxData, 'block-source-boundary', '本段原讲义 Source boundary');
@@ -1390,7 +1361,11 @@ window.__kianosLearnerWriterReady.then(() => {
       });
       ids.forEach((id) => { learned[id] = true; });
       state.learned = learned;
+      if (sourcePerGroup && xizongSourceContactCovered({ ...state, sourceContactDone: true }, {
+        sourceHash: currentSourceHash, sourceContact: sourceContactPayload, kps: kpData, logicGroups: groups
+      })) state.sourceContactDone = true;
       if (currentSourceContactCovered()) {
+        revalidateXizongUnit(state, 'CONTACT', objectId);
         state.sourceRevisionPending = false;
         state.sourceRevisionReason = '';
       }
@@ -1419,6 +1394,7 @@ window.__kianosLearnerWriterReady.then(() => {
       setStage('kp_recall');
     });
     const stageForSelectedGroup = () => {
+      if (historicalXizongSourceContinuation(state)) return 'kp_recall';
       if (biochemistrySource?.laneSourceHash) return currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
       if (sourcePerGroup) return 'kp_learn';
       if (segmentedSourceUnits) {
@@ -1476,12 +1452,14 @@ window.__kianosLearnerWriterReady.then(() => {
         if (state.stage !== 'kp_recall' || card.hidden || answer?.hidden !== false || state.learned?.[kpId] !== true || card.dataset.ratingCommitted === 'true') return;
         if (!['unknown', 'fuzzy', 'known', 'mastered'].includes(value)) return;
         card.dataset.ratingCommitted = 'true';
+        revalidateXizongUnit(state, 'KP', kpId);
         state.ratings = { ...(state.ratings || {}), [kpId]: value };
+        if (!save()) return;
         card.querySelectorAll('[data-rating]').forEach((candidate) => candidate.classList.toggle('selected', candidate === button));
-        save(); syncState();
+        syncState();
         const group = currentGroup();
         const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
-        const firstMissingId = ids.find((id) => !state.ratings?.[id]);
+        const firstMissingId = ids.find((id) => (!state.ratings?.[id] || needsFreshKpRecall(state, id)));
         if (firstMissingId) {
           const nextIndex = indexForKpId(firstMissingId);
           if (nextIndex >= 0) window.setTimeout(() => setKpIndex(nextIndex), 120);
@@ -1520,7 +1498,9 @@ window.__kianosLearnerWriterReady.then(() => {
     });
 
     root.querySelector('[data-block-recall-complete]')?.addEventListener('click', (event) => {
-      if (!blockRecallReady()) return;
+      if (!blockRecallReady() || root.querySelector('[data-block-recall-answer]')?.hidden !== false) return;
+      for (const group of groups) { if (!currentGroupClaim(state, group.groupId)) revalidateXizongUnit(state, 'GROUP', group.groupId); }
+      revalidateXizongUnit(state, 'BLOCK', objectId);
       if (!state.blockRecallDone) {
         state.blockRecallDone = true;
         state.blockRecallCompletedAt = new Date().toISOString();

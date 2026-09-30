@@ -1,4 +1,6 @@
-import { loadXizongSystem } from './xizong.mjs';
+import { buildXizongRevisionWitness } from './xizongRevisionWitness.mjs';
+import { attachSourceVisualBundles as attachCanonicalVisualBundles } from './xizongSourceVisualAssets.mjs';
+import { loadXizongSystem, loadXizongBlock } from './xizong.mjs';
 import { buildXizongProductionBlock } from './xizongProductionProjection.mjs';
 import { loadXizongLearningCues, learningCuesForBlock } from './xizongLearningCues.mjs';
 import { loadXizongPathways, pathwaysForBlock, loadReviewedRetentionConnections } from './xizongPathways.mjs';
@@ -22,7 +24,7 @@ function fail(code, detail = '') {
  */
 export function resolveXizongLearnerProjection(canonicalBlock, {
   enrichBlock = null,
-  attachVisualBundles = null
+  attachVisualBundles = attachCanonicalVisualBundles
 } = {}) {
   if (!canonicalBlock?.systemId || !canonicalBlock?.blockId) fail('CANONICAL_BLOCK_REQUIRED');
 
@@ -54,6 +56,7 @@ export function resolveXizongLearnerProjection(canonicalBlock, {
     extensionAssets,
     pathways
   });
+  learnerObject.revisionWitness = buildXizongRevisionWitness(learnerObject);
   const report = validateXizongLearnerObject(learnerObject);
 
   return {
@@ -65,4 +68,27 @@ export function resolveXizongLearnerProjection(canonicalBlock, {
     learnerObject,
     report
   };
+}
+
+// Identity-only Current requirements; never ship medical Core to a stage guard.
+export function loadXizongSystemCompletionRequirements(system, blockIds = null) {
+  return (system?.blocks || []).filter(ref => !blockIds || blockIds.includes(ref.blockId)).map((ref) => {
+    const block = loadXizongBlock(system.systemId, ref.slug);
+    const { learnerObject } = resolveXizongLearnerProjection(block);
+    return {
+      schema: 'kianos.xizong.learner_object.v1', objectType: 'BLOCK',
+      sourceHash: learnerObject.sourceHash,
+      sourceContact: learnerObject.sourceContact,
+      revisionWitness: learnerObject.revisionWitness,
+      identity: { blockId: learnerObject.identity.blockId },
+      logicGroups: learnerObject.logicGroups.map((group) => ({
+        identity: { logicGroupId: group.identity.logicGroupId },
+        kpIds: group.kpIds,
+        visualRequired: group.visualRequired === true,
+        visualSourceState: String(group.visualSourceState || '')
+      })),
+      kps: learnerObject.kps.map((kp) => ({ identity: { kpId: kp.identity.kpId, ordinal: kp.identity.ordinal } })),
+      evidenceVersion: [block.sourceHash, block.systemSourceHash, block.learningSupportSourceHash].join(':')
+    };
+  });
 }

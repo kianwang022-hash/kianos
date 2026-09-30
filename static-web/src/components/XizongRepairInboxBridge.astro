@@ -15,7 +15,7 @@ const allowedKpIds = (block?.kpRecords || []).map((kp) => kp.kpId).filter(Boolea
 <script>
   import {
     XIZONG_MEMORY_STORAGE_KEY,
-    normalizeXizongMemoryState,
+    readXizongMemoryStorage,
     setRepairTasks
   } from '../lib/xizongMemoryModel.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
@@ -90,7 +90,9 @@ const allowedKpIds = (block?.kpRecords || []).map((kp) => kp.kpId).filter(Boolea
         return false;
       }
 
-      const memory = normalizeXizongMemoryState(readJson(XIZONG_MEMORY_STORAGE_KEY, null));
+      let memory;
+      try { memory = readXizongMemoryStorage(localStorage); }
+      catch (error) { console.error(error); return false; }
       const incomingIds = new Set(incoming.map((task) => task.id));
       const preserved = (memory.repairTasks || []).filter((task) => !incomingIds.has(String(task?.id || '')));
       const next = setRepairTasks(memory, [...preserved, ...incoming]);

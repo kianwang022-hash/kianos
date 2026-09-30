@@ -1,6 +1,8 @@
+import { compatibleRevisionWitnesses } from './xizongContentRevision.mjs';
 import {
   XIZONG_MEMORY_SCHEMA,
   XIZONG_MEMORY_STORAGE_KEY,
+  readXizongMemoryStorage,
   normalizeXizongMemoryState,
   setRepairTasks
 } from './xizongMemoryModel.mjs';
@@ -34,7 +36,7 @@ function readMemoryForMutation(raw) {
   if (!value || typeof value !== 'object' || Array.isArray(value)) fail('MEMORY_STATE_INVALID');
   if (value.schema && value.schema !== XIZONG_MEMORY_SCHEMA) fail('MEMORY_SCHEMA_INVALID');
   if (value.repairTasks != null && !Array.isArray(value.repairTasks)) fail('MEMORY_REPAIR_TASKS_INVALID');
-  return normalizeXizongMemoryState(value);
+  return readXizongMemoryStorage({ getItem: () => raw });
 }
 
 function stable(value) {
@@ -145,6 +147,7 @@ export function buildXizongChatHandoff(packet, {
       source_hash: identity.sourceHash,
       evidence_version: xizongStudyPacketEvidenceVersion(packet)
     },
+    revision_witness: clone(packet.current?.revision_witness || null),
     resume: packetResume(packet),
     return_href: clean(returnHref, 500),
     allowed_kp_ids: identity.kpIds,
@@ -174,6 +177,7 @@ export function validateXizongChatHandoff(value) {
       source_hash: clean(origin.source_hash, 160),
       evidence_version: clean(origin.evidence_version, 80)
     },
+    revision_witness: clone(value.revision_witness || null),
     resume: {
       current_stage: clean(value.resume?.current_stage, 80),
       group_index: Math.max(0, Number(value.resume?.group_index || 0)),
@@ -296,7 +300,20 @@ function sameResume(a, b) {
     .every((key) => String(a?.[key] ?? '') === String(b?.[key] ?? ''));
 }
 
+function evidencePacketForHandoff(packet, handoff) {
+  const comparable = clone(packet);
+  if (comparable.current.source_hash !== handoff.origin.source_hash) {
+    comparable.current.source_hash = handoff.origin.source_hash;
+    comparable.learning_state.resume.source_locator = handoff.resume.source_locator;
+  }
+  return comparable;
+}
+
 export function validateXizongChatReturn(value, handoff, currentPacket) {
+  return validateReturn(value, handoff, currentPacket);
+}
+
+function validateReturn(value, handoff, currentPacket, appliedEvidenceVersion = null) {
   const h = validateXizongChatHandoff(handoff);
   const raw = parseXizongChatReturn(value);
   if (raw.schema !== XIZONG_CHAT_RETURN_SCHEMA) fail('SCHEMA_INVALID');
@@ -308,12 +325,15 @@ export function validateXizongChatReturn(value, handoff, currentPacket) {
   }
   if (!sameResume(raw.resume, h.resume)) fail('RESUME_MISMATCH');
 
-  const currentVersion = xizongStudyPacketEvidenceVersion(currentPacket);
   const currentIdentity = validateStudyPacketIdentity(currentPacket);
-  if (currentIdentity.objectId !== h.origin.object_id || currentIdentity.sourceHash !== h.origin.source_hash) {
-    fail('CURRENT_OBJECT_CHANGED');
-  }
-  if (currentVersion !== h.origin.evidence_version) fail('STALE_EVIDENCE');
+  if (currentIdentity.objectId !== h.origin.object_id) fail('CURRENT_OBJECT_CHANGED');
+  if (currentPacket.current?.revision_witness && !h.revision_witness) fail('CURRENT_OBJECT_CHANGED');
+  const artifactChanged = currentIdentity.sourceHash !== h.origin.source_hash;
+  const witnessChanged = h.revision_witness && !compatibleRevisionWitnesses(h.revision_witness, currentPacket.current?.revision_witness);
+  if (witnessChanged || (artifactChanged && !compatibleRevisionWitnesses(h.revision_witness, currentPacket.current?.revision_witness))) fail('CURRENT_OBJECT_CHANGED');
+  const comparable = evidencePacketForHandoff(currentPacket, h);
+  const evidenceVersion = xizongStudyPacketEvidenceVersion(comparable);
+  if (evidenceVersion !== h.origin.evidence_version && evidenceVersion !== appliedEvidenceVersion) fail('STALE_EVIDENCE');
 
   const decision = clean(raw.decision, 20).toUpperCase();
   if (!['NO_ACTION','REPAIR'].includes(decision)) fail('DECISION_INVALID');
@@ -364,13 +384,18 @@ export function applyXizongChatReturn(storage, input, {
   const handoffId = clean(raw.handoff_id, 160);
   if (!handoffId) fail('RETURN_HANDOFF_REQUIRED');
   const handoff = readXizongChatHandoff(storage, handoffId);
-  const valid = validateXizongChatReturn(raw, handoff, currentPacket);
   const receiptKey = receiptKeyFor(handoff.handoff_id);
   const existing = storage.getItem(receiptKey);
+  let receipt = null;
   if (existing != null) {
-    let receipt;
     try { receipt = JSON.parse(existing); } catch { fail('RECEIPT_CORRUPT', handoff.handoff_id); }
     if (receipt?.schema !== 'kianos.xizong.chat_return_receipt.v1') fail('RECEIPT_SCHEMA_INVALID');
+  }
+  // An exact receipt may recognize only the evidence version produced by its
+  // own transactional repair writes. Origin, Current semantics, payload and all
+  // other learner changes still pass the original validation. No replay writes.
+  const valid = validateReturn(raw, handoff, currentPacket, receipt?.applied_evidence_version || null);
+  if (receipt) {
     if (receipt.return_id !== valid.return_id) fail('RETURN_CONFLICT', handoff.handoff_id);
     if (JSON.stringify(receipt.return_packet) !== JSON.stringify(valid)) fail('RETURN_CONFLICT', handoff.handoff_id);
 
@@ -439,8 +464,15 @@ export function applyXizongChatReturn(storage, input, {
     nextMemory = setRepairTasks(memory, [...preserved, ...repairTasks]);
   }
 
-  const receipt = {
+  const appliedPacket = clone(currentPacket);
+  appliedPacket.memory ||= {};
+  appliedPacket.memory.active_repairs = [...new Set([
+    ...(currentPacket.memory?.active_repairs || []).map(row => row.id),
+    ...repairTasks.map(task => task.id)
+  ])].map(id => ({ id }));
+  receipt = {
     schema: 'kianos.xizong.chat_return_receipt.v1',
+    applied_evidence_version: xizongStudyPacketEvidenceVersion(evidencePacketForHandoff(appliedPacket, handoff)),
     handoff_id: handoff.handoff_id,
     return_id: valid.return_id,
     imported_at: importedAt,

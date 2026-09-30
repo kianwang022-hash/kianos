@@ -1,5 +1,5 @@
 ---
-import { loadXizongSystemCompletionRequirements } from '../lib/xizong.mjs';
+import { loadXizongSystemCompletionRequirements } from '../lib/xizongLearnerProjection.mjs';
 const { system, block = null } = Astro.props;
 const blockId = block?.blockId || '';
 const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean);
@@ -7,9 +7,10 @@ const prerequisiteIds = [...new Set([
   ...(block?.sourceContact?.hardReadinessBlockIds || []),
   ...(block?.sourceContact?.requiredPriorBlockIds || [])
 ].map(String).filter(Boolean))];
+const prerequisiteRequirements = block ? loadXizongSystemCompletionRequirements(system, prerequisiteIds) : [];
 const blockPrerequisites = prerequisiteIds.map((id) => {
   const row = (system?.blocks || []).find((candidate) => candidate.blockId === id);
-  return { blockId: id, label: String(row?.label || id), title: String(row?.title || '') };
+  return { blockId: id, label: String(row?.label || id), title: String(row?.title || ''), requirement: prerequisiteRequirements.find(requirement => requirement.identity.blockId === id) || null };
 });
 const blockingVisualGroups = (block?.logicGroups || [])
   .filter((group) => group?.visualRequired === true && /GAP/i.test(String(group?.visualSourceState || '')))
@@ -25,7 +26,8 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
 
 <script type="application/json" data-xizong-completion-input set:html={JSON.stringify({ blockId, blockIds, blockPrerequisites, blockingVisualGroups, requirements }).replace(/</g, String.fromCharCode(92) + 'u003c')}></script>
 <script>
-  import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';
+  import { sourceContactCompatible, revisionRequiresAction, needsFreshKpRecall } from '../lib/xizongContentRevision.mjs';
+  import { inspectXizongSystemCompletion, inspectXizongBlockCompletion } from '../lib/xizongMemoryAutoRelease.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
@@ -56,7 +58,7 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
     return {
       total,
       learned: ids.filter((id) => state?.learned?.[id] === true).length,
-      recalled: ids.filter((id) => ['unknown', 'fuzzy', 'known', 'mastered'].includes(state?.ratings?.[id])).length
+      recalled: ids.filter((id) => ['unknown', 'fuzzy', 'known', 'mastered'].includes(state?.ratings?.[id]) && !needsFreshKpRecall(state, id)).length
     };
   };
 
@@ -66,7 +68,7 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
     return (Array.isArray(blockingVisualGroups) ? blockingVisualGroups : []).filter((row) => {
       if (!row?.reviewableFromOriginalSource) return true;
       return !evidence.some((entry) =>
-        String(entry?.source_hash || '') === sourceHash
+        sourceContactCompatible(state, entry, sourceHash)
         && (Array.isArray(entry?.visual_reviewed_lg_ids) ? entry.visual_reviewed_lg_ids : []).map(String).includes(String(row.groupId || ''))
       );
     });
@@ -74,7 +76,7 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
 
   const missingPrerequisites = () => (Array.isArray(blockPrerequisites) ? blockPrerequisites : []).filter((row) => {
     const state = readBlockState(row?.blockId || '');
-    return state?.completed !== true || state?.sourceRevisionPending === true;
+    return !row.requirement || !inspectXizongBlockCompletion(row.requirement, state).complete;
   });
 
   // Free navigation among orientation/current-learning surfaces is preserved.

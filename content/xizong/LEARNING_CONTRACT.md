@@ -568,15 +568,18 @@ Only real learner use creates U evidence.
 
 ## 13｜Fresh-Chat / non-drift rule
 
-For learner-flow questions, read in this order only as needed:
+For actual learner continuation or progress questions, read native learner evidence, the subject Packet or Resume first. Missing evidence remains UNKNOWN; engineering Current never substitutes for learner progress.
+
+For learning-model interpretation, read only as needed:
 
 ```text
-content/xizong/CURRENT.md
-→ this LEARNING_CONTRACT.md
+this LEARNING_CONTRACT.md
 → study-policy.json when machine execution detail matters
 → exact System-specific Learning owner when local Source/LG differences matter
 → Visual / Engineering owners only for implementation
 ```
+
+Read `content/xizong/CURRENT.md` only for engineering intent or engineering-status questions.
 
 Do not reconstruct a different learner model from:
 

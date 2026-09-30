@@ -5,7 +5,7 @@ const { task = '' } = Astro.props;
 
 <script>
   import {prepareEnglishLexicalReturn} from "../lib/englishLexicalReturn.mjs";
-  import {atomicEnglishWrites} from "../lib/englishLearnerEvidence.mjs";
+  import {atomicEnglishWrites,readEnglishJson,readEnglishObjectiveTransferClaims} from "../lib/englishLearnerEvidence.mjs";
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
@@ -27,11 +27,7 @@ const { task = '' } = Astro.props;
     const random = globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
     return `${task}:${seed || 'claim'}:${random}`;
   };
-  const normalizeStore = (value = {}) => ({
-    version: 1,
-    claims: Array.isArray(value.claims) ? value.claims : []
-  });
-  const readStore = () => normalizeStore(readJson(STORE_KEY, {}));
+  const readStore = () => readEnglishObjectiveTransferClaims(localStorage);
   const activeClaimsFor = (task) => readStore().claims.filter((claim) => claim?.task === task && claim?.status === 'TRANSFER_PENDING');
   const normalizedStatement = (value) => String(value || '').trim().replace(/\s+/g, ' ').toLowerCase();
 
@@ -77,6 +73,21 @@ const { task = '' } = Astro.props;
       lexicalEvidence: thread.lexicalEvidence || null,
       repairEvidence: String(thread.repairEvidence || '').trim().slice(0, 1600)
     };
+  };
+
+  // Existing private records must be readable before a transaction replaces
+  // them. Return normalization cannot prove that saved data was not damaged.
+  const readableSavedThread = (thread) => {
+    if (!thread || typeof thread !== 'object' || Array.isArray(thread)) return false;
+    return typeof thread.threadId === 'string' && Boolean(thread.threadId.trim())
+      && VALID_SCOPES.has(thread.scope) && VALID_ROUTES.has(thread.route)
+      && Array.isArray(thread.itemIds)
+      && thread.itemIds.every(id => typeof id === 'string' && Boolean(id.trim()))
+      && typeof thread.summary === 'string'
+      && typeof thread.repairCompleted === 'boolean'
+      && typeof thread.repairEvidence === 'string'
+      && (thread.lexicalEvidence == null
+        || (typeof thread.lexicalEvidence === 'object' && !Array.isArray(thread.lexicalEvidence)));
   };
 
   document.querySelectorAll('[data-objective-transfer-runtime]').forEach((host) => {
@@ -148,7 +159,16 @@ const { task = '' } = Astro.props;
     const render = () => {
       const node = ensurePanel();
       const attempt = readAttempt();
-      const pending = activeClaimsFor(task);
+      let pending;
+      try { pending = activeClaimsFor(task); }
+      catch (error) {
+        node.hidden = false;
+        const status = node.querySelector('[data-transfer-status]');
+        if (status) status.textContent = '已有迁移记录无法读取，原文已保留；未创建或覆盖任何记录。';
+        const summary = node.querySelector('[data-transfer-summary]');
+        if (summary) summary.textContent = '已有学习记录无法读取，原文已保留。请先恢复记录，再应用新的复盘结果。';
+        return;
+      }
       const savedReturn = readJson(reviewKey, null);
       const handoff = readHandoff();
       const problems = problemCount(attempt);
@@ -193,24 +213,6 @@ const { task = '' } = Astro.props;
       }
     };
 
-    const persistPair = (nextStore, nextReview) => {
-      const oldStore = localStorage.getItem(STORE_KEY);
-      const oldReview = localStorage.getItem(reviewKey);
-      try {
-        localStorage.setItem(STORE_KEY, JSON.stringify(normalizeStore(nextStore)));
-        localStorage.setItem(reviewKey, JSON.stringify(nextReview));
-        return true;
-      } catch {
-        try {
-          if (oldStore === null) localStorage.removeItem(STORE_KEY);
-          else localStorage.setItem(STORE_KEY, oldStore);
-          if (oldReview === null) localStorage.removeItem(reviewKey);
-          else localStorage.setItem(reviewKey, oldReview);
-        } catch {}
-        return false;
-      }
-    };
-
     let applying=false;
     const applyReturn = async () => {
       if(applying)return;
@@ -238,7 +240,14 @@ const { task = '' } = Astro.props;
       }
       if(['threads','newClaims','claimUpdates'].some(k=>payload[k]!=null&&!Array.isArray(payload[k]))){if(status)status.textContent='返回包数组格式错误，未写入。';return;}
       const fingerprint=JSON.stringify(payload);
-      const previousReview=readJson(reviewKey,null);
+      let previousReview;
+      try {
+        previousReview=readEnglishJson(localStorage,reviewKey,null);
+        if(previousReview && (previousReview.schema!==RETURN_SCHEMA || previousReview.task!==task
+          || previousReview.objectId!==objectId || !Array.isArray(previousReview.threads)
+          || previousReview.threads.some(thread=>!readableSavedThread(thread))))throw new Error('ENGLISH_OBJECTIVE_REVIEW_UNREADABLE');
+      }
+      catch (error) { if(status)status.textContent='已有复盘记录无法读取，原文已保留；整包未写入。';return; }
       if(previousReview?.packetFingerprint===fingerprint && previousReview?.attemptSubmittedAt===attempt.submittedAt){if(status)status.textContent='这份返回已应用；没有重复写入。';return;}
       const originalAttempt=localStorage.getItem(attemptKey);
       const originalStore=localStorage.getItem(STORE_KEY);
@@ -254,7 +263,9 @@ const { task = '' } = Astro.props;
       const threads = (Array.isArray(payload.threads) ? payload.threads : [])
         .map(normalizeThread)
         .filter(Boolean);
-      const store = readStore();
+      let store;
+      try { store = readStore(); }
+      catch (error) { if(status)status.textContent='已有迁移记录无法读取，原文已保留；整包未写入。';return; }
       let claims = store.claims.map((claim) => ({ ...claim }));
       const importedAt = now();
       let acceptedUpdates = 0;
@@ -364,6 +375,7 @@ const { task = '' } = Astro.props;
       claims = [...inactiveClaims, ...activeClaims];
 
       const nextReview = {
+        ...previousReview,
         schema: RETURN_SCHEMA,
         task,
         objectId,
@@ -381,7 +393,7 @@ const { task = '' } = Astro.props;
       try {
         const prepared=await prepareEnglishLexicalReturn(localStorage,{task,objectId,attemptSubmittedAt:attempt.submittedAt,attemptBinding:attempt.firstEvidenceMeta||attempt.binding,threads:rawThreads});
         if(localStorage.getItem(attemptKey)!==originalAttempt || localStorage.getItem(STORE_KEY)!==originalStore || localStorage.getItem(reviewKey)!==originalReview || prepared.guards.some(([key,raw])=>localStorage.getItem(key)!==raw))throw new Error('ENGLISH_RETURN_STALE_DURING_VALIDATION');
-        atomicEnglishWrites(localStorage,[[STORE_KEY,{version:1,claims}],[reviewKey,nextReview],...prepared.changes]);
+        atomicEnglishWrites(localStorage,[[STORE_KEY,{...store,claims}],[reviewKey,nextReview],...prepared.changes]);
         if(prepared.events.length)window.dispatchEvent(new CustomEvent('kianos:lexical-evidence-changed'));
       } catch(error){if(status)status.textContent='整包未应用：'+String(error.message||error);return;}
       finally{applying=false;}

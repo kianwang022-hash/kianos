@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {spawn} from 'node:child_process';
+import {createRequire} from 'node:module';
+import {spawn,spawnSync} from 'node:child_process';
 import {chromium} from 'playwright';
 import {
   ENGLISH_GENERATED_DRILL_SCHEMA,
@@ -20,6 +21,7 @@ class MemoryStorage{
   removeItem(key){this.map.delete(String(key));}
 }
 
+const playwrightVersion=createRequire(import.meta.url)('playwright/package.json').version;
 const day='2026-09-20';
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-control-browser-'));
 const controlDir=path.join(temp,'control');
@@ -286,7 +288,7 @@ try{
   const nativeReady=async page=>{
     await page.bringToFront();
     try{await page.waitForFunction(()=>window.KianOSStudyTimer && document.documentElement.dataset.learnerWriter==='active');}
-    catch(e){throw new Error('NATIVE_BOOT:'+JSON.stringify(await page.evaluate(()=>({url:location.href,focus:document.hasFocus(),dataset:{...document.documentElement.dataset},keys:Object.keys(localStorage),text:document.body.innerText.slice(0,2200)})))+'\n'+log.slice(-1500),{cause:e});}
+    catch(e){throw new Error('NATIVE_BOOT:'+JSON.stringify(await page.evaluate(async()=>({url:location.href,focus:document.hasFocus(),visibility:document.visibilityState,locks:await navigator.locks.query(),dataset:{...document.documentElement.dataset},keys:Object.keys(localStorage),text:document.body.innerText.slice(0,2200)})))+'\n'+log.slice(-1500),{cause:e});}
   };
   const saveCheckpoint=page=>page.evaluate(async()=>{
     const m=await import('/src/lib/privateCheckpointRuntime.mjs');
@@ -342,17 +344,31 @@ try{
   // demonstrate native foreground/background Web Lock handoff.
   await browser.close();
   const focusProfile=path.join(temp,'focus-profile');
-  const chrome=process.env.KIANOS_TEST_CHROME || chromium.executablePath();
+  const chrome=process.env.KIANOS_TEST_CHROME || (process.platform==='linux' ? process.env.CHROME_BIN : '') || chromium.executablePath();
+  // Honor the runner's installed vendor browser; retain its native sandbox and
+  // fail closed for an explicitly configured missing/unusable executable.
+  const chromeVersion=spawnSync(chrome,['--version'],{encoding:'utf8',timeout:10000});
+  assert.equal(chromeVersion.status,0,'configured native-focus executable available: '+JSON.stringify({executable:chrome,error:chromeVersion.error?.message,stderr:chromeVersion.stderr}));
+  console.log('native-focus executable/version',chrome,String(chromeVersion.stdout||'').trim());
+  let focusStderr='',focusLaunchError='';
   focusProcess=spawn(chrome,[...(process.env.KIANOS_TEST_HEADED==='1'?[]:['--headless=new']),'--remote-debugging-port=0','--user-data-dir='+focusProfile,
     '--no-first-run','--no-default-browser-check','--disable-background-networking',
     '--disable-sync','--disable-extensions','--enable-automation','about:blank'],
-    {stdio:'ignore',detached:process.platform!=='win32'});
+    {stdio:['ignore','ignore','pipe'],detached:process.platform!=='win32'});
+  focusProcess.stderr?.on('data',chunk=>{focusStderr=(focusStderr+chunk.toString()).slice(-16384);});
+  focusProcess.once('error',error=>{focusLaunchError=error.message;});
   let focusPort=null;
   for(let i=0;i<100;i++){
     try{focusPort=Number(fs.readFileSync(path.join(focusProfile,'DevToolsActivePort'),'utf8').split('\n')[0]);if(focusPort)break;}catch{}
     await sleep(100);
   }
-  assert.ok(focusPort,'isolated native-focus browser starts');
+  assert.ok(focusPort,'isolated native-focus browser starts: '+JSON.stringify({
+    executable:chrome,platform:process.platform,exitCode:focusProcess.exitCode,
+    signalCode:focusProcess.signalCode,spawnError:focusLaunchError,stderr:focusStderr
+  }));
+  console.log('native-focus Playwright',playwrightVersion);
+  const [pwMajor,pwMinor]=playwrightVersion.split('.').map(Number);
+  assert.ok(pwMajor>1 || (pwMajor===1 && pwMinor>=60),'NATIVE_FOCUS_REQUIRES_PLAYWRIGHT_1_60_NO_DEFAULTS:'+playwrightVersion);
   browser=await chromium.connectOverCDP('http://127.0.0.1:'+focusPort,{noDefaults:true});
   const recovered=browser.contexts()[0];
   await recovered.addInitScript(({offset})=>{

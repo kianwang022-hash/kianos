@@ -1,3 +1,4 @@
+import { reconcileXizongRevision, revisionStatus } from './xizongContentRevision.mjs';
 import { inspectXizongBlockCompletion } from './xizongMemoryAutoRelease.mjs';
 import { XIZONG_LEARNER_OBJECT_SCHEMA } from './xizongMemoryRelease.mjs';
 import { isXizongQuestionAttemptCurrent } from './xizongQuestionAttempts.mjs';
@@ -835,10 +836,8 @@ function summarizeXizongSystemRecallForecast(storage, systemRows = []) {
       canonical_id: String(system?.canonical_id || ''),
       source_revision_blocked: sourceRevisionBlocked,
       source_revision_blocked_blocks: Number(system?.runtime_source_revision_blocked_blocks || 0),
-      pre_question_recall_observed: !sourceRevisionBlocked
-        && events.some((event) => event.role === 'PRE_QUESTION_OR_MANUAL'),
-      post_first_pass_recall_observed: !sourceRevisionBlocked
-        && events.some((event) => event.role === 'POST_FIRST_PASS'),
+      pre_question_recall_observed: events.some((event) => event.role === 'PRE_QUESTION_OR_MANUAL'),
+      post_first_pass_recall_observed: events.some((event) => event.role === 'POST_FIRST_PASS'),
       first_pass_round_ids: [...firstPassRoundIds],
       events,
       evidence_boundary: sourceRevisionBlocked
@@ -1089,40 +1088,8 @@ function clampIndex(value, length) {
 }
 
 
-function xizongStudyHasProgress(state) {
-  if (!record(state)) return false;
-  return state.completed === true
-    || state.blockRecallDone === true
-    || state.sourceContactDone === true
-    || Object.values(state.learned || {}).some(Boolean)
-    || Object.keys(state.ratings || {}).length > 0
-    || (Array.isArray(state.sourceContactEvidence) && state.sourceContactEvidence.length > 0)
-    || Object.keys(state.ttsxEvidence || {}).length > 0;
-}
-
-export function xizongStudySourceRevisionStatus(state, currentSourceHash) {
-  const current = String(currentSourceHash || '').trim();
-  if (!record(state) || !xizongStudyHasProgress(state)) {
-    return { status:'NO_PROGRESS', current_source_hash:current, evidence_source_hash:null, blocked:false };
-  }
-  if (state.sourceRevisionPending === true) {
-    return {
-      status:'REVISION_PENDING',
-      current_source_hash:current,
-      evidence_source_hash:String(state.sourceRevisionFromHash || state.sourceHash || '') || null,
-      blocked:true
-    };
-  }
-  const contact = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
-  const latestBound = [...contact].reverse().find((row) => String(row?.source_hash || '').trim());
-  const bound = String(state.sourceHash || latestBound?.source_hash || '').trim();
-  if (!bound) {
-    return { status:'SOURCE_IDENTITY_UNBOUND', current_source_hash:current, evidence_source_hash:null, blocked:true };
-  }
-  if (current && bound !== current) {
-    return { status:'STALE_SOURCE_REVISION', current_source_hash:current, evidence_source_hash:bound, blocked:true };
-  }
-  return { status:'CURRENT', current_source_hash:current, evidence_source_hash:bound, blocked:false };
+export function xizongStudySourceRevisionStatus(state, currentSourceHash, witness = null) {
+  return revisionStatus(state, currentSourceHash, witness);
 }
 
 export function buildXizongForecastProgress(storage, packetIndex = [], {
@@ -1181,12 +1148,13 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
     system.canonical_logic_groups += logicGroupCount;
 
     const objectId = String(row?.packetMeta?.objectId || `xizong:${blockId}`);
-    const state = readJson(storage, `kianos-xizong-astro-v2:${objectId}`, null);
-    if (!record(state)) continue;
+    const stored = readJson(storage, `kianos-xizong-astro-v2:${objectId}`, null);
+    if (!record(stored)) continue;
+    const state = reconcileXizongRevision(stored, row?.packetMeta?.revisionWitness);
 
     observedBlocks += 1;
     system.runtime_observed_blocks += 1;
-    const revision = xizongStudySourceRevisionStatus(state, row?.packetMeta?.sourceHash);
+    const revision = xizongStudySourceRevisionStatus(state, row?.packetMeta?.sourceHash, row?.packetMeta?.revisionWitness);
     if (revision.blocked) {
       sourceRevisionBlocked.push({
         system_id: systemId,
@@ -1197,7 +1165,6 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
         evidence_source_hash: revision.evidence_source_hash
       });
       system.runtime_source_revision_blocked_blocks += 1;
-      continue;
     }
     const learnedKp = Object.values(state.learned || {}).filter(Boolean).length;
     system.runtime_observed_learned_kp += learnedKp;
@@ -1222,7 +1189,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
       identity: { blockId },
       kps: kpRows.map((kp) => ({ identity: { kpId: kp.kpId } }))
     }, state);
-    if (completion.complete) {
+    if (completion.complete && !revision.blocked) {
       completedBlockIds.push(blockId);
       completedBlockRows.push({
         system_id: systemId,
@@ -1401,10 +1368,11 @@ export function buildXizongStudyPacketFromStorage({
   const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
 
   const storedStudy = readJson(storage, studyKey, null);
-  const study = record(studyState) ? studyState : storedStudy;
+  const rawStudy = record(studyState) ? studyState : storedStudy;
+  const study = record(rawStudy) && packetMeta.revisionWitness ? reconcileXizongRevision(rawStudy, packetMeta.revisionWitness) : rawStudy;
   if (!record(study)) return null;
 
-  const sourceRevision = xizongStudySourceRevisionStatus(study, packetMeta.sourceHash);
+  const sourceRevision = xizongStudySourceRevisionStatus(study, packetMeta.sourceHash, packetMeta.revisionWitness);
 
   const currentPersonal = readJson(storage, personalKey, {}) || {};
   const memory = normalizeXizongMemoryState(readJson(storage, XIZONG_MEMORY_STORAGE_KEY, null));
@@ -1437,6 +1405,7 @@ export function buildXizongStudyPacketFromStorage({
       : [],
     learned: Boolean(study?.learned?.[kp.kpId]),
     recall_rating: String(study?.ratings?.[kp.kpId] || ''),
+    current_claim: study.contentRevision?.pendingKp?.[kp.kpId] === 'UNCLASSIFIED_REVISION' || (!study.contentRevision && sourceRevision.blocked) ? 'UNKNOWN' : study.contentRevision?.pendingKp?.[kp.kpId] ? 'REVALIDATION_REQUIRED' : 'SUPPORTED',
     repeated_unstable_count: unstableCount(kp.kpId),
     note: String(currentPersonal?.kp?.[kp.kpId]?.comment || '')
   }));
@@ -1525,6 +1494,8 @@ export function buildXizongStudyPacketFromStorage({
       object_id: objectId,
       source_revision_status: sourceRevision.status,
       source_revision_blocked: sourceRevision.blocked,
+      revision_review: sourceRevision,
+      revision_witness: packetMeta.revisionWitness || null,
       evidence_source_hash: sourceRevision.evidence_source_hash,
       system_id: packetMeta.systemId || '',
       canonical_id: packetMeta.canonicalId || '',
@@ -1566,6 +1537,7 @@ export function buildXizongStudyPacketFromStorage({
       recall_ratings: clone(study.ratings || {}),
       block_recall_done: Boolean(study.blockRecallDone),
       block_complete: Boolean(study.completed),
+      current_block_complete: Boolean(study.completed) && !sourceRevision.blocked,
       system_recall: clone(systemRecall)
     },
     summary: {

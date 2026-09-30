@@ -618,11 +618,17 @@ async function systemRecallToPracticeJourney(page) {
   check(wuState?.results?.[reviewedTarget.questionId]?.status === 'uncertain',
     'b_repair_does_not_rewrite_original_question_attempt');
 
-  // Version mismatch must archive/clear stale System evidence rather than silently
-  // authorize Current decisions.
+  // Artifact metadata drift alone must preserve actual native observations.
+  // Question semantic invalidation is proved independently by the transitive suite.
   const marker = page.locator('[data-xizong-system-evidence-guard]');
   const currentVersion = await marker.getAttribute('data-evidence-version');
   check(Boolean(currentVersion), 'b_system_evidence_version_present');
+  const preservedEvidence = await page.evaluate(({ systemId, sweepKey }) => ({
+    sweep:localStorage.getItem(sweepKey),
+    recall:localStorage.getItem(`kianos:xizong:system-recall:${systemId}:v1`),
+    ledger:localStorage.getItem(`kianos:xizong:system-evidence:${systemId}:v1`),
+    repair:localStorage.getItem(`kianos:xizong:system-repair-return:${systemId}:v1`)
+  }), {systemId:SYSTEM_ID,sweepKey});
   await page.evaluate(({ systemId }) => {
     localStorage.setItem(`kianos:xizong:system-evidence-meta:${systemId}:v1`,
       JSON.stringify({ version:'INTENTIONALLY_STALE_VERSION', observed_at:new Date().toISOString() }));
@@ -638,24 +644,20 @@ async function systemRecallToPracticeJourney(page) {
     return {
       metaVersion:meta?.version || '',
       staleKeys,
-      sweepCurrentResultsEmpty: Object.keys(sweep?.results || {}).length === 0,
-      sweepHistoryPreserved: Array.isArray(sweep?.attemptHistory) && sweep.attemptHistory.length > 0,
-      sweepHistoryInvalidated: Array.isArray(sweep?.attemptHistory)
-        && sweep.attemptHistory.every((event) => event?.current_revision_valid === false),
-      repairStillPresent:localStorage.getItem(`kianos:xizong:system-repair-return:${systemId}:v1`) !== null
+      evidence:{
+        sweep:localStorage.getItem(sweepKey),
+        recall:localStorage.getItem(`kianos:xizong:system-recall:${systemId}:v1`),
+        ledger:localStorage.getItem(`kianos:xizong:system-evidence:${systemId}:v1`),
+        repair:localStorage.getItem(`kianos:xizong:system-repair-return:${systemId}:v1`)
+      }
     };
   }, { systemId:SYSTEM_ID, currentVersion, sweepKey });
   check(staleResult.metaVersion === currentVersion,
     'b_version_mismatch_rebinds_current_evidence_version');
-  check(staleResult.staleKeys.length >= 1,
-    'b_version_mismatch_archives_stale_system_evidence');
-  check(
-    staleResult.sweepCurrentResultsEmpty
-      && staleResult.sweepHistoryPreserved
-      && staleResult.sweepHistoryInvalidated
-      && staleResult.repairStillPresent === false,
-    'b_version_mismatch_invalidates_current_sweep_preserves_history_and_clears_repair_state'
-  );
+  check(staleResult.staleKeys.length === 0,
+    'b_artifact_metadata_drift_does_not_archive_active_evidence');
+  check(JSON.stringify(staleResult.evidence)===JSON.stringify(preservedEvidence),
+    'b_artifact_metadata_drift_preserves_exact_attempts_recall_ledger_and_repair');
 }
 
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
@@ -665,7 +667,7 @@ const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--p
 let browser;
 try {
   await waitForServer();
-  browser = await chromium.launch({ headless: true });
+  browser = await chromium.launch({ headless: true, executablePath:process.env.KIANOS_TEST_CHROME });
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
   const page = await context.newPage();
 

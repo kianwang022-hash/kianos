@@ -229,7 +229,12 @@ console.log(JSON.stringify({status:'PASS',checks:count,proof:'shared orchestrati
   const xizongSource=fs.readFileSync(new URL('../src/lib/xizongPrivateCheckpoint.mjs',import.meta.url),'utf8');
   const context=vm.createContext({console});
   const native=new vm.SourceTextModule(xizongSource,{context});
-  await native.link(()=>{throw new Error('Unexpected Xizong dependency');});
+  const revisionSource=fs.readFileSync(new URL('../src/lib/xizongContentRevision.mjs',import.meta.url),'utf8');
+  const revision=new vm.SourceTextModule(revisionSource,{context});
+  // Exercise the real pure witness comparator. No filesystem/network/storage
+  // globals or further imports are admitted into this native adapter context.
+  await revision.link(()=>{throw new Error('Revision helper must remain dependency-free');});
+  await native.link(spec=>{assert.equal(spec,'./xizongContentRevision.mjs');return revision;});
   await native.evaluate();
   const emptyPayload=()=>({entries:{}});
   const doubles={

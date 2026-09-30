@@ -1,5 +1,6 @@
 import { assertXizongFinalGroupTransition } from './xizongRuntimeGateTest.mjs';
 import fs from 'node:fs';
+import vm from 'node:vm';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadXizongBlock, loadXizongSystem } from '../src/lib/xizong.mjs';
@@ -137,7 +138,26 @@ has(blockUi, 'sourceHash: currentSourceHash', 'block-initial-source-binding');
 has(blockUi, 'const raw = localStorage.getItem(storageKey);', 'block-state-raw-read');
 has(blockUi, 'const saved = JSON.parse(raw);', 'block-state-validated-json-read');
 has(blockUi, "suspend('本机学习记录无法安全读取", 'block-state-read-fail-closed');
-has(blockUi, 'localStorage.setItem(storageKey, JSON.stringify(state))', 'block-state-write');
+matches(blockUi, /const serialized = JSON\.stringify\(state\);\s*localStorage\.setItem\(storageKey, serialized\);\s*lastPersistedState = serialized;/, 'block-state-write');
+matches(blockUi, /catch\s*\{\s*state = JSON\.parse\(lastPersistedState\);\s*suspend\(/, 'block-state-write-rollback');
+// Exercise the actual save owner, including a failed second write after success.
+const saveOwner = blockUi.slice(blockUi.indexOf('    const save = () => {'), blockUi.indexOf('    if (sourceRevisionMigrated && !save()) return;'));
+assert(saveOwner.includes('const save ='), 'block-save-owner-extraction');
+vm.runInNewContext(`
+  let state = {contentRevision:{}, kpIndex:0, groupIndex:0, learned:{}};
+  let lastPersistedState = JSON.stringify(state), persisted = null, failWrite = false, suspended = false;
+  const root = {dataset:{}}, storageKey='fixture', kpData=[{kpId:'stable-kp'}], groups=[{groupId:'stable-lg'}], revisionWitness={segmentOrder:['stable-source']};
+  const localStorage = {setItem(key,value){if(failWrite) throw Error('fixture quota'); persisted=value;}};
+  const suspend = () => {suspended=true; root.dataset.xizongStateBlocked='true';};
+  ${saveOwner}
+  assert(save() === true, 'actual-save-positive');
+  assert(JSON.parse(persisted).resumeKpId === 'stable-kp', 'actual-save-stable-resume');
+  const before = persisted;
+  state.learned['stable-kp']=true; failWrite=true;
+  assert(save() === false && suspended, 'actual-save-failure-suspends');
+  assert(persisted === before && JSON.stringify(state) === before, 'actual-save-failure-restores-evidence');
+  assert(save() === false, 'actual-save-blocked-retry');
+`, {assert});
 has(blockUi, "suspend('本次学习状态未能保存", 'block-state-write-fail-closed');
 has(blockUi, 'state.sourceContactDone = true;', 'source-contact-completion-write');
 has(blockUi, "setStage(queued ? 'ttsx_checkpoint' : 'kp_recall')", 'kp-recall-transition');
@@ -154,7 +174,7 @@ has(guardUi, "requested === 'block_recall'", 'premature-block-recall-stage-guard
 has(guardUi, "target.closest('[data-block-recall-complete]')", 'premature-block-recall-evidence-guard');
 has(guardUi, "target.closest('[data-start-recall]')", 'premature-system-recall-start-guard');
 has(guardUi, "target.closest('[data-reveal-recall]')", 'premature-system-recall-reveal-guard');
-has(guardUi, "import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';", 'system-completion-owner-import-missing');
+assert(/import \{[^}]*\binspectXizongSystemCompletion\b[^}]*\} from ['"]\.\.\/lib\/xizongMemoryAutoRelease\.mjs['"]/.test(guardUi), 'system-completion-owner-import-missing');
 has(guardUi, 'const completedBlocks = () => inspectXizongSystemCompletion(requirements, localStorage);', 'system-completion-owner-not-used');
 has(guardUi, 'const ready = check.complete;', 'premature-system-recall-exact-readiness-missing');
 has(guardUi, 'if (!ready)', 'premature-system-recall-guard');
@@ -168,7 +188,7 @@ has(practicePage, '<XizongSystemEvidenceGuard system={system} sweep={sweep} />',
 has(practiceUi, "let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);", 'holdout-not-empty-by-default');
 has(practiceUi, "if (data?.scopeKind === 'SYSTEM')", 'system-practice-release-gate-missing');
 has(practiceUi, "import { inspectXizongSystemCompletion, hasXizongSystemRecall } from '../lib/xizongMemoryAutoRelease.mjs';", 'system-practice-completion-owner-import-missing');
-has(practiceUi, "!inspectXizongSystemCompletion(data.completionRequirements, localStorage).complete || !hasXizongSystemRecall(localStorage, initialSystemId)", 'system-practice-does-not-fail-closed-before-recall');
+has(practiceUi, "!inspectXizongSystemCompletion(data.completionRequirements, localStorage).complete || !hasXizongSystemRecall(localStorage, initialSystemId, data.systemRevisionWitness)", 'system-practice-does-not-fail-closed-before-recall');
 has(practiceUi, 'data-question-uncertain', 'uncertain-control-missing');
 has(practiceUi, "currentUncertain ? 'uncertain' : 'stable'", 'correct-unsure-evidence-missing');
 has(practiceUi, "if (data.holdoutRequired !== false && !holdoutYears.length) { renderGate(); return; }", 'question-sweep-prerequisite-gate');

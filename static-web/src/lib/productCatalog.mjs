@@ -6,10 +6,16 @@ import { loadXizongSystemQuestionSweep } from './xizongQuestions.mjs';
 const cache = new Map();
 export function politicsProductCatalog(base = '/') {
   if (cache.has(base)) return cache.get(base);
-  const p = publicPracticeCatalog(buildPoliticsPracticeCatalogCurrent(base));
+  const native = buildPoliticsPracticeCatalogCurrent(base);
+  const p = publicPracticeCatalog(native);
+  // Identity only: the exact Unit Source used by practiceReviewPayload. Home
+  // needs this binding, but never the unseen Source prose or question answers.
+  const sourceOwners = new Map(native.units.map(unit => [unit.key,
+    (unit.source || []).map(row => row.id)]));
   const result = { revision: p.revision, subjects: p.subjects, chapters: p.chapters,
     units: p.units.map(({ key, id, title, subject, chapter, href, questionIds, returnConfig }) =>
-      ({ key, id, title, subject, chapter, href, questionIds, returnConfig })),
+      ({ key, id, title, subject, chapter, href, questionIds, returnConfig,
+        sourceOwnerIds: sourceOwners.get(key) || [] })),
     questions: p.questions.map(({ id, sourceId, number, subject, subjectLabel, chapter,
       chapterTitle, unitKey, unitId, unitTitle, unitHref, type, taskRevision }) =>
       ({ id, sourceId, number, subject, subjectLabel, chapter, chapterTitle, unitKey, unitId, unitTitle, unitHref, type, taskRevision })) };

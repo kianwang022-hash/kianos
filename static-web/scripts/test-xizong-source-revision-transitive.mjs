@@ -58,20 +58,20 @@ const staleState={
 };
 
 const status=xizongStudySourceRevisionStatus(staleState,'source-v2');
-assert.equal(status.status,'STALE_SOURCE_REVISION');
+assert.equal(status.status,'UNCLASSIFIED_REVISION');
 assert.equal(status.blocked,true);
 
 const staleStorage=new Storage({[stateKey]:JSON.stringify(staleState)});
 const staleForecast=buildXizongForecastProgress(staleStorage,packetIndex);
 assert.equal(staleForecast.runtime_evidence.completed_blocks,0);
 assert.equal(staleForecast.runtime_evidence.source_revision_blocked_count,1);
-assert.equal(staleForecast.runtime_evidence.source_revision_blocked_blocks[0].status,'STALE_SOURCE_REVISION');
+assert.equal(staleForecast.runtime_evidence.source_revision_blocked_blocks[0].status,'UNCLASSIFIED_REVISION');
 
 const stalePacket=buildXizongStudyPacketFromStorage({
   storage:staleStorage,packetMeta,kpRows,now:Date.parse('2026-09-21T00:00:00Z')
 });
 assert.equal(stalePacket.current.source_revision_blocked,true);
-assert.equal(stalePacket.current.source_revision_status,'STALE_SOURCE_REVISION');
+assert.equal(stalePacket.current.source_revision_status,'UNCLASSIFIED_REVISION');
 assert.equal(stalePacket.current.evidence_source_hash,'source-v1');
 
 const unboundState={
@@ -82,7 +82,7 @@ const unboundState={
   completed:true
 };
 const unbound=xizongStudySourceRevisionStatus(unboundState,'source-v2');
-assert.equal(unbound.status,'SOURCE_IDENTITY_UNBOUND');
+assert.equal(unbound.status,'UNCLASSIFIED_REVISION');
 assert.equal(unbound.blocked,true);
 const unboundForecast=buildXizongForecastProgress(
   new Storage({[stateKey]:JSON.stringify(unboundState)}),
@@ -111,28 +111,16 @@ assert.equal(currentForecast.runtime_evidence.source_revision_blocked_count,0);
 
 const pendingState={...currentState,sourceRevisionPending:true,sourceRevisionFromHash:'source-v1'};
 const pending=xizongStudySourceRevisionStatus(pendingState,'source-v2');
-assert.equal(pending.status,'REVISION_PENDING');
+assert.equal(pending.status,'UNCLASSIFIED_REVISION');
 assert.equal(pending.blocked,true);
 
-// Browser owner must reopen completion and require current Source contact + Block Recall.
-const component=fs.readFileSync(new URL('../src/components/XizongBlockV6.astro', import.meta.url),'utf8');
-assert.match(component,/sourceRevisionPending: true/);
-assert.match(component,/sourceRevisionReason: evidenceSourceHash \? 'SOURCE_REVISION_CHANGED' : 'SOURCE_IDENTITY_UNBOUND'/);
-assert.match(component,/completed: false/);
-assert.match(component,/blockRecallDone: false/);
-assert.match(component,/currentSourceContactCovered/);
-assert.match(component,/state\.sourceRevisionPending !== true/);
-assert.match(component,/Source 已更新 · 需重新确认/);
-
-console.log(JSON.stringify({
-  schema:'kianos.xizong.source-revision-transitive.v1',
-  stale_block_cannot_reduce_forecast:'PASS',
-  unbound_block_cannot_reduce_forecast:'PASS',
-  packet_surfaces_revision_status:'PASS',
-  current_bound_completion_still_counts:'PASS',
-  browser_reopens_completion_without_deleting_prior_recall:'PASS'
-},null,2));
-console.log('PASS Xizong Source revision transitive invalidation');
+// Policy oracle: historical observations remain usable as history even when
+// absent semantic baseline prevents current completion promotion.
+assert.equal(stalePacket.learning_state.recall_ratings['audit-b01-kp01'],'mastered');
+assert.equal(stalePacket.learning_state.block_complete,true);
+assert.equal(stalePacket.learning_state.current_block_complete,false);
+assert.equal(JSON.parse(staleStorage.getItem(stateKey)).completed,true);
+await import('./test-xizong-selective-revision.mjs');
 
 // D3 exercises complete native modules, not copied function excerpts.
 const { xizongQuestionSemanticRevision } = await import('../src/lib/xizongQuestions.mjs');
@@ -210,51 +198,5 @@ const currentBackup = structuredClone(backup);
 currentBackup.entries.find(row => row.key === metaKey).raw = '{"version":"new"}';
 assert.ok(prepareXizongPrivateCheckpointRestore(retiredStorage, currentBackup).changes.some(row => row.key === activeKey), 'same revision can legitimately repeat an archived-shaped value');
 
-// Execute the actual complete System guard client script with disposable storage.
-// This tests storage failure ordering; real route/browser acceptance is separate.
-const vm = await import('node:vm');
-const { normalizeXizongMemoryState, XIZONG_MEMORY_STORAGE_KEY } = await import('../src/lib/xizongMemoryModel.mjs');
-const guardSource = fs.readFileSync(new URL('../src/components/XizongSystemEvidenceGuard.astro', import.meta.url), 'utf8');
-const guardScript = guardSource.match(/<script>\s*([\s\S]*?)<\/script>/)[1].replace(/^\s*import[^;]+;/gm, '');
-for (const failure of ['archive', 'sweep', 'meta', null]) {
-  class Element { constructor(attrs = {}) { this.attrs = attrs; this.inert = false; } getAttribute(key) { return this.attrs[key]; } before() {} setAttribute() {} }
-  const marker = new Element({ 'data-system-id': 'audit', 'data-evidence-version': 'new' });
-  const root = new Element();
-  const sweepKey = 'kianos:xizong:system-question-sweep:audit:v1';
-  const initialSweep = JSON.stringify(recorded);
-  const local = new Storage({ [metaKey]: '{"version":"old"}', [activeKey]: '{"done":true}', [sweepKey]: initialSweep });
-  const set = local.setItem.bind(local);
-  local.setItem = (key, value) => {
-    if (failure === 'archive' && key.startsWith('kianos-xizong-stale-system-evidence:')) throw Error('quota');
-    if (failure === 'sweep' && key === sweepKey) throw Error('quota');
-    if (failure === 'meta' && key === metaKey) throw Error('quota');
-    set(key, value);
-  };
-  let reloads = 0, initialized;
-  vm.runInNewContext(guardScript, {
-    // This VM owns isolated storage. The real cross-page Web Lock is exercised
-    // by the separate browser regression, not claimed by this admission double.
-    learnerWriterReady: { then(fn) { initialized = Promise.resolve().then(fn); return initialized; } },
-    HTMLElement: Element, Element, localStorage: local, sessionStorage: new Storage(),
-    XIZONG_MEMORY_STORAGE_KEY, normalizeXizongMemoryState,
-    document: { querySelector: selector => selector.includes('data-xizong-system-evidence-guard') ? marker : selector.includes('data-xizong-system-exit') ? root : { textContent: '[]' }, querySelectorAll: () => [], createElement: () => new Element() },
-    window: { location: { reload: () => { reloads++; } } }, Date, JSON
-  });
-  await initialized;
-  if (failure) {
-    assert.equal(root.inert, true);
-    assert.equal(local.getItem(sweepKey), initialSweep);
-    assert.equal(JSON.parse(local.getItem(metaKey)).version, 'old');
-    assert.equal(local.getItem(activeKey), '{"done":true}');
-    assert.equal(reloads, 0);
-  } else {
-    assert.equal(reloads, 1);
-    assert.equal(local.getItem(activeKey), null);
-    const kept = JSON.parse(local.getItem(sweepKey));
-    assert.deepEqual(kept.results, {});
-    assert.equal(kept.attemptHistory.length, 1);
-    assert.equal(kept.attemptHistory[0].current_revision_valid, false);
-    assert.equal(JSON.parse(local.getItem(metaKey)).version, 'new');
-  }
-}
-console.log('PASS actual System guard client: archive/write failure retains active originals; success preserves exposure and retires current inference');
+// Complete Block/System guard clients, including the before-failure witness,
+// are exercised by test-xizong-selective-revision above.

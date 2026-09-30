@@ -12,6 +12,7 @@ import {
   buildXizongStudyPacketFromStorage
 } from './xizongStudyPacket.mjs';
 import { politicsMemoryDailyEvidence } from './politicsMemoryRuntime.mjs';
+import { inspectPoliticsReviewedReturns } from './politicsChatReturn.mjs';
 
 const record = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 
@@ -136,6 +137,8 @@ export function buildHomeDailyLearningPacket({
 
   if (politicsCatalog) {
     const snapshot = readPoliticsSnapshot(storage);
+    const reviewedReturns = inspectPoliticsReviewedReturns(storage, politicsCatalog, {day,now,snapshot});
+    if (reviewedReturns.errors.length) warnings.push('politics-return:POLITICS_REVIEWED_RETURN_UNREADABLE_PRESERVE_RAW');
     let memory = null;
     try {
       memory = politicsMemoryDailyEvidence(storage, { day, now, catalog: politicsMemoryCatalog });
@@ -147,6 +150,7 @@ export function buildHomeDailyLearningPacket({
       warnings.push('politics:POLITICS_EVIDENCE_UNREADABLE');
     } else if (
       politicsEvidencePresent(snapshot)
+      || reviewedReturns.items.length > 0 || reviewedReturns.errors.length > 0
       || memory?.summary?.recall_count > 0
       || memory?.current_plan
       || Number(memory?.history_profile?.summary?.current_candidates_with_evidence || 0) > 0
@@ -154,6 +158,7 @@ export function buildHomeDailyLearningPacket({
       try {
         const politics = politicsDailyEvidencePacket(politicsCatalog, snapshot, { day, now, base });
         politics.memory = memory;
+        politics.reviewed_returns = reviewedReturns;
         packet = attachDailySubjectPacket(packet, 'politics', politics);
         coverage.politics = 'attached';
       } catch (error) {

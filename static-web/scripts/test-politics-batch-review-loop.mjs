@@ -41,10 +41,17 @@ try {
   const unitUrl = new URL(target.unitHref, BASE);
   await page.goto(unitUrl.href, { waitUntil: 'domcontentloaded' });
   check(await page.locator('[data-politics-question]').count() === 0, 'learning_page_has_no_inline_xiao_attempt');
-  const entry = page.locator(`[data-practice-unit-entry="${target.unitKey}"]`);
+  // The accepted Cognitive/Chapter renderers own this link inside the exact
+  // native Unit. The old data-practice-unit-entry marker is no longer emitted.
+  const owner = page.locator(`[data-politics-unit][data-unit-id="${target.unitId}"]`);
+  check(await owner.count() === 1, 'learning_page_has_exact_unit_owner', target.unitId);
+  const entry = owner.locator('[data-workspace-practice-link], a.politicsPracticeEntryAction');
   await entry.waitFor({ state: 'attached' });
   const entryHref = await entry.getAttribute('href');
-  check(String(entryHref).includes('/politics/practice/?unit='), 'learning_page_routes_exact_unit_to_workbench', String(entryHref));
+  const entryUrl = new URL(entryHref, BASE);
+  check(entryUrl.origin === BASE && entryUrl.pathname === '/politics/practice/'
+    && entryUrl.searchParams.get('unit') === target.unitKey,
+    'learning_page_routes_exact_unit_to_workbench', String(entryHref));
 
   // Formal Workbench is the only attempt/backside owner.
   await page.goto(`${BASE}/politics/practice/?unit=${encodeURIComponent(target.unitKey)}&question=${encodeURIComponent(target.id)}`, { waitUntil: 'domcontentloaded' });

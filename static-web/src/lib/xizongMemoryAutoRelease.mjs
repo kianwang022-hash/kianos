@@ -1,3 +1,4 @@
+import { compatibleRevisionWitnesses, revisionRequiresAction, reconcileXizongRevision, revisionStatus, sourceContactCompatible, xizongSourceContactCovered, historicalXizongSourceContinuation } from './xizongContentRevision.mjs';
 import {
   addMarkedFragment,
   normalizeXizongMemoryState,
@@ -46,9 +47,13 @@ export function xizongStudyStorageKey(objectId) {
 
 export function inspectXizongBlockCompletion(learnerObject, studyStateInput) {
   const { blockId, ids } = learnerKpIds(learnerObject);
-  const study = studyStateInput && typeof studyStateInput === 'object' && !Array.isArray(studyStateInput)
+  const initialStudy = studyStateInput && typeof studyStateInput === 'object' && !Array.isArray(studyStateInput)
     ? studyStateInput
     : {};
+  const study = learnerObject.revisionWitness ? reconcileXizongRevision(initialStudy, learnerObject.revisionWitness) : initialStudy;
+  if (learnerObject.revisionWitness ? revisionRequiresAction(study) : learnerObject.sourceHash && revisionStatus(study, learnerObject.sourceHash).blocked) {
+    return { complete:false, reason:'CONTENT_REVALIDATION_REQUIRED', blockId, kpIds:ids };
+  }
   if (study.schema && study.schema !== 'kianos.xizong.block-state.v2') return { complete: false, reason: 'UNSUPPORTED_STUDY_SCHEMA', blockId, kpIds: ids };
   if (study.completed !== true) return { complete: false, reason: 'BLOCK_NOT_CONFIRMED', blockId, kpIds: ids };
   if (study.blockRecallDone !== true) return { complete: false, reason: 'BLOCK_RECALL_MISSING', blockId, kpIds: ids };
@@ -73,7 +78,7 @@ export function inspectXizongBlockCompletion(learnerObject, studyStateInput) {
       if (!groupId) return true;
       if (!/GAP.*NOT_MOUNTED/i.test(text(group?.visualSourceState))) return true;
       return !evidence.some((entry) =>
-        text(entry?.source_hash) === sourceHash
+        sourceContactCompatible(study, entry, sourceHash)
         && array(entry?.visual_reviewed_lg_ids).map(text).includes(groupId)
       );
     });
@@ -87,7 +92,18 @@ export function inspectXizongBlockCompletion(learnerObject, studyStateInput) {
       };
     }
   }
-  return { complete: true, reason: 'COMPLETE', blockId, kpIds: ids };
+  const revision = learnerObject.revisionWitness ? revisionStatus(study, learnerObject.sourceHash) : null;
+  // A legacy record without a Source baseline remains historical/UNKNOWN. It
+  // does not acquire fresh contact or mastery merely by visiting this consumer.
+  const historicalUnknown = historicalXizongSourceContinuation(study);
+  if (!historicalUnknown && study.sourceContactDone === false && learnerObject.sourceContact?.logicGroupIsAutomaticSourceChunk !== true) {
+    return { complete: false, reason: 'SOURCE_CONTACT_INCOMPLETE', blockId, kpIds: ids };
+  }
+  if (learnerObject.sourceContact && !historicalUnknown && !xizongSourceContactCovered(study, learnerObject)) {
+    return { complete: false, reason: 'SOURCE_COVERAGE_INCOMPLETE', blockId, kpIds: ids };
+  }
+  return { complete: true, reason: 'COMPLETE', blockId, kpIds: ids,
+    currentClaim: historicalUnknown ? 'UNKNOWN' : revision?.current_claim || 'UNKNOWN' };
 }
 
 function applyPrivateReleaseState(stateInput, descriptor, releasedAt = null) {
@@ -104,6 +120,40 @@ function applyPrivateReleaseState(stateInput, descriptor, releasedAt = null) {
   return state;
 }
 
+export function xizongPersonalMarkedFragments(learnerObject, personal, objectId) {
+  return array(learnerObject?.kps).flatMap((kp) => {
+    const kpId = text(kp?.identity?.kpId);
+    return array(personal?.kp?.[kpId]?.marks).filter((mark) =>
+      ['PROMPT', 'CORE'].includes(mark?.surface) && ['important', 'weak'].includes(mark?.kind)
+      && typeof mark?.text === 'string' && mark.text.trim()
+      && Number.isFinite(Date.parse(mark?.createdAt))
+    ).map((mark) => ({
+      id: `personal:${encodeURIComponent(objectId)}:${encodeURIComponent(JSON.stringify([kpId, mark.surface, mark.kind, mark.text, mark.createdAt]))}`,
+      cardId: `core:${kpId}`, kpId, surface: mark.surface, text: mark.text,
+      createdAt: mark.createdAt, personalObjectId: objectId, personalKind: mark.kind
+    }));
+  });
+}
+
+// Personal marks remain owned by the Block personal state. Reconcile only this
+// bridge's copies; never replay ratings, create review debt or remove Memory marks.
+export function syncXizongPersonalMarks(stateInput, learnerObject, personal, objectId) {
+  let state = normalizeXizongMemoryState(stateInput);
+  const desired = xizongPersonalMarkedFragments(learnerObject, personal, objectId)
+    .filter((mark) => state.cards[mark.cardId]?.family === 'CORE');
+  const desiredIds = new Set(desired.map((mark) => mark.id));
+  state.marks = { ...state.marks };
+  for (const [id, mark] of Object.entries(state.marks)) {
+    if (mark?.personalObjectId === objectId && !desiredIds.has(id)) delete state.marks[id];
+  }
+  for (const mark of desired) {
+    if (state.marks[mark.id]) continue;
+    state = addMarkedFragment(state, mark, mark.createdAt);
+    state.marks[mark.id] = { ...state.marks[mark.id], personalObjectId: objectId, personalKind: mark.personalKind };
+  }
+  return state;
+}
+
 export function releaseCompletedBlockToMemory(memoryStateInput, learnerObject, studyState, options = {}) {
   const memory = normalizeXizongMemoryState(memoryStateInput);
   const { blockId } = learnerKpIds(learnerObject);
@@ -111,12 +161,10 @@ export function releaseCompletedBlockToMemory(memoryStateInput, learnerObject, s
   const previousRelease = memory.releasedBlocks?.[blockId] || null;
 
   // A released Memory library is a copy of Current canonical content, not a frozen
-  // first-pass snapshot. If the owning Block revision changes, refresh the stable
-  // card identities immediately so old evidence stays historical while retention
-  // can surface CONTENT_CHANGED_AFTER_LAST_EVIDENCE. Do this independently of
-  // current Block completion: the evidence guard may already have archived/reset
-  // first-pass study state for the new revision.
-  if (previousRelease?.sourceHash && currentSourceHash && previousRelease.sourceHash !== currentSourceHash) {
+  // first-pass snapshot. Refresh stable card content, but let the per-card
+  // semantic witness decide whether admitted evidence requires revalidation.
+  if (previousRelease && ((currentSourceHash && previousRelease.sourceHash !== currentSourceHash)
+    || JSON.stringify(previousRelease.revisionWitness || null) !== JSON.stringify(learnerObject.revisionWitness || null))) {
     const refreshDescriptor = buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject, {
       sourceHash: currentSourceHash
     });
@@ -167,6 +215,14 @@ export function releaseCompletedBlockToMemory(memoryStateInput, learnerObject, s
   });
   const releasedAt = options?.releasedAt || null;
   let state = releaseBlockMemory(memory, descriptor, releasedAt);
+  // Availability from historical Block completion is allowed; missing native
+  // semantic baselines must not become a supported learner claim on first release.
+  const revision = learnerObject.revisionWitness
+    ? reconcileXizongRevision(studyState, learnerObject.revisionWitness).contentRevision : null;
+  for (const card of [...descriptor.coreCards, ...descriptor.precisionCards]) {
+    const reason = card.kpId ? revision?.pendingKp?.[card.kpId] : revision?.pendingGroup?.[card.logicGroupId];
+    if (reason === 'UNCLASSIFIED_REVISION') state.cards[card.id].revisionReview = reason;
+  }
   state = applyPrivateReleaseState(state, descriptor, releasedAt);
 
   return {
@@ -192,19 +248,17 @@ export function inspectXizongSystemCompletion(requirements, storage) {
     seen.add(id);
     try {
       const study = JSON.parse(storage.getItem(`kianos-xizong-astro-v2:xizong:${id}`) || 'null');
-      const rawMeta = storage.getItem(`kianos-xizong-evidence-meta-v1:xizong:${id}`);
-      if (rawMeta !== null) {
-        const meta = JSON.parse(rawMeta);
-        if (!meta || typeof meta.version !== 'string' || meta.version !== row.evidenceVersion) return false;
-      }
       return inspectXizongBlockCompletion(row, study).complete;
     } catch { return false; }
   });
   return { complete: checks.every(Boolean), completed: checks.filter(Boolean).length, total: rows.length };
 }
-export function hasXizongSystemRecall(storage, systemId) {
+export function hasXizongSystemRecall(storage, systemId, currentWitness = null) {
   try {
     const row = JSON.parse(storage.getItem(`kianos:xizong:system-recall:${systemId}:v1`) || 'null');
+    const meta = JSON.parse(storage.getItem(`kianos:xizong:system-evidence-meta:${systemId}:v1`) || 'null');
+    const witness = currentWitness || meta?.revisionWitness;
+    if (row?.revisionWitness && witness && !compatibleRevisionWitnesses(row.revisionWitness, witness)) return false;
     return typeof row?.completedAt === 'string' && Number.isFinite(Date.parse(row.completedAt));
   } catch { return false; }
 }

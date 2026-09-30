@@ -21,6 +21,7 @@ const packetMeta = {
   blockTitle: block?.title || '',
   sourcePath: block?.sourcePath || '',
   sourceHash: block?.sourceHash || '',
+  revisionWitness: block?.learnerObject?.revisionWitness,
   sourceContactMode: String(block?.sourceContact?.mode || ''),
   sourcePerGroup: block?.sourceContact?.logicGroupIsAutomaticSourceChunk === true,
   reserveItems,

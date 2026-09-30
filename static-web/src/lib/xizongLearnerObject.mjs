@@ -217,6 +217,7 @@ function buildKpObject(block, kp, learningCues, extensionAssets, pathways) {
       logicGroupId: text(kp?.groupId),
       groupLabel: text(kp?.groupLabel),
       kpId: text(kp?.kpId),
+      ordinal: Number(kp?.ordinal),
       displayId: text(kp?.displayId),
       title: text(kp?.title)
     },
