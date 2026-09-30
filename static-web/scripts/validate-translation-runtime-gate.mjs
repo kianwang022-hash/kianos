@@ -12,7 +12,8 @@ import {
   applyTranslationReturn,
   saveReconstruction,
   archiveTranslationAttempt,
-  pendingTransferTargets
+  pendingTransferTargets,
+  buildTranslationHandoff
 } from '../src/lib/translationRuntimeModel.mjs';
 
 const issues = [];
@@ -85,9 +86,11 @@ state.binding = { source_hash: 'translation-runtime-gate-v1', prior_exposure: 'u
 state.firstEvidenceMeta = { ...state.binding, timing_status: 'uncalibrated' };
 check(state.stage === 'diagnosis', 'Need Review must enter diagnosis');
 const workspace = read('../src/components/TranslationWorkspace.astro');
-check(workspace.includes('FIRST TRANSLATION · IMMUTABLE'), 'handoff must include immutable first translation');
-check(workspace.includes("state.referenceRevealed ? referenceText() : 'intentionally not revealed'"), 'handoff must exclude Reference unless learner explicitly revealed it');
-check(workspace.includes('PENDING TRANSFER TARGETS'), 'handoff must carry pending-target context only after the clean attempt stage');
+check(workspace.includes('buildTranslationHandoff({state'), 'workspace must delegate to the canonical Handoff builder');
+const handoff = buildTranslationHandoff({state,objectId:'task-a',paperId:'paper-a',title:'Synthetic',metadata:{snapshot:{}},sourceSegmentsText:()=> 'source',firstAttemptsText:()=> 'first',pendingText:()=> 'pending',referenceText:()=> 'PRIVATE_REFERENCE_SENTINEL'});
+check(handoff.includes('FIRST TRANSLATION · IMMUTABLE'), 'handoff must include immutable first translation');
+check(handoff.includes('intentionally not revealed') && !handoff.includes('PRIVATE_REFERENCE_SENTINEL'), 'handoff must exclude Reference unless learner explicitly revealed it');
+check(handoff.includes('PENDING TRANSFER TARGETS'), 'handoff must carry pending-target context only after the clean attempt stage');
 
 // 5) Malformed / wrong-task return must fail closed.
 expectThrows(

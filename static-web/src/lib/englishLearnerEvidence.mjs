@@ -1,4 +1,5 @@
 import { commitLearnerStorageChanges } from './browserLearnerWriter.mjs';
+import { studyDayAt } from './studyTimer.mjs';
 // English-owned evidence semantics over existing private storage; not a persistence service.
 import {assertEnglishExamTaskAccess,inspectEnglishExamSession,validateEnglishExamSession,englishExamScoreIsSuccessor} from './englishExamSession.mjs';
 export const ENGLISH_MATERIAL_EXPOSURE_KEY='kianos-english-material-exposure-v1';
@@ -12,6 +13,19 @@ export function readEnglishJson(storage,key,fallback=null){
  const raw=storage.getItem(key);if(raw==null)return clone(fallback);
  let value;try{value=JSON.parse(raw);}catch{throw new Error('ENGLISH_PRIVATE_DATA_UNREADABLE:'+key);}
  if(!value||typeof value!=='object'||Array.isArray(value))throw new Error('ENGLISH_PRIVATE_DATA_SHAPE_INVALID:'+key);
+ return value;
+}
+
+export function readEnglishObjectiveTransferClaims(storage){
+ const value=readEnglishJson(storage,'kianos-english-objective-transfer-claims-v1',{version:1,claims:[]});
+ if(value.version!==1||!Array.isArray(value.claims)||value.claims.some(claim=>
+   !record(claim)||typeof claim.claimId!=='string'||!claim.claimId.trim()
+   ||!['reading_a','cloze','reading_b'].includes(claim.task)
+   ||!['TRANSFER_PENDING','CLOSED'].includes(claim.status)
+   ||(Object.hasOwn(claim,'history')&&(!Array.isArray(claim.history)||claim.history.some(row=>!record(row)))))){
+  throw new Error('ENGLISH_OBJECTIVE_TRANSFER_STORE_UNREADABLE');
+ }
+ if(new Set(value.claims.map(claim=>claim.claimId)).size!==value.claims.length)throw new Error('ENGLISH_OBJECTIVE_TRANSFER_STORE_UNREADABLE');
  return value;
 }
 
@@ -173,7 +187,7 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
   if(!binding){
    const ledger=readEnglishExposure(storage);
    const instruction=readEnglishJson(storage,'kianos-english-session-instruction-v1');
-   const step=!instruction?.cleared_at&&instruction?.study_day===new Date(now).toLocaleDateString('en-CA')?instruction.steps?.find(s=>s.task===meta.task&&s.object_id===meta.object_id&&s.source_hash===meta.source_hash):null;
+   const step=!instruction?.cleared_at&&instruction?.study_day===studyDayAt(now)?instruction.steps?.find(s=>s.task===meta.task&&s.object_id===meta.object_id&&s.source_hash===meta.source_hash):null;
    const budget=Number(step?.params?.time_budget_seconds)||null;
    const evidenceMeta=meta.snapshot?.evidence&&typeof meta.snapshot.evidence==='object'?meta.snapshot.evidence:{};
    const assistanceContext=step?.params?.assistance_context&&typeof step.params.assistance_context==='object'?clone(step.params.assistance_context):null;
@@ -413,6 +427,7 @@ export function inspectEnglishObjectiveResults(value) {
 function nativeCheckpointValue(key,raw){
  const value=JSON.parse(raw);
  if(key===ENGLISH_MATERIAL_EXPOSURE_KEY)readEnglishExposure({getItem:()=>raw});
+ if(key==='kianos-english-objective-transfer-claims-v1')readEnglishObjectiveTransferClaims({getItem:()=>raw});
  const rowsKey=key==='kianos-english-objective-transfer-claims-v1'?'claims':['kianos-translation-transfer-v1','kianos-writing-evidence-v1'].includes(key)?'targets':null;
  if(rowsKey&&(!record(value)||!Array.isArray(value[rowsKey])))throw new Error('ENGLISH_NATIVE_LEDGER_UNREADABLE');
  if(key==='kianos-english-exam-session-v1'||key.startsWith('kianos-english-exam-archive-v1:'))return validateEnglishExamSession(value);

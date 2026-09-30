@@ -167,7 +167,8 @@ function validateEvidenceRuntimeWiring() {
       'repairEvidence',
       'allowedActive',
       'allowedReopen',
-      'persistPair',
+      'atomicEnglishWrites(localStorage',
+      'readEnglishObjectiveTransferClaims(localStorage)',
       'REOPENED',
       'node.hidden = !attempt?.submitted || problems === 0'
     ].forEach((needle) => requireText('ObjectiveTransferClaims', component, needle));
