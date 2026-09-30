@@ -343,16 +343,22 @@ try{
   await browser.close();
   const focusProfile=path.join(temp,'focus-profile');
   const chrome=process.env.KIANOS_TEST_CHROME || chromium.executablePath();
+  let focusStderr='',focusLaunchError='';
   focusProcess=spawn(chrome,[...(process.env.KIANOS_TEST_HEADED==='1'?[]:['--headless=new']),'--remote-debugging-port=0','--user-data-dir='+focusProfile,
     '--no-first-run','--no-default-browser-check','--disable-background-networking',
     '--disable-sync','--disable-extensions','--enable-automation','about:blank'],
-    {stdio:'ignore',detached:process.platform!=='win32'});
+    {stdio:['ignore','ignore','pipe'],detached:process.platform!=='win32'});
+  focusProcess.stderr?.on('data',chunk=>{focusStderr=(focusStderr+chunk.toString()).slice(-16384);});
+  focusProcess.once('error',error=>{focusLaunchError=error.message;});
   let focusPort=null;
   for(let i=0;i<100;i++){
     try{focusPort=Number(fs.readFileSync(path.join(focusProfile,'DevToolsActivePort'),'utf8').split('\n')[0]);if(focusPort)break;}catch{}
     await sleep(100);
   }
-  assert.ok(focusPort,'isolated native-focus browser starts');
+  assert.ok(focusPort,'isolated native-focus browser starts: '+JSON.stringify({
+    executable:chrome,platform:process.platform,exitCode:focusProcess.exitCode,
+    signalCode:focusProcess.signalCode,spawnError:focusLaunchError,stderr:focusStderr
+  }));
   browser=await chromium.connectOverCDP('http://127.0.0.1:'+focusPort,{noDefaults:true});
   const recovered=browser.contexts()[0];
   await recovered.addInitScript(({offset})=>{
