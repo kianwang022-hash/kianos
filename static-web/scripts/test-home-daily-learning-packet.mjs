@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import './test-politics-reviewed-return-packet.mjs';
 
 import { buildHomeDailyLearningPacket } from '../src/lib/dailyLearningPacketRuntime.mjs';
 import {

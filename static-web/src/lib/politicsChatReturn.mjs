@@ -235,6 +235,93 @@ export function readPoliticsChatReturn(storage, batchId = null) {
   catch { return null; }
 }
 
+// Read-only interpretation transport, derived from the already imported native
+// Returns. A newer day's NO_ACTION is not an acknowledgement of older meaning.
+// This carries no completion/mastery judgment and installs no learner task.
+export function inspectPoliticsReviewedReturns(storage, catalog, { day, now = Date.now(), snapshot = readPoliticsSnapshot(storage) } = {}) {
+  const items = [], errors = [], byBatch = new Map();
+  const keys = listStorageKeys(storage).filter(key => key.startsWith(POLITICS_CHAT_RETURN_PREFIX)
+    || key === POLITICS_CHAT_RETURN_LATEST_KEY)
+    .sort((a,b) => Number(a === POLITICS_CHAT_RETURN_LATEST_KEY) - Number(b === POLITICS_CHAT_RETURN_LATEST_KEY) || a.localeCompare(b));
+  for (const key of keys) {
+    let value;
+    try {
+      value = validateStoredChatReturn(JSON.parse(storage.getItem(key)));
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(value.study_day)
+        || !validIso(value.generated_at) || !validIso(value.applied_at)
+        || (value.diagnosis_summary !== null && typeof value.diagnosis_summary !== 'string')
+        || value.return_signature !== returnSignature(value)
+        || (key !== POLITICS_CHAT_RETURN_LATEST_KEY && key !== POLITICS_CHAT_RETURN_PREFIX + value.batch_id)) {
+        throw new Error('POLITICS_REVIEWED_RETURN_UNREADABLE');
+      }
+      normalizeScope(value.scope);
+      if (value.follow_ups.some(row => !record(row)
+        || typeof row.id !== 'string' || !ACTIONS.has(row.action)
+        || typeof row.reason !== 'string' || typeof row.instruction !== 'string'
+        || !Array.isArray(row.question_ids) || !row.question_ids.length
+        || row.question_ids.some(id => typeof id !== 'string')
+        || !Array.isArray(row.contexts) || row.contexts.some(context => !record(context)))) {
+        throw new Error('POLITICS_REVIEWED_RETURN_UNREADABLE');
+      }
+    } catch (error) {
+      errors.push({source_key:key,error:String(error?.message || error),raw_retained:true});
+      continue;
+    }
+    const previous = byBatch.get(value.batch_id);
+    if (previous) {
+      if (previous.signature !== value.return_signature) {
+        previous.row.basis_status = 'UNKNOWN'; previous.row.basis_error = 'POLITICS_REVIEWED_RETURN_CONFLICT';
+        errors.push({source_key:key,error:previous.row.basis_error,raw_retained:true});
+      }
+      continue;
+    }
+    const row = {
+      source_key:key, batch_id:value.batch_id, study_day:value.study_day,
+      generated_at:value.generated_at, applied_at:value.applied_at,
+      catalog_revision:value.catalog_revision,
+      interpretation_owner:'TYPED_SUBJECT_CHAT_RETURN',
+      verdict:value.verdict, diagnosis_summary:value.diagnosis_summary,
+      follow_ups:clone(value.follow_ups), basis_status:'UNKNOWN', basis_error:null,
+      execution_eligible:false, completion:'NOT_INFERRED', consumer_reconciliation:'NOT_OBSERVED'
+    };
+    try {
+      if (snapshot.errors.length) throw new Error('POLITICS_REVIEWED_RETURN_NATIVE_UNREADABLE');
+      if (!day || value.study_day > day) throw new Error('POLITICS_REVIEWED_RETURN_FUTURE_DAY');
+      if (Date.parse(value.generated_at) > now || Date.parse(value.applied_at) > now) throw new Error('POLITICS_REVIEWED_RETURN_FUTURE_TIME');
+      if (value.catalog_revision !== catalog?.revision) {
+        row.basis_status = 'STALE'; throw new Error('POLITICS_REVIEWED_RETURN_CATALOG_CHANGED');
+      }
+      const current = politicsReviewPacket(catalog, snapshot, {
+        day:value.study_day, ...normalizeScope(value.scope)
+      });
+      const revalidated = validatePoliticsChatReturn(value, current);
+      if (revalidated.return_signature !== value.return_signature) {
+        row.basis_status = 'STALE'; throw new Error('POLITICS_REVIEWED_RETURN_CONTEXT_CHANGED');
+      }
+      const questions = new Map((catalog?.questions || []).map(q => [q.id,q]));
+      if (!current.first_attempts?.length) throw new Error('POLITICS_REVIEWED_RETURN_SOURCE_WITNESS_UNKNOWN');
+      for (const first of current.first_attempts || []) {
+        const owner = questions.get(first.question_id), observed = first.attempt?.source_context;
+        if (!owner?.taskRevision || !owner?.sourceId || !observed?.task_revision || !observed?.source_id
+          || !Array.isArray(observed.source_owner_ids) || !observed.source_owner_ids.length) {
+          throw new Error('POLITICS_REVIEWED_RETURN_SOURCE_WITNESS_UNKNOWN');
+        }
+        if (owner.taskRevision !== observed.task_revision || owner.sourceId !== observed.source_id) {
+          row.basis_status = 'STALE'; throw new Error('POLITICS_REVIEWED_RETURN_SOURCE_CHANGED');
+        }
+      }
+      row.basis_status = 'CURRENT_NATIVE_BINDING';
+    } catch (error) {
+      row.basis_error = String(error?.message || error);
+      if (/STALE_BATCH|CATALOG_MISMATCH|QUESTION_OUT_OF_SCOPE/.test(row.basis_error)) row.basis_status = 'STALE';
+    }
+    byBatch.set(value.batch_id,{row,signature:value.return_signature});items.push(row);
+  }
+  items.sort((a,b) => String(a.applied_at).localeCompare(String(b.applied_at)) || a.batch_id.localeCompare(b.batch_id));
+  return {status:errors.length?'UNKNOWN':items.length?'available':'missing',items,errors,
+    policy:'Dated subject interpretation; reconcile substantive meaning and current native Source before a new decision. No automatic task, mastery or consumption acknowledgement.'};
+}
+
 export function applyPoliticsChatReturn(storage, catalog, input, {
   now = Date.now(),
   expectedDay = new Date(now).toLocaleDateString('en-CA')
