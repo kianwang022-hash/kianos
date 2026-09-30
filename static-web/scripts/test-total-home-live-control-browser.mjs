@@ -43,7 +43,19 @@ const studyDay=new Intl.DateTimeFormat('en-CA',{
 const now=Date.now();
 let priorNextHref=null;
 const nativeReady=page=>page.waitForFunction(()=>window.KianOSStudyTimer && document.documentElement.dataset.learnerWriter==='active');
-const saveCheckpoint=page=>page.evaluate(async()=>{const m=await import('/src/lib/privateCheckpointRuntime.mjs');const r=await m.saveSharedControlToPrivate(localStorage);if(r.status!=='saved')throw new Error('TEST_NATIVE_CHECKPOINT_NOT_SAVED:'+JSON.stringify(r));});
+const saveCheckpoint=page=>page.evaluate(async()=>{
+  const m=await import('/src/lib/privateCheckpointRuntime.mjs');
+  for(let i=0;i<3;i++){
+    try{
+      const r=await m.saveSharedControlToPrivate(localStorage);
+      if(r.status!=='saved')throw new Error('TEST_NATIVE_CHECKPOINT_NOT_SAVED:'+JSON.stringify(r));
+      return;
+    }catch(error){
+      if(!/PRIVATE_CHECKPOINT_(STALE_WRITE|CONFLICT)/.test(String(error?.message||error))||i===2)throw error;
+      await new Promise(resolve=>setTimeout(resolve,100));
+    }
+  }
+});
 try{
   await ready();
   browser=await chromium.launch({headless:true});
@@ -267,6 +279,139 @@ try{
     check(href==='/politics/memory/','politics_live_command_updates_home_directly',href||'');
     await page.screenshot({path:path.join(out,'03-live-politics.png'),fullPage:true});
     await saveCheckpoint(page);
+    await ctx.close();
+  }
+
+  // Xizong continuity: exact native KP -> Packet -> typed Return -> control receipt -> exact Resume.
+  {
+    const ctx=await browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
+    const page=await ctx.newPage();
+    const route='/xizong/circulation/b01/';
+    await page.goto(BASE+route,{waitUntil:'domcontentloaded'});
+    await nativeReady(page);
+    await page.evaluate(()=>{localStorage.clear();sessionStorage.clear();});
+    await page.reload({waitUntil:'domcontentloaded'});
+    await nativeReady(page);
+
+    const root=page.locator('[data-xizong-v6-block]');
+    await root.locator('[data-stage-next="logic_group"]').click();
+    await page.waitForFunction(()=>document.querySelector('[data-study-stage="source_contact"]')?.hidden===false);
+    for(let i=0;i<14;i++){
+      const next=root.locator('[data-companion-next="source_contact"]');
+      check(!(await next.isDisabled()),'xizong_continuity_can_advance_to_kp15',String(i));
+      await next.click();
+    }
+    await page.waitForFunction(()=>document.querySelector('[data-learner-kp-companion="source_contact"]')?.getAttribute('data-kp-id')==='circulation-b01-kp15');
+
+    const seeded=await page.evaluate(async()=>{
+      const root=document.querySelector('[data-xizong-v6-block]');
+      const objectId=root?.getAttribute('data-study-object')||'';
+      const studyKey='kianos-xizong-astro-v2:'+objectId;
+      const state=JSON.parse(localStorage.getItem(studyKey)||'{}');
+      const kpId='circulation-b01-kp15';
+      const memory=await import('/src/lib/xizongMemoryModel.mjs');
+      const nextMemory=memory.setPersonalPrompt(memory.createXizongMemoryState(),kpId,'个人主提示应保留');
+      localStorage.setItem(memory.XIZONG_MEMORY_STORAGE_KEY,JSON.stringify(nextMemory));
+      localStorage.setItem('kianos-xizong-personal-v1:'+objectId,JSON.stringify({kp:{[kpId]:{questionStatus:'',comment:'个人备注应保留'}}}));
+      const packet=await new Promise((resolve,reject)=>{
+        const timer=setTimeout(()=>reject(new Error('XIZONG_PACKET_EVENT_TIMEOUT')),2000);
+        root.dispatchEvent(new CustomEvent('kianos:xizong-request-study-packet',{detail:{accept:value=>{clearTimeout(timer);resolve(value);}}}));
+      });
+      const chat=await import('/src/lib/xizongChatReturn.mjs');
+      const handoff=chat.writeXizongChatHandoff(localStorage,chat.buildXizongChatHandoff(packet,{
+        returnHref:location.pathname,makeId:()=> 'live-xizong-continuity-handoff-001'
+      }));
+      return {
+        objectId,kpId,studyKey,before:state,packet,
+        returnPacket:{
+          schema:chat.XIZONG_CHAT_RETURN_SCHEMA,
+          return_id:'live-xizong-continuity-return-001',
+          handoff_id:handoff.handoff_id,
+          origin:handoff.origin,
+          resume:handoff.resume,
+          decision:'REPAIR',
+          repairs:[{kp_id:kpId,reason:'隔离连续性验证',action:'只建立一个最小 Repair 后回原 KP',priority:'normal',source_question_ids:[]}],
+          note:'continuity acceptance fixture'
+        }
+      };
+    });
+    check(seeded.before.kpIndex===14,'xizong_continuity_native_kp15_before_return');
+    check(Object.values(seeded.before.learned||{}).filter(Boolean).length===0,'xizong_continuity_navigation_creates_no_learning');
+    check(seeded.packet.learning_state.resume.kp_id===seeded.kpId,'xizong_continuity_packet_exact_resume');
+
+    // Simulate Chat Return arriving away from the Block: Control stages the typed
+    // return, then the native Block consumes it on re-entry using its current Packet.
+    await page.goto(BASE+'/',{waitUntil:'domcontentloaded'});
+    await nativeReady(page);
+    const generatedAt=new Date(now-5000).toISOString();
+    const command={
+      schema:'kianos.control-browser-command.v1',
+      command_id:'live-xizong-continuity-command-001',command_hash:'live-xizong-continuity',
+      study_day:studyDay,generated_at:generatedAt,expires_at:null,
+      operations:[{kind:'xizong.chat_return',payload:seeded.returnPacket}]
+    };
+    const applied=await page.evaluate(async({command,studyDay,now})=>{
+      const mod=await import('/src/lib/privateControlRuntime.mjs');
+      return mod.applyPrivateControlCommand(localStorage,command,{day:studyDay,now});
+    },{command,studyDay,now});
+    check(applied.status==='applied','xizong_continuity_control_applied',applied.status||'');
+    const staged=await page.evaluate(async()=>{
+      const p=await import('/src/lib/xizongPendingChatReturn.mjs');
+      const s=p.readXizongPendingChatReturnState(localStorage);
+      return {pending:Object.keys(s.pending_by_object||{}).length,control:JSON.parse(localStorage.getItem('kianos-control-receipt-v1')||'null')};
+    });
+    check(staged.pending===1,'xizong_continuity_return_staged_off_block',String(staged.pending));
+    check(staged.control?.command_id===command.command_id&&staged.control?.status==='APPLIED','xizong_continuity_matching_control_receipt');
+
+    await page.goto(BASE+route,{waitUntil:'domcontentloaded'});
+    await nativeReady(page);
+    await page.waitForTimeout(500);
+    await nativeReady(page);
+    await page.waitForFunction(()=>{
+      try{
+        const state=JSON.parse(localStorage.getItem('kianos:xizong:pending-chat-return:v1')||'null');
+        return state?.last_receipt?.status==='APPLIED'&&Object.keys(state.pending_by_object||{}).length===0;
+      }catch{return false;}
+    });
+
+    const after=await page.evaluate(({objectId,kpId,studyKey,commandId})=>{
+      const study=JSON.parse(localStorage.getItem(studyKey)||'{}');
+      const memory=JSON.parse(localStorage.getItem('kianos-xizong-memory-v1')||'{}');
+      const personal=JSON.parse(localStorage.getItem('kianos-xizong-personal-v1:'+objectId)||'{}');
+      const pending=JSON.parse(localStorage.getItem('kianos:xizong:pending-chat-return:v1')||'{}');
+      const control=JSON.parse(localStorage.getItem('kianos-control-receipt-v1')||'null');
+      const inbox=JSON.parse(localStorage.getItem('kianos-xizong-repair-inbox-v1:'+objectId)||'null');
+      return {
+        study,
+        prompt:memory.promptOverrides?.[kpId]||'',
+        comment:personal.kp?.[kpId]?.comment||'',
+        repairTasks:(memory.repairTasks||[]).filter(row=>row?.origin==='BLOCK_CHAT_RETURN'&&row?.kpId===kpId),
+        plans:inbox?.plans||[],
+        pending,
+        control,
+        currentText:document.querySelector('[data-study-group-rail] .xzLogicGroupKp.current')?.textContent?.trim()||'',
+        commandMatches:control?.command_id===commandId
+      };
+    },{objectId:seeded.objectId,kpId:seeded.kpId,studyKey:seeded.studyKey,commandId:command.command_id});
+    check(after.study.kpIndex===14,'xizong_continuity_exact_kp_resume_after_return',String(after.study.kpIndex));
+    check(Object.values(after.study.learned||{}).filter(Boolean).length===0,'xizong_continuity_return_does_not_manufacture_learned');
+    check(Object.values(after.study.ratings||{}).filter(Boolean).length===0,'xizong_continuity_return_does_not_manufacture_recall');
+    check(after.study.completed!==true,'xizong_continuity_return_does_not_complete_block');
+    check(after.prompt==='个人主提示应保留','xizong_continuity_personal_prompt_preserved');
+    check(after.comment==='个人备注应保留','xizong_continuity_personal_note_preserved');
+    check(after.repairTasks.length===1&&after.plans.length===0,'xizong_continuity_one_repair_migrated_and_inbox_cleared',JSON.stringify({repairTasks:after.repairTasks.length,plans:after.plans.length}));
+    check(after.pending?.last_receipt?.status==='APPLIED'&&after.pending?.last_receipt?.repair_kp_ids?.[0]===seeded.kpId,'xizong_continuity_native_return_receipt');
+    check(after.commandMatches,'xizong_continuity_control_receipt_still_matches');
+    check(/KP15/.test(after.currentText),'xizong_continuity_visible_resume_is_kp15',after.currentText);
+
+    const repeated=await page.evaluate(async({command,studyDay,now})=>{
+      const mod=await import('/src/lib/privateControlRuntime.mjs');
+      const result=await mod.applyPrivateControlCommand(localStorage,command,{day:studyDay,now});
+      const memory=JSON.parse(localStorage.getItem('kianos-xizong-memory-v1')||'{}');
+      return {status:result.status,repairCount:(memory.repairTasks||[]).filter(row=>row?.origin==='BLOCK_CHAT_RETURN'&&row?.kpId==='circulation-b01-kp15').length};
+    },{command,studyDay,now:now+1000});
+    check(repeated.status==='idempotent','xizong_continuity_duplicate_return_is_idempotent',repeated.status||'');
+    check(repeated.repairCount===1,'xizong_continuity_duplicate_return_does_not_duplicate_repair',String(repeated.repairCount));
     await ctx.close();
   }
 
