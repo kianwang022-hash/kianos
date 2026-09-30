@@ -52,3 +52,36 @@
 - 按真实目录清点剩余文件，逐批读取并补实际blob覆盖；相关代码与验收脚本分别标明trace和执行证据
 
 当前尚未完成全量理解。先前报告的具体断点仍回#1113/#1111；本文件不复制第二份可变缺陷清单。
+
+## 第二批完整阅读（2026-09-30 14:53 UTC）
+
+| 原文件 | blob | 状态 |
+|---|---|---|
+| [EXAM_ORCHESTRATOR_CONTRACT.md](https://github.com/kianwang022-hash/kianos/blob/1bbd920a34b93b35d56cc38734303641e40f42d9/EXAM_ORCHESTRATOR_CONTRACT.md) | 9ac48cfb2a16cd35ad187c712b9ea25dcd25930a | READ |
+| [EXAM_ORCHESTRATOR_CURRENT.json](https://github.com/kianwang022-hash/kianos/blob/main/EXAM_ORCHESTRATOR_CURRENT.json) | 7a808c84fd79451fb609bc68cc8ad1a1194d41d0 | READ |
+| [CHAT_ROUTER.md](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/CHAT_ROUTER.md) | eb25535e4181cd0e3dc678b84570105387a32312 | READ |
+| [XIZONG.md](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/XIZONG.md) | 0fa4ce92c4068aff4f558a8f82f93b7cb3ca6a49 | READ |
+| [ENGLISH.md](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/ENGLISH.md) | ed1d1f632a88e809efd4656c9f675946877f24f0 | READ |
+| [POLITICS.md](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/POLITICS.md) | 25896455c9caa93649f5309dd8b8783393d54c6a | READ |
+| [STEWARD.md](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/STEWARD.md) | 8fb26459e7353864b5e59f663dd18eb7bcdaf324 | READ |
+| [REVIEW.md](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/REVIEW.md) | e432f2b29f8786fa44be8376ceb2e574133da60a | READ |
+| [DAILY_SUBJECT_CHAT_CONTRACT.md](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/DAILY_SUBJECT_CHAT_CONTRACT.md) | 98e5d26cee88dbe5ee7b64b69e9a479b875898f1 | READ |
+| [README.md](https://github.com/kianwang022-hash/kian-personal-os/blob/main/runtime/kianos-control/README.md) | 70b9bac733e53f2760282dfdeccdcbbfd168cb21 | READ |
+| [PRESENTATION_CONTRACT.md](https://github.com/kianwang022-hash/kianos/blob/1bbd920a34b93b35d56cc38734303641e40f42d9/static-web/PRESENTATION_CONTRACT.md) | b8a1858d23771209529d66cb58e4350546ec84c4 | READ |
+| [KIAN_UI_PREFERENCES.md](https://github.com/kianwang022-hash/kianos/blob/1bbd920a34b93b35d56cc38734303641e40f42d9/static-web/KIAN_UI_PREFERENCES.md) | 5d81981af452c79c0cd8f75cb53d02597a6e9158 | READ |
+| [LEARNER_OBJECT_CONTRACT.md](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/content/xizong/LEARNER_OBJECT_CONTRACT.md) | 85cae51220d6e5a14478206031e9baa58e81ea66 | READ |
+| [PROJECTION_CONTRACT.md](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/content/xizong/projection/PROJECTION_CONTRACT.md) | c52306f7bf087472ccb48ffa29502ba0d21420f1 | READ |
+| [XIZONG_PRODUCT_BRIEF.md](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/static-web/XIZONG_PRODUCT_BRIEF.md) | 8d933ac5664099e73c2284014f8599760fcb1e6f | READ |
+| [XIZONG_UI_REVIEW_PROTOCOL.md](https://github.com/kianwang022-hash/kianos/blob/49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa/static-web/XIZONG_UI_REVIEW_PROTOCOL.md) | 01fe5502dfe7370bf5fa67f7be87669ebd3e95b4 | READ |
+
+Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e572d07b6c4d96；不宣称该文件全文已读。
+
+本批恢复的关键接口：
+- 考研总调度由Chat作判断，网页验证/执行/呈现；同日计划依真实Packet basis，缺失时允许建议/native Resume但不能编造可执行计划。
+- 三科学习角色各自解释native evidence；Steward负责安排而不代替科内教学；Review消费实质更正，不能把最新NONE标签当成旧错误已被吸收。
+- subject synthesis是有来源的解释/更正而非第二学习数据库；跨日找最近有效记录，不机械退到昨天或要求用户重报。
+- 控制通道的提交、APPLIED/IDEMPOTENT的ID+hash匹配、实际效果readback、用户完成是四个不同事实。现有支持的wire不是所有Return都已自动接通。
+- Visual沿已接受布局维护；内容全量消费仍按cognitive job和timing，不能把每字段铺成卡片。KP Context许可不覆盖POST_REVEAL；Block/System Front更严格。
+- XizongUI必须读完整受影响学习链后再局部优化，使用KEEP/OPTIMIZE/RESTORE_FROM_CURRENT/DEMOTE；不因更漂亮而重建流程。
+
+待核的文档一致性观察（不是已证实产品故障）：Orchestrator §9示例仍写10/21，而正式HardGate与derived Current为10/20；XizongProductBrief仍有“schema/renderer等open”的描述，需对照更窄Current Projection/Acceptance/实际消费者，不能直接把旧文字当现行阻塞。全科System Acceptance中也存在历史阶段UNTESTED段落，必须与明确当前gate分开读取。
