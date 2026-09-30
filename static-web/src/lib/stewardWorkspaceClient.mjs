@@ -76,7 +76,7 @@ export function initStewardWorkspace(root) {
   const feedback=(text='',error=false)=>{const n=$('[data-steward-feedback]');n.hidden=!text;n.textContent=text;n.dataset.error=String(error);};
   function save(action,message='',editors=true) {
     try {const result=action();feedback(message);suppress=true;window.dispatchEvent(new Event('kianos:steward-reality-change'));suppress=false;render(editors);return result;}
-    catch(e){suppress=false;feedback(/CONFLICT|REVISION/.test(String(e))?'记录已变化，尚未保存这次修改；请先核对最新内容。':'没有保存成功。当前输入保留，请重试。',true);return null;}
+    catch(e){suppress=false;feedback(/CONFLICT|REVISION|PLAN_VERSION/.test(String(e))?'记录已变化，尚未保存这次修改；请先核对最新内容。':'没有保存成功。当前输入保留，请重试。',true);return null;}
   }
   function read() {
     today=studyDayAt(Date.now());
@@ -85,6 +85,11 @@ export function initStewardWorkspace(root) {
     try {assertExamChatPlanTimeReadable(storage);timer=buildStudyTimerReadModel(storage,Date.now());activity=reality.readStewardCurrentActivity(storage,{now:Date.now()});}catch{}
     return {planState,plan:planState.plan,presentation:planState.plan?.presentation||{},timer,activity};
   }
+  const assertCurrentPlanVersion=(expectedGeneratedAt)=>{
+    const state=readExamChatPlanForDisplay(storage,today);
+    if(!['ready','reference'].includes(state.status)||state.plan?.generated_at!==expectedGeneratedAt)throw Error('STEWARD_PLAN_VERSION_CHANGED');
+    return state.plan;
+  };
   function activityCopy(a) {
     if(a.status==='conflict')return {label:'当前活动需核对',detail:'有重叠计时，请确认实际正在做什么',action:'核对记录'};
     if(!['active','paused'].includes(a.status))return {label:'当前没有可确认活动',detail:'实际尚未记录',action:null};
@@ -206,7 +211,7 @@ export function initStewardWorkspace(root) {
     const common=()=>({studyDay:today,observedAt:Date.now(),mealId:meal.id,label:meal.label,ownerRef:p.owner_ref,planGeneratedAt:planAt});
     const serialized=next=>next.map(x=>{const f=map.get(x.food_id);return {foodId:f.id,label:f.label,amount:x.amount,unit:f.unit,nutrition:f.nutrition,gramsPerUnit:f.grams_per_unit,sourceRevision:f.source_revision||planAt};});
     const persist=(next=items,nextUncertain=uncertain,rebuild=false)=>{
-      const result=save(()=>reality.saveStewardMealDraft(storage,{...common(),items:serialized(next),uncertain:nextUncertain},{expectedRevision:draft?.revision||0}),'',false);
+      const result=save(()=>{assertCurrentPlanVersion(planAt);return reality.saveStewardMealDraft(storage,{...common(),items:serialized(next),uncertain:nextUncertain},{expectedRevision:draft?.revision||0});},'',false);
       if(result){draft=result;items=next;uncertain=nextUncertain;if(rebuild)renderNutrition(read());else renderNumbers();}return result;
     };
     $('[data-steward-meal-title]').textContent=meal.label+' · 选择和实际';$('[data-steward-nutrition-target]').textContent=p.target_label||'';
@@ -257,9 +262,9 @@ export function initStewardWorkspace(root) {
     $('[data-steward-meal-reset]').onclick=()=>persist(meal.items.map(x=>({...x})),false,true);
     $('[data-steward-meal-confirm]').onclick=()=>{
       if(!draft&&!persist())return;
-      save(()=>reality.confirmStewardMealDraft(storage,{studyDay:today,mealId:meal.id,expectedRevision:draft.revision}),'已保存这次已吃记录。');
+      save(()=>{assertCurrentPlanVersion(planAt);return reality.confirmStewardMealDraft(storage,{studyDay:today,mealId:meal.id,expectedRevision:draft.revision});},'已保存这次已吃记录。');
     };
-    $('[data-steward-meal-skip]').onclick=()=>save(()=>reality.skipStewardMeal(storage,{...common()}),'已记录这餐未吃。');
+    $('[data-steward-meal-skip]').onclick=()=>save(()=>{assertCurrentPlanVersion(planAt);return reality.skipStewardMeal(storage,{...common()});},'已记录这餐未吃。');
     renderNumbers();
   }
   function renderTraining(data) {
@@ -269,13 +274,13 @@ export function initStewardWorkspace(root) {
     const actual=actuals.find(x=>x.sessionId===p.session_id&&x.planGeneratedAt===planAt)||null;
     const common=()=>({studyDay:today,sessionId:p.session_id,label:p.title||'训练',observedAt:Date.now(),ownerRef:p.owner_ref,planGeneratedAt:planAt});
     const persistDraft=(exercise,rebuild=false)=>{
-      const result=save(()=>reality.saveStewardTrainingDraft(storage,{...common(),exercises:[...(draft?.exercises||[]).filter(x=>x.exerciseId!==exercise.exerciseId),exercise],note:draft?.note||''},{expectedRevision:stored?.revision||0}),'',false);
+      const result=save(()=>{assertCurrentPlanVersion(planAt);return reality.saveStewardTrainingDraft(storage,{...common(),exercises:[...(draft?.exercises||[]).filter(x=>x.exerciseId!==exercise.exerciseId),exercise],note:draft?.note||''},{expectedRevision:stored?.revision||0});},'',false);
       if(result){stored=result;draft=result;if(rebuild)renderTraining(read());}return result;
     };
     $('[data-steward-training-title]').textContent=p.title||'今天训练';$('[data-steward-training-duration]').textContent=[{NORMAL:'常规',CONCISE:'精简',RECOVERY:'恢复',REST:'休息'}[p.mode],p.duration_label].filter(Boolean).join(' · ');
     const active=reality.latestActiveStewardActivity(storage);$('[data-steward-training-start]').hidden=!!active||p.mode==='REST';$('[data-steward-training-end]').hidden=!active||active.sessionId!==p.session_id;
     $('[data-steward-training-session-state]').textContent=active?`${active.status==='RUNNING'?'进行中':'已暂停'} · ${minutes(reality.stewardActivityElapsedMs(active))}`:'尚未开始计时';
-    $('[data-steward-training-start]').onclick=()=>save(()=>{const state=reality.readStewardReality(storage);if(state.unavailable)throw Error(state.unavailable);window.KianOSStudyTimer.pause();return reality.beginStewardActivity(storage,{activityKind:'TRAINING',label:p.title||'训练',sessionId:p.session_id});},'已开始训练计时；学习保持暂停。');
+    $('[data-steward-training-start]').onclick=()=>save(()=>{assertCurrentPlanVersion(planAt);const state=reality.readStewardReality(storage);if(state.unavailable)throw Error(state.unavailable);window.KianOSStudyTimer.pause();return reality.beginStewardActivity(storage,{activityKind:'TRAINING',label:p.title||'训练',sessionId:p.session_id});},'已开始训练计时；学习保持暂停。');
     $('[data-steward-training-end]').onclick=()=>save(()=>reality.transitionStewardActivity(storage,'ENDED'),'训练计时已结束；不会自动恢复学习或标记动作完成。');
     const list=$('[data-steward-exercise-list]');list.replaceChildren();
     for(const [i,base] of (p.exercises||[]).entries()) {
@@ -291,15 +296,15 @@ export function initStewardWorkspace(root) {
       const measurements=()=>Object.fromEntries(definitions.map(([key,prop])=>{const value=fields.querySelector(`[data-steward-training-input="${key}"]`).value;return [prop,value.trim()===''?null:Number(value)];}));
       const rowValue=()=>({exerciseId:base.id,variantId:selected.id===base.id?'':selected.id,label:selected.label,...measurements(),loadUnit:selected.load_unit||'',repsUnit:selected.reps_unit||''});
       fields.onchange=()=>persistDraft(rowValue());
-      const writeActual=status=>save(()=>reality.upsertStewardTrainingActual(storage,{...common(),exercises:[...(actual?.exercises||[]).filter(x=>x.exerciseId!==base.id),{...rowValue(),status}],effect:actual?.effect||null,note:actual?.note||''},{expectedRevision:actual?.revision||0}),'已保存实际记录。');
+      const writeActual=status=>save(()=>{assertCurrentPlanVersion(planAt);return reality.upsertStewardTrainingActual(storage,{...common(),exercises:[...(actual?.exercises||[]).filter(x=>x.exerciseId!==base.id),{...rowValue(),status}],effect:actual?.effect||null,note:actual?.note||''},{expectedRevision:actual?.revision||0});},'已保存实际记录。');
       const saveButton=button('保存实际',()=>writeActual(recorded?.status||'RECORDED'));saveButton.dataset.action='save-actual';editor.append(fields,saveButton);card.append(editor);
       const states=el('div','stewardExerciseStatuses');for(const [status,label] of [['COMPLETED','完成'],['MODIFIED','有修改'],['SKIPPED','跳过']]){const b=button(label,()=>writeActual(status),recorded?.status===status?'active':'');b.dataset.stewardTrainingStatus=status;states.append(b);}card.append(states);list.append(card);
     }
     if(p.mode==='REST'&&!p.exercises.length)appendText(list,'p','stewardEmpty','今天已安排休息，没有待完成的训练动作。');
     const summary=$('[data-steward-training-summary]');summary.replaceChildren();for(const base of p.exercises||[]){const a=actual?.exercises.find(x=>x.exerciseId===base.id),row=el('div','stewardHistoryEntry');appendText(row,'strong','',a?.label||base.label);appendText(row,'p','',a?[STATUS[a.status],a.loadValue!=null?`${a.loadValue} ${a.loadUnit}`:'',a.setsValue!=null?`${a.setsValue} 组`:'',a.repsValue!=null?`${a.repsValue} ${a.repsUnit}`:'',a.rpe!=null?`RPE ${a.rpe}`:''].filter(Boolean).join(' · '):'待记录');summary.append(row);}
     const note=$('[data-steward-training-note]');note.value=draft?.note||actual?.note||'';
-    note.onchange=()=>{const r=save(()=>reality.saveStewardTrainingDraft(storage,{...common(),exercises:draft?.exercises||[],note:note.value},{expectedRevision:stored?.revision||0}),'',false);if(r){draft=r;stored=r;}};
-    for(const b of all('[data-steward-training-effect]')){b.classList.toggle('active',actual?.effect===b.dataset.stewardTrainingEffect);b.onclick=()=>save(()=>reality.upsertStewardTrainingActual(storage,{...common(),exercises:actual?.exercises||[],effect:b.dataset.stewardTrainingEffect,note:note.value},{expectedRevision:actual?.revision||0}),'已记录训练后感受。');}
+    note.onchange=()=>{const r=save(()=>{assertCurrentPlanVersion(planAt);return reality.saveStewardTrainingDraft(storage,{...common(),exercises:draft?.exercises||[],note:note.value},{expectedRevision:stored?.revision||0});},'',false);if(r){draft=r;stored=r;}};
+    for(const b of all('[data-steward-training-effect]')){b.classList.toggle('active',actual?.effect===b.dataset.stewardTrainingEffect);b.onclick=()=>save(()=>{assertCurrentPlanVersion(planAt);return reality.upsertStewardTrainingActual(storage,{...common(),exercises:actual?.exercises||[],effect:b.dataset.stewardTrainingEffect,note:note.value},{expectedRevision:actual?.revision||0});},'已记录训练后感受。');}
   }
   function renderWeek(data) {
     const date=new Date(weekCursor+'T12:00:00Z'),monday=addDay(weekCursor,-((date.getUTCDay()+6)%7));$('[data-steward-week-label]').textContent=`${monday} — ${addDay(monday,6)}`;

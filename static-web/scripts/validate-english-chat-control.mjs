@@ -159,7 +159,9 @@ const chatHandoff = buildEnglishChatHandoffText(storage, {
 assert.match(chatHandoff, /^KIANOS_ENGLISH_HANDOFF_V1/m);
 assert.match(chatHandoff, /HOW TO READ IT/);
 assert.match(chatHandoff, /WHAT CHAT SHOULD DO/);
-assert.match(chatHandoff, /content\/english\/CURRENT\.md/);
+assert.match(chatHandoff, /EVIDENCE_JSON as the learner-state entry/);
+assert.match(chatHandoff, /content\/english\/LEARNING_CONTRACT\.md/);
+assert.doesNotMatch(chatHandoff, /first read .*content\/english\/CURRENT\.md/i);
 assert.match(chatHandoff, /kianos\.english\.session-instruction\.v1/);
 assert.match(chatHandoff, /EVIDENCE_JSON/);
 assert.match(chatHandoff, /"problem_count": 1/);

@@ -78,7 +78,7 @@ export function buildDailyLearningPacket({
     total_minutes: time.total_minutes,
     timer: cloneJson(time.timer),
     control: cloneJson(receipt),
-    steward: buildStewardRealityDailySummary(storage, { day: time.study_day, timeZone: time.timezone }),
+    steward: buildStewardRealityDailySummary(storage, { day: time.study_day, timeZone: time.timezone, now }),
     schedule: usablePlan ? {
       schema: plan.schema || null,
       control: cloneJson(plan.control),
@@ -87,6 +87,7 @@ export function buildDailyLearningPacket({
       capacity: cloneJson(plan.capacity),
       next: cloneJson(plan.next),
       attention: cloneJson(plan.attention),
+      presentation: cloneJson(plan.presentation),
       time: cloneJson(plan.time)
     } : null,
     subjects
@@ -124,6 +125,7 @@ export function serializeDailyLearningPacketForChat(packet) {
     '- This handoff is LEARN state, not project-control state. Do not open root engineering CURRENT.md by default merely because GitHub is available.',
     '- If semantic/source context is actually needed, read only the exact subject Learning/Content owner required for that learner question.',
     '- The schedule is a current plan/capacity snapshot, not proof that the learner completed the planned work.',
+    '- schedule.presentation is the adopted frontstage projection of that same plan. If Nutrition/Training is present, preserve it as adopted guidance/readback; missing fields stay unknown/absent and must not be invented. Presentation still does not prove meals were eaten or training was completed.',
     '- control, when present, is transport receipt only. APPLIED means the Website accepted the command; it does not mean the learner completed or mastered the task.',
     '- steward.breaks contains intentionally recorded pause/rest/re-entry reality only. Re-entry is a learner report, not a readiness score and not permission to invent a recovery judgment or automatically change the plan.',
     '',

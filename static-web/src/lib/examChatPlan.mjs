@@ -360,12 +360,24 @@ function normalizeExamChatPlanPresentation(value) {
     'presentation.schedule_blocks'
   ).sort((a, b) => a.start.localeCompare(b.start));
 
+  const nutrition = normalizeNutritionProjection(value.nutrition);
+  const training = normalizeTrainingProjection(value.training);
+  const mealIds = new Set((nutrition?.meals || []).map((row) => row.id));
+  for (const block of scheduleBlocks) {
+    if (block.meal_id && !mealIds.has(block.meal_id)) {
+      throw new Error(`Invalid presentation.schedule_blocks meal_id; unknown meal: ${block.meal_id}.`);
+    }
+    if (block.training_session_id && block.training_session_id !== training?.session_id) {
+      throw new Error(`Invalid presentation.schedule_blocks training_session_id; unknown session: ${block.training_session_id}.`);
+    }
+  }
+
   return {
     today_tasks: todayTasks,
     week_reference: weekReference,
     schedule_blocks: scheduleBlocks,
-    nutrition: normalizeNutritionProjection(value.nutrition),
-    training: normalizeTrainingProjection(value.training)
+    nutrition,
+    training
   };
 }
 

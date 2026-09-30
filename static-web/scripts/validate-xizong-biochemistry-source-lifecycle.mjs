@@ -443,7 +443,8 @@ assert.match(systemWorkspace,/data-biochemistry-reconstruction/,'B System worksp
 const currentBioRoute=/27 Biochemistry[^;；\n]*\b(?:content\/xizong\/)?knowledge\/learner\/xizong-2027-biochemistry-delta-slot\.json\b/;
 assert.match(xizongCurrent,currentBioRoute);
 assert.doesNotMatch(xizongCurrent.replaceAll('xizong-2027-biochemistry-delta-slot.json','wrong-owner.json'),currentBioRoute,'wrong owner must still fail');
-assert.match(contentMainline,/No bounded Xizong content-revalidation task is currently open\./,'Mainline must remain a program router after closed Biochemistry work');
+assert.match(contentMainline,/bounded #1113 consistency\/readability task active/i,'Mainline must expose the current bounded Xizong task while broad construction stays closed');
+assert.match(contentMainline,/#1113[^\n]+Current \/ Phase \/ Next \/ Blocker/,'Mainline must route #1113 detail to its durable owner instead of mirroring task state');
 assert.match(contentMainline,/Biochemistry and Surgery Source-revision work route to their exact lifecycle owners/,'Mainline lost exact-owner reopen routing');
 assert.doesNotMatch(contentMainline,/# 0｜27 Biochemistry architecture-corrected rebase|Lifecycle is owned only by the exact task owner below/,'Mainline must not restore retired Biochemistry campaign prose');
 assert.match(bCurrent,/exact lifecycle owner/i,'B Current must route source-revision work to the exact lifecycle owner');

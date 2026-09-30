@@ -27,7 +27,13 @@ const chatModel = buildChatControlledExamReadModel({
       presentation: {
         today_tasks: [{ id: 'xz-b1', subject: 'xizong', label: '西综 · 当前 Block', note: '真实速度样本' }],
         week_reference: [{ id: 'week-xz', subject: 'xizong', label: '真实速度采集中', detail: '再积累 2–3 天', value: '采样中', progress_ratio: null }],
-        schedule_blocks: [{ id: 'xz-morning', subject: 'xizong', start: '09:00', end: '11:00', label: '西综', detail: '主块' }]
+        schedule_blocks: [
+          { id: 'xz-morning', subject: 'xizong', start: '09:00', end: '11:00', label: '西综', detail: '主块' },
+          { id: 'lunch', subject: null, start: '12:00', end: '12:30', label: '午餐', detail: '', meal_id: 'meal-lunch' },
+          { id: 'training', subject: null, start: '19:00', end: '19:30', label: '训练', detail: '', training_session_id: 'training-a' }
+        ],
+        nutrition: { owner_ref:'personal/nutrition', target_label:'今日餐食', foods:[{id:'salmon',label:'三文鱼',unit:'g',grams_per_unit:1,recommended_amount:200,nutrition:{basis:'PER_100G',kcal:208,protein_g:20,carb_g:0,fat_g:13}}], meals:[{id:'meal-lunch',label:'午餐',note:'',targets:null,items:[{food_id:'salmon',amount:200,role:'main',macro:null}]}], active_meal_id:'meal-lunch', topup_pool:[], quick_add:[] },
+        training: { owner_ref:'personal/training', session_id:'training-a', title:'今日训练', duration_label:'30m', mode:'CONCISE', exercises:[{id:'squat',label:'深蹲',note:'',prescription:'2组',sets_value:2,time_label:'',rest_note:'',stop_note:'',load_value:null,load_unit:'',reps_value:null,reps_unit:'reps',rpe:null,alternatives:[]}] }
       }
     }
   },
@@ -44,6 +50,8 @@ assert.equal(chatModel.subjects.xizong.continue.subject, 'xizong',
 assert.equal(chatModel.presentation.todayTasks[0].id, 'xz-b1');
 assert.equal(chatModel.presentation.weekReference[0].value, '采样中');
 assert.equal(chatModel.presentation.scheduleBlocks[0].start, '09:00');
+assert.equal(chatModel.presentation.nutrition.meals[0].id, 'meal-lunch');
+assert.equal(chatModel.presentation.training.session_id, 'training-a');
 assert.equal(chatModel.capacity.judgment.state, 'REDUCED');
 assert.match(chatModel.capacity.judgment.action, /恢复后/);
 
@@ -162,11 +170,13 @@ console.log('PASS exam plan remaining-capacity regression');
 // The shared presentation model consumes only an admitted same-day reference.
 // It retains intent, not stale capacity, exact session binding or execution.
 {
-  const referencePlan={schema:'kianos.exam.chat-plan.v1',study_day:'2026-09-30',generated_at:'2026-09-30T00:00:00Z',subjects:{xizong:{target_minutes:90,role:'主线',session_ref:'old-session'},english:null,politics:null},next_subject:'xizong',capacity:{state:'REDUCED',summary:'old'},attention:{text:'old strategy'},presentation:{today_tasks:[{id:'t',label:'西综'}],week_reference:[{id:'w',label:'本周'}],schedule_blocks:[{id:'s',start:'08:00',end:'10:00',label:'主块'}]}};
+  const referencePlan={schema:'kianos.exam.chat-plan.v1',study_day:'2026-09-30',generated_at:'2026-09-30T00:00:00Z',subjects:{xizong:{target_minutes:90,role:'主线',session_ref:'old-session'},english:null,politics:null},next_subject:'xizong',capacity:{state:'REDUCED',summary:'old'},attention:{text:'old strategy'},presentation:{today_tasks:[{id:'t',label:'西综'}],week_reference:[{id:'w',label:'本周'}],schedule_blocks:[{id:'s',start:'08:00',end:'10:00',label:'主块'}],nutrition:{owner_ref:'p/n',target_label:'',foods:[],meals:[],active_meal_id:null,topup_pool:[],quick_add:[]},training:{owner_ref:'p/t',session_id:'rest-day',title:'休息',duration_label:'',mode:'REST',exercises:[]}}};
   const state={status:'reference',plan:referencePlan,error:'CHAT_PLAN_EVIDENCE_BASIS_STALE',executable:false,guidanceFresh:false};
   const ref=buildChatControlledExamReadModel({day:'2026-09-30',chatPlanState:state,dayCapacity:0,nativeContinue:{xizong:{href:'/xizong/',title:'原生入口'}}});
   assert.equal(ref.presentation.todayTasks.length,1);
   assert.equal(ref.presentation.weekReference.length,1);
+  assert.equal(ref.presentation.nutrition.owner_ref,'p/n');
+  assert.equal(ref.presentation.training.mode,'REST');
   assert.equal(ref.subjects.xizong.role,'主线');
   assert.equal(ref.control.planStatus,'reference');
   assert.equal(ref.control.executable,false);

@@ -66,12 +66,25 @@ const plan = {
   next: { subject: 'xizong', href: '/kianos/xizong/a1/', title: '继续 A1' },
   attention: null,
   time: { usesTimer: true },
+  presentation: {
+    todayTasks: [{ id:'xz', subject:'xizong', label:'西综', note:'' }],
+    weekReference: [],
+    scheduleBlocks: [{ id:'lunch', start:'12:00', end:'12:30', label:'午餐', meal_id:'meal-lunch', training_session_id:null }],
+    nutrition: { owner_ref:'personal/nutrition', foods:[{id:'salmon'}], meals:[{id:'meal-lunch'}], active_meal_id:'meal-lunch' },
+    training: { owner_ref:'personal/training', session_id:'training-a', mode:'CONCISE', exercises:[{id:'squat'}] }
+  },
   subjects: {
     xizong: { subject: 'xizong', targetMinutes: 360, actualMinutes: 60, remainingMinutes: 300 },
     politics: { subject: 'politics', targetMinutes: 90, actualMinutes: 0, remainingMinutes: 90 },
     english: { subject: 'english', targetMinutes: 150, actualMinutes: 30, remainingMinutes: 120 }
   }
 };
+
+
+storage.setItem('kianos-steward-reality-v1', JSON.stringify({
+  schema:'kianos.steward-reality.v3', revision:3, generation:1, mealDrafts:[], trainingDrafts:[],
+  events:[{id:'future-note',kind:'QUICK',type:'NOTE',value:'future',unit:'',note:'future event',observedAt:t0+3*60*60*1000,recordedAt:t0+3*60*60*1000,context:null,source:'test',revision:1,deletedAt:null}]
+}));
 
 const politicsEvidence = {
   schema: 'kianos.politics.return_packet.v1',
@@ -98,6 +111,9 @@ assert.equal(packet.subjects.xizong.plan.remainingMinutes, 300);
 assert.deepEqual(packet.subjects.politics.evidence, politicsEvidence);
 assert.equal(packet.subjects.xizong.evidence, null);
 assert.equal(packet.schedule.capacity.remainingMinutes, 510);
+assert.equal(packet.schedule.presentation.nutrition.active_meal_id, 'meal-lunch');
+assert.equal(packet.schedule.presentation.training.session_id, 'training-a');
+assert.equal(packet.steward.quick.length, 0, 'future reality must not leak into an earlier as-of packet');
 assert.equal(packet.control.schema, CONTROL_RECEIPT_SCHEMA);
 assert.equal(packet.control.command_id, 'control-20260917-proof-001');
 assert.equal(packet.control.status, 'APPLIED');
@@ -155,6 +171,10 @@ assert.match(chatText, /"total_minutes": 90/);
 assert.match(chatText, /missing evidence means unknown/i);
 assert.match(chatText, /"command_id": "control-20260917-proof-001"/);
 assert.match(chatText, /transport receipt only/i);
+assert.match(chatText, /schedule\.presentation is the adopted frontstage projection/);
+assert.match(chatText, /does not prove meals were eaten or training was completed/);
+assert.match(chatText, /\"nutrition\"/);
+assert.match(chatText, /\"training\"/);
 assert.match(chatText, /subject-local start\/continue stays with that subject role/);
 assert.match(chatText, /does not by itself request a cross-subject plan/);
 assert.match(chatText, /existing authorized private control relay/);

@@ -76,6 +76,27 @@ A good Core should still be coherent and useful if the current webpage disappear
 
 The AI role is to **reconstruct the medical model**, not reformat the source.
 
+### Formal Boundary / Connection adoption is Source-explicit
+
+General explanation may reorganize trustworthy Source into a clearer mechanism. Formal learner support objects are stricter. An author-labeled `Boundary / 易错 / 易混` or formal `Connection / //串联` must follow:
+
+```text
+Source explicit signal
+→ canonical/adopted Content decision
+→ reviewed support / Connection owner
+→ learner consumption
+```
+
+Hard rules:
+
+- semantic similarity, keyword presence, cross-System symmetry or a pedagogically attractive relation is **not** enough to create a formal Boundary or Connection;
+- a Source-explicit signal is an eligibility gate, not automatic adoption; if it is not yet adopted, classify it as `SOURCE_EXPLICIT_NOT_ADOPTED` and send it to the existing Content owner for review;
+- if canonical/reviewed Content already adopted the support but the learner object / Website does not consume it, that is `ADOPTED_NOT_CONSUMED`, an implementation defect rather than new medical authoring;
+- ordinary prose containing words such as “边界” does not become a formal support object unless the authoring/owner marks it as such;
+- counts of Boundary, `//串联`, Precision, MedicalVisual or other support families across Systems are not maturity scores and must not drive mechanical normalization.
+
+This constraint does not forbid Source-backed Knowledge reconstruction inside Core. It prevents Runtime, audit tooling or a later editor from inventing **formal** support/relationship truth that no Source/adopted owner established.
+
 ---
 
 ## 2｜Ownership

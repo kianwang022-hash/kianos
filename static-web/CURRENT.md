@@ -8,7 +8,9 @@ Root [CURRENT](../CURRENT.md) owns cross-program routing. Product semantics, vis
 
 No broad Website construction or UI campaign is active.
 
-The bounded Steward V3 correction is closed. The reviewed agenda/Now composition, native Dock/return, persisted reality semantics, duration-legible timeline, shared L1 styling and deterministic plan-authorized Nutrition top-ups are merged on `main`, accepted by Kian, and released through managed Current. Reopen Steward only for a concrete product/runtime/visual defect or an explicit new accepted requirement.
+The bounded Steward V3 construction program is closed. The reviewed agenda/Now composition, native Dock/return, persisted reality semantics, duration-legible timeline, shared L1 styling and deterministic plan-authorized Nutrition top-ups are merged on `main`, accepted by Kian, and released through managed Current.
+
+One later **bounded integration defect** remains owned by [#1111](https://github.com/kianwang022-hash/kianos/issues/1111): an adopted day plan may include Nutrition/Training and private reality, but every intermediate read model / Daily Packet / Chat readback must preserve that adopted projection and its freshness. This does not reopen broad Steward UI construction; #1111 owns Current / Next / Blocker for that defect and this cursor routes only to the exact runtime/product owner.
 
 The shared shell, subject surfaces, managed Current delivery, private checkpoint/control paths, Daily Learning Packet relay, External Reading runtime and Steward workspace are implementation surfaces on `main`.
 

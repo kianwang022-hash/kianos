@@ -1242,7 +1242,7 @@ export function buildEnglishChatHandoffText(storage, { day, now = Date.now(), ca
     '',
     'HOW TO READ IT',
     '- EVIDENCE_JSON is factual learner/runtime state, not a recommendation, mastery claim, or task priority table.',
-    '- If GitHub access is available, first read kianwang022-hash/kianos@main content/english/CURRENT.md, then only the exact child owner needed for the task. Do not revive legacy architecture.',
+    '- Treat EVIDENCE_JSON as the learner-state entry for this handoff. For start/continue/Resume, use its current native evidence first; if task selection or semantic interpretation actually needs grounding, read only the exact current English Learning/Content owner (normally content/english/LEARNING_CONTRACT.md plus the exact module owner). Do not open the engineering content/english/CURRENT.md merely because GitHub is available; use that cursor only for BUILD/CONTROL work.',
     '- Apply the current English Learning Contract: stable work stays cheap; real problems get the smallest useful repair; Chat owns cross-task next-step selection; the website only executes the selected task.',
     '- Missing evidence means unknown, not failed. Finished work must not be turned back into Resume debt.',
     '- Optional params.material_exposure={state:unseen|exposed|unknown,basis:learner_statement,observed_at:ISO,note:actual learner statement} may be supplied ONLY from real learner testimony before an attempt. Never infer unseen from missing storage or Content defaults.',

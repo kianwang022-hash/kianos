@@ -1,8 +1,11 @@
 const finiteOrNull = (value) => Number.isFinite(value) ? value : null;
+const cloneJson = (value) => value == null ? null : JSON.parse(JSON.stringify(value));
 const clonePresentation = (value) => value ? {
   todayTasks: (value.today_tasks || []).map((row) => ({ ...row })),
   weekReference: (value.week_reference || []).map((row) => ({ ...row })),
-  scheduleBlocks: (value.schedule_blocks || []).map((row) => ({ ...row }))
+  scheduleBlocks: (value.schedule_blocks || []).map((row) => ({ ...row })),
+  nutrition: cloneJson(value.nutrition),
+  training: cloneJson(value.training)
 } : null;
 const cloneContinue = (value, fallbackSubject = null) => value?.href ? {
   subject: value.subject || fallbackSubject || null,

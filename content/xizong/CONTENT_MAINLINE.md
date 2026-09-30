@@ -1,6 +1,6 @@
 # Xizong Content Mainline
 
-Status: **CURRENT PROGRAM ROUTER · NO BROAD CONTENT CAMPAIGN ACTIVE**
+Status: **CURRENT PROGRAM ROUTER · NO BROAD CONTENT CAMPAIGN · BOUNDED #1113 ACTIVE**
 Parent: `content/xizong/CURRENT.md`
 
 This file owns only **program-level Xizong content coordination**: which durable lane is open, what may proceed independently, and where a Fresh Chat should enter.
@@ -44,7 +44,9 @@ Real learner U remains private evidence and is never manufactured by this progra
 
 ## Active bounded tasks
 
-No bounded Xizong content-revalidation task is currently open.
+One bounded cross-System content-consistency task is active: [#1113 — Content→Website consistency and readability](https://github.com/kianwang022-hash/kianos/issues/1113). `content/xizong/CURRENT.md` is its routing pointer; the Issue alone owns its Current / Phase / Next / Blocker. This Mainline must not restate those details or infer completion from an old receipt.
+
+This does **not** reopen the closed broad medical-content construction campaign. #1113 may inspect or repair only the exact Source / canonical Content / mapping / learner-consumer slices justified by its current evidence. Exact System/Block medical truth still stays with the original owners.
 
 Biochemistry and Surgery Source-revision work route to their exact lifecycle owners if a **new authoritative Source, a fresh dependency-staleness defect, or real-use evidence** reopens the smallest responsible chain. Real-U from normal learner use is passive calibration evidence, not an active content-construction task and not a project-closure gate.
 
@@ -52,7 +54,7 @@ Biochemistry and Surgery Source-revision work route to their exact lifecycle own
 
 | Lane | Current state | Exact entry | Reopen condition |
 | --- | --- | --- | --- |
-| Main medical Content | broad construction closed | exact System `CURRENT` / Knowledge / Learning owner | concrete defect or admitted new/revised Source |
+| Main medical Content | broad construction closed; bounded #1113 consistency/readability task active | `content/xizong/CURRENT.md` → #1113 → exact System / Knowledge / Learning owner | concrete defect or admitted new/revised Source |
 | Questions / System membership | current corpus closed | `content/xizong/questions/` + exact System owner | real question/source ownership defect or new corpus |
 | Question → Knowledge | broad corpus construction closed; Current consumption revision-freshness-gated | `content/xizong/question-relations/README.md` + exact relation/lifecycle owner | exact stale relation after Knowledge/Source revision, real defect, or new corpus |
 | Late-stage material | 26 baseline absorbed | `content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json` | authoritative new-cycle material |

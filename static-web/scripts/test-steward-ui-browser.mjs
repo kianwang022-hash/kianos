@@ -142,6 +142,28 @@ try {
  await switchMode('schedule');await page.locator('[data-steward-adjust]').click();
  check(await page.locator('[data-steward-chat-dialog]').isVisible(),'honest_chat_escalation');
  check(await page.evaluate(()=>localStorage.getItem('kianos-exam-chat-plan-v1'))===originalPlan,'chat_entry_not_auto_replan');await page.locator('[data-steward-chat-dialog] button').click();
+
+ // A newer adopted plan may arrive while old Nutrition/Training editors still
+ // hold focus. Old closures must preserve the typed input but fail closed on write.
+ await switchMode('nutrition');
+ const staleMealInput=page.locator('[data-steward-food-input="salmon"]');await staleMealInput.focus();await staleMealInput.fill('180');
+ const beforePlanRace=JSON.stringify((await events()).events);
+ const nextPlanAt=await page.evaluate(async studyDay=>{
+   const m=await import('/src/lib/examChatPlan.mjs');
+   const current=m.readExamChatPlanForDisplay(localStorage,studyDay).plan;
+   const nextTime=new Date(Date.parse(current.generated_at)+60_000).toISOString();
+   const next={...current,generated_at:nextTime,learner_evidence_basis:m.buildExamChatPlanBasis(localStorage,studyDay)};
+   m.writeExamChatPlan(localStorage,next,studyDay);window.dispatchEvent(new Event('kianos:control-command-applied'));return nextTime;
+ },DAY);
+ await staleMealInput.dispatchEvent('change');await settle();
+ check(JSON.stringify((await events()).events)===beforePlanRace,'stale_meal_editor_cannot_write_new_plan');
+ check(await staleMealInput.inputValue()==='180','stale_meal_input_preserved_after_rejection');
+ check((await page.locator('[data-steward-feedback]').innerText()).includes('记录已变化'),'stale_meal_editor_reports_version_change');
+ const staleTrainingInput=page.locator('[data-steward-exercise="KN01"] [data-steward-training-input="load"]');
+ await staleTrainingInput.evaluate(node=>{node.value='30';node.dispatchEvent(new Event('change',{bubbles:true}));});await settle();
+ check(JSON.stringify((await events()).events)===beforePlanRace,'stale_training_editor_cannot_write_new_plan');
+ check(await page.evaluate(()=>JSON.parse(localStorage.getItem('kianos-exam-chat-plan-v1')).generated_at)===nextPlanAt,'new_plan_survives_stale_editor_attempts');
+ await page.locator('[data-steward-mode="schedule"]').click();await settle();
  await page.locator('[data-steward-view="week"]').click();check(await page.locator('.stewardWeekDayHead').count()===7,'week_seven_real_days');await shot('Week');
  await page.locator('[data-steward-view="month"]').click();check(await page.locator('button.stewardMonthCell').count()===30,'month_real_calendar');await shot('Month');
  await page.locator('[data-steward-view="today"]').click();

@@ -39,6 +39,11 @@ if (fs.existsSync(path.join(webRoot, 'src/lib/examDemand.mjs'))) fail('AUTONOMOU
 if (!contract.includes('It may not independently choose subject allocation, priority or next action.')) {
   fail('CHAT_ONLY_STRATEGY_CONTRACT_MISSING');
 }
+if (!contract.includes('Integrated Steward surface — current bounded capability')) fail('STEWARD_CURRENT_CAPABILITY_CONTRACT_MISSING');
+if (!contract.includes('Nutrition / Training')) fail('STEWARD_ADOPTED_PRESENTATION_CONTRACT_MISSING');
+for (const stale of ['Approved integrated surface extension — not current wire capability','UI geometry remains pending Kian discussion']) {
+  if (contract.includes(stale)) fail('STEWARD_STALE_FUTURE_WORDING', stale);
+}
 
 let futurePlanRejected = false;
 try {
@@ -121,6 +126,39 @@ try {
   pseudoScoreRejected = String(error?.message || '').includes('must not contain a readiness/recovery score');
 }
 if (!pseudoScoreRejected) fail('CAPACITY_PSEUDO_SCORE_MUST_REJECT');
+
+
+const presentationFixture = {
+  today_tasks: [], week_reference: [],
+  schedule_blocks: [
+    { id:'meal-block', start:'12:00', end:'12:30', label:'午餐', meal_id:'lunch' },
+    { id:'training-block', start:'19:00', end:'19:30', label:'训练', training_session_id:'training-a' }
+  ],
+  nutrition: {
+    owner_ref:'personal/nutrition', target_label:'午餐',
+    foods:[{id:'salmon',label:'三文鱼',unit:'g',grams_per_unit:1,recommended_amount:200,nutrition:{basis:'PER_100G',kcal:208,protein_g:20,carb_g:0,fat_g:13}}],
+    meals:[{id:'lunch',label:'午餐',items:[{food_id:'salmon',amount:200}],targets:null}],
+    active_meal_id:'lunch', topup_pool:[], quick_add:[]
+  },
+  training: { owner_ref:'personal/training', session_id:'training-a', title:'训练', mode:'CONCISE', exercises:[] }
+};
+const presentationPlan = validateExamChatPlan({
+  schema: EXAM_CHAT_PLAN_SCHEMA,
+  study_day:'2026-09-18', generated_at:'2026-09-18T04:30:00+08:00', subjects:{}, presentation:presentationFixture
+},'2026-09-18');
+if (presentationPlan.presentation.nutrition.active_meal_id !== 'lunch'
+    || presentationPlan.presentation.training.session_id !== 'training-a') {
+  fail('ADOPTED_LIFE_PRESENTATION_NOT_PRESERVED');
+}
+for (const [name,presentation,pattern] of [
+  ['meal',{...presentationFixture,schedule_blocks:[{id:'bad-meal',start:'12:00',end:'12:30',label:'午餐',meal_id:'missing'}]},/unknown meal/],
+  ['training',{...presentationFixture,schedule_blocks:[{id:'bad-training',start:'19:00',end:'19:30',label:'训练',training_session_id:'missing'}]},/unknown session/]
+]) {
+  let rejected=false;
+  try { validateExamChatPlan({schema:EXAM_CHAT_PLAN_SCHEMA,study_day:'2026-09-18',generated_at:'2026-09-18T04:30:00+08:00',subjects:{},presentation},'2026-09-18'); }
+  catch(error){ rejected=pattern.test(String(error?.message||error)); }
+  if(!rejected) fail('PRESENTATION_REFERENCE_MUST_REJECT',name);
+}
 
 const missing = buildChatControlledExamReadModel({
   day: '2026-09-18',
