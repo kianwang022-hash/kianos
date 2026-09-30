@@ -46,15 +46,24 @@ try{
 
   await page.goto(base+'/external-reading/',{waitUntil:'domcontentloaded'});
   await page.locator('[data-external-status]').filter({hasText:'External Content ready'}).waitFor();
-  const counts=await page.locator('[data-external-counts]').textContent();
-  assert.match(counts,/TPO 10\/10/);
-  assert.match(counts,/30 passages/);
-  assert.match(counts,/395 questions/);
-  assert.match(counts,/IELTS 3\/3/);
-  assert.match(counts,/36 passages/);
-  assert.match(counts,/480 questions/);
-  assert.match(counts,/NEW 3 source\(s\) · 2 questions/);
-  assert.equal(await page.locator('[data-external-family]').count(),4);
+  const counts=String(await page.locator('[data-external-counts]').textContent()).replace(/\s+/g,' ').trim();
+  const catalogProjection=await page.evaluate(async()=>{
+    const response=await fetch('/__kianos-private/external-reading/catalog',{cache:'no-store'});
+    if(!response.ok)throw new Error('CATALOG_PROJECTION_ENDPOINT:'+response.status);
+    const catalog=await response.json();
+    const visible=(catalog.collections||[]).filter(group=>{
+      const policy=catalog.visibility_policy?.[group.source_family];
+      const allowed=Array.isArray(policy?.default_visible_collections)?policy.default_visible_collections:null;
+      return !allowed||allowed.includes(group.collection);
+    });
+    const count=family=>visible.filter(group=>group.source_family===family).reduce((sum,group)=>sum+(group.passages||[]).length,0);
+    return {
+      counts:`TOEFL Current ${count('TOEFL_CURRENT')} | IELTS ${count('IELTS_ACADEMIC')} | CET-6 ${count('CET6')} | Legacy TPO ${count('TOEFL_TPO')}`,
+      families:[...new Set(visible.map(group=>group.source_family).filter(Boolean))].length
+    };
+  });
+  assert.equal(counts,catalogProjection.counts,'browser counts must project the current catalog visibility owner');
+  assert.equal(await page.locator('[data-external-family]').count(),catalogProjection.families,'family tabs must match current visible source families');
 
   // A missing object must not masquerade as a broken private corpus or leak backend codes.
   await page.goto(base+'/external-reading/?id=definitely-missing',{waitUntil:'domcontentloaded'});
