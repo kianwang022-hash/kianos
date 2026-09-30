@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { loadXizongBlock, loadXizongSystem } from '../src/lib/xizong.mjs';
 import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
 import {
@@ -69,7 +70,32 @@ check(bRelation?.targetStatus === 'RESOLVED_KP', 'b_reviewed_relation_resolves_t
 check(bRelation?.primaryKpId === 'digestive-d2-kp08' && bRelation?.primaryRuntimeKpId === 'digestive-d2-kp08', 'b_relation_primary_kp_exact');
 check(Boolean(bRelation?.knowledgePath), 'b_relation_has_current_knowledge_path');
 
-const ownerOnlyRelation = loadReviewedXizongQuestionRelation('xizong-official-2007-n007');
+// Neuro is now a real projected owner. Do not keep using its old migration
+// state as a permanent negative fixture.
+const neuroRelation = loadReviewedXizongQuestionRelation('xizong-official-2007-n007');
+check(neuroRelation?.targetStatus === 'RESOLVED_KP', 'current_neuro_owner_is_projected', neuroRelation?.targetStatus || 'missing');
+check(neuroRelation?.primaryRuntimeKpId === 'neuro-n03-kp06', 'current_neuro_primary_kp_exact');
+check(neuroRelation?.knowledgePath === 'xizong/neuro-sensory-motor-orthopedics/n03/#crosswalk-neuro-n03-kp06', 'current_neuro_route_exact');
+
+// Preserve the original fail-closed test with an explicitly unprojected input.
+// The child changes only the manifest read in its own process: no repo files,
+// source witnesses, learner state or production functions are edited.
+const ownerOnlyRelation = JSON.parse(execFileSync(process.execPath, ['--input-type=module', '-e', `
+  import fs from 'node:fs';
+  const originalRead = fs.readFileSync.bind(fs);
+  fs.readFileSync = (file, ...args) => {
+    const result = originalRead(file, ...args);
+    if (String(file).endsWith('/content/xizong/projection/manifest.json')) {
+      const manifest = JSON.parse(result);
+      delete manifest.systems['neuro-sensory-motor-orthopedics'];
+      const value = JSON.stringify(manifest);
+      return typeof result === 'string' ? value : Buffer.from(value);
+    }
+    return result;
+  };
+  const { loadReviewedXizongQuestionRelation } = await import(${JSON.stringify(new URL('../src/lib/xizongQuestionCrosswalk.mjs', import.meta.url).href)});
+  console.log(JSON.stringify(loadReviewedXizongQuestionRelation('xizong-official-2007-n007')));
+`], { encoding: 'utf8', env: { ...process.env, KIANOS_REPO_ROOT: repoRoot } }));
 check(ownerOnlyRelation?.targetStatus === 'BLOCK_ONLY', 'unprojected_current_owner_stays_block_only', ownerOnlyRelation?.targetStatus || 'missing');
 check(ownerOnlyRelation?.systemId === 'neuro-sensory-motor-orthopedics', 'unprojected_current_owner_keeps_current_system', ownerOnlyRelation?.systemId || 'missing');
 check(ownerOnlyRelation?.currentOwnerOnly === true && ownerOnlyRelation?.projectionAvailable === false, 'unprojected_current_owner_declares_projection_boundary');
