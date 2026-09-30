@@ -142,3 +142,28 @@ Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e57
 - Bio契约§13将普通学习/工程入口混写为CURRENT优先，需与已读上级intent规则做最小消歧；尚未改写，也不据此重开已关闭Source rebase。
 
 完整文件清点、全链代码trace、全科页面/交互/视觉验证均未完成。
+
+
+## 第五批：英语完整任务与低摩擦出口（2026-09-30 16:56 UTC）
+
+固定阅读基线：14a6e9527b0c6818805df055a69c7efb09fdb382。objective-learning.md本轮按1–200、201–600、601–1100、1101–文件末分段完整阅读，取代第四批的PARTIAL状态；其余六份全文读取。
+
+| 原文件 | blob | 状态 |
+|---|---|---|
+| [content/english/modules/objective-learning.md](https://github.com/kianwang022-hash/kianos/blob/14a6e9527b0c6818805df055a69c7efb09fdb382/content/english/modules/objective-learning.md) | f0945948c2700e6db0b0108707fe93d61c10d274 | READ |
+| [content/english/modules/translation/CURRENT.md](https://github.com/kianwang022-hash/kianos/blob/14a6e9527b0c6818805df055a69c7efb09fdb382/content/english/modules/translation/CURRENT.md) | 6644de435b5f5faded647d67c9bf8d6f51a89cc5 | READ |
+| [content/english/modules/translation/ACCEPTANCE.md](https://github.com/kianwang022-hash/kianos/blob/14a6e9527b0c6818805df055a69c7efb09fdb382/content/english/modules/translation/ACCEPTANCE.md) | dce5de32249e48c34ea270548539169805bbdc12 | READ |
+| [content/english/modules/translation/learning.md](https://github.com/kianwang022-hash/kianos/blob/14a6e9527b0c6818805df055a69c7efb09fdb382/content/english/modules/translation/learning.md) | df4c9ea76cb2081c2539a4ffb406441b53b43c05 | READ |
+| [content/english/modules/writing/CURRENT.md](https://github.com/kianwang022-hash/kianos/blob/14a6e9527b0c6818805df055a69c7efb09fdb382/content/english/modules/writing/CURRENT.md) | e477d02e01f775b25d00bdace4ebb101203d4a6c | READ |
+| [content/english/modules/writing/ACCEPTANCE.md](https://github.com/kianwang022-hash/kianos/blob/14a6e9527b0c6818805df055a69c7efb09fdb382/content/english/modules/writing/ACCEPTANCE.md) | 140b853dcdeb9a5b7eb2954b71beb0aa4c7949c7 | READ |
+| [content/english/modules/writing/learning.md](https://github.com/kianwang022-hash/kianos/blob/14a6e9527b0c6818805df055a69c7efb09fdb382/content/english/modules/writing/learning.md) | 9c5a8e1f0c6c983bfcfa92aaa1012066e9e599e9 | READ |
+
+本批理解：
+- Objective、Translation、Writing均以真实完整任务为主，Skill Map是诊断地址，不是必须逐项打卡的课程或未来债务。稳定正确或足够好的工作应有真正EXIT。
+- Translation主干为Represent→Reconstruct→Deliver，Fidelity为贯穿护栏；review以完整set为上下文，repair可缩到最小意义失真。reference不能接管首次生成，pending claim可静默存在。
+- Writing主干为Task→Content→Organization→English→Control→Delivery；Small/Big共用能力但任务不同。Direct与Planned模式、首次plan/draft身份不能混淆；Resume不被已通过作品、Guide位置或dormant pending claim劫持。
+- protected unseen材料不能用于工程QA；当前教材例子标明synthetic，测试应使用隔离合成数据。改同一道题成功仅证明repair有效，不能伪造独立迁移或mastery。
+- Translation/Writing Current只是工程路由；各自Acceptance记录限定scope的历史ACCEPTED且真实U仍UNTESTED。Writing 2011/2026丢失素材已用独立标识的approved replacement收口，不可再当成等待恢复原PNG的当前任务。
+- 既有模块accepted claim不覆盖新发现的具体Return身份/first-evidence缺口；后续仍按#1111已有精确缺陷做消费者核验，不重做已接受设计。
+
+两份learning.reference.md和synthetic任务JSON目前只清点，尚未全文审读；本批不增加浏览器、医学或真实U验收计数。
