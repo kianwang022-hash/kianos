@@ -7,6 +7,10 @@ This file does not own medical Knowledge, Learning Logic, Acceptance Truth, lear
 
 Shared-platform routing is inherited from AUTHORITY_INHERITANCE_CONTRACT.md and machine-registered in AUTHORITY_OWNERSHIP.json; Xizong consumes those owners and does not fork them.
 
+## Active content/projection integrity work
+
+Kian-authorized long-term cleanup and adoption-to-surface acceptance is controlled by [#1113](https://github.com/kianwang022-hash/kianos/issues/1113). Read that Issue for Parent outcome / Phase / Next / Blocker and preservation/stop conditions; do not infer its progress from the historical integration receipts below. Existing exact Content, Learning, MedicalVisual/support, Visual, Runtime and private Evidence owners retain their responsibilities. Ordinary learning still uses native learner state, not this engineering task.
+
 ## Current routing
 
 - Ordinary Xizong learning bypasses this engineering cursor and uses the native learning/runtime path.

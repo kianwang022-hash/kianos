@@ -43,6 +43,26 @@ A repeated run/session may have an ordinal for evidence identity, but it is not 
 
 ---
 
+## Naming lock｜MedicalVisual ≠ Visual
+
+`MedicalVisual` (`medicalvisual`) names the medical knowledge, source-backed images/curves/diagrams and their reading tasks owned by Content and the applicable Learning/support owner. `Visual` names interface presentation: typography, palette, composition and accepted Surface Blueprints. The medical meaning of a figure is not owned by this visual blueprint.
+
+This naming clarification changes no medical fact, accepted timing, diagram asset, stable ID or Runtime wire. Existing `visual`, `VISUAL`, `VISUAL_GATE` and source-visual fields remain compatible; the human/Chat inspection view labels that content family `MedicalVisual`. Do not perform a repository-wide string replacement or create another hierarchy/owner.
+
+### Read-only content inspection
+
+For Content discussion use the existing native resolver through:
+
+```sh
+cd static-web
+node scripts/inspect-xizong-content.mjs circulation b01
+node scripts/inspect-xizong-content.mjs circulation b01 circulation-b01-kp24 --json
+```
+
+This developer/Chat view retains the full native Block/LG/KP content, owner paths/revisions, Source policies, support objects and declared slots. It is not a new Content owner or learner surface, and it does not certify Source completeness, loaded browser release, actual KP, private Prompt override or effective displayed Prompt. Those require a separate bounded read of the actual consumer when diagnosing a difference. Older B-specific inventory/proposal probes are not the ordinary whole-object read path.
+
+Long-term work and acceptance: [#1113](https://github.com/kianwang022-hash/kianos/issues/1113). The Issue is a work anchor, not a replacement for the current Content/Learning/Projection owners.
+
 ## Naming lock｜Guide ≠ Framework
 
 Learner-facing terminology is now explicit:
