@@ -92,14 +92,14 @@ Source可信边界 → Knowledge重构与canonical Content → System／Block／
 
 ## 当前工作与下一步
 
-当前接续检查点：2026-09-30 14:43 UTC。精确执行状态以原Issue和候选readback为准，本节不是第二份Acceptance。
+当前接续检查点：2026-09-30 18:36 UTC。精确执行状态以原Issue和候选readback为准，本节不是第二份Acceptance。
 
 - 用户再次明确：A1只是第一步；西综交付覆盖8个System、159个Block、2517个KP。共享Runtime通过、A1通过不能代表全科完成。
 - 并行必须完成考研系统的系统性理解：完整清点并逐批阅读相关架构、规则、内容、代码和验收文件，弄清负责文件→实现→网页→记录/反馈关系，标明重复、冲突及未实现项。不能把理解遗漏当作没有设定。
-- 阅读覆盖按文件/固定版本记录，区分仅清点、已读、已理解、已追到实现、已验证；已读摘要不能替代未读文件。历史正文READ已重新对账为81个不同Block，分组、版本与证据强度见XIZONG_UNDERSTANDING.md；不是当前版本全科医学或网页验收，局部Source复审不得自动提升为全科已读。
+- 阅读覆盖按文件/固定版本记录，区分仅清点、已读、已理解、已追到实现、已验证；已读摘要不能替代未读文件。历史正文81个不同Block与新固定blob全文C27合并，可追溯READ并集为108个不同Block；旧81的历史基线与新C27的237e576基线分开保存。分组、版本与证据强度见XIZONG_UNDERSTANDING.md；不是108份当前版本医学或网页验收。E20继续读取，未完成前不计READ。
 - 后续西综内容质量优化必须在理解既有规则和exact Source之后，保留有效内容并有可恢复备份，不机械统一Prompt或补造支持。
-- 共享Runtime与完整A1内容栈已整合在草稿[PR #1114](https://github.com/kianwang022-hash/kianos/pull/1114)，当前候选49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa；未合并、未正式发布。A1内容审查已完成312KP，64Prompt修改，不再是等待外部Chat启动。
-- 45条exact Source复审通过的关系已限定刷新并readback，实际全局consumer核验仍在进行。2012-n121继续失效，原961失效集合不得盲目恢复。详见[#1113当前回执](https://github.com/kianwang022-hash/kianos/issues/1113#issuecomment-5913525196)。
+- 共享Runtime与完整A1内容栈已整合在草稿[PR #1114](https://github.com/kianwang022-hash/kianos/pull/1114)，候选精确head以PR及#1113顶部为准，本文不维持第二份移动head；未合并、未正式发布。A1内容审查已完成312KP，64Prompt修改，不再是等待外部Chat启动。
+- 45条exact Source复审通过的关系已限定刷新，实际3043条native consumer证明2081 Current/962 stale：仅2012-n121新增保留失效，原961集合及记录不变。版本证据见[#1113关系证明](https://github.com/kianwang022-hash/kianos/issues/1113#issuecomment-5913719729)。共享Runtime后续独立有界审查所列缺口在4a818ba已收束，见[限定闭合回执](https://github.com/kianwang022-hash/kianos/issues/1113#issuecomment-5917236996)，不替代全科网站/视觉或CI验收。
 - 全西综网站/支持消费/交互和严格视觉验收尚未完成；历史S–E/PASS、当前原生对象校验与真实用户U必须分别说明。CI基础设施问题不得通过削弱安全保护取得绿灯。
 - 同一Mac执行任务负责必要本地构建/浏览器验证，dot直接承担已授权的GitHub核对、Source复审和协调，避免重复派发。原未提交成果保留；仅确认无用且备份后才可清理。
 - 用户允许使用当前剩余额度完成有限关键步骤，额度重置尚未确认；此前提出的40%指重置后总额度，不能当成当前剩余额度40%。优先6.1 Sol high，重大难题再考虑xhigh；实际模型/用量未观测时不声称已验证。
