@@ -4,6 +4,7 @@ import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { loadXizongBlock, loadXizongSystem } from '../src/lib/xizong.mjs';
 import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
+import { revisionRequiresAction } from '../src/lib/xizongContentRevision.mjs';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const repoRoot = path.resolve(webRoot, '..');
@@ -40,9 +41,18 @@ const closeExpression = read('static-web/src/components/XizongBlockV6.astro')
 assert(Boolean(closeExpression), 'block-core-close-gate-missing');
 const closeScript = new vm.Script(`Boolean(${closeExpression})`);
 function canCloseBlock({ totalKp, learned, ratings, blockRecallDone,
-  sourceCovered = true, sourceRevisionPending = false, groupClosures = [true] }) {
+  sourceCovered = true, semanticRevisionPending = false, groupClosures = [true],
+  contentRevision = null }) {
+  // Exercise the current native revision predicate, not a stub of the removed
+  // whole-Block sourceHash gate. The synthetic witness names only this fixture.
+  const revision = contentRevision || {
+    witness: { kpOrder: ['a', 'b'], groupOrder: ['g'] },
+    pendingKp: semanticRevisionPending ? { a: 'LOCAL_SEMANTIC_CHANGE' } : {},
+    pendingGroup: {}, blockPending: false, contactPending: false
+  };
   return closeScript.runInNewContext({
-    totalKp, state: { blockRecallDone, sourceRevisionPending },
+    totalKp, state: { blockRecallDone, contentRevision: revision },
+    revisionRequiresAction,
     currentSourceContactCovered: () => sourceCovered,
     learnedCount: () => Object.values(learned).filter(Boolean).length,
     recallCount: () => Object.keys(ratings).length,
@@ -250,9 +260,26 @@ for (let mask = 0; mask < 128; mask += 1) {
     learned: flags[1] ? { a: true, b: true } : {},
     ratings: flags[2] ? { a: 'known', b: 'known' } : {},
     blockRecallDone: flags[3], sourceCovered: flags[4],
-    sourceRevisionPending: !flags[5], groupClosures: [true, flags[6]]
+    semanticRevisionPending: !flags[5], groupClosures: [true, flags[6]]
   });
   assert(actual === flags.every(Boolean), `block-core-close-gate:${mask}`);
+}
+// Known changes at each native scope must independently block completion.
+for (const [scope, delta] of [
+  ['KP', { pendingKp: { a: 'LOCAL_SEMANTIC_CHANGE' } }],
+  ['GROUP', { pendingGroup: { g: 'LOCAL_SEMANTIC_CHANGE' } }],
+  ['BLOCK', { blockPending: true, blockReason: 'LOCAL_SEMANTIC_CHANGE' }],
+  ['CONTACT', { contactPending: true, contactReason: 'LOCAL_SEMANTIC_CHANGE' }]
+]) {
+  assert(!canCloseBlock({
+    totalKp: 2, learned: { a: true, b: true }, ratings: { a: 'known', b: 'known' },
+    blockRecallDone: true,
+    contentRevision: {
+      witness: { kpOrder: ['a', 'b'], groupOrder: ['g'] },
+      pendingKp: {}, pendingGroup: {}, blockPending: false, contactPending: false,
+      ...delta
+    }
+  }), `block-close-with-pending-${scope}`);
 }
 has(blockUi, 'const raw = localStorage.getItem(storageKey);', 'block-persistence-raw-read-missing');
 has(blockUi, 'const saved = JSON.parse(raw);', 'block-persistence-json-parse-missing');
