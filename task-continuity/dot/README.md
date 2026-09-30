@@ -17,6 +17,10 @@
 - 本文件不是第二套产品规则、Current或Acceptance；任务的精确Phase、Next、Blocker继续由原Issue维护
 - 任何下列版本观察都只是接续检查点，恢复时须核对新提交和受影响的真实依赖
 
+## 分批理解记录
+
+[西综整体理解、阅读覆盖与具体冲突](XIZONG_UNDERSTANDING.md) 持续更新；入口只保留任务目标和接续路径，不复制整套医学正文。
+
 ## 设计理解应覆盖的全流程
 
 Source可信边界 → Knowledge重构与canonical Content → System／Block／Logic Group／KP及各系统真实学习差异 → 原讲义与网页配合 → Learn／Recall／closure → Memory／题目／Repair → private Evidence／Packet → Chat与Return／Resume。
