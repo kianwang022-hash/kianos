@@ -7,17 +7,23 @@ on:
       - 'content/xizong/LEARNING_CONTRACT.md'
       - 'content/xizong/LEARNER_OBJECT_CONTRACT.md'
       - 'content/xizong/knowledge/learner/study-policy.json'
+      - 'content/xizong/knowledge/learner/shared-fields.json'
       - 'static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md'
       - 'static-web/src/components/XizongBlock*.astro'
       - 'static-web/src/components/XizongKpLearnInteraction.astro'
       - 'static-web/src/components/XizongLearnerObjectBridge.astro'
+      - 'static-web/src/components/XizongSystemWorkspace.astro'
       - 'static-web/src/components/XizongStudyEnhancer.astro'
       - 'static-web/src/lib/xizong.mjs'
       - 'static-web/src/lib/xizongLearnerObject.mjs'
+      - 'static-web/src/lib/xizongLearnerProjection.mjs'
+      - 'static-web/src/lib/xizongPathways.mjs'
       - 'static-web/src/lib/xizongRepresentationGate.mjs'
       - 'static-web/src/pages/xizong/[system]/[block].astro'
+      - 'static-web/src/pages/xizong/[system]/index.astro'
       - 'static-web/src/styles/xizong-block-workspace.css'
       - 'static-web/scripts/test-xizong-block-workspace.mjs'
+      - 'static-web/scripts/test-xizong-retention-roundtrip*.mjs'
       - 'static-web/scripts/validate-xizong-learner-object.mjs'
       - 'static-web/scripts/validate-xizong-representation-gate.mjs'
       - '.github/workflows/xizong-block-workspace.yml'
@@ -27,17 +33,23 @@ on:
       - 'content/xizong/LEARNING_CONTRACT.md'
       - 'content/xizong/LEARNER_OBJECT_CONTRACT.md'
       - 'content/xizong/knowledge/learner/study-policy.json'
+      - 'content/xizong/knowledge/learner/shared-fields.json'
       - 'static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md'
       - 'static-web/src/components/XizongBlock*.astro'
       - 'static-web/src/components/XizongKpLearnInteraction.astro'
       - 'static-web/src/components/XizongLearnerObjectBridge.astro'
+      - 'static-web/src/components/XizongSystemWorkspace.astro'
       - 'static-web/src/components/XizongStudyEnhancer.astro'
       - 'static-web/src/lib/xizong.mjs'
       - 'static-web/src/lib/xizongLearnerObject.mjs'
+      - 'static-web/src/lib/xizongLearnerProjection.mjs'
+      - 'static-web/src/lib/xizongPathways.mjs'
       - 'static-web/src/lib/xizongRepresentationGate.mjs'
       - 'static-web/src/pages/xizong/[system]/[block].astro'
+      - 'static-web/src/pages/xizong/[system]/index.astro'
       - 'static-web/src/styles/xizong-block-workspace.css'
       - 'static-web/scripts/test-xizong-block-workspace.mjs'
+      - 'static-web/scripts/test-xizong-retention-roundtrip*.mjs'
       - 'static-web/scripts/validate-xizong-learner-object.mjs'
       - 'static-web/scripts/validate-xizong-representation-gate.mjs'
       - '.github/workflows/xizong-block-workspace.yml'
@@ -68,17 +80,22 @@ jobs:
         run: node scripts/validate-xizong-learner-object.mjs
       - name: Validate Representation gate
         run: node scripts/validate-xizong-representation-gate.mjs
+      - name: Validate independent source expectations and target reactivation
+        run: node scripts/test-xizong-retention-roundtrip.mjs
       - name: Install browser acceptance tool
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
       - name: Execute Block KP Learn browser acceptance
         run: node scripts/test-xizong-block-workspace.mjs
+      - name: Execute target entry Resume and Recall protection
+        run: node scripts/test-xizong-retention-roundtrip-browser.mjs
       - name: Upload Block workspace evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: xizong-block-workspace
+          include-hidden-files: true
           path: |
             static-web/.qa/xizong-block-workspace.json
             static-web/.qa/xizong-block-compact-header.png
@@ -86,4 +103,7 @@ jobs:
             static-web/.qa/xizong-block-kp-learn.png
             static-web/.qa/xizong-block-recall-front.png
             static-web/.qa/xizong-block-ttsx-checkpoint-visual-only.png
+            static-web/.qa/xizong-retention-roundtrip.json
+            static-web/.qa/xizong-retention-roundtrip-browser.json
+            static-web/.qa/retention-*.png
           if-no-files-found: warn
