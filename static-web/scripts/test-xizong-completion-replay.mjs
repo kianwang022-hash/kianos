@@ -167,5 +167,28 @@ for(const row of [legacy,visited]) {
 }
 const currentV6=fs.readFileSync(new URL('../src/components/XizongBlockV6.astro',import.meta.url),'utf8');
 assert.ok(!currentV6.includes('state.sourceContactDone = !sourcePerGroup'),'visiting legacy cannot manufacture contact from learned count');
+// Execute the actual first-mount routing prefix through its real persistence
+// boundary. Completion alone does not prove that Resume survives mounting.
+const routing=currentV6.slice(currentV6.indexOf('    const setStage ='),currentV6.indexOf('      stages.forEach',currentV6.indexOf('    const setStage =')))+'    };';
+function route(saved,requested='kp_recall') {
+ const state=reconcileXizongRevision(structuredClone(saved),learner.revisionWitness),writes=[];
+ vm.runInNewContext(routing+';setStage(requested);',{
+  state,requested,root:{dataset:{}},historicalXizongSourceContinuation,
+  biochemistrySource:null,segmentedSourceUnits:false,integrationPrimary:false,
+  naturalSourceUnits:false,sourcePerGroup:false,pendingTtsxIsReviewed:()=>false,
+  save:()=>{writes.push(state.stage);return true;}
+ });
+ return {state,writes};
+}
+for(const requested of ['kp_recall','kp_learn','logic_group']) {
+ const mounted=route(legacy,requested);
+ assert.equal(mounted.state.stage,'kp_recall','actual mount retains historical Recall continuation');
+ assert.deepEqual(mounted.writes,['kp_recall']);assert.equal(mounted.state.sourceContactDone,undefined);
+ assert.deepEqual(mounted.state.ratings,legacy.ratings);assert.deepEqual(mounted.state.learned,legacy.learned);
+ assert.equal(revisionStatus(mounted.state,learner.sourceHash,learner.revisionWitness).current_claim,'UNKNOWN');
+}
+assert.equal(route({...study,sourceContactDone:false,sourceContactEvidence:[]}).state.stage,'source_contact','known current missing Source still routes to Source');
+assert.equal(route({...legacy,completed:false}).state.stage,'source_contact','unfinished legacy cannot bypass Source');
+
 
 console.log(JSON.stringify({ok:true,synthetic_only:true,source_modes:results,regenerated_return_readonly:true,unvisited_prerequisite_blocked:true,legacy_unknown_preserved:true}));

@@ -1171,46 +1171,52 @@ window.__kianosLearnerWriterReady.then(async () => {
     const setStage = (requested) => {
       if (root.dataset.xizongStateBlocked === 'true') return;
       let stage = requested || 'block_learn';
-      if (biochemistrySource?.laneSourceHash && stage === 'kp_learn') stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
-      else if (segmentedSourceUnits && stage === 'kp_learn') {
-        if (integrationPrimary) ensureIntegrationPrimaryReady();
-        const segmentIndex = naturalSegmentIndexForGroup(currentGroup());
-        if (segmentIndex >= 0) state.sourceSegmentIndex = segmentIndex;
-        stage = segmentGroupSourceCovered(currentGroup()) ? 'kp_recall' : 'source_contact';
-      } else if (integrationPrimary && stage === 'kp_learn') {
-        ensureIntegrationPrimaryReady();
-        stage = 'kp_recall';
-      } else if (!sourcePerGroup && stage === 'kp_learn') stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
-
-      if (biochemistrySource?.laneSourceHash && stage === 'kp_recall' && !currentGroupSourceCovered()) stage = 'source_contact';
-      else if (segmentedSourceUnits && stage === 'kp_recall') {
-        if (integrationPrimary) ensureIntegrationPrimaryReady();
-        if (!segmentGroupSourceCovered(currentGroup())) {
-          const segmentIndex = naturalSegmentIndexForGroup(currentGroup());
-          if (segmentIndex >= 0) state.sourceSegmentIndex = segmentIndex;
-          stage = 'source_contact';
-        }
-      } else if (integrationPrimary && stage === 'kp_recall') {
-        ensureIntegrationPrimaryReady();
-      } else if (!biochemistrySource?.laneSourceHash && !naturalSourceUnits && !integrationPrimary && !sourcePerGroup && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
-
-      if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';
-      if (integrationPrimary && !integrationTargetedSourceReturns && stage === 'source_contact') {
-        ensureIntegrationPrimaryReady();
-        stage = 'kp_recall';
-      }
-      if (stage === 'logic_group') {
-        if (biochemistrySource?.laneSourceHash) stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
-        else if (sourcePerGroup) stage = 'kp_learn';
-        else if (segmentedSourceUnits) {
+      // Historical UNKNOWN completion permits continuation without inventing
+      // Source evidence or rewriting the learner's saved Recall position.
+      if (historicalXizongSourceContinuation(state)) {
+        if (stage === 'kp_learn' || stage === 'logic_group') stage = 'kp_recall';
+      } else {
+        if (biochemistrySource?.laneSourceHash && stage === 'kp_learn') stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
+        else if (segmentedSourceUnits && stage === 'kp_learn') {
           if (integrationPrimary) ensureIntegrationPrimaryReady();
           const segmentIndex = naturalSegmentIndexForGroup(currentGroup());
           if (segmentIndex >= 0) state.sourceSegmentIndex = segmentIndex;
           stage = segmentGroupSourceCovered(currentGroup()) ? 'kp_recall' : 'source_contact';
-        } else if (integrationPrimary) {
+        } else if (integrationPrimary && stage === 'kp_learn') {
           ensureIntegrationPrimaryReady();
           stage = 'kp_recall';
-        } else stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
+        } else if (!sourcePerGroup && stage === 'kp_learn') stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
+
+        if (biochemistrySource?.laneSourceHash && stage === 'kp_recall' && !currentGroupSourceCovered()) stage = 'source_contact';
+        else if (segmentedSourceUnits && stage === 'kp_recall') {
+          if (integrationPrimary) ensureIntegrationPrimaryReady();
+          if (!segmentGroupSourceCovered(currentGroup())) {
+            const segmentIndex = naturalSegmentIndexForGroup(currentGroup());
+            if (segmentIndex >= 0) state.sourceSegmentIndex = segmentIndex;
+            stage = 'source_contact';
+          }
+        } else if (integrationPrimary && stage === 'kp_recall') {
+          ensureIntegrationPrimaryReady();
+        } else if (!biochemistrySource?.laneSourceHash && !naturalSourceUnits && !integrationPrimary && !sourcePerGroup && stage === 'kp_recall' && !state.sourceContactDone) stage = 'source_contact';
+
+        if (sourcePerGroup && stage === 'source_contact') stage = 'kp_learn';
+        if (integrationPrimary && !integrationTargetedSourceReturns && stage === 'source_contact') {
+          ensureIntegrationPrimaryReady();
+          stage = 'kp_recall';
+        }
+        if (stage === 'logic_group') {
+          if (biochemistrySource?.laneSourceHash) stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
+          else if (sourcePerGroup) stage = 'kp_learn';
+          else if (segmentedSourceUnits) {
+            if (integrationPrimary) ensureIntegrationPrimaryReady();
+            const segmentIndex = naturalSegmentIndexForGroup(currentGroup());
+            if (segmentIndex >= 0) state.sourceSegmentIndex = segmentIndex;
+            stage = segmentGroupSourceCovered(currentGroup()) ? 'kp_recall' : 'source_contact';
+          } else if (integrationPrimary) {
+            ensureIntegrationPrimaryReady();
+            stage = 'kp_recall';
+          } else stage = state.sourceContactDone ? 'kp_recall' : 'source_contact';
+        }
       }
       if (stage === 'kp_recall' && state.pendingTtsx?.key && pendingTtsxIsReviewed(state.pendingTtsx) && !ttsxDone(state.pendingTtsx.key)) stage = 'ttsx_checkpoint';
       if (stage === 'ttsx_checkpoint' && (!state.pendingTtsx?.key || !pendingTtsxIsReviewed(state.pendingTtsx) || ttsxDone(state.pendingTtsx.key))) {
@@ -1240,7 +1246,8 @@ window.__kianosLearnerWriterReady.then(async () => {
       switchTab('learn');
       const requested = button.getAttribute('data-stage-target') || button.getAttribute('data-stage-next') || 'block_learn';
       if (requested === 'logic_group' && button.hasAttribute('data-stage-next')) {
-        if (integrationPrimary) {
+        if (historicalXizongSourceContinuation(state)) setStage('kp_recall');
+        else if (integrationPrimary) {
           ensureIntegrationPrimaryReady();
           state.groupIndex = 0;
           state.kpIndex = firstUnrecalledIndexForGroup(groups[0]);
@@ -1383,6 +1390,7 @@ window.__kianosLearnerWriterReady.then(async () => {
       setStage('kp_recall');
     });
     const stageForSelectedGroup = () => {
+      if (historicalXizongSourceContinuation(state)) return 'kp_recall';
       if (biochemistrySource?.laneSourceHash) return currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
       if (sourcePerGroup) return 'kp_learn';
       if (segmentedSourceUnits) {
