@@ -1,5 +1,5 @@
 # 西综理解记录：全流程与首批正文
-更新：2026-09-30 18:35 UTC。状态：用户已重新明确授权持续理解全部考研系统设定并推进全西综；本文件保留早期正文阅读证据，后续架构/文件覆盖在[考研理解记录](EXAM_UNDERSTANDING.md)继续。不是产品验收或新的学习规则。
+更新：2026-09-30 19:03 UTC。状态：用户已重新明确授权持续理解全部考研系统设定并推进全西综；本文件保留早期正文阅读证据，后续架构/文件覆盖在[考研理解记录](EXAM_UNDERSTANDING.md)继续。不是产品验收或新的学习规则。
 
 ## 一、恢复时先记住什么
 - 当前任务先读懂现有西综，再讨论最小责任位置的落地；不能用新架构替代已有知识与学习设计
@@ -144,3 +144,41 @@ B1/B2建立地图与滤过；B3小管分段机制；B4浓缩和激素肾端；B5
 4. H12与H16/H17的Outline账目数字不同；外科U34 coarse映射列H25–27而H20也Primary U34/P252。先trace实际consumer与账目owner，不能凭数组叫漏投影
 
 Source-map只读精确U30/U34与身份节（PARTIAL），原PDF/图片未逐页复验；未执行测试/网页/医学质量验收。完整结构阅读证据已保存，后续只将有消费者证据的具体缺陷回原#1113，不另立第二套owner。
+
+
+## 十、E20全文理解完成（2026-09-30 19:03 UTC）
+
+固定4a818ba50e994c6c681e1597677e157043b46036，SR1–SR6/E1–E14全文实际读完：20 Blocks、212稳定KP、12,026行；16个必要owner FULL与1个Source-map PARTIAL。父级全文读结构报告并独立核20缓存Git blob/SHA256、完整READ/无截断标记一致。跨版本distinct正文READ并集现在128（旧81+C27+E20），尚余B13/D9/F9在读；不是当前159医学/网页PASS。
+
+| Block | exact blob | 行数 | KP |
+|---|---|---:|---:|
+| [SR1](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR1_生殖内分泌控制_学习阅读版_v1_最终执行版.md) | b53be2ff2571fb482aecfad36842c63ae6af3478 | 568 | 10 |
+| [SR2](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR2_男性生殖_学习阅读版_v1_最终执行版.md) | e258eb174170172ff3695d30db62b399730361d0 | 608 | 11 |
+| [SR3](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR3_女性激素与月经周期_学习阅读版_v1_最终执行版.md) | bc83884543f8db9aaa6d51bccf7ea0fdd7fc645b | 601 | 12 |
+| [SR4](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR4_性激素合成与生命阶段来源_学习阅读版_v1_最终执行版.md) | 5144d634b611327e3895ef3811318ea85581ed92 | 468 | 8 |
+| [SR5](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR5_受精妊娠黄体胎盘与分娩_学习阅读版_v1_最终执行版.md) | 55caacaa8489abda5305213cf9b47ad061a75174 | 550 | 10 |
+| [SR6](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR6_泌乳射乳与正常乳腺_学习阅读版_v1_最终执行版.md) | a47251c667339860d5d8d83de22d5903b880ec78 | 538 | 10 |
+| [E1](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖病理_E1_宫颈异位鳞化与慢性炎_学习阅读版_v1_最终执行版.md) | 3e230395f7a0e0924d2b41cf3801e73b4361e480 | 475 | 7 |
+| [E2](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖病理_E2_高危HPV_SIL与宫颈癌_学习阅读版_v1_最终执行版.md) | 03e22caa8945b3cda407bc448d0599e6ffd4291b | 554 | 10 |
+| [E3](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖病理_E3_内膜异位腺肌病与内膜增生_学习阅读版_v1_最终执行版.md) | 2332a14d20f7aa85d82434949002ae248ea05d14 | 496 | 8 |
+| [E4](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖病理_E4_子宫平滑肌瘤与肉瘤_学习阅读版_v1_最终执行版.md) | ff09091f8bdf17c936c48c5551782f028f756caf | 443 | 7 |
+| [E5](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖病理_E5_葡萄胎与绒毛遗传_学习阅读版_v1_最终执行版.md) | ffcbdec7afdab895fc751820ef50f29eed09ef18 | 600 | 9 |
+| [E6](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖病理_E6_侵袭性葡萄胎绒癌与PSTT_学习阅读版_v1_最终执行版.md) | 195d565f67a2369b5cfa4bced428927539702dc7 | 666 | 10 |
+| [E7](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖病理_E7_卵巢谱系与上皮性肿瘤_学习阅读版_v1_最终执行版.md) | 5c01c2c3eba26e1806adb6719a6625851464497a | 606 | 9 |
+| [E8](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖病理_E8_卵巢生殖细胞与性索间质肿瘤_学习阅读版_v1_最终执行版.md) | 33c4ad327307dca19f9c8e4998614b982a5bacb0 | 648 | 11 |
+| [E9](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖乳腺_E9_隐睾与鞘膜积液_学习阅读版_v1_最终执行版.md) | 675aa9aceb278cd68c4b888ded5a164d3755f41b | 421 | 7 |
+| [E10](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖乳腺_E10_良性乳房与乳头症状_学习阅读版_v1_最终执行版.md) | 20cc12c05f4258bb0648d86b5e512195ebca2337 | 540 | 10 |
+| [E11](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖乳腺_E11_哺乳期乳腺炎与乳房脓肿_学习阅读版_v1_最终执行版.md) | 62e9d8ba0ddb8417bafab2e59bf2255c95113650 | 548 | 10 |
+| [E12](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖乳腺_E12_乳腺癌病理进展_学习阅读版_v1_最终执行版.md) | 3c2027a66e35245096624e111fd0ebb989b05604 | 950 | 19 |
+| [E13](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖乳腺_E13_TNM分子亚型与诊断证据_学习阅读版_v1_最终执行版.md) | 2ec82141b419717fb04e7e3f8b2d3a762b7be6d2 | 911 | 18 |
+| [E14](https://github.com/kianwang022-hash/kianos/blob/4a818ba50e994c6c681e1597677e157043b46036/content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖乳腺_E14_乳腺癌综合治疗_学习阅读版_v1_最终执行版.md) | 4e670ede96e918513130208f9479e28b54afa7f5 | 835 | 16 |
+
+关键理解：
+- E双主干为Control/Time与Tissue/Identity，不将局部侵犯和远处转移压成同一轴；负空间仍不包含完整妇产科、男科或现代肿瘤治疗。
+- 67 LG成员在E内连续，但LG顺序/Source接触/release不是同一轴。11 whole Block、9 natural Source-unit；inside-E hard prerequisites为0，正文下一Block/最低标准不自动升成硬门禁。
+- SR1首Unit仅contributes，不释放LG；E12病理Unit先释放LG03/04，外科Unit后释放LG01/02。partial贡献不能当组完成；E10-LG03保明确视觉gap，文本Recall不自动消除。
+- 20份均有Framework/MemoryRouting/MI-G/MI-D；E1–8虽无Framework machine marker仍有明确内容，英文Detailed Expansion、中文快速核对和KP前Memory位置等须正确消费，不能统一模板丢答案。
+- Current25个visual triggers、18个bundle usages是稀疏支持。重复crop用于不同LG合法；七个外科cue无local bundle不自动等于医学缺陷，external-primary原页与网页crop职责不同。
+- E9/E11部分refined原页已验证，与System旧GAP总语句范围不同；E13/E14特定LG支持不扩大成全Block视觉恢复。病理名称/页坐标差异、旧S2或P/R/E construction尾语须按exact owner消歧，未trace不当新产品故障。
+
+原Source PDF、裁图/显示timing、消费者、测试和真实U本批均未复验。大地图恢复、全文阅读与模式边界已交现有全159页面验收使用，不重开实现者或医学重写。
