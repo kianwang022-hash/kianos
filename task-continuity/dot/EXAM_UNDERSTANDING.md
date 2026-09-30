@@ -115,3 +115,30 @@ Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e57
 - 2517编号KP之外仍有O9 overlay（22KP）、A宏域整合与Block非KP资产；全量理解/消费覆盖必须包含适用对象，不以编号KP总数定义全部知识资产。
 
 目录清点仍在进行：精确候选tree可枚举static-web/src的415文件、scripts的329文件、Xizong learner目录128文件、systems目录183文件；这些仅INVENTORIED，不等于已读，更不等于全考研系统文件分母。现有注册表和manifest继续拥有真实结构，本记录不成为新的语义registry。
+
+## 第四批：跨科学习差异与共享消费（2026-09-30 15:42 UTC）
+
+| 原文件 | blob | 状态 |
+|---|---|---|
+| [BLOCK_PREENTRY_CONTENT_CONTRACT.md](https://github.com/kianwang022-hash/kianos/blob/66371b71b68c5941de33f23d2ae421050cf2d0c2/content/xizong/knowledge/learner/BLOCK_PREENTRY_CONTENT_CONTRACT.md) | cd61bff3c210593cf6374a2342cf90d5457c5ad7 | READ |
+| [BEGINNER_GUIDE_CONTRACT.md](https://github.com/kianwang022-hash/kianos/blob/66371b71b68c5941de33f23d2ae421050cf2d0c2/content/xizong/knowledge/learner/BEGINNER_GUIDE_CONTRACT.md) | 83f172ef2fe0a559b2a9e96aa1db613a5456df92 | READ |
+| [xizongLearnerObject.mjs](https://github.com/kianwang022-hash/kianos/blob/66371b71b68c5941de33f23d2ae421050cf2d0c2/static-web/src/lib/xizongLearnerObject.mjs) | a8f116d381d11ec8a610a8ff81511096a73d0a79 | READ |
+| [XIZONG_MEMORY_PRODUCT.md](https://github.com/kianwang022-hash/kianos/blob/66371b71b68c5941de33f23d2ae421050cf2d0c2/static-web/XIZONG_MEMORY_PRODUCT.md) | 1fd4ce562559477dd36298f756b2e1889ad3db82 | READ |
+| [LEARNING_CONTRACT.md](https://github.com/kianwang022-hash/kianos/blob/main/content/english/LEARNING_CONTRACT.md) | f04e92e3d9b3f07764739d419ecbf5ee1f7899a7 | READ |
+| [manifest.json](https://github.com/kianwang022-hash/kianos/blob/main/content/english/manifest.json) | 24595a2bf13d2315357b5bec38a3207bdcbfe0af | READ |
+| [reading-a.md](https://github.com/kianwang022-hash/kianos/blob/main/content/english/modules/reading-a.md) | 19c62911447f15886c649ba28a163d782c758181 | READ |
+| [cloze.md](https://github.com/kianwang022-hash/kianos/blob/main/content/english/modules/cloze.md) | 90ffcd8fd2ca5a0ffaeb690e2282e748d4d96170 | READ |
+| [reading-b.md](https://github.com/kianwang022-hash/kianos/blob/main/content/english/modules/reading-b.md) | 9c1bd9f216185790a543ddd81aaac93e2b798c8c | READ |
+| [LEARNING_CONTRACT.md](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/LEARNING_CONTRACT.md) | 9b2b698f1bb79fbae8fb09c96e37ab2969200d32 | READ |
+
+局部读取：objective-learning.md仅完整读开头约200行及结构，1547行全文尚未完成，不计READ。
+
+本批理解：
+- 西综Framework、MemoryRouting、MI-G/MI-D为canonical Block内容职责，不从重要性或数字形状推断；Guide是解释，Framework是结构。
+- learner object按Block/LG/KP原anchor组合支持；语义存在、声明时机、实际显示分别验证。真实Block Complete释放Core/Precision/Marked，释放不等于全部到期。
+- 英语优化任务表现，词汇为English子功能但有独立语义owner。Reading A/Cloze/Part B不能抹平题型差异；错题可快速理解并离开，不强迫Chat、二次作答或未来债务。workflow complete不等于mastery。
+- English Session的复盘完成修复应支持cheap exit；不能把任意成功Return当成全组已完成，也不能要求所有错题走Chat回传。
+- 政治Chengfeng是连续一轮主线，Xiao1000单一Workbench为验证；题后背面是预制Content，W/U默认可继续。政治Memory由Chat选当日计划，不移植西综固定间隔；分析输出是独立后期分数通道。
+- Bio契约§13将普通学习/工程入口混写为CURRENT优先，需与已读上级intent规则做最小消歧；尚未改写，也不据此重开已关闭Source rebase。
+
+完整文件清点、全链代码trace、全科页面/交互/视觉验证均未完成。
