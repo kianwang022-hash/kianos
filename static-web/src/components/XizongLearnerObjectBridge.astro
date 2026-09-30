@@ -60,7 +60,7 @@ const payload = learnerObject || null;
         const card = el('div', `xv6LearnerAsset connection ${row?.reserveLearning ? 'reserve' : row?.direction || ''}`);
         card.dataset.learnerAsset = 'connection';
         card.dataset.learnerAssetId = text(row?.id);
-        const label = row?.reserveLearning ? '先留个印象' : row?.direction === 'incoming' ? '你之前见过' : '后面会接';
+        const label = row?.reserveLearning ? '先留个印象' : row?.direction === 'incoming' ? (row?.raw?.reviewedRetention ? '本章串联回收' : '你之前见过') : '后面会接';
         card.append(el('span', 'xv6LearnerAssetLabel', label));
         card.append(el('p', '', row?.cue));
         if (row?.seed) card.append(el('p', '', row.seed));
@@ -290,17 +290,9 @@ const payload = learnerObject || null;
         : [];
       const targetedIntegrationSource = sourceContactMode === 'INTEGRATION_PRIMARY' && sourceContactSegments.length > 0;
       const groupIds = groups.map((group) => group?.identity?.logicGroupId);
-      const studyObjectId = root.getAttribute('data-study-object') || 'xizong:unknown';
-      const studyKey = `kianos-xizong-astro-v2:${studyObjectId}`;
-      const persistedKpId = () => {
-        try {
-          const study = JSON.parse(localStorage.getItem(studyKey) || '{}');
-          const index = Number(study?.kpIndex);
-          return Number.isInteger(index) && index >= 0 && index < allKps.length
-            ? text(allKps[index]?.identity?.kpId)
-            : '';
-        } catch { return ''; }
-      };
+      const nativePosition = () => typeof root.getXizongStudyPosition === 'function'
+        ? root.getXizongStudyPosition() : null;
+      const nativeKpId = () => text(nativePosition()?.kpId);
       const focusNativeKp = (kp, stageName) => {
         const kpId = text(kp?.identity?.kpId);
         if (!kpId) return;
@@ -313,22 +305,13 @@ const payload = learnerObject || null;
       let groupLearnIndex = 0;
       let lastGroupId = '';
 
-      const activeStage = () => {
-        const node = [...root.querySelectorAll('[data-study-stage]')].find((stage) => !stage.hasAttribute('hidden'));
-        return node?.getAttribute('data-study-stage') || 'block_learn';
-      };
-      const activeGroupIndex = () => {
-        const counter = root.querySelector('[data-logic-counter]')?.textContent || '';
-        const match = counter.match(/(\d+)\s*\//);
-        return Math.max(0, Number(match?.[1] || 1) - 1);
-      };
-      const activeGroup = () => groups[activeGroupIndex()] || groups[0] || null;
+      const activeStage = () => text(nativePosition()?.stage) || 'block_learn';
+      const activeGroupIndex = () => groupIds.indexOf(text(nativePosition()?.logicGroupId));
+      const activeGroup = () => groups[activeGroupIndex()] || null;
       const activeRecallCard = () => root.querySelector('[data-kp-recall-card]:not([hidden])');
-      const activeRecallKpId = () => activeRecallCard()?.getAttribute('data-kp-id') || '';
-      const visibleCompanionKp = (stageName) => {
-        const frame = root.querySelector(`[data-study-stage="${stageName}"]:not([hidden]) [data-learner-kp-companion="${stageName}"][data-kp-id]`);
-        return kpById.get(frame?.getAttribute('data-kp-id') || '') || null;
-      };
+      const activeRecallKpId = nativeKpId;
+      const visibleCompanionKp = (stageName) => activeStage() === stageName
+        ? kpById.get(nativeKpId()) || null : null;
       const recallAnswerVisible = () => {
         const answer = activeRecallCard()?.querySelector('[data-kp-answer]');
         return Boolean(answer && !answer.hasAttribute('hidden'));
@@ -446,7 +429,7 @@ const payload = learnerObject || null;
       }
 
       const renderCompanions = () => {
-        const persistedId = persistedKpId();
+        const persistedId = nativeKpId();
         if (sourceCompanionHost) {
           const rows = sourceCompanionKps();
           const persistedIndex = rows.findIndex((kp) => text(kp?.identity?.kpId) === persistedId);
@@ -536,6 +519,11 @@ const payload = learnerObject || null;
             recallAnswerVisible() ? postlearnForGroup(groupId) : {}
           );
         }
+        // Keep Block-owned reactivation at Block scope, including direct Resume.
+        // The existing representation gate still protects Recall Front.
+        if (['block_learn', 'source_contact', 'kp_learn', 'logic_group', 'kp_recall'].includes(stage)) {
+          slot = mergeSlots({ connection: array(learner.slots?.blockConnections) }, slot);
+        }
         const rendered = renderSlot(slot, { stage: representationStage });
         auxHost.dataset.learnerObjectSlot = slotName;
         auxHost.dataset.representationStage = representationStage;
@@ -576,8 +564,7 @@ const payload = learnerObject || null;
       }
       const stageObserver = new MutationObserver(renderAux);
       stages.forEach((stage) => stageObserver.observe(stage, { attributes: true, attributeFilter: ['hidden'] }));
-      const counter = root.querySelector('[data-logic-counter]');
-      if (counter) new MutationObserver(rerender).observe(counter, { childList: true, subtree: true, characterData: true });
+      root.addEventListener('kianos:xizong-position-change', rerender);
       const recallObserver = new MutationObserver(renderAux);
       root.querySelectorAll('[data-kp-recall-card],[data-kp-answer]').forEach((node) => recallObserver.observe(node, { attributes: true, attributeFilter: ['hidden'] }));
     }

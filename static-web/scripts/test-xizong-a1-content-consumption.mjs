@@ -49,7 +49,7 @@ for (const summary of system.blocks) {
   inventory.push({block: canonical.blockId, kp: learner.kps.length, prompt: learner.kps.filter(k=>k.prompt.canonical).length, attention:block.semanticAttentionCues.length, connections, precision:resolved.learningCues.precision.length, visual:resolved.learningCues.visuals.length, extension:resolved.extensionAssets.length});
 }
 assert.equal(inventory.reduce((n,b)=>n+b.kp,0),312);
-assert.equal(inventory.reduce((n,b)=>n+b.connections,0),12);
+assert.equal(inventory.reduce((n,b)=>n+b.connections,0),17);
 const b1 = loadXizongBlock('circulation', 'circulation-b01');
 const kp24 = resolveXizongLearnerProjection(b1).learnerObject.kps.find(k=>k.identity.displayId==='KP24');
 assert.match(kp24.prompt.canonical,/核心压力梯度.*抽吸端 6 个因素.*送血端 7 个因素/);

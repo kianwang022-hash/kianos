@@ -1,7 +1,7 @@
 ---
 import { composeXizongSystemFrameworkRepresentation } from '../lib/xizongRepresentationGate.mjs';
 
-const { system, pathways, guide = null } = Astro.props;
+const { system, pathways, guide = null, incomingConnections = [] } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const framework = composeXizongSystemFrameworkRepresentation(system);
 const failureViews = pathways?.systemFailureViews || {};
@@ -79,6 +79,20 @@ const axisRows = framework.judgmentAxes.items.map((item, index) => {
     </aside>
 
     <main class="xzSystemStage">
+      {incomingConnections.length > 0 && (
+        <section class="xzSystemGuideSection role-connection" data-retention-system-reentry>
+          <header><h2>本系统串联回收</h2></header>
+          <div class="xzSystemGuideMarkdown markdown">
+            {incomingConnections.map(connection => (
+              <div data-retention-connection-id={connection.id}>
+                <p><strong>{connection.source.cue}</strong></p>
+                {connection.seed && <p>{connection.source.label} 中的接口：{connection.seed}</p>}
+                <a href={`${base}${connection.source.href.replace(/^\//, '')}`}>回看 {connection.source.label}</a>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
       {hasGuide && (
         <section class="xzSystemGuideView" data-system-view="guide">
           <div class="xzSystemGuideLead">

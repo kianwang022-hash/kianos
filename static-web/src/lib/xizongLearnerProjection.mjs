@@ -1,7 +1,7 @@
 import { loadXizongSystem } from './xizong.mjs';
 import { buildXizongProductionBlock } from './xizongProductionProjection.mjs';
 import { loadXizongLearningCues, learningCuesForBlock } from './xizongLearningCues.mjs';
-import { loadXizongPathways, pathwaysForBlock, reviewedRetentionConnectionsForBlock } from './xizongPathways.mjs';
+import { loadXizongPathways, pathwaysForBlock, loadReviewedRetentionConnections } from './xizongPathways.mjs';
 import { extensionAssetsForBlock } from './xizongExtensionAssets.mjs';
 import { buildXizongLearnerObject, validateXizongLearnerObject } from './xizongLearnerObject.mjs';
 
@@ -43,8 +43,10 @@ export function resolveXizongLearnerProjection(canonicalBlock, {
       : (rawLearningCues.visuals || [])
   };
 
-  const pathways = pathwaysForBlock(loadXizongPathways(system), block.blockId);
-  pathways.outgoing.push(...reviewedRetentionConnectionsForBlock(system, block));
+  const currentPathways = loadXizongPathways(system);
+  const pathways = pathwaysForBlock({
+    connections: [...(currentPathways?.connections || []), ...loadReviewedRetentionConnections()]
+  }, block.blockId);
   const extensionAssets = extensionAssetsForBlock(block);
   const learnerObject = buildXizongLearnerObject({
     block,

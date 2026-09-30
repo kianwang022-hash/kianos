@@ -996,6 +996,28 @@ window.__kianosLearnerWriterReady.then(() => {
       });
     };
 
+    // Read-only projection of the existing native state; no second cursor/store.
+    const readStudyPosition = () => Object.freeze({
+      objectId,
+      stage: state.stage,
+      kpId: kpData[state.kpIndex]?.kpId || '',
+      logicGroupId: groups[state.groupIndex]?.groupId || '',
+      kpIndex: state.kpIndex,
+      groupIndex: state.groupIndex,
+      sourceSegmentIndex: state.sourceSegmentIndex
+    });
+    Object.defineProperty(root, 'getXizongStudyPosition', {
+      value: readStudyPosition, configurable: true
+    });
+    let lastPublishedPosition = '';
+    const publishStudyPosition = () => {
+      const position = readStudyPosition();
+      const key = JSON.stringify(position);
+      if (key === lastPublishedPosition) return;
+      lastPublishedPosition = key;
+      root.dispatchEvent(new CustomEvent('kianos:xizong-position-change', { detail: position }));
+    };
+
     const syncGroupStage = () => {
       const group = currentGroup();
       const groupItems = groupKps(group);
@@ -1066,6 +1088,7 @@ window.__kianosLearnerWriterReady.then(() => {
         + (visualGaps.length ? ` · 原图门禁未闭合 ${visualGaps.map((row) => row.label || '当前学习节').join(' / ')}` : '')
       ));
       syncGroupStage();
+      publishStudyPosition();
     };
 
     const resetRecallCard = (card) => {

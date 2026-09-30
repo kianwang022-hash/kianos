@@ -111,8 +111,10 @@ function normalizeConnection(row, direction) {
     direction,
     answerBearing: row?.answerBearing === true || row?.answer_bearing === true,
     displayPolicy: row?.displayPolicy || row?.display_policy || null,
-    attentionRole: text(row?.attentionRole || row?.attention_role),
-    seed: text(row?.seed),
+    attentionRole: direction === 'incoming' && row?.reviewedRetention
+      ? 'ON_DEMAND_SUPPORT' : text(row?.attentionRole || row?.attention_role),
+    seed: direction === 'incoming' && row?.reviewedRetention && row?.seed
+      ? `${text(other?.label)} 中的接口：${text(row.seed)}` : text(row?.seed),
     reserveLearning: row?.reserveLearning === true || row?.reserve_learning === true,
     cue: text(endpoint?.cue),
     endpoint: endpoint ? { ...endpoint } : {},
@@ -306,6 +308,11 @@ export function buildXizongLearnerObject({
     fail('KP_GROUP_COVERAGE_MISMATCH', block.blockId);
   }
 
+  const blockConnections = array(pathways?.incoming)
+    .filter(row => row?.target?.block_id === block.blockId
+      && !row.target.logic_group_id && !row.target.kp_id)
+    .map(row => normalizeConnection(row, 'incoming'));
+  uniqueIds(blockConnections, `${block.blockId}:connection`);
   const blockExtensions = array(extensionAssets)
     .filter((row) => row?.owner?.block_id === block.blockId && !row?.owner?.logic_group_id && !row?.owner?.kp_id)
     .map(normalizeExtension);
@@ -336,6 +343,7 @@ export function buildXizongLearnerObject({
     slots: {
       blockOrientation: blockExtensions,
       blockAttention: blockAttentionRows(block),
+      blockConnections,
       logicGroupPrelearn: Object.fromEntries(groups.map((group) => [group.identity.logicGroupId, group.slots.prelearn])),
       logicGroupPostlearn: Object.fromEntries(groups.map((group) => [group.identity.logicGroupId, group.slots.postlearn])),
       kpLearnAux: Object.fromEntries(kpObjects.map((kp) => [kp.identity.kpId, {
