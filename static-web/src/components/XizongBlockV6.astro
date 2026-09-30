@@ -1174,7 +1174,9 @@ window.__kianosLearnerWriterReady.then(async () => {
       // Historical UNKNOWN completion permits continuation without inventing
       // Source evidence or rewriting the learner's saved Recall position.
       if (historicalXizongSourceContinuation(state)) {
-        if (stage === 'kp_learn' || stage === 'logic_group') stage = 'kp_recall';
+        // Whole-LG kp_learn is an actual explicit Source-view panel. Keep
+        // that saved intention; only adapt legacy routes without that panel.
+        if (stage === 'logic_group' || (stage === 'kp_learn' && !sourcePerGroup)) stage = 'kp_recall';
       } else {
         if (biochemistrySource?.laneSourceHash && stage === 'kp_learn') stage = currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
         else if (segmentedSourceUnits && stage === 'kp_learn') {

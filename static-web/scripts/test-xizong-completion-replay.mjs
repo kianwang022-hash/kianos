@@ -190,8 +190,13 @@ for(const requested of ['kp_recall','kp_learn','logic_group']) {
 assert.equal(route({...study,sourceContactDone:false,sourceContactEvidence:[]}).state.stage,'source_contact','known current missing Source still routes to Source');
 assert.equal(route({...legacy,completed:false}).state.stage,'source_contact','unfinished legacy cannot bypass Source');
 assert.equal(route(legacy,'source_contact',{sourcePerGroup:true}).state.stage,'kp_learn','whole-LG explicit Source return normalizes to its rendered panel');
-assert.equal(route(legacy,'source_contact',{integrationPrimary:true,integrationTargetedSourceReturns:false}).state.stage,'kp_recall','direct integration has no Source panel and must not synthesize contact');
+const sourceView=route(legacy,'source_contact',{sourcePerGroup:true}).state;
+const sourceReload=route(sourceView,sourceView.stage,{sourcePerGroup:true});
+assert.equal(sourceReload.state.stage,'kp_learn','explicit whole-LG Source-view Resume is idempotent');
+assert.equal(sourceReload.state.sourceContactDone,undefined);
+assert.deepEqual(sourceReload.state.ratings,legacy.ratings);
 
+assert.equal(route(legacy,'source_contact',{integrationPrimary:true,integrationTargetedSourceReturns:false}).state.stage,'kp_recall','direct integration has no Source panel and must not synthesize contact');
 
 
 console.log(JSON.stringify({ok:true,synthetic_only:true,source_modes:results,regenerated_return_readonly:true,unvisited_prerequisite_blocked:true,legacy_unknown_preserved:true}));
