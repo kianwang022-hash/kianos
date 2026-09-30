@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {spawn} from 'node:child_process';
+import {spawn,spawnSync} from 'node:child_process';
 import {chromium} from 'playwright';
 import {
   ENGLISH_GENERATED_DRILL_SCHEMA,
@@ -342,7 +342,12 @@ try{
   // demonstrate native foreground/background Web Lock handoff.
   await browser.close();
   const focusProfile=path.join(temp,'focus-profile');
-  const chrome=process.env.KIANOS_TEST_CHROME || chromium.executablePath();
+  const chrome=process.env.KIANOS_TEST_CHROME || (process.platform==='linux' ? process.env.CHROME_BIN : '') || chromium.executablePath();
+  // Honor the runner's installed vendor browser; retain its native sandbox and
+  // fail closed for an explicitly configured missing/unusable executable.
+  const chromeVersion=spawnSync(chrome,['--version'],{encoding:'utf8',timeout:10000});
+  assert.equal(chromeVersion.status,0,'configured native-focus executable available: '+JSON.stringify({executable:chrome,error:chromeVersion.error?.message,stderr:chromeVersion.stderr}));
+  console.log('native-focus executable/version',chrome,String(chromeVersion.stdout||'').trim());
   let focusStderr='',focusLaunchError='';
   focusProcess=spawn(chrome,[...(process.env.KIANOS_TEST_HEADED==='1'?[]:['--headless=new']),'--remote-debugging-port=0','--user-data-dir='+focusProfile,
     '--no-first-run','--no-default-browser-check','--disable-background-networking',
