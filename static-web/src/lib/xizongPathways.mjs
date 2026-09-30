@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { loadXizongSemanticBlock } from './xizongSemanticAdapter.mjs';
+import { loadXizongSystem } from './xizong.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -109,4 +110,48 @@ export function pathwaysForBlock(pathways, blockId) {
     outgoing: connections.filter((row) => row?.source?.block_id === blockId),
     incoming: connections.filter((row) => row?.target?.block_id === blockId)
   };
+}
+
+// Adapt the existing reviewed retention owner into the same Connection shape.
+// A deferred seed belongs only to its source KP; no reverse learning obligation
+// or new pathway owner is inferred for its downstream Block.
+export function reviewedRetentionConnectionsForBlock(system, block, shared = null) {
+  const sourcePath = `${LEARNER_ROOT}/shared-fields.json`;
+  const owner = shared || JSON.parse(fs.readFileSync(absolute(sourcePath), 'utf8'));
+  if (!String(owner?.authority || '').startsWith('CHAT_APPROVED')) return [];
+  if (owner?.source_bindings?.[block.blockId] !== block.sourcePath) return [];
+  const targets = new Map((system.blocks || []).map((row) => [row.blockId, row]));
+  const rows = [];
+  const seen = new Set();
+  for (const kp of block.kpRecords || []) {
+    const legacyId = `${block.blockId}-kp${String(kp.ordinal).padStart(3, '0')}`;
+    const field = owner?.kp_fields?.[legacyId] || owner?.kp_fields?.[kp.kpId];
+    for (const connection of field?.retention_metadata?.connections || []) {
+      const targetBlock = targets.get(connection.downstream_owner_id);
+      const targetSystem = connection.downstream_system_id ? loadXizongSystem(connection.downstream_system_id) : null;
+      const target = targetBlock ? {
+        block_id: targetBlock.blockId, label: `${targetBlock.label} · ${targetBlock.title}`,
+        href: `/xizong/${system.systemId}/${targetBlock.slug}/`
+      } : targetSystem ? {
+        system_id: targetSystem.systemId, label: targetSystem.title,
+        href: `/xizong/${targetSystem.systemId}/`
+      } : null;
+      if (connection.kind !== 'DEFERRED_SEED' || !connection.connection_id || !connection.front || !target) {
+        throw new Error(`CURRENT_XIZONG_RETENTION_CONNECTION_UNRESOLVED:${kp.kpId}:${connection.connection_id || ''}`);
+      }
+      if (seen.has(connection.connection_id)) throw new Error(`CURRENT_XIZONG_RETENTION_CONNECTION_DUPLICATE:${connection.connection_id}`);
+      seen.add(connection.connection_id);
+      rows.push({
+        id: connection.connection_id,
+        attentionRole: 'FUTURE_CONNECTION',
+        answerBearing: true,
+        displayPolicy: { timing: 'POST_REVEAL' },
+        sourcePath,
+        source: { block_id: block.blockId, kp_id: kp.kpId, cue: connection.front.replace(/^\/\/串联[：:]\s*/, '') },
+        target,
+        seed: String(connection.seed || '')
+      });
+    }
+  }
+  return rows;
 }

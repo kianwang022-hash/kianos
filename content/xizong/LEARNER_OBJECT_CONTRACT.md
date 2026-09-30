@@ -42,6 +42,14 @@ If two inputs disagree, the resolver must fail closed or preserve the higher-aut
 
 `主提示` remains instructional / retrieval scaffolding. It is not medical Core.
 
+Placement follows cognitive responsibility, not field type. A Boundary or
+Connection that determines current reasoning or prevents a reversed answer may
+remain in the canonical Prompt / Recall skeleton. Attention must not replace or
+silently rewrite that skeleton. Explicit author reminders can additionally be
+exposed during Learn without removing their full Core context. Only an explicitly
+reviewed deferred relation becomes a future-owner Connection Hook; it creates no
+current Recall / Memory obligation.
+
 ---
 
 ## 3｜What each learner level consumes

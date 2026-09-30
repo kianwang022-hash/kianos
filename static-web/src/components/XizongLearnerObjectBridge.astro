@@ -63,6 +63,12 @@ const payload = learnerObject || null;
         const label = row?.reserveLearning ? '先留个印象' : row?.direction === 'incoming' ? '你之前见过' : '后面会接';
         card.append(el('span', 'xv6LearnerAssetLabel', label));
         card.append(el('p', '', row?.cue));
+        if (row?.seed) card.append(el('p', '', row.seed));
+        if (row?.other?.href && row?.other?.label) {
+          const target = el('a', '', row.other.label);
+          target.href = row.other.href;
+          card.append(target);
+        }
         return card;
       };
 

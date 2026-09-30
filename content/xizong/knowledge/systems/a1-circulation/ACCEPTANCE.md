@@ -295,3 +295,88 @@ A1 is engineering-closed. Reopen only the earliest responsible gate/object when 
 ### Learner Truth
 
 Private learner/browser/conversation evidence only.
+
+## 2026-09-30｜Bounded A1 content-consumption repair
+
+Basis: fresh `main` at `415f9126eec698595d4b138925904072b8906e59` and #1111.
+The exact-KP continuity fix in that baseline is retained and replayed, not replaced.
+This subsection records engineering evidence for the existing learning meaning;
+it does not reopen the accepted A1 visual design or claim learner U.
+
+### Responsible changes
+
+- Production Projection admits A1's explicit bold/list/blockquote Boundary and
+  Confusable labels, including numbered boundaries and the exact `重要边界`
+  subsection. This restores 18 omitted reminders. It does not infer importance
+  from ordinary prose or copy the whole Core into Attention.
+- The existing Connection adapter consumes the reviewed `shared-fields.json`
+  retention connections: six B1 hooks and six B2 hooks, including B2's formal
+  urinary System target. Source binding, review authority, stable relation ID and
+  target identity are checked; no parallel pathway/content owner was created.
+- Learner-object normalization retains hook provenance, timing and target. The
+  existing renderer shows the bounded seed and a link to the formal owner in
+  `后面再学 / 串联`. Answer-bearing seed content is protected on Recall Front.
+- Cognitive responsibility stays authoritative: canonical Prompt retains current
+  reasoning, including B1's AF/filling, valve timing and warm-shock interfaces.
+  A future-owner hook does not demote those current relations. Full Core, all 312
+  prompts, source/outline locators, stable IDs and source/evidence hashes are
+  unchanged. No CSS, geometry or runtime position algorithm changed.
+
+### Owner → Projection → learner object → surface coverage
+
+Counts below are owned optional resources, not mandatory quota targets.
+
+| Block | KP / Prompt / full Core | Attention | Reviewed hooks | Precision | Visual | Extension |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| B1 | 32 | 22 | 6 | 13 | 9 | 0 |
+| B2 | 19 | 5 | 6 | 0 | 7 | 0 |
+| B3 | 21 | 3 | 0 | 0 | 4 | 0 |
+| B4 | 19 | 2 | 0 | 0 | 0 | 0 |
+| B5 | 26 | 0 | 0 | 0 | 1 | 0 |
+| B6 | 37 | 1 | 0 | 0 | 0 | 0 |
+| B7 | 42 | 0 | 0 | 0 | 1 | 0 |
+| B8 | 34 | 1 | 0 | 0 | 0 | 0 |
+| B9 | 16 | 0 | 0 | 0 | 0 | 0 |
+| B10 | 23 | 3 | 0 | 0 | 0 | 0 |
+| B11 | 24 | 8 | 0 | 0 | 0 | 0 |
+| B12 | 19 | 7 | 0 | 0 | 0 | 0 |
+
+### Executed proof
+
+- `static-web/scripts/test-xizong-a1-content-consumption.mjs`: all 12 Blocks / 312
+  KPs; canonical Prompt/Core/locator fidelity; explicit-marker negative controls;
+  stale/unreviewed binding rejection; unresolved target rejection; all 12 reviewed
+  hook IDs and Reveal timing. The expanded grammar is enabled only for A1;
+  a direct baseline comparison confirms identical Attention output in the other
+  147 Blocks.
+- `static-web/scripts/test-xizong-a1-content-browser.mjs`: real browser navigation
+  through all 312 A1 Learn positions, comparing actual rendered Prompt, full Core,
+  current header/map, locators and owned KP support. Checks all 12 hook destinations,
+  B1 KP01→midpoint→KP24→KP27→KP30+, KP24 Today/return + reload Resume, and unchanged
+  continuous Source behavior. Desktop and KP24 landscape checks have no horizontal
+  overflow. Screenshots inspect KP09, KP24, KP27, KP30, B2 KP11, B11 KP14 and B12 KP05.
+- The same browser journey exercises all 32 B1 Recall Front/Reveal pairs and Block
+  completion. Current answer-bearing Visual/Precision/hook timing remains protected;
+  complete Core returns after Reveal. Released Memory retains the 32 native Core
+  cards, with no Connection card or review obligation. Context asset IDs in Recall
+  evidence remain legitimate provenance, not Memory debt.
+- Static Candidate replays use the clean 1014-page build and isolated private/control
+  stores. Existing `test-xizong-position-continuity-browser.mjs` and shared
+  `test-xizong-block-workspace.mjs` also pass against the static build.
+- Projection validator + mutation controls: 8 Systems / 159 Blocks / 167 assets /
+  2517 identities, 95/95 controls. Production Projection, A1 Projection,
+  learner-object and representation validators pass. `npm run build` and the
+  final `npm run build:astro` pass.
+
+Browser evidence is synthetic engineering execution, not Kian's learning record.
+No live private state or existing dirty worktree was used for test writes.
+External iPad/MarginNote position telemetry is not introduced or claimed; the
+verified continuity is the existing native Website position and Resume path.
+
+### Stop / follow-up
+
+A1 consumption is the bounded exemplar. Other Systems are unchanged. The initial
+parser-impact probe found additional explicit labels in A3, B and F; their
+cognitive placement and real surfaces require their own bounded review before
+expanding the grammar. Do not automatically start that batch. Missing optional
+resources remain absent; this repair does not author new medical knowledge.

@@ -260,12 +260,25 @@ function reviewedGateAttentionForBlock(canonicalBlock, kpRecords) {
   return rows;
 }
 
+// Author labels only. A sentence merely mentioning a boundary is not a label.
+function explicitAttentionLabel(value, { bold = false } = {}) {
+  const label = cleanExplicitAttentionText(value).replace(/\s*\d+$/, '').trim();
+  if (/^(?:边界|重要边界|使用边界|易错边界|统一边界|核心边界)$/.test(label)
+    || (bold && /^[\p{L}\p{N} /-]{1,16}边界$/u.test(label))) return 'BOUNDARY';
+  if (/^(?:易混|易错点|易混点)$/.test(label)) return 'CONFUSABLE';
+  return '';
+}
+
 export function compileXizongExplicitAttentionCues(canonicalBlock, kpRecords = canonicalBlock?.kpRecords || []) {
   const rows = [];
+  // The expanded author-label grammar is calibrated on A1 only. Other Systems
+  // keep their accepted output until their own content/surface review.
+  const expandedLabels = canonicalBlock?.systemId === 'circulation';
   for (const kp of kpRecords) {
     const seen = new Set();
     const lines = String(kp?.detailMarkdown || '').split('\n');
     let fence = null;
+    let labeledSection = null;
 
     for (const rawLine of lines) {
       const fenceMatch = rawLine.match(/^\s{0,3}(`{3,}|~{3,})/);
@@ -276,6 +289,26 @@ export function compileXizongExplicitAttentionCues(canonicalBlock, kpRecords = c
         continue;
       }
       if (fence) continue;
+
+      const heading = rawLine.match(/^(#{1,6})\s+(.+)$/);
+      if (heading && labeledSection && heading[1].length <= labeledSection.level) labeledSection = null;
+      if (heading && expandedLabels) {
+        const label = heading[2].replace(/^\d+\s*[｜|]\s*/, '').trim();
+        const semanticRole = explicitAttentionLabel(label);
+        if (semanticRole) {
+          labeledSection = { level: heading[1].length, label, semanticRole };
+          continue;
+        }
+      }
+      if (labeledSection && rawLine.trim() && !/^\s*(?:---|<!--)/.test(rawLine)) {
+        appendExplicitAttention(rows, seen, {
+          kp, blockId: canonicalBlock?.blockId, role: 'CURRENT_TAKEAWAY',
+          semanticRole: labeledSection.semanticRole,
+          cue: rawLine.replace(/^\s*(?:[-*+]\s+|>\s*|\d+[.)、]\s*)/, ''),
+          sourcePath: canonicalBlock?.sourcePath, marker: labeledSection.label
+        });
+        continue;
+      }
 
       for (const [marker, semanticRole, pattern] of [
         ['易混', 'CONFUSABLE', /（易混[：:]\s*([^）]+)）/g],
@@ -313,16 +346,22 @@ export function compileXizongExplicitAttentionCues(canonicalBlock, kpRecords = c
         });
       }
 
-      const importantBoundary = normalized.match(/^重要边界[：:]\s*(.+)$/);
-      if (importantBoundary?.[1]) {
+      const labeledLine = expandedLabels ? normalized.replace(/^(?:>\s*)+/, '').replace(/^(?:[-*+]\s+|\d+[.)、]\s*)/, '') : normalized;
+      const boldLabel = expandedLabels && (labeledLine.match(/^\*\*([^*：:]+)\*\*\s*[：:]\s*(.+)$/)
+        || labeledLine.match(/^\*\*([^*：:]+)[：:]\*\*\s*(.+)$/));
+      const explicitLabel = expandedLabels
+        ? boldLabel || labeledLine.match(/^([^：:]+)[：:]\s*(.+)$/)
+        : labeledLine.match(/^(重要边界)[：:]\s*(.+)$/);
+      const semanticRole = explicitLabel && explicitAttentionLabel(explicitLabel[1], { bold: Boolean(boldLabel) });
+      if (semanticRole) {
         appendExplicitAttention(rows, seen, {
           kp,
           blockId: canonicalBlock?.blockId,
           role: 'CURRENT_TAKEAWAY',
-          semanticRole: 'BOUNDARY',
-          cue: importantBoundary[1],
+          semanticRole,
+          cue: explicitLabel[2],
           sourcePath: canonicalBlock?.sourcePath,
-          marker: '重要边界'
+          marker: explicitLabel[1]
         });
       }
     }
