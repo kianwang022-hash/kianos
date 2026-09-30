@@ -35,10 +35,10 @@
 5. Return传输接收、原生应用与用户完成Repair是不同事实
 
 规则入口：
-- [学习合同](../../../content/xizong/LEARNING_CONTRACT.md)
-- [学习策略](../../../content/xizong/knowledge/learner/study-policy.json)
-- [成熟度与退出条件](../../../content/xizong/MATURITY_PACKAGE.md)
-- [Learner Object合同](../../../content/xizong/LEARNER_OBJECT_CONTRACT.md)
+- [学习合同](../../content/xizong/LEARNING_CONTRACT.md)
+- [学习策略](../../content/xizong/knowledge/learner/study-policy.json)
+- [成熟度与退出条件](../../content/xizong/MATURITY_PACKAGE.md)
+- [Learner Object合同](../../content/xizong/LEARNER_OBJECT_CONTRACT.md)
 
 ## 四、A1循环理解
 知识主线完整：正常机械循环、调节、电活动和止血→慢性血管底物与局部结构疾病→节律、心衰、休克共同终点。正文已包含丰富机制、鉴别、反事实、Source-specific Precision和后续系统接口。
