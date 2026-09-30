@@ -7,6 +7,7 @@
     XIZONG_MEMORY_STORAGE_KEY,
     normalizeXizongMemoryState,
     readXizongMemoryStorage,
+    readXizongPersonalStorage,
     setPersonalPrompt
   } from '../lib/xizongMemoryModel.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
@@ -36,9 +37,7 @@
       };
       const writePersonal = (value) => {
         try {
-          const raw = localStorage.getItem(personalKey);
-          const prior = raw === null ? {} : JSON.parse(raw);
-          if (!prior || typeof prior !== 'object' || Array.isArray(prior)) return false;
+          readXizongPersonalStorage(localStorage, objectId);
           localStorage.setItem(personalKey, JSON.stringify(value)); return true;
         } catch { return false; }
       };

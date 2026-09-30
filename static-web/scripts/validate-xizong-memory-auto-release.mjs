@@ -200,6 +200,7 @@ try {
 assert(invalidFailed, 'invalid-learner-object-must-fail-closed');
 
 await import('./test-xizong-memory-personal-bridge.mjs');
+await import('./test-xizong-completion-replay.mjs');
 
 console.log(JSON.stringify({
   ok: true,

@@ -154,3 +154,56 @@ export function revisionRequiresAction(state) {
     || r.witness.groupOrder.some(id => known(r.pendingGroup?.[id]))
     || (r.blockPending && known(r.blockReason)) || (r.contactPending && known(r.contactReason));
 }
+
+// Shared Source coverage predicate for the Website and completion consumers.
+// Source units remain independent of LG order and may have non-contiguous KPs.
+export function xizongSourceContactCovered(state, { sourceHash = '', sourceContact = {}, kps = [], logicGroups = [] } = {}) {
+  if (!sourceHash || state.sourceContactDone === false) return false;
+  const rows = kps.map(kp => ({ id: String(kp.kpId || kp.identity?.kpId || ''), ordinal: Number(kp.ordinal ?? kp.identity?.ordinal) }));
+  if (!rows.length || rows.some(row => !row.id)) return false;
+  const evidence = ids(state.sourceContactEvidence).filter(entry => sourceContactCompatible(state, entry, sourceHash));
+  const covers = (entries, kpIds) => {
+    const covered = new Set(entries.flatMap(entry => ids(entry.kp_ids).map(String)));
+    return kpIds.every(id => covered.has(id));
+  };
+  const allLearned = rows.every(row => state.learned?.[row.id] === true);
+  const segments = ids(sourceContact.segments);
+  const segmentDone = (segment, selectedEvidence = evidence) => {
+    const expectedIds = ids(segment.kpIds).length ? segment.kpIds.map(String)
+      : ids(segment.kpOrdinals).map(ordinal => rows.find(row => row.ordinal === Number(ordinal))?.id);
+    if (!segment.segmentId || expectedIds.some(id => !id)) return false;
+    const entries = selectedEvidence.filter(entry => entry.segment_id === segment.segmentId);
+    if (!entries.length || !covers(entries, expectedIds)) return false;
+    const requiredVisuals = ids(segment.visualDebt).map(String).filter(id => logicGroups.some(group =>
+      String(group.groupId || group.identity?.logicGroupId || '') === id && group.visualRequired === true
+      && /GAP.*NOT_MOUNTED/i.test(String(group.visualSourceState || ''))));
+    const reviewed = new Set(entries.flatMap(entry => ids(entry.visual_reviewed_lg_ids).map(String)));
+    return requiredVisuals.every(id => reviewed.has(id));
+  };
+  const mode = String(sourceContact.mode || 'NATURAL_SOURCE_UNIT');
+  if (mode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT') {
+    return state.sourceContactDone === true && allLearned && segments.length > 0 && segments.every(segment => {
+      const entries = evidence.filter(entry => entry.segment_id === segment.segmentId
+        && entry.coverage_kind === 'GLOBAL_BIOCHEMISTRY_SOURCE_UNIT'
+        && entry.source_unit_id === segment.sourceUnitId
+        && entry.lane_source_hash === sourceContact.sourceLaneHash);
+      return entries.length > 0 && segmentDone({ ...segment, visualDebt: [] }, entries);
+    });
+  }
+  if (mode === 'INTEGRATION_PRIMARY') {
+    const targeted = sourceContact.integrationTargetedSourceReturns === true;
+    const kind = targeted ? 'INTEGRATION_PRIMARY_DIRECT_RELEASE' : 'INTEGRATION_PRIMARY_NO_NEW_CONTINUOUS_SOURCE';
+    const directGroupIds = targeted ? ids(sourceContact.integrationReleaseLogicGroupIds).map(String)
+      : logicGroups.map(group => String(group.groupId || group.identity?.logicGroupId || ''));
+    const directIds = logicGroups.filter(group => directGroupIds.includes(String(group.groupId || group.identity?.logicGroupId || '')))
+      .flatMap(group => ids(group.kpIds).map(String));
+    return state.sourceContactDone === true && allLearned
+      && evidence.some(entry => entry.coverage_kind === kind)
+      && covers(evidence.filter(entry => entry.coverage_kind === kind), directIds)
+      && (!targeted || (segments.length > 0 && segments.every(segment => segmentDone(segment))));
+  }
+  if (mode === 'NATURAL_SOURCE_UNITS') return state.sourceContactDone === true && allLearned && segments.length > 0 && segments.every(segment => segmentDone(segment));
+  if (sourceContact.logicGroupIsAutomaticSourceChunk === true) return covers(evidence, rows.map(row => row.id));
+  return state.sourceContactDone === true
+    && covers(evidence.filter(entry => entry.coverage_kind === 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION'), rows.map(row => row.id));
+}

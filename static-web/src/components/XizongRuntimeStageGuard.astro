@@ -7,9 +7,10 @@ const prerequisiteIds = [...new Set([
   ...(block?.sourceContact?.hardReadinessBlockIds || []),
   ...(block?.sourceContact?.requiredPriorBlockIds || [])
 ].map(String).filter(Boolean))];
+const prerequisiteRequirements = block ? loadXizongSystemCompletionRequirements(system, prerequisiteIds) : [];
 const blockPrerequisites = prerequisiteIds.map((id) => {
   const row = (system?.blocks || []).find((candidate) => candidate.blockId === id);
-  return { blockId: id, label: String(row?.label || id), title: String(row?.title || '') };
+  return { blockId: id, label: String(row?.label || id), title: String(row?.title || ''), requirement: prerequisiteRequirements.find(requirement => requirement.identity.blockId === id) || null };
 });
 const blockingVisualGroups = (block?.logicGroups || [])
   .filter((group) => group?.visualRequired === true && /GAP/i.test(String(group?.visualSourceState || '')))
@@ -26,7 +27,7 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
 <script type="application/json" data-xizong-completion-input set:html={JSON.stringify({ blockId, blockIds, blockPrerequisites, blockingVisualGroups, requirements }).replace(/</g, String.fromCharCode(92) + 'u003c')}></script>
 <script>
   import { sourceContactCompatible, revisionRequiresAction, needsFreshKpRecall } from '../lib/xizongContentRevision.mjs';
-  import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';
+  import { inspectXizongSystemCompletion, inspectXizongBlockCompletion } from '../lib/xizongMemoryAutoRelease.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
@@ -75,7 +76,7 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
 
   const missingPrerequisites = () => (Array.isArray(blockPrerequisites) ? blockPrerequisites : []).filter((row) => {
     const state = readBlockState(row?.blockId || '');
-    return state?.completed !== true || (state?.contentRevision ? revisionRequiresAction(state) : state?.sourceRevisionPending === true);
+    return !row.requirement || !inspectXizongBlockCompletion(row.requirement, state).complete;
   });
 
   // Free navigation among orientation/current-learning surfaces is preserved.

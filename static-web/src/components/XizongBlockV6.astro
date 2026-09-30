@@ -389,6 +389,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
   revisionRuntimeUrl,
   revisionWitness: block.learnerObject?.revisionWitness,
   sourcePerGroup,
+  sourceContactPayload: sourceContact,
   sourceContactMode,
   naturalSourceUnits,
   integrationPrimary,
@@ -402,10 +403,10 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
   biochemistrySourcePayload: biochemistryBlockSource,
   ttsxPayload: ttsxCheckpoints,
   groupPayload: groups.map((group) => ({ groupId: group.groupId, label: group.label, start: group.start, end: group.end, kpIds: group.kpIds, goal: group.goal || '', closure: group.closure || '', membershipMode: group.membershipMode || '', visualRequired: group.visualRequired === true, visualSourceState: group.visualSourceState || '' })),
-  kpPayload: kps.map((kp) => ({ kpId: kp.kpId, displayId: kp.displayId, title: kp.title, groupId: kp.groupId, sourceLocator: kp.sourceLocator || '' }))
+  kpPayload: kps.map((kp) => ({ kpId: kp.kpId, ordinal: kp.ordinal, displayId: kp.displayId, title: kp.title, groupId: kp.groupId, sourceLocator: kp.sourceLocator || '' }))
 }}>
 window.__kianosLearnerWriterReady.then(async () => {
-  const { reconcileXizongRevision, revisionRequiresAction, revisionStatus, needsFreshKpRecall, currentGroupClaim, sourceContactCompatible, revalidateXizongUnit } = await import(revisionRuntimeUrl);
+  const { reconcileXizongRevision, revisionRequiresAction, revisionStatus, needsFreshKpRecall, currentGroupClaim, sourceContactCompatible, revalidateXizongUnit, xizongSourceContactCovered } = await import(revisionRuntimeUrl);
 
   const root = document.querySelector('[data-xizong-v6-block]');
   if (root) {
@@ -666,39 +667,9 @@ window.__kianosLearnerWriterReady.then(async () => {
     };
     const learnedCount = () => kpData.filter((kp) => state.learned?.[kp.kpId] === true).length;
     const recallCount = () => kpData.filter((kp) => ['unknown', 'fuzzy', 'known', 'mastered'].includes(state.ratings?.[kp.kpId])).length;
-    const currentSourceContactCovered = () => {
-      if (!currentSourceHash) return false;
-      const evidence = Array.isArray(state.sourceContactEvidence) ? state.sourceContactEvidence : [];
-      const currentEvidence = evidence.filter((entry) => sourceContactCompatible(state, entry, currentSourceHash));
-      if (biochemistrySource?.laneSourceHash) {
-        return state.sourceContactDone === true && totalKp > 0 && kpData.every((kp) => state.learned?.[kp.kpId] === true);
-      }
-      if (integrationPrimary) {
-        const directKind = integrationTargetedSourceReturns
-          ? 'INTEGRATION_PRIMARY_DIRECT_RELEASE'
-          : 'INTEGRATION_PRIMARY_NO_NEW_CONTINUOUS_SOURCE';
-        const directEvidence = currentEvidence.some((entry) => entry.coverage_kind === directKind);
-        const targetedDone = !integrationTargetedSourceReturns
-          || (sourceSegments.length > 0 && sourceSegments.every((segment) => naturalSegmentDone(segment)));
-        return state.sourceContactDone === true
-          && directEvidence
-          && targetedDone
-          && totalKp > 0
-          && kpData.every((kp) => state.learned?.[kp.kpId] === true);
-      }
-      if (naturalSourceUnits) {
-        return state.sourceContactDone === true
-          && sourceSegments.length > 0
-          && sourceSegments.every((segment) => naturalSegmentDone(segment))
-          && totalKp > 0
-          && kpData.every((kp) => state.learned?.[kp.kpId] === true);
-      }
-      if (!sourcePerGroup) {
-        return state.sourceContactDone === true && currentEvidence.some((entry) => entry.coverage_kind === 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION');
-      }
-      const covered = new Set(currentEvidence.flatMap((entry) => Array.isArray(entry?.kp_ids) ? entry.kp_ids.map(String) : []));
-      return totalKp > 0 && kpData.every((kp) => covered.has(String(kp.kpId)));
-    };
+    const currentSourceContactCovered = () => xizongSourceContactCovered(state, {
+      sourceHash: currentSourceHash, sourceContact: sourceContactPayload, kps: kpData, logicGroups: groups
+    });
     const groupVisualGapReviewableFromOriginalSource = (group) => group?.visualRequired === true
       && /GAP.*NOT_MOUNTED/i.test(String(group?.visualSourceState || ''));
     const groupVisualReviewEvidenceSatisfied = (group) => {
@@ -1381,6 +1352,9 @@ window.__kianosLearnerWriterReady.then(async () => {
       });
       ids.forEach((id) => { learned[id] = true; });
       state.learned = learned;
+      if (sourcePerGroup && xizongSourceContactCovered({ ...state, sourceContactDone: true }, {
+        sourceHash: currentSourceHash, sourceContact: sourceContactPayload, kps: kpData, logicGroups: groups
+      })) state.sourceContactDone = true;
       if (currentSourceContactCovered()) {
         revalidateXizongUnit(state, 'CONTACT', objectId);
         state.sourceRevisionPending = false;

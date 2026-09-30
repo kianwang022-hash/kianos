@@ -46,10 +46,13 @@ const writeIndex = bridge.indexOf("if (!writeJson(XIZONG_MEMORY_STORAGE_KEY, nex
 const clearIndex = bridge.lastIndexOf('localStorage.removeItem(inboxKey)');
 assert(writeIndex >= 0 && clearIndex > writeIndex, 'bridge-clears-inbox-before-evidence-write');
 
-assert(blockGuard.includes('repair_inbox: oldRepairInbox'), 'block-version-archive-omits-pending-inbox');
-assert(blockGuard.includes('localStorage.removeItem(repairInboxKey)'), 'block-version-change-does-not-invalidate-inbox');
-assert(systemGuard.includes('stale_block_repair_inboxes'), 'system-version-archive-omits-pending-inbox');
-assert(systemGuard.includes('localStorage.removeItem(inboxKey)'), 'system-version-change-does-not-invalidate-inbox');
+// Artifact changes cannot delete lawful pending repair work. Current promotion
+// remains guarded by exact native W/U/origin binding and the shared policy probe.
+assert(!blockGuard.includes('localStorage.removeItem('), 'block-artifact-guard-deletes-pending-inbox');
+assert(!systemGuard.includes('localStorage.removeItem('), 'system-artifact-guard-deletes-pending-inbox');
+assert(bridge.includes('readXizongMemoryStorage(localStorage)'), 'repair-import-must-preserve-corrupt-memory');
+assert(systemWuReturn.includes('assertCurrentWuBinding(row, currentWu.get(row.question_id) || null)'), 'repair-current-wu-binding-missing');
+await import('./test-xizong-source-revision-transitive.mjs');
 
 console.log([
   'Xizong repair inbox contract PASS',
@@ -59,6 +62,6 @@ console.log([
   'WriteOrder=store-before-clear',
   'ImportEvidence=REPAIR_ONLY+question-provenance+idempotent',
   'VisibleRepair=block-return+question-return+durable-completion',
-  'VersionChange=block+system fail-closed',
+  'VersionChange=history-preserved+selective-current-binding',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));

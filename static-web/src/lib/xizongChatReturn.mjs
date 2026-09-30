@@ -301,6 +301,10 @@ function sameResume(a, b) {
 }
 
 export function validateXizongChatReturn(value, handoff, currentPacket) {
+  return validateReturn(value, handoff, currentPacket);
+}
+
+function validateReturn(value, handoff, currentPacket, appliedEvidenceVersion = null) {
   const h = validateXizongChatHandoff(handoff);
   const raw = parseXizongChatReturn(value);
   if (raw.schema !== XIZONG_CHAT_RETURN_SCHEMA) fail('SCHEMA_INVALID');
@@ -325,7 +329,8 @@ export function validateXizongChatReturn(value, handoff, currentPacket) {
     // and learner evidence retain the preexisting strict transaction check.
     comparable.learning_state.resume.source_locator = h.resume.source_locator;
   }
-  if (xizongStudyPacketEvidenceVersion(comparable) !== h.origin.evidence_version) fail('STALE_EVIDENCE');
+  const evidenceVersion = xizongStudyPacketEvidenceVersion(comparable);
+  if (evidenceVersion !== h.origin.evidence_version && evidenceVersion !== appliedEvidenceVersion) fail('STALE_EVIDENCE');
 
   const decision = clean(raw.decision, 20).toUpperCase();
   if (!['NO_ACTION','REPAIR'].includes(decision)) fail('DECISION_INVALID');
@@ -376,13 +381,18 @@ export function applyXizongChatReturn(storage, input, {
   const handoffId = clean(raw.handoff_id, 160);
   if (!handoffId) fail('RETURN_HANDOFF_REQUIRED');
   const handoff = readXizongChatHandoff(storage, handoffId);
-  const valid = validateXizongChatReturn(raw, handoff, currentPacket);
   const receiptKey = receiptKeyFor(handoff.handoff_id);
   const existing = storage.getItem(receiptKey);
+  let receipt = null;
   if (existing != null) {
-    let receipt;
     try { receipt = JSON.parse(existing); } catch { fail('RECEIPT_CORRUPT', handoff.handoff_id); }
     if (receipt?.schema !== 'kianos.xizong.chat_return_receipt.v1') fail('RECEIPT_SCHEMA_INVALID');
+  }
+  // An exact receipt may recognize only the evidence version produced by its
+  // own transactional repair writes. Origin, Current semantics, payload and all
+  // other learner changes still pass the original validation. No replay writes.
+  const valid = validateReturn(raw, handoff, currentPacket, receipt?.applied_evidence_version || null);
+  if (receipt) {
     if (receipt.return_id !== valid.return_id) fail('RETURN_CONFLICT', handoff.handoff_id);
     if (JSON.stringify(receipt.return_packet) !== JSON.stringify(valid)) fail('RETURN_CONFLICT', handoff.handoff_id);
 
@@ -451,8 +461,15 @@ export function applyXizongChatReturn(storage, input, {
     nextMemory = setRepairTasks(memory, [...preserved, ...repairTasks]);
   }
 
-  const receipt = {
+  const appliedPacket = clone(currentPacket);
+  appliedPacket.memory ||= {};
+  appliedPacket.memory.active_repairs = [...new Set([
+    ...(currentPacket.memory?.active_repairs || []).map(row => row.id),
+    ...repairTasks.map(task => task.id)
+  ])].map(id => ({ id }));
+  receipt = {
     schema: 'kianos.xizong.chat_return_receipt.v1',
+    applied_evidence_version: xizongStudyPacketEvidenceVersion(appliedPacket),
     handoff_id: handoff.handoff_id,
     return_id: valid.return_id,
     imported_at: importedAt,

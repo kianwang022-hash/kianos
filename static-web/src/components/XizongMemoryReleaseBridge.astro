@@ -4,7 +4,7 @@ const { objectId = '', sourceHash = '' } = Astro.props;
 <span hidden data-xizong-memory-release-bridge data-object-id={objectId} data-source-hash={sourceHash}></span>
 
 <script>
-  import { XIZONG_MEMORY_STORAGE_KEY, readXizongMemoryStorage } from '../lib/xizongMemoryModel.mjs';
+  import { XIZONG_MEMORY_STORAGE_KEY, readXizongMemoryStorage, readXizongPersonalStorage } from '../lib/xizongMemoryModel.mjs';
   import {
     releaseCompletedBlockToMemory,
     syncXizongPersonalMarks,
@@ -35,13 +35,7 @@ const { objectId = '', sourceHash = '' } = Astro.props;
     try {
       const studyState = parseJson(localStorage.getItem(studyKey), {});
       memoryState = readXizongMemoryStorage(localStorage);
-      const personalRaw = localStorage.getItem(`kianos-xizong-personal-v1:${objectId}`);
-      const personal = personalRaw === null ? {} : JSON.parse(personalRaw);
-      if (!personal || typeof personal !== 'object' || Array.isArray(personal)) throw new Error('XIZONG_PERSONAL_STATE_UNREADABLE');
-      if (personal.kp !== undefined && (!personal.kp || typeof personal.kp !== 'object' || Array.isArray(personal.kp))) throw new Error('XIZONG_PERSONAL_KP_STATE_UNREADABLE');
-      for (const row of Object.values(personal.kp || {})) {
-        if (!row || typeof row !== 'object' || Array.isArray(row) || (row.marks !== undefined && !Array.isArray(row.marks))) throw new Error('XIZONG_PERSONAL_MARKS_UNREADABLE');
-      }
+      const personal = readXizongPersonalStorage(localStorage, objectId);
       result = releaseCompletedBlockToMemory(memoryState, learnerObject, studyState, { sourceHash });
       result.state = syncXizongPersonalMarks(result.state, learnerObject, personal, objectId);
     } catch (error) {

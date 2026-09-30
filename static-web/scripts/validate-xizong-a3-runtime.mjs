@@ -125,7 +125,7 @@ has(stageGuard, "target.closest('[data-block-recall-complete]')", 'premature-blo
 has(stageGuard, "target.closest('[data-start-recall]')", 'system-recall-start-guard');
 has(stageGuard, "target.closest('[data-reveal-recall]')", 'system-recall-reveal-guard');
 has(stageGuard, "target.closest('[data-complete-recall]')", 'system-recall-completion-guard');
-has(stageGuard, "import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';", 'system-completion-owner-import-missing');
+assert(/import \{[^}]*\binspectXizongSystemCompletion\b[^}]*\} from ['"]\.\.\/lib\/xizongMemoryAutoRelease\.mjs['"]/.test(stageGuard), 'system-completion-owner-import-missing');
 has(stageGuard, 'const completedBlocks = () => inspectXizongSystemCompletion(requirements, localStorage);', 'system-completion-owner-not-used');
 has(stageGuard, 'const ready = check.complete;', 'system-recall-readiness-missing');
 has(stageGuard, 'if (!ready)', 'whole-system-prerequisite-guard');

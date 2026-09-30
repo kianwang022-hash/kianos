@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import {createRequire} from 'node:module';
 import {spawn,spawnSync} from 'node:child_process';
 import {chromium} from 'playwright';
 import {
@@ -20,6 +21,7 @@ class MemoryStorage{
   removeItem(key){this.map.delete(String(key));}
 }
 
+const playwrightVersion=createRequire(import.meta.url)('playwright/package.json').version;
 const day='2026-09-20';
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-control-browser-'));
 const controlDir=path.join(temp,'control');
@@ -286,7 +288,7 @@ try{
   const nativeReady=async page=>{
     await page.bringToFront();
     try{await page.waitForFunction(()=>window.KianOSStudyTimer && document.documentElement.dataset.learnerWriter==='active');}
-    catch(e){throw new Error('NATIVE_BOOT:'+JSON.stringify(await page.evaluate(()=>({url:location.href,focus:document.hasFocus(),dataset:{...document.documentElement.dataset},keys:Object.keys(localStorage),text:document.body.innerText.slice(0,2200)})))+'\n'+log.slice(-1500),{cause:e});}
+    catch(e){throw new Error('NATIVE_BOOT:'+JSON.stringify(await page.evaluate(async()=>({url:location.href,focus:document.hasFocus(),visibility:document.visibilityState,locks:await navigator.locks.query(),dataset:{...document.documentElement.dataset},keys:Object.keys(localStorage),text:document.body.innerText.slice(0,2200)})))+'\n'+log.slice(-1500),{cause:e});}
   };
   const saveCheckpoint=page=>page.evaluate(async()=>{
     const m=await import('/src/lib/privateCheckpointRuntime.mjs');
@@ -364,6 +366,9 @@ try{
     executable:chrome,platform:process.platform,exitCode:focusProcess.exitCode,
     signalCode:focusProcess.signalCode,spawnError:focusLaunchError,stderr:focusStderr
   }));
+  console.log('native-focus Playwright',playwrightVersion);
+  const [pwMajor,pwMinor]=playwrightVersion.split('.').map(Number);
+  assert.ok(pwMajor>1 || (pwMajor===1 && pwMinor>=60),'NATIVE_FOCUS_REQUIRES_PLAYWRIGHT_1_60_NO_DEFAULTS:'+playwrightVersion);
   browser=await chromium.connectOverCDP('http://127.0.0.1:'+focusPort,{noDefaults:true});
   const recovered=browser.contexts()[0];
   await recovered.addInitScript(({offset})=>{

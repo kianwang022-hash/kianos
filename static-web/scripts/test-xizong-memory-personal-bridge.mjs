@@ -79,3 +79,20 @@ assert.equal(Object.keys(eventState.marks).length,1);assert.equal(Object.values(
 assert.equal(Object.values(eventState.marks)[0].reviewRequested,false,'weak mark does not manufacture review request');
 assert.equal(JSON.stringify(eventState.attention),originalAttention,'post-release mark does not inflate due attention');
 console.log('Memory post-release mark/unmark event + no automatic weakness PASS');
+
+// The actual mark handler must protect corrupt nested personal records as well.
+const personalOwner=interaction.slice(interaction.indexOf('      const parse ='),interaction.indexOf('      const readMemory ='));
+const ensureOwner=interaction.slice(interaction.indexOf('      const ensurePersonalKp ='),interaction.indexOf('      const currentMarks ='));
+const toggleOwner=interaction.slice(interaction.indexOf('      const toggleMark ='),interaction.indexOf('      markMenu.querySelectorAll',interaction.indexOf('      const toggleMark =')));
+for(const before of ['{broken','null','[]','{"kp":[]}','{"kp":{"fixture-kp":{"marks":{"raw":"retain"}}}}','{"kp":{"fixture-kp":null}}','{}','{"kp":{"fixture-kp":{}}}']) {
+ let raw=before,writes=0,events=0;
+ vm.runInNewContext(personalOwner+ensureOwner+toggleOwner+";toggleMark('important');",{
+  ...model,objectId:'fixture',personalKey:'fixture',studyKey:'study',localStorage:{getItem:()=>raw,setItem:(key,value)=>{raw=value;writes++;}},
+  selectionPending:{kpId:'fixture-kp',surface:'CORE',text:'synthetic mark'},markMatches:()=>false,
+  window:{dispatchEvent:()=>events++,getSelection:()=>null},CustomEvent:class{},hideMarkMenu:()=>{},refreshUnifiedSurface:()=>{}
+ });
+ const valid=['{}','{"kp":{"fixture-kp":{}}}'].includes(before);
+ assert.equal(writes,valid?1:0);assert.equal(events,valid?1:0);
+ if(!valid)assert.equal(raw,before,'nested corruption must retain exact raw bytes');
+}
+console.log('Actual personal mark handler PASS: six corrupt structures preserved, two legal missing structures initialized');

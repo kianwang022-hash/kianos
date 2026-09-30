@@ -79,6 +79,17 @@ export function readXizongMemoryStorage(storage) {
   return normalizeXizongMemoryState(value);
 }
 
+export function readXizongPersonalStorage(storage, objectId) {
+  const raw = storage.getItem(`kianos-xizong-personal-v1:${objectId}`);
+  const personal = raw === null ? {} : JSON.parse(raw);
+  if (!personal || typeof personal !== 'object' || Array.isArray(personal)) fail('PERSONAL_STATE_UNREADABLE');
+  if (personal.kp !== undefined && (!personal.kp || typeof personal.kp !== 'object' || Array.isArray(personal.kp))) fail('PERSONAL_KP_STATE_UNREADABLE');
+  for (const row of Object.values(personal.kp || {})) {
+    if (!row || typeof row !== 'object' || Array.isArray(row) || (row.marks !== undefined && !Array.isArray(row.marks))) fail('PERSONAL_MARKS_UNREADABLE');
+  }
+  return personal;
+}
+
 function normalizeCard(card, family, blockId, sourceHash) {
   const id = text(card?.id);
   if (!id) fail('CARD_ID_MISSING', `${blockId}:${family}`);

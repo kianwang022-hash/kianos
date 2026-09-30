@@ -174,7 +174,7 @@ has(guardUi, "requested === 'block_recall'", 'premature-block-recall-stage-guard
 has(guardUi, "target.closest('[data-block-recall-complete]')", 'premature-block-recall-evidence-guard');
 has(guardUi, "target.closest('[data-start-recall]')", 'premature-system-recall-start-guard');
 has(guardUi, "target.closest('[data-reveal-recall]')", 'premature-system-recall-reveal-guard');
-has(guardUi, "import { inspectXizongSystemCompletion } from '../lib/xizongMemoryAutoRelease.mjs';", 'system-completion-owner-import-missing');
+assert(/import \{[^}]*\binspectXizongSystemCompletion\b[^}]*\} from ['"]\.\.\/lib\/xizongMemoryAutoRelease\.mjs['"]/.test(guardUi), 'system-completion-owner-import-missing');
 has(guardUi, 'const completedBlocks = () => inspectXizongSystemCompletion(requirements, localStorage);', 'system-completion-owner-not-used');
 has(guardUi, 'const ready = check.complete;', 'premature-system-recall-exact-readiness-missing');
 has(guardUi, 'if (!ready)', 'premature-system-recall-guard');
