@@ -300,6 +300,15 @@ function sameResume(a, b) {
     .every((key) => String(a?.[key] ?? '') === String(b?.[key] ?? ''));
 }
 
+function evidencePacketForHandoff(packet, handoff) {
+  const comparable = clone(packet);
+  if (comparable.current.source_hash !== handoff.origin.source_hash) {
+    comparable.current.source_hash = handoff.origin.source_hash;
+    comparable.learning_state.resume.source_locator = handoff.resume.source_locator;
+  }
+  return comparable;
+}
+
 export function validateXizongChatReturn(value, handoff, currentPacket) {
   return validateReturn(value, handoff, currentPacket);
 }
@@ -322,13 +331,7 @@ function validateReturn(value, handoff, currentPacket, appliedEvidenceVersion = 
   const artifactChanged = currentIdentity.sourceHash !== h.origin.source_hash;
   const witnessChanged = h.revision_witness && !compatibleRevisionWitnesses(h.revision_witness, currentPacket.current?.revision_witness);
   if (witnessChanged || (artifactChanged && !compatibleRevisionWitnesses(h.revision_witness, currentPacket.current?.revision_witness))) fail('CURRENT_OBJECT_CHANGED');
-  const comparable = clone(currentPacket);
-  if (artifactChanged) {
-    comparable.current.source_hash = h.origin.source_hash;
-    // A locator correction is presentation, but all actual Resume indices/IDs
-    // and learner evidence retain the preexisting strict transaction check.
-    comparable.learning_state.resume.source_locator = h.resume.source_locator;
-  }
+  const comparable = evidencePacketForHandoff(currentPacket, h);
   const evidenceVersion = xizongStudyPacketEvidenceVersion(comparable);
   if (evidenceVersion !== h.origin.evidence_version && evidenceVersion !== appliedEvidenceVersion) fail('STALE_EVIDENCE');
 
@@ -469,7 +472,7 @@ export function applyXizongChatReturn(storage, input, {
   ])].map(id => ({ id }));
   receipt = {
     schema: 'kianos.xizong.chat_return_receipt.v1',
-    applied_evidence_version: xizongStudyPacketEvidenceVersion(appliedPacket),
+    applied_evidence_version: xizongStudyPacketEvidenceVersion(evidencePacketForHandoff(appliedPacket, handoff)),
     handoff_id: handoff.handoff_id,
     return_id: valid.return_id,
     imported_at: importedAt,

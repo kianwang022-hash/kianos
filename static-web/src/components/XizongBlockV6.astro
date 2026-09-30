@@ -406,7 +406,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
   kpPayload: kps.map((kp) => ({ kpId: kp.kpId, ordinal: kp.ordinal, displayId: kp.displayId, title: kp.title, groupId: kp.groupId, sourceLocator: kp.sourceLocator || '' }))
 }}>
 window.__kianosLearnerWriterReady.then(async () => {
-  const { reconcileXizongRevision, revisionRequiresAction, revisionStatus, needsFreshKpRecall, currentGroupClaim, sourceContactCompatible, revalidateXizongUnit, xizongSourceContactCovered } = await import(revisionRuntimeUrl);
+  const { reconcileXizongRevision, revisionRequiresAction, revisionStatus, needsFreshKpRecall, currentGroupClaim, sourceContactCompatible, revalidateXizongUnit, xizongSourceContactCovered, historicalXizongSourceContinuation } = await import(revisionRuntimeUrl);
 
   const root = document.querySelector('[data-xizong-v6-block]');
   if (root) {
@@ -465,10 +465,8 @@ window.__kianosLearnerWriterReady.then(async () => {
       suspend('本机学习记录无法安全读取，原数据已保留，本页暂停写入。请先备份记录再恢复；不要直接清除浏览器数据。');
       return;
     }
-    if (typeof state.sourceContactDone !== 'boolean') {
-      const legacyLearned = kpData.filter((kp) => state.learned?.[kp.kpId] === true).length;
-      state.sourceContactDone = !sourcePerGroup && totalKp > 0 && legacyLearned >= totalKp;
-    }
+    // Missing legacy Source flags remain missing: learned counts cannot invent
+    // a contact confirmation or turn UNKNOWN history into a Current claim.
 
     // Bind a fresh empty state before Source adapters form their first evidence.
     if (!state.contentRevision) state = reconcileXizongRevision(state, revisionWitness);
@@ -705,7 +703,7 @@ window.__kianosLearnerWriterReady.then(async () => {
       && !groupHasBlockingVisualGap(group));
     const canComplete = () => totalKp > 0
       && !revisionRequiresAction(state)
-      && currentSourceContactCovered()
+      && (currentSourceContactCovered() || historicalXizongSourceContinuation(state))
       && learnedCount() >= totalKp
       && recallCount() >= totalKp
       && groups.every((group) => groupClosureSatisfied(group))

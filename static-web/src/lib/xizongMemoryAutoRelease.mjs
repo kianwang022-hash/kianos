@@ -1,4 +1,4 @@
-import { compatibleRevisionWitnesses, revisionRequiresAction, reconcileXizongRevision, revisionStatus, sourceContactCompatible, xizongSourceContactCovered } from './xizongContentRevision.mjs';
+import { compatibleRevisionWitnesses, revisionRequiresAction, reconcileXizongRevision, revisionStatus, sourceContactCompatible, xizongSourceContactCovered, historicalXizongSourceContinuation } from './xizongContentRevision.mjs';
 import {
   addMarkedFragment,
   normalizeXizongMemoryState,
@@ -92,11 +92,13 @@ export function inspectXizongBlockCompletion(learnerObject, studyStateInput) {
       };
     }
   }
-  if (study.sourceContactDone === false) return { complete: false, reason: 'SOURCE_CONTACT_INCOMPLETE', blockId, kpIds: ids };
   const revision = learnerObject.revisionWitness ? revisionStatus(study, learnerObject.sourceHash) : null;
   // A legacy record without a Source baseline remains historical/UNKNOWN. It
   // does not acquire fresh contact or mastery merely by visiting this consumer.
-  const historicalUnknown = revision?.current_claim === 'UNKNOWN' && study.sourceContactDone === undefined;
+  const historicalUnknown = historicalXizongSourceContinuation(study);
+  if (!historicalUnknown && study.sourceContactDone === false && learnerObject.sourceContact?.logicGroupIsAutomaticSourceChunk !== true) {
+    return { complete: false, reason: 'SOURCE_CONTACT_INCOMPLETE', blockId, kpIds: ids };
+  }
   if (learnerObject.sourceContact && !historicalUnknown && !xizongSourceContactCovered(study, learnerObject)) {
     return { complete: false, reason: 'SOURCE_COVERAGE_INCOMPLETE', blockId, kpIds: ids };
   }

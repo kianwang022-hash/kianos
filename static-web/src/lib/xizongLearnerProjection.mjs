@@ -74,19 +74,20 @@ export function resolveXizongLearnerProjection(canonicalBlock, {
 export function loadXizongSystemCompletionRequirements(system, blockIds = null) {
   return (system?.blocks || []).filter(ref => !blockIds || blockIds.includes(ref.blockId)).map((ref) => {
     const block = loadXizongBlock(system.systemId, ref.slug);
+    const { learnerObject } = resolveXizongLearnerProjection(block);
     return {
       schema: 'kianos.xizong.learner_object.v1', objectType: 'BLOCK',
-      sourceHash: block.sourceHash,
-      sourceContact: block.sourceContact,
-      revisionWitness: resolveXizongLearnerProjection(block).learnerObject.revisionWitness,
-      identity: { blockId: block.blockId },
-      logicGroups: (block.logicGroups || []).map((group) => ({
-        identity: { logicGroupId: group.groupId },
+      sourceHash: learnerObject.sourceHash,
+      sourceContact: learnerObject.sourceContact,
+      revisionWitness: learnerObject.revisionWitness,
+      identity: { blockId: learnerObject.identity.blockId },
+      logicGroups: learnerObject.logicGroups.map((group) => ({
+        identity: { logicGroupId: group.identity.logicGroupId },
         kpIds: group.kpIds,
         visualRequired: group.visualRequired === true,
         visualSourceState: String(group.visualSourceState || '')
       })),
-      kps: block.kpRecords.map((kp) => ({ identity: { kpId: kp.kpId, ordinal: kp.ordinal } })),
+      kps: learnerObject.kps.map((kp) => ({ identity: { kpId: kp.identity.kpId, ordinal: kp.identity.ordinal } })),
       evidenceVersion: [block.sourceHash, block.systemSourceHash, block.learningSupportSourceHash].join(':')
     };
   });

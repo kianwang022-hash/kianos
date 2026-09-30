@@ -158,7 +158,10 @@ export function revisionRequiresAction(state) {
 // Shared Source coverage predicate for the Website and completion consumers.
 // Source units remain independent of LG order and may have non-contiguous KPs.
 export function xizongSourceContactCovered(state, { sourceHash = '', sourceContact = {}, kps = [], logicGroups = [] } = {}) {
-  if (!sourceHash || state.sourceContactDone === false) return false;
+  if (!sourceHash) return false;
+  // Whole-LG producers historically left this flag false; actual member
+  // contact records, not that cumulative-only flag, own their coverage.
+  if (state.sourceContactDone === false && sourceContact.logicGroupIsAutomaticSourceChunk !== true) return false;
   const rows = kps.map(kp => ({ id: String(kp.kpId || kp.identity?.kpId || ''), ordinal: Number(kp.ordinal ?? kp.identity?.ordinal) }));
   if (!rows.length || rows.some(row => !row.id)) return false;
   const evidence = ids(state.sourceContactEvidence).filter(entry => sourceContactCompatible(state, entry, sourceHash));
@@ -206,4 +209,14 @@ export function xizongSourceContactCovered(state, { sourceHash = '', sourceConta
   if (sourceContact.logicGroupIsAutomaticSourceChunk === true) return covers(evidence, rows.map(row => row.id));
   return state.sourceContactDone === true
     && covers(evidence.filter(entry => entry.coverage_kind === 'EXPLICIT_BLOCK_CUMULATIVE_CONFIRMATION'), rows.map(row => row.id));
+}
+
+// A missing semantic/contact baseline limits Current claims, not lawful
+// continuation from an observed complete first pass. No flags/evidence are made.
+export function historicalXizongSourceContinuation(state) {
+  const r = state?.contentRevision;
+  return r?.contactPending === true && r.contactReason === 'UNCLASSIFIED_REVISION'
+    && !revisionRequiresAction(state) && state.completed === true && state.blockRecallDone === true
+    && r.witness.kpOrder.length > 0 && r.witness.kpOrder.every(id => state.learned?.[id] === true
+      && ['unknown','fuzzy','known','mastered'].includes(state.ratings?.[id]));
 }

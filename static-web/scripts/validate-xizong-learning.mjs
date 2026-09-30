@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { loadXizongBlock, loadXizongSystem } from '../src/lib/xizong.mjs';
 import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
-import { revisionRequiresAction } from '../src/lib/xizongContentRevision.mjs';
+import { revisionRequiresAction, historicalXizongSourceContinuation } from '../src/lib/xizongContentRevision.mjs';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const repoRoot = path.resolve(webRoot, '..');
@@ -52,7 +52,7 @@ function canCloseBlock({ totalKp, learned, ratings, blockRecallDone,
   };
   return closeScript.runInNewContext({
     totalKp, state: { blockRecallDone, contentRevision: revision },
-    revisionRequiresAction,
+    revisionRequiresAction, historicalXizongSourceContinuation,
     currentSourceContactCovered: () => sourceCovered,
     learnedCount: () => Object.values(learned).filter(Boolean).length,
     recallCount: () => Object.keys(ratings).length,

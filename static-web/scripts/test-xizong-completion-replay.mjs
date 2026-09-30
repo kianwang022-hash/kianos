@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import { loadXizongBlock, loadXizongSystem } from '../src/lib/xizong.mjs';
 import { resolveXizongLearnerProjection, loadXizongSystemCompletionRequirements } from '../src/lib/xizongLearnerProjection.mjs';
 import { buildXizongRevisionWitness } from '../src/lib/xizongRevisionWitness.mjs';
-import { reconcileXizongRevision, revisionStatus, xizongSourceContactCovered } from '../src/lib/xizongContentRevision.mjs';
+import { reconcileXizongRevision, revisionStatus, xizongSourceContactCovered, historicalXizongSourceContinuation, sourceContactCompatible, revalidateXizongUnit } from '../src/lib/xizongContentRevision.mjs';
 import { buildXizongStudyPacketFromStorage } from '../src/lib/xizongStudyPacket.mjs';
 import { buildXizongChatHandoff, writeXizongChatHandoff, applyXizongChatReturn } from '../src/lib/xizongChatReturn.mjs';
 import { inspectXizongBlockCompletion, inspectXizongSystemCompletion } from '../src/lib/xizongMemoryAutoRelease.mjs';
@@ -40,7 +40,7 @@ function completed(learner) {
   return study;
 }
 
-const samples=[['circulation','b01'],['digestive-metabolic-endocrine-tumor','m02'],['reproductive-breast','sr01'],['neuro-sensory-motor-orthopedics','n11'],['remaining-clinical','f09']];
+const samples=[['circulation','b01'],['digestive-metabolic-endocrine-tumor','d01'],['digestive-metabolic-endocrine-tumor','m02'],['reproductive-breast','sr01'],['neuro-sensory-motor-orthopedics','n11'],['remaining-clinical','f09']];
 const results=[];
 // Non-contiguous members are independent of array order and Source segmentation.
 const memberFixture={sourceHash:'fixture',sourceContact:{mode:'NATURAL_SOURCE_UNITS',segments:[{segmentId:'s1',kpOrdinals:[1,3]},{segmentId:'s2',kpOrdinals:[2]}]},
@@ -50,13 +50,13 @@ assert.equal(xizongSourceContactCovered(memberStudy,memberFixture),true);
 assert.equal(xizongSourceContactCovered({...memberStudy,sourceContactEvidence:[{...memberStudy.sourceContactEvidence[0],kp_ids:['a']},memberStudy.sourceContactEvidence[1]]},memberFixture),false);
 const groupFixture={...memberFixture,sourceContact:{logicGroupIsAutomaticSourceChunk:true}};
 assert.equal(xizongSourceContactCovered(memberStudy,groupFixture),true);
-assert.equal(xizongSourceContactCovered({...memberStudy,sourceContactDone:false},groupFixture),false);
+assert.equal(xizongSourceContactCovered({...memberStudy,sourceContactDone:false},groupFixture),true,'whole-LG records own coverage, not cumulative flag');
 
 for(const [system,slug] of samples) {
   const learner=resolveXizongLearnerProjection(loadXizongBlock(system,slug)).learnerObject;
   const study=completed(learner), before=JSON.stringify(study);
   assert.equal(inspectXizongBlockCompletion(learner,study).complete,true,system+': exact Source coverage');
-  assert.equal(inspectXizongBlockCompletion(learner,{...study,sourceContactDone:false}).complete,false,system+': explicit false');
+  assert.equal(inspectXizongBlockCompletion(learner,{...study,sourceContactDone:false}).complete,learner.sourceContact.logicGroupIsAutomaticSourceChunk===true,system+': mode-specific false');
   assert.equal(inspectXizongBlockCompletion(learner,{...study,sourceContactEvidence:[]}).complete,false,system+': missing coverage');
   const unrelated=structuredClone(study);unrelated.sourceContactEvidence.forEach(row=>row.kp_ids=['not-an-owned-kp']);
   assert.equal(inspectXizongBlockCompletion(learner,unrelated).complete,false,system+': segment name alone is not coverage');
@@ -73,9 +73,39 @@ for(const [system,slug] of samples) {
     const removed=structuredClone(study);removed.sourceContactEvidence.shift();
     assert.equal(inspectXizongBlockCompletion(learner,removed).complete,false,'zero-KP orientation unit still requires contact');
   }
-  results.push({system,mode:learner.sourceContact.mode,slug});
+  const [requirement]=loadXizongSystemCompletionRequirements(loadXizongSystem(system),[learner.identity.blockId]);
+  assert.deepEqual(requirement.sourceContact,learner.sourceContact,'requirements use formal resolved Source owner');
+  assert.equal(inspectXizongBlockCompletion(requirement,study).complete,true,'actual requirements positive');
+  const noContact={...study,sourceContactEvidence:[]};
+  assert.equal(inspectXizongBlockCompletion(requirement,noContact).complete,false,'actual requirements missing coverage');
+  const reqStorage={getItem:()=>JSON.stringify(noContact)};
+  assert.equal(inspectXizongSystemCompletion([requirement],reqStorage).complete,false,'System consumer missing coverage');
+  const guardSource=fs.readFileSync(new URL('../src/components/XizongRuntimeStageGuard.astro',import.meta.url),'utf8');
+  const guardOwner=guardSource.slice(guardSource.indexOf('  const missingPrerequisites ='),guardSource.indexOf('  // Free navigation'));
+  const reqMissing=vm.runInNewContext(guardOwner+';missingPrerequisites();',{blockPrerequisites:[{blockId:learner.identity.blockId,requirement}],readBlockState:()=>noContact,inspectXizongBlockCompletion});
+  assert.equal(reqMissing.length,1,'actual prerequisite consumer missing coverage');
+  const legacyReq=structuredClone(study);delete legacyReq.contentRevision;delete legacyReq.sourceContactDone;delete legacyReq.sourceContactEvidence;
+  assert.equal(inspectXizongBlockCompletion(requirement,legacyReq).complete,true,'actual requirements historical continuation');
+  assert.equal(inspectXizongBlockCompletion(requirement,legacyReq).currentClaim,'UNKNOWN');
+  results.push({system,mode:learner.sourceContact.mode,slug,actualRequirementsSourceBound:true,systemMissingCoverageBlocked:true,prerequisiteMissingCoverageBlocked:true});
 }
 
+// Freeze the actual old producer: CI shallow clones need no moving HEAD/history.
+const frozen=JSON.parse(fs.readFileSync(new URL('./fixtures/xizong-legacy-source-producer-14a6.json',import.meta.url),'utf8'));
+const groupLearner=resolveXizongLearnerProjection(loadXizongBlock('digestive-metabolic-endocrine-tumor','d01')).learnerObject;
+assert.equal(groupLearner.sourceContact.logicGroupIsAutomaticSourceChunk,true,'real whole-LG owner');
+const producerState=completed(groupLearner);producerState.sourceContactEvidence=[];producerState.sourceContactDone=false;
+const producerGroups=groupLearner.logicGroups.map(group=>({...group,groupId:group.identity.logicGroupId}));let groupIndex=0,handler;
+vm.runInNewContext(frozen.sourceContactProducer+frozen.coverage+frozen.groupContactHandler+';for(groupIndex=0;groupIndex<groups.length;groupIndex++) handler();',{
+ state:producerState,revisionWitness:groupLearner.revisionWitness,currentSourceHash:groupLearner.sourceHash,sourceContactMode:groupLearner.sourceContact.mode,
+ sourceContactCompatible,revalidateXizongUnit,objectId:'fixture',sourcePerGroup:true,biochemistrySource:null,integrationPrimary:false,naturalSourceUnits:false,
+ sourceSegments:[],kpData:groupLearner.kps.map(k=>({kpId:k.identity.kpId})),totalKp:groupLearner.kps.length,groups:producerGroups,
+ get groupIndex(){return groupIndex;},set groupIndex(i){groupIndex=i;},root:{querySelector:()=>({addEventListener:(event,cb)=>handler=cb})},
+ get handler(){return handler;},currentGroup:()=>producerGroups[groupIndex],groupVisualGapReviewableFromOriginalSource:()=>true,
+ firstUnrecalledIndexForGroup:()=>0,ttsxRowsForGroup:()=>[],queueTtsx:()=>false,save:()=>{},setStage:()=>{}
+});
+assert.equal(producerState.sourceContactDone,false,'actual 14a6 producer leaves false after full group contact');
+assert.equal(inspectXizongBlockCompletion(groupLearner,producerState).complete,true,'real full contact history remains qualified');
 const learner=resolveXizongLearnerProjection(loadXizongBlock('circulation','b01')).learnerObject, study=completed(learner);
 const storage=new Storage(), objectId='xizong:'+learner.identity.blockId;
 storage.setItem('kianos-xizong-astro-v2:'+objectId,JSON.stringify(study));
@@ -102,6 +132,18 @@ assert.throws(()=>applyXizongChatReturn(storage,ret,{currentPacket:evidence}),/S
 const semantic=structuredClone(fresh);semantic.current.revision_witness.kps[learner.kps[0].identity.kpId]='changed';
 assert.throws(()=>applyXizongChatReturn(storage,ret,{currentPacket:semantic}),/CURRENT_OBJECT_CHANGED/);
 
+const compatibleStorage=new Storage();compatibleStorage.setItem('kianos-xizong-astro-v2:'+objectId,JSON.stringify(study));
+const oldOptions={...options,storage:compatibleStorage},oldPacket=buildXizongStudyPacketFromStorage(oldOptions);
+const oldHandoff=buildXizongChatHandoff(oldPacket,{returnHref:'/xizong/circulation/b01/',makeId:()=> 'compatible-reexport'});writeXizongChatHandoff(compatibleStorage,oldHandoff);
+const revised=structuredClone(learner);revised.sourceHash+='-prompt-only';revised.kps[0].prompt.canonical+=' retrieval-only';revised.revisionWitness=buildXizongRevisionWitness(revised);
+const revisedOptions={...oldOptions,packetMeta:{...oldOptions.packetMeta,sourceHash:revised.sourceHash,revisionWitness:revised.revisionWitness}};
+const revisedPacket=buildXizongStudyPacketFromStorage(revisedOptions),compatibleReturn={...ret,handoff_id:oldHandoff.handoff_id,origin:oldHandoff.origin,resume:oldHandoff.resume};
+assert.equal(applyXizongChatReturn(compatibleStorage,compatibleReturn,{currentPacket:revisedPacket}).status,'applied');
+const regenerated=buildXizongStudyPacketFromStorage(revisedOptions),compatibleBytes=JSON.stringify([...compatibleStorage.map]),compatibleWrites=compatibleStorage.writes;
+assert.equal(applyXizongChatReturn(compatibleStorage,compatibleReturn,{currentPacket:regenerated}).status,'already_applied','V1 handoff/V2 compatible native Packet replay');
+assert.equal(compatibleStorage.writes,compatibleWrites);assert.equal(JSON.stringify([...compatibleStorage.map]),compatibleBytes);
+const changedAfterReturn=structuredClone(regenerated);changedAfterReturn.learning_state.recall_ratings[learner.kps[0].identity.kpId]='mastered';
+assert.throws(()=>applyXizongChatReturn(compatibleStorage,compatibleReturn,{currentPacket:changedAfterReturn}),/STALE_EVIDENCE/);
 const system=loadXizongSystem('circulation'), requirements=loadXizongSystemCompletionRequirements(system,[learner.identity.blockId]);
 assert.equal(requirements.length,1);assert.ok(!JSON.stringify(requirements).includes('core'),'identity requirements do not ship Core');
 assert.equal(inspectXizongSystemCompletion(requirements,storage).complete,true);
@@ -114,4 +156,16 @@ const legacy=structuredClone(study);delete legacy.contentRevision;delete legacy.
 const legacyBefore=JSON.stringify(legacy), legacyCheck=inspectXizongBlockCompletion(learner,legacy);
 assert.equal(legacyCheck.complete,true,'legacy continuation retained');assert.equal(legacyCheck.currentClaim,'UNKNOWN');
 assert.equal(revisionStatus(legacy,learner.sourceHash,learner.revisionWitness).current_claim,'UNKNOWN');assert.equal(JSON.stringify(legacy),legacyBefore);
+// Actual old visit-time inference must not make the same history unusable.
+const visited=structuredClone(legacy);
+vm.runInNewContext(frozen.legacyFlagInitialization,{state:visited,kpData:learner.kps.map(k=>({kpId:k.identity.kpId})),sourcePerGroup:false,totalKp:learner.kps.length});
+assert.equal(visited.sourceContactDone,true,'frozen producer inference reproduced');
+for(const row of [legacy,visited]) {
+ const before=JSON.stringify(row),check=inspectXizongBlockCompletion(requirements[0],row);
+ assert.equal(check.complete,true);assert.equal(check.currentClaim,'UNKNOWN');assert.equal(JSON.stringify(row),before);
+ assert.equal(historicalXizongSourceContinuation(reconcileXizongRevision(row,learner.revisionWitness)),true);
+}
+const currentV6=fs.readFileSync(new URL('../src/components/XizongBlockV6.astro',import.meta.url),'utf8');
+assert.ok(!currentV6.includes('state.sourceContactDone = !sourcePerGroup'),'visiting legacy cannot manufacture contact from learned count');
+
 console.log(JSON.stringify({ok:true,synthetic_only:true,source_modes:results,regenerated_return_readonly:true,unvisited_prerequisite_blocked:true,legacy_unknown_preserved:true}));
