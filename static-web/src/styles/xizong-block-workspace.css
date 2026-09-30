@@ -1854,6 +1854,10 @@ body#kianos-workspace.surfaceBody-xizong .xv6BlockWorkspaceShell .xv6GroupReview
   font-weight: 700;
 }
 .xzKpMarkMenu button:hover { background: #eef4f0; }
+.xzKpMarkMenu button[aria-pressed="true"] {
+  background: #e4eee8;
+  box-shadow: inset 0 0 0 1px #adc2b6;
+}
 ::highlight(xizong-important) {
   background: rgba(224, 194, 93, .32);
 }

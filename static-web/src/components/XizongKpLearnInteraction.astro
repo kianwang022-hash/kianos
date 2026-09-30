@@ -141,27 +141,43 @@
         selectionPending = null;
       };
 
-      const saveMark = (kind) => {
+      const markMatches = (mark, { surface, text, kind }) =>
+        mark?.surface === surface && mark?.text === text && mark?.kind === kind;
+
+      const syncMarkMenuState = () => {
+        if (!(markMenu instanceof HTMLElement) || !selectionPending) return;
+        const marks = currentMarks(selectionPending.kpId);
+        markMenu.querySelectorAll('[data-xizong-mark-kind]').forEach((button) => {
+          const kind = button.getAttribute('data-xizong-mark-kind') || '';
+          const active = marks.some((mark) => markMatches(mark, { ...selectionPending, kind }));
+          button.setAttribute('aria-pressed', active ? 'true' : 'false');
+          button.title = active ? '再次点击取消' : '';
+        });
+      };
+
+      const toggleMark = (kind) => {
         if (!selectionPending) return;
         const { kpId, surface, text } = selectionPending;
         const { personal, row } = ensurePersonalKp(kpId);
-        const exists = row.marks.some((mark) => mark.surface === surface && mark.text === text && mark.kind === kind);
-        if (!exists) {
-          row.marks.push({
-            surface,
-            text,
-            kind,
-            createdAt: new Date().toISOString()
-          });
-          writePersonal(personal);
-        }
+        const match = { surface, text, kind };
+        const exists = row.marks.some((mark) => markMatches(mark, match));
+        row.marks = exists
+          ? row.marks.filter((mark) => !markMatches(mark, match))
+          : [...row.marks, {
+              surface,
+              text,
+              kind,
+              createdAt: new Date().toISOString()
+            }];
+        writePersonal(personal);
         window.getSelection()?.removeAllRanges();
         hideMarkMenu();
         refreshUnifiedSurface();
       };
 
       markMenu.querySelectorAll('[data-xizong-mark-kind]').forEach((button) => {
-        button.addEventListener('click', () => saveMark(button.getAttribute('data-xizong-mark-kind') || 'important'));
+        button.setAttribute('aria-pressed', 'false');
+        button.addEventListener('click', () => toggleMark(button.getAttribute('data-xizong-mark-kind') || 'important'));
       });
 
       const showMarkMenuFromSelection = () => {
@@ -189,6 +205,7 @@
         const kpId = frame.getAttribute('data-kp-id') || '';
         const rect = range.getBoundingClientRect();
         selectionPending = { kpId, surface: prompt ? 'PROMPT' : 'CORE', text };
+        syncMarkMenuState();
         if (markMenu instanceof HTMLElement) {
           markMenu.style.left = `${Math.min(window.innerWidth - 150, Math.max(8, rect.left + rect.width / 2 - 62))}px`;
           markMenu.style.top = `${Math.max(8, rect.top - 44)}px`;

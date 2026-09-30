@@ -341,6 +341,21 @@ try {
   }, personalKey);
   check(promptMarks.some((row) => row.kind === 'important' && row.surface === 'PROMPT'), 'prompt_mark_persisted');
 
+  await selectTextAndMark(page, '[data-study-stage]:not([hidden]) [data-kp-learn-prompt-copy]', 'important');
+  const promptMarksAfterToggle = await page.evaluate((key) => {
+    const value = JSON.parse(localStorage.getItem(key) || '{}');
+    return Object.values(value?.kp || {}).flatMap((row) => Array.isArray(row?.marks) ? row.marks : []);
+  }, personalKey);
+  check(!promptMarksAfterToggle.some((row) => row.kind === 'important' && row.surface === 'PROMPT'), 'important_mark_same_click_cancels');
+  const promptHighlightCleared = await page.evaluate(() => !('highlights' in CSS) || !CSS.highlights.has('xizong-important'));
+  check(promptHighlightCleared, 'important_highlight_removed_after_toggle');
+  await selectTextAndMark(page, '[data-study-stage]:not([hidden]) [data-kp-learn-prompt-copy]', 'important');
+  const promptMarksRestored = await page.evaluate((key) => {
+    const value = JSON.parse(localStorage.getItem(key) || '{}');
+    return Object.values(value?.kp || {}).flatMap((row) => Array.isArray(row?.marks) ? row.marks : []);
+  }, personalKey);
+  check(promptMarksRestored.some((row) => row.kind === 'important' && row.surface === 'PROMPT'), 'important_mark_can_be_added_again');
+
   await page.evaluate(() => {
     if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
   });
@@ -431,6 +446,15 @@ try {
     return Object.values(value?.kp || {}).flatMap((row) => Array.isArray(row?.marks) ? row.marks : []);
   }, personalKey);
   check(allMarks.some((row) => row.kind === 'weak' && row.surface === 'CORE'), 'core_mark_uses_same_private_state');
+
+  await selectTextAndMark(page, '[data-kp-recall-card]:not([hidden]) [data-kp-learn-core] p', 'weak', { domClick: true });
+  const weakMarksAfterToggle = await page.evaluate((key) => {
+    const value = JSON.parse(localStorage.getItem(key) || '{}');
+    return Object.values(value?.kp || {}).flatMap((row) => Array.isArray(row?.marks) ? row.marks : []);
+  }, personalKey);
+  check(!weakMarksAfterToggle.some((row) => row.kind === 'weak' && row.surface === 'CORE'), 'weak_mark_same_click_cancels');
+  const weakHighlightCleared = await page.evaluate(() => !('highlights' in CSS) || !CSS.highlights.has('xizong-weak'));
+  check(weakHighlightCleared, 'weak_highlight_removed_after_toggle');
 
   check(await recallCard.locator('[data-kp-rating]').isVisible(), 'rating_appears_after_reveal');
   const currentRecallKpId = await recallCard.getAttribute('data-kp-id');

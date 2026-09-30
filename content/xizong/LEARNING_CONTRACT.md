@@ -468,7 +468,7 @@ Repair remains a bounded active task queue, not a second Memory library.
 Kian may keep private learner state such as:
 
 - personal Prompt override;
-- anchored fragment marking/highlighting;
+- anchored fragment marking/highlighting; the mark is reversible learner state: reselecting the same anchored fragment and choosing the same mark kind again removes that mark, without changing canonical Core or other mark kinds;
 - learner note where useful;
 - Recall / question evidence.
 
