@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import * as L from '../src/lib/englishLearnerEvidence.mjs';
 import * as S from '../src/lib/englishSessionControl.mjs';
+import {studyDayAt} from '../src/lib/studyTimer.mjs';
 import {buildTranslationHandoff,parseTranslationReturn,applyTranslationReturn,blankTransferLedger} from '../src/lib/translationRuntimeModel.mjs';
 const component=name=>fs.readFileSync(new URL(`../src/components/${name}.astro`,import.meta.url),'utf8');
 class Storage {
@@ -112,4 +113,54 @@ test('Objective exit cannot complete an unfinished productive repair or a partia
   'kianos-writing-runtime-v1:fixture':JSON.stringify({binding:{source_hash:'v1'},state:'REPAIR_NEEDED',chatReturn:{decision:'PASS'}})
  });
  for(const task of ['cloze','translation','writing'])assert.equal(S.englishStepIsComplete(storage,{task,object_id:'fixture',source_hash:'v1'}),false);
+});
+
+test('saved nested review corruption rejects the whole Return and retains all raw bytes',async()=>{
+ const thread={threadId:'t',scope:'local',route:'cloze',itemIds:['q1'],summary:'saved diagnostic',repairCompleted:false,repairEvidence:'',lexicalEvidence:null};
+ for(const bad of [{itemIds:'UNREADABLE_PRIVATE_ITEM_IDS'},{itemIds:null},{itemIds:[{}]},{repairCompleted:'false'},{repairCompleted:null}]){
+  const storage=new Storage({[attemptKey]:JSON.stringify(submitted),[reviewKey]:JSON.stringify({...payload,threads:[{...thread,...bad}],unknownPrivateRoot:{keep:true}}),[transferKey]:JSON.stringify({version:1,claims:[]})});const before=[...storage.map];
+  const h=returnHarness(storage,payload);await h.run();assert.match(h.status.textContent,/无法读取/);assert.equal(storage.writes,0);assert.deepEqual([...storage.map],before);
+ }
+ const storage=new Storage({[attemptKey]:JSON.stringify(submitted),[reviewKey]:JSON.stringify({...payload,threads:[thread],unknownPrivateRoot:{keep:true}})});
+ await returnHarness(storage,payload).run();assert.equal(JSON.parse(storage.getItem(reviewKey)).unknownPrivateRoot.keep,true);assert.equal(storage.writes,2);
+});
+
+// Full actual Resume script, fixed clock and DOM/network shims. Native
+// instruction, selection, Source continuation and attempt owners remain real.
+function resumeHarness(storage,catalog,now){
+ class Element {
+  constructor(){this.hidden=false;this.attributes={};this.listeners={};}
+  getAttribute(k){return this.attributes[k]??null;}setAttribute(k,v){this.attributes[k]=v;}removeAttribute(k){delete this.attributes[k];}
+  addEventListener(k,fn){this.listeners[k]=fn;}
+ }
+ class Anchor extends Element {}
+ const nodes={'[data-english-resume]':new Element(),'[data-english-resume-title]':new Element(),'[data-english-resume-meta]':new Element(),'[data-english-resume-link]':new Anchor()};
+ const root=new Element();root.querySelector=k=>nodes[k];root.attributes['data-base']='/';
+ const catalogNode={textContent:JSON.stringify(catalog)},events=[],assignments=[];
+ class Clock extends Date {constructor(...args){super(...(args.length?args:[now]));}static now(){return now;}}
+ const context={...S,studyDayAt,Date:Clock,localStorage:storage,HTMLElement:Element,HTMLAnchorElement:Anchor,
+  document:{querySelector:k=>k==='[data-english-resume-surface]'?root:catalogNode},
+  fetch:async()=>({ok:false}),CustomEvent:class {constructor(type,options){this.type=type;this.detail=options.detail;}},Event:class {},
+  window:{addEventListener:()=>{},dispatchEvent:e=>events.push(e),location:{assign:u=>assignments.push(u)}}};
+ let script=component('EnglishResume').split('<script>')[1].split('</script>')[0];
+ script=script.slice(script.indexOf('  const root ='),script.lastIndexOf('  });'));
+ script=script.replace('    void render();','    globalThis.renderResume=render;');
+ vm.runInNewContext(script,context);return {nodes,events,assignments,render:context.renderResume};
+}
+test('instruction -> actual Resume -> attempt agrees across UTC/Shanghai/LA study-day boundaries',async()=>{
+ const priorTZ=process.env.TZ;
+ try{
+  for(const tz of ['UTC','Asia/Shanghai','America/Los_Angeles'])for(const instant of ['2026-09-30T23:30:00Z','2026-10-01T15:59:59Z','2026-10-01T16:00:00Z']){
+   process.env.TZ=tz;const now=Date.parse(instant),day=studyDayAt(now);
+   const meta={task:'cloze',object_id:'boundary',source_hash:'v1',snapshot:{questions:[{id:'q1'}]}};
+   const instruction={schema:S.ENGLISH_SESSION_SCHEMA,session_id:'boundary-session',study_day:day,generated_at:new Date(now-60000).toISOString(),steps:[{...meta,params:{time_budget_seconds:120,assistance_context:{state:'assisted',basis:'chat_context',note:'targeted teaching',observed_at:instant}}}]};
+   const storage=new Storage();S.writeEnglishSessionInstruction(storage,instruction,day,{catalog:[meta],now});
+   const h=resumeHarness(storage,[meta],now);await h.render();assert.equal(h.nodes['[data-english-resume]'].hidden,false,`${tz} ${instant}`);assert.equal(h.events.at(-1).detail.href,'/cloze/boundary/');
+   const state={answers:{},results:{},submitted:false};L.saveEnglishAttempt(storage,'kianos-cloze-attempt-v1:boundary',state,meta,{now});assert.equal(state.binding.time_budget_seconds,120);assert.equal(state.binding.assistance,'assisted');
+   const newer={...meta,source_hash:'v2'};const changed=resumeHarness(storage,[newer],now);await changed.render();assert.equal(changed.nodes['[data-english-resume-link]'].getAttribute('data-source-continuation'),'available');
+   await changed.nodes['[data-english-resume-link]'].listeners.click({preventDefault(){}});
+   assert.equal(changed.assignments[0],'/cloze/boundary/');assert.equal(JSON.parse(storage.getItem(S.ENGLISH_SESSION_KEY)).steps[0].source_hash,'v2');
+   const next={answers:{},results:{},submitted:false};L.saveEnglishAttempt(storage,'kianos-cloze-attempt-v1:boundary',next,newer,{now});assert.equal(next.binding.time_budget_seconds,120);assert.equal(next.binding.assistance,'assisted');
+  }
+ }finally{if(priorTZ===undefined)delete process.env.TZ;else process.env.TZ=priorTZ;}
 });

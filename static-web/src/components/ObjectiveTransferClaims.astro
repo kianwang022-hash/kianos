@@ -75,6 +75,21 @@ const { task = '' } = Astro.props;
     };
   };
 
+  // Existing private records must be readable before a transaction replaces
+  // them. Return normalization cannot prove that saved data was not damaged.
+  const readableSavedThread = (thread) => {
+    if (!thread || typeof thread !== 'object' || Array.isArray(thread)) return false;
+    return typeof thread.threadId === 'string' && Boolean(thread.threadId.trim())
+      && VALID_SCOPES.has(thread.scope) && VALID_ROUTES.has(thread.route)
+      && Array.isArray(thread.itemIds)
+      && thread.itemIds.every(id => typeof id === 'string' && Boolean(id.trim()))
+      && typeof thread.summary === 'string'
+      && typeof thread.repairCompleted === 'boolean'
+      && typeof thread.repairEvidence === 'string'
+      && (thread.lexicalEvidence == null
+        || (typeof thread.lexicalEvidence === 'object' && !Array.isArray(thread.lexicalEvidence)));
+  };
+
   document.querySelectorAll('[data-objective-transfer-runtime]').forEach((host) => {
     if (!(host instanceof HTMLElement)) return;
     const task = String(host.getAttribute('data-transfer-task') || '');
@@ -230,7 +245,7 @@ const { task = '' } = Astro.props;
         previousReview=readEnglishJson(localStorage,reviewKey,null);
         if(previousReview && (previousReview.schema!==RETURN_SCHEMA || previousReview.task!==task
           || previousReview.objectId!==objectId || !Array.isArray(previousReview.threads)
-          || previousReview.threads.some((thread,index)=>!normalizeThread(thread,index))))throw new Error('ENGLISH_OBJECTIVE_REVIEW_UNREADABLE');
+          || previousReview.threads.some(thread=>!readableSavedThread(thread))))throw new Error('ENGLISH_OBJECTIVE_REVIEW_UNREADABLE');
       }
       catch (error) { if(status)status.textContent='已有复盘记录无法读取，原文已保留；整包未写入。';return; }
       if(previousReview?.packetFingerprint===fingerprint && previousReview?.attemptSubmittedAt===attempt.submittedAt){if(status)status.textContent='这份返回已应用；没有重复写入。';return;}
@@ -360,6 +375,7 @@ const { task = '' } = Astro.props;
       claims = [...inactiveClaims, ...activeClaims];
 
       const nextReview = {
+        ...previousReview,
         schema: RETURN_SCHEMA,
         task,
         objectId,
