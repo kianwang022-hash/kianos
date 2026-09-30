@@ -199,6 +199,8 @@ try {
 } catch { invalidFailed = true; }
 assert(invalidFailed, 'invalid-learner-object-must-fail-closed');
 
+await import('./test-xizong-memory-personal-bridge.mjs');
+
 console.log(JSON.stringify({
   ok: true,
   schema: result.schema,

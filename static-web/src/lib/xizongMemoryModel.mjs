@@ -61,6 +61,24 @@ export function normalizeXizongMemoryState(raw) {
   };
 }
 
+// Missing storage is a first visit. Existing unreadable/unsupported storage must
+// never be normalized to an empty library by a writer.
+export function readXizongMemoryStorage(storage) {
+  const raw = storage.getItem(XIZONG_MEMORY_STORAGE_KEY);
+  if (raw === null) return createXizongMemoryState();
+  let value;
+  try { value = JSON.parse(raw); } catch { fail('STORAGE_UNREADABLE'); }
+  if (!value || typeof value !== 'object' || Array.isArray(value)
+    || (value.schema && value.schema !== XIZONG_MEMORY_SCHEMA)) fail('STORAGE_UNSUPPORTED');
+  for (const key of ['releasedBlocks', 'cards', 'promptOverrides', 'marks', 'attention']) {
+    if (value[key] !== undefined && (!value[key] || typeof value[key] !== 'object' || Array.isArray(value[key]))) fail('STORAGE_INVALID', key);
+  }
+  for (const key of ['evidence', 'repairTasks']) {
+    if (value[key] !== undefined && !Array.isArray(value[key])) fail('STORAGE_INVALID', key);
+  }
+  return normalizeXizongMemoryState(value);
+}
+
 function normalizeCard(card, family, blockId, sourceHash) {
   const id = text(card?.id);
   if (!id) fail('CARD_ID_MISSING', `${blockId}:${family}`);

@@ -109,6 +109,40 @@ function applyPrivateReleaseState(stateInput, descriptor, releasedAt = null) {
   return state;
 }
 
+export function xizongPersonalMarkedFragments(learnerObject, personal, objectId) {
+  return array(learnerObject?.kps).flatMap((kp) => {
+    const kpId = text(kp?.identity?.kpId);
+    return array(personal?.kp?.[kpId]?.marks).filter((mark) =>
+      ['PROMPT', 'CORE'].includes(mark?.surface) && ['important', 'weak'].includes(mark?.kind)
+      && typeof mark?.text === 'string' && mark.text.trim()
+      && Number.isFinite(Date.parse(mark?.createdAt))
+    ).map((mark) => ({
+      id: `personal:${encodeURIComponent(objectId)}:${encodeURIComponent(JSON.stringify([kpId, mark.surface, mark.kind, mark.text, mark.createdAt]))}`,
+      cardId: `core:${kpId}`, kpId, surface: mark.surface, text: mark.text,
+      createdAt: mark.createdAt, personalObjectId: objectId, personalKind: mark.kind
+    }));
+  });
+}
+
+// Personal marks remain owned by the Block personal state. Reconcile only this
+// bridge's copies; never replay ratings, create review debt or remove Memory marks.
+export function syncXizongPersonalMarks(stateInput, learnerObject, personal, objectId) {
+  let state = normalizeXizongMemoryState(stateInput);
+  const desired = xizongPersonalMarkedFragments(learnerObject, personal, objectId)
+    .filter((mark) => state.cards[mark.cardId]?.family === 'CORE');
+  const desiredIds = new Set(desired.map((mark) => mark.id));
+  state.marks = { ...state.marks };
+  for (const [id, mark] of Object.entries(state.marks)) {
+    if (mark?.personalObjectId === objectId && !desiredIds.has(id)) delete state.marks[id];
+  }
+  for (const mark of desired) {
+    if (state.marks[mark.id]) continue;
+    state = addMarkedFragment(state, mark, mark.createdAt);
+    state.marks[mark.id] = { ...state.marks[mark.id], personalObjectId: objectId, personalKind: mark.personalKind };
+  }
+  return state;
+}
+
 export function releaseCompletedBlockToMemory(memoryStateInput, learnerObject, studyState, options = {}) {
   const memory = normalizeXizongMemoryState(memoryStateInput);
   const { blockId } = learnerKpIds(learnerObject);

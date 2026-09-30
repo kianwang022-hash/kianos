@@ -122,7 +122,7 @@ const base = import.meta.env.BASE_URL;
 <script>
   import {
     XIZONG_MEMORY_STORAGE_KEY,
-    normalizeXizongMemoryState,
+    readXizongMemoryStorage,
     selectMemoryView,
     memorySummary,
     resolvedCorePrompt,
@@ -146,11 +146,19 @@ const base = import.meta.env.BASE_URL;
 
   const root = document.querySelector('[data-xizong-memory-workspace]');
   if (root instanceof HTMLElement) {
-    const read = () => {
-      try { return normalizeXizongMemoryState(JSON.parse(localStorage.getItem(XIZONG_MEMORY_STORAGE_KEY) || 'null')); }
-      catch { return normalizeXizongMemoryState(null); }
+    const suspend = () => {
+      root.inert = true;
+      if (root.dataset.memoryStateBlocked === 'true') return;
+      root.dataset.memoryStateBlocked = 'true';
+      const notice = document.createElement('p');
+      notice.setAttribute('role', 'alert');
+      notice.textContent = '本机 Memory 记录无法安全读取或保存，原记录保留。请先备份后恢复。';
+      root.before(notice);
     };
-    let state = read();
+    const read = () => readXizongMemoryStorage(localStorage);
+    let state;
+    try { state = read(); } catch (error) { console.error(error); suspend(); return; }
+    let lastPersistedState = JSON.stringify(state);
     let chatCardIds = [];
     let chatRepairTaskId = '';
     const params = new URLSearchParams(window.location.search);
@@ -183,7 +191,14 @@ const base = import.meta.env.BASE_URL;
     let weakOnly = false;
 
     const save = () => {
-      try { localStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(state)); } catch {}
+      if (root.dataset.memoryStateBlocked === 'true') return false;
+      try {
+        readXizongMemoryStorage(localStorage);
+        const serialized = JSON.stringify(state);
+        localStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, serialized);
+        lastPersistedState = serialized;
+        return true;
+      } catch (error) { state = JSON.parse(lastPersistedState); console.error(error); suspend(); return false; }
     };
     const q = (selector) => root.querySelector(selector);
     const qa = (selector) => [...root.querySelectorAll(selector)];
@@ -425,7 +440,7 @@ const base = import.meta.env.BASE_URL;
       const rating = button.getAttribute('data-memory-rating') || '';
       if (!item?.id || !rating) return;
       state = appendMemoryEvidence(state, { cardId: item.id, rating, origin: item.family === 'PRECISION' ? 'PRECISION_MEMORY_RECALL' : 'CORE_MEMORY_RECALL' });
-      save();
+      if (!save()) return;
       revealed = false;
       if (view === 'TODAY') {
         const previousId = item.id;
@@ -448,7 +463,7 @@ const base = import.meta.env.BASE_URL;
       if (!item?.id) return;
       const requested = state.attention?.[item.id]?.reviewRequested !== true;
       state = requestMemoryReview(state, item.id, requested, requested ? 'LEARNER_REQUESTED' : '');
-      save(); rebuild();
+      if (!save()) return; rebuild();
     });
 
     const promptEditor = q('[data-memory-prompt-editor]');
@@ -464,7 +479,7 @@ const base = import.meta.env.BASE_URL;
       const item = selectedItem();
       if (!item?.kpId || !(promptInput instanceof HTMLTextAreaElement)) return;
       state = setPersonalPrompt(state, item.kpId, promptInput.value);
-      save();
+      if (!save()) return;
       if (promptEditor) promptEditor.hidden = true;
       renderCurrent();
     });
@@ -472,7 +487,7 @@ const base = import.meta.env.BASE_URL;
       const item = selectedItem();
       if (!item?.kpId) return;
       state = setPersonalPrompt(state, item.kpId, '');
-      save(); renderCurrent();
+      if (!save()) return; renderCurrent();
     });
 
     q('[data-memory-mark-selection]')?.addEventListener('click', () => {
@@ -486,7 +501,7 @@ const base = import.meta.env.BASE_URL;
       const surface = surfaceNode?.getAttribute('data-mark-surface') || '';
       if (!['PROMPT', 'CORE'].includes(surface)) return;
       state = addMarkedFragment(state, { cardId: item.id, kpId: item.kpId, surface, text: fragment });
-      save(); syncSummary();
+      if (!save()) return; syncSummary();
       selection?.removeAllRanges();
     });
 
@@ -494,7 +509,7 @@ const base = import.meta.env.BASE_URL;
       const item = selectedItem();
       if (!item?.id || view !== 'REPAIR') return;
       state = completeRepairTask(state, item.id);
-      save();
+      if (!save()) return;
       const completedId = item.id;
       index = Math.min(index, Math.max(0, currentItems.length - 2));
       rebuild();
@@ -509,7 +524,7 @@ const base = import.meta.env.BASE_URL;
       const item = selectedItem();
       if (!item?.id) return;
       state = removeMarkedFragment(state, item.id);
-      save();
+      if (!save()) return;
       index = Math.min(index, Math.max(0, currentItems.length - 2));
       rebuild();
     });
@@ -524,7 +539,8 @@ const base = import.meta.env.BASE_URL;
 
     window.addEventListener('storage', (event) => {
       if (event.key !== XIZONG_MEMORY_STORAGE_KEY) return;
-      state = read(); rebuild();
+      try { state = read(); lastPersistedState = JSON.stringify(state); rebuild(); }
+      catch (error) { console.error(error); suspend(); }
     });
 
     rebuild();

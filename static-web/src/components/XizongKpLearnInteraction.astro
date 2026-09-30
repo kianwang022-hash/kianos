@@ -6,6 +6,7 @@
   import {
     XIZONG_MEMORY_STORAGE_KEY,
     normalizeXizongMemoryState,
+    readXizongMemoryStorage,
     setPersonalPrompt
   } from '../lib/xizongMemoryModel.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
@@ -34,11 +35,20 @@
         return raw && typeof raw === 'object' ? raw : {};
       };
       const writePersonal = (value) => {
-        try { localStorage.setItem(personalKey, JSON.stringify(value)); } catch {}
+        try {
+          const raw = localStorage.getItem(personalKey);
+          const prior = raw === null ? {} : JSON.parse(raw);
+          if (!prior || typeof prior !== 'object' || Array.isArray(prior)) return false;
+          localStorage.setItem(personalKey, JSON.stringify(value)); return true;
+        } catch { return false; }
       };
       const readMemory = () => normalizeXizongMemoryState(parse(localStorage.getItem(XIZONG_MEMORY_STORAGE_KEY), null));
       const writeMemory = (value) => {
-        try { localStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(value)); } catch {}
+        try {
+          readXizongMemoryStorage(localStorage);
+          localStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(value));
+          return true;
+        } catch (error) { console.error(error); return false; }
       };
       const stageName = () => [...root.querySelectorAll('[data-study-stage]')]
         .find((node) => !node.hasAttribute('hidden'))?.getAttribute('data-study-stage') || '';
@@ -169,7 +179,8 @@
               kind,
               createdAt: new Date().toISOString()
             }];
-        writePersonal(personal);
+        if (!writePersonal(personal)) return;
+        window.dispatchEvent(new CustomEvent('kianos:xizong-personal-marks', {detail:{object_id:objectId, kp_id:kpId}}));
         window.getSelection()?.removeAllRanges();
         hideMarkMenu();
         refreshUnifiedSurface();
@@ -329,14 +340,14 @@
         editor.querySelector('[data-kp-prompt-save]')?.addEventListener('click', () => {
           const value = input instanceof HTMLTextAreaElement ? input.value : '';
           const next = setPersonalPrompt(readMemory(), kpId, value);
-          writeMemory(next);
+          if (!writeMemory(next)) return;
           editor.hidden = true;
           enhanceCurrentFrame();
           syncRecallPrompts();
         });
         editor.querySelector('[data-kp-prompt-reset]')?.addEventListener('click', () => {
           const next = setPersonalPrompt(readMemory(), kpId, '');
-          writeMemory(next);
+          if (!writeMemory(next)) return;
           editor.hidden = true;
           enhanceCurrentFrame();
           syncRecallPrompts();
@@ -543,12 +554,12 @@
             editor.querySelector('[data-kp-prompt-cancel]')?.addEventListener('click', () => { editor.hidden = true; });
             editor.querySelector('[data-kp-prompt-save]')?.addEventListener('click', () => {
               const value = input instanceof HTMLTextAreaElement ? input.value : '';
-              writeMemory(setPersonalPrompt(readMemory(), kpId, value));
+              if (!writeMemory(setPersonalPrompt(readMemory(), kpId, value))) return;
               editor.hidden = true;
               refreshUnifiedSurface();
             });
             editor.querySelector('[data-kp-prompt-reset]')?.addEventListener('click', () => {
-              writeMemory(setPersonalPrompt(readMemory(), kpId, ''));
+              if (!writeMemory(setPersonalPrompt(readMemory(), kpId, ''))) return;
               editor.hidden = true;
               refreshUnifiedSurface();
             });

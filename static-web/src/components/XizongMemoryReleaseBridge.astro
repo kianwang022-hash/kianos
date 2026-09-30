@@ -4,9 +4,10 @@ const { objectId = '', sourceHash = '' } = Astro.props;
 <span hidden data-xizong-memory-release-bridge data-object-id={objectId} data-source-hash={sourceHash}></span>
 
 <script>
-  import { XIZONG_MEMORY_STORAGE_KEY } from '../lib/xizongMemoryModel.mjs';
+  import { XIZONG_MEMORY_STORAGE_KEY, readXizongMemoryStorage } from '../lib/xizongMemoryModel.mjs';
   import {
     releaseCompletedBlockToMemory,
+    syncXizongPersonalMarks,
     xizongStudyStorageKey
   } from '../lib/xizongMemoryAutoRelease.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
@@ -29,23 +30,32 @@ const { objectId = '', sourceHash = '' } = Astro.props;
 
   const attemptRelease = () => {
     if (!root || !learnerObject || !studyKey) return;
-    const studyState = parseJson(localStorage.getItem(studyKey), {});
-    const memoryState = parseJson(localStorage.getItem(XIZONG_MEMORY_STORAGE_KEY), null);
     let result;
+    let memoryState;
     try {
+      const studyState = parseJson(localStorage.getItem(studyKey), {});
+      memoryState = readXizongMemoryStorage(localStorage);
+      const personalRaw = localStorage.getItem(`kianos-xizong-personal-v1:${objectId}`);
+      const personal = personalRaw === null ? {} : JSON.parse(personalRaw);
+      if (!personal || typeof personal !== 'object' || Array.isArray(personal)) throw new Error('XIZONG_PERSONAL_STATE_UNREADABLE');
+      if (personal.kp !== undefined && (!personal.kp || typeof personal.kp !== 'object' || Array.isArray(personal.kp))) throw new Error('XIZONG_PERSONAL_KP_STATE_UNREADABLE');
+      for (const row of Object.values(personal.kp || {})) {
+        if (!row || typeof row !== 'object' || Array.isArray(row) || (row.marks !== undefined && !Array.isArray(row.marks))) throw new Error('XIZONG_PERSONAL_MARKS_UNREADABLE');
+      }
       result = releaseCompletedBlockToMemory(memoryState, learnerObject, studyState, { sourceHash });
+      result.state = syncXizongPersonalMarks(result.state, learnerObject, personal, objectId);
     } catch (error) {
       console.error(error);
       return;
     }
-    if (!result?.released && !result?.refreshed) return;
+    if (!result?.released && !result?.refreshed && JSON.stringify(result?.state) === JSON.stringify(memoryState)) return;
     try {
       localStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, JSON.stringify(result.state));
       window.dispatchEvent(new CustomEvent('kianos:xizong-memory-release', {
         detail: {
           schema: result.schema,
           blockId: result.blockId,
-          action: result.refreshed ? 'CONTENT_REVISION_REFRESHED' : 'BLOCK_COMPLETE_RELEASED',
+          action: result.refreshed ? 'CONTENT_REVISION_REFRESHED' : result.released ? 'BLOCK_COMPLETE_RELEASED' : 'PERSONAL_MARKS_SYNCED',
           coreCount: result.coreCardIds?.length || 0,
           precisionCount: result.precisionCardIds?.length || 0,
           attentionCount: result.attentionCardIds?.length || 0
@@ -66,6 +76,9 @@ const { objectId = '', sourceHash = '' } = Astro.props;
     const detail = event instanceof CustomEvent ? event.detail : null;
     if (detail?.object_id && detail.object_id !== objectId) return;
     attemptRelease();
+  });
+  window.addEventListener('kianos:xizong-personal-marks', (event) => {
+    if (event instanceof CustomEvent && event.detail?.object_id === objectId) attemptRelease();
   });
 
   });

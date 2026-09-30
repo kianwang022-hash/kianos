@@ -2,6 +2,7 @@ import { compatibleRevisionWitnesses } from './xizongContentRevision.mjs';
 import {
   XIZONG_MEMORY_SCHEMA,
   XIZONG_MEMORY_STORAGE_KEY,
+  readXizongMemoryStorage,
   normalizeXizongMemoryState,
   setRepairTasks
 } from './xizongMemoryModel.mjs';
@@ -35,7 +36,7 @@ function readMemoryForMutation(raw) {
   if (!value || typeof value !== 'object' || Array.isArray(value)) fail('MEMORY_STATE_INVALID');
   if (value.schema && value.schema !== XIZONG_MEMORY_SCHEMA) fail('MEMORY_SCHEMA_INVALID');
   if (value.repairTasks != null && !Array.isArray(value.repairTasks)) fail('MEMORY_REPAIR_TASKS_INVALID');
-  return normalizeXizongMemoryState(value);
+  return readXizongMemoryStorage({ getItem: () => raw });
 }
 
 function stable(value) {
