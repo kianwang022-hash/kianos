@@ -5,7 +5,7 @@ import XizongLastLocation from '../../../components/XizongLastLocation.astro';
 import XizongRuntimeStageGuard from '../../../components/XizongRuntimeStageGuard.astro';
 import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xizong.mjs';
 import { loadXizongBeginnerGuide } from '../../../lib/xizongGuide.mjs';
-import { loadXizongPathways } from '../../../lib/xizongPathways.mjs';
+import { loadXizongPathways, loadReviewedRetentionConnections, retentionConnectionsForSystem } from '../../../lib/xizongPathways.mjs';
 import '../../../styles/xizong-system-workspace.css';
 
 export function getStaticPaths() {
@@ -20,6 +20,7 @@ const base = import.meta.env.BASE_URL;
 const system = loadXizongSystem(systemId);
 const guide = loadXizongBeginnerGuide(system);
 const pathways = loadXizongPathways(system);
+const incomingConnections = retentionConnectionsForSystem(loadReviewedRetentionConnections(), system.systemId);
 ---
 
 <Base
@@ -33,7 +34,7 @@ const pathways = loadXizongPathways(system);
   showLead={false}
 >
   <XizongLastLocation system={system} />
-  <XizongSystemWorkspace system={system} pathways={pathways} guide={guide} />
+  <XizongSystemWorkspace system={system} pathways={pathways} guide={guide} incomingConnections={incomingConnections} />
 
   <section class="xzSystemRecallEntry" data-xizong-system-recall-entry hidden>
     <div>
