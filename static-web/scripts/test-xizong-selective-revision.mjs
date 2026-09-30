@@ -4,7 +4,7 @@ import { resolveXizongLearnerProjection } from '../src/lib/xizongLearnerProjecti
 import { attachSourceVisualBundles } from '../src/lib/xizongSourceVisualAssets.mjs';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { buildXizongRevisionWitness, buildXizongSystemRecallWitness } from '../src/lib/xizongRevisionWitness.mjs';
 import { reconcileXizongRevision, revisionStatus, revalidateXizongUnit, compatibleRevisionWitnesses } from '../src/lib/xizongContentRevision.mjs';
 import { releaseCompletedBlockToMemory, inspectXizongBlockCompletion, hasXizongSystemRecall } from '../src/lib/xizongMemoryAutoRelease.mjs';
@@ -111,10 +111,15 @@ check(native.revisionWitness.groupOrder.filter(id=>native.revisionWitness.groups
 
 // Run the actual complete guard scripts against disposable storage. The original
 // code is the failure witness; no production/browser profile is read or modified.
+// Frozen verbatim from d354e4d852c34ec1bb90681402d68e049f8d635b, not moving HEAD.
+const legacyGuardHashes={
+ 'XizongBlockEvidenceGuard.astro':'00618d1549b04271919fccf62f27fecc3ac70a3a9ab9f39946d714aa7bb797d7',
+ 'XizongSystemEvidenceGuard.astro':'43e8e99daf176256a2a57f807f16e1383ee5b18e0ded1183b6a2fb99335993d6'
+};
 for(const name of ['XizongBlockEvidenceGuard.astro','XizongSystemEvidenceGuard.astro']) {
  for(const before of [true,false]) {
-  const file='static-web/src/components/'+name;
-  const source=before?execFileSync('git',['show','HEAD:'+file],{encoding:'utf8'}):fs.readFileSync(new URL('../src/components/'+name,import.meta.url),'utf8');
+  const source=fs.readFileSync(new URL(before?'./fixtures/xizong-revision/d354e4d-'+name:'../src/components/'+name,import.meta.url),'utf8');
+  if(before)assert.equal(createHash('sha256').update(source).digest('hex'),legacyGuardHashes[name],'immutable before guard fixture');
   const script=source.match(/<script>\s*([\s\S]*?)<\/script>/)[1].replace(/^\s*import[^;]+;/gm,'');
   class Element {constructor(attrs={}){this.attrs=attrs;this.inert=false;this.dataset={}}getAttribute(k){return this.attrs[k]}before(){}setAttribute(){}querySelector(){return null}addEventListener(){}}
   const system=name.includes('System'), guardMeta=system?'kianos:xizong:system-evidence-meta:audit:v1':metaKey;

@@ -1,0 +1,78 @@
+---
+const { block } = Astro.props;
+const evidenceVersion = [block?.sourceHash || '', block?.systemSourceHash || '', block?.learningSupportSourceHash || ''].join(':');
+---
+<span data-xizong-block-evidence-guard data-object-id={block.objectId} data-evidence-version={evidenceVersion} hidden></span>
+
+<script>
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
+  const marker = document.querySelector('[data-xizong-block-evidence-guard]');
+  const root = document.querySelector('[data-xizong-v6-block]');
+  if (marker instanceof HTMLElement && root instanceof HTMLElement) {
+    const objectId = marker.getAttribute('data-object-id') || 'xizong:unknown';
+    const version = marker.getAttribute('data-evidence-version') || '';
+    const studyKey = `kianos-xizong-astro-v2:${objectId}`;
+    const personalKey = `kianos-xizong-personal-v1:${objectId}`;
+    const extensionKey = `kianos-xizong-memory-review-v2:${objectId}`;
+    const repairInboxKey = `kianos-xizong-repair-inbox-v1:${objectId}`;
+    const metaKey = `kianos-xizong-evidence-meta-v1:${objectId}`;
+
+    const readJson = (key, fallback = null) => {
+      try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
+    };
+    const writeJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
+    };
+
+    const previousMeta = readJson(metaKey, null);
+    if (previousMeta?.version && previousMeta.version !== version) {
+      const oldStudy = readJson(studyKey, {});
+      const oldPersonal = readJson(personalKey, {});
+      const oldExtension = readJson(extensionKey, {});
+      const oldRepairInbox = readJson(repairInboxKey, null);
+      const archiveKey = `kianos-xizong-stale-evidence-v1:${objectId}:${Date.now()}`;
+      const archived = writeJson(archiveKey, {
+        archived_at: new Date().toISOString(),
+        previous_version: previousMeta.version,
+        current_version: version,
+        study: oldStudy,
+        personal: oldPersonal,
+        extension: oldExtension,
+        repair_inbox: oldRepairInbox,
+        raw: Object.fromEntries([studyKey, personalKey, extensionKey, repairInboxKey].map((key) => [key, localStorage.getItem(key)]))
+      });
+      if (!archived) {
+        root.inert = true;
+        const notice = document.createElement('p');
+        notice.setAttribute('role', 'alert');
+        notice.textContent = '旧学习记录未能安全归档，已保留原记录并暂停本页。请先导出备份或释放本机存储，再重新打开；不要清除浏览器数据。';
+        root.before(notice);
+      } else {
+      try {
+        localStorage.removeItem(studyKey);
+        localStorage.removeItem(extensionKey);
+        localStorage.removeItem(repairInboxKey);
+      } catch {}
+      writeJson(personalKey, { lectureRead: false, kp: oldPersonal?.kp || {} });
+      writeJson(metaKey, { version, observed_at: new Date().toISOString() });
+      try { sessionStorage.setItem(`kianos-xizong-evidence-reset:${objectId}`, '1'); } catch {}
+      window.location.reload();
+      }
+    } else {
+      if (!previousMeta?.version) writeJson(metaKey, { version, observed_at: new Date().toISOString() });
+
+      const status = root.querySelector('[data-study-local-status]');
+      try {
+        const resetKey = `kianos-xizong-evidence-reset:${objectId}`;
+        if (sessionStorage.getItem(resetKey) === '1') {
+          sessionStorage.removeItem(resetKey);
+          if (status) status.textContent = '内容版本已更新：旧学习证据已归档，随手记保留；请按当前版本重新确认。';
+        }
+      } catch {}
+    }
+  }
+
+  });
+</script>

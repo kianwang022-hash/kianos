@@ -66,10 +66,6 @@ const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.as
 const systemWuReturn = read('static-web/src/lib/xizongSystemWuReturn.mjs');
 const questionOwner = read('static-web/src/lib/xizongQuestions.mjs');
 
-assert(blockGuard.includes('kianos-xizong-stale-evidence-v1:'), 'stale-block-evidence-not-archived');
-assert(blockGuard.includes('localStorage.removeItem(studyKey)'), 'stale-block-progress-remains-current');
-assert(blockGuard.includes("kp: oldPersonal?.kp || {}"), 'learner-notes-not-preserved-on-version-reset');
-assert(blockGuard.includes('localStorage.removeItem(repairInboxKey)'), 'stale-block-repair-inbox-remains-current');
 assert(!blockGuard.includes("type: 'KP_RECALL'"), 'block-evidence-guard-still-competes-for-recall-writes');
 assert(!blockGuard.includes("[data-review-rating]"), 'block-evidence-guard-still-competes-for-repair-writes');
 assert(blockPage.includes('<XizongBlockEvidenceGuard block={projection} />'), 'block-evidence-guard-not-mounted');
@@ -125,15 +121,7 @@ assert(
   'question-answer-change-not-versioned'
 );
 assert(systemGuard.includes('question.relation?.primaryKpId'), 'reviewed-route-change-not-versioned');
-assert(systemGuard.includes('stale_block_question_plans'), 'stale-question-repair-plan-not-archived');
-assert(systemGuard.includes('stale_block_repair_inboxes'), 'stale-repair-inbox-not-archived');
-assert(systemGuard.includes('stale_visible_memory_repairs'), 'stale-visible-repair-not-archived');
-assert(
-  systemGuard.includes('if (oldSweep && !writeJson(sweepKey, {')
-    && systemGuard.includes('results: {},')
-    && systemGuard.includes('current_revision_valid: false'),
-  'stale-question-results-not-invalidated'
-);
+
 assert(recallPage.includes('<XizongSystemEvidenceGuard system={system} sweep={questionSweep} />'), 'recall-system-evidence-guard-not-mounted');
 assert(practicePage.includes('<XizongSystemEvidenceGuard system={system} sweep={sweep} />'), 'practice-system-evidence-guard-not-mounted');
 
@@ -145,6 +133,13 @@ assert(
 );
 assert(!repairReturn.includes('localStorage.setItem("content/'), 'private-evidence-writing-shared-content');
 
+// Shared executable policy proof includes frozen destructive before guards,
+// prompt preservation, local semantic/UNKNOWN claims, and native per-question
+// invalidation across System/Paper/Targeted/Retained paths with history intact.
+assert(!blockGuard.includes('localStorage.removeItem('), 'artifact-guard-must-not-delete-block-history');
+assert(!systemGuard.includes('localStorage.removeItem('), 'artifact-guard-must-not-delete-system-history');
+await import('./test-xizong-source-revision-transitive.mjs');
+
 console.log([
   'A2 Evidence acceptance probe PASS',
   `System=${system.canonicalId}/${system.systemId}`,
@@ -155,7 +150,7 @@ console.log([
   'ChatRepair=repair-only+single-owner-queue-closure',
   'RepairReturn=shared-owner-receipt+repair-only+atomic-inbox+cross-tab-safe',
   'SystemRecall=pre/mid/post-distinct',
-  'StaleEvidence=archive+fail-closed',
+  'RevisionEvidence=preserved+selective-current-claims',
   'LearnerState=browser-private',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));

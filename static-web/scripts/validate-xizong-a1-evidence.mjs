@@ -53,31 +53,13 @@ assert(memoryWorkspace.includes('completeRepairTask(state, item.id)'), 'visible-
 assert(!blockGuard.includes("type: 'KP_RECALL'"), 'block-guard-competes-for-recall-writes');
 assert(!blockGuard.includes('[data-memory-rating]'), 'block-guard-competes-for-memory-writes');
 
-// Block content-version changes archive incompatible evidence and preserve only notes.
-assert(blockGuard.includes('kianos-xizong-stale-evidence-v1:'), 'stale-block-archive-missing');
-assert(blockGuard.includes('localStorage.removeItem(studyKey)'), 'stale-block-study-not-invalidated');
-assert(blockGuard.includes('localStorage.removeItem(extensionKey)'), 'stale-block-extension-not-invalidated');
-assert(blockGuard.includes('localStorage.removeItem(repairInboxKey)'), 'stale-block-inbox-not-invalidated');
-assert(blockGuard.includes("lectureRead: false, kp: oldPersonal?.kp || {}"), 'stale-block-personal-note-boundary-invalid');
+// Artifact revisions preserve native observations; current claims are checked below.
 
-// System Evidence versions include system/learning/block/question truth and invalidate stale question-derived state.
+// Artifact versions retain provenance; native question semantics own invalidation.
 assert(systemGuard.includes('blockEvidenceHash.toString(16)'), 'system-version-misses-block-content');
 assert(systemGuard.includes("system?.learningSupport?.sourceHash || ''"), 'system-version-misses-learning-support');
 assert(systemGuard.includes('questionEvidenceHash.toString(16)'), 'system-version-misses-question-evidence');
-assert(systemGuard.includes('kianos-xizong-stale-system-evidence:'), 'stale-system-archive-missing');
-assert(systemGuard.includes('stale_block_question_plans'), 'stale-system-question-plan-archive-missing');
-assert(systemGuard.includes('stale_block_repair_inboxes'), 'stale-system-inbox-archive-missing');
-assert(systemGuard.includes('stale_visible_memory_repairs'), 'stale-visible-memory-repair-archive-missing');
-assert(systemGuard.includes('XIZONG_MEMORY_STORAGE_KEY'), 'system-version-guard-misses-visible-memory-repair');
-assert(systemGuard.includes("String(task?.origin || '') === 'SYSTEM_WU_CHAT_RETURN'"), 'system-version-guard-does-not-scope-question-derived-repair');
-assert(systemGuard.includes('localStorage.removeItem(recallKey)'), 'stale-system-recall-not-invalidated');
-assert(systemGuard.includes('if (oldSweep && !writeJson(sweepKey, {')
-  && systemGuard.includes('...oldSweep,')
-  && systemGuard.includes('results: {},')
-  && systemGuard.includes('attemptHistory: (Array.isArray(oldSweep.attemptHistory) ? oldSweep.attemptHistory : [])')
-  && systemGuard.includes('.map((event) => ({ ...event, current_revision_valid: false }))')
-  && !systemGuard.includes('localStorage.removeItem(sweepKey)'),
-  'stale-system-current-results-must-clear-while-history-is-retained');
+
 assert(systemGuard.includes("phase = answered === 0 ? 'PRE_QUESTION'"), 'system-recall-pre-phase-missing');
 assert(systemGuard.includes("'MID_SWEEP'"), 'system-recall-mid-phase-missing');
 assert(systemGuard.includes("'POST_QUESTION'"), 'system-recall-post-phase-missing');
@@ -115,6 +97,13 @@ const unresolved = sweep.questions.filter((question) => !question.relation?.bloc
 assert(reviewed.length > 0, 'no-reviewed-question-relation-for-a1-evidence-test');
 assert(unresolved.length > 0, 'no-unresolved-question-relation-for-a1-evidence-test');
 
+// Shared executable policy proof includes frozen destructive before guards,
+// prompt preservation, local semantic/UNKNOWN claims, and native per-question
+// invalidation across System/Paper/Targeted/Retained paths with history intact.
+assert(!blockGuard.includes('localStorage.removeItem('), 'artifact-guard-must-not-delete-block-history');
+assert(!systemGuard.includes('localStorage.removeItem('), 'artifact-guard-must-not-delete-system-history');
+await import('./test-xizong-source-revision-transitive.mjs');
+
 console.log([
   'A1 Evidence contract PASS',
   `Blocks=${system.blocks.length}`,
@@ -126,7 +115,7 @@ console.log([
   'RecallHistory=append-only+repeated-attempt-contract',
   'Repair=repair-only+reviewed-relation-only',
   'Holdout=private+excluded',
-  'StaleEvidence=block+system-fail-closed',
+  'RevisionEvidence=preserved+selective-current-claims',
   'Inbox=write-before-clear+cross-tab',
   'U=NOT_TESTED'
 ].join(' | '));

@@ -1,0 +1,231 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+
+const { system, sweep } = Astro.props;
+const repoRoot = process.env.KIANOS_REPO_ROOT
+  ? path.resolve(process.env.KIANOS_REPO_ROOT)
+  : path.resolve(process.cwd(), '..');
+
+const blockEvidenceRows = (system?.blocks || []).map((block) => {
+  const sourcePath = String(block?.sourcePath || '');
+  let source = '';
+  try {
+    source = sourcePath ? fs.readFileSync(path.join(repoRoot, sourcePath), 'utf8') : '';
+  } catch {
+    source = `MISSING:${sourcePath}`;
+  }
+  return [block?.blockId || '', sourcePath, source].join('~');
+}).join('|');
+let blockEvidenceHash = 2166136261;
+for (let index = 0; index < blockEvidenceRows.length; index += 1) {
+  blockEvidenceHash ^= blockEvidenceRows.charCodeAt(index);
+  blockEvidenceHash = Math.imul(blockEvidenceHash, 16777619) >>> 0;
+}
+
+const evidenceRows = (sweep?.questions || []).map((question) => [
+  question.questionId,
+  question.relation?.blockId || '',
+  question.relation?.primaryKpId || '',
+  ...(question.relation?.supportingKpIds || []),
+  question.explanation?.examTarget || '',
+  question.explanation?.decisionAxis || '',
+  ...(question.explanation?.reasoningChain || []),
+  question.explanation?.correctOptionReason || '',
+  ...(question.explanation?.valuableDistractors || []).flatMap((item) => [item.option || '', item.reason || '']),
+  question.explanation?.commonFailureNode || '',
+  question.explanation?.transferRule || ''
+].join('~')).join('|');
+let questionEvidenceHash = 2166136261;
+for (let index = 0; index < evidenceRows.length; index += 1) {
+  questionEvidenceHash ^= evidenceRows.charCodeAt(index);
+  questionEvidenceHash = Math.imul(questionEvidenceHash, 16777619) >>> 0;
+}
+const evidenceVersion = [
+  system?.sourceHash || '',
+  system?.learningSupport?.sourceHash || '',
+  blockEvidenceHash.toString(16),
+  sweep?.scopeHash || '',
+  sweep?.questionInventoryHash || '',
+  sweep?.questionSemanticHash || '',
+  questionEvidenceHash.toString(16)
+].join(':');
+const blockIds = (system?.blocks || []).map((block) => block.blockId).filter(Boolean);
+const evidenceQuestions = (sweep?.questions || []).map((question) => ({
+  questionId: question.questionId,
+  year: question.year
+}));
+---
+<span data-xizong-system-evidence-guard data-system-id={system.systemId} data-evidence-version={evidenceVersion} hidden></span>
+<script type="application/json" data-evidence-block-ids set:html={JSON.stringify(blockIds)}></script>
+<script type="application/json" data-evidence-questions set:html={JSON.stringify(evidenceQuestions).replace(/</g, '\\u003c')}></script>
+
+<script>
+  import { XIZONG_MEMORY_STORAGE_KEY, normalizeXizongMemoryState } from '../lib/xizongMemoryModel.mjs';
+  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  void learnerWriterReady.then(() => {
+
+
+  const marker = document.querySelector('[data-xizong-system-evidence-guard]');
+  const root = document.querySelector('[data-xizong-system-exit], [data-xizong-practice]');
+  if (marker instanceof HTMLElement && root instanceof HTMLElement) {
+    const systemId = marker.getAttribute('data-system-id') || '';
+    const version = marker.getAttribute('data-evidence-version') || '';
+    const recallKey = `kianos:xizong:system-recall:${systemId}:v1`;
+    const sweepKey = `kianos:xizong:system-question-sweep:${systemId}:v1`;
+    const repairKey = `kianos:xizong:system-repair-return:${systemId}:v1`;
+    const ledgerKey = `kianos:xizong:system-evidence:${systemId}:v1`;
+    const metaKey = `kianos:xizong:system-evidence-meta:${systemId}:v1`;
+    const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
+    let blockIds = [];
+    try { blockIds = JSON.parse(document.querySelector('[data-evidence-block-ids]')?.textContent || '[]'); } catch {}
+
+    const readJson = (key, fallback = null) => {
+      try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
+    };
+    const writeJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
+    };
+
+    const previousMeta = readJson(metaKey, null);
+    if (previousMeta?.version && previousMeta.version !== version) {
+      const cleanup = [];
+      const retirementKeys = new Set([recallKey, sweepKey, repairKey, ledgerKey, metaKey, XIZONG_MEMORY_STORAGE_KEY]);
+      const staleBlockQuestionPlans = {};
+      const staleBlockRepairInboxes = {};
+      blockIds.forEach((blockId) => {
+        const inboxKey = `kianos-xizong-repair-inbox-v1:xizong:${blockId}`;
+        const inbox = readJson(inboxKey, null);
+        if (inbox) staleBlockRepairInboxes[blockId] = inbox;
+        retirementKeys.add(inboxKey);
+        cleanup.push(() => { localStorage.removeItem(inboxKey); return true; });
+
+        const key = `kianos-xizong-memory-review-v2:xizong:${blockId}`;
+        retirementKeys.add(key);
+        const ext = readJson(key, null);
+        if (!ext || !Array.isArray(ext.reviewPlan)) return;
+        const stale = ext.reviewPlan.filter((row) => Array.isArray(row?.sourceQuestionIds) && row.sourceQuestionIds.length > 0);
+        if (stale.length) staleBlockQuestionPlans[blockId] = stale;
+        const kept = ext.reviewPlan.filter((row) => !(Array.isArray(row?.sourceQuestionIds) && row.sourceQuestionIds.length > 0));
+        if (kept.length !== ext.reviewPlan.length) {
+          ext.reviewPlan = kept;
+          ext.reviewIndex = 0;
+          cleanup.push(() => writeJson(key, ext));
+        }
+      });
+
+      const oldMemory = normalizeXizongMemoryState(readJson(XIZONG_MEMORY_STORAGE_KEY, null));
+      const staleVisibleRepairs = (oldMemory.repairTasks || []).filter((task) =>
+        String(task?.systemId || '') === systemId && String(task?.origin || '') === 'SYSTEM_WU_CHAT_RETURN'
+      );
+      if (staleVisibleRepairs.length) {
+        cleanup.push(() => writeJson(XIZONG_MEMORY_STORAGE_KEY, {
+          ...oldMemory,
+          repairTasks: (oldMemory.repairTasks || []).filter((task) =>
+            !(String(task?.systemId || '') === systemId && String(task?.origin || '') === 'SYSTEM_WU_CHAT_RETURN')
+          )
+        }));
+      }
+
+      const archiveKey = `kianos-xizong-stale-system-evidence:${systemId}:${Date.now()}`;
+      const archived = writeJson(archiveKey, {
+        archived_at: new Date().toISOString(),
+        previous_version: previousMeta.version,
+        current_version: version,
+        recall: readJson(recallKey, {}),
+        sweep: readJson(sweepKey, {}),
+        repair: readJson(repairKey, {}),
+        ledger: readJson(ledgerKey, {}),
+        stale_block_question_plans: staleBlockQuestionPlans,
+        stale_block_repair_inboxes: staleBlockRepairInboxes,
+        stale_visible_memory_repairs: staleVisibleRepairs
+      });
+      if (!archived) {
+        root.inert = true;
+        document.querySelectorAll('[data-xizong-repair-return]').forEach((node) => { node.inert = true; });
+        const notice = document.createElement('p');
+        notice.setAttribute('role', 'alert');
+        notice.textContent = '旧系统学习记录未能安全归档，原记录未删除，本页暂停。请先备份或释放存储，再重新打开；不要清除浏览器数据。';
+        root.before(notice);
+      } else {
+        let before = null;
+        try {
+          before = new Map([...retirementKeys].map((key) => [key, localStorage.getItem(key)]));
+          const oldSweep = readJson(sweepKey, null);
+          if (oldSweep && !writeJson(sweepKey, {
+            ...oldSweep,
+            results: {},
+            attemptHistory: (Array.isArray(oldSweep.attemptHistory) ? oldSweep.attemptHistory : [])
+              .map((event) => ({ ...event, current_revision_valid: false }))
+          })) throw new Error('SYSTEM_HISTORY_PRESERVATION_FAILED');
+          for (const apply of cleanup) if (apply() === false) throw new Error('SYSTEM_RETIREMENT_WRITE_FAILED');
+          localStorage.removeItem(recallKey);
+          localStorage.removeItem(repairKey);
+          localStorage.removeItem(ledgerKey);
+          if (!writeJson(metaKey, { version, observed_at: new Date().toISOString() })) {
+            throw new Error('SYSTEM_RETIREMENT_META_WRITE_FAILED');
+          }
+          try { sessionStorage.setItem(`kianos-xizong-system-evidence-reset:${systemId}`, '1'); } catch {}
+          window.location.reload();
+        } catch {
+          for (const [key, raw] of before || []) {
+            try { if (raw == null) localStorage.removeItem(key); else localStorage.setItem(key, raw); } catch {}
+          }
+          root.inert = true;
+          document.querySelectorAll('[data-xizong-repair-return]').forEach((node) => { node.inert = true; });
+          const notice = document.createElement('p');
+          notice.setAttribute('role', 'alert');
+          notice.textContent = '当前内容版本更新未能安全完成，本页暂停。请先备份记录，再重新打开；不要清除浏览器数据。';
+          root.before(notice);
+        }
+      }
+    } else {
+      if (!previousMeta?.version) writeJson(metaKey, { version, observed_at: new Date().toISOString() });
+
+      try {
+        const resetKey = `kianos-xizong-system-evidence-reset:${systemId}`;
+        if (sessionStorage.getItem(resetKey) === '1') {
+          sessionStorage.removeItem(resetKey);
+          const status = root.querySelector('[data-recall-status]');
+          if (status) status.textContent = '当前内容版本已更新：旧 System/题目证据已归档，请按当前版本重新收口。';
+        }
+      } catch {}
+
+      let evidenceQuestions = [];
+      try { evidenceQuestions = JSON.parse(document.querySelector('[data-evidence-questions]')?.textContent || '[]'); } catch {}
+      const append = (event) => {
+        const ledger = readJson(ledgerKey, { events: [] });
+        const prior = Array.isArray(ledger.events) ? ledger.events : [];
+        if (event.event_id && prior.some((row) => row.event_id === event.event_id)) return true;
+        ledger.events = [...prior, { at: new Date().toISOString(), ...event }];
+        return writeJson(ledgerKey, ledger);
+      };
+      const activeQuestionCounts = () => {
+        const years = Array.isArray(readJson(holdoutKey, [])) ? readJson(holdoutKey, []) : [];
+        const held = new Set(years.map(Number));
+        const active = evidenceQuestions.filter((question) => !held.has(Number(question.year)));
+        const results = readJson(sweepKey, { results: {} })?.results || {};
+        const answered = active.filter((question) => Boolean(results?.[question.questionId])).length;
+        return { answered, total: active.length };
+      };
+
+      root.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        if (!target?.closest('[data-complete-recall]')) return;
+        if (root.inert || root.hidden || root.querySelector('[data-recall-workspace]')?.hidden || root.querySelector('[data-recall-reveal]')?.hidden !== false || root.dataset.systemRecallCommitted === 'true') {
+          event.preventDefault(); event.stopImmediatePropagation(); return;
+        }
+        const { answered, total } = activeQuestionCounts();
+        const phase = answered === 0 ? 'PRE_QUESTION'
+          : total > 0 && answered >= total ? 'POST_QUESTION' : 'MID_SWEEP';
+        if (!append({ event_id: root.dataset.systemRecallEventId || '', type: 'SYSTEM_RECALL', phase, answered_questions: answered, active_questions: total })) {
+          event.preventDefault(); event.stopImmediatePropagation(); root.inert = true;
+          const notice = document.createElement('p'); notice.setAttribute('role','alert');
+          notice.textContent = '本次 System Recall 证据未能保存，未记录完成；请先备份或释放空间再恢复。'; root.before(notice);
+        }
+      }, true);
+    }
+  }
+
+  });
+</script>

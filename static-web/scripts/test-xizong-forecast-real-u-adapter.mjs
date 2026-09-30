@@ -251,7 +251,14 @@ assert.equal(progress.runtime_evidence.completed_blocks,1);
 assert.equal(progress.runtime_evidence.source_revision_blocked_count,1);
 assert.equal(progress.runtime_evidence.completed_blocks_detail.length,1);
 assert.equal(progress.runtime_evidence.completed_blocks_detail[0].block_id,currentBlock.blockId);
-assert.equal(progress.runtime_evidence.recall.rated,currentBlock.kpRows.length);
+// History remains an observation; a missing semantic baseline may not turn
+// stale ratings into current completion or erase them from the read model.
+assert.equal(progress.runtime_evidence.recall.rated,currentBlock.kpRows.length+staleBlock.kpRows.length);
+assert.equal(progress.runtime_evidence.source_revision_blocked_blocks[0].block_id,staleBlock.blockId);
+assert.equal(progress.runtime_evidence.source_revision_blocked_blocks[0].status,'UNCLASSIFIED_REVISION');
+assert.ok(!progress.runtime_evidence.completed_blocks_detail.some(row=>row.block_id===staleBlock.blockId));
+assert.deepEqual(JSON.parse(storage.getItem('kianos-xizong-astro-v2:'+staleBlock.packetMeta.objectId)),staleState,
+  'Forecast must retain raw history without stamping a new semantic baseline');
 assert.equal(progress.question_workload.status,'EXACT_COMPLETE');
 assert.equal(progress.question_workload.unknown_systems.length,0);
 assert.equal(progress.question_workload.unknown_domains.length,0);

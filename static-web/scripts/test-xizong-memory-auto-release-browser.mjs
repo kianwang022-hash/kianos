@@ -42,7 +42,7 @@ let browser;
 
 try {
   await waitForHttp(`${BASE}${BLOCK_ROUTE}`);
-  browser = await chromium.launch({ headless: true });
+  browser = await chromium.launch({ headless: true, executablePath:process.env.KIANOS_TEST_CHROME });
   const context = await browser.newContext({ viewport: { width: 1512, height: 982 } });
   const page = await context.newPage();
   await page.goto(`${BASE}${BLOCK_ROUTE}`, { waitUntil: 'networkidle' });
@@ -206,11 +206,27 @@ try {
   check(memory.releasedBlocks[fixture.blockId].sourceHash === preRevision.currentHash, 'content_revision_refreshes_release_hash');
   check(memory.evidence.length === preRevision.evidenceCount, 'content_revision_preserves_memory_evidence');
   check(Object.values(memory.cards).filter((card) => card?.blockId === fixture.blockId).every((card) => card.sourceHash === preRevision.currentHash), 'content_revision_refreshes_card_payload_version');
-  check(Boolean(memory.cards[`core:${fixture.kpIds[0]}`]?.contentChangedAt), 'content_revision_marks_changed_core');
+  check(Object.values(memory.cards).every(card=>!card.contentChangedAt), 'artifact_only_revision_creates_no_content_debt');
   check(memory?.attention?.[`core:${fixture.kpIds[0]}`]?.reviewRequested !== true, 'content_revision_does_not_replay_first_pass_weak_signal');
 
   await page.goto(`${BASE}${MEMORY_ROUTE}`, { waitUntil: 'networkidle' });
-  check((await page.locator('[data-memory-summary-today]').textContent())?.trim() === '1', 'content_revision_surfaces_changed_evidence_for_review');
+  check((await page.locator('[data-memory-summary-today]').textContent())?.trim() === '0', 'artifact_only_revision_keeps_today_clear');
+
+  // Independent semantic delta: only one prior card witness differs. Historical
+  // retrievals and every unaffected card must survive the current refresh.
+  await page.evaluate(({memoryKey,blockId,kpId})=>{
+    const state=JSON.parse(localStorage.getItem(memoryKey));
+    state.releasedBlocks[blockId].sourceHash='synthetic-prior-semantic-artifact';
+    state.cards[`core:${kpId}`].semanticRevision='synthetic-prior-core-semantics';
+    localStorage.setItem(memoryKey,JSON.stringify(state));
+  },{memoryKey:MEMORY_KEY,blockId:fixture.blockId,kpId:fixture.kpIds[0]});
+  await page.goto(`${BASE}${BLOCK_ROUTE}`, {waitUntil:'networkidle'});
+  memory=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),MEMORY_KEY);
+  const changed=Object.values(memory.cards).filter(card=>card.contentChangedAt).map(card=>card.id);
+  check(changed.length===1&&changed[0]===`core:${fixture.kpIds[0]}`, 'semantic_revision_marks_only_affected_core');
+  check(memory.evidence.length===preRevision.evidenceCount,'semantic_revision_preserves_historical_retrievals');
+  await page.goto(`${BASE}${MEMORY_ROUTE}`, {waitUntil:'networkidle'});
+  check((await page.locator('[data-memory-summary-today]').textContent())?.trim()==='1','semantic_revision_surfaces_only_affected_card');
 
   report.completed_at = new Date().toISOString();
   report.status = 'PASS';
