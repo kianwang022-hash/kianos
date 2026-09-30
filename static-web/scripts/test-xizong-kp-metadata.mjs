@@ -11,17 +11,16 @@ const self=fileURLToPath(import.meta.url),root=path.resolve(path.dirname(self),'
 function rawField(body,label) {
   const values=[];
   for(const line of body.split(/\r?\n/)) {
-    let text=line.match(/^\s{0,4}>\s*(.*)$/)?.[1]?.trim();
-    if(!text)continue;
-    let value;
-    const prefix=`**${label}**`;
-    if(text.startsWith(prefix))value=text.slice(prefix.length).replace(/^[：:]\s*/, '');
-    else if(text.startsWith(`**${label}：**`)||text.startsWith(`**${label}:**`))value=text.slice(label.length+5);
-    else if(text.startsWith('**')&&text.endsWith('**')) {
-      text=text.slice(2,-2);
-      if(text.startsWith(label+'：')||text.startsWith(label+':'))value=text.slice(label.length+1);
+    const text=line.match(/^\s{0,4}>\s*(.*)$/)?.[1]?.trim();
+    if(!text || !/^\*\*(?:主提示|讲义定位(?: →)?|Outline(?: →)?)(?:\*\*|[：:])/.test(text))continue;
+    // Independent token boundaries, rather than the native field regexes.
+    const tokens=[...text.matchAll(/(?:^|[｜|]\s*)\*\*(主提示|讲义定位(?: →)?|Outline(?: →)?)(\*\*[：:]?|[：:]\*\*|[：:])/g)];
+    for(let i=0;i<tokens.length;i++) {
+      const token=tokens[i];if(token[1]!==label)continue;
+      let value=text.slice(token.index+token[0].length,tokens[i+1]?.index??text.length).trim();
+      if(/^[：:]$/.test(token[2])&&value.endsWith('**'))value=value.slice(0,-2).trim();
+      if(value)values.push(value);
     }
-    if(value!==undefined&&value.trim())values.push(value.trim());
   }
   if(new Set(values).size>1)return {conflictingAuthoredValues:[...new Set(values)]};
   return values[0]??null;
@@ -44,6 +43,19 @@ async function fixture(kind) {
     if(String(file).endsWith('/血液系统_H1_造血CBC_Ret与骨髓诊断语言_学习阅读版_v1_最终执行版.md')){
       const prompt='召回轴1｜边界2｜//串联：正式owner';
       const forms={outside:`> **主提示**：${prompt}`,colon:`> **主提示：** ${prompt}`,whole:`> **主提示：${prompt}**`,duplicate:`> **主提示**：${prompt}\n> **主提示：${prompt}**`,conflict:`> **主提示**：${prompt}\n> **主提示：different**`,missing:'',locators:`> **主提示：${prompt}**\n> **讲义定位：Lecture P128**\n> **Outline：U010**`};
+      Object.assign(forms, {
+        inline:`> **讲义定位 →** Lecture P128｜**主提示：${prompt}**`,
+        inlineOutside:`> **讲义定位：** Lecture P128 | **主提示**：${prompt}`,
+        inlineColon:`> **讲义定位：Lecture P128**｜**主提示：** ${prompt}`,
+        inlineThree:`> **讲义定位 →** Lecture P128｜**Outline：U010**｜**主提示：${prompt}**`,
+        inlinePromptFirst:`> **主提示：${prompt}**｜**讲义定位：Lecture P128**｜**Outline →** U010`,
+        inlineConflict:`> **讲义定位 →** Lecture P128｜**主提示：different**\n> **主提示**：${prompt}`,
+        inlineConflictNoWinner:`> **讲义定位 →** Lecture P128｜**主提示：first**\n> **Outline：U010**｜**主提示：second**`,
+        inlineDuplicate:`> **讲义定位 →** Lecture P128｜**主提示：${prompt}**\n> **主提示：${prompt}**`,
+        unrelatedQuote:`> 这是正文引用，不是元数据｜**主提示：not metadata**`,
+        literalCode:`> **主提示**：保留\`x｜**Outline：代码示例**\`｜最后1`,
+        internalBold:`> **主提示**：轴1｜**关键术语**｜最后1`
+      });
       return String(text).replace(/^> \*\*主提示：三系3任务[^\n]+$/m,forms[kind]);
     }
     return text;
@@ -74,16 +86,27 @@ export async function assertXizongKpMetadata({scanOnly=false}={}) {
   }
   if(scanOnly)return report;
   assert.deepEqual(report.gaps,[],'every unambiguous authored metadata field reaches the canonical reader');
-  for(const kind of ['outside','colon','whole','duplicate','conflict','missing','locators']) {
+  assert.deepEqual(report.promptAbsentInOwner,[],'every current raw KP has an authored Prompt; absent extraction is not coverage');
+  const formats=['outside','colon','whole','duplicate','conflict','missing','locators',
+    'inline','inlineOutside','inlineColon','inlineThree','inlinePromptFirst','inlineConflict','inlineConflictNoWinner','inlineDuplicate','unrelatedQuote','literalCode','internalBold'];
+  for(const kind of formats) {
     const result=JSON.parse(execFileSync(process.execPath,[self,'--fixture',kind],{encoding:'utf8',timeout:20000,cwd:path.join(root,'static-web'),env:{...process.env,KIANOS_XIZONG_BUILD_CACHE:'0',KIANOS_REPO_ROOT:root}}));
-    if(kind==='conflict'){assert.equal(result.prompt,'召回轴1｜边界2｜//串联：正式owner','existing effective text preserved pending Content review');assert.equal(result.diagnostics[0]?.resolution,'CONTENT_REVIEW_REQUIRED');}
-    else if(kind==='missing')assert.equal(result.prompt,'','no Prompt invented when no owner text');
+    if(['conflict','inlineConflict'].includes(kind)){
+      assert.equal(result.prompt,'召回轴1｜边界2｜//串联：正式owner','existing effective text preserved pending Content review');
+      assert.equal(result.diagnostics[0]?.resolution,'CONTENT_REVIEW_REQUIRED');
+    } else if(kind==='inlineConflictNoWinner') {
+      assert.equal(result.prompt,'','no new winner for ambiguous newly readable values');
+      assert.equal(result.diagnostics[0]?.resolution,'CONTENT_REVIEW_REQUIRED');
+    } else if(['missing','unrelatedQuote'].includes(kind))assert.equal(result.prompt,'','no Prompt invented without a declaration');
+    else if(kind==='literalCode')assert.equal(result.prompt,'保留`x｜**Outline：代码示例**`｜最后1');
+    else if(kind==='internalBold')assert.equal(result.prompt,'轴1｜**关键术语**｜最后1');
     else{
       assert.equal(result.prompt,'召回轴1｜边界2｜//串联：正式owner',kind);
-      if(kind==='locators'){assert.equal(result.source,'Lecture P128');assert.equal(result.outline,'U010');}
+      if(kind==='locators'||kind.startsWith('inline'))assert.equal(result.source,'Lecture P128',kind+' source');
+      if(['locators','inlineThree','inlinePromptFirst'].includes(kind))assert.equal(result.outline,'U010',kind+' outline');
     }
   }
-  console.log(`Xizong raw-owner metadata PASS: ${report.blocks} Blocks/${report.kps} KP; ${JSON.stringify(report.declared)}; 7 native format/absence fixtures; ${report.conflicts.length} pre-existing authored conflicts remain explicit and unresolved.`);
+  console.log(`Xizong raw-owner metadata PASS: ${report.blocks} Blocks/${report.kps} KP; ${JSON.stringify(report.declared)}; ${formats.length} native format/absence/conflict fixtures; ${report.conflicts.length} pre-existing authored conflicts remain explicit and unresolved.`);
   return report;
 }
 if(process.argv[2]==='--fixture')await fixture(process.argv[3]);
