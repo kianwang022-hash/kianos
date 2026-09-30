@@ -167,3 +167,12 @@ Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e57
 - 既有模块accepted claim不覆盖新发现的具体Return身份/first-evidence缺口；后续仍按#1111已有精确缺陷做消费者核验，不重做已接受设计。
 
 两份learning.reference.md和synthetic任务JSON目前只清点，尚未全文审读；本批不增加浏览器、医学或真实U验收计数。
+
+
+## 规则措辞版本澄清（2026-09-30 18:55 UTC）
+
+重新逐文件核对main与固定候选4a818ba后，纠正上述早期‘尚未修改’可能造成的误读：
+- candidate的XIZONG_MEMORY_PRODUCT.md（blob1fd4ce562559477dd36298f756b2e1889ad3db82）§3已经明确Today结合signal-driven与study-policy.memory_admission.retention_clock选择性延迟复验；main旧blobaa56f2b41cc4148de60268840943e01705eb13a8仍为Phase-1/future措辞
+- candidate的LEARNING_CONTRACT.md（blobf35ebc1264da952d5ba36081fec9c05720d8dd0f）§13已经区分真实learner continuation先native evidence/Packet/Resume、规则理解读contract、工程才读CURRENT；main旧blobb0bb83e9f8e08d68d5f95803e719eee0b67ab307仍将learner-flow引到工程CURRENT
+
+因此这两处属于现有PR候选已改、尚未合入main的变更，不另开重复修复，也不绕过候选验收把同一语义直接重复写main。上述旧文字观察须保留其main/历史检查点范围。BIOCHEMISTRY_CONTRACT的类似入口文字仍需独立核对应版本，不能由本次自动推定已修。
