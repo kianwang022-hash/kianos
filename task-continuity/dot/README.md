@@ -96,7 +96,7 @@ Source可信边界 → Knowledge重构与canonical Content → System／Block／
 
 - 用户再次明确：A1只是第一步；西综交付覆盖8个System、159个Block、2517个KP。共享Runtime通过、A1通过不能代表全科完成。
 - 并行必须完成考研系统的系统性理解：完整清点并逐批阅读相关架构、规则、内容、代码和验收文件，弄清负责文件→实现→网页→记录/反馈关系，标明重复、冲突及未实现项。不能把理解遗漏当作没有设定。
-- 阅读覆盖按文件/固定版本记录，区分仅清点、已读、已理解、已追到实现、已验证；已读摘要不能替代未读文件。全量医学正文阅读先前检查点仍只有47/159，后续局部Source复审不得自动提升到全科已读。
+- 阅读覆盖按文件/固定版本记录，区分仅清点、已读、已理解、已追到实现、已验证；已读摘要不能替代未读文件。历史正文READ已重新对账为81个不同Block，分组、版本与证据强度见XIZONG_UNDERSTANDING.md；不是当前版本全科医学或网页验收，局部Source复审不得自动提升为全科已读。
 - 后续西综内容质量优化必须在理解既有规则和exact Source之后，保留有效内容并有可恢复备份，不机械统一Prompt或补造支持。
 - 共享Runtime与完整A1内容栈已整合在草稿[PR #1114](https://github.com/kianwang022-hash/kianos/pull/1114)，当前候选49a08f922921bb21d0aa03cc0ad754c4d1d8f2fa；未合并、未正式发布。A1内容审查已完成312KP，64Prompt修改，不再是等待外部Chat启动。
 - 45条exact Source复审通过的关系已限定刷新并readback，实际全局consumer核验仍在进行。2012-n121继续失效，原961失效集合不得盲目恢复。详见[#1113当前回执](https://github.com/kianwang022-hash/kianos/issues/1113#issuecomment-5913525196)。
