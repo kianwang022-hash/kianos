@@ -653,7 +653,7 @@ The review middle region may contain comparison, failure simulation, reverse loc
 
 ### Prompt and precision
 
-For the admitted A1/A2 authoring review, use compact retrieval axes separated by `｜`, not a list of interrogative questions or an answer-bearing Core summary. Preserve valid existing retrieval meaning; do not mechanically replace punctuation or invent formal Boundary/Connection support. New review assets must consume the latest accepted canonical Prompt, not a stale copied version.
+For the admitted A1/A2 authoring review, use compact count-and-category retrieval slots such as `3机制｜2作用`, separated by `｜`, not expanded explanation sentences, a list of interrogative questions or an answer-bearing Core summary. Existing mature examples include `时长2｜干扰2｜容量2｜代表脑区各1｜重复→转化` and `结构5段｜受力→移位｜危险2类｜复位/固定｜功能3层`. Every count must be checked against the full owning Core; do not invent counts, omit decisive conditions or collapse independent classification axes. Preserve valid existing retrieval meaning; do not mechanically replace punctuation or invent formal Boundary/Connection support. New review assets must consume the latest accepted canonical Prompt, not a stale copied version.
 
 KP remains the smallest review ownership unit in these deliverables. A KP's mechanisms may appear at several appropriate model positions without splitting its canonical identity. Precision may use concise tables, receptor/channel matrices, drug target → variable → effect chains, decision trees, timelines and accurate programmatic curves/diagrams where useful. Facts that change current reasoning belong in current teaching even if they also require exact memory.
 
