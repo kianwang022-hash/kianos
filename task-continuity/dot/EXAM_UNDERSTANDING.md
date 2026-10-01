@@ -225,7 +225,7 @@ Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e57
 | static-web/src/lib/examPlanReadModel.mjs | 5f60e0962ce746b759022e10e9d11a8c5624c17d | READ |
 | static-web/src/lib/xizongMemoryModel.mjs | 6334214039ed104ae364d663f62f93f7bbe93112 | READ（连续四窗覆盖696行） |
 | static-web/src/lib/browserLearnerWriter.mjs | 3441e0d65af8670985967732710f3e7832922d09 | READ |
-| content/xizong/knowledge/systems/a1-circulation/system.json | d17bba6292b52d16c744436d4dc82154cf290046 | READ |
+| content/xizong/knowledge/systems/a1-circulation/system.json | e93f1bc9ff7971ad0cdfd3b0c3bd24e998eac862 | READ |
 | content/xizong/projection/a1-circulation/blocks/b02.projection.json | 5ffd32801734457ffcc559f53dd7692eb076c8e8 | READ |
 | content/xizong/CONTENT_MAINLINE.md | e4f6d55e32885a1b49f6239a4135f948d3688b29 | READ |
 | content/xizong/CURRENT.md | de948d827e3eb349f96b173666c791288e21df30 | READ |
