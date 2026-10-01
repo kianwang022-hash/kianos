@@ -176,3 +176,14 @@ Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e57
 - candidate的LEARNING_CONTRACT.md（blobf35ebc1264da952d5ba36081fec9c05720d8dd0f）§13已经区分真实learner continuation先native evidence/Packet/Resume、规则理解读contract、工程才读CURRENT；main旧blobb0bb83e9f8e08d68d5f95803e719eee0b67ab307仍将learner-flow引到工程CURRENT
 
 因此这两处属于现有PR候选已改、尚未合入main的变更，不另开重复修复，也不绕过候选验收把同一语义直接重复写main。上述旧文字观察须保留其main/历史检查点范围。BIOCHEMISTRY_CONTRACT的类似入口文字仍需独立核对应版本，不能由本次自动推定已修。
+
+
+## 第六批：正式发布后的日常入口核对（2026-10-01 00:25 UTC）
+
+- 重新逐份全文核对Personal的CHAT_ROUTER、三科role、STEWARD、REVIEW、DAILY_SUBJECT_CHAT_CONTRACT、CONTROL及private-control README；已有版本未变处复用本记录旧blob，不把重复读算新增全仓覆盖。日程和餐食具体私人字段不复制到公开仓库。
+- 真实日计划与后续局部用户改动已经沿既有exam.chat_plan获得matching ID/hash APPLIED及对应presentation字段回读；这只证明该具体日内消费，不扩大为全部Review纠正/跨日真实表现验收。
+- 日程遗漏既有PersonalDay/食谱设定属于本轮执行漏读：现有Steward入口已明确相关最小读取与同计划投影，不新增第二合同补救模型失误。GitHub规则/状态/日常判断由dot直接负责，本机任务保留为实际工程执行。
+- 已修复原第四批所列BIOCHEMISTRY_CONTRACT§13入口歧义：commit db3e6f760748237ae9417594ebb1ce61667e5c6a，blob f1f4ae4f88209a168e7bed58485f3d8ac2cab8e9。学习续接先native evidence/Packet/Resume，规则解释按需要读Learning/Bio/Source，工程才Current；历史rebase不自动成为学习任务。只替换§13路由说明，其余医学/Source/学习结构不变，精确回读已完成。未宣称真实新Chat行为验收通过。
+- 正式产品53ea260c已发布，旧第18:55候选未合入描述仅为历史。合并后PrivateChatControl push run36792442920浏览器检查失败独立跟进；合并前31成功不替代该次结果。当前真实应用成功不证明该失败机制无影响，原任务先提取第一失败，未归因前不改oracle、不盲目回退。
+
+下一步仍优先原#1111剩余普通使用闭环及该新CI失败；全三仓文件/代码覆盖、逐场景Visual/Source和全科内容质量均未完成。
