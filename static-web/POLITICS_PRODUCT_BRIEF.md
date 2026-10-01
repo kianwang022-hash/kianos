@@ -207,9 +207,9 @@ The acceptance test for this surface is therefore:
 
 ---
 
-## Core unresolved Politics UI problem
+## Historical design problem｜Politics learning workspace
 
-The next design problem is not navigation. It is the main Politics learning workspace under **large text volume + multiple semantic layers**.
+The problem addressed by the accepted first-round Cognitive Projection design was the main Politics learning workspace under **large text volume + multiple semantic layers**, rather than navigation alone.
 
 The product must deliberately reduce learning barriers through:
 
@@ -222,7 +222,7 @@ The product must deliberately reduce learning barriers through:
 - clear handoff between Mac structure/verification and iPad continuous Chengfeng reading;
 - minimal context loss across Orientation → source study → Verify → Repair → Return.
 
-This must be solved before mass-projecting the existing Marxism C00 reference workspace to other chapters/subjects.
+This was a prerequisite for extending the Marxism C00 reference workspace to other chapters/subjects. It is retained as design rationale, not a live rollout or required next action. Current work follows `content/politics/CURRENT.md`; current acceptance remains with `content/politics/ACCEPTANCE.md` and the exact subject/product owners.
 
 Do not treat "large text" as merely a CSS typography problem. The question is **what the learner sees first, what stays visible, what is deferred, and how the logic of the content is visually encoded**.
 

@@ -206,3 +206,42 @@ Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e57
 - Translation首学页实际读取learning.md并将三主干与诊断/Runtime参考分层；Writing projection实际读取learning.md六primitives，不读旧reference当Current。此为静态代码trace，不是新浏览器验证。
 - 两份validator保护语义覆盖、reference保留、skippable、首答保护及pending不制造任务。其大量字符串检查不能独立证明所有实际交互；本批未运行测试、不新增PASS计数。
 - 未发现必须改写这两份reference的明确缺陷；保持有效内容。后续以真实任务consumer和当前学习owner检查已命名缺口，不把读完教材当运行闭环完成。
+
+
+## 第八批：当前执行边界与实际使用断点（2026-10-01 01:54 UTC）
+
+当前阶段以 Personal #61 为准：只做考研 GitHub 规则、既有内容组织和功能消费者收口；不操作本机/浏览器/真实学习记录/本地部署，不读 PDF 开展内容升级，不自动扩张全科 browser campaign。后续必要本地工作由 Kian 指定的 Chat 接手。既有研究/医学内容升级阶段继续 deferred。
+
+### 新增精确阅读
+
+| 原文件 | blob | 状态 |
+|---|---|---|
+| static-web/src/lib/lexicalRuntimeRoute.mjs | ca95637c454760b360aff965548f62fdf24a9829 | READ（main旧实现，候选差分另计） |
+| static-web/src/lib/lexicalSettings.mjs | 94ae42ad71ca1fe49775f5a0b13566c9d145757a | READ |
+| static-web/src/components/VocabularyWordRuntime.astro | 000d0526f5e3c220c79d9d2db2b6ca7b19bfb153 | READ |
+| static-web/scripts/test-lexical-real-use-loop-browser.mjs | 917e6953811b957c375142888c0c7e78fb05b3d7 | READ |
+| static-web/src/lib/lexicalBrowserState.mjs | a1a7a5ed3b6c382fd55256de384f7356836e1ecf | READ |
+| static-web/src/lib/stewardReality.mjs | 4427c37b6f6bc381078aee9207d56cc192bf3569 | READ（1–220、221–336） |
+| static-web/src/lib/examPlanReadModel.mjs | 5f60e0962ce746b759022e10e9d11a8c5624c17d | READ |
+| static-web/src/lib/xizongMemoryModel.mjs | 6334214039ed104ae364d663f62f93f7bbe93112 | READ（连续四窗覆盖696行） |
+| static-web/src/lib/browserLearnerWriter.mjs | 3441e0d65af8670985967732710f3e7832922d09 | READ |
+| content/xizong/knowledge/systems/a1-circulation/system.json | e93f1bc9ff7971ad0cdfd3b0c3bd24e998eac862 | READ |
+| content/xizong/projection/a1-circulation/blocks/b02.projection.json | 5ffd32801734457ffcc559f53dd7692eb076c8e8 | READ |
+| content/xizong/CONTENT_MAINLINE.md | e4f6d55e32885a1b49f6239a4135f948d3688b29 | READ |
+| content/xizong/CURRENT.md | de948d827e3eb349f96b173666c791288e21df30 | READ |
+
+明确PARTIAL：examChatPlan.mjs@29447f7cfc47e283306922fa16e449535ab8714d本批仅421–789；XizongMemoryReviewV6.astro@84fa96a7655bf714b32a53997e209236f9273b05仅头部和133–265等定向段；XizongBlockV6.astro@e0f947da37cc34f61f05ce98de6fb48820316d2b为分支级追踪，未宣称本批全文READ；a1-circulation-learning.json仅顶层及B2对应对象。重复读取旧adapter/Packet不增加全仓覆盖数。
+
+### 已证功能问题与边界
+
+- 同日词汇重学：旧Home仅把首ordinal带入普通study；页面导航与评分按ordinal+1，study载入覆盖Coverage游标。旧real-use测试只测首页待重学数量，未走真实队列第二词。这是具体产品与测试覆盖缺口，不是全词库Content质量问题。
+- PR #1118@6279ace全diff已由dot直接读取。独立只读复核又指出首次Undo可消费旧Coverage历史并退出队列；64cb41f已修该边界，后续独立静态复核通过其限定范围。生产者37项隔离浏览器/生产构建/静态7项证据见PR回执5922890432；dot未把其等同于真实用户状态修复。候选仍未合并发布。
+- B2页面阶段反馈未归因。较早持久快照与后续页面不是同一时刻，不能由此直接断言测试污染或同步冲突导致。共享Runtime各Source模式和历史continuation例外必须保留，只有精确前提证明缺陷才能改；本阶段不写真实状态。
+- Steward已采纳计划在普通学习使basis变化后，保留同日reference显示，但不恢复新的可执行优先级/容量判断或命令重放权；read model代码按此区分。用户既有日程未因reference状态被认定消失。
+- Xizong Memory release仅建立可用库，Today由已采纳信号和retention规则决定，不等于整块重新到期。旧XizongMemoryReviewV6文件仍存在，但当前representation gate明确禁止其挂入Block；不能仅见旧组件就判定线上第二Runtime正在运行，也未据此删除历史文件。
+
+### 当前入口收口
+
+#1111与#1113已经把最新Current/Next移到顶部，并把旧候选未发布/旧workflow阻塞段落明确降为历史；首轮已交付与全场景未验证分开。#61保存当前四阶段安排，#60只留执行边界与指针。此为任务入口一致性修复，不是新增规则层、产品代码或运行验收。
+
+下一步：继续第一阶段的现行规则→已有内容→实际消费者对应核对，优先清楚的功能边界与owner冲突。不能把未读/未验自动改为新测试任务；不重复已成立的全8/159/2517历史证明，不因暂停本机而把GitHub阅读/修复一并停掉。

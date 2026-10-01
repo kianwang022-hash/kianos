@@ -4,7 +4,7 @@
 
 Reading A is the English I objective-reading trainer for **evidence-based option adjudication**.
 
-Target: **40/40 in training**, with execution stable enough to support the overall English 80–85+ goal.
+Target: **40/40 in training**, with execution stable enough to support the overall English hard target defined in `content/english/LEARNING_CONTRACT.md §0`.
 
 Parent contracts:
 
