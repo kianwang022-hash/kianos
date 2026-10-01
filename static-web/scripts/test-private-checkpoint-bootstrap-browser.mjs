@@ -5,6 +5,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
+import { CONTROL_LOCAL_RECEIPT_KEY, CONTROL_RECEIPT_SCHEMA } from '../src/lib/privateControlCommand.mjs';
 import { isolatedCandidateEnv } from './kianos-candidate-runtime.mjs';
 import { writePrivateLearnerCheckpoint } from './privateLearnerStore.mjs';
 import { saveSharedControlToPrivate } from '../src/lib/privateCheckpointRuntime.mjs';
@@ -34,6 +35,7 @@ const state = { ...reconcileXizongRevision({}, learner.revisionWitness), sourceH
   resumeKpId: learner.kps[4].identity.kpId, resumeGroupId: learner.kps[4].identity.logicGroupId,
   learned: {}, ratings: {}, sourceContactDone: false, completed: false, blockRecallDone: false };
 const source = new Storage({ [key]: JSON.stringify(state), [cursorKey]: '81',
+  [CONTROL_LOCAL_RECEIPT_KEY]: JSON.stringify({schema:CONTROL_RECEIPT_SCHEMA,command_id:'synthetic-bootstrap-browser',command_hash:'a'.repeat(64),status:'APPLIED',observed_at:new Date().toISOString()}),
   [EXAM_PROFILE_KEY]: JSON.stringify(emptyExamProfile()), [STUDY_TIMER_STATE_KEY]: JSON.stringify(emptyStudyTimerState()),
   [STUDY_TIMER_LEDGER_KEY]: JSON.stringify({schema: STUDY_TIMER_SCHEMA, sessions: []}) });
 let seed;
@@ -139,7 +141,8 @@ try {
   const external=disk(); const expectedExternalId=external.checkpoint_id;
   external.generated_at=new Date(Math.max(Date.now(),Date.parse(external.generated_at)+1)).toISOString();
   external.checkpoint_id='synthetic-explicit-'+crypto.randomUUID();
-  external.payload.shared.capture_warnings=['checkpoint:xizong:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT'];
+  external.payload.shared.capture_warnings=['checkpoint:shared:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT','checkpoint:xizong:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT'];
+  external.payload.shared.exam_profile.defaultDailyMinutes=300;
   external.payload.subjects.xizong.entries.find(row=>row.key===key).raw=JSON.stringify(state);
   writePrivateLearnerCheckpoint(external,env.KIANOS_PRIVATE_DIR,{expectedCheckpointId:expectedExternalId});
   await context.addInitScript(({key})=>{
@@ -155,7 +158,8 @@ try {
   const externalAgain=disk(); const expectedAgain=externalAgain.checkpoint_id;
   externalAgain.checkpoint_id='synthetic-rebase-'+crypto.randomUUID();
   externalAgain.generated_at=new Date(Math.max(Date.now(),Date.parse(externalAgain.generated_at)+1)).toISOString();
-  externalAgain.payload.shared.capture_warnings=['checkpoint:xizong:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT'];
+  externalAgain.payload.shared.capture_warnings=['checkpoint:shared:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT','checkpoint:xizong:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT'];
+  externalAgain.payload.shared.exam_profile.defaultDailyMinutes=400;
   externalAgain.payload.subjects.xizong.entries.find(row=>row.key===key).raw=JSON.stringify(state);
   writePrivateLearnerCheckpoint(externalAgain,env.KIANOS_PRIVATE_DIR,{expectedCheckpointId:expectedAgain});
   await page.goto(base+'/xizong/circulation/b02/?checkpoint-lineage-rebase='+externalAgain.checkpoint_id,{waitUntil:'domcontentloaded'});

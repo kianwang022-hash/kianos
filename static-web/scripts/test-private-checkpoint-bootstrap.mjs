@@ -1,5 +1,6 @@
+import { CONTROL_LOCAL_RECEIPT_KEY, CONTROL_RECEIPT_SCHEMA } from '../src/lib/privateControlCommand.mjs';
 import assert from 'node:assert/strict';
-import { preparePrivateCheckpointBootstrap, saveSharedControlToPrivate } from '../src/lib/privateCheckpointRuntime.mjs';
+import { preparePrivateCheckpointBootstrap, saveSharedControlToPrivate, restorePrivateCheckpointGroupsFromDurable } from '../src/lib/privateCheckpointRuntime.mjs';
 import { commitLearnerStorageChanges } from '../src/lib/browserLearnerWriter.mjs';
 import { EXAM_PROFILE_KEY, emptyExamProfile } from '../src/lib/examOrchestrator.mjs';
 import { STUDY_TIMER_STATE_KEY, STUDY_TIMER_LEDGER_KEY, STUDY_TIMER_SCHEMA, emptyStudyTimerState } from '../src/lib/studyTimer.mjs';
@@ -82,4 +83,34 @@ for(const recovery of [
   await assert.rejects(()=>preparePrivateCheckpointBootstrap(local,{readCheckpoint:conflictedRead,recovery}),/SOURCE_CHANGED|DIRECTION_AMBIGUOUS/);
   assert.equal(JSON.stringify([...local.map]),before);
 }
+// Multiple base conflicts do not make valid shared bytes corrupt. A receipt
+// remains gated by every native value it would otherwise acknowledge.
+const receipt=JSON.stringify({schema:CONTROL_RECEIPT_SCHEMA,command_id:'synthetic-multigroup',command_hash:'a'.repeat(64),status:'APPLIED',observed_at:new Date().toISOString()});
+const combinedEntries={...entries,[CONTROL_LOCAL_RECEIPT_KEY]:receipt};
+let combinedDurable,combinedConflict;
+await saveSharedControlToPrivate(new Storage(combinedEntries),{readCheckpoint:async()=>({status:'missing'}),writeCheckpoint:async value=>{combinedDurable=value;}});
+const changedEntries={...combinedEntries,[xkey]:different,[EXAM_PROFILE_KEY]:JSON.stringify({...emptyExamProfile(),defaultDailyMinutes:200})};
+await saveSharedControlToPrivate(new Storage(changedEntries),{readCheckpoint:async()=>({status:'ready',checkpoint:combinedDurable}),writeCheckpoint:async value=>{combinedConflict=value;}});
+assert.deepEqual(combinedConflict.payload.shared.capture_warnings.sort(),['checkpoint:shared:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT','checkpoint:xizong:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT'].sort());
+const combinedRead=async()=>({status:'ready',checkpoint:combinedConflict});
+for(const direction of ['durableRestoreCheckpointId','rebaseCheckpointId']) {
+  const local=new Storage(changedEntries);
+  const prepared=await preparePrivateCheckpointBootstrap(local,{readCheckpoint:combinedRead,recovery:{[direction]:combinedConflict.checkpoint_id}});
+  commitLearnerStorageChanges(local,prepared.changes,prepared.expected);
+  const expected=direction==='durableRestoreCheckpointId'?combinedEntries:changedEntries;
+  for(const [key,raw] of Object.entries(expected))assert.equal(local.getItem(key),raw);
+  assert.equal((await saveSharedControlToPrivate(local,{readCheckpoint:combinedRead,writeCheckpoint:async()=>{}})).status,'saved');
+}
+const subset=new Storage(changedEntries),subsetBefore=JSON.stringify([...subset.map]);
+await assert.rejects(()=>restorePrivateCheckpointGroupsFromDurable(subset,{expectedCheckpointId:combinedConflict.checkpoint_id,groupIds:['shared'],readCheckpoint:combinedRead}),/RECEIPT_NATIVE_CONFLICT/);
+assert.equal(JSON.stringify([...subset.map]),subsetBefore,'unresolved sibling prevents receipt without partial mutation');
+for(const corruption of ['timer','xizong','unselected-warning']) {
+  const bad=structuredClone(combinedConflict),local=new Storage(changedEntries),before=JSON.stringify([...local.map]);
+  if(corruption==='timer')bad.payload.shared.study_timer_state='{invalid';
+  if(corruption==='xizong')bad.payload.subjects.xizong.entries.find(row=>row.key===xkey).raw='{invalid';
+  if(corruption==='unselected-warning')bad.payload.shared.capture_warnings.push('checkpoint:politics:NATIVE_EVIDENCE_INVALID');
+  await assert.rejects(()=>restorePrivateCheckpointGroupsFromDurable(local,{expectedCheckpointId:bad.checkpoint_id,readCheckpoint:async()=>({status:'ready',checkpoint:bad})}),/SHARED_INVALID|NATIVE_INVALID|RECEIPT_NATIVE_CONFLICT/);
+  assert.equal(JSON.stringify([...local.map]),before,'invalid composite source must not change original storage');
+}
+console.log('PASS multi-group recovery: both directions work; unresolved siblings, invalid native bytes and unrelated warnings still deny receipt atomically');
 console.log('PASS checkpoint bootstrap: staged recovery across shared/Xizong/English/Lexical/Politics, lineage, retained conflicts, stale transaction and unavailable reads');

@@ -142,9 +142,15 @@ export function privateCheckpointGroupFingerprints(checkpoint) {
 function durableEntriesForGroup(checkpoint, groupId) {
   const subjects = checkpoint?.payload?.subjects || {};
   if (groupId === CHECKPOINT_SHARED_GROUP_ID) {
-    const projection = sharedProjection(checkpoint?.payload?.shared, checkpoint?.study_day);
+    // Validate native bytes independently of cross-group receipt eligibility.
+    // Returning a receipt here is transport data, not a success claim; explicit
+    // durable recovery verifies the composed native state before committing it.
+    const shared = checkpoint?.payload?.shared;
+    const projection = sharedProjection(shared, checkpoint?.study_day, { restoreReceipt: false });
     if (projection.warnings.length) throw new Error('PRIVATE_CHECKPOINT_REBASE_SHARED_INVALID');
-    return [...projection.staged.map];
+    const entries = [...projection.staged.map];
+    if (shared.control_receipt_raw != null) entries.push([CONTROL_LOCAL_RECEIPT_KEY, shared.control_receipt_raw]);
+    return entries;
   }
   if (groupId === 'xizong') return subjectCheckpointEntries(subjects.xizong);
   if (groupId === 'english+lexical') {
@@ -177,9 +183,9 @@ class SharedStorage {
   setItem(key, raw) { this.map.set(key, String(raw)); }
   removeItem(key) { this.map.delete(key); }
 }
-function sharedProjection(shared, day) {
+function sharedProjection(shared, day, { restoreReceipt = true } = {}) {
   const staged = new SharedStorage();
-  const result = restoreSharedControlCheckpoint(staged, sharedForCurrentDay(shared, day), { expectedDay: day, restoreReceipt: true });
+  const result = restoreSharedControlCheckpoint(staged, sharedForCurrentDay(shared, day), { expectedDay: day, restoreReceipt });
   return { staged, warnings: result.warnings || [] };
 }
 function sharedConflict(storage, projected) {
@@ -276,6 +282,12 @@ export async function restorePrivateCheckpointGroupsFromDurable(storage, {
     : [...conflictGroups];
   if (!requested.length) throw new Error('PRIVATE_CHECKPOINT_DURABLE_RESTORE_NOT_NEEDED');
 
+  const validation = preparePrivateSubjectCheckpointRestore({ length: 0, key: () => null, getItem: () => null }, checkpoint.payload?.subjects || {});
+  for (const group of SUBJECT_CHECKPOINT_GROUPS.filter(group => requested.includes(group.id))) {
+    if (group.subjects.some(subject => validation.results[subject]?.status === 'blocked' || validation.results[subject]?.blocked?.length)) {
+      throw new Error('PRIVATE_CHECKPOINT_DURABLE_RESTORE_NATIVE_INVALID:' + group.id);
+    }
+  }
   const fingerprints = privateCheckpointGroupFingerprints(checkpoint);
   const nextLineage = readLineageMap(storage);
   const changes = [];
@@ -299,6 +311,21 @@ export async function restorePrivateCheckpointGroupsFromDurable(storage, {
     nextLineage[groupId] = 'fp:' + fingerprints[groupId];
   }
 
+  if (requested.includes(CHECKPOINT_SHARED_GROUP_ID) && checkpoint.payload?.shared?.control_receipt_raw != null) {
+    const pending = new Map(changes);
+    const candidate = { getItem: key => pending.has(key) ? pending.get(key) : storage.getItem(key) };
+    // Only conflicts explicitly resolved by this transaction may stop blocking
+    // the receipt. Corrupt fields, unselected conflicts and native mismatches
+    // still deny acknowledgement before ANY original byte is changed.
+    const resolvedWarnings = new Set(requested.map(id => 'checkpoint:' + id + ':PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT'));
+    const proof = { ...checkpoint, payload: { ...checkpoint.payload, shared: {
+      ...checkpoint.payload.shared,
+      capture_warnings: (checkpoint.payload.shared.capture_warnings || []).filter(warning => !resolvedWarnings.has(warning))
+    } } };
+    if (!localContainsCheckpoint(candidate, proof, checkpoint.study_day, { includeReceipt: false })) {
+      throw new Error('PRIVATE_CHECKPOINT_DURABLE_RESTORE_RECEIPT_NATIVE_CONFLICT');
+    }
+  }
   const lineageRaw = JSON.stringify({
     schema: PRIVATE_CHECKPOINT_LINEAGE_SCHEMA,
     groups: nextLineage
