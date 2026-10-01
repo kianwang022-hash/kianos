@@ -39,6 +39,7 @@ assert.equal(saved.status, 'saved', 'recovered lineage admits subsequent native 
 const different = JSON.stringify({...JSON.parse(entries[xkey]),kpIndex:9});
 const conflict = new Storage({...entries,[xkey]:different});
 const conflictPrepared = await preparePrivateCheckpointBootstrap(conflict, {readCheckpoint});
+assert.ok(conflictPrepared.result.warnings?.includes('checkpoint:xizong:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT'), 'bootstrap must surface the retained Xizong split before autosave');
 commitLearnerStorageChanges(conflict, conflictPrepared.changes, conflictPrepared.expected);
 assert.equal(conflict.getItem(xkey), different, 'bootstrap must not silently choose durable over conflicting local truth');
 const conflictSaved = await saveSharedControlToPrivate(conflict, {readCheckpoint,writeCheckpoint:async()=>{}});

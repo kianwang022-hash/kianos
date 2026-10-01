@@ -148,12 +148,16 @@ try {
       window.__checkpointErrors=[];
       window.addEventListener('kianos:private-checkpoint-error',event=>window.__checkpointErrors.push(event.detail));
     },localEntries);
+    let isolatedCheckpoint=structuredClone(seed);
     await isolated.route('**/__kianos-private/checkpoint',async route=>{
       if(route.request().method()==='GET'){
         if(scenario==='unavailable') return route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:'synthetic unavailable'})});
-        return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({status:'ready',checkpoint:seed})});
+        return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({status:'ready',checkpoint:isolatedCheckpoint})});
       }
-      if(route.request().method()==='PUT') return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({status:'saved',checkpoint_id:'synthetic-visible-warning'})});
+      if(route.request().method()==='PUT') {
+        isolatedCheckpoint=route.request().postDataJSON();
+        return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({status:'saved',checkpoint_id:isolatedCheckpoint.checkpoint_id})});
+      }
       return route.continue();
     });
     const probe=await isolated.newPage(); await probe.goto(base+'/xizong/circulation/b02/',{waitUntil:'domcontentloaded'}); await probe.bringToFront(); await ready(probe);
