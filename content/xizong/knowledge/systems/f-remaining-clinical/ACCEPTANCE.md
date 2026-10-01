@@ -282,7 +282,7 @@ Verified Source closures remain closed:
 - F6 postoperative 1–4 d vs 2–7 d wording;
 - F8 P270 nerve-block complication matrix.
 
-Content is now accepted. P Projection is eligible but UNTESTED; Runtime and Evidence remain downstream-frozen.
+Historical Content-close downstream status (superseded by the Current `Gate / construction state` above): Content was accepted. P Projection was eligible but UNTESTED; Runtime and Evidence were downstream-frozen.
 
 ## Downstream state
 
@@ -298,9 +298,9 @@ Content PASS_AFTER_BOUNDED_REPAIR
 Separate boundaries remain:
 
 - S2 exact official F System question membership = CLOSED / 70 qids; precise Question→Knowledge routing remains separate;
-- P Projection = eligible / UNTESTED;
-- R Runtime = frozen behind P;
-- E Evidence = frozen behind R;
+- P Projection = eligible / UNTESTED (historical Content-close status; superseded by Current gate state above);
+- R Runtime = frozen behind P (historical Content-close status; superseded by Current gate state above);
+- E Evidence = frozen behind R (historical Content-close status; superseded by Current gate state above);
 - U learner use = NO_CLAIM.
 
 Per program sequencing, the D → E → F medical-content construction lane and the A1–F exact System-question membership completion lane are both closed for the current corpus. Future source deltas reopen only the smallest responsible owner; accepted Content still does not imply finer Question→Knowledge routing.

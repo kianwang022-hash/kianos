@@ -41,6 +41,7 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
     currentXizongSystemWuEvidence,
     readXizongSystemWuPendingState
   } from '../lib/xizongSystemWuReturn.mjs';
+  import { readXizongSystemRepairReturnView } from '../lib/xizongSystemRepairReturnView.mjs';
   import { studyDayAt } from '../lib/studyTimer.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
@@ -49,7 +50,6 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
   const root = document.querySelector('[data-xizong-repair-return]');
   if (root instanceof HTMLElement) {
     const systemId = root.getAttribute('data-xizong-repair-return') || '';
-    const repairKey = `kianos:xizong:system-repair-return:${systemId}:v1`;
     const practiceHref = root.getAttribute('data-practice-href') || '';
     const status = root.querySelector('[data-plan-status]');
     const list = root.querySelector('[data-plan-list]');
@@ -70,7 +70,7 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
       }
     };
 
-    const render = (plan = [], repairTasks = [], unmapped = []) => {
+    const render = (plan = [], repairTasks = [], unmapped = [], savedRows = null) => {
       if (!list) return;
       list.replaceChildren();
       const taskByQuestion = new Map();
@@ -82,7 +82,8 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
       for (const row of plan || []) {
         const q = questionById.get(String(row?.question_id || ''));
         if (!q) continue;
-        const task = taskByQuestion.get(q.questionId) || null;
+        const savedRow = savedRows?.[q.questionId] || null;
+        const task = savedRow?.task || taskByQuestion.get(q.questionId) || null;
         const article = document.createElement('article');
         const head = document.createElement('div');
         const title = document.createElement('strong');
@@ -96,7 +97,13 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
         article.append(head, body);
 
         const meta = document.createElement('small');
-        if (task) {
+        if (savedRow?.state === 'DONE') {
+          meta.textContent = '这份 Return 对应的 Repair 已完成；原始诊断保留。';
+          article.append(meta);
+        } else if (savedRow?.state === 'UNCONFIRMED') {
+          meta.textContent = '已保存这份诊断；无法确认对应 Repair 的当前状态，请到 Memory 核对。';
+          article.append(meta);
+        } else if (task) {
           meta.textContent = `已加入 Memory · Repair，并保留 ${task.blockId} · ${task.kpId}${task.diagnosticAxis ? ` · ${task.diagnosticAxis}` : ''} 的审核回链。`;
           const link = document.createElement('a');
           link.href = task.blockHref || '#';
@@ -104,7 +111,7 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
           link.rel = 'noopener';
           link.textContent = '去对应 Block 修补 ↗';
           article.append(meta, link);
-        } else if (unmappedSet.has(q.questionId)) {
+        } else if (savedRow?.state === 'UNMAPPED' || unmappedSet.has(q.questionId)) {
           meta.textContent = '当前没有审核过的精确 Block/KP 回链：保留题号，不自动猜。';
           article.append(meta);
         } else {
@@ -239,12 +246,14 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
       window.setTimeout(consumePending, 0);
     });
 
-    const saved = (() => {
-      try { return JSON.parse(localStorage.getItem(repairKey) || 'null'); } catch { return null; }
-    })();
-    if (saved?.return_packet?.plan?.length) {
-      if (status) status.textContent = `已保存 ${saved.return_packet.plan.length} 个 W/U 诊断项。`;
-      render(saved.return_packet.plan, [], saved.unmapped_question_ids || []);
+    const saved = readXizongSystemRepairReturnView(localStorage, systemId);
+    if (saved.kind === 'unreadable') {
+      if (status) status.textContent = '已保存的 Return 无法安全读取；没有重新应用或改动学习状态。';
+    } else if (saved.kind === 'saved') {
+      if (status) status.textContent = saved.plan.length
+        ? `已保存 ${saved.plan.length} 个 W/U 诊断项；Repair 状态按当前 Memory 核对。`
+        : '已保存的 Chat Return 无需建立 Repair。';
+      render(saved.plan, [], [], saved.rows);
     }
 
     // Run after synchronous SystemEvidenceGuard setup. If Current evidence is stale,
@@ -254,3 +263,4 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
 
   });
 </script>
+

@@ -59,3 +59,47 @@ export function stripRevisionKpMetadata(body) {
     !metadataLineParts(line).every(part => labels.some(label => Boolean(readMetadataDeclaration(part, label).value)))
   ).join('\n');
 }
+
+// Read explicit canonical locators after compound-row separators only. Keep
+// these boundaries separate from Primary parsing and revision/Core stripping.
+export function readCompoundLectureLocator(body) {
+  const labels = ['讲义定位 →', '讲义定位'];
+  const values = [];
+  let fence = null;
+  for (const line of String(body).split(/\r?\n/)) {
+    const fenceMatch = line.match(/^ {0,3}(>\s*)?(`{3,}|~{3,})(.*)$/);
+    if (fenceMatch) {
+      // A closing fence must stay in the opener's quote container.
+      const quoted = Boolean(fenceMatch[1]), token = fenceMatch[2];
+      if (!fence) fence = { token, quoted };
+      else if (quoted === fence.quoted && token[0] === fence.token[0] && token.length >= fence.token.length && !fenceMatch[3].trim()) fence = null;
+      continue;
+    }
+    if (fence) continue;
+    const row = line.match(/^(\s{0,4}>\s*)(.*)$/);
+    const leading = row?.[2].match(/^\*\*(主提示|讲义(?:定位|回看|跳转)(?: →)?|Outline(?: →)?)(?:\*\*|[：:])/);
+    if (!leading) continue;
+    const text = row[2];
+    const codeSpans = [...text.matchAll(/(`+)[\s\S]*?\1(?!`)/g)]
+      .map(match => [match.index, match.index + match[0].length]);
+    const boundaries = [...text.matchAll(/[｜|；;][ \t]*(?=\*\*(?:主提示|讲义(?:定位|回看|跳转)(?: →)?|Outline(?: →)?)(?:\*\*|[：:]))/g)]
+      .filter(match => text[match.index - 1] !== '\\' && !codeSpans.some(([start, end]) => match.index >= start && match.index < end));
+    const starts = [0, ...boundaries.map(match => match.index + match[0].length)];
+    const ends = [...boundaries.map(match => match.index), text.length];
+    if (!readMetadataDeclaration(row[1] + text.slice(0, ends[0]).trimEnd(), leading[1]).value) continue;
+    for (const [index, start] of starts.entries()) {
+      if (!index) continue;
+      const part = row[1] + text.slice(start, ends[index]).trimEnd();
+      for (const label of labels) {
+        const declaration = readMetadataDeclaration(part, label);
+        if (declaration.value) values.push(declaration.value);
+      }
+    }
+  }
+  const distinct = [...new Set(values)];
+  const value = distinct.length === 1 ? distinct[0] : '';
+  return { value, ...(distinct.length > 1 ? { diagnostic: {
+    code: 'MULTIPLE_AUTHORED_METADATA_VALUES', label: '讲义定位', values: distinct,
+    effectiveValue: '', resolution: 'CONTENT_REVIEW_REQUIRED'
+  } } : {}) };
+}

@@ -40,6 +40,31 @@ const check = (condition, name, detail='') => {
   if (!condition) throw new Error(`XIZONG_RECALL_PRACTICE_BROWSER_FAIL:${name}${detail ? `:${detail}` : ''}`);
   report.checks.push({name,pass:true,detail});
 };
+async function waitForReleasedRecallLocation(page, key, expectedHref, timeoutMs=5000) {
+  // Navigation can finish before the asynchronous learner writer publishes resume.
+  let readinessError=null;
+  try {
+    await page.waitForFunction(({key,expectedHref})=>{
+      try {
+        const value=JSON.parse(localStorage.getItem(key)||'null');
+        return value?.resumeKind==='SYSTEM_RECALL' && value?.href===expectedHref
+          && window.location.pathname===expectedHref;
+      } catch { return false; }
+    },{key,expectedHref},{timeout:timeoutMs});
+  } catch(error) {
+    readinessError=String(error?.message||error);
+  }
+  const observed=await page.evaluate((key)=>{
+    let raw=null,lastLocation=null,readError=null;
+    try { raw=localStorage.getItem(key); lastLocation=JSON.parse(raw||'null'); }
+    catch(error) { readError=String(error?.message||error); }
+    return {lastLocation,raw,readError,writer:document.documentElement.dataset.learnerWriter||null,
+      url:window.location.href,pathname:window.location.pathname};
+  },key).catch(error=>({diagnosticError:String(error?.message||error)}));
+  check(!readinessError && observed.lastLocation?.resumeKind==='SYSTEM_RECALL'
+    && observed.lastLocation?.href===expectedHref && observed.pathname===expectedHref,
+  'released_system_recall_becomes_resume',JSON.stringify({expectedHref,timeoutMs,readinessError,...observed}));
+}
 async function waitForHttp(url, attempts=120) {
   for (let i=0;i<attempts;i+=1) {
     try { const response=await fetch(url); if (response.ok) return; } catch {}
@@ -202,8 +227,7 @@ try {
   check(String(recallHref||'').includes('/xizong/circulation/recall/'),'system_recall_entry_targets_dedicated_route',String(recallHref));
   await entry.locator('a').click();
   await page.waitForURL(/\/xizong\/circulation\/recall\//);
-  const releasedRecallLocation=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
-  check(releasedRecallLocation?.resumeKind==='SYSTEM_RECALL','released_system_recall_becomes_resume');
+  await waitForReleasedRecallLocation(page,lastLocationKey,'/xizong/circulation/recall/');
 
   check(await page.locator('[data-xizong-system-recall-page]').isVisible(),'dedicated_recall_page_visible');
   check(await page.locator('[data-xizong-later-stage="system-exit"]').count()===0,'recall_not_embedded_in_system_details');
