@@ -48,6 +48,7 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
   } from '../../../lib/lexicalRuntimeRoute.mjs';
 
   import { localLexicalDay } from '../../../lib/lexicalSettings.mjs';
+  import { learnerWriterReady } from '../../../lib/browserLearnerWriter.mjs';
 
   const initialHost = document.querySelector('[data-vocab-runtime-host]');
   const manifestNode = document.querySelector('[data-lexical-runtime-manifest]');
@@ -321,5 +322,5 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
 
   const initialOrdinal = lexicalWordOrdinal(location);
   const initialMode = modeFromLocation();
-  void loadWord(initialOrdinal, initialMode, 'replace');
+  void learnerWriterReady.then(() => loadWord(initialOrdinal, initialMode, 'replace'));
 </script>

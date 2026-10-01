@@ -192,7 +192,6 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
     initPrivateCheckpointAutosave,
     rebasePrivateCheckpointLineageToCurrent,
     restorePrivateCheckpointGroupsFromDurable,
-    restoreSharedControlFromPrivate,
     saveSharedControlToPrivate
   } from '../lib/privateCheckpointRuntime.mjs';
   import { initPrivateControlRuntime } from '../lib/privateControlRuntime.mjs';
@@ -201,11 +200,7 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
 
 
   void (async () => {
-    let restored = null;
-    try {
-      restored = await restoreSharedControlFromPrivate(localStorage);
-    } catch {}
-
+    // Initial checkpoint recovery has completed inside learnerWriterReady.
     if (document.documentElement.dataset.learnerWriter !== 'active') return;
 
     const recoveryUrl = new URL(window.location.href);
@@ -254,11 +249,6 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
     }
 
     if (durableRestoreApplied) {
-      window.location.reload();
-      return;
-    }
-
-    if (restored?.status === 'restored') {
       window.location.reload();
       return;
     }

@@ -384,6 +384,29 @@ function localContainsCheckpoint(storage, checkpoint, day, { includeReceipt = tr
     .every(([key, raw]) => sameRecoveredValue(key, local.staged.getItem(key), raw));
 }
 
+// Prepare recovery before granting native writes to page consumers.
+// This disposable overlay is a transaction, never another learner store.
+export async function preparePrivateCheckpointBootstrap(storage, options = {}) {
+  const before = new Map();
+  for (let i = 0; i < storage.length; i += 1) {
+    const key = storage.key(i);
+    if (typeof key === 'string') before.set(key, storage.getItem(key));
+  }
+  const values = new Map(before);
+  const staged = {
+    get length() { return values.size; },
+    key(i) { return [...values.keys()][i] ?? null; },
+    getItem(key) { return values.get(key) ?? null; },
+    setItem(key, value) { values.set(key, String(value)); },
+    removeItem(key) { values.delete(key); }
+  };
+  const result = await restoreSharedControlFromPrivate(staged, options);
+  const keys = new Set([...before.keys(), ...values.keys()]);
+  const changes = [...keys].filter(key => (before.get(key) ?? null) !== (values.get(key) ?? null))
+    .map(key => [key, values.get(key) ?? null]);
+  return { result, changes, expected: new Map(changes.map(([key]) => [key, before.get(key) ?? null])) };
+}
+
 export async function restoreSharedControlFromPrivate(storage, {
   now = Date.now(), readCheckpoint = readPrivateLearnerCheckpoint
 } = {}) {

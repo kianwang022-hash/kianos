@@ -831,3 +831,6 @@ try {
 }
 
 console.log('PASS private learner checkpoint foundation: Xizong + English + Politics + Lexical atomic capture/restore + safe conflicts');
+
+// Shared browser bootstrap must restore before native consumers initialize.
+await import("./test-private-checkpoint-bootstrap.mjs");
