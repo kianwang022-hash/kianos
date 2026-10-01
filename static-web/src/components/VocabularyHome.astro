@@ -336,8 +336,11 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
         : '今天没有需要整词回看的对象';
       const sameDayStart = root.querySelector('[data-lexical-same-day-start]');
       if (sameDayStart instanceof HTMLAnchorElement) {
-        const firstRevisit = sameDay.map((event) => byObjectId.get(String(event.word_id || ''))).find(Boolean);
-        sameDayStart.href = firstRevisit ? hrefFor(firstRevisit.ordinal, 'study') : '#';
+        const revisits = sameDay.map((event) => byObjectId.get(String(event.word_id || ''))).filter(Boolean);
+        const firstRevisit = revisits[0];
+        sameDayStart.href = firstRevisit
+          ? lexicalWordRuntimeHref(base, firstRevisit.ordinal, 'study', { day: today, ordinals: revisits.map(row => row.ordinal) })
+          : '#';
         sameDayStart.setAttribute('aria-disabled', String(!firstRevisit));
       }
 
