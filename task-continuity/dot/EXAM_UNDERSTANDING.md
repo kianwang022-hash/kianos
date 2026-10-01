@@ -525,3 +525,78 @@ READ means full text inspected, never runtime VERIFIED. Files are pinned to the 
 Sources: [Objective Acceptance](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/english/modules/objective/ACCEPTANCE.md), [Objective adapter](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/lib/englishObjectiveSourceTruth.mjs), [Reading loader](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/lib/englishReading.mjs), [current Reading route](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/pages/reading/%5Bid%5D.astro).
 
 
+
+
+## 追加链路核对：Lexical、English Session、Plan/Packet（2026-10-01 05:11 UTC）
+
+基线 KianOS d75c141a018b9cc39319389a7f6289a5fb3c6e1a；仅原责任链核对，READ不等于运行验收。重复文件不重复增加覆盖。
+
+
+### Lexical materialization
+
+未确认缺陷。7946 Word和422 Current Relation为自然语义owner，lookup非语义，旧canonical存储为保留参考，final shards为派生Content。root manifest的369为历史cutover计数。builder按Word/Relation/decision/compiler依赖失效，renderer消费final对象；sourceHash与形状验证本身不证明资产已重新构建。未逐词审稿、运行物化器或核真实页面。
+
+
+| Path | Git blob SHA | Status | Exact coverage |
+| --- | --- | --- | --- |
+| [AGENTS.md](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/AGENTS.md) | `5b7cc02e50f40bcf2e1fdb439344ee927a7f9079` | READ | L1–284 (complete) |
+| [content/lexical/CURRENT.md](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/lexical/CURRENT.md) | `714df8bbebc3a0fe82074329884fb69bd85dfa5e` | READ | L1–57 (complete) |
+| [content/lexical/manifest.json](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/lexical/manifest.json) | `a8fbfab7bd0260e0129cbedde921bf757426ffb8` | READ | L1–51 (complete) |
+| [content/lexical/CONTENT_EXECUTION.md](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/lexical/CONTENT_EXECUTION.md) | `bc38403c533c4356688039b229ec18fdf4e5f449` | READ | L1–122 (complete) |
+| [content/lexical/FINAL_LEARNER_OBJECT_CONTRACT.md](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/lexical/FINAL_LEARNER_OBJECT_CONTRACT.md) | `b665360e7abf88198b9dca02396bdda72c410ef0` | READ | L1–144 (complete) |
+| [content/lexical/learner/packet-contract.json](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/lexical/learner/packet-contract.json) | `befad4e0bba583cb05cc984b79557f8ebf9bb6ef` | READ | L1–98 (complete) |
+| [content/lexical/words/manifest.json](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/lexical/words/manifest.json) | `2a8e73b4082490c72ee396a490705ed32e7fb1fe` | READ | L1–11 (complete) |
+| [content/lexical/relations/manifest.json](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/lexical/relations/manifest.json) | `65c0bdb71417f0331fd7f6901b66351ef0567523` | READ | L1–14 (complete) |
+| [content/lexical/final-learner-object-decisions.json](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/lexical/final-learner-object-decisions.json) | `9a437dc9e6d204db9e3889e2e9cc59aa35386695` | READ | L1–214 (complete) |
+| [tools/lexical_build_final_learner_objects.py](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/tools/lexical_build_final_learner_objects.py) | `cb15e230080d032164fd5976274568f8199ccd04` | READ | L1–865 (complete) |
+| [content/lexical/learner/final/manifest.json](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/lexical/learner/final/manifest.json) | `ede6048cda6520763f22cc05d92ca812349669d8` | PARTIAL | L1–95 and L751–763 in full; all sha256 field lines inspected; whole JSON mechanically parsed for descriptor shape/count only |
+| [static-web/src/lib/lexical.mjs](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/lib/lexical.mjs) | `2a7dc8de86ed920ed78f299ea1e3bab50c0423e2` | READ | L1–243 (complete) |
+| [static-web/src/components/VocabularyWordMarkup.astro](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/components/VocabularyWordMarkup.astro) | `f7953f5f9006e369a6af0f62759d0fc001a8b149` | READ | L1–420 (complete) |
+| [static-web/src/pages/vocabulary/index.astro](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/pages/vocabulary/index.astro) | `ff1e5fc91ee2e44411c348e0770271922fa65b4b` | READ | L1–12 (complete) |
+| [static-web/src/pages/vocabulary/word/index.astro](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/pages/vocabulary/word/index.astro) | `6b3267feb29cf62fee2f4289a7c5727fb6777989` | READ | L1–326 (complete) |
+| [static-web/src/pages/vocabulary-data/[key].astro](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/pages/vocabulary-data/[key].astro) | `20cfd27cfea5c150debfbb83bc8fa05e07726b48` | READ | L1–20 (complete) |
+| [static-web/src/pages/vocabulary-data/manifest.json.js](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/pages/vocabulary-data/manifest.json.js) | `39823cbc5df4d4ae62dd5eca7bf5a3e581f3d937` | READ | L1–12 (complete) |
+
+
+### English Session / Resume
+
+完整提交的Objective任务可带W/U退出，未完成或Return-only不伪造完成。已证mounted手动copy/import/status使用设备日期，而Resume/attempt使用上海studyDayAt；正在同一责任最小候选修复，不改session/evidence。另有全部步骤已完成后source变化显示stale_source的静态观察，未运行反例，不混入本修复。
+
+
+| File | Blob SHA | Status / inspected lines |
+|---|---|---|
+| AGENTS.md | 5b7cc02e50f40bcf2e1fdb439344ee927a7f9079 | READ, 1–285; re-read |
+| content/english/LEARNING_CONTRACT.md | f04e92e3d9b3f07764739d419ecbf5ee1f7899a7 | PARTIAL, 432–581, 696–712, 742–767; heading excerpts only elsewhere |
+| static-web/src/lib/englishSessionControl.mjs | 0761a95b01c605c7e32b0b0f45a35b0561d297b6 | READ, 1–1273 |
+| static-web/src/lib/englishLearnerEvidence.mjs | 45f53b4ff018abb8944cd46b87e99839f2814f52 | READ, 1–530; checkpoint code contained in requested file read, but no checkpoint audit/action |
+| static-web/src/lib/englishSessionCatalog.mjs | cf0a6c327ac8e70183e3e247bf0e5bcbd3c0fdea | READ, 1–18 |
+| static-web/src/components/EnglishSessionControl.astro | fbac548a4495dcbd7f855ac1066e84635bc18652 | READ, 1–192 |
+| static-web/src/components/EnglishResume.astro | b86baa252875d22fdbd960ce40bfb92a8fdbc54a | READ, 1–183 |
+| static-web/src/lib/studyTimer.mjs | 64b2bbec462a4449f200326e6cce0265a6e90dfd | PARTIAL, 1–90, 281–294; symbol excerpts elsewhere |
+| static-web/src/pages/english.astro | bb500a6e1ac2d4fde9aaba420f7427b4ae2ce01c | READ, 1–96 |
+| static-web/src/layouts/EnglishBase.astro | ae618db2c91618cfd65a176990f9419f2b54abd5 | READ, 1–17 |
+| static-web/src/layouts/BaseFrame.astro | 3bc1b4c8cdd9447b95a3cca66ae2aa6f814d8cea | READ, 1–213; no follow-on bootstrap/checkpoint lane |
+| static-web/src/pages/cloze/[id].astro | 116f18fb6b745eef6b23b40af1d0af5190839b4e | READ, 1–36 |
+| static-web/src/components/ClozeWorkspace.astro | 0ec3170f1dd8497c89514f1b9fd6da97468e9e8d | READ, 1–85 |
+| static-web/src/lib/clozeRuntime.mjs | 4ba3c23b23da9322daa198a7a887d6caddabc2be | READ, 1–136 |
+| static-web/src/components/ObjectiveAnswerGate.astro | c931bbce270189f9eabe5c21e3f5ce3886358820 | READ, 1–153 |
+| static-web/src/components/ObjectiveTransferClaims.astro | 12c3213e66669bee16dd3163794191f60dbdabe4 | PARTIAL, 1–125, 155–201, 217–291, 370–439; relevant symbol excerpts |
+
+
+### Adopted Plan / Packet
+
+Nutrition/Training保留链已接；同日basis变化保留reference展示但撤回执行指引。已证Home说明dialog打开时缓存readModel不刷新，手动copy却配新basis输出旧plan；候选在明确copy动作await后load/render，12合成actual-handler通过、原版9失败，命令准入不放宽。未运行真实浏览器或个人数据；发布/全CI状态见对应PR而非本阅读表。
+
+
+| File | Exact blob | This pass |
+|---|---|---|
+| KianOS AGENTS.md | 5b7cc02e50f40bcf2e1fdb439344ee927a7f9079 | READ, full |
+| EXAM_ORCHESTRATOR_CONTRACT.md | a49582da6b12c5bd609485e330378ef609d8fd22 | PARTIAL: 1–231, 1141–1180; relevant plan/freshness/handoff sections |
+| Personal exam/CONTROL.md | 1186351e2ad7a6300d87b6e58eb41e39fe395505 | READ, 1–177 |
+| static-web/src/lib/examChatPlan.mjs | 29447f7cfc47e283306922fa16e449535ab8714d | READ, 1–789; upgrades previous PARTIAL 421–789 |
+| static-web/src/lib/examPlanReadModel.mjs | 5f60e0962ce746b759022e10e9d11a8c5624c17d | READ, 1–187; prior complete READ reused, no extra coverage credit |
+| static-web/src/lib/examOrchestratorClient.mjs | d9caf8ac7fa1decbef18f94d1e1eb3c239f100b3 | READ, 1–912; previous inventory-only |
+| static-web/src/lib/stewardWorkspaceClient.mjs | 8bd9d1639a90f7ca7102919ed327f554b119ff0f | READ, 1–354; previous inventory-only |
+| static-web/src/lib/dailyLearningPacketRuntime.mjs | b815b86545363dbd17bb9d8aebcbfd5a5d4c5d80 | READ, 1–172; prior complete READ reused |
+| static-web/src/lib/dailyLearningPacket.mjs | 88f764d6db6c760b7b1bafd8fddaef3e886b235b | READ, 1–146; prior complete READ reused |
+| static-web/src/components/ExamOrchestratorHome.astro | 74160e734305299c968ef45b2042d7eb63312d01 | READ, full; one necessary consumer read to confirm export dialog placement |
