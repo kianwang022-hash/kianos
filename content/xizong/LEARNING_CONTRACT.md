@@ -675,3 +675,12 @@ The teaching file's primary reader is Chat: it is a model-building basis, not a 
 
 
 Both deliverables must express the **same** Block mother model and LG subframeworks: shared questions, nodes, causal/conditional relations and KP ownership, not merely the same list of facts. Teaching builds that model progressively; review reconstructs it. A model correction must be reflected in both. Before acceptance, check bidirectionally that taught material has a review location and that review demands have an adequate teaching basis. A clear reading route must never imply false strict temporal order for parallel or feedback mechanisms.
+
+
+### Memory-efficient information organization
+
+The shared teaching/review model must also reduce avoidable memory burden. First distinguish facts reconstructable from a causal model from irreducible exact facts; do not classify all numbers, drugs or receptors as rote-only. Organize common mechanisms first, then discriminating differences/exceptions. Choose representation by memory demand: causal reconstruction, same-class comparison, decisive-confusable contrasts, sequence/timeline, accurate spatial/waveform representation, or count-based chunking and reliable mnemonic cues for irreducible facts. A large table alone is not evidence of improved memorability. Drug mechanism reasoning must not invent indications, contraindications or treatment instructions.
+
+Support retrieval in both directions: model node → precise detail, and question cue → model location → inference. Understanding/recognition is not successful retrieval; exact retention still needs real active recall and later spaced checks under existing Chat-owned scheduling. First and later passes reuse the same growing model rather than rebuilding another organization.
+
+Canonical KP and a later rapid Lecture/website-KP sweep provide independent calibration and coverage insurance. They never excuse knowingly incomplete initial teaching or transfer the author's coverage responsibility to the learner. Mandatory content must already have a justified location and memory treatment; uninspected Source remains an explicit validation limit.
