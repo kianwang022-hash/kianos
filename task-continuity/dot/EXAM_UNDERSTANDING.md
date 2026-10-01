@@ -187,3 +187,22 @@ Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e57
 - 正式产品53ea260c已发布，旧第18:55候选未合入描述仅为历史。合并后PrivateChatControl push run36792442920浏览器检查失败独立跟进；合并前31成功不替代该次结果。当前真实应用成功不证明该失败机制无影响，原任务先提取第一失败，未归因前不改oracle、不盲目回退。
 
 下一步仍优先原#1111剩余普通使用闭环及该新CI失败；全三仓文件/代码覆盖、逐场景Visual/Source和全科内容质量均未完成。
+
+
+## 第七批：英语保留参考资产与实际首学消费者（2026-10-01 00:30 UTC）
+
+初次合并读取输出截断，未计全文；随后按连续行窗补齐全文：Translation reference 1761行（1–500、501–1100、1101–1761），Writing reference 3747行（1–800、801–1600、1601–2400、2401–3100、3101–3747）。
+
+| 原文件 | blob | 状态 |
+|---|---|---|
+| content/english/modules/translation/learning.reference.md | 11178683375ade0091b8b0d3ceb480ad09581bc0 | READ |
+| content/english/modules/writing/learning.reference.md | a436c6dd98b1aaff44438d6a6f5a28d451538be8 | READ |
+| static-web/scripts/validate-translation-projection.mjs | cd6d496ca2f92c2d8b5870cc8251f955f97be33b | READ |
+| static-web/scripts/validate-writing-learning.mjs | 557bc055feaab6dee5ed85c7c1524744c314db63 | READ |
+| static-web/src/lib/englishWritingLearning.mjs | 8e4bc69eb0e247b94a10bd2ad4279d73b796b13a | READ |
+| static-web/src/pages/translation-learn.astro | a80c1cd38f004d9f05d43d2f59fc023c689e5717 | READ |
+
+- 两份reference是保留的高密度repair资料，顶部已明确旧四块/B1–B8必修路线和旧true-exam gate不再是Current。不能因正文保留旧措辞就误删有效教学资产或恢复旧必修步骤。
+- Translation首学页实际读取learning.md并将三主干与诊断/Runtime参考分层；Writing projection实际读取learning.md六primitives，不读旧reference当Current。此为静态代码trace，不是新浏览器验证。
+- 两份validator保护语义覆盖、reference保留、skippable、首答保护及pending不制造任务。其大量字符串检查不能独立证明所有实际交互；本批未运行测试、不新增PASS计数。
+- 未发现必须改写这两份reference的明确缺陷；保持有效内容。后续以真实任务consumer和当前学习owner检查已命名缺口，不把读完教材当运行闭环完成。
