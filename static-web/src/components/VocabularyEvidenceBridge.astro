@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL;
     normalizeLexicalSettings,
     registerLexicalIntroduction
   } from '../lib/lexicalSettings.mjs';
-  import { lexicalWordOrdinal, lexicalWordRuntimeHref } from '../lib/lexicalRuntimeRoute.mjs';
+  import { lexicalRevisitUndoAllowed, lexicalRevisitContext, lexicalStudyNeighbors, lexicalWordOrdinal, lexicalWordRuntimeHref } from '../lib/lexicalRuntimeRoute.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable } from '../lib/lexicalBrowserState.mjs';
   void learnerWriterReady.then(() => {
@@ -68,15 +68,17 @@ const base = import.meta.env.BASE_URL;
     const readIntake=()=>normalizeLexicalIntake(readJson(LEXICAL_INTAKE_STORAGE_KEY,null));
     const saveIntake=(value)=>saveJson(LEXICAL_INTAKE_STORAGE_KEY,value);
     const homeHref=()=>{const url=new URL(base+'vocabulary/',location.origin);url.searchParams.set('limit','reached');return url.href};
-    const requestRuntimeNavigation=(targetOrdinal,history='push')=>{
-      window.dispatchEvent(new CustomEvent('kianos:vocabulary-navigate',{detail:{ordinal:targetOrdinal,mode,history}}));
+    const requestRuntimeNavigation=(targetOrdinal,history='push',href=null)=>{
+      window.dispatchEvent(new CustomEvent('kianos:vocabulary-navigate',{detail:{ordinal:targetOrdinal,mode,history,href}}));
     };
     const newWordBlocked=()=>{
       if(mode!=='study'||introductionDayFor(readIntake(),objectId))return false;
       return introducedCountForDay(readIntake(),localLexicalDay())>=readSettings().daily_new_limit;
     };
     if(newWordBlocked())location.replace(homeHref());
-    const updateUndoState=()=>{if(undoButton instanceof HTMLButtonElement)undoButton.disabled=readRouting().history.length===0};
+    const canUndoRouting=(routing=readRouting())=>lexicalRevisitUndoAllowed(
+      lexicalRevisitContext(location,total,localLexicalDay()),routing.history.at(-1),total,localLexicalDay());
+    const updateUndoState=()=>{if(undoButton instanceof HTMLButtonElement)undoButton.disabled=!canUndoRouting()};
 
     const recordRouting=(route)=>{
       const now=new Date().toISOString();
@@ -88,7 +90,7 @@ const base = import.meta.env.BASE_URL;
         word,
         route:String(route||'').toUpperCase(),
         observed_at:now,
-        return_href:lexicalWordRuntimeHref(base,ordinal,mode)
+        return_href:lexicalWordRuntimeHref(base,ordinal,mode,lexicalRevisitContext(location,total,localLexicalDay()))
       };
       routing.history=[...routing.history,event].slice(-300);
       routing.latest_by_word={...(routing.latest_by_word||{}),[objectId]:event};
@@ -101,7 +103,7 @@ const base = import.meta.env.BASE_URL;
       if(!lexicalBrowserStateReadable())return;
       const routing=readRouting();
       const last=routing.history.at(-1);
-      if(!last)return;
+      if(!canUndoRouting(routing))return;
       routing.history=routing.history.slice(0,-1);
       const previous=[...routing.history].reverse().find((item)=>item.word_id===last.word_id)||null;
       routing.latest_by_word={...(routing.latest_by_word||{})};
@@ -119,7 +121,7 @@ const base = import.meta.env.BASE_URL;
       if(last.return_href){
         let targetOrdinal=0;
         try{targetOrdinal=lexicalWordOrdinal(new URL(last.return_href,location.origin));}catch{}
-        if(Number.isInteger(targetOrdinal)&&targetOrdinal>0)requestRuntimeNavigation(targetOrdinal,'push');
+        if(Number.isInteger(targetOrdinal)&&targetOrdinal>0)requestRuntimeNavigation(targetOrdinal,'push',last.return_href);
         else location.href=last.return_href;
       }
     };
@@ -127,6 +129,9 @@ const base = import.meta.env.BASE_URL;
     const submitRoute=(route)=>{
       if(!lexicalBrowserStateReadable())return;
       if(mode!=='study')return;
+      const revisit=lexicalRevisitContext(location,total,localLexicalDay());
+      const neighbors=lexicalStudyNeighbors(ordinal,total,revisit);
+      if(neighbors.invalid){location.href=base+'vocabulary/';return;}
       const routingBefore=readRouting();
       const prior=routingBefore.latest_by_word?.[objectId]||null;
       let intake=readIntake();
@@ -138,13 +143,13 @@ const base = import.meta.env.BASE_URL;
         if(registered.added)saveIntake(intake);
       }
       recordRouting(route);
-      const reached=introducedNow&&introducedCountForDay(intake,localLexicalDay())>=readSettings().daily_new_limit;
+      const reached=!revisit&&introducedNow&&introducedCountForDay(intake,localLexicalDay())>=readSettings().daily_new_limit;
       if(reached){
         if(ordinal<total)try{localStorage.setItem('kianos-vocabulary-last-ordinal',String(ordinal+1))}catch{}
         location.href=homeHref();
         return;
       }
-      if(ordinal<total)requestRuntimeNavigation(ordinal+1,'push');
+      if(neighbors.next)requestRuntimeNavigation(neighbors.next,'push');
       else location.href=base+'vocabulary/';
     };
 
@@ -166,7 +171,8 @@ const base = import.meta.env.BASE_URL;
       const target=event.target;
       if(target instanceof HTMLElement&&target.closest('input,textarea,select,button,a,[contenteditable="true"]'))return;
       if(event.key==='Backspace'){
-        if(readRouting().history.length){event.preventDefault();undoRouting();}
+        if(canUndoRouting()){event.preventDefault();undoRouting();}
+        else if(new URLSearchParams(location.search).has('revisit'))event.preventDefault();
         return;
       }
       const revealed=root.dataset.vocabRevealed==='true';
