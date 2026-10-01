@@ -672,3 +672,6 @@ One Block owns one complete large model. Its LGs may each have a fully developed
 
 
 The teaching file's primary reader is Chat: it is a model-building basis, not a lecture summary to recite. It must explain the problem, variables, prerequisite links, why each causal step follows, branching conditions, feedback, future insertion points, and how an exam stem's change is located and propagated through the model. First-pass acquisition should already develop the organization and reasoning otherwise postponed to a later pass. Preserve adaptive dialogue rather than a fixed script; successful authoring never establishes learner ability.
+
+
+Both deliverables must express the **same** Block mother model and LG subframeworks: shared questions, nodes, causal/conditional relations and KP ownership, not merely the same list of facts. Teaching builds that model progressively; review reconstructs it. A model correction must be reflected in both. Before acceptance, check bidirectionally that taught material has a review location and that review demands have an adequate teaching basis. A clear reading route must never imply false strict temporal order for parallel or feedback mechanisms.
