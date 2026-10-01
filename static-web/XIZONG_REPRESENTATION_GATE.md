@@ -257,21 +257,36 @@ Connections / Reserve normally appear as lightweight contextual text unless a st
 
 ## 8｜Recall safety outranks representation
 
-Representation is stage-dependent.
+Representation is stage-dependent and inherits the accepted learning boundary in
+`content/xizong/LEARNING_CONTRACT.md` (KP Recall),
+`content/xizong/LEARNER_OBJECT_CONTRACT.md` §6 and
+`static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md` §9.
 
 ```text
 KP Learn
-→ answer-bearing Visual / Precision may be visible
+→ canonical Core and useful Current-owned support may be visible
 
 KP Recall Front
-→ Prompt / neutral identity only
-→ all answer-bearing Core / Visual / Precision / Extension / Connection protected
+→ same identity/title, Active Prompt and permitted Current-owned Context
+→ canonical Core hidden until Reveal
+→ explicitly answer-bearing or POST_REVEAL payloads remain protected
 
 Reveal
-→ the same accepted semantics may return through the Representation Gate
+→ the same canonical Core and eligible protected support become available
+→ Representation Gate chooses how to show them without changing meaning
 ```
 
-No representation choice may weaken the workspace-wide neutral-front rule.
+At KP scope, Source / Outline and approved Precision / Visual / Extension /
+Connection Context may remain visible when useful. A support family name alone
+does not make every payload answer-bearing, and Context membership does not
+override an explicit answer-bearing flag or owned POST_REVEAL policy.
+
+Block/System Recall and compiled Projection Front retain their own stricter
+neutral-front rules. Do not transfer those rules to the entire KP workspace, or
+use the KP Context permission to weaken their protection.
+
+No representation choice may override the applicable stage's accepted
+Core/answer-protection boundary.
 
 ---
 

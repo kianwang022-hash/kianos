@@ -197,7 +197,7 @@ Evidence acceptance is based on the current shared Block/System evidence model p
 
 Accepted evidence semantics:
 
-1. **Normal Block evidence has one writer.** `XizongMemoryReviewV6.astro` owns normal KP Recall history, Memory state, Chat repair plan state, repair ratings and Study Packet evidence. `XizongBlockEvidenceGuard.astro` owns Current-version archival/reset only; it does not compete for normal evidence writes.
+1. **Normal Block evidence has one writer.** Historical implementation reference for the recorded A3 Evidence acceptance: `XizongMemoryReviewV6.astro` owned normal KP Recall history, Memory state, Chat repair plan state, repair ratings and Study Packet evidence. That component is no longer mounted by the Current Block route; this historical reference does not designate the Current writer. `XizongBlockEvidenceGuard.astro` owns Current-version archival/reset only; it does not compete for normal evidence writes.
 2. **Every real Recall attempt is evidence.** Each actual KP Recall rating click appends a `KP_RECALL` event, including repeated identical ratings. Existing browser state may be bootstrapped once, but bootstrap deduplication must not collapse later genuine attempts.
 3. **First Recall is not rewritten by repair.** Weak Recall may enter selective Memory. Memory `STABLE` can clear the current weak queue, but the original Recall remains historically intact.
 4. **Repair is not mastery.** Chat-plan review and System W/U repair imports are explicitly `REPAIR_ONLY`. `known/mastered` may close an active repair task but cannot rewrite original Recall or auto-promote mastery. Stronger closure requires later meaningful fresh Recall/transfer when the learning contract calls for it.

@@ -255,3 +255,5 @@ console.log(JSON.stringify({
   runtime_owner: 'src/components/XizongMemoryWorkspace.astro',
   block_complete_bridge: 'UNCHANGED'
 }, null, 2));
+
+await import("./test-xizong-memory-current-content.mjs");

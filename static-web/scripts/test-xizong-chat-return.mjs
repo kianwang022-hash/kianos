@@ -162,3 +162,6 @@ assert.equal(noAction.status, 'applied');
 assert.equal(noActionStorage.getItem('kianos-xizong-repair-inbox-v1:xizong:circulation-b01'), null);
 
 console.log('PASS Xizong typed Chat Return: exact identity/version + resume + idempotency + conflict fail-closed');
+
+// Saved System W/U Return must resume without replaying learner mutations.
+await import('./test-xizong-system-repair-return-resume.mjs');
