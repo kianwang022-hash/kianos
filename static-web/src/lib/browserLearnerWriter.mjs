@@ -155,12 +155,35 @@ export const learnerWriterReady = existing?.ready || (!browser ? Promise.resolve
           // A page lease is not proof that private state has been restored.
           // Keep native writes denied during recovery; publish the prepared
           // transaction before any learner consumer receives its ready signal.
-          const { preparePrivateCheckpointBootstrap } = await import('./privateCheckpointRuntime.mjs');
-          const recovery = await preparePrivateCheckpointBootstrap(nativeStorage);
-          if (!document.hasFocus()) { requested=false; return; }
-          ownsWrites=true;
-          try { commitLearnerStorageChanges(nativeStorage, recovery.changes, recovery.expected); }
-          catch (error) { ownsWrites=false; throw error; }
+          const { preparePrivateCheckpointBootstrap, saveSharedControlToPrivate } = await import('./privateCheckpointRuntime.mjs');
+          const recoveryUrl = new URL(window.location.href);
+          const request = {
+            durableRestoreCheckpointId: recoveryUrl.searchParams.get('checkpoint-durable-restore'),
+            rebaseCheckpointId: recoveryUrl.searchParams.get('checkpoint-lineage-rebase')
+          };
+          try {
+            const recovery = await preparePrivateCheckpointBootstrap(nativeStorage, { recovery: request });
+            if (!document.hasFocus()) { requested=false; return; }
+            ownsWrites=true;
+            commitLearnerStorageChanges(nativeStorage, recovery.changes, recovery.expected);
+            if (recovery.recovery) {
+              // Explicit recovery uses the same native save/lineage checks as
+              // before, but no page consumer may run between restore and save.
+              const saved = await saveSharedControlToPrivate(nativeStorage);
+              if (saved.status !== 'saved') throw new Error('PRIVATE_CHECKPOINT_EXPLICIT_RECOVERY_SAVE_INCOMPLETE');
+              const marker = request.durableRestoreCheckpointId ? 'checkpointDurableRestore' : 'checkpointLineageRebase';
+              document.documentElement.dataset[marker] = 'saved';
+              recoveryUrl.searchParams.delete('checkpoint-durable-restore');
+              recoveryUrl.searchParams.delete('checkpoint-lineage-rebase');
+              history.replaceState(history.state, '', recoveryUrl.pathname + recoveryUrl.search + recoveryUrl.hash);
+            }
+          } catch (error) {
+            ownsWrites=false;
+            if (request.durableRestoreCheckpointId) document.documentElement.dataset.checkpointDurableRestore='error';
+            if (request.rebaseCheckpointId) document.documentElement.dataset.checkpointLineageRebase='error';
+            throw error;
+          }
+          if (retired || !document.hasFocus()) { ownsWrites=false; requested=false; return; }
           showState('active');
           window.dispatchEvent(new Event('kianos:learner-writer-ready'));
           resolve();

@@ -400,11 +400,25 @@ export async function preparePrivateCheckpointBootstrap(storage, options = {}) {
     setItem(key, value) { values.set(key, String(value)); },
     removeItem(key) { values.delete(key); }
   };
+  const request = options.recovery || {};
+  if (request.durableRestoreCheckpointId && request.rebaseCheckpointId) {
+    throw new Error('PRIVATE_CHECKPOINT_RECOVERY_DIRECTION_AMBIGUOUS');
+  }
   const result = await restoreSharedControlFromPrivate(staged, options);
+  let recovery = null;
+  if (request.durableRestoreCheckpointId) {
+    recovery = await restorePrivateCheckpointGroupsFromDurable(staged, {
+      ...options, expectedCheckpointId: request.durableRestoreCheckpointId
+    });
+  } else if (request.rebaseCheckpointId) {
+    recovery = await rebasePrivateCheckpointLineageToCurrent(staged, {
+      ...options, expectedCheckpointId: request.rebaseCheckpointId
+    });
+  }
   const keys = new Set([...before.keys(), ...values.keys()]);
   const changes = [...keys].filter(key => (before.get(key) ?? null) !== (values.get(key) ?? null))
     .map(key => [key, values.get(key) ?? null]);
-  return { result, changes, expected: new Map(changes.map(([key]) => [key, before.get(key) ?? null])) };
+  return { result, recovery, changes, expected: new Map(changes.map(([key]) => [key, before.get(key) ?? null])) };
 }
 
 export async function restoreSharedControlFromPrivate(storage, {

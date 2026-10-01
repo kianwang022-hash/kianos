@@ -55,4 +55,31 @@ for (const status of ['missing','unavailable','invalid']) {
   assert.equal(result.changes.length,0); assert.equal(local.getItem(lkey),'37');
 }
 await assert.rejects(()=>preparePrivateCheckpointBootstrap({get length(){throw new Error('read denied');}}),/read denied/);
+// Explicit recovery must use the same pre-consumer transaction boundary.
+let conflictedCheckpoint;
+await saveSharedControlToPrivate(new Storage({...entries,[xkey]:different}), {
+  readCheckpoint, writeCheckpoint: async value=>{conflictedCheckpoint=value;}
+});
+const conflictedRead=async()=>({status:'ready',checkpoint:conflictedCheckpoint});
+for (const direction of ['durableRestoreCheckpointId','rebaseCheckpointId']) {
+  const local=new Storage({...entries,[xkey]:different});
+  const before=JSON.stringify([...local.map]);
+  const prepared=await preparePrivateCheckpointBootstrap(local, {
+    readCheckpoint:conflictedRead, recovery:{[direction]:conflictedCheckpoint.checkpoint_id}
+  });
+  assert.equal(JSON.stringify([...local.map]),before,'explicit preparation is non-mutating');
+  commitLearnerStorageChanges(local,prepared.changes,prepared.expected);
+  assert.equal(local.getItem(xkey),direction==='durableRestoreCheckpointId'?entries[xkey]:different);
+  for(const key of [ekey,lkey,PRACTICE_KEYS.meta])assert.equal(local.getItem(key),entries[key]);
+  assert.equal((await saveSharedControlToPrivate(local,{readCheckpoint:conflictedRead,writeCheckpoint:async()=>{}})).status,'saved');
+}
+for(const recovery of [
+  {durableRestoreCheckpointId:'wrong-checkpoint'},
+  {rebaseCheckpointId:'wrong-checkpoint'},
+  {durableRestoreCheckpointId:conflictedCheckpoint.checkpoint_id,rebaseCheckpointId:conflictedCheckpoint.checkpoint_id}
+]) {
+  const local=new Storage({...entries,[xkey]:different}),before=JSON.stringify([...local.map]);
+  await assert.rejects(()=>preparePrivateCheckpointBootstrap(local,{readCheckpoint:conflictedRead,recovery}),/SOURCE_CHANGED|DIRECTION_AMBIGUOUS/);
+  assert.equal(JSON.stringify([...local.map]),before);
+}
 console.log('PASS checkpoint bootstrap: staged recovery across shared/Xizong/English/Lexical/Politics, lineage, retained conflicts, stale transaction and unavailable reads');
