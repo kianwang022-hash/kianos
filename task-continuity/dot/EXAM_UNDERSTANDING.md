@@ -465,3 +465,63 @@ READ 指全文实际阅读；版本均为上述固定 main 的 blob，不把重�
 证据入口：[Current](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/english/modules/writing/CURRENT.md) · [Synthetic consumer](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/lib/englishWritingSynthetic.mjs) · [Learning projection](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/lib/englishWritingLearning.mjs) · [Learning page](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/pages/writing-learn.astro) · [Task page](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/pages/writing/%5Bid%5D.astro)
 
 
+
+
+## Objective existing-content routes (2026-10-01 04:42 UTC)
+
+Pinned GitHub main: `d75c141a018b9cc39319389a7f6289a5fb3c6e1a`. Scope: Personal#61 Phase1, catalog/loaders/task and reference asset routes only. No source-bank actual-question bodies, tests, browser, Mac, real learner state, product code writes or deploys. Current-state-integrity and lexical changes were not audited.
+
+### Findings
+
+- No confirmed rule/consumer mismatch in this bounded chain. Reading A/Cloze official catalog admission and Part B official + eight registered synthetic-object admission are intentional distinct boundaries, expressly reflected by manifest and Objective Acceptance. Unconsumed Reading A/Cloze baseline candidates are not defects or retired assets.
+- Reading A: manifest task map → question_bank section sets + reading_corpus paragraphs/semantic review data → englishReading.mjs → englishReadingSourceTruth.mjs/global_source_truth prompt/options overlay → reading/[id].astro → ReadingWorkspace. The wrapper explicitly restores corpus paragraph geometry after overlay. Prompt projection strips answer/explanation keys. Answer route reads bank answers separately; source overlays are prompt/options, not answer-owner replacement.
+- Cloze: manifest task map → englishObjective.mjs whole set/material/questions → englishObjectiveSourceTruth.mjs/projectObjectiveSourceTruth → cloze/[id].astro → ClozeWorkspace. All blanks and full material remain in the template; cloze-answer/[id].json.js owns separate bank answer payload.
+- Part B: the same Objective official loader adds source-owned reading_b_layout skeleton/fixed-given metadata; global Source Truth supplies learner-facing material/shared candidate pool. Registered synthetic bank/key paths are read only by the Part B adapter, which preserves form, five targets, seven candidates, two ordering givens, role and NOT_SCORE_EQUIVALENT provenance. reading-b/[id].astro and reading-b-answer/[id].json.js both use the adapter catalog. Template reads the corresponding material/candidates/skeleton and questions.
+- Answer gates construct matching answer URLs from object identity and request on submit or submitted-attempt restore; this is static route tracing, not proof of full first-answer protection or runtime replay. Public prerendered answer endpoints are not interpreted as a security defect under this task's UI gating claim.
+- Confirmed retained-but-unmounted review consumer: reading-review/[id].json.js still exposes the corpus's verified task labels, MINIMAL evidence sets and option diagnoses through loadReadingReviewById. ReadingRepairCoach is a consumer of that endpoint, but current reading/[id].astro does not mount it; current validate-objective-runtime.mjs explicitly forbids that component on the Reading A page. Treat this as a retained legacy/reference route, not a newly confirmed missing-learning-content defect. Do not restore the coach or delete the useful review assets without a separate current-owner requirement.
+
+### Exact reading ledger
+
+READ means full text inspected, never runtime VERIFIED. Files are pinned to the SHA above unless noted.
+
+| File | Blob | Coverage |
+|---|---|---|
+| AGENTS.md | 5b7cc02e50f40bcf2e1fdb439344ee927a7f9079 | READ, main at entry |
+| content/english/CURRENT.md | 958768d2d60c81990c23b77d3446f4cbb0404a26 | READ, main at entry |
+| content/english/modules/objective/CURRENT.md | 2e98d45a27d22e18e6244500972dbbc3add9ec33 | READ |
+| content/english/modules/objective/ACCEPTANCE.md | 19a99d0696138162e6a52e4ca3628738311ca233 | READ |
+| content/english/manifest.json | 24595a2bf13d2315357b5bec38a3207bdcbfe0af | READ |
+| static-web/src/lib/englishObjectiveSourceTruth.mjs | a6b461de3f97b3b1c443c9e09e921edbec99ef92 | READ |
+| static-web/src/lib/englishReadingSourceTruth.mjs | 157184338c8878df64109a631e13bc5a0e5f02dd | READ |
+| static-web/src/lib/englishReading.mjs | b5388fad5f3d86aaff1ebbecb850ea4e3b8d6fc8 | READ |
+| static-web/src/lib/englishObjective.mjs | 31dbe97b765e9be9423c982cc4599d6a21f06ed1 | READ |
+| static-web/src/pages/reading/[id].astro | 99587a94b07c311f7d4964d0cd02295b65f5e7ab | READ |
+| static-web/src/pages/cloze/[id].astro | 116f18fb6b745eef6b23b40af1d0af5190839b4e | READ |
+| static-web/src/pages/reading-b/[id].astro | 1be78a2bd3604a276dcec48b779cced8ad77f704 | READ |
+| static-web/src/pages/reading-answer/[id].json.js | 325dea5c794451d25d24b63284d8e474acb0fad9 | READ |
+| static-web/src/pages/reading-review/[id].json.js | 44e2afae15972c42f5c8c28d3abdbc3857e250d0 | READ |
+| static-web/src/pages/cloze-answer/[id].json.js | 1247a6f3780ce4c278f08ea38d4e5f37817bcef0 | READ |
+| static-web/src/pages/reading-b-answer/[id].json.js | ede04e9123006d35326b16ce598b69f987cb1f23 | READ |
+| static-web/src/lib/englishSourceTruth.mjs | d85d485b9f31dba7ef37f3276277c91583ccb140 | READ (1–240,241–383) |
+| static-web/src/pages/reading.astro | 5734585a11a284d965517d227db52337be3d77db | READ |
+| static-web/src/pages/cloze.astro | 30ded0be7ecabffa6d7f29e0266e4dec28303278 | READ |
+| static-web/src/pages/reading-b.astro | ebf96e31f7506f95939bb44a3de478814af711dd | READ |
+| static-web/src/components/ReadingWorkspace.astro | be56a5663f65ca4d200c247b422c69385f8e0213 | READ |
+| static-web/src/components/ClozeWorkspace.astro | 0ec3170f1dd8497c89514f1b9fd6da97468e9e8d | READ |
+| static-web/src/components/ReadingAnswerGate.astro | 1f5df31d04bae7fc8ff90843ac97c89b597f4f61 | READ |
+| static-web/src/components/ObjectiveAnswerGate.astro | c931bbce270189f9eabe5c21e3f5ce3886358820 | READ |
+| static-web/src/components/ReadingBWorkspace.astro | 8e2bcb692bee39d8b120e938d5e2b6c53264b45d | PARTIAL / TRACED: 1–173 template; not interaction script |
+| static-web/src/lib/current.mjs | 3d09f2c1f08b97ab1aa0111502c97c7ee429c45c | PARTIAL / TRACED: 73–215 English integrity gate; no runtime invocation |
+| static-web/src/components/ReadingRepairCoach.astro | 8b768ad58530bad99774ad26d9c6c45d382cf5e8 | PARTIAL / TRACED: 1–33 and 175–210 review endpoint consumer |
+| static-web/scripts/validate-objective-runtime.mjs | 182c33bee4283e4b1f554aa44df04d709ca375c2 | PARTIAL: targeted 202–206 exclusion assertions; not executed |
+
+### Reuse and exclusions
+
+- objective-learning.md blob f0945948c2700e6db0b0108707fe93d61c10d274 confirmed unchanged by pinned 1–12 read. Reuse prior fifth-batch full READ at 14a6e952, as recorded in task-continuity/dot/EXAM_UNDERSTANDING.md; no new full READ claimed.
+- EXAM_UNDERSTANDING.md blob e50516518bce0243123ac7ffb303123257fafdfb was consulted for prior evidence; combined initial tool display truncated, so this run is PARTIAL rather than a new full READ.
+- Corpus/question bank/global Source Truth bodies and sealed synthetic keys were deliberately not inspected. Asset paths and schemas were traced through loaders only; content correctness, source completeness and actual rendered-question fidelity remain unverified.
+- No full interaction audit, test execution, new PASS, served release, real U or exhaustive repository coverage claim. Stop this chain unless a concrete accepted requirement or new evidence identifies a real mismatch.
+
+Sources: [Objective Acceptance](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/english/modules/objective/ACCEPTANCE.md), [Objective adapter](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/lib/englishObjectiveSourceTruth.mjs), [Reading loader](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/lib/englishReading.mjs), [current Reading route](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/pages/reading/%5Bid%5D.astro).
+
+
