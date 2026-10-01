@@ -69,7 +69,7 @@ assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 're
 assert(bridge.includes('kianos-xizong-repair-inbox-v1:'), 'bridge-does-not-read-repair-inbox');
 assert(bridge.includes('XIZONG_MEMORY_STORAGE_KEY') && bridge.includes('setRepairTasks'), 'bridge-does-not-merge-into-memory-repair-owner');
 assert(bridge.includes("origin = blockChat ? 'BLOCK_CHAT_RETURN'"), 'bridge-import-origin-missing');
-assert(bridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);'), 'bridge-repair-role-missing');
+assert(/const next = \{\s*\.\.\.memory,\s*repairTasks:\s*\[\s*\.\.\.preserved,\s*\.\.\.setRepairTasks\(memory,\s*replacements\)\.repairTasks\s*\]\s*\};/.test(bridge), 'bridge-repair-role-missing');
 assert(bridge.includes("window.addEventListener('storage'"), 'open-block-tab-cannot-receive-repair-inbox');
 assert(bridge.includes("window.dispatchEvent(new CustomEvent('kianos:xizong-repair-inbox-migrated'"), 'repair-inbox-consumption-event-missing');
 assert(systemWuReturn.includes('XIZONG_MEMORY_STORAGE_KEY'), 'visible-memory-repair-delivery-missing');
