@@ -1,4 +1,4 @@
-import { readMetadataDeclaration } from './xizongKpMetadata.mjs';
+import { readMetadataDeclaration, readCompoundLectureLocator } from './xizongKpMetadata.mjs';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -344,17 +344,21 @@ function blockOpeningOrientation(markdown) {
 }
 
 
-function readKpMetadata(body) {
+function readKpMetadata(body, compoundBody = body) {
   const prompt = readMetadataDeclaration(body, '主提示');
   const sourceArrow = readMetadataDeclaration(body, '讲义定位 →');
   const source = readMetadataDeclaration(body, '讲义定位');
   const outlineArrow = readMetadataDeclaration(body, 'Outline →');
   const outline = readMetadataDeclaration(body, 'Outline');
-  const contentDiagnostics = [prompt, sourceArrow, source, outlineArrow, outline]
+  const canonicalSource = sourceArrow.value || source.value;
+  // Canonical values and unresolved canonical diagnostics keep their meaning.
+  const compoundSource = canonicalSource || sourceArrow.diagnostic || source.diagnostic
+    ? { value: '' } : readCompoundLectureLocator(compoundBody);
+  const contentDiagnostics = [prompt, sourceArrow, source, outlineArrow, outline, compoundSource]
     .flatMap(row => row.diagnostic ? [row.diagnostic] : []);
   return {
     prompt: prompt.value,
-    sourceLocator: sourceArrow.value || source.value,
+    sourceLocator: canonicalSource || compoundSource.value,
     outlineLocator: outlineArrow.value || outline.value,
     ...(contentDiagnostics.length ? { contentDiagnostics } : {})
   };
@@ -385,7 +389,7 @@ function parseKps(markdown, blockId) {
       displayId: match[2],
       ordinal,
       title: String(match[4] || '').trim(),
-      ...readKpMetadata(body),
+      ...readKpMetadata(body, source.slice(afterHeading, end)),
       detailMarkdown: stripKpMetadata(body)
     };
   });
@@ -418,7 +422,7 @@ function parseKpsFromStableMarkers(markdown, blockId) {
       displayId: match[2],
       ordinal,
       title: String(match[4] || '').trim(),
-      ...readKpMetadata(body),
+      ...readKpMetadata(body, source.slice(afterHeading, end)),
       detailMarkdown: stripKpMetadata(body)
     };
   });

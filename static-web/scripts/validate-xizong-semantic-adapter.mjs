@@ -2,6 +2,7 @@ import { assertXizongKpMetadata } from './test-xizong-kp-metadata.mjs';
 import { assertXizongOwnerLoading } from './test-xizong-owner-loading.mjs';
 import assertStrict from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { normalizeAcceptedLogicGroups } from '../src/lib/xizongAcceptedLearningOwner.mjs';
 import { loadXizongBlock } from '../src/lib/xizong.mjs';
 import { loadXizongSemanticBlock, loadXizongSemanticSystem, XIZONG_SEMANTIC_ADAPTER_SCHEMA } from '../src/lib/xizongSemanticAdapter.mjs';
@@ -304,3 +305,8 @@ await assertXizongOwnerLoading();
 
 // Compare raw authored fields, not just two consumers of the same parser.
 await assertXizongKpMetadata();
+
+// Compound-locator fixtures own a temporary repo and module graph in a child.
+execFileSync(process.execPath, [fileURLToPath(new URL('./test-xizong-compound-lecture-locator.mjs', import.meta.url))], {
+  stdio: 'inherit', env: { ...process.env, KIANOS_XIZONG_BUILD_CACHE: '0' }
+});

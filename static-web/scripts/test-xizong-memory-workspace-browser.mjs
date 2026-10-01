@@ -162,6 +162,23 @@ const fixture = {
   ]
 };
 
+// This interaction/geometry journey owns a one-card synthetic library. Supply
+// its matching Current transport instead of mixing synthetic IDs with real A2
+// content. The separate current-content regression owns revision-change proof.
+const fixtureWitness = {
+  schema: 'kianos.xizong.content-revision-witness.v1',
+  kps: { 'respiratory-r01-kp01': 'browser-fixture-v1' },
+  groups: { 'respiratory-r01-lg01': 'browser-fixture-v1' }
+};
+fixture.releasedBlocks['respiratory-r01'].revisionWitness = fixtureWitness;
+const currentFixture = {
+  schema: 'kianos.xizong.memory_release.v1',
+  ...fixture.releasedBlocks['respiratory-r01'],
+  coreCards: Object.values(fixture.cards).filter((card) => card.family === 'CORE'),
+  precisionCards: Object.values(fixture.cards).filter((card) => card.family === 'PRECISION'),
+  attentionSignals: [], promptOverrides: {}, markedFragments: []
+};
+
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
@@ -173,6 +190,11 @@ try {
   await waitForHttp(`${BASE}/xizong/memory/`);
   browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1512, height: 982 } });
+  let descriptorRequests = 0;
+  await page.route(`${BASE}/xizong/memory/data/respiratory-r01.json`, async (route) => {
+    descriptorRequests += 1;
+    await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(currentFixture) });
+  });
   await page.goto(`${BASE}/xizong/memory/`, { waitUntil: 'networkidle' });
 
   await page.evaluate((key) => localStorage.removeItem(key), STORAGE_KEY);
@@ -188,6 +210,12 @@ try {
 
   await page.evaluate(({ key, value }) => localStorage.setItem(key, JSON.stringify(value)), { key: STORAGE_KEY, value: fixture });
   await page.reload({ waitUntil: 'networkidle' });
+
+  await page.waitForFunction(() => {
+    const status = document.querySelector('[data-memory-content-status]');
+    return status?.hidden && document.querySelector('[data-memory-summary-core]')?.textContent?.trim() === '1';
+  });
+  check(descriptorRequests === 1, 'released_fixture_resolves_current_descriptor');
 
   const geometry = await root.evaluate((node) => {
     const rootRect = node.getBoundingClientRect();
