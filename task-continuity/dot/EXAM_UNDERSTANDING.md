@@ -410,3 +410,58 @@ Smallest next action: retain this trace in the existing understanding ledger and
 
 Not read/verified: gzip's 1,148 explanation strings, all source/shard bodies, full subject projection modules, real learner state, deployed UI, new build/test runs. No political content re-audit or historical acceptance replay claimed. Existing PR1122 discussion-filter repair and Chat1123 bootstrap were not duplicated.
 
+
+
+## Writing：既有内容到原生消费者静态追踪（2026-10-01 04:33 UTC）
+
+固定 main 基线：`d75c141a018b9cc39319389a7f6289a5fb3c6e1a`。范围依据 [Personal #61](https://github.com/kianwang022-hash/kian-personal-os/issues/61) 第一阶段。已有理解记录复用 PR #1121 head `d3b7d40552d32c673facca7f5797f78dbe021539` 的第五/七批；本轮不接管 #1123 私人状态或 #1126 Memory 工作。
+
+### 结论与停止边界
+
+**本链未确认新的 promised-consumer 缺陷。** 只完成限定静态 owner → catalog/task/learning page 消费追踪；不新增运行 PASS、部署生效或真实 U 声明。
+
+- Writing Current 明确无默认活动工程任务；Acceptance 保留限定 ACCEPTED 与真实 U UNTESTED。已批准替代素材的历史恢复已关闭，不能把它重新列为缺失原 PNG 的当前任务。
+- **Current 资产**：manifest 将学习 owner 指向 `writing/learning.md`，将练习登记为 `synthetic-tasks.v1.json`；该 JSON 明确 CURRENT，10 个完整合成作文（4 Small + 6 Big），无 model answer。此处不是仅准备而未接入的候选库。
+- **实际合成任务链**：JSON → `englishWritingSynthetic.mjs`（校验、映射 title/learnerTask/targetWords/planningPrompt/draftPrompt，记录 task 与 owner hash）→ `englishWritingRuntimeTask.mjs`（合成与 source-ready 真题目录）→ `englishWritingRuntimeSourceTruth.mjs` → `writing.astro` / `writing/[id].astro` → `WritingWorkspace`。SourceTruth 的 Writing projector 对非 exam 原样返回。目录卡片读取真实 task 字段；Workspace 读取题干/背景/事实或 visual_scenario、字数、plan/draft 提示。合成任务正文没有另一个手写网页副本。
+- **实际首学链**：`learning.md` → `englishWritingLearning.mjs` → `writing-learn.astro`。projection 读 A、B intro、B1–B6、C、D、E、I，页面用 Markdown 渲染这些字段；六能力 targeted/skippable，练习/Skill Map/true-exam 参考不成为必修完成门槛。修改这些被投影的正文会进入新构建的页面；并不意味着 learning.md 每一段都原样展示。F/G/H/J 与末尾摘要不在该 projection 字段集，不据此自动判漏接：内部运行要求与参考说明不等于全部正文首学展示承诺。
+- **保留参考与退役含义**：`learning.reference.md` 仍是有效深层 repair/reference reservoir；退役的是旧 B1–B8 必修路线和旧 true-exam prerequisite 的当前权威，不是整份资产。已读首学 consumer 不读取 reference 为 Current，也未发现承诺将全部 reference 原文挂入该首学页；不能因未消费就删掉或重建新的 reference 系统。
+- **真题消费边界**：`englishWriting.mjs` 从现行 manifest/provenance/question bank 构造严格任务身份；runtime wrapper 对大作文图像路径、存在性与 hash 进行准入；`projectWritingRuntimeSourceTruth` 把当前 source overlay 的题干/图像送入 learnerTask。仅阅读实现，不执行 loader、不读取受保护 unseen bank 或 image 正文；不由静态 trace 宣称每份 Source 可用。
+- **传播限制**：上述 loader 有进程级 cache，Astro 为构建时投影；这里只能确认下一次有效读取/构建的数据依赖，不能声称修改 GitHub 后已打开页面或现有 learner record 即时刷新。也不把全部 authored 元数据都误称为可见正文：Workspace 保存完整 task payload，但只展示其指定字段。本轮不改变 first-evidence/state identity。
+
+停止：把本记录并入原理解 ledger，继续下一条独立第一阶段链；本链无须建立新修复、测试 campaign 或语义 registry。
+
+### 本轮精确阅读覆盖
+
+READ 指全文实际阅读；版本均为上述固定 main 的 blob，不把重复已读算新增独立覆盖。
+
+| 文件 | blob | 状态 |
+|---|---|---|
+| `AGENTS.md` | `5b7cc02e50f40bcf2e1fdb439344ee927a7f9079` | READ / static trace |
+| `content/english/modules/writing/CURRENT.md` | `e477d02e01f775b25d00bdace4ebb101203d4a6c` | READ / static trace |
+| `content/english/modules/writing/ACCEPTANCE.md` | `140b853dcdeb9a5b7eb2954b71beb0aa4c7949c7` | READ / static trace |
+| `content/english/manifest.json` | `24595a2bf13d2315357b5bec38a3207bdcbfe0af` | READ / static trace |
+| `content/english/modules/writing/synthetic-tasks.v1.json` | `e596dda74ed1303c3d10a0e07b086ce4a7b82eff` | READ / static trace |
+| `static-web/src/lib/englishWritingSynthetic.mjs` | `d34d9abef6efffee1f39232290ccd0018152a2a2` | READ / static trace |
+| `static-web/src/lib/englishWriting.mjs` | `4292a6fb13b90e55740fea25b8464bbe65a75c63` | READ / static trace |
+| `static-web/src/lib/englishWritingRuntimeTask.mjs` | `c45c8f60733038a12bc21faa72c01e859b30955b` | READ / static trace |
+| `static-web/src/lib/englishWritingRuntimeSourceTruth.mjs` | `394c89e14680f24d144892bd9d3a61a0e952ddf6` | READ / static trace |
+| `static-web/src/lib/englishWritingLearning.mjs` | `8e4bc69eb0e247b94a10bd2ad4279d73b796b13a` | READ / static trace |
+| `static-web/src/pages/writing.astro` | `f8a9a52d2e3d9db0317c2457af6831606b48e980` | READ / static trace |
+| `static-web/src/pages/writing/[id].astro` | `ecbbd3a06441bb672f715fd10cad54547208ead0` | READ / static trace |
+| `static-web/src/pages/writing-learn.astro` | `eaeea8d1a078f3cdb979b9786471b6fec40f470e` | READ / static trace |
+
+### PARTIAL 与复用
+
+| 文件 | blob | 本轮范围 / 复用依据 |
+|---|---|---|
+| `content/english/modules/writing/learning.md` | `9c5a8e1f0c6c983bfcfa92aaa1012066e9e599e9` | PARTIAL：1–100、735–837 与标题结构；metadata 确认未变，复用第五批全文 READ |
+| `content/english/modules/writing/learning.reference.md` | `a436c6dd98b1aaff44438d6a6f5a28d451538be8` | PARTIAL：1–65；metadata 确认未变，复用第七批全文 READ |
+| `static-web/src/components/WritingWorkspace.astro` | `42f2b3eb44f4333ccf718cb2e6abb7a3932ae698` | PARTIAL：1–110 与 task/reference 字段定向搜索；未审全交互 |
+| `static-web/src/lib/englishSourceTruth.mjs` | `d85d485b9f31dba7ef37f3276277c91583ccb140` | PARTIAL：330–383 Writing projector 与相关搜索；未重审全 SourceTruth |
+| `task-continuity/dot/EXAM_UNDERSTANDING.md` at PR1121 `d3b7d40552d32c673facca7f5797f78dbe021539` | `4d59b39888199e2e20b7bd437da9adebd76fb2ab` | PARTIAL：第五/七批 Writing 证据与末尾既有 append；未重复计全文 |
+
+未验：protected unseen 真题正文/图像、完整 SourceTruth、WritingWorkspace 全交互及 evidence/Return/native record behavior、真实学习状态、构建/测试/浏览器/部署。没有进行 GitHub mutation；仅准备本追加草稿。
+
+证据入口：[Current](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/content/english/modules/writing/CURRENT.md) · [Synthetic consumer](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/lib/englishWritingSynthetic.mjs) · [Learning projection](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/lib/englishWritingLearning.mjs) · [Learning page](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/pages/writing-learn.astro) · [Task page](https://github.com/kianwang022-hash/kianos/blob/d75c141a018b9cc39319389a7f6289a5fb3c6e1a/static-web/src/pages/writing/%5Bid%5D.astro)
+
+
