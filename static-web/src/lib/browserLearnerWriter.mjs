@@ -187,6 +187,11 @@ export const learnerWriterReady = existing?.ready || (!browser ? Promise.resolve
           showState('active');
           window.dispatchEvent(new Event('kianos:learner-writer-ready'));
           resolve();
+          if (!recovery.recovery && (recovery.result?.warnings?.length || !['restored','skipped','missing'].includes(recovery.result?.status))) {
+            window.dispatchEvent(new CustomEvent('kianos:private-checkpoint-error', {
+              detail: { status: recovery.result?.status, warnings: recovery.result?.warnings || [] }
+            }));
+          }
           await new Promise(done=>{releaseLock=done;});
         }).catch(()=>{stopRequests();ownsWrites=false;showState('unavailable');});
         requestHandoff();

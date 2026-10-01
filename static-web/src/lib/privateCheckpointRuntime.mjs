@@ -431,21 +431,55 @@ export async function preparePrivateCheckpointBootstrap(storage, options = {}) {
   if (request.durableRestoreCheckpointId && request.rebaseCheckpointId) {
     throw new Error('PRIVATE_CHECKPOINT_RECOVERY_DIRECTION_AMBIGUOUS');
   }
-  const result = await restoreSharedControlFromPrivate(staged, options);
+  let source = null;
+  const readCheckpoint = options.readCheckpoint || readPrivateLearnerCheckpoint;
+  const bootstrapOptions = {
+    ...options,
+    readCheckpoint: async () => {
+      source = await readCheckpoint();
+      return source;
+    }
+  };
+  const result = await restoreSharedControlFromPrivate(staged, bootstrapOptions);
   let recovery = null;
   if (request.durableRestoreCheckpointId) {
     recovery = await restorePrivateCheckpointGroupsFromDurable(staged, {
-      ...options, expectedCheckpointId: request.durableRestoreCheckpointId
+      ...bootstrapOptions, expectedCheckpointId: request.durableRestoreCheckpointId
     });
   } else if (request.rebaseCheckpointId) {
     recovery = await rebasePrivateCheckpointLineageToCurrent(staged, {
-      ...options, expectedCheckpointId: request.rebaseCheckpointId
+      ...bootstrapOptions, expectedCheckpointId: request.rebaseCheckpointId
     });
+  }
+  // Ordinary bootstrap keeps a conflicting native value. Surface that split
+  // immediately instead of waiting for a later autosave to rediscover it.
+  // Explicit recovery is excluded here because its verified transaction below
+  // is the operation that intentionally resolves the selected conflicts.
+  if (!recovery && source?.status === 'ready' && source.checkpoint?.schema === PRIVATE_CHECKPOINT_SCHEMA) {
+    const checkpoint = source.checkpoint;
+    const allowed = allowLocalChangesByGroup(staged, checkpoint);
+    const warnings = new Set(result.warnings || []);
+    for (const group of SUBJECT_CHECKPOINT_GROUPS) {
+      if (!allowed[group.id] && group.subjects.some(subject =>
+        subjectCheckpointConflicts(staged, checkpoint.payload?.subjects?.[subject]))) {
+        warnings.add('checkpoint:' + group.id + ':PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT');
+      }
+    }
+    try {
+      const projected = sharedProjection(checkpoint.payload?.shared, result.study_day);
+      if (!allowed.shared && sharedConflict(staged, projected.staged)) {
+        warnings.add('checkpoint:shared:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT');
+      }
+    } catch { /* Existing recovery warnings retain malformed source evidence. */ }
+    result.warnings = [...warnings];
   }
   const keys = new Set([...before.keys(), ...values.keys()]);
   const changes = [...keys].filter(key => (before.get(key) ?? null) !== (values.get(key) ?? null))
     .map(key => [key, values.get(key) ?? null]);
-  return { result, recovery, changes, expected: new Map(changes.map(([key]) => [key, before.get(key) ?? null])) };
+  // Every read dependency participates, not only keys changed by recovery.
+  // Otherwise a concurrent native edit could inherit a receipt prepared for
+  // older bytes while the transaction still appears conflict-free.
+  return { result, recovery, changes, expected: new Map([...keys].map(key => [key, before.get(key) ?? null])) };
 }
 
 export async function restoreSharedControlFromPrivate(storage, {

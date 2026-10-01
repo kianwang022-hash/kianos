@@ -50,6 +50,14 @@ stale.setItem(xkey, different);
 assert.throws(()=>commitLearnerStorageChanges(stale,stalePrepared.changes,stalePrepared.expected),/KIANOS_LEARNER_STORAGE_STALE/);
 assert.equal(stale.getItem(xkey), different);
 assert.equal(stale.length, 1, 'stale preparation must not partially install siblings');
+// An unchanged subject is still a read dependency of the recovery/base receipt.
+const unchanged = new Storage(entries);
+const unchangedPrepared = await preparePrivateCheckpointBootstrap(unchanged, {readCheckpoint});
+assert.ok(!unchangedPrepared.changes.some(([key]) => key === xkey));
+unchanged.setItem(xkey, different);
+assert.throws(() => commitLearnerStorageChanges(unchanged, unchangedPrepared.changes, unchangedPrepared.expected), /KIANOS_LEARNER_STORAGE_STALE/);
+assert.equal(unchanged.getItem(xkey), different);
+assert.equal(unchanged.getItem('kianos-private-checkpoint-base-v1'), null);
 for (const status of ['missing','unavailable','invalid']) {
   const local = new Storage({[lkey]:'37'});
   const result = await preparePrivateCheckpointBootstrap(local,{readCheckpoint:async()=>({status,checkpoint:null})});

@@ -134,6 +134,39 @@ try {
   });
   await page.reload({waitUntil:'domcontentloaded'}); await ready(page);
   check(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).kpIndex===5,key),'temporary_backup_outage_does_not_reset_valid_local_progress');
+
+  // Reuse #1120's unique proof: retained conflicts and unavailable backup reads
+  // are visible immediately at bootstrap, and the shared notice does not hide
+  // the existing source action row at the supported Mac viewport.
+  for (const scenario of ['conflict','unavailable']) {
+    const isolated = await browser.newContext({viewport:{width:1440,height:900}});
+    isolated.setDefaultTimeout(15000);
+    const localState = {...state,kpIndex:1,groupIndex:0,resumeKpId:learner.kps[1].identity.kpId,resumeGroupId:learner.kps[1].identity.logicGroupId};
+    const localEntries = {...Object.fromEntries(source.map),[key]:JSON.stringify(localState)};
+    await isolated.addInitScript(entries=>{
+      for(const [k,v] of Object.entries(entries))localStorage.setItem(k,v);
+      window.__checkpointErrors=[];
+      window.addEventListener('kianos:private-checkpoint-error',event=>window.__checkpointErrors.push(event.detail));
+    },localEntries);
+    await isolated.route('**/__kianos-private/checkpoint',async route=>{
+      if(route.request().method()==='GET'){
+        if(scenario==='unavailable') return route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:'synthetic unavailable'})});
+        return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({status:'ready',checkpoint:seed})});
+      }
+      if(route.request().method()==='PUT') return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({status:'saved',checkpoint_id:'synthetic-visible-warning'})});
+      return route.continue();
+    });
+    const probe=await isolated.newPage(); await probe.goto(base+'/xizong/circulation/b02/',{waitUntil:'domcontentloaded'}); await probe.bringToFront(); await ready(probe);
+    await probe.locator('[data-learner-writer-notice]').filter({hasText:'尚未确认存档'}).waitFor();
+    const visible=await probe.evaluate(key=>({state:JSON.parse(localStorage.getItem(key)),cursor:localStorage.getItem('kianos-vocabulary-last-ordinal'),events:window.__checkpointErrors}),key);
+    check(visible.state.kpIndex===1 && visible.cursor==='81',scenario+'_bootstrap_preserves_local_progress_and_sibling_cursor',visible);
+    check(visible.events.length>0,scenario+'_bootstrap_warning_is_visible_before_later_user_action',visible.events);
+    if(scenario==='conflict')check(visible.events.some(event=>event?.warnings?.includes('checkpoint:xizong:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT')),'conflict_warning_identifies_responsible_group',visible.events);
+    const geometry=await probe.locator('[data-source-contact-done]').evaluate(node=>({bottom:node.getBoundingClientRect().bottom,viewport:innerHeight}));
+    check(geometry.bottom<=geometry.viewport,scenario+'_notice_keeps_source_action_in_viewport',geometry);
+    await isolated.close();
+  }
+  await page.bringToFront();
   await context.unroute('**/__kianos-private/checkpoint');
   await page.evaluate(()=>window.dispatchEvent(new Event('kianos:subject-continue-updated')));
   await sleep(400);
