@@ -60,3 +60,43 @@ Chat 帮助快速理解 Lecture 的机制与结构；网站已有 KP 承接可�
 - 当前内容组合：`content/xizong/LEARNER_OBJECT_CONTRACT.md`
 - 工程责任：[#1113](https://github.com/kianwang022-hash/kianos/issues/1113)
 - 第一阶段范围：[Personal #61](https://github.com/kianwang022-hash/kian-personal-os/issues/61)
+
+
+## Chat 理解层级参考｜A1 循环压缩
+
+以下仅是 Chat 为后续教学恢复上下文而保存的**非 canonical 理解参考**。它不改变 System → Block → Logic Group → KP 的正式结构，不替代 Source / Knowledge / Learning owner，也不表示 Kian 已掌握。未来若 canonical 内容变化，以原 owner 为准；这里最多作为重新进入教学时的认知提示。
+
+当前对 A1 循环的高层压缩：
+
+```text
+循环系统
+├─ 1. 正常怎么运行
+│  ├─ B1 正常机械循环
+│  ├─ B2 循环调节与容量控制
+│  ├─ B3 心肌电活动与 ECG 语言
+│  └─ B4 正常止血与病理循环整合
+│
+├─ 2. 管路怎么坏
+│  ├─ B5 高血压与动脉粥样硬化
+│  ├─ B6 冠心病与心肌梗死
+│  └─ B9 周围血管疾病
+│
+├─ 3. 泵的结构怎么坏
+│  ├─ B7 瓣膜病 / IE / 风湿
+│  └─ B8 心肌与心包
+│
+└─ 4. 系统怎么最终失效
+   ├─ B10 节律 / 时序失败
+   ├─ B11 泵 / 充盈衰竭
+   └─ B12 灌注崩溃 / 心脏骤停
+```
+
+使用方式：
+- **Block 是大地图**：说明这一块循环问题在解决什么；
+- **Logic Group 是机制道路**：真正用于连续理解、做题调用和病例反推；
+- **KP 是稳定知识归属**：保证覆盖、Precision、Recall、Memory 能回到原 owner；
+- 不在 Block 与 LG 之间新增正式层级；“正常运行 / 管路病 / 结构泵病 / 最终失败”只是 Chat 的认知压缩；
+- 第一遍优先建立“能跑起来”的机制框架；不影响当前推理的零碎 Precision 可在 System 框架建立后逐步填回；
+- 会改变判断的受体、通路、阈值、方向等即使很精确，也必须在当前机制节点讲清。
+
+教学目标不是把 12 个 Block 当目录背，而是让 12 个 Block 最终压成一套可用于未知病例的循环模型：先定位机械 / 电 / 调节 / 管路 / 结构 / 灌注哪个层先坏，再调用对应 Block / LG；后续心、肾、肺学习完成后，再把跨系统接口继续整合，不要求 B2 或 A1 第一遍就承担终极大模型。
