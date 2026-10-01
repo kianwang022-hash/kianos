@@ -10,7 +10,7 @@ No broad Website construction or UI campaign is active.
 
 The bounded Steward V3 construction program is closed. The reviewed agenda/Now composition, native Dock/return, persisted reality semantics, duration-legible timeline, shared L1 styling and deterministic plan-authorized Nutrition top-ups are merged on `main`, accepted by Kian, and released through managed Current.
 
-One later **bounded integration defect** remains owned by [#1111](https://github.com/kianwang022-hash/kianos/issues/1111): an adopted day plan may include Nutrition/Training and private reality, but every intermediate read model / Daily Packet / Chat readback must preserve that adopted projection and its freshness. This does not reopen broad Steward UI construction; #1111 owns Current / Next / Blocker for that defect and this cursor routes only to the exact runtime/product owner.
+For adopted day-plan / Nutrition / Training / private-reality integration, [#1111](https://github.com/kianwang022-hash/kianos/issues/1111) remains the existing operating-loop evidence and follow-up anchor. Read its current section rather than earlier defect / Next statements: the bounded Steward repair is delivered, while any real learner-record reconciliation remains separate. This does not reopen broad Steward UI construction; #1111 owns its Current / Next / Blocker and this cursor routes only to the exact runtime/product owner.
 
 The shared shell, subject surfaces, managed Current delivery, private checkpoint/control paths, Daily Learning Packet relay, External Reading runtime and Steward workspace are implementation surfaces on `main`.
 
