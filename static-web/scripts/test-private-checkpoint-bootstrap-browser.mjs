@@ -142,7 +142,9 @@ try {
     const isolated = await browser.newContext({viewport:{width:1440,height:900}});
     isolated.setDefaultTimeout(15000);
     const localState = {...state,kpIndex:1,groupIndex:0,resumeKpId:learner.kps[1].identity.kpId,resumeGroupId:learner.kps[1].identity.logicGroupId};
-    const localEntries = {...Object.fromEntries(source.map),[key]:JSON.stringify(localState)};
+    const localEntries = {...Object.fromEntries([...source.map].filter(([storageKey])=>![
+      'kianos-private-checkpoint-base-v1','kianos-private-checkpoint-lineage-v2'
+    ].includes(storageKey))),[key]:JSON.stringify(localState)};
     await isolated.addInitScript(entries=>{
       for(const [k,v] of Object.entries(entries))localStorage.setItem(k,v);
       window.__checkpointErrors=[];
