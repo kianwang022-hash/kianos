@@ -664,3 +664,8 @@ Assets may be prepared and source-validated before learner use. This never means
 Track model scope/integration level separately from validation status and actual learner evidence. Before claiming validation, check canonical/LG/KP coverage, readable Source and necessary visuals, causal direction, parallel processes, feedback, experimental versus in-vivo meaning, decisive exceptions and relevant cross-Block interfaces. Missing evidence blocks only its dependent claim; a known scoped uncertainty need not invalidate unrelated verified content. A stable framework must be corrected when wrong, but adding detail or an interface does not justify gratuitous wholesale reorganization.
 
 A complete-review or Lecture-replacement claim requires actual mandatory-content accounting, not merely all KP IDs being present. Source/PDF or visual material not inspected remains explicitly unverified.
+
+
+### Block mother model and LG subframeworks
+
+One Block owns one complete large model. Its LGs may each have a fully developed local subframework, explicitly connected to that Block model. Both must unfold the actual reasoning: problem/prerequisite → trigger conditions → intermediate changes → branches/feedback → result → next interface. Neither is a sparse heading list or a chain of unexplained results. The highly compressed count/category grammar belongs to KP Prompts; it must not be imposed on the Block/LG causal representation. Longer text frames are preferable to deleting reasoning. LG subframeworks do not introduce another canonical level.
