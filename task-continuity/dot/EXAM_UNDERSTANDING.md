@@ -288,3 +288,22 @@ PARTIAL：politicsPracticeState.mjs@8c8a689a87e2584d5cdafc66f40129353145bf8c为1
 - 教学交接已保存到candidate/xizong-teaching-handoff-20261001的task-continuity/xizong-teaching，记录“母线/必留/后置KP”与覆盖索引。讲解覆盖不等于已学，文件存在不等于网页已有新交互。
 
 后续按已证缺陷→最小候选→对应验证推进；继续补现行owner/consumer覆盖。全量阅读、全场景验收与内容质量升级均未完成。
+
+## 清点与历史阅读对账（2026-10-01 03:12 UTC）
+
+固定main c1327889、root tree 9feec4c14a69d30edf9079b5dd69d2a0ff08a889；65个有界tree响应均truncated:false，共14,252个blob。只列目录/路径/blob，不新增正文阅读或验证。content13,352（English34、Lexical11,544、Politics559、Xizong1,012、Skills203）；static-web809（src415、scripts335、顶层32、public27）；其余.github45、tools24、task-continuity3、根文件19。仓库文件总数不是考研语义阅读分母。
+
+第九批表格89条READ，加第一批明确的4条西综全文阅读，按repo/path/blob去重扣除2条重复后为91条版本化记录：KianOS83、Personal8。KianOS74条与当前blob相同、9条为旧版本阅读；精确当前PARTIAL另5条。未精确定位的读取不补算全文。
+
+另对账XIZONG_UNDERSTANDING.md@b2c363a61ca7cdf44130e4711cd87c5761aa4b84：159份canonical Block历史全文READ仍保留（26早期清单证据较弱、55旧详细ledger、78后续详细ledger）；147份与当前blob相同，12份A1已变化。版本相同不等于医学正确或浏览器验收，变化也不等于历史从未读过。O9 overlay、A宏域和其他非Block资产另计。没有重读PDF。
+
+因此“89项”仅描述EXAM表格，不是整个主线只读了89份，也不能拿14,252作为已确认考研范围算完成率。路径启发式分类尚有10,165未分类，尤其Lexical words不能仅凭目录判定owner与transport职责。下一步按现有manifest/引用确认纳入范围，不删除或批量移动资产。
+
+第九批后新增全文READ：
+- static-web/XIZONG_PRACTICE_DESIGN.md — d56b94b1f99245f03de90290f47c4143585662f7
+- static-web/src/components/XizongSystemRepairReturn.astro — 12ea3d76836730322d4ac7b831df4b2abb441d13
+- static-web/src/lib/xizongSystemWuReturn.mjs — 11c6efb789839416e0f3b75b605d5dfa599219df
+- static-web/src/pages/xizong/practice/[system].astro — ef4564cf697d2057defa81338ebd33fa367d274b
+- static-web/src/pages/xizong/[system]/[block].astro — 624ddc54b13e5f0bbf3d0299046ca4c20c488ea0
+
+实际使用链已经开始逐段追踪。Repair Return刷新后显示丢失在合成实际component/native函数重放中已复现：持久任务仍存在，页面却传空任务列表；这是显示恢复候选，不是丢失学习数据的结论，后续仍回原#1111记录。Learn/Source段切换正在另做有界核对，未完成时不声明通过。
