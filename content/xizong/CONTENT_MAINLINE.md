@@ -1,6 +1,6 @@
 # Xizong Content Mainline
 
-Status: **CURRENT PROGRAM ROUTER · NO BROAD CONTENT CAMPAIGN · BOUNDED #1113 ACTIVE**
+Status: **CURRENT PROGRAM ROUTER · THREE EXPLICIT CONTENT TASKS + BOUNDED #1113**
 Parent: `content/xizong/CURRENT.md`
 
 This file owns only **program-level Xizong content coordination**: which durable lane is open, what may proceed independently, and where a Fresh Chat should enter.
@@ -21,7 +21,7 @@ Do not reconstruct program state from old PRs, run IDs, historical branches, pri
 
 ## Current program state
 
-No broad Xizong content-construction campaign is active.
+No unrestricted Xizong medical-content rewrite is active. On 2026-10-01 the user explicitly opened three bounded content tasks below; the historical broad construction closures remain scoped.
 
 Closed for the current admitted scope:
 
@@ -43,6 +43,15 @@ Eligible only when deliberately prioritized or reopened by evidence:
 Real learner U remains private evidence and is never manufactured by this program router.
 
 ## Active bounded tasks
+
+Explicitly opened 2026-10-01:
+
+- [#1133 — A1/A2 compact pipe-separated KP Prompt authoring](https://github.com/kianwang022-hash/kianos/issues/1133)
+- [#1134 — Block orientation and LG-based Chat teaching assets](https://github.com/kianwang022-hash/kianos/issues/1134)
+- [#1135 — complete three-column review text frames and precision support](https://github.com/kianwang022-hash/kianos/issues/1135)
+
+Each Issue owns its Current / Next / acceptance. Shared cognition stays in `LEARNING_CONTRACT.md`; medical truth stays with the original assets. Start teaching/review calibration with B4 and preserve their separate purposes. Website construction is paused. Prompt changes and review-text reuse coordinate by exact content revision; independent research/authoring may proceed without mixing learner evidence.
+
 
 One bounded cross-System content-consistency task is active: [#1113 — Content→Website consistency and readability](https://github.com/kianwang022-hash/kianos/issues/1113). `content/xizong/CURRENT.md` is its routing pointer; the Issue alone owns its Current / Phase / Next / Blocker. This Mainline must not restate those details or infer completion from an old receipt.
 

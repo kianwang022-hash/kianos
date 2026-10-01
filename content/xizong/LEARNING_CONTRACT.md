@@ -638,3 +638,29 @@ A content defect, bad mapping, UI friction, Runtime bug or question error is rep
 Durable direction:
 
 > **medical truth → AI mechanism reconstruction → source-faithful continuous learning → active retrieval → smallest repair → application → progressively thinner mastery.**
+
+
+## 15｜2026-10-01 adopted content-generation refinement
+
+This section refines content production for the explicitly opened tasks [#1133](https://github.com/kianwang022-hash/kianos/issues/1133), [#1134](https://github.com/kianwang022-hash/kianos/issues/1134), and [#1135](https://github.com/kianwang022-hash/kianos/issues/1135). It creates no new Knowledge hierarchy, Runtime or learner evidence.
+
+### Two content deliverables, one Knowledge basis
+
+- **Chat teaching asset:** first explain the Block's logical position in its System, prerequisites, central problem and LG handoffs. Teach by the accepted LG sequence; introduce each LG's position, local problem and framework before layered causal teaching. Embed full mandatory KP knowledge, reasoning-changing conditions, counterexamples and clinical intuition at the right nodes. Close understanding gaps and identify precision and downstream interfaces. Chat may adapt language and order inside that scope; the file is not a rigid recital script.
+- **Review text-frame asset:** a continuous complete Block mother framework, independent logical mini-models, and original KP names/prompts. It is retrievable directly in Chat; website production is currently out of scope. Compression removes repetition, not the causal steps, conditions, branches or mandatory knowledge needed to read through and reconstruct the model.
+
+The review middle region may contain comparison, failure simulation, reverse localization, cross-node reasoning and necessary extension. It is not a migrated lecture paragraph column and is not restricted to explaining a single left-side arrow. The right region displays canonical KP identity/name and the current original Prompt only; supplementary questions remain explicitly separate. Full precision/reference content has an actual owning location elsewhere in the asset, not merely a coverage claim inferred from a link.
+
+### Prompt and precision
+
+For the admitted A1/A2 authoring review, use compact retrieval axes separated by `｜`, not a list of interrogative questions or an answer-bearing Core summary. Preserve valid existing retrieval meaning; do not mechanically replace punctuation or invent formal Boundary/Connection support. New review assets must consume the latest accepted canonical Prompt, not a stale copied version.
+
+KP remains the smallest review ownership unit in these deliverables. A KP's mechanisms may appear at several appropriate model positions without splitting its canonical identity. Precision may use concise tables, receptor/channel matrices, drug target → variable → effect chains, decision trees, timelines and accurate programmatic curves/diagrams where useful. Facts that change current reasoning belong in current teaching even if they also require exact memory.
+
+### Preparation, integration and validation are distinct
+
+Assets may be prepared and source-validated before learner use. This never means the learner has studied or mastered them. Learner-facing integration grows through local teaching models → Block → related-Block cluster → System → cross-System synthesis. Cluster/compression views are not new canonical owners. Unlearned downstream material remains an explicit bounded interface rather than a claimed mature learner model.
+
+Track model scope/integration level separately from validation status and actual learner evidence. Before claiming validation, check canonical/LG/KP coverage, readable Source and necessary visuals, causal direction, parallel processes, feedback, experimental versus in-vivo meaning, decisive exceptions and relevant cross-Block interfaces. Missing evidence blocks only its dependent claim; a known scoped uncertainty need not invalidate unrelated verified content. A stable framework must be corrected when wrong, but adding detail or an interface does not justify gratuitous wholesale reorganization.
+
+A complete-review or Lecture-replacement claim requires actual mandatory-content accounting, not merely all KP IDs being present. Source/PDF or visual material not inspected remains explicitly unverified.
