@@ -29,8 +29,9 @@ This is the same causal S/K/L-centered production model governed by root `LEARNI
 | Conditional reuse / ecosystem scan | `content/skills/ECOSYSTEM_SCAN.md` |
 | Unit design / evidence closure | `content/skills/UNIT_CONTRACT.md` |
 | Exact Skill content / readiness | `content/skills/<skill>/manifest.json` + referenced assets |
-| Generic website reader / projection | exact `static-web/` Skills implementation owner |
-| Real reading/use evidence | browser/private learner runtime |
+| Generic website reader / projection | `static-web/src/lib/skills.mjs` → `static-web/src/pages/skills/` (library / Skill / asset routes) |
+| Reading Resume (navigation only) | `static-web/src/lib/skillRuntimeClient.mjs` (`last_asset`) → browser/private learner runtime |
+| Reconstruction / Verify / Transfer / real-use interpretation | Chat, under `content/skills/LEARNING_CONTRACT.md` |
 
 Personal owns why a capability matters to Kian, demand discovery and any accepted personal conclusion. KianOS owns the promoted learner-facing Skill asset and its product semantics. A Personal interest does not automatically become a Skill.
 

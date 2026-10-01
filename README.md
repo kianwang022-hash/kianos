@@ -109,10 +109,10 @@ From the repository root:
 
 ```bash
 npm run setup   # first run, or after dependency changes
-npm run dev
+npm --prefix static-web run candidate:serve
 ```
 
-Then open the local URL printed by Astro (normally `http://localhost:4321/`).
+Open the isolated Candidate at `http://127.0.0.1:4322/` for learner-facing Website BUILD/UI work, following `AGENTS.md`. Managed Current / Stable at `http://127.0.0.1:4321/` remains the normal learner surface.
 
 Other root commands:
 
@@ -121,7 +121,7 @@ npm run build
 npm run preview
 ```
 
-You no longer need to `cd static-web` before running the learner runtime.
+Normal learner operations use the root `current:*` commands above.
 
 ## Deferred work
 
