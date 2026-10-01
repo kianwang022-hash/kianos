@@ -669,3 +669,6 @@ A complete-review or Lecture-replacement claim requires actual mandatory-content
 ### Block mother model and LG subframeworks
 
 One Block owns one complete large model. Its LGs may each have a fully developed local subframework, explicitly connected to that Block model. Both must unfold the actual reasoning: problem/prerequisite → trigger conditions → intermediate changes → branches/feedback → result → next interface. Neither is a sparse heading list or a chain of unexplained results. The highly compressed count/category grammar belongs to KP Prompts; it must not be imposed on the Block/LG causal representation. Longer text frames are preferable to deleting reasoning. LG subframeworks do not introduce another canonical level.
+
+
+The teaching file's primary reader is Chat: it is a model-building basis, not a lecture summary to recite. It must explain the problem, variables, prerequisite links, why each causal step follows, branching conditions, feedback, future insertion points, and how an exam stem's change is located and propagated through the model. First-pass acquisition should already develop the organization and reasoning otherwise postponed to a later pass. Preserve adaptive dialogue rather than a fixed script; successful authoring never establishes learner ability.
