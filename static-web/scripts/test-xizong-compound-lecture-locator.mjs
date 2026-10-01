@@ -82,6 +82,10 @@ try {
     ['internal-bold', '> **主提示**：轴1；**讲义定位术语**｜最后1', ''],
     ['fenced-code', '```md\n> **讲义回看 →** B1；**讲义定位：P1**\n```', ''],
     ['quoted-fence', '> ~~~md\n> **讲义回看 →** B1；**讲义定位：P1**\n> ~~~', ''],
+    ['unquoted-fence-quoted-literal-close', '```md\n> ```\n> **讲义回看 →** B1；**讲义定位 →** P1\n```', ''],
+    ['quoted-fence-unquoted-literal-close', '> ```md\n```\n> **讲义回看 →** B1；**讲义定位 →** P1\n> ```', ''],
+    ['unquoted-fence-compatible-close', '```md\n> ```\n```\n> **讲义回看 →** B1；**讲义定位 →** P1', 'P1'],
+    ['quoted-fence-compatible-close', '> ```md\n```\n> ```\n> **讲义回看 →** B1；**讲义定位 →** P1', 'P1'],
     ['fence-info-is-not-close', '```md\n```still code\n> **讲义回看 →** B1；**讲义定位：P1**\n```', ''],
     ['missing', '正文保留', '']
   ];

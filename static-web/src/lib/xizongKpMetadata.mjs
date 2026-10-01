@@ -67,11 +67,12 @@ export function readCompoundLectureLocator(body) {
   const values = [];
   let fence = null;
   for (const line of String(body).split(/\r?\n/)) {
-    const fenceMatch = line.match(/^ {0,3}(?:>\s*)?(`{3,}|~{3,})(.*)$/);
+    const fenceMatch = line.match(/^ {0,3}(>\s*)?(`{3,}|~{3,})(.*)$/);
     if (fenceMatch) {
-      const token = fenceMatch[1];
-      if (!fence) fence = token;
-      else if (token[0] === fence[0] && token.length >= fence.length && !fenceMatch[2].trim()) fence = null;
+      // A closing fence must stay in the opener's quote container.
+      const quoted = Boolean(fenceMatch[1]), token = fenceMatch[2];
+      if (!fence) fence = { token, quoted };
+      else if (quoted === fence.quoted && token[0] === fence.token[0] && token.length >= fence.token.length && !fenceMatch[3].trim()) fence = null;
       continue;
     }
     if (fence) continue;
