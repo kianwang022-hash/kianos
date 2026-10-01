@@ -245,3 +245,46 @@ Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e57
 #1111与#1113已经把最新Current/Next移到顶部，并把旧候选未发布/旧workflow阻塞段落明确降为历史；首轮已交付与全场景未验证分开。#61保存当前四阶段安排，#60只留执行边界与指针。此为任务入口一致性修复，不是新增规则层、产品代码或运行验收。
 
 下一步：继续第一阶段的现行规则→已有内容→实际消费者对应核对，优先清楚的功能边界与owner冲突。不能把未读/未验自动改为新测试任务；不重复已成立的全8/159/2517历史证明，不因暂停本机而把GitHub阅读/修复一并停掉。
+
+
+## 第九批：候选交付与复习范围追踪（2026-10-01 02:57 UTC）
+
+执行边界：第一阶段继续；仅候选分支，不直接更新main、合并或发布。本地状态恢复/启动冲突收口由另一个明确责任任务处理。本记录不把GitHub改动等同于已更新的学习网页。
+
+### 新增完整阅读与静态追踪
+
+以下为本批实际全文阅读；已经登记过的文件再次核对不重复增加覆盖。
+
+| 文件 | blob | 状态 |
+|---|---|---|
+| EXAM_SUBJECT_MATURITY_STANDARD.md | 192b9212d6e9febd4460a8b1d1577fae15f6e475 | READ |
+| static-web/XIZONG_HOME_DESIGN.md | 4eadd63ac9b55302d1f08debf0b2c69061b18077 | READ |
+| static-web/XIZONG_SYSTEM_COMPLETION_DESIGN.md | 588ccfcd3c5143b2022aa1123a99b293865e24f8 | READ |
+| static-web/XIZONG_REPRESENTATION_GATE.md | 34eb3c55bda652c48412abceaf140202ed9cc818 | READ（1–220、221–文件末） |
+| static-web/src/lib/homeXizongProjection.mjs | 32c8cab85b379cfa29859cab8a97954017313b6b | READ |
+| static-web/src/components/XizongHomeTools.astro | 2c02dcef5e20141507e5f11c44524f606f43ac53 | READ |
+| static-web/src/pages/xizong/[system]/recall.astro | 131e3641b6fee39f121dd5d589222a49fd6b89e3 | READ |
+| static-web/src/components/XizongSystemExitRuntime.astro | 5b69143fa6f0de090f836d4ea74789cae101c7aa | READ |
+| static-web/src/lib/dailyLearningPacket.mjs | 88f764d6db6c760b7b1bafd8fddaef3e886b235b | READ |
+| static-web/src/lib/dailyLearningPacketRuntime.mjs | b815b86545363dbd17bb9d8aebcbfd5a5d4c5d80 | READ |
+| static-web/src/lib/politicsReviewClient.mjs | be202952b072325a0fe063057ee1a3da46c9df01 | READ |
+| static-web/src/lib/politicsChatReturn.mjs | 823f37dbc8674376e9c3e98236f68af04010cd65 | READ |
+| static-web/src/pages/politics/review.astro | 625424a6fa15f32676671cc4e1726a1645f67d65 | READ |
+| static-web/src/pages/politics/practice.astro | df9fc117febc7803ff8d32ab484882a2a415e3bc | READ |
+| static-web/scripts/test-politics-batch-review-loop.mjs | cda475e556252c520471fe58074364b351786ce5 | READ |
+
+PARTIAL：politicsPracticeState.mjs@8c8a689a87e2584d5cdafc66f40129353145bf8c为1–265；politicsPracticeClient.mjs@3e38009897bbfe0590bcbba7c592966b579d0032为1–110、310–350、387–444。Learning/Product/Interaction对应Review条款及Xizong Block Workspace §9本批为精确复核；不由摘录增加全文阅读数。
+
+静态目录复核：main c1327889 的 static-web/src tree c529c2422dae20db98ce125db34fa9a54b429f0f 完整列举415个blob（assets94、components95、layouts7、lib123、pages56、styles40）。这是清点，不是415个文件已读或验收通过，也不是整个考研仓库的分母。
+
+### 本批结论与原责任入口
+
+- 成熟度标准明确复用有效历史证据、停止无收益建设；CI、单次用户验收、合成日和Current CLOSED均不能单独证明全科成熟。个人校准/当年Source/真实考试形态分别保留边界，不因标准文字存在而重新启动全部验收。
+- Xizong Home负责实际Continue、Current System入口和有真实依据的Attention；Home transport只派生canonical数据。System Recall拥有独立路由，practiceHref依真实题目scope可选，不能因没有题组阻塞重建。这里是代码追踪，不是新的真人路径验收。
+- Representation Gate §8仍写KP Front仅Prompt/neutral identity及workspace-wide neutral front，与现行Learning、Learner Object §6、Block Workspace §9的KP Core保护+允许Context有明确文字冲突。候选只对齐该节，保留显式answer-bearing/POST_REVEAL保护及Block/System更严格Front；不改变实现或医学内容。
+- Lecture复合元数据漏读修复已在[PR #1119](https://github.com/kianwang022-hash/kianos/pull/1119)。28份原文件/560KP是原生解析差分证据，不计医学全文审读；只有3处明确定位被恢复。独立检查又发现代码围栏container反例，cb84978已修并通过限定复核。最终CI以PR exact head回执为准，未发布。
+- Politics“留给讨论”当前列表/计数按discussion过滤，两个复习入口却丢失该范围，WorkBench重新选择全部W/U。已回原[#1111](https://github.com/kianwang022-hash/kianos/issues/1111#issuecomment-5923750359)；只准备范围传递的最小候选，保留现有selector/会话保护，不新建任务队列或学习状态。
+- Politics已导入的实质解释通过inspectPoliticsReviewedReturns进入Daily Packet；无关较新NO_ACTION不抹去旧dated meaning。该已修桥接不重复报漏接。
+- 教学交接已保存到candidate/xizong-teaching-handoff-20261001的task-continuity/xizong-teaching，记录“母线/必留/后置KP”与覆盖索引。讲解覆盖不等于已学，文件存在不等于网页已有新交互。
+
+后续按已证缺陷→最小候选→对应验证推进；继续补现行owner/consumer覆盖。全量阅读、全场景验收与内容质量升级均未完成。
