@@ -39,6 +39,7 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
 </Base>
 
 <script>
+  import { learnerWriterReady } from '../../../lib/browserLearnerWriter.mjs';
   import {
     lexicalLegacyDisplayHref,
     lexicalWordOrdinal,
@@ -303,5 +304,5 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
 
   const initialOrdinal = lexicalWordOrdinal(location);
   const initialMode = modeFromLocation();
-  void loadWord(initialOrdinal, initialMode, 'replace');
+  void learnerWriterReady.then(() => loadWord(initialOrdinal, initialMode, 'replace'));
 </script>

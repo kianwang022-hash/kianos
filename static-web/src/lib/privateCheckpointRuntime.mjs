@@ -384,6 +384,55 @@ function localContainsCheckpoint(storage, checkpoint, day, { includeReceipt = tr
     .every(([key, raw]) => sameRecoveredValue(key, local.staged.getItem(key), raw));
 }
 
+// Prepare recovery before granting native writes to page consumers.
+// This disposable overlay is a transaction, never another learner store.
+export async function preparePrivateCheckpointBootstrap(storage, options = {}) {
+  const before = new Map();
+  for (let i = 0; i < storage.length; i += 1) {
+    const key = storage.key(i);
+    if (typeof key === 'string') before.set(key, storage.getItem(key));
+  }
+  const values = new Map(before);
+  const staged = {
+    get length() { return values.size; },
+    key(i) { return [...values.keys()][i] ?? null; },
+    getItem(key) { return values.get(key) ?? null; },
+    setItem(key, value) { values.set(key, String(value)); },
+    removeItem(key) { values.delete(key); }
+  };
+  let source = null;
+  const readCheckpoint = options.readCheckpoint || readPrivateLearnerCheckpoint;
+  const result = await restoreSharedControlFromPrivate(staged, {
+    ...options, readCheckpoint: async () => { source = await readCheckpoint(); return source; }
+  });
+  // Report a retained split immediately, before autosave. This diagnoses the
+  // existing lineage guard; it neither chooses a winner nor changes authority.
+  if (source?.status === 'ready' && source.checkpoint?.schema === PRIVATE_CHECKPOINT_SCHEMA) {
+    const checkpoint = source.checkpoint;
+    const allowed = allowLocalChangesByGroup(staged, checkpoint);
+    const warnings = new Set(result.warnings || []);
+    for (const group of SUBJECT_CHECKPOINT_GROUPS) {
+      if (!allowed[group.id] && group.subjects.some(subject =>
+        subjectCheckpointConflicts(staged, checkpoint.payload?.subjects?.[subject]))) {
+        warnings.add('checkpoint:' + group.id + ':PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT');
+      }
+    }
+    try {
+      const projected = sharedProjection(checkpoint.payload?.shared, result.study_day);
+      if (!allowed.shared && sharedConflict(staged, projected.staged)) {
+        warnings.add('checkpoint:shared:PRIVATE_CHECKPOINT_LOCAL_BASE_CONFLICT');
+      }
+    } catch { /* Existing recovery warnings retain malformed source evidence. */ }
+    result.warnings = [...warnings];
+  }
+  const keys = new Set([...before.keys(), ...values.keys()]);
+  const changes = [...keys].filter(key => (before.get(key) ?? null) !== (values.get(key) ?? null))
+    .map(key => [key, values.get(key) ?? null]);
+  // Every read dependency participates, not only keys that recovery changes.
+  // Otherwise a new native edit could inherit a receipt prepared for old bytes.
+  return { result, changes, expected: new Map([...keys].map(key => [key, before.get(key) ?? null])) };
+}
+
 export async function restoreSharedControlFromPrivate(storage, {
   now = Date.now(), readCheckpoint = readPrivateLearnerCheckpoint
 } = {}) {

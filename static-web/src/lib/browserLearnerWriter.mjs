@@ -111,6 +111,19 @@ function guardNativeStorage(storage) {
 }
 
 export const learnerWriterReady = existing?.ready || (!browser ? Promise.resolve() : new Promise((resolve) => {
+  // Surface persistence failures without inventing a winning snapshot or
+  // blocking unrelated healthy subject groups. Reuse the existing notice.
+  window.addEventListener('kianos:private-checkpoint-error', () => {
+    if (writerState !== 'active') return;
+    const notice = ensureNotice();
+    notice.textContent = '部分学习记录尚未确认存档。请勿清理浏览器数据或重置进度，先核对保存状态。';
+    notice.hidden = false;
+  });
+  window.addEventListener('kianos:private-checkpoint-saved', () => {
+    if (writerState !== 'active') return;
+    const notice = document.querySelector('[data-learner-writer-notice]');
+    if (notice) notice.hidden = true;
+  });
   const begin = () => {
     showState('waiting');
     try {
@@ -139,10 +152,23 @@ export const learnerWriterReady = existing?.ready || (!browser ? Promise.resolve
         void navigator.locks.request(LOCK,{mode:'exclusive'},async()=>{
           stopRequests();
           if(!document.hasFocus()){requested=false;return;}
+          // A page lease is not proof that private state has been restored.
+          // Keep native writes denied during recovery; publish the prepared
+          // transaction before any learner consumer receives its ready signal.
+          const { preparePrivateCheckpointBootstrap } = await import('./privateCheckpointRuntime.mjs');
+          const recovery = await preparePrivateCheckpointBootstrap(nativeStorage);
+          if (!document.hasFocus()) { requested=false; return; }
           ownsWrites=true;
+          try { commitLearnerStorageChanges(nativeStorage, recovery.changes, recovery.expected); }
+          catch (error) { ownsWrites=false; throw error; }
           showState('active');
           window.dispatchEvent(new Event('kianos:learner-writer-ready'));
           resolve();
+          if (recovery.result?.warnings?.length || !['restored','skipped','missing'].includes(recovery.result?.status)) {
+            window.dispatchEvent(new CustomEvent('kianos:private-checkpoint-error', {
+              detail: { status: recovery.result?.status, warnings: recovery.result?.warnings || [] }
+            }));
+          }
           await new Promise(done=>{releaseLock=done;});
         }).catch(()=>{stopRequests();ownsWrites=false;showState('unavailable');});
         requestHandoff();
