@@ -45,7 +45,7 @@ if (!runtimePage.includes("kianos:vocabulary-navigate") || !runtimePage.includes
 if (!runtimePage.includes("x-kianos-release-sha") || !server.includes("x-kianos-release-sha")) fail('runtime_release_consistency_guard_missing');
 if (!runtimePage.includes("kianos:runtime-route-changed") || !timerClient.includes("kianos:runtime-route-changed") || !timer.includes("retargetStudyTimerContext")) fail('shared_runtime_route_signal_missing');
 if (!runtime.includes("kianos:vocabulary-root-dispose") || !evidence.includes("kianos:vocabulary-root-dispose")) fail('runtime_dynamic_disposal_missing');
-if (!evidence.includes("requestRuntimeNavigation(ordinal+1") || evidence.includes("location.href=nextHref")) fail('evidence_full_page_next_navigation_present');
+if (!evidence.includes("requestRuntimeNavigation(neighbors.next") || evidence.includes("location.href=nextHref")) fail('evidence_full_page_next_navigation_present');
 if (!markup.includes('data-has-reference={hasReferenceRail') || !markup.includes('portedVocabEvidenceColumn')) fail('content_earned_reference_missing');
 if (!home.includes('lexicalWordRuntimeHref')) fail('home_not_using_single_runtime');
 if (!server.includes('legacyVocabularyWord') || !server.includes("resolveStatic('/vocabulary/word/'")) fail('legacy_url_compat_missing');

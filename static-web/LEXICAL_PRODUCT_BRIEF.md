@@ -64,6 +64,7 @@ It should answer quickly:
 - where to continue Coverage;
 - how much new-word capacity remains today;
 - whether any whole-word `Unknown / Fuzzy` judgments deserve one same-day revisit;
+  - the revisit entry carries that selected queue in its URL for this traversal; scoring, arrows, undo and refresh keep its order, finish at its tail and preserve the Coverage cursor. Home recompiles membership from today’s latest routing judgment; the URL snapshot expires across local study days and creates no new learner ledger. A fresh URL session identity bounds Undo to ratings admitted by this traversal; before its first rating or after all of its ratings are undone, both button and keyboard stop at that boundary without consuming older Coverage/other-round history.
 - whether a small high-value exact Repair action is worth doing now;
 - how to search the canonical lexicon;
 - how to enter Challenge when justified;

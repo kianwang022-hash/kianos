@@ -41,10 +41,14 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
 <script>
   import { learnerWriterReady } from '../../../lib/browserLearnerWriter.mjs';
   import {
+    lexicalRevisitContext,
+    lexicalStudyNeighbors,
     lexicalLegacyDisplayHref,
     lexicalWordOrdinal,
     lexicalWordRuntimeHref
   } from '../../../lib/lexicalRuntimeRoute.mjs';
+
+  import { localLexicalDay } from '../../../lib/lexicalSettings.mjs';
 
   const initialHost = document.querySelector('[data-vocab-runtime-host]');
   const manifestNode = document.querySelector('[data-lexical-runtime-manifest]');
@@ -151,17 +155,19 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
     }
   };
 
-  const displayHref = (ordinal, mode) => {
-    const display = new URL(lexicalLegacyDisplayHref(base, ordinal, mode), location.origin);
-    const current = new URLSearchParams(location.search);
+  const displayHref = (ordinal, mode, routeLocation) => {
+    const current = new URLSearchParams(routeLocation.search);
+    const display = new URL(current.has('revisit')
+      ? lexicalWordRuntimeHref(base, ordinal, mode)
+      : lexicalLegacyDisplayHref(base, ordinal, mode), location.origin);
     for (const [key, value] of current.entries()) {
       if (key !== 'o' && key !== 'mode') display.searchParams.set(key, value);
     }
     return display.pathname + display.search + display.hash;
   };
 
-  const updateHistory = (ordinal, mode, action) => {
-    const href = displayHref(ordinal, mode);
+  const updateHistory = (ordinal, mode, action, routeLocation) => {
+    const href = displayHref(ordinal, mode, routeLocation);
     const state = { lexicalOrdinal: ordinal, lexicalMode: mode };
     if (action === 'push') history.pushState(state, '', href);
     else if (action === 'replace') history.replaceState(state, '', href);
@@ -181,7 +187,8 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
     initialHost.setAttribute('aria-busy', 'false');
   };
 
-  const updateNav = (ordinal, mode) => {
+  const updateNav = (ordinal, mode, revisit) => {
+    const neighbors = lexicalStudyNeighbors(ordinal, total, revisit);
     if (!(nav instanceof HTMLElement)) return;
     nav.dataset.ordinal = String(ordinal);
     nav.dataset.lexicalMode = mode;
@@ -190,18 +197,18 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
       ? 'Lookup'
       : mode === 'repair'
         ? 'Repair'
-        : 'Coverage · ' + ordinal + ' / ' + total;
+        : (revisit ? '同日待重学' : 'Coverage') + ' · ' + neighbors.position + ' / ' + neighbors.count;
     const previous = nav.querySelector('[data-vocab-runtime-prev]');
     const next = nav.querySelector('[data-vocab-runtime-next]');
     if (previous instanceof HTMLAnchorElement) {
-      if (ordinal > 1) previous.href = lexicalWordRuntimeHref(base, ordinal - 1, mode);
+      if (neighbors.previous) previous.href = lexicalWordRuntimeHref(base, neighbors.previous, mode, revisit);
       else previous.removeAttribute('href');
     }
     if (next instanceof HTMLAnchorElement) {
-      next.href = ordinal < total
-        ? lexicalWordRuntimeHref(base, ordinal + 1, mode)
+      next.href = neighbors.next
+        ? lexicalWordRuntimeHref(base, neighbors.next, mode, revisit)
         : base + 'vocabulary/';
-      next.textContent = ordinal < total ? '→' : '完成';
+      next.textContent = neighbors.next ? '→' : '完成';
     }
   };
 
@@ -212,7 +219,12 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
     }
   };
 
-  const loadWord = async (ordinal, mode = modeFromLocation(), historyAction = 'push') => {
+  const loadWord = async (ordinal, mode = modeFromLocation(), historyAction = 'push', routeLocation = location) => {
+    const revisit = lexicalRevisitContext(routeLocation, total, localLexicalDay());
+    if ((revisit && mode !== 'study') || lexicalStudyNeighbors(ordinal, total, revisit).invalid) {
+      location.assign(base + 'vocabulary/');
+      return;
+    }
     if (!Number.isInteger(ordinal) || ordinal < 1 || ordinal > total) {
       location.assign(base + 'vocabulary/');
       return;
@@ -244,18 +256,18 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
       currentRoot = imported;
 
       if (historyAction === 'push' || historyAction === 'replace') {
-        updateHistory(ordinal, mode, historyAction);
+        updateHistory(ordinal, mode, historyAction, routeLocation);
       }
       window.dispatchEvent(new CustomEvent('kianos:runtime-route-changed', {
         detail: { source: 'vocabulary', ordinal, mode }
       }));
       imported.dataset.vocabMode = mode;
-      updateNav(ordinal, mode);
+      updateNav(ordinal, mode, revisit);
 
       const word = imported.getAttribute('data-vocab-word') || 'Vocabulary';
       document.body.dataset.lexicalMode = mode;
       document.title = word + ' · KianOS';
-      if (mode === 'study') {
+      if (mode === 'study' && !revisit) {
         try { localStorage.setItem('kianos-vocabulary-last-ordinal', String(ordinal)); } catch {}
       }
       document.querySelector('.kianosShellMain > .productCanvas')?.scrollTo({ top: 0, behavior: 'instant' });
@@ -280,7 +292,13 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
       ? String(detail.mode)
       : 'study';
     if (!Number.isInteger(ordinal) || ordinal < 1 || ordinal > total) return;
-    void loadWord(ordinal, mode, detail.history === 'replace' ? 'replace' : 'push');
+    let routeLocation = location;
+    if (detail.href) {
+      const target = new URL(detail.href, location.origin);
+      if (target.origin !== location.origin) return;
+      routeLocation = target;
+    }
+    void loadWord(ordinal, mode, detail.history === 'replace' ? 'replace' : 'push', routeLocation);
   });
 
   nav?.addEventListener('click', (event) => {
@@ -293,7 +311,7 @@ const runtimeManifestPayload = JSON.stringify(runtimeManifest).replace(/</g, '\\
     const ordinal = lexicalWordOrdinal(url);
     if (!Number.isInteger(ordinal) || ordinal < 1 || ordinal > total) return;
     event.preventDefault();
-    void loadWord(ordinal, modeFromLocation(), 'push');
+    void loadWord(ordinal, modeFromLocation(), 'push', url);
   });
 
   window.addEventListener('popstate', () => {
