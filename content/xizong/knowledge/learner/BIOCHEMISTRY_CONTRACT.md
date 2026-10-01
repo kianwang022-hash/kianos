@@ -659,18 +659,18 @@ Additional architecture gates:
 
 # 13｜Fresh-Chat / restart rule
 
-For a Biochemistry learning / construction continuation:
+For actual learner continuation or progress questions, follow the parent [Xizong Learning Contract §13](../../LEARNING_CONTRACT.md#13fresh-chat--non-drift-rule): read current native learner evidence, the subject Packet or Resume first. Missing exact position remains UNKNOWN; an engineering cursor or canonical M/G order does not supply a learner position.
+
+For Biochemistry learning-model interpretation, read only the needed owners:
 
 ```text
-content/xizong/CURRENT.md
-→ content/xizong/LEARNING_CONTRACT.md
+content/xizong/LEARNING_CONTRACT.md
 → this BIOCHEMISTRY_CONTRACT.md
-→ current B learning owner
-→ current Biochemistry Source map
-→ exact active Block / Question / Source owner only as needed
+→ current B learning owner / Biochemistry Source map when the question depends on them
+→ exact Block / Question / Source owner only as needed
 ```
 
-For the current 27 rebase, also read the active delta/task owner named by the Mainline.
+For construction continuation or engineering status, enter `content/xizong/CURRENT.md` and follow the currently active task to its exact owners. Read a rebase/delta task only when current Mainline or a real affected dependency names it; historical rebase work is not a default new learning task.
 
 Do not reconstruct the Biochemistry learning model from:
 
