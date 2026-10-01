@@ -161,8 +161,9 @@ export const learnerWriterReady = existing?.ready || (!browser ? Promise.resolve
             durableRestoreCheckpointId: recoveryUrl.searchParams.get('checkpoint-durable-restore'),
             rebaseCheckpointId: recoveryUrl.searchParams.get('checkpoint-lineage-rebase')
           };
+          let recovery;
           try {
-            const recovery = await preparePrivateCheckpointBootstrap(nativeStorage, { recovery: request });
+            recovery = await preparePrivateCheckpointBootstrap(nativeStorage, { recovery: request });
             if (!document.hasFocus()) { requested=false; return; }
             ownsWrites=true;
             commitLearnerStorageChanges(nativeStorage, recovery.changes, recovery.expected);
