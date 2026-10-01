@@ -307,3 +307,106 @@ PARTIAL：politicsPracticeState.mjs@8c8a689a87e2584d5cdafc66f40129353145bf8c为1
 - static-web/src/pages/xizong/[system]/[block].astro — 624ddc54b13e5f0bbf3d0299046ca4c20c488ea0
 
 实际使用链已经开始逐段追踪。Repair Return刷新后显示丢失在合成实际component/native函数重放中已复现：持久任务仍存在，页面却传空任务列表；这是显示恢复候选，不是丢失学习数据的结论，后续仍回原#1111记录。Learn/Source段切换正在另做有界核对，未完成时不声明通过。
+
+
+## 英语 Translation：既有内容到原生消费者静态追踪（2026-10-01 04:20 UTC）
+
+固定基线：KianOS main `d4c77c27eee9061af79c6ca3c5616cbf6a5d8c1e`。范围依据 [Personal #61](https://github.com/kianwang022-hash/kian-personal-os/issues/61)：仅核对既有规则、内容组织与功能消费者，不重启英语工程 campaign、内容升级或真实使用验收。
+
+### 结论与停止边界
+
+- **本链未确认需要修复的产品缺陷。** Current learning 与保留 deep reference 的区别仍成立；复用第五/七批未变 blob 的全文阅读证据，不恢复旧必修路线，不删除有效参考资产。
+- `manifest.json` 注册五套 Translation synthetic sections；prompt/reference JSON 均标记 `CURRENT_CANDIDATE`。本轮确认其为已准备的候选内容资产。
+- 原生链为 `translation.astro` / `translation/[id].astro` → `englishTranslationSourceTruth.mjs` → `englishTranslation.mjs`；后者只从现行 manifest、question bank 和 learning owner 建立目录。`translation-reference/[id].json.js` 也复用同一目录与 reference loader。
+- 因而，所追踪的原生目录/页面/参考端点**没有消费该 synthetic bank**。这是有界静态消费边界，不等于已采纳产品承诺失效：manifest 的 Translation 条目仅声明库存，没有像 Part B 一样声明 synthetic runtime/route；Translation Acceptance 也没有声称这五套已获原生页面准入。不能仅因资产尚未消费就判为漏接缺陷、废弃资产或新建扩展任务。
+- 下一步：保留本静态 trace，停止该链。只有新的明确准入要求或真实缺陷证据才重开对应最小 owner。本轮未写 GitHub、未跑构建/测试/浏览器、未读取受保护真题正文或真实学习记录；不新增 PASS、发布或真实 U 声明。
+
+### 本轮精确全文阅读
+
+以下均取自固定基线；重复已读文件不增加全仓独立覆盖数。READ 不等于实现或运行验证。
+
+| 文件 | blob | 状态 |
+|---|---|---|
+| `AGENTS.md` | `5b7cc02e50f40bcf2e1fdb439344ee927a7f9079` | READ，重读 |
+| `content/english/CURRENT.md` | `958768d2d60c81990c23b77d3446f4cbb0404a26` | READ |
+| `content/english/manifest.json` | `24595a2bf13d2315357b5bec38a3207bdcbfe0af` | READ，重读 |
+| `content/english/modules/translation/CURRENT.md` | `6644de435b5f5faded647d67c9bf8d6f51a89cc5` | READ，重读 |
+| `content/english/modules/translation/ACCEPTANCE.md` | `dce5de32249e48c34ea270548539169805bbdc12` | READ，重读 |
+| `content/english/modules/translation/synthetic-tasks.v1.json` | `fae76c9d6baa3f4df2c80bf8738f0ffbfe4e1039` | READ |
+| `content/english/modules/translation/synthetic-tasks.reference.v1.json` | `f22824e520e154b4d11d9e6436c24e995cb482ff` | READ，单独读取补齐截断 |
+| `static-web/src/lib/englishTranslation.mjs` | `8dd73d30f0edd9d29332b8410a5fa57a995b1ac2` | READ / TRACED |
+| `static-web/src/lib/englishTranslationSourceTruth.mjs` | `a2e439f09c5adadea05a8caa4ba38a7878b43996` | READ / TRACED |
+| `static-web/src/pages/translation.astro` | `99f8f7a0fe9eebbcd307e6b2386b65e24c8d3fcc` | READ / TRACED |
+| `static-web/src/pages/translation/[id].astro` | `20a709098e901684e1dfa05a36b448c84d0b2997` | READ / TRACED |
+| `static-web/src/pages/translation-reference/[id].json.js` | `96f606cc13224575045efbcfed222adb5fdef4b8` | READ / TRACED |
+| `task-continuity/dot/EXAM_UNDERSTANDING.md` | `e50516518bce0243123ac7ffb303123257fafdfb` | READ，复用已有覆盖与证据 |
+
+### PARTIAL、复用及未验范围
+
+- `content/english/LEARNING_CONTRACT.md`，blob `f04e92e3d9b3f07764739d419ecbf5ee1f7899a7`：本次输出截断，仅计本次 PARTIAL；已读相关 baseline / Translation 边界，复用第四批同 blob 全文 READ。
+- `content/english/modules/translation/learning.md`，blob `df4c9ea76cb2081c2539a4ffb406441b53b43c05`：本次输出截断，仅计本次 PARTIAL；复用第五批同 blob 全文 READ。
+- `learning.reference.md`，blob `11178683375ade0091b8b0d3ceb480ad09581bc0`；`translation-learn.astro`，blob `a80c1cd38f004d9f05d43d2f59fc023c689e5717`：目录 metadata 核实版本未变，复用第七批全文 READ / 首学消费者 trace，不宣称本次重读全文。
+- 未审读 source bank 正文、完整 `englishSourceTruth.mjs` projection、Workspace 全交互或运行行为；本链结论仅涉及明确列出的目录/路由构造与资产准入边界。
+
+证据入口：[原生目录实现](https://github.com/kianwang022-hash/kianos/blob/d4c77c27eee9061af79c6ca3c5616cbf6a5d8c1e/static-web/src/lib/englishTranslation.mjs) · [库存登记](https://github.com/kianwang022-hash/kianos/blob/d4c77c27eee9061af79c6ca3c5616cbf6a5d8c1e/content/english/manifest.json) · [Translation Acceptance](https://github.com/kianwang022-hash/kianos/blob/d4c77c27eee9061af79c6ca3c5616cbf6a5d8c1e/content/english/modules/translation/ACCEPTANCE.md)
+## Politics authored Content → native website consumption — 2026-10-01
+
+Scope: Personal #61 Phase1; read-only GitHub audit of existing Politics explanation, source and Memory consumers. No GitHub mutations, new architecture/content upgrades, browser/local deployment, real learner-state access or test execution.
+
+Basis: Personal #61 read at updated_at `2026-10-01T03:23:43Z`. Initial file reads pinned to `d4c77c27eee9061af79c6ca3c5616cbf6a5d8c1e`; core owners/consumers compared with `c1327889e78339a29071ed913a50bf27b4b3ed82`, identical blobs. Existing candidate ledger inspected at PR #1121 exact head `112e9ec64702c246e7ec06dab11485e63e524dfa`.
+
+### Bounded result
+
+**No confirmed new defect.** This is static owner/consumer tracing, not deployed-use acceptance.
+
+- Refined explanation owner is `content/politics/derived/xiao1000-learner-explanations/{manifest.json,asset.v1.json.gz}`. Exact stable source-question ID binding → `politicsPractice.mjs` → `practiceReviewPayload` → generated `/politics/practice-review/{id}.json` → formal Workbench submit → `takeaway` / `chatExplanation`. The loader fails closed on package hashes, missing fields, IDs and counts. Historical/OCR explanation is not a learner fallback.
+- Source prose/locator follows canonical regions → deterministic scoped node shards → fidelity admission → Current unit → Practice payload. Source README distinguishes monolith recovery authority from runtime shards; `build-source-shards.mjs` and its workflow own regeneration.
+- The inspected `marxism/ch02.memory.json` contains four source-grounded `CANDIDATE_ONLY` items, with handbook binding explicitly pending. Enrichment → candidate catalog → Memory page → native client/runtime preserves Chat-selected admission. Prompt/answer/source-ref changes revise the catalog and stale an old daily plan. Historical evidence is reusable only if the specific candidate snapshot still matches Current.
+- Current/retired ownership is explicit: parent/Marxism Current route actual learning to native evidence; accepted product brief marks the former rollout as historical/closed. The inspected current consumer chain does not import the old monolith Runtime.
+- **Saved-result boundary:** an already-submitted resumed Workbench result renders saved `result.review`. Explanation/source-only changes do not alter `taskRevision`, so that existing backside keeps its snapshot; fresh submission fetches generated Current review JSON. This observed behavior is not enough to classify a defect or authorize a semantic change. Do not claim authored updates refresh every resumed result, and do not invalidate attempts merely to refresh copy.
+
+Smallest next action: retain this trace in the existing understanding ledger and advance the next independent Phase1 chain. If update-propagation proof becomes necessary, use one isolated content-only update/resumed-submitted-result regression while preserving first-attempt evidence; no full campaign is justified by this result.
+
+### Exact reading coverage
+
+`READ` means the complete text was read, including bounded sequential chunks. Versions below are blob SHAs; counts are coverage, not functional completion.
+
+| Path | Blob SHA | Coverage |
+| --- | --- | --- |
+| AGENTS.md | 5b7cc02e50f40bcf2e1fdb439344ee927a7f9079 | READ |
+| AUTHORITY_INHERITANCE_CONTRACT.md | db7c06afee02df13a772947404e155297d95ec16 | READ |
+| content/politics/CURRENT.md | 18c162337e3f48ce082235f95e6286b1c3aeb448 | READ |
+| content/politics/LEARNING_CONTRACT.md | 9b2b698f1bb79fbae8fb09c96e37ab2969200d32 | READ |
+| content/politics/INTERACTION_CONTRACT.md | aea4157852d9b26e1f44a27146e73fe3b6a6bfc0 | READ |
+| static-web/POLITICS_PRODUCT_BRIEF.md | af977d9e5babad80e985b51b0d25f823e120bfb8 | READ |
+| content/politics/learning/manifest.json | 41e437b0cf927e0fa9672e8fc4e02b8567a7999b | READ |
+| content/politics/learning/marxism/CURRENT.md | a131f46699b4ab59ae4171d5a043481edb387200 | READ |
+| content/politics/learning/marxism/ch02.json | 4142b88293bdf40ae90e494a12cab13498c8b240 | READ |
+| content/politics/learning/marxism/ch02.memory.json | b42c9dc0beffe9db4d91a2292213702781ba7ae2 | READ |
+| content/politics/source/README.md | 2952dbc2a6f50dd61aad1502e4f34d8796b11114 | READ |
+| content/politics/tools/build-source-shards.mjs | 29c93ac6142747b1dc0d1d23ca57f757e7bbc0d1 | READ |
+| .github/workflows/politics-source-shards.yml | abb961586c1513873ac280238ba2495a81daa0b7 | READ |
+| content/politics/derived/xiao1000-learner-explanations/README.md | 7d4f529b7d8cd03fd9cb299e6f7fc07cdcbcf6ea | READ |
+| content/politics/derived/xiao1000-learner-explanations/manifest.json | 2879309d951c7bf2711cbe0eba9203912ac5e9fc | READ |
+| static-web/src/lib/politicsCurrent.mjs | 5824901c4dd18e8ce93dd50fea5cf49b5d3b9340 | READ |
+| static-web/src/lib/politicsRuntime.mjs | dddc74ce2db3bbed239dc0b0dbaaa754f2d558bc | READ |
+| static-web/src/lib/politicsRuntimeScoped.mjs | afcff2ffba272acb6a243cb087cdc45bca2a5b44 | READ |
+| static-web/src/lib/politicsRuntimeFirstReady.mjs | 651a7fbd5a5ab59b45ff09d3e8d96b5b7d34f769 | READ |
+| static-web/src/lib/politicsSourceFidelity.mjs | 680cbfa62584f2d97afd7a0afc8073a3e15208b9 | READ |
+| static-web/src/lib/politicsRepairMemory.mjs | ab4e1fdd055ba994e4e738d8ed634cbdd953bf93 | READ |
+| static-web/src/lib/politicsPractice.mjs | c88d8667132c736ecb98356a0c93fcea646e9314 | READ |
+| static-web/src/lib/politicsPracticeView.mjs | a8822a4b17d5b5b9655fd821f360d4857497e50c | READ |
+| static-web/src/lib/politicsPracticeClient.mjs | 3e38009897bbfe0590bcbba7c592966b579d0032 | READ |
+| static-web/src/pages/politics/practice-review/[id].json.ts | 02843d1e56c18621f54e68d398ef6524fae0d278 | READ |
+| static-web/src/pages/politics/[subject]/[chapter].astro | cc3186cd7c6da398874db695725bd226661d343b | READ |
+| static-web/src/components/PoliticsPracticeBridge.astro | 40724a5c45c2e7c7fa93cf83e4d621bf6177e595 | READ |
+| static-web/src/lib/politicsMemoryCandidates.mjs | e5f4728b8bcebca25228286a83bfc1bd69ddd73c | READ |
+| static-web/src/lib/politicsMemoryRuntime.mjs | a90a27acd9ed1a34c3d32dafa2f82876e59f7c9f | READ |
+| static-web/src/lib/politicsMemoryClient.mjs | 392f00c69c1f1007f25bf4199fdeab5ff760f195 | READ |
+| static-web/src/pages/politics/memory/index.astro | 91f2927c63f48de8670d5b896f71160f634bd4df | READ |
+| static-web/src/lib/politicsPracticeState.mjs | 8c8a689a87e2584d5cdafc66f40129353145bf8c | PARTIAL: first 11,000 characters, lines 1–197 and part of 198; session/current-task matching and Continue |
+| content/politics/source/questions/shards/marx/single/q001-025.json | 361cea3e4192a445caf363ee4970ae9db91eb73e | PARTIAL: first 2,200 characters; first record's source/explanation provenance and option fields only |
+| task-continuity/dot/EXAM_UNDERSTANDING.md at PR1121 head 112e9ec64702c246e7ec06dab11485e63e524dfa | ec51d0c7fc2cc0826066a4f1321f89e5ee9d0487 | PARTIAL: relevant Politics/snapshot/coverage excerpts only |
+
+Not read/verified: gzip's 1,148 explanation strings, all source/shard bodies, full subject projection modules, real learner state, deployed UI, new build/test runs. No political content re-audit or historical acceptance replay claimed. Existing PR1122 discussion-filter repair and Chat1123 bootstrap were not duplicated.
+
