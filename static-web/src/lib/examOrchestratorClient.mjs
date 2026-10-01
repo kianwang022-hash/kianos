@@ -677,6 +677,11 @@ export function initExamHome(root) {
     const status = $('[data-exam-daily-status]');
     try {
       const xizongProjection = await loadXizongProjection();
+      // Dialogs intentionally hold the visible model stable while editing.
+      // An explicit export must instead read the current plan/evidence after
+      // the async projection load, without closing or replacing that dialog.
+      load();
+      render();
       const result = buildHomeDailyLearningPacket({
         storage: localStorage,
         day: day(),
