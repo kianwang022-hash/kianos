@@ -188,80 +188,15 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
 <script>
   import { initStudyTimerRuntime } from '../lib/studyTimerClient.mjs';
   import { initStudyTimerDock } from '../lib/studyTimerDockClient.mjs';
-  import {
-    initPrivateCheckpointAutosave,
-    rebasePrivateCheckpointLineageToCurrent,
-    restorePrivateCheckpointGroupsFromDurable,
-    restoreSharedControlFromPrivate,
-    saveSharedControlToPrivate
-  } from '../lib/privateCheckpointRuntime.mjs';
+  import { initPrivateCheckpointAutosave } from '../lib/privateCheckpointRuntime.mjs';
   import { initPrivateControlRuntime } from '../lib/privateControlRuntime.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
 
   void (async () => {
-    let restored = null;
-    try {
-      restored = await restoreSharedControlFromPrivate(localStorage);
-    } catch {}
-
+    // Initial checkpoint recovery has completed inside learnerWriterReady.
     if (document.documentElement.dataset.learnerWriter !== 'active') return;
-
-    const recoveryUrl = new URL(window.location.href);
-    const durableRestoreCheckpointId = recoveryUrl.searchParams.get('checkpoint-durable-restore');
-    const rebaseCheckpointId = recoveryUrl.searchParams.get('checkpoint-lineage-rebase');
-    let durableRestoreApplied = false;
-
-    if (durableRestoreCheckpointId && rebaseCheckpointId) {
-      document.documentElement.dataset.checkpointDurableRestore = 'error';
-      document.documentElement.dataset.checkpointLineageRebase = 'error';
-      console.error('[KianOS checkpoint recovery]', new Error('PRIVATE_CHECKPOINT_RECOVERY_DIRECTION_AMBIGUOUS'));
-      recoveryUrl.searchParams.delete('checkpoint-durable-restore');
-      recoveryUrl.searchParams.delete('checkpoint-lineage-rebase');
-      history.replaceState(history.state, '', recoveryUrl.pathname + recoveryUrl.search + recoveryUrl.hash);
-    } else if (durableRestoreCheckpointId) {
-      try {
-        await restorePrivateCheckpointGroupsFromDurable(localStorage, {
-          expectedCheckpointId: durableRestoreCheckpointId
-        });
-        const saved = await saveSharedControlToPrivate(localStorage);
-        if (saved.status !== 'saved') throw new Error('PRIVATE_CHECKPOINT_DURABLE_RESTORE_SAVE_INCOMPLETE');
-        document.documentElement.dataset.checkpointDurableRestore = 'saved';
-        durableRestoreApplied = true;
-      } catch (error) {
-        document.documentElement.dataset.checkpointDurableRestore = 'error';
-        console.error('[KianOS checkpoint durable recovery]', error);
-      } finally {
-        recoveryUrl.searchParams.delete('checkpoint-durable-restore');
-        history.replaceState(history.state, '', recoveryUrl.pathname + recoveryUrl.search + recoveryUrl.hash);
-      }
-    } else if (rebaseCheckpointId) {
-      try {
-        await rebasePrivateCheckpointLineageToCurrent(localStorage, {
-          expectedCheckpointId: rebaseCheckpointId
-        });
-        const saved = await saveSharedControlToPrivate(localStorage);
-        if (saved.status !== 'saved') throw new Error('PRIVATE_CHECKPOINT_REBASE_SAVE_INCOMPLETE');
-        document.documentElement.dataset.checkpointLineageRebase = 'saved';
-      } catch (error) {
-        document.documentElement.dataset.checkpointLineageRebase = 'error';
-        console.error('[KianOS checkpoint lineage recovery]', error);
-      } finally {
-        recoveryUrl.searchParams.delete('checkpoint-lineage-rebase');
-        history.replaceState(history.state, '', recoveryUrl.pathname + recoveryUrl.search + recoveryUrl.hash);
-      }
-    }
-
-    if (durableRestoreApplied) {
-      window.location.reload();
-      return;
-    }
-
-    if (restored?.status === 'restored') {
-      window.location.reload();
-      return;
-    }
 
     const timer = initStudyTimerRuntime();
     const dock = document.querySelector('[data-study-timer-dock]');

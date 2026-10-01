@@ -36,6 +36,9 @@ async function waitForServer() {
 
 async function clearXizong(page) {
   await page.goto(`${BASE}/xizong/`, { waitUntil: 'domcontentloaded' });
+  // Synthetic fixture cleanup is itself a learner-store write. Respect the
+  // production writer boundary instead of racing bootstrap/lease handoff.
+  await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 });
   await page.evaluate(() => {
     for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
     sessionStorage.clear();

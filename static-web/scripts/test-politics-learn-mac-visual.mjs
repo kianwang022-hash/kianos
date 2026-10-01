@@ -179,6 +179,9 @@ try {
 
   const reviewResponse = await page.goto(`${BASE}/politics/review/`, { waitUntil: 'domcontentloaded' });
   check(reviewResponse?.ok(), 'review_http_ok', String(reviewResponse?.status()));
+  // The synthetic review fixture mutates learner-owned storage. Wait for the
+  // same production writer boundary that real interactions must satisfy.
+  await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 });
 
   const reviewFixture = (() => {
     const outcomes = ['WRONG', 'UNCERTAIN', 'STABLE'];
