@@ -2,7 +2,7 @@ export const LEXICAL_SETTINGS_STORAGE_KEY = 'kianos-lexical-settings-v1';
 export const LEXICAL_INTAKE_STORAGE_KEY = 'kianos-lexical-intake-v1';
 export const LEXICAL_ROUTING_STORAGE_KEY = 'kianos-lexical-card-routing-v1';
 export const DEFAULT_DAILY_NEW_LIMIT = 50;
-export const DAILY_NEW_LIMIT_OPTIONS = [20, 30, 50, 80, 100];
+export const DAILY_NEW_LIMIT_OPTIONS = [20, 30, 50, 80, 100, 300, 500, 1000];
 export const DEFAULT_PRONUNCIATION = 'en-US';
 export const PRONUNCIATION_OPTIONS = ['en-US', 'en-GB'];
 
