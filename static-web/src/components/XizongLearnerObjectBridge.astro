@@ -486,7 +486,8 @@ const payload = learnerObject || null;
             extension: array(learner.slots?.blockOrientation)
           };
         } else if (stage === 'source_contact') {
-          const kp = visibleCompanionKp('source_contact') || sourceCompanionKp();
+          // Auxiliary ownership follows the rendered companion, including Source-unit transitions.
+          const kp = sourceCompanionKp();
           slotName = 'kp_learn_aux';
           representationStage = 'KP_LEARN';
           title = kp ? `${kp.identity.displayId} · 学习辅助` : 'KP Learn 辅助';
