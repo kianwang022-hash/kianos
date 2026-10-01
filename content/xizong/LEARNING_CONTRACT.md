@@ -684,3 +684,8 @@ The shared teaching/review model must also reduce avoidable memory burden. First
 Support retrieval in both directions: model node → precise detail, and question cue → model location → inference. Understanding/recognition is not successful retrieval; exact retention still needs real active recall and later spaced checks under existing Chat-owned scheduling. First and later passes reuse the same growing model rather than rebuilding another organization.
 
 Canonical KP and a later rapid Lecture/website-KP sweep provide independent calibration and coverage insurance. They never excuse knowingly incomplete initial teaching or transfer the author's coverage responsibility to the learner. Mandatory content must already have a justified location and memory treatment; uninspected Source remains an explicit validation limit.
+
+
+### Existing-model comparison and adoption
+
+Existing System/Block/LG models are reusable evidence, not an upper bound on quality. Where feasible, reconstruct from Source, complete KP content and required learning boundaries before comparing the existing Framework organization. Compare agreement, omitted content, expression-only differences, causal/conditional conflicts and actual learning value; select preserve, integrate or upgrade by evidence rather than novelty. Prior exposure to an old framework prevents a claim of fully blind independence; an unexposed reviewer is required for that narrower claim. After an upgrade is reviewed and adopted, update the original responsible model owner and its real dependents so Chat teaching, review text and website consumption converge on one accepted version. Ease of website editing does not substitute for validating the model change.
