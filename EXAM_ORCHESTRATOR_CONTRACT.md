@@ -1086,7 +1086,7 @@ Show only what changes today's behavior:
 Example shape:
 
 ```text
-10/21 First Formal Score Closure · 18 days
+10/20 First Formal Score Closure · <days remaining from current study day>
 
 Xizong   main push · 5h30
 English  maintain  · 2h
