@@ -261,79 +261,97 @@ The website must consume those owners; page structure must never be used to reco
 
 ---
 
-## 4｜First learning: Lecture-primary, KianOS-guided
+## 4｜First learning: Chat-led, Source-constrained, system-backed
 
-Continuous first-pass Lecture study remains **external-primary on the original iPad / MarginNote source**.
-
-This is a Learning decision, not an implementation preference.
+First-pass learning may be **Chat-led**. Canonical Source and Knowledge assets define the accuracy, mandatory coverage, provenance and ownership boundary; they do **not** dictate the teaching order.
 
 Surface roles:
 
-### iPad / MarginNote
+### Source / Knowledge owners
 
-Primary continuous Source-learning surface for:
+They provide:
 
-- original Lecture sequence;
-- figures / tables;
-- source-local examples;
-- annotation;
-- Lecture-attached TTSX;
-- answer/options/question-side expansion.
+- the current System / Block / Logic Group / KP truth and ownership;
+- Source provenance, figures, tables, examples and exact details;
+- the coverage boundary that first-pass teaching must not silently omit;
+- reviewed Precision / Visual / Connection / Extension when those support objects actually exist.
 
-### KianOS
-
-Primary surface for:
-
-- System / Block orientation;
-- current causal target and attention boundary;
-- KP Learn companion support;
-- active Recall;
-- Logic Group / Block / System closure;
-- selective Precision / Visual support;
-- official questions;
-- Wrong / Uncertain routing;
-- Memory / compression / later review.
+Source contact is evidence. If the corresponding Source has not been read or inspected, Chat must not claim full Source-level coverage.
 
 ### Chat
 
-Adaptive companion for:
+Primary adaptive teaching surface when Kian chooses Chat-led first learning.
 
-- mechanism clarification;
-- cross-System linking;
-- diagnosis when it changes the next action;
-- smallest-sufficient repair;
-- personalized explanation / review.
+Before teaching a Block, Chat should read the current Block Knowledge, relevant Learning owner and the Source boundary needed to know what must be covered. It may then reorganize teaching around the medical mechanism, causal problem and Kian's live questions rather than reciting KP order.
+
+For each material Logic Group, Chat should normally:
+
+```text
+locate the LG inside the Block problem
+→ establish the LG's local mechanism/framework
+→ teach the continuous causal model
+→ embed the owning KP exam points at the relevant mechanism node
+→ resolve reasoning-changing questions immediately
+→ compress to a retrievable scaffold
+```
 
 Hard rules:
 
-- KianOS must not become a second primary Lecture reader merely because it can render source text;
-- the learner should not bounce between devices for artificial workflow ceremonies;
-- Source-contact granularity is owned by accepted learning logic, not by KP/LG/page structure;
-- a runtime capability never authorizes a learner action Kian has not actually reached.
+- teaching may cross KP boundaries; coverage and durable ownership may not lose the owning KP;
+- a receptor, pathway, threshold, number or exact distinction that changes understanding, judgment or inference is taught **now**, even if it also has a Precision/Memory role;
+- precision facts that mainly require exact retention should still be encountered, understood in context and tied to their owning KP before later Memory review; a prior wrong answer is not required before they become reviewable;
+- downstream drugs, diseases or other Blocks may be used as bounded interfaces, but their full teaching stays with the original responsible Block/System;
+- Chat may add explanation, examples and clinically useful model knowledge, but must distinguish those from Source-backed formal Knowledge and may not invent formal Boundary/Connection truth;
+- a learner question during first learning is not automatically a weakness or review debt.
+
+### KianOS / Website
+
+KianOS provides the canonical learner objects and the existing execution/evidence surfaces for:
+
+- System / Block orientation and learner display;
+- active Recall and question work;
+- Memory / Precision / later review;
+- Resume / Return and private learner evidence;
+- actual attempt / Wrong / Uncertain / Recall recording.
+
+The Website renders accepted owners, executes the accepted arrangement and records actual learner feedback. It does not independently invent a new learning strategy or upgrade teaching discussion into learner evidence.
+
+### Original Lecture / MarginNote
+
+The original Lecture remains an authoritative Source surface, but it is **not required to control first-pass teaching order**.
+
+Kian may defer a broad Lecture sweep until the whole System has a usable model, then use it to calibrate figures/tables, exact numbers, special exceptions and omissions while also gaining a second exposure.
+
+However, when current understanding genuinely depends on an original figure, table, spatial relation, waveform or other Source visual, inspect that Source during the current learning step rather than deferring it by rule. Lecture-attached TTSX remains attached to actual Source contact when that contact occurs.
 
 ---
 
-## 5｜Locked first-pass learner flow
+## 5｜First-pass learner flow
 
-Normal first-pass flow is:
+The normal Chat-led flow is:
 
 ```text
 optional Guide when genuinely useful
-→ System Framework
-→ Block Framework
-→ continuous original-Lecture learning on iPad / MarginNote
-   while KianOS stays on the relevant KP Learn companion surface(s)
-→ lightweight TTSX checkpoint only at a real reviewed Source boundary when bound questions exist
-→ KP Recall after the owning material has actually been learned
-→ Logic Group closure
-→ Block Recall
-→ Block Complete
-→ release reusable Block Memory assets
-→ after the whole System is actually learned: System Recall
-→ official System question sweep
+→ read current Block Knowledge + Learning boundary + needed Source scope
+→ System / Block Framework
+→ Logic Group teaching by mechanism, with KP ownership preserved
+→ resolve understanding-changing detail in the moment
+→ compress each LG / Block to a retrievable scaffold
+→ at a natural breakpoint or Block teaching end:
+   audit coverage against canonical KP + readable Source
+   route exact Precision / Memory candidates to their owning assets
+   preserve unresolved questions and explicit downstream interfaces
+→ existing KP Prompt Recall / expanded check and Block mechanism reconstruction
+   when actual learner work reaches those actions
+→ Logic Group / Block closure only from the required learner evidence
+→ release reusable Memory assets under the existing Memory rules
+→ after the whole System has a usable model:
+   System Recall + optional concentrated Lecture calibration + official System question sweep
 → smallest-sufficient Repair / exact Return
 → rolling Memory / Precision / later-pass reuse
 ```
+
+This flow separates **teaching closure** from **learner evidence**. A Chat summary that says material was explained or understood does not itself create native KP Learned, Recall, Source-contact or Block Complete evidence.
 
 ### Guide
 
@@ -349,9 +367,9 @@ Framework exists to orient cognition, not to become a prose course.
 
 ### KP Learn
 
-Mac companion while Source learning continues on the original Lecture surface.
+KP Learn remains the canonical learner object for the KP. Chat may teach across several KPs or an entire Logic Group, but the resulting coverage, precision and later review routing must still resolve back to those existing KP owners.
 
-It should expose the current Prompt/Core and useful locators/support without requiring Recall behavior during Learn.
+The learner should not be forced to bounce between Chat and Website merely to prove that teaching occurred.
 
 ### KP Recall
 
@@ -361,13 +379,15 @@ Learn and Recall remain the same KP learner object. Recall changes **Core visibi
 
 Before Reveal, the canonical KP Core stays hidden. The KP title, active Prompt, Source / Outline locators and Current-owned Context such as Precision / Visual / Connection may remain visible when useful. Reveal opens the same canonical Core; it does not switch to a second answer card.
 
+KP Prompt Recall, expanded comparison/check and Block-level mechanism reconstruction remain valid retrieval jobs. Their recorded evidence comes from actual Recall interaction, not from Chat having taught the content.
+
 This protection rule is specific to KP Recall. Block/System Recall may still use stricter neutral-front protection where their accepted reconstruction contract requires it.
 
 ### Logic Group closure
 
 A lightweight state inside the persistent Logic Map, not a standalone learner stage.
 
-When all KPs in the Logic Group have real Recall evidence, the map marks that group closed and the learner proceeds directly to the next Logic Group. The existing `goal / closure` text remains the local model target; no extra confirmation page, rating or click is required.
+When all KPs in the Logic Group have the required real Recall evidence, the map marks that group closed and the learner proceeds directly to the next Logic Group. The existing `goal / closure` text remains the local model target; no extra confirmation page, rating or click is required.
 
 ---
 
@@ -421,6 +441,18 @@ Protected unseen official material remains diagnostic capital and must not be co
 ## 7｜Evidence and Repair
 
 A Recall rating, TTSX note, Wrong/Uncertain result or correct answer is an **observation**, not an automatic diagnosis or mastery claim.
+
+Keep these states distinct:
+
+```text
+Chat taught / covered
+≠ Kian reports understanding
+≠ actual Recall correct
+≠ later stable retrieval / application
+≠ long-term mastery
+```
+
+A teaching summary may preserve useful interpretation and unresolved work, but it must not manufacture native learner evidence.
 
 Hard rules:
 
@@ -476,13 +508,15 @@ Memory asset availability
 
 At real Block Complete, reusable assets may be released into persistent Memory:
 
-- Core Memory from canonical KPs;
+- Core Memory from canonical KPs, including mechanism content worth later reconstruction;
 - current-owner Precision items;
 - learner-marked Prompt/Core fragments.
 
-Release means **available**, not automatically due today.
+A Precision/Core item does **not** need a prior Wrong/Uncertain event to be eligible for Memory. If it is an accepted asset, Kian has encountered it in its owning learning context, and the existing Memory routing admits it, it may become available for later review.
 
-Weakness is normally an evidence/priority state over an existing asset, not a duplicate card corpus.
+Release means **available**, not automatically due today. Availability, scheduling priority and today's due set remain different decisions.
+
+Weakness is normally an evidence/priority state over an existing asset, not a duplicate card corpus. Wrong answers may raise priority or trigger Repair, but they are not the only doorway into Memory.
 
 Repair remains a bounded active task queue, not a second Memory library.
 
