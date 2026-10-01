@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL;
     normalizeLexicalSettings,
     registerLexicalIntroduction
   } from '../lib/lexicalSettings.mjs';
-  import { lexicalRevisitContext, lexicalStudyNeighbors, lexicalWordOrdinal, lexicalWordRuntimeHref } from '../lib/lexicalRuntimeRoute.mjs';
+  import { lexicalRevisitUndoAllowed, lexicalRevisitContext, lexicalStudyNeighbors, lexicalWordOrdinal, lexicalWordRuntimeHref } from '../lib/lexicalRuntimeRoute.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable } from '../lib/lexicalBrowserState.mjs';
   void learnerWriterReady.then(() => {
@@ -76,7 +76,9 @@ const base = import.meta.env.BASE_URL;
       return introducedCountForDay(readIntake(),localLexicalDay())>=readSettings().daily_new_limit;
     };
     if(newWordBlocked())location.replace(homeHref());
-    const updateUndoState=()=>{if(undoButton instanceof HTMLButtonElement)undoButton.disabled=readRouting().history.length===0};
+    const canUndoRouting=(routing=readRouting())=>lexicalRevisitUndoAllowed(
+      lexicalRevisitContext(location,total,localLexicalDay()),routing.history.at(-1),total,localLexicalDay());
+    const updateUndoState=()=>{if(undoButton instanceof HTMLButtonElement)undoButton.disabled=!canUndoRouting()};
 
     const recordRouting=(route)=>{
       const now=new Date().toISOString();
@@ -101,7 +103,7 @@ const base = import.meta.env.BASE_URL;
       if(!lexicalBrowserStateReadable())return;
       const routing=readRouting();
       const last=routing.history.at(-1);
-      if(!last)return;
+      if(!canUndoRouting(routing))return;
       routing.history=routing.history.slice(0,-1);
       const previous=[...routing.history].reverse().find((item)=>item.word_id===last.word_id)||null;
       routing.latest_by_word={...(routing.latest_by_word||{})};
@@ -169,7 +171,8 @@ const base = import.meta.env.BASE_URL;
       const target=event.target;
       if(target instanceof HTMLElement&&target.closest('input,textarea,select,button,a,[contenteditable="true"]'))return;
       if(event.key==='Backspace'){
-        if(readRouting().history.length){event.preventDefault();undoRouting();}
+        if(canUndoRouting()){event.preventDefault();undoRouting();}
+        else if(new URLSearchParams(location.search).has('revisit'))event.preventDefault();
         return;
       }
       const revealed=root.dataset.vocabRevealed==='true';

@@ -339,7 +339,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
         const revisits = sameDay.map((event) => byObjectId.get(String(event.word_id || ''))).filter(Boolean);
         const firstRevisit = revisits[0];
         sameDayStart.href = firstRevisit
-          ? lexicalWordRuntimeHref(base, firstRevisit.ordinal, 'study', { day: today, ordinals: revisits.map(row => row.ordinal) })
+          ? lexicalWordRuntimeHref(base, firstRevisit.ordinal, 'study', { day: today, ordinals: revisits.map(row => row.ordinal), session: crypto.randomUUID() })
           : '#';
         sameDayStart.setAttribute('aria-disabled', String(!firstRevisit));
       }

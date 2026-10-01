@@ -19,7 +19,7 @@ const check = (ok, name, detail = '') => {
   if (!ok) throw new Error(`RELEARN_FAIL:${name}:${JSON.stringify(detail)}`);
 };
 const today = localLexicalDay();
-check(lexicalRevisitContext({ search: '?revisit=23,280,26&day='+today },7946,today).ordinals[1]===280, 'parse_nonadjacent_snapshot');
+check(lexicalRevisitContext({ search: '?revisit=23,280,26&revisit_session=qa-unit&day='+today },7946,today).ordinals[1]===280, 'parse_nonadjacent_snapshot');
 for (const query of ['revisit=23,23', 'revisit=23,99999', 'revisit=', 'revisit=23,280&day=1900-01-01']) {
   check(lexicalRevisitContext({search:'?'+query},7946,today).invalid, 'reject_invalid_or_expired_context', query);
 }
@@ -68,6 +68,11 @@ try {
   await page.locator('[data-lexical-same-day-start]').click();await word(23);
   check((await cursor())==='7000','entry_preserves_coverage_cursor');
   await page.waitForFunction(()=>window.__speech.length===1);
+  const originalHistory=JSON.stringify((await routing()).history);
+  check(await page.locator('[data-vocab-undo]').isDisabled(),'unscored_round_undo_button_disabled');
+  await page.locator('[data-vocab-undo]').evaluate(button=>button.click());
+  await page.keyboard.press('Backspace');
+  check((await cursor())==='7000'&&JSON.stringify((await routing()).history)===originalHistory&&(await page.locator('[data-local-port="vocabulary"]').getAttribute('data-vocab-ordinal'))==='23','unscored_round_button_and_keyboard_preserve_old_history');
   const firstDocuments=documents;
   await score('known',280);
   check(documents===firstDocuments,'score_swaps_within_same_document');
@@ -79,6 +84,10 @@ try {
   await page.locator('[data-vocab-undo]').click();await word(23);
   check(new URL(page.url()).searchParams.has('revisit'),'undo_retains_queue_context');
   check(sameDayLexicalRevisits(await routing()).length===3,'undo_restores_prior_judgment');
+  check(await page.locator('[data-vocab-undo]').isDisabled(),'all_round_ratings_undone_disables_undo');
+  await page.locator('[data-vocab-undo]').evaluate(button=>button.click());
+  await page.keyboard.press('Backspace');
+  check((await cursor())==='7000'&&JSON.stringify((await routing()).history)===originalHistory&&(await page.locator('[data-local-port="vocabulary"]').getAttribute('data-vocab-ordinal'))==='23','extra_undo_after_round_exhaustion_cannot_consume_coverage');
   await page.locator('[data-vocab-runtime-next]').click();await word(280);
   await page.locator('[data-vocab-runtime-prev]').click();await word(23);
   await page.goBack();await word(280);
@@ -98,13 +107,15 @@ try {
   check((await page.locator('[data-lexical-same-day-count]').innerText())==='3','fuzzy_tail_remains_pending_without_auto_loop');
   await page.waitForFunction(async()=>{const r=await fetch('/__kianos-private/checkpoint');if(!r.ok)return false;const body=await r.json();return body.checkpoint?.payload?.subjects?.lexical?.entries?.['kianos-vocabulary-last-ordinal']==='7000';},{},{timeout:10000});
   check(true,'isolated_backend_checkpoint_preserves_coverage_cursor');
-  const direct=base+'/vocabulary/word/?o=280&revisit=23,280,26&day='+today;
+  const directUrl=new URL(entry,base);directUrl.searchParams.set('o','280');
+  const direct=directUrl.href;
   await page.goto(direct);await word(280);
   check((await cursor())==='7000','direct_entry_keeps_context_and_cursor');
   await page.locator('[data-lexical-study-nav] > a').click();await page.locator('[data-lexical-home-ready="true"]').waitFor();
   check((await page.locator('[data-lexical-overview-continue]').getAttribute('href')).includes('o=7000'),'return_keeps_main_continue_entry');
   // Clear remaining live subset through its real Home entry, never reset storage.
   await page.locator('[data-lexical-same-day-start]').click();await word(26);
+  check(await page.locator('[data-vocab-undo]').isDisabled(),'new_round_cannot_undo_prior_round_ratings');
   await score('known',280);await score('known',23);await score('mastered',null);
   check((await page.locator('[data-lexical-same-day-count]').innerText())==='0','empty_queue_disables_home_entry');
   check((await page.locator('[data-lexical-same-day-start]').getAttribute('aria-disabled'))==='true','empty_entry_disabled');

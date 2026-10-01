@@ -12,6 +12,7 @@ export function lexicalWordRuntimeHref(base, ordinal, mode = 'study', revisit = 
   if (revisit) {
     url.searchParams.set('revisit', revisit.ordinals.join(','));
     url.searchParams.set('day', revisit.day);
+    url.searchParams.set('revisit_session', revisit.session);
   }
   return url.pathname + url.search;
 }
@@ -40,13 +41,14 @@ export function lexicalRevisitContext(locationLike, total, today) {
   if (!search.has('revisit')) return null;
   const raw = search.get('revisit') || '';
   const day = search.get('day');
+  const session = search.get('revisit_session') || '';
   const ordinals = raw.split(',').map(Number);
-  if (day !== today || !/^[1-9]\d*(,[1-9]\d*)*$/.test(raw)
+  if (day !== today || !/^[A-Za-z0-9_-]{1,64}$/.test(session) || !/^[1-9]\d*(,[1-9]\d*)*$/.test(raw)
       || ordinals.length > total || new Set(ordinals).size !== ordinals.length
       || ordinals.some(n => !Number.isInteger(n) || n < 1 || n > total)) {
     return { invalid: true };
   }
-  return { day, ordinals };
+  return { day, ordinals, session };
 }
 
 export function lexicalStudyNeighbors(ordinal, total, revisit = null) {
@@ -59,4 +61,17 @@ export function lexicalStudyNeighbors(ordinal, total, revisit = null) {
   }
   return { previous: ordinal > 1 ? ordinal - 1 : null,
     next: ordinal < total ? ordinal + 1 : null, position: ordinal, count: total };
+}
+
+// The existing event return URL identifies the traversal that admitted a rating.
+// Older Coverage/other-round history remains intact at this round's Undo boundary.
+export function lexicalRevisitUndoAllowed(revisit, event, total, today) {
+  if (!event) return false;
+  if (!revisit) return true;
+  if (revisit.invalid) return false;
+  try {
+    const prior = lexicalRevisitContext(new URL(event.return_href, 'http://kianos.local'), total, today);
+    return Boolean(prior && !prior.invalid && prior.session === revisit.session
+      && prior.ordinals.join(',') === revisit.ordinals.join(','));
+  } catch { return false; }
 }
