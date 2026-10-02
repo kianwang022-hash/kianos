@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
+import { studyDayAt } from '../src/lib/studyTimer.mjs';
 import { listWritingSyntheticTasks } from '../src/lib/englishWritingSynthetic.mjs';
 import { listTranslationSets, loadTranslationById } from '../src/lib/englishTranslationSourceTruth.mjs';
 
@@ -56,7 +57,14 @@ async function readWritingRecord(page, id) {
   return page.evaluate((taskId) => JSON.parse(localStorage.getItem(`kianos-writing-runtime-v1:${taskId}`) || 'null'), id);
 }
 
+async function waitForNativeWriter(page) {
+  await page.waitForFunction(() => ['active', 'retired', 'unavailable'].includes(document.documentElement.dataset.learnerWriter));
+  const state = await page.evaluate(() => document.documentElement.dataset.learnerWriter);
+  if (state !== 'active') throw new Error('WRITING_FFV_FIXTURE_WRITER_NOT_ACTIVE:' + state);
+}
+
 async function setJson(page, key, value) {
+  await waitForNativeWriter(page);
   await page.evaluate(([storageKey, storageValue]) => {
     if (storageValue === null) localStorage.removeItem(storageKey);
     else localStorage.setItem(storageKey, JSON.stringify(storageValue));
@@ -71,6 +79,7 @@ async function assertNoVisibleEngineering(page, name) {
 }
 
 async function clearEnglishResumeFixtures(page) {
+  await waitForNativeWriter(page);
   await page.evaluate(() => {
     [
       'kianos-reading-last-location-v1',
@@ -203,8 +212,8 @@ async function repairReturnJourney(browser, task) {
     await page.goto(`${BASE}/english/`, { waitUntil: 'domcontentloaded' });
     check(await page.locator('[data-english-resume]').isHidden(), 'website_does_not_auto_rank_active_writing_repair');
 
-    await page.evaluate(({ taskId, taskSourceHash }) => {
-      const day = new Date().toLocaleDateString('en-CA');
+    await waitForNativeWriter(page);
+    await page.evaluate(({ taskId, taskSourceHash, day }) => {
       localStorage.setItem('kianos-english-session-instruction-v1', JSON.stringify({
         schema: 'kianos.english.session-instruction.v1',
         session_id: 'writing-ffv-repair',
@@ -221,7 +230,7 @@ async function repairReturnJourney(browser, task) {
         }],
         return_policy: { on_finish: 'english_home' }
       }));
-    }, { taskId: task.id, taskSourceHash: task.sourceHash });
+    }, { taskId: task.id, taskSourceHash: task.sourceHash, day: studyDayAt(await page.evaluate(() => Date.now())) });
     await page.reload({ waitUntil: 'domcontentloaded' });
     await page.locator('[data-english-resume]').waitFor({ state: 'visible' });
     check((await page.locator('[data-english-resume-title]').textContent()) === 'Writing repair', 'chat_session_surfaces_selected_writing_repair');
@@ -305,7 +314,7 @@ async function repairReturnJourney(browser, task) {
     await page.reload({ waitUntil: 'domcontentloaded' });
     check(await page.locator('[data-english-resume]').isHidden(), 'website_does_not_auto_rank_cross_lane_state');
 
-    const day = await page.evaluate(() => new Date().toLocaleDateString('en-CA'));
+    const day = studyDayAt(await page.evaluate(() => Date.now()));
     await setJson(page, 'kianos-english-session-instruction-v1', {
       schema: 'kianos.english.session-instruction.v1',
       session_id: 'writing-ffv-cross-lane',

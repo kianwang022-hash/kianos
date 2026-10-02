@@ -100,6 +100,7 @@ const serverTaskLabel = (step) => ({
   } from '../../lib/englishExamSession.mjs';
   import { readEnglishSessionInstruction, englishStepIsComplete } from '../../lib/englishSessionControl.mjs';
   import { learnerWriterReady } from '../../lib/browserLearnerWriter.mjs';
+  import { studyDayAt } from '../../lib/studyTimer.mjs';
   void learnerWriterReady.then(() => {
 
 
@@ -128,7 +129,7 @@ const serverTaskLabel = (step) => ({
     const scoreRange = root.querySelector('[data-exam-score-range]');
     const productiveBreakdown = root.querySelector('[data-exam-productive-breakdown]');
 
-    const localDay = () => new Date().toLocaleDateString('en-CA');
+    const localDay = () => studyDayAt(Date.now());
     const setStatus = (message, bad = false) => {
       if (!(statusNode instanceof HTMLElement)) return;
       statusNode.textContent = message;
