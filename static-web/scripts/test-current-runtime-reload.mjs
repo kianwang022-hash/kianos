@@ -3,45 +3,20 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import net from 'node:net';
 import { fileURLToPath } from 'node:url';
 import { execFileSync, spawn } from 'node:child_process';
-import { once } from 'node:events';
+import { isolatedTestEnv, reserveLoopbackPort, stopOwnedProcess, waitFor as waitForCondition } from './test-support/isolated-runtime.mjs';
 
 const scripts = path.dirname(fileURLToPath(import.meta.url));
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-runtime-reload-'));
 const upstream = path.join(temp, 'upstream'), mirror = path.join(temp, 'mirror'), remote = path.join(temp, 'remote.git');
 const git = (cwd, ...args) => execFileSync('git', args, { cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
-const reservation = net.createServer();
-reservation.listen(0, '127.0.0.1');
-await once(reservation, 'listening');
-const port = reservation.address().port;
-await new Promise(resolve => reservation.close(resolve));
+let port;
+const counter = path.join(temp, 'build-count');
 let processHandle, logs = '';
-const waitFor = async (fn) => {
-  const deadline = Date.now() + 15000;
-  while (Date.now() < deadline) {
-    if (await fn()) return;
-    await new Promise(resolve => setTimeout(resolve, 150));
-  }
-  throw new Error('runtime reload timeout\n' + logs);
-};
-const reservePort = async () => {
-  const server = net.createServer();
-  server.listen(0, '127.0.0.1');
-  await once(server, 'listening');
-  const value = server.address().port;
-  await new Promise(resolve => server.close(resolve));
-  return value;
-};
-const stopFixtureServer = async (child) => {
-  if (child?.exitCode != null) return;
-  child.kill('SIGTERM');
-  await Promise.race([
-    once(child, 'exit'),
-    new Promise(resolve => setTimeout(resolve, 1500))
-  ]);
-};
+const waitFor = fn => waitForCondition(fn, { code: 'CURRENT_RUNTIME_TIMEOUT', detail: () => logs });
+const reservePort = reserveLoopbackPort;
+const stopFixtureServer = stopOwnedProcess;
 async function proveProbeIsolation() {
   const root = path.join(temp, 'probe-isolation');
   const probeScripts = path.join(root, 'scripts');
@@ -63,7 +38,7 @@ async function proveProbeIsolation() {
   }
   const port = await reservePort();
   const probeEnv = {
-    ...process.env,
+    ...isolatedTestEnv(stateRoot),
     KIANOS_PROBE_BRIDGE_MARKER: marker,
     KIANOS_PRIVATE_DIR: path.join(stateRoot, 'private'),
     KIANOS_CONTROL_DIR: path.join(stateRoot, 'control'),
@@ -107,6 +82,7 @@ async function proveProbeIsolation() {
   } finally { await stopFixtureServer(broken); }
 }
 try {
+  port = await reserveLoopbackPort();
   await proveProbeIsolation();
   fs.mkdirSync(upstream);
   git(upstream, 'init', '-b', 'main');
@@ -131,6 +107,7 @@ http.createServer((req, res) => {
   if (req.url.startsWith('/__kianos-release.json')) return res.end(JSON.stringify(releaseIdentity()));
   if (req.url.startsWith('/__fixture-runtime.json')) return res.end(JSON.stringify({
     version,
+    pid: process.pid,
     cwd: process.cwd(),
     repo_root: process.env.KIANOS_REPO_ROOT || '',
     static_root: root,
@@ -139,6 +116,9 @@ http.createServer((req, res) => {
   }));
   res.end(version);
 }).listen(Number(process.env.KIANOS_PORT), '127.0.0.1');`);
+  if (process.argv.includes('--legacy-classifier')) {
+    write('static-web/scripts/currentStaticImpact.mjs', execFileSync('git', ['show', '38530ebab7577a84295bf5b30db65e2339359e64:static-web/scripts/currentStaticImpact.mjs'], { cwd: scripts }));
+  }
   write('static-web/src/lib/fixture.mjs', 'export const version = "v1";');
   write('.gitignore', 'static-web/public/\nstatic-web/.current-*\nstatic-web/dist\n');
   const commit = () => { git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'fixture'); return git(upstream, 'rev-parse', 'HEAD'); };
@@ -151,6 +131,7 @@ http.createServer((req, res) => {
   fs.writeFileSync(npm, `#!/usr/bin/env node
 const fs = require('fs'), path = require('path');
 const root = process.argv[process.argv.indexOf('--outDir') + 1];
+fs.appendFileSync(process.env.KIANOS_TEST_BUILD_COUNTER, 'build\\n');
 fs.mkdirSync(root, {recursive:true}); fs.writeFileSync(path.join(root, 'index.html'), 'fixture');`);
   fs.chmodSync(npm, 0o755);
   const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
@@ -184,7 +165,8 @@ exec "${realGit}" "$@"
   const startSyncProcess = () => {
     const handle = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], {
       cwd: mirror, env: {
-        ...process.env,
+        ...isolatedTestEnv(path.join(temp, 'private')),
+        KIANOS_TEST_BUILD_COUNTER: counter,
         PATH: `${fixtureBin}:${process.env.PATH || ''}`,
         KIANOS_GIT_BIN: gitWrapper,
         KIANOS_SYNC_RUNTIME_SHA: git(mirror, 'rev-parse', 'HEAD'),
@@ -250,6 +232,49 @@ exec "${realGit}" "$@"
   const repeatedControlSync = new RegExp(`main advanced ${controlOnly.slice(0, 8)} → ${controlOnly.slice(0, 8)}`, 'g');
   assert.equal((logs.match(repeatedControlSync) || []).length, 0, 'control-only promotion must not resync the same SHA every interval');
 
+  const controlStatus = () => JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json')));
+  const runtimeStatus = async () => (await fetch(`http://127.0.0.1:${port}/__fixture-runtime.json`)).json();
+  const buildCount = () => fs.readFileSync(counter, 'utf8').trim().split('\n').length;
+  const beforeVerification = { builds: buildCount(), runtime: await runtimeStatus(),
+    artifact: fs.readFileSync(path.join(nextRelease, 'static-web/dist/index.html'), 'utf8'), daemon: processHandle.pid };
+  write('static-web/scripts/validate-xizong-a2-evidence.mjs', fs.readFileSync(path.join(scripts, 'validate-xizong-a2-evidence.mjs')));
+  write('static-web/scripts/test-support/example.mjs', '// fixture-only support\n');
+  write('static-web/scripts/fixtures/politics-practice/catalog.mjs', '// synthetic fixture-only change\n');
+  const verificationOnly = commit();
+  git(upstream, 'push', 'origin', 'main');
+  await waitFor(() => controlStatus().state === 'synced' && controlStatus().control_sha === verificationOnly);
+  assert.equal(buildCount(), beforeVerification.builds, 'VERIFICATION_ONLY_MUST_NOT_BUILD');
+  assert.equal(controlStatus().sha, next, 'VERIFICATION_ONLY_MUST_KEEP_SERVED_SHA');
+  assert.equal(controlStatus().static_build, 'reused');
+  assert.deepEqual(await runtimeStatus(), beforeVerification.runtime, 'VERIFICATION_ONLY_MUST_KEEP_PROCESS_AND_ARTIFACT_ROOT');
+  assert.equal(processHandle.pid, beforeVerification.daemon);
+  assert.equal(processHandle.exitCode, null, 'VERIFICATION_ONLY_MUST_NOT_RESTART_DAEMON');
+  assert.equal(fs.readFileSync(path.join(nextRelease, 'static-web/dist/index.html'), 'utf8'), beforeVerification.artifact);
+  console.log('VERIFICATION_ONLY_RELEASE_EVIDENCE ' + JSON.stringify({
+    control_before: controlOnly, control_after: controlStatus().control_sha,
+    before: beforeVerification, after: { builds: buildCount(), runtime: await runtimeStatus(),
+      artifact: fs.readFileSync(path.join(nextRelease, 'static-web/dist/index.html'), 'utf8'), daemon: processHandle.pid }
+  }));
+
+  // Mixed and unknown scripts still promote a new release with a new server.
+  let priorRuntime = await runtimeStatus();
+  for (const [label, changes] of [
+    ['mixed', [['static-web/src/lib/fixture.mjs', 'export const version = "v2"; // actual runtime delta'], ['static-web/scripts/validate-xizong-a2-evidence.mjs', '// verification update']]],
+    ['unknown', [['static-web/scripts/validate-future-runtime-helper.mjs', 'export const future = true;']]]
+  ]) {
+    const before = buildCount();
+    for (const [file, body] of changes) write(file, body);
+    const sha = commit(); git(upstream, 'push', 'origin', 'main');
+    await waitFor(() => controlStatus().state === 'synced' && controlStatus().control_sha === sha);
+    const current = await runtimeStatus();
+    assert.equal(buildCount(), before + 1, label + '_MUST_BUILD');
+    assert.equal(current.sha, sha, label + '_MUST_PROMOTE');
+    assert.notEqual(current.pid, priorRuntime.pid, label + '_MUST_RELOAD');
+    assert.equal(processHandle.exitCode, null);
+    priorRuntime = current;
+  }
+  console.log('VERIFICATION_ONLY_RELEASE PASS: control SHA advances; served SHA, PID, artifact and build count stay fixed; mixed/unknown still build/reload');
+
   write('static-web/scripts/currentRelease.mjs', fs.readFileSync(path.join(scripts, 'currentRelease.mjs'), 'utf8') + '\n// fixture daemon-helper update\n');
   const helperUpdate = commit();
   git(upstream, 'push', 'origin', 'main');
@@ -276,8 +301,7 @@ exec "${realGit}" "$@"
   console.log('CURRENT_RUNTIME_RELOAD PASS: handoff pins runtime identity, control-only sync idles, cleanup/reset failures cannot suppress daemon restart');
 } finally {
   if (processHandle && processHandle.exitCode === null) {
-    processHandle.kill('SIGTERM');
-    await once(processHandle, 'exit');
+    await stopOwnedProcess(processHandle);
   }
   fs.rmSync(temp, { recursive: true, force: true });
 }

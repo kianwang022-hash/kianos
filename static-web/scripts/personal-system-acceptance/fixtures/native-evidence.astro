@@ -1,0 +1,22 @@
+---
+import Base from '@runtime/layouts/Base.astro';
+import Recall from '@runtime/components/XizongRecallEvidenceBridge.astro';
+import SystemEvidence from '@runtime/components/XizongSystemEvidenceGuard.astro';
+const block = { objectId: 'xizong:synthetic-evidence-b01', sourceHash: 'synthetic-source', kpRecords: [{ kpId: 'synthetic-kp' }] };
+const system = { systemId: 'synthetic-evidence', sourceHash: 'synthetic-system', blocks: [], systemRecall: {} };
+const sweep = { questions: [{ questionId: 'SYNTHETIC-Q1', year: 2030 }, { questionId: 'SYNTHETIC-Q2', year: 2030 }] };
+---
+<Base title="原生证据组件 · 合成验收" active="xizong">
+  <section data-xizong-v6-block>
+    <article data-kp-id="synthetic-kp">
+      <div data-kp-answer>合成答案已展开</div>
+      <button data-rating="unknown">合成 KP Recall：unknown</button>
+    </article>
+  </section>
+  <Recall block={block} />
+  <section data-xizong-system-exit>
+    <div data-recall-workspace><div data-recall-reveal>合成 System Recall 已展开</div></div>
+    <button data-complete-recall>提交合成 System Recall</button>
+  </section>
+  <SystemEvidence system={system} sweep={sweep} />
+</Base>

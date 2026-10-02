@@ -33,6 +33,24 @@ function isTestOnlyStaticScript(file) {
   return /^static-web\/scripts\/test-[^/]+\.mjs$/.test(file);
 }
 
+// Reviewed consumers: package validate:xizong and the Xizong QA workflows call
+// this CLI; no build/learner server imports it. Do not exempt validate-* by name:
+// a future validation helper can still be a production build/runtime dependency.
+const VERIFICATION_ONLY_SCRIPTS = new Set([
+  'static-web/scripts/validate-xizong-a2-evidence.mjs'
+]);
+const VERIFICATION_ONLY_PREFIXES = [
+  'static-web/scripts/test-support/',
+  'static-web/scripts/personal-system-acceptance/',
+  'static-web/scripts/fixtures/politics-practice/'
+];
+
+export function isVerificationOnlyStaticPath(value) {
+  const file = normalizePath(value);
+  return isTestOnlyStaticScript(file) || VERIFICATION_ONLY_SCRIPTS.has(file)
+    || VERIFICATION_ONLY_PREFIXES.some(prefix => file.startsWith(prefix));
+}
+
 const NON_LEARNER_RUNTIME_SCRIPTS = new Set([
   'static-web/scripts/kianos-current-sync.mjs',
   'static-web/scripts/currentRelease.mjs',
@@ -73,7 +91,7 @@ export function requiresStaticRuntimeReload(changedPaths = []) {
       || (
         file.startsWith('static-web/scripts/')
         && file.endsWith('.mjs')
-        && !isTestOnlyStaticScript(file)
+        && !isVerificationOnlyStaticPath(file)
         && !NON_LEARNER_RUNTIME_SCRIPTS.has(file)
       );
   });
@@ -88,6 +106,10 @@ export function staticBuildPathImpact(value) {
   const file = normalizePath(value);
   if (!file) {
     return { file, requires_build: false, requires_lexical_projection: false, reason: 'empty' };
+  }
+
+  if (isVerificationOnlyStaticPath(file)) {
+    return { file, requires_build: false, requires_lexical_projection: false, reason: 'verification-only' };
   }
 
   const lexicalProjection = requiresLexicalProjection(file);
