@@ -135,6 +135,7 @@ async function fullNineStepJourney(browser, paper) {
       }
     }
 
+    await page.locator('[data-english-exam-home][data-exam-ready="true"]').waitFor({state:'visible'});
     check(await page.locator('.englishExamStep[data-complete="true"]').count() === 9, 'full_paper_not_9_of_9_complete');
 
     const captured = await page.evaluate(() => {
@@ -200,6 +201,7 @@ try {
     await page.locator('[data-exam-start]').click();
     await page.waitForURL('**/cloze/**?exam_session=*');
 
+    await page.locator('[data-english-exam-task-bridge]').waitFor({state:'visible'});
     check(await page.locator('[data-english-exam-task-bridge]').isVisible(), 'exam_bridge_missing');
     check(await page.locator('[data-objective-root]').getAttribute('data-objective-answers-ready') === 'false', 'answers_loaded_during_exam');
     check(await page.locator('[data-objective-formal]:visible').count() === 0, 'formal_answer_visible_during_exam');
@@ -220,6 +222,7 @@ try {
     await page.waitForURL('**/reading/**?exam_session=*');
 
     await page.goto(`${BASE}/english-exam/${encodeURIComponent(paper.paper_id)}/`, { waitUntil: 'domcontentloaded' });
+    await page.locator('[data-english-exam-home][data-exam-ready="true"]').waitFor({state:'visible'});
     check(await page.locator('[data-exam-seal]').isVisible(), 'early_seal_missing');
     check(await page.locator('.englishExamStep[data-complete="true"]').count() >= 1, 'captured_step_not_visible');
 
