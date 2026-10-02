@@ -33,34 +33,48 @@ export function studyhubDependencies(file, markdown) {
     .filter(target => target?.startsWith('assets/') && !/\/README\.md$/.test(target)))];
 }
 
-export function loadStudyhub(root = process.env.STUDYHUB_SOURCE_DIR || STUDYHUB_CACHE) {
-  const docs = new Map();
-  if (!root || !fs.existsSync(path.join(root, 'WORLD_MAP.md'))) {
-    if (process.env.NODE_ENV === 'production') throw new Error('STUDYHUB_SOURCE_MISSING: run node scripts/sync-studyhub-source.mjs before the production build');
-    return { docs, zones: [], directions: [], revision: '', available: false };
-  }
+export function loadStudyhub(root = process.env.STUDYHUB_SOURCE_DIR || STUDYHUB_CACHE, { mode = process.env.KIANOS_STUDYHUB_MODE || 'public' } = {}) {
+  if (!['public', 'private'].includes(mode)) throw new Error('STUDYHUB_MODE_INVALID');
+  // Public builds never inspect a nearby private cache, configured source or Git credentials.
+  if (mode === 'public') return { docs: new Map(), zones: [], directions: [], revision: '', available: false, mode };
+  if (!root || !fs.existsSync(path.join(root, 'WORLD_MAP.md'))) throw new Error('STUDYHUB_SOURCE_MISSING');
   root = fs.realpathSync(root);
-  let revision = '';
-  let manifest;
-  try { manifest = JSON.parse(fs.readFileSync(path.join(root, 'source.json'), 'utf8')); revision = manifest.revision; } catch {}
-  try { revision ||= execFileSync('git', ['-C', root, 'rev-parse', 'HEAD'], {encoding:'utf8',stdio:['ignore','pipe','ignore']}).trim(); } catch {}
-  if (revision !== STUDYHUB_SOURCE.revision) throw new Error('STUDYHUB_SOURCE_REVISION_MISMATCH: expected ' + STUDYHUB_SOURCE.revision);
-  if (fs.existsSync(path.join(root, '.git')) && execFileSync('git', ['-C', root, 'status', '--porcelain', '--untracked-files=no'], {encoding:'utf8'}).trim()) throw new Error('STUDYHUB_SOURCE_DIRTY');
-  const queue = ['WORLD_MAP.md'];
-  while (queue.length) {
-    const file = queue.shift();
-    if (docs.has(file)) continue;
+  const git = args => execFileSync('git', ['-C', root, ...args], {encoding:'utf8',stdio:['ignore','pipe','ignore']}).trim();
+  let gitRoot, revision;
+  try { gitRoot = fs.realpathSync(git(['rev-parse', '--show-toplevel'])); revision = git(['rev-parse', 'HEAD']); }
+  catch { throw new Error('STUDYHUB_VERIFIED_GIT_SOURCE_REQUIRED'); }
+  if (gitRoot !== root) throw new Error('STUDYHUB_VERIFIED_GIT_SOURCE_REQUIRED');
+  if (revision !== STUDYHUB_SOURCE.revision) throw new Error('STUDYHUB_SOURCE_REVISION_MISMATCH');
+  if (git(['status', '--porcelain', '--untracked-files=no'])) throw new Error('STUDYHUB_SOURCE_DIRTY');
+  const blobs = new Map(git(['ls-tree', '-rz', revision, '--', 'WORLD_MAP.md', 'assets']).split('\0').filter(Boolean).map(row => {
+    const [metadata, file] = row.split('\t');
+    return [file, metadata.split(' ')[2]];
+  }));
+  // Export manifests are not trust roots. Every admitted byte is bound to the
+  // actual pinned Git tree, even if stat/assume-unchanged hides a dirty file.
+  const library = assembleStudyhub(file => {
     const full = path.resolve(root, file);
     if (!full.startsWith(root + path.sep) || !fs.existsSync(full)) throw new Error('STUDYHUB_ADOPTED_SOURCE_MISSING: ' + file);
     const real = fs.realpathSync(full);
     if (!real.startsWith(root + path.sep)) throw new Error('STUDYHUB_SOURCE_OUTSIDE_ROOT: ' + file);
-    const markdown = fs.readFileSync(real, 'utf8');
-    if (manifest) {
-      if (!manifest.files?.[file]) throw new Error('STUDYHUB_SOURCE_HASH_MISSING: ' + file);
-      const bytes = Buffer.from(markdown);
-      const blob = crypto.createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
-      if (blob !== manifest.files[file]) throw new Error('STUDYHUB_SOURCE_BYTES_CHANGED: ' + file);
-    }
+    const bytes = fs.readFileSync(real);
+    const blob = crypto.createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
+    if (!blobs.has(file) || blob !== blobs.get(file)) throw new Error('STUDYHUB_SOURCE_BYTES_CHANGED: ' + file);
+    return bytes.toString('utf8');
+  }, revision);
+  return { ...library, mode };
+}
+
+// Pure presentation adapter. Synthetic tests call this directly; production
+// admission always passes through the verified Git loader above.
+export function assembleStudyhub(readSource, revision) {
+  const docs = new Map();
+  const queue = ['WORLD_MAP.md'];
+  while (queue.length) {
+    const file = queue.shift();
+    if (docs.has(file)) continue;
+    const markdown = readSource(file);
+    if (typeof markdown !== 'string') throw new Error('STUDYHUB_ADOPTED_SOURCE_MISSING: ' + file);
     const title = markdown.match(/^#\s+(.+)$/m)?.[1] || path.basename(file, '.md');
     docs.set(file, { file, title, markdown, hash: digest(markdown), source: sourceHref(file, revision) });
     queue.push(...studyhubDependencies(file, markdown).filter(file => !docs.has(file)));
@@ -103,24 +117,22 @@ export function renderStudyhub(doc, library, base = '/') {
     },
     image({href,text}) { const safe=/^https?:\/\//i.test(href) ? href : ''; return safe ? `<img src="${escape(safe)}" alt="${escape(text)}" loading="lazy" />` : `<span>${escape(text)}</span>`; },
     html({text}) {
-      // Preserve semantic raw Markdown containers/anchors; no executable HTML.
-      return text.replace(/<[^>]*>/g, tag => {
-        const match=tag.match(/^<(\/?)\s*(details|summary|a|br|sub|sup|kbd)\b([^>]*)>/i);
-        if(!match) return escape(tag);
-        const [,close,name,attrs]=match;
-        if(close) return `</${name.toLowerCase()}>`;
-        const id=attrs.match(/\bid\s*=\s*["']([^"']+)["']/i)?.[1];
-        const href=attrs.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1];
-        return `<${name.toLowerCase()}${id?' id="'+escape(id)+'"':''}${href?' href="'+escape(linkInfo(href).href)+'"':''}>`;
-      });
+      // Escape the ENTIRE token first, including every incomplete '<'. Only
+      // reconstruct the exact inert markup vocabulary used by canonical sources;
+      // arbitrary raw HTML, attributes, hrefs and events are never admitted.
+      return escape(text)
+        .replace(/&lt;(\/?(?:details|summary))&gt;/g, (_, tag) => '<' + tag + '>')
+        .replace(/&lt;a id=&quot;([A-Za-z][A-Za-z0-9_-]*)&quot;&gt;/g, (_, id) => '<a id="' + id + '">')
+        .replace(/&lt;\/a&gt;/g, '</a>');
     }
   }});
   // Fold only source housekeeping before the first narrative paragraph. Every byte of
   // authored prose still goes through the renderer; the raw Markdown is downloadable.
   const metadata = doc.markdown.match(/^(# [^\n]+\n\s*\n)((?:Status:|Created:|Updated:|Revised:|Role:)[\s\S]*?)(?=\n\s*\n)/);
   let markdown = doc.markdown;
-  if(metadata) markdown=markdown.replace(metadata[0],`${metadata[1]}<details class="shSourceMeta">\n<summary>文章说明与范围</summary>\n\n${metadata[2]}\n\n</details>`);
-  const html=parser.parse(markdown);
+  if(metadata) markdown=markdown.replace(metadata[0],`${metadata[1]}<details>\n<summary>文章说明与范围</summary>\n\n${metadata[2]}\n\n</details>`);
+  let html=parser.parse(markdown);
+  if(metadata)html=html.replace('<summary>文章说明与范围</summary>','<summary data-sh-ui>文章说明与范围</summary>');
   const logicLink=doc.markdown.match(/^(?:Direction )?Logic:\s*\[[^\]]*\]\(([^)]+)\)/m)?.[1];
   const logicFile=logicLink && resolveSourceLink(doc.file,logicLink)?.file;
   const logic=logicFile && library.docs.get(logicFile);

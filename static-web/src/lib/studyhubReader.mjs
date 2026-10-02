@@ -1,15 +1,36 @@
 // UI reading position only; never an attempt, mastery signal or private checkpoint.
 const PREFIX='kianos-studyhub-reader-v1:';
-const TRAIL=PREFIX+'trail', PENDING=PREFIX+'return', LAST=PREFIX+'last', FONT=PREFIX+'font';
+const NAVIGATION=PREFIX+'navigation', PENDING=PREFIX+'return', LAST=PREFIX+'last', FONT=PREFIX+'font';
 const read=(storage,key,fallback=null)=>{try{return JSON.parse(storage.getItem(key))??fallback;}catch{return fallback;}};
 const write=(storage,key,value)=>{try{storage.setItem(key,JSON.stringify(value));return true;}catch{return false;}};
-const localURL=(url)=>{const u=new URL(url,location.href);return u.origin===location.origin&&u.pathname.includes('/studyhub/')?u:null;};
+const localURL=(url)=>{try{const u=new URL(url,location.href);return u.origin===location.origin&&u.pathname.includes('/studyhub/')?u:null;}catch{return null;}};
+const sourceText=node=>{const clone=node.cloneNode(true);clone.querySelectorAll('[data-sh-preview],[data-sh-ui]').forEach(n=>n.remove());return clone.textContent.trim();};
 
 export function initStudyhubReader(){
   const root=document.querySelector('[data-sh-reader]');
   const last=read(localStorage,LAST);
   const resume=document.querySelector('[data-sh-resume]');
   if(resume&&last&&localURL(last.url)) {resume.href=last.url;resume.textContent='继续阅读：'+last.title+' →';resume.hidden=false;}
+  // Each native history entry owns its return path. A global stack goes stale
+  // when BFCache restores an older document without rerunning module setup.
+  const queued=read(sessionStorage,NAVIGATION);
+  try{sessionStorage.removeItem(NAVIGATION);}catch{}
+  const cleanTrail=entries=>{
+    const valid=(Array.isArray(entries)?entries:[]).filter(x=>x&&localURL(x.url)&&x.position).slice(-20);
+    while(valid.at(-1)?.url===location.pathname)valid.pop();
+    return valid;
+  };
+  const initialTrail=history.state?.shTrail ?? (queued?.to===location.pathname?queued.trail:[]);
+  history.replaceState({...history.state,shTrail:cleanTrail(initialTrail)},'');
+  const trail=()=>cleanTrail(history.state?.shTrail);
+  document.addEventListener('click',event=>{
+    const link=event.target.closest?.('a[data-sh-link]');
+    if(!link||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+    const target=localURL(link.href);if(!target||target.pathname===location.pathname)return;
+    const entries=trail();
+    if(root){save();entries.push({url:location.pathname,title:root.dataset.shTitle,position:modalPosition||capture()});}
+    write(sessionStorage,NAVIGATION,{to:target.pathname,trail:entries.slice(-20)});
+  });
   if(!root)return;
   const article=root.querySelector('[data-sh-article]');
   const status=root.querySelector('[data-sh-status]');
@@ -62,28 +83,26 @@ export function initStudyhubReader(){
   window.addEventListener('scroll',()=>{clearTimeout(timer);timer=setTimeout(save,180);},{passive:true});
   window.addEventListener('pagehide',save);
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')save();});
-  window.addEventListener('pageshow',event=>{if(event.persisted&&history.state?.shPosition)restore(history.state.shPosition);});
+  window.addEventListener('pageshow',event=>{
+    if(event.persisted){renderReturn();if(history.state?.shPosition)restore(history.state.shPosition);}
+  });
   font.addEventListener('change',()=>{
     const position=capture();restoring=true;
     root.style.setProperty('--sh-font-size',font.value+'px');
     requestAnimationFrame(()=>{restore(position);restoring=false;if(ready&&!write(localStorage,FONT,Number(font.value)))setStatus('字号已调整，但无法保存设置。');save();});
   });
 
-  const trail=()=>read(sessionStorage,TRAIL,[]).filter(x=>localURL(x.url));
-  let previous=trail();
-  // A native browser Back has returned to the originating article.
-  if(previous.at(-1)?.url===location.pathname){previous.pop();write(sessionStorage,TRAIL,previous);}
   const returnButton=root.querySelector('[data-sh-return]');
-  if(previous.length){returnButton.hidden=false;returnButton.textContent='← 返回：'+previous.at(-1).title;returnButton.title=previous.at(-1).title;}
+  function renderReturn(){
+    const entries=trail();history.replaceState({...history.state,shTrail:entries},'');
+    const entry=entries.at(-1);returnButton.hidden=!entry;
+    returnButton.textContent=entry?'← 返回：'+entry.title:'返回上一处';returnButton.title=entry?.title||'';
+  }
+  renderReturn();
   returnButton.addEventListener('click',()=>{
     const entries=trail(),entry=entries.pop();if(!entry)return;
-    save();write(sessionStorage,TRAIL,entries);write(sessionStorage,PENDING,{url:new URL(entry.url,location.href).pathname,position:entry.position});location.assign(entry.url);
-  });
-  document.addEventListener('click',event=>{
-    const link=event.target.closest?.('a[data-sh-link]');
-    if(!link||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
-    const target=localURL(link.href);if(!target||target.pathname===location.pathname)return;
-    save();const entries=trail();entries.push({url:location.pathname,title:root.dataset.shTitle,position:modalPosition||capture()});write(sessionStorage,TRAIL,entries.slice(-20));
+    save();write(sessionStorage,NAVIGATION,{to:new URL(entry.url,location.href).pathname,trail:entries});
+    write(sessionStorage,PENDING,{url:new URL(entry.url,location.href).pathname,position:entry.position});location.assign(entry.url);
   });
   root.querySelectorAll('[data-sh-anchor]').forEach(link=>link.addEventListener('click',()=>{requestAnimationFrame(save);}));
   const anchors=root.querySelectorAll('[data-sh-anchor]');
@@ -97,6 +116,7 @@ export function initStudyhubReader(){
   });
   const context=root.querySelector('[data-sh-context]');
   let previewRequest=0;
+  context.addEventListener('close',()=>{previewRequest++;});
   document.addEventListener('click',async event=>{
     const button=event.target.closest?.('[data-sh-preview]');if(!button)return;
     const target=localURL(button.dataset.shPreview);if(!target)return;
@@ -135,7 +155,7 @@ export function initStudyhubReader(){
       body.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));
       body.querySelectorAll('[data-sh-preview]').forEach(n=>n.remove());
       label.textContent=parsed.querySelector('[data-sh-reader]')?.dataset.shTitle||'原文';
-    }catch{body.textContent='这份原文暂时无法展开。请打开完整原文，或稍后重试。';}
+    }catch{if(request!==previewRequest||!context.open)return;body.textContent='这份原文暂时无法展开。请打开完整原文，或稍后重试。';}
   });
 
   function captureSelection(){
@@ -143,14 +163,14 @@ export function initStudyhubReader(){
     if(!current||current.isCollapsed||!current.rangeCount)return;
     const range=current.getRangeAt(0);
     if(!article.contains(range.startContainer)||!article.contains(range.endContainer))return;
-    const text=current.toString().trim();if(!text)return;
+    const text=sourceText(range.cloneContents());if(!text)return;
     const blockFor=node=>(node.nodeType===1?node:node.parentElement)?.closest('[data-sh-block],li,blockquote');
     const first=blockFor(range.startContainer),last=blockFor(range.endContainer);
     const blocks=allBlocks(),start=blocks.indexOf(first),end=blocks.indexOf(last);
     const contextBlocks=start>=0&&end>=0?blocks.slice(Math.max(0,start-1),Math.min(blocks.length,end+2)):[first,last].filter(Boolean);
     const preceding=selector=>[...article.querySelectorAll(selector)].filter(n=>(n.compareDocumentPosition(first||range.startContainer)&Node.DOCUMENT_POSITION_FOLLOWING)||n===first).at(-1);
     const sourceAnchor=preceding('a[id]')||preceding('h2[id],h3[id]');
-    selection={text,context:[...new Set(contextBlocks)].map(n=>n.textContent.trim()).join('\n\n'),anchor:sourceAnchor?.id||'',paragraph:first?.id||''};
+    selection={text,context:[...new Set(contextBlocks)].map(sourceText).join('\n\n'),anchor:sourceAnchor?.id||'',paragraph:first?.id||''};
   }
   document.addEventListener('selectionchange',captureSelection);
   root.querySelector('[data-sh-ask]').addEventListener('pointerdown',captureSelection);

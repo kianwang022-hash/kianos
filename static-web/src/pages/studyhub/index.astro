@@ -8,8 +8,8 @@ const href=(file)=>library.docs.has(file)?readerHref(file,base):sourceHref(file,
 ---
 <Base title="StudyHub · 世界" active="studyhub" runtimeMode="presentation" showLead={false}>
   <div class="shIndex" data-sh-index>
-    <header class="shIndexHead"><p class="shEyebrow">StudyHub / 世界</p><h1>从一件真实的事，读懂它背后的世界。</h1><p>按兴趣进入一个领域，或沿着跨领域文章继续读。</p><a data-sh-resume hidden>继续上次阅读 →</a></header>
-    {!library.available && <p role="status">暂未连接 StudyHub 原文。<a href="https://github.com/kianwang022-hash/StudyHub/blob/main/WORLD_MAP.md">打开原世界地图</a></p>}
+    <header class="shIndexHead"><p class="shEyebrow">StudyHub / 世界</p><h1>从一件真实的事，读懂它背后的世界。</h1><p>按兴趣进入一个领域，或沿着跨领域文章继续读。</p>{library.available && <a data-sh-resume hidden>继续上次阅读 →</a>}</header>
+    {!library.available && <p role="status">此构建未接入私人 StudyHub 原文。完整阅读需要在个人环境中连接已授权的源文件。<a href="https://github.com/kianwang022-hash/StudyHub/blob/main/WORLD_MAP.md">打开原世界地图</a></p>}
     {library.available && <>
       <section class="shDirections"><h2>跨领域阅读</h2><div>{library.directions.map(link=><a data-sh-link href={href(link.file)}>{library.docs.get(link.file)?.title || link.label}<span>继续阅读 →</span></a>)}</div></section>
       <section class="shZones"><h2>世界地图</h2>{library.zones.map(zone=><section class="shZone"><h3>{zone.title}</h3><div>{zone.links.filter(l=>! /Logic Map/i.test(l.label)).map(link=><a data-sh-link href={href(link.file)}>{library.docs.get(link.file)?.title || link.label}</a>)}</div></section>)}</section>

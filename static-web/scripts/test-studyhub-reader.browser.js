@@ -79,11 +79,43 @@ async page => {
   }finally{await mobileContext.close();}
   await page.bringToFront();
   await page.goto(root+'/studyhub/assets/W5_DIRECTION_PRODUCTION_CAPITAL_STATE_CAPACITY_LOGIC/');
+  const expected=await page.evaluate(async()=>{
+    const response=await fetch(document.querySelector('[data-sh-preview$="#w5-d3"]').dataset.shPreview.split('#')[0]);
+    const doc=new DOMParser().parseFromString(await response.text(),'text/html');
+    const anchor=doc.querySelector('#w5-d3');let node=anchor;while(node.parentElement!==doc.querySelector('[data-sh-article]'))node=node.parentElement;
+    return {heading:node.nextElementSibling.textContent,paragraph:node.nextElementSibling.nextElementSibling.textContent};
+  });
   await page.locator('[data-sh-preview$="#w5-d3"]').click();
-  await page.locator('[data-sh-context-body]').getByText('Richland Parish 项目很适合说明 location 为什么不是地图上的一个点。',{exact:true}).waitFor();
+  await page.waitForFunction(text=>document.querySelector('[data-sh-context-body]').textContent.includes(text),expected.paragraph);
   const excerpt=await page.locator('[data-sh-context-body]').textContent();
-  check(excerpt.includes('二、资本真正撞上现实')&&!excerpt.includes('三、'),'explicit source anchor expands its section prose, not an empty anchor or the next section');
+  check(excerpt.includes(expected.heading)&&excerpt.includes(expected.paragraph),'explicit source anchor expands its real heading and prose');
   await page.getByRole('button',{name:'回到刚才的位置'}).click();
+  const originalLinkText=await page.evaluate(()=>{
+    const paragraph=document.querySelector('[data-sh-article] p:has([data-sh-preview])');
+    const clone=paragraph.cloneNode(true);clone.querySelectorAll('[data-sh-preview],[data-sh-ui]').forEach(n=>n.remove());
+    const range=document.createRange();range.selectNodeContents(paragraph);getSelection().removeAllRanges();getSelection().addRange(range);document.dispatchEvent(new Event('selectionchange'));return clone.textContent.trim();
+  });
+  await page.locator('[data-sh-ask]').click();
+  check((await page.locator('[data-sh-quote]').textContent())===originalLinkText,'selection retains source link text and excludes preview UI');
+  check(!(await page.locator('[data-sh-payload]').inputValue()).includes('展开原文'),'adjacent copied original context excludes injected UI');
+  await page.keyboard.press('Escape');
+  await page.evaluate(()=>{window.__originalFetch=window.fetch;window.__pendingPreviews=[];window.fetch=()=>new Promise((resolve,reject)=>window.__pendingPreviews.push({resolve,reject}));});
+  try{
+    const button=page.locator('[data-sh-preview$="#w5-d3"]');
+    await button.click();await page.getByRole('button',{name:'回到刚才的位置'}).click();
+    await button.click();
+    await page.evaluate(()=>window.__pendingPreviews[1].resolve(new Response('<div data-sh-reader data-sh-title="Synthetic preview"></div><article data-sh-article><p id="w5-d3">Newest synthetic preview</p></article>')));
+    await page.getByText('Newest synthetic preview',{exact:true}).waitFor();
+    await page.evaluate(()=>window.__pendingPreviews[0].reject(new Error('Old synthetic error')));await page.waitForTimeout(50);
+    check((await page.locator('[data-sh-context-body]').textContent())==='Newest synthetic preview','late old failure cannot replace the new successful preview');
+    await page.getByRole('button',{name:'回到刚才的位置'}).click();
+    await button.click();await page.getByRole('button',{name:'回到刚才的位置'}).click();
+    await page.evaluate(()=>window.__pendingPreviews[2].reject(new Error('Closed synthetic error')));await page.waitForTimeout(50);
+    check(!(await page.locator('[data-sh-context]').isVisible())&&!(await page.locator('[data-sh-context-body]').textContent()).includes('暂时无法'),'failure after close cannot mutate hidden preview or reading state');
+    await button.click();await page.evaluate(()=>window.__pendingPreviews[3].reject(new Error('Current synthetic error')));
+    await page.locator('[data-sh-context-body]').filter({hasText:'暂时无法展开'}).waitFor();
+    check(true,'current request failure remains visible');await page.getByRole('button',{name:'回到刚才的位置'}).click();
+  }finally{await page.evaluate(()=>{window.fetch=window.__originalFetch;delete window.__originalFetch;delete window.__pendingPreviews;});}
   check(requests.length===0,'no learner/private/timer/control modules or requests',requests);
   const keys=await page.evaluate(()=>Object.keys(localStorage));
   check(keys.every(k=>k.startsWith('kianos-studyhub-reader-v1:')||k==='kianos-global-rail-expanded-v1'),'reader only writes UI position/preferences',keys);

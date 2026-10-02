@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { spawn } from 'node:child_process';
+import { renderStudyhub } from '../src/lib/studyhubContent.mjs';
 import { EXAM_PROFILE_KEY, emptyExamProfile } from '../src/lib/examOrchestrator.mjs';
 const { chromium }=await import(process.env.KIANOS_PLAYWRIGHT_MODULE || 'playwright');
 const base=process.env.KIANOS_PRESENTATION_TEST_BASE || 'http://127.0.0.1:4358';
@@ -117,6 +118,38 @@ try{
   mode='missing';gateRelease();await learner.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active');
   check(await learner.locator('.kianosShellFrame').evaluate(n=>!n.inert),'legacy fallback releases only after readiness');
   check(report.errors.length===0,'no uncaught runtime errors',report.errors);
+  // No request interception on this page: exercise Chrome's actual BFCache.
+  await context.unroute('**/*');
+  for(const openPage of context.pages())await openPage.close();
+  const historyPage=await context.newPage();
+  await historyPage.addInitScript(()=>{window.__historyEvents=[];addEventListener('pageshow',event=>window.__historyEvents.push(event.persisted));});
+  const A='/studyhub/assets/ENERGY_RESOURCES_SYSTEM_FOUNDATION_GUIDE/',B='/studyhub/assets/W5_DIRECTION_PRODUCTION_CAPITAL_STATE_CAPACITY_PILOT/',C='/studyhub/assets/W5_DIRECTION_POPULATION_MOMENTUM_FAMILY_LABOUR_ADAPTATION/';
+  const ready=()=>historyPage.waitForFunction(()=>Array.isArray(history.state?.shTrail)&&document.querySelector('[data-sh-reader]'));
+  const visit=async target=>{await historyPage.goto(base+target);await ready();};
+  const clickTo=async target=>{await historyPage.locator('a[data-sh-link][href="'+target+'"]').last().click();await historyPage.waitForURL(base+target,{waitUntil:'commit'});if(target!=='/studyhub/')await ready();await sleep(100);};
+  const back=async target=>{await historyPage.goBack({waitUntil:'commit'});await historyPage.waitForURL(base+target,{waitUntil:'commit'});await ready();await sleep(80);};
+  const forward=async target=>{await historyPage.goForward({waitUntil:'commit'});await historyPage.waitForURL(base+target,{waitUntil:'commit'});await ready();await sleep(80);};
+  const returnState=()=>historyPage.evaluate(()=>({path:location.pathname,trail:history.state?.shTrail||[],hidden:document.querySelector('[data-sh-return]').hidden,title:document.querySelector('[data-sh-return]').title,persisted:window.__historyEvents.at(-1)}));
+  const matches=async target=>{const state=await returnState();return state.trail.at(-1)?.url===target&&state.title===state.trail.at(-1)?.title&&!state.hidden;};
+  await visit(A);await clickTo(B);await clickTo(C);await back(B);
+  check((await returnState()).persisted===true,'actual native Back restores B from BFCache');
+  check(await matches(A),'cached B return label and target both refer to A');
+  await forward(C);check(await matches(B),'native Forward restores C with its own B return target',await returnState());
+  await back(B);await back(A);check((await returnState()).hidden,'multiple native Back operations clear the original article return path');
+  await forward(B);await forward(C);await back(B);await historyPage.locator('[data-sh-return]').click();await historyPage.waitForURL(base+A,{waitUntil:'commit'});
+  check((await returnState()).hidden,'custom return after native Back reaches A without a self return');
+  await clickTo(B);await clickTo('/studyhub/');await clickTo(A);
+  check(await matches(B),'repeated A through world navigation keeps the intervening B return target');
+  await historyPage.locator('[data-sh-return]').click();await historyPage.waitForURL(base+B,{waitUntil:'commit'});check(await matches(A),'return from repeated A reaches B with its original A predecessor');
+  await visit(C);check((await returnState()).hidden,'direct entry does not inherit a stale return trail');
+  await historyPage.reload();check((await returnState()).hidden,'direct-entry reload preserves an empty return trail');
+  const security=await context.newPage();
+  const attacks=['<details><img src=x onerror="window.__studyhubXss=1"','<details><summary onclick="window.__studyhubXss=1">Unsafe</summary></details>','<svg onload="window.__studyhubXss=1"></svg>','<iframe srcdoc="<script>parent.__studyhubXss=1</script>"></iframe>'];
+  for(const markdown of attacks){
+    const rendered=renderStudyhub({file:'assets/synthetic.md',markdown},{docs:new Map(),revision:'synthetic-test-only'});
+    await security.setContent('<article>'+rendered.html+'</article>');await sleep(50);
+    check(await security.evaluate(()=>!window.__studyhubXss&&!document.querySelector('img,svg,iframe,script,[onclick],[onerror]')),'browser treats malicious complete/incomplete raw HTML as text');
+  }
   report.ok=true;
 }catch(error){report.error=error.stack;throw error;}
 finally{
