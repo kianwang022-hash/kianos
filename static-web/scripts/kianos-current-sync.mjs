@@ -101,7 +101,11 @@ async function git(args) {
 
 function writeJson(file, value) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, `${JSON.stringify(value)}\n`, 'utf8');
+  const pending = `${file}.${randomUUID()}.tmp`;
+  try {
+    fs.writeFileSync(pending, `${JSON.stringify(value)}\n`, { encoding: 'utf8', flag: 'wx' });
+    fs.renameSync(pending, file);
+  } finally { fs.rmSync(pending, { force: true }); }
 }
 
 function writeStatus(state, sha = lastKnownSha, extra = {}) {
