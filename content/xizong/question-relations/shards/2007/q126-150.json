@@ -267,12 +267,16 @@
       "question_truth_path": "content/xizong/questions/shards/2007/q126-150.json",
       "question_truth_blob_sha": "ad6ea9bd9f6e03038bd8723b5030b4f23a9c87c9",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3"
+      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3",
+      "knowledge_revalidated_blob_sha": "5496f8e1769cdf061a582d2f2f4ef325a23bb40d"
     },
     "review": {
       "semantic_owner": "Chat",
       "basis": "R3 KP02 directly owns chronic-bronchitis ciliary loss, goblet/gland hyperplasia with mucous metaplasia, chronic lymphocyte/plasma-cell infiltration, and explicitly excludes atypical cartilage-cell proliferation from the model.",
-      "old_mapping_inherited": false
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
+      "source_revision_revalidated_at": "2026-10-02",
+      "source_revision_revalidation_basis": "KP02逐层保留纤毛脱失、腺体增生黏液化生、淋巴浸润，并明确排除软骨异型增生；Prompt压缩仍保留增生≠异型，ABC判别不变。"
     }
   },
   {
@@ -345,12 +349,16 @@
       "question_truth_path": "content/xizong/questions/shards/2007/q126-150.json",
       "question_truth_blob_sha": "ad6ea9bd9f6e03038bd8723b5030b4f23a9c87c9",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0528936a44409ad139f85324ae37404f48769a5c"
+      "knowledge_blob_sha": "0528936a44409ad139f85324ae37404f48769a5c",
+      "knowledge_revalidated_blob_sha": "f08a4e954cdc195cd599df5185d65aba550dfb07"
     },
     "review": {
       "semantic_owner": "Chat",
       "basis": "Independent SECOND_PASS: R5 KP02 owns HAP acquisition and pathogen spectrum. The historical ABC answer is preserved with an explicit boundary that anaerobes are context-dependent rather than a universal HAP high-frequency organism.",
-      "old_mapping_inherited": false
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
+      "source_revision_revalidated_at": "2026-10-02",
+      "source_revision_revalidation_basis": "KP02继续列HAP获得条件/病原及胃肠定植菌误吸，明确厌氧菌并非所有HAP普遍高频菌。原basis已显式保留历史ABC与此条件边界；新Prompt未扩大其适用范围，保存原有带限定关系。"
     }
   },
   {

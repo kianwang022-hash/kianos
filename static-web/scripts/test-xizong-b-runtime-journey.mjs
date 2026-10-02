@@ -3,6 +3,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { loadXizongSystem, loadXizongBlock } from '../src/lib/xizong.mjs';
+import { inspectXizongBlockCompletion } from '../src/lib/xizongMemoryAutoRelease.mjs';
 
 const SYSTEM_ID = 'digestive-metabolic-endocrine-tumor';
 const PORT = 4334;
@@ -301,6 +302,17 @@ async function systemRecallToPracticeJourney(page) {
   }
 
   await page.goto(`${BASE}/xizong/${SYSTEM_ID}/`, { waitUntil: 'domcontentloaded' });
+  await page.bringToFront();
+  await page.waitForFunction(() => document.hasFocus()
+    && document.visibilityState === 'visible'
+    && document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 }).catch(async (error) => {
+    report.system_recall_readiness_diagnostics = await page.evaluate(() => ({
+      writer: document.documentElement.dataset.learnerWriter || '',
+      focused: document.hasFocus(), visibility: document.visibilityState
+    }));
+    report.system_recall_readiness_diagnostics.phase = 'before_fixture_seed';
+    throw error;
+  });
   await page.evaluate((rows) => {
     for (const [blockId, state] of Object.entries(rows)) {
       localStorage.setItem(`kianos-xizong-astro-v2:xizong:${blockId}`, JSON.stringify(state));
@@ -308,6 +320,48 @@ async function systemRecallToPracticeJourney(page) {
   }, completed);
   await page.reload({ waitUntil: 'domcontentloaded' });
   const recallEntry = page.locator('[data-xizong-system-recall-entry]');
+  try {
+    await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 });
+    await recallEntry.waitFor({ state: 'visible', timeout: 20000 });
+  } catch (error) {
+    const snapshot = await page.evaluate(() => {
+      const input = JSON.parse(document.querySelector('[data-xizong-completion-input]')?.textContent || '{}');
+      const states = {}, parseErrors = {};
+      for (const id of input.blockIds || []) {
+        try { states[id] = JSON.parse(localStorage.getItem(`kianos-xizong-astro-v2:xizong:${id}`) || 'null'); }
+        catch (error) { states[id] = null; parseErrors[id] = String(error); }
+      }
+      return {
+        writer: document.documentElement.dataset.learnerWriter || '',
+        focused: document.hasFocus(), visibility: document.visibilityState,
+        recall_entry_hidden: document.querySelector('[data-xizong-system-recall-entry]')?.hidden,
+        requirements: input.requirements || [],
+        states, parseErrors
+      };
+    });
+    report.system_recall_readiness_diagnostics = {
+      writer: snapshot.writer, focused: snapshot.focused, visibility: snapshot.visibility,
+      recall_entry_hidden: snapshot.recall_entry_hidden,
+      phase: 'after_reload_recall_entry',
+      expected_block_count: system.blocks.length, requirement_count: snapshot.requirements.length,
+      present_record_count: Object.values(snapshot.states).filter(Boolean).length,
+      blocks: snapshot.requirements.map((requirement) => {
+        const id = requirement.identity.blockId;
+        const state = snapshot.states[id];
+        return {
+          block_id: id, stored: Boolean(state), parse_error: snapshot.parseErrors[id] || '', schema: state?.schema || '',
+          stage: state?.stage || '', completed: state?.completed === true,
+          block_recall_done: state?.blockRecallDone === true,
+          completed_at: state?.completedAt || '', source_contact_done: state?.sourceContactDone === true,
+          learned_count: Object.keys(state?.learned || {}).length,
+          rating_count: Object.keys(state?.ratings || {}).length,
+          source_contact_evidence_count: (state?.sourceContactEvidence || []).length,
+          completion: inspectXizongBlockCompletion(requirement, state || {})
+        };
+      })
+    };
+    throw error;
+  }
   check(await recallEntry.isVisible(), 'all_38_completed_blocks_release_system_recall');
 
   await page.goto(`${BASE}/xizong/${SYSTEM_ID}/recall/`, { waitUntil: 'domcontentloaded' });

@@ -14,6 +14,49 @@ const check = (condition, name, detail = '') => {
 };
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+async function waitForWriter(page, phase) {
+  await page.bringToFront();
+  try {
+    await page.waitForFunction(() => document.hasFocus()
+      && document.visibilityState === 'visible'
+      && document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 });
+  } catch (error) {
+    report.readiness_diagnostics = await page.evaluate(() => ({
+      writer: document.documentElement.dataset.learnerWriter || '',
+      focused: document.hasFocus(), visibility: document.visibilityState,
+      url: location.href
+    }));
+    report.readiness_diagnostics.phase = phase;
+    throw error;
+  }
+}
+
+async function waitForBlockRuntime(page, phase) {
+  await waitForWriter(page, phase);
+  try {
+    await page.waitForFunction(() => {
+      const host = document.querySelector('[data-xizong-v6-block]');
+      return document.documentElement.dataset.learnerWriter === 'active'
+        && host?.classList.contains('xv6LearnerObjectActive')
+        && Boolean(host?.dataset.xizongSourceRevision)
+        && host?.dataset.xizongStateBlocked !== 'true';
+    }, null, { timeout: 20000 });
+  } catch (error) {
+    report.readiness_diagnostics = await page.evaluate(() => {
+      const host = document.querySelector('[data-xizong-v6-block]');
+      return {
+        writer: document.documentElement.dataset.learnerWriter || '',
+        focused: document.hasFocus(), visibility: document.visibilityState,
+        url: location.href, block_dataset: { ...host?.dataset },
+        learner_object_active: host?.classList.contains('xv6LearnerObjectActive') || false,
+        status: host?.querySelector('[data-study-local-status]')?.textContent || ''
+      };
+    });
+    report.readiness_diagnostics.phase = phase;
+    throw error;
+  }
+}
+
 async function waitForServer() {
   for (let i = 0; i < 80; i += 1) {
     try { const r = await fetch(`${BASE}/xizong/respiratory/r01/`); if (r.ok) return; } catch {}
@@ -24,6 +67,7 @@ async function waitForServer() {
 
 async function resetBlock(page, route) {
   await page.goto(`${BASE}/xizong/respiratory/${route}/`, { waitUntil: 'domcontentloaded' });
+  await waitForWriter(page, `before_fixture_cleanup_${route}`);
   await page.evaluate(() => {
     for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
     sessionStorage.clear();
@@ -31,6 +75,7 @@ async function resetBlock(page, route) {
   await page.reload({ waitUntil: 'domcontentloaded' });
   const root = page.locator('[data-xizong-v6-block]');
   await root.waitFor({ state: 'visible' });
+  await waitForBlockRuntime(page, `after_reload_runtime_${route}`);
   check(await page.locator('[data-xizong-learner-object-payload]').count() === 1, `learner_object_present_${route}`);
   return root;
 }

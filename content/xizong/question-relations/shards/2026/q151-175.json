@@ -88,13 +88,17 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q151-175.json",
       "question_truth_blob_sha": "5820428106604d1fc42c15f75342a1524d7726c1",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "936fa5c3f152405d0efb33e4af84673af2411ac1"
+      "knowledge_blob_sha": "936fa5c3f152405d0efb33e4af84673af2411ac1",
+      "knowledge_revalidated_blob_sha": "308b85be42074044b03d023e32a6a085bf243400"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current urinary B11 KP01 explicitly defines nephrotic syndrome with >3.5 g/day proteinuria, albumin <30 g/L, edema and hyperlipidemia; proteinuria plus hypoalbuminemia are required and hypertension is not."
+      "basis": "Current urinary B11 KP01 explicitly defines nephrotic syndrome with >3.5 g/day proteinuria, albumin <30 g/L, edema and hyperlipidemia; proteinuria plus hypoalbuminemia are required and hypertension is not.",
+      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
+      "source_revision_revalidated_at": "2026-10-02",
+      "source_revision_revalidation_basis": "Keys A/B/C correspond to KP01’s protein>3.5g/day, albumin<30g/L and edema; hypertension is not one of the four syndrome elements. The updated prompt retains both obligatory components while hyperlipidemia remains in the full body but is not offered."
     },
     "primary_kp_id": "urinary-b11-kp01"
   },
