@@ -101,7 +101,7 @@ fs.writeFileSync(path.join(root, 'index.html'), process.env.PAGE_TEXT || 'fixtur
   assert.equal(built().lexical_projection_required, true, 'include previously failed content in impact');
   assert.equal(fs.readFileSync(path.join(releases, 'active/static-web/dist/index.html'), 'utf8'), 'new content');
   assert.equal(fs.existsSync(path.join(mirror, 'static-web/.current-build-failure.json')), false);
-  assert.equal(run().status, 0);
+  assert.equal(run({ PAGE_TEXT: 'new content' }).status, 0);
   assert.equal(count(), 4, 'unchanged successful SHA must reuse');
   assert.equal(fs.existsSync(serverMarker), true, 'one-shot must probe candidate runtime readiness');
   const probePid = Number(fs.readFileSync(serverMarker, 'utf8'));

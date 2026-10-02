@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import { fixtureReleaseRoot } from './test-support/release-fixture.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -35,6 +36,7 @@ function runOnce(env = {}) {
       KIANOS_NPM_BIN: path.join(root, 'npm-fixture'),
       KIANOS_RELEASES_DIR: releases,
       KIANOS_BUILD_NICE: '0',
+      KIANOS_TEST_BUILD_SLEEP: '1',
       ...env
     },
     encoding: 'utf8',
@@ -128,7 +130,7 @@ echo built > "$out/index.html"
 
   const initial = runOnce();
   assert.equal(initial.status, 0, initial.stderr || initial.stdout);
-  assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(path.join(releases, 'releases', a)));
+  assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(fixtureReleaseRoot(path.join(releases, 'releases'), a)));
 
   write('static-web/src/pages/fixture.astro', '<p>B</p>\n');
   git(upstream, 'add', '.');
@@ -151,10 +153,10 @@ echo built > "$out/index.html"
   assert.equal(firstCode, 1, inFlight.output());
   assert.equal(
     fs.realpathSync(path.join(releases, 'active')),
-    fs.realpathSync(path.join(releases, 'releases', a)),
+    fs.realpathSync(fixtureReleaseRoot(path.join(releases, 'releases'), a)),
     'superseded B must never replace Stable A'
   );
-  assert.equal(fs.existsSync(path.join(releases, 'releases', b)), false, 'superseded candidate release should be cleaned');
+  assert.equal(fs.existsSync(fixtureReleaseRoot(path.join(releases, 'releases'), b)), false, 'superseded candidate release should be cleaned');
 
   const pending = JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json'), 'utf8'));
   assert.equal(pending.state, 'pending');
@@ -166,8 +168,8 @@ echo built > "$out/index.html"
   const final = runOnce();
   assert.equal(final.status, 0, final.stderr || final.stdout);
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), c);
-  assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(path.join(releases, 'releases', c)));
-  assert.equal(fs.realpathSync(path.join(releases, 'previous')), fs.realpathSync(path.join(releases, 'releases', a)));
+  assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(fixtureReleaseRoot(path.join(releases, 'releases'), c)));
+  assert.equal(fs.realpathSync(path.join(releases, 'previous')), fs.realpathSync(fixtureReleaseRoot(path.join(releases, 'releases'), a)));
 
   const rows = fs.readFileSync(events, 'utf8').trim().split('\n').filter(Boolean);
   assert.deepEqual(rows, ['build ' + b, 'build ' + c]);
@@ -202,11 +204,11 @@ echo built > "$out/index.html"
   assert.equal(controlStatus.target_sha, f);
   assert.equal(controlStatus.static_build, 'reused');
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), f);
-  assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(path.join(releases, 'releases', d)));
+  assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(fixtureReleaseRoot(path.join(releases, 'releases'), d)));
   assert.equal(git(path.join(releases, 'active'), 'rev-parse', 'HEAD'), d);
   assert.equal(JSON.parse(fs.readFileSync(path.join(releases, 'active/static-web/dist/__kianos-current.json'))).sha, d);
-  assert.equal(fs.realpathSync(path.join(releases, 'previous')), fs.realpathSync(path.join(releases, 'releases', c)));
-  for (const sha of [e, f]) assert.equal(fs.existsSync(path.join(releases, 'releases', sha)), false);
+  assert.equal(fs.realpathSync(path.join(releases, 'previous')), fs.realpathSync(fixtureReleaseRoot(path.join(releases, 'releases'), c)));
+  for (const sha of [e, f]) assert.equal(fs.existsSync(fixtureReleaseRoot(path.join(releases, 'releases'), sha)), false);
   assert.deepEqual(fs.readFileSync(events, 'utf8').trim().split('\n'), ['build ' + d]);
 
   const idle = runOnce();
@@ -234,13 +236,13 @@ echo built > "$out/index.html"
   assert.equal(runtimeCode, 1, runtimeAdvance.output());
   assert.equal(readStatus().static_build, 'discarded-superseded');
   assert.equal(readStatus().target_sha, h);
-  assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(path.join(releases, 'releases', d)));
-  assert.equal(fs.existsSync(path.join(releases, 'releases', g)), false);
+  assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(fixtureReleaseRoot(path.join(releases, 'releases'), d)));
+  assert.equal(fs.existsSync(fixtureReleaseRoot(path.join(releases, 'releases'), g)), false);
   const runtimeFinal = runOnce();
   assert.equal(runtimeFinal.status, 0, runtimeFinal.stderr || runtimeFinal.stdout);
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), h);
   assert.equal(readStatus().sha, h);
-  assert.equal(fs.realpathSync(path.join(releases, 'previous')), fs.realpathSync(path.join(releases, 'releases', d)));
+  assert.equal(fs.realpathSync(path.join(releases, 'previous')), fs.realpathSync(fixtureReleaseRoot(path.join(releases, 'releases'), d)));
   assert.deepEqual(fs.readFileSync(events, 'utf8').trim().split('\n'), ['build ' + g, 'build ' + h]);
   console.log('CURRENT_SUPERSEDED_TARGET PASS: static/runtime changes discard; control-only advances retain one exact build and latest fetched control');
 } finally {

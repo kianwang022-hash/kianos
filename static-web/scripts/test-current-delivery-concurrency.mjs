@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import { fixtureReleaseRoot } from './test-support/release-fixture.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -53,7 +54,7 @@ try {
   assert.equal(rows.filter(x => x === 'install').length, 1, 'concurrent supervisors must install once');
   assert.equal(rows.filter(x => x === 'build').length, 1, 'concurrent supervisors must build once');
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), sha);
-  assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(path.join(releases, 'releases', sha)));
+  assert.equal(fs.realpathSync(path.join(releases, 'active')), fs.realpathSync(fixtureReleaseRoot(path.join(releases, 'releases'), sha)));
   assert.equal(fs.existsSync(path.join(releases, 'delivery.lock', 'held')), false, 'delivery ownership must be released');
   const worktrees = git(mirror, 'worktree', 'list', '--porcelain');
   assert.equal((worktrees.match(/^worktree /gm) || []).length, 2, 'mirror + one immutable release expected');

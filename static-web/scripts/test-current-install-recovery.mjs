@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import { fixtureReleaseRoot } from './test-support/release-fixture.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -16,7 +17,7 @@ try {
   fs.mkdirSync(upstream); git(upstream, 'init', '-b', 'main'); git(upstream, 'config', 'user.email', 'fixture@example.invalid'); git(upstream, 'config', 'user.name', 'Fixture');
   for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs', 'currentClientArtifacts.mjs']) write(`static-web/scripts/${name}`, fs.readFileSync(path.join(scripts, name)));
   write('static-web/package.json', '{}'); write('.gitignore', 'static-web/public/\nstatic-web/dist\nstatic-web/.current-*\n'); write('fixture.txt', 'A');
-  write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const r=process.argv[process.argv.indexOf('--root')+1];http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({sha:fs.existsSync(path.join(r,'bad'))?'wrong':JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha}):'ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
+  write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const r=process.argv[process.argv.indexOf('--root')+1];http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({...JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))),sha:fs.existsSync(path.join(r,'bad'))?'wrong':JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha}):'ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
   git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'A'); const a = git(upstream, 'rev-parse', 'HEAD');
   git(root, 'clone', '--bare', upstream, remote); git(upstream, 'remote', 'add', 'origin', remote); git(root, 'clone', remote, mirror); fs.writeFileSync(path.join(mirror, '.git/kianos-current-mirror'), '');
   const npm = path.join(root, 'npm');
@@ -29,7 +30,7 @@ try {
   git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'B'); const b = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
   const failed = run({ KIANOS_NPM_BIN: npm, INSTALL_FAIL: '1' });
   assert.notEqual(failed.status, 0); assert.equal(git(mirror, 'rev-parse', 'HEAD'), a);
-  assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(path.join(root, '.kianos-current-releases/releases', a)));
+  assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), a)));
   assert.equal(run({ KIANOS_NPM_BIN: npm }).status, 0);
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), b);
   assert.equal(JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json'))).sha, b);
@@ -39,7 +40,7 @@ try {
   // rebuild, re-probe, replace, or gain cleanup authority over the already
   // accepted active B worktree.
   const releasesRoot = path.join(root, '.kianos-current-releases');
-  const activeB = path.join(releasesRoot, 'releases', b);
+  const activeB = fixtureReleaseRoot(path.join(releasesRoot, 'releases'), b);
   const activeLink = path.join(releasesRoot, 'active');
   fs.writeFileSync(
     path.join(activeB, 'static-web/scripts/kianos-static-server.mjs'),
@@ -61,12 +62,12 @@ try {
   const bad = run({ KIANOS_NPM_BIN: npm });
   assert.notEqual(bad.status, 0);
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), b);
-  assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(path.join(root, '.kianos-current-releases/releases', b)));
+  assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), b)));
   assert.equal(JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json'))).target_sha, c);
   const controlOnly = run({ KIANOS_NPM_BIN: npm, KIANOS_SKIP_ASTRO: '1' });
   assert.equal(controlOnly.status, 0, controlOnly.stderr);
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), c, 'control-only sync must advance the mirror');
-  assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(path.join(root, '.kianos-current-releases/releases', b)), 'control-only sync must not change the served release');
+  assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), b)), 'control-only sync must not change the served release');
   const controlStatus = JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json')));
   assert.equal(controlStatus.sha, c);
   assert.equal(controlStatus.static_build, 'skipped');
@@ -75,7 +76,7 @@ try {
   // SIGTERM. The supervisor should escalate to process-group SIGKILL before
   // releasing its delivery lock and still accept the healthy release.
   write('fixture.txt', 'D');
-  write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),r=args[args.indexOf('--root')+1];if(args.includes('--release-probe-only'))process.on('SIGTERM',()=>{});http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({sha:JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha}):'ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
+  write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),r=args[args.indexOf('--root')+1];if(args.includes('--release-probe-only'))process.on('SIGTERM',()=>{});http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?fs.readFileSync(path.join(r,'__kianos-current.json')):'ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
   git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'stubborn probe runtime'); const d = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
   const probeStarted = Date.now();
   const stubborn = run({ KIANOS_NPM_BIN: npm });
@@ -89,7 +90,7 @@ try {
   // Probe runtime must read from the candidate release, never an inherited
   // supervisor/control checkout KIANOS_REPO_ROOT.
   write('fixture.txt', 'E');
-  write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),r=args[args.indexOf('--root')+1],releaseRoot=path.resolve(process.cwd(),'..'),sha=JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha;http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({sha:process.env.KIANOS_REPO_ROOT===releaseRoot?sha:'wrong'}):'ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
+  write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),r=args[args.indexOf('--root')+1],releaseRoot=path.resolve(process.cwd(),'..'),sha=JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha;http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({...JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))),sha:process.env.KIANOS_REPO_ROOT===releaseRoot?sha:'wrong'}):'ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
   git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'probe repo root guard'); const e = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
   const pinnedRoot = run({ KIANOS_NPM_BIN: npm, KIANOS_REPO_ROOT: mirror });
   assert.equal(pinnedRoot.status, 0, pinnedRoot.stderr);
@@ -107,7 +108,7 @@ try {
   assert.notEqual(hanging.status, 0, 'hanging probe response must fail readiness');
   assert.ok(hangingElapsed < 10000, `hanging probe exceeded bounded readiness deadline: ${hangingElapsed}ms`);
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), e, 'hanging probe must not advance control mirror');
-  assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(path.join(root, '.kianos-current-releases/releases', e)), 'hanging probe must preserve active release');
+  assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), e)), 'hanging probe must preserve active release');
   assert.equal(JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json'))).target_sha, f);
 
   console.log('CURRENT_INSTALL_RECOVERY PASS: install retry, readiness, root pinning, teardown, and HTTP probe deadlines are bounded');

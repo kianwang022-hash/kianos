@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import { fixtureReleaseRoot } from './test-support/release-fixture.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -201,8 +202,8 @@ exec "${realGit}" "$@"
   });
   assert.equal(JSON.parse(fs.readFileSync(path.join(temp, '.kianos-current-releases/active/static-web/dist/__kianos-current.json'))).sha, next);
   const runtime = await (await fetch(`http://127.0.0.1:${port}/__fixture-runtime.json`, { signal: AbortSignal.timeout(1000) })).json();
-  const nextRelease = fs.realpathSync(path.join(temp, '.kianos-current-releases/releases', next));
-  const firstRelease = fs.realpathSync(path.join(temp, '.kianos-current-releases/releases', first));
+  const nextRelease = fs.realpathSync(fixtureReleaseRoot(path.join(temp, '.kianos-current-releases/releases'), next));
+  const firstRelease = fs.realpathSync(fixtureReleaseRoot(path.join(temp, '.kianos-current-releases/releases'), first));
   assert.equal(runtime.version, 'v2');
   assert.equal(runtime.sha, next);
   assert.equal(runtime.repo_root, nextRelease);

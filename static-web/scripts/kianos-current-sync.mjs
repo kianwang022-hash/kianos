@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import net from 'node:net';
+import { randomUUID } from 'node:crypto';
 import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
@@ -48,6 +49,8 @@ const gitBin = process.env.KIANOS_GIT_BIN || 'git';
 const oneShot = process.env.KIANOS_SYNC_ONCE === '1';
 const skipAstro = process.env.KIANOS_SKIP_ASTRO === '1';
 const releases = releasePaths(repoRoot);
+// Use the control checkout as one stable normalization boundary for every lane.
+const buildContextHash = clientBuildContextHash(process.env, repoRoot);
 const subprocessTimeoutMs = resolveCurrentSubprocessTimeoutMs();
 const buildTimeoutMs = subprocessTimeoutMs;
 const syncRuntimePaths = [
@@ -120,7 +123,8 @@ function writeBuiltStatus(root, sha, extra = {}) {
     sha: String(sha || ''),
     updated_at: stamp(),
     serving_mode: 'static-node',
-    ...extra
+    ...extra,
+    contextHash: buildContextHash
   });
 }
 
@@ -140,6 +144,24 @@ function readActiveBuiltStatus() {
     : readBuiltStatus();
 }
 
+function hasCurrentBuildContext(root) {
+  const status = readBuiltStatus(root);
+  return status?.state === 'synced' && status.contextHash === buildContextHash;
+}
+
+function activeBuildContextMatches() {
+  return hasCurrentBuildContext(activeReleaseRoot ? path.join(activeReleaseRoot, 'static-web', 'dist') : distPath);
+}
+
+function retainedReleaseRoots() {
+  return new Set([releases.active, releases.previous].filter(fs.existsSync).map(file => fs.realpathSync(file)));
+}
+
+function assertDisposableRelease(releaseRoot) {
+  const identity = fs.existsSync(releaseRoot) ? fs.realpathSync(releaseRoot) : path.resolve(releaseRoot);
+  if (retainedReleaseRoots().has(identity)) throw new Error('CURRENT_RETAINED_RELEASE_MUST_NOT_BE_REMOVED');
+}
+
 async function runChild(file, args, {
   cwd = webRoot,
   label = file,
@@ -157,33 +179,34 @@ async function prepareRelease(sha, extra = {}) {
   const timings = { dependencies: 0, astro_build: 0, total: 0 };
   let dependencyMode = 'not-required';
   const failure = readBuildFailure();
-  if (failure?.sha === sha && failure.stage === 'build' && !(oneShot && process.env.KIANOS_RETRY_FAILED_BUILD === '1')) {
+  if (failure?.sha === sha && failure.contextHash === buildContextHash && failure.stage === 'build' && !(oneShot && process.env.KIANOS_RETRY_FAILED_BUILD === '1')) {
     throw new Error(`CURRENT_BUILD_BLOCKED:${sha}:${failure.error}`);
   }
   fs.mkdirSync(releases.root, { recursive: true });
-  const releaseRoot = releases.release(sha);
+  let releaseRoot = releases.release(sha, buildContextHash);
   if (fs.existsSync(releaseRoot)) {
     const existingDist = path.join(releaseRoot, 'static-web', 'dist');
-    if (readBuiltStatus(existingDist)?.state === 'synced'
+    if (hasCurrentBuildContext(existingDist)
       && readBuiltStatus(existingDist)?.sha === sha
       && fs.existsSync(path.join(existingDist, 'index.html'))) {
       timings.total = Date.now() - prepareStartedAt;
       return {
+        releaseRoot,
         webRoot: path.join(releaseRoot, 'static-web'),
         created: false,
         dependencyMode: 'existing-release',
         timings
       };
     }
-    try {
-      await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
-        label: 'remove incomplete release',
-        timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
-      });
-    } catch {}
-    fs.rmSync(releaseRoot, { recursive: true, force: true });
+    if (retainedReleaseRoots().has(fs.realpathSync(releaseRoot))) {
+      // A missing/corrupt receipt must not turn rebuilding into in-place erasure.
+      releaseRoot += '-' + randomUUID();
+    } else await cleanupPreparedRelease(releaseRoot);
   }
-  if (fs.existsSync(releases.candidate)) await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releases.candidate], { label: 'remove stale candidate' });
+  if (fs.existsSync(releases.candidate)) {
+    assertDisposableRelease(releases.candidate);
+    await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releases.candidate], { label: 'remove stale candidate' });
+  }
   await runBounded('git', ['-C', repoRoot, 'worktree', 'add', '--detach', releaseRoot, sha], {
     label: 'git worktree add',
     timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
@@ -230,20 +253,20 @@ async function prepareRelease(sha, extra = {}) {
       // Fingerprint the same invocation boundary for both lanes. npm adds
       // transport-only environment defaults before launching the full build.
       const buildEnv = { ...process.env, KIANOS_RELEASE_SHA: sha,
-        KIANOS_BUILD_CONTEXT_HASH: clientBuildContextHash(process.env, path.dirname(candidateWebRoot)) };
+        KIANOS_BUILD_CONTEXT_HASH: buildContextHash };
       let clientArtifactDelivery = null;
       const baseWebRoot = activeReleaseRoot ? path.join(activeReleaseRoot, 'static-web') : null;
-      const clientPlan = planClientArtifactBuild({ baseWebRoot, webRoot: candidateWebRoot, targetSha: sha });
+      const clientPlan = planClientArtifactBuild({ baseWebRoot, webRoot: candidateWebRoot, targetSha: sha, contextRoot: repoRoot });
       if (clientPlan.eligible) {
         try {
           await runChild(process.execPath, ['scripts/currentClientArtifacts.mjs',
-            '--base-web-root', baseWebRoot, '--target-sha', sha, '--out-dir', candidateStage], {
+            '--base-web-root', baseWebRoot, '--target-sha', sha, '--out-dir', candidateStage, '--context-root', repoRoot], {
             cwd: candidateWebRoot, label: 'candidate client artifact build',
             env: buildEnv,
             timeoutMs: Math.min(buildTimeoutMs, 90000)
           });
           const proof = JSON.parse(fs.readFileSync(path.join(candidateWebRoot, CLIENT_PROOF_FILE), 'utf8'));
-          if (proof.sourceSha !== sha || proof.delivery?.kind !== 'client-artifacts') throw new Error('CURRENT_CLIENT_DELIVERY_RECEIPT_INVALID');
+          if (proof.sourceSha !== sha || proof.contextHash !== buildContextHash || proof.delivery?.kind !== 'client-artifacts') throw new Error('CURRENT_CLIENT_DELIVERY_RECEIPT_INVALID');
           clientArtifactDelivery = proof.delivery;
           log(`client-only release assembled; ${proof.delivery.reusedHtml} HTML artifacts reused, no prerender`);
         } catch (error) {
@@ -278,10 +301,12 @@ async function prepareRelease(sha, extra = {}) {
   } catch (error) {
     writeJson(failurePath, {
       sha,
+      contextHash: buildContextHash,
       stage: /npm install|CURRENT_DEPENDENCY_/.test(error.message) ? 'install' : 'build',
       error: error.message,
       failed_at: stamp()
     });
+    assertDisposableRelease(releaseRoot);
     try {
       await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
         label: 'cleanup failed candidate',
@@ -295,11 +320,11 @@ async function prepareRelease(sha, extra = {}) {
   }
   fs.rmSync(failurePath, { force: true });
   timings.total = Date.now() - prepareStartedAt;
-  return { webRoot: candidateWebRoot, created: true, dependencyMode, timings };
+  return { releaseRoot, webRoot: candidateWebRoot, created: true, dependencyMode, timings };
 }
 
-async function cleanupPreparedRelease(sha) {
-  const releaseRoot = releases.release(sha);
+async function cleanupPreparedRelease(releaseRoot) {
+  assertDisposableRelease(releaseRoot);
   if (!fs.existsSync(releaseRoot)) return;
   try {
     await runBounded(gitBin, ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
@@ -318,9 +343,10 @@ async function cleanupPreparedRelease(sha) {
   }
 }
 
-async function activateRelease(sha) {
+async function activateRelease(next, sha) {
   const old = fs.existsSync(releases.active) ? fs.realpathSync(releases.active) : null;
-  const next = releases.release(sha);
+  if (!hasCurrentBuildContext(path.join(next, 'static-web', 'dist'))
+    || readBuiltStatus(path.join(next, 'static-web', 'dist'))?.sha !== sha) throw new Error('CURRENT_RELEASE_CONTEXT_MISMATCH');
   if (!fs.existsSync(next)) throw new Error(`CURRENT_RELEASE_MISSING:${sha}`);
   if (old) atomicReplaceSymlink(old, releases.previous);
   atomicReplaceSymlink(next, releases.active);
@@ -363,10 +389,12 @@ function recoverStaticDirectories() {
   try { previous = fs.lstatSync(previousPath); } catch {}
 
   if (!dist && previous?.isDirectory()) {
+    if (retainedReleaseRoots().has(fs.realpathSync(previousPath))) return;
     fs.renameSync(previousPath, distPath);
     return;
   }
   if (dist && previous?.isDirectory()) {
+    assertDisposableRelease(previousPath);
     fs.rmSync(previousPath, { recursive: true, force: true });
   }
 }
@@ -384,20 +412,24 @@ function startSite() {
   if (!resolveServedRoot(servedRoot)) {
     throw new Error('STATIC_CURRENT_BUILD_MISSING');
   }
+  if (!hasCurrentBuildContext(servedRoot)) throw new Error('CURRENT_RELEASE_CONTEXT_MISMATCH');
+  const previousRoot = activeReleaseRoot && fs.existsSync(releases.previous)
+    ? path.join(fs.realpathSync(releases.previous), 'static-web', 'dist') : previousPath;
+  // Old hashed chunks can contain private content too; never cross contexts.
+  const fallbackRoot = hasCurrentBuildContext(previousRoot) ? previousRoot : '';
   log(`starting prebuilt Current site on http://${host}:${port}`);
   site = spawn(process.execPath, [
     pinnedServerPath,
     '--host', host,
     '--port', port,
     '--root', servedRoot,
-    '--fallback-root', activeReleaseRoot && fs.existsSync(releases.previous)
-      ? path.join(fs.realpathSync(releases.previous), 'static-web', 'dist')
-      : previousPath
+    '--fallback-root', fallbackRoot
   ], {
     cwd: pinnedWebRoot,
     stdio: 'inherit',
     env: {
       ...process.env,
+      KIANOS_STATIC_FALLBACK_ROOT: fallbackRoot,
       ...(activeReleaseRoot ? {
         KIANOS_REPO_ROOT: activeReleaseRoot,
         KIANOS_CURRENT_STATUS_PATH: statusPath
@@ -468,7 +500,7 @@ async function waitForSiteReady(expectedSha, timeoutMs = 5000) {
         `http://${host}:${port}/__kianos-release.json?t=${Date.now()}`,
         deadlineAt
       );
-      if (expectedSha && identity?.sha === expectedSha) return;
+      if (expectedSha && identity?.sha === expectedSha && identity.contextHash === buildContextHash) return;
     } catch {}
     if (Date.now() < deadlineAt) {
       await new Promise((resolve) => setTimeout(resolve, 100));
@@ -526,7 +558,7 @@ async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
           `http://${host}:${probePort}/__kianos-release.json?t=${Date.now()}`,
           deadlineAt
         );
-        if (identity?.sha === expectedSha) return;
+        if (identity?.sha === expectedSha && identity.contextHash === buildContextHash) return;
       } catch {}
       if (Date.now() < deadlineAt) {
         await new Promise((resolve) => setTimeout(resolve, 100));
@@ -554,10 +586,10 @@ async function rollbackRelease() {
     fs.unlinkSync(releases.active);
   }
   activeReleaseRoot = fs.existsSync(releases.active) ? fs.realpathSync(releases.active) : null;
-  if (activeReleaseRoot) {
+  if (activeReleaseRoot && activeBuildContextMatches()) {
     startSite();
     await waitForSiteReady(readActiveBuiltStatus()?.sha);
-  } else if (resolveServedRoot(distPath)) {
+  } else if (!activeReleaseRoot && hasCurrentBuildContext(distPath) && resolveServedRoot(distPath)) {
     startSite();
     await waitForSiteReady(readActiveBuiltStatus()?.sha);
   }
@@ -621,7 +653,7 @@ async function syncOnce({ initial = false } = {}) {
     lastTargetSha = remote;
 
     const activeSha = readActiveBuiltStatus()?.sha || '';
-    if (local === remote && activeReleaseRoot && activeSha === remote) {
+    if (local === remote && activeReleaseRoot && activeSha === remote && activeBuildContextMatches()) {
       lastSyncHealthy = true;
       writeStatus('synced', activeSha, { control_sha: local, release_root: activeReleaseRoot });
       if (await restartSyncRuntimeIfNeeded(remote)) return false;
@@ -634,6 +666,7 @@ async function syncOnce({ initial = false } = {}) {
     if (
       local === remote
       && activeReleaseRoot
+      && activeBuildContextMatches()
       && priorControlStatus?.state === 'synced'
       && priorControlStatus?.static_build === 'reused'
       && priorControlStatus?.control_sha === remote
@@ -668,7 +701,7 @@ async function syncOnce({ initial = false } = {}) {
     // A burst of accepted commits can land between ls-remote and the expensive
     // build. Re-read main once before building so the daemon starts from the
     // newest coherent target instead of knowingly constructing an obsolete one.
-    if (!skipAstro && (buildDecision.required || staticRuntimeChanged)) {
+    if (!skipAstro && (buildDecision.required || staticRuntimeChanged || !activeBuildContextMatches())) {
       const preBuildFetch = await fetchMainHead();
       fetchDurationMs += preBuildFetch.duration_ms;
       if (preBuildFetch.sha && preBuildFetch.sha !== fetched) {
@@ -684,6 +717,7 @@ async function syncOnce({ initial = false } = {}) {
 
     const reuseActiveRelease = !skipAstro
       && Boolean(activeReleaseRoot)
+      && activeBuildContextMatches()
       && !buildDecision.required
       && !staticRuntimeChanged;
 
@@ -745,7 +779,7 @@ async function syncOnce({ initial = false } = {}) {
             + 'no second build required'
           );
         } else {
-          if (preparedRelease.created) await cleanupPreparedRelease(fetched);
+          if (preparedRelease.created) await cleanupPreparedRelease(preparedRelease.releaseRoot);
           lastTargetSha = supersedingRemote;
           writeStatus(oneShot ? 'pending' : 'coalescing', activeSha, {
             control_sha: local,
@@ -778,15 +812,15 @@ async function syncOnce({ initial = false } = {}) {
 
       try {
         const probeStartedAt = Date.now();
-        await probeRelease(releases.release(fetched), fetched);
+        await probeRelease(preparedRelease.releaseRoot, fetched);
         probeDurationMs = Date.now() - probeStartedAt;
       } catch (error) {
         warn(`new Current release probe failed before activation; keeping current release: ${error.message}`);
-        if (preparedRelease.created) await cleanupPreparedRelease(fetched);
+        if (preparedRelease.created) await cleanupPreparedRelease(preparedRelease.releaseRoot);
         throw error;
       }
       const promotionStartedAt = Date.now();
-      await activateRelease(fetched);
+      await activateRelease(preparedRelease.releaseRoot, fetched);
       if (!oneShot) {
         try {
           if (site) {
@@ -819,7 +853,7 @@ async function syncOnce({ initial = false } = {}) {
 
     lastSyncHealthy = true;
     lastNetworkError = '';
-    const staticBuildOutcome = skipAstro ? 'skipped' : preparedRelease?.timings?.client_artifacts ? 'client-artifacts' : controlTargetSha === fetched ? 'rebuilt' : 'reused';
+    const staticBuildOutcome = skipAstro ? 'skipped' : preparedRelease?.created === false ? 'reused' : preparedRelease?.timings?.client_artifacts ? 'client-artifacts' : controlTargetSha === fetched ? 'rebuilt' : 'reused';
     writeStatus('synced', skipAstro ? fetched : readActiveBuiltStatus()?.sha || fetched, {
       control_sha: controlTargetSha,
       target_sha: controlTargetSha,
@@ -858,7 +892,8 @@ async function syncOnce({ initial = false } = {}) {
     }
     writeStatus('degraded', readActiveBuiltStatus()?.sha || '', {
       target_sha: lastTargetSha || lastKnownSha,
-      build_blocked: readBuildFailure()?.sha === (lastTargetSha || lastKnownSha),
+      build_blocked: readBuildFailure()?.sha === (lastTargetSha || lastKnownSha)
+        && readBuildFailure()?.contextHash === buildContextHash,
       error: message
     });
     if (!oneShot && !site && !stopping && resolveServedRoot(distPath)) {
@@ -902,7 +937,7 @@ try {
 } catch {}
 writeStatus('starting', lastKnownSha);
 if (!oneShot) try { startSite(); } catch (error) {
-  if (resolveServedRoot(distPath)) warn(error.stack || error.message);
+  if (activeReleaseRoot || resolveServedRoot(distPath)) warn(error.stack || error.message);
 }
 await syncOnce({ initial: true });
 
