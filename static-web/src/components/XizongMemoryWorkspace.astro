@@ -1,7 +1,7 @@
 ---
 const base = import.meta.env.BASE_URL;
 ---
-<section class="xzMemory" data-xizong-memory-workspace>
+<section class="xzMemory" data-xizong-memory-workspace data-memory-content-base={`${base}xizong/memory/data/`}>
   <header class="xzMemoryHeader">
     <div class="xzMemoryIdentity">
       <a href={`${base}xizong/`}>‹ 西综</a>
@@ -15,6 +15,8 @@ const base = import.meta.env.BASE_URL;
       <span><b data-memory-summary-repair>0</b> Repair</span>
     </div>
   </header>
+
+  <p data-memory-content-status role="status" hidden></p>
 
   <nav class="xzMemoryTabs" aria-label="Memory views">
     <button type="button" class="active" data-memory-view="TODAY">Today</button>
@@ -139,8 +141,9 @@ const base = import.meta.env.BASE_URL;
     resolveXizongSessionNext,
     validateXizongSessionInstruction
   } from '../lib/xizongSessionInstruction.mjs';
+  import { refreshReleasedXizongMemoryBlock } from '../lib/xizongMemoryCurrentContent.mjs';
   import { studyDayAt } from '../lib/studyTimer.mjs';
-  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  import { learnerWriterReady, commitLearnerStorageChanges } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
 
@@ -159,6 +162,8 @@ const base = import.meta.env.BASE_URL;
     let state;
     try { state = read(); } catch (error) { console.error(error); suspend(); return; }
     let lastPersistedState = JSON.stringify(state);
+    const currentBlocks = new Set();
+    let contentGeneration = 0;
     let chatCardIds = [];
     let chatRepairTaskId = '';
     const params = new URLSearchParams(window.location.search);
@@ -188,6 +193,7 @@ const base = import.meta.env.BASE_URL;
     let index = 0;
     let currentItems = [];
     let revealed = false;
+    let editingCardId = '';
     let weakOnly = false;
 
     const save = () => {
@@ -348,14 +354,20 @@ const base = import.meta.env.BASE_URL;
       return button;
     };
 
+    const isCurrentCard = (item) => {
+      const released = state.releasedBlocks[item?.blockId];
+      return currentBlocks.has(item?.blockId)
+        && [...(released?.coreCardIds || []), ...(released?.precisionCardIds || [])].includes(item?.id);
+    };
     const currentViewResult = () => {
       if (view === 'CHAT') {
         return {
           kind: 'CARDS',
-          items: chatCardIds.map((id) => state.cards[id]).filter(Boolean)
+          items: chatCardIds.map((id) => state.cards[id]).filter(isCurrentCard)
         };
       }
       const result = selectMemoryView(state, view);
+      if (result.kind === 'CARDS') return { ...result, items: result.items.filter(isCurrentCard) };
       if (view === 'REPAIR' && chatRepairTaskId) {
         return {
           ...result,
@@ -366,6 +378,11 @@ const base = import.meta.env.BASE_URL;
     };
 
     const renderCurrent = () => {
+      if (editingCardId && selectedItem()?.id !== editingCardId) {
+        const editor = q('[data-memory-prompt-editor]');
+        if (editor) editor.hidden = true;
+        editingCardId = '';
+      }
       if (!currentItems.length) {
         if (card) card.hidden = true;
         if (markedCard) markedCard.hidden = true;
@@ -381,7 +398,8 @@ const base = import.meta.env.BASE_URL;
       qa('[data-memory-queue] > button').forEach((button, i) => button.classList.toggle('active', i === index));
     };
 
-    const rebuild = () => {
+    const rebuild = (preserveSelection = false) => {
+      const selectedId = preserveSelection ? selectedItem()?.id : null;
       const note = viewNotes[view] || viewNotes.TODAY;
       setText('[data-memory-view-title]', chatRepairTaskId && view === 'REPAIR' ? 'Chat 安排 · Repair' : note[0]);
       setText('[data-memory-view-note]', chatRepairTaskId && view === 'REPAIR'
@@ -398,7 +416,8 @@ const base = import.meta.env.BASE_URL;
       const result = currentViewResult();
       currentItems = result.items || [];
       if (weakOnly && result.kind === 'CARDS') currentItems = currentItems.filter((item) => weakWeightForCard(state, item.id) >= 1);
-      index = Math.max(0, Math.min(currentItems.length - 1, index));
+      const preservedIndex = selectedId ? currentItems.findIndex((item) => item.id === selectedId) : -1;
+      index = preservedIndex >= 0 ? preservedIndex : Math.max(0, Math.min(currentItems.length - 1, index));
       setText('[data-memory-queue-count]', currentItems.length);
       setText('[data-memory-queue-kicker]', view === 'CHAT' ? 'Chat review' : view === 'TODAY' ? 'Rolling queue' : view === 'REPAIR' ? 'Active repair' : `${view.toLowerCase()} library`);
       queue?.replaceChildren();
@@ -438,7 +457,7 @@ const base = import.meta.env.BASE_URL;
     qa('[data-memory-rating]').forEach((button) => button.addEventListener('click', () => {
       const item = selectedItem();
       const rating = button.getAttribute('data-memory-rating') || '';
-      if (!item?.id || !rating) return;
+      if (!item?.id || !rating || !isCurrentCard(item) || !revealed) return;
       state = appendMemoryEvidence(state, { cardId: item.id, rating, origin: item.family === 'PRECISION' ? 'PRECISION_MEMORY_RECALL' : 'CORE_MEMORY_RECALL' });
       if (!save()) return;
       revealed = false;
@@ -471,16 +490,18 @@ const base = import.meta.env.BASE_URL;
     q('[data-memory-prompt-edit]')?.addEventListener('click', () => {
       const item = selectedItem();
       if (!item || item.family !== 'CORE') return;
+      editingCardId = item.id;
       if (promptInput instanceof HTMLTextAreaElement) promptInput.value = resolvedCorePrompt(state, item);
       if (promptEditor) promptEditor.hidden = false;
     });
-    q('[data-memory-prompt-cancel]')?.addEventListener('click', () => { if (promptEditor) promptEditor.hidden = true; });
+    q('[data-memory-prompt-cancel]')?.addEventListener('click', () => { editingCardId = ''; if (promptEditor) promptEditor.hidden = true; });
     q('[data-memory-prompt-save]')?.addEventListener('click', () => {
-      const item = selectedItem();
-      if (!item?.kpId || !(promptInput instanceof HTMLTextAreaElement)) return;
+      const item = state.cards[editingCardId];
+      if (selectedItem()?.id !== editingCardId || !item?.kpId || !(promptInput instanceof HTMLTextAreaElement)) return;
       state = setPersonalPrompt(state, item.kpId, promptInput.value);
       if (!save()) return;
       if (promptEditor) promptEditor.hidden = true;
+      editingCardId = '';
       renderCurrent();
     });
     q('[data-memory-prompt-reset]')?.addEventListener('click', () => {
@@ -537,13 +558,64 @@ const base = import.meta.env.BASE_URL;
       if (event.key === 'ArrowRight' && currentItems.length) { event.preventDefault(); index = Math.min(currentItems.length - 1, index + 1); renderCurrent(); }
     });
 
+    // Cards become usable independently as their Current owner resolves. Do not
+    // ship all canonical Blocks inline or let one unavailable owner freeze others.
+    const refreshCurrentContent = async () => {
+      const generation = ++contentGeneration;
+      currentBlocks.clear();
+      const pending = Object.keys(state.releasedBlocks);
+      let remaining = pending.length;
+      let failed = 0;
+      const status = q('[data-memory-content-status]');
+      const updateStatus = () => {
+        if (!status) return;
+        status.hidden = !remaining && !failed;
+        status.textContent = remaining
+          ? `正在读取当前内容（${remaining} 个 Block）…`
+          : failed ? `${failed} 个 Block 的当前内容暂不可用；对应卡片暂停展示与评分，原记录保留。刷新页面可重试。` : '';
+      };
+      updateStatus();
+      rebuild(true);
+      const worker = async () => {
+        while (pending.length && generation === contentGeneration) {
+          const blockId = pending.shift();
+          try {
+            const base = root.getAttribute('data-memory-content-base');
+            if (!base) throw new Error('CURRENT_XIZONG_MEMORY_CONTENT_BASE_MISSING');
+            const response = await fetch(`${base}${encodeURIComponent(blockId)}.json`, { cache: 'no-store', signal: AbortSignal.timeout(15000) });
+            if (!response.ok) throw new Error(`CURRENT_XIZONG_MEMORY_CONTENT_UNAVAILABLE:${blockId}`);
+            const descriptor = await response.json();
+            if (generation !== contentGeneration) return;
+            // Re-read after asynchronous transport; never overwrite annotations or
+            // evidence written while another Block was loading.
+            const expected = localStorage.getItem(XIZONG_MEMORY_STORAGE_KEY);
+            const latest = read();
+            const refreshed = refreshReleasedXizongMemoryBlock(latest, blockId, descriptor);
+            const serialized = JSON.stringify(refreshed);
+            commitLearnerStorageChanges(localStorage, [[XIZONG_MEMORY_STORAGE_KEY, serialized]], [[XIZONG_MEMORY_STORAGE_KEY, expected]]);
+            state = refreshed;
+            lastPersistedState = serialized;
+            if (state.releasedBlocks[blockId]) currentBlocks.add(blockId);
+          } catch (error) {
+            if (generation !== contentGeneration) return;
+            failed += 1;
+            console.error(error);
+          }
+          remaining -= 1;
+          updateStatus();
+          rebuild(true);
+        }
+      };
+      await Promise.all(Array.from({ length: Math.min(3, pending.length) }, worker));
+    };
+
     window.addEventListener('storage', (event) => {
       if (event.key !== XIZONG_MEMORY_STORAGE_KEY) return;
-      try { state = read(); lastPersistedState = JSON.stringify(state); rebuild(); }
+      try { state = read(); lastPersistedState = JSON.stringify(state); void refreshCurrentContent(); }
       catch (error) { console.error(error); suspend(); }
     });
 
-    rebuild();
+    void refreshCurrentContent();
   }
 
   });
