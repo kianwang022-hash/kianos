@@ -213,7 +213,7 @@ export function currentClientArtifactsIntegration() {
   };
 }
 
-export function planClientArtifactBuild({ baseWebRoot, webRoot, targetSha }) {
+export function planClientArtifactBuild({ baseWebRoot, webRoot, targetSha, contextRoot }) {
   try {
     if (!baseWebRoot || !hex40(targetSha)) throw new Error('base-or-target-missing');
     webRoot = fs.realpathSync(webRoot); baseWebRoot = fs.realpathSync(baseWebRoot);
@@ -221,7 +221,7 @@ export function planClientArtifactBuild({ baseWebRoot, webRoot, targetSha }) {
     const repoRoot = path.resolve(webRoot, '..'), baseDist = path.join(baseWebRoot, 'dist');
     const status = readJson(path.join(baseDist, '__kianos-current.json'));
     if (status.client_proof_sha256 !== clientProofDigest(baseWebRoot)) throw new Error('base-proof-integrity');
-    if (!proof.contextHash || proof.contextHash !== clientBuildContextHash(process.env,repoRoot)) throw new Error('build-context-changed');
+    if (!proof.contextHash || proof.contextHash !== clientBuildContextHash(process.env,contextRoot || repoRoot)) throw new Error('build-context-changed');
     if (proof.schema !== CLIENT_PROOF_SCHEMA || !hex40(proof.sourceSha) || status.sha !== proof.sourceSha || status.state !== 'synced') throw new Error('base-receipt-identity');
     if (git(repoRoot, ['rev-parse', 'HEAD']) !== targetSha || !cleanSource(repoRoot)) throw new Error('target-not-clean');
     if (git(repoRoot, ['rev-parse', proof.sourceSha + '^{tree}']) !== proof.sourceTree) throw new Error('base-tree-mismatch');
@@ -258,10 +258,10 @@ export function planClientArtifactBuild({ baseWebRoot, webRoot, targetSha }) {
   } catch (error) { return { eligible: false, reason: error.message }; }
 }
 
-export async function buildClientArtifacts({ baseWebRoot, webRoot, targetSha, outDir }) {
+export async function buildClientArtifacts({ baseWebRoot, webRoot, targetSha, outDir, contextRoot }) {
   webRoot = fs.realpathSync(webRoot); baseWebRoot = fs.realpathSync(baseWebRoot);
   const started = performance.now();
-  const plan = planClientArtifactBuild({ baseWebRoot, webRoot, targetSha });
+  const plan = planClientArtifactBuild({ baseWebRoot, webRoot, targetSha, contextRoot });
   if (!plan.eligible) throw new Error('CLIENT_ARTIFACT_FALLBACK:' + plan.reason);
   const { proof, baseDist } = plan, repoRoot = path.resolve(webRoot, '..'), output = path.join(fs.realpathSync(path.dirname(path.resolve(outDir))), path.basename(outDir));
   if (!output.startsWith(path.resolve(webRoot) + path.sep) || output === path.resolve(baseDist) || output.startsWith(path.resolve(baseDist) + path.sep) || path.resolve(baseDist).startsWith(output + path.sep)) throw new Error('CLIENT_ARTIFACT_LIVE_OUTPUT_FORBIDDEN');
@@ -315,7 +315,7 @@ export async function buildClientArtifacts({ baseWebRoot, webRoot, targetSha, ou
     }
     const available = new Set([...Object.keys(proof.artifacts).filter(f => !proof.chunks.some(c => c.file === f)), ...nextChunks.map(c => c.file)]);
     for (const c of nextChunks) for (const imported of [...c.imports, ...c.dynamicImports]) if (!available.has(imported)) throw new Error('CLIENT_ARTIFACT_MISSING_IMPORT:' + imported);
-    const finalPlan = planClientArtifactBuild({ baseWebRoot, webRoot, targetSha });
+    const finalPlan = planClientArtifactBuild({ baseWebRoot, webRoot, targetSha, contextRoot });
     if (!finalPlan.eligible) throw new Error('CLIENT_ARTIFACT_INPUT_CHANGED_DURING_BUILD:' + finalPlan.reason);
     fs.cpSync(baseDist, output, { recursive: true, mode: fs.constants.COPYFILE_FICLONE });
     for (const old of proof.chunks) fs.rmSync(safeFile(output, old.file));
@@ -353,6 +353,6 @@ export async function buildClientArtifacts({ baseWebRoot, webRoot, targetSha, ou
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const value = name => { const i=process.argv.indexOf(name); if(i<0 || !process.argv[i+1]) throw new Error('MISSING_ARGUMENT:'+name); return process.argv[i+1]; };
-  try { console.log('[Current artifacts] ' + JSON.stringify(await buildClientArtifacts({ baseWebRoot: value('--base-web-root'), webRoot: process.cwd(), targetSha: value('--target-sha'), outDir: value('--out-dir') }))); }
+  try { console.log('[Current artifacts] ' + JSON.stringify(await buildClientArtifacts({ baseWebRoot: value('--base-web-root'), webRoot: process.cwd(), targetSha: value('--target-sha'), outDir: value('--out-dir'), contextRoot: process.argv.includes('--context-root') ? value('--context-root') : undefined }))); }
   catch (error) { console.error(error.stack || error); process.exitCode = 1; }
 }

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import { fixtureReleaseRoot } from './test-support/release-fixture.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -34,6 +35,6 @@ try {
   const status = JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json')));
   assert.equal(status.sha, b); assert.equal(status.target_sha, b);
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), b);
-  assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(path.join(root, '.kianos-current-releases/releases', b)));
+  assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), b)));
   console.log('CURRENT_FETCH_TOCTOU PASS: fetched SHA, release, control mirror, and status agree');
 } finally { fs.rmSync(root, { recursive: true, force: true }); }

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import { fixtureReleaseRoot } from './test-support/release-fixture.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -95,6 +96,9 @@ try {
   for (const name of ['kianos-current-sync.mjs', 'currentRelease.mjs', 'currentStaticImpact.mjs', 'currentStaticSlots.mjs', 'currentDependencies.mjs', 'currentClientArtifacts.mjs']) {
     write('static-web/scripts/' + name, fs.readFileSync(path.join(scripts, name)));
   }
+  if (process.argv.includes('--legacy-status-writer')) {
+    write('static-web/scripts/kianos-current-sync.mjs', execFileSync('git', ['show', '0ab0ee4b32645bd8dad86dddfac7c8791455cde0:static-web/scripts/kianos-current-sync.mjs'], { cwd: scripts }));
+  }
   write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -127,6 +131,30 @@ http.createServer((req, res) => {
   git(upstream, 'remote', 'add', 'origin', remote);
   git(temp, 'clone', remote, mirror);
   fs.writeFileSync(path.join(mirror, '.git/kianos-current-mirror'), '');
+  // Force a partial write in the actual daemon, then inspect the published file
+  // at that exact boundary. The consumer stays strict: malformed JSON fails.
+  const publishedStatus = path.join(fs.realpathSync(mirror), 'static-web/public/__kianos-current.json');
+  const statusProbe = path.join(temp, 'status-write-probe.cjs');
+  const statusObservations = path.join(temp, 'status-observations.jsonl');
+  fs.writeFileSync(statusProbe, `const fs=require('node:fs');
+const published=${JSON.stringify(publishedStatus)}, observations=${JSON.stringify(statusObservations)}, original=fs.writeFileSync;
+fs.writeFileSync=function(file,data,options){
+ if(typeof file!=='string'||!(file===published||file.startsWith(published+'.')))return original.apply(this,arguments);
+ const bytes=Buffer.from(data), split=Math.max(1,Math.floor(bytes.length/2));
+ const fd=fs.openSync(file,typeof options==='object'&&options.flag?options.flag:'w');
+ try{
+  fs.writeSync(fd,bytes,0,split);
+  let observed={state:'not-yet-published'};
+  if(fs.existsSync(published))try{const value=JSON.parse(fs.readFileSync(published,'utf8'));observed={state:value.state,sha:value.sha};}catch(error){observed={error:error.message};}
+  fs.appendFileSync(observations,JSON.stringify(observed)+'\\n');
+  fs.writeSync(fd,bytes,split,bytes.length-split);
+ }finally{fs.closeSync(fd);}
+};\n`);
+  const assertAtomicStatus = () => {
+    const rows = fs.readFileSync(statusObservations, 'utf8').trim().split('\n').map(line => JSON.parse(line));
+    assert.ok(rows.every(row => !row.error), 'PUBLISHED_STATUS_MUST_REMAIN_COMPLETE_JSON:' + JSON.stringify(rows.filter(row => row.error)));
+    assert.ok(rows.some(row => row.state && row.state !== 'not-yet-published'), 'status probe must observe a previously published receipt');
+  };
   const npm = path.join(temp, 'npm-fixture');
   fs.writeFileSync(npm, `#!/usr/bin/env node
 const fs = require('fs'), path = require('path');
@@ -163,7 +191,7 @@ exec "${realGit}" "$@"
 `);
   fs.chmodSync(gitWrapper, 0o755);
   const startSyncProcess = () => {
-    const handle = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], {
+    const handle = spawn(process.execPath, ['--require', statusProbe, 'static-web/scripts/kianos-current-sync.mjs'], {
       cwd: mirror, env: {
         ...isolatedTestEnv(path.join(temp, 'private')),
         KIANOS_TEST_BUILD_COUNTER: counter,
@@ -187,6 +215,7 @@ exec "${realGit}" "$@"
   processHandle = startSyncProcess();
   const served = async () => { try { return await (await fetch(`http://127.0.0.1:${port}`, { signal: AbortSignal.timeout(1000) })).text(); } catch { return null; } };
   await waitFor(async () => await served() === 'v1');
+  assertAtomicStatus();
   fs.writeFileSync(pruneFailureMarker, 'fail once\n');
   write('static-web/src/lib/fixture.mjs', 'export const version = "v2";');
   const next = commit();
@@ -201,8 +230,8 @@ exec "${realGit}" "$@"
   });
   assert.equal(JSON.parse(fs.readFileSync(path.join(temp, '.kianos-current-releases/active/static-web/dist/__kianos-current.json'))).sha, next);
   const runtime = await (await fetch(`http://127.0.0.1:${port}/__fixture-runtime.json`, { signal: AbortSignal.timeout(1000) })).json();
-  const nextRelease = fs.realpathSync(path.join(temp, '.kianos-current-releases/releases', next));
-  const firstRelease = fs.realpathSync(path.join(temp, '.kianos-current-releases/releases', first));
+  const nextRelease = fs.realpathSync(fixtureReleaseRoot(path.join(temp, '.kianos-current-releases/releases'), next));
+  const firstRelease = fs.realpathSync(fixtureReleaseRoot(path.join(temp, '.kianos-current-releases/releases'), first));
   assert.equal(runtime.version, 'v2');
   assert.equal(runtime.sha, next);
   assert.equal(runtime.repo_root, nextRelease);
@@ -295,6 +324,8 @@ exec "${realGit}" "$@"
   const recoveryLogs = logs.slice(recoveryLogStart);
   assert.equal(processHandle.exitCode, 0, 'sync daemon must preserve restart intent across a transient mirror reset failure');
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), helperRecoveryUpdate);
+  assertAtomicStatus();
+  console.log('ATOMIC_CURRENT_STATUS PASS: forced partial writes never expose malformed published JSON');
   assert.match(recoveryLogs, /fixture injected reset failure/);
   assert.match(recoveryLogs, /Current sync runtime differs from loaded daemon; restarting the LaunchAgent-managed process after successful handoff/);
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import { clientBuildContextHash } from './currentClientArtifacts.mjs';
+import { fixtureReleaseRoot } from './test-support/release-fixture.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -51,7 +53,7 @@ try {
   write('.gitignore', 'static-web/public/\nstatic-web/dist\nstatic-web/.current-*\n');
   write(
     'static-web/scripts/kianos-static-server.mjs',
-    `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const r=process.argv[process.argv.indexOf('--root')+1];http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({sha:JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha}):'A')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`
+    `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const r=process.argv[process.argv.indexOf('--root')+1];http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?fs.readFileSync(path.join(r,'__kianos-current.json')):'A')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`
   );
 
   git(upstream, 'add', '.');
@@ -86,16 +88,19 @@ try {
   );
   fs.chmodSync(npm, 0o755);
 
+  const daemonEnv = {
+    ...process.env,
+    KIANOS_SYNC_RUNTIME_SHA: git(mirror, 'rev-parse', 'HEAD'),
+    KIANOS_PORT: String(port), KIANOS_NPM_BIN: npm,
+    KIANOS_BUILD_NICE: '0', KIANOS_SYNC_INTERVAL_MS: '3000'
+  };
+  // Trusted same-context LKG; missing-context migration is tested separately.
+  fs.writeFileSync(path.join(mirror, 'static-web/dist/__kianos-current.json'), JSON.stringify({
+    state: 'synced', sha: a, contextHash: clientBuildContextHash(daemonEnv, mirror)
+  }));
   daemon = spawn(process.execPath, ['static-web/scripts/kianos-current-sync.mjs'], {
     cwd: mirror,
-    env: {
-      ...process.env,
-      KIANOS_SYNC_RUNTIME_SHA: git(mirror, 'rev-parse', 'HEAD'),
-      KIANOS_PORT: String(port),
-      KIANOS_NPM_BIN: npm,
-      KIANOS_BUILD_NICE: '0',
-      KIANOS_SYNC_INTERVAL_MS: '3000'
-    },
+    env: daemonEnv,
     stdio: ['ignore', 'pipe', 'pipe']
   });
   daemon.stdout.on('data', (chunk) => { logs += chunk; });
@@ -118,13 +123,13 @@ try {
   });
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), a);
   assert.equal(fs.existsSync(path.join(root, '.kianos-current-releases/active')), false);
-  assert.equal(fs.existsSync(path.join(root, '.kianos-current-releases/releases', b)), false, 'failed B release worktree must be removed');
+  assert.equal(fs.existsSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), b)), false, 'failed B release worktree must be removed');
   assert.equal(git(mirror, 'worktree', 'list', '--porcelain').includes(b), false, 'failed B worktree metadata must be removed');
 
   // C is healthy and becomes the first isolated active release.
   write(
     'static-web/scripts/kianos-static-server.mjs',
-    `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const r=process.argv[process.argv.indexOf('--root')+1];http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({sha:JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha}):'C')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`
+    `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const r=process.argv[process.argv.indexOf('--root')+1];http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?fs.readFileSync(path.join(r,'__kianos-current.json')):'C')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`
   );
   write('fixture.txt', 'C');
   git(upstream, 'add', '.');
@@ -145,7 +150,7 @@ try {
   const active = path.join(root, '.kianos-current-releases/active');
   assert.equal(
     fs.realpathSync(active),
-    fs.realpathSync(path.join(root, '.kianos-current-releases/releases', c))
+    fs.realpathSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), c))
   );
 
   // D fails before activation. Healthy isolated C must remain active; the
@@ -174,10 +179,10 @@ try {
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), c);
   assert.equal(
     fs.realpathSync(active),
-    fs.realpathSync(path.join(root, '.kianos-current-releases/releases', c)),
+    fs.realpathSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), c)),
     'pre-activation probe failure must preserve the current healthy active release'
   );
-  assert.equal(fs.existsSync(path.join(root, '.kianos-current-releases/releases', d)), false, 'failed D release worktree must be removed');
+  assert.equal(fs.existsSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), d)), false, 'failed D release worktree must be removed');
   assert.equal(git(mirror, 'worktree', 'list', '--porcelain').includes(d), false, 'failed D worktree metadata must be removed');
 
   // Separate first-promotion case: no legacy dist and no prior site. The
@@ -223,7 +228,7 @@ try {
   writeFirst('fixture.txt', 'E1');
   writeFirst(
     'static-web/scripts/kianos-static-server.mjs',
-    `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),r=args[args.indexOf('--root')+1];if(!args.includes('--release-probe-only'))process.exit(23);http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?JSON.stringify({sha:JSON.parse(fs.readFileSync(path.join(r,'__kianos-current.json'))).sha}):'probe-ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`
+    `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),r=args[args.indexOf('--root')+1];if(!args.includes('--release-probe-only'))process.exit(23);http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?fs.readFileSync(path.join(r,'__kianos-current.json')):'probe-ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`
   );
   git(firstUpstream, 'add', '.');
   git(firstUpstream, 'commit', '-m', 'E1 probe-good production-bad');

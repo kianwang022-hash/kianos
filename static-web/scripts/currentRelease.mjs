@@ -34,7 +34,7 @@ export function releasePaths(repoRoot) {
     active: path.join(root, 'active'),
     previous: path.join(root, 'previous'),
     candidate: path.join(root, 'candidate'),
-    release: (sha) => path.join(root, 'releases', String(sha)),
+    release: (sha, contextHash) => path.join(root, 'releases', String(sha) + (contextHash ? '-' + contextHash : '')),
     lock: process.env.KIANOS_DELIVERY_LOCK || path.join(root, 'delivery.lock')
   };
 }

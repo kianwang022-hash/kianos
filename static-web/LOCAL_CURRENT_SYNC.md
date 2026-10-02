@@ -65,6 +65,20 @@ Default browser Current check interval: **3 seconds**.
 
 The status file is local delivery state, not a canonical repository owner and not learner Evidence.
 
+### Build-context isolation
+
+A reusable release is identified by source SHA **and** `clientBuildContextHash` of the supervisor's build environment, normalized against its control checkout. The same hash is passed to complete/client-artifact builds and persisted as `contextHash` in the built `dist/__kianos-current.json`. Compiler receipts remain optional for complete builds. Only the hash is added to delivery metadata; source paths and environment values are not copied into this receipt.
+
+Same-SHA idle, control-only reuse, existing-release reuse, startup and runtime readiness all require this context to match. A receipt without context is untrusted and requires one new build. `KIANOS_STUDYHUB_MODE`, source path and other non-ignored build environment changes therefore cannot silently reuse a private artifact in a public configuration. This is environment identity, not a new content revision or learner fact; private source integrity remains with its source owner.
+
+New worktrees live at `releases/<sha>-<contextHash>` beneath the existing release root; `active` and `previous` retain their existing roles. A retained directory with a missing/corrupt receipt is rebuilt in a unique sibling, never erased or overwritten. Preparation returns its exact directory for probe, activation and rejected-candidate cleanup. Build failures are suppressed only for the same SHA **and** context, so a failed private configuration cannot block a public build of the same source.
+
+Serving requires a matching built receipt before any process starts, including cold/offline startup and recovery after failure. Previous `/_astro/` assets may be used only within the same context. Readiness checks both SHA and context. Same-context failures may continue or restore the prior site; after a context change, failure preserves the old artifacts and pointers but leaves an incompatible site unserved. Availability is deliberately sacrificed instead of exposing old private content. Existing open-browser content is not remotely erased by changing the server configuration.
+
+Environment changes take effect by restarting the managed supervisor with the new environment. A one-shot build changes delivery pointers; it cannot rewrite another already-running supervisor's environment or authorize stopping unrelated processes. Context checks do not install credentials, configure StudyHub, or deploy a private source automatically.
+
+The bounded synthetic regression is `node scripts/test-current-build-context.mjs`. It uses local Git fixtures, the production static server with synthetic private bridges, ephemeral loopback ports and no real learner/source state.
+
 ## macOS install
 
 From any trusted checkout of this repo, once:

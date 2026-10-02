@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import { fixtureReleaseRoot } from './test-support/release-fixture.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
@@ -36,12 +37,13 @@ try {
   // A second Node on PATH must not split the supervisor/compiler identity.
   const decoyDir=path.join(temp,'wrong-node'),decoyCalls=path.join(temp,'wrong-node-calls');
   fs.mkdirSync(decoyDir);fs.writeFileSync(path.join(decoyDir,'node'),'#!/bin/sh\necho wrong >> '+JSON.stringify(decoyCalls)+'\nexit 94\n');fs.chmodSync(path.join(decoyDir,'node'),0o755);
-  const env={...process.env,PATH:decoyDir+path.delimiter+process.env.PATH,KIANOS_SYNC_ONCE:'1',KIANOS_NPM_BIN:npm,KIANOS_BUILD_NICE:'0',KIANOS_RELEASES_DIR:releases,KIANOS_SUBPROCESS_TIMEOUT_MS:'90000',KIANOS_CONTROL_ENABLED:'0',KIANOS_PACKET_RELAY_ENABLED:'0'};
+  // Mirror-root environment values must normalize identically in every lane.
+  const env={...process.env,PATH:decoyDir+path.delimiter+process.env.PATH,KIANOS_REPO_ROOT:fs.realpathSync(mirror),KIANOS_STUDYHUB_MODE:'public',KIANOS_SYNC_ONCE:'1',KIANOS_NPM_BIN:npm,KIANOS_BUILD_NICE:'0',KIANOS_RELEASES_DIR:releases,KIANOS_SUBPROCESS_TIMEOUT_MS:'90000',KIANOS_CONTROL_ENABLED:'0',KIANOS_PACKET_RELAY_ENABLED:'0'};
   const run = () => { const t=performance.now();const out=execFileSync(process.execPath,['static-web/scripts/kianos-current-sync.mjs'],{cwd:mirror,env,encoding:'utf8',timeout:100000,maxBuffer:8*1024*1024}); console.log(out.split('\n').filter(x=>/client-only|complete build required|synced .*static Current/.test(x)).join('\n'));return Math.round(performance.now()-t); };
   const status=()=>JSON.parse(fs.readFileSync(path.join(mirror,'static-web/public/__kianos-current.json'),'utf8'));
   console.log('Current fixture: bootstrap');const fullMs=run();
   check(status().state==='synced'&&status().sha===baseSha,'baseline really activated');
-  const baseHtml=fs.readFileSync(path.join(releases,'releases',baseSha,'static-web/dist/index.html'));
+  const baseHtml=fs.readFileSync(path.join(fixtureReleaseRoot(path.join(releases, 'releases'), baseSha),'static-web/dist/index.html'));
   const renderBefore=fs.readFileSync(renders,'utf8');
   write('static-web/src/lib/client.mjs',`import {key} from './shared.mjs';export function run(){document.body.dataset.proof=key+':after';}`);
   const targetSha=commit('client-only delta');git(upstream,'push','origin','main');
@@ -52,15 +54,26 @@ try {
   check(receipt.artifact_base_sha===baseSha,'reuse provenance retained');
   check(fs.readFileSync(calls,'utf8').trim().split('\n').length===1,'only bootstrap invoked Astro');
   check(fs.readFileSync(renders,'utf8')===renderBefore,'no sibling or primary prerender on client update');
-  check(fs.readFileSync(path.join(releases,'releases',baseSha,'static-web/dist/index.html')).equals(baseHtml),'old release bytes preserved');
-  check(fs.realpathSync(path.join(releases,'active'))===fs.realpathSync(path.join(releases,'releases',targetSha)),'atomic active pointer correct');
-  check(fs.realpathSync(path.join(releases,'previous'))===fs.realpathSync(path.join(releases,'releases',baseSha)),'last known good preserved');
-  fs.appendFileSync(path.join(releases,'releases',targetSha,'static-web/dist/index.html'),'corrupt-base');
+  check(fs.readFileSync(path.join(fixtureReleaseRoot(path.join(releases, 'releases'), baseSha),'static-web/dist/index.html')).equals(baseHtml),'old release bytes preserved');
+  check(fs.realpathSync(path.join(releases,'active'))===fs.realpathSync(fixtureReleaseRoot(path.join(releases, 'releases'), targetSha)),'atomic active pointer correct');
+  check(fs.realpathSync(path.join(releases,'previous'))===fs.realpathSync(fixtureReleaseRoot(path.join(releases, 'releases'), baseSha)),'last known good preserved');
+  const publicTarget = fs.realpathSync(path.join(releases,'active'));
+  const publicTargetBytes = fs.readFileSync(path.join(publicTarget,'static-web/dist/index.html'));
+  env.KIANOS_STUDYHUB_MODE='private';
+  console.log('Current fixture: same SHA with new context must use full build');run();
+  check(status().static_build==='rebuilt','context change refuses the compiler fast lane');
+  check(fs.realpathSync(path.join(releases,'active'))!==publicTarget,'same SHA uses a sibling for a different context');
+  check(fs.readFileSync(path.join(publicTarget,'static-web/dist/index.html')).equals(publicTargetBytes),'context switch does not overwrite prior bytes');
+  check(fs.readFileSync(calls,'utf8').trim().split('\n').length===2,'context change invokes one complete build');
+  env.KIANOS_STUDYHUB_MODE='public';run();
+  check(fs.realpathSync(path.join(releases,'active'))===publicTarget,'return to public reuses only the matching context');
+  check(status().static_build==='reused','existing context artifact is reported as reused');
+  fs.appendFileSync(path.join(publicTarget,'static-web/dist/index.html'),'corrupt-base');
   write('static-web/src/lib/client.mjs',`import {key} from './shared.mjs';export function run(){document.body.dataset.proof=key+':recovered';}`);
   const recovered=commit('next client delta');git(upstream,'push','origin','main');
   console.log('Current fixture: corrupt base must fall back');run();
   check(status().sha===recovered&&status().static_build==='rebuilt','corrupt proof falls back and promotes complete build');
-  check(fs.readFileSync(calls,'utf8').trim().split('\n').length===2,'one bounded full fallback');
+  check(fs.readFileSync(calls,'utf8').trim().split('\n').length===3,'one bounded full fallback');
   check(!fs.existsSync(decoyCalls),'compiler consistently used supervisor Node, not ambient PATH Node');
   console.log(JSON.stringify({status:'PASS',checks,bootstrap_ms:fullMs,client_delivery_ms:incrementalMs,client_update_prerenders:0}));
 } finally { if(process.env.KIANOS_KEEP_CLIENT_FIXTURE==='1')console.log('CURRENT_FIXTURE_RETAINED',temp);else fs.rmSync(temp,{recursive:true,force:true}); }
