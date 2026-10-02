@@ -92,13 +92,17 @@
       "question_truth_path": "content/xizong/questions/shards/2020/q151-175.json",
       "question_truth_blob_sha": "4272600c86d9da0cec01716aea971b49d1e04645",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "23d1f2c9f601889e11c9bd0724134774fc4ef28c"
+      "knowledge_blob_sha": "23d1f2c9f601889e11c9bd0724134774fc4ef28c",
+      "knowledge_revalidated_blob_sha": "83a5a51eabe73fd79e21ab87201e367307755173"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: life-threatening hyperkalemia, uremic encephalopathy and diuretic-refractory pulmonary edema are urgent KRT indications; isolated pH 7.25 requires context. Urinary B7 KP17 explicitly owns the decision rule."
+      "basis": "Independent solve: life-threatening hyperkalemia, uremic encephalopathy and diuretic-refractory pulmonary edema are urgent KRT indications; isolated pH 7.25 requires context. Urinary B7 KP17 explicitly owns the decision rule.",
+      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
+      "source_revision_revalidated_at": "2026-10-02",
+      "source_revision_revalidation_basis": "Keys A/C/D match KP17: potassium7 exceeds the preserved Study6.5 threshold, encephalopathy is a uremic organ indication, and diuretic-refractory pulmonary edema is an explicit volume indication. Isolated pH7.25 is above the Study7.2 cutoff and lacks further severity/refractoriness. The final prompt retains difficulty controlling the disturbance and integrated judgment."
     },
     "primary_kp_id": "urinary-b07-kp17"
   },

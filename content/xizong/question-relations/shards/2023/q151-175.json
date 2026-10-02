@@ -11,13 +11,17 @@
       "question_truth_path": "content/xizong/questions/shards/2023/q151-175.json",
       "question_truth_blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "014de94962d5cf0fcb4673833c1274c700231434"
+      "knowledge_blob_sha": "014de94962d5cf0fcb4673833c1274c700231434",
+      "knowledge_revalidated_blob_sha": "c546c3c6f2cde391da35034f64c97c0829100c0c"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: chronic pulmonary vascular resistance causes RV concentric hypertrophy with thickened papillary muscles/trabeculae, while pulmonary hypertension can enlarge the pulmonary-artery conus. R9 KP01/KP04 own these morphologic consequences."
+      "basis": "Independent solve: chronic pulmonary vascular resistance causes RV concentric hypertrophy with thickened papillary muscles/trabeculae, while pulmonary hypertension can enlarge the pulmonary-artery conus. R9 KP01/KP04 own these morphologic consequences.",
+      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
+      "source_revision_revalidated_at": "2026-10-02",
+      "source_revision_revalidation_basis": "PRIMARY KP01保留慢性PVR↑→右室肥厚/乳头肌肉柱增粗，SUPPORT KP04明确肺动脉圆锥膨隆；两角色覆盖AC并不支持左室增厚/扩大，Prompt条件保持。"
     },
     "primary_kp_id": "respiratory-r09-kp01"
   },
@@ -94,13 +98,17 @@
       "question_truth_path": "content/xizong/questions/shards/2023/q151-175.json",
       "question_truth_blob_sha": "fb063c120232b9e80d536f6a76fcf63185f919b9",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block8_细菌性尿路感染_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "a400413f8c31a6039c6fb6625c204c6522f89a4f"
+      "knowledge_blob_sha": "a400413f8c31a6039c6fb6625c204c6522f89a4f",
+      "knowledge_revalidated_blob_sha": "371a3668c6599a727774529a852e57a83bc35266"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: urinary-tract irritative symptoms are frequency, urgency and dysuria; urinary retention or difficulty voiding belongs to an obstructive/voiding-failure axis. B8 KP09 explicitly owns the frequency-urgency-dysuria symptom triad."
+      "basis": "Independent solve: urinary-tract irritative symptoms are frequency, urgency and dysuria; urinary retention or difficulty voiding belongs to an obstructive/voiding-failure axis. B8 KP09 explicitly owns the frequency-urgency-dysuria symptom triad.",
+      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
+      "source_revision_revalidated_at": "2026-10-02",
+      "source_revision_revalidation_basis": "Keys B/C belong to KP09’s explicit frequency/urgency/dysuria group. Retention and difficulty emptying are outside that local irritative triad, and the final prompt retains the local-symptom dimension."
     },
     "primary_kp_id": "urinary-b08-kp09"
   },

@@ -50,13 +50,17 @@
       "question_truth_path": "content/xizong/questions/shards/2022/q076-100.json",
       "question_truth_blob_sha": "89d325d00142e188b9d580ae543c0d031b712b30",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block8_细菌性尿路感染_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "a400413f8c31a6039c6fb6625c204c6522f89a4f"
+      "knowledge_blob_sha": "a400413f8c31a6039c6fb6625c204c6522f89a4f",
+      "knowledge_revalidated_blob_sha": "371a3668c6599a727774529a852e57a83bc35266"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: fever, lower-UTI symptoms and CVA tenderness localize infection to the kidney/upper tract. Urinary B8 KP09 explicitly owns cystitis-vs-pyelonephritis."
+      "basis": "Independent solve: fever, lower-UTI symptoms and CVA tenderness localize infection to the kidney/upper tract. Urinary B8 KP09 explicitly owns cystitis-vs-pyelonephritis.",
+      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
+      "source_revision_revalidated_at": "2026-10-02",
+      "source_revision_revalidation_basis": "Key D matches the complete KP09 upper-tract column: fever38, bilateral CVA tenderness, blood leukocytosis and WBC casts with urinary symptoms. The final prompt preserves casts as supporting evidence rather than a universal requirement."
     },
     "primary_kp_id": "urinary-b08-kp09"
   },

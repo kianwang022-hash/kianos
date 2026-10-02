@@ -129,13 +129,17 @@
       "question_truth_path": "content/xizong/questions/shards/2024/q076-100.json",
       "question_truth_blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "936fa5c3f152405d0efb33e4af84673af2411ac1"
+      "knowledge_blob_sha": "936fa5c3f152405d0efb33e4af84673af2411ac1",
+      "knowledge_revalidated_blob_sha": "308b85be42074044b03d023e32a6a085bf243400"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: >3.5 g/day proteinuria with generalized edema and little nephritic sediment fits nephrotic syndrome. Urinary B11 KP01 explicitly owns the syndrome identity."
+      "basis": "Independent solve: >3.5 g/day proteinuria with generalized edema and little nephritic sediment fits nephrotic syndrome. Urinary B11 KP01 explicitly owns the syndrome identity.",
+      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
+      "source_revision_revalidated_at": "2026-10-02",
+      "source_revision_revalidation_basis": "Key D is the best-fit existing exam route to KP01: measured protein4.6g/day exceeds3.5 with marked edema and relatively little sediment. The revised prompt still requires hypoalbuminemia for a complete diagnosis and does not erase that boundary."
     },
     "primary_kp_id": "urinary-b11-kp01"
   },
@@ -149,13 +153,17 @@
       "question_truth_path": "content/xizong/questions/shards/2024/q076-100.json",
       "question_truth_blob_sha": "153f5179c54d95fbc9f32f847460122048801cd5",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "936fa5c3f152405d0efb33e4af84673af2411ac1"
+      "knowledge_blob_sha": "936fa5c3f152405d0efb33e4af84673af2411ac1",
+      "knowledge_revalidated_blob_sha": "308b85be42074044b03d023e32a6a085bf243400"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: hypoalbuminemia is a defining nephrotic-syndrome consequence of massive urinary protein loss. B11 KP01 explicitly owns the four-part nephrotic pattern."
+      "basis": "Independent solve: hypoalbuminemia is a defining nephrotic-syndrome consequence of massive urinary protein loss. B11 KP01 explicitly owns the four-part nephrotic pattern.",
+      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
+      "source_revision_revalidated_at": "2026-10-02",
+      "source_revision_revalidation_basis": "Key A measures the missing essential component in KP01 after protein4.6g/day and edema are already given. The final prompt preserves the two required thresholds, making serum albumin more directly diagnostic than Cr, hemoglobin or ultrasound in this stem."
     },
     "primary_kp_id": "urinary-b11-kp01"
   },

@@ -76,13 +76,17 @@
       "question_truth_path": "content/xizong/questions/shards/2020/q076-100.json",
       "question_truth_blob_sha": "9d214eae5aef72d753e17060ea3084313660dbb6",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "936fa5c3f152405d0efb33e4af84673af2411ac1"
+      "knowledge_blob_sha": "936fa5c3f152405d0efb33e4af84673af2411ac1",
+      "knowledge_revalidated_blob_sha": "308b85be42074044b03d023e32a6a085bf243400"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: massive proteinuria, hypoalbuminemia, edema and hyperlipidemia define nephrotic syndrome. B11 KP01 explicitly owns the four-part diagnosis."
+      "basis": "Independent solve: massive proteinuria, hypoalbuminemia, edema and hyperlipidemia define nephrotic syndrome. B11 KP01 explicitly owns the four-part diagnosis.",
+      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
+      "source_revision_revalidated_at": "2026-10-02",
+      "source_revision_revalidation_basis": "Key C matches KP01’s four-part syndrome: ++++ protein, albumin25, marked edema and cholesterol8; the normotension/minimal hematuria do not supply a nephritic alternative. The revised prompt retains both required components and quantitative thresholds."
     },
     "primary_kp_id": "urinary-b11-kp01"
   },
@@ -121,13 +125,17 @@
       "question_truth_path": "content/xizong/questions/shards/2020/q076-100.json",
       "question_truth_blob_sha": "9d214eae5aef72d753e17060ea3084313660dbb6",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "936fa5c3f152405d0efb33e4af84673af2411ac1"
+      "knowledge_blob_sha": "936fa5c3f152405d0efb33e4af84673af2411ac1",
+      "knowledge_revalidated_blob_sha": "308b85be42074044b03d023e32a6a085bf243400"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: Current Study retains MCD as steroid-sensitive with glucocorticoid monotherapy as the traditional initial exam pairing. B11 KP11 owns the pairing."
+      "basis": "Independent solve: Current Study retains MCD as steroid-sensitive with glucocorticoid monotherapy as the traditional initial exam pairing. B11 KP11 owns the pairing.",
+      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
+      "source_revision_revalidated_at": "2026-10-02",
+      "source_revision_revalidation_basis": "Primary KP11 retains MCD glucocorticoid monotherapy and typical steroid sensitivity. Supporting KP13 retains the pediatric MCD-nephrotic pattern, and KP10 retains the Study prednisone course and response timing. These roles support key A rather than upfront cyclophosphamide or lipid-only treatment; all three final prompts preserve disease-first and exam-precision limits."
     },
     "primary_kp_id": "urinary-b11-kp11"
   },
