@@ -137,6 +137,10 @@ try {
   const context = await browser.newContext({ viewport: VIEWPORT, locale: 'zh-CN', timezoneId: 'Asia/Shanghai' });
   const page = await context.newPage();
   await page.goto(BASE, { waitUntil: 'domcontentloaded' });
+  await page.bringToFront();
+  await page.waitForFunction(() => document.hasFocus()
+    && document.visibilityState === 'visible'
+    && document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 });
 
   await page.evaluate((seed) => {
     for (const [key, value] of Object.entries(seed)) localStorage.setItem(key, JSON.stringify(value));
