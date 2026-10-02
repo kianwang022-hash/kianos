@@ -12,6 +12,11 @@ const QUESTION_ROOT = 'content/xizong/questions';
 const EXPLANATION_ROOT = 'content/xizong/explanations';
 const EXAM_FORMAT_PATH = 'content/xizong/questions/exam-format.json';
 const HUMANITIES_CURRENT_PATH = 'content/xizong/humanities/current.json';
+const BUILD_CACHE_ENABLED = process.env.KIANOS_XIZONG_BUILD_CACHE === '1';
+// The safe builder enables this only for one immutable candidate worktree.
+// Internal JSON owners are read-only here; returned question projections are
+// assembled afresh. Validators/dev keep reading the current owner every time.
+const buildJsonCache = new Map();
 let examFormatOwnerCache = null;
 let examFormatSourceHashCache = null;
 const examFormatYearCache = new Map();
@@ -25,7 +30,10 @@ function readText(relativePath) {
 }
 
 function readJson(relativePath) {
-  return JSON.parse(readText(relativePath));
+  if (BUILD_CACHE_ENABLED && buildJsonCache.has(relativePath)) return buildJsonCache.get(relativePath);
+  const value = JSON.parse(readText(relativePath));
+  if (BUILD_CACHE_ENABLED) buildJsonCache.set(relativePath, value);
+  return value;
 }
 
 function sha256(value) {

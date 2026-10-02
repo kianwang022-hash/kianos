@@ -176,6 +176,8 @@ async function blockResumeAndEvidenceJourney(page) {
 
   await page.goto(`${BASE}/xizong/`, { waitUntil: 'domcontentloaded' });
   const continueLink = page.locator('[data-xizong-continue]');
+  await waitForWriter(page, 'home_resume_return');
+  await page.waitForFunction(() => (document.querySelector('[data-xizong-continue]')?.getAttribute('href') || '').includes('/xizong/respiratory/r01/'));
   check((await continueLink.getAttribute('href') || '').includes('/xizong/respiratory/r01/'), 'home_continue_returns_to_recent_block');
 }
 
