@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import '../../styles/studyhub.css';
+import { loadStudyhub, renderStudyhub, readerHref } from '../../lib/studyhubContent.mjs';
+export function getStaticPaths(){const library=loadStudyhub();return [...library.docs.values()].map(doc=>({params:{asset:doc.file.replace(/\.md$/i,'')},props:{file:doc.file}}));}
+const library=loadStudyhub();
+const base=import.meta.env.BASE_URL;
+const doc=renderStudyhub(library.docs.get(Astro.props.file),library,base);
+const navigation=doc.logicNodes.length?doc.logicNodes.map(n=>({id:n.id,title:n.code+' · '+n.description})):doc.headings;
+---
+<Base title={doc.title} active="studyhub" runtimeMode="presentation" showLead={false}>
+  <div class="shReader" data-sh-reader data-sh-file={doc.file} data-sh-title={doc.title} data-sh-source={doc.source} data-sh-hash={doc.hash} data-sh-base={base}>
+    <header class="shToolbar">
+      <a href={base+'studyhub/'} data-sh-link>← 世界</a>
+      <button type="button" data-sh-return hidden>返回上一处</button>
+      <span class="shToolbarSpace"></span>
+      <label class="shSizeLabel">字号 <select data-sh-font aria-label="正文字号"><option value="18">18</option><option value="20" selected>20</option><option value="22">22</option><option value="24">24</option></select></label>
+      <button type="button" data-sh-ask>选段提问</button>
+    </header>
+    <div class="shReadingLayout">
+      <aside class="shLogic" aria-label="阅读定位">
+        <p class="shEyebrow">{doc.logicNodes.length?'阅读脉络':'本文目录'}</p>
+        <nav>{navigation.map(node=><a href={'#'+node.id} data-sh-anchor>{node.title}</a>)}</nav>
+        {doc.logic && <button type="button" class="shQuiet" data-sh-preview={readerHref(doc.logic.file,base)}>展开原有 Logic</button>}
+        <a class="shQuiet" href={doc.source} target="_blank" rel="noreferrer">StudyHub 原文 ↗</a>
+      </aside>
+      <div class="shArticleColumn">
+        <article class="shProse" data-sh-article set:html={doc.html}/>
+        <footer class="shArticleFoot">
+          <p>读到这里，可以回世界地图，也可以继续一篇跨领域阅读。</p>
+          <nav aria-label="继续阅读">{library.directions.filter(l=>l.file!==doc.file).map(link=><a href={readerHref(link.file,base)} data-sh-link>{library.docs.get(link.file)?.title || link.label} →</a>)}</nav>
+          <a href={base+'studyhub/'} data-sh-link>回到世界地图</a>
+          <details><summary>原文件与出处</summary><p><a href={doc.source} target="_blank" rel="noreferrer">在 StudyHub 查看锁定版本</a></p><p><a href={'data:text/markdown;charset=utf-8,'+encodeURIComponent(doc.markdown)} download={doc.file.split('/').at(-1)}>下载完整 Markdown</a></p><p class="shRevision">内容版本 {library.revision}</p></details>
+        </footer>
+      </div>
+    </div>
+    <p class="shStatus" data-sh-status role="status" aria-live="polite"></p>
+    <dialog class="shDialog" data-sh-context aria-labelledby="sh-context-title">
+      <div class="shDialogTop"><h2 id="sh-context-title">链接原文</h2><button type="button" data-sh-close aria-label="关闭并回到阅读位置">关闭 ×</button></div>
+      <p data-sh-context-label></p><div class="shProse shContextBody" data-sh-context-body></div>
+      <footer><a data-sh-context-open data-sh-link>打开完整原文 →</a><button type="button" data-sh-close>回到刚才的位置</button></footer>
+    </dialog>
+    <dialog class="shDialog" data-sh-question aria-labelledby="sh-question-title">
+      <div class="shDialogTop"><h2 id="sh-question-title">带着这段原文去 Chat</h2><button type="button" data-sh-close aria-label="关闭并回到阅读位置">关闭 ×</button></div>
+      <p>这里会复制选段、相邻段落和出处。请粘贴到现有 Chat 中继续讨论。</p>
+      <blockquote data-sh-quote></blockquote>
+      <label for="sh-question">想问什么</label><textarea id="sh-question" data-sh-question-input rows="3" placeholder="这段的机制是什么？它与前文有什么联系？"></textarea>
+      <button type="button" data-sh-copy>复制问题与上下文</button><p data-sh-copy-status role="status"></p>
+      <details data-sh-payload-detail><summary>查看或手动复制完整文本</summary><textarea data-sh-payload rows="10" readonly aria-label="带上下文的问题文本"></textarea></details>
+    </dialog>
+  </div>
+</Base>
+<script>import { initStudyhubReader } from '../../lib/studyhubReader.mjs'; initStudyhubReader();</script>

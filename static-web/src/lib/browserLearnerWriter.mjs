@@ -65,7 +65,17 @@ function showState(state) {
     for (const [node, wasInert] of blockedNodes) if (node.isConnected) node.inert = wasInert;
     blockedNodes.clear();
   } else {
-    for (const node of document.body.children) {
+    // New shells identify only the evidence-writing canvas/dock. Navigation is
+    // presentation and remains usable while recovery waits or fails. Legacy
+    // shells retain the original whole-body fallback. Body-level learning popovers
+    // are protected too; only ancestors containing both navigation and a marked
+    // region are skipped. Storage protection is unchanged.
+    const regions = [...document.querySelectorAll('[data-kianos-learner-region]')];
+    const protectedNodes = document.body.dataset.kianosRuntime === 'learner' && regions.length
+      ? [...new Set([...regions, ...document.body.children])].filter(node =>
+          !regions.some(region => node !== region && node.contains(region)))
+      : document.body.children;
+    for (const node of protectedNodes) {
       if (!(node instanceof HTMLElement) || node === notice || node.tagName === 'SCRIPT') continue;
       if (!blockedNodes.has(node)) blockedNodes.set(node, node.inert);
       node.inert = true;

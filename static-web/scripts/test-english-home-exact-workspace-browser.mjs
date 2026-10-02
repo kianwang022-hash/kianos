@@ -102,6 +102,14 @@ async function waitReady(){
   throw new Error('HOME_INTEGRATION_SERVER_NOT_READY:'+serverLog.slice(-1600));
 }
 
+async function writerReady(page){
+  await page.bringToFront();
+  await page.waitForFunction(()=>['active','unavailable','retired'].includes(document.documentElement.dataset.learnerWriter));
+  const state=await page.evaluate(()=>({writer:document.documentElement.dataset.learnerWriter,focus:document.hasFocus()}));
+  assert.equal(state.writer,'active','fixture requires active native writer, got '+state.writer);
+  assert.equal(state.focus,true,'fixture requires foreground ownership');
+}
+
 let browser;
 try{
   await waitReady();
@@ -116,8 +124,26 @@ try{
     }
     window.Date=FixtureDate;
   },{fixtureNow:Date.parse('2026-09-20T03:00:00+08:00')});
+  // Fresh setup must not bypass asynchronous native checkpoint recovery.
+  let releaseRead;
+  const readGate=new Promise(resolve=>releaseRead=resolve);
+  let holdFirstRead=true;
+  await context.route('**/__kianos-private/checkpoint',async route=>{
+    if(holdFirstRead&&route.request().method()==='GET'){holdFirstRead=false;await readGate;}
+    await route.continue();
+  });
   const page=await context.newPage();
   await page.goto(BASE,{waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='waiting');
+  const waiting=await page.evaluate(key=>{
+    const before=localStorage.getItem(key);let error='';
+    try{localStorage.setItem(key,'synthetic premature seed');}catch(e){error=e.message;}
+    return {writer:document.documentElement.dataset.learnerWriter,focus:document.hasFocus(),unchanged:localStorage.getItem(key)===before,error};
+  },EXAM_PROFILE_KEY);
+  assert.equal(waiting.writer,'waiting');assert.equal(waiting.focus,true);assert.equal(waiting.unchanged,true);
+  assert.equal(waiting.error,'KIANOS_LEARNER_WRITER_RELOAD_REQUIRED');
+  releaseRead();
+  await writerReady(page);
   await page.evaluate(({profile,englishSession,keys})=>{
     localStorage.setItem(keys.profile,JSON.stringify(profile));
     localStorage.setItem(keys.english,JSON.stringify(englishSession));
@@ -164,8 +190,20 @@ try{
   assert.equal(await next.getAttribute('aria-disabled'),'true');
   assert.match((await next.textContent())||'',/等待今日安排/);
 
+  const failedContext=await browser.newContext();
+  try{
+    await failedContext.route('**/__kianos-private/checkpoint',route=>route.fulfill({status:503,contentType:'application/json',body:'{"error":"synthetic recovery outage"}'}));
+    const failed=await failedContext.newPage();
+    await failed.goto(BASE+'/?checkpoint-durable-restore=synthetic-unavailable',{waitUntil:'domcontentloaded'});
+    await assert.rejects(()=>writerReady(failed),/fixture requires active native writer, got unavailable/);
+    const fault=await failed.evaluate(key=>{let error='';try{localStorage.setItem(key,'synthetic failed seed');}catch(e){error=e.message;}return {error,value:localStorage.getItem(key)};},EXAM_PROFILE_KEY);
+    assert.equal(fault.error,'KIANOS_LEARNER_WRITER_RELOAD_REQUIRED');assert.equal(fault.value,null);
+  }finally{await failedContext.close();}
+
   console.log(JSON.stringify({
     status:'PASS',
+    delayed_recovery_seed_guard:'PASS',
+    failed_recovery_seed_guard:'PASS',
     exact_session_to_workspace:'PASS',
     generated_external_workspace:expected,
     mismatched_session_fail_closed:'PASS'

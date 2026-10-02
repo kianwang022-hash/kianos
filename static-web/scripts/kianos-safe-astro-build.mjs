@@ -139,6 +139,10 @@ async function main() {
   if (plan.redirected) {
     console.log('[KianOS] managed Current mirror: redirecting local Astro build to ' + plan.outDir);
   }
+  if (fs.existsSync(path.join(webRoot, 'src/pages/studyhub'))) {
+    const { prepareStudyhubSource } = await import('./sync-studyhub-source.mjs');
+    console.log('[KianOS] StudyHub source: ' + JSON.stringify(prepareStudyhubSource()));
+  }
   const astroBin = path.join(webRoot, 'node_modules', '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro');
   const child = spawn(astroBin, ['build', ...plan.args], {
     cwd: webRoot,
