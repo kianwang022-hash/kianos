@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 // Entirely synthetic. No Current corpus, held-out question or learner profile.
 const unit = (n) => ({
   key: `fixture/ch01/NU${n}`, id: `NU${n}`, title: `合成学习单元 ${n}`, subject: 'fixture', chapter: 'ch01',
@@ -20,3 +21,9 @@ const questions = Array.from({ length: 8 }, (_, i) => {
 for (const u of units) u.returnConfig = { schema: 'kianos.politics.unit_return_projection.v1', unit_key: u.key, subject: u.subject, chapter: u.chapter, natural_unit_id: u.id, runtime_unit_id: u.id, source_anchor: `source-${u.id}`, expected_question_ids: [...u.questionIds], expected_question_count: u.questionIds.length };
 export const catalog = { schema: 'kianos.politics.practice_catalog.v1', revision: 'isolated-synthetic-v1', reviewBase: '/politics/practice-review/', subjects: [{ id: 'fixture', label: '合成科目' }], chapters: [{ key: 'fixture/ch01', subject: 'fixture', code: 'ch01', title: '工作台浏览器样本', questionIds: questions.map((q) => q.id) }], units, questions };
 export const chapter = { subject: 'fixture', code: 'ch01', units: units.map((u) => ({ unitId: u.id, title: u.title, questions: questions.filter((q) => q.unitKey === u.key) })), repairProjection: {} };
+
+// Production sessions persist per-task identities; the synthetic producer must
+// supply the same contract so refresh can validate its original question set.
+for (const question of catalog.questions) {
+  question.taskRevision = createHash('sha256').update(JSON.stringify(question)).digest('hex');
+}

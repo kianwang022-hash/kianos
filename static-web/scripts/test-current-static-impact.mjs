@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 
+// Exercise cleanup in the existing Current CI gate, using only owned groups.
+await import('./test-owned-process-cleanup.mjs');
+
 import {
   classifyStaticBuild,
+  isVerificationOnlyStaticPath,
   requiresStaticRuntimeReload,
   staticBuildCanReuseFromBase,
   staticBuildNpmScript,
@@ -119,6 +123,23 @@ assert.equal(
 );
 
 console.log('STATIC_CURRENT_IMPACT PASS');
+
+for (const file of [
+  'static-web/scripts/validate-xizong-a2-evidence.mjs',
+  'static-web/scripts/test-support/isolated-runtime.mjs',
+  'static-web/scripts/personal-system-acceptance/run.mjs',
+  'static-web/scripts/fixtures/politics-practice/catalog.mjs'
+]) {
+  assert.equal(isVerificationOnlyStaticPath(file), true);
+  assert.equal(staticBuildPathImpact(file).reason, 'verification-only');
+  assert.equal(classifyStaticBuild([file]).required, false);
+  assert.equal(requiresStaticRuntimeReload([file]), false, 'VERIFICATION_ONLY_MUST_NOT_RELOAD:' + file);
+  assert.equal(requiresStaticRuntimeReload([file, 'static-web/src/lib/privateCheckpointRuntime.mjs']), true);
+}
+for (const file of ['static-web/scripts/validate-future-runtime-helper.mjs', 'static-web/scripts/privateLearnerBridge.mjs']) {
+  assert.equal(isVerificationOnlyStaticPath(file), false, 'UNKNOWN_OR_RUNTIME_MUST_NOT_BE_EXEMPT:' + file);
+  assert.equal(requiresStaticRuntimeReload([file]), true);
+}
 
 for (const file of ['static-web/src/lib/privateControlCommand.mjs',
   'static-web/src/lib/sharedControlCheckpoint.mjs',

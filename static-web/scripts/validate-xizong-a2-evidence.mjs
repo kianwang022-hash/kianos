@@ -3,20 +3,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadXizongBlock, loadXizongSystem } from '../src/lib/xizong.mjs';
 import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
+import { resolveXizongLearnerProjection } from '../src/lib/xizongLearnerProjection.mjs';
+import { verifyNativeMemoryEvidence } from './test-support/native-memory-evidence.mjs';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const repoRoot = path.resolve(webRoot, '..');
 const fail = (message) => { throw new Error(`A2_EVIDENCE_ACCEPTANCE_FAIL:${message}`); };
 const assert = (condition, message) => { if (!condition) fail(message); };
 const read = (relativePath) => fs.readFileSync(path.join(repoRoot, relativePath), 'utf8');
-
-const ratingState = (value) => value === 'unknown' || value === 'fuzzy' ? 'HOT' : value === 'known' ? 'WARM' : value === 'mastered' ? 'STABLE' : '';
-const memoryItems = (kpIds, ratings, memory) => {
-  const rows = kpIds.map((kpId) => ({ kpId, sourceRating: ratings[kpId] || '', memoryState: memory[kpId] || ratingState(ratings[kpId]) || '' }));
-  const weak = rows.filter((row) => ['HOT', 'WARM'].includes(row.memoryState));
-  return weak.length ? weak : rows.filter((row) => row.sourceRating && row.memoryState !== 'STABLE');
-};
-const systemRecallPhase = (answered, total) => answered === 0 ? 'PRE_QUESTION' : total > 0 && answered >= total ? 'POST_QUESTION' : 'MID_SWEEP';
 
 const system = loadXizongSystem('respiratory');
 const sweep = loadXizongSystemQuestionSweep(system);
@@ -26,37 +20,14 @@ assert(system.blocks.length === 12, `blocks:${system.blocks.length}`);
 assert(block.kpRecords.length > 1, 'block-too-small-for-evidence-probe');
 assert(sweep?.questionCount === 359, `questions:${sweep?.questionCount}`);
 
-const [weakKp, stableKp] = block.kpRecords.slice(0, 2).map((kp) => kp.kpId);
-const originalRatings = { [weakKp]: 'unknown', [stableKp]: 'mastered' };
-let memory = {};
-let queue = memoryItems([weakKp, stableKp], originalRatings, memory);
-assert(queue.length === 1 && queue[0].kpId === weakKp, 'memory-admission-not-selective');
-memory = { [weakKp]: 'STABLE' };
-queue = memoryItems([weakKp, stableKp], originalRatings, memory);
-assert(queue.length === 0, 'stable-memory-cannot-leave-weak-queue');
-assert(originalRatings[weakKp] === 'unknown', 'memory-stable-overwrote-original-recall');
+// Only synthetic observations are supplied to the native Memory owners.
+verifyNativeMemoryEvidence(resolveXizongLearnerProjection(block).learnerObject);
 
-const evidenceHistory = [];
-evidenceHistory.push({ type: 'KP_RECALL', kp_id: weakKp, rating: 'unknown' });
-evidenceHistory.push({ type: 'KP_RECALL', kp_id: weakKp, rating: 'unknown' });
-assert(evidenceHistory.length === 2, 'repeated-identical-recall-collapsed');
-assert(evidenceHistory.filter((row) => row.kp_id === weakKp && row.rating === 'unknown').length === 2, 'repeated-weak-evidence-lost');
-
-const repairHistory = [{ type: 'CHAT_PLAN_REVIEW', evidence_role: 'REPAIR_ONLY', kp_id: weakKp, rating: 'known' }];
-let repairPlan = [{ kpId: weakKp, reason: 'mechanism gap', action: 'repair smallest owner' }];
-repairPlan = repairPlan.filter((row) => row.kpId !== weakKp);
-assert(repairPlan.length === 0, 'resolved-repair-task-stays-active');
-assert(repairHistory[0].evidence_role === 'REPAIR_ONLY', 'repair-promoted-to-mastery');
-assert(originalRatings[weakKp] === 'unknown', 'repair-overwrote-original-recall');
-
-assert(systemRecallPhase(0, 100) === 'PRE_QUESTION', 'pre-question-recall-not-distinct');
-assert(systemRecallPhase(40, 100) === 'MID_SWEEP', 'mid-sweep-recall-not-distinct');
-assert(systemRecallPhase(100, 100) === 'POST_QUESTION', 'post-question-recall-not-distinct');
-
+// Mounting, single-writer and non-destructive guards remain static checks.
+// KP/System browser behavior is not fabricated by a copied test-side algorithm.
 const blockGuard = read('static-web/src/components/XizongBlockEvidenceGuard.astro');
 const systemGuard = read('static-web/src/components/XizongSystemEvidenceGuard.astro');
 const recallBridge = read('static-web/src/components/XizongRecallEvidenceBridge.astro');
-const memoryModel = read('static-web/src/lib/xizongMemoryModel.mjs');
 const memoryWorkspace = read('static-web/src/components/XizongMemoryWorkspace.astro');
 const repairBridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
 const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
@@ -74,8 +45,6 @@ assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 're
 assert(recallBridge.includes("type: 'KP_RECALL'"), 'recall-ledger-owner-missing');
 assert(recallBridge.includes("appendRecall(kpId, rating, 'USER_RECALL_ATTEMPT')"), 'user-recall-attempt-ledger-missing');
 assert(recallBridge.includes("evidence_origin: 'BOOTSTRAP_EXISTING_STATE'"), 'legacy-recall-bootstrap-missing');
-assert(memoryModel.includes('export function appendMemoryEvidence'), 'memory-evidence-owner-missing');
-assert(memoryModel.includes('export function completeRepairTask'), 'resolved-repair-closure-missing');
 assert(memoryWorkspace.includes('completeRepairTask(state, item.id)'), 'visible-repair-not-closed-through-owner');
 assert(memoryWorkspace.includes('不把修完自动写成 mastery'), 'repair-promotes-mastery');
 
@@ -145,11 +114,11 @@ console.log([
   `System=${system.canonicalId}/${system.systemId}`,
   `Blocks=${system.blocks.length}`,
   `Questions=${sweep.questionCount}`,
-  'Memory=selective+stable-exit',
-  'RecallHistory=single-owner+repeated-attempts-preserved',
+  'Memory=NATIVE-selective+stable-exit+repeated-evidence+repair-closure',
+  'RecallHistory=single-owner-static-guard',
   'ChatRepair=repair-only+single-owner-queue-closure',
   'RepairReturn=shared-owner-receipt+repair-only+atomic-inbox+cross-tab-safe',
-  'SystemRecall=pre/mid/post-distinct',
+  'SystemRecall=phase-wiring-static-guard',
   'RevisionEvidence=preserved+selective-current-claims',
   'LearnerState=browser-private',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
