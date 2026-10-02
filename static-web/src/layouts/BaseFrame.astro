@@ -20,9 +20,13 @@ const {
   sourceHash,
   objectId,
   active = 'home',
-  showLead = true
+  showLead = true,
+  runtimeMode = 'learner'
 } = Astro.props;
 
+// Opt in only for surfaces that own presentation state, not learner evidence.
+if (!['learner', 'presentation'].includes(runtimeMode)) throw new Error('INVALID_PAGE_RUNTIME_MODE');
+const learnerRuntime = runtimeMode === 'learner';
 const base = import.meta.env.BASE_URL;
 const pathname = Astro.url.pathname;
 const localPath = localRoute(pathname, base);
@@ -43,12 +47,12 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
 <!doctype html>
 <html lang="zh-CN">
   <head>
-    <script is:inline>
+    {learnerRuntime && <script is:inline>
       // Inline native consumers register before deferred module bootstrapping.
       window.__kianosLearnerWriterReady = new Promise(resolve => {
         window.addEventListener('kianos:learner-writer-ready', resolve, {once:true});
       });
-    </script>
+    </script>}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="KianOS learning workspace" />
@@ -60,7 +64,7 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
       body.uiEnglishFamily .kianosCurrentDock { display: none !important; }
     </style>
   </head>
-  <body id="kianos-workspace" data-current-status-url={currentStatusUrl} data-kianos-rail="expanded" class={`surfaceBody-${active}${stageOne ? ' uiStageOne' : ''}${isHub ? ' uiHub' : ''}${isWordStudy ? ' uiWordStudy' : ''}${englishRuntime ? ' uiEnglish' : ''}${englishFamily ? ' uiEnglishFamily' : ''}`}>
+  <body id="kianos-workspace" data-kianos-runtime={runtimeMode} data-current-status-url={currentStatusUrl} data-kianos-rail="expanded" class={`surfaceBody-${active}${stageOne ? ' uiStageOne' : ''}${isHub ? ' uiHub' : ''}${isWordStudy ? ' uiWordStudy' : ''}${englishRuntime ? ' uiEnglish' : ''}${englishFamily ? ' uiEnglishFamily' : ''}`}>
     <script is:inline>
       // Presentation state must be restored before shell markup can paint.
       (() => {
@@ -101,7 +105,7 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
           </header>
         )}
 
-        <main class={`productCanvas surface-${active}${englishRuntime ? ' englishCanvas' : ''}`}>
+        <main data-kianos-learner-region={learnerRuntime ? "" : undefined} class={`productCanvas surface-${active}${englishRuntime ? ' englishCanvas' : ''}`}>
           {showLead && (
             <section class="pageLead">
               <p class="pageKicker">{kicker}</p>
@@ -109,19 +113,17 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
             </section>
           )}
           <slot />
-          {englishRuntime && <EnglishProductiveConvergence />}
-          {englishRuntime && <VocabularyEnglishEvidenceBridge />}
-          {(englishRuntime || isVocabularyRoute) && <EnglishLexicalLookupBridge />}
+          {learnerRuntime && englishRuntime && <EnglishProductiveConvergence />}
+          {learnerRuntime && englishRuntime && <VocabularyEnglishEvidenceBridge />}
+          {learnerRuntime && (englishRuntime || isVocabularyRoute) && <EnglishLexicalLookupBridge />}
         </main>
       </div>
     </div>
-    <StudyTimerDock />
+    {learnerRuntime && <div data-kianos-learner-region style="display:contents"><StudyTimerDock /></div>}
   </body>
 </html>
 <script>
   import { createCurrentRefreshPolicy } from '../lib/currentRefreshPolicy.mjs';
-  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
-  void learnerWriterReady.then(() => {
 
   (() => {
     const body = document.body;
@@ -147,7 +149,7 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
   })();
 
 
-  (() => {
+  const initCurrentRefresh = () => {
     if (!['127.0.0.1', 'localhost'].includes(window.location.hostname)) return;
     const url = document.body?.dataset.currentStatusUrl;
     if (!url) return;
@@ -181,32 +183,16 @@ const releaseSha = typeof __KIANOS_RELEASE_SHA__ === 'string' && __KIANOS_RELEAS
       reloadIfPending();
       if (!reloading) void pollCurrent();
     });
-  })();
+  };
+  // Preserve the established learner refresh gate during recovery/conflict handling.
+  // Only the explicitly presentation-only page can start this without the writer.
+  if (document.body.dataset.kianosRuntime === 'presentation') initCurrentRefresh();
+  else void window.__kianosLearnerWriterReady?.then(initCurrentRefresh);
 
-  });
 </script>
 <script>
-  import { initStudyTimerRuntime } from '../lib/studyTimerClient.mjs';
-  import { initStudyTimerDock } from '../lib/studyTimerDockClient.mjs';
-  import { initPrivateCheckpointAutosave } from '../lib/privateCheckpointRuntime.mjs';
-  import { initPrivateControlRuntime } from '../lib/privateControlRuntime.mjs';
-  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
-  void learnerWriterReady.then(() => {
-
-
-  void (async () => {
-    // Initial checkpoint recovery has completed inside learnerWriterReady.
-    if (document.documentElement.dataset.learnerWriter !== 'active') return;
-
-    const timer = initStudyTimerRuntime();
-    const dock = document.querySelector('[data-study-timer-dock]');
-    if (dock instanceof HTMLElement) initStudyTimerDock(dock, timer);
-    const backup = initPrivateCheckpointAutosave(localStorage);
-    const control = initPrivateControlRuntime(localStorage);
-    window.addEventListener('kianos:learner-writer-retired', () => {
-      backup?.stop(); control?.stop(); timer?.destroy();
-    }, {once:true});
-  })();
-
-  });
+  // A static import would start the learner writer even on presentation pages.
+  if (document.body.dataset.kianosRuntime !== 'presentation') {
+    void import('../lib/learnerPageRuntime.mjs').then(({ initLearnerPageRuntime }) => initLearnerPageRuntime());
+  }
 </script>

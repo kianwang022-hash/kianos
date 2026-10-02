@@ -1,0 +1,85 @@
+/* Scoped presentation: shared KianOS shell and canonical content remain unchanged. */
+body.surfaceBody-studyhub { background:#faf9f6; }
+.surface-studyhub { --sh-ink:#23352e; --sh-muted:#58655f; --sh-line:#d9ded8; --sh-accent:#315f4b; padding:0 36px 80px; background:#faf9f6; font-family:var(--study-font-cjk); }
+.surface-studyhub :is(button,select,textarea) { font:inherit; }
+.surface-studyhub :is(a,button,select,summary,textarea):focus-visible { outline:3px solid #779987; outline-offset:4px; }
+.surface-studyhub button { cursor:pointer; }
+.surface-studyhub a { color:var(--sh-accent); text-decoration:none; }
+.surface-studyhub a:hover { text-decoration:underline; text-underline-offset:4px; }
+.shEyebrow { color:var(--sh-muted); font-size:16px; font-weight:600; }
+.shIndex { max-width:1130px; margin:0 auto; }
+.shIndexHead { padding:38px 0 30px; border-bottom:1px solid var(--sh-line); }
+.shIndexHead h1 { max-width:28em; font-size:30px; line-height:1.6; font-weight:650; }
+.shIndexHead p { font-size:18px; }
+.shIndexHead [data-sh-resume] { display:inline-block; margin-top:10px; font-size:18px; font-weight:600; }
+.shDirections { padding:28px 0; border-bottom:1px solid var(--sh-line); }
+.shIndex h2 { font-size:21px; font-weight:650; margin:0 0 22px; }
+.shDirections>div { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.shDirections a { display:flex; flex-direction:column; justify-content:space-between; gap:16px; font-size:19px; line-height:1.8; font-weight:600; }
+.shDirections a span { font-size:16px; font-weight:500; }
+.shZones { padding-top:28px; }
+.shZone { display:grid; grid-template-columns:30% minmax(0,1fr); gap:28px; padding:22px 0; border-top:1px solid var(--sh-line); }
+.shZone h3 { font-size:18px; line-height:1.7; font-weight:600; margin:0; color:var(--sh-ink); }
+.shZone>div { display:grid; gap:12px; font-size:17px; line-height:1.7; }
+.shIndexFoot { border-top:1px solid var(--sh-line); padding-top:30px; font-size:17px; }
+.shToolbar { position:sticky; top:0; z-index:30; display:flex; align-items:center; gap:18px; min-height:70px; background:rgba(250,249,246,.97); border-bottom:1px solid var(--sh-line); font-size:16px; }
+.shToolbarSpace { flex:1; }
+.shToolbar button,.shToolbar select,.shDialog button,.shQuiet { border:1px solid var(--sh-line); background:transparent; color:var(--sh-accent); border-radius:5px; min-height:44px; padding:7px 12px; font-weight:550; }
+.shToolbar select { padding:7px; }
+.shSizeLabel { display:flex; align-items:center; gap:8px; white-space:nowrap; }
+.shReadingLayout { display:grid; grid-template-columns:210px minmax(0,780px); justify-content:center; gap:44px; padding-top:34px; }
+.shLogic { position:sticky; top:100px; align-self:start; max-height:calc(100dvh - 150px); overflow:auto; padding:0 12px 20px 0; font-size:16px; }
+.shLogic nav { display:grid; gap:16px; line-height:1.8; }
+.shLogic nav a { color:var(--sh-muted); border-left:2px solid transparent; padding-left:10px; }
+.shLogic nav a[aria-current] { color:var(--sh-accent); border-left-color:var(--sh-accent); font-weight:600; }
+.shLogic .shQuiet { display:block; margin-top:24px; font-size:15px; text-align:left; }
+.shLogic>a.shQuiet { border:0; padding:0; }
+.shArticleColumn { min-width:0; }
+.shProse { font-size:var(--sh-font-size,20px); line-height:1.95; font-weight:450; color:var(--sh-ink); overflow-wrap:anywhere; }
+.shProse h1 { font-size:1.65em; line-height:1.6; font-weight:650; margin:0 0 24px; }
+.shProse h2 { font-size:1.15em; line-height:1.8; font-weight:650; margin:2.3em 0 1em; }
+.shProse h3 { font-size:1.05em; line-height:1.8; margin-top:1.8em; }
+.shProse p { margin:0 0 1.2em; }
+.shProse strong { font-weight:650; }
+.shProse blockquote { border-left:3px solid #9fb5a9; margin:1.4em 0; padding:0 0 0 1em; color:var(--sh-ink); background:none; }
+.shProse blockquote p { margin:0; }
+.shProse pre { overflow:auto; background:#eff1ec; padding:18px; font-size:.85em; white-space:pre-wrap; }
+.shProse code { font-size:.9em; }
+.shProse img { max-width:100%; height:auto; }
+.shProse table { display:block; overflow-x:auto; border-collapse:collapse; font-size:.9em; }
+.shProse td,.shProse th { padding:10px; border:1px solid var(--sh-line); }
+.shProse details { margin:20px 0 30px; padding:15px 0; border-block:1px solid var(--sh-line); font-size:16px; line-height:1.8; }
+.shProse summary { cursor:pointer; color:var(--sh-muted); min-height:32px; }
+.shProse details[open] summary { margin-bottom:16px; }
+.shProse [id] { scroll-margin-top:100px; }
+.shProse a[id]:empty { display:block; height:0; scroll-margin-top:110px; }
+.shPreviewLink { color:var(--sh-accent); font-size:15px!important; border:0; background:#edf1eb; padding:3px 6px; margin-left:6px; border-radius:3px; min-height:36px; }
+.shArticleFoot { border-top:1px solid var(--sh-line); margin-top:48px; padding:28px 0; font-size:17px; line-height:1.9; }
+.shArticleFoot nav { display:grid; gap:18px; margin-bottom:28px; }
+.shArticleFoot details { margin-top:30px; }
+.shRevision { overflow-wrap:anywhere; color:var(--sh-muted); }
+.shStatus { font-size:16px; color:var(--sh-muted); }
+.shDialog { width:min(780px,calc(100vw - 36px)); max-height:85dvh; border:1px solid var(--sh-line); border-radius:8px; padding:24px 30px; background:#faf9f6; color:var(--sh-ink); font:500 17px/1.8 var(--study-font-cjk); overscroll-behavior:contain; }
+.shDialog::backdrop { background:rgba(15,30,23,.25); }
+.shDialogTop { display:flex; justify-content:space-between; align-items:center; gap:20px; position:sticky; top:-24px; background:#faf9f6; padding:12px 0; z-index:1; }
+.shDialog h2 { font-size:21px; margin:0; }
+.shDialog footer { display:flex; align-items:center; flex-wrap:wrap; gap:20px; border-top:1px solid var(--sh-line); padding-top:20px; }
+.shDialog textarea { width:100%; box-sizing:border-box; border:1px solid #abbab0; border-radius:4px; padding:12px; background:white; margin:8px 0 16px; color:var(--sh-ink); }
+.shDialog blockquote { border-left:3px solid #9fb5a9; margin:20px 0; padding-left:18px; max-height:190px; overflow:auto; }
+.shDialog label { display:block; }
+.shContextBody { font-size:18px; }
+@media(max-width:1180px) { .surface-studyhub { padding-inline:24px; } .shReadingLayout { grid-template-columns:170px minmax(0,740px); gap:28px; } }
+@media(max-width:900px) { .shLogic { display:none; } .shReadingLayout { display:block; max-width:740px; margin:auto; } .shDirections>div { grid-template-columns:1fr; gap:22px; } .shDirections a { gap:4px; } .shZone { grid-template-columns:1fr; gap:14px; } }
+@media(max-width:600px) { .surface-studyhub { padding:0 18px 70px; } .shToolbar { gap:10px; min-height:64px; flex-wrap:wrap; padding:8px 0; } .shToolbar [data-sh-return] { order:5; flex-basis:100%; text-align:left; } .shToolbar button { padding-inline:9px; } .shToolbarSpace { min-width:0; } .shSizeLabel { font-size:0; gap:0; } .shSizeLabel select { font-size:16px; } .shReadingLayout { padding-top:26px; } .shProse { line-height:1.95; } .shProse h1 { font-size:1.4em; } .shDialog { padding:16px 20px; } .shDialogTop { top:-16px; } .shIndexHead h1 { font-size:26px; } }
+@media(prefers-reduced-motion:reduce) { .surface-studyhub * { scroll-behavior:auto!important; } }
+.shToolbar [data-sh-return] { max-width:46%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.shStatus:not(:empty) { position:fixed; z-index:45; right:24px; bottom:24px; max-width:min(440px,calc(100vw - 40px)); padding:12px 18px; border:1px solid var(--sh-line); border-radius:6px; background:#f4f5f0; box-shadow:0 3px 18px #20382b16; }
+@media(max-width:600px) {
+  body.surfaceBody-studyhub .kianosShellFrame { grid-template-columns:minmax(0,1fr); }
+  body.surfaceBody-studyhub .kianosGlobalRail { position:static; width:100%; height:auto; grid-template-columns:44px minmax(0,1fr); grid-template-rows:auto; padding:5px 10px; gap:6px; border-right:0; }
+  body.surfaceBody-studyhub .kianosRailNav { display:flex; gap:2px; margin:0; overflow-x:auto; align-items:center; }
+  body.surfaceBody-studyhub .kianosRailItem { grid-template-columns:40px; flex:0 0 40px; width:40px; padding:0; min-height:44px; }
+  body.surfaceBody-studyhub .kianosRailToggle { width:44px; min-height:44px; grid-template-columns:40px; }
+  body.surfaceBody-studyhub .kianosRailBrandCopy,body.surfaceBody-studyhub .kianosRailLabel { display:none; }
+  .shToolbar [data-sh-return] { max-width:100%; }
+}
