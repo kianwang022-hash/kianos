@@ -59,7 +59,7 @@ export function initPoliticsReview(root) {
     $('[data-review-count]').textContent = `${review.problemIds.length} 道题需要复习，已经按原学习单元归好。`;
     const scope = $('[data-review-subject]').value;
     // Current Review selection is recomputed natively at entry, not captured as a second queue ledger.
-    $('[data-review-start]').href = `${base}politics/practice/?review=problems${scope === 'all' ? '' : `&reviewSubject=${encodeURIComponent(scope)}`}${filter === 'today' ? `&reviewDay=${today()}` : ''}`;
+    $('[data-review-start]').href = `${base}politics/practice/?review=problems${scope === 'all' ? '' : `&reviewSubject=${encodeURIComponent(scope)}`}${filter === 'today' ? `&reviewDay=${today()}` : filter === 'discussion' ? '&reviewFilter=discussion' : ''}`;
     const empty = $('[data-review-empty]'); empty.hidden = !!review.items.length || !!snapshot.errors.length;
     empty.textContent = filter === 'today' ? '今天还没有新增这类问题。其他待处理内容仍在「待处理」中。' : filter === 'discussion' ? '还没有单独标记要讨论的题目。' : '当前没有待复习的问题，继续主线即可。';
     const groups = $('[data-review-groups]'); groups.replaceChildren();
@@ -67,7 +67,7 @@ export function initPoliticsReview(root) {
       const article = make('section', 'reviewGroup'); article.dataset.reviewUnit = group.key;
       const header = make('header'); const heading = make('div'); heading.append(make('span', '', `${group.subject} · ${group.chapter}`), make('h2', '', group.title));
       const actions = make('nav'); actions.append(link(group.href, '', '回原学习单元 ↗'));
-      if (group.items.some(i => i.needsReview)) actions.append(link(`${base}politics/practice/?review=problems&unit=${encodeURIComponent(group.key)}${filter === 'today' ? `&reviewDay=${today()}` : ''}`, '', '复习本单元 →'));
+      if (group.items.some(i => i.needsReview)) actions.append(link(`${base}politics/practice/?review=problems&unit=${encodeURIComponent(group.key)}${filter === 'today' ? `&reviewDay=${today()}` : filter === 'discussion' ? '&reviewFilter=discussion' : ''}`, '', '复习本单元 →'));
       header.append(heading, actions); article.append(header);
       for (const item of group.items) {
         const row = make('div', 'reviewQuestionRow'); row.dataset.reviewQuestion = item.id;

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = fs.readFileSync(path.join(webRoot, 'src/lib/examOrchestratorClient.mjs'), 'utf8');
@@ -25,4 +26,15 @@ assert.match(source, /renderWeek\(readModel\.presentation\)/,
 assert.match(source, /renderSchedule\(readModel\.presentation\)/,
   'Home schedule strip must consume the same current-day Chat projection, not an autonomous scheduler.');
 
-console.log('PASS Chat-controlled exam plan read model publish bridge');
+// The copy regression owns synthetic Date/window/timer globals. Keep it in a
+// child process so aggregate imports of this existing gate stay uncontaminated.
+const copyRegression = spawnSync(process.execPath, [path.join(webRoot, 'scripts/test-home-daily-copy-freshness.mjs')], {
+  cwd: webRoot,
+  encoding: 'utf8',
+  timeout: 30_000
+});
+if (copyRegression.stdout) process.stdout.write(copyRegression.stdout);
+assert.equal(copyRegression.status, 0,
+  `Home Daily Packet copy regression failed: ${copyRegression.error?.message || copyRegression.stderr || copyRegression.signal || ''}`);
+
+console.log('PASS Chat-controlled exam plan read model publish bridge + isolated current Packet copy');

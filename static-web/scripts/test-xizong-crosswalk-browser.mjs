@@ -40,6 +40,7 @@ async function currentPayloadQuestion(exit, payload) {
 async function runJourney(page) {
   const practiceUrl = `${BASE}/xizong/practice/respiratory/`;
   await page.goto(practiceUrl, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 });
   await page.evaluate(() => {
     for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
     sessionStorage.clear();

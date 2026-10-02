@@ -32,6 +32,7 @@ try {
   const context = await browser.newContext({ viewport: { width: 1440, height: 1100 } });
   const page = await context.newPage();
   await page.goto(`${BASE}/xizong/respiratory/r03/`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 });
   await page.evaluate(() => {
     for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
     sessionStorage.clear();
