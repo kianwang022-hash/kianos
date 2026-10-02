@@ -202,6 +202,14 @@ try {
   check(String(recallHref||'').includes('/xizong/circulation/recall/'),'system_recall_entry_targets_dedicated_route',String(recallHref));
   await entry.locator('a').click();
   await page.waitForURL(/\/xizong\/circulation\/recall\//);
+  await page.waitForFunction((key) => {
+    if (document.documentElement.dataset.learnerWriter !== 'active') return false;
+    try {
+      const value = JSON.parse(localStorage.getItem(key) || 'null');
+      return value?.resumeKind === 'SYSTEM_RECALL'
+        && value?.href === '/xizong/circulation/recall/';
+    } catch { return false; }
+  }, lastLocationKey);
   const releasedRecallLocation=await page.evaluate((key)=>JSON.parse(localStorage.getItem(key)||'null'),lastLocationKey);
   check(releasedRecallLocation?.resumeKind==='SYSTEM_RECALL','released_system_recall_becomes_resume');
 
