@@ -20,6 +20,23 @@ const check = (condition, name, detail = '') => {
 };
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+async function waitForWriter(page, phase) {
+  await page.bringToFront();
+  try {
+    await page.waitForFunction(() => document.hasFocus()
+      && document.visibilityState === 'visible'
+      && document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 });
+  } catch (error) {
+    report.readiness_diagnostics = await page.evaluate(() => ({
+      writer: document.documentElement.dataset.learnerWriter || '',
+      focused: document.hasFocus(), visibility: document.visibilityState,
+      url: location.href
+    }));
+    report.readiness_diagnostics.phase = phase;
+    throw error;
+  }
+}
+
 async function waitForServer() {
   for (let i = 0; i < 80; i += 1) {
     try { const response = await fetch(`${BASE}/xizong/`); if (response.ok) return; } catch {}
@@ -40,6 +57,7 @@ async function currentPayloadQuestion(exit, payload) {
 async function runJourney(page) {
   const practiceUrl = `${BASE}/xizong/practice/respiratory/`;
   await page.goto(practiceUrl, { waitUntil: 'domcontentloaded' });
+  await waitForWriter(page, 'before_fixture_cleanup');
   await page.evaluate(() => {
     for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
     sessionStorage.clear();
@@ -106,6 +124,7 @@ async function runJourney(page) {
     { studyPhase: 'SECOND_PASS', queueMode: 'TARGETED' }
   );
 
+  await waitForWriter(page, 'before_second_pass_fixture');
   await page.evaluate(({ rows, heldYear, secondPassState }) => {
     Object.entries(rows).forEach(([id, state]) => {
       localStorage.setItem(`kianos-xizong-astro-v2:xizong:${id}`, JSON.stringify(state));

@@ -16,6 +16,49 @@ const check = (condition, name, detail = '') => {
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const answerLetters = (value) => (String(value || '').toUpperCase().match(/[A-Z]/g) || []).sort();
 
+async function waitForWriter(page, phase) {
+  await page.bringToFront();
+  try {
+    await page.waitForFunction(() => document.hasFocus()
+      && document.visibilityState === 'visible'
+      && document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 });
+  } catch (error) {
+    report.readiness_diagnostics = await page.evaluate(() => ({
+      writer: document.documentElement.dataset.learnerWriter || '',
+      focused: document.hasFocus(), visibility: document.visibilityState,
+      url: location.href
+    }));
+    report.readiness_diagnostics.phase = phase;
+    throw error;
+  }
+}
+
+async function waitForBlockRuntime(page, phase) {
+  await waitForWriter(page, phase);
+  try {
+    await page.waitForFunction(() => {
+      const host = document.querySelector('[data-xizong-v6-block]');
+      return document.documentElement.dataset.learnerWriter === 'active'
+        && host?.classList.contains('xv6LearnerObjectActive')
+        && Boolean(host?.dataset.xizongSourceRevision)
+        && host?.dataset.xizongStateBlocked !== 'true';
+    }, null, { timeout: 20000 });
+  } catch (error) {
+    report.readiness_diagnostics = await page.evaluate(() => {
+      const host = document.querySelector('[data-xizong-v6-block]');
+      return {
+        writer: document.documentElement.dataset.learnerWriter || '',
+        focused: document.hasFocus(), visibility: document.visibilityState,
+        url: location.href, block_dataset: { ...host?.dataset },
+        learner_object_active: host?.classList.contains('xv6LearnerObjectActive') || false,
+        status: host?.querySelector('[data-study-local-status]')?.textContent || ''
+      };
+    });
+    report.readiness_diagnostics.phase = phase;
+    throw error;
+  }
+}
+
 async function waitForServer() {
   for (let i = 0; i < 100; i += 1) {
     try { const r = await fetch(`${BASE}/xizong/`); if (r.ok) return; } catch {}
@@ -26,6 +69,7 @@ async function waitForServer() {
 
 async function clearXizong(page) {
   await page.goto(`${BASE}/xizong/`, { waitUntil: 'domcontentloaded' });
+  await waitForWriter(page, 'before_fixture_cleanup');
   await page.evaluate(() => {
     for (const key of Object.keys(localStorage)) if (key.includes('xizong')) localStorage.removeItem(key);
     sessionStorage.clear();
@@ -42,6 +86,7 @@ async function blockResumeAndEvidenceJourney(page) {
   await page.goto(route, { waitUntil: 'domcontentloaded' });
   const root = page.locator('[data-xizong-v6-block]');
   await root.waitFor({ state: 'visible' });
+  await waitForBlockRuntime(page, 'initial_block_runtime');
   const recallCards = root.locator('[data-kp-recall-card]');
   const kpCount = await recallCards.count();
 
@@ -62,6 +107,7 @@ async function blockResumeAndEvidenceJourney(page) {
   const savedGroup = state.groupIndex;
   const savedIndex = state.kpIndex;
   await page.reload({ waitUntil: 'domcontentloaded' });
+  await waitForBlockRuntime(page, 'source_contact_reload');
   await root.locator('[data-study-stage="source_contact"]').waitFor({ state: 'visible' });
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
   check(state?.stage === 'source_contact' && state?.groupIndex === savedGroup && state?.kpIndex === savedIndex, 'refresh_restores_continuous_source_contact');
@@ -93,6 +139,7 @@ async function blockResumeAndEvidenceJourney(page) {
   check(state?.ratings?.[attemptedKp] === 'mastered', 'learned_kp_recall_persists');
 
   const allKpIds = await recallCards.evaluateAll((cards) => cards.map((c) => c.getAttribute('data-kp-id')).filter(Boolean));
+  await waitForWriter(page, 'before_block_completion_fixture');
   await page.evaluate(({ key, kpIds }) => {
     const current = JSON.parse(localStorage.getItem(key) || '{}');
     const learned = Object.fromEntries(kpIds.map((id) => [id, true]));
@@ -112,6 +159,7 @@ async function blockResumeAndEvidenceJourney(page) {
     }));
   }, { key: studyKey, kpIds: allKpIds });
   await page.reload({ waitUntil: 'domcontentloaded' });
+  await waitForBlockRuntime(page, 'block_completion_reload');
 
   const complete = root.locator('[data-block-complete]');
   check(await visibleStage(root) === 'block_recall', 'complete_candidate_reopens_at_block_recall');
@@ -144,6 +192,7 @@ async function systemQuestionRepairJourney(page) {
   }));
 
   await page.goto(`${BASE}/xizong/respiratory/`, { waitUntil: 'domcontentloaded' });
+  await waitForWriter(page, 'before_system_completion_fixture');
   await page.evaluate((rows) => {
     Object.entries(rows).forEach(([id, state]) => {
       localStorage.setItem(`kianos-xizong-astro-v2:xizong:${id}`, JSON.stringify(state));
