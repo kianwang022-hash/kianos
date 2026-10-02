@@ -40,9 +40,33 @@ export async function waitForLearnerWriter(page, { consumer, timeout = 15000 } =
 }
 
 export async function stopOwnedProcess(child, { processGroup = false } = {}) {
-  if (!child?.pid || child.exitCode !== null || child.signalCode !== null) return;
+  if (!child?.pid) return;
+  if (processGroup) {
+    // The caller created this detached child, so its PID is the owned PGID.
+    // A reaped group leader says nothing about surviving descendants.
+    const signalGroup = signal => {
+      try { process.kill(-child.pid, signal); return true; }
+      catch (error) { if (error.code === 'ESRCH') return false; throw error; }
+    };
+    const groupExited = async timeout => {
+      const deadline = Date.now() + timeout;
+      while (signalGroup(0)) {
+        if (Date.now() >= deadline) return false;
+        await sleep(25);
+      }
+      return true;
+    };
+    if (!signalGroup('SIGTERM') || await groupExited(2000)) return;
+    signalGroup('SIGKILL');
+    assert.ok(await groupExited(1000), 'owned process group did not stop');
+    return;
+  }
+  if (child.exitCode !== null || child.signalCode !== null) return;
   const exited = new Promise(resolve => child.once('exit', resolve));
-  const kill = signal => { try { processGroup ? process.kill(-child.pid, signal) : child.kill(signal); } catch {} };
+  const kill = signal => {
+    try { child.kill(signal); }
+    catch (error) { if (error.code !== 'ESRCH') throw error; }
+  };
   kill('SIGTERM');
   await Promise.race([exited, sleep(2000)]);
   if (child.exitCode === null && child.signalCode === null) {

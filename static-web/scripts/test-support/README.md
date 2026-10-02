@@ -7,7 +7,7 @@ This is a small shared seam for existing tests, not a test runner or a new accep
 - `isolatedTestEnv(root)` removes inherited KianOS targets, then delegates private roots and disabled relays to the existing `isolatedCandidateEnv`.
 - `reserveLoopbackPort()` reserves an available ephemeral loopback port and rejects Stable/Candidate ports. A child must prove its own readiness after binding; a responding unrelated server is insufficient.
 - `waitForLearnerWriter(page, {consumer})` waits for the native writer and, when supplied, a visible consumer. Writer readiness alone never proves business success.
-- `stopOwnedProcess(child, {processGroup})` only stops a child the caller created; the group option requires a detached child. It waits for exit and escalates TERM to KILL on that owned process only.
+- `stopOwnedProcess(child, {processGroup})` only stops a child the caller created; the group option requires a detached child. Group cleanup sends TERM, probes that exact owned PGID, and sends KILL if any member remains. Success requires ESRCH for the whole group, even if its leader exited earlier. Permission/signal errors propagate; leader exit alone cannot establish cleanup.
 
 `native-memory-evidence.mjs` calls the actual Memory release, append, queue and repair owners. It does not copy their algorithms. `test-native-memory-evidence.mjs` uses the same assertions against three deliberately faulty wrappers to prove that evidence collapse, missing repair closure and invented mastery fail.
 
@@ -17,6 +17,7 @@ Run from `static-web/` using already installed dependencies:
 
 ```sh
 node scripts/test-native-memory-evidence.mjs
+node scripts/test-owned-process-cleanup.mjs
 node scripts/validate-xizong-a2-evidence.mjs
 node scripts/test-current-static-impact.mjs
 KIANOS_TEST_CHROME='/path/to/already-installed/chromium' node scripts/personal-system-acceptance/run.mjs --prove-detector

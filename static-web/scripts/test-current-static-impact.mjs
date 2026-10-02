@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 
+// Exercise cleanup in the existing Current CI gate, using only owned groups.
+await import('./test-owned-process-cleanup.mjs');
+
 import {
   classifyStaticBuild,
   isVerificationOnlyStaticPath,
