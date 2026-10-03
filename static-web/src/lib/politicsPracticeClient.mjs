@@ -69,7 +69,10 @@ export function initPoliticsPractice(root) {
     if (controls.mode.value === 'review') {
       const snapshot = readPoliticsSnapshot(localStorage);
       if (snapshot.errors.length) throw new Error('回访记录未能完整读取；请先恢复本地存储，不会按空记录开始。');
-      reviewIds = new Set(selectPoliticsReview(catalog, snapshot, new URLSearchParams(location.search).has('reviewDay') ? { filter: 'today', day: new URLSearchParams(location.search).get('reviewDay') } : { filter: 'problems' }).problemIds);
+      const params = new URLSearchParams(location.search);
+      reviewIds = new Set(selectPoliticsReview(catalog, snapshot, params.has('reviewDay')
+        ? { filter: 'today', day: params.get('reviewDay') }
+        : { filter: params.get('reviewFilter') === 'discussion' ? 'discussion' : 'problems' }).problemIds);
     }
     return catalog.questions.filter((q) =>
       (controls.subject.value === 'all' || q.subject === controls.subject.value) &&
