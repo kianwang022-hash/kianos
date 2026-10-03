@@ -53,6 +53,30 @@ Normal learning / Runtime consumers must resolve the Current owners above rather
 
 `content/xizong/projection/GUIDE_FRAMEWORK_EXIT_AUDIT_20260917.md` is such a boundary audit: it records whether Guide / Framework / MI-G / MI-D / Memory Routing currently survive Projection, but it does not itself become a learning or Runtime owner.
 
+## Chat-led Block reading entry
+
+For a named, structured System/Block lesson, resolve these existing owners before teaching. A self-contained medical question does not require this entry, and a continuation still needs the actual learner context rather than an assumed first Block.
+
+1. `content/xizong/LEARNING_CONTRACT.md` owns teaching and evidence rules. Apply its Chat-led causal-model flow and reasoning-critical precision now; do not infer teaching rules from Website layout.
+2. Resolve the exact System/Block through `content/xizong/knowledge/manifest.json` and the Current System owner. Read the full canonical Block, including explicit Framework, comparisons, Source locators, boundaries and MI-G/MI-D; a title/Prompt inventory is not the lesson.
+3. Read the exact System Learning block. Its accepted LG membership/order and goal/closure win over stale shared-field group metadata. The relevant System owner and Learning support must agree; do not stitch incompatible group lists.
+4. Resolve the Block's actual reviewed support owners: relevant `shared-fields.json` KP retention items, System cues/MedicalVisuals, Extensions and Connections when present. `source_memory_items` are content support, not proof that the learner has admitted or owes every item in Memory. Preserve owner and timing; absent support stays absent.
+5. The reviewed reading views below may help teach and reconstruct the same canonical model. They are not a second medical owner or a required Website layout. Read the provenance header: if the referenced canonical blob or relevant Learning/System value changed, re-read Current and review the affected view before relying on it. A stale optional view does not block teaching from valid current owners.
+6. At a natural teaching breakpoint, check actual KP/Source coverage and unresolved distinctions. Teaching, an explanation being understood and native Recall/Complete remain separate. Do not manufacture missing source contact or personal evidence.
+
+Existing `static-web/scripts/inspect-xizong-content.mjs` is the read-only native composition inspector when execution is available. It is not a prerequisite for ordinary Chat: repository readers follow the same owner references above and must not claim native resolution they did not execute.
+
+### Reviewed A1 teaching and reconstruction views
+
+These recover the already-prepared B1–B4 teaching/review materials against the published owners. Original M0 inputs remain historical evidence, not the current reading entrance. Later chapters use their formal owners and real supports until a view is actually reviewed; do not invent a symmetric file or silently fall back to an old candidate.
+
+| Block | Chat teaching view | Three-column reconstruction view |
+|---|---|---|
+| A1 B1 | [Teaching](../../projection/a1-circulation/chat/b01-teaching.md) | [Review](../../projection/a1-circulation/chat/b01-review.md) |
+| A1 B2 | [Teaching](../../projection/a1-circulation/chat/b02-teaching.md) | [Review](../../projection/a1-circulation/chat/b02-review.md) |
+| A1 B3 | [Teaching](../../projection/a1-circulation/chat/b03-teaching.md) | [Review](../../projection/a1-circulation/chat/b03-review.md) |
+| A1 B4 | [Teaching](../../projection/a1-circulation/chat/b04-teaching.md) | [Review](../../projection/a1-circulation/chat/b04-review.md) |
+
 ## Hard boundary
 
 Shared learner support may answer **how and when to learn** a Current knowledge object. It may not silently change **what the medical knowledge is**.
