@@ -38,7 +38,7 @@ visual_status: SOURCE_AVAILABLE_EXTERNAL_PRIMARY_27_PDF
 
 ### Embedded Questions Primary
 
-- S01 中 M2-owned：13 题（3 道 RBC Primary 转交 M3）；
+- 糖氧化附题位于 S02 / PDF P010–P012，其中 M2-owned 13 题，另 3 道 RBC Primary 转交 M3；
 - S04：15 题（新增 2025N20 甘油-3-磷酸穿梭）；
 - **合计 28 / 28 source-position accounted**。
 
@@ -59,12 +59,13 @@ visual_status: SOURCE_AVAILABLE_EXTERNAL_PRIMARY_27_PDF
 ### Source boundary / Conflict
 
 ```text
-SOURCE_CONFLICT / 待核对
-PDF P003 末段解释性重建将 3-PG→2-PG→PEP 的位置变化
-与 1,3-BPG 产ATP、NADH 生成混写。
+HISTORICAL_RECONSTRUCTION_NOTE / 原坐标待追溯
+历史正文曾记录“P003 末段重建混写糖酵解步骤”。
+本轮核对当前 27 原 PDF P003 及对应 Markdown 快照，未见该段，
+不能把这条历史记录继续归因于当前 27 PDF P003，也不据此宣称历史勘误已关闭。
 ```
 
-本文件不静默用模型常识“修订”该段，只采用同页明确的 Pathway Spine 与原讲义步骤：
+当前步骤以 27 PDF P004 / P007 的明确反应路线为准，分开记载：
 
 ```text
 3-P甘油醛 → 1,3-BPG：氧化并生成NADH
@@ -72,6 +73,8 @@ PDF P003 末段解释性重建将 3-PG→2-PG→PEP 的位置变化
 3-PG → 2-PG → PEP：中间重排/脱水
 PEP → 丙酮酸：底物水平磷酸化
 ```
+
+**题源版本差异｜2020N20：** 27 PDF P011 附题的答案行给出 AB，当前正式 Question Truth 的该单选题答案为 B（GTP），C/D 选项顺序也与讲义版不同。现有已审核 Explanation 已区分“酶型可有 GTP/ATP 接口”和“本题直接生成物按题源为 GTP”。保留两份来源原文，正式答题按对应 Question Truth，不把通用能量接口改成额外正确选项。
 
 Current 27 PDF is the visual truth. S01 / P003–P008 与 S04 / P019–P026 的通路图、呼吸链复合体、质子泵和穿梭空间关系若不能从线性快照唯一恢复，保持 `SOURCE_BOUND` 并回原 PDF；不再以“原页未挂载”作为 Current 缺口。
 
@@ -193,6 +196,8 @@ M2 的核心不是背四条独立通路，而是理解**能量逐级换一种载
 | PFK-1 | F-6-P→F-1,6-BP | AMP、ADP、F-2,6-BP激活；F-2,6-BP最强；ATP、柠檬酸抑制 |
 | 丙酮酸激酶 | PEP→丙酮酸并产ATP | F-1,6-BP前馈激活；ATP、丙氨酸抑制 |
 
+P006 还用“活化和捕获”解释第一步：葡萄糖变成带磷酸基团的 G-6-P 后不易穿过脂质膜，先被留在细胞内，再分流去供能或储存。入口耗 ATP 因而不只是账本上的负数。
+
 ### 己糖激酶 vs 葡萄糖激酶
 
 - 葡萄糖激酶是己糖激酶 IV 型同工酶，位于肝和胰岛 β 细胞；
@@ -287,7 +292,7 @@ TCA 在线粒体进行。乙酰 CoA 是糖、脂和氨基酸碳骨架的共同�
 <!-- kianos:kp id="biochem-m2-kp07" -->
 ## KP07｜TCA 的“1—2—3—4”压缩身份
 
-> **主提示：** 1部位/1底物磷酸化｜2脱羧｜3关键酶｜4脱氢｜每乙酰10ATP
+> **主提示：** 1—2—3—4各指什么｜还原当量分账｜底物水平产能｜每轮能量口径
 
 ### 1
 
@@ -365,19 +370,19 @@ TCA 在线粒体进行。乙酰 CoA 是糖、脂和氨基酸碳骨架的共同�
 <!-- kianos:kp id="biochem-m2-kp10" -->
 ## KP10｜呼吸链两条入口与四个复合体
 
-> **主提示：** NADH链｜FADH₂链｜I–IV酶/辅基｜Q/Cytc游离｜双/单电子｜终受体
+> **主提示：** 代表性电子入口｜I–IV酶与辅基｜移动载体｜电子传递单位｜终受体
 
 | 复合体 | 当前 Study 名称 | 主要辅基 / 特点 |
 |---|---|---|
 | I | NADH—泛醌还原酶 | FMN、Fe-S；NADH入口；泵H⁺ |
-| II | 琥珀酸—泛醌还原酶 | FAD、Fe-S；FADH₂入口；**不泵H⁺** |
+| II | 琥珀酸—泛醌还原酶 | FAD、Fe-S；琥珀酸脱氢的电子入口；**不泵H⁺** |
 | III | 泛醌—Cyt c还原酶 | 血红素、Fe-S；Q循环；泵H⁺ |
 | IV | Cyt c氧化酶 | 血红素、CuA、CuB；把电子交给O₂；泵H⁺ |
 
 ```text
 NADH → I ─┐
            ├→ CoQ → III → Cyt c → IV → O₂ → H₂O
-FADH₂ → II┘
+琥珀酸脱氢 → II┘
 ```
 
 - CoQ 脂溶，可在线粒体内膜自由扩散；
@@ -386,7 +391,7 @@ FADH₂ → II┘
 - CoQ 可携双电子，Cyt c 单电子，复合体 III 用 Q 循环衔接。
 
 <!-- approved-27-audit: B1-M2-02 -->
-当前 Study 的递氢体/递电子体可按入口识别：NADH 经复合体 I 入链；FADH₂经复合体 II 入链，琥珀酸脱氢反应是典型 FADH₂ 来源。两条链在 CoQ 汇合后共用 III、Cyt c 与 IV。
+当前图以两条代表入口恢复电子流：NADH 经复合体 I 入链；琥珀酸脱氢这一路的 FAD 依赖电子经复合体 II 入链。两条示例在 CoQ 汇合后共用 III、Cyt c 与 IV。图中的 II 入口有具体酶身份，不能扩大成“所有 FAD 依赖反应都必须先经过 II”；具体穿梭与底物来源仍按各自途径识别。
 
 ---
 
@@ -423,8 +428,8 @@ FADH₂ → II┘
 P/O：生成 ATP 数与消耗 1/2 O₂的比值。
 
 - NADH 从复合体 I 进入：I(4H)+III(4H)+IV(2H)=10H → **2.5 ATP**；
-- FADH₂从复合体 II 进入：II(0H)+III(4H)+IV(2H)=6H → **1.5 ATP**；
-- 差异来自 FADH₂绕过复合体 I；
+- 以琥珀酸脱氢的 FAD 依赖入口为例，经复合体 II 进入：II(0H)+III(4H)+IV(2H)=6H → **1.5 ATP**；
+- 这两种能量口径的差异来自后一路绕过复合体 I；
 - 当前 Study 另记抗坏血酸 P/O=1。
 
 ---
@@ -485,13 +490,15 @@ P/O：生成 ATP 数与消耗 1/2 O₂的比值。
 <!-- kianos:kp id="biochem-m2-kp15" -->
 ## KP15｜抑制剂、ATP合酶抑制剂与解偶联剂：看电子、质子和ATP三条流
 
-> **主提示：** 3故障层｜直接断点｜O₂/磷酸化｜ATP｜热｜代表药5｜CN/CO边界
+> **主提示：** 3故障层｜直接断点｜O₂与磷酸化｜ATP与热｜代表物｜CN/CO识别
 
 | 故障 | 当前 Source 明确的直接断点 | O₂利用 / 磷酸化 | ATP | 热 |
 |---|---|---|---|---|
 | 呼吸链抑制 | I–IV某处电子传递受阻 | O₂利用下降或停止；氧化磷酸化受阻 | ↓ | 当前 Source 未单列 |
 | ATP合酶抑制 | F₀/F₁；寡霉素结合F₀-c亚基 | ATP合成受抑；当前 Source 未单列其氧耗与产热方向 | ↓ | 当前 Source 未单列 |
 | 解偶联 | H⁺绕过ATP合酶回流、梯度被破坏 | O₂利用继续，但磷酸化停止 | ↓ | ↑ |
+
+这里的 ATP 列讨论氧化磷酸化产出，不能据此把另外的底物水平磷酸化也直接归零；两种产能方式见 KP08。
 
 当前 Source 代表：
 
@@ -591,7 +598,7 @@ ATP流：底物水平 + 氧化磷酸化 → 30/32
 ```text
 NADH → I ─┐
            ├→ CoQ → III → Cyt c → IV → O₂ → H₂O
-FADH₂ → II┘
+琥珀酸脱氢 → II┘
 
 I / III / IV 泵 H⁺
 → 膜间隙质子势
@@ -672,7 +679,7 @@ question_to_kp_relations_inferred_here = 0
 duplicate_primary = 0
 ```
 
-- S01 / P010–P012：M2-owned **13**；RBC 的 2015N160、2017N28、2023N142 转交 M3；
+- S02 / P010–P012：M2-owned **13**；RBC 的 2015N160、2017N28、2023N142 转交 M3；
 - S04 / P022–P024：**15**，包含新增 **2025N20 甘油-3-磷酸穿梭**。
 
 讲义附题只做 Source-position accounting；正式 Question→Knowledge relation 仍由 question-relations owner 决定。
@@ -716,7 +723,7 @@ Source map owns exact machine mapping; this table is human-readable projection o
 8. 三处底物水平磷酸化在哪里？
 9. 高能硫酯与高能磷酸怎样区分？
 10. 两种胞浆NADH穿梭有何差别？
-11. NADH与FADH₂分别从哪个复合体进入？
+11. NADH与琥珀酸脱氢这条代表路线分别从哪个复合体进入？
 12. CoQ与Cyt c为什么不固定属于某复合体？
 13. 复合体II为什么产能较少？
 14. 化学渗透链怎样从电子到ATP？
