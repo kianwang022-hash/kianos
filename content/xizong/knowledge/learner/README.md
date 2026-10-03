@@ -77,6 +77,14 @@ These recover the already-prepared B1–B4 teaching/review materials against the
 | A1 B3 | [Teaching](../../projection/a1-circulation/chat/b03-teaching.md) | [Review](../../projection/a1-circulation/chat/b03-review.md) |
 | A1 B4 | [Teaching](../../projection/a1-circulation/chat/b04-teaching.md) | [Review](../../projection/a1-circulation/chat/b04-review.md) |
 
+### System frame and between-Block integration
+
+Reading a Block's System owner includes its accepted mother model, mechanism spine, Block route and cross-Block bridges, not merely its identity and KP membership. Where `guide-bindings.json` binds a Current Beginner Guide, use that Guide for orientation within the same model; it does not override System or medical owners.
+
+When entering a Block or integrating a completed teaching segment, briefly reconnect its role to the existing System frame. Reuse the accepted frame and relevant bridges instead of presenting a newly invented summary as missing content. For A1, the Current Guide's B1–B4 “normal machine” layer is an orientation grouping, not a new learning object or a separate completion gate. A brief integration at that boundary does not mean all four Blocks or the full System Recall have been completed.
+
+System, Block and LG are different reconstruction scales of the same accepted content. Preserve intermediate mechanisms and conditions when explaining their connections; compressed Prompt text alone does not replace those models. Already established context needs only a short reconnection, not a repeated full lesson. If no reviewed standalone combined reading view exists, say so and compose a bounded explanation from the current owners without claiming a saved or accepted artifact.
+
 ## Hard boundary
 
 Shared learner support may answer **how and when to learn** a Current knowledge object. It may not silently change **what the medical knowledge is**.
