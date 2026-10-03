@@ -762,11 +762,11 @@
       "blob_sha": "90447f56fb8142643097419f91f9322f2ca68dc7",
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
-    "exam_target": "酮体生成HMG-CoA裂解酶",
+    "exam_target": "HMG-CoA裂解酶直接生成乙酰乙酸",
     "decision_axis": "线粒体HMG-CoA裂解酶将HMG-CoA裂解生成乙酰乙酸，是肝内酮体生成的关键步骤之一。",
     "reasoning_chain": [
       "酮体生成时HMG-CoA先形成，再由HMG-CoA裂解酶生成乙酰乙酸。",
-      "因此题目所问酮体生成关键酶选D。",
+      "题目实际问哪种酶的产物是酮体；HMG-CoA裂解酶生成乙酰乙酸，因此D，而不是再次判断唯一限速酶。",
       "不要与胆固醇合成中的HMG-CoA还原酶混淆。"
     ],
     "transfer_rule": "HMG-CoA裂解酶→乙酰乙酸→酮体。",
@@ -783,7 +783,7 @@
       "source_revision_revalidated_at": "2026-09-26",
       "source_revision_revalidation_basis": "Revalidated against Current M7 after the 27 Biochemistry Source replacement. Stable canonical Block/KP semantics are preserved for this tested axis; reviewed target unchanged."
     },
-    "correct_option_reason": "D.HMG-CoA裂解酶。线粒体HMG-CoA裂解生成乙酰乙酸，是酮体生成关键步骤之一。",
+    "correct_option_reason": "D.HMG-CoA裂解酶。它直接把HMG-CoA裂解生成酮体乙酰乙酸和乙酰CoA，符合题目所问的产物。",
     "valuable_distractors": [
       {
         "option": "B",
@@ -806,7 +806,8 @@
     "reasoning_chain": [
       "lncRNA的定义性识别点之一就是长度>200 nt。",
       "Current G4 KP10明确冻结这一接口。",
-      "因此选B。"
+      "因此选B。",
+      "保留官方B所考的lncRNA分类定义；但C类scRNA可包括约300 nt的7SL RNA，不能把“大于200 nt”当作在全部给定RNA中绝对唯一的长度条件。"
     ],
     "transfer_rule": "lncRNA长度门槛记200nt。",
     "mapping_decision": "REVIEWED",
@@ -822,7 +823,7 @@
       "source_revision_revalidated_at": "2026-09-26",
       "source_revision_revalidation_basis": "Revalidated against Current G4 after the 27 HIF–VHL→EPO enhancer mechanism bridge. The existing official-question axis remains supported and requires no target remap."
     },
-    "correct_option_reason": "B.lncRNA。Current G4 KP10明确把lncRNA作为长度>200 nt的长链非编码RNA识别接口。",
+    "correct_option_reason": "按原题官方答案B，考lncRNA通常>200 nt的分类识别；需保留长度判据并非绝对唯一的边界，7SL scRNA亦可超过200 nt。",
     "valuable_distractors": [
       {
         "option": "A",

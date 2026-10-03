@@ -367,13 +367,23 @@
       "question_truth_path": "content/xizong/questions/shards/2016/q076-100.json",
       "question_truth_blob_sha": "bced5e4d87f7e5a4a14de584aa22a3fc2f064ae1",
       "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D12_肠结核结核性腹膜炎IBD与IBS_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "342701061341084dfa7426c16eaae6f12fefa8ae"
+      "knowledge_blob_sha": "342701061341084dfa7426c16eaae6f12fefa8ae",
+      "knowledge_revalidated_blob_sha": "a3bc1edbc255354167d4dc79eb71f5c530374206"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent SECOND_PASS solve: Chronic low fever/night sweats plus inflammatory high-protein ascites with mononuclear predominance is the tuberculous-peritonitis recognition pattern; D12 KP06 owns clinical identity and KP07 ascitic evidence."
+      "basis": "Independent SECOND_PASS solve: Chronic low fever/night sweats plus inflammatory high-protein ascites with mononuclear predominance is the tuberculous-peritonitis recognition pattern; D12 KP06 owns clinical identity and KP07 ascitic evidence.",
+      "bounded_B_remaining315_revalidation_2026_10_03": {
+        "reviewed_at": "2026-10-03",
+        "bounded_scope_sha256": "f0e99693b22a9abbf21b648c9876d7c9f0bfca38dfa616287c9b099f5554fcac",
+        "verification_kind": "PARENT_SEMANTIC_REVIEW",
+        "review_authority": "Parent Chat completed the bounded Question/options/official answer/X/original basis/current Core semantic review; local execution is guarded materialization and native verification.",
+        "original_effective_witness": "342701061341084dfa7426c16eaae6f12fefa8ae",
+        "final_current_owner_blob": "a3bc1edbc255354167d4dc79eb71f5c530374206",
+        "role_boundary": "Existing Primary/Supporting/Block roles preserved; a Block role is not asserted to be a self-contained single KP."
+      }
     }
   },
   {
@@ -387,13 +397,30 @@
       "question_truth_path": "content/xizong/questions/shards/2016/q076-100.json",
       "question_truth_blob_sha": "bced5e4d87f7e5a4a14de584aa22a3fc2f064ae1",
       "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D12_肠结核结核性腹膜炎IBD与IBS_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "342701061341084dfa7426c16eaae6f12fefa8ae"
+      "knowledge_blob_sha": "342701061341084dfa7426c16eaae6f12fefa8ae",
+      "knowledge_revalidated_blob_sha": "a3bc1edbc255354167d4dc79eb71f5c530374206"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent SECOND_PASS solve: Ascitic ADA is an important supportive test for tuberculous peritonitis and Current Study uses >45 U/L as a strong tendency threshold; D12 KP07 explicitly owns ADA within the ascites evidence set."
+      "basis": "D12 KP07 owns ascitic ADA as supportive evidence for tuberculous peritonitis. The question explicitly supplies 79.5 U/L; the current canonical preserves the lecture's bare >45 with its original unit unverified, so this relation does not assert a verified >45 U/L source threshold.",
+      "bounded_B_remaining315_revalidation_2026_10_03": {
+        "reviewed_at": "2026-10-03",
+        "bounded_scope_sha256": "f0e99693b22a9abbf21b648c9876d7c9f0bfca38dfa616287c9b099f5554fcac",
+        "verification_kind": "PARENT_SEMANTIC_REVIEW",
+        "review_authority": "Parent Chat completed the bounded Question/options/official answer/X/original basis/current Core semantic review; local execution is guarded materialization and native verification.",
+        "original_effective_witness": "342701061341084dfa7426c16eaae6f12fefa8ae",
+        "final_current_owner_blob": "a3bc1edbc255354167d4dc79eb71f5c530374206",
+        "role_boundary": "Existing Primary/Supporting/Block roles preserved; a Block role is not asserted to be a self-contained single KP.",
+        "prior_review": {
+          "semantic_owner": "Chat",
+          "anti_anchored": true,
+          "old_mapping_inherited": false,
+          "basis": "Independent SECOND_PASS solve: Ascitic ADA is an important supportive test for tuberculous peritonitis and Current Study uses >45 U/L as a strong tendency threshold; D12 KP07 explicitly owns ADA within the ascites evidence set."
+        },
+        "basis_correction_reason": "Retain original basis in prior-review history; distinguish Question unit from unverified lecture unit."
+      }
     }
   }
 ]
