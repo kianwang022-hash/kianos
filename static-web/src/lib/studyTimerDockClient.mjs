@@ -334,7 +334,8 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
   const nextElement=$('[data-study-timer-next]');if(nextElement)$('.studyTimerStatus').append(nextElement);
   const quickStatus=$('[data-study-timer-record-status]');
   const pendingQuick=new Map();
-  const captureQuick=(value)=>{
+  let quickSavedCount=0;
+  const captureQuick=(value,label)=>{
     const active=timer.read().active;
     const nonStudy=latestActiveStewardActivity(storage);
     const actualContext=nonStudy?{activityKind:nonStudy.activityKind,activityId:nonStudy.id,route:nonStudy.returnHref,detailKey:nonStudy.sessionId,detailLabel:nonStudy.label}:active?.subject?{...active.context,subject:active.subject}:null;
@@ -343,18 +344,27 @@ export function initStudyTimerDock(root, timer = window.KianOSStudyTimer) {
     try {
       const event=recordStewardQuickReality(storage,pendingQuick.get(key));
       pendingQuick.delete(key);
-      quickStatus.textContent='已记录';emitRealityChange({kind:'quick',event_id:event.id});return true;
+      quickStatus.textContent=`已记录：${label} · 本页第 ${++quickSavedCount} 条`;emitRealityChange({kind:'quick',event_id:event.id});return true;
     } catch {quickStatus.textContent='未保存，请重试；备注仍保留。';return false;}
   };
   const lastClick=new WeakMap();
-  $$('[data-reality-kind]').forEach(b=>b.onclick=()=>{
+  $$('[data-reality-kind]').forEach(b=>{
+    // Feedback for this page's latest successful report, not inferred current state.
+    const selectable=['ENERGY','FOCUS'].includes(b.dataset.realityKind);
+    if(selectable)b.setAttribute('aria-pressed','false');
+    b.onclick=()=>{
     if(Date.now()-(lastClick.get(b)||0)<350)return;
     const type=b.dataset.realityKind,raw=b.dataset.realityValue;
-    if(captureQuick({type,value:['WATER','COFFEE'].includes(type)?Number(raw):raw,unit:type==='WATER'?'ml':type==='COFFEE'?'杯':''}))lastClick.set(b,Date.now());
+    const label=b.closest('.studyTimerQuickGroup').querySelector('span').textContent+' · '+b.textContent;
+    if(captureQuick({type,value:['WATER','COFFEE'].includes(type)?Number(raw):raw,unit:type==='WATER'?'ml':type==='COFFEE'?'杯':''},label)){
+      lastClick.set(b,Date.now());
+      if(selectable)$$(`[data-reality-kind="${type}"]`).forEach(node=>node.setAttribute('aria-pressed',String(node===b)));
+    }
+    };
   });
   $('[data-study-timer-record-save]').onclick=()=>{
     const note=$('[data-study-timer-record-note]');if(!note.value.trim()){quickStatus.textContent='还没有备注。';return;}
-    if(captureQuick({type:'NOTE',note:note.value}))note.value='';
+    if(captureQuick({type:'NOTE',note:note.value},'备注'))note.value='';
   };
 
 
