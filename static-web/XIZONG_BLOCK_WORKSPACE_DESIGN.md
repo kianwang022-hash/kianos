@@ -118,7 +118,7 @@ Important first-round Block Guide structure should normally be visible on Mac wi
 
 ## 6｜Logic Group navigation — RETAINED, NOT THE MEDICAL MAP
 
-Logic Group remains real Learning/navigation state, but it no longer owns the primary Block Guide geometry. In an integrated medical-map view it may be collapsed, compact, or otherwise secondary so the medical model gets the dominant width. Recall/Source states may still surface it when exact local position matters.
+Logic Group remains real Learning/navigation state, but it no longer owns the primary Block Guide geometry. In an integrated medical-map view it may be collapsed, compact, or otherwise secondary so the medical model gets the dominant width. Recall/Source states may still surface it when exact local position matters. Here **persistent** means the local position/state remains available across the Block flow; it does not require a permanently wide left rail in every view.
 
 When shown, the local navigation exposes:
 
@@ -473,8 +473,8 @@ UI productization may change timing / prominence / spatial composition but does 
 The accepted first-pass Block mainline is now:
 
 ```text
-Block Guide
-→ Logic Group orientation in Logic Map
+Block Guide / integrated medical map
+→ Logic Group scope/navigation available as secondary state when useful
 → MarginNote handoff / KP Learn companion
 → bound TTSX checkpoint only where Current owns a real reviewed boundary + binding
 → KP Recall Front / Reveal on the same KP card
@@ -492,4 +492,4 @@ There is **no standalone Logic Group Closure page** and **no standalone Block Co
 
 Human Gate acceptance on 2026-09-18 covers the Block Recall Front, Block Recall Reveal, and post-Recall completion-confirmation state on the real Mac-wide Chromium surface. Targeted `Xizong Block Workspace` browser acceptance passed on the final candidate, and PR #422 merged this Block tail into `main`.
 
-Responsive fallback and future Projection compilation work may continue later, but they must preserve this accepted interaction geometry and may not reintroduce the removed closure/completion ceremony.
+That Human Gate **predates the integrated medical-map Block Guide geometry**. Its evidence remains valid for the named Recall/completion tail behavior; it does not prove the new B1 map layout, expansion/reflow, System locator, Context behavior or Focus. Those require fresh real-surface/Human verification after implementation. Responsive fallback and future Projection work must preserve the accepted Recall/evidence semantics and may not reintroduce the removed closure/completion ceremony.
