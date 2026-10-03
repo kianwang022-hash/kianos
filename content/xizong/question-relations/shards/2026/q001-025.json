@@ -146,13 +146,23 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q001-025.json",
       "question_truth_blob_sha": "3d35f2626f0009797b0b0d3b4c1861ce6fb704d9",
       "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D3_胰液胆汁与小肠消化_大分子拆解与脂肪处理_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "a43a47e2be4ef7b46f9797f3eb89e77a128e9bd4"
+      "knowledge_blob_sha": "a43a47e2be4ef7b46f9797f3eb89e77a128e9bd4",
+      "knowledge_revalidated_blob_sha": "2425ea74009c3b0d84ae3a4eb08b72cf7f4d3075"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current D3 KP06 explicitly assigns colipase to anchoring pancreatic lipase at the lipid-droplet surface."
+      "basis": "Current D3 KP06 explicitly assigns colipase to anchoring pancreatic lipase at the lipid-droplet surface.",
+      "bounded_B_remaining315_revalidation_2026_10_03": {
+        "reviewed_at": "2026-10-03",
+        "bounded_scope_sha256": "f0e99693b22a9abbf21b648c9876d7c9f0bfca38dfa616287c9b099f5554fcac",
+        "verification_kind": "PARENT_SEMANTIC_REVIEW",
+        "review_authority": "Parent Chat completed the bounded Question/options/official answer/X/original basis/current Core semantic review; local execution is guarded materialization and native verification.",
+        "original_effective_witness": "a43a47e2be4ef7b46f9797f3eb89e77a128e9bd4",
+        "final_current_owner_blob": "2425ea74009c3b0d84ae3a4eb08b72cf7f4d3075",
+        "role_boundary": "Existing Primary/Supporting/Block roles preserved; a Block role is not asserted to be a self-contained single KP."
+      }
     },
     "primary_kp_id": "digestive-d3-kp06"
   },
@@ -248,13 +258,23 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q001-025.json",
       "question_truth_blob_sha": "3d35f2626f0009797b0b0d3b4c1861ce6fb704d9",
       "knowledge_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D7_进食空腹与胰岛激素_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "66983196b1de1a0f3f3c48c7ac9a3fd461c90490"
+      "knowledge_blob_sha": "66983196b1de1a0f3f3c48c7ac9a3fd461c90490",
+      "knowledge_revalidated_blob_sha": "ff5c511a97531a1989b05709142b02c9ec2e9dfd"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current D7 KP08 explicitly owns GIP as an incretin that directly promotes insulin secretion through gut-pancreas feedforward."
+      "basis": "Current D7 KP08 explicitly owns GIP as an incretin that directly promotes insulin secretion through gut-pancreas feedforward.",
+      "bounded_B_remaining315_revalidation_2026_10_03": {
+        "reviewed_at": "2026-10-03",
+        "bounded_scope_sha256": "f0e99693b22a9abbf21b648c9876d7c9f0bfca38dfa616287c9b099f5554fcac",
+        "verification_kind": "MECHANICAL_EQUIVALENCE",
+        "review_authority": "Existing review reused after exact adopted native Core, all five complete native support families and native KP witness equivalence; no new medical review.",
+        "original_effective_witness": "66983196b1de1a0f3f3c48c7ac9a3fd461c90490",
+        "final_current_owner_blob": "ff5c511a97531a1989b05709142b02c9ec2e9dfd",
+        "role_boundary": "Existing Primary/Supporting/Block roles preserved; a Block role is not asserted to be a self-contained single KP."
+      }
     },
     "primary_kp_id": "digestive-d07-kp08"
   },
