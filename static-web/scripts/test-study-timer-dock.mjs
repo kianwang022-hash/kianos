@@ -9,12 +9,15 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
 const base = read('src/layouts/Base.astro');
 const frame = read('src/layouts/BaseFrame.astro');
+const learnerRuntime = read('src/lib/learnerPageRuntime.mjs');
 const component = read('src/components/StudyTimerDock.astro');
 const client = read('src/lib/studyTimerDockClient.mjs');
 const css = read('src/styles/study-timer.css');
 
 assert.match(frame, /StudyTimerDock/, 'Shared Shell frame must mount the timer dock.');
-assert.match(frame, /initStudyTimerDock/, 'Shared Shell frame must hydrate the timer dock.');
+assert.match(frame, /import\('\.\.\/lib\/learnerPageRuntime\.mjs'\)\.then\(\(\{ initLearnerPageRuntime \}\) => initLearnerPageRuntime\(\)\)/, 'Shared Shell frame must load its learner runtime to hydrate the timer dock.');
+assert.match(learnerRuntime, /import \{ initStudyTimerDock \} from '\.\/studyTimerDockClient\.mjs'/, 'Learner runtime must load the timer dock owner.');
+assert.match(learnerRuntime, /await learnerWriterReady;[\s\S]*if \(document\.documentElement\.dataset\.learnerWriter !== 'active'\) return;[\s\S]*const timer = initStudyTimerRuntime\(\);[\s\S]*initStudyTimerDock\(dock, timer\)/, 'Timer and dock must initialize only after writer ready with an active lease.');
 assert.match(base, /study-timer\.css/, 'Shared Shell entry must import the timer visual owner.');
 
 for (const subject of ['xizong', 'politics', 'english']) {
