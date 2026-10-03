@@ -638,3 +638,54 @@ A content defect, bad mapping, UI friction, Runtime bug or question error is rep
 Durable direction:
 
 > **medical truth → AI mechanism reconstruction → source-faithful continuous learning → active retrieval → smallest repair → application → progressively thinner mastery.**
+
+
+## 15｜2026-10-01 adopted content-generation refinement
+
+This section refines content production for the explicitly opened tasks [#1133](https://github.com/kianwang022-hash/kianos/issues/1133), [#1134](https://github.com/kianwang022-hash/kianos/issues/1134), and [#1135](https://github.com/kianwang022-hash/kianos/issues/1135). It creates no new Knowledge hierarchy, Runtime or learner evidence.
+
+### Two content deliverables, one Knowledge basis
+
+- **Chat teaching asset:** first explain the Block's logical position in its System, prerequisites, central problem and LG handoffs. Teach by the accepted LG sequence; introduce each LG's position, local problem and framework before layered causal teaching. Embed full mandatory KP knowledge, reasoning-changing conditions, counterexamples and clinical intuition at the right nodes. Close understanding gaps and identify precision and downstream interfaces. Chat may adapt language and order inside that scope; the file is not a rigid recital script.
+- **Review text-frame asset:** a continuous complete Block mother framework, independent logical mini-models, and original KP names/prompts. It is retrievable directly in Chat; website production is currently out of scope. Compression removes repetition, not the causal steps, conditions, branches or mandatory knowledge needed to read through and reconstruct the model.
+
+The review middle region may contain comparison, failure simulation, reverse localization, cross-node reasoning and necessary extension. It is not a migrated lecture paragraph column and is not restricted to explaining a single left-side arrow. The right region displays canonical KP identity/name and the current original Prompt only; supplementary questions remain explicitly separate. Full precision/reference content has an actual owning location elsewhere in the asset, not merely a coverage claim inferred from a link.
+
+### Prompt and precision
+
+For the admitted A1/A2 authoring review, use compact count-and-category retrieval slots such as `3机制｜2作用`, separated by `｜`, not expanded explanation sentences, a list of interrogative questions or an answer-bearing Core summary. Existing mature examples include `时长2｜干扰2｜容量2｜代表脑区各1｜重复→转化` and `结构5段｜受力→移位｜危险2类｜复位/固定｜功能3层`. Every count must be checked against the full owning Core; do not invent counts, omit decisive conditions or collapse independent classification axes. Preserve valid existing retrieval meaning; do not mechanically replace punctuation or invent formal Boundary/Connection support. New review assets must consume the latest accepted canonical Prompt, not a stale copied version.
+
+KP remains the smallest review ownership unit in these deliverables. A KP's mechanisms may appear at several appropriate model positions without splitting its canonical identity. Precision may use concise tables, receptor/channel matrices, drug target → variable → effect chains, decision trees, timelines and accurate programmatic curves/diagrams where useful. Facts that change current reasoning belong in current teaching even if they also require exact memory.
+
+### Preparation, integration and validation are distinct
+
+Assets may be prepared and source-validated before learner use. This never means the learner has studied or mastered them. Learner-facing integration grows through local teaching models → Block → related-Block cluster → System → cross-System synthesis. Cluster/compression views are not new canonical owners. Unlearned downstream material remains an explicit bounded interface rather than a claimed mature learner model.
+
+Track model scope/integration level separately from validation status and actual learner evidence. Before claiming validation, check canonical/LG/KP coverage, readable Source and necessary visuals, causal direction, parallel processes, feedback, experimental versus in-vivo meaning, decisive exceptions and relevant cross-Block interfaces. Missing evidence blocks only its dependent claim; a known scoped uncertainty need not invalidate unrelated verified content. A stable framework must be corrected when wrong, but adding detail or an interface does not justify gratuitous wholesale reorganization.
+
+A complete-review or Lecture-replacement claim requires actual mandatory-content accounting, not merely all KP IDs being present. Source/PDF or visual material not inspected remains explicitly unverified.
+
+
+### Block mother model and LG subframeworks
+
+One Block owns one complete large model. Its LGs may each have a fully developed local subframework, explicitly connected to that Block model. Both must unfold the actual reasoning: problem/prerequisite → trigger conditions → intermediate changes → branches/feedback → result → next interface. Neither is a sparse heading list or a chain of unexplained results. The highly compressed count/category grammar belongs to KP Prompts; it must not be imposed on the Block/LG causal representation. Longer text frames are preferable to deleting reasoning. LG subframeworks do not introduce another canonical level.
+
+
+The teaching file's primary reader is Chat: it is a model-building basis, not a lecture summary to recite. It must explain the problem, variables, prerequisite links, why each causal step follows, branching conditions, feedback, future insertion points, and how an exam stem's change is located and propagated through the model. First-pass acquisition should already develop the organization and reasoning otherwise postponed to a later pass. Preserve adaptive dialogue rather than a fixed script; successful authoring never establishes learner ability.
+
+
+Both deliverables must express the **same** Block mother model and LG subframeworks: shared questions, nodes, causal/conditional relations and KP ownership, not merely the same list of facts. Teaching builds that model progressively; review reconstructs it. A model correction must be reflected in both. Before acceptance, check bidirectionally that taught material has a review location and that review demands have an adequate teaching basis. A clear reading route must never imply false strict temporal order for parallel or feedback mechanisms.
+
+
+### Memory-efficient information organization
+
+The shared teaching/review model must also reduce avoidable memory burden. First distinguish facts reconstructable from a causal model from irreducible exact facts; do not classify all numbers, drugs or receptors as rote-only. Organize common mechanisms first, then discriminating differences/exceptions. Choose representation by memory demand: causal reconstruction, same-class comparison, decisive-confusable contrasts, sequence/timeline, accurate spatial/waveform representation, or count-based chunking and reliable mnemonic cues for irreducible facts. A large table alone is not evidence of improved memorability. Drug mechanism reasoning must not invent indications, contraindications or treatment instructions.
+
+Support retrieval in both directions: model node → precise detail, and question cue → model location → inference. Understanding/recognition is not successful retrieval; exact retention still needs real active recall and later spaced checks under existing Chat-owned scheduling. First and later passes reuse the same growing model rather than rebuilding another organization.
+
+Canonical KP and a later rapid Lecture/website-KP sweep provide independent calibration and coverage insurance. They never excuse knowingly incomplete initial teaching or transfer the author's coverage responsibility to the learner. Mandatory content must already have a justified location and memory treatment; uninspected Source remains an explicit validation limit.
+
+
+### Existing-model comparison and adoption
+
+Existing System/Block/LG models are reusable evidence, not an upper bound on quality. Where feasible, reconstruct from Source, complete KP content and required learning boundaries before comparing the existing Framework organization. Compare agreement, omitted content, expression-only differences, causal/conditional conflicts and actual learning value; select preserve, integrate or upgrade by evidence rather than novelty. Prior exposure to an old framework prevents a claim of fully blind independence; an unexposed reviewer is required for that narrower claim. After an upgrade is reviewed and adopted, update the original responsible model owner and its real dependents so Chat teaching, review text and website consumption converge on one accepted version. Ease of website editing does not substitute for validating the model change.
