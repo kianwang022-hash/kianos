@@ -294,6 +294,13 @@ Current System position + complete Block content and real supports
 - Non-KP Framework, model relations and support also have explicit destinations. Complete coverage does not mean every support item is permanently visible. Nor is a full-text appendix sufficient when the main model omits reasoning-critical content.
 - Medical relations, disease time course, teaching/retrieval order and clinical priority are distinct. Preserve the reviewed type, direction, endpoints and conditions of flow/process, causal influence, parallel structure, feedback, comparison, evidence, decision and reference. Neither the generator nor Focus infers these from numbering, placement, similar titles or graph traversal. Formal Boundary/Connection adoption still follows `LEARNING_CONTRACT.md`; a diagram edge does not create a new formal support identity.
 
+#### Encoding / consumer boundary
+
+- The production learner surface must consume reviewed topology through the existing BlockProjection responsibility (or a bounded, validated extension of that existing Projection schema). Do **not** make the Website parse Issue comments, legacy three-column prose, Markdown position or free-form Chat text to infer nodes/edges.
+- Canonical KP title / Prompt / Core remain resolved from their Current owners. A reviewed topology asset stores identity, relation, condition/compression metadata and owned support bindings; it does not become a hand-maintained second full-answer corpus.
+- The current v1 BlockProjection assets do not by themselves prove that the new KP-level integrated topology is materialized. A B1 content candidate may drive a prototype, but production cutover requires the accepted topology to be represented in the existing Projection owner and pass its real validator/consumer boundary. Do not bridge the gap with an untracked frontend-only graph.
+- Legacy `*-review.md` files are therefore temporary inheritance/audit inputs while unique reviewed semantics are being rehomed. Once a Block's unique valid review content has been accounted for in Current owners + reviewed Projection and the consumer has cut over, retire the legacy duplicate instead of preserving two mutable review bodies indefinitely.
+
 #### One model, two densities, separate learning evidence
 
 - Expanded and compressed outputs consume the same bound objects and relations. Expansion exposes complete mechanism, comparison and necessary detail; compression retains the medical backbone, formal title, **complete formal Prompt**, essential formulas/relations and the conditions needed to prevent a changed inference. It is not a separately authored summary.
@@ -310,7 +317,7 @@ The System locator is thin and derives its positions from the full Current Syste
 
 #### Migration and acceptance
 
-Keep existing `*-teaching.md` / `*-review.md` paths when their purpose and scope remain the same; `review` names a use, not a mandatory three-column layout. Do not create a parallel model owner, registry or hand-maintained full-answer file. Existing reviewed three-column files remain content-inheritance inputs while their format is being replaced. Their old left/middle/right instructions are legacy-format descriptions, **not instructions for new generation**. A still-valid medical review witness does not prove compliance with the new composition rule; do not blindly advance that witness or relabel an unconverted file as an integrated map.
+Keep existing `*-teaching.md` paths when their purpose and scope remain the same. Existing reviewed three-column `*-review.md` files are temporary content-inheritance inputs while their unique valid semantics are being migrated; `review` names a use, not a mandatory three-column layout or a requirement to keep a second full-answer Markdown forever. Do not create a parallel model owner, registry or hand-maintained full-answer file. Their old left/middle/right instructions are legacy-format descriptions, **not instructions for new generation**. A still-valid medical review witness does not prove compliance with the new composition rule; do not blindly advance that witness or relabel an unconverted file as an integrated map. After a Block has full inheritance + reviewed topology + consumer cutover, delete/retire the obsolete duplicate or replace it only with a thin generated/reference view if a human-readable review surface is still useful.
 
 For each converted Block, replace the old view only after the actual content/topology review, retain its upstream identity and reviewed-against witnesses, and update its existing reading link/format description in the same coherent change. Candidates remain in the existing task/branch until accepted; do not route ordinary teaching to an unaccepted Issue draft. A missing or stale optional view does not block teaching from valid Current owners. Historical templates remain history/inheritance material, not fallback generation authority.
 
@@ -401,15 +408,15 @@ Mac acceptance remains downstream and must follow Kian's preferences:
 - important first-round structure visible without unnecessary clicks;
 - real screenshots required for aesthetic acceptance.
 
-The shared product layout remains conceptually:
+The shared product composition uses roles rather than fixed columns:
 
 ```text
-LEFT   Position / Logic Map
-CENTER Primary Cognitive Path
-RIGHT  Attention Projection
+Structure = System / Block position + optional local navigation
+Main      = dominant current medical / cognitive object
+Context   = conditional Source / MedicalVisual / Precision / Connection / repair support
 ```
 
-Projection may supply semantic objects to these lanes; it does not turn every object into its own panel.
+For an integrated Block medical-map view, Main may take nearly the full width; Structure may be a thin System locator plus collapsible/secondary LG/KP navigation, and Context appears only when useful. This is compatible with LG membership/order/evidence remaining Current backstage state. Projection supplies semantic objects/relations to these roles; it does not force a permanent left rail, three content columns or one panel per object.
 
 These are workspace roles, not a requirement to generate a left-mechanism / middle-expansion / right-KP review. Block reconstruction content follows §7.1. Concrete geometry and existing Recall surfaces remain owned by `static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md` and its applicable Visual parents; this contract does not prescribe fixed columns or install a new interface.
 

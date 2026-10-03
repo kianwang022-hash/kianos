@@ -69,18 +69,18 @@ Existing `static-web/scripts/inspect-xizong-content.mjs` is the read-only native
 
 ### Reviewed A1 teaching and reconstruction inputs
 
-These recover the already-prepared B1–B4 teaching/review materials against their published medical owners. Original M0 inputs remain historical evidence, not the current reading entrance. Later chapters use their formal owners and real supports until a view is actually reviewed; do not invent a symmetric file or silently fall back to an old candidate.
+These recover the already-prepared B1–B4 teaching materials and legacy review material against their published medical owners. Original M0 inputs remain historical evidence, not the current reading entrance. Later chapters use their formal owners and real supports until a view is actually reviewed; do not invent a symmetric file or silently fall back to an old candidate.
 
-The linked review files below still contain the **legacy three-column format**. Their valid content remains available for inheritance and explanation, but their layout instructions no longer define how to generate a new final review. Preserve content while migrating each accepted view in place under [Projection Contract §7.1](../../projection/PROJECTION_CONTRACT.md#block-review-generation). Do not relabel these files as completed integrated maps merely by changing this table.
+Normal named-Block teaching should read Current owners plus the teaching input when it is still fresh. The linked review files below contain the **legacy three-column format** and are now migration/audit inputs only: open them when converting that Block or when a specific already-reviewed comparison/boundary/Source note has not yet been rehomed. Do not preload them as the default reconstruction model, and do not let their left/middle/right layout instructions drive new output. Preserve their valid content until migration proves it has a destination under [Projection Contract §7.1](../../projection/PROJECTION_CONTRACT.md#block-review-generation).
 
-| Block | Chat teaching input | Retained review input | Published review format |
+| Block | Chat teaching input | Legacy review inheritance input | Normal use |
 |---|---|---|---|
-| A1 B1 | [Teaching](../../projection/a1-circulation/chat/b01-teaching.md) | [Review content](../../projection/a1-circulation/chat/b01-review.md) | Legacy three-column; not the new generation template |
-| A1 B2 | [Teaching](../../projection/a1-circulation/chat/b02-teaching.md) | [Review content](../../projection/a1-circulation/chat/b02-review.md) | Legacy three-column; not the new generation template |
-| A1 B3 | [Teaching](../../projection/a1-circulation/chat/b03-teaching.md) | [Review content](../../projection/a1-circulation/chat/b03-review.md) | Legacy three-column; not the new generation template |
-| A1 B4 | [Teaching](../../projection/a1-circulation/chat/b04-teaching.md) | [Review content](../../projection/a1-circulation/chat/b04-review.md) | Legacy three-column; not the new generation template |
+| A1 B1 | [Teaching](../../projection/a1-circulation/chat/b01-teaching.md) | [Legacy review](../../projection/a1-circulation/chat/b01-review.md) | Teaching: yes when fresh; legacy review: migration/audit only |
+| A1 B2 | [Teaching](../../projection/a1-circulation/chat/b02-teaching.md) | [Legacy review](../../projection/a1-circulation/chat/b02-review.md) | Teaching: yes when fresh; legacy review: migration/audit only |
+| A1 B3 | [Teaching](../../projection/a1-circulation/chat/b03-teaching.md) | [Legacy review](../../projection/a1-circulation/chat/b03-review.md) | Teaching: yes when fresh; legacy review: migration/audit only |
+| A1 B4 | [Teaching](../../projection/a1-circulation/chat/b04-teaching.md) | [Legacy review](../../projection/a1-circulation/chat/b04-review.md) | Teaching: yes when fresh; legacy review: migration/audit only |
 
-Candidate review and migration progress live only in [#1147](https://github.com/kianwang022-hash/kianos/issues/1147), not in a second status ledger here. Ordinary teaching need not read that Issue. When a Block's integrated view is actually accepted and published, update that existing review asset, its provenance/format notice and this entry together; untouched Blocks remain honestly labeled. The file suffix `-review.md` denotes reconstruction use and does not require three columns. Chat teaching need not be replaced with compressed graph text or forced to follow its display order.
+Candidate review and migration progress live only in [#1147](https://github.com/kianwang022-hash/kianos/issues/1147), not in a second status ledger here. Ordinary teaching need not read that Issue. When a Block's integrated topology is accepted, materialize it through the existing Projection owner/consumer path, verify inheritance, then retire the obsolete legacy review duplicate once no unique reviewed content remains there. Until then the legacy file stays frozen as an input, not a template. Chat teaching remains continuous explanation of Current knowledge and is not replaced by compressed graph prose or forced to follow display order.
 
 ## Hard boundary
 

@@ -11,8 +11,8 @@ This file records the accepted Mac-wide Block Workspace design only. It does not
 Preserve the existing mature learner chain:
 
 ```text
-Block orientation
-→ current Logic Group purpose / closure shown inside the persistent Logic Map
+Block orientation / integrated medical map
+→ current Logic Group scope remains available for coverage/navigation without becoming the medical-map skeleton
 → iPad / MarginNote continuous original-Lecture study while Mac stays on KP Learn
 → at a real reviewed Source boundary, when a reviewed Lecture-attached TTSX binding exists: lightweight TTSX checkpoint
 → current KP marked learned as the learner advances
@@ -32,30 +32,28 @@ The shared Block UI is a Projection optimization of this accepted loop, not a ne
 
 ```text
 ┌───────────────────────────────────────────────────────────────────────────────┐
-│ Location / Block identity / thin learning-state line                         │
-├──────────────────────┬───────────────────────────────────────┬────────────────┤
-│ Logic Group Map      │ Primary Cognitive Stage               │ Context        │
-│ persistent local map │ current Block/Logic/Recall object     │ conditional    │
-├──────────────────────┴───────────────────────────────────────┴────────────────┤
+│ Location / Block identity / thin System locator / learning-state line        │
+├───────────────────────────────────────────────────────────────┬───────────────┤
+│ Primary Cognitive Stage                                       │ Context       │
+│ dominant Block medical map / current Recall object            │ conditional   │
+│ optional local LG/KP navigation is secondary/collapsible      │               │
+├───────────────────────────────────────────────────────────────┴───────────────┤
 │ current meaningful next action / MarginNote handoff / return                 │
 └───────────────────────────────────────────────────────────────────────────────┘
 ```
 
 Roles:
 
-- **top**: location + a thin learner-stage line; do not spend a full permanent column on the Learning Chain;
-- **left**: Logic Group Map, preserving free navigation and local position;
-- **center**: the current dominant cognitive object; geometry may vary with Current Block semantics;
-- **right**: conditional Context only when useful now — e.g. source locator, Visual, Precision, Connection/Reserve, repair context;
-- when no contextual object exists, the center expands instead of leaving an empty permanent rail.
+- **top / Structure**: location + thin System locator + thin learner-stage line; local LG/KP navigation may appear as a secondary/collapsible control when it helps the current task;
+- **Main**: the current dominant cognitive object. In Block Guide / review, this is the integrated medical map and should receive the width needed to read it continuously; geometry may vary with Current Block semantics;
+- **Context**: conditional support only when useful now — e.g. source locator, MedicalVisual, Precision, Connection/Reserve, repair context;
+- when navigation or Context has no useful current job, Main gets that width back rather than preserving empty rails.
 
-Hard rule:
+Hard rules:
 
-> The workspace geometry is shared; the cognitive geometry inside the center is not forced into one generic template.
+> Structure / Main / Context are responsibilities, not mandatory fixed columns. LG order/state remains available without becoming the medical topology.
 
-Visual ownership rule:
-
-> Runtime may publish state such as `outline-collapsed` or `auxWeight`, but it must not write pixel widths or `grid-template-columns` inline. Logic Map / Stage / Context geometry belongs to the Block visual owner (`xizong-block-workspace.css`).
+> Runtime may publish state such as `outline-collapsed` or `auxWeight`, but it must not write pixel widths or `grid-template-columns` inline. Exact placement, reflow and Context geometry belong to the Block visual owner (`xizong-block-workspace.css`).
 
 ## 3｜Current implementation audit disposition — ACCEPTED DIRECTION
 
@@ -118,11 +116,11 @@ Legitimate clicks/state changes include switching Logic Group, entering external
 
 Important first-round Block Guide structure should normally be visible on Mac without repeated accordion/detail opening. Protected answers and truly secondary/later reference remain progressively disclosed.
 
-## 6｜Logic Group Map — ACCEPTED
+## 6｜Logic Group navigation — RETAINED, NOT THE MEDICAL MAP
 
-Logic Group no longer requires a large standalone orientation page in the normal Mac path.
+Logic Group remains real Learning/navigation state, but it no longer owns the primary Block Guide geometry. In an integrated medical-map view it may be collapsed, compact, or otherwise secondary so the medical model gets the dominant width. Recall/Source states may still surface it when exact local position matters.
 
-The persistent left map owns lightweight local orientation:
+When shown, the local navigation exposes:
 
 ```text
 current Logic Group
@@ -138,8 +136,8 @@ Rules:
 
 - `goal` and `closure` remain Current learning-support text; UI does not rewrite their meaning;
 - KP rows use real Current titles rather than bare 01/02/03 numbering;
-- no inferred arrows / topology are drawn from KP order;
-- the map is collapsible; collapsing it returns the width to the primary KP work surface;
+- no inferred arrows / topology are drawn from KP order; the integrated medical map gets topology only from reviewed medical relations;
+- local LG/KP navigation is collapsible/secondary; hiding it returns width to the integrated Block map or active KP work surface;
 - while the primary surface is on a concrete KP, the left map follows that exact KP, keeps it visible, and uses the same native `kpIndex` that Resume/return restores; visiting Today/Steward and returning must not reset the companion to the first KP;
 - entering another Logic Group changes the active KP / learning object directly rather than forcing a separate orientation ceremony;
 - group-level Visual / Connection / Precision remain conditional Context when Current owns them;
