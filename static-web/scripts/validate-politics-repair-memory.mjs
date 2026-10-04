@@ -208,9 +208,12 @@ try {
  const actualCatalog={...catalog,revision:catalogRevision([approved])},stagePlan={...plan,catalog_revision:actualCatalog.revision},staged=makeStorage();
  stage(staged,stagePlan,{expectedDay:day,now});assert.equal(resume(staged,actualCatalog,{expectedDay:day}).status,'ACTIVE');
  const frozen=validatePlan(stagePlan,actualCatalog,{expectedDay:day,now});
- const exact=makeStorage();stage(exact,frozen,{expectedDay:day,now});assert(effect(exact,frozen,day));const legacyCommand={...frozen,items:frozen.items.map(({candidate_snapshot,...item})=>item)};assert(effect(exact,legacyCommand,day));
+ const exact=makeStorage();stage(exact,frozen,{expectedDay:day,now});assert(effect(exact,frozen,day));const legacyCommand={...frozen,items:frozen.items.map(({candidate_snapshot,...item})=>item)};
+ assert.equal(effect(exact,legacyCommand,day),false,'ID-only receipt cannot bless unchecked enrichment');
+ const legacyExact=makeStorage();stage(legacyExact,legacyCommand,{expectedDay:day,now});assert(effect(legacyExact,legacyCommand,day),'unchanged native ID-only stage remains idempotent');
  const altered=JSON.parse(exact.getItem(planKey));altered.items[0].candidate_snapshot.prompt='tampered retrieval';exact.setItem(planKey,JSON.stringify(altered));
  assert.equal(effect(exact,frozen,day),false,'snapshot-bearing command cannot acknowledge a changed snapshot');
+ assert.equal(effect(exact,legacyCommand,day),false,'ID-only command must not hide tampered stored snapshots');
  assert.equal(resume(exact,actualCatalog,{expectedDay:day}).status,'STALE');
  for(const field of ['subject','chapter_id','natural_unit_id','family']){
   const moved={...approved,[field]:'changed-ownership'};

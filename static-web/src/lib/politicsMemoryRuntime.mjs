@@ -326,13 +326,9 @@ export function politicsMemoryPlanEffectMatches(storage, input, expectedDay = nu
     const raw = storage?.getItem?.(POLITICS_MEMORY_PLAN_KEY);
     if (raw == null) return false;
     const current = validateStoredPlanShape(JSON.parse(raw));
-    // An old ID-only command may observe added validated snapshots. A command
-    // carrying snapshots must observe those exact snapshots in its native effect.
-    const comparableCurrent={...current,items:current.items.map((item,index)=>{
-      if(Object.hasOwn(expected.items[index]||{},'candidate_snapshot'))return item;
-      const {candidate_snapshot,...shape}=item;return shape;
-    })};
-    return JSON.stringify(comparableCurrent) === JSON.stringify(expected);
+    // A receipt acknowledges the exact staged effect. This matcher has no
+    // catalog authority to bless extra or altered snapshots on an ID-only plan.
+    return JSON.stringify(current) === JSON.stringify(expected);
   } catch {
     return false;
   }
