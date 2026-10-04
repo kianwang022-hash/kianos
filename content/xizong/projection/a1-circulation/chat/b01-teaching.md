@@ -3,6 +3,8 @@
 # B1｜一圈血怎样被推出、分配、回收，再供养心脏
 ## 给 Chat 的建模教学稿 · 正式正文对齐版
 
+> **LECTURE_REPLACEMENT lane**：本文件承担替代 Lecture 的第一遍教学解释，不是 KianOS Website Projection、KP Learn/Recall 页面或 canonical Core 镜像。渲染教学大图时，以本教学稿的连续模型/解释为正文；只在对应语义位置挂 canonical **知识标题〔完整正式主提示〕** 作为定位，**不得自动把 KP Core 正文接在后面**。规则见 `content/xizong/knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md`。
+
 沿整块医学模型连续教学；LG 的 membership/order/goal/closure 只负责后台覆盖、检索与收口，不把讲解切成 LG01/LG02 的视觉或话术分段。先建立整章位置与机制，再在需要处放大子模型。第一次先让学习者能沿真实关系走，不先给满屏正常值。原图用于压力—容积、曲线与通路确实比文字更清楚的部分。当前样稿不要求用户回答问题；故障与反例直接演示推导。
 
 # 开 Block｜先给循环系统一副机械骨架
