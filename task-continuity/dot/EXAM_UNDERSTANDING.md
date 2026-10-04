@@ -1,6 +1,8 @@
 # 考研系统理解与阅读覆盖
 
-检查点：2026-09-30 14:49 UTC。范围由Personal任务#61及#60拥有；本文件是用户要求的阅读证据和恢复索引，不是产品合同、全局依赖图或Acceptance owner。
+历史检查点：2026-09-30 14:49 UTC。范围由Personal任务#61及#60拥有；本文件是用户要求的阅读证据和恢复索引，不是产品合同、全局依赖图或Acceptance owner。
+
+本文件保留 2026-09-30–2026-10-01 分批阅读与检查的历史证据。下文“本轮”“当前”“下一步”“候选未合并”等均指各段所标时间与版本的当时状态，不是今日 Current，也不据此推定候选仍未合并或新 main 已采纳。当前阶段/授权与交付状态回 [Personal #61](https://github.com/kianwang022-hash/kian-personal-os/issues/61) 及原 Issue/PR 核实；普通学习走 [README 的薄路由](README.md#当前从哪里接)与原学习 owners。保留全部路径、blob、阅读范围和未验边界，不把历史 READ/PASS 升格为最新复验。
 
 ## 任务目标
 
@@ -43,7 +45,7 @@
 7. S/K/L/P/R/E/U是验收维度，不是产品层级。各System当前历史accepted scope可复用，但不能替代当前候选的真实依赖验证。全西综验收不能由A1推断。
 8. LEARNING_ACCEPTANCE §5.9要求材料性首次真实使用前的精确候选对抗审查；同一生产者自测不是最强独立证据，必须如实标注。合成使用不成为Kian真实U。
 
-## 下一批阅读
+## 下一批阅读（当时计划：2026-09-30）
 
 - 考研总目标/Orchestrator规则与derived current，及Personal exam角色、安排/复盘/跨日连续性/控制通道
 - 网站Presentation、Product、各科Visual和实际共享Shell/导航/状态/Packet消费者
@@ -169,7 +171,7 @@ Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e57
 两份learning.reference.md和synthetic任务JSON目前只清点，尚未全文审读；本批不增加浏览器、医学或真实U验收计数。
 
 
-## 规则措辞版本澄清（2026-09-30 18:55 UTC）
+## 规则措辞版本澄清（当时候选尚未合并：2026-09-30 18:55 UTC）
 
 重新逐文件核对main与固定候选4a818ba后，纠正上述早期‘尚未修改’可能造成的误读：
 - candidate的XIZONG_MEMORY_PRODUCT.md（blob1fd4ce562559477dd36298f756b2e1889ad3db82）§3已经明确Today结合signal-driven与study-policy.memory_admission.retention_clock选择性延迟复验；main旧blobaa56f2b41cc4148de60268840943e01705eb13a8仍为Phase-1/future措辞
@@ -208,7 +210,7 @@ Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e57
 - 未发现必须改写这两份reference的明确缺陷；保持有效内容。后续以真实任务consumer和当前学习owner检查已命名缺口，不把读完教材当运行闭环完成。
 
 
-## 第八批：当前执行边界与实际使用断点（2026-10-01 01:54 UTC）
+## 第八批：当时执行边界与实际使用断点（2026-10-01 01:54 UTC）
 
 当前阶段以 Personal #61 为准：只做考研 GitHub 规则、既有内容组织和功能消费者收口；不操作本机/浏览器/真实学习记录/本地部署，不读 PDF 开展内容升级，不自动扩张全科 browser campaign。后续必要本地工作由 Kian 指定的 Chat 接手。既有研究/医学内容升级阶段继续 deferred。
 
@@ -240,7 +242,7 @@ Personal KERNEL §6另作精确段落阅读，blob c41216b18963dd4c2d0fb76405e57
 - Steward已采纳计划在普通学习使basis变化后，保留同日reference显示，但不恢复新的可执行优先级/容量判断或命令重放权；read model代码按此区分。用户既有日程未因reference状态被认定消失。
 - Xizong Memory release仅建立可用库，Today由已采纳信号和retention规则决定，不等于整块重新到期。旧XizongMemoryReviewV6文件仍存在，但当前representation gate明确禁止其挂入Block；不能仅见旧组件就判定线上第二Runtime正在运行，也未据此删除历史文件。
 
-### 当前入口收口
+### 当时入口收口（2026-10-01 01:54 UTC）
 
 #1111与#1113已经把最新Current/Next移到顶部，并把旧候选未发布/旧workflow阻塞段落明确降为历史；首轮已交付与全场景未验证分开。#61保存当前四阶段安排，#60只留执行边界与指针。此为任务入口一致性修复，不是新增规则层、产品代码或运行验收。
 

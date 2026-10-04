@@ -5,15 +5,16 @@
 ## 当前从哪里接
 
 1. 读当前 `AGENTS.md`，先识别用户是在学习、使用、修改还是查看工程状态。
-2. dot 的当前阶段、执行边界和完成标准，以 [Personal #61](https://github.com/kianwang022-hash/kian-personal-os/issues/61) 为准；[任务栏 #60](https://github.com/kianwang022-hash/kian-personal-os/issues/60) 只做跨项目薄指针。
+2. 查看或推进 dot 工程任务时，其当前阶段、执行边界和完成标准，以 [Personal #61](https://github.com/kianwang022-hash/kian-personal-os/issues/61) 为准；[任务栏 #60](https://github.com/kianwang022-hash/kian-personal-os/issues/60) 只做跨项目薄指针。
 3. 按实际需求进入原责任范围，不把所有请求都先送去西综工程游标：
-   - 西综内容/映射/功能一致性：`content/xizong/CURRENT.md` → [#1113](https://github.com/kianwang022-hash/kianos/issues/1113) → exact owner
+   - 普通西综初学/复习（已命名 System / Block）：[Personal XIZONG role](https://github.com/kianwang022-hash/kian-personal-os/blob/main/exam/roles/XIZONG.md) → [LEARNING_CONTRACT](../../content/xizong/LEARNING_CONTRACT.md) → [learner README 当前 Chat-led entry](../../content/xizong/knowledge/learner/README.md#chat-led-block-reading-entry) → exact System / Block 与实际 reviewed teaching/support owners。普通 Chat 教学不以前置 Website 或 native inspector 为条件；续学位置仍先核真实 learner evidence/Packet/Resume。
+   - 西综内容建设/映射修正/功能工程一致性：`content/xizong/CURRENT.md` → [#1113](https://github.com/kianwang022-hash/kianos/issues/1113) → exact owner
    - 三科运行闭环、跨科反馈及普通使用缺陷：[#1111](https://github.com/kianwang022-hash/kianos/issues/1111) → 当前具体缺陷/候选
    - 英语/词汇/政治的设计与内容：对应 domain `CURRENT.md`、manifest、Learning/Product owner
    - 实际学习进度：native learner evidence/Packet/Resume；工程任务和内容存在不能代替个人进度
 4. 仅读必要原文件与实际消费者；已有文件/证据版本未变时复用，不从旧任务摘要推测最新状态。
 
-当前已确认推进的是 #61 第一阶段：考研 GitHub 端规则、既有内容组织与功能消费者收口。dot 不操作用户本机、浏览器、真实学习记录或本地部署；需要本地工作的范围、输入和验收先写到已有任务，再由用户转交 Chat。PDF/医学内容质量升级及词库扩写目前不启动。后续阶段变更回 #61，本索引不维护独立授权或并行任务表。
+工程任务的当前阶段、授权范围与后续变更只回 [Personal #61](https://github.com/kianwang022-hash/kian-personal-os/issues/61) 核实，本索引不维护阶段/授权镜像、独立执行队列或并行任务表。dot 只索引原学习 owners，不保存教学顺序、学习拓扑或第二套学习合同。
 
 ## 总目标与必须保留
 
