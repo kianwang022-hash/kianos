@@ -675,11 +675,11 @@
             },
             "A3:urinary-b12": {
               "owner_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md",
-              "revision_sha256": "45d8c21e7fc026d27df55e3980aa92c172992c1fc741f51bd502b5a9d254d84a"
+              "revision_sha256": "819cc0f98f651213c1d2cbcd3703de214e8ca4053672089b6d1d511c40d8caa2"
             },
             "A3:urinary-b14": {
               "owner_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md",
-              "revision_sha256": "c4f6bcbf479b04507160d1d5225c66f3d2d839f6d8b91b947880b8ebba7641e0"
+              "revision_sha256": "356900c5b9f1a6d770637432b0764a0c9abca9c5cd4e33d381edf3fe2c086d88"
             },
             "D:O12": {
               "owner_path": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/骨科系统_O12_运动系统畸形_学习阅读版_v1_最终执行版.md",
@@ -751,7 +751,7 @@
             },
             "A3:urinary-b05": {
               "owner_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md",
-              "revision_sha256": "2039d5e60b4e04ec74bdcfc882e500e7f5442d58f63be7ffdfdc0359af5a1912"
+              "revision_sha256": "9fbd81bec9412b5d81080d563d9ffe63f68926b28a9f80ca9a455435249677c4"
             },
             "B:D5": {
               "owner_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D5_能量体温应激与临床营养_学习阅读版_v1_最终执行版.md",
@@ -802,7 +802,7 @@
               "revision_sha256": "da0ddea3c2b14ac0b93e98734a9f066104e2c53ac9c025be8e3547f1cbba9004"
             }
           },
-          "receipt_sha256": "8357fbf024be2f366afe39e13b743703e21e16ca58f55976139f6860f398564a"
+          "receipt_sha256": "0e8d4334d3bdf0d34fa96ef6bc4f7e471a2be4dc5d5f444856af71684232a1f2"
         },
         "reviewed_learning_bindings": {
           "mode": "REVIEWED_DERIVATION",
@@ -854,7 +854,7 @@
             "reviewed_learning_bindings"
           ],
           "freshness": "TARGETED_Q_X_EVIDENCE_RECONCILIATION",
-          "receipt_sha256": "f08f8b6db67300ede5e2cb30db4fad00bc43af7290f8fe12a0169d84326b8a08"
+          "receipt_sha256": "8a6e9377c9fe287dc9416d1678f46c8e8ef8452bb26666b10b4df76563237c3c"
         },
         "source_visuals": {
           "mode": "DERIVED_PROJECTION",
@@ -1151,6 +1151,107 @@
         ]
       },
       "source_learning_evidence_boundary": "Source identity, source-contact gates, stable ID/order, Source lifecycle phases, historical learner evidence and Acceptance remain unchanged; modern candidate conditions are not misattributed to lecture text."
+    },
+    "dependency_reconciliation_2026_10_04": {
+      "reviewed_at": "2026-10-04",
+      "basis_commit": "7a276ea16693eaf7c8a36be1080341f47d2c115a",
+      "scope": "Only A3 B5/B12/B14 changed Surgery-bound consumers; bounded delta review, not new whole-System, clinical or learner acceptance.",
+      "source_revision_sha256": "523cc9111b69f7eb77b928234d2e86f7e2ba9949e962eac2c5a240219b5cd9a0",
+      "previous_receipts": {
+        "knowledge": "8357fbf024be2f366afe39e13b743703e21e16ca58f55976139f6860f398564a",
+        "learning": "086bc3428f45f1430145e265528b5e4033ee674f564d58768366de320020f9dc",
+        "downstream": "f08f8b6db67300ede5e2cb30db4fad00bc43af7290f8fe12a0169d84326b8a08"
+      },
+      "reviews": [
+        {
+          "status": "PASS_BOUNDED_CURRENT_CONTENT_RECONCILIATION",
+          "learning_review": "A3 membership/order/goals/closure and all seven stored Surgery Learning bases unchanged; no learner evidence inferred.",
+          "key": "A3:urinary-b05",
+          "source_unit": "SUR27-U31",
+          "pdf_physical_pages": [
+            236
+          ],
+          "printed_pages": "191",
+          "content_review": "Only KP03 course severe low-tonicity dehydration threshold changes from mistranscribed <120 to Source <=120 mmol/L; 130 overlap remains unresolved. Danger-first five-variable model and all other KP sections preserved. Course categorization does not become a universal hyponatremia guideline.",
+          "source_review": "Actual verified PDF pixels P236 show light 130-135, medium 120-130, severe <=120; source SHA256 verified. Existing acid-base supplemental boundary unchanged.",
+          "question_ids": [
+            "xizong-official-2009-n078",
+            "xizong-official-2009-n175",
+            "xizong-official-2016-n083",
+            "xizong-official-2017-n057",
+            "xizong-official-2018-n048",
+            "xizong-official-2018-n053",
+            "xizong-official-2018-n059",
+            "xizong-official-2019-n116",
+            "xizong-official-2022-n057",
+            "xizong-official-2025-n057",
+            "xizong-official-2025-n117"
+          ],
+          "question_review": "11 existing official rows read with stem/options/answer and Current KP basis: isotonic/hypertonic fluid direction, K/Mg/Ca and acid-base mappings unchanged. None tests the corrected KP03 endpoint, so no remap or answer change.",
+          "owner_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md",
+          "previous_revision_sha256": "2039d5e60b4e04ec74bdcfc882e500e7f5442d58f63be7ffdfdc0359af5a1912",
+          "reviewed_revision_sha256": "9fbd81bec9412b5d81080d563d9ffe63f68926b28a9f80ca9a455435249677c4"
+        },
+        {
+          "status": "PASS_BOUNDED_CURRENT_CONTENT_RECONCILIATION",
+          "learning_review": "A3 membership/order/goals/closure and all seven stored Surgery Learning bases unchanged; no learner evidence inferred.",
+          "key": "A3:urinary-b12",
+          "source_unit": "SUR27-U19",
+          "pdf_physical_pages": [
+            134,
+            137
+          ],
+          "printed_pages": "109,112",
+          "content_review": "Only Exit question 13 changed to distinguish urate radiolucency from cystine weak visibility; all 17 formal KP bodies unchanged. Existing KP09 and Source boundary already distinguish the course two-invisible shorthand from Current weak opacity.",
+          "source_review": "Actual P134 table retains course urate/cystine not-visible wording; P137 attached question/annotations retain course ambiguity. No original Source or official answer rewritten; Exit now queries the existing canonical distinction.",
+          "question_ids": [
+            "xizong-official-2012-n147",
+            "xizong-official-2012-n148",
+            "xizong-official-2013-n085",
+            "xizong-official-2013-n176",
+            "xizong-official-2023-n060",
+            "xizong-official-2024-n096",
+            "xizong-official-2024-n097",
+            "xizong-official-2025-n060"
+          ],
+          "question_review": "8 official rows read: stone shape/colors, acute retention, BPH complication/indication/drug and overflow mechanisms still resolve unchanged. 2012 n148 official waxy-shape answer preserved; course marginal alternate answer is not substituted for Question Truth.",
+          "owner_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md",
+          "previous_revision_sha256": "45d8c21e7fc026d27df55e3980aa92c172992c1fc741f51bd502b5a9d254d84a",
+          "reviewed_revision_sha256": "819cc0f98f651213c1d2cbcd3703de214e8ca4053672089b6d1d511c40d8caa2"
+        },
+        {
+          "status": "PASS_BOUNDED_CURRENT_CONTENT_RECONCILIATION",
+          "learning_review": "A3 membership/order/goals/closure and all seven stored Surgery Learning bases unchanged; no learner evidence inferred.",
+          "key": "A3:urinary-b14",
+          "source_unit": "SUR27-U19",
+          "pdf_physical_pages": [
+            135,
+            136,
+            137
+          ],
+          "printed_pages": "110-112",
+          "content_review": "All 14 formal KP bodies unchanged. Delta records actual Source pixel evidence and routes acceptance to existing A3 owner rather than an obsolete B5 blocker; it does not close System/Human/learner gates.",
+          "source_review": "Actual urethral/anatomic/extravasation and renal injury images P135-137 reread. Front straddle/bulbar versus pelvic/posterior injury, diaphragm spaces and severity/hematuria caveats preserved; old locator provenance retained.",
+          "question_ids": [
+            "xizong-official-2014-n085",
+            "xizong-official-2015-n147",
+            "xizong-official-2015-n148",
+            "xizong-official-2022-n163"
+          ],
+          "question_review": "4 official rows read: membrane hematoma location, straddle/bulbar, pelvic/posterior and renal injury clinical evidence keep Block-level owners. 2022 n163 official ABC retained as immutable Question Truth; existing Current contusion-versus-laceration/mass distinction not erased or generalized.",
+          "owner_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md",
+          "previous_revision_sha256": "c4f6bcbf479b04507160d1d5225c66f3d2d839f6d8b91b947880b8ebba7641e0",
+          "reviewed_revision_sha256": "356900c5b9f1a6d770637432b0764a0c9abca9c5cd4e33d381edf3fe2c086d88"
+        }
+      ],
+      "downstream_review": {
+        "knowledge": "Three changed witnesses updated after delta/source review; 49 other bound Block witnesses preserved.",
+        "learning": "Seven stored Learning bases and all A3 Learning JSON unchanged.",
+        "questions": "23 existing relation rows reread with immutable Question Truth; no answer or owner remaps required by these deltas. Historical relation witnesses were not rewritten or promoted to Current.",
+        "projection": "B5 strict source blob refreshed; all existing learner objects and 167 Projection assets resolve and validate.",
+        "acceptance": "B14 routes to existing A3 ACCEPTANCE; U remains UNTESTED; no System or Human acceptance newly claimed.",
+        "runtime_evidence": "No runtime/learner evidence mutation; inherited functional-first failure remains separately classified."
+      }
     }
   },
   "governance": {
