@@ -172,3 +172,68 @@
 新Candidate隔离后端与新Chromium进程/context（初始storage为空）在正式 `/politics/memory/` 抽检C00 `polmem-cafd0852` 与C01 `polmem-d953d852`，原生Control Store→页面轮询→隔离服务端匹配APPLIED，接入本身Recall=0；两组作者prompt、完整答案、criteria/cue和揭示前隐藏通过，FUZZY/STABLE自评及中途刷新Resume通过；正式Home原入口导出的Packet回传两条实际当日测试事件及各自已审快照，profile绑定73项目录。15项断言通过。只抽检每章一组，不宣称十八组逐卡UI遍历、真实学习、全部前置已授课、五科完成或P6交付；既有次日、Workbench及控制机制证明沿用，不扩重测。未重写父已审正文，未改真实learner/Stable4321、未部署。
 
 本批命令：`p5-ethics-c00c01-control-a4c2b944-1791139134671`；hash：`609c34b9f1d6e91b21f45f99e3e67ab06cec20c7b45b20afd6b078b28a600f51`；实际隔离服务端receipt：`APPLIED`。
+
+
+## P5 思修 C02/C03 模型与准确范围 20261004
+
+作者亲自读 Current JSON、完整教师正文与 source shard，并逐页实看乘风2027上册 PDF100–108（印刷99–107）；PDF105点拨末轮另回读一次，原文件 SHA256 同前。C03 shard blob `3129e53f3f99ab7d6dd79a050a28a3e52f02e784`。这次来源准入仅依实读现年 CF，不借LEG26或题标签自动升级。
+
+C02沿“现实形成目标—信念精神支撑—条件实践实现—个人社会相联—具体行动”连续讲、同路线压缩恢复；C03沿“传统形成—内涵与两维—精神作用—爱国责任—创新实践”展开。各加入实际首课顺序、分组编码、闭卷题面与错误诊断。精记不是另一套提纲课，未讲全相关成员/条件不得因为章节概览已讲就入计划。
+
+独立内容审读完整读25组与两份正文，逐页查看PDF100–108及全部Source text span。发现并已修复回读四项：C02四作用必须在教师解释中明确核心/根本/标尺，而非只精记要求；C03补教化目的为明人伦、培养有道德的人；爱国含义页码恢复跨PDF105–106；中国精神反例明确区分党的领导→实现民族复兴根本保证与中国特色社会主义道路→实现第二个百年奋斗目标根本途径，不能共用含糊的“实现目标”。原审读者有界回读最后一处后确认无剩余内容修复项。此为内容范围结论，不是网页或真实学习PASS。
+
+### 原 owner 与准入范围对账
+
+原 C02-S02、C03-S03 的 canonical P2 provisional/default Recall inactive保持。当前 Learning §6.1允许原Current Content owner在实读Source上逐项选择FIRST_ROUND_EXACT，不要求W/U；这不自动更改旧默认Recall/KP状态。原章节deferred已显式限缩为原默认Recall范围，并记录本轮新判断：C02S02仅选四理论品格、共同与远大理想，以检查已讲理论对象与阶段关系；C03S03仅选改革创新角色配对、意识与本领，以检查对象帽子及精神/能力层次。不是整NU标签晋升，不新建sidecar或registry，不自动计划。未选扩展、名言全文与未讲范围仍不准由这几项推出已覆盖。
+
+C02信念原图确在PDF101；当前shard将其并于K01-N01-TBL01，没有独立K01-N02。本轮引用真实存在的table节点并说明原页，不编造新Source节点。原7个actual catalog身份均以显式ID保存，原各组已有答案项及顺序保留、说明在后追加；更精确refs不会隐式换卡。原C03 role_support继续作为同章结构支持，不是第二张被选Memory卡。
+
+### 作者反例自测
+
+|反例|本批检查与处理|
+|---|---|
+|按主体回答理想层次|五把尺分别恢复标准与成员，同一目标可跨维度，不混分类|
+|说信念认知情感意志是三特征|题面分别问构成与特征；执着支撑多样有独立解释|
+|有信念就必然实现|对象/保障与现实/实践题均保留条件，拒绝精神力量充分条件化|
+|社会理想形成基础等于实现前提|分两问解释，既非机械叠加也非先实现所有个人愿望|
+|把四个伟大当四核心|丰富内涵与民族/时代两维分别定位，每种可恢复一个源例类型|
+|把两个根本定位换给中国精神|按PDF105修回两个主体、目标、角色，不接受泛称|
+|爱国只是情感，或任何时代本质都相同|保留道德政治法律规范与具体历史语境，不采纳过强速记|
+|创新、创新能力、科技互换|题面与标准逐对象配对，根本能力与紧迫破障碍不混|
+|只记cue就算已会|助记仅作可选组织，题面自足，回答前隐藏答案标准cue；提示后跟读不是无提示新成功|
+
+### C02/C03 逐项内容准入绑定
+
+<a id="p5-ethics-c02-c03-20261004"></a>
+
+|候选ID|目标|身份处理|准入版本|
+|---|---|---|---|
+|polmem-ba4678a8|理想的内涵与五种分类|原章owner新增准确目标|sha256:85cad3fb10a15d948f26bafff328079105af6374fcd2d8f15e0ded03abd1594b|
+|polmem-2c4604c8|理想的三个高价值特征|原ID和原答案项位置保留|sha256:aa47f942601e6d69dbda72988e1bf7b13a7931272dbf2bfabc4f6e62c4b7357c|
+|polmem-16f49e60|信念的内涵与层次|原章owner新增准确目标|sha256:df7b2e3e8683dbeb2f407de534e29722173a694be96a1dbc35bd4cc8cf11d081|
+|polmem-b0829e8d|信念的三个高价值特征|原ID和原答案项位置保留|sha256:003523bfd92eddb08af63e8177454b231e49c0b0c29dbc7f46e62b2f70152103|
+|polmem-4b602eee|理想—信念关系|原ID和原答案项位置保留|sha256:4145673d6d3007c588d78f64bebf3547d8e051dd33cec2e6a666d019ba6de124|
+|polmem-07a2e005|理想信念四种作用|原章owner新增准确目标|sha256:68737327cdff66f816eed2ce468a5db8abdcdc0b860b7f4671eefe270f218017|
+|polmem-4dcf9e48|马克思主义四种理论品格|原章owner新增准确目标|sha256:58b1897eacc2367ef6ff502d34fbf348f6a44062af7d6aa126565ccc3e8ae0aa|
+|polmem-16cee341|共同理想与远大理想|原章owner新增准确目标|sha256:70d26d63791a013609a5ee9dae31726816b6a31fcf7d04f7e5682617b01e55ef|
+|polmem-1538f238|理想—现实关系|原ID和原答案项位置保留|sha256:665a3c90c85f8d6b1b0407deace6724b9abb2a88b5539f8f62e7a3af623a5d05|
+|polmem-bc0d52d6|理想实现的过程条件途径|原章owner新增准确目标|sha256:e0cf61b4029a6c2c021543ca1df8a9b47aa34c50a2be0b7f52c90f3666b70536|
+|polmem-77206a58|个人理想与社会理想|原章owner新增准确目标|sha256:5205765d7935b0a6966e777aa6880300cc2fdc2f1a0f48aab712a552b3873adc|
+|polmem-cd2d672b|立志双义与青年实践|原章owner新增准确目标|sha256:84897d6d36dd1b4a9d9b2345acb7d39eb16cab53109c2f1d02db5e4adcb3c0e9|
+|polmem-83f0d629|崇尚精神的三个方面|原章owner新增准确目标|sha256:6b3f2be4c3e5933a3a55f24755ac58fe390160c71a6419fe5eb0874eaa7adcfc|
+|polmem-951dbab5|传统品格养成的准确配对|原章owner新增准确目标|sha256:2137deecc0261d9a85ebb9cd5fc6fe8aad298e83fa73772da4b3addec9a475bb|
+|polmem-24c9051c|中国精神丰富内涵｜四个伟大|原ID和原答案项位置保留|sha256:e6f18c39f7075973d1f04e2becaa68c2649258b44a61184fd1546043d15b5c45|
+|polmem-41de8ea9|党的精神之源与中国精神|原章owner新增准确目标|sha256:dcf22da0f66290995ecc4b547c592ea535c6378d30fb5b2e4538d9f4af7164a0|
+|polmem-99ff9f85|民族精神—时代精神核心|原ID和原答案项位置保留|sha256:673f47fcc807d57e60203bb82540ade04f602bd21b12c2e9f001b4a1bdc24f0a|
+|polmem-07d70a08|民族精神与时代精神的含义|原章owner新增准确目标|sha256:248c411f858a32fb46a544dcee67736d1a4c3a864b9b9dd2f63e5997573ed031|
+|polmem-f003b208|中国精神的三种作用|原章owner新增准确目标|sha256:40e7ba9e5f208a0f3534d7b810b16014cb801f110f7ff3124ce4592ef6435dc5|
+|polmem-b56e45ae|爱国主义含义与四个对象|原章owner新增准确目标|sha256:a3c55ddea7df11e97ed6c3495e32bf1735d35587663635a91a4ca7c77ffb7190|
+|polmem-ff0bba58|新时代爱国主义本质|原ID和原答案项位置保留|sha256:82b08facbe60af4e0b2ba43c9345d989425c8c91befdc960c137853378f79977|
+|polmem-43c82e71|新时代爱国主义四组要求|原章owner新增准确目标|sha256:5f41ad45e18119ddf4fb88f943e6e3394454cf5d7f9ab30de9856085357e0dd4|
+|polmem-c7eae279|爱国教育主题与行动方向|原章owner新增准确目标|sha256:865954c8df26329579538affc899b71a507bc5a3f1e8ed6d921128c706cd225e|
+|polmem-9b6ea2ec|改革创新的角色配对|原章owner新增准确目标|sha256:e84c7aedbaed262f9a72bdb095a0bcd9aedde3c3dc4d86949c2124db2cb87ce9|
+|polmem-6ec96bca|改革创新意识与本领|原章owner新增准确目标|sha256:9228a84a209cc2b661e85b8cfc9604a9e26be2c1007e13fae5dcbd2b68cbf0f2|
+
+### 本批消费者尚待验证
+
+25组强签名对应上述审读后的具体内容，不代表新目录/派生映射/正式页面已验收。既有样本机制证据可复用，新增章仍需对应绑定和隔离正式页面样本；保留原7身份且原先决不可省。原图题型/答案本身、Source fidelity及真实学习状态未改变。其余P5和P6继续未完成。
