@@ -271,17 +271,29 @@ One Block may carry Chain + Compare + Boundary + Map + Formula objects when Curr
 Likewise, do not flatten the semantic adapter into one generic card list. Projection geometry exists precisely to preserve different cognitive structures inside one shared renderer.
 
 <a id="block-review-generation"></a>
-### 7.1｜Block review generation — medical topology, not three columns
+### 7.1｜KianOS Website / reconstruction generation — medical topology, not three columns
 
-This section owns the generation/composition rule for newly authored or migrated Block study/reconstruction views, including reviewed reading views used by Chat. It adopts the representation decision from [#1147](https://github.com/kianwang022-hash/kianos/issues/1147); that Issue retains task progress and candidate review, not a competing permanent generation contract. The rule does not assert that any existing asset, Website surface or Human Gate has already migrated.
+**Scope boundary:** this section governs the KianOS Website/reconstruction Projection lane. It explicitly does **not** govern standalone Lecture-replacement teaching assets.
 
-The output grammar is:
+Lecture-replacement first-pass teaching is owned by [`knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md`](../knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md). In that separate lane, the teaching model/framework is the body and matching canonical KP title + **full formal Prompt** are semantic locators only; canonical KP Core is not auto-expanded or mirrored into the teaching surface.
+
+This section owns the generation/composition rule for newly authored or migrated KianOS Block study/reconstruction views. It adopts the reconstruction decision from [#1147](https://github.com/kianwang022-hash/kianos/issues/1147); that Issue retains task progress and candidate review, not a competing permanent generation contract. The rule does not assert that any existing asset, Website surface or Human Gate has already migrated.
+
+The **KianOS Website/reconstruction** output grammar is:
 
 ```text
 Current System position + complete Block content and real supports
 → reviewed medical topology
-→ 知识标题〔完整正式主提示〕 with its content expanded at that location
+→ 知识标题〔完整正式主提示〕 with its canonical content bound/rendered according to this Website/reconstruction view
 → the same objects/relations at compressed density + necessary condition labels
+```
+
+Do not reuse this grammar for Lecture-replacement teaching. That separate teaching lane is:
+
+```text
+reviewed teaching model/framework
++ matching canonical 知识标题〔完整正式主提示〕 as locator
+→ no automatic canonical Core expansion
 ```
 
 **Replace the old left-mechanism / middle-expansion / right-KP production template, not its valid knowledge.** LG sections, KP numbering and document order must not become the visual backbone. A Block remains one reconstructable medical model containing heterogeneous local objects under §7, not one forced chain, tree, viewport or mandatory Canvas.
@@ -291,6 +303,7 @@ Current System position + complete Block content and real supports
 - Read the complete Current Block and applicable System/Learning owners through the [Chat-led reading entry](../knowledge/learner/README.md#chat-led-block-reading-entry), plus actually owned teaching/review, Framework, comparison, counterfactual, MI-G/MI-D, Precision, MedicalVisual and Source support. Prompt inventories and old acceptance reports are not substitutes for this content.
 - Keep all valid medical meaning, full formal titles and Prompts, necessary conditions, comparison axes, exact facts and Source locators. Merge duplicate expression, not distinct contexts or cognitive jobs. A source conflict or genuine defect returns to its existing owner; presentation migration does not silently reconcile it or rewrite medical Core.
 - Every KP has an identifiable in-place semantic anchor: a node, branch, comparison or verification object. Its title and full formal Prompt belong there, followed by its actual content; do not explain a mechanism and then repeat the same answer in a separate KP list. One content identity may have several connection/reference entrances, but its maintained complete answer remains the canonical Core; Projection keeps identity/relations/conditions and resolves that Core rather than maintaining another full answer. A composite KP may span linked local subparts without splitting its canonical identity or copying its Core.
+- **Website-only clarification:** the preceding Core-binding rule applies only to this KianOS Website/reconstruction lane. It must never be used to inject Core into `*-teaching.md` or a Lecture-replacement Teaching Map.
 - Non-KP Framework, model relations and support also have explicit destinations. Complete coverage does not mean every support item is permanently visible. Nor is a full-text appendix sufficient when the main model omits reasoning-critical content.
 - Medical relations, disease time course, teaching/retrieval order and clinical priority are distinct. Preserve the reviewed type, direction, endpoints and conditions of flow/process, causal influence, parallel structure, feedback, comparison, evidence, decision and reference. Neither the generator nor Focus infers these from numbering, placement, similar titles or graph traversal. Formal Boundary/Connection adoption still follows `LEARNING_CONTRACT.md`; a diagram edge does not create a new formal support identity.
 
@@ -418,7 +431,7 @@ Context   = conditional Source / MedicalVisual / Precision / Connection / repair
 
 For an integrated Block medical-map view, Main may take nearly the full width; Structure may be a thin System locator plus collapsible/secondary LG/KP navigation, and Context appears only when useful. This is compatible with LG membership/order/evidence remaining Current backstage state. Projection supplies semantic objects/relations to these roles; it does not force a permanent left rail, three content columns or one panel per object.
 
-These are workspace roles, not a requirement to generate a left-mechanism / middle-expansion / right-KP review. Block reconstruction content follows §7.1. Concrete geometry and existing Recall surfaces remain owned by `static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md` and its applicable Visual parents; this contract does not prescribe fixed columns or install a new interface.
+These are workspace roles, not a requirement to generate a left-mechanism / middle-expansion / right-KP review. KianOS Website/reconstruction content follows §7.1. **Standalone Lecture-replacement teaching does not enter this Website workspace contract and is not a Runtime input.** Concrete geometry and existing Recall surfaces remain owned by `static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md` and its applicable Visual parents; this contract does not prescribe fixed columns or install a new interface.
 
 ## 12｜Question / TTSX boundary
 
