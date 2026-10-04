@@ -28,10 +28,10 @@ Historical maturity campaigns, first-round audit receipts and candidate branches
 ## Stable learning roles
 
 Suyi       framework / cross-check input, not a second course
-Chengfeng  continuous first-round mainline on original iPad / MarginNote
+Chengfeng  Source basis / necessary original-image/text calibration
 Xiao1000   verification in the single formal Workbench
 KianOS     orientation / selective presentation / verification / Review / Resume
-Chat       learner-triggered diagnosis and smallest justified follow-up
+Chat       continuous teaching / same-model compression / evidence diagnosis
 
 Exact semantics live in LEARNING_CONTRACT.md and INTERACTION_CONTRACT.md. Wrong/Uncertain is private evidence and permits continuation; repair returns to Chengfeng only when actually warranted. Stable Natural Unit identity does not require one sitting.
 

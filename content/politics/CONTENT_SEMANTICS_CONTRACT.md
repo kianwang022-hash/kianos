@@ -119,7 +119,7 @@ Each precision object must declare its learning priority so Orientation does not
 ### `source_handoff`
 The stable cross-surface learning target already authorized by Logic.
 
-For first-round Politics Chengfeng learning this points to the original iPad / MarginNote surface, with:
+Under [Learning Contract §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain), Chat owns continuous teaching and Chengfeng retains Source ownership. This handoff points to original iPad / MarginNote images/text for necessary Source calibration, with:
 - source locator;
 - source owners;
 - a small `look_for` list.
@@ -177,7 +177,7 @@ The defaults and hard promotion/demotion guards are owned by `CONTENT_HIERARCHY_
 
 Content semantics must remain source-grounded.
 
-- Chengfeng remains the continuous first-learning mainline and primary first-learning semantic owner.
+- Source and teaching roles inherit [Learning Contract §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain); Chengfeng retains canonical Source/NU authority and Chat owns continuous teaching.
 - Suyi may strengthen structure, relation, boundary, or repair without becoming a second course.
 - Suyi richness does not create new first-learning blocks by default.
 - OCR fragments must not be silently repaired into new claims when their meaning is uncertain.

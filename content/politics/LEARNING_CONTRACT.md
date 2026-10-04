@@ -54,7 +54,7 @@ If the official exam structure materially changes, this score model must be reva
 Politics learning is deliberately asymmetric across time:
 
 1. **First-round understanding / objective engine**  
-   Build the smallest coherent model needed to understand Chengfeng, distinguish options and use Xiao1000 as transfer evidence. Heavy answer-template memorization is out of scope here.
+   Build the smallest coherent source-grounded model through Chat continuous teaching to distinguish options and use Xiao1000 as transfer evidence. Heavy answer-template memorization is out of scope here.
 2. **Consolidation / evidence repair**  
    Revisit Wrong / Uncertain evidence, compress recurring distinctions and admit only justified Memory/Precision debt.
 3. **Analysis-output phase**  
@@ -114,24 +114,26 @@ Hard Politics surface rule:
 
 ```text
 Source ownership ≠ Surface ownership.
-Chengfeng mainline ownership ≠ Astro lecture-reader ownership.
+Chengfeng Source ownership ≠ Chat teaching surface ownership.
 ```
 
-The learner path may cross Chat, Astro, and the original iPad/MarginNote lecture surface. The fact that Astro can load source text does not authorize Astro to replace the original continuous-learning surface.
+Chat owns continuous first-round teaching. Chengfeng remains the Source basis; original iPad/MarginNote images/text are used when source calibration is necessary. Astro keeps its existing companion/Workbench responsibilities; this rule change does not authorize a website feature change.
 
 ## 2. Active first-round learning chain
 
 The active first-round chain is:
 
-`Chat/Astro Orientation → Chengfeng Natural Unit continuous learning on original iPad/MarginNote lecture surface → natural checkpoint/closure when it adds retrieval value → Xiao1000 verification in the single KianOS Workbench → prebuilt refined backside Content + learner Evidence/cause/note → continue → learner-triggered batch Review packet → Chat diagnosis only when the learner chooses to review → later Memory/analysis-output/Mock`
+`subject total model → Chat continuous local/chapter explanation → compression of the same model → source-grounded exact-retention candidates only when justified; Xiao1000 evidence → model diagnosis → smallest justified follow-up`
 
-This supersedes learner-facing flows that treat Suyi, Chengfeng, and Xiao1000 as parallel courses, and it also supersedes any implementation that turns Astro into a substitute continuous Chengfeng lecture reader.
+Chat is the single continuous teaching mainline; Chengfeng is the Source basis and necessary original-image/text calibration, not a parallel second course. Natural Unit existence, identity, boundaries and canonical order remain Chengfeng-owned. Teaching exposition may adapt to understanding, but canonical coverage must not be lost. Pausing/resuming does not prove completion or create review debt; checkpoints remain optional and useful only at natural closure.
 
-Natural Unit identity does not require completion in one sitting; original-source position may be paused and resumed without generating progress, a checkpoint, or review debt. A checkpoint is not mandatory after every small source fragment. Preserve Chengfeng continuity and interrupt only at a genuine Natural Unit/natural subsection closure or when retrieval/verification value justifies the switch. A simple stable Unit may move almost directly from source closure to Xiao1000 verification.
+The shared explanation/compression/precision idea resembles Xizong, but Politics does not import its System/LG/KP taxonomy. Subject shape remains distinct: Marxism relations/reasoning, History time/causality, Mao historical problem/theory response, Xi hierarchy/role, Ethics-Law boundary/normative application. See INTERACTION_CONTRACT.md §4.
+
+Reasoning-critical conditions and boundaries must be explained when needed, not deferred wholesale as fragments to memorize. Compression reconstructs the same taught model; it is not a second summary course. Reuse the existing Marxism C00–C08 canonical NU coverage and `chapter_orientation`, `teaching_beats`, `chapter_compression`, and C08 `marxism_full_chain`. These existing assets are scaffolds, not acceptance of a complete Chat textbook.
 
 ### Source roles
 
-- **Chengfeng** is the only continuous first-round learning mainline. Natural Unit existence, identity, boundary, and order follow the approved Chengfeng structure.
+- **Chengfeng** remains the first-round Source basis, with original images/text used for necessary calibration. Natural Unit existence, identity, boundary, and order follow the approved Chengfeng structure.
 - **Suyi** is a framework/reference source for Chat. Its useful mind-map structure should be semantically absorbed into Chat-approved Orientation / Bridge / Compression assets. The learner is not required to read Suyi separately, and Politics must not create a second Suyi learning mainline merely to preserve its original presentation.
 - **Xiao1000** is validation and transfer evidence. It may bind to one or more Natural Units/KPs but must not determine first-round learning order.
 - Different teachers may use different frameworks. Distinguish factual conflict, wording difference, and method preference. Chat decides the learner-facing result; do not hard-merge teachers into a false unified framework.
@@ -142,8 +144,8 @@ Politics first-round learning uses explicit surface ownership rather than inferr
 
 | Learner action | Primary surface | Companion / boundary |
 | --- | --- | --- |
-| Chapter / Unit Orientation | Chat and/or Astro | Short map / WHY NOW only; not a second lecture |
-| Chengfeng continuous first study | **iPad / MarginNote original lecture surface** | Astro may hold position/checkpoint/bridge/locator, but must not substitute a continuous lecture reader |
+| Chapter / Unit Orientation | Chat; Astro companion | Total model / WHY NOW for the continuous explanation |
+| Continuous first study / same-model compression | **Chat** | Chengfeng Source basis; original iPad/MarginNote images/text only when calibration is needed |
 | Natural Unit position / checkpoint / closure cue | Astro | May tell the learner where they are and what to do next without duplicating the lecture |
 | Xiao1000 verification | **single KianOS Politics Workbench** | Original question/options/official answer remain source-owned; the Workbench is the only learner-facing attempt/evidence writer |
 | Backside explanation Content | Workbench after submit | `takeaway` + refined explanation are prebuilt question-bound Content, not a runtime Chat call |
@@ -169,7 +171,7 @@ That layer may contain high-value teaching semantics such as:
 - Unit / Block / Chapter compression;
 - source-repair guidance for wrong or uncertain questions.
 
-It must not duplicate the Chengfeng source into a second AI textbook or a second continuous reader.
+It supports source-grounded Chat teaching; do not transcribe Chengfeng into a competing source reader or manufacture complete-textbook acceptance.
 
 ### Default teaching asset types
 
@@ -180,16 +182,34 @@ It must not duplicate the Chengfeng source into a second AI textbook or a second
 
 Only create an asset when it improves learning or removes future work. Do not materialize empty module structures for completeness.
 
+### 3.1 Teaching preparation quality and admission
+
+This section owns preparation quality for Chat teaching content under `content/politics/learning/`; it is not learner progress, a new schema, or Website acceptance. Priority is **completeness → teaching logic → compression**. Prepare a teacher's usable explanation, not a student database of titles, tags or source excerpts. Preserve the five subject shapes in INTERACTION_CONTRACT.md §4; do not import Xizong KP scaffolding.
+
+For each chapter:
+
+- Start from the subject total model, explain the chapter's problem and its connection to the previous/next chapter, then develop the local model with necessary definitions, conditions and boundaries. Existing orientation/beats/compression assets may be reused only within their actually inspected/accepted scope.
+- Actually read the relevant formal Source units. Record the inspected range and modality separately for full text, tables and figures/original images; extracted text does not prove a table/figure was read. Mark inaccessible, ambiguous or uninspected ranges unresolved, with their effect on usable coverage. Do not claim Source completeness from headings, counts or annotations.
+- Give every important item in each formal Source unit a traceable teaching destination: **A** first explanation, **B** later supplement with an exact chapter/section destination, and/or **C** justified exact retention. Destinations may overlap. A definition, condition or boundary needed for reasoning cannot be C-only or postponed beyond the explanation that depends on it. An item not taught here is not automatically omitted, but its destination or unresolved status must be findable. A/B/C are preparation dispositions, not new learner tiers or a registry. A/B destinations must resolve to existing substantive explanations, and C to inspectable source-grounded exact content; labels, counts, future sections and unresolved items do not establish completed coverage.
+- Explain each model relation's type, direction and applicable conditions. Distinguish causal explanation, logical dependence, chronology, normative requirement and historical tendency; do not turn every arrow into causality. Check exact quotations and attribution, formula definitions/units/scope, and table hierarchy/row-column relationships against the inspected Source. Keep Source differences item by item rather than silently reconciling them; preserve original question/options/answer truth.
+- Derive compression from the same explained model. It must preserve decisive conditions, boundaries and relation types. Removing all exact-retention markings must still leave a coherent explanation. Exact retention follows §6.1: new cards require the original Content owner's source-grounded review; a typed `MEMORY_CANDIDATE` suggestion is not admission or a queue. Teaching is not evidence that the learner has learned.
+
+Admission uses three bounded review passes: **(1) Source coverage**, including actual modality reads and A/B/C destinations; **(2) teaching continuity**, including total/local models, chapter bridges and reasoning prerequisites; **(3) compression fidelity**, including reconstructability and exactness. The author reads the complete actual chapter text in each relevant pass, not just summaries or metadata. An independent text reviewer then attacks the candidate with concrete counterexamples: an important source item with no destination, a prerequisite deferred to C, a reversed/overstated relation, or a compressed claim that drops its condition. Coverage attacks include exam-relevant subitems within Source units and inspect the corresponding passages, table relationships or figures needed to test each counterexample; the author’s coverage inventory alone is not evidence. Repair the smallest confirmed defects and re-read affected explanation, destinations and compression; reopen only dependent claims when a new defect appears, rather than restarting indefinitely.
+
+A prepared chapter is complete for its reported usable scope only when actual teaching content, corresponding Source locators and unresolved ranges are present, author full-text review and independent textual attack have been performed, and confirmed defects have been repaired and rechecked. Report usable and unresolved scope honestly; an unresolved decisive prerequisite prevents claiming the dependent teaching scope ready. This preparation completion does not require Kian's chapter-by-chapter Human approval and does not manufacture learner or Website acceptance.
+
+Maintain one canonical preparation in the existing Politics content owners; adapt existing assets or add only the necessary chapter text. Do not stack multiple full answers, repeated hidden full texts, or a new registry. Schema/Projection changes remain governed by their existing Content/Runtime owners; this preparation rule does not authorize them.
+
 ## 4. First-round interaction principles
 
 - **Score/time first:** the shortest path that preserves exam-relevant understanding, discrimination and transfer beats a richer path with no demonstrated score benefit.
-- **One mainline only:** the learner should feel that they are continuously learning Chengfeng, not switching among three teachers or maintaining two lecture readers.
-- **Original-surface continuity:** continuous Chengfeng reading/study belongs to the original iPad/MarginNote lecture surface. Astro surrounds that action; it does not absorb it.
+- **One mainline only:** Chat carries continuous teaching; Chengfeng and Suyi remain source/reference inputs, not parallel courses.
+- **Source calibration:** return to original Chengfeng images/text when necessary for exact wording, relations or boundaries; preserve source locators without requiring a second course.
 - **Low friction:** stable correct understanding should pass quickly. Extra content appears only when it adds value.
 - **Content-rich, display-precise:** backend source/learning assets may be rich; each learner surface should show only the current cognitive action it actually owns.
 - **Progressive disclosure:** explanation, boundary, source evidence, and repair depth expand only when needed.
 - **Smallest sufficient repair:** Wrong/Uncertain first records Evidence and permits continuation. When the learner elects a source return or batch Review/Chat determines repair is warranted, choose the shallowest repair that resolves the real failure; a Wrong/Uncertain event alone is not an immediate source-switch command.
-- **Repair depth matches failure depth:** a hat/wording confusion should not reopen an entire Natural Unit; a broken concept relation may reopen a Teaching Bridge; a broken unit model may reopen the owning Chengfeng unit on its original source surface.
+- **Repair depth matches failure depth:** a hat/wording confusion should not reopen an entire Natural Unit; a broken concept relation may reopen a Teaching Bridge; a broken unit model may reopen the Chat model explanation with calibration against the owning Chengfeng Source.
 - **Question-bank subordination:** question counts, unlock counts, and coverage must not dominate first-round attention hierarchy.
 - **Memory later:** first-round display should not make static memory counts a primary task. Precision/Memory becomes prominent when the learning phase actually requires it.
 - **No mandatory ritual:** Orientation, Recall, closure, source handoff and UI state transitions are tools, not ceremonies. Skip or compress them when they do not materially improve retrieval or transfer.
@@ -197,7 +217,7 @@ Only create an asset when it improves learning or removes future work. Do not ma
 
 ## 5. Xiao1000 verification, backside Content, and batch review
 
-Xiao1000 appears in the **single KianOS Politics Workbench** after the relevant Natural Unit / natural subsection has been learned on the original Chengfeng surface.
+Xiao1000 appears in the **single KianOS Politics Workbench** after the relevant Natural Unit / natural subsection has been learned and coverage satisfies whole-item first-ready requirements. Chat explanation alone is not evidence of learner coverage or completion.
 
 First-ready means the **whole item** can be judged from already learned Current content, including decisive distractor boundaries; a current-unit hit or a correct-option match alone is insufficient. An embedded checkpoint must defer a question when its remaining option discrimination needs later Source. Source ownership, first-ready timing, and actual learner completion are separate facts.
 
@@ -295,6 +315,8 @@ Precision is narrower still. A question may produce conceptual repair without pr
 
 Optional chapter-level `*.memory.json` sidecars may hold sparse, source-grounded candidates without making them first-round learner-facing content. Sidecars exist only where validation demonstrates a real need; do not materialize them across every chapter for schema completeness.
 
+Memory uses the existing candidate catalog and control path. `politics.memory_plan` selects only existing `candidate_id` values bound to the current `catalog_revision`. A new source-supported card requires review and admission by the original Content owner. The typed Review action `MEMORY_CANDIDATE` is only a follow-up suggestion; it does not create or admit a catalog card, automatically enter a queue, or schedule SRS. Actual matching `APPLIED` receipts prove plan application only; actual Recall evidence proves the observed recall. Chat explanation alone proves neither learning completion nor queue admission.
+
 ### 6.1.1 Cross-day Memory evidence profile
 
 Politics Memory scheduling remains **Chat-owned**. The Website records exact Recall evidence and may export a bounded cross-day profile so a fresh Chat does not forget yesterday's `FORGOT / FUZZY / STABLE` history.
@@ -345,7 +367,7 @@ material cue
 
 The later phase may proactively admit source-grounded formulations from an approved recitation/current-affairs source even before a Wrong event, because written production has different retrieval requirements from multiple-choice recognition.
 
-Do not import the full later recitation burden into first-round Chengfeng study merely to feel safe.
+Do not import the full later recitation burden into first-round Chat teaching merely to feel safe.
 
 ## 7. Astro boundary
 
@@ -363,7 +385,7 @@ For Politics first-round learning, appropriate reusable primitives include:
 - minimal source-repair excerpt / exact source jump;
 - highlight / note / next when they serve an approved Astro-owned action.
 
-A generic `continuous source reader` capability is **not** a Politics first-round primitive for Chengfeng. If shared runtime contains such a component for another lane or reference mode, Politics must not use it to replace Chengfeng continuous study on iPad/MarginNote.
+A generic `continuous source reader` capability is **not** a Politics first-round primitive for Chengfeng. If shared runtime contains such a component for another lane or reference mode, Politics must not use it to create a second continuous course alongside Chat.
 
 Astro must not hard-code political knowledge that belongs in `content/politics/`.
 

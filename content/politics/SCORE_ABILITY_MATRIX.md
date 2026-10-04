@@ -51,7 +51,7 @@ elastic upside
 
 Current full learning inventory:
 
-- Chengfeng Current first-round mainline: 160 Natural Units.
+- Chengfeng Current canonical Source sequence: 160 Natural Units; Source/teaching roles follow [Learning Contract §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain).
 - Xiao1000 objective learning assets: 1148.
 - Xiao1000 split: 528 single-choice + 620 multiple-choice.
 - All 1148 are learning assets; none are reserved as an artificial holdout.

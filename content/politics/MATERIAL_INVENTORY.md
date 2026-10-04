@@ -18,7 +18,7 @@ This inventory is not a second Source owner. Exact source/content authority rema
 
 | Material | Current role | Quantity / scope | Status | Learner use | Freshness / fidelity |
 | --- | --- | ---: | --- | --- | --- |
-| Chengfeng Natural Units | continuous first-round mainline | 160 NU | CURRENT / accepted | reactivate understanding, build relations, repair source | Current canonical region/source-node owners |
+| Chengfeng Natural Units | canonical Source/NU sequence; teaching role follows [Learning Contract §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain) | 160 NU | CURRENT / accepted | reactivate understanding, build relations, repair source | Current canonical region/source-node owners |
 | Chengfeng source-node registry | source text / locator substrate | 19,528 nodes | CURRENT | exact source return / grounding | canonical source registry; transformed fields remain subject to source fidelity |
 | Suyi framework refs | Chat framework/reference | embedded refs | CURRENT reference | orientation / cross-check only | not learner second course |
 | Xiao1000 objective questions | full learning/verification asset | 1,148 | CURRENT / training-ready | all consumed; no artificial holdout | source-faithful question truth projection |

@@ -277,7 +277,7 @@ Acceptance requires:
 7. parallel conditions/features remain parallel unless Current owns a stronger relation;
 8. representative browser acceptance covers all five subjects and heterogeneous primitives;
 9. Xiao1000 Question Truth / Evidence / exact Return / first attempt remain unchanged;
-10. Chengfeng remains the original continuous learning mainline;
+10. Source and teaching roles inherit [Learning Contract §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain), preserving Chengfeng Source/NU authority and Chat continuous teaching;
 11. every owned learner-facing relation label remains explicitly visible with its related objects and is not reduced to decorative connector metadata;
 12. every mapped learner state is consumed exclusively from the resolved Surface Mapping; mixed explicit/legacy learner payloads are forbidden;
 13. every DIRECTED_SEQUENCE transition resolves as either ORDER_ONLY or LABELED_RELATION; UI may render the declared direction but may never synthesize connector wording for ORDER_ONLY.
