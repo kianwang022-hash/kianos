@@ -48,13 +48,22 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q001-025.json",
       "question_truth_blob_sha": "3d35f2626f0009797b0b0d3b4c1861ce6fb704d9",
       "knowledge_path": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H1_造血CBC_Ret与骨髓诊断语言_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "3eefe13ce99f6e4bffa07c5bd7269a00d7b8f30e"
+      "knowledge_blob_sha": "3eefe13ce99f6e4bffa07c5bd7269a00d7b8f30e",
+      "knowledge_revalidated_blob_sha": "074ffb8921e5e6345be811ccbcded269624e9fd1"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current H1 KP04 explicitly owns the hypoxia-HIF-EPO chain and EPO action on late erythroid progenitors, promoting survival/differentiation and increased erythropoiesis."
+      "basis": "Current H1 KP04 explicitly owns the hypoxia-HIF-EPO chain and EPO action on late erythroid progenitors, promoting survival/differentiation and increased erythropoiesis.",
+      "bounded_prompt_route_equivalence_2026_10_04": {
+        "reviewer": "Codex SELF bounded equivalence; not a new independent medical review",
+        "base_commit": "bc014aeee3c7ca1be91a180a41336f03d14b3930",
+        "previous_effective_witness": "3eefe13ce99f6e4bffa07c5bd7269a00d7b8f30e",
+        "reviewed_blob": "074ffb8921e5e6345be811ccbcded269624e9fd1",
+        "basis": "Original Question/options/official answer/Explanation and existing role judgment unchanged. Entire owner differs only by the seven reviewed Prompt count/object corrections and H1 exact A1 B4 reference. Full native mapped medical Core and support retain their prior facts/conditions; ESR Source disagreement remains explicit. Only CURRENT-at-base rows are revalidated.",
+        "proof": "content/xizong/projection/bf-lecture-replacement-r2-review/dependency-reconciliation.json"
+      }
     },
     "primary_kp_id": "hematology-h01-kp04"
   },

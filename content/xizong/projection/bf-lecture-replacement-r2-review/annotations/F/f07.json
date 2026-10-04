@@ -1,0 +1,332 @@
+{
+  "status": "LOCAL_SELF_CANDIDATE_NOT_INDEPENDENT_OR_USER_ACCEPTED",
+  "block_id": "F7",
+  "kp_count": 12,
+  "logic_group_count": 4,
+  "coverage_model": "independently authored continuous medicine; exact annotations applied afterward",
+  "explicit_medical_relations": [
+    "麻醉目标与生命支持功能独立，不动不能证明无意识/无痛",
+    "药物性质改变可控性，同时可增加呼吸循环支持负担",
+    "终板竞争占位或持续去极化均可阻断运动，但逆转方向不同"
+  ],
+  "relations_origin": "AUTHORED_MEDICAL_REASONING_IN_BODY; no edge or order inferred from KP/LG/headings",
+  "reading_sections_are_not_topology_nodes": true,
+  "kp_annotations": [
+    {
+      "kp_id": "final-f07-kp01",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md",
+      "title": "全麻六层：药物目标与生命支持必须拆开",
+      "formal_prompt": "4麻醉目标｜2生命支持｜肌松≠2件｜安全底线",
+      "formal_prompt_sha256": "abad0523bb42eb40eeb105db7eb0c49017bf335d91df8235cf3b78a3ffee2013",
+      "annotation_exact": "全麻六层：药物目标与生命支持必须拆开〔4麻醉目标｜2生命支持｜肌松≠2件｜安全底线〕",
+      "reading_location": "从目标看药物，从生命功能看安全",
+      "teaching_span_sha256": "564cf04f89258852accac33dc868f3017c600d46cce8826a2bb7f6be338b3c83",
+      "coverage_rationale": "六功能独立且药物目标/支持分开",
+      "required_prompt_slots": [
+        "4麻醉目标",
+        "2生命支持",
+        "肌松≠2件",
+        "安全底线"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f07-kp08",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md",
+      "title": "肌松药提供了什么，又明确不提供什么？",
+      "formal_prompt": "骨骼肌｜意识｜镇痛｜反射｜气道支持",
+      "formal_prompt_sha256": "6665111147b07a7a8119759321e467032f472da6eb4888f643555721ae93db23",
+      "annotation_exact": "肌松药提供了什么，又明确不提供什么？〔骨骼肌｜意识｜镇痛｜反射｜气道支持〕",
+      "reading_location": "从目标看药物，从生命功能看安全",
+      "teaching_span_sha256": "564cf04f89258852accac33dc868f3017c600d46cce8826a2bb7f6be338b3c83",
+      "coverage_rationale": "终板运动器与意识痛觉分开",
+      "required_prompt_slots": [
+        "骨骼肌",
+        "意识",
+        "镇痛",
+        "反射",
+        "气道支持"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f07-kp02",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md",
+      "title": "麻醉前代谢门槛：血糖、尿糖和尿酮",
+      "formal_prompt": "血糖阈值1｜尿糖允许1｜尿酮必须1｜目的",
+      "formal_prompt_sha256": "85d5d59a2bb776bd7ea826a411500db482ee88c1431544e8a2dfff0ea678f5ae",
+      "annotation_exact": "麻醉前代谢门槛：血糖、尿糖和尿酮〔血糖阈值1｜尿糖允许1｜尿酮必须1｜目的〕",
+      "reading_location": "从目标看药物，从生命功能看安全",
+      "teaching_span_sha256": "564cf04f89258852accac33dc868f3017c600d46cce8826a2bb7f6be338b3c83",
+      "coverage_rationale": "糖代谢入口三字段",
+      "required_prompt_slots": [
+        "血糖阈值1",
+        "尿糖允许1",
+        "尿酮必须1",
+        "目的"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f07-kp03",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md",
+      "title": "麻醉前用药：镇静、抗M、阿片三类分工",
+      "formal_prompt": "3类药｜各作用｜小儿2调整｜青光眼1禁｜阿片过量1解救",
+      "formal_prompt_sha256": "fcf144ab265d70b4f9a02f2fccb05b340325e019a3d77ed4b3e1125146485acf",
+      "annotation_exact": "麻醉前用药：镇静、抗M、阿片三类分工〔3类药｜各作用｜小儿2调整｜青光眼1禁｜阿片过量1解救〕",
+      "reading_location": "诱导前后，药物起效与气道安全要分别确认",
+      "teaching_span_sha256": "18b9e619b95196be9d929a4a0c890bfd973055863dd5f100b298973d26d5d93d",
+      "coverage_rationale": "术前药分工及儿童/青光眼/过量条件",
+      "required_prompt_slots": [
+        "3类药",
+        "各作用",
+        "小儿2调整",
+        "青光眼1禁",
+        "阿片过量1解救"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f07-kp04",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md",
+      "title": "全麻气道梗阻：最常见入口问题是什么，怎样识别？",
+      "formal_prompt": "梗阻最常1｜插管女20–22｜男22–24｜先处理哪层",
+      "formal_prompt_sha256": "85c1341e9859360aaf7781b0ce04d3279f515dcfe29fd00f7479e11f56559c9a",
+      "annotation_exact": "全麻气道梗阻：最常见入口问题是什么，怎样识别？〔梗阻最常1｜插管女20–22｜男22–24｜先处理哪层〕",
+      "reading_location": "诱导前后，药物起效与气道安全要分别确认",
+      "teaching_span_sha256": "18b9e619b95196be9d929a4a0c890bfd973055863dd5f100b298973d26d5d93d",
+      "coverage_rationale": "气道安全与药物生效分开",
+      "required_prompt_slots": [
+        "梗阻最常1",
+        "插管女20–22",
+        "男22–24",
+        "先处理哪层"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f07-kp05",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md",
+      "title": "吸入麻醉药的血 / 气分配系数怎样影响起效与可控性？",
+      "formal_prompt": "血气分配｜平衡速度｜中枢浓度可控性｜比较方向",
+      "formal_prompt_sha256": "b0d1cc98ba536ac1e4ec44b907bdf68ff8a4175d3d5ab38320a256ec57b61220",
+      "annotation_exact": "吸入麻醉药的血 / 气分配系数怎样影响起效与可控性？〔血气分配｜平衡速度｜中枢浓度可控性｜比较方向〕",
+      "reading_location": "药物性质改变可控性，也改变生命支持负担",
+      "teaching_span_sha256": "4e6c6d5f816bf4c13e043303285e36bf00cbc86478d42626bf5b81604f810c84",
+      "coverage_rationale": "血溶解/平衡解释与CO2假安全",
+      "required_prompt_slots": [
+        "血气分配",
+        "平衡速度",
+        "中枢浓度可控性",
+        "比较方向"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f07-kp06",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md",
+      "title": "吸入麻醉药配对：笑气、地氟烷、七氟烷",
+      "formal_prompt": "笑气禁1｜地氟心脏｜七氟呼吸2+血压方向",
+      "formal_prompt_sha256": "ccb851eac7888308114026c00193d57c168b4d3b0051c46facea5609c8fd7a12",
+      "annotation_exact": "吸入麻醉药配对：笑气、地氟烷、七氟烷〔笑气禁1｜地氟心脏｜七氟呼吸2+血压方向〕",
+      "reading_location": "药物性质改变可控性，也改变生命支持负担",
+      "teaching_span_sha256": "4e6c6d5f816bf4c13e043303285e36bf00cbc86478d42626bf5b81604f810c84",
+      "coverage_rationale": "当前吸入配对及负空间",
+      "required_prompt_slots": [
+        "笑气禁1",
+        "地氟心脏",
+        "七氟呼吸2+血压方向"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f07-kp07",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md",
+      "title": "静脉麻醉药配对：依托、丙泊、氯胺、咪达与右美",
+      "formal_prompt": "依托心｜丙泊抑2｜氯胺4优2风险｜咪达身份｜右美受体",
+      "formal_prompt_sha256": "a7ab4ba811829437d5dc96353b25b7e3b752485d077ac78bac2672425566863e",
+      "annotation_exact": "静脉麻醉药配对：依托、丙泊、氯胺、咪达与右美〔依托心｜丙泊抑2｜氯胺4优2风险｜咪达身份｜右美受体〕",
+      "reading_location": "药物性质改变可控性，也改变生命支持负担",
+      "teaching_span_sha256": "4e6c6d5f816bf4c13e043303285e36bf00cbc86478d42626bf5b81604f810c84",
+      "coverage_rationale": "静脉功能与成对风险",
+      "required_prompt_slots": [
+        "依托心",
+        "丙泊抑2",
+        "氯胺4优2风险",
+        "咪达身份",
+        "右美受体"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f07-kp09",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md",
+      "title": "非去极化肌松：N2怎样受影响，逆转思路是什么？",
+      "formal_prompt": "N2占位/激活｜神经肌接头效应｜逆转思路",
+      "formal_prompt_sha256": "b6c00bdd19bab2524b9e11fa7e4bed2c231ae29ce45e16405e776a58566b0520",
+      "annotation_exact": "非去极化肌松：N2怎样受影响，逆转思路是什么？〔N2占位/激活｜神经肌接头效应｜逆转思路〕",
+      "reading_location": "终板传递可以因“打不开”或“持续打开”而失败",
+      "teaching_span_sha256": "3341209217033629bdfa86a708282810136cd44dd60cd42ba77626dd2d75686f",
+      "coverage_rationale": "竞争占位、无初始收缩与逆转",
+      "required_prompt_slots": [
+        "N2占位/激活",
+        "神经肌接头效应",
+        "逆转思路"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f07-kp10",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md",
+      "title": "去极化肌松：N2为何会从激动走向阻滞？",
+      "formal_prompt": "N2初始作用｜持续去极化｜为何转为阻滞",
+      "formal_prompt_sha256": "d3474df67e63e6227b4e879cb5542e5e03c4098ae96de03f6da1afd970abd3c9",
+      "annotation_exact": "去极化肌松：N2为何会从激动走向阻滞？〔N2初始作用｜持续去极化｜为何转为阻滞〕",
+      "reading_location": "终板传递可以因“打不开”或“持续打开”而失败",
+      "teaching_span_sha256": "3341209217033629bdfa86a708282810136cd44dd60cd42ba77626dd2d75686f",
+      "coverage_rationale": "激动到持续阻滞及新斯的明禁点",
+      "required_prompt_slots": [
+        "N2初始作用",
+        "持续去极化",
+        "为何转为阻滞"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f07-kp11",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md",
+      "title": "心脏手术三配对：吸入、静脉、肌松各一个",
+      "formal_prompt": "吸入1｜静脉1｜肌松1｜共同场景",
+      "formal_prompt_sha256": "f04bca3fbc1e508430a86c2747f81a33a94546ddbbc3f428e42265518b40d704",
+      "annotation_exact": "心脏手术三配对：吸入、静脉、肌松各一个〔吸入1｜静脉1｜肌松1｜共同场景〕",
+      "reading_location": "终板传递可以因“打不开”或“持续打开”而失败",
+      "teaching_span_sha256": "3341209217033629bdfa86a708282810136cd44dd60cd42ba77626dd2d75686f",
+      "coverage_rationale": "同一心脏场景仍三种功能",
+      "required_prompt_slots": [
+        "吸入1",
+        "静脉1",
+        "肌松1",
+        "共同场景"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f07-kp12",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F7_全身麻醉气道肌松与监测_学习阅读版_v1_最终执行版.md",
+      "title": "全麻风险算法：先问当前缺的是哪一层",
+      "formal_prompt": "催眠？镇痛？肌松？｜气道？通气？循环？｜药物≠目标｜监测缺口",
+      "formal_prompt_sha256": "ad319b52dc03ebde71a57eac9062575330e57d9f15cabf11eb1aac86a94aa731",
+      "annotation_exact": "全麻风险算法：先问当前缺的是哪一层〔催眠？镇痛？肌松？｜气道？通气？循环？｜药物≠目标｜监测缺口〕",
+      "reading_location": "异常发生后，先定位当前缺少的功能",
+      "teaching_span_sha256": "aa2692816911a90479208f0deb497496f082f4ae1b36851b3604c2a3c1b99aa2",
+      "coverage_rationale": "异常按功能层定位",
+      "required_prompt_slots": [
+        "催眠？镇痛？肌松？",
+        "气道？通气？循环？",
+        "药物≠目标",
+        "监测缺口"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    }
+  ],
+  "unresolved_source_limits": [
+    "现代困难气道、MAC、完整监测和苏醒拔管课程不扩",
+    "吸入/静脉/肌松配对维持原Study限定"
+  ]
+}

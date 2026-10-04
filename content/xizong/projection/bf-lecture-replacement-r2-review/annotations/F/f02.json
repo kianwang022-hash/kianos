@@ -1,0 +1,393 @@
+{
+  "status": "LOCAL_SELF_CANDIDATE_NOT_INDEPENDENT_OR_USER_ACCEPTED",
+  "block_id": "F2",
+  "kp_count": 13,
+  "logic_group_count": 4,
+  "coverage_model": "independently authored continuous medicine; exact annotations applied afterward",
+  "explicit_medical_relations": [
+    "AChE受抑使ACh积聚，受体解剖位置决定症状出口",
+    "分泌/痉挛/肌麻痹/中枢损伤汇聚呼吸失败",
+    "阿托品阻断M出口与复能剂处理酶/N出口互补",
+    "急性出口改善不保证后续神经肌肉安全"
+  ],
+  "relations_origin": "AUTHORED_MEDICAL_REASONING_IN_BODY; no edge or order inferred from KP/LG/headings",
+  "reading_sections_are_not_topology_nodes": true,
+  "kp_annotations": [
+    {
+      "kp_id": "final-f02-kp01",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "有机磷胆碱能危象的根故障是什么，怎样扩散到不同受体层？",
+      "formal_prompt": "酶｜递质｜受体层｜不可逆接口｜从根故障推表现",
+      "formal_prompt_sha256": "1fd83bcbfd7e6a6b8016060064c70d0b4b10312c7757030f63128dbaf8c8ee4a",
+      "annotation_exact": "有机磷胆碱能危象的根故障是什么，怎样扩散到不同受体层？〔酶｜递质｜受体层｜不可逆接口｜从根故障推表现〕",
+      "reading_location": "呼吸是多条危险支路汇聚的终点",
+      "teaching_span_sha256": "b62e646947a3a9dda6b7140adcadcfc82d781df5c5c85018213f22e82db97ab0",
+      "coverage_rationale": "酶失活到多受体出口",
+      "required_prompt_slots": [
+        "酶",
+        "递质",
+        "受体层",
+        "不可逆接口",
+        "从根故障推表现"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f02-kp02",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "M样表现怎样从受体所在器官与效应方向推导？",
+      "formal_prompt": "心｜眼｜胃肠｜括约肌｜腺体｜肺｜共同受体逻辑",
+      "formal_prompt_sha256": "f59f110252d8f048b7f7b8b80098ed403dce80253faf6daee6428a4f8073e7ad",
+      "annotation_exact": "M样表现怎样从受体所在器官与效应方向推导？〔心｜眼｜胃肠｜括约肌｜腺体｜肺｜共同受体逻辑〕",
+      "reading_location": "呼吸是多条危险支路汇聚的终点",
+      "teaching_span_sha256": "b62e646947a3a9dda6b7140adcadcfc82d781df5c5c85018213f22e82db97ab0",
+      "coverage_rationale": "M的器官效应",
+      "required_prompt_slots": [
+        "心",
+        "眼",
+        "胃肠",
+        "括约肌",
+        "腺体",
+        "肺",
+        "共同受体逻辑"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f02-kp03",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "N1 与 N2 分别位于哪里，为什么会产生不同表现？",
+      "formal_prompt": "N1｜N2｜NMJ｜神经节/肾上腺｜呼吸肌｜循环方向",
+      "formal_prompt_sha256": "d1789d1bbbb152b6dc6eef4396df55b3667a6ab9bd6cbe44e7d0a27ee3cfef8b",
+      "annotation_exact": "N1 与 N2 分别位于哪里，为什么会产生不同表现？〔N1｜N2｜NMJ｜神经节/肾上腺｜呼吸肌｜循环方向〕",
+      "reading_location": "呼吸是多条危险支路汇聚的终点",
+      "teaching_span_sha256": "b62e646947a3a9dda6b7140adcadcfc82d781df5c5c85018213f22e82db97ab0",
+      "coverage_rationale": "N1/N2位置与不同循环/肌肉表现",
+      "required_prompt_slots": [
+        "N1",
+        "N2",
+        "NMJ",
+        "神经节/肾上腺",
+        "呼吸肌",
+        "循环方向"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f02-kp04",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "呼吸危险：哪几条机制会叠加到同一个终点？",
+      "formal_prompt": "气道分泌｜平滑肌｜NMJ｜中枢接口｜为什么优先呼吸",
+      "formal_prompt_sha256": "d1c51d8b3f7687483d701f7c287cab6a61dcff4100651db1c951524fa99d880c",
+      "annotation_exact": "呼吸危险：哪几条机制会叠加到同一个终点？〔气道分泌｜平滑肌｜NMJ｜中枢接口｜为什么优先呼吸〕",
+      "reading_location": "呼吸是多条危险支路汇聚的终点",
+      "teaching_span_sha256": "b62e646947a3a9dda6b7140adcadcfc82d781df5c5c85018213f22e82db97ab0",
+      "coverage_rationale": "多路径汇聚呼吸衰竭",
+      "required_prompt_slots": [
+        "气道分泌",
+        "平滑肌",
+        "NMJ",
+        "中枢接口",
+        "为什么优先呼吸"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f02-kp05",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "轻、中、重：分度真正依赖哪一层受体/中枢参与？",
+      "formal_prompt": "M层｜N层｜中枢/呼吸层｜分度阈值｜湿啰音陷阱",
+      "formal_prompt_sha256": "7ef759e64f5707d77de7192b8c7c2e25be147586cfaeb933ce2f1b2b751c5de9",
+      "annotation_exact": "轻、中、重：分度真正依赖哪一层受体/中枢参与？〔M层｜N层｜中枢/呼吸层｜分度阈值｜湿啰音陷阱〕",
+      "reading_location": "呼吸是多条危险支路汇聚的终点",
+      "teaching_span_sha256": "b62e646947a3a9dda6b7140adcadcfc82d781df5c5c85018213f22e82db97ab0",
+      "coverage_rationale": "分度层级、ChE与湿啰音限定",
+      "required_prompt_slots": [
+        "M层",
+        "N层",
+        "中枢/呼吸层",
+        "分度阈值",
+        "湿啰音陷阱"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f02-kp06",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "去污：有机磷治疗第一件事仍是“迅速清除毒物 + 紧急复苏”",
+      "formal_prompt": "总关键2｜皮肤4步｜眼冲4液｜口服3液｜敌百虫/对硫磷禁",
+      "formal_prompt_sha256": "19d15ff38a4776081ee84e25ea54f0abe46eede2e3cfb35dfc8c2a3c6e3541a3",
+      "annotation_exact": "去污：有机磷治疗第一件事仍是“迅速清除毒物 + 紧急复苏”〔总关键2｜皮肤4步｜眼冲4液｜口服3液｜敌百虫/对硫磷禁〕",
+      "reading_location": "药物分工跟着故障层走，去污也要防止生成更毒的产物",
+      "teaching_span_sha256": "f2662c8b4013cf439e4cdadb0748a8d9d4c7eb49f29591e9419e3ee3a70d809f",
+      "coverage_rationale": "三路去污及两种化学禁忌",
+      "required_prompt_slots": [
+        "总关键2",
+        "皮肤4步",
+        "眼冲4液",
+        "口服3液",
+        "敌百虫/对硫磷禁"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f02-kp07",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "四类药的任务分工：外周M、中枢、酶/N、选择性抗胆碱",
+      "formal_prompt": "外周M2药｜中枢1药｜复能剂1类｜新型1药｜任务不能互换",
+      "formal_prompt_sha256": "93c7f30d0dc0504cdb7ec7d4547f94a032e7cac2b6f29b4e6de3d12a83d135cf",
+      "annotation_exact": "四类药的任务分工：外周M、中枢、酶/N、选择性抗胆碱〔外周M2药｜中枢1药｜复能剂1类｜新型1药｜任务不能互换〕",
+      "reading_location": "药物分工跟着故障层走，去污也要防止生成更毒的产物",
+      "teaching_span_sha256": "f2662c8b4013cf439e4cdadb0748a8d9d4c7eb49f29591e9419e3ee3a70d809f",
+      "coverage_rationale": "外周/中枢/复能/选择性药分工",
+      "required_prompt_slots": [
+        "外周M2药",
+        "中枢1药",
+        "复能剂1类",
+        "新型1药",
+        "任务不能互换"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f02-kp08",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "氯解磷定：复能剂也有毒性，过量反而可压回胆碱酯酶",
+      "formal_prompt": "主要作用2｜ADR4｜过量2危｜为什么不能只猛加",
+      "formal_prompt_sha256": "92d429de817bd2d1d272a4b4dcdce9708643c675d2f3eec00e0aa14d3eccd9cc",
+      "annotation_exact": "氯解磷定：复能剂也有毒性，过量反而可压回胆碱酯酶〔主要作用2｜ADR4｜过量2危｜为什么不能只猛加〕",
+      "reading_location": "药物分工跟着故障层走，去污也要防止生成更毒的产物",
+      "teaching_span_sha256": "f2662c8b4013cf439e4cdadb0748a8d9d4c7eb49f29591e9419e3ee3a70d809f",
+      "coverage_rationale": "复能剂有效任务与自身毒性",
+      "required_prompt_slots": [
+        "主要作用2",
+        "ADR4",
+        "过量2危",
+        "为什么不能只猛加"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f02-kp09",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "阿托品化、原中毒未控制、阿托品中毒：怎样从多轴证据区分？",
+      "formal_prompt": "湿/干｜瞳孔｜肺部｜心率｜尿潴留｜中枢｜三态对照",
+      "formal_prompt_sha256": "0852d3e5ddbddbee39bd2e5859f5fc7ee635f9b031a4f2d0584d7e689f9380b2",
+      "annotation_exact": "阿托品化、原中毒未控制、阿托品中毒：怎样从多轴证据区分？〔湿/干｜瞳孔｜肺部｜心率｜尿潴留｜中枢｜三态对照〕",
+      "reading_location": "用多轴证据区分治疗目标与治疗过量",
+      "teaching_span_sha256": "05f38f24520f0046c489978d2a4ea3318b74efe63d3793e42354a9c3b6708de1",
+      "coverage_rationale": "治疗状态三态多轴对照",
+      "required_prompt_slots": [
+        "湿/干",
+        "瞳孔",
+        "肺部",
+        "心率",
+        "尿潴留",
+        "中枢",
+        "三态对照"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f02-kp10",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "急性危象好转后，为什么仍需沿时间轴继续观察？",
+      "formal_prompt": "IMS时间｜典型表现｜ChE方向｜迟发/反跳哪些字段仍需回原Source",
+      "formal_prompt_sha256": "7e30c365b18ea7829042d7d5bfafd8b5007fc5cba65e80b16fce73cb4dfc361a",
+      "annotation_exact": "急性危象好转后，为什么仍需沿时间轴继续观察？〔IMS时间｜典型表现｜ChE方向｜迟发/反跳哪些字段仍需回原Source〕",
+      "reading_location": "用多轴证据区分治疗目标与治疗过量",
+      "teaching_span_sha256": "05f38f24520f0046c489978d2a4ea3318b74efe63d3793e42354a9c3b6708de1",
+      "coverage_rationale": "IMS与迟发/反跳区分；迟发三原字段和反跳已补",
+      "required_prompt_slots": [
+        "IMS时间",
+        "典型表现",
+        "ChE方向",
+        "迟发/反跳哪些字段仍需回原Source"
+      ],
+      "unresolved_or_source_bound": [
+        "原P353未给专门迟发治疗"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "final-f02-kp11",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "吗啡中毒：怎样从瞳孔、呼吸、意识识别并确定解毒方向？",
+      "formal_prompt": "瞳孔｜呼吸｜循环｜意识｜特异拮抗方向",
+      "formal_prompt_sha256": "fc2db222a7c5d2ccdea5b2a1a957cc88421aa14ea49ea7caa72aca31d5b5497c",
+      "annotation_exact": "吗啡中毒：怎样从瞳孔、呼吸、意识识别并确定解毒方向？〔瞳孔｜呼吸｜循环｜意识｜特异拮抗方向〕",
+      "reading_location": "同样缩瞳，换一个受损层，判断就会改变",
+      "teaching_span_sha256": "4c5e709214885a8ac3a7aa43b6e75d44c9a61f82377f72f11050d080a697c4b8",
+      "coverage_rationale": "与有机磷相同缩瞳不同功能层",
+      "required_prompt_slots": [
+        "瞳孔",
+        "呼吸",
+        "循环",
+        "意识",
+        "特异拮抗方向"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f02-kp12",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "吗啡适合 / 禁用：这是 Source-bound 考试串联，不扩成完整药理学",
+      "formal_prompt": "适合3｜禁5｜每个禁忌看风险层｜不扩药理",
+      "formal_prompt_sha256": "fb36b19e0845bc422f209f9fb45ab9b1338e86d22c9c316922b5f5f4434c6f08",
+      "annotation_exact": "吗啡适合 / 禁用：这是 Source-bound 考试串联，不扩成完整药理学〔适合3｜禁5｜每个禁忌看风险层｜不扩药理〕",
+      "reading_location": "同样缩瞳，换一个受损层，判断就会改变",
+      "teaching_span_sha256": "4c5e709214885a8ac3a7aa43b6e75d44c9a61f82377f72f11050d080a697c4b8",
+      "coverage_rationale": "五个禁用风险逐项定位：四项原页批注，一项说明书补充",
+      "required_prompt_slots": [
+        "适合3",
+        "禁5",
+        "每个禁忌看风险层",
+        "不扩药理"
+      ],
+      "unresolved_or_source_bound": [
+        "分娩风险为外证；课程禁用身份不升级现代绝对禁忌"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "final-f02-kp13",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F2_有机磷与胆碱能危象_学习阅读版_v1_最终执行版.md",
+      "title": "纳洛酮 / 镇静催眠药串联：先认主靶点，再保留 Study 特殊口径",
+      "formal_prompt": "纳洛酮作用场景｜BZD解毒药｜镇静催眠药分类｜各主靶点",
+      "formal_prompt_sha256": "5cc16d16e3f6dce45ccf0a7aa4444a5c230b72c36d2c2187ae5d052d81df1ea7",
+      "annotation_exact": "纳洛酮 / 镇静催眠药串联：先认主靶点，再保留 Study 特殊口径〔纳洛酮作用场景｜BZD解毒药｜镇静催眠药分类｜各主靶点〕",
+      "reading_location": "同样缩瞳，换一个受损层，判断就会改变",
+      "teaching_span_sha256": "4c5e709214885a8ac3a7aa43b6e75d44c9a61f82377f72f11050d080a697c4b8",
+      "coverage_rationale": "当前课程药名最低三组分类与目标、拮抗位点区分",
+      "required_prompt_slots": [
+        "纳洛酮作用场景",
+        "BZD解毒药",
+        "镇静催眠药分类",
+        "各主靶点"
+      ],
+      "unresolved_or_source_bound": [
+        "课程纳洛酮/镇静特殊串联与外证药理身份分开"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    }
+  ],
+  "unresolved_source_limits": [
+    "F2-SG01原页给时间/表现/酶，不给专门迟发治疗；禁止把IMS治疗换名填入",
+    "F2-SB01/SB02课程特殊串联保留，现代药理支持单列身份"
+  ],
+  "source_resolution_followup": {
+    "date": "2026-10-04",
+    "affected_targets": [
+      "final-f02-kp10",
+      "final-f02-kp12",
+      "final-f02-kp13"
+    ],
+    "full_Prompt_equals_complete_course_Source": false,
+    "independent_medical_acceptance": false,
+    "user_acceptance": false
+  }
+}

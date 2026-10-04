@@ -1,0 +1,79 @@
+<!-- kianos:lecture-replacement-candidate {"status":"SELF_CANDIDATE_PENDING_CONTENT_ADMISSION","medical_authority":false,"lane":"LECTURE_REPLACEMENT","authoring_base":"bc014aeee3c7ca1be91a180a41336f03d14b3930","canonical_path":"content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md","authoring_canonical_sha256":"30b7f5759b411f5f90f6c6c90b7c9ed882df0b73248518437b492eef24aa332e","draft_canonical_sha256":"30b7f5759b411f5f90f6c6c90b7c9ed882df0b73248518437b492eef24aa332e","policy_dependency_pr":1148,"policy_dependency_commit":"7a276ea16693eaf7c8a36be1080341f47d2c115a","canonical_core_injection":false,"body_revision":"r2.1-portable-h1-reference-20261004","view":"teaching","source_stage_original_sha256":"b79039094cd89f8fe409c6370dc7a9dd81cd8cd2ce364b04c1d939ae262c1873"} -->
+
+# G1｜遗传信息怎样保存成有方向、可打开和可解码的结构
+
+信息既要保存稳定，也要让细胞在需要时读出。先从一条有方向的核酸链建立连接，再看双链怎样稳定、包装和打开，最后看RNA解码与真核基因组组织。复制和完整表达在后续展开，此处先建立它们必须遵守的结构条件。
+
+## 最小积木先给出身份，连接再给出方向
+
+碱基+戊糖为核苷，再接磷酸成核苷酸，多单位串联为核酸。碱基—糖为C—N糖苷键，糖—磷酸为酯联系；链内相邻3′-OH与5′-磷酸成3′,5′-磷酸二酯键。DNA用2′脱氧核糖和A/G/C/T，RNA用核糖和A/G/C/U，通常分别双链、单链。
+
+一级结构描述组成及排列，按5′→3′写，常省重复糖磷酸而写碱基。聚合新链也5′→3′，读模板3′→5′；断一级结构是断磷酸二酯键，不是仅拆双链氢键。核苷酸材料调用M9，本章建立信息载体。
+
+<!-- lr-kp {"kp_id": "dme-g01-kp01", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md"} -->
+> 核酸的最小积木：碱基、戊糖、磷酸怎样组成核苷酸〔3部件｜核苷/核苷酸差1｜DNA/RNA各4碱基｜2类糖〕
+
+<!-- lr-kp {"kp_id": "dme-g01-kp02", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md"} -->
+> 核酸一级结构：序列、方向与磷酸二酯键〔一级结构看什么｜书写方向｜连接键｜相邻核苷酸怎么接〕
+
+样品判断须分身份和纯度。当前Chargaff语言：同个体不同组织DNA组成相同、特定组织组成不随年龄营养环境改变，不同个体可不同；典型双链A=T、G=C，含T无U却不满足该配对数目时先考虑单链。A260/A280则看污染：DNA约1.8、RNA约2.0，<1.8提示蛋白污染，在DNA样品语境>2.0提示RNA污染。核酸260nm、蛋白更多影响280nm；比值不测GC或Tm。互补题先标双链各自方向再配对，不能把字符串同方向逐字比较。
+
+<!-- lr-kp {"kp_id": "dme-g01-kp03", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md"} -->
+> 从碱基组成与吸光比判断核酸身份和纯度〔Chargaff 2层｜单/双链判法｜A260/A280 3界｜污染方向〕
+
+## 双链内部保存碱基，外部提供识别表面
+
+B-DNA反向平行、右手，每圈约10.5bp、螺距3.54nm；糖磷酸亲水骨架在外并沿轴，碱基疏水在内并垂轴。纵向堆积/疏水作用与横向A=T两氢键、G≡C三氢键共同稳定。大沟/小沟形成可接近表面，大沟让调节蛋白较易认序列，G4将调用。Z-DNA左手只作识别；不能把DNA的10.5bp与蛋白α螺旋3.6残基混淆。
+
+真核包装为核小体：H2A/H2B/H3/H4各两份成核心八聚体，DNA绕约1.75圈，连接区H1稳定相邻单位却不属核心。原核以典型环状超螺旋拟核组织。核小体压缩储存，也形成读取的空间障碍，后续复制须同步装配、转录时可暂解聚后重组/移位，完整机制归G2–G4。
+
+<!-- lr-kp {"kp_id": "dme-g01-kp04", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md"} -->
+> B-DNA 双螺旋：信息怎样以稳定又可读取的方式存在〔双螺旋6轴｜每圈/螺距｜碱基/骨架位置｜稳定力2｜大沟用途〕
+
+<!-- lr-kp {"kp_id": "dme-g01-kp05", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md"} -->
+> DNA 高级结构：原核拟核与真核核小体〔原核 vs 真核高级结构｜核小体核心｜DNA缠绕｜H1位置｜核小体地位〕
+
+DNA变性破氢键、双链变单链，一级序列仍在；黏度降、密度升、A260增为增色效应。Tm定义为A260最大变化一半、约半双链解离时温度；长度、GC、离子强度升使Tm升。复性另需足够互补且缓慢去除变性条件，例如慢冷给退火机会；快冷可保存单链。不同来源互补单链也可杂交。高Tm解释稳定，慢冷给机会，互补给配对资格，三者不能互相充作充分条件。
+
+<!-- lr-kp {"kp_id": "dme-g01-kp06", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md"} -->
+> DNA 变性、Tm、复性与核酸杂交〔变性4变｜Tm定义｜升高3因｜复性2条件｜杂交前提〕
+
+## RNA分工后，解码与装载仍须分别准确
+
+典型真核成熟mRNA有帽、5′UTR、ORF、3′UTR、polyA，作直接翻译模板、课程唯一编码RNA；其种类最多、代谢活跃、寿命短、含量少且不稳定。tRNA作氨基酸适配器，rRNA作核糖体结构/催化核心。原核rRNA为23S/5S/16S，真核28S/5.8S/5S/18S；加工程序归G3。
+
+密码从AUG起，按5′→3′连续、无间隔不重叠读三联体；64中61编码，UAA/UAG/UGA通常终止。基本表具有通用性，多数氨基酸有简并密码，Met/AUG与Trp/UGG各一个。反密码第1位摆动识别密码第3位，I可认A/C/U；简并/摆动减轻部分第三位变动影响。编码区非3倍数插缺可移码，3倍数可增减残基而不使后段必移码；不能把连续性换成“所有插缺都移码”。
+
+<!-- lr-kp {"kp_id": "dme-g01-kp07", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md"} -->
+> 三类 RNA 的身份：模板、载体与场所〔mRNA/tRNA/rRNA各任务｜mRNA结构区｜几个“最”｜后续加工边界〕
+
+<!-- lr-kp {"kp_id": "dme-g01-kp08", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md"} -->
+> 遗传密码：一串三联体怎样稳定地映射氨基酸〔起始/终止密码｜遗传密码特性｜唯一性例外｜移码边界｜摆动位置〕
+
+tRNA的DHU环接aaRS，反密码环接mRNA，TψC环接核糖体，3′-CCA接氨基酸；甲基嘌呤、DHU、假尿嘧啶、次黄嘌呤来自转录后修饰。aaRS认氨基酸和tRNA、装载并校对水解错酯，决定“搭对车”；核糖体读码只认车牌，不直接检验车上氨基酸。每tRNA只携一种氨基酸，同一种可由多tRNA对应，Lys保留双aaRS特例。原核30S+50S组成70S，真核40S+60S组成80S，S值不是算术相加；大亚基23S/28S rRNA有转肽酶活性，是核酶。A/P/E执行链留G3。
+
+<!-- lr-kp {"kp_id": "dme-g01-kp09", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md"} -->
+> tRNA—氨基酰-tRNA 合成酶—核糖体：翻译前的三层准确性〔tRNA 4区｜稀有碱基4｜aaRS 3事｜核糖体2套｜核酶1〕
+
+## 真核组织把“被转录”“被保留”和“被翻译”分开
+
+原核典型单复制子、多顺反子，结构基因可共调控且连续编码；真核多复制子、单顺反子、各基因通常较独立调控入口，核小体包装，并有大量非编码/重复序列。单顺反子指一成熟mRNA主要编码一多肽，不是一个DNA只能产一个mRNA。
+
+断裂基因的外显子与内含子都先进入前体RNA，剪去内含子对应部分，外显子保留。成熟两端UTR保留却不翻译，外显子不能简单等于全部蛋白编码区。
+
+重复程度看一类序列在基因组中出现多少份，与基因是否断裂、RNA是否单顺反子是不同问题。已核像素的同周期《27生化思维导图合集》物理P034（印刷P277）把本课程复习分组列为三类：
+
+| 课程重复程度分组 | 原导图对应例/主要对象 |
+| --- | --- |
+| 高度重复 | 卫星DNA、反向重复序列 |
+| 中度重复 | SINEs、LINEs、rRNA基因 |
+| 低度重复/单拷贝 | 多数编码蛋白质的基因 |
+
+P166的2020N146答案CD与导图的LINE/SINE中度分组一致。此表保留课程口径而不把标签变成普遍判据：“反向重复”描述序列排列方向，并不凭名称就给出拷贝数；“低度重复/单拷贝”是导图合并的复习栏，不等于低度重复与单拷贝在数量上同义。原页没有给出统一数值阈值，不增写具体次数。三类名单仍属原MI-D识别范围，不提高为即时学习或发卡门槛。
+
+<!-- lr-kp {"kp_id": "dme-g01-kp10", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G1_核酸与真核基因组_学习阅读版_v1_最终执行版.md"} -->
+> 真核基因组：断裂基因、单顺反子与重复序列〔真核4特征｜外/内/UTR｜单/多顺反子｜单/多复制子｜重复序列3〕
+
+## 当前来源与边界
+
+当前27 BIO27-S16 P105–P114与S21 P166–P168形成主体，S19提供翻译、S20提供调控support，17道附题保留原绑定。P166 2013N37旁注写原/真核“转录不连续”，只保留冲突，不能由断裂基因组织推出转录执行机制；P167外显子“编码序列”简写须同时读其UTR图。旧P180双向启动子未在本组定位，不恢复成当前来源。B-DNA、核小体和重复序列空间精度依当前原图，本稿不新增像素验收或学习状态。

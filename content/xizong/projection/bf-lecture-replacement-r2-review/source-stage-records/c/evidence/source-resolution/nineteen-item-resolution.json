@@ -1,0 +1,476 @@
+{
+  "status": "ALL_19_IMPLEMENTED_IN_LOCAL_CANDIDATE_PENDING_APPROVAL",
+  "initialItems": 19,
+  "categories": {
+    "原页闭合": 6,
+    "条件或事实强度澄清": 8,
+    "源内先修补齐": 5
+  },
+  "supportedMinimumCompletion": 18,
+  "formalStrengthCannotBeUniquelyAdjudicatedFromCourse": 1,
+  "formalStrengthItemIds": [
+    "C-S06"
+  ],
+  "byteBlockers": 0,
+  "permissionBlockers": 0,
+  "implementationRequiresUserDecision": 0,
+  "formalAcceptanceStillPending": true,
+  "formalPromptCandidatesUnaccepted": 4,
+  "items": [
+    {
+      "id": "C-S01",
+      "kpId": "hematology-h01-kp06",
+      "blockId": "hematology-h01",
+      "category": "原页闭合",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/biochem-p076.png",
+          "sha256": "d6d247fe2b4e87a7ca7904a83377c4c1feccaef24e8d7d1cdc2d9fd005aab969"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [
+        "M10"
+      ],
+      "currentStatus": "原生化P076图25-21提供缺项；固定M10身份和范围。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h01/teaching-without-annotations.md",
+      "formalTitle": "红细胞120天后的去向：90%在单核—巨噬系统，10%在血管内",
+      "formalPrompt": "寿命｜90/10｜血外3地1主｜Hb拆4物｜触珠蛋白｜溢出尿",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H1_造血CBC_Ret与骨髓诊断语言_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S02",
+      "kpId": "hematology-h01-kp09",
+      "blockId": "hematology-h01",
+      "category": "原页闭合",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/physiology-p092.png",
+          "sha256": "428d8be7da580d958717c920e68ac69490148e269985c2c804d82f026badcb2e"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [],
+      "currentStatus": "原生理P92的两时相已有直接支持。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h01/teaching-without-annotations.md",
+      "formalTitle": "血小板五动作Recall：识别—连桥—放大—收紧—搭凝血平台",
+      "formalPrompt": "5动作｜GPIb/vWF｜GPIIbIIIa/Fbg/Ca｜两时相｜颗粒3组｜血清vs血浆｜PF",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H1_造血CBC_Ret与骨髓诊断语言_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S03",
+      "kpId": "hematology-h02-kp12",
+      "blockId": "hematology-h02",
+      "category": "条件或事实强度澄清",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/surgery-p233.png",
+          "sha256": "a59f5afb11d65aae7a2f0e9b636465764266e21ecafe0d82035ce8cb2892fa62"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [],
+      "currentStatus": "原页七组与八个单项的计数口径分列；无新造第八症状。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h02/teaching-without-annotations.md",
+      "formalTitle": "溶血反应：供受血不合后同时伤循环、红细胞和肾",
+      "formalPrompt": "表现8｜Hb尿/黄疸｜肾损伤链｜Study处理5｜有尿/无尿分流｜延迟1–2周",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H2_血型交叉配血与成分输血_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S04",
+      "kpId": "hematology-h02-kp14",
+      "blockId": "hematology-h02",
+      "category": "源内先修补齐",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/surgery-p235.png",
+          "sha256": "deca14355179dafc1bf1c4dd5757a737c21e4e5dddfbcc65901f2bc67ab183ca"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [
+        "K5"
+      ],
+      "currentStatus": "K5 KP08–09固定膜机制已补；优先判断附危险条件，不作五并发无条件排序。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h02/teaching-without-annotations.md",
+      "formalTitle": "大量输血：一袋袋库存血把五类负担同时带进来",
+      "formalPrompt": "碱/K/Ca/温/凝5类｜各自机制｜谁最先危膜｜与K5 Recall",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H2_血型交叉配血与成分输血_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S05",
+      "kpId": "hematology-h08-kp06",
+      "blockId": "hematology-h08",
+      "category": "源内先修补齐",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/physiology-p124.png",
+          "sha256": "685cee5b0b6de2a8301b37aabec9cf9e5c715048ac4e31b3763e3d1141399587"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [
+        "A1B1"
+      ],
+      "currentStatus": "A1B1 KP18固定流阻先修已补，并注明固定条件。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h08/teaching-without-annotations.md",
+      "formalTitle": "高黏滞：蛋白太多把血液变稠；冷球蛋白还能接上雷诺现象",
+      "formalPrompt": "M蛋白→黏｜冷球蛋白｜雷诺4相｜血浆置换｜器官灌注接口",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H8_多发性骨髓瘤MM_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S06",
+      "kpId": "hematology-h09-kp12",
+      "blockId": "hematology-h09",
+      "category": "条件或事实强度澄清",
+      "status": "SOURCE_STRENGTH_DIFFERENCE_RETAINED_BODY_COMPLETE",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/internal-p257.png",
+          "sha256": "244ff1c6241a5fb6d95f3e399773153decc509531dd05fb685d56541771ff4d3"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [],
+      "currentStatus": "原页实际内容及正式量词强度差异已完整呈现；唯一尚无课程阳性率支持的量词。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": true,
+      "teachingFile": "h09/teaching-without-annotations.md",
+      "formalTitle": "Auer小体：支持髓系分化；成堆提示M3，但“无Auer”不等于急淋",
+      "formalPrompt": "真髓系｜M0/ALL阴｜AML多阳｜成堆M3｜假样边界",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H9_急性白血病_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S07",
+      "kpId": "hematology-h09-kp21",
+      "blockId": "hematology-h09",
+      "category": "条件或事实强度澄清",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/internal-p257.png",
+          "sha256": "244ff1c6241a5fb6d95f3e399773153decc509531dd05fb685d56541771ff4d3"
+        }
+      ],
+      "externalKeys": [
+        "COH-AML"
+      ],
+      "fixedPriorKeys": [],
+      "currentStatus": "原页两例已绑定；外部机构第三例明确标来源，不称课程固定第三例。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h09/teaching-without-annotations.md",
+      "formalTitle": "白细胞淤滞症：不是“数值高而已”，而是高黏滞 / 微循环堵塞造成脑肺危急症",
+      "formalPrompt": "WBC>100｜脑3｜肺2｜单采｜M3不荐｜先别输RBC",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H9_急性白血病_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S08",
+      "kpId": "hematology-h11-kp28",
+      "blockId": "hematology-h11",
+      "category": "原页闭合",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/internal-p271.png",
+          "sha256": "020a6f67f7d99ceb8812d54c92fc17bc0b72311edd8be9ca4582289c3d15a710"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [],
+      "currentStatus": "原页旁注12的相对数值支持已补；教学相对方向不加强为绝对阴性。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h11/teaching-without-annotations.md",
+      "formalTitle": "富于淋巴细胞型：背景淋巴细胞多、RS相对少，预后最好",
+      "formalPrompt": "淋巴多｜RS少｜EBV中低｜CHL预后最好",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H11_淋巴瘤_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S09",
+      "kpId": "hematology-h17-kp09",
+      "blockId": "hematology-h17",
+      "category": "条件或事实强度澄清",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/internal-p337.png",
+          "sha256": "645b7b11d447de4fc2eb6106631ea844670cbae16202c4c3d26a8d1e8e9ce8d3"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [],
+      "currentStatus": "原页排序、所比较范围及性别/吸烟关联分开呈现。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h17/teaching-without-annotations.md",
+      "formalTitle": "关节外表现：结节、贫血、肺、血管与器官受累",
+      "formalPrompt": "结节4｜贫血｜肺1最常见｜血管炎｜男性/吸烟接口",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H17_类风湿关节炎RA_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S10",
+      "kpId": "hematology-h18-kp04",
+      "blockId": "hematology-h18",
+      "category": "条件或事实强度澄清",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/internal-p342.png",
+          "sha256": "3d69007ed726f17e717162ba0d32311d40c1ef997ff42e6b793fdb63626e091c"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [],
+      "currentStatus": "原页四项的器官分组已明确，未把四功能检查说成四眼检查。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h18/teaching-without-annotations.md",
+      "formalTitle": "眼部三联：眼干、哭时无泪、异物感",
+      "formalPrompt": "眼干｜无泪｜异物感｜检查4｜后置眼科",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H18_原发性干燥综合征_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S11",
+      "kpId": "hematology-h18-kp08",
+      "blockId": "hematology-h18",
+      "category": "原页闭合",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/internal-p342.png",
+          "sha256": "3d69007ed726f17e717162ba0d32311d40c1ef997ff42e6b793fdb63626e091c"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [],
+      "currentStatus": "原页旁注2的最常见限定范围已补，不扩大总体。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h18/teaching-without-annotations.md",
+      "formalTitle": "NHL / MALT警报：持续腮腺肿大不是普通干燥",
+      "formalPrompt": "肿瘤1类｜最常见1型｜风险8项｜警报3｜回H11",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H18_原发性干燥综合征_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S12",
+      "kpId": "hematology-h19-kp10",
+      "blockId": "hematology-h19",
+      "category": "条件或事实强度澄清",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/internal-p345.png",
+          "sha256": "cedb2e29557a43bdb03900f339ea73f6c68f474bb4ac3400483cb94b5340133c"
+        }
+      ],
+      "externalKeys": [
+        "RITUXAN-LABEL"
+      ],
+      "fixedPriorKeys": [],
+      "currentStatus": "经批准药品标签§5.6/§17提供明确的最小警报支持；无完整治疗算法。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h19/teaching-without-annotations.md",
+      "formalTitle": "MPA治疗：GC + 免疫抑制剂，利妥昔单抗为当前一线接口",
+      "formalPrompt": "组合2类｜代表1｜生物1｜诱导维持边界｜感染警报",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H19_系统性血管炎与贝赫切特病_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S13",
+      "kpId": "hematology-h21-kp09",
+      "blockId": "hematology-h21",
+      "category": "源内先修补齐",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [],
+      "externalKeys": [],
+      "fixedPriorKeys": [
+        "K13"
+      ],
+      "currentStatus": "K13 KP03固定三症定义已补；完整泌尿模型仍归原owner。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h21/teaching-without-annotations.md",
+      "formalTitle": "肾与泌尿生殖结核：肺外播散落在肾，症状却常先出现在膀胱",
+      "formalPrompt": "肾/泌尿生殖结核：来源｜症状先落哪｜三症｜肾自截｜男性生殖播散方向",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H21_结核跨器官整合_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S14",
+      "kpId": "hematology-h24-kp13",
+      "blockId": "hematology-h24",
+      "category": "原页闭合",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/pathology-p165.png",
+          "sha256": "7d2785f6a7f3a67e1edf908596a49e86f2f2f44527090cf61679be6cbee383cb"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [],
+      "currentStatus": "当前原病理非导图P165两类排列直接支持已补；不以单形态诊断。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h24/teaching-without-annotations.md",
+      "formalTitle": "Langhans vs 异物巨细胞：病因分组，不只看“多核”",
+      "formalPrompt": "Langhans3病｜异物3类｜核排列接口｜例外边界",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H24_血吸虫病与性传播疾病_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-S15",
+      "kpId": "hematology-h26-kp05",
+      "blockId": "hematology-h26",
+      "category": "条件或事实强度澄清",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/surgery-p255.png",
+          "sha256": "e2a76da1d0443be0e80151ee29da3d165c82c5f263f990e8e226b91ae90bd97c"
+        }
+      ],
+      "externalKeys": [
+        "SCCM-2026"
+      ],
+      "fixedPriorKeys": [],
+      "currentStatus": "SCCM2026官方最小顺序/紧急行动支持有明示来源；讲义旧定义保留。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h26/teaching-without-annotations.md",
+      "formalTitle": "培养取样：寒战发热时血培养；局部灶取脓液 / 穿刺液；导管感染取导管内样本",
+      "formalPrompt": "血培养时机｜局部2样本｜导管1例｜为什么多部位｜先采还是先拖药",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H26_脓毒症_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-G01",
+      "kpId": "hematology-h01-kp10",
+      "blockId": "hematology-h01",
+      "category": "源内先修补齐",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/physiology-p124.png",
+          "sha256": "685cee5b0b6de2a8301b37aabec9cf9e5c715048ac4e31b3763e3d1141399587"
+        }
+      ],
+      "externalKeys": [
+        "IUPAC-S05636"
+      ],
+      "fixedPriorKeys": [
+        "A1B1"
+      ],
+      "currentStatus": "A1B1 KP18机制和IUPAC定义明确绑定，先修名称已变可复习短支持。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h01/teaching-without-annotations.md",
+      "formalTitle": "Hct与黏度：一个是相对浓度，一个是流动阻力的重要决定因素",
+      "formalPrompt": "Hct定义｜主要代表谁｜全血2因1主｜血浆1因｜贫血/失血方向｜切率",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H1_造血CBC_Ret与骨髓诊断语言_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-G09",
+      "kpId": "hematology-h06-kp15",
+      "blockId": "hematology-h06",
+      "category": "源内先修补齐",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/internal-p241.png",
+          "sha256": "4ec3b4fd9e41e0d17bb34d45cafd7a899f8785d7a054f8818462240324100e0b"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [
+        "R9"
+      ],
+      "currentStatus": "R9固定PE前提与单位已补，原先修owner保留。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h06/teaching-without-annotations.md",
+      "formalTitle": "3P、FDP、D-二聚体：都指向纤溶，但回答的问题不同",
+      "formalPrompt": "FDP做什么｜3P原理3步｜D-D是什么｜阳性只说明哪层｜//串联：PE",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H6_出血性疾病_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-G12",
+      "kpId": "hematology-h08-kp07",
+      "blockId": "hematology-h08",
+      "category": "原页闭合",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/pathology-p138.png",
+          "sha256": "cf28529395148df9bf1fa8ae22af599bc90d6bbbd4d0e4393e71fcdc1cfa82fb"
+        }
+      ],
+      "externalKeys": [],
+      "fixedPriorKeys": [],
+      "currentStatus": "当前原病理非导图P138提供总论两定义；只补固定先修应用。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h08/teaching-without-annotations.md",
+      "formalTitle": "M 蛋白还能制造三组“附加表现”：出血、淀粉样变、缗钱状 / ESR快",
+      "formalPrompt": "出血4因｜淀粉样｜缗钱｜ESR↑｜Russell串联",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H8_多发性骨髓瘤MM_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    },
+    {
+      "id": "C-G15",
+      "kpId": "hematology-h11-kp17",
+      "blockId": "hematology-h11",
+      "category": "条件或事实强度澄清",
+      "status": "MINIMUM_SUPPORTED_LOCAL_COMPLETION",
+      "evidence": [
+        {
+          "path": "evidence/source-resolution/internal-p269.png",
+          "sha256": "b7b1d5e42c91bc6567ee1b0a4afa3867f32fb5e9198ed840cdf01efc43cc591e"
+        },
+        {
+          "path": "evidence/source-resolution/internal-p272.png",
+          "sha256": "bc69731ff8d7f18d952b545ac31c828d483ed4a39815f6331b16e520ea6e03c7"
+        }
+      ],
+      "externalKeys": [
+        "NIH-ALK",
+        "NCI-ALK",
+        "ZAMO-2002"
+      ],
+      "fixedPriorKeys": [],
+      "currentStatus": "NIH/NCI及原始研究摘要补有条件增殖接口；不扩为全型或编Ki67阈值。",
+      "cannotUniquelyAdjudicateFormalStrengthFromCourse": false,
+      "teachingFile": "h11/teaching-without-annotations.md",
+      "formalTitle": "间变性大：儿童青少年入口，CD30与t(2;5)挂到同一身份",
+      "formalPrompt": "儿童青少年｜T方向｜CD30｜2;5｜高度增殖接口",
+      "formalOwner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H11_淋巴瘤_学习阅读版_v1_最终执行版.md",
+      "formalSourceLocator": ""
+    }
+  ],
+  "extraRepairs": [
+    {
+      "kpId": "hematology-h19-kp16",
+      "constraintId": "H19-SR01",
+      "status": "ALL_7_ORIGINAL_TABLE_ROWS_READ_AND_ADDED; ORIGINAL_TABLE_HAS_NO_TOTAL_CUTOFF",
+      "evidence": "evidence/source-resolution/internal-p346.png"
+    },
+    {
+      "kpId": "hematology-h23-kp11",
+      "constraintId": "H23-SB01",
+      "status": "OTHER_SAME_FEVER_TYPE_SUPPORTED_BY_EXISTING_SOURCE_AND_ORIGINAL_PDF; FULL_MALARIA_SCOPE_REMAINS",
+      "evidence": "evidence/source-resolution/internal-p053.png"
+    }
+  ]
+}

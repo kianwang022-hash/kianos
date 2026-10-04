@@ -348,12 +348,21 @@
       "question_truth_path": "content/xizong/questions/shards/2015/q051-075.json",
       "question_truth_blob_sha": "2ecb4614eb5e636958fe3ecd8bdc85ca4734428e",
       "knowledge_path": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "3e2fadeb01cb83c5ec23c9c40c6e57cb810c72c0"
+      "knowledge_blob_sha": "3e2fadeb01cb83c5ec23c9c40c6e57cb810c72c0",
+      "knowledge_revalidated_blob_sha": "836c9bbceb9e76b504bc4a2bd94b0e50c288ab53"
     },
     "review": {
       "semantic_owner": "Chat",
       "basis": "Independent SECOND_PASS safe block owner confirmed. Final integration revalidated against current Question Truth and Current Knowledge owner.",
-      "old_mapping_inherited": false
+      "old_mapping_inherited": false,
+      "bounded_prompt_route_equivalence_2026_10_04": {
+        "reviewer": "Codex SELF bounded equivalence; not a new independent medical review",
+        "base_commit": "bc014aeee3c7ca1be91a180a41336f03d14b3930",
+        "previous_effective_witness": "3e2fadeb01cb83c5ec23c9c40c6e57cb810c72c0",
+        "reviewed_blob": "836c9bbceb9e76b504bc4a2bd94b0e50c288ab53",
+        "basis": "Original Question/options/official answer/Explanation and existing role judgment unchanged. Entire owner differs only by the seven reviewed Prompt count/object corrections and H1 exact A1 B4 reference. Full native mapped medical Core and support retain their prior facts/conditions; ESR Source disagreement remains explicit. Only CURRENT-at-base rows are revalidated.",
+        "proof": "content/xizong/projection/bf-lecture-replacement-r2-review/dependency-reconciliation.json"
+      }
     }
   },
   {

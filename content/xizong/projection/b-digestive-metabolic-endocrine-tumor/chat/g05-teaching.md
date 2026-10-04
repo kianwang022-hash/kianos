@@ -1,0 +1,94 @@
+<!-- kianos:lecture-replacement-candidate {"status":"SELF_CANDIDATE_PENDING_CONTENT_ADMISSION","medical_authority":false,"lane":"LECTURE_REPLACEMENT","authoring_base":"bc014aeee3c7ca1be91a180a41336f03d14b3930","canonical_path":"content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md","authoring_canonical_sha256":"eb6cb1cbb36139c4ed5237c963149c1e7bf7cc1454cbc688fab2209db7b2c8de","draft_canonical_sha256":"eb6cb1cbb36139c4ed5237c963149c1e7bf7cc1454cbc688fab2209db7b2c8de","policy_dependency_pr":1148,"policy_dependency_commit":"7a276ea16693eaf7c8a36be1080341f47d2c115a","canonical_core_injection":false,"body_revision":"r2.1-portable-h1-reference-20261004","view":"teaching","source_stage_original_sha256":"1635bc5e5f12ebc613f53be8142becfb3328a79b20107217bac1f5856846df5d"} -->
+
+# G5｜生长控制怎样失效，分子工具怎样辨认和操作改变
+
+肿瘤分子层要同时解释促生长信号过强、检查制动丧失、损伤修复失败；技术则分别回答序列、表达、相互作用和构建问题。先建立故障模型，再选能回答那个问题的工具，避免把任何阳性实验都当同一种分子结论。
+
+## 正常调节器被改变，不是凭空多出一套癌基因
+
+原癌基因正常参与生长、增殖、分化正调，异常激活才形成癌基因效应；抑癌基因约束周期、修复或凋亡，丧失则失去限制；DNA损伤累积与修复失败提供不稳定底层，三者共同推动增殖、存活、基因组稳定失控。
+
+激活有四路：K-RAS点突变可使GTP酶开关持续活化并驱MAPK，改变蛋白功能；HER2或MYC扩增加拷贝、增表达；易位把c-MYC搬强调区或产生BCR-ABL融合；逆转录病毒强启动子/LTR/增强子插近原癌基因，增表达。结构改变和表达增量不同，不能全归成蛋白序列突变。
+
+<!-- lr-kp {"kp_id": "dme-g05-kp01", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> 肿瘤分子三道门：生长信号、抑制与DNA修复〔原癌基因｜抑癌基因｜DNA修复｜三道门各失控后果〕
+
+<!-- lr-kp {"kp_id": "dme-g05-kp02", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> 原癌基因、癌基因与抑癌基因：正常细胞本来就有的两套调节器〔原癌基因 vs 抑癌基因｜正常作用方向｜激活/失活后果｜正常细胞是否存在〕
+
+<!-- lr-kp {"kp_id": "dme-g05-kp03", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> 原癌基因激活的四条路〔激活4路｜蛋白结构/表达量｜各1例〕
+
+产物挂回信号层：生长因子SIS；受体ERBB/EGFR、HER2、KIT、FMS、TRK；胞内RAS/RAF/SRC/ABL；转录MYC/FOS/JUN；周期Cyclin D1。多数生长因子局部旁/自分泌，受体多为膜酪氨酸激酶或相关型；生长因子虽多正调，也可负/双向。原癌基因广泛存在，部分逆转录病毒有病毒癌基因接口，完整肿瘤/染色体配对后置精记。
+
+抑癌失活另有三路：CpG启动子甲基化压低表达；杂合性/片段丢失；功能突变。这些路分别涉及表达减少、缺失或蛋白功能丧失，不能仅因最终都可促进增殖，就合成同一入口。接下来要看失去的是哪一种控制。
+
+p53是转录因子，连接“停—修—死”三个输出：p21让周期先停下，GADD45接修复，BAX促凋亡。这样先给修复留机会，修不好再清除；三个名称应挂在这条处理顺序上。
+
+RB/p16控制进入S期的闸门。低磷酸化RB结合并限制E2F；RB高磷酸化后，E2F可推动S期基因表达。p16抑制相关周期蛋白-CDK活性，帮助维持这道闸门。
+
+PTEN控制的是促生长信号：它作为磷酸酶把PIP3去磷酸化，使PI3K/AKT信号降低。2025N28检查此酶身份；先理解它怎样撤下信号，再识别磷酸酶名称。
+
+<!-- lr-kp {"kp_id": "dme-g05-kp04", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> 癌基因产物按信号链定位〔5层产物｜配体/受体/胞内/TF/周期｜代表例子〕
+
+<!-- lr-kp {"kp_id": "dme-g05-kp05", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> 抑癌基因怎样失活：甲基化、杂合性丢失与突变〔失活3路｜p53 3输出｜RB/p16检查点｜修不好怎么办〕
+
+## 损伤的编码后果与修复工具，要各自按对象判断
+
+DNA突变首先是碱基/一级序列改变：同义靠简并仍同氨基酸，错义换氨基酸如Hbβ Glu→Val，无义提前终止。编码区非3倍数插缺可后段移码，3倍数增减残基而后框可不移；非编码变化不能统称移码。重排/易位改大片段或组合，与激活路连接。
+
+<!-- lr-kp {"kp_id": "dme-g05-kp12", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> 突变类型：点突变、错义、无义、同义与移码〔点突变3结局｜插/缺×3倍数｜移码｜重排｜镰贫例〕
+
+直接修复的课程例为光裂合酶拆UV嘧啶二聚体、连接酶封双链中的单链缺口；不据此扩写成人所有修复能力。BER按糖苷酶去坏碱基→AP位→AP内切酶开→DNApol补→连接酶封。NER认双螺旋扭曲，原核Uvr、真核XP；错配修复纠复制后错配再切补。当前课程把切除/纠错并列、“切除最普遍”为其框架语言，不升级通用分类。
+
+双链断裂有两支：同源重组的RecA/BRCA，与非同源末端连接DNA-PK/XRCC4；同属大框不使后一组变同源重组。2023N25在给定选项选重组修复，也不排除另一支。SOS为原核广泛损伤时紧急、低特异、高错误率，课程Pol IV/V；先救存活可能付突变代价。
+
+当前P170还明确真核有低保真/跨损伤聚合酶组，但首手写字ξ/ζ歧义仍不定exact字母。另P170把原核Pol II置低保真行，P117复制表却保留其3′→5′校对；保留局部Source差异，不能整行推成Pol II没有校对，也不影响IV/V接口。修复缺陷识别可后置：NER—XP/毛发低硫营养不良/Cockayne，错配—遗传性非息肉病结肠癌，重组—遗传性乳腺癌/Bloom。
+
+<!-- lr-kp {"kp_id": "dme-g05-kp13", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> DNA修复系统：直接修、切掉重补、纠错、双链断裂与SOS〔5大类｜光修/连接｜BER链｜NER识别｜双断裂｜SOS特点｜缺陷病〕
+
+## 要操作目的DNA，构建和筛选都必须成立
+
+取目的基因→切目的片段与载体→连接成重组DNA→导入受体→按标记筛重组子→扩增/表达。目的DNA可从基因组/cDNA文库、PCR、mRNA逆转录、化学合成获得；限制酶切、连接酶接，逆转录酶和DNApol I/Klenow各承担合成接口。
+
+克隆载体可为质粒、噬菌体、染色体等，须有宿主可用复制起点、筛选标志、适宜插片的限制酶单一切点；“能带片段”不是第三条件替代。外源片段插tetR可使ampR保留、tetR失活，双抗板帮助筛。还可按序列用PCR/杂交/测序，或按亲和用抗原抗体/配体受体。筛出带载体不自动证明已正确表达。
+
+<!-- lr-kp {"kp_id": "dme-g05-kp06", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> 重组DNA的总流程：取—切—接—导—筛—表达〔构建到表达流程｜目的基因来源｜工具酶分工｜载体3条件｜筛选1例〕
+
+细菌来源限制内切酶认特定序列、常回文/反向重复，并在双链内部特定位点切；回文沿两互补链各自5′→3′读。若同一种酶产生黏端，片段和载体可匹配，连接酶封磷酸二酯；同酶也可能平端，平端可接但无突出互补定位优势。磷酸酶去载体末端磷酸降低自连，PCR引物退火不是黏端连接。
+
+课程“转化”导DNA到细菌/真菌，“转染”质粒等导真核如动物细胞，“感染”用病毒载体。质粒典型环状双链用于运目的DNA，不用来促进宿主复制或携酶剪宿主RNA；术语维持本Lecture考试范围。
+
+<!-- lr-kp {"kp_id": "dme-g05-kp07", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> 限制酶、黏性末端与载体防自连〔RE 3特征｜回文判法｜黏/平端｜同酶连接｜磷酸酶防什么〕
+
+<!-- lr-kp {"kp_id": "dme-g05-kp08", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> 转化、转染与感染：重组DNA怎样进入细胞〔转化/转染/感染各对象｜病毒作载体归谁｜质粒身份〕
+
+## 扩增、检测表达和相互作用，选择不同证据
+
+PCR需模板DNA、两方向特异引物、四dNTP、耐热Taq、缓冲离子。两引物分别对应两模板链，使延伸围住目的区：约94℃解链→55℃引物退火→72℃延伸，循环指数增加。可取目的片段、分析变异、接测序或体外突变。RNA须先逆转录成cDNA，PCR本身扩DNA。
+
+Southern检测DNA、Northern RNA、Western蛋白，RT-PCR先逆转录再PCR，接RNA表达/病原。蛋白表达常用Western，核酸杂交/基因诊断不能由仅蛋白Western替代；Southern不直接测蛋白量。qPCR只说明定量，有RNA起点还须RT-qPCR，不因qPCR名字假定逆转录已经完成。
+
+<!-- lr-kp {"kp_id": "dme-g05-kp09", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> PCR：体外怎样指数扩增目标DNA〔5组分｜三阶段温度与作用｜2引物方向｜循环特点｜用途〕
+
+<!-- lr-kp {"kp_id": "dme-g05-kp10", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> Southern、Northern、Western与表达检测〔S/N/W各对象｜RT-PCR｜基因诊断不能用谁｜表达量常用谁〕
+
+蛋白—蛋白可用酵母双杂交、免疫共沉淀、GST pull-down、FRET接近/能量转移；DNA—蛋白用体外EMSA迁移变化、适合体内ChIP、酵母单杂交。链末端终止法测序，PCR/测序、DNA—蛋白方法、生物信息预测组合可研究启动子。印迹告诉对象是否在或多少，不直接充作相互作用实验。
+
+P103 2023N28问“体内”，正式答案却B/EMSA；现有APPROVED Explanation保留NO_SAFE_MATCH。官方答案不改，EMSA不能反向教成体内占位技术，技术证据范围与题目历史口径分开。
+
+<!-- lr-kp {"kp_id": "dme-g05-kp11", "owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/生化_G5_DNA损伤癌基因重组与分子技术_学习阅读版_v1_最终执行版.md"} -->
+> 相互作用与序列分析技术：先问“研究哪两类分子”〔蛋白-蛋白4法｜DNA-蛋白3法｜测序1法｜启动子分析组合〕
+
+## 当前来源与边界
+
+当前27 BIO27-S15 P093–P104形成生长控制及工具，S17 P115–P127提供复制support，S22 P169–P170形成损伤、P168现有修复分支可回看；29道附题及2025N26/N28/N147按既有绑定。ξ/ζ、Pol II双表、EMSA冲突均保持开放限定，不新验收原图或重审关系。完成分子解释也只达到肿瘤Gate分子半层，仍须病理U019形态/行为层，不能宣称全局肿瘤Gate或System Integration完成。

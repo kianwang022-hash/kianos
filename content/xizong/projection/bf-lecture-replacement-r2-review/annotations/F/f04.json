@@ -1,0 +1,396 @@
+{
+  "status": "LOCAL_SELF_CANDIDATE_NOT_INDEPENDENT_OR_USER_ACCEPTED",
+  "block_id": "F4",
+  "kp_count": 14,
+  "logic_group_count": 5,
+  "coverage_model": "independently authored continuous medicine; exact annotations applied afterward",
+  "explicit_medical_relations": [
+    "通透性升高与蛋白转移同时推动组织水肿和血管内低容量",
+    "面积与深度独立，严重度再叠危险部位/系统因素",
+    "时相改变容量与感染的主问题，补液公式需灌注反馈",
+    "坏死组织持续供给感染，药物不替代创面源控制"
+  ],
+  "relations_origin": "AUTHORED_MEDICAL_REASONING_IN_BODY; no edge or order inferred from KP/LG/headings",
+  "reading_sections_are_not_topology_nodes": true,
+  "kp_annotations": [
+    {
+      "kp_id": "remaining-f04-kp01",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "烧伤早期为什么会同时出现明显水肿与有效循环容量下降？",
+      "formal_prompt": "内皮/毛细血管｜液体与蛋白分布｜组织间隙｜有效循环容量｜休克",
+      "formal_prompt_sha256": "53c198726da178c15a37c734ee7f93f8c4c7a1b8a1f763e842cd1b1026499475",
+      "annotation_exact": "烧伤早期为什么会同时出现明显水肿与有效循环容量下降？〔内皮/毛细血管｜液体与蛋白分布｜组织间隙｜有效循环容量｜休克〕",
+      "reading_location": "液体从血管漏出，肿胀与低容量可以并存",
+      "teaching_span_sha256": "245f637faa3dae12fa2bca0054d927ea6c9904b48fe551603a12ec5b0b90f079",
+      "coverage_rationale": "通透性、蛋白转移与有效容量",
+      "required_prompt_slots": [
+        "内皮/毛细血管",
+        "液体与蛋白分布",
+        "组织间隙",
+        "有效循环容量",
+        "休克"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp02",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "应激性急性溃疡：Curling烧伤，Cushing脑病，Study好发胃底体",
+      "formal_prompt": "两溃疡｜触发2｜好发1组｜别与PUD混",
+      "formal_prompt_sha256": "c61a8effcc2852fb1d4bba7ca259e6b1e5f03ad8abfb4c5651ca031806db2faa",
+      "annotation_exact": "应激性急性溃疡：Curling烧伤，Cushing脑病，Study好发胃底体〔两溃疡｜触发2｜好发1组｜别与PUD混〕",
+      "reading_location": "液体从血管漏出，肿胀与低容量可以并存",
+      "teaching_span_sha256": "245f637faa3dae12fa2bca0054d927ea6c9904b48fe551603a12ec5b0b90f079",
+      "coverage_rationale": "两种应激溃疡触发与胃底体",
+      "required_prompt_slots": [
+        "两溃疡",
+        "触发2",
+        "好发1组",
+        "别与PUD混"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp03",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "烧伤面积：成人、儿童和手掌法分别怎样估算？",
+      "formal_prompt": "成人4区｜儿童头9+(12-age)｜腿46-(12-age)｜手掌1｜双/单侧",
+      "formal_prompt_sha256": "6a10d9bef7bdbf403ee158a60ec0d8f87a59e8fd25fe5a6e515ea37b0d836796",
+      "annotation_exact": "烧伤面积：成人、儿童和手掌法分别怎样估算？〔成人4区｜儿童头9+(12-age)｜腿46-(12-age)｜手掌1｜双/单侧〕",
+      "reading_location": "面积说明复苏负荷，深度说明残留的修复能力",
+      "teaching_span_sha256": "cfa8a57197ce0ce6ec6957e7309303fd476554d0dc9d081dd66154f3980f8337",
+      "coverage_rationale": "面积算法及Ⅰ度排除",
+      "required_prompt_slots": [
+        "成人4区",
+        "儿童头9+(12-age)",
+        "腿46-(12-age)",
+        "手掌1",
+        "双/单侧"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp04",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "Ⅰ度与浅Ⅱ度：怎样从损伤层次推导修复能力？",
+      "formal_prompt": "损伤层次｜再生基础｜疼痛/水疱｜修复能力",
+      "formal_prompt_sha256": "3a9995a8f66635eb3aa89c9a40b5557b76aed61a25b2dd8cb8bb9908c0a6dc94",
+      "annotation_exact": "Ⅰ度与浅Ⅱ度：怎样从损伤层次推导修复能力？〔损伤层次｜再生基础｜疼痛/水疱｜修复能力〕",
+      "reading_location": "面积说明复苏负荷，深度说明残留的修复能力",
+      "teaching_span_sha256": "cfa8a57197ce0ce6ec6957e7309303fd476554d0dc9d081dd66154f3980f8337",
+      "coverage_rationale": "层次决定浅层修复基础",
+      "required_prompt_slots": [
+        "损伤层次",
+        "再生基础",
+        "疼痛/水疱",
+        "修复能力"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp05",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "深Ⅱ度与Ⅲ度：怎样从残余结构推导痛觉、瘢痕与植皮需求？",
+      "formal_prompt": "残余结构｜痛觉｜创面特征｜瘢痕｜植皮需求",
+      "formal_prompt_sha256": "fb2c1d3c792a3127a44591646cf2790e06b028bf5884e5637b69d8c7bb46b493",
+      "annotation_exact": "深Ⅱ度与Ⅲ度：怎样从残余结构推导痛觉、瘢痕与植皮需求？〔残余结构｜痛觉｜创面特征｜瘢痕｜植皮需求〕",
+      "reading_location": "面积说明复苏负荷，深度说明残留的修复能力",
+      "teaching_span_sha256": "cfa8a57197ce0ce6ec6957e7309303fd476554d0dc9d081dd66154f3980f8337",
+      "coverage_rationale": "深部结构/感觉损失/植皮结局",
+      "required_prompt_slots": [
+        "残余结构",
+        "痛觉",
+        "创面特征",
+        "瘢痕",
+        "植皮需求"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp11",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "水疱皮：浅Ⅱ与深Ⅱ应怎样处理，依据是什么？",
+      "formal_prompt": "浅Ⅱ｜深Ⅱ｜疱皮处理｜组织深度依据",
+      "formal_prompt_sha256": "1c0d727160b7367d929343df62b58386c4253d92f5c62e8ec34b5c71dc196df8",
+      "annotation_exact": "水疱皮：浅Ⅱ与深Ⅱ应怎样处理，依据是什么？〔浅Ⅱ｜深Ⅱ｜疱皮处理｜组织深度依据〕",
+      "reading_location": "面积说明复苏负荷，深度说明残留的修复能力",
+      "teaching_span_sha256": "cfa8a57197ce0ce6ec6957e7309303fd476554d0dc9d081dd66154f3980f8337",
+      "coverage_rationale": "残存再生结构决定疱皮处理",
+      "required_prompt_slots": [
+        "浅Ⅱ",
+        "深Ⅱ",
+        "疱皮处理",
+        "组织深度依据"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp06",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "烧伤严重度：面积、深度与哪些升级因素共同决定？",
+      "formal_prompt": "Ⅱ度面积｜Ⅲ度面积｜总面积｜升级因素",
+      "formal_prompt_sha256": "25a69f3011f706f6693f09a6b82d928cb8a2ae029dd7867777e5801f3d61df01",
+      "annotation_exact": "烧伤严重度：面积、深度与哪些升级因素共同决定？〔Ⅱ度面积｜Ⅲ度面积｜总面积｜升级因素〕",
+      "reading_location": "面积说明复苏负荷，深度说明残留的修复能力",
+      "teaching_span_sha256": "cfa8a57197ce0ce6ec6957e7309303fd476554d0dc9d081dd66154f3980f8337",
+      "coverage_rationale": "面积深度独立后再叠升级因素",
+      "required_prompt_slots": [
+        "Ⅱ度面积",
+        "Ⅲ度面积",
+        "总面积",
+        "升级因素"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp07",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "烧伤时相：容量、感染与修复问题怎样随时间切换？",
+      "formal_prompt": "早期容量｜感染期｜修复期｜各期主问题",
+      "formal_prompt_sha256": "6098766611abf762782138c5ba625a133366be762103c5d7179f06267019a9db",
+      "annotation_exact": "烧伤时相：容量、感染与修复问题怎样随时间切换？〔早期容量｜感染期｜修复期｜各期主问题〕",
+      "reading_location": "时相改变主矛盾，公式给起点，灌注给反馈",
+      "teaching_span_sha256": "5dc8ea97bdd3da2d4874a7dfaa918d8e4e91d84dfc3f9dac66e031baae402d43",
+      "coverage_rationale": "时相切换且持续并行监测",
+      "required_prompt_slots": [
+        "早期容量",
+        "感染期",
+        "修复期",
+        "各期主问题"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp08",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "烧伤补液：第1/第2个24h怎样按当前 Study 计算与分配？",
+      "formal_prompt": "谁计面积｜1.5 ml/kg/%｜+2000 ml 5%G｜晶:胶2:1（广泛深度1:1）｜前8h一半｜第2日晶胶减半｜尿量动态",
+      "formal_prompt_sha256": "60816939167cf62b14757804ed1717b5111c6d6c7f2abd8f19ef963fc1f68e4b",
+      "annotation_exact": "烧伤补液：第1/第2个24h怎样按当前 Study 计算与分配？〔谁计面积｜1.5 ml/kg/%｜+2000 ml 5%G｜晶:胶2:1（广泛深度1:1）｜前8h一半｜第2日晶胶减半｜尿量动态〕",
+      "reading_location": "时相改变主矛盾，公式给起点，灌注给反馈",
+      "teaching_span_sha256": "5dc8ea97bdd3da2d4874a7dfaa918d8e4e91d84dfc3f9dac66e031baae402d43",
+      "coverage_rationale": "现行公式、晶胶例外、两日分配与反馈",
+      "required_prompt_slots": [
+        "谁计面积",
+        "1.5 ml/kg/%",
+        "+2000 ml 5%G",
+        "晶:胶2:1（广泛深度1:1）",
+        "前8h一半",
+        "第2日晶胶减半",
+        "尿量动态"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp09",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "急性感染期：为什么仅靠抗菌药不够，创面 source control 怎样进入？",
+      "formal_prompt": "坏死组织｜感染源｜削/切痂｜植皮｜抗菌药角色",
+      "formal_prompt_sha256": "429d2a1488a9dd2031235b274526f1501f10c7449e682bf0795d27c2b9eb6138",
+      "annotation_exact": "急性感染期：为什么仅靠抗菌药不够，创面 source control 怎样进入？〔坏死组织｜感染源｜削/切痂｜植皮｜抗菌药角色〕",
+      "reading_location": "局部处理也要围绕组织是否仍能修复、是否持续供给感染",
+      "teaching_span_sha256": "92d2d0d923eafaafd3f59d4c09f1079678858a1a034ebb825609a48ff07addc8",
+      "coverage_rationale": "坏死组织感染源与抗菌药角色",
+      "required_prompt_slots": [
+        "坏死组织",
+        "感染源",
+        "削/切痂",
+        "植皮",
+        "抗菌药角色"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp12",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "包扎还是暴露：怎样由部位、深度和敷料要求决定？",
+      "formal_prompt": "部位｜深度｜敷料结构｜覆盖范围｜暴露适应方向",
+      "formal_prompt_sha256": "cb8d8b27764ca1bc7de80489c5b2367e55cace24705f52157514ad8f4075cd54",
+      "annotation_exact": "包扎还是暴露：怎样由部位、深度和敷料要求决定？〔部位｜深度｜敷料结构｜覆盖范围｜暴露适应方向〕",
+      "reading_location": "局部处理也要围绕组织是否仍能修复、是否持续供给感染",
+      "teaching_span_sha256": "92d2d0d923eafaafd3f59d4c09f1079678858a1a034ebb825609a48ff07addc8",
+      "coverage_rationale": "包扎结构/范围与暴露部位",
+      "required_prompt_slots": [
+        "部位",
+        "深度",
+        "敷料结构",
+        "覆盖范围",
+        "暴露适应方向"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp10",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "转送与现场：先静脉通道，冷疗最能减痛，避免有色药",
+      "formal_prompt": "转送1｜无IV替代1｜减痛首选｜镇痛2｜禁1",
+      "formal_prompt_sha256": "844f94b340e90730ab77ec9f85310ceb6f39a112872da236171f48632bdcf16f",
+      "annotation_exact": "转送与现场：先静脉通道，冷疗最能减痛，避免有色药〔转送1｜无IV替代1｜减痛首选｜镇痛2｜禁1〕",
+      "reading_location": "先识别气道危险，再把面积和创面判断接上",
+      "teaching_span_sha256": "b418e6c6be8d76b1e5823fdba7abc1736dd4aad9ac12aee4d9f8fbd0e5d650e5",
+      "coverage_rationale": "现场转送动作服从气道/复苏",
+      "required_prompt_slots": [
+        "转送1",
+        "无IV替代1",
+        "减痛首选",
+        "镇痛2",
+        "禁1"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp13",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "吸入性损伤：怎样从环境、部位与呼吸线索识别？",
+      "formal_prompt": "环境｜面颈口鼻｜炭屑/声嘶｜呼吸症状｜气道优先",
+      "formal_prompt_sha256": "d03331823fefc6cebf41818e6f66bb5fb5dc005422d5ae8a40925f5b066962ad",
+      "annotation_exact": "吸入性损伤：怎样从环境、部位与呼吸线索识别？〔环境｜面颈口鼻｜炭屑/声嘶｜呼吸症状｜气道优先〕",
+      "reading_location": "先识别气道危险，再把面积和创面判断接上",
+      "teaching_span_sha256": "b418e6c6be8d76b1e5823fdba7abc1736dd4aad9ac12aee4d9f8fbd0e5d650e5",
+      "coverage_rationale": "吸入环境/部位/症状和气道水肿",
+      "required_prompt_slots": [
+        "环境",
+        "面颈口鼻",
+        "炭屑/声嘶",
+        "呼吸症状",
+        "气道优先"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f04-kp14",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F4_烧伤_学习阅读版_v1_最终执行版.md",
+      "title": "烧伤病例：怎样按优先级串起评估、复苏与创面决策？",
+      "formal_prompt": "关键决策节点｜先后优先级｜何时进入复苏｜何时进入创面处理",
+      "formal_prompt_sha256": "b13f4a35ca2c001e3fedcd97d811158d8e48c0e96c3f58e15118008589813fba",
+      "annotation_exact": "烧伤病例：怎样按优先级串起评估、复苏与创面决策？〔关键决策节点｜先后优先级｜何时进入复苏｜何时进入创面处理〕",
+      "reading_location": "先识别气道危险，再把面积和创面判断接上",
+      "teaching_span_sha256": "b418e6c6be8d76b1e5823fdba7abc1736dd4aad9ac12aee4d9f8fbd0e5d650e5",
+      "coverage_rationale": "病例优先级与五类错误",
+      "required_prompt_slots": [
+        "关键决策节点",
+        "先后优先级",
+        "何时进入复苏",
+        "何时进入创面处理"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    }
+  ],
+  "unresolved_source_limits": [
+    "现行公式已关闭，System旧摘要gap作为freshness差异登记",
+    "严重度端点原样保留，未自动填平区间",
+    "现代烧伤中心/植皮康复课程不扩展"
+  ]
+}

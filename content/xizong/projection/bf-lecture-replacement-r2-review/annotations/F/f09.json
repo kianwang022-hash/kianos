@@ -1,0 +1,384 @@
+{
+  "status": "LOCAL_SELF_CANDIDATE_NOT_INDEPENDENT_OR_USER_ACCEPTED",
+  "block_id": "F9",
+  "kp_count": 13,
+  "logic_group_count": 4,
+  "coverage_model": "independently authored continuous medicine; exact annotations applied afterward",
+  "explicit_medical_relations": [
+    "同页并列不产生因果链，先区分已有owner和残余Primary",
+    "气腹、穿刺、体位是微创风险的三个来源，未闭合名单不增补",
+    "体表肿物先用来源线索识别，再用行为警报评估危险"
+  ],
+  "relations_origin": "AUTHORED_MEDICAL_REASONING_IN_BODY; no edge or order inferred from KP/LG/headings",
+  "reading_sections_are_not_topology_nodes": true,
+  "kp_annotations": [
+    {
+      "kp_id": "final-f09-kp01",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "编辑性合集先拆所有权，不造“其它总论大模型”",
+      "formal_prompt": "6类内容｜3 Recall出口｜2 Micro Primary｜F3已接什么",
+      "formal_prompt_sha256": "b5fb94dbca301b708d6e361b05d1d092e2d159d25045b84d6c3c1395637cbdbc",
+      "annotation_exact": "编辑性合集先拆所有权，不造“其它总论大模型”〔6类内容｜3 Recall出口｜2 Micro Primary｜F3已接什么〕",
+      "reading_location": "原有模型只做调用，不因同页出现就重新拥有",
+      "teaching_span_sha256": "8d89ab52641bcd9ceabfa34a9f382b483a48096cb49e73c55aae9f077c61b947",
+      "coverage_rationale": "编辑性并列先拆真实owner",
+      "required_prompt_slots": [
+        "6类内容",
+        "3 Recall出口",
+        "2 Micro Primary",
+        "F3已接什么"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f09-kp02",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "移植只Recall：超急性、肾与小肠三个配对",
+      "formal_prompt": "组织移植3｜超急2预存抗体｜疗效最好1｜排斥/GVHD最高1",
+      "formal_prompt_sha256": "5481c30eb793148fd6d1db29167cf27538d7ef34b1053ea811f0fb9c7cc01324",
+      "annotation_exact": "移植只Recall：超急性、肾与小肠三个配对〔组织移植3｜超急2预存抗体｜疗效最好1｜排斥/GVHD最高1〕",
+      "reading_location": "原有模型只做调用，不因同页出现就重新拥有",
+      "teaching_span_sha256": "8d89ab52641bcd9ceabfa34a9f382b483a48096cb49e73c55aae9f077c61b947",
+      "coverage_rationale": "已有移植模型配对调用",
+      "required_prompt_slots": [
+        "组织移植3",
+        "超急2预存抗体",
+        "疗效最好1",
+        "排斥/GVHD最高1"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f09-kp04",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "癌症三级预防：一级、二级、三级分别对应什么目标？",
+      "formal_prompt": "一级｜二级｜三级｜各自目标｜回真实owner",
+      "formal_prompt_sha256": "8bfe083fcb5b75ef215ce97b25d96900d5ebc2c22d27b4aea7461ba813563582",
+      "annotation_exact": "癌症三级预防：一级、二级、三级分别对应什么目标？〔一级｜二级｜三级｜各自目标｜回真实owner〕",
+      "reading_location": "原有模型只做调用，不因同页出现就重新拥有",
+      "teaching_span_sha256": "8d89ab52641bcd9ceabfa34a9f382b483a48096cb49e73c55aae9f077c61b947",
+      "coverage_rationale": "原预防模型三目标调用",
+      "required_prompt_slots": [
+        "一级",
+        "二级",
+        "三级",
+        "各自目标",
+        "回真实owner"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f09-kp05",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "癌痛阶梯：怎样按疼痛强度和治疗层级逐级升级？",
+      "formal_prompt": "疼痛强度｜药物层级｜非药物层｜回真实owner",
+      "formal_prompt_sha256": "36595012740374cac4c44e7d6c39816d222b63ed59f392642425b701cb7680f6",
+      "annotation_exact": "癌痛阶梯：怎样按疼痛强度和治疗层级逐级升级？〔疼痛强度｜药物层级｜非药物层｜回真实owner〕",
+      "reading_location": "原有模型只做调用，不因同页出现就重新拥有",
+      "teaching_span_sha256": "8d89ab52641bcd9ceabfa34a9f382b483a48096cb49e73c55aae9f077c61b947",
+      "coverage_rationale": "疼痛强度到药物外层级及路径",
+      "required_prompt_slots": [
+        "疼痛强度",
+        "药物层级",
+        "非药物层",
+        "回真实owner"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f09-kp06",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "抗肿瘤药：六类框架与代表怎样从真实 owner Recall？",
+      "formal_prompt": "六类框架｜代表药｜只Recall不重建完整药理",
+      "formal_prompt_sha256": "411cf3c6290d78a1850b81ed5869a8f43f18f7598f7cd620bb4d3722ab97c7d3",
+      "annotation_exact": "抗肿瘤药：六类框架与代表怎样从真实 owner Recall？〔六类框架｜代表药｜只Recall不重建完整药理〕",
+      "reading_location": "原有模型只做调用，不因同页出现就重新拥有",
+      "teaching_span_sha256": "8d89ab52641bcd9ceabfa34a9f382b483a48096cb49e73c55aae9f077c61b947",
+      "coverage_rationale": "原六类框架/代表调用",
+      "required_prompt_slots": [
+        "六类框架",
+        "代表药",
+        "只Recall不重建完整药理"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f09-kp03",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "腹腔镜：当前 F9 最低 Primary 要重建什么？",
+      "formal_prompt": "核心输入｜风险来源轴｜为何选该气腹介质｜完整并发症表Source gap",
+      "formal_prompt_sha256": "155a85c50b64ebec62e27b0993f559762a32643f32575519aa5055583961d504",
+      "annotation_exact": "腹腔镜：当前 F9 最低 Primary 要重建什么？〔核心输入｜风险来源轴｜为何选该气腹介质｜完整并发症表Source gap〕",
+      "reading_location": "腹腔镜的最低模型：建立工作空间，也改变生理环境",
+      "teaching_span_sha256": "1567fb1bb503299c001f30682ae0b06f040105443d0c141e45a257fdab227876",
+      "coverage_rationale": "原P283/P285确有最小气腹接口；全表不存在已核",
+      "required_prompt_slots": [
+        "核心输入",
+        "风险来源轴",
+        "为何选该气腹介质",
+        "完整并发症表Source gap"
+      ],
+      "unresolved_or_source_bound": [
+        "完整课程并发症表范围待owner；P284错误入口停止"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "final-f09-kp07",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "皮肤基底细胞癌：行为、转移倾向与形态怎样重建？",
+      "formal_prompt": "局部行为｜转移倾向｜形态/部位｜视觉Source",
+      "formal_prompt_sha256": "b142a7c6633bb6e050319361310b4708756e0165fe32be68af0d956ae39bb180",
+      "annotation_exact": "皮肤基底细胞癌：行为、转移倾向与形态怎样重建？〔局部行为｜转移倾向｜形态/部位｜视觉Source〕",
+      "reading_location": "体表肿块：先找来源，再看行为是否提示危险",
+      "teaching_span_sha256": "90e55080d1a74bc2c4856e1c8345c1db3ca525585006f41a061cdf85ef028785",
+      "coverage_rationale": "局部浸润与少转移不等于良性",
+      "required_prompt_slots": [
+        "局部行为",
+        "转移倾向",
+        "形态/部位",
+        "视觉Source"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f09-kp08",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "黑色素瘤：哪些形态与行为信号提示高风险？",
+      "formal_prompt": "行为恶性度｜形态警报轴｜变化｜视觉Source",
+      "formal_prompt_sha256": "a93f7be28f8472d1f665dfe1fe48543a6976c3e8aaf1001b147ab2c668b2bfb0",
+      "annotation_exact": "黑色素瘤：哪些形态与行为信号提示高风险？〔行为恶性度｜形态警报轴｜变化｜视觉Source〕",
+      "reading_location": "体表肿块：先找来源，再看行为是否提示危险",
+      "teaching_span_sha256": "90e55080d1a74bc2c4856e1c8345c1db3ca525585006f41a061cdf85ef028785",
+      "coverage_rationale": "四形态轴与动态观察不扩皮肤镜",
+      "required_prompt_slots": [
+        "行为恶性度",
+        "形态警报轴",
+        "变化",
+        "视觉Source"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f09-kp09",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "交界痣：发生层次、摩擦部位与变化警报怎样判断？",
+      "formal_prompt": "发生层次｜摩擦区｜变化警报｜与恶性鉴别",
+      "formal_prompt_sha256": "b3d4267f1114d73fe31b426a193fcb3440f3510e60298fb2ebb9da5774959991",
+      "annotation_exact": "交界痣：发生层次、摩擦部位与变化警报怎样判断？〔发生层次｜摩擦区｜变化警报｜与恶性鉴别〕",
+      "reading_location": "体表肿块：先找来源，再看行为是否提示危险",
+      "teaching_span_sha256": "90e55080d1a74bc2c4856e1c8345c1db3ca525585006f41a061cdf85ef028785",
+      "coverage_rationale": "层次/摩擦/变化警报",
+      "required_prompt_slots": [
+        "发生层次",
+        "摩擦区",
+        "变化警报",
+        "与恶性鉴别"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f09-kp10",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "脂肪瘤：怎样从触感、分叶与组织特征识别？",
+      "formal_prompt": "触感｜分叶｜组织特征｜深浅｜行为",
+      "formal_prompt_sha256": "1ac2c7753a546f0dd77ffd45fc5b78bd66b2f0bf6d304a0b6e9353fecb418374",
+      "annotation_exact": "脂肪瘤：怎样从触感、分叶与组织特征识别？〔触感｜分叶｜组织特征｜深浅｜行为〕",
+      "reading_location": "体表肿块：先找来源，再看行为是否提示危险",
+      "teaching_span_sha256": "90e55080d1a74bc2c4856e1c8345c1db3ca525585006f41a061cdf85ef028785",
+      "coverage_rationale": "原三联加AAOS有界深浅/良性行为外证",
+      "required_prompt_slots": [
+        "触感",
+        "分叶",
+        "组织特征",
+        "深浅",
+        "行为"
+      ],
+      "unresolved_or_source_bound": [
+        "典型不等于所有病例；部位须观察"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "final-f09-kp11",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "皮脂腺囊肿：怎样从部位、皮肤开口与内容物识别？",
+      "formal_prompt": "部位｜皮肤开口｜内容物｜感染变化",
+      "formal_prompt_sha256": "7a39c92cb104db0485cdfbca878b46ef5481bad84a0e3a30964ab157020ef6bb",
+      "annotation_exact": "皮脂腺囊肿：怎样从部位、皮肤开口与内容物识别？〔部位｜皮肤开口｜内容物｜感染变化〕",
+      "reading_location": "体表肿块：先找来源，再看行为是否提示危险",
+      "teaching_span_sha256": "90e55080d1a74bc2c4856e1c8345c1db3ca525585006f41a061cdf85ef028785",
+      "coverage_rationale": "皮肤开口/内容物/曾红肿",
+      "required_prompt_slots": [
+        "部位",
+        "皮肤开口",
+        "内容物",
+        "感染变化"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f09-kp12",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "皮样囊肿：怎样从好发部位、骨缝关系与深度识别？",
+      "formal_prompt": "好发部位｜骨缝关系｜形态/深度｜视觉Source",
+      "formal_prompt_sha256": "6ba3c9a853606a159cf76a5269f78ec92e13125d2d098fed6bc0dd439254bd35",
+      "annotation_exact": "皮样囊肿：怎样从好发部位、骨缝关系与深度识别？〔好发部位｜骨缝关系｜形态/深度｜视觉Source〕",
+      "reading_location": "体表肿块：先找来源，再看行为是否提示危险",
+      "teaching_span_sha256": "90e55080d1a74bc2c4856e1c8345c1db3ca525585006f41a061cdf85ef028785",
+      "coverage_rationale": "原部位形态保留；眉眶深度/占位外证回答",
+      "required_prompt_slots": [
+        "好发部位",
+        "骨缝关系",
+        "形态/深度",
+        "视觉Source"
+      ],
+      "unresolved_or_source_bound": [
+        "原课程病理标签与眉眶choristoma外证区分；原课无该空间图"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "final-f09-kp13",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F9_微创体表肿物与其它微型收尾_学习阅读版_v1_最终执行版.md",
+      "title": "体表肿物六轴：怎样先定位来源，再判断恶性警报？",
+      "formal_prompt": "部位｜质地｜皮肤征｜内容物｜深度｜行为｜升级警报",
+      "formal_prompt_sha256": "822de080b9685f83b7ff9fe8e1bcb972e3ce288736757f885bcc67a1ca1bb8f0",
+      "annotation_exact": "体表肿物六轴：怎样先定位来源，再判断恶性警报？〔部位｜质地｜皮肤征｜内容物｜深度｜行为｜升级警报〕",
+      "reading_location": "体表肿块：先找来源，再看行为是否提示危险",
+      "teaching_span_sha256": "90e55080d1a74bc2c4856e1c8345c1db3ca525585006f41a061cdf85ef028785",
+      "coverage_rationale": "来源轴加危险行为轴整合",
+      "required_prompt_slots": [
+        "部位",
+        "质地",
+        "皮肤征",
+        "内容物",
+        "深度",
+        "行为",
+        "升级警报"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    }
+  ],
+  "unresolved_source_limits": [
+    "完整原课腹腔镜并发症表在所指P283–285不存在，不再留下错误P284原表入口",
+    "眉眶部皮样外证与原课病理术语冲突保存，外证部位范围有限",
+    "原P284为痣/皮脂腺图，没有皮样深度或气腹图；未伪造原图接触",
+    "移植/肿瘤/药理仍按既有owner调用"
+  ],
+  "source_resolution_followup": {
+    "date": "2026-10-04",
+    "affected_targets": [
+      "final-f09-kp03",
+      "final-f09-kp10",
+      "final-f09-kp12"
+    ],
+    "full_Prompt_equals_complete_course_Source": false,
+    "independent_medical_acceptance": false,
+    "user_acceptance": false
+  }
+}

@@ -1,0 +1,347 @@
+{
+  "status": "LOCAL_SELF_CANDIDATE_NOT_INDEPENDENT_OR_USER_ACCEPTED",
+  "block_id": "F3",
+  "kp_count": 11,
+  "logic_group_count": 4,
+  "coverage_model": "independently authored continuous medicine; exact annotations applied afterward",
+  "explicit_medical_relations": [
+    "物品、空间、过程任何一处污染都破坏无菌链",
+    "已开放伤先处理生命威胁和出血，再评估污染/活力",
+    "清创改变组织条件，缝合仍由时间、污染与活力独立判断"
+  ],
+  "relations_origin": "AUTHORED_MEDICAL_REASONING_IN_BODY; no edge or order inferred from KP/LG/headings",
+  "reading_sections_are_not_topology_nodes": true,
+  "kp_annotations": [
+    {
+      "kp_id": "remaining-f03-kp01",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "title": "无菌术的三层目标：物品、手术区、操作过程",
+      "formal_prompt": "3层｜灭菌vs消毒｜边界破坏→？｜最终目标1",
+      "formal_prompt_sha256": "81477344bc980935f6bdbb1d8dd1d74353f9c68ffe9e9903cd8358630949581f",
+      "annotation_exact": "无菌术的三层目标：物品、手术区、操作过程〔3层｜灭菌vs消毒｜边界破坏→？｜最终目标1〕",
+      "reading_location": "无菌状态必须在物品、空间与动作三处同时成立",
+      "teaching_span_sha256": "3bebd83c5cb97a7fecd566a727ea06fb5a95989165d4d000061f8a217cab32f5",
+      "coverage_rationale": "物品/空间/过程三层预防污染",
+      "required_prompt_slots": [
+        "3层",
+        "灭菌vs消毒",
+        "边界破坏→？",
+        "最终目标1"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f03-kp02",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "title": "灭菌 vs 消毒：真正的分界标准是什么？",
+      "formal_prompt": "定义2｜芽孢｜对象差别｜创面药2只消毒",
+      "formal_prompt_sha256": "efb17a36e69b7aa79796d09fd8044d5449edd6c428f9d6087de1e2dea6f511cd",
+      "annotation_exact": "灭菌 vs 消毒：真正的分界标准是什么？〔定义2｜芽孢｜对象差别｜创面药2只消毒〕",
+      "reading_location": "无菌状态必须在物品、空间与动作三处同时成立",
+      "teaching_span_sha256": "3bebd83c5cb97a7fecd566a727ea06fb5a95989165d4d000061f8a217cab32f5",
+      "coverage_rationale": "原第三消毒剂已核定，创面对象冲突明确",
+      "required_prompt_slots": [
+        "定义2",
+        "芽孢",
+        "对象差别",
+        "创面药2只消毒"
+      ],
+      "unresolved_or_source_bound": [
+        "Candidate not adopted; old native Prompt preserved in its original owner."
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation",
+      "canonicalPrompt": "定义2｜芽孢｜对象差别｜创面药3只消毒",
+      "promptBasis": "BOUNDED_SELF_CANDIDATE",
+      "canonicalCandidatePath": "canonical-candidates/content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "canonicalCandidateSha256": "4f602d729a99f15d858dd148710cf38a3c38ac80f38f7b6819be20c1a7b54669",
+      "canonicalCandidateProof": "canonical-candidates/r2-definite-repairs.json",
+      "unifiedProposalList": "candidate-change-list.json",
+      "localCandidateIdentityVisible": true,
+      "formalOwnerChanged": false,
+      "canonical_prompt_sha256": "ee7aa6171e64a37242eb05ff3c98e026bf866abd20b984222f5209373441893e",
+      "revision": "r2-definite-prompt-and-h1-route-20261004"
+    },
+    {
+      "kp_id": "remaining-f03-kp03",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "title": "灭菌方法—器械匹配：蒸、低温气体、煮、泡、干热、辐射",
+      "formal_prompt": "6法｜最常1+2周｜不耐高温1组｜煮1h｜泡10h｜干热3类",
+      "formal_prompt_sha256": "2b879a617087d413b94f8a60d8c03b42c99cfa454c56721cd1da2f4f65610f0d",
+      "annotation_exact": "灭菌方法—器械匹配：蒸、低温气体、煮、泡、干热、辐射〔6法｜最常1+2周｜不耐高温1组｜煮1h｜泡10h｜干热3类〕",
+      "reading_location": "无菌状态必须在物品、空间与动作三处同时成立",
+      "teaching_span_sha256": "3bebd83c5cb97a7fecd566a727ea06fb5a95989165d4d000061f8a217cab32f5",
+      "coverage_rationale": "原PDF确认气体适用对象；否定题句不冒作新禁点",
+      "required_prompt_slots": [
+        "6法",
+        "最常1+2周",
+        "不耐高温1组",
+        "煮1h",
+        "泡10h",
+        "干热3类"
+      ],
+      "unresolved_or_source_bound": [
+        "原Outline否定句待owner裁决"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "remaining-f03-kp04",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "title": "手术区皮肤消毒与无菌区：方向、范围和空间边界怎样重建？",
+      "formal_prompt": "消毒方向｜范围｜无菌区空间边界｜视觉Source",
+      "formal_prompt_sha256": "bdb06128755404c5257efe47045780098356d5aeefc128b92c0c016634443778",
+      "annotation_exact": "手术区皮肤消毒与无菌区：方向、范围和空间边界怎样重建？〔消毒方向｜范围｜无菌区空间边界｜视觉Source〕",
+      "reading_location": "空间边界被穿过，原来的合格状态就失效",
+      "teaching_span_sha256": "590355e72d8ac487262b1eea29fd8ae8780d9ac851bfd56e9fdb82b6b68586f7",
+      "coverage_rationale": "原无菌区文字边界，不把创伤图当无菌区原图",
+      "required_prompt_slots": [
+        "消毒方向",
+        "范围",
+        "无菌区空间边界",
+        "视觉Source"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "remaining-f03-kp05",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "title": "无菌边界被破坏后，最小纠正动作是什么？",
+      "formal_prompt": "污染发生在哪一层｜最小纠正动作｜何时必须重置",
+      "formal_prompt_sha256": "61920d137c7f05c24493a6e197ccce2809bac5d96b1c7a7fa5e3e363a9d335e3",
+      "annotation_exact": "无菌边界被破坏后，最小纠正动作是什么？〔污染发生在哪一层｜最小纠正动作｜何时必须重置〕",
+      "reading_location": "空间边界被穿过，原来的合格状态就失效",
+      "teaching_span_sha256": "590355e72d8ac487262b1eea29fd8ae8780d9ac851bfd56e9fdb82b6b68586f7",
+      "coverage_rationale": "破坏后恢复原Study完整链",
+      "required_prompt_slots": [
+        "污染发生在哪一层",
+        "最小纠正动作",
+        "何时必须重置"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f03-kp06",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "title": "特殊病原体时，环境与器械的处理路径怎样区分？",
+      "formal_prompt": "铜绿/气坏→房间2物｜铜绿/HBV/开放TB→器械2步｜数字2",
+      "formal_prompt_sha256": "ca1651c17357cfb3fe74b689e219d0d19fb5118463c320174da67424b3a5092a",
+      "annotation_exact": "特殊病原体时，环境与器械的处理路径怎样区分？〔铜绿/气坏→房间2物｜铜绿/HBV/开放TB→器械2步｜数字2〕",
+      "reading_location": "空间边界被穿过，原来的合格状态就失效",
+      "teaching_span_sha256": "590355e72d8ac487262b1eea29fd8ae8780d9ac851bfd56e9fdb82b6b68586f7",
+      "coverage_rationale": "环境与器械处理两条配对",
+      "required_prompt_slots": [
+        "铜绿/气坏→房间2物",
+        "铜绿/HBV/开放TB→器械2步",
+        "数字2"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f03-kp07",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "title": "创伤分类与第一优先级：皮肤是否完整不是最先处理的问题",
+      "formal_prompt": "闭/开｜贯/盲｜生命危险4｜先后顺序",
+      "formal_prompt_sha256": "f610572a9752963b84467470661d9bbd26d17bdc90278c9da7ac58ad80711aa1",
+      "annotation_exact": "创伤分类与第一优先级：皮肤是否完整不是最先处理的问题〔闭/开｜贯/盲｜生命危险4｜先后顺序〕",
+      "reading_location": "伤口已开放时，先救命止血，分类才有使用价值",
+      "teaching_span_sha256": "c207a57639968909b44df5c149b3f952be3e901340a710080fe1e5f611425346",
+      "coverage_rationale": "生命威胁先于分类",
+      "required_prompt_slots": [
+        "闭/开",
+        "贯/盲",
+        "生命危险4",
+        "先后顺序"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f03-kp08",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "title": "止血带：只在加压包扎无效的四肢大出血使用",
+      "formal_prompt": "适应1｜禁材2｜每1h松1–2min｜总≤4h｜风险1",
+      "formal_prompt_sha256": "4bd37df27d260f0de88e7b75983e1e33c48bf894ccb28777fb76174d8649816b",
+      "annotation_exact": "止血带：只在加压包扎无效的四肢大出血使用〔适应1｜禁材2｜每1h松1–2min｜总≤4h｜风险1〕",
+      "reading_location": "伤口已开放时，先救命止血，分类才有使用价值",
+      "teaching_span_sha256": "c207a57639968909b44df5c149b3f952be3e901340a710080fe1e5f611425346",
+      "coverage_rationale": "止血适应、材料与缺血时间边界",
+      "required_prompt_slots": [
+        "适应1",
+        "禁材2",
+        "每1h松1–2min",
+        "总≤4h",
+        "风险1"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f03-kp09",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "title": "清创：不是“把伤口洗干净”，而是恢复可存活组织边界",
+      "formal_prompt": "目标4｜创缘1–2mm｜异物/失活｜血管神经保护｜后续决定1",
+      "formal_prompt_sha256": "7a46e1ee5715ffb9ab657a2aed27adac68f263ae88d55f0f024f595ff211faa7",
+      "annotation_exact": "清创：不是“把伤口洗干净”，而是恢复可存活组织边界〔目标4｜创缘1–2mm｜异物/失活｜血管神经保护｜后续决定1〕",
+      "reading_location": "清创之后，关闭仍是一项独立决定",
+      "teaching_span_sha256": "68f70ea538ef3528814cf927ce85a067702cc34c32fcf835cfac93377c208293",
+      "coverage_rationale": "清创去除与保护两端风险",
+      "required_prompt_slots": [
+        "目标4",
+        "创缘1–2mm",
+        "异物/失活",
+        "血管神经保护",
+        "后续决定1"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f03-kp10",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "title": "一期缝合时间窗：普通伤口、头面和头皮分别怎样判断？",
+      "formal_prompt": "普通｜头面｜头皮｜时间窗｜Source边界",
+      "formal_prompt_sha256": "11b6a67c5c5f32aba99d696622160973e7467195419bcc5dbf2581858c3e5100",
+      "annotation_exact": "一期缝合时间窗：普通伤口、头面和头皮分别怎样判断？〔普通｜头面｜头皮｜时间窗｜Source边界〕",
+      "reading_location": "清创之后，关闭仍是一项独立决定",
+      "teaching_span_sha256": "68f70ea538ef3528814cf927ce85a067702cc34c32fcf835cfac93377c208293",
+      "coverage_rationale": "部位血供与三窗口",
+      "required_prompt_slots": [
+        "普通",
+        "头面",
+        "头皮",
+        "时间窗",
+        "Source边界"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f03-kp11",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "title": "哪些变量会把开放伤从一期缝合推向暂不闭合？",
+      "formal_prompt": "时间｜污染｜火器/组织条件｜渗液｜感染风险｜Source边界",
+      "formal_prompt_sha256": "9aa53e9ed4e5337998b5a72b99cc7cd743722ca5b33f5abb3bfa3d2c5c432c23",
+      "annotation_exact": "哪些变量会把开放伤从一期缝合推向暂不闭合？〔时间｜污染｜火器/组织条件｜渗液｜感染风险｜Source边界〕",
+      "reading_location": "清创之后，关闭仍是一项独立决定",
+      "teaching_span_sha256": "68f70ea538ef3528814cf927ce85a067702cc34c32fcf835cfac93377c208293",
+      "coverage_rationale": "清创后闭合条件与最低闭合术语说明",
+      "required_prompt_slots": [
+        "时间",
+        "污染",
+        "火器/组织条件",
+        "渗液",
+        "感染风险",
+        "Source边界"
+      ],
+      "unresolved_or_source_bound": [
+        "课程精确延期/二期时限与标准未提供；外证原情境为术后裂开"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    }
+  ],
+  "unresolved_source_limits": [
+    "第三剂身份核定，但创面药3的对象措辞与原PDF冲突，Prompt未改",
+    "F3-SC01原PDF支持气体适用对象，Outline否定句保留待owner",
+    "F3-SG01原课无精确延期/二期taxonomy；补充术后闭合术语不冒作新鲜开放伤固定标准",
+    "原P282无无菌区空间图，不将同页创伤图改认"
+  ],
+  "source_resolution_followup": {
+    "date": "2026-10-04",
+    "affected_targets": [
+      "remaining-f03-kp02",
+      "remaining-f03-kp03",
+      "remaining-f03-kp04",
+      "remaining-f03-kp11"
+    ],
+    "full_Prompt_equals_complete_course_Source": false,
+    "independent_medical_acceptance": false,
+    "user_acceptance": false
+  },
+  "revision": "r2-definite-prompt-and-h1-route-20261004",
+  "canonical_candidate_binding_source": "candidate-change-list.json selects exact canonical candidate copies; no lecture Prompt override"
+}

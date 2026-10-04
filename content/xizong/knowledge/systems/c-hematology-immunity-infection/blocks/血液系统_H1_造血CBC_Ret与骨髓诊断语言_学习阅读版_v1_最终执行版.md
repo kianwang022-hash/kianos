@@ -22,15 +22,15 @@ study_refs:
   - source_id: biochem-m3
     label: M3｜成熟红细胞与磷酸戊糖途径
     action: recall
-  - source_id: circulation-c4
-    label: 循环C4｜正常止血与病理循环整合
+  - source_id: circulation-b04
+    label: A1 B4｜正常止血与病理循环整合
     action: recall
 outline_units:
   - PHY-U007
 outline_primary_count: 42
 kp_count: 13
 prerequisites:
-  - circulation-c4
+  - circulation-b04
   - respiratory-r02
   - urinary-k01
   - urinary-k04
@@ -64,7 +64,7 @@ system_final_batch: false
 >
 > **Primary ownership**：生理 U007《血液特性》**42 / 42** 在本 Block 完成唯一 Primary。内科 U071–U073 的贫血总论、缺铁和巨幼细胞性贫血题目全部归 H3；本 Block只调用其最低诊断语言，避免重复 Primary。
 >
-> **Study boundary**：成熟红细胞糖酵解、2,3-DPG、PPP—NADPH—GSH 已在 M3 完整初见；正常血小板黏附—聚集—释放—收缩—吸附已在循环 C4 完整初见。本 Block分别做 **Recall + 血液诊断接口**，不制造第二次完整初见。
+> **Study boundary**：成熟红细胞糖酵解、2,3-DPG、PPP—NADPH—GSH 已在 M3 完整初见；正常血小板黏附—聚集—释放—收缩—吸附已在A1 B4 完整初见。本 Block分别做 **Recall + 血液诊断接口**，不制造第二次完整初见。
 
 ---
 
@@ -228,7 +228,7 @@ Hb↓
 <!-- kianos:kp id="hematology-h01-kp03" -->
 ## KP03｜变形性、ESR与渗透脆性：三个指标分别看什么
 
-> **主提示：变形3因1主｜ESR看血浆4正2负｜脆性看RBC｜等渗≠等张｜遗传球三方向**
+> **主提示：变形3因1主｜ESR看血浆3正2负｜脆性看RBC｜等渗≠等张｜遗传球稳定2方向+ESR冲突**
 
 ### 1｜可塑变形性：能否挤过狭窄空间
 
@@ -360,7 +360,7 @@ H1-SC01
 <!-- kianos:kp id="hematology-h01-kp05" -->
 ## KP05｜红系成熟与Ret：网织红是骨髓刚交付的“半成品”
 
-> **主提示：成熟7站｜何时脱核｜Ret残留物｜正常值｜高/低各指哪侧**
+> **主提示：成熟8站｜何时脱核｜Ret残留物｜正常值｜高/低各指哪侧**
 
 ### 1｜成熟顺序
 
@@ -500,7 +500,7 @@ Ret是刚从骨髓释放的红系细胞，正常约占 RBC **0.5%–1.5%**。
 
 > **主提示：5动作｜GPIb/vWF｜GPIIbIIIa/Fbg/Ca｜两时相｜颗粒3组｜血清vs血浆｜PF**
 
-> **动作身份：Recall。** 正常止血完整初见已在循环 C4；本节为 U007 Coverage 与后续出血病诊断保留必要接口。
+> **动作身份：Recall。** 正常止血完整初见已在A1 B4；本节为 U007 Coverage 与后续出血病诊断保留必要接口。
 
 ### 1｜五动作最小链
 
@@ -552,7 +552,7 @@ Ret是刚从骨髓释放的红系细胞，正常约占 RBC **0.5%–1.5%**。
 - 前列环素 / 双嘧达莫：cAMP接口；
 - 利多格雷：TXA₂合成酶接口。
 
-完整止血、抗凝、纤溶和抗栓边界回循环 C4；出血性疾病在 H6。
+完整止血、抗凝、纤溶和抗栓边界回A1 B4；出血性疾病在 H6。
 
 **Routing**：CORE｜RECOGNITION｜CONNECTION｜MI-G｜MI-D
 
@@ -679,7 +679,7 @@ CBC先提示故障分支，但不直接给出病因。
 <!-- kianos:kp id="hematology-h01-kp13" -->
 ## KP13｜穿刺vs活检 + 最终故障树：看“工人”还是看“工厂”
 
-> **主提示：穿刺2问｜活检3问｜干抽｜三系少4入口｜单系少4入口｜下一步Block**
+> **主提示：穿刺2问｜活检3问｜干抽｜多系少5入口｜单系少5入口｜下一步Block**
 
 ### 1｜两种骨髓检查的最低分工
 
@@ -858,7 +858,7 @@ duplicate_primary = 0
 ### 7.2 Ownership说明
 
 - 生理 U007 全量唯一 Primary在 H1；
-- 生理 U008 正常止血唯一 Primary仍在循环 C4；
+- 生理 U008 正常止血唯一 Primary仍在A1 B4；
 - H1的 P91–92 血小板内容用于 U007所有权与后续诊断 Recall，不重新抢占 U008；
 - 内科 U071–U073 全量唯一 Primary在 H3，本 Block不重复计题。
 
@@ -875,7 +875,7 @@ duplicate_primary = 0
 | P90 EPO与生成调节 | KP04 | CORE + CONNECTION | CKD贫血→泌尿/H3 |
 | P90 红系成熟 / 破坏 | KP05–KP06 | CORE | 溶血证据→H5 |
 | P91 WBC | KP07 | CORE + BOUNDARY | 完整免疫→H12 |
-| P91–P92 Plt | KP08–KP09 | CORE + RECOGNITION + CONNECTION | 正常止血完整初见→循环C4 |
+| P91–P92 Plt | KP08–KP09 | CORE + RECOGNITION + CONNECTION | 正常止血完整初见→A1 B4 |
 | P93 黏度 / Hct | KP10 | CORE + CONFUSABLE | 循环后果→循环 |
 | P93 渗透压 / pH | KP11 | CORE + BOUNDARY | 水电酸碱→泌尿/呼吸 |
 | 内科P180–186诊断接口 | KP01、KP12–KP13 | CONNECTION + RECOGNITION | 疾病主体→H3–H11 |
