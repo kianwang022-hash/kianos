@@ -119,7 +119,7 @@ Each precision object must declare its learning priority so Orientation does not
 ### `source_handoff`
 The stable cross-surface learning target already authorized by Logic.
 
-For first-round Politics Chengfeng learning this points to the original iPad / MarginNote surface, with:
+Under [Learning Contract §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain), Chat owns continuous teaching and Chengfeng retains Source ownership. This handoff points to original iPad / MarginNote images/text for necessary Source calibration, with:
 - source locator;
 - source owners;
 - a small `look_for` list.
@@ -173,11 +173,35 @@ The defaults and hard promotion/demotion guards are owned by `CONTENT_HIERARCHY_
 
 ---
 
+### 3.2 Model-to-memory content realization
+
+Learning Contract §§3.2/6.1 owns learning and admission meaning. This section owns its realization in the existing chapter semantics / precision groups / `*.memory.json` path; it does not create another catalog or scheduler.
+
+A usable exact-retention object/group must resolve:
+
+- stable chapter/NU and content identity, the owning explanation/model relation, and inspected Source/edition provenance;
+- a specific retrieval prompt, authoritative answer and essential checking criteria: allowed paraphrase, complete membership, exact pairing, decisive qualifiers and any meaningful order;
+- a useful memory cue/grouping/contrast where needed, explicitly distinguishable from the authoritative answer and safe to withhold before retrieval;
+- the reviewed admission route or exact pending limitation, plus phase/prerequisite boundaries under the Learning Contract;
+- its existing candidate ID / consumer path, or a concrete unresolved mapping. Reuse, revise or retire duplicates against their original owner instead of hand-synchronizing parallel answers.
+
+These are semantic requirements, not permission to invent field names that no consumer reads. Reuse `precision_objects`, `content_support` groups, `statement`, `source_refs` and existing sidecar identities where they fit. A bounded additive extension for an explicit prompt/checking content is allowed only through this Content owner plus the resolved Runtime implementation owner, with loader → catalog → plan/evidence snapshot → renderer → return compatibility proved together. A new registry, new command/state family or cross-system architecture change remains OWNER_UNRESOLVED until Engineer resolves it through the existing architecture owners.
+
+The current catalog contract exposes `prompt`, `answer_items`, `source_refs` and stable IDs. An explicit source-owned prompt must not be silently replaced by `unit title | form`; two different answer sets require distinguishable retrieval questions. Task granularity follows cognition: preserve a meaningful comparison/list, then split only when one response cannot identify the failing part. Correcting wording is not by itself a reason to create a duplicate ID; changed meaning reopens dependent snapshots under the existing freshness contract.
+
+Catalog discovery, content admission and learner scheduling are distinct. A metadata flag alone must not claim that Runtime enforces admission. Preserve enough inspectable admission/provenance at the actual selection boundary to prevent a pending or historical-only target being treated as ready; an unsupported target is blocked locally. Do not bury new answers in plan `reason`, frontend literals or a second generated dictionary. `reason` explains today's selection, not the learning target.
+
+The chapter C inventory and accepted exact scope must be reconciled with the real catalog before claiming integration. A source-located paragraph that the catalog never consumes is prepared text, not a runnable Memory item. An updated brief does not update old `active_precision` / `active_boundaries` automatically. Source wording conflicts must be resolved before the affected task is presented as exact.
+
+Consumer regression must cover explicit prompt preservation, no ambiguous same-prompt/different-answer collision in a selection, unsupported admission rejection, proactive selection without W/U, old/new wording agreement, no pre-reveal leakage, stale/replay/supersession behavior and revision-aware evidence return. Extend existing validation/test owners; a shape validator cannot certify Source truth, mnemonic quality, or human learning. Do not silently weaken old tests to fit generated content.
+
+---
+
 ## 4｜Evidence discipline
 
 Content semantics must remain source-grounded.
 
-- Chengfeng remains the continuous first-learning mainline and primary first-learning semantic owner.
+- Source and teaching roles inherit [Learning Contract §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain); Chengfeng retains canonical Source/NU authority and Chat owns continuous teaching.
 - Suyi may strengthen structure, relation, boundary, or repair without becoming a second course.
 - Suyi richness does not create new first-learning blocks by default.
 - OCR fragments must not be silently repaired into new claims when their meaning is uncertain.
