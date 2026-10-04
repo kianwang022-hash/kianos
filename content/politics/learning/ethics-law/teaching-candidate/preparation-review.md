@@ -328,3 +328,13 @@ PDF115标单选却红标B、D的原题显示矛盾继续保留，不改Question 
 ### 本批尚待消费者证明
 
 34组的来源与内容绑定已审，不代替派生引用、实际catalog或正式网页抽检。C02/C03和本批可合并一次必要机械验证以减少Work消耗，但结果必须分别说明实际覆盖及语义修复。任何CI成功都不能替代P6正式落地；马原其余章节及下册科目仍按原Current继续，整体未完成。
+
+
+### C02–C05 bounded consumer verification（2026-10-04）
+
+原Content批次head `441878f730c2b20db54f94e3139fb40bbb27ef39`；本次只修必要Projection依赖并记录实际消费者证据，不重新作者审读或扩大验收。
+
+- Catalog `politics-memory-bf5361b3` 共132项；新增59项为C02 12 / C03 13 / C04 10 / C05 24。59项唯一review行、准确目标revision、Source准入与完整计划快照绑定均通过。原73项所在文件未改，前批四条测试快照仍兼容。原C02/C03七个及C04/C05三个实际candidate ID保留；C04十二字原为groups-only，新卡并非原有卡。志愿服务原前两项保持，第三项按原Content明确主谓方向；旧第三项快照进入history-only，不冒称全组字节不变。
+- 四章111个presentation refs、13个surface plans验证通过。四处source blob绑定刷新到本批Content；C03/C04渲染选择未改变。C02-S02沿原Content改为理论品格与共同/远大理想，修正六个派生标题并用既有结构文本；C05-S01选择四项，分别保留经济反映、利益调节、知行合一实践精神及最基本功能，修正原第三项误标和遗漏第四项，并删除来源未知的过期说明。canonical NU身份/顺序、Source truth与默认Recall不改；C02S02/C03S03/C04S03的原provisional/defaultRecall边界保留。
+- `validate-politics-repair-memory.mjs`、`validate-politics-cognitive-projection-assets.mjs`通过；实际presenter加载和校验通过。正式Candidate页面隔离验证28项断言通过：C02 `polmem-4dcf9e48`、C03 `polmem-9b6ea2ec`、C04 `polmem-26158996`、C05功能 `polmem-ade8f027` 与志愿服务 `polmem-8a372d77`。五项各自揭示前隐藏、揭示后完整答案/criteria/cue；原生Control轮询与真实隔离服务匹配APPLIED，APPLIED自身不产生Recall；刷新Resume不漏答案；实际自评FUZZY 1 / STABLE 4；正式Home Packet回传五条本日自评及五份准确reviewed快照、当前132项catalog。正式章节DOM另验证C02理论品格标签与C05实践精神/功能分层。
+- 证据仅覆盖上述五个Memory样本及两处章节DOM，不是59项UI遍历、完整P5/教材/全科验收或Kian真实学习；无自动SRS、mastery、真实队列写入、Stable变更或部署。临时隔离Candidate验证后已停止。
