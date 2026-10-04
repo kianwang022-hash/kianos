@@ -2,7 +2,7 @@
 
 # B2｜变量偏了以后，怎样恢复有效循环
 
-> **LEGACY FORMAT INPUT ONLY**：本文件保留已审医学内容、比较、边界、精记与 Source 说明，供迁移/核对；三栏和 LG 分隔只解释历史版式，不再是新复习稿生成规则。普通 Chat 教学不按此布局执行；新生成遵循 `content/xizong/projection/PROJECTION_CONTRACT.md#block-review-generation`。迁移完成前不删除，以免丢失尚未归位的有效内容。
+> **LEGACY FORMAT INPUT ONLY**：本文件保留已审医学内容、比较、边界、精记与 Source 说明，供迁移/核对；三栏和 LG 分隔只解释历史版式，不再是新复习稿生成规则。本文件只用于历史迁移/audit；正常教学走 [learner README](../../../knowledge/learner/README.md) / [Lecture Replacement Contract](../../../knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md)。迁移完成前不删除，以免丢失尚未归位的有效内容。
 
 历史格式说明（仅解释本文件）：原版左侧顺理解逻辑，中间放对照/故障/条件，右侧列正式 KP 名称和主提示；这不再是新稿的生成指令。未采用候选仍不能冒充 Current 内容。
 

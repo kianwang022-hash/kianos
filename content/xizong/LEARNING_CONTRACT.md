@@ -9,6 +9,8 @@ Parent standards:
 - `LEARNING_ACCEPTANCE.md`;
 - `SYSTEM_CONTRACT.md`.
 
+This file is the sole owner of Xizong Chat-led teaching principles and the distinction between Source and actual learner evidence. `study-policy.json` refines execution details; it cannot establish a competing first-pass principle. Lecture-replacement organization and visual references route to their scoped owners and do not redefine this learning model.
+
 This file owns the stable Xizong cognition and learning model.
 
 It answers:
@@ -284,13 +286,13 @@ Primary adaptive teaching surface when Kian chooses Chat-led first learning.
 
 Before teaching a Block, Chat should read the current Block Knowledge, relevant Learning owner and the Source boundary needed to know what must be covered. It may then reorganize teaching around the medical mechanism, causal problem and Kian's live questions rather than reciting KP order.
 
-For each material Logic Group, Chat should normally:
+For an explicitly requested first-learning session scoped to a material Logic Group, Chat should normally:
 
 ```text
 locate the LG inside the Block problem
 → establish the LG's local mechanism/framework
 → teach the continuous causal model
-→ embed the owning KP exam points at the relevant mechanism node
+→ integrate the owning KP knowledge and necessary precision at the relevant mechanism node
 → resolve reasoning-changing questions immediately
 → compress to a retrievable scaffold
 ```
@@ -303,6 +305,14 @@ Hard rules:
 - downstream drugs, diseases or other Blocks may be used as bounded interfaces, but their full teaching stays with the original responsible Block/System;
 - Chat may add explanation, examples and clinically useful model knowledge, but must distinguish those from Source-backed formal Knowledge and may not invent formal Boundary/Connection truth;
 - a learner question during first learning is not automatically a weakness or review debt.
+
+### Default Chat response scope
+
+Chat preserves the same System → Block mainline → local medical model. Expand where Kian asks, then reconnect that explanation to the same Block. A Logic Group may bound an explicit first-learning session; it does not reorder the Block prose, partition the teaching model or turn every question into a full LG lesson.
+
+Unless Kian explicitly requests first learning, default review gives the location in that model, its core framework/relations and decisive conditions. Requested expansion, comparison or questioning inherits that same model; full first-learning teaching is reserved for an explicit first-learning request. Wording, examples and explanation depth may adapt while medical meaning, model location, relation directions and boundaries stay stable.
+
+KP provides coverage checks, necessary precision and Recall prompts. It neither determines teaching topology nor belongs only to an exam corner: its knowledge is integrated where the medical relationship requires it, under the rules above.
 
 ### KianOS / Website
 
@@ -334,7 +344,8 @@ The normal Chat-led flow is:
 optional Guide when genuinely useful
 → read current Block Knowledge + Learning boundary + needed Source scope
 → System / Block Framework
-→ Logic Group teaching by mechanism, with KP ownership preserved
+→ teach the requested local mechanism within the same Block model;
+   a Logic Group may bound first-learning execution, with KP ownership preserved
 → resolve understanding-changing detail in the moment
 → compress each LG / Block to a retrievable scaffold
 → at a natural breakpoint or Block teaching end:
@@ -612,6 +623,10 @@ this LEARNING_CONTRACT.md
 → exact System-specific Learning owner when local Source/LG differences matter
 → Visual / Engineering owners only for implementation
 ```
+
+Across Chats, use the same accepted teaching basis for the resolved System/Block/local model. A candidate teaching asset does not automatically become that stable basis before its logic, Prompt coverage and continuity are accepted; freshness alone is insufficient. Do not randomly substitute another candidate across Chats. When no accepted teaching basis is available, use Current canonical Knowledge and accepted Learning owners and state the candidate's status rather than implying that candidate adoption is complete.
+
+A necessary medical correction must explicitly state the old meaning → corrected meaning → supporting basis, reconcile it at the responsible canonical owner and propagate one consistent revision to the affected teaching basis. An unresolved Source conflict remains explicit; changing wording must not silently choose a new medical conclusion.
 
 Read `content/xizong/CURRENT.md` only for engineering intent or engineering-status questions.
 

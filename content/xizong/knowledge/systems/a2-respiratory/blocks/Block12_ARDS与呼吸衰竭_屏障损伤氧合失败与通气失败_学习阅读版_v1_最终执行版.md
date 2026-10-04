@@ -883,6 +883,8 @@ PaCO₂、HCO₃⁻的方向还可能属于代偿：低PaCO₂可为代酸的呼
 
 ### 2｜AB / SB当前 Study入口
 
+AB（实际碳酸氢盐）是实际血气条件下血浆 HCO₃⁻ 浓度，受呼吸与代谢两方面影响。SB（标准碳酸氢盐）是血液按规定气体条件平衡后的血浆 HCO₃⁻：Siggaard-Andersen 定义采用 pCO₂ 5.33 kPa（约40 mmHg）、pO₂ >80 kPa，以减少当下 CO₂ 差异对比较的影响。因此 AB 与 SB 的差别帮助辨认呼吸因素，SB 的偏移提供代谢线索；两者都不能单独替代完整酸碱判断。名称由内科原 PDF 物理P72／书P60核实；标准化定义补充依据：[Siggaard-Andersen，Acid-base and oxygen status of the blood](https://www.siggaard-andersen.dk/OsaTextbook.htm)，Standard bicarbonate 条目（本地候选查阅2026-10-04）。这是课程传统指标的定义支持，不把其比较式升级为现代独立诊断算法。
+
 ```text
 AB = SB <22
 → 代酸

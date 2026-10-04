@@ -2,7 +2,7 @@
 
 # B4｜破口怎样封住，血为什么还能继续流
 
-> **LEGACY FORMAT INPUT ONLY**：本文件保留已审医学内容、比较、边界、精记与 Source 说明，供迁移/核对；三栏和 LG 分隔只解释历史版式，不再是新复习稿生成规则。普通 Chat 教学不按此布局执行；新生成遵循 `content/xizong/projection/PROJECTION_CONTRACT.md#block-review-generation`。迁移完成前不删除，以免丢失尚未归位的有效内容。
+> **LEGACY FORMAT INPUT ONLY**：本文件保留已审医学内容、比较、边界、精记与 Source 说明，供迁移/核对；三栏和 LG 分隔只解释历史版式，不再是新复习稿生成规则。本文件只用于历史迁移/audit；正常教学走 [learner README](../../../knowledge/learner/README.md) / [Lecture Replacement Contract](../../../knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md)。迁移完成前不删除，以免丢失尚未归位的有效内容。
 
 正式正文对齐版；原 Source 差异及图示核验范围单列，不代表已学或掌握。
 

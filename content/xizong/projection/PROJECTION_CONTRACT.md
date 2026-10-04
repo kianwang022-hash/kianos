@@ -270,80 +270,6 @@ One Block may carry Chain + Compare + Boundary + Map + Formula objects when Curr
 
 Likewise, do not flatten the semantic adapter into one generic card list. Projection geometry exists precisely to preserve different cognitive structures inside one shared renderer.
 
-<a id="block-review-generation"></a>
-### 7.1｜KianOS Website / reconstruction generation — medical topology, not three columns
-
-**Scope boundary:** this section governs the KianOS Website/reconstruction Projection lane. It explicitly does **not** govern standalone Lecture-replacement teaching assets.
-
-Lecture-replacement first-pass teaching is owned by [`knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md`](../knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md). In that separate lane, the teaching model/framework is the body and matching canonical KP title + **full formal Prompt** are semantic locators only; canonical KP Core is not auto-expanded or mirrored into the teaching surface.
-
-This section owns the generation/composition rule for newly authored or migrated KianOS Block study/reconstruction views. It adopts the reconstruction decision from [#1147](https://github.com/kianwang022-hash/kianos/issues/1147); that Issue retains task progress and candidate review, not a competing permanent generation contract. The rule does not assert that any existing asset, Website surface or Human Gate has already migrated.
-
-The **KianOS Website/reconstruction** output grammar is:
-
-```text
-Current System position + complete Block content and real supports
-→ reviewed medical topology
-→ 知识标题〔完整正式主提示〕 with its canonical content bound/rendered according to this Website/reconstruction view
-→ the same objects/relations at compressed density + necessary condition labels
-```
-
-Do not reuse this grammar for Lecture-replacement teaching. That separate teaching lane is:
-
-```text
-reviewed teaching model/framework
-+ matching canonical 知识标题〔完整正式主提示〕 as locator
-→ no automatic canonical Core expansion
-```
-
-**Replace the old left-mechanism / middle-expansion / right-KP production template, not its valid knowledge.** LG sections, KP numbering and document order must not become the visual backbone. A Block remains one reconstructable medical model containing heterogeneous local objects under §7, not one forced chain, tree, viewport or mandatory Canvas.
-
-#### Content inheritance and in-place KP composition
-
-- Read the complete Current Block and applicable System/Learning owners through the [Chat-led reading entry](../knowledge/learner/README.md#chat-led-block-reading-entry), plus actually owned teaching/review, Framework, comparison, counterfactual, MI-G/MI-D, Precision, MedicalVisual and Source support. Prompt inventories and old acceptance reports are not substitutes for this content.
-- Keep all valid medical meaning, full formal titles and Prompts, necessary conditions, comparison axes, exact facts and Source locators. Merge duplicate expression, not distinct contexts or cognitive jobs. A source conflict or genuine defect returns to its existing owner; presentation migration does not silently reconcile it or rewrite medical Core.
-- Every KP has an identifiable in-place semantic anchor: a node, branch, comparison or verification object. Its title and full formal Prompt belong there, followed by its actual content; do not explain a mechanism and then repeat the same answer in a separate KP list. One content identity may have several connection/reference entrances, but its maintained complete answer remains the canonical Core; Projection keeps identity/relations/conditions and resolves that Core rather than maintaining another full answer. A composite KP may span linked local subparts without splitting its canonical identity or copying its Core.
-- **Website-only clarification:** the preceding Core-binding rule applies only to this KianOS Website/reconstruction lane. It must never be used to inject Core into `*-teaching.md` or a Lecture-replacement Teaching Map.
-- Non-KP Framework, model relations and support also have explicit destinations. Complete coverage does not mean every support item is permanently visible. Nor is a full-text appendix sufficient when the main model omits reasoning-critical content.
-- Medical relations, disease time course, teaching/retrieval order and clinical priority are distinct. Preserve the reviewed type, direction, endpoints and conditions of flow/process, causal influence, parallel structure, feedback, comparison, evidence, decision and reference. Neither the generator nor Focus infers these from numbering, placement, similar titles or graph traversal. Formal Boundary/Connection adoption still follows `LEARNING_CONTRACT.md`; a diagram edge does not create a new formal support identity.
-
-#### Encoding / consumer boundary
-
-- The production learner surface must consume reviewed topology through the existing BlockProjection responsibility (or a bounded, validated extension of that existing Projection schema). Do **not** make the Website parse Issue comments, legacy three-column prose, Markdown position or free-form Chat text to infer nodes/edges.
-- Canonical KP title / Prompt / Core remain resolved from their Current owners. A reviewed topology asset stores identity, relation, condition/compression metadata and owned support bindings; it does not become a hand-maintained second full-answer corpus.
-- The current v1 BlockProjection assets do not by themselves prove that the new KP-level integrated topology is materialized. A B1 content candidate may drive a prototype, but production cutover requires the accepted topology to be represented in the existing Projection owner and pass its real validator/consumer boundary. Do not bridge the gap with an untracked frontend-only graph.
-- Legacy `*-review.md` files are therefore temporary inheritance/audit inputs while unique reviewed semantics are being rehomed. Once a Block's unique valid review content has been accounted for in Current owners + reviewed Projection and the consumer has cut over, retire the legacy duplicate instead of preserving two mutable review bodies indefinitely.
-
-#### One model, two densities, separate learning evidence
-
-- Expanded and compressed outputs consume the same bound objects and relations. Expansion exposes complete mechanism, comparison and necessary detail; compression retains the medical backbone, formal title, **complete formal Prompt**, essential formulas/relations and the conditions needed to prevent a changed inference. It is not a separately authored summary.
-- Short condition labels may replace long condition prose only when the subject, scope, negation, timing and decision-changing meaning survive. Do not hide a decisive condition in Context/Boundary or leave a bare unqualified arrow. Source/provenance and optional extensions need not occupy the compressed reading stream.
-- In-place expansion preserves the medical region, relative relationships and current reading anchor, not every absolute pixel. Local space may grow or reflow without changing knowledge position or forcing the learner to locate the object again. KP IDs remain available for provenance/navigation but are not ordinary reading content; lawful private Prompt overrides remain private.
-- Chat teaching remains adaptive, continuous explanation of the same knowledge, with current LG goals/order/closure retained for teaching coverage and formal retrieval. The study/reconstruction view organizes that knowledge for expansion and model rebuilding; it is not a script Chat must read aloud or a replacement for full canonical/Source reading.
-- This rule grants no new visibility state, gate bypass or evidence write. A compressed study graph is **not** a KP/Block/System Recall Front. Existing Front/Reveal protection, complete canonical Core verification, Source contact, Recall, completion, Memory evidence and private-state rules remain unchanged. Preserve System-specific external-primary and Source-unit policies; a new review format does not turn every Block orientation into a second Lecture.
-
-#### Memory, MedicalVisual and System scope
-
-Model and Memory are complementary uses of the same owned knowledge, not two independent answer banks. Keep reasoning-critical precision/conditions in the model. Use existing Memory admission and scheduling for exact facts **and eligible Core/mechanism retrieval**; availability, owner-context-only support, independent cards and due debt remain distinct. Do not invent items/counts or split a list into new cards for display. MedicalVisual needed for current understanding must be available at that knowledge position and timing, not uniformly relegated to a later drawer; unresolved locators/assets stay explicit.
-
-The System locator is thin and derives its positions from the full Current System, including applicable normal, control, electrical, interface and disease/failure roles. It is not a reduced B1 flow chart or a collage of every Block. This does not delete the System's richer formal content. Different Blocks may use different local geometries. Cross-Block/System专题重建 stays Chat-led and on demand, using existing models/KPs and their Primary owners; this migration creates no separate thematic model, webpage, KP set or Memory queue.
-
-#### Migration and acceptance
-
-Keep existing `*-teaching.md` paths when their purpose and scope remain the same. Existing reviewed three-column `*-review.md` files are temporary content-inheritance inputs while their unique valid semantics are being migrated; `review` names a use, not a mandatory three-column layout or a requirement to keep a second full-answer Markdown forever. Do not create a parallel model owner, registry or hand-maintained full-answer file. Their old left/middle/right instructions are legacy-format descriptions, **not instructions for new generation**. A still-valid medical review witness does not prove compliance with the new composition rule; do not blindly advance that witness or relabel an unconverted file as an integrated map. After a Block has full inheritance + reviewed topology + consumer cutover, delete/retire the obsolete duplicate or replace it only with a thin generated/reference view if a human-readable review surface is still useful.
-
-For each converted Block, replace the old view only after the actual content/topology review, retain its upstream identity and reviewed-against witnesses, and update its existing reading link/format description in the same coherent change. Candidates remain in the existing task/branch until accepted; do not route ordinary teaching to an unaccepted Issue draft. A missing or stale optional view does not block teaching from valid Current owners. Historical templates remain history/inheritance material, not fallback generation authority.
-
-Before calling a Block migration complete, verify:
-
-1. **Bidirectional inheritance:** each formal KP and each Prompt axis, including counted/composite subitems, has real content; each new displayed claim/relation has an existing accepted basis. Non-KP and real support destinations are checked too.
-2. **Whole-model reading:** with LG/KP numbers hidden, the Block's purpose, main path, branches, feedback and observation/decision windows can be reconstructed. Nothing is made a causal next step merely to connect the page.
-3. **Density fidelity:** both densities preserve identities, full Prompts, relation types and decisive conditions; no duplicated complete answer or separately maintained compressed text appears.
-4. **Support and evidence safety:** actual Memory/Precision/MedicalVisual/Source roles, timing, provenance and absence survive; browsing/expansion/Focus creates no learner evidence or review debt and leaks no protected Recall answer.
-5. **Consumer cutover:** the authoring instruction, Chat reading route and published view description agree about the actual accepted format. Check the concrete resulting view, not just counts or this rule's presence. Website/reading usability is a separate downstream test, not proved by Markdown, hashes or a pretty interface.
-
-Reuse the existing inspection and review evidence; these checks are not a new learner form or audit registry. Apply the rule within the authorized migration scope. B1 calibration does not authorize automatic B2–B12 or all-System regeneration, invalidate unrelated acceptance, or alter existing learning records. A documentation-only rule/route update must not be reported as completed content or Website migration.
-
 ## 8｜Views and multi-pass compatibility
 
 The same canonical cognition is reused across learner states.
@@ -421,17 +347,15 @@ Mac acceptance remains downstream and must follow Kian's preferences:
 - important first-round structure visible without unnecessary clicks;
 - real screenshots required for aesthetic acceptance.
 
-The shared product composition uses roles rather than fixed columns:
+The shared product layout remains conceptually:
 
 ```text
-Structure = System / Block position + optional local navigation
-Main      = dominant current medical / cognitive object
-Context   = conditional Source / MedicalVisual / Precision / Connection / repair support
+LEFT   Position / Logic Map
+CENTER Primary Cognitive Path
+RIGHT  Attention Projection
 ```
 
-For an integrated Block medical-map view, Main may take nearly the full width; Structure may be a thin System locator plus collapsible/secondary LG/KP navigation, and Context appears only when useful. This is compatible with LG membership/order/evidence remaining Current backstage state. Projection supplies semantic objects/relations to these roles; it does not force a permanent left rail, three content columns or one panel per object.
-
-These are workspace roles, not a requirement to generate a left-mechanism / middle-expansion / right-KP review. KianOS Website/reconstruction content follows §7.1. **Standalone Lecture-replacement teaching does not enter this Website workspace contract and is not a Runtime input.** Concrete geometry and existing Recall surfaces remain owned by `static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md` and its applicable Visual parents; this contract does not prescribe fixed columns or install a new interface.
+Projection may supply semantic objects to these lanes; it does not turn every object into its own panel.
 
 ## 12｜Question / TTSX boundary
 

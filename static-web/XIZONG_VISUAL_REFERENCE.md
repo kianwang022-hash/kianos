@@ -39,21 +39,18 @@ Kian prefers **recent high-density Mac layouts**, not the older sparse home-page
 
 ## 4｜Xizong Block workspace implication
 
-Normal Mac-wide Block learning should visually read as one coherent workspace whose **Main** is dominant:
+Normal Mac-wide Block learning should visually read as one coherent workspace:
 
 ```text
-thin System / Block locator
-+ dominant integrated Block medical map or current KP Recall object
-+ optional/collapsible LG/KP navigation
-+ dynamic Context for MedicalVisual / Precision / Source when useful
+narrow Logic Map | dominant KP Learn / Recall | dynamic Visual / Precision support
 ```
 
-- do not reserve a permanent wide left Logic-Map rail during integrated Block-map reading; local LG/KP position remains available as secondary/collapsible navigation and may become more visible in Recall/Source states;
-- the main medical/cognitive region is visually dominant and receives unused width;
-- the right/context area expands when a real MedicalVisual / table / Precision object earns space and shrinks/disappears when it does not;
-- Source / Outline locators stay compact near the owning knowledge identity;
+- the left rail is only as wide as readable labels require;
+- the central learning region is visually dominant;
+- the right auxiliary area expands when a real Visual / table / Precision object earns space and shrinks/disappears when it does not;
+- Source / Outline locators stay compact near the current KP identity;
 - no large persistent workflow dashboard competes with the learner object;
-- the Block medical map is the first-pass/reconstruction cognitive surface; Framework/Guide material remains reachable without becoming a second competing body;
+- Block Framework remains easily reachable but does not occupy permanent main-stage space during KP work;
 - Crosswalk / Memory / Repair must not stack underneath the Block workspace as an endless page.
 
 ## 5｜Memory workspace implication

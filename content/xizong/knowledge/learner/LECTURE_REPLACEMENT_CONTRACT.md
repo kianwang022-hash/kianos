@@ -23,7 +23,7 @@ Hard rule:
 
 > **Teaching Map body comes from the reviewed teaching model. KP identity is an annotation/locator, not an instruction to inject the KP Core.**
 
-The two lanes may share canonical identity and provenance, but neither may consume the other as a mutable answer source.
+The two lanes share the same Current canonical System/Block/KP identities and medical assets, including reviewed Prompt/Core and provenance. Neither lane establishes another medical truth or consumes the other derivation as a mutable answer source.
 
 ## 2｜Authority
 
@@ -47,6 +47,19 @@ The teaching asset owns the **learner explanation/model**, for example:
 It may naturally explain the same medicine that canonical Core also knows. That is teaching, not duplication of the Website answer surface.
 
 What it must **not** do is append or automatically render the canonical KP answer merely because a KP is attached.
+
+<a id="teaching-topology-annotations"></a>
+### 3.1｜Pedagogical topology and annotations
+
+The teaching objects and their explicitly reviewed relations form the **pedagogical topology**. Establish that teaching model and its relations independently before attaching KP title + full formal Prompt annotations.
+
+Canonical Block/Framework supplies medical truth, coverage, identity, Prompt and medical constraints; it does not own Lecture presentation order. Fresh reviewed teaching owns the teaching organization/topology and must preserve those canonical facts and constraints.
+
+KP bindings cannot create a teaching object/node, relation/edge or order. Do not infer medical edges from KP, LG or Markdown order. Reading headings are structural clues only: relations come from the teaching asset's explicit medical logic, and a heading does not automatically become a separate box.
+
+One teaching object may carry annotations for several KPs; one canonical KP may have lightweight references at several teaching locations. Unique canonical identity does not mean a unique teaching location; all such references resolve the same canonical owner.
+
+Hide every KP annotation: the medical model, necessary explanations, explicit relations, conditions and continuous reading must remain complete and unchanged. Annotations locate coverage and identity; they do not supply missing teaching structure or answers.
 
 ## 4｜KP annotation rule
 
@@ -89,7 +102,7 @@ No teaching-page browse, expansion, focus or reading action creates learner evid
 
 ## 6｜Review / reconstruction isolation
 
-`content/xizong/projection/PROJECTION_CONTRACT.md#block-review-generation` governs the KianOS Website/reconstruction Projection lane. It may bind canonical Core according to that contract.
+[Projection Contract](../../projection/PROJECTION_CONTRACT.md) governs the existing Website Projection scope; this teaching owner grants it no new generation or layout rule.
 
 It does **not** govern Lecture-replacement Teaching Maps.
 
@@ -108,6 +121,8 @@ existing owners
 ```
 
 Do not create a new thematic course/page/KP/Memory queue merely to connect Systems. A repeated high-value seam may later become a thin reviewed routing cue, not a second medical model.
+
+Visual reference is owned solely by [Lecture Visual Reference](./LECTURE_VISUAL_REFERENCE.md). Website Workspace/Visual owners do not prescribe this artifact's layout.
 
 ## 8｜Acceptance stop-lines
 

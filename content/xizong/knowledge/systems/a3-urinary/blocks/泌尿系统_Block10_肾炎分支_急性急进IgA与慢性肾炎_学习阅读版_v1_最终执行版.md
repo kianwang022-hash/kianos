@@ -725,7 +725,7 @@ silent_source_correction = 0
 | K10-SB01 | Cr、血压、尿蛋白、移植等待期等阈值为当前 Study 口径 | 保留为考试 Precision，不自动升级为 Current 通用临床阈值 |
 | K10-SB02 | GPA/Wegener命名、IgA靶向药与强化方案为当前 Lecture 口径 | 保留并标记 Source-bound |
 | K10-SB03 | 慢性肾炎 ACEI/ARB 的旧绝对 Scr 禁忌与 K7 KP15 Current owner 冲突 | Current Core 继承 K7 KP15；旧数字仅 MI-D / exam Precision |
-| K10-VG01 | 驼峰、新月体、双肾形态与总表需回原图 | Visual Gate Open |
+| K10-VG01 | 驼峰、新月体、双肾形态与总表需回原图 | Original Source pixels reviewed in local candidate; Human acceptance not claimed |
 
 ---
 
@@ -762,7 +762,7 @@ duplicate_primary = 0
 unrouted_lecture_knowledge = 0
 unsupported_expansion = 0
 First_pass_question_probe = READY_PENDING_BINDING
-Source_gap = SOURCE_BOUNDARY_AND_VISUAL_GATE_EXPLICIT
+Source_gap = none_for_reviewed_original_pages_SOURCE_BOUNDARIES_RETAINED
 System_final_gate = NOT_RUN_NON_FINAL_BLOCK
 ```
 
@@ -779,3 +779,6 @@ Framework已建立
 + Outline按需扫漏
 + Question Probe完成或等待Binding
 ```
+
+
+本地候选原图复核（2026-10-04）：实际读取内科原 PDF 物理P195、196、197、201、203（书P160、161、162、166、168）的原图，核对沉积位置、三镜对照及本 Block 对应形态。文件 SHA-256 `4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939` 与 Source manifest 一致。仅关闭上述已读原页的字节/原图缺口，Source 自有差异保留；不是全部题目、学习证据、医学独立或 Human 验收。

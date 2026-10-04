@@ -1,97 +1,55 @@
 # Xizong Shared Learning Support
 
-`content/xizong/knowledge/learner/` carries Chat-approved shared learning-policy and projection support for Current Xizong knowledge.
+This README owns routing and freshness only.
 
-It does **not** own medical Core and it is **not** personal learner state.
+## Owners
 
-Lane-level learning constitution is owned by `content/xizong/LEARNING_CONTRACT.md`.
-
-## Current owners
-
-- lane learning constitution → `content/xizong/LEARNING_CONTRACT.md`: stable natural-unit model, phase linkage, Lecture/KianOS boundary, question/Repair/Review/Transfer relationship and governance boundary;
-- `study-policy.json` — detailed machine-readable shared execution policy inside that constitution: stage responsibilities, mastery ladder, exact first-pass gates, Lecture/KianOS execution detail, question reuse, Memory admission, compression and lossless scheduling;
-- `shared-fields.json` — reviewed shared projection fields where already materialized;
-- `identity-aliases.json` — stable identity joins/aliases;
-- System-specific `*-learning.json` files may add compact learning guidance such as Logic Group goals, closure cues and Recall skeletons;
-- `BEGINNER_GUIDE_CONTRACT.md` — contract for Current System-level beginner explanation assets. These Guides explain accepted Current System / Learning / Block structure but have **no independent medical semantic authority**;
-- `guide-bindings.json` — Current path resolver for beginner explanation assets. For systems explicitly bound there, this resolver wins over stale legacy `system_fields.*.guide_path` metadata in `shared-fields.json`; it does not create medical or learning-route authority;
-- System-specific `*-guide.md` files — Current beginner-readable explanation / orientation assets where explicitly accepted. They may recover re-verified explanatory patterns from bounded historical provenance, but may not revive legacy System Guide authority, add new medical facts or become a second textbook;
-- `BLOCK_PREENTRY_CONTENT_CONTRACT.md` — typed content boundary for explicit canonical Block `Framework / Memory Routing / MI-G / MI-D`. It defines what downstream compilation may expose and forbids inferred membership or personal learner-state semantics;
-- System-specific `*-learning-cues.json` files may add **selective, non-authoritative indexes** for Precision awareness and Visual timing. They reference stable Block / Logic Group / KP identities, do not copy canonical answers, and absence from the index never means canonical content is unimportant or omitted;
-- `LECTURE_REPLACEMENT_CONTRACT.md` — isolated owner for standalone first-pass teaching content that replaces the explanatory job of Lecture. Its body is the reviewed teaching model/framework; matching KP title + full formal Prompt are locators only and do **not** trigger canonical Core expansion. It is not a Website/Runtime/Recall/Memory/Evidence owner.\n- [Projection Contract §7.1](../../projection/PROJECTION_CONTRACT.md#block-review-generation) — generation/composition owner for Block study/reconstruction views: medical topology, in-place KP content and two densities of the same model. It replaces the old three-column production template, not medical or Learning authority.
-
-Current Beginner Guide set introduced by the 2026-09-17 Guide / Framework content lane:
-
-- `a1-circulation-guide.md`
-- `a2-respiratory-guide.md`
-- `a3-urinary-guide.md`
-- `b-digestive-metabolic-endocrine-tumor-guide.md`
-
-These four files are the currently accepted Beginner Guide assets. C / D / E / F already have canonical Current System/Learning owners but do not yet have separate Beginner Guide assets; absence means no Guide is rendered, not permission to fall back to an older System Guide.
-
-`guide-bindings.json` is the only Current beginner-Guide path resolver. Historical System Guide provenance lives in Git history and is not part of normal routing.
-
-## Block pre-entry content boundary
-
-Canonical Block Markdown may explicitly own several learner-facing content jobs before or during first learning:
-
-```text
-Framework
-Memory Routing
-  ├─ MI-G
-  └─ MI-D
-```
-
-These are content semantics, not UI cards and not personal review state. Downstream Projection / learner-object work must preserve explicit Current ownership and provenance; a missing Framework or Memory section remains missing rather than being synthesized for symmetry.
-
-`BLOCK_PREENTRY_CONTENT_CONTRACT.md` owns that extraction boundary. It does not itself recompile Projection or change Runtime.
-
-## Evidence / receipt boundary
-
-Files whose role is calibration, audit, re-acceptance or phase receipt (for example `*_PHASE*.md`, independent-acceptance receipts and similar builder/auditor records) are **evidence about how a Current owner was reached**, not an alternative Current learning model and not a Runtime input.
-
-Normal learning / Runtime consumers must resolve the Current owners above rather than reading receipt history as competing semantic authority. A receipt may justify or challenge an acceptance claim; it may not silently override `LEARNING_CONTRACT.md`, `study-policy.json`, canonical medical owners or the relevant accepted System learning asset.
-
-`content/xizong/projection/GUIDE_FRAMEWORK_EXIT_AUDIT_20260917.md` is such a boundary audit: it records whether Guide / Framework / MI-G / MI-D / Memory Routing currently survive Projection, but it does not itself become a learning or Runtime owner.
+| Responsibility | Read |
+|---|---|
+| Construction quality | [Learning Asset Standard](../../../../LEARNING_ASSET_STANDARD.md) |
+| Chat-led teaching and Source/evidence principles | [Learning Contract](../../LEARNING_CONTRACT.md) |
+| Machine execution details | [study-policy.json](./study-policy.json) |
+| Canonical medical assets and identity | [Knowledge manifest](../manifest.json) → exact Current System/Block/KP |
+| System-specific Learning | Exact `*-learning.json` block |
+| Shared support / identity joins | `shared-fields.json` / `identity-aliases.json` |
+| Beginner explanation boundary / path resolver | [Beginner Guide Contract](./BEGINNER_GUIDE_CONTRACT.md) / [guide-bindings.json](./guide-bindings.json) |
+| Block pre-entry content | [Block Preentry Contract](./BLOCK_PREENTRY_CONTENT_CONTRACT.md) |
+| Precision / MedicalVisual timing indexes | Exact `*-learning-cues.json` and its referenced owners |
+| Lecture-replacement organization | [Lecture Replacement Contract](./LECTURE_REPLACEMENT_CONTRACT.md) |
+| Lecture visual reference | [Lecture Visual Reference](./LECTURE_VISUAL_REFERENCE.md) |
+| Website/reconstruction composition | [Projection Contract](../../projection/PROJECTION_CONTRACT.md) |
 
 ## Chat-led Block reading entry
 
-For a named, structured System/Block lesson, resolve these existing owners before teaching. A self-contained medical question does not require this entry, and a continuation still needs the actual learner context rather than an assumed first Block.
+For continuation, resolve actual learner context first. For a named System/Block lesson:
 
-1. `content/xizong/LEARNING_CONTRACT.md` owns teaching and evidence rules. Apply its Chat-led causal-model flow and reasoning-critical precision now; do not infer teaching rules from Website layout.
-2. Resolve the exact System/Block through `content/xizong/knowledge/manifest.json` and the Current System owner. Read the full canonical Block, including explicit Framework, comparisons, Source locators, boundaries and MI-G/MI-D; a title/Prompt inventory is not the lesson.
-3. Read the exact System Learning block. Its accepted LG membership/order and goal/closure win over stale shared-field group metadata. The relevant System owner and Learning support must agree; do not stitch incompatible group lists. Retaining LG coverage/order does not require splitting the medical explanation or reconstruction view into numbered LG columns.
-4. Resolve the Block's actual reviewed support owners: relevant `shared-fields.json` KP retention items, System cues/MedicalVisuals, Extensions and Connections when present. `source_memory_items` are content support, not proof that the learner has admitted or owes every item in Memory. Preserve owner and timing; absent support stays absent.
-5. Keep the two output lanes separate:
-   - **Lecture-replacement teaching**: follow [`LECTURE_REPLACEMENT_CONTRACT.md`](./LECTURE_REPLACEMENT_CONTRACT.md). A fresh `*-teaching.md` supplies the learner explanation/model; matching canonical KP title + **full formal Prompt** may be attached at the semantic location, but canonical KP Core is **not** auto-expanded or mirrored into that teaching surface.
-   - **KianOS Website / reconstruction Projection**: follow [Projection Contract §7.1](../../projection/PROJECTION_CONTRACT.md#block-review-generation). This lane may bind canonical Core according to its own contract and remains separate from the Lecture-replacement teaching artifact.
-   Legacy three-column `*-review.md` files are not normal teaching inputs or visual templates. A stale/absent optional teaching view does not block teaching from valid Current owners, and an Issue candidate is not a normal formal-lesson fallback.
-6. At a natural teaching breakpoint, check actual KP/Source coverage and unresolved distinctions. Teaching, an explanation being understood and native Recall/Complete remain separate. Do not manufacture missing source contact or personal evidence.
+1. Read [Learning Contract §2｜Ownership](../../LEARNING_CONTRACT.md) → [Knowledge manifest](../manifest.json) → full Current canonical Block and System, including explicit Framework, comparisons, Source locators, boundaries and MI-G/MI-D.
+2. Resolve the exact System owner first, then its accepted Learning path; the manifest does not directly map every System to a Learning file. The existing native inspector reports `basis.owners.learning` and `basis.owners.learningShards` from the shared resolver (`static-web/src/lib/xizong.mjs` / `xizongSemanticAdapter.mjs`); read those actual owner files and selectors, not a guessed filename. For A1 this is `a1-circulation-learning.json#/blocks/<block_id>/logic_groups`, checked against `system.json#/logic_index/<block_id>`. The exact System Learning membership/order/goal/closure wins over stale `shared-fields.json#/logic_groups` metadata; System and Learning must agree rather than stitching incompatible lists. [Learning Contract §2｜Ownership](../../LEARNING_CONTRACT.md) owns System-specific refinement; [Projection Contract §2｜Current compiled scope vs eligibility](../../projection/PROJECTION_CONTRACT.md) documents the existing normalization of C explicit `kp_members` and D/E/F top-level `logic_groups`/`system_route` plus Content `block_realization`.
+3. Read `shared-fields.json#/kp_fields/<kp_id>/retention_metadata` in full using the actual stable `kp_id` from the canonical/identity resolver, not a displayed short ordinal, including owned `gate_knowledge`, `source_memory_items`, Connections and reserve items when present; retain their anchors, routes and provenance. Also resolve `block_fields/<block_id>` and relevant `system_fields/<system_id>`. Exact Memory/evidence interpretation routes to [Learning Contract §8｜Memory and attention](../../LEARNING_CONTRACT.md); support presence is not private admission or due evidence.
+4. Read the exact System `*-learning-cues.json` `precision_index` and `visual_bindings`, matching the actual `visual_bindings[].anchor.block_id` / `logic_group_id` and any other fields actually owned by the binding, plus Source locators; follow the actual MedicalVisual asset/source rather than only the cue label. Resolve Current `*-extensions.json#/assets` by actual `owner.block_id` / `owner.logic_group_id`; use `owner.kp_id` only if that field actually exists, and never discard LG-level support for lacking a KP field, under [Extension Asset Contract](../../EXTENSION_ASSET_CONTRACT.md). Resolve `retention_metadata.connections` and any referenced canonical/System Connection owner under [Learning Contract §1｜Formal Boundary / Connection adoption](../../LEARNING_CONTRACT.md). Do not omit exact retention because the model summary already mentions its topic; absent support remains absent.
 
-Existing `static-web/scripts/inspect-xizong-content.mjs` is the read-only native composition inspector when execution is available. It is not a prerequisite for ordinary Chat: repository readers follow the same owner references above and must not claim native resolution they did not execute.
+Only Website tasks read Website owners. Teaching principles inherit the Learning Contract; old ProductBrief product descriptions do not override it. This router does not define teaching order or evidence semantics.
 
-### Reviewed A1 lecture-replacement teaching inputs
+For Lecture output, read canonical Block/Framework as medical constraints and resolve the accepted teaching input under [Learning Contract §13｜Fresh-Chat / non-drift](../../LEARNING_CONTRACT.md#13fresh-chat--non-drift-rule); apply [Lecture Replacement Contract §3.1](./LECTURE_REPLACEMENT_CONTRACT.md#teaching-topology-annotations).
 
-These are reviewed teaching derivations for the **Lecture-replacement lane only**. They are not KianOS Website Projection inputs and do not authorize canonical Core mirroring.
+Then route the requested output to the organization/composition owner above. `static-web/scripts/inspect-xizong-content.mjs` is the existing optional read-only native composition inspector.
 
-Normal named-Block first-pass teaching reads Current owners plus the teaching input when it is still fresh. Legacy `*-review.md` files are deliberately omitted from this normal route; they are quarantined migration/audit artifacts, not teaching inputs or visual templates.
+## A1 teaching inputs and freshness
 
-| Block | Lecture-replacement teaching input | Normal use |
+Read a teaching input only after its bound Current canonical/System/Learning dependencies are checked. Changed relevant premises require bounded review under the Lecture Replacement Contract; absent/stale support returns to valid Current owners.
+
+| Block | Lecture-replacement teaching input | Admission owner |
 |---|---|---|
-| A1 B1 | [Teaching](../../projection/a1-circulation/chat/b01-teaching.md) | yes when fresh |
-| A1 B2 | [Teaching](../../projection/a1-circulation/chat/b02-teaching.md) | yes when fresh |
-| A1 B3 | [Teaching](../../projection/a1-circulation/chat/b03-teaching.md) | yes when fresh |
-| A1 B4 | [Teaching](../../projection/a1-circulation/chat/b04-teaching.md) | yes when fresh |
+| A1 B1 | [Teaching](../../projection/a1-circulation/chat/b01-teaching.md) | Learning Contract §13 |
+| A1 B2 | [Teaching](../../projection/a1-circulation/chat/b02-teaching.md) | Learning Contract §13 |
+| A1 B3 | [Teaching](../../projection/a1-circulation/chat/b03-teaching.md) | Learning Contract §13 |
+| A1 B4 | [Teaching](../../projection/a1-circulation/chat/b04-teaching.md) | Learning Contract §13 |
 
-Candidate review/migration status may still live in #1147, but ordinary teaching does not read Issue comments as semantic authority. Website/reconstruction work follows Projection §7.1; Lecture-replacement teaching follows the separate contract above.
-## Hard boundary
 
-Shared learner support may answer **how and when to learn** a Current knowledge object. It may not silently change **what the medical knowledge is**.
+Legacy `*-review.md` is outside normal Lecture input. Keep it for bounded migration/audit of unique valid semantics; Issue comments and historical templates are not fallback teaching authority.
 
-The lane contract and detailed policy are not competing copies: constitutional decisions belong to the lane contract; executable policy detail belongs to `study-policy.json`; System-specific guidance belongs to the relevant System learning owner. If those layers ever appear to disagree, fail closed and reconcile the responsible owner rather than guessing.
+Beginner Guide routing uses `guide-bindings.json`; the current explicit set is A1, A2, A3 and B. C/D/E/F have Current System/Learning owners without separate Guide assets. Do not infer a historical fallback from that absence.
 
-Beginner explanation is likewise subordinate: if a `*-guide.md` explanation conflicts with Current `system.json`, canonical Block Core or accepted System learning support, the Guide must be corrected; it never wins by having more prose.
+## Evidence/history routing
 
-Precision is an exactness attribute, not a mastery stage or an automatic Memory queue. Visual bindings are source-locator + micro-task triggers, not copied medical content. Cross-block reserve learning and connection hooks remain distinct from ordinary Memory admission.
-
-Personal progress, ratings, Wrong/Uncertain state, notes, comments, timing, scheduling and history remain browser interaction state and are outside shared Current content.
+Calibration, audit and phase receipts route to their exact acceptance claim, rather than normal learning/Runtime input. Example: [Guide/Framework exit audit](../../projection/GUIDE_FRAMEWORK_EXIT_AUDIT_20260917.md). Learning/evidence interpretation routes back to Learning Contract; private progress and actual learning records remain with native learner-state owners.
