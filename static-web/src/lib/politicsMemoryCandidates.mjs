@@ -140,8 +140,17 @@ export function buildPoliticsMemoryCandidateCatalogCurrent() {
       .localeCompare([b.subject, b.chapter_id, b.family, b.prompt, b.id].join('|'))
   );
   assertDistinctPoliticsMemoryPrompts(candidates);
+  return {
+    schema: 'kianos.politics.memory-candidate-catalog.v1',
+    revision: politicsMemoryCatalogRevision(candidates),
+    candidates
+  };
+}
+
+export function politicsMemoryCatalogRevision(candidates) {
   const revisionBasis = candidates.map((row) => ({
     id: row.id,
+    subject: row.subject, chapter_id: row.chapter_id, natural_unit_id: row.natural_unit_id,
     family: row.family,
     prompt: row.prompt,
     answer_items: row.answer_items,
@@ -149,11 +158,7 @@ export function buildPoliticsMemoryCandidateCatalogCurrent() {
     checking_criteria: row.checking_criteria, memory_cue: row.memory_cue,
     inspected_refs: row.inspected_refs, admission_basis: row.admission_basis
   }));
-  return {
-    schema: 'kianos.politics.memory-candidate-catalog.v1',
-    revision: 'politics-memory-' + stableHash(JSON.stringify(revisionBasis)),
-    candidates
-  };
+  return 'politics-memory-' + stableHash(JSON.stringify(revisionBasis));
 }
 
 const strings = value => (Array.isArray(value) ? value : []).map(x => String(x ?? '').trim()).filter(Boolean);
@@ -163,7 +168,8 @@ const canonical = value => Array.isArray(value) ? '['+value.map(canonical).join(
   : JSON.stringify(value);
 export function politicsMemoryReviewedTargetRevision(candidate) {
   const b = candidate.admission_basis || {};
-  const payload = {id:candidate.id, prompt:String(candidate.prompt||'').trim(),
+  const payload = {id:candidate.id, subject:String(candidate.subject||'').trim(), chapter_id:String(candidate.chapter_id||'').trim(),
+    natural_unit_id:String(candidate.natural_unit_id||'').trim(), family:String(candidate.family||'').trim(), prompt:String(candidate.prompt||'').trim(),
     answer_items:strings(candidate.answer_items), checking_criteria:strings(candidate.checking_criteria),
     memory_cue:String(candidate.memory_cue||'').trim(), source_refs:sortedRefs(candidate.source_refs),
     inspected_refs:sortedRefs(candidate.inspected_refs), admission_basis:{route:String(b.route||'').trim(),
@@ -175,8 +181,9 @@ export function politicsMemoryAdmissionVerified(candidate, repoRoot) {
   const b = candidate.admission_basis || {};
   if (candidate.admission !== 'CANDIDATE_ONLY' || b.review_status !== 'REVIEWED'
     || !['FIRST_ROUND_EXACT','INDIVIDUAL_GAP','OUTPUT_REQUIREMENT'].includes(b.route)
+    || !candidate.subject || !candidate.chapter_id || !candidate.natural_unit_id || !candidate.family
     || !candidate.prompt || !strings(candidate.answer_items).length || !strings(candidate.checking_criteria).length
-    || !strings(candidate.source_refs).length || !b.source_edition || !b.source_locator || !b.prerequisite
+    || !strings(candidate.source_refs).length || !/^POL27-[A-Z][A-Z0-9_-]*$/.test(String(b.source_edition||'')) || !b.source_locator || !b.prerequisite
     || b.reviewed_target_revision !== politicsMemoryReviewedTargetRevision(candidate)) return false;
   const [file, anchor, extra] = String(b.review_ref||'').split('#');
   if (!file || !anchor || extra || path.isAbsolute(file)) return false;
@@ -189,9 +196,14 @@ export function politicsMemoryAdmissionVerified(candidate, repoRoot) {
     if (start<0 || text.indexOf(marker,start+marker.length)>=0) return false;
     const rest=text.slice(start+marker.length), end=rest.search(/\n(?:<a id=|#{1,3} )/);
     const section=end<0?rest:rest.slice(0,end);
-    const escape = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const exact = value => new RegExp('(^|[^A-Za-z0-9_-])'+escape(value)+'($|[^A-Za-z0-9_-])').test(section);
-    return exact(candidate.id) && exact(b.reviewed_target_revision);
+    // Pair target and digest in one explicit record; never borrow another row's hash.
+    const rows=section.split(/\r?\n/).filter(line=>/^\s*\|.*\|\s*$/.test(line))
+      .map(line=>line.trim().slice(1,-1).split('|').map(cell=>cell.trim()));
+    const targetRows=rows.filter(cells=>cells[0]===candidate.id);
+    if(targetRows.length!==1)return false;
+    const cells=targetRows[0], digests=cells.filter(cell=>/^sha256:[0-9a-f]{64}$/.test(cell));
+    return cells.length>=2 && digests.length===1 && cells.at(-1)===b.reviewed_target_revision
+      && !cells.some(cell=>/\b(?:PENDING(?:_[A-Z]+)*|UNREVIEWED|REJECTED|BLOCKED)\b/i.test(cell));
   } catch { return false; }
 }
 export function assertDistinctPoliticsMemoryPrompts(candidates) {

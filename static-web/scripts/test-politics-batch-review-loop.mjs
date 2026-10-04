@@ -55,6 +55,9 @@ try {
 
   // Formal Workbench is the only attempt/backside owner.
   await page.goto(`${BASE}/politics/practice/?unit=${encodeURIComponent(target.unitKey)}&question=${encodeURIComponent(target.id)}`, { waitUntil: 'domcontentloaded' });
+  // Module hydration and the learner-writer lease complete after DOMContentLoaded.
+  // Wait for the exact requested native filter, never substitute a broader scope.
+  await page.waitForFunction((unitKey) => document.querySelector('[data-filter-unit]')?.value === unitKey, target.unitKey);
   check(await page.inputValue('[data-filter-unit]') === target.unitKey, 'workbench_receives_exact_unit');
   await page.check('[data-learned-scope]');
   await page.click('[data-start-session]');

@@ -147,22 +147,34 @@ if (!process.exitCode) {
 // Only disposable producer content and in-memory learner state are used here.
 const {default: assert}=await import('node:assert/strict');
 const os=await import('node:os');
-const {extractPoliticsMemoryCandidates:extract,politicsMemoryReviewedTargetRevision:revision,assertDistinctPoliticsMemoryPrompts:distinct}=await import('../src/lib/politicsMemoryCandidates.mjs');
-const {applyPoliticsMemoryPlan:apply,recordPoliticsMemoryResponse:respond,resolvePoliticsMemoryResume:resume,buildPoliticsMemoryHistoryProfile:profile}=await import('../src/lib/politicsMemoryRuntime.mjs');
+const {extractPoliticsMemoryCandidates:extract,politicsMemoryReviewedTargetRevision:revision,assertDistinctPoliticsMemoryPrompts:distinct,politicsMemoryCatalogRevision:catalogRevision}=await import('../src/lib/politicsMemoryCandidates.mjs');
+const {applyPoliticsMemoryPlan:apply,recordPoliticsMemoryResponse:respond,resolvePoliticsMemoryResume:resume,buildPoliticsMemoryHistoryProfile:profile,stagePoliticsMemoryPlan:stage,politicsMemoryPlanEffectMatches:effect,validatePoliticsMemoryPlan:validatePlan,POLITICS_MEMORY_PLAN_KEY:planKey}=await import('../src/lib/politicsMemoryRuntime.mjs');
 const fixtureRoot=fs.mkdtempSync(path.join(os.tmpdir(),'politics-memory-fixture-'));
 try {
  const rel='content/politics/learning/marxism/teaching-candidate/preparation-review.md';
  fs.mkdirSync(path.dirname(path.join(fixtureRoot,rel)),{recursive:true});
- const group={name:'legacy identity',natural_unit_id:'fixture-nu',source_refs:['fixture-src'],items:['fixture exact answer'],prompt:'fixture retrieval question',checking_criteria:['complete answer'],memory_cue:'optional cue',inspected_refs:['fixture-page'],admission_basis:{route:'FIRST_ROUND_EXACT',review_status:'REVIEWED',source_edition:'fixture-current',source_locator:'fixture page',review_ref:rel+'#a',prerequisite:'fixture model'}};
+ const group={name:'legacy identity',natural_unit_id:'fixture-nu',source_refs:['fixture-src'],items:['fixture exact answer'],prompt:'fixture retrieval question',checking_criteria:['complete answer'],memory_cue:'optional cue',inspected_refs:['fixture-page'],admission_basis:{route:'FIRST_ROUND_EXACT',review_status:'REVIEWED',source_edition:'POL27-CF',source_locator:'fixture page',review_ref:rel+'#a',prerequisite:'fixture model'}};
  const chapter={subject:'MARX',chapter_id:'fixture-chapter',content_support:{active_precision:[group]}},opts={repoRoot:fixtureRoot};
  const raw=extract(chapter,{...opts,selectableOnly:false})[0];assert.equal(extract(chapter,opts).length,0);
  group.admission_basis.reviewed_target_revision=revision(raw);
- fs.writeFileSync(path.join(fixtureRoot,rel),'<a id="a"></a>\n'+raw.id+'\n'+group.admission_basis.reviewed_target_revision+'\n');
+ fs.writeFileSync(path.join(fixtureRoot,rel),'<a id="a"></a>\n'+'|'+raw.id+'|fixture reviewed|'+group.admission_basis.reviewed_target_revision+'|\n');
+ const reviewedFile=path.join(fixtureRoot,rel),digest=group.admission_basis.reviewed_target_revision;
+ const auditRow=(id,hash,status='reviewed')=>'|'+id+'|'+status+'|'+hash+'|\n';
+ for(const bad of [auditRow(raw.id,'sha256:'+'0'.repeat(64))+auditRow('other',digest),auditRow(raw.id,''),auditRow(raw.id,digest)+auditRow(raw.id,digest),auditRow(raw.id,digest,'PENDING_SOURCE_BINDING'),raw.id+'\n'+digest+'\n']){
+  fs.writeFileSync(reviewedFile,'<a id="a"></a>\n'+bad);assert.equal(extract(chapter,opts).length,0,'crossed/incomplete/duplicate/pending/non-record review must fail closed');
+ }
+ fs.writeFileSync(reviewedFile,'<a id="a"></a>\n'+auditRow(raw.id,digest));
+ const currentEdition=group.admission_basis.source_edition;
+ group.admission_basis.source_edition='LEG26';group.admission_basis.reviewed_target_revision=revision(extract(chapter,{...opts,selectableOnly:false})[0]);
+ fs.writeFileSync(reviewedFile,'<a id="a"></a>\n'+auditRow(raw.id,group.admission_basis.reviewed_target_revision));
+ assert.equal(extract(chapter,opts).length,0,'historical-only review cannot authorize current fixed wording');
+ group.admission_basis.source_edition=currentEdition;group.admission_basis.reviewed_target_revision=digest;
+ fs.writeFileSync(reviewedFile,'<a id="a"></a>\n'+auditRow(raw.id,digest));
  const approved=extract(chapter,opts)[0];assert.ok(approved?.admission_verified);assert.equal(approved.prompt,group.prompt);assert.deepEqual(approved.checking_criteria,group.checking_criteria);
  const side={id:'fixture-sidecar',form:'boundary',statement:'fixture sidecar answer',prompt:'specific sidecar prompt',checking_criteria:['sidecar criterion'],source_refs:['fixture-src'],handbook_alignment:'PENDING_SOURCE_BINDING',admission:'CANDIDATE_ONLY',admission_basis:{...group.admission_basis,review_ref:rel+'#side'}};
  const sideChapter={subject:'MARX',chapter_id:'fixture-chapter',memoryProjection:{schema:'kianos.politics.memory_projection.v1',units:{'fixture-nu':{title:'generic unit',candidates:[side]}}}};
  side.admission_basis.reviewed_target_revision=revision(extract(sideChapter,{...opts,selectableOnly:false})[0]);
- fs.appendFileSync(path.join(fixtureRoot,rel),'\n<a id="side"></a>\n'+side.id+'\n'+side.admission_basis.reviewed_target_revision+'\n');
+ fs.appendFileSync(path.join(fixtureRoot,rel),'\n<a id="side"></a>\n'+'|'+side.id+'|fixture reviewed|'+side.admission_basis.reviewed_target_revision+'|\n');
  const sideApproved=extract(sideChapter,opts)[0];assert.equal(sideApproved.prompt,side.prompt);assert.ok(sideApproved.admission_verified,'independent Current-source review does not require inspected handbook');
  group.prompt='clearer question';assert.equal(extract(chapter,{...opts,selectableOnly:false})[0].id,approved.id);assert.equal(extract(chapter,opts).length,0);group.prompt=approved.prompt;
  group.id=approved.id;group.natural_unit_id='fixed-nu';group.source_refs=['fixed-source'];
@@ -179,7 +191,8 @@ try {
  const event=respond(storage,catalog,{plan_id:plan.plan_id,candidate_id:approved.id,response:'FUZZY',observed_at:new Date(now).toISOString()},{expectedDay:day});
  assert.deepEqual(event.candidate_snapshot.checking_criteria,group.checking_criteria);
  assert.equal(event.candidate_snapshot.admission_basis.reviewed_target_revision,group.admission_basis.reviewed_target_revision);
- assert.equal(profile([event],{...catalog,revision:'unrelated',candidates:[{...approved,prompt:'clearer',memory_cue:'clearer cue'}]},{currentDay:day}).summary.current_compatible_events,1);
+ assert.equal(profile([event],{...catalog,revision:'unrelated',candidates:[{...approved,memory_cue:'clearer cue'}]},{currentDay:day}).summary.current_compatible_events,1);
+ assert.equal(profile([event],{...catalog,candidates:[{...approved,prompt:'broader retrieval scope'}]},{currentDay:day}).summary.stale_or_changed_events,1);
  assert.equal(profile([event],{...catalog,candidates:[{...approved,answer_items:['changed']} ]},{currentDay:day}).summary.stale_or_changed_events,1);
  assert.throws(()=>apply(storage,catalog,{...plan,items:[{candidate_id:'unknown'}]},{expectedDay:day,now}),/UNKNOWN_CANDIDATE/);
  assert.throws(()=>apply(storage,catalog,{...plan,items:[{candidate_id:approved.id,reason:'conflicting replay'}]},{expectedDay:day,now}),/REPLAY_CONFLICT/);
@@ -190,5 +203,24 @@ try {
  assert.equal(profile([event],{...catalog,candidates:[{...approved,source_refs:['changed-source']}]},{currentDay:day}).summary.stale_or_changed_events,1);
  assert.equal(resume(storage,catalog,{expectedDay:'2026-10-06'}).status,'STALE');
  assert.throws(()=>apply(storage,{...catalog,candidates:[{...approved,admission_verified:false}]},plan,{expectedDay:day,now}),/NOT_REVIEWED/);
+ // Prove the production stage→consumer path, including ID-only legacy commands.
+ const makeStorage=()=>{const data=new Map();return {getItem:k=>data.get(k)??null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)}};
+ const actualCatalog={...catalog,revision:catalogRevision([approved])},stagePlan={...plan,catalog_revision:actualCatalog.revision},staged=makeStorage();
+ stage(staged,stagePlan,{expectedDay:day,now});assert.equal(resume(staged,actualCatalog,{expectedDay:day}).status,'ACTIVE');
+ const frozen=validatePlan(stagePlan,actualCatalog,{expectedDay:day,now});
+ const exact=makeStorage();stage(exact,frozen,{expectedDay:day,now});assert(effect(exact,frozen,day));const legacyCommand={...frozen,items:frozen.items.map(({candidate_snapshot,...item})=>item)};assert(effect(exact,legacyCommand,day));
+ const altered=JSON.parse(exact.getItem(planKey));altered.items[0].candidate_snapshot.prompt='tampered retrieval';exact.setItem(planKey,JSON.stringify(altered));
+ assert.equal(effect(exact,frozen,day),false,'snapshot-bearing command cannot acknowledge a changed snapshot');
+ assert.equal(resume(exact,actualCatalog,{expectedDay:day}).status,'STALE');
+ for(const field of ['subject','chapter_id','natural_unit_id','family']){
+  const moved={...approved,[field]:'changed-ownership'};
+  assert.notEqual(revision(moved),revision(approved),field+' must bind Content review');
+  const movedCatalog={...actualCatalog,revision:catalogRevision([moved]),candidates:[moved]};
+  assert.notEqual(movedCatalog.revision,actualCatalog.revision,field+' must bind catalog');
+  assert.equal(resume(staged,movedCatalog,{expectedDay:day}).status,'STALE');
+  assert.throws(()=>respond(staged,movedCatalog,{plan_id:plan.plan_id,candidate_id:approved.id,response:'STABLE',observed_at:new Date(now).toISOString()},{expectedDay:day}),/CATALOG_STALE/);
+ }
+ const legacy=structuredClone(event);delete legacy.candidate_snapshot.checking_criteria;delete legacy.candidate_snapshot.admission_basis;
+ assert.equal(profile([legacy],actualCatalog,{currentDay:day}).summary.stale_or_changed_events,1,'legacy raw recall does not gain newly reviewed criteria');
  console.log('PASS reviewed producer→catalog→snapshot→Recall; pending excluded, stable ID, local semantic staleness');
 } finally {fs.rmSync(fixtureRoot,{recursive:true,force:true});}

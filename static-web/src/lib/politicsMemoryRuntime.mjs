@@ -326,8 +326,13 @@ export function politicsMemoryPlanEffectMatches(storage, input, expectedDay = nu
     const raw = storage?.getItem?.(POLITICS_MEMORY_PLAN_KEY);
     if (raw == null) return false;
     const current = validateStoredPlanShape(JSON.parse(raw));
-    const commandShape = v => ({...v,items:v.items.map(({candidate_snapshot,...item})=>item)});
-    return JSON.stringify(commandShape(current)) === JSON.stringify(commandShape(expected));
+    // An old ID-only command may observe added validated snapshots. A command
+    // carrying snapshots must observe those exact snapshots in its native effect.
+    const comparableCurrent={...current,items:current.items.map((item,index)=>{
+      if(Object.hasOwn(expected.items[index]||{},'candidate_snapshot'))return item;
+      const {candidate_snapshot,...shape}=item;return shape;
+    })};
+    return JSON.stringify(comparableCurrent) === JSON.stringify(expected);
   } catch {
     return false;
   }
@@ -390,7 +395,6 @@ function candidateSnapshotMatchesCurrent(snapshot, candidate) {
   if (!record(snapshot) || !record(candidate)) return false;
   const semantic = value => {
     const normalized = normalizeCandidateSnapshot(value);
-    delete normalized.prompt;
     delete normalized.memory_cue;
     const basis = normalized.admission_basis;
     normalized.admission_basis = basis ? {source_edition:basis.source_edition, source_locator:basis.source_locator,
