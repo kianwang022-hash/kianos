@@ -54,9 +54,9 @@ If the official exam structure materially changes, this score model must be reva
 Politics learning is deliberately asymmetric across time:
 
 1. **First-round understanding / objective engine**  
-   Build the smallest coherent source-grounded model through Chat continuous teaching to distinguish options and use Xiao1000 as transfer evidence. Heavy answer-template memorization is out of scope here.
+   Build the smallest coherent source-grounded model through Chat continuous teaching, teach and rehearse approved first-round exact targets, and use Xiao1000 as transfer evidence. Model construction and systematic precision are complementary; heavy later-phase answer-template memorization is out of scope here.
 2. **Consolidation / evidence repair**  
-   Revisit Wrong / Uncertain evidence, compress recurring distinctions and admit only justified Memory/Precision debt.
+   Consolidate the approved precision baseline as well as Wrong / Uncertain gaps; use Recall and question evidence to adjust selection, memory encoding and repair depth, rather than treating mistakes as the only reason to memorize.
 3. **Analysis-output phase**  
    Use approved later-phase recitation/current-affairs sources to build source-grounded answer frameworks, fixed formulations and material-to-principle output skill. This is a real score channel and must not be left as a vague consequence of first-round understanding.
 4. **Mock / final compression**  
@@ -123,7 +123,9 @@ Chat owns continuous first-round teaching. Chengfeng remains the Source basis; o
 
 The active first-round chain is:
 
-`subject total model → Chat continuous local/chapter explanation → compression of the same model → source-grounded exact-retention candidates only when justified; Xiao1000 evidence → model diagnosis → smallest justified follow-up`
+`subject total model → progressive Chat explanation → same-model compression → Chat memory encoding and exact rehearsal of approved targets → authorized Memory plan → Website retrieval; whole-item-first-ready Xiao1000 verification + Recall evidence → Chat diagnosis and adaptive review`
+
+This is a division of learning jobs, not a mandatory ceremony or one-sitting sequence. Verification may follow the relevant taught prerequisites without waiting for every unrelated chapter list to be memorized. A fast overview does not establish full coverage. First-round exact targets remain governed by §6.1 and Content Hierarchy `FIRST_ROUND_EXACT`; they must not disappear behind “understanding first”.
 
 Chat is the single continuous teaching mainline; Chengfeng is the Source basis and necessary original-image/text calibration, not a parallel second course. Natural Unit existence, identity, boundaries and canonical order remain Chengfeng-owned. Teaching exposition may adapt to understanding, but canonical coverage must not be lost. Pausing/resuming does not prove completion or create review debt; checkpoints remain optional and useful only at natural closure.
 
@@ -135,6 +137,7 @@ Reasoning-critical conditions and boundaries must be explained when needed, not 
 
 - **Chengfeng** remains the first-round Source basis, with original images/text used for necessary calibration. Natural Unit existence, identity, boundary, and order follow the approved Chengfeng structure.
 - **Suyi** is a framework/reference source for Chat. Its useful mind-map structure should be semantically absorbed into Chat-approved Orientation / Bridge / Compression assets. The learner is not required to read Suyi separately, and Politics must not create a second Suyi learning mainline merely to preserve its original presentation.
+- **Designated retention source (currently the Leg handbook family)** informs fixed-target selection, wording and useful memory organization, reconciled item by item with Current Chengfeng-owned knowledge under §6.1. It is neither a second course nor an automatic union/intersection of two books. Uninspected or historical-only support stays explicitly limited.
 - **Xiao1000** is validation and transfer evidence. It may bind to one or more Natural Units/KPs but must not determine first-round learning order.
 - Different teachers may use different frameworks. Distinguish factual conflict, wording difference, and method preference. Chat decides the learner-facing result; do not hard-merge teachers into a false unified framework.
 
@@ -146,6 +149,8 @@ Politics first-round learning uses explicit surface ownership rather than inferr
 | --- | --- | --- |
 | Chapter / Unit Orientation | Chat; Astro companion | Total model / WHY NOW for the continuous explanation |
 | Continuous first study / same-model compression | **Chat** | Chengfeng Source basis; original iPad/MarginNote images/text only when calibration is needed |
+| Memory encoding / first exact rehearsal | **Chat** | Explain grouping, contrast, retrieval cues and required accuracy for the same Content targets; no mastery or native Recall event is inferred |
+| Planned exact retrieval | **Website Memory workspace** | Execute approved Current catalog selections via `politics.memory_plan`; reveal, self-assessment and evidence return, not autonomous teaching/scheduling |
 | Natural Unit position / checkpoint / closure cue | Astro | May tell the learner where they are and what to do next without duplicating the lecture |
 | Xiao1000 verification | **single KianOS Politics Workbench** | Original question/options/official answer remain source-owned; the Workbench is the only learner-facing attempt/evidence writer |
 | Backside explanation Content | Workbench after submit | `takeaway` + refined explanation are prebuilt question-bound Content, not a runtime Chat call |
@@ -200,6 +205,27 @@ A prepared chapter is complete for its reported usable scope only when actual te
 
 Maintain one canonical preparation in the existing Politics content owners; adapt existing assets or add only the necessary chapter text. Do not stack multiple full answers, repeated hidden full texts, or a new registry. Schema/Projection changes remain governed by their existing Content/Runtime owners; this preparation rule does not authorize them.
 
+### 3.2 Model-to-memory preparation completion
+
+The completion boundary for the integrated capability is **teach → encode → retrieve → diagnose**, not teacher-prose completeness alone. Earlier bounded teaching reviews remain evidence for the scope they actually inspected; they do not automatically certify this additional scope.
+
+Use the existing chapter/NU owners, A/B/C dispositions and content hierarchy. Understanding and exact retention may overlap on the same object; “can be reasoned out” does not by itself exempt an exam-required exact relation from practice. Do not add parallel tiers, a second textbook or a new Memory registry.
+
+For the reported usable chapter scope, provide substantive content for:
+
+1. **Teaching consumption.** State the first-explanation route, its necessary prerequisites and decisive in-place boundaries; give exact destinations for later B supplements. Do not make the next Chat choose between reading the full teacher brief verbatim and inventing a new lesson. Keep optional warnings out of the main explanation unless their misunderstanding would break the model or an imminent whole-item discrimination.
+2. **Same-model reconstruction.** A compact recovery route must expand to the same explained relations, directions, conditions and scope. It is not a second unrelated summary.
+3. **Exact target coverage.** Identify the actual fixed statements, lists, identities, pairings or boundaries to retain, with Source and admission basis. Distinguish conceptual paraphrase, complete list membership, exact object/role pairing and source-required fixed wording. Order is compulsory only when the Source/task makes order meaningful. “C: hats/lists, return to book later” is a locator, not a completed precision deliverable. Sparse means nonredundant, not an arbitrary small quota or omitted required targets.
+4. **Memory encoding.** For each justified target/group, supply a useful grouping rationale, contrast, retrieval cue, mnemonic or contextual association when it lowers effort. No forced mnemonic for a simple point. Mark teaching aids as aids, not authoritative answers. They must expand back to the approved target without inventing causes, reversing roles, dropping members or deleting decisive qualifiers.
+5. **Retrieval and checking.** Supply a self-contained prompt, an exact answer/reference and the essential pass/omission/confusion criteria. Show where supported paraphrase is allowed. A chapter title or a generic “boundary” label is not a sufficient prompt for several different tasks. Test an unaided retrieval before providing an optional cue; a cued correction is repair evidence, not a fresh independent success.
+6. **Consumer mapping.** Reuse or repair existing chapter precision groups / `*.memory.json` candidates before adding a new item. Locate the accepted content ID and model/Source explanation, or explicitly report why it is not yet catalog-selectable. New teaching wording must reconcile dependent old Memory wording; do not leave Chat teaching one answer while the Website recalls another. Exact realization follows CONTENT_SEMANTICS_CONTRACT.md §3.2.
+
+The existing three review passes in §3.1 must now inspect these deliverables as part of coverage, continuity and compression fidelity. Independent textual attacks include a missing approved target, a vague prompt with two possible answers, a mnemonic that cannot recover the whole answer, and an old/new exact-wording conflict. Extend the existing bounded review result, do not create a parallel QA ledger.
+
+Before scaling, prove two materially different shapes: a Marxism relation/boundary unit and Ethics-Law C06 list/role grouping. The author directly reads/writes the substantive material; mechanical extraction, formatting and checks may be batched, but unreviewed Work-generated prose is not a substitute. Validate the useful shape, then complete every subject's actual admitted scope; a sample passing is not five-subject completion.
+
+A rule/content review, a catalog/plan test, a rendered candidate and real learner performance are separate claims. No website-consumer claim passes from a file count or CI alone. No real learner records may be fabricated during preparation or self-test. Tests use isolated fixture storage, and unavailable Source/consumer/independent-review evidence remains a scoped blocker. Kian is not required to perform chapter-by-chapter preparation QA.
+
 ## 4. First-round interaction principles
 
 - **Score/time first:** the shortest path that preserves exam-relevant understanding, discrimination and transfer beats a richer path with no demonstrated score benefit.
@@ -211,7 +237,7 @@ Maintain one canonical preparation in the existing Politics content owners; adap
 - **Smallest sufficient repair:** Wrong/Uncertain first records Evidence and permits continuation. When the learner elects a source return or batch Review/Chat determines repair is warranted, choose the shallowest repair that resolves the real failure; a Wrong/Uncertain event alone is not an immediate source-switch command.
 - **Repair depth matches failure depth:** a hat/wording confusion should not reopen an entire Natural Unit; a broken concept relation may reopen a Teaching Bridge; a broken unit model may reopen the Chat model explanation with calibration against the owning Chengfeng Source.
 - **Question-bank subordination:** question counts, unlock counts, and coverage must not dominate first-round attention hierarchy.
-- **Memory later:** first-round display should not make static memory counts a primary task. Precision/Memory becomes prominent when the learning phase actually requires it.
+- **Precision at the right time:** first-entry display is not a memory wall. Approved first-round exact targets are proactively taught, encoded and rehearsed; the remaining systematic precision baseline is scheduled when phase and prerequisites make it useful. Neither “wait for Wrong” nor “memorize all C immediately” is the default.
 - **No mandatory ritual:** Orientation, Recall, closure, source handoff and UI state transitions are tools, not ceremonies. Skip or compress them when they do not materially improve retrieval or transfer.
 - **No learner-facing scheduler internals:** fixed labels such as D1/D3/D7/D14 are not an active Politics learner contract. Review should present useful tasks and reasons, not scheduler implementation details.
 
@@ -288,7 +314,7 @@ Later review may include:
 
 The learner should see **what to do and why**, not scheduler internals.
 
-### 6.1 Memory admission: understanding may expand; Memory may not
+### 6.1 Memory admission: proactive precision with source-bounded scope
 
 Politics teaching projection may synthesize, reorder, and explain source material when that improves understanding. Durable Memory/Precision has a stricter rule:
 
@@ -298,22 +324,28 @@ A rich explanation, a useful analogy, or a Chat-generated relation is not by its
 
 Memory candidates should preferentially come from a **designated memory source/handbook** when one is available and approved for the learner. The designated source is a memory-admission/cross-check source, not a replacement continuous course. If that source has not been bound or inspected, mark handbook alignment as pending; never claim that a point appears there from model memory.
 
-A source-grounded candidate becomes durable review debt when at least one of these is true:
+There are three independent admission routes. An author-reviewed, source-grounded target may be selected for durable practice when at least one applies:
 
-1. the designated memory/analysis-output source explicitly confirms it as a fixed retention target;
-2. Wrong/Uncertain evidence shows that exact retention of this source-grounded boundary/hat/list/identity/timeline/legal wording is needed; or
-3. the later analysis-output phase requires that exact source-grounded formulation/framework for reliable written production.
+1. **Proactive baseline:** an approved designated memory/analysis-output source confirms the fixed target, or the original Current Content owner explicitly reviews and selects it as `FIRST_ROUND_EXACT` on inspected current Source support. The latter is a recorded Content judgment about a specific target, not an automatic promotion of all teaching C items;
+2. **Individual gap:** Wrong/Uncertain evidence shows that exact retention of this source-grounded boundary/hat/list/identity/timeline/legal wording is needed; or
+3. **Output requirement:** the later analysis-output phase requires that exact source-grounded formulation/framework for reliable written production.
+
+Route 1 does not require a previous Wrong/Uncertain event. The approved baseline must be prepared and covered systematically; real performance adjusts timing and repair, not whether source-approved targets exist. First-round-selected exactness and later full output wording must remain distinguishable.
+
+For Chengfeng/Leg reconciliation, retain the owning NU, inspected passages/pages, edition, exact supported wording, useful retained memory organization, material differences and unresolved scope in the existing Content/provenance owner. Reuse duplicate content; do not silently choose the convenient wording. Historical LEG26 alone does not authorize 2027 fixed wording. An independently Current-supported first-round selection may use route 1 after explicit Content review, without claiming uninspected 2027 handbook confirmation. Current-year/high-change/legal items remain gated to their inspected scope. A stale item blocks dependent targets, not unrelated stable material.
+
+Keep separate: prepared target → reviewed admission basis → catalog-selectable content → authorized learner plan → matching application receipt → observed Recall. These are semantic distinctions, not authorization to add Runtime enums or a second admission ledger. Candidate presence is not admission. Before plan selection, Chat checks the actual admission basis, phase/prerequisites and current content revision; structural plan validation alone is not that semantic review.
 
 Default non-admission cases include:
 
 - explanation richness alone;
 - a single stable correct answer;
-- a broad conceptual relation that is better reconstructed than memorized;
+- a broad conceptual relation that is better reconstructed than memorized and has no approved exact-retention requirement;
 - AI-generated extensions without explicit source grounding.
 
 Precision is narrower still. A question may produce conceptual repair without producing any Precision candidate.
 
-Optional chapter-level `*.memory.json` sidecars may hold sparse, source-grounded candidates without making them first-round learner-facing content. Sidecars exist only where validation demonstrates a real need; do not materialize them across every chapter for schema completeness.
+Optional chapter-level `*.memory.json` sidecars may hold source-grounded, nonredundant candidates. Reuse Current precision groups where adequate; add sidecars only for an actual target not safely represented there. Systematically cover the approved exact scope without requiring a file/card quota for every chapter. Teaching aids and exact answers must remain distinguishable.
 
 Memory uses the existing candidate catalog and control path. `politics.memory_plan` selects only existing `candidate_id` values bound to the current `catalog_revision`. A new source-supported card requires review and admission by the original Content owner. The typed Review action `MEMORY_CANDIDATE` is only a follow-up suggestion; it does not create or admit a catalog card, automatically enter a queue, or schedule SRS. Actual matching `APPLIED` receipts prove plan application only; actual Recall evidence proves the observed recall. Chat explanation alone proves neither learning completion nor queue admission.
 
@@ -334,7 +366,7 @@ Hard rules:
 - `FORGOT / FUZZY / STABLE` are Recall evidence, not mastery labels;
 - elapsed time may be exposed as a fact, but Politics does not freeze a D1/D3/D7 learner-facing cadence;
 - the profile may not create `due`, `next_review`, mastery scores or priority scores;
-- Chat chooses today's Memory items from Current candidates using phase, real learner evidence and current study needs;
+- Chat chooses today's Memory items from admitted Current candidates using the approved baseline, phase, prerequisites, real learner evidence and current study needs; no Wrong is required for an approved proactive target;
 - no historical Memory evidence can authorize unsupported analysis-output/current-affairs recitation before the required later Source is actually available.
 
 The intended loop is:
@@ -348,7 +380,7 @@ private full Recall history
 → new Recall evidence returns
 ```
 
-This closes cross-day continuity without turning the Website into an autonomous spaced-repetition scheduler.
+This closes cross-day continuity without turning the Website into an autonomous spaced-repetition scheduler. `STABLE` is the learner's reported recall result, not automatic objective marking or permanent exemption. Chat may choose a later sample based on phase and retrieval need. A model failure calls for explanation; an exactness failure calls for encoding/retrieval; successful recitation but failed application calls for transfer practice. None implies a compulsory new card. No active Chat or explicitly created automation means no ongoing scheduling work.
 
 ### 6.2 Analysis-output is a separate score channel
 

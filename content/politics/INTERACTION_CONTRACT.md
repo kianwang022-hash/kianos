@@ -16,7 +16,7 @@ The shared presentation grammar decides how approved cognition is represented. T
 
 The shared first-round loop is:
 
-`Total model → Chat continuous explanation → same-model compression → optional useful closure/checkpoint → single Xiao1000 Workbench → prebuilt backside + record Evidence → continue; later learner-triggered batch Review → Chat → smallest justified follow-up, including no action`
+`Total model → progressive Chat explanation → same-model compression → Chat encoding / exact rehearsal → authorized Website Memory retrieval; first-ready Xiao1000 Workbench → prebuilt backside + Evidence → continue; learner-triggered Review and Recall return → Chat diagnosis / adaptive review, including no extra action`
 
 Learning Contract §2 owns this loop and §6.1 owns source-grounded selective Memory. This Interaction contract follows them; it does not establish a second teaching or admission owner.
 
@@ -29,8 +29,9 @@ During first-round learning, attention priority is:
 1. current cognitive question / Natural Unit position;
 2. current source-grounded **Chat continuous explanation**;
 3. necessary conditions/boundaries in that explanation, with original Chengfeng images/text for calibration when needed;
-4. Xiao1000 verification in Astro/KianOS web after natural closure;
-5. repair only when evidence shows a failure.
+4. Chat-assisted encoding and exact rehearsal when approved targets become timely, without exposing the entire precision inventory at first entry;
+5. Xiao1000 verification in Astro/KianOS web after the relevant whole-item prerequisites are learned;
+6. adaptive practice of the approved baseline and evidence-specific repair.
 
 Question counts, memory counts, scheduler labels, source metadata, engineering taxonomy, and a duplicate web lecture must not dominate the learning path.
 
@@ -54,7 +55,14 @@ Astro may keep the current Natural Unit, learning question, checkpoint, relation
 A minimal source excerpt is allowed only when it serves a bounded repair/orientation decision. It must not expand by convenience into a second full lecture.
 
 ### At natural closure
-Offer one short reconstruction/checkpoint cue only when useful; it may be skipped. Natural Unit identity is not a one-sitting requirement. Pausing/resuming within Chat teaching or Source calibration does not require a web checkpoint or prove completion. Do not create a large recall workflow unless later evidence justifies it.
+Offer one short reconstruction/checkpoint cue only when useful; it may be skipped. Natural Unit identity is not a one-sitting requirement. Pausing/resuming within Chat teaching or Source calibration does not require a web checkpoint or prove completion. Do not create a large recall ceremony at closure. Scheduled proactive precision follows Learning Contract §6.1 and does not require waiting for a later mistake.
+
+### Encoding and exact retrieval
+After the relevant model is understood, Chat follows Learning Contract §3.2: identify what must be exact, organize it with meaningful cues/contrasts, recover the authoritative wording and explain the checking criteria. Explanation, aid and answer are distinct. Useful first-round exactness is not postponed merely because no question has been missed.
+
+Use a small natural group rather than a wall of lists or mechanically isolated words. Start with a clear unaided prompt; optional help follows an attempt. A mnemonic is optional and must not replace the approved answer. First rehearsal is a teaching action, not an invented Website event or a mastery declaration.
+
+The Website executes the selected Current catalog items under the existing Memory plan: prompt → learner retrieval → reveal answer/checking content → `FORGOT / FUZZY / STABLE` self-report → continue. Do not pre-reveal answer-bearing hints in a clean Recall or Xiao1000 task. Fields not consumed by the existing loader/renderer are not implemented merely because an author added them to a file.
 
 ### Verification
 Open the currently relevant Xiao1000 questions in the Astro/KianOS web question surface only after the owning content is learned.
@@ -230,7 +238,7 @@ Before memorizing wording, classify the statement as one of:
 - path/method;
 - field-specific deployment.
 
-Prefer hierarchy maps, role labels, and confusable-boundary comparisons. Use Xiao1000 evidence to decide which fixed formulations need later precision.
+Prefer hierarchy maps, role labels, and confusable-boundary comparisons. Teach the approved fixed-target baseline under Learning Contract §6.1; use Xiao1000 and Recall evidence to adjust rehearsal and identify additional gaps, not to exclude proactive precision.
 
 Avoid turning first-round learning into a hat-memorization queue.
 
@@ -280,7 +288,9 @@ Xiao1000 validates learning; it does not organize learning.
 
 First-round Politics should be understanding-led, not memory-count-led.
 
-Selective precision becomes prominent only when evidence shows that a fixed formulation, list, identity, boundary, timeline, or legal wording needs exact retention.
+Admission and target scope inherit Learning Contract §6.1: proactive source-approved baseline, individual gaps and later output requirements are independent routes. Understanding-led does not mean error-only Memory. Chat owns memory encoding, useful first rehearsal, plan selection and subsequent interpretation; the Website owns planned retrieval and native evidence capture.
+
+Use the same Content identity through teaching, compression, exact answer and repair. A conceptual failure reopens the smallest model relation; a wording/list/pairing failure receives focused encoding and retrieval; a transfer failure receives an application task. Correct performance stays cheap, without automatically deleting the approved baseline. Do not mistake “I recognize the revealed answer” for unaided retrieval or `STABLE` for machine-verified mastery.
 
 Review should tell the learner what to do and why, not expose scheduler internals such as D1/D3/D7 labels.
 
@@ -349,7 +359,10 @@ A Politics learner experience is good when:
 - Chat remains the single continuous teaching mainline with Chengfeng Source basis;
 - original iPad/MarginNote images/text support necessary Source calibration;
 - useful Suyi cognition has been absorbed/accounted for without creating a second Suyi course;
-- Astro shows only useful orientation/framework/checkpoint/verification/repair/return structure;
+- Astro shows only useful orientation/framework/checkpoint/planned-retrieval/verification/repair/return structure;
+- Chat can recover the first-lesson route, exact targets, encoding aids and checking criteria from the owning content without reconstructing a second course;
+- approved proactive precision can be delivered without a fabricated Wrong event, while unsupported/pending targets remain excluded;
+- new teacher wording and the corresponding Website answer agree after Source reconciliation;
 - the Mac landscape workspace uses space to make relations/discrimination clearer rather than simply adding widgets;
 - the central Cognitive Stage has one dominant task and the Inspector remains secondary/contextual;
 - Xiao1000 questions enter Astro only after the owning source-grounded content is learned;
