@@ -100,3 +100,11 @@
 ### 实际消费者反审修复
 
 工程反审发现原Projection的`inseparable`/`dual-subject`仍按精记前两项取值，而新内容把两者并入一项。已按原意拆回两项，后续相应义务、复合性与边界原文顺延；只刷新该目标的准确版本绑定。S02旧precision_note引用已不存在的learning_rule，已明确已审十一坚持可分组教/练，但目录准入不等于Orientation全量展开或一次强制背满。位置可解析不等于语义一致，本批已核实这两个实际消费者映射。
+
+### P3/P4 正式消费者证明与边界
+
+在产品head `30a5a3ba3bfdb68b1d53f0b36467d4aaa69aedba`、catalog `politics-memory-e0e847db`，55项审核绑定/准确快照及归属、prompt变化、回执篡改反例已通过。正式 `http://127.0.0.1:4322/politics/memory/` 使用全新Chromium进程/context（Asia/Shanghai、初始storage为空）和全新Candidate隔离后端；通过既有Control Store发布命令，正式页面原生轮询写入匹配ID/hash的APPLIED，服务端隔离receipt也回读一致，没有fixture路由或伪造网络回执。APPLIED本身Recall为0；刷新进入计划后，马原M01与十一坚持的作者prompt、完整答案、criteria/cue及揭示前隐藏均通过；实际FUZZY/STABLE自报产生两条带审核快照的测试事件，中途刷新恢复第二项且不泄露答案。浏览器时钟前移一天后正式Memory判旧计划失效；从正式Home“安排说明→Chat Plan / 阶段证据 / 本机备份→复制今日学习包”导出的原生Packet当天Recall=0、current_plan=null，profile保留两条前日证据。该正式路径15项断言通过，既有Workbench18项证明保留。
+
+这是隔离工程测试，未改真实learner状态/Stable4321，也不证明真实学习、55项逐一UI遍历、全部先决已授课或完整Chat教材/P5/P6验收。W/U NO_ACTION、整题first-ready和stale反例仍属既有原生脚本证明；没有自动入库、排程或掌握结论。正式Memory在Control接入后以重入/刷新读取计划，本次不宣称原页即时刷新；Home冷启动派生数据读取约31–34秒，属于已观察性能边界，本批未扩修。
+
+本次正式路径命令：`formal-memory-control-30a5a3ba-1791138507790`；实际hash：`8223dfb52b9b3252fc6d21eebde0ef7c73a1c5f41b7b431f58b4e956d4d1d3d8`；隔离服务端receipt为`APPLIED`。
