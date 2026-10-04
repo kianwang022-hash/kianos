@@ -54,10 +54,13 @@ export function validatePoliticsMemoryPlan(input, catalog, {
     if (!candidateId || seen.has(candidateId)) fail('PLAN_ITEM_INVALID', String(index));
     const candidate = byId.get(candidateId);
     if (!candidate) fail('PLAN_UNKNOWN_CANDIDATE', candidateId);
+    if (candidate.admission_verified !== true) fail('PLAN_CANDIDATE_NOT_REVIEWED', candidateId);
+    if (raw?.candidate_snapshot && JSON.stringify(raw.candidate_snapshot) !== JSON.stringify(normalizeCandidateSnapshot(candidate))) fail('PLAN_SNAPSHOT_STALE',candidateId);
     seen.add(candidateId);
     return {
       candidate_id: candidateId,
-      reason: clean(raw?.reason, 1200) || null
+      reason: clean(raw?.reason, 1200) || null,
+      candidate_snapshot: normalizeCandidateSnapshot(candidate)
     };
   });
 
@@ -146,6 +149,9 @@ export function recordPoliticsMemoryResponse(storage, catalog, {
   if (!catalog?.revision || current.catalog_revision !== catalog.revision) fail('RESPONSE_CATALOG_STALE');
   const candidate = byId.get(candidateId);
   if (!candidate) fail('RESPONSE_CANDIDATE_STALE', candidateId);
+  if (candidate.admission_verified !== true) fail('RESPONSE_CANDIDATE_NOT_REVIEWED', candidateId);
+  const planned = (current.items || []).find(x=>x.candidate_id===candidateId);
+  if (planned?.candidate_snapshot && JSON.stringify(planned.candidate_snapshot)!==JSON.stringify(normalizeCandidateSnapshot(candidate))) fail('RESPONSE_SNAPSHOT_STALE',candidateId);
   if (!(current.items || []).some((item) => item.candidate_id === candidateId)) {
     fail('RESPONSE_CANDIDATE_OUT_OF_PLAN', candidateId);
   }
@@ -160,19 +166,7 @@ export function recordPoliticsMemoryResponse(storage, catalog, {
     study_day: current.study_day,
     candidate_id: candidateId,
     catalog_revision: current.catalog_revision,
-    candidate_snapshot: {
-      id: candidateId,
-      subject: clean(candidate.subject, 80),
-      chapter_id: clean(candidate.chapter_id, 180),
-      natural_unit_id: clean(candidate.natural_unit_id, 220) || null,
-      family: clean(candidate.family, 100),
-      prompt: clean(candidate.prompt, 500),
-      answer_items: (Array.isArray(candidate.answer_items) ? candidate.answer_items : [])
-        .map((item) => clean(item, 2400)).filter(Boolean),
-      source_refs: (Array.isArray(candidate.source_refs) ? candidate.source_refs : [])
-        .map((item) => clean(item, 240)).filter(Boolean),
-      source_role: clean(candidate.source_role, 120)
-    },
+    candidate_snapshot: normalizeCandidateSnapshot(candidate),
     response: value,
     observed_at: new Date(observed_at).toISOString()
   };
@@ -216,7 +210,7 @@ export function resolvePoliticsMemoryResume(storage, catalog, {
     const item = plan.items[index];
     if (done.has(item.candidate_id)) continue;
     const candidate = byId.get(item.candidate_id);
-    if (!candidate) {
+    if (!candidate || candidate.admission_verified !== true) {
       return {
         status: 'STALE',
         reason: 'candidate-missing',
@@ -224,6 +218,7 @@ export function resolvePoliticsMemoryResume(storage, catalog, {
         candidate_id: item.candidate_id
       };
     }
+    if (item.candidate_snapshot && JSON.stringify(item.candidate_snapshot)!==JSON.stringify(normalizeCandidateSnapshot(candidate))) return {status:'STALE',reason:'candidate-snapshot-changed',plan_id:plan.plan_id,candidate_id:item.candidate_id};
     return {
       status: 'ACTIVE',
       index,
@@ -331,7 +326,8 @@ export function politicsMemoryPlanEffectMatches(storage, input, expectedDay = nu
     const raw = storage?.getItem?.(POLITICS_MEMORY_PLAN_KEY);
     if (raw == null) return false;
     const current = validateStoredPlanShape(JSON.parse(raw));
-    return JSON.stringify(current) === JSON.stringify(expected);
+    const commandShape = v => ({...v,items:v.items.map(({candidate_snapshot,...item})=>item)});
+    return JSON.stringify(commandShape(current)) === JSON.stringify(commandShape(expected));
   } catch {
     return false;
   }
@@ -377,19 +373,39 @@ function normalizeCandidateSnapshot(candidate) {
     chapter_id: clean(candidate?.chapter_id, 180),
     natural_unit_id: clean(candidate?.natural_unit_id, 220) || null,
     family: clean(candidate?.family, 100),
-    prompt: clean(candidate?.prompt, 500),
+    prompt: String(candidate?.prompt || '').trim(),
     answer_items: (Array.isArray(candidate?.answer_items) ? candidate.answer_items : [])
-      .map((item) => clean(item, 2400)).filter(Boolean),
+      .map((item) => String(item ?? '').trim()).filter(Boolean),
     source_refs: [...new Set((Array.isArray(candidate?.source_refs) ? candidate.source_refs : [])
       .map((item) => clean(item, 240)).filter(Boolean))].sort(),
-    source_role: clean(candidate?.source_role, 120)
+    source_role: clean(candidate?.source_role, 120),
+    checking_criteria: (candidate?.checking_criteria || []).map(x=>String(x).trim()).filter(Boolean),
+    memory_cue: String(candidate?.memory_cue || '').trim(),
+    inspected_refs: [...new Set(candidate?.inspected_refs || [])].sort(),
+    admission_basis: candidate?.admission_basis ? JSON.parse(JSON.stringify(candidate.admission_basis)) : null
   };
 }
 
 function candidateSnapshotMatchesCurrent(snapshot, candidate) {
   if (!record(snapshot) || !record(candidate)) return false;
-  return JSON.stringify(normalizeCandidateSnapshot(snapshot))
-    === JSON.stringify(normalizeCandidateSnapshot(candidate));
+  const semantic = value => {
+    const normalized = normalizeCandidateSnapshot(value);
+    delete normalized.prompt;
+    delete normalized.memory_cue;
+    const basis = normalized.admission_basis;
+    normalized.admission_basis = basis ? {source_edition:basis.source_edition, source_locator:basis.source_locator,
+      prerequisite:basis.prerequisite} : null;
+    return normalized;
+  };
+  // Legacy snapshots had no precise checking/provenance fields: retain their old
+  // exact comparison, rather than claiming they tested newly reviewed semantics.
+  if (!Object.hasOwn(snapshot,'checking_criteria')) {
+    const legacy = value => {const v=normalizeCandidateSnapshot(value);delete v.checking_criteria;delete v.memory_cue;
+      delete v.inspected_refs;delete v.admission_basis;return v;};
+    if (candidate.admission_basis) return false;
+    return JSON.stringify(legacy(snapshot)) === JSON.stringify(legacy(candidate));
+  }
+  return JSON.stringify(semantic(snapshot)) === JSON.stringify(semantic(candidate));
 }
 
 function studyDayDistance(currentDay, priorDay) {
@@ -415,6 +431,8 @@ function boundedHistoryState(candidate, events, currentDay) {
     family: clean(candidate.family, 100),
     prompt: clean(candidate.prompt, 500),
     source_refs: [...new Set((candidate.source_refs || []).map((ref) => clean(ref, 240)).filter(Boolean))].sort(),
+    checking_criteria: candidate.checking_criteria || [],
+    admission_basis: candidate.admission_basis || null,
     latest_response: latest?.response || null,
     latest_observed_at: latest?.observed_at || null,
     latest_study_day: latest?.study_day || null,

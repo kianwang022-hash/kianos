@@ -16,7 +16,7 @@ const responseKeys = {
   '3': 'STABLE'
 };
 
-export function initPoliticsMemoryWorkspace(root) {
+export function initPoliticsMemoryWorkspace(root, { storage = localStorage, studyDay = null } = {}) {
   if (!(root instanceof HTMLElement)) return;
   const $ = (selector) => root.querySelector(selector);
   const catalogNode = $('[data-memory-catalog]');
@@ -39,7 +39,7 @@ export function initPoliticsMemoryWorkspace(root) {
 
   let revealed = false;
   let active = null;
-  const localStudyDay = () => new Date().toLocaleDateString('en-CA');
+  const localStudyDay = () => studyDay || new Date().toLocaleDateString('en-CA');
 
   const setHidden = (node, value) => {
     if (node instanceof HTMLElement) node.hidden = value;
@@ -58,7 +58,7 @@ export function initPoliticsMemoryWorkspace(root) {
 
     let next;
     try {
-      next = resolvePoliticsMemoryResume(localStorage, catalog, { expectedDay: localStudyDay() });
+      next = resolvePoliticsMemoryResume(storage, catalog, { expectedDay: localStudyDay() });
     } catch (error) {
       if (status) status.textContent = '当前政治记忆记录无法安全读取：' + String(error?.message || error);
       active = null;
@@ -98,6 +98,10 @@ export function initPoliticsMemoryWorkspace(root) {
         return li;
       }));
     }
+    const checking = $('[data-memory-checking]');
+    if (checking) checking.textContent = (next.candidate.checking_criteria || []).join('；');
+    const cue = $('[data-memory-cue]');
+    if (cue) { cue.textContent = next.candidate.memory_cue || ''; cue.hidden = !next.candidate.memory_cue; }
     const reason = $('[data-memory-reason]');
     if (reason) {
       reason.textContent = next.item.reason || '';
@@ -121,7 +125,7 @@ export function initPoliticsMemoryWorkspace(root) {
   const respond = (value) => {
     if (!revealed || active?.status !== 'ACTIVE') return;
     try {
-      recordPoliticsMemoryResponse(localStorage, catalog, {
+      recordPoliticsMemoryResponse(storage, catalog, {
         plan_id: active.plan.plan_id,
         candidate_id: active.candidate.id,
         response: value,

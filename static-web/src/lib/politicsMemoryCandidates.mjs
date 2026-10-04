@@ -1,3 +1,6 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { createHash } from 'node:crypto';
 import {
   listPoliticsChapterPathsCurrent,
   loadPoliticsChapterCurrent
@@ -35,17 +38,18 @@ function subjectId(value) {
 }
 
 function groupCandidate({ chapter, family, group }) {
-  const items = list(group?.items).map((item) => clean(item, 2000)).filter(Boolean);
+  const items = strings(group?.items);
   const sourceRefs = list(group?.source_refs).map((ref) => clean(ref, 240)).filter(Boolean);
   if (!items.length || !sourceRefs.length) return null;
   const raw = chapter?.raw || chapter || {};
   const subject = subjectId(chapter?.subject || raw?.subject);
   const chapterId = clean(raw?.chapter_id || chapter?.chapter_id || chapter?.code || chapter?.chapter, 160);
   const naturalUnitId = clean(group?.natural_unit_id, 200);
-  const prompt = clean(group?.name || family, 240);
-  const basis = [chapterId, family, naturalUnitId, prompt, ...sourceRefs].join('|');
+  const identityName = clean(group?.name || family, 240);
+  const prompt = String(group?.prompt || '').trim();
+  const basis = [chapterId, family, naturalUnitId, identityName, ...sourceRefs].join('|');
   return {
-    id: `polmem-${stableHash(basis)}`,
+    id: clean(group?.id, 220) || `polmem-${stableHash(basis)}`,
     subject,
     chapter_id: chapterId,
     chapter_title: clean(raw?.teaching_title || chapter?.teaching_title || chapter?.title, 240),
@@ -55,7 +59,11 @@ function groupCandidate({ chapter, family, group }) {
     answer_items: items,
     source_refs: [...new Set(sourceRefs)],
     source_role: 'CURRENT_LEARNING_CONTENT',
-    admission: 'CANDIDATE_ONLY'
+    admission: 'CANDIDATE_ONLY',
+    checking_criteria: strings(group?.checking_criteria),
+    memory_cue: String(group?.memory_cue || '').trim(),
+    inspected_refs: strings(group?.inspected_refs),
+    admission_basis: group?.admission_basis || null
   };
 }
 
@@ -65,7 +73,7 @@ function sidecarCandidates(chapter) {
   const out = [];
   for (const [unitId, unit] of Object.entries(projection.units || {})) {
     for (const candidate of list(unit?.candidates)) {
-      const statement = clean(candidate?.statement, 2400);
+      const statement = String(candidate?.statement || '').trim();
       const sourceRefs = list(candidate?.source_refs).map((ref) => clean(ref, 240)).filter(Boolean);
       if (!statement || !sourceRefs.length || candidate?.admission !== 'CANDIDATE_ONLY') continue;
       const id = clean(candidate?.id, 200);
@@ -77,19 +85,23 @@ function sidecarCandidates(chapter) {
         chapter_title: clean(chapter?.raw?.teaching_title || chapter?.teaching_title || chapter?.title, 240),
         natural_unit_id: clean(unitId, 200) || null,
         family: clean(candidate?.form || 'SELECTIVE_PRECISION', 80).toUpperCase(),
-        prompt: clean((unit?.title || unitId) + '｜' + (candidate?.form || '精确边界'), 240),
+        prompt: String(candidate?.prompt || '').trim(),
         answer_items: [statement],
         source_refs: [...new Set(sourceRefs)],
         source_role: 'POLITICS_MEMORY_PROJECTION',
         admission: 'CANDIDATE_ONLY',
-        handbook_alignment: clean(candidate?.handbook_alignment, 120) || null
+        handbook_alignment: clean(candidate?.handbook_alignment, 120) || null,
+        checking_criteria: strings(candidate?.checking_criteria),
+        memory_cue: String(candidate?.memory_cue || '').trim(),
+        inspected_refs: strings(candidate?.inspected_refs),
+        admission_basis: candidate?.admission_basis || null
       });
     }
   }
   return out;
 }
 
-export function extractPoliticsMemoryCandidates(chapterInput) {
+export function extractPoliticsMemoryCandidates(chapterInput, { selectableOnly = true, repoRoot = process.env.KIANOS_REPO_ROOT || path.resolve(process.cwd(), '..') } = {}) {
   const chapter = enrichPoliticsChapterCurrent(chapterInput);
   const support = chapter?.raw?.content_support || chapter?.content_support || {};
   const out = [];
@@ -108,7 +120,10 @@ export function extractPoliticsMemoryCandidates(chapterInput) {
 
   const unique = new Map();
   for (const candidate of out) {
-    if (!candidate.id || unique.has(candidate.id)) continue;
+    if (!candidate.id) continue;
+    if (unique.has(candidate.id)) throw new Error('POLITICS_MEMORY_DUPLICATE_ID:'+candidate.id);
+    if (selectableOnly && !politicsMemoryAdmissionVerified(candidate, repoRoot)) continue;
+    candidate.admission_verified = politicsMemoryAdmissionVerified(candidate, repoRoot);
     unique.set(candidate.id, candidate);
   }
   return [...unique.values()];
@@ -124,16 +139,68 @@ export function buildPoliticsMemoryCandidateCatalogCurrent() {
     [a.subject, a.chapter_id, a.family, a.prompt, a.id].join('|')
       .localeCompare([b.subject, b.chapter_id, b.family, b.prompt, b.id].join('|'))
   );
+  assertDistinctPoliticsMemoryPrompts(candidates);
   const revisionBasis = candidates.map((row) => ({
     id: row.id,
     family: row.family,
     prompt: row.prompt,
     answer_items: row.answer_items,
-    source_refs: row.source_refs
+    source_refs: row.source_refs,
+    checking_criteria: row.checking_criteria, memory_cue: row.memory_cue,
+    inspected_refs: row.inspected_refs, admission_basis: row.admission_basis
   }));
   return {
     schema: 'kianos.politics.memory-candidate-catalog.v1',
     revision: 'politics-memory-' + stableHash(JSON.stringify(revisionBasis)),
     candidates
   };
+}
+
+const strings = value => (Array.isArray(value) ? value : []).map(x => String(x ?? '').trim()).filter(Boolean);
+const sortedRefs = value => [...new Set(strings(value))].sort();
+const canonical = value => Array.isArray(value) ? '['+value.map(canonical).join(',')+']'
+  : value && typeof value === 'object' ? '{'+Object.keys(value).sort().map(k=>JSON.stringify(k)+':'+canonical(value[k])).join(',')+'}'
+  : JSON.stringify(value);
+export function politicsMemoryReviewedTargetRevision(candidate) {
+  const b = candidate.admission_basis || {};
+  const payload = {id:candidate.id, prompt:String(candidate.prompt||'').trim(),
+    answer_items:strings(candidate.answer_items), checking_criteria:strings(candidate.checking_criteria),
+    memory_cue:String(candidate.memory_cue||'').trim(), source_refs:sortedRefs(candidate.source_refs),
+    inspected_refs:sortedRefs(candidate.inspected_refs), admission_basis:{route:String(b.route||'').trim(),
+      source_edition:String(b.source_edition||'').trim(), source_locator:String(b.source_locator||'').trim(),
+      prerequisite:String(b.prerequisite||'').trim()}};
+  return 'sha256:'+createHash('sha256').update(canonical(payload),'utf8').digest('hex');
+}
+export function politicsMemoryAdmissionVerified(candidate, repoRoot) {
+  const b = candidate.admission_basis || {};
+  if (candidate.admission !== 'CANDIDATE_ONLY' || b.review_status !== 'REVIEWED'
+    || !['FIRST_ROUND_EXACT','INDIVIDUAL_GAP','OUTPUT_REQUIREMENT'].includes(b.route)
+    || !candidate.prompt || !strings(candidate.answer_items).length || !strings(candidate.checking_criteria).length
+    || !strings(candidate.source_refs).length || !b.source_edition || !b.source_locator || !b.prerequisite
+    || b.reviewed_target_revision !== politicsMemoryReviewedTargetRevision(candidate)) return false;
+  const [file, anchor, extra] = String(b.review_ref||'').split('#');
+  if (!file || !anchor || extra || path.isAbsolute(file)) return false;
+  const root=path.resolve(repoRoot), resolved=path.resolve(root,file);
+  if (!resolved.startsWith(root+path.sep) || !file.startsWith('content/politics/learning/')) return false;
+  try {
+    if (!fs.realpathSync(resolved).startsWith(fs.realpathSync(root)+path.sep)) return false;
+    const text=fs.readFileSync(resolved,'utf8'), marker='<a id="'+anchor+'"></a>';
+    const start=text.indexOf(marker);
+    if (start<0 || text.indexOf(marker,start+marker.length)>=0) return false;
+    const rest=text.slice(start+marker.length), end=rest.search(/\n(?:<a id=|#{1,3} )/);
+    const section=end<0?rest:rest.slice(0,end);
+    const escape = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const exact = value => new RegExp('(^|[^A-Za-z0-9_-])'+escape(value)+'($|[^A-Za-z0-9_-])').test(section);
+    return exact(candidate.id) && exact(b.reviewed_target_revision);
+  } catch { return false; }
+}
+export function assertDistinctPoliticsMemoryPrompts(candidates) {
+  const prompts=new Map(), ids=new Set();
+  for (const c of candidates) {
+    if (ids.has(c.id)) throw new Error('POLITICS_MEMORY_DUPLICATE_ID:'+c.id);
+    ids.add(c.id);
+    const key=[c.subject,c.chapter_id,c.prompt].join('|'), answer=JSON.stringify(c.answer_items);
+    if (prompts.has(key) && prompts.get(key)!==answer) throw new Error('POLITICS_MEMORY_AMBIGUOUS_PROMPT:'+c.id);
+    prompts.set(key,answer);
+  }
 }

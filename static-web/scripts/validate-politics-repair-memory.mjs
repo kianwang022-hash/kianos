@@ -143,3 +143,52 @@ if (!process.exitCode) {
   console.log('POLITICS_REPAIR_MEMORY_QA_PASS');
   console.log(JSON.stringify({ memorySidecars: memoryFiles.length, repairSidecars: repairFiles.length }));
 }
+
+// Only disposable producer content and in-memory learner state are used here.
+const {default: assert}=await import('node:assert/strict');
+const os=await import('node:os');
+const {extractPoliticsMemoryCandidates:extract,politicsMemoryReviewedTargetRevision:revision,assertDistinctPoliticsMemoryPrompts:distinct}=await import('../src/lib/politicsMemoryCandidates.mjs');
+const {applyPoliticsMemoryPlan:apply,recordPoliticsMemoryResponse:respond,resolvePoliticsMemoryResume:resume,buildPoliticsMemoryHistoryProfile:profile}=await import('../src/lib/politicsMemoryRuntime.mjs');
+const fixtureRoot=fs.mkdtempSync(path.join(os.tmpdir(),'politics-memory-fixture-'));
+try {
+ const rel='content/politics/learning/marxism/teaching-candidate/preparation-review.md';
+ fs.mkdirSync(path.dirname(path.join(fixtureRoot,rel)),{recursive:true});
+ const group={name:'legacy identity',natural_unit_id:'fixture-nu',source_refs:['fixture-src'],items:['fixture exact answer'],prompt:'fixture retrieval question',checking_criteria:['complete answer'],memory_cue:'optional cue',inspected_refs:['fixture-page'],admission_basis:{route:'FIRST_ROUND_EXACT',review_status:'REVIEWED',source_edition:'fixture-current',source_locator:'fixture page',review_ref:rel+'#a',prerequisite:'fixture model'}};
+ const chapter={subject:'MARX',chapter_id:'fixture-chapter',content_support:{active_precision:[group]}},opts={repoRoot:fixtureRoot};
+ const raw=extract(chapter,{...opts,selectableOnly:false})[0];assert.equal(extract(chapter,opts).length,0);
+ group.admission_basis.reviewed_target_revision=revision(raw);
+ fs.writeFileSync(path.join(fixtureRoot,rel),'<a id="a"></a>\n'+raw.id+'\n'+group.admission_basis.reviewed_target_revision+'\n');
+ const approved=extract(chapter,opts)[0];assert.ok(approved?.admission_verified);assert.equal(approved.prompt,group.prompt);assert.deepEqual(approved.checking_criteria,group.checking_criteria);
+ const side={id:'fixture-sidecar',form:'boundary',statement:'fixture sidecar answer',prompt:'specific sidecar prompt',checking_criteria:['sidecar criterion'],source_refs:['fixture-src'],handbook_alignment:'PENDING_SOURCE_BINDING',admission:'CANDIDATE_ONLY',admission_basis:{...group.admission_basis,review_ref:rel+'#side'}};
+ const sideChapter={subject:'MARX',chapter_id:'fixture-chapter',memoryProjection:{schema:'kianos.politics.memory_projection.v1',units:{'fixture-nu':{title:'generic unit',candidates:[side]}}}};
+ side.admission_basis.reviewed_target_revision=revision(extract(sideChapter,{...opts,selectableOnly:false})[0]);
+ fs.appendFileSync(path.join(fixtureRoot,rel),'\n<a id="side"></a>\n'+side.id+'\n'+side.admission_basis.reviewed_target_revision+'\n');
+ const sideApproved=extract(sideChapter,opts)[0];assert.equal(sideApproved.prompt,side.prompt);assert.ok(sideApproved.admission_verified,'independent Current-source review does not require inspected handbook');
+ group.prompt='clearer question';assert.equal(extract(chapter,{...opts,selectableOnly:false})[0].id,approved.id);assert.equal(extract(chapter,opts).length,0);group.prompt=approved.prompt;
+ group.id=approved.id;group.natural_unit_id='fixed-nu';group.source_refs=['fixed-source'];
+ assert.equal(extract(chapter,{...opts,selectableOnly:false})[0].id,approved.id);
+ group.natural_unit_id=approved.natural_unit_id;group.source_refs=approved.source_refs;
+ assert.throws(()=>extract({...chapter,content_support:{active_precision:[group,{...group}]}},{...opts,selectableOnly:false}),/DUPLICATE_ID/);
+ assert.throws(()=>distinct([approved,{...approved,id:'other',answer_items:['different']}]),/AMBIGUOUS_PROMPT/);
+ assert.throws(()=>distinct([approved,{...approved}]),/DUPLICATE_ID/);
+ const map=new Map(),storage={getItem:k=>map.get(k)??null,setItem:(k,v)=>map.set(k,v),removeItem:k=>map.delete(k)};
+ const catalog={schema:'kianos.politics.memory-candidate-catalog.v1',revision:'fixture-rev',candidates:[approved]},day='2026-10-05',now=Date.parse(day+'T00:00:00Z');
+ const plan={schema:'kianos.politics.memory-plan.v1',plan_id:'fixture-only',study_day:day,generated_at:new Date(now).toISOString(),catalog_revision:catalog.revision,items:[{candidate_id:approved.id}]};
+ assert.equal(apply(storage,catalog,plan,{expectedDay:day,now}).status,'applied');assert.equal(apply(storage,catalog,plan,{expectedDay:day,now}).status,'idempotent');
+ assert.equal(resume(storage,catalog,{expectedDay:day}).candidate.prompt,approved.prompt);
+ const event=respond(storage,catalog,{plan_id:plan.plan_id,candidate_id:approved.id,response:'FUZZY',observed_at:new Date(now).toISOString()},{expectedDay:day});
+ assert.deepEqual(event.candidate_snapshot.checking_criteria,group.checking_criteria);
+ assert.equal(event.candidate_snapshot.admission_basis.reviewed_target_revision,group.admission_basis.reviewed_target_revision);
+ assert.equal(profile([event],{...catalog,revision:'unrelated',candidates:[{...approved,prompt:'clearer',memory_cue:'clearer cue'}]},{currentDay:day}).summary.current_compatible_events,1);
+ assert.equal(profile([event],{...catalog,candidates:[{...approved,answer_items:['changed']} ]},{currentDay:day}).summary.stale_or_changed_events,1);
+ assert.throws(()=>apply(storage,catalog,{...plan,items:[{candidate_id:'unknown'}]},{expectedDay:day,now}),/UNKNOWN_CANDIDATE/);
+ assert.throws(()=>apply(storage,catalog,{...plan,items:[{candidate_id:approved.id,reason:'conflicting replay'}]},{expectedDay:day,now}),/REPLAY_CONFLICT/);
+ assert.throws(()=>apply(storage,catalog,{...plan,plan_id:'next',generated_at:new Date(now+1).toISOString()},{expectedDay:day,now:now+1}),/SUPERSEDE_REQUIRED/);
+ const replacement={...plan,plan_id:'next',supersedes_plan_id:plan.plan_id,generated_at:new Date(now+1).toISOString()};
+ assert.equal(apply(storage,catalog,replacement,{expectedDay:day,now:now+1}).status,'superseded');
+ assert.equal(resume(storage,catalog,{expectedDay:day}).status,'ACTIVE');
+ assert.equal(profile([event],{...catalog,candidates:[{...approved,source_refs:['changed-source']}]},{currentDay:day}).summary.stale_or_changed_events,1);
+ assert.equal(resume(storage,catalog,{expectedDay:'2026-10-06'}).status,'STALE');
+ assert.throws(()=>apply(storage,{...catalog,candidates:[{...approved,admission_verified:false}]},plan,{expectedDay:day,now}),/NOT_REVIEWED/);
+ console.log('PASS reviewed producer→catalog→snapshot→Recall; pending excluded, stable ID, local semantic staleness');
+} finally {fs.rmSync(fixtureRoot,{recursive:true,force:true});}
