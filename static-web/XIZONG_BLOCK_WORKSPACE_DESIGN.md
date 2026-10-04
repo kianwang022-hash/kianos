@@ -6,6 +6,18 @@ Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
 This file records the accepted Mac-wide Block Workspace design only. It does not change Xizong medical Content, Learning Logic, Runtime, Evidence, Repair, Return, or existing S/K/L/P/R/E/U claims.
 
+### Website-only scope
+
+This contract is for the **KianOS Website Block Workspace**.
+
+Standalone Lecture-replacement teaching assets (`*-teaching.md` and their derived Teaching Maps) are a separate learning-content lane owned by `content/xizong/knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md`.
+
+Hard isolation:
+
+- Website/Runtime must not parse Lecture-replacement teaching assets as KP Core, Recall, Memory, Evidence or learner state;
+- Lecture-replacement teaching must not mirror Website KP cards or inherit this Workspace geometry as its teaching skeleton;
+- sharing a canonical KP identity/Prompt for provenance does not merge the two products.
+
 ## 1｜Baseline: optimize the accepted loop, do not redesign it
 
 Preserve the existing mature learner chain:
