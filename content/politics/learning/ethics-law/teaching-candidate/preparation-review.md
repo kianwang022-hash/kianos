@@ -164,3 +164,11 @@
 ### 本批消费验证边界
 
 以上是已审内容及其强版本签名。保存后需以最终 head 重新编译派生绑定、核对目录与原消费者，并在隔离 Candidate 验证新增章对象的题面、揭示和回传。前一批 C06/C02 的网页证据不能自动算作本批十八组的实际消费验收；CI 成功也不代替本批实际交付。五科其余章节和 P6 正式落地仍未完成。
+
+### C00/C01 派生与正式消费者回读
+
+本批内容head `a4c2b944b37767ab52c23233a8fe039af2e03b16` 加本批必要派生绑定下，catalog `politics-memory-521b1a98` 共73项；新18项的强digest、唯一审核行、全部计划快照均匹配，旧55项原文件逐字未变，原错误人生观ID与前三项位置保留。C00/C01的37个既有Projection引用和4份实际Surface Plan用原解析器逐项对比，旧文本、位置、item IDs、状态与含义不变；据此重新绑定两章source blob，Projection validator通过。前批两条实际测试Recall快照在新目录下仍兼容，未被新章节准入重新解释。
+
+新Candidate隔离后端与新Chromium进程/context（初始storage为空）在正式 `/politics/memory/` 抽检C00 `polmem-cafd0852` 与C01 `polmem-d953d852`，原生Control Store→页面轮询→隔离服务端匹配APPLIED，接入本身Recall=0；两组作者prompt、完整答案、criteria/cue和揭示前隐藏通过，FUZZY/STABLE自评及中途刷新Resume通过；正式Home原入口导出的Packet回传两条实际当日测试事件及各自已审快照，profile绑定73项目录。15项断言通过。只抽检每章一组，不宣称十八组逐卡UI遍历、真实学习、全部前置已授课、五科完成或P6交付；既有次日、Workbench及控制机制证明沿用，不扩重测。未重写父已审正文，未改真实learner/Stable4321、未部署。
+
+本批命令：`p5-ethics-c00c01-control-a4c2b944-1791139134671`；hash：`609c34b9f1d6e91b21f45f99e3e67ab06cec20c7b45b20afd6b078b28a600f51`；实际隔离服务端receipt：`APPLIED`。
