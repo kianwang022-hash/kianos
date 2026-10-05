@@ -56,7 +56,7 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
     const englishDefinition = document.querySelector('.lexicalSenseMeaning>strong');
     const englishUsage = document.querySelector('.lexicalSenseUsage li>b');
     const sheet = document.querySelector('.portedVocabStudySheet');
-    const rows = [...document.querySelectorAll('.lexicalSenseRow')].filter((node) => node instanceof HTMLElement);
+    const rows = [...document.querySelectorAll('.lexicalSenseRow:not([data-vocab-reference-sense-id])')].filter((node) => node instanceof HTMLElement && node.getClientRects().length > 0);
     const firstUsableRow = rows.find((row) => row.querySelector('.lexicalSenseUsage li>b')) || rows[0];
     const pos = firstUsableRow?.querySelector('header>span');
     const meaning = firstUsableRow?.querySelector('.lexicalSenseMeaning>p');
@@ -67,7 +67,7 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
     const patternSection = document.querySelector('.lexicalWordPatterns');
     const contentNodes = [...document.querySelectorAll(
       '.lexicalCoreHeadline>p,.lexicalCoreHeadline>b,.lexicalCoreHeadline>small,.lexicalSenseMeaning>p,.lexicalSenseMeaning>strong,.lexicalSenseNote,.lexicalSenseUsage li>b,.lexicalSenseUsage li>span,.lexicalExpansionSection>header>span,.portedVocabEvidenceList>article>b,.portedVocabEvidenceList>article>p,.portedVocabEvidenceList>article>small,.lexicalFormBoundary,.lexicalFormVariants b,.lexicalFormVariants span,.lexicalFamilyRows b'
-    )].filter((node) => node instanceof HTMLElement && css(node).display !== 'none');
+    )].filter((node) => node instanceof HTMLElement && node.getClientRects().length > 0 && css(node).display !== 'none');
     const posRect = rect(pos);
     const meaningRect = rect(meaning);
     const englishMeaningRect = rect(englishMeaning);
