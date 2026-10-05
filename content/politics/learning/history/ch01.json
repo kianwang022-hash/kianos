@@ -63,5 +63,47 @@
     "timeline": ["鸦片战争", "社会性质变化", "列强多层侵略", "持续反抗", "失败原因暴露", "民族意识觉醒"],
     "causal_chain": "外部资本主义侵略 + 国内封建制度危机 → 半殖民地半封建社会 → 民族危机加深 → 旧式抵抗难以成功 → 必须寻找新的国家出路",
     "review_prompt": "闭卷只回答三个问题：1840后中国变成了什么社会？为什么反侵略屡败？这些失败把历史推向了什么新任务？"
+  },
+  "content_support": {
+    "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
+    "active_precision": [
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C01-S04",
+        "name": "晚清反侵略战争失败的两层原因",
+        "items": [
+          "本章晚清反侵略战争总体失败的根本原因是社会制度的腐败，它阻碍了中国人民群众的广泛动员和组织。",
+          "重要原因是经济技术的落后；经济技术落后不能替代制度层面的根本解释。"
+        ],
+        "learning_rule": "首轮拟精确范围只含两层原因的准确配对及制度腐败妨碍群众动员组织的机制；不是把整章C范围直接准入。须完成本组内容审读后才可按FIRST_ROUND_EXACT主动选择，无须制造Wrong/Uncertain。",
+        "source_refs": [
+          "POL27-CF-HISTORY-C01-K10-N01-I01",
+          "POL27-CF-HISTORY-C01-K10-N01-I02"
+        ],
+        "prompt": "本章晚清反侵略战争总体失败的根本原因和重要原因分别是什么？根本原因怎样妨碍人民群众形成抵抗力量？",
+        "checking_criteria": [
+          "根本原因必须对应社会制度的腐败，重要原因必须对应经济技术的落后；两层均答、配对准确，不能把重要原因升为根本原因，也不能只答经济技术落后。",
+          "须说明制度腐败阻碍中国人民群众的广泛动员和组织；漏群众对象、广泛动员或组织任一决定性成分，均不算全对。",
+          "允许忠实释义和交换叙述次序，例如用腐朽的社会制度表述制度腐败；经济与技术两方面仍须完整，不能只说武器落后。",
+          "题面已经限定本章晚清反侵略战争总体失败，回答不必机械重复该范围；若主动泛化为所有时代的战争或所有局部战斗都失败，或否定经济技术因素作用，则为边界错误。",
+          "未问的时代人物判断、洋务运动原因及后来的胜利条件不另作必答项；不能因未主动补述这些内容扣分。"
+        ],
+        "memory_cue": "教学助记，非Source原句：沿原模型“失败原因暴露”问两层。根本看制度：腐败阻碍群众广泛动员和组织；重要看能力：经济、技术落后。先说晚清反侵略战争范围，再把根本与重要配回各自原因。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C01-K10-N01-I01",
+          "POL27-CF-HISTORY-C01-K10-N01-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册 PDF10／印刷9；已读Source c01 shard（blob b3ea2294ff169ac16b84e22aa3bdd8243d8a6824）K10-N01及I01/I02连续文字，并与本章cause_layers及原brief互核；本次未看原PDF像素，不涉及相邻地图、勾叉、红答案或OCR TIP。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#p5-history-c01-s04-20261005",
+          "prerequisite": "先读本章S03持续抵抗并未完成民族独立的承接，再完成ch01.brief.md“失败怎样推动问题升级”第一段及“本组精记的固定位置与用法”中两层原因、群众动员组织机制和晚清范围的解释；仅看章概览不足。内容准入不自动建立计划。",
+          "reviewed_target_revision": "sha256:d858f2d06dbf9c53816fd7913b0dc93f1fbec4c0de1070a5e64f824f946539b9"
+        },
+        "id": "polmem-b3d1b517"
+      }
+    ]
   }
 }
