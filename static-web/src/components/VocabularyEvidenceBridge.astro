@@ -48,14 +48,21 @@ const base = import.meta.env.BASE_URL;
     const append=(event)=>{const result=appendEvidenceEvent(readLedger(),event);saveLedger(result.ledger);syncProjection(result.ledger);window.dispatchEvent(new CustomEvent('kianos:lexical-evidence-changed'));return result};
     const targetEventFromButton=(button,overrides={})=>{const targetKind=button.getAttribute('data-target-kind')||'lexical';const targetId=button.getAttribute('data-target-id')||null;const targetLocator=button.getAttribute('data-target-locator')||null;return {event_id:browserEventId('depth'),word_id:objectId,ordinal,word,target_kind:targetKind,target_id:targetId,target_locator:targetLocator,target_revision:targetId?null:(sourceHash||null),source:'depth_plus',outcome:'ADDED',observed_at:new Date().toISOString(),...overrides}};
     const existingState=readJson(storageKey,null);
-    if(!readOnlyLookup&&existingState?.repairTargets&&typeof existingState.repairTargets==='object'){
+    const legacyRepairTargets=existingState?.repairTargets&&typeof existingState.repairTargets==='object'
+      ? Object.values(existingState.repairTargets).filter((target)=>target&&typeof target==='object'&&target.source!=='evidence_reducer')
+      : [];
+    if(!readOnlyLookup&&legacyRepairTargets.length){
       let ledger=readLedger();
-      for(const target of Object.values(existingState.repairTargets)){
-        if(!target||typeof target!=='object'||target.source==='evidence_reducer')continue;
+      let ledgerChanged=false;
+      for(const target of legacyRepairTargets){
         const migration={word_id:objectId,ordinal,word,target_kind:target.target_kind||'lexical',target_id:target.target_id||null,target_locator:target.target_locator||null,target_revision:target.target_id?null:(target.target_revision||sourceHash||null),source:'depth_plus',outcome:'ADDED',observed_at:target.observed_at||existingState.lastSeenAt||new Date().toISOString()};
-        migration.event_id=`migration:${legacyEventId(migration)}`;ledger=appendEvidenceEvent(ledger,migration).ledger;
+        migration.event_id=`migration:${legacyEventId(migration)}`;
+        const migrated=appendEvidenceEvent(ledger,migration);
+        ledger=migrated.ledger;
+        if(migrated.status==='APPENDED'||migrated.status==='CONFLICT_QUARANTINED')ledgerChanged=true;
       }
-      saveLedger(ledger);syncProjection(ledger);
+      if(ledgerChanged)saveLedger(ledger);
+      syncProjection(ledger);
     }
     const front=root.querySelector('[data-vocab-front]');
     const reveal=root.querySelector('[data-vocab-reveal]');

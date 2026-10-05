@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 
+import './test-lexical-repair-projection-complexity.mjs';
+
 import { loadLexicalWordByOrdinal } from '../src/lib/lexical.mjs';
 import {
   appendEvidenceEvent,

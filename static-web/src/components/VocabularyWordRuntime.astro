@@ -68,6 +68,7 @@ const { answer = null } = Astro.props;
 
     const previousTargets = { ...state.repairTargets };
     let ledger = readLedger();
+    let ledgerChanged = false;
     if (!readOnlyLookup) {
       for (const target of Object.values(previousTargets)) {
         if (!target || typeof target !== 'object' || target.source === 'evidence_reducer') continue;
@@ -84,9 +85,11 @@ const { answer = null } = Astro.props;
           observed_at: target.observed_at || state.lastSeenAt || new Date().toISOString()
         };
         migration.event_id = `migration:${legacyEventId(migration)}`;
-        ledger = appendEvidenceEvent(ledger, migration).ledger;
+        const migrated = appendEvidenceEvent(ledger, migration);
+        ledger = migrated.ledger;
+        if (migrated.status === 'APPENDED' || migrated.status === 'CONFLICT_QUARANTINED') ledgerChanged = true;
       }
-      saveLedger(ledger);
+      if (ledgerChanged) saveLedger(ledger);
     }
     const activeTargets = compileRepairTargets(ledger).filter((target) => target.word_id === objectId);
     state.repairTargets = Object.fromEntries(activeTargets.map((target) => {
