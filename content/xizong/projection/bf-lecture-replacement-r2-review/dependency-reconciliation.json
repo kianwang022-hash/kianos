@@ -672,5 +672,47 @@
     "private_learner_records_read_or_written": false,
     "main_merge_or_deploy": false,
     "independent_medical_or_user_acceptance": false
+  },
+  "bounded_joint_integration_2026_10_05": {
+    "bf_parent": "26547adecba4c10bb3028fb93aa6352a388e0da5",
+    "a123_parent": "c9eecf8416adf3e7d72611f9818ba934a640ea29",
+    "shared_b_base": "7003caeed62c9029b772c17b18c9b24304549977",
+    "merge_base": "801394f71eaa772d3b5e0209f8bfdd3571913d1d",
+    "only_merge_conflict": "content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json",
+    "resolution": "Preserve both reviewed histories/witnesses, then recompute existing Knowledge/downstream aggregates from current owners with the unchanged validator algorithm. No ours/theirs whole-file overwrite.",
+    "joint_surgery_keys": [
+      "A3:urinary-b05",
+      "A3:urinary-b12",
+      "A3:urinary-b14",
+      "B:D14",
+      "F:F3"
+    ],
+    "surgery_receipts": {
+      "knowledge": "388ddf915f08b4bfb37bc4b65b630d6a3b899af652a265d4c11214df45b2dbe8",
+      "learning": "086bc3428f45f1430145e265528b5e4033ee674f564d58768366de320020f9dc",
+      "downstream": "7c90c2ca35e9dcee805e49b6071a8526d5586200f67fd63de150e7dbf2382bfb"
+    },
+    "relation_freshness": {
+      "current": 1492,
+      "stale": 1551,
+      "owner_missing": 0,
+      "witness_missing": 0,
+      "total": 3043
+    },
+    "relation_freshness_interpretation": "Exact match to the #1148 parent; additional stale rows are inherited fail-closed consequences of the A1/A2/A3 candidate revisions, not a joint-merge regression and were not silently re-signed.",
+    "checks_passed": [
+      "validate-xizong-current-owners.mjs including Surgery freshness and exact-witness negative",
+      "sync-xizong-question-relations-manifest.mjs --check",
+      "A3 Source owner/truth/boundary from static-web cwd",
+      "validate_projection.py --self-test and validate-xizong-projection-current.mjs",
+      "validate-xizong-learning-owner-lifecycle.mjs",
+      "validate-xizong-semantic-adapter.mjs",
+      "validate-xizong-b-knowledge.mjs",
+      "validate-xizong-question-crosswalk.mjs"
+    ],
+    "all_121_teaching_and_121_hidden_bodies_reauthored": false,
+    "runtime_or_private_state_write": false,
+    "new_medical_or_user_acceptance": false,
+    "main_merge_or_deploy": false
   }
 }

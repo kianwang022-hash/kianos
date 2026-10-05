@@ -6,8 +6,8 @@
 
 - 当前stack base：PR [#1145](https://github.com/kianwang022-hash/kianos/pull/1145) 的 `candidate/b-content-review-20261003`，commit `7003caeed62c9029b772c17b18c9b24304549977`。原编写基线 `bc014aeee3c7ca1be91a180a41336f03d14b3930` 与authoring/source-stage见证保留为历史；完整改动清单从当前stack base派生。B38章及本次继承的M4入口/视觉支持与16条关系续接仍归#1145，不计作本稿新医学成果。
 - 编写/迁移阶段main：`801394f71eaa772d3b5e0209f8bfdd3571913d1d`；2026-10-05只读复核main为`0938154f228ab2df73165bc141305bf11b08c0f0`，其后新增范围仅政治文件。
-- 教学规则依赖：PR [#1148](https://github.com/kianwang022-hash/kianos/pull/1148)，读取commit `7a276ea16693eaf7c8a36be1080341f47d2c115a` 的Learning Contract及Lecture Replacement Contract§3.1。该规则、路由README、study-policy、A1/A2/A3均未复制或修改。
-- 先完成并合入#1145与#1148，再对实际main做有界依赖核对并重定本稿base。本稿继续保持draft；本次仅将#1145已有提交整合到原#1150候选，未合入main、未采纳教学、未发布。合并工程文件仍不等于候选教学内容已获得医学准入或用户试用。
+- 教学规则依赖：PR [#1148](https://github.com/kianwang022-hash/kianos/pull/1148)，当前精确父提交为 `c9eecf8416adf3e7d72611f9818ba934a640ea29`；Lecture Replacement Contract§3.1 的生成合同blob保持原作者依赖不变。共同候选通过Git merge继承该父提交，不复制或另写第二份规则owner。
+- 当前共同候选同时含#1145当前B基线与#1148当前A1/A2/A3/共享学习规则，用于消除真实共享依赖冲突并取得同一head证据；仍保持draft，未合入main、未采纳教学、未发布。合并工程文件仍不等于候选教学内容已获得医学准入或用户试用。
 
 ## 本次精确范围
 
@@ -27,7 +27,13 @@
 
 核对中纠正一条旧报告计数：N4是6个LG，当前Learning及原生消费者明确`visualRequired:true`的为LG01/LG02/LG04共3组，且原生`visualSourceState`为空；不是“6个原生强制视觉门”。本轮视觉缺失负例只证明显式声明GAP的纯假数据门禁，没有证明未挂载的N4原图已检查或当前所有视觉闭合路径完整。既有owner与Runtime保持不变，这一实际消费边界保留供正式采纳时判断。
 
-#1148外部依赖核到`c9eecf84`，Lecture Replacement生成合同blob未变；Chat入口/MedicalVisual范围修订已读，未把#1148规则或A123内容复制进本分支。共同基线落地前的Surgery slot逐项整合仍待后续，不能用当前候选CI替代三PR最终整合证据。
+## 2026-10-05｜#1148共同候选整合
+
+在上述#1145基线整合后，当前候选进一步以#1148 `c9eecf84`作为精确merge parent；不是把Learning Contract/A123手工复制成第二份owner。三方真实冲突仅剩同一个Surgery lifecycle slot。逐字段核对显示，两边实际医学见证互不覆盖：#1148新增A3 B5/B12/B14的已审见证与历史receipt，本候选保留B:D14/F:F3以及当前B基线见证；真正重叠的只有Knowledge和downstream两个派生汇总hash。
+
+冲突处理不是ours/theirs整文件覆盖，而是保留双方既有`dependency_reconciliation_2026_10_04`、`bounded_prompt_reconciliation_2026_10_04`等历史，再由未改的现有算法从当前59个Surgery bindings / 52个Block owner / 7个Learning target重新计算：Knowledge `388ddf…2bde8`、Learning `086bc3…f9dc`、downstream `7c90c2…2bfb`。Current-owner/Surgery exact-witness负例、A3 owner/truth/boundary、159-Block semantic adapter、Projection、Learning lifecycle、B Knowledge、Crosswalk及manifest同步均在共同worktree通过。
+
+共同分支的Question→Knowledge freshness为1492 Current / 1551 stale，与#1148父提交逐条stale集合完全一致；相较此前#1150的1523/1520，新增stale来自被合入的A1/A2/A3 canonical候选修订。这里保持fail-closed，不因为整合方便而批量续签31条关系。教学采纳、原图接触和真实学习/U仍是后续独立证据。
 
 ## 三篇代表全文
 

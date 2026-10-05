@@ -117,5 +117,25 @@
     "noRuntimeAlgorithmOrPrivateStateWrite": true,
     "newPixelMedicalOrUserAcceptance": false,
     "candidateAdmitted": false
+  },
+  "bounded_joint_integration_2026_10_05": {
+    "bfParent": "26547adecba4c10bb3028fb93aa6352a388e0da5",
+    "a123Parent": "c9eecf8416adf3e7d72611f9818ba934a640ea29",
+    "scope": "Joint candidate merge; exact remote-head CI is still separate until this merge is committed/pushed.",
+    "checksPassed": [
+      "validate-xizong-current-owners.mjs including Surgery freshness and exact-witness negative",
+      "sync-xizong-question-relations-manifest.mjs --check",
+      "A3 Source owner/truth/boundary from static-web cwd",
+      "validate_projection.py --self-test and validate-xizong-projection-current.mjs",
+      "validate-xizong-learning-owner-lifecycle.mjs",
+      "validate-xizong-semantic-adapter.mjs",
+      "validate-xizong-b-knowledge.mjs",
+      "validate-xizong-question-crosswalk.mjs"
+    ],
+    "surgeryFreshness": "59 bindings / 52 Blocks / 7 Learning targets; exact witness negative test PASS",
+    "relationFreshness": "1492 Current / 1551 stale / 0 owner_missing / 0 witness_missing; exact match to #1148 parent",
+    "temporaryA3TruthFailureDiagnosis": "Initial repo-root invocation was invalid; correct static-web working directory passes owner/truth/boundary. No inherited or new A3 defect.",
+    "candidateAdmitted": false,
+    "noRuntimePrivateStateOrMainRelease": true
   }
 }

@@ -185,7 +185,7 @@ Its job is to materialize stable ViewModels for the already accepted cognition a
 
 Xizong web is not a second textbook and not a document browser.
 
-The approved first-pass model remains external-primary:
+First-pass teaching principles and the distinction between Source contact and learning evidence inherit [Xizong Learning Contract](../content/xizong/LEARNING_CONTRACT.md). The following records existing Website capabilities for an original-Source study session; it does not prescribe the default teaching order:
 
 ```text
 System orientation
@@ -222,7 +222,7 @@ Runtime capability never authorizes a learner-facing stage before the learner ha
 
 Hard learner-facing boundaries:
 
-- original Lecture in MarginNote remains the continuous first-learning owner;
+- original Lecture in MarginNote remains an original-Source reading capability; first-pass teaching ownership and Source timing inherit the Learning Contract;
 - KianOS owns orientation, cognitive positioning, Source-boundary release, conditional TTSX checkpointing, selective cues, retrieval, closure, verification, repair routing and later review;
 - KP is a stable canonical knowledge identity, **not automatically the learner-facing first-learning order**;
 - Logic Group is the local retrieval / closure unit inside a Block and is not automatically the Source-contact unit;
@@ -654,7 +654,7 @@ Do not default to retired System Guides, Legacy repos, historical branches, old 
 
 ## Accepted product baseline
 
-- external-primary first-pass learner chain and stable canonical identities;
+- Learning Contract first-pass authority, existing Source-contact execution capabilities and stable canonical identities;
 - whole-flow-before-local-optimization and KEEP / OPTIMIZE / RESTORE_FROM_CURRENT / DEMOTE method;
 - the detailed Home, System Guide and Block-family responsibilities/composition recorded in §6 owners;
 - protected KP/Block/System Recall with complete Current content at the appropriate Reveal state;

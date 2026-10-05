@@ -652,8 +652,8 @@ duplicate_primary = 0
 unrouted_lecture_knowledge = 0
 unsupported_expansion = 0
 First_pass_question_probe = READY_PENDING_BINDING
-Visual_gate = REQUIRED_ORIGINAL_SOURCE_REVIEW
-Source_gap = GLOMERULAR_VISUAL_SOURCE_GAP
+Visual_gate = SOURCE_PIXELS_REVIEWED_LOCAL_CANDIDATE_HUMAN_NOT_ACCEPTED
+Source_gap = none_for_reviewed_original_pages
 System_final_gate = NOT_RUN_NON_FINAL_BLOCK
 ```
 
@@ -671,3 +671,6 @@ Framework已建立
 + Outline按需扫漏
 + Question Probe完成或等待Binding
 ```
+
+
+本地候选原图复核（2026-10-04）：实际读取内科原 PDF 物理P192、193、203（书P157、158、168）的原图，核对沉积位置、三镜对照及本 Block 对应形态。文件 SHA-256 `4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939` 与 Source manifest 一致。仅关闭上述已读原页的字节/原图缺口，Source 自有差异保留；不是全部题目、学习证据、医学独立或 Human 验收。

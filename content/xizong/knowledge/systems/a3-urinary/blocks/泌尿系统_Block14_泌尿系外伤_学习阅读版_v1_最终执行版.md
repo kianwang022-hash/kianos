@@ -41,7 +41,7 @@ visual_gate_status: MANDATORY_SOURCE_LOCAL_VISUAL_REVIEW_PIXEL_AUDIT_NOT_CLAIMED
 >
 > **Source boundary**：保留当前 Study 的前/后尿道、尿生殖膈、膀胱腹膜内外、三型肾外伤和尿外渗空间作为 306 Core；对“RUG金标准、浮动前列腺、腹膜外膀胱手术、大出血一律探查”等旧压缩句加入 Current 情境边界。完整创伤分级与复杂重建仍不展开。
 >
-> **本批状态边界**：K14 是 System Guide 的最后一个编号 Block，但 A3 System-level K 仍不能关闭，因为 B5 另有独立 acid-base Source/owner blocker；本文件完成不等于 System Final Gate。
+> **验收路由**：A3 内容/产品的既有验收范围与状态唯一由 `content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md` 负责；该 owner 已记录 S/K/L/P/R/E 通过、真实 learner U 未测。B5 补充 Source 已窄范围准入，不沿用旧 blocker。本轮局部正文/原图核查是隔离待审修订，不重新宣告整系统验收，也不产生任何真实 System Recall、Exit 或学习完成证据。
 
 ---
 
@@ -666,7 +666,7 @@ Lecture-attached Questions 支持：
 2. source-local `P137`：腹膜内 / 外膀胱破裂与肾挫伤 / 裂伤 / 肾蒂伤；
 3. source-local `P138–139`：Lecture-attached Questions 中的尿外渗位置、骑跨伤 / 骨盆骨折与肾挫伤识别。
 
-> **重要**：这些 `P136–P139` 是 source preprocessing / IMAGE_PAGES 语境中的 locator，不是当前合并 PDF 物理页码。本批确认了文本与 asset route，但当前工具没有渲染这些原图，因此不声称 pixel-level Visual PASS。
+> **重要**：这些 `P136–P139` 是 source preprocessing / IMAGE_PAGES 语境中的 locator，不是当前合并 PDF 物理页码。本地候选2026-10-04已实际读取原 PDF 物理P135–137（书P110–112）的解剖、尿外渗、肾损伤图及相邻题源；历史 locator 保留作 provenance。仅核这些原页，不声称全部题页或 Human Visual PASS。原 PDF SHA-256 `523cc9111b69f7eb77b928234d2e86f7e2ba9949e962eac2c5a240219b5cd9a0` 与 manifest 一致。
 
 视觉任务：
 
@@ -843,8 +843,8 @@ silent_source_correction = 0
 First_pass_question_probe = READY_PENDING_BINDING
 Source_gap = none_medical
 Source_boundary = TRAUMA_STABILITY_AND_TREATMENT_BOUNDARIES_EXPLICIT
-Visual_gate = MANDATORY_SOURCE_LOCAL_VISUAL_REVIEW_PIXEL_AUDIT_NOT_CLAIMED
-System_final_gate = NOT_RUN_B5_STILL_BLOCKED
+Visual_gate = SOURCE_PIXELS_REVIEWED_LOCAL_CANDIDATE_HUMAN_NOT_ACCEPTED
+System_final_gate = ROUTED_TO_CURRENT_A3_ACCEPTANCE_LOCAL_CANDIDATE_NOT_ACCEPTED
 ```
 
 ---
