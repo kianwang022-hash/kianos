@@ -666,6 +666,10 @@ export function initPrivateCheckpointAutosave(storage, {
     }, debounceMs);
   };
   const flushImmediate = () => flushNow('immediate');
+  const englishReadingHandler = (event) => {
+    if (['submit','context'].includes(event?.detail?.kind)) flushImmediate();
+    else if (event?.detail?.kind === 'lookup') schedule();
+  };
 
   const storageHandler = (event) => {
     if (SHARED_STORAGE_KEYS.includes(event?.key)) schedule();
@@ -679,6 +683,7 @@ export function initPrivateCheckpointAutosave(storage, {
   globalThis.addEventListener?.('kianos:study-timer-change', schedule);
   globalThis.addEventListener?.('kianos:exam-plan-read-model', schedule);
   globalThis.addEventListener?.('kianos:english-exam-updated', flushImmediate);
+  globalThis.addEventListener?.('kianos:english-reading-evidence', englishReadingHandler);
   globalThis.addEventListener?.('kianos:private-control-consumed', flushImmediate);
   globalThis.addEventListener?.('kianos:subject-continue-updated', flushImmediate);
   globalThis.addEventListener?.('kianos:xizong-block-complete', flushImmediate);
@@ -701,6 +706,7 @@ export function initPrivateCheckpointAutosave(storage, {
       globalThis.removeEventListener?.('kianos:study-timer-change', schedule);
       globalThis.removeEventListener?.('kianos:exam-plan-read-model', schedule);
       globalThis.removeEventListener?.('kianos:english-exam-updated', flushImmediate);
+      globalThis.removeEventListener?.('kianos:english-reading-evidence', englishReadingHandler);
       globalThis.removeEventListener?.('kianos:private-control-consumed', flushImmediate);
       globalThis.removeEventListener?.('kianos:subject-continue-updated', flushImmediate);
       globalThis.removeEventListener?.('kianos:xizong-block-complete', flushImmediate);
