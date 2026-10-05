@@ -102,6 +102,31 @@ A Politics compression asset is valuable only when it removes future learner wor
 
 Shorter text alone is not compression. A beautiful framework that creates an extra course is negative compression.
 
+### 0.5 Fixed reconstruction spine — stable learner index
+
+Politics inherits one compression principle from the mature Xizong model without importing its System/LG/KP hierarchy: **later review becomes thinner around the same model; it does not generate a new model each time.**
+
+For every subject/chapter with admitted first-round teaching, the existing Content owner must identify exactly one canonical reconstruction spine appropriate to that subject shape. This is a content job around the existing chapter/NU owners, not a new hierarchy or registry.
+
+The fixed spine owns the learner's stable review index:
+- stable learner-facing node labels;
+- the meaningful sequence / hierarchy / relation topology between those nodes;
+- the minimum meaning each node must recover.
+
+First teaching may be much richer than the spine: examples, analogies, source detail, boundaries and B supplements can expand around it. Later compression may hide detail, shorten prose, blank nodes for Recall, or ask from a different cue. It must return to the **same accepted nodes and relations** rather than substituting an equally plausible new summary chain.
+
+Precision/Memory targets attach to this same spine. They may deepen one node or test an exact boundary, but they must not create a second “memory version” of the chapter framework. A learner should be able to use the same mental index during first learning, chapter review, Memory recall, Xiao1000 repair and later analysis reactivation.
+
+Hard anti-drift rules:
+- Chat may vary explanation wording, examples and teaching route locally, but at closure/review it returns to the canonical spine;
+- do not casually rename, merge, split or reorder spine nodes between reviews merely for elegance;
+- a shorter review is produced by **progressive thinning**, not by replacing the framework;
+- if Source correction, model correction or real learner evidence shows the spine itself is defective, revise the existing canonical Content owner explicitly, reconcile dependent compression/prompts, and make the change visible rather than silently running old and new spines in parallel.
+
+Subject shape remains local: Marxism normally freezes a reasoning/relation chain; History a stage/causal movie; Mao a historical problem→theory response→position chain; Xi a stable hierarchy/role map; Ethics-Law a stable concept/normative/application scaffold. “Fixed” means stable cognition for that chapter, not one universal Politics template.
+
+Acceptance test: two legitimate reviews of the same unchanged chapter may differ in detail density, but the learner must be able to lay down the same canonical spine without rebuilding a new index.
+
 ## 1. Product model
 
 Politics follows the repository-wide causal chain:
