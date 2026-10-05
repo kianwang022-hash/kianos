@@ -237,7 +237,7 @@ async function prepareRelease(sha, extra = {}) {
           dependenciesReady = true;
           dependencyMode = 'reused';
           timings.dependencies = reused.duration_ms;
-          log(`reused verified candidate dependencies in ${reused.duration_ms}ms`);
+          log(`reused verified candidate dependencies in ${reused.duration_ms}ms (${reused.copy_mode})`);
         } catch (error) {
           warn(`candidate dependency reuse failed; falling back to npm install: ${error?.message || error}`);
         }
