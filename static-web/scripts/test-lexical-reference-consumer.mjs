@@ -8,7 +8,7 @@ import { experimental_AstroContainer } from 'astro/container';
 import { appendEvidenceEvent, emptyLexicalLedger, compileRepairTargets, reconcileEvidenceIdentity } from '../src/lib/lexicalEvidence.mjs';
 
 // Compile only the three current owners; no catalog build/server/browser or private state.
-const words = JSON.parse(execFileSync('python3', ['-c', `import sys,json;sys.path.insert(0,'../tools');import lexical_build_final_learner_objects as b;print(json.dumps([b.compile_word(b.load(b.WORDS/f'o{n:04}.json'),b.load(b.DECISIONS)) for n in [545,555,695]]))`], { encoding: 'utf8' }));
+const words = JSON.parse(execFileSync('python3', ['-c', `import sys,json;sys.path.insert(0,'../tools');import lexical_build_final_learner_objects as b;print(json.dumps([b.compile_word(b.load(b.WORDS/f'o{n:04}.json'),b.load(b.DECISIONS)) for n in [545,555,695,2]]))`], { encoding: 'utf8' }));
 const check = (ok, name) => { assert.ok(ok, name); console.log('PASS '+name); };
 const lineage = words.flatMap(word => word.sense_lineage);
 let ledger = emptyLexicalLedger();
@@ -43,6 +43,8 @@ for (const word of words) {
   const html = await container.renderToString(component, {props:{answer:{objectId:word.word_id,ordinal:word.ordinal,record:word,sourceHash:word.source_fingerprint,senseLineage:word.sense_lineage}}});
   if (word.reference.senses?.length) {
     const ref = word.reference.senses[0];
+    const refId = ref.sense_id || ref.stable_sense_id || ref.id;
+    check(html.includes(`data-vocab-reference-sense-id="${refId}"`), word.word+'_reference_preserves_existing_identity');
     const start = html.indexOf('data-vocab-lookup-only');
     check(start >= 0 && html.slice(start, html.indexOf('</main>', start)).includes(ref.definition_en), word.word+'_actual_markup_preserves_reference_truth');
     check(!html.slice(start, html.indexOf('</main>', start)).includes('data-vocab-repair'), word.word+'_reference_has_no_plus');

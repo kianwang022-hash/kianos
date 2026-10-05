@@ -77,7 +77,7 @@ Canonical prose remains upstream for Explore/reference. Default Depth keeps the 
 
 The optional `reference.senses` preserves complete Word-authored `reference_senses` records, including their original Sense/collocation IDs, meanings and provenance. These appear only in Lookup, without local `+`, and do not contribute to Study/Core/Recall or fixed-pattern counts. Word-owned Construction attachment, when explicit, retains its `sense_id`; no attachment is inferred from wording or POS.
 
-The existing `sense_lineage` transport also carries `target_kind: collocation` for explicitly nonactive `identity_refs.collocations` declarations. Absence or conversion to usage_example alone does not imply retirement; no successor is guessed. Lookup does not persist identity reconciliation. Delivered Reference content and explicit non-sense lifecycle enter the existing `source_fingerprint`; empty new dependencies preserve existing fingerprints.
+The existing `sense_lineage` transport also carries `target_kind: collocation` for explicitly nonactive `identity_refs.collocations` declarations. Absence or conversion to usage_example alone does not imply retirement; no successor is guessed. Lookup does not persist identity reconciliation. Delivered Reference content and all consumed parent/child lifecycle declarations enter the existing `source_fingerprint`; empty new dependencies preserve existing fingerprints.
 
 ## 3. Builder invariant
 

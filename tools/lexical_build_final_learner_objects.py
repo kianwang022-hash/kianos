@@ -501,6 +501,9 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             "to_target_id": str(ref.get("merged_into_sense_id")) if ref.get("merged_into_sense_id") else None,
         })
 
+    if sense_lineage:
+        fingerprint_inputs["sense_lineage"] = clone(sense_lineage)
+
     # Existing generic identity transport carries explicit non-sense lifecycle.
     # Absence and usage_example never infer retirement or a successor.
     collocation_lineage = []

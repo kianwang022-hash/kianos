@@ -243,7 +243,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
             <section class="lexicalExpansionSection" data-vocab-lookup-only hidden aria-label="Reference-only senses">
               <header><span>参考词义</span><small>Reference · Lookup</small></header>
               {referenceSenses.map((sense) => (
-                <article class="lexicalSenseRow" data-vocab-reference-sense-id={sense.sense_id}>
+                <article class="lexicalSenseRow" data-vocab-reference-sense-id={sense.sense_id || sense.stable_sense_id || sense.id}>
                   <header><span>{posCode(sense.pos)}</span>{sense.governing_pattern && <small>{sense.governing_pattern}</small>}</header>
                   <div class="lexicalSenseMeaning">
                     <p>{sense.definition_cn}</p><strong>{sense.definition_en}</strong>

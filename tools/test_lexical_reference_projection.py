@@ -36,6 +36,19 @@ class ReferenceProjectionTest(unittest.TestCase):
         self.assertEqual(owner['record'], revised['record'])
         self.assertNotEqual(before['source_fingerprint'], self.compile(revised)['source_fingerprint'])
 
+    def test_parent_lifecycle_only_change_updates_existing_fingerprint(self):
+        owner = self.owner(695)
+        before = self.compile(owner)
+        revised = copy.deepcopy(owner)
+        parent = next(r for r in revised['identity_refs']['senses'] if r['sense_id'] == 'sense:carriage:7479005566ec5ecc')
+        parent['status'] = 'retired'
+        self.assertEqual(owner['record'], revised['record'])
+        self.assertEqual(owner['reference_senses'], revised['reference_senses'])
+        self.assertEqual(owner['identity_refs']['collocations'], revised['identity_refs']['collocations'])
+        after = self.compile(revised)
+        self.assertNotEqual(before['sense_lineage'], after['sense_lineage'])
+        self.assertNotEqual(before['source_fingerprint'], after['source_fingerprint'])
+
     def test_explicit_child_lifecycle_changes_existing_fingerprint(self):
         owner = self.owner(695)
         before = self.compile(owner)

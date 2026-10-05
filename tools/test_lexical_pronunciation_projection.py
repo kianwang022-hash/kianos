@@ -16,7 +16,7 @@ class PronunciationProjectionTest(unittest.TestCase):
         # Reference/lifecycle dependencies are covered by the Reference projection tests.
         # Preserve the legacy IPA hash assertion for owners without those dependencies.
         has_lifecycle = any(r.get("status") and r["status"].lower() != "active" for r in owner.get("identity_refs", {}).get("collocations", []))
-        if not owner.get("reference_senses") and not has_lifecycle:
+        if not owner.get("reference_senses") and not has_lifecycle and not final["sense_lineage"]:
             self.assertEqual(final["source_fingerprint"], builder.sha256({"record": builder.hydrate_relations(owner, owner["record"])[0], "relation_paths": builder.hydrate_relations(owner, owner["record"])[1]}))
         return final
 
