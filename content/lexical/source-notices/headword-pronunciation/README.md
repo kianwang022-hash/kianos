@@ -28,3 +28,7 @@ Selected US regional evidence uses CMUdict phonemic corroboration. Original copy
 The original ARPABET sequence, exact record key, commit and line witness are retained. reviewed_cross_source means the unchanged dictionary IPA has separately reviewed regional phonemic support; it does not relabel the original Wiktionary source, generate a new IPA or claim a complete inventory of US pronunciations. Each applicable record retains its original witnesses and the concrete segment/stress comparison observations. Processing identifiers are audit provenance only; no shared contract or consumer behavior is adopted by this content candidate. Other lexicon variants remain source evidence and are not automatically imported.
 
 No audio files are included in this batch.
+
+## Explicit CMU-derived transcription observations
+
+Some additional candidate readings explicitly identify their IPA as a reviewed transcription of CMU ARPABET. CMU did not supply the IPA text or syllable boundaries. Each such record retains original ARPABET, the concrete per-phone output mapping, original stress levels, reviewed stress-sign positions and linked word-specific supporting evidence. Processing IDs and hashes describe how this observation was prepared; they do not define a repository-wide conversion or admission contract. These observations are distinct from corroboration of an already-existing Wiktionary IPA, and do not select a default or claim a complete regional inventory.
