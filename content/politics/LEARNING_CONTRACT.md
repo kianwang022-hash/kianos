@@ -106,7 +106,7 @@ Shorter text alone is not compression. A beautiful framework that creates an ext
 
 Politics inherits one compression principle from the mature Xizong model without importing its System/LG/KP hierarchy: **later review becomes thinner around the same model; it does not generate a new model each time.**
 
-For every subject/chapter with admitted first-round teaching, the existing Content owner must identify exactly one canonical reconstruction spine appropriate to that subject shape. This is a content job around the existing chapter/NU owners, not a new hierarchy or registry.
+For every subject and every chapter with admitted first-round teaching, the existing Content owner must identify exactly one canonical reconstruction spine appropriate to that subject shape. The **subject total model** is the stable top-level index; each chapter spine must locate itself inside that subject model rather than becoming an unrelated local summary. This is a content job around the existing subject/chapter/NU owners, not a new hierarchy or registry.
 
 The fixed spine owns the learner's stable review index:
 - stable learner-facing node labels;
@@ -232,12 +232,12 @@ Maintain one canonical preparation in the existing Politics content owners; adap
 
 ### 3.1.1 Canonical prepared chapter package — Chat consumes, not regenerates
 
-For a chapter to be called **prepared for continuous Chat learning**, its existing Politics learning owner must already contain or resolve one coherent teaching package. This is a set of content jobs around the same chapter/NU owners, not a new hierarchy, registry or frozen transcript.
+For a chapter to be called **prepared for continuous Chat learning**, its existing Politics learning owner must already contain or resolve one coherent teaching package, and the owning subject must already expose a stable total model that locates the chapter. This is a set of content jobs around the same chapter/NU owners, not a new hierarchy, registry or frozen transcript.
 
 The package must provide, for the chapter's actually admitted scope:
 
 1. **Fixed mother model / reconstruction spine.** The canonical chapter framework and stable learner index under §0.5.
-2. **Progressive first-learning route.** A reviewed teaching sequence that says how the chapter is unfolded after the mother model. It may use several natural teaching batches such as model establishment → first substantive fill → later/heavier fill, but the batches are pedagogical stages, not new canonical units. Their order and scope must be stable enough that a fresh Chat does not re-plan the chapter from Source each time.
+2. **Progressive first-learning route.** A reviewed teaching sequence that says how the chapter is unfolded after the mother model. It may use several natural teaching batches such as model establishment → first substantive fill → later/heavier fill, but the batches are pedagogical stages, not new canonical units. Each prepared stage must have a stable recoverable identity (label/anchor or equivalent), the spine nodes/content range it owns, and its intended next stage/closure. A fresh Chat must be able to resume the same route without re-cutting a long teacher text into new batches.
 3. **Substantive teaching content.** The actual explanations, examples, conditions and Source-backed detail needed to teach each stage. A heading list, A/B/C inventory or Source locator alone is not the lesson asset.
 4. **Confusable / boundary pass.** A prepared set of high-value misconceptions, option boundaries and near-neighbor distinctions after the relevant content is understood. This may live in the same teacher brief/support objects; it must be recoverable as a deliberate teaching job rather than reconstructed ad hoc from question options.
 5. **Same-model compression.** The reviewed chapter reconstruction using the same fixed spine, progressively thinner than first teaching without changing the learner index.
@@ -260,7 +260,7 @@ where the learner is in the fixed chapter model
 ```
 without reconstructing the course from Source or old conversation history.
 
-If the prepared package is missing, partial or stale, preserve that as a Content limitation. Ordinary factual help may still use Source, but do not claim the canonical chapter learning path is prepared and do not silently create a durable alternative framework in Chat. Repair the existing Content owner first when durable reuse is required.
+If the prepared package is missing, partial or stale, preserve that as a Content limitation. **Do not block ordinary learning merely because preparation is incomplete.** Chat may still teach from the best accepted Current assets and Source as a session-local provisional explanation, while preserving any existing stable subject/chapter spine. It must not present that provisional route as the durable canonical package or silently persist a competing framework. Repair the existing Content owner before claiming cross-Chat reusable preparation.
 
 ### 3.2 Model-to-memory preparation completion
 

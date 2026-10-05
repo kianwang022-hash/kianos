@@ -43,29 +43,31 @@ Historical A/B/C campaigns, BF branches, batch boards, checkpoint narratives and
 
 Exact semantic rules remain in the Content/Learning contracts, not this cursor.
 
-## Next / reopen
+## Current tasks — queued
 
-### Active scoped delivery: headword IPA to Vocabulary
+Kian resumed these tasks on 2026-10-05 within the [five-task queue](https://github.com/kianwang022-hash/kian-personal-os/issues/60): IPA is priority 2 and semantic self-audit priority 4. Follow the exact task's existing scope and delivery permissions; queue readiness is not completed implementation or Website delivery.
 
-Kian explicitly opened Website integration on 2026-10-05 after the content-first preparation: show supported IPA near the existing word/primary-meaning presentation, American English first and British English where supported. On the same day Kian assigned response-latency investigation to another Chat; this task must not continue that performance diagnosis or alter shared performance logic.
+| Scope | Exact task owner | Resume point |
+| --- | --- | --- |
+| Headword IPA → Vocabulary | [PR #1152](https://github.com/kianwang022-hash/kianos/pull/1152) | Refresh its live head, review findings and preserved implementation draft before choosing the next fix. Saved candidates are not deployed/adopted evidence. |
+| Learner-value semantic self-audit | [Issue #1155](https://github.com/kianwang022-hash/kianos/issues/1155) | Read its **Current next**, domain owners and exact affected Word/Relation/Form scope; no IPA implementation/history prerequisite. |
 
-**Saved content:** [PR #1152](https://github.com/kianwang022-hash/kianos/pull/1152), branch `content/lexical-ipa-content-20261005`, owns the reviewed batches, source notices and exact remote readback. The saved content currently covers7,925/7,946 words by complete-observation presence; that is not every Sense or universally US coverage. Read the live head and PR's scoped L1/unknown counts rather than treating this snapshot as a new registry. Remaining source/licensing/stress gaps do not block displaying unrelated supported readings.
+Task evidence and detailed progress belong to these exact tasks, not a second snapshot here. The rating→next-word latency investigation belongs to another Chat; neither task may resume that diagnosis or overwrite overlapping work.
 
-**Next:** continue the existing implementation task without creating another checkout. Read `CONTENT_EXECUTION.md`, `FINAL_LEARNER_OBJECT_CONTRACT.md`, the current Final builder and exact Vocabulary components. The current builder does not consume the new word-level pronunciation observations: reconcile the minimal authorized Content→Final mapping, preserve exact Sense/case/POS/strong-form and regional limitations, then render it in the existing surface. Do not select an arbitrary first observation as the primary-meaning default. Preserve old Form readings and avoid creating Reference/Repair/learning debt just because ordinary IPA exists.
+### IPA scope that must survive routing
 
-**Ownership / overlap:** another Chat owns the user-reported rating→next-word latency issue. Refresh overlapping runtime/page-loader edits before writing; preserve that work and limit this task to IPA-required mapping/display and necessary correctness regression checks. Existing performance traces are provenance only, not a mandate to keep diagnosing or a verdict about the user's actual delay.
+Supported IPA belongs beside the existing word/primary-meaning presentation, American English first and British English where supported. On resume use [CONTENT_EXECUTION](CONTENT_EXECUTION.md), [Final contract](FINAL_LEARNER_OBJECT_CONTRACT.md), the existing builder/components and existing worktree; reconcile actual drafts instead of assuming an old builder limitation still exists.
 
-**Prior boundary:** the shared `schema.json` write was rejected during the earlier content-only phase and omitted. Do not revive that rejected patch from the old draft or stale PR cursor. Resolve any newly necessary owner change explicitly against this authorized Website scope, and honor the actual permission gate; do not relocate rules to evade a denial. Candidate evidence is not automatically an adopted consumer contract.
+Preserve exact Sense/case/POS/strong-form/region applicability, old Form variants, meanings, IDs, provenance and real learner state. Never select an arbitrary first reading, infer US from audio, relabel derived transcription as direct dictionary evidence, guess fragments, or create Reference/Repair debt from ordinary IPA. TTS is not source-recorded audio or proof of exact IPA realization. Source/licensing/stress gaps block only their dependent readings.
 
-**Preserve / deliver:** all meanings, IDs, existing Form variants, boundaries, provenance and real learner state remain. Do not infer US from audio, relabel derived IPA as direct dictionary evidence, or guess missing fragments. Browser TTS is not source-recorded pronunciation or proof of exact IPA realization. Verify applicable incremental Final/source-fingerprint behavior, relevant scope/Reveal/Lookup/navigation fixtures and actual isolated Candidate pages. Follow the existing authorized landing/release path and read back the served version plus actual displayed projection before claiming Website delivery. Do not clear real storage, resolve learner conflicts, or manufacture study evidence.
+The earlier content-only `schema.json` write was denied and omitted. Do not restore that patch or relocate rules to bypass the denial; any newly necessary owner change must fit current authorization. Check affected incremental/fingerprint, scope/Reveal/Lookup/navigation behavior with isolated Candidate evidence, then verify the actual served projection/version under the existing authorized delivery path before claiming Website delivery. Preserve drafts and use a bounded incremental build budget; no duplicate checkout, storage clearing, automatic conflict selection or manufactured learner evidence.
 
-Old UI drafts and unsaved work remain preserved; inspect their actual differences before reusing anything. Disk cleanup released space, but use a bounded incremental build budget and no duplicate working trees.
+### Semantic audit boundary
 
-Reopen only the smallest Current owner for:
+Issue #1155 owns the probes, layer decisions and acceptance. This is bounded evidence-backed maintenance, not a reopened 7,946-word campaign. Learner evidence signals defects but does not establish semantic priority. Reference truth remains available without becoming automatic study or Repair debt.
 
-- a real semantic / phraseology / construction / register / Form / relation defect;
-- a new admitted Source;
-- explicit new lexical scope;
-- real learner evidence that exposes a concrete product/content defect.
+## Reopen boundary
 
-Do not infer work from old ordinal cursors, continuation tombstones, A/B/C branches, BF history, migration scripts or prior Chat memory.
+Reopen only for a concrete semantic/Form/Relation/product defect, admitted Source, explicit new scope, or real learner evidence exposing a defect. Ordinary learning uses the English learner path, not this engineering cursor.
+
+Historical campaign and delivery snapshots are not continuation authority. The pre-cleanup cursor is available only as [historical provenance](https://github.com/kianwang022-hash/kianos/blob/1ba656aa57c41b971342740eb2db2116a95be42a/content/lexical/CURRENT.md); do not read it routinely or use its old Next as current work.

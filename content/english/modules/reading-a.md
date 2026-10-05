@@ -47,6 +47,7 @@ Useful private evidence is intentionally small:
 - uncertain state;
 - attempt timing;
 - answer changes when available;
+- explicitly saved **Chat 上下文** spans in the same native attempt: up to 12 spans, each up to 320 characters with bounded nearby context, exact source/attempt identity and UTF-16 offsets in passage paragraphs joined by two newlines; ordinary selection stays temporary;
 - final correctness;
 - optional coarse learner note after submission;
 - when a real Reading lexical lookup occurs, a bounded passive event may preserve attempt identity, exact token, bounded source context/locator, timestamp, and the question that merely had focus at that moment;
@@ -57,6 +58,8 @@ A quick-cause mark such as `没读懂 / 没定位准 / 选项没辨清 / 看错�
 `没读懂` remains deliberately coarse. The Website must not auto-subclassify it into lexical / syntax / reference / logic / discourse from scores, lookups or cursor focus. A focused question at lookup time is context, not causality.
 
 Question-level evidence is allowed because evidence granularity can be smaller than attempt / diagnostic context.
+
+The normal Daily Packet projects submitted, Current-source-verified question outcomes (final choice, result, uncertainty, last eight answer changes and any existing optional note), plus bounded explicit discussion spans for recent/current Reading objects. Source passage/prompts/options/formal keys remain canonical Content. Saving discussion intent does not prove Chat assistance occurred. Add/remove and successful Submit request immediate checkpoint/Packet refresh; passive lookup uses the existing bounded routine cadence. Source mismatch preserves historical bytes but cannot re-anchor or claim current submitted outcomes. Native and optional manual handoff share these learner-specific projections.
 
 ---
 

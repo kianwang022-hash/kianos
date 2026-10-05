@@ -340,6 +340,27 @@ or, after a task list, “开始第一个”
 
 The user should not need to remember file names, branch names, issue numbers, stage codes, or repository paths.
 
+### Persistent task binding + revalidation budget
+
+Once a durable Issue / task owner is selected for a long-running engineering session, it becomes the **active control anchor**. Consecutive bounded slices reuse that binding and a compressed working basis:
+
+```text
+Parent outcome
+→ active task / exact owner
+→ must preserve / allowed write-set
+→ acceptance / stop
+```
+
+Do not cold-start the full owner chain before every slice. Re-read the routing/design chain only when one of these invalidates the working basis:
+
+- initial bind or rebind after a real interruption where the active basis cannot be trusted;
+- phase / responsibility transition;
+- the active ref or relevant upstream owner revision materially changed;
+- evidence reveals an owner/Contract conflict;
+- Kian explicitly switches the project/task.
+
+Otherwise refresh only the smallest mutable owner/ref that can have changed. A cheap revision/head check may establish freshness without reloading unchanged long Contracts. Completing a bounded slice creates a checkpoint, **not** a routing reset.
+
 ### Task ownership and update propagation
 
 Do not duplicate exact task state into Root Control.
@@ -400,7 +421,7 @@ Kian should review the product and the meaningful choice—not the implementatio
 
 Do not persist every observation as backlog. A finding earns durable state only when it changes Current/Next/Blocker, is a real deferred item, or has been accepted for implementation. Otherwise absorb it and keep the control plane small.
 
-Within Engineer, an otherwise unqualified short continuation such as `继续`, `a`, `.` or `p` means autonomously advance the current persistent project/frontier. Do not ask Kian for the next microtask when the Current owner already provides one. The run stops with the reply/active task; do not imply continued background work.
+Within Engineer, an otherwise unqualified short continuation such as `继续`, `a`, `.` or `p` means autonomously advance the current persistent project/frontier. Do not ask Kian for the next microtask when the Current owner already provides one. Within one active user-triggered invocation, continue through as many bounded dependent slices as remain inside the same authority and acceptance boundary; a slice/checkpoint by itself is not a stop condition. Stop for Kian's explicit pause/cancel, a real blocker/Human Gate that prevents the remaining authorized work, completion, a required scope/phase transition, or evidence that the next authorized work has low marginal value. Sending a progress reply is not a stop condition; do not deliberately end the invocation merely because a checkpoint is ready. An actual platform/executor interruption requires preserving the exact checkpoint and reporting what remains unexecuted. There is no execution after the invocation ends unless a supported automation/executor was explicitly created.
 
 ### Task creation is persistent
 
@@ -510,8 +531,9 @@ After Codex works, Chat/Engineer reads GitHub directly (Issue, PR, commits, chec
 Codex execution lifecycle:
 
 ```text
-GitHub Issue
-→ re-read main@HEAD + AGENTS.md + static-web/CURRENT.md + exact owner
+fresh pickup / rebind
+→ read main@HEAD + AGENTS.md + relevant program/domain Current + exact owner
+→ compress the active basis; consecutive same-task slices reuse it
 → create temporary codex/issue<N>-<slug> branch/worktree
 → execute only the bounded write-set
 → update result + exact cursor atomically when durable state changes
@@ -654,12 +676,14 @@ Long-running BUILD / CONTROL work must optimize for **few high-information repos
 Default execution shape:
 
 ```text
-current-first narrow read
+bind / revalidate once
 → compact batch extraction
+→ batch semantic decisions
 → one staging/write bundle
 → one derived rebuild / expensive CI trigger when possible
-→ one bounded readback
-→ final result
+→ one bounded readback / checkpoint
+→ continue the next bounded batch while authority is unchanged
+→ final result at a true stop condition
 ```
 
 Hard rules:
@@ -674,6 +698,7 @@ Hard rules:
 8. **Long Chat is not permission to restart.** If context becomes heavy, re-ground from current GitHub truth and continue from the exact durable cursor. Do not repeat completed A/C review, accepted Human Gates, or previously closed batches just to reconstruct context.
 9. **If a tool call is too large, reduce payload—not correctness.** Split by meaningful batch boundary or extract only needed fields; do not fall back to one-file-at-a-time chatter.
 10. **User updates stay outcome-level.** Report real findings, phase transitions and blockers. Do not narrate every low-level fetch, commit, workflow status or retry.
+11. **Checkpoint is not stop.** Finishing one safe slice, one word group, one validation packet or one commit does not end an active invocation when the same bound task has another dependent bounded slice ready. Continue without re-routing or reloading unchanged Contracts; stop only at the task's real stop conditions.
 
 Exception: a safety-critical or identity-sensitive mutation may require smaller fail-closed steps. Even then, minimize repeated remote calls and keep durable receipts in GitHub.
 

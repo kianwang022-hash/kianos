@@ -71,7 +71,23 @@ try{
 
   assert.equal(listeners.get('kianos:private-control-consumed')?.size,1,'applied control receipt must have an immediate Packet flush listener');
 
+  const readingHandlers=listeners.get('kianos:english-reading-evidence');
+  assert.equal(readingHandlers?.size,1);
+  for(const kind of ['submit','context']) {
+    const previousPuts=puts;
+    for(const handler of readingHandlers)handler({detail:{kind}});
+    await new Promise(resolve=>setTimeout(resolve,30));
+    assert.equal(puts,previousPuts+1);
+    assert.equal(packetSyncHeaders.at(-1),'immediate');
+  }
+  const previousPuts=puts;
+  for(let i=0;i<10;i++)for(const handler of readingHandlers)handler({detail:{kind:'lookup'}});
+  await new Promise(resolve=>setTimeout(resolve,30));
+  assert.equal(puts,previousPuts,'lookup stays debounced, never immediate for each click');
+
   autosave.stop();
+  assert.equal(listeners.get('kianos:english-reading-evidence')?.size||0,0);
+
   assert.equal(listeners.get('blur')?.size||0,0,'stop must remove blur listener');
   assert.equal(listeners.get('kianos:english-exam-updated')?.size||0,0,'stop must remove immediate result listener');
   assert.equal(listeners.get('kianos:private-control-consumed')?.size||0,0,'stop must remove immediate control listener');

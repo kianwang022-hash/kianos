@@ -34,6 +34,23 @@ const prepared = await preparePrivateCheckpointBootstrap(empty, {readCheckpoint}
 assert.equal(empty.length, 0, 'preparation must not write native state');
 commitLearnerStorageChanges(empty, prepared.changes, prepared.expected);
 for (const [key, raw] of Object.entries(entries)) assert.equal(empty.getItem(key), raw, 'restore exact native owner: '+key);
+const baseKey = 'kianos-private-checkpoint-base-v1';
+assert.equal(empty.getItem(baseKey), durable.checkpoint_id, 'successful restore records the exact durable base identity');
+let fastPathReadOptions = null;
+const fastPrepared = await preparePrivateCheckpointBootstrap(empty, {
+  readCheckpoint: async (readOptions = {}) => {
+    fastPathReadOptions = readOptions;
+    return readOptions.knownCheckpointId === durable.checkpoint_id
+      ? {status:'current',checkpoint:null,checkpoint_id:durable.checkpoint_id,error:null}
+      : {status:'ready',checkpoint:durable,error:null};
+  }
+});
+assert.equal(fastPathReadOptions?.knownCheckpointId, durable.checkpoint_id, 'routine bootstrap probes durable identity from the local base token');
+assert.equal(fastPrepared.result.status, 'skipped');
+assert.equal(fastPrepared.result.reason, 'durable-current');
+assert.equal(fastPrepared.changes.length, 0, 'unchanged durable identity avoids a full recovery transaction');
+assert.deepEqual([...fastPrepared.expected], [[baseKey, durable.checkpoint_id]], 'fast path depends only on the exact durable base token');
+commitLearnerStorageChanges(empty, fastPrepared.changes, fastPrepared.expected);
 const saved = await saveSharedControlToPrivate(empty, {readCheckpoint,writeCheckpoint:async()=>{}});
 assert.equal(saved.status, 'saved', 'recovered lineage admits subsequent native saving');
 const different = JSON.stringify({...JSON.parse(entries[xkey]),kpIndex:9});

@@ -8,6 +8,7 @@ import PoliticsHomeTools from '../components/PoliticsHomeTools.astro';
 import EnglishResume from '../components/EnglishResume.astro';
 import { listProjectableXizongSystems } from '../lib/xizong.mjs';
 import { listPoliticsSubjectsCurrent } from '../lib/politicsCurrent.mjs';
+import { politicsProductCatalog } from '../lib/productCatalog.mjs';
 
 const base = import.meta.env.BASE_URL;
 const xizongSystems = listProjectableXizongSystems();
@@ -15,6 +16,7 @@ const politicsSubjects = listPoliticsSubjectsCurrent();
 const firstSystem = xizongSystems[0];
 const firstSubject = politicsSubjects[0];
 const firstChapter = firstSubject?.chapters?.[0];
+const politicsHomeCatalogPayload = JSON.stringify(politicsProductCatalog(base)).replace(/</g, '\\u003c');
 const xizongResumeIndex = xizongSystems.map((system) => ({
   systemId: system.systemId,
   canonicalId: system.canonicalId,
@@ -31,6 +33,7 @@ const xizongHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${b
 const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubject.subject}/${firstChapter.code}/` : `${base}politics/`;
 ---
 <Base title="学习工作台" active="home" showLead={false}>
+  <script type="application/json" data-home-politics-catalog set:html={politicsHomeCatalogPayload} />
   <header class="homeL3Header">
     <div class="homeL3HeaderCopy">
       <p class="pageKicker" data-exam-phase>一轮收口 · 总目标 425+</p>
@@ -99,7 +102,7 @@ const politicsHref = firstSubject && firstChapter ? `${base}politics/${firstSubj
         </header>
         <p class="homeL3Meta">乘风原讲义 → 肖1000 验证 → 精准回源</p>
         <div class="homeL3ActionSurface">
-          <PoliticsHomeTools firstHref={politicsHref} firstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '查看政治入口'} />
+          <PoliticsHomeTools firstHref={politicsHref} firstLabel={firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '查看政治入口'} embedCatalog={false} />
         </div>
       </article>
     </section>

@@ -21,6 +21,10 @@ import {
   acquireDeliveryLock,
   releasePaths,
   resolveCurrentSubprocessTimeoutMs,
+  resolveCurrentCheckoutTimeoutMs,
+  parseReleaseWorktrees,
+  releaseWorktreeIsDisposable,
+  availableReleaseWorktreePath,
   runBounded,
   terminateProcessTree
 } from './currentRelease.mjs';
@@ -53,6 +57,7 @@ const releases = releasePaths(repoRoot);
 const buildContextHash = clientBuildContextHash(process.env, repoRoot);
 const subprocessTimeoutMs = resolveCurrentSubprocessTimeoutMs();
 const buildTimeoutMs = subprocessTimeoutMs;
+const checkoutTimeoutMs = resolveCurrentCheckoutTimeoutMs();
 const syncRuntimePaths = [
   'static-web/scripts/kianos-current-sync.mjs',
   'static-web/scripts/currentRelease.mjs',
@@ -207,14 +212,20 @@ async function prepareRelease(sha, extra = {}) {
       releaseRoot += '-' + randomUUID();
     } else await cleanupPreparedRelease(releaseRoot);
   }
-  if (fs.existsSync(releases.candidate)) {
-    assertDisposableRelease(releases.candidate);
-    await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releases.candidate], { label: 'remove stale candidate' });
-  }
-  await runBounded('git', ['-C', repoRoot, 'worktree', 'add', '--detach', releaseRoot, sha], {
+  // A killed checkout can leave a locked registration even after its path
+  // disappears. Do not reuse/remove that identity; one safe new path is enough.
+  const worktrees = parseReleaseWorktrees(await git(['worktree', 'list', '--porcelain']));
+  const availableRoot = availableReleaseWorktreePath(releaseRoot, worktrees);
+  if (availableRoot !== releaseRoot) log(`preserving occupied candidate ${releaseRoot}; preparing ${availableRoot}`);
+  releaseRoot = availableRoot;
+  if (fs.existsSync(releases.candidate)) await cleanupPreparedRelease(releases.candidate);
+  const checkoutStartedAt = Date.now();
+  await runBounded(gitBin, ['-C', repoRoot, 'worktree', 'add', '--detach', releaseRoot, sha], {
     label: 'git worktree add',
-    timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
+    timeoutMs: checkoutTimeoutMs
   });
+  timings.checkout = Date.now() - checkoutStartedAt;
+  log(`release checkout completed in ${timings.checkout}ms (budget ${checkoutTimeoutMs}ms)`);
   const candidateWebRoot = path.join(releaseRoot, 'static-web');
   try {
     if (fs.existsSync(path.join(candidateWebRoot, 'package.json'))) {
@@ -297,6 +308,7 @@ async function prepareRelease(sha, extra = {}) {
         timings_ms: {
           dependencies: timings.dependencies,
           astro_build: timings.astro_build,
+          checkout: timings.checkout || 0,
           prepare_release_total: timings.total
         }
       });
@@ -310,13 +322,7 @@ async function prepareRelease(sha, extra = {}) {
       error: error.message,
       failed_at: stamp()
     });
-    assertDisposableRelease(releaseRoot);
-    try {
-      await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
-        label: 'cleanup failed candidate',
-        timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
-      });
-    } catch {}
+    await cleanupPreparedRelease(releaseRoot);
     throw error;
   }
   if (!skipAstro && !fs.existsSync(path.join(candidateWebRoot, 'dist', 'index.html'))) {
@@ -329,21 +335,24 @@ async function prepareRelease(sha, extra = {}) {
 
 async function cleanupPreparedRelease(releaseRoot) {
   assertDisposableRelease(releaseRoot);
-  if (!fs.existsSync(releaseRoot)) return;
+  const worktrees = parseReleaseWorktrees(await git(['worktree', 'list', '--porcelain']));
+  if (!releaseWorktreeIsDisposable(releaseRoot, worktrees)) {
+    if (fs.existsSync(releaseRoot) || worktrees.some(row => path.resolve(row.path) === path.resolve(releaseRoot))) {
+      warn(`preserving locked, incomplete or unregistered release ${releaseRoot}`);
+    }
+    return false;
+  }
   try {
     await runBounded(gitBin, ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
       label: 'cleanup rejected release',
       timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
     });
+    return true;
   } catch (error) {
-    warn(`bounded rejected-release cleanup failed; pruning metadata: ${error?.message || error}`);
-    fs.rmSync(releaseRoot, { recursive: true, force: true });
-    try {
-      await runBounded(gitBin, ['-C', repoRoot, 'worktree', 'prune'], {
-        label: 'prune rejected release metadata',
-        timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
-      });
-    } catch {}
+    // Git owns worktree identity. Failed removal must not be followed by an
+    // unchecked rm that deletes bytes while leaving a locked registration.
+    warn(`preserving release after bounded cleanup failure: ${error?.message || error}`);
+    return false;
   }
 }
 
@@ -371,14 +380,7 @@ async function pruneReleases() {
     let releaseIdentity = path.resolve(releaseRoot);
     try { releaseIdentity = fs.realpathSync(releaseRoot); } catch {}
     if (retained.has(releaseIdentity)) continue;
-    try {
-      await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
-        label: 'prune old release',
-        timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
-      });
-    } catch {
-      fs.rmSync(releaseRoot, { recursive: true, force: true });
-    }
+    await cleanupPreparedRelease(releaseRoot);
   }
   await runBounded('git', ['-C', repoRoot, 'worktree', 'prune'], {
     label: 'prune release metadata',
@@ -868,6 +870,7 @@ async function syncOnce({ initial = false } = {}) {
       ...(!skipAstro && activeReleaseRoot ? { release_root: activeReleaseRoot } : {}),
       timings_ms: {
         remote_fetch: fetchDurationMs,
+        checkout: preparedRelease?.timings?.checkout || 0,
         dependencies: preparedRelease?.timings?.dependencies || 0,
         astro_build: preparedRelease?.timings?.astro_build || 0,
         prepare_release_total: preparedRelease?.timings?.total || 0,
