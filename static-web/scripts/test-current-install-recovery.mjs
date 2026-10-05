@@ -64,6 +64,9 @@ try {
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), b);
   assert.equal(fs.realpathSync(path.join(root, '.kianos-current-releases/active')), fs.realpathSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), b)));
   assert.equal(JSON.parse(fs.readFileSync(path.join(mirror, 'static-web/public/__kianos-current.json'))).target_sha, c);
+  const pendingC = fixtureReleaseRoot(path.join(releasesRoot, 'releases'), c);
+  const sentinelC = path.join(pendingC, 'static-web/dist/user-note.txt');
+  fs.writeFileSync(sentinelC, 'synthetic ignored bytes awaiting disposition');
   const controlOnly = run({ KIANOS_NPM_BIN: npm, KIANOS_SKIP_ASTRO: '1' });
   assert.equal(controlOnly.status, 0, controlOnly.stderr);
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), c, 'control-only sync must advance the mirror');
@@ -78,6 +81,15 @@ try {
   write('fixture.txt', 'D');
   write('static-web/scripts/kianos-static-server.mjs', `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const args=process.argv.slice(2),r=args[args.indexOf('--root')+1];if(args.includes('--release-probe-only'))process.on('SIGTERM',()=>{});http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?fs.readFileSync(path.join(r,'__kianos-current.json')):'ok')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`);
   git(upstream, 'add', '.'); git(upstream, 'commit', '-m', 'stubborn probe runtime'); const d = git(upstream, 'rev-parse', 'HEAD'); git(upstream, 'push', 'origin', 'main');
+  const blockedD = run({ KIANOS_NPM_BIN: npm });
+  assert.notEqual(blockedD.status, 0, 'new SHA must not bypass pending C after control-only catch-up');
+  assert.match(blockedD.stderr, /CURRENT_PENDING_RELEASE_BLOCKED/);
+  assert.equal(git(mirror, 'rev-parse', 'HEAD'), c);
+  assert.equal(fs.readFileSync(sentinelC, 'utf8'), 'synthetic ignored bytes awaiting disposition');
+  assert.equal(fs.realpathSync(activeLink), fs.realpathSync(activeB));
+  // Explicit disposition of this fixture-owned synthetic worktree separates
+  // the independent teardown case; no production cleanup authority is implied.
+  git(mirror, 'worktree', 'remove', '--force', pendingC);
   const probeStarted = Date.now();
   const stubborn = run({ KIANOS_NPM_BIN: npm });
   const probeElapsed = Date.now() - probeStarted;
