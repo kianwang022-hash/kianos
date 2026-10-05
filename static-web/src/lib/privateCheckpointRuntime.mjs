@@ -414,6 +414,43 @@ function localContainsCheckpoint(storage, checkpoint, day, { includeReceipt = tr
 // Prepare recovery before granting native writes to page consumers.
 // This disposable overlay is a transaction, never another learner store.
 export async function preparePrivateCheckpointBootstrap(storage, options = {}) {
+  const request = options.recovery || {};
+  if (request.durableRestoreCheckpointId && request.rebaseCheckpointId) {
+    throw new Error('PRIVATE_CHECKPOINT_RECOVERY_DIRECTION_AMBIGUOUS');
+  }
+
+  const readCheckpoint = options.readCheckpoint || readPrivateLearnerCheckpoint;
+  const localBaseId = !request.durableRestoreCheckpointId
+    && !request.rebaseCheckpointId
+    && typeof storage?.getItem === 'function'
+    ? String(storage.getItem(PRIVATE_CHECKPOINT_BASE_KEY) || '').trim()
+    : '';
+
+  let source = null;
+  let prefetched = false;
+  if (localBaseId) {
+    source = await readCheckpoint({ knownCheckpointId: localBaseId });
+    prefetched = true;
+    if (source?.status === 'current' && source.checkpoint_id === localBaseId) {
+      const now = Number.isFinite(options.now) ? options.now : Date.now();
+      return {
+        result: {
+          status: 'skipped',
+          reason: 'durable-current',
+          study_day: studyDayAt(now),
+          checkpoint_id: localBaseId,
+          warnings: []
+        },
+        recovery: null,
+        changes: [],
+        // The durable identity token is the only read dependency needed by
+        // the no-op fast path. If it changed, the transaction must not admit
+        // readiness prepared for a different durable source.
+        expected: new Map([[PRIVATE_CHECKPOINT_BASE_KEY, localBaseId]])
+      };
+    }
+  }
+
   const before = new Map();
   for (let i = 0; i < storage.length; i += 1) {
     const key = storage.key(i);
@@ -427,15 +464,13 @@ export async function preparePrivateCheckpointBootstrap(storage, options = {}) {
     setItem(key, value) { values.set(key, String(value)); },
     removeItem(key) { values.delete(key); }
   };
-  const request = options.recovery || {};
-  if (request.durableRestoreCheckpointId && request.rebaseCheckpointId) {
-    throw new Error('PRIVATE_CHECKPOINT_RECOVERY_DIRECTION_AMBIGUOUS');
-  }
-  let source = null;
-  const readCheckpoint = options.readCheckpoint || readPrivateLearnerCheckpoint;
   const bootstrapOptions = {
     ...options,
     readCheckpoint: async () => {
+      if (prefetched) {
+        prefetched = false;
+        return source;
+      }
       source = await readCheckpoint();
       return source;
     }
