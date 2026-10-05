@@ -230,6 +230,36 @@ A prepared chapter is complete for its reported usable scope only when actual te
 
 Maintain one canonical preparation in the existing Politics content owners; adapt existing assets or add only the necessary chapter text. Do not stack multiple full answers, repeated hidden full texts, or a new registry. Schema/Projection changes remain governed by their existing Content/Runtime owners; this preparation rule does not authorize them.
 
+### 3.1.1 Canonical prepared chapter package — Chat consumes, not regenerates
+
+For a chapter to be called **prepared for continuous Chat learning**, its existing Politics learning owner must already contain or resolve one coherent teaching package. This is a set of content jobs around the same chapter/NU owners, not a new hierarchy, registry or frozen transcript.
+
+The package must provide, for the chapter's actually admitted scope:
+
+1. **Fixed mother model / reconstruction spine.** The canonical chapter framework and stable learner index under §0.5.
+2. **Progressive first-learning route.** A reviewed teaching sequence that says how the chapter is unfolded after the mother model. It may use several natural teaching batches such as model establishment → first substantive fill → later/heavier fill, but the batches are pedagogical stages, not new canonical units. Their order and scope must be stable enough that a fresh Chat does not re-plan the chapter from Source each time.
+3. **Substantive teaching content.** The actual explanations, examples, conditions and Source-backed detail needed to teach each stage. A heading list, A/B/C inventory or Source locator alone is not the lesson asset.
+4. **Confusable / boundary pass.** A prepared set of high-value misconceptions, option boundaries and near-neighbor distinctions after the relevant content is understood. This may live in the same teacher brief/support objects; it must be recoverable as a deliberate teaching job rather than reconstructed ad hoc from question options.
+5. **Same-model compression.** The reviewed chapter reconstruction using the same fixed spine, progressively thinner than first teaching without changing the learner index.
+6. **Precision / Memory handoff.** Reviewed exact-retention targets with clear prompts, authoritative answers, checking criteria, optional memory aids, Source/admission basis and consumer mapping under §3.2/§6.1.
+
+The package may be realized by the existing chapter JSON, teaching brief, support objects and optional `*.memory.json`; no particular file split is required. A chapter-level `content_support.active_precision` realization is valid when it satisfies the same requirements. Do not create a sidecar merely for symmetry.
+
+**Fresh-Chat consumption rule:** when a Current prepared package exists, Chat must read and teach from that package as the learner-facing semantic authority. Chengfeng/other Source remains the factual basis and calibration/repair authority, but Chat must not bypass the prepared package and independently regenerate an alternative mother model, fill order, confusion summary, compression or Memory set from raw Source. Wording, examples and local pacing may adapt to the conversation; the owned model, stage scope, decisive relations, boundaries and exact targets do not drift casually.
+
+A fresh Chat should therefore be able to recover:
+```text
+where the learner is in the fixed chapter model
+→ which prepared teaching stage comes next
+→ the owned explanation/detail for that stage
+→ the prepared confusion/boundary pass when timely
+→ the same-model compression
+→ the reviewed precision/Memory handoff
+```
+without reconstructing the course from Source or old conversation history.
+
+If the prepared package is missing, partial or stale, preserve that as a Content limitation. Ordinary factual help may still use Source, but do not claim the canonical chapter learning path is prepared and do not silently create a durable alternative framework in Chat. Repair the existing Content owner first when durable reuse is required.
+
 ### 3.2 Model-to-memory preparation completion
 
 The completion boundary for the integrated capability is **teach → encode → retrieve → diagnose**, not teacher-prose completeness alone. Earlier bounded teaching reviews remain evidence for the scope they actually inspected; they do not automatically certify this additional scope.
