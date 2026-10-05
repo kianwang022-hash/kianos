@@ -61,6 +61,14 @@ export function availableReleaseWorktreePath(releaseRoot, entries, exists = fs.e
   return candidate;
 }
 
+export function releaseIdentityProblem(identity, expectedSha, expectedContextHash) {
+  if (!identity) return 'response-unavailable';
+  if (identity.http_status) return `http-status:${identity.http_status}`;
+  if (identity.sha !== expectedSha) return `sha-mismatch:expected=${expectedSha}:observed=${String(identity.sha || 'missing').slice(0, 40)}`;
+  if (identity.contextHash !== expectedContextHash) return 'context-mismatch';
+  return null;
+}
+
 export function isProcessAlive(target, kill = process.kill) {
   if (!Number.isInteger(target) || target === 0) return false;
   try {

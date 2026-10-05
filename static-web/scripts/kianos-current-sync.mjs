@@ -25,6 +25,7 @@ import {
   parseReleaseWorktrees,
   releaseWorktreeIsDisposable,
   availableReleaseWorktreePath,
+  releaseIdentityProblem,
   runBounded,
   terminateProcessTree
 } from './currentRelease.mjs';
@@ -490,7 +491,7 @@ async function fetchReleaseIdentity(url, deadlineAt) {
   const timer = setTimeout(() => controller.abort(), remainingMs);
   try {
     const response = await fetch(url, { signal: controller.signal });
-    if (!response.ok) return null;
+    if (!response.ok) return { http_status: response.status };
     return await response.json();
   } finally {
     clearTimeout(timer);
@@ -499,6 +500,8 @@ async function fetchReleaseIdentity(url, deadlineAt) {
 
 async function waitForSiteReady(expectedSha, timeoutMs = 5000) {
   const deadlineAt = Date.now() + timeoutMs;
+  let observation = 'no-response';
+  let requestError = '';
   while (Date.now() < deadlineAt) {
     if (!site) throw new Error('CURRENT_RELEASE_RUNTIME_EXITED');
     try {
@@ -506,13 +509,15 @@ async function waitForSiteReady(expectedSha, timeoutMs = 5000) {
         `http://${host}:${port}/__kianos-release.json?t=${Date.now()}`,
         deadlineAt
       );
-      if (expectedSha && identity?.sha === expectedSha && identity.contextHash === buildContextHash) return;
-    } catch {}
+      const problem = releaseIdentityProblem(identity, expectedSha, buildContextHash);
+      if (!problem) return;
+      observation = problem;
+    } catch (error) { requestError = error.cause?.code || error.name; }
     if (Date.now() < deadlineAt) {
       await new Promise((resolve) => setTimeout(resolve, 100));
     }
   }
-  throw new Error('CURRENT_RELEASE_RUNTIME_NOT_READY');
+  throw new Error(`CURRENT_RELEASE_RUNTIME_NOT_READY:${observation}${requestError ? ':last-request:' + requestError : ''}`);
 }
 
 async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
@@ -538,7 +543,7 @@ async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
     '--release-probe-only'
   ], {
     cwd: candidateWebRoot,
-    stdio: 'ignore',
+    stdio: ['ignore', 'ignore', 'pipe'],
     detached: process.platform !== 'win32',
     env: {
       ...process.env,
@@ -555,22 +560,33 @@ async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
       KIANOS_PACKET_RELAY_ENABLED: '0'
     }
   });
+  let stderr = '';
+  let spawnError = null;
+  candidateServer.stderr.on('data', chunk => { stderr = (stderr + chunk).slice(-1200); });
+  candidateServer.once('error', error => { spawnError = error; });
   try {
     const deadlineAt = Date.now() + timeoutMs;
+    let observation = 'no-response';
+    let requestError = '';
     while (Date.now() < deadlineAt) {
-      if (candidateServer.exitCode !== null) throw new Error('CURRENT_RELEASE_RUNTIME_EXITED');
+      if (spawnError) throw new Error(`CURRENT_RELEASE_RUNTIME_SPAWN_FAILED:${spawnError.code || spawnError.name}`);
+      if (candidateServer.exitCode !== null || candidateServer.signalCode !== null) {
+        throw new Error(`CURRENT_RELEASE_RUNTIME_EXITED:${candidateServer.exitCode ?? candidateServer.signalCode}:${stderr.trim()}`);
+      }
       try {
         const identity = await fetchReleaseIdentity(
           `http://${host}:${probePort}/__kianos-release.json?t=${Date.now()}`,
           deadlineAt
         );
-        if (identity?.sha === expectedSha && identity.contextHash === buildContextHash) return;
-      } catch {}
+        const problem = releaseIdentityProblem(identity, expectedSha, buildContextHash);
+        if (!problem) return;
+        observation = problem;
+      } catch (error) { requestError = error.cause?.code || error.name; }
       if (Date.now() < deadlineAt) {
         await new Promise((resolve) => setTimeout(resolve, 100));
       }
     }
-    throw new Error('CURRENT_RELEASE_RUNTIME_NOT_READY');
+    throw new Error(`CURRENT_RELEASE_RUNTIME_NOT_READY:${observation}${requestError ? ':last-request:' + requestError : ''}${stderr ? ':' + stderr.trim() : ''}`);
   } finally {
     try {
       if (candidateServer.pid) {
@@ -822,7 +838,10 @@ async function syncOnce({ initial = false } = {}) {
         probeDurationMs = Date.now() - probeStartedAt;
       } catch (error) {
         warn(`new Current release probe failed before activation; keeping current release: ${error.message}`);
-        if (preparedRelease.created) await cleanupPreparedRelease(preparedRelease.releaseRoot);
+        // The immutable build receipt is already verified. Readiness failure
+        // must keep this exact artifact for the next bounded probe, rather
+        // than rebuilding the same SHA under the same load. It is never active
+        // until both identity and configured-runtime readiness pass.
         throw error;
       }
       const promotionStartedAt = Date.now();
