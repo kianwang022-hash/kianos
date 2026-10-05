@@ -11,15 +11,44 @@ import { privateControlBridge } from './scripts/privateControlBridge.mjs';
 
 function canonicalContentDevReload() {
   const canonicalContentRoot = path.resolve(process.cwd(), '..', 'content');
+  let nativeWatcher = null;
+  let nativeWatcherActive = false;
+  let reloadTimer = null;
+
+  const scheduleReload = (server) => {
+    if (reloadTimer) clearTimeout(reloadTimer);
+    reloadTimer = setTimeout(() => {
+      reloadTimer = null;
+      server.moduleGraph.invalidateAll();
+      server.ws.send({ type: 'full-reload', path: '*' });
+    }, 80);
+  };
+
   return {
     name: 'kianos-canonical-content-dev-reload',
     apply: 'serve',
     configureServer(server) {
-      server.watcher.add(canonicalContentRoot);
+      if (!fs.existsSync(canonicalContentRoot)) return;
+      try {
+        nativeWatcher = fs.watch(canonicalContentRoot, { recursive: true }, () => scheduleReload(server));
+        nativeWatcherActive = true;
+        const cleanup = () => {
+          if (reloadTimer) clearTimeout(reloadTimer);
+          reloadTimer = null;
+          try { nativeWatcher?.close(); } catch {}
+          nativeWatcher = null;
+          nativeWatcherActive = false;
+        };
+        server.httpServer?.once('close', cleanup);
+      } catch (error) {
+        console.warn('[KianOS] native content watcher unavailable; falling back to Vite watcher:', error?.message || error);
+        server.watcher.add(canonicalContentRoot);
+      }
     },
     handleHotUpdate(ctx) {
       const changed = path.resolve(ctx.file);
       if (changed !== canonicalContentRoot && !changed.startsWith(canonicalContentRoot + path.sep)) return;
+      if (nativeWatcherActive) return [];
       ctx.server.moduleGraph.invalidateAll();
       ctx.server.ws.send({ type: 'full-reload', path: '*' });
       return [];
