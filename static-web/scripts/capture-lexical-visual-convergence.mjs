@@ -684,7 +684,7 @@ try {
     await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
 
     assert(
-      await page.locator('.lexicalSenseRow:not(.lexicalSecondarySenseRow)').count() === primarySenseCount,
+      await page.locator('.portedVocabSenseList > .lexicalSenseRow:not(.lexicalSecondarySenseRow)').count() === primarySenseCount,
       `final_${fixture.word}_primary_sense_projection_current`,
       String(primarySenseCount)
     );
@@ -693,6 +693,10 @@ try {
       `final_${fixture.word}_secondary_sense_projection_current`,
       String(secondarySenseCount)
     );
+
+    // Lookup Reference shares row styling, but does not belong to the active Sense list.
+    assert(await page.locator('[data-vocab-lookup-only]:visible').count() === 0,
+      `final_${fixture.word}_reference_senses_hidden_in_study`);
 
     const familyVisible = await page.locator('.lexicalFamilySection').isVisible().catch(() => false);
     assert(
