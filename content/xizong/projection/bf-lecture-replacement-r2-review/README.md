@@ -5,19 +5,19 @@
 ## 基线与合入顺序
 
 - 草稿base：PR [#1145](https://github.com/kianwang022-hash/kianos/pull/1145) 的 `candidate/b-content-review-20261003`，commit `bc014aeee3c7ca1be91a180a41336f03d14b3930`。B38章的内容与既有关系重审来自该PR，本稿不把它们计作新增成果。
-- Fresh main：`801394f71eaa772d3b5e0209f8bfdd3571913d1d`。
+- 编写/迁移阶段main：`801394f71eaa772d3b5e0209f8bfdd3571913d1d`；2026-10-05只读复核main为`0938154f228ab2df73165bc141305bf11b08c0f0`，其后新增范围仅政治文件。
 - 教学规则依赖：PR [#1148](https://github.com/kianwang022-hash/kianos/pull/1148)，读取commit `7a276ea16693eaf7c8a36be1080341f47d2c115a` 的Learning Contract及Lecture Replacement Contract§3.1。该规则、路由README、study-policy、A1/A2/A3均未复制或修改。
 - 先完成并合入#1145与#1148，再对实际main做有界依赖核对并重定本稿base。本稿继续保持draft；本次操作没有merge/deploy授权。合并工程文件仍不等于候选教学内容已获得医学准入或用户试用。
 
 ## 本次精确范围
 
 - 121篇教学正文放在原System的 `projection/<system>/chat/*-teaching.md`；121篇隐藏版及121份覆盖记录保存在本审阅包。KP注释只定位，不自动附加Core。
-- 5个原canonical文件仅含已审7处Prompt及H1→`circulation-b04`引用修正。保留KP ID、顺序、Core医学事实及原Source分歧；其余11项旧Prompt/Core提案不进入本次写集。
-- D14、F3两条Surgery Knowledge见证及现有两个汇总签名有界刷新，Learning见证不变。
+- 5个原canonical文件含已审7处Prompt及H1→`circulation-b04`引用修正；另对N4原canonical入口限定Chat-led / Source模式，不改KP09或其他医学Core。保留KP ID、顺序、Core医学事实及原Source分歧；其余11项旧Prompt/Core提案不进入本次写集。
+- D14、F3两条Surgery Knowledge见证及现有两个汇总签名有界刷新，Learning见证不变。N4入口模式限定另有27条既有题目关系的文件见证续接；只保留原target/role/医学审阅，不新增关系。
 - 34条原本CURRENT、仅因本次H1/H8/F1文件修订而过期的题目关系续签；保留原角色、原审阅和原见证，追加SELF等价证据。25个既有shard及既有manifest更新。原1520条stale全部继续排除，无新关系或新医学判断。
 - 迁入查源续修文字证据和来源坐标；原PDF、像素裁剪、整页下载与本机构建脚本保持原工作档案身份，未重复放入仓库。
 
-迁移只改候选provenance、7条修正标识/旧Prompt标签和相对链接坐标及27个隐藏文件的末尾空行。连续医学正文、条件、表格、标题和代码文本与r2.1既有正文等价；不是新一轮医学重写。
+迁移只改候选provenance、7条修正标识/旧Prompt标签和相对链接坐标及27个隐藏文件的末尾空行。除2026-10-05有界校对将N4两版“前两种肌丝蛋白”改为明确的“肌球蛋白与肌动蛋白”外，连续医学正文、条件、表格、标题和代码文本与r2.1既有正文等价。N4分类匹配未改的canonical KP09；原PDF第51页文字支持，不宣称新像素核验。当前SHA与marker offset已刷新，原编写阶段SHA保留。
 
 ## 三篇代表全文
 
