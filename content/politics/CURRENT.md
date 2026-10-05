@@ -34,7 +34,7 @@ The authorized Mac task reads the lower Chengfeng original without upload. Mao C
 
 **Active performance dependency (Engineer):** PR #1151's `learning/marxism/teaching-candidate/preparation-review.md` owns the loader/Memory fixes and measured failure/repair proof. Cold Packet and same-page Recall improved; other cold paths did not. Candidate evidence does not prove live delivery or already-open Home refresh. Remeasure under P6.
 
-**C01 prepared-package candidate saved (P5):** PR #1151 contains commit `adb1e3194b2c1d601ebbc6e2992b2d22b97815f2`; its four files were remotely read back. The brief follows main’s ten-node spine, retains its original teaching prose and 22 exact objects/signatures, and exposes prepared stages and the boundary pass. The owning preparation review records compiled-selector/two-NU checks, unchanged331 catalog items and18 isolated snapshots. The previous push-confirmation blocker is resolved. Candidate save and bounded consumer checks do not constitute main adoption, Website delivery or learner U.
+**C01 candidate saved (P5):** the PR’s existing preparation review owns the four-file remote readback, ten-node alignment, unchanged22 exact objects and bounded consumer proof for `adb1e3194b2c1d601ebbc6e2992b2d22b97815f2`. The push-confirmation blocker is resolved. Main adoption, Website delivery and learner U remain separate open gates.
 
 **Projection dependency (Engineer):** that PR batch reconciles C01’s source binding and passes its dependent checks. Main’s older projection remains separate until the accepted batch is integrated and read back; do not copy a candidate source hash into a different main chapter. Use the current PR/review evidence rather than reopening the repaired candidate defect.
 
