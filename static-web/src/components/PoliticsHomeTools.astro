@@ -1,11 +1,11 @@
 ---
 import { politicsProductCatalog } from '../lib/productCatalog.mjs';
 const base = import.meta.env.BASE_URL;
-const catalog = politicsProductCatalog(base);
-const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
+const { firstHref, firstLabel = '开始政治学习', embedCatalog = true } = Astro.props;
+const catalog = embedCatalog ? politicsProductCatalog(base) : null;
 ---
 <section class="politicsHomeTools" data-politics-home-tools data-base={base}>
-  <script type="application/json" data-politics-home-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
+  {embedCatalog && <script type="application/json" data-politics-home-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />}
 
   <a class="politicsContinueCard" data-politics-continue href={firstHref}>
     <span class="politicsHomeEyebrow">继续学习</span>
@@ -53,9 +53,10 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 
   const root = document.querySelector('[data-politics-home-tools]');
   if (root instanceof HTMLElement) {
-    const catalogNode = root.querySelector('[data-politics-home-catalog]');
+    const catalogNode = root.querySelector('[data-politics-home-catalog]')
+      || document.querySelector('[data-home-politics-catalog]');
     const catalog = JSON.parse(catalogNode?.textContent || '{}');
-    catalogNode?.remove();
+    if (catalogNode?.hasAttribute('data-politics-home-catalog')) catalogNode.remove();
     const base = root.dataset.base || '/';
     const firstHref = root.querySelector('[data-politics-continue]')?.getAttribute('href') || `${base}politics/learn/`;
     const firstTitle = root.querySelector('[data-politics-continue-title]')?.textContent || '选择科目和章节';
