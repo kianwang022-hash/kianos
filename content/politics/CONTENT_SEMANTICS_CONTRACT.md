@@ -197,6 +197,37 @@ Consumer regression must cover explicit prompt preservation, no ambiguous same-p
 
 ---
 
+### 3.3 Fixed reconstruction spine realization
+
+Learning Contract §0.5 owns the stable-review rule. Content realizes it with the chapter's existing semantic assets; do **not** create a parallel framework registry merely to mark something “fixed”.
+
+For an admitted chapter, designate one canonical reconstruction scaffold from the existing owner:
+- when `chapter_compression.reconstruction_chain` already exists and represents the chapter model, it is the default canonical review spine;
+- for a genuinely non-linear subject shape, the owning stable `framework_maps` / hierarchy / timeline plus its declared decisive relations may serve the same job;
+- `anchors`, `boundaries`, Precision and Recall prompts attach to that scaffold rather than competing with it.
+
+The accepted spine preserves stable learner-facing labels and meaningful relation/order. Supporting prose may change density, but ordinary content refinement must not silently produce several interchangeable chapter summaries.
+
+A later review may project:
+```text
+full spine + explanation
+→ same spine with shorter node meanings
+→ same spine with hidden nodes / retrieval prompts
+→ same spine with exact Memory targets attached
+```
+
+It may not project:
+```text
+review 1: chain A
+→ review 2: equally plausible chain B
+→ review 3: new mnemonic hierarchy C
+```
+when Current chapter semantics have not changed.
+
+If the canonical spine must change, update the original chapter/semantic owner and reconcile dependent review prompts, Memory cues and Projection. Do not preserve both versions as two learner truths.
+
+---
+
 ## 4｜Evidence discipline
 
 Content semantics must remain source-grounded.
