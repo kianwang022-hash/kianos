@@ -481,3 +481,44 @@ Before transport首字节25106.42ms，服务器24827ms；after首字节3101.96ms
 已审13文件批次 `3f71dc0f51fce70aedb487791f4da84dcd70a89d` 已正常push原PR分支，13文件远端逐字readback；保留main `0cb20236`的三科Acceptance限定。该head受影响CI的政治blob/Content/Runtime前置校验通过，但多条Astro构建遇到同一Node22读取差异：`HOME_XIZONG_UNCLASSIFIED_DEPENDENCY:.../static-web/node_modules/marked/lib/marked.esm.js`（Static Web Politics QA run37260123219/job111605394488，Node22.23.3）。它是已在revision与公共快照中纳入的依赖，原子进程读取guard遗漏该子树，而非Source admission失败。
 
 最小兼容性修正只将已经校验/复制的`static-web/node_modules/marked`纳入子进程读取guard，不允许整个node_modules或外部私有路径。新增反例在固定复制树的loader尾部主动经同步readFileSync读取marked ESM，模拟Node22 loader路径；修正前实际复现同一拒绝，修正后完整cache反例/独立基线/HEAD/等长变化测试PASS。完整本地`npm run build`生成1015页、25.15秒完成。该兼容性修正仍需新准确head的CI回读；不以旧head失败或本地build替代当前CI成功，不改变P6/真实学习边界。
+
+## C01 既有备课与十节点对齐 2026-10-05
+
+本批只整理已有资产。main `ea90aa2ea771d44a0a3aab0a2baddbad2eb7fe7b` 的 C01 已固定十节点；PR #1151 head `7d9984fc5040979c0bcd976cc628e7d054f27136` 的章 JSON 仍留旧十二项链，brief 的旧压缩另合为八段。本节记录对这两处不一致及阶段/易混入口的有界修补；上述2026-10-04 C00/C01首课概括与审读结果继续是当时范围的历史证据，不用其概括覆盖当前十节点。
+
+- `ch01.json` 只将 `chapter_compression` 对齐main既有十节点、review prompt与stability rule；原Orientation、两NU、teaching beats、Source、projection notes、content support均不改。
+- `ch01.brief.md` 把旧讲解与补全段落定位到十节点，标出入章及01–04、05–07、08–10首次填充、原B补全、易混回合与同模型恢复。新增的是段落入口、范围和复用关系；不新增政治事实、不重写原讲义、不新增答案集。易混回合直接引用原完整解释，不重新编一套边界答案。
+- brief只替换旧首课路线概括和旧八段压缩；其余全部旧非空行保留，连续教学原文逐字保留，原覆盖去向、未决来源差异和既有Source/独立审读证据继续保留。关系顺序是原教学依赖与重建次序，不把相邻节点都当因果推导。可局部暂停或复习，不创造新NU、Runtime状态或已学记录。
+- 原22组 `content_support.active_precision` 整块字节保留。ID、题面、答案、标准、cue、Source、prerequisite、review_ref和reviewed_target_revision均不变；原准入表不重签。十节点表将这22个ID各映射一次，使用对象本身的完整内容，不从表再生成Memory。
+
+### 作者复核及可证伪范围
+
+本批完整读回旧/新章与brief，逐段核原讲解去向；以原覆盖表核对A/B段落和未决项保留，再核十节点压缩及22组依赖。main Learning §§0.5、2、3.1–3.2与Interaction §§1.1、3、7、Content Semantics §§3.1.1–3.3及两层Acceptance的补充integration边界用于本批约束。对原preparation-review只复核C00/C01正文、原22项签名段和相关消费者边界；不把取得整文件当成全文重新审定。
+
+本批没有新看乘风PDF或图像，也没有重做源事实审查。既有原页检查与独立内容审读仅沿用其已记载范围；原未决五项未获新准入。新增路由不改变答案，故没有以新章节索引为由重签或撤销成熟内容。
+
+本地内容/数据自测64项通过：包含来源文件blob对账、仅compression的JSON差异、教学正文逐字保留、10节点顺序/名称、段落锚点可恢复、22ID无遗漏无重复、逐对象不变，以及按已读消费者函数的字段规则离线重算22个原摘要并逐条匹配原review记录。此为内容与数据检查，未运行实际loader/catalog或浏览器。
+
+七个反例被相应检查拒绝：原PR十二项链、原brief八段压缩、交换06/07、删除K07段落入口、漏掉一个原ID、改答案但沿用旧签名、改章后仍保留旧projection blob。前两例就是本批修补前的实际不一致；其余为隔离文本/对象变异，不改正式内容或学习记录。作者还沿既有反例回看物质唯一特性/运动根本属性、器官/源泉、实践中介、规律/条件、AI教材范围及意识统一非等同，原完整解释均仍在对应节点可回到的段落里。
+
+### 必要依赖与未验证边界
+
+C01完整章blob随compression改变，PR原projection绑定的 `3d54fab3bcd5e312814ad334f2769ddd817ef6d3` 须在采纳时更新为本候选 `f3f2adead86f634969652d8476a92cf03014702c`。30个已有scope/field引用均可从旧/新JSON解析；29个值不变，仅 `chapter_compression.reconstruction_chain` 恢复十节点。selector、NU、surface mapping、transitions与原精记对象不需要因本次索引整理重造。另备的projection候选仅改 `source.blob_sha`，尚未落入仓库或执行实际消费者验证。
+
+本节截至作者交付仍为本地候选，独立反审待确认本批阶段映射/边界入口与正文保留；不是新一轮Source全面审查。未写GitHub、Current或Acceptance，未merge/deploy，未测实际Website/Memory表现、性能或真实掌握。旧first-round PASS及既有有界内容审读仍按原范围有效；本批不据此关闭新增integration claim。
+
+### 本批独立有界反审结果
+
+2026-10-05，独立审读者完整对比旧/新brief，核对main固定spine/准备package规则与Interaction，逐组检查22个ID的节点位置及决定条件是否仍能从原完整段落恢复。结论为 **PASS_BOUNDED**：未发现需要修复的内容缺陷，原知识正文、覆盖与五项Source限制、22组完整对象均未改变；无需改讲义或重签。
+
+审读者将自测脚本的文件写出重定向到内存后独立重放，64项检查和7个反例全部重现，与冻结的结果一致；递归JSON差异仅reconstruction chain、review prompt与stability rule三字段，projection差异仅source.blob_sha，两份patch与冻结文件差异逐字一致。本结论只覆盖现有资产的本地对齐与静态依赖；不包含新Source复核、实际loader/catalog/Website执行、Current采纳或真实学习验收。
+
+### 本机实际 consumer 补证（同批四文件保存范围）
+
+本机从 Library 指定候选包取回，大小92983字节、SHA256 `71a53a964bb48e614af2486f17d2f69687ee2ef768333c9341ef674cbe782b0d` 完全匹配；安全解包未执行包内脚本。fresh main 为 `ea90aa2ea771d44a0a3aab0a2baddbad2eb7fe7b`，原PR基线为 `7d9984fc5040979c0bcd976cc628e7d054f27136`。四个候选的旧/新Git blob逐一匹配交付清单；本段补证只追加到原review，不更改准入表或原签名。
+
+在两个全新Node进程分别消费旧文件与本批文件，原 `loadPoliticsChapterCurrent('marxism','ch01')` 的实际 `compression.chain` 从12项变为10项，逐字等于main固定spine；章JSON除三项compression字段外完整不变。实际 `resolvePoliticsPresentationRef` 解析30个原引用，29个完整值不变，仅reconstruction_chain恢复十节点。`loadPoliticsCompiledPresentation` 严格blob绑定通过，两NU完整输出（含surfacePlan、transitions、hierarchy）与旧输出deepEqual；其unit输出本来不承载chapter_geometries，十节点消费证据来自原Current runtime及chapter selector，不能冒称compiled unit产生了新十节点UI。本批projection只更新source.blob_sha，没有改selector或surface mapping。
+
+原 `extractPoliticsMemoryCandidates` 实际选出同一22项，逐对象完整deepEqual旧输出，每项 `politicsMemoryAdmissionVerified` 仍为true；`buildPoliticsMemoryCandidateCatalogCurrent` 的全部331对象及revision `politics-memory-66169567` 与旧输出完整相等。原 `validatePoliticsMemoryPlan` 接受仅引用这22个candidate_id/current revision的隔离内存计划，全部snapshot与旧计划逐对象相等；改答但沿用snapshot的反例被 `PLAN_SNAPSHOT_STALE` 拒绝。未将计划写入Control或排程。原 `buildPoliticsMemoryHistoryProfile` 读取既有18条隔离测试Recall快照，18条兼容、0条stale；不是新增Recall或真实学习证据。
+
+既有 `validate-politics-cognitive-projection-assets.mjs`、strict `audit-politics-explicit-surface-mapping.mjs`（151 PASS全部mapped，0 missing/errors）及 `validate-politics-repair-memory.mjs` 通过。brief显式本地锚点/引用均解析，JSON差异仅compression，git diff --check通过。本次未改UI/Runtime代码、Current、Source/题目truth、Memory对象或真实学习记录，未新做浏览器/性能/源页全面审查。该结果只补上本批实际内容与catalog消费证据；GitHub保存、准确head CI及远端readback须由后续实际结果报告，不能据本段推断已merge/deploy或P6/真实U验收。
