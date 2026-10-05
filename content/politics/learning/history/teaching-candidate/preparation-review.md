@@ -58,3 +58,48 @@ dependent projection已按最终本地候选bytes只改source.blob_sha；原vali
 独立最终回读确认真实本地candidate仅准入该1对象、digest不变，依赖projection单章原validator也实际通过。后续复用53章与1个旧sidecar缓存，逐文件对fresh PR1151目录blob metadata核验为同一内容bytes；使用未改的原producer、真实sidecar读取、签名guard及题面去重函数，准入集合331→332，仅新增polmem-b3d1b517，原331对象及签名逐对象不变。原Memory Runtime纯函数另过10项隔离断言：无W/U主动计划与全部snapshot字段、pending/unknown/stale拒绝、Map中apply与idempotent、添加无关目标不废原历史、改答只废依赖目标历史及旧snapshot拒绝。测试事件仅为进程内fixture，没有写真实learner storage或产生原生应用回执。
 
 有界独立内容与直接producer/sidecar/catalog集合验证已完成；完整politicsCurrent题库/first-ready loader、全库校验和实际Website仍需原consumer环境验证。实际验证须检查同一ID只出现一次、显式题面/答案/checking/cue/Source/准入完整到达选择与揭示、未准入目标排除、提示无检索前泄露，并沿原计划/证据snapshot路径保持freshness与回传语义。未运行全库QA、浏览器、main到Website交付或U。准备不自动产生learner plan、Recall、W/U或明日到期任务。
+
+
+## 2026-10-05 P5：C01–C05固定续教路线与文字精记作者稿
+
+### fresh基准与最小增量
+
+直接GET refs/heads/main核为bf69dc154ce960e833e90aacb84eb0d53360f8a9，PR #1151 head为cba1469949fdde813af9a9d796a4443df357cf8c。PR返回base a9a2a459不是main HEAD，发现后已纠正并刷新三项必要合同，按Learning §§0.5/3.1.1/3.2、Interaction §1.1、Content Semantics §§3.1.1–3.3绑定。History CURRENT/Acceptance不变；main与candidate的C01–05 Source shard同blob，C02–05章JSON同blob。C01主分支仍无本文件上一批已reviewed组，不能把候选状态写成main采用。
+
+五章成熟教案、B落点、就地边界、同模型压缩与原reviewed C01-S04关系组保留。本次只在五brief内补固定阶段/范围/next，并对本次可完整核读的Source文字补32个精记作者目标；本review记录这轮有界审读。未改原chapter、Source、NU、题目、projection、consumer或任何learner state；C06–10不在本批。
+
+### 可复用教学范围
+
+五章各有T0母模型、三段实际内容填充、T4有意易混回看、T5同模型收束/精记交接，锚点H01–H05-T0..T5只作教案路由。原chapter_compression的timeline/comparison是固定索引，原正文较长的压缩只作其展开，不作为另一条平行框架。C02原比较短语由已存在正文限定，不否认《资政新篇》；C03政府成立先于清帝退位；C04保留S01、独立K03–K07、S03七NU；C05长征为持续过程，遵义在其中，会师精神和三组总结回挂后段。
+
+作者实际读完五brief与章JSON，分三遍检查覆盖、连续、压缩；独立reviewer实际读五brief全文、新路线与32题，并返回Source shard的实际文字，不只读汇总。原Source shard若只有首行，不代表原始Markdown全文；之前的完整文字审读证据仍限旧准备，不能给本轮新target补造Source或图像证据。
+
+### 新目标有界范围及消费边界
+
+- C01：封建社会四方面、三元里地位、义和团三局限、林则徐人物著作、爱国官兵战争配对（5组）。原polmem-b3d1b517完全保留，不重签或重造。
+- C02：洋务失败三原因与失败标志、维新六活动类别/三重性质/四类代表（5组）。
+- C03：革命派基础与骨干、兴中会起点、同盟会组织地位、南京临时政府性质依据、辛亥未竟与客观根因、邹容陈天华作品（6组）。
+- C04：新文化开场阵地口号、早期马克思主义者三来源、早期组织三工作、一大时地实际工作、新三民主义三内容、大革命失败标志尺度、李大钊两组作品、建党早期三种组织定位（8组）。
+- C05：起义旗帜区别、长征直接原因、遵义问题特点、长征精神五方面、三组总结文章、南京/易帜日期、茶陵政权、苏维埃制度性质（8组）。
+
+各组已给自足prompt、Source范围内完整答案、必要漏项/混淆/释义标准、答后可选cue、2027 CF Source节点/blob/页码及解释前提。全部新组保持PENDING_REVIEW：这里的独立文本通过不等于consumer/签名准入。拟复用原chapter.content_support.active_precision→groupCandidate(PRECISION)；每组固定题名/NU/ordered source_refs给出明确mapping，尚未实际写入原chapter、生成polmem ID或reviewed-target digest。brief文字本身不会被该loader消费，不能宣称现在可选或入计划。不得借旧C01签名给本批目标准入。
+
+作者直接静态读取现head原consumer：groupCandidate保留prompt/items/checking_criteria/memory_cue/source_refs及admission_basis；extractPoliticsMemoryCandidates枚举原chapter/sidecar而不读brief；原guard要求REVIEWED、合法Source/前提及与digest成对记录。这只说明待接入路径，未执行这些函数，不算准入拦截或整catalog测试PASS。
+
+### 两个真实fail及最小修复
+
+1. 作者隐藏权威答案，仅依C05长征精神初cue“五个问句”展开，发现“怎样判断实际”不能可靠恢复独立自主，且利益、群众生死患难等限定不稳。判cue可还原性FAIL，只改该cue为五方面具体支点；逐项回到K05-N04-I01–I05原文恢复，独立reviewer确认缺口不再复现。答案未改，提示后恢复不当无提示成功。
+2. 独立reviewer发现C03题面只问“以什么任务尺度”却要求社会性质/主要矛盾/任务三项全答。反例只答“反帝反封建任务未完成”并完整答客观根因，本可符合题面却被扣两项。判retrieval范围一致性FAIL。只改题面为“从社会性质、主要矛盾和革命任务三个方面，说明本章为什么判定辛亥革命仍然失败；其客观方面的根本原因是什么？”答案、criteria、Source、owner未改。独立直接回读确认现题面与检查匹配，blocker关闭。
+
+### 作者构造回答与独立文本攻击结果
+
+32题标准答案逐题对Source回读；构造反例覆盖漏列表（维新类别、四类代表、精神五标签）、反转关系/配对（人物战争、政府性质、两起义旗帜）、帽子错配（兴中会/同盟会、研究会/早期党组织/一大）、漏条件（辛亥客观原因双条件、长征直接原因原地不可扭转）、时间后增项提前（新三民主义）、全称扩大（所有古代战争/全部政策满足人民）、cue丢失限定、题面少问却多扣。完整保义释义与允许换序不因句式不同被判错；未问的附加内容不扣分。
+
+维新“六活动类别”与“指定四类全部代表”、一大时地与1920早期组织、李大钊两组作品与未核系统传播正文的范围均明确；32题未发现同题面不同权威答案的文本碰撞。独立最终审读未见剩余实质content blocking；这是有界文本审读，不是程序去重/Runtime、图像或学习有效性PASS。
+
+### 未关闭项和Source请求
+
+剩余精记按原C落点逐项限制，未以32的数量宣称五章全部精记完成：C01 K05两任务/关系缺续行，条约/两半六表现/侵略/林魏比较表与引文待页图；C02太平时间图/两纲领/洋务代表性质表/百日维新和局限完整续行未核；C03旧三民主义、约法、六意义/护国护法、主观三不足及比较表待完整来源；C04五四后段主力中心/精神、建党精神/三新、二三四大/工农运动/失败原因教训完整续行与表未核；C05八七/建军三位置/道路作品与土地政策表/三左倾五表现/两次会师完整续行待核。它们为itemBLOCKED，不能用现有教案倒填本轮Source核验。必要页集中于C01 PDF5–10、C02 PDF11–17、C03 PDF19–24、C04 PDF25–33、C05 PDF34–40；只需在原Source读取任务按这些节点补必要原文/表图，无须逐项另开Work。所有红字题目答案仍未核，本批不制作答案钥匙。
+
+C05 K07-N01-TIP01会议/报告归属争议仍沿既有正文外部证据区分，不随三组文章题准入日期地点。Source verification字段、旧章节概览、LEG历史材料不能作为新目标全面核验。基本首轮S/K/L/P/R/E PASS保留；补充整合仍未接受；main/adoption、Website/P6、真实U分别未完成。32作者目标后续还需原owner落地、内容签名、真实旧新catalog与projection/计划/揭示/历史回传验证，未运行或无法访问的链路不得报PASS。
+
