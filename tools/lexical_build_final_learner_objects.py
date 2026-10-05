@@ -389,6 +389,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         lines = [line for line in lines if line["text"] != title]
         constructions.append({
             "id": item_id or None,
+            **({"sense_id": str(item["sense_id"])} if item.get("sense_id") else {}),
             "source_locator": f"record.constructions[{i}]",
             "pattern": title,
             "lines": lines,
@@ -481,7 +482,10 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         or any(bool(sense.get("usage")) for sense in senses)
     ) else "light"
 
-    source_fingerprint = sha256({"record": record, "relation_paths": relation_paths})
+    reference_senses = clone(owner.get("reference_senses") or [])
+    fingerprint_inputs = {"record": record, "relation_paths": relation_paths}
+    if reference_senses:
+        fingerprint_inputs["reference_senses"] = reference_senses
     sense_lineage = []
     for ref in ((owner.get("identity_refs") or {}).get("senses") or []):
         if not isinstance(ref, dict) or not ref.get("sense_id"):
@@ -496,6 +500,28 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             "status": status,
             "to_target_id": str(ref.get("merged_into_sense_id")) if ref.get("merged_into_sense_id") else None,
         })
+
+    if sense_lineage:
+        fingerprint_inputs["sense_lineage"] = clone(sense_lineage)
+
+    # Existing generic identity transport carries explicit non-sense lifecycle.
+    # Absence and usage_example never infer retirement or a successor.
+    collocation_lineage = []
+    for ref in ((owner.get("identity_refs") or {}).get("collocations") or []):
+        if not isinstance(ref, dict) or not ref.get("id") or not ref.get("status"):
+            continue
+        status = str(ref["status"]).lower()
+        if status == "active":
+            continue
+        collocation_lineage.append({
+            "word_id": word_id, "target_kind": "collocation",
+            "from_target_id": str(ref["id"]), "status": status,
+            "to_target_id": str(ref["merged_into_id"]) if ref.get("merged_into_id") else None,
+        })
+    if collocation_lineage:
+        fingerprint_inputs["collocation_lineage"] = collocation_lineage
+    source_fingerprint = sha256(fingerprint_inputs)
+    sense_lineage.extend(collocation_lineage)
 
     return {
         "schema": "kianos.lexical.final_learner_object.v1",
@@ -523,6 +549,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             "relations": relations,
             "form": compile_form(record.get("form_identity")),
             "family": family,
+            **({"senses": reference_senses} if reference_senses else {}),
         },
     }
 

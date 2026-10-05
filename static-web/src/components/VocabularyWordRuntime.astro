@@ -131,6 +131,7 @@ const { answer = null } = Astro.props;
       root.dataset.vocabRevealed = String(Boolean(state.revealed));
       if (front) front.hidden = Boolean(state.revealed);
       if (details) details.hidden = !state.revealed;
+      root.querySelectorAll('[data-vocab-lookup-only]').forEach((node) => { node.hidden = mode !== 'lookup'; });
       repairButtons.forEach((button, index) => {
         const target = targetFromButton(button);
         const active = Boolean(state.repairTargets[target.key]);
