@@ -179,8 +179,8 @@ Learning Contract §3.1.1 requires a reusable chapter teaching package before th
 
 Realize that package through existing Content owners. The exact file split is flexible, but the following learner jobs must be inspectably owned rather than inferred at runtime:
 
-- canonical reconstruction spine / mother model;
-- stable progressive teaching stages or batches and their scope;
+- canonical subject total model plus the chapter reconstruction spine / mother model and their explicit chapter-within-subject relation;
+- stable progressive teaching stages or batches, each with a recoverable identity, owned spine/content range and next/closure relation;
 - substantive explanation attached to those stages;
 - deliberate confusable/boundary teaching pass;
 - same-model compression;
@@ -188,10 +188,11 @@ Realize that package through existing Content owners. The exact file split is fl
 
 A teacher brief may carry the long-form exposition and confusion pass while chapter JSON carries the stable spine, stage routing and precision objects. That is one package when both resolve to the same chapter/NU identities and reviewed meaning; it is not permission for two competing versions.
 
-Stage labels such as “first fill” / “second fill” are pedagogical routing only. Do not promote them into new Natural Units or Runtime states. What matters is that a fresh Chat can deterministically recover **what content comes next and what already prepared asset to teach**, without synthesizing a new chapter course from Source.
+Stage labels such as “first fill” / “second fill” are pedagogical routing only. Do not promote them into new Natural Units or Runtime states. Their labels/anchors may still be stable content-routing identities. What matters is that a fresh Chat can deterministically recover **which stage it is in, which fixed-spine nodes/content it owns, what comes next and what already prepared asset to teach**, without synthesizing a new chapter course from Source.
 
 The Content review must reject:
-- fixed spine present but no reusable substantive teaching content;
+- subject total model missing or a chapter unable to state where it sits in that model;
+- fixed chapter spine present but no reusable substantive teaching content;
 - full prose present but no stable teaching-stage routing, leaving each Chat to choose a new fill order;
 - “易混/边界” recoverable only by rereading raw questions rather than prepared Content;
 - compression that introduces a new framework;
