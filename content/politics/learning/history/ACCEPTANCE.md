@@ -11,6 +11,14 @@ It does not own political Source Truth, teaching content, Politics learning/inte
 
 ---
 
+## 2026-10-05 supplemental model→memory integration scope
+
+The S/K/L/P/R/E PASS and content-closure evidence below remain accepted for the previously tested base first-round path. They do not accept the newer Chat model → exact-memory encoding → reviewed target → Website retrieval → Recall/question evidence → Chat adaptive-review capability.
+
+For this added capability, History is **REOPENED / NOT YET ACCEPTED** under the existing parent `content/politics/CURRENT.md` P5/P6. Prepared prose, candidate presence, old content review, build/CI and isolated browser evidence are not main-to-actual-Website delivery. Uninspected source text/images/tables and current-year-sensitive exact targets remain item-scoped; they are not silently covered by the older PASS.
+
+Earlier “no engineering stage / next real learner use” statements apply to the accepted base path only. Close this supplemental claim only for artifacts actually landed on main and verified at their real consumer, with the lane's performance and evidence boundaries satisfied. Real learning effectiveness remains **U UNTESTED / learner-only**.
+
 ## Gate status
 
 ```text
