@@ -74,6 +74,7 @@
     "validate:lexical-runtime": "node scripts/validate-lexical-single-runtime.mjs && node scripts/validate-lexical-style-ownership.mjs",
     "test:client-artifacts": "node scripts/test-current-client-artifacts.mjs && node scripts/test-current-client-delivery.mjs",
     "test:lexical-same-day-relearn": "node scripts/test-lexical-same-day-relearn-browser.mjs",
+    "test:lexical-pronunciation": "python3 -m unittest discover -s ../tools -p test_lexical_pronunciation_projection.py && node scripts/test-lexical-pronunciation.mjs && node scripts/test-lexical-pronunciation-browser.mjs",
     "test:reading-b-synthetic": "node scripts/test-reading-b-synthetic-admission.mjs"
   },
   "dependencies": {

@@ -1134,6 +1134,7 @@ body#kianos-workspace.uiWordStudy .portedVocabWordFront h2{font-size:clamp(64px,
 body#kianos-workspace.uiWordStudy .lexicalFrontPronunciation,
 body#kianos-workspace.uiWordStudy .lexicalDepthPronunciation{
   display:flex;
+  flex-wrap:wrap;
   align-items:center;
   gap:8px;
 }
@@ -1148,14 +1149,14 @@ body#kianos-workspace.uiWordStudy .lexicalDepthPronunciation>button{
   font-size:15px;
   font-weight:600;
 }
-body#kianos-workspace.uiWordStudy :is(.lexicalPronunciationToggle,.lexicalDepthPronunciation>span){
+body#kianos-workspace.uiWordStudy .lexicalPronunciationToggle{
   display:inline-flex;
   overflow:hidden;
   border:1px solid var(--lexical-line);
   border-radius:6px;
   background:#fff;
 }
-body#kianos-workspace.uiWordStudy :is(.lexicalPronunciationToggle,.lexicalDepthPronunciation>span) button{
+body#kianos-workspace.uiWordStudy .lexicalPronunciationToggle button{
   min-width:34px;
   min-height:30px;
   border:0;
@@ -1164,10 +1165,16 @@ body#kianos-workspace.uiWordStudy :is(.lexicalPronunciationToggle,.lexicalDepthP
   font-size:14px;
   font-weight:650;
 }
-body#kianos-workspace.uiWordStudy :is(.lexicalPronunciationToggle,.lexicalDepthPronunciation>span) button.active{
+body#kianos-workspace.uiWordStudy .lexicalPronunciationToggle button.active{
   background:var(--lexical-english-blue-soft);
   color:var(--lexical-english-blue);
 }
+body#kianos-workspace.uiWordStudy .lexicalHeadwordIpa{color:#52667c;font-size:16px;}
+body#kianos-workspace.uiWordStudy .lexicalUnknownIpa{color:#738195;font-size:14px;}
+body#kianos-workspace.uiWordStudy .lexicalIpaSource{color:#738195;font-size:12px;}
+body#kianos-workspace.uiWordStudy :is(.lexicalIpaScopeReminder,.lexicalIpaScope){flex-basis:100%;color:#738195;font-size:12px;line-height:1.5;}
+body#kianos-workspace.uiWordStudy .lexicalSensePronunciation{display:flex;flex-direction:column;gap:3px;margin-bottom:6px;color:#738195;font-size:12px;line-height:1.5;}
+body#kianos-workspace.uiWordStudy :is(.lexicalIpaScope,.lexicalSensePronunciation) b{font-weight:500;color:#52667c;}
 body#kianos-workspace.uiWordStudy .portedVocabRecallMap{
   display:flex;
   flex-wrap:wrap;

@@ -1,0 +1,32 @@
+---
+import { pronunciationFrontText, pronunciationLocaleLabel, pronunciationRows, pronunciationScopeText } from '../lib/lexicalPronunciation.mjs';
+const { support, front = false, senseId = null, sourcePath = '' } = Astro.props;
+const rows = pronunciationRows(support, senseId);
+const hasUnknown = rows.some(row => row.locale === 'unknown');
+const displayRows = rows.filter((row, index) => rows.findIndex(other => other.locale === row.locale && other.ipa === row.ipa && pronunciationScopeText(other) === pronunciationScopeText(row)) === index);
+const senseBound = new Set(Object.values(support?.sense_readings || {}).flat());
+---
+{senseId === null ? (
+  <div class={front ? 'lexicalFrontPronunciation' : 'lexicalDepthPronunciation'} aria-label="Pronunciation">
+    <button type="button" data-vocab-default-speak data-vocab-speak="en-US" title="点击重播系统朗读；实际语音由系统决定">美音</button>
+    <span class="lexicalHeadwordIpa" data-vocab-ipa-locale="en-US">{pronunciationFrontText(support, 'en-US')}</span>
+    <span class="lexicalHeadwordIpa" data-vocab-ipa-locale="en-GB" hidden>{pronunciationFrontText(support, 'en-GB')}</span>
+    <span class="lexicalPronunciationToggle"><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US">美</button></span>
+    {!front && support && sourcePath && <a class="lexicalIpaSource" href={`https://github.com/kianwang022-hash/kianos/blob/main/${sourcePath}`} target="_blank" rel="noopener noreferrer">来源与许可</a>}
+    {hasUnknown && <span class="lexicalUnknownIpa" data-vocab-ipa-locale="unknown">地区未注明 {pronunciationFrontText(support, 'unknown')}</span>}
+    {front && support?.has_scope && <small class="lexicalIpaScopeReminder">适用范围翻面后查看</small>}
+    {!front && displayRows.filter(row => !senseBound.has(row.reading_index) && pronunciationScopeText(row)).map(row => (
+      <small class="lexicalIpaScope" data-vocab-ipa-locale={row.locale} hidden={row.locale === 'en-GB'}>
+        <b>{row.ipa}</b> {pronunciationLocaleLabel(row.locale)} · {pronunciationScopeText(row)}
+      </small>
+    ))}
+  </div>
+) : rows.length > 0 && (
+  <div class="lexicalSensePronunciation" data-vocab-sense-ipa={senseId}>
+    {displayRows.map(row => (
+      <small data-vocab-ipa-locale={row.locale} hidden={row.locale === 'en-GB'}>
+        <b>{row.ipa}</b> {pronunciationLocaleLabel(row.locale)}{pronunciationScopeText(row) && ` · ${pronunciationScopeText(row)}`}
+      </small>
+    ))}
+  </div>
+)}

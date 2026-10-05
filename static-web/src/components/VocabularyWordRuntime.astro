@@ -43,20 +43,22 @@ const { answer = null } = Astro.props;
     const saveJson = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} };
     const lexicalSettings = () => normalizeLexicalSettings(readJson(LEXICAL_SETTINGS_STORAGE_KEY, { default_pronunciation: DEFAULT_PRONUNCIATION }));
     const defaultPronunciation = () => lexicalSettings().default_pronunciation;
-    const pronunciationLabel = (lang) => lang === 'en-GB' ? '英音 · 点击播放' : '美音 · 点击播放';
-    const syncPronunciationPreference = () => {
-      const preferred = defaultPronunciation();
+    let currentPronunciation = defaultPronunciation();
+    const renderPronunciation = () => {
+      const preferred = currentPronunciation;
       root.querySelectorAll('[data-vocab-default-speak]').forEach((button) => {
         button.setAttribute('data-vocab-speak', preferred);
-        button.textContent = pronunciationLabel(preferred);
-        if (button.hasAttribute('aria-label')) {
-          button.setAttribute('aria-label', preferred === 'en-GB' ? '英式发音' : '美式发音');
-        }
+        button.textContent = preferred === 'en-GB' ? '英音' : '美音';
+        button.setAttribute('aria-label', `${button.textContent}，点击重播系统朗读`);
       });
-      root.querySelectorAll('.lexicalPronunciationToggle [data-vocab-speak], .lexicalDepthPronunciation span [data-vocab-speak]').forEach((button) => {
+      root.querySelectorAll('.lexicalPronunciationToggle [data-vocab-speak]').forEach((button) => {
         button.classList.toggle('active', button.getAttribute('data-vocab-speak') === preferred);
       });
+      root.querySelectorAll('[data-vocab-ipa-locale]').forEach((node) => {
+        node.hidden = !['unknown', preferred].includes(node.getAttribute('data-vocab-ipa-locale'));
+      });
     };
+    const syncPronunciationPreference = () => { currentPronunciation = defaultPronunciation(); renderPronunciation(); };
     const readLedger = () => readBrowserLexicalLedger();
     const saveLedger = (ledger) => writeBrowserLexicalLedger(ledger);
     let selectedIndex = -1;
@@ -181,7 +183,11 @@ const { answer = null } = Astro.props;
       utterance.rate = 0.86;
       window.speechSynthesis.speak(utterance);
     };
-    root.querySelectorAll('[data-vocab-speak]').forEach((button) => button.addEventListener('click', () => speak(button.getAttribute('data-vocab-speak') || 'en-US')));
+    root.querySelectorAll('[data-vocab-speak]').forEach((button) => button.addEventListener('click', () => {
+      currentPronunciation = button.getAttribute('data-vocab-speak') || 'en-US';
+      renderPronunciation();
+      speak(currentPronunciation);
+    }));
 
     const setRepair = (button, active) => {
       if (!lexicalBrowserStateReadable()) return;
@@ -231,7 +237,7 @@ const { answer = null } = Astro.props;
       if (activeRoot !== root) return;
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
-      if (event.key.toLowerCase() === 's') { event.preventDefault(); speak(defaultPronunciation()); return; }
+      if (event.key.toLowerCase() === 's') { event.preventDefault(); speak(currentPronunciation); return; }
       if (!state.revealed && (event.code === 'Space' || event.key === 'ArrowLeft' || event.key === 'ArrowUp')) {
         event.preventDefault(); openCard(); return;
       }
