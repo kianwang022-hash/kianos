@@ -2,7 +2,7 @@
 
 <script>
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
-  import { buildEnglishReadingAttributionSlice } from '../lib/englishLearnerEvidence.mjs';
+  import { buildEnglishReadingAttributionSlice, englishReadingQuestionOutcomes, englishReadingDiscussionSpans } from '../lib/englishLearnerEvidence.mjs';
   void learnerWriterReady.then(() => {
 
   const TRANSFER_STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
@@ -124,6 +124,8 @@
         'Mode: OPTIONAL_ESCALATION',
         `Object: ${readingKey}`,
         `Source: ${passageMeta || '—'}`,
+        `Source hash: ${attempt.binding?.source_hash || '—'}`,
+        `Attempt: ${attempt.binding?.attempt_id || '—'} · ${attempt.submittedAt || '—'}`,
         `Title: ${passageTitle}`,
         `Score: ${score}/${questions.length}`,
         `Time: ${formatDuration(durationSeconds(attempt))}`,
@@ -136,11 +138,14 @@
         'ALL-QUESTION OUTCOME MAP'
       ];
 
+      const sourceHash = readingRoot.getAttribute('data-english-source-hash');
+      const outcomes = englishReadingQuestionOutcomes(attempt,sourceHash);
       questions.forEach((question) => {
         const id = qid(question);
-        const path = (attempt.trajectory?.[id] || []).map((step) => step?.answer).filter(Boolean).join(' → ') || '—';
-        const note = attempt.causes?.[id] || '—';
-        lines.push(`Q${ordinal(question)} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${expected(question).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path} · optional local note ${note}`);
+        const outcome = outcomes.find(row=>row.question_id===id);
+        const path = (outcome?.trajectory || []).map(step=>step.answer).join(' → ') || '—';
+        const note = outcome?.note || '—';
+        lines.push(`Q${ordinal(question)} (${id}) · ${outcome?.result || '—'} · my ${outcome?.final_answer || '未答'} · formal ${expected(question).join(', ') || '—'} · uncertain ${outcome?.uncertain ? 'yes' : 'no'} · path ${path} · optional local note ${note}`);
       });
 
       const expanded = questions.filter((question) => problems.has(qid(question)));
@@ -149,6 +154,8 @@
         expanded.forEach((question) => lines.push(...questionBlock(question)));
       }
 
+      lines.push('', 'BOUNDED LEARNER OUTCOMES', JSON.stringify(outcomes,null,2));
+      lines.push('', 'SAVED DISCUSSION CONTEXT · explicit learner intent', JSON.stringify(englishReadingDiscussionSpans(attempt,sourceHash),null,2));
       lines.push('', 'BOUNDED READING ATTRIBUTION · factual only');
       lines.push(JSON.stringify(attribution, null, 2));
 

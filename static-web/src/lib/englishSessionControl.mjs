@@ -1,6 +1,6 @@
 import {assertEnglishLexicalLedgerReadable} from './englishLexicalReturn.mjs';
 import { readLexicalChatState } from './lexicalChatState.mjs';
-import {advanceEnglishSourceRevision,atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY,inspectEnglishObjectiveResults,buildEnglishReadingAttributionSlice} from './englishLearnerEvidence.mjs';
+import {advanceEnglishSourceRevision,atomicEnglishWrites,readEnglishExposure,ENGLISH_MATERIAL_EXPOSURE_KEY,inspectEnglishObjectiveResults,buildEnglishReadingAttributionSlice,englishReadingQuestionOutcomes,englishReadingDiscussionSpans} from './englishLearnerEvidence.mjs';
 import {
   ENGLISH_EXAM_PRODUCTIVE_SCORING_STANDARD_VERSION,
   inspectEnglishExamSession,
@@ -648,8 +648,12 @@ export function englishAttemptInventory(storage, catalog = null) {
   }
   return rows.map(row=>{
     const owner=Array.isArray(catalog)?catalog.find(item=>item.task===row.task&&item.object_id===row.object_id):null;
-    return {...row,current_source_hash:owner?.source_hash||null,
-      source_current:row.data_status!=='bound'?false:Array.isArray(catalog)?Boolean(owner?.source_hash&&owner.source_hash===row.source_hash):null};
+    const sourceCurrent=row.data_status!=='bound'?false:Array.isArray(catalog)?Boolean(owner?.source_hash&&owner.source_hash===row.source_hash):null;
+    const attempt=row.task==='reading_a'&&sourceCurrent===true?readJson(storage,prefixes.reading_a+row.object_id):null;
+    const exact=attempt?.binding?.task==='reading_a'&&attempt.binding.object_id===row.object_id;
+    return {...row,current_source_hash:owner?.source_hash||null,source_current:sourceCurrent,
+      ...(row.task==='reading_a'?{question_outcomes:exact?englishReadingQuestionOutcomes(attempt,owner.source_hash):[],
+        discussion_spans:exact?englishReadingDiscussionSpans(attempt,owner.source_hash):[]}:{} )};
   }); // Historical first evidence stays intact; Current eligibility is a read projection.
 }
 

@@ -220,6 +220,8 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
    if(history.exposed)binding={...binding,prior_exposure:'exposed'};
    else if(history.unresolved&&binding.prior_exposure==='unseen')binding={...binding,prior_exposure:'unknown'};
   }
+  // The native record owns explicit add/remove; stale page saves cannot erase or resurrect spans.
+  if(binding?.task==='reading_a')value.discussionSpans=clone(previous?.discussionSpans||[]);
   const next=clone(value);next.binding={...binding,revision:Number(binding.revision||0)+1};next.saved_at=new Date(now).toISOString();
   if(!previous?.firstEvidenceMeta && ((!previous?.submitted&&next.submitted)||(!previous?.firstSubmittedAt&&next.firstSubmittedAt))){
     next.firstEvidenceMeta=Object.fromEntries(['attempt_id','source_hash','semantic_source_hash','prior_exposure','assistance','source_kind','evidence_role','legacy_unversioned','time_budget_seconds'].map(k=>[k,next.binding[k]]));
@@ -310,7 +312,77 @@ export function recordEnglishReadingLookup(storage,objectId,event={},now=Date.no
    // Review-time lookup is real attribution evidence but cannot retroactively contaminate first-attempt assistance.
    atomicEnglishWrites(storage,[[key,state]]);
  }
+ notifyEnglishReadingEvidence('lookup');
  return clone(lookup);
+}
+
+export const ENGLISH_READING_DISCUSSION_LIMIT=12;
+function notifyEnglishReadingEvidence(kind){
+ if(typeof globalThis.CustomEvent==='function')globalThis.dispatchEvent?.(new CustomEvent('kianos:english-reading-evidence',{detail:{kind}}));
+}
+// UTF-16 offsets in source paragraphs joined by two newlines; UI chrome is excluded.
+const readingSourceText=attempt=>(attempt?.binding?.source_snapshot?.paragraphs||[])
+ .map(row=>typeof row==='string'?row:row?.text||'').join('\n\n');
+export function englishReadingDiscussionSpans(attempt,sourceHash){
+ const binding=attempt?.binding;
+ if(binding?.task!=='reading_a'||!sourceHash||binding.source_hash!==sourceHash)return [];
+ return (Array.isArray(attempt.discussionSpans)?attempt.discussionSpans:[]).filter(row=>
+  row?.intent==='DISCUSSION_CONTEXT'&&row.task==='reading_a'&&row.object_id===binding.object_id
+  &&row.source_hash===sourceHash&&row.attempt_id===binding.attempt_id
+  &&typeof row.span_id==='string'&&typeof row.text==='string'&&row.text.length>0&&row.text.length<=320
+  &&Number.isInteger(row.start)&&Number.isInteger(row.end)&&row.start>=0&&row.end-row.start===row.text.length
+  &&readingSourceText(attempt).slice(row.start,row.end)===row.text
+  &&Number.isFinite(Date.parse(row.created_at))&&Number.isFinite(Date.parse(row.updated_at))
+ ).slice(-ENGLISH_READING_DISCUSSION_LIMIT).map(row=>({
+  span_id:row.span_id,task:'reading_a',object_id:binding.object_id,attempt_id:binding.attempt_id,
+  source_hash:sourceHash,intent:'DISCUSSION_CONTEXT',text:row.text,start:row.start,end:row.end,
+  source_locator:boundedText(row.source_locator,180)||null,source_context:boundedText(row.source_context,600)||null,
+  focused_question_id:boundedText(row.focused_question_id,180)||null,
+  focused_question_semantics:'CONTEXT_ONLY_NOT_CAUSALITY',created_at:row.created_at,updated_at:row.updated_at
+ }));
+}
+// Mutate the existing attempt, never a second annotation store. No implicit assistance/diagnosis.
+export function updateEnglishReadingDiscussion(storage,meta,{span=null,removeId=null,clear=false,now=Date.now()}={}){
+ const key=ATTEMPT_PREFIXES.reading_a+meta.object_id;
+ const state=inspectEnglishAttempt(storage,key,meta,{now});
+ if(!state?.binding||state.binding.context==='exam')throw new Error('ENGLISH_READING_DISCUSSION_ATTEMPT_REQUIRED');
+ const prior=Array.isArray(state.discussionSpans)?state.discussionSpans:[];
+ let next=prior;
+ if(clear)next=[];
+ else if(removeId)next=prior.filter(row=>row.span_id!==removeId);
+ else if(span){
+  const text=String(span.text||'');
+  if(!text.trim()||text.length>320||!Number.isInteger(span.start)||!Number.isInteger(span.end)
+    ||span.start<0||span.end-span.start!==text.length||readingSourceText(state).slice(span.start,span.end)!==text)throw new Error('ENGLISH_READING_DISCUSSION_SPAN_INVALID');
+  // Duplicate click is idempotent; repeated source text at a different offset is distinct.
+  if(prior.some(row=>row.source_hash===meta.source_hash&&row.start===span.start&&row.end===span.end&&row.text===text))return state;
+  if(prior.length>=ENGLISH_READING_DISCUSSION_LIMIT)throw new Error('已保存12段上下文，请先移除不需要的选段。');
+  const at=new Date(now).toISOString();
+  next=[...prior,{span_id:globalThis.crypto?.randomUUID?.()||`${state.binding.attempt_id}:${now}:${Math.random()}`,
+   task:'reading_a',object_id:meta.object_id,attempt_id:state.binding.attempt_id,source_hash:meta.source_hash,
+   intent:'DISCUSSION_CONTEXT',text,start:span.start,end:span.end,
+   source_locator:boundedText(span.source_locator,180),source_context:boundedText(span.source_context,600),
+   focused_question_id:boundedText(span.focused_question_id,180),created_at:at,updated_at:at}];
+ }
+ if(JSON.stringify(next)===JSON.stringify(prior))return state;
+ state.discussionSpans=next;
+ atomicEnglishWrites(storage,[[key,state]]);
+ notifyEnglishReadingEvidence('context');
+ return state;
+}
+export function englishReadingQuestionOutcomes(attempt,sourceHash){
+ if(attempt?.submitted!==true||attempt.binding?.task!=='reading_a'||!sourceHash
+   ||attempt.binding.source_hash!==sourceHash||!attempt.binding.attempt_id
+   ||!Number.isFinite(Date.parse(attempt.submittedAt))||!inspectEnglishObjectiveResults(attempt).valid)return [];
+ const uncertain=new Set((attempt.uncertain||[]).map(String));
+ return attempt.binding.source_snapshot.questions.slice(0,10).map((q,index)=>({
+  question_id:q.id,ordinal:index+1,final_answer:boundedText(attempt.answers[q.id],40)||null,
+  result:attempt.results[q.id],uncertain:uncertain.has(q.id),
+  trajectory:(Array.isArray(attempt.trajectory?.[q.id])?attempt.trajectory[q.id]:[])
+   .filter(step=>typeof step?.answer==='string'&&Number.isFinite(Date.parse(step.at))).slice(-8)
+   .map(step=>({answer:boundedText(step.answer,40),at:step.at})),
+  note:boundedText(attempt.causes?.[q.id],240)||null
+ }));
 }
 
 export function buildEnglishReadingAttributionSlice(storage,{objectIds=[],lookupLimit=24,signalLimit=24}={}){

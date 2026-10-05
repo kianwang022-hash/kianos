@@ -464,6 +464,7 @@ export async function initReadingRuntime(root, {prepareAnswers = null} = {}) {
       }
 
       save();
+      globalThis.dispatchEvent?.(new CustomEvent('kianos:english-reading-evidence',{detail:{kind:'submit'}}));
     } catch (error) {
       preserveEnglishFailure(root, error);
     } finally {
