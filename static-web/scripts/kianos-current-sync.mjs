@@ -184,6 +184,33 @@ async function runChild(file, args, {
   await runBounded(file, args, { cwd, env: childEnv, label, timeoutMs });
 }
 
+function verifiedInactiveReleases(worktrees) {
+  const releasesRoot = path.join(releases.root, 'releases');
+  if (!fs.existsSync(releasesRoot)) return [];
+  const managedRoot = fs.realpathSync(releasesRoot);
+  const retained = retainedReleaseRoots();
+  return worktrees.flatMap(entry => {
+    try {
+      // Read only immediate managed worktrees. A receipt is enough to block
+      // further generation, never evidence authorizing deletion of user bytes.
+      if (!fs.lstatSync(entry.path).isDirectory()
+        || fs.realpathSync(path.dirname(entry.path)) !== managedRoot
+        || !fs.existsSync(path.join(entry.path, '.git'))) return [];
+      const root = fs.realpathSync(entry.path);
+      if (retained.has(root)) return [];
+      const dist = path.join(root, 'static-web', 'dist');
+      const receipt = readBuiltStatus(dist);
+      if (receipt?.state !== 'synced' || !/^[a-f0-9]{40}$/.test(receipt.sha)
+        || !/^[a-f0-9]{64}$/.test(receipt.contextHash)
+        || entry.head !== receipt.sha
+        || !fs.existsSync(path.join(dist, 'index.html'))) return [];
+      const name = path.basename(entry.path), prefix = `${receipt.sha}-${receipt.contextHash}`;
+      if (name !== prefix && !new RegExp(`^${prefix}-[a-f0-9-]{36}$`).test(name)) return [];
+      return [{ root, sha: receipt.sha, contextHash: receipt.contextHash, locked: entry.locked }];
+    } catch { return []; }
+  });
+}
+
 async function prepareRelease(sha, extra = {}) {
   const prepareStartedAt = Date.now();
   const timings = { dependencies: 0, astro_build: 0, total: 0 };
@@ -192,7 +219,8 @@ async function prepareRelease(sha, extra = {}) {
   if (failure?.sha === sha && failure.contextHash === buildContextHash && failure.stage === 'build' && !(oneShot && process.env.KIANOS_RETRY_FAILED_BUILD === '1')) {
     throw new Error(`CURRENT_BUILD_BLOCKED:${sha}:${failure.error}`);
   }
-  fs.mkdirSync(releases.root, { recursive: true });
+  const worktrees = parseReleaseWorktrees(await git(['worktree', 'list', '--porcelain']));
+  const pending = verifiedInactiveReleases(worktrees);
   let releaseRoot = releases.release(sha, buildContextHash);
   if (fs.existsSync(releaseRoot)) {
     const existingDist = path.join(releaseRoot, 'static-web', 'dist');
@@ -205,9 +233,22 @@ async function prepareRelease(sha, extra = {}) {
         webRoot: path.join(releaseRoot, 'static-web'),
         created: false,
         dependencyMode: 'existing-release',
+        deferPrune: pending.some(entry => entry.root !== fs.realpathSync(releaseRoot)),
         timings
       };
     }
+  }
+  const reusable = pending.find(entry => !entry.locked && entry.sha === sha && entry.contextHash === buildContextHash);
+  if (reusable) {
+    timings.total = Date.now() - prepareStartedAt;
+    return { releaseRoot: reusable.root, webRoot: path.join(reusable.root, 'static-web'),
+      created: false, dependencyMode: 'existing-release', deferPrune: pending.some(entry => entry.root !== reusable.root), timings };
+  }
+  if (pending.length) {
+    throw new Error(`CURRENT_PENDING_RELEASE_BLOCKED:pending_sha=${pending[0].sha}:pending_context=${pending[0].contextHash}:target_sha=${sha}:target_context=${buildContextHash}:count=${pending.length}`);
+  }
+  fs.mkdirSync(releases.root, { recursive: true });
+  if (fs.existsSync(releaseRoot)) {
     if (retainedReleaseRoots().has(fs.realpathSync(releaseRoot))) {
       // A missing/corrupt receipt must not turn rebuilding into in-place erasure.
       releaseRoot += '-' + randomUUID();
@@ -215,7 +256,6 @@ async function prepareRelease(sha, extra = {}) {
   }
   // A killed checkout can leave a locked registration even after its path
   // disappears. Do not reuse/remove that identity; one safe new path is enough.
-  const worktrees = parseReleaseWorktrees(await git(['worktree', 'list', '--porcelain']));
   const availableRoot = availableReleaseWorktreePath(releaseRoot, worktrees);
   if (availableRoot !== releaseRoot) log(`preserving occupied candidate ${releaseRoot}; preparing ${availableRoot}`);
   releaseRoot = availableRoot;
@@ -868,7 +908,9 @@ async function syncOnce({ initial = false } = {}) {
     lastKnownSha = controlTargetSha;
     await git(['checkout', '-B', 'main', controlTargetSha]);
     await git(['reset', '--hard', controlTargetSha]);
-    if (!skipAstro) {
+    if (!skipAstro && preparedRelease?.deferPrune) {
+      log('preserving pre-existing pending releases; post-handoff pruning deferred');
+    } else if (!skipAstro) {
       try {
         await pruneReleases();
       } catch (error) {

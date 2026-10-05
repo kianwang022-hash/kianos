@@ -29,6 +29,7 @@ export function parseReleaseWorktrees(porcelain) {
     const lines = block.split('\n');
     return {
       path: lines.find(line => line.startsWith('worktree '))?.slice(9),
+      head: lines.find(line => line.startsWith('HEAD '))?.slice(5),
       locked: lines.some(line => line === 'locked' || line.startsWith('locked '))
     };
   });
