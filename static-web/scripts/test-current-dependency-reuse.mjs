@@ -54,8 +54,15 @@ try {
 
   const cloned = cloneDependencies(source, target);
   assert(cloned.duration_ms >= 0, 'clone duration must be reported');
+  assert.ok(['apfs-clone', 'node-copy'].includes(cloned.copy_mode), 'dependency copy mode must be explicit');
   assert.equal(fs.readFileSync(path.join(target, 'node_modules', 'payload.txt'), 'utf8'), 'dependency-tree');
   assert.deepEqual(readDependencyProof(target), identity);
+  fs.writeFileSync(path.join(target, 'node_modules', 'payload.txt'), 'target-only');
+  assert.equal(
+    fs.readFileSync(path.join(source, 'node_modules', 'payload.txt'), 'utf8'),
+    'dependency-tree',
+    'reused dependencies must remain copy-on-write/independent from the retained source release'
+  );
 
   if (process.platform !== 'win32') {
     // Reproduce a promoted Current release whose npm .bin link was converted
