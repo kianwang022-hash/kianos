@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import path from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -5,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   PRIVATE_CHECKPOINT_SCHEMA,
+  privateCheckpointPath,
   readPrivateLearnerCheckpoint,
   resolvePrivateLearnerDir,
   writePrivateLearnerCheckpoint
@@ -17,6 +19,7 @@ const workerPath = path.join(scriptDir, 'privateDailyLearningPacketRelayWorker.m
 
 const ROUTE = '/__kianos-private/checkpoint';
 const STATUS_ROUTE = ROUTE + '/status';
+const KNOWN_ID_HEADER = 'x-kianos-known-checkpoint-id';
 const MAX_BYTES = 24 * 1024 * 1024;
 export const PRIVATE_PACKET_REFRESH_INTERVAL_MS = 5 * 60 * 1000;
 export const PRIVATE_PACKET_REFRESH_DEBOUNCE_MS = 10 * 1000;
@@ -37,12 +40,14 @@ const stableAutomationWriteForbidden = (req) => {
   return stableHost && automated;
 };
 
-const json = (res, status, value) => {
+const jsonText = (res, status, raw) => {
   res.statusCode = status;
   res.setHeader('content-type', 'application/json; charset=utf-8');
   res.setHeader('cache-control', 'no-store');
-  res.end(JSON.stringify(value));
+  res.end(raw);
 };
+
+const json = (res, status, value) => jsonText(res, status, JSON.stringify(value));
 
 export async function runPrivateDailyLearningPacketRelayWorker({
   privateDir = resolvePrivateLearnerDir(),
@@ -98,6 +103,39 @@ export function privateLearnerBridge({
     name: 'kianos-private-learner-bridge',
     apply: 'serve',
     configureServer(server) {
+      let checkpointCache = { valid: false, signature: null, checkpoint: null, raw: '' };
+      const checkpointSignature = () => {
+        try {
+          const stat = fs.statSync(privateCheckpointPath(privateDir));
+          return `${stat.dev}:${stat.ino}:${stat.size}:${stat.mtimeMs}`;
+        } catch (error) {
+          if (error?.code === 'ENOENT') return null;
+          throw error;
+        }
+      };
+      const checkpointRecord = () => {
+        const signature = checkpointSignature();
+        if (checkpointCache.valid && checkpointCache.signature === signature) return checkpointCache;
+        const checkpoint = readPrivateLearnerCheckpoint(privateDir);
+        checkpointCache = {
+          valid: true,
+          signature: checkpointSignature(),
+          checkpoint,
+          raw: JSON.stringify(checkpoint
+            ? { status: 'ready', checkpoint }
+            : { status: 'missing', checkpoint: null })
+        };
+        return checkpointCache;
+      };
+      const rememberCheckpoint = (checkpoint) => {
+        checkpointCache = {
+          valid: true,
+          signature: checkpointSignature(),
+          checkpoint,
+          raw: JSON.stringify({ status: 'ready', checkpoint })
+        };
+      };
+
       let packetSyncBusy = false;
       let packetSyncQueued = false;
       let packetSyncQueuedImmediate = false;
@@ -257,10 +295,17 @@ export function privateLearnerBridge({
             return json(res, 200, { status: 'ready', relay: packetRelay });
           }
           if (req.method === 'GET' && pathname === ROUTE) {
-            const checkpoint = readPrivateLearnerCheckpoint(privateDir);
-            return checkpoint
-              ? json(res, 200, { status: 'ready', checkpoint })
-              : json(res, 404, { status: 'missing', checkpoint: null });
+            const record = checkpointRecord();
+            const checkpoint = record.checkpoint;
+            if (!checkpoint) return jsonText(res, 404, record.raw);
+            const knownId = String(req.headers?.[KNOWN_ID_HEADER] || '').trim().slice(0, 160);
+            res.setHeader('x-kianos-checkpoint-id', checkpoint.checkpoint_id);
+            if (knownId && knownId === checkpoint.checkpoint_id) {
+              res.statusCode = 304;
+              res.setHeader('cache-control', 'no-store');
+              return res.end();
+            }
+            return jsonText(res, 200, record.raw);
           }
 
           if (req.method === 'PUT') {
@@ -279,6 +324,7 @@ export function privateLearnerBridge({
               throw new Error('PRIVATE_CHECKPOINT_PRECONDITION_INVALID');
             }
             const checkpoint = writePrivateLearnerCheckpoint(input, privateDir, { expectedCheckpointId });
+            rememberCheckpoint(checkpoint);
             const syncMode = packetSyncMode(req.headers['x-kianos-packet-sync']);
             schedulePacketSync(syncMode);
             return json(res, 200, {

@@ -142,6 +142,18 @@ assert.equal(remotePacketSyncHeaders.at(-1), 'routine', 'ordinary checkpoint wri
 const remoteRead = await readRemoteCheckpoint({ fetchImpl: fakeFetch });
 assert.equal(remoteRead.status, 'ready');
 assert.equal(remoteRead.checkpoint.payload.shared.chat_plan.next_subject, 'xizong');
+let knownIdHeader = null;
+const currentRemoteRead = await readRemoteCheckpoint({
+  knownCheckpointId: remoteSaved.checkpoint_id,
+  fetchImpl: async (_url, options = {}) => {
+    knownIdHeader = options.headers?.['x-kianos-known-checkpoint-id'] || null;
+    return new Response(null, { status: 304 });
+  }
+});
+assert.equal(knownIdHeader, remoteSaved.checkpoint_id, 'checkpoint read sends the exact known durable identity');
+assert.equal(currentRemoteRead.status, 'current');
+assert.equal(currentRemoteRead.checkpoint, null);
+assert.equal(currentRemoteRead.checkpoint_id, remoteSaved.checkpoint_id);
 const urgentCheckpoint = {
   ...checkpoint,
   checkpoint_id: 'checkpoint-immediate-packet-sync',

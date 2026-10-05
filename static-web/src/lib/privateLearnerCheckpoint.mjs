@@ -1,5 +1,6 @@
 export const PRIVATE_CHECKPOINT_SCHEMA = 'kianos.private-checkpoint.v1';
 export const PRIVATE_CHECKPOINT_ENDPOINT = '/__kianos-private/checkpoint';
+export const PRIVATE_CHECKPOINT_KNOWN_ID_HEADER = 'x-kianos-known-checkpoint-id';
 export const PRIVATE_CHECKPOINT_READ_TIMEOUT_MS = 3000;
 
 const clone = (value) => value == null ? value : JSON.parse(JSON.stringify(value));
@@ -75,13 +76,15 @@ export async function writePrivateLearnerCheckpoint(checkpoint, {
 export async function readPrivateLearnerCheckpoint({
   fetchImpl = globalThis.fetch,
   endpoint = PRIVATE_CHECKPOINT_ENDPOINT,
-  timeoutMs = PRIVATE_CHECKPOINT_READ_TIMEOUT_MS
+  timeoutMs = PRIVATE_CHECKPOINT_READ_TIMEOUT_MS,
+  knownCheckpointId = null
 } = {}) {
   if (typeof fetchImpl !== 'function') return { status: 'unavailable', checkpoint: null, error: 'fetch unavailable' };
   if (typeof globalThis.setTimeout !== 'function' || typeof globalThis.clearTimeout !== 'function') {
     return { status: 'unavailable', checkpoint: null, error: 'timer unavailable' };
   }
   const deadlineMs = readTimeoutMs(timeoutMs);
+  const knownId = typeof knownCheckpointId === 'string' ? knownCheckpointId.trim().slice(0, 160) : '';
   const controller = typeof AbortController === 'function' ? new AbortController() : null;
   let didTimeout = false;
   let timeoutId = null;
@@ -90,8 +93,12 @@ export async function readPrivateLearnerCheckpoint({
       const response = await fetchImpl(endpoint, {
         method: 'GET',
         cache: 'no-store',
+        headers: knownId ? { [PRIVATE_CHECKPOINT_KNOWN_ID_HEADER]: knownId } : undefined,
         ...(controller ? { signal: controller.signal } : {})
       });
+      if (response.status === 304 && knownId) {
+        return { status: 'current', checkpoint: null, checkpoint_id: knownId, error: null };
+      }
       const body = await response.json().catch(() => ({}));
       if (response.status === 404) return { status: 'missing', checkpoint: null, error: null };
       if (!response.ok) return { status: 'unavailable', checkpoint: null, error: body?.error || String(response.status) };
