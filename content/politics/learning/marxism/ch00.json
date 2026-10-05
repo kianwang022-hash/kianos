@@ -242,7 +242,7 @@
           },
           {
             "id": "MARX-C00-S01-EXACT-DIE-DEUTSCHE-IDEOLOGIE",
-            "learning_priority": "REFERENCE_OR_QUESTION_TRIGGERED",
+            "learning_priority": "FIRST_ROUND_EXACT",
             "fact": "《德意志意识形态》是本页苏一明确标出过往真题信号的著作点。",
             "source_evidence": [
               "POL27-SY-MARX-P008-B033",
@@ -759,10 +759,465 @@
     "review_prompt": "闭卷回答：如果不列人物和著作，能否用‘产生条件—理论体系—持续发展—基本特征—当代价值’解释马克思主义导论在整科中的作用？"
   },
   "projection_notes": {
-    "learner_default": "SHOW_ORIENTATION_THEN_IPAD_MARGINNOTE_CHENGFENG_HANDOFF",
+    "learner_default": "CHAT_CONTINUOUS_TEACHING_WITH_CHENGFENG_SOURCE_CALIBRATION",
     "astro_default": "COGNITIVE_COMPANION_NOT_LECTURE_READER",
     "suyi_default": "ABSORBED_SEMANTICS_NO_SEPARATE_LEARNER_MAINLINE",
     "xiao1000_default": "INLINE_VERIFICATION_AFTER_RELEVANT_UNIT",
-    "memory_default": "NOT_PRIMARY_FIRST_ROUND_SURFACE"
+    "memory_default": "CHAT_ENCODING_THEN_AUTHORIZED_WEBSITE_RETRIEVAL"
+  },
+  "content_support": {
+    "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
+    "active_precision": [
+      {
+        "name": "马克思主义六方面内涵",
+        "natural_unit_id": "POL27-CF-MARX-C00-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K01-N01"
+        ],
+        "prompt": "本课程用哪六个方面界定马克思主义？分别恢复创立发展、研究对象、制度方向、解放目标、指导地位和行动功能。",
+        "items": [
+          "由马克思、恩格斯创立并为后继者不断发展的科学理论体系",
+          "关于自然、社会和人类思维发展一般规律的学说",
+          "关于社会主义必然代替资本主义、最终实现共产主义的学说",
+          "关于无产阶级解放、全人类解放和每个人自由而全面发展的学说",
+          "无产阶级政党和社会主义国家的指导思想",
+          "指引人民创造美好生活的行动指南"
+        ],
+        "checking_criteria": [
+          "六方面各有所指，研究对象不能缩成人类社会一项",
+          "理论规律、历史趋势与价值政治定位不可仅以定义互相推出；行动指南不是现成具体方案",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "谁创立发展—研究什么—指向什么制度—为了谁解放—指导谁—怎样行动，六问恢复六方面。",
+        "id": "polmem-927ee36f",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF6；节点 POL27-CF-MARX-C00-K01-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:c3efad3301ca99ee36a46c52d13a8f7de97b90166c0a8d8331b7dadf81363fe4"
+        }
+      },
+      {
+        "name": "三个组成部分与分工",
+        "natural_unit_id": "POL27-CF-MARX-C00-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K01-N02",
+          "POL27-CF-MARX-C00-K01-N02-TBL01"
+        ],
+        "prompt": "马克思主义的三个组成部分是什么？各在课程中承担什么分工，三者是什么关系？",
+        "items": [
+          "马克思主义哲学：理论基础、世界观和方法论",
+          "马克思主义政治经济学：经济关系与资本主义机制的主体分析，源表称主体内容",
+          "科学社会主义：理论目的和归宿",
+          "三部分有机统一，共同构成马克思主义主体内容，不能把整个理论等同于政治经济学"
+        ],
+        "checking_criteria": [
+          "三个名称与分工完整，两个“主体内容”的范围分清",
+          "不能说哲学自动演绎出全部经济和未来制度结论",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "哲学给方法基础，政经解释经济机制，科社讨论方向与实现；三者共同成体系。",
+        "id": "polmem-21a94c3d",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF6；节点 POL27-CF-MARX-C00-K01-N02, POL27-CF-MARX-C00-K01-N02-TBL01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:8f8215d96bd085549cb5c2cd82b9a72c2f77b7cc058d48701f19aab94e51d934"
+        }
+      },
+      {
+        "name": "基本立场观点方法",
+        "natural_unit_id": "POL27-CF-MARX-C00-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K02",
+          "POL27-CF-MARX-C00-K01-N02-TBL01"
+        ],
+        "prompt": "基本立场、观点、方法分别回答什么？基本立场内容、三类基本观点、总体方法及源列具体方法怎样恢复？",
+        "items": [
+          "立场：以无产阶级与全人类解放为己任、人的自由全面发展为目标，以人民为中心，一切为了人民、一切依靠人民，全心全意为人民谋幸福",
+          "观点：自然社会思维一般规律的科学认识；资本主义和社会主义发展规律的科学认识；人类思想成果及社会实践经验的科学总结",
+          "总体方法：辩证唯物主义和历史唯物主义",
+          "具体方法：实事求是、辩证分析、社会基本矛盾和主要矛盾分析、历史分析、阶级分析、群众路线等"
+        ],
+        "checking_criteria": [
+          "立场/观点/方法三层明确，观点三类、总体两种和源列六类方法完整",
+          "立场问站在哪边为谁服务，不能替代事实是非判断；具体方法须随对象使用",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "为谁—怎样认识—怎样分析，三问分开；方法再分总体和具体。",
+        "id": "polmem-5f839d9b",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF6；节点 POL27-CF-MARX-C00-K02, POL27-CF-MARX-C00-K01-N02-TBL01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:c521576ec641ba22b539f90221e3b3e2e2f298f1407eefc15756feb49852eb4e"
+        }
+      },
+      {
+        "name": "创立三条件及来源分类",
+        "natural_unit_id": "POL27-CF-MARX-C00-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K03-N02"
+        ],
+        "prompt": "马克思主义创立的社会根源和阶级基础分别是什么？思想来源在创立中起什么作用，三大直接理论来源与三项自然科学前提怎样区别？",
+        "items": [
+          "社会根源：西欧资本主义生产方式的发展及其现实矛盾",
+          "阶级基础：无产阶级斗争逐步由自发走向自觉，迫切需要科学理论指导",
+          "直接理论来源：德国古典哲学、英国古典政治经济学、英法空想社会主义，分别关联哲学、政治经济学、科学社会主义",
+          "自然科学前提：细胞学说、能量守恒与转化定律、生物进化论，不是三大直接理论来源",
+          "思想来源是批判继承材料，理论创立还包含对时代世界的深入考察和对发展规律的把握，不是原样拼接"
+        ],
+        "checking_criteria": [
+          "三条件作用不同，三理论与三科学列表不可互换，方向自发到自觉准确",
+          "理论来源不能替代现实和阶级实践条件",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "现实给问题，斗争要指导，思想给材料；理论三源与科学三前提分两栏。",
+        "id": "polmem-75412a1c",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF7；节点 POL27-CF-MARX-C00-K03-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:ceb788ce95826df38fb9f0bd5dae913feaab205e18ea0fc314a4d93fa6af8cd6"
+        }
+      },
+      {
+        "name": "三大工人运动与独立政治力量",
+        "natural_unit_id": "POL27-CF-MARX-C00-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K03-N02-I02"
+        ],
+        "prompt": "源书列出的三大工人运动分别在何地何时？它们在此说明什么，怎样与中国五四定位区别？",
+        "items": [
+          "法国里昂工人起义：1831年、1834年",
+          "英国宪章运动：1836年",
+          "德国西里西亚纺织工人起义：1844年",
+          "三国工人运动兴起标示现代无产阶级作为独立政治力量登上历史舞台；中国无产阶级相应定位为五四运动，不能混地域与时期"
+        ],
+        "checking_criteria": [
+          "三地点运动和年份对应，里昂两次不漏",
+          "意义限定独立政治力量，不等于从此每个工人都已具有完整理论自觉",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "法里昂两次—英宪章—德纺织，按31/34—36—44沿时间线放回阶级基础。",
+        "id": "polmem-6d5bc49a",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF7；节点 POL27-CF-MARX-C00-K03-N02-I02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:76ce0b4ec9b292d1f2077883de2b4c3f1298e197a2552f5f1f064da37b58dff8"
+        }
+      },
+      {
+        "name": "公开问世与首党党纲",
+        "natural_unit_id": "POL27-CF-MARX-C00-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K03-N01"
+        ],
+        "prompt": "马克思主义公开问世的年月与文献是什么？正义者同盟、共产主义者同盟和党纲怎样联系？",
+        "items": [
+          "1848年2月《共产党宣言》发表，标志马克思主义公开问世",
+          "马克思、恩格斯受正义者同盟邀请将其改组为共产主义者同盟，后者是源书所指世界上第一个无产阶级政党",
+          "《共产党宣言》是该党的党纲，正义者同盟是前身，不能把前身说成这个政党"
+        ],
+        "checking_criteria": [
+          "年月、文献、标志准确，党与前身关系不可倒置",
+          "出版是标志不是全部形成条件从此才出现",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "先有组织改组，再有党纲发表；记1848年2月公开问世，不把前身改名当同一身份。",
+        "id": "polmem-cf61e3e7",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF7；节点 POL27-CF-MARX-C00-K03-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:c34a4c6c30fd1ac60af4fabb1701f38c4212d7e597d0591c9afa21bf2e0aad3c"
+        }
+      },
+      {
+        "name": "理论发展与一国胜利论",
+        "natural_unit_id": "POL27-CF-MARX-C00-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K04-N01",
+          "POL27-CF-MARX-C00-K04-N02"
+        ],
+        "prompt": "列宁从什么条件提出一国胜利论，其准确范围是什么？中国共产党推动理论发展的名称与方法是什么？",
+        "items": [
+          "帝国主义阶段经济政治发展不平衡，社会主义革命可能首先在一国或数国发生并取得胜利",
+          "中国共产党将马克思主义同中国具体实践结合，推动马克思主义中国化时代化",
+          "理论发展回应新的时代实践，不能把基本方法变成任意现成答案"
+        ],
+        "checking_criteria": [
+          "保留可能、首先、一国或数国，不写成所有国家同步或任意一国必然立即胜利",
+          "发展不等于抛弃基本立场，也不能单凭有发展就证明每个具体判断正确",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "不平衡给先后差异，具体实践要求理论发展；方向不是时间表。",
+        "id": "polmem-660c3294",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF7；节点 POL27-CF-MARX-C00-K04-N01, POL27-CF-MARX-C00-K04-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:63acda8dc16a1a691b9691c0182ca3897d5b1c9f8089efd362bdfe5c44310f43"
+        }
+      },
+      {
+        "name": "基本特征及科学革命统一",
+        "natural_unit_id": "POL27-CF-MARX-C00-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K05",
+          "POL27-CF-MARX-C00-K04-N02-TBL02"
+        ],
+        "prompt": "马克思主义四个基本特征是什么，各说明哪一面？它们怎样归结为科学性与革命性的统一？",
+        "items": [
+          "科学性：正确反映自然社会思维发展的本质规律，以辩证唯物主义和历史唯物主义为世界观方法论基础",
+          "人民性：人民性是本质属性，人民至上是政治立场，以阶级性为深刻基础",
+          "实践性：从实践中来，到实践中去，在实践中检验，随实践发展",
+          "发展性：不断发展、与时俱进的理论品质",
+          "人民性、实践性、发展性集中体现革命性；革命性是内在品质，建立在科学性基础上并与之高度统一"
+        ],
+        "checking_criteria": [
+          "四特征及各自含义完整；人民/阶级关系、革命/科学基础方向准确",
+          "“独有”等比较措辞限源课程理论评价，不推出所有其他学科都不科学或不实践",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "科学问依据，人民问为谁，实践问往返，发展问随时代；后三者的变革要求与科学基础统一。",
+        "id": "polmem-72c7153b",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF9；节点 POL27-CF-MARX-C00-K05, POL27-CF-MARX-C00-K04-N02-TBL02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:f2b221d11d69d933f45901f180fab376a62a79433fa10f12ea05372ccce7fc50"
+        }
+      },
+      {
+        "name": "实践观点与当代价值",
+        "natural_unit_id": "POL27-CF-MARX-C00-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K05",
+          "POL27-CF-MARX-C00-K06",
+          "POL27-CF-MARX-C00-K06-TIP01"
+        ],
+        "prompt": "实践观点和实践性在本课程各处于什么地位？马克思主义三种当代价值怎样对应，指导方法与现成方案怎样区别？",
+        "items": [
+          "实践观点是首要的和基本的观点；实践性是区别于其他理论的显著或根本特征的源课程表述",
+          "观察当代世界变化的认识工具",
+          "指引当代中国发展的行动指南",
+          "引领人类社会进步的科学真理",
+          "提供立场观点方法的指导，具体方案仍需现实调查与条件分析，不能照搬现成答案道路模式"
+        ],
+        "checking_criteria": [
+          "观点地位与理论特征分开；三价值对象和角色准确",
+          "不将方法指导写成现成方案，不将理论比较评价扩大成所有其他理论没有实践",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "观点给基础，实践作回路；世界用认识、中国用行动、进步讲真理。",
+        "id": "polmem-b5621ba6",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF9；节点 POL27-CF-MARX-C00-K05, POL27-CF-MARX-C00-K06, POL27-CF-MARX-C00-K06-TIP01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:91fb903962de0f56d4b5989e9837bce61353c26bac6d6049c11d6153490ec1a0"
+        }
+      },
+      {
+        "name": "基础著作与成果配对",
+        "natural_unit_id": "POL27-CF-MARX-C00-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K04-N02-TBL01"
+        ],
+        "prompt": "按源表，把《德意志意识形态》《资本论》《共产党宣言》《反杜林论》的作者、主要理论成果及标志性称谓分别配对。",
+        "items": [
+          "《德意志意识形态》：马恩合著，首次系统阐述唯物史观基本观点，源表以此标志马克思主义哲学诞生和历史观变革",
+          "《资本论》：马克思，系统阐述剩余价值理论，标志马克思主义政治经济学形成，被誉为工人阶级的圣经",
+          "《共产党宣言》：马恩合著，源表标志科学社会主义与马克思主义诞生，是第一个无产阶级政党的党纲",
+          "《反杜林论》：恩格斯，全面阐述理论体系、首次分三组成部分，被称为马克思主义百科全书"
+        ],
+        "checking_criteria": [
+          "四作者、成果与称谓完整对应；首次/标志是本源表学习范围，不扩为思想史无例外唯一分类",
+          "不能将恩格斯单著说成马恩合著，或将唯物史观与剩余价值著作交换",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "历史观找德意志，剩余价值找资本论，科社党纲找宣言，体系三分找反杜林。",
+        "id": "polmem-c017896e",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF8；节点 POL27-CF-MARX-C00-K04-N02-TBL01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:0425e5d3cf55418074365e499030b2812ea4b489b0c9fcfe624d9529dab3e3bf"
+        }
+      },
+      {
+        "name": "早期转变与实践著作",
+        "natural_unit_id": "POL27-CF-MARX-C00-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K04-N02-TBL01"
+        ],
+        "prompt": "《德法年鉴》《神圣家族》《1844年经济学哲学手稿》《关于费尔巴哈的提纲》各与哪些作者和成果相联系？",
+        "items": [
+          "《德法年鉴》是期刊；马恩分别发表文章，标志从唯心主义转向唯物主义、从革命民主主义转向共产主义，为创立理论奠定思想前提",
+          "《神圣家族》：马恩第一次合著的作品",
+          "《1844年经济学哲学手稿》：马克思，阐述异化劳动理论",
+          "《关于费尔巴哈的提纲》：马克思，首次确立科学实践观，是包含新世界观天才萌芽的第一个文件的源表表述"
+        ],
+        "checking_criteria": [
+          "期刊非一本合著书；两个转变方向与其他三项作者成果准确",
+          "“第一个”等称谓保留具体对象，不把实践观文件与公开问世标志互换",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "年鉴记转变，家族记首次合著，手稿问异化，提纲问实践。",
+        "id": "polmem-a5fd0e91",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF8；节点 POL27-CF-MARX-C00-K04-N02-TBL01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:d3c3dbe7460e82137924cbfa482ac2c7713971a66ed18cfab93ba1c389a23fbe"
+        }
+      },
+      {
+        "name": "马克思历史社会著作",
+        "natural_unit_id": "POL27-CF-MARX-C00-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K04-N02-TBL01"
+        ],
+        "prompt": "《法兰西内战》《〈政治经济学批判〉序言》《哥达纲领批判》各是谁的作品、对应什么论述？",
+        "items": [
+          "均为马克思的作品",
+          "《法兰西内战》：科学总结巴黎公社历史经验与教训",
+          "《〈政治经济学批判〉序言》：阐述唯物史观，提出两个决不会",
+          "《哥达纲领批判》：区分社会主义低级阶段与共产主义高级阶段，丰富科学社会主义学说"
+        ],
+        "checking_criteria": [
+          "三书与对应成果准确，本题只检索两个决不会的著作位置，不以未问全文扣分",
+          "阶段区别不能直接当作当前现实已实现全部特征",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "公社找内战，历史条件找序言，阶段区分找哥达。",
+        "id": "polmem-d10988da",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF8；节点 POL27-CF-MARX-C00-K04-N02-TBL01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:c01f9fa6f29da1ecb9c013d64fcf2d1f8cf46f38f604c3af0c341aa94d15890f"
+        }
+      },
+      {
+        "name": "恩格斯国家自然与哲学著作",
+        "natural_unit_id": "POL27-CF-MARX-C00-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K04-N02-TBL01"
+        ],
+        "prompt": "《家庭、私有制和国家起源》《自然辩证法》《路德维希·费尔巴哈和德国古典哲学的终结》各是谁的作品、对应什么对象？",
+        "items": [
+          "均为恩格斯的作品",
+          "《家庭、私有制和国家起源》：古代社会发展规律与国家起源，属马恩国家学说相关著作",
+          "《自然辩证法》：源表称首次系统阐述马克思主义自然观与科学观",
+          "《路德维希·费尔巴哈和德国古典哲学的终结》：源表称首次对哲学基本问题作表述"
+        ],
+        "checking_criteria": [
+          "三书作者与国家/自然科学/哲学基本问题三个对象准确",
+          "首次表述为教材书表口径，不声称哲学史此前从无人讨论类似问题",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "国家问起源，自然问辩证，基本问题回费尔巴哈终结。",
+        "id": "polmem-8d921931",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF8；节点 POL27-CF-MARX-C00-K04-N02-TBL01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:c2e88dbe1b81daf794e0c45b6df3a1c318c33dac02d24bef1dab6a2beece4dfc"
+        }
+      },
+      {
+        "name": "列宁著作与理论成果",
+        "natural_unit_id": "POL27-CF-MARX-C00-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C00-K04-N02-TBL02"
+        ],
+        "prompt": "源表六部列宁著作各对应什么理论成果或评价？特别区分一国胜利论首次与进一步提出。",
+        "items": [
+          "《帝国主义是资本主义的最高阶段》：《资本论》的直接继续，分析帝国主义经济实质与矛盾根源，提出其是无产阶级社会主义革命前夜",
+          "《论欧洲联邦口号》：首次明确提出一国胜利论",
+          "《无产阶级革命的军事纲领》：进一步提出一国胜利论",
+          "《国家与革命》：马克思主义国家学说代表作之一",
+          "《唯物主义和经验批判主义》：生活、实践观点是认识论首要和基本观点",
+          "《哲学笔记》：源表评价为最能反映列宁创作活动和思维能力的著作"
+        ],
+        "checking_criteria": [
+          "六部作者均列宁，成果对应，首次与进一步不能互换",
+          "源表评价与具体理论命题分开，不把作品位置题变成未教全章内容要求",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "帝国主义接资本论；口号首次、纲领进一步；国家谈学说，批判谈实践，笔记看思维。",
+        "id": "polmem-a5b65ebb",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF9；节点 POL27-CF-MARX-C00-K04-N02-TBL02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C00-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:039347ab0f592d5f13016e271580cdfd6d9b1d8c1268caf666a98db69b7514a0"
+        }
+      }
+    ],
+    "deferred_precision": [
+      "本批14组仅承接已解释并原图核实的准确范围；完整著作表仍可查，但《哲学的贫困》最早发表文本之绝对范围未解决，不获本批准入。",
+      "原learning_semantics.precision_objects是章内结构提示，不是旧Memory目录；保留全部原ID和Source支持，实际Memory由本章content_support单一路径承接。书表和年月须相关内容已教，不因概览完成或原题年份标签自动排程。",
+      "Source独有/首次等理论比较与著作称谓均保留本课程对象范围，不推成对全部思想史或其他学科的无例外判断。"
+    ]
   }
 }

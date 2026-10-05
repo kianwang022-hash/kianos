@@ -169,10 +169,705 @@
     "review_prompt": "不用复述全部考点，闭卷把‘哲学基本问题/方法论分野 → 物质 → 运动/静止 → 时空 → 实践/意识 → 能动性/规律 → 物质统一性’恢复成一条因果与边界都清楚的链。"
   },
   "projection_notes": {
-    "learner_default": "SHOW_ORIENTATION_THEN_CHENGFENG_CONTINUOUS_SOURCE",
+    "learner_default": "CHAT_CONTINUOUS_TEACHING_WITH_CHENGFENG_SOURCE_CALIBRATION",
     "suyi_default": "HIDDEN_BACKGROUND_REFERENCE",
     "xiao1000_default": "INLINE_VERIFICATION_AFTER_RELEVANT_UNIT",
-    "memory_default": "NOT_PRIMARY_FIRST_ROUND_SURFACE",
+    "memory_default": "CHAT_ENCODING_THEN_AUTHORIZED_WEBSITE_RETRIEVAL",
     "astro_rule": "Prefer content-driven rendering; do not hard-code this chapter's political semantics in components."
+  },
+  "content_support": {
+    "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
+    "active_precision": [
+      {
+        "name": "哲学基本问题与两条分野",
+        "natural_unit_id": "POL27-CF-MARX-C01-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K01-N01"
+        ],
+        "prompt": "哲学基本问题是什么、包含哪两方面，各划分什么流派？第一性和同一性在这里各指什么？",
+        "items": [
+          "哲学基本问题是思维与存在的关系问题",
+          "第一方面：物质和精神何者第一性、何者第二性，划分唯物主义与唯心主义；第一性说本原及派生关系，不是价值上最重要",
+          "第二方面：思维与存在有无同一性，即思维能否正确认识存在，划分可知论与不可知论；同一性在此说可认识，不是两者等同"
+        ],
+        "checking_criteria": [
+          "基本问题、两方面及分野准确，第一性/同一性各自含义完整",
+          "可认识不等于现在已经全部认识；不将源表二元论等概括外推为无例外定理",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "先问世界本原，再问能否认识；本原非重要，同一非同物。",
+        "id": "polmem-53475931",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF10；节点 POL27-CF-MARX-C01-K01-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:e0e6e4116f624e30f726493769298e1dbb3fda0c235bd04683e6308d43724332"
+        }
+      },
+      {
+        "name": "唯物三形态与唯心两形态",
+        "natural_unit_id": "POL27-CF-MARX-C01-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K01-N01"
+        ],
+        "prompt": "唯物主义三种形态如何理解物质？主观与客观唯心怎样区分，旧唯物主义何以不彻底，马克思两项哲学贡献是什么？",
+        "items": [
+          "古代朴素唯物主义以具体实物说明本原；近代形而上学唯物主义以原子等特殊形态说明一般物质；辩证唯物主义抽象客观实在性",
+          "主观唯心以个人精神感觉为本原；客观唯心以超个人的客观精神、绝对观念等为本原，客观不等于物质第一性",
+          "旧唯物主义自然观唯物、历史观唯心，不能说明社会生活物质性，因而不彻底",
+          "马克思创立唯物史观、形成辩证唯物主义，不能写成首次创立一切唯物主义"
+        ],
+        "checking_criteria": [
+          "三物质观、两精神本原、旧唯物缺陷与两贡献完整",
+          "不凭人名给其全部思想单一归类，机械与形而上学命名不无条件等同",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "唯物内部看怎样理解物质，唯心内部看哪种精神；新贡献补历史并坚持辩证。",
+        "id": "polmem-ff010bb7",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF10–11；节点 POL27-CF-MARX-C01-K01-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:af534490c32e0d2fd8be084416cd37228149a5e35ac8ce7de500e4f2d81c7f6d"
+        }
+      },
+      {
+        "name": "辩证法与形而上学",
+        "natural_unit_id": "POL27-CF-MARX-C01-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K01-N02"
+        ],
+        "prompt": "辩证法与形而上学分别怎样看世界，发展的根本原因怎样判断？与唯物唯心的分野是什么关系？",
+        "items": [
+          "辩证法以联系、全面、发展和矛盾观点看世界，认为事物内部矛盾是发展的根本原因",
+          "形而上学以孤立、片面、静止的观点看问题，否认内部矛盾的存在和作用",
+          "这是世界怎样存在发展的方法分野，不是哲学基本问题第三方面；与唯物/唯心可交织，不是一一等同"
+        ],
+        "checking_criteria": [
+          "两组观点逐项相对，根本原因在内部矛盾",
+          "不能把唯物自动当辩证、唯心自动当形而上学，也不用词性机械判断关系",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "怎样看联系、范围、变化、内部矛盾，四问分别比较。",
+        "id": "polmem-e35c7374",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF11；节点 POL27-CF-MARX-C01-K01-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S01 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:3c8f09c34087f9b6fbec73617d7c3ebfdf8395eb30927a83f23d9e6302ab34be"
+        }
+      },
+      {
+        "name": "物质范畴与列宁定义",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K02-N01",
+          "POL27-CF-MARX-C01-K02-N02"
+        ],
+        "prompt": "哲学物质范畴怎样形成？列宁定义的关键限定是什么，唯一特性是什么，器物集合与概念怎样区别？",
+        "items": [
+          "物质范畴从各种具体物质形态中抽象共同规定，不是把事物简单堆成概念",
+          "物质是不依赖人的意识而存在、并能为人的意识所反映的客观实在；原定义强调不依赖感觉而存在又能为感觉反映",
+          "客观实在性是物质唯一特性，从自然存在和社会存在抽象其共性",
+          "看不见摸不到或尚未认识不等于不存在、不可认识"
+        ],
+        "checking_criteria": [
+          "独立存在与可反映两面完整，唯一特性不能换成运动",
+          "具体/抽象关系正确，不要求每个人每时刻直接感知",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "先抽共同规定，再守独立存在与可反映两面。",
+        "id": "polmem-13f84758",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF11–12；节点 POL27-CF-MARX-C01-K02-N01, POL27-CF-MARX-C01-K02-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:d1ea116c356f05b2ab2ec1eb44c2be85bb28cb6e4b564a26da1cffb21ca90bb1"
+        }
+      },
+      {
+        "name": "物质观四项理论意义",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K02-N03",
+          "POL27-CF-MARX-C01-K02-N04",
+          "POL27-CF-MARX-C01-K02-N05"
+        ],
+        "prompt": "马克思主义物质观的四项理论意义各划清或统一什么？近代形而上学物质观两项缺陷是什么？",
+        "items": [
+          "坚持客观实在性与唯物主义一元论，划清唯心一元论和二元论",
+          "坚持能动反映论、可知论，批判不可知论",
+          "统一唯物论与辩证法，克服形而上学物质观缺陷",
+          "统一唯物主义自然观与历史观，为彻底唯物主义奠基",
+          "旧缺陷：把特殊物质形态当一般，不能理解认识的不断发展；不能说明社会生活物质性，割裂自然与社会的物质统一"
+        ],
+        "checking_criteria": [
+          "四意义分别对应本原、可知、辩证、历史，旧两缺陷完整",
+          "个性共性、相对绝对、暂时永恒是抽象关系，不意味着每个具体事物永恒",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "本原不二，可知能动，形态变化有共同性，自然历史同物质。",
+        "id": "polmem-e274a840",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF12；节点 POL27-CF-MARX-C01-K02-N03, POL27-CF-MARX-C01-K02-N04, POL27-CF-MARX-C01-K02-N05",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:2c98f90b1c86e65459ca5cdb793c7abd856c0718735ba4ed817d8003c6ed6b5d"
+        }
+      },
+      {
+        "name": "物质运动关系与两种割裂",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K03"
+        ],
+        "prompt": "运动的含义是什么？物质与运动分别是什么角色，唯一特性与根本属性怎样区分，两种割裂各错在哪里？",
+        "items": [
+          "运动指一切事物和现象的变化及过程，不仅是机械位移",
+          "物质是运动变化发展的实体基础和承担者；运动是物质的存在方式与根本属性",
+          "物质唯一特性是客观实在性，根本属性是运动，二者问题不同",
+          "设想脱离物质的运动导致唯心主义；设想不运动的物质导致形而上学；不可分割不等于直接等同"
+        ],
+        "checking_criteria": [
+          "承担者/存在方式与两帽子对应准确，割裂两方向及后果完整",
+          "唯物与唯心运动观根本区别在是否承认运动是物质运动",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "谁在动—怎样存在—是什么的共同规定，三问分角色。",
+        "id": "polmem-c110f47f",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF12；节点 POL27-CF-MARX-C01-K03",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:40105840ffac8e5068ed714dbc96a1cc00ba5f659c34d7ecee5736f5782c2b0f"
+        }
+      },
+      {
+        "name": "相对静止与绝对运动",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K04"
+        ],
+        "prompt": "相对静止有哪两种表现和什么作用？运动静止怎样对立统一，夸大一方否定另一方各是什么错误？",
+        "items": [
+          "静止是一定条件下运动的稳定状态，包括相对位置暂时不变、根本性质暂时不变，是运动特殊状态",
+          "静止是事物存在发展的必要条件、认识利用事物的前提、过去运动结果和未来运动出发点，也是理解衡量运动的尺度",
+          "运动绝对、变化、无条件；静止相对、稳定、有条件；二者相互依赖、渗透、包含，动中有静、静中有动",
+          "夸大静止否认运动为形而上学；夸大运动否认静止为诡辩论"
+        ],
+        "checking_criteria": [
+          "两表现、作用和两端条件准确，错误观点不互换",
+          "相对位置不变不等于内部无变化，根本性质不变不等于全部数量不变",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "稳定让对象可辨认和比较；绝对运动中有条件地保持稳定。",
+        "id": "polmem-21ef7ad2",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF13；节点 POL27-CF-MARX-C01-K04",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:20f6a87f550f11fd3c86423310e393de537de4bb5183a086cafe6b33e753608b"
+        }
+      },
+      {
+        "name": "时空定义与物质运动",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K05-N01",
+          "POL27-CF-MARX-C01-K05-N02"
+        ],
+        "prompt": "时间与空间各是什么、有什么维度特点？与物质运动是什么关系，存在方式和基本存在形式怎样配对？",
+        "items": [
+          "时间是物质运动的持续性和顺序性，特点一维性",
+          "空间是物质运动的广延性和伸张性，特点三维性",
+          "物质运动与时空不可分割；时空是运动着物质的基本存在形式，不是物质外独立容器",
+          "运动对应物质的存在方式和根本属性，时空对应运动着物质的基本存在形式"
+        ],
+        "checking_criteria": [
+          "两定义与维度准确，不把时间空间互换",
+          "物质/运动/时空统一不等于概念直接同一",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "变化持续有先后，占有位置有伸展；存在方式问运动，基本形式问时空。",
+        "id": "polmem-c8164bb1",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF13；节点 POL27-CF-MARX-C01-K05-N01, POL27-CF-MARX-C01-K05-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:8a2f1db07158db7eecf7a0a98c5158361677c9c1ed7ce45cde452dae52e4df60"
+        }
+      },
+      {
+        "name": "时空五性质的主语",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K05-N03",
+          "POL27-CF-MARX-C01-K05-N04"
+        ],
+        "prompt": "时空的客观性、有限性、无限性、绝对性、相对性分别对什么作判断？",
+        "items": [
+          "客观性：时空不以人的意志为转移，与物质运动不可分割",
+          "有限性：具体事物的时空有限；无限性：整个物质世界的时空无限",
+          "绝对性：时空客观存在的意义上绝对；相对性：具体特性随物质运动特性而变化",
+          "物质、运动、时空具有内在统一性"
+        ],
+        "checking_criteria": [
+          "五性质各有主语，尤其具体/整体与客观存在/具体特性不能混",
+          "相对不取消客观性；源高速例不外推成未经核实的物理定律",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "具体与整体分有限无限，存在与特性分绝对相对。",
+        "id": "polmem-d10fe1a0",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF13–14；节点 POL27-CF-MARX-C01-K05-N03, POL27-CF-MARX-C01-K05-N04",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:f965f497a4aac408e20bcf74ba31f016b9cd9f2ba1849d3e8473d12414335a41"
+        }
+      },
+      {
+        "name": "世界二重分化与实践关键",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K06"
+        ],
+        "prompt": "世界二重分化是哪两组？客观世界和主观世界各含什么，实践在两组分化与统一中起什么作用，这种统一是怎样的过程？",
+        "items": [
+          "从自然界分化出人类社会，从客观世界分化出主观世界；两组不是同一划分轴",
+          "客观世界是不依赖意识的现实世界，包含自然界和人类社会；主观世界是意识观念及精神活动总和，来源于客观世界、具有相对独立性，不是独立实体",
+          "人的实践活动是自然社会、客观主观相分化和相统一的关键，这种统一是动态历史过程",
+          "主观世界可与当前对象不完全相同并保留过去印象，但不能完全脱离客观世界；虚拟世界也是现实实践产物延伸，不是独立第三本原"
+        ],
+        "checking_criteria": [
+          "两组及客观世界范围准确，不能把社会塞进主观一侧",
+          "来源、相对独立与实践分化统一三层都保留，不推独立实体",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "一轴自然与社会，一轴客观与主观；实践连接两轴，不创造第二本原。",
+        "id": "polmem-0cb0c551",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF14–15；节点 POL27-CF-MARX-C01-K06",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:e36a849943a43242bb6f6a06d353c9504214113c05fe5cafa54269ec07f20f98"
+        }
+      },
+      {
+        "name": "自然界与人类社会的联系区别",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K06-N01"
+        ],
+        "prompt": "自然界与人类社会的因果实现方式怎样区别，又怎样相互作用？人化自然为什么仍属客观世界？",
+        "items": [
+          "自然界因果关系自发作用，人类社会因果关系通过人的有目的实践活动实现",
+          "两者不是截然分开：自然中有人化自然，社会中运用自然物质与自然力，物质生产是人与自然的物质变换",
+          "人类社会是源书所说最高级的物质存在形态；人的目的印记不等于社会结果都由意愿任意决定",
+          "人化自然的形态可受实践改变，客观实在性不因人的改造而消失"
+        ],
+        "checking_criteria": [
+          "自发/有目的实现方向准确，交叉作用与物质变换有解释",
+          "不能将社会客观性等同没有人的活动，也不能因有目的就说主观",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "自然自发、社会经实践；社会生产仍在进行物质变换。",
+        "id": "polmem-1ad264b1",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF14；节点 POL27-CF-MARX-C01-K06-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:4b09dc8db73482dc6459cfd447c91f464fbfddc49304e348680faf5ef53fae7f"
+        }
+      },
+      {
+        "name": "意识起源的自然社会两面",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K07-N01"
+        ],
+        "prompt": "意识起源怎样同时说明自然发展和社会历史？劳动与语言各起什么作用？",
+        "items": [
+          "自然发展链：一切物质的反应特性→低等生物刺激感应→高等动物感觉心理→人的意识",
+          "意识也是社会历史发展产物，社会实践特别是劳动在产生发展中起决定作用，提供客观需要和可能",
+          "劳动交往中形成的语言促进意识发展，是意识的物质外壳和现实形式"
+        ],
+        "checking_criteria": [
+          "发展链与两种起源完整；劳动决定与语言促进的动词不可交换",
+          "低级反应不是人的完整意识，语言重要不等于它取代劳动决定作用",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "自然准备反映能力，劳动形成社会需要，语言促进表达发展。",
+        "id": "polmem-cb5236f7",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF15；节点 POL27-CF-MARX-C01-K07-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:5c0c37e612e9b9b96a6c61e98dbea3c1179498a51232aff60c0ab61351cb9b58"
+        }
+      },
+      {
+        "name": "意识本质与器官源泉",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K07-N01"
+        ],
+        "prompt": "意识的本质怎样表述？人脑、客观世界、客观内容与主观形式分别是什么角色？虚构观念怎样仍有现实来源？",
+        "items": [
+          "意识是人脑这一特殊物质的机能和属性，是客观世界的主观映象",
+          "人脑是器官、生理物质基础，客观世界是源泉；意识不是人脑、分泌物或特殊物质本身，也不能脱离器官与世界自主产生",
+          "内容客观指来源于客观世界，形式主观指经主体加工，不保证每个认识正确",
+          "虚构观念加工现实材料，不是说虚构对象本身就是客观源泉"
+        ],
+        "checking_criteria": [
+          "本质两部分、器官/源泉、内容/形式四角色准确",
+          "不把内容有客观来源等同每个表象真实，也不把虚构观念解释为认识无真假",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "器官负责形成，世界提供来源，主体加工成映象；主观形式不免除真伪检验。",
+        "id": "polmem-1fd2d9c1",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF15–16；节点 POL27-CF-MARX-C01-K07-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:e7850900273bb46aa86be2596c9091d6a013717fba05c621ed6ae22f6f6e86ce"
+        }
+      },
+      {
+        "name": "意识四种能动作用",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K07-N02"
+        ],
+        "prompt": "意识的四种能动作用是什么？指导现实改变须经什么，错误意识能否指导实践？",
+        "items": [
+          "具有目的性和计划性，选择反映对象和方式",
+          "具有创造性，加工感性材料、把握本质、追溯过去推测未来",
+          "指导实践改造客观世界，观念须通过实践才能变为现实，不能直接改造",
+          "调控人的行为和生理活动",
+          "错误意识也可指导实践，指导不等于正确有效；能动作用受现实条件、物质手段和时代实践水平制约"
+        ],
+        "checking_criteria": [
+          "四作用完整，创造观念与改造现实分开，实践中介不可漏",
+          "不能说只能反映现存对象或错误意识完全不能指导行动",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "先定目标，再创造观念，经实践改造，同时调控身心行为。",
+        "id": "polmem-dcb3f8ae",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF16；节点 POL27-CF-MARX-C01-K07-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:87cafd923e97b8e12007ed4a63618673b86e934b6801f6b2ce840d6e44db6d1e"
+        }
+      },
+      {
+        "name": "物质意识的区别与联系",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K07-N03"
+        ],
+        "prompt": "物质与意识怎样区别又怎样联系？源文“相互转化”与“同一性”应在什么范围理解？",
+        "items": [
+          "区别：物质本原、意识派生，二者不能等同或互相代替",
+          "联系：意识依赖物质又有相对独立性；物质决定意识，意识通过实践反作用于物质",
+          "物质转为意识说现实被认识反映；意识转为物质说观念经实践对象化，不是两种实体无条件互换",
+          "同一性在此保留可认识的意义，不取消类别区别；物质与意识不是互为前提或相互决定"
+        ],
+        "checking_criteria": [
+          "区别联系两面完整，决定与反作用方向不对称",
+          "转化保留认识或实践中介，不把画饼与望梅例子互相代替全部关系",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "先守本原派生，再讲反映与实践；联系不抹掉区别。",
+        "id": "polmem-29e94a67",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF16；节点 POL27-CF-MARX-C01-K07-N03",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:4b412486408869c0ae0ede42f4570693e1728ce2c9cd421a4c4286e7a2b1eebb"
+        }
+      },
+      {
+        "name": "规律定义与自然社会分类",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K08-N03"
+        ],
+        "prompt": "规律是什么？自然规律与社会规律怎样实现，都具有何种共同属性？",
+        "items": [
+          "规律是事物变化发展过程中本身固有的内在、本质、必然联系",
+          "自然规律自发实现，不须人的参与作为一般前提；社会历史规律须通过人的自觉活动实现",
+          "二者都客观，不以人的意志为转移；社会经人活动实现不等于人创造规律或人人已自觉掌握规律"
+        ],
+        "checking_criteria": [
+          "内在/本质/必然限定完整，分类实现方式及共同客观性准确",
+          "不把表面现象、命令或所有重复事件直接当规律",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "先找固有本质联系，再辨它在自然还是社会中实现。",
+        "id": "polmem-e3f960d5",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF17；节点 POL27-CF-MARX-C01-K08-N03",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:e5f4fb294b67f79c7bebf2a4f08c802eef135d958eb7b32c309f51661f6641ff"
+        }
+      },
+      {
+        "name": "规律四特点与条件",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K08-N03"
+        ],
+        "prompt": "源书规律的四项特点是什么？人能改变什么、不能改变什么，重复稳定性怎样限定？",
+        "items": [
+          "规律具有客观性",
+          "不能创造、改变、消灭规律，但可以认识和利用规律",
+          "规律具有重复性和稳定性，不等于每次表面事件完全相同",
+          "规律通过具体条件发挥作用；可以改变条件和实现形式，条件改变后旧条件下的作用可能不再出现"
+        ],
+        "checking_criteria": [
+          "四点完整，改变规律与改变作用条件严格区分",
+          "不能推所有规律都要经人活动、已完全掌握或完全无能为力",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "客观在先，可知可用；稳定联系依具体条件实现。",
+        "id": "polmem-8eb90949",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF17；节点 POL27-CF-MARX-C01-K08-N03",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:828b0b14d2d85fcc67d2e9bfc4736df229e62f7dd4be21cf96a4d4fa1e94f467"
+        }
+      },
+      {
+        "name": "能动性规律统一的前提基础途径",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K08-N01",
+          "POL27-CF-MARX-C01-K08-N02"
+        ],
+        "prompt": "客观规律与主观能动性如何统一？尊重规律、从实际出发、实践、物质条件分别处在哪些位置？",
+        "items": [
+          "尊重客观规律是正确发挥主观能动性的前提；发挥能动性才能正确认识利用规律",
+          "实践是客观规律性与主观能动性统一的基础",
+          "从实际出发也是正确发挥主观能动性的前提；实践是基本或根本途径，还须依赖一定物质条件和物质手段"
+        ],
+        "checking_criteria": [
+          "前提/基础/途径分别对齐所问关系，从实际与物质条件不遗漏",
+          "不是相互决定，不将只尊重规律概括成必然办得到但无价值",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "先尊重现实与规律，再由实践连接认识利用，物质条件支撑行动。",
+        "id": "polmem-206ef9ae",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF17；节点 POL27-CF-MARX-C01-K08-N01, POL27-CF-MARX-C01-K08-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:ede90375f99a130581cef76d58e20c090b0d35249403e0296fe9cf7a26e4e360"
+        }
+      },
+      {
+        "name": "人工智能的教材定位与范围",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K09-N01",
+          "POL27-CF-MARX-C01-K09-N02"
+        ],
+        "prompt": "本章Source怎样定义人工智能及其物化关系？局部优势、整体替代、人类能动性表现三者怎样区分？",
+        "items": [
+          "按本章Source，人工智能是人的部分智能活动机器化，是对人脑组织结构与思维运行机制的模拟、人类智能的物化",
+          "在计算速度、准确度、程序化任务等某些方面可超过人，不能由局部优势推出全面替代人类意识",
+          "人工智能是人类意识能动性的一种特殊表现，是人的本质力量对象化、现实化；通过机器物理运动可延伸意识器官功能"
+        ],
+        "checking_criteria": [
+          "明确本题为源课程定义范围；部分/整体、模拟/人类意识以及物化需物质中介分清",
+          "不把本教材措辞扩成对所有未来系统意识的无条件经验结论，也不说机器任何方面均不能超过人",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "局部能力可扩展，实际对象化靠设备；概念范围不自动给未来技术定论。",
+        "id": "polmem-afa00e48",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF17–18；节点 POL27-CF-MARX-C01-K09-N01, POL27-CF-MARX-C01-K09-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:7db4a6f4c7fcec8ffb07f9117fbec74aed65729fdef922af72ae6db7c90817c8"
+        }
+      },
+      {
+        "name": "人工智能边界的四项源理由",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K09-N03"
+        ],
+        "prompt": "本章Source从哪四方面解释人工智能与人类意识的区别？应怎样限制这些论述的适用范围？",
+        "items": [
+          "知情意：人的意识是知情意统一；本章Source认为AI只是人的理性智能模拟拓展，不具备情感、信念、意志等人的意识形式",
+          "社会属性：本章Source认为社会性是人的意识所固有的本质属性，AI不可能真正具有人类社会属性；机器承担社会功能不等于这一属性",
+          "语言意义：本章Source认为自然语言是思维的物质外壳和意识的现实形式，AI难以完全具备理解自然语言真实意义的能力",
+          "可化约性：源文区分可数字化内容与其认为不能完全化约的内容，如潜意识",
+          "以上是本教材判断依据的恢复，不作为所有当前或未来系统都不可能具备某种体验或能力的研究结论"
+        ],
+        "checking_criteria": [
+          "四角度及课程范围明确，不能只背“不能”而漏理由对象",
+          "不能把承担社会功能与人的社会属性等同，不宣称已独立解决技术或意识哲学争议",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "知情意—社会关系—语言意义—数字化限度，四问限定源书论证。",
+        "id": "polmem-81b53443",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF18；节点 POL27-CF-MARX-C01-K09-N03",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:8c856ccb60307001917c9379267dc20451c64fc839ba0a8556411670b66a116f"
+        }
+      },
+      {
+        "name": "世界物质统一性的三方面依据",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K10-N01"
+        ],
+        "prompt": "为什么自然界、人类社会和人的意识都统一于物质？社会物质性有哪三方面依据，实践能改变什么？",
+        "items": [
+          "自然界先于人且不依赖意识，天然自然与人化自然均客观；实践可改形态、外貌、结构，不能改变其客观实在性",
+          "社会是生产实践基础上形成的物质体系：自然基础是物质的，获取生活资料的生产活动是物质的，物质资料生产方式构成存在发展基础",
+          "意识从起源上是物质世界发展产物，从本质上是人脑机能和客观世界主观映象，从作用上必须尊重客观规律",
+          "意识统一于物质不等于意识就是物质，世界统一性不是统一于某种特殊物质形态"
+        ],
+        "checking_criteria": [
+          "自然/社会/意识三方面完整，社会三依据及意识三角度分别准确",
+          "社会有精神现象不取消物质基础，改造形态不取消客观性",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "自然独立存在，社会以生产为基础，意识靠起源器官与作用条件统一。",
+        "id": "polmem-d90584a5",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF18–19；节点 POL27-CF-MARX-C01-K10-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:f9496d00b07ba9c231db0df34949ced04c83232f235f7b88e46f650057095fc0"
+        }
+      },
+      {
+        "name": "物质统一性的方法论地位",
+        "natural_unit_id": "POL27-CF-MARX-C01-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C01-K10-N02"
+        ],
+        "prompt": "世界物质统一性原理处于什么理论地位，其方法论落点是什么？",
+        "items": [
+          "是辩证唯物主义最基本、最核心的观点，是马克思主义的基石",
+          "一切从实际出发，是该原理在现实生活和实际工作的体现，是在坚持发展中国特色社会主义实践中想问题办事情的根本立足点"
+        ],
+        "checking_criteria": [
+          "最基本最核心观点、基石与实际出发分别对应原理和方法论",
+          "不能把基石与实践首要观点、政经核心理论等不同对象称谓混用",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分。"
+        ],
+        "memory_cue": "世界先有客观条件，方法才要求从实际出发；理论地位与实践落点分两层。",
+        "id": "polmem-f4b91ada",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF19；节点 POL27-CF-MARX-C01-K10-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c00-c01-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C01-S02 中本题所问全部子项、对象及条件；单元概览不等于已教整组，内容准入不自动产生实际计划。",
+          "reviewed_target_revision": "sha256:e130959a73b95e5811f5a4ff76a6fff014bb1f8b3d0b332d06a2c06001615370"
+        }
+      }
+    ],
+    "deferred_precision": [
+      "二元论与不可知论概括、旧新唯物严格包含关系不获无条件定理准入；原Source与题目未改。",
+      "原表虚幻反映不能用对错形容的适用范围仍待核，不列为本批正确命题。",
+      "AI两组只恢复本章Source论述，未独立裁定所有当前或未来系统的意识/体验或能力；技术研究更新须另按确切Source冲突处理。",
+      "词性决定哲学关系、高速粒子粗略物理说明不升为准确规则；名言原题答案继续由Source/Question Truth拥有。"
+    ]
   }
 }
