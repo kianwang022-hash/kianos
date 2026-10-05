@@ -150,3 +150,95 @@ C06下册PDF41–51：侵略时间图/合作表，正面战场细节、持久四
 每章正文/Source落点已给精确节点和页码，可在原Source读取任务按必要页段一次批量补读。表格必须实际看完整行列/跨页，红答案无receipt不猜；清楚文字可用范围不因此整体作废。原subject-model及chapter的accepted base保持；新候选不等于五章完整图文准备通过。
 
 本轮无本机/Work/远端写、无项目代码/测试/学习记录。云草稿的diff与Git blob字节核验只证明文件一致性；不能当consumer、main-to-Website、P6性能或U。48目标准入、依赖projection/consumer、main采用、实际Website与真实学习有效性仍分别未关闭。
+
+## 2026-10-05｜十章 precision 原 owner 接入与有界准入绑定
+
+复用本文件已有 C01–C05 的32组、C06–C08的31组、C09–C10的17组逐 Source 实质独立审读，以及 2026-10-05 17:56 UTC 的80/80最终字段／owner映射独立审读和 Source 资格追加判断。没有将映射一致性当作新 Source 真值，没有借尚未核清的原表、截断后文或2026当期状态批准扩展题目。80个最终 prompt／items／checking／cue／Source／NU 与已审稿不变，原 producer 已实际核对80个 ID；以下只将该80个 payload绑定为 REVIEWED、FIRST_ROUND_EXACT。此前 PENDING 描述是这一绑定前的准备状态。
+
+C01 polmem-b3d1b517 原组全部字段与原 sha256:d858f2d06dbf9c53816fd7913b0dc93f1fbec4c0de1070a5e64f824f946539b9 完整保留，不重签、不计新增。原 consumer 使用的 reviewed-target revision 锁定具体语义，任何题面、答案、checking 或 Source／先修变化须重开相应审读，不能复用旧事件证明新目标。Library 有界输入 SHA256 3b6c8b711019729152133b205e3019142e14b0000f1d2f3b1f54e41373d9335c 只作输入追溯。新目标的绑定不是全科 Source 覆盖、学习有效性、Website／main 采用或真实 learner 证据；未创建 learner plan、Recall 或自动排程。
+
+<a id="history-exact-owner-integration-20261005"></a>
+| Target | Content status | reviewed target revision |
+| --- | --- | --- |
+| polmem-6613d10e | REVIEWED | sha256:26ebdab5afe8c524b1bd61e2a76c71f70fd2f063c1332179255aec7be7fc3f9d |
+| polmem-b0289641 | REVIEWED | sha256:c3935ed0a2c6073938cf6471b186b3ce8ee0c1cbd9330b9efad294c0b14f88cd |
+| polmem-e0cff2a5 | REVIEWED | sha256:0fceff4eaabfff96f0aa712d7055469b0a6652fa5b5682acba70e27e71bb300f |
+| polmem-13428965 | REVIEWED | sha256:702accf8e11a1c06df89123165ec16213e43481b2c3b3052eeeb6d93681a9b50 |
+| polmem-f575b901 | REVIEWED | sha256:7b5384468f9a679c6f30dc888e4d4a7f51a7b9a0ebf0c6ad7c60a45b0947420b |
+| polmem-e31cf0d6 | REVIEWED | sha256:6985620e6cb429c407d29e5b90f0d5e18f1f94e78ccc8750bc44bfb08192e720 |
+| polmem-17b943c0 | REVIEWED | sha256:cdd5f7b1ce410e29161de5168df8c74d63e8d87a802c31d2da68144c5c0bf21d |
+| polmem-69c023e1 | REVIEWED | sha256:9ac2d1effc5ba75fa276993dfb8103c8f1886fa252038b1865655b2909a6e67c |
+| polmem-83d31367 | REVIEWED | sha256:5589a0b639a2023cec8afc2f4427c77ee3970b66ab79b7117f2bd1e3f14d2f4c |
+| polmem-7306a213 | REVIEWED | sha256:f7158f7413e4f743660246872826f11b300dd6336d2d99c639c185fda559df39 |
+| polmem-4820497b | REVIEWED | sha256:7c9c11ebb7b649e231637bc6bb425e1ffdf1f139449e44dfe8d75f09f6350e5c |
+| polmem-ce07bbb7 | REVIEWED | sha256:0d8a8294e673d40486e92fc05c755d2131e119bf1be4f03c999050ba32beade6 |
+| polmem-259e8c55 | REVIEWED | sha256:22a422984371b33562dfdc3806db8374a7412d98f1d6764045d007245601ae5a |
+| polmem-433c27fd | REVIEWED | sha256:20d0a77e06d9c8f4ea1eefd9b8fa0402310b5e48c28cd9f24be7bdcd48c04edc |
+| polmem-4636aa41 | REVIEWED | sha256:9245bd65f76ae83c09dcd4f2d56d21d086c17384dc33ff94e171a945382ce3c6 |
+| polmem-bccb4250 | REVIEWED | sha256:a44b942362016f91f2fc32dc6c928e9b4175460f66ebad89430eb12b8b50c854 |
+| polmem-2572705e | REVIEWED | sha256:ea916089935a6045e50b5cb485cbc503e5be58043dea872a2007eee4c667fca3 |
+| polmem-ef9d55d9 | REVIEWED | sha256:fa403d844dd7dff75d221707b5c7f9b6d71cb3dc673655f6f602b699d41a4300 |
+| polmem-89b46d4e | REVIEWED | sha256:789e8c56554f15944a8d8286d2bae5cf01a7e30b4b5d8162d36c0e514f5a1c4b |
+| polmem-04e67aab | REVIEWED | sha256:44a67de8b83d16d2ca978d517f08565028237d5e190579e8b5db38f9d937a77d |
+| polmem-dcdbf242 | REVIEWED | sha256:0601cc81ef6b72a7cf01d0bb97df812151beb2287c64a65a2f7cdb74fbeec981 |
+| polmem-fe5829b0 | REVIEWED | sha256:a9396d676a9495f8b0ade388f3f63d651c78b56967b03fca040736b29cad7581 |
+| polmem-f7d1b372 | REVIEWED | sha256:b9c912c068d6b6cac50f1ec2ab83af33f4008866c61173d7d6139c4f6466413e |
+| polmem-68db152c | REVIEWED | sha256:04fffe507aaf062e240f84906e326baa1d9bff7280e7e91a84b09b29e9c938f3 |
+| polmem-bce56cc6 | REVIEWED | sha256:6b376acb7d71c02e706e09aa1fdf5c151a1494bb1dc24babdc3c10dc3e7f4d29 |
+| polmem-82b50e31 | REVIEWED | sha256:15357cc38a0ab3fe18f41e4e8f91dbfd657925a008ec71c1bb769860c467ad62 |
+| polmem-16ee302f | REVIEWED | sha256:8774df7496102db95e8499956470087b4fe01ac3d8d2cfddad69b6ab63d09081 |
+| polmem-d43163e4 | REVIEWED | sha256:c363b02a3a7344fa159eed17bcc0a321f20ff6eb585c4bc470f57e980dfec790 |
+| polmem-5c3184cd | REVIEWED | sha256:386754d75113b88efe3225db0590077a83dad71e0e012b1e83d3450714f1bd0a |
+| polmem-f431ccf4 | REVIEWED | sha256:c9a66d5283a9978f7c8ace384f07d697bb8a4d6809b7cd94c106b31a5ea63652 |
+| polmem-69aed69e | REVIEWED | sha256:be45e1d0f74533938e1a1b2e5e25bc4993876d6e0db5b0b9582ec6452d9ea4ee |
+| polmem-f77bb72b | REVIEWED | sha256:3eeb22e5fe7858587b6fd957d4ee32445b52050871cf687f0d422e7e79a7a6b2 |
+| polmem-0cea627c | REVIEWED | sha256:84c7bed8c07e6346dbed22a359c5f595b30a15f5fe866738e620890f7cd49929 |
+| polmem-a4d87eae | REVIEWED | sha256:7467fbaa46630e2a6922ce0c1df909f29faef16be98e43f1094f6c4f840f5b2f |
+| polmem-dd9026c0 | REVIEWED | sha256:4a0db8f2695dcdab42db2e895553623d24d493cc35304426617df1450c3c177b |
+| polmem-279edc14 | REVIEWED | sha256:0b9206432135d8d22cf0a7a294480e1918a16f4817e567c461c2515a6f63e634 |
+| polmem-6fe998d0 | REVIEWED | sha256:151db577e9c3a8741274c663cbcb9fb9273872cb1e1850ae836edab9a80c9d11 |
+| polmem-30256203 | REVIEWED | sha256:bca1ea596a91122375b6187d3c9842bf71ac67f97ccd4550d22d91c7c075c911 |
+| polmem-a78ad3ea | REVIEWED | sha256:950166b21e3e9c217189e4b5b591a8905b3337c4cc03b06f3e55573793ee6b62 |
+| polmem-89851741 | REVIEWED | sha256:d4824648caee0ff93ce899f99f99093e2e6b5ada136e8fd2ad710c0119b8d69f |
+| polmem-c201636b | REVIEWED | sha256:1cba5984e9740460485dfd092a1584078824e9ce70c0468bd23ceda1090265d9 |
+| polmem-b76de4f1 | REVIEWED | sha256:5685d54197236ce3c0874f6cc4103427c2edd9c39a641e1ccd894b9c4b9b0bce |
+| polmem-2fc5cd04 | REVIEWED | sha256:7680ca12636a7f1028e084436eb506649b0769a79ddaa4e8adb4fb2ce7559603 |
+| polmem-8b5eb443 | REVIEWED | sha256:12e3de7c4eff8f73bcdc27149ea082871df29f6127518ba3c102815ec2cbf5c4 |
+| polmem-0ef434ad | REVIEWED | sha256:875abd113e040472909831eba3ffca5d95dc9aa587bc44a68e9b2671bf8661de |
+| polmem-ec77d9d6 | REVIEWED | sha256:c3bb545acff096e5a5b7503732db745a938c75f612d40d7bb1dbe8f6f8ad1338 |
+| polmem-033c0a43 | REVIEWED | sha256:7bec97f919849aafc2cb4a61c503f4f31700802a79690165e5bb88ba75a10ef1 |
+| polmem-1ca9523c | REVIEWED | sha256:a3785e2488e363e36b36ea6de4fbb41ec602440d1b14b886ab24eef39ed397b4 |
+| polmem-a130023c | REVIEWED | sha256:c0968a5cae6a72dfe435b30ad8507544dd2a01024e1f82d52da99e58504d0197 |
+| polmem-2398d2ea | REVIEWED | sha256:b80171538a46142cd1a59e65e218ba75a3ce5186370aa8fdff7ee995c68619f7 |
+| polmem-a92c47df | REVIEWED | sha256:395e08b44adc8d032530bc6f4af67ade9276bc05e51235e939aacbc3baca38fb |
+| polmem-903c17d3 | REVIEWED | sha256:e3e96bbd59d89a37a49269a84698f3823a170eb58a29f39fded32e5e09ec31bf |
+| polmem-69447cbd | REVIEWED | sha256:4cde8e18575b3b8d1acb4549d47ff50bbf0c3559b246d5ee8f42dd90d20abcb5 |
+| polmem-059c197f | REVIEWED | sha256:66ce957e2915c93110964bb540eb44bf0c201e5691cc503849d1a7e6db8befc2 |
+| polmem-8b24ac30 | REVIEWED | sha256:42714768efc3b0828faeddf662867ab66c4ae5a0c228a2504af3137b21b384fa |
+| polmem-b5cb7e01 | REVIEWED | sha256:5423f3c139ec044c10bb7a7ae51c0665d86415d99a9151bb16d0d081e9179107 |
+| polmem-9577b85b | REVIEWED | sha256:8fd9dee4ebe61bcc00b19c7e07e3c7fd70f8972a048bbbf83276492058222653 |
+| polmem-31692db1 | REVIEWED | sha256:ad08153c519ef5672688aba0bf5d90e76497a49159bbcec5cdd234a3f291bc25 |
+| polmem-d1f025c0 | REVIEWED | sha256:12f2da3dee45d7519b278f01c4483bce090c219286893918b9222189b6faacbc |
+| polmem-44a640b2 | REVIEWED | sha256:02b5fbfed129a9be4615781a1a7591bc8c51cf170c34667e6237f00739e96a89 |
+| polmem-825910b9 | REVIEWED | sha256:991fa1cb15193b6af43bcd45f1a0ed4282560802c4b69ddb9fd4afda9323f14b |
+| polmem-0b012b31 | REVIEWED | sha256:8d1138442b26a0491a79b8ef040a2880996969e32de4952ba76f7ea787cc9d67 |
+| polmem-1a5d32f7 | REVIEWED | sha256:bd60a4b3a2c935d6993ed8270c3442c8aa3e8a6de5fbc4f8919aa47c34494bb3 |
+| polmem-df4d08f8 | REVIEWED | sha256:74a52513a6cef741a4c45ca0d82cf7a419faba27279f701f3684cf70697dd04e |
+| polmem-c3231780 | REVIEWED | sha256:70effa13997fa80771605f6ff798216835727dfec76856ec9317e6d6100cb54c |
+| polmem-11a2c4d4 | REVIEWED | sha256:251b5c51d908ef1e2a7f935a6e5cae8319021bc43024f346afe23550825df532 |
+| polmem-a50d3d60 | REVIEWED | sha256:da56c85d2a900086100d02a2cda63c31f738ae482a10b6e3aeb044bea33ff13a |
+| polmem-dadc6ac9 | REVIEWED | sha256:f71c53e106cd2ad76d50bb7675e171c302156c39ba7d00b5b08fa45ab4c225bb |
+| polmem-a7259c9b | REVIEWED | sha256:a3fd64c12fae3377c7a98f51bcdfc45219e44d1811827b31a5cfd660ac56e5c3 |
+| polmem-3e77d049 | REVIEWED | sha256:d5babf167bc31a2f0252cf6ee5bd623e1c969c74672a703daac9894edf3aa8f0 |
+| polmem-f7a37200 | REVIEWED | sha256:29ebce5c5e8285cdc9be762149d43e80f54ece6c696b386ac5206c1cd99a9c56 |
+| polmem-c854a241 | REVIEWED | sha256:44d384a9973f5c3e8e27f403dbeb7422576db5b40283d08941083b9dfb5aeaf2 |
+| polmem-aee2d1f3 | REVIEWED | sha256:de2616cddcf2476fd911f841c84be49f051e409d80a8fb2bc02ca804093cf508 |
+| polmem-231d176b | REVIEWED | sha256:abad45a981fadda91df191cc2491b0d6068f5c5874a69d3a8bd15848d04adede |
+| polmem-b79609d6 | REVIEWED | sha256:ab713ccd07a1f1c100cf7affc7e737189407a5507f55026f36b3e937d99d30f1 |
+| polmem-51a76c35 | REVIEWED | sha256:6a0958c54fd34e91cd03ec617cbe11a418293c37bd66ee03f6b1922dedbc227c |
+| polmem-36a228a7 | REVIEWED | sha256:0e1370361bd6a12252e44e5790bbfd095b24c0e214e41e262f2034dd59169f49 |
+| polmem-a8f17613 | REVIEWED | sha256:79c656f73b6f30fc3b0aa026dc8d28fcb56a98e0e0e5265699d7595d7dc230c7 |
+| polmem-a0d6b1a0 | REVIEWED | sha256:2cd4090e7169181dcb054c34d643874ad8f2f3aa18fe238dbd12b29c2d079425 |
+| polmem-062d61d4 | REVIEWED | sha256:a056ca154835d30025ed131de3abc74bb46a1e851f677b96ca7fb60a9b095994 |
+
+本批原consumer的有界Node实测：加入候选但未绑定时，真实可选catalog保持332，91个本批目标被排除，16个旧projection witness实际报POLITICS_PROJECTION_SOURCE_REVISION_MISMATCH；绑定后catalog为423（politics-memory-36a885d0），原332对象逐值不变，本批史纲新增80、毛中特11可选，C00阻断。16章620条实际selector引用中史纲值全部不变；毛中特21个整precision组值变化、选中items数组不变。原guard、plan／snapshot、重放／supersession、篡改／stale、历史及Home Packet路径共91组隔离断言通过；现有repair-memory、memory-history-profile、cognitive-projection-assets校验通过。332条旧可选目标构造历史仍兼容，10条旧毛中特precision构造历史失效；C02 Source及C04答案修复保留ID但不沿用旧语义证据。所有计划、事件和Packet仅进程内Map；不是真实APPLIED、Recall或U。仅静态检查答案／checking／cue位于hidden reveal容器，不将Node代作Candidate／浏览器证据。最终Candidate／浏览器、main交付与P6仍未验证；无推送、合并或部署。

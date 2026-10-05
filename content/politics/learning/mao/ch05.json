@@ -57,9 +57,121 @@
       {
         "natural_unit_id": "POL27-CF-MAO-C05",
         "name": "四段接续角色",
-        "items": ["形成：邓小平理论", "跨世纪发展：‘三个代表’重要思想", "新世纪新阶段的新发展：科学发展观", "新时代新篇章：习近平新时代中国特色社会主义思想"],
+        "items": [
+          "形成：邓小平理论",
+          "跨世纪发展：‘三个代表’重要思想",
+          "新世纪新阶段的新发展：科学发展观",
+          "新时代新篇章：习近平新时代中国特色社会主义思想"
+        ],
         "learning_rule": "P0 identity active；每一阶段内部完整会议时间线不在本章一次背完。",
-        "source_refs": ["POL27-CF-MAO-C05-K02"]
+        "source_refs": [
+          "POL27-CF-MAO-C05-K02"
+        ],
+        "prompt": "请按中国特色社会主义理论体系的发展接续顺序，恢复邓小平理论、“三个代表”重要思想、科学发展观、习近平新时代中国特色社会主义思想各自对应的发展位置，完整给出四组配对。",
+        "checking_criteria": [
+          "四种理论成果与四种发展位置完整且一一对应；不把当前体系答成仅含前三项的封闭清单。",
+          "形成、跨世纪发展、新世纪新阶段的新发展、新时代新篇章的阶段限定不可串换；此题明确要求接续顺序。",
+          "标点及‘在新时代开辟新篇章’等同义语序可变；只答四个名字或只答四个角色均不完整。",
+          "不要求补每一理论内部内容、会议或年份；未主动说出接续不等于替换不扣漏项，但若明确说后者取消前者则诊断为模型错误。"
+        ],
+        "memory_cue": "教学助记，非Source：形成—跨世纪—新世纪新阶段—新时代，对应邓—三个代表—科学发展观—习近平新时代中国特色社会主义思想。短标签必须展开为四个完整理论名和完整发展位置，不能只背‘邓三科习’。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-MAO-C05-K01-TBL01",
+          "POL27-CF-MAO-C05-K02-N02",
+          "POL27-CF-MAO-C05-K02-N03",
+          "POL27-CF-MAO-C05-K02-N04"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册 PDF95–96／印刷94–95；原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca；C05原图由既有Mac task 01a1071f-3c5a-7462-a3c1-d1c982d95001 turn 01a10c19-812b-71c1-914f-e7a041b26bd2实际检查。本作者读取核图receipt与当前Source文字，并未新看原图。",
+          "review_ref": "content/politics/learning/mao/teaching-candidate/ch05.brief.md#c05-precision-review-20261005",
+          "prerequisite": "先完成同一brief C05-S01与C05-S04；四种理论和四段位置全部解释后，仍须独立审读和现行准入验证。本候选不得计划选择。",
+          "reviewed_target_revision": "sha256:44773ce0939fffe17049b88e293390119ad32c4a778332fd2ba460273611077a"
+        },
+        "id": "polmem-fc5125ab"
+      },
+      {
+        "natural_unit_id": "POL27-CF-MAO-C05",
+        "name": "理论体系形成发展的三类条件",
+        "id": "POL27-MEM-MAO-C05-M02",
+        "items": [
+          "国际背景：对国际形势深刻变化和世界发展新趋势的把握",
+          "历史条件：总结社会主义建设正反两方面经验，并科学判断我国发展历史方位",
+          "实践基础：党领导改革开放和社会主义现代化建设的生动实践"
+        ],
+        "learning_rule": "作者提出的FIRST_ROUND_EXACT候选；复用LEG26历史候选M02身份，以当前Chengfeng全文/核图重新校准三类条件及完整限定。独立审读未完成，不声称历史候选或当年手册已获准入。",
+        "source_refs": [
+          "POL27-CF-MAO-C05-K01",
+          "POL27-CF-MAO-C05-K01-TBL01"
+        ],
+        "prompt": "中国特色社会主义理论体系形成发展的三类社会历史条件各是什么？请把每类名称与其完整内容配对，保留历史条件中的两个方面。",
+        "checking_criteria": [
+          "三类均有且分类正确：国际背景、历史条件、实践基础。此题是并列分类，叙述次序可变。",
+          "国际背景同时包含国际形势深刻变化、世界发展新趋势及对其把握；不只答‘国际环境’。",
+          "历史条件同时包含总结社会主义建设正反两方面经验、科学判断我国发展历史方位；漏‘正反’或漏方位判断均不完整。",
+          "实践基础保留党领导、改革开放、社会主义现代化建设；同义改写可用，不需要逐字背原句。",
+          "不得把三个条件编成先后阶段或把国际变化直接当作理论自动生成的充分条件；不要求额外会议与年份。"
+        ],
+        "memory_cue": "教学分组，非Source：看世界（变化＋趋势）、看历史与位置（正反经验＋历史方位）、看正在做什么（党领导改革开放＋社会主义现代化建设）。这三问帮助恢复三类内容，‘世界—历史—实践’三个词本身不是合格答案。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-MAO-C05-K01-TBL01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册 PDF95–96／印刷94–95；原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca；C05原图由既有Mac task 01a1071f-3c5a-7462-a3c1-d1c982d95001 turn 01a10c19-812b-71c1-914f-e7a041b26bd2实际检查。本作者读取核图receipt与当前Source文字，并未新看原图。",
+          "review_ref": "content/politics/learning/mao/teaching-candidate/ch05.brief.md#c05-precision-review-20261005",
+          "prerequisite": "先完成brief C05-S02全部三类条件及并列关系；M02当前完整答案须经独立审读/准入验证。历史身份复用不代表其旧答案已自动更新到Website。",
+          "reviewed_target_revision": "sha256:1f2015f2732032af6fefd569f9fca5b020c4b6dc3e198ded996982fc98d18e33"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-MAO-C05",
+        "name": "邓小平理论形成阶段关键节点轴",
+        "items": [
+          "十一届三中全会：开启改革开放历史新时期，将工作重心转移到经济建设和现代化建设，开始拨乱反正。",
+          "十一届六中全会：完成拨乱反正。",
+          "党的十二大：提出走自己的道路、建设有中国特色的社会主义；从此中国特色社会主义成为党的全部理论和实践创新的主题。",
+          "党的十三大：第一次比较系统地论述社会主义初级阶段理论；明确概括和全面阐发一个中心、两个基本点的基本路线；第一次系统概括中国特色社会主义理论主要内容，标志着邓小平理论轮廓的形成。",
+          "南方谈话：标志着邓小平理论走向成熟。",
+          "党的十四大：明确建立社会主义市场经济体制的改革目标。",
+          "党的十五大：正式命名邓小平理论，把邓小平理论写入党章，确立为党的指导思想。"
+        ],
+        "learning_rule": "作者提出的FIRST_ROUND_EXACT候选；原active_structures同名关键节点轴已有六个定位点，补成明确问答并加入开始/完成的必要对照。不是全会议表逐字目标，不重复C01活的灵魂或C06基本路线/基本经济制度的完整目标。",
+        "source_refs": [
+          "POL27-CF-MAO-C05-K01-TBL01",
+          "POL27-CF-MAO-C05-K02-TBL01"
+        ],
+        "prompt": "请按给定顺序恢复七个节点的定位：十一届三中全会的历史转折、工作重心与拨乱反正进度；十一届六中全会的拨乱反正进度；十二大提出的主题；十三大在初级阶段理论、基本路线、理论主要内容三方面的工作及所标志的理论发展位置；南方谈话所标志的理论发展位置；十四大的改革目标；十五大对邓小平理论名称、党章和指导地位的三项定位。不要求年份或表内其他事项。",
+        "checking_criteria": [
+          "七个指定节点及对应答案均有，顺序与prompt一致；不以‘理论越来越成熟’概括替代具体定位。",
+          "三中全会须有改革开放开启、工作重心转移、开始拨乱反正；六中全会对应完成拨乱反正，开始/完成不可互换。",
+          "十二大对应中国特色社会主义主题；十三大三项须含初级阶段理论、基本路线、系统概括/理论轮廓形成，不把轮廓形成说成走向成熟。",
+          "南方谈话对应走向成熟，十四大对应建立社会主义市场经济体制改革目标，不互换帽子。",
+          "十五大命名、入章、指导思想三项完整；不能只答命名或把此时命名等同于此时才开始形成理论。",
+          "允许不改变以上限定的概括，不要求年份、逐字全表、六中全会其余三项、十四大贡献评价或十五大基本经济制度；遗漏未问项目不扣分。"
+        ],
+        "memory_cue": "教学助记，非Source：三中开改革开放—转工作重心—开始拨乱反正，六中完成拨乱反正；十二提出主题，十三初级阶段—基本路线—系统概括成轮廓；南方成熟，十四市场目标，十五命名—入章—指导。展开时把‘转工作重心’说成转向经济建设和现代化建设，并把各会议全名/理论对象还原。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-MAO-C05-K01-TBL01",
+          "POL27-CF-MAO-C05-K02-TBL01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册 PDF95–96／印刷94–95；原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca；C05原图由既有Mac task 01a1071f-3c5a-7462-a3c1-d1c982d95001 turn 01a10c19-812b-71c1-914f-e7a041b26bd2实际检查。本作者读取核图receipt与当前Source文字，并未新看原图。",
+          "review_ref": "content/politics/learning/mao/teaching-candidate/ch05.brief.md#c05-precision-review-20261005",
+          "prerequisite": "先完成brief C05-S03主文及补充、C05-S06节点边界；仅作者选定的七节点范围，须独立审读和现行producer/catalog验证。",
+          "reviewed_target_revision": "sha256:b4d5d1fe4d8e489d3c632c9a7c50b47ec9c77cc920f8ab4c66e3e258ec89c1f3"
+        },
+        "id": "polmem-f766e18d"
       }
     ],
     "active_boundaries": [

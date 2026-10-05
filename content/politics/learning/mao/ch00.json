@@ -51,9 +51,34 @@
       {
         "natural_unit_id": "POL27-CF-MAO-C00",
         "name": "两个结合",
-        "items": ["马克思主义基本原理同中国具体实际相结合", "马克思主义基本原理同中华优秀传统文化相结合"],
+        "items": [
+          "马克思主义基本原理同中国具体实际相结合",
+          "马克思主义基本原理同中华优秀传统文化相结合"
+        ],
         "learning_rule": "P0 固定身份必须可识别；第一轮理解它是根本途径，不扩成导论全文背诵。",
-        "source_refs": ["POL27-CF-MAO-C00-K01-N05"]
+        "source_refs": [
+          "POL27-CF-MAO-C00-K01-N05"
+        ],
+        "id": "polmem-39855302",
+        "prompt": "推进马克思主义中国化时代化的根本途径是什么？完整恢复两个结合的共同主语及两项结合对象。",
+        "checking_criteria": [
+          "两项均有，共同主语马克思主义基本原理不可丢。",
+          "中国具体实际与中华优秀传统文化两项对象不串换，不漏优秀限定。",
+          "允许不改变含义的语序；不要求会议、年份或内涵完整长段。"
+        ],
+        "memory_cue": "教学助记，非Source；无提示回答后再显示：同一个基本原理，落到中国的实际与优秀文化。必须展开共同主语和两项完整对象。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-MAO-C00-K01-N05"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册PDF73／印刷72，K01-N05，Markdown106–107行，页顶第5项至下一考点前。文字与实际原图均仅有“根本途径是两个结合”标题，没有共同主语和两项对象完整句。本轮明确未解除：完整两项Source支持仍BLOCKED，原Current答案仅保留，不据此转REVIEWED或进入producer可验准入。既有Mac任务01a1071f-3c5a-7462-a3c1-d1c982d95001，turn 01a10d34-e299-739a-9b55-d4205cc87bc9；原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca。该reader实际核图，本作者仅读取2026-10-05 18:06有界receipt，未本人新看像素；Source核清不等于准入。",
+          "review_ref": "content/politics/learning/mao/teaching-candidate/ch00.brief.md#c00-precision-review-20261005",
+          "prerequisite": "T01/T02已实际解释一般原理、实践/文化落点与两个结合；未知学习位置不能推定完成。 本次完整payload仍须独立审读、现行producer签名与consumer验证；原身份不等于新增handoff已准入。 2026-10-05 PDF73实际核图仍缺完整两项；该Source blocker解除前，本目标不得转为REVIEWED或可选。"
+        }
       }
     ],
     "active_boundaries": [

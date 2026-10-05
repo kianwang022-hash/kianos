@@ -49,5 +49,269 @@
     "timeline": ["大革命失败", "独立武装斗争", "土地革命和根据地建设", "农村革命道路形成", "错误路线和反围剿失利", "长征", "遵义会议"],
     "stage_shift": "城市革命受挫 → 独立武装斗争 → 农村根据地积累力量 → 新道路形成 → 路线错误造成危机 → 长征和遵义会议 → 革命领导走向成熟",
     "review_prompt": "闭卷回答：为什么农村包围城市不是一个预先设计好的公式，而是大革命失败后在中国实际和革命实践中逐步形成的道路？"
+  },
+  "content_support": {
+    "active_precision": [
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C05-S01",
+        "name": "起义旗帜区别",
+        "items": [
+          "南昌起义：国民革命军。",
+          "秋收起义：工农革命军。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C05-K02-N03-I02",
+          "POL27-CF-HISTORY-C05-K02-N03-TIP01"
+        ],
+        "prompt": "本章区分南昌起义所用军队番号与秋收起义公开旗帜，它们分别是什么？",
+        "checking_criteria": [
+          "两起义与番号准确配对；勿因同由共产党领导便把番号合为同一。允许顺序交换，不要求领导人全名单。"
+        ],
+        "memory_cue": "教学对照：先按事件分两格，再恢复各自名称；政治领导与当时番号分开。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C05-K02-N03-I02",
+          "POL27-CF-HISTORY-C05-K02-N03-TIP01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 35；c05.json blob 993a7ce72ae4fceda04f3fcacc2ed2dba2d592f8；refs：POL27-CF-HISTORY-C05-K02-N03-I02；POL27-CF-HISTORY-C05-K02-N03-TIP01。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch05.brief.md；先教本brief“武装抵抗怎样转化为新的力量组织”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:c9a66d5283a9978f7c8ace384f07d697bb8a4d6809b7cd94c106b31a5ea63652"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C05-S02",
+        "name": "长征直接原因两条件",
+        "items": [
+          "第五次反围剿作战遭到失败。",
+          "已无在原地扭转战局的可能。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C05-K05-N01-O02-I01",
+          "POL27-CF-HISTORY-C05-K05-N01-O02-I02"
+        ],
+        "prompt": "按本章，中央红军被迫长征的直接原因包括哪两个相连条件？",
+        "checking_criteria": [
+          "第五次反围剿失败与原地不能扭转两项齐；“为了抗日”不能替代直接原因，不要求另述全部路线错误。"
+        ],
+        "memory_cue": "教学助记：战局已败，原地不能挽回，因此转移；两条件不能只留“失败”。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C05-K05-N01-O02-I01",
+          "POL27-CF-HISTORY-C05-K05-N01-O02-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 39；c05.json blob 993a7ce72ae4fceda04f3fcacc2ed2dba2d592f8；refs：POL27-CF-HISTORY-C05-K05-N01-O02-I01；POL27-CF-HISTORY-C05-K05-N01-O02-I02。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch05.brief.md；先教本brief“根据地建设取得发展，为什么又会出现严重挫折”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:be45e1d0f74533938e1a1b2e5e25bc4993876d6e0db5b0b9582ec6452d9ea4ee"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C05-S02",
+        "name": "遵义问题与特点",
+        "items": [
+          "军事问题和组织问题。",
+          "坚持真理、修正错误。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C05-K05-N01-I01",
+          "POL27-CF-HISTORY-C05-K05-N03"
+        ],
+        "prompt": "遵义会议集中解决当时哪两类具有决定意义的问题？其鲜明特点是什么？",
+        "checking_criteria": [
+          "两类问题与双项特点完整；不能答已经全面解决政治路线或思想路线。顺序可换；人事全名单不在题面。"
+        ],
+        "memory_cue": "教学助记：解决什么看军事/组织，怎样纠错看坚持真理/修正错误；对象与态度分栏。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C05-K05-N01-I01",
+          "POL27-CF-HISTORY-C05-K05-N03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 39；c05.json blob 993a7ce72ae4fceda04f3fcacc2ed2dba2d592f8；refs：POL27-CF-HISTORY-C05-K05-N01-I01；POL27-CF-HISTORY-C05-K05-N03。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch05.brief.md；先教本brief“遵义会议解决最急的问题，并非当场解决全部路线问题”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:3eeb22e5fe7858587b6fd957d4ee32445b52050871cf687f0d422e7e79a7a6b2"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C05-S02",
+        "name": "长征精神五方面",
+        "items": [
+          "把全国人民和中华民族根本利益看得高于一切，坚定革命理想信念，坚信正义事业必然胜利。",
+          "为救国救民，不怕任何艰难险阻，不惜付出一切牺牲。",
+          "独立自主、实事求是，一切从实际出发。",
+          "顾全大局、严以律己、紧密团结。",
+          "紧紧依靠人民群众，同人民群众生死相依、患难与共、艰苦奋斗。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C05-K05-N04-I01",
+          "POL27-CF-HISTORY-C05-K05-N04-I02",
+          "POL27-CF-HISTORY-C05-K05-N04-I03",
+          "POL27-CF-HISTORY-C05-K05-N04-I04",
+          "POL27-CF-HISTORY-C05-K05-N04-I05"
+        ],
+        "prompt": "按本章长征精神的五方面完整恢复其内容。可保义释义，但每方面关键关系都应保留。",
+        "checking_criteria": [
+          "五方面均须完整；不可只列信念、牺牲、自主、团结、群众五标签。保义释义/换序可；第三项实事求是与第五项依靠群众不可漏，第一项须有人民民族根本利益和信念。"
+        ],
+        "memory_cue": "教学助记，非标准答案：①人民民族根本利益在先，坚定理想信念、相信正义胜利；②救国救民，难险不惧、牺牲不惜；③独立自主判断，实事求是、从实际出发；④顾全大局、严己、团结；⑤依靠群众，与群众生死患难相共、艰苦奋斗。沿原五方面逐项展开，不以五个短标签替代答案。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C05-K05-N04-I01",
+          "POL27-CF-HISTORY-C05-K05-N04-I02",
+          "POL27-CF-HISTORY-C05-K05-N04-I03",
+          "POL27-CF-HISTORY-C05-K05-N04-I04",
+          "POL27-CF-HISTORY-C05-K05-N04-I05"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 40；c05.json blob 993a7ce72ae4fceda04f3fcacc2ed2dba2d592f8；refs：POL27-CF-HISTORY-C05-K05-N04-I01；POL27-CF-HISTORY-C05-K05-N04-I02；POL27-CF-HISTORY-C05-K05-N04-I03；POL27-CF-HISTORY-C05-K05-N04-I04；POL27-CF-HISTORY-C05-K05-N04-I05。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch05.brief.md；先教本brief“长征胜利为什么有两个结束节点”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:84c7bed8c07e6346dbed22a359c5f595b30a15f5fe866738e620890f7cd49929"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C05-S02",
+        "name": "三组总结文章对象",
+        "items": [
+          "《论反对日本帝国主义的策略》：党的政治策略问题。",
+          "《中国革命战争的战略问题》：中国革命战争战略问题。",
+          "《实践论》《矛盾论》：党的马克思主义思想路线，论证马克思列宁主义基本原理同中国具体实际相结合。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C05-K07-N01",
+          "POL27-CF-HISTORY-C05-K07-N01-I02",
+          "POL27-CF-HISTORY-C05-K07-N02",
+          "POL27-CF-HISTORY-C05-K07-N02-I02",
+          "POL27-CF-HISTORY-C05-K07-N03",
+          "POL27-CF-HISTORY-C05-K07-N03-I02"
+        ],
+        "prompt": "《论反对日本帝国主义的策略》《中国革命战争的战略问题》《实践论》《矛盾论》这三组作品，各系统说明或科学阐明什么问题？",
+        "checking_criteria": [
+          "三组书名与政治/战争战略/思想路线对应；第三组两部作品保留且理论实际结合关系完整。不能把三类全换为军事路线；不问报告会场或日期，亦不按有争议TIP给会场答案。"
+        ],
+        "memory_cue": "教学助记：策略问联合与政治，战争问战略，实践/矛盾回理论结合中国实际；书名仍须完整对应。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C05-K07-N01",
+          "POL27-CF-HISTORY-C05-K07-N01-I02",
+          "POL27-CF-HISTORY-C05-K07-N02",
+          "POL27-CF-HISTORY-C05-K07-N02-I02",
+          "POL27-CF-HISTORY-C05-K07-N03",
+          "POL27-CF-HISTORY-C05-K07-N03-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 40；c05.json blob 993a7ce72ae4fceda04f3fcacc2ed2dba2d592f8；refs：POL27-CF-HISTORY-C05-K07-N01；POL27-CF-HISTORY-C05-K07-N01-I02；POL27-CF-HISTORY-C05-K07-N02；POL27-CF-HISTORY-C05-K07-N02-I02；POL27-CF-HISTORY-C05-K07-N03；POL27-CF-HISTORY-C05-K07-N03-I02。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch05.brief.md；先教本brief“总结经验怎样连向抗日新局面”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:7467fbaa46630e2a6922ce0c1df909f29faef16be98e43f1094f6c4f840f5b2f"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C05-S01",
+        "name": "南京政府与东北易帜日期",
+        "items": [
+          "南京国民政府成立：1927年4月18日。",
+          "张学良东北易帜：1928年12月29日。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C05-K01-N01-I01",
+          "POL27-CF-HISTORY-C05-K01-N01-I02"
+        ],
+        "prompt": "南京国民政府成立与张学良东北易帜的日期分别是什么？",
+        "checking_criteria": [
+          "两事件年月日准确，不因章节并列而写为同年；题面不要求复述通告或由日期推出国情改变。"
+        ],
+        "memory_cue": "教学对照：政府先立于1927，东北易帜在1928年底；还须还原4月18日与12月29日，年份提示不够。 有提示补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C05-K01-N01-I01",
+          "POL27-CF-HISTORY-C05-K01-N01-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 34；c05.json blob 993a7ce72ae4fceda04f3fcacc2ed2dba2d592f8；refs：POL27-CF-HISTORY-C05-K01-N01-I01；POL27-CF-HISTORY-C05-K01-N01-I02。仅核本题所需清楚文字，不用截断尾部/疑字/表图/红答案。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch05.brief.md；先教本brief“新阶段并不意味着任务和革命性质全部换掉”，再回本章固定spine。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:4a0db8f2695dcdab42db2e895553623d24d493cc35304426617df1450c3c177b"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C05-S01",
+        "name": "边界首个红色政权",
+        "items": [
+          "茶陵县工农兵政府，1927年11月成立。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C05-K03-N01-I01"
+        ],
+        "prompt": "本章所称边界第一个红色政权是什么，何时成立？",
+        "checking_criteria": [
+          "名称、年月与“边界第一个”范围完整；题面已给范围不必重复。不能换成井冈山第一个农村根据地或全国第一个工农民主政权。"
+        ],
+        "memory_cue": "教学对照：政权机关是茶陵县工农兵政府；根据地的地理与制度对象不要当同一问。 有提示补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C05-K03-N01-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 35；c05.json blob 993a7ce72ae4fceda04f3fcacc2ed2dba2d592f8；refs：POL27-CF-HISTORY-C05-K03-N01-I01。仅核本题所需清楚文字，不用截断尾部/疑字/表图/红答案。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch05.brief.md；先教本brief“农村根据地不是退到偏远处等待”，再回本章固定spine。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:0b9206432135d8d22cf0a7a294480e1918a16f4817e567c461c2515a6f63e634"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C05-S02",
+        "name": "中华苏维埃政权制度性质",
+        "items": [
+          "工农兵代表大会制度；工农民主专政。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C05-K04-N01-I02"
+        ],
+        "prompt": "中华苏维埃共和国实行什么代表制度，政权性质是什么？",
+        "checking_criteria": [
+          "制度与性质两对象准确对应；不能把制度写成后来现行全国人民代表大会制度，也不能把局部执政写成已统治全中国。未问成立时间，不额外扣。"
+        ],
+        "memory_cue": "教学助记：制度问怎样代表，性质问什么政权；工农兵代表与工农民主分别归位。 有提示补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C05-K04-N01-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 38；c05.json blob 993a7ce72ae4fceda04f3fcacc2ed2dba2d592f8；refs：POL27-CF-HISTORY-C05-K04-N01-I02。仅核本题所需清楚文字，不用截断尾部/疑字/表图/红答案。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch05.brief.md；先教本brief“根据地建设取得发展，为什么又会出现严重挫折”，再回本章固定spine。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:151db577e9c3a8741274c663cbcb9fb9273872cb1e1850ae836edab9a80c9d11"
+        }
+      }
+    ]
   }
 }

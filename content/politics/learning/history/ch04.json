@@ -107,5 +107,272 @@
     ],
     "stage_shift": "旧民主主义革命受挫 → 思想解放与十月革命提供新的方向 → 新阶级力量出现 → 五四成为阶段转换 → 马克思主义与工人运动结合 → 新的领导力量形成 → 全国革命高涨 → 大革命失败 → 革命道路问题被推到中心",
     "review_prompt": "不要只回答‘五四有什么意义’。闭卷说明：为什么从辛亥革命失败到大革命失败这段历史，实际上完成了中国革命思想武器、阶级力量和领导力量的更替？"
+  },
+  "content_support": {
+    "active_precision": [
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C04-S01",
+        "name": "新文化开始阵地口号",
+        "items": [
+          "1915年9月，陈独秀在上海创办《青年杂志》，后改称《新青年》，是开始标志。",
+          "主要阵地：《新青年》杂志、北京大学。",
+          "基本口号：民主、科学。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C04-K01-N01-I01",
+          "POL27-CF-HISTORY-C04-K01-N01-I02",
+          "POL27-CF-HISTORY-C04-K01-N01-I05"
+        ],
+        "prompt": "新文化运动的开始标志、主要阵地和基本口号分别是什么？",
+        "checking_criteria": [
+          "开始的人时地刊物与后改名、两个阵地、两个口号完整；阵地不能答民主科学，口号不能答北大。仅恢复题目三种对象，不问主要武器。"
+        ],
+        "memory_cue": "教学助记：事件开场、传播地点、倡导内容三栏；不要把不同栏互换。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C04-K01-N01-I01",
+          "POL27-CF-HISTORY-C04-K01-N01-I02",
+          "POL27-CF-HISTORY-C04-K01-N01-I05"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 25；c04.json blob ffc173655b56e56db4ba3f12088e5f141b201be3；refs：POL27-CF-HISTORY-C04-K01-N01-I01；POL27-CF-HISTORY-C04-K01-N01-I02；POL27-CF-HISTORY-C04-K01-N01-I05。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch04.brief.md；先教本brief“新文化运动先冲击什么，为什么仍需要新的思想与实践”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:a9396d676a9495f8b0ade388f3f63d651c78b56967b03fca040736b29cad7581"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C04-K05",
+        "name": "早期马克思主义者三来源",
+        "items": [
+          "五四以前新文化运动的精神领袖：李大钊、陈独秀。",
+          "五四爱国运动左翼骨干：毛泽东、周恩来等，是主体部分。",
+          "一部分原同盟会会员、辛亥革命时期活动家：董必武、林伯渠、吴玉章。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C04-K05-N01-I01",
+          "POL27-CF-HISTORY-C04-K05-N01-I02",
+          "POL27-CF-HISTORY-C04-K05-N01-I03"
+        ],
+        "prompt": "本章早期马克思主义者有哪三类来源？各举原文代表，并指出哪一类是主体。",
+        "checking_criteria": [
+          "三类与代表准确配对；每类举一位即满足“各举代表”，不要求全列；主体须为五四左翼骨干。把先驱与主体混淆或遗漏一类均不全对。"
+        ],
+        "memory_cue": "教学助记：前期领袖、五四左翼、辛亥旧人；主体在中间一类，代表须回到各类。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C04-K05-N01-I01",
+          "POL27-CF-HISTORY-C04-K05-N01-I02",
+          "POL27-CF-HISTORY-C04-K05-N01-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 27；c04.json blob ffc173655b56e56db4ba3f12088e5f141b201be3；refs：POL27-CF-HISTORY-C04-K05-N01-I01；POL27-CF-HISTORY-C04-K05-N01-I02；POL27-CF-HISTORY-C04-K05-N01-I03。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch04.brief.md；先教本brief“理论传播怎样转为实际组织”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:b9c912c068d6b6cac50f1ec2ab83af33f4008866c61173d7d6139c4f6466413e"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C04-K06",
+        "name": "早期组织三类工作",
+        "items": [
+          "研究和宣传马克思主义，研究中国实际问题。",
+          "到工人中进行宣传和组织工作。",
+          "研究建党问题并进行实际组织工作。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C04-K06-N02-I01",
+          "POL27-CF-HISTORY-C04-K06-N02-I02",
+          "POL27-CF-HISTORY-C04-K06-N02-I03"
+        ],
+        "prompt": "中国共产党早期组织的三类相联工作是什么？不另要求青年团成立时间。",
+        "checking_criteria": [
+          "三类完整；第一类理论/中国实际都要，第二类工人对象与宣传组织都要，第三类不能只研究不实际组织。换序保义可。"
+        ],
+        "memory_cue": "教学助记：理论联系实际、走入工人、形成党组织；三个方向都要有行动。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C04-K06-N02-I01",
+          "POL27-CF-HISTORY-C04-K06-N02-I02",
+          "POL27-CF-HISTORY-C04-K06-N02-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 28；c04.json blob ffc173655b56e56db4ba3f12088e5f141b201be3；refs：POL27-CF-HISTORY-C04-K06-N02-I01；POL27-CF-HISTORY-C04-K06-N02-I02；POL27-CF-HISTORY-C04-K06-N02-I03。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch04.brief.md；先教本brief“理论传播怎样转为实际组织”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:04fffe507aaf062e240f84906e326baa1d9bff7280e7e91a84b09b29e9c938f3"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C04-K07",
+        "name": "一大时地与实际工作",
+        "items": [
+          "1921年7月23日，在上海召开。",
+          "首先集中精力组织工人。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C04-K07-N01",
+          "POL27-CF-HISTORY-C04-K07-N01-I02"
+        ],
+        "prompt": "中共一大何时何地召开？讨论实际工作计划时决定首先集中精力做什么？",
+        "checking_criteria": [
+          "日期地点准确，实际工作为组织工人，不能替成1922二大阶段纲领或农村根据地。题面未问完整一大纲领，不另扣。"
+        ],
+        "memory_cue": "教学助记：建党起点加当时第一件实际工作；远大目标不替代眼前工作。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C04-K07-N01",
+          "POL27-CF-HISTORY-C04-K07-N01-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 28、29；c04.json blob ffc173655b56e56db4ba3f12088e5f141b201be3；refs：POL27-CF-HISTORY-C04-K07-N01；POL27-CF-HISTORY-C04-K07-N01-I02。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch04.brief.md；先教本brief“建党解决了什么，又没有立即解决什么”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:6b376acb7d71c02e706e09aa1fdf5c151a1494bb1dc24babdc3c10dc3e7f4d29"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C04-S03",
+        "name": "新三民主义三内容",
+        "items": [
+          "民族主义突出反帝：对外实行中华民族独立，国内各民族一律平等。",
+          "民权主义强调民主权利为一般平民共有，不为少数人私有。",
+          "民生主义概括为平均地权、节制资本并改善工农生活；耕者有其田为后续增加的主张。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C04-K09-N02-I01",
+          "POL27-CF-HISTORY-C04-K09-N02-I02",
+          "POL27-CF-HISTORY-C04-K09-N02-I03"
+        ],
+        "prompt": "按本章1924年国民党一大新解释，民族、民权、民生三项各强调什么？民生后续增项需与当次概括分开。",
+        "checking_criteria": [
+          "三主义对象配对，民族两向、民权一般平民、民生两原则与生活改善完整；后续增项不得压成大会同一时点提出。三政策不是此题答案，换序保义可。"
+        ],
+        "memory_cue": "教学助记：民族对外/对内，民权归谁，民生地权/资本/生活；另挂“后增耕者有其田”的时间尾签。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C04-K09-N02-I01",
+          "POL27-CF-HISTORY-C04-K09-N02-I02",
+          "POL27-CF-HISTORY-C04-K09-N02-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 31；c04.json blob ffc173655b56e56db4ba3f12088e5f141b201be3；refs：POL27-CF-HISTORY-C04-K09-N02-I01；POL27-CF-HISTORY-C04-K09-N02-I02；POL27-CF-HISTORY-C04-K09-N02-I03。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch04.brief.md；先教本brief“从阶段纲领、工农运动走向第一次国共合作”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:15357cc38a0ab3fe18f41e4e8f91dbfd657925a008ec71c1bb769860c467ad62"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C04-S03",
+        "name": "大革命失败标志尺度",
+        "items": [
+          "四一二反革命政变、七一五反革命政变。",
+          "反帝反封建任务未完成，半殖民地半封建国情未改变。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C04-K11-N01",
+          "POL27-CF-HISTORY-C04-K11-N01-TIP01"
+        ],
+        "prompt": "大革命失败的两个标志事件是什么？本章的失败主要按什么标准判断？",
+        "checking_criteria": [
+          "两事件与两尺度齐；不要求题面未问年份，不能把未完成任务改成以前全无成果。提示中的明确文字只支持失败尺度，不读取红字答案。"
+        ],
+        "memory_cue": "教学助记：两个政变看破裂，任务和国情看失败尺度，别用结果抹去过程。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C04-K11-N01",
+          "POL27-CF-HISTORY-C04-K11-N01-TIP01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 32；c04.json blob ffc173655b56e56db4ba3f12088e5f141b201be3；refs：POL27-CF-HISTORY-C04-K11-N01；POL27-CF-HISTORY-C04-K11-N01-TIP01。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch04.brief.md；先教本brief“大革命失败，为什么仍产生了下一阶段的条件”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:8774df7496102db95e8499956470087b4fe01ac3d8d2cfddad69b6ab63d09081"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C04-S01",
+        "name": "李大钊作品作用两组",
+        "items": [
+          "《法俄革命之比较观》：第一次正确阐述十月革命性质。",
+          "《庶民的胜利》《布尔什维主义的胜利》：揭示一战本质，歌颂十月革命、布尔什维主义的胜利。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C04-K02-N02-I01",
+          "POL27-CF-HISTORY-C04-K02-N02-I02"
+        ],
+        "prompt": "按本章，李大钊哪篇作品首次正确阐述十月革命性质？哪两篇揭示一战本质并歌颂十月革命、布尔什维主义的胜利？",
+        "checking_criteria": [
+          "三书名与两组作用配对；第二组双篇不漏。只说马克思主义传播不足。题面不问《我的马克思主义观》完整内容与发表时间，不补入未经完整Source核验之项。"
+        ],
+        "memory_cue": "教学对照：比较观辨性质；两部胜利评战争与革命；“胜利”二字不能吞掉其中一本。 有提示补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C04-K02-N02-I01",
+          "POL27-CF-HISTORY-C04-K02-N02-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 26；c04.json blob ffc173655b56e56db4ba3f12088e5f141b201be3；refs：POL27-CF-HISTORY-C04-K02-N02-I01；POL27-CF-HISTORY-C04-K02-N02-I02。仅核本题所需清楚文字，不用截断尾部/疑字/表图/红答案。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch04.brief.md；先教本brief“十月革命提供了什么新吸引力”，再回本章固定spine。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:c363b02a3a7344fa159eed17bcc0a321f20ff6eb585c4bc470f57e980dfec790"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C04-K06",
+        "name": "建党早期三种组织定位",
+        "items": [
+          "最早酝酿建党：陈独秀、李大钊。",
+          "最早学习研究马克思主义的团体：李大钊在北京大学组织的马克思学说研究会。",
+          "第一个共产党早期组织：1920年8月在上海《新青年》编辑部成立。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C04-K06-N01-I01",
+          "POL27-CF-HISTORY-C04-K06-N01-I02",
+          "POL27-CF-HISTORY-C04-K06-N01-I03"
+        ],
+        "prompt": "按本章课程，谁最早酝酿在中国建党？最早学习研究马克思主义的团体是什么、由谁在哪里组织？第一个共产党早期组织于何时何地成立？",
+        "checking_criteria": [
+          "两酝酿者、研究会人/地点/名称、早期党组织时地完整；研究团体不等于党组织，1920早期组织不等于1921全国代表大会。最早定位限本章课程，不扩成无例外全球史判断。"
+        ],
+        "memory_cue": "教学分层：先酝酿、研究会学理论、早期党组织形成；每层用题面要求的人/时/地核对，不用一个“成立”含混三事。 有提示补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C04-K06-N01-I01",
+          "POL27-CF-HISTORY-C04-K06-N01-I02",
+          "POL27-CF-HISTORY-C04-K06-N01-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 28；c04.json blob ffc173655b56e56db4ba3f12088e5f141b201be3；refs：POL27-CF-HISTORY-C04-K06-N01-I01；POL27-CF-HISTORY-C04-K06-N01-I02；POL27-CF-HISTORY-C04-K06-N01-I03。仅核本题所需清楚文字，不用截断尾部/疑字/表图/红答案。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch04.brief.md；先教本brief“理论传播怎样转为实际组织”，再回本章固定spine。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:386754d75113b88efe3225db0590077a83dad71e0e012b1e83d3450714f1bd0a"
+        }
+      }
+    ]
   }
 }

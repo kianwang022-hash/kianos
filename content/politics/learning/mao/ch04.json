@@ -75,16 +75,72 @@
       {
         "natural_unit_id": "POL27-CF-MAO-C04-S01",
         "name": "《论十大关系》基本方针",
-        "items": ["调动一切积极因素为社会主义事业服务"],
+        "items": [
+          "调动一切积极因素为社会主义事业服务"
+        ],
         "learning_rule": "P0 identity；先稳定帽子与对象，不要求背十大关系完整清单。",
-        "source_refs": ["POL27-CF-MAO-C04"]
+        "source_refs": [
+          "POL27-CF-MAO-C04"
+        ],
+        "id": "polmem-a6a741bb",
+        "prompt": "《论十大关系》确定的基本方针是什么？用一句话答出所调动的因素及服务对象，不要求列党内党外等细分范围。",
+        "checking_criteria": [
+          "一切、积极因素、社会主义事业三个限定齐全。",
+          "不能以正确处理人民内部矛盾、经济建设方针或向科学进军替代。",
+          "不要求列十项关系或党内党外等细分范围；允许不改变原句含义的语序。"
+        ],
+        "memory_cue": "教学助记，非Source；无提示回答后再显示：把积极力量集中到社会主义事业。必须还原一切积极因素及社会主义事业服务对象。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-MAO-C04-S01-TBL01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册PDF91／印刷90，准确正文/表owner POL27-CF-MAO-C04-S01-TBL01；Markdown1271–1272、1282–1286行，考点1内容（2）及下方方针行。实际像素的正文“即调动一切积极因素为社会主义事业服务”和表内独立方针行均支持现有答案；党内党外的党已核清，但不把未问细分范围变成评分要求。依据正文及方针栏，不是题目选项；不另造K01身份、不扩92–95页。本组原source_refs章节点为稳定身份保留，inspected_refs准确落实际节点。既有Mac任务01a1071f-3c5a-7462-a3c1-d1c982d95001，turn 01a10d34-e299-739a-9b55-d4205cc87bc9；原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca。该reader实际核图，本作者仅读取2026-10-05 18:06有界receipt，未本人新看像素；Source核清不等于准入。",
+          "review_ref": "content/politics/learning/mao/teaching-candidate/ch04.brief.md#c04-precision-review-20261005",
+          "prerequisite": "T01/T03已实际分清论十大关系基本方针与八大经济建设方针。 本次完整payload仍须独立审读、现行producer签名与consumer验证；原身份不等于新增handoff已准入。",
+          "reviewed_target_revision": "sha256:3a5c236e15c0a3ed337c2c50fe9622f97999f6c55d6ecb90568894806a56a12c"
+        }
       },
       {
         "natural_unit_id": "POL27-CF-MAO-C04-S01",
         "name": "中国工业化道路要求",
-        "items": ["乘风将具体要求组织为‘三个必须’", "第一轮先理解其共同目标：从中国实际出发协调工业农业、国家集体个人及中央地方等建设关系"],
-        "learning_rule": "backend 保留结构存在；三个必须完整长句留乘风，后续题证据再决定精确背诵。",
-        "source_refs": ["POL27-CF-MAO-C04-K03-N02"]
+        "items": [
+          "必须采取正确的经济建设方针：既反保守又反冒进、在综合平衡中稳步前进。",
+          "必须调整和完善所有制结构。",
+          "必须积极探索适合我国情况的经济体制和运行机制。"
+        ],
+        "learning_rule": "原中国工业化道路要求同ID补实三个必须，FIRST_ROUND_EXACT候选；T03/T05解释后可准备提取，当前PENDING_REVIEW，未获catalog/计划准入。其余未核长段、措施与全表仍保留局部Source限制。",
+        "source_refs": [
+          "POL27-CF-MAO-C04-K03-N02"
+        ],
+        "id": "polmem-ec061757",
+        "prompt": "走中国工业化道路的三个必须分别是什么？完整恢复三项要求，并展开第一项所含党的八大经济建设方针；不要求补第二、三项未展开的具体措施。",
+        "checking_criteria": [
+          "三项完整，第一项同时保留反保守/反冒进以及综合平衡/稳步前进，不能只答求快或只答保守。",
+          "第二项须有调整和完善、所有制结构。",
+          "第三项须有适合我国情况、经济体制和运行机制，不缩成第二项。",
+          "允许不改变限定的语序或标点，三条为并列要求，叙述次序可变。",
+          "本题不要求十大关系十项、两条腿具体配对或所有制措施完整列表。"
+        ],
+        "memory_cue": "教学助记，非Source；无提示回答后再显示：定方针—调结构—探机制。展开方针两头防偏并综合平衡稳步前进；结构是所有制结构；机制须适合我国情况，并连同经济体制。短串不算合格答案。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-MAO-C04-K03-N02-I01",
+          "POL27-CF-MAO-C04-K03-N02-I02",
+          "POL27-CF-MAO-C04-K03-N02-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册，PDF93／印刷92；三条当前完整文字均已读取，第一条含八大经济建设方针。保留原父source_refs，inspected_refs指三个子项；不借邻近题面红答案、两条腿全表或逐字长段证明。 本作者读取当前Source文字与原Current/brief；未新看原图。",
+          "review_ref": "content/politics/learning/mao/teaching-candidate/ch04.brief.md#c04-precision-review-20261005",
+          "prerequisite": "T03及T05中两种方针、所有制结构与体制/运行机制的区别已实际解释；未知学习位置不能自动建计划。 本次完整payload仍须独立审读、现行producer签名与consumer验证；原身份不等于新增handoff已准入。",
+          "reviewed_target_revision": "sha256:1bca84d86e7e159b8ed3ed627d5d907eeec0e27ee510c6ce0ba9efe3688667b6"
+        }
       }
     ],
     "active_boundaries": [
@@ -99,7 +155,7 @@
         "source_refs": ["POL27-CF-MAO-C04-K02"]
       }
     ],
-    "source_primary_detail": "十大关系十项全表、人民内部矛盾各领域具体方针、中国工业化‘三个必须’完整长句和其他理论成果清单继续由乘风正文承载。"
+    "source_primary_detail": "十大关系十项全表、人民内部矛盾各领域具体方针和其他理论成果清单继续由乘风正文承载；中国工业化三个必须的已读文字已回填原precision候选，未获准入；邻近两条腿全表、具体措施和未核长段仍不扩展。"
   },
   "chapter_compression": {
     "reconstruction": "社会主义制度建立 → 独立探索建设道路 → 《论十大关系》/调动一切积极因素 → 社会主义社会矛盾理论 → 中国工业化道路 → 成果与曲折 → 正反经验成为后续改革开放的重要基础",

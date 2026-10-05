@@ -92,5 +92,326 @@
     "timeline": ["日本侵华升级", "抗日救亡运动", "抗日民族统一战线形成", "全面抗战", "正面战场与敌后战场", "持久战和根据地建设", "长期坚持", "抗战胜利", "台湾及澎湖列岛重归中国主权管辖"],
     "stage_shift": "民族危机升级 → 全国联合抗日 → 两大战场长期战争 → 中国共产党组织群众并发展敌后力量 → 民族精神、党的中流砥柱作用、全民族抗战和国际支援共同汇入胜利 → 战后中国前途问题重新成为中心",
     "review_prompt": "闭卷回答三个问题：为什么抗日战争必须靠全民族共同抗战？为什么中国共产党在其中发挥了中流砥柱作用？抗战胜利又为什么不仅是一次军事胜利？"
+  },
+  "content_support": {
+    "active_precision": [
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C06-S04",
+        "name": "抗战三个战略阶段",
+        "items": [
+          "战略防御阶段→战略相持阶段→战略反攻阶段。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C06-K06-N02-I03"
+        ],
+        "prompt": "《论持久战》预见抗日战争依次经历哪三个战略阶段？",
+        "checking_criteria": [
+          "三阶段全且顺序准确；不得换成解放战争的战略进攻/决战。未问各阶段起止日期不扣。"
+        ],
+        "memory_cue": "教学检索：先抵挡、后相持、再反攻；必须回标准阶段名，不能将相持漏掉。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C06-K06-N02-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF45；c06.json blob 25465dcf7bcebf2eca127839d9f85f644f31ac73；ordered refs：POL27-CF-HISTORY-C06-K06-N02-I03。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch06.brief.md；本章H06-B相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:bca1ea596a91122375b6187d3c9842bf71ac67f97ccd4550d22d91c7c075c911"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C06-S04",
+        "name": "两阶段战场主辅",
+        "items": [
+          "防御阶段正面正规战主要、敌后游击战辅助。",
+          "相持阶段敌后游击战争成为主要抗日作战方式。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C06-K07-N02-I01",
+          "POL27-CF-HISTORY-C06-K07-N02-I02"
+        ],
+        "prompt": "从全局看，抗战战略防御阶段正面正规战与敌后游击战是什么主辅关系？战略相持阶段的主要抗日作战方式是什么？",
+        "checking_criteria": [
+          "两阶段及主辅对应均全；不能泛成全战争始终只有游击战主要，不能从辅助说成无作用。"
+        ],
+        "memory_cue": "教学对照：把阶段先写清，再配主要/辅助；相持换主，不删正面贡献。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C06-K07-N02-I01",
+          "POL27-CF-HISTORY-C06-K07-N02-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF45；c06.json blob 25465dcf7bcebf2eca127839d9f85f644f31ac73；ordered refs：POL27-CF-HISTORY-C06-K07-N02-I01；POL27-CF-HISTORY-C06-K07-N02-I02。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch06.brief.md；本章H06-B相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:950166b21e3e9c217189e4b5b591a8905b3337c4cc03b06f3e55573793ee6b62"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C06-S04",
+        "name": "统一战线独立自主三要求",
+        "items": [
+          "保持思想、政治、组织独立，放手发动群众、壮大人民力量。",
+          "坚持对人民军队绝对领导，冲破国民党限制束缚，发展人民武装和抗日根据地。",
+          "对国民党又团结又斗争，以斗争求团结。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C06-K08-N01-I01",
+          "POL27-CF-HISTORY-C06-K08-N01-I02",
+          "POL27-CF-HISTORY-C06-K08-N01-I03"
+        ],
+        "prompt": "按本章，抗日民族统一战线中坚持独立自主，共产党必须做到哪三方面？",
+        "checking_criteria": [
+          "三方面完整；独立三维、军队领导及发展对象、团结斗争目的都须；不等于拒绝合作，次序可换。"
+        ],
+        "memory_cue": "教学支点：思想政治组织独立并发动群众；军队领导并发展武装根据地；团结斗争求团结。需逐项展开，非Source原句。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C06-K08-N01-I01",
+          "POL27-CF-HISTORY-C06-K08-N01-I02",
+          "POL27-CF-HISTORY-C06-K08-N01-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF46；c06.json blob 25465dcf7bcebf2eca127839d9f85f644f31ac73；ordered refs：POL27-CF-HISTORY-C06-K08-N01-I01；POL27-CF-HISTORY-C06-K08-N01-I02；POL27-CF-HISTORY-C06-K08-N01-I03。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch06.brief.md；本章H06-C相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:d4824648caee0ff93ce899f99f99093e2e6b5ada136e8fd2ad710c0119b8d69f"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C06-S04",
+        "name": "抗日联合三势力",
+        "items": [
+          "发展进步势力：工人、农民、城市小资产阶级。",
+          "争取中间势力：民族资产阶级、开明绅士、地方实力派。",
+          "孤立顽固势力：大地主、大资产阶级的抗日派，即以蒋介石为代表的国民党亲英美派。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C06-K08-N03",
+          "POL27-CF-HISTORY-C06-K08-N03-I01",
+          "POL27-CF-HISTORY-C06-K08-N03-I02",
+          "POL27-CF-HISTORY-C06-K08-N03-I03"
+        ],
+        "prompt": "巩固抗日民族统一战线的三类势力各包含谁，分别采取什么策略？",
+        "checking_criteria": [
+          "三策略和各完整成员配对；顽固必须保留当阶段抗日派/亲英美派对象，不能等同日本或一切资产阶级。未问争取条件不要求。"
+        ],
+        "memory_cue": "教学分组：发展工农城小资，争取民资绅士地方派，孤立亲英美大地主大资抗日派；组内成员和阶段限定一起恢复。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C06-K08-N03",
+          "POL27-CF-HISTORY-C06-K08-N03-I01",
+          "POL27-CF-HISTORY-C06-K08-N03-I02",
+          "POL27-CF-HISTORY-C06-K08-N03-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF46；c06.json blob 25465dcf7bcebf2eca127839d9f85f644f31ac73；ordered refs：POL27-CF-HISTORY-C06-K08-N03；POL27-CF-HISTORY-C06-K08-N03-I01；POL27-CF-HISTORY-C06-K08-N03-I02；POL27-CF-HISTORY-C06-K08-N03-I03。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch06.brief.md；本章H06-C相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:1cba5984e9740460485dfd092a1584078824e9ce70c0468bd23ceda1090265d9"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C06-S04",
+        "name": "中国化命题会议作品",
+        "items": [
+          "中共六届六中全会，《论新阶段》。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C06-K11-N01",
+          "POL27-CF-HISTORY-C06-K11-N01-I01"
+        ],
+        "prompt": "按本章，毛泽东在哪次全会、哪篇作品中明确提出马克思主义中国化命题？",
+        "checking_criteria": [
+          "会议届次和作品名两项全；不能把早期结合思想或遵义会议当该命题提出。"
+        ],
+        "memory_cue": "教学对照：早期有结合思想，本题找明确命题；六届六中—新阶段。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C06-K11-N01",
+          "POL27-CF-HISTORY-C06-K11-N01-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF47；c06.json blob 25465dcf7bcebf2eca127839d9f85f644f31ac73；ordered refs：POL27-CF-HISTORY-C06-K11-N01；POL27-CF-HISTORY-C06-K11-N01-I01。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch06.brief.md；本章H06-C相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:5685d54197236ce3c0874f6cc4103427c2edd9c39a641e1ccd894b9c4b9b0bce"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C06-S04",
+        "name": "延安整风三对象与作品",
+        "items": [
+          "反主观主义，整顿学风，《改造我们的学习》，是最主要任务。",
+          "反宗派主义，整顿党风，《整顿党的作风》。",
+          "反党八股，整顿文风，《反对党八股》。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C06-K13-N03-I01",
+          "POL27-CF-HISTORY-C06-K13-N03-I02",
+          "POL27-CF-HISTORY-C06-K13-N03-I03"
+        ],
+        "prompt": "延安整风的三项反对对象、整顿方向和对应毛泽东作品分别是什么？哪项是最主要任务？",
+        "checking_criteria": [
+          "三组三重配对完整，主要任务归反主观主义；不得同1957整风内容混用，次序可换。"
+        ],
+        "memory_cue": "教学配对：学风看学习/主观，党风看作风/宗派，文风看八股；主任务标在学风。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C06-K13-N03-I01",
+          "POL27-CF-HISTORY-C06-K13-N03-I02",
+          "POL27-CF-HISTORY-C06-K13-N03-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF48；c06.json blob 25465dcf7bcebf2eca127839d9f85f644f31ac73；ordered refs：POL27-CF-HISTORY-C06-K13-N03-I01；POL27-CF-HISTORY-C06-K13-N03-I02；POL27-CF-HISTORY-C06-K13-N03-I03。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch06.brief.md；本章H06-C相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:7680ca12636a7f1028e084436eb506649b0769a79ddaa4e8adb4fb2ce7559603"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C06-S04",
+        "name": "主观主义实质形式",
+        "items": [
+          "理论脱离实际，颠倒认识与实践关系，是实际工作中的唯心主义。",
+          "教条主义和经验主义；尤其教条主义是整风重点。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C06-K13-N04-I01",
+          "POL27-CF-HISTORY-C06-K13-N04-I02"
+        ],
+        "prompt": "在本章延安整风语境中，主观主义实质是什么，有哪两种主要表现，重点反对哪一种？",
+        "checking_criteria": [
+          "实质的关系、两形式、重点完整；只说主观想法不足，不能把经验主义说成唯一形式。"
+        ],
+        "memory_cue": "教学展开：理论离实际、认识实践倒置；形式两种教条/经验，重点教条。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C06-K13-N04-I01",
+          "POL27-CF-HISTORY-C06-K13-N04-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF48；c06.json blob 25465dcf7bcebf2eca127839d9f85f644f31ac73；ordered refs：POL27-CF-HISTORY-C06-K13-N04-I01；POL27-CF-HISTORY-C06-K13-N04-I02。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch06.brief.md；本章H06-C相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:12e3de7c4eff8f73bcdc27149ea082871df29f6127518ba3c102815ec2cbf5c4"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C06-S05",
+        "name": "抗战胜利三种原因地位",
+        "items": [
+          "决定因素：以爱国主义为核心的民族精神、中华民族不屈不挠的反抗。",
+          "关键：中国共产党的中流砥柱作用。",
+          "重要法宝：全民族抗战，即全面抗战/人民战争路线。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C06-K16-N01-I01",
+          "POL27-CF-HISTORY-C06-K16-N01-I02",
+          "POL27-CF-HISTORY-C06-K16-N01-I03"
+        ],
+        "prompt": "本章抗战胜利原因中，决定因素、关键、重要法宝分别对应什么？本题只问这三种地位。",
+        "checking_criteria": [
+          "三个帽子对应完整；民族精神核心、群众反抗、全民族范围不可漏。未问国际支援不额外扣，也不能主动否认外部支持。"
+        ],
+        "memory_cue": "教学对照：决定看民族精神反抗，关键看中流砥柱，法宝看全民族人民战争；帽子不互换。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C06-K16-N01-I01",
+          "POL27-CF-HISTORY-C06-K16-N01-I02",
+          "POL27-CF-HISTORY-C06-K16-N01-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF50；c06.json blob 25465dcf7bcebf2eca127839d9f85f644f31ac73；ordered refs：POL27-CF-HISTORY-C06-K16-N01-I01；POL27-CF-HISTORY-C06-K16-N01-I02；POL27-CF-HISTORY-C06-K16-N01-I03。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch06.brief.md；本章H06-D相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:875abd113e040472909831eba3ffca5d95dc9aa587bc44a68e9b2671bf8661de"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C06-S05",
+        "name": "投降宣布与胜利纪念日",
+        "items": [
+          "1945年8月15日广播宣布接受《波茨坦公告》。",
+          "9月3日为中国人民抗日战争胜利纪念日。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C06-K15-N01-I02",
+          "POL27-CF-HISTORY-C06-K15-N01-I04"
+        ],
+        "prompt": "日本天皇广播宣布接受《波茨坦公告》的日期是什么？中国人民抗日战争胜利纪念日是哪一天？",
+        "checking_criteria": [
+          "两个日期与对象准确，不能把纪念日当广播日；未问投降文书签署全称/地点不要求。"
+        ],
+        "memory_cue": "教学分清动作：8月15日宣布，9月3日纪念，纪念不冒充宣布。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C06-K15-N01-I02",
+          "POL27-CF-HISTORY-C06-K15-N01-I04"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF50；c06.json blob 25465dcf7bcebf2eca127839d9f85f644f31ac73；ordered refs：POL27-CF-HISTORY-C06-K15-N01-I02；POL27-CF-HISTORY-C06-K15-N01-I04。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch06.brief.md；本章H06-D相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:c3bb545acff096e5a5b7503732db745a938c75f612d40d7bb1dbe8f6f8ad1338"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C06-S04",
+        "name": "延安自然科学院定位",
+        "items": [
+          "1940年8月创办；中国共产党历史上第一个开展自然科学教育与研究的专门机构。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C06-K09-N03-I02"
+        ],
+        "prompt": "延安自然科学院何时创办，在本章课程中的机构地位是什么？",
+        "checking_criteria": [
+          "年月、共产党历史范围、自然科学教育与研究、专门机构全；不扩大成全中国第一个自然科学院。"
+        ],
+        "memory_cue": "教学定位：先恢复1940年8月，再限定党史范围内，兼自然科学教育和研究两职能的专门机构；别省成全中国或全球第一。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C06-K09-N03-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF47；c06.json blob 25465dcf7bcebf2eca127839d9f85f644f31ac73；ordered refs：POL27-CF-HISTORY-C06-K09-N03-I02。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch06.brief.md；本章H06-C相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:7bec97f919849aafc2cb4a61c503f4f31700802a79690165e5bb88ba75a10ef1"
+        }
+      }
+    ]
   }
 }

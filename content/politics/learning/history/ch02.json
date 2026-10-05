@@ -61,5 +61,185 @@
     ],
     "historical_direction": "按方案比较：农民革命、洋务自救、维新改良分别试图改变什么，又各有什么限制；再转入下一章革命方案的讨论。讲解顺序不等于各探索起止时间互不重叠，也不单凭先后推断因果。",
     "review_prompt": "不要背三段意义。比较三条路分别改到了哪一层，又分别被什么根本限制卡住。"
+  },
+  "content_support": {
+    "active_precision": [
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C02-S02",
+        "name": "洋务失败三原因",
+        "items": [
+          "封建性（阶级局限性）是根本原因。",
+          "对列强的依赖性。",
+          "洋务企业管理的腐朽性，其管理基本仍是封建衙门式的。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C02-K04-N03-I01",
+          "POL27-CF-HISTORY-C02-K04-N03-I02",
+          "POL27-CF-HISTORY-C02-K04-N03-I03"
+        ],
+        "prompt": "本章列出的洋务运动失败的三项原因是什么？其中哪项是根本原因？",
+        "checking_criteria": [
+          "三项齐，封建性对应根本，依赖对象为列强、腐朽对象为企业管理；允许换序释义。资金人才不足不替代这三项。不能把甲午失败标志当根本原因。"
+        ],
+        "memory_cue": "教学助记：制度、外部、管理三个层次；根本标在制度层。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C02-K04-N03-I01",
+          "POL27-CF-HISTORY-C02-K04-N03-I02",
+          "POL27-CF-HISTORY-C02-K04-N03-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 15；c02.json blob 53b471a8ad16ea1c3952a922c8446678ee22cf0d；refs：POL27-CF-HISTORY-C02-K04-N03-I01；POL27-CF-HISTORY-C02-K04-N03-I02；POL27-CF-HISTORY-C02-K04-N03-I03。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch02.brief.md；先教本brief“为什么有新技术却没有摆脱旧困局”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:7c9c11ebb7b649e231637bc6bb425e1ffdf1f139449e44dfe8d75f09f6350e5c"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C02-S02",
+        "name": "洋务失败标志",
+        "items": [
+          "甲午战争中，洋务派经营多年的北洋海军全军覆没。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C02-K04-N02-I01"
+        ],
+        "prompt": "什么事件标志以自强、求富为目标的洋务运动失败？",
+        "checking_criteria": [
+          "须有甲午战争与北洋海军覆灭的对应。只说任何战败不全；不能称这一事件是唯一或根本原因。题面已给目标，无须再复述。"
+        ],
+        "memory_cue": "教学对照：标志问失败怎样显现；原因问为什么，勿混。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C02-K04-N02-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 15；c02.json blob 53b471a8ad16ea1c3952a922c8446678ee22cf0d；refs：POL27-CF-HISTORY-C02-K04-N02-I01。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch02.brief.md；先教本brief“为什么有新技术却没有摆脱旧困局”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:0d8a8294e673d40486e92fc05c755d2131e119bf1be4f03c999050ba32beade6"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C02-S03",
+        "name": "维新六类活动",
+        "items": [
+          "向皇帝上书。",
+          "著书立说。",
+          "介绍外国变法经验教训。",
+          "办学会。",
+          "设学堂。",
+          "办报纸。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C02-K05-N02-I01",
+          "POL27-CF-HISTORY-C02-K05-N02-I02",
+          "POL27-CF-HISTORY-C02-K05-N02-I03",
+          "POL27-CF-HISTORY-C02-K05-N02-I04",
+          "POL27-CF-HISTORY-C02-K05-N02-I05",
+          "POL27-CF-HISTORY-C02-K05-N02-I06"
+        ],
+        "prompt": "本章把维新派活动分成哪六类？本题只恢复活动类别，不要求列每类全部代表。",
+        "checking_criteria": [
+          "六类完整，学会/学堂/报纸不得相互吞并；介绍外国须说明经验教训，不只说向西方学习。换序保义可，不要求逐字或额外代表名单。"
+        ],
+        "memory_cue": "教学助记：向上陈情、写自己的主张、借外国经验，再用会/堂/报形成组织、教育和传播；须展开为六类。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C02-K05-N02-I01",
+          "POL27-CF-HISTORY-C02-K05-N02-I02",
+          "POL27-CF-HISTORY-C02-K05-N02-I03",
+          "POL27-CF-HISTORY-C02-K05-N02-I04",
+          "POL27-CF-HISTORY-C02-K05-N02-I05",
+          "POL27-CF-HISTORY-C02-K05-N02-I06"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 16；c02.json blob 53b471a8ad16ea1c3952a922c8446678ee22cf0d；refs：POL27-CF-HISTORY-C02-K05-N02-I01；POL27-CF-HISTORY-C02-K05-N02-I02；POL27-CF-HISTORY-C02-K05-N02-I03；POL27-CF-HISTORY-C02-K05-N02-I04；POL27-CF-HISTORY-C02-K05-N02-I05；POL27-CF-HISTORY-C02-K05-N02-I06。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch02.brief.md；先教本brief“维新派把问题推进到哪里”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:22a422984371b33562dfdc3806db8374a7412d98f1d6764045d007245601ae5a"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C02-S03",
+        "name": "维新三重性质",
+        "items": [
+          "爱国救亡运动。",
+          "资产阶级性质的政治改良运动。",
+          "思想启蒙运动。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C02-K06-N01-I01",
+          "POL27-CF-HISTORY-C02-K06-N01-I02",
+          "POL27-CF-HISTORY-C02-K06-N01-I03"
+        ],
+        "prompt": "据本章，戊戌维新运动的三重性质或历史作用怎样概括？",
+        "checking_criteria": [
+          "三项完整；政治改良须含资产阶级性质，不能替成资产阶级武装革命。三项不是三个先后阶段，换序可。"
+        ],
+        "memory_cue": "教学助记：救什么、怎样改政治、怎样改变思想；分别回救亡、资产阶级改良、启蒙。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C02-K06-N01-I01",
+          "POL27-CF-HISTORY-C02-K06-N01-I02",
+          "POL27-CF-HISTORY-C02-K06-N01-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 17；c02.json blob 53b471a8ad16ea1c3952a922c8446678ee22cf0d；refs：POL27-CF-HISTORY-C02-K06-N01-I01；POL27-CF-HISTORY-C02-K06-N01-I02；POL27-CF-HISTORY-C02-K06-N01-I03。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch02.brief.md；先教本brief“改良失败留下了哪些改变”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:20d0a77e06d9c8f4ea1eefd9b8fa0402310b5e48c28cd9f24be7bdcd48c04edc"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C02-S03",
+        "name": "维新活动的四类代表",
+        "items": [
+          "外国经验作品：《日本变政考》《俄彼得变政记》《波兰分灭记》。",
+          "学会：强学会、南学会、保国会。",
+          "学堂：广州万木草堂、长沙时务学堂。",
+          "报纸：上海《时务报》、天津《国闻报》、湖南《湘报》。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C02-K05-N02-I03",
+          "POL27-CF-HISTORY-C02-K05-N02-I04",
+          "POL27-CF-HISTORY-C02-K05-N02-I05",
+          "POL27-CF-HISTORY-C02-K05-N02-I06"
+        ],
+        "prompt": "按本章明确列举，恢复维新派介绍外国变法经验的三部作品、三个学会、两个学堂及地点、三种报纸及地点。",
+        "checking_criteria": [
+          "四类内部完整名单；学堂和报纸地点配对准确。题面不问作品作者或学会地点，不额外要求。时务学堂与时务报不能因名称相近互换城市；类内次序不限。"
+        ],
+        "memory_cue": "教学助记：外例三国日本/俄国/波兰，学会强/南/保国，学堂广州/长沙，报纸上海/天津/湖南；最后要恢复全称和准确配对，缩字不作答案。 有提示补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C02-K05-N02-I03",
+          "POL27-CF-HISTORY-C02-K05-N02-I04",
+          "POL27-CF-HISTORY-C02-K05-N02-I05",
+          "POL27-CF-HISTORY-C02-K05-N02-I06"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 16；c02.json blob 53b471a8ad16ea1c3952a922c8446678ee22cf0d；refs：POL27-CF-HISTORY-C02-K05-N02-I03；POL27-CF-HISTORY-C02-K05-N02-I04；POL27-CF-HISTORY-C02-K05-N02-I05；POL27-CF-HISTORY-C02-K05-N02-I06。仅核本题所需清楚文字，不用截断尾部/疑字/表图/红答案。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch02.brief.md；先教本brief“维新派把问题推进到哪里”，再回本章固定spine。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:9245bd65f76ae83c09dcd4f2d56d21d086c17384dc33ff94e171a945382ce3c6"
+        }
+      }
+    ]
   }
 }

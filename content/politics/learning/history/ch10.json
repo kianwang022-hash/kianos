@@ -40,5 +40,155 @@
     "timeline": ["改革开放长期发展", "中国特色社会主义事业不断推进", "进入新时代", "国家治理和现代化任务升级", "历史性成就和历史性变革", "民族复兴进入新的历史阶段"],
     "whole_course_bridge": "近代危机 → 各阶级救国探索 → 辛亥革命 → 五四与新的领导力量 → 新民主主义革命道路成熟 → 抗战胜利 → 解放战争与新中国 → 社会主义制度建立 → 建设探索 → 改革开放 → 新时代",
     "review_prompt": "不要背会议清单。闭卷用一条长线回答：近代以来中国为什么会从‘寻找救国道路’一步步走到‘中国特色社会主义进入新时代’？"
+  },
+  "content_support": {
+    "active_precision": [
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C10",
+        "name": "十八大的小康社会阶段定位（历史版次）",
+        "items": [
+          "全面建成小康社会的决定性阶段。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C10-K01-N01"
+        ],
+        "prompt": "仅据本版史纲 Source，十八大标志着中国进入全面建成小康社会的什么阶段？不问完成时间，也不问当期状态。",
+        "checking_criteria": [
+          "保留“全面建成小康社会”“决定性阶段”；不能答成已经全面建成。题面不要求另一个并列定位，不因未说“开启新时代”扣分；不从此题推导现实完成状态。"
+        ],
+        "memory_cue": "关键是“阶段”而非已完成；须恢复完整目标和“决定性”限定。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C10-K01-N01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C10-K01-N01；PDF69／书68；POL27-CF固定快照。该节点的其余历史定位用于解释，不因本题窄化而声称整段事实已获独立复核。；本组仅有界已读文字支持，未声称新原图/红答案核验；历史版次内目标，不升级为2026当前政策/完成状态。 Source shard content/politics/source/nodes/shards/pol27-cf/history/c10.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 0ddfdb269d4588fe9684aff59d6f74ee80e34348。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch10.brief.md；`c10-stage-02` 及“进入阶段／完成目标”边界。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:26ebdab5afe8c524b1bd61e2a76c71f70fd2f063c1332179255aec7be7fc3f9d"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C10",
+        "name": "十九大确立的思想指导地位（历史版次）",
+        "items": [
+          "习近平新时代中国特色社会主义思想。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C10-K01-N02",
+          "POL27-CF-HISTORY-C10-K01-N02-I01"
+        ],
+        "prompt": "本版史纲在十九大条下，明确记载确立了什么思想的指导地位？请写全称。",
+        "checking_criteria": [
+          "全称准确，不能替换为习近平思想等缩称或科学发展观。题面只问思想名称与其历史归属，不额外要求在该节点未写的入宪、入党章动作或完整理论体系。"
+        ],
+        "memory_cue": "不另设缩词；该目标的价值在全称与会议对应。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C10-K01-N02",
+          "POL27-CF-HISTORY-C10-K01-N02-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C10-K01-N02 → POL27-CF-HISTORY-C10-K01-N02-I01；PDF69／书68；POL27-CF固定快照。；本组仅有界已读文字支持，未声称新原图/红答案核验；历史版次内目标，不升级为2026当前政策/完成状态。 Source shard content/politics/source/nodes/shards/pol27-cf/history/c10.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 0ddfdb269d4588fe9684aff59d6f74ee80e34348。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch10.brief.md；`c10-stage-02`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:c3935ed0a2c6073938cf6471b186b3ce8ee0c1cbd9330b9efad294c0b14f88cd"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C10",
+        "name": "十九届六中全会的决议题名（历史版次）",
+        "items": [
+          "《中共中央关于党的百年奋斗重大成就和历史经验的决议》。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C10-K01-N03",
+          "POL27-CF-HISTORY-C10-K01-N03-I01"
+        ],
+        "prompt": "本版史纲记述十九届六中全会最重要的成果，是审议通过哪份决议？写出完整题名。",
+        "checking_criteria": [
+          "必须保留“中共中央”“党的百年奋斗”“重大成就和历史经验”几个标题组成；不与十一届六中全会《关于建国以来党的若干历史问题的决议》混淆。题面不问年份、成就四项或意义全表，不据其缺答扣分。"
+        ],
+        "memory_cue": "本题总结“百年奋斗”，题名的两个对象是“重大成就”和“历史经验”；须恢复完整正式题名。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C10-K01-N03",
+          "POL27-CF-HISTORY-C10-K01-N03-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C10-K01-N03 → POL27-CF-HISTORY-C10-K01-N03-I01；PDF70／书69；POL27-CF固定快照。；本组仅有界已读文字支持，未声称新原图/红答案核验；历史版次内目标，不升级为2026当前政策/完成状态。 Source shard content/politics/source/nodes/shards/pol27-cf/history/c10.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 0ddfdb269d4588fe9684aff59d6f74ee80e34348。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch10.brief.md；`c10-stage-04` 及总结行为／被总结历史的区分。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:0fceff4eaabfff96f0aa712d7055469b0a6652fa5b5682acba70e27e71bb300f"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C10",
+        "name": "二十大三个务必（历史版次）",
+        "items": [
+          "务必不忘初心、牢记使命；务必谦虚谨慎、艰苦奋斗；务必敢于斗争、善于斗争。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C10-K01-N04",
+          "POL27-CF-HISTORY-C10-K01-N04-I02"
+        ],
+        "prompt": "本版 Source 在二十大条下列出的“三个务必”分别是什么？写出三组完整表述。",
+        "checking_criteria": [
+          "三组及每组两部分均完整；漏“不忘初心”或“善于斗争”等不能判完整。组间列出顺序可变，组内的完整成对表述不拆散；标点差异不影响。不问中心任务全文、目标时间或最新政策。"
+        ],
+        "memory_cue": "初心使命／谦虚艰苦／敢于善于。只能在作答后给，必须恢复三次“务必”和六个完整短语，不能把压缩词当标准答案。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C10-K01-N04",
+          "POL27-CF-HISTORY-C10-K01-N04-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C10-K01-N04 → POL27-CF-HISTORY-C10-K01-N04-I02；PDF70／书69；POL27-CF固定快照。；本组仅有界已读文字支持，未声称新原图/红答案核验；历史版次内目标，不升级为2026当前政策/完成状态。 Source shard content/politics/source/nodes/shards/pol27-cf/history/c10.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 0ddfdb269d4588fe9684aff59d6f74ee80e34348。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch10.brief.md；`c10-stage-03`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:702accf8e11a1c06df89123165ec16213e43481b2c3b3052eeeb6d93681a9b50"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C10",
+        "name": "从一五到十四五的贯穿主题（历史版次）",
+        "items": [
+          "把我国建设成为社会主义现代化国家。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C10-K01-N06"
+        ],
+        "prompt": "仅按本版 Source 所限定的“一五”到“十四五”历史范围，它概括的一以贯之主题是什么？",
+        "checking_criteria": [
+          "对象为我国，方向为社会主义现代化国家；不能换成只发展某一产业或已经建成现代化强国。题面不问每个五年规划的内容，也不要求扩展至本版范围之外。"
+        ],
+        "memory_cue": "不设额外口令，直接回到跨期共同主题；这一主题不能取消各时期不同条件和具体任务。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C10-K01-N06"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C10-K01-N06；PDF70／书69；POL27-CF固定快照。；本组仅有界已读文字支持，未声称新原图/红答案核验；历史版次内目标，不升级为2026当前政策/完成状态。 Source shard content/politics/source/nodes/shards/pol27-cf/history/c10.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 0ddfdb269d4588fe9684aff59d6f74ee80e34348。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch10.brief.md；`c10-stage-01`、`c10-stage-05`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:7b5384468f9a679c6f30dc888e4d4a7f51a7b9a0ebf0c6ad7c60a45b0947420b"
+        }
+      }
+    ]
   }
 }

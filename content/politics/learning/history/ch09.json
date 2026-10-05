@@ -54,5 +54,381 @@
     "timeline": ["真理标准问题讨论", "十一届三中全会", "拨乱反正与改革开放起步", "农村与城市改革展开", "对外开放扩大", "南方谈话", "中国特色社会主义道路和理论发展", "现代化建设持续推进"],
     "stage_shift": "总结建设曲折 → 思想解放与拨乱反正 → 工作重心转移 → 改革开放 → 体制不断调整 → 南方谈话推动改革继续突破 → 中国特色社会主义道路形成发展 → 为新时代奠定基础",
     "review_prompt": "闭卷回答：为什么改革开放既是1978前后的一次历史转折，又是一条在实践和理论相互突破中长期推进的社会主义自我发展道路？"
+  },
+  "content_support": {
+    "active_precision": [
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S01",
+        "name": "真理标准讨论的性质与实质",
+        "items": [
+          "它是继五四运动和延安整风运动之后又一场马克思主义思想解放运动；实质在于是不是坚持马克思列宁主义、毛泽东思想。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C09-K01-N02-I01",
+          "POL27-CF-HISTORY-C09-K01-N02-I02"
+        ],
+        "prompt": "按本版史纲，真理标准问题讨论被评价为怎样的思想解放运动？它的实质是什么？",
+        "checking_criteria": [
+          "须保留两次前序运动、马克思主义性质、实质所指两种思想。可同义改写句法；不能答成是否放弃马克思主义。不问讨论全部影响，不扣未给缺失的影响续段。"
+        ],
+        "memory_cue": "先找前两次，再找所坚持的思想。提示仅指向分组，须展开成以上完整两部分。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C09-K01-N02-I01",
+          "POL27-CF-HISTORY-C09-K01-N02-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C09-K01-N02-I01 → POL27-CF-HISTORY-C09-K01-N02-I02；PDF67／书66。；本组仅有界已读文字支持，未声称新原图/红答案核验； Source shard content/politics/source/nodes/shards/pol27-cf/history/c09.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 12cc7cd5107756dcd15643975c3cdabbbce05085。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch09.brief.md；`c09-stage-01`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:a3fd64c12fae3377c7a98f51bcdfc45219e44d1811827b31a5cfd660ac56e5c3"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S01",
+        "name": "转折前讲话的作者、场合与题名",
+        "items": [
+          "邓小平在中共中央工作会议上作《解放思想，实事求是，团结一致向前看》讲话。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C09-K02-N01",
+          "POL27-CF-HISTORY-C09-K02-N01-I01"
+        ],
+        "prompt": "本版 Source 在十一届三中全会考点下，先介绍的一篇被称为思想解放宣言书的讲话，作者、发表会议和完整题名分别是什么？",
+        "checking_criteria": [
+          "人物、发表场合和题名三项对应准确；场合不能换为十一届三中全会，题名保留三部分。标点不苛求。不问日期或讲话全文。"
+        ],
+        "memory_cue": "解放思想／实事求是／团结一致向前看；仅在回忆后提示，不能替代作者和场合。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C09-K02-N01",
+          "POL27-CF-HISTORY-C09-K02-N01-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C09-K02-N01 → POL27-CF-HISTORY-C09-K02-N01-I01；PDF68／书67。；本组仅有界已读文字支持，未声称新原图/红答案核验； Source shard content/politics/source/nodes/shards/pol27-cf/history/c09.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 12cc7cd5107756dcd15643975c3cdabbbce05085。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch09.brief.md；`c09-stage-01`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:d5babf167bc31a2f0252cf6ee5bd623e1c969c74672a703daac9894edf3aa8f0"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S01",
+        "name": "Source 点拨的两大宣言书",
+        "items": [
+          "《解放思想，实事求是，团结一致向前看》；南方谈话。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C09-K02-N01-TIP01"
+        ],
+        "prompt": "本版 Source 的点拨把邓小平哪两项讲话并列为“两大宣言书”？",
+        "checking_criteria": [
+          "两项齐全，讲话题名不改成《坚持四项基本原则》。不要求提供 Source 未在此问的全部内容、地点或具体日期；两项列出顺序不影响成员判断。"
+        ],
+        "memory_cue": "一次开启转折前的思想解放，一次推动后来关口的突破。需恢复两项真实名称，不能只答两句作用。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C09-K02-N01-TIP01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C09-K02-N01-TIP01；PDF68／书67。；本组仅有界已读文字支持，未声称新原图/红答案核验； Source shard content/politics/source/nodes/shards/pol27-cf/history/c09.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 12cc7cd5107756dcd15643975c3cdabbbce05085。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch09.brief.md；`c09-stage-01`、`c09-stage-04`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:29ebce5c5e8285cdc9be762149d43e80f54ece6c696b386ac5206c1cd99a9c56"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S01",
+        "name": "十一届三中全会重新确立的三条路线",
+        "items": [
+          "马克思主义的思想路线、政治路线、组织路线；思想路线括注为“解放思想、实事求是”。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C09-K02-N02-I02"
+        ],
+        "prompt": "按本版 Source，十一届三中全会重新确立了哪三条路线？其中思想路线在括注中怎样表述？",
+        "checking_criteria": [
+          "三种路线齐全、思想路线的两项括注齐全，不能以军事路线替代其中任何一项。不问其余两条路线的展开，不额外要求它们的正文。"
+        ],
+        "memory_cue": "思想怎样认识，政治怎样定方向，组织怎样落实；这只是分组提示，必须恢复上述正式名称及两项括注。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C09-K02-N02-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C09-K02-N02-I02；PDF68／书67。；本组仅有界已读文字支持，未声称新原图/红答案核验； Source shard content/politics/source/nodes/shards/pol27-cf/history/c09.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 12cc7cd5107756dcd15643975c3cdabbbce05085。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch09.brief.md；`c09-stage-01`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:44d384a9973f5c3e8e27f403dbeb7422576db5b40283d08941083b9dfb5aeaf2"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S01",
+        "name": "十一届三中全会开启的新时期",
+        "items": [
+          "我国改革开放和社会主义现代化建设新时期。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C09-K02-N02-I04"
+        ],
+        "prompt": "本版 Source 将十一届三中全会开启的新时期表述为什么？",
+        "checking_criteria": [
+          "改革开放、社会主义现代化建设两部分与“新时期”定位齐全。不能换成社会主义基本制度建立时期；不要求未问的召开日月。"
+        ],
+        "memory_cue": "改革开放＋现代化建设；须恢复社会主义限定和新时期对象。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C09-K02-N02-I04"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C09-K02-N02-I04；PDF68／书67。；本组仅有界已读文字支持，未声称新原图/红答案核验； Source shard content/politics/source/nodes/shards/pol27-cf/history/c09.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 12cc7cd5107756dcd15643975c3cdabbbce05085。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch09.brief.md；`c09-stage-01`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:de2616cddcf2476fd911f841c84be49f051e409d80a8fb2bc02ca804093cf508"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S01",
+        "name": "历史决议的会议与完成范围",
+        "items": [
+          "中共十一届六中全会；标志着党和国家在指导思想上拨乱反正的胜利完成。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C09-K03-N01",
+          "POL27-CF-HISTORY-C09-K03-N01-I04"
+        ],
+        "prompt": "哪次会议通过《关于建国以来党的若干历史问题的决议》？该决议通过标志着什么完成？本题不问年份。",
+        "checking_criteria": [
+          "会议届次和中全会序次准确；必须保留“在指导思想上”的范围，不泛化为所有工作或社会问题全部完成。不因未答题面明确不问的年份扣分。"
+        ],
+        "memory_cue": "六中全会／指导思想上的完成。提示不可扩大完成范围。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C09-K03-N01",
+          "POL27-CF-HISTORY-C09-K03-N01-I04"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C09-K03-N01 → POL27-CF-HISTORY-C09-K03-N01-I04；PDF68／书67。；本组仅有界已读文字支持，未声称新原图/红答案核验； Source shard content/politics/source/nodes/shards/pol27-cf/history/c09.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 12cc7cd5107756dcd15643975c3cdabbbce05085。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch09.brief.md；`c09-stage-02`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:abad45a981fadda91df191cc2491b0d6068f5c5874a69d3a8bd15848d04adede"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S01",
+        "name": "历史决议起草三原则与核心",
+        "items": [
+          "一是确立毛泽东同志的历史地位，坚持和发展毛泽东思想，这是最核心的一条；二是对建国30年来历史上的大事进行实事求是的分析；三是总结宜粗不宜细，总结过去是为了引导大家团结一致向前看。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C09-K03-N02",
+          "POL27-CF-HISTORY-C09-K03-N02-I01",
+          "POL27-CF-HISTORY-C09-K03-N02-I02",
+          "POL27-CF-HISTORY-C09-K03-N02-I03"
+        ],
+        "prompt": "邓小平对《关于建国以来党的若干历史问题的决议》起草提出哪三条指导原则？哪一条最核心？",
+        "checking_criteria": [
+          "三条成员和首条核心定位齐全；允许同义叙述，不可漏“发展”、实事求是分析、总结粗细与向前看的目的。列举顺序可变，但核心不能换到另一条。"
+        ],
+        "memory_cue": "历史地位与思想／分析大事的方法／总结的着眼点。须能展开为以上完整三条，否则提示不算完成答案。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C09-K03-N02",
+          "POL27-CF-HISTORY-C09-K03-N02-I01",
+          "POL27-CF-HISTORY-C09-K03-N02-I02",
+          "POL27-CF-HISTORY-C09-K03-N02-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C09-K03-N02 → POL27-CF-HISTORY-C09-K03-N02-I01 → POL27-CF-HISTORY-C09-K03-N02-I02 → POL27-CF-HISTORY-C09-K03-N02-I03；PDF68／书67。；本组仅有界已读文字支持，未声称新原图/红答案核验； Source shard content/politics/source/nodes/shards/pol27-cf/history/c09.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 12cc7cd5107756dcd15643975c3cdabbbce05085。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch09.brief.md；`c09-stage-02`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:ab713ccd07a1f1c100cf7affc7e737189407a5507f55026f36b3e937d99d30f1"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S02",
+        "name": "十二大与十三大的认识成果",
+        "items": [
+          "十二大是1982年，邓小平提出“建设有中国特色的社会主义”命题。十三大是1987年，提出社会主义初级阶段理论和党在社会主义初级阶段的基本路线，制定社会主义现代化建设“三步走”发展战略。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C09-K04-N02",
+          "POL27-CF-HISTORY-C09-K04-N02-I01",
+          "POL27-CF-HISTORY-C09-K04-N03",
+          "POL27-CF-HISTORY-C09-K04-N03-I01",
+          "POL27-CF-HISTORY-C09-K04-N03-I02"
+        ],
+        "prompt": "本版史纲中，十二大、十三大分别是哪一年？十二大提出什么命题；十三大提出什么阶段理论、基本路线和发展战略名称？只回答这些所问项目。",
+        "checking_criteria": [
+          "1982／1987与届次配对；命题、阶段理论、阶段基本路线、战略名称齐全。题目不问十二大另一个纲领或三步具体指标，不额外扣漏项；不能把“基本路线”换成十五大的“基本纲领”。"
+        ],
+        "memory_cue": "1982十二大定建设方向；1987十三大讲阶段、路线、三步走。提示须恢复年份的准确配对、真实命题及全称，不能只留压缩词。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C09-K04-N02",
+          "POL27-CF-HISTORY-C09-K04-N02-I01",
+          "POL27-CF-HISTORY-C09-K04-N03",
+          "POL27-CF-HISTORY-C09-K04-N03-I01",
+          "POL27-CF-HISTORY-C09-K04-N03-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C09-K04-N02 → POL27-CF-HISTORY-C09-K04-N02-I01 → POL27-CF-HISTORY-C09-K04-N03 → POL27-CF-HISTORY-C09-K04-N03-I01 → POL27-CF-HISTORY-C09-K04-N03-I02；PDF69／书68。；本组仅有界已读文字支持，未声称新原图/红答案核验； Source shard content/politics/source/nodes/shards/pol27-cf/history/c09.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 12cc7cd5107756dcd15643975c3cdabbbce05085。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch09.brief.md；`c09-stage-03`、`c09-stage-04`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:6a0958c54fd34e91cd03ec617cbe11a418293c37bd66ee03f6b1922dedbc227c"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S02",
+        "name": "南方谈话年份与计划市场定位",
+        "items": [
+          "1992年；计划和市场都是经济手段。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C09-K05-N01",
+          "POL27-CF-HISTORY-C09-K05-N01-I01"
+        ],
+        "prompt": "本版 Source 的南方谈话记为哪一年？其中明确将计划和市场共同定位为什么？本题不要求列出谈话全部主要内容。",
+        "checking_criteria": [
+          "年份准确，两者共同归入经济手段，不作计划等于社会主义、市场等于资本主义的配对。不得因未列“三个有利于”或其他未问内容扣分。"
+        ],
+        "memory_cue": "1992南方谈话，计划与市场同属“手段”；须展开两个对象共同的完整定位，不把提示当无提示回忆。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C09-K05-N01",
+          "POL27-CF-HISTORY-C09-K05-N01-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C09-K05-N01 → POL27-CF-HISTORY-C09-K05-N01-I01；PDF69／书68。后一节点并非完整主要内容清单，本题只使用其中完整的①句，不把④名称当完整标准。；本组仅有界已读文字支持，未声称新原图/红答案核验； Source shard content/politics/source/nodes/shards/pol27-cf/history/c09.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 12cc7cd5107756dcd15643975c3cdabbbce05085。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch09.brief.md；`c09-stage-04`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:0e1370361bd6a12252e44e5790bbfd095b24c0e214e41e262f2034dd59169f49"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S02",
+        "name": "十四大与十五大的目标、纲领和理论定位",
+        "items": [
+          "十四大是1992年，确立建立社会主义市场经济体制的改革目标。十五大是1997年，提出党在社会主义初级阶段的基本纲领，把邓小平理论确立为中国共产党的指导思想并写入党章。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C09-K05-N02",
+          "POL27-CF-HISTORY-C09-K05-N02-I01",
+          "POL27-CF-HISTORY-C09-K05-N03",
+          "POL27-CF-HISTORY-C09-K05-N03-I01",
+          "POL27-CF-HISTORY-C09-K05-N03-I02"
+        ],
+        "prompt": "按本版史纲，十四大、十五大各是哪一年？十四大确立的经济体制改革目标是什么；十五大提出什么基本纲领，并把什么理论确立为指导思想、写入党章？",
+        "checking_criteria": [
+          "届次、年份、目标、纲领及理论定位分别对应，保留“社会主义市场经济”“社会主义初级阶段”和指导思想＋写入党章两动作。题面未问十四大的理论武装任务，不按另一个子项扣分。"
+        ],
+        "memory_cue": "1992十四大体制目标；1997十五大基本纲领和理论地位。提示须恢复年份、完整对象及动作的准确配对。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C09-K05-N02",
+          "POL27-CF-HISTORY-C09-K05-N02-I01",
+          "POL27-CF-HISTORY-C09-K05-N03",
+          "POL27-CF-HISTORY-C09-K05-N03-I01",
+          "POL27-CF-HISTORY-C09-K05-N03-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C09-K05-N02 → POL27-CF-HISTORY-C09-K05-N02-I01 → POL27-CF-HISTORY-C09-K05-N03 → POL27-CF-HISTORY-C09-K05-N03-I01 → POL27-CF-HISTORY-C09-K05-N03-I02；PDF69／书68。；本组仅有界已读文字支持，未声称新原图/红答案核验； Source shard content/politics/source/nodes/shards/pol27-cf/history/c09.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 12cc7cd5107756dcd15643975c3cdabbbce05085。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch09.brief.md；`c09-stage-04`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:79c656f73b6f30fc3b0aa026dc8d28fcb56a98e0e0e5265699d7595d7dc230c7"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S02",
+        "name": "十六大目标与指导思想",
+        "items": [
+          "2002年；全面建设小康社会的奋斗目标；“三个代表”重要思想被确立为中国共产党的指导思想并写入党章。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C09-K05-N04",
+          "POL27-CF-HISTORY-C09-K05-N04-I01",
+          "POL27-CF-HISTORY-C09-K05-N04-I02"
+        ],
+        "prompt": "本版史纲记述的十六大是哪一年？它明确了什么奋斗目标，把什么重要思想确立为党的指导思想并写入党章？",
+        "checking_criteria": [
+          "年份、目标、思想及两个动作齐全；“全面建设”不能改成已“全面建成”，思想不能与邓小平理论或科学发展观错配。不问思想展开内容。"
+        ],
+        "memory_cue": "2002，全面建设，三个代表。须恢复全称和指导思想／入党章两个动作。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C09-K05-N04",
+          "POL27-CF-HISTORY-C09-K05-N04-I01",
+          "POL27-CF-HISTORY-C09-K05-N04-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C09-K05-N04 → POL27-CF-HISTORY-C09-K05-N04-I01 → POL27-CF-HISTORY-C09-K05-N04-I02；PDF69／书68。；本组仅有界已读文字支持，未声称新原图/红答案核验； Source shard content/politics/source/nodes/shards/pol27-cf/history/c09.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 12cc7cd5107756dcd15643975c3cdabbbce05085。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch09.brief.md；`c09-stage-04`、`c09-stage-05`。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:2cd4090e7169181dcb054c34d643874ad8f2f3aa18fe238dbd12b29c2d079425"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S02",
+        "name": "十七大关于科学发展观的本章表述",
+        "items": [
+          "2007年；对科学发展观作全面系统的阐述，并将科学发展观写入党章。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C09-K05-N05",
+          "POL27-CF-HISTORY-C09-K05-N05-I01"
+        ],
+        "prompt": "本版史纲中，十七大是哪一年？本章对它与科学发展观的关系写明了哪两件事？",
+        "checking_criteria": [
+          "年份、全面系统阐述、写入党章三点齐全；不添加本节点未写的“确立为指导思想”。不要求回答别章的后续会议定位。"
+        ],
+        "memory_cue": "2007十七大，阐述＋入党章；须恢复科学发展观对象、全面系统的阐述程度以及年份配对。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C09-K05-N05",
+          "POL27-CF-HISTORY-C09-K05-N05-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF-HISTORY-C09-K05-N05 → POL27-CF-HISTORY-C09-K05-N05-I01；PDF69／书68。；本组仅有界已读文字支持，未声称新原图/红答案核验； Source shard content/politics/source/nodes/shards/pol27-cf/history/c09.json@d61cab62d33ffaa93c4d49563ff2a30fd360f364 blob 12cc7cd5107756dcd15643975c3cdabbbce05085。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch09.brief.md；`c09-stage-04`、易混第10条。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:a056ca154835d30025ed131de3abc74bb46a1e851f677b96ca7fb60a9b095994"
+        }
+      }
+    ]
   }
 }

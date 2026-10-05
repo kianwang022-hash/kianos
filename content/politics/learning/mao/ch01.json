@@ -70,16 +70,77 @@
       {
         "natural_unit_id": "POL27-CF-MAO-C01-S02",
         "name": "活的灵魂三点",
-        "items": ["实事求是", "群众路线", "独立自主"],
+        "items": [
+          "实事求是",
+          "群众路线",
+          "独立自主"
+        ],
         "learning_rule": "P0 active；三点身份第一轮必须稳定，内部长定义和历史文献按需精确化。",
-        "source_refs": ["POL27-CF-MAO-C01-K04-N01", "POL27-CF-MAO-C01-K04-N02", "POL27-CF-MAO-C01-K04-N03"]
+        "source_refs": [
+          "POL27-CF-MAO-C01-K04-N01",
+          "POL27-CF-MAO-C01-K04-N02",
+          "POL27-CF-MAO-C01-K04-N03"
+        ],
+        "id": "polmem-2d5d8d28",
+        "prompt": "毛泽东思想活的灵魂是哪三项？完整列出三项，不以主题或主要内容替代。",
+        "checking_criteria": [
+          "三项成员准确完整：实事求是、群众路线、独立自主。",
+          "并列成员无固定字序要求，不把历史地位、主题或主要内容混入。",
+          "本题只考三项；定义解释为前提，未主动复述定义不扣分。"
+        ],
+        "memory_cue": "教学助记，非Source；无提示回答后再显示：实际—群众—自主。必须展开为三个固定名称。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-MAO-C01-K04-N01",
+          "POL27-CF-MAO-C01-K04-N02",
+          "POL27-CF-MAO-C01-K04-N03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册，PDF75–76／印刷74–75；读取三项名称完整文字，内部截断定义与标记不在核定范围。 本作者读取当前Source文字与原Current/brief；未新看原图。",
+          "review_ref": "content/politics/learning/mao/teaching-candidate/ch01.brief.md#c01-precision-review-20261005",
+          "prerequisite": "T03已实际解释三项含义与各自作用；本题不扩成定义全文背诵。 本次完整payload仍须独立审读、现行producer签名与consumer验证；原身份不等于新增handoff已准入。",
+          "reviewed_target_revision": "sha256:8b9100127eb675fb67a1246b9ba99bf797983722d93d1b680210b08925926af1"
+        }
       },
       {
         "natural_unit_id": "POL27-CF-MAO-C01-S02",
         "name": "群众路线基本表述",
-        "items": ["一切为了群众", "一切依靠群众", "从群众中来", "到群众中去", "把党的正确主张变为群众的自觉行动"],
+        "items": [
+          "一切为了群众",
+          "一切依靠群众",
+          "从群众中来",
+          "到群众中去",
+          "把党的正确主张变为群众的自觉行动"
+        ],
         "learning_rule": "先作为高价值识别对象；是否进入强制精确背诵由后续题证据决定。",
-        "source_refs": ["POL27-CF-MAO-C01-K04-N02-I01"]
+        "source_refs": [
+          "POL27-CF-MAO-C01-K04-N02-I01"
+        ],
+        "id": "polmem-24fd0332",
+        "prompt": "完整恢复党的群众路线基本表述，既说为了谁、依靠谁与从哪里来到哪里去，也说正确主张最终怎样落实。",
+        "checking_criteria": [
+          "五项齐全，不能只答为了群众、依靠群众或来去循环。",
+          "保留一切为了群众、一切依靠群众中的两处一切。",
+          "把党的正确主张变为群众的自觉行动不可漏，不能换成被迫服从。",
+          "允许合理断句与不改变含义的连接方式，不要求额外地位或历史文献。"
+        ],
+        "memory_cue": "教学助记，非Source；无提示回答后再显示：目的—力量—来去—行动。来去展开为从群众中来、到群众中去，最后恢复正确主张成为群众自觉行动。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-MAO-C01-K04-N02-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册PDF76／印刷75，K04-N02-I01，Markdown296–297行，群众路线（1）含义至（2）地位前。实际像素确认“一切为了群众，一切依靠群众，从群众中来，到群众中去，把党的正确主张变为群众的自觉行动”；前为党、后为觉，OCR“把觉的正确主张”为误字。原五项答案无需改字；仅此完整句解除Source疑点，未扩至邻近定义/地位。既有Mac任务01a1071f-3c5a-7462-a3c1-d1c982d95001，turn 01a10d34-e299-739a-9b55-d4205cc87bc9；原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca。该reader实际核图，本作者仅读取2026-10-05 18:06有界receipt，未本人新看像素；Source核清不等于准入。",
+          "review_ref": "content/politics/learning/mao/teaching-candidate/ch01.brief.md#c01-precision-review-20261005",
+          "prerequisite": "T03已实际解释群众立场和来去/行动关系；旧learning_rule的非自动强制背诵范围保留，本候选不建立计划。 本次完整payload仍须独立审读、现行producer签名与consumer验证；原身份不等于新增handoff已准入。",
+          "reviewed_target_revision": "sha256:a03dfd1f6a3470430b76aec892e2274884d8f6c00660a16cafc0fb090bdcd8b1"
+        }
       }
     ],
     "active_boundaries": [
