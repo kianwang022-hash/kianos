@@ -1,4 +1,5 @@
 ---
+import LexicalPronunciation from './LexicalPronunciation.astro';
 const { answer } = Astro.props;
 const card = answer.record || {};
 const wordFeel = card.word_feel && typeof card.word_feel === 'object' ? card.word_feel : null;
@@ -67,10 +68,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
   <section class="portedVocabStudySheet">
     <section class="portedVocabWordFront" data-vocab-front data-recall-density={recallDensity}>
       <h2>{card.word}</h2>
-      <div class="lexicalFrontPronunciation" aria-label="Pronunciation">
-        <button type="button" data-vocab-default-speak data-vocab-speak="en-US">美音 · 点击播放</button>
-        <span class="lexicalPronunciationToggle"><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US">美</button></span>
-      </div>
+      <LexicalPronunciation support={card.pronunciation_support} front />
       <div class="portedVocabRecallMap">
         <strong>{recallParts.length ? recallParts.join(' · ') : 'Core'}</strong>
         <small>当前 active 词义</small>
@@ -83,10 +81,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
         <div class="lexicalWordIdentity">
           <span>Coverage · Word Study</span>
           <h2>{card.word}</h2>
-          <div class="lexicalDepthPronunciation">
-            <button type="button" data-vocab-default-speak data-vocab-speak="en-US">美音 · 点击播放</button>
-            <span><button type="button" data-vocab-speak="en-GB">英</button><button type="button" data-vocab-speak="en-US">美</button></span>
-          </div>
+          <LexicalPronunciation support={card.pronunciation_support} sourcePath={card.source_owner_path} />
         </div>
 
         {wordFeel && (
@@ -119,7 +114,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
               const target = repair(sense.repair);
               const overlay = identityOverlay(sense);
               return (
-                <section class="lexicalSenseRow" data-vocab-target-row>
+                <section class="lexicalSenseRow" data-vocab-target-row data-vocab-sense-id={sense.id}>
                   <header>
                     <span>{posCode(sense.pos)}</span>
                     {sense.governing_pattern && <small>{sense.governing_pattern}</small>}
@@ -135,6 +130,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
                   </header>
 
                   <div class="lexicalSenseMeaning">
+                    <LexicalPronunciation support={card.pronunciation_support} senseId={sense.id} />
                     <p>{sense.definition_cn || '—'}</p>
                     <strong>{sense.definition_en || '—'}</strong>
                     {sense.note && <small class="lexicalSenseNote">{sense.note}</small>}
