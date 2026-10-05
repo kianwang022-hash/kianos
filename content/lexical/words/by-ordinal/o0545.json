@@ -20,12 +20,11 @@
           ]
         },
         {
-          "label_cn": "令人讨厌的人，乏味的人；内径，枪膛；钻孔，探孔",
-          "label_en": "a person who is dull and makes others bored; the hollow inside of a tube or the diameter of a gun barrel; a hole made by drilling, often for exploration",
+          "label_cn": "令人讨厌的人，乏味的人；钻孔，探孔",
+          "label_en": "a person who is dull and makes others bored; a hole made by drilling, often for exploration",
           "pos": "noun",
           "sense_ids": [
             "sense:bore:5839fdaf94fe5db7",
-            "sense:bore:30b1817c4fac5d13",
             "sense:bore:2548691e245f5c37"
           ]
         }
@@ -122,30 +121,6 @@
         "sense_id": "sense:bore:5839fdaf94fe5db7",
         "sense_label_en": "a person who is dull and makes others bored",
         "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3cf52dfbaa3f68349a27",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:bore:30b1817c4fac5d13:collocation:0"
-            ],
-            "meaning_cn": "枪膛",
-            "phrase": "the bore of a gun"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "内径，枪膛",
-        "definition_en": "the hollow inside of a tube or the diameter of a gun barrel",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:bore:30b1817c4fac5d13",
-        "sense_label_en": "the hollow inside of a tube or the diameter of a gun barrel",
-        "sort_order": 3,
         "transitivity": "nonverb"
       },
       {
@@ -513,7 +488,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:3cf52dfbaa3f68349a27",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:bore:30b1817c4fac5d13:collocation:0"
+          ],
+          "meaning_cn": "枪膛",
+          "phrase": "the bore of a gun"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "内径，枪膛",
+      "definition_en": "the hollow inside of a tube or the diameter of a gun barrel",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:bore:30b1817c4fac5d13",
+      "sense_label_en": "the hollow inside of a tube or the diameter of a gun barrel",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -525,7 +525,7 @@
       },
       {
         "sense_id": "sense:bore:30b1817c4fac5d13",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 1483,
         "source_path": "content/lexical/canonical/senses/shards/o0545-0576.json"
@@ -554,7 +554,6 @@
     ],
     "active_collocations": [
       "collocation:0a243707af0e74866b4f",
-      "collocation:3cf52dfbaa3f68349a27",
       "collocation:40e3f6836c8db09c809a",
       "collocation:c71064fc2cd084a018f0",
       "collocation:db0f70ca2f2c2090f060",
@@ -570,7 +569,9 @@
       {
         "id": "collocation:3cf52dfbaa3f68349a27",
         "source_row": 5158,
-        "source_path": "content/lexical/canonical/collocations/shards/o0545-0576.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0545-0576.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:40e3f6836c8db09c809a",

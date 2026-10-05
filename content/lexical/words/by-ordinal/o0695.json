@@ -10,10 +10,10 @@
     "content_hash": "6a9596ebbd76d8d4e0cb13bfd323a2248aca777b79e4be5d082ce3d18ffe7165",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "表示“承载/呈现方式”：可指马车、火车车厢、人的仪态，也可指运输或运费",
-      "core_meaning_en": "a means or manner of carrying: a horse carriage, railway carriage, bodily carriage, or transport/freight",
-      "mental_model_cn": "horse → 马车；railway/train → 车厢；person/body posture → 举止仪态；goods/payment → 运输/运费。",
-      "mental_model_en": "Let the domain select vehicle, rail compartment, posture, or freight."
+      "core_meaning_cn": "表示“承载/运送”：可指马车、火车车厢，也可指运输或运费",
+      "core_meaning_en": "a means of carrying: a horse carriage, railway carriage, or transport/freight",
+      "mental_model_cn": "horse → 马车；railway/train → 车厢；goods/payment → 运输/运费。",
+      "mental_model_en": "Let the domain select vehicle, rail compartment, or freight."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -69,30 +69,6 @@
         "sense_id": "sense:carriage:fd11b294c7a758ff",
         "sense_label_en": "a railway passenger vehicle",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:5c3b7d1ebdbe39aae0e6",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:carriage:7479005566ec5ecc:collocation:0"
-            ],
-            "meaning_cn": "头部姿态",
-            "phrase": "the carriage of one's head"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "举止；仪态",
-        "definition_en": "the way someone holds and moves their body",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:carriage:7479005566ec5ecc",
-        "sense_label_en": "the way someone holds and moves their body",
-        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -298,12 +274,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:5c3b7d1ebdbe39aae0e6",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:carriage:7479005566ec5ecc:collocation:0"
+          ],
+          "meaning_cn": "头部姿态",
+          "phrase": "the carriage of one's head"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "举止；仪态",
+      "definition_en": "the way someone holds and moves their body",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:carriage:7479005566ec5ecc",
+      "sense_label_en": "the way someone holds and moves their body",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:carriage:7479005566ec5ecc",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 1968,
         "source_path": "content/lexical/canonical/senses/shards/o0673-0704.json"
@@ -331,7 +332,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:5c3b7d1ebdbe39aae0e6",
       "collocation:6b7655646169bc8d7f07",
       "collocation:76fd038e4e1c412671fa",
       "collocation:8acf115921e58544ef94",
@@ -342,7 +342,9 @@
       {
         "id": "collocation:5c3b7d1ebdbe39aae0e6",
         "source_row": 7765,
-        "source_path": "content/lexical/canonical/collocations/shards/o0673-0704.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0673-0704.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:6b7655646169bc8d7f07",

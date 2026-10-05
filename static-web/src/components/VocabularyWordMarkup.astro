@@ -7,6 +7,7 @@ const senses = Array.isArray(card.senses) ? card.senses : [];
 const secondarySenses = Array.isArray(card.secondary_senses) ? card.secondary_senses : [];
 const constructions = Array.isArray(card.constructions) ? card.constructions : [];
 const reference = card.reference && typeof card.reference === 'object' ? card.reference : {};
+const referenceSenses = Array.isArray(reference.senses) ? reference.senses : [];
 const confusables = Array.isArray(reference.confusables) ? reference.confusables : [];
 const semanticRelations = Array.isArray(reference.relations) ? reference.relations : [];
 const form = reference.form && typeof reference.form === 'object' ? reference.form : null;
@@ -216,7 +217,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
                 {constructions.map((item) => {
                   const target = repair(item.repair);
                   return (
-                    <article data-vocab-target-row>
+                    <article data-vocab-target-row data-vocab-construction-id={item.id} data-vocab-construction-sense-id={item.sense_id || undefined}>
                       <b>{item.pattern}</b>
                       <div class="lexicalPatternText">
                         {(Array.isArray(item.lines) ? item.lines : []).map((line) => (
@@ -236,6 +237,25 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
                   );
                 })}
               </div>
+            </section>
+          )}
+          {referenceSenses.length > 0 && (
+            <section class="lexicalExpansionSection" data-vocab-lookup-only hidden aria-label="Reference-only senses">
+              <header><span>参考词义</span><small>Reference · Lookup</small></header>
+              {referenceSenses.map((sense) => (
+                <article class="lexicalSenseRow" data-vocab-reference-sense-id={sense.sense_id}>
+                  <header><span>{posCode(sense.pos)}</span>{sense.governing_pattern && <small>{sense.governing_pattern}</small>}</header>
+                  <div class="lexicalSenseMeaning">
+                    <p>{sense.definition_cn}</p><strong>{sense.definition_en}</strong>
+                    {sense.usage_note && <small>{sense.usage_note}</small>}
+                  </div>
+                  <div class="lexicalSenseUsage">
+                    {(Array.isArray(sense.collocations) ? sense.collocations : []).map((item) => (
+                      <div data-vocab-reference-collocation-id={item.collocation_id}><code>{item.phrase}</code> <span>{item.meaning_cn}</span></div>
+                    ))}
+                  </div>
+                </article>
+              ))}
             </section>
           )}
         </main>
