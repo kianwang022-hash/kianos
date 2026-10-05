@@ -43,9 +43,9 @@ Historical A/B/C campaigns, BF branches, batch boards, checkpoint narratives and
 
 Exact semantic rules remain in the Content/Learning contracts, not this cursor.
 
-## Current tasks — paused
+## Current tasks — queued
 
-Kian paused content execution on 2026-10-05. The current authorization is entry/rule cleanup only. Neither row resumes content, browser work or delivery; explicit resume is required.
+Kian resumed these tasks on 2026-10-05 within the [five-task queue](https://github.com/kianwang022-hash/kian-personal-os/issues/60): IPA is priority 2 and semantic self-audit priority 4. Follow the exact task's existing scope and delivery permissions; queue readiness is not completed implementation or Website delivery.
 
 | Scope | Exact task owner | Resume point |
 | --- | --- | --- |
