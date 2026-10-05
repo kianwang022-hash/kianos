@@ -253,8 +253,8 @@ Use the smallest proof that can establish the requested effect:
 exact owner read
 → bounded mutation
 → affected-owner / real-dependency verification
-→ durable readback
-→ stop
+→ durable readback / checkpoint
+→ continue the bound task, or stop at its real stop condition
 ```
 
 Do not run a full-repository audit/build/browser gate for a routine local change unless its current owner or actual defect requires it.
@@ -280,7 +280,7 @@ understand intent
 → preserve upstream semantics
 → do smallest correct work
 → prove requested real effect
-→ stop
+→ continue within the bound task until the requested outcome or a real stop condition
 ```
 
 KianOS succeeds when fresh Chats restart quickly and normal changes stay cheap—not when every worker loads the repository's governance history.
