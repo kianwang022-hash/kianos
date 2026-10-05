@@ -1,6 +1,6 @@
 # Politics Acceptance
 
-Status: **CURRENT — FIRST-ROUND INTEGRATION ACCEPTED · WHOLE-EXAM CLOSURE PARTIAL**  
+Status: **CURRENT — BASE FIRST-ROUND ACCEPTED · MODEL→MEMORY INTEGRATION REOPENED · WHOLE-EXAM CLOSURE PARTIAL**  
 Role: lane-wide Politics integration Acceptance Truth  
 Standard: `LEARNING_ACCEPTANCE.md`  
 Work cursor: `content/politics/CURRENT.md`
@@ -33,6 +33,32 @@ Politics-wide whole-exam readiness is **not closed**. Later current-year Source,
 | Later analysis output / current affairs / recitation / Xiao4 / full Mock | **SOURCE-GATED / PARTIAL** until the real admitted current-year material and exact path exist |
 | Whole-exam readiness | **PARTIAL / NOT YET CLOSED** |
 | Learner U | **NOT GRANTED BY THIS FILE**; real private learner evidence remains separate |
+
+## Reopened supplemental integration claim — 2026-10-05
+
+The previously accepted first-round Source / teaching / Workbench / Wrong-Uncertain boundaries remain valid within their tested scope. A newer learner-facing capability is now explicitly under construction:
+
+```text
+Chat coherent model
+→ same-model compression
+→ Chat-assisted exact-memory encoding/rehearsal
+→ reviewed Current Memory target
+→ Website retrieval
+→ Recall/question evidence
+→ Chat adaptive review
+```
+
+This is a **new integration claim**, not a retroactive invalidation of the accepted base path. Its canonical work cursor is `content/politics/CURRENT.md` P1–P6.
+
+Current acceptance for this added claim:
+
+- Learning semantics / content requirements: **CURRENT and reviewed as rules**;
+- representative Ethics-Law C06 + Marxism C02 content/consumer evidence on PR #1151: **bounded candidate evidence only**;
+- five-subject precision coverage: **NOT YET VERIFIED**;
+- main-to-actual-Website delivery for the integrated loop: **NOT YET ACCEPTED**;
+- learner effectiveness/mastery: **U remains real-learner-only**.
+
+Do not use the older lane-wide “first-round accepted” wording to close this newer precision-memory integration. P6 must explicitly reconcile this Acceptance owner after the actual accepted artifacts land on main and the real consumer is verified. Known user-visible performance observations on the affected path are part of product acceptance when they materially violate the low-friction learning contract; a functionally correct but materially unusable cold path is not an end-to-end PASS.
 
 ## Permanent boundaries
 

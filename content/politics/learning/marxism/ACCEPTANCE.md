@@ -33,6 +33,20 @@ Do not promote this to learner-validated and do not infer that Kian has studied 
 
 ---
 
+## 2026-10-05 supplemental model→memory integration reopen
+
+The whole-subject S/K/L/P/R/E PASS above remains valid for the previously accepted first-round path. It does **not** accept the newer integrated precision-memory capability now active under `content/politics/CURRENT.md`.
+
+For the added capability, Marxism currently has bounded candidate evidence only: C02 is the representative proved slice, while additional chapter targets and consumer batches may exist on the active PR/local execution path but are not lane-wide Current Acceptance until P6 lands and verifies them on main. No older “ready for learner test” statement may be read as five-subject or whole-Marxism acceptance of Chat-assisted encoding → Website retrieval → Recall return.
+
+Current supplemental verdict:
+
+```text
+base first-round Marxism path       ACCEPTED within prior scope
+integrated precision-memory loop    REOPENED / NOT YET ACCEPTED
+real learner effectiveness          U UNTESTED
+```
+
 ## 2026-09-13 Surface Ownership reacceptance
 
 ### Real U trigger

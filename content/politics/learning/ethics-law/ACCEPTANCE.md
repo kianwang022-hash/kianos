@@ -29,6 +29,12 @@ Allowed conclusion:
 
 ---
 
+## 2026-10-05 supplemental model→memory integration reopen
+
+The S/K/L/P/R/E PASS below remains valid for the previously accepted Ethics-Law first-round path. It does **not** accept the newer Chat-assisted encoding → reviewed precision target → Website Memory retrieval → Recall-return capability now active under `content/politics/CURRENT.md`.
+
+Ethics-Law C06 and later chapter batches may provide bounded candidate/consumer evidence on PR #1151, but the integrated capability remains **REOPENED / NOT YET ACCEPTED** until P6 lands accepted artifacts on main and verifies the actual consumer. Therefore “next legitimate work is real learner use” applies only to the previously accepted base path, not to this active supplemental build.
+
 ## Accepted upstream｜S/K/L/P
 
 Fresh S/K closure repaired all seven chapter assets while keeping Chengfeng as the continuous mainline and unsupported exact wording source-primary/deferred.
@@ -177,7 +183,7 @@ This does **not** mean:
 
 Later transfer evidence may strengthen or challenge earlier evidence but must append rather than overwrite first-attempt truth.
 
-Next legitimate Ethics work is real learner use. Reopen only the earliest responsible owner when concrete source change, question evidence, or real learner friction appears.
+For the previously accepted base path, the next learner-evidence source is real learner use. Separately, the supplemental model→memory integration is actively reopened under the canonical Politics Current until P6 closes it. Reopen other claims only at the earliest responsible owner when concrete source change, question evidence, or real learner friction appears.
 
 ---
 
