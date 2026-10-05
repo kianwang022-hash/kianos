@@ -1,9 +1,10 @@
-import { buildHomeXizongProjection } from '../../lib/homeXizongProjection.mjs';
+import { loadHomeXizongProjectionTransport } from '../../lib/homeXizongProjection.mjs';
 
 export const prerender = true;
 
 export async function GET() {
-  return new Response(JSON.stringify(buildHomeXizongProjection()), {
+  const { body } = await loadHomeXizongProjectionTransport();
+  return new Response(body, {
     status: 200,
     headers: {
       'content-type': 'application/json; charset=utf-8',

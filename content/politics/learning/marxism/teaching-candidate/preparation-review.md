@@ -429,3 +429,48 @@ C08独立审读8组、完整brief/owner（含subject_closure）与PDF92–93。�
 ### 消费者与实际交付边界
 
 72项强签名仅证明内容版本绑定，不证明catalog加载、依赖投影或页面可用。PR分支push权限门槛未解除，本批仍只保存本地；没有绕道写入远端。后续需在同一工程任务中核catalog唯一性、原投影实际文本与抽样正式Memory路径；此前两样本与思修证明不能冒充这四章全部消费者证明。五科完整能力、main与实际Website一致及真实学习效果仍未完成。
+
+
+### 2026-10-05｜155目标保存回读与有界消费者证明（已完成独立审查；原PR分支保存批次）
+
+上述2026-10-04准备阶段的“未保存/推送门槛”仅是当时历史边界，不是当前阻塞。父端155目标准备已保存并逐字回读远端 `1e4ceaa231fb2c3eca4c91d9a81d63c55a09a1f5`（parent `58a06ffe`）；本任务fresh fetch保留17文件，不覆写教材或签名行。最新main的Current及三个Acceptance补充已保留；P6仍未关闭。
+
+- Catalog `politics-memory-0d7438a9` 共287项；新增155项为C00 14 / C01 22 / C03 23 / C04 24 / C05 30 / C06 18 / C07 16 / C08 8。唯一ID、review行/revision、Source准入与prompt/answer/checking/cue通过；遵守原每计划最多100项，分批验证全部快照。旧132项和先前三批九条测试Recall快照兼容。
+- 八章158个refs、19个surface plans实际解析旧/新Content比较：C03实践唯一标准；C04生产关系总和/支配关系决定性质分开与S02文化动力；C06两垄断金融资本、价值创造/取得分层均完整消费。只刷新八个真实source blob，不改selector或答案。NU身份/顺序、Source/题目truth与默认Recall不改，C08保留原唯一NU而非虚构S01。compiled presenter/cognitive projection validator通过。
+- 正式隔离Memory十样本覆盖八章及新增形状：polmem-927ee36f/53475931/05a8b2fd/91221f4f/d0c2c1d9/7c8844a7/c75e124c/e310a836/0e0f5ef8/6e9843e2。48断言通过：原生Control/服务端匹配APPLIED、同页首题、逐组隐藏/完整揭示、同计划事件重放不收起答案、Resume、十条测试自评FUZZY1/STABLE9、正式Home Packet十份准确快照/current287 profile，以及五处关键章节DOM。不是155项UI遍历、全科教材验收或真实Kian学习。
+
+### 2026-10-05｜共享Home transport与同页Memory证据（已完成独立审查；原PR分支保存批次）
+
+责任沿SYSTEM_CONTRACT：共享Home export → home-xizong.json → homeXizongProjection公共派生；私有证据仍由既有Daily Packet/subject adapter实时读取浏览器当前storage。没有改政治Content语义或admission/stale/replay/evidence校验。
+
+CPU：159块原构建24111.29ms；采样约12001ms在readFileSync、4160ms在semantic adapter readJson。原不可变build-cache进程同样159块计算1864.42ms，重复系统/支持文件读取为主要耗时。
+
+只缓存公共canonical transport字符串；revision绑定字节、路径/目录成员、Xizong Content/资产、lib代码、包声明/marked实际字节、Node版本和Candidate模式/HEAD。未知/缺失变化保守失效，未分类外部依赖失败。按校验字节制作临时公共快照，再在每个新revision的全新子进程启用原不可变build cache，重建Extension/SourceVisual/exam-format模块。子进程不接收私有状态/命令；结束复核live依赖，失败不回退旧值，临时快照finally删除；并发同revision共享构建。没有新服务或registry。
+
+真实旧缓存后的Source/Learning/relationship/support/exam-format变化、原图alt/扩展表格语义变化确改输出、未知文件增删、Source绑定过期拒绝、invalid owner/修复、构建中变化、symlink、并发/进程重启通过。Home daily packet与Politics repair memory验证通过。
+
+以下为真实隔离浏览器数据（ms），after为最终快照实现/catalog287，单独运行无PDF或测试并发：
+
+|路径|before|after|
+|---|---:|---:|
+|Home冷启动ready|2551.86|3235.56|
+|已有Control计划进入Memory到确认APPLIED|1445.63|1721.15|
+|Recall回Homeready|260.70|429.82|
+|冷Packet导出|25168.16|3159.60|
+
+Before transport首字节25106.42ms，服务器24827ms；after首字节3101.96ms，第二次导出58.28ms。冷Home/首次Memory/回Home尚未改善，不称整条性能验收PASS，不发明毫秒门槛。Packet含本次一条STABLE测试Recall，服务端真实匹配APPLIED。
+
+同页缺陷before：进入APPLIED1279.22ms，随后自动等2001.82ms仍无首题，需manual reload再452.71ms。原250.67ms只是重入，不是应用全程。原client补消费既有更新事件，重读原验证路径；同计划重放不隐藏答案。After无需重入，确认后首题16.54ms；十样本独立事件到首个可操作帧3ms。
+
+隔离Candidate/新browser context已停止，不动Stable/真记录；本批次已完成独立审查并获准保存至原PR分支；仍不代表main/实际Website交付，未合并PR或部署。关键before数据已落在本节；完整临时diff/JSON另供审查。
+
+
+### 2026-10-05｜独立反审后的最小补证（已完成独立审查；原PR分支保存批次）
+
+- 同一份固定公共源码复制树，两个全新Node进程分别运行原 `buildHomeXizongProjection`（`KIANOS_XIZONG_BUILD_CACHE=0`）与新loader；完整JSON逐字相等，另逐项deepEqual `xizongPacketIndex`、`xizongForecastQuestionScope`、`xizongForecastCanonicalScope`，包含全部witness/逐题semantic revisions。不是以新loader的original/restored自比代替旧实现基线。
+- 在/tmp隔离Git仓库，`candidate=true`先建立并再次命中旧缓存，empty commit改变HEAD后revision失效且canonical输出不变；提交Source字节变化而不更新原projection绑定，构建以原 `STRICT_SOURCE_STALE` 拒绝，不返回旧值；恢复Source并提交后重新正确输出。没有切换真实任务HEAD或增加Git快照系统；构建期间HEAD固定，保留首尾检查。
+- 原图alt已变化的真实旧缓存上，将ASCII `cache counterexample`替换为等长`equal counterexample`，assert byte length相同，恢复旧mtime后revision与完整body均改变。原追加换行测试注释已改为只证明mtime边界，另有等长语义替换证明。
+- 正式隔离Memory UI新增12断言PASS：已Reveal时原生有效superseding plan（准确supersedes_plan_id）显示新prompt并隐藏答案，真实服务端匹配APPLIED；删除已存plan并发既有更新事件后空态/旧card不可操作；已存stale plan为stale，malformed JSON为error，旧card/reveal/controls均不可操作。同计划事件重放保留Reveal只归类为UI事件测试，不称新原生receipt replay验收。删除/stale/malformed是隔离存储故障注入，不冒称Control接受了无效命令。全程未产生Recall。
+- 证据归类更正：前述第二次58.28ms导出使用原Home `xizongProjectionPromise`，没有再请求endpoint，是已有浏览器公共投影后的私有Packet实时重合成，不是新server cache暖命中。已打开Home不会主动因owner变化取新公共投影；本轮保持固定Candidate/page生命周期，不主张端到端实时刷新，也不改client缓存策略。
+
+另实测两次真实HTTP GET（不同query，均200/no-store，完整1674472字节JSON逐字相同）：cold首字节2930.87ms/读完2953.07ms；warm首字节89.50ms/读完115.33ms。两响应SHA256 `c7c621c47e7f48e1cc1d6f7ce69244b003cfc0277b2a652dcfcb79b739de1722`。这是server transport暖复用证据，与58.28ms同页Packet重合成分开。原25.17秒→3.16秒冷Packet实测保留；其余冷路径未改善。

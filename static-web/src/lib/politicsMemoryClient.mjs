@@ -39,6 +39,7 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
 
   let revealed = false;
   let active = null;
+  let renderedPlanBytes = null;
   const localStudyDay = () => studyDay || new Date().toLocaleDateString('en-CA');
 
   const setHidden = (node, value) => {
@@ -58,6 +59,7 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
 
     let next;
     try {
+      renderedPlanBytes = storage.getItem(POLITICS_MEMORY_PLAN_KEY);
       next = resolvePoliticsMemoryResume(storage, catalog, { expectedDay: localStudyDay() });
     } catch (error) {
       if (status) status.textContent = '当前政治记忆记录无法安全读取：' + String(error?.message || error);
@@ -161,6 +163,12 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
     }
   });
 
+  window.addEventListener('kianos:politics-memory-plan-updated', () => {
+    // Same-tab Control writes do not emit the browser storage event. Read the
+    // validated native plan; a receipt replay must not hide a revealed answer.
+    try { if (storage.getItem(POLITICS_MEMORY_PLAN_KEY) !== renderedPlanBytes) render(); }
+    catch { render(); }
+  });
   window.addEventListener('storage', (event) => {
     if (event.key === POLITICS_MEMORY_PLAN_KEY) render();
   });
