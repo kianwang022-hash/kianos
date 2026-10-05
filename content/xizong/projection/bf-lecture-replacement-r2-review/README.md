@@ -4,10 +4,10 @@
 
 ## 基线与合入顺序
 
-- 草稿base：PR [#1145](https://github.com/kianwang022-hash/kianos/pull/1145) 的 `candidate/b-content-review-20261003`，commit `bc014aeee3c7ca1be91a180a41336f03d14b3930`。B38章的内容与既有关系重审来自该PR，本稿不把它们计作新增成果。
+- 当前stack base：PR [#1145](https://github.com/kianwang022-hash/kianos/pull/1145) 的 `candidate/b-content-review-20261003`，commit `7003caeed62c9029b772c17b18c9b24304549977`。原编写基线 `bc014aeee3c7ca1be91a180a41336f03d14b3930` 与authoring/source-stage见证保留为历史；完整改动清单从当前stack base派生。B38章及本次继承的M4入口/视觉支持与16条关系续接仍归#1145，不计作本稿新医学成果。
 - 编写/迁移阶段main：`801394f71eaa772d3b5e0209f8bfdd3571913d1d`；2026-10-05只读复核main为`0938154f228ab2df73165bc141305bf11b08c0f0`，其后新增范围仅政治文件。
 - 教学规则依赖：PR [#1148](https://github.com/kianwang022-hash/kianos/pull/1148)，读取commit `7a276ea16693eaf7c8a36be1080341f47d2c115a` 的Learning Contract及Lecture Replacement Contract§3.1。该规则、路由README、study-policy、A1/A2/A3均未复制或修改。
-- 先完成并合入#1145与#1148，再对实际main做有界依赖核对并重定本稿base。本稿继续保持draft；本次操作没有merge/deploy授权。合并工程文件仍不等于候选教学内容已获得医学准入或用户试用。
+- 先完成并合入#1145与#1148，再对实际main做有界依赖核对并重定本稿base。本稿继续保持draft；本次仅将#1145已有提交整合到原#1150候选，未合入main、未采纳教学、未发布。合并工程文件仍不等于候选教学内容已获得医学准入或用户试用。
 
 ## 本次精确范围
 
@@ -18,6 +18,16 @@
 - 迁入查源续修文字证据和来源坐标；原PDF、像素裁剪、整页下载与本机构建脚本保持原工作档案身份，未重复放入仓库。
 
 迁移只改候选provenance、7条修正标识/旧Prompt标签和相对链接坐标及27个隐藏文件的末尾空行。除2026-10-05有界校对将N4两版“前两种肌丝蛋白”改为明确的“肌球蛋白与肌动蛋白”外，连续医学正文、条件、表格、标题和代码文本与r2.1既有正文等价。N4分类匹配未改的canonical KP09；原PDF第51页文字支持，不宣称新像素核验。当前SHA与marker offset已刷新，原编写阶段SHA保留。
+
+## 2026-10-05｜当前stack有界整合
+
+原候选 `a6912e82` 与#1145 `7003caee` 的三方整合只出现关系manifest冲突。先逐条证明3043条关系是两边已审记录的精确合并，再用原脚本重建manifest；候选侧61条与上游16条修订无同题重叠。1523 Current / 1520 stale及全部原stale见证集合不变。121篇教学＋121篇隐藏版的连续正文逐字保留，仅M4两版开头的当前canonical引用见证更新。详细证据见[原依赖记录](dependency-reconciliation.json)。
+
+实跑B38＋N4的39个原生对象，616个KP保持同一医学正文/Prompt/身份与原Source覆盖；只有M4 LG01/LG02因已审视觉支持修订要求局部再验证，未改算法。纯假数据中的616张既有卡、39条事件及历史完成/Resume保留，新增due为0；M4新释放在两组复核前仍被阻止。这不等于真实学习记录已审或完成。
+
+核对中纠正一条旧报告计数：N4是6个LG，当前Learning及原生消费者明确`visualRequired:true`的为LG01/LG02/LG04共3组，且原生`visualSourceState`为空；不是“6个原生强制视觉门”。本轮视觉缺失负例只证明显式声明GAP的纯假数据门禁，没有证明未挂载的N4原图已检查或当前所有视觉闭合路径完整。既有owner与Runtime保持不变，这一实际消费边界保留供正式采纳时判断。
+
+#1148外部依赖核到`c9eecf84`，Lecture Replacement生成合同blob未变；Chat入口/MedicalVisual范围修订已读，未把#1148规则或A123内容复制进本分支。共同基线落地前的Surgery slot逐项整合仍待后续，不能用当前候选CI替代三PR最终整合证据。
 
 ## 三篇代表全文
 

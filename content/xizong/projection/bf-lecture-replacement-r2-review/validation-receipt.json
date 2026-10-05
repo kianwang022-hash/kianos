@@ -96,5 +96,26 @@
     "fullPriorValidationRerun": false,
     "independentMedicalOrUserAcceptance": false,
     "realLearnerStateReadOrWritten": false
+  },
+  "bounded_stack_integration_2026_10_05": {
+    "candidateParent": "a6912e82008f38014ff31bf9b5b1c63190e872a5",
+    "inheritedBase": "7003caeed62c9029b772c17b18c9b24304549977",
+    "checkedAtUtc": "2026-10-05T12:49:45.898052+00:00",
+    "scope": "Current isolated merge only; earlier receipts remain historical and are not retested claims. Exact remote-head CI is separate.",
+    "checksPassed": [
+      "three-way 3043-row exact union; no semantic overlap",
+      "unchanged sync-xizong-question-relations-manifest.mjs --write then --check",
+      "exact freshness partition and all 1520 stale rows preserved",
+      "validate-xizong-current-owners.mjs including Surgery witness negative",
+      "validate-xizong-biochemistry-source-lifecycle.mjs",
+      "validate-xizong-source-visuals.mjs",
+      "validate-xizong-question-crosswalk.mjs",
+      "B38 plus N4 native comparison and synthetic state/release negative cases"
+    ],
+    "nativeProof": "dependency-reconciliation.json#/bounded_stack_integration_2026_10_05/native_effect",
+    "nativeTestSha256": "89a327a4f54e4e0c8a0e71b66c7e5a9a18294abe32c7d860a1f7fa9c13003d9a",
+    "noRuntimeAlgorithmOrPrivateStateWrite": true,
+    "newPixelMedicalOrUserAcceptance": false,
+    "candidateAdmitted": false
   }
 }

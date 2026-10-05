@@ -564,5 +564,113 @@
     "newRelations": 0,
     "BiochemistryLifecycleSignaturesChanged": false,
     "independentMedicalOrUserAcceptance": false
+  },
+  "bounded_stack_integration_2026_10_05": {
+    "status": "BOUNDED_CANDIDATE_STACK_INTEGRATION_NOT_ADMISSION",
+    "candidate_parent": "a6912e82008f38014ff31bf9b5b1c63190e872a5",
+    "inherited_base_commit": "7003caeed62c9029b772c17b18c9b24304549977",
+    "original_authoring_base": "bc014aeee3c7ca1be91a180a41336f03d14b3930",
+    "method": "Three-way merge of the original draft parent and its current #1145 base. One conflicted manifest rebuilt by the unchanged existing generator after exact per-question row-union verification.",
+    "row_union": {
+      "total": 3043,
+      "shards": 162,
+      "preserved_candidate_changes": 61,
+      "inherited_m4_changes": 16,
+      "overlapping_question_changes": [],
+      "all_final_rows_exact": true,
+      "inherited_question_ids": [
+        "xizong-official-2007-n027",
+        "xizong-official-2007-n113",
+        "xizong-official-2008-n029",
+        "xizong-official-2008-n158",
+        "xizong-official-2009-n031",
+        "xizong-official-2010-n128",
+        "xizong-official-2011-n030",
+        "xizong-official-2016-n030",
+        "xizong-official-2017-n018",
+        "xizong-official-2017-n143",
+        "xizong-official-2023-n120",
+        "xizong-official-2023-n121",
+        "xizong-official-2024-n120",
+        "xizong-official-2024-n121",
+        "xizong-official-2025-n018",
+        "xizong-official-2026-n019"
+      ]
+    },
+    "relation_freshness": {
+      "current": 1523,
+      "stale": 1520,
+      "owner_missing": 0,
+      "witness_missing": 0,
+      "total": 3043
+    },
+    "exact_stale_id_status_and_witness_set_preserved": true,
+    "m4_current_binding": {
+      "canonical_path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/M4_糖原与糖异生_学习阅读版_v1_最终执行版.md",
+      "prior_draft_sha256": "a254e44aac1c2cb38f0fa2f3b75620503aa5dbd39678627ccf7c561001b86f78",
+      "current_draft_sha256": "b6bdbeb1ed30bc88552b9ef361bf21f9affe295ff43ddbabec5d03637212574a",
+      "current_draft_blob": "2dffc9807c2c289a50c476cc95ed8ba13808d3bb",
+      "medical_core_prompt_source_outline_unchanged": true,
+      "teaching_and_hidden_continuous_prose_unchanged": true
+    },
+    "external_policy": {
+      "pr": 1148,
+      "observed_commit": "c9eecf8416adf3e7d72611f9818ba934a640ea29",
+      "lecture_replacement_contract_blob": "d9f5d07180a4e08ed516faca09054e1a616084e2",
+      "generation_contract_unchanged_from_authored_dependency": true,
+      "delta_review": "Learning Contract §13 and README qualify Website-only implementation and original-Lecture execution; they preserve Chat-led teaching, Source-contact/evidence separation and conditional MedicalVisual.",
+      "copied_or_merged_into_this_candidate": false
+    },
+    "native_effect": {
+      "status": "PASS",
+      "evidence": "SYNTHETIC_ONLY_NO_PRIVATE_STATE",
+      "blocks": 39,
+      "kps": 616,
+      "unchangedCurrentBlocks": 38,
+      "changedGroups": [
+        "b-m04-lg01",
+        "b-m04-lg02"
+      ],
+      "existingCardsPreserved": 616,
+      "existingEvidenceEventsPreserved": 39,
+      "newDueItems": 0,
+      "sourceCoveragePreserved": 39,
+      "sourceHashNotRestamped": 39,
+      "negativeCases": {
+        "m4NewReleaseBlockedBeforeBothReviews": true,
+        "m4OneGroupDoesNotClearOther": true,
+        "m4BothGroupsClearExactDelta": true,
+        "m04MissingSourceBlocks": true,
+        "m04UnknownSourceChangeBlocks": true,
+        "n04MissingSourceBlocks": true,
+        "n04UnknownSourceChangeBlocks": true,
+        "n4DeclaredVisualGapBlocksSynthetic": true
+      },
+      "n4ActualVisualBoundary": {
+        "logicGroups": 6,
+        "visualRequiredGroups": [
+          "N4-LG01",
+          "N4-LG02",
+          "N4-LG04"
+        ],
+        "actualSourceStates": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "missingVisualCheckScope": "DECLARED_GAP_SYNTHETIC_ONLY; actual Source states are empty, so no all-visual real-consumer completion claim"
+      }
+    },
+    "surgery_boundary": "Only #1145 base is integrated here. #1148 A3 B5/B12/B14 versus this candidate D14/F3 requires exact shared-slot/history reconciliation after a common accepted base exists; do not paste A3 witnesses without its canonical dependencies. No final three-PR integration claim.",
+    "all_242_continuous_bodies_preserved": true,
+    "source_stage_and_authoring_hashes_preserved": true,
+    "new_medical_facts": 0,
+    "runtime_or_algorithm_changes": false,
+    "private_learner_records_read_or_written": false,
+    "main_merge_or_deploy": false,
+    "independent_medical_or_user_acceptance": false
   }
 }

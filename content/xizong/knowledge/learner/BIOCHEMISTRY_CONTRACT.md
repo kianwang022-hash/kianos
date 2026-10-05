@@ -88,9 +88,11 @@ The lane may be Source-continuous; the Knowledge must remain integrated with dig
 
 # 1｜Top-level learning decision
 
-## 1.1 First pass is a dedicated Biochemistry Source lane
+## 1.1 First-pass entry follows the chosen learning mode
 
-Normal Biochemistry first learning is:
+When Kian chooses **Chat-led first learning**, apply `LEARNING_CONTRACT.md §§4–5`: read Current canonical Knowledge, the exact Learning boundary and reviewed support, then teach a continuous causal model with KP ownership and reasoning-critical precision preserved. An admitted teaching view may support that model; an unadmitted candidate does not replace Current owners. Inspect any original figure/table needed to understand the current step now. Chat explanation does not manufacture Source contact, Recall, Memory admission or Block completion.
+
+When Kian chooses **original-Lecture learning or concentrated Source calibration**, use the dedicated Biochemistry Source lane:
 
 ```text
 current authoritative Biochemistry Source
@@ -114,7 +116,7 @@ Cross-System material appears only as:
 
 A connection is not permission to leave the Biochemistry lane and learn the neighboring course in full.
 
-## 1.2 Current Source continuity wins over canonical Block order
+## 1.2 In the chosen Source lane, Current Source continuity wins over canonical Block order
 
 Canonical Block identity remains stable, but Block numbering does not control Source reading order.
 
@@ -287,7 +289,7 @@ These are responsibilities, not mandatory headings.
 
 ## 5.1 ORIENTATION
 
-Use the smallest map that makes the upcoming Source navigable.
+For Source-lane orientation, use the smallest map that makes the upcoming Source navigable. Chat-led continuous teaching follows §1.1 and the shared Learning Contract.
 
 Prefer:
 
@@ -297,11 +299,11 @@ Prefer:
 - comparison axis;
 - information-lifecycle position.
 
-Do not create a prose mini-textbook before the learner meets the Source.
+Within this Source-lane orientation, do not create a prose mini-textbook before the learner meets the Source.
 
 ## 5.2 SOURCE_CONTACT
 
-Use natural continuous Source units from the current Source map.
+When executing original-Lecture learning or concentrated Source calibration, use natural continuous Source units from the current Source map. Their contact and closure requirements remain evidence requirements in either teaching mode.
 
 A Source unit may:
 
