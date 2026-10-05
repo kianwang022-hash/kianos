@@ -22,6 +22,24 @@ Learning Contract §2 owns this loop and §6.1 owns source-grounded selective Me
 
 Only this top-level cognitive loop is shared across subjects. Internal teaching shape remains subject-specific, and the path is allowed to cross surfaces.
 
+### 1.1 Fresh-Chat teaching continuity
+
+When the owning chapter has a Current prepared package under Learning Contract §3.1.1, every fresh Chat uses it as the teaching-semantic starting point. Conversation history is not required to recreate the course.
+
+The Chat may:
+- change wording, analogy and explanation depth;
+- pause or resume inside a prepared stage;
+- answer a learner question locally and then return to the fixed model.
+
+The Chat may not, merely because it can read Source:
+- invent a different chapter framework;
+- reshuffle the chapter into a new fill sequence;
+- replace the prepared confusion pass with an unrelated ad-hoc list;
+- make a new compression chain;
+- create an alternative precision/Memory syllabus.
+
+If a learner asks “继续” and exact learner position is known, resume the relevant prepared stage. If learner position is unknown, recover position from learner truth when available; do not solve uncertainty by teaching a newly generated course.
+
 ## 2. Learner attention order
 
 During first-round learning, attention priority is:
@@ -56,6 +74,8 @@ A minimal source excerpt is allowed only when it serves a bounded repair/orienta
 
 ### At natural closure
 Offer one short reconstruction/checkpoint cue only when useful; it may be skipped. Natural Unit identity is not a one-sitting requirement. Pausing/resuming within Chat teaching or Source calibration does not require a web checkpoint or prove completion. Do not create a large recall ceremony at closure. Scheduled proactive precision follows Learning Contract §6.1 and does not require waiting for a later mistake.
+
+Closure and later review must return to the chapter's fixed reconstruction spine from Learning Contract §0.5. Chat may expand a node, suppress detail, blank a node for Recall or approach one node from a question/example, but it must not improvise a different overall chapter framework when Current has not changed. After any local detour, restate the stable node/relationship it belongs to so the learner's index is reinforced rather than rebuilt.
 
 ### Encoding and exact retrieval
 After the relevant model is understood, Chat follows Learning Contract §3.2: identify what must be exact, organize it with meaningful cues/contrasts, recover the authoritative wording and explain the checking criteria. Explanation, aid and answer are distinct. Useful first-round exactness is not postponed merely because no question has been missed.
