@@ -1,11 +1,7 @@
 ---
-const { rows = [] } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 ---
-<div data-lexical-home-evidence-bridge data-base={base} hidden>
-  <script type="application/json" data-lexical-evidence-catalog set:html={payload}></script>
-</div>
+<div data-lexical-home-evidence-bridge data-base={base} hidden></div>
 <script>
   import {
     LEXICAL_LEDGER_STORAGE_KEY,
@@ -21,6 +17,19 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
   import { lexicalWordRuntimeHref } from '../lib/lexicalRuntimeRoute.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable } from '../lib/lexicalBrowserState.mjs';
+
+  let sharedRows = null;
+  const readCatalogRows = () => {
+    if (sharedRows !== null) return sharedRows;
+    try {
+      const parsed = JSON.parse(document.querySelector('[data-lexical-home] [data-lexical-catalog]')?.textContent || '[]');
+      sharedRows = Array.isArray(parsed) ? parsed : [];
+    } catch {
+      sharedRows = [];
+    }
+    return sharedRows;
+  };
+
   const copyTextRobust = async (text) => {
     if (navigator.clipboard?.writeText && window.isSecureContext) {
       try { await navigator.clipboard.writeText(text); return true; } catch {}
@@ -51,8 +60,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
     const home = document.querySelector('[data-lexical-home]');
     if (!(bridge instanceof HTMLElement) || !(home instanceof HTMLElement)) return;
 
-    let rows = [];
-    try { rows = JSON.parse(bridge.querySelector('[data-lexical-evidence-catalog]')?.textContent || '[]'); } catch {}
+    const rows = readCatalogRows();
     const lineage = rows.flatMap((row) => Array.isArray(row?.senseLineage) ? row.senseLineage : []);
     const readJson = (key, fallback) => {
       try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
@@ -123,8 +131,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
   const home = document.querySelector('[data-lexical-home]');
   if (bridge instanceof HTMLElement && home instanceof HTMLElement) {
     const base = bridge.getAttribute('data-base') || '/';
-    let rows = [];
-    try { rows = JSON.parse(bridge.querySelector('[data-lexical-evidence-catalog]')?.textContent || '[]'); } catch {}
+    const rows = readCatalogRows();
 
     const byObjectId = new Map(rows.map((row) => [row.objectId, row]));
     const lineage = rows.flatMap((row) => Array.isArray(row?.senseLineage) ? row.senseLineage : []);

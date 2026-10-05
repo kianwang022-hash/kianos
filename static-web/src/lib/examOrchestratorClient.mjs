@@ -67,7 +67,9 @@ export function initExamHome(root) {
   const $ = (selector) => root.querySelector(selector);
   const $$ = (selector) => [...root.querySelectorAll(selector)];
   const catalog = JSON.parse($('[data-exam-catalog]').textContent);
-  const politicsCatalog = JSON.parse($('[data-exam-daily-politics-catalog]')?.textContent || 'null');
+  const politicsCatalogNode = document.querySelector('[data-home-politics-catalog]')
+    || $('[data-exam-daily-politics-catalog]');
+  const politicsCatalog = JSON.parse(politicsCatalogNode?.textContent || 'null');
   const politicsMemoryCatalog = JSON.parse($('[data-exam-politics-memory-catalog]')?.textContent || 'null');
   $('[data-exam-catalog]').remove();
   $('[data-exam-daily-politics-catalog]')?.remove();
