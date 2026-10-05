@@ -366,6 +366,7 @@ export function updateEnglishReadingDiscussion(storage,meta,{span=null,removeId=
  }
  if(JSON.stringify(next)===JSON.stringify(prior))return state;
  state.discussionSpans=next;
+ state.discussion_updated_at=new Date(now).toISOString();
  atomicEnglishWrites(storage,[[key,state]]);
  notifyEnglishReadingEvidence('context');
  return state;

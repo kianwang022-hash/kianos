@@ -652,7 +652,7 @@ export function englishAttemptInventory(storage, catalog = null) {
     const attempt=row.task==='reading_a'&&sourceCurrent===true?readJson(storage,prefixes.reading_a+row.object_id):null;
     const exact=attempt?.binding?.task==='reading_a'&&attempt.binding.object_id===row.object_id;
     return {...row,current_source_hash:owner?.source_hash||null,source_current:sourceCurrent,
-      ...(row.task==='reading_a'?{question_outcomes:exact?englishReadingQuestionOutcomes(attempt,owner.source_hash):[],
+      ...(row.task==='reading_a'?{discussion_updated_at:exact?clean(attempt.discussion_updated_at,80)||null:null,question_outcomes:exact?englishReadingQuestionOutcomes(attempt,owner.source_hash):[],
         discussion_spans:exact?englishReadingDiscussionSpans(attempt,owner.source_hash):[]}:{} )};
   }); // Historical first evidence stays intact; Current eligibility is a read projection.
 }
@@ -695,7 +695,10 @@ function englishAttemptTimestamp(row) {
     row?.first_evidence?.observed_at
   ]) {
     const value = Date.parse(String(raw || ''));
-    if (Number.isFinite(value)) return value;
+    if (Number.isFinite(value)) {
+      const discussion=Date.parse(row?.discussion_updated_at||'');
+      return Number.isFinite(discussion)?Math.max(value,discussion):value;
+    }
   }
   return Number.NEGATIVE_INFINITY;
 }

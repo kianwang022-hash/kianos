@@ -58,6 +58,20 @@ updateEnglishReadingDiscussion(restored,meta,{clear:true});
 for(const i of [...'Repeat. Repeat.'].map((c,i)=>c.trim()?i:null).filter(i=>i!=null).slice(0,12))updateEnglishReadingDiscussion(restored,meta,{span:{text:'Repeat. Repeat.'[i],start:i,end:i+1},now:now+i});
 assert.throws(()=>updateEnglishReadingDiscussion(restored,meta,{span:{text:'t',start:13,end:14}}),/12/);
 assert.equal(JSON.parse(restored.getItem(key)).discussionSpans.length,12);
+// A fresh discussion on an older submitted object must survive the recent window.
+const crowded=new Storage(),crowdedCatalog=[...catalog];
+crowded.setItem(key,before);
+for(let i=0;i<9;i++) {
+ const copy=structuredClone(state),id='newer-'+i;
+ copy.binding.object_id=id;copy.binding.attempt_id=id;copy.discussionSpans=[];
+ copy.submittedAt=new Date(now+120000+i*1000).toISOString();
+ crowded.setItem('kianos-reading-attempt-v1:'+id,JSON.stringify(copy));
+ crowdedCatalog.push({...catalog[0],object_id:id});
+}
+updateEnglishReadingDiscussion(crowded,meta,{span:first,now:now+600000});
+const activeRow=buildEnglishEvidencePacket(crowded,{day,catalog:crowdedCatalog}).inventory.find(row=>row.object_id===meta.object_id);
+assert.equal(activeRow.discussion_spans.length,2,'fresh discussion cannot disappear behind eight newer submissions');
+assert.equal(activeRow.question_outcomes[0].final_answer,'A');
 const invalid=structuredClone(state);invalid.results={q1:'wrong'};
 assert.deepEqual(englishReadingQuestionOutcomes(invalid,meta.source_hash),[],'partial result map is unknown');
 console.log('PASS Reading native evidence: baseline failure repaired; submitted/source gates, bounded trajectory/spans, duplicate/remove/stale-page, checkpoint restore, manual/native consistency');

@@ -151,7 +151,7 @@ try {
     getSelection().removeAllRanges();
     const p=document.querySelector('[data-generated-reading-paragraphs] p');p.replaceChildren(document.createTextNode(p.textContent));
   });
-  await page.waitForFunction(()=>[...CSS.highlights.get('kianos-reading-discussion')||[]].every(range=>range.toString()==='A pilot'));
+  await page.waitForFunction(()=>{const ranges=[...CSS.highlights.get('kianos-reading-discussion')||[]];return ranges.length===1&&ranges[0].toString()==='A pilot';});
 
   const discussionBefore=await page.evaluate(k=>localStorage.getItem(k),key);
   await page.evaluate(()=>document.querySelector('[data-local-port="reading"]').setAttribute('data-english-source-hash','mismatched-source'));
@@ -209,6 +209,13 @@ try {
     const attempt=JSON.parse(raw);
     return attempt.submitted===true&&attempt.answers?.gq1==='B'&&attempt.discussionSpans?.[0]?.text==='A pilot';
   },{key});
+  const durable=await page.evaluate(async()=> (await (await fetch('/__kianos-private/checkpoint')).json()).checkpoint);
+  const relayOutput=buildDailyLearningPacketFromPrivateCheckpoint(durable,{englishCatalog:catalog});
+  // A fresh reader consumes the existing normal transport projection, no manual handoff.
+  const freshReader=JSON.parse(JSON.stringify(relayOutput.packet)).subjects.english.evidence.inventory.find(row=>row.object_id===id);
+  assert.deepEqual(freshReader.question_outcomes,native.question_outcomes);
+  assert.deepEqual(freshReader.discussion_spans,native.discussion_spans);
+  assert.equal(freshReader.source_hash,drill.content_hash);
 
   assert.equal(submitted.binding.attempt_id, before.binding.attempt_id);
   assert.equal(submitted.binding.source_hash, drill.content_hash);
