@@ -3,6 +3,8 @@
 Role: **Politics engineering Work Cursor + subject router**  
 Parent: [root CURRENT](../../CURRENT.md)
 
+Shared-platform routing inherits [Authority](../../AUTHORITY_INHERITANCE_CONTRACT.md) and its machine-registered [owner map](../../AUTHORITY_OWNERSHIP.json); Politics consumes those owners without owning shared-platform semantics.
+
 ## Intent and execution state
 
 - **LEARN:** ordinary Politics learning bypasses this engineering cursor. Read actual learner/Resume evidence, then the relevant Current prepared package under [Learning §3.1.1](LEARNING_CONTRACT.md#311-canonical-prepared-chapter-package--chat-consumes-not-regenerates) and [Interaction §1.1](INTERACTION_CONTRACT.md#11-fresh-chat-teaching-continuity). Recover unknown learner position from learner truth; candidate preparation is not adoption, progress or mastery.
