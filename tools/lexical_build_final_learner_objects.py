@@ -181,7 +181,7 @@ def complete_ipa(value: Any) -> bool:
                 and not any(char in body for char in "/[]")
                 and any(unicodedata.category(char).startswith("L") for char in body))
 
-def compile_pronunciation_support(form: Any, senses: list[dict[str, Any]]) -> dict[str, Any] | None:
+def compile_pronunciation_support(form: Any, senses: list[dict[str, Any]], word: str = "") -> dict[str, Any] | None:
     """Execute the ordinary-IPA projection in FINAL_LEARNER_OBJECT_CONTRACT."""
     if not isinstance(form, dict):
         return None
@@ -221,6 +221,11 @@ def compile_pronunciation_support(form: Any, senses: list[dict[str, Any]]) -> di
     for variant in form.get("variants") or []:
         if not isinstance(variant, dict) or not complete_ipa(variant.get("ipa")):
             continue
+        surfaces = [variant[key] for key in ("surface", "canonical_form") if variant.get(key)]
+        if word and any(surface != word for surface in surfaces):
+            # Inflected/spelling/case variants remain in their existing Form
+            # reference, rather than being advertised as this headword's IPA.
+            continue
         label = str(variant.get("learner_key") or variant.get("canonical_form") or "")
         locales = [locale for locale in variant.get("locales") or [] if locale in ("en-US", "en-GB")]
         # Only the explicit terminal regional label, never variant_id/audio.
@@ -229,8 +234,14 @@ def compile_pronunciation_support(form: Any, senses: list[dict[str, Any]]) -> di
         elif not locales and label.endswith(" · UK"):
             locales = ["en-GB"]
         poses = list(variant.get("pos") or [])
-        bound_ids = {str(sense.get("id")) for sense in senses
-                     if normalized_pos(sense.get("pos")) in {normalized_pos(pos) for pos in poses}}
+        sense_conditioned = (form.get("choice_rule") == "sense_selects_pronunciation"
+                             or form.get("identity_rule") == "sense_selects_pronunciation"
+                             or form.get("form_type") == "heteronym_sense_conditioned_pronunciation")
+        if variant.get("sense_ids"):
+            bound_ids = set(map(str, variant["sense_ids"])) - set(map(str, variant.get("excluded_sense_ids") or []))
+        else:
+            bound_ids = set() if sense_conditioned else {str(sense.get("id")) for sense in senses
+                        if normalized_pos(sense.get("pos")) in {normalized_pos(pos) for pos in poses}}
         add({"ipa": variant["ipa"], "locales": locales,
              "applicability": [{"pos": poses, "sense_ids": sorted(bound_ids)}],
              "learner_reading": label, "evidence_basis": "existing_form", "spelling_binding": None}, bound_ids)
@@ -504,7 +515,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             "repair": repair("core", "record.core_concept", None, summary_cn or word),
         },
         "senses": senses,
-        "pronunciation_support": compile_pronunciation_support(record.get("form_identity"), senses),
+        "pronunciation_support": compile_pronunciation_support(record.get("form_identity"), senses, word),
         "secondary_senses": secondary,
         "constructions": constructions,
         "reference": {

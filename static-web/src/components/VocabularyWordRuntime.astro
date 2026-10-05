@@ -134,6 +134,9 @@ const { answer = null } = Astro.props;
       repairButtons.forEach((button, index) => {
         const target = targetFromButton(button);
         const active = Boolean(state.repairTargets[target.key]);
+        const selectedRevision = active && !target.id ? state.repairTargets[target.key]?.target_revision : '';
+        if (selectedRevision) button.setAttribute('data-vocab-selected-target-revision', selectedRevision);
+        else button.removeAttribute('data-vocab-selected-target-revision');
         button.classList.toggle('selected', active);
         button.setAttribute('aria-pressed', String(active));
         button.textContent = active ? '✓' : '+';

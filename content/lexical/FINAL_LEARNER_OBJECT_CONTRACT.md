@@ -125,6 +125,10 @@ Sense placement uses only explicit applicability Sense IDs minus exclusions. Unb
 
 The front may show the selected region's literal IPA alternatives plus explicitly unmarked alternatives. Restricted readings carry a neutral reminder to inspect their scope after Reveal, without exposing POS, meaning, case/strong-weak conditions or source-derived limitations before Recall. Revealed headword/Sense support preserves those conditions, marks derived transcriptions and same-lexeme spelling donors, and never presents an unknown reading as American/British. Browser speech remains system TTS, not source-recorded audio or proof that a particular displayed alternative was spoken.
 
+Legacy variants with an explicit `surface`/`canonical_form` differing from the headword stay in the existing Form reference; an inflected spelling is not the headword's pronunciation. When the owner explicitly declares `choice_rule: sense_selects_pronunciation`, `identity_rule: sense_selects_pronunciation` or `form_type: heteronym_sense_conditioned_pronunciation`, POS alone cannot select the intended Sense. Only explicit variant Sense IDs may bind those readings; otherwise they remain unbound headword alternatives with their existing learner condition, never a blanket noun/verb assignment. Approved observation scopes/exclusions are not broadened by an unbound legacy fallback.
+
+Changing background IPA changes the real `source_fingerprint`; revision guards remain intact. For a manual Repair removal, the existing evidence bridge must clear the exact selected target's retained revision. It must not substitute the newly displayed source revision, clear every version sharing a locator, or rewrite old evidence. New marks continue to use Current source revision.
+
 ## 4. No heuristic semantic dedupe
 
 The builder may use:

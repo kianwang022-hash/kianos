@@ -84,6 +84,28 @@ class PronunciationProjectionTest(unittest.TestCase):
         self.assertEqual(support["sense_readings"], {})
         self.assertEqual(support["readings"][0]["applicability"][0]["conditions"]["owner_identity_condition"], "verb refuse")
 
+    def test_inflected_variant_is_not_the_headword_reading(self):
+        final = self.word(1156)
+        support = final["pronunciation_support"]
+        self.assertNotIn("/ˈkraɪ.siːz/", [row["ipa"] for row in support["readings"]])
+        self.assertIn("/ˈkraɪ.sɪs/", [row["ipa"] for row in support["readings"]])
+        self.assertIn("/ˈkraɪ.siːz/", [row["ipa"] for row in final["reference"]["form"]["variants"]])
+
+    def test_explicit_new_scope_survives_unbound_legacy_fallback(self):
+        form = {"choice_rule": "sense_selects_pronunciation",
+                "variants": [{"ipa": "/baʊ/", "pos": ["noun"]}],
+                "headword_pronunciations": [{"ipa": "/boʊ/", "locales": ["en-US"],
+                    "applicability": [{"sense_ids": ["weapon"], "excluded_sense_ids": ["ship"]}]}]}
+        support = builder.compile_pronunciation_support(form, [{"id": "weapon", "pos": "noun"}, {"id": "ship", "pos": "noun"}], "bow")
+        self.assertEqual(support["sense_readings"], {"weapon": [0]})
+
+    def test_sense_conditioned_form_cannot_bind_by_pos_alone(self):
+        final = self.word(557)
+        self.assertEqual(final["pronunciation_support"]["sense_readings"], {})
+        self.assertTrue(final["pronunciation_support"]["readings"])
+        self.assertEqual(self.readings(final, "sense:bow:2d29023eebfb52c2"), [])
+        self.assertEqual(self.readings(final, "sense:bow:c7047fc7def157d3"), [])
+
 
 if __name__ == "__main__":
     unittest.main()
