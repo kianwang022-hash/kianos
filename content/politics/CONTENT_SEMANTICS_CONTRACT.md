@@ -173,6 +173,31 @@ The defaults and hard promotion/demotion guards are owned by `CONTENT_HIERARCHY_
 
 ---
 
+### 3.1.1 Prepared chapter package realization
+
+Learning Contract §3.1.1 requires a reusable chapter teaching package before the chapter is called prepared for cross-Chat continuous learning.
+
+Realize that package through existing Content owners. The exact file split is flexible, but the following learner jobs must be inspectably owned rather than inferred at runtime:
+
+- canonical reconstruction spine / mother model;
+- stable progressive teaching stages or batches and their scope;
+- substantive explanation attached to those stages;
+- deliberate confusable/boundary teaching pass;
+- same-model compression;
+- reviewed exact-retrieval targets and Memory handoff.
+
+A teacher brief may carry the long-form exposition and confusion pass while chapter JSON carries the stable spine, stage routing and precision objects. That is one package when both resolve to the same chapter/NU identities and reviewed meaning; it is not permission for two competing versions.
+
+Stage labels such as “first fill” / “second fill” are pedagogical routing only. Do not promote them into new Natural Units or Runtime states. What matters is that a fresh Chat can deterministically recover **what content comes next and what already prepared asset to teach**, without synthesizing a new chapter course from Source.
+
+The Content review must reject:
+- fixed spine present but no reusable substantive teaching content;
+- full prose present but no stable teaching-stage routing, leaving each Chat to choose a new fill order;
+- “易混/边界” recoverable only by rereading raw questions rather than prepared Content;
+- compression that introduces a new framework;
+- precision lists that are not attached to the same model;
+- teacher brief and chapter/Memory objects that disagree on the same claim.
+
 ### 3.2 Model-to-memory content realization
 
 Learning Contract §§3.2/6.1 owns learning and admission meaning. This section owns its realization in the existing chapter semantics / precision groups / `*.memory.json` path; it does not create another catalog or scheduler.
