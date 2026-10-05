@@ -128,7 +128,7 @@ export async function loadHomeXizongProjectionTransport() {
          import { fileURLToPath, pathToFileURL } from 'node:url';
          import path from 'node:path';
          const root = process.env.KIANOS_REPO_ROOT;
-         const allowed = ['content/xizong', 'static-web/src/assets/xizong', 'static-web/src/lib']
+         const allowed = ['content/xizong', 'static-web/src/assets/xizong', 'static-web/src/lib', 'static-web/node_modules/marked']
            .map(p => path.join(root, p) + path.sep);
          const read = fs.readFileSync;
          fs.readFileSync = function(file, ...args) {

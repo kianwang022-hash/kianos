@@ -29,6 +29,15 @@ try {
   const [original, concurrent] = await Promise.all([load(),load()]);
   assert.strictEqual(original,concurrent,'concurrent cold requests share the same real build');
   assert.strictEqual(await load(),original,'unchanged real cached projection is reused');
+  // Node 22's ESM loader uses readFileSync for marked. Force that same
+  // dependency read in the fresh worker even when the host is Node 25.
+  const loaderFile=path.join(root,'static-web/src/lib/homeXizongProjection.mjs');
+  const loaderBytes=fs.readFileSync(loaderFile);
+  fs.appendFileSync(loaderFile,"\nfs.readFileSync(path.join(transportRoot,'static-web/node_modules/marked/lib/marked.esm.js'));\n");
+  const markedRead=await load();
+  assert.equal(markedRead.body,baseline,'fingerprinted/copied marked ESM remains readable through worker guard');
+  fs.writeFileSync(loaderFile,loaderBytes);
+  assert.equal((await load()).body,baseline,'restored worker code keeps complete canonical output');
   const packet = JSON.parse(original.body);
   const source = packet.xizongPacketIndex[0].packetMeta.sourcePath;
   const cases = [

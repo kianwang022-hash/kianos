@@ -474,3 +474,10 @@ Before transport首字节25106.42ms，服务器24827ms；after首字节3101.96ms
 - 证据归类更正：前述第二次58.28ms导出使用原Home `xizongProjectionPromise`，没有再请求endpoint，是已有浏览器公共投影后的私有Packet实时重合成，不是新server cache暖命中。已打开Home不会主动因owner变化取新公共投影；本轮保持固定Candidate/page生命周期，不主张端到端实时刷新，也不改client缓存策略。
 
 另实测两次真实HTTP GET（不同query，均200/no-store，完整1674472字节JSON逐字相同）：cold首字节2930.87ms/读完2953.07ms；warm首字节89.50ms/读完115.33ms。两响应SHA256 `c7c621c47e7f48e1cc1d6f7ce69244b003cfc0277b2a652dcfcb79b739de1722`。这是server transport暖复用证据，与58.28ms同页Packet重合成分开。原25.17秒→3.16秒冷Packet实测保留；其余冷路径未改善。
+
+
+### 2026-10-05｜保存后CI兼容性回读
+
+已审13文件批次 `3f71dc0f51fce70aedb487791f4da84dcd70a89d` 已正常push原PR分支，13文件远端逐字readback；保留main `0cb20236`的三科Acceptance限定。该head受影响CI的政治blob/Content/Runtime前置校验通过，但多条Astro构建遇到同一Node22读取差异：`HOME_XIZONG_UNCLASSIFIED_DEPENDENCY:.../static-web/node_modules/marked/lib/marked.esm.js`（Static Web Politics QA run37260123219/job111605394488，Node22.23.3）。它是已在revision与公共快照中纳入的依赖，原子进程读取guard遗漏该子树，而非Source admission失败。
+
+最小兼容性修正只将已经校验/复制的`static-web/node_modules/marked`纳入子进程读取guard，不允许整个node_modules或外部私有路径。新增反例在固定复制树的loader尾部主动经同步readFileSync读取marked ESM，模拟Node22 loader路径；修正前实际复现同一拒绝，修正后完整cache反例/独立基线/HEAD/等长变化测试PASS。完整本地`npm run build`生成1015页、25.15秒完成。该兼容性修正仍需新准确head的CI回读；不以旧head失败或本地build替代当前CI成功，不改变P6/真实学习边界。
