@@ -72,7 +72,11 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
     const meaningRect = rect(meaning);
     const englishMeaningRect = rect(englishMeaning);
     const usageRect = rect(usage);
-    const tops = [posRect?.top, meaningRect?.top, usageRect?.top].filter((value) => Number.isFinite(value));
+    // Authorized Sense IPA is now the first learner-visible Meaning-column line.
+    // Keep definition geometry for Chinese-before-English/collision checks below.
+    const meaningFirstLine = firstUsableRow?.querySelector('.lexicalSensePronunciation') || meaning;
+    const meaningFirstLineRect = rect(meaningFirstLine);
+    const tops = [posRect?.top, meaningFirstLineRect?.top, usageRect?.top].filter((value) => Number.isFinite(value));
     const rowStyle = css(firstUsableRow);
     const referenceStyle = css(reference);
     const sheetRect = rect(sheet);
