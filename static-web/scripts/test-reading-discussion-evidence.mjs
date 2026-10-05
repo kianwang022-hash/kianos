@@ -68,7 +68,11 @@ for(let i=0;i<9;i++) {
  crowded.setItem('kianos-reading-attempt-v1:'+id,JSON.stringify(copy));
  crowdedCatalog.push({...catalog[0],object_id:id});
 }
+const staleCrowdedPage=JSON.parse(crowded.getItem(key));
 updateEnglishReadingDiscussion(crowded,meta,{span:first,now:now+600000});
+saveEnglishAttempt(crowded,key,staleCrowdedPage,meta,{now:now+601000});
+assert.equal(JSON.parse(crowded.getItem(key)).discussion_updated_at,new Date(now+600000).toISOString(),
+ 'stale native save must preserve latest explicit discussion timestamp');
 const activeRow=buildEnglishEvidencePacket(crowded,{day,catalog:crowdedCatalog}).inventory.find(row=>row.object_id===meta.object_id);
 assert.equal(activeRow.discussion_spans.length,2,'fresh discussion cannot disappear behind eight newer submissions');
 assert.equal(activeRow.question_outcomes[0].final_answer,'A');

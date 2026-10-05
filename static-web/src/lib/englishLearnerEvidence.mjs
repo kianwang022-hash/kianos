@@ -221,7 +221,11 @@ export function saveEnglishAttempt(storage,key,value,meta,{sessionId='',now=Date
    else if(history.unresolved&&binding.prior_exposure==='unseen')binding={...binding,prior_exposure:'unknown'};
   }
   // The native record owns explicit add/remove; stale page saves cannot erase or resurrect spans.
-  if(binding?.task==='reading_a')value.discussionSpans=clone(previous?.discussionSpans||[]);
+  if(binding?.task==='reading_a'){
+    value.discussionSpans=clone(previous?.discussionSpans||[]);
+    if(Object.hasOwn(previous||{},'discussion_updated_at'))value.discussion_updated_at=previous.discussion_updated_at;
+    else delete value.discussion_updated_at;
+  }
   const next=clone(value);next.binding={...binding,revision:Number(binding.revision||0)+1};next.saved_at=new Date(now).toISOString();
   if(!previous?.firstEvidenceMeta && ((!previous?.submitted&&next.submitted)||(!previous?.firstSubmittedAt&&next.firstSubmittedAt))){
     next.firstEvidenceMeta=Object.fromEntries(['attempt_id','source_hash','semantic_source_hash','prior_exposure','assistance','source_kind','evidence_role','legacy_unversioned','time_budget_seconds'].map(k=>[k,next.binding[k]]));
