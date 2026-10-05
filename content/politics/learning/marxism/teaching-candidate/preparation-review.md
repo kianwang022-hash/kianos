@@ -522,3 +522,13 @@ C01完整章blob随compression改变，PR原projection绑定的 `3d54fab3bcd5e31
 原 `extractPoliticsMemoryCandidates` 实际选出同一22项，逐对象完整deepEqual旧输出，每项 `politicsMemoryAdmissionVerified` 仍为true；`buildPoliticsMemoryCandidateCatalogCurrent` 的全部331对象及revision `politics-memory-66169567` 与旧输出完整相等。原 `validatePoliticsMemoryPlan` 接受仅引用这22个candidate_id/current revision的隔离内存计划，全部snapshot与旧计划逐对象相等；改答但沿用snapshot的反例被 `PLAN_SNAPSHOT_STALE` 拒绝。未将计划写入Control或排程。原 `buildPoliticsMemoryHistoryProfile` 读取既有18条隔离测试Recall快照，18条兼容、0条stale；不是新增Recall或真实学习证据。
 
 既有 `validate-politics-cognitive-projection-assets.mjs`、strict `audit-politics-explicit-surface-mapping.mjs`（151 PASS全部mapped，0 missing/errors）及 `validate-politics-repair-memory.mjs` 通过。brief显式本地锚点/引用均解析，JSON差异仅compression，git diff --check通过。本次未改UI/Runtime代码、Current、Source/题目truth、Memory对象或真实学习记录，未新做浏览器/性能/源页全面审查。该结果只补上本批实际内容与catalog消费证据；GitHub保存、准确head CI及远端readback须由后续实际结果报告，不能据本段推断已merge/deploy或P6/真实U验收。
+
+## C03 八节点备课定位草稿 2026-10-05
+
+本批只整理既有 `ch03.brief.md` 的阶段、原段/B补全与精记定位：以 PR #1151 `adb1e3194b2c1d601ebbc6e2992b2d22b97815f2` 的章 JSON 固定八节点为唯一索引，其他口语短述仅回指该索引。章 JSON 未改，23个原对象及其题面、答案、标准、cue、Source、admission和原审查签名字段逐字未变，不重新签审或生成对象。
+
+作者本地实跑：原 brief 两处压缩分别为6/7段，与原8节点不一致，检查确实失败；改后两处均逐字同序恢复原8节点，检查通过。47个显式锚点唯一、107处本地片段引用可解；23个原ID各一次且原索引/名称/完整题面匹配。第二飞跃题可定位原完整实施段，因素/阶段题可跨原段落顺序定位两类因素及两阶段。移除新增定位和锚点、还原两条压缩句后，逐字节恢复原 brief blob；原连续解释、B/C、覆盖证据、未决差异与既有复核声明保留。
+
+独立有界审读已通过：逐项对照23个原对象核查路由语义，并独立重放10项文本/定位检查，全部PASS。首稿准备阶段曾将因素分类排在第二飞跃前；独立审读指出后，已改为原连续正文的第一飞跃→第二飞跃→因素分类→认识循环，节点3的因素入口仅保留跨段辨析用途。原连续正文始终未改。
+
+以上只覆盖本地路由草稿的文本、阶段和对象定位；无新Source验收、实际consumer/网站执行、Current采纳、排程或真实U证据，不扩张原有审查结论。
