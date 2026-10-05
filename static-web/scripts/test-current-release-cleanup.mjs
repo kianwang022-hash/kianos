@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { isProcessAlive, runBounded, terminateProcessTree, resolveCurrentCheckoutTimeoutMs, parseReleaseWorktrees, availableReleaseWorktreePath, releaseWorktreeIsDisposable } from './currentRelease.mjs';
+import { isProcessAlive, runBounded, terminateProcessTree, resolveCurrentCheckoutTimeoutMs, parseReleaseWorktrees, availableReleaseWorktreePath, releaseWorktreeIsDisposable, releaseIdentityProblem } from './currentRelease.mjs';
 
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-release-cleanup-'));
 const childPid = path.join(temp, 'child.pid');
@@ -21,6 +21,10 @@ try {
   assert.notEqual(availableReleaseWorktreePath(unknown, []), unknown);
   assert.equal(releaseWorktreeIsDisposable(unknown, []), false);
   assert.equal(releaseWorktreeIsDisposable(unknown, [{ path: unknown, locked: false }]), false, 'incomplete checkout has no removable identity');
+  assert.equal(releaseIdentityProblem({sha:'a',contextHash:'c'}, 'a', 'c'), null);
+  assert.equal(releaseIdentityProblem({sha:'a',contextHash:'old'}, 'a', 'c'), 'context-mismatch');
+  assert.match(releaseIdentityProblem({sha:'old',contextHash:'c'}, 'a', 'c'), /sha-mismatch/);
+  assert.equal(releaseIdentityProblem({http_status:503}, 'a', 'c'), 'http-status:503');
   const startedAt = Date.now();
   await assert.rejects(
     runBounded(process.execPath, ['-e', `

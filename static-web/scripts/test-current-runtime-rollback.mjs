@@ -28,6 +28,9 @@ const port = await new Promise((resolve) => {
 });
 let daemon;
 let logs = '';
+const healthyProbe = path.join(root, 'healthy-probe');
+const probePid = path.join(root, 'probe.pid');
+const buildCounter = path.join(root, 'build-count');
 const wait = async (fn) => {
   for (let end = Date.now() + 15000; Date.now() < end; await new Promise((resolve) => setTimeout(resolve, 100))) {
     if (await fn()) return;
@@ -74,7 +77,7 @@ try {
   // B fails its pre-activation probe. Legacy A must remain active/serviceable.
   write(
     'static-web/scripts/kianos-static-server.mjs',
-    `import http from 'node:http';http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?'{"sha":"wrong"}':'B')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`
+    `import fs from 'node:fs';import path from 'node:path';import http from 'node:http';const r=process.argv[process.argv.indexOf('--root')+1];if(process.argv.includes('--release-probe-only'))fs.writeFileSync(process.env.KIANOS_FIXTURE_PROBE_PID,String(process.pid));http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?(fs.existsSync(process.env.KIANOS_FIXTURE_PROBE_HEALTH)?fs.readFileSync(path.join(r,'__kianos-current.json')):'{"sha":"wrong"}'):'B')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`
   );
   git(upstream, 'add', '.');
   git(upstream, 'commit', '-m', 'B bad probe');
@@ -84,7 +87,7 @@ try {
   const npm = path.join(root, 'npm');
   fs.writeFileSync(
     npm,
-    '#!/bin/sh\nif [ "$1" = install ]; then mkdir -p "$PWD/node_modules/.bin"; : > "$PWD/node_modules/.bin/astro"; exit 0; fi\nout=""\nwhile [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"\necho x > "$out/index.html"\n'
+    '#!/bin/sh\n[ "$1" != install ] && [ -n "$KIANOS_FIXTURE_BUILD_COUNTER" ] && echo build >> "$KIANOS_FIXTURE_BUILD_COUNTER"\nif [ "$1" = install ]; then mkdir -p "$PWD/node_modules/.bin"; : > "$PWD/node_modules/.bin/astro"; exit 0; fi\nout=""\nwhile [ "$#" -gt 0 ]; do [ "$1" = --outDir ] && { shift; out="$1"; }; shift; done\nmkdir -p "$out"\necho x > "$out/index.html"\n'
   );
   fs.chmodSync(npm, 0o755);
 
@@ -92,7 +95,8 @@ try {
     ...process.env,
     KIANOS_SYNC_RUNTIME_SHA: git(mirror, 'rev-parse', 'HEAD'),
     KIANOS_PORT: String(port), KIANOS_NPM_BIN: npm,
-    KIANOS_BUILD_NICE: '0', KIANOS_SYNC_INTERVAL_MS: '3000'
+    KIANOS_BUILD_NICE: '0', KIANOS_SYNC_INTERVAL_MS: '3000',
+    KIANOS_FIXTURE_BUILD_COUNTER: buildCounter, KIANOS_FIXTURE_PROBE_HEALTH: healthyProbe, KIANOS_FIXTURE_PROBE_PID: probePid
   };
   // Trusted same-context LKG; missing-context migration is tested separately.
   fs.writeFileSync(path.join(mirror, 'static-web/dist/__kianos-current.json'), JSON.stringify({
@@ -123,10 +127,27 @@ try {
   });
   assert.equal(git(mirror, 'rev-parse', 'HEAD'), a);
   assert.equal(fs.existsSync(path.join(root, '.kianos-current-releases/active')), false);
-  assert.equal(fs.existsSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), b)), false, 'failed B release worktree must be removed');
-  assert.equal(git(mirror, 'worktree', 'list', '--porcelain').includes(b), false, 'failed B worktree metadata must be removed');
+  const retainedB = fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), b);
+  assert.equal(fs.existsSync(retainedB), true, 'verified B artifact must survive a failed readiness probe');
+  assert.equal(git(mirror, 'worktree', 'list', '--porcelain').includes(b), true);
+  assert.match(logs, /CURRENT_RELEASE_RUNTIME_NOT_READY:sha-mismatch/, 'diagnosis must name the observed identity error');
+  const receiptB = path.join(retainedB, 'static-web/dist/__kianos-current.json');
+  const receiptTime = fs.statSync(receiptB).mtimeMs;
+  const builds = () => fs.readFileSync(buildCounter, 'utf8').trim().split('\n').length;
+  assert.equal(builds(), 1);
+  assert.throws(() => process.kill(Number(fs.readFileSync(probePid)), 0), /ESRCH/, 'failed probe must stop before retry');
+  // Same exact SHA/context now answers correctly: reuse its completed build,
+  // rather than reproducing the expensive build -> probe -> deletion loop.
+  fs.writeFileSync(healthyProbe, 'ready');
+  await wait(async () => {
+    try { return (await (await fetch(`http://127.0.0.1:${port}`)).text()) === 'B'
+      && git(mirror, 'rev-parse', 'HEAD') === b; } catch { return false; }
+  });
+  assert.equal(builds(), 1, 'same-SHA readiness recovery must not rebuild');
+  assert.equal(fs.statSync(receiptB).mtimeMs, receiptTime, 'recovery must use the exact verified artifact');
 
-  // C is healthy and becomes the first isolated active release.
+
+  // C is healthy and supersedes the recovered B release.
   write(
     'static-web/scripts/kianos-static-server.mjs',
     `import fs from 'node:fs';import http from 'node:http';import path from 'node:path';const r=process.argv[process.argv.indexOf('--root')+1];http.createServer((q,s)=>s.end(q.url.startsWith('/__kianos-release.json')?fs.readFileSync(path.join(r,'__kianos-current.json')):'C')).listen(+process.env.KIANOS_PORT,'127.0.0.1');`
@@ -182,8 +203,8 @@ try {
     fs.realpathSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), c)),
     'pre-activation probe failure must preserve the current healthy active release'
   );
-  assert.equal(fs.existsSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), d)), false, 'failed D release worktree must be removed');
-  assert.equal(git(mirror, 'worktree', 'list', '--porcelain').includes(d), false, 'failed D worktree metadata must be removed');
+  assert.equal(fs.existsSync(fixtureReleaseRoot(path.join(root, '.kianos-current-releases/releases'), d)), true, 'verified D artifact retained for bounded reprobe');
+  assert.equal(git(mirror, 'worktree', 'list', '--porcelain').includes(d), true);
 
   // Separate first-promotion case: no legacy dist and no prior site. The
   // candidate probe passes on its isolated port, but the production runtime
