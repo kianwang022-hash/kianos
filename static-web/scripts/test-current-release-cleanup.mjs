@@ -3,11 +3,24 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { isProcessAlive, runBounded, terminateProcessTree } from './currentRelease.mjs';
+import { isProcessAlive, runBounded, terminateProcessTree, resolveCurrentCheckoutTimeoutMs, parseReleaseWorktrees, availableReleaseWorktreePath, releaseWorktreeIsDisposable } from './currentRelease.mjs';
 
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'kianos-release-cleanup-'));
 const childPid = path.join(temp, 'child.pid');
 try {
+  assert.equal(resolveCurrentCheckoutTimeoutMs({ KIANOS_GIT_TIMEOUT_MS: '30' }), 300000);
+  assert.equal(resolveCurrentCheckoutTimeoutMs({ KIANOS_CHECKOUT_TIMEOUT_MS: '80' }), 80);
+  assert.equal(resolveCurrentCheckoutTimeoutMs({ KIANOS_CHECKOUT_TIMEOUT_MS: 'NaN' }), 300000);
+  const missing = path.join(temp, 'missing');
+  const entries = parseReleaseWorktrees(`worktree ${missing}\nHEAD abc\ndetached\nlocked initializing\n`);
+  assert.notEqual(availableReleaseWorktreePath(missing, entries), missing, 'missing locked registration still occupies path');
+  assert.equal(releaseWorktreeIsDisposable(missing, entries), false);
+  const unknown = path.join(temp, 'unknown');
+  fs.mkdirSync(unknown);
+  fs.writeFileSync(path.join(unknown, 'unique'), 'preserve');
+  assert.notEqual(availableReleaseWorktreePath(unknown, []), unknown);
+  assert.equal(releaseWorktreeIsDisposable(unknown, []), false);
+  assert.equal(releaseWorktreeIsDisposable(unknown, [{ path: unknown, locked: false }]), false, 'incomplete checkout has no removable identity');
   const startedAt = Date.now();
   await assert.rejects(
     runBounded(process.execPath, ['-e', `
