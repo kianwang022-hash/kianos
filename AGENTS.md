@@ -178,7 +178,7 @@ current repo main@HEAD
 → PR / proof / blocker back to GitHub
 ```
 
-**Persistent control binding:** once a durable Issue / task owner has been selected for the current long-running engineering work, that anchor stays bound across consecutive continuations and bounded slices. `继续` / `a` / `.` / `p` advances the bound anchor; it does not restart from root `CURRENT.md` or a global portfolio merely because one slice or reply checkpoint completed. Re-enter global routing only when no durable anchor is bound, Kian explicitly switches work, the bound anchor is closed/retired/replaced by canonical truth, or the anchor becomes unreadable. A blocker freezes only its dependent chain; it does not silently erase or replace the binding.
+**Persistent control routing:** `继续` / `a` / `.` / `p` stays on the bound native task. Re-enter global routing only when no anchor is bound, Kian explicitly switches, canonical truth closes/retires/replaces it, or it becomes unreadable; a blocker does not clear the binding. Continuation, revalidation, batching and stop mechanics are owned by [Project Management — Persistent task binding + revalidation budget](PROJECT_MANAGEMENT_CONTRACT.md#persistent-task-binding--revalidation-budget), not duplicated here.
 
 Do not ask Kian to paste the Issue body, previous Chat discussion, PR diff or execution receipt when GitHub can provide it. Manual pickup is the quota-aware default; automatic watcher dispatch is opt-in via the execution marker defined in `PROJECT_MANAGEMENT_CONTRACT.md`.
 
