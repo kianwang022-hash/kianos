@@ -7,7 +7,7 @@ const seconds = (n) => `${Math.floor(Math.max(0, n) / 60)}:${String(Math.floor(M
 const iso = () => new Date().toISOString();
 const sorted = (s) => [...s].sort().join('');
 
-export function initPoliticsPractice(root) {
+export async function initPoliticsPractice(root) {
   if (!(root instanceof HTMLElement)) return;
   const $ = (s) => root.querySelector(s);
   const $$ = (s) => [...root.querySelectorAll(s)];
@@ -37,6 +37,54 @@ export function initPoliticsPractice(root) {
   $('[data-politics-practice-catalog]').remove();
   const qById = new Map(catalog.questions.map((q) => [q.id, q]));
   const uByKey = new Map(catalog.units.map((u) => [u.key, u]));
+  const facePackPromises = new Map();
+  const questionFaceReady = (q) => Boolean(
+    q && typeof q.stem === 'string' && q.stem.trim()
+    && Array.isArray(q.options) && q.options.length === 4
+    && q.options.every((option, index) =>
+      option?.label === String.fromCharCode(65 + index)
+      && typeof option?.text === 'string' && option.text.trim())
+  );
+  const ensureQuestionFace = async (q) => {
+    if (questionFaceReady(q)) return q;
+    const subject = String(q?.subject || '').trim();
+    if (!q?.id || !subject || !catalog.faceBase) {
+      throw new Error('本题题面资源缺失；当前题组未推进。');
+    }
+    let pending = facePackPromises.get(subject);
+    if (!pending) {
+      pending = (async () => {
+        const response = await fetch(`${catalog.faceBase}${encodeURIComponent(subject)}.json${import.meta.env?.DEV ? '/' : ''}`);
+        if (!response.ok) throw new Error('本题题面暂不可用；当前题组未推进。');
+        const pack = await response.json();
+        if (pack?.schema !== 'kianos.politics.practice_face_pack.v1'
+          || pack.revision !== catalog.revision
+          || pack.subject !== subject
+          || !Array.isArray(pack.questions)) {
+          throw new Error('本题题面版本已变化；当前题组未推进。');
+        }
+        const seen = new Set();
+        for (const face of pack.questions) {
+          if (!face?.id || seen.has(face.id)) throw new Error('本题题面目录无效；当前题组未推进。');
+          seen.add(face.id);
+          const current = qById.get(face.id);
+          if (!current || current.subject !== subject || current.taskRevision !== face.taskRevision
+            || !questionFaceReady(face)) {
+            throw new Error('本题题面绑定已变化；当前题组未推进。');
+          }
+          current.stem = face.stem;
+          current.options = face.options;
+        }
+      })().catch((error) => {
+        facePackPromises.delete(subject);
+        throw error;
+      });
+      facePackPromises.set(subject, pending);
+    }
+    await pending;
+    if (!questionFaceReady(q)) throw new Error('本题题面未包含在当前目录；当前题组未推进。');
+    return q;
+  };
   const controls = Object.fromEntries(['subject', 'chapter', 'unit', 'type', 'count', 'mode'].map((name) => [name, $(`[data-filter-${name}]`)]));
   let selected = new Set(), uncertain = false, trajectory = [], elapsedMs = 0, activeSince = 0;
   let busy = false, stale = false, blocked = false, noteTimer, advanceTimer, startQuestionId = null;
@@ -206,6 +254,7 @@ export function initPoliticsPractice(root) {
   const renderQuestion = () => {
     const q = question();
     if (!q) throw new Error('保存的题目已不在当前目录；请先对账原题组。');
+    if (!questionFaceReady(q)) throw new Error('本题题面尚未加载；当前题组未推进。');
     hide('[data-submitted-result]'); $('[data-submitted-result]').removeAttribute('data-outcome'); hide('[data-question-card]', false); hide('[data-fast-feedback]');
     // Remove previous answer-bearing content even from hidden DOM before clean work.
     for (const s of ['[data-result-status]', '[data-result-question]', '[data-takeaway]', '[data-chat-explanation]', '[data-result-answer]', '[data-result-selected]', '[data-result-delta]', '[data-chengfeng-locator]', '[data-review-sources]']) $(s).replaceChildren();
@@ -309,37 +358,52 @@ export function initPoliticsPractice(root) {
     $$('[data-option]').forEach((b) => { b.classList.toggle('selected', selected.has(b.dataset.option)); b.setAttribute('aria-pressed', String(selected.has(b.dataset.option))); });
     if (question().type === 'single' && session.scope.interaction === 'FAST') await submit();
   };
-  const nextQuestion = () => {
+  const nextQuestion = async () => {
     if (!active() || !result() || busy || session.pending || blocked) return;
-    persistNote(); cancelAdvance();
-    const last = session.index === session.ids.length - 1;
-    saveSession({ ...session, index: last ? session.index : session.index + 1, status: last ? 'completed' : 'active', ...(last ? { completedAt: iso() } : {}) });
-    clearError(); render();
-    if (!last) $('[data-question-card]').focus({ preventScroll: true });
+    busy = true;
+    try {
+      persistNote(); cancelAdvance();
+      const last = session.index === session.ids.length - 1;
+      const nextIndex = last ? session.index : session.index + 1;
+      if (!last) await ensureQuestionFace(qById.get(session.ids[nextIndex]));
+      saveSession({ ...session, index: nextIndex, status: last ? 'completed' : 'active', ...(last ? { completedAt: iso() } : {}) });
+      busy = false;
+      clearError(); render();
+      if (!last) $('[data-question-card]').focus({ preventScroll: true });
+    } finally {
+      busy = false;
+    }
   };
   const pause = () => {
     if (!active() || busy || session.pending) throw new Error('请先完成本题保存，再退出题组。');
     persistNote(); saveDraft(); cancelAdvance(); activeSince = 0;
     saveSession({ ...session, status: 'paused' }); render();
   };
-  const start = () => {
-    if (blocked || active() || session?.status === 'paused') return;
+  const start = async () => {
+    if (blocked || busy || active() || session?.status === 'paused') return;
     if (!$('[data-learned-scope]').checked) throw new Error('请先在原讲义学习所选范围，再开始配套题。');
-    let pool = eligible();
-    if (controls.mode.value === 'random') {
-      pool = [...pool]; for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+    busy = true;
+    try {
+      let pool = eligible();
+      if (controls.mode.value === 'random') {
+        pool = [...pool]; for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+      }
+      if (startQuestionId) {
+        if (!pool.some((q) => q.id === startQuestionId)) throw new Error('当前筛选不包含链接中的原题；请重新选择范围。');
+        pool = [qById.get(startQuestionId), ...pool.filter((q) => q.id !== startQuestionId)];
+      }
+      const ids = pool.slice(0, Number(controls.count.value)).map((q) => q.id);
+      if (!ids.length) throw new Error('当前筛选没有可开始的题目。');
+      await ensureQuestionFace(qById.get(ids[0]));
+      saveSession({ schema: 'kianos.politics.practice_session.v1', runtimeVersion: 2, revision: catalog.revision, id: `politics-${crypto.randomUUID()}`, status: 'active', ids, taskRevisions: Object.fromEntries(ids.map(id => [id, qById.get(id).taskRevision])), index: 0, startedAt: iso(), results: {}, pending: null, draft: null, origin: controls.mode.value === 'review' ? catalog.reviewBase.replace(/practice-review\/$/, 'review/') : (controls.unit.value !== 'all' ? uByKey.get(controls.unit.value).href : '/politics/'), scope: { subject: controls.subject.value, chapter: controls.chapter.value, unit: controls.unit.value, type: controls.type.value, mode: controls.mode.value, interaction: 'NORMAL', learnedScopeConfirmedAt: iso() } });
+      busy = false;
+      clearError(); render(); $('[data-question-card]').focus({ preventScroll: true });
+    } finally {
+      busy = false;
     }
-    if (startQuestionId) {
-      if (!pool.some((q) => q.id === startQuestionId)) throw new Error('当前筛选不包含链接中的原题；请重新选择范围。');
-      pool = [qById.get(startQuestionId), ...pool.filter((q) => q.id !== startQuestionId)];
-    }
-    const ids = pool.slice(0, Number(controls.count.value)).map((q) => q.id);
-    if (!ids.length) throw new Error('当前筛选没有可开始的题目。');
-    saveSession({ schema: 'kianos.politics.practice_session.v1', runtimeVersion: 2, revision: catalog.revision, id: `politics-${crypto.randomUUID()}`, status: 'active', ids, taskRevisions: Object.fromEntries(ids.map(id => [id, qById.get(id).taskRevision])), index: 0, startedAt: iso(), results: {}, pending: null, draft: null, origin: controls.mode.value === 'review' ? catalog.reviewBase.replace(/practice-review\/$/, 'review/') : (controls.unit.value !== 'all' ? uByKey.get(controls.unit.value).href : '/politics/'), scope: { subject: controls.subject.value, chapter: controls.chapter.value, unit: controls.unit.value, type: controls.type.value, mode: controls.mode.value, interaction: 'NORMAL', learnedScopeConfirmedAt: iso() } });
-    clearError(); render(); $('[data-question-card]').focus({ preventScroll: true });
   };
   on('[data-start-session], [data-start-session-inline]', 'click', start);
-  on('[data-resume-session]', 'click', () => { if (blocked) return; saveSession({ ...session, status: 'active' }); clearError(); render(); });
+  on('[data-resume-session]', 'click', async () => { if (blocked) return; await ensureQuestionFace(question()); saveSession({ ...session, status: 'active' }); clearError(); render(); });
   on('[data-exit-session]', 'click', pause);
   on('[data-finish-paused]', 'click', () => {
     if (blocked || busy || session?.status !== 'paused' || session.pending) return;
@@ -386,12 +450,12 @@ export function initPoliticsPractice(root) {
     } catch (e) { event.preventDefault(); error(e.message); }
   });
   window.addEventListener('keydown', run(async (event) => {
-    if (!active() || blocked || busy || event.metaKey || event.ctrlKey || event.altKey || event.isComposing || event.repeat) return;
+    if (!active() || blocked || busy || !questionFaceReady(question()) || event.metaKey || event.ctrlKey || event.altKey || event.isComposing || event.repeat) return;
     const target = event.target;
     if (target instanceof HTMLElement && (target.matches('input, textarea, select') || target.isContentEditable)) return;
     // Native Enter/Space activation belongs to a focused control; digits remain
     // available after a mouse selection, without double-submitting on Enter.
-    if (event.key === 'Enter' && (!target.closest('button,a,summary') || target.closest('[data-option]'))) { event.preventDefault(); if (result()) nextQuestion(); else await submit(); }
+    if (event.key === 'Enter' && (!target.closest('button,a,summary') || target.closest('[data-option]'))) { event.preventDefault(); if (result()) await nextQuestion(); else await submit(); }
     if (!result() && /^[1-4]$/.test(event.key)) { const o = question().options[Number(event.key) - 1]; if (o) { event.preventDefault(); await choose(o.label); } }
   }));
   window.addEventListener('beforeunload', (event) => {
@@ -407,7 +471,7 @@ export function initPoliticsPractice(root) {
     const params = new URLSearchParams(location.search);
     if (params.has('session')) {
       if (!session || params.get('session') !== session.id || params.get('question') !== question()?.id || !['active', 'paused', 'completed'].includes(session.status)) throw new Error('返回目标已过期或与当前题组不符；没有跳到其他题。');
-      if (session.status === 'paused') saveSession({ ...session, status: 'active' });
+      if (session.status === 'paused') { await ensureQuestionFace(question()); saveSession({ ...session, status: 'active' }); }
     } else if (params.get('review') === 'problems') {
       if (session && ['active', 'paused'].includes(session.status)) throw new Error('已有未完成题组，请先从今日回访的继续入口恢复；未替换原题组。');
       const reviewDay = params.get('reviewDay');
@@ -435,6 +499,7 @@ export function initPoliticsPractice(root) {
       if (session && ['active', 'paused'].includes(session.status) && session.scope.unit !== u.key) throw new Error('另有未完成题组，请从原入口恢复；没有替换题组。');
       controls.subject.value = u.subject; chapterOptions(); controls.chapter.value = `${u.subject}/${u.chapter}`; unitOptions(); controls.unit.value = u.key;
     }
+    if (active()) await ensureQuestionFace(question());
     render();
     if (params.get('review') === 'problems' && session?.status === 'completed') {
       root.removeAttribute('data-completed'); hide('[data-session-complete]'); hide('[data-practice-setup]', false);
