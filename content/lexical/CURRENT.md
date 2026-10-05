@@ -61,6 +61,14 @@ Kian explicitly opened Website integration on 2026-10-05 after the content-first
 
 Old UI drafts and unsaved work remain preserved; inspect their actual differences before reusing anything. Disk cleanup released space, but use a bounded incremental build budget and no duplicate working trees.
 
+### Queued maintenance: learner-value semantic self-audit
+
+[Kian issue #1155](https://github.com/kianwang022-hash/kianos/issues/1155) is the durable execution envelope for a persistent bounded self-check of learner-facing semantic priority. Real learner use exposed a repeatable risk class: valid but low-leverage / rare / specialist material can remain ACTIVE, leak into Core/Recall/Depth, receive local `+`, and become Repair debt. The seed example is `career = 猛冲，疾驰`; the Issue carries additional probes and exact acceptance criteria.
+
+**Execution rule:** resume from Current owners and current learner evidence, audit the smallest high-signal semantic closure set, and classify disputed objects as Core / Expansion / Reference before any mutation. Learner unfamiliarity or a local `+` is a defect signal, not proof that the object deserves Study. Confirmed defects update the existing Word/Relation/Form owner, then materialize/read back the affected Final learner object and verify that valid Reference truth stays searchable without crowding default Depth or preserving invalid actionable Repair.
+
+**Scope boundary:** this task is persistent maintenance, not a blind 7,946-word rewrite. A repeated defect class may justify the smallest next bounded scope or a diagnostic, but broad catalog churn requires evidence and an explicit scope decision. It must not interfere with the active IPA delivery task or the separately owned rating→next-word latency work.
+
 Reopen only the smallest Current owner for:
 
 - a real semantic / phraseology / construction / register / Form / relation defect;
