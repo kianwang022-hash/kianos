@@ -45,7 +45,15 @@ Exact semantic rules remain in the Content/Learning contracts, not this cursor.
 
 ## Next / reopen
 
-No lexical production batch is active.
+### Active scoped content: headword IPA
+
+Kian explicitly requested completion of pronunciation content for the existing 7,946 Main Words: American English first, British English where reliable support is available. Website integration is a later step; do not resume the old UI draft or publish a surface as part of this content batch.
+
+**Next:** use the existing word-id lookup spelling/identity as the matching input, then review source-backed pronunciation candidates against the exact Natural Word Form/Identity owner. The complete lookup input was verified at `22a4a105a0f955aa0cacd93f74a3f8f156826044`; refresh the target owner before every durable write. Public Kaikki/Wiktionary snapshots are evidence inputs, not automatic admission: retain exact case, full IPA, source-supported locale and conditions, snapshot/entry provenance, attribution and applicable license. Do not infer US from an adjacent audio label, choose the first homograph pronunciation, expand fragments by guess, or silently use generated IPA as direct dictionary evidence.
+
+**Scope / gates:** ordinary headword pronunciation is canonical background within `record.form_identity`, not new Sense/Relation/Expansion or automatic Repair. Existing regional/POS variants and all prior lexical semantics/provenance must remain intact. The current representation lacks a uniform ordinary US/UK pronunciation field; clarify only the necessary background subfield in the existing ownership schema when the reviewed input supports it, without a new registry or Contract. IPA-dict conversion/generated lists are not approved as direct regional dictionary facts. Ambiguous, unlabelled, historical, inflected or source-conflicting items remain explicitly scoped for review rather than counted complete.
+
+**Save / stop:** save reviewed content in a coherent candidate with exact readback and account for every current word as supported or unresolved. Content preparation, source admission, derived freshness and actual Website delivery are separate. Do not change Final Learner objects/materializer, UI, runtime, study judgments, Resume or private records in this content-only phase. Record changes affect source fingerprints; no main/Website-ready claim is allowed before its later responsible integration. Old IPA drafts remain preserved, not automatically resumed.
 
 Reopen only the smallest Current owner for:
 
