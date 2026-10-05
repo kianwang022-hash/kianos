@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { buildPoliticsPracticeCatalogCurrent } from '../src/lib/politicsPractice.mjs';
-import { practiceReady, publicPracticeCatalog, practiceReviewPayload } from '../src/lib/politicsPracticeView.mjs';
+import { practiceFacePack, practiceReady, publicPracticeCatalog, publicPracticeIndex, practiceReviewPayload } from '../src/lib/politicsPracticeView.mjs';
 import { gunzipSync } from 'node:zlib';
 
 const staticRoot = path.resolve(process.cwd());
@@ -36,6 +36,27 @@ const original = JSON.parse(gunzipSync(fs.readFileSync(path.join(repoRoot, 'cont
 const explanations = new Map(original.records.map((r) => [r.question_id, r]));
 const publicCatalog = publicPracticeCatalog(catalog);
 if (publicCatalog.questions.length !== questions.length - blocked.length || publicCatalog.unavailable.length !== blocked.length) fail('admission_inventory');
+const publicIndex = publicPracticeIndex(catalog, { faceBase: '/politics/practice-face/' });
+if (publicIndex.questions.length !== publicCatalog.questions.length || publicIndex.faceBase !== '/politics/practice-face/') fail('practice_index_inventory');
+if (publicIndex.questions.some((question) =>
+  Object.hasOwn(question, 'stem') || Object.hasOwn(question, 'options') || Object.hasOwn(question, 'answer'))) fail('practice_index_face_leak');
+let faceCount = 0;
+for (const subject of publicIndex.subjects) {
+  const pack = practiceFacePack(catalog, subject.id);
+  if (pack.schema !== 'kianos.politics.practice_face_pack.v1' || pack.revision !== catalog.revision || pack.subject !== subject.id) {
+    fail('practice_face_identity:' + subject.id);
+  }
+  for (const face of pack.questions) {
+    const indexed = publicIndex.questions.find((question) => question.id === face.id);
+    if (!indexed || indexed.subject !== subject.id || indexed.taskRevision !== face.taskRevision
+      || !face.stem || !Array.isArray(face.options) || face.options.length !== 4
+      || Object.hasOwn(face, 'answer') || Object.hasOwn(face, 'refined')) {
+      fail('practice_face_binding:' + face.id);
+    }
+  }
+  faceCount += pack.questions.length;
+}
+if (faceCount !== publicIndex.questions.length) fail('practice_face_coverage');
 
 const unitByKey = new Map(units.map((unit) => [unit.key, unit]));
 for (const question of questions) {
@@ -105,6 +126,8 @@ console.log(JSON.stringify({
   recoveredReferenceOnlyQuestionCount: diagnostics.recoveredReferenceOnlyQuestionCount,
   unresolvedPracticeOwnerCount: diagnostics.unresolvedPracticeOwnerCount,
   admittedQuestionCount: publicCatalog.questions.length,
+  practiceIndexBytes: Buffer.byteLength(JSON.stringify(publicIndex)),
+  deferredQuestionFaceBytes: Buffer.byteLength(JSON.stringify(publicCatalog)) - Buffer.byteLength(JSON.stringify(publicIndex)),
   protectedUnownedQuestionCount: blocked.length,
   protectedQuestionIds: blocked.map((q) => q.id),
   refinedExplanationStatus: catalog.refinedExplanationStatus,

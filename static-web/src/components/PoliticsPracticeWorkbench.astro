@@ -1,7 +1,7 @@
 ---
 const { catalog, base = '/' } = Astro.props;
-import { publicPracticeCatalog } from '../lib/politicsPracticeView.mjs';
-const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace(/</g, '\\u003c');
+import { publicPracticeIndex } from '../lib/politicsPracticeView.mjs';
+const serializedCatalog = JSON.stringify(publicPracticeIndex(catalog, { faceBase: `${base}politics/practice-face/` })).replace(/</g, '\\u003c');
 ---
 <section class="politicsWorkbench" data-politics-practice>
   <header class="politicsWorkbenchHeader">
