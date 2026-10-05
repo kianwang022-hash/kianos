@@ -621,12 +621,14 @@ For learning-model interpretation, read only as needed:
 this LEARNING_CONTRACT.md
 → study-policy.json when machine execution detail matters
 → exact System-specific Learning owner when local Source/LG differences matter
-→ Visual / Engineering owners only for implementation
+→ Website Visual / Engineering owners only for Website implementation
 ```
 
 Across Chats, use the same accepted teaching basis for the resolved System/Block/local model. A candidate teaching asset does not automatically become that stable basis before its logic, Prompt coverage and continuity are accepted; freshness alone is insufficient. Do not randomly substitute another candidate across Chats. When no accepted teaching basis is available, use Current canonical Knowledge and accepted Learning owners and state the candidate's status rather than implying that candidate adoption is complete.
 
 A necessary medical correction must explicitly state the old meaning → corrected meaning → supporting basis, reconcile it at the responsible canonical owner and propagate one consistent revision to the affected teaching basis. An unresolved Source conflict remains explicit; changing wording must not silently choose a new medical conclusion.
+
+MedicalVisual belongs to Content/learning support. Read and inspect the needed original figure/table during the current learning step when understanding depends on it (§4); the Website implementation boundary above does not exclude that support.
 
 Read `content/xizong/CURRENT.md` only for engineering intent or engineering-status questions.
 
