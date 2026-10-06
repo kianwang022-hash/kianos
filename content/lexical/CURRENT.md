@@ -2,12 +2,35 @@
 
 Role: **Lexical backend engineering Work Cursor + scope router**
 
-Learner-facing Vocabulary / Lexical belongs under **English**. This file owns only current Lexical BUILD / CONTROL routing. It does not own semantic truth, learner progress, Acceptance Truth, or a historical batch cursor.
+Learner-facing Vocabulary / Lexical belongs under **English**. This file owns only current Lexical BUILD / CONTROL routing. It does not own semantic truth, learner progress, Acceptance Truth, pronunciation truth, or historical batch evidence.
+
+## Active control anchor
+
+[**#1166 — Lexical batched audit: learner-facing semantic quality**](https://github.com/kianwang022-hash/kianos/issues/1166) is the **only live Lexical semantic-review cursor**. It owns the current Parent outcome → batch cursor → Next → Blocker and its compact batch checkpoints.
+
+Fresh BUILD / CONTROL continuation:
+
+```text
+main@HEAD
+→ AGENTS.md
+→ this CURRENT
+→ #1166
+→ exact current Word / Relation / Form owner
+→ Final / consumer owner only when affected
+```
+
+Do not reconstruct the live batch from historical semantic-review files, old PRs, prior Chat state, or #1155.
+
+### Closed calibration / delivered work
+
+- [#1155](https://github.com/kianwang022-hash/kianos/issues/1155) is calibration/evidence for the learner-value defect class and the delivered #1163 repair slice. It is **not** a second continuation cursor. Its career demotion remains item-scoped BLOCKED evidence unless #1166 obtains new evidence.
+- IPA delivery [#1152](https://github.com/kianwang022-hash/kianos/pull/1152) is merged and no longer an active task. Stable pronunciation projection rules live in `FINAL_LEARNER_OBJECT_CONTRACT.md` plus exact Word/Form owners; reopen only for a concrete pronunciation/source/product defect.
+- The rating→next-word latency investigation remains separately owned and is outside #1166. Do not absorb or overwrite it from Lexical semantic review.
 
 ## Current routing
 
 - There is no live A/B/C ordinal production cursor in this file.
-- A concrete Word/Form/Relation semantic defect routes directly to its Natural Owner.
+- A concrete Word/Form/Relation semantic defect routes directly to its Natural Owner; when it falls inside the authorized batched quality review, #1166 owns the work cursor.
 - Materialization/runtime mechanics route to `CONTENT_EXECUTION.md` and the exact active tool/consumer.
 - Acceptance/readiness questions route to `ACCEPTANCE.md`; this cursor does not restate campaign closure or gate results.
 - An admitted new Source or explicit new lexical scope opens only the smallest responsible owner/program.
@@ -41,37 +64,18 @@ Historical A/B/C campaigns, BF branches, batch boards, checkpoint narratives and
 - lookup alone creates no Repair/mastery state;
 - content maintenance does not reopen accepted UI without a real renderer/product defect.
 
-Exact semantic rules remain in the Content/Learning contracts, not this cursor.
+Exact semantic and pronunciation rules remain in the Content/Learning/Final owners, not this cursor.
 
-## Current tasks — queued
+## Batched semantic-review boundary
 
-Kian resumed these tasks on 2026-10-05 within the [five-task queue](https://github.com/kianwang022-hash/kian-personal-os/issues/60): IPA is priority 2 and semantic self-audit priority 4. Follow the exact task's existing scope and delivery permissions; queue readiness is not completed implementation or Website delivery.
+#1166 is authorized to review the Current 7,946 Main Words in bounded batches, but it is a **review program, not a mechanical rewrite**. Current owner truth stays canonical. Each object may remain unchanged; Reference preserves valid low-value truth without default Study/Repair debt; learner evidence may expose defects but never becomes semantic authority.
 
-| Scope | Exact task owner | Resume point |
-| --- | --- | --- |
-| Headword IPA → Vocabulary | [PR #1152](https://github.com/kianwang022-hash/kianos/pull/1152) | Refresh its live head, review findings and preserved implementation draft before choosing the next fix. Saved candidates are not deployed/adopted evidence. |
-| Learner-value semantic self-audit | [Issue #1155](https://github.com/kianwang022-hash/kianos/issues/1155) | Read its **Current next**, domain owners and exact affected Word/Relation/Form scope; no IPA implementation/history prerequisite. |
+Reuse #1155's delivered decisions as calibration without re-litigating them absent new evidence. Refresh exact owners before writes and keep unrelated IPA, latency, UI, scheduling and learner-state work outside this task.
 
-Task evidence and detailed progress belong to these exact tasks, not a second snapshot here. The rating→next-word latency investigation belongs to another Chat; neither task may resume that diagnosis or overwrite overlapping work.
+## Reopen / stop
 
-### IPA scope that must survive routing
+Ordinary learning uses the English learner path, not this engineering cursor.
 
-Supported IPA belongs beside the existing word/primary-meaning presentation, American English first and British English where supported. On resume use [CONTENT_EXECUTION](CONTENT_EXECUTION.md), [Final contract](FINAL_LEARNER_OBJECT_CONTRACT.md), the existing builder/components and existing worktree; reconcile actual drafts instead of assuming an old builder limitation still exists.
+For BUILD / CONTROL, continue only the live #1166 frontier or a concrete independently owned defect/new Source/explicit scope. When #1166 is closed or replaced, update this routing pointer once; do not leave the retired Issue as a parallel Next.
 
-Preserve exact Sense/case/POS/strong-form/region applicability, old Form variants, meanings, IDs, provenance and real learner state. Never select an arbitrary first reading, infer US from audio, relabel derived transcription as direct dictionary evidence, guess fragments, or create Reference/Repair debt from ordinary IPA. TTS is not source-recorded audio or proof of exact IPA realization. Source/licensing/stress gaps block only their dependent readings.
-
-The earlier content-only `schema.json` write was denied and omitted. Do not restore that patch or relocate rules to bypass the denial; any newly necessary owner change must fit current authorization. Check affected incremental/fingerprint, scope/Reveal/Lookup/navigation behavior with isolated Candidate evidence, then verify the actual served projection/version under the existing authorized delivery path before claiming Website delivery. Preserve drafts and use a bounded incremental build budget; no duplicate checkout, storage clearing, automatic conflict selection or manufactured learner evidence.
-
-### Semantic audit boundary
-
-Issue #1155 remains the bounded seed / maintenance evidence for the learner-value defect class and its already-reviewed owners.
-
-Kian explicitly reopened broader batched semantic review on 2026-10-06. [Issue #1166](https://github.com/kianwang022-hash/kianos/issues/1166) owns the Chat-driven batch cursor and systematic learner-facing quality review across the Current 7,946 Main Words, beginning with B001 `o0651–o0700`. This is a review program, not a mechanical rewrite: each object still requires evidence-backed Core / Expansion / Reference judgment and may remain unchanged. Learner evidence signals defects but does not establish semantic priority. Reference truth remains available without becoming automatic Study or Repair debt.
-
-#1166 must reuse #1155's delivered decisions as calibration rather than re-litigating them without new evidence, refresh exact owners before writes, and keep unrelated IPA / latency / UI work outside its scope.
-
-## Reopen boundary
-
-Reopen only for a concrete semantic/Form/Relation/product defect, admitted Source, explicit new scope, or real learner evidence exposing a defect. Ordinary learning uses the English learner path, not this engineering cursor.
-
-Historical campaign and delivery snapshots are not continuation authority. The pre-cleanup cursor is available only as [historical provenance](https://github.com/kianwang022-hash/kianos/blob/1ba656aa57c41b971342740eb2db2116a95be42a/content/lexical/CURRENT.md); do not read it routinely or use its old Next as current work.
+Historical campaign and delivery snapshots are not continuation authority. The pre-cleanup cursor remains available only as Git history; do not use its old Next as current work.
