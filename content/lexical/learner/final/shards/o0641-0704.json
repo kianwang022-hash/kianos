@@ -6165,8 +6165,16 @@
     "ordinal": 675,
     "word": "cap",
     "source_owner_path": "content/lexical/words/by-ordinal/o0675.json",
-    "source_fingerprint": "f02609d861426b0718c1f6b4ea3585042523b8ae693bd6e4ffe192ff346eb92d",
-    "sense_lineage": [],
+    "source_fingerprint": "9ac22e826997ca26897417133042507ad0593a037b91dea5cb9311013024c6ce",
+    "sense_lineage": [
+      {
+        "word_id": "word:cap",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e5e13feb94ce8b5c0f54",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
@@ -6315,21 +6323,7 @@
         "definition_en": "to be better than something; to surpass",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e5e13feb94ce8b5c0f54",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "to cap it all (off)",
-            "meaning_cn": "最糟的是；更糟的是",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e5e13feb94ce8b5c0f54",
-              "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "to cap it all (off)"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cap:0ffa202428d5567c",
@@ -6422,6 +6416,31 @@
           "target_id": "construction:7f7f9078eabc237c4aa7",
           "target_locator": "record.constructions[0]",
           "target_label": "cap = upper limit / cap sth"
+        }
+      },
+      {
+        "id": "construction:cap:to-cap-it-all",
+        "source_locator": "record.constructions[1]",
+        "pattern": "to cap it all / to cap it all off",
+        "lines": [
+          {
+            "text": "最糟的是；更有甚者；最后又加上这一件事",
+            "lang": "cn"
+          },
+          {
+            "text": "UK to cap it all; US often to cap it all off. This is an idiom, not the ordinary surpass sense.",
+            "lang": "en"
+          },
+          {
+            "text": "used to add one final, often bad, thing to everything already mentioned",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cap:to-cap-it-all",
+          "target_locator": "record.constructions[1]",
+          "target_label": "to cap it all / to cap it all off"
         }
       }
     ],
