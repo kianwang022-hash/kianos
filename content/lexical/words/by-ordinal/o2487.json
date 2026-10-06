@@ -10,9 +10,9 @@
     "content_hash": "780a1ac2d214661c7f3d2a3734b73ef50ae9abf2da34bc9133900fb56cf88ce8",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "发生率；入射",
-      "core_meaning_en": "rate of occurrence or striking of light",
-      "mental_model_cn": "发生率；入射",
+      "core_meaning_cn": "发生率；发生频率",
+      "core_meaning_en": "the frequency or rate at which something occurs",
+      "mental_model_cn": "incidence of disease/crime → 发生率。光学“入射/入射角”专门义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -54,30 +54,6 @@
         "sense_id": "sense:incidence:5eac9f86a97150e8",
         "sense_label_en": "the relative frequency of occurrence of something",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:11401adc50389f0cd8e0",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:incidence:4a2ce082f3875262:collocation:0"
-            ],
-            "meaning_cn": "入射角",
-            "phrase": "angle of incidence"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "入射",
-        "definition_en": "the striking of a light beam on a surface",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:incidence:4a2ce082f3875262",
-        "sense_label_en": "the striking of a light beam on a surface",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -266,12 +242,37 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:11401adc50389f0cd8e0",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:incidence:4a2ce082f3875262:collocation:0"
+          ],
+          "meaning_cn": "入射角",
+          "phrase": "angle of incidence"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "入射",
+      "definition_en": "the striking of a light beam on a surface",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:incidence:4a2ce082f3875262",
+      "sense_label_en": "the striking of a light beam on a surface",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:incidence:4a2ce082f3875262",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6906,
         "source_path": "content/lexical/canonical/senses/shards/o2465-2496.json"
@@ -285,7 +286,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:11401adc50389f0cd8e0",
       "collocation:20e0d0b837441ccf4565",
       "collocation:cae752e9d34d8a5a5629"
     ],
@@ -294,7 +294,9 @@
       {
         "id": "collocation:11401adc50389f0cd8e0",
         "source_row": 1419,
-        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:20e0d0b837441ccf4565",

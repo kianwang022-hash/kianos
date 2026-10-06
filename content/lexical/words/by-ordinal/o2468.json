@@ -10,9 +10,9 @@
     "content_hash": "67f04a81090020eec7e369eb9b8a35dda629176d0b6122987ea95ddf47082b06",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "推动力",
-      "core_meaning_en": "a force that makes something happen or move",
-      "mental_model_cn": "推动力",
+      "core_meaning_cn": "推动力；促进因素",
+      "core_meaning_en": "a force or stimulus that makes something develop or happen faster",
+      "mental_model_cn": "give impetus to sth → 推动/促进某事。旧式或非现代物理核心的“动量”义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,30 +45,6 @@
         "sense_id": "sense:impetus:ab5d89217c4f55fd",
         "sense_label_en": "something that encourages a process or activity to develop more quickly",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:37ee58fa434de07dcbdb",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:impetus:500832752c65522b:collocation:0"
-            ],
-            "meaning_cn": "球的动量",
-            "phrase": "the impetus of the ball"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "动量",
-        "definition_en": "the force that moves an object",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:impetus:500832752c65522b",
-        "sense_label_en": "the force that moves an object",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -340,12 +316,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:37ee58fa434de07dcbdb",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:impetus:500832752c65522b:collocation:0"
+          ],
+          "meaning_cn": "球的动量",
+          "phrase": "the impetus of the ball"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "动量",
+      "definition_en": "the force that moves an object",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:impetus:500832752c65522b",
+      "sense_label_en": "the force that moves an object",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:impetus:500832752c65522b",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6853,
         "source_path": "content/lexical/canonical/senses/shards/o2465-2496.json"
@@ -359,8 +360,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:11ac03a2fbe63d3d3c32",
-      "collocation:37ee58fa434de07dcbdb"
+      "collocation:11ac03a2fbe63d3d3c32"
     ],
     "facts": [],
     "collocations": [
@@ -372,7 +372,9 @@
       {
         "id": "collocation:37ee58fa434de07dcbdb",
         "source_row": 4737,
-        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
