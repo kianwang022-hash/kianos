@@ -266,4 +266,16 @@ const b2Chat = await harness({ workspace: true, saved: both, search: '?view=prec
 assert.equal(b2Chat.q('[data-memory-queue]').children.length, 1); assert.equal(b2Chat.q('[data-memory-answer]').hidden, true);
 assert.equal(b2Chat.writes.length, 0);
 checks.push('actual B2 Bridge/Workspace use B2-only identity/filter/label, preserve B1 cards and authenticated Chat Recall precedence, hide answers until Recall Reveal, persist one explicit rating and reopen without replay');
+for (let n = 1; n <= 12; n++) {
+  const blockId = `circulation-b${String(n).padStart(2, '0')}`;
+  const empty = await harness({ workspace: true, search: `?view=precision&block=${blockId}` });
+  assert.ok(empty.q('[data-memory-view-note]').textContent.startsWith(`B${n} 已准备的精确记忆`));
+  assert.equal(empty.writes.length, 0);
+  const fixture = clone(first);
+  for (const card of Object.values(fixture.cards)) { card.blockId = blockId; card.blockLabel = `Native B${n}`; }
+  const filled = await harness({ workspace: true, saved: fixture, search: `?view=precision&block=${blockId}` });
+  assert.ok(filled.q('[data-memory-view-note]').textContent.startsWith(`Native B${n} 已准备的精确记忆`));
+  assert.equal(filled.writes.length, 0);
+}
+checks.push('all twelve prepared views use native card Block label with validated empty-view fallback, without writes');
 console.log(JSON.stringify({ status: 'PASS', boundary: 'synthetic controller + state regression; no Candidate or learner U claim', checks }, null, 2));

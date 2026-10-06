@@ -392,11 +392,15 @@ const base = import.meta.env.BASE_URL;
 
     const rebuild = () => {
       const note = viewNotes[view] || viewNotes.TODAY;
+      const preparedBlockLabel = preparedBlockFilter
+        ? Object.values(state.cards).find(item => item.blockId === preparedBlockFilter)?.blockLabel
+          || `B${Number(preparedBlockFilter.match(/-b(\d+)$/)?.[1])}`
+        : '';
       setText('[data-memory-view-title]', chatRepairTaskId && view === 'REPAIR' ? 'Chat 安排 · Repair' : note[0]);
       setText('[data-memory-view-note]', chatRepairTaskId && view === 'REPAIR'
         ? '只执行 Chat 选中的这个现有 Repair；完成修补不会自动写成 mastery。'
         : preparedBlockFilter && view === 'PRECISION'
-          ? `${preparedBlockFilter === 'circulation-b02' ? 'B2' : 'B1'} 已准备的精确记忆；Browse 直接看答案与助记，Recall 先遮答案。打开不会写入学习证据。`
+          ? `${preparedBlockLabel} 已准备的精确记忆；Browse 直接看答案与助记，Recall 先遮答案。打开不会写入学习证据。`
           : note[1]);
       tabs.forEach((button) => button.classList.toggle('active', button.getAttribute('data-memory-view') === view));
       const precisionModeRoot = q('[data-memory-precision-mode]');

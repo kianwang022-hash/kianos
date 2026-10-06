@@ -425,6 +425,7 @@ try {
     }
     await host.locator('[data-open-prepared-memory]').click();
     await p.waitForURL(u=>u.pathname.endsWith('/xizong/memory/')&&u.searchParams.get('block')===blockId);await ready();
+    assert.ok((await p.locator('[data-memory-view-note]').textContent()).startsWith(`${blockObject.identity.blockLabel} 已准备的精确记忆`));
     const memory=await read(key);assert.deepEqual(Object.keys(memory.cards).sort(),expected.precisionCards.map(c=>c.id).sort());
     assert.deepEqual(memory.evidence,[]);assert.deepEqual(memory.releasedBlocks,{});assert.deepEqual(memory.attention,{});
     assert.equal((await p.locator('[data-memory-summary-core]').textContent()).trim(),'0');
