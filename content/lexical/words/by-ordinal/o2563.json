@@ -20,7 +20,7 @@
       "core_clusters": [],
       "core_meaning_cn": "灵感；激励",
       "core_meaning_en": "a sudden creative or motivating influence",
-      "mental_model_cn": "灵感；激励",
+      "mental_model_cn": "idea/creative spark → 灵感；person/thing → 鼓舞来源。生理学“吸气”义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -56,30 +56,6 @@
         "sense_id": "sense:inspiration:68a9c659b097509b",
         "sense_label_en": "a person or thing that inspires",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b1956ff451bdc6b3ac0d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:inspiration:9ec82019595f5db0:collocation:0"
-            ],
-            "meaning_cn": "深吸一口气",
-            "phrase": "take a deep inspiration"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "吸气",
-        "definition_en": "the act of breathing in",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:inspiration:9ec82019595f5db0",
-        "sense_label_en": "the act of breathing in",
-        "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
@@ -268,7 +244,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:b1956ff451bdc6b3ac0d",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:inspiration:9ec82019595f5db0:collocation:0"
+          ],
+          "meaning_cn": "深吸一口气",
+          "phrase": "take a deep inspiration"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "吸气",
+      "definition_en": "the act of breathing in",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:inspiration:9ec82019595f5db0",
+      "sense_label_en": "the act of breathing in",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -287,15 +288,14 @@
       },
       {
         "sense_id": "sense:inspiration:9ec82019595f5db0",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7086,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
       }
     ],
     "active_collocations": [
-      "collocation:45740dc84f7b8cab1fc4",
-      "collocation:b1956ff451bdc6b3ac0d"
+      "collocation:45740dc84f7b8cab1fc4"
     ],
     "facts": [
       {
@@ -323,7 +323,9 @@
       {
         "id": "collocation:b1956ff451bdc6b3ac0d",
         "source_row": 15043,
-        "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

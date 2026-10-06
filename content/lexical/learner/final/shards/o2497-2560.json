@@ -8477,8 +8477,15 @@
     "ordinal": 2552,
     "word": "inner",
     "source_owner_path": "content/lexical/words/by-ordinal/o2552.json",
-    "source_fingerprint": "d2394da711cfe201d5cc18c24739d1f15de0ced12888289d37a7388b77022a6f",
+    "source_fingerprint": "12168766248c5bf23b59dd03986f97fa9aadfe8ca95d86983d695c99158df92d",
     "sense_lineage": [
+      {
+        "word_id": "word:inner",
+        "target_kind": "sense",
+        "from_target_id": "sense:inner:5a4cf9e74f555f58",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:inner",
         "target_kind": "sense",
@@ -8489,14 +8496,13 @@
     ],
     "recall_map": {
       "parts": [
-        "3A",
-        "1N"
+        "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "内部的、内在的；内部",
-      "decision_cn": "",
+      "decision_cn": "adjective → 内部的/内心的/内在的；inner city → 内城区。少见名词“内部、里面”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8563,23 +8569,6 @@
           "target_id": "sense:inner:8d5a0b52e6275cd6",
           "target_locator": "record.senses[2]",
           "target_label": "内在的；本质的"
-        }
-      },
-      {
-        "id": "sense:inner:5a4cf9e74f555f58",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "内部；里面",
-        "definition_en": "the inner part or inside of something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:inner:5a4cf9e74f555f58",
-          "target_locator": "record.senses[3]",
-          "target_label": "内部；里面"
         }
       }
     ],
@@ -8677,6 +8666,20 @@
           "source_row": 7058,
           "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "内部；里面",
+          "definition_en": "the inner part or inside of something",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:inner:5a4cf9e74f555f58",
+          "sense_label_en": "the inner part or inside of something",
+          "sort_order": 3,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -9803,7 +9806,7 @@
     "ordinal": 2559,
     "word": "inside",
     "source_owner_path": "content/lexical/words/by-ordinal/o2559.json",
-    "source_fingerprint": "9cceeb03a1c407d25591ac0748602f086ad3722b4271dfe7fb6d041f8b8e3802",
+    "source_fingerprint": "99af2479c0a21fe8c7ae9e1e804c9a1a4cc149d59ac74ae1be09bd4d5dcd79bb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9816,7 +9819,7 @@
     },
     "word_feel": {
       "summary_cn": "内部，在里面",
-      "decision_cn": "",
+      "decision_cn": "place → 里面/内部；inside information → 内幕消息；inside out → 里面朝外，或“彻底熟悉”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10003,7 +10006,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:inside:inside-out",
+        "source_locator": "record.constructions[0]",
+        "pattern": "inside out / know sth inside out",
+        "lines": [
+          {
+            "text": "里面朝外；彻底地、非常熟悉",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed orientation/completeness phrase; distinct from ordinary inside = interior",
+            "lang": "en"
+          },
+          {
+            "text": "with the inner surface facing outward; also completely or in great detail",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:inside:inside-out",
+          "target_locator": "record.constructions[0]",
+          "target_label": "inside out / know sth inside out"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

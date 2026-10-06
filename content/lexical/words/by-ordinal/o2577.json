@@ -21,14 +21,6 @@
           ]
         },
         {
-          "label_cn": "用仪器装备",
-          "label_en": "equip with instruments for measuring, recording, or controlling",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:instrument:1ee7657e691c505e"
-          ]
-        },
-        {
           "label_cn": "乐器",
           "label_en": "an object played to produce music",
           "pos": "noun",
@@ -47,7 +39,7 @@
       ],
       "core_meaning_cn": "用于达成某事的工具或手段",
       "core_meaning_en": "a tool or means for achieving something",
-      "mental_model_cn": "用于达成某事的工具或手段",
+      "mental_model_cn": "device/tool → 仪器；music → 乐器；means → 手段；legal instrument → 法律文书。工程“给…装测量仪器”动词义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -138,30 +130,6 @@
         "sense_label_en": "a person used by another to gain an end",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:99e4c6a54dccb0b3be97",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:instrument:1ee7657e691c505e:collocation:0"
-            ],
-            "meaning_cn": "为航天器装备仪器",
-            "phrase": "instrument a spacecraft"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "用仪器装备",
-        "definition_en": "equip with instruments for measuring, recording, or controlling",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:instrument:1ee7657e691c505e",
-        "sense_label_en": "equip with instruments for measuring, recording, or controlling",
-        "sort_order": 3,
-        "transitivity": "vt"
       },
       {
         "collocations": [
@@ -554,12 +522,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:99e4c6a54dccb0b3be97",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:instrument:1ee7657e691c505e:collocation:0"
+          ],
+          "meaning_cn": "为航天器装备仪器",
+          "phrase": "instrument a spacecraft"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "用仪器装备",
+      "definition_en": "equip with instruments for measuring, recording, or controlling",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:instrument:1ee7657e691c505e",
+      "sense_label_en": "equip with instruments for measuring, recording, or controlling",
+      "sort_order": 3,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:instrument:1ee7657e691c505e",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7118,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
@@ -605,7 +598,6 @@
       "collocation:683a6f58cdb2f4e1d3aa",
       "collocation:6c31252e5d4b073fa4d5",
       "collocation:9135ccf9efde1d4295df",
-      "collocation:99e4c6a54dccb0b3be97",
       "collocation:c1280d3e3628972471ee",
       "collocation:fda86d9aa539e7403807"
     ],
@@ -634,7 +626,9 @@
       {
         "id": "collocation:99e4c6a54dccb0b3be97",
         "source_row": 13121,
-        "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c1280d3e3628972471ee",

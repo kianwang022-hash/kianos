@@ -17,19 +17,11 @@
           "sense_ids": [
             "sense:intercourse:da9fcbc0cdd35b0b"
           ]
-        },
-        {
-          "label_cn": "交往；交流（正式、较旧）",
-          "label_en": "conversation, communication, or social dealings between people (old-fashioned/formal)",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:intercourse:4a1d06acc8e95ca9"
-          ]
         }
       ],
-      "core_meaning_cn": "性交；（较旧/正式）社交往来",
-      "core_meaning_en": "sexual intercourse; old-fashioned/formal social communication or dealings",
-      "mental_model_cn": "性交；（较旧/正式）社交往来",
+      "core_meaning_cn": "性交；性行为",
+      "core_meaning_en": "sexual intercourse; sexual activity",
+      "mental_model_cn": "现代默认 → 性交/性行为。较旧、正式的“交往/交流”义保留为 Reference，避免误判现代用法。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -43,31 +35,6 @@
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:6c5d08e52a89b9cf4ba5",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:intercourse:4a1d06acc8e95ca9:collocation:0"
-            ],
-            "meaning_cn": "社交往来",
-            "phrase": "social intercourse"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "交往，交流",
-        "definition_en": "conversation, communication, or social dealings between people",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "register": "old-fashioned formal",
-        "sense_id": "sense:intercourse:4a1d06acc8e95ca9",
-        "sense_label_en": "communication or dealings between individuals or groups",
-        "sort_order": 0,
-        "transitivity": "nonverb"
-      },
       {
         "collocations": [],
         "confidence": "medium",
@@ -380,12 +347,38 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6c5d08e52a89b9cf4ba5",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:intercourse:4a1d06acc8e95ca9:collocation:0"
+          ],
+          "meaning_cn": "社交往来",
+          "phrase": "social intercourse"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "交往，交流",
+      "definition_en": "conversation, communication, or social dealings between people",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "register": "old-fashioned formal",
+      "sense_id": "sense:intercourse:4a1d06acc8e95ca9",
+      "sense_label_en": "communication or dealings between individuals or groups",
+      "sort_order": 0,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:intercourse:4a1d06acc8e95ca9",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7164,
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
@@ -398,15 +391,15 @@
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
       }
     ],
-    "active_collocations": [
-      "collocation:6c5d08e52a89b9cf4ba5"
-    ],
+    "active_collocations": [],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:6c5d08e52a89b9cf4ba5",
         "source_row": 9136,
-        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
