@@ -579,17 +579,32 @@
     "ordinal": 2116,
     "word": "generator",
     "source_owner_path": "content/lexical/words/by-ordinal/o2116.json",
-    "source_fingerprint": "a54031a5cb2e6bb91e859d72e41c30192c1ca7d80d504b87ede36b51b25f67c9",
-    "sense_lineage": [],
+    "source_fingerprint": "33dee4e58fd9f2c431c77f8737d9475cf172d426815c772e6986ce00903905aa",
+    "sense_lineage": [
+      {
+        "word_id": "word:generator",
+        "target_kind": "sense",
+        "from_target_id": "sense:generator:fb54aacee5f55f13",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:generator",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:0febb34b9e7faec2602c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "产生某物的人或机器",
-      "decision_cn": "",
+      "decision_cn": "machine → 发电机或其他发生器；person/source → 发起者、产生者。电子学“信号发生器”子类型保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -691,32 +706,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "发起者；创造者"
         }
-      },
-      {
-        "id": "sense:generator:fb54aacee5f55f13",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "信号发生器",
-        "definition_en": "an electronic device that produces a signal voltage",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:0febb34b9e7faec2602c",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "signal generator",
-            "meaning_cn": "信号发生器",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:generator:fb54aacee5f55f13",
-          "target_locator": "record.senses[3]",
-          "target_label": "信号发生器"
-        }
       }
     ],
     "pronunciation_support": {
@@ -748,7 +737,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:0febb34b9e7faec2602c",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:generator:fb54aacee5f55f13:collocation:0"
+              ],
+              "meaning_cn": "信号发生器",
+              "phrase": "signal generator"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "信号发生器",
+          "definition_en": "an electronic device that produces a signal voltage",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:generator:fb54aacee5f55f13",
+          "sense_label_en": "an electronic device that produces a signal voltage",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -882,8 +897,7 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
-      "family": []
+      "form": null,      "family": []
     }
   },
   {
@@ -1782,8 +1796,7 @@
             {
               "surface": "genuine"
             }
-          ],
-          "evidence_basis": "source_ipa",
+          ],          "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
@@ -2682,8 +2695,7 @@
       },
       {
         "id": "sense:get:67189d7e8a9356e2",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
+        "source_locator": "record.senses[4]",        "pos": "verb",
         "governing_pattern": "get + sth / get what/why/how + clause",
         "definition_cn": "理解；明白",
         "definition_en": "to understand or grasp the meaning of something",
@@ -2846,23 +2858,31 @@
     "ordinal": 2131,
     "word": "ghost",
     "source_owner_path": "content/lexical/words/by-ordinal/o2131.json",
-    "source_fingerprint": "b5f70f421f00c2844da71c215990a75c13f03a97066249ec1fa0c90d7640e2d8",
-    "sense_lineage": [],
+    "source_fingerprint": "685423f0f161706f2c7e5227ffbf450e68b82e8990d5dbc9c4c49a0157a329cd",
+    "sense_lineage": [
+      {
+        "word_id": "word:ghost",
+        "target_kind": "sense",
+        "from_target_id": "sense:ghost:e2d7c253c58252e7",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "鬼；幽灵",
-      "decision_cn": "",
+      "summary_cn": "鬼；幽灵；一丝迹象；代笔",
+      "decision_cn": "spirit → 鬼/幽灵；a ghost of… → 一丝/一点；ghost a book/article → 代笔。低价值“鬼似地游荡”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "鬼；幽灵"
+        "target_label": "鬼；幽灵；一丝迹象；代笔"
       }
     },
     "senses": [
@@ -2923,25 +2943,8 @@
         }
       },
       {
-        "id": "sense:ghost:e2d7c253c58252e7",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "鬼似地游荡",
-        "definition_en": "to move smoothly and quietly like a ghost",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:ghost:e2d7c253c58252e7",
-          "target_locator": "record.senses[2]",
-          "target_label": "鬼似地游荡"
-        }
-      },
-      {
         "id": "sense:ghost:e4f27ec6c099562a",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "代笔",
@@ -2951,14 +2954,14 @@
         "usage": [
           {
             "id": "collocation:7386be2eca2bcb27e890",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "ghost a book for + sb",
             "meaning_cn": "为某人代笔写书",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:7386be2eca2bcb27e890",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "ghost a book for + sb"
             }
           }
@@ -2966,7 +2969,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:ghost:e4f27ec6c099562a",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "代笔"
         }
       }
@@ -3009,7 +3012,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "鬼似地游荡",
+          "definition_en": "to move smoothly and quietly like a ghost",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:ghost:e2d7c253c58252e7",
+          "sense_label_en": "to move smoothly and quietly like a ghost",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -3575,8 +3594,7 @@
           {
             "id": "collocation:099305d4b72db41a6770",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "little girl",
-            "meaning_cn": "小女孩",
+            "phrase": "little girl",            "meaning_cn": "小女孩",
             "kind": "usage_example",
             "repair": null
           }
@@ -4300,18 +4318,25 @@
     "ordinal": 2140,
     "word": "glamor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2140.json",
-    "source_fingerprint": "618f725fca71ca6a19a66345de80ba020ae31deb49c81ffe7e9a06102911ee97",
-    "sense_lineage": [],
+    "source_fingerprint": "7f47da584339796f5b83bd4b166cb3d9ddc71d09e2977e44313f718b66b2c773",
+    "sense_lineage": [
+      {
+        "word_id": "word:glamor",
+        "target_kind": "sense",
+        "from_target_id": "sense:glamor:24d9fb75c4c45cd0",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "魅力；迷人的美",
-      "decision_cn": "",
+      "decision_cn": "US spelling glamor / BrE glamour → 魅力、迷人的吸引力。少见动词“迷惑/迷住”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4344,23 +4369,6 @@
           "target_id": "sense:glamor:b54e005fdaa45d1a",
           "target_locator": "record.senses[0]",
           "target_label": "魅力；迷人的美"
-        }
-      },
-      {
-        "id": "sense:glamor:24d9fb75c4c45cd0",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "迷惑；迷住；以魅力诱使",
-        "definition_en": "to enchant, bewitch, or captivate someone",
-        "note": "Learner-facing pattern: glamor sb into doing sth.",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:glamor:24d9fb75c4c45cd0",
-          "target_locator": "record.senses[1]",
-          "target_label": "迷惑；迷住；以魅力诱使"
         }
       }
     ],
@@ -4416,33 +4424,7 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:glamor:6cddc0725a5595c0",
-        "source_locator": "record.constructions[0]",
-        "pattern": "glamor sb into doing sth",
-        "lines": [
-          {
-            "text": "迷惑某人做某事",
-            "lang": "cn"
-          },
-          {
-            "text": "迷惑；迷住",
-            "lang": "cn"
-          },
-          {
-            "text": "to enchant or bewitch",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:glamor:6cddc0725a5595c0",
-          "target_locator": "record.constructions[0]",
-          "target_label": "glamor sb into doing sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4468,7 +4450,24 @@
           "target_label": "glamor is the usual American spelling; glamour is the usual British spelling. Both frozen Word owners remain distinct catalogue identities."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "迷惑；迷住；以魅力诱使",
+          "definition_en": "to enchant, bewitch, or captivate someone",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:glamor:24d9fb75c4c45cd0",
+          "sense_label_en": "to enchant, bewitch, or captivate someone",
+          "sort_order": 1,
+          "transitivity": "vt",
+          "usage_note": "Learner-facing pattern: glamor sb into doing sth."
+        }
+      ]
     }
   },
   {
@@ -4494,8 +4493,7 @@
         "target_id": null,
         "target_locator": "record.core_concept",
         "target_label": "快速看一眼"
-      }
-    },
+      }    },
     "senses": [
       {
         "id": "sense:glance:c029c758fef65e0a",
@@ -4815,18 +4813,32 @@
     "ordinal": 2143,
     "word": "glass",
     "source_owner_path": "content/lexical/words/by-ordinal/o2143.json",
-    "source_fingerprint": "ce407009aaa9e70f196d95ff3315567984183a682a03cca7a126fc826d3400a8",
-    "sense_lineage": [],
+    "source_fingerprint": "204bd86931c489ee55098d95c79cdb8e67d61996a9cda3c33eb68e2cdcbecd53",
+    "sense_lineage": [
+      {
+        "word_id": "word:glass",
+        "target_kind": "sense",
+        "from_target_id": "sense:glass:4f86d8cd3b5a5535",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:glass",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d2a163e660ace4c5d0d1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "玻璃或玻璃杯",
-      "decision_cn": "",
+      "decision_cn": "material → 玻璃；container → 玻璃杯；collective → 玻璃器皿。低价值动词“装玻璃/使成玻璃状”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4928,32 +4940,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "玻璃器皿"
         }
-      },
-      {
-        "id": "sense:glass:4f86d8cd3b5a5535",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "装玻璃于；使成玻璃状",
-        "definition_en": "to fit with glass or make glassy",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d2a163e660ace4c5d0d1",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "glass a window",
-            "meaning_cn": "给窗户装玻璃",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:glass:4f86d8cd3b5a5535",
-          "target_locator": "record.senses[3]",
-          "target_label": "装玻璃于；使成玻璃状"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4981,7 +4967,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:d2a163e660ace4c5d0d1",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:glass:4f86d8cd3b5a5535:collocation:0"
+              ],
+              "meaning_cn": "给窗户装玻璃",
+              "phrase": "glass a window"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "装玻璃于；使成玻璃状",
+          "definition_en": "to fit with glass or make glassy",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:glass:4f86d8cd3b5a5535",
+          "sense_label_en": "to fit with glass or make glassy",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -4990,18 +5002,33 @@
     "ordinal": 2144,
     "word": "glide",
     "source_owner_path": "content/lexical/words/by-ordinal/o2144.json",
-    "source_fingerprint": "96c2df645fee9b5f05ef85e3c03fd0031b89e13650438f886595b98f5c0004aa",
-    "sense_lineage": [],
+    "source_fingerprint": "20495c5f0e5de1768a0ad3df5a584a98b1c82a4ded51e9a287d7b9addef5da63",
+    "sense_lineage": [
+      {
+        "word_id": "word:glide",
+        "target_kind": "sense",
+        "from_target_id": "sense:glide:292d0f54a45850f1",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:glide",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bd3679fec6b8af2024ab",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "平滑地移动",
-      "decision_cn": "",
+      "decision_cn": "motion → 平稳无声地滑行；air → 滑翔；noun → 滑翔活动。少见使动“使…滑动/悄悄移动”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5074,32 +5101,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "滑翔运动"
         }
-      },
-      {
-        "id": "sense:glide:292d0f54a45850f1",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使滑动，使悄悄移动",
-        "definition_en": "cause to move or pass silently, smoothly, or imperceptibly",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:bd3679fec6b8af2024ab",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "glide the boat into the harbor",
-            "meaning_cn": "使船悄悄驶入港口",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:glide:292d0f54a45850f1",
-          "target_locator": "record.senses[3]",
-          "target_label": "使滑动，使悄悄移动"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5138,7 +5139,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:bd3679fec6b8af2024ab",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:glide:292d0f54a45850f1:collocation:0"
+              ],
+              "meaning_cn": "使船悄悄驶入港口",
+              "phrase": "glide the boat into the harbor"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使滑动，使悄悄移动",
+          "definition_en": "cause to move or pass silently, smoothly, or imperceptibly",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:glide:292d0f54a45850f1",
+          "sense_label_en": "cause to move or pass silently, smoothly, or imperceptibly",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -5365,8 +5392,7 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
-      "form": null,
+      "relations": [],      "form": null,
       "family": [],
       "senses": [
         {
@@ -5641,18 +5667,32 @@
     "ordinal": 2148,
     "word": "globe",
     "source_owner_path": "content/lexical/words/by-ordinal/o2148.json",
-    "source_fingerprint": "591c2ae84513e84bf3e6b1a4631be34c21a88c1d93e9430e48a6b80c0edba78e",
-    "sense_lineage": [],
+    "source_fingerprint": "284976e0649cffea7df01fde64370b68eacdee70236d8b897e0f3e20837b5806",
+    "sense_lineage": [
+      {
+        "word_id": "word:globe",
+        "target_kind": "sense",
+        "from_target_id": "sense:globe:490c49f7dab6575c",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:globe",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d469a95e78853af52554",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "球体，地球",
-      "decision_cn": "",
+      "decision_cn": "model → 地球仪；the globe → 地球/世界；shape → 球体。低价值动词“使成球状”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5751,32 +5791,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "球体，球状物"
         }
-      },
-      {
-        "id": "sense:globe:490c49f7dab6575c",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使成球状",
-        "definition_en": "make into a globe or sphere",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d469a95e78853af52554",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "globe the clay",
-            "meaning_cn": "把黏土做成球状",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:globe:490c49f7dab6575c",
-          "target_locator": "record.senses[3]",
-          "target_label": "使成球状"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5827,6 +5841,32 @@
             }
           ],
           "source_locator": "record.word_family[0]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:d469a95e78853af52554",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:globe:490c49f7dab6575c:collocation:0"
+              ],
+              "meaning_cn": "把黏土做成球状",
+              "phrase": "globe the clay"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使成球状",
+          "definition_en": "make into a globe or sphere",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:globe:490c49f7dab6575c",
+          "sense_label_en": "make into a globe or sphere",
+          "sort_order": 3,
+          "transitivity": "vt"
         }
       ]
     }
@@ -6251,8 +6291,7 @@
     },
     "secondary_senses": [],
     "constructions": [],
-    "reference": {
-      "confusables": [],
+    "reference": {      "confusables": [],
       "relations": [],
       "form": null,
       "family": []
@@ -7151,8 +7190,7 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
-        },
-        {
+        },        {
           "ipa": "/ɡəʊl/",
           "locales": [
             "en-GB"
@@ -8051,8 +8089,7 @@
             }
           ],
           "evidence_basis": "source_ipa",
-          "spelling_binding": null
-        },
+          "spelling_binding": null        },
         {
           "ipa": "/ɡɒlf/",
           "locales": [
@@ -8951,8 +8988,7 @@
           "target_locator": "record.senses[0]",
           "target_label": "华丽的；灿烂的"
         }
-      }
-    ],
+      }    ],
     "pronunciation_support": {
       "readings": [
         {
@@ -9851,8 +9887,7 @@
         "definition_en": "to attract or capture attention or headlines",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
+        "usage": [          {
             "id": "collocation:94f567c4bc0256fbea50",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "grab attention/headlines",
