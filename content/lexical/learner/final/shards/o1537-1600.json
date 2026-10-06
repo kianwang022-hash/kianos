@@ -2878,23 +2878,30 @@
     "ordinal": 1555,
     "word": "eastern",
     "source_owner_path": "content/lexical/words/by-ordinal/o1555.json",
-    "source_fingerprint": "c49fdaa4f63f17374e87348f299c3622c08b7ce11c035866bff11198109ef457",
-    "sense_lineage": [],
+    "source_fingerprint": "99d124c8fdc7bd4e50f589f48a9a48c2a4ca28cf12b80ec82595200353d8695f",
+    "sense_lineage": [
+      {
+        "word_id": "word:eastern",
+        "target_kind": "sense",
+        "from_target_id": "sense:eastern:7c2ddcbd804d56b9",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A",
-        "1N"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "东方的",
-      "decision_cn": "",
+      "summary_cn": "东方的；东部的；来自东方的",
+      "decision_cn": "place/region → 东方的、东部的；wind/direction → 来自东方或向东。低价值的人群/宗派名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "东方的"
+        "target_label": "东方的；东部的；来自东方的"
       }
     },
     "senses": [
@@ -2956,23 +2963,6 @@
           "target_id": "sense:eastern:2ea4951a05875a3f",
           "target_locator": "record.senses[1]",
           "target_label": "自东的；向东的"
-        }
-      },
-      {
-        "id": "sense:eastern:7c2ddcbd804d56b9",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "东方人；东正教徒",
-        "definition_en": "a person from the east; an Orthodox Christian",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:eastern:7c2ddcbd804d56b9",
-          "target_locator": "record.senses[2]",
-          "target_label": "东方人；东正教徒"
         }
       }
     ],
@@ -3039,7 +3029,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "东方人；东正教徒",
+          "definition_en": "a person from the east; an Orthodox Christian",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:eastern:7c2ddcbd804d56b9",
+          "sense_label_en": "a person from the east; an Orthodox Christian",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -3650,23 +3656,38 @@
     "ordinal": 1559,
     "word": "eccentric",
     "source_owner_path": "content/lexical/words/by-ordinal/o1559.json",
-    "source_fingerprint": "88bdc2738659d00a105e5138754c85db261cfe7e80d498305870f0d8f5c7a8e3",
-    "sense_lineage": [],
+    "source_fingerprint": "ec1572c511980c8ce0e007d98bf691a14a6cb8d8fd45362e99db5cc58100ab20",
+    "sense_lineage": [
+      {
+        "word_id": "word:eccentric",
+        "target_kind": "sense",
+        "from_target_id": "sense:eccentric:157d6b42005e58c8",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:eccentric",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:0c5ed3c4a8a3ca08b07f",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A",
+        "1A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "古怪的；不同圆心的",
-      "decision_cn": "",
+      "summary_cn": "古怪的；反常的；怪人",
+      "decision_cn": "person/behavior → 古怪、反常；noun → 怪人。不同圆心的技术义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "古怪的；不同圆心的"
+        "target_label": "古怪的；反常的；怪人"
       }
     },
     "senses": [
@@ -3697,34 +3718,8 @@
         }
       },
       {
-        "id": "sense:eccentric:157d6b42005e58c8",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "不同圆心的",
-        "definition_en": "not having a common center",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:0c5ed3c4a8a3ca08b07f",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "eccentric circles",
-            "meaning_cn": "偏心圆",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:eccentric:157d6b42005e58c8",
-          "target_locator": "record.senses[1]",
-          "target_label": "不同圆心的"
-        }
-      },
-      {
         "id": "sense:eccentric:2634bce071405892",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "怪人",
@@ -3734,7 +3729,7 @@
         "usage": [
           {
             "id": "collocation:bb8e0b6153785af2272e",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "an eccentric",
             "meaning_cn": "一个怪人",
             "kind": "usage_example",
@@ -3744,7 +3739,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:eccentric:2634bce071405892",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "怪人"
         }
       }
@@ -3809,7 +3804,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:0c5ed3c4a8a3ca08b07f",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:eccentric:157d6b42005e58c8:collocation:0"
+              ],
+              "meaning_cn": "偏心圆",
+              "phrase": "eccentric circles"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "不同圆心的",
+          "definition_en": "not having a common center",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:eccentric:157d6b42005e58c8",
+          "sense_label_en": "not having a common center",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -9260,7 +9281,7 @@
     "ordinal": 1593,
     "word": "electric",
     "source_owner_path": "content/lexical/words/by-ordinal/o1593.json",
-    "source_fingerprint": "d881fe4550aff02ce18ce6d03e9e4c4a3895c0fb84126833c9529b2765933bf7",
+    "source_fingerprint": "1ab047dd63a134fd11f02081176362aa357a58bfba1514150110e45e6d9fcdbe",
     "sense_lineage": [
       {
         "word_id": "word:electric",
@@ -9268,23 +9289,36 @@
         "from_target_id": "sense:electric:06edb7f0aa0f5fde",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:electric",
+        "target_kind": "sense",
+        "from_target_id": "sense:electric:8b788bf04ecc58de",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:electric",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f7bf1d5224321b4d30ac",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2A",
-        "1N"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "电的；电动的；也可形容气氛非常兴奋或紧张",
-      "decision_cn": "先判断是不是“直接由电驱动/产生电”；再与更宽泛的 electrical 区分。",
+      "summary_cn": "电的；电动的；也可比喻为令人兴奋或紧张的",
+      "decision_cn": "device/car/power → 电的、电动的；atmosphere/performance → 紧张或令人激动。名词 an electric 保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "电的；电动的；也可形容气氛非常兴奋或紧张"
+        "target_label": "电的；电动的；也可比喻为令人兴奋或紧张的"
       }
     },
     "senses": [
@@ -9343,32 +9377,6 @@
           "target_id": "sense:electric:a167879d96365bb3",
           "target_locator": "record.senses[1]",
           "target_label": "紧张的，令人激动的"
-        }
-      },
-      {
-        "id": "sense:electric:8b788bf04ecc58de",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "电动车",
-        "definition_en": "a car powered by electricity",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f7bf1d5224321b4d30ac",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "buy an electric",
-            "meaning_cn": "买一辆电动车",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:electric:8b788bf04ecc58de",
-          "target_locator": "record.senses[2]",
-          "target_label": "电动车"
         }
       }
     ],
@@ -9479,6 +9487,30 @@
           "source_row": 4456,
           "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f7bf1d5224321b4d30ac",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:electric:8b788bf04ecc58de:collocation:0"
+              ],
+              "meaning_cn": "买一辆电动车",
+              "phrase": "buy an electric"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "电动车",
+          "definition_en": "a car powered by electricity",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:electric:8b788bf04ecc58de",
+          "sense_label_en": "a car powered by electricity",
+          "sort_order": 2,
+          "transitivity": "nonverb"
         }
       ]
     }
