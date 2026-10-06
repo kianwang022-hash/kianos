@@ -20,12 +20,11 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "保释金；水杓",
-          "label_en": "money paid to secure release of an accused person pending trial; a container for scooping water",
+          "label_cn": "保释金",
+          "label_en": "money paid to secure release of an accused person pending trial",
           "pos": "noun",
           "sense_ids": [
-            "sense:bail:e59ffb08fe49516e",
-            "sense:bail:8864d17797545a55"
+            "sense:bail:e59ffb08fe49516e"
           ]
         },
         {
@@ -134,30 +133,6 @@
         "sense_label_en": "to scoop water out of a boat",
         "sort_order": 2,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:5af693df7cd58c1d27a3",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:bail:8864d17797545a55:collocation:0"
-            ],
-            "meaning_cn": "舀水用的杓",
-            "phrase": "a bail for bailing"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "水杓",
-        "definition_en": "a container for scooping water",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:bail:8864d17797545a55",
-        "sense_label_en": "a container for scooping water",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -416,7 +391,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:5af693df7cd58c1d27a3",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:bail:8864d17797545a55:collocation:0"
+          ],
+          "meaning_cn": "舀水用的杓",
+          "phrase": "a bail for bailing"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "水杓",
+      "definition_en": "a container for scooping water",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:bail:8864d17797545a55",
+      "sense_label_en": "a container for scooping water",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -435,7 +435,7 @@
       },
       {
         "sense_id": "sense:bail:8864d17797545a55",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 978,
         "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
@@ -450,7 +450,6 @@
     ],
     "active_collocations": [
       "collocation:080c117e2428db0c7ca2",
-      "collocation:5af693df7cd58c1d27a3",
       "collocation:b2ed2344e628f2acf2bb",
       "collocation:b4b2d3bcee53775511e8",
       "collocation:e376f15716037c1f43b4"
@@ -465,7 +464,9 @@
       {
         "id": "collocation:5af693df7cd58c1d27a3",
         "source_row": 7665,
-        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:b2ed2344e628f2acf2bb",
