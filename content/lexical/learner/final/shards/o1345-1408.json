@@ -1067,22 +1067,30 @@
     "ordinal": 1352,
     "word": "devise",
     "source_owner_path": "content/lexical/words/by-ordinal/o1352.json",
-    "source_fingerprint": "6b74126866f6042f41659c04d0a337e7ad269619c468d63aa64edc7a2d300d18",
-    "sense_lineage": [],
+    "source_fingerprint": "aa29747110e22418b0bb0bbcb39b112d2f7a07a8435b0a714e57ea5b62067ced",
+    "sense_lineage": [
+      {
+        "word_id": "word:devise",
+        "target_kind": "sense",
+        "from_target_id": "sense:devise:e9b8312ebcb0526f",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V"
+        "1V"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "想出；设计（计划、方法或方案）",
-      "decision_cn": "主学习义是想出/设计方案；法律上的遗赠义保留为低优先级。",
+      "summary_cn": "想出；设计计划、方法或方案",
+      "decision_cn": "plan/method/solution → 想出、设计。法律遗赠义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "想出；设计（计划、方法或方案）"
+        "target_label": "想出；设计计划、方法或方案"
       }
     },
     "senses": [
@@ -1101,23 +1109,6 @@
           "target_id": "sense:devise:d0966008db155729",
           "target_locator": "record.senses[0]",
           "target_label": "想出、发明计划或方法"
-        }
-      },
-      {
-        "id": "sense:devise:e9b8312ebcb0526f",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "立遗嘱把财产留给某人",
-        "definition_en": "to give property by will",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:devise:e9b8312ebcb0526f",
-          "target_locator": "record.senses[1]",
-          "target_label": "立遗嘱把财产留给某人"
         }
       }
     ],
@@ -1179,7 +1170,23 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "立遗嘱把财产留给某人",
+          "definition_en": "to give property by will",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:devise:e9b8312ebcb0526f",
+          "sense_label_en": "to give property by will",
+          "sort_order": 1,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -3292,18 +3299,26 @@
     "ordinal": 1367,
     "word": "die",
     "source_owner_path": "content/lexical/words/by-ordinal/o1367.json",
-    "source_fingerprint": "c21eb64065469b7453aed387cde00768cf183aeee1c881759664d868dcdceb24",
-    "sense_lineage": [],
+    "source_fingerprint": "f518f635252599cdb7b1e7e5459fd2e9dc43fc42e2f9586f92df26d9d50a68cc",
+    "sense_lineage": [
+      {
+        "word_id": "word:die",
+        "target_kind": "sense",
+        "from_target_id": "sense:die:cfc8c9b7ac915dec",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "死亡；骰子",
-      "decision_cn": "",
+      "decision_cn": "verb → 死亡/逐渐消退/停止运转；noun → 骰子。工业冲模义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3468,23 +3483,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "骰子"
         }
-      },
-      {
-        "id": "sense:die:cfc8c9b7ac915dec",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "冲模，模具",
-        "definition_en": "a device or tool used for shaping or cutting metal",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:die:cfc8c9b7ac915dec",
-          "target_locator": "record.senses[4]",
-          "target_label": "冲模，模具"
-        }
       }
     ],
     "pronunciation_support": {
@@ -3536,7 +3534,23 @@
           "target_label": "die forms its -ing form as dying and its past as died; contrast dye → dyeing/dyed."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "冲模，模具",
+          "definition_en": "a device or tool used for shaping or cutting metal",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:die:cfc8c9b7ac915dec",
+          "sense_label_en": "a device or tool used for shaping or cutting metal",
+          "sort_order": 4,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -3545,18 +3559,26 @@
     "ordinal": 1368,
     "word": "diet",
     "source_owner_path": "content/lexical/words/by-ordinal/o1368.json",
-    "source_fingerprint": "94ec55f975838365d8b4d5d9a100b17920b2edbce31b5380a94942230c089d51",
-    "sense_lineage": [],
+    "source_fingerprint": "9c8e37f0b786c6fda42827c5809d4c40824f649d35cdbb1cbab1ac29e1f97f15",
+    "sense_lineage": [
+      {
+        "word_id": "word:diet",
+        "target_kind": "sense",
+        "from_target_id": "sense:diet:3154a8051e2f505a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "饮食；节食",
-      "decision_cn": "",
+      "decision_cn": "food/eating → 日常饮食或节食方案；verb → 节食。专名 the Diet（议会）保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3642,31 +3664,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "节食"
         }
-      },
-      {
-        "id": "sense:diet:3154a8051e2f505a",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（日本等国的）议会；国会，通常作 the Diet",
-        "definition_en": "the Diet: a legislative assembly in certain countries, especially Japan",
-        "note": "",
-        "identity_overlay": {
-          "text": "lowercase diet is food/eating plan; capitalized Diet can name an institutional legislature such as Japan's National Diet",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "lowercase diet is food/eating plan; capitalized Diet can name an institutional legislature such as Japan's National Diet"
-          }
-        },
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:diet:3154a8051e2f505a",
-          "target_locator": "record.senses[3]",
-          "target_label": "（日本等国的）议会；国会，通常作 the Diet"
-        }
       }
     ],
     "pronunciation_support": {
@@ -3716,7 +3713,30 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "（日本等国的）议会；国会，通常作 the Diet",
+          "definition_en": "the Diet: a legislative assembly in certain countries, especially Japan",
+          "governing_pattern": "",
+          "level": "L3",
+          "lexical_identity_overlay": {
+            "case_sensitive": true,
+            "identity_type": "proper_name_boundary",
+            "note": "lowercase diet is food/eating plan; capitalized Diet can name an institutional legislature such as Japan's National Diet",
+            "paired_form": "Diet",
+            "surface_lemma": "diet"
+          },
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:diet:3154a8051e2f505a",
+          "sense_label_en": "a legislative assembly in certain countries (e.g., Japan)",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -5385,7 +5405,7 @@
     "ordinal": 1378,
     "word": "digital",
     "source_owner_path": "content/lexical/words/by-ordinal/o1378.json",
-    "source_fingerprint": "ab2d90e3f2b7a77bd035b2f683b994e387e468f18ef3daacb3d75b7461799a64",
+    "source_fingerprint": "3202607a7b6f5d7145912bec60cc2cdb90a356c21c65749577723432d51a8141",
     "sense_lineage": [
       {
         "word_id": "word:digital",
@@ -5404,20 +5424,34 @@
       {
         "word_id": "word:digital",
         "target_kind": "sense",
+        "from_target_id": "sense:digital:a0686dc13d735c1c",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:digital",
+        "target_kind": "sense",
         "from_target_id": "sense:digital:e568a7d463e082ac",
         "status": "merged",
         "to_target_id": "sense:digital:6f6682405b4b522c"
+      },
+      {
+        "word_id": "word:digital",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b4ecabd3a94c90327e8f",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "数字的；数字技术的",
-      "decision_cn": "主学习义是数字技术/数字信息；手指义保留为次要分支。",
+      "decision_cn": "technology/data/device → 数字技术、数字信息。解剖/手指义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5455,32 +5489,6 @@
           "target_id": "sense:digital:6f6682405b4b522c",
           "target_locator": "record.senses[0]",
           "target_label": "数字的；数字技术的"
-        }
-      },
-      {
-        "id": "sense:digital:a0686dc13d735c1c",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "手指的",
-        "definition_en": "relating to or performed with the fingers",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b4ecabd3a94c90327e8f",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "digital dexterity",
-            "meaning_cn": "手指灵巧",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:digital:a0686dc13d735c1c",
-          "target_locator": "record.senses[1]",
-          "target_label": "手指的"
         }
       }
     ],
@@ -5601,6 +5609,30 @@
           "source_row": 3910,
           "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:b4ecabd3a94c90327e8f",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:digital:a0686dc13d735c1c:collocation:0"
+              ],
+              "meaning_cn": "手指灵巧",
+              "phrase": "digital dexterity"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "手指的",
+          "definition_en": "relating to or performed with the fingers",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:digital:a0686dc13d735c1c",
+          "sense_label_en": "relating to or performed with the fingers",
+          "sort_order": 1,
+          "transitivity": "nonverb"
         }
       ]
     }
