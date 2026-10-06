@@ -9,6 +9,26 @@ This file owns current S/K/L/P/R/E/U readiness claims for A1 Circulation. It doe
 
 ---
 
+<a id="b1-teaching-adoption-20261006"></a>
+## 2026-10-06｜B1 teaching basis and post-Chat retrieval adoption
+
+**Status: ACCEPTED — circulation-b01 only.** Kian explicitly approved formal adoption and merge of the corrected B1 at `2ea5d4df25a98c60241d0233a9c04cac650ffa44` after the actual default-reader review. [#1197](https://github.com/kianwang022-hash/kianos/pull/1197) merged that exact head into `main` at `ce30c6fc2a4080edc04dc6788054f7d308011ea6`. This existing A1 Acceptance owner records the scoped adoption; the [normal Chat router](../../learner/README.md#accepted-b1-teaching-basis) resolves here.
+
+Accepted teaching basis: [B1 continuous mechanical model with in-place full Prompts and explanations](../../../projection/a1-circulation/chat/b01-teaching.md), refreshed against its declared current canonical/System/Learning dependencies. It is the stable B1 teaching and compressed-review input under [Learning Contract §0 and §13](../../../LEARNING_CONTRACT.md), not a new medical owner or a Website KP/Core source.
+
+- The actual default reader presents the continuous filling → SV/CO → arterial reservoir/resistance → microcirculation → venous return route and parallel coronary supply. Natural model nodes own 19 full canonical title/Prompt bindings, including SV's nested preload/afterload/contractility nodes; 13 whole-KP external destinations retain their existing owners. These are observed coverage results, not topology or inline quotas.
+- [Default-reader evidence](https://github.com/kianwang022-hash/kianos/pull/1197#issuecomment-6012469884) was read as a whole by the parent and independent reviewer, then reviewed positively by Kian before the explicit adoption decision. Focused structure, preserved-source and 12 adversarial-mutation checks support the bounded reader claim. This is not fresh medical Source re-review, pixel/timing proof or learner mastery.
+- The unchanged Runtime/Memory implementation retains its [isolated 13-check browser proof](https://github.com/kianwang022-hash/kianos/actions/runs/37430680040): lawful post-Chat B1 entry → hidden KP Recall → Reveal → actual rating → reload/Resume, plus exactly 13 already reviewed prepared-Precision cards, native Memory Browse/Recall/Reveal and persistence. Navigation/preparation does not fabricate Source contact, Learned, Block completion, full-Block release, Today debt or a rating.
+- Corrected-head Projection, Memory, Block, Golden Journey and System Workspace checks passed. Overall workflows remained **10 PASS / 5 FAIL**; the [PR's exact earlier-main error receipts](https://github.com/kianwang022-hash/kianos/pull/1197) retain the A2, B+C, QA, System Exit and Mac failures with their existing owners. This receipt does not turn the PR into all-green evidence or close those other tasks.
+- The tested teaching bytes, including the inherited `CANDIDATE_DERIVATION` header and review-time candidate wording, are preserved. Their former admission boundary is superseded **only for this exact B1 teaching use** by this receipt; `medical_authority:false`, provenance and dependency freshness remain binding. No validator or preserved-original hash is weakened to relabel the artifact.
+- The four retained unindexed prepared items stay with their existing canonical/preparation owners and are not independently admitted. Original-media/Source gaps, including the existing B1 KP03 limitation, remain explicit. No other 158-Block teaching package, #1150 wholesale adoption, Library/legacy deletion or real learner-state write is included.
+
+This B1 receipt follows the current Learning Contract's lawful Chat-led first pass; the older source-first sequences below retain their original scoped engineering evidence and are not the sole permitted B1 entry. Actual Source contact, completion and U keep their own native evidence requirements. **Learner U remains UNTESTED.**
+
+Merge placement and normal Chat adoption are established above. Actual Current/Stable served-version proof is a separate delivery claim and is not established by GitHub merge or this receipt.
+
+---
+
 ## Current accepted gate status
 
 ```text
