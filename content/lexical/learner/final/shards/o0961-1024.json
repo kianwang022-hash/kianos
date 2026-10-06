@@ -8082,17 +8082,25 @@
     "ordinal": 1008,
     "word": "conjunction",
     "source_owner_path": "content/lexical/words/by-ordinal/o1008.json",
-    "source_fingerprint": "bc0655486b29cdc9f59601f32ad24e9af9fa4f8afce264ff5b0849965f311ac7",
-    "sense_lineage": [],
+    "source_fingerprint": "c69e0b8d4d230608fbb61a7c4872add60dede26ef06deaaed71a7d19d4d410bf",
+    "sense_lineage": [
+      {
+        "word_id": "word:conjunction",
+        "target_kind": "sense",
+        "from_target_id": "sense:conjunction:79b6e8743d825a82",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "连词；结合；联合",
-      "decision_cn": "",
+      "decision_cn": "grammar → 连词；in conjunction with / joining → 结合、联合。天文学会合义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8161,23 +8169,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "结合；联合"
         }
-      },
-      {
-        "id": "sense:conjunction:79b6e8743d825a82",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（天体的）会合",
-        "definition_en": "the apparent meeting of celestial bodies",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:conjunction:79b6e8743d825a82",
-          "target_locator": "record.senses[2]",
-          "target_label": "（天体的）会合"
-        }
       }
     ],
     "pronunciation_support": {
@@ -8245,7 +8236,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "（天体的）会合",
+          "definition_en": "the apparent meeting of celestial bodies",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:conjunction:79b6e8743d825a82",
+          "sense_label_en": "the apparent meeting of celestial bodies",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
