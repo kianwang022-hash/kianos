@@ -156,7 +156,9 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
         const kpId = card?.getAttribute('data-kp-id') || '';
         if (!kpId || state?.stage !== 'kp_recall' || card?.hidden || card?.querySelector('[data-kp-answer]')?.hidden !== false || card?.dataset.ratingCommitted === 'true' || (state?.learned?.[kpId] !== true && !postChatRecall)) {
           stop(event);
-          setBlockStatus(root, '先完成对应原讲义接触并 Reveal 当前 Core，再记录本次 Recall');
+          setBlockStatus(root, postChatRecall
+            ? '先 Reveal 当前 Core，再记录本次 Recall'
+            : '先完成对应原讲义接触并 Reveal 当前 Core，再记录本次 Recall');
           return;
         }
       }
@@ -242,3 +244,4 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
 
   });
 </script>
+

@@ -119,6 +119,7 @@ async function createHarness({ saved, available = true, ttsx = [], visual = fals
     'data-study-system-id': 'circulation', 'data-study-block-slug': slug, 'data-study-block-id': blockId,
     'data-study-source-hash': 'synthetic-source', 'data-post-chat-recall-available': String(available) });
   const add = (parent, attrs, hidden = false) => { const node = new Element(attrs, hidden); parent.append(node); return node; };
+  add(root, { 'data-study-local-status': '' });
   const stages = Object.fromEntries(['block_learn', 'source_contact', 'kp_recall', 'ttsx_checkpoint', 'block_recall'].map(name => [name, add(root, { 'data-study-stage': name }, name !== 'block_learn')]));
   const entry = add(stages.block_learn, { 'data-post-chat-recall': '' });
   const sourceEntry = add(stages.source_contact, { 'data-post-chat-recall': '' });
@@ -186,6 +187,7 @@ assert.equal(revision.studyHasEvidence(fresh.state()), false, 'entry creates no 
 assert.deepEqual(fresh.evidence(), initialEvidence, 'entry writes no Recall history'); noContact(fresh);
 assert.equal(fresh.cards[0].answer.hidden, true); assert.equal(fresh.cards[0].rating.hidden, true);
 fresh.cards[0].buttons.known.click(); assert.deepEqual(fresh.state().ratings, {}); assert.equal(fresh.evidence().evidenceHistory.length, 0, 'unrevealed rejected');
+assert.equal(fresh.root.querySelector('[data-study-local-status]').textContent, '先 Reveal 当前 Core，再记录本次 Recall', 'post-Chat rejection does not falsely require Source');
 fresh.cards[1].reveal.click(); assert.equal(fresh.cards[1].answer.hidden, true, 'guard rejects hidden post-Chat Reveal'); fresh.cards[1].buttons.known.click(); assert.equal(fresh.evidence().evidenceHistory.length, 0, 'hidden card rejected');
 fresh.cards[0].reveal.click(); fresh.cards[0].buttons.invalid.click(); assert.equal(fresh.evidence().evidenceHistory.length, 0, 'invalid rating rejected');
 fresh.cards[0].buttons.known.click();
@@ -216,6 +218,8 @@ assert.equal(prerequisite.state().stage, 'block_learn', 'post-Chat entry preserv
 assert.equal(prerequisite.state().recallEntryMode, undefined); noContact(prerequisite);
 const targetEntry = await createHarness(); targetEntry.recallTarget.click();
 assert.equal(targetEntry.state().stage, 'block_learn', 'guard rejects Source-free ordinary Recall target');
+targetEntry.cards[0].buttons.known.click();
+assert.equal(targetEntry.root.querySelector('[data-study-local-status]').textContent, '先完成对应原讲义接触并 Reveal 当前 Core，再记录本次 Recall', 'ordinary Source-first rejection stays unchanged');
 targetEntry.entry.click(); targetEntry.sourceReturn.click(); targetEntry.recallTarget.click();
 assert.equal(targetEntry.state().stage, 'kp_recall', 'validated post-Chat target routes through guard'); noContact(targetEntry);
 const normal = await createHarness(); normal.lectureEntry.click();

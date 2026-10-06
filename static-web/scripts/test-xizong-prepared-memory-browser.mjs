@@ -215,9 +215,10 @@ try {
     assert.equal(await b2First.locator('[data-kp-rating]').isVisible(),false);
     assert.equal((await b2Read(b2RecallKey)).evidenceHistory.length,0);
     await assertTitleOnlyKp(b2Page,b2Root,b2Object,b2FirstId);
-    await b2First.locator('[data-rating="known"]').dispatchEvent('click');
+    await b2Page.keyboard.press('3');
     assert.deepEqual((await b2Read(b2StudyKey)).ratings,{});
     assert.equal((await b2Read(b2RecallKey)).evidenceHistory.length,0);
+    assert.equal((await b2Root.locator('[data-study-local-status]').textContent()).trim(),'先 Reveal 当前 Core，再记录本次 Recall');
     checks.push('native B2 has 5 LG / 19 KP, no fabricated B1 prerequisite; fresh Chat entry is title-only, full Prompt, clean Front and no evidence');
     await b2Page.screenshot({path:path.join(out,'b02-post-chat-kp-front.png'),fullPage:true});
     await b2First.locator('[data-kp-reveal]').click();
