@@ -64,7 +64,11 @@ The earlier content-only `schema.json` write was denied and omitted. Do not rest
 
 ### Semantic audit boundary
 
-Issue #1155 owns the probes, layer decisions and acceptance. This is bounded evidence-backed maintenance, not a reopened 7,946-word campaign. Learner evidence signals defects but does not establish semantic priority. Reference truth remains available without becoming automatic study or Repair debt.
+Issue #1155 remains the bounded seed / maintenance evidence for the learner-value defect class and its already-reviewed owners.
+
+Kian explicitly reopened broader batched semantic review on 2026-10-06. [Issue #1166](https://github.com/kianwang022-hash/kianos/issues/1166) owns the Chat-driven batch cursor and systematic learner-facing quality review across the Current 7,946 Main Words, beginning with B001 `o0651–o0700`. This is a review program, not a mechanical rewrite: each object still requires evidence-backed Core / Expansion / Reference judgment and may remain unchanged. Learner evidence signals defects but does not establish semantic priority. Reference truth remains available without becoming automatic Study or Repair debt.
+
+#1166 must reuse #1155's delivered decisions as calibration rather than re-litigating them without new evidence, refresh exact owners before writes, and keep unrelated IPA / latency / UI work outside its scope.
 
 ## Reopen boundary
 
