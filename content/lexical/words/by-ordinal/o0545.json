@@ -24,14 +24,13 @@
           "label_en": "a person who is dull and makes others bored; a hole made by drilling, often for exploration",
           "pos": "noun",
           "sense_ids": [
-            "sense:bore:5839fdaf94fe5db7",
-            "sense:bore:2548691e245f5c37"
+            "sense:bore:5839fdaf94fe5db7"
           ]
         }
       ],
-      "core_meaning_cn": "使厌烦；钻孔；令人讨厌的人",
-      "core_meaning_en": "to make someone feel uninterested or to make a hole; also a dull person",
-      "mental_model_cn": "使厌烦；钻孔；令人讨厌的人",
+      "core_meaning_cn": "使厌烦；钻孔；令人厌烦的人或事",
+      "core_meaning_en": "to make someone bored or make a hole; also a boring person or annoying situation",
+      "mental_model_cn": "verb + person → 使厌烦；tool/material → 钻孔；person → 乏味的人；activity/situation → 烦人或无聊的事。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -39,7 +38,28 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "fact_id": "secondary:bore:b016-situation",
+        "module": "secondary_senses",
+        "direction": "R",
+        "meaning_cn": "（非正式）令人厌烦或麻烦的事、活动或处境",
+        "definition_cn": "（非正式）令人厌烦或麻烦的事、活动或处境",
+        "definition_en": "informal: an activity or situation that is boring, annoying, or inconvenient",
+        "boundary": "thing/activity/situation subject complement: a bore = an annoying or uninteresting thing/situation; person referent = a boring person.",
+        "pos": "noun",
+        "level": "L2",
+        "priority": "B",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "register": "informal",
+        "task_tags": [
+          "reading",
+          "listening"
+        ],
+        "writing_safe": false
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -121,30 +141,6 @@
         "sense_id": "sense:bore:5839fdaf94fe5db7",
         "sense_label_en": "a person who is dull and makes others bored",
         "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:db0f70ca2f2c2090f060",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:bore:2548691e245f5c37:collocation:0"
-            ],
-            "meaning_cn": "勘探钻孔",
-            "phrase": "exploratory bore"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "钻孔，探孔",
-        "definition_en": "a hole made by drilling, often for exploration",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:bore:2548691e245f5c37",
-        "sense_label_en": "a hole made by drilling, often for exploration",
-        "sort_order": 4,
         "transitivity": "nonverb"
       }
     ],
@@ -512,13 +508,37 @@
       "sense_label_en": "the hollow inside of a tube or the diameter of a gun barrel",
       "sort_order": 3,
       "transitivity": "nonverb"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:db0f70ca2f2c2090f060",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:bore:2548691e245f5c37:collocation:0"
+          ],
+          "meaning_cn": "勘探钻孔",
+          "phrase": "exploratory bore"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "钻孔，探孔",
+      "definition_en": "a hole made by drilling, often for exploration",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:bore:2548691e245f5c37",
+      "sense_label_en": "a hole made by drilling, often for exploration",
+      "sort_order": 4,
+      "transitivity": "nonverb"
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:bore:2548691e245f5c37",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 1482,
         "source_path": "content/lexical/canonical/senses/shards/o0545-0576.json"
@@ -556,7 +576,6 @@
       "collocation:0a243707af0e74866b4f",
       "collocation:40e3f6836c8db09c809a",
       "collocation:c71064fc2cd084a018f0",
-      "collocation:db0f70ca2f2c2090f060",
       "collocation:f47ff5a8f7c94955100d"
     ],
     "facts": [],
@@ -586,7 +605,9 @@
       {
         "id": "collocation:db0f70ca2f2c2090f060",
         "source_row": 18537,
-        "source_path": "content/lexical/canonical/collocations/shards/o0545-0576.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0545-0576.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f47ff5a8f7c94955100d",
