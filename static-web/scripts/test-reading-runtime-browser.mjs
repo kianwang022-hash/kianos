@@ -8,6 +8,7 @@ import {chromium} from 'playwright';
 import {ENGLISH_GENERATED_DRILL_SCHEMA, ENGLISH_GENERATED_TASKS, writeEnglishGeneratedDrill} from './privateEnglishGeneratedDrillStore.mjs';
 import {listReadingSets, loadReadingById} from '../src/lib/englishReadingSourceTruth.mjs';
 import {listClozeSets} from '../src/lib/englishObjective.mjs';
+import {buildDailyLearningPacketFromPrivateCheckpoint} from './privateDailyLearningPacket.mjs';
 import {buildEnglishEvidencePacket, ENGLISH_SESSION_KEY} from '../src/lib/englishSessionControl.mjs';
 
 // Guard the ownership boundary as well as exercising the real Astro consumers.
@@ -31,7 +32,7 @@ const drill = writeEnglishGeneratedDrill({
   calibration_status: 'NOT_SCORE_EQUIVALENT', completion_requirement: 'QUESTIONS_SUBMITTED',
   training_target: {kind:'reading_scope_transfer', note:'Bounded shared Reading runtime proof.'},
   passage: {title:'Shared runtime proof', paragraphs:[
-    'A pilot may improve outcomes for some participants when support is available.',
+    'A pilot may improve outcomes for some participants when support is available. A pilot is bounded.',
     'The report does not promise that every participant will benefit.'
   ]},
   questions: [1, 2].map(n => ({question_id:`gq${n}`, ordinal:n, origin:'CHAT_GENERATED',
@@ -41,6 +42,7 @@ const drill = writeEnglishGeneratedDrill({
 const id = drill.object_id;
 const key = `kianos-reading-attempt-v1:${id}`;
 const port = Number(process.env.KIANOS_READING_TEST_PORT || 4487);
+assert.notEqual(port,4321,'isolated QA must never use Stable');
 const base = `http://127.0.0.1:${port}`;
 const server = spawn(process.execPath, ['node_modules/astro/astro.js', 'dev', '--host', '127.0.0.1', '--port', String(port)], {
   cwd:process.cwd(), detached:true, stdio:['ignore','pipe','pipe'],
@@ -63,8 +65,8 @@ try {
     if (server.exitCode !== null || i >= 120) throw new Error(`Reading server unavailable: ${log.slice(-2000)}`);
     await delay(250);
   }
-  browser = await chromium.launch({headless:true});
-  const context = await browser.newContext({viewport:{width:1512,height:982}});
+  browser = await chromium.launch({headless:true,...(process.env.KIANOS_TEST_CHROME?{executablePath:process.env.KIANOS_TEST_CHROME}:{})});
+  const context = await browser.newContext({viewport:{width:1512,height:982},permissions:['clipboard-read','clipboard-write']});
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -75,6 +77,10 @@ try {
   let answerRequests = 0;
   page.on('request', request => { if (request.url().includes('/english-generated/answers?')) answerRequests++; });
   const url = `${base}/reading-generated/?id=${id}`;
+  await page.addInitScript(()=>{
+    window.readingEvents=[];
+    window.addEventListener('kianos:english-reading-evidence',event=>window.readingEvents.push(event.detail.kind));
+  });
   await page.goto(url);
   await page.locator('[data-generated-reading-a]:not([hidden])').waitFor();
   const continuousSentinel = {version:1, active:true, items:[{id:'official-sentinel'}], reviewIds:[]};
@@ -92,6 +98,68 @@ try {
   for (const row of await rows.all()) assert(await row.isVisible());
   assert.equal(answerRequests, 0);
   assert.equal(await page.locator('[data-generated-reading-questions] [data-answer]').count(), 0);
+  // Real selection menu: explicit saved intent, no clipboard requirement.
+  const selectPassage = async (start=0,end=7) => {
+    await page.evaluate(({start,end})=>{
+      const paragraph=document.querySelector('[data-generated-reading-paragraphs] p');
+      const walker=document.createTreeWalker(paragraph,NodeFilter.SHOW_TEXT);
+      const text=walker.nextNode(),range=document.createRange();range.setStart(text,start);range.setEnd(text,end);
+      const selection=getSelection();selection.removeAllRanges();selection.addRange(range);
+      paragraph.dispatchEvent(new MouseEvent('mouseup',{bubbles:true}));
+    },{start,end});
+    await page.locator('[data-english-selection-menu]:visible').waitFor();
+  };
+  await selectPassage(0,7);
+  await page.locator('[data-selection-chat]').click();
+  await page.locator('[data-selection-chat]').click();
+  assert.equal((await attempt()).discussionSpans.length,1,'duplicate explicit add is idempotent');
+  assert.equal((await attempt()).discussionSpans[0].text,'A pilot');
+  assert.equal(await page.evaluate(()=>CSS.highlights.get('kianos-reading-discussion')?.size),1);
+  assert.equal(answerRequests,0);
+  assert.deepEqual((await packet()).inventory[0].question_outcomes,[]);
+  assert.equal((await packet()).inventory[0].discussion_spans[0].text,'A pilot');
+  await page.locator('[data-reading-discussion-panel] summary').click();
+  assert.equal(await page.locator('[data-reading-discussion-span]').textContent(),'A pilot移除');
+  await page.locator('[data-reading-discussion-remove]').click();
+  const repeatedStart=drill.passage.paragraphs[0].indexOf('A pilot',1);
+  await selectPassage(repeatedStart,repeatedStart+7);
+  await page.locator('[data-selection-chat]').click();
+  assert.equal((await attempt()).discussionSpans[0].start,repeatedStart,'repeat text anchors exact second occurrence');
+  assert.equal(await page.evaluate(()=>[...CSS.highlights.get('kianos-reading-discussion')][0].startOffset),repeatedStart);
+  await page.locator('[data-reading-discussion-remove]').click();
+  await selectPassage(0,7);
+  await page.locator('[data-selection-chat]').click();
+  if(process.env.KIANOS_READING_PROOF_SCREENSHOT) {
+    await page.locator('[data-reading-discussion-panel] summary').click();
+    await page.screenshot({path:process.env.KIANOS_READING_PROOF_SCREENSHOT});
+  }
+  // Single-token lookup uses real Vocabulary navigation and native return control.
+  await selectPassage(2,7);
+  await page.locator('[data-selection-lexical]').click();
+  await page.waitForURL('**/vocabulary/**');
+  await page.locator('[data-english-return-action]').click();
+  await page.waitForURL(url);
+  await page.locator('[data-generated-reading-a]:not([hidden])').waitFor();
+  await page.waitForFunction(()=>CSS.highlights.get('kianos-reading-discussion')?.size===1);
+  assert.equal((await attempt()).discussionSpans[0].text,'A pilot');
+  assert.equal((await attempt()).lookupEvents[0].token,'pilot');
+  await page.reload();
+  await page.locator('[data-generated-reading-a]:not([hidden])').waitFor();
+  await page.waitForFunction(()=>CSS.highlights.get('kianos-reading-discussion')?.size===1);
+  // DOM re-render preserves product-owned highlight, native selection is gone.
+  await page.evaluate(()=>{
+    getSelection().removeAllRanges();
+    const p=document.querySelector('[data-generated-reading-paragraphs] p');p.replaceChildren(document.createTextNode(p.textContent));
+  });
+  await page.waitForFunction(()=>{const ranges=[...CSS.highlights.get('kianos-reading-discussion')||[]];return ranges.length===1&&ranges[0].toString()==='A pilot';});
+
+  const discussionBefore=await page.evaluate(k=>localStorage.getItem(k),key);
+  await page.evaluate(()=>document.querySelector('[data-local-port="reading"]').setAttribute('data-english-source-hash','mismatched-source'));
+  await page.waitForFunction(()=>!CSS.highlights.has('kianos-reading-discussion'));
+  assert.equal(await page.evaluate(k=>localStorage.getItem(k),key),discussionBefore,'source mismatch keeps native historical evidence');
+  await page.evaluate(hash=>document.querySelector('[data-local-port="reading"]').setAttribute('data-english-source-hash',hash),drill.content_hash);
+  await page.waitForFunction(()=>CSS.highlights.get('kianos-reading-discussion')?.size===1);
+
   await rows.nth(0).locator('[data-option="A"]').click();
   await rows.nth(0).locator('[data-option="B"]').click();
   await rows.nth(0).locator('.portedUncertain').click();
@@ -126,6 +194,29 @@ try {
   const submitted = await attempt();
   assert.deepEqual(submitted.results, {gq1:'correct', gq2:'wrong'});
   assert.equal(submitted.history.length, 1);
+  const native=(await packet()).inventory.find(row=>row.object_id===id);
+  assert.equal(native.question_outcomes[0].final_answer,'B');
+  assert.deepEqual(native.question_outcomes[0].trajectory.map(step=>step.answer),['A','B']);
+  assert.equal(native.question_outcomes[1].result,'wrong');
+  assert.equal(native.discussion_spans[0].text,'A pilot');
+  assert.equal(await page.evaluate(()=>window.readingEvents.filter(kind=>kind==='submit').length),1,'successful submit only emits once');
+  // Real private API contains the same native learner bytes (isolated scratch root).
+  await page.waitForFunction(async ({key})=>{
+    const response=await fetch('/__kianos-private/checkpoint');
+    const data=await response.json();
+    const raw=data.checkpoint?.payload?.subjects?.english?.entries?.[key];
+    if(!raw)return false;
+    const attempt=JSON.parse(raw);
+    return attempt.submitted===true&&attempt.answers?.gq1==='B'&&attempt.discussionSpans?.[0]?.text==='A pilot';
+  },{key});
+  const durable=await page.evaluate(async()=> (await (await fetch('/__kianos-private/checkpoint')).json()).checkpoint);
+  const relayOutput=buildDailyLearningPacketFromPrivateCheckpoint(durable,{englishCatalog:catalog});
+  // A fresh reader consumes the existing normal transport projection, no manual handoff.
+  const freshReader=JSON.parse(JSON.stringify(relayOutput.packet)).subjects.english.evidence.inventory.find(row=>row.object_id===id);
+  assert.deepEqual(freshReader.question_outcomes,native.question_outcomes);
+  assert.deepEqual(freshReader.discussion_spans,native.discussion_spans);
+  assert.equal(freshReader.source_hash,drill.content_hash);
+
   assert.equal(submitted.binding.attempt_id, before.binding.attempt_id);
   assert.equal(submitted.binding.source_hash, drill.content_hash);
   assert.equal(submitted.binding.semantic_source_hash, drill.content_hash);
@@ -163,14 +254,18 @@ try {
   assert.match(recoveryText, /学习记录已保留/);
   assert.doesNotMatch(recoveryText, /(?:ENGLISH|KIANOS)_[A-Z0-9_]+/);
   assert.equal((await attempt()).submitted, false);
+  assert.equal(await page.evaluate(()=>window.readingEvents.filter(kind=>kind==='submit').length),0,'failed protected submit emits no success event');
   assert.deepEqual((await attempt()).results, {});
   assert.deepEqual((await attempt()).answers, {gq1:'B'});
   await page.unroute('**/english-generated/answers?*');
   console.log('PASS generated Reading A lifecycle, protected-answer races, metadata and Session/Resume');
   await context.close();
+  // Each stage gets a fresh disposable private fixture; prior synthetic continuous
+  // sessions must not be recovered into the independent official regression.
+  fs.rmSync(path.join(temp,'learner-state'),{recursive:true,force:true});
 
   // Official material uses the same controller with its existing controls/answers.
-  const officialContext = await browser.newContext();
+  const officialContext = await browser.newContext({permissions:['clipboard-read','clipboard-write']});
   const officialPage = await officialContext.newPage();
   officialPage.on('pageerror', error => errors.push(error.message));
   const official = loadReadingById(listReadingSets()[0].id);
@@ -209,6 +304,14 @@ try {
   for (const field of ['answers','results','uncertain','trajectory','submittedAt']) assert.deepEqual(officialRestored[field], officialState[field]);
   assert.equal(officialRestored.binding.attempt_id, officialState.binding.attempt_id);
   for (const row of await officialRows.all()) assert(await row.isVisible());
+
+  await officialPage.locator('[data-reading-passage-copy-chat]').click();
+  const manual=await officialPage.evaluate(()=>navigator.clipboard.readText());
+  const manualOutcomes=JSON.parse(manual.split('BOUNDED LEARNER OUTCOMES\n')[1].split('\n\nSAVED DISCUSSION CONTEXT')[0]);
+  const nativeOfficial=buildEnglishEvidencePacket(new Storage(await officialPage.evaluate(()=>Object.fromEntries(Object.entries(localStorage)))),{
+    day,catalog:[{task:'reading_a',object_id:official.objectId,source_hash:officialState.binding.source_hash}]
+  }).inventory.find(row=>row.object_id===official.objectId);
+  assert.deepEqual(manualOutcomes,nativeOfficial.question_outcomes,'real manual clipboard/native packet agreement');
 
   // Cloze is regression only: native answer / uncertain / submit / reload.
   const clozeId = listClozeSets()[0].id;

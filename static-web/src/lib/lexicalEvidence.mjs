@@ -147,8 +147,8 @@ export function reconcileEvidenceIdentity(ledgerInput, lineageEntries = []) {
   return { ledger, statuses };
 }
 
-function resolvedTargetIdentity(ledgerInput, event) {
-  const ledger = normalizeLexicalLedger(ledgerInput);
+// Hot-path helper: callers normalize once before iterating many evidence events.
+function resolvedTargetIdentityFromLedger(ledger, event) {
   const rawKey = lexicalTargetKey(event);
   if (!rawKey) return null;
   let key = rawKey;
@@ -292,8 +292,8 @@ function correctionMatches(correction, original, ledger) {
   if (!correction || !original || correction.word_id !== original.word_id) return false;
   const correctionRawKey = lexicalTargetKey(correction);
   const originalRawKey = lexicalTargetKey(original);
-  const correctionIdentity = resolvedTargetIdentity(ledger, correction);
-  const originalIdentity = resolvedTargetIdentity(ledger, original);
+  const correctionIdentity = resolvedTargetIdentityFromLedger(ledger, correction);
+  const originalIdentity = resolvedTargetIdentityFromLedger(ledger, original);
   const sameTarget = Boolean(correctionRawKey && originalRawKey && correctionRawKey === originalRawKey)
     || Boolean(correctionIdentity && originalIdentity && !correctionIdentity.frozen && !originalIdentity.frozen && correctionIdentity.key === originalIdentity.key);
   if (!sameTarget) return false;
@@ -355,7 +355,7 @@ export function deriveRepairStates(ledgerInput) {
   const slowContexts = new Map();
 
   for (const event of events) {
-    const identity = resolvedTargetIdentity(ledger, event);
+    const identity = resolvedTargetIdentityFromLedger(ledger, event);
     if (!identity || identity.frozen || !repairOutcomes.has(event.outcome)) continue;
     const key = identity.key;
     const state = states.get(key) || {
@@ -440,7 +440,7 @@ export function compileRepairTargets(ledgerInput) {
 
 export function repairStateForEvent(ledgerInput, event) {
   const ledger = normalizeLexicalLedger(ledgerInput);
-  const identity = resolvedTargetIdentity(ledger, event);
+  const identity = resolvedTargetIdentityFromLedger(ledger, event);
   if (!identity || identity.frozen) return null;
   return deriveRepairStates(ledger)[identity.key] || null;
 }
@@ -456,7 +456,7 @@ export function exportReturnEvents(ledgerInput, studyDay, toLocalDay = (iso) => 
 export const LEXICAL_RETENTION_TRANSFER_SUMMARY_SCHEMA = 'kianos.lexical.retention-transfer-summary.v1';
 
 function compactRetentionTransferEvent(ledger, event) {
-  const identity = resolvedTargetIdentity(ledger, event);
+  const identity = resolvedTargetIdentityFromLedger(ledger, event);
   if (!identity || identity.frozen) return null;
   return {
     event_id: event.event_id || null,
@@ -486,7 +486,7 @@ export function buildLexicalRetentionTransferSummary(ledgerInput, { limit = 16 }
   const take = Math.max(1, Math.min(40, Math.floor(Number(limit) || 16)));
   const effective = sortedEffectiveEvents(ledger)
     .filter((event) => !String(event?.event_id || '').startsWith('migration:'))
-    .map((event) => ({ event, identity: resolvedTargetIdentity(ledger, event) }))
+    .map((event) => ({ event, identity: resolvedTargetIdentityFromLedger(ledger, event) }))
     .filter((row) => row.identity && !row.identity.frozen);
 
   const qualifiedDelayed = effective.filter(({ event }) =>

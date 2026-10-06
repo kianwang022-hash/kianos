@@ -102,6 +102,31 @@ A Politics compression asset is valuable only when it removes future learner wor
 
 Shorter text alone is not compression. A beautiful framework that creates an extra course is negative compression.
 
+### 0.5 Fixed reconstruction spine — stable learner index
+
+Politics inherits one compression principle from the mature Xizong model without importing its System/LG/KP hierarchy: **later review becomes thinner around the same model; it does not generate a new model each time.**
+
+For every subject and every chapter with admitted first-round teaching, the existing Content owner must identify exactly one canonical reconstruction spine appropriate to that subject shape. The **subject total model** is the stable top-level index; each chapter spine must locate itself inside that subject model rather than becoming an unrelated local summary. This is a content job around the existing subject/chapter/NU owners, not a new hierarchy or registry.
+
+The fixed spine owns the learner's stable review index:
+- stable learner-facing node labels;
+- the meaningful sequence / hierarchy / relation topology between those nodes;
+- the minimum meaning each node must recover.
+
+First teaching may be much richer than the spine: examples, analogies, source detail, boundaries and B supplements can expand around it. Later compression may hide detail, shorten prose, blank nodes for Recall, or ask from a different cue. It must return to the **same accepted nodes and relations** rather than substituting an equally plausible new summary chain.
+
+Precision/Memory targets attach to this same spine. They may deepen one node or test an exact boundary, but they must not create a second “memory version” of the chapter framework. A learner should be able to use the same mental index during first learning, chapter review, Memory recall, Xiao1000 repair and later analysis reactivation.
+
+Hard anti-drift rules:
+- Chat may vary explanation wording, examples and teaching route locally, but at closure/review it returns to the canonical spine;
+- do not casually rename, merge, split or reorder spine nodes between reviews merely for elegance;
+- a shorter review is produced by **progressive thinning**, not by replacing the framework;
+- if Source correction, model correction or real learner evidence shows the spine itself is defective, revise the existing canonical Content owner explicitly, reconcile dependent compression/prompts, and make the change visible rather than silently running old and new spines in parallel.
+
+Subject shape remains local: Marxism normally freezes a reasoning/relation chain; History a stage/causal movie; Mao a historical problem→theory response→position chain; Xi a stable hierarchy/role map; Ethics-Law a stable concept/normative/application scaffold. “Fixed” means stable cognition for that chapter, not one universal Politics template.
+
+Acceptance test: two legitimate reviews of the same unchanged chapter may differ in detail density, but the learner must be able to lay down the same canonical spine without rebuilding a new index.
+
 ## 1. Product model
 
 Politics follows the repository-wide causal chain:
@@ -204,6 +229,38 @@ Admission uses three bounded review passes: **(1) Source coverage**, including a
 A prepared chapter is complete for its reported usable scope only when actual teaching content, corresponding Source locators and unresolved ranges are present, author full-text review and independent textual attack have been performed, and confirmed defects have been repaired and rechecked. Report usable and unresolved scope honestly; an unresolved decisive prerequisite prevents claiming the dependent teaching scope ready. This preparation completion does not require Kian's chapter-by-chapter Human approval and does not manufacture learner or Website acceptance.
 
 Maintain one canonical preparation in the existing Politics content owners; adapt existing assets or add only the necessary chapter text. Do not stack multiple full answers, repeated hidden full texts, or a new registry. Schema/Projection changes remain governed by their existing Content/Runtime owners; this preparation rule does not authorize them.
+
+### 3.1.1 Canonical prepared chapter package — Chat consumes, not regenerates
+
+For a chapter to be called **prepared for continuous Chat learning**, its existing Politics learning owner must already contain or resolve one coherent teaching package, and the owning subject must already expose a stable total model that locates the chapter. This is a set of content jobs around the same chapter/NU owners, not a new hierarchy, registry or frozen transcript.
+
+The package must provide, for the chapter's actually admitted scope:
+
+1. **Fixed mother model / reconstruction spine.** The canonical chapter framework and stable learner index under §0.5.
+2. **Progressive first-learning route.** A reviewed teaching sequence that says how the chapter is unfolded after the mother model. It may use several natural teaching batches such as model establishment → first substantive fill → later/heavier fill, but the batches are pedagogical stages, not new canonical units. Each prepared stage must have a stable recoverable identity (label/anchor or equivalent), the spine nodes/content range it owns, and its intended next stage/closure. A fresh Chat must be able to resume the same route without re-cutting a long teacher text into new batches.
+3. **Substantive teaching content.** The actual explanations, examples, conditions and Source-backed detail needed to teach each stage. A heading list, A/B/C inventory or Source locator alone is not the lesson asset.
+4. **Confusable / boundary pass.** A prepared set of high-value misconceptions, option boundaries and near-neighbor distinctions after the relevant content is understood. This may live in the same teacher brief/support objects; it must be recoverable as a deliberate teaching job rather than reconstructed ad hoc from question options.
+5. **Same-model compression.** The reviewed chapter reconstruction using the same fixed spine, progressively thinner than first teaching without changing the learner index.
+6. **Precision / Memory handoff.** Reviewed exact-retention targets with clear prompts, authoritative answers, checking criteria, optional memory aids, Source/admission basis and consumer mapping under §3.2/§6.1.
+
+The package may be realized by the existing chapter JSON, teaching brief, support objects and optional `*.memory.json`; no particular file split is required. A chapter-level `content_support.active_precision` realization is valid when it satisfies the same requirements. Do not create a sidecar merely for symmetry.
+
+This rule applies to every chapter across all five Politics subjects. Reuse existing Current Knowledge, teaching, reconstruction and precision assets within their accepted scope, together with the bounded review evidence already earned; a partial package does not reset mature components or revoke existing base first-round PASS. Prepare or calibrate only the missing, stale or defective parts, reconciling them in the original owners around the same canonical spine rather than rebuilding the chapter or creating another Memory set. Reviewed candidate assets remain candidates until adopted through the existing review/admission path; then consume the resulting Current package. Candidate presence, partial maturity and base first-round PASS do not by themselves prove completion of the six-part package or Website delivery.
+
+**Fresh-Chat consumption rule:** when a Current prepared package exists, Chat must read and teach from that package as the learner-facing semantic authority. Chengfeng/other Source remains the factual basis and calibration/repair authority, but Chat must not bypass the prepared package and independently regenerate an alternative mother model, fill order, confusion summary, compression or Memory set from raw Source. Wording, examples and local pacing may adapt to the conversation; the owned model, stage scope, decisive relations, boundaries and exact targets do not drift casually.
+
+A fresh Chat should therefore be able to recover:
+```text
+where the learner is in the fixed chapter model
+→ which prepared teaching stage comes next
+→ the owned explanation/detail for that stage
+→ the prepared confusion/boundary pass when timely
+→ the same-model compression
+→ the reviewed precision/Memory handoff
+```
+without reconstructing the course from Source or old conversation history.
+
+If the prepared package is missing, partial or stale, preserve that as a Content limitation. **Do not block ordinary learning merely because preparation is incomplete.** Chat may still teach from the best accepted Current assets and Source as a session-local provisional explanation, while preserving any existing stable subject/chapter spine. It must not present that provisional route as the durable canonical package or silently persist a competing framework. Repair the existing Content owner before claiming cross-Chat reusable preparation.
 
 ### 3.2 Model-to-memory preparation completion
 

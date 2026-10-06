@@ -173,6 +173,32 @@ The defaults and hard promotion/demotion guards are owned by `CONTENT_HIERARCHY_
 
 ---
 
+### 3.1.1 Prepared chapter package realization
+
+Learning Contract §3.1.1 requires a reusable chapter teaching package before the chapter is called prepared for cross-Chat continuous learning.
+
+Realize that package through existing Content owners. The exact file split is flexible, but the following learner jobs must be inspectably owned rather than inferred at runtime:
+
+- canonical subject total model plus the chapter reconstruction spine / mother model and their explicit chapter-within-subject relation;
+- stable progressive teaching stages or batches, each with a recoverable identity, owned spine/content range and next/closure relation;
+- substantive explanation attached to those stages;
+- deliberate confusable/boundary teaching pass;
+- same-model compression;
+- reviewed exact-retrieval targets and Memory handoff.
+
+A teacher brief may carry the long-form exposition and confusion pass while chapter JSON carries the stable spine, stage routing and precision objects. That is one package when both resolve to the same chapter/NU identities and reviewed meaning; it is not permission for two competing versions.
+
+Stage labels such as “first fill” / “second fill” are pedagogical routing only. Do not promote them into new Natural Units or Runtime states. Their labels/anchors may still be stable content-routing identities. What matters is that a fresh Chat can deterministically recover **which stage it is in, which fixed-spine nodes/content it owns, what comes next and what already prepared asset to teach**, without synthesizing a new chapter course from Source.
+
+The Content review must reject:
+- subject total model missing or a chapter unable to state where it sits in that model;
+- fixed chapter spine present but no reusable substantive teaching content;
+- full prose present but no stable teaching-stage routing, leaving each Chat to choose a new fill order;
+- “易混/边界” recoverable only by rereading raw questions rather than prepared Content;
+- compression that introduces a new framework;
+- precision lists that are not attached to the same model;
+- teacher brief and chapter/Memory objects that disagree on the same claim.
+
 ### 3.2 Model-to-memory content realization
 
 Learning Contract §§3.2/6.1 owns learning and admission meaning. This section owns its realization in the existing chapter semantics / precision groups / `*.memory.json` path; it does not create another catalog or scheduler.
@@ -200,6 +226,37 @@ Selection requires `admission_basis` with `route`, `review_status: REVIEWED`, `s
 The chapter C inventory and accepted exact scope must be reconciled with the real catalog before claiming integration. A source-located paragraph that the catalog never consumes is prepared text, not a runnable Memory item. An updated brief does not update old `active_precision` / `active_boundaries` automatically. Source wording conflicts must be resolved before the affected task is presented as exact.
 
 Consumer regression must cover explicit prompt preservation, no ambiguous same-prompt/different-answer collision in a selection, unsupported admission rejection, proactive selection without W/U, old/new wording agreement, no pre-reveal leakage, stale/replay/supersession behavior and revision-aware evidence return. Extend existing validation/test owners; a shape validator cannot certify Source truth, mnemonic quality, or human learning. Do not silently weaken old tests to fit generated content.
+
+---
+
+### 3.3 Fixed reconstruction spine realization
+
+Learning Contract §0.5 owns the stable-review rule. Content realizes it with the chapter's existing semantic assets; do **not** create a parallel framework registry merely to mark something “fixed”.
+
+For an admitted chapter, designate one canonical reconstruction scaffold from the existing owner:
+- when `chapter_compression.reconstruction_chain` already exists and represents the chapter model, it is the default canonical review spine;
+- for a genuinely non-linear subject shape, the owning stable `framework_maps` / hierarchy / timeline plus its declared decisive relations may serve the same job;
+- `anchors`, `boundaries`, Precision and Recall prompts attach to that scaffold rather than competing with it.
+
+The accepted spine preserves stable learner-facing labels and meaningful relation/order. Supporting prose may change density, but ordinary content refinement must not silently produce several interchangeable chapter summaries.
+
+A later review may project:
+```text
+full spine + explanation
+→ same spine with shorter node meanings
+→ same spine with hidden nodes / retrieval prompts
+→ same spine with exact Memory targets attached
+```
+
+It may not project:
+```text
+review 1: chain A
+→ review 2: equally plausible chain B
+→ review 3: new mnemonic hierarchy C
+```
+when Current chapter semantics have not changed.
+
+If the canonical spine must change, update the original chapter/semantic owner and reconcile dependent review prompts, Memory cues and Projection. Do not preserve both versions as two learner truths.
 
 ---
 

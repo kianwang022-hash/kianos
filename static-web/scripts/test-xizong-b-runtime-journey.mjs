@@ -3,9 +3,11 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { loadXizongSystem, loadXizongBlock } from '../src/lib/xizong.mjs';
+import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
 import { inspectXizongBlockCompletion } from '../src/lib/xizongMemoryAutoRelease.mjs';
 
 const SYSTEM_ID = 'digestive-metabolic-endocrine-tumor';
+const CANONICAL_PRACTICE_SWEEP = loadXizongSystemQuestionSweep(loadXizongSystem(SYSTEM_ID));
 const PORT = 4334;
 const BASE = `http://127.0.0.1:${PORT}`;
 const auditDir = path.resolve(process.cwd(), '.qa');
@@ -392,7 +394,15 @@ async function systemRecallToPracticeJourney(page) {
   check(await page.locator('[data-xizong-system-evidence-guard]').count() === 1,
     'b_practice_mounts_system_evidence_guard');
 
-  const reviewedTarget = payload.questions.find((q) =>
+  check(payload.questions.every((q) =>
+    q?.questionId && q?.stem && Array.isArray(q?.options)
+      && q?.semanticRevision
+      && !Object.hasOwn(q, 'correctAnswer')
+      && !Object.hasOwn(q, 'explanation')
+      && !Object.hasOwn(q, 'relation')
+  ), 'b_practice_payload_is_clean_front_projection');
+
+  const reviewedTarget = CANONICAL_PRACTICE_SWEEP.questions.find((q) =>
     q?.relation?.primaryKpId
       && q?.relation?.blockId
       && q?.relation?.knowledgePath
@@ -409,7 +419,7 @@ async function systemRecallToPracticeJourney(page) {
     'b_biochemistry_question_consumes_current_diagnostic_axes'
   );
 
-  const stableTarget = payload.questions.find((q) =>
+  const stableTarget = CANONICAL_PRACTICE_SWEEP.questions.find((q) =>
     q?.questionId !== reviewedTarget?.questionId && Number(q?.year) === Number(reviewedTarget?.year)
   );
   check(Boolean(stableTarget), 'b_stable_control_question_exists');

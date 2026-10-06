@@ -15,6 +15,33 @@ export function publicPracticeCatalog(catalog) {
   };
 }
 
+export function publicPracticeIndex(catalog, {
+  faceBase = '/politics/practice-face/'
+} = {}) {
+  const publicCatalog = publicPracticeCatalog(catalog);
+  return {
+    ...publicCatalog,
+    faceBase,
+    questions: publicCatalog.questions.map(({ stem, options, ...question }) => question)
+  };
+}
+
+export function practiceFacePack(catalog, subject) {
+  const normalizedSubject = String(subject || '').trim();
+  const questions = catalog.questions
+    .filter((question) => practiceReady(question) && question.subject === normalizedSubject)
+    .map(({ id, taskRevision, stem, options }) => ({ id, taskRevision, stem, options }));
+  if (!normalizedSubject || !questions.length) {
+    throw new Error(`PRACTICE_FACE_SUBJECT:${normalizedSubject || 'missing'}`);
+  }
+  return {
+    schema: 'kianos.politics.practice_face_pack.v1',
+    revision: catalog.revision,
+    subject: normalizedSubject,
+    questions
+  };
+}
+
 export function practiceReviewPayload(catalog, id) {
   const question = catalog.questions.find((row) => row.id === id);
   const unit = catalog.units.find((row) => row.key === question?.unitKey);

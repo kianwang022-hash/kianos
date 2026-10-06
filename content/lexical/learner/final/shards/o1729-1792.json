@@ -5,7 +5,7 @@
     "ordinal": 1729,
     "word": "even",
     "source_owner_path": "content/lexical/words/by-ordinal/o1729.json",
-    "source_fingerprint": "92c4f2f376cb288543c0e5180bba08aff0af248f6b8769afd4b616ae88dad9e8",
+    "source_fingerprint": "97452fe49ffdb5ae53f94450aeddf833c5d0173958fa402fc2319e388fe7c3ae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -275,6 +275,23 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈiːvən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "even"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -290,7 +307,7 @@
     "ordinal": 1730,
     "word": "evening",
     "source_owner_path": "content/lexical/words/by-ordinal/o1730.json",
-    "source_fingerprint": "e2a3855ced4f7c5aba1ededfe0cb7596037a718fa1c846abaaf426b5837d115d",
+    "source_fingerprint": "dde9e30b3a40f03ddb0fe26fffca34d978d0a9e8146ba3765066b0a607e682a9",
     "sense_lineage": [
       {
         "word_id": "word:evening",
@@ -349,13 +366,143 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈiːv.nɪŋ/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "evening",
+              "sense_ids": [
+                "sense:evening:ef9883df04bb6a50"
+              ],
+              "binding_basis": "Independently reviewed exact owner/source semantic scope; original raw scope and conditions retained.",
+              "conditions": {
+                "tags": [
+                  "Received-Pronunciation"
+                ]
+              }
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈiv.nɪŋ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "evening",
+              "sense_ids": [
+                "sense:evening:ef9883df04bb6a50"
+              ],
+              "binding_basis": "Independently reviewed exact owner/source semantic scope; original raw scope and conditions retained.",
+              "conditions": {
+                "tags": [
+                  "General-American"
+                ]
+              }
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:evening:ef9883df04bb6a50": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:evening:1388ef23bf64585f",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "后期；末期",
+          "definition_en": "a later concluding time period",
+          "semantic_key": "a2dc697c982e78e843370b85ab107cfa75ef7b3d612c6c303f9419de886799a2",
+          "semantic_key_history": [
+            "17937f58631848d2fdea2f901836c9b5a3f70935ae5950514bec067b95b92203"
+          ],
+          "legacy_aliases": [
+            "evening:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "evening:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4765,
+          "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:evening:2a14ff2d6ad955b1",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "傍晚；黄昏",
+          "definition_en": "the latter part of the day (from late afternoon until nightfall)",
+          "semantic_key": "2749b2e2580169402fbcc8de59308aff1e2595fc6116ae9e606200cbaa2e1f53",
+          "semantic_key_history": [
+            "f0b333bfe799383c0845b221317d592f27cd1d14dc871dbbfb05f047eb23139c"
+          ],
+          "legacy_aliases": [
+            "evening:l1:1"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "evening:l1:1",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4766,
+          "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:evening:cc9591c34c045aa2",
+          "status": "merged",
+          "merged_into_sense_id": "sense:evening:2a14ff2d6ad955b1",
+          "pos": "noun",
+          "definition_cn": "晚上（指晚餐后至就寝前）",
+          "definition_en": "the early part of night (from dinner until bedtime) spent in a special way",
+          "semantic_key": "79eb1133ff6b5c07eac3a56cbd92ad132c643221805da414cb688659e8bc5b9b",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "evening:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "evening:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-08-22T05:00:00+00:00",
+          "source_row": 4767,
+          "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -364,7 +511,7 @@
     "ordinal": 1731,
     "word": "event",
     "source_owner_path": "content/lexical/words/by-ordinal/o1731.json",
-    "source_fingerprint": "172355a17531049815948bb84dda3c4547934b264acc7bf2e28f1f60ca828b64",
+    "source_fingerprint": "5da1b6e79b52c64300a3c9f47a8eb4417ebbe8a70e72f764f26564f275d3baae",
     "sense_lineage": [
       {
         "word_id": "word:event",
@@ -465,13 +612,60 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪˈvɛnt/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "event"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:event:353b597f7ad55fa3",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "结果；后果",
+          "definition_en": "a result or outcome",
+          "semantic_key": "054ffac38a6b3b4645be89f4afa8feef7ab21ac33c375c0d1b2812b3cc6ff451",
+          "semantic_key_history": [
+            "bd9ff1269d8ad473e02720a0a46010f2aeb271327506ff8b1c951af16fde3bf4"
+          ],
+          "legacy_aliases": [
+            "event:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "event:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4768,
+          "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -480,7 +674,7 @@
     "ordinal": 1732,
     "word": "eventually",
     "source_owner_path": "content/lexical/words/by-ordinal/o1732.json",
-    "source_fingerprint": "fac0c28baadb663ff683fdf6d711bd4a07da18348db8e763a1eb450d5d3ecd80",
+    "source_fingerprint": "ed745fa1b977ba1ac03654a5fa8093bdc1b4e453b5c395fbe2f4384ebc07d1f1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -539,6 +733,116 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪˈvɛn.t͡ʃu.li/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "eventually"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪˈvɛn.t͡ʃu.ə.li/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "eventually"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪˈvɛn.t͡ʃə.li/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "eventually"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪ.ˈvɛn.t͡ʃu.ə.li/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "eventually"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪˈvɛn.tjʊ.li/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "eventually"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪˈvɛn.t͡ʃuː.ə.li/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "eventually"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪˈvɛn.t͡ʃʊ.li/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "eventually"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪ.ˈvɛn.t͡ʃuː.ə.li/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "eventually"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -576,7 +880,7 @@
     "ordinal": 1733,
     "word": "ever",
     "source_owner_path": "content/lexical/words/by-ordinal/o1733.json",
-    "source_fingerprint": "5eb9ea8c8142acdc6b4e68a90f65ffd25d58bf9cc0feb1899d3eb0511d29d17f",
+    "source_fingerprint": "209606906be12400985c8744a32bd12d38b520805fdcf1f1c25e0466903e1bba",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -671,6 +975,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛvɚ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "ever"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛvə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "ever"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -686,7 +1022,7 @@
     "ordinal": 1734,
     "word": "every",
     "source_owner_path": "content/lexical/words/by-ordinal/o1734.json",
-    "source_fingerprint": "78375edef2fd3bac06a2f0cc6be694250bed18ff022ab21aa223b3d49347b77d",
+    "source_fingerprint": "036554382448a8ad1129c6efa17e490c70492ad3309b6f4565eb460e9e2a6d96",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -740,6 +1076,23 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛvri/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "every"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -755,7 +1108,7 @@
     "ordinal": 1735,
     "word": "everybody",
     "source_owner_path": "content/lexical/words/by-ordinal/o1735.json",
-    "source_fingerprint": "7fde46f8ed0253b4d95bb002048325389a9f9909e17b69160befc7cb1c8d0e09",
+    "source_fingerprint": "a9f00741c8af4c83dd6a9cb9aba263e4b8132b4717a79a866dddb0c236e0512b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -809,6 +1162,51 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛv.ɹiˌbɑdi/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "everybody"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛv.ɹi.bɒ.di/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "everybody"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛv.ɹiː.bə.di/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "everybody"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -824,7 +1222,7 @@
     "ordinal": 1736,
     "word": "everyday",
     "source_owner_path": "content/lexical/words/by-ordinal/o1736.json",
-    "source_fingerprint": "1e1e7228dfb3eabf26013838302711655b3f37ae8b47d22525fb595ca07d56f7",
+    "source_fingerprint": "1f79b6cbda930a79b77514bada1712af1a04b12aa504f0a38142686793c393ba",
     "sense_lineage": [
       {
         "word_id": "word:everyday",
@@ -894,6 +1292,34 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛvɹiˌdeɪ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "everyday"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛvriˌdeɪ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "everyday"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -918,7 +1344,32 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:everyday:e2dcb070b076541e",
+          "status": "merged",
+          "merged_into_sense_id": "sense:everyday:8bc06f6d12fa5b8f",
+          "pos": "adjective",
+          "definition_cn": "普通的，平凡的",
+          "definition_en": "commonplace and ordinary",
+          "semantic_key": "5cc112bca47cfdd9faa24467e0a47cbe3f5e11a6e26b71e8700310b06747623e",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "everyday:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "everyday:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-08-22T05:00:00+00:00",
+          "source_row": 4777,
+          "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -927,7 +1378,7 @@
     "ordinal": 1737,
     "word": "everyone",
     "source_owner_path": "content/lexical/words/by-ordinal/o1737.json",
-    "source_fingerprint": "60b2e58c4180a7db53bfbb8ab12347c0a0aa48907e00c75bc33e9b4944ba06e1",
+    "source_fingerprint": "b22856438f932b96583d8451261226b0126d27a9b35b620ddc21519abe2878e2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -981,6 +1432,34 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛv.ɹi.wʌn/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "everyone"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛv.ɹiː.wʌn/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "everyone"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -996,7 +1475,7 @@
     "ordinal": 1738,
     "word": "everything",
     "source_owner_path": "content/lexical/words/by-ordinal/o1738.json",
-    "source_fingerprint": "44988de72f24fece4d027352f171332f2275069b70f3307b5ad4f27cc6cb6c05",
+    "source_fingerprint": "bf6814f9141d2b2d6da5ec816fc12cb0d10fbc82906cdc68a8ec98696420237d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1050,6 +1529,23 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛvriθɪŋ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "everything"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1065,7 +1561,7 @@
     "ordinal": 1739,
     "word": "everywhere",
     "source_owner_path": "content/lexical/words/by-ordinal/o1739.json",
-    "source_fingerprint": "8a624065839d6e45f139a0c2bbe05e21c43b7e61e08e5895496dd2b2b96a1ad1",
+    "source_fingerprint": "d161241889e11ac2f082deb4537b6887a0017074265ac0955a148153c8124bd9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1111,6 +1607,66 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛv.ɹi.(h)weə(ɹ)/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "everywhere",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "UK"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛv.ɹi.(h)wɛɹ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "everywhere",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "US"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1126,7 +1682,7 @@
     "ordinal": 1740,
     "word": "evidence",
     "source_owner_path": "content/lexical/words/by-ordinal/o1740.json",
-    "source_fingerprint": "83d269d87c5b0af2135d18d0adb5ea782ce036afa686aee3a32c9a519cd1efa8",
+    "source_fingerprint": "eb74b7e189a17b4f815137b28554ce60a5358e98dbd306c7cdd7fb46c4a67f2f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1224,6 +1780,51 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛv.ə.dəns/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "evidence"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛv.ɪ.dəns/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "evidence"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛvɪdəns/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "evidence"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1239,7 +1840,7 @@
     "ordinal": 1741,
     "word": "evident",
     "source_owner_path": "content/lexical/words/by-ordinal/o1741.json",
-    "source_fingerprint": "6ba3031b2e4c875f4f2323fef54bc0cbc8bca69ab0cca291341fdde47e8f04d6",
+    "source_fingerprint": "17e92c246d41924df6f124e48bafe59c25b320d50e8034945b8e1533e4112b31",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1316,6 +1917,49 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛv.ə.dənt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "evident"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛv.ɪ.dənt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "evident"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛvɪdənt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "evident"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1331,7 +1975,7 @@
     "ordinal": 1742,
     "word": "evil",
     "source_owner_path": "content/lexical/words/by-ordinal/o1742.json",
-    "source_fingerprint": "810b82137159629828401537e02b523ed7bd8dc6746f97edd8ff165c144bacd8",
+    "source_fingerprint": "592e01cb2cda18154e4dd5c57876e44e00b126546e41ee791293d139d0e49887",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1430,6 +2074,34 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈiːvəl/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "evil"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈiːvɪl/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "evil"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1445,7 +2117,7 @@
     "ordinal": 1743,
     "word": "evoke",
     "source_owner_path": "content/lexical/words/by-ordinal/o1743.json",
-    "source_fingerprint": "f6f88416842f6c0b72e61736d55f5ee7d334a993e7d7b7a82f2796cff30a40e5",
+    "source_fingerprint": "bb3c751d9fe0a64793864e7c4b3eeedcbc80f278591d5913585aec34b698596a",
     "sense_lineage": [
       {
         "word_id": "word:evoke",
@@ -1551,13 +2223,72 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪˈvoʊk/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "evoke"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪˈvəʊk/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "evoke"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:evoke:7b12ce39c808573f",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "推断，演绎（原理或意义）",
+          "definition_en": "to deduce (a principle) or construe (a meaning)",
+          "semantic_key": "85fc35dec0ea4b3b033851f825c9c9b0286b8c50778e984b3b08950e038a0ff6",
+          "semantic_key_history": [
+            "5b71ec1ebe5b156c4f01e6183e42b3cd4781ccac508ac4b81901a33bdf7e9031"
+          ],
+          "legacy_aliases": [
+            "evoke:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "evoke:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4788,
+          "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -1566,7 +2297,7 @@
     "ordinal": 1744,
     "word": "evolution",
     "source_owner_path": "content/lexical/words/by-ordinal/o1744.json",
-    "source_fingerprint": "268089c0b5dcf679c912b4af79ee6ae997a79daf11293ddbaa5e423f377e4676",
+    "source_fingerprint": "32b15486b4ac7ed6207006843a40e0661b680987b681503b39c2843224237710",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1664,6 +2395,85 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˌiːvəˈluːʃ(ə)n/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:evolution:2da95d9fec125e10",
+                "sense:evolution:09bff67fb1c258f8"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "evolution",
+              "sense_ids": [
+                "sense:evolution:2da95d9fec125e10",
+                "sense:evolution:09bff67fb1c258f8"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "UK"
+                ]
+              }
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˌɛvəˈluʃ(ə)n/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:evolution:2da95d9fec125e10",
+                "sense:evolution:09bff67fb1c258f8"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "evolution",
+              "sense_ids": [
+                "sense:evolution:2da95d9fec125e10",
+                "sense:evolution:09bff67fb1c258f8"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "US"
+                ]
+              }
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:evolution:09bff67fb1c258f8": [
+          0,
+          1
+        ],
+        "sense:evolution:2da95d9fec125e10": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1726,7 +2536,7 @@
     "ordinal": 1745,
     "word": "evolve",
     "source_owner_path": "content/lexical/words/by-ordinal/o1745.json",
-    "source_fingerprint": "ba500f9bb4d3bdb0a2732472c854b83911e25073e89d9293ff59ed17d15cdb25",
+    "source_fingerprint": "cc93ef4497a9343540233654015d10320b56fe2fe73e40e5833061938e668bb9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1816,6 +2626,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪˈvɑlv/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "evolve"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪˈvɒlv/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "evolve"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1831,7 +2673,7 @@
     "ordinal": 1746,
     "word": "exact",
     "source_owner_path": "content/lexical/words/by-ordinal/o1746.json",
-    "source_fingerprint": "62c56a63f508b5c910f40129b82cb3bf645309e70625fde4d9618727245c49c6",
+    "source_fingerprint": "748fcca810f25f43d280f02a843b9605630e447eb0986b14f750582fd26c9702",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1917,6 +2759,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪɡˈzækt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exact"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪɡˈzækt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "exact"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -1954,7 +2826,7 @@
     "ordinal": 1747,
     "word": "exaggerate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1747.json",
-    "source_fingerprint": "6ebb88fa97aee77ffe1315b3b24fc6d2946b06d015df4ca9285fe8847c384ee9",
+    "source_fingerprint": "e750cacd84e0115135de0daeec976c0b61c3ec02339ed1cb3cf2bda0b3f678f7",
     "sense_lineage": [
       {
         "word_id": "word:exaggerate",
@@ -2026,13 +2898,79 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛɡˈzæd͡ʒ.ə.ɹeɪt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exaggerate"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪɡˈzæd͡ʒ.ə.ɹeɪt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exaggerate"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛɡˈzæ.dʒə.reɪt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exaggerate"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:exaggerate:1a025bb8a7db5c80",
+          "status": "merged",
+          "merged_into_sense_id": "sense:exaggerate:6a98809118ff5575",
+          "pos": "verb",
+          "definition_cn": "言过其实，夸张（超出事实或适度范围）",
+          "definition_en": "to go beyond the bounds of truth or moderation",
+          "semantic_key": "8ad8f865fc5794072aac82bf9eac98bf34d0da9f25505be06bf52cadc51901f6",
+          "semantic_key_history": [
+            "4994377d198f1685e71929d5747bfe77a3500428c2e353281715b70a64958b6a"
+          ],
+          "legacy_aliases": [
+            "exaggerate:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "exaggerate:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4796,
+          "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -2041,7 +2979,7 @@
     "ordinal": 1748,
     "word": "examination",
     "source_owner_path": "content/lexical/words/by-ordinal/o1748.json",
-    "source_fingerprint": "815b8b58331a9e28636880b56959aa2deaab5f50b0b9a1c0d2e94625fe332fdd",
+    "source_fingerprint": "5da0cab1b67d3509e557fd2ffef2a62bbd18571e27ac0cbfa4154879d0a02459",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2134,6 +3072,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪɡˌzæm.əˈneɪ.ʃən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "examination"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪɡˌzæm.ɪˈneɪ.ʃən/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "examination"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2160,7 +3130,7 @@
     "ordinal": 1749,
     "word": "examine",
     "source_owner_path": "content/lexical/words/by-ordinal/o1749.json",
-    "source_fingerprint": "56fad57622daa03feb24730a714d0b89154b2d1099e615d2976fa7696e8ab8ad",
+    "source_fingerprint": "a84d3ee7a5e2dbb65f9e8740af90bfc863695619189c272a7778689fd850722d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2258,6 +3228,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪɡˈzæmɪn/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "examine"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪɡˈzæmɪn/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "examine"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2273,7 +3273,7 @@
     "ordinal": 1750,
     "word": "example",
     "source_owner_path": "content/lexical/words/by-ordinal/o1750.json",
-    "source_fingerprint": "ba5a1be7e9c1c90459273d1c7f54a48e58f77628638b15bbaacf41aa136a1207",
+    "source_fingerprint": "c874e425b85a210825197417ce4fd9407958c6a52f753a597b0c6de70007c7d8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2371,6 +3371,25 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪɡˈzɑːm.pəl/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "example"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2386,7 +3405,7 @@
     "ordinal": 1751,
     "word": "exceed",
     "source_owner_path": "content/lexical/words/by-ordinal/o1751.json",
-    "source_fingerprint": "b06a2f4df2fddb04f53dd0b2a37ef3ea613e4a450e6371eb74bc98d6f6e69613",
+    "source_fingerprint": "0af8070ee3d607150cc05fd34c9beadd1cbe71b54487f0868bb01312f217a8a3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2458,6 +3477,23 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪkˈsiːd/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exceed"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2473,7 +3509,7 @@
     "ordinal": 1752,
     "word": "exceedingly",
     "source_owner_path": "content/lexical/words/by-ordinal/o1752.json",
-    "source_fingerprint": "9aa692ec443a728bd1a2d6f99fd689ce1737a1d2d876e457c3dde9704d08f524",
+    "source_fingerprint": "4995bf2a4e0af5d79b091c3955e8f39a30d7c1ceaaaf416c9bab79617933fb8e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2519,6 +3555,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪkˈsidɪŋli/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "exceedingly"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsiːdɪŋli/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "exceedingly"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2534,7 +3602,7 @@
     "ordinal": 1753,
     "word": "excel",
     "source_owner_path": "content/lexical/words/by-ordinal/o1753.json",
-    "source_fingerprint": "bd0a9c09072efcca96e951bdc5e259e8bb893b0941467f46df8d71ce98ff9e18",
+    "source_fingerprint": "a31f26296587d64a27ff0b7ca57c739badc043077e363d09d3d4729fba0723df",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2645,6 +3713,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛkˈsɛl/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excel"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsɛl/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excel"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsɛl/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "excel"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2660,7 +3769,7 @@
     "ordinal": 1754,
     "word": "excellent",
     "source_owner_path": "content/lexical/words/by-ordinal/o1754.json",
-    "source_fingerprint": "702abe8191eb76e27db241ad61a649060ad4d51983461a4bdf38b560317ea436",
+    "source_fingerprint": "9347f38ffb925c73bf94ed661ef689329763facae8691d001b5a856792a5ddd7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2719,6 +3828,39 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛk.sə.lənt/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "excellent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛk.sɪ.lənt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "excellent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2734,7 +3876,7 @@
     "ordinal": 1755,
     "word": "except",
     "source_owner_path": "content/lexical/words/by-ordinal/o1755.json",
-    "source_fingerprint": "8dbc366d8a49b7c297615eaf5a2cd820ea686a47b08d39f8aab541df04783df1",
+    "source_fingerprint": "cedbb5edc7d727241917f371fc540d0dae9c0a2bfacd97ffcf204fbc002f5f0f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2865,6 +4007,39 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪkˈsɛpt/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "except"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛkˈsɛpt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "except"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2898,7 +4073,7 @@
     "ordinal": 1756,
     "word": "exception",
     "source_owner_path": "content/lexical/words/by-ordinal/o1756.json",
-    "source_fingerprint": "72672f43f1034142f8bd5b577355b3360a808aef6713c01f66fc4f8917aa872f",
+    "source_fingerprint": "372033dae3eca00e0be1e522bb16525f31739d1ad9bd6addb5a0cc317517afd8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3018,6 +4193,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əkˈsɛpʃən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exception"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsɛpʃən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exception"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsɛpʃən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "exception"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3033,7 +4249,7 @@
     "ordinal": 1757,
     "word": "exceptional",
     "source_owner_path": "content/lexical/words/by-ordinal/o1757.json",
-    "source_fingerprint": "b070e3f24379f9dfabc4e0bcf1689076235decfa4a081d2a579e08e134b6c4f1",
+    "source_fingerprint": "75a274b30cadc0bcc8c2f3f81c81dcd48e44359713ac3f3a6fca54a343711fae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3105,6 +4321,23 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪkˈsɛpʃənəl/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exceptional"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3120,7 +4353,7 @@
     "ordinal": 1758,
     "word": "excerpt",
     "source_owner_path": "content/lexical/words/by-ordinal/o1758.json",
-    "source_fingerprint": "a42da62d524579f68d0db4f901b0f3c242d4ae544f74a911cf21017881fda4f0",
+    "source_fingerprint": "b41e5453bb81beb049d7c5325f969b3dad6c421be0739979313f903480ae4008",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3198,6 +4431,332 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛɡzɜː(p)t/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "excerpt",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Received-Pronunciation"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛɡˈzɜː(p)t/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "excerpt",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Received-Pronunciation"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛkˈsɜː(p)t/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "excerpt",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Received-Pronunciation"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛksɜː(p)t/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "excerpt",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Received-Pronunciation"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛɡzɝ(p)t/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "excerpt",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Canada",
+                      "General-American"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛɡˈzɝ(p)t/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "excerpt",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Canada",
+                      "General-American"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛkˈsɝ(p)t/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "excerpt",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Canada",
+                      "General-American"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛksɝ(p)t/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "excerpt",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Canada",
+                      "General-American"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈeɡzɜː(p)t/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excerpt",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Australia"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/eɡˈzɜː(p)t/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excerpt",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Australia"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ekˈsɜː(p)t/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excerpt",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Australia"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈeksɜː(p)t/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excerpt",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Australia"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3252,7 +4811,7 @@
     "ordinal": 1759,
     "word": "excess",
     "source_owner_path": "content/lexical/words/by-ordinal/o1759.json",
-    "source_fingerprint": "d2a5f568dd375f7ee7eec8f7e3b85015059e97b6a13ace4f805264a5a9ad78c7",
+    "source_fingerprint": "d3ab97b81c5100575fc54a7a395b6dca70258ff88e91f1fcab8c6e768f09ae06",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3382,6 +4941,69 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əkˈsɛs/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excess"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛkˈsɛs/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excess"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsɛs/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excess"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛksɛs/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excess"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsɛs/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "excess"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3419,7 +5041,7 @@
     "ordinal": 1760,
     "word": "excessive",
     "source_owner_path": "content/lexical/words/by-ordinal/o1760.json",
-    "source_fingerprint": "af623fc4575f0950c4bb94267b562da35d8402a5790b2dca5d8ed600fc086b96",
+    "source_fingerprint": "91e530d4ee3cf72e905cdf6f2b8e62b3217c88e3ecf8314646c04ef333389dab",
     "sense_lineage": [
       {
         "word_id": "word:excessive",
@@ -3481,6 +5103,43 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪkˈsɛsɪv/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "excessive",
+              "sense_ids": [
+                "sense:excessive:18ad246fd6815da5"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsɛsɪv/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excessive"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:excessive:18ad246fd6815da5": [
+          0
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3505,7 +5164,34 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:excessive:86f3c8dd39895124",
+          "status": "merged",
+          "merged_into_sense_id": "sense:excessive:18ad246fd6815da5",
+          "pos": "adjective",
+          "definition_cn": "极端的；无节制的",
+          "definition_en": "unrestrained, especially with regard to feelings",
+          "semantic_key": "83e57214f477e64da2edea8de2d79f7624d714058c87afcc12a35ae3c9026f11",
+          "semantic_key_history": [
+            "2105c0f3363ba130e30a6eed7f4b6a23f0a555cb3bf03b8b9459a800e75d26c4"
+          ],
+          "legacy_aliases": [
+            "excessive:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "excessive:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4824,
+          "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -3514,7 +5200,7 @@
     "ordinal": 1761,
     "word": "exchange",
     "source_owner_path": "content/lexical/words/by-ordinal/o1761.json",
-    "source_fingerprint": "b817e8626ee7f0bf9c3c8e2980793343efcd94db64ff0de5d3ff4dab430cd2c7",
+    "source_fingerprint": "6657dc859c437962f8a763e0d0b8f0e1f4ef22e600859f7e4fdd081467b64460",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3665,6 +5351,58 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛksˈt͡ʃeɪnd͡ʒ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exchange"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪksˈt͡ʃeɪnd͡ʒ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exchange"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛksʧeɪndʒ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exchange"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪksˈt͡ʃeɪnd͡ʒ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "exchange"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3680,7 +5418,7 @@
     "ordinal": 1762,
     "word": "excite",
     "source_owner_path": "content/lexical/words/by-ordinal/o1762.json",
-    "source_fingerprint": "ed2a981ea706ae9bf060e46cbca1463078e315c1d26cd4a8a49ecf5e3901e7e2",
+    "source_fingerprint": "16f3abf90c0464cb489fa2ed1b12f698591f59572d7a48c7b452856395ee0656",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3752,6 +5490,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪkˈsaɪt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "excite",
+              "sense_ids": [
+                "sense:excite:cc2ee2aad1d754ba",
+                "sense:excite:d24d39db33c55beb"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsaɪt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excite"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:excite:cc2ee2aad1d754ba": [
+          0
+        ],
+        "sense:excite:d24d39db33c55beb": [
+          0
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3767,7 +5546,7 @@
     "ordinal": 1763,
     "word": "excitement",
     "source_owner_path": "content/lexical/words/by-ordinal/o1763.json",
-    "source_fingerprint": "d5408568a40e12f9da52232ae40ee78d81fa203e659dcdc309d8367585f176a0",
+    "source_fingerprint": "d3fccd2be79f86cb388eb16a14cff89bd1b145af93fefca3fe5d3c8c74c12503",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3831,6 +5610,43 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪkˈsaɪtmənt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "excitement",
+              "sense_ids": [
+                "sense:excitement:7656f2c10e055fc0"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsaɪtmənt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "excitement"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:excitement:7656f2c10e055fc0": [
+          0
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3857,7 +5673,7 @@
     "ordinal": 1764,
     "word": "exciting",
     "source_owner_path": "content/lexical/words/by-ordinal/o1764.json",
-    "source_fingerprint": "a6f50aac6d1d6dfb9342af392882775dc9ad3ae1d6386912f44563670ecb9b62",
+    "source_fingerprint": "2c78aa744feadf613a0b4a8af8648705471ce8304969260f21d844d6d300f168",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3903,6 +5719,58 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛkˈsʌɪtɪŋ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exciting"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsʌɪtɪŋ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exciting"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsaɪtɪŋ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exciting"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsaɪtɪŋ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "exciting"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3918,7 +5786,7 @@
     "ordinal": 1765,
     "word": "exclaim",
     "source_owner_path": "content/lexical/words/by-ordinal/o1765.json",
-    "source_fingerprint": "db7e8f10a604cd7d204c172486a868ca6b306fa95be05fea13c6e352ad63f0fa",
+    "source_fingerprint": "a909f52586f50890be5c6542c136c12eb01d43382d6f0dd6f9f451ba2a787592",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3990,6 +5858,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛkˈskleɪm/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exclaim"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈskleɪm/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exclaim"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈskleɪm/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "exclaim"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4005,7 +5914,7 @@
     "ordinal": 1766,
     "word": "exclude",
     "source_owner_path": "content/lexical/words/by-ordinal/o1766.json",
-    "source_fingerprint": "d3e27b54578b2591cfbd7d7b5abe1324df995637ee5de95f79cb318c1ac339e8",
+    "source_fingerprint": "7f70b3b2b5b03a002d7c21f211ed1cc580b3f4580b2d8745589fae350c99b249",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4112,6 +6021,23 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪksˈkluːd/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exclude"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4127,7 +6053,7 @@
     "ordinal": 1767,
     "word": "exclusive",
     "source_owner_path": "content/lexical/words/by-ordinal/o1767.json",
-    "source_fingerprint": "9565c335a4ec4b9190b28b5f71ca22b4cdb074de4ca1d2b4d61e49d03c6f7272",
+    "source_fingerprint": "350c8951980eaacc99cb257d82303018319fe4f5862e750dd70317e36479f789",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4239,6 +6165,40 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪkˈsklu.sɪv/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "exclusive"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈsklu.zɪv/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "exclusive"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4283,7 +6243,7 @@
     "ordinal": 1768,
     "word": "excursion",
     "source_owner_path": "content/lexical/words/by-ordinal/o1768.json",
-    "source_fingerprint": "d48360da038914464c968cd96239a6381b56b8cf827222dc3b2bd9770d6e8ec2",
+    "source_fingerprint": "dc66d862111ce8bbcd5e2841134a0e9ca8e16d5957bf6cc6136473094e7969af",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4334,6 +6294,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛkˈskɝ.ʒən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "excursion"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈskɜː.ʃən/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "excursion"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4349,7 +6341,7 @@
     "ordinal": 1769,
     "word": "excuse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1769.json",
-    "source_fingerprint": "d344b6aff51807fd992bcc03b62e647907de69826ed3030a87284248bc7489f6",
+    "source_fingerprint": "e6429de7a541511ab4a11a226705e9c79f39c1708f43de7ad154ab0308835ab6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4513,6 +6505,325 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪkˈskjuːz/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:excuse:4df4193d47835b96",
+                "sense:excuse:d39fbb4ef5db540c",
+                "sense:excuse:96c707f37a6151f7"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "excuse",
+              "sense_ids": [
+                "sense:excuse:4df4193d47835b96",
+                "sense:excuse:d39fbb4ef5db540c",
+                "sense:excuse:96c707f37a6151f7"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "UK"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:excuse:096eb8e1c1725dba"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛksˈkjuːz/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:excuse:4df4193d47835b96",
+                "sense:excuse:d39fbb4ef5db540c",
+                "sense:excuse:96c707f37a6151f7"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "excuse",
+              "sense_ids": [
+                "sense:excuse:4df4193d47835b96",
+                "sense:excuse:d39fbb4ef5db540c",
+                "sense:excuse:96c707f37a6151f7"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "UK"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:excuse:096eb8e1c1725dba"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈskjuːs/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:excuse:096eb8e1c1725dba"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "excuse",
+              "sense_ids": [
+                "sense:excuse:096eb8e1c1725dba"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "UK"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:excuse:4df4193d47835b96",
+                "sense:excuse:d39fbb4ef5db540c",
+                "sense:excuse:96c707f37a6151f7"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛksˈkjuːs/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:excuse:096eb8e1c1725dba"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "excuse",
+              "sense_ids": [
+                "sense:excuse:096eb8e1c1725dba"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "UK"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:excuse:4df4193d47835b96",
+                "sense:excuse:d39fbb4ef5db540c",
+                "sense:excuse:96c707f37a6151f7"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪksˈkjuz/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:excuse:4df4193d47835b96",
+                "sense:excuse:d39fbb4ef5db540c",
+                "sense:excuse:96c707f37a6151f7"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "excuse",
+              "sense_ids": [
+                "sense:excuse:4df4193d47835b96",
+                "sense:excuse:d39fbb4ef5db540c",
+                "sense:excuse:96c707f37a6151f7"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "US"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:excuse:096eb8e1c1725dba"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛksˈkjuz/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:excuse:4df4193d47835b96",
+                "sense:excuse:d39fbb4ef5db540c",
+                "sense:excuse:96c707f37a6151f7"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "excuse",
+              "sense_ids": [
+                "sense:excuse:4df4193d47835b96",
+                "sense:excuse:d39fbb4ef5db540c",
+                "sense:excuse:96c707f37a6151f7"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "US"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:excuse:096eb8e1c1725dba"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪksˈkjus/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:excuse:096eb8e1c1725dba"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "excuse",
+              "sense_ids": [
+                "sense:excuse:096eb8e1c1725dba"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "US"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:excuse:4df4193d47835b96",
+                "sense:excuse:d39fbb4ef5db540c",
+                "sense:excuse:96c707f37a6151f7"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛksˈkjus/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:excuse:096eb8e1c1725dba"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "excuse",
+              "sense_ids": [
+                "sense:excuse:096eb8e1c1725dba"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "US"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:excuse:4df4193d47835b96",
+                "sense:excuse:d39fbb4ef5db540c",
+                "sense:excuse:96c707f37a6151f7"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:excuse:4df4193d47835b96": [
+          0,
+          1,
+          4,
+          5
+        ],
+        "sense:excuse:96c707f37a6151f7": [
+          0,
+          1,
+          4,
+          5
+        ],
+        "sense:excuse:d39fbb4ef5db540c": [
+          0,
+          1,
+          4,
+          5
+        ],
+        "sense:excuse:096eb8e1c1725dba": [
+          2,
+          3,
+          6,
+          7
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4549,7 +6860,7 @@
     "ordinal": 1770,
     "word": "execute",
     "source_owner_path": "content/lexical/words/by-ordinal/o1770.json",
-    "source_fingerprint": "f01c3cb5039ff03273cc21cb855ad9bdf48280cf397264db4284c4eea9f5fd29",
+    "source_fingerprint": "3f57d6f099cca2061253ddad73daffa274aab10ee82a1c16d212e1217315f8c4",
     "sense_lineage": [
       {
         "word_id": "word:execute",
@@ -4642,13 +6953,109 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛksɪˌkjuːt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "execute"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛɡzɪˌkjuːt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "execute"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:execute:62954842c09d29f8",
+          "status": "merged",
+          "merged_into_sense_id": "sense:execute:f27a42102a105d16",
+          "pos": "verb",
+          "definition_cn": "依法处死某人",
+          "definition_en": "to put a person to death as a legal punishment",
+          "semantic_key": "a44803ada40ab7cfdf4bb87e138195d95dde0e5d37656120219e230c9d167780",
+          "semantic_key_history": [],
+          "legacy_aliases": [],
+          "legacy_alias_history": [],
+          "updated_at": "2026-09-15T05:20:00Z",
+          "source_row": 4909,
+          "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:execute:9d616fa6c8c45906",
+          "status": "merged",
+          "merged_into_sense_id": "sense:execute:0f800f9693f55d36",
+          "pos": "verb",
+          "definition_cn": "使（法律文件）生效，签署",
+          "definition_en": "carry out the legalities of (a legal document)",
+          "semantic_key": "fbac53f41e3a0cd13c1acfd82abf015638d7db6f832e28420a9106240269cb47",
+          "semantic_key_history": [
+            "7114b547bb4de1da9ea787443500dccb33bd663e403829a270192eb58835b8bf"
+          ],
+          "legacy_aliases": [
+            "execute:l2:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "execute:l2:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4846,
+          "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:execute:a8173e78b5ed5b30",
+          "status": "merged",
+          "merged_into_sense_id": "sense:execute:0f800f9693f55d36",
+          "pos": "verb",
+          "definition_cn": "在证人面前签署",
+          "definition_en": "sign in the presence of witnesses",
+          "semantic_key": "fda14976bd12d5085c3d4cc41e7058267efbfa6c3df259760cd4bd20c1ea5478",
+          "semantic_key_history": [
+            "39713f073c32d38df4b23a7d1c83bcb6daa49390104dcebec62c67c2e7ab04c3"
+          ],
+          "legacy_aliases": [
+            "execute:l3:4"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "execute:l3:4",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4847,
+          "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -4657,7 +7064,7 @@
     "ordinal": 1771,
     "word": "executive",
     "source_owner_path": "content/lexical/words/by-ordinal/o1771.json",
-    "source_fingerprint": "f545f270784665ac34c597f09ef3c640cc005eded0038d5a3b9d552869bf6bde",
+    "source_fingerprint": "6c1a7e211480aca5667c242fa401293230b08eeec0192e44eb5c094f8385cb8d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4772,6 +7179,51 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪɡˈzɛkjətɪv/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "executive"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛɡˈzɛkjʊtɪv/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "executive"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪɡˈzɛkjʊtɪv/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "executive"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4798,7 +7250,7 @@
     "ordinal": 1772,
     "word": "exemplify",
     "source_owner_path": "content/lexical/words/by-ordinal/o1772.json",
-    "source_fingerprint": "ed61fc9986d375ca4a159c4f35a82509661d3753600b7be5de2af80e737a046c",
+    "source_fingerprint": "44583ac2b3e342eafc9a5d76dc823e660e7472f450695ee23d9c517955d27a8d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4896,6 +7348,34 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛɡˈzɛmplɪfaɪ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exemplify"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪɡˈzɛmplɪfaɪ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exemplify"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4911,7 +7391,7 @@
     "ordinal": 1773,
     "word": "exempt",
     "source_owner_path": "content/lexical/words/by-ordinal/o1773.json",
-    "source_fingerprint": "ab35758eda6a039d61ce452db6b0336c59f2dd246b7a2bdfe7f58e1934cd9577",
+    "source_fingerprint": "bed36b3a785e548e8d4f2b9576824a09891ceb8d6aad87327ef95f42783f2fa4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4975,6 +7455,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪɡˈzɛmpt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exempt"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪɡˈzɛmpt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "exempt"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -5043,7 +7553,7 @@
     "ordinal": 1774,
     "word": "exercise",
     "source_owner_path": "content/lexical/words/by-ordinal/o1774.json",
-    "source_fingerprint": "b8ac5b005fa695b9c33856b3d3907051c89367c8b3c7622c2a89ab72a476ee25",
+    "source_fingerprint": "ee0e90de87f5d063761732d2976506a95a1f5f207eae1227a136901c9b3ac726",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5218,6 +7728,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛk.sɚ.saɪz/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "exercise"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛk.sə.saɪz/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "exercise"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5233,7 +7775,7 @@
     "ordinal": 1775,
     "word": "exert",
     "source_owner_path": "content/lexical/words/by-ordinal/o1775.json",
-    "source_fingerprint": "a727019f9651630be9285203527394b98416e5ccddecbfb178d4cd1f135cae8a",
+    "source_fingerprint": "077be23fa489e34c36ec4e922c5b297ec80ca7f684cf82a3a4f1f99a9032b5fe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5349,6 +7891,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪɡˈzɝt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "exert"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪɡˈzɜːt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "exert"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5364,7 +7938,7 @@
     "ordinal": 1776,
     "word": "exhaust",
     "source_owner_path": "content/lexical/words/by-ordinal/o1776.json",
-    "source_fingerprint": "152c4d5932a6e5093a4cb7cf6732b7332fb8dc6d551a8c14f7dbd86d8e0da2d1",
+    "source_fingerprint": "5d1f427f7688b2aedffbd9e77f61046651c5002572f5c5772eed984b3a42fefa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5502,6 +8076,25 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪɡˈzɔːst/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "exhaust"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5517,7 +8110,7 @@
     "ordinal": 1777,
     "word": "exhibit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1777.json",
-    "source_fingerprint": "e2fa362ef371a72efec2bcaac2ea5739274bd84a30598bb6c6f0f4ba893c5968",
+    "source_fingerprint": "8d233cf6248fdcf281ef59b8eae51ca5c96d23e430b1ce11882da902e91209a9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5663,6 +8256,26 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪɡˈzɪbɪt/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "exhibit"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5678,7 +8291,7 @@
     "ordinal": 1778,
     "word": "exhibition",
     "source_owner_path": "content/lexical/words/by-ordinal/o1778.json",
-    "source_fingerprint": "ac4beb57195187a399445a689da8f6ab498a29f5515ccef5f29af12558a9ddff",
+    "source_fingerprint": "3364dd8bb25b99bdb18a01adc6cbc3a2f21379bc473e9a9bc6e57da191743ec9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5763,6 +8376,23 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛksɪˈbɪʃən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exhibition"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5778,7 +8408,7 @@
     "ordinal": 1779,
     "word": "exile",
     "source_owner_path": "content/lexical/words/by-ordinal/o1779.json",
-    "source_fingerprint": "4c20e19ee36a9a3160a7938f78cfc02e551c7de728b2ff51d13e12cc5206ebe7",
+    "source_fingerprint": "81c2085e388fcf79aacfa4a5541aa6c867e8a3426fac9422786af6df35a753c3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5890,6 +8520,40 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛkˌsaɪl/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "exile"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛɡˌzaɪl/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "exile"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5905,7 +8569,7 @@
     "ordinal": 1780,
     "word": "exist",
     "source_owner_path": "content/lexical/words/by-ordinal/o1780.json",
-    "source_fingerprint": "3c9e184b72ade746260424f8571fe9ef76b5a5c9b0f8ff2deac229ad25f43d70",
+    "source_fingerprint": "87c33ee766be601e161500734151332caf2c1bd7b8ae4b4b5c178d87b8027f67",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6000,6 +8664,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪɡˈzɪst/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exist"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪɡˈzɪst/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "exist"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -6033,7 +8727,7 @@
     "ordinal": 1781,
     "word": "existence",
     "source_owner_path": "content/lexical/words/by-ordinal/o1781.json",
-    "source_fingerprint": "d648a2b227428af727e4b4dac53fd3869bdd5c1e59a246be7cfe1337ccb74281",
+    "source_fingerprint": "dd0bbef27e762dc9bd7ba8222d3e387ae65b05a3dc9835c512b80c59bb560b5c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6092,6 +8786,51 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛɡˈzɪs.təns/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "existence"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪɡˈzɪs.təns/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "existence"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛɡˈzɪstɛnts/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "existence"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -6107,7 +8846,7 @@
     "ordinal": 1782,
     "word": "exit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1782.json",
-    "source_fingerprint": "f38c920e299971c6d25b612b3ba465d785c96daba573208350c75b330fc26b50",
+    "source_fingerprint": "0c899eeb89cb10459c90fb67e3e249f256398665c42c1c2c03a7e1fbb748f271",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6201,6 +8940,75 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛksət/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "exit"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛɡzət/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "exit"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛksɪt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "exit"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛɡzɪt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "exit"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɛgzɪt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "exit"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -6234,7 +9042,7 @@
     "ordinal": 1783,
     "word": "exotic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1783.json",
-    "source_fingerprint": "420587dbc5817a4763a0c2055c9cb26035c53abcdf811aef71af33357063bc85",
+    "source_fingerprint": "16c0639ac80c72806470c859ad9753946535fdcb169b1c47b97357784b54e6f2",
     "sense_lineage": [
       {
         "word_id": "word:exotic",
@@ -6286,13 +9094,84 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪɡˈzɒtɪk/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "exotic"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:exotic:2df64263849855c9",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "adjective",
+          "definition_cn": "异国的，外来的",
+          "definition_en": "strikingly strange or unusual",
+          "semantic_key": "b8ff8a0bbc41ffa71074f591d3f259dba75c5c16325083fe9a31d2bf45e8cee1",
+          "semantic_key_history": [
+            "5918d68716b20a4affe8cec2b1dd5f3e77d86dc3d944aa4d456d156862f468fe"
+          ],
+          "legacy_aliases": [
+            "exotic:l1:1"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "exotic:l1:1",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4882,
+          "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:exotic:7bb92eae44985a18",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "外来人，外来物，舶来品",
+          "definition_en": "a person or thing that is foreign or unusual",
+          "semantic_key": "f2ff1a359523165c0ad11704a60bc8a90c4c82e435c47e812eb18b678070114a",
+          "semantic_key_history": [
+            "10a68a5dd693f1a38c31744964a87241bc5de883554ad9e5796d3e45037f1a57"
+          ],
+          "legacy_aliases": [
+            "exotic:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "exotic:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4883,
+          "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -6301,7 +9180,7 @@
     "ordinal": 1784,
     "word": "expand",
     "source_owner_path": "content/lexical/words/by-ordinal/o1784.json",
-    "source_fingerprint": "67a6f24f0b7e108ab14de5e5b973cb3578cab76854b430b4d1ba2770392abab2",
+    "source_fingerprint": "5343daa3f7bf0c75a62d416ede24951fb80fa525c35ebc9f5f021c279aad76f9",
     "sense_lineage": [
       {
         "word_id": "word:expand",
@@ -6406,6 +9285,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛkˈspænd/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "expand"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈspænd/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "expand"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈspænd/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "expand"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -6434,7 +9354,32 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:expand:387c7c8c8c215fb9",
+          "status": "merged",
+          "merged_into_sense_id": "sense:expand:b4b24ebc6c5c5530",
+          "pos": "verb",
+          "definition_cn": "扩大；扩展",
+          "definition_en": "to make something bigger or wider in size, volume, or quantity",
+          "semantic_key": "48f3dc886a5e32c114bd9c7d3c1dbc8c773b2db108ea44fe6aa9c1bb85c04a77",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "expand:l1:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "expand:l1:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-08-22T05:00:00+00:00",
+          "source_row": 4885,
+          "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -6443,7 +9388,7 @@
     "ordinal": 1785,
     "word": "expansion",
     "source_owner_path": "content/lexical/words/by-ordinal/o1785.json",
-    "source_fingerprint": "c58f6508e5f3bbc2f032f1edbae84a7781b6fe352e73f83b10ea38d7e5a23d98",
+    "source_fingerprint": "853d060a9e587bbbd7f7419eb53e1c236ae832c0f01efadc39509ff101d3ad77",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6554,6 +9499,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪkˈspænʃən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "expansion"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈspænʃən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "expansion"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -6569,7 +9544,7 @@
     "ordinal": 1786,
     "word": "expect",
     "source_owner_path": "content/lexical/words/by-ordinal/o1786.json",
-    "source_fingerprint": "71383489e8761036d7eb95ebc7e960a4b88351b58ae340d1cdb69b4d994247b7",
+    "source_fingerprint": "822b67a63a92798f328d1c27fb93a4f85c97f70372d8675cd490432fadfde811",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6726,6 +9701,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛkˈspɛkt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "expect"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈspɛkt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "expect"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈspɛkt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "expect"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -6770,7 +9786,7 @@
     "ordinal": 1787,
     "word": "expectation",
     "source_owner_path": "content/lexical/words/by-ordinal/o1787.json",
-    "source_fingerprint": "2f59e81b027e57132a4888d1bb882bcf2fcb84bf03c5f61b287b2031db224b34",
+    "source_fingerprint": "223a61738e37b4a53ab6d9bf0207ff1edd7952e2c292746053bdd352be7c2d53",
     "sense_lineage": [
       {
         "word_id": "word:expectation",
@@ -6837,13 +9853,60 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˌɛk.spɛkˈteɪ.ʃən/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "expectation"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:expectation:5b8febd6c0af54f6",
+          "status": "merged",
+          "merged_into_sense_id": "sense:expectation:745f62f19d0c5fbd",
+          "pos": "noun",
+          "definition_cn": "预感；指望",
+          "definition_en": "the feeling that something is about to happen",
+          "semantic_key": "2bc81ea19c9b43fbaf0b8818c9846df6eab580ae7729aa40924d43eb04814347",
+          "semantic_key_history": [
+            "bbbe3bf00bfec54c2623c35d8e177d54792c9b94536b629ccede534b9c3381b3"
+          ],
+          "legacy_aliases": [
+            "expectation:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "expectation:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4894,
+          "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -6852,7 +9915,7 @@
     "ordinal": 1788,
     "word": "expedition",
     "source_owner_path": "content/lexical/words/by-ordinal/o1788.json",
-    "source_fingerprint": "f644b8eb33a43b1eac8c0bb533fdd0d8f0f515856c88493c32f9de1769256572",
+    "source_fingerprint": "2d91eff151cf5cf534a31a2a526d43f3eabea3ffa84d1289f82d1305c2b8837c",
     "sense_lineage": [
       {
         "word_id": "word:expedition",
@@ -6971,13 +10034,60 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛkspəˈdɪʃən/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "expedition"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:expedition:d4752e2caff75437",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "迅速；敏捷",
+          "definition_en": "speed or promptness",
+          "semantic_key": "adbd36dd65e27ffdb370d96529d3717eaeb8c6cbdc6c04f22ae983642937fe55",
+          "semantic_key_history": [
+            "32be9d8a11d6122ce9f9c5e4fc2af06f9d497e9eb382b2f28c4decc0cb61c352"
+          ],
+          "legacy_aliases": [
+            "expedition:l3:4"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "expedition:l3:4",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4899,
+          "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -6986,7 +10096,7 @@
     "ordinal": 1789,
     "word": "expel",
     "source_owner_path": "content/lexical/words/by-ordinal/o1789.json",
-    "source_fingerprint": "de60c7b3ac045dd30c147bcc00ba5be32188f5de21868b20fa22f55ff98d70b2",
+    "source_fingerprint": "59b3578a269ca0588f4494536cd2839a883265653ed0d97e192f91e1a6c4eef1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7063,6 +10173,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪkˈspɛl/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "expel"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈspɛl/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "expel"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7078,7 +10218,7 @@
     "ordinal": 1790,
     "word": "expend",
     "source_owner_path": "content/lexical/words/by-ordinal/o1790.json",
-    "source_fingerprint": "0729b69174bfbdd0689cbffdcaebbd0149cd018998f591a3c5aac75d3ad7ab15",
+    "source_fingerprint": "35ff77f9530653c1d27c27843a45642d0c93ac3aa3c6279cdc8d8655c8c087e3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7163,6 +10303,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛkˈspɛnd/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "expend"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈspɛnd/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "expend"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈspɛnd/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "expend"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7178,7 +10359,7 @@
     "ordinal": 1791,
     "word": "expenditure",
     "source_owner_path": "content/lexical/words/by-ordinal/o1791.json",
-    "source_fingerprint": "1aca5e3516be54f895d1f66e29d8425bc25887cf8feace5f7533593f8b730b51",
+    "source_fingerprint": "05622a699086ce857a76865be31d9df8ef2fde1cdecafce38f376ecda69fbfe3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7254,6 +10435,64 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɛkˈspɛndɪt͡ʃɚ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "expenditure"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈspɛndɪt͡ʃɚ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "expenditure"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɛkˈspɛndɪt͡ʃə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "expenditure"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈspɛndɪt͡ʃə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "expenditure"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7269,7 +10508,7 @@
     "ordinal": 1792,
     "word": "expense",
     "source_owner_path": "content/lexical/words/by-ordinal/o1792.json",
-    "source_fingerprint": "856d28c2cbc0e4c71e44f2eec1da109e2e947df78f87cbf86a2f84a15e0cee0b",
+    "source_fingerprint": "2638e8648703c8518add156830f86618f352b6bf40bc3febaafcd24ca621dfc8",
     "sense_lineage": [
       {
         "word_id": "word:expense",
@@ -7328,6 +10567,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ɪkˈspɛns/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "expense"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪkˈspɛns/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "expense"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -7360,7 +10629,84 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:expense:7f2677cd3b755789",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "将…列为费用；报销",
+          "definition_en": "to charge or write off as an expense",
+          "semantic_key": "2d3fc01a03f8d61224bab2b981c250d7dd8340db76f77495ca77869d6148bb70",
+          "semantic_key_history": [
+            "d9c192cc17cc60c48070fc111cd6b621c5d5389c342ddda0e16a97926bf9782e"
+          ],
+          "legacy_aliases": [
+            "expense:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "expense:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4906,
+          "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:expense:e743608c61a65856",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "代价；损失",
+          "definition_en": "a cause of spending or loss",
+          "semantic_key": "c952159ebb73e6f6c529b79bc334c4f1f0e3227b7f3431235f15646011da31ff",
+          "semantic_key_history": [
+            "c95b9c1a36436965bc2852edd727ae104efd44b3b74f6c851afc31ef8e275773"
+          ],
+          "legacy_aliases": [
+            "expense:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "expense:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4907,
+          "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:expense:f7926828c46f5614",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "花费的钱；开支",
+          "definition_en": "money spent on something",
+          "semantic_key": "7ed7463b8f40845535e4ed3e0157a46f1fdfefc7d7abff951631f0c3b0dbed4f",
+          "semantic_key_history": [
+            "8b181e86f1cfc3097e121cc10aa513c4c7bf8d18682bfc9ffad07cf5c58d37bc"
+          ],
+          "legacy_aliases": [
+            "expense:l1:1"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "expense:l1:1",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4908,
+          "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json",
+          "reference_only": true
+        }
+      ]
     }
   }
 ]

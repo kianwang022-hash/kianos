@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 
 export const CURRENT_DEPENDENCY_SCHEMA = 'kianos.current.dependencies.v1';
 export const CURRENT_DEPENDENCY_MARKER = '.kianos-current-dependencies.json';
@@ -161,12 +162,30 @@ export function cloneDependencies(sourceWebRoot, targetWebRoot, { proofIdentity 
   fs.rmSync(targetNodeModules, { recursive: true, force: true });
 
   const startedAt = Date.now();
-  fs.cpSync(sourceNodeModules, targetNodeModules, {
-    recursive: true,
-    dereference: false,
-    verbatimSymlinks: true,
-    mode: fs.constants.COPYFILE_FICLONE
-  });
+  let copy_mode = 'node-copy';
+  if (process.platform === 'darwin' && fs.existsSync('/bin/cp')) {
+    const cloned = spawnSync('/bin/cp', ['-cR', sourceNodeModules, targetNodeModules], {
+      stdio: 'ignore'
+    });
+    if (!cloned.error && cloned.status === 0) {
+      copy_mode = 'apfs-clone';
+    } else {
+      fs.rmSync(targetNodeModules, { recursive: true, force: true });
+      fs.cpSync(sourceNodeModules, targetNodeModules, {
+        recursive: true,
+        dereference: false,
+        verbatimSymlinks: true,
+        mode: fs.constants.COPYFILE_FICLONE
+      });
+    }
+  } else {
+    fs.cpSync(sourceNodeModules, targetNodeModules, {
+      recursive: true,
+      dereference: false,
+      verbatimSymlinks: true,
+      mode: fs.constants.COPYFILE_FICLONE
+    });
+  }
   const rebased_bin_links = rebaseAbsoluteBinLinks(targetNodeModules);
 
   if (!fs.existsSync(path.join(targetNodeModules, '.bin', process.platform === 'win32' ? 'astro.cmd' : 'astro'))) {
@@ -178,5 +197,5 @@ export function cloneDependencies(sourceWebRoot, targetWebRoot, { proofIdentity 
     fs.rmSync(targetNodeModules, { recursive: true, force: true });
     throw new Error('CURRENT_DEPENDENCY_REUSE_PROOF_MISSING');
   }
-  return { duration_ms: Date.now() - startedAt, rebased_bin_links };
+  return { duration_ms: Date.now() - startedAt, rebased_bin_links, copy_mode };
 }

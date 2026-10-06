@@ -48,14 +48,21 @@ const base = import.meta.env.BASE_URL;
     const append=(event)=>{const result=appendEvidenceEvent(readLedger(),event);saveLedger(result.ledger);syncProjection(result.ledger);window.dispatchEvent(new CustomEvent('kianos:lexical-evidence-changed'));return result};
     const targetEventFromButton=(button,overrides={})=>{const targetKind=button.getAttribute('data-target-kind')||'lexical';const targetId=button.getAttribute('data-target-id')||null;const targetLocator=button.getAttribute('data-target-locator')||null;return {event_id:browserEventId('depth'),word_id:objectId,ordinal,word,target_kind:targetKind,target_id:targetId,target_locator:targetLocator,target_revision:targetId?null:(sourceHash||null),source:'depth_plus',outcome:'ADDED',observed_at:new Date().toISOString(),...overrides}};
     const existingState=readJson(storageKey,null);
-    if(!readOnlyLookup&&existingState?.repairTargets&&typeof existingState.repairTargets==='object'){
+    const legacyRepairTargets=existingState?.repairTargets&&typeof existingState.repairTargets==='object'
+      ? Object.values(existingState.repairTargets).filter((target)=>target&&typeof target==='object'&&target.source!=='evidence_reducer')
+      : [];
+    if(!readOnlyLookup&&legacyRepairTargets.length){
       let ledger=readLedger();
-      for(const target of Object.values(existingState.repairTargets)){
-        if(!target||typeof target!=='object'||target.source==='evidence_reducer')continue;
+      let ledgerChanged=false;
+      for(const target of legacyRepairTargets){
         const migration={word_id:objectId,ordinal,word,target_kind:target.target_kind||'lexical',target_id:target.target_id||null,target_locator:target.target_locator||null,target_revision:target.target_id?null:(target.target_revision||sourceHash||null),source:'depth_plus',outcome:'ADDED',observed_at:target.observed_at||existingState.lastSeenAt||new Date().toISOString()};
-        migration.event_id=`migration:${legacyEventId(migration)}`;ledger=appendEvidenceEvent(ledger,migration).ledger;
+        migration.event_id=`migration:${legacyEventId(migration)}`;
+        const migrated=appendEvidenceEvent(ledger,migration);
+        ledger=migrated.ledger;
+        if(migrated.status==='APPENDED'||migrated.status==='CONFLICT_QUARANTINED')ledgerChanged=true;
       }
-      saveLedger(ledger);syncProjection(ledger);
+      if(ledgerChanged)saveLedger(ledger);
+      syncProjection(ledger);
     }
     const front=root.querySelector('[data-vocab-front]');
     const reveal=root.querySelector('[data-vocab-reveal]');
@@ -162,7 +169,18 @@ const base = import.meta.env.BASE_URL;
     // The legacy WordRuntime listener was registered first on the same bubbling path.
     // Read aria-pressed after it finishes instead of queueing from capture phase; otherwise
     // the evidence bridge can observe the pre-toggle state and silently miss the admission.
-    const recordToggle=(button)=>{const active=button.getAttribute('aria-pressed')==='true';append(targetEventFromButton(button,active?{}:{event_id:browserEventId('clear'),source:'manual_clear',outcome:'CLEAR'}))};
+    // Capture only the selected identity before WordRuntime removes its cache row.
+    // CLEAR must address that one revision, while a new mark uses Current sourceHash.
+    const selectedBeforeToggle=new WeakMap();
+    root.addEventListener('click',(event)=>{
+      const button=event.target instanceof HTMLElement?event.target.closest('[data-vocab-repair]'):null;
+      if(!(button instanceof HTMLButtonElement))return;
+      selectedBeforeToggle.delete(button);
+      if(button.getAttribute('aria-pressed')!=='true')return;
+      const revision=button.getAttribute('data-vocab-selected-target-revision');
+      if(!button.getAttribute('data-target-id')&&revision)selectedBeforeToggle.set(button,{target_revision:revision});
+    },{capture:true});
+    const recordToggle=(button)=>{const active=button.getAttribute('aria-pressed')==='true',selected=selectedBeforeToggle.get(button);selectedBeforeToggle.delete(button);const clear={event_id:browserEventId('clear'),source:'manual_clear',outcome:'CLEAR'};if(selected&&!selected.target_id&&selected.target_revision)clear.target_revision=selected.target_revision;append(targetEventFromButton(button,active?{}:clear))};
     root.addEventListener('click',(event)=>{const button=event.target instanceof HTMLElement?event.target.closest('[data-vocab-repair]'):null;if(button instanceof HTMLButtonElement)recordToggle(button)});
     const onRoutingKeydown=(event)=>{
       if(event.defaultPrevented||mode!=='study'||document.querySelector('[data-vocab-challenge-runtime][data-challenge-active="true"]'))return;

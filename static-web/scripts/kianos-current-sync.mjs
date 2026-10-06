@@ -21,6 +21,11 @@ import {
   acquireDeliveryLock,
   releasePaths,
   resolveCurrentSubprocessTimeoutMs,
+  resolveCurrentCheckoutTimeoutMs,
+  parseReleaseWorktrees,
+  releaseWorktreeIsDisposable,
+  availableReleaseWorktreePath,
+  releaseIdentityProblem,
   runBounded,
   terminateProcessTree
 } from './currentRelease.mjs';
@@ -53,6 +58,7 @@ const releases = releasePaths(repoRoot);
 const buildContextHash = clientBuildContextHash(process.env, repoRoot);
 const subprocessTimeoutMs = resolveCurrentSubprocessTimeoutMs();
 const buildTimeoutMs = subprocessTimeoutMs;
+const checkoutTimeoutMs = resolveCurrentCheckoutTimeoutMs();
 const syncRuntimePaths = [
   'static-web/scripts/kianos-current-sync.mjs',
   'static-web/scripts/currentRelease.mjs',
@@ -178,6 +184,33 @@ async function runChild(file, args, {
   await runBounded(file, args, { cwd, env: childEnv, label, timeoutMs });
 }
 
+function verifiedInactiveReleases(worktrees) {
+  const releasesRoot = path.join(releases.root, 'releases');
+  if (!fs.existsSync(releasesRoot)) return [];
+  const managedRoot = fs.realpathSync(releasesRoot);
+  const retained = retainedReleaseRoots();
+  return worktrees.flatMap(entry => {
+    try {
+      // Read only immediate managed worktrees. A receipt is enough to block
+      // further generation, never evidence authorizing deletion of user bytes.
+      if (!fs.lstatSync(entry.path).isDirectory()
+        || fs.realpathSync(path.dirname(entry.path)) !== managedRoot
+        || !fs.existsSync(path.join(entry.path, '.git'))) return [];
+      const root = fs.realpathSync(entry.path);
+      if (retained.has(root)) return [];
+      const dist = path.join(root, 'static-web', 'dist');
+      const receipt = readBuiltStatus(dist);
+      if (receipt?.state !== 'synced' || !/^[a-f0-9]{40}$/.test(receipt.sha)
+        || !/^[a-f0-9]{64}$/.test(receipt.contextHash)
+        || entry.head !== receipt.sha
+        || !fs.existsSync(path.join(dist, 'index.html'))) return [];
+      const name = path.basename(entry.path), prefix = `${receipt.sha}-${receipt.contextHash}`;
+      if (name !== prefix && !new RegExp(`^${prefix}-[a-f0-9-]{36}$`).test(name)) return [];
+      return [{ root, sha: receipt.sha, contextHash: receipt.contextHash, locked: entry.locked }];
+    } catch { return []; }
+  });
+}
+
 async function prepareRelease(sha, extra = {}) {
   const prepareStartedAt = Date.now();
   const timings = { dependencies: 0, astro_build: 0, total: 0 };
@@ -186,7 +219,8 @@ async function prepareRelease(sha, extra = {}) {
   if (failure?.sha === sha && failure.contextHash === buildContextHash && failure.stage === 'build' && !(oneShot && process.env.KIANOS_RETRY_FAILED_BUILD === '1')) {
     throw new Error(`CURRENT_BUILD_BLOCKED:${sha}:${failure.error}`);
   }
-  fs.mkdirSync(releases.root, { recursive: true });
+  const worktrees = parseReleaseWorktrees(await git(['worktree', 'list', '--porcelain']));
+  const pending = verifiedInactiveReleases(worktrees);
   let releaseRoot = releases.release(sha, buildContextHash);
   if (fs.existsSync(releaseRoot)) {
     const existingDist = path.join(releaseRoot, 'static-web', 'dist');
@@ -199,22 +233,40 @@ async function prepareRelease(sha, extra = {}) {
         webRoot: path.join(releaseRoot, 'static-web'),
         created: false,
         dependencyMode: 'existing-release',
+        deferPrune: pending.some(entry => entry.root !== fs.realpathSync(releaseRoot)),
         timings
       };
     }
+  }
+  const reusable = pending.find(entry => !entry.locked && entry.sha === sha && entry.contextHash === buildContextHash);
+  if (reusable) {
+    timings.total = Date.now() - prepareStartedAt;
+    return { releaseRoot: reusable.root, webRoot: path.join(reusable.root, 'static-web'),
+      created: false, dependencyMode: 'existing-release', deferPrune: pending.some(entry => entry.root !== reusable.root), timings };
+  }
+  if (pending.length) {
+    throw new Error(`CURRENT_PENDING_RELEASE_BLOCKED:pending_sha=${pending[0].sha}:pending_context=${pending[0].contextHash}:target_sha=${sha}:target_context=${buildContextHash}:count=${pending.length}`);
+  }
+  fs.mkdirSync(releases.root, { recursive: true });
+  if (fs.existsSync(releaseRoot)) {
     if (retainedReleaseRoots().has(fs.realpathSync(releaseRoot))) {
       // A missing/corrupt receipt must not turn rebuilding into in-place erasure.
       releaseRoot += '-' + randomUUID();
     } else await cleanupPreparedRelease(releaseRoot);
   }
-  if (fs.existsSync(releases.candidate)) {
-    assertDisposableRelease(releases.candidate);
-    await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releases.candidate], { label: 'remove stale candidate' });
-  }
-  await runBounded('git', ['-C', repoRoot, 'worktree', 'add', '--detach', releaseRoot, sha], {
+  // A killed checkout can leave a locked registration even after its path
+  // disappears. Do not reuse/remove that identity; one safe new path is enough.
+  const availableRoot = availableReleaseWorktreePath(releaseRoot, worktrees);
+  if (availableRoot !== releaseRoot) log(`preserving occupied candidate ${releaseRoot}; preparing ${availableRoot}`);
+  releaseRoot = availableRoot;
+  if (fs.existsSync(releases.candidate)) await cleanupPreparedRelease(releases.candidate);
+  const checkoutStartedAt = Date.now();
+  await runBounded(gitBin, ['-C', repoRoot, 'worktree', 'add', '--detach', releaseRoot, sha], {
     label: 'git worktree add',
-    timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
+    timeoutMs: checkoutTimeoutMs
   });
+  timings.checkout = Date.now() - checkoutStartedAt;
+  log(`release checkout completed in ${timings.checkout}ms (budget ${checkoutTimeoutMs}ms)`);
   const candidateWebRoot = path.join(releaseRoot, 'static-web');
   try {
     if (fs.existsSync(path.join(candidateWebRoot, 'package.json'))) {
@@ -226,7 +278,7 @@ async function prepareRelease(sha, extra = {}) {
           dependenciesReady = true;
           dependencyMode = 'reused';
           timings.dependencies = reused.duration_ms;
-          log(`reused verified candidate dependencies in ${reused.duration_ms}ms`);
+          log(`reused verified candidate dependencies in ${reused.duration_ms}ms (${reused.copy_mode})`);
         } catch (error) {
           warn(`candidate dependency reuse failed; falling back to npm install: ${error?.message || error}`);
         }
@@ -297,6 +349,7 @@ async function prepareRelease(sha, extra = {}) {
         timings_ms: {
           dependencies: timings.dependencies,
           astro_build: timings.astro_build,
+          checkout: timings.checkout || 0,
           prepare_release_total: timings.total
         }
       });
@@ -310,13 +363,7 @@ async function prepareRelease(sha, extra = {}) {
       error: error.message,
       failed_at: stamp()
     });
-    assertDisposableRelease(releaseRoot);
-    try {
-      await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
-        label: 'cleanup failed candidate',
-        timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
-      });
-    } catch {}
+    await cleanupPreparedRelease(releaseRoot);
     throw error;
   }
   if (!skipAstro && !fs.existsSync(path.join(candidateWebRoot, 'dist', 'index.html'))) {
@@ -329,21 +376,24 @@ async function prepareRelease(sha, extra = {}) {
 
 async function cleanupPreparedRelease(releaseRoot) {
   assertDisposableRelease(releaseRoot);
-  if (!fs.existsSync(releaseRoot)) return;
+  const worktrees = parseReleaseWorktrees(await git(['worktree', 'list', '--porcelain']));
+  if (!releaseWorktreeIsDisposable(releaseRoot, worktrees)) {
+    if (fs.existsSync(releaseRoot) || worktrees.some(row => path.resolve(row.path) === path.resolve(releaseRoot))) {
+      warn(`preserving locked, incomplete or unregistered release ${releaseRoot}`);
+    }
+    return false;
+  }
   try {
     await runBounded(gitBin, ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
       label: 'cleanup rejected release',
       timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
     });
+    return true;
   } catch (error) {
-    warn(`bounded rejected-release cleanup failed; pruning metadata: ${error?.message || error}`);
-    fs.rmSync(releaseRoot, { recursive: true, force: true });
-    try {
-      await runBounded(gitBin, ['-C', repoRoot, 'worktree', 'prune'], {
-        label: 'prune rejected release metadata',
-        timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
-      });
-    } catch {}
+    // Git owns worktree identity. Failed removal must not be followed by an
+    // unchecked rm that deletes bytes while leaving a locked registration.
+    warn(`preserving release after bounded cleanup failure: ${error?.message || error}`);
+    return false;
   }
 }
 
@@ -371,14 +421,7 @@ async function pruneReleases() {
     let releaseIdentity = path.resolve(releaseRoot);
     try { releaseIdentity = fs.realpathSync(releaseRoot); } catch {}
     if (retained.has(releaseIdentity)) continue;
-    try {
-      await runBounded('git', ['-C', repoRoot, 'worktree', 'remove', '--force', releaseRoot], {
-        label: 'prune old release',
-        timeoutMs: Number(process.env.KIANOS_GIT_TIMEOUT_MS || 30000)
-      });
-    } catch {
-      fs.rmSync(releaseRoot, { recursive: true, force: true });
-    }
+    await cleanupPreparedRelease(releaseRoot);
   }
   await runBounded('git', ['-C', repoRoot, 'worktree', 'prune'], {
     label: 'prune release metadata',
@@ -488,7 +531,7 @@ async function fetchReleaseIdentity(url, deadlineAt) {
   const timer = setTimeout(() => controller.abort(), remainingMs);
   try {
     const response = await fetch(url, { signal: controller.signal });
-    if (!response.ok) return null;
+    if (!response.ok) return { http_status: response.status };
     return await response.json();
   } finally {
     clearTimeout(timer);
@@ -497,6 +540,8 @@ async function fetchReleaseIdentity(url, deadlineAt) {
 
 async function waitForSiteReady(expectedSha, timeoutMs = 5000) {
   const deadlineAt = Date.now() + timeoutMs;
+  let observation = 'no-response';
+  let requestError = '';
   while (Date.now() < deadlineAt) {
     if (!site) throw new Error('CURRENT_RELEASE_RUNTIME_EXITED');
     try {
@@ -504,13 +549,15 @@ async function waitForSiteReady(expectedSha, timeoutMs = 5000) {
         `http://${host}:${port}/__kianos-release.json?t=${Date.now()}`,
         deadlineAt
       );
-      if (expectedSha && identity?.sha === expectedSha && identity.contextHash === buildContextHash) return;
-    } catch {}
+      const problem = releaseIdentityProblem(identity, expectedSha, buildContextHash);
+      if (!problem) return;
+      observation = problem;
+    } catch (error) { requestError = error.cause?.code || error.name; }
     if (Date.now() < deadlineAt) {
       await new Promise((resolve) => setTimeout(resolve, 100));
     }
   }
-  throw new Error('CURRENT_RELEASE_RUNTIME_NOT_READY');
+  throw new Error(`CURRENT_RELEASE_RUNTIME_NOT_READY:${observation}${requestError ? ':last-request:' + requestError : ''}`);
 }
 
 async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
@@ -536,7 +583,7 @@ async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
     '--release-probe-only'
   ], {
     cwd: candidateWebRoot,
-    stdio: 'ignore',
+    stdio: ['ignore', 'ignore', 'pipe'],
     detached: process.platform !== 'win32',
     env: {
       ...process.env,
@@ -553,22 +600,33 @@ async function probeRelease(releaseRoot, expectedSha, timeoutMs = 5000) {
       KIANOS_PACKET_RELAY_ENABLED: '0'
     }
   });
+  let stderr = '';
+  let spawnError = null;
+  candidateServer.stderr.on('data', chunk => { stderr = (stderr + chunk).slice(-1200); });
+  candidateServer.once('error', error => { spawnError = error; });
   try {
     const deadlineAt = Date.now() + timeoutMs;
+    let observation = 'no-response';
+    let requestError = '';
     while (Date.now() < deadlineAt) {
-      if (candidateServer.exitCode !== null) throw new Error('CURRENT_RELEASE_RUNTIME_EXITED');
+      if (spawnError) throw new Error(`CURRENT_RELEASE_RUNTIME_SPAWN_FAILED:${spawnError.code || spawnError.name}`);
+      if (candidateServer.exitCode !== null || candidateServer.signalCode !== null) {
+        throw new Error(`CURRENT_RELEASE_RUNTIME_EXITED:${candidateServer.exitCode ?? candidateServer.signalCode}:${stderr.trim()}`);
+      }
       try {
         const identity = await fetchReleaseIdentity(
           `http://${host}:${probePort}/__kianos-release.json?t=${Date.now()}`,
           deadlineAt
         );
-        if (identity?.sha === expectedSha && identity.contextHash === buildContextHash) return;
-      } catch {}
+        const problem = releaseIdentityProblem(identity, expectedSha, buildContextHash);
+        if (!problem) return;
+        observation = problem;
+      } catch (error) { requestError = error.cause?.code || error.name; }
       if (Date.now() < deadlineAt) {
         await new Promise((resolve) => setTimeout(resolve, 100));
       }
     }
-    throw new Error('CURRENT_RELEASE_RUNTIME_NOT_READY');
+    throw new Error(`CURRENT_RELEASE_RUNTIME_NOT_READY:${observation}${requestError ? ':last-request:' + requestError : ''}${stderr ? ':' + stderr.trim() : ''}`);
   } finally {
     try {
       if (candidateServer.pid) {
@@ -820,7 +878,10 @@ async function syncOnce({ initial = false } = {}) {
         probeDurationMs = Date.now() - probeStartedAt;
       } catch (error) {
         warn(`new Current release probe failed before activation; keeping current release: ${error.message}`);
-        if (preparedRelease.created) await cleanupPreparedRelease(preparedRelease.releaseRoot);
+        // The immutable build receipt is already verified. Readiness failure
+        // must keep this exact artifact for the next bounded probe, rather
+        // than rebuilding the same SHA under the same load. It is never active
+        // until both identity and configured-runtime readiness pass.
         throw error;
       }
       const promotionStartedAt = Date.now();
@@ -847,7 +908,9 @@ async function syncOnce({ initial = false } = {}) {
     lastKnownSha = controlTargetSha;
     await git(['checkout', '-B', 'main', controlTargetSha]);
     await git(['reset', '--hard', controlTargetSha]);
-    if (!skipAstro) {
+    if (!skipAstro && preparedRelease?.deferPrune) {
+      log('preserving pre-existing pending releases; post-handoff pruning deferred');
+    } else if (!skipAstro) {
       try {
         await pruneReleases();
       } catch (error) {
@@ -868,6 +931,7 @@ async function syncOnce({ initial = false } = {}) {
       ...(!skipAstro && activeReleaseRoot ? { release_root: activeReleaseRoot } : {}),
       timings_ms: {
         remote_fetch: fetchDurationMs,
+        checkout: preparedRelease?.timings?.checkout || 0,
         dependencies: preparedRelease?.timings?.dependencies || 0,
         astro_build: preparedRelease?.timings?.astro_build || 0,
         prepare_release_total: preparedRelease?.timings?.total || 0,

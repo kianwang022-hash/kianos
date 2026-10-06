@@ -5,7 +5,7 @@
     "ordinal": 65,
     "word": "adapt",
     "source_owner_path": "content/lexical/words/by-ordinal/o0065.json",
-    "source_fingerprint": "44b745068a5aa8d5af1ebb650d914f12bea1dec024a70826d14f528aaf59c401",
+    "source_fingerprint": "3976aca1d0c6defe52e06a057a8cd580bd9da5d0bbf3222cb4d1a1575d6071f9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -142,6 +142,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈdæpt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "adapt"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ʌˈdæpt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adapt"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -270,7 +300,7 @@
     "ordinal": 66,
     "word": "add",
     "source_owner_path": "content/lexical/words/by-ordinal/o0066.json",
-    "source_fingerprint": "2ee22db7844d89727c9c9e5972be8640584ec9a3fc3b99807df4e1820675f34e",
+    "source_fingerprint": "f2718980edded639d20ec22a00d446364d0ceaecc1026aa0c6105a017bc06407",
     "sense_lineage": [
       {
         "word_id": "word:add",
@@ -419,6 +449,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/æd/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "add"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/æd/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "add"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -477,7 +537,32 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:add:9187fb8196f45430",
+          "status": "merged",
+          "merged_into_sense_id": "sense:add:5a9d92edcbbf564b",
+          "pos": "verb",
+          "definition_cn": "构成增加，增添",
+          "definition_en": "constitute an addition",
+          "semantic_key": "ab73b803ffdfd3bb6b9de01998372f6a01e8da8581a5a04eb001a3fcc25ce55b",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "add:l3:4"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "add:l3:4",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-08-22T05:00:00+00:00",
+          "source_row": 183,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -486,7 +571,7 @@
     "ordinal": 67,
     "word": "addict",
     "source_owner_path": "content/lexical/words/by-ordinal/o0067.json",
-    "source_fingerprint": "8fe3e7bc70713e8ac98130e8d88b950d4c61f12ade2bf0777d045353738e9b9d",
+    "source_fingerprint": "9358ca505908be20b35feee189b8fda27cbbc132f3173753a48b3206908e413d",
     "sense_lineage": [
       {
         "word_id": "word:addict",
@@ -538,6 +623,39 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæd.ɪkt/",
+          "locales": [],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:addict:5bea133841d55e16"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "addict",
+              "sense_ids": [
+                "sense:addict:5bea133841d55e16"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:addict:5bea133841d55e16": [
+          0
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -559,6 +677,49 @@
           ],
           "source_locator": "record.word_family[0]"
         }
+      ],
+      "senses": [
+        {
+          "stable_sense_id": "sense:addict:ec753b049bb65e6f",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "使上瘾",
+          "definition_en": "to cause someone to become dependent on something",
+          "semantic_key": "abbc904909cf90d769575ae868b70eec9e5c63e0aae7b4905fee11c73ac7f9e4",
+          "semantic_key_history": [
+            "393ee1e7414f6ea9c6a47d3523ccd122509beda6d6325772fe5798614f103885"
+          ],
+          "legacy_aliases": [
+            "addict:l1:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "addict:l1:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 186,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:addict:handoff-fc0a7bbd92942877",
+          "status": "deprecated",
+          "merged_into_sense_id": "sense:addict:5bea133841d55e16",
+          "pos": "noun",
+          "definition_cn": "对某物或某活动上瘾的人",
+          "definition_en": "a person dependent on a substance or activity",
+          "semantic_key": "d7f1750b9e8c5455b680d574fd046360d467a85589a51bcc66442dadf6c9301d",
+          "semantic_key_history": [],
+          "legacy_aliases": [],
+          "legacy_alias_history": [],
+          "updated_at": "2026-09-14T00:00:00Z",
+          "source_row": 19505,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        }
       ]
     }
   },
@@ -568,7 +729,7 @@
     "ordinal": 68,
     "word": "addition",
     "source_owner_path": "content/lexical/words/by-ordinal/o0068.json",
-    "source_fingerprint": "970c033b77b29422509e3c81a94269cef8b4b5ac73ca87d6a26c57eb9af1f793",
+    "source_fingerprint": "d1b0d71ebc6328b5aead699cdd512c88ebb4f9b416c3910c8c614b64d383b0b8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -702,6 +863,62 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈdɪʃ.ən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "addition",
+              "sense_ids": [
+                "sense:addition:022e1d82cd4c557c",
+                "sense:addition:cb2b7cb05a3d5c22",
+                "sense:addition:398c0c1954025495"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈdɪʃ.ən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "addition"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈdɪʃən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "addition"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:addition:022e1d82cd4c557c": [
+          0
+        ],
+        "sense:addition:398c0c1954025495": [
+          0
+        ],
+        "sense:addition:cb2b7cb05a3d5c22": [
+          0
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -717,7 +934,7 @@
     "ordinal": 69,
     "word": "additional",
     "source_owner_path": "content/lexical/words/by-ordinal/o0069.json",
-    "source_fingerprint": "ea432ae594d66ccee88ef9020ab956e3adcc4e73de689b6f8f2f80e052f798f9",
+    "source_fingerprint": "adfba42b9c1d88901366f7750425dab2d21d87f4a679f1565ac4603834c1d7b7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -771,6 +988,26 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈdɪ.ʃə.nəl/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "additional"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -797,7 +1034,7 @@
     "ordinal": 70,
     "word": "address",
     "source_owner_path": "content/lexical/words/by-ordinal/o0070.json",
-    "source_fingerprint": "8994e5ebb19fb664c65fea755de0c6096a7d284f6bad2371abfe56f019b43255",
+    "source_fingerprint": "2fd27d58aeaa1d9469cd43f0e41581a65077ebc4459c8308113252be6e474bc2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -962,6 +1199,119 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæ.drɛs/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:address:3ff52c8e25e75cb2"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "explicit_sound_poses": [
+                "noun"
+              ],
+              "surface": "address",
+              "sense_ids": [
+                "sense:address:3ff52c8e25e75cb2"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "US"
+                ],
+                "poses": [
+                  "noun"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:address:3a3a81ef4c935758",
+                "sense:address:24bdfba1f4f35e11",
+                "sense:address:ce2bb2569b855cd9"
+              ],
+              "scope_note": "Exact current owner meaning is matched to the cited source glosses; each sound is confined to this explicit identity subset."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ə.ˈdrɛs/",
+          "locales": [],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:address:24bdfba1f4f35e11"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "explicit_sound_poses": [
+                "verb"
+              ],
+              "surface": "address",
+              "sense_ids": [
+                "sense:address:24bdfba1f4f35e11"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "poses": [
+                  "verb"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:address:3a3a81ef4c935758",
+                "sense:address:3ff52c8e25e75cb2",
+                "sense:address:ce2bb2569b855cd9"
+              ],
+              "scope_note": "Exact current owner meaning is matched to the cited source glosses; each sound is confined to this explicit identity subset."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈdɹɛs/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "address",
+              "sense_ids": [
+                "sense:address:3a3a81ef4c935758"
+              ],
+              "scope": "exact_missing_L1_targets_only",
+              "pos": [
+                "verb"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:address:3ff52c8e25e75cb2": [
+          0
+        ],
+        "sense:address:24bdfba1f4f35e11": [
+          1
+        ],
+        "sense:address:3a3a81ef4c935758": [
+          2
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -1072,7 +1422,7 @@
     "ordinal": 71,
     "word": "adequate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0071.json",
-    "source_fingerprint": "b56f47213840c71f32e42468ec08d87d4726cd272c3837c7fd4d7d2cce1f732b",
+    "source_fingerprint": "5aea6e297ea5bde3e6671de19d89de92b9a0209349e4f5d2c59ca1980e3a3923",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1175,6 +1525,148 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæd.ə.kwɪt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adequate",
+              "sense_ids": [
+                "sense:adequate:5c9cb15075de51b6"
+              ],
+              "binding_basis": "Independently reviewed exact owner/source semantic scope; original raw scope and conditions retained.",
+              "conditions": {
+                "tags": [
+                  "US"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:adequate:a146a479eaab592b"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæ.də.kɪt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adequate",
+              "sense_ids": [
+                "sense:adequate:5c9cb15075de51b6"
+              ],
+              "binding_basis": "Independently reviewed exact owner/source semantic scope; original raw scope and conditions retained.",
+              "conditions": {
+                "tags": [
+                  "US",
+                  "proscribed"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:adequate:a146a479eaab592b"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæ.də.kwɪt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adequate",
+              "sense_ids": [
+                "sense:adequate:a146a479eaab592b"
+              ],
+              "binding_basis": "Independently reviewed exact owner/source semantic scope; original raw scope and conditions retained.",
+              "conditions": {
+                "tags": [
+                  "US"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:adequate:5c9cb15075de51b6"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæd.ɪ.kwət/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "adequate",
+              "sense_ids": [
+                "sense:adequate:5c9cb15075de51b6"
+              ],
+              "binding_basis": "Independently reviewed exact owner/source semantic scope; original raw scope and conditions retained.",
+              "conditions": {
+                "tags": [
+                  "Received-Pronunciation"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:adequate:a146a479eaab592b"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæ.də.kwət/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "adequate",
+              "sense_ids": [
+                "sense:adequate:a146a479eaab592b"
+              ],
+              "binding_basis": "Independently reviewed exact owner/source semantic scope; original raw scope and conditions retained.",
+              "conditions": {
+                "tags": [
+                  "UK"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:adequate:5c9cb15075de51b6"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:adequate:5c9cb15075de51b6": [
+          0,
+          1,
+          3
+        ],
+        "sense:adequate:a146a479eaab592b": [
+          2,
+          4
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1190,7 +1682,7 @@
     "ordinal": 72,
     "word": "adhere",
     "source_owner_path": "content/lexical/words/by-ordinal/o0072.json",
-    "source_fingerprint": "948204882ccbf383a6c9a21c84c5a311260d003c4faf1cfbe656d96888cd1f66",
+    "source_fingerprint": "edd0c066ce56c3dfd4f00e89d15d66bc6e13beafd89d0501fff8191b1c3e6e74",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1327,6 +1819,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ædˈhɪɹ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adhere"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ædˈhɪə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "adhere"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -1381,7 +1905,7 @@
     "ordinal": 73,
     "word": "adjacent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0073.json",
-    "source_fingerprint": "0bdbc72e4add3a5510d93d4ad8b11bbed331afc46e69f49a9000e2e73c641468",
+    "source_fingerprint": "187f6b7f52acdeb6a89709ae76c5a4fd59423b528aeb5bf93cb82d6d7b27cfcd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1440,6 +1964,37 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈd͡ʒeɪ.sənt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "adjacent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈdʒeɪ.sənt/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "adjacent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1455,7 +2010,7 @@
     "ordinal": 74,
     "word": "adjective",
     "source_owner_path": "content/lexical/words/by-ordinal/o0074.json",
-    "source_fingerprint": "a7d86d55d489cad1e7057445e906e0fbca20bc2a74f1ba725feedbacf37a5f61",
+    "source_fingerprint": "202c6c7ec1a9df83b4703e689a7740709ffcf1bd5f4b9dd14fcdbacd660535ce",
     "sense_lineage": [
       {
         "word_id": "word:adjective",
@@ -1514,6 +2069,93 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæd͡ʒ.ə.tɪv/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "adjective"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæd͡ʒ.ək.tɪv/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "adjective"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæd͡ʒ.ɛk.tɪv/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "adjective"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæd͡ʒ.ɪk.tɪv/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "adjective"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæ.d͡ʒɪk.tɪv/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "adjective"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæd͡ʒ.ɪk.tɪv/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adjective"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæ.d͡ʒɪk.tɪv/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adjective"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -1542,7 +2184,75 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:adjective:2f2bde73e4415f0a",
+          "status": "merged",
+          "merged_into_sense_id": "sense:adjective:badac54723a45485",
+          "pos": "adjective",
+          "definition_cn": "程序法的",
+          "definition_en": "relating to court practice and procedure as opposed to the principles of law",
+          "semantic_key": "1528fc4cce54855577e8d0f10560f13f1f646531ad20f8407fc4369290419d1f",
+          "semantic_key_history": [
+            "9260a5b5e726cb6b2004748466d5f9c21d21d02f846d47d628f2cdea3f79c933"
+          ],
+          "legacy_aliases": [
+            "adjective:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "adjective:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 201,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:adjective:badac54723a45485",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "形容词",
+          "definition_en": "a word that expresses an attribute of something",
+          "semantic_key": "57e7b7b43a3c0490904bd57e18382fbeb55b2d5b9864dec5e925501dc8974233",
+          "semantic_key_history": [
+            "85fc216989fadc34f603ddb31ea585c4f47a8f59bb4cdb6a7e2ed45b7fc760d6"
+          ],
+          "legacy_aliases": [
+            "adjective:l1:1"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "adjective:l1:1",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 203,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:adjective:handoff-b59ee31f2c501427",
+          "status": "deprecated",
+          "merged_into_sense_id": "sense:adjective:8d8bdf9af207566f",
+          "pos": "noun",
+          "definition_cn": "形容词",
+          "definition_en": "a word that describes or modifies a noun",
+          "semantic_key": "6689c30f00853c62b78009cb798a75282adfb8e9644dc040a97078d107a5bde2",
+          "semantic_key_history": [],
+          "legacy_aliases": [],
+          "legacy_alias_history": [],
+          "updated_at": "2026-09-14T00:00:00Z",
+          "source_row": 19506,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -1551,7 +2261,7 @@
     "ordinal": 75,
     "word": "adjust",
     "source_owner_path": "content/lexical/words/by-ordinal/o0075.json",
-    "source_fingerprint": "e416be1f9b0478822ff8551f46226a2035309ac55f385f3ae4067e9ff6f8a195",
+    "source_fingerprint": "876d884448159322fcc26806aa3c96d98f5cd77a5b328dbab0d9aaaa70e58b21",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1649,6 +2359,26 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈd͡ʒʌst/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "adjust"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1683,7 +2413,7 @@
     "ordinal": 76,
     "word": "administer",
     "source_owner_path": "content/lexical/words/by-ordinal/o0076.json",
-    "source_fingerprint": "dac03ee9e1d1fc1d81af20e65227708e2fa88bc5c039f5a19cf80e0dbe193999",
+    "source_fingerprint": "772194d45e9c9a8cc91c641a038d1daf973f3c51bdcf7f8e8b1e2d9773ff3c3a",
     "sense_lineage": [
       {
         "word_id": "word:administer",
@@ -1745,6 +2475,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ədˈmɪn.ɪ.stɚ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "administer"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ədˈmɪn.ɪ.stə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "administer"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -1794,7 +2556,32 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:administer:698f942426ae5f66",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "给予帮助",
+          "definition_en": "to give help",
+          "semantic_key": "ad545781bf4795d41ee00572e84a81b74086adef396abefe79a8df5414a9e202",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "administer:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "administer:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-15T05:20:00Z",
+          "source_row": 207,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -1803,7 +2590,7 @@
     "ordinal": 77,
     "word": "administration",
     "source_owner_path": "content/lexical/words/by-ordinal/o0077.json",
-    "source_fingerprint": "8d615052ba47286d2b449191ab2611f0c4e67304249a572dd4eb3852e6a03d49",
+    "source_fingerprint": "357b8ab059e86a9840c9b0a282327398bd2e81934b51b5c422bcfbb20af3235f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1943,6 +2730,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ədˌmɪn.əˈstɹeɪ.ʃən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "administration"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ədˌmɪn.ɪˈstɹeɪ.ʃən/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "administration"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1958,7 +2777,7 @@
     "ordinal": 78,
     "word": "admire",
     "source_owner_path": "content/lexical/words/by-ordinal/o0078.json",
-    "source_fingerprint": "21a47d29dc47c1c4c45bee6273c3b35c00fed1c22f243782acacde5ab8907969",
+    "source_fingerprint": "d5b666d7ff9f5cfeb832cbce969c546685fd20f5c7e76a3cd313c3e19065e1da",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2043,6 +2862,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ədˈmaɪɹ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "admire"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ədˈmaɪə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "admire"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2058,7 +2909,7 @@
     "ordinal": 79,
     "word": "admission",
     "source_owner_path": "content/lexical/words/by-ordinal/o0079.json",
-    "source_fingerprint": "d326390c02a52b99f222dd1a47d329b065fc1e46c7fe99c6e3e4e7ae7e551c92",
+    "source_fingerprint": "08f43b870d5c3e177741caecd20a14b7d1c3317f10d395328a281b6a06eb44e3",
     "sense_lineage": [
       {
         "word_id": "word:admission",
@@ -2206,6 +3057,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ədˈmɪʃən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "admission"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ædˈmɪʃ.n̩/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "admission"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -2255,7 +3138,32 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:admission:d57f24639ae453e6",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "入场费",
+          "definition_en": "the fee charged for admission",
+          "semantic_key": "e6ce44b3e0ad9b269f971449787498781d411a554742b39cbea6742c1cf29c29",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "admission:l2:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "admission:l2:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-15T05:20:00Z",
+          "source_row": 218,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -2264,7 +3172,7 @@
     "ordinal": 80,
     "word": "admit",
     "source_owner_path": "content/lexical/words/by-ordinal/o0080.json",
-    "source_fingerprint": "c454cb31d3fa122ff40f0a3f7273568f834675fd6ddfcf2b81e5fdc79690dfd0",
+    "source_fingerprint": "de2a75aecc1c0ce2f9a847b792423746e82ead1b6eac19d771a424f83991185e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2440,6 +3348,49 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ədˈmɪt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "admit"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ædˈmɪt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "admit"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ədˈmɪt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "admit"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -2498,7 +3449,7 @@
     "ordinal": 81,
     "word": "adolescent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0081.json",
-    "source_fingerprint": "f279164130c979eeca685990cfeacd674b124cbba6c1b67a24a85636f78a64c9",
+    "source_fingerprint": "9730b099c3c074f77472104cccef9be3c98c52184005a147661ec207fa696fa5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2570,6 +3521,60 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˌæd.əˈlɛs.ənt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "adolescent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˌædəˈlɛsənt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "adolescent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˌæd.əˈlɛs.ənt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adolescent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˌædəˈlɛsənt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adolescent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2600,7 +3605,7 @@
     "ordinal": 82,
     "word": "adopt",
     "source_owner_path": "content/lexical/words/by-ordinal/o0082.json",
-    "source_fingerprint": "cf1e143d8a04cf5f24360be6e112ffa700a6762e034841c4f182c0610857d0d2",
+    "source_fingerprint": "422dec4f23809d461645d1d54f4731002f25dba0e01172c032e24ea8f1744f33",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2711,6 +3716,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈdɑpt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adopt"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈdɒpt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "adopt"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2744,7 +3781,7 @@
     "ordinal": 83,
     "word": "adore",
     "source_owner_path": "content/lexical/words/by-ordinal/o0083.json",
-    "source_fingerprint": "6cbbbc71329c31ec652003da3af55a0a222f0f6a45e760662e7acfcbb8bdae13",
+    "source_fingerprint": "ab03c5ef09a742639599dde15c5d3b4d8c7f8460b946b85ea499252ca7f942a8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2808,6 +3845,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈdoɹ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adore"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈdɔː/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "adore"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2823,7 +3892,7 @@
     "ordinal": 84,
     "word": "adult",
     "source_owner_path": "content/lexical/words/by-ordinal/o0084.json",
-    "source_fingerprint": "678d2e04982561a34dd07a66794ea92f2299eeca98fab426f14ccbfd392c7947",
+    "source_fingerprint": "c2d1a9fb97e56f63b6c8567459a79ef0f84d40dbda3a59628cd79d4d6cf78c1a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2921,6 +3990,51 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæd.əlt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "adult"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæd.ʌlt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "adult"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæd.əlt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adult"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2936,7 +4050,7 @@
     "ordinal": 85,
     "word": "advance",
     "source_owner_path": "content/lexical/words/by-ordinal/o0085.json",
-    "source_fingerprint": "813b04fd2956b55b1f9872708e877914230299c236b0d4ecb68bcda733c4315c",
+    "source_fingerprint": "ced220df8dda931d069ce5afee03bc692775a5934a37579ea8d38ad5aca02ae8",
     "sense_lineage": [
       {
         "word_id": "word:advance",
@@ -3116,6 +4230,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ədˈvæns/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "advance"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ədˈvɑːns/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "advance"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [
       {
         "id": "deep:secondary_senses:advance:21cb586e25139029",
@@ -3222,7 +4368,88 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:advance:412776a1691953f8",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "预付",
+          "definition_en": "to pay money before it is due",
+          "semantic_key": "68534320b918380b18f46859d728a55a3083ad3cd4dc95c280c4f023931c5629",
+          "semantic_key_history": [
+            "0a52ceb6a79f531f3fca9d8c367e590beef84ffd63b2c9aa7de97042035e0b6c"
+          ],
+          "legacy_aliases": [
+            "advance:l2:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "advance:l2:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 233,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:advance:6327a3cf3629541d",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "求爱/亲近的举动；示好",
+          "definition_en": "an approach or suggestion intended to begin a closer, often romantic or sexual, relationship",
+          "semantic_key": "3ebe063742159ac47113cedf6d35414d93e9f86ccb3656898d1de16e899b38df",
+          "semantic_key_history": [
+            "b88f9d3882e5bc1d6d3562f8d697c266066e38123fc85f1cef517d91330db0e4"
+          ],
+          "legacy_aliases": [],
+          "legacy_alias_history": [],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 236,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:advance:76f144674d4a5021",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "晋升；提拔",
+          "definition_en": "to raise someone to a higher rank or position",
+          "semantic_key": "7cfb9fc9309d5828d5f0333140494d928686415cbc31e7de9f1253879544f2ef",
+          "semantic_key_history": [
+            "0f06e13315938b734d639180ec4cd8fb266ccd0da17572ea373a3e0365589503"
+          ],
+          "legacy_aliases": [],
+          "legacy_alias_history": [],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 237,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:advance:9eaaaa5945565726",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "上涨；涨价；升值",
+          "definition_en": "an increase in price, rate, or value",
+          "semantic_key": "ec258f0b9168963313b9cd930c293a6cea439e1a740d6d66864b5acfd527ab21",
+          "semantic_key_history": [
+            "bebd0cbe2c7a636cddf5561af2e09c3aaf31f443a7a13eaddfc23475ce51d410"
+          ],
+          "legacy_aliases": [],
+          "legacy_alias_history": [],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 238,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -3231,7 +4458,7 @@
     "ordinal": 86,
     "word": "advanced",
     "source_owner_path": "content/lexical/words/by-ordinal/o0086.json",
-    "source_fingerprint": "2fea0e08c4c0b85b13b6844dfb56e33f60bd0a7898779fe04e9f3f2d9167b15b",
+    "source_fingerprint": "a58a3b8920f17ab65420243417e7098a7eb4aee190c083d97ca19311f2f732c9",
     "sense_lineage": [
       {
         "word_id": "word:advanced",
@@ -3319,6 +4546,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ədˈvænst/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "advanced"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ədˈvɑːnst/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "advanced"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -3368,7 +4627,34 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:advanced:86206d21e4bb588e",
+          "status": "merged",
+          "merged_into_sense_id": "sense:advanced:6910a7a3ec9858f4",
+          "pos": "adjective",
+          "definition_cn": "超前的；先进的",
+          "definition_en": "ahead of the times",
+          "semantic_key": "7b38a699edf9053498872654be70fda12202c73f4809d553830072c8efd3172e",
+          "semantic_key_history": [
+            "a4234e29f9d4201bc7224076b4094966c9ca9f01777f61793a8f8690f12d86a5"
+          ],
+          "legacy_aliases": [
+            "advanced:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "advanced:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 242,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -3377,7 +4663,7 @@
     "ordinal": 87,
     "word": "advantage",
     "source_owner_path": "content/lexical/words/by-ordinal/o0087.json",
-    "source_fingerprint": "3d1cd2ddb9e94c4ff021388de505cef36a23ade5a9830423a65df25964f2baa8",
+    "source_fingerprint": "4c6e1fa99e5848458899f31f36440975dbe359f46dd1255794a1c6eb828dbc02",
     "sense_lineage": [
       {
         "word_id": "word:advantage",
@@ -3443,6 +4729,25 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ədˈvɑːn.tɪd͡ʒ/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "advantage"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -3492,7 +4797,100 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:advantage:146a4f2320b050ac",
+          "status": "merged",
+          "merged_into_sense_id": "sense:advantage:2a27fb744f8e53c3",
+          "pos": "noun",
+          "definition_cn": "（网球）占先",
+          "definition_en": "in tennis, the first point scored after deuce",
+          "semantic_key": "7fdd5bf13c3fd0e4b290109b0b205171ce5e1d4c71c078d2afa640029cf6a23a",
+          "semantic_key_history": [
+            "58031b5a5a49eb291d05dda88b770e997c5ee0220095d0578a931028a290f14f"
+          ],
+          "legacy_aliases": [
+            "advantage:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "advantage:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 244,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:advantage:765ee61817dc5236",
+          "status": "merged",
+          "merged_into_sense_id": "sense:advantage:2a27fb744f8e53c3",
+          "pos": "noun",
+          "definition_cn": "好处；利益",
+          "definition_en": "a benefit or profit gained from something",
+          "semantic_key": "3a2ad5d5d23b862b257b28d9ea9994e9a9d0bdb5f2c0c4cbc727cd2e2f66a142",
+          "semantic_key_history": [
+            "e1a0b0232dae0418c2e7fd26ab974477e6b6d580cbc94133b4a5c0401a03bf55"
+          ],
+          "legacy_aliases": [
+            "advantage:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "advantage:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 246,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:advantage:fe9b146f3f9855ea",
+          "status": "merged",
+          "merged_into_sense_id": "sense:advantage:2a27fb744f8e53c3",
+          "pos": "verb",
+          "definition_cn": "有助于；使有利",
+          "definition_en": "to give an advantage to someone",
+          "semantic_key": "f1fa30115dbc36e6b3b6fc0ad034f951249b02e4e33345c25fff9969c02921cd",
+          "semantic_key_history": [
+            "54f6eae318c546f8fd462988e86f7482b1eeab7ea479e602d9880550e80669f5"
+          ],
+          "legacy_aliases": [
+            "advantage:l3:4"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "advantage:l3:4",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 247,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:advantage:handoff-82b0dc96b34b4a38",
+          "status": "deprecated",
+          "merged_into_sense_id": "sense:advantage:2a27fb744f8e53c3",
+          "pos": "noun",
+          "definition_cn": "优势；好处；有利地位",
+          "definition_en": "a favorable condition or position that benefits someone",
+          "semantic_key": "6ffc7f7de34cf1f34d4a9212e000c1300db150015e5d98f30076322653fa8217",
+          "semantic_key_history": [],
+          "legacy_aliases": [],
+          "legacy_alias_history": [],
+          "updated_at": "2026-09-14T00:00:00Z",
+          "source_row": 19515,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -3501,7 +4899,7 @@
     "ordinal": 88,
     "word": "advent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0088.json",
-    "source_fingerprint": "c0ba700153ccddc79268dbbe0e7091e6be73db44e648c14aeba66f5076c693b6",
+    "source_fingerprint": "6746e1f3326e9ea91fa0b304e13cd2add9c3e9546de5c3fc7cc24d410c93d663",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3591,6 +4989,53 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæd.vənt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "advent",
+              "sense_ids": [
+                "sense:advent:85fd73d733225a16"
+              ],
+              "excluded_sense_ids": [
+                "sense:advent:0a8c592279055e20"
+              ],
+              "scope_note": "Exact source headword content only. Unmarked IPA stays region null. Existing case, inflection, named-identity and Form boundaries remain unchanged; no first pronunciation or main-meaning default."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæd.vɛnt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "advent",
+              "sense_ids": [
+                "sense:advent:85fd73d733225a16"
+              ],
+              "excluded_sense_ids": [
+                "sense:advent:0a8c592279055e20"
+              ],
+              "scope_note": "Exact source headword content only. Unmarked IPA stays region null. Existing case, inflection, named-identity and Form boundaries remain unchanged; no first pronunciation or main-meaning default."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:advent:85fd73d733225a16": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3627,7 +5072,7 @@
     "ordinal": 89,
     "word": "adventure",
     "source_owner_path": "content/lexical/words/by-ordinal/o0089.json",
-    "source_fingerprint": "aedb14f10b4c142b9362b7e994db7bbbf951f6fb4a826fb9190004a92211fa80",
+    "source_fingerprint": "bcafffb96a0125050c3d6113c01b5c7bff03464b7c86605f38843165c7680e17",
     "sense_lineage": [
       {
         "word_id": "word:adventure",
@@ -3694,13 +5139,83 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ædˈvɛnt͡ʃɚ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adventure"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ədˈvɛn.t͡ʃɚ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adventure"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ədˈvɛn.t͡ʃə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "adventure"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:adventure:4c2107c79c4857d5",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "冒险；大胆尝试",
+          "definition_en": "to take a risk; to dare to do something",
+          "semantic_key": "3571d8a1a992f8a386424dd653e87e605407950839cd999220490d7dd338d97a",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "adventure:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "adventure:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-15T05:20:00Z",
+          "source_row": 250,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -3709,7 +5224,7 @@
     "ordinal": 90,
     "word": "adverb",
     "source_owner_path": "content/lexical/words/by-ordinal/o0090.json",
-    "source_fingerprint": "02333549d0d9ee2891bd2f6b432f229586a25bfe8dc873e680b0705017e99427",
+    "source_fingerprint": "721c729cee2bbe11b137815cf6963b402456d2ce8c6fcded1614b529ba6ef7fe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3773,6 +5288,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæd.vɜɹb/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "adverb"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæd.vɜːb/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "adverb"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3788,7 +5335,7 @@
     "ordinal": 91,
     "word": "adverse",
     "source_owner_path": "content/lexical/words/by-ordinal/o0091.json",
-    "source_fingerprint": "e7384fe4cc91d7e3860b9edd794e8456881b111bec669598e4cf4751773242c3",
+    "source_fingerprint": "175bdac16af542ad527a0cbd390a130ebdf3a5b3598a0488f665d030da31f4ff",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3868,6 +5415,46 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæd.və(ɹ)s/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "adverse",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ədˈvɜ(ɹ)s/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "adverse",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                }
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3901,7 +5488,7 @@
     "ordinal": 92,
     "word": "advertise",
     "source_owner_path": "content/lexical/words/by-ordinal/o0092.json",
-    "source_fingerprint": "c8057f5d3f0c3967f15b6f5d7cdb65f2df1d8bc780c8b53f340e2a58e47b2bcf",
+    "source_fingerprint": "4a5c3f2878c625c89a36a6f3582699ea452141dbf0f78d7447f9c4a2084c4a1d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4030,6 +5617,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈædvɚˌtaɪ̯z/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "advertise"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈædvəˌtaɪ̯z/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "advertise"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4045,7 +5664,7 @@
     "ordinal": 93,
     "word": "advice",
     "source_owner_path": "content/lexical/words/by-ordinal/o0093.json",
-    "source_fingerprint": "75687c5c9ed2713b5444c2bc46a4f1884cccd1770196453bdb0cadcf479e39e1",
+    "source_fingerprint": "a33424cde53837205c85dfcc946619eb262f688558d3368eec9b15501455930e",
     "sense_lineage": [
       {
         "word_id": "word:advice",
@@ -4097,6 +5716,25 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ədˈvaɪs/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "advice"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -4164,7 +5802,50 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:advice:01de253b561058d3",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "通知；报道",
+          "definition_en": "a formal notice or report",
+          "semantic_key": "6530f24f52e29760c7a864de52f4126fadb103d8313cbba2fc72b7135f76b1ca",
+          "semantic_key_history": [
+            "a8d9f0c99a7998b2a16d1790c03022930c526d9033dad039b396e0c36523cc5c"
+          ],
+          "legacy_aliases": [
+            "advice:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "advice:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 258,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:advice:handoff-918eefe255a9d4fe",
+          "status": "deprecated",
+          "merged_into_sense_id": "sense:advice:ad506be70a1a5a4f",
+          "pos": "noun",
+          "definition_cn": "建议；劝告（不可数）",
+          "definition_en": "an opinion about what someone should do",
+          "semantic_key": "506de02f62afe55c3c648a3d1e604b8ed92dc2fefd6f921272efe972d934150a",
+          "semantic_key_history": [],
+          "legacy_aliases": [],
+          "legacy_alias_history": [],
+          "updated_at": "2026-09-14T00:00:00Z",
+          "source_row": 19507,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -4173,7 +5854,7 @@
     "ordinal": 94,
     "word": "advisable",
     "source_owner_path": "content/lexical/words/by-ordinal/o0094.json",
-    "source_fingerprint": "37d2075ae6cab8a9e0fa851dd4e05ec16e6cb7db09dc12d198854663fccbcd81",
+    "source_fingerprint": "7d9060b306609c64be555f0dc42565a3c8d582aa4bee13b16148c7694241a1e7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4232,6 +5913,23 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ədˈvʌɪzəbl/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "advisable"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4247,7 +5945,7 @@
     "ordinal": 95,
     "word": "advise",
     "source_owner_path": "content/lexical/words/by-ordinal/o0095.json",
-    "source_fingerprint": "9e74b827262e8af9f57fdd5873f774931254b046cbf3cc9e0052ec3749dfdc10",
+    "source_fingerprint": "1292ef15db1a4c649991676e0f419c3b60fee4109d89ae356e6f9af371d48ff0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4358,6 +6056,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ədˈvaɪz/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "advise"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ædˈvaɪz/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "advise"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -4445,7 +6173,7 @@
     "ordinal": 96,
     "word": "advocate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0096.json",
-    "source_fingerprint": "53fdc2741d26e1418be6ddc4cb4c9de5f460992ed889740a0574b318c376cc94",
+    "source_fingerprint": "abeeb77d5bc792ee07dbaa6dd8229bcb9ced23601fa2d0e6cf290a779e776fdc",
     "sense_lineage": [
       {
         "word_id": "word:advocate",
@@ -4522,6 +6250,53 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæd.və.kət/",
+          "locales": [],
+          "applicability": [
+            {
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:advocate:57dc30b549145007"
+              ]
+            }
+          ],
+          "learner_reading": "ADVOCATE (noun): /-kət/",
+          "evidence_basis": "existing_form",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæd.və.keɪt/",
+          "locales": [],
+          "applicability": [
+            {
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:advocate:ef64940b713b57c7"
+              ]
+            }
+          ],
+          "learner_reading": "ADVOCATE (verb): /-keɪt/",
+          "evidence_basis": "existing_form",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:advocate:57dc30b549145007": [
+          0
+        ],
+        "sense:advocate:ef64940b713b57c7": [
+          1
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -4607,7 +6382,66 @@
           "target_label": ""
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:advocate:1cb3acc010745c21",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "律师；辩护人",
+          "definition_en": "a lawyer who pleads cases in court",
+          "semantic_key": "f6b5949b451886a8e68161ac6b4d693c294a4f6604937f2344c5cb869c4af388",
+          "semantic_key_history": [
+            "ee39d668902339b50d7e9ec9d768699724d57936258c7980977ed6ccf43ac4f7"
+          ],
+          "legacy_aliases": [
+            "advocate:l2:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "advocate:l2:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 263,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:advocate:handoff-274fbec09e3f8964",
+          "status": "deprecated",
+          "merged_into_sense_id": "sense:advocate:ef64940b713b57c7",
+          "pos": "verb",
+          "definition_cn": "公开支持；主张",
+          "definition_en": "publicly support or recommend a cause or action",
+          "semantic_key": "a934373e8138fa3b3b42210b70f2b72b281c669503de47a51883599a05b2f3f9",
+          "semantic_key_history": [],
+          "legacy_aliases": [],
+          "legacy_alias_history": [],
+          "updated_at": "2026-09-14T00:00:00Z",
+          "source_row": 19508,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:advocate:handoff-ff5aa2d507acef92",
+          "status": "deprecated",
+          "merged_into_sense_id": "sense:advocate:57dc30b549145007",
+          "pos": "noun",
+          "definition_cn": "支持者；倡导者",
+          "definition_en": "a person who publicly supports a cause",
+          "semantic_key": "fbcc4978f7f20712df95ab724028bb2b4ea05c937d2310dc6bd6b8a8bbc62593",
+          "semantic_key_history": [],
+          "legacy_aliases": [],
+          "legacy_alias_history": [],
+          "updated_at": "2026-09-14T00:00:00Z",
+          "source_row": 19509,
+          "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -4616,7 +6450,7 @@
     "ordinal": 97,
     "word": "aerial",
     "source_owner_path": "content/lexical/words/by-ordinal/o0097.json",
-    "source_fingerprint": "6a4ee8ed788ba8241d06e4a34ac3fd85b8fcff0e202b6ea55341ef1217e61e91",
+    "source_fingerprint": "19b041f285bbe50b6eae462697d88f15d61755e693622dfd02ba08999b0a4046",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4697,6 +6531,25 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛəɹiəl/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "aerial"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -4734,7 +6587,7 @@
     "ordinal": 98,
     "word": "aeroplane",
     "source_owner_path": "content/lexical/words/by-ordinal/o0098.json",
-    "source_fingerprint": "f8c5bf02ea643748d557d2b6077c1847f2de3b65ed2113a4e0a20fda5103411d",
+    "source_fingerprint": "d16097a2d953db1d182fd4ce480a0c04d00bc878149d87397a1877a7d467923d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4793,6 +6646,25 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈɛə̯.ɹə.pleɪ̯n/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "aeroplane"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -4848,7 +6720,7 @@
     "ordinal": 99,
     "word": "affair",
     "source_owner_path": "content/lexical/words/by-ordinal/o0099.json",
-    "source_fingerprint": "ae35db429cf7c1c03b7bd735e9a0199977d56f16f89dac5657b7ca9b73949076",
+    "source_fingerprint": "39f6a0abd33cb53deeca146ed9360ef218498b20cf7a67a9589f6923cfdbe1ae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4959,6 +6831,51 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈfɛɚ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "affair"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈfɛɹ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "affair"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈfɛə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "affair"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4974,7 +6891,7 @@
     "ordinal": 100,
     "word": "affect",
     "source_owner_path": "content/lexical/words/by-ordinal/o0100.json",
-    "source_fingerprint": "8c5d72389ccfb9ac4a76b54fc73c026ecbeca714a04b6b044a37ca9eafca2738",
+    "source_fingerprint": "62e20889da31b6fccaa4e447ab75d19678a594bc791aba3f646348576c0562bf",
     "sense_lineage": [
       {
         "word_id": "word:affect",
@@ -5090,6 +7007,57 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈfekt/",
+          "locales": [],
+          "applicability": [
+            {
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:affect:b504aff098e55ebd",
+                "sense:affect:b8d5492ed2d05dfc"
+              ]
+            }
+          ],
+          "learner_reading": "verb: af-FECT",
+          "evidence_basis": "existing_form",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæf.ekt/",
+          "locales": [],
+          "applicability": [
+            {
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:affect:612955c748a951c1"
+              ]
+            }
+          ],
+          "learner_reading": "noun: AF-fect",
+          "evidence_basis": "existing_form",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:affect:b504aff098e55ebd": [
+          0
+        ],
+        "sense:affect:b8d5492ed2d05dfc": [
+          0
+        ],
+        "sense:affect:612955c748a951c1": [
+          1
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -5161,7 +7129,32 @@
           "target_label": ""
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:affect:6cb6d972c01d5dba",
+          "status": "reference_only",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "假装；佯装",
+          "definition_en": "to pretend to have a feeling or way of behaving",
+          "semantic_key": "749deb21692fb30f6aefede20d267c8fee771bd3324c15ef5786e0a3c1074920",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "affect:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "affect:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-14T00:00:00+00:00",
+          "source_row": 273,
+          "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -5170,7 +7163,7 @@
     "ordinal": 101,
     "word": "affection",
     "source_owner_path": "content/lexical/words/by-ordinal/o0101.json",
-    "source_fingerprint": "2f779b7dc2f61b219f4d9dad14029afe9deeb11a20c984d2707fa91cf5c03b48",
+    "source_fingerprint": "97877660122a72588e434cf97fc3af9e93c098841c81011a8487a0b22fed22dc",
     "sense_lineage": [
       {
         "word_id": "word:affection",
@@ -5237,13 +7230,81 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈfɛk.t͡ʃən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "affection"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈfɛk.ʃən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "affection"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ʌ.fɛk.ʃən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "affection"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:affection:64c31b85c91a57e4",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "疾病；病变",
+          "definition_en": "a disease or medical condition (medical sense)",
+          "semantic_key": "77c91258010d9139ac5b1d34c37edc4a7f3eece0aab13fa5bbbe2e87dc6be9d6",
+          "semantic_key_history": [
+            "a66eeada88edb3f2c9670983148c58209ab21a1a3453c38ce71a9ac6e5ff46e6"
+          ],
+          "legacy_aliases": [
+            "affection:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "affection:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 277,
+          "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -5252,7 +7313,7 @@
     "ordinal": 102,
     "word": "affiliate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0102.json",
-    "source_fingerprint": "b7cdfa5de63223ace4b646040dce72826df8f0536214d20609f8e399d7fa1833",
+    "source_fingerprint": "a52f494ae1b3702d763d89b154901ef40502a4320c75f09473f961494fffba0d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5361,6 +7422,101 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈfɪl.i.ət/",
+          "locales": [
+            "en-GB",
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:affiliate:d76342e168c852ca"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "affiliate",
+              "sense_ids": [
+                "sense:affiliate:d76342e168c852ca"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "UK",
+                  "US"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:affiliate:fa7a9f4c99235b1d",
+                "sense:affiliate:c4e9317659a556b1"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈfɪl.i.eɪt/",
+          "locales": [
+            "en-GB",
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:affiliate:fa7a9f4c99235b1d",
+                "sense:affiliate:c4e9317659a556b1"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "explicit_sound_poses": [
+                "verb"
+              ],
+              "surface": "affiliate",
+              "sense_ids": [
+                "sense:affiliate:fa7a9f4c99235b1d",
+                "sense:affiliate:c4e9317659a556b1"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "UK",
+                  "US"
+                ],
+                "poses": [
+                  "verb"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:affiliate:d76342e168c852ca"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:affiliate:d76342e168c852ca": [
+          0
+        ],
+        "sense:affiliate:c4e9317659a556b1": [
+          1
+        ],
+        "sense:affiliate:fa7a9f4c99235b1d": [
+          1
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -5419,7 +7575,7 @@
     "ordinal": 103,
     "word": "affirm",
     "source_owner_path": "content/lexical/words/by-ordinal/o0103.json",
-    "source_fingerprint": "0b2a4512195ccee6ebfe6d894bc49c8d4c343b3e7a8dc7c18c797fda7299803d",
+    "source_fingerprint": "6748a1671b1f00f57a1f31405c3a19648b4f791bc3c1a399e57addb4d092fec6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5509,6 +7665,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈfɝm/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "affirm"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈfɜːm/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "affirm"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -5546,7 +7734,7 @@
     "ordinal": 104,
     "word": "affluent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0104.json",
-    "source_fingerprint": "ef57b56fc6c2a61ef2b5d322e8a6f604015427a921176316a84f6c5683842f50",
+    "source_fingerprint": "a9ee12dd8a619e14aa73e354b8cac10649897e380342081fdaca694b24f509a2",
     "sense_lineage": [
       {
         "word_id": "word:affluent",
@@ -5598,6 +7786,82 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/æˈfluːənt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "affluent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈfluːənt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "affluent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæf.lu.ənt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "affluent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæfluːənt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "affluent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæfluːənt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "affluent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæf.lu.ənt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "affluent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5623,6 +7887,54 @@
           ],
           "source_locator": "record.word_family[0]"
         }
+      ],
+      "senses": [
+        {
+          "stable_sense_id": "sense:affluent:3a89ecaa5e4a572d",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "支流",
+          "definition_en": "a stream that flows into a larger body of water",
+          "semantic_key": "148f588362fb965dd91d91ca3618f1ae0a833fbc1f1a70175bf57977328fa4b9",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "affluent:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "affluent:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-15T05:20:00Z",
+          "source_row": 284,
+          "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:affluent:911c08bed91c5211",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "富人",
+          "definition_en": "an affluent person; a person who is financially well off",
+          "semantic_key": "e7bdef7eafa89926ab41cbae974a3a4f3634a7dce1140d9c1c4f35c58ec53f03",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "affluent:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "affluent:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-15T05:20:00Z",
+          "source_row": 285,
+          "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+          "reference_only": true
+        }
       ]
     }
   },
@@ -5632,7 +7944,7 @@
     "ordinal": 105,
     "word": "afford",
     "source_owner_path": "content/lexical/words/by-ordinal/o0105.json",
-    "source_fingerprint": "f0fc667808be1bca63a7d9f87e6e044e194b15475f01b33916ecb4123b862b35",
+    "source_fingerprint": "d4fbe5ad861913029e06a0afbdd4c7fd78af6253dcc51a3bfaf6215ee75faad3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5727,6 +8039,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈfoɹd/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "afford"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈfɔːd/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "afford"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -5785,7 +8129,7 @@
     "ordinal": 106,
     "word": "afraid",
     "source_owner_path": "content/lexical/words/by-ordinal/o0106.json",
-    "source_fingerprint": "81b3ecc9cd6b9516a28581ab0cbe92884cb5e1ddd8fb44ea12497fb6b2693c09",
+    "source_fingerprint": "833049ebe79fb5d8e521b7a85b3973a59077b8e43208f4bcb7b2d15020eaa809",
     "sense_lineage": [
       {
         "word_id": "word:afraid",
@@ -5864,6 +8208,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈfɹeɪd/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "afraid"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈfreɪd/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "afraid"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈfɹeɪd/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "afraid"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -5913,7 +8298,59 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:afraid:371112c256fc5a57",
+          "status": "merged",
+          "merged_into_sense_id": "sense:afraid:fdc504a287a15879",
+          "pos": "adjective",
+          "definition_cn": "恐怕；遗憾的",
+          "definition_en": "used to politely express regret or concern",
+          "semantic_key": "946180d7ed084fc1db4887d17c0f84f668bb9d37c79fed01546aee2b7c04d432",
+          "semantic_key_history": [
+            "95a6aceb3b5bb9474654a75840371cf6f2eecbb676bf00dfff7dce1bafca38b9"
+          ],
+          "legacy_aliases": [
+            "afraid:l1:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "afraid:l1:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 288,
+          "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:afraid:8a4fbae055ca5285",
+          "status": "merged",
+          "merged_into_sense_id": "sense:afraid:fdc504a287a15879",
+          "pos": "adjective",
+          "definition_cn": "不愿意的",
+          "definition_en": "unwilling to do something because of fear",
+          "semantic_key": "e9487c7e8ef764a3a72fd00b7eabddcc43c444b862e5fa1bca0ec3bc91102bb9",
+          "semantic_key_history": [
+            "35a8c3a2dee95d722d6aeb153ab676e828abc3f92804b78322b4575a223eda0a"
+          ],
+          "legacy_aliases": [
+            "afraid:l2:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "afraid:l2:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 289,
+          "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -5922,7 +8359,7 @@
     "ordinal": 107,
     "word": "after",
     "source_owner_path": "content/lexical/words/by-ordinal/o0107.json",
-    "source_fingerprint": "bdddf22a64290f31648d4d405776f32c09597e680a94a13fc1b58f73a295fd38",
+    "source_fingerprint": "82c96b37671ea0b873408c38c4f91cf8e816fd8bcab0589da3bde2188c8dd8db",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6048,6 +8485,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæftəɹ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "after"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɑːftə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "after"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -6102,7 +8571,7 @@
     "ordinal": 108,
     "word": "aftermath",
     "source_owner_path": "content/lexical/words/by-ordinal/o0108.json",
-    "source_fingerprint": "51929cb6d2a4c5278bd0385c8b9b8bdc4387ce743ed872eba3194c2843c43a35",
+    "source_fingerprint": "982b3f34f68583489246d5697dc90407b19719e5795164c513172d9861600ccf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6148,6 +8617,25 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæf.tɚˌmæθ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "aftermath"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -6181,7 +8669,7 @@
     "ordinal": 109,
     "word": "afternoon",
     "source_owner_path": "content/lexical/words/by-ordinal/o0109.json",
-    "source_fingerprint": "55f47f25eafe17bff93769addc18210b1b173c1bf25660471dac18c3cebe22c3",
+    "source_fingerprint": "312f32723b19f2ddeb15e05c62fa19ff20a1a1b104f4795929d8d0e6bd5d0266",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6235,6 +8723,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˌæf.tɚˈnun/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "afternoon"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˌɑːf.təˈnuːn/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "afternoon"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -6250,7 +8770,7 @@
     "ordinal": 110,
     "word": "afterward",
     "source_owner_path": "content/lexical/words/by-ordinal/o0110.json",
-    "source_fingerprint": "101920a7dde259df8b853c1824464f30a75ccf2c8c39deb2282dc5dc63854a24",
+    "source_fingerprint": "48910c4ebe351b88661893f98b439bd26c8ed4c31b5dccc2168fd2d970a378cb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6296,6 +8816,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæf.tɚ.wɚd/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "afterward"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɑːftə.wəd/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "afterward"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -6311,7 +8863,7 @@
     "ordinal": 111,
     "word": "again",
     "source_owner_path": "content/lexical/words/by-ordinal/o0111.json",
-    "source_fingerprint": "af9bc4aeed808d78f97e9abaa1f0a8bc778c1b80b5ea1a4d1c136190f795d68b",
+    "source_fingerprint": "eebd7a25fd6b738d0e3d6dbc08b71ff8fdc55df17098d45998ff481a01914bd6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6412,6 +8964,39 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈɡɛn/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "again"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈɡeɪn/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "again"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -6427,7 +9012,7 @@
     "ordinal": 112,
     "word": "against",
     "source_owner_path": "content/lexical/words/by-ordinal/o0112.json",
-    "source_fingerprint": "a1334890ab9d7f8fd7e0def155b559d3c560d3dfee1dfa7cc84e5bb9f127936c",
+    "source_fingerprint": "ff00123c52ceb1ac89c6c4669e8ab28be70c70540a419d614614d015bf1f6985",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6561,6 +9146,39 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈɡɛnst/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "against"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈɡeɪnst/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "against"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -6598,7 +9216,7 @@
     "ordinal": 113,
     "word": "age",
     "source_owner_path": "content/lexical/words/by-ordinal/o0113.json",
-    "source_fingerprint": "d7a91bb748add39f112c8ffcc6fb99878c4f8f1b6e49e305346620c827972fd4",
+    "source_fingerprint": "58a907bb06bd9db1cae358192c077902130b0aa3de5a4fd8ae7e4f95c193c785",
     "sense_lineage": [
       {
         "word_id": "word:age",
@@ -6744,6 +9362,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/eɪd͡ʒ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "age"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/eɪd͡ʒ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "age"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -6772,7 +9420,32 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:age:7d3c79f004d2582b",
+          "status": "merged",
+          "merged_into_sense_id": "sense:age:c4824c12f0745670",
+          "pos": "verb",
+          "definition_cn": "使变老；使老化",
+          "definition_en": "to cause to become older",
+          "semantic_key": "2227e93cb4954b250f18eb8255db294328fa58f36b19c0845316a401f8b5c094",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "age:l2:4"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "age:l2:4",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-08-22T05:00:00+00:00",
+          "source_row": 304,
+          "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -6781,7 +9454,7 @@
     "ordinal": 114,
     "word": "agency",
     "source_owner_path": "content/lexical/words/by-ordinal/o0114.json",
-    "source_fingerprint": "42e7267adfa2a62395da52ef8a2cab145d80c1c71fb7bee77d6769dea9bbd5dd",
+    "source_fingerprint": "93bc3f347ad5610bf2d897f24031359266c179e0f7aa0c66dc7ae4103d0d1659",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6903,6 +9576,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈeɪ.d͡ʒən.si/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "agency"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈeː.ʤən.si/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "agency"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -6918,7 +9621,7 @@
     "ordinal": 115,
     "word": "agenda",
     "source_owner_path": "content/lexical/words/by-ordinal/o0115.json",
-    "source_fingerprint": "3dc408c10f4a1b51a124a913e0d1e73b221f47af7543c169d7624d2dda127d81",
+    "source_fingerprint": "c03755a13513de734afd70b6447b4919ccfb0313cf44d7577cff370694c4ada5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7021,6 +9724,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈd͡ʒɛn.də/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "agenda"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈdʒɛn.də/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "agenda"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -7058,7 +9791,7 @@
     "ordinal": 116,
     "word": "agent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0116.json",
-    "source_fingerprint": "7e377822d44cd8e599d365854b7cc33d070e57adf9857cb24c59a72c7feed03f",
+    "source_fingerprint": "bbabd7e1ebe9267913cfcb9889ce47b3eff00d115a6b1526a76a39b158fa1df8",
     "sense_lineage": [
       {
         "word_id": "word:agent",
@@ -7216,13 +9949,79 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈeɪ̯d͡ʒənt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "agent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈeɪ.dʒənt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "agent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈeɪ.dʒənt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "agent"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:agent:fbabe64f671f53ad",
+          "status": "merged",
+          "merged_into_sense_id": "sense:agent:95313ca2eb995594",
+          "pos": "noun",
+          "definition_cn": "经纪人",
+          "definition_en": "a businessman who buys or sells for another in exchange for a commission",
+          "semantic_key": "83f8a6a000d8a08f3f7878be857a9a88ec1d8afa4756b3cbe295a73eed722582",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "agent:l3:4"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "agent:l3:4",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-15T05:20:00Z",
+          "source_row": 315,
+          "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -7231,7 +10030,7 @@
     "ordinal": 117,
     "word": "aggravate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0117.json",
-    "source_fingerprint": "16e33cb30e51649382282aae57d7af219d0aa50172e2b8d01f42009c618e22a2",
+    "source_fingerprint": "c47846a2e7cdb58898134f23e792ea23428e0564ce1eb7ca6c959f131f74be84",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7316,6 +10115,34 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæɡ.ɹə.veɪ̯t/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "aggravate"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæɡ.rə.veɪ̯t/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "aggravate"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7331,7 +10158,7 @@
     "ordinal": 118,
     "word": "aggregate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0118.json",
-    "source_fingerprint": "4f9500165faa893080df29648c93b5558fd035c9f1fe77a70261244ce9b449e9",
+    "source_fingerprint": "a2e4cd7cab2a09359742c5effaa9d59a6e6e8d5766c8ef3d064e0d0189a19e7a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7533,6 +10360,74 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæɡ.ɹɪ.ɡət/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "aggregate",
+              "pos": [
+                "noun",
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:aggregate:0958c5a38ed45554",
+                "sense:aggregate:306999a15b635c76",
+                "sense:aggregate:6d9bb96edcb450c1"
+              ],
+              "binding_basis": "Existing Natural Owner pronunciation boundary, not inferred from source entry POS.",
+              "conditions": [
+                "Existing owner Form: noun/adjective final /-gət/; verb final /-geɪt/. This record is noun/adjective only."
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæɡ.ɹɪˌɡeɪt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "aggregate",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:aggregate:40dca598414351d0",
+                "sense:aggregate:a52dadda6bc459fc"
+              ],
+              "binding_basis": "Existing Natural Owner pronunciation boundary, not inferred from source entry POS.",
+              "conditions": [
+                "Existing owner Form: noun/adjective final /-gət/; verb final /-geɪt/. This record is verb only."
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:aggregate:0958c5a38ed45554": [
+          0
+        ],
+        "sense:aggregate:306999a15b635c76": [
+          0
+        ],
+        "sense:aggregate:6d9bb96edcb450c1": [
+          0
+        ],
+        "sense:aggregate:40dca598414351d0": [
+          1
+        ],
+        "sense:aggregate:a52dadda6bc459fc": [
+          1
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -7591,7 +10486,7 @@
     "ordinal": 119,
     "word": "aggressive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0119.json",
-    "source_fingerprint": "50fb578bddbe2de75323d7004f1948307d6d3646b3e37c5b496a4dff26c16c9c",
+    "source_fingerprint": "c8c7c20828974b18b34f3b6791ca690759a6fae99af8b8e3daefd5c800b8dcb2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7689,6 +10584,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈɡɹɛs.ɪv/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "aggressive"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ʌˈgrɛs.ɪv/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "aggressive"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7704,7 +10629,7 @@
     "ordinal": 120,
     "word": "agitate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0120.json",
-    "source_fingerprint": "5cc7bcc1de8b9be83b7d3624bbfc32493e471e96b1af15da9192f6568520e71d",
+    "source_fingerprint": "255230dd0619ab1d3589bd3483a3347335d23f4ee01d9db60fd3671c256c8fd7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7838,6 +10763,25 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæ.d͡ʒɪ.teɪt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "agitate"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7853,7 +10797,7 @@
     "ordinal": 121,
     "word": "ago",
     "source_owner_path": "content/lexical/words/by-ordinal/o0121.json",
-    "source_fingerprint": "ffae02e5717a890ea73294ac5d9653a11e1431a08a71171bdefbe90ffacf6737",
+    "source_fingerprint": "71f6cd59f92b6c6d173f99d7f90d2df263b3888712bc1138904985dbcabe93b8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7907,6 +10851,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈɡoʊ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "ago"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈɡəʊ/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "ago"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7922,7 +10898,7 @@
     "ordinal": 122,
     "word": "agony",
     "source_owner_path": "content/lexical/words/by-ordinal/o0122.json",
-    "source_fingerprint": "0f3673a985bf277885d8b8225de575fce3e40326732fd5bff7937f0e73039689",
+    "source_fingerprint": "26e4ae93c1eb669642a842945cc5e2fd8025c6dc04e6d555a1eab04236f32b4c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7973,6 +10949,26 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæɡ.ə.ni/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "agony"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7988,7 +10984,7 @@
     "ordinal": 123,
     "word": "agree",
     "source_owner_path": "content/lexical/words/by-ordinal/o0123.json",
-    "source_fingerprint": "d8e69f75ec56ff82273be2142976cd9252aeca77f5796d36783abfb17196071c",
+    "source_fingerprint": "4574d9aa5b3c15460175f3181625cb493dddd041bc7dda7bc4859eef95c2f9bb",
     "sense_lineage": [
       {
         "word_id": "word:agree",
@@ -8166,6 +11162,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈɡɹi/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "agree"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈɡɹiː/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "agree"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -8255,6 +11283,31 @@
           ],
           "source_locator": "record.word_family[0]"
         }
+      ],
+      "senses": [
+        {
+          "stable_sense_id": "sense:agree:f9599b9e7c115b8b",
+          "status": "merged",
+          "merged_into_sense_id": "sense:agree:520c7ad09b16501a",
+          "pos": "verb",
+          "definition_cn": "承认；认定",
+          "definition_en": "to admit or acknowledge (used in passive or formal contexts)",
+          "semantic_key": "261caaf674c20d6a12e2a2c167810650e87219ad991f6155a1093ae57d227874",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "agree:l3:5"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "agree:l3:5",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-15T05:20:00Z",
+          "source_row": 335,
+          "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+          "reference_only": true
+        }
       ]
     }
   },
@@ -8264,7 +11317,7 @@
     "ordinal": 124,
     "word": "agreeable",
     "source_owner_path": "content/lexical/words/by-ordinal/o0124.json",
-    "source_fingerprint": "6411201a8f3bdd416e18c9e6e880e87fe98902f097881a259fe4fa8668ce5968",
+    "source_fingerprint": "c00380145e9739e2b0e475fcdbaeb7840c72e51b404fd91867ed2adef6a3553d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8341,6 +11394,51 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈɡɹiəbəl/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "agreeable"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈɡriːəbl/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "agreeable"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əˈɡɹiːəbəl/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "agreeable"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -8356,7 +11454,7 @@
     "ordinal": 125,
     "word": "agriculture",
     "source_owner_path": "content/lexical/words/by-ordinal/o0125.json",
-    "source_fingerprint": "5fae9cb3dff66173948b6ae94c802004bc9a1ea961377a3e230033f5eba8a2a5",
+    "source_fingerprint": "4d1a90a39505e125e2d8d51de48196bdc15538423a8c542a9346638f20163e83",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8402,6 +11500,51 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈæɡ.ɹəˌkʌl.t͡ʃɚ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "agriculture"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæɡ.ɹɪˌkʌl.t͡ʃɚ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "agriculture"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈæɡ.ɹɪˌkʌl.t͡ʃə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "agriculture"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -8436,7 +11579,7 @@
     "ordinal": 126,
     "word": "ahead",
     "source_owner_path": "content/lexical/words/by-ordinal/o0126.json",
-    "source_fingerprint": "2f784abb02f8de1fc4b6a016d816a5915b05ce508c94e57d04e00b13bf93d7cd",
+    "source_fingerprint": "6dc51d6ce93039b00d675ff27f1657034331b4e53b90cf31e3e5cf5cd74160fb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8571,6 +11714,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/əˈhɛd/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "ahead",
+              "sense_ids": [
+                "sense:ahead:a99eed6abefd56b1",
+                "sense:ahead:6f1a1f9903d858ed"
+              ],
+              "excluded_sense_ids": [
+                "sense:ahead:76eae11b0a0e5836"
+              ],
+              "scope_note": "Exact source headword content only. Unmarked IPA stays region null. Existing case, inflection, named-identity and Form boundaries remain unchanged; no first pronunciation or main-meaning default."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:ahead:6f1a1f9903d858ed": [
+          0
+        ],
+        "sense:ahead:a99eed6abefd56b1": [
+          0
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -8608,7 +11783,7 @@
     "ordinal": 127,
     "word": "aid",
     "source_owner_path": "content/lexical/words/by-ordinal/o0127.json",
-    "source_fingerprint": "e284a37e9f004eca3ca128aff75b079faf24a8c6f5b326cdb09195db56c5f9db",
+    "source_fingerprint": "36cc840f9d57ad858ec462dae40364ef42c5c43e61d4b27626355b5bac409f70",
     "sense_lineage": [
       {
         "word_id": "word:aid",
@@ -8752,13 +11927,72 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/eɪd/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "aid"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/eɪd/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "aid"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:aid:999975431afb5792",
+          "status": "merged",
+          "merged_into_sense_id": "sense:aid:df2f1e9922915a4b",
+          "pos": "verb",
+          "definition_cn": "帮助",
+          "definition_en": "to give help or support",
+          "semantic_key": "5141ef463371221975e91f88b9b70ceb04d8c07a0764960612bc205c4daeea71",
+          "semantic_key_history": [
+            "64cdf0bd3e4071fe04057081174f44cf80c18f447659e23ebd9b2eb3e6bd1339"
+          ],
+          "legacy_aliases": [
+            "aid:l3:4"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "aid:l3:4",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 343,
+          "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -8767,7 +12001,7 @@
     "ordinal": 128,
     "word": "aim",
     "source_owner_path": "content/lexical/words/by-ordinal/o0128.json",
-    "source_fingerprint": "b4fd724dfe32958aa413ebf2f3777135ad88137ef6b1d1ae6218066c0e8ce13a",
+    "source_fingerprint": "894fee5276fd56f6b030cb5eb8fb7da814d64ab86cf0f0c9923448d54c62317e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8910,6 +12144,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/eɪm/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "aim"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/eɪm/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "aim"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {

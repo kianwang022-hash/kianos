@@ -14,6 +14,62 @@ export function resolveCurrentSubprocessTimeoutMs(env = process.env) {
     : DEFAULT_CURRENT_SUBPROCESS_TIMEOUT_MS;
 }
 
+// Checkout expands the complete repository locally; remote/control Git calls
+// keep their short timeout. A timed-out checkout still uses runBounded's
+// process-group cancellation before another delivery attempt may start.
+export function resolveCurrentCheckoutTimeoutMs(env = process.env) {
+  const configured = Number(env.KIANOS_CHECKOUT_TIMEOUT_MS);
+  return Number.isFinite(configured) && configured > 0
+    ? configured
+    : DEFAULT_CURRENT_SUBPROCESS_TIMEOUT_MS;
+}
+
+export function parseReleaseWorktrees(porcelain) {
+  return String(porcelain || '').trim().split(/\n\n+/).filter(Boolean).map(block => {
+    const lines = block.split('\n');
+    return {
+      path: lines.find(line => line.startsWith('worktree '))?.slice(9),
+      head: lines.find(line => line.startsWith('HEAD '))?.slice(5),
+      locked: lines.some(line => line === 'locked' || line.startsWith('locked '))
+    };
+  });
+}
+
+function releaseWorktreeIdentity(value) {
+  let existing = path.resolve(value);
+  const suffix = [];
+  while (!fs.existsSync(existing) && path.dirname(existing) !== existing) {
+    suffix.unshift(path.basename(existing));
+    existing = path.dirname(existing);
+  }
+  try { existing = fs.realpathSync(existing); } catch {}
+  return path.join(existing, ...suffix);
+}
+
+export function releaseWorktreeIsDisposable(releaseRoot, entries, exists = fs.existsSync) {
+  const entry = entries.find(row => releaseWorktreeIdentity(row.path) === releaseWorktreeIdentity(releaseRoot));
+  // An initializing/locked registration or unregistered directory may contain
+  // another worker's unique bytes. Preserve it, including missing locked paths.
+  return Boolean(entry && !entry.locked && exists(path.join(releaseRoot, '.git')));
+}
+
+export function availableReleaseWorktreePath(releaseRoot, entries, exists = fs.existsSync) {
+  const occupied = candidate => exists(candidate)
+    || entries.some(row => releaseWorktreeIdentity(row.path) === releaseWorktreeIdentity(candidate));
+  if (!occupied(releaseRoot)) return releaseRoot;
+  let candidate;
+  do { candidate = `${releaseRoot}-${randomUUID()}`; } while (occupied(candidate));
+  return candidate;
+}
+
+export function releaseIdentityProblem(identity, expectedSha, expectedContextHash) {
+  if (!identity) return 'response-unavailable';
+  if (identity.http_status) return `http-status:${identity.http_status}`;
+  if (identity.sha !== expectedSha) return `sha-mismatch:expected=${expectedSha}:observed=${String(identity.sha || 'missing').slice(0, 40)}`;
+  if (identity.contextHash !== expectedContextHash) return 'context-mismatch';
+  return null;
+}
+
 export function isProcessAlive(target, kill = process.kill) {
   if (!Number.isInteger(target) || target === 0) return false;
   try {

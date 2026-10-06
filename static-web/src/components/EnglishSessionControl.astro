@@ -1,6 +1,4 @@
 ---
-import {englishSessionCatalog} from "../lib/englishSessionCatalog.mjs";
-const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u003c");
 ---
 
 <details class="englishSessionControl" data-english-session-control>
@@ -26,8 +24,6 @@ const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u00
   </div>
 </details>
 
-<script type="application/json" data-english-session-catalog set:html={catalogPayload}></script>
-
 <script>
   import {
     ENGLISH_SESSION_SCHEMA,
@@ -44,7 +40,9 @@ const catalogPayload=JSON.stringify(englishSessionCatalog()).replace(/</g,"\\u00
 
   const root = document.querySelector('[data-english-session-control]');
   if (root instanceof HTMLDetailsElement) {
-    let catalog = JSON.parse(document.querySelector('[data-english-session-catalog]')?.textContent || '[]');
+    const catalogNode = document.querySelector('[data-english-resume-catalog]')
+      || document.querySelector('[data-english-session-catalog]');
+    let catalog = JSON.parse(catalogNode?.textContent || '[]');
     let externalCatalogLoaded = false;
     const loadCatalog = async () => {
       if (externalCatalogLoaded) return catalog;

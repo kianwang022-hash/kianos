@@ -7,6 +7,7 @@ import json
 import os
 import tempfile
 import subprocess
+import unicodedata
 from pathlib import Path
 from typing import Any
 
@@ -168,6 +169,99 @@ def compile_form(form: Any) -> dict[str, Any] | None:
         "repair": repair("form_identity", "record.form_identity", None, boundary_text),
     }
 
+def complete_ipa(value: Any) -> bool:
+    """Accept an existing full transcription, never repair a suffix/fragment."""
+    if not isinstance(value, str) or len(value) < 3:
+        return False
+    if (value[0], value[-1]) not in [("/", "/"), ("[", "]")]:
+        return False
+    body = value[1:-1].strip()
+    return bool(body and not body.startswith(("-", "…", "..."))
+                and not body.endswith(("-", "…", "..."))
+                and not any(char in body for char in "/[]")
+                and any(unicodedata.category(char).startswith("L") for char in body))
+
+def compile_pronunciation_support(form: Any, senses: list[dict[str, Any]], word: str = "") -> dict[str, Any] | None:
+    """Execute the ordinary-IPA projection in FINAL_LEARNER_OBJECT_CONTRACT."""
+    if not isinstance(form, dict):
+        return None
+    readings = []
+    sense_readings: dict[str, list[int]] = {}
+    active_ids = {str(sense.get("id")) for sense in senses if sense.get("id")}
+
+    def add(reading: dict[str, Any], bound_ids: set[str]) -> None:
+        index = len(readings)
+        readings.append(reading)
+        for sense_id in sorted(bound_ids & active_ids):
+            sense_readings.setdefault(sense_id, []).append(index)
+
+    for observation in form.get("headword_pronunciations") or []:
+        if not isinstance(observation, dict) or not complete_ipa(observation.get("ipa")):
+            continue
+        scopes = [clone(scope) for scope in observation.get("applicability") or [] if isinstance(scope, dict)]
+        bound_ids = set()
+        for scope in scopes:
+            bound_ids.update(set(map(str, scope.get("sense_ids") or []))
+                             - set(map(str, scope.get("excluded_sense_ids") or [])))
+        add({
+            "ipa": observation["ipa"],
+            "locales": [locale for locale in observation.get("locales") or [] if locale in ("en-US", "en-GB")],
+            "applicability": scopes,
+            "evidence_basis": str((observation.get("transcription_evidence") or {}).get("evidence_basis") or "source_ipa"),
+            "spelling_binding": clone(observation["spelling_binding"]) if observation.get("spelling_binding") else None,
+        }, bound_ids)
+
+    # Existing Form variants are independent positive evidence. A newer leaf's
+    # excluded Sense does not invalidate an older, explicitly POS-bound variant.
+    def normalized_pos(value: Any) -> str:
+        value = str(value or "").strip().lower()
+        aliases = {"n": "noun", "v": "verb", "adj": "adjective", "a": "adjective", "adv": "adverb"}
+        return aliases.get(value, value)
+
+    for variant in form.get("variants") or []:
+        if not isinstance(variant, dict) or not complete_ipa(variant.get("ipa")):
+            continue
+        surfaces = [variant[key] for key in ("surface", "canonical_form") if variant.get(key)]
+        if word and any(surface != word for surface in surfaces):
+            # Inflected/spelling/case variants remain in their existing Form
+            # reference, rather than being advertised as this headword's IPA.
+            continue
+        label = str(variant.get("learner_key") or variant.get("canonical_form") or "")
+        locales = [locale for locale in variant.get("locales") or [] if locale in ("en-US", "en-GB")]
+        # Only the explicit terminal regional label, never variant_id/audio.
+        if not locales and label.endswith(" · US"):
+            locales = ["en-US"]
+        elif not locales and label.endswith(" · UK"):
+            locales = ["en-GB"]
+        poses = list(variant.get("pos") or [])
+        sense_conditioned = (form.get("choice_rule") == "sense_selects_pronunciation"
+                             or form.get("identity_rule") == "sense_selects_pronunciation"
+                             or form.get("form_type") == "heteronym_sense_conditioned_pronunciation")
+        if variant.get("sense_ids"):
+            bound_ids = set(map(str, variant["sense_ids"])) - set(map(str, variant.get("excluded_sense_ids") or []))
+        else:
+            bound_ids = set() if sense_conditioned else {str(sense.get("id")) for sense in senses
+                        if normalized_pos(sense.get("pos")) in {normalized_pos(pos) for pos in poses}}
+        add({"ipa": variant["ipa"], "locales": locales,
+             "applicability": [{"pos": poses, "sense_ids": sorted(bound_ids)}],
+             "learner_reading": label, "evidence_basis": "existing_form", "spelling_binding": None}, bound_ids)
+    # Some accepted older Form owners put a literal complete IPA in a boundary
+    # field. Preserve it as headword support with its condition; never derive
+    # Sense IDs, region or additional IPA by parsing the surrounding prose.
+    for boundary in form.get("boundaries") or []:
+        if not isinstance(boundary, dict) or not complete_ipa(boundary.get("pronunciation")):
+            continue
+        add({"ipa": boundary["pronunciation"], "locales": [],
+             "applicability": [{"surface": str(boundary.get("surface") or ""),
+                                "conditions": {"owner_identity_condition": str(boundary.get("condition") or "")}}],
+             "evidence_basis": "existing_form", "spelling_binding": None}, set())
+    if not readings:
+        return None
+    return {"readings": readings, "sense_readings": sense_readings,
+            "has_scope": any(reading.get("spelling_binding") or reading["evidence_basis"] == "derived_moby"
+                             or any(any(key != "surface" for key in scope) for scope in reading["applicability"])
+                             for reading in readings)}
+
 def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, Any]:
     record, relation_paths = hydrate_relations(owner, owner["record"])
     word_id = str(owner["word_id"])
@@ -295,6 +389,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         lines = [line for line in lines if line["text"] != title]
         constructions.append({
             "id": item_id or None,
+            **({"sense_id": str(item["sense_id"])} if item.get("sense_id") else {}),
             "source_locator": f"record.constructions[{i}]",
             "pattern": title,
             "lines": lines,
@@ -387,7 +482,10 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         or any(bool(sense.get("usage")) for sense in senses)
     ) else "light"
 
-    source_fingerprint = sha256({"record": record, "relation_paths": relation_paths})
+    reference_senses = clone(owner.get("reference_senses") or [])
+    fingerprint_inputs = {"record": record, "relation_paths": relation_paths}
+    if reference_senses:
+        fingerprint_inputs["reference_senses"] = reference_senses
     sense_lineage = []
     for ref in ((owner.get("identity_refs") or {}).get("senses") or []):
         if not isinstance(ref, dict) or not ref.get("sense_id"):
@@ -402,6 +500,28 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             "status": status,
             "to_target_id": str(ref.get("merged_into_sense_id")) if ref.get("merged_into_sense_id") else None,
         })
+
+    if sense_lineage:
+        fingerprint_inputs["sense_lineage"] = clone(sense_lineage)
+
+    # Existing generic identity transport carries explicit non-sense lifecycle.
+    # Absence and usage_example never infer retirement or a successor.
+    collocation_lineage = []
+    for ref in ((owner.get("identity_refs") or {}).get("collocations") or []):
+        if not isinstance(ref, dict) or not ref.get("id") or not ref.get("status"):
+            continue
+        status = str(ref["status"]).lower()
+        if status == "active":
+            continue
+        collocation_lineage.append({
+            "word_id": word_id, "target_kind": "collocation",
+            "from_target_id": str(ref["id"]), "status": status,
+            "to_target_id": str(ref["merged_into_id"]) if ref.get("merged_into_id") else None,
+        })
+    if collocation_lineage:
+        fingerprint_inputs["collocation_lineage"] = collocation_lineage
+    source_fingerprint = sha256(fingerprint_inputs)
+    sense_lineage.extend(collocation_lineage)
 
     return {
         "schema": "kianos.lexical.final_learner_object.v1",
@@ -421,6 +541,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             "repair": repair("core", "record.core_concept", None, summary_cn or word),
         },
         "senses": senses,
+        "pronunciation_support": compile_pronunciation_support(record.get("form_identity"), senses, word),
         "secondary_senses": secondary,
         "constructions": constructions,
         "reference": {
@@ -428,6 +549,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             "relations": relations,
             "form": compile_form(record.get("form_identity")),
             "family": family,
+            **({"senses": reference_senses} if reference_senses else {}),
         },
     }
 

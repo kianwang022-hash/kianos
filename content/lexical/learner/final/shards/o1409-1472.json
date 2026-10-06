@@ -5,7 +5,7 @@
     "ordinal": 1409,
     "word": "discipline",
     "source_owner_path": "content/lexical/words/by-ordinal/o1409.json",
-    "source_fingerprint": "07c97c2cf9c69d6a7d4f62f06abb3224ae31e5ba557900d2f76745d83bbb7d1a",
+    "source_fingerprint": "f330ad5b658909a607e28f2423d483043182d30ba31e256f89935d197f9ff33c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -154,6 +154,51 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɪsəplən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "discipline"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɪsəplɪn/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "discipline"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɪsɪplɪn/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "discipline"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -191,7 +236,7 @@
     "ordinal": 1410,
     "word": "disclose",
     "source_owner_path": "content/lexical/words/by-ordinal/o1410.json",
-    "source_fingerprint": "0041ffc9fe9434565a4143a574a4e5eb164118c05eb728adb94e7a4272fce88b",
+    "source_fingerprint": "ef96fcfac22ac6e0ebf2764fa1a6bb7a97a2e4bd3db05f046ddc1aca0c1f3cfd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -250,6 +295,23 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈkləʊz/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "disclose"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -287,7 +349,7 @@
     "ordinal": 1411,
     "word": "discount",
     "source_owner_path": "content/lexical/words/by-ordinal/o1411.json",
-    "source_fingerprint": "31e726d5d8fcee992109f536ce6c4514b1f565fe1f396a8ab310a8a659259c0d",
+    "source_fingerprint": "033cd650af602aa8286c4e80d7218be4524ed8747c7618c33b00a9b16c3b54bb",
     "sense_lineage": [
       {
         "word_id": "word:discount",
@@ -420,6 +482,58 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɪs.kaʊnt/",
+          "locales": [],
+          "applicability": [
+            {
+              "pos": [
+                "noun",
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:discount:e754875607455631"
+              ]
+            }
+          ],
+          "learner_reading": "DIS-count",
+          "evidence_basis": "existing_form",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈskaʊnt/",
+          "locales": [],
+          "applicability": [
+            {
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:discount:7a7d2778ba35f779",
+                "sense:discount:d06ede37ebe35e6c"
+              ]
+            }
+          ],
+          "learner_reading": "dis-COUNT",
+          "evidence_basis": "existing_form",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:discount:e754875607455631": [
+          0
+        ],
+        "sense:discount:7a7d2778ba35f779": [
+          1
+        ],
+        "sense:discount:d06ede37ebe35e6c": [
+          1
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -452,7 +566,32 @@
           "target_label": ""
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:discount:2d207d7c6bed529c",
+          "status": "merged",
+          "merged_into_sense_id": "sense:discount:d06ede37ebe35e6c",
+          "pos": "verb",
+          "definition_cn": "贴现",
+          "definition_en": "to offer a reduction in price",
+          "semantic_key": "e60bd8f985a2dae0f049394e12a3b871c96df0584e9df3a7d1629f6a5be16af2",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "discount:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "discount:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-08-22T05:00:00+00:00",
+          "source_row": 3915,
+          "source_path": "content/lexical/canonical/senses/shards/o1409-1440.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -461,7 +600,7 @@
     "ordinal": 1412,
     "word": "discourage",
     "source_owner_path": "content/lexical/words/by-ordinal/o1412.json",
-    "source_fingerprint": "cdd67a54e1ae196cbc7c290da24c2458d6faa8adf75a86ce67b2af0b889c367e",
+    "source_fingerprint": "a01f481bc22b84f0ab6a125fa2f6ba8d621c429c5b8d47cbb1a1cd70c863c03d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -559,6 +698,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈkɝɪd͡ʒ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "discourage"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪsˈkʌɹɪd͡ʒ/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "discourage"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -574,7 +745,7 @@
     "ordinal": 1413,
     "word": "discourse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1413.json",
-    "source_fingerprint": "cbfa83c4917cd30f94ddf6c2af816783fcca87abe01950cd79a3b4adf9123c29",
+    "source_fingerprint": "fdbf91e69bdacf1faca3195675523eae84abe829c4f1d684c6beec09977c5f3e",
     "sense_lineage": [
       {
         "word_id": "word:discourse",
@@ -628,13 +799,113 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɪs.kɔːs/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:discourse:d12059889db158e1"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "discourse",
+              "sense_ids": [
+                "sense:discourse:d12059889db158e1"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "Received-Pronunciation",
+                  "mainly"
+                ]
+              }
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɪs.kɔːɹs/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:discourse:d12059889db158e1"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "discourse",
+              "sense_ids": [
+                "sense:discourse:d12059889db158e1"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "General-American",
+                  "mainly"
+                ]
+              }
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:discourse:d12059889db158e1": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:discourse:bbf815afd6385766",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "讲述，论述",
+          "definition_en": "to talk or write about something at length",
+          "semantic_key": "e862e33b189ea9b4e951266ddafa2d2670f7c712bc0907dfbedbd44dfcabc83c",
+          "semantic_key_history": [
+            "7c5f3da7027618d725b2ad54ef2e36ea76452564d242922aa04e170b8eaeadc7"
+          ],
+          "legacy_aliases": [
+            "discourse:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "discourse:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 3920,
+          "source_path": "content/lexical/canonical/senses/shards/o1409-1440.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -643,7 +914,7 @@
     "ordinal": 1414,
     "word": "discover",
     "source_owner_path": "content/lexical/words/by-ordinal/o1414.json",
-    "source_fingerprint": "f3929c4b50485caf69cd4aea338e5e768bc47f4003e4270d06401bafbe1cddcc",
+    "source_fingerprint": "6ef098031bee1e3941cbf199d2a73cc759c9618ba5b7fd050149d7b7ef3d21aa",
     "sense_lineage": [
       {
         "word_id": "word:discover",
@@ -741,13 +1012,72 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈskʌvɚ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "discover"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈskʌvə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "discover"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:discover:5a28df80a109578f",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "暴露，泄露",
+          "definition_en": "make known or expose",
+          "semantic_key": "64a0cfd9cbafb80fef9eec84feb360861d9fed57f7361c525ab91b102932cd5e",
+          "semantic_key_history": [
+            "bc071e397e97e913e3abff4b4d696f05fb5da5a6968abcbf13b775f94d8bca6e"
+          ],
+          "legacy_aliases": [
+            "discover:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "discover:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 3923,
+          "source_path": "content/lexical/canonical/senses/shards/o1409-1440.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -756,7 +1086,7 @@
     "ordinal": 1415,
     "word": "discovery",
     "source_owner_path": "content/lexical/words/by-ordinal/o1415.json",
-    "source_fingerprint": "214215d8bb0308918d820c47f1ede592c562c9fa6c08634ac85ef62b86e6a3fa",
+    "source_fingerprint": "95dd5804c2542c40b77af54ccaa198dfae4048911e86027b8615be72d4a15cc3",
     "sense_lineage": [
       {
         "word_id": "word:discovery",
@@ -843,13 +1173,99 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈskʌv.ə.ɹi/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "discovery"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈskʌv.ɹi/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "discovery"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:discovery:58ae7c3648895a54",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "洞察；新认识",
+          "definition_en": "a productive insight or realization",
+          "semantic_key": "2230a188b2142ed489054c40b8ab3a07549bf2fc15677fc7e33f07bf6731be21",
+          "semantic_key_history": [
+            "93b49500dc2495d66f942cd59fb69ba4f19b330bc627eb28a851bb9925cf9a59"
+          ],
+          "legacy_aliases": [
+            "discovery:l2:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "discovery:l2:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 3926,
+          "source_path": "content/lexical/canonical/senses/shards/o1409-1440.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:discovery:d85a7f387b845b76",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "（法律）证据开示",
+          "definition_en": "(law) compulsory pretrial disclosure of documents",
+          "semantic_key": "c25f78624773afccd4389bd71f4956e19985c525c907a65664fb3a689c55a7a9",
+          "semantic_key_history": [
+            "193843db6f362059ce68f724e47bbe2198cef66e1388b1e62eeef79d31db20bb"
+          ],
+          "legacy_aliases": [
+            "discovery:l3:4"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "discovery:l3:4",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 3927,
+          "source_path": "content/lexical/canonical/senses/shards/o1409-1440.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -858,7 +1274,7 @@
     "ordinal": 1416,
     "word": "discreet",
     "source_owner_path": "content/lexical/words/by-ordinal/o1416.json",
-    "source_fingerprint": "d7f024428580d192c2b3d2c8389b070f7fe54568613ce36a5bc66f32242f1e72",
+    "source_fingerprint": "29c65b65ba092a4236937bafcb90627896f52c46ef53c0ef1dbdc04042d56845",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -917,6 +1333,34 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈskɹiːt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "discreet"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈskriːt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "discreet"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -950,7 +1394,7 @@
     "ordinal": 1417,
     "word": "discrepancy",
     "source_owner_path": "content/lexical/words/by-ordinal/o1417.json",
-    "source_fingerprint": "3794a9b4f0e2ee31546e2f9a21cb8238c51846956884563fe879f19cd64cde32",
+    "source_fingerprint": "42b598d93f0aae38d699eeebc1b013c39706001d3a095ba6fa9b59368a665161",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1009,6 +1453,26 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈskɹɛpənsi/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "discrepancy"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1024,7 +1488,7 @@
     "ordinal": 1418,
     "word": "discrete",
     "source_owner_path": "content/lexical/words/by-ordinal/o1418.json",
-    "source_fingerprint": "6a611091d090374fab75d3aaa1512e711c9ddc029a0a6e2b4e018f37f72b8393",
+    "source_fingerprint": "99f786f489ea8101a49f9e712f0fcefd81f57bed55e81e347c1eb4b55651268e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1078,6 +1542,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈskɹit/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "discrete"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈskɹiːt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "discrete"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1111,7 +1607,7 @@
     "ordinal": 1419,
     "word": "discretion",
     "source_owner_path": "content/lexical/words/by-ordinal/o1419.json",
-    "source_fingerprint": "af941bea636605421cbdc225dbe3fe69c4861fd324e0bf4cc2da1980f8f81dfb",
+    "source_fingerprint": "e7249031c79549f5407e46bdd3af6d4d3ccafd44bf133893f03a8fc3d5da7c73",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1201,6 +1697,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈskɹɛʃən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "discretion"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈskrɛʃən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "discretion"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈskɹɛʃən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "discretion"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1216,7 +1753,7 @@
     "ordinal": 1420,
     "word": "discriminate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1420.json",
-    "source_fingerprint": "b5c32c66bf4e1305412972ef763847953d556d42b72183b781d0977093f1086e",
+    "source_fingerprint": "343f8a6ddf2d0591c26a7e9986995103cf1c5745698c6d5ef6e8cbb1ad15599b",
     "sense_lineage": [
       {
         "word_id": "word:discriminate",
@@ -1327,6 +1864,101 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈskɹɪm.ɪ.neɪt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:discriminate:81a532704d91594c",
+                "sense:discriminate:751aacd2e32d56fc",
+                "sense:discriminate:f258a0c18777a10c"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "discriminate",
+              "sense_ids": [
+                "sense:discriminate:81a532704d91594c",
+                "sense:discriminate:751aacd2e32d56fc",
+                "sense:discriminate:f258a0c18777a10c"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "Received-Pronunciation"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:discriminate:2c7274d9770957f3"
+              ],
+              "scope_note": "Exact current owner meaning is matched to the cited source glosses; each sound is confined to this explicit identity subset."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈskɹɪm.əˌneɪt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:discriminate:81a532704d91594c",
+                "sense:discriminate:751aacd2e32d56fc",
+                "sense:discriminate:f258a0c18777a10c"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "discriminate",
+              "sense_ids": [
+                "sense:discriminate:81a532704d91594c",
+                "sense:discriminate:751aacd2e32d56fc",
+                "sense:discriminate:f258a0c18777a10c"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "General-American"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:discriminate:2c7274d9770957f3"
+              ],
+              "scope_note": "Exact current owner meaning is matched to the cited source glosses; each sound is confined to this explicit identity subset."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:discriminate:751aacd2e32d56fc": [
+          0,
+          1
+        ],
+        "sense:discriminate:81a532704d91594c": [
+          0,
+          1
+        ],
+        "sense:discriminate:f258a0c18777a10c": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -1351,7 +1983,34 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:discriminate:5d1db254039c58b9",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "歧视",
+          "definition_en": "to treat a person or group unfairly based on sex, race, etc.",
+          "semantic_key": "1274c722a0561459b725272cbeaedc142a1903aa857cb48ba4c3bcd72f96272f",
+          "semantic_key_history": [
+            "df5633e756ba276bca7bbb26b289578ed6129fe34924de785aae79bac775fffe"
+          ],
+          "legacy_aliases": [
+            "discriminate:l1:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "discriminate:l1:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 3935,
+          "source_path": "content/lexical/canonical/senses/shards/o1409-1440.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -1360,7 +2019,7 @@
     "ordinal": 1421,
     "word": "discuss",
     "source_owner_path": "content/lexical/words/by-ordinal/o1421.json",
-    "source_fingerprint": "ae5080b1f17fde6608be9321addab8500da223b49aa14cc66e40b6d346a6a3ee",
+    "source_fingerprint": "0778041f490af51b7c33ae2ff1e2babd3af3357b6f66ad0d896c50fde0baac03",
     "sense_lineage": [
       {
         "word_id": "word:discuss",
@@ -1466,6 +2125,26 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈskʌs/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "discuss"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1481,7 +2160,7 @@
     "ordinal": 1422,
     "word": "disease",
     "source_owner_path": "content/lexical/words/by-ordinal/o1422.json",
-    "source_fingerprint": "376e0742a2bf52032c1ba65cfefc0d75e2ea422eec126f202af9b4ea776c372d",
+    "source_fingerprint": "4aa2746e13784ac4bb8d9f68ea10f4efafc115c00aadd37d1dc397ea0386922a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1535,6 +2214,51 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dəˈziz/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "disease"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈziz/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "disease"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈziːz/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "disease"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1550,7 +2274,7 @@
     "ordinal": 1423,
     "word": "disguise",
     "source_owner_path": "content/lexical/words/by-ordinal/o1423.json",
-    "source_fingerprint": "eedbc473ee9c9016cba660ea0ef2b5d278f793ff5e9bf2420faee9cd65f5d5b5",
+    "source_fingerprint": "fa829876351952e0b670f0a25ab677a4d0b44df80be2bb048b29d5135d11a8de",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1628,6 +2352,52 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈɡaɪz/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "disguise"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈskaɪz/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "disguise"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪzˈɡaɪz/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "disguise"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -1678,7 +2448,7 @@
     "ordinal": 1424,
     "word": "disgust",
     "source_owner_path": "content/lexical/words/by-ordinal/o1424.json",
-    "source_fingerprint": "3a79b7ccaed4acff76c1d7625ea20ca1fda7a226a96f075f7dbbc3f5315450e5",
+    "source_fingerprint": "234fea484c1dc5fe8fafc31b3d503ccaf48bb9c041fb9d762a9e0327c3b6a0c8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1787,6 +2557,54 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈkʌst/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "disgust"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪsˈɡʌst/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "disgust"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪzˈɡʌst/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "disgust"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1802,7 +2620,7 @@
     "ordinal": 1425,
     "word": "dish",
     "source_owner_path": "content/lexical/words/by-ordinal/o1425.json",
-    "source_fingerprint": "3dff3787e2544b8832c243cbe8d4365684c8b742826fc16da0b0d0c7b7dec6c4",
+    "source_fingerprint": "c25cb8d012aaca96188cbdafd860ef97bf1bd424b8bfecc2428f4f150717a9d5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1931,6 +2749,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪʃ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "dish"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪʃ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "dish"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -1946,7 +2794,7 @@
     "ordinal": 1426,
     "word": "dislike",
     "source_owner_path": "content/lexical/words/by-ordinal/o1426.json",
-    "source_fingerprint": "a84af5b7e6bd8c178cb11cf139c7f795363d6f6b89ad5af789b5424bd28fe3d9",
+    "source_fingerprint": "4774afa23d9e41442ddee017ab8ca7758dcdc7f8e8ccac9b61bdbc6974dd67b5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2050,6 +2898,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈlaɪk/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "dislike"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɪslaɪk/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "dislike"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪsˈlaɪk/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "dislike"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2065,7 +2954,7 @@
     "ordinal": 1427,
     "word": "dismay",
     "source_owner_path": "content/lexical/words/by-ordinal/o1427.json",
-    "source_fingerprint": "3172d8284f5ed18be4cd12e35c5cd969b316e055cc0f01a174cadf7a1df67acf",
+    "source_fingerprint": "a109a36ecf9bdb286b369ce1cbc8e86347820e942183645f931850320cbae5f2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2174,6 +3063,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈmeɪ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "dismay"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪsˈmeɪ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "dismay"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2189,7 +3108,7 @@
     "ordinal": 1428,
     "word": "dismiss",
     "source_owner_path": "content/lexical/words/by-ordinal/o1428.json",
-    "source_fingerprint": "747e2cb6dcbb2b2ba5ddd69dd0d00046849ea12811283449220ff75d7e9ca501",
+    "source_fingerprint": "5461678db9ae3e68b531267996c1095a3126df891b7ff9f7d9fb059cb6835bf1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2339,6 +3258,49 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈmɪs/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "dismiss"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪzˈmɪs/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "dismiss"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪsˈmɪs/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "dismiss"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2354,7 +3316,7 @@
     "ordinal": 1429,
     "word": "disorder",
     "source_owner_path": "content/lexical/words/by-ordinal/o1429.json",
-    "source_fingerprint": "614513ece97a98103eea017014ea2c5f5e78dadaa17c18e7ca2343e9fc3f79be",
+    "source_fingerprint": "b41d8dff3d9318e6b805406bd1898b6649ae23cb67fe3406dade031fb510a524",
     "sense_lineage": [
       {
         "word_id": "word:disorder",
@@ -2487,13 +3449,59 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈɔɹdɚ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "disorder"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:disorder:4530c9aefed05db1",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "混乱；骚乱",
+          "definition_en": "a disturbance of the peace or of public order",
+          "semantic_key": "df068472bb411ce0d0642bead952b59fb3aa0a20a56f26ca335d01213dc76eee",
+          "semantic_key_history": [
+            "ff3393c9bbf4aa21c6e1c2dfe5751e06a70f8b8d9b3bcd23f64f071a64b3617a"
+          ],
+          "legacy_aliases": [
+            "disorder:l1:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "disorder:l1:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 3957,
+          "source_path": "content/lexical/canonical/senses/shards/o1409-1440.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -2502,7 +3510,7 @@
     "ordinal": 1430,
     "word": "disperse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1430.json",
-    "source_fingerprint": "d0b485f0c65679d0b8afe0c01c1cc020ecf48ddee7df858a8ac606ac28bdecb7",
+    "source_fingerprint": "6ae88c1e29d6a7850434e530a4ddcc5e9c71a066384692de926b261bb36b2c02",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2608,6 +3616,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈspɝs/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "disperse"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈspɜːs/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "disperse"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2623,7 +3663,7 @@
     "ordinal": 1431,
     "word": "displace",
     "source_owner_path": "content/lexical/words/by-ordinal/o1431.json",
-    "source_fingerprint": "c90c5e19e709edc84ed4759974ab0e412c09ce878d645e928f88d3e9cb610ca4",
+    "source_fingerprint": "9d2d3d2a51f7fd73dfc625b464798d067444c2c72e63c5056dd92d34005544f2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2760,6 +3800,39 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈpleɪs/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "displace"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪzˈpleɪs/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "displace"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2775,7 +3848,7 @@
     "ordinal": 1432,
     "word": "display",
     "source_owner_path": "content/lexical/words/by-ordinal/o1432.json",
-    "source_fingerprint": "b972c3f6fc696ef0e8cc99647f54bb31524064fea8570499a05a20de3a499385",
+    "source_fingerprint": "97d386be568a709a5bb4f3e7e1b52d02910c6b964fd3cc1adf2610bff5fa70cb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2957,6 +4030,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈpleɪ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "display"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪsˈpleɪ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "display"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -2972,7 +4075,7 @@
     "ordinal": 1433,
     "word": "disposal",
     "source_owner_path": "content/lexical/words/by-ordinal/o1433.json",
-    "source_fingerprint": "abfee0acbc1ae9095dbd763ef0162265cf337bb80abe33e23d4c0dd50087046e",
+    "source_fingerprint": "80e57134ba29bb40ce3da1fb7f9cc15d92dc5f4c60d1ce96610a8ffe0b82ef50",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3088,6 +4191,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈpoʊ.zəl/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "disposal"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪsˈpəʊ.zəl/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "disposal"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3114,7 +4249,7 @@
     "ordinal": 1434,
     "word": "dispose",
     "source_owner_path": "content/lexical/words/by-ordinal/o1434.json",
-    "source_fingerprint": "fa9584fbb33ef2f100f5d0a9a529f9ea09be40d36fd3ba606212d49cae5cfe99",
+    "source_fingerprint": "bbda2332c74885850553c693bdadbc49a54b60c348d5adffb8d056428a9c7e9d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3254,6 +4389,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈpoʊz/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "dispose"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈspəʊz/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "dispose"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3298,7 +4465,7 @@
     "ordinal": 1435,
     "word": "disposition",
     "source_owner_path": "content/lexical/words/by-ordinal/o1435.json",
-    "source_fingerprint": "bf0895c7558aba1b2629a3412706ca374ce65f4978aea6fce9f5723f2886b1c4",
+    "source_fingerprint": "b39f30e46255a5fcf1224aaf0f222e506921cac458ecb4ab932ef2d7f5d7aa51",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3401,6 +4568,50 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˌdɪs.pəˈzɪʃ.ən/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "disposition"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˌdɪs.pəˈzɪʃ.ɪn/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "disposition"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˌdɪspəˈzɪʃən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "disposition"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3416,7 +4627,7 @@
     "ordinal": 1436,
     "word": "dispute",
     "source_owner_path": "content/lexical/words/by-ordinal/o1436.json",
-    "source_fingerprint": "3e7ca156e1909bdd592431485215febb833e8c041b1c09ed11295a6b2e6d825c",
+    "source_fingerprint": "af97271b93ba924875a3f2c61ea8a2f121951f4012c66b9a06599b4c0f2d00e7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3515,6 +4726,259 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈspjuːt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dispute:2f8cfa8a59865bc3"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "dispute",
+              "sense_ids": [
+                "sense:dispute:2f8cfa8a59865bc3"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "Received-Pronunciation"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:dispute:a5c267b708f857c3"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɪ.spjuːt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dispute:2f8cfa8a59865bc3"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "dispute",
+              "sense_ids": [
+                "sense:dispute:2f8cfa8a59865bc3"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "Received-Pronunciation"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:dispute:a5c267b708f857c3"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈspjuːt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dispute:a5c267b708f857c3"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "dispute",
+              "sense_ids": [
+                "sense:dispute:a5c267b708f857c3"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "Received-Pronunciation"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:dispute:2f8cfa8a59865bc3"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɪ.spjut/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dispute:2f8cfa8a59865bc3"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "dispute",
+              "sense_ids": [
+                "sense:dispute:2f8cfa8a59865bc3"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "Canada",
+                  "General-American"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:dispute:a5c267b708f857c3"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈspjut/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dispute:2f8cfa8a59865bc3"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "dispute",
+              "sense_ids": [
+                "sense:dispute:2f8cfa8a59865bc3"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "Canada",
+                  "General-American"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:dispute:a5c267b708f857c3"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dəˈspjut/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dispute:2f8cfa8a59865bc3"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "dispute",
+              "sense_ids": [
+                "sense:dispute:2f8cfa8a59865bc3"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "Canada",
+                  "General-American"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:dispute:a5c267b708f857c3"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈspjut/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dispute:a5c267b708f857c3"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "dispute",
+              "sense_ids": [
+                "sense:dispute:a5c267b708f857c3"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "Canada",
+                  "General-American"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:dispute:2f8cfa8a59865bc3"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:dispute:2f8cfa8a59865bc3": [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        "sense:dispute:a5c267b708f857c3": [
+          2,
+          6
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3552,7 +5016,7 @@
     "ordinal": 1437,
     "word": "disrupt",
     "source_owner_path": "content/lexical/words/by-ordinal/o1437.json",
-    "source_fingerprint": "03af047166d5a4763e3ecfe2b63d3b0d14821e758ac14c740059c0e2d678a5a0",
+    "source_fingerprint": "ff3be7beb03976e98fd6f745ad69db9d1155d7f8972e2cf3af2e1e4177216c09",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3611,6 +5075,26 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈɹʌpt/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "disrupt"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3626,7 +5110,7 @@
     "ordinal": 1438,
     "word": "dissipate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1438.json",
-    "source_fingerprint": "d5f19dd8b225d02ce61102ef76ff1ad38240a9e4049b31e822aaa0228e813b7e",
+    "source_fingerprint": "a98da5901de68a020b0cdf6ac1e153226761bc7797c5bf1dc2739f71d09fd454",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3786,6 +5270,34 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɪsɪpeɪt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "dissipate"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɪsəpeɪt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "dissipate"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -3801,7 +5313,7 @@
     "ordinal": 1439,
     "word": "dissolve",
     "source_owner_path": "content/lexical/words/by-ordinal/o1439.json",
-    "source_fingerprint": "e6924bb242dfc0e6cc7d6a1f5a1ff9ff4097ec8093997efec5f3d63bc90eed07",
+    "source_fingerprint": "60a5fd66bdab90a0c3a07aab86bde2d3ed6c43fa6ad722617067379ebbf71524",
     "sense_lineage": [
       {
         "word_id": "word:dissolve",
@@ -3938,13 +5450,83 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈzɑlv/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "dissolve"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈzɔlv/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "dissolve"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈzɒlv/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "dissolve"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:dissolve:b23172c26cc35da9",
+          "status": "merged",
+          "merged_into_sense_id": "sense:dissolve:b2b11b9b6b205d92",
+          "pos": "verb",
+          "definition_cn": "溶解",
+          "definition_en": "to become part of a liquid",
+          "semantic_key": "70e6db5111101241265ba25bab61b04b40b338cb849dea61c0524ce1cb223b48",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "dissolve:l1:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "dissolve:l1:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-08-22T05:00:00+00:00",
+          "source_row": 3989,
+          "source_path": "content/lexical/canonical/senses/shards/o1409-1440.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -3953,7 +5535,7 @@
     "ordinal": 1440,
     "word": "distance",
     "source_owner_path": "content/lexical/words/by-ordinal/o1440.json",
-    "source_fingerprint": "40b75e2793df9254d50d092255b5cd8b0787334b6e819d819dc0a05baf6bc32e",
+    "source_fingerprint": "a0d92e2218e2fb97aeeb1fc56ec9aa57ffef28da75e97985795cffe2cfac988e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4111,6 +5693,23 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɪstəns/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "distance"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4126,7 +5725,7 @@
     "ordinal": 1441,
     "word": "distant",
     "source_owner_path": "content/lexical/words/by-ordinal/o1441.json",
-    "source_fingerprint": "1cb2961a770d4f11ba7523114db1d96fb806ccc70f3837b8e68c2429229f873e",
+    "source_fingerprint": "ff4bc9ae65b14c9a6476650d1ec62303262e3705e6587f8656de7bc57b0dfa9e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4258,6 +5857,26 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɪstənt/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "distant"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4273,7 +5892,7 @@
     "ordinal": 1442,
     "word": "distil",
     "source_owner_path": "content/lexical/words/by-ordinal/o1442.json",
-    "source_fingerprint": "4df08b17e70bced89c6ddef593cf940d61f2ec5f678bf049e7aee905580300a6",
+    "source_fingerprint": "66a425ad77f1ac93899c47133dd3088eb28b48ac1d1ebeec5e8246797bffccc8",
     "sense_lineage": [
       {
         "word_id": "word:distil",
@@ -4357,6 +5976,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dəˈstɪl/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "distil"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈstɪl/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "distil"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -4402,7 +6053,34 @@
           "target_label": "distil is mainly the UK spelling; distill is the usual US spelling."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:distil:1c078fea601e5d28",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "滴下，渗出",
+          "definition_en": "to fall in drops; to trickle down",
+          "semantic_key": "38f3920295a19ead2c4c1514d25246569cb7ad98b3d2940ffd7cd9be78c8dde3",
+          "semantic_key_history": [
+            "98ab91fea76fbdbe4d30a99db2a77f11e458aa7a83ee18a5ee94d2aae93c4d47"
+          ],
+          "legacy_aliases": [
+            "distil:l2:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "distil:l2:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 3999,
+          "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -4411,7 +6089,7 @@
     "ordinal": 1443,
     "word": "distinct",
     "source_owner_path": "content/lexical/words/by-ordinal/o1443.json",
-    "source_fingerprint": "5cb8851fd0b4fc235fd02baf088bf5f573a442ecd576e5f1c6b97f3696737a5e",
+    "source_fingerprint": "ac066cca4684985bec74eff5c18d346f8340bfbd7038a5d049e991a48e615272",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4496,6 +6174,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈstɪŋkt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "distinct"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈstɪŋkt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "distinct"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4526,7 +6234,7 @@
     "ordinal": 1444,
     "word": "distinction",
     "source_owner_path": "content/lexical/words/by-ordinal/o1444.json",
-    "source_fingerprint": "813cc18e8c6f9cc3bcaa20be00e442e5084062fa6190e19c827ae050b4b616d4",
+    "source_fingerprint": "12fdd812f812bc1b2b6e22ef8384673130a1b2f339aff9e4185201d2dfa61beb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4611,6 +6319,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈstɪŋkʃən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "distinction"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈstɪŋkʃən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "distinction"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4626,7 +6364,7 @@
     "ordinal": 1445,
     "word": "distinguish",
     "source_owner_path": "content/lexical/words/by-ordinal/o1445.json",
-    "source_fingerprint": "9fd9c5f72ec161bb048d9cfa4c6aefc01f3f59b5fbc042c3626eaf94301de2c0",
+    "source_fingerprint": "439b96ee60e66a28d028053e2a72c04dbd27965fce8cbd1df72fa65f7a2738cd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4734,6 +6472,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈstɪŋ.ɡwɪʃ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "distinguish"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈstɪŋ.ɡwɪʃ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "distinguish"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4771,7 +6539,7 @@
     "ordinal": 1446,
     "word": "distort",
     "source_owner_path": "content/lexical/words/by-ordinal/o1446.json",
-    "source_fingerprint": "4879f54e61fbc73c4a6290f419cf6211cc0a60b7ac9848b706f092a66e532042",
+    "source_fingerprint": "1fb8bfc08cfcc21f1a257c2344e5c555f177f6908f5b9e0deb0cff9f4b2b903f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4856,6 +6624,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪsˈtoɹt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "distort"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪsˈtɔːt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "distort"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4871,7 +6671,7 @@
     "ordinal": 1447,
     "word": "distract",
     "source_owner_path": "content/lexical/words/by-ordinal/o1447.json",
-    "source_fingerprint": "86ce05ba9dfaffac1b61c861d674c8206698693d6dd4d33fda2575d57e590a1d",
+    "source_fingerprint": "e669d749b67672d83a52275c3951768fddaa5b55c2c58fbaef3ad69afb73a512",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4930,6 +6730,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈstɹækt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "distract"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪsˈtrækt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "distract"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈstɹækt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "distract"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -4945,7 +6786,7 @@
     "ordinal": 1448,
     "word": "distress",
     "source_owner_path": "content/lexical/words/by-ordinal/o1448.json",
-    "source_fingerprint": "2ce7a2483c447dbc99ec11c86cbeda100a96cfd68f6b024b705ba6cdc7143204",
+    "source_fingerprint": "814b330e29528157ed5affbb09523ca528bf7936181ad5076819aa1fb64952ed",
     "sense_lineage": [
       {
         "word_id": "word:distress",
@@ -5050,13 +6891,166 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈstɹɛs/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "distress"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈstɹɛs/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "distress"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:distress:32a17b2c69c157ae",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "扣押财物以抵债",
+          "definition_en": "the seizure of property as security for a debt",
+          "semantic_key": "306ff3c4e73b6823ace0c6f98222f8c61b743cc5afdbedc593a183128902e8ff",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "distress:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "distress:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-14T00:00:00Z",
+          "source_row": 4009,
+          "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:distress:4099b4ac1cc051ff",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "危难，困境",
+          "definition_en": "a state of adversity or danger",
+          "semantic_key": "b1f9586ca4f2fedb8d45859252f4dad30fe8bd76049860a7c6b854c14afc491c",
+          "semantic_key_history": [
+            "7cc0d2171ef1b45f4b00baad3f314046bbe4b72f3497bc0ca08152f61534e1e8"
+          ],
+          "legacy_aliases": [
+            "distress:l2:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "distress:l2:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4010,
+          "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:distress:b4dc3a79f4415c76",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "精神上的痛苦或极度疼痛",
+          "definition_en": "psychological suffering or extreme pain",
+          "semantic_key": "3b754a836cf6d928d774facc9243c6fdc59038901df44d4678f140531c9d794a",
+          "semantic_key_history": [
+            "e4bfb93c9ee7c4a01579f673af8a3ab6c752cd72f25392f3bd15fe1bc2e80242"
+          ],
+          "legacy_aliases": [
+            "distress:l1:1"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "distress:l1:1",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4011,
+          "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:distress:b5bad6a306485625",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "使苦恼，使痛苦",
+          "definition_en": "to cause someone to feel worried or upset",
+          "semantic_key": "da7e7d7b98432de8452db6b90e1789e019079bfbef94beac7967d14c3d2f546e",
+          "semantic_key_history": [
+            "bde525d9c0424cb9441e4a7494c93f115b42e12890d4671f9232e8fa247d5f79"
+          ],
+          "legacy_aliases": [
+            "distress:l1:4"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "distress:l1:4",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4012,
+          "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+          "reference_only": true
+        },
+        {
+          "stable_sense_id": "sense:distress:b772a8c0728e5b6e",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "adjective",
+          "definition_cn": "亏本出售的",
+          "definition_en": "sold at a loss (of goods)",
+          "semantic_key": "ad2466e6d03e7723ce8552976602746822870ae7d357a58ec6939240a36e3240",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "distress:l3:5"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "distress:l3:5",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-14T00:00:00Z",
+          "source_row": 4013,
+          "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -5065,7 +7059,7 @@
     "ordinal": 1449,
     "word": "distribute",
     "source_owner_path": "content/lexical/words/by-ordinal/o1449.json",
-    "source_fingerprint": "bba7f5478dada43ba0712a6fc765b064d44fc7e46943761eb6e4200ef6708102",
+    "source_fingerprint": "fc89b20d5dad0b101985a2b37e2740638671066b0046257c18473af09b8d5613",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5189,6 +7183,51 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈstɹɪbjut/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "distribute"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈstɹɪbjuːt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "distribute"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɪstɹɪbjuːt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "distribute"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5219,7 +7258,7 @@
     "ordinal": 1450,
     "word": "district",
     "source_owner_path": "content/lexical/words/by-ordinal/o1450.json",
-    "source_fingerprint": "5e1bca9e2889f110eaea454a7814c617b22b66770368fc944b170557b73606a0",
+    "source_fingerprint": "70d586a9b7c50ece42141f9ce8af2fcbc39a1f87cabce5c22cf3c11108f80cbc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5273,6 +7312,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɪstɹɪkt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "district"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɪstrɪkt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "district"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɪstɹɪkt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "district"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5288,7 +7368,7 @@
     "ordinal": 1451,
     "word": "disturb",
     "source_owner_path": "content/lexical/words/by-ordinal/o1451.json",
-    "source_fingerprint": "cdfec0465f6c08fc5b886a79170db025ad305b362c62903ef029572a0d4384ca",
+    "source_fingerprint": "826a92c144053028f7b7c579ecd3f12919a3ed2d39c8353a29d5778aeb6a3978",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5404,6 +7484,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈstɝb/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "disturb"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈstɜːb/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "disturb"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5419,7 +7531,7 @@
     "ordinal": 1452,
     "word": "disturbance",
     "source_owner_path": "content/lexical/words/by-ordinal/o1452.json",
-    "source_fingerprint": "2cd1ad1752b3a0db0d5c795e2dd099540ad598c6b7a4afd2cfb3bacacebbdcbd",
+    "source_fingerprint": "3b2d575c79f13249a7598c5cf991751bc16d4774087275d5df618eb41415e498",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5517,6 +7629,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈstɜɹ.bəns/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "disturbance"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈstɜː.bəns/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "disturbance"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5543,7 +7687,7 @@
     "ordinal": 1453,
     "word": "ditch",
     "source_owner_path": "content/lexical/words/by-ordinal/o1453.json",
-    "source_fingerprint": "c0e2eb5c929c638646c90d22b4681103359856cb9486a89f1e4941d1187c083f",
+    "source_fingerprint": "9c33b788a8c951025a392c02e1b0a6f13e6dede32a248a70bada3630506c3036",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5685,6 +7829,60 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪt͡ʃ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "ditch"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪtʃ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "ditch"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪt͡ʃ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "ditch"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪtʃ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "ditch"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5700,7 +7898,7 @@
     "ordinal": 1454,
     "word": "dive",
     "source_owner_path": "content/lexical/words/by-ordinal/o1454.json",
-    "source_fingerprint": "c66c6086343f86de24c76ced5c9e5e0640829e88b3704639ffe336dd161c5656",
+    "source_fingerprint": "f0decec0b85a8c50fd6a86fcc5c574837550d043d9f1d507e6cfaf4f272eb78b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5839,6 +8037,83 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/daɪv/",
+          "locales": [],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dive:34a708f7e4d354ac",
+                "sense:dive:25327a42fcfb536c",
+                "sense:dive:c53457a905833dc1"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "dive",
+              "sense_ids": [
+                "sense:dive:34a708f7e4d354ac",
+                "sense:dive:25327a42fcfb536c",
+                "sense:dive:c53457a905833dc1"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "excluded_sense_ids": [
+                "sense:dive:84fa707f90675e17"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/daɪv/",
+          "locales": [],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dive:84fa707f90675e17"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "dive",
+              "sense_ids": [
+                "sense:dive:84fa707f90675e17"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "excluded_sense_ids": [
+                "sense:dive:34a708f7e4d354ac",
+                "sense:dive:25327a42fcfb536c",
+                "sense:dive:c53457a905833dc1"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:dive:25327a42fcfb536c": [
+          0
+        ],
+        "sense:dive:34a708f7e4d354ac": [
+          0
+        ],
+        "sense:dive:c53457a905833dc1": [
+          0
+        ],
+        "sense:dive:84fa707f90675e17": [
+          1
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5880,7 +8155,7 @@
     "ordinal": 1455,
     "word": "diverse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1455.json",
-    "source_fingerprint": "ddafd32dd8ea30987d12e267aefad2fb8374d8c1d55bfae5076c3ac734ffa73b",
+    "source_fingerprint": "7bbb3c83dd171f8866abca052466b53b08659d6989c81730860105be3f33ac4d",
     "sense_lineage": [
       {
         "word_id": "word:diverse",
@@ -5947,6 +8222,90 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/daɪˈvɝs/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "diverse"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈvɝs/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "diverse"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdaɪ.vɝs/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "diverse"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdəˈvɝs/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "diverse"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/daɪˈvɜːs/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "diverse"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdaɪ.vɜːs/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "diverse"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -5975,7 +8334,34 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:diverse:e900a3ebec3b56f3",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "adjective",
+          "definition_cn": "不同的，相异的",
+          "definition_en": "distinctly dissimilar or unlike",
+          "semantic_key": "2f84bc92a76b31758ece6973e2c8cb1eba3c418045f8226757fccf9c02aee5ca",
+          "semantic_key_history": [
+            "c91488e2568689ff5ef12c416b681ddf031cfc4180881e40919354f3c1c83b59"
+          ],
+          "legacy_aliases": [
+            "diverse:l1:1"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "diverse:l1:1",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4032,
+          "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -5984,7 +8370,7 @@
     "ordinal": 1456,
     "word": "diversion",
     "source_owner_path": "content/lexical/words/by-ordinal/o1456.json",
-    "source_fingerprint": "74d2902bea0bd2ed0344730faabe9f417c692997fae89d17c52437e5c7c65d77",
+    "source_fingerprint": "bc4f736319c273d0b1d4d877393429365f19af9d842494093f5c8643289e1c0c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6095,6 +8481,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/daɪˈvɝ.ʒən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "diversion"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈvɝ.ʒən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "diversion"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -6110,7 +8528,7 @@
     "ordinal": 1457,
     "word": "divert",
     "source_owner_path": "content/lexical/words/by-ordinal/o1457.json",
-    "source_fingerprint": "f5a120f8ef9bbdf8c93914f07b324e00db0f71a00ac480ab3def7e37c713b869",
+    "source_fingerprint": "eb46610f38d5ca2c9abebbc952805d36d8b5e48f1b02b233c846ddb22903204e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6255,6 +8673,51 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/daɪˈvɝt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "divert"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈvɝt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "divert"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/daɪˈvɜːt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "divert"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -6270,7 +8733,7 @@
     "ordinal": 1458,
     "word": "divide",
     "source_owner_path": "content/lexical/words/by-ordinal/o1458.json",
-    "source_fingerprint": "c5473022fe6c4eec91020918e7de7d2533b93a3afa6499b570671f2e56a5b9a1",
+    "source_fingerprint": "e548f770534fb6e702f66186073f7b7ab13276ba2cf2337dbe2232cb063d3b08",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6374,6 +8837,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈvaɪd/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "divide"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈvaɪd/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "divide"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -6407,7 +8902,7 @@
     "ordinal": 1459,
     "word": "dividend",
     "source_owner_path": "content/lexical/words/by-ordinal/o1459.json",
-    "source_fingerprint": "f0d95059245b20e98f63a480147390bf009f6ab27ff653bcfddae6450b09576e",
+    "source_fingerprint": "7bbd90e984955a3b35878ddbf939ea5c662a657f8937697ee67fc41d515238f6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6504,6 +8999,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɪvɪdɛnd/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "dividend"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɪvɪˌdɛnd/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "dividend"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɪvɪˌdɛnd/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "dividend"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -6537,7 +9073,7 @@
     "ordinal": 1460,
     "word": "divine",
     "source_owner_path": "content/lexical/words/by-ordinal/o1460.json",
-    "source_fingerprint": "9d79927741352c232b1af4e967cb39e889702af0f84f6b8727a5952738977431",
+    "source_fingerprint": "074f3d538093e16de9fe8d53875d7ef5818b4648eae5ef51dd962ff4a73ee242",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6644,6 +9180,36 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈvaɪn/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "divine"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈvaɪn/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "divine"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -6659,7 +9225,7 @@
     "ordinal": 1461,
     "word": "division",
     "source_owner_path": "content/lexical/words/by-ordinal/o1461.json",
-    "source_fingerprint": "c51566633122901c4039eb61f0b3624c2988f5deb111247a9b55b30da901c037",
+    "source_fingerprint": "31f7ed1b74b75f441de029292354b00c923679d33d5e33545189a8eb22dd43ad",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6830,6 +9396,47 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈvɪʒn̩/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "division"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈvɪʒən/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "division"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɪˈvɪʒən/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "division"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -6845,7 +9452,7 @@
     "ordinal": 1462,
     "word": "divorce",
     "source_owner_path": "content/lexical/words/by-ordinal/o1462.json",
-    "source_fingerprint": "557a53f2f2938de7e7921eb82f31e1a5671e19061227b0b8231fd132fc341d69",
+    "source_fingerprint": "66f1a46d5ebf12ecfe2477e6734598bee8f7a9f88612b378f7033620d1af670b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6944,6 +9551,25 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɪˈvɔːs/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "divorce"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -6985,7 +9611,7 @@
     "ordinal": 1463,
     "word": "dizzy",
     "source_owner_path": "content/lexical/words/by-ordinal/o1463.json",
-    "source_fingerprint": "c1a6a34da3703c523922240028edf4ee3400ff8b14a43e1f2c131266eea3a934",
+    "source_fingerprint": "c3525bdba8785b188eaea35f3dff2b1b58ec7ec7bc6fc78208ffcda9f7f58074",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7058,6 +9684,26 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɪzi/",
+          "locales": [
+            "en-US",
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "dizzy"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7073,7 +9719,7 @@
     "ordinal": 1464,
     "word": "do",
     "source_owner_path": "content/lexical/words/by-ordinal/o1464.json",
-    "source_fingerprint": "bbeed6b12eebd4229f3c4b6b1ce7ad9b99fd779140669eb04563b791294f1480",
+    "source_fingerprint": "7ea2430c73334861b1ff0340cdd97bec5fec855b222dc7f32595d0e222bf4cdb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7207,6 +9853,95 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/duː/",
+          "locales": [
+            "en-GB",
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:do:0832dc53e83f5ea2"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "do",
+              "sense_ids": [
+                "sense:do:0832dc53e83f5ea2"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "UK",
+                  "US"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:do:a964fede106a530b",
+                "sense:do:bd2c267ad96f58a7",
+                "sense:do:ebf3eea0f9b455a8"
+              ],
+              "scope_note": "Exact current owner meaning is matched to the cited source glosses; each sound is confined to this explicit identity subset."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/duː/",
+          "locales": [
+            "en-GB",
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:do:a964fede106a530b"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "do",
+              "sense_ids": [
+                "sense:do:a964fede106a530b"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "UK",
+                  "US"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:do:0832dc53e83f5ea2",
+                "sense:do:bd2c267ad96f58a7",
+                "sense:do:ebf3eea0f9b455a8"
+              ],
+              "scope_note": "Exact current owner meaning is matched to the cited source glosses; each sound is confined to this explicit identity subset."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:do:0832dc53e83f5ea2": [
+          0
+        ],
+        "sense:do:a964fede106a530b": [
+          1
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [
       {
@@ -7283,7 +10018,7 @@
     "ordinal": 1465,
     "word": "dock",
     "source_owner_path": "content/lexical/words/by-ordinal/o1465.json",
-    "source_fingerprint": "6c6cb3d5913de043f25e454bbe2c936d42657d636aa203390c33554ee8c74836",
+    "source_fingerprint": "b023522f7684cec46b90bb8db41fbc5d5be87cf610d6b141eba6434ef6c8c8d5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7470,6 +10205,38 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɑk/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "dock"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɒk/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "dock"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7485,7 +10252,7 @@
     "ordinal": 1466,
     "word": "doctor",
     "source_owner_path": "content/lexical/words/by-ordinal/o1466.json",
-    "source_fingerprint": "3e6ca504fc1834f2e56fe5acdf8465b265dff5a80fad2783f203709c7af9edb0",
+    "source_fingerprint": "8a0c574293242c312de8074b0c8ae170423095402a3360f519eaf91a6078ef39",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7618,6 +10385,25 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɑktɚ/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "doctor"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7633,7 +10419,7 @@
     "ordinal": 1467,
     "word": "doctrine",
     "source_owner_path": "content/lexical/words/by-ordinal/o1467.json",
-    "source_fingerprint": "4e7ffa5f47c8d33c1fe2e9b1b36a6f65bdefb007e2f29cf582a8afe61a06e64f",
+    "source_fingerprint": "02375aa2500ae3b19919dbbb2117d3d417332ba60aae66894de95a2e6efd561e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7687,6 +10473,25 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɒk.tɹɪn/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "doctrine"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7702,7 +10507,7 @@
     "ordinal": 1468,
     "word": "document",
     "source_owner_path": "content/lexical/words/by-ordinal/o1468.json",
-    "source_fingerprint": "f99fa39db72cb3eff2e6fa5eeafd7f9bdb52179c456a876d953a225b596b2a7a",
+    "source_fingerprint": "b489ca1b9eb7291d3021c3e93d3f2713fc014a540bc9a9c4eab201f3ec0d757e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7783,6 +10588,153 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɒkjʊmənt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:document:c9e485662678567d"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "document",
+              "sense_ids": [
+                "sense:document:c9e485662678567d"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "Received-Pronunciation"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:document:804429542187536e"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɒkjʊmɛnt/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:document:804429542187536e"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "document",
+              "sense_ids": [
+                "sense:document:804429542187536e"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "Received-Pronunciation"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:document:c9e485662678567d"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɑkjʊmənt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:document:c9e485662678567d"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "document",
+              "sense_ids": [
+                "sense:document:c9e485662678567d"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "US"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:document:804429542187536e"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɑkjʊmɛnt/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:document:804429542187536e"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": false,
+              "surface": "document",
+              "sense_ids": [
+                "sense:document:804429542187536e"
+              ],
+              "binding_basis": "Reviewed original owner identity and exact source semantic scope; original source-scope/applicability evidence preserved.",
+              "conditions": {
+                "tags": [
+                  "US"
+                ]
+              },
+              "excluded_sense_ids": [
+                "sense:document:c9e485662678567d"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {
+        "sense:document:c9e485662678567d": [
+          0,
+          2
+        ],
+        "sense:document:804429542187536e": [
+          1,
+          3
+        ]
+      },
+      "has_scope": true
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7798,7 +10750,7 @@
     "ordinal": 1469,
     "word": "documentary",
     "source_owner_path": "content/lexical/words/by-ordinal/o1469.json",
-    "source_fingerprint": "268effa45f1f601a3941a4df2186cf827f1575fd1e018b38af83999b1b24504e",
+    "source_fingerprint": "26e95a5673fe41a6277a73a7e2f09851f699b3d618af8872983163228245c824",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7884,6 +10836,64 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˌdɑ.kjəˈmɛn.tə.ɹi/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "documentary"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˌdɑ.kjəˈmɛn.tɹi/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "documentary"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˌdɒk.jʊˈmɛn.tə.ɹi/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "documentary"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˌdɒk.jʊˈmɛn.tɹi/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "documentary"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
@@ -7899,7 +10909,7 @@
     "ordinal": 1470,
     "word": "dog",
     "source_owner_path": "content/lexical/words/by-ordinal/o1470.json",
-    "source_fingerprint": "dc41b5da3582835d6f1edbea296d724d19a3ced454a5329c35e0294da10cc403",
+    "source_fingerprint": "c821e8d0e622aa4f556df314de86e55f4587d9cece5ca839e9266e1255b5cbe2",
     "sense_lineage": [
       {
         "word_id": "word:dog",
@@ -8019,13 +11029,59 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɒɡ/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "dog"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:dog:9ea88f66510f5282",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "verb",
+          "definition_cn": "跟踪；尾随",
+          "definition_en": "follow closely and persistently",
+          "semantic_key": "991c0823349637e9065099fa8d6831615728d2e73e0f5342c968dc0d321416e8",
+          "semantic_key_history": [
+            "2c52d55e6701f4cfef621e9000f8aae0d4399721842752e7ea740882a15cdc0d"
+          ],
+          "legacy_aliases": [
+            "dog:l2:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "dog:l2:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4075,
+          "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -8034,7 +11090,7 @@
     "ordinal": 1471,
     "word": "doll",
     "source_owner_path": "content/lexical/words/by-ordinal/o1471.json",
-    "source_fingerprint": "81c81be429e807498001b6a0d50b3e2491192670ebfc713878282e82b53e1acc",
+    "source_fingerprint": "08813360613a32d76dee8d8feb6ce416d8c643ea72c9056ec3eb3ebf17f15545",
     "sense_lineage": [
       {
         "word_id": "word:doll",
@@ -8096,13 +11152,70 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/dɑl/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "doll"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/dɒl/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "doll"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:doll:6c70ca4a55c95159",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "漂亮但无头脑的女人",
+          "definition_en": "an attractive but unintelligent woman",
+          "semantic_key": "ddafe99b4979192b56b91eb3d722745d4640413f17a7df5a58b707a54710f57c",
+          "semantic_key_history": [],
+          "legacy_aliases": [
+            "doll:l3:2"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "doll:l3:2",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-15T05:20:00Z",
+          "source_row": 4079,
+          "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -8111,7 +11224,7 @@
     "ordinal": 1472,
     "word": "dollar",
     "source_owner_path": "content/lexical/words/by-ordinal/o1472.json",
-    "source_fingerprint": "d83e53371d1da152e85b964f254f00f977b27d58b0c7953cc5ec26bcf868df76",
+    "source_fingerprint": "808971bdd61ab423db1e3a79edc827e58514621183393cddb1725b7c6e51e072",
     "sense_lineage": [
       {
         "word_id": "word:dollar",
@@ -8199,13 +11312,72 @@
         }
       }
     ],
+    "pronunciation_support": {
+      "readings": [
+        {
+          "ipa": "/ˈdɒl.ə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "dollar"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈdɔː.lə/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "dollar"
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        }
+      ],
+      "sense_readings": {},
+      "has_scope": false
+    },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:dollar:a8412a8837b753df",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "pos": "noun",
+          "definition_cn": "金钱；财富的象征",
+          "definition_en": "a symbol of commercialism or greed",
+          "semantic_key": "38750baaf1e2d40fdea00bd974c4ca8b9eb5e289024111e1b1eb20479e9da956",
+          "semantic_key_history": [
+            "aff93802ebb071865ea8c01c6a8ce766d1bdd00ff546df125e8381fcf14cd082"
+          ],
+          "legacy_aliases": [
+            "dollar:l3:3"
+          ],
+          "legacy_alias_history": [
+            {
+              "legacy_sense_id": "dollar:l3:3",
+              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+            }
+          ],
+          "updated_at": "2026-09-09T00:00:00Z",
+          "source_row": 4080,
+          "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+          "reference_only": true
+        }
+      ]
     }
   }
 ]

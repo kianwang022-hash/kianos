@@ -56,7 +56,7 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
     const englishDefinition = document.querySelector('.lexicalSenseMeaning>strong');
     const englishUsage = document.querySelector('.lexicalSenseUsage li>b');
     const sheet = document.querySelector('.portedVocabStudySheet');
-    const rows = [...document.querySelectorAll('.lexicalSenseRow')].filter((node) => node instanceof HTMLElement);
+    const rows = [...document.querySelectorAll('.lexicalSenseRow:not([data-vocab-reference-sense-id])')].filter((node) => node instanceof HTMLElement && node.getClientRects().length > 0);
     const firstUsableRow = rows.find((row) => row.querySelector('.lexicalSenseUsage li>b')) || rows[0];
     const pos = firstUsableRow?.querySelector('header>span');
     const meaning = firstUsableRow?.querySelector('.lexicalSenseMeaning>p');
@@ -67,12 +67,18 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
     const patternSection = document.querySelector('.lexicalWordPatterns');
     const contentNodes = [...document.querySelectorAll(
       '.lexicalCoreHeadline>p,.lexicalCoreHeadline>b,.lexicalCoreHeadline>small,.lexicalSenseMeaning>p,.lexicalSenseMeaning>strong,.lexicalSenseNote,.lexicalSenseUsage li>b,.lexicalSenseUsage li>span,.lexicalExpansionSection>header>span,.portedVocabEvidenceList>article>b,.portedVocabEvidenceList>article>p,.portedVocabEvidenceList>article>small,.lexicalFormBoundary,.lexicalFormVariants b,.lexicalFormVariants span,.lexicalFamilyRows b'
-    )].filter((node) => node instanceof HTMLElement && css(node).display !== 'none');
+    )].filter((node) => node instanceof HTMLElement && node.getClientRects().length > 0 && css(node).display !== 'none');
     const posRect = rect(pos);
     const meaningRect = rect(meaning);
     const englishMeaningRect = rect(englishMeaning);
     const usageRect = rect(usage);
-    const tops = [posRect?.top, meaningRect?.top, usageRect?.top].filter((value) => Number.isFinite(value));
+    // Authorized Sense IPA is now the first learner-visible Meaning-column line.
+    // Keep definition geometry for Chinese-before-English/collision checks below.
+    const visibleSenseIpa = [...(firstUsableRow?.querySelectorAll('.lexicalSensePronunciation [data-vocab-ipa-locale]') || [])]
+      .find((node) => node instanceof HTMLElement && !node.hidden && node.getClientRects().length > 0 && Boolean(node.querySelector('b')?.textContent?.trim()));
+    const meaningFirstLine = visibleSenseIpa || meaning;
+    const meaningFirstLineRect = rect(meaningFirstLine);
+    const tops = [posRect?.top, meaningFirstLineRect?.top, usageRect?.top].filter((value) => Number.isFinite(value));
     const rowStyle = css(firstUsableRow);
     const referenceStyle = css(reference);
     const sheetRect = rect(sheet);
@@ -684,7 +690,7 @@ try {
     await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
 
     assert(
-      await page.locator('.lexicalSenseRow:not(.lexicalSecondarySenseRow)').count() === primarySenseCount,
+      await page.locator('.portedVocabSenseList > .lexicalSenseRow:not(.lexicalSecondarySenseRow)').count() === primarySenseCount,
       `final_${fixture.word}_primary_sense_projection_current`,
       String(primarySenseCount)
     );
@@ -693,6 +699,10 @@ try {
       `final_${fixture.word}_secondary_sense_projection_current`,
       String(secondarySenseCount)
     );
+
+    // Lookup Reference shares row styling, but does not belong to the active Sense list.
+    assert(await page.locator('[data-vocab-lookup-only]:visible').count() === 0,
+      `final_${fixture.word}_reference_senses_hidden_in_study`);
 
     const familyVisible = await page.locator('.lexicalFamilySection').isVisible().catch(() => false);
     assert(

@@ -43,15 +43,31 @@ Historical A/B/C campaigns, BF branches, batch boards, checkpoint narratives and
 
 Exact semantic rules remain in the Content/Learning contracts, not this cursor.
 
-## Next / reopen
+## Current tasks — queued
 
-No lexical production batch is active.
+Kian resumed these tasks on 2026-10-05 within the [five-task queue](https://github.com/kianwang022-hash/kian-personal-os/issues/60): IPA is priority 2 and semantic self-audit priority 4. Follow the exact task's existing scope and delivery permissions; queue readiness is not completed implementation or Website delivery.
 
-Reopen only the smallest Current owner for:
+| Scope | Exact task owner | Resume point |
+| --- | --- | --- |
+| Headword IPA → Vocabulary | [PR #1152](https://github.com/kianwang022-hash/kianos/pull/1152) | Refresh its live head, review findings and preserved implementation draft before choosing the next fix. Saved candidates are not deployed/adopted evidence. |
+| Learner-value semantic self-audit | [Issue #1155](https://github.com/kianwang022-hash/kianos/issues/1155) | Read its **Current next**, domain owners and exact affected Word/Relation/Form scope; no IPA implementation/history prerequisite. |
 
-- a real semantic / phraseology / construction / register / Form / relation defect;
-- a new admitted Source;
-- explicit new lexical scope;
-- real learner evidence that exposes a concrete product/content defect.
+Task evidence and detailed progress belong to these exact tasks, not a second snapshot here. The rating→next-word latency investigation belongs to another Chat; neither task may resume that diagnosis or overwrite overlapping work.
 
-Do not infer work from old ordinal cursors, continuation tombstones, A/B/C branches, BF history, migration scripts or prior Chat memory.
+### IPA scope that must survive routing
+
+Supported IPA belongs beside the existing word/primary-meaning presentation, American English first and British English where supported. On resume use [CONTENT_EXECUTION](CONTENT_EXECUTION.md), [Final contract](FINAL_LEARNER_OBJECT_CONTRACT.md), the existing builder/components and existing worktree; reconcile actual drafts instead of assuming an old builder limitation still exists.
+
+Preserve exact Sense/case/POS/strong-form/region applicability, old Form variants, meanings, IDs, provenance and real learner state. Never select an arbitrary first reading, infer US from audio, relabel derived transcription as direct dictionary evidence, guess fragments, or create Reference/Repair debt from ordinary IPA. TTS is not source-recorded audio or proof of exact IPA realization. Source/licensing/stress gaps block only their dependent readings.
+
+The earlier content-only `schema.json` write was denied and omitted. Do not restore that patch or relocate rules to bypass the denial; any newly necessary owner change must fit current authorization. Check affected incremental/fingerprint, scope/Reveal/Lookup/navigation behavior with isolated Candidate evidence, then verify the actual served projection/version under the existing authorized delivery path before claiming Website delivery. Preserve drafts and use a bounded incremental build budget; no duplicate checkout, storage clearing, automatic conflict selection or manufactured learner evidence.
+
+### Semantic audit boundary
+
+Issue #1155 owns the probes, layer decisions and acceptance. This is bounded evidence-backed maintenance, not a reopened 7,946-word campaign. Learner evidence signals defects but does not establish semantic priority. Reference truth remains available without becoming automatic study or Repair debt.
+
+## Reopen boundary
+
+Reopen only for a concrete semantic/Form/Relation/product defect, admitted Source, explicit new scope, or real learner evidence exposing a defect. Ordinary learning uses the English learner path, not this engineering cursor.
+
+Historical campaign and delivery snapshots are not continuation authority. The pre-cleanup cursor is available only as [historical provenance](https://github.com/kianwang022-hash/kianos/blob/1ba656aa57c41b971342740eb2db2116a95be42a/content/lexical/CURRENT.md); do not read it routinely or use its old Next as current work.

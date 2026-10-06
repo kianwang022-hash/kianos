@@ -67,6 +67,17 @@ try{
   assert.equal(JSON.parse(body).status,'saved');
   assert.equal(readPrivateLearnerCheckpoint(dir).checkpoint_id,'packet-bridge-proof-1');
 
+  const currentReq=Readable.from([]);
+  currentReq.url='/__kianos-private/checkpoint';
+  currentReq.method='GET';
+  currentReq.headers={'x-kianos-known-checkpoint-id':'packet-bridge-proof-1'};
+  currentReq.socket={remoteAddress:'127.0.0.1'};
+  let currentBody='';
+  const currentRes={statusCode:0,setHeader(){},end(value=''){currentBody=String(value);}};
+  await middleware(currentReq,currentRes,()=>assert.fail('current checkpoint read must not fall through'));
+  assert.equal(currentRes.statusCode,304,'exact known checkpoint id must avoid retransmitting the durable payload');
+  assert.equal(currentBody,'');
+
   const blockedAutomation={
     ...checkpoint,
     checkpoint_id:'packet-bridge-automation-blocked',
@@ -109,6 +120,17 @@ try{
   assert.equal(isolatedRes.statusCode,200,isolatedBody);
   assert.equal(readPrivateLearnerCheckpoint(dir).checkpoint_id,'packet-bridge-automation-isolated',
     'isolated Audit/Candidate automation remains writable');
+
+  const advancedReq=Readable.from([]);
+  advancedReq.url='/__kianos-private/checkpoint';
+  advancedReq.method='GET';
+  advancedReq.headers={'x-kianos-known-checkpoint-id':'packet-bridge-proof-1'};
+  advancedReq.socket={remoteAddress:'127.0.0.1'};
+  let advancedBody='';
+  const advancedRes={statusCode:0,setHeader(){},end(value=''){advancedBody=String(value);}};
+  await middleware(advancedReq,advancedRes,()=>assert.fail('advanced checkpoint read must not fall through'));
+  assert.equal(advancedRes.statusCode,200,'stale known id must receive the new durable payload');
+  assert.equal(JSON.parse(advancedBody).checkpoint.checkpoint_id,'packet-bridge-automation-isolated');
 
   await new Promise(resolve=>setTimeout(resolve,25));
   assert.ok(syncCalls>=2,'server start + successful checkpoint PUT should each schedule packet sync');
