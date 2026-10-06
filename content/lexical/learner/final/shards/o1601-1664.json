@@ -8728,13 +8728,20 @@
     "ordinal": 1657,
     "word": "engine",
     "source_owner_path": "content/lexical/words/by-ordinal/o1657.json",
-    "source_fingerprint": "de86d575ba15e6b21aec0c8a612d2a73103ece6d51ba79478fb64f497ccd3034",
+    "source_fingerprint": "723e2fdb6ec7cde432f268b2eb7488287637d9e0102a5b09eab90423ec4f8aa8",
     "sense_lineage": [
       {
         "word_id": "word:engine",
         "target_kind": "sense",
         "from_target_id": "sense:engine:0a9361a3b3435534",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:engine",
+        "target_kind": "sense",
+        "from_target_id": "sense:engine:22d96472ed7958ba",
+        "status": "reference",
         "to_target_id": null
       },
       {
@@ -8750,23 +8757,29 @@
         "from_target_id": "sense:engine:8b80d61096ba5b76",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:engine",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d91dccb49b58e714e990",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1V",
         "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "发动机",
-      "decision_cn": "",
+      "summary_cn": "发动机；引擎",
+      "decision_cn": "vehicle/machine power source → 发动机。低价值的“给…装发动机”动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "发动机"
+        "target_label": "发动机；引擎"
       }
     },
     "senses": [
@@ -8785,32 +8798,6 @@
           "target_id": "sense:engine:6bad5491fd513ac5",
           "target_locator": "record.senses[0]",
           "target_label": "发动机；机器的动力装置"
-        }
-      },
-      {
-        "id": "sense:engine:22d96472ed7958ba",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "给…安装发动机",
-        "definition_en": "to equip with an engine",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d91dccb49b58e714e990",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "engine a vehicle",
-            "meaning_cn": "给车辆安装发动机",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:engine:22d96472ed7958ba",
-          "target_locator": "record.senses[1]",
-          "target_label": "给…安装发动机"
         }
       }
     ],
@@ -8916,6 +8903,30 @@
           "source_row": 4595,
           "source_path": "content/lexical/canonical/senses/shards/o1633-1664.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:d91dccb49b58e714e990",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:engine:22d96472ed7958ba:collocation:0"
+              ],
+              "meaning_cn": "给车辆安装发动机",
+              "phrase": "engine a vehicle"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "给…安装发动机",
+          "definition_en": "to equip with an engine",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:engine:22d96472ed7958ba",
+          "sense_label_en": "to equip with an engine",
+          "sort_order": 1,
+          "transitivity": "vt"
         }
       ]
     }
