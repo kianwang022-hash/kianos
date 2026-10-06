@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { runInNewContext } from 'node:vm';
 import { listProjectableXizongSystems, loadXizongBlock } from '../src/lib/xizong.mjs';
 import { learningCuesForBlock } from '../src/lib/xizongLearningCues.mjs';
 import { resolveXizongLearnerProjection } from '../src/lib/xizongLearnerProjection.mjs';
@@ -144,6 +146,70 @@ for (const systemSummary of listProjectableXizongSystems()) {
   try { learningCuesForBlock(cues, block); } catch { rejected = true; }
   assert(rejected, 'adversarial-cross-owner-anchor-not-caught');
 }
+
+// SOURCE_COMPANION_OWNERSHIP_REGRESSION_BEGIN
+// Execute the actual consumer selectors with structural fixtures only. The
+// persisted/native cursor can legitimately lag the next Source unit's fallback.
+{
+  const bridge = readFileSync(new URL('../src/components/XizongLearnerObjectBridge.astro', import.meta.url), 'utf8');
+  const between = (start, end) => {
+    const from = bridge.indexOf(start);
+    const to = bridge.indexOf(end, from);
+    assert(from >= 0 && to > from, `source-companion-fixture-boundary:${start}`);
+    return bridge.slice(from, to);
+  };
+  const sourceBranch = between("} else if (stage === 'source_contact') {", "} else if (stage === 'kp_learn') {");
+  const selection = sourceBranch.match(/const kp = ([^;]+);/)?.[1];
+  assert(selection, 'source-companion-aux-selection-missing');
+  const selectors = between('      const visibleCompanionKp =', '      const recallAnswerVisible =')
+    + between('      const sourceCompanionKps =', '      const groupCompanionIds =');
+  const renderSource = between('        const persistedId = nativeKpId();', '        const group = activeGroup();');
+  const rows = Array.from({ length: 8 }, (_, index) => ({ identity: {
+    kpId: `fixture-kp${index + 1}`, ordinal: index + 1,
+    logicGroupId: index < 4 ? 'SR4-LG01' : 'SR4-LG02'
+  } }));
+  const groups = [
+    { identity: { logicGroupId: 'SR4-LG01' }, kpIds: rows.slice(0, 4).map(row => row.identity.kpId) },
+    { identity: { logicGroupId: 'SR4-LG02' }, kpIds: rows.slice(4).map(row => row.identity.kpId) }
+  ];
+  const natural = [
+    { sourceUnitId: 'SR4-SU1', kpOrdinals: [1, 2, 3, 4] },
+    { sourceUnitId: 'SR4-SU2', kpOrdinals: [5, 6, 7, 8] }
+  ];
+  const cases = [
+    { name: 'initial-current-unit', segments: natural, unit: 'SR4-SU1', native: 2, expected: 2 },
+    { name: 'accepted-SR4-next-unit', segments: natural, unit: 'SR4-SU2', native: 4, expected: 5 },
+    { name: 'manual-next', segments: natural, unit: 'SR4-SU2', native: 6, index: 1, expected: 6 },
+    { name: 'manual-previous', segments: natural, unit: 'SR4-SU2', native: 5, index: 0, expected: 5 },
+    { name: 'noncontiguous-cross-LG', segments: [{sourceUnitId:'mixed', kpOrdinals:[2, 6]}], unit:'mixed', native:4, expected:2 },
+    { name: 'contributing-LG', segments: [{sourceUnitId:'warmup', kpOrdinals:[], contributesToLogicGroupIds:['SR4-LG02']}], unit:'warmup', native:4, expected:5 },
+    { name: 'empty-unit', segments: [{sourceUnitId:'empty', kpOrdinals:[]}], unit:'empty', native:4, expected:null },
+    { name: 'whole-block', segments: [], native:4, expected:4 },
+    { name: 'global-biochemistry', segments: [], native:6, expected:6 },
+    { name: 'targeted-integration-return', segments: [natural[1]], unit:'SR4-SU2', native:2, expected:5 }
+  ];
+  for (const row of cases) {
+    const nativeId = `fixture-kp${row.native}`;
+    const context = {
+      array: value => Array.isArray(value) ? value : [],
+      text: value => String(value || ''),
+      allKps: rows, groups, kpById: new Map(rows.map(kp => [kp.identity.kpId, kp])),
+      sourceContactSegments: row.segments, sourceLearnIndex: row.index || 0,
+      root: { dataset: {sourceSegmentId:row.unit || ''} },
+      activeStage: () => 'source_contact', nativeKpId: () => nativeId,
+      sourceCompanionHost: {},
+      renderCompanionCard: (_host, kp) => { context.coreOrdinal = kp?.identity?.ordinal ?? null; }
+    };
+    runInNewContext(selectors + '\n' + renderSource
+      + `\nglobalThis.auxOrdinal = (${selection})?.identity?.ordinal ?? null;`, context);
+    assert(context.coreOrdinal === row.expected, `${row.name}:visible-owner-drift`);
+    assert(context.auxOrdinal === context.coreOrdinal, `${row.name}:auxiliary-owner-drift`);
+    assert(context.nativeKpId() === nativeId, `${row.name}:renderer-mutated-native-cursor`);
+  }
+  assert(bridge.includes("const kp = visibleCompanionKp('kp_learn') || groupCompanionKp();"), 'whole-LG-selector-changed');
+  assert(bridge.includes('const kpId = activeRecallKpId();'), 'recall-selector-changed');
+}
+// SOURCE_COMPANION_OWNERSHIP_REGRESSION_END
 
 console.log(JSON.stringify({
   ok: true,
