@@ -5659,11 +5659,26 @@
     "ordinal": 672,
     "word": "canoe",
     "source_owner_path": "content/lexical/words/by-ordinal/o0672.json",
-    "source_fingerprint": "324153394effd4ea51da59208a347e24e6de7c5650db986d0bfbf7d417133a5b",
-    "sense_lineage": [],
+    "source_fingerprint": "442d0b9bb1c3c03e25743fc20a6a2c04aa1f83cf6aa20043e5abc9eeee338f16",
+    "sense_lineage": [
+      {
+        "word_id": "word:canoe",
+        "target_kind": "sense",
+        "from_target_id": "sense:canoe:ddd2a6f1b3dd5e74",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:canoe",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b7d7cda4d896656a9853",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1N"
       ],
       "density": "rich"
@@ -5730,32 +5745,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "乘独木舟"
         }
-      },
-      {
-        "id": "sense:canoe:ddd2a6f1b3dd5e74",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "用独木舟运",
-        "definition_en": "to transport by canoe",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b7d7cda4d896656a9853",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "canoe supplies across the lake",
-            "meaning_cn": "用独木舟运补给过湖",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:canoe:ddd2a6f1b3dd5e74",
-          "target_locator": "record.senses[2]",
-          "target_label": "用独木舟运"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5781,7 +5770,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:b7d7cda4d896656a9853",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:canoe:ddd2a6f1b3dd5e74:collocation:0"
+              ],
+              "meaning_cn": "用独木舟运补给过湖",
+              "phrase": "canoe supplies across the lake"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "用独木舟运",
+          "definition_en": "to transport by canoe",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:canoe:ddd2a6f1b3dd5e74",
+          "sense_label_en": "to transport by canoe",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -6150,7 +6165,7 @@
     "ordinal": 675,
     "word": "cap",
     "source_owner_path": "content/lexical/words/by-ordinal/o0675.json",
-    "source_fingerprint": "45bb3c7b5ceaae61e75cd167ece21014dea619af59df98a4b18073440bb01b7e",
+    "source_fingerprint": "f02609d861426b0718c1f6b4ea3585042523b8ae693bd6e4ffe192ff346eb92d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6231,21 +6246,7 @@
         "definition_en": "something that serves as a cover or protection",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:62fa327ca1d6b88e6549",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a cap on spending",
-            "meaning_cn": "支出上限",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:62fa327ca1d6b88e6549",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "a cap on spending"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cap:d06ea5c28f8c598d",
@@ -6318,14 +6319,14 @@
           {
             "id": "collocation:e5e13feb94ce8b5c0f54",
             "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "cap it all",
-            "meaning_cn": "更妙的是；更糟的是",
+            "phrase": "to cap it all (off)",
+            "meaning_cn": "最糟的是；更糟的是",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:e5e13feb94ce8b5c0f54",
               "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "cap it all"
+              "target_label": "to cap it all (off)"
             }
           }
         ],
@@ -6362,7 +6363,21 @@
         "definition_en": "an upper limit on an amount, price, spending, or other quantity",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:62fa327ca1d6b88e6549",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "a cap on spending",
+            "meaning_cn": "支出上限",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:62fa327ca1d6b88e6549",
+              "target_locator": "record.senses[7].collocations[0]",
+              "target_label": "a cap on spending"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cap:2a5ec0232dcf55e1",
@@ -7608,12 +7623,20 @@
     "ordinal": 683,
     "word": "capture",
     "source_owner_path": "content/lexical/words/by-ordinal/o0683.json",
-    "source_fingerprint": "2f1d4943542ea3a193dfa0166a1adf8c279b7dc4a44bf8788d6ccbc972626e8e",
-    "sense_lineage": [],
+    "source_fingerprint": "69779169d66eff6fccb72d2bd8ec2bb383f085a59a27f81a85d6eb3bc286e3a3",
+    "sense_lineage": [
+      {
+        "word_id": "word:capture",
+        "target_kind": "sense",
+        "from_target_id": "sense:capture:8e973dbf7820559b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
@@ -7741,23 +7764,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "捕获，夺取"
         }
-      },
-      {
-        "id": "sense:capture:8e973dbf7820559b",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "战利品",
-        "definition_en": "something that has been taken by force",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:capture:8e973dbf7820559b",
-          "target_locator": "record.senses[4]",
-          "target_label": "战利品"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7816,7 +7822,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "战利品",
+          "definition_en": "something that has been taken by force",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:capture:8e973dbf7820559b",
+          "sense_label_en": "something that has been taken by force",
+          "sort_order": 4,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -10206,12 +10228,26 @@
     "ordinal": 698,
     "word": "carry",
     "source_owner_path": "content/lexical/words/by-ordinal/o0698.json",
-    "source_fingerprint": "68fbc718e527763039efc4187cae9dd7af0d9e810d466e4bab2df03de764121b",
-    "sense_lineage": [],
+    "source_fingerprint": "62ff7f9c732838a434bb4387180f0e15a7ce014f42f1599875c86726190729d4",
+    "sense_lineage": [
+      {
+        "word_id": "word:carry",
+        "target_kind": "sense",
+        "from_target_id": "sense:carry:bfaeed05e73d538b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:carry",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:210c18d42c993c036d1f",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "5V",
-        "1N"
+        "5V"
       ],
       "density": "rich"
     },
@@ -10359,32 +10395,6 @@
           "target_locator": "record.senses[4]",
           "target_label": "能达到（某距离）"
         }
-      },
-      {
-        "id": "sense:carry:bfaeed05e73d538b",
-        "source_locator": "record.senses[5]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "携带；射程",
-        "definition_en": "the act of carrying something; range of a gun, etc.",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:210c18d42c993c036d1f",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "within carry",
-            "meaning_cn": "在射程内",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:carry:bfaeed05e73d538b",
-          "target_locator": "record.senses[5]",
-          "target_label": "携带；射程"
-        }
       }
     ],
     "pronunciation_support": {
@@ -10506,7 +10516,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:210c18d42c993c036d1f",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:carry:bfaeed05e73d538b:collocation:0"
+              ],
+              "meaning_cn": "在射程内",
+              "phrase": "within carry"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "携带；射程",
+          "definition_en": "the act of carrying something; range of a gun, etc.",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:carry:bfaeed05e73d538b",
+          "sense_label_en": "the act of carrying something; range of a gun, etc.",
+          "sort_order": 5,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -10661,11 +10697,25 @@
     "ordinal": 700,
     "word": "cartoon",
     "source_owner_path": "content/lexical/words/by-ordinal/o0700.json",
-    "source_fingerprint": "ec7f220742ce778fc6daabefb0b5a26df974546ecce8cb23ae6f65c02435421d",
-    "sense_lineage": [],
+    "source_fingerprint": "b3fb019fa4efb675d338e74233ae3a4bb36d59749baadeffe5362c8ce293dd7a",
+    "sense_lineage": [
+      {
+        "word_id": "word:cartoon",
+        "target_kind": "sense",
+        "from_target_id": "sense:cartoon:80ba6d73611b5d6c",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cartoon",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4b5329eb5d0d7021750e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
@@ -10732,32 +10782,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "动画片，卡通片"
         }
-      },
-      {
-        "id": "sense:cartoon:80ba6d73611b5d6c",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "画漫画",
-        "definition_en": "draw cartoons of",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4b5329eb5d0d7021750e",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "cartoon a celebrity",
-            "meaning_cn": "给名人画漫画",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cartoon:80ba6d73611b5d6c",
-          "target_locator": "record.senses[2]",
-          "target_label": "画漫画"
-        }
       }
     ],
     "pronunciation_support": {
@@ -10798,7 +10822,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4b5329eb5d0d7021750e",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:cartoon:80ba6d73611b5d6c:collocation:0"
+              ],
+              "meaning_cn": "给名人画漫画",
+              "phrase": "cartoon a celebrity"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "画漫画",
+          "definition_en": "draw cartoons of",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:cartoon:80ba6d73611b5d6c",
+          "sense_label_en": "draw cartoons of",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
