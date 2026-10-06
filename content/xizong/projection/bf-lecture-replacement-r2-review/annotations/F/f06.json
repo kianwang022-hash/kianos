@@ -1,0 +1,406 @@
+{
+  "status": "LOCAL_SELF_CANDIDATE_NOT_INDEPENDENT_OR_USER_ACCEPTED",
+  "block_id": "F6",
+  "kp_count": 14,
+  "logic_group_count": 4,
+  "coverage_model": "independently authored continuous medicine; exact annotations applied afterward",
+  "explicit_medical_relations": [
+    "恢复时间窗与部位/证据相交才能解释偏离",
+    "污染背景和愈合结局是独立轴",
+    "修复强度下降与张力上升共同导致裂开",
+    "局部积血的位置可把创面问题变成气道危急"
+  ],
+  "relations_origin": "AUTHORED_MEDICAL_REASONING_IN_BODY; no edge or order inferred from KP/LG/headings",
+  "reading_sections_are_not_topology_nodes": true,
+  "kp_annotations": [
+    {
+      "kp_id": "remaining-f06-kp01",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "麻醉未恢复前：全麻与腰麻体位分别怎样选择？",
+      "formal_prompt": "全麻｜腰麻｜气道/循环风险｜体位",
+      "formal_prompt_sha256": "02a57bda3e45ffb4f0afc903ec886f724bd6198ba63b5778ddedbcba9a98f318",
+      "annotation_exact": "麻醉未恢复前：全麻与腰麻体位分别怎样选择？〔全麻｜腰麻｜气道/循环风险｜体位〕",
+      "reading_location": "麻醉尚未消退时，体位先服务于功能安全",
+      "teaching_span_sha256": "1337c6fe8ae88af517dfb0280fb1abf4d28ff3429fa4b98baf57fff8a8fb54c3",
+      "coverage_rationale": "麻醉未恢复的气道与CSF风险",
+      "required_prompt_slots": [
+        "全麻",
+        "腰麻",
+        "气道/循环风险",
+        "体位"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp02",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "清醒后体位：怎样按手术部位和病理状态选择？",
+      "formal_prompt": "颅脑｜颈胸｜腹部｜污染｜休克｜为什么",
+      "formal_prompt_sha256": "258772ef3e693be0197761afc27cf973873096b521508a3e4ff983cee7e30ceb",
+      "annotation_exact": "清醒后体位：怎样按手术部位和病理状态选择？〔颅脑｜颈胸｜腹部｜污染｜休克｜为什么〕",
+      "reading_location": "麻醉尚未消退时，体位先服务于功能安全",
+      "teaching_span_sha256": "1337c6fe8ae88af517dfb0280fb1abf4d28ff3429fa4b98baf57fff8a8fb54c3",
+      "coverage_rationale": "部位/病情体位及适用条件",
+      "required_prompt_slots": [
+        "颅脑",
+        "颈胸",
+        "腹部",
+        "污染",
+        "休克",
+        "为什么"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp03",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "拆线时间：不同部位怎样重建当前 Study 时间梯度？",
+      "formal_prompt": "头颈｜下腹会阴｜躯干｜四肢｜减张｜时间梯度",
+      "formal_prompt_sha256": "a87192df603e2a0ce5a561fc3e505b66716a5de3f421e1513ded4838ef345338",
+      "annotation_exact": "拆线时间：不同部位怎样重建当前 Study 时间梯度？〔头颈｜下腹会阴｜躯干｜四肢｜减张｜时间梯度〕",
+      "reading_location": "麻醉尚未消退时，体位先服务于功能安全",
+      "teaching_span_sha256": "1337c6fe8ae88af517dfb0280fb1abf4d28ff3429fa4b98baf57fff8a8fb54c3",
+      "coverage_rationale": "拆线梯度及修复负荷",
+      "required_prompt_slots": [
+        "头颈",
+        "下腹会阴",
+        "躯干",
+        "四肢",
+        "减张",
+        "时间梯度"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp04",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "拔管时间：乳胶片、烟卷与 T 管分别怎样判断？",
+      "formal_prompt": "乳胶片｜烟卷｜T管｜拔除时间",
+      "formal_prompt_sha256": "660f9a04d055f4c6b2280393deee35f151b006b924c5958d180ebc995931164a",
+      "annotation_exact": "拔管时间：乳胶片、烟卷与 T 管分别怎样判断？〔乳胶片｜烟卷｜T管｜拔除时间〕",
+      "reading_location": "麻醉尚未消退时，体位先服务于功能安全",
+      "teaching_span_sha256": "1337c6fe8ae88af517dfb0280fb1abf4d28ff3429fa4b98baf57fff8a8fb54c3",
+      "coverage_rationale": "引流目的区别及拔除条件",
+      "required_prompt_slots": [
+        "乳胶片",
+        "烟卷",
+        "T管",
+        "拔除时间"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp05",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "术后发热：怎样用时间轴区分非感染与感染方向？",
+      "formal_prompt": "早期非感染｜感染概率上升期｜两段 Source 时间窗｜局部/系统证据",
+      "formal_prompt_sha256": "acce98fadec3300a5d0703df1f9cbc6507487ef99c59d288725f2831dc9b4b0d",
+      "annotation_exact": "术后发热：怎样用时间轴区分非感染与感染方向？〔早期非感染｜感染概率上升期｜两段 Source 时间窗｜局部/系统证据〕",
+      "reading_location": "发热和呼吸异常：先看危险，再用时间缩小方向",
+      "teaching_span_sha256": "ed9c85e7163a22069961b4da2d430ce40ab85f9da7f1ed7e048ac4396f192929",
+      "coverage_rationale": "重叠时间窗配位置/证据",
+      "required_prompt_slots": [
+        "早期非感染",
+        "感染概率上升期",
+        "两段 Source 时间窗",
+        "局部/系统证据"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp06",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "术后肺部并发症：肺不张、感染、PE，地位仅次于心血管",
+      "formal_prompt": "3类｜发生/死亡位次｜入口4｜完整模型去哪",
+      "formal_prompt_sha256": "e4f06279a7c70b463560f20f5a062f5d53f96e9768dd193cce56e824ed9efbbd",
+      "annotation_exact": "术后肺部并发症：肺不张、感染、PE，地位仅次于心血管〔3类｜发生/死亡位次｜入口4｜完整模型去哪〕",
+      "reading_location": "发热和呼吸异常：先看危险，再用时间缩小方向",
+      "teaching_span_sha256": "ed9c85e7163a22069961b4da2d430ce40ab85f9da7f1ed7e048ac4396f192929",
+      "coverage_rationale": "肺并发症分流到真实owner",
+      "required_prompt_slots": [
+        "3类",
+        "发生/死亡位次",
+        "入口4",
+        "完整模型去哪"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp08",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "术后内出血：腹腔与胸腔分别用什么证据升级怀疑？",
+      "formal_prompt": "腹腔｜胸腔｜时间｜休克/引流证据｜升级阈值",
+      "formal_prompt_sha256": "747c3f69e3f69b091d81d30bf77d7d0613cb7cb14911603dac120605ae1a9ad5",
+      "annotation_exact": "术后内出血：腹腔与胸腔分别用什么证据升级怀疑？〔腹腔｜胸腔｜时间｜休克/引流证据｜升级阈值〕",
+      "reading_location": "出血、排尿与胃肠恢复：同一个时间轴上，风险等级不同",
+      "teaching_span_sha256": "7fb831a229721fcf79b7a68bcdb32be1742cc42769f4e7517da9dc25423b0fc3",
+      "coverage_rationale": "持续引流/灌注证据支持内出血怀疑",
+      "required_prompt_slots": [
+        "腹腔",
+        "胸腔",
+        "时间",
+        "休克/引流证据",
+        "升级阈值"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp07",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "尿潴留：从协助排尿到导尿/留置的升级条件是什么？",
+      "formal_prompt": "先行协助｜导尿条件｜容量阈值｜留置时间",
+      "formal_prompt_sha256": "b2922b80bdb77e03895932c4d09219ccb38de8cfdfc9bef86598ac237c77dcb1",
+      "annotation_exact": "尿潴留：从协助排尿到导尿/留置的升级条件是什么？〔先行协助｜导尿条件｜容量阈值｜留置时间〕",
+      "reading_location": "出血、排尿与胃肠恢复：同一个时间轴上，风险等级不同",
+      "teaching_span_sha256": "7fb831a229721fcf79b7a68bcdb32be1742cc42769f4e7517da9dc25423b0fc3",
+      "coverage_rationale": "短期排尿支持与感染代价",
+      "required_prompt_slots": [
+        "先行协助",
+        "导尿条件",
+        "容量阈值",
+        "留置时间"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp09",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "胃肠动力恢复：不同肠段与胃的时间梯度怎样重建？",
+      "formal_prompt": "右结肠｜左结肠｜胃/空肠｜恢复时间",
+      "formal_prompt_sha256": "3cde7bfefebd45b9a862cddd4780640c7075c5b53d41d1f72611b0a1e5d3958f",
+      "annotation_exact": "胃肠动力恢复：不同肠段与胃的时间梯度怎样重建？〔右结肠｜左结肠｜胃/空肠｜恢复时间〕",
+      "reading_location": "出血、排尿与胃肠恢复：同一个时间轴上，风险等级不同",
+      "teaching_span_sha256": "7fb831a229721fcf79b7a68bcdb32be1742cc42769f4e7517da9dc25423b0fc3",
+      "coverage_rationale": "恢复日历不等于进食方案",
+      "required_prompt_slots": [
+        "右结肠",
+        "左结肠",
+        "胃/空肠",
+        "恢复时间"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp10",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "切口Ⅰ/Ⅱ/Ⅲ类：怎样由污染背景分类？",
+      "formal_prompt": "污染背景｜Ⅰ/Ⅱ/Ⅲ｜代表例｜与愈合等级不同",
+      "formal_prompt_sha256": "99287c9f7cdf4fa485cf4af18b895a75baf6575004c3f3b0acf7fd1fe133632e",
+      "annotation_exact": "切口Ⅰ/Ⅱ/Ⅲ类：怎样由污染背景分类？〔污染背景｜Ⅰ/Ⅱ/Ⅲ｜代表例｜与愈合等级不同〕",
+      "reading_location": "切口污染背景与愈合结局是两条坐标",
+      "teaching_span_sha256": "75f1e83615eecc42e06307cadb2b59809699b83cd75bb1903974d32b6b9b05df",
+      "coverage_rationale": "污染背景轴",
+      "required_prompt_slots": [
+        "污染背景",
+        "Ⅰ/Ⅱ/Ⅲ",
+        "代表例",
+        "与愈合等级不同"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp11",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "甲/乙/丙愈合：怎样由炎症、化脓与处理结果分级？",
+      "formal_prompt": "甲/乙/丙｜炎症｜化脓｜处理｜与切口类别两轴",
+      "formal_prompt_sha256": "13ac2db199ca687853b7182172adc955d0e5fff63ce359792dcc0780ef89384e",
+      "annotation_exact": "甲/乙/丙愈合：怎样由炎症、化脓与处理结果分级？〔甲/乙/丙｜炎症｜化脓｜处理｜与切口类别两轴〕",
+      "reading_location": "切口污染背景与愈合结局是两条坐标",
+      "teaching_span_sha256": "75f1e83615eecc42e06307cadb2b59809699b83cd75bb1903974d32b6b9b05df",
+      "coverage_rationale": "结局轴与污染轴正交",
+      "required_prompt_slots": [
+        "甲/乙/丙",
+        "炎症",
+        "化脓",
+        "处理",
+        "与切口类别两轴"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp12",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "切口积血 vs 血清肿：怎样从内容物、来源与处理区分？",
+      "formal_prompt": "内容物｜来源｜体征｜腹股沟处理边界",
+      "formal_prompt_sha256": "54380eaeae6a0d39d07728ae35c5f078cf990373f4d4b852ab6d944dac51fc5d",
+      "annotation_exact": "切口积血 vs 血清肿：怎样从内容物、来源与处理区分？〔内容物｜来源｜体征｜腹股沟处理边界〕",
+      "reading_location": "切口肿起时，从内容物与功能后果找到最危险的一支",
+      "teaching_span_sha256": "61dd669cbad5be380d7384118b99a93513809e85b2394319a28cd7f2580a5d99",
+      "coverage_rationale": "内容物、来源和颈部气道危险",
+      "required_prompt_slots": [
+        "内容物",
+        "来源",
+        "体征",
+        "腹股沟处理边界"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp13",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "切口感染：哪些证据成立后应怎样做 source control？",
+      "formal_prompt": "红肿/脓液｜开放引流｜清创｜抗菌｜培养",
+      "formal_prompt_sha256": "edca7c003099886576b0372c1a6f09445908d3d382827242c5d7c2e5ef41286a",
+      "annotation_exact": "切口感染：哪些证据成立后应怎样做 source control？〔红肿/脓液｜开放引流｜清创｜抗菌｜培养〕",
+      "reading_location": "切口肿起时，从内容物与功能后果找到最危险的一支",
+      "teaching_span_sha256": "61dd669cbad5be380d7384118b99a93513809e85b2394319a28cd7f2580a5d99",
+      "coverage_rationale": "脓液/坏死保留不能只靠药物",
+      "required_prompt_slots": [
+        "红肿/脓液",
+        "开放引流",
+        "清创",
+        "抗菌",
+        "培养"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f06-kp14",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F6_围术期术后恢复切口与并发症_学习阅读版_v1_最终执行版.md",
+      "title": "切口裂开：怎样识别并区分部分/完全裂开后的处理？",
+      "formal_prompt": "诱因｜淡红液｜部分/完全｜覆盖｜减张缝合",
+      "formal_prompt_sha256": "88beeb2053e848517b1e78f0619c4bb57b2c7771665985d182a906a4fb57a04a",
+      "annotation_exact": "切口裂开：怎样识别并区分部分/完全裂开后的处理？〔诱因｜淡红液｜部分/完全｜覆盖｜减张缝合〕",
+      "reading_location": "切口肿起时，从内容物与功能后果找到最危险的一支",
+      "teaching_span_sha256": "61dd669cbad5be380d7384118b99a93513809e85b2394319a28cd7f2580a5d99",
+      "coverage_rationale": "部分的长度/层次轴、最深层及感染分流，完全原口径保留",
+      "required_prompt_slots": [
+        "诱因",
+        "淡红液",
+        "部分/完全",
+        "覆盖",
+        "减张缝合"
+      ],
+      "unresolved_or_source_bound": [
+        "部分定义/处理为WUWHS有界外证；现场还纳步骤不补"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    }
+  ],
+  "unresolved_source_limits": [
+    "部分裂开深度/长度与条件分流是明确外证补充，不反称原课已有",
+    "完全裂开现场还纳细节不补",
+    "原发热时间窗及恢复日历边界保留"
+  ],
+  "source_resolution_followup": {
+    "date": "2026-10-04",
+    "affected_targets": [
+      "remaining-f06-kp14"
+    ],
+    "full_Prompt_equals_complete_course_Source": false,
+    "independent_medical_acceptance": false,
+    "user_acceptance": false
+  }
+}

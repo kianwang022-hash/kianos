@@ -1,0 +1,63 @@
+<!-- kianos:lecture-replacement-candidate {"status":"SELF_CANDIDATE_PENDING_CONTENT_ADMISSION","medical_authority":false,"lane":"LECTURE_REPLACEMENT","authoring_base":"bc014aeee3c7ca1be91a180a41336f03d14b3930","canonical_path":"content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR6_泌乳射乳与正常乳腺_学习阅读版_v1_最终执行版.md","authoring_canonical_sha256":"65e7564c6644ac6dd701e1679e63981846beb1f8e4c2ea658510cc20e2cb4ddd","draft_canonical_sha256":"65e7564c6644ac6dd701e1679e63981846beb1f8e4c2ea658510cc20e2cb4ddd","policy_dependency_pr":1148,"policy_dependency_commit":"7a276ea16693eaf7c8a36be1080341f47d2c115a","canonical_core_injection":false,"body_revision":"r2.1-portable-h1-reference-20261004","view":"teaching","source_stage_original_sha256":"389292b2af83efc8b632c73947e3693b8cc4693c6a9ded759e99147d316bd03c"} -->
+
+# 泌乳：生产、动力与通道的三层协作
+
+> 乳汁已经产生，为什么仍可能排不出来；同一次吸吮怎样同时支持产乳和射乳？
+
+<a id="structure"></a>
+## 先认识生产单元、动力层和运输通道
+
+腺泡/小叶分泌上皮生产乳汁，导管负责输送，腺泡和导管周围肌上皮提供收缩动力。乳汁的正常路径是腺泡产生→肌上皮挤出→导管输送。E促导管发育，P促腺泡发育，完成结构准备；结构发育本身不等于产乳或射乳。
+
+肌上皮位于正常腺泡、导管的上皮外围，对OT敏感，是射乳执行层。后续病理接口保留方向：原位癌的外围肌上皮仍保留，浸润癌的浸润腺体周围缺失肌上皮；硬化性腺病虽有腺体变形挤压，肌上皮仍保留。同一个结构在这里回答“谁提供动力”，在病理章回答“结构边界是否保留”，须回到病变腺体的实际位置判断。
+
+<!-- kp-annotations:start -->
+> 正常乳腺功能单元：导管—腺泡—肌上皮〔3结构｜各1功能｜谁分泌｜谁收缩｜乳汁走向〕
+
+> E长导管，P长腺泡〔E发育1｜P发育1｜共同结果｜阶段调用｜不是谁产乳〕
+
+> 肌上皮：正常射乳执行器与后续病理屏障接口〔正常功能1｜受体激素1｜围绕哪2结构｜病理存在/缺失提示｜完整癌模后置〕
+
+<!-- kp-annotations:end -->
+
+<a id="reflex"></a>
+## 同一吸吮输入，两个不同输出
+
+PRL由腺垂体分泌，受PRF/PIF双重调节，作为无靶腺激素直接作用于腺泡分泌上皮，增加乳汁生成。OT由下丘脑室旁核等大细胞神经元合成，经轴突运输到神经垂体储存、释放；吸吮乳头的机械刺激沿神经传入下丘脑，使OT入血，作用肌上皮收缩排出乳汁。
+
+当前Study还描述OT类似PRF、可增强PRL，所以一次吸吮既推出已有乳汁，也支持后续生产。两条链共享感觉输入，但靶细胞和最终效应不同，不能交换。
+
+按功能时程比较，OT—肌上皮收缩完成眼前已有乳汁的快速排出；PRL—分泌上皮支持随后持续合成、分泌乳汁。“持续”首先指后续生产，不能把每次即时射乳当成新合成，也不能把OT概括成整个哺乳过程中只释放一次。外部人类实验提供时间参照：12名产后妇女吸吮后2分钟已测得OT显著上升，PRL在10分钟达峰；另一8人纵向研究中PRL峰在15分钟。原始研究也观察到OT可在吸吮前出现条件性释放及吸吮中的脉冲。因此这里讲即时排乳与后续生产的比较，分钟数只属于各实验条件，不推出所有人的固定激素浓度持续时长。[Dawood等，1981人类实验](https://academic.oup.com/jcem/article-abstract/52/4/678/2678538)、[Johnston与Amico，1986纵向实验](https://pubmed.ncbi.nlm.nih.gov/3949949/)、[McNeilly等，1983人类实验摘要](https://discovery.dundee.ac.uk/en/publications/release-of-oxytocin-and-prolactin-in-response-to-suckling)
+
+hPL来自胎盘，当前Study强调几乎无催乳作用、主要促胎儿生长；PRL来自腺垂体而产乳；OT由下丘脑合成、神经垂体释放而射乳并参与子宫收缩。来源和职责能够抵消名称造成的误导。
+
+<!-- kp-annotations:start -->
+> PRL：来源、控制与产乳〔来源1｜控制因子2｜身份1｜靶细胞1｜结果1｜吸吮如何加〕
+
+> OT：来源、反射与射乳〔合成1部位｜储放1部位｜刺激1｜靶1细胞｜结果1｜另1反射〕
+
+> 吸吮同时启动两条链〔刺激1｜OT链4步｜PRL链3步｜同步结果2｜谁快谁持续〕
+
+> hPL、PRL、OT：名称相似但职责不同〔hPL来源/主效应｜PRL来源/主效应｜OT来源/主效应｜谁几乎不催乳〕
+
+<!-- kp-annotations:end -->
+
+<a id="failure"></a>
+## 从排乳不足定位三个可能失败位置
+
+生产看腺泡上皮与PRL，射出看肌上皮与OT，排空看导管通畅和持续有效吸吮。“有乳但难排出”首先指向射乳或通道，不能直接归因于PRL不足；肌上皮不收缩与导管阻塞也分别属于动力与通道问题。
+
+持续产乳若合并射乳或排空不足，可形成乳汁淤积，再增加细菌进入和局部炎症风险，向乳腺炎、脓肿进展。波动感或穿刺抽出脓液提示已经形成局限液化脓腔，此时除排空乳汁、抗感染，还出现封闭脓腔需要排出的机械问题；切开引流的完整处理留给乳腺感染章。
+
+到这里，正常生理能沿真实时间关系恢复：GnRH—FSH/LH—性腺，男性通过支持/间质/生精三细胞产出精子与雄激素。女性同时恢复三条时间轴：卵巢卵泡期—排卵—黄体期，对应内膜月经—增生—分泌，以及E第一峰—LH/FSH峰—P主峰与E第二峰；来源上，LH使内泡膜造雄激素前体，FSH使颗粒细胞芳香化成E，排卵后基底膜破裂、血供进入黄体而转向P主导。受精后以hCG—妊娠黄体—胎盘接力，产后乳腺由PRL与OT完成双链。该回顾回接已经形成的周期和两细胞来源。
+
+<!-- kp-annotations:start -->
+> 产乳、射乳、排空：三个失效位置〔生产看谁｜射出看谁｜通畅看哪｜有乳无排提示｜排乳少的3位置〕
+
+> 乳汁淤积—感染入口：只建立最小链〔排空不足｜淤积｜细菌入口｜炎症→脓肿分界｜完整源控制去哪〕
+
+> 正常生殖生理桥的终点：轴—周期—妊娠—泌乳〔GnRH轴｜男3细胞｜女3时间轴｜2细胞来源｜hCG接力｜PRL/OT双链〕
+
+<!-- kp-annotations:end -->
+
+[来源、原图指针与待核记录](../../bf-lecture-replacement-r2-review/source-stage-records/e/sr6/source-provenance.json)

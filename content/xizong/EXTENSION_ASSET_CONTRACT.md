@@ -239,7 +239,7 @@ POST_REVEAL / REFERENCE_ONLY
 
 Structured tables, summary screenshots and source figures that contain direct answers must not appear on the clean Recall front.
 
-The existing Xizong rule remains: iPad / MarginNote is the external-primary continuous Lecture surface; KianOS assets are selective support and must not turn KianOS into a second full Lecture reader.
+First-pass teaching and Source timing inherit [Xizong Learning Contract](LEARNING_CONTRACT.md). Original Lecture / MarginNote retains Source-local reading and TTSX capabilities; Extension display does not establish a competing first-pass principle.
 
 ---
 

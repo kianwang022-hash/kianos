@@ -1,0 +1,1233 @@
+{
+  "role": "BOUNDED_LOCAL_D_AUTHOR_SOURCE_FOLLOWUP; NOT_FORMAL_OWNER_OR_USER_ACCEPTANCE",
+  "initialItems": 28,
+  "localExplanationRepairs": 28,
+  "boundedCompleteItems": 25,
+  "partialStrictCourseCueItems": 3,
+  "categories": {
+    "COURSE_TEXT_RESTORED": 6,
+    "EXTERNAL_SUPPLEMENT_LABELED": 11,
+    "COURSE_PIXEL_INTERFACE_CLARIFIED": 2,
+    "COURSE_CORE_SCOPE_DIFFERENCE_PRESERVED": 6,
+    "PARTIAL_EXACT_COURSE_CUE_UNRESOLVED": 3
+  },
+  "originalSources": [
+    {
+      "key": "physiology",
+      "path": "EXECUTION_ONLY_LOCAL/27精编生理合集【带导图】.pdf",
+      "pages": 438,
+      "bytes": 380808365,
+      "sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123"
+    },
+    {
+      "key": "surgery",
+      "path": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+      "pages": 285,
+      "bytes": 281186138,
+      "sha256": "523cc9111b69f7eb77b928234d2e86f7e2ba9949e962eac2c5a240219b5cd9a0"
+    }
+  ],
+  "originalByteAvailability": "BOTH_PRESENT_READABLE_HASH_MATCHED; no Library recovery needed",
+  "renderer": "/opt/homebrew/bin/pdftoppm",
+  "textExtractor": "/opt/homebrew/bin/pdftotext",
+  "renderCommandShape": "pdftoppm -f N -l N -scale-to 2200 -singlefile -png ORIGINAL OUTPUT",
+  "renderedPageCount": 36,
+  "actualAuthorPixelReadPageCount": 29,
+  "allRenderedPagesAreNotClaimedRead": true,
+  "originalSourceReading": "Original page text plus the individually marked actual pixel reads; supplementary text on surgery P148, P189–191; no claim of complete visual examination of both PDFs",
+  "strictCourseDecisionItems": [
+    "S12",
+    "S19",
+    "S24"
+  ],
+  "counts": {
+    "missingOriginalByteBlockers": 0,
+    "permissionDenialBlockers": 0,
+    "strictCourseDefinitionOrAttributionDecisions": 3,
+    "nativeLearnerVisualExecutionGates": 69,
+    "learnerVisualGatesCompletedByThisWork": 0
+  },
+  "preservedOwnerDifferences": [
+    "S08/S10 course ranking vs Core strength",
+    "S09 Prompt nerve selection vs Core",
+    "S16 ten-row table vs seven discriminatory axes",
+    "S18 dry vs moistened dressing sources",
+    "S22 postop vs total duration and O14-SC01 label conflict",
+    "S25 eight cue axes vs ten table rows",
+    "S26 course frequency denominator unknown",
+    "S25 original ten rows vs Core ten observational axes vs unspecified native eight-axis grouping"
+  ],
+  "retainedDifferencesAreNotUnifiedMedicalOwnerApproval": true,
+  "priorChapterConflictsUnchanged": [
+    "spinal shock timing",
+    "dressing side",
+    "unilateral/bilateral signs",
+    "medication stop conditions",
+    "O14-SC01 contraindication label",
+    "morning stiffness",
+    "giant-cell chemotherapy",
+    "O12-SG01 source boundary"
+  ],
+  "issues": [
+    {
+      "id": "N6-RECIPROCAL",
+      "block": "N6",
+      "kpId": "neuro-n06-kp12",
+      "logicGroupId": "N6-LG04",
+      "fullFormalPrompt": "定义｜中央凹2原因｜视角倒数｜1分角｜光敏≠视敏。",
+      "originalSourceLocator": "生理 Lecture PDF P304。",
+      "category": "COURSE_TEXT_RESTORED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "physiology-p304"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27精编生理合集【带导图】.pdf",
+          "physicalPage": 304,
+          "png": "evidence/source-pixels/physiology-p304.png",
+          "pngSha256": "2ff6f386984c6440b5bc42a80a21b0d4b74f2a08edbf6ff0559ea5737aa09186",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/physiology-p304.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "原页明确视力用分角最小视角倒数表示，恢复定义与方向；不是从1.0自行推出公式。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S01",
+      "block": "N7",
+      "kpId": "neuro-n07-kp01",
+      "logicGroupId": "N7-LG01",
+      "fullFormalPrompt": "鼓膜形状｜高保真｜咽鼓管2作用｜何时开｜阻塞→内陷。",
+      "originalSourceLocator": "生理 Lecture PDF P314，书页 P275。",
+      "category": "EXTERNAL_SUPPLEMENT_LABELED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "physiology-p314"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27精编生理合集【带导图】.pdf",
+          "physicalPage": 314,
+          "png": "evidence/source-pixels/physiology-p314.png",
+          "pngSha256": "0ebf6606236709aae738ab213096058bcabc2e7a53d6b5437c6244f40eb66260",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/physiology-p314.txt"
+        }
+      ],
+      "supplements": [
+        "JH-ET"
+      ],
+      "finding": "课程只展开通气/压差链；补充机构原始说明分开液体引流，并说明还有保护作用，2作用是提示选取而非全部生理功能。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S02",
+      "block": "N7",
+      "kpId": "neuro-n07-kp07",
+      "logicGroupId": "N7-LG03",
+      "fullFormalPrompt": "基底膜↑/↓｜纤毛方向｜机械门控｜K⁺方向｜去/超极化｜Ca→递质。",
+      "originalSourceLocator": "生理 Lecture PDF P320，书页 P281。",
+      "category": "COURSE_PIXEL_INTERFACE_CLARIFIED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "physiology-p320"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27精编生理合集【带导图】.pdf",
+          "physicalPage": 320,
+          "png": "evidence/source-pixels/physiology-p320.png",
+          "pngSha256": "760c908c755c4b9d0b8876ff6145700e82f07d5ed43c2900af5ff6bb204857df",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/physiology-p320.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "实际原图把基底膜上下运动与长短纤毛偏转、通道开关相接；文字补充不代替学习者重建原图。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S03",
+      "block": "N8",
+      "kpId": "neuro-n08-kp02",
+      "logicGroupId": "N8-LG01",
+      "fullFormalPrompt": "1α+全部肌纤维｜大/小2特点｜精细/粗大2例｜最后公路。",
+      "originalSourceLocator": "生理 Lecture PDF P367，书页 P319；回看 N4。",
+      "category": "COURSE_TEXT_RESTORED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "physiology-p367"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27精编生理合集【带导图】.pdf",
+          "physicalPage": 367,
+          "png": "evidence/source-pixels/physiology-p367.png",
+          "pngSha256": "1550dafd15e52fa5ce6888e16e81cdb8b62782d197a2f0851a90eb6a5feb00af",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/physiology-p367.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "原页给眼外肌6–12及三角肌多达2000；补两实例与比较对象。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S04",
+      "block": "N8",
+      "kpId": "neuro-n08-kp03",
+      "logicGroupId": "N8-LG02",
+      "fullFormalPrompt": "姿势反射3｜屈肌是否算？｜各1作用。",
+      "originalSourceLocator": "生理 Lecture PDF P367–368，书页 P319–320。",
+      "category": "COURSE_TEXT_RESTORED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "physiology-p367"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27精编生理合集【带导图】.pdf",
+          "physicalPage": 367,
+          "png": "evidence/source-pixels/physiology-p367.png",
+          "pngSha256": "1550dafd15e52fa5ce6888e16e81cdb8b62782d197a2f0851a90eb6a5feb00af",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/physiology-p367.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "原页节间联系经中间神经元实现邻段肌群协调，以搔扒反射举例；补定义和作用。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S05",
+      "block": "N8",
+      "kpId": "neuro-n08-kp05",
+      "logicGroupId": "N8-LG03",
+      "fullFormalPrompt": "并联1｜串联1｜感受器2名｜Ia/II｜α/γ/β各管谁。",
+      "originalSourceLocator": "生理 Lecture PDF P369–370，书页 P321–322。",
+      "category": "COURSE_TEXT_RESTORED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "physiology-p369",
+        "physiology-p370"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27精编生理合集【带导图】.pdf",
+          "physicalPage": 369,
+          "png": "evidence/source-pixels/physiology-p369.png",
+          "pngSha256": "6ac1a72df31621123dcf830840cc50642c20b677f1c01fbd39d0ab9f84ba09b7",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/physiology-p369.txt"
+        },
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27精编生理合集【带导图】.pdf",
+          "physicalPage": 370,
+          "png": "evidence/source-pixels/physiology-p370.png",
+          "pngSha256": "4f6e856fc5563cbf0fca503b5de43fd6311c4e0d38be24a48f24933d14bc1149",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/physiology-p370.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "原表两名是慢适应感受器/长度感受器的两个性质，不造两种新感受器。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S06",
+      "block": "N10",
+      "kpId": "neuro-n10-kp05",
+      "logicGroupId": "N10-LG02",
+      "fullFormalPrompt": "时长2｜干扰2｜容量2｜代表脑区各1｜重复→转化",
+      "originalSourceLocator": "生理 Lecture PDF P387。",
+      "category": "EXTERNAL_SUPPLEMENT_LABELED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "physiology-p387"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27精编生理合集【带导图】.pdf",
+          "physicalPage": 387,
+          "png": "evidence/source-pixels/physiology-p387.png",
+          "pngSha256": "3d16dbc13f9361d6cdbb54d573c0540ee6a066aaa2e277fd4f8dcb762d9c7b47",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/physiology-p387.txt"
+        }
+      ],
+      "supplements": [
+        "BRADY2008"
+      ],
+      "finding": "课程短时容量有限而长时无总容量数字；原始视觉实验只支持该条件下大量细节储存的下限，非无限容量或自由背诵保证。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S07",
+      "block": "N11",
+      "kpId": "neuro-n11-kp03",
+      "logicGroupId": "N11-LG01",
+      "fullFormalPrompt": "中央4线索｜外周4线索｜疼痛能否定位｜萎缩速度。",
+      "originalSourceLocator": "N1 / N8 / 外科P201–202。",
+      "category": "EXTERNAL_SUPPLEMENT_LABELED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p203"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 203,
+          "png": "evidence/source-pixels/surgery-p203.png",
+          "pngSha256": "bcb4ef035766e69ddd30082274d5ce7eca3487408b140c48627367b46b010ab7",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p203.txt"
+        }
+      ],
+      "supplements": [
+        "MED-ATROPHY"
+      ],
+      "finding": "现Core解释少用/去神经营养机制；补充官方分类支持相对更突然、更重，无固定起始天数。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S08",
+      "block": "N11",
+      "kpId": "neuro-n11-kp05",
+      "logicGroupId": "N11-LG02",
+      "fullFormalPrompt": "前最重｜后深丢｜中央上重无分离｜半切同动深/对浅。",
+      "originalSourceLocator": "N1 KP13；外科 Lecture P188–189。",
+      "category": "COURSE_CORE_SCOPE_DIFFERENCE_PRESERVED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p188"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 188,
+          "png": "evidence/source-pixels/surgery-p188.png",
+          "pngSha256": "24f36c511179b7f5b8b6d6c6267d2b4162a5b2932f6410e29ff3a71eae75de4e",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p188.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "原表在该组不完全损伤中称前脊髓最严重，Core较严重；补范围并保留两措辞，不扩大成个体预后概率。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S09",
+      "block": "N11",
+      "kpId": "neuro-n11-kp08",
+      "logicGroupId": "N11-LG03",
+      "fullFormalPrompt": "桡1姿势｜正中1姿势｜尺1姿势｜肌皮/腋2接口｜高低位规律。",
+      "originalSourceLocator": "外科 Lecture P155–157。",
+      "category": "EXTERNAL_SUPPLEMENT_LABELED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p154",
+        "surgery-p155"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 154,
+          "png": "evidence/source-pixels/surgery-p154.png",
+          "pngSha256": "7b3f4a5fd8feb04010e8c76ff2bfc0fb7d7eea6b6dc69222e2858d6ea0c05cc9",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p154.txt"
+        },
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 155,
+          "png": "evidence/source-pixels/surgery-p155.png",
+          "pngSha256": "761362a13bd57b7cdd0eef8cf79a201fd499e32ad9a00ebeefb4dd996431129f",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p155.txt"
+        }
+      ],
+      "supplements": [
+        "GEORGE2024"
+      ],
+      "finding": "原页给肌皮丛支出处但无完整动作；原始解剖资料补肌皮屈肘/感觉接口，保留Core已有腋/胸长及Prompt肌皮/腋的不同选取。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S10",
+      "block": "O2",
+      "kpId": "orthopedics-o02-kp12",
+      "logicGroupId": "O2-LG05",
+      "fullFormalPrompt": "晚期8｜卧床4｜外骨化/内关炎｜手足萎｜头舟坏｜最重1。",
+      "originalSourceLocator": "外科 Lecture PDF P228，书页 P185。",
+      "category": "COURSE_CORE_SCOPE_DIFFERENCE_PRESERVED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p227"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 227,
+          "png": "evidence/source-pixels/surgery-p227.png",
+          "pngSha256": "e1bd034cd524821f99d6f11ac5a67aaed11fdd5cab92a2d76a0c656d45e61dd9",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p227.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "原表晚期对照称Volkmann最严重，Core之一；补表内排序范围，不推唯一普遍排序。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S11",
+      "block": "O3",
+      "kpId": "orthopedics-o03-kp01",
+      "logicGroupId": "O3-LG01",
+      "fullFormalPrompt": "好发T10–L2｜X常规｜MRI软4｜搬运2法。",
+      "originalSourceLocator": "外科 Lecture PDF P186，书页 P151。",
+      "category": "COURSE_CORE_SCOPE_DIFFERENCE_PRESERVED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p185"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 185,
+          "png": "evidence/source-pixels/surgery-p185.png",
+          "pngSha256": "5b57f61372dc9e1f3c24c73ebfcc21a1f32128af9925d30d2bf02fe29cf07eed",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p185.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "MRI四对象来自骨科总例，半月板是关节例而非第四脊柱结构；补计数所辖对象。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S12",
+      "block": "O3",
+      "kpId": "orthopedics-o03-kp03",
+      "logicGroupId": "O3-LG02",
+      "fullFormalPrompt": "屈曲2型｜压缩1/3｜脱位先看椎间盘｜2路径。",
+      "originalSourceLocator": "外科 Lecture PDF P186–187。",
+      "category": "PARTIAL_EXACT_COURSE_CUE_UNRESOLVED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "UNRESOLVED",
+      "actualPixelPages": [
+        "surgery-p185",
+        "surgery-p186",
+        "surgery-p187"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 185,
+          "png": "evidence/source-pixels/surgery-p185.png",
+          "pngSha256": "5b57f61372dc9e1f3c24c73ebfcc21a1f32128af9925d30d2bf02fe29cf07eed",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p185.txt"
+        },
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 186,
+          "png": "evidence/source-pixels/surgery-p186.png",
+          "pngSha256": "6d17998bbc0a31373299ab4631ecbf5792b8a3b1fa70c337bace6631ffd5f6e9",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p186.txt"
+        },
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 187,
+          "png": "evidence/source-pixels/surgery-p187.png",
+          "pngSha256": "24d9b8571c6c28fb36f44fd839800fddd762114e6bb5d0461366ca0018964473",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p187.txt"
+        }
+      ],
+      "supplements": [
+        "SADIQI2016"
+      ],
+      "finding": "原页左提纲否则/右解释超过的等号口径不同，均无分母；已查P185–191文字及关键页像素；补前后缘比与相邻平均参照区别，禁止自动选一种。",
+      "remaining": "课程1/3的测量分母及等号；须owner给精确读数定义。",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S13",
+      "block": "O4",
+      "kpId": "orthopedics-o04-kp02",
+      "logicGroupId": "O4-LG01",
+      "fullFormalPrompt": "m–n→n｜C5–6→C6｜L4–5→L5｜为何？",
+      "originalSourceLocator": "外科 Lecture PDF P194、P201。",
+      "category": "EXTERNAL_SUPPLEMENT_LABELED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p194",
+        "surgery-p201"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 194,
+          "png": "evidence/source-pixels/surgery-p194.png",
+          "pngSha256": "6868e711e076b2b7a35164dba8a43bb45c9175c1d8ed79b8f61041b7e3310fa5",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p194.txt"
+        },
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 201,
+          "png": "evidence/source-pixels/surgery-p201.png",
+          "pngSha256": "f47e7bcec19b0afd2130d40b648aa3e95dc7c9bd2fc502d422b499a66f890e35",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p201.txt"
+        }
+      ],
+      "supplements": [
+        "WINEGAR2020"
+      ],
+      "finding": "课程m–n→n举例保留；补颈部出孔根与腰部侧隐窝下行根空间关系，孔内/孔外腰盘是例外，限定通常后外侧情景。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S14",
+      "block": "O4",
+      "kpId": "orthopedics-o04-kp09",
+      "logicGroupId": "O4-LG03",
+      "fullFormalPrompt": "根2征｜髓2征｜C4–8动作/感觉｜m–n→n。",
+      "originalSourceLocator": "外科 Lecture PDF P195、P201–204。",
+      "category": "COURSE_PIXEL_INTERFACE_CLARIFIED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p194",
+        "surgery-p202",
+        "surgery-p203"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 194,
+          "png": "evidence/source-pixels/surgery-p194.png",
+          "pngSha256": "6868e711e076b2b7a35164dba8a43bb45c9175c1d8ed79b8f61041b7e3310fa5",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p194.txt"
+        },
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 202,
+          "png": "evidence/source-pixels/surgery-p202.png",
+          "pngSha256": "d6f55186d02b43fa5bd620897b1c1f558b3778672cd803721510fb4cd6161aab",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p202.txt"
+        },
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 203,
+          "png": "evidence/source-pixels/surgery-p203.png",
+          "pngSha256": "bcb4ef035766e69ddd30082274d5ce7eca3487408b140c48627367b46b010ab7",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p203.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "实际原页补C4呼吸接口与相邻根共同动作；代表动作不是一肌一根，所有学习者图执行仍待。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S15",
+      "block": "O4",
+      "kpId": "orthopedics-o04-kp10",
+      "logicGroupId": "O4-LG03",
+      "fullFormalPrompt": "根鉴3｜髓鉴2｜交/椎鉴1｜感觉分离？",
+      "originalSourceLocator": "外科 Lecture PDF P196。",
+      "category": "EXTERNAL_SUPPLEMENT_LABELED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [],
+      "pageEvidence": [],
+      "supplements": [
+        "MED-ALS-GEN",
+        "MED-ALS-ENC"
+      ],
+      "finding": "课程鉴别只列ALS名称；补官方最小定义、UMN/LMN组合与感觉通常保留，MRI压迫定位仍需检查，未增完整诊疗课程。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S16",
+      "block": "O4",
+      "kpId": "orthopedics-o04-kp17",
+      "logicGroupId": "O4-LG05",
+      "fullFormalPrompt": "硬vs软10轴｜广/局｜肌电｜反射｜病理征。",
+      "originalSourceLocator": "",
+      "category": "COURSE_CORE_SCOPE_DIFFERENCE_PRESERVED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p203"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 203,
+          "png": "evidence/source-pixels/surgery-p203.png",
+          "pngSha256": "bcb4ef035766e69ddd30082274d5ce7eca3487408b140c48627367b46b010ab7",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p203.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "原表十行=病例行+九指标，其中肌力及浅反射是两者共同下降；Core七鉴别轴保留，补共同项与计数而非三个新互斥征象。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "O6-MOST-COMMON",
+      "block": "O6",
+      "kpId": "orthopedics-o06-kp07",
+      "logicGroupId": "O6-LG02",
+      "fullFormalPrompt": "后脱最常｜三角变/不变｜弹性固定｜空虚感｜环抱复位",
+      "originalSourceLocator": "",
+      "category": "EXTERNAL_SUPPLEMENT_LABELED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p210"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 210,
+          "png": "evidence/source-pixels/surgery-p210.png",
+          "pngSha256": "7b8979d1caa430bceb91d0a70ac9698b0b0a3ffbaca48183494e144b2fe76556",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p210.txt"
+        }
+      ],
+      "supplements": [
+        "CARTER2010"
+      ],
+      "finding": "原页只说后脱多见；原始论文摘要明确最常见肘脱位类型，只增强同一关节方向排序，无全身关节排序或新百分比。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S17",
+      "block": "O8",
+      "kpId": "orthopedics-o08-kp03",
+      "logicGroupId": "O8-LG01",
+      "fullFormalPrompt": "功能位1形状｜目的2｜串联：髌骨功能位？",
+      "originalSourceLocator": "",
+      "category": "COURSE_TEXT_RESTORED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p152"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 152,
+          "png": "evidence/source-pixels/surgery-p152.png",
+          "pngSha256": "72163192ecfb028bb9bfe5d09ff60b969aaad708d488b31968969308804682d4",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p152.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "原页两目的分别为保关节活动/抓握与减水肿、僵硬、萎缩/废用；补两独立接口。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S18",
+      "block": "O8",
+      "kpId": "orthopedics-o08-kp05",
+      "logicGroupId": "O8-LG02",
+      "fullFormalPrompt": "一般时窗｜断指特殊时窗｜敷料｜密封 / 低温｜禁忌保存方式",
+      "originalSourceLocator": "",
+      "category": "EXTERNAL_SUPPLEMENT_LABELED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p152"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 152,
+          "png": "evidence/source-pixels/surgery-p152.png",
+          "pngSha256": "72163192ecfb028bb9bfe5d09ff60b969aaad708d488b31968969308804682d4",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p152.txt"
+        }
+      ],
+      "supplements": [
+        "AAOS-FINGER"
+      ],
+      "finding": "实际保存图有内外隔层；AAOS明确不可直接接冰，防水隔层推出避免透袋直接浸水并标为推论；课程干敷料与AAOS湿纱布不混成统一方案。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S19",
+      "block": "O11",
+      "kpId": "orthopedics-o11-kp03",
+      "logicGroupId": "O11-LG02",
+      "fullFormalPrompt": "人群2｜侧别｜动作2组｜本质1｜无红热｜疼痛范围边界",
+      "originalSourceLocator": "",
+      "category": "PARTIAL_EXACT_COURSE_CUE_UNRESOLVED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "UNRESOLVED",
+      "actualPixelPages": [
+        "surgery-p147",
+        "surgery-p149",
+        "surgery-p202"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 147,
+          "png": "evidence/source-pixels/surgery-p147.png",
+          "pngSha256": "a9894fe2a0a5fc9412fe1d5b8446f361a3ea87ac72a357fc0dd9f53fd400c3b9",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p147.txt"
+        },
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 149,
+          "png": "evidence/source-pixels/surgery-p149.png",
+          "pngSha256": "b19dd903e031ed9c85c38851d1aa4c62c971d7e65afb8dbefb591d6f2d1af5a2",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p149.txt"
+        },
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 202,
+          "png": "evidence/source-pixels/surgery-p202.png",
+          "pngSha256": "d6f55186d02b43fa5bd620897b1c1f558b3778672cd803721510fb4cd6161aab",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p202.txt"
+        }
+      ],
+      "supplements": [
+        "AAOS-SHOULDER"
+      ],
+      "finding": "年龄/性别已补。P149原题无红肿热且有退变影像，答案A为骨关节炎；该阴性线索非肩周炎独有，已补鉴别边界。",
+      "remaining": "正式肩周炎Prompt内无红热的精确归属；不能把鉴别题阴性线索变成独有体征。",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S20",
+      "block": "O12",
+      "kpId": "orthopedics-o12-kp04",
+      "logicGroupId": "O12-LG02",
+      "fullFormalPrompt": "皮纹/会阴2｜短缩｜弹响｜Ortolani/Barlow｜屈曲外展｜Allis",
+      "originalSourceLocator": "",
+      "category": "COURSE_TEXT_RESTORED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p142"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 142,
+          "png": "evidence/source-pixels/surgery-p142.png",
+          "pngSha256": "4621690276d7d9da418e1cd31a8050eeab49e9927d52fdcd8953f11f49be4b19",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p142.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "原页精确为患侧大腿内侧皱褶加深增多/会阴增宽，替换泛化皮纹和会阴改变。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S21",
+      "block": "O12",
+      "kpId": "orthopedics-o12-kp09",
+      "logicGroupId": "O12-LG03",
+      "fullFormalPrompt": "外观3｜最常见比例｜分型年龄｜严重出口1｜功能目标",
+      "originalSourceLocator": "",
+      "category": "EXTERNAL_SUPPLEMENT_LABELED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [],
+      "pageEvidence": [],
+      "supplements": [
+        "SRS-GLOSSARY",
+        "SRS-AIS"
+      ],
+      "finding": "课程只列分型名；SRS各类型细龄端点作为术语补充，保留10岁衔接表述与骨骼成熟成人界定，不造生日统一端点。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S22",
+      "block": "O14",
+      "kpId": "orthopedics-o14-kp04",
+      "logicGroupId": "O14-LG01",
+      "fullFormalPrompt": "主治疗2｜手术双门槛｜术前2–4周｜术后≥12月｜禁忌2",
+      "originalSourceLocator": "",
+      "category": "COURSE_CORE_SCOPE_DIFFERENCE_PRESERVED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p164",
+        "surgery-p170"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 164,
+          "png": "evidence/source-pixels/surgery-p164.png",
+          "pngSha256": "264748c482870188dbcd643c1263b8a243b67e5255417941655a92b693208031",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p164.txt"
+        },
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 170,
+          "png": "evidence/source-pixels/surgery-p170.png",
+          "pngSha256": "c8b10c56ced26bd03f22e4a598ec01ff152ed58682eb2ebde07fe2d2773ca6b7",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p170.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "实际原图≥12月箭头在手术之后，正式Prompt术后；Core总疗程同数字起点不同；明确双时钟并保留SC01标签争议，不裁定统一owner。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S23",
+      "block": "O14",
+      "kpId": "orthopedics-o14-kp07",
+      "logicGroupId": "O14-LG02",
+      "fullFormalPrompt": "早期4压物｜迟发4机制｜活动/静止｜血管1｜软化结局",
+      "originalSourceLocator": "",
+      "category": "EXTERNAL_SUPPLEMENT_LABELED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p165"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 165,
+          "png": "evidence/source-pixels/surgery-p165.png",
+          "pngSha256": "0c0ada8e439b988a58413c07eca3ad77af0f87cd7db61f106095cfa6c0aaeb49",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p165.txt"
+        }
+      ],
+      "supplements": [
+        "PATIL2014"
+      ],
+      "finding": "原页三压物+进入椎管方向，不是四物；原始临床研究支持肉芽组织为额外材料并标外补，不能据其选定病例路径重写课程手术门槛。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S24",
+      "block": "O14",
+      "kpId": "orthopedics-o14-kp12",
+      "logicGroupId": "O14-LG03",
+      "fullFormalPrompt": "滑膜2级｜骨/全关节1术｜纤维强直1术｜畸形1术｜年龄边界",
+      "originalSourceLocator": "",
+      "category": "PARTIAL_EXACT_COURSE_CUE_UNRESOLVED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "UNRESOLVED",
+      "actualPixelPages": [
+        "surgery-p165",
+        "surgery-p166",
+        "surgery-p167"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 165,
+          "png": "evidence/source-pixels/surgery-p165.png",
+          "pngSha256": "0c0ada8e439b988a58413c07eca3ad77af0f87cd7db61f106095cfa6c0aaeb49",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p165.txt"
+        },
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 166,
+          "png": "evidence/source-pixels/surgery-p166.png",
+          "pngSha256": "023465e16a6901317fd4683f044c7b534ed77e89db9b3679a5ae44e49c3d3cc0",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p166.txt"
+        },
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 167,
+          "png": "evidence/source-pixels/surgery-p167.png",
+          "pngSha256": "3688f65d979b1fdf0c23ab0544dd09a64636a7660eeabb1c337a575a6746202e",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p167.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "28岁案例年轻患者置换反复更换代价在原笔记明确，但四分流表没有融合数字年龄；已补案例条件而非现代算法。",
+      "remaining": "正式年龄边界所指术式及数字；案例年轻不等于融合术固定年龄值。",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S25",
+      "block": "O16",
+      "kpId": "orthopedics-o16-kp01",
+      "logicGroupId": "O16-LG01",
+      "fullFormalPrompt": "8轴｜良性特殊痛1｜恶性最显著症状1｜骨膜反应边界",
+      "originalSourceLocator": "",
+      "category": "COURSE_CORE_SCOPE_DIFFERENCE_PRESERVED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p176"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 176,
+          "png": "evidence/source-pixels/surgery-p176.png",
+          "pngSha256": "9b7069b7d19920944ea541f556b9b36814a2def615174b5e934732465b5b23ef",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p176.txt"
+        }
+      ],
+      "supplements": [],
+      "finding": "原表十行含发生率/代表肿瘤且合并生长，Core十项去前两项又拆生长为三轴，Prompt八轴无分组映射；疼痛最显著原条件是生长迅速而非所有恶性。三计数和强度均保留完整条件。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    },
+    {
+      "id": "S26",
+      "block": "O16",
+      "kpId": "orthopedics-o16-kp03",
+      "logicGroupId": "O16-LG01",
+      "fullFormalPrompt": "原发5｜最常见1｜ECT优缺2｜脊髓1｜CT引导1｜椎旁静脉接口",
+      "originalSourceLocator": "",
+      "category": "EXTERNAL_SUPPLEMENT_LABELED",
+      "localExplanationRepair": "DONE",
+      "strictCourseCue": "BOUNDED_EXPLANATION_COMPLETE_OWNER_UNCHANGED",
+      "actualPixelPages": [
+        "surgery-p176"
+      ],
+      "pageEvidence": [
+        {
+          "source": "EXECUTION_ONLY_LOCAL/27外科精编版【带导图】.pdf",
+          "physicalPage": 176,
+          "png": "evidence/source-pixels/surgery-p176.png",
+          "pngSha256": "9b7069b7d19920944ea541f556b9b36814a2def615174b5e934732465b5b23ef",
+          "scaleTo": 2200,
+          "authorActuallyViewedPixels": true,
+          "learnerContactOrCompletion": false,
+          "text": "evidence/source-pixels/surgery-p176.txt"
+        }
+      ],
+      "supplements": [
+        "STRINGER2012"
+      ],
+      "finding": "实际页边大多不走椎旁静脉保留；原始解剖资料解释联通通路及部分外丛有瓣，只支持可提供路径，不能裁定课程大多分母或改成主要路线。",
+      "remaining": "",
+      "medicalOwnerAcceptance": false,
+      "learnerExecutionOrCompletion": false
+    }
+  ],
+  "supplementSources": [
+    {
+      "id": "JH-ET",
+      "title": "Johns Hopkins Eustachian Tube Dysfunction",
+      "url": "https://www.hopkinsmedicine.org/health/expert-qa/eustachian-tube-dysfunction",
+      "evidenceType": "FIRST_PARTY_CLINICAL_INSTITUTION",
+      "readLocator": "What is the Eustachian tube? pressure, drainage, protection",
+      "readState": "PAGE_TEXT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "BRADY2008",
+      "title": "Brady et al. 2008, Visual long-term memory has a massive storage capacity for object details",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.0803390105",
+      "evidenceType": "ORIGINAL_RESEARCH",
+      "readLocator": "Results and Conclusion; experimental lower bound, not total capacity",
+      "readState": "ARTICLE_TEXT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "MED-ATROPHY",
+      "title": "MedlinePlus Muscle atrophy",
+      "url": "https://medlineplus.gov/ency/article/003188.htm",
+      "evidenceType": "OFFICIAL_CLINICAL_REFERENCE",
+      "readLocator": "Causes: neurogenic relative to physiologic/disuse",
+      "readState": "PAGE_TEXT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "GEORGE2024",
+      "title": "George et al. 2024, A cadaveric study of variations in musculocutaneous nerve",
+      "url": "https://ajmsjournal.info/index.php/AJMS/article/view/4106",
+      "evidenceType": "ORIGINAL_RESEARCH",
+      "readLocator": "Abstract Background; 60-cadaver anatomical study",
+      "readState": "ABSTRACT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "SADIQI2016",
+      "title": "Sadiqi et al. 2016, Measurement of kyphosis and vertebral body height loss in traumatic spine fractures: an international study",
+      "url": "https://link.springer.com/article/10.1007/s00586-016-4716-9",
+      "evidenceType": "ORIGINAL_RESEARCH",
+      "readLocator": "Surveyed measurement techniques: VBCR and AVBC; height remaining is not height loss",
+      "readState": "ARTICLE_TEXT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "WINEGAR2020",
+      "title": "Winegar et al. 2020, Magnetic resonance imaging of the spine",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7571515/",
+      "evidenceType": "AUTHORED_SCHOLARLY_RADIOLOGY_EXPLANATION",
+      "readLocator": "Cervical/lumbar exit numbering and lumbar foraminal versus lateral-recess location",
+      "readState": "ARTICLE_TEXT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "MED-ALS-GEN",
+      "title": "MedlinePlus Genetics Amyotrophic lateral sclerosis",
+      "url": "https://medlineplus.gov/genetics/condition/amyotrophic-lateral-sclerosis/",
+      "evidenceType": "OFFICIAL_CLINICAL_REFERENCE",
+      "readLocator": "Description: motor neurons in brain and spinal cord",
+      "readState": "PAGE_TEXT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "MED-ALS-ENC",
+      "title": "MedlinePlus ALS encyclopedia",
+      "url": "https://medlineplus.gov/ency/article/000688.htm",
+      "evidenceType": "OFFICIAL_CLINICAL_REFERENCE",
+      "readLocator": "Symptoms and evaluation; senses usually unaffected, exclude structural mimic",
+      "readState": "PAGE_TEXT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "CARTER2010",
+      "title": "Carter et al. 2010, Orthopedic pitfalls in the ED: neurovascular injury associated with posterior elbow dislocations",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20887916/",
+      "evidenceType": "ORIGINAL_CASE_BASED_PAPER_ABSTRACT",
+      "readLocator": "Abstract opening: posterior is most common type within elbow dislocations",
+      "readState": "INDEXED_ABSTRACT_READ; publisher direct full-page open returned 403; Elsevier em-consulte indexed page reproduces complete abstract",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "AAOS-FINGER",
+      "title": "AAOS Fingertip Injuries and Amputations",
+      "url": "https://www.orthoinfo.org/diseases--conditions/fingertip-injuries-and-amputations/",
+      "evidenceType": "FIRST_PARTY_PROFESSIONAL_SOCIETY",
+      "readLocator": "First Aid: moist gauze, watertight bag, no direct ice",
+      "readState": "PAGE_TEXT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "AAOS-SHOULDER",
+      "title": "AAOS Frozen Shoulder",
+      "url": "https://www.orthoinfo.org/diseases--conditions/frozen-shoulder",
+      "evidenceType": "FIRST_PARTY_PROFESSIONAL_SOCIETY",
+      "readLocator": "Opening age 40–60 and women; no explicit no-redness/no-heat assertion",
+      "readState": "PAGE_TEXT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "SRS-GLOSSARY",
+      "title": "Scoliosis Research Society Glossary",
+      "url": "https://www.srs.org/Patients/Resources/Glossary-of-Terms",
+      "evidenceType": "FIRST_PARTY_PROFESSIONAL_SOCIETY",
+      "readLocator": "Infantile, juvenile, and adult definitions",
+      "readState": "PAGE_TEXT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "SRS-AIS",
+      "title": "Scoliosis Research Society Idiopathic Scoliosis",
+      "url": "https://www.srs.org/Patients/Conditions/Scoliosis/Idiopathic-Scoliosis",
+      "evidenceType": "FIRST_PARTY_PROFESSIONAL_SOCIETY",
+      "readLocator": "Adolescent idiopathic scoliosis age definition",
+      "readState": "PAGE_TEXT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "PATIL2014",
+      "title": "Patil et al. 2014, Non-Surgical Management of Cord Compression in Tuberculosis: A Series of Surprises",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4068851/",
+      "evidenceType": "ORIGINAL_RESEARCH",
+      "readLocator": "Prospective 50-patient adult series; Fig1/3 and discussion: epidural pus/granulation compression",
+      "readState": "ARTICLE_TEXT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    },
+    {
+      "id": "STRINGER2012",
+      "title": "Stringer et al. 2012, The vertebral venous plexuses: The internal veins are muscular and external veins have valves",
+      "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/ca.21281",
+      "evidenceType": "ORIGINAL_RESEARCH",
+      "readLocator": "12-cadaver study abstract; valves in some external veins, communication; no course cancer route frequency",
+      "readState": "ABSTRACT_READ",
+      "retrieved": "2026-10-04",
+      "courseOwnerChanged": false
+    }
+  ],
+  "newMedicalProseReturnApproval": "PENDING; parent receives status and evidence paths only",
+  "formalOwnerWrites": false,
+  "sharedIndexFinalizerOrLiveProgressWrites": false,
+  "realLearningRecordWrites": false,
+  "runtimeWrites": false,
+  "pushMergeDeploy": false
+}

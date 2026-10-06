@@ -60,13 +60,22 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q051-075.json",
       "question_truth_blob_sha": "b24acbdebbe3af5ee90e7e746e5c90d9849160c8",
       "knowledge_path": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H8_多发性骨髓瘤MM_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "77be1471a694cb52aaf4bf500d1d7fdf50d6e842"
+      "knowledge_blob_sha": "77be1471a694cb52aaf4bf500d1d7fdf50d6e842",
+      "knowledge_revalidated_blob_sha": "83f342d22464695682eb1f900b23bf3be2c6afa9"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current H8 KP09 owns the older-patient axial bone-pain/CRAB case pattern and KP10 the monoclonal M-protein diagnostic evidence."
+      "basis": "Current H8 KP09 owns the older-patient axial bone-pain/CRAB case pattern and KP10 the monoclonal M-protein diagnostic evidence.",
+      "bounded_prompt_route_equivalence_2026_10_04": {
+        "reviewer": "Codex SELF bounded equivalence; not a new independent medical review",
+        "base_commit": "bc014aeee3c7ca1be91a180a41336f03d14b3930",
+        "previous_effective_witness": "77be1471a694cb52aaf4bf500d1d7fdf50d6e842",
+        "reviewed_blob": "83f342d22464695682eb1f900b23bf3be2c6afa9",
+        "basis": "Original Question/options/official answer/Explanation and existing role judgment unchanged. Entire owner differs only by the seven reviewed Prompt count/object corrections and H1 exact A1 B4 reference. Full native mapped medical Core and support retain their prior facts/conditions; ESR Source disagreement remains explicit. Only CURRENT-at-base rows are revalidated.",
+        "proof": "content/xizong/projection/bf-lecture-replacement-r2-review/dependency-reconciliation.json"
+      }
     },
     "primary_kp_id": "hematology-h08-kp09"
   },

@@ -1,0 +1,133 @@
+{
+  "revision": "r2-definite-prompt-and-h1-route-20261004",
+  "status": "ISOLATED_NOT_ADOPTED",
+  "new_prompt_candidates": 3,
+  "new_routing_candidate": 1,
+  "existing_four_c_prompt_candidates_reused": true,
+  "formal_owner_writes": 0,
+  "changes": [
+    {
+      "system": "F",
+      "block": "F1",
+      "kp_id": "final-f01-kp15",
+      "field": "Prompt",
+      "before": "6步主链｜4线索｜3净化｜1出口F2",
+      "after": "6步主链｜5线索｜3净化｜1出口F2",
+      "reason": "Current canonical KP15 explicitly lists respiratory, pupil, skin, odor and organ-damage clues: five classes. Count only; no new medical fact.",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "candidate_copy": "canonical-candidates/content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "patch": "canonical-candidates/F1-r2.patch",
+      "source_evidence": "f/evidence/F1-native-inspection.json",
+      "source_evidence_sha256": "c5ddcb460f64fee938ad84dcd332d41b3a99464e6a5b2877ab1d774fccb00651",
+      "original_sha256": "20024ff1e056f55125b70faa8167ebf65263163db15405c213e342b948689def",
+      "candidate_sha256": "9a8bb4283d8555ff4c3008d47a00273c3aa225fa20255e078fdc19842e7faee1",
+      "same_kp_id_order": true,
+      "all_non_prompt_bytes_unchanged": true,
+      "medical_fact_delta": 0,
+      "formal_owner_written": false,
+      "revision": "r2-definite-prompt-and-h1-route-20261004"
+    },
+    {
+      "system": "F",
+      "block": "F3",
+      "kp_id": "remaining-f03-kp02",
+      "field": "Prompt",
+      "before": "定义2｜芽孢｜对象差别｜创面药3只消毒",
+      "after": "定义2｜芽孢｜对象差别｜创面药2只消毒",
+      "reason": "Original surgery P282 limits wound use to benzalconium bromide and chlorhexidine; current Core names these two. Fix wound-drug count3 to2, leaving general three-disinfectant context in teaching; no new Prompt slot or medical fact.",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "candidate_copy": "canonical-candidates/content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "patch": "canonical-candidates/F3-r2.patch",
+      "source_evidence": "../lecture-replacement-revisions/r1-source-resolution/f/F3-preservation-proof.json",
+      "source_evidence_sha256": "86a5bf5139e9166704726051f1d193ce19c5cc8d018eacb1f0080b65e68f98ae",
+      "original_sha256": "308e64954fe8ff9bb3a8fcc5c2f343ade664f66e6becf475e1647b4698e7c166",
+      "candidate_sha256": "4f602d729a99f15d858dd148710cf38a3c38ac80f38f7b6819be20c1a7b54669",
+      "same_kp_id_order": true,
+      "all_non_prompt_bytes_unchanged": true,
+      "medical_fact_delta": 0,
+      "formal_owner_written": false,
+      "revision": "r2-definite-prompt-and-h1-route-20261004",
+      "source_evidence_revision": "r1-source-resolution"
+    },
+    {
+      "system": "B",
+      "block": "D14",
+      "kp_id": "digestive-d14-kp16",
+      "field": "Prompt",
+      "before": "单纯3不1用｜化脓少/多分流｜坏疽3动作｜抗生素共性",
+      "after": "单纯2不1用｜化脓少/多分流｜坏疽3动作｜抗生素共性",
+      "reason": "Original surgery physical P056 and canonical table have no irrigation and no drain: two negative actions. No third action invented.",
+      "canonical_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D14_肠梗阻阑尾炎与腹外疝_学习阅读版_v1_最终执行版.md",
+      "candidate_copy": "canonical-candidates/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D14_肠梗阻阑尾炎与腹外疝_学习阅读版_v1_最终执行版.md",
+      "patch": "canonical-candidates/D14-r2.patch",
+      "source_evidence": "b-clinical/evidence/source-resolution/sources-reviewed.json",
+      "source_evidence_sha256": "8ee3c14ac12166825d2af5cc3e7c51bac5f5445d58ca452d459fa238fce9341c",
+      "original_sha256": "d3c2d9ce75e1ef655107816c08d8f05f759bb0b0f87c57f26255de9cfa58ebeb",
+      "candidate_sha256": "5da0b790d34d9b3e9f77d50dbfcdde76f1b8fd9af95d2a08643579d544c97af6",
+      "same_kp_id_order": true,
+      "all_non_prompt_bytes_unchanged": true,
+      "medical_fact_delta": 0,
+      "formal_owner_written": false,
+      "revision": "r2-definite-prompt-and-h1-route-20261004"
+    },
+    {
+      "system": "C",
+      "block": "H1",
+      "kp_id": null,
+      "field": "RoutingRef",
+      "before": "circulation-c4 / 循环C4",
+      "after": "circulation-b04 / A1 B4｜正常止血与病理循环整合",
+      "reason": "Current A1 system/projection registers circulation-b04; no exact circulation-c4 alias in identity-aliases. Replace stale route references, retaining unique hemostasis owner.",
+      "canonical_owner": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H1_造血CBC_Ret与骨髓诊断语言_学习阅读版_v1_最终执行版.md",
+      "candidate_copy": "c/canonical-candidates/h01-canonical-candidate.md",
+      "candidate_proof": "c/canonical-candidates/h01-candidate-proof.json",
+      "patch": "c/canonical-candidates/h01.patch",
+      "route_edits": [
+        {
+          "before": "circulation-c4",
+          "after": "circulation-b04",
+          "occurrences": 2
+        },
+        {
+          "before": "循环 C4",
+          "after": "A1 B4",
+          "occurrences": 4
+        },
+        {
+          "before": "循环C4",
+          "after": "A1 B4",
+          "occurrences": 2
+        }
+      ],
+      "resolved_block_id": "circulation-b04",
+      "resolved_canonical_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block4_正常止血与病理循环整合_学习阅读版_v1_Batch2冻结版.md",
+      "resolved_current_teaching_path": "content/xizong/projection/a1-circulation/chat/b04-teaching.md",
+      "read_only_reference_root": "EXECUTION_ONLY_LOCAL/candidate-1148",
+      "reference_witnesses": [
+        {
+          "path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block4_正常止血与病理循环整合_学习阅读版_v1_Batch2冻结版.md",
+          "sha256": "a3273e2ff1c4d3cb36495f338686892728977eca5a69b2f4f839eddf572db9e5"
+        },
+        {
+          "path": "content/xizong/projection/a1-circulation/chat/b04-teaching.md",
+          "sha256": "2a6831f354c2d0d2fa5ee9168a01aee17543de4be3df20e9bafca4f1ddf7c049"
+        },
+        {
+          "path": "content/xizong/knowledge/systems/a1-circulation/system.json",
+          "sha256": "b270f379a555e912c8b1703d5a3f7be56e77821f63f6f79bad11eefc6deb20cf"
+        },
+        {
+          "path": "content/xizong/projection/a1-circulation/blocks/b04.projection.json",
+          "sha256": "eb67498b052a5a4ce0b1d7afd03da8db7ec6ffdb62011c2fecfeb4f45a3a7da1"
+        },
+        {
+          "path": "content/xizong/knowledge/learner/identity-aliases.json",
+          "sha256": "c29e1479c4e9714f71cadbb6b6e0bc6456b3c901c97d32a98d16560576fb6f65"
+        }
+      ],
+      "medical_fact_delta": 0,
+      "formal_owner_written": false,
+      "revision": "r2-definite-prompt-and-h1-route-20261004"
+    }
+  ]
+}

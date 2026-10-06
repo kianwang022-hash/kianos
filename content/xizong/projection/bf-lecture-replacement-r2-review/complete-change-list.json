@@ -1,0 +1,2620 @@
+{
+  "status": "DRAFT_JOINT_WRITE_SET_NOT_MERGED",
+  "base_commit": "7003caeed62c9029b772c17b18c9b24304549977",
+  "files_changed": 521,
+  "counts": {
+    "M": 70,
+    "A": 451
+  },
+  "authoring_base_commit": "bc014aeee3c7ca1be91a180a41336f03d14b3930",
+  "previous_write_set_base_commit": "bc014aeee3c7ca1be91a180a41336f03d14b3930",
+  "policy_parent_commit": "c9eecf8416adf3e7d72611f9818ba934a640ea29",
+  "scope_note": "Full current joint candidate diff versus #1145 stack base; B-F authoring scope remains 121 teaching + 121 hidden bodies, while #1148 enters as an exact merge parent rather than copied semantic ownership.",
+  "files": [
+    {
+      "status": "M",
+      "path": "content/xizong/EXTENSION_ASSET_CONTRACT.md",
+      "sha256": "698211b51b81a0bd5506f04d003f85d30898e20e3d6f804e391fe2239828044a"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/LEARNING_CONTRACT.md",
+      "sha256": "a8be46a192c3e75cc9cb8a2aecaa516c0b0c228259b59a240587b991794b3428"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md",
+      "sha256": "73dad25d3b216f357a97fd0133d5258dc41a0a75190206d07d02870b9fec5dcb"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/knowledge/learner/LECTURE_VISUAL_REFERENCE.md",
+      "sha256": "c0bef7094848fa256492da92400d50358aa62c7ea7cc31752d9d8981cfc153dc"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/learner/README.md",
+      "sha256": "57b9b9b202e932feffde6f72755a64520186c780413612e15e8a740fd99942f4"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/learner/shared-fields.json",
+      "sha256": "294888988fdc36e85a196b57f23a4692a406e4238313b19accad9290e4755386"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/learner/study-policy.json",
+      "sha256": "14ba22d3ea668d5e957164971139f5d1957c781e325ce74326cf13bb461351e1"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/learner/xizong-2027-surgery-rebase-slot.json",
+      "sha256": "16bd136c32babc5e6f74283ed8db6d157d93a23485a377a641d0f12bafc32253"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+      "sha256": "9b4c24db445380acce0e43d561aa0b8165de65c58f121005abde6d9a35ee743c"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md",
+      "sha256": "b2101ca152c93f55ec84c82f0cd4b423cc346c39ddffbd80bd6aee75355013de"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+      "sha256": "bd454b2e17ac083ad47664b3e8ea2f7e5b1e1abaa3e5a486bc41a29eb6dfb967"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md",
+      "sha256": "819cc0f98f651213c1d2cbcd3703de214e8ca4053672089b6d1d511c40d8caa2"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md",
+      "sha256": "356900c5b9f1a6d770637432b0764a0c9abca9c5cd4e33d381edf3fe2c086d88"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md",
+      "sha256": "9fbd81bec9412b5d81080d563d9ffe63f68926b28a9f80ca9a455435249677c4"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md",
+      "sha256": "d3bbb9bf35ca282c5fa790713d1d6e9c534515529d1751bb87a2ba8516af1cea"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D14_肠梗阻阑尾炎与腹外疝_学习阅读版_v1_最终执行版.md",
+      "sha256": "5da0b790d34d9b3e9f77d50dbfcdde76f1b8fd9af95d2a08643579d544c97af6"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H1_造血CBC_Ret与骨髓诊断语言_学习阅读版_v1_最终执行版.md",
+      "sha256": "af56ff0c895890677dd7cfc75f311284d96c2c36b3a978a19226b249a0b186e9"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/c-hematology-immunity-infection/blocks/血液系统_H8_多发性骨髓瘤MM_学习阅读版_v1_最终执行版.md",
+      "sha256": "55561d9af5914f034af0a33ae5b2442824b8dbc23be8efbc7246bc170f17feae"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/n-n1-n11/神经系统_N4_神经肌接头与骨骼肌_学习阅读版_v1_最终执行版.md",
+      "sha256": "84aee6fc676ad15bf43165d69fd69ac044489473f8b6d0599af8334c8507c9c1"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "sha256": "9a8bb4283d8555ff4c3008d47a00273c3aa225fa20255e078fdc19842e7faee1"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
+      "sha256": "4f602d729a99f15d858dd148710cf38a3c38ac80f38f7b6819be20c1a7b54669"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/projection/a1-circulation/chat/b01-review.md",
+      "sha256": "784e84b4721d450fdbdd53b77567ce2e592d00d0db1f5e298f5d49d5a7bffd15"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/projection/a1-circulation/chat/b01-teaching.md",
+      "sha256": "5e90beac3685688336714ce7d6d9f95f9cd3ca3ff3e3502a513810f18350fa67"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/projection/a1-circulation/chat/b02-review.md",
+      "sha256": "fb7b6558d9a7b60a4f4762eba550ee4cca123f98d7a5715f7ace1be70893b17a"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/projection/a1-circulation/chat/b02-teaching.md",
+      "sha256": "a1b26a5d9b1ee5f150abd1b6faee41aa2ed17fe1c3ce2634cf33d6a2250b77e2"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/projection/a1-circulation/chat/b03-review.md",
+      "sha256": "58889356de57bc067dd0e5d2939933b5e6d244f5f7630bdf2b664eab95988082"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/projection/a1-circulation/chat/b03-teaching.md",
+      "sha256": "6df80e73e8aa2e1de2d3d5538752ad873aaa9aeef25ce2ae00d132acd74cbbea"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/projection/a1-circulation/chat/b04-review.md",
+      "sha256": "6cd28ce5590d66ae716a720d26b17762d7b8d587177361c4ff57f793aff74e77"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/projection/a1-circulation/chat/b04-teaching.md",
+      "sha256": "2a6831f354c2d0d2fa5ee9168a01aee17543de4be3df20e9bafca4f1ddf7c049"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a1-circulation/chat/b05-teaching.md",
+      "sha256": "e0cac8c1fabeb8af7a5aa6bfeba3f433027111db9b60cef5cad4e1a6bea0b1fe"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a1-circulation/chat/b06-teaching.md",
+      "sha256": "cde8a636a6a9e84076efe673607f8cef260f5d1a2776e057bb7ce9f88bacbb43"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a1-circulation/chat/b07-teaching.md",
+      "sha256": "be0dda3482faba126c1322b6dd587e3c816818f0bde9335ff70d5305db6b360c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a1-circulation/chat/b08-teaching.md",
+      "sha256": "dea3ea6b53fee2a5bd5be7494ae1582ea1e11cd43ca347884dba7f28b8ddbce5"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a1-circulation/chat/b09-teaching.md",
+      "sha256": "5bb160bc8cf2a130df894dcdcaa0b79a954ede1690c59a38b8793bb7adace123"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a1-circulation/chat/b10-teaching.md",
+      "sha256": "3e00557d364a2e77500de0e3314157875856e30b5c63a03d106eb87caddf6f9b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a1-circulation/chat/b11-teaching.md",
+      "sha256": "ae625b106d8f2206a2b8979e45a0dcf75afb7566a88e57867711ed05d6e202a3"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a1-circulation/chat/b12-teaching.md",
+      "sha256": "050e31146156ff9aede357fb16c7e5abaff0bd3ec7688897bd82b0a9c77feb84"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a2-respiratory/chat/b01-teaching.md",
+      "sha256": "95b29fb2487229aadd69248c547a334b4a0191211687d73c84180354f0182319"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a2-respiratory/chat/b02-teaching.md",
+      "sha256": "ad1542b70156d465847f09b25745df2f6f671ce72e7728486688083f52e39685"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a2-respiratory/chat/b03-teaching.md",
+      "sha256": "0223576bcec4516bbd61d0d435261954558a135a5a58f180c73a328152350852"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a2-respiratory/chat/b04-teaching.md",
+      "sha256": "6ff993b65061116da86c3e03d50a9c25e0e69e322c70de4887fe954e6efefc0b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a2-respiratory/chat/b05-teaching.md",
+      "sha256": "528562b7b18a88b6435cdaa51ec674f28fc7ef1746e858e10d07723a196121cb"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a2-respiratory/chat/b06-teaching.md",
+      "sha256": "48e07a3b6bf91db1a933da6f957a60011793c40ceaeae02effc1a62312677dc4"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a2-respiratory/chat/b07-teaching.md",
+      "sha256": "04a2e132bd755cd4da73deb50aa66607734ae244444a64971447615e0de694e7"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a2-respiratory/chat/b08-teaching.md",
+      "sha256": "468f866e4ff7fb60f5a24a6817e3f0cc3504f304f8171106f721b00f128b91cb"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a2-respiratory/chat/b09-teaching.md",
+      "sha256": "51c64adc29df7e983c8380ad4a3d8435108f52c8c4caa1aaf9fd72618b75a849"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a2-respiratory/chat/b10-teaching.md",
+      "sha256": "d6faa5b68f9dece52783f09ad6439632a9539e4a21de42d1e188b61b2e0985ab"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a2-respiratory/chat/b11-teaching.md",
+      "sha256": "f5a1177d97ca2e2e759f743b48cedeb5acb4bd0a3c95d0ac7c7470aee23302dd"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a2-respiratory/chat/b12-teaching.md",
+      "sha256": "4a000aacaa408727fd6533b1237e258fc1825d2991af0075957d70903518d636"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/projection/a3-urinary/blocks/b05.projection.json",
+      "sha256": "05e69fcd7f22fe5ac0bb2ce536ef2c97fe4cf6bb8906718071f74c5ec14431c4"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b01-teaching.md",
+      "sha256": "640f6b42eca521be6aa94ac3063c74463c09559c87a18bcae385bd24783d6c56"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b02-teaching.md",
+      "sha256": "4f9685ba295b919ed3a400d0ceff75b370df6d832178c4249f920c389610c584"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b03-teaching.md",
+      "sha256": "a9af01e1d304ae0e40371746679e26fdb64557442d7db618c3b2b38757b7423d"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b04-teaching.md",
+      "sha256": "a75b4cb4577ded9a19221c81b414eec33d1dfa18c662a76f9413c131ebaf6978"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b05-teaching.md",
+      "sha256": "605611ae988948132f685b1b39a61b23f5eab7de1b4c653951fc4e91509aa712"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b06-teaching.md",
+      "sha256": "5e95a1a424ee74b90de0a1cd20682233acc5db5a28760c414e84027133c9ba09"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b07-teaching.md",
+      "sha256": "a224334d77ba6ba7ef8e677ebfbaf619b2a4000ce2bca80d794953b397448d84"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b08-teaching.md",
+      "sha256": "c8a0180fcde71ec2f76ab50b6428ebacab05d37b2b4022fa3f11c42267e06525"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b09-teaching.md",
+      "sha256": "e17cd9fa2c39c3e1489a78addc8d5a3ba0e9c4c30515ac328cc8b89ae28c38dd"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b10-teaching.md",
+      "sha256": "e54d84d5ab4e956d36a11e3d7bffc922e11ca0d4c914b8e8dee755a254243110"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b11-teaching.md",
+      "sha256": "8e0521db8dcb3b0385738e6106240af84364b79dbcd82b300cd9ac7f061de12a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b12-teaching.md",
+      "sha256": "10435e57c40c05a909f0d35e2e1aa85db5a9468704410a46fd1a8d8a70703705"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b13-teaching.md",
+      "sha256": "5da91d37966c0027eea5a9f82312bd52401008881c9696044ffbf12025b5e0a6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/a3-urinary/chat/b14-teaching.md",
+      "sha256": "89594ba5ef47ea4ca66cca92cc2eed9aef283c99bfac06291d3d24150b18e2a0"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d01-teaching.md",
+      "sha256": "b733bb21a0b50d19a09d5f59c9b4c538e71b60f46dd0ae53e045f40cee320f6d"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d02-teaching.md",
+      "sha256": "918b0f96bb1c87de5731d1185e7a059d30912cfd0118a71274e474eb98d3d39a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d03-teaching.md",
+      "sha256": "ba9ef2c942fcece92609f608c216a98f0a7a3b9f4ad10a191ae2cca99904d8b6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d04-teaching.md",
+      "sha256": "d021e94dcf001fa3842f9bfe19a3dbf580d5e5e7cdb07d1342d5d14cecd5a974"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d05-teaching.md",
+      "sha256": "23e3c47beb8cb82222b78d2e4df018038ab29f2446bae14b7184894ada16a797"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d06-teaching.md",
+      "sha256": "c1e0669a53c501b4f02f231224281a7a26678535bae173aceca6556812e61ce8"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d07-teaching.md",
+      "sha256": "9e4131b609d66d833d1033e2b065f23d20c6491f3bb3f74ef1d58064bb2c8803"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d08-teaching.md",
+      "sha256": "3af8410a7011003f681c01915b71beeed9e9805d88176cad6c13079aec7395f2"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d09-teaching.md",
+      "sha256": "1f4f3e9f0f2d96dc5202fb26d82dd70684453f88bb0162bcc83f55894b7214cf"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d10-teaching.md",
+      "sha256": "b98fc0d70384eb6ccaef51705c8559ee54060ee56d02d84ccc77e188014b7112"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d11-teaching.md",
+      "sha256": "5251abbd64ba464c6bef1acdc6636222d11bb8d99987e71f5243e41100aa85f2"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d12-teaching.md",
+      "sha256": "a1b2ea6fbb988661a9715e68d6a9e6098c8ae45a344aef1a25c46a5cb84c0d0a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d13-teaching.md",
+      "sha256": "60ca340ffa58752c9b2c9406e781b7156bc156bde95ae2ec1021ae5e14fbabaa"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d14-teaching.md",
+      "sha256": "ec827bdc92a4b0d7da44744bbba7206e25caae69ca83876d9822a8dc0814f2f7"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d15-teaching.md",
+      "sha256": "8b8b9ac84c605d62792190483064ea1270376eb891571d052f9f0cf35c570215"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d16-teaching.md",
+      "sha256": "206c744cd6653bd066b584eb049f87b40c81a9b7cc16b9e4940a2cc8ae5a2168"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d17-teaching.md",
+      "sha256": "bee059911947ce3688a4c48318413b632c5f0ace762ceca6243214593214c9b1"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d18-teaching.md",
+      "sha256": "d74eea986b199de9766d21b65cb9bc7d884e1fb0658ebcfe8f2adb446f6c745c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d19-teaching.md",
+      "sha256": "3252bc4ed9fa17b6d6abdfeda694c469b88fcf9489c309f34abd5e3282c62552"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d20-teaching.md",
+      "sha256": "c2aac45ca4e40c05c913b8a0f80ce1982f7c106eb3c72cb124f0e3bae912ce57"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d21-teaching.md",
+      "sha256": "4c095c65734c5050a3aced29278f23e4f3ad05d2d78d11b01bfc4ee5a74eb699"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d22-teaching.md",
+      "sha256": "c3fd8786ea24aa554d17349fe474ca6ed7b1f451a6de8434d99a0573af5b65b7"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d23-teaching.md",
+      "sha256": "dddb1fd4005260a63416692696609e65a703177271798adffe9e03a87f7c2e8f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/g01-teaching.md",
+      "sha256": "b4a444fe0a337d2e4ff96093b875af7806f655f50720226c910a7747041588da"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/g02-teaching.md",
+      "sha256": "7bc7d5befd4b92918c02793eb79d8c0c7b0bc7cdc2d7e4a30a4a350b691e3d72"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/g03-teaching.md",
+      "sha256": "abef828a5d7e4d1d2628af080a75b0e2b763f2eded421e3b072983118b0c71ec"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/g04-teaching.md",
+      "sha256": "c843b8ce4910b2754d897ff27de2d01b32363098e18ca01cacb64a7aea32bce5"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/g05-teaching.md",
+      "sha256": "4ffb8366991a510bdfab309eb4a8196d613a7d74e7e8c979c2e2fac80b998444"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/m01-teaching.md",
+      "sha256": "3d52f28d8b689f0e5c18aacd20712ed00100c40259a05cb6304e5f118c4af958"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/m02-teaching.md",
+      "sha256": "c586bcdfc5229d855973e3c843339c916fdf15446ebb8c6945799c61f6dd00ea"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/m03-teaching.md",
+      "sha256": "71e6361d07e88e8e062883bee2f6a1aa38836da556ce969544d0ecd71d0582c4"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/m04-teaching.md",
+      "sha256": "da6123ab4564d9cc3b57e419d64b6b30a0fa5fa5b4eb8ab770218b1d573fbb38"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/m05-teaching.md",
+      "sha256": "a33e2ab0d3bd9153cb4871816e284e1b9cec0613cc27a94928a6f589b5ecb02f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/m06-teaching.md",
+      "sha256": "830b5a3b6418dc664b579ec7f978f113e9e48aa9c43aa2764f670fd1aeb29e53"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/m07-teaching.md",
+      "sha256": "9ba02a0d498cec354c435b5b9edca2e8608d5eeb042211fe882b3bc7aa25c021"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/m08-teaching.md",
+      "sha256": "b34ca5f73dbcb3ae854918e88ed46d23ccd0c6f2cb2bc0bbc0a587008c80c416"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/m09-teaching.md",
+      "sha256": "672571a8251a550f12660d7560774b17ac4f0528856cc95b5e7aafe1beab43a7"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/m10-teaching.md",
+      "sha256": "da77b4bfac2641943f3d9386412a13f230b06fef619f70a31e50094ecb348b30"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/README.md",
+      "sha256": "3b9542c61f012c399232894dd17399fa5a3302190e693843a29df712c2afa247"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d01.json",
+      "sha256": "5996f59d541a26ffa66027d7b1daa6221b489cf144a2ab3df526fd7aac0b3a4d"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d02.json",
+      "sha256": "f8d5f2300a3eecb4fd8eb88109213351ccb7cb0cd5337447b146ac76a6bd351d"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d03.json",
+      "sha256": "a30b574e8f583d4973cc7d76f2f3a48777464aa64f8141131dd187062409c47c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d04.json",
+      "sha256": "e12e38c71bbea66c84f644b417f3f70d8a74213c899dc741a15884395708626f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d05.json",
+      "sha256": "c8da0c8647968e2349c7425e826a6473e91adcdc4336766628439c9e2f715928"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d06.json",
+      "sha256": "e942c078efa7b24e58a423e342f3a00f7e2cc47a5c0486773bb4adb345f50929"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d07.json",
+      "sha256": "950e8845bc5f37c86f202cfc4cafc6fdae07970c06bed69ed11d4e757d774c23"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d08.json",
+      "sha256": "e319181384c1e786f660d0e16707041ceb05dc518e670d6c08022d6f87c0e8e9"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d09.json",
+      "sha256": "77b61881402aed4bf303a9521df43b4cad7cced6d57ba0308bb155d0cad2e122"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d10.json",
+      "sha256": "a1ea5123be6f5ffef3521d40a835a51127f16b0cbf1847c9adb8eba852416351"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d11.json",
+      "sha256": "64422e9e5ba8de9457aac1931de58d42d5e2c7e343eedb41f9b2073b37d0f13a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d12.json",
+      "sha256": "f5a9d79b71902d56328b19644c85e512991dbd082289fa994f375f37e9f91881"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d13.json",
+      "sha256": "435e2153d907b9b0d735a3f5feed1862fc36b450ef57c30b8e49caf0aa57c32b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d14.json",
+      "sha256": "d9717e37c50074e22f793f0b06e8bc11a77026a59e0e293e01ee36e137769cb8"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d15.json",
+      "sha256": "85c670244c8c0f4beea15fbcfd38922f38571fb9f8260ce74e729cab0cb6483b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d16.json",
+      "sha256": "c1929cc4734ab809c1e57c545ab10948994b09b915b5eb671f8d51e6ba525a84"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d17.json",
+      "sha256": "fd4a51a9e637b19ce81586de20e8c773650f06cb9618ab43a063f33fb89d6434"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d18.json",
+      "sha256": "8919323767b588cc0f13babadeaeb5444de8e968a9e51aec9e838d664a398c81"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d19.json",
+      "sha256": "424c1cd3a5039a55b8b21016cf451ea58dc0a62092eff9448ea649965c9fc8ee"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d20.json",
+      "sha256": "5493635204a140677a230f1afdc4f2e6fc95c1497d3c00e496e68a6ac7119163"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d21.json",
+      "sha256": "f5b4475ae0931ac67a3c83eaf221598fc903c00d898927204f9d694951354339"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d22.json",
+      "sha256": "298818337275221c63ddba180db6ccbf68e8e750c54a92d74dd0413f0d4688c4"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/d23.json",
+      "sha256": "cd85cd3bf73ca1eb3ad839affcddedca69454760cf723d32864cdc7cbbc527fe"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/g01.json",
+      "sha256": "2a49467edccd86795e0e49d758b6e970247480a7b0bc45c2f4d8060bc595ceab"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/g02.json",
+      "sha256": "b40d2ac7a7b395374891ff2fa7752db1081a9127b91734c1731a2e5f71180baa"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/g03.json",
+      "sha256": "09ab57f944299a96d48cd5fd21ef48c57fac4491be3a42211679f828b3fff7b3"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/g04.json",
+      "sha256": "5ef3dd9c6c8002821e1bbfc79e23a39a4ea3ccb1413dd3aa8452cc8973100a73"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/g05.json",
+      "sha256": "c99c203b4c4e201b069d836b1170266c3c0e8f71b90fc9379d5ca9f6f47997b0"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/m01.json",
+      "sha256": "a490f0c108592c912155bc73a533eda091a8f49c6a3f6375a7ce4df36d770325"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/m02.json",
+      "sha256": "bd7babec8c4b9eed42443204ba35d4608271c7e2adc3cd1ac7825a1314abdb23"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/m03.json",
+      "sha256": "874469feb4fe5e1fb943ab936099bd4614fc86d63c02212023e02078b57818c1"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/m04.json",
+      "sha256": "9650cecf431eb90082973ba7c2e565513443f421f69ff30568878a1d6385a788"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/m05.json",
+      "sha256": "ec855f1c51b8d49023ec8f66101d851b8efe3bda8e020a4dd9db6702321273a1"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/m06.json",
+      "sha256": "3c7f6e77b282886862fc07adab31d10bc06b72183cd9fffbbdd3e6ca41b6d69c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/m07.json",
+      "sha256": "707b181ed53e09e07a63b476fef51825b223d25700a1bd30aaeaf651cbdad634"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/m08.json",
+      "sha256": "45ba9fb12d542614791d07e523dfa8ad68ce103dc2cf2a565e70478afd59cc62"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/m09.json",
+      "sha256": "32b1a09b46866a509c4df7c56d47e1948fc5c966568469f4b0b87441f0733735"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/B/m10.json",
+      "sha256": "227e16cce1ad2fc52f76f81128c94c85c571f3b7948b0c4234978bbd497cd874"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h01.json",
+      "sha256": "f10413c18b31dc937fb7a01dda7c799755b9867173463d7fef3c1ce6ccd5a339"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h02.json",
+      "sha256": "3f197bc913b1380d27a57a779a940f66861a83913f382b2593d8dd187655a587"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h03.json",
+      "sha256": "128c534a01d403f07d3bfe929b580bf68ee5afdfe4a4c8feb54b573e57b334c1"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h04.json",
+      "sha256": "eedcf8d7d37930eaa2a63596c362d0fd2b9d2b6a89146cb2b681297f1d3bc64f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h05.json",
+      "sha256": "9f92db73299643a8451fe103327fbf88d7117701ad9579fbeeba3ef8164d5118"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h06.json",
+      "sha256": "86796e6d0aaf79d55e54a2a01c3e024414973c30f758c2ac948b83f867b228cb"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h07.json",
+      "sha256": "dd5e3b5d934da043633117bd93ed7fcc102eddcf44ad9e0a0f7ac3d8ffa9b859"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h08.json",
+      "sha256": "8569176c8a92ab61d46addc7f5d9c8bcd29319107e95d7726320bb821546d2e7"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h09.json",
+      "sha256": "f158d17cabb97b1ee6cb50f2b362fac06fef2f30882f2adf456d628bd4bfe6db"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h10.json",
+      "sha256": "0769846adbe3b365ac7fb36c4c1bc4980c21729cab8b9f9617bafa44f9c0affa"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h11.json",
+      "sha256": "257d1f24e3f50af805db81dceedad16a7a1e3a9ad7a9276fb360162a7cf8e2ac"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h12.json",
+      "sha256": "084ae67b294226a2681f6f24a4c8e79e5dd1ea7aa79e4e6b754661a761c512f3"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h13.json",
+      "sha256": "c8f8716b3cc5d7eddf7f3356aad390aebb7330161be7b34d72c41485a61bc6ba"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h14.json",
+      "sha256": "8f2f1f3cabd040f778d5b1caad8e2913891a0351402f02a2e862b8528e9bc786"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h15.json",
+      "sha256": "5be0c301d0082bfc3a93b9aabbda59fbf36d389e8b2e8fe1ecc1e3ed1f0bfb9d"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h16.json",
+      "sha256": "2355f2acd1ef26fc470db28101ddcd97e13b1c7bee28e074e02cb7870a0d34e4"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h17.json",
+      "sha256": "8ac89ba6e6878649d8af1b436f220cc3434590cf62129e753dfd9d2743599ff2"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h18.json",
+      "sha256": "6fd59d7aa667e92d93cdd9bdfd6ae1350672810a93f68ffa25e1b935f3396395"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h19.json",
+      "sha256": "4da01560fa4eb48c5e4797a951eaae426264a1a946968fe166b45009b0691d20"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h20.json",
+      "sha256": "f99484df7770d264d1c4f5bb85523278a38e4f8a7437c3968b721a9b508c137f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h21.json",
+      "sha256": "34a0281c9ae05ce4a12708889aca075ae30c52004d93667bbd5b0e9e7ee57c92"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h22.json",
+      "sha256": "f44745e48a8ba130f35a81318b30b44da3087632bd7bb46cef01b1f4d75c845c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h23.json",
+      "sha256": "e899abd44f8a8dfc1b7e5c48994e3bbd77d16f8a67885a0338122941950bf526"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h24.json",
+      "sha256": "425a510942d7f3ba9d987d9a8e3b89343edd389a8058bc805e0be99c8d510c77"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h25.json",
+      "sha256": "d711937cbe208ce132ff8e2b9b5327415a3c35556ca5b553a474f890d08781ec"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h26.json",
+      "sha256": "324f0ffb1f9fae9788eabf4c87fd35ecb4bdd5d2b326f2ed0c974c3264883967"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/C/h27.json",
+      "sha256": "6843e470cb2d04c411af41f1575e4f5608e3499aa525f5a86c1735d0a757ccfb"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/n01.json",
+      "sha256": "55fabc7c6fb4f08634c5a5f017a0de6b2e6a76d722757ec10b698b26f09f1976"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/n02.json",
+      "sha256": "f4fef8a8ea9e06b2e4913cbb93e526def90b58e78014e2033fc2616a1a71c484"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/n03.json",
+      "sha256": "b82fac3856f5da83d80ea926b7fe99c22a9ff3b24a17163870c06c8612867c65"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/n04.json",
+      "sha256": "aee2a3c1463f97a9df29b3da3f564c399e73f3cc34465b22e7a9aacf6612857e"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/n05.json",
+      "sha256": "bfc648f3065873fcf8b4330397812ac0fd5d652b46e6412dc2451be25d382b0c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/n06.json",
+      "sha256": "c9890701231b4a15b58489c8b2d74b4b7e31a64f77b774fedb85f21dfa85e7b6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/n07.json",
+      "sha256": "e13e56699ea0a0fcf9a04e81d3a60a36bc5541585ea93ad74946a8c913e8be28"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/n08.json",
+      "sha256": "0088293c44b20135849e5d4b5c5e168bf4e10399c1087f67d65fffd25b20cf28"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/n09.json",
+      "sha256": "22da170cc59a0cc313f5911b76de5480903d5e1583c72e431826e6fcf6711bcf"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/n10.json",
+      "sha256": "89acabac0f938056c16e07de05291c39fd14bbf6e160d1d10856a0125bbce721"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/n11.json",
+      "sha256": "c4695cf2f479a9cb9073f39fe3032b33743138651dd00fcb90e15cbe944b0510"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o01.json",
+      "sha256": "22c7c0ef7de84d0a6f97aaadbcb195c8dfa17389cc9304cb54ab85c8bae3b182"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o02.json",
+      "sha256": "0ed449e32939ccfa95e3305fdcab6795a3e0fd2444c17a4fe065fe5456228eed"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o03.json",
+      "sha256": "802d38bfe6d1c71482b66b5cf4551431cb17997bcfec74ce3baa7ee4912ac3b0"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o04.json",
+      "sha256": "49af7ad80a6e4480116066d8b1f0fa04b95cef4ee1ba46062986ab8a7203b448"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o05.json",
+      "sha256": "9888caad99a6cf2142cae1fa4cb4a0a74c0492329e9d27706a445fa2b9482ccf"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o06.json",
+      "sha256": "4649421ece63e7912893d35d35e7f0f2bc56f4965cd503196ce899582e54d58b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o07.json",
+      "sha256": "0d9bef8ff7ed2de613bb56ecd4d97db4c183babb810dcc3f73f75f5767f6eed7"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o08.json",
+      "sha256": "5e269103ee13f1e9d5f561ec99178d16ea65e94543e7becfdebef3f44e52c0e4"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o09.json",
+      "sha256": "1b0b0e6a5a9f2896e2c7e7efaa78dd799c2276c8198f814a906870a5a186d236"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o10.json",
+      "sha256": "8c103533c60c889efb245732cb1cbaae587cbcb52eb89295223d5fadf135c3dd"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o11.json",
+      "sha256": "3255af52968aaa45501a80506d6e0510c52c3acde5e05ad0cb42737815a15b29"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o12.json",
+      "sha256": "76bc0c013bdd1118a93996bad5324aaf6e36972fc10bf11d954670254fbe6446"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o13.json",
+      "sha256": "3cd44d0d7ea2132b635801ac10b9a4059d9aba1b6bdeec468fe8352e78f7868c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o14.json",
+      "sha256": "d0dcbd18d2f9e5aaff27ba4f688d0003071cf49c068c64dedec70add80d65bbd"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o15.json",
+      "sha256": "9786a98894aa60c79ee64d0b088071a5ef455940766db1e7481faac6f2254242"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/D/o16.json",
+      "sha256": "b4495826c36d5f552a3d22cf41fe2349ab82bb3a50abac26180fe33d3fc060ef"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e01.json",
+      "sha256": "08b68b55751656d72f414d4ee2c6e84475c32d8a52cd99ac37e2e6d141a3bf5d"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e02.json",
+      "sha256": "d30ece8fece362c2046ed570d68a041bed505e74a23666ff134fff00af0ef468"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e03.json",
+      "sha256": "d3688c9713a44f589c7495990837c26b585bfe4ca96339cde15daa37a5ec0c16"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e04.json",
+      "sha256": "b56b8dff351b0dc6b56c5256eaed48d29ade95bf9ec722c6ba1687664092cc14"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e05.json",
+      "sha256": "a8d9075d232ffd470e68c53a92daf59ee808fa2fddec06b2092e7381a35bdb64"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e06.json",
+      "sha256": "6a0eb31b37b3868150806dc2f22aa035b1b4810d9140f484f4dbc1dd8ee6c057"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e07.json",
+      "sha256": "da8a1a7a7254b2c88093d8eaa50293bf60377f375b58bb02330ff666c39d6ff6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e08.json",
+      "sha256": "0fd25d96088ec5b860b0bab96408a7ef7088636518b61e46a02fa0b63a97527b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e09.json",
+      "sha256": "7334b9e2879d4fa9637f5a732923c5aa26016c76c94d208a318b6e524d47b1a9"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e10.json",
+      "sha256": "49417981ad9454802bb207408e22a06e8a22222fca69f673bbf41a9bf3e5ab42"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e11.json",
+      "sha256": "d7c4e29d3b770ea2f3393666e6a4240071bff94d7e7b820c8682c0b6af100543"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e12.json",
+      "sha256": "a04cfad2d84d8d6b462a28c19300e881d678768c38332d75b7035c713690a2ec"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e13.json",
+      "sha256": "af453a7310696689b8d8728e8e3b971d8531838fe82f87d5eb3920fadcb1fd99"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/e14.json",
+      "sha256": "d6c1771705772b6f73c282f847c009b057ed34e3ba686a3a1f6ab183605466f9"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/sr01.json",
+      "sha256": "2eafa5970aefd6375de2a260c57ba7602b5d5fef5eccc7ba511a39bf2bc1720a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/sr02.json",
+      "sha256": "507cc8414a8f1cfc848144fba08394eef7badab3687e0090d4ee6519bfb18996"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/sr03.json",
+      "sha256": "1d8c3722a9f6b591e16eb7aa87fa97284170d88fbc9ee2dc9a6b3b3117b5ec00"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/sr04.json",
+      "sha256": "b88eeb6d4fc9b68b59f6266654be46817e5be0751031a1abe70c6d88bea186ae"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/sr05.json",
+      "sha256": "a756c669f917a27233ef631b704a3c625343180eb63a003eaa70d4955beb98bb"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/E/sr06.json",
+      "sha256": "f69a74f4554c9df9476c4238971b8bab7e83fadb3699485e2822341d3d878ae2"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/F/f01.json",
+      "sha256": "86e8e87858a66ff335803313d7f3efbffa99724e37520c491dc3f9f596103697"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/F/f02.json",
+      "sha256": "8e0eb233ba2ae24dc6247ece58258330b7c8ee30e44219ba8a0033982f6ffa03"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/F/f03.json",
+      "sha256": "328e9feff55b3cc740454c8667684cce5321376282a847c6884da26879572826"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/F/f04.json",
+      "sha256": "9c85c87025f85a53a3ee7d65514dd15c9a3f8dc5500f5e36277432d7c8cff540"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/F/f05.json",
+      "sha256": "9603362c5618d90eca685ad34902d4941ff22ff3a72d6de116bf59b33fd20f78"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/F/f06.json",
+      "sha256": "eed7d06dc101839679d219e50f1979f384d3d3247557a1a69a4cb1d20b739efa"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/F/f07.json",
+      "sha256": "de718a0265791131a8bffdb32798f43448ed63fc107228f0136043d851e9f290"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/F/f08.json",
+      "sha256": "95e340398a82c8b628e6e1819369490dbd632e4dde15ed9a45b8bba1ef5c21c2"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/annotations/F/f09.json",
+      "sha256": "8d35563b6677dfee50fa97cc6e9f39f164fd31516476dd4227aacc77cc9bfe94"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/canonical-focused.diff",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/complete-change-list.json",
+      "sha256": null
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/delivery-index.json",
+      "sha256": "85486a8b2cfd1c1c2a7328301f76b39339a775c5304814c0708eee88d0923748"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/dependency-reconciliation.json",
+      "sha256": "a1443f19f078368a46833dba5429edb6cbf783affbccc328f458c5ac5eb1dbe4"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/migration-file-list.json",
+      "sha256": "3cd0538be72635d3f16a62f6c597cee33d0b9b1045507a919a3f82da4381519c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/native-binding-verification.json",
+      "sha256": "63912b823231cc2e1ed8144bc0190bccf3af3612daf441f4eb30660a0b26a10b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/portable-prose-verification.json",
+      "sha256": "e583b9bc20393523ab11ada66fb1bde99bbe49852bdc6e4a8656965ccf6a7828"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/reviewed-canonical-changes.json",
+      "sha256": "295121eac7118e7629f3dcf1d8415fd3ba5b624a11032add684cf8a758314118"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/b-clinical/evidence/source-resolution/proof.json",
+      "sha256": "4b331059f960f162d440c19556b0acfdd7516e0ca3e6804dceccedfe21ef4fb3"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/b-clinical/evidence/source-resolution/sources-reviewed.json",
+      "sha256": "1d1a954a63738cb46fed2503c9e5183e7dbcfa6b87f858cacb2144f2ffa244b5"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/b-molecular/evidence/source-gap-resolution/resolution-proof.json",
+      "sha256": "8359402f3b550d59045a2351f0d5a3c1bb3a17b30fd045358ea3e96d570fb539"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/b-upper-clinical/d10/source-provenance.json",
+      "sha256": "2ed023abd9ce184486330459bcacc04a34f245352dcbd1b77b9fb25c1339fb61"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/b-upper-clinical/d11/source-provenance.json",
+      "sha256": "313221cb48894b87ec7ba48cdfee909ecddbd9871fb30ce1e65ae8c3456f466a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/c/evidence/source-resolution/local-readback-proof.json",
+      "sha256": "d0a7c18e16d529bfdae69bf1f4c38db8a430ed3d0b163ed2838b9a6655481847"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/c/evidence/source-resolution/nineteen-item-resolution.json",
+      "sha256": "17378a58af8eed65ba6e342737e2187d2ded9d5ca2aef6a6cfe2c38dd25d5102"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/c/human-adjudication.md",
+      "sha256": "3a09915f522a1113076c2545d44903e6f8dfc8f2e4c48149988402cabc1f8c37"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/canonical-candidates/r2-definite-repairs.json",
+      "sha256": "65f42e09bd2eef0bcf4680f1bb17728aa08958b2b4138b480a80cf48aeb93a40"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/d/evidence/source-followup-bounded-proof.json",
+      "sha256": "b852bd11c5821cb9577fab2529780260453b47c3cd8d4dfe04d24b5a11c77187"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/d/evidence/source-followup-resolution.json",
+      "sha256": "c4d17f2abced8d4e62f41e7af51d960c073b09188ad7fc98d310a6dca8623d05"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/d/evidence/source-followup-resolution.md",
+      "sha256": "6878bd11d655aaadcca5a716f22a4b52e6407e7320b4903c6c8e436cc57c2d54"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e1/source-provenance.json",
+      "sha256": "6193c4c01e5b7565e5993d9d12e7d3df2c004540728e2dee8e9cff351aed206b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e10/source-provenance.json",
+      "sha256": "b95d4b2806a7ab97ee82444530aee7a0553f7b9adefb36c4f4749f837a56bca4"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e11/source-provenance.json",
+      "sha256": "00840eec6d9ed6aea76d5dbd9a16a0231ae6d3d1550505c894d2a3d1265b2a15"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e12/source-provenance.json",
+      "sha256": "8e5ca9fb6b6abe92fee89d52832fc01eae02e97d59d3bb7a2cb39b7cd5a66d95"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e13/source-provenance.json",
+      "sha256": "82b2e0f926c9bcb9760a4daf1cb537f90f870259d23815bc6aac2511438079eb"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e14/source-provenance.json",
+      "sha256": "ac6098cd562e080a9e975b2551684ad479343e398058852084c5caa99f9be7aa"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e2/source-provenance.json",
+      "sha256": "b44befc4f6f970a906e0d1aed90b2d8bab1532879d0b0ad34256bcd878517308"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e3/source-provenance.json",
+      "sha256": "368a61d0b8c12a5c9a5ab61d1971e0a04b2ca892d178f93d3db4fb357b417607"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e4/source-provenance.json",
+      "sha256": "4020655eddb3974a3ac71fa2963d7270a175c8326f66f97ba311db34f8c8aed7"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e5/source-provenance.json",
+      "sha256": "b3a551acee60fd9d258612e7550f1bd3983e6836236777ab9a65839cb4e22f44"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e6/source-provenance.json",
+      "sha256": "da29fc487f82e7649b1b3f80b57f9fcb35eeebee8d7139147d5d52144308b6f5"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e7/source-provenance.json",
+      "sha256": "61b4a13b0c3070aeff114c64f6b408d1b48771c28813f67fbf81ff5a53eb0dc5"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e8/source-provenance.json",
+      "sha256": "ca090c5ebc404a6f0b613d300c4793335f5cdd7bea9df1f8ed78c612d5da0dad"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/e9/source-provenance.json",
+      "sha256": "593cd86cb7f1987815d3437d9c0b3311ea7563c11ef7b9c84ae4e5446b6c2ee6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/prompt-lg-coverage-review.md",
+      "sha256": "948dae4f60ee53090bf05c1bef899a306b1d80091e259c13222a88f0bcd1de54"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/sr1/source-provenance.json",
+      "sha256": "9174b24348e063731930f118211f2257e8cf5d577e9769297156ba3ca6f05790"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/sr2/source-provenance.json",
+      "sha256": "b3d8fb079138fb80ab632bd47ecc0581f3e433e495a4ce5e620c9585ecf51f4f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/sr3/source-provenance.json",
+      "sha256": "ce646960d0a01e186dea6b44a1a08efcb7046002d81ddfbcd06f2775a41fec7b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/sr4/source-provenance.json",
+      "sha256": "b6a85c8a8fd95338923f0aaff9935b3c631f2071c0555b121beaee08c8a51f9f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/sr5/source-provenance.json",
+      "sha256": "0fe8a09c08f4588e5a0883ccc92a06a878e119536cfaf936a64d350e13954654"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/sr6/source-provenance.json",
+      "sha256": "0aaee4acfd5e81aa0dd5b0776e48270c78880896e8c9da19a2140b0a79e7704e"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/e/verification.json",
+      "sha256": "6216b65a209368ed784bde60fffdd57c46956afc7baf8eb532e35e8f6cfb9ca3"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/evidence/root-source-resolution/resolution-proof.json",
+      "sha256": "76ce4e517e6dee61bb47268b25fc62260a06109307acfd3dd156e4aaf04197dd"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/f/evidence/source-resolution-final-readback.json",
+      "sha256": "cb5b23291a506b3f3cb63ec839154b8bb1177ae52eefd04bee1363f5be3febf2"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/f/prompt-lg-coverage-review.md",
+      "sha256": "7590fc23a96013042306234c78563c25d62d5d0e64b28ee40d378a8cd73c7607"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/prompt-lg-coverage-review.md",
+      "sha256": "e6e347916ebbee815031c295bb7440d9c40bee81706756ab2f7d4424e66ed26e"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/r2-canonical-followup.md",
+      "sha256": "b77a038066109a72a753cb7fac41677a2d3575ff03f5f8011293e1f97cd541dd"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/r2-verification.json",
+      "sha256": "8ab326531e6801d28e2b85d5115ccef8cda7eedef563e4e3ff7360416673fdda"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/source-resolution-followup.md",
+      "sha256": "5e1f011205a34259fc0f5c12c4fbd948bf5bc51a53e3d7332b7104f9c1ee6a25"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/source-stage-records/source-resolution-summary.json",
+      "sha256": "91002c5e15159a99d67fb519f8f49bc35a78abd4f49b96bd14c520eb7b9f1868"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/validation-receipt.json",
+      "sha256": "ce52193b7f9ba14ae41c39c3b789e84dcb6196b769e19c46290a2b574c94dc4f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d01.md",
+      "sha256": "49abf19e055e4f413e5015f2316255dc85653a36626399ea3354d4000cc73f1d"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d02.md",
+      "sha256": "36873b13eba6f420e7ae9bb4fae7ae80a14572deab77697ba9ef992e3cf5e511"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d03.md",
+      "sha256": "7b892798559062e67b9f520761eb49d953605dcf0a31f21d3d0522986e4458cf"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d04.md",
+      "sha256": "69ffdfca72bbcdc34e67e38e5f275ba5f55b1dd2dfa7679aa2dea677d8ab1038"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d05.md",
+      "sha256": "fc6da70516d236cca8d4a7dfad7a5905696fdaa50f91bf35ef631f4dfa6b61e8"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d06.md",
+      "sha256": "19cc8dbc7d208e8a3aa8173d5af04f554b2846951ba6294314b4b3f4b89c27f6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d07.md",
+      "sha256": "d439dab7d1fd1c944f6fc63271ff55641e183dccae330a21a4abb2db4714212d"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d08.md",
+      "sha256": "a376b68406f3269ce57a700676795dacba840a4e1c4542ffd87b86c0fd897e2f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d09.md",
+      "sha256": "a50ffa80a03fc229c19421696cf06af2dd3a0352804db2a48f3db2957a4d0ba8"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d10.md",
+      "sha256": "8c58123da6029af6da28fba9a742e90a9f6cdf328a54a8826c595c55e05cf326"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d11.md",
+      "sha256": "59316b61706cfcafafe8b5738ddc265f9c9168d2f7fb1ceefd89288262942306"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d12.md",
+      "sha256": "c6d9349ec21c73af16bc765b3fea3fcc105d3e099132c898cbe6f8ac273c182f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d13.md",
+      "sha256": "a1354d7e2755b497b250842d22192702f43fb58c16f45277e8e3695b9d3dcb17"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d14.md",
+      "sha256": "66af162c14070210df6636d46321fec7ce9c2dbe63f5b535ba26186431695a26"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d15.md",
+      "sha256": "d6e54d807d311d5d963beb97365b47b069c864568d2b486b21317cf7b62d8918"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d16.md",
+      "sha256": "fd443424462a31e0553c48b2e77dd603375b01c9b1f3a73f4073c0989804d214"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d17.md",
+      "sha256": "44b571186f470e358a8b4c55229c37215402f5ad9f77e25a36ea8a63b3a815d9"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d18.md",
+      "sha256": "c6cb6de0e56713e34ae249891f8940bc13b3ee5173cd516ebcd78f69f54eb174"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d19.md",
+      "sha256": "d0abfab18722640ed2112bb7cf5f4fd9a91bc0c526fd8e59ff8206ad43fb21af"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d20.md",
+      "sha256": "88ffaaf05278e450f48d8c6ced05282af095d40ac6764fb35687e5237ae409ee"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d21.md",
+      "sha256": "fa5b9f9706e10046883b4461552cefbc11460de44df21ab53a4366a265351e4a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d22.md",
+      "sha256": "fad30ac1e14fa37cec75d60b8f10711985cf75575e508bf3f549954d56ec5310"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/d23.md",
+      "sha256": "c7433c2d6ee6e2fe3c9fbd8e86eb8fb2b92411f9fecd5e2cbf23a4709cee7f6c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/g01.md",
+      "sha256": "b923dac0f322fa330867d1c421bfd98182cb25da3a1963f03aebfb8eecf534f0"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/g02.md",
+      "sha256": "12fa77b259e288045b471e8c078fcc47cacc0e44858d95f2cb894b3e72901928"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/g03.md",
+      "sha256": "c74e4def62eaddf70eed25978ac3dc178bcdc6565091d6b82b1e4269eb5719f9"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/g04.md",
+      "sha256": "743d5badce91c34a3edb8532448e645953f072746bb5cb81fb910c8e859abfd4"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/g05.md",
+      "sha256": "275e6ac70505244fabfcfff2173208062b290cca7573e910bb95f047426ee74a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/m01.md",
+      "sha256": "47ec9154df1ffc841bfa608fc798d5eee4f7bec1b9cfc087bb7a07293aa87333"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/m02.md",
+      "sha256": "cb21e6df09fd0bb7de7f049951bbea5622966ee09e44513296094b49577ff65e"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/m03.md",
+      "sha256": "6666185247be059e085e577b09e8f0fb10bdaa4579db794652bf322a20a39ae6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/m04.md",
+      "sha256": "28e33fa2e7b09a744048809e3cd66d6b6bdeb4454ebe8841c2a0a3da050f8384"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/m05.md",
+      "sha256": "eee5a9ecb1c2d635f7e544c1650f9f4cb9e4e58babe1e6a49956fe8b4ba38a0c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/m06.md",
+      "sha256": "7ac2a0c6f5c0ad1fd6fb87eb015e0d2ad16e1c53a39845b95479702b78c353bd"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/m07.md",
+      "sha256": "1ab2466a5e79affc9412f975c812eb70166aa7e6f7d77c6109385f1847ece30a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/m08.md",
+      "sha256": "117419d29bf43ab135a087be2897312ca2eb5797b315f2cc2fae78dec1241c28"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/m09.md",
+      "sha256": "c28540d380e6efc3c154d645d22a0a22826d74d5b4730965c77ce4dd98ffecd0"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/B/m10.md",
+      "sha256": "458c8f71fd6d890dc3175748a3ce2d5dea29c47d9781432527685438d17a5208"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h01.md",
+      "sha256": "de11a70b5c06d30c7f44e434f7cf1254d4af42c93efb88b0476ee73e6795bfd6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h02.md",
+      "sha256": "2eb31133d742087bc61e27133cc65542f94bdf5577fa4a2e642e458f8bf04f6e"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h03.md",
+      "sha256": "62b18aceaded2c2bfd88621f79d58ff3682c5c1a343e9bdb345665d100e486ae"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h04.md",
+      "sha256": "fe174fbb510be89f17d3c19da54b5080100ff5b2729933635e7c5adafd5abd43"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h05.md",
+      "sha256": "bb35cddcbe6f25c732fead8637fe1278502418234113864c8e5d2a7494952ecb"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h06.md",
+      "sha256": "9d3294d55498b248d0dfe046cf02403c94fabb8a9548c041a42bb07478d15882"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h07.md",
+      "sha256": "0de1eaea93b028ae9e1fc6769eb6f6f6e114dbbbcfc2032a28382a7553c00b29"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h08.md",
+      "sha256": "bd51a05aaca75c0dfd6e9e9de3911d925f1074bbfb9ad9c1c00e5f747fa557b6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h09.md",
+      "sha256": "79892c9f212df560edfea635c72b59f30a90f7bc45c10965e36632d5ecbd672d"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h10.md",
+      "sha256": "98ef6af269e30906c285f0e64b0a0a9180b099a07b6f86d95e70db6cd29e9fe9"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h11.md",
+      "sha256": "ef9ca7253503d48b79717113273236c29040b2b7a7f9d8de769b20f28eda52f9"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h12.md",
+      "sha256": "89cac95be1914cc1db91b896565ecea58e9012c212f732cdff2f15aaade9ca66"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h13.md",
+      "sha256": "0349b9b3d7bb7bc9c39ed964c39885f89fb2881c1fd39d84d8084a6b1abdea62"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h14.md",
+      "sha256": "4a4f72c858e17f6261a916c0de1f2626329babf23363a6b73caeb3f617e52954"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h15.md",
+      "sha256": "18be7eb1f190015e57ba4d0ae24bb2bd900a99d325223588df53fad585e7b34e"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h16.md",
+      "sha256": "5595878274eda6555e0008c23356df3c6cae33c4ec24fdc9f6015d5ef896a06a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h17.md",
+      "sha256": "2c8871ef7259cc4d7bcb8a7c17adccd3afa94283bcad3feca5fd3ea70ab1a8c8"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h18.md",
+      "sha256": "ca8f4b3b3bd74b28b9d9aa1caa5c7133cd5cc9fbc3f2d6276c3a19f049c37dfe"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h19.md",
+      "sha256": "a7215f1e99c21874271f808fd9b5b42585f8081f77e3351cbbabf8a8521852be"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h20.md",
+      "sha256": "44830f262415495fef7d3a2a25426151296d19ab2a5c84553efaeffcda91ecec"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h21.md",
+      "sha256": "df6012701643262c938ea34b6bf3f42f010173558a3cd39ed683936f6871c527"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h22.md",
+      "sha256": "9f3097954a52d346c565d9e36304057e9a1c2edc488acebefeb7e8684c3424eb"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h23.md",
+      "sha256": "4b032c83d8a0f729eba202d89ba8d8a7df58452e2b4f16af8a7c69314d19db95"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h24.md",
+      "sha256": "bf0d35b0a5a43ced33a79e39ed0da35283a1b0f8684a6c53bb1063b821a33b58"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h25.md",
+      "sha256": "18ce2feb276768dcd3c68260409627c7ab35fd2d3ebf6ebcd20862de2be2d213"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h26.md",
+      "sha256": "9e42fdac643250b54427af010dd7fe38fe30e617331d4430dfc669da94fa0453"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/C/h27.md",
+      "sha256": "79110bef7dd1c2a7049d689380fed41f9598b1356da275d442a0cd559a092a1a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/n01.md",
+      "sha256": "22a05622ac5b393c8a298798cd5e9013762ae49323d53e031216d1e93f8b7357"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/n02.md",
+      "sha256": "924ffebd1f107bdfb9e0c92360760a378ea87044ea32d93d0e883f7003d7b2b3"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/n03.md",
+      "sha256": "6785c94614bd8ba7cdcec0966d8600957b3d149679703130d0fe0d15b6602572"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/n04.md",
+      "sha256": "12774b2e5acb0b8ecfd7a49a12d20c7cd780d2cdeb916b748c5f4c0faad0b549"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/n05.md",
+      "sha256": "7f511e32333e6cb2756a978d9fd92a7d253e29869a39a2c3c2c5b15f582451c1"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/n06.md",
+      "sha256": "11741e3274a4022eb2cd25d6cc783b2dffc65e27f17aac755b7f8cd1ab129386"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/n07.md",
+      "sha256": "49ce14800a7238bad492ed289b0c46011997c94d4ece72bb15bdffb5b2e47af6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/n08.md",
+      "sha256": "dd461dc7866a12505c8424fc5ebd34746fc517d53c935bb9f5d109db61ac52df"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/n09.md",
+      "sha256": "9ce65e74609cc417d18db12b3632aa919bc82581947bc3444759956ab5e722e4"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/n10.md",
+      "sha256": "fd2300e71368dedbaece7ab420e482141424c657f42686d8f5b82d4225803e80"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/n11.md",
+      "sha256": "b2dd980b8a64ab4535ee162b99c789a735295e578a99c358f373cc0ec7b638e2"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o01.md",
+      "sha256": "760de3c055988737277bc778ffd8235c945d909e1b0a125390241c4ff1da0ad9"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o02.md",
+      "sha256": "d51a534f1b1ebb1989daeec39ea4af295456f31a12c8071f45265258832e8d50"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o03.md",
+      "sha256": "3b7db6a4a8167f27c5d2103bc6f241fb19a7b3c933903cdd290e17c9631b1555"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o04.md",
+      "sha256": "482d1d26cdc65bc63febb573f4e98e99ae77601e85bd1cf1c1d347807190eb61"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o05.md",
+      "sha256": "46125a41457eb7aa064f6707ccd04493a2b51717796033bce858b1db1774abb4"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o06.md",
+      "sha256": "d591b61b8930a706a23651456e3b73335b8ac34b59fda5b8a6907c6d5d32f5c0"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o07.md",
+      "sha256": "2d4dc373e4383c9dd6c711a6a70274a380951b36e17f1b4daebd22e1d7e19335"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o08.md",
+      "sha256": "9e8583e71903c8c53b33a1dcac0e6415fd43f55fd6ddae4ba4f972f1c0dd47f5"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o09.md",
+      "sha256": "0a39f08693987dce96f7fd431fdad1a1193bf873c7a0ffa1988578b3a9114bf1"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o10.md",
+      "sha256": "66e5dc136add7f2fd0fd198e5122063d4f9a4c5616648b14ff865d9d760a3c37"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o11.md",
+      "sha256": "8f319a161b7d24ad9c41f007ff5a3eb00dd679a32e02500297d87d72ad0e66e9"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o12.md",
+      "sha256": "15aadada83e2e288be3ed81711c736ed09bb6cca4ac729c8d8787b01e918853e"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o13.md",
+      "sha256": "1a69a520066b0cd1cef546700f30ef1a8c453f1a24d58f60c6f998989a9162bd"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o14.md",
+      "sha256": "72374c6048bbdafc6dd729ffe912d2d2b9ec2f309d141013ef7f899d7bd554a6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o15.md",
+      "sha256": "aee784b52cc60cdf88dfcae02879cea6b663d0b0c9d784d6a0d91a1085837fdb"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/D/o16.md",
+      "sha256": "67b46ab53f915fcbca4c9fb93cbeff787a3029153319a38a0757d157088523bc"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e01.md",
+      "sha256": "940aed2f8852952d5677059975ee1861e737fb08054bfc22fad7523f6cbfe246"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e02.md",
+      "sha256": "729b237f82842d6d3895e0eebe9b4c2a63624b5c4ff1a551f5698ff56866a8d7"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e03.md",
+      "sha256": "0b7e79d02b86fe981c6f9fb17ea301d60b6fa1e12c0f9b09893ca125448a87b8"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e04.md",
+      "sha256": "ce05aab118de25f51318cca2ed51b08e821a287e4ebec6921efad8ec0afcd55a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e05.md",
+      "sha256": "52643fc9eb1539e00f211068c9c3f13c994d1420bc1c3bfb34c0c70d9930e725"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e06.md",
+      "sha256": "62c3c9b06e80017ddd68a7804b95ffc353cfcb57aa0ba13f4deddedb37b0a25b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e07.md",
+      "sha256": "fccea0c3ce6adc8535cc99897033291fc344cf2681d155cf8c2372c520bce82a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e08.md",
+      "sha256": "af4a21495f41182beac52f1ea8dece97f738d2a0f9ea85b3be02b09911262a9a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e09.md",
+      "sha256": "424a6cdcef24d514a85f75eac942963a72f16761a155d82d6d54045e707bc860"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e10.md",
+      "sha256": "409cdc8f5af1a2fadc370b7d0a7323dc590e1d6a982adba862e715214b2991de"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e11.md",
+      "sha256": "5c415ca6529d7c3184f0649d3e9b8cb01432735d93a5e48aac162fd2796bee1b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e12.md",
+      "sha256": "99cf0861adddf60e8818196338d1de665b728426151245e338ee8c4a4beed9fe"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e13.md",
+      "sha256": "306a9bcbf6ccbb49093df24f0c7a5e5ad3746aec4ae14535fe322afa7a3f32f6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/e14.md",
+      "sha256": "a2617873b9f8adbdede8db1aa38d57eae8cb4174def1f22c9196c84b545a6b61"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/sr01.md",
+      "sha256": "6d522cc597535d2230acedd9db9765a2f43a83050857cad6134f643ffcdcc3a1"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/sr02.md",
+      "sha256": "b730ad38c6a2f7973b1e675ba9ededa938ad9f954e0f03ae3b9090e42a3d8771"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/sr03.md",
+      "sha256": "4e35ba412b59afb895ddb5c5e226c0cc5ac77e8a0dfbd773ac0a0209a99be476"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/sr04.md",
+      "sha256": "48a990acb9f62f84f7d12b3d66e76452f5bcf786266d80e8ae0c54c974a32c34"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/sr05.md",
+      "sha256": "e528ddb94e586c0765062c568ad019c0220c039a444701d05e49ddb8ba109fa0"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/E/sr06.md",
+      "sha256": "006243879fce409f442bc8f895e58e463c7b031a739c9a0435a87c47cec86e7f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/F/f01.md",
+      "sha256": "23691258b76840c4827f939dd8f1cfc5b7c65d5d993c80eacb6a92c24e57cfbb"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/F/f02.md",
+      "sha256": "9dcfb9b089aa65a0fe66e0642ef3ffe07789c22999d7960b1eccaabe22fb1852"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/F/f03.md",
+      "sha256": "b2b0b7ecf4d19d3e62cf03bddcf2c6474116687adfea970c87a3398b8f6a3516"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/F/f04.md",
+      "sha256": "a9427da352087ad290ba50be0233578363361ad8b43a4118f881d2231783862a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/F/f05.md",
+      "sha256": "8ff2b4523c228450960b05b98b74aafcf567285c39a0cb5ed80e7c704c43c7a5"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/F/f06.md",
+      "sha256": "cdc13dbec2c77e2e8eaf96d89ecebee0fe6b86677c91f264c466a4fcb09908fc"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/F/f07.md",
+      "sha256": "877100f146b8787973f9e755db52399526c63c3a932d6d4a91404d10ba77a004"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/F/f08.md",
+      "sha256": "029353cd6bdbc029a9e133f5f6495e608b1d30cc7aae7ddf23a1c7affb07e8f0"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/bf-lecture-replacement-r2-review/without-annotations/F/f09.md",
+      "sha256": "a6b6506c44355c5348c8c9b7318ecad78790a4d124fda2624e158beae6747362"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h01-teaching.md",
+      "sha256": "a9cb6a3fd2536241a37477c75f530d5a18a7165ab0f5704d5b107008d7ce060e"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h02-teaching.md",
+      "sha256": "8f10069411eb858927a62849c3be53175c07824c86a3d406ef292d4c71f410af"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h03-teaching.md",
+      "sha256": "2a16598b980bd0005644854d22d8d83ec4f6ae0ef2e0b2d5fab9290976a9c8c5"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h04-teaching.md",
+      "sha256": "078204f028365d159d7e502bd94b6531e0342308c89252f97d9ff7343b28e3c8"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h05-teaching.md",
+      "sha256": "a8b7d41c2b7ab859b68cf0103668b0a70d8549c6a090cde09ac44935989a79f3"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h06-teaching.md",
+      "sha256": "c9ceebd5525d770a688ab7dfaaf3667169fe30ed62c8beb67c9164fb5d73d2be"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h07-teaching.md",
+      "sha256": "9c8c1af7e82c4f908f166794b0501828b4ce16601fd5aa8c0520633f16f92fbe"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h08-teaching.md",
+      "sha256": "9e78c34f8a410b048dcc417ed29714e1463c793a5e07f94962bcdf0c16b826a7"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h09-teaching.md",
+      "sha256": "e895a547cf45d864153c15cf782f93e8dffd3f4d38c74d8eace6c1b33ca680e6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h10-teaching.md",
+      "sha256": "39ec3b53ff4ae02fdd5b76857eccb7033fdab1c2c9551708ea481f6b528ba8b3"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h11-teaching.md",
+      "sha256": "6f7044c8353d27fb3e8f5c98d5a1fe18512a906072f638dd4f4033279c0b526b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h12-teaching.md",
+      "sha256": "1b11aade5b8342e126fa3d77acc677ffc64b54173218db8777ed5d69ae0ee3a0"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h13-teaching.md",
+      "sha256": "b326b504365df25cf2c3b302bb97f15bff255ad6e5e24a379b3fc79e66e92707"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h14-teaching.md",
+      "sha256": "c6d1f96df5e3b55d2679acf0fd747aabaa968e250930527b98101b04a202a409"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h15-teaching.md",
+      "sha256": "f6edd391c0bd23cbbfe4d4ca9f456213754205901b6eca148dfd3adc9d436a24"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h16-teaching.md",
+      "sha256": "bd8b0f580ee58a1b3ce1ba323db708c2c9652c9d47582b9a95ba362b39f7715d"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h17-teaching.md",
+      "sha256": "59bb9e03707323304dcbdc88cf63e4a93004edcab2618116fde3fed84b5fe99f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h18-teaching.md",
+      "sha256": "9cd5aa76e996e431718786d9dbfb59eefb76732fb7d8808e3c65215e57d0e31a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h19-teaching.md",
+      "sha256": "23167aba0e4586134e64da795a2df53369f34740087e84a547c45131dbb41eaf"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h20-teaching.md",
+      "sha256": "770082a9add6e72e94ebcbaf313528a7f4e978673da32cc6cbd1a8106aeeb09e"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h21-teaching.md",
+      "sha256": "d88ba40982349bc497b5c926aa9a2f31e626b0592974156a91483d267b906901"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h22-teaching.md",
+      "sha256": "57c552e0ac98daa689874d5c4e9aedb1a93e54c3f302d57fadb45191d1df4cf1"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h23-teaching.md",
+      "sha256": "d44a691b74b94d3bbff62211230e49cf071a8a2ab2d2be9093aa8667a43106b9"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h24-teaching.md",
+      "sha256": "688193c5a98022fad6965c7bb22839ee7491813c31d374daee53b820ca195d26"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h25-teaching.md",
+      "sha256": "1f00339d98b2c16a4b9a845a8939b9536eddfbbb0d35105fdb1f3e24900c00ee"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h26-teaching.md",
+      "sha256": "96ac89a468eadca79b61740537134ba0293ddfda8d63802e68e48fd552b0ac5e"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/c-hematology-immunity-infection/chat/h27-teaching.md",
+      "sha256": "f920cf5c0647d766ad287cbeeebe05d4096239f2bfff1e6e9e41c41b36e75e2f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/n01-teaching.md",
+      "sha256": "6229f78a380024dcc0d4a8171ee9b7431cf97a5b454b590104afc532c8b217fa"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/n02-teaching.md",
+      "sha256": "fd535f833d420d919da07e380899556ea2cbb1f95ab0ec5c5bdbab13e71f2dc7"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/n03-teaching.md",
+      "sha256": "3f0e125008d2c6d12c2dd1484084c80029fb4f91a393624756d2b015b40c38d6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/n04-teaching.md",
+      "sha256": "5bf6eade278845695262c736e86fa61c9f17648d360ffb1b0c8d9c7689f8c5d7"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/n05-teaching.md",
+      "sha256": "09fbbcbaca02f705709f908514ac40a97701bb5a77f9ea541a84496170c4f2d9"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/n06-teaching.md",
+      "sha256": "f8bb9d98bd4f0a400e05ee98704467ee0a5e643da924fa1f22ed584a56227376"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/n07-teaching.md",
+      "sha256": "7cf9c5118b438fd3cacf24fbe2a788d500f8c49f70280bf04ebd04560e87aca8"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/n08-teaching.md",
+      "sha256": "3c457e4d02d5e82e19868c7af374f989531d794774ec6e0d87d55aa639d7df29"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/n09-teaching.md",
+      "sha256": "5caceae12cb34b6033d1ad9ea9abcd3d32a9c1bd81d39ddd3513405597cd7b5f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/n10-teaching.md",
+      "sha256": "6589679aeec498c0bb1ec2f13e27a96832ebe9a47e4b0ab6511c44393706db6c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/n11-teaching.md",
+      "sha256": "3776e3ec1e2d9f9dcd5d3a6d9cbe3e0a6f28fe23fea6b6500526da50ddfe4160"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o01-teaching.md",
+      "sha256": "3eef72842492716bda03db8d2534b71c9770dc45ea8c338b68f08d25a9d5e3f4"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o02-teaching.md",
+      "sha256": "9841ff01f4b9d4861b91c8c1ff91ddf15802ae52fa592bf7d4f90ffd878c679a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o03-teaching.md",
+      "sha256": "7f32c20cd69e63ca78ce0aa6dc073f8637bc6be4253f86e0715b5e1e3f131ab6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o04-teaching.md",
+      "sha256": "9b8d3e1ec1855ea1ab7f502e56f1c716eaea0facee65031c79e9fe66357d6a74"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o05-teaching.md",
+      "sha256": "0b0a02c3e41e6aa520aa748895ff4acd14859489ad590e7426aaf07199dc6ad3"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o06-teaching.md",
+      "sha256": "42c43bfc71bb1ef467e30a71783610628551826a5b4ee1d91dc9b2ff8bcce232"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o07-teaching.md",
+      "sha256": "8b9eb0c7c20d6eec2ec76e075a5d5760e2e9bd285ceb6413e4386cc483963a72"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o08-teaching.md",
+      "sha256": "05d60b2f755ccb5ff21b7ef082d5ab5806e361f766762bcc53322314c1eb08fa"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o09-teaching.md",
+      "sha256": "a5ec9bd382a3c5f6ddd285a7a2c244a9aa0b4141914a4d1b55756b5542cb8963"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o10-teaching.md",
+      "sha256": "9715a3485347b24c58e7f5f5cccba514b527d17e6027882b80f9a36a0c2b0650"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o11-teaching.md",
+      "sha256": "778fbd4524c2789ecf6f4bee58fa5ff1de97f4c66e1773e57298e1c9e4c88fe6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o12-teaching.md",
+      "sha256": "fae68cea2cb0ed531cb300efdd29959d2ce375921dffde18181c11003580c739"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o13-teaching.md",
+      "sha256": "4056bf754153c48d74da06b44192949f5818d7dd219f1f21f0365f8c77520a1c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o14-teaching.md",
+      "sha256": "f8f54711c1b86d8814ff74c5ce4eeb1056f16c85c76d6fd231d9e5b298fb1975"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o15-teaching.md",
+      "sha256": "78474ea3e579d2253aa7a5d4b0cfdf9892ffc2109c578972ad7f0373df5e7a8a"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/d-neuro-sensory-motor-orthopedics/chat/o16-teaching.md",
+      "sha256": "2f67428fb8a06a4306971f31818a1c36673b5f6f263dc3dfe121cfac39d58d9f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e01-teaching.md",
+      "sha256": "aeb2db2a3e546ddccc8d6bdc405d819089eb095bfc8f285017e1223996f521e2"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e02-teaching.md",
+      "sha256": "7366cf42be45e12bf8fb3e710b82a5d08b0e7a364c6f64e4ce83755fb2b6f2b1"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e03-teaching.md",
+      "sha256": "781eb935223017b9b50c5b1b03f6f2c49e37a4756f532fe6f2567e8cc6e118c6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e04-teaching.md",
+      "sha256": "41b279bdcb80185d0ff6257ea6650592215b22f63e83cb37715ba6461ddcaa32"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e05-teaching.md",
+      "sha256": "0e90af01c593806d704cb200e5fe375105d2f9cb7ad55e7cdea2d6e96e1a2f5c"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e06-teaching.md",
+      "sha256": "73f9e83276be80a0dc0adb35a79f98bfbaf0815398a02309fc8ef15731b5cdcc"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e07-teaching.md",
+      "sha256": "e068f91c509324ea94772bf0c9a2ac5fd3deccb020015cfb42bfb036049e3b64"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e08-teaching.md",
+      "sha256": "3ccfa0af7f0e5a81401c14b4e86c6458bd5f156b6f6c7efeece7f4c3d67f92ad"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e09-teaching.md",
+      "sha256": "bd0a9a4db5f245cfba108dd0a64b91620e630cca7bc35d752d428f54f29c4dec"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e10-teaching.md",
+      "sha256": "17661f0e05b84a0923a5e07597700dc49bc58b01a2354497bf7be355aac67c1e"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e11-teaching.md",
+      "sha256": "ebd272975d3c606dd5167d5aefd7e546eda07f97a6519ecf3630076b8f6e7df7"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e12-teaching.md",
+      "sha256": "1545d0ac803d36053fbb9ecaef777d38ea882123e43d176d79355e0ceddd54b1"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e13-teaching.md",
+      "sha256": "275d0ca9ef97e3047149c82ffd0f5acc0a4b8260878d810ff59a7a17e0ac293d"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/e14-teaching.md",
+      "sha256": "f3aff9dc40bac199fac6adbdf0d273b477c6efa2b77f8cc780405bb718179665"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/sr01-teaching.md",
+      "sha256": "af11f5457f35bbba34a2a15398584b05b8bba3da36617c1f29358ccd66552b7b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/sr02-teaching.md",
+      "sha256": "986ba86f173050b451ece5926205e90347397e666f61fb475f177e692682f145"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/sr03-teaching.md",
+      "sha256": "ec4ecc13f2caeaf032609320fce485969acb012af73834d7b848585a1861d7b6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/sr04-teaching.md",
+      "sha256": "17fa6276df78e149124f18035a0ba84c90b443667ab58338e4780b73abe3f3ee"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/sr05-teaching.md",
+      "sha256": "f879c48aab21c50412e313bc68092f29a2fe9fba44c37b4ca3a8ab793afca663"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/e-reproductive-breast/chat/sr06-teaching.md",
+      "sha256": "d831e809048816d5bb6238a275dd18bee95dcf2cc40afbf644b6586a3e9a9165"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/f-remaining-clinical/chat/f01-teaching.md",
+      "sha256": "5e9a1122bfcbad7cc69f471e0d0d624e730f6e9f6b07a6860ec484939c1331d2"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/f-remaining-clinical/chat/f02-teaching.md",
+      "sha256": "54ff4822f9ba10a5b4e527e9bdbfdd02e5343adb1381bc972fb680eea04bcfa6"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/f-remaining-clinical/chat/f03-teaching.md",
+      "sha256": "f304b94cd0a4c59634e2772c90b0d7ee16b2e456fb61d26b3bd2359032909105"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/f-remaining-clinical/chat/f04-teaching.md",
+      "sha256": "53732a8a08e6392bea64dbcfd8ba89ac2f5420be7b78056ccd27d3751d9ed562"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/f-remaining-clinical/chat/f05-teaching.md",
+      "sha256": "790380c69dd4cd5cfa85831bad98170f65fe15787fd0b42f2e42ad4d288a987f"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/f-remaining-clinical/chat/f06-teaching.md",
+      "sha256": "a350650c408b6a685d1e04833795f44637615c8cdf5c3d27ae81dce3687d92ea"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/f-remaining-clinical/chat/f07-teaching.md",
+      "sha256": "107b7afd220de2c70fb54351430d6bafa88af0e88b6a0f3b772b94581614aaad"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/f-remaining-clinical/chat/f08-teaching.md",
+      "sha256": "ce87b9556763b89a8b02bbeb9249de04e189ab6da3fce8ddb7cc15d6d5f8402b"
+    },
+    {
+      "status": "A",
+      "path": "content/xizong/projection/f-remaining-clinical/chat/f09-teaching.md",
+      "sha256": "46eb7af1342c71800575be28720dd55549d779c235b7adbe085d6e0ee7a6a129"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/manifest.json",
+      "sha256": "f5140483b8fd2f9faf964e243b51ba6b43eba7a55f63427f17d9054164ff5bbd"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2005/q001-025.json",
+      "sha256": "6274e8d2515d955b6edc0b8c02630d88b46dcd0186506249cb619d2fe2ca80f4"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2005/q076-100.json",
+      "sha256": "07edd6a9c2fa91399a8314c01974535c116832b9ec4b5d9665cadf55973c5ce9"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2005/q101-125.json",
+      "sha256": "2468e4bc7093d50bd5c7bff5da51bda93d5fe1d3c1bb4f8432b77013a8cce7e1"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2007/q101-125.json",
+      "sha256": "4a1de5a10e1a338c3f1631ea922a7a8057042f15a3567f81818b4d6bfd7677fa"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2007/q126-150.json",
+      "sha256": "0f92273423ff92563a4aa62726d31aa44ae52e7c9202ea958a24dc75ac7e7ddf"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2008/q001-025.json",
+      "sha256": "fc84197471904118a59103ffe74dee75c7298efc86a33793e146c808e377c997"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2008/q151-175.json",
+      "sha256": "ab9099672e6f8768b650e5efe7c45f11585fade05b1a4de7b207937e481bb504"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2009/q001-025.json",
+      "sha256": "cc420994e9e2fa5629406c94e7c371440c7cd14f7874e14c57641e788ed0e4b3"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2010/q151-175.json",
+      "sha256": "b82ca73f90b07d95ba2c6e93b5d6ca56224c5d51f3c3f43677be766c81685014"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2011/q001-025.json",
+      "sha256": "fd47392e07234673316f76a5fe7e0e03a99f490018f355f35e239e9fefc38b22"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2012/q001-025.json",
+      "sha256": "bf48e731e7e38510bd0ad6940fafb21d66eefeb60636b0fa43c4a5085d94fac5"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2013/q001-025.json",
+      "sha256": "02fa4bb2703566d858768da56b134b1d0354af2fb16fab8d1b3f1ef3fe3fd143"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2013/q151-175.json",
+      "sha256": "ae4eccbec9727f16016f758dadc65794045d13e7ff8db1dc3cf9d8128a7bd869"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2014/q001-025.json",
+      "sha256": "fd4ba9e57a4078ceced9ead94837c1dafe6ff2ca4ad87ec446f569f8c7be13e3"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2014/q151-175.json",
+      "sha256": "bbd6279c5cd0f016b5b7cb4fe4beff3f294f654eb5ff5a9c06c46dc721ab5b27"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2015/q001-025.json",
+      "sha256": "d4bd7607527d86fe4ca374785f3d1bf22f23e4c0325afa5302148d2cb18ffdf6"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2015/q051-075.json",
+      "sha256": "65b6e1034c1f56d51fe18f24e5bd0afcebf3552fac314cb70d7b0dcaa3edc6fe"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2015/q101-125.json",
+      "sha256": "cfdc5fb8022b2708e58567b8cd5f1785c59468c386df24da4c1561e769ca9b26"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2016/q001-025.json",
+      "sha256": "117d9cd9e13103e75644f3a15e6a1b40999f38459e8197cc60f277f7490893ed"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2016/q051-075.json",
+      "sha256": "9390b78febcd39b63875454d97c906f6913261c3ffc8b22b78c1fc29f4e2bc4f"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2016/q101-125.json",
+      "sha256": "2e016b7488d66e99873db68814591808d868416d2a0a746c9e858c8c6aed1150"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2016/q151-175.json",
+      "sha256": "dda26b53bdba5675ae28ed0f80b2be73808f7bd11ba40b45a12d55da2af02020"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2017/q001-025.json",
+      "sha256": "be95c0db30425bb13d63e754bff1b6f48d9f41cf30ad6b68bee94371b7deaff7"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2017/q126-150.json",
+      "sha256": "ff6ed5a177c9bf9a30991a35444a2a0c1a7933ca3d298d2d46da2a46d34031f4"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2018/q126-150.json",
+      "sha256": "9f44917d2b86e6f56856d3510e438051e29b38229da4dbf0b84655b65fc3bab9"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2019/q001-025.json",
+      "sha256": "c09a4d987d24b61d398e3c0e71a26cdfee0a6c3d9de1c85f64b46e9eb6463437"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2020/q001-025.json",
+      "sha256": "44e1a01a1bd5e691bf5d6a0f114133ef1d1d80dd3ffd82244ff52183000560cd"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2020/q126-150.json",
+      "sha256": "c900280f93e6699c2b8bf20f9c688698778978b421e37522047420c891b6da4f"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2021/q001-025.json",
+      "sha256": "7a0de20c94c10b51530779c5d3385083fb67bd95a83ba0e0b946f3cda583815f"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2021/q126-150.json",
+      "sha256": "6d20f743e4a30e4e6df2c884a8fc4f836099cc424dabbb1e158da18e9c0ebc28"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2022/q001-025.json",
+      "sha256": "6b095b49c70f92e063679ed77dfd25dd3049763d52494f958f11fc7233c42ff3"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2022/q026-050.json",
+      "sha256": "7103cbbb490dadb511f2a706aa3b10042686ff1e41a88a0dfc2eeae6937898a1"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2023/q001-025.json",
+      "sha256": "f181029e2917f26f97c54c5c8d34ec31476d32c50c0dac11d8842b6f81852e5e"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2024/q001-025.json",
+      "sha256": "fc10e63b6e612209cc5ceed53dd942ebd18d420b5308a34b1c73ed0814ac53cc"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2024/q076-100.json",
+      "sha256": "d945d318c8b43133e855e9c2618483d3f90a3be2ee489978b8b022725ca9789e"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2024/q126-150.json",
+      "sha256": "4088e9f571696433856770e888e8c7e9ffe5d8d4d32e0135cd80864385e8e989"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2025/q126-150.json",
+      "sha256": "1a16b7f8716c5bb8a28a50e36383c0d869be8a6072fef616c2b3e7a860f49dbc"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2026/q001-025.json",
+      "sha256": "52b5b239189bbaa520b3ab2ffca505a8f567ad5d2401608bad4fa743a70ef28c"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2026/q051-075.json",
+      "sha256": "a625b4b3eaa9e4830a282249cfcc7a04156cee5c10a71d5fa0e7f1c9f8803a7f"
+    },
+    {
+      "status": "M",
+      "path": "content/xizong/question-relations/shards/2026/q101-125.json",
+      "sha256": "c9f46415299ef57c1941253f743726324874759fb876f846a0171e34bb30913e"
+    },
+    {
+      "status": "M",
+      "path": "static-web/XIZONG_PRODUCT_BRIEF.md",
+      "sha256": "a7932f03aa784639689daffd5c3cbd0af9ed28762d40cf620553df77f4d046ee"
+    }
+  ]
+}

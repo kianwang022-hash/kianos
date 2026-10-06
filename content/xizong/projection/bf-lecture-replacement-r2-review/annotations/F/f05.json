@@ -1,0 +1,363 @@
+{
+  "status": "LOCAL_SELF_CANDIDATE_NOT_INDEPENDENT_OR_USER_ACCEPTED",
+  "block_id": "F5",
+  "kp_count": 12,
+  "logic_group_count": 5,
+  "coverage_model": "independently authored continuous medicine; exact annotations applied afterward",
+  "explicit_medical_relations": [
+    "紧急度限制风险优化可等待的时间",
+    "器官储备和可逆风险共同决定承受能力",
+    "药物/禁食准备降低风险，同时防止低血糖/戒断等新风险"
+  ],
+  "relations_origin": "AUTHORED_MEDICAL_REASONING_IN_BODY; no edge or order inferred from KP/LG/headings",
+  "reading_sections_are_not_topology_nodes": true,
+  "kp_annotations": [
+    {
+      "kp_id": "remaining-f05-kp01",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md",
+      "title": "急诊、限期、择期手术：区分依据是什么，各自为什么能或不能等？",
+      "formal_prompt": "时间敏感性｜进展风险｜等待空间｜优化窗口",
+      "formal_prompt_sha256": "df31ec553e2e0a6f5fd20eef59fafc6f914c5bf01ce461247870e0c64552b614",
+      "annotation_exact": "急诊、限期、择期手术：区分依据是什么，各自为什么能或不能等？〔时间敏感性｜进展风险｜等待空间｜优化窗口〕",
+      "reading_location": "紧急度先限定可用的优化窗口",
+      "teaching_span_sha256": "8c91fc3510613ef9c734637a9dd776abab7edadb84a546cd70ef014f9028ce5a",
+      "coverage_rationale": "等待的时间代价",
+      "required_prompt_slots": [
+        "时间敏感性",
+        "进展风险",
+        "等待空间",
+        "优化窗口"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f05-kp02",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md",
+      "title": "术前总决策：紧急度×器官储备×可逆风险",
+      "formal_prompt": "3轴｜急诊怎么做｜择期怎么做｜5高危层",
+      "formal_prompt_sha256": "245387d33c3436e3c7c470686482435b7394641b646eca2f1b88462a43ea23f5",
+      "annotation_exact": "术前总决策：紧急度×器官储备×可逆风险〔3轴｜急诊怎么做｜择期怎么做｜5高危层〕",
+      "reading_location": "紧急度先限定可用的优化窗口",
+      "teaching_span_sha256": "8c91fc3510613ef9c734637a9dd776abab7edadb84a546cd70ef014f9028ce5a",
+      "coverage_rationale": "紧急度/储备/可逆风险三轴",
+      "required_prompt_slots": [
+        "3轴",
+        "急诊怎么做",
+        "择期怎么做",
+        "5高危层"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f05-kp03",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md",
+      "title": "戒烟酒与脑卒中：当前 Study 的等待/优化时间怎样重建？",
+      "formal_prompt": "戒烟｜戒酒｜脑卒中｜当前Study时间｜不扩现代指南",
+      "formal_prompt_sha256": "0789486ada8edd91cd59550ccac4d45908451e5aa176a6ebff072c0a704e4af2",
+      "annotation_exact": "戒烟酒与脑卒中：当前 Study 的等待/优化时间怎样重建？〔戒烟｜戒酒｜脑卒中｜当前Study时间｜不扩现代指南〕",
+      "reading_location": "器官储备是对未来打击的承受能力",
+      "teaching_span_sha256": "941e0d55f0f8e289447e85e7dc6072e79142239a78ddd250f8c24d6d62005c63",
+      "coverage_rationale": "当前资料等待窗仍服从急诊",
+      "required_prompt_slots": [
+        "戒烟",
+        "戒酒",
+        "脑卒中",
+        "当前Study时间",
+        "不扩现代指南"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f05-kp04",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md",
+      "title": "肝肾储备：哪些失代偿会改变手术时机，透析又怎样改变耐受性？",
+      "formal_prompt": "Child分级｜肾功能｜透析后耐受｜何时延后",
+      "formal_prompt_sha256": "b1dd1a0a424fc7c5d85c542ee5ffbeabc10b56e6ef8a835905e336c570eaa3e2",
+      "annotation_exact": "肝肾储备：哪些失代偿会改变手术时机，透析又怎样改变耐受性？〔Child分级｜肾功能｜透析后耐受｜何时延后〕",
+      "reading_location": "器官储备是对未来打击的承受能力",
+      "teaching_span_sha256": "941e0d55f0f8e289447e85e7dc6072e79142239a78ddd250f8c24d6d62005c63",
+      "coverage_rationale": "肝肾对照及精确D17完整Child Recall",
+      "required_prompt_slots": [
+        "Child分级",
+        "肾功能",
+        "透析后耐受",
+        "何时延后"
+      ],
+      "unresolved_or_source_bound": [
+        "D17唯一完整分级表；SPS属于外证"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "remaining-f05-kp05",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md",
+      "title": "最短禁食时间：怎样按摄入物类别重建当前 Study 时间？",
+      "formal_prompt": "清饮｜母乳｜牛奶｜淀粉｜脂肉｜误吸目标",
+      "formal_prompt_sha256": "cf6730703ff20b53fc99e13c17a08bf098ca0fbed2075e12a13c03d170633f96",
+      "annotation_exact": "最短禁食时间：怎样按摄入物类别重建当前 Study 时间？〔清饮｜母乳｜牛奶｜淀粉｜脂肉｜误吸目标〕",
+      "reading_location": "防误吸和减少污染，是两个独立的准备目标",
+      "teaching_span_sha256": "585bf6ffb4f8e42015dcc1a19e5fd6cb8a52a76101ef45f22ae74699a5770ad3",
+      "coverage_rationale": "食物类别和误吸目标",
+      "required_prompt_slots": [
+        "清饮",
+        "母乳",
+        "牛奶",
+        "淀粉",
+        "脂肉",
+        "误吸目标"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f05-kp06",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md",
+      "title": "胃肠与大肠手术准备：两者的共同项和额外项是什么？",
+      "formal_prompt": "共同项｜大肠额外项｜流食时间｜灌肠时点｜当前Study",
+      "formal_prompt_sha256": "889ebd8c523a99c79f37d432c02889df2568543ea3d89b5195ba07bbcad01eaa",
+      "annotation_exact": "胃肠与大肠手术准备：两者的共同项和额外项是什么？〔共同项｜大肠额外项｜流食时间｜灌肠时点｜当前Study〕",
+      "reading_location": "防误吸和减少污染，是两个独立的准备目标",
+      "teaching_span_sha256": "585bf6ffb4f8e42015dcc1a19e5fd6cb8a52a76101ef45f22ae74699a5770ad3",
+      "coverage_rationale": "胃肠共同项与大肠额外项",
+      "required_prompt_slots": [
+        "共同项",
+        "大肠额外项",
+        "流食时间",
+        "灌肠时点",
+        "当前Study"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f05-kp11",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md",
+      "title": "备皮最佳时间：手术开始前",
+      "formal_prompt": "时间1｜目的2｜为什么不越早越好｜无菌接口",
+      "formal_prompt_sha256": "60dd6243bb3ca15add2c1586d239d344f336be4afe95772054365374d3166674",
+      "annotation_exact": "备皮最佳时间：手术开始前〔时间1｜目的2｜为什么不越早越好｜无菌接口〕",
+      "reading_location": "防误吸和减少污染，是两个独立的准备目标",
+      "teaching_span_sha256": "585bf6ffb4f8e42015dcc1a19e5fd6cb8a52a76101ef45f22ae74699a5770ad3",
+      "coverage_rationale": "备皮目的与F3接口",
+      "required_prompt_slots": [
+        "时间1",
+        "目的2",
+        "为什么不越早越好",
+        "无菌接口"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f05-kp07",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md",
+      "title": "糖尿病术前：饮食、口服药、长效药与胰岛素分别怎样处理？",
+      "formal_prompt": "饮食控制｜口服药｜长效药｜胰岛素｜当前Study时间",
+      "formal_prompt_sha256": "97bba9c67dcec31e880bc744dd46c7ccad4ed3510b44c31498e4c099c52edc84",
+      "annotation_exact": "糖尿病术前：饮食、口服药、长效药与胰岛素分别怎样处理？〔饮食控制｜口服药｜长效药｜胰岛素｜当前Study时间〕",
+      "reading_location": "代谢与药物：纠正一个风险，不能引出另一个风险",
+      "teaching_span_sha256": "ada83ef35a709842919cb763824f5fb21df5bd95a6342b7c781f9ae76805266d",
+      "coverage_rationale": "糖药背景、时间与两情境血糖条件",
+      "required_prompt_slots": [
+        "饮食控制",
+        "口服药",
+        "长效药",
+        "胰岛素",
+        "当前Study时间"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f05-kp08",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md",
+      "title": "高血压术前：用药与精确阈值怎样处理，Source 冲突在哪里？",
+      "formal_prompt": "是否继续用药｜戒断风险｜精确阈值冲突｜不得静默统一",
+      "formal_prompt_sha256": "4a0e458915ee791bebedb66f970fa66970d439a529e5e6f3cdd9d19e5eece445",
+      "annotation_exact": "高血压术前：用药与精确阈值怎样处理，Source 冲突在哪里？〔是否继续用药｜戒断风险｜精确阈值冲突｜不得静默统一〕",
+      "reading_location": "代谢与药物：纠正一个风险，不能引出另一个风险",
+      "teaching_span_sha256": "ada83ef35a709842919cb763824f5fb21df5bd95a6342b7c781f9ae76805266d",
+      "coverage_rationale": "原图/文本/病例数值分别定位，2016题答案状态纠正",
+      "required_prompt_slots": [
+        "是否继续用药",
+        "戒断风险",
+        "精确阈值冲突",
+        "不得静默统一"
+      ],
+      "unresolved_or_source_bound": [
+        "统一课程阈值及端点符号未裁定"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "remaining-f05-kp09",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md",
+      "title": "NSAIDs 与抗血小板：不同药物的停药时间怎样重建？",
+      "formal_prompt": "NSAID｜ASA｜氯吡格雷｜各停药时间",
+      "formal_prompt_sha256": "74d131fcda53ec6f66a25381029a31f72833c09cfa0372a8a617c4ed58c5050b",
+      "annotation_exact": "NSAIDs 与抗血小板：不同药物的停药时间怎样重建？〔NSAID｜ASA｜氯吡格雷｜各停药时间〕",
+      "reading_location": "代谢与药物：纠正一个风险，不能引出另一个风险",
+      "teaching_span_sha256": "ada83ef35a709842919cb763824f5fb21df5bd95a6342b7c781f9ae76805266d",
+      "coverage_rationale": "停药原表和血栓负空间",
+      "required_prompt_slots": [
+        "NSAID",
+        "ASA",
+        "氯吡格雷",
+        "各停药时间"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "remaining-f05-kp10",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md",
+      "title": "血小板门槛：一般术前与再障/ITP分别属于什么口径？",
+      "formal_prompt": "一般术前｜再障｜ITP｜不同口径｜不要混成一个阈值",
+      "formal_prompt_sha256": "2e1e132f2dc48889a4e23a63f6bd3aa6e6125e236562349456b805f4fa6e6280",
+      "annotation_exact": "血小板门槛：一般术前与再障/ITP分别属于什么口径？〔一般术前｜再障｜ITP｜不同口径｜不要混成一个阈值〕",
+      "reading_location": "代谢与药物：纠正一个风险，不能引出另一个风险",
+      "teaching_span_sha256": "ada83ef35a709842919cb763824f5fb21df5bd95a6342b7c781f9ae76805266d",
+      "coverage_rationale": "三计数单位跨同版原页有据展开，原行省略与病情条件明确",
+      "required_prompt_slots": [
+        "一般术前",
+        "再障",
+        "ITP",
+        "不同口径",
+        "不要混成一个阈值"
+      ],
+      "unresolved_or_source_bound": [
+        "单位为跨页推断，不称外科原行已印；ITP条件归血液owner"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "remaining-f05-kp12",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F5_围术期术前评估与优化_学习阅读版_v1_最终执行版.md",
+      "title": "术前 Go / Delay：怎样按紧急度与可逆风险走完决策？",
+      "formal_prompt": "紧急度｜失代偿｜误吸｜出血｜感染｜修复｜哪些可等",
+      "formal_prompt_sha256": "486c5313a9a1941cdb2a2c2b66b4caf5cb913d41ac1c016e46281e8ffb079cdb",
+      "annotation_exact": "术前 Go / Delay：怎样按紧急度与可逆风险走完决策？〔紧急度｜失代偿｜误吸｜出血｜感染｜修复｜哪些可等〕",
+      "reading_location": "回到行动决定，逐项确认哪些风险值得等待",
+      "teaching_span_sha256": "df8c51a7da50b762ddf9102b0cdf3d19397a4b17ea409fea154ed90c4093b9e6",
+      "coverage_rationale": "从条件回到立即/优化/暂缓",
+      "required_prompt_slots": [
+        "紧急度",
+        "失代偿",
+        "误吸",
+        "出血",
+        "感染",
+        "修复",
+        "哪些可等"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    }
+  ],
+  "unresolved_source_limits": [
+    "完整Child表唯一归D17固定锚，F仅Recall",
+    "原P261/文本端点符号与P263病例阈值冲突；2016题选项D不是已接受答案",
+    "血小板单位来自同版原页计数语境的有据展开，不称外科原行印有单位；ITP病情条件归血液owner",
+    "现代停药/ERAS/处方范围不扩"
+  ],
+  "source_resolution_followup": {
+    "date": "2026-10-04",
+    "affected_targets": [
+      "remaining-f05-kp04",
+      "remaining-f05-kp08",
+      "remaining-f05-kp10"
+    ],
+    "full_Prompt_equals_complete_course_Source": false,
+    "independent_medical_acceptance": false,
+    "user_acceptance": false
+  }
+}

@@ -769,7 +769,7 @@ silent_source_correction = 0
 | K11-SB01 | 激素、免疫抑制、白蛋白与抗凝阈值为当前 Study 口径 | 保留为 306 exam Precision，不升级为跨病因通用治疗算法 |
 | K11-SB02 | FSGS亚型、继发病因与完整现代治疗未由本段Source完整支持 | MI-D或Defer；FSGS lesion 与病因分层 |
 | K11-SB03 | MCD“电荷屏障”与五型治疗配对容易覆盖上游 Current owner | 电荷模型保留为经典考试模型；MCD机制继承B2足细胞/裂隙膜；治疗先病因后方案 |
-| K11-VG01 | MCD、膜性、MPGN、FSGS及总表需回原图 | Visual Gate Open |
+| K11-VG01 | MCD、膜性、MPGN、FSGS及总表需回原图 | Original Source pixels reviewed in local candidate; Human acceptance not claimed |
 
 ---
 
@@ -806,7 +806,7 @@ duplicate_primary = 0
 unrouted_lecture_knowledge = 0
 unsupported_expansion = 0
 First_pass_question_probe = READY_PENDING_BINDING
-Source_gap = SOURCE_BOUNDARY_AND_VISUAL_GATE_EXPLICIT
+Source_gap = none_for_reviewed_original_pages_SOURCE_BOUNDARIES_RETAINED
 System_final_gate = NOT_RUN_NON_FINAL_BLOCK
 ```
 
@@ -823,3 +823,6 @@ Framework已建立
 + Outline按需扫漏
 + Question Probe完成或等待Binding
 ```
+
+
+本地候选原图复核（2026-10-04）：实际读取内科原 PDF 物理P198、199、200、203（书P163、164、165、168）的原图，核对沉积位置、三镜对照及本 Block 对应形态。文件 SHA-256 `4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939` 与 Source manifest 一致。仅关闭上述已读原页的字节/原图缺口，Source 自有差异保留；不是全部题目、学习证据、医学独立或 Human 验收。

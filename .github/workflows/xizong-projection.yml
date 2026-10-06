@@ -40,6 +40,8 @@ jobs:
         run: |
           set -o pipefail
           python3 -B content/xizong/projection/tools/validate_projection_acceptance.py --self-test --json /tmp/xizong-projection-report/acceptance.json 2>&1 | tee /tmp/xizong-projection-report/acceptance.log
+      - name: Verify B1 candidate exact annotations and same-model selection
+        run: python3 -B content/xizong/projection/tools/test_b1_teaching_same_model.py
       - name: Verify protected sources were not mutated and record tested commit
         shell: bash
         run: |

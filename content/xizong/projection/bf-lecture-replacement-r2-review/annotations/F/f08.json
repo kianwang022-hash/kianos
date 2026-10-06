@@ -1,0 +1,491 @@
+{
+  "status": "LOCAL_SELF_CANDIDATE_NOT_INDEPENDENT_OR_USER_ACCEPTED",
+  "block_id": "F8",
+  "kp_count": 17,
+  "logic_group_count": 5,
+  "coverage_model": "independently authored continuous medicine; exact annotations applied afterward",
+  "explicit_medical_relations": [
+    "沉积空间和邻近结构决定阻断范围与损伤方向",
+    "脂溶、pKa和结合率各回答不同的药物比较问题",
+    "椎管空间误入加大剂量使阻滞广泛扩展并危及呼吸循环",
+    "交感阻滞早于运动阻滞，使低血压可先发生"
+  ],
+  "relations_origin": "AUTHORED_MEDICAL_REASONING_IN_BODY; no edge or order inferred from KP/LG/headings",
+  "reading_sections_are_not_topology_nodes": true,
+  "kp_annotations": [
+    {
+      "kp_id": "final-f08-kp01",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "局麻四型：同样是局麻，药物空间不同",
+      "formal_prompt": "4类型｜各放哪｜阻断神经末梢/纤维/神经干｜椎管内广义身份",
+      "formal_prompt_sha256": "1a3e5bb6ee52581f7d737a9e3507a0be805df348cd6ea311a2f4f5ad070fad39",
+      "annotation_exact": "局麻四型：同样是局麻，药物空间不同〔4类型｜各放哪｜阻断神经末梢/纤维/神经干｜椎管内广义身份〕",
+      "reading_location": "从手术区向神经干看，沉积空间逐渐改变",
+      "teaching_span_sha256": "8a3abde3736afa07f3dce97f5607be4c8b18fe104af4b1be12cc541457915da5",
+      "coverage_rationale": "四沉积空间和广义椎管内身份",
+      "required_prompt_slots": [
+        "4类型",
+        "各放哪",
+        "阻断神经末梢/纤维/神经干",
+        "椎管内广义身份"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f08-kp02",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "局麻液加肾上腺素：收益、毒性和末梢部位边界怎样判断？",
+      "formal_prompt": "2作用｜3个不加部位？｜浓度范围｜100mL算剂量",
+      "formal_prompt_sha256": "b5f1cb9865e9bb532c09a12c4638907e5b1d34ce989eae1e75389bb53cefa343",
+      "annotation_exact": "局麻液加肾上腺素：收益、毒性和末梢部位边界怎样判断？〔2作用｜3个不加部位？｜浓度范围｜100mL算剂量〕",
+      "reading_location": "从手术区向神经干看，沉积空间逐渐改变",
+      "teaching_span_sha256": "8a3abde3736afa07f3dce97f5607be4c8b18fe104af4b1be12cc541457915da5",
+      "coverage_rationale": "吸收速度、局部缺血、浓度换算",
+      "required_prompt_slots": [
+        "2作用",
+        "3个不加部位？",
+        "浓度范围",
+        "100mL算剂量"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f08-kp03",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "神经阻滞风险：先看神经丛旁边有什么",
+      "formal_prompt": "4阻滞｜高位/全脊？｜膈/喉返/交感？｜气胸？｜双侧深颈丛禁点",
+      "formal_prompt_sha256": "abd857edf5853c63ba7b41e44ccc675cdf06cb7096e7777a3354f2371e8acef5",
+      "annotation_exact": "神经阻滞风险：先看神经丛旁边有什么〔4阻滞｜高位/全脊？｜膈/喉返/交感？｜气胸？｜双侧深颈丛禁点〕",
+      "reading_location": "从手术区向神经干看，沉积空间逐渐改变",
+      "teaching_span_sha256": "8a3abde3736afa07f3dce97f5607be4c8b18fe104af4b1be12cc541457915da5",
+      "coverage_rationale": "原四技术矩阵实际勾选已逐项读图并文字回答",
+      "required_prompt_slots": [
+        "4阻滞",
+        "高位/全脊？",
+        "膈/喉返/交感？",
+        "气胸？",
+        "双侧深颈丛禁点"
+      ],
+      "unresolved_or_source_bound": [
+        "P269正确；旧摘要P270历史差异；空格非临床绝对零风险"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "final-f08-kp04",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "局麻药进入神经后，哪一种药物形态真正参与阻断，为什么？",
+      "formal_prompt": "离子/非离子形态｜跨膜｜Na⁺通道｜起效环境",
+      "formal_prompt_sha256": "aa1188d73a9917807cf99911883c7f4c6f6fe0f66463ebb8570e0657bbf4f7e7",
+      "annotation_exact": "局麻药进入神经后，哪一种药物形态真正参与阻断，为什么？〔离子/非离子形态｜跨膜｜Na⁺通道｜起效环境〕",
+      "reading_location": "药物阻断传导，比较性质要用多个轴",
+      "teaching_span_sha256": "192f6aca6646977aeadd6b1efd4db37c4a4feb7973501b0dd4c808215cf35116",
+      "coverage_rationale": "蛋白游离与电荷两轴分清，跨膜/Na通道/pH外证补齐",
+      "required_prompt_slots": [
+        "离子/非离子形态",
+        "跨膜",
+        "Na⁺通道",
+        "起效环境"
+      ],
+      "unresolved_or_source_bound": [
+        "机制外证，原P269本身仅给蛋白游离轴"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "final-f08-kp05",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "酯类 vs 酰胺类：代表、代谢和过敏方向",
+      "formal_prompt": "酯2｜酰胺3｜各代谢处｜谁过敏多｜口诀边界",
+      "formal_prompt_sha256": "e3581b32aca414adf98077a601e2e0deb3450a949f957eb270a0aa658c4ac106",
+      "annotation_exact": "酯类 vs 酰胺类：代表、代谢和过敏方向〔酯2｜酰胺3｜各代谢处｜谁过敏多｜口诀边界〕",
+      "reading_location": "药物阻断传导，比较性质要用多个轴",
+      "teaching_span_sha256": "192f6aca6646977aeadd6b1efd4db37c4a4feb7973501b0dd4c808215cf35116",
+      "coverage_rationale": "两化学类别代谢/过敏",
+      "required_prompt_slots": [
+        "酯2",
+        "酰胺3",
+        "各代谢处",
+        "谁过敏多",
+        "口诀边界"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f08-kp06",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "三条药物比较轴：脂溶性、pKa、蛋白结合率",
+      "formal_prompt": "脂溶→2结果｜pKa→2结果｜蛋白结合→1结果｜四药定位",
+      "formal_prompt_sha256": "6194ccc7c1dea41a84edcd944a7d4f38aedef2ed08a492ce4dbea84646b95ed3",
+      "annotation_exact": "三条药物比较轴：脂溶性、pKa、蛋白结合率〔脂溶→2结果｜pKa→2结果｜蛋白结合→1结果｜四药定位〕",
+      "reading_location": "药物阻断传导，比较性质要用多个轴",
+      "teaching_span_sha256": "192f6aca6646977aeadd6b1efd4db37c4a4feb7973501b0dd4c808215cf35116",
+      "coverage_rationale": "脂溶/pKa/结合三轴",
+      "required_prompt_slots": [
+        "脂溶→2结果",
+        "pKa→2结果",
+        "蛋白结合→1结果",
+        "四药定位"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f08-kp07",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "普鲁卡因 vs 丁卡因：用途、强度与安全性怎样比较？",
+      "formal_prompt": "效力｜用途｜安全性｜浸润/表麻",
+      "formal_prompt_sha256": "ce367ce64da52922f15108c19c2138c3107dfe54331363563926b607db9db9d9",
+      "annotation_exact": "普鲁卡因 vs 丁卡因：用途、强度与安全性怎样比较？〔效力｜用途｜安全性｜浸润/表麻〕",
+      "reading_location": "药物阻断传导，比较性质要用多个轴",
+      "teaching_span_sha256": "192f6aca6646977aeadd6b1efd4db37c4a4feb7973501b0dd4c808215cf35116",
+      "coverage_rationale": "普与丁穿透/用途/毒性",
+      "required_prompt_slots": [
+        "效力",
+        "用途",
+        "安全性",
+        "浸润/表麻"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f08-kp08",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "利多卡因：起效、用途与椎管内限制怎样判断？",
+      "formal_prompt": "起效｜神经阻滞｜椎管内限制｜安全边界",
+      "formal_prompt_sha256": "e7cb5b62424af1512444162c8f9d50621565602c33419bbc7a68f6e98b093d2b",
+      "annotation_exact": "利多卡因：起效、用途与椎管内限制怎样判断？〔起效｜神经阻滞｜椎管内限制｜安全边界〕",
+      "reading_location": "药物阻断传导，比较性质要用多个轴",
+      "teaching_span_sha256": "192f6aca6646977aeadd6b1efd4db37c4a4feb7973501b0dd4c808215cf35116",
+      "coverage_rationale": "利多起效弥散与腰麻限制",
+      "required_prompt_slots": [
+        "起效",
+        "神经阻滞",
+        "椎管内限制",
+        "安全边界"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f08-kp09",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "罗哌卡因 vs 布比卡因：结合率、时效与安全性怎样比较？",
+      "formal_prompt": "蛋白结合｜作用时长｜感觉/运动倾向｜安全性",
+      "formal_prompt_sha256": "ab97d7c5b5161a71d9982508ecf7d1150c6057d67928360b74a3724d333afcb3",
+      "annotation_exact": "罗哌卡因 vs 布比卡因：结合率、时效与安全性怎样比较？〔蛋白结合｜作用时长｜感觉/运动倾向｜安全性〕",
+      "reading_location": "药物阻断传导，比较性质要用多个轴",
+      "teaching_span_sha256": "192f6aca6646977aeadd6b1efd4db37c4a4feb7973501b0dd4c808215cf35116",
+      "coverage_rationale": "原长效/感觉倾向保留，具体相对安全判据外证支持",
+      "required_prompt_slots": [
+        "蛋白结合",
+        "作用时长",
+        "感觉/运动倾向",
+        "安全性"
+      ],
+      "unresolved_or_source_bound": [
+        "说明书指定志愿者IV输入研究，不泛化所有CNS/剂量安全性"
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "final-f08-kp10",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "一次限量：高密度MI-D数字岛",
+      "formal_prompt": "利表100/阻浸400｜丁表40/阻80｜罗布150｜普1000",
+      "formal_prompt_sha256": "16d45394df832a041bd39c7295d7b2728362c523f623f72aac8bda34dea44744",
+      "annotation_exact": "一次限量：高密度MI-D数字岛〔利表100/阻浸400｜丁表40/阻80｜罗布150｜普1000〕",
+      "reading_location": "药物阻断传导，比较性质要用多个轴",
+      "teaching_span_sha256": "192f6aca6646977aeadd6b1efd4db37c4a4feb7973501b0dd4c808215cf35116",
+      "coverage_rationale": "药物加途径绑定一次限量",
+      "required_prompt_slots": [
+        "利表100/阻浸400",
+        "丁表40/阻80",
+        "罗布150",
+        "普1000"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f08-kp11",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "腰麻 vs 硬膜外：先定位蛛网膜下腔和硬膜外腔",
+      "formal_prompt": "药物空间2｜是否有CSF｜用量方向｜可调性｜误入后果",
+      "formal_prompt_sha256": "8800d0587d342a33ff34c4c5e5cc49d3c95bf028f37d46910d49afaffd15bf0a",
+      "annotation_exact": "腰麻 vs 硬膜外：先定位蛛网膜下腔和硬膜外腔〔药物空间2｜是否有CSF｜用量方向｜可调性｜误入后果〕",
+      "reading_location": "进入椎管后，先区分药物是否在脑脊液里",
+      "teaching_span_sha256": "80f0c92ba73947c91be56c9cb0d366afa6055b64002190426a8b4182b5adf569",
+      "coverage_rationale": "两空间、CSF、用量与误入风险",
+      "required_prompt_slots": [
+        "药物空间2",
+        "是否有CSF",
+        "用量方向",
+        "可调性",
+        "误入后果"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f08-kp12",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "椎管内阻滞：不同神经成分的阻滞/恢复顺序怎样重建？",
+      "formal_prompt": "交感｜感觉｜运动｜恢复顺序｜生理后果",
+      "formal_prompt_sha256": "83f76feaa9f7f714e08a5be4b9fe5e4304c22738fb39855949a48bfb6a8a6503",
+      "annotation_exact": "椎管内阻滞：不同神经成分的阻滞/恢复顺序怎样重建？〔交感｜感觉｜运动｜恢复顺序｜生理后果〕",
+      "reading_location": "进入椎管后，先区分药物是否在脑脊液里",
+      "teaching_span_sha256": "80f0c92ba73947c91be56c9cb0d366afa6055b64002190426a8b4182b5adf569",
+      "coverage_rationale": "阻滞/消退顺序与交感低血压",
+      "required_prompt_slots": [
+        "交感",
+        "感觉",
+        "运动",
+        "恢复顺序",
+        "生理后果"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f08-kp13",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "阻滞平面：T2—T12六个体表标志",
+      "formal_prompt": "T2角｜T4乳｜T6剑｜T8弓｜T10脐｜T12腹股沟",
+      "formal_prompt_sha256": "16faa2c510917400615cbabf70d4f029e91c9a56c146531dec3260c9d0ed4455",
+      "annotation_exact": "阻滞平面：T2—T12六个体表标志〔T2角｜T4乳｜T6剑｜T8弓｜T10脐｜T12腹股沟〕",
+      "reading_location": "进入椎管后，先区分药物是否在脑脊液里",
+      "teaching_span_sha256": "80f0c92ba73947c91be56c9cb0d366afa6055b64002190426a8b4182b5adf569",
+      "coverage_rationale": "节段体表标志回原图",
+      "required_prompt_slots": [
+        "T2角",
+        "T4乳",
+        "T6剑",
+        "T8弓",
+        "T10脐",
+        "T12腹股沟"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f08-kp14",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "麻醉平面：腰麻与硬膜外分别由哪些变量控制？",
+      "formal_prompt": "腰麻变量｜硬膜外变量｜剂量/间隙｜平面",
+      "formal_prompt_sha256": "5fd5041c77c77841c3bace5af78666fb24fddcbdb19d3bb09196fb1ea71d89b9",
+      "annotation_exact": "麻醉平面：腰麻与硬膜外分别由哪些变量控制？〔腰麻变量｜硬膜外变量｜剂量/间隙｜平面〕",
+      "reading_location": "进入椎管后，先区分药物是否在脑脊液里",
+      "teaching_span_sha256": "80f0c92ba73947c91be56c9cb0d366afa6055b64002190426a8b4182b5adf569",
+      "coverage_rationale": "腰麻剂量与硬膜外间隙的分轴控制",
+      "required_prompt_slots": [
+        "腰麻变量",
+        "硬膜外变量",
+        "剂量/间隙",
+        "平面"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f08-kp15",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "硬膜外麻醉：最危险并发症是什么，为什么会发生？",
+      "formal_prompt": "并发症身份｜形成机制｜呼吸循环后果｜空间原因",
+      "formal_prompt_sha256": "1b3e93077a63edcd85aeb51dba71ba3ded4841ddb5d91ede35a0a4b832b18229",
+      "annotation_exact": "硬膜外麻醉：最危险并发症是什么，为什么会发生？〔并发症身份｜形成机制｜呼吸循环后果｜空间原因〕",
+      "reading_location": "并发症把空间模型反向验证出来",
+      "teaching_span_sha256": "fc3517068daef21b706d569ee951c714cc9ad8147cb6337dbddbd6fd21da324f",
+      "coverage_rationale": "误入大剂量全脊麻与支持/预防",
+      "required_prompt_slots": [
+        "并发症身份",
+        "形成机制",
+        "呼吸循环后果",
+        "空间原因"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f08-kp16",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "腰麻并发症：当前 Study 要求重建哪三类？",
+      "formal_prompt": "三类并发症｜各自机制｜风险方向",
+      "formal_prompt_sha256": "5ac3331e19915eb85e9ae045cf09687f195f1af70ccd6f7f962ed76b3f8fd819",
+      "annotation_exact": "腰麻并发症：当前 Study 要求重建哪三类？〔三类并发症｜各自机制｜风险方向〕",
+      "reading_location": "并发症把空间模型反向验证出来",
+      "teaching_span_sha256": "fc3517068daef21b706d569ee951c714cc9ad8147cb6337dbddbd6fd21da324f",
+      "coverage_rationale": "CSF漏/交感与原S2–S4排尿反射机制三支齐",
+      "required_prompt_slots": [
+        "三类并发症",
+        "各自机制",
+        "风险方向"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "final-f08-kp17",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F8_局部区域与椎管内麻醉_学习阅读版_v1_最终执行版.md",
+      "title": "骶管 vs 鞍区：怎样从空间、体位与会阴手术用途区分？",
+      "formal_prompt": "空间｜体位｜作用范围｜会阴手术",
+      "formal_prompt_sha256": "13ab1b0d1947ca4bcea3df18775f76dfd65b5a4eeb2079e0900e41fde12a9da7",
+      "annotation_exact": "骶管 vs 鞍区：怎样从空间、体位与会阴手术用途区分？〔空间｜体位｜作用范围｜会阴手术〕",
+      "reading_location": "并发症把空间模型反向验证出来",
+      "teaching_span_sha256": "fc3517068daef21b706d569ee951c714cc9ad8147cb6337dbddbd6fd21da324f",
+      "coverage_rationale": "两种会阴技术不同空间及T10排除",
+      "required_prompt_slots": [
+        "空间",
+        "体位",
+        "作用范围",
+        "会阴手术"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    }
+  ],
+  "unresolved_source_limits": [
+    "原风险矩阵实际为物理P269，旧摘要P270差异历史保留且owner未改",
+    "离子/环境与相对安全性为有界外证；不当作原课事实",
+    "作者读图不证明学习者接触；完整LAST/超声/现代椎管算法不扩"
+  ],
+  "source_resolution_followup": {
+    "date": "2026-10-04",
+    "affected_targets": [
+      "final-f08-kp03",
+      "final-f08-kp04",
+      "final-f08-kp09",
+      "final-f08-kp16"
+    ],
+    "full_Prompt_equals_complete_course_Source": false,
+    "independent_medical_acceptance": false,
+    "user_acceptance": false
+  }
+}

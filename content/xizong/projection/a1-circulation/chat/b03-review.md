@@ -2,7 +2,9 @@
 
 # B3｜从发令和传播，到可用的机械一搏
 
-与教学稿共享一套模型。左栏连续读完整机制，中栏放对照与推演，右栏保留当前正式KP名称和主提示。右栏按本次绑定的正式版本重取；不使用旧M0提示。
+> **LEGACY FORMAT INPUT ONLY**：本文件保留已审医学内容、比较、边界、精记与 Source 说明，供迁移/核对；三栏和 LG 分隔只解释历史版式，不再是新复习稿生成规则。本文件只用于历史迁移/audit；正常教学走 [learner README](../../../knowledge/learner/README.md) / [Lecture Replacement Contract](../../../knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md)。迁移完成前不删除，以免丢失尚未归位的有效内容。
+
+历史格式说明（仅解释本文件）：原版左栏连续放机制，中栏放对照与推演，右栏列正式 KP 名称和主提示；这不再是新稿的生成指令。正式内容仍以绑定的 Current owner 为准，不使用旧 M0 提示。
 
 正式正文对齐版；阅读顺序不等于所有生理过程必须严格串行。精确记忆表另附，条件与必要机制仍保留在主路。
 

@@ -1,0 +1,979 @@
+{
+  "scope": "E_local_lecture_candidate_minimal_readback",
+  "status": "PASS",
+  "formal_acceptance": false,
+  "checks": [
+    "20 official Blocks / 212 unique KPs preserved",
+    "exact canonical title and full formal Prompt for all annotations",
+    "annotation stripping leaves identical medical body",
+    "current owner blob witnesses unchanged",
+    "owned support section hashes retained",
+    "all current visual cues matched at native owner scope; pixel observation false",
+    "all shared retention selectors retained with explicit present/absent state"
+  ],
+  "remaining_source_decisions": 6,
+  "unapplied_prompt_candidates": 2,
+  "canonical_core_changes": 0,
+  "full_repository_acceptance_repeated": false,
+  "readability_followup": {
+    "status": "PASS",
+    "scope": "ONLY_CHANGED_SUBSECTIONS_NO_WHOLE_LANE_VERIFICATION",
+    "blocks": [
+      {
+        "block_id": "E11",
+        "changed_anchors": [
+          "study"
+        ],
+        "body_characters_after": 937,
+        "checks": {
+          "only_selected_subsections_changed": true,
+          "annotation_removal_preserves_body": true,
+          "all_unchanged_annotations_once": true,
+          "original_drugs_names_thresholds_retained": true,
+          "no_full_core_mirror": true,
+          "annotations_source_and_native_files_unchanged": true
+        }
+      },
+      {
+        "block_id": "E12",
+        "changed_anchors": [
+          "morphology"
+        ],
+        "body_characters_after": 1562,
+        "checks": {
+          "only_selected_subsections_changed": true,
+          "annotation_removal_preserves_body": true,
+          "all_unchanged_annotations_once": true,
+          "original_drugs_names_thresholds_retained": true,
+          "no_full_core_mirror": true,
+          "annotations_source_and_native_files_unchanged": true
+        }
+      }
+    ],
+    "prior_checks": "Retained previous checks; only changed candidate assemblies checked this pass."
+  },
+  "prompt_lg_followup": {
+    "status": "PASS",
+    "scope": "ONLY_11_AFFECTED_BLOCKS_ASSEMBLED_NO_WHOLE_LANE_VERIFICATION",
+    "blocks": [
+      {
+        "block_id": "SR1",
+        "fixed_kp_ids": [
+          "repro-sr1-kp10"
+        ],
+        "changed_anchors": [
+          "modes"
+        ],
+        "medical_body_characters_after": 1198,
+        "hidden_body_sha256_before": "b24a1b8615a6d6e31fcbffb2c2ec02a42ac25cf415aca9740545be823d2cc743",
+        "hidden_body_sha256_after": "c335d3f1a41d2dd9888143d12cbb4479b9e0cfa2d834f7f984429ce48b1322f3",
+        "teaching_sha256_before": "67da89c246a8bc8d28b721dfb1a39405518081e31995e3a32924f31467776f2d",
+        "teaching_sha256_after": "3e414c374609ddc17dc712147c436000f700d6cd7c57709456aad5999272d2aa",
+        "section_sha256": [
+          {
+            "anchor": "modes",
+            "before": "37e4659b20b43516151099bc97e229d2c4a18a0cc0782e6b527955114ca63780",
+            "after": "9add90fc8a8a6fb4e898f7abf7ae0512834b83bbf657b7036783418903ef1ccb"
+          }
+        ],
+        "checks": {
+          "only_authorized_sections_changed": true,
+          "annotation_removal_preserves_body": true,
+          "unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "annotations_source_native_unchanged": true,
+          "canonical_candidates_unchanged": true,
+          "original_source_pending_states_inherited": true
+        }
+      },
+      {
+        "block_id": "SR2",
+        "fixed_kp_ids": [
+          "repro-sr2-kp11"
+        ],
+        "changed_anchors": [
+          "body"
+        ],
+        "medical_body_characters_after": 1245,
+        "hidden_body_sha256_before": "d49fc44dd3f61e1c406120d2f8b8d15bd7f95194d36d5577d7c28f4d2b6a445c",
+        "hidden_body_sha256_after": "6d6253f6a8dae558f3b2e77167961c72961c81fb3cfab802cbcf8d0e25107ebb",
+        "teaching_sha256_before": "5580405b9e1ed552f4aa2b5ade62c6ef9abbcce7b406cd3082ec4f43a4ba9365",
+        "teaching_sha256_after": "22af3502dfd273a9c3a6e6a0822c481adca2c9e37510cc213a5142bf01552ae0",
+        "section_sha256": [
+          {
+            "anchor": "body",
+            "before": "a986ad72fafdda7b478c838a4dc3b1ab6adb9b2d69f17ac213c15e8f67a0a4fb",
+            "after": "2b89377d6c335ef51d5a2a442ade5045165daa133e2df5d3bb6fafea85c7d20e"
+          }
+        ],
+        "checks": {
+          "only_authorized_sections_changed": true,
+          "annotation_removal_preserves_body": true,
+          "unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "annotations_source_native_unchanged": true,
+          "canonical_candidates_unchanged": true,
+          "original_source_pending_states_inherited": true
+        }
+      },
+      {
+        "block_id": "SR3",
+        "fixed_kp_ids": [
+          "repro-sr3-kp12"
+        ],
+        "changed_anchors": [
+          "separation"
+        ],
+        "medical_body_characters_after": 1254,
+        "hidden_body_sha256_before": "da13485eec299b9bf23d2e99e7dbf20ee374c0bc29c23989d0314dfe436f7b99",
+        "hidden_body_sha256_after": "288986b9822d0a219319e2c35e64816a351ca14e107f9ad968fc06400ef74f50",
+        "teaching_sha256_before": "f53925344c4702cac5ed7009bad7b54e766b84b97bfec25ddccc859a5249ff83",
+        "teaching_sha256_after": "24de0e5478cece55618dd33de7df788f0128504271b30dd175264d51b977c667",
+        "section_sha256": [
+          {
+            "anchor": "separation",
+            "before": "9e197fda6eb5255a6f4e7ea509fe650a40d5bf4c048d110de706e9f2fa787fa5",
+            "after": "63cdc4aa97765312c9005ee71b4975565f550a90429416332136b803e24c8aee"
+          }
+        ],
+        "checks": {
+          "only_authorized_sections_changed": true,
+          "annotation_removal_preserves_body": true,
+          "unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "annotations_source_native_unchanged": true,
+          "canonical_candidates_unchanged": true,
+          "original_source_pending_states_inherited": true
+        }
+      },
+      {
+        "block_id": "SR6",
+        "fixed_kp_ids": [
+          "repro-sr6-kp08",
+          "repro-sr6-kp09",
+          "repro-sr6-kp10"
+        ],
+        "changed_anchors": [
+          "structure",
+          "failure"
+        ],
+        "medical_body_characters_after": 997,
+        "hidden_body_sha256_before": "6d9fdb31bff7c6721480f68623fbab327c7f219f8527150fb6dee7d45f8735fd",
+        "hidden_body_sha256_after": "122d739d8ba56faa8e801adc018fc774187ef33df3601a6738c390eb2bdbbbba",
+        "teaching_sha256_before": "2cf6d6d4b3d98ef23772fe0343ee755f9a31417ef2a6a1f0408fd56107bd939d",
+        "teaching_sha256_after": "3685dad854cff6ea80824cd5d086dcc9564aaa47c48c5ab08dbfb10593fe2984",
+        "section_sha256": [
+          {
+            "anchor": "structure",
+            "before": "4bd65e5ce14bcd8f21fc84500ed89a7f05eef9f2b7c3ddc801ca4313765be962",
+            "after": "d6b41a6e328ecf4d0579fc21b8e135c292dea94b6dafede41d878143fb69d159"
+          },
+          {
+            "anchor": "failure",
+            "before": "3a335f53a765ddd74b51073fa2578561b0dc87c461dbeb4a4395a6dfd3b3533e",
+            "after": "6a2213d724e3aa7262bd2a03f27eb836aa7912f54825871f99f6773308fe3db5"
+          }
+        ],
+        "checks": {
+          "only_authorized_sections_changed": true,
+          "annotation_removal_preserves_body": true,
+          "unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "annotations_source_native_unchanged": true,
+          "canonical_candidates_unchanged": true,
+          "original_source_pending_states_inherited": true
+        }
+      },
+      {
+        "block_id": "E3",
+        "fixed_kp_ids": [
+          "repro-path-e3-kp03"
+        ],
+        "changed_anchors": [
+          "location"
+        ],
+        "medical_body_characters_after": 596,
+        "hidden_body_sha256_before": "cc13c4572a74339b585d11ffc52760b404c979e0df8bf68bab48cfff883ec70a",
+        "hidden_body_sha256_after": "1d036610d8722ea4c26b62812e29d4f381f0e830038805ee1e38664f29f090ac",
+        "teaching_sha256_before": "9870a1f34300c8ad4cd86c7d22ab78c463fc184a3ff80c9f0db31082b16d997b",
+        "teaching_sha256_after": "2e9b584dadfdba35419bdc42c4f4661aca79befd85253379a8be32455d3b8215",
+        "section_sha256": [
+          {
+            "anchor": "location",
+            "before": "81315957ce17ae985715c6bce5012322e6d78fb5dc11421d27812a11be4f16c0",
+            "after": "e0ad21305fabf4b9f781900d52218fc55216d7a54cb0c8049e39f9c75ef32c8d"
+          }
+        ],
+        "checks": {
+          "only_authorized_sections_changed": true,
+          "annotation_removal_preserves_body": true,
+          "unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "annotations_source_native_unchanged": true,
+          "canonical_candidates_unchanged": true,
+          "original_source_pending_states_inherited": true
+        }
+      },
+      {
+        "block_id": "E5",
+        "fixed_kp_ids": [
+          "repro-path-e5-kp01"
+        ],
+        "changed_anchors": [
+          "villus"
+        ],
+        "medical_body_characters_after": 701,
+        "hidden_body_sha256_before": "a04e590ca639831214b16cac71120b6d6508573c6522883e7ca9b7b0654a9aa0",
+        "hidden_body_sha256_after": "89b98bf6c2b61a041cbd92482114b58717429f2843b1bfd53dc23d8d6d0eb314",
+        "teaching_sha256_before": "71160c840517703304ece648ff541fcdede5492274d604c5e9f50bff14874ba3",
+        "teaching_sha256_after": "d578e1d47331909169ebd84aa0c7dd22f29c01b2983b26f890e17a256c9a0217",
+        "section_sha256": [
+          {
+            "anchor": "villus",
+            "before": "aec3da7e6950142918f7a5363e529c1dc2c1172358ab30d2c7a178e4a50c58d0",
+            "after": "a4cfa131d5b39d4d8d37d3a474806ae7124dce5cd3e6889a6606655c417b119a"
+          }
+        ],
+        "checks": {
+          "only_authorized_sections_changed": true,
+          "annotation_removal_preserves_body": true,
+          "unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "annotations_source_native_unchanged": true,
+          "canonical_candidates_unchanged": true,
+          "original_source_pending_states_inherited": true
+        }
+      },
+      {
+        "block_id": "E8",
+        "fixed_kp_ids": [
+          "repro-path-e8-kp01"
+        ],
+        "changed_anchors": [
+          "germ"
+        ],
+        "medical_body_characters_after": 836,
+        "hidden_body_sha256_before": "f1af5c8dd9e156765157c2958544c418a35a9766c24a95d0539938532fb4634b",
+        "hidden_body_sha256_after": "cb49cee8045b585b73d7de60f5b114cd9d7922dcdd2990127ad6e849ffebde62",
+        "teaching_sha256_before": "a9085d9a45c5d22736ae8fbd7910a78d9b28b6430c0fc97a9b53a2cde65a3aa6",
+        "teaching_sha256_after": "1b003284e95fe56cc1721e8d2b78b676b671c855a575806f3f7452ed635c75cd",
+        "section_sha256": [
+          {
+            "anchor": "germ",
+            "before": "1fdd491dc3abea820142ef15e078fec3f98220e4ebf1030e1061d6e1235a51f4",
+            "after": "11be9b77eb9b44bdb0ca37053b589fe68e9c4413ff9df8af09ef6fce46b91253"
+          }
+        ],
+        "checks": {
+          "only_authorized_sections_changed": true,
+          "annotation_removal_preserves_body": true,
+          "unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "annotations_source_native_unchanged": true,
+          "canonical_candidates_unchanged": true,
+          "original_source_pending_states_inherited": true
+        }
+      },
+      {
+        "block_id": "E11",
+        "fixed_kp_ids": [
+          "reproductive-e11-kp01"
+        ],
+        "changed_anchors": [
+          "infection"
+        ],
+        "medical_body_characters_after": 979,
+        "hidden_body_sha256_before": "6ec7378dab5fa5de77a92e96c667d93911ba3afe34b7f6fd5a307f70f098d286",
+        "hidden_body_sha256_after": "44d680b9a02fff6c515428671770121cc4e06fb7553301321e68f4832d2e33a9",
+        "teaching_sha256_before": "a32927bd7a364d1396a46ef531ec5fad877b6741293a2d292441ffc6ddd5d2ed",
+        "teaching_sha256_after": "e438d4fcd4b5a95ae377dc8b4da6212e662e9d3018e38d8510fe35d3d58ab744",
+        "section_sha256": [
+          {
+            "anchor": "infection",
+            "before": "543a2e201f0d4afed6c0daaffc68ce85e5e46dce5b22cbec036e1ea8bcc27f23",
+            "after": "db514b6d734327dd983c5caa2851c2d4a03af3c92640a96fbcb0905eed4cf0c1"
+          }
+        ],
+        "checks": {
+          "only_authorized_sections_changed": true,
+          "annotation_removal_preserves_body": true,
+          "unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "annotations_source_native_unchanged": true,
+          "canonical_candidates_unchanged": true,
+          "original_source_pending_states_inherited": true
+        }
+      },
+      {
+        "block_id": "E12",
+        "fixed_kp_ids": [
+          "reproductive-e12-kp08"
+        ],
+        "changed_anchors": [
+          "insitu"
+        ],
+        "medical_body_characters_after": 1582,
+        "hidden_body_sha256_before": "0e0378ac1f93ea505f5f0258f24ee0f1b9040a4f0f47c733543389a49cd92b5c",
+        "hidden_body_sha256_after": "4560f1d79d07f236a76db87291b8beb165066ed32727b5941bba2fc7d7ac7e71",
+        "teaching_sha256_before": "dbacf44bb17967452603d97eb536398c4c2013486a3710e1fe3bd5231b29b5f8",
+        "teaching_sha256_after": "daf3cd3173b2b3b3159893d9433b07c998becb13f3b468828165918c612f56e3",
+        "section_sha256": [
+          {
+            "anchor": "insitu",
+            "before": "5cbf8e0e5e31e09ef95ed731b32f8b44f411206404185466f51ebaa97d355a06",
+            "after": "403d28a8abe9ac1d0a6cf3406ed593e44b4d1d62dae5a8451afe42ae9d656f50"
+          }
+        ],
+        "checks": {
+          "only_authorized_sections_changed": true,
+          "annotation_removal_preserves_body": true,
+          "unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "annotations_source_native_unchanged": true,
+          "canonical_candidates_unchanged": true,
+          "original_source_pending_states_inherited": true
+        }
+      },
+      {
+        "block_id": "E14",
+        "fixed_kp_ids": [
+          "reproductive-e14-kp05",
+          "reproductive-e14-kp07"
+        ],
+        "changed_anchors": [
+          "local"
+        ],
+        "medical_body_characters_after": 1036,
+        "hidden_body_sha256_before": "37d6ef686049897195cf60588bd9b2fcef9f78732f549b16968e5a9baae33c47",
+        "hidden_body_sha256_after": "64c9fddc2dcda0d0f2c4b41cd87c4e9f8adf378bebd836b5b295fced1009b8f0",
+        "teaching_sha256_before": "930e72d086fef706a2a481c929d805cd1ecaf059207e9da2311e6827d7dfaf74",
+        "teaching_sha256_after": "8c7b260be57f177754a7c6095d7a27aeeef35c897fbda41f0646b211faae2d1a",
+        "section_sha256": [
+          {
+            "anchor": "local",
+            "before": "361b4a27068aca00d22e1cbb4e1e8512b445933db63a5a4ab3cc4a210b1da343",
+            "after": "dd401444a70f18750c48c5726d6031396992a7862c5723e5aca41ba0a2f68899"
+          }
+        ],
+        "checks": {
+          "only_authorized_sections_changed": true,
+          "annotation_removal_preserves_body": true,
+          "unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "annotations_source_native_unchanged": true,
+          "canonical_candidates_unchanged": true,
+          "original_source_pending_states_inherited": true
+        }
+      }
+    ],
+    "existing_checks": "Previously completed checks retained; this pass checks only authorized chapter assemblies and content clarifications.",
+    "remaining_explicit_prompt_limits": [
+      "repro-sr4-kp07",
+      "repro-path-e6-kp05"
+    ],
+    "remaining_limit_semantics": "Course unique-list authority and disease-specific direct causal proof only; all four investigated and locally explained within stated evidence boundaries."
+  },
+  "remaining_four_source_followup": {
+    "status": "PASS_BOUNDED_LOCAL_READBACK_NOT_FORMAL_MEDICAL_ACCEPTANCE",
+    "date": "2026-10-04",
+    "scope": "EXACT_FOUR_EXISTING_SUBSECTIONS_ONLY",
+    "counts": {
+      "affected_kps": 4,
+      "affected_native_lgs": 4,
+      "prompt_slots_reviewed": 5,
+      "original_pdf_pages_actually_viewed": 5,
+      "count_unit_clarifications": 1,
+      "external_primary_slots": 2,
+      "functional_timing_comparisons": 1,
+      "conditional_source_inferences": 1
+    },
+    "blocks": [
+      {
+        "block_id": "SR1",
+        "kp_id": "repro-sr1-kp02",
+        "native_lg": "SR1-LG01",
+        "changed_anchor": "layers",
+        "hidden_body_sha256_before": "c335d3f1a41d2dd9888143d12cbb4479b9e0cfa2d834f7f984429ce48b1322f3",
+        "hidden_body_sha256_after": "af7275efc04d418e7e96dd37c9656c55f01dff687e9e7df33a8f91df91c3b77a",
+        "teaching_sha256_before": "3e414c374609ddc17dc712147c436000f700d6cd7c57709456aad5999272d2aa",
+        "teaching_sha256_after": "4ceebbdf190f698ae1e4090e7a2911d95b0bfaf4119d8649b6fe0ccc45cf0311",
+        "section_sha256_before": "b9709d0292ad7678484544dea81d5beb181385bdb2ad0c0857c0ccef6dfef044",
+        "section_sha256_after": "4b0b6f0f93f63f4ff5ed41d46d6afae1716a800f664c6ca82ba934ba1910bead",
+        "medical_body_characters_after": 1420,
+        "classification": "COUNT_UNIT_CLARIFIED_AND_EXTERNAL_PRIMARY_SUPPLEMENT",
+        "prompt_slot_count": 2,
+        "source_pages": [
+          428
+        ],
+        "primary_ids": [
+          "Belchetz1978"
+        ],
+        "formal_limit": "Original Core did not teach therapeutic protocols. Supplement remains local derived candidate; previous prompt candidate is preserved unapplied.",
+        "checks": {
+          "only_authorized_anchor_changed": true,
+          "annotation_removal_preserves_body": true,
+          "annotation_blocks_byte_identical_in_original_order": true,
+          "all_unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "declarative_author_draft_matches_body": true,
+          "source_annotation_native_files_unchanged": true
+        }
+      },
+      {
+        "block_id": "SR4",
+        "kp_id": "repro-sr4-kp07",
+        "native_lg": "SR4-LG02",
+        "changed_anchor": "change",
+        "hidden_body_sha256_before": "cc0f1d8b44096d00fd750793068c24f8c231ce721ea16db3062238f2fddfd20c",
+        "hidden_body_sha256_after": "6e7063859d62eb57897ac5bcdc45a891e8d36279d3cf2dcf256b5b22de817bb2",
+        "teaching_sha256_before": "b1b4ab2bbf579926cd3b65699700efac907c58eb563acff333985569f20147ff",
+        "teaching_sha256_after": "f452c62826b39f5151076c0062569f4744c61970e50d3852d96990bb76908316",
+        "section_sha256_before": "8174a265ab841fdeed158e8eba506c9101336bf9a17e26dc5580a555df66fb0c",
+        "section_sha256_after": "d6a66f9dc4f9e5a6ad46bacd582acff8a576d683dec1acf624cf090041930979",
+        "medical_body_characters_after": 1040,
+        "classification": "EXTERNAL_PRIMARY_SECOND_EXAMPLE_WITH_COURSE_AMBIGUITY",
+        "prompt_slot_count": 1,
+        "source_pages": [
+          435
+        ],
+        "primary_ids": [
+          "Berkovitz1987"
+        ],
+        "formal_limit": "Original lecture names only adipose etc.; the unique intended second course tissue cannot be identified from it. No exact course list silently invented.",
+        "checks": {
+          "only_authorized_anchor_changed": true,
+          "annotation_removal_preserves_body": true,
+          "annotation_blocks_byte_identical_in_original_order": true,
+          "all_unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "declarative_author_draft_matches_body": true,
+          "source_annotation_native_files_unchanged": true
+        }
+      },
+      {
+        "block_id": "SR6",
+        "kp_id": "repro-sr6-kp05",
+        "native_lg": "SR6-LG02",
+        "changed_anchor": "reflex",
+        "hidden_body_sha256_before": "122d739d8ba56faa8e801adc018fc774187ef33df3601a6738c390eb2bdbbbba",
+        "hidden_body_sha256_after": "bd5d87cd7600bfed3c0b7036710648aae9a421894591bac6c887447f052ac4aa",
+        "teaching_sha256_before": "3685dad854cff6ea80824cd5d086dcc9564aaa47c48c5ab08dbfb10593fe2984",
+        "teaching_sha256_after": "389292b2af83efc8b632c73947e3693b8cc4693c6a9ded759e99147d316bd03c",
+        "section_sha256_before": "2423e3f0ed68a8f93f629b77e80b408d5d309e94cf10aac2ed3c5dab12ab14cc",
+        "section_sha256_after": "029d1758414ffa84291e6af0290a3caa9937fa9255747a8910cbdfc2d4135597",
+        "medical_body_characters_after": 1494,
+        "classification": "FUNCTIONAL_TIME_COMPARISON_AND_PRIMARY_TIMING_REFERENCE",
+        "prompt_slot_count": 1,
+        "source_pages": [
+          395
+        ],
+        "primary_ids": [
+          "Dawood1981",
+          "JohnstonAmico1986",
+          "McNeilly1983"
+        ],
+        "formal_limit": "Persistence is defined as subsequent production support. Neither a universal concentration duration nor full-paper persistence data is claimed.",
+        "checks": {
+          "only_authorized_anchor_changed": true,
+          "annotation_removal_preserves_body": true,
+          "annotation_blocks_byte_identical_in_original_order": true,
+          "all_unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "declarative_author_draft_matches_body": true,
+          "source_annotation_native_files_unchanged": true
+        }
+      },
+      {
+        "block_id": "E6",
+        "kp_id": "repro-path-e6-kp05",
+        "native_lg": "E6-LG02",
+        "changed_anchor": "systemic",
+        "hidden_body_sha256_before": "c450b6399319929994d53ffe1c87039dfd7637d0e4a615c807c2ef741298a885",
+        "hidden_body_sha256_after": "20876940a285b6c019e0e626c22694241d36a36878d059d6853a310e0ed3d4da",
+        "teaching_sha256_before": "a244d01129871508bd998149e81b106e33cf6c4c7e12a4607d2d6c601fdc7921",
+        "teaching_sha256_after": "ad85bbf571c87659401d9a7d440bc216592174a1e17871ee3af18cb7c5df4460",
+        "section_sha256_before": "a21806d54eab1efdd67ed1d0b8366586b8f8b57c426a3d8bc6837e5ac91dcc89",
+        "section_sha256_after": "e7c38b3d073762b794b15f1f70864c7a11299bd756675e03b45642422038fd03",
+        "medical_body_characters_after": 1118,
+        "classification": "CONDITIONAL_SOURCE_INFERENCE_WITH_EXPLICIT_DIFFERENCE_FROM_DIRECT_FACT",
+        "prompt_slot_count": 1,
+        "source_pages": [
+          100,
+          177
+        ],
+        "primary_ids": [],
+        "formal_limit": "The tumor-specific page lists morphology and host-vessel invasion. The necrosis explanation is explicitly conditional general-pathology reasoning, not a directly proven unique choriocarcinoma mechanism.",
+        "checks": {
+          "only_authorized_anchor_changed": true,
+          "annotation_removal_preserves_body": true,
+          "annotation_blocks_byte_identical_in_original_order": true,
+          "all_unchanged_annotations_once": true,
+          "no_full_core_mirror": true,
+          "declarative_author_draft_matches_body": true,
+          "source_annotation_native_files_unchanged": true
+        }
+      }
+    ],
+    "original_pdf_evidence": [
+      {
+        "path": "EXECUTION_ONLY_LOCAL/27精编生理合集【带导图】.pdf",
+        "bytes": 380808365,
+        "sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+        "pages_actually_viewed": [
+          395,
+          428,
+          435
+        ]
+      },
+      {
+        "path": "EXECUTION_ONLY_LOCAL/27病理精编版合集【不带导图】.pdf",
+        "bytes": 51606320,
+        "sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+        "pages_actually_viewed": [
+          100,
+          177
+        ]
+      }
+    ],
+    "rendered_page_evidence": [
+      {
+        "path": "/tmp/e-source-resolution/path-p100.png",
+        "sha256": "ce7a850511288d575fd32641ff714d680e2af8cde7b38a04255cfa4be6fa6131"
+      },
+      {
+        "path": "/tmp/e-source-resolution/path-p177.png",
+        "sha256": "7f1f13910e4272427376a040fe6994ae2d73011733195228e7e360d7bd844b3b"
+      },
+      {
+        "path": "/tmp/e-source-resolution/phys-p395.png",
+        "sha256": "073e4e0598f5b7ae42e1e5882e36ecd36c3a315a3908c7fda345e33be85cf523"
+      },
+      {
+        "path": "/tmp/e-source-resolution/phys-p428.png",
+        "sha256": "715e31719004ecfce0208e0e8dc3dbaa716117f831fdefb9be4e5f8f08009e19"
+      },
+      {
+        "path": "/tmp/e-source-resolution/phys-p435.png",
+        "sha256": "b88328d7c6d32a259a6ff13eea6b6c2d9285d2067e1e7672c4fea3ca8b3a905b"
+      }
+    ],
+    "primary_sources": [
+      {
+        "id": "Belchetz1978",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/100883/",
+        "doi": "10.1126/science.100883",
+        "population": "hypothalamic-lesioned rhesus monkeys",
+        "read_extent": "ORIGINAL_ABSTRACT_READ_VIA_PRIMARY_PUBMED_SEARCH_RESULT",
+        "used_for": "continuous/intermittent input pattern and pituitary response; not a human dosing prescription"
+      },
+      {
+        "id": "Berkovitz1987",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3504063/",
+        "doi": "10.1016/0039-128x(83)90078-8",
+        "population": "cultured human skin fibroblasts",
+        "read_extent": "ORIGINAL_ABSTRACT_READ",
+        "used_for": "second peripheral tissue example; not circulating postmenopausal source proportions"
+      },
+      {
+        "id": "Dawood1981",
+        "url": "https://academic.oup.com/jcem/article-abstract/52/4/678/2678538",
+        "doi": "10.1210/jcem-52-4-678",
+        "population": "12 women postpartum days 3 or 5",
+        "read_extent": "FULL_ORIGINAL_ABSTRACT_READ_AT_PUBLISHER",
+        "used_for": "timing reference within that experiment only"
+      },
+      {
+        "id": "JohnstonAmico1986",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3949949/",
+        "doi": "10.1210/jcem-62-4-653",
+        "population": "8 breastfeeding women followed over 6 months",
+        "read_extent": "FULL_ORIGINAL_ABSTRACT_READ",
+        "used_for": "prolactin peak timing reference; not a universal persistence time"
+      },
+      {
+        "id": "McNeilly1983",
+        "url": "https://discovery.dundee.ac.uk/en/publications/release-of-oxytocin-and-prolactin-in-response-to-suckling",
+        "doi": "10.1136/bmj.286.6361.257",
+        "population": "10 women in early and established lactation",
+        "read_extent": "AUTHOR_INSTITUTION_ORIGINAL_ABSTRACT_READ_FULL_PDF_NOT_ACQUIRED",
+        "used_for": "conditioned pre-suckling and pulsatile oxytocin; no detailed full-paper persistence claim"
+      }
+    ],
+    "owner_byte_readback": [
+      {
+        "block_id": "SR1",
+        "path": "content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR1_生殖内分泌控制_学习阅读版_v1_最终执行版.md",
+        "actual_file_sha256": "8ca44ebdbff40be547377b2545f5860e9d30f4c6bd32e6d180554bc53df4dc90",
+        "parser_semantic_source_hash": "54a630139533b69e1279dd688b7d630e6d3c93d45ed5899544f3e98fb522b863",
+        "git_owner_witnesses": [
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-content.json",
+            "git_blob": "794cfa8bc56fbea7d92aa324e3e680097177ba14",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-learning-cues.json",
+            "git_blob": "226d2ad3af036a76078e4f780532393b9238db60",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-learning.json",
+            "git_blob": "306b47bec7371dadd20936763a2bf7924782f2c6",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-source-visuals.json",
+            "git_blob": "7276d41fdb18a4a70541e9277eba8d3d3951371a",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/shared-fields.json",
+            "git_blob": "9fd677770fd9a8d3c4ddd04f4d16717b20ee30b1",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR1_生殖内分泌控制_学习阅读版_v1_最终执行版.md",
+            "git_blob": "b53be2ff2571fb482aecfad36842c63ae6af3478",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/systems/e-reproductive-breast/system.json",
+            "git_blob": "82c805f86a0f89a89f19defd75b9ada2bc98412d",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/projection/e-reproductive-breast/blocks/sr01.projection.json",
+            "git_blob": "46de6206950785ac764fc52e3d17b8890c3759cf",
+            "matches_head_witness": true
+          }
+        ],
+        "matches_canonical_git_witness": true
+      },
+      {
+        "block_id": "SR4",
+        "path": "content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR4_性激素合成与生命阶段来源_学习阅读版_v1_最终执行版.md",
+        "actual_file_sha256": "dffed60525e3e049b7961e273a375b3b8768a28fc80f24a79791e27f502e17f5",
+        "parser_semantic_source_hash": "f2b1df91f3aa9196b6dadc47f3a696edda98a47d63fbc49adff9f59a04f09b0e",
+        "git_owner_witnesses": [
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-content.json",
+            "git_blob": "794cfa8bc56fbea7d92aa324e3e680097177ba14",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-learning-cues.json",
+            "git_blob": "226d2ad3af036a76078e4f780532393b9238db60",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-learning.json",
+            "git_blob": "306b47bec7371dadd20936763a2bf7924782f2c6",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-source-visuals.json",
+            "git_blob": "7276d41fdb18a4a70541e9277eba8d3d3951371a",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/shared-fields.json",
+            "git_blob": "9fd677770fd9a8d3c4ddd04f4d16717b20ee30b1",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR4_性激素合成与生命阶段来源_学习阅读版_v1_最终执行版.md",
+            "git_blob": "5144d634b611327e3895ef3811318ea85581ed92",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/systems/e-reproductive-breast/system.json",
+            "git_blob": "82c805f86a0f89a89f19defd75b9ada2bc98412d",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/projection/e-reproductive-breast/blocks/sr04.projection.json",
+            "git_blob": "1c5df7e00da2473cb675cb06eb08ed4127eaff5b",
+            "matches_head_witness": true
+          }
+        ],
+        "matches_canonical_git_witness": true
+      },
+      {
+        "block_id": "SR6",
+        "path": "content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR6_泌乳射乳与正常乳腺_学习阅读版_v1_最终执行版.md",
+        "actual_file_sha256": "65e7564c6644ac6dd701e1679e63981846beb1f8e4c2ea658510cc20e2cb4ddd",
+        "parser_semantic_source_hash": "e96cf08daf231c6fd7b86678d5042de569633e3122da32c2156431ea1838dc01",
+        "git_owner_witnesses": [
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-content.json",
+            "git_blob": "794cfa8bc56fbea7d92aa324e3e680097177ba14",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-learning-cues.json",
+            "git_blob": "226d2ad3af036a76078e4f780532393b9238db60",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-learning.json",
+            "git_blob": "306b47bec7371dadd20936763a2bf7924782f2c6",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-source-visuals.json",
+            "git_blob": "7276d41fdb18a4a70541e9277eba8d3d3951371a",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/shared-fields.json",
+            "git_blob": "9fd677770fd9a8d3c4ddd04f4d16717b20ee30b1",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/systems/e-reproductive-breast/sr-sr1-sr6/生殖生理_SR6_泌乳射乳与正常乳腺_学习阅读版_v1_最终执行版.md",
+            "git_blob": "a47251c667339860d5d8d83de22d5903b880ec78",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/systems/e-reproductive-breast/system.json",
+            "git_blob": "82c805f86a0f89a89f19defd75b9ada2bc98412d",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/projection/e-reproductive-breast/blocks/sr06.projection.json",
+            "git_blob": "fc482ae529252cab13f260ddcb459abe32cae61c",
+            "matches_head_witness": true
+          }
+        ],
+        "matches_canonical_git_witness": true
+      },
+      {
+        "block_id": "E6",
+        "path": "content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖病理_E6_侵袭性葡萄胎绒癌与PSTT_学习阅读版_v1_最终执行版.md",
+        "actual_file_sha256": "628484f4c6aa6cb7c5114273c7197fd57457854cdf7636bfcfa14d823b24a26c",
+        "parser_semantic_source_hash": "4f8125b44aa2f086dd87fdd9ec3f24d3348afda368571cd36dfcadd51d74ac6e",
+        "git_owner_witnesses": [
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-content.json",
+            "git_blob": "794cfa8bc56fbea7d92aa324e3e680097177ba14",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-learning-cues.json",
+            "git_blob": "226d2ad3af036a76078e4f780532393b9238db60",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-learning.json",
+            "git_blob": "306b47bec7371dadd20936763a2bf7924782f2c6",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/e-reproductive-breast-source-visuals.json",
+            "git_blob": "7276d41fdb18a4a70541e9277eba8d3d3951371a",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/learner/shared-fields.json",
+            "git_blob": "9fd677770fd9a8d3c4ddd04f4d16717b20ee30b1",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/systems/e-reproductive-breast/e-e1-e14/生殖病理_E6_侵袭性葡萄胎绒癌与PSTT_学习阅读版_v1_最终执行版.md",
+            "git_blob": "195d565f67a2369b5cfa4bced428927539702dc7",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/knowledge/systems/e-reproductive-breast/system.json",
+            "git_blob": "82c805f86a0f89a89f19defd75b9ada2bc98412d",
+            "matches_head_witness": true
+          },
+          {
+            "path": "content/xizong/projection/e-reproductive-breast/blocks/e06.projection.json",
+            "git_blob": "9009892b52ee7b0d661fb45ebfc1acc0bbe3bd61",
+            "matches_head_witness": true
+          }
+        ],
+        "matches_canonical_git_witness": true
+      }
+    ],
+    "preservation": {
+      "unchanged_other_16_chapter_bodies": true,
+      "all_original_annotations_native_source_provenance_unchanged": true,
+      "all_original_canonical_candidates_unapplied_byte_unchanged": true,
+      "all_original_kp_id_and_annotation_order_unchanged": true,
+      "all_existing_shared_index_progress_finalizer_not_written": true,
+      "no_formal_owner_or_runtime_or_real_learning_state_write": true,
+      "all_affected_hidden_bodies_and_sources_actually_read": true
+    },
+    "actual_access_limitation": {
+      "action": "read-only public original paper PDF download with curl --fail --location",
+      "target": "https://www.bmj.com/content/bmj/286/6361/257.full.pdf",
+      "result": "HTTP_403_DOWNLOAD_FAILED",
+      "auto_review_rejection": false,
+      "workaround_attempted_after_denial": false,
+      "blocks_local_functional_explanation": false,
+      "unacquired_claims_excluded": "full-paper quantitative persistence findings"
+    },
+    "strict_authority_limits": [
+      {
+        "kp_id": "repro-sr4-kp07",
+        "kind": "COURSE_LIST_UNSPECIFIED",
+        "owner_decision_only_if_exact_unique_course_list_required": true
+      },
+      {
+        "kp_id": "repro-path-e6-kp05",
+        "kind": "TUMOR_SPECIFIC_CAUSAL_PROOF_NOT_IN_ORIGINAL_PAGE",
+        "conditional_teaching_inference_explicit": true
+      }
+    ],
+    "missing_original_course_source_bytes": 0,
+    "filesystem_permission_blocks": 0,
+    "must_user_decide_for_authorized_local_work": [],
+    "new_medical_prose_outward_return": "STILL_PENDING_PARENT_APPROVAL_NO_PROSE_SENT",
+    "affected_file_manifest": [
+      {
+        "path": "author-e.py",
+        "bytes_before": 82476,
+        "bytes_after": 85325,
+        "sha256_before": "9022a2cb6ffbd989ad3f517f11e0749c1afdd62944ce3ffa5cbd338ceda48636",
+        "sha256_after": "a1e21d9c807829dc5f4691734a2ded768a935eafaf761ea7921d3c763ceb1972"
+      },
+      {
+        "path": "prompt-lg-coverage-review.md",
+        "bytes_before": 95917,
+        "bytes_after": 98855,
+        "sha256_before": "cb3fff7bc79c4cadbcbccc9434f1d9badeb299aa4b98c7284f5cf614fcd59aca",
+        "sha256_after": "3f32b45bc20baeb183cdedd89154c45ebd17feacc4fd7e49757ae8537a47a814"
+      },
+      {
+        "path": "verification.json",
+        "bytes_before": 15608,
+        "bytes_after": 43838,
+        "sha256_before": "d01db2f164bf57f75159c547c048c8de7239c5f99771ac37ec1595870383b271",
+        "sha256_after": "SELF_MANIFEST_FINAL_HASH_NOT_EMBEDDED"
+      },
+      {
+        "path": "coverage-proof.json",
+        "bytes_before": 22444,
+        "bytes_after": 26362,
+        "sha256_before": "09de4d32957eace3e8802a93215a2ce934d773f8187518fbce9170d5ace76c87",
+        "sha256_after": "987f8ffb91c175e2cce0e6446ed3ddefe62e33ce0ecb435bbde7a269ecd407d8"
+      },
+      {
+        "path": "sr1/teaching-model.json",
+        "bytes_before": 1827,
+        "bytes_after": 2395,
+        "sha256_before": "73d461cfebb8ea7eb94fff68a996d26e86240f93abeeeef8fdefdb586bee2166",
+        "sha256_after": "eb65bc6832a58f50d2a37d99c3fa120840c218863e88f64bb72ddc5085adec7e"
+      },
+      {
+        "path": "sr1/teaching-without-annotations.md",
+        "bytes_before": 3633,
+        "bytes_after": 4195,
+        "sha256_before": "c335d3f1a41d2dd9888143d12cbb4479b9e0cfa2d834f7f984429ce48b1322f3",
+        "sha256_after": "af7275efc04d418e7e96dd37c9656c55f01dff687e9e7df33a8f91df91c3b77a"
+      },
+      {
+        "path": "sr1/teaching.md",
+        "bytes_before": 5027,
+        "bytes_after": 5589,
+        "sha256_before": "3e414c374609ddc17dc712147c436000f700d6cd7c57709456aad5999272d2aa",
+        "sha256_after": "4ceebbdf190f698ae1e4090e7a2911d95b0bfaf4119d8649b6fe0ccc45cf0311"
+      },
+      {
+        "path": "sr1/coverage-proof.json",
+        "bytes_before": 12446,
+        "bytes_after": 13770,
+        "sha256_before": "6d66e0634d7038662da35666e944d1ca1da9d2c696979923ce3bea968cbb3d82",
+        "sha256_after": "9364f9f07fb5b999f8b8044f20de1e62a05c7f28963665c8af33e17a325e0312"
+      },
+      {
+        "path": "sr6/teaching-model.json",
+        "bytes_before": 1792,
+        "bytes_after": 2409,
+        "sha256_before": "d586203e52770d5fbdd3aaf4486410b7b507303444352f1b241dba1524e9f335",
+        "sha256_after": "7f51d4d91f131b32c21dd5997d1ecbcf86a46d4cb20e6042200e7134a92d4457"
+      },
+      {
+        "path": "sr6/teaching-without-annotations.md",
+        "bytes_before": 3228,
+        "bytes_after": 4157,
+        "sha256_before": "122d739d8ba56faa8e801adc018fc774187ef33df3601a6738c390eb2bdbbbba",
+        "sha256_after": "bd5d87cd7600bfed3c0b7036710648aae9a421894591bac6c887447f052ac4aa"
+      },
+      {
+        "path": "sr6/teaching.md",
+        "bytes_before": 4697,
+        "bytes_after": 5626,
+        "sha256_before": "3685dad854cff6ea80824cd5d086dcc9564aaa47c48c5ab08dbfb10593fe2984",
+        "sha256_after": "389292b2af83efc8b632c73947e3693b8cc4693c6a9ded759e99147d316bd03c"
+      },
+      {
+        "path": "sr6/coverage-proof.json",
+        "bytes_before": 13398,
+        "bytes_after": 14875,
+        "sha256_before": "24923c7e9568c767c7a0ce9bdd494b7eb10984e81c53709de6df7942fe7b5ad3",
+        "sha256_after": "b2f42aeac9e5ba2e07d65f1c62593a141ecae7691e8faa5e3ce4ca278e3d7523"
+      },
+      {
+        "path": "e6/teaching-model.json",
+        "bytes_before": 1862,
+        "bytes_after": 2497,
+        "sha256_before": "ecc59a6f2880d6d9e09343f3118f24a96b916afbf46a8dc3e5304752a995949a",
+        "sha256_after": "40a9e4c4cfd27a227ae01230fd63f67abe59901373b44eaf03f1e26bb720dd3b"
+      },
+      {
+        "path": "e6/teaching-without-annotations.md",
+        "bytes_before": 2746,
+        "bytes_after": 3534,
+        "sha256_before": "c450b6399319929994d53ffe1c87039dfd7637d0e4a615c807c2ef741298a885",
+        "sha256_after": "20876940a285b6c019e0e626c22694241d36a36878d059d6853a310e0ed3d4da"
+      },
+      {
+        "path": "e6/teaching.md",
+        "bytes_before": 4265,
+        "bytes_after": 5053,
+        "sha256_before": "a244d01129871508bd998149e81b106e33cf6c4c7e12a4607d2d6c601fdc7921",
+        "sha256_after": "ad85bbf571c87659401d9a7d440bc216592174a1e17871ee3af18cb7c5df4460"
+      },
+      {
+        "path": "e6/coverage-proof.json",
+        "bytes_before": 10933,
+        "bytes_after": 12363,
+        "sha256_before": "19d467ee7747fe1999251aec2b08d3e405ff43b9a204b62e5bf31c66a3538cc1",
+        "sha256_after": "a08b634cda45c44a5c1bd8d6d0bf93a27213803f4e34d35e181b40010302ca45"
+      },
+      {
+        "path": "sr4/teaching-model.json",
+        "bytes_before": 1782,
+        "bytes_after": 2360,
+        "sha256_before": "cabc140af09ffc1e10319ab77cbbf0ca8778e4fbb7b012280ac5694aa4af0ec6",
+        "sha256_after": "599932eb181f62cd7dee85cba37afaa45b0d0521982cce201a019d913e6811e8"
+      },
+      {
+        "path": "sr4/teaching-without-annotations.md",
+        "bytes_before": 2704,
+        "bytes_after": 3274,
+        "sha256_before": "cc0f1d8b44096d00fd750793068c24f8c231ce721ea16db3062238f2fddfd20c",
+        "sha256_after": "6e7063859d62eb57897ac5bcdc45a891e8d36279d3cf2dcf256b5b22de817bb2"
+      },
+      {
+        "path": "sr4/teaching.md",
+        "bytes_before": 3967,
+        "bytes_after": 4537,
+        "sha256_before": "b1b4ab2bbf579926cd3b65699700efac907c58eb563acff333985569f20147ff",
+        "sha256_after": "f452c62826b39f5151076c0062569f4744c61970e50d3852d96990bb76908316"
+      },
+      {
+        "path": "sr4/coverage-proof.json",
+        "bytes_before": 9621,
+        "bytes_after": 10940,
+        "sha256_before": "3b379d86861249ac285731b3d6833e3f37020360957b89373a680721e19a1cbc",
+        "sha256_after": "876b356e11607570a5222c5cbc7ec7116394b43f2330becfd751872fcc5811af"
+      }
+    ],
+    "affected_file_count": 20,
+    "final_bounded_readback": "PASS_ALL_FOUR_HIDDEN_BODIES_READ_IN_FULL_ALL_TWENTY_CHANGED_ARTIFACTS_ACCOUNTED"
+  }
+}

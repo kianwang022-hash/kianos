@@ -1,0 +1,445 @@
+{
+  "status": "LOCAL_SELF_CANDIDATE_NOT_INDEPENDENT_OR_USER_ACCEPTED",
+  "block_id": "F1",
+  "kp_count": 15,
+  "logic_group_count": 5,
+  "coverage_model": "independently authored continuous medicine; exact annotations applied afterward",
+  "explicit_medical_relations": [
+    "持续入口使体内负荷继续增加，停止暴露与支持器官承担不同责任",
+    "加权线索定位毒效应，理化性质决定净化方式，当前危险决定优先级",
+    "去污可能增加操作损伤，因此安全条件先于机械执行"
+  ],
+  "relations_origin": "AUTHORED_MEDICAL_REASONING_IN_BODY; no edge or order inferred from KP/LG/headings",
+  "reading_sections_are_not_topology_nodes": true,
+  "kp_annotations": [
+    {
+      "kp_id": "final-f01-kp01",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "中毒患者到来时，第一层优先级怎样确定？",
+      "formal_prompt": "生命威胁｜暴露是否持续｜毒物身份何时进入｜后续控制层",
+      "formal_prompt_sha256": "a86ea12891fe0e684c5ba47a29560fb6deada009dc47e82fd4586d8d2aa3a07b",
+      "annotation_exact": "中毒患者到来时，第一层优先级怎样确定？〔生命威胁｜暴露是否持续｜毒物身份何时进入｜后续控制层〕",
+      "reading_location": "输入仍在继续时，先切断入口",
+      "teaching_span_sha256": "738cd4d261a2c51525f1d1c5349b686fc40aecf11362be28dfbf6103510476c6",
+      "coverage_rationale": "生命支持与输入控制并行",
+      "required_prompt_slots": [
+        "生命威胁",
+        "暴露是否持续",
+        "毒物身份何时进入",
+        "后续控制层"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp02",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "暴露途径：口服不是唯一入口，皮肤和球结膜也能吸收",
+      "formal_prompt": "入口4｜皮肤吸收↑2条件｜眼1｜仍吸收先做什么",
+      "formal_prompt_sha256": "891f5a10c77289ce19f3dbd8d1d503cf6611c5806108924a66bbcaf22a8f2df9",
+      "annotation_exact": "暴露途径：口服不是唯一入口，皮肤和球结膜也能吸收〔入口4｜皮肤吸收↑2条件｜眼1｜仍吸收先做什么〕",
+      "reading_location": "输入仍在继续时，先切断入口",
+      "teaching_span_sha256": "738cd4d261a2c51525f1d1c5349b686fc40aecf11362be28dfbf6103510476c6",
+      "coverage_rationale": "入口、皮肤状态与残留负荷",
+      "required_prompt_slots": [
+        "入口4",
+        "皮肤吸收↑2条件",
+        "眼1",
+        "仍吸收先做什么"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp07",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "去污：先区分“未吸收”与“已吸收”",
+      "formal_prompt": "未吸收3路｜已吸收2路｜为什么不能混｜气道先行",
+      "formal_prompt_sha256": "19ba313def4ae359fb8b7b1ef7c146f64b33234d2f4e0190eb1e943a46d486ac",
+      "annotation_exact": "去污：先区分“未吸收”与“已吸收”〔未吸收3路｜已吸收2路｜为什么不能混｜气道先行〕",
+      "reading_location": "输入仍在继续时，先切断入口",
+      "teaching_span_sha256": "738cd4d261a2c51525f1d1c5349b686fc40aecf11362be28dfbf6103510476c6",
+      "coverage_rationale": "未吸收与已吸收分开处理",
+      "required_prompt_slots": [
+        "未吸收3路",
+        "已吸收2路",
+        "为什么不能混",
+        "气道先行"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp03",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "呼吸 + 瞳孔：先识别方向，再结合其它证据",
+      "formal_prompt": "呼快2组｜呼慢2组｜散瞳1组｜缩瞳5组｜M/α1逻辑",
+      "formal_prompt_sha256": "5b1945b8c61dc847e86e17fe0b480efa653121b379c9724d9a0f2e2dea05d8b2",
+      "annotation_exact": "呼吸 + 瞳孔：先识别方向，再结合其它证据〔呼快2组｜呼慢2组｜散瞳1组｜缩瞳5组｜M/α1逻辑〕",
+      "reading_location": "线索把诊断范围缩小，组合才有解释力",
+      "teaching_span_sha256": "283e4159788c517f1bca8e53c3ef3758789d8122383dd1d4e1569cb0fc4f6181",
+      "coverage_rationale": "呼吸/瞳孔的作用方向和证据权重",
+      "required_prompt_slots": [
+        "呼快2组",
+        "呼慢2组",
+        "散瞳1组",
+        "缩瞳5组",
+        "M/α1逻辑"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp04",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "气味：高密度 MI-D，不允许凌驾于生命层级",
+      "formal_prompt": "蒜5｜烂苹果1｜苦杏仁1｜鞋油1｜臭蛋1｜鱼腥2｜胶水1",
+      "formal_prompt_sha256": "f31241c9dd610c70917e421e58b420096dd605277ea2702d09c5e0980f07393f",
+      "annotation_exact": "气味：高密度 MI-D，不允许凌驾于生命层级〔蒜5｜烂苹果1｜苦杏仁1｜鞋油1｜臭蛋1｜鱼腥2｜胶水1〕",
+      "reading_location": "线索把诊断范围缩小，组合才有解释力",
+      "teaching_span_sha256": "283e4159788c517f1bca8e53c3ef3758789d8122383dd1d4e1569cb0fc4f6181",
+      "coverage_rationale": "原气味配对完整保留且不支配抢救",
+      "required_prompt_slots": [
+        "蒜5",
+        "烂苹果1",
+        "苦杏仁1",
+        "鞋油1",
+        "臭蛋1",
+        "鱼腥2",
+        "胶水1"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp05",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "皮肤颜色与腐蚀痂皮：颜色反映不同毒效应层",
+      "formal_prompt": "绀3｜樱桃红1｜鲜红接口1｜黄3｜痂黄棕黑",
+      "formal_prompt_sha256": "0dee6b3e277a10cbad3577fbf13724d58ee46a8cbb76853e0eeabab18515c19b",
+      "annotation_exact": "皮肤颜色与腐蚀痂皮：颜色反映不同毒效应层〔绀3｜樱桃红1｜鲜红接口1｜黄3｜痂黄棕黑〕",
+      "reading_location": "线索把诊断范围缩小，组合才有解释力",
+      "teaching_span_sha256": "283e4159788c517f1bca8e53c3ef3758789d8122383dd1d4e1569cb0fc4f6181",
+      "coverage_rationale": "不同颜色对应不同毒效应",
+      "required_prompt_slots": [
+        "绀3",
+        "樱桃红1",
+        "鲜红接口1",
+        "黄3",
+        "痂黄棕黑"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp06",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "器官表现不是杂表：要先问“毒物打坏了哪一层”",
+      "formal_prompt": "器官表现先定位受损层：CNS｜NMJ｜溶血/黄疸｜凝血/出血｜病理接口",
+      "formal_prompt_sha256": "194c43c51967142ebbbb36e3259f17b244663d8a415da1471946c0730058b8b8",
+      "annotation_exact": "器官表现不是杂表：要先问“毒物打坏了哪一层”〔器官表现先定位受损层：CNS｜NMJ｜溶血/黄疸｜凝血/出血｜病理接口〕",
+      "reading_location": "线索把诊断范围缩小，组合才有解释力",
+      "teaching_span_sha256": "283e4159788c517f1bca8e53c3ef3758789d8122383dd1d4e1569cb0fc4f6181",
+      "coverage_rationale": "原四表现小表已文字与像素补齐；受损层先定位",
+      "required_prompt_slots": [
+        "器官表现先定位受损层：CNS",
+        "NMJ",
+        "溶血/黄疸",
+        "凝血/出血",
+        "病理接口"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "source_followup_role": "ORIGINAL_PIXEL_AND_BOUNDED_SUPPLEMENTAL_READBACK; not canonical mutation"
+    },
+    {
+      "kp_id": "final-f01-kp08",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "洗胃：哪些情况会让操作本身制造更大伤害？",
+      "formal_prompt": "禁忌类别｜各自伤害机制｜腐蚀性毒物边界｜意识/惊厥与气道",
+      "formal_prompt_sha256": "1c9a3672e2a65c1e0aae9b7b05bd29fb0e4a9fa4063a0d08897e71a057b2c1db",
+      "annotation_exact": "洗胃：哪些情况会让操作本身制造更大伤害？〔禁忌类别｜各自伤害机制｜腐蚀性毒物边界｜意识/惊厥与气道〕",
+      "reading_location": "去污能减少吸收，也能制造新的损伤",
+      "teaching_span_sha256": "139e558523873c3e4d574f76314863485bd1ff412a09f3a777d8df118232a1e4",
+      "coverage_rationale": "洗胃自身的穿孔/出血/误吸/惊厥风险",
+      "required_prompt_slots": [
+        "禁忌类别",
+        "各自伤害机制",
+        "腐蚀性毒物边界",
+        "意识/惊厥与气道"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp09",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "导泻：不能把“让毒物快点出去”当成无条件正确",
+      "formal_prompt": "不单用｜油脂禁因1｜常用4｜Mg禁5｜底层原因1",
+      "formal_prompt_sha256": "4f27538ba3221d6bdb007b788bf36af9de53d8fee0859fc4058fd2840fba8536",
+      "annotation_exact": "导泻：不能把“让毒物快点出去”当成无条件正确〔不单用｜油脂禁因1｜常用4｜Mg禁5｜底层原因1〕",
+      "reading_location": "去污能减少吸收，也能制造新的损伤",
+      "teaching_span_sha256": "139e558523873c3e4d574f76314863485bd1ff412a09f3a777d8df118232a1e4",
+      "coverage_rationale": "导泻吸收与Mg中枢风险",
+      "required_prompt_slots": [
+        "不单用",
+        "油脂禁因1",
+        "常用4",
+        "Mg禁5",
+        "底层原因1"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp10",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "血液净化什么时候进入：不是“中毒=透析”",
+      "formal_prompt": "进入条件5｜先看性质3｜方法3｜器官状态1",
+      "formal_prompt_sha256": "2f6c778a6d7b0da101a904551d00a07e34e645abec8ead2c077efbfd34d3e7ca",
+      "annotation_exact": "血液净化什么时候进入：不是“中毒=透析”〔进入条件5｜先看性质3｜方法3｜器官状态1〕",
+      "reading_location": "毒物已吸收后，按载体和理化性质选处理方式",
+      "teaching_span_sha256": "7a87028d4b1ab17f4c1fafa1a0dadf090c7d02a27161bb666066e26cbc19f4f7",
+      "coverage_rationale": "净化进入场景及理化/器官条件",
+      "required_prompt_slots": [
+        "进入条件5",
+        "先看性质3",
+        "方法3",
+        "器官状态1"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp11",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "血液透析：哪些理化性质使毒物适合被“析”出？",
+      "formal_prompt": "分子大小｜水溶/脂溶｜蛋白结合｜代表毒物｜不适合方向｜时间边界",
+      "formal_prompt_sha256": "7dda16b047fae1b032a287da2cce80fabd67acd94729feac82929c8c175fe15a",
+      "annotation_exact": "血液透析：哪些理化性质使毒物适合被“析”出？〔分子大小｜水溶/脂溶｜蛋白结合｜代表毒物｜不适合方向｜时间边界〕",
+      "reading_location": "毒物已吸收后，按载体和理化性质选处理方式",
+      "teaching_span_sha256": "7a87028d4b1ab17f4c1fafa1a0dadf090c7d02a27161bb666066e26cbc19f4f7",
+      "coverage_rationale": "透析性质、例子、不适宜方向及12h限度",
+      "required_prompt_slots": [
+        "分子大小",
+        "水溶/脂溶",
+        "蛋白结合",
+        "代表毒物",
+        "不适合方向",
+        "时间边界"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp12",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "血液灌流：什么时候应从“弥散”转向“吸附”思路？",
+      "formal_prompt": "吸附原理｜脂溶性｜蛋白结合｜代表毒物｜吸附副损",
+      "formal_prompt_sha256": "410ea6ca50ef7fc2311862e614ae90363ab1360ede8fd5133c79ad7b8a60afae",
+      "annotation_exact": "血液灌流：什么时候应从“弥散”转向“吸附”思路？〔吸附原理｜脂溶性｜蛋白结合｜代表毒物｜吸附副损〕",
+      "reading_location": "毒物已吸收后，按载体和理化性质选处理方式",
+      "teaching_span_sha256": "7a87028d4b1ab17f4c1fafa1a0dadf090c7d02a27161bb666066e26cbc19f4f7",
+      "coverage_rationale": "吸附原理、例子与正常成分损失",
+      "required_prompt_slots": [
+        "吸附原理",
+        "脂溶性",
+        "蛋白结合",
+        "代表毒物",
+        "吸附副损"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp13",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "血浆置换：什么样的毒物负荷更适合直接更换血浆？",
+      "formal_prompt": "游离/蛋白结合负荷｜血浆载体｜代表场景｜与透析/灌流比较",
+      "formal_prompt_sha256": "77535b40a7088d5ed46f41635a2c5b2b91105666dbc5b51d4a8f889b8ce9636f",
+      "annotation_exact": "血浆置换：什么样的毒物负荷更适合直接更换血浆？〔游离/蛋白结合负荷｜血浆载体｜代表场景｜与透析/灌流比较〕",
+      "reading_location": "毒物已吸收后，按载体和理化性质选处理方式",
+      "teaching_span_sha256": "7a87028d4b1ab17f4c1fafa1a0dadf090c7d02a27161bb666066e26cbc19f4f7",
+      "coverage_rationale": "血浆载体与三法对照",
+      "required_prompt_slots": [
+        "游离/蛋白结合负荷",
+        "血浆载体",
+        "代表场景",
+        "与透析/灌流比较"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp14",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "常见解毒药：先记“毒效应—靶点—解毒方向”，名单放 MI-D",
+      "formal_prompt": "铅1｜阿片1｜亚硝酸盐1｜苯二氮䓬1｜其余回表",
+      "formal_prompt_sha256": "e0264b5ee3073b8a3ee675387316a495648976cae3358b84791fda80de3e4fe6",
+      "annotation_exact": "常见解毒药：先记“毒效应—靶点—解毒方向”，名单放 MI-D〔铅1｜阿片1｜亚硝酸盐1｜苯二氮䓬1｜其余回表〕",
+      "reading_location": "毒物已吸收后，按载体和理化性质选处理方式",
+      "teaching_span_sha256": "7a87028d4b1ab17f4c1fafa1a0dadf090c7d02a27161bb666066e26cbc19f4f7",
+      "coverage_rationale": "靶点配对与Source特殊镇静口径",
+      "required_prompt_slots": [
+        "铅1",
+        "阿片1",
+        "亚硝酸盐1",
+        "苯二氮䓬1",
+        "其余回表"
+      ],
+      "unresolved_or_source_bound": [],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      }
+    },
+    {
+      "kp_id": "final-f01-kp15",
+      "canonical_owner": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "title": "最终病例算法：身份判断永远服从“生命危险 + 暴露层级”",
+      "formal_prompt": "6步主链｜5线索｜3净化｜1出口F2",
+      "formal_prompt_sha256": "edc37761ee08aee828aa79201fbe2144dcf95f6c72a89aae5bc137f2ff6c5836",
+      "annotation_exact": "最终病例算法：身份判断永远服从“生命危险 + 暴露层级”〔6步主链｜5线索｜3净化｜1出口F2〕",
+      "reading_location": "用一个失败病例检验主线",
+      "teaching_span_sha256": "43f4732d8a20b27b9f7e9e21ef12ef80f6f1e72767a134b5255dfb53745518b5",
+      "coverage_rationale": "病例六项判断与F2出口",
+      "required_prompt_slots": [
+        "6步主链",
+        "5线索",
+        "3净化",
+        "1出口F2"
+      ],
+      "unresolved_or_source_bound": [
+        "Candidate not adopted; old native Prompt preserved in its original owner."
+      ],
+      "slot_review": "SELF_AUTHOR_REVIEW; coverage location is not independent semantic acceptance",
+      "annotation_role": "IDENTITY_LOCATOR_ONLY; no Core appended",
+      "source": {
+        "locator": ""
+      },
+      "outline": {
+        "locator": ""
+      },
+      "canonicalPrompt": "6步主链｜4线索｜3净化｜1出口F2",
+      "promptBasis": "BOUNDED_SELF_CANDIDATE",
+      "canonicalCandidatePath": "canonical-candidates/content/xizong/knowledge/systems/f-remaining-clinical/blocks/F1_中毒总论_学习阅读版_v1_最终执行版.md",
+      "canonicalCandidateSha256": "9a8bb4283d8555ff4c3008d47a00273c3aa225fa20255e078fdc19842e7faee1",
+      "canonicalCandidateProof": "canonical-candidates/r2-definite-repairs.json",
+      "unifiedProposalList": "candidate-change-list.json",
+      "localCandidateIdentityVisible": true,
+      "formalOwnerChanged": false,
+      "canonical_prompt_sha256": "75ea43bdf02ced68ab6f8177650d2c8d7859ce339af6851e98f3877dcb70df06",
+      "revision": "r2-definite-prompt-and-h1-route-20261004"
+    }
+  ],
+  "unresolved_source_limits": [
+    "F1-SB02特殊课程镇静配对继续保留；未扩成全部解毒药药理",
+    "12h净化与最常用灌流口径仍限原课"
+  ],
+  "source_resolution_followup": {
+    "date": "2026-10-04",
+    "affected_targets": [
+      "final-f01-kp06"
+    ],
+    "full_Prompt_equals_complete_course_Source": false,
+    "independent_medical_acceptance": false,
+    "user_acceptance": false
+  },
+  "revision": "r2-definite-prompt-and-h1-route-20261004",
+  "canonical_candidate_binding_source": "candidate-change-list.json selects exact canonical candidate copies; no lecture Prompt override"
+}
