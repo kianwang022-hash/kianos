@@ -7909,22 +7909,37 @@
     "ordinal": 814,
     "word": "circus",
     "source_owner_path": "content/lexical/words/by-ordinal/o0814.json",
-    "source_fingerprint": "52f09a3d148afc9f4c9b99cc4ada528210190468d76363b83f0fc9cd35590b49",
-    "sense_lineage": [],
+    "source_fingerprint": "f227dbe1465d91195091646b7f2f12e1378b7e3f995ac67ebe1edcdff3176c80",
+    "sense_lineage": [
+      {
+        "word_id": "word:circus",
+        "target_kind": "sense",
+        "from_target_id": "sense:circus:ae605014a6b2590f",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:circus",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ce7054c3f44c31187ede",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "马戏团；马戏表演；混乱闹剧",
-      "decision_cn": "",
+      "summary_cn": "马戏团；马戏表演；也可比喻为混乱闹剧",
+      "decision_cn": "show/company → 马戏表演或马戏团；media/politics/public chaos → 混乱闹剧。古代竞技场义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "马戏团；马戏表演；混乱闹剧"
+        "target_label": "马戏团；马戏表演；也可比喻为混乱闹剧"
       }
     },
     "senses": [
@@ -7989,34 +8004,8 @@
         }
       },
       {
-        "id": "sense:circus:ae605014a6b2590f",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（古代）战车赛和角斗比赛的露天竞技场",
-        "definition_en": "(antiquity) an open-air stadium for chariot races and gladiatorial games",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ce7054c3f44c31187ede",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "Roman circus",
-            "meaning_cn": "罗马竞技场",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:circus:ae605014a6b2590f",
-          "target_locator": "record.senses[2]",
-          "target_label": "（古代）战车赛和角斗比赛的露天竞技场"
-        }
-      },
-      {
         "id": "sense:circus:7dc1ec0426505e8c",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "马戏表演；马戏节目",
@@ -8026,14 +8015,14 @@
         "usage": [
           {
             "id": "collocation:475cde2f1a38795dc21b",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "a circus performance/show",
             "meaning_cn": "一场马戏表演",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:475cde2f1a38795dc21b",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "a circus performance/show"
             }
           }
@@ -8041,7 +8030,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:circus:7dc1ec0426505e8c",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "马戏表演；马戏节目"
         }
       }
@@ -8084,7 +8073,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:ce7054c3f44c31187ede",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:circus:ae605014a6b2590f:collocation:0"
+              ],
+              "meaning_cn": "罗马竞技场",
+              "phrase": "Roman circus"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（古代）战车赛和角斗比赛的露天竞技场",
+          "definition_en": "(antiquity) an open-air stadium for chariot races and gladiatorial games",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:circus:ae605014a6b2590f",
+          "sense_label_en": "(antiquity) an open-air stadium for chariot races and gladiatorial games",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
