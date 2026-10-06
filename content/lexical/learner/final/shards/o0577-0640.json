@@ -4619,12 +4619,20 @@
     "ordinal": 603,
     "word": "browse",
     "source_owner_path": "content/lexical/words/by-ordinal/o0603.json",
-    "source_fingerprint": "c60c0e0d6dc421f45c8946a3a16691f237aa17ad0de9c63450b336cd8fe93107",
-    "sense_lineage": [],
+    "source_fingerprint": "45bc0c39fedb1bc157b760eaa583aa1eaf3a87cad10ee3b41d1e34393ab14619",
+    "sense_lineage": [
+      {
+        "word_id": "word:browse",
+        "target_kind": "sense",
+        "from_target_id": "sense:browse:ffa433bcdd36539c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
@@ -4747,23 +4755,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "浏览"
         }
-      },
-      {
-        "id": "sense:browse:ffa433bcdd36539c",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "嫩叶，嫩枝",
-        "definition_en": "young shoots and leaves that animals eat",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:browse:ffa433bcdd36539c",
-          "target_locator": "record.senses[3]",
-          "target_label": "嫩叶，嫩枝"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4813,7 +4804,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "嫩叶，嫩枝",
+          "definition_en": "young shoots and leaves that animals eat",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:browse:ffa433bcdd36539c",
+          "sense_label_en": "young shoots and leaves that animals eat",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -4986,12 +4993,27 @@
     "ordinal": 605,
     "word": "brush",
     "source_owner_path": "content/lexical/words/by-ordinal/o0605.json",
-    "source_fingerprint": "04cd3da74d9ea2542c62267c99d115124d8ce98a9541ac27a9a077c35ffe53de",
-    "sense_lineage": [],
+    "source_fingerprint": "3049273871785656b74d671e0455ed3cd2243dac0797d286bec3163b02d1eb66",
+    "sense_lineage": [
+      {
+        "word_id": "word:brush",
+        "target_kind": "sense",
+        "from_target_id": "sense:brush:c2d3c3bc24f25b0b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:brush",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:724a616835ed51f18204",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -5236,32 +5258,6 @@
           "target_locator": "record.senses[4]",
           "target_label": "轻擦；小冲突"
         }
-      },
-      {
-        "id": "sense:brush:c2d3c3bc24f25b0b",
-        "source_locator": "record.senses[5]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "电刷",
-        "definition_en": "a conductor that transfers current between stationary and moving parts in a motor or generator",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:724a616835ed51f18204",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "carbon brush",
-            "meaning_cn": "碳刷",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:brush:c2d3c3bc24f25b0b",
-          "target_locator": "record.senses[5]",
-          "target_label": "电刷"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5333,7 +5329,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:724a616835ed51f18204",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:brush:c2d3c3bc24f25b0b:collocation:0"
+              ],
+              "meaning_cn": "碳刷",
+              "phrase": "carbon brush"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "电刷",
+          "definition_en": "a conductor that transfers current between stationary and moving parts in a motor or generator",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:brush:c2d3c3bc24f25b0b",
+          "sense_label_en": "a conductor that transfers current between stationary and moving parts i",
+          "sort_order": 5,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -5652,11 +5674,39 @@
     "ordinal": 608,
     "word": "bucket",
     "source_owner_path": "content/lexical/words/by-ordinal/o0608.json",
-    "source_fingerprint": "6df8ddfc1466f88e2883234455dc7cafcaef425088dbf4a126ecef87e5526b70",
-    "sense_lineage": [],
+    "source_fingerprint": "f940b506bde666872dc0ac61f07fa647760e6bbbf5c0508892d059363e9c99f9",
+    "sense_lineage": [
+      {
+        "word_id": "word:bucket",
+        "target_kind": "sense",
+        "from_target_id": "sense:bucket:9a9d8e2dd31a5acf",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bucket",
+        "target_kind": "sense",
+        "from_target_id": "sense:bucket:d4a6e809f86c5b8b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bucket",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:59fbef009185180a3e37",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bucket",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:fe4663ff101e1efe98a6",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
         "2N"
       ],
       "density": "rich"
@@ -5736,58 +5786,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "一桶的量"
         }
-      },
-      {
-        "id": "sense:bucket:9a9d8e2dd31a5acf",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "把…放入桶中",
-        "definition_en": "put into a bucket",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:fe4663ff101e1efe98a6",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "bucket the vegetables",
-            "meaning_cn": "把蔬菜装进桶里",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bucket:9a9d8e2dd31a5acf",
-          "target_locator": "record.senses[2]",
-          "target_label": "把…放入桶中"
-        }
-      },
-      {
-        "id": "sense:bucket:d4a6e809f86c5b8b",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "用桶装运",
-        "definition_en": "carry in a bucket",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:59fbef009185180a3e37",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "bucket water from the well",
-            "meaning_cn": "用桶从井里打水",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bucket:d4a6e809f86c5b8b",
-          "target_locator": "record.senses[3]",
-          "target_label": "用桶装运"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5834,7 +5832,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:fe4663ff101e1efe98a6",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:bucket:9a9d8e2dd31a5acf:collocation:0"
+              ],
+              "meaning_cn": "把蔬菜装进桶里",
+              "phrase": "bucket the vegetables"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "把…放入桶中",
+          "definition_en": "put into a bucket",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:bucket:9a9d8e2dd31a5acf",
+          "sense_label_en": "put into a bucket",
+          "sort_order": 2,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:59fbef009185180a3e37",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:bucket:d4a6e809f86c5b8b:collocation:0"
+              ],
+              "meaning_cn": "用桶从井里打水",
+              "phrase": "bucket water from the well"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "用桶装运",
+          "definition_en": "carry in a bucket",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:bucket:d4a6e809f86c5b8b",
+          "sense_label_en": "carry in a bucket",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -5843,7 +5891,7 @@
     "ordinal": 609,
     "word": "bud",
     "source_owner_path": "content/lexical/words/by-ordinal/o0609.json",
-    "source_fingerprint": "e6eb94ccb9aa6e5f0fcd10991e2a280b27e9008b585e85634d8e79915ec5efa3",
+    "source_fingerprint": "f1b419fd87afeac01616858a791448d5b123c8e12969c62260ef6635d57bbfd2",
     "sense_lineage": [
       {
         "word_id": "word:bud",
@@ -5851,29 +5899,23 @@
         "from_target_id": "sense:bud:3b9a9fd6bce15ef3",
         "status": "deprecated",
         "to_target_id": null
-      },
-      {
-        "word_id": "word:bud",
-        "target_kind": "sense",
-        "from_target_id": "sense:bud:528c6a702baa5b97",
-        "status": "deprecated",
-        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
+        "1V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "植物上的芽或花蕾",
-      "decision_cn": "",
+      "summary_cn": "芽；发芽",
+      "decision_cn": "名词是花蕾/叶芽；动词指植物开始长出芽。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "植物上的芽或花蕾"
+        "target_label": "芽；发芽"
       }
     },
     "senses": [
@@ -5906,6 +5948,23 @@
           "target_id": "sense:bud:2206e9761e685926",
           "target_locator": "record.senses[0]",
           "target_label": "芽；花蕾或叶芽"
+        }
+      },
+      {
+        "id": "sense:bud:528c6a702baa5b97",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "vi.",
+        "definition_cn": "发芽，萌芽",
+        "definition_en": "to produce or develop buds",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:bud:528c6a702baa5b97",
+          "target_locator": "record.senses[1]",
+          "target_label": "发芽，萌芽"
         }
       }
     ],
@@ -5969,31 +6028,6 @@
           ],
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 1695,
-          "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json",
-          "reference_only": true
-        },
-        {
-          "stable_sense_id": "sense:bud:528c6a702baa5b97",
-          "status": "deprecated",
-          "merged_into_sense_id": null,
-          "pos": "verb",
-          "definition_cn": "发芽，萌芽",
-          "definition_en": "to develop buds; to begin to grow",
-          "semantic_key": "757d541d8a3c2679466df879ed1f9241bd641140414f7bf4789b569e8791cb3a",
-          "semantic_key_history": [
-            "4c617b545f89e75b286732e643d319959822e7d74ba6ab5c47aedaeb61dd623f"
-          ],
-          "legacy_aliases": [
-            "bud:l2:2"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "bud:l2:2",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 1696,
           "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json",
           "reference_only": true
         }
@@ -6219,12 +6253,20 @@
     "ordinal": 611,
     "word": "buffer",
     "source_owner_path": "content/lexical/words/by-ordinal/o0611.json",
-    "source_fingerprint": "9d38ba517388e66cb1fe431984cb1e6d3de8dbf3673a66ea93bf4879d9ac4059",
-    "sense_lineage": [],
+    "source_fingerprint": "ba1bb7bc171750c3557400ae43b6cfabe84ff1da8966ad542b65435733d38448",
+    "sense_lineage": [
+      {
+        "word_id": "word:buffer",
+        "target_kind": "sense",
+        "from_target_id": "sense:buffer:86b9e462eab257df",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -6271,82 +6313,8 @@
         }
       },
       {
-        "id": "sense:buffer:8108ecbe58405558",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "缓冲剂",
-        "definition_en": "a chemical substance that resists changes in pH",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d243022458c2ee4afa3d",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "buffer solution",
-            "meaning_cn": "缓冲溶液",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:buffer:8108ecbe58405558",
-          "target_locator": "record.senses[1]",
-          "target_label": "缓冲剂"
-        }
-      },
-      {
-        "id": "sense:buffer:ebc23cecf8b25277",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "缓冲；减轻",
-        "definition_en": "to reduce the harmful effects of something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7b9a47708086b2eea297",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "buffer + sth against + sth",
-            "meaning_cn": "使某物免受某物的冲击",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7b9a47708086b2eea297",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "buffer + sth against + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:buffer:ebc23cecf8b25277",
-          "target_locator": "record.senses[2]",
-          "target_label": "缓冲；减轻"
-        }
-      },
-      {
-        "id": "sense:buffer:86b9e462eab257df",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "抛光工具",
-        "definition_en": "a power tool used to polish surfaces",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:buffer:86b9e462eab257df",
-          "target_locator": "record.senses[3]",
-          "target_label": "抛光工具"
-        }
-      },
-      {
         "id": "sense:buffer:27f84c02f72d5d0e",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "（计算机）临时数据存储区",
@@ -6356,14 +6324,14 @@
         "usage": [
           {
             "id": "collocation:bdf679408311fc3f5d88",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "data buffer",
             "meaning_cn": "数据缓冲区",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:bdf679408311fc3f5d88",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "data buffer"
             }
           }
@@ -6371,8 +6339,65 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:buffer:27f84c02f72d5d0e",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[1]",
           "target_label": "（计算机）临时数据存储区"
+        }
+      },
+      {
+        "id": "sense:buffer:8108ecbe58405558",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "缓冲剂",
+        "definition_en": "a chemical substance that resists changes in pH",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:d243022458c2ee4afa3d",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "buffer solution",
+            "meaning_cn": "缓冲溶液",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:buffer:8108ecbe58405558",
+          "target_locator": "record.senses[2]",
+          "target_label": "缓冲剂"
+        }
+      },
+      {
+        "id": "sense:buffer:ebc23cecf8b25277",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "缓冲；减轻",
+        "definition_en": "to reduce the harmful effects of something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:7b9a47708086b2eea297",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "buffer + sth against + sth",
+            "meaning_cn": "使某物免受某物的冲击",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:7b9a47708086b2eea297",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "buffer + sth against + sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:buffer:ebc23cecf8b25277",
+          "target_locator": "record.senses[3]",
+          "target_label": "缓冲；减轻"
         }
       }
     ],
@@ -6432,7 +6457,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "抛光工具",
+          "definition_en": "a power tool used to polish surfaces",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:buffer:86b9e462eab257df",
+          "sense_label_en": "a power tool used to polish surfaces",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -6441,11 +6482,26 @@
     "ordinal": 612,
     "word": "buffet",
     "source_owner_path": "content/lexical/words/by-ordinal/o0612.json",
-    "source_fingerprint": "538b15ed5695320788bb213b05e75be5d71d89186373c421e6c056b45f1a289f",
-    "sense_lineage": [],
+    "source_fingerprint": "2b5de4fe943412671d72fc94d4136f1303fda9a6a7150bcfb907c1c56e8d22cd",
+    "sense_lineage": [
+      {
+        "word_id": "word:buffet",
+        "target_kind": "sense",
+        "from_target_id": "sense:buffet:d5ab3709e56854fa",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:buffet",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:0ac901f09e17b4182add",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
@@ -6538,37 +6594,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "猛击；冲击"
         }
-      },
-      {
-        "id": "sense:buffet:d5ab3709e56854fa",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + against",
-        "definition_cn": "奋斗；搏斗",
-        "definition_en": "to struggle or fight (as if being buffeted)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:0ac901f09e17b4182add",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "buffet against + sth",
-            "meaning_cn": "与某物搏斗",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0ac901f09e17b4182add",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "buffet against + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:buffet:d5ab3709e56854fa",
-          "target_locator": "record.senses[3]",
-          "target_label": "奋斗；搏斗"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6622,8 +6647,7 @@
                 "verb"
               ],
               "sense_ids": [
-                "sense:buffet:4279c23fbff751bb",
-                "sense:buffet:d5ab3709e56854fa"
+                "sense:buffet:4279c23fbff751bb"
               ]
             }
           ],
@@ -6642,9 +6666,6 @@
           1
         ],
         "sense:buffet:4279c23fbff751bb": [
-          2
-        ],
-        "sense:buffet:d5ab3709e56854fa": [
           2
         ]
       },
@@ -6699,7 +6720,33 @@
           "target_label": ""
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:0ac901f09e17b4182add",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:buffet:d5ab3709e56854fa:collocation:0"
+              ],
+              "meaning_cn": "与某物搏斗",
+              "phrase": "buffet against + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "奋斗；搏斗",
+          "definition_en": "to struggle or fight (as if being buffeted)",
+          "governing_pattern": "vi. + against",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:buffet:d5ab3709e56854fa",
+          "sense_label_en": "to struggle or fight (as if being buffeted)",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -7200,32 +7247,40 @@
     "ordinal": 615,
     "word": "bulb",
     "source_owner_path": "content/lexical/words/by-ordinal/o0615.json",
-    "source_fingerprint": "daeffc3522d36732366ee808f5d89fe51014e3659ba7e97d261d91a391f39e5c",
-    "sense_lineage": [],
+    "source_fingerprint": "e673d34e497d630430f83a150af920ea5e146adf846d0857763172f91ed21b59",
+    "sense_lineage": [
+      {
+        "word_id": "word:bulb",
+        "target_kind": "sense",
+        "from_target_id": "sense:bulb:abe45eda033e5850",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "5N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "球状物；灯泡；球茎",
-      "decision_cn": "",
+      "summary_cn": "灯泡；球茎；球状物",
+      "decision_cn": "light/electric → 灯泡；plant → 球茎；shape/instrument → 球状部分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "球状物；灯泡；球茎"
+        "target_label": "灯泡；球茎；球状物"
       }
     },
     "senses": [
       {
-        "id": "sense:bulb:084dfd7a6aa45dd0",
+        "id": "sense:bulb:3bbf1d8becaed8d6",
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（圆柱形仪器一端的）球状部分",
-        "definition_en": "a rounded part of a cylindrical instrument (usually at one end)",
+        "definition_cn": "电灯泡",
+        "definition_en": "an electric light bulb",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7240,9 +7295,9 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:bulb:084dfd7a6aa45dd0",
+          "target_id": "sense:bulb:3bbf1d8becaed8d6",
           "target_locator": "record.senses[0]",
-          "target_label": "（圆柱形仪器一端的）球状部分"
+          "target_label": "电灯泡"
         }
       },
       {
@@ -7272,8 +7327,25 @@
         }
       },
       {
-        "id": "sense:bulb:c1846d9b2df4597d",
+        "id": "sense:bulb:084dfd7a6aa45dd0",
         "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（圆柱形仪器一端的）球状部分",
+        "definition_en": "a rounded part of a cylindrical instrument (usually at one end)",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:bulb:084dfd7a6aa45dd0",
+          "target_locator": "record.senses[2]",
+          "target_label": "（圆柱形仪器一端的）球状部分"
+        }
+      },
+      {
+        "id": "sense:bulb:c1846d9b2df4597d",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "泪滴状物；球状物",
@@ -7284,42 +7356,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:bulb:c1846d9b2df4597d",
-          "target_locator": "record.senses[2]",
-          "target_label": "泪滴状物；球状物"
-        }
-      },
-      {
-        "id": "sense:bulb:abe45eda033e5850",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（管道或器官的）球状膨大",
-        "definition_en": "a rounded dilation or expansion in a canal or vessel or organ",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bulb:abe45eda033e5850",
           "target_locator": "record.senses[3]",
-          "target_label": "（管道或器官的）球状膨大"
-        }
-      },
-      {
-        "id": "sense:bulb:3bbf1d8becaed8d6",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "电灯泡",
-        "definition_en": "an electric light bulb",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bulb:3bbf1d8becaed8d6",
-          "target_locator": "record.senses[4]",
-          "target_label": "电灯泡"
+          "target_label": "泪滴状物；球状物"
         }
       }
     ],
@@ -7359,7 +7397,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "（管道或器官的）球状膨大",
+          "definition_en": "a rounded dilation or expansion in a canal or vessel or organ",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:bulb:abe45eda033e5850",
+          "sense_label_en": "a rounded dilation or expansion in a canal or vessel or organ",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {

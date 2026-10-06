@@ -880,11 +880,25 @@
     "ordinal": 646,
     "word": "cabin",
     "source_owner_path": "content/lexical/words/by-ordinal/o0646.json",
-    "source_fingerprint": "d4904d8a791d10381686cbea7501ec501ce3de2cc50c41dd1b681202b4ac6873",
-    "sense_lineage": [],
+    "source_fingerprint": "c099dc8398eed3dfd407253f4116f5b6300a45e314c462ef60214d519b62174f",
+    "sense_lineage": [
+      {
+        "word_id": "word:cabin",
+        "target_kind": "sense",
+        "from_target_id": "sense:cabin:2c8b7e3980d05a13",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cabin",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:74ddaed73c23c4147941",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "3N"
       ],
       "density": "rich"
@@ -977,32 +991,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "机舱；座舱"
         }
-      },
-      {
-        "id": "sense:cabin:2c8b7e3980d05a13",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "关在小屋；拘禁",
-        "definition_en": "confine to a small space, such as a cabin",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:74ddaed73c23c4147941",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "cabin the animal",
-            "meaning_cn": "把动物关在小屋里",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cabin:2c8b7e3980d05a13",
-          "target_locator": "record.senses[3]",
-          "target_label": "关在小屋；拘禁"
-        }
       }
     ],
     "pronunciation_support": {
@@ -1028,7 +1016,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:74ddaed73c23c4147941",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:cabin:2c8b7e3980d05a13:collocation:0"
+              ],
+              "meaning_cn": "把动物关在小屋里",
+              "phrase": "cabin the animal"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "关在小屋；拘禁",
+          "definition_en": "confine to a small space, such as a cabin",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:cabin:2c8b7e3980d05a13",
+          "sense_label_en": "confine to a small space, such as a cabin",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
