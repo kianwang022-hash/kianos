@@ -7675,18 +7675,32 @@
     "ordinal": 1959,
     "word": "flesh",
     "source_owner_path": "content/lexical/words/by-ordinal/o1959.json",
-    "source_fingerprint": "38501fad2dc87de47eb6d1d478d6658344b06fe86d8438ecffb1973c89f1d47d",
-    "sense_lineage": [],
+    "source_fingerprint": "4a74e494421b808c4639065b233d574c4ad0715d658ef82645c3ff70f37ae930",
+    "sense_lineage": [
+      {
+        "word_id": "word:flesh",
+        "target_kind": "sense",
+        "from_target_id": "sense:flesh:79dfb0b4f17552fb",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:flesh",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6a3c5ca3783359afedf4",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "肉；软组织；肉体",
-      "decision_cn": "肉，肉体",
+      "decision_cn": "body/fruit → 肉、软组织；the flesh → 肉体。制革“刮去兽皮上的肉”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7737,32 +7751,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "肉体（相对于精神）"
         }
-      },
-      {
-        "id": "sense:flesh:79dfb0b4f17552fb",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "去除（兽皮上的）肉",
-        "definition_en": "to remove adhering flesh from (hides) when preparing leather",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6a3c5ca3783359afedf4",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "flesh a hide",
-            "meaning_cn": "刮去兽皮上的肉",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:flesh:79dfb0b4f17552fb",
-          "target_locator": "record.senses[2]",
-          "target_label": "去除（兽皮上的）肉"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7801,7 +7789,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6a3c5ca3783359afedf4",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:flesh:79dfb0b4f17552fb:collocation:0"
+              ],
+              "meaning_cn": "刮去兽皮上的肉",
+              "phrase": "flesh a hide"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "去除（兽皮上的）肉",
+          "definition_en": "to remove adhering flesh from (hides) when preparing leather",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:flesh:79dfb0b4f17552fb",
+          "sense_label_en": "to remove adhering flesh from (hides) when preparing leather",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -9129,23 +9143,31 @@
     "ordinal": 1967,
     "word": "flour",
     "source_owner_path": "content/lexical/words/by-ordinal/o1967.json",
-    "source_fingerprint": "276ce9a4d93b94fd160e8d39f5b11628263694d7d44d231bab80e2ae3bc3c0c8",
-    "sense_lineage": [],
+    "source_fingerprint": "2bb40c76bdc0f332ddb06affdab46c16c57584bce3488a6ba9b420b173407e1d",
+    "sense_lineage": [
+      {
+        "word_id": "word:flour",
+        "target_kind": "sense",
+        "from_target_id": "sense:flour:d80fdd070a74595c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "面粉",
-      "decision_cn": "",
+      "summary_cn": "面粉；在表面撒面粉",
+      "decision_cn": "noun → 面粉；cooking verb → 给案板/烤盘等薄撒面粉。工业“磨成粉”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "面粉"
+        "target_label": "面粉；在表面撒面粉"
       }
     },
     "senses": [
@@ -9191,23 +9213,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "撒粉于"
         }
-      },
-      {
-        "id": "sense:flour:d80fdd070a74595c",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "磨成粉",
-        "definition_en": "to convert grain into flour",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:flour:d80fdd070a74595c",
-          "target_locator": "record.senses[2]",
-          "target_label": "磨成粉"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9235,7 +9240,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "磨成粉",
+          "definition_en": "to convert grain into flour",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:flour:d80fdd070a74595c",
+          "sense_label_en": "to convert grain into flour",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -9395,18 +9416,33 @@
     "ordinal": 1969,
     "word": "flow",
     "source_owner_path": "content/lexical/words/by-ordinal/o1969.json",
-    "source_fingerprint": "714d24230c8b95242996e87cc8a0b132142ec9af476d233fb212672fd8d719df",
-    "sense_lineage": [],
+    "source_fingerprint": "459aa4d7982b4afd1b3df0c1cd3fdfe4e184e7b1bf8fbbadfc316d0ae9061b0f",
+    "sense_lineage": [
+      {
+        "word_id": "word:flow",
+        "target_kind": "sense",
+        "from_target_id": "sense:flow:131452bab75c57a8",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:flow",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:dac13457f311f88cbd16",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "流动；流量；流畅或连续",
-      "decision_cn": "主干是“连续地流动”：既可指液体/人流等流动，也可指流量、语言或过程的流畅连续。",
+      "decision_cn": "liquid/traffic/info → 流动；amount/rate → 流量；speech/process → 流畅连续。低频使动“使流动/淹没”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9510,32 +9546,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "流畅；连续"
         }
-      },
-      {
-        "id": "sense:flow:131452bab75c57a8",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使流动；淹没",
-        "definition_en": "to cause to flow",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:dac13457f311f88cbd16",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "flow the river over the fields",
-            "meaning_cn": "使河水淹没田野",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:flow:131452bab75c57a8",
-          "target_locator": "record.senses[3]",
-          "target_label": "使流动；淹没"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9576,7 +9586,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:dac13457f311f88cbd16",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:flow:131452bab75c57a8:collocation:0"
+              ],
+              "meaning_cn": "使河水淹没田野",
+              "phrase": "flow the river over the fields"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使流动；淹没",
+          "definition_en": "to cause to flow",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:flow:131452bab75c57a8",
+          "sense_label_en": "to cause to flow",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {

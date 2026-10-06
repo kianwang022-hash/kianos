@@ -27,9 +27,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "前面或之前",
-      "core_meaning_en": "front or before",
-      "mental_model_cn": "前面或之前",
+      "core_meaning_cn": "前部的；在前部，尤指船头方向",
+      "core_meaning_en": "at, in, or toward the front, especially of a ship",
+      "mental_model_cn": "front/ship → 前部、船头方向。旧式介词 fore = before 保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -86,30 +86,6 @@
         "sense_id": "sense:fore:513750e6abf65690",
         "sense_label_en": "in or toward the front",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:cab95bac91188a5bba5e",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:fore:291103d6348555d3:collocation:0"
-            ],
-            "meaning_cn": "在桅杆前",
-            "phrase": "fore the mast"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "在...前",
-        "definition_en": "before (in time or place)",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "preposition",
-        "sense_id": "sense:fore:291103d6348555d3",
-        "sense_label_en": "before (in time or place)",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -459,12 +435,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:cab95bac91188a5bba5e",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:fore:291103d6348555d3:collocation:0"
+          ],
+          "meaning_cn": "在桅杆前",
+          "phrase": "fore the mast"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "在...前",
+      "definition_en": "before (in time or place)",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "preposition",
+      "sense_id": "sense:fore:291103d6348555d3",
+      "sense_label_en": "before (in time or place)",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:fore:291103d6348555d3",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 5543,
         "source_path": "content/lexical/canonical/senses/shards/o1985-2016.json"
@@ -486,7 +487,6 @@
     ],
     "active_collocations": [
       "collocation:c6ca2a9b697cbf11f817",
-      "collocation:cab95bac91188a5bba5e",
       "collocation:e6bca4754b9609e57e07"
     ],
     "facts": [],
@@ -499,7 +499,9 @@
       {
         "id": "collocation:cab95bac91188a5bba5e",
         "source_row": 17125,
-        "source_path": "content/lexical/canonical/collocations/shards/o1985-2016.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1985-2016.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:e6bca4754b9609e57e07",

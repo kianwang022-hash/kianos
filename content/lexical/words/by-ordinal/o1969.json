@@ -30,7 +30,7 @@
       ],
       "core_meaning_cn": "流动；流量；流畅或连续",
       "core_meaning_en": "flow or movement; rate of flow; continuity or fluency",
-      "mental_model_cn": "主干是“连续地流动”：既可指液体/人流等流动，也可指流量、语言或过程的流畅连续。",
+      "mental_model_cn": "liquid/traffic/info → 流动；amount/rate → 流量；speech/process → 流畅连续。低频使动“使流动/淹没”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -121,30 +121,6 @@
         "sense_label_en": "a continuous progression",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:dac13457f311f88cbd16",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:flow:131452bab75c57a8:collocation:0"
-            ],
-            "meaning_cn": "使河水淹没田野",
-            "phrase": "flow the river over the fields"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "使流动；淹没",
-        "definition_en": "to cause to flow",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:flow:131452bab75c57a8",
-        "sense_label_en": "to cause to flow",
-        "sort_order": 3,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -405,12 +381,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:dac13457f311f88cbd16",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:flow:131452bab75c57a8:collocation:0"
+          ],
+          "meaning_cn": "使河水淹没田野",
+          "phrase": "flow the river over the fields"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "使流动；淹没",
+      "definition_en": "to cause to flow",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:flow:131452bab75c57a8",
+      "sense_label_en": "to cause to flow",
+      "sort_order": 3,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:flow:131452bab75c57a8",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 5458,
         "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
@@ -441,8 +442,7 @@
       "collocation:62e76c414ee092b07f22",
       "collocation:8adf82c5ddd3bae7571c",
       "collocation:97677f84dab1fe9ff6c6",
-      "collocation:d8b879f1dd6553f7477d",
-      "collocation:dac13457f311f88cbd16"
+      "collocation:d8b879f1dd6553f7477d"
     ],
     "facts": [],
     "collocations": [
@@ -469,7 +469,9 @@
       {
         "id": "collocation:dac13457f311f88cbd16",
         "source_row": 18508,
-        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
