@@ -739,7 +739,7 @@ try {
     }
     if (slug !== 'r08') assert.equal(await page.locator('[data-open-prepared-memory]').isVisible(), false);
     assert.equal(await read(page, memoryKey), null);
-    assert.deepEqual(claims(await read(page, studyKey)), emptyClaims);
+    assert.deepEqual(claims(await read(page, studyKeyFor(slug))), emptyClaims);
     await page.goto(preparedUrl(slug), { waitUntil: 'domcontentloaded' }); await ready(page);
     assert.equal(await read(page, memoryKey), null, 'a URL cannot create availability or a held answer');
     assert.equal(await page.locator('[data-memory-queue] button').count(), 0);

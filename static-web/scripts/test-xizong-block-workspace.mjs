@@ -270,11 +270,11 @@ try {
     const done=document.querySelector('[data-source-contact-done]');
     const r=done.getBoundingClientRect();
     const at=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
-    return {coreHeight:core.clientHeight,buttonBottom:r.bottom,buttonHit:at===done||done.contains(at),overflow:document.documentElement.scrollWidth>innerWidth+2};
+    return {coreHeight:core.clientHeight,buttonBottom:r.bottom,buttonHit:at===done||done.contains(at),overflow:document.documentElement.scrollWidth>innerWidth+2,buttonRect:r.toJSON(),hitElement:at?.outerHTML.slice(0,1200)||null,footerRect:done.closest('footer')?.getBoundingClientRect().toJSON()};
   });
+  await page.screenshot({path:path.join(auditDir,'xizong-block-ipad-reading.png'),fullPage:false});
   check(ipad.coreHeight>=200, 'ipad_core_not_squeezed_by_persistent_chrome', JSON.stringify(ipad));
   check(ipad.buttonBottom<=820 && ipad.buttonHit && !ipad.overflow, 'ipad_source_confirmation_reachable_without_scroll_or_overlap', JSON.stringify(ipad));
-  await page.screenshot({path:path.join(auditDir,'xizong-block-ipad-reading.png'),fullPage:false});
   await page.setViewportSize({width:1512,height:982});
   await page.waitForTimeout(350);
 
