@@ -11097,11 +11097,25 @@
     "ordinal": 702,
     "word": "case",
     "source_owner_path": "content/lexical/words/by-ordinal/o0702.json",
-    "source_fingerprint": "825fe44fac3ab687389d6715b68e0eefd888ffb79ee33a5da7ab9a0b7aab6f68",
-    "sense_lineage": [],
+    "source_fingerprint": "86402bf02eced51889c0bbfa22987bdecbc02fb79d735a940a2b1ac95b898632",
+    "sense_lineage": [
+      {
+        "word_id": "word:case",
+        "target_kind": "sense",
+        "from_target_id": "sense:case:3d96367301825170",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:case",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9c2b46f923f3f8479d88",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "5N"
       ],
       "density": "rich"
@@ -11248,34 +11262,8 @@
         }
       },
       {
-        "id": "sense:case:3d96367301825170",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "装箱，包盖",
-        "definition_en": "to put into a container",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9c2b46f923f3f8479d88",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "case the goods",
-            "meaning_cn": "把货物装箱",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:case:3d96367301825170",
-          "target_locator": "record.senses[3]",
-          "target_label": "装箱，包盖"
-        }
-      },
-      {
         "id": "sense:case:7563b6b8e106512e",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "论据；理由；论证",
@@ -11286,13 +11274,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:case:7563b6b8e106512e",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "论据；理由；论证"
         }
       },
       {
         "id": "sense:case:b63e059bed64577b",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "案件；诉讼",
@@ -11303,7 +11291,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:case:b63e059bed64577b",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "案件；诉讼"
         }
       }
@@ -11362,7 +11350,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:9c2b46f923f3f8479d88",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:case:3d96367301825170:collocation:0"
+              ],
+              "meaning_cn": "把货物装箱",
+              "phrase": "case the goods"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "装箱，包盖",
+          "definition_en": "to put into a container",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:case:3d96367301825170",
+          "sense_label_en": "to put into a container",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
