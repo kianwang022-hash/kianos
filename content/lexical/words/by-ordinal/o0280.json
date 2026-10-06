@@ -19,18 +19,17 @@
           ]
         },
         {
-          "label_cn": "明确表达，清楚说明；以关节连接；（用关节）连接",
-          "label_en": "to express or state clearly; to connect by joints; to be connected by joints",
+          "label_cn": "明确表达，清楚说明",
+          "label_en": "to express or state clearly",
           "pos": "verb",
           "sense_ids": [
-            "sense:articulate:812e1211820b52ca",
-            "sense:articulate:ea2082a5c6d057b3"
+            "sense:articulate:812e1211820b52ca"
           ]
         }
       ],
-      "core_meaning_cn": "清晰表达或关节连接",
-      "core_meaning_en": "express clearly or jointed",
-      "mental_model_cn": "清晰表达或关节连接",
+      "core_meaning_cn": "表达清晰；口齿清楚",
+      "core_meaning_en": "able to express ideas clearly; to express something clearly",
+      "mental_model_cn": "person → 表达清晰；idea/feeling → 清楚说出。发音义作为扩展识别。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -40,7 +39,29 @@
     "review_signature": [
       "semantic-reconciliation:o0025-o0224"
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "fact_id": "secondary:articulate:b011-pronounce",
+        "module": "secondary_senses",
+        "direction": "R",
+        "meaning_cn": "清楚地发音；清晰说出（声音或词语）",
+        "definition_cn": "清楚地发音；清晰说出（声音或词语）",
+        "definition_en": "to pronounce a sound or word clearly",
+        "boundary": "speech-sound or pronunciation context: articulate = pronounce clearly; keep separate from expressing an idea clearly and from the specialist medical joint sense.",
+        "pos": "verb",
+        "level": "L2",
+        "priority": "B",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "register": "formal",
+        "task_tags": [
+          "reading",
+          "listening",
+          "speaking"
+        ],
+        "writing_safe": true
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -108,57 +129,6 @@
         "sense_label_en": "to express or state clearly",
         "sort_order": 1,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3be69718f241c5c62216",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:articulate:ea2082a5c6d057b3:collocation:0"
-            ],
-            "meaning_cn": "用关节连接某物",
-            "phrase": "articulate + sth"
-          },
-          {
-            "collocation_id": "collocation:369d447634f4049701fd",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:articulate:ea2082a5c6d057b3:collocation:1"
-            ],
-            "meaning_cn": "连接骨骼",
-            "phrase": "articulate the bones"
-          },
-          {
-            "collocation_id": "collocation:47d2451ff47325579110",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:articulate:4c41814802cb5e36:collocation:0"
-            ],
-            "meaning_cn": "与某物以关节相连",
-            "phrase": "articulate with + sth"
-          },
-          {
-            "collocation_id": "collocation:ab44a1ff9f1e9d308187",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:articulate:4c41814802cb5e36:collocation:1"
-            ],
-            "meaning_cn": "骨骼相互连接。",
-            "phrase": "The bones articulate with each other."
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（使）以关节连接",
-        "definition_en": "to connect or be connected by joints",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:articulate:ea2082a5c6d057b3",
-        "sense_label_en": "to connect by joints",
-        "sort_order": 2,
-        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -257,6 +227,57 @@
       "source_row": 710,
       "source_path": "content/lexical/canonical/senses/shards/o0257-0288.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:3be69718f241c5c62216",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:articulate:ea2082a5c6d057b3:collocation:0"
+          ],
+          "meaning_cn": "用关节连接某物",
+          "phrase": "articulate + sth"
+        },
+        {
+          "collocation_id": "collocation:369d447634f4049701fd",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:articulate:ea2082a5c6d057b3:collocation:1"
+          ],
+          "meaning_cn": "连接骨骼",
+          "phrase": "articulate the bones"
+        },
+        {
+          "collocation_id": "collocation:47d2451ff47325579110",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:articulate:4c41814802cb5e36:collocation:0"
+          ],
+          "meaning_cn": "与某物以关节相连",
+          "phrase": "articulate with + sth"
+        },
+        {
+          "collocation_id": "collocation:ab44a1ff9f1e9d308187",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:articulate:4c41814802cb5e36:collocation:1"
+          ],
+          "meaning_cn": "骨骼相互连接。",
+          "phrase": "The bones articulate with each other."
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "（使）以关节连接",
+      "definition_en": "to connect or be connected by joints",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:articulate:ea2082a5c6d057b3",
+      "sense_label_en": "to connect by joints",
+      "sort_order": 2,
+      "transitivity": "I/T"
     }
   ],
   "identity_refs": {
@@ -284,7 +305,7 @@
       },
       {
         "sense_id": "sense:articulate:ea2082a5c6d057b3",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 713,
         "source_path": "content/lexical/canonical/senses/shards/o0257-0288.json"
@@ -292,12 +313,8 @@
     ],
     "active_collocations": [
       "collocation:313ce9461424c658c15b",
-      "collocation:369d447634f4049701fd",
-      "collocation:3be69718f241c5c62216",
       "collocation:4098d08b731adfe7e2bc",
       "collocation:43b01886002d97be9154",
-      "collocation:47d2451ff47325579110",
-      "collocation:ab44a1ff9f1e9d308187",
       "collocation:c5e67b1c852765504e0f"
     ],
     "facts": [],
@@ -310,12 +327,16 @@
       {
         "id": "collocation:369d447634f4049701fd",
         "source_row": 4632,
-        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:3be69718f241c5c62216",
         "source_row": 5076,
-        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:4098d08b731adfe7e2bc",
@@ -330,12 +351,16 @@
       {
         "id": "collocation:47d2451ff47325579110",
         "source_row": 6051,
-        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:ab44a1ff9f1e9d308187",
         "source_row": 14515,
-        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c5e67b1c852765504e0f",
