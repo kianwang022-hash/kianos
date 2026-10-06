@@ -7397,7 +7397,7 @@
     "ordinal": 2352,
     "word": "hold",
     "source_owner_path": "content/lexical/words/by-ordinal/o2352.json",
-    "source_fingerprint": "41866a670d0faf6b60df6dc7c1ec20491686078d045cfd6675c7f5aa63020cde",
+    "source_fingerprint": "5e66855cd6bd8bbcd234134c711ba54ad4f8011fe695c071002b7d0da384748f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7408,7 +7408,7 @@
     },
     "word_feel": {
       "summary_cn": "握住；持有；举行；坚持观点；保持",
-      "decision_cn": "",
+      "decision_cn": "physical → 握住；ownership → 持有；state → 保持；event → 举办；view → 持有观点；hold on → 稍等；get hold of → 联系到/找到/得到。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7641,6 +7641,56 @@
           "target_id": "construction:a9242e1bfadd416fd5bc",
           "target_locator": "record.constructions[0]",
           "target_label": "hold that + clause"
+        }
+      },
+      {
+        "id": "construction:hold:hold-on",
+        "source_locator": "record.constructions[1]",
+        "pattern": "hold on",
+        "lines": [
+          {
+            "text": "等一下；稍等",
+            "lang": "cn"
+          },
+          {
+            "text": "conversation-management idiom; distinct from literal holding",
+            "lang": "en"
+          },
+          {
+            "text": "used to ask someone to wait for a short time",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hold:hold-on",
+          "target_locator": "record.constructions[1]",
+          "target_label": "hold on"
+        }
+      },
+      {
+        "id": "construction:hold:get-hold-of",
+        "source_locator": "record.constructions[2]",
+        "pattern": "get hold of sb/sth",
+        "lines": [
+          {
+            "text": "联系到；找到；得到",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed get-hold-of pattern; not simply physical control",
+            "lang": "en"
+          },
+          {
+            "text": "to contact, find, or obtain someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hold:get-hold-of",
+          "target_locator": "record.constructions[2]",
+          "target_label": "get hold of sb/sth"
         }
       }
     ],
@@ -8209,19 +8259,34 @@
     "ordinal": 2356,
     "word": "hollow",
     "source_owner_path": "content/lexical/words/by-ordinal/o2356.json",
-    "source_fingerprint": "82d474bacfbbe8986779c5f2a7fa67a750ca2c3de3ac66e3dc487c6a32b68cde",
-    "sense_lineage": [],
+    "source_fingerprint": "491add8211707e48f49812e5fc66bc45bad22060ced39fa72b35f5e51c6154f5",
+    "sense_lineage": [
+      {
+        "word_id": "word:hollow",
+        "target_kind": "sense",
+        "from_target_id": "sense:hollow:7a3724090c5f5291",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hollow",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4b9958e1c61498c1c0f0",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
         "2A",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "中空或空洞",
-      "decision_cn": "",
+      "decision_cn": "inside empty → 中空；depression → 凹陷/洞；figurative → 空洞、不真诚；hollow out → 挖空。地形“小山谷/洼地”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8283,34 +8348,8 @@
         }
       },
       {
-        "id": "sense:hollow:7a3724090c5f5291",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "山谷，洼地",
-        "definition_en": "a small valley between hills or mountains",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4b9958e1c61498c1c0f0",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a wooded hollow",
-            "meaning_cn": "树木繁茂的山谷",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hollow:7a3724090c5f5291",
-          "target_locator": "record.senses[2]",
-          "target_label": "山谷，洼地"
-        }
-      },
-      {
         "id": "sense:hollow:f5b8e527333455cf",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "挖空，使成空洞",
@@ -8320,14 +8359,14 @@
         "usage": [
           {
             "id": "collocation:1d2ada78d963d52e7707",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "hollow out a log",
             "meaning_cn": "挖空原木",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:1d2ada78d963d52e7707",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "hollow out a log"
             }
           }
@@ -8335,13 +8374,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hollow:f5b8e527333455cf",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "挖空，使成空洞"
         }
       },
       {
         "id": "sense:hollow:843f71debada506b",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "虚伪的，空洞的",
@@ -8351,7 +8390,7 @@
         "usage": [
           {
             "id": "collocation:209cc71a623d478d40ce",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "a hollow promise",
             "meaning_cn": "空洞的承诺",
             "kind": "usage_example",
@@ -8361,7 +8400,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hollow:843f71debada506b",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "虚伪的，空洞的"
         }
       }
@@ -8404,7 +8443,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4b9958e1c61498c1c0f0",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:hollow:7a3724090c5f5291:collocation:0"
+              ],
+              "meaning_cn": "树木繁茂的山谷",
+              "phrase": "a wooded hollow"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "山谷，洼地",
+          "definition_en": "a small valley between hills or mountains",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:hollow:7a3724090c5f5291",
+          "sense_label_en": "a small valley between hills or mountains",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -9213,32 +9278,51 @@
     "ordinal": 2362,
     "word": "honey",
     "source_owner_path": "content/lexical/words/by-ordinal/o2362.json",
-    "source_fingerprint": "78f64d99459db2badbfdc51769314ed2bfb502b5f8e1727804aaf2c2f421e987",
+    "source_fingerprint": "682846b277c9eaafdfa491575614f9497d104eb07769f606b83573c36197a267",
     "sense_lineage": [
+      {
+        "word_id": "word:honey",
+        "target_kind": "sense",
+        "from_target_id": "sense:honey:0cb449c018e251b1",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:honey",
+        "target_kind": "sense",
+        "from_target_id": "sense:honey:1fce86c36f70593c",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:honey",
         "target_kind": "sense",
         "from_target_id": "sense:honey:5cda2c6e44775b42",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:honey",
+        "target_kind": "sense",
+        "from_target_id": "sense:honey:a9c6a94069ef5627",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V",
-        "1A",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "蜂蜜；亲爱的（称呼）",
-      "decision_cn": "",
+      "summary_cn": "蜂蜜；亲爱的/甜心（称呼）",
+      "decision_cn": "food → 蜂蜜；address → honey = 亲爱的/甜心。少见形容词与“加蜜/奉承”动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "蜂蜜；亲爱的（称呼）"
+        "target_label": "蜂蜜；亲爱的/甜心（称呼）"
       }
     },
     "senses": [
@@ -9277,59 +9361,8 @@
         }
       },
       {
-        "id": "sense:honey:1fce86c36f70593c",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "蜂蜜似的；甜蜜的",
-        "definition_en": "having the color or sweetness of honey",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:honey:1fce86c36f70593c",
-          "target_locator": "record.senses[1]",
-          "target_label": "蜂蜜似的；甜蜜的"
-        }
-      },
-      {
-        "id": "sense:honey:a9c6a94069ef5627",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "加蜜使甜；对…说甜言蜜语",
-        "definition_en": "to sweeten with honey; to speak sweetly to",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:honey:a9c6a94069ef5627",
-          "target_locator": "record.senses[2]",
-          "target_label": "加蜜使甜；对…说甜言蜜语"
-        }
-      },
-      {
-        "id": "sense:honey:0cb449c018e251b1",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "说甜言蜜语；奉承",
-        "definition_en": "to speak sweetly or flatter",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:honey:0cb449c018e251b1",
-          "target_locator": "record.senses[3]",
-          "target_label": "说甜言蜜语；奉承"
-        }
-      },
-      {
         "id": "sense:honey:e19f11d26e72ffd5",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "亲爱的；甜心（称呼）",
@@ -9340,7 +9373,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:honey:e19f11d26e72ffd5",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[1]",
           "target_label": "亲爱的；甜心（称呼）"
         }
       }
@@ -9397,6 +9430,48 @@
           "source_row": 6595,
           "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "蜂蜜似的；甜蜜的",
+          "definition_en": "having the color or sweetness of honey",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:honey:1fce86c36f70593c",
+          "sense_label_en": "having the color or sweetness of honey",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "加蜜使甜；对…说甜言蜜语",
+          "definition_en": "to sweeten with honey; to speak sweetly to",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:honey:a9c6a94069ef5627",
+          "sense_label_en": "to sweeten with honey; to speak sweetly to",
+          "sort_order": 3,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "说甜言蜜语；奉承",
+          "definition_en": "to speak sweetly or flatter",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:honey:0cb449c018e251b1",
+          "sense_label_en": "to speak sweetly or flatter",
+          "sort_order": 4,
+          "transitivity": "vi"
         }
       ]
     }
@@ -9407,7 +9482,7 @@
     "ordinal": 2363,
     "word": "honor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2363.json",
-    "source_fingerprint": "95b8500f84102fdf7fd56b27f4ae3d87aa84e9fd714cbc76d9877bc13db21619",
+    "source_fingerprint": "92532860db60a1e1fdceb1f20da01d0bce95a558b80977e9e472f7a30a86f18c",
     "sense_lineage": [
       {
         "word_id": "word:honor",
@@ -9426,7 +9501,7 @@
     },
     "word_feel": {
       "summary_cn": "尊敬；荣誉；履行",
-      "decision_cn": "",
+      "decision_cn": "noun → 荣誉/尊敬；verb → 尊敬或履行承诺；in honor of → 为纪念/向…致敬。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9560,7 +9635,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:honor:in-honor-of",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in honor of sb/sth",
+        "lines": [
+          {
+            "text": "为纪念；为表示敬意",
+            "lang": "cn"
+          },
+          {
+            "text": "commemorative/respect phrase; not merely possessing honor",
+            "lang": "en"
+          },
+          {
+            "text": "to show respect for or celebrate the importance of someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:honor:in-honor-of",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in honor of sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9768,11 +9869,19 @@
     "ordinal": 2365,
     "word": "hook",
     "source_owner_path": "content/lexical/words/by-ordinal/o2365.json",
-    "source_fingerprint": "ee33be3f99c2d61333e196d6508fcb98948207b94beaba9ce4d6af1db7ad4869",
-    "sense_lineage": [],
+    "source_fingerprint": "6630e295068cd5cc6344893c80c06db5fb602a51a4e5df977cf67825a519d36f",
+    "sense_lineage": [
+      {
+        "word_id": "word:hook",
+        "target_kind": "sense",
+        "from_target_id": "sense:hook:7ee47c223d3e5547",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1A",
         "2N"
       ],
@@ -9780,7 +9889,7 @@
     },
     "word_feel": {
       "summary_cn": "钩子或钩状物",
-      "decision_cn": "",
+      "decision_cn": "object → 钩子；verb → 钩住/挂住；hooked on → 着迷/上瘾；off the hook → 脱身、免于责任。低价值“弯成钩状”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9894,25 +10003,8 @@
         }
       },
       {
-        "id": "sense:hook:7ee47c223d3e5547",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "弯成钩状",
-        "definition_en": "to bend into a hook shape",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hook:7ee47c223d3e5547",
-          "target_locator": "record.senses[3]",
-          "target_label": "弯成钩状"
-        }
-      },
-      {
         "id": "sense:hook:cf7384be36b1d5c5",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "be/get hooked on sth",
         "definition_cn": "着迷的；依赖的；上瘾的",
@@ -9923,7 +10015,7 @@
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
-            "target_locator": "record.senses[4].lexical_identity_overlay",
+            "target_locator": "record.senses[3].lexical_identity_overlay",
             "target_label": "hooked is the participial/adjectival surface used in be/get hooked on sth"
           }
         },
@@ -9931,7 +10023,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hook:cf7384be36b1d5c5",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "着迷的；依赖的；上瘾的"
         }
       }
@@ -9967,9 +10059,6 @@
         "sense:hook:69ffd42594a65a42": [
           0
         ],
-        "sense:hook:7ee47c223d3e5547": [
-          0
-        ],
         "sense:hook:b94bbf814ed95578": [
           0
         ],
@@ -10001,13 +10090,54 @@
           "target_locator": "record.constructions[0]",
           "target_label": "be/get hooked on sth"
         }
+      },
+      {
+        "id": "construction:hook:off-the-hook",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be/get/let sb off the hook",
+        "lines": [
+          {
+            "text": "摆脱麻烦、责任或义务；脱身",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative release idiom; distinct from literal hook",
+            "lang": "en"
+          },
+          {
+            "text": "free from a difficult situation, responsibility, blame, or obligation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hook:off-the-hook",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be/get/let sb off the hook"
+        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "弯成钩状",
+          "definition_en": "to bend into a hook shape",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:hook:7ee47c223d3e5547",
+          "sense_label_en": "to bend into a hook shape",
+          "sort_order": 4,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -10016,18 +10146,33 @@
     "ordinal": 2366,
     "word": "hop",
     "source_owner_path": "content/lexical/words/by-ordinal/o2366.json",
-    "source_fingerprint": "0e6285318897893d40f3e7b11b3be0bcf7e3c189b50051a2284a7144dfdb4d46",
-    "sense_lineage": [],
+    "source_fingerprint": "5755c033fb23043245d1b9a4a8946de1fe79b8e3a2e828f3bdf107a11b12b804",
+    "sense_lineage": [
+      {
+        "word_id": "word:hop",
+        "target_kind": "sense",
+        "from_target_id": "sense:hop:416bd393845f5932",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hop",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a53c7c3f650def9966fd",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "轻跳，单脚跳",
-      "decision_cn": "",
+      "decision_cn": "movement → 轻跳/单脚跳；hop over/on → 跳过/跳上；brewing → hops 啤酒花。旧式“舞会”名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10102,34 +10247,8 @@
         }
       },
       {
-        "id": "sense:hop:416bd393845f5932",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "舞会",
-        "definition_en": "an informal dance",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a53c7c3f650def9966fd",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a hop",
-            "meaning_cn": "一场舞会",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hop:416bd393845f5932",
-          "target_locator": "record.senses[2]",
-          "target_label": "舞会"
-        }
-      },
-      {
         "id": "sense:hop:9ad84e6e2e175a88",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "蛇麻子（啤酒花）",
@@ -10139,7 +10258,7 @@
         "usage": [
           {
             "id": "collocation:a5112105a09d6bee31ad",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "hop plant",
             "meaning_cn": "蛇麻子植物",
             "kind": "usage_example",
@@ -10149,13 +10268,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hop:9ad84e6e2e175a88",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "蛇麻子（啤酒花）"
         }
       },
       {
         "id": "sense:hop:63f71a7c2e1c512b",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "跃过；跳上",
@@ -10165,7 +10284,7 @@
         "usage": [
           {
             "id": "collocation:89d9593f609313656ea0",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "hop a fence",
             "meaning_cn": "跳过栅栏",
             "kind": "usage_example",
@@ -10175,7 +10294,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hop:63f71a7c2e1c512b",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "跃过；跳上"
         }
       }
@@ -10218,7 +10337,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:a53c7c3f650def9966fd",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:hop:416bd393845f5932:collocation:0"
+              ],
+              "meaning_cn": "一场舞会",
+              "phrase": "a hop"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "舞会",
+          "definition_en": "an informal dance",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:hop:416bd393845f5932",
+          "sense_label_en": "an informal dance",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {

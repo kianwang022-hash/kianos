@@ -5,17 +5,25 @@
     "ordinal": 2369,
     "word": "horizon",
     "source_owner_path": "content/lexical/words/by-ordinal/o2369.json",
-    "source_fingerprint": "8e99218ba536d9e669a0e2cfd14adcfc9926985b34c1751ac67f7ee41f17f4c7",
-    "sense_lineage": [],
+    "source_fingerprint": "1d16f1618be5bb8402672ec0e431587fa39f72c5d62bc5d66975a64cc36062f7",
+    "sense_lineage": [
+      {
+        "word_id": "word:horizon",
+        "target_kind": "sense",
+        "from_target_id": "sense:horizon:5e005bafb9165174",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "地平线；眼界或范围",
-      "decision_cn": "",
+      "decision_cn": "literal → 地平线；knowledge/interests → 眼界；on the horizon → 即将出现；soil-science layer → Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -71,23 +79,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "知识或兴趣的界限"
         }
-      },
-      {
-        "id": "sense:horizon:5e005bafb9165174",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "土壤剖面中的一层",
-        "definition_en": "a layer of soil in a vertical cross-section",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:horizon:5e005bafb9165174",
-          "target_locator": "record.senses[2]",
-          "target_label": "土壤剖面中的一层"
-        }
       }
     ],
     "pronunciation_support": {
@@ -132,13 +123,54 @@
           "target_locator": "record.constructions[0]",
           "target_label": "broaden/expand one's horizons"
         }
+      },
+      {
+        "id": "construction:horizon:on-the-horizon",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be/on the horizon",
+        "lines": [
+          {
+            "text": "即将发生；即将出现",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative imminent-future use; distinct from the literal visible horizon",
+            "lang": "en"
+          },
+          {
+            "text": "likely to happen or appear soon",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:horizon:on-the-horizon",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be/on the horizon"
+        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "土壤剖面中的一层",
+          "definition_en": "a layer of soil in a vertical cross-section",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:horizon:5e005bafb9165174",
+          "sense_label_en": "a layer of soil in a vertical cross-section",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -350,23 +382,51 @@
     "ordinal": 2372,
     "word": "horn",
     "source_owner_path": "content/lexical/words/by-ordinal/o2372.json",
-    "source_fingerprint": "1ab3c8bd05515e94ef83ef59e04fa1e66d0da04d09dd3abefda8f522aa6cb468",
-    "sense_lineage": [],
+    "source_fingerprint": "e439f7804b70601a98e9e880c9e3bd829c232be16c331e9e0b5d73a4b0d049a7",
+    "sense_lineage": [
+      {
+        "word_id": "word:horn",
+        "target_kind": "sense",
+        "from_target_id": "sense:horn:0515438f80875525",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:horn",
+        "target_kind": "sense",
+        "from_target_id": "sense:horn:657392757e9c52da",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:horn",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:50e88376ccb1355726ef",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:horn",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c0a8e72dd191113303ad",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "角；喇叭、警报器",
-      "decision_cn": "",
+      "summary_cn": "动物的角；喇叭/警报器",
+      "decision_cn": "animal → 角；vehicle/signal → 喇叭、警报器。西部马鞍鞍头和少见动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "角；喇叭、警报器"
+        "target_label": "动物的角；喇叭/警报器"
       }
     },
     "senses": [
@@ -397,60 +457,8 @@
         }
       },
       {
-        "id": "sense:horn:0515438f80875525",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "马鞍的鞍头",
-        "definition_en": "a high pommel of a Western saddle (usually metal covered with leather)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c0a8e72dd191113303ad",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "saddle horn",
-            "meaning_cn": "马鞍的鞍头",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:horn:0515438f80875525",
-          "target_locator": "record.senses[1]",
-          "target_label": "马鞍的鞍头"
-        }
-      },
-      {
-        "id": "sense:horn:657392757e9c52da",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "用角触，长角于",
-        "definition_en": "to gore with horns or provide with horns",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:50e88376ccb1355726ef",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "horn an opponent",
-            "meaning_cn": "用角顶对手",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:horn:657392757e9c52da",
-          "target_locator": "record.senses[2]",
-          "target_label": "用角触，长角于"
-        }
-      },
-      {
         "id": "sense:horn:f798fdad42545feb",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "喇叭；警报器",
@@ -461,7 +469,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:horn:f798fdad42545feb",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[1]",
           "target_label": "喇叭；警报器"
         }
       }
@@ -504,7 +512,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:c0a8e72dd191113303ad",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:horn:0515438f80875525:collocation:0"
+              ],
+              "meaning_cn": "马鞍的鞍头",
+              "phrase": "saddle horn"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "马鞍的鞍头",
+          "definition_en": "a high pommel of a Western saddle (usually metal covered with leather)",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:horn:0515438f80875525",
+          "sense_label_en": "a high pommel of a Western saddle (usually metal covered with leather)",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:50e88376ccb1355726ef",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:horn:657392757e9c52da:collocation:0"
+              ],
+              "meaning_cn": "用角顶对手",
+              "phrase": "horn an opponent"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "用角触，长角于",
+          "definition_en": "to gore with horns or provide with horns",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:horn:657392757e9c52da",
+          "sense_label_en": "to gore with horns or provide with horns",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -2877,7 +2935,7 @@
     "ordinal": 2388,
     "word": "household",
     "source_owner_path": "content/lexical/words/by-ordinal/o2388.json",
-    "source_fingerprint": "c35727c2a983d086231759bb6fcf27a055780a2098a9a0df405d080b292ead21",
+    "source_fingerprint": "69e3cf14531511f33e9a9b5337b484323378ad0b5f2faa62f52f57db02956ecd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2888,7 +2946,7 @@
     },
     "word_feel": {
       "summary_cn": "家庭",
-      "decision_cn": "",
+      "decision_cn": "noun household → 同住的一家人；adjective → 家庭/家用的；household name → 家喻户晓的人或品牌。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2988,7 +3046,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:household:household-name",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a household name",
+        "lines": [
+          {
+            "text": "家喻户晓的人或品牌",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed fame expression; not merely something used in a household",
+            "lang": "en"
+          },
+          {
+            "text": "a person, name, or brand that is very widely known",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:household:household-name",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a household name"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3384,7 +3468,7 @@
     "ordinal": 2392,
     "word": "how",
     "source_owner_path": "content/lexical/words/by-ordinal/o2392.json",
-    "source_fingerprint": "09fbf5a55c41dadb83571d45d976f5d92a9dc5f5ca5519d8782344e2fb2efd03",
+    "source_fingerprint": "0a2035d65074759ae413116ffa4ff16ae9cdf00d0cb81fd3ddfbe100be57423b",
     "sense_lineage": [
       {
         "word_id": "word:how",
@@ -3409,7 +3493,7 @@
     },
     "word_feel": {
       "summary_cn": "如何；怎样",
-      "decision_cn": "",
+      "decision_cn": "manner → 如何；degree → 多么/多大程度；how to → 如何做；how come → 为什么/怎么会（非正式）。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3507,6 +3591,31 @@
           "target_id": "construction:2e3d2da401ce4a9bf259",
           "target_locator": "record.constructions[1]",
           "target_label": "how to do sth"
+        }
+      },
+      {
+        "id": "construction:how:how-come",
+        "source_locator": "record.constructions[2]",
+        "pattern": "how come + clause",
+        "lines": [
+          {
+            "text": "为什么；怎么会（非正式）",
+            "lang": "cn"
+          },
+          {
+            "text": "informal why-question; followed by normal statement word order",
+            "lang": "en"
+          },
+          {
+            "text": "used informally to ask why something happened or is true",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:how:how-come",
+          "target_locator": "record.constructions[2]",
+          "target_label": "how come + clause"
         }
       }
     ],
@@ -4706,7 +4815,7 @@
     "ordinal": 2399,
     "word": "human",
     "source_owner_path": "content/lexical/words/by-ordinal/o2399.json",
-    "source_fingerprint": "c4a4e338a1ed3bd042c9406f938ed44a5478cbb7bf47bb9c0cffd743c7685824",
+    "source_fingerprint": "2ad6b1709416806b23dca5cfa5ab0784c1047bc361bbda2ced1ca502b3ca0a18",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4717,7 +4826,7 @@
     },
     "word_feel": {
       "summary_cn": "与人类相关的或人类特有的",
-      "decision_cn": "",
+      "decision_cn": "species/person → 人类/人；human qualities → 人的特征；only human → 人难免有弱点或犯错。不要与 humane（仁慈的）混淆。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4857,7 +4966,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:human:only-human",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be only human",
+        "lines": [
+          {
+            "text": "毕竟是人；人难免会犯错/有弱点",
+            "lang": "cn"
+          },
+          {
+            "text": "human fallibility phrase; not humane = kind/compassionate",
+            "lang": "en"
+          },
+          {
+            "text": "used to say that mistakes, weaknesses, or strong feelings are natural for people",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:human:only-human",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be only human"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -5362,8 +5497,7 @@
     "word_id": "word:humidity",
     "ordinal": 2403,
     "word": "humidity",
-    "source_owner_path": "content/lexical/words/by-ordinal/o2403.json",
-    "source_fingerprint": "15a70112f111fd9fc899bb759138bc86a7e48a69d7fe6a35e9c37d950e38bd50",
+    "source_owner_path": "content/lexical/words/by-ordinal/o2403.json",    "source_fingerprint": "15a70112f111fd9fc899bb759138bc86a7e48a69d7fe6a35e9c37d950e38bd50",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
