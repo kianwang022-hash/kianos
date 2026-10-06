@@ -34,11 +34,17 @@ const shardCache = new Map();
 
 function shardPathForNode(nodeId) {
   const id = String(nodeId || '');
-  const cf = id.match(/^POL27-CF-XI-C(\d{2})/);
-  if (cf) return path.join(NODE_SHARDS, 'pol27-cf', 'xi', `c${cf[1]}.json`);
-  const sy = id.match(/^POL27-SY-XI-P(\d{3})/);
-  if (sy) return path.join(NODE_SHARDS, 'pol27-sy', 'xi', `p${sy[1]}.json`);
-  return '';
+  // Source identity, rather than the consuming learning subject, owns the
+  // manifest's deterministic shard partition (also used by RuntimeScoped).
+  const match = id.match(/^POL27-(CF|SY)-([A-Z0-9_]+)(?:-|$)/);
+  if (!match) return '';
+  const source = `pol27-${match[1].toLowerCase()}`;
+  const subject = match[2].toLowerCase();
+  if (!Object.hasOwn(nodeManifest.partition_counts || {}, `${source}/${subject}`)) return '';
+  const chapter = id.match(/-C(\d{2})(?:-|$)/)?.[1];
+  const page = id.match(/-P(\d{3})(?:-|$)/)?.[1];
+  const partition = chapter ? `c${chapter}` : page ? `p${page}` : 'root';
+  return path.join(NODE_SHARDS, source, subject, `${partition}.json`);
 }
 
 function nodeExists(nodeId) {
