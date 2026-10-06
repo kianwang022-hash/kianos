@@ -6189,23 +6189,37 @@
     "ordinal": 2022,
     "word": "fossil",
     "source_owner_path": "content/lexical/words/by-ordinal/o2022.json",
-    "source_fingerprint": "b4a2f8ce342b3c37f83c37d150b027dfd5d3d32f86ba87bdb98badce9817f6b6",
-    "sense_lineage": [],
+    "source_fingerprint": "e7fb79b01fed058d322a9b64174b0d36f0074be60300d7851bc258c7a7ec6e9b",
+    "sense_lineage": [
+      {
+        "word_id": "word:fossil",
+        "target_kind": "sense",
+        "from_target_id": "sense:fossil:14921146c27c5e0e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:fossil",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7f307c0fcbee62a2c051",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "化石；陈腐的",
-      "decision_cn": "",
+      "summary_cn": "化石",
+      "decision_cn": "ordinary noun → 化石；fossil fuel 等常用组合仍保留。表示“陈腐、守旧”的形容词用法保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "化石；陈腐的"
+        "target_label": "化石"
       }
     },
     "senses": [
@@ -6247,32 +6261,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "化石"
         }
-      },
-      {
-        "id": "sense:fossil:14921146c27c5e0e",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "化石的；陈腐的；守旧的",
-        "definition_en": "characteristic of a fossil; old-fashioned",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7f307c0fcbee62a2c051",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "fossil ideas",
-            "meaning_cn": "陈腐的观念",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fossil:14921146c27c5e0e",
-          "target_locator": "record.senses[1]",
-          "target_label": "化石的；陈腐的；守旧的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6313,7 +6301,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:7f307c0fcbee62a2c051",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:fossil:14921146c27c5e0e:collocation:0"
+              ],
+              "meaning_cn": "陈腐的观念",
+              "phrase": "fossil ideas"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "化石的；陈腐的；守旧的",
+          "definition_en": "characteristic of a fossil; old-fashioned",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:fossil:14921146c27c5e0e",
+          "sense_label_en": "characteristic of a fossil; old-fashioned",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -6513,24 +6527,46 @@
     "ordinal": 2024,
     "word": "foul",
     "source_owner_path": "content/lexical/words/by-ordinal/o2024.json",
-    "source_fingerprint": "653547c3c5e4f429cf815455fe03a035db9e878fd3f5f56b890debd7bcb0153a",
-    "sense_lineage": [],
+    "source_fingerprint": "d683c4262cd483b220b56f9c3ced604aef99a64f630d8531e5fb45531499e331",
+    "sense_lineage": [
+      {
+        "word_id": "word:foul",
+        "target_kind": "sense",
+        "from_target_id": "sense:foul:0092047f827653ef",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:foul",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:175a6fcb40e904765df3",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:foul",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:337b20195bb2c85a7b58",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "肮脏、恶劣或违规",
-      "decision_cn": "",
+      "summary_cn": "肮脏、恶劣或违规；也可表示弄脏/污染",
+      "decision_cn": "quality → 污秽/恶劣；sport → 犯规；verb + object → 弄脏、污染；foul (something) up → 非正式“搞砸”。机械“缠结/淤塞”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "肮脏、恶劣或违规"
+        "target_label": "肮脏、恶劣或违规；也可表示弄脏/污染"
       }
     },
     "senses": [
@@ -6671,45 +6707,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "犯规"
         }
-      },
-      {
-        "id": "sense:foul:0092047f827653ef",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vi. + up",
-        "definition_cn": "缠结，淤塞",
-        "definition_en": "to become entangled or clogged",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:175a6fcb40e904765df3",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "foul up",
-            "meaning_cn": "搞糟，堵塞",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:175a6fcb40e904765df3",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "foul up"
-            }
-          },
-          {
-            "id": "collocation:337b20195bb2c85a7b58",
-            "source_locator": "record.senses[4].collocations[1]",
-            "phrase": "The rope fouled up.",
-            "meaning_cn": "绳子缠住了。",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:foul:0092047f827653ef",
-          "target_locator": "record.senses[4]",
-          "target_label": "缠结，淤塞"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6754,12 +6751,73 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:foul:foul-up",
+        "source_locator": "record.constructions[0]",
+        "pattern": "foul (something) up",
+        "lines": [
+          {
+            "text": "搞砸；把…弄糟",
+            "lang": "cn"
+          },
+          {
+            "text": "General informal phrasal verb; keep it distinct from the lower-value mechanical entangle/clog sense.",
+            "lang": "en"
+          },
+          {
+            "text": "to spoil something by making a mistake or doing something stupid",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:foul:foul-up",
+          "target_locator": "record.constructions[0]",
+          "target_label": "foul (something) up"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:175a6fcb40e904765df3",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:foul:0092047f827653ef:collocation:0"
+              ],
+              "meaning_cn": "搞糟，堵塞",
+              "phrase": "foul up"
+            },
+            {
+              "collocation_id": "collocation:337b20195bb2c85a7b58",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:foul:0092047f827653ef:collocation:1"
+              ],
+              "meaning_cn": "绳子缠住了。",
+              "phrase": "The rope fouled up."
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "缠结，淤塞",
+          "definition_en": "to become entangled or clogged",
+          "governing_pattern": "vi. + up",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:foul:0092047f827653ef",
+          "sense_label_en": "to become entangled or clogged",
+          "sort_order": 4,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -6768,30 +6826,44 @@
     "ordinal": 2025,
     "word": "found",
     "source_owner_path": "content/lexical/words/by-ordinal/o2025.json",
-    "source_fingerprint": "ca92d17323944b7dfd3d3de1514161d09340e5c7d8553a5d52cf8afc4055384d",
+    "source_fingerprint": "54c9e512fa4818cabaaa40c680c05a053aefaa458970a85957f8f030f7afec29",
     "sense_lineage": [
+      {
+        "word_id": "word:found",
+        "target_kind": "sense",
+        "from_target_id": "sense:found:c3642182dee15ad8",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:found",
         "target_kind": "sense",
         "from_target_id": "sense:found:c694745b40e7536f",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:found",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d8656ba068e7d22cf048",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V"
+        "1V"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "创立；建立；铸造",
-      "decision_cn": "默认先认独立动词 found=创立/建立；铸造是较低层。相同表面 found 作为 find 的过去式/过去分词由 Form 单独提示。",
+      "summary_cn": "创立；建立",
+      "decision_cn": "organization/institution/settlement → 创立、建立。金属“铸造”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "创立；建立；铸造"
+        "target_label": "创立；建立"
       }
     },
     "senses": [
@@ -6810,32 +6882,6 @@
           "target_id": "sense:found:4ac77dc17bb452e5",
           "target_locator": "record.senses[0]",
           "target_label": "创立；建立"
-        }
-      },
-      {
-        "id": "sense:found:c3642182dee15ad8",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "铸造",
-        "definition_en": "to cast (metal) by melting and pouring into a mold",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d8656ba068e7d22cf048",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "found a bell",
-            "meaning_cn": "铸造钟",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:found:c3642182dee15ad8",
-          "target_locator": "record.senses[1]",
-          "target_label": "铸造"
         }
       }
     ],
@@ -6921,6 +6967,30 @@
           "source_row": 5633,
           "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:d8656ba068e7d22cf048",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:found:c3642182dee15ad8:collocation:0"
+              ],
+              "meaning_cn": "铸造钟",
+              "phrase": "found a bell"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "铸造",
+          "definition_en": "to cast (metal) by melting and pouring into a mold",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:found:c3642182dee15ad8",
+          "sense_label_en": "to cast (metal) by melting and pouring into a mold",
+          "sort_order": 1,
+          "transitivity": "vt"
         }
       ]
     }
@@ -7116,22 +7186,37 @@
     "ordinal": 2027,
     "word": "fountain",
     "source_owner_path": "content/lexical/words/by-ordinal/o2027.json",
-    "source_fingerprint": "b0f646a948a456e5c286a736c24b10403ffe403b4899b4d9332b81a39de8bea3",
-    "sense_lineage": [],
+    "source_fingerprint": "881e78a1c32e878e0540618dd93b8d35ed1a54f2285328ebc44d56b6dd3effaf",
+    "sense_lineage": [
+      {
+        "word_id": "word:fountain",
+        "target_kind": "sense",
+        "from_target_id": "sense:fountain:a457f76c30695c0b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:fountain",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d96cd1b31957e4edb73d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "喷泉，水源",
-      "decision_cn": "",
+      "summary_cn": "喷泉；喷出的水",
+      "decision_cn": "structure/place → 喷泉；jet/flow → 喷出的水。比喻“源泉、根源”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "喷泉，水源"
+        "target_label": "喷泉；喷出的水"
       }
     },
     "senses": [
@@ -7204,37 +7289,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "泉水，喷出的水"
         }
-      },
-      {
-        "id": "sense:fountain:a457f76c30695c0b",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "本源，根源",
-        "definition_en": "a source or origin",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d96cd1b31957e4edb73d",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "fountain of knowledge",
-            "meaning_cn": "知识的源泉",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d96cd1b31957e4edb73d",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "fountain of knowledge"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fountain:a457f76c30695c0b",
-          "target_locator": "record.senses[2]",
-          "target_label": "本源，根源"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7273,7 +7327,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:d96cd1b31957e4edb73d",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:fountain:a457f76c30695c0b:collocation:0"
+              ],
+              "meaning_cn": "知识的源泉",
+              "phrase": "fountain of knowledge"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "本源，根源",
+          "definition_en": "a source or origin",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:fountain:a457f76c30695c0b",
+          "sense_label_en": "a source or origin",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -7537,7 +7617,7 @@
     "ordinal": 2030,
     "word": "fox",
     "source_owner_path": "content/lexical/words/by-ordinal/o2030.json",
-    "source_fingerprint": "4cb72dd3bc9d356b9fe091ab4c5df939e99bd602a5ca069021113466902962a6",
+    "source_fingerprint": "a9022d79043e1262c7bf5b68ed325094ba0ba512e875d60a01126ef190f861fa",
     "sense_lineage": [
       {
         "word_id": "word:fox",
@@ -7545,18 +7625,31 @@
         "from_target_id": "sense:fox:bf442fac3d5a57a9",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:fox",
+        "target_kind": "sense",
+        "from_target_id": "sense:fox:d5cd1d318c3e5790",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:fox",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9a211bdb98d1926d4f65",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "狐狸；狡猾的人",
-      "decision_cn": "默认先认动物“狐狸”，也可比喻狡猾的人；书页生黄斑是低优先级专业义。",
+      "decision_cn": "animal → 狐狸；person → 狡猾的人。书页/纸张生黄褐斑的专业义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7611,32 +7704,6 @@
           "target_id": "sense:fox:cddd9345f8175289",
           "target_locator": "record.senses[1]",
           "target_label": "狡猾的人"
-        }
-      },
-      {
-        "id": "sense:fox:d5cd1d318c3e5790",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + (no fixed)",
-        "definition_cn": "（书页）生黄斑",
-        "definition_en": "to become discolored with brownish spots (of paper)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9a211bdb98d1926d4f65",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "the pages foxed",
-            "meaning_cn": "书页泛黄",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fox:d5cd1d318c3e5790",
-          "target_locator": "record.senses[2]",
-          "target_label": "（书页）生黄斑"
         }
       }
     ],
@@ -7704,6 +7771,30 @@
           "source_row": 5644,
           "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:9a211bdb98d1926d4f65",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:fox:d5cd1d318c3e5790:collocation:0"
+              ],
+              "meaning_cn": "书页泛黄",
+              "phrase": "the pages foxed"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（书页）生黄斑",
+          "definition_en": "to become discolored with brownish spots (of paper)",
+          "governing_pattern": "vi. + (no fixed)",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:fox:d5cd1d318c3e5790",
+          "sense_label_en": "to become discolored with brownish spots (of paper)",
+          "sort_order": 2,
+          "transitivity": "vi"
         }
       ]
     }
@@ -7714,22 +7805,44 @@
     "ordinal": 2031,
     "word": "fraction",
     "source_owner_path": "content/lexical/words/by-ordinal/o2031.json",
-    "source_fingerprint": "9e52072b808704d83ed76effa20fd814ba7d5ebe466706d87630d07508df934a",
-    "sense_lineage": [],
+    "source_fingerprint": "057e5daa26e57ac79d4aec96dd6f7c2e34e9739979662d835b5c1828522201ac",
+    "sense_lineage": [
+      {
+        "word_id": "word:fraction",
+        "target_kind": "sense",
+        "from_target_id": "sense:fraction:228f9f25c0435405",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:fraction",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6f75f4196e742df2fda1",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:fraction",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f9315940ff8d132d64bd",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "小部分或分数",
-      "decision_cn": "",
+      "summary_cn": "一小部分；分数",
+      "decision_cn": "part/amount → 一小部分；math → 分数。分馏等过程得到的化学“馏分”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "小部分或分数"
+        "target_label": "一小部分；分数"
       }
     },
     "senses": [
@@ -7823,45 +7936,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "分数"
         }
-      },
-      {
-        "id": "sense:fraction:228f9f25c0435405",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（分馏等分离出的）成分；馏分",
-        "definition_en": "a component of a mixture that has been separated by a fractional process",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6f75f4196e742df2fda1",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a fraction of the mixture",
-            "meaning_cn": "混合物的一部分（分离出的）",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6f75f4196e742df2fda1",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "a fraction of the mixture"
-            }
-          },
-          {
-            "id": "collocation:f9315940ff8d132d64bd",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "separate into fractions",
-            "meaning_cn": "分离成各个部分",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fraction:228f9f25c0435405",
-          "target_locator": "record.senses[2]",
-          "target_label": "（分馏等分离出的）成分；馏分"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7911,7 +7985,42 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6f75f4196e742df2fda1",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:fraction:228f9f25c0435405:collocation:0"
+              ],
+              "meaning_cn": "混合物的一部分（分离出的）",
+              "phrase": "a fraction of the mixture"
+            },
+            {
+              "collocation_id": "collocation:f9315940ff8d132d64bd",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:fraction:228f9f25c0435405:collocation:1"
+              ],
+              "meaning_cn": "分离成各个部分",
+              "phrase": "separate into fractions"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（分馏等分离出的）成分；馏分",
+          "definition_en": "a component of a mixture that has been separated by a fractional process",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:fraction:228f9f25c0435405",
+          "sense_label_en": "a component of a mixture that has been separated by a fractional process",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -8992,19 +9101,39 @@
     "ordinal": 2039,
     "word": "frank",
     "source_owner_path": "content/lexical/words/by-ordinal/o2039.json",
-    "source_fingerprint": "42e82d46287416335628f5d471793add32b3477a63a2b5fad1e5068802d2a3ec",
-    "sense_lineage": [],
+    "source_fingerprint": "26205dc042b1c50289a74163da8cf2cf1d54f846b854586314bebcfa7cbe1676",
+    "sense_lineage": [
+      {
+        "word_id": "word:frank",
+        "target_kind": "sense",
+        "from_target_id": "sense:frank:567de675f6f551c0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:frank",
+        "target_kind": "sense",
+        "from_target_id": "sense:frank:b618c210078a51f5",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:frank",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bb416e5f420863dc315c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "1A",
-        "1N"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "坦白的；直率的",
-      "decision_cn": "",
+      "decision_cn": "conversation/opinion → 坦白、直率。邮政盖戳及免邮特权义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9056,49 +9185,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "坦白的，直率的"
         }
-      },
-      {
-        "id": "sense:frank:b618c210078a51f5",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "免费邮寄；盖免费邮戳",
-        "definition_en": "to exempt (someone) from paying postage or customs, or to mark mail for free postage",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:bb416e5f420863dc315c",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "frank a letter",
-            "meaning_cn": "免费邮寄信件",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:frank:b618c210078a51f5",
-          "target_locator": "record.senses[1]",
-          "target_label": "免费邮寄；盖免费邮戳"
-        }
-      },
-      {
-        "id": "sense:frank:567de675f6f551c0",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "免费邮寄特权",
-        "definition_en": "the right or privilege of sending mail free of charge",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:frank:567de675f6f551c0",
-          "target_locator": "record.senses[2]",
-          "target_label": "免费邮寄特权"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9124,7 +9210,47 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:bb416e5f420863dc315c",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:frank:b618c210078a51f5:collocation:0"
+              ],
+              "meaning_cn": "免费邮寄信件",
+              "phrase": "frank a letter"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "免费邮寄；盖免费邮戳",
+          "definition_en": "to exempt (someone) from paying postage or customs, or to mark mail for free postage",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:frank:b618c210078a51f5",
+          "sense_label_en": "to exempt (someone) from paying postage or customs, or to mark mail for ",
+          "sort_order": 1,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "免费邮寄特权",
+          "definition_en": "the right or privilege of sending mail free of charge",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:frank:567de675f6f551c0",
+          "sense_label_en": "the right or privilege of sending mail free of charge",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
