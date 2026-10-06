@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "产生某物的人或机器",
       "core_meaning_en": "a machine or person that produces something",
-      "mental_model_cn": "产生某物的人或机器",
+      "mental_model_cn": "machine → 发电机或其他发生器；person/source → 发起者、产生者。电子学“信号发生器”子类型保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -112,30 +112,6 @@
         "sense_label_en": "a person who originates or causes something",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:0febb34b9e7faec2602c",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:generator:fb54aacee5f55f13:collocation:0"
-            ],
-            "meaning_cn": "信号发生器",
-            "phrase": "signal generator"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "信号发生器",
-        "definition_en": "an electronic device that produces a signal voltage",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:generator:fb54aacee5f55f13",
-        "sense_label_en": "an electronic device that produces a signal voltage",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -208,7 +184,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:0febb34b9e7faec2602c",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:generator:fb54aacee5f55f13:collocation:0"
+          ],
+          "meaning_cn": "信号发生器",
+          "phrase": "signal generator"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "信号发生器",
+      "definition_en": "an electronic device that produces a signal voltage",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:generator:fb54aacee5f55f13",
+      "sense_label_en": "an electronic device that produces a signal voltage",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -234,14 +235,13 @@
       },
       {
         "sense_id": "sense:generator:fb54aacee5f55f13",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 5904,
         "source_path": "content/lexical/canonical/senses/shards/o2113-2144.json"
       }
     ],
     "active_collocations": [
-      "collocation:0febb34b9e7faec2602c",
       "collocation:7572460021242e81d58d",
       "collocation:7b66b9c99fffb1f7657d",
       "collocation:c2dbd3622c460c3fb4c9",
@@ -253,7 +253,9 @@
       {
         "id": "collocation:0febb34b9e7faec2602c",
         "source_row": 1320,
-        "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:7572460021242e81d58d",

@@ -17,8 +17,7 @@
           "sense_ids": [
             "sense:gauge:7fc4c2bc6da351dd",
             "sense:gauge:1c5a091cb11758e9",
-            "sense:gauge:9a471c69db9d5e8e",
-            "sense:gauge:dea0882341f75741"
+            "sense:gauge:9a471c69db9d5e8e"
           ]
         },
         {
@@ -30,9 +29,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "测量或计量标准",
-      "core_meaning_en": "measure or standard of measurement",
-      "mental_model_cn": "测量或计量标准",
+      "core_meaning_cn": "测量仪表；衡量标准；估计；轨距",
+      "core_meaning_en": "a measuring instrument or standard; to measure/estimate; also railway gauge",
+      "mental_model_cn": "instrument → 仪表；criterion → 衡量标准；verb → 衡量/估计；railway → 轨距。线径/线规的专业义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -155,30 +154,6 @@
         "sense_id": "sense:gauge:9a471c69db9d5e8e",
         "sense_label_en": "the distance between the rails of a railway or between the wheels of a t",
         "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:7e7299b4be4167c297d2",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:gauge:dea0882341f75741:collocation:0"
-            ],
-            "meaning_cn": "线规",
-            "phrase": "wire gauge"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "线径；线规",
-        "definition_en": "the thickness of wire",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:gauge:dea0882341f75741",
-        "sense_label_en": "the thickness of wire",
-        "sort_order": 4,
         "transitivity": "nonverb"
       }
     ],
@@ -304,7 +279,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:7e7299b4be4167c297d2",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:gauge:dea0882341f75741:collocation:0"
+          ],
+          "meaning_cn": "线规",
+          "phrase": "wire gauge"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "线径；线规",
+      "definition_en": "the thickness of wire",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:gauge:dea0882341f75741",
+      "sense_label_en": "the thickness of wire",
+      "sort_order": 4,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -337,7 +337,7 @@
       },
       {
         "sense_id": "sense:gauge:dea0882341f75741",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 5876,
         "source_path": "content/lexical/canonical/senses/shards/o2081-2112.json"
@@ -347,7 +347,6 @@
       "collocation:029811a341538c49e779",
       "collocation:2d545317bf6edc1e21e9",
       "collocation:6d2152b3b720cd8a5f75",
-      "collocation:7e7299b4be4167c297d2",
       "collocation:8d82bb03d7b5bf249943",
       "collocation:ae0e1fa363a8c351475e",
       "collocation:db10de95b3f18f46f2e2"
@@ -372,7 +371,9 @@
       {
         "id": "collocation:7e7299b4be4167c297d2",
         "source_row": 10691,
-        "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:8d82bb03d7b5bf249943",
