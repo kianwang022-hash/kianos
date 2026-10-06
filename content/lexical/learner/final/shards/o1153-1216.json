@@ -8485,7 +8485,7 @@
     "ordinal": 1202,
     "word": "cut",
     "source_owner_path": "content/lexical/words/by-ordinal/o1202.json",
-    "source_fingerprint": "e0b4c78011732910d9fbf2a3935254db6ea708cd2e56e44c3f8eb796143b86eb",
+    "source_fingerprint": "31e833262e262d9204f71c9aaf3754963b9b577e1aa78e49268ebd72f7961b43",
     "sense_lineage": [
       {
         "word_id": "word:cut",
@@ -8493,18 +8493,25 @@
         "from_target_id": "sense:cut:3a81dde88e255c61",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:cut",
+        "target_kind": "sense",
+        "from_target_id": "sense:cut:96837e201ebd561a",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
         "2V",
-        "5N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "切割；削减；切伤形成的伤口",
-      "decision_cn": "核心动作是“切开/切掉”：物理上可形成伤口，抽象上可表示削减成本、税收或数量。",
+      "decision_cn": "核心动作是“切开/切掉”：物理上可形成伤口，抽象上可表示削减成本、税收或数量。极低频的 scale-step 名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8657,25 +8664,8 @@
         }
       },
       {
-        "id": "sense:cut:96837e201ebd561a",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "刻度",
-        "definition_en": "a step on some scale",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cut:96837e201ebd561a",
-          "target_locator": "record.senses[4]",
-          "target_label": "刻度"
-        }
-      },
-      {
         "id": "sense:cut:399ffe5bd4cf50cb",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "削减；减少；降幅",
@@ -8686,13 +8676,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cut:399ffe5bd4cf50cb",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "削减；减少；降幅"
         }
       },
       {
         "id": "sense:cut:db2411570d06e63f",
-        "source_locator": "record.senses[6]",
+        "source_locator": "record.senses[5]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "伤口；切口",
@@ -8702,7 +8692,7 @@
         "usage": [
           {
             "id": "collocation:cut:injury:baseline-v2",
-            "source_locator": "record.senses[6].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "a cut on one's finger",
             "meaning_cn": "手指上的一道伤口",
             "kind": "usage_example",
@@ -8712,7 +8702,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cut:db2411570d06e63f",
-          "target_locator": "record.senses[6]",
+          "target_locator": "record.senses[5]",
           "target_label": "伤口；切口"
         }
       }
@@ -8787,6 +8777,20 @@
           "source_row": 3384,
           "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "刻度",
+          "definition_en": "a step on some scale",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:cut:96837e201ebd561a",
+          "sense_label_en": "a step on some scale",
+          "sort_order": 4,
+          "transitivity": "nonverb"
         }
       ]
     }
