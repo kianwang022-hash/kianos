@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 
 assert.equal(process.env.GITHUB_ACTIONS, 'true', 'A3 browser may execute only in existing GitHub CI');
 assert.equal(process.env.CI, 'true', 'A3 browser requires existing isolated CI');
@@ -42,7 +43,8 @@ const claims = state => ({ sourceContactDone: state?.sourceContactDone === true,
 const emptyClaims = claims(null);
 const checks = [], errors = [];
 const report = { status: 'RUNNING', started_at: new Date().toISOString(), base: base.href,
-  ci_commit: process.env.GITHUB_SHA, ci_run_id: process.env.GITHUB_RUN_ID,
+  ci_commit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
+  ci_event_sha: process.env.GITHUB_SHA, ci_run_id: process.env.GITHUB_RUN_ID,
   independent_oracle_frozen_main: oracle.frozen_main, independent_oracle_sources: oracle.source_hashes,
   scope: 'Actual A3 prepared-Memory/post-Chat transport in existing isolated CI; declared synthetic state and one declared TTSX-response fixture. Not medical acceptance, Source pixels, Stable, release, or real learner U.',
   checks, errors };
@@ -60,7 +62,7 @@ try {
     buildXizongMemoryReleaseDescriptorFromLearnerObject: describeFull,
     buildXizongBlockMemoryReleaseDescriptor: describeCompatibility, supportsXizongPreparedMemoryBlock } = await import('../src/lib/xizongMemoryRelease.mjs');
   const { createXizongMemoryState, makePreparedMemoryAvailable, releasedMemoryCards } = await import('../src/lib/xizongMemoryModel.mjs');
-  const { revalidateXizongUnit, xizongSourceContactCovered } = await import('../src/lib/xizongContentRevision.mjs');
+  const { revalidateXizongUnit, xizongSourceContactCovered, revisionRequiresAction } = await import('../src/lib/xizongContentRevision.mjs');
   const { inspectXizongBlockCompletion } = await import('../src/lib/xizongMemoryAutoRelease.mjs');
   const project = (system, slug) => resolveXizongLearnerProjection(loadXizongBlock(system, slug), {
     enrichBlock: block => ({ ...block, kpRecords: block.kpRecords.map(kp => ({
@@ -424,8 +426,15 @@ try {
   for (const kind of ['source-missing', 'flag-only', 'partial-allSource']) {
     const slug = 'b01', context = await newContext(), page = await newPage(context);
     await page.goto(blockUrl(slug), { waitUntil: 'domcontentloaded' }); await blockReady(page, slug);
-    const object = projections.get(slug).learnerObject, kpIds = object.kps.map(kp => kp.identity.kpId);
+    // Bind this adversarial fixture to the same rendered learner object as
+    // its fresh saved state. Node-only Extension URLs differ from Vite URLs;
+    // comparing those witnesses would test cross-environment revision instead
+    // of the intended Source conjunct. Never re-sign or clear pending state.
+    const object = JSON.parse(await page.locator('[data-xizong-learner-object-payload]').textContent());
+    const kpIds = object.kps.map(kp => kp.identity.kpId);
     const fixture = clone(await read(page, studyKeyFor(slug)));
+    assert.deepEqual(fixture.contentRevision.witness, object.revisionWitness, 'Source fixture uses exact served revision witness');
+    assert.equal(revisionRequiresAction(fixture), false, 'fresh Source fixture has no unrelated pending revision');
     Object.assign(fixture, { stage: 'block_recall', recallEntryMode: 'POST_CHAT_RECALL', completed: false,
       blockRecallDone: true, learned: Object.fromEntries(kpIds.map(id => [id, true])), ratings: Object.fromEntries(kpIds.map(id => [id, 'known'])),
       sourceContactDone: kind !== 'source-missing', sourceContactEvidence: [] });
@@ -471,7 +480,10 @@ try {
   {
     const slug = 'b01', context = await newContext(); await installControllerFixture(context, slug, { visual: true });
     const page = await newPage(context); await page.goto(blockUrl(slug), { waitUntil: 'domcontentloaded' }); await blockReady(page, slug);
-    const object = clone(projections.get(slug).learnerObject), kpIds = object.kps.map(kp => kp.identity.kpId), fixture = clone(await read(page, studyKeyFor(slug)));
+    const object = JSON.parse(await page.locator('[data-xizong-learner-object-payload]').textContent());
+    const kpIds = object.kps.map(kp => kp.identity.kpId), fixture = clone(await read(page, studyKeyFor(slug)));
+    assert.deepEqual(fixture.contentRevision.witness, object.revisionWitness, 'visual fixture uses exact served revision witness before declared GAP mutation');
+    assert.equal(revisionRequiresAction(fixture), false, 'fresh visual fixture has no unrelated pending revision');
     Object.assign(object.logicGroups[0], { visualRequired: true, visualSourceState: 'GAP_NOT_MOUNTED_DECLARED_BROWSER_FIXTURE' });
     Object.assign(fixture, { stage: 'kp_recall', recallEntryMode: 'POST_CHAT_RECALL', completed: false, blockRecallDone: true,
       learned: Object.fromEntries(kpIds.map(id => [id, true])), ratings: Object.fromEntries(kpIds.map(id => [id, 'known'])), sourceContactDone: true,
