@@ -172,22 +172,37 @@
     "ordinal": 2690,
     "word": "junk",
     "source_owner_path": "content/lexical/words/by-ordinal/o2690.json",
-    "source_fingerprint": "0908af25c0ece811eea016da61202e187427ce71e939e98f7ff23e20972cde2c",
-    "sense_lineage": [],
+    "source_fingerprint": "5dce49ea1c88db1484b41b4c2b82e9c6f83f779cce4f790c2c9301ed66626a37",
+    "sense_lineage": [
+      {
+        "word_id": "word:junk",
+        "target_kind": "sense",
+        "from_target_id": "sense:junk:6b7d8c5f0990530b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:junk",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:45c6641d85eca98f8a42",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "废弃或无价值的东西；也指中国式帆船",
-      "decision_cn": "",
+      "summary_cn": "垃圾；废旧杂物",
+      "decision_cn": "modern default → 垃圾/废旧杂物；junk food → 垃圾食品。历史航海语境的“中国式帆船”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "废弃或无价值的东西；也指中国式帆船"
+        "target_label": "垃圾；废旧杂物"
       }
     },
     "senses": [
@@ -215,32 +230,6 @@
           "target_id": "sense:junk:555bd5cfb5895a15",
           "target_locator": "record.senses[0]",
           "target_label": "垃圾；废旧杂物"
-        }
-      },
-      {
-        "id": "sense:junk:6b7d8c5f0990530b",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "中国式帆船；舢板",
-        "definition_en": "a Chinese sailing ship with a high stern and lugsails",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:45c6641d85eca98f8a42",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "a Chinese junk",
-            "meaning_cn": "一艘中国帆船",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:junk:6b7d8c5f0990530b",
-          "target_locator": "record.senses[1]",
-          "target_label": "中国式帆船；舢板"
         }
       }
     ],
@@ -299,7 +288,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:45c6641d85eca98f8a42",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:junk:6b7d8c5f0990530b:collocation:0"
+              ],
+              "meaning_cn": "一艘中国帆船",
+              "phrase": "a Chinese junk"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "中国式帆船；舢板",
+          "definition_en": "a Chinese sailing ship with a high stern and lugsails",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:junk:6b7d8c5f0990530b",
+          "sense_label_en": "a Chinese sailing ship with a high stern and lugsails",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -1129,7 +1144,7 @@
     "ordinal": 2695,
     "word": "justify",
     "source_owner_path": "content/lexical/words/by-ordinal/o2695.json",
-    "source_fingerprint": "39cc34fa72f216940289f2dd6c2fb5a9120fa708a4e83a9402f9aca4e32bec04",
+    "source_fingerprint": "9cc53f5b05b1a2443ef1490da3f1edfe38578cea483a89927524e30678f340db",
     "sense_lineage": [
       {
         "word_id": "word:justify",
@@ -1137,17 +1152,31 @@
         "from_target_id": "sense:justify:61e72a04e5d25f33",
         "status": "merged",
         "to_target_id": "sense:justify:0a15fbd9e2eb59eb"
+      },
+      {
+        "word_id": "word:justify",
+        "target_kind": "sense",
+        "from_target_id": "sense:justify:e9899eb6ea6c5ea6",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:justify",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d714a1024637d66092ba",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V"
+        "1V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "证明正当；辩护",
-      "decision_cn": "",
+      "decision_cn": "argument/action → 证明合理、为…辩护。排版/文字处理“使两端对齐”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1193,32 +1222,6 @@
           "target_id": "sense:justify:0a15fbd9e2eb59eb",
           "target_locator": "record.senses[0]",
           "target_label": "证明……有理；为……辩护"
-        }
-      },
-      {
-        "id": "sense:justify:e9899eb6ea6c5ea6",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "调整文字/段落使边缘对齐；对齐",
-        "definition_en": "to adjust spacing so text is aligned evenly with one or both margins",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d714a1024637d66092ba",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "justify text",
-            "meaning_cn": "将文字两端/边缘对齐",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:justify:e9899eb6ea6c5ea6",
-          "target_locator": "record.senses[1]",
-          "target_label": "调整文字/段落使边缘对齐；对齐"
         }
       }
     ],
@@ -1293,6 +1296,30 @@
           "source_row": 7441,
           "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:d714a1024637d66092ba",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:justify:e9899eb6ea6c5ea6:collocation:streaming-c-o2651-o2750"
+              ],
+              "meaning_cn": "将文字两端/边缘对齐",
+              "phrase": "justify text"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "调整文字/段落使边缘对齐；对齐",
+          "definition_en": "to adjust spacing so text is aligned evenly with one or both margins",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:justify:e9899eb6ea6c5ea6",
+          "sense_label_en": "to adjust spacing so text is aligned evenly with one or both margins",
+          "sort_order": 999,
+          "transitivity": "vt"
         }
       ]
     }
@@ -1462,7 +1489,7 @@
     "ordinal": 2697,
     "word": "keen",
     "source_owner_path": "content/lexical/words/by-ordinal/o2697.json",
-    "source_fingerprint": "e6569fbcebf4189fe7d9ff633dfeb88c947c14ca0ad7ec648525c04643dba67e",
+    "source_fingerprint": "06240dfbee405c2d1cdbeb8b985238c022ef7b688a9d9a040b5fd43f72e814bb",
     "sense_lineage": [
       {
         "word_id": "word:keen",
@@ -1470,18 +1497,31 @@
         "from_target_id": "sense:keen:3cee9dad04625c88",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:keen",
+        "target_kind": "sense",
+        "from_target_id": "sense:keen:bbd3bd0c8bd45cf9",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:keen",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:77d4ba93fca45077b697",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1V",
         "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "锋利的；热切的；强烈的",
-      "decision_cn": "",
+      "decision_cn": "edge/senses → 锋利、敏锐；interest/desire → 热衷、渴望；competition/feeling → 强烈。哀歌/痛哭动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1601,37 +1641,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "强烈的；激烈的"
         }
-      },
-      {
-        "id": "sense:keen:bbd3bd0c8bd45cf9",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + over",
-        "definition_cn": "唱挽歌；痛哭",
-        "definition_en": "to wail in grief for the dead",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:77d4ba93fca45077b697",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "keen over + sb/sth",
-            "meaning_cn": "为某人/某事痛哭",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:77d4ba93fca45077b697",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "keen over + sb/sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:keen:bbd3bd0c8bd45cf9",
-          "target_locator": "record.senses[3]",
-          "target_label": "唱挽歌；痛哭"
-        }
       }
     ],
     "pronunciation_support": {
@@ -1698,6 +1707,30 @@
           "source_row": 7447,
           "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:77d4ba93fca45077b697",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:keen:bbd3bd0c8bd45cf9:collocation:0"
+              ],
+              "meaning_cn": "为某人/某事痛哭",
+              "phrase": "keen over + sb/sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "唱挽歌；痛哭",
+          "definition_en": "to wail in grief for the dead",
+          "governing_pattern": "vi. + over",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:keen:bbd3bd0c8bd45cf9",
+          "sense_label_en": "to wail in grief for the dead",
+          "sort_order": 3,
+          "transitivity": "vi"
         }
       ]
     }
@@ -1708,18 +1741,32 @@
     "ordinal": 2698,
     "word": "keep",
     "source_owner_path": "content/lexical/words/by-ordinal/o2698.json",
-    "source_fingerprint": "1eb5469f48e6deb7c05b7cbb294152c7696a0ef539e85ce0d83a673fa6506503",
-    "sense_lineage": [],
+    "source_fingerprint": "ffad3c22b261e0f5df17f6583efd7d56c15b431b593dcc1daaa3dcd2bc07145d",
+    "sense_lineage": [
+      {
+        "word_id": "word:keep",
+        "target_kind": "sense",
+        "from_target_id": "sense:keep:46469ee11c185304",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:keep",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:20bdf855639121705670",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "6V",
-        "1N"
+        "6V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "保持",
-      "decision_cn": "",
+      "decision_cn": "state → 保持；possession → 保留；rules/promises → 遵守；activity → 继续；records → 记录维护；keep in mind → 记住/考虑；earn one’s keep → 挣钱养活自己。低频名词 keep 保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1885,39 +1932,8 @@
         }
       },
       {
-        "id": "sense:keep:46469ee11c185304",
-        "source_locator": "record.senses[5]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "生计；食宿",
-        "definition_en": "means of support; livelihood",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:20bdf855639121705670",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "earn one's keep",
-            "meaning_cn": "谋生",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:20bdf855639121705670",
-              "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "earn one's keep"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:keep:46469ee11c185304",
-          "target_locator": "record.senses[5]",
-          "target_label": "生计；食宿"
-        }
-      },
-      {
         "id": "sense:keep:fd96ae7a90334489",
-        "source_locator": "record.senses[6]",
+        "source_locator": "record.senses[5]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "记录；持续维护（日记、记录、账目等）",
@@ -1927,7 +1943,7 @@
         "usage": [
           {
             "id": "collocation:31b2ee0ac76f6c3753b7",
-            "source_locator": "record.senses[6].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "keep a diary",
             "meaning_cn": "记日记",
             "kind": "usage_example",
@@ -1935,40 +1951,40 @@
           },
           {
             "id": "collocation:d55a4e439559756b3214",
-            "source_locator": "record.senses[6].collocations[1]",
+            "source_locator": "record.senses[5].collocations[1]",
             "phrase": "keep a record",
             "meaning_cn": "保存/维护记录",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:d55a4e439559756b3214",
-              "target_locator": "record.senses[6].collocations[1]",
+              "target_locator": "record.senses[5].collocations[1]",
               "target_label": "keep a record"
             }
           },
           {
             "id": "collocation:1afd6d75969a008c7780",
-            "source_locator": "record.senses[6].collocations[2]",
+            "source_locator": "record.senses[5].collocations[2]",
             "phrase": "keep accounts",
             "meaning_cn": "记账",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:1afd6d75969a008c7780",
-              "target_locator": "record.senses[6].collocations[2]",
+              "target_locator": "record.senses[5].collocations[2]",
               "target_label": "keep accounts"
             }
           },
           {
             "id": "collocation:ff71667d5000733c3663",
-            "source_locator": "record.senses[6].collocations[3]",
+            "source_locator": "record.senses[5].collocations[3]",
             "phrase": "keep a log",
             "meaning_cn": "持续记录日志",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:ff71667d5000733c3663",
-              "target_locator": "record.senses[6].collocations[3]",
+              "target_locator": "record.senses[5].collocations[3]",
               "target_label": "keep a log"
             }
           }
@@ -1976,7 +1992,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:keep:fd96ae7a90334489",
-          "target_locator": "record.senses[6]",
+          "target_locator": "record.senses[5]",
           "target_label": "记录；持续维护（日记、记录、账目等）"
         }
       }
@@ -2033,13 +2049,89 @@
           "target_locator": "record.constructions[1]",
           "target_label": "keep sb/sth from doing sth"
         }
+      },
+      {
+        "id": "construction:keep:earn-ones-keep",
+        "source_locator": "record.constructions[2]",
+        "pattern": "earn one's keep",
+        "lines": [
+          {
+            "text": "挣钱养活自己；通过工作抵偿食宿",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed idiom preserving the low-current noun keep; distinct from verb keep",
+            "lang": "en"
+          },
+          {
+            "text": "to earn enough by working to pay for your food and living costs",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:keep:earn-ones-keep",
+          "target_locator": "record.constructions[2]",
+          "target_label": "earn one's keep"
+        }
+      },
+      {
+        "id": "construction:keep:keep-in-mind",
+        "source_locator": "record.constructions[3]",
+        "pattern": "keep sth in mind / keep in mind that ...",
+        "lines": [
+          {
+            "text": "记住；考虑到",
+            "lang": "cn"
+          },
+          {
+            "text": "remember/consider pattern; distinct from physically keeping or storing an object",
+            "lang": "en"
+          },
+          {
+            "text": "to remember and consider something when making a decision or judgment",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:keep:keep-in-mind",
+          "target_locator": "record.constructions[3]",
+          "target_label": "keep sth in mind / keep in mind that ..."
+        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:20bdf855639121705670",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:keep:46469ee11c185304:collocation:0"
+              ],
+              "meaning_cn": "谋生",
+              "phrase": "earn one's keep"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "生计；食宿",
+          "definition_en": "means of support; livelihood",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:keep:46469ee11c185304",
+          "sense_label_en": "means of support; livelihood",
+          "sort_order": 5,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -2048,22 +2140,51 @@
     "ordinal": 2699,
     "word": "kettle",
     "source_owner_path": "content/lexical/words/by-ordinal/o2699.json",
-    "source_fingerprint": "50dc14a44fc2e35ec0086a1fef3617e72ac372fdcaaf9bb2fa5f326ad9aab67c",
-    "sense_lineage": [],
+    "source_fingerprint": "42bebba3c4af6e5d431f023dca301521fe4331a73298e963eaa3aa9da54f6b65",
+    "sense_lineage": [
+      {
+        "word_id": "word:kettle",
+        "target_kind": "sense",
+        "from_target_id": "sense:kettle:caf73d6196c252fa",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:kettle",
+        "target_kind": "sense",
+        "from_target_id": "sense:kettle:f8fb88d7fc1d5ea1",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:kettle",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f05fc677aa8f299b466b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:kettle",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f06094436cb566022b08",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "烧水或烹饪用的容器",
-      "decision_cn": "",
+      "summary_cn": "水壶；烧水壶",
+      "decision_cn": "现代中心 → 烧水用的 kettle。透明的“一壶之量”和乐器“定音鼓”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "烧水或烹饪用的容器"
+        "target_label": "水壶；烧水壶"
       }
     },
     "senses": [
@@ -2096,63 +2217,6 @@
           "target_id": "sense:kettle:297dcc70f14b5bc3",
           "target_locator": "record.senses[0]",
           "target_label": "水壶；锅"
-        }
-      },
-      {
-        "id": "sense:kettle:f8fb88d7fc1d5ea1",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "一壶之量",
-        "definition_en": "the amount that a kettle can hold",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f06094436cb566022b08",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "a kettle of water",
-            "meaning_cn": "一壶水",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:kettle:f8fb88d7fc1d5ea1",
-          "target_locator": "record.senses[1]",
-          "target_label": "一壶之量"
-        }
-      },
-      {
-        "id": "sense:kettle:caf73d6196c252fa",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（乐器）定音鼓",
-        "definition_en": "a large metal drum used as a musical instrument",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f05fc677aa8f299b466b",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "kettle drum",
-            "meaning_cn": "定音鼓",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f05fc677aa8f299b466b",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "kettle drum"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:kettle:caf73d6196c252fa",
-          "target_locator": "record.senses[2]",
-          "target_label": "（乐器）定音鼓"
         }
       }
     ],
@@ -2203,7 +2267,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f06094436cb566022b08",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:kettle:f8fb88d7fc1d5ea1:collocation:0"
+              ],
+              "meaning_cn": "一壶水",
+              "phrase": "a kettle of water"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "一壶之量",
+          "definition_en": "the amount that a kettle can hold",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:kettle:f8fb88d7fc1d5ea1",
+          "sense_label_en": "the amount that a kettle can hold",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f05fc677aa8f299b466b",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:kettle:caf73d6196c252fa:collocation:0"
+              ],
+              "meaning_cn": "定音鼓",
+              "phrase": "kettle drum"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（乐器）定音鼓",
+          "definition_en": "a large metal drum used as a musical instrument",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:kettle:caf73d6196c252fa",
+          "sense_label_en": "a large metal drum used as a musical instrument",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -2212,11 +2326,25 @@
     "ordinal": 2700,
     "word": "key",
     "source_owner_path": "content/lexical/words/by-ordinal/o2700.json",
-    "source_fingerprint": "10936dc2d5d0f059964298eb477a141f95505f7886fbde5e3d23bcc0509234ae",
-    "sense_lineage": [],
+    "source_fingerprint": "40a4e776826a3ab7c0cff9dc48b149eb3ec1c219dd0223a2c11d7a6af27f3574",
+    "sense_lineage": [
+      {
+        "word_id": "word:key",
+        "target_kind": "sense",
+        "from_target_id": "sense:key:1ed5500a2e455da1",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:key",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:579a1fafdbe865f33e91",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "1A",
         "5N"
       ],
@@ -2224,7 +2352,7 @@
     },
     "word_feel": {
       "summary_cn": "钥匙；关键",
-      "decision_cn": "",
+      "decision_cn": "object → 钥匙/按键；solution/importance → 关键；answer key → 答案；music → 调；adjective → 关键的。低价值“调音/锁上”动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2338,34 +2466,8 @@
         }
       },
       {
-        "id": "sense:key:1ed5500a2e455da1",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "调音；锁上",
-        "definition_en": "to adjust the pitch of something, or to provide with a key",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:579a1fafdbe865f33e91",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "key the instrument",
-            "meaning_cn": "给乐器调音",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:key:1ed5500a2e455da1",
-          "target_locator": "record.senses[4]",
-          "target_label": "调音；锁上"
-        }
-      },
-      {
         "id": "sense:key:ecb404d1741a5ffa",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "基调；调",
@@ -2375,7 +2477,7 @@
         "usage": [
           {
             "id": "collocation:c2c2cf244087d952a82f",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "in the key of C",
             "meaning_cn": "C大调",
             "kind": "usage_example",
@@ -2385,13 +2487,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:key:ecb404d1741a5ffa",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "基调；调"
         }
       },
       {
         "id": "sense:key:25406f861fe9573d",
-        "source_locator": "record.senses[6]",
+        "source_locator": "record.senses[5]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "关键的；极重要的",
@@ -2402,7 +2504,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:key:25406f861fe9573d",
-          "target_locator": "record.senses[6]",
+          "target_locator": "record.senses[5]",
           "target_label": "关键的；极重要的"
         }
       }
@@ -2445,7 +2547,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:579a1fafdbe865f33e91",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:key:1ed5500a2e455da1:collocation:0"
+              ],
+              "meaning_cn": "给乐器调音",
+              "phrase": "key the instrument"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "调音；锁上",
+          "definition_en": "to adjust the pitch of something, or to provide with a key",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:key:1ed5500a2e455da1",
+          "sense_label_en": "to adjust the pitch of something, or to provide with a key",
+          "sort_order": 5,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {

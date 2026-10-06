@@ -25,19 +25,11 @@
           "sense_ids": [
             "sense:joint:56517cfe9f475e2d"
           ]
-        },
-        {
-          "label_cn": "连接，接合",
-          "label_en": "to connect or join together",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:joint:397fd5d5317d5ebb"
-          ]
         }
       ],
       "core_meaning_cn": "连接，共同",
       "core_meaning_en": "a connection or shared",
-      "mental_model_cn": "连接，共同",
+      "mental_model_cn": "noun → 关节/连接处；adjective → 共同的、联合的。专业动词“连接/接合”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -113,30 +105,6 @@
         "sense_label_en": "shared by or involving two or more parties",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3c72464d4377ab9caf34",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:joint:397fd5d5317d5ebb:collocation:0"
-            ],
-            "meaning_cn": "连接管道",
-            "phrase": "joint the pipes"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "连接，接合",
-        "definition_en": "to connect or join together",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:joint:397fd5d5317d5ebb",
-        "sense_label_en": "to connect or join together",
-        "sort_order": 2,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -472,12 +440,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:3c72464d4377ab9caf34",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:joint:397fd5d5317d5ebb:collocation:0"
+          ],
+          "meaning_cn": "连接管道",
+          "phrase": "joint the pipes"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "连接，接合",
+      "definition_en": "to connect or join together",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:joint:397fd5d5317d5ebb",
+      "sense_label_en": "to connect or join together",
+      "sort_order": 2,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:joint:397fd5d5317d5ebb",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7371,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
@@ -500,7 +493,6 @@
     "active_collocations": [
       "collocation:0642b920ee21f63afbec",
       "collocation:2c40f743c251583b51c7",
-      "collocation:3c72464d4377ab9caf34",
       "collocation:556377db6568eb7414fb",
       "collocation:a9b1c10c05a8903c36a1"
     ],
@@ -519,7 +511,9 @@
       {
         "id": "collocation:3c72464d4377ab9caf34",
         "source_row": 5120,
-        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:556377db6568eb7414fb",

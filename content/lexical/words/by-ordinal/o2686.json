@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "连接点；交叉口",
-      "core_meaning_en": "a place where things join or connect",
-      "mental_model_cn": "连接点；交叉口",
+      "core_meaning_en": "a point where roads, lines, or things meet",
+      "mental_model_cn": "general → 道路/线路/事物的交汇点。工程“接合状态”和“接头”专门义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -54,44 +54,6 @@
         "sense_id": "sense:junction:f5d895e56fe7598c",
         "sense_label_en": "the place where two or more things come together",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:73fa4d8059de99843cb8",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:junction:d7d967a375ea5abc:collocation:0"
-            ],
-            "meaning_cn": "接线盒",
-            "phrase": "junction box"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "连接状态；接合",
-        "definition_en": "the state of being joined together",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:junction:d7d967a375ea5abc",
-        "sense_label_en": "the state of being joined together",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "连接物；接头",
-        "definition_en": "something that joins or connects",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:junction:8fbd66652aaa50bb",
-        "sense_label_en": "something that joins or connects",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -449,19 +411,58 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:73fa4d8059de99843cb8",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:junction:d7d967a375ea5abc:collocation:0"
+          ],
+          "meaning_cn": "接线盒",
+          "phrase": "junction box"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "连接状态；接合",
+      "definition_en": "the state of being joined together",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:junction:d7d967a375ea5abc",
+      "sense_label_en": "the state of being joined together",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "连接物；接头",
+      "definition_en": "something that joins or connects",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:junction:8fbd66652aaa50bb",
+      "sense_label_en": "something that joins or connects",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:junction:8fbd66652aaa50bb",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7416,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
       },
       {
         "sense_id": "sense:junction:d7d967a375ea5abc",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7417,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
@@ -475,7 +476,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:73fa4d8059de99843cb8",
       "collocation:bcb0c134f83c02b60f98",
       "collocation:e2de2a2ee84f9c631d6e"
     ],
@@ -484,7 +484,9 @@
       {
         "id": "collocation:73fa4d8059de99843cb8",
         "source_row": 9785,
-        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:bcb0c134f83c02b60f98",

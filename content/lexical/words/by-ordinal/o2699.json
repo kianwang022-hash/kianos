@@ -10,9 +10,9 @@
     "content_hash": "fb1f82e649822542c70d98346a0133fa6298f621f0ccd753a8acf43afc09d556",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "烧水或烹饪用的容器",
-      "core_meaning_en": "a container for boiling water or cooking",
-      "mental_model_cn": "烧水或烹饪用的容器",
+      "core_meaning_cn": "水壶；烧水壶",
+      "core_meaning_en": "a container used for boiling water",
+      "mental_model_cn": "现代中心 → 烧水用的 kettle。透明的“一壶之量”和乐器“定音鼓”义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,54 +45,6 @@
         "sense_id": "sense:kettle:297dcc70f14b5bc3",
         "sense_label_en": "a metal pot with a lid, used for boiling water or cooking",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:f06094436cb566022b08",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:kettle:f8fb88d7fc1d5ea1:collocation:0"
-            ],
-            "meaning_cn": "一壶水",
-            "phrase": "a kettle of water"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "一壶之量",
-        "definition_en": "the amount that a kettle can hold",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:kettle:f8fb88d7fc1d5ea1",
-        "sense_label_en": "the amount that a kettle can hold",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:f05fc677aa8f299b466b",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:kettle:caf73d6196c252fa:collocation:0"
-            ],
-            "meaning_cn": "定音鼓",
-            "phrase": "kettle drum"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（乐器）定音鼓",
-        "definition_en": "a large metal drum used as a musical instrument",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:kettle:caf73d6196c252fa",
-        "sense_label_en": "a large metal drum used as a musical instrument",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -369,7 +321,56 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:f06094436cb566022b08",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:kettle:f8fb88d7fc1d5ea1:collocation:0"
+          ],
+          "meaning_cn": "一壶水",
+          "phrase": "a kettle of water"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "一壶之量",
+      "definition_en": "the amount that a kettle can hold",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:kettle:f8fb88d7fc1d5ea1",
+      "sense_label_en": "the amount that a kettle can hold",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:f05fc677aa8f299b466b",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:kettle:caf73d6196c252fa:collocation:0"
+          ],
+          "meaning_cn": "定音鼓",
+          "phrase": "kettle drum"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "（乐器）定音鼓",
+      "definition_en": "a large metal drum used as a musical instrument",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:kettle:caf73d6196c252fa",
+      "sense_label_en": "a large metal drum used as a musical instrument",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -381,22 +382,20 @@
       },
       {
         "sense_id": "sense:kettle:caf73d6196c252fa",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7458,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
       },
       {
         "sense_id": "sense:kettle:f8fb88d7fc1d5ea1",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7459,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
       }
     ],
     "active_collocations": [
-      "collocation:f05fc677aa8f299b466b",
-      "collocation:f06094436cb566022b08",
       "collocation:f4f84c827953f2d65901"
     ],
     "facts": [],
@@ -404,12 +403,16 @@
       {
         "id": "collocation:f05fc677aa8f299b466b",
         "source_row": 20365,
-        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f06094436cb566022b08",
         "source_row": 20366,
-        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f4f84c827953f2d65901",

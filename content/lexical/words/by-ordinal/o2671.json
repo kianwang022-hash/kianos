@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:join:join-in",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "参加；加入（正在进行的活动）",
+        "definition_en": "to take part in an activity that is already happening",
+        "pattern": "join in (sth) / join in with sb",
+        "source_sense_id": "sense:join:feaf8f38dabc5b9d",
+        "boundary": "participation pattern; distinct from join an organization or physically connect things"
+      }
+    ],
     "content_hash": "5c1a5743ce177f8f2769657fc6d0def1bb92c95f9092256b8aa51a8b3b303ab6",
     "core_concept": {
       "core_clusters": [
@@ -19,19 +30,11 @@
             "sense:join:1b6e9f34bb215047",
             "sense:join:feaf8f38dabc5b9d"
           ]
-        },
-        {
-          "label_cn": "连接处，接合点",
-          "label_en": "a place where things are joined",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:join:946b7f0c9516524a"
-          ]
         }
       ],
       "core_meaning_cn": "连接；加入",
       "core_meaning_en": "to connect or become a member",
-      "mental_model_cn": "连接；加入",
+      "mental_model_cn": "group → 加入；objects → 连接；join in → 参加正在进行的活动。低价值名词“连接处”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -140,20 +143,6 @@
         "sense_label_en": "to take part in an activity with others",
         "sort_order": 2,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "连接处，接合点",
-        "definition_en": "a place where things are joined",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:join:946b7f0c9516524a",
-        "sense_label_en": "a place where things are joined",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -407,7 +396,22 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "连接处，接合点",
+      "definition_en": "a place where things are joined",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:join:946b7f0c9516524a",
+      "sense_label_en": "a place where things are joined",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -426,7 +430,7 @@
       },
       {
         "sense_id": "sense:join:946b7f0c9516524a",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7369,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"

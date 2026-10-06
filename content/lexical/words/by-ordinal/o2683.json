@@ -17,7 +17,6 @@
           "sense_ids": [
             "sense:juice:beeff966b6b25fed",
             "sense:juice:81872244fb655185",
-            "sense:juice:bf5b131c81aa555e",
             "sense:juice:d15b792ba7a15822"
           ]
         },
@@ -32,7 +31,7 @@
       ],
       "core_meaning_cn": "从食物中提取的液体或活力",
       "core_meaning_en": "liquid extracted from food or vitality",
-      "mental_model_cn": "从食物中提取的液体或活力",
+      "mental_model_cn": "food → 果汁/汁液；biology → digestive juices 等体液；figurative → 活力；verb → 榨汁。旧式/俚语“电流”义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -98,30 +97,6 @@
         "sense_id": "sense:juice:81872244fb655185",
         "sense_label_en": "energy or vitality",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:5cab365f34699f3030fb",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:juice:bf5b131c81aa555e:collocation:0"
-            ],
-            "meaning_cn": "通电了",
-            "phrase": "the juice is on"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "电流",
-        "definition_en": "electric current",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:juice:bf5b131c81aa555e",
-        "sense_label_en": "electric current",
-        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -555,7 +530,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:5cab365f34699f3030fb",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:juice:bf5b131c81aa555e:collocation:0"
+          ],
+          "meaning_cn": "通电了",
+          "phrase": "the juice is on"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "电流",
+      "definition_en": "electric current",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:juice:bf5b131c81aa555e",
+      "sense_label_en": "electric current",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -574,7 +574,7 @@
       },
       {
         "sense_id": "sense:juice:bf5b131c81aa555e",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7406,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
@@ -597,7 +597,6 @@
     "active_collocations": [
       "collocation:354730cab900faffe5a9",
       "collocation:5b32214d126a5d5718d9",
-      "collocation:5cab365f34699f3030fb",
       "collocation:706222c4a6fd8ede7a51",
       "collocation:83d2f2c4ac78e2d9b65a",
       "collocation:bbff07de6ad7755c077a"
@@ -617,7 +616,9 @@
       {
         "id": "collocation:5cab365f34699f3030fb",
         "source_row": 7805,
-        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:706222c4a6fd8ede7a51",

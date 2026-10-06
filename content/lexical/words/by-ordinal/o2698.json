@@ -20,6 +20,26 @@
         "level": "L1",
         "meaning_cn": "阻止某人/某物做某事",
         "pattern": "keep sb/sth from doing sth"
+      },
+      {
+        "construction_id": "construction:keep:earn-ones-keep",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "挣钱养活自己；通过工作抵偿食宿",
+        "definition_en": "to earn enough by working to pay for your food and living costs",
+        "pattern": "earn one's keep",
+        "source_sense_id": null,
+        "boundary": "fixed idiom preserving the low-current noun keep; distinct from verb keep"
+      },
+      {
+        "construction_id": "construction:keep:keep-in-mind",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "记住；考虑到",
+        "definition_en": "to remember and consider something when making a decision or judgment",
+        "pattern": "keep sth in mind / keep in mind that ...",
+        "source_sense_id": "sense:keep:af3204aee72a5b4f",
+        "boundary": "remember/consider pattern; distinct from physically keeping or storing an object"
       }
     ],
     "content_hash": "258b7323474540237923c2f3d5dddbf79865dc180d02de160b57e1dadcd157a8",
@@ -37,19 +57,11 @@
             "sense:keep:81ac184e68255ebc",
             "sense:keep:fd96ae7a90334489"
           ]
-        },
-        {
-          "label_cn": "生计；食宿",
-          "label_en": "means of support; livelihood",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:keep:46469ee11c185304"
-          ]
         }
       ],
       "core_meaning_cn": "保持",
       "core_meaning_en": "continue to have or hold; maintain",
-      "mental_model_cn": "保持",
+      "mental_model_cn": "state → 保持；possession → 保留；rules/promises → 遵守；activity → 继续；records → 记录维护；keep in mind → 记住/考虑；earn one’s keep → 挣钱养活自己。低频名词 keep 保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -197,30 +209,6 @@
         "sense_label_en": "continue doing something",
         "sort_order": 4,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:20bdf855639121705670",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:keep:46469ee11c185304:collocation:0"
-            ],
-            "meaning_cn": "谋生",
-            "phrase": "earn one's keep"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "生计；食宿",
-        "definition_en": "means of support; livelihood",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:keep:46469ee11c185304",
-        "sense_label_en": "means of support; livelihood",
-        "sort_order": 5,
-        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -418,7 +406,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:20bdf855639121705670",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:keep:46469ee11c185304:collocation:0"
+          ],
+          "meaning_cn": "谋生",
+          "phrase": "earn one's keep"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "生计；食宿",
+      "definition_en": "means of support; livelihood",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:keep:46469ee11c185304",
+      "sense_label_en": "means of support; livelihood",
+      "sort_order": 5,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -430,7 +443,7 @@
       },
       {
         "sense_id": "sense:keep:46469ee11c185304",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7452,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
@@ -475,7 +488,6 @@
       "collocation:0a26173b36e49e8ac045",
       "collocation:132a43407e569ad8ac1d",
       "collocation:1afd6d75969a008c7780",
-      "collocation:20bdf855639121705670",
       "collocation:31b2ee0ac76f6c3753b7",
       "collocation:52f40a7dfa91bbdd5c41",
       "collocation:791a1790951d14e3e125",
@@ -500,7 +512,9 @@
       {
         "id": "collocation:20bdf855639121705670",
         "source_row": 2702,
-        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:31b2ee0ac76f6c3753b7",
