@@ -4316,17 +4316,39 @@
     "ordinal": 2651,
     "word": "isolate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2651.json",
-    "source_fingerprint": "3840b8946b8f2c8518beeae1759f44d05c3342b25f49e1e919016fa032c0bb76",
-    "sense_lineage": [],
+    "source_fingerprint": "4b73f3c6219d615944ef8b1b1c4ff47e07738d3bbb5cb651926b5792ba4c97f4",
+    "sense_lineage": [
+      {
+        "word_id": "word:isolate",
+        "target_kind": "sense",
+        "from_target_id": "sense:isolate:a49afd00f8535994",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:isolate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:80db3f9f5029ccb9086b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:isolate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bdebf9b1773be93b2424",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "分离，隔离",
-      "decision_cn": "",
+      "decision_cn": "people/things → 隔离、孤立；science → 从混合物中分离/提取。心理治疗语境“把经历与情感分离”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4412,45 +4434,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "提取，分离出"
         }
-      },
-      {
-        "id": "sense:isolate:a49afd00f8535994",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使（经历）与情感分离",
-        "definition_en": "to separate an experience from the emotions relating to it",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:bdebf9b1773be93b2424",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "isolate + sth from + sth",
-            "meaning_cn": "把某物与某物分开",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:bdebf9b1773be93b2424",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "isolate + sth from + sth"
-            }
-          },
-          {
-            "id": "collocation:80db3f9f5029ccb9086b",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "isolate the memory from the pain",
-            "meaning_cn": "把记忆与痛苦分开",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:isolate:a49afd00f8535994",
-          "target_locator": "record.senses[2]",
-          "target_label": "使（经历）与情感分离"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4492,7 +4475,42 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:bdebf9b1773be93b2424",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:isolate:a49afd00f8535994:collocation:0"
+              ],
+              "meaning_cn": "把某物与某物分开",
+              "phrase": "isolate + sth from + sth"
+            },
+            {
+              "collocation_id": "collocation:80db3f9f5029ccb9086b",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:isolate:a49afd00f8535994:collocation:1"
+              ],
+              "meaning_cn": "把记忆与痛苦分开",
+              "phrase": "isolate the memory from the pain"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使（经历）与情感分离",
+          "definition_en": "to separate an experience from the emotions relating to it",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:isolate:a49afd00f8535994",
+          "sense_label_en": "to separate an experience from the emotions relating to it",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -4501,18 +4519,33 @@
     "ordinal": 2652,
     "word": "issue",
     "source_owner_path": "content/lexical/words/by-ordinal/o2652.json",
-    "source_fingerprint": "f845979b24bea98a1af869c9738318e8c3078fdca744574a1caafb738b4672c5",
-    "sense_lineage": [],
+    "source_fingerprint": "0d33320c1d29b25205d3dacd0bdfbe08489631ae5cc717092208ebba6e6704ca",
+    "sense_lineage": [
+      {
+        "word_id": "word:issue",
+        "target_kind": "sense",
+        "from_target_id": "sense:issue:0c17b8f87e4657c3",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:issue",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9a00056bb46459f874e0",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "(2+1)N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "被提出、发布或产生出来并需要面对的东西",
-      "decision_cn": "把 issue 想成“被抛到面前”：议题被提出、声明被发布、刊物被发行。",
+      "decision_cn": "problem/topic → 议题；official action → 发布/签发；publication → 一期。正式/文学“从某处流出、发出”动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4638,32 +4671,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "期刊或连续出版物的一期"
         }
-      },
-      {
-        "id": "sense:issue:0c17b8f87e4657c3",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "从某处流出或发出",
-        "definition_en": "to come, go, or flow out from a source",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9a00056bb46459f874e0",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "issue from",
-            "meaning_cn": "从某处流出或发出",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:issue:0c17b8f87e4657c3",
-          "target_locator": "record.senses[3]",
-          "target_label": "从某处流出或发出"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4737,7 +4744,53 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:9a00056bb46459f874e0",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:issue:0c17b8f87e4657c3:collocation:0"
+              ],
+              "meaning_cn": "从某处流出或发出",
+              "meaning_en": "to come, go, or flow out from a source",
+              "phrase": "issue from"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "从某处流出或发出",
+          "definition_en": "to come, go, or flow out from a source",
+          "depth": "recognition_only",
+          "domain_tag": "formal",
+          "frequency_tag": "low",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:issue:0c17b8f87e4657c3",
+          "sense_label_en": "flow or come out",
+          "sort_order": 3,
+          "source_evidence": [
+            {
+              "role": "local_evidence",
+              "source": "kaoyan"
+            },
+            {
+              "role": "local_evidence",
+              "source": "local_ecdict"
+            },
+            {
+              "role": "local_evidence",
+              "source": "local_oewn"
+            },
+            {
+              "role": "local_evidence",
+              "source": "ai_curated_mvp_v1"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -5348,18 +5401,60 @@
     "ordinal": 2658,
     "word": "jacket",
     "source_owner_path": "content/lexical/words/by-ordinal/o2658.json",
-    "source_fingerprint": "5da57d95e86d9c8d1015d9ebd6372be17654c5d2be037c1a97cf6e48f05967ab",
-    "sense_lineage": [],
+    "source_fingerprint": "9f687fe982af95b0fbcc66ec4790789a75ad7ba4065887e58dd9b1c5363880f1",
+    "sense_lineage": [
+      {
+        "word_id": "word:jacket",
+        "target_kind": "sense",
+        "from_target_id": "sense:jacket:4af8d872fc9552a8",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jacket",
+        "target_kind": "sense",
+        "from_target_id": "sense:jacket:7cf1d451073c5b24",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jacket",
+        "target_kind": "sense",
+        "from_target_id": "sense:jacket:a869ad367fce5700",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jacket",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4cdbe311aed6b3450ee9",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jacket",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4eaa8e5c849c5d6e5dda",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jacket",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:fc15aaf4fa81b3b23934",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "4N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "短外套或外罩",
-      "decision_cn": "",
+      "decision_cn": "clothing → 夹克；covering → 护套/封套（如 book jacket）。土豆皮、弹头被甲和少见动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5419,84 +5514,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "护套，封套"
         }
-      },
-      {
-        "id": "sense:jacket:a869ad367fce5700",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "土豆皮",
-        "definition_en": "the outer skin of a potato",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:fc15aaf4fa81b3b23934",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "potato jacket",
-            "meaning_cn": "土豆皮",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jacket:a869ad367fce5700",
-          "target_locator": "record.senses[2]",
-          "target_label": "土豆皮"
-        }
-      },
-      {
-        "id": "sense:jacket:7cf1d451073c5b24",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "弹头被甲；弹头金属包层",
-        "definition_en": "the metal covering around a bullet or projectile",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4cdbe311aed6b3450ee9",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "bullet jacket",
-            "meaning_cn": "弹头被甲/金属包层",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jacket:7cf1d451073c5b24",
-          "target_locator": "record.senses[3]",
-          "target_label": "弹头被甲；弹头金属包层"
-        }
-      },
-      {
-        "id": "sense:jacket:4af8d872fc9552a8",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "给……穿夹克；给……装护套",
-        "definition_en": "to put a jacket on; to cover with a jacket",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4eaa8e5c849c5d6e5dda",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "jacket a book",
-            "meaning_cn": "给书包上书皮",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jacket:4af8d872fc9552a8",
-          "target_locator": "record.senses[4]",
-          "target_label": "给……穿夹克；给……装护套"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5525,7 +5542,81 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:fc15aaf4fa81b3b23934",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:jacket:a869ad367fce5700:collocation:0"
+              ],
+              "meaning_cn": "土豆皮",
+              "phrase": "potato jacket"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "土豆皮",
+          "definition_en": "the outer skin of a potato",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:jacket:a869ad367fce5700",
+          "sense_label_en": "the outer skin of a potato",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4cdbe311aed6b3450ee9",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:jacket:7cf1d451073c5b24:collocation:0"
+              ],
+              "meaning_cn": "弹头被甲/金属包层",
+              "phrase": "bullet jacket"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "弹头被甲；弹头金属包层",
+          "definition_en": "the metal covering around a bullet or projectile",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:jacket:7cf1d451073c5b24",
+          "sense_label_en": "the metal covering around a bullet or projectile",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4eaa8e5c849c5d6e5dda",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:jacket:4af8d872fc9552a8:collocation:0"
+              ],
+              "meaning_cn": "给书包上书皮",
+              "phrase": "jacket a book"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "给……穿夹克；给……装护套",
+          "definition_en": "to put a jacket on; to cover with a jacket",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:jacket:4af8d872fc9552a8",
+          "sense_label_en": "to put a jacket on; to cover with a jacket",
+          "sort_order": 4,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -5905,18 +5996,33 @@
     "ordinal": 2661,
     "word": "jar",
     "source_owner_path": "content/lexical/words/by-ordinal/o2661.json",
-    "source_fingerprint": "64f100a04733930aa1790cc79e3523f7554739ed43ecd3b090eb98b9493bffe0",
-    "sense_lineage": [],
+    "source_fingerprint": "ff5ce8d2294db85d829f1f923808081662425bb15c62ae4906aab6aaddef0d32",
+    "sense_lineage": [
+      {
+        "word_id": "word:jar",
+        "target_kind": "sense",
+        "from_target_id": "sense:jar:21d2ab7c61b55595",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jar",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8dd68ea348203a87af46",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "容器或突然的不快震动",
-      "decision_cn": "",
+      "decision_cn": "container → 罐/瓶；physical/emotional effect → 震动、使不快。较低频 jar with = 不协调/冲突 保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6038,37 +6144,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "使不快，刺激"
         }
-      },
-      {
-        "id": "sense:jar:21d2ab7c61b55595",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vi. + with",
-        "definition_cn": "不一致，冲突",
-        "definition_en": "to be incongruent or clash",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8dd68ea348203a87af46",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "jar with + sth",
-            "meaning_cn": "与…不一致",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8dd68ea348203a87af46",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "jar with + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jar:21d2ab7c61b55595",
-          "target_locator": "record.senses[4]",
-          "target_label": "不一致，冲突"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6109,7 +6184,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:8dd68ea348203a87af46",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:jar:21d2ab7c61b55595:collocation:0"
+              ],
+              "meaning_cn": "与…不一致",
+              "phrase": "jar with + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "不一致，冲突",
+          "definition_en": "to be incongruent or clash",
+          "governing_pattern": "vi. + with",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:jar:21d2ab7c61b55595",
+          "sense_label_en": "to be incongruent or clash",
+          "sort_order": 4,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -6118,17 +6219,25 @@
     "ordinal": 2662,
     "word": "jargon",
     "source_owner_path": "content/lexical/words/by-ordinal/o2662.json",
-    "source_fingerprint": "47470f6c0ffc1e5310779f04b599f5a1b7cda420a488fd612dcd11be7d71ebcf",
-    "sense_lineage": [],
+    "source_fingerprint": "d7a3ee7e038f7adcb83583742387c5d7fa1b7dfa086ec7570796b467c52643ac",
+    "sense_lineage": [
+      {
+        "word_id": "word:jargon",
+        "target_kind": "sense",
+        "from_target_id": "sense:jargon:8b6f83015e8557c1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "专门语言",
-      "decision_cn": "",
+      "decision_cn": "现代中心 → 某行业/群体的专门术语、行话。旧式“胡言乱语”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6170,23 +6279,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "专门术语；行话"
         }
-      },
-      {
-        "id": "sense:jargon:8b6f83015e8557c1",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "梦话；胡言乱语",
-        "definition_en": "unintelligible or meaningless talk or writing",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jargon:8b6f83015e8557c1",
-          "target_locator": "record.senses[1]",
-          "target_label": "梦话；胡言乱语"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6227,7 +6319,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "梦话；胡言乱语",
+          "definition_en": "unintelligible or meaningless talk or writing",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:jargon:8b6f83015e8557c1",
+          "sense_label_en": "unintelligible or meaningless talk or writing",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -6236,23 +6344,51 @@
     "ordinal": 2663,
     "word": "jaw",
     "source_owner_path": "content/lexical/words/by-ordinal/o2663.json",
-    "source_fingerprint": "82da02141dfe771296f2d5608b7360db7aff1e43ee3b63bff44addce30f04720",
-    "sense_lineage": [],
+    "source_fingerprint": "126f9da11abf1364d16ba84743c2048caf7bdcfc89308554372f1e9d17ca1731",
+    "sense_lineage": [
+      {
+        "word_id": "word:jaw",
+        "target_kind": "sense",
+        "from_target_id": "sense:jaw:17b0b3087d8d58e0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jaw",
+        "target_kind": "sense",
+        "from_target_id": "sense:jaw:188136569b1e5043",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jaw",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:51aba494e5f392a8e5a0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jaw",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:95c2c3239a1b2bb408a2",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "颌；闲谈",
-      "decision_cn": "",
+      "summary_cn": "颌；下巴",
+      "decision_cn": "body → 颌/下巴。夹具“钳口”和旧式动词“闲聊、唠叨”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "颌；闲谈"
+        "target_label": "颌；下巴"
       }
     },
     "senses": [
@@ -6288,63 +6424,6 @@
           "target_id": "sense:jaw:ef30767b14ff518f",
           "target_locator": "record.senses[0]",
           "target_label": "颚，颌"
-        }
-      },
-      {
-        "id": "sense:jaw:17b0b3087d8d58e0",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "夹具的钳口",
-        "definition_en": "a holding device in a tool that closes to grip an object",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:51aba494e5f392a8e5a0",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "vise jaws",
-            "meaning_cn": "虎钳钳口",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jaw:17b0b3087d8d58e0",
-          "target_locator": "record.senses[1]",
-          "target_label": "夹具的钳口"
-        }
-      },
-      {
-        "id": "sense:jaw:188136569b1e5043",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + about",
-        "definition_cn": "闲谈，唠叨",
-        "definition_en": "to talk informally, often at length",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:95c2c3239a1b2bb408a2",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "jaw about + sth",
-            "meaning_cn": "闲聊某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:95c2c3239a1b2bb408a2",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "jaw about + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jaw:188136569b1e5043",
-          "target_locator": "record.senses[2]",
-          "target_label": "闲谈，唠叨"
         }
       }
     ],
@@ -6408,14 +6487,8 @@
         }
       ],
       "sense_readings": {
-        "sense:jaw:17b0b3087d8d58e0": [
-          0
-        ],
         "sense:jaw:ef30767b14ff518f": [
           0
-        ],
-        "sense:jaw:188136569b1e5043": [
-          1
         ]
       },
       "has_scope": true
@@ -6426,7 +6499,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:51aba494e5f392a8e5a0",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:jaw:17b0b3087d8d58e0:collocation:0"
+              ],
+              "meaning_cn": "虎钳钳口",
+              "phrase": "vise jaws"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "夹具的钳口",
+          "definition_en": "a holding device in a tool that closes to grip an object",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:jaw:17b0b3087d8d58e0",
+          "sense_label_en": "a holding device in a tool that closes to grip an object",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:95c2c3239a1b2bb408a2",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:jaw:188136569b1e5043:collocation:0"
+              ],
+              "meaning_cn": "闲聊某事",
+              "phrase": "jaw about + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "闲谈，唠叨",
+          "definition_en": "to talk informally, often at length",
+          "governing_pattern": "vi. + about",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:jaw:188136569b1e5043",
+          "sense_label_en": "to talk informally, often at length",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -6435,18 +6558,33 @@
     "ordinal": 2664,
     "word": "jazz",
     "source_owner_path": "content/lexical/words/by-ordinal/o2664.json",
-    "source_fingerprint": "ffcaa4f377762042e53441041cdfb5209e30ec60a2ec0de7f211893292e99991",
-    "sense_lineage": [],
+    "source_fingerprint": "01891d334986a94056a353612877a3c0c8e4aba18ec8ec68382082d81b28d817",
+    "sense_lineage": [
+      {
+        "word_id": "word:jazz",
+        "target_kind": "sense",
+        "from_target_id": "sense:jazz:a0808c676ea156a0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jazz",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:63833ed88e783e0b76d0",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "爵士乐；以爵士风格演奏",
-      "decision_cn": "",
+      "decision_cn": "noun → 爵士乐；verb → 以爵士风格演奏；jazz sth up → 使更有活力。20世纪20年代特定舞曲子类保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6490,34 +6628,8 @@
         }
       },
       {
-        "id": "sense:jazz:a0808c676ea156a0",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "爵士舞曲（20世纪20年代流行，类似新奥尔良爵士但由大乐队演奏）",
-        "definition_en": "a style of dance music popular in the 1920s; similar to New Orleans jazz but played by large bands",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:63833ed88e783e0b76d0",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "jazz age",
-            "meaning_cn": "爵士时代",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jazz:a0808c676ea156a0",
-          "target_locator": "record.senses[1]",
-          "target_label": "爵士舞曲（20世纪20年代流行，类似新奥尔良爵士但由大乐队演奏）"
-        }
-      },
-      {
         "id": "sense:jazz:e15ac4582f8a53f1",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "以爵士风格演奏",
@@ -6528,7 +6640,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:jazz:e15ac4582f8a53f1",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "以爵士风格演奏"
         }
       }
@@ -6587,7 +6699,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:63833ed88e783e0b76d0",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:jazz:a0808c676ea156a0:collocation:0"
+              ],
+              "meaning_cn": "爵士时代",
+              "phrase": "jazz age"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "爵士舞曲（20世纪20年代流行，类似新奥尔良爵士但由大乐队演奏）",
+          "definition_en": "a style of dance music popular in the 1920s; similar to New Orleans jazz but played by large bands",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:jazz:a0808c676ea156a0",
+          "sense_label_en": "a style of dance music popular in the 1920s; similar to New Orleans jazz",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -6986,18 +7124,32 @@
     "ordinal": 2667,
     "word": "jewel",
     "source_owner_path": "content/lexical/words/by-ordinal/o2667.json",
-    "source_fingerprint": "3126d5b8a772d259c10a7c917dcf7a682f28d12f74782042ac187536c7402091",
-    "sense_lineage": [],
+    "source_fingerprint": "8ecabd9d1a04b7d857873cbd1184530d30b3f1d11e416cc05d880ac7cbe8cf64",
+    "sense_lineage": [
+      {
+        "word_id": "word:jewel",
+        "target_kind": "sense",
+        "from_target_id": "sense:jewel:99741f2475ae5929",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jewel",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ab711174b73a8072af7b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "珠宝；镶珠宝",
-      "decision_cn": "",
+      "decision_cn": "literal → 宝石/珠宝；figurative → 珍贵的人或事物。少见动词“镶宝石”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7056,32 +7208,6 @@
           "target_id": "sense:jewel:39597f17dc44593e",
           "target_locator": "record.senses[1]",
           "target_label": "宝贝，珍贵的人"
-        }
-      },
-      {
-        "id": "sense:jewel:99741f2475ae5929",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "饰以珠宝，镶以宝石",
-        "definition_en": "to adorn with jewels",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ab711174b73a8072af7b",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "jewel a crown",
-            "meaning_cn": "给王冠镶宝石",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jewel:99741f2475ae5929",
-          "target_locator": "record.senses[2]",
-          "target_label": "饰以珠宝，镶以宝石"
         }
       }
     ],
@@ -7162,7 +7288,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:ab711174b73a8072af7b",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:jewel:99741f2475ae5929:collocation:0"
+              ],
+              "meaning_cn": "给王冠镶宝石",
+              "phrase": "jewel a crown"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "饰以珠宝，镶以宝石",
+          "definition_en": "to adorn with jewels",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:jewel:99741f2475ae5929",
+          "sense_label_en": "to adorn with jewels",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -7695,18 +7847,25 @@
     "ordinal": 2671,
     "word": "join",
     "source_owner_path": "content/lexical/words/by-ordinal/o2671.json",
-    "source_fingerprint": "e1ba4b6316078ace63b32f4f03c01f48a145bc1db48f2c4a68b1c054f841327e",
-    "sense_lineage": [],
+    "source_fingerprint": "54fb875ff65f9365ba5fb7e10f1644aa38b835bf0ce9c11c19f53bb23f00dfd8",
+    "sense_lineage": [
+      {
+        "word_id": "word:join",
+        "target_kind": "sense",
+        "from_target_id": "sense:join:946b7f0c9516524a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
-        "1N"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "连接；加入",
-      "decision_cn": "",
+      "decision_cn": "group → 加入；objects → 连接；join in → 参加正在进行的活动。低价值名词“连接处”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7826,23 +7985,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "参加（活动）"
         }
-      },
-      {
-        "id": "sense:join:946b7f0c9516524a",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "连接处，接合点",
-        "definition_en": "a place where things are joined",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:join:946b7f0c9516524a",
-          "target_locator": "record.senses[3]",
-          "target_label": "连接处，接合点"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7876,7 +8018,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:join:join-in",
+        "source_locator": "record.constructions[0]",
+        "pattern": "join in (sth) / join in with sb",
+        "lines": [
+          {
+            "text": "参加；加入（正在进行的活动）",
+            "lang": "cn"
+          },
+          {
+            "text": "participation pattern; distinct from join an organization or physically connect things",
+            "lang": "en"
+          },
+          {
+            "text": "to take part in an activity that is already happening",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:join:join-in",
+          "target_locator": "record.constructions[0]",
+          "target_label": "join in (sth) / join in with sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -7903,7 +8071,23 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "连接处，接合点",
+          "definition_en": "a place where things are joined",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:join:946b7f0c9516524a",
+          "sense_label_en": "a place where things are joined",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -7912,11 +8096,25 @@
     "ordinal": 2672,
     "word": "joint",
     "source_owner_path": "content/lexical/words/by-ordinal/o2672.json",
-    "source_fingerprint": "bdc7b9aee684d72f5adbbc9969da5191906bd4e115c48bfe65711ff06677aa51",
-    "sense_lineage": [],
+    "source_fingerprint": "aea868f532d22c5efe4e47f6953abbd0aafc3aa2b6da21e810607fd823172f50",
+    "sense_lineage": [
+      {
+        "word_id": "word:joint",
+        "target_kind": "sense",
+        "from_target_id": "sense:joint:397fd5d5317d5ebb",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:joint",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3c72464d4377ab9caf34",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "1A",
         "1N"
       ],
@@ -7924,7 +8122,7 @@
     },
     "word_feel": {
       "summary_cn": "连接，共同",
-      "decision_cn": "",
+      "decision_cn": "noun → 关节/连接处；adjective → 共同的、联合的。专业动词“连接/接合”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8000,32 +8198,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "共同的，联合的"
         }
-      },
-      {
-        "id": "sense:joint:397fd5d5317d5ebb",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "连接，接合",
-        "definition_en": "to connect or join together",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3c72464d4377ab9caf34",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "joint the pipes",
-            "meaning_cn": "连接管道",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:joint:397fd5d5317d5ebb",
-          "target_locator": "record.senses[2]",
-          "target_label": "连接，接合"
-        }
       }
     ],
     "pronunciation_support": {
@@ -8064,7 +8236,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3c72464d4377ab9caf34",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:joint:397fd5d5317d5ebb:collocation:0"
+              ],
+              "meaning_cn": "连接管道",
+              "phrase": "joint the pipes"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "连接，接合",
+          "definition_en": "to connect or join together",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:joint:397fd5d5317d5ebb",
+          "sense_label_en": "to connect or join together",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -8258,31 +8456,58 @@
     "ordinal": 2674,
     "word": "jolly",
     "source_owner_path": "content/lexical/words/by-ordinal/o2674.json",
-    "source_fingerprint": "6be411a9443b24a3fedf12916776f585651983aa55c2e685dc26bf8015852c32",
+    "source_fingerprint": "178d0bc524c2818cd60aa6ad620f684c5e4aca6be573aaa3adf1cfcf0d61ad49",
     "sense_lineage": [
+      {
+        "word_id": "word:jolly",
+        "target_kind": "sense",
+        "from_target_id": "sense:jolly:03080a722a425922",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:jolly",
         "target_kind": "sense",
         "from_target_id": "sense:jolly:96c85c04e1b55a9f",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:jolly",
+        "target_kind": "sense",
+        "from_target_id": "sense:jolly:c7063428c41c5b7a",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jolly",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4951635d9923d13e7b21",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jolly",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c5caffa4d9d6f4ca093a",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V",
         "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "愉快的",
-      "decision_cn": "",
+      "summary_cn": "愉快的；高兴的",
+      "decision_cn": "现代学习中心 → adjective jolly = 愉快、高兴（常带英式色彩）。少见动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "愉快的"
+        "target_label": "愉快的；高兴的"
       }
     },
     "senses": [
@@ -8310,68 +8535,6 @@
           "target_id": "sense:jolly:95c3af98fbd45492",
           "target_locator": "record.senses[0]",
           "target_label": "愉快的，高兴的"
-        }
-      },
-      {
-        "id": "sense:jolly:03080a722a425922",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使高兴，取笑",
-        "definition_en": "to make someone happy or to tease",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c5caffa4d9d6f4ca093a",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "jolly someone along",
-            "meaning_cn": "哄某人开心",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c5caffa4d9d6f4ca093a",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "jolly someone along"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jolly:03080a722a425922",
-          "target_locator": "record.senses[1]",
-          "target_label": "使高兴，取笑"
-        }
-      },
-      {
-        "id": "sense:jolly:c7063428c41c5b7a",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + with",
-        "definition_cn": "开玩笑",
-        "definition_en": "to joke or jest",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4951635d9923d13e7b21",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "jolly with someone",
-            "meaning_cn": "和某人开玩笑",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4951635d9923d13e7b21",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "jolly with someone"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jolly:c7063428c41c5b7a",
-          "target_locator": "record.senses[2]",
-          "target_label": "开玩笑"
         }
       }
     ],
@@ -8439,6 +8602,54 @@
           "source_row": 7380,
           "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:c5caffa4d9d6f4ca093a",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:jolly:03080a722a425922:collocation:0"
+              ],
+              "meaning_cn": "哄某人开心",
+              "phrase": "jolly someone along"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使高兴，取笑",
+          "definition_en": "to make someone happy or to tease",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:jolly:03080a722a425922",
+          "sense_label_en": "to make someone happy or to tease",
+          "sort_order": 1,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4951635d9923d13e7b21",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:jolly:c7063428c41c5b7a:collocation:0"
+              ],
+              "meaning_cn": "和某人开玩笑",
+              "phrase": "jolly with someone"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "开玩笑",
+          "definition_en": "to joke or jest",
+          "governing_pattern": "vi. + with",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:jolly:c7063428c41c5b7a",
+          "sense_label_en": "to joke or jest",
+          "sort_order": 2,
+          "transitivity": "vi"
         }
       ]
     }
@@ -8862,60 +9073,57 @@
     "ordinal": 2678,
     "word": "joy",
     "source_owner_path": "content/lexical/words/by-ordinal/o2678.json",
-    "source_fingerprint": "5bc45a5a5e499c59e8fa4d93cc5a32d2650ed45c326f31f68ab6597e0db10153",
-    "sense_lineage": [],
+    "source_fingerprint": "18ba87803067aaaa6bede3fec1ce0d30b692993465e173ed1db4fdbdf6f7000c",
+    "sense_lineage": [
+      {
+        "word_id": "word:joy",
+        "target_kind": "sense",
+        "from_target_id": "sense:joy:6d6f18b6a40f55d7",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:joy",
+        "target_kind": "sense",
+        "from_target_id": "sense:joy:d4d7a261833850b2",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:joy",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1c99304515fda81fe012",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:joy",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e25a74af0f065e929da4",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "极大的快乐",
-      "decision_cn": "",
+      "summary_cn": "欢乐；喜悦；令人高兴的人或事",
+      "decision_cn": "noun joy → 喜悦；a joy to do/use/watch → 做/使用/观看很愉快。少见动词“使快乐/欢喜”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "极大的快乐"
+        "target_label": "欢乐；喜悦；令人高兴的人或事"
       }
     },
     "senses": [
       {
-        "id": "sense:joy:6d6f18b6a40f55d7",
-        "source_locator": "record.senses[0]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使快乐",
-        "definition_en": "to make someone happy",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e25a74af0f065e929da4",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "joy sb with + sth",
-            "meaning_cn": "用某事使某人高兴",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e25a74af0f065e929da4",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "joy sb with + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:joy:6d6f18b6a40f55d7",
-          "target_locator": "record.senses[0]",
-          "target_label": "使快乐"
-        }
-      },
-      {
         "id": "sense:joy:e2d7bd2601b65f84",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "欢乐；高兴；喜悦",
@@ -8926,44 +9134,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:joy:e2d7bd2601b65f84",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "欢乐；高兴；喜悦"
         }
       },
       {
-        "id": "sense:joy:d4d7a261833850b2",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + in",
-        "definition_cn": "欢喜，高兴",
-        "definition_en": "to feel joy",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:1c99304515fda81fe012",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "joy in + sth",
-            "meaning_cn": "因某事而高兴",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1c99304515fda81fe012",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "joy in + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:joy:d4d7a261833850b2",
-          "target_locator": "record.senses[2]",
-          "target_label": "欢喜，高兴"
-        }
-      },
-      {
         "id": "sense:joy:54609453243551b3",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "乐事；令人高兴的人或事",
@@ -8973,7 +9150,7 @@
         "usage": [
           {
             "id": "collocation:faa897eeb7a643149c1b",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a joy to do/use/watch",
             "meaning_cn": "做/使用/观看起来令人愉快",
             "kind": "usage_example",
@@ -8983,7 +9160,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:joy:54609453243551b3",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[1]",
           "target_label": "乐事；令人高兴的人或事"
         }
       }
@@ -9014,7 +9191,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e25a74af0f065e929da4",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:joy:6d6f18b6a40f55d7:collocation:0"
+              ],
+              "meaning_cn": "用某事使某人高兴",
+              "phrase": "joy sb with + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使快乐",
+          "definition_en": "to make someone happy",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:joy:6d6f18b6a40f55d7",
+          "sense_label_en": "to make someone happy",
+          "sort_order": 0,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:1c99304515fda81fe012",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:joy:d4d7a261833850b2:collocation:0"
+              ],
+              "meaning_cn": "因某事而高兴",
+              "phrase": "joy in + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "欢喜，高兴",
+          "definition_en": "to feel joy",
+          "governing_pattern": "vi. + in",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:joy:d4d7a261833850b2",
+          "sense_label_en": "to feel joy",
+          "sort_order": 1,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -9023,7 +9250,7 @@
     "ordinal": 2679,
     "word": "judge",
     "source_owner_path": "content/lexical/words/by-ordinal/o2679.json",
-    "source_fingerprint": "c8fe4a5e8683ac9b5da07a11ad9eb28a38de61fce6c0ef379cdcf6e86e74f3e6",
+    "source_fingerprint": "06facbf3c51ab37e77de2a81466a2c071b2dd1a76ff698b6fa6b8b6a80874d04",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9034,7 +9261,7 @@
     },
     "word_feel": {
       "summary_cn": "判断；审判",
-      "decision_cn": "",
+      "decision_cn": "person → 法官；contest/case → 评判/审理；general evaluation → 判断；judge by/from → 根据证据判断。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9170,7 +9397,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:judge:judge-by-from",
+        "source_locator": "record.constructions[0]",
+        "pattern": "judge by/from sth",
+        "lines": [
+          {
+            "text": "根据…判断；从…来看",
+            "lang": "cn"
+          },
+          {
+            "text": "evidence-based evaluation pattern; distinct from serving as a judge in a contest or court",
+            "lang": "en"
+          },
+          {
+            "text": "to form an opinion based on particular evidence or information",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:judge:judge-by-from",
+          "target_locator": "record.constructions[0]",
+          "target_label": "judge by/from sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9566,23 +9819,65 @@
     "ordinal": 2682,
     "word": "jug",
     "source_owner_path": "content/lexical/words/by-ordinal/o2682.json",
-    "source_fingerprint": "3fcabd443629c892fb189dab85eefd998fdff51d5d9964c055d7eb084a54d40a",
-    "sense_lineage": [],
+    "source_fingerprint": "3a7c7280a3dd283793a4382885eea596598198297d30a4c158356d1c1d71d59a",
+    "sense_lineage": [
+      {
+        "word_id": "word:jug",
+        "target_kind": "sense",
+        "from_target_id": "sense:jug:032287bc75395cf0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jug",
+        "target_kind": "sense",
+        "from_target_id": "sense:jug:714927f5a3b85001",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jug",
+        "target_kind": "sense",
+        "from_target_id": "sense:jug:7b273211cbe65f24",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jug",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5c887fc6bf80e176ed55",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jug",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:84d71f67cdffeb44e2af",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jug",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8fcf5187cbb2284ede96",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "容器或监狱",
-      "decision_cn": "",
+      "summary_cn": "水壶；大罐",
+      "decision_cn": "现代中心 → 装水/饮料的壶或罐。监狱俚语、炖煮和关押动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "容器或监狱"
+        "target_label": "水壶；大罐"
       }
     },
     "senses": [
@@ -9610,89 +9905,6 @@
           "target_id": "sense:jug:0b8d5b59f17a5d38",
           "target_locator": "record.senses[0]",
           "target_label": "水壶，罐"
-        }
-      },
-      {
-        "id": "sense:jug:714927f5a3b85001",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "监狱",
-        "definition_en": "slang for prison",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:84d71f67cdffeb44e2af",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "in the jug",
-            "meaning_cn": "在监狱里",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:84d71f67cdffeb44e2af",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "in the jug"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jug:714927f5a3b85001",
-          "target_locator": "record.senses[1]",
-          "target_label": "监狱"
-        }
-      },
-      {
-        "id": "sense:jug:032287bc75395cf0",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "炖",
-        "definition_en": "stew (meat) in an earthenware jug",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5c887fc6bf80e176ed55",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "jugged hare",
-            "meaning_cn": "炖野兔",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jug:032287bc75395cf0",
-          "target_locator": "record.senses[2]",
-          "target_label": "炖"
-        }
-      },
-      {
-        "id": "sense:jug:7b273211cbe65f24",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "关押",
-        "definition_en": "put in prison",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8fcf5187cbb2284ede96",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "jug a criminal",
-            "meaning_cn": "关押罪犯",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jug:7b273211cbe65f24",
-          "target_locator": "record.senses[3]",
-          "target_label": "关押"
         }
       }
     ],
@@ -9722,7 +9934,81 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:84d71f67cdffeb44e2af",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:jug:714927f5a3b85001:collocation:0"
+              ],
+              "meaning_cn": "在监狱里",
+              "phrase": "in the jug"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "监狱",
+          "definition_en": "slang for prison",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:jug:714927f5a3b85001",
+          "sense_label_en": "slang for prison",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:5c887fc6bf80e176ed55",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:jug:032287bc75395cf0:collocation:0"
+              ],
+              "meaning_cn": "炖野兔",
+              "phrase": "jugged hare"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "炖",
+          "definition_en": "stew (meat) in an earthenware jug",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:jug:032287bc75395cf0",
+          "sense_label_en": "stew (meat) in an earthenware jug",
+          "sort_order": 2,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:8fcf5187cbb2284ede96",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:jug:7b273211cbe65f24:collocation:0"
+              ],
+              "meaning_cn": "关押罪犯",
+              "phrase": "jug a criminal"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "关押",
+          "definition_en": "put in prison",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:jug:7b273211cbe65f24",
+          "sense_label_en": "put in prison",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -9731,18 +10017,33 @@
     "ordinal": 2683,
     "word": "juice",
     "source_owner_path": "content/lexical/words/by-ordinal/o2683.json",
-    "source_fingerprint": "ea361846265eccdedcacef9ccd8cc5782e52ef533a676cc6b0d43610a3ad5b4f",
-    "sense_lineage": [],
+    "source_fingerprint": "5cdae6be433a452b258a85e162e4fb9aceb06e2866a49c218eefcd2081f11d1c",
+    "sense_lineage": [
+      {
+        "word_id": "word:juice",
+        "target_kind": "sense",
+        "from_target_id": "sense:juice:bf5b131c81aa555e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:juice",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5cab365f34699f3030fb",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "从食物中提取的液体或活力",
-      "decision_cn": "",
+      "decision_cn": "food → 果汁/汁液；biology → digestive juices 等体液；figurative → 活力；verb → 榨汁。旧式/俚语“电流”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9817,34 +10118,8 @@
         }
       },
       {
-        "id": "sense:juice:bf5b131c81aa555e",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "电流",
-        "definition_en": "electric current",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5cab365f34699f3030fb",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "the juice is on",
-            "meaning_cn": "通电了",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:juice:bf5b131c81aa555e",
-          "target_locator": "record.senses[2]",
-          "target_label": "电流"
-        }
-      },
-      {
         "id": "sense:juice:d15b792ba7a15822",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "体液",
@@ -9854,7 +10129,7 @@
         "usage": [
           {
             "id": "collocation:706222c4a6fd8ede7a51",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "digestive juices",
             "meaning_cn": "消化液",
             "kind": "usage_example",
@@ -9864,13 +10139,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:juice:d15b792ba7a15822",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "体液"
         }
       },
       {
         "id": "sense:juice:ceb91d52a11d5922",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "榨汁",
@@ -9880,7 +10155,7 @@
         "usage": [
           {
             "id": "collocation:354730cab900faffe5a9",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "juice an orange",
             "meaning_cn": "榨橙汁",
             "kind": "usage_example",
@@ -9890,7 +10165,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:juice:ceb91d52a11d5922",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "榨汁"
         }
       }
@@ -10025,10 +10300,6 @@
           0,
           2
         ],
-        "sense:juice:bf5b131c81aa555e": [
-          0,
-          2
-        ],
         "sense:juice:d15b792ba7a15822": [
           0,
           2
@@ -10046,7 +10317,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:5cab365f34699f3030fb",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:juice:bf5b131c81aa555e:collocation:0"
+              ],
+              "meaning_cn": "通电了",
+              "phrase": "the juice is on"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "电流",
+          "definition_en": "electric current",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:juice:bf5b131c81aa555e",
+          "sense_label_en": "electric current",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -10253,18 +10550,33 @@
     "ordinal": 2685,
     "word": "jump",
     "source_owner_path": "content/lexical/words/by-ordinal/o2685.json",
-    "source_fingerprint": "5e7b2f8ad24e296fdc599cf7701708f76630741155a3a98a1969dad009b89a65",
-    "sense_lineage": [],
+    "source_fingerprint": "abe3a361706534e6d65b124e770d860ff625acb944908b1b7590a0c7c83c1b23",
+    "sense_lineage": [
+      {
+        "word_id": "word:jump",
+        "target_kind": "sense",
+        "from_target_id": "sense:jump:4d11c006a78c5b6a",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:jump",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c8cde16a9fd469899801",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "跳跃；突然上升",
-      "decision_cn": "",
+      "decision_cn": "physical → 跳跃；numbers/prices → 猛增；jump to conclusions → 草率下结论。电影“跳切”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10396,34 +10708,8 @@
         }
       },
       {
-        "id": "sense:jump:4d11c006a78c5b6a",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（电影）跳切，跳跃式转换",
-        "definition_en": "a sudden transition from one scene to another in a film",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c8cde16a9fd469899801",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "jump cut",
-            "meaning_cn": "跳切",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:jump:4d11c006a78c5b6a",
-          "target_locator": "record.senses[4]",
-          "target_label": "（电影）跳切，跳跃式转换"
-        }
-      },
-      {
         "id": "sense:jump:633bf241533259eb",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "跳伞",
@@ -10433,7 +10719,7 @@
         "usage": [
           {
             "id": "collocation:f54b95f3e4bc9e8aee1d",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "a parachute jump",
             "meaning_cn": "跳伞",
             "kind": "usage_example",
@@ -10443,13 +10729,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:jump:633bf241533259eb",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "跳伞"
         }
       },
       {
         "id": "sense:jump:fae54dc345b37bc9",
-        "source_locator": "record.senses[6]",
+        "source_locator": "record.senses[5]",
         "pos": "verb",
         "governing_pattern": "vi.",
         "definition_cn": "猛增；突然上升",
@@ -10459,7 +10745,7 @@
         "usage": [
           {
             "id": "collocation:01d8ade53cb8fd07e74b",
-            "source_locator": "record.senses[6].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "prices jumped",
             "meaning_cn": "价格猛增",
             "kind": "usage_example",
@@ -10467,14 +10753,14 @@
           },
           {
             "id": "collocation:5258d3c8b4a8c300edcc",
-            "source_locator": "record.senses[6].collocations[1]",
+            "source_locator": "record.senses[5].collocations[1]",
             "phrase": "jump by/to + amount",
             "meaning_cn": "猛增了/猛增至某数值",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:5258d3c8b4a8c300edcc",
-              "target_locator": "record.senses[6].collocations[1]",
+              "target_locator": "record.senses[5].collocations[1]",
               "target_label": "jump by/to + amount"
             }
           }
@@ -10482,7 +10768,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:jump:fae54dc345b37bc9",
-          "target_locator": "record.senses[6]",
+          "target_locator": "record.senses[5]",
           "target_label": "猛增；突然上升"
         }
       }
@@ -10542,12 +10828,64 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:jump:jump-to-conclusions",
+        "source_locator": "record.constructions[0]",
+        "pattern": "jump to conclusions / jump to a conclusion",
+        "lines": [
+          {
+            "text": "草率下结论；过早作出判断",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative rapid-inference idiom; distinct from physical jumping or a numerical increase",
+            "lang": "en"
+          },
+          {
+            "text": "to decide something too quickly before considering enough evidence",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:jump:jump-to-conclusions",
+          "target_locator": "record.constructions[0]",
+          "target_label": "jump to conclusions / jump to a conclusion"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:c8cde16a9fd469899801",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:jump:4d11c006a78c5b6a:collocation:0"
+              ],
+              "meaning_cn": "跳切",
+              "phrase": "jump cut"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（电影）跳切，跳跃式转换",
+          "definition_en": "a sudden transition from one scene to another in a film",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:jump:4d11c006a78c5b6a",
+          "sense_label_en": "a sudden transition from one scene to another in a film",
+          "sort_order": 4,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -10556,17 +10894,39 @@
     "ordinal": 2686,
     "word": "junction",
     "source_owner_path": "content/lexical/words/by-ordinal/o2686.json",
-    "source_fingerprint": "9061cf887a8d4b25a914377f77658252c25bed25fabddd2dbc9cbe0944f201eb",
-    "sense_lineage": [],
+    "source_fingerprint": "64794e4d80cc50d68dc1005ab1480e020d6e2b1b7ee0eff928dfb567d4f4becd",
+    "sense_lineage": [
+      {
+        "word_id": "word:junction",
+        "target_kind": "sense",
+        "from_target_id": "sense:junction:8fbd66652aaa50bb",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:junction",
+        "target_kind": "sense",
+        "from_target_id": "sense:junction:d7d967a375ea5abc",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:junction",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:73fa4d8059de99843cb8",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "连接点；交叉口",
-      "decision_cn": "",
+      "decision_cn": "general → 道路/线路/事物的交汇点。工程“接合状态”和“接头”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10613,49 +10973,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "连接点；交叉点"
         }
-      },
-      {
-        "id": "sense:junction:d7d967a375ea5abc",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "连接状态；接合",
-        "definition_en": "the state of being joined together",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:73fa4d8059de99843cb8",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "junction box",
-            "meaning_cn": "接线盒",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:junction:d7d967a375ea5abc",
-          "target_locator": "record.senses[1]",
-          "target_label": "连接状态；接合"
-        }
-      },
-      {
-        "id": "sense:junction:8fbd66652aaa50bb",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "连接物；接头",
-        "definition_en": "something that joins or connects",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:junction:8fbd66652aaa50bb",
-          "target_locator": "record.senses[2]",
-          "target_label": "连接物；接头"
-        }
       }
     ],
     "pronunciation_support": {
@@ -10694,7 +11011,47 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:73fa4d8059de99843cb8",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:junction:d7d967a375ea5abc:collocation:0"
+              ],
+              "meaning_cn": "接线盒",
+              "phrase": "junction box"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "连接状态；接合",
+          "definition_en": "the state of being joined together",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:junction:d7d967a375ea5abc",
+          "sense_label_en": "the state of being joined together",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "连接物；接头",
+          "definition_en": "something that joins or connects",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:junction:8fbd66652aaa50bb",
+          "sense_label_en": "something that joins or connects",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {

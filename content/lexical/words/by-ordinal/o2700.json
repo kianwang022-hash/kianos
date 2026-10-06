@@ -23,14 +23,6 @@
           ]
         },
         {
-          "label_cn": "调音；锁上",
-          "label_en": "to adjust the pitch of something, or to provide with a key",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:key:1ed5500a2e455da1"
-          ]
-        },
-        {
           "label_cn": "关键的；非常重要的",
           "label_en": "very important or essential",
           "pos": "adjective",
@@ -41,7 +33,7 @@
       ],
       "core_meaning_cn": "钥匙；关键",
       "core_meaning_en": "a device or piece of information that opens or unlocks something",
-      "mental_model_cn": "钥匙；关键",
+      "mental_model_cn": "object → 钥匙/按键；solution/importance → 关键；answer key → 答案；music → 调；adjective → 关键的。低价值“调音/锁上”动词义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -149,30 +141,6 @@
         "sense_label_en": "a button on a keyboard or musical instrument",
         "sort_order": 3,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:579a1fafdbe865f33e91",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:key:1ed5500a2e455da1:collocation:0"
-            ],
-            "meaning_cn": "给乐器调音",
-            "phrase": "key the instrument"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "调音；锁上",
-        "definition_en": "to adjust the pitch of something, or to provide with a key",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:key:1ed5500a2e455da1",
-        "sense_label_en": "to adjust the pitch of something, or to provide with a key",
-        "sort_order": 5,
-        "transitivity": "vt"
       },
       {
         "collocations": [
@@ -742,12 +710,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:579a1fafdbe865f33e91",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:key:1ed5500a2e455da1:collocation:0"
+          ],
+          "meaning_cn": "给乐器调音",
+          "phrase": "key the instrument"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "调音；锁上",
+      "definition_en": "to adjust the pitch of something, or to provide with a key",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:key:1ed5500a2e455da1",
+      "sense_label_en": "to adjust the pitch of something, or to provide with a key",
+      "sort_order": 5,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:key:1ed5500a2e455da1",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7460,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
@@ -798,7 +791,6 @@
     "active_collocations": [
       "collocation:0978f1e7f4d8701038ef",
       "collocation:24565dc5a2515e4f0dc6",
-      "collocation:579a1fafdbe865f33e91",
       "collocation:85489f0590f1f1b5cc6c",
       "collocation:9627166524324ae1b0f5",
       "collocation:c2c2cf244087d952a82f"
@@ -818,7 +810,9 @@
       {
         "id": "collocation:579a1fafdbe865f33e91",
         "source_row": 7391,
-        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:85489f0590f1f1b5cc6c",

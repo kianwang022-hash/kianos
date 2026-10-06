@@ -35,14 +35,13 @@
           "label_en": "to officially give, publish, or announce something; to come, go, or flow out from a source",
           "pos": "verb",
           "sense_ids": [
-            "sense:issue:a291830049085a52",
-            "sense:issue:0c17b8f87e4657c3"
+            "sense:issue:a291830049085a52"
           ]
         }
       ],
       "core_meaning_cn": "被提出、发布或产生出来并需要面对的东西",
       "core_meaning_en": "something brought out, raised, released, or produced and then dealt with",
-      "mental_model_cn": "把 issue 想成“被抛到面前”：议题被提出、声明被发布、刊物被发行。",
+      "mental_model_cn": "problem/topic → 议题；official action → 发布/签发；publication → 一期。正式/文学“从某处流出、发出”动词义保留为 Reference。",
       "mental_model_en": "An issue moves outward into public attention: a topic is raised, a statement is released, or an edition is produced."
     },
     "exam_paraphrases": [],
@@ -280,50 +279,6 @@
             "source": "ai_curated_mvp_v1"
           }
         ]
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9a00056bb46459f874e0",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:issue:0c17b8f87e4657c3:collocation:0"
-            ],
-            "meaning_cn": "从某处流出或发出",
-            "meaning_en": "to come, go, or flow out from a source",
-            "phrase": "issue from"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "从某处流出或发出",
-        "definition_en": "to come, go, or flow out from a source",
-        "depth": "recognition_only",
-        "domain_tag": "formal",
-        "frequency_tag": "low",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:issue:0c17b8f87e4657c3",
-        "sense_label_en": "flow or come out",
-        "sort_order": 3,
-        "source_evidence": [
-          {
-            "role": "local_evidence",
-            "source": "kaoyan"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_ecdict"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_oewn"
-          },
-          {
-            "role": "local_evidence",
-            "source": "ai_curated_mvp_v1"
-          }
-        ]
       }
     ],
     "verification_summary": {
@@ -482,12 +437,57 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:9a00056bb46459f874e0",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:issue:0c17b8f87e4657c3:collocation:0"
+          ],
+          "meaning_cn": "从某处流出或发出",
+          "meaning_en": "to come, go, or flow out from a source",
+          "phrase": "issue from"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "从某处流出或发出",
+      "definition_en": "to come, go, or flow out from a source",
+      "depth": "recognition_only",
+      "domain_tag": "formal",
+      "frequency_tag": "low",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:issue:0c17b8f87e4657c3",
+      "sense_label_en": "flow or come out",
+      "sort_order": 3,
+      "source_evidence": [
+        {
+          "role": "local_evidence",
+          "source": "kaoyan"
+        },
+        {
+          "role": "local_evidence",
+          "source": "local_ecdict"
+        },
+        {
+          "role": "local_evidence",
+          "source": "local_oewn"
+        },
+        {
+          "role": "local_evidence",
+          "source": "ai_curated_mvp_v1"
+        }
+      ]
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:issue:0c17b8f87e4657c3",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7309,
         "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
@@ -519,7 +519,6 @@
       "collocation:3f96ef07eecf7daa0c9f",
       "collocation:6a09424b682f0dcfc92c",
       "collocation:6a7a7503892cce3ed580",
-      "collocation:9a00056bb46459f874e0",
       "collocation:a8a772b22520dbc10a5d",
       "collocation:a9a8ee09a463c62a9bb1",
       "collocation:b6f22c72f50ab1136bf8",
@@ -556,7 +555,9 @@
       {
         "id": "collocation:9a00056bb46459f874e0",
         "source_row": 13128,
-        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:a8a772b22520dbc10a5d",

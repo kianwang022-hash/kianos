@@ -11,15 +11,6 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "使快乐；欢喜，高兴",
-          "label_en": "to make someone happy; to feel joy",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:joy:6d6f18b6a40f55d7",
-            "sense:joy:d4d7a261833850b2"
-          ]
-        },
-        {
           "label_cn": "喜悦；快乐；令人高兴的人或事",
           "label_en": "great happiness or pleasure; also a source of great pleasure",
           "pos": "noun",
@@ -28,9 +19,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "极大的快乐",
-      "core_meaning_en": "a feeling of great happiness",
-      "mental_model_cn": "极大的快乐",
+      "core_meaning_cn": "欢乐；喜悦；令人高兴的人或事",
+      "core_meaning_en": "great happiness; something or someone that gives pleasure",
+      "mental_model_cn": "noun joy → 喜悦；a joy to do/use/watch → 做/使用/观看很愉快。少见动词“使快乐/欢喜”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -41,30 +32,6 @@
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e25a74af0f065e929da4",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:joy:6d6f18b6a40f55d7:collocation:0"
-            ],
-            "meaning_cn": "用某事使某人高兴",
-            "phrase": "joy sb with + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "使快乐",
-        "definition_en": "to make someone happy",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:joy:6d6f18b6a40f55d7",
-        "sense_label_en": "to make someone happy",
-        "sort_order": 0,
-        "transitivity": "vt"
-      },
       {
         "collocations": [],
         "confidence": "medium",
@@ -78,30 +45,6 @@
         "sense_label_en": "the emotion of great happiness or pleasure",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:1c99304515fda81fe012",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:joy:d4d7a261833850b2:collocation:0"
-            ],
-            "meaning_cn": "因某事而高兴",
-            "phrase": "joy in + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "欢喜，高兴",
-        "definition_en": "to feel joy",
-        "governing_pattern": "vi. + in",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:joy:d4d7a261833850b2",
-        "sense_label_en": "to feel joy",
-        "sort_order": 1,
-        "transitivity": "vi"
       },
       {
         "collocations": [
@@ -285,7 +228,56 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:e25a74af0f065e929da4",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:joy:6d6f18b6a40f55d7:collocation:0"
+          ],
+          "meaning_cn": "用某事使某人高兴",
+          "phrase": "joy sb with + sth"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "使快乐",
+      "definition_en": "to make someone happy",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:joy:6d6f18b6a40f55d7",
+      "sense_label_en": "to make someone happy",
+      "sort_order": 0,
+      "transitivity": "vt"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:1c99304515fda81fe012",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:joy:d4d7a261833850b2:collocation:0"
+          ],
+          "meaning_cn": "因某事而高兴",
+          "phrase": "joy in + sth"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "欢喜，高兴",
+      "definition_en": "to feel joy",
+      "governing_pattern": "vi. + in",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:joy:d4d7a261833850b2",
+      "sense_label_en": "to feel joy",
+      "sort_order": 1,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -297,14 +289,14 @@
       },
       {
         "sense_id": "sense:joy:6d6f18b6a40f55d7",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7388,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
       },
       {
         "sense_id": "sense:joy:d4d7a261833850b2",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7389,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
@@ -318,8 +310,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:1c99304515fda81fe012",
-      "collocation:e25a74af0f065e929da4",
       "collocation:faa897eeb7a643149c1b"
     ],
     "facts": [],
@@ -327,7 +317,9 @@
       {
         "id": "collocation:1c99304515fda81fe012",
         "source_row": 2365,
-        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:26e8845f05f270fb074d",
@@ -347,7 +339,9 @@
       {
         "id": "collocation:e25a74af0f065e929da4",
         "source_row": 19146,
-        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:faa897eeb7a643149c1b",

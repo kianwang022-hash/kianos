@@ -18,9 +18,9 @@
     "content_hash": "73ffc65b0dabbc84ee8b57c3d67d84bc2eef2bd692bc81a2759adb005f927f32",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "废弃或无价值的东西；也指中国式帆船",
-      "core_meaning_en": "discarded or worthless material; also a type of Chinese sailing ship",
-      "mental_model_cn": "废弃或无价值的东西；也指中国式帆船",
+      "core_meaning_cn": "垃圾；废旧杂物",
+      "core_meaning_en": "old, discarded, or worthless things",
+      "mental_model_cn": "modern default → 垃圾/废旧杂物；junk food → 垃圾食品。历史航海语境的“中国式帆船”义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -53,30 +53,6 @@
         "sense_id": "sense:junk:555bd5cfb5895a15",
         "sense_label_en": "old or unwanted objects that have no use or value",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:45c6641d85eca98f8a42",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:junk:6b7d8c5f0990530b:collocation:0"
-            ],
-            "meaning_cn": "一艘中国帆船",
-            "phrase": "a Chinese junk"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "中国式帆船；舢板",
-        "definition_en": "a Chinese sailing ship with a high stern and lugsails",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:junk:6b7d8c5f0990530b",
-        "sense_label_en": "a Chinese sailing ship with a high stern and lugsails",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -273,7 +249,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:45c6641d85eca98f8a42",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:junk:6b7d8c5f0990530b:collocation:0"
+          ],
+          "meaning_cn": "一艘中国帆船",
+          "phrase": "a Chinese junk"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "中国式帆船；舢板",
+      "definition_en": "a Chinese sailing ship with a high stern and lugsails",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:junk:6b7d8c5f0990530b",
+      "sense_label_en": "a Chinese sailing ship with a high stern and lugsails",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -285,15 +286,14 @@
       },
       {
         "sense_id": "sense:junk:6b7d8c5f0990530b",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7428,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
       }
     ],
     "active_collocations": [
-      "collocation:3aee9f2f93e533bf4b06",
-      "collocation:45c6641d85eca98f8a42"
+      "collocation:3aee9f2f93e533bf4b06"
     ],
     "facts": [],
     "collocations": [
@@ -305,7 +305,9 @@
       {
         "id": "collocation:45c6641d85eca98f8a42",
         "source_row": 5894,
-        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:910352caf8a8fe7c64ba",

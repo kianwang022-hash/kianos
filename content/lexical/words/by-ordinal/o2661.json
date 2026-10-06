@@ -25,14 +25,13 @@
           "pos": "verb",
           "sense_ids": [
             "sense:jar:66b4771a4d0b5549",
-            "sense:jar:5880be33eed15a05",
-            "sense:jar:21d2ab7c61b55595"
+            "sense:jar:5880be33eed15a05"
           ]
         }
       ],
       "core_meaning_cn": "容器或突然的不快震动",
       "core_meaning_en": "a container or a sudden unpleasant shock",
-      "mental_model_cn": "容器或突然的不快震动",
+      "mental_model_cn": "container → 罐/瓶；physical/emotional effect → 震动、使不快。较低频 jar with = 不协调/冲突 保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -138,30 +137,6 @@
         "sense_label_en": "to have an unpleasant effect on someone",
         "sort_order": 3,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:8dd68ea348203a87af46",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:jar:21d2ab7c61b55595:collocation:0"
-            ],
-            "meaning_cn": "与…不一致",
-            "phrase": "jar with + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "不一致，冲突",
-        "definition_en": "to be incongruent or clash",
-        "governing_pattern": "vi. + with",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:jar:21d2ab7c61b55595",
-        "sense_label_en": "to be incongruent or clash",
-        "sort_order": 4,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -490,12 +465,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:8dd68ea348203a87af46",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:jar:21d2ab7c61b55595:collocation:0"
+          ],
+          "meaning_cn": "与…不一致",
+          "phrase": "jar with + sth"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "不一致，冲突",
+      "definition_en": "to be incongruent or clash",
+      "governing_pattern": "vi. + with",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:jar:21d2ab7c61b55595",
+      "sense_label_en": "to be incongruent or clash",
+      "sort_order": 4,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:jar:21d2ab7c61b55595",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7334,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
@@ -532,7 +532,6 @@
     "active_collocations": [
       "collocation:222287f9aea0e93ed7e0",
       "collocation:3120bde8b46831e4dc09",
-      "collocation:8dd68ea348203a87af46",
       "collocation:b0ae40a74673ef8a0e87",
       "collocation:e0fb35684920247a90dc"
     ],
@@ -551,7 +550,9 @@
       {
         "id": "collocation:8dd68ea348203a87af46",
         "source_row": 12031,
-        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:b0ae40a74673ef8a0e87",
