@@ -326,13 +326,27 @@
     "ordinal": 2179,
     "word": "graduate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2179.json",
-    "source_fingerprint": "9fb79b38e623c1aa807fa9426d27f1a23a1b30be67c4b681ec024c6e7a6624b7",
+    "source_fingerprint": "cb93ee9bacd245034e2378b66d0774f2ee189a4cea22f997021d83909833e677",
     "sense_lineage": [
+      {
+        "word_id": "word:graduate",
+        "target_kind": "sense",
+        "from_target_id": "sense:graduate:6c6f513341cd510c",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:graduate",
         "target_kind": "sense",
         "from_target_id": "sense:graduate:b4dd98fe37e055eb",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:graduate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5eca195765ce1fec8e0f",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -340,13 +354,13 @@
       "parts": [
         "2V",
         "1A",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "毕业；毕业生；研究生的",
-      "decision_cn": "",
+      "decision_cn": "education verb/noun → 毕业/毕业生；graduate + noun → 研究生层级。旧式/专业“刻度量器”名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -470,32 +484,6 @@
           "target_id": "sense:graduate:7e5ff946afe05cea",
           "target_locator": "record.senses[3]",
           "target_label": "授予...学位，准予...毕业"
-        }
-      },
-      {
-        "id": "sense:graduate:6c6f513341cd510c",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "量杯",
-        "definition_en": "a measuring instrument for fluid volume",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5eca195765ce1fec8e0f",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "a graduated cylinder",
-            "meaning_cn": "量筒",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:graduate:6c6f513341cd510c",
-          "target_locator": "record.senses[4]",
-          "target_label": "量杯"
         }
       }
     ],
@@ -706,10 +694,6 @@
         }
       ],
       "sense_readings": {
-        "sense:graduate:6c6f513341cd510c": [
-          0,
-          1
-        ],
         "sense:graduate:b808f278d74a5ca9": [
           0,
           1
@@ -783,6 +767,30 @@
           "source_row": 6075,
           "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:5eca195765ce1fec8e0f",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:graduate:6c6f513341cd510c:collocation:0"
+              ],
+              "meaning_cn": "量筒",
+              "phrase": "a graduated cylinder"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "量杯",
+          "definition_en": "a measuring instrument for fluid volume",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:graduate:6c6f513341cd510c",
+          "sense_label_en": "a measuring instrument for fluid volume",
+          "sort_order": 4,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -793,8 +801,15 @@
     "ordinal": 2180,
     "word": "grain",
     "source_owner_path": "content/lexical/words/by-ordinal/o2180.json",
-    "source_fingerprint": "ee42a4f139388e21cdc5c4501471d5f0d4f80d470b5ea5e6aa8d481922da7a0b",
+    "source_fingerprint": "391bcf632bfe4a4cd59bdd8664a60cc9616a92aa8048b391ac7cc272422ce2f4",
     "sense_lineage": [
+      {
+        "word_id": "word:grain",
+        "target_kind": "sense",
+        "from_target_id": "sense:grain:155cf8e89c8b533d",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:grain",
         "target_kind": "sense",
@@ -805,13 +820,13 @@
     ],
     "recall_map": {
       "parts": [
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "颗粒或谷物",
-      "decision_cn": "",
+      "decision_cn": "particle → 颗粒；food/agriculture → 谷物/谷粒；material → 纹理。格令重量单位保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -897,23 +912,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "纹理"
         }
-      },
-      {
-        "id": "sense:grain:155cf8e89c8b533d",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "格令（重量单位）",
-        "definition_en": "a unit of weight equal to 50 mg or 1/4 carat",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:grain:155cf8e89c8b533d",
-          "target_locator": "record.senses[3]",
-          "target_label": "格令（重量单位）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -989,6 +987,20 @@
           "source_row": 6080,
           "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "格令（重量单位）",
+          "definition_en": "a unit of weight equal to 50 mg or 1/4 carat",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:grain:155cf8e89c8b533d",
+          "sense_label_en": "a unit of weight equal to 50 mg or 1/4 carat",
+          "sort_order": 3,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -1342,17 +1354,25 @@
     "ordinal": 2184,
     "word": "grandmother",
     "source_owner_path": "content/lexical/words/by-ordinal/o2184.json",
-    "source_fingerprint": "5280bd123085843bb5db94a44e31eb3b6a94c79c8f9ac16ed0cb58f8022c5eb5",
-    "sense_lineage": [],
+    "source_fingerprint": "90a0a2c72fabd1962414784c77bd8a25bf4b381a214d2eb1d1bc840bef717ebb",
+    "sense_lineage": [
+      {
+        "word_id": "word:grandmother",
+        "target_kind": "sense",
+        "from_target_id": "sense:grandmother:698eb59f373f5efd",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "祖母，外祖母",
-      "decision_cn": "",
+      "decision_cn": "family → 祖母/外祖母。泛指女性祖先的延伸义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1394,23 +1414,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "祖母；外祖母"
         }
-      },
-      {
-        "id": "sense:grandmother:698eb59f373f5efd",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "女祖先",
-        "definition_en": "a female ancestor",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:grandmother:698eb59f373f5efd",
-          "target_locator": "record.senses[1]",
-          "target_label": "女祖先"
-        }
       }
     ],
     "pronunciation_support": {
@@ -1438,7 +1441,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "女祖先",
+          "definition_en": "a female ancestor",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:grandmother:698eb59f373f5efd",
+          "sense_label_en": "a female ancestor",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -2293,18 +2312,32 @@
     "ordinal": 2190,
     "word": "grass",
     "source_owner_path": "content/lexical/words/by-ordinal/o2190.json",
-    "source_fingerprint": "51aef0de359d9b55705d06e11fc1648ac49b365b6650e10dda7606c593b8ed8e",
-    "sense_lineage": [],
+    "source_fingerprint": "7c134d000fb9019840470549c1d9862b00aff880dc4012a2a741a3164054d56d",
+    "sense_lineage": [
+      {
+        "word_id": "word:grass",
+        "target_kind": "sense",
+        "from_target_id": "sense:grass:d4199406bb005f46",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:grass",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1840733fca5bf7e5c27e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "覆盖地面的绿色草本植物",
-      "decision_cn": "",
+      "decision_cn": "plant/surface → 草、草地；BrE grass on sb → 向警方/权威告发某人。园艺“用草覆盖/种草”动词保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2380,32 +2413,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "草地；草坪；牧场"
         }
-      },
-      {
-        "id": "sense:grass:d4199406bb005f46",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "用草覆盖；种草于",
-        "definition_en": "to cover with grass",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:1840733fca5bf7e5c27e",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "grass a lawn",
-            "meaning_cn": "给草坪种草",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:grass:d4199406bb005f46",
-          "target_locator": "record.senses[2]",
-          "target_label": "用草覆盖；种草于"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2437,12 +2444,64 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:grass:grass-on",
+        "source_locator": "record.constructions[0]",
+        "pattern": "grass on sb (to sb/the police)",
+        "lines": [
+          {
+            "text": "向警方或权威告发某人（英式俚语）",
+            "lang": "cn"
+          },
+          {
+            "text": "UK slang informer sense; distinct from literal grass/grassland and the low-value landscaping verb",
+            "lang": "en"
+          },
+          {
+            "text": "to tell the police or another authority about something bad someone has done",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:grass:grass-on",
+          "target_locator": "record.constructions[0]",
+          "target_label": "grass on sb (to sb/the police)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:1840733fca5bf7e5c27e",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:grass:d4199406bb005f46:collocation:0"
+              ],
+              "meaning_cn": "给草坪种草",
+              "phrase": "grass a lawn"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "用草覆盖；种草于",
+          "definition_en": "to cover with grass",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:grass:d4199406bb005f46",
+          "sense_label_en": "to cover with grass",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -2686,7 +2745,7 @@
     "ordinal": 2193,
     "word": "grave",
     "source_owner_path": "content/lexical/words/by-ordinal/o2193.json",
-    "source_fingerprint": "405f9c0503955e1f264abaf7d2bf5431509878d025ba9bd5b160d3b602ed3a9d",
+    "source_fingerprint": "eaf7cec72392f420f7a339918967f5533262b40ff0115d5818bdb29b82a32222",
     "sense_lineage": [
       {
         "word_id": "word:grave",
@@ -2694,11 +2753,24 @@
         "from_target_id": "sense:grave:d1501ca3121657a5",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:grave",
+        "target_kind": "sense",
+        "from_target_id": "sense:grave:e4eb80e9cf5459fb",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:grave",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:46fafe90aa7cccd62a6f",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1V",
         "1A",
         "1N"
       ],
@@ -2706,7 +2778,7 @@
     },
     "word_feel": {
       "summary_cn": "坟墓；严肃的，重大的",
-      "decision_cn": "",
+      "decision_cn": "noun → 坟墓；adjective → 严重/严肃。旧式“雕刻”动词保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2765,32 +2837,6 @@
           "target_id": "sense:grave:339728c975225348",
           "target_locator": "record.senses[1]",
           "target_label": "重大的，严重的；严肃的"
-        }
-      },
-      {
-        "id": "sense:grave:e4eb80e9cf5459fb",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "雕刻",
-        "definition_en": "carve or engrave on a surface",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:46fafe90aa7cccd62a6f",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "grave a design on stone",
-            "meaning_cn": "在石头上雕刻图案",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:grave:e4eb80e9cf5459fb",
-          "target_locator": "record.senses[2]",
-          "target_label": "雕刻"
         }
       }
     ],
@@ -2913,6 +2959,30 @@
           "source_row": 6114,
           "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:46fafe90aa7cccd62a6f",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:grave:e4eb80e9cf5459fb:collocation:0"
+              ],
+              "meaning_cn": "在石头上雕刻图案",
+              "phrase": "grave a design on stone"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "雕刻",
+          "definition_en": "carve or engrave on a surface",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:grave:e4eb80e9cf5459fb",
+          "sense_label_en": "carve or engrave on a surface",
+          "sort_order": 2,
+          "transitivity": "vt"
         }
       ]
     }
@@ -3257,26 +3327,40 @@
     "ordinal": 2196,
     "word": "grease",
     "source_owner_path": "content/lexical/words/by-ordinal/o2196.json",
-    "source_fingerprint": "6caf489530051c85dc79e1da51383a9530c7b0042cf96c1a9c3ed312ef2365bf",
+    "source_fingerprint": "1b3b705319f3f1f13bdfd06be33eeb670a016c291d6bf0da6e257a0a18f56c29",
     "sense_lineage": [
+      {
+        "word_id": "word:grease",
+        "target_kind": "sense",
+        "from_target_id": "sense:grease:0c0bf486b96755c4",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:grease",
         "target_kind": "sense",
         "from_target_id": "sense:grease:1cdbcda9a3e9552f",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:grease",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:72d4e3b378419c3f6292",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "油脂；润滑",
-      "decision_cn": "",
+      "decision_cn": "literal → 油脂/润滑；grease + object → 涂油/润滑；grease sb's palm → 行贿；grease the wheels → 使事情更顺利。孤立“贿赂”名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3330,39 +3414,8 @@
         }
       },
       {
-        "id": "sense:grease:0c0bf486b96755c4",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "贿赂",
-        "definition_en": "a bribe",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:72d4e3b378419c3f6292",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "grease money",
-            "meaning_cn": "贿赂金",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:72d4e3b378419c3f6292",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "grease money"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:grease:0c0bf486b96755c4",
-          "target_locator": "record.senses[1]",
-          "target_label": "贿赂"
-        }
-      },
-      {
         "id": "sense:grease:6a82472449745ebc",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "grease sth",
         "definition_cn": "给……加润滑油；涂油",
@@ -3373,7 +3426,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:grease:6a82472449745ebc",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "给……加润滑油；涂油"
         }
       }
@@ -3570,7 +3623,58 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:grease:grease-palm",
+        "source_locator": "record.constructions[0]",
+        "pattern": "grease sb's palm",
+        "lines": [
+          {
+            "text": "向某人行贿；收买某人",
+            "lang": "cn"
+          },
+          {
+            "text": "disapproving bribery idiom; not literal lubrication",
+            "lang": "en"
+          },
+          {
+            "text": "to secretly give someone money so they will do what you want",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:grease:grease-palm",
+          "target_locator": "record.constructions[0]",
+          "target_label": "grease sb's palm"
+        }
+      },
+      {
+        "id": "construction:grease:grease-wheels",
+        "source_locator": "record.constructions[1]",
+        "pattern": "grease the wheels (of sth)",
+        "lines": [
+          {
+            "text": "使事情更顺利；为…疏通",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative facilitation idiom; not literal lubrication",
+            "lang": "en"
+          },
+          {
+            "text": "to make a process or activity happen more easily",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:grease:grease-wheels",
+          "target_locator": "record.constructions[1]",
+          "target_label": "grease the wheels (of sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3601,6 +3705,30 @@
           "source_row": 6124,
           "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:72d4e3b378419c3f6292",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:grease:0c0bf486b96755c4:collocation:0"
+              ],
+              "meaning_cn": "贿赂金",
+              "phrase": "grease money"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "贿赂",
+          "definition_en": "a bribe",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:grease:0c0bf486b96755c4",
+          "sense_label_en": "a bribe",
+          "sort_order": 2,
+          "transitivity": "nonverb"
         }
       ]
     }

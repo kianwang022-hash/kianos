@@ -897,7 +897,8 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,      "family": []
+      "form": null,
+      "family": []
     }
   },
   {
@@ -1796,7 +1797,8 @@
             {
               "surface": "genuine"
             }
-          ],          "evidence_basis": "source_ipa",
+          ],
+          "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
@@ -2695,7 +2697,8 @@
       },
       {
         "id": "sense:get:67189d7e8a9356e2",
-        "source_locator": "record.senses[4]",        "pos": "verb",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
         "governing_pattern": "get + sth / get what/why/how + clause",
         "definition_cn": "理解；明白",
         "definition_en": "to understand or grasp the meaning of something",
@@ -3594,7 +3597,8 @@
           {
             "id": "collocation:099305d4b72db41a6770",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "little girl",            "meaning_cn": "小女孩",
+            "phrase": "little girl",
+            "meaning_cn": "小女孩",
             "kind": "usage_example",
             "repair": null
           }
@@ -4493,7 +4497,8 @@
         "target_id": null,
         "target_locator": "record.core_concept",
         "target_label": "快速看一眼"
-      }    },
+      }
+    },
     "senses": [
       {
         "id": "sense:glance:c029c758fef65e0a",
@@ -5392,7 +5397,8 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],      "form": null,
+      "relations": [],
+      "form": null,
       "family": [],
       "senses": [
         {
@@ -6154,7 +6160,7 @@
     "ordinal": 2151,
     "word": "glory",
     "source_owner_path": "content/lexical/words/by-ordinal/o2151.json",
-    "source_fingerprint": "f9e2a5ebe97411ac5b51968c8786330a05d62f73ee4947dc19a85984de48ec87",
+    "source_fingerprint": "4101b1ed673e9ceb3080cbbaac99bd2c6f77391e8de70557a4425507f510129b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6290,8 +6296,35 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
-    "reference": {      "confusables": [],
+    "constructions": [
+      {
+        "id": "construction:glory:glory-in",
+        "source_locator": "record.constructions[0]",
+        "pattern": "glory in sth",
+        "lines": [
+          {
+            "text": "因…而自豪；为…而欣喜",
+            "lang": "cn"
+          },
+          {
+            "text": "literary/formal verb use requires in + object",
+            "lang": "en"
+          },
+          {
+            "text": "to feel or show that you are very proud and happy about something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:glory:glory-in",
+          "target_locator": "record.constructions[0]",
+          "target_label": "glory in sth"
+        }
+      }
+    ],
+    "reference": {
+      "confusables": [],
       "relations": [],
       "form": null,
       "family": []
@@ -7190,7 +7223,8 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
-        },        {
+        },
+        {
           "ipa": "/ɡəʊl/",
           "locales": [
             "en-GB"
@@ -7363,18 +7397,32 @@
     "ordinal": 2158,
     "word": "god",
     "source_owner_path": "content/lexical/words/by-ordinal/o2158.json",
-    "source_fingerprint": "12dba230fc7b4d46b4a7959730d384654682ac5e8830f6783119665d83210c40",
-    "sense_lineage": [],
+    "source_fingerprint": "f8f90309f0d2fa514efb6951bb69c3c6d2633e6ae62a820481423bb42f375063",
+    "sense_lineage": [
+      {
+        "word_id": "word:god",
+        "target_kind": "sense",
+        "from_target_id": "sense:god:9422f35a294b5b16",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:god",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f81c3a9020f1f6213fd9",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "上帝；神；神祇",
-      "decision_cn": "",
+      "decision_cn": "religion → God/上帝或 a god/神祇；figurative idol → 被崇拜的人或物。罕见动词“使神化”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7444,39 +7492,8 @@
         }
       },
       {
-        "id": "sense:god:9422f35a294b5b16",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使神化",
-        "definition_en": "to make someone or something into a god",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f81c3a9020f1f6213fd9",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "god + sb/sth",
-            "meaning_cn": "神化某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f81c3a9020f1f6213fd9",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "god + sb/sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:god:9422f35a294b5b16",
-          "target_locator": "record.senses[2]",
-          "target_label": "使神化"
-        }
-      },
-      {
         "id": "sense:god:0f37fad99ce655b7",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "神；神祇",
@@ -7487,7 +7504,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:god:0f37fad99ce655b7",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "神；神祇"
         }
       }
@@ -7606,10 +7623,6 @@
           0,
           1
         ],
-        "sense:god:9422f35a294b5b16": [
-          0,
-          1
-        ],
         "sense:god:eea99b13a31f5f7c": [
           0,
           1
@@ -7648,7 +7661,33 @@
           "target_label": "God with a capital G is used for the supreme being in monotheistic religions; god is the common noun for a deity or figuratively an idolized person or thing."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f81c3a9020f1f6213fd9",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:god:9422f35a294b5b16:collocation:0"
+              ],
+              "meaning_cn": "神化某人/某物",
+              "phrase": "god + sb/sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使神化",
+          "definition_en": "to make someone or something into a god",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:god:9422f35a294b5b16",
+          "sense_label_en": "to make someone or something into a god",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -8089,7 +8128,8 @@
             }
           ],
           "evidence_basis": "source_ipa",
-          "spelling_binding": null        },
+          "spelling_binding": null
+        },
         {
           "ipa": "/ɡɒlf/",
           "locales": [
@@ -8122,7 +8162,7 @@
     "ordinal": 2162,
     "word": "good",
     "source_owner_path": "content/lexical/words/by-ordinal/o2162.json",
-    "source_fingerprint": "0b48a95387873509e4393fee2e5269f9f8290a58235a21edc1c42d59781e0458",
+    "source_fingerprint": "0b98608f11b7bb9ae7f6f50483bd902b472c6533c8f95804e33254da07063ad3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8133,7 +8173,7 @@
     },
     "word_feel": {
       "summary_cn": "好的；有益的",
-      "decision_cn": "",
+      "decision_cn": "quality → 好；benefit → 有益；noun good → 好处/善；for good → 永久地；as good as → 几乎、基本等于。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8282,6 +8322,56 @@
           "target_id": "construction:7ef46ca6b427e8153d68",
           "target_locator": "record.constructions[0]",
           "target_label": "be good at sth/doing sth"
+        }
+      },
+      {
+        "id": "construction:good:for-good",
+        "source_locator": "record.constructions[1]",
+        "pattern": "for good",
+        "lines": [
+          {
+            "text": "永久地；永远地",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed idiom; not ordinary good = beneficial",
+            "lang": "en"
+          },
+          {
+            "text": "permanently; forever",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:good:for-good",
+          "target_locator": "record.constructions[1]",
+          "target_label": "for good"
+        }
+      },
+      {
+        "id": "construction:good:as-good-as",
+        "source_locator": "record.constructions[2]",
+        "pattern": "as good as + adjective/past participle",
+        "lines": [
+          {
+            "text": "几乎；实际上已经",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed near-completion idiom, e.g. as good as finished",
+            "lang": "en"
+          },
+          {
+            "text": "almost; nearly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:good:as-good-as",
+          "target_locator": "record.constructions[2]",
+          "target_label": "as good as + adjective/past participle"
         }
       }
     ],
@@ -8463,7 +8553,7 @@
     "ordinal": 2164,
     "word": "goodness",
     "source_owner_path": "content/lexical/words/by-ordinal/o2164.json",
-    "source_fingerprint": "0ed165192b95f4a5bf764117e2f73b1f95354f11f4b56ef960d28a98e209bf1f",
+    "source_fingerprint": "1a5593cb2cc88979aa516e13941bb67640e97904e2ef81473a615a940c003541",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8473,7 +8563,7 @@
     },
     "word_feel": {
       "summary_cn": "善良，美德",
-      "decision_cn": "",
+      "decision_cn": "noun → 善良、美德；Goodness!/My goodness! → 表示惊讶等强烈情绪。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8540,7 +8630,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:goodness:exclamation",
+        "source_locator": "record.constructions[0]",
+        "pattern": "Goodness! / My goodness! / Goodness gracious!",
+        "lines": [
+          {
+            "text": "天哪；哎呀（表示惊讶等强烈情绪）",
+            "lang": "cn"
+          },
+          {
+            "text": "exclamatory use, not the moral-quality noun",
+            "lang": "en"
+          },
+          {
+            "text": "an exclamation expressing surprise or another strong emotion",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:goodness:exclamation",
+          "target_locator": "record.constructions[0]",
+          "target_label": "Goodness! / My goodness! / Goodness gracious!"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8742,18 +8858,33 @@
     "ordinal": 2166,
     "word": "goose",
     "source_owner_path": "content/lexical/words/by-ordinal/o2166.json",
-    "source_fingerprint": "45b7d7575c3bb880eba66c0f3386525502b94422bb544df84dd0eee1e52a85e9",
-    "sense_lineage": [],
+    "source_fingerprint": "0ac754ebd767bd1190761fabce708d70044e36cfe7f11db24d57378f5c454c20",
+    "sense_lineage": [
+      {
+        "word_id": "word:goose",
+        "target_kind": "sense",
+        "from_target_id": "sense:goose:ac5f8013f16d5a46",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:goose",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:09d633bfc0a81bf314e5",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "鹅；鹅肉",
-      "decision_cn": "",
+      "decision_cn": "bird/meat → 鹅/鹅肉；US informal verb → 催促、刺激、使更活跃。触碰臀部的粗俗/低杠杆义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8789,39 +8920,8 @@
         }
       },
       {
-        "id": "sense:goose:ac5f8013f16d5a46",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "掐（某人）的屁股",
-        "definition_en": "pinch in the buttocks",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:09d633bfc0a81bf314e5",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "goose sb",
-            "meaning_cn": "掐某人的屁股",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:09d633bfc0a81bf314e5",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "goose sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:goose:ac5f8013f16d5a46",
-          "target_locator": "record.senses[1]",
-          "target_label": "掐（某人）的屁股"
-        }
-      },
-      {
         "id": "sense:goose:f98c6ed8042c56ca",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "催促；激励",
@@ -8831,14 +8931,14 @@
         "usage": [
           {
             "id": "collocation:5b872846c57e1a756381",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "goose sb into doing sth",
             "meaning_cn": "催促某人做某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:5b872846c57e1a756381",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "goose sb into doing sth"
             }
           }
@@ -8846,13 +8946,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:goose:f98c6ed8042c56ca",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "催促；激励"
         }
       },
       {
         "id": "sense:goose:1437a359e4a153b0",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "鹅",
@@ -8863,7 +8963,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:goose:1437a359e4a153b0",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "鹅"
         }
       }
@@ -8927,7 +9027,33 @@
           "target_label": "goose has the irregular plural geese."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:09d633bfc0a81bf314e5",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:goose:ac5f8013f16d5a46:collocation:0"
+              ],
+              "meaning_cn": "掐某人的屁股",
+              "phrase": "goose sb"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "掐（某人）的屁股",
+          "definition_en": "pinch in the buttocks",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:goose:ac5f8013f16d5a46",
+          "sense_label_en": "pinch in the buttocks",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -8988,7 +9114,8 @@
           "target_locator": "record.senses[0]",
           "target_label": "华丽的；灿烂的"
         }
-      }    ],
+      }
+    ],
     "pronunciation_support": {
       "readings": [
         {
@@ -9169,17 +9296,32 @@
     "ordinal": 2169,
     "word": "govern",
     "source_owner_path": "content/lexical/words/by-ordinal/o2169.json",
-    "source_fingerprint": "3cdfe796151628159cc242accd7446dfb3f449617933ae8cc89add3905e0e59c",
-    "sense_lineage": [],
+    "source_fingerprint": "84e55a9d0c6cae026bebfc2c6909dcb6c8827ad8b04134f1c8435e831a886123",
+    "sense_lineage": [
+      {
+        "word_id": "word:govern",
+        "target_kind": "sense",
+        "from_target_id": "sense:govern:42b0915192da52c4",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:govern",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:cbff9ac2aa07e5fd0e21",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "控制或影响",
-      "decision_cn": "",
+      "decision_cn": "country/institution → 统治治理；rule/factor → 支配、影响。语言学“支配格/语气”等专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9239,32 +9381,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "支配；影响"
         }
-      },
-      {
-        "id": "sense:govern:42b0915192da52c4",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "（语法）支配（格、语态或语气）",
-        "definition_en": "require to be in a certain grammatical case, voice, or mood",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:cbff9ac2aa07e5fd0e21",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "govern the subjunctive",
-            "meaning_cn": "支配虚拟语气",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:govern:42b0915192da52c4",
-          "target_locator": "record.senses[2]",
-          "target_label": "（语法）支配（格、语态或语气）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9305,7 +9421,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:cbff9ac2aa07e5fd0e21",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:govern:42b0915192da52c4:collocation:0"
+              ],
+              "meaning_cn": "支配虚拟语气",
+              "phrase": "govern the subjunctive"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（语法）支配（格、语态或语气）",
+          "definition_en": "require to be in a certain grammatical case, voice, or mood",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:govern:42b0915192da52c4",
+          "sense_label_en": "require to be in a certain grammatical case, voice, or mood",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -9465,17 +9607,32 @@
     "ordinal": 2171,
     "word": "governor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2171.json",
-    "source_fingerprint": "a4a1bd206a30ade65d0ca422b43c0bbefb56281cf988176c6094072ecfaebe9c",
-    "sense_lineage": [],
+    "source_fingerprint": "680741c9ef4e4394b2a9a119b815ecb4fcb6ea17af1d8478ed49c2bf8ffaf6df",
+    "sense_lineage": [
+      {
+        "word_id": "word:governor",
+        "target_kind": "sense",
+        "from_target_id": "sense:governor:d7bcf73e3f7551b7",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:governor",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f4921e9ed01f283703f1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "州长、总督或管理者",
-      "decision_cn": "",
+      "decision_cn": "politics → 州长/总督；organization → 管理者/理事。机械调速器/调节器义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9540,32 +9697,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "管理者；理事"
         }
-      },
-      {
-        "id": "sense:governor:d7bcf73e3f7551b7",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "调速器；调节器",
-        "definition_en": "a device that automatically controls the speed of a machine",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f4921e9ed01f283703f1",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a steam engine governor",
-            "meaning_cn": "蒸汽机调速器",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:governor:d7bcf73e3f7551b7",
-          "target_locator": "record.senses[2]",
-          "target_label": "调速器；调节器"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9593,7 +9724,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f4921e9ed01f283703f1",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:governor:d7bcf73e3f7551b7:collocation:0"
+              ],
+              "meaning_cn": "蒸汽机调速器",
+              "phrase": "a steam engine governor"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "调速器；调节器",
+          "definition_en": "a device that automatically controls the speed of a machine",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:governor:d7bcf73e3f7551b7",
+          "sense_label_en": "a device that automatically controls the speed of a machine",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -9602,7 +9759,7 @@
     "ordinal": 2172,
     "word": "gown",
     "source_owner_path": "content/lexical/words/by-ordinal/o2172.json",
-    "source_fingerprint": "55e4f94f310d96714798da9ee7d89697e101bb1c29a7c81ddfd1c12fd1b8a81b",
+    "source_fingerprint": "d74f7135b6d633c2c3ab2a64bd9c8691b25f65a9e798af479978ac610106ad38",
     "sense_lineage": [
       {
         "word_id": "word:gown",
@@ -9610,18 +9767,24 @@
         "from_target_id": "sense:gown:714b51dd89795a35",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:gown",
+        "target_kind": "sense",
+        "from_target_id": "sense:gown:8faf9b1db790541a",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "长袍；礼服",
-      "decision_cn": "",
+      "decision_cn": "formal dress → 礼服；professional/ceremonial robe → 长袍/学位服等。低价值动词“使穿长袍”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9681,23 +9844,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "长袍；法衣"
         }
-      },
-      {
-        "id": "sense:gown:8faf9b1db790541a",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "使穿长袍",
-        "definition_en": "dress in a gown",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:gown:8faf9b1db790541a",
-          "target_locator": "record.senses[2]",
-          "target_label": "使穿长袍"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9752,6 +9898,20 @@
           "source_row": 6051,
           "source_path": "content/lexical/canonical/senses/shards/o2145-2176.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "使穿长袍",
+          "definition_en": "dress in a gown",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:gown:8faf9b1db790541a",
+          "sense_label_en": "dress in a gown",
+          "sort_order": 2,
+          "transitivity": "vt"
         }
       ]
     }
@@ -9887,7 +10047,8 @@
         "definition_en": "to attract or capture attention or headlines",
         "note": "",
         "identity_overlay": null,
-        "usage": [          {
+        "usage": [
+          {
             "id": "collocation:94f567c4bc0256fbea50",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "grab attention/headlines",

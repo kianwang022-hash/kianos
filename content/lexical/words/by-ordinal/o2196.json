@@ -6,7 +6,26 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:grease:grease-palm",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "向某人行贿；收买某人",
+        "definition_en": "to secretly give someone money so they will do what you want",
+        "pattern": "grease sb's palm",
+        "boundary": "disapproving bribery idiom; not literal lubrication"
+      },
+      {
+        "construction_id": "construction:grease:grease-wheels",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "使事情更顺利；为…疏通",
+        "definition_en": "to make a process or activity happen more easily",
+        "pattern": "grease the wheels (of sth)",
+        "boundary": "figurative facilitation idiom; not literal lubrication"
+      }
+    ],
     "content_hash": "a56e7008db23522e8b583e6216ea41b5d174bd6c4ed2e88293f62a9bea98f462",
     "core_concept": {
       "core_clusters": [
@@ -29,7 +48,7 @@
       ],
       "core_meaning_cn": "油脂；润滑",
       "core_meaning_en": "grease; to lubricate",
-      "mental_model_cn": "油脂；润滑",
+      "mental_model_cn": "literal → 油脂/润滑；grease + object → 涂油/润滑；grease sb's palm → 行贿；grease the wheels → 使事情更顺利。孤立“贿赂”名词义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -71,30 +90,6 @@
         "sense_id": "sense:grease:7cc6fcd7e3c55ac8",
         "sense_label_en": "a thick fatty oil (especially one used to lubricate machinery)",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:72d4e3b378419c3f6292",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:grease:0c0bf486b96755c4:collocation:0"
-            ],
-            "meaning_cn": "贿赂金",
-            "phrase": "grease money"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "贿赂",
-        "definition_en": "a bribe",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:grease:0c0bf486b96755c4",
-        "sense_label_en": "a bribe",
-        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -583,13 +578,37 @@
       "source_row": 6124,
       "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:72d4e3b378419c3f6292",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:grease:0c0bf486b96755c4:collocation:0"
+          ],
+          "meaning_cn": "贿赂金",
+          "phrase": "grease money"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "贿赂",
+      "definition_en": "a bribe",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:grease:0c0bf486b96755c4",
+      "sense_label_en": "a bribe",
+      "sort_order": 2,
+      "transitivity": "nonverb"
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:grease:0c0bf486b96755c4",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6123,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
@@ -617,7 +636,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:72d4e3b378419c3f6292",
       "collocation:8090d2d195ef4d53f76c",
       "collocation:fdefcb98870f028a559d"
     ],
@@ -631,7 +649,9 @@
       {
         "id": "collocation:72d4e3b378419c3f6292",
         "source_row": 9695,
-        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:8090d2d195ef4d53f76c",
