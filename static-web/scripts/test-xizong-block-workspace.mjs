@@ -109,7 +109,9 @@ async function selectTextAndMark(page, selector, kind, { domClick = false } = {}
   else await menuButton.click();
 }
 
-const server = EXTERNAL_BASE ? null : spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
+// CI builds first: exercise the served product without a dev-only toolbar intercepting controls.
+// Existing external Candidate support remains available through EXTERNAL_BASE.
+const server = EXTERNAL_BASE ? null : spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
   detached: process.platform !== 'win32'
