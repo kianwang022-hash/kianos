@@ -29,7 +29,7 @@ main@HEAD
 → Acceptance only when the claim crosses readiness
 ```
 
-Do not resume from an old PR SHA, historical comment, old five-task queue snapshot or pre-thinning Current.
+Do not resume from an old PR SHA, historical comment, retired cross-task queue snapshot or pre-thinning Current.
 
 ## Parent outcome
 
