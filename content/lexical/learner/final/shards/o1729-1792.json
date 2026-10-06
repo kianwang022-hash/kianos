@@ -8846,23 +8846,31 @@
     "ordinal": 1782,
     "word": "exit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1782.json",
-    "source_fingerprint": "0c899eeb89cb10459c90fb67e3e249f256398665c42c1c2c03a7e1fbb748f271",
-    "sense_lineage": [],
+    "source_fingerprint": "04ce6ba5ecab4b8bfd6e7015aaa9e679fc042799e3dc12f7627732185227fd16",
+    "sense_lineage": [
+      {
+        "word_id": "word:exit",
+        "target_kind": "sense",
+        "from_target_id": "sense:exit:cc6f6b9694e55a2e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "离开；出口",
-      "decision_cn": "",
+      "summary_cn": "出口；离开、退出",
+      "decision_cn": "noun → 出口/通道；verb → 离开、退出。桥牌中的专业 exit 动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "离开；出口"
+        "target_label": "出口；离开、退出"
       }
     },
     "senses": [
@@ -8920,23 +8928,6 @@
           "target_id": "sense:exit:5aaa3328072f5d6f",
           "target_locator": "record.senses[1]",
           "target_label": "退出；离开"
-        }
-      },
-      {
-        "id": "sense:exit:cc6f6b9694e55a2e",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "（桥牌中）失去领先/出牌权优势",
-        "definition_en": "in bridge, to lose the lead or the advantageous lead position",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:exit:cc6f6b9694e55a2e",
-          "target_locator": "record.senses[2]",
-          "target_label": "（桥牌中）失去领先/出牌权优势"
         }
       }
     ],
@@ -9033,7 +9024,23 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "（桥牌中）失去领先/出牌权优势",
+          "definition_en": "in bridge, to lose the lead or the advantageous lead position",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:exit:cc6f6b9694e55a2e",
+          "sense_label_en": "in bridge, to lose the lead or the advantageous lead position",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
