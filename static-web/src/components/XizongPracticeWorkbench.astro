@@ -14,6 +14,18 @@ import {
 const { system, sweep, scopeKind = 'SYSTEM' } = Astro.props;
 if (!sweep) throw new Error(`CURRENT_XIZONG_PRACTICE_SWEEP_MISSING:${system?.systemId || 'unknown'}`);
 const base = import.meta.env.BASE_URL;
+const frontQuestions = scopeKind === 'SYSTEM'
+  ? (sweep.questions || []).map((question) => ({
+      questionId: question.questionId,
+      year: question.year,
+      number: question.number,
+      points: question.points,
+      questionType: question.questionType,
+      stem: question.stem,
+      options: question.options,
+      semanticRevision: question.semanticRevision || ''
+    }))
+  : sweep.questions;
 const payload = JSON.stringify({
   systemId: sweep.systemId,
   canonicalId: sweep.canonicalId,
@@ -26,7 +38,7 @@ const payload = JSON.stringify({
   questionSemanticRevisions: sweep.questionSemanticRevisions || {},
   holdoutRequired: sweep.holdoutRequired !== false,
   years: sweep.years,
-  questions: sweep.questions,
+  questions: frontQuestions,
   resultVisibility: sweep.resultVisibility || 'immediate',
   paperFormat: sweep.paperFormat || null,
   scopeKind,
@@ -335,16 +347,62 @@ const payload = JSON.stringify({
       }
     }
 
+    const yearBankPromises = new Map();
+    const loadYearBank = async (year) => {
+      const key = String(year || '');
+      if (!/^\d{4}$/.test(key)) throw new Error(`YEAR_FETCH_INVALID:${key}`);
+      if (!yearBankPromises.has(key)) {
+        yearBankPromises.set(key, (async () => {
+          const response = await fetch(`${data.base}xizong/practice/data/${key}.json/`);
+          if (!response.ok) throw new Error(`YEAR_FETCH_FAILED:${key}`);
+          const bank = await response.json();
+          if (bank?.schema !== 'kianos.xizong.question_year_projection.v1'
+            || String(bank.year || '') !== key
+            || !Array.isArray(bank.questions)) {
+            throw new Error(`YEAR_FETCH_INVALID_PAYLOAD:${key}`);
+          }
+          return bank;
+        })().catch((error) => {
+          yearBankPromises.delete(key);
+          throw error;
+        }));
+      }
+      return yearBankPromises.get(key);
+    };
+
     const hydrateQuestionIds = async (ids) => {
       const years = [...new Set(ids.map((id) => id.match(/official-(\d{4})-/)?.[1]).filter(Boolean))];
-      const banks = await Promise.all(years.map(async (year) => {
-        const response = await fetch(`${data.base}xizong/practice/data/${year}.json/`);
-        if (!response.ok) throw new Error(`YEAR_FETCH_FAILED:${year}`);
-        return response.json();
-      }));
+      const banks = await Promise.all(years.map(loadYearBank));
       const byId = new Map(banks.flatMap((bank) => bank?.questions || []).map((q) => [q.questionId, q]));
       const missing = ids.filter((id) => !byId.has(id));
       return { years, byId, missing };
+    };
+
+    const sameFrontQuestion = (frontQuestion, fullQuestion) =>
+      String(frontQuestion?.questionId || '') === String(fullQuestion?.questionId || '')
+      && Number(frontQuestion?.year) === Number(fullQuestion?.year)
+      && Number(frontQuestion?.number) === Number(fullQuestion?.number)
+      && Number(frontQuestion?.points) === Number(fullQuestion?.points)
+      && String(frontQuestion?.questionType || '') === String(fullQuestion?.questionType || '')
+      && String(frontQuestion?.stem || '') === String(fullQuestion?.stem || '')
+      && JSON.stringify(frontQuestion?.options || []) === JSON.stringify(fullQuestion?.options || [])
+      && String(frontQuestion?.semanticRevision || '') === String(fullQuestion?.semanticRevision || '');
+
+    const questionTruthReady = (question) =>
+      Object.prototype.hasOwnProperty.call(question || {}, 'correctAnswer')
+      && Object.prototype.hasOwnProperty.call(question || {}, 'explanation')
+      && Object.prototype.hasOwnProperty.call(question || {}, 'relation');
+
+    const hydrateSystemQuestionTruth = async (question) => {
+      if (data?.scopeKind !== 'SYSTEM' || questionTruthReady(question)) return question;
+      const id = String(question?.questionId || '');
+      if (!/^xizong-official-\d{4}-n\d{3}$/.test(id)) throw new Error(`SYSTEM_QUESTION_ID_INVALID:${id}`);
+      const { byId, missing } = await hydrateQuestionIds([id]);
+      if (missing.length) throw new Error(`SYSTEM_QUESTION_TRUTH_MISSING:${id}`);
+      const full = byId.get(id);
+      if (!sameFrontQuestion(question, full)) throw new Error(`SYSTEM_QUESTION_TRUTH_CHANGED:${id}`);
+      Object.assign(question, full);
+      return question;
     };
 
     if (data?.scopeKind === 'CHAT_SET') {
@@ -546,6 +604,31 @@ const payload = JSON.stringify({
     let preferences = readJson(preferenceKey, { fastSweep: false, questionMarks: {} });
     if (typeof data.fastSweep === 'boolean') preferences = { ...preferences, fastSweep: data.fastSweep };
     let sweepState = readJson(sweepKey, { results: {}, marks: {} });
+    if (data.scopeKind === 'SYSTEM' && !sweepState?.attemptHistoryBootstrappedAt) {
+      const legacyResultIds = Object.keys(sweepState?.results || {});
+      if (legacyResultIds.length) {
+        try {
+          const { byId, missing } = await hydrateQuestionIds(legacyResultIds);
+          if (missing.length) throw new Error(`SYSTEM_LEGACY_RESULT_TRUTH_MISSING:${missing[0]}`);
+          for (const question of data.questions || []) {
+            const full = byId.get(String(question?.questionId || ''));
+            if (!full) continue;
+            if (!sameFrontQuestion(question, full)) {
+              throw new Error(`SYSTEM_LEGACY_RESULT_TRUTH_CHANGED:${question.questionId}`);
+            }
+            Object.assign(question, full);
+          }
+        } catch (error) {
+          console.error(error);
+          showScopeError(
+            '系统训练',
+            '已有作答的题目版本无法安全核对',
+            '原作答记录已保留；当前没有迁移、覆盖或继续写入。请稍后重新打开训练页。'
+          );
+          return;
+        }
+      }
+    }
     const attemptContext = {
       systemId: data.systemId,
       canonicalId: data.canonicalId,
@@ -1019,6 +1102,25 @@ const payload = JSON.stringify({
       currentIndex = Math.max(0, Math.min(activeQuestions.length - 1, index));
       currentQuestion = activeQuestions[currentIndex];
       const existing = responseFor(currentQuestion.questionId);
+      const mayRevealResult = !paperMode || paperSealed();
+      if (existing && mayRevealResult && data.scopeKind === 'SYSTEM' && !questionTruthReady(currentQuestion)) {
+        const requestedQuestionId = String(currentQuestion.questionId || '');
+        questionCard.hidden = true;
+        if (hint) {
+          hint.hidden = false;
+          hint.textContent = '正在核对本题当前版本…';
+        }
+        void hydrateSystemQuestionTruth(currentQuestion).then(() => {
+          if (String(currentQuestion?.questionId || '') === requestedQuestionId) renderQuestion(currentIndex);
+        }).catch((error) => {
+          console.error(error);
+          if (hint) {
+            hint.hidden = false;
+            hint.textContent = '本题当前版本未能安全核对；原作答记录没有改动。';
+          }
+        });
+        return;
+      }
       currentSelection = new Set(existing?.selected || []);
       currentUncertain = paperMode && !paperSealed()
         ? Boolean(existing?.uncertain)
@@ -1035,6 +1137,7 @@ const payload = JSON.stringify({
       questionProgress.textContent = `${currentIndex + 1} / ${activeQuestions.length}`;
       if (questionProgressSide) questionProgressSide.textContent = `${currentIndex + 1} / ${activeQuestions.length}`;
       stem.textContent = currentQuestion.stem;
+      hint.hidden = true;
       hint.textContent = currentQuestion.questionType === 'X'
         ? '1–5 切换选项 · Enter 提交 · U 不确定 · M 标记'
         : preferences.fastSweep ? 'Fast：U 可先标不确定 · 1–5 选择即提交 · M 标记' : '1–5 选择 · Enter 提交 · U 不确定 · M 标记';
@@ -1075,7 +1178,6 @@ const payload = JSON.stringify({
       submit.hidden = responseLocked;
       submit.textContent = paperMode && !paperSealed() ? (existing ? '更新答案' : '保存答案') : '提交答案';
       clearReview();
-      const mayRevealResult = !paperMode || paperSealed();
       if (reviewToggle) reviewToggle.hidden = !resultFor(currentQuestion.questionId) || !mayRevealResult;
 
       if (existing && mayRevealResult) {
@@ -1148,8 +1250,9 @@ const payload = JSON.stringify({
       else renderQuestion(next);
     };
 
-    const submitAnswer = () => {
-      if (!currentQuestion || !currentSelection.size) return;
+    let submitBusy = false;
+    const submitAnswer = async () => {
+      if (!currentQuestion || !currentSelection.size || submitBusy) return;
       if (paperMode && !paperSealed()) {
         if (!persistPaperDraft()) return;
         renderQuestion(currentIndex);
@@ -1162,13 +1265,34 @@ const payload = JSON.stringify({
         return;
       }
       if (resultFor(currentQuestion.questionId)) return;
-      const correct = letters(currentQuestion.correctAnswer);
-      const selected = [...currentSelection].sort();
-      const isCorrect = same(selected, correct);
-      const status = isCorrect ? (currentUncertain ? 'uncertain' : 'stable') : 'wrong';
-      if (!persistAttempt(status)) return;
-      renderQuestion(currentIndex);
-      if (status === 'stable') window.setTimeout(nextQuestion, preferences.fastSweep ? 120 : 520);
+      submitBusy = true;
+      const submittingQuestion = currentQuestion;
+      const submittingQuestionId = String(submittingQuestion.questionId || '');
+      submit.disabled = true;
+      try {
+        await hydrateSystemQuestionTruth(submittingQuestion);
+        if (String(currentQuestion?.questionId || '') !== submittingQuestionId) {
+          throw new Error(`SYSTEM_QUESTION_NAVIGATION_CHANGED:${submittingQuestionId}`);
+        }
+        const correct = letters(submittingQuestion.correctAnswer);
+        const selected = [...currentSelection].sort();
+        const isCorrect = same(selected, correct);
+        const status = isCorrect ? (currentUncertain ? 'uncertain' : 'stable') : 'wrong';
+        if (!persistAttempt(status)) return;
+        renderQuestion(currentIndex);
+        if (status === 'stable') window.setTimeout(nextQuestion, preferences.fastSweep ? 120 : 520);
+      } catch (error) {
+        console.error(error);
+        if (hint) {
+          hint.hidden = false;
+          hint.textContent = '本题当前答案与解析未能安全核对；本次作答没有提交，请重试。';
+        }
+      } finally {
+        submitBusy = false;
+        if (currentQuestion?.questionId === submittingQuestionId && !resultFor(submittingQuestionId)) {
+          submit.disabled = currentSelection.size === 0;
+        }
+      }
     };
 
     const toggleUncertain = () => {
