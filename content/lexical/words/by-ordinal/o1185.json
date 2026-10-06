@@ -22,18 +22,17 @@
           ]
         },
         {
-          "label_cn": "使成杯状；为…拔火罐",
-          "label_en": "to form (one's hand) into the shape of a cup; to apply a cupping glass to (the body) for therapeutic purposes",
+          "label_cn": "使成杯状",
+          "label_en": "to form the hand or another object into a cup shape",
           "pos": "verb",
           "sense_ids": [
-            "sense:cup:e3a356592b9f5b5d",
-            "sense:cup:26d9fb808e215469"
+            "sense:cup:e3a356592b9f5b5d"
           ]
         }
       ],
       "core_meaning_cn": "杯子；一杯的量或杯状物",
       "core_meaning_en": "a drinking cup, the amount it holds, or a cup-shaped object",
-      "mental_model_cn": "先抓最普通的“喝东西的杯子”，再扩展到一杯的量、杯状结构和容量单位。",
+      "mental_model_cn": "cup → 杯子/一杯量/杯状结构；cup one's hands → 把手拢成杯状。拔火罐义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -138,30 +137,6 @@
         "sense_id": "sense:cup:e3a356592b9f5b5d",
         "sense_label_en": "to form (one's hand) into the shape of a cup",
         "sort_order": 3,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:f5679126e771c936321d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:cup:26d9fb808e215469:collocation:0"
-            ],
-            "meaning_cn": "给病人背部拔火罐",
-            "phrase": "cup the patient's back"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "为…拔火罐",
-        "definition_en": "to apply a cupping glass to (the body) for therapeutic purposes",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:cup:26d9fb808e215469",
-        "sense_label_en": "to apply a cupping glass to (the body) for therapeutic purposes",
-        "sort_order": 4,
         "transitivity": "vt"
       },
       {
@@ -301,7 +276,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:f5679126e771c936321d",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:cup:26d9fb808e215469:collocation:0"
+          ],
+          "meaning_cn": "给病人背部拔火罐",
+          "phrase": "cup the patient's back"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "为…拔火罐",
+      "definition_en": "to apply a cupping glass to (the body) for therapeutic purposes",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:cup:26d9fb808e215469",
+      "sense_label_en": "to apply a cupping glass to (the body) for therapeutic purposes",
+      "sort_order": 4,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -313,7 +313,7 @@
       },
       {
         "sense_id": "sense:cup:26d9fb808e215469",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 3333,
         "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json"
@@ -351,8 +351,7 @@
       "collocation:0797493def1882aad2e9",
       "collocation:7c03ed3649c9a258ef04",
       "collocation:abf75eeab2c82574039f",
-      "collocation:b1930775f4d2730099c7",
-      "collocation:f5679126e771c936321d"
+      "collocation:b1930775f4d2730099c7"
     ],
     "facts": [],
     "collocations": [
@@ -384,7 +383,9 @@
       {
         "id": "collocation:f5679126e771c936321d",
         "source_row": 20785,
-        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

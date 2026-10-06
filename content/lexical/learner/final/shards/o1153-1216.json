@@ -3089,18 +3089,26 @@
     "ordinal": 1171,
     "word": "cruise",
     "source_owner_path": "content/lexical/words/by-ordinal/o1171.json",
-    "source_fingerprint": "12b69b2ed64cfc7dbace60da7dc81b64174a31060ce4e24f779c962d65e2203f",
-    "sense_lineage": [],
+    "source_fingerprint": "565596dc242a507446007141bcfecb098bc369f807ac6a7d477fdd216b603875",
+    "sense_lineage": [
+      {
+        "word_id": "word:cruise",
+        "target_kind": "sense",
+        "from_target_id": "sense:cruise:a3d9a277c0fd5114",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "乘船游览；平稳巡航或行驶",
-      "decision_cn": "核心是“平稳地持续前进”：可指乘游轮旅行，也可指车辆以稳定速度行驶。低频成人语义保留在非默认分支。",
+      "decision_cn": "ship/travel → 乘船休闲旅行；vehicle/speed → 平稳巡航。成人社交语义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3170,25 +3178,8 @@
         }
       },
       {
-        "id": "sense:cruise:a3d9a277c0fd5114",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "（在公共场所）猎艳",
-        "definition_en": "to look for a sexual partner in a public place",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cruise:a3d9a277c0fd5114",
-          "target_locator": "record.senses[2]",
-          "target_label": "（在公共场所）猎艳"
-        }
-      },
-      {
         "id": "sense:cruise:f2885ba1f86f5f82",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "go on a cruise / cruise around",
         "definition_cn": "乘船休闲旅行",
@@ -3199,7 +3190,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cruise:f2885ba1f86f5f82",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "乘船休闲旅行"
         }
       }
@@ -3242,7 +3233,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "（在公共场所）猎艳",
+          "definition_en": "to look for a sexual partner in a public place",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:cruise:a3d9a277c0fd5114",
+          "sense_label_en": "to look for a sexual partner in a public place",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -5409,18 +5416,33 @@
     "ordinal": 1185,
     "word": "cup",
     "source_owner_path": "content/lexical/words/by-ordinal/o1185.json",
-    "source_fingerprint": "03275137bce99eaaabe7eb1928181c357ca2c52f4dccc4540c4211869d6c06e7",
-    "sense_lineage": [],
+    "source_fingerprint": "93174147d787f358df3f7bd43867031cf960ed47692c019ccd2a93881b688fc6",
+    "sense_lineage": [
+      {
+        "word_id": "word:cup",
+        "target_kind": "sense",
+        "from_target_id": "sense:cup:26d9fb808e215469",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cup",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f5679126e771c936321d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "杯子；一杯的量或杯状物",
-      "decision_cn": "先抓最普通的“喝东西的杯子”，再扩展到一杯的量、杯状结构和容量单位。",
+      "decision_cn": "cup → 杯子/一杯量/杯状结构；cup one's hands → 把手拢成杯状。拔火罐义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5539,34 +5561,8 @@
         }
       },
       {
-        "id": "sense:cup:26d9fb808e215469",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "为…拔火罐",
-        "definition_en": "to apply a cupping glass to (the body) for therapeutic purposes",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f5679126e771c936321d",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "cup the patient's back",
-            "meaning_cn": "给病人背部拔火罐",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cup:26d9fb808e215469",
-          "target_locator": "record.senses[4]",
-          "target_label": "为…拔火罐"
-        }
-      },
-      {
         "id": "sense:cup:91ff50c9156258f1",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "饮水用的小容器，通常带把手",
@@ -5577,7 +5573,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cup:91ff50c9156258f1",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "饮水用的小容器，通常带把手"
         }
       }
@@ -5608,7 +5604,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f5679126e771c936321d",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:cup:26d9fb808e215469:collocation:0"
+              ],
+              "meaning_cn": "给病人背部拔火罐",
+              "phrase": "cup the patient's back"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "为…拔火罐",
+          "definition_en": "to apply a cupping glass to (the body) for therapeutic purposes",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:cup:26d9fb808e215469",
+          "sense_label_en": "to apply a cupping glass to (the body) for therapeutic purposes",
+          "sort_order": 4,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -5788,18 +5810,26 @@
     "ordinal": 1187,
     "word": "curb",
     "source_owner_path": "content/lexical/words/by-ordinal/o1187.json",
-    "source_fingerprint": "6b876e99d66e6dec3e45bd144cf9a09eef965ef99ca81482321e15b5ff9e6ab2",
-    "sense_lineage": [],
+    "source_fingerprint": "864a8c199fee9963bfc4f9908a116fbd597f577cfcbdaf0742cdc4a683cf36c6",
+    "sense_lineage": [
+      {
+        "word_id": "word:curb",
+        "target_kind": "sense",
+        "from_target_id": "sense:curb:24a548d65e315b11",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "抑制；路边石",
-      "decision_cn": "",
+      "decision_cn": "verb → 抑制/控制；street → 路缘。马具义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5843,25 +5873,8 @@
         }
       },
       {
-        "id": "sense:curb:24a548d65e315b11",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "勒马绳；马衔索",
-        "definition_en": "a chain or strap attached to a horse's bit to control it",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:curb:24a548d65e315b11",
-          "target_locator": "record.senses[1]",
-          "target_label": "勒马绳；马衔索"
-        }
-      },
-      {
         "id": "sense:curb:5de5882cd945508f",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "路缘；街道或人行道的 raised edge",
@@ -5872,7 +5885,7 @@
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
+            "target_locator": "record.senses[1].lexical_identity_overlay",
             "target_label": "curb is standard AmE; kerb is usual BrE"
           }
         },
@@ -5880,7 +5893,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:curb:5de5882cd945508f",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "路缘；街道或人行道的 raised edge"
         }
       }
@@ -5962,7 +5975,23 @@
           "target_label": "For the road-edge noun, curb is standard AmE and kerb is usual BrE. The verb curb = restrain/control remains curb in both varieties."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "勒马绳；马衔索",
+          "definition_en": "a chain or strap attached to a horse's bit to control it",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:curb:24a548d65e315b11",
+          "sense_label_en": "a chain or strap attached to a horse's bit to control it",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -6559,18 +6588,26 @@
     "ordinal": 1191,
     "word": "curl",
     "source_owner_path": "content/lexical/words/by-ordinal/o1191.json",
-    "source_fingerprint": "d098f970fbdd271179afba4f5baeb13d3cde72409c541ee8e2725833ae047fe2",
-    "sense_lineage": [],
+    "source_fingerprint": "67179d05b63832866d165fc551fade6b8d99438ad101aa2e1897a5e34f545b5a",
+    "sense_lineage": [
+      {
+        "word_id": "word:curl",
+        "target_kind": "sense",
+        "from_target_id": "sense:curl:87330fb0b6da58b0",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "卷曲",
-      "decision_cn": "",
+      "decision_cn": "hair/smoke/body → 卷曲、弯曲。冰壶运动动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6661,23 +6698,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "卷发；鬈发"
         }
-      },
-      {
-        "id": "sense:curl:87330fb0b6da58b0",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "玩冰壶运动",
-        "definition_en": "to play the game of curling",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:curl:87330fb0b6da58b0",
-          "target_locator": "record.senses[3]",
-          "target_label": "玩冰壶运动"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6705,7 +6725,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "玩冰壶运动",
+          "definition_en": "to play the game of curling",
+          "governing_pattern": "vi.",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:curl:87330fb0b6da58b0",
+          "sense_label_en": "to play the game of curling",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -7413,23 +7449,37 @@
     "ordinal": 1196,
     "word": "curtain",
     "source_owner_path": "content/lexical/words/by-ordinal/o1196.json",
-    "source_fingerprint": "df661d68bca7428ef2f50e6846553acf61eede47b825edd5086f3f1b17aa0f8b",
-    "sense_lineage": [],
+    "source_fingerprint": "1fdbd70d206313cdc85be16c48eeca7ec792d4889e8cfb8942409041ba710d2d",
+    "sense_lineage": [
+      {
+        "word_id": "word:curtain",
+        "target_kind": "sense",
+        "from_target_id": "sense:curtain:d2efe14c20ad516f",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:curtain",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8544a63e24c311a704b7",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "帘；幕",
-      "decision_cn": "",
+      "summary_cn": "窗帘；帘幕；屏障",
+      "decision_cn": "window/stage → 窗帘、幕；figurative barrier → 屏障。低价值的装帘动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "帘；幕"
+        "target_label": "窗帘；帘幕；屏障"
       }
     },
     "senses": [
@@ -7494,32 +7544,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "屏障；幕"
         }
-      },
-      {
-        "id": "sense:curtain:d2efe14c20ad516f",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "给…装帘子；用帘子遮蔽",
-        "definition_en": "to provide with drapery or curtains",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8544a63e24c311a704b7",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "curtain the windows",
-            "meaning_cn": "给窗户装窗帘",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:curtain:d2efe14c20ad516f",
-          "target_locator": "record.senses[2]",
-          "target_label": "给…装帘子；用帘子遮蔽"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7547,7 +7571,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:8544a63e24c311a704b7",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:curtain:d2efe14c20ad516f:collocation:0"
+              ],
+              "meaning_cn": "给窗户装窗帘",
+              "phrase": "curtain the windows"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "给…装帘子；用帘子遮蔽",
+          "definition_en": "to provide with drapery or curtains",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:curtain:d2efe14c20ad516f",
+          "sense_label_en": "to provide with drapery or curtains",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
