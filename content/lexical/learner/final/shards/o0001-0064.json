@@ -12340,19 +12340,33 @@
     "ordinal": 59,
     "word": "activate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0059.json",
-    "source_fingerprint": "2063a91ef260107d0cab08f622a139ef9c1b89504071e58ef9046a5221a21990",
+    "source_fingerprint": "54811f884f1b7fa13744676e725bfc3f69b82065b4c29edbe8b4adfa0cc2f6bb",
     "sense_lineage": [
+      {
+        "word_id": "word:activate",
+        "target_kind": "sense",
+        "from_target_id": "sense:activate:0c9b622b71dc51fd",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:activate",
         "target_kind": "sense",
         "from_target_id": "sense:activate:3c955d390e135202",
         "status": "merged",
         "to_target_id": "sense:activate:f8a46de4c2725763"
+      },
+      {
+        "word_id": "word:activate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:fba9467d787fea67ef4e",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V"
+        "1V"
       ],
       "density": "rich"
     },
@@ -12405,37 +12419,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "激活，使活动"
         }
-      },
-      {
-        "id": "sense:activate:0c9b622b71dc51fd",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使…具有放射性",
-        "definition_en": "to make a substance radioactive",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:fba9467d787fea67ef4e",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "activate + sth",
-            "meaning_cn": "使某物具有放射性",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:fba9467d787fea67ef4e",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "activate + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:activate:0c9b622b71dc51fd",
-          "target_locator": "record.senses[1]",
-          "target_label": "使…具有放射性"
-        }
       }
     ],
     "pronunciation_support": {
@@ -12485,6 +12468,30 @@
           "source_row": 162,
           "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:fba9467d787fea67ef4e",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:activate:0c9b622b71dc51fd:collocation:0"
+              ],
+              "meaning_cn": "使某物具有放射性",
+              "phrase": "activate + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使…具有放射性",
+          "definition_en": "to make a substance radioactive",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:activate:0c9b622b71dc51fd",
+          "sense_label_en": "to make a substance radioactive",
+          "sort_order": 1,
+          "transitivity": "vt"
         }
       ]
     }
@@ -12813,11 +12820,26 @@
     "ordinal": 61,
     "word": "activity",
     "source_owner_path": "content/lexical/words/by-ordinal/o0061.json",
-    "source_fingerprint": "c82e8b62cc941c0c0a8e1671eb5c5c941672f668291f1c01d8acc7e3c5f6c1e2",
-    "sense_lineage": [],
+    "source_fingerprint": "25bf3668ac640970438631988fcb18ed7cd20fc9d569906c759c7bd47e52a4fe",
+    "sense_lineage": [
+      {
+        "word_id": "word:activity",
+        "target_kind": "sense",
+        "from_target_id": "sense:activity:fe0830559541590a",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:activity",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4afb964032934f2e5675",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
@@ -12865,32 +12887,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "活动，行动"
         }
-      },
-      {
-        "id": "sense:activity:fe0830559541590a",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（化学）活度，活性",
-        "definition_en": "(chemistry) the capacity of a substance to take part in a chemical reaction",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4afb964032934f2e5675",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "catalytic activity",
-            "meaning_cn": "催化活性",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:activity:fe0830559541590a",
-          "target_locator": "record.senses[1]",
-          "target_label": "（化学）活度，活性"
-        }
       }
     ],
     "pronunciation_support": {
@@ -12931,7 +12927,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4afb964032934f2e5675",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:activity:fe0830559541590a:collocation:0"
+              ],
+              "meaning_cn": "催化活性",
+              "phrase": "catalytic activity"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（化学）活度，活性",
+          "definition_en": "(chemistry) the capacity of a substance to take part in a chemical reaction",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:activity:fe0830559541590a",
+          "sense_label_en": "(chemistry) the capacity of a substance to take part in a chemical react",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
