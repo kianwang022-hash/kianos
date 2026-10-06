@@ -200,23 +200,30 @@
     "ordinal": 1474,
     "word": "dome",
     "source_owner_path": "content/lexical/words/by-ordinal/o1474.json",
-    "source_fingerprint": "b6033f2daf98902ecac73e64c592a9909b04763fa7ecea4aada8c377a6422839",
-    "sense_lineage": [],
+    "source_fingerprint": "8161ac383004e18c6a47435a9c5f233b970cdca072944549c398d626229d407d",
+    "sense_lineage": [
+      {
+        "word_id": "word:dome",
+        "target_kind": "sense",
+        "from_target_id": "sense:dome:6ee0201028915b50",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "圆顶",
-      "decision_cn": "",
+      "summary_cn": "圆顶；穹顶；有顶的体育场",
+      "decision_cn": "building/roof → 圆顶、穹顶；stadium → 有顶体育场。低价值的“加圆顶”动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "圆顶"
+        "target_label": "圆顶；穹顶；有顶的体育场"
       }
     },
     "senses": [
@@ -271,23 +278,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "有顶的体育场"
         }
-      },
-      {
-        "id": "sense:dome:6ee0201028915b50",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "加圆顶；使成圆顶状",
-        "definition_en": "to cover with or shape like a dome",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dome:6ee0201028915b50",
-          "target_locator": "record.senses[2]",
-          "target_label": "加圆顶；使成圆顶状"
-        }
       }
     ],
     "pronunciation_support": {
@@ -313,7 +303,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "加圆顶；使成圆顶状",
+          "definition_en": "to cover with or shape like a dome",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:dome:6ee0201028915b50",
+          "sense_label_en": "to cover with or shape like a dome",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -4611,22 +4617,37 @@
     "ordinal": 1500,
     "word": "dramatic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1500.json",
-    "source_fingerprint": "7e0f6d8ec30d7827f8c25f21fc55f448e027e79665c5fd549946d4410768771a",
-    "sense_lineage": [],
+    "source_fingerprint": "eb55549caeb93565ac13d4c9011fe14b4d5e77b0929310fd7d858a73247bf362",
+    "sense_lineage": [
+      {
+        "word_id": "word:dramatic",
+        "target_kind": "sense",
+        "from_target_id": "sense:dramatic:0d497d2864075582",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:dramatic",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3af41aaf13d1418ae3e0",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "戏剧性的，显著的",
-      "decision_cn": "",
+      "summary_cn": "戏剧的；戏剧性的；突然而显著的",
+      "decision_cn": "theatre/play → 戏剧的；change/event/effect → 戏剧性、显著。歌剧声部的专业义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "戏剧性的，显著的"
+        "target_label": "戏剧的；戏剧性的；突然而显著的"
       }
     },
     "senses": [
@@ -4689,32 +4710,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "戏剧的，剧本的"
         }
-      },
-      {
-        "id": "sense:dramatic:0d497d2864075582",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "（嗓音）戏剧性的，有力的",
-        "definition_en": "used of a singer or singing voice that is marked by power and expressiveness and a histrionic or theatrical style",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3af41aaf13d1418ae3e0",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a dramatic soprano",
-            "meaning_cn": "戏剧女高音",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dramatic:0d497d2864075582",
-          "target_locator": "record.senses[2]",
-          "target_label": "（嗓音）戏剧性的，有力的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4764,7 +4759,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3af41aaf13d1418ae3e0",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:dramatic:0d497d2864075582:collocation:0"
+              ],
+              "meaning_cn": "戏剧女高音",
+              "phrase": "a dramatic soprano"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（嗓音）戏剧性的，有力的",
+          "definition_en": "used of a singer or singing voice that is marked by power and expressiveness and a histrionic or theatrical style",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:dramatic:0d497d2864075582",
+          "sense_label_en": "used of a singer or singing voice that is marked by power and expressive",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {

@@ -8370,22 +8370,30 @@
     "ordinal": 1456,
     "word": "diversion",
     "source_owner_path": "content/lexical/words/by-ordinal/o1456.json",
-    "source_fingerprint": "bc4f736319c273d0b1d4d877393429365f19af9d842494093f5c8643289e1c0c",
-    "sense_lineage": [],
+    "source_fingerprint": "21b5ac5100be805f2a59fdd372898e42220d8f4b78e07f53eebdee4b6bd03dd2",
+    "sense_lineage": [
+      {
+        "word_id": "word:diversion",
+        "target_kind": "sense",
+        "from_target_id": "sense:diversion:d4e4c4b8d988534d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "转移；转向",
-      "decision_cn": "",
+      "summary_cn": "转移、改道；转移注意力；消遣",
+      "decision_cn": "route/traffic → 改道；attention → 转移注意力；activity → 消遣。军事牵制义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "转移；转向"
+        "target_label": "转移、改道；转移注意力；消遣"
       }
     },
     "senses": [
@@ -8414,6 +8422,19 @@
             "meaning_cn": "交通改道",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:1e123a6acbdba1589ee0",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "create a diversion",
+            "meaning_cn": "制造转移注意力的行动或动静",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1e123a6acbdba1589ee0",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "create a diversion"
+            }
           }
         ],
         "repair": {
@@ -8447,37 +8468,6 @@
           "target_id": "sense:diversion:e8a5940145ee5292",
           "target_locator": "record.senses[1]",
           "target_label": "消遣；娱乐"
-        }
-      },
-      {
-        "id": "sense:diversion:d4e4c4b8d988534d",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "牵制；声东击西",
-        "definition_en": "an attack meant to draw enemy forces away from the main point of attack",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:1e123a6acbdba1589ee0",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "create a diversion",
-            "meaning_cn": "制造牵制",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1e123a6acbdba1589ee0",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "create a diversion"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:diversion:d4e4c4b8d988534d",
-          "target_locator": "record.senses[2]",
-          "target_label": "牵制；声东击西"
         }
       }
     ],
@@ -8519,7 +8509,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "牵制；声东击西",
+          "definition_en": "an attack meant to draw enemy forces away from the main point of attack",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:diversion:d4e4c4b8d988534d",
+          "sense_label_en": "an attack meant to draw enemy forces away from the main point of attack",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
